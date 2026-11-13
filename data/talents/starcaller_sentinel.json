@@ -227,7 +227,7 @@
     {
       "talent_id": "starcaller_sentinel_lunar_splinters",
       "name": "Lunar Splinters",
-      "description": "Increases Starfire Shot, Lunar Lance and Trueshot damage by 5% per rank.",
+      "description": "Increases Starfire Shot, Lunar Lance and Trueshot damage by 3% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -235,9 +235,9 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_starcaller_starfire_shot_damage": 0.027,
-        "ability_starcaller_lunar_lance_damage": 0.027,
-        "ability_starcaller_trueshot_damage": 0.027
+        "ability_starcaller_starfire_shot_damage": 0.03,
+        "ability_starcaller_lunar_lance_damage": 0.03,
+        "ability_starcaller_trueshot_damage": 0.03
       },
       "connected_to": [
         "starcaller_sentinel_arrows_in_the_night",

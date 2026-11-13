@@ -16,7 +16,7 @@
     {
       "talent_id": "witch_doctor_voodoo_voodoo_power",
       "name": "Voodoo Power",
-      "description": "Increases your spell damage by 50% of your Spirit.",
+      "description": "Increases your spell damage by 51% of your Spirit.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,7 +24,7 @@
       "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "spell_power_from_spirit_pct": 0.1667
+        "spell_power_from_spirit_pct": 0.17
       },
       "connected_to": [
         "witch_doctor_voodoo_puppeteers_threads"
@@ -53,7 +53,7 @@
     {
       "talent_id": "witch_doctor_voodoo_stranglethorn_style",
       "name": "Stranglethorn Style",
-      "description": "Increases your spell critical strike chance by 4% and reduces your threat generation by 20%.",
+      "description": "Increases your spell critical strike chance by 3% and reduces your threat generation by 21%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -61,8 +61,8 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "crit_chance_spell": 1.3333,
-        "threat_generation_pct": -0.0667
+        "crit_chance_spell": 1,
+        "threat_generation_pct": -0.07
       },
       "connected_to": [
         "witch_doctor_voodoo_loa_spirits"
@@ -72,7 +72,7 @@
     {
       "talent_id": "witch_doctor_voodoo_zalazanes_malice",
       "name": "Zalazane's Malice",
-      "description": "Increases the damage of Hex of Malice by 8.1% and the duration of your Jinxes by 1 turn.",
+      "description": "Increases the damage of Hex of Malice by 8% and the duration of your Jinxes by 1 turn.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 1,
@@ -80,7 +80,7 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "ability_witch_doctor_hex_of_malice_damage": 0.081,
+        "ability_witch_doctor_hex_of_malice_damage": 0.08,
         "ability_witch_doctor_shrinking_jinx_duration": 1,
         "ability_witch_doctor_lethargy_jinx_duration": 1,
         "ability_witch_doctor_malignant_jinx_duration": 1
@@ -93,7 +93,7 @@
     {
       "talent_id": "witch_doctor_voodoo_its_da_voodoo",
       "name": "It's Da Voodoo",
-      "description": "Increases the damage of Shadowflare by 13.5%.",
+      "description": "Increases the damage of Shadowflare by 15%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -101,7 +101,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "ability_witch_doctor_shadowflare_damage": 0.045
+        "ability_witch_doctor_shadowflare_damage": 0.05
       },
       "connected_to": [
         "witch_doctor_voodoo_hollow_spirit"
@@ -182,7 +182,7 @@
     {
       "talent_id": "witch_doctor_voodoo_overflowing_juju",
       "name": "Overflowing Juju",
-      "description": "Increases the damage of Malefic Wrath, Shadowflare and Bad Juju by 10.8%.",
+      "description": "Increases the damage of Malefic Wrath, Shadowflare and Bad Juju by 12%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -190,9 +190,9 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "ability_witch_doctor_malefic_wrath_damage": 0.036,
-        "ability_witch_doctor_shadowflare_damage": 0.036,
-        "ability_witch_doctor_bad_juju_damage": 0.036
+        "ability_witch_doctor_malefic_wrath_damage": 0.04,
+        "ability_witch_doctor_shadowflare_damage": 0.04,
+        "ability_witch_doctor_bad_juju_damage": 0.04
       },
       "connected_to": [
         "witch_doctor_voodoo_ritual_hexing"
@@ -202,7 +202,7 @@
     {
       "talent_id": "witch_doctor_voodoo_jindos_wrath",
       "name": "Jin'do's Wrath",
-      "description": "Increases the critical strike chance of Hexfire by 25% and its critical damage by 25%.",
+      "description": "Increases the critical strike chance of Hexfire by 24% and its critical damage by 24%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -211,7 +211,7 @@
       "hex_y": -4,
       "effects": {
         "ability_witch_doctor_hexfire_crit": 5.0,
-        "ability_witch_doctor_hexfire_crit_damage": 0.0833
+        "ability_witch_doctor_hexfire_crit_damage": 0.08
       },
       "connected_to": [
         "witch_doctor_voodoo_growing_malice"
@@ -257,7 +257,7 @@
     {
       "talent_id": "witch_doctor_voodoo_ritual_hexing",
       "name": "Ritual Hexing",
-      "description": "Increases the damage of Bad Juju, Malefic Wrath and Hexfire by up to 20%.",
+      "description": "Increases the damage of Bad Juju, Malefic Wrath and Hexfire by up to 12%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -265,9 +265,9 @@
       "hex_x": -4,
       "hex_y": -2,
       "effects": {
-        "ability_witch_doctor_bad_juju_damage": 0.036,
-        "ability_witch_doctor_malefic_wrath_damage": 0.036,
-        "ability_witch_doctor_hexfire_damage": 0.036
+        "ability_witch_doctor_bad_juju_damage": 0.04,
+        "ability_witch_doctor_malefic_wrath_damage": 0.04,
+        "ability_witch_doctor_hexfire_damage": 0.04
       },
       "connected_to": [
         "witch_doctor_voodoo_malignant"
@@ -327,7 +327,7 @@
     {
       "talent_id": "witch_doctor_voodoo_dark_magic",
       "name": "Dark Magic",
-      "description": "Reduces the mana cost of Malefic Wrath and Bad Juju by 20%.",
+      "description": "Reduces the mana cost of Malefic Wrath and Bad Juju by 21%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -335,8 +335,8 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "ability_witch_doctor_malefic_wrath_cost_pct": 0.0667,
-        "ability_witch_doctor_bad_juju_cost_pct": 0.0667
+        "ability_witch_doctor_malefic_wrath_cost_pct": 0.07,
+        "ability_witch_doctor_bad_juju_cost_pct": 0.07
       },
       "connected_to": [
         "witch_doctor_voodoo_voodoo_unleashed"
@@ -586,7 +586,7 @@
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "all_damage": 0.005
+        "all_damage": 0.01
       },
       "connected_to": [
         "witch_doctor_voodoo_dark_effigy"
@@ -596,7 +596,7 @@
     {
       "talent_id": "witch_doctor_voodoo_dark_effigy",
       "name": "Dark Effigy",
-      "description": "Bad Juju and Hexfire strike two more enemies, and Shadowflare hits 50% harder.",
+      "description": "Bad Juju and Hexfire strike two more enemies, and Shadowflare hits 27% harder.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -663,7 +663,7 @@
     {
       "talent_id": "witch_doctor_voodoo_the_price_of_power",
       "name": "The Price of Power",
-      "description": "Increases your Spirit by 20% and your spell damage by 10%.",
+      "description": "Increases your Spirit by 21% and your spell damage by 9%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -671,8 +671,8 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "spirit_pct": 6.6667,
-        "spell_damage": 0.0333
+        "spirit_pct": 7,
+        "spell_damage": 0.03
       },
       "connected_to": [
         "witch_doctor_voodoo_soul_marionette"
@@ -682,7 +682,7 @@
     {
       "talent_id": "witch_doctor_voodoo_soul_marionette",
       "name": "Soul Marionette",
-      "description": "Your spells pull the strings, raising your haste by 2% per stack for 4 turns, stacking 10 times - and your nukes hit 30% harder.",
+      "description": "Your spells pull the strings, raising your haste by 2% per stack for 4 turns, stacking 10 times - and your nukes hit 16% harder.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -690,8 +690,8 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "ability_witch_doctor_malefic_wrath_damage": 0.162,
-        "ability_witch_doctor_bad_juju_damage": 0.162
+        "ability_witch_doctor_malefic_wrath_damage": 0.16,
+        "ability_witch_doctor_bad_juju_damage": 0.16
       },
       "connected_to": [],
       "proc": {

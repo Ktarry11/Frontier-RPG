@@ -16,7 +16,7 @@
     {
       "talent_id": "ranger_brigand_banditry",
       "name": "Banditry",
-      "description": "Increases your critical strike chance by 4% and reduces all your ability costs by 10%.",
+      "description": "Increases your critical strike chance by 3% and reduces all your ability costs by 9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,8 +24,8 @@
       "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "crit_chance_physical": 1.3333,
-        "all_ability_cost_pct": 0.0333
+        "crit_chance_physical": 1,
+        "all_ability_cost_pct": 0.03
       },
       "connected_to": [
         "ranger_brigand_close_quarters"
@@ -55,7 +55,7 @@
     {
       "talent_id": "ranger_brigand_jagged_cuts",
       "name": "Jagged Cuts",
-      "description": "Increases the damage of Toxic Dart and Ravage by 13.5% and their duration by 2 turns.",
+      "description": "Increases the damage of Toxic Dart and Ravage by 14% and their duration by 2 turns.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 1,
@@ -63,8 +63,8 @@
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "ability_ranger_toxic_dart_damage": 0.135,
-        "ability_ranger_ravage_damage": 0.135,
+        "ability_ranger_toxic_dart_damage": 0.14,
+        "ability_ranger_ravage_damage": 0.14,
         "ability_ranger_toxic_dart_duration": 2,
         "ability_ranger_ravage_duration": 2
       },
@@ -76,7 +76,7 @@
     {
       "talent_id": "ranger_brigand_dice_games",
       "name": "Dice Games",
-      "description": "Increases the critical strike chance of Wild Strike and Assault by 10%.",
+      "description": "Increases the critical strike chance of Wild Strike and Assault by 6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -155,7 +155,7 @@
     {
       "talent_id": "ranger_brigand_excessive_but_necessary",
       "name": "Excessive But Necessary",
-      "description": "Reduces the cooldown of Elude, Knockout and Cutthroat by 35%.",
+      "description": "Reduces the cooldown of Elude, Knockout and Cutthroat by 36%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -163,9 +163,9 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_ranger_elude_cooldown_pct": 0.1167,
-        "ability_ranger_knockout_cooldown_pct": 0.1167,
-        "ability_ranger_cutthroat_cooldown_pct": 0.1167
+        "ability_ranger_elude_cooldown_pct": 0.12,
+        "ability_ranger_knockout_cooldown_pct": 0.12,
+        "ability_ranger_cutthroat_cooldown_pct": 0.12
       },
       "connected_to": [
         "ranger_brigand_bounty_hunter"
@@ -239,7 +239,7 @@
     {
       "talent_id": "ranger_brigand_ambuscade",
       "name": "Ambuscade",
-      "description": "Increases the damage of Skullpiercer and Flank by 35% and your physical damage by 4%.",
+      "description": "Increases the damage of Skullpiercer and Flank by 18% and your physical damage by 3%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -247,9 +247,9 @@
       "hex_x": 1,
       "hex_y": 0,
       "effects": {
-        "ability_ranger_skullpiercer_damage": 0.063,
-        "ability_ranger_flank_damage": 0.063,
-        "physical_damage": 0.0133
+        "ability_ranger_skullpiercer_damage": 0.06,
+        "ability_ranger_flank_damage": 0.06,
+        "physical_damage": 0.01
       },
       "connected_to": [
         "ranger_brigand_quick_witted"
@@ -259,7 +259,7 @@
     {
       "talent_id": "ranger_brigand_focused_fighter",
       "name": "Focused Fighter",
-      "description": "Reduces the cost of Flank, Wild Strike and Assault by 10.8%.",
+      "description": "Reduces the cost of Flank, Wild Strike and Assault by 12%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -267,9 +267,9 @@
       "hex_x": 3,
       "hex_y": 0,
       "effects": {
-        "ability_ranger_flank_cost_pct": 0.0667,
-        "ability_ranger_wild_strike_damage": 0.036,
-        "ability_ranger_assault_cost_pct": 0.0667
+        "ability_ranger_flank_cost_pct": 0.07,
+        "ability_ranger_wild_strike_damage": 0.04,
+        "ability_ranger_assault_cost_pct": 0.07
       },
       "connected_to": [
         "ranger_brigand_marked_for_death"
@@ -313,7 +313,7 @@
     {
       "talent_id": "ranger_brigand_pilfering",
       "name": "Pilfering",
-      "description": "Increases the damage of Dirty Blades by 10%, and your attacks have a 30% chance to heal you for 20% of the damage dealt.",
+      "description": "Increases the damage of Dirty Blades by 9%, and your attacks have a 30% chance to heal you for 20% of the damage dealt.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -321,7 +321,7 @@
       "hex_x": 2,
       "hex_y": 2,
       "effects": {
-        "ability_ranger_dirty_blades_potency": 0.0333
+        "ability_ranger_dirty_blades_potency": 0.03
       },
       "connected_to": [
         "ranger_brigand_tip_of_the_spear"
@@ -359,7 +359,7 @@
     {
       "talent_id": "ranger_brigand_marked_for_death",
       "name": "Marked for Death",
-      "description": "Increases your damage against enemies below 20% health by 25%.",
+      "description": "Increases your damage against enemies below 20% health by 24%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -367,7 +367,7 @@
       "hex_x": 2,
       "hex_y": 4,
       "effects": {
-        "low_health_damage_pct": 0.0833
+        "low_health_damage_pct": 0.08
       },
       "connected_to": [
         "ranger_brigand_dastardly"
@@ -409,7 +409,7 @@
     {
       "talent_id": "ranger_brigand_assassin",
       "name": "Assassin",
-      "description": "Increases the duration of Knockout, Crippling Shot and Throatpunch by 1 turn, and the healing of Survival Potion by 13.3%.",
+      "description": "Increases the duration of Knockout, Crippling Shot and Throatpunch by 1 turn, and the healing of Survival Potion by 13%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
@@ -420,7 +420,7 @@
         "ability_ranger_knockout_duration": 1,
         "ability_ranger_crippling_shot_duration": 1,
         "ability_ranger_throatpunch_duration": 1,
-        "ability_ranger_survival_potion_healing": 0.133
+        "ability_ranger_survival_potion_healing": 0.13
       },
       "connected_to": [
         "ranger_brigand_dice_games"
@@ -430,7 +430,7 @@
     {
       "talent_id": "ranger_brigand_wild_man",
       "name": "Wild Man",
-      "description": "Increases the damage of Wild Strike by 30% and of Quills by 25%.",
+      "description": "Increases the damage of Wild Strike by 15% and of Quills by 15%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -438,8 +438,8 @@
       "hex_x": 3,
       "hex_y": -2,
       "effects": {
-        "ability_ranger_wild_strike_damage": 0.054,
-        "ability_ranger_quills_damage": 0.045
+        "ability_ranger_wild_strike_damage": 0.05,
+        "ability_ranger_quills_damage": 0.05
       },
       "connected_to": [
         "ranger_brigand_focused_fighter"

@@ -16,7 +16,7 @@
     {
       "talent_id": "bloodmage_eternal_heightened_reflexes",
       "name": "Heightened Reflexes",
-      "description": "Increases your chance to dodge by up to 8%.",
+      "description": "Increases your chance to dodge by up to 9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,7 +24,7 @@
       "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "dodge": 2.6667
+        "dodge": 3
       },
       "connected_to": [
         "bloodmage_eternal_thick_pelt"
@@ -34,7 +34,7 @@
     {
       "talent_id": "bloodmage_eternal_eternal_hunt",
       "name": "Eternal Hunt",
-      "description": "Increases your maximum health by 5% and reduces the cost of your abilities by 5%.",
+      "description": "Increases your maximum health by 6% and reduces the cost of your abilities by 6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -42,8 +42,8 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "max_health_pct": 0.0167,
-        "all_ability_cost_pct": 0.0167
+        "max_health_pct": 0.02,
+        "all_ability_cost_pct": 0.02
       },
       "connected_to": [
         "bloodmage_eternal_thick_pelt"
@@ -53,7 +53,7 @@
     {
       "talent_id": "bloodmage_eternal_shadows_in_the_night",
       "name": "Shadows In The Night",
-      "description": "Reduces the physical damage you take by 5%.",
+      "description": "Reduces the physical damage you take by 6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -61,7 +61,7 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "physical_damage_taken_pct": -0.0167
+        "physical_damage_taken_pct": -0.02
       },
       "connected_to": [
         "bloodmage_eternal_coated_in_darkness"
@@ -71,7 +71,7 @@
     {
       "talent_id": "bloodmage_eternal_vitality_talent",
       "name": "Vitality",
-      "description": "Increases your Stamina by 10%.",
+      "description": "Increases your Stamina by 9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -79,7 +79,7 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "stamina_pct": 3.3333
+        "stamina_pct": 3
       },
       "connected_to": [
         "bloodmage_eternal_coated_in_darkness"
@@ -89,7 +89,7 @@
     {
       "talent_id": "bloodmage_eternal_uncanny_speed",
       "name": "Uncanny Speed",
-      "description": "Increases your haste by 5%.",
+      "description": "Increases your haste by 6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -97,7 +97,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "haste": 1.6667
+        "haste": 2
       },
       "connected_to": [
         "bloodmage_eternal_rabid"
@@ -203,7 +203,7 @@
     {
       "talent_id": "bloodmage_eternal_rabid",
       "name": "Rabid",
-      "description": "Reduces the cooldown of your Howl spells by 25%.",
+      "description": "Reduces the cooldown of your Howl spells by 24%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -211,10 +211,10 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_bloodmage_blood_howl_cooldown_pct": 0.0833,
-        "ability_bloodmage_shadow_howl_cooldown_pct": 0.0833,
-        "ability_bloodmage_wicked_howl_cooldown_pct": 0.0833,
-        "ability_bloodmage_night_hunters_howl_cooldown_pct": 0.0833
+        "ability_bloodmage_blood_howl_cooldown_pct": 0.08,
+        "ability_bloodmage_shadow_howl_cooldown_pct": 0.08,
+        "ability_bloodmage_wicked_howl_cooldown_pct": 0.08,
+        "ability_bloodmage_night_hunters_howl_cooldown_pct": 0.08
       },
       "connected_to": [
         "bloodmage_eternal_packleader"
@@ -224,7 +224,7 @@
     {
       "talent_id": "bloodmage_eternal_enduring",
       "name": "Enduring",
-      "description": "Increases the damage of Bloodbolt by 13.5%.",
+      "description": "Increases the damage of Bloodbolt by 15%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -232,7 +232,7 @@
       "hex_x": 4,
       "hex_y": -4,
       "effects": {
-        "ability_bloodmage_bloodbolt_damage": 0.045
+        "ability_bloodmage_bloodbolt_damage": 0.05
       },
       "connected_to": [
         "bloodmage_eternal_blood_mark"
@@ -273,7 +273,7 @@
     {
       "talent_id": "bloodmage_eternal_coated_in_blood",
       "name": "Coated In Blood",
-      "description": "Increases your armor by 20%.",
+      "description": "Increases your armor by 21%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -281,7 +281,7 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "armor_pct": 6.6667
+        "armor_pct": 7
       },
       "connected_to": [
         "bloodmage_eternal_grim_omen"
@@ -369,7 +369,7 @@
       "hex_y": -2,
       "effects": {
         "threat_generation_pct": 0.05,
-        "all_damage": 0.008
+        "all_damage": 0.01
       },
       "connected_to": [
         "bloodmage_eternal_appetite_for_blood"
@@ -434,7 +434,7 @@
     {
       "talent_id": "bloodmage_eternal_appetite_for_blood",
       "name": "Appetite for Blood",
-      "description": "Increases the damage of Bloodfang Bite and Claw Sweep by 10.8%.",
+      "description": "Increases the damage of Bloodfang Bite and Claw Sweep by 12%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -442,8 +442,8 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_bloodmage_bloodfang_bite_damage": 0.036,
-        "ability_bloodmage_claw_sweep_damage": 0.036
+        "ability_bloodmage_bloodfang_bite_damage": 0.04,
+        "ability_bloodmage_claw_sweep_damage": 0.04
       },
       "connected_to": [
         "bloodmage_eternal_blood_plague_eternal"
@@ -453,7 +453,7 @@
     {
       "talent_id": "bloodmage_eternal_blood_plague_eternal",
       "name": "Blood Plague",
-      "description": "Increases the damage your damage-over-time effects deal by 20%.",
+      "description": "Increases the damage your damage-over-time effects deal by 21%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -461,7 +461,7 @@
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "dot_damage": 0.0667
+        "dot_damage": 0.07
       },
       "connected_to": [
         "bloodmage_eternal_festering_maw"
@@ -471,7 +471,7 @@
     {
       "talent_id": "bloodmage_eternal_eternal_resolve",
       "name": "Eternal Resolve",
-      "description": "Increases your maximum health by 10% and the healing you receive by 15%.",
+      "description": "Increases your maximum health by 9% and the healing you receive by 15%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -479,8 +479,8 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "max_health_pct": 0.0333,
-        "healing_taken_pct": 0.027
+        "max_health_pct": 0.03,
+        "healing_taken_pct": 0.03
       },
       "connected_to": [
         "bloodmage_eternal_no_mercy"
@@ -555,7 +555,7 @@
     {
       "talent_id": "bloodmage_eternal_no_mercy",
       "name": "No Mercy",
-      "description": "Reduces the physical damage you take by a further 8%.",
+      "description": "Reduces the physical damage you take by a further 9%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -563,7 +563,7 @@
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "physical_damage_taken_pct": -0.0267
+        "physical_damage_taken_pct": -0.03
       },
       "connected_to": [
         "bloodmage_eternal_blood_howl_mastery"
@@ -573,7 +573,7 @@
     {
       "talent_id": "bloodmage_eternal_blood_howl_mastery",
       "name": "Blood Howl",
-      "description": "Reduces the cooldown of your Howls by a further 25% and increases your threat generation by 20%.",
+      "description": "Reduces the cooldown of your Howls by a further 24% and increases your threat generation by 21%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -581,11 +581,11 @@
       "hex_x": -3,
       "hex_y": 4,
       "effects": {
-        "ability_bloodmage_blood_howl_cooldown_pct": 0.0833,
-        "ability_bloodmage_shadow_howl_cooldown_pct": 0.0833,
-        "ability_bloodmage_wicked_howl_cooldown_pct": 0.0833,
-        "ability_bloodmage_night_hunters_howl_cooldown_pct": 0.0833,
-        "threat_generation_pct": 0.0667
+        "ability_bloodmage_blood_howl_cooldown_pct": 0.08,
+        "ability_bloodmage_shadow_howl_cooldown_pct": 0.08,
+        "ability_bloodmage_wicked_howl_cooldown_pct": 0.08,
+        "ability_bloodmage_night_hunters_howl_cooldown_pct": 0.08,
+        "threat_generation_pct": 0.07
       },
       "connected_to": [
         "bloodmage_eternal_eternal_presence"

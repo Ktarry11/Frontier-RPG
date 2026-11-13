@@ -16,7 +16,7 @@
     {
       "talent_id": "sun_cleric_blessings_blessings_15",
       "name": "Blessings",
-      "description": "Increases healing power from Intellect by 2% per rank.",
+      "description": "Increases healing power from Intellect by 1% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -24,7 +24,7 @@
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "healing_power_from_intellect_pct": 0.011
+        "healing_power_from_intellect_pct": 0.01
       },
       "connected_to": [
         "sun_cleric_blessings_sun_worship"
@@ -52,7 +52,7 @@
     {
       "talent_id": "sun_cleric_blessings_sunlight_refraction",
       "name": "Sunlight Refraction",
-      "description": "Increases Illumination healing by 4% per rank.",
+      "description": "Increases Illumination healing by 2% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -60,7 +60,7 @@
       "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "ability_sun_cleric_illumination_healing": 0.021
+        "ability_sun_cleric_illumination_healing": 0.02
       },
       "connected_to": [
         "sun_cleric_blessings_ancient_rites",
@@ -291,7 +291,7 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "healing_power_from_intellect_pct": 0.011,
+        "healing_power_from_intellect_pct": 0.01,
         "haste_from_intellect_pct": 0.02
       },
       "connected_to": [
@@ -436,7 +436,7 @@
     {
       "talent_id": "sun_cleric_blessings_angelic_touch",
       "name": "Angelic Touch",
-      "description": "Increases all healing done by 2% per rank.",
+      "description": "Increases all healing done by 1% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -444,7 +444,7 @@
       "hex_x": 2,
       "hex_y": -6,
       "effects": {
-        "healing_power_pct": 1.1
+        "healing_power_pct": 1
       },
       "connected_to": [
         "sun_cleric_blessings_sunlight"
@@ -454,7 +454,7 @@
     {
       "talent_id": "sun_cleric_blessings_lead_me_not_astray",
       "name": "Lead Me Not Astray",
-      "description": "Increases Bless's healing-over-time effectiveness by 8% per rank.",
+      "description": "Increases Bless's healing-over-time effectiveness by 4% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -462,7 +462,7 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_sun_cleric_bless_healing": 0.043
+        "ability_sun_cleric_bless_healing": 0.04
       },
       "connected_to": [
         "sun_cleric_blessings_angelic_touch",
@@ -473,7 +473,7 @@
     {
       "talent_id": "sun_cleric_blessings_savior",
       "name": "Savior",
-      "description": "Increases healing done to targets below 20% health by 4% per rank.",
+      "description": "Increases healing done to targets below 20% health by 2% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -481,7 +481,7 @@
       "hex_x": -1,
       "hex_y": 0,
       "effects": {
-        "low_health_healing_pct": 0.021
+        "low_health_healing_pct": 0.02
       },
       "connected_to": [
         "sun_cleric_blessings_blessing_of_purity"

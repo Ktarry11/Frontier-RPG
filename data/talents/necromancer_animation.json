@@ -37,7 +37,7 @@
     {
       "talent_id": "necromancer_animation_sepulchral_might",
       "name": "Sepulchral Might",
-      "description": "Increases your Stamina by 10% and your pets' health by 30%.",
+      "description": "Increases your Stamina by 9% and your pets' health by 30%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -45,7 +45,7 @@
       "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "stamina_pct": 3.3333,
+        "stamina_pct": 3,
         "pet_health": 0.1
       },
       "connected_to": [
@@ -57,7 +57,7 @@
     {
       "talent_id": "necromancer_animation_forbidden_technique",
       "name": "Forbidden Technique",
-      "description": "Reduces the cooldown of your Animate spells by 35%.",
+      "description": "Reduces the cooldown of your Animate spells by 36%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -65,10 +65,10 @@
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "ability_necromancer_animate_skeletal_archers_cooldown_pct": 0.1167,
-        "ability_necromancer_animate_plaguefather_cooldown_pct": 0.1167,
-        "ability_necromancer_animate_bone_wraith_cooldown_pct": 0.1167,
-        "ability_necromancer_animate_tomb_king_cooldown_pct": 0.1167
+        "ability_necromancer_animate_skeletal_archers_cooldown_pct": 0.12,
+        "ability_necromancer_animate_plaguefather_cooldown_pct": 0.12,
+        "ability_necromancer_animate_bone_wraith_cooldown_pct": 0.12,
+        "ability_necromancer_animate_tomb_king_cooldown_pct": 0.12
       },
       "connected_to": [
         "necromancer_animation_ghoul_mastery"
@@ -87,7 +87,7 @@
       "hex_y": -6,
       "effects": {
         "haste": 4,
-        "pet_damage": 0.027
+        "pet_damage": 0.03
       },
       "connected_to": [
         "necromancer_animation_mindless_fury"
@@ -97,7 +97,7 @@
     {
       "talent_id": "necromancer_animation_ghoul_mastery",
       "name": "Ghoul Mastery",
-      "description": "Increases your pets' damage by a further 30%, and your damaging spells have a 20% chance to grant you 25% haste for 3 turns.",
+      "description": "Increases your pets' damage by a further 12%, and your damaging spells have a 12% chance to grant you 25% haste for 3 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -132,7 +132,7 @@
     {
       "talent_id": "necromancer_animation_summoner",
       "name": "Summoner",
-      "description": "Reduces the cost and cooldown of Sacrifice Undead by 25% and increases its healing by 30%.",
+      "description": "Reduces the cost and cooldown of Sacrifice Undead by 24% and increases its healing by 15%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -140,9 +140,9 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_necromancer_sacrifice_undead_cost_pct": 0.0833,
-        "ability_necromancer_sacrifice_undead_cooldown_pct": 0.0833,
-        "ability_necromancer_sacrifice_undead_healing": 0.053
+        "ability_necromancer_sacrifice_undead_cost_pct": 0.08,
+        "ability_necromancer_sacrifice_undead_cooldown_pct": 0.08,
+        "ability_necromancer_sacrifice_undead_healing": 0.05
       },
       "connected_to": [
         "necromancer_animation_mindless_fury"
@@ -217,7 +217,7 @@
     {
       "talent_id": "necromancer_animation_skeletal_artillery",
       "name": "Skeletal Artillery",
-      "description": "Increases the damage of Animate: Skeletal Archers by 40% and of Animate: Plaguefather by 30%.",
+      "description": "Increases the damage of Animate: Skeletal Archers by 21% and of Animate: Plaguefather by 15%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -225,8 +225,8 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_necromancer_animate_skeletal_archers_damage": 0.072,
-        "ability_necromancer_animate_plaguefather_damage": 0.054
+        "ability_necromancer_animate_skeletal_archers_damage": 0.07,
+        "ability_necromancer_animate_plaguefather_damage": 0.05
       },
       "connected_to": [
         "necromancer_animation_anti_magic_shell"
@@ -267,7 +267,7 @@
     {
       "talent_id": "necromancer_animation_anti_magic_shell",
       "name": "Anti-Magic Shell",
-      "description": "Increases your pets' armor by 40% and reduces your magic damage taken by 8%.",
+      "description": "Increases your pets' armor by 39% and reduces your magic damage taken by 9%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -275,8 +275,8 @@
       "hex_x": -2,
       "hex_y": 2,
       "effects": {
-        "pet_armor": 0.1333,
-        "magic_damage_taken_pct": -0.0267
+        "pet_armor": 0.13,
+        "magic_damage_taken_pct": -0.03
       },
       "connected_to": [
         "necromancer_animation_flesh_symbiosis"
@@ -319,7 +319,7 @@
     {
       "talent_id": "necromancer_animation_flesh_symbiosis",
       "name": "Flesh Symbiosis",
-      "description": "Increases your armor by 20% and your maximum health by 8%.",
+      "description": "Increases your armor by 21% and your maximum health by 9%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -327,8 +327,8 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "armor_pct": 6.6667,
-        "max_health_pct": 0.0267
+        "armor_pct": 7,
+        "max_health_pct": 0.03
       },
       "connected_to": [
         "necromancer_animation_master_animator"
@@ -338,7 +338,7 @@
     {
       "talent_id": "necromancer_animation_corpse_wagon",
       "name": "Corpse Wagon",
-      "description": "Increases the damage of Corpse Explosion by 25% and reduces the cooldown of Corpse Wagon by 35%.",
+      "description": "Increases the damage of Corpse Explosion by 15% and reduces the cooldown of Corpse Wagon by 36%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -346,8 +346,8 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "ability_necromancer_corpse_explosion_damage": 0.045,
-        "ability_necromancer_corpse_wagon_cooldown_pct": 0.1167
+        "ability_necromancer_corpse_explosion_damage": 0.05,
+        "ability_necromancer_corpse_wagon_cooldown_pct": 0.12
       },
       "connected_to": [
         "necromancer_animation_master_animator"
@@ -357,7 +357,7 @@
     {
       "talent_id": "necromancer_animation_depravity",
       "name": "Depravity",
-      "description": "Increases your pets' damage by a further 9.9%, and your critical strikes deal additional Shadow damage.",
+      "description": "Increases your pets' damage by a further 9%, and your critical strikes deal additional Shadow damage.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -365,7 +365,7 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "pet_damage": 0.033
+        "pet_damage": 0.03
       },
       "connected_to": [
         "necromancer_animation_graverobber"
@@ -382,7 +382,7 @@
     {
       "talent_id": "necromancer_animation_crypt_keeper",
       "name": "Crypt Keeper",
-      "description": "Increases the damage of Crypt Swarm by 30%, your area damage by 20%, and your pets' health by 20%.",
+      "description": "Increases the damage of Crypt Swarm by 15%, your area damage by 21%, and your pets' health by 21%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -390,9 +390,9 @@
       "hex_x": 4,
       "hex_y": -2,
       "effects": {
-        "ability_necromancer_crypt_swarm_damage": 0.054,
-        "aoe_damage": 0.0667,
-        "pet_health": 0.0667
+        "ability_necromancer_crypt_swarm_damage": 0.05,
+        "aoe_damage": 0.07,
+        "pet_health": 0.07
       },
       "connected_to": [
         "necromancer_animation_mindless_fury"
@@ -402,7 +402,7 @@
     {
       "talent_id": "necromancer_animation_army_of_the_dead",
       "name": "Army of the Dead",
-      "description": "Increases your pets' armor by a further 30% and your spell critical strike chance by 5%.",
+      "description": "Increases your pets' armor by a further 30% and your spell critical strike chance by 6%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -411,7 +411,7 @@
       "hex_y": 0,
       "effects": {
         "pet_armor": 0.1,
-        "crit_chance_spell": 1.6667
+        "crit_chance_spell": 2
       },
       "connected_to": [
         "necromancer_animation_plague_horde"
@@ -469,7 +469,7 @@
     {
       "talent_id": "necromancer_animation_master_animator",
       "name": "Master Animator",
-      "description": "Increases your pets' damage by a further 35% and their health by 30%, and reduces the cost of your Raise and Animate spells by a further 30%.",
+      "description": "Increases your pets' damage by a further 14% and their health by 30%, and reduces the cost of your Raise and Animate spells by a further 30%.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,

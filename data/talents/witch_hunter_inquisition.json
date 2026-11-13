@@ -52,7 +52,7 @@
     {
       "talent_id": "witch_hunter_inquisition_sermon_of_flame",
       "name": "Sermon of Flame",
-      "description": "Increases your Fire spell damage by up to 10%.",
+      "description": "Increases your Fire spell damage by up to 9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -60,7 +60,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "fire_spell_damage": 0.0333
+        "fire_spell_damage": 0.03
       },
       "connected_to": [
         "witch_hunter_inquisition_purifiers_edge_training"
@@ -88,7 +88,7 @@
     {
       "talent_id": "witch_hunter_inquisition_brooding_hatred",
       "name": "Brooding Hatred",
-      "description": "Increases your attack power by up to 10% and your chance to hit by up to 6%.",
+      "description": "Increases your attack power by up to 9% and your chance to hit by up to 6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -96,7 +96,7 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "attack_power_pct": 3.3333,
+        "attack_power_pct": 3,
         "hit_rating": 2
       },
       "connected_to": [
@@ -174,7 +174,7 @@
     {
       "talent_id": "witch_hunter_inquisition_malice",
       "name": "Malice",
-      "description": "Increases your Fire spell damage by 50% of your Agility and your attack power by 100% of your Intellect.",
+      "description": "Increases your Fire spell damage by 51% of your Agility and your attack power by 99% of your Intellect.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -182,8 +182,8 @@
       "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "spell_power_from_agility_pct": 0.1667,
-        "attack_power_from_intellect_pct": 0.3333
+        "spell_power_from_agility_pct": 0.17,
+        "attack_power_from_intellect_pct": 0.33
       },
       "connected_to": [
         "witch_hunter_inquisition_dusk"
@@ -211,7 +211,7 @@
     {
       "talent_id": "witch_hunter_inquisition_protector_of_darkshire",
       "name": "Protector of Darkshire",
-      "description": "Increases the damage of Dawn Blade and Dusk Blade by 8.1%.",
+      "description": "Increases the damage of Dawn Blade and Dusk Blade by 9%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -219,8 +219,8 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_witch_hunter_dawn_blade_damage": 0.027,
-        "ability_witch_hunter_dusk_blade_damage": 0.027
+        "ability_witch_hunter_dawn_blade_damage": 0.03,
+        "ability_witch_hunter_dusk_blade_damage": 0.03
       },
       "connected_to": [
         "witch_hunter_inquisition_interrogator"
@@ -370,7 +370,7 @@
     {
       "talent_id": "witch_hunter_inquisition_cinder_and_ashes",
       "name": "Cinder and Ashes",
-      "description": "Increases the damage of Purifier's Edge and Fiery Judgement by 13.5%.",
+      "description": "Increases the damage of Purifier's Edge and Fiery Judgement by 15%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -378,8 +378,8 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "ability_witch_hunter_purifiers_edge_damage": 0.045,
-        "ability_witch_hunter_fiery_judgement_damage": 0.045
+        "ability_witch_hunter_purifiers_edge_damage": 0.05,
+        "ability_witch_hunter_fiery_judgement_damage": 0.05
       },
       "connected_to": [
         "witch_hunter_inquisition_sinner"
@@ -389,7 +389,7 @@
     {
       "talent_id": "witch_hunter_inquisition_scarlet_inquisitor",
       "name": "Scarlet Inquisitor",
-      "description": "Reduces the Focus cost of your Traps and Brands by 50%.",
+      "description": "Reduces the Focus cost of your Traps and Brands by 51%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -397,10 +397,10 @@
       "hex_x": 4,
       "hex_y": -2,
       "effects": {
-        "ability_witch_hunter_inquisitors_trap_cost_pct": 0.1667,
-        "ability_witch_hunter_shadow_trap_cost_pct": 0.1667,
-        "ability_witch_hunter_death_trap_cost_pct": 0.1667,
-        "ability_witch_hunter_shadow_brand_cost_pct": 0.1667
+        "ability_witch_hunter_inquisitors_trap_cost_pct": 0.17,
+        "ability_witch_hunter_shadow_trap_cost_pct": 0.17,
+        "ability_witch_hunter_death_trap_cost_pct": 0.17,
+        "ability_witch_hunter_shadow_brand_cost_pct": 0.17
       },
       "connected_to": [
         "witch_hunter_inquisition_sinner"
@@ -469,7 +469,7 @@
     {
       "talent_id": "witch_hunter_inquisition_duskwood_renegade",
       "name": "Duskwood Renegade",
-      "description": "Reduces the cooldown of Burrow Bolt by 40%.",
+      "description": "Reduces the cooldown of Burrow Bolt by 39%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -477,7 +477,7 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_witch_hunter_burrow_bolt_cooldown_pct": 0.1333
+        "ability_witch_hunter_burrow_bolt_cooldown_pct": 0.13
       },
       "connected_to": [
         "witch_hunter_inquisition_torch_the_wicked"
@@ -550,7 +550,7 @@
     {
       "talent_id": "witch_hunter_inquisition_burned_alive",
       "name": "Burned Alive",
-      "description": "Increases your physical critical strike chance by 8% and your critical strike damage by 15%.",
+      "description": "Increases your physical critical strike chance by 9% and your critical strike damage by 15%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -558,7 +558,7 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "crit_chance_physical": 2.6667,
+        "crit_chance_physical": 3,
         "crit_damage_physical": 0.05
       },
       "connected_to": [
@@ -608,7 +608,7 @@
     {
       "talent_id": "witch_hunter_inquisition_monster_hunting",
       "name": "Monster Hunting",
-      "description": "Increases your haste by 10% and all damage you deal by 10%.",
+      "description": "Increases your haste by 9% and all damage you deal by 9%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -616,8 +616,8 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "haste": 3.3333,
-        "all_damage": 0.017
+        "haste": 3,
+        "all_damage": 0.02
       },
       "connected_to": [
         "witch_hunter_inquisition_lightbringer"
@@ -627,7 +627,7 @@
     {
       "talent_id": "witch_hunter_inquisition_heartstopper",
       "name": "Heartstopper",
-      "description": "Increases the critical strike chance of Stake by 30%.",
+      "description": "Increases the critical strike chance of Stake by 18%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -645,7 +645,7 @@
     {
       "talent_id": "witch_hunter_inquisition_lightbringer",
       "name": "Lightbringer",
-      "description": "Reduces the Focus cost of Purifier's Edge by 40%.",
+      "description": "Reduces the Focus cost of Purifier's Edge by 39%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -653,7 +653,7 @@
       "hex_x": -3,
       "hex_y": 4,
       "effects": {
-        "ability_witch_hunter_purifiers_edge_cost_pct": 0.1333
+        "ability_witch_hunter_purifiers_edge_cost_pct": 0.13
       },
       "connected_to": [
         "witch_hunter_inquisition_purity_and_wickedness"
@@ -663,7 +663,7 @@
     {
       "talent_id": "witch_hunter_inquisition_cycle_of_despair",
       "name": "Cycle of Despair",
-      "description": "Increases all damage you deal by 10% and your haste by 10%.",
+      "description": "Increases all damage you deal by 9% and your haste by 9%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -671,8 +671,8 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "all_damage": 0.017,
-        "haste": 3.3333
+        "all_damage": 0.02,
+        "haste": 3
       },
       "connected_to": [
         "witch_hunter_inquisition_purity_and_wickedness"
@@ -710,7 +710,7 @@
     {
       "talent_id": "witch_hunter_inquisition_pyro_tonic",
       "name": "Pyro Tonic",
-      "description": "Increases your Fire spell damage by 20% and your critical strike damage by 10%.",
+      "description": "Increases your Fire spell damage by 21% and your critical strike damage by 9%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -718,8 +718,8 @@
       "hex_x": 3,
       "hex_y": 4,
       "effects": {
-        "fire_spell_damage": 0.0667,
-        "crit_damage_physical": 0.0333
+        "fire_spell_damage": 0.07,
+        "crit_damage_physical": 0.03
       },
       "connected_to": [
         "witch_hunter_inquisition_purity_and_wickedness"

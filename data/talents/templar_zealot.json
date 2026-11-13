@@ -34,7 +34,7 @@
     {
       "talent_id": "templar_zealot_solemn_soldier",
       "name": "Solemn Soldier",
-      "description": "Increases your haste by 10% and your expertise by 10.",
+      "description": "Increases your haste by 9% and your expertise by 10.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -42,8 +42,8 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "haste": 3.3333,
-        "expertise": 3.3333
+        "haste": 3,
+        "expertise": 3
       },
       "connected_to": [
         "templar_zealot_martial_paladin"
@@ -53,7 +53,7 @@
     {
       "talent_id": "templar_zealot_martial_paladin",
       "name": "Martial Paladin",
-      "description": "Increases your Agility by 10% and your chance to hit by 6%.",
+      "description": "Increases your Agility by 9% and your chance to hit by 6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -61,7 +61,7 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "agility_pct": 3.3333,
+        "agility_pct": 3,
         "hit_rating": 2
       },
       "connected_to": [
@@ -72,7 +72,7 @@
     {
       "talent_id": "templar_zealot_bursting_impact",
       "name": "Bursting Impact",
-      "description": "Increases your physical damage by 25%.",
+      "description": "Increases your physical damage by 24%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -80,7 +80,7 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "physical_damage": 0.0833
+        "physical_damage": 0.08
       },
       "connected_to": [
         "templar_zealot_radiance"
@@ -90,7 +90,7 @@
     {
       "talent_id": "templar_zealot_radiance",
       "name": "Radiance",
-      "description": "Reduces the cost of Vindication by 10.8%.",
+      "description": "Reduces the cost of Vindication by 12%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -98,7 +98,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "ability_templar_vindication_damage": 0.036
+        "ability_templar_vindication_damage": 0.04
       },
       "connected_to": [
         "templar_zealot_combat_training"
@@ -108,7 +108,7 @@
     {
       "talent_id": "templar_zealot_combat_training",
       "name": "Combat Training",
-      "description": "Increases the damage of Vindication by 10.8%.",
+      "description": "Increases the damage of Vindication by 12%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -116,7 +116,7 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "ability_templar_vindication_damage": 0.036
+        "ability_templar_vindication_damage": 0.04
       },
       "connected_to": [
         "templar_zealot_zealotry"
@@ -157,7 +157,7 @@
     {
       "talent_id": "templar_zealot_blade_sermon",
       "name": "Blade Sermon",
-      "description": "Increases all damage you deal by 5.1%.",
+      "description": "Increases all damage you deal by 6%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -165,7 +165,7 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "all_damage": 0.017
+        "all_damage": 0.02
       },
       "connected_to": [
         "templar_zealot_priest_training"
@@ -230,7 +230,7 @@
     {
       "talent_id": "templar_zealot_upheave",
       "name": "Upheave!",
-      "description": "Increases the critical strike damage of Righteous Upheaval by 20%.",
+      "description": "Increases the critical strike damage of Righteous Upheaval by 21%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -238,7 +238,7 @@
       "hex_x": -4,
       "hex_y": -2,
       "effects": {
-        "ability_templar_righteous_upheaval_crit_damage": 0.0667
+        "ability_templar_righteous_upheaval_crit_damage": 0.07
       },
       "connected_to": [
         "templar_zealot_battle_hardened"
@@ -248,7 +248,7 @@
     {
       "talent_id": "templar_zealot_battle_hardened",
       "name": "Battle Hardened",
-      "description": "Reduces the cooldown of Righteous Upheaval by 25%.",
+      "description": "Reduces the cooldown of Righteous Upheaval by 24%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -256,7 +256,7 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_templar_righteous_upheaval_cooldown_pct": 0.0833
+        "ability_templar_righteous_upheaval_cooldown_pct": 0.08
       },
       "connected_to": [
         "templar_zealot_holy_upheaval"
@@ -266,7 +266,7 @@
     {
       "talent_id": "templar_zealot_holy_upheaval",
       "name": "Holy Upheaval",
-      "description": "Increases the damage of Righteous Upheaval by 50%.",
+      "description": "Increases the damage of Righteous Upheaval by 27%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -351,7 +351,7 @@
     {
       "talent_id": "templar_zealot_condemnation",
       "name": "Condemnation",
-      "description": "Increases the critical strike chance of Condemn by 10%.",
+      "description": "Increases the critical strike chance of Condemn by 6%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -369,7 +369,7 @@
     {
       "talent_id": "templar_zealot_one_punch_man",
       "name": "One-Punch Man",
-      "description": "Increases the damage of Righteous Upheaval and Titanstrike by 20%.",
+      "description": "Increases the damage of Righteous Upheaval and Titanstrike by 12%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -377,8 +377,8 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_templar_righteous_upheaval_damage": 0.036,
-        "ability_templar_titanstrike_damage": 0.036
+        "ability_templar_righteous_upheaval_damage": 0.04,
+        "ability_templar_titanstrike_damage": 0.04
       },
       "connected_to": [
         "templar_zealot_libram_of_zeal"
@@ -388,7 +388,7 @@
     {
       "talent_id": "templar_zealot_pious_sweep",
       "name": "Pious Sweep",
-      "description": "Increases the damage of Chastise by 25%.",
+      "description": "Increases the damage of Chastise by 15%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -396,7 +396,7 @@
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "ability_templar_chastise_damage": 0.045
+        "ability_templar_chastise_damage": 0.05
       },
       "connected_to": [
         "templar_zealot_libram_of_zeal"
@@ -406,7 +406,7 @@
     {
       "talent_id": "templar_zealot_libram_of_zeal",
       "name": "Libram of Zeal",
-      "description": "Increases the damage of Libram of Zeal by 40% and reduces its cooldown by 25%.",
+      "description": "Increases the damage of Libram of Zeal by 39% and reduces its cooldown by 24%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -414,8 +414,8 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "ability_templar_libram_of_zeal_potency": 0.1333,
-        "ability_templar_libram_of_zeal_cooldown_pct": 0.0833
+        "ability_templar_libram_of_zeal_potency": 0.13,
+        "ability_templar_libram_of_zeal_cooldown_pct": 0.08
       },
       "connected_to": [
         "templar_zealot_chakra_of_light"
@@ -447,7 +447,7 @@
     {
       "talent_id": "templar_zealot_lights_guidance",
       "name": "Light's Guidance",
-      "description": "Increases the healing of Benediction by 50%.",
+      "description": "Increases the healing of Benediction by 27%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -455,7 +455,7 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "ability_templar_benediction_healing": 0.089
+        "ability_templar_benediction_healing": 0.09
       },
       "connected_to": [
         "templar_zealot_heavens_finest"
@@ -498,7 +498,7 @@
     {
       "talent_id": "templar_zealot_force_of_golganneth",
       "name": "Force of Golganneth",
-      "description": "Increases the damage of Force of Golganneth by 50% and reduces the cost of Temple Guardian by 50%.",
+      "description": "Increases the damage of Force of Golganneth by 27% and reduces the cost of Temple Guardian by 27%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -507,7 +507,7 @@
       "hex_y": 4,
       "effects": {
         "ability_templar_force_of_golganneth_damage": 0.09,
-        "ability_templar_temple_guardian_healing": 0.089
+        "ability_templar_temple_guardian_healing": 0.09
       },
       "connected_to": [
         "templar_zealot_divine_fury"
@@ -517,7 +517,7 @@
     {
       "talent_id": "templar_zealot_divine_fury",
       "name": "Divine Fury",
-      "description": "Increases your critical strike chance by 8% and your critical strike damage by 20%.",
+      "description": "Increases your critical strike chance by 9% and your critical strike damage by 21%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -525,8 +525,8 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "crit_chance_physical": 2.6667,
-        "crit_damage_physical": 0.0667
+        "crit_chance_physical": 3,
+        "crit_damage_physical": 0.07
       },
       "connected_to": [
         "templar_zealot_norgannons_wrath"
@@ -545,7 +545,7 @@
       "hex_y": 6,
       "effects": {
         "unlock_ability": "templar_norgannons_wrath",
-        "all_damage": 0.075
+        "all_damage": 0.08
       },
       "connected_to": [],
       "_source": "LOAD-BEARING UNLOCK: templar_norgannons_wrath carries requires_talent, so without this node it is unobtainable forever. Templar has exactly three gated abilities, one per tree - this one, Oathkeeper's Tome of Light and Crusader's Righteous Tempest - and main() asserts this one. The all_damage is added because a capstone granting only an ability is thin, and because all_damage is the one key that reaches Zealotry's proc payload (see Blade Sermon), so the capstone really does make the holy fire hit harder rather than just claiming to."

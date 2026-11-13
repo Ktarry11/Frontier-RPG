@@ -16,7 +16,7 @@
     {
       "talent_id": "felsworn_infernal_wrath_of_sargeras",
       "name": "Wrath of Sargeras",
-      "description": "Increases your Shadow and Fire damage by 6% and your hit chance by 4%.",
+      "description": "Increases your Shadow and Fire damage by 6% and your hit chance by 3%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -26,7 +26,7 @@
       "effects": {
         "shadow_spell_damage": 0.02,
         "fire_spell_damage": 0.02,
-        "hit_rating": 1.3333
+        "hit_rating": 1
       },
       "connected_to": [
         "felsworn_infernal_felfire_adept"
@@ -36,7 +36,7 @@
     {
       "talent_id": "felsworn_infernal_felfire_adept",
       "name": "Felfire Adept",
-      "description": "Increases the critical strike chance of Sargeron Smite and Fel Fireball by 10%.",
+      "description": "Increases the critical strike chance of Sargeron Smite and Fel Fireball by 6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -75,7 +75,7 @@
     {
       "talent_id": "felsworn_infernal_black_magic",
       "name": "Black Magic",
-      "description": "Increases the damage of Bane of Chaos and Ruin by 10.8%.",
+      "description": "Increases the damage of Bane of Chaos and Ruin by 12%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -83,8 +83,8 @@
       "hex_x": 2,
       "hex_y": -6,
       "effects": {
-        "ability_felsworn_bane_of_chaos_damage": 0.036,
-        "ability_felsworn_ruin_damage": 0.036
+        "ability_felsworn_bane_of_chaos_damage": 0.04,
+        "ability_felsworn_ruin_damage": 0.04
       },
       "connected_to": [
         "felsworn_infernal_nether_spirit"
@@ -120,7 +120,7 @@
     {
       "talent_id": "felsworn_infernal_nether_spirit",
       "name": "Nether Spirit",
-      "description": "Increases your spell critical strike chance by 20% of your Spirit.",
+      "description": "Increases your spell critical strike chance by 21% of your Spirit.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -128,7 +128,7 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "crit_chance_spell_from_spirit_pct": 0.0667
+        "crit_chance_spell_from_spirit_pct": 0.07
       },
       "connected_to": [
         "felsworn_infernal_illidari_magi"
@@ -287,7 +287,7 @@
     {
       "talent_id": "felsworn_infernal_unphased",
       "name": "Unphased",
-      "description": "Increases your spell penetration by 20 and your Shadow and Fire damage by a further 5%.",
+      "description": "Increases your spell penetration by 21 and your Shadow and Fire damage by a further 6%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -295,9 +295,9 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "spell_penetration": 6.6667,
-        "shadow_spell_damage": 0.0167,
-        "fire_spell_damage": 0.0167
+        "spell_penetration": 7,
+        "shadow_spell_damage": 0.02,
+        "fire_spell_damage": 0.02
       },
       "connected_to": [
         "felsworn_infernal_mannari_teachings"
@@ -307,7 +307,7 @@
     {
       "talent_id": "felsworn_infernal_fel_infusion",
       "name": "Fel Infusion",
-      "description": "Increases your spell critical strike chance by 3% and reduces the cooldown of Fel Infusion by 35%.",
+      "description": "Increases your spell critical strike chance by 3% and reduces the cooldown of Fel Infusion by 36%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -316,7 +316,7 @@
       "hex_y": 4,
       "effects": {
         "crit_chance_spell": 1,
-        "ability_felsworn_fel_infusion_cooldown_pct": 0.1167
+        "ability_felsworn_fel_infusion_cooldown_pct": 0.12
       },
       "connected_to": [
         "felsworn_infernal_mannari_teachings"
@@ -326,7 +326,7 @@
     {
       "talent_id": "felsworn_infernal_sargeras_embrace",
       "name": "Sargeras Embrace",
-      "description": "Increases the damage of Sargeras Embrace by 24.3% and its duration by 2 turns.",
+      "description": "Increases the damage of Sargeras Embrace by 24% and its duration by 2 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
@@ -334,7 +334,7 @@
       "hex_x": 2,
       "hex_y": 4,
       "effects": {
-        "ability_felsworn_sargeras_embrace_damage": 0.243,
+        "ability_felsworn_sargeras_embrace_damage": 0.24,
         "ability_felsworn_sargeras_embrace_duration": 2
       },
       "connected_to": [
@@ -345,7 +345,7 @@
     {
       "talent_id": "felsworn_infernal_guldans_prodigy",
       "name": "Gul'dan's Prodigy",
-      "description": "Reduces the cost of Fel Fireball and Felwrath by 25% and increases Felwrath's damage by 25%.",
+      "description": "Reduces the cost of Fel Fireball and Felwrath by 24% and increases Felwrath's damage by 24%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -353,9 +353,9 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "ability_felsworn_fel_fireball_damage": 0.045,
-        "ability_felsworn_felwrath_cost_pct": 0.0833,
-        "ability_felsworn_felwrath_damage": 0.045
+        "ability_felsworn_fel_fireball_damage": 0.05,
+        "ability_felsworn_felwrath_cost_pct": 0.08,
+        "ability_felsworn_felwrath_damage": 0.05
       },
       "connected_to": [
         "felsworn_infernal_wrath_of_sargeras"
@@ -365,7 +365,7 @@
     {
       "talent_id": "felsworn_infernal_fel_cannon",
       "name": "Fel Cannon",
-      "description": "Increases the critical strike chance of Ruin and Felwrath by 15%.",
+      "description": "Increases the critical strike chance of Ruin and Felwrath by 9%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -384,7 +384,7 @@
     {
       "talent_id": "felsworn_infernal_shadow_magi",
       "name": "Shadow Magi",
-      "description": "Reduces the cooldown of Annihilation, Sunder and Ruin by 18.9%.",
+      "description": "Reduces the cooldown of Annihilation, Sunder and Ruin by 18%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -392,9 +392,9 @@
       "hex_x": 3,
       "hex_y": 0,
       "effects": {
-        "ability_felsworn_annihilation_cooldown_pct": 0.1167,
-        "ability_felsworn_sunder_damage": 0.063,
-        "ability_felsworn_ruin_cooldown_pct": 0.1167
+        "ability_felsworn_annihilation_cooldown_pct": 0.12,
+        "ability_felsworn_sunder_damage": 0.06,
+        "ability_felsworn_ruin_cooldown_pct": 0.12
       },
       "connected_to": [
         "felsworn_infernal_illidari_magi"
@@ -404,7 +404,7 @@
     {
       "talent_id": "felsworn_infernal_withering",
       "name": "Withering",
-      "description": "Increases the damage of Fel Fireball by 30% and your spell damage by 5%.",
+      "description": "Increases the damage of Fel Fireball by 15% and your spell damage by 6%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -412,8 +412,8 @@
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "ability_felsworn_fel_fireball_damage": 0.054,
-        "spell_damage": 0.0167
+        "ability_felsworn_fel_fireball_damage": 0.05,
+        "spell_damage": 0.02
       },
       "connected_to": [
         "felsworn_infernal_oppressive_ruin"

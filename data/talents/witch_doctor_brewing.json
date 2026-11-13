@@ -16,7 +16,7 @@
     {
       "talent_id": "witch_doctor_brewing_spirit_healer",
       "name": "Spirit Healer",
-      "description": "Increases your healing power by 25% of your Spirit and your spell critical strike chance by 10% of your Spirit.",
+      "description": "Increases your healing power by 25% of your Spirit and your spell critical strike chance by 9% of your Spirit.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,8 +24,8 @@
       "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "healing_power_from_spirit_pct": 0.044,
-        "crit_chance_spell_from_spirit_pct": 0.0333
+        "healing_power_from_spirit_pct": 0.04,
+        "crit_chance_spell_from_spirit_pct": 0.03
       },
       "connected_to": [
         "witch_doctor_brewing_potent_mixes"
@@ -43,7 +43,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "healing_power_pct": 1.4,
+        "healing_power_pct": 1,
         "threat_generation_pct": -0.05
       },
       "connected_to": [
@@ -54,7 +54,7 @@
     {
       "talent_id": "witch_doctor_brewing_mojo_addiction",
       "name": "Mojo Addiction",
-      "description": "Increases your maximum mana by 10%.",
+      "description": "Increases your maximum mana by 9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -62,7 +62,7 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "max_mana_pct": 0.0333
+        "max_mana_pct": 0.03
       },
       "connected_to": [
         "witch_doctor_brewing_mixologist"
@@ -72,7 +72,7 @@
     {
       "talent_id": "witch_doctor_brewing_presence_of_the_loa",
       "name": "Presence of the Loa",
-      "description": "Increases your spell critical strike chance by 4%.",
+      "description": "Increases your spell critical strike chance by 3%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -80,7 +80,7 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "crit_chance_spell": 1.3333
+        "crit_chance_spell": 1
       },
       "connected_to": [
         "witch_doctor_brewing_plentiful_potions"
@@ -90,7 +90,7 @@
     {
       "talent_id": "witch_doctor_brewing_fresh_ingredients",
       "name": "Fresh Ingredients",
-      "description": "Increases the healing of Jungle Shrooms by 15.9%.",
+      "description": "Increases the healing of Jungle Shrooms by 15%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -98,7 +98,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "ability_witch_doctor_ingredient_jungle_shrooms_healing": 0.053
+        "ability_witch_doctor_ingredient_jungle_shrooms_healing": 0.05
       },
       "connected_to": [
         "witch_doctor_brewing_plentiful_potions"
@@ -108,7 +108,7 @@
     {
       "talent_id": "witch_doctor_brewing_mixologist",
       "name": "Mixologist",
-      "description": "Increases the healing of your Ingredients by 8.1%.",
+      "description": "Increases the healing of your Ingredients by 9%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -116,9 +116,9 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "ability_witch_doctor_ingredient_jungle_shrooms_healing": 0.027,
-        "ability_witch_doctor_ingredient_frog_bones_healing": 0.027,
-        "ability_witch_doctor_ingredient_bloodthistle_healing": 0.027
+        "ability_witch_doctor_ingredient_jungle_shrooms_healing": 0.03,
+        "ability_witch_doctor_ingredient_frog_bones_healing": 0.03,
+        "ability_witch_doctor_ingredient_bloodthistle_healing": 0.03
       },
       "connected_to": [
         "witch_doctor_brewing_splash_on_em"
@@ -128,7 +128,7 @@
     {
       "talent_id": "witch_doctor_brewing_plentiful_potions",
       "name": "Plentiful Potions",
-      "description": "Reduces the mana cost of Loa's Brew and Hexbreak by 10%.",
+      "description": "Reduces the mana cost of Loa's Brew and Hexbreak by 9%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -136,8 +136,8 @@
       "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "ability_witch_doctor_loas_brew_cost_pct": 0.0333,
-        "ability_witch_doctor_hexbreak_cost_pct": 0.0333
+        "ability_witch_doctor_loas_brew_cost_pct": 0.03,
+        "ability_witch_doctor_hexbreak_cost_pct": 0.03
       },
       "connected_to": [
         "witch_doctor_brewing_potion_boss"
@@ -147,7 +147,7 @@
     {
       "talent_id": "witch_doctor_brewing_brewmaster",
       "name": "Brewmaster",
-      "description": "Increases the healing of Loa's Brew by 8.4%.",
+      "description": "Increases the healing of Loa's Brew by 9%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -155,7 +155,7 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "ability_witch_doctor_loas_brew_healing": 0.028
+        "ability_witch_doctor_loas_brew_healing": 0.03
       },
       "connected_to": [
         "witch_doctor_brewing_potion_boss"
@@ -165,7 +165,7 @@
     {
       "talent_id": "witch_doctor_brewing_spice_earthroot",
       "name": "Spice: Earthroot",
-      "description": "Increases the healing of your Ingredients and the Voodoo Cauldron by 15.9%.",
+      "description": "Increases the healing of your Ingredients and the Voodoo Cauldron by 15%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -173,10 +173,10 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_witch_doctor_ingredient_jungle_shrooms_healing": 0.053,
-        "ability_witch_doctor_ingredient_frog_bones_healing": 0.053,
-        "ability_witch_doctor_ingredient_bloodthistle_healing": 0.053,
-        "ability_witch_doctor_voodoo_cauldron_healing": 0.053
+        "ability_witch_doctor_ingredient_jungle_shrooms_healing": 0.05,
+        "ability_witch_doctor_ingredient_frog_bones_healing": 0.05,
+        "ability_witch_doctor_ingredient_bloodthistle_healing": 0.05,
+        "ability_witch_doctor_voodoo_cauldron_healing": 0.05
       },
       "connected_to": [
         "witch_doctor_brewing_jungle_secrets"
@@ -186,7 +186,7 @@
     {
       "talent_id": "witch_doctor_brewing_disciple_of_sseratus",
       "name": "Disciple of Sseratus",
-      "description": "Increases the healing of Loa's Brew and Spirit in a Bottle by 8.1%.",
+      "description": "Increases the healing of Loa's Brew and Spirit in a Bottle by 9%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -194,8 +194,8 @@
       "hex_x": 4,
       "hex_y": -4,
       "effects": {
-        "ability_witch_doctor_loas_brew_healing": 0.027,
-        "ability_witch_doctor_spirit_in_a_bottle_healing": 0.027
+        "ability_witch_doctor_loas_brew_healing": 0.03,
+        "ability_witch_doctor_spirit_in_a_bottle_healing": 0.03
       },
       "connected_to": [
         "witch_doctor_brewing_jungle_secrets"
@@ -205,7 +205,7 @@
     {
       "talent_id": "witch_doctor_brewing_potion_boss",
       "name": "Potion Boss",
-      "description": "Increases the healing of Potion Toss and Splash Potion by 10.8%.",
+      "description": "Increases the healing of Potion Toss and Splash Potion by 12%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -213,8 +213,8 @@
       "hex_x": -4,
       "hex_y": -2,
       "effects": {
-        "ability_witch_doctor_potion_toss_healing": 0.036,
-        "ability_witch_doctor_splash_potion_healing": 0.036
+        "ability_witch_doctor_potion_toss_healing": 0.04,
+        "ability_witch_doctor_splash_potion_healing": 0.04
       },
       "connected_to": [
         "witch_doctor_brewing_splash_on_em"
@@ -292,7 +292,7 @@
     {
       "talent_id": "witch_doctor_brewing_spice_peacebloom",
       "name": "Spice: Peacebloom",
-      "description": "Reduces the duration of stuns against you by 25%.",
+      "description": "Reduces the duration of stuns against you by 24%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -300,7 +300,7 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "stun_duration_reduction_pct": 0.0833
+        "stun_duration_reduction_pct": 0.08
       },
       "connected_to": [
         "witch_doctor_brewing_jungle_secrets"
@@ -366,7 +366,7 @@
     {
       "talent_id": "witch_doctor_brewing_master_of_concoctions",
       "name": "Master of Concoctions",
-      "description": "Jungle Shrooms and Frog Bones last 1 turn longer, and your Ingredients heal 10.7% more.",
+      "description": "Jungle Shrooms and Frog Bones last 1 turn longer, and your Ingredients heal 11% more.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
@@ -376,9 +376,9 @@
       "effects": {
         "ability_witch_doctor_ingredient_jungle_shrooms_duration": 1,
         "ability_witch_doctor_ingredient_frog_bones_duration": 1,
-        "ability_witch_doctor_ingredient_jungle_shrooms_healing": 0.107,
-        "ability_witch_doctor_ingredient_frog_bones_healing": 0.107,
-        "ability_witch_doctor_ingredient_bloodthistle_healing": 0.107
+        "ability_witch_doctor_ingredient_jungle_shrooms_healing": 0.11,
+        "ability_witch_doctor_ingredient_frog_bones_healing": 0.11,
+        "ability_witch_doctor_ingredient_bloodthistle_healing": 0.11
       },
       "connected_to": [
         "witch_doctor_brewing_voodoo_cauldron_mastery"
@@ -388,7 +388,7 @@
     {
       "talent_id": "witch_doctor_brewing_doctor_of_the_jungle",
       "name": "Doctor of the Jungle",
-      "description": "Increases the healing of Jungle Shrooms by 13.2%.",
+      "description": "Increases the healing of Jungle Shrooms by 12%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -396,7 +396,7 @@
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "ability_witch_doctor_ingredient_jungle_shrooms_healing": 0.044
+        "ability_witch_doctor_ingredient_jungle_shrooms_healing": 0.04
       },
       "connected_to": [
         "witch_doctor_brewing_mojo_wave"
@@ -406,7 +406,7 @@
     {
       "talent_id": "witch_doctor_brewing_jungle_booms",
       "name": "Jungle Booms",
-      "description": "Jungle Shrooms heal 53.3% more.",
+      "description": "Jungle Shrooms heal 53% more.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
@@ -414,7 +414,7 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "ability_witch_doctor_ingredient_jungle_shrooms_healing": 0.533
+        "ability_witch_doctor_ingredient_jungle_shrooms_healing": 0.53
       },
       "connected_to": [
         "witch_doctor_brewing_voodoo_cauldron_mastery"
@@ -498,7 +498,7 @@
     {
       "talent_id": "witch_doctor_brewing_voodoo_cauldron_mastery",
       "name": "Voodoo Cauldron",
-      "description": "Increases the healing the Voodoo Cauldron does by 50% and the healing you receive by 10%.",
+      "description": "Increases the healing the Voodoo Cauldron does by 27% and the healing you receive by 6%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -506,8 +506,8 @@
       "hex_x": -3,
       "hex_y": 4,
       "effects": {
-        "ability_witch_doctor_voodoo_cauldron_healing": 0.089,
-        "healing_taken_pct": 0.018
+        "ability_witch_doctor_voodoo_cauldron_healing": 0.09,
+        "healing_taken_pct": 0.02
       },
       "connected_to": [
         "witch_doctor_brewing_master_mixologist"
@@ -553,7 +553,7 @@
     {
       "talent_id": "witch_doctor_brewing_senjins_presence",
       "name": "Sen'jin's Presence",
-      "description": "Reduces the mana cost of Loa's Brew by 20%.",
+      "description": "Reduces the mana cost of Loa's Brew by 21%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -561,7 +561,7 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "ability_witch_doctor_loas_brew_cost_pct": 0.0667
+        "ability_witch_doctor_loas_brew_cost_pct": 0.07
       },
       "connected_to": [
         "witch_doctor_brewing_master_mixologist"
@@ -571,7 +571,7 @@
     {
       "talent_id": "witch_doctor_brewing_master_mixologist",
       "name": "Master Mixologist",
-      "description": "Your heals crit 10% more often and your Ingredients, Cauldron and potions all heal 40% more.",
+      "description": "Your heals crit 10% more often and your Ingredients, Cauldron and potions all heal 21% more.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -580,12 +580,12 @@
       "hex_y": 6,
       "effects": {
         "crit_chance_spell": 10.0,
-        "ability_witch_doctor_voodoo_cauldron_healing": 0.213,
-        "ability_witch_doctor_potion_toss_healing": 0.213,
-        "ability_witch_doctor_splash_potion_healing": 0.213,
-        "ability_witch_doctor_ingredient_jungle_shrooms_healing": 0.213,
-        "ability_witch_doctor_ingredient_frog_bones_healing": 0.213,
-        "ability_witch_doctor_ingredient_bloodthistle_healing": 0.213
+        "ability_witch_doctor_voodoo_cauldron_healing": 0.21,
+        "ability_witch_doctor_potion_toss_healing": 0.21,
+        "ability_witch_doctor_splash_potion_healing": 0.21,
+        "ability_witch_doctor_ingredient_jungle_shrooms_healing": 0.21,
+        "ability_witch_doctor_ingredient_frog_bones_healing": 0.21,
+        "ability_witch_doctor_ingredient_bloodthistle_healing": 0.21
       },
       "connected_to": [],
       "_source": "CoA: 'For 10 sec, the effectiveness of all Cauldron effects and Ingredients is increased by 100% and you can cast Spirit in a Bottle while moving.' Frontier HAS Master Mixologist as a castable self ability, so this talent is its passive half. Casting while moving is positional. CoA's 100% in a 10-second window on a 2-minute cooldown is priced at a permanent 40% plus crit - roughly the same throughput averaged out, and reachable every turn rather than once a fight. The three Mojo talents that would also have lived at this tier (Mojo: Fish Bones, Frog Shrooms, Jungle Thistle) are NOT built: each resets a cooldown and then swaps the loaded Ingredient pair, and there is no loadout state to swap. Tiki Splash is dropped for the same reason - it transforms one ability into another while a Base is active, and there is no 'while active' gate."

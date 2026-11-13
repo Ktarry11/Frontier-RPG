@@ -34,7 +34,7 @@
     {
       "talent_id": "ranger_farstrider_blow_the_horns",
       "name": "Blow the Horns!",
-      "description": "Reduces the cooldown of your Horn and Screech auras by 35%.",
+      "description": "Reduces the cooldown of your Horn and Screech auras by 36%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -42,9 +42,9 @@
       "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "ability_ranger_horn_of_war_cooldown_pct": 0.1167,
-        "ability_ranger_horn_of_alacrity_cooldown_pct": 0.1167,
-        "ability_ranger_battle_screech_cooldown_pct": 0.1167
+        "ability_ranger_horn_of_war_cooldown_pct": 0.12,
+        "ability_ranger_horn_of_alacrity_cooldown_pct": 0.12,
+        "ability_ranger_battle_screech_cooldown_pct": 0.12
       },
       "connected_to": [
         "ranger_farstrider_scavenger",
@@ -75,7 +75,7 @@
     {
       "talent_id": "ranger_farstrider_falcon_charmer",
       "name": "Falcon Charmer",
-      "description": "Increases your pets' damage by 25% and their health by 20%.",
+      "description": "Increases your pets' damage by 25% and their health by 21%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -83,8 +83,8 @@
       "hex_x": 2,
       "hex_y": -6,
       "effects": {
-        "pet_damage": 0.033,
-        "pet_health": 0.0667
+        "pet_damage": 0.03,
+        "pet_health": 0.07
       },
       "connected_to": [
         "ranger_farstrider_survivalist"
@@ -94,7 +94,7 @@
     {
       "talent_id": "ranger_farstrider_survivalist",
       "name": "Survivalist",
-      "description": "Reduces the cooldown of Survival Potion by 30% and increases its healing by 20%.",
+      "description": "Reduces the cooldown of Survival Potion by 30% and increases its healing by 12%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -103,7 +103,7 @@
       "hex_y": -4,
       "effects": {
         "ability_ranger_survival_potion_cooldown_pct": 0.1,
-        "ability_ranger_survival_potion_healing": 0.036
+        "ability_ranger_survival_potion_healing": 0.04
       },
       "connected_to": [
         "ranger_farstrider_gutpiercer"
@@ -177,7 +177,7 @@
     {
       "talent_id": "ranger_farstrider_forest_fighter",
       "name": "Forest Fighter",
-      "description": "Reduces the cooldown of Woodland Arrow and Emerald Arrow by 35%.",
+      "description": "Reduces the cooldown of Woodland Arrow and Emerald Arrow by 36%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -185,8 +185,8 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_ranger_woodland_arrow_cooldown_pct": 0.1167,
-        "ability_ranger_emerald_arrow_cooldown_pct": 0.1167
+        "ability_ranger_woodland_arrow_cooldown_pct": 0.12,
+        "ability_ranger_emerald_arrow_cooldown_pct": 0.12
       },
       "connected_to": [
         "ranger_farstrider_venom_coated_seeds"
@@ -196,7 +196,7 @@
     {
       "talent_id": "ranger_farstrider_war_falconer",
       "name": "War Falconer",
-      "description": "Increases your pets' damage by a further 30% and their armor by 25%.",
+      "description": "Increases your pets' damage by a further 12% and their armor by 24%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -205,7 +205,7 @@
       "hex_y": 0,
       "effects": {
         "pet_damage": 0.04,
-        "pet_armor": 0.0833
+        "pet_armor": 0.08
       },
       "connected_to": [
         "ranger_farstrider_plumes_of_war"
@@ -247,7 +247,7 @@
     {
       "talent_id": "ranger_farstrider_plumes_of_war",
       "name": "Plumes of War",
-      "description": "Increases the critical strike chance of Falconstrike and Emerald Arrow by 15%, and your critical strikes increase your damage by 5% for 3 turns, stacking up to 5 times.",
+      "description": "Increases the critical strike chance of Falconstrike and Emerald Arrow by 9%, and your critical strikes increase your damage by 5% for 3 turns, stacking up to 5 times.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -305,7 +305,7 @@
     {
       "talent_id": "ranger_farstrider_thalassian_brand",
       "name": "Thalassian Brand",
-      "description": "Increases the damage of Thalassian Brand by 21.6% and its duration by 2 turns.",
+      "description": "Increases the damage of Thalassian Brand by 22% and its duration by 2 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
@@ -313,7 +313,7 @@
       "hex_x": 0,
       "hex_y": 4,
       "effects": {
-        "ability_ranger_thalassian_brand_damage": 0.216,
+        "ability_ranger_thalassian_brand_damage": 0.22,
         "ability_ranger_thalassian_brand_duration": 2
       },
       "connected_to": [
@@ -324,7 +324,7 @@
     {
       "talent_id": "ranger_farstrider_wingman",
       "name": "Wingman",
-      "description": "Reduces all damage you take by 5% and increases your maximum health by 6%.",
+      "description": "Reduces all damage you take by 6% and increases your maximum health by 6%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -332,7 +332,7 @@
       "hex_x": 2,
       "hex_y": 4,
       "effects": {
-        "damage_taken_pct": -0.0167,
+        "damage_taken_pct": -0.02,
         "max_health_pct": 0.02
       },
       "connected_to": [
@@ -343,7 +343,7 @@
     {
       "talent_id": "ranger_farstrider_windrunners_reach",
       "name": "Windrunner's Reach",
-      "description": "Increases your critical strike chance by 4% and your ranged attack power by 20% of your Agility.",
+      "description": "Increases your critical strike chance by 3% and your ranged attack power by 21% of your Agility.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -351,8 +351,8 @@
       "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "crit_chance_physical": 1.3333,
-        "ranged_ap_from_agility_pct": 0.0667
+        "crit_chance_physical": 1,
+        "ranged_ap_from_agility_pct": 0.07
       },
       "connected_to": [
         "ranger_farstrider_blow_the_horns"
@@ -362,7 +362,7 @@
     {
       "talent_id": "ranger_farstrider_hunting_tactics",
       "name": "Hunting Tactics",
-      "description": "Increases the damage of Skullpiercer by 30% and of Falconstrike by 25%.",
+      "description": "Increases the damage of Skullpiercer by 15% and of Falconstrike by 15%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -370,8 +370,8 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_ranger_skullpiercer_damage": 0.054,
-        "ability_ranger_falconstrike_damage": 0.045
+        "ability_ranger_skullpiercer_damage": 0.05,
+        "ability_ranger_falconstrike_damage": 0.05
       },
       "connected_to": [
         "ranger_farstrider_scavenger"
@@ -381,7 +381,7 @@
     {
       "talent_id": "ranger_farstrider_razorquills",
       "name": "Razorquills",
-      "description": "Increases the damage of your periodic effects by 20%.",
+      "description": "Increases the damage of your periodic effects by 21%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -389,7 +389,7 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "dot_damage": 0.0667
+        "dot_damage": 0.07
       },
       "connected_to": [
         "ranger_farstrider_venom_coated_seeds"
@@ -479,7 +479,7 @@
     {
       "talent_id": "ranger_farstrider_command_of_the_farstrider",
       "name": "Command of the Farstrider",
-      "description": "Reduces the cooldown of all your party auras by a further 30%, increases your pets' damage by 25%, and your attacks have a 25% chance to mend your most wounded ally.",
+      "description": "Reduces the cooldown of all your party auras by a further 30%, increases your pets' damage by 10%, and your attacks have a 10% chance to mend your most wounded ally.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,

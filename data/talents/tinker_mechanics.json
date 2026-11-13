@@ -16,7 +16,7 @@
     {
       "talent_id": "tinker_mechanics_slam_the_cogs",
       "name": "Slam the Cogs!",
-      "description": "Increases the damage you and your constructs deal by up to 3.9%.",
+      "description": "Increases the damage you and your constructs deal by up to 3%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,8 +24,8 @@
       "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "all_damage": 0.013,
-        "pet_damage": 0.011
+        "all_damage": 0.01,
+        "pet_damage": 0.01
       },
       "connected_to": [
         "tinker_mechanics_mechanical_synergy"
@@ -35,7 +35,7 @@
     {
       "talent_id": "tinker_mechanics_fine_tuned",
       "name": "Fine Tuned",
-      "description": "Increases your critical strike chance by 4% and your constructs' damage by 4%.",
+      "description": "Increases your critical strike chance by 3% and your constructs' damage by 3%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -43,8 +43,8 @@
       "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "crit_chance_physical": 1.3333,
-        "pet_damage": 0.005
+        "crit_chance_physical": 1,
+        "pet_damage": 0.01
       },
       "connected_to": [
         "tinker_mechanics_junker"
@@ -54,7 +54,7 @@
     {
       "talent_id": "tinker_mechanics_cogmaster",
       "name": "Cogmaster",
-      "description": "Increases your critical strike chance by 2%. Your critical strikes have a 50% chance to scavenge 3 Scrap and restore mana.",
+      "description": "Increases your critical strike chance by 3%. Your critical strikes have a 50% chance to scavenge 3 Scrap and restore mana.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -62,7 +62,7 @@
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "crit_chance_physical": 0.6667
+        "crit_chance_physical": 1
       },
       "connected_to": [
         "tinker_mechanics_combat_crafter"
@@ -145,9 +145,9 @@
       "hex_x": -3,
       "hex_y": -4,
       "effects": {
-        "ability_tinker_sticky_bomb_damage": 0.054,
-        "ability_tinker_mechsuit_laser_beam_damage": 0.054,
-        "ability_tinker_mechsuit_combustion_damage": 0.054
+        "ability_tinker_sticky_bomb_damage": 0.05,
+        "ability_tinker_mechsuit_laser_beam_damage": 0.05,
+        "ability_tinker_mechsuit_combustion_damage": 0.05
       },
       "connected_to": [
         "tinker_mechanics_arclight_adept"
@@ -230,7 +230,7 @@
     {
       "talent_id": "tinker_mechanics_defensive_utility",
       "name": "Defensive Utility",
-      "description": "Your Mechsuit increases your armor by an additional 50%.",
+      "description": "Your Mechsuit increases your armor by an additional 51%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -238,7 +238,7 @@
       "hex_x": -5,
       "hex_y": -4,
       "effects": {
-        "armor_pct": 16.6667
+        "armor_pct": 17
       },
       "connected_to": [
         "tinker_mechanics_augmechtation"
@@ -248,7 +248,7 @@
     {
       "talent_id": "tinker_mechanics_turbo_guns",
       "name": "Turbo Guns",
-      "description": "Increases the damage of Mechsuit: Combustion by 10% per rank.",
+      "description": "Increases the damage of Mechsuit: Combustion by 4% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -256,7 +256,7 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "ability_tinker_mechsuit_combustion_damage": 0.036
+        "ability_tinker_mechsuit_combustion_damage": 0.04
       },
       "connected_to": [
         "tinker_mechanics_overload"
@@ -266,7 +266,7 @@
     {
       "talent_id": "tinker_mechanics_flak_guns",
       "name": "Flak Guns",
-      "description": "Mechsuit: Combustion deals 10% more damage and 15% more critical damage.",
+      "description": "Mechsuit: Combustion deals 6% more damage and 15% more critical damage.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -275,7 +275,7 @@
       "hex_y": -2,
       "effects": {
         "ability_tinker_mechsuit_combustion_crit_damage": 0.05,
-        "ability_tinker_mechsuit_combustion_damage": 0.018
+        "ability_tinker_mechsuit_combustion_damage": 0.02
       },
       "connected_to": [
         "tinker_mechanics_overload"
@@ -311,7 +311,7 @@
     {
       "talent_id": "tinker_mechanics_augmentor",
       "name": "Augmentor",
-      "description": "While an Augmentation is active, your haste is increased by 10%.",
+      "description": "While an Augmentation is active, your haste is increased by 9%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -319,7 +319,7 @@
       "hex_x": -4,
       "hex_y": -2,
       "effects": {
-        "haste": 3.3333
+        "haste": 3
       },
       "connected_to": [
         "tinker_mechanics_augmechtation"
@@ -329,7 +329,7 @@
     {
       "talent_id": "tinker_mechanics_bombs_bombs",
       "name": "Bombs? BOMBS!",
-      "description": "Reduces the cooldown of Sticky Bomb by 17.5% per rank.",
+      "description": "Reduces the cooldown of Sticky Bomb by 12% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -337,7 +337,7 @@
       "hex_x": -3,
       "hex_y": 0,
       "effects": {
-        "ability_tinker_sticky_bomb_cooldown_pct": 0.1167
+        "ability_tinker_sticky_bomb_cooldown_pct": 0.12
       },
       "connected_to": [
         "tinker_mechanics_arclight_core"
@@ -442,7 +442,7 @@
     {
       "talent_id": "tinker_mechanics_augmechtation",
       "name": "Augmechtation",
-      "description": "Your Mechsuit increases your damage by an additional 10% while active.",
+      "description": "Your Mechsuit increases your damage by an additional 6% while active.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -450,7 +450,7 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "all_damage": 0.017
+        "all_damage": 0.02
       },
       "connected_to": [
         "tinker_mechanics_haywired_state"
@@ -546,7 +546,7 @@
     {
       "talent_id": "tinker_mechanics_turbo_upgrade",
       "name": "Turbo Upgrade!",
-      "description": "Increases the damage of your Mechsuit abilities by 100% and the duration of your Mechsuit by 100%.",
+      "description": "Increases the damage of your Mechsuit abilities by 54% and the duration of your Mechsuit by 54%.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,

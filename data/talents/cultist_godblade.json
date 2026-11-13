@@ -283,7 +283,7 @@
     {
       "talent_id": "cultist_godblade_touch_of_the_void",
       "name": "Touch of the Void",
-      "description": "Increases the damage of Hammer of Twilight and Wrath of the Black Empire by 4% per rank. Hammer of Twilight shatters the target's guard, reducing armor by 30 for 3 turns.",
+      "description": "Increases the damage of Hammer of Twilight and Wrath of the Black Empire by 2% per rank. Hammer of Twilight shatters the target's guard, reducing armor by 30 for 3 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -291,8 +291,8 @@
       "hex_x": 1,
       "hex_y": 0,
       "effects": {
-        "ability_cultist_hammer_of_twilight_damage": 0.022,
-        "ability_cultist_wrath_of_the_black_empire_damage": 0.022
+        "ability_cultist_hammer_of_twilight_damage": 0.02,
+        "ability_cultist_wrath_of_the_black_empire_damage": 0.02
       },
       "connected_to": [
         "cultist_godblade_shadow_of_the_void"
@@ -421,7 +421,7 @@
     {
       "talent_id": "cultist_godblade_seething_void",
       "name": "Seething Void",
-      "description": "Increases Entropic Strike's damage by 6% per rank. Your critical strikes have a 20% chance per rank to seed Seething Void, dealing 45 Shadow damage each turn for 3 turns.",
+      "description": "Increases Entropic Strike's damage by 3% per rank. Your critical strikes have a 20% chance per rank to seed Seething Void, dealing 45 Shadow damage each turn for 3 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -429,7 +429,7 @@
       "hex_x": -3,
       "hex_y": 0,
       "effects": {
-        "ability_cultist_entropic_strike_damage": 0.032
+        "ability_cultist_entropic_strike_damage": 0.03
       },
       "connected_to": [
         "cultist_godblade_entropic_strike"

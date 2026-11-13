@@ -35,7 +35,7 @@
     {
       "talent_id": "knight_of_xoroth_war_mutilation",
       "name": "Mutilation",
-      "description": "Increases the damage of Gore and Sever by 16.2%.",
+      "description": "Increases the damage of Gore and Sever by 15%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -43,8 +43,8 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "ability_knight_of_xoroth_gore_damage": 0.054,
-        "ability_knight_of_xoroth_sever_damage": 0.054
+        "ability_knight_of_xoroth_gore_damage": 0.05,
+        "ability_knight_of_xoroth_sever_damage": 0.05
       },
       "connected_to": [
         "knight_of_xoroth_war_consuming_blade"
@@ -54,7 +54,7 @@
     {
       "talent_id": "knight_of_xoroth_war_consuming_blade",
       "name": "Consuming Blade",
-      "description": "Increases the critical strike chance of Gore by 50% and your expertise by 10.",
+      "description": "Increases the critical strike chance of Gore by 30% and your expertise by 10.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -63,7 +63,7 @@
       "hex_y": -6,
       "effects": {
         "ability_knight_of_xoroth_gore_crit": 10.0,
-        "expertise": 3.3333
+        "expertise": 3
       },
       "connected_to": [
         "knight_of_xoroth_war_murderous_might"
@@ -73,7 +73,7 @@
     {
       "talent_id": "knight_of_xoroth_war_murderous_might",
       "name": "Murderous Might",
-      "description": "Increases the damage of Skulltaker, Warbringer and Meatsaw by 13.5%.",
+      "description": "Increases the damage of Skulltaker, Warbringer and Meatsaw by 15%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -81,9 +81,9 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "ability_knight_of_xoroth_skulltaker_damage": 0.045,
-        "ability_knight_of_xoroth_warbringer_damage": 0.045,
-        "ability_knight_of_xoroth_meatsaw_damage": 0.045
+        "ability_knight_of_xoroth_skulltaker_damage": 0.05,
+        "ability_knight_of_xoroth_warbringer_damage": 0.05,
+        "ability_knight_of_xoroth_meatsaw_damage": 0.05
       },
       "connected_to": [
         "knight_of_xoroth_war_absolutism"
@@ -93,7 +93,7 @@
     {
       "talent_id": "knight_of_xoroth_war_absolutism",
       "name": "Absolutism",
-      "description": "Increases your armour penetration by 10%.",
+      "description": "Increases your armour penetration by 9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -101,7 +101,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "armor_penetration_pct": 3.3333
+        "armor_penetration_pct": 3
       },
       "connected_to": [
         "knight_of_xoroth_war_gore"
@@ -254,7 +254,7 @@
     {
       "talent_id": "knight_of_xoroth_war_pestilence_of_death",
       "name": "Pestilence of Death",
-      "description": "Increases your critical strike damage by 20%.",
+      "description": "Increases your critical strike damage by 21%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -262,7 +262,7 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "crit_damage_physical": 0.0667
+        "crit_damage_physical": 0.07
       },
       "connected_to": [
         "knight_of_xoroth_war_boundless_fury"
@@ -272,7 +272,7 @@
     {
       "talent_id": "knight_of_xoroth_war_boundless_fury",
       "name": "Boundless Fury",
-      "description": "Increases the damage of Unleash Pestilence by 16.2%.",
+      "description": "Increases the damage of Unleash Pestilence by 15%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -280,7 +280,7 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_knight_of_xoroth_unleash_pestilence_damage": 0.054
+        "ability_knight_of_xoroth_unleash_pestilence_damage": 0.05
       },
       "connected_to": [
         "knight_of_xoroth_war_screamin_demon"
@@ -341,7 +341,7 @@
       "effects": {
         "ability_knight_of_xoroth_burning_blade_potency": 0.3,
         "ability_knight_of_xoroth_burning_blade_duration": 1,
-        "ability_knight_of_xoroth_searing_blade_damage": 0.162
+        "ability_knight_of_xoroth_searing_blade_damage": 0.16
       },
       "connected_to": [
         "knight_of_xoroth_war_burning_swings"
@@ -351,7 +351,7 @@
     {
       "talent_id": "knight_of_xoroth_war_burning_swings",
       "name": "Burning Swings",
-      "description": "Increases the damage of Searing Blade by 21.6%.",
+      "description": "Increases the damage of Searing Blade by 21%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -359,7 +359,7 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_knight_of_xoroth_searing_blade_damage": 0.072
+        "ability_knight_of_xoroth_searing_blade_damage": 0.07
       },
       "connected_to": [
         "knight_of_xoroth_war_hand_of_doom"
@@ -369,7 +369,7 @@
     {
       "talent_id": "knight_of_xoroth_war_hand_of_doom",
       "name": "Hand of Doom",
-      "description": "Increases the damage of Sever by 21.6%.",
+      "description": "Increases the damage of Sever by 21%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -377,7 +377,7 @@
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "ability_knight_of_xoroth_sever_damage": 0.072
+        "ability_knight_of_xoroth_sever_damage": 0.07
       },
       "connected_to": [
         "knight_of_xoroth_war_decimation"
@@ -387,7 +387,7 @@
     {
       "talent_id": "knight_of_xoroth_war_decimation",
       "name": "Decimation",
-      "description": "Increases the critical strike chance of Skulltaker and Warbringer by 30%.",
+      "description": "Increases the critical strike chance of Skulltaker and Warbringer by 18%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -406,7 +406,7 @@
     {
       "talent_id": "knight_of_xoroth_war_warbringer",
       "name": "Warbringer",
-      "description": "Increases the damage of Warbringer by 40%, and it leaves the enemy receiving 30% less healing for 3 turns.",
+      "description": "Increases the damage of Warbringer by 21%, and it leaves the enemy receiving 30% less healing for 3 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -414,7 +414,7 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "ability_knight_of_xoroth_warbringer_damage": 0.072
+        "ability_knight_of_xoroth_warbringer_damage": 0.07
       },
       "connected_to": [
         "knight_of_xoroth_war_conquerors_will"
@@ -477,7 +477,7 @@
     {
       "talent_id": "knight_of_xoroth_war_skulltaker_mastery",
       "name": "Skulltaker",
-      "description": "Increases the damage of Skulltaker by 50% and your armour penetration by a further 15%.",
+      "description": "Increases the damage of Skulltaker by 27% and your armour penetration by a further 15%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -524,7 +524,7 @@
     {
       "talent_id": "knight_of_xoroth_war_brimstone_bludgeon",
       "name": "Brimstone Bludgeon",
-      "description": "Teaches Brimstone Bludgeon, and your Deathfire spenders hit 16.2% harder.",
+      "description": "Teaches Brimstone Bludgeon, and your Deathfire spenders hit 16% harder.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -533,9 +533,9 @@
       "hex_y": 6,
       "effects": {
         "unlock_ability": "knight_of_xoroth_brimstone_bludgeon",
-        "ability_knight_of_xoroth_skulltaker_damage": 0.162,
-        "ability_knight_of_xoroth_warbringer_damage": 0.162,
-        "ability_knight_of_xoroth_meatsaw_damage": 0.162
+        "ability_knight_of_xoroth_skulltaker_damage": 0.16,
+        "ability_knight_of_xoroth_warbringer_damage": 0.16,
+        "ability_knight_of_xoroth_meatsaw_damage": 0.16
       },
       "connected_to": [],
       "_source": "LOAD-BEARING UNLOCK: knight_of_xoroth_brimstone_bludgeon carries requires_talent, so without this node it is unobtainable forever. Knight of Xoroth has five gated abilities across three trees - this and Gore in War, Shieldgore and Call Hellfire Abyssal in Defiance, Hellmaw in Hellfire - and main() asserts both of this tree's. The spender damage is added because a capstone granting only an ability is thin, and it pays off the Deathfire economy the whole tree builds."

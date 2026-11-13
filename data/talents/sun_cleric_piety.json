@@ -60,8 +60,8 @@
       "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "ability_sun_cleric_dawnsear_crit": 0.6,
-        "ability_sun_cleric_sunflare_crit": 0.6
+        "ability_sun_cleric_dawnsear_crit": 1,
+        "ability_sun_cleric_sunflare_crit": 1
       },
       "connected_to": [
         "sun_cleric_piety_grace_l",
@@ -176,7 +176,7 @@
     {
       "talent_id": "sun_cleric_piety_wrathful_sun",
       "name": "Wrathful Sun",
-      "description": "Increases Rapture damage by 5% per rank.",
+      "description": "Increases Rapture damage by 3% per rank.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 5,
@@ -184,7 +184,7 @@
       "hex_x": -2,
       "hex_y": 6,
       "effects": {
-        "ability_sun_cleric_rapture_damage": 0.027
+        "ability_sun_cleric_rapture_damage": 0.03
       },
       "connected_to": [
         "sun_cleric_piety_rapture"
@@ -365,7 +365,7 @@
     {
       "talent_id": "sun_cleric_piety_grace_r",
       "name": "Grace",
-      "description": "Increases Sunflare spell damage by 4% per rank.",
+      "description": "Increases Sunflare spell damage by 2% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -373,7 +373,7 @@
       "hex_x": 2,
       "hex_y": -6,
       "effects": {
-        "ability_sun_cleric_sunflare_damage": 0.022
+        "ability_sun_cleric_sunflare_damage": 0.02
       },
       "connected_to": [
         "sun_cleric_piety_hidden2"
@@ -472,7 +472,7 @@
       "hex_x": 2,
       "hex_y": 2,
       "effects": {
-        "ability_sun_cleric_radiant_flame_damage": 0.027,
+        "ability_sun_cleric_radiant_flame_damage": 0.03,
         "dot_damage": 0.01
       },
       "connected_to": [

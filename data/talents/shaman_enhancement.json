@@ -168,7 +168,7 @@
     {
       "talent_id": "shaman_enhancement_improved_windfury_totem",
       "name": "Improved Windfury Totem",
-      "description": "Increases the effect of your Windfury Totem by 10% per rank.",
+      "description": "Your Windfury Totem lasts 1 turn longer per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
@@ -534,7 +534,7 @@
       "effects": {
         "conditional_guardian_physical_damage_taken_pct": -0.02,
         "conditional_guardian_magic_damage_taken_pct": -0.03,
-        "conditional_guardian_ap_shred": 19.33
+        "conditional_guardian_ap_shred": 19
       },
       "_source": "KYLE'S HOMEBREW SHAMAN TANK, preserved exactly through the Enhancement rebuild of 5 Nov 2026 - same talent_id, effects, values, tier and column. NOT a WotLK talent. Verified live on a level-60 shaman before anything was touched: the seven tank nodes together move health 428 -> 470, block +10, crit-taken -6%, and Earthen Attunement's guardian mitigation registers at -6% physical / -9% magic with a 58 AP shred. Its keys are read by combat/guardian_stance.py's Earthen Guardian toggle. The conditional_guardian_* keys are read at character.py:688-695 and are gated on the Earthen Guardian toggle being ON, which is what makes this the tank path's signature node.",
       "connected_to": [

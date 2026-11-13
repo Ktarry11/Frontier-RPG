@@ -16,7 +16,7 @@
     {
       "talent_id": "templar_oathkeeper_graceful_fighter",
       "name": "Graceful Fighter",
-      "description": "Increases your parry chance by 20% of your Agility and your dodge chance by 20% of your Intellect.",
+      "description": "Increases your parry chance by 21% of your Agility and your dodge chance by 21% of your Intellect.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,8 +24,8 @@
       "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "parry_from_agility_pct": 0.0667,
-        "dodge_from_intellect_pct": 0.0667
+        "parry_from_agility_pct": 0.07,
+        "dodge_from_intellect_pct": 0.07
       },
       "connected_to": [
         "templar_oathkeeper_paragon"
@@ -35,7 +35,7 @@
     {
       "talent_id": "templar_oathkeeper_paragon",
       "name": "Paragon",
-      "description": "Increases your Stamina by 10% and your Agility by 10%.",
+      "description": "Increases your Stamina by 9% and your Agility by 9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -43,8 +43,8 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "stamina_pct": 3.3333,
-        "agility_pct": 3.3333
+        "stamina_pct": 3,
+        "agility_pct": 3
       },
       "connected_to": [
         "templar_oathkeeper_bells_of_light"
@@ -74,7 +74,7 @@
     {
       "talent_id": "templar_oathkeeper_graceful_oath",
       "name": "Sacred Oath",
-      "description": "Reduces the physical damage you take by 8%.",
+      "description": "Reduces the physical damage you take by 9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -82,7 +82,7 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "physical_damage_taken_pct": -0.0267
+        "physical_damage_taken_pct": -0.03
       },
       "connected_to": [
         "templar_oathkeeper_grace_of_amanthul"
@@ -92,7 +92,7 @@
     {
       "talent_id": "templar_oathkeeper_grace_of_amanthul",
       "name": "Grace of Aman'thul",
-      "description": "Reduces the cost of Righteous Lunge and Sacred Swing by 10.8%.",
+      "description": "Reduces the cost of Righteous Lunge and Sacred Swing by 12%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -100,8 +100,8 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "ability_templar_righteous_lunge_damage": 0.036,
-        "ability_templar_sacred_swing_damage": 0.036
+        "ability_templar_righteous_lunge_damage": 0.04,
+        "ability_templar_sacred_swing_damage": 0.04
       },
       "connected_to": [
         "templar_oathkeeper_staffguard"
@@ -214,7 +214,7 @@
     {
       "talent_id": "templar_oathkeeper_holy_warstaff",
       "name": "Holy Warstaff",
-      "description": "Increases the damage of Reckoning by 10.8%.",
+      "description": "Increases the damage of Reckoning by 12%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -222,7 +222,7 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_templar_reckoning_damage": 0.036
+        "ability_templar_reckoning_damage": 0.04
       },
       "connected_to": [
         "templar_oathkeeper_parry_dance"
@@ -264,7 +264,7 @@
     {
       "talent_id": "templar_oathkeeper_disciplined_mind",
       "name": "Disciplined Mind",
-      "description": "Increases the healing of Benediction by 15.9%.",
+      "description": "Increases the healing of Benediction by 15%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -272,7 +272,7 @@
       "hex_x": -4,
       "hex_y": -2,
       "effects": {
-        "ability_templar_benediction_healing": 0.053
+        "ability_templar_benediction_healing": 0.05
       },
       "connected_to": [
         "templar_oathkeeper_justicar_of_the_light"
@@ -282,7 +282,7 @@
     {
       "talent_id": "templar_oathkeeper_justicar_of_the_light",
       "name": "Justicar of the Light",
-      "description": "Reduces the cooldown of Benediction by 50%.",
+      "description": "Reduces the cooldown of Benediction by 51%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -290,7 +290,7 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_templar_benediction_cooldown_pct": 0.1667
+        "ability_templar_benediction_cooldown_pct": 0.17
       },
       "connected_to": [
         "templar_oathkeeper_guardian_of_the_light"
@@ -300,7 +300,7 @@
     {
       "talent_id": "templar_oathkeeper_guardian_of_the_light",
       "name": "Guardian of the Light",
-      "description": "Reduces the cost of Temple Guardian by 26.7%.",
+      "description": "Reduces the cost of Temple Guardian by 27%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -308,7 +308,7 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_templar_temple_guardian_healing": 0.089
+        "ability_templar_temple_guardian_healing": 0.09
       },
       "connected_to": [
         "templar_oathkeeper_way_of_the_monk"
@@ -363,7 +363,7 @@
       "hex_y": 0,
       "effects": {
         "max_health_pct": 0.02,
-        "healing_taken_pct": 0.011
+        "healing_taken_pct": 0.01
       },
       "connected_to": [
         "templar_oathkeeper_call_of_the_monastery"
@@ -373,7 +373,7 @@
     {
       "talent_id": "templar_oathkeeper_call_of_the_monastery",
       "name": "Call of the Monastery",
-      "description": "Increases your attack power by 10%.",
+      "description": "Increases your attack power by 9%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -381,7 +381,7 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "attack_power_pct": 3.3333
+        "attack_power_pct": 3
       },
       "connected_to": [
         "templar_oathkeeper_faith_guard"
@@ -391,7 +391,7 @@
     {
       "talent_id": "templar_oathkeeper_faith_guard",
       "name": "Faith Guard",
-      "description": "Increases the damage of Chastise by 30% and the threat you\ngenerate by 20%.",
+      "description": "Increases the damage of Chastise by 15% and the threat you\ngenerate by 21%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -399,8 +399,8 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_templar_chastise_damage": 0.054,
-        "threat_generation_pct": 0.0667
+        "ability_templar_chastise_damage": 0.05,
+        "threat_generation_pct": 0.07
       },
       "connected_to": [
         "templar_oathkeeper_disciplined_blows"
@@ -433,7 +433,7 @@
     {
       "talent_id": "templar_oathkeeper_absolution",
       "name": "Absolution",
-      "description": "Increases the threat you generate by 30% and your armour by 10%.",
+      "description": "Increases the threat you generate by 30% and your armour by 9%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -442,7 +442,7 @@
       "hex_y": 2,
       "effects": {
         "threat_generation_pct": 0.1,
-        "armor_pct": 3.3333
+        "armor_pct": 3
       },
       "connected_to": [
         "templar_oathkeeper_holy_books"
@@ -452,7 +452,7 @@
     {
       "talent_id": "templar_oathkeeper_holy_books",
       "name": "Holy Books",
-      "description": "Reduces all damage you take by 7%.",
+      "description": "Reduces all damage you take by 6%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -460,7 +460,7 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "damage_taken_pct": -0.0233
+        "damage_taken_pct": -0.02
       },
       "connected_to": [
         "templar_oathkeeper_duty_calls"
@@ -510,7 +510,7 @@
     {
       "talent_id": "templar_oathkeeper_barrier_of_light",
       "name": "Barrier of Light",
-      "description": "Increases the healing you receive by 20% and reduces the cooldown of Barrier of Light by 30%.",
+      "description": "Increases the healing you receive by 12% and reduces the cooldown of Barrier of Light by 30%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -518,7 +518,7 @@
       "hex_x": -3,
       "hex_y": 4,
       "effects": {
-        "healing_taken_pct": 0.036,
+        "healing_taken_pct": 0.04,
         "ability_templar_barrier_of_light_cooldown_pct": 0.1
       },
       "connected_to": [
@@ -529,7 +529,7 @@
     {
       "talent_id": "templar_oathkeeper_sacred_swing_mastery",
       "name": "Sacred Swing",
-      "description": "Increases the damage of Sacred Swing by 40% and the threat you\ngenerate by 15%.",
+      "description": "Increases the damage of Sacred Swing by 21% and the threat you\ngenerate by 15%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -537,7 +537,7 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "ability_templar_sacred_swing_damage": 0.072,
+        "ability_templar_sacred_swing_damage": 0.07,
         "threat_generation_pct": 0.05
       },
       "connected_to": [
@@ -548,7 +548,7 @@
     {
       "talent_id": "templar_oathkeeper_paragon_of_light",
       "name": "Paragon of Light",
-      "description": "Increases your dodge and parry chance by 4% each.",
+      "description": "Increases your dodge and parry chance by 3% each.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -556,8 +556,8 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "dodge": 1.3333,
-        "parry": 1.3333
+        "dodge": 1,
+        "parry": 1
       },
       "connected_to": [
         "templar_oathkeeper_tome_of_light"

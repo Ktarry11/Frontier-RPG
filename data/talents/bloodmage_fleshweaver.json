@@ -16,7 +16,7 @@
     {
       "talent_id": "bloodmage_fleshweaver_gift_of_lanathel",
       "name": "Gift of Lana'thel",
-      "description": "Increases your spell power by 50% of your Spirit.",
+      "description": "Increases your spell power by 51% of your Spirit.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,7 +24,7 @@
       "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "spell_power_from_spirit_pct": 0.1667
+        "spell_power_from_spirit_pct": 0.17
       },
       "connected_to": [
         "bloodmage_fleshweaver_dark_liturgy"
@@ -34,7 +34,7 @@
     {
       "talent_id": "bloodmage_fleshweaver_consolidation",
       "name": "Consolidation",
-      "description": "Increases your haste by 5%.",
+      "description": "Increases your haste by 6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -42,7 +42,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "haste": 1.6667
+        "haste": 2
       },
       "connected_to": [
         "bloodmage_fleshweaver_dark_liturgy"
@@ -52,7 +52,7 @@
     {
       "talent_id": "bloodmage_fleshweaver_organ_orbs",
       "name": "Organ Orbs",
-      "description": "Increases your healing power by 12%.",
+      "description": "Increases your healing power by 6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -60,7 +60,7 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "healing_power_pct": 2.1
+        "healing_power_pct": 2
       },
       "connected_to": [
         "bloodmage_fleshweaver_spice_of_life"
@@ -70,7 +70,7 @@
     {
       "talent_id": "bloodmage_fleshweaver_heart_rupturer",
       "name": "Heart Rupturer",
-      "description": "Increases the damage of Claw Sweep, Sanguine Rupture, Ravenous Strike and Bloodmoon Blast by 10.8%.",
+      "description": "Increases the damage of Claw Sweep, Sanguine Rupture, Ravenous Strike and Bloodmoon Blast by 12%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -78,10 +78,10 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "ability_bloodmage_claw_sweep_damage": 0.036,
-        "ability_bloodmage_sanguine_rupture_damage": 0.036,
-        "ability_bloodmage_ravenous_strike_damage": 0.036,
-        "ability_bloodmage_bloodmoon_blast_damage": 0.036
+        "ability_bloodmage_claw_sweep_damage": 0.04,
+        "ability_bloodmage_sanguine_rupture_damage": 0.04,
+        "ability_bloodmage_ravenous_strike_damage": 0.04,
+        "ability_bloodmage_bloodmoon_blast_damage": 0.04
       },
       "connected_to": [
         "bloodmage_fleshweaver_spice_of_life"
@@ -91,7 +91,7 @@
     {
       "talent_id": "bloodmage_fleshweaver_blood_redistribution",
       "name": "Blood Redistribution",
-      "description": "Increases the healing done by Fleshcraft by 13.2%.",
+      "description": "Increases the healing done by Fleshcraft by 12%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -99,7 +99,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "ability_bloodmage_fleshcraft_healing": 0.044
+        "ability_bloodmage_fleshcraft_healing": 0.04
       },
       "connected_to": [
         "bloodmage_fleshweaver_dissipation"
@@ -169,7 +169,7 @@
     {
       "talent_id": "bloodmage_fleshweaver_dissipation",
       "name": "Dissipation",
-      "description": "Reduces the cooldown of Fleshcraft by up to 50%.",
+      "description": "Reduces the cooldown of Fleshcraft by up to 51%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -177,7 +177,7 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "ability_bloodmage_fleshcraft_cooldown_pct": 0.1667
+        "ability_bloodmage_fleshcraft_cooldown_pct": 0.17
       },
       "connected_to": [
         "bloodmage_fleshweaver_sanguine_scion"
@@ -187,7 +187,7 @@
     {
       "talent_id": "bloodmage_fleshweaver_sanguine_scion",
       "name": "Sanguine Scion",
-      "description": "Increases the critical strike chance of Sanguine Mend and Bloodbolt by 10%.",
+      "description": "Increases the critical strike chance of Sanguine Mend and Bloodbolt by 6%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -381,7 +381,7 @@
     {
       "talent_id": "bloodmage_fleshweaver_vampyrs_kiss",
       "name": "Vampyr's Kiss",
-      "description": "Vampyr's Kiss leaves the target bleeding for 5 turns and taking 25% more damage over time.",
+      "description": "Vampyr's Kiss leaves the target bleeding for 5 turns and taking 24% more damage over time.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -389,7 +389,7 @@
       "hex_x": -4,
       "hex_y": 0,
       "effects": {
-        "dot_damage": 0.0833
+        "dot_damage": 0.08
       },
       "connected_to": [
         "bloodmage_fleshweaver_lingering_essence"
@@ -509,7 +509,7 @@
     {
       "talent_id": "bloodmage_fleshweaver_gruesome_rituals",
       "name": "Gruesome Rituals",
-      "description": "Increases all damage you deal by 10% and all healing you do by 10%.",
+      "description": "Increases all damage you deal by 6% and all healing you do by 6%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -517,8 +517,8 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "all_damage": 0.017,
-        "healing_done": 0.018
+        "all_damage": 0.02,
+        "healing_done": 0.02
       },
       "connected_to": [
         "bloodmage_fleshweaver_vitality_for_later"
@@ -704,7 +704,7 @@
     {
       "talent_id": "bloodmage_fleshweaver_infuse",
       "name": "Infuse",
-      "description": "Increases the damage your damage-over-time effects deal by 25% and your healing power by 10%.",
+      "description": "Increases the damage your damage-over-time effects deal by 24% and your healing power by 6%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -712,8 +712,8 @@
       "hex_x": 3,
       "hex_y": 4,
       "effects": {
-        "dot_damage": 0.0833,
-        "healing_power_pct": 1.8
+        "dot_damage": 0.08,
+        "healing_power_pct": 2
       },
       "connected_to": [
         "bloodmage_fleshweaver_blood_rituals"

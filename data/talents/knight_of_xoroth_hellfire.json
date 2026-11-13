@@ -16,7 +16,7 @@
     {
       "talent_id": "knight_of_xoroth_hellfire_burning_power",
       "name": "Burning Power",
-      "description": "Increases your attack power by 100% of your Intellect and your spell damage by 50% of your Strength.",
+      "description": "Increases your attack power by 99% of your Intellect and your spell damage by 51% of your Strength.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,8 +24,8 @@
       "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "attack_power_from_intellect_pct": 0.3333,
-        "spell_damage_from_strength_pct": 0.1667
+        "attack_power_from_intellect_pct": 0.33,
+        "spell_damage_from_strength_pct": 0.17
       },
       "connected_to": [
         "knight_of_xoroth_hellfire_cinderblade"
@@ -35,7 +35,7 @@
     {
       "talent_id": "knight_of_xoroth_hellfire_cinderblade",
       "name": "Cinderblade",
-      "description": "Increases your spell critical strike chance by 20% of your Intellect and your chance to hit by 6%.",
+      "description": "Increases your spell critical strike chance by 21% of your Intellect and your chance to hit by 6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -43,7 +43,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "crit_chance_spell_from_intellect_pct": 0.0667,
+        "crit_chance_spell_from_intellect_pct": 0.07,
         "hit_rating": 2
       },
       "connected_to": [
@@ -54,7 +54,7 @@
     {
       "talent_id": "knight_of_xoroth_hellfire_combusting_blade",
       "name": "Combusting Blade",
-      "description": "Increases your Intellect by 10% and reduces the Rage cost of Infernal Strike by 20%.",
+      "description": "Increases your Intellect by 9% and reduces the Rage cost of Infernal Strike by 21%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -62,8 +62,8 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "intellect_pct": 3.3333,
-        "ability_knight_of_xoroth_infernal_strike_cost_pct": 0.0667
+        "intellect_pct": 3,
+        "ability_knight_of_xoroth_infernal_strike_cost_pct": 0.07
       },
       "connected_to": [
         "knight_of_xoroth_hellfire_to_ashes"
@@ -73,7 +73,7 @@
     {
       "talent_id": "knight_of_xoroth_hellfire_to_ashes",
       "name": "To Ashes",
-      "description": "Increases the critical strike chance of Skulltaker, Warbringer and Meatsaw by 5%.",
+      "description": "Increases the critical strike chance of Skulltaker, Warbringer and Meatsaw by 3%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -93,7 +93,7 @@
     {
       "talent_id": "knight_of_xoroth_hellfire_flamewrath",
       "name": "Flamewrath",
-      "description": "Increases the critical strike chance of Seeking Flame by 20%.",
+      "description": "Increases the critical strike chance of Seeking Flame by 12%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -129,7 +129,7 @@
     {
       "talent_id": "knight_of_xoroth_hellfire_invasion",
       "name": "Invasion",
-      "description": "Increases all damage you deal by 9.9%.",
+      "description": "Increases all damage you deal by 9%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -137,7 +137,7 @@
       "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "all_damage": 0.033
+        "all_damage": 0.03
       },
       "connected_to": [
         "knight_of_xoroth_hellfire_pestilence_of_apocalypse"
@@ -192,7 +192,7 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_knight_of_xoroth_seeking_flame_damage": 0.054,
+        "ability_knight_of_xoroth_seeking_flame_damage": 0.05,
         "ability_knight_of_xoroth_seeking_flame_cooldown_pct": 0.1
       },
       "connected_to": [
@@ -221,7 +221,7 @@
     {
       "talent_id": "knight_of_xoroth_hellfire_calamity",
       "name": "Calamity",
-      "description": "Increases the damage of Unleash Pestilence by 13.5%.",
+      "description": "Increases the damage of Unleash Pestilence by 15%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -229,7 +229,7 @@
       "hex_x": -4,
       "hex_y": -2,
       "effects": {
-        "ability_knight_of_xoroth_unleash_pestilence_damage": 0.045
+        "ability_knight_of_xoroth_unleash_pestilence_damage": 0.05
       },
       "connected_to": [
         "knight_of_xoroth_hellfire_claws_of_hell"
@@ -239,7 +239,7 @@
     {
       "talent_id": "knight_of_xoroth_hellfire_claws_of_hell",
       "name": "Claws of Hell",
-      "description": "Increases the damage of your Deathfire spenders by 10.8%.",
+      "description": "Increases the damage of your Deathfire spenders by 12%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -247,9 +247,9 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_knight_of_xoroth_skulltaker_damage": 0.036,
-        "ability_knight_of_xoroth_warbringer_damage": 0.036,
-        "ability_knight_of_xoroth_meatsaw_damage": 0.036
+        "ability_knight_of_xoroth_skulltaker_damage": 0.04,
+        "ability_knight_of_xoroth_warbringer_damage": 0.04,
+        "ability_knight_of_xoroth_meatsaw_damage": 0.04
       },
       "connected_to": [
         "knight_of_xoroth_hellfire_seething_strikes"
@@ -259,7 +259,7 @@
     {
       "talent_id": "knight_of_xoroth_hellfire_seething_strikes",
       "name": "Seething Strikes",
-      "description": "Increases the damage of Sever by 30%, and it leaves the enemy taking 3% more spell damage for 4 turns.",
+      "description": "Increases the damage of Sever by 15%, and it leaves the enemy taking 3% more spell damage for 4 turns.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -267,7 +267,7 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_knight_of_xoroth_sever_damage": 0.054
+        "ability_knight_of_xoroth_sever_damage": 0.05
       },
       "connected_to": [
         "knight_of_xoroth_hellfire_inferno_blast"
@@ -296,7 +296,7 @@
     {
       "talent_id": "knight_of_xoroth_hellfire_inferno_blast",
       "name": "Inferno Blast",
-      "description": "Increases your critical strike damage by 40%.",
+      "description": "Increases your critical strike damage by 39%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -304,7 +304,7 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "crit_damage_physical": 0.1333
+        "crit_damage_physical": 0.13
       },
       "connected_to": [
         "knight_of_xoroth_hellfire_infernal_pummeling"
@@ -430,7 +430,7 @@
     {
       "talent_id": "knight_of_xoroth_hellfire_doom",
       "name": "Doom",
-      "description": "Increases the damage your demons deal by a further 15.9%.",
+      "description": "Increases the damage your demons deal by a further 15%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -438,7 +438,7 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "pet_damage": 0.053
+        "pet_damage": 0.05
       },
       "connected_to": [
         "knight_of_xoroth_hellfire_hellbringer"
@@ -448,7 +448,7 @@
     {
       "talent_id": "knight_of_xoroth_hellfire_hellbringer",
       "name": "Hellbringer",
-      "description": "Increases all damage you deal by a further 5.1%.",
+      "description": "Increases all damage you deal by a further 6%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -456,7 +456,7 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "all_damage": 0.017
+        "all_damage": 0.02
       },
       "connected_to": [
         "knight_of_xoroth_hellfire_grotesque"
@@ -496,7 +496,7 @@
     {
       "talent_id": "knight_of_xoroth_hellfire_hellfire_form",
       "name": "Hellfire Form",
-      "description": "Increases your spell damage by 20% and your spell critical strike chance by 15%.",
+      "description": "Increases your spell damage by 21% and your spell critical strike chance by 15%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -504,7 +504,7 @@
       "hex_x": -3,
       "hex_y": 4,
       "effects": {
-        "spell_damage": 0.0667,
+        "spell_damage": 0.07,
         "crit_chance_spell": 5
       },
       "connected_to": [
@@ -543,7 +543,7 @@
     {
       "talent_id": "knight_of_xoroth_hellfire_hellstorm",
       "name": "Hellstorm",
-      "description": "Increases the damage of Hellstorm and your fire strikes by 40%, and your damage-over-time spells by 25%.",
+      "description": "Increases the damage of Hellstorm and your fire strikes by 22%, and your damage-over-time spells by 25%.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -551,10 +551,10 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "ability_knight_of_xoroth_hellstorm_damage": 0.216,
-        "ability_knight_of_xoroth_hellmaw_damage": 0.216,
-        "ability_knight_of_xoroth_seeking_flame_damage": 0.216,
-        "ability_knight_of_xoroth_flames_of_xoroth_damage": 0.216,
+        "ability_knight_of_xoroth_hellstorm_damage": 0.22,
+        "ability_knight_of_xoroth_hellmaw_damage": 0.22,
+        "ability_knight_of_xoroth_seeking_flame_damage": 0.22,
+        "ability_knight_of_xoroth_flames_of_xoroth_damage": 0.22,
         "dot_damage": 0.25
       },
       "connected_to": [],

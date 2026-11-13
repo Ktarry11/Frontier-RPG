@@ -16,7 +16,7 @@
     {
       "talent_id": "chronomancer_infinite_gift_of_the_infinite_dragonflight",
       "name": "Gift of the Infinite Dragonflight",
-      "description": "Increases your spell damage by 40% of your Spirit.",
+      "description": "Increases your spell damage by 39% of your Spirit.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,7 +24,7 @@
       "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "spell_damage_from_spirit_pct": 0.1333
+        "spell_damage_from_spirit_pct": 0.13
       },
       "connected_to": [
         "chronomancer_infinite_temporal_decay"
@@ -53,7 +53,7 @@
     {
       "talent_id": "chronomancer_infinite_warpstriker",
       "name": "Warpstriker",
-      "description": "Reduces the mana cost of your spells by 5%.",
+      "description": "Reduces the mana cost of your spells by 6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -61,7 +61,7 @@
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "all_ability_cost_pct": 0.0167
+        "all_ability_cost_pct": 0.02
       },
       "connected_to": [
         "chronomancer_infinite_anomaly_spikes"
@@ -71,7 +71,7 @@
     {
       "talent_id": "chronomancer_infinite_deconstruction",
       "name": "Deconstruction",
-      "description": "Increases the critical strike chance of Unmake by 5%.",
+      "description": "Increases the critical strike chance of Unmake by 3%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -131,7 +131,7 @@
     {
       "talent_id": "chronomancer_infinite_chromatic_shard_mastery",
       "name": "Chromatic Shard",
-      "description": "Increases the damage of Chromatic Shard by 20%, and your critical strikes increase the target's spell damage taken by 10% for 4 turns.",
+      "description": "Increases the damage of Chromatic Shard by 12%, and your critical strikes increase the target's spell damage taken by 10% for 4 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -139,7 +139,7 @@
       "hex_x": 3,
       "hex_y": -4,
       "effects": {
-        "ability_chronomancer_chromatic_shard_damage": 0.036
+        "ability_chronomancer_chromatic_shard_damage": 0.04
       },
       "connected_to": [
         "chronomancer_infinite_hourglass_of_eternity"
@@ -165,7 +165,7 @@
     {
       "talent_id": "chronomancer_infinite_erosion",
       "name": "Erosion",
-      "description": "Increases the damage of your Anomaly Spikes by 20% and your periodic damage by 8%.",
+      "description": "Increases the damage of your Anomaly Spikes by 12% and your periodic damage by 9%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -173,8 +173,8 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "ability_chronomancer_anomaly_spike_damage": 0.036,
-        "dot_damage": 0.0267
+        "ability_chronomancer_anomaly_spike_damage": 0.04,
+        "dot_damage": 0.03
       },
       "connected_to": [
         "chronomancer_infinite_distorted_time"
@@ -249,7 +249,7 @@
     {
       "talent_id": "chronomancer_infinite_distorted_time",
       "name": "Distorted Time",
-      "description": "Increases the duration of your periodic effects by 20%.",
+      "description": "Increases the duration of your periodic effects by 21%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -257,7 +257,7 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "dot_duration_pct": 0.0667
+        "dot_duration_pct": 0.07
       },
       "connected_to": [
         "chronomancer_infinite_magic_erosion"
@@ -285,7 +285,7 @@
     {
       "talent_id": "chronomancer_infinite_magic_erosion",
       "name": "Magic Erosion",
-      "description": "Increases the damage of Decomposition by 15%, and your critical strikes leave the target 4% easier to hit with spells for 6 turns.",
+      "description": "Increases the damage of Decomposition by 9%, and your critical strikes leave the target 4% easier to hit with spells for 6 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -293,7 +293,7 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_chronomancer_decomposition_damage": 0.027
+        "ability_chronomancer_decomposition_damage": 0.03
       },
       "connected_to": [
         "chronomancer_infinite_null_orbs"
@@ -337,7 +337,7 @@
     {
       "talent_id": "chronomancer_infinite_crown_of_power",
       "name": "Crown of Power",
-      "description": "Increases the damage of Melt Reality by 13.5%.",
+      "description": "Increases the damage of Melt Reality by 15%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -345,7 +345,7 @@
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "ability_chronomancer_melt_reality_damage": 0.045
+        "ability_chronomancer_melt_reality_damage": 0.05
       },
       "connected_to": [
         "chronomancer_infinite_incarnation_of_chaos"
@@ -450,7 +450,7 @@
     {
       "talent_id": "chronomancer_infinite_timelost_power",
       "name": "Timelost Power",
-      "description": "Increases the damage of Discordance by 25% and your spell damage by 4%.",
+      "description": "Increases the damage of Discordance by 15% and your spell damage by 3%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -458,8 +458,8 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "ability_chronomancer_discordance_damage": 0.045,
-        "spell_damage": 0.0133
+        "ability_chronomancer_discordance_damage": 0.05,
+        "spell_damage": 0.01
       },
       "connected_to": [
         "chronomancer_infinite_infinite_horizon"
@@ -469,7 +469,7 @@
     {
       "talent_id": "chronomancer_infinite_eternity",
       "name": "Eternity",
-      "description": "While a target is rooted by your Clasp of Infinity, your damage against them is increased. Increases all damage you deal by 2.4%.",
+      "description": "While a target is rooted by your Clasp of Infinity, your damage against them is increased. Increases all damage you deal by 3%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -477,7 +477,7 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "all_damage": 0.008
+        "all_damage": 0.01
       },
       "connected_to": [
         "chronomancer_infinite_infinite_keeper"
@@ -487,7 +487,7 @@
     {
       "talent_id": "chronomancer_infinite_end_of_time",
       "name": "End of Time",
-      "description": "Increases the damage of your periodic effects by 18% and your spell critical strike chance by 4%.",
+      "description": "Increases the damage of your periodic effects by 18% and your spell critical strike chance by 3%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -496,7 +496,7 @@
       "hex_y": 4,
       "effects": {
         "dot_damage": 0.06,
-        "crit_chance_spell": 1.3333
+        "crit_chance_spell": 1
       },
       "connected_to": [
         "chronomancer_infinite_infinite_keeper"
@@ -506,7 +506,7 @@
     {
       "talent_id": "chronomancer_infinite_infinite_horizon",
       "name": "Infinite Horizon",
-      "description": "Increases your spell damage by 8%.",
+      "description": "Increases your spell damage by 9%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -514,7 +514,7 @@
       "hex_x": -3,
       "hex_y": 4,
       "effects": {
-        "spell_damage": 0.0267
+        "spell_damage": 0.03
       },
       "connected_to": [
         "chronomancer_infinite_infinite_keeper"

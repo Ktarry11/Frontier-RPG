@@ -33,7 +33,7 @@
     {
       "talent_id": "runemaster_riftblade_tempo",
       "name": "Tempo",
-      "description": "Increases Runeblade damage by 3% per rank.",
+      "description": "Increases Runeblade damage by 2% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -41,7 +41,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "ability_runemaster_runeblade_damage": 0.016
+        "ability_runemaster_runeblade_damage": 0.02
       },
       "connected_to": [
         "runemaster_riftblade_augurs_shield"
@@ -113,8 +113,8 @@
       "hex_x": -5,
       "hex_y": -4,
       "effects": {
-        "ability_runemaster_smolder_crit": 1.8,
-        "ability_runemaster_primordial_blast_crit": 1.8,
+        "ability_runemaster_smolder_crit": 2,
+        "ability_runemaster_primordial_blast_crit": 2,
         "frost_damage_pct": 0.03
       },
       "connected_to": [

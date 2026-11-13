@@ -99,7 +99,7 @@
     {
       "talent_id": "primalist_mountain_king_stone_soldier",
       "name": "Stone Soldier",
-      "description": "Increases your attack power by 3% and your chance to hit by 1.5% per rank.",
+      "description": "Increases your attack power by 2% and your chance to hit by 1% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -306,7 +306,7 @@
     {
       "talent_id": "primalist_mountain_king_everythings_a_nail",
       "name": "Everything's A Nail",
-      "description": "Increases the damage of Mountain Hammer by 25% per rank.",
+      "description": "Mountain Hammer's effect lasts 1 turn longer per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
@@ -399,7 +399,7 @@
     {
       "talent_id": "primalist_mountain_king_earthenforged_barrier",
       "name": "Earthenforged Barrier",
-      "description": "Increases the armor Rock Barrier provides by 50% and reduces the cost of your abilities by 15% while it holds.",
+      "description": "Increases the armor Rock Barrier provides by 51% and reduces the cost of your abilities by 15% while it holds.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -407,7 +407,7 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_primalist_rock_barrier_potency": 0.1667,
+        "ability_primalist_rock_barrier_potency": 0.17,
         "all_ability_cost_pct": 0.05
       },
       "connected_to": [
@@ -451,7 +451,7 @@
     {
       "talent_id": "primalist_mountain_king_mountain_thane",
       "name": "Mountain Thane",
-      "description": "Increases your Stamina by up to 5%.",
+      "description": "Increases your Stamina by up to 6%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -459,7 +459,7 @@
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "stamina_pct": 1.6667
+        "stamina_pct": 2
       },
       "connected_to": [
         "primalist_mountain_king_earthen_avatar"
@@ -477,7 +477,7 @@
       "hex_x": 4,
       "hex_y": 0,
       "effects": {
-        "ability_primalist_wildclaw_crit": 1.2
+        "ability_primalist_wildclaw_crit": 1
       },
       "connected_to": [
         "primalist_mountain_king_shattering"
@@ -505,7 +505,7 @@
     {
       "talent_id": "primalist_mountain_king_call_of_the_mountain",
       "name": "Call of the Mountain",
-      "description": "Increases your parry chance by 5% and reduces the physical damage you take by 5%.",
+      "description": "Increases your parry chance by 6% and reduces the physical damage you take by 6%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -513,8 +513,8 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "parry": 1.6667,
-        "physical_damage_taken_pct": -0.0167
+        "parry": 2,
+        "physical_damage_taken_pct": -0.02
       },
       "connected_to": [
         "primalist_mountain_king_mountain_fury"
@@ -625,7 +625,7 @@
     {
       "talent_id": "primalist_mountain_king_earth_destroyer",
       "name": "Earth Destroyer",
-      "description": "Reduces the cooldown of Judgement of the Three Hammers by 10% per rank.",
+      "description": "Judgement of the Three Hammers lasts 1 turn longer per rank.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 2,

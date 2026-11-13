@@ -66,7 +66,7 @@
     {
       "talent_id": "primalist_grovekeeper_tranquil_mind",
       "name": "Tranquil Mind",
-      "description": "Increases your damage and healing done by up to 2.1%.",
+      "description": "Increases your damage and healing done by up to 3%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -74,8 +74,8 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "all_damage": 0.007,
-        "healing_done": 0.007
+        "all_damage": 0.01,
+        "healing_done": 0.01
       },
       "connected_to": [
         "primalist_grovekeeper_power_hammer"
@@ -85,7 +85,7 @@
     {
       "talent_id": "primalist_grovekeeper_ancient_power",
       "name": "Ancient Power",
-      "description": "Increases your Strength by up to 5% and your chance to hit by up to 3%.",
+      "description": "Increases your Strength by up to 6% and your chance to hit by up to 3%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -93,7 +93,7 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "strength_pct": 1.6667,
+        "strength_pct": 2,
         "hit_rating": 1
       },
       "connected_to": [
@@ -180,7 +180,7 @@
     {
       "talent_id": "primalist_grovekeeper_hand_of_a_god",
       "name": "Hand of a God",
-      "description": "Reduces the Rage cost of Hand of the Earthmother by 25%.",
+      "description": "Reduces the Rage cost of Hand of the Earthmother by 24%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -188,7 +188,7 @@
       "hex_x": -1,
       "hex_y": -4,
       "effects": {
-        "ability_primalist_hand_of_the_earthmother_cost_pct": 0.0833
+        "ability_primalist_hand_of_the_earthmother_cost_pct": 0.08
       },
       "connected_to": [
         "primalist_grovekeeper_resilient_roots"
@@ -198,7 +198,7 @@
     {
       "talent_id": "primalist_grovekeeper_verdant_warrior",
       "name": "Verdant Warrior",
-      "description": "Increases the damage of Wildclaw by 7.5% per rank.",
+      "description": "Increases the damage of Wildclaw by 3% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -206,7 +206,7 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "ability_primalist_wildclaw_damage": 0.027
+        "ability_primalist_wildclaw_damage": 0.03
       },
       "connected_to": [
         "primalist_grovekeeper_elemental_cascade"
@@ -336,7 +336,7 @@
     {
       "talent_id": "primalist_grovekeeper_crashing_out",
       "name": "Crashing Out",
-      "description": "Increases the damage of Seismic Crash by 16.2%.",
+      "description": "Increases the damage of Seismic Crash by 15%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -344,7 +344,7 @@
       "hex_x": -4,
       "hex_y": 0,
       "effects": {
-        "ability_primalist_seismic_crash_damage": 0.054
+        "ability_primalist_seismic_crash_damage": 0.05
       },
       "connected_to": [
         "primalist_grovekeeper_thorns"
@@ -503,7 +503,7 @@
     {
       "talent_id": "primalist_grovekeeper_ring_of_life",
       "name": "Ring of Life",
-      "description": "Reduces the magic damage you take by 10% and increases your healing done by 6%.",
+      "description": "Reduces the magic damage you take by 9% and increases your healing done by 3%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -511,8 +511,8 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "magic_damage_taken_pct": -0.0333,
-        "healing_done": 0.011
+        "magic_damage_taken_pct": -0.03,
+        "healing_done": 0.01
       },
       "connected_to": [
         "primalist_grovekeeper_ancient_of_lore"
@@ -589,7 +589,7 @@
     {
       "talent_id": "primalist_grovekeeper_ancient_of_lore",
       "name": "Ancient of Lore",
-      "description": "While below 35% mana, your healing is up to 12% stronger.",
+      "description": "While below 35% mana, your healing is up to 6% stronger.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -597,7 +597,7 @@
       "hex_x": 0,
       "hex_y": 4,
       "effects": {
-        "low_mana_healing_pct": 0.021
+        "low_mana_healing_pct": 0.02
       },
       "connected_to": [
         "primalist_grovekeeper_earthmothers_warden"
@@ -615,9 +615,9 @@
       "hex_x": 2,
       "hex_y": 4,
       "effects": {
-        "ability_primalist_seismic_crash_damage": 0.054,
-        "ability_primalist_seismic_tremor_damage": 0.054,
-        "ability_primalist_seismic_wave_damage": 0.054
+        "ability_primalist_seismic_crash_damage": 0.05,
+        "ability_primalist_seismic_tremor_damage": 0.05,
+        "ability_primalist_seismic_wave_damage": 0.05
       },
       "connected_to": [
         "primalist_grovekeeper_aftershock"

@@ -16,7 +16,7 @@
     {
       "talent_id": "felsworn_tyrant_nether_disciple",
       "name": "Nether Disciple",
-      "description": "Increases your dodge and parry by 8%.",
+      "description": "Increases your dodge and parry by 9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,8 +24,8 @@
       "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "dodge": 2.6667,
-        "parry": 2.6667
+        "dodge": 3,
+        "parry": 3
       },
       "connected_to": [
         "felsworn_tyrant_infernal_constitution"
@@ -73,7 +73,7 @@
     {
       "talent_id": "felsworn_tyrant_burning_legionnaire",
       "name": "Burning Legionnaire",
-      "description": "Reduces the cost of Twin Slice, Sunder and Felrend by 13.5%.",
+      "description": "Reduces the cost of Twin Slice, Sunder and Felrend by 15%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -81,9 +81,9 @@
       "hex_x": 2,
       "hex_y": -6,
       "effects": {
-        "ability_felsworn_twin_slice_damage": 0.045,
-        "ability_felsworn_sunder_cost_pct": 0.0833,
-        "ability_felsworn_felrend_damage": 0.045
+        "ability_felsworn_twin_slice_damage": 0.05,
+        "ability_felsworn_sunder_cost_pct": 0.08,
+        "ability_felsworn_felrend_damage": 0.05
       },
       "connected_to": [
         "felsworn_tyrant_outland_slaver"
@@ -119,7 +119,7 @@
     {
       "talent_id": "felsworn_tyrant_outland_slaver",
       "name": "Outland Slaver",
-      "description": "Increases the damage of Felrend and Fel Fireball by 16.2%.",
+      "description": "Increases the damage of Felrend and Fel Fireball by 15%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -127,8 +127,8 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_felsworn_felrend_damage": 0.054,
-        "ability_felsworn_fel_fireball_damage": 0.054
+        "ability_felsworn_felrend_damage": 0.05,
+        "ability_felsworn_fel_fireball_damage": 0.05
       },
       "connected_to": [
         "felsworn_tyrant_unholy_endurance"
@@ -211,7 +211,7 @@
     {
       "talent_id": "felsworn_tyrant_unholy_endurance",
       "name": "Unholy Endurance",
-      "description": "Increases the damage of Carve by 20% and your threat generation by 25%.",
+      "description": "Increases the damage of Carve by 12% and your threat generation by 24%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -219,8 +219,8 @@
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "ability_felsworn_carve_damage": 0.036,
-        "threat_generation_pct": 0.0833
+        "ability_felsworn_carve_damage": 0.04,
+        "threat_generation_pct": 0.08
       },
       "connected_to": [
         "felsworn_tyrant_expose"
@@ -262,7 +262,7 @@
     {
       "talent_id": "felsworn_tyrant_tyrants_gaze",
       "name": "Tyrant's Gaze",
-      "description": "Increases the damage of Tyrant's Gaze by 40%, its healing by 30%, and your damage against enemies below 35% health by 20%.",
+      "description": "Increases the damage of Tyrant's Gaze by 40%, its healing by 15%, and your damage against enemies below 35% health by 21%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -270,9 +270,9 @@
       "hex_x": 2,
       "hex_y": 2,
       "effects": {
-        "ability_felsworn_tyrants_gaze_damage": 0.072,
-        "ability_felsworn_tyrants_gaze_healing": 0.053,
-        "low_health_damage_pct": 0.0667,
+        "ability_felsworn_tyrants_gaze_damage": 0.07,
+        "ability_felsworn_tyrants_gaze_healing": 0.05,
+        "low_health_damage_pct": 0.07,
         "low_health_threshold_pct": 0.35
       },
       "connected_to": [
@@ -319,7 +319,7 @@
     {
       "talent_id": "felsworn_tyrant_nether_strength",
       "name": "Nether Strength",
-      "description": "Reduces the cooldown of Burning Hatred, Hateforged Barrier and Demonic Will by 35%.",
+      "description": "Reduces the cooldown of Burning Hatred, Hateforged Barrier and Demonic Will by 36%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -327,9 +327,9 @@
       "hex_x": 2,
       "hex_y": 4,
       "effects": {
-        "ability_felsworn_burning_hatred_cooldown_pct": 0.1167,
-        "ability_felsworn_hateforged_barrier_cooldown_pct": 0.1167,
-        "ability_felsworn_demonic_will_cooldown_pct": 0.1167
+        "ability_felsworn_burning_hatred_cooldown_pct": 0.12,
+        "ability_felsworn_hateforged_barrier_cooldown_pct": 0.12,
+        "ability_felsworn_demonic_will_cooldown_pct": 0.12
       },
       "connected_to": [
         "felsworn_tyrant_fel_monstrosity"
@@ -339,7 +339,7 @@
     {
       "talent_id": "felsworn_tyrant_eye_of_the_tyrant",
       "name": "Eye of the Tyrant",
-      "description": "Increases your Stamina and attack power by 6%, and reduces the cooldown of your Eye of the Tyrant and Infernal Whipcrack auras by 35%.",
+      "description": "Increases your Stamina and attack power by 6%, and reduces the cooldown of your Eye of the Tyrant and Infernal Whipcrack auras by 36%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -349,8 +349,8 @@
       "effects": {
         "stamina_pct": 2,
         "attack_power_pct": 2,
-        "ability_felsworn_eye_of_the_tyrant_cooldown_pct": 0.1167,
-        "ability_felsworn_infernal_whipcrack_cooldown_pct": 0.1167
+        "ability_felsworn_eye_of_the_tyrant_cooldown_pct": 0.12,
+        "ability_felsworn_infernal_whipcrack_cooldown_pct": 0.12
       },
       "connected_to": [
         "felsworn_tyrant_fel_monstrosity"
@@ -360,7 +360,7 @@
     {
       "talent_id": "felsworn_tyrant_pure_hatred",
       "name": "Pure Hatred",
-      "description": "Increases your maximum health by a further 8% and reduces your magic damage taken by 8%.",
+      "description": "Increases your maximum health by a further 9% and reduces your magic damage taken by 9%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -368,8 +368,8 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "max_health_pct": 0.0267,
-        "magic_damage_taken_pct": -0.0267
+        "max_health_pct": 0.03,
+        "magic_damage_taken_pct": -0.03
       },
       "connected_to": [
         "felsworn_tyrant_nether_disciple"
@@ -412,7 +412,7 @@
     {
       "talent_id": "felsworn_tyrant_fel_daze",
       "name": "Fel Daze",
-      "description": "Increases the critical strike chance of Fel Fireball by 10%, and your damaging spells have a 30% chance to weaken the target's attacks for 3 turns.",
+      "description": "Increases the critical strike chance of Fel Fireball by 6%, and your damaging spells have a 30% chance to weaken the target's attacks for 3 turns.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -446,7 +446,7 @@
     {
       "talent_id": "felsworn_tyrant_dark_lord",
       "name": "Dark Lord",
-      "description": "Reduces all damage you take by a further 5% and increases your damage dealt by 5%.",
+      "description": "Reduces all damage you take by a further 6% and increases your damage dealt by 6%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -454,8 +454,8 @@
       "hex_x": 4,
       "hex_y": 2,
       "effects": {
-        "damage_taken_pct": -0.0167,
-        "all_damage": 0.008
+        "damage_taken_pct": -0.02,
+        "all_damage": 0.01
       },
       "connected_to": [
         "felsworn_tyrant_tyrants_gaze"
@@ -465,7 +465,7 @@
     {
       "talent_id": "felsworn_tyrant_tyrannical_resolve",
       "name": "Tyrannical Resolve",
-      "description": "Reduces the cooldown of Tyrannical Resolve by 40% and increases your threat generation by a further 25%.",
+      "description": "Reduces the cooldown of Tyrannical Resolve by 39% and increases your threat generation by a further 24%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -473,8 +473,8 @@
       "hex_x": 4,
       "hex_y": 4,
       "effects": {
-        "ability_felsworn_tyrannical_resolve_cooldown_pct": 0.1333,
-        "threat_generation_pct": 0.0833
+        "ability_felsworn_tyrannical_resolve_cooldown_pct": 0.13,
+        "threat_generation_pct": 0.08
       },
       "connected_to": [
         "felsworn_tyrant_tyrants_gaze"

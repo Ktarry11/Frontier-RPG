@@ -512,7 +512,7 @@
     {
       "talent_id": "starcaller_moon_guard_starbound",
       "name": "Starbound",
-      "description": "Increases your healing done by 3% per rank. Your heals have a 15% chance per rank to bind a star to you, healing you for 50.",
+      "description": "Increases your healing done by 2% per rank. Your heals have a 15% chance per rank to bind a star to you, healing you for 50.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -520,7 +520,7 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "healing_done": 0.016
+        "healing_done": 0.02
       },
       "connected_to": [
         "starcaller_moon_guard_star_pupil"

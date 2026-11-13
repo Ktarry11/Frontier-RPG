@@ -35,7 +35,7 @@
     {
       "talent_id": "venomancer_fortitude_enchanted_chitin",
       "name": "Enchanted Chitin",
-      "description": "Increases your armour by 50%.",
+      "description": "Increases your armour by 51%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -43,7 +43,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "armor_pct": 16.6667
+        "armor_pct": 17
       },
       "connected_to": [
         "venomancer_fortitude_reinforced_exoskeleton"
@@ -172,7 +172,7 @@
     {
       "talent_id": "venomancer_fortitude_vile_fury",
       "name": "Vile Fury",
-      "description": "Reduces the Rage cost of Hivebreak and Carapace Crash by 20% and increases your chance to hit by 4%.",
+      "description": "Reduces the Rage cost of Hivebreak and Carapace Crash by 21% and increases your chance to hit by 3%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -180,9 +180,9 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "ability_venomancer_hivebreak_cost_pct": 0.0667,
-        "ability_venomancer_carapace_crash_cost_pct": 0.0667,
-        "hit_rating": 1.3333
+        "ability_venomancer_hivebreak_cost_pct": 0.07,
+        "ability_venomancer_carapace_crash_cost_pct": 0.07,
+        "hit_rating": 1
       },
       "connected_to": [
         "venomancer_fortitude_resilient_shell"
@@ -245,7 +245,7 @@
     {
       "talent_id": "venomancer_fortitude_adrenal_carapace",
       "name": "Adrenal Carapace",
-      "description": "Increases the Rage that Exposed Flesh generates by 20%.",
+      "description": "Increases the Rage that Exposed Flesh generates by 21%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -253,7 +253,7 @@
       "hex_x": -4,
       "hex_y": -2,
       "effects": {
-        "exposed_flesh_rage_pct": 0.0667
+        "exposed_flesh_rage_pct": 0.07
       },
       "connected_to": [
         "venomancer_fortitude_cunning"
@@ -263,7 +263,7 @@
     {
       "talent_id": "venomancer_fortitude_cunning",
       "name": "Cunning",
-      "description": "Increases the critical strike chance of Chitin Rush by 20% and its critical strike damage by 10%.",
+      "description": "Increases the critical strike chance of Chitin Rush by 12% and its critical strike damage by 9%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -272,7 +272,7 @@
       "hex_y": -2,
       "effects": {
         "ability_venomancer_chitin_rush_crit": 4.0,
-        "ability_venomancer_chitin_rush_crit_damage": 0.0333
+        "ability_venomancer_chitin_rush_crit_damage": 0.03
       },
       "connected_to": [
         "venomancer_fortitude_natural_weapons"
@@ -282,7 +282,7 @@
     {
       "talent_id": "venomancer_fortitude_natural_weapons",
       "name": "Natural Weapons",
-      "description": "Increases the critical strike chance of your Beetle Form strikes by 10%.",
+      "description": "Increases the critical strike chance of your Beetle Form strikes by 6%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -355,7 +355,7 @@
     {
       "talent_id": "venomancer_fortitude_drown_in_poison",
       "name": "Drown In Poison",
-      "description": "Increases the damage of Venomtip Poison by 30% and of Expulsion by 20%.",
+      "description": "Increases the damage of Venomtip Poison by 15% and of Expulsion by 12%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -363,8 +363,8 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_venomancer_venomtip_poison_damage": 0.054,
-        "ability_venomancer_expulsion_damage": 0.036
+        "ability_venomancer_venomtip_poison_damage": 0.05,
+        "ability_venomancer_expulsion_damage": 0.04
       },
       "connected_to": [
         "venomancer_fortitude_wicked_poison"
@@ -476,7 +476,7 @@
     {
       "talent_id": "venomancer_fortitude_charmed_plating",
       "name": "Charmed Plating",
-      "description": "Reduces all damage you take by 3% and your chance to be hit by spells by 2%.",
+      "description": "Reduces all damage you take by 3% and your chance to be hit by spells by 3%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -485,7 +485,7 @@
       "hex_y": 2,
       "effects": {
         "damage_taken_pct": -0.01,
-        "magic_damage_taken_pct": -0.0067
+        "magic_damage_taken_pct": -0.01
       },
       "connected_to": [
         "venomancer_fortitude_chitinous_surge"
@@ -495,7 +495,7 @@
     {
       "talent_id": "venomancer_fortitude_chitinous_surge",
       "name": "Chitinous Surge",
-      "description": "Reduces the cooldown of Chitin Rush by 25% and increases its damage by 15%.",
+      "description": "Reduces the cooldown of Chitin Rush by 24% and increases its damage by 9%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -503,8 +503,8 @@
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "ability_venomancer_chitin_rush_cooldown_pct": 0.0833,
-        "ability_venomancer_chitin_rush_damage": 0.027
+        "ability_venomancer_chitin_rush_cooldown_pct": 0.08,
+        "ability_venomancer_chitin_rush_damage": 0.03
       },
       "connected_to": [
         "venomancer_fortitude_unyielding_will"
@@ -514,7 +514,7 @@
     {
       "talent_id": "venomancer_fortitude_unyielding_will",
       "name": "Unyielding Will",
-      "description": "You keep 10% of your threat on death.",
+      "description": "You keep 9% of your threat on death.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -522,7 +522,7 @@
       "hex_x": -3,
       "hex_y": 4,
       "effects": {
-        "death_threat_retention_pct": 0.0333
+        "death_threat_retention_pct": 0.03
       },
       "connected_to": [
         "venomancer_fortitude_carapace_regeneration"
@@ -586,7 +586,7 @@
     {
       "talent_id": "venomancer_fortitude_spider_lord",
       "name": "Spider Lord",
-      "description": "In Beetle Form your strikes generate 2 Rage, and your Beetle Form strikes hit 30% harder.",
+      "description": "In Beetle Form your strikes generate 2 Rage, and your Beetle Form strikes hit 16% harder.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -594,9 +594,9 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "ability_venomancer_hivebreak_damage": 0.162,
-        "ability_venomancer_carapace_crash_damage": 0.162,
-        "ability_venomancer_chitin_rush_damage": 0.162
+        "ability_venomancer_hivebreak_damage": 0.16,
+        "ability_venomancer_carapace_crash_damage": 0.16,
+        "ability_venomancer_chitin_rush_damage": 0.16
       },
       "connected_to": [],
       "proc": {

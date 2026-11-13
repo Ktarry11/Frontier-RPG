@@ -34,7 +34,7 @@
     {
       "talent_id": "pyromancer_flameweaving_scorching_spirit",
       "name": "Scorching Spirit",
-      "description": "Increases your Spirit by 20%.",
+      "description": "Increases your Spirit by 21%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -42,7 +42,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "spirit_pct": 6.6667
+        "spirit_pct": 7
       },
       "connected_to": [
         "pyromancer_flameweaving_ember_charm"
@@ -71,7 +71,7 @@
     {
       "talent_id": "pyromancer_flameweaving_spirit_of_fire",
       "name": "Spirit of Fire",
-      "description": "Increases the absorption of Inferno Barrier and Volcanic Shell by 40%.",
+      "description": "Inferno Barrier and Volcanic Shell last 1 turn longer.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 1,
@@ -90,7 +90,7 @@
     {
       "talent_id": "pyromancer_flameweaving_from_the_ashes",
       "name": "From The Ashes",
-      "description": "Increases your healing done by 25%.",
+      "description": "Increases your healing power by 12%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -98,7 +98,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "healing_power_pct": 4.4
+        "healing_power_pct": 4
       },
       "connected_to": [
         "pyromancer_flameweaving_soothing_flames"
@@ -176,7 +176,7 @@
     {
       "talent_id": "pyromancer_flameweaving_concentrated_fire",
       "name": "Concentrated Fire",
-      "description": "Increases the damage and healing of Cleansing Flames by 10.8%.",
+      "description": "Increases the damage and healing of Cleansing Flames by 12%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -184,8 +184,8 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "ability_pyromancer_cleansing_flames_healing": 0.036,
-        "ability_pyromancer_cleansing_flames_damage": 0.036
+        "ability_pyromancer_cleansing_flames_healing": 0.04,
+        "ability_pyromancer_cleansing_flames_damage": 0.04
       },
       "connected_to": [
         "pyromancer_flameweaving_warmth"
@@ -224,7 +224,7 @@
     {
       "talent_id": "pyromancer_flameweaving_living_flame",
       "name": "Living Flame",
-      "description": "Increases the critical strike chance of Ember Touch by 10%.",
+      "description": "Increases the critical strike chance of Ember Touch by 6%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -317,7 +317,7 @@
     {
       "talent_id": "pyromancer_flameweaving_sageweaving",
       "name": "Sageweaving",
-      "description": "Reduces the mana cost of Kindle and Cinderheart by a further 20%.",
+      "description": "Reduces the mana cost of Kindle and Cinderheart by a further 21%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -325,8 +325,8 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "ability_pyromancer_kindle_cost_pct": 0.0667,
-        "ability_pyromancer_cinderheart_cost_pct": 0.0667
+        "ability_pyromancer_kindle_cost_pct": 0.07,
+        "ability_pyromancer_cinderheart_cost_pct": 0.07
       },
       "connected_to": [
         "pyromancer_flameweaving_burning_crescendo"
@@ -336,7 +336,7 @@
     {
       "talent_id": "pyromancer_flameweaving_burning_crescendo",
       "name": "Burning Crescendo",
-      "description": "Increases the healing of Phoenix Egg by 21.3%.",
+      "description": "Increases the healing of Phoenix Egg by 21%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -344,7 +344,7 @@
       "hex_x": -4,
       "hex_y": 0,
       "effects": {
-        "ability_pyromancer_phoenix_egg_healing": 0.071
+        "ability_pyromancer_phoenix_egg_healing": 0.07
       },
       "connected_to": [
         "pyromancer_flameweaving_phoenix_dive_mastery"
@@ -354,7 +354,7 @@
     {
       "talent_id": "pyromancer_flameweaving_phoenix_dive_mastery",
       "name": "Phoenix Dive",
-      "description": "Increases the absorption of Phoenix Dive by 50%.",
+      "description": "Phoenix Dive's shield lasts 1 turn longer.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
@@ -436,7 +436,7 @@
     {
       "talent_id": "pyromancer_flameweaving_neltharions_resolve",
       "name": "Neltharion's Resolve",
-      "description": "Reduces the duration of stuns against you by 25%.",
+      "description": "Reduces the duration of stuns against you by 24%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -444,7 +444,7 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "stun_duration_reduction_pct": 0.0833
+        "stun_duration_reduction_pct": 0.08
       },
       "connected_to": [
         "pyromancer_flameweaving_unfathomably_hot"
@@ -454,7 +454,7 @@
     {
       "talent_id": "pyromancer_flameweaving_unfathomably_hot",
       "name": "Unfathomably Hot!",
-      "description": "Increases the healing of Cleansing Flames by 15.9%.",
+      "description": "Increases the healing of Cleansing Flames by 15%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -462,7 +462,7 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "ability_pyromancer_cleansing_flames_healing": 0.053
+        "ability_pyromancer_cleansing_flames_healing": 0.05
       },
       "connected_to": [
         "pyromancer_flameweaving_sunstrider_array"
@@ -516,7 +516,7 @@
     {
       "talent_id": "pyromancer_flameweaving_roaring_pyre",
       "name": "Roaring Pyre",
-      "description": "Teaches Roaring Pyre, and your healing done rises by 20%.",
+      "description": "Teaches Roaring Pyre, and your healing done rises by 11%.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -525,7 +525,7 @@
       "hex_y": 6,
       "effects": {
         "unlock_ability": "pyromancer_roaring_pyre",
-        "healing_power_pct": 10.7
+        "healing_power_pct": 11
       },
       "connected_to": [],
       "_source": "LOAD-BEARING UNLOCK: pyromancer_roaring_pyre carries requires_talent, so without this node it is unobtainable forever. It is target_type 'party' as well. Kept at tier 6, completing Pyromancer's nine-for-nine gated-ability pattern - three trees, three gated abilities each, at tiers 4, 5 and 6, every one accounted for. The flat healing is added because a capstone that only grants an ability is thin; the same shape as Incineration's Pyroclasm and Draconic's Death From Above. The shipped tree's node for this was called Fueling the Fire; renamed to match the ability it grants, as every other unlock node in this class does."

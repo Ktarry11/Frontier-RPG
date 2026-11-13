@@ -16,7 +16,7 @@
     {
       "talent_id": "starcaller_moon_priest_moon_priest_15",
       "name": "Lunar Devotion",
-      "description": "Increases healing spell power and hit rating from Intellect by 2% per rank.",
+      "description": "Increases healing spell power and hit rating from Intellect by 1% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -24,7 +24,7 @@
       "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "healing_power_from_intellect_pct": 0.011
+        "healing_power_from_intellect_pct": 0.01
       },
       "connected_to": [
         "starcaller_moon_priest_astral_knowledge"
@@ -34,7 +34,7 @@
     {
       "talent_id": "starcaller_moon_priest_moon_touch",
       "name": "Moon Touch",
-      "description": "Increases all healing done by 2% per rank.",
+      "description": "Increases all healing done by 1% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -42,7 +42,7 @@
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "healing_power_pct": 1.1
+        "healing_power_pct": 1
       },
       "connected_to": [
         "starcaller_moon_priest_teachings_of_elune"
@@ -87,7 +87,7 @@
     {
       "talent_id": "starcaller_moon_priest_teachings_of_elune",
       "name": "Teachings of Elune",
-      "description": "Increases Hand of Elune and Moonflow healing by 4% per rank.",
+      "description": "Increases Hand of Elune and Moonflow healing by 2% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -95,8 +95,8 @@
       "hex_x": -1,
       "hex_y": -4,
       "effects": {
-        "ability_starcaller_hand_of_elune_healing": 0.021,
-        "ability_starcaller_moonflow_healing": 0.021
+        "ability_starcaller_hand_of_elune_healing": 0.02,
+        "ability_starcaller_moonflow_healing": 0.02
       },
       "connected_to": [
         "starcaller_moon_priest_moon_touch"
@@ -408,7 +408,7 @@
     {
       "talent_id": "starcaller_moon_priest_lunar_resplendence",
       "name": "Lunar Resplendence",
-      "description": "Increases healing done to allies below 20% health by 3%.",
+      "description": "Increases healing done to allies below 10% health by 3%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 5,
@@ -416,7 +416,7 @@
       "hex_x": 0,
       "hex_y": 2,
       "effects": {
-        "low_health_healing_pct": 0.016
+        "low_health_healing_pct": 0.02
       },
       "connected_to": [
         "starcaller_moon_priest_moon_priest_10",
@@ -426,7 +426,7 @@
     {
       "talent_id": "starcaller_moon_priest_gentle_waters",
       "name": "Gentle Waters",
-      "description": "Increases Moonwell Splash and Silverstream healing by 4% per rank.",
+      "description": "Increases Moonwell Splash and Silverstream healing by 2% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -434,7 +434,7 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "ability_starcaller_moonwell_splash_healing": 0.021
+        "ability_starcaller_moonwell_splash_healing": 0.02
       },
       "connected_to": [
         "starcaller_moon_priest_astral_knowledge",
@@ -444,7 +444,7 @@
     {
       "talent_id": "starcaller_moon_priest_blessed_starlight",
       "name": "Blessed Starlight",
-      "description": "Reduces the Mana cost of your healing spells by 2% per rank.",
+      "description": "Reduces the Mana cost of your healing spells by 1% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
@@ -452,7 +452,7 @@
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "healing_spell_cost_pct": 0.011
+        "healing_spell_cost_pct": 0.01
       },
       "connected_to": [
         "starcaller_moon_priest_prayer_of_elune",
@@ -462,7 +462,7 @@
     {
       "talent_id": "starcaller_moon_priest_flowing_grace",
       "name": "Flowing Grace",
-      "description": "Increases Prayer of Elune and Tidal Rebirth healing by 4% per rank.",
+      "description": "Increases Prayer of Elune and Tidal Rebirth healing by 2% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -470,8 +470,8 @@
       "hex_x": -1,
       "hex_y": 0,
       "effects": {
-        "ability_starcaller_prayer_of_elune_healing": 0.021,
-        "ability_starcaller_tidal_rebirth_healing": 0.021
+        "ability_starcaller_prayer_of_elune_healing": 0.02,
+        "ability_starcaller_tidal_rebirth_healing": 0.02
       },
       "connected_to": [
         "starcaller_moon_priest_rippling_moonwater",

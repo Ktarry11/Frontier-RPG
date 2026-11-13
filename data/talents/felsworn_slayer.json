@@ -35,7 +35,7 @@
     {
       "talent_id": "felsworn_slayer_spite",
       "name": "Spite",
-      "description": "Increases your Agility by 16% and your dodge by 6%.",
+      "description": "Increases your Agility by 15% and your dodge by 6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -43,7 +43,7 @@
       "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "agility_pct": 5.3333,
+        "agility_pct": 5,
         "dodge": 2
       },
       "connected_to": [
@@ -55,7 +55,7 @@
     {
       "talent_id": "felsworn_slayer_chaos_soldier",
       "name": "Chaos Soldier",
-      "description": "Increases the critical strike chance of Azzinoth's Assault and Sargeron Smite by 10%.",
+      "description": "Increases the critical strike chance of Azzinoth's Assault and Sargeron Smite by 6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -174,7 +174,7 @@
     {
       "talent_id": "felsworn_slayer_fel_instincts",
       "name": "Fel Instincts",
-      "description": "Increases the damage of Azzinoth's Assault by 20%, and your critical strikes increase your haste by 20% for 2 turns.",
+      "description": "Increases the damage of Azzinoth's Assault by 12%, and your critical strikes increase your haste by 12% for 2 turns.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -182,7 +182,7 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_felsworn_azzinoths_assault_damage": 0.036
+        "ability_felsworn_azzinoths_assault_damage": 0.04
       },
       "connected_to": [
         "felsworn_slayer_a_thousand_cuts"
@@ -261,7 +261,7 @@
     {
       "talent_id": "felsworn_slayer_pit_lords_strength",
       "name": "Pit Lord's Strength",
-      "description": "Increases the damage of Annihilation and Annihilan Strike by 16.2%.",
+      "description": "Increases the damage of Annihilation and Annihilan Strike by 15%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -270,7 +270,7 @@
       "hex_y": 2,
       "effects": {
         "ability_felsworn_annihilation_potency": 0.1,
-        "ability_felsworn_annihilan_strike_damage": 0.054
+        "ability_felsworn_annihilan_strike_damage": 0.05
       },
       "connected_to": [
         "felsworn_slayer_oblivion"
@@ -280,7 +280,7 @@
     {
       "talent_id": "felsworn_slayer_scars_of_the_past",
       "name": "Scars of the Past",
-      "description": "Reduces the cost of Chaos Rush by 25%, and your attacks have a 25% chance to heal you for 20% of the damage dealt.",
+      "description": "Reduces the cost of Chaos Rush by 15%, and your attacks have a 15% chance to heal you for 15% of the damage dealt.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -288,7 +288,7 @@
       "hex_x": 0,
       "hex_y": 2,
       "effects": {
-        "ability_felsworn_chaos_rush_damage": 0.045
+        "ability_felsworn_chaos_rush_damage": 0.05
       },
       "connected_to": [
         "felsworn_slayer_oblivion"
@@ -337,7 +337,7 @@
     {
       "talent_id": "felsworn_slayer_you_cheat_guldan",
       "name": "You Cheat, Gul'dan!",
-      "description": "Increases your physical critical damage by 50%.",
+      "description": "Increases your physical critical damage by 51%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -345,7 +345,7 @@
       "hex_x": 2,
       "hex_y": 4,
       "effects": {
-        "crit_damage_physical": 0.1667
+        "crit_damage_physical": 0.17
       },
       "connected_to": [
         "felsworn_slayer_pit_lords_rage"
@@ -355,7 +355,7 @@
     {
       "talent_id": "felsworn_slayer_burning_rage",
       "name": "Burning Rage",
-      "description": "Increases the damage of Sunder and Immolation Aura by 20% and reduces their cost by 20%.",
+      "description": "Increases the damage of Sunder and Immolation Aura by 21% and reduces their cost by 21%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -363,10 +363,10 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "ability_felsworn_sunder_damage": 0.036,
-        "ability_felsworn_immolation_aura_damage": 0.036,
-        "ability_felsworn_sunder_cost_pct": 0.0667,
-        "ability_felsworn_immolation_aura_cost_pct": 0.0667
+        "ability_felsworn_sunder_damage": 0.04,
+        "ability_felsworn_immolation_aura_damage": 0.04,
+        "ability_felsworn_sunder_cost_pct": 0.07,
+        "ability_felsworn_immolation_aura_cost_pct": 0.07
       },
       "connected_to": [
         "felsworn_slayer_azzinoths_rage"
@@ -376,7 +376,7 @@
     {
       "talent_id": "felsworn_slayer_glaiving",
       "name": "Glaiving",
-      "description": "Increases the damage of Fury Unleashed and Glaiving by 40% and reduces Fury Unleashed's cost by 30%.",
+      "description": "Increases the damage of Fury Unleashed and Glaiving by 21% and reduces Fury Unleashed's cost by 30%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -384,8 +384,8 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_felsworn_fury_unleashed_damage": 0.072,
-        "ability_felsworn_glaiving_damage": 0.072,
+        "ability_felsworn_fury_unleashed_damage": 0.07,
+        "ability_felsworn_glaiving_damage": 0.07,
         "ability_felsworn_fury_unleashed_cost_pct": 0.1
       },
       "connected_to": [
@@ -396,7 +396,7 @@
     {
       "talent_id": "felsworn_slayer_reachwalker",
       "name": "Reachwalker",
-      "description": "Reduces the cooldown of Felhoof Charge, Chaos Rush and Fury of the Illidari by 35%.",
+      "description": "Reduces the cooldown of Felhoof Charge, Chaos Rush and Fury of the Illidari by 36%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -404,9 +404,9 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_felsworn_felhoof_charge_cooldown_pct": 0.1167,
-        "ability_felsworn_chaos_rush_cooldown_pct": 0.1167,
-        "ability_felsworn_fury_of_the_illidari_cooldown_pct": 0.1167
+        "ability_felsworn_felhoof_charge_cooldown_pct": 0.12,
+        "ability_felsworn_chaos_rush_cooldown_pct": 0.12,
+        "ability_felsworn_fury_of_the_illidari_cooldown_pct": 0.12
       },
       "connected_to": [
         "felsworn_slayer_fel_blades"
@@ -416,7 +416,7 @@
     {
       "talent_id": "felsworn_slayer_felcaked_blades",
       "name": "Felcaked Blades",
-      "description": "Increases your attack power by 20% of your Agility and the damage of Twin Slice by 25%.",
+      "description": "Increases your attack power by 21% of your Agility and the damage of Twin Slice by 15%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -424,8 +424,8 @@
       "hex_x": -2,
       "hex_y": 2,
       "effects": {
-        "attack_power_from_agility_pct": 0.0667,
-        "ability_felsworn_twin_slice_damage": 0.045
+        "attack_power_from_agility_pct": 0.07,
+        "ability_felsworn_twin_slice_damage": 0.05
       },
       "connected_to": [
         "felsworn_slayer_demonic_machinations"
@@ -435,7 +435,7 @@
     {
       "talent_id": "felsworn_slayer_whirling_vengeance",
       "name": "Whirling Vengeance",
-      "description": "Reduces the cooldown of Fury Unleashed by 40%, and your attacks have a 30% chance to leave the target taking 12% more damage for 3 turns.",
+      "description": "Reduces the cooldown of Fury Unleashed by 39%, and your attacks have a 30% chance to leave the target taking 12% more damage for 3 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -443,7 +443,7 @@
       "hex_x": -2,
       "hex_y": 4,
       "effects": {
-        "ability_felsworn_fury_unleashed_cooldown_pct": 0.1333
+        "ability_felsworn_fury_unleashed_cooldown_pct": 0.13
       },
       "connected_to": [
         "felsworn_slayer_a_thousand_cuts"

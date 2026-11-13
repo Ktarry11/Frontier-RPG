@@ -44,7 +44,7 @@
       "hex_y": -6,
       "effects": {
         "crit_chance_spell": 2,
-        "expertise": 3.3333
+        "expertise": 3
       },
       "connected_to": [
         "templar_crusader_pure_focus"
@@ -54,7 +54,7 @@
     {
       "talent_id": "templar_crusader_pure_focus",
       "name": "Pure Focus",
-      "description": "Increases your chance to hit by 4% and the damage of Chastise by 10%.",
+      "description": "Increases your chance to hit by 3% and the damage of Chastise by 6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -62,8 +62,8 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "hit_rating": 1.3333,
-        "ability_templar_chastise_damage": 0.018
+        "hit_rating": 1,
+        "ability_templar_chastise_damage": 0.02
       },
       "connected_to": [
         "templar_crusader_chivalric"
@@ -91,7 +91,7 @@
     {
       "talent_id": "templar_crusader_paladin_training",
       "name": "Paladin Training",
-      "description": "Increases the damage of Righteous Lunge and Argent Blade by 10.8%.",
+      "description": "Increases the damage of Righteous Lunge and Argent Blade by 12%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -99,8 +99,8 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "ability_templar_righteous_lunge_damage": 0.036,
-        "ability_templar_argent_blade_damage": 0.036
+        "ability_templar_righteous_lunge_damage": 0.04,
+        "ability_templar_argent_blade_damage": 0.04
       },
       "connected_to": [
         "templar_crusader_warrior_of_tyr"
@@ -205,7 +205,7 @@
     {
       "talent_id": "templar_crusader_scourge_defense_training",
       "name": "Scourge-Defense Training",
-      "description": "Increases the damage of Argent Blade by 20% and its critical strike chance by 20%.",
+      "description": "Increases the damage of Argent Blade by 12% and its critical strike chance by 12%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -213,7 +213,7 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_templar_argent_blade_damage": 0.036,
+        "ability_templar_argent_blade_damage": 0.04,
         "ability_templar_argent_blade_crit": 4.0
       },
       "connected_to": [
@@ -259,7 +259,7 @@
     {
       "talent_id": "templar_crusader_teachings_of_the_cathedral",
       "name": "Teachings of the Cathedral",
-      "description": "Increases your critical strike chance by 5%.",
+      "description": "Increases your critical strike chance by 6%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -267,7 +267,7 @@
       "hex_x": -4,
       "hex_y": -2,
       "effects": {
-        "crit_chance_physical": 1.6667
+        "crit_chance_physical": 2
       },
       "connected_to": [
         "templar_crusader_tyrs_blessing"
@@ -277,7 +277,7 @@
     {
       "talent_id": "templar_crusader_tyrs_blessing",
       "name": "Tyr's Blessing",
-      "description": "Increases the damage of Condemn by 13.5%.",
+      "description": "Increases the damage of Condemn by 15%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -285,7 +285,7 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_templar_condemn_damage": 0.045
+        "ability_templar_condemn_damage": 0.05
       },
       "connected_to": [
         "templar_crusader_templars_might"
@@ -295,7 +295,7 @@
     {
       "talent_id": "templar_crusader_templars_might",
       "name": "Templar's Might",
-      "description": "Increases the damage of Righteous Lunge and Chastise by 16.2%.",
+      "description": "Increases the damage of Righteous Lunge and Chastise by 15%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -303,8 +303,8 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_templar_righteous_lunge_damage": 0.054,
-        "ability_templar_chastise_damage": 0.054
+        "ability_templar_righteous_lunge_damage": 0.05,
+        "ability_templar_chastise_damage": 0.05
       },
       "connected_to": [
         "templar_crusader_scarlet_secrets"
@@ -346,7 +346,7 @@
     {
       "talent_id": "templar_crusader_focused",
       "name": "Focused",
-      "description": "Increases the damage of Blade of Faith and Righteous Tempest by 13.5%.",
+      "description": "Increases the damage of Blade of Faith and Righteous Tempest by 15%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -354,8 +354,8 @@
       "hex_x": -4,
       "hex_y": 0,
       "effects": {
-        "ability_templar_blade_of_faith_damage": 0.045,
-        "ability_templar_righteous_tempest_damage": 0.045
+        "ability_templar_blade_of_faith_damage": 0.05,
+        "ability_templar_righteous_tempest_damage": 0.05
       },
       "connected_to": [
         "templar_crusader_holy_tempest"
@@ -394,7 +394,7 @@
     {
       "talent_id": "templar_crusader_judgement",
       "name": "Judgement",
-      "description": "Increases the damage of Scarlet Hammer and Titanstrike by 13.5%.",
+      "description": "Increases the damage of Scarlet Hammer and Titanstrike by 15%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -402,8 +402,8 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_templar_scarlet_hammer_damage": 0.045,
-        "ability_templar_titanstrike_damage": 0.045
+        "ability_templar_scarlet_hammer_damage": 0.05,
+        "ability_templar_titanstrike_damage": 0.05
       },
       "connected_to": [
         "templar_crusader_crusaders_brand"
@@ -469,7 +469,7 @@
     {
       "talent_id": "templar_crusader_whirling_tempest",
       "name": "Whirling Tempest",
-      "description": "Increases your haste by 8%.",
+      "description": "Increases your haste by 9%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -477,7 +477,7 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "haste": 2.6667
+        "haste": 3
       },
       "connected_to": [
         "templar_crusader_scarlet_training"
@@ -487,7 +487,7 @@
     {
       "talent_id": "templar_crusader_scarlet_training",
       "name": "Scarlet Training",
-      "description": "Increases all damage you deal by 5.1%.",
+      "description": "Increases all damage you deal by 6%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -495,7 +495,7 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "all_damage": 0.017
+        "all_damage": 0.02
       },
       "connected_to": [
         "templar_crusader_holy_fervor"
@@ -532,7 +532,7 @@
     {
       "talent_id": "templar_crusader_templar_zeal",
       "name": "Templar's Zeal",
-      "description": "Increases the critical strike chance of your strikes by 8%.",
+      "description": "Increases the critical strike chance of your strikes by 6%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -540,12 +540,12 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "ability_templar_righteous_lunge_crit": 1.6,
-        "ability_templar_condemn_crit": 1.6,
-        "ability_templar_holy_cleave_crit": 1.6,
-        "ability_templar_vindication_crit": 1.6,
-        "ability_templar_sacred_swing_crit": 1.6,
-        "ability_templar_argent_blade_crit": 1.6
+        "ability_templar_righteous_lunge_crit": 2,
+        "ability_templar_condemn_crit": 2,
+        "ability_templar_holy_cleave_crit": 2,
+        "ability_templar_vindication_crit": 2,
+        "ability_templar_sacred_swing_crit": 2,
+        "ability_templar_argent_blade_crit": 2
       },
       "connected_to": [
         "templar_crusader_crusading_strike"
@@ -586,7 +586,7 @@
     {
       "talent_id": "templar_crusader_titanstrike_mastery",
       "name": "Titanstrike",
-      "description": "Increases the damage of Titanstrike and Scarlet Hammer by 50%, and all damage you deal by 10%.",
+      "description": "Increases the damage of Titanstrike and Scarlet Hammer by 27%, and all damage you deal by 5%.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,

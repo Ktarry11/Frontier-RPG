@@ -16,7 +16,7 @@
     {
       "talent_id": "witch_hunter_boltslinger_mechanized_crossbows",
       "name": "Mechanized Crossbows",
-      "description": "Increases your ranged attack power by 10% of your Agility.",
+      "description": "Increases your ranged attack power by 9% of your Agility.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,7 +24,7 @@
       "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "ranged_ap_from_agility_pct": 0.0333
+        "ranged_ap_from_agility_pct": 0.03
       },
       "connected_to": [
         "witch_hunter_boltslinger_bane_of_witches"
@@ -34,7 +34,7 @@
     {
       "talent_id": "witch_hunter_boltslinger_rapid_reload",
       "name": "Rapid Reload",
-      "description": "Increases your haste by 8%.",
+      "description": "Increases your haste by 9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -42,7 +42,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "haste": 2.6667
+        "haste": 3
       },
       "connected_to": [
         "witch_hunter_boltslinger_bane_of_witches"
@@ -52,7 +52,7 @@
     {
       "talent_id": "witch_hunter_boltslinger_my_trusty_arbalest",
       "name": "My Trusty Arbalest",
-      "description": "Reduces the Focus cost of Witchbane and Shadowblast by up to 20% and increases your chance to hit by up to 4%.",
+      "description": "Reduces the Focus cost of Witchbane and Shadowblast by up to 21% and increases your chance to hit by up to 3%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -60,9 +60,9 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "ability_witch_hunter_witchbane_cost_pct": 0.0667,
-        "ability_witch_hunter_shadowblast_damage": 0.036,
-        "hit_rating": 1.3333
+        "ability_witch_hunter_witchbane_cost_pct": 0.07,
+        "ability_witch_hunter_shadowblast_damage": 0.04,
+        "hit_rating": 1
       },
       "connected_to": [
         "witch_hunter_boltslinger_one_shot"
@@ -90,7 +90,7 @@
     {
       "talent_id": "witch_hunter_boltslinger_arbalist",
       "name": "Arbalist",
-      "description": "Increases your attack power by 100% of your Intellect.",
+      "description": "Increases your attack power by 99% of your Intellect.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -98,7 +98,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "attack_power_from_intellect_pct": 0.3333
+        "attack_power_from_intellect_pct": 0.33
       },
       "connected_to": [
         "witch_hunter_boltslinger_kingdom_hearts"
@@ -143,7 +143,7 @@
     {
       "talent_id": "witch_hunter_boltslinger_one_shot",
       "name": "One Shot",
-      "description": "Increases the critical strike chance of Heartseeking Bolt by 20%.",
+      "description": "Increases the critical strike chance of Heartseeking Bolt by 12%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -161,7 +161,7 @@
     {
       "talent_id": "witch_hunter_boltslinger_crossbow_expert",
       "name": "Crossbow Expert",
-      "description": "Increases the damage of Shadowblast by 10% and Witchbane by 5%.",
+      "description": "Increases the damage of Shadowblast by 6% and Witchbane by 5%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -169,8 +169,8 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "ability_witch_hunter_shadowblast_damage": 0.036,
-        "ability_witch_hunter_witchbane_damage": 0.018
+        "ability_witch_hunter_shadowblast_damage": 0.04,
+        "ability_witch_hunter_witchbane_damage": 0.02
       },
       "connected_to": [
         "witch_hunter_boltslinger_silver_bolts"
@@ -269,7 +269,7 @@
     {
       "talent_id": "witch_hunter_boltslinger_silver_bolts",
       "name": "Silver Bolts",
-      "description": "Increases the damage of Heartseeking Bolt and Damnation by 8.1%.",
+      "description": "Increases the damage of Heartseeking Bolt and Damnation by 9%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -277,8 +277,8 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_witch_hunter_heartseeking_bolt_damage": 0.027,
-        "ability_witch_hunter_damnation_damage": 0.027
+        "ability_witch_hunter_heartseeking_bolt_damage": 0.03,
+        "ability_witch_hunter_damnation_damage": 0.03
       },
       "connected_to": [
         "witch_hunter_boltslinger_relentless"
@@ -288,7 +288,7 @@
     {
       "talent_id": "witch_hunter_boltslinger_tormenting_the_tormented",
       "name": "Tormenting the Tormented",
-      "description": "Increases the critical strike chance of Tormentor by 15%.",
+      "description": "Increases the critical strike chance of Tormentor by 9%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -306,7 +306,7 @@
     {
       "talent_id": "witch_hunter_boltslinger_witching_bolt",
       "name": "Witching Bolt",
-      "description": "Increases the critical strike chance of Damnation by 15%.",
+      "description": "Increases the critical strike chance of Damnation by 9%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -324,7 +324,7 @@
     {
       "talent_id": "witch_hunter_boltslinger_enchanted_bolts",
       "name": "Enchanted Bolts",
-      "description": "Increases your spell damage by 5% and your armor penetration by 10%.",
+      "description": "Increases your spell damage by 6% and your armor penetration by 9%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -332,8 +332,8 @@
       "hex_x": 4,
       "hex_y": -2,
       "effects": {
-        "spell_damage": 0.0167,
-        "armor_penetration_pct": 3.3333
+        "spell_damage": 0.02,
+        "armor_penetration_pct": 3
       },
       "connected_to": [
         "witch_hunter_boltslinger_resourceful_pursuit"
@@ -378,7 +378,7 @@
     {
       "talent_id": "witch_hunter_boltslinger_relentless",
       "name": "Relentless",
-      "description": "Increases the damage of Witchbane by 10.8%.",
+      "description": "Increases the damage of Witchbane by 12%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -386,7 +386,7 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_witch_hunter_witchbane_damage": 0.036
+        "ability_witch_hunter_witchbane_damage": 0.04
       },
       "connected_to": [
         "witch_hunter_boltslinger_heavy_crossbows"
@@ -396,7 +396,7 @@
     {
       "talent_id": "witch_hunter_boltslinger_resourceful_pursuit",
       "name": "Resourceful Pursuit",
-      "description": "Reduces the Focus cost of Tormentor and Damnation by 20%.",
+      "description": "Reduces the Focus cost of Tormentor and Damnation by 21%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -404,8 +404,8 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_witch_hunter_tormentor_cost_pct": 0.0667,
-        "ability_witch_hunter_damnation_cost_pct": 0.0667
+        "ability_witch_hunter_tormentor_cost_pct": 0.07,
+        "ability_witch_hunter_damnation_cost_pct": 0.07
       },
       "connected_to": [
         "witch_hunter_boltslinger_bringing_the_law"
@@ -415,7 +415,7 @@
     {
       "talent_id": "witch_hunter_boltslinger_bringing_the_law",
       "name": "Bringing the Law",
-      "description": "Increases the critical strike chance of Shadowblast by 10%.",
+      "description": "Increases the critical strike chance of Shadowblast by 6%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -538,7 +538,7 @@
     {
       "talent_id": "witch_hunter_boltslinger_crossbow_frenzy",
       "name": "Crossbow Frenzy",
-      "description": "Increases your haste by 5% and your dodge by 5%.",
+      "description": "Increases your haste by 6% and your dodge by 6%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -546,8 +546,8 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "haste": 1.6667,
-        "dodge": 1.6667
+        "haste": 2,
+        "dodge": 2
       },
       "connected_to": [
         "witch_hunter_boltslinger_dead_and_gone"
@@ -557,7 +557,7 @@
     {
       "talent_id": "witch_hunter_boltslinger_witchbane_mastery",
       "name": "Hunter's Cadence",
-      "description": "Increases the damage your damage-over-time effects deal by 10%.",
+      "description": "Increases the damage your damage-over-time effects deal by 9%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -565,7 +565,7 @@
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "dot_damage": 0.0333
+        "dot_damage": 0.03
       },
       "connected_to": [
         "witch_hunter_boltslinger_dead_and_gone"
@@ -575,7 +575,7 @@
     {
       "talent_id": "witch_hunter_boltslinger_contract_killing",
       "name": "Contract Killing",
-      "description": "Increases all damage you deal by 5.1%.",
+      "description": "Increases all damage you deal by 6%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -583,7 +583,7 @@
       "hex_x": -3,
       "hex_y": 4,
       "effects": {
-        "all_damage": 0.017
+        "all_damage": 0.02
       },
       "connected_to": [
         "witch_hunter_boltslinger_bounty_hunter"
@@ -593,7 +593,7 @@
     {
       "talent_id": "witch_hunter_boltslinger_heavy_crossbows",
       "name": "Heavy Crossbows",
-      "description": "Increases the damage of Darkslayer by 50%, and your Heartseeking Bolt and Darkslayer have a 25% chance to strike again.",
+      "description": "Increases the damage of Darkslayer by 27%, and your Heartseeking Bolt and Darkslayer have a 25% chance to strike again.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,

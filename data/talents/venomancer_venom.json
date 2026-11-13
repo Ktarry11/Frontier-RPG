@@ -16,7 +16,7 @@
     {
       "talent_id": "venomancer_venom_shadras_gift",
       "name": "Shadra's Gift",
-      "description": "Increases your spell damage by 25% of your Intellect and your haste by 20% of your Intellect.",
+      "description": "Increases your spell damage by 24% of your Intellect and your haste by 21% of your Intellect.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,8 +24,8 @@
       "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "spell_damage_from_intellect_pct": 0.0833,
-        "haste_from_intellect_pct": 0.0667
+        "spell_damage_from_intellect_pct": 0.08,
+        "haste_from_intellect_pct": 0.07
       },
       "connected_to": [
         "venomancer_venom_acid_bolt"
@@ -35,7 +35,7 @@
     {
       "talent_id": "venomancer_venom_acid_bolt",
       "name": "Acid Bolt",
-      "description": "Increases the damage of Venom Bolt by 30% and its critical strike chance by 6%.",
+      "description": "Increases the damage of Venom Bolt by 15% and its critical strike chance by 3%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -43,8 +43,8 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "ability_venomancer_venom_bolt_damage": 0.054,
-        "ability_venomancer_venom_bolt_crit": 1.2
+        "ability_venomancer_venom_bolt_damage": 0.05,
+        "ability_venomancer_venom_bolt_crit": 1
       },
       "connected_to": [
         "venomancer_venom_rotpriest"
@@ -54,7 +54,7 @@
     {
       "talent_id": "venomancer_venom_rotpriest",
       "name": "Rotpriest",
-      "description": "Increases the critical strike damage of your spells by 50%.",
+      "description": "Increases the critical strike damage of your spells by 51%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -62,7 +62,7 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "crit_damage_spell": 0.1667
+        "crit_damage_spell": 0.17
       },
       "connected_to": [
         "venomancer_venom_protraction"
@@ -91,7 +91,7 @@
     {
       "talent_id": "venomancer_venom_serpents_embrace",
       "name": "Serpent's Embrace",
-      "description": "Increases the damage of Serpent's Fang by 16.2%.",
+      "description": "Increases the damage of Serpent's Fang by 15%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -99,7 +99,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "ability_venomancer_serpents_fang_damage": 0.054
+        "ability_venomancer_serpents_fang_damage": 0.05
       },
       "connected_to": [
         "venomancer_venom_fungal_growth"
@@ -196,7 +196,7 @@
     {
       "talent_id": "venomancer_venom_envenom",
       "name": "Envenom",
-      "description": "Reduces the mana cost of Venom Bolt by 20%.",
+      "description": "Reduces the mana cost of Venom Bolt by 21%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -204,7 +204,7 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_venomancer_venom_bolt_cost_pct": 0.0667
+        "ability_venomancer_venom_bolt_cost_pct": 0.07
       },
       "connected_to": [
         "venomancer_venom_necessary_preparations"
@@ -214,7 +214,7 @@
     {
       "talent_id": "venomancer_venom_necessary_preparations",
       "name": "Necessary Preparations",
-      "description": "Increases the damage of Wilt by 20% and your chance to hit by 3%.",
+      "description": "Increases the damage of Wilt by 12% and your chance to hit by 3%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -222,7 +222,7 @@
       "hex_x": 4,
       "hex_y": -4,
       "effects": {
-        "ability_venomancer_wilt_damage": 0.036,
+        "ability_venomancer_wilt_damage": 0.04,
         "hit_rating": 1
       },
       "connected_to": [
@@ -251,7 +251,7 @@
     {
       "talent_id": "venomancer_venom_captivation",
       "name": "Captivation",
-      "description": "Increases the damage of Mycosis by a further 13.5%.",
+      "description": "Increases the damage of Mycosis by a further 15%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -259,7 +259,7 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_venomancer_mycosis_damage": 0.045
+        "ability_venomancer_mycosis_damage": 0.05
       },
       "connected_to": [
         "venomancer_venom_a_pit_of_snakes"
@@ -369,7 +369,7 @@
     {
       "talent_id": "venomancer_venom_venom_saturation",
       "name": "Venom Saturation",
-      "description": "Increases the damage your damage-over-time spells deal by 25%.",
+      "description": "Increases the damage your damage-over-time spells deal by 24%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -377,7 +377,7 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "dot_damage": 0.0833
+        "dot_damage": 0.08
       },
       "connected_to": [
         "venomancer_venom_septic_trauma"
@@ -429,7 +429,7 @@
     {
       "talent_id": "venomancer_venom_decay_mastery",
       "name": "Decay",
-      "description": "Increases the damage of Decay by 40% and reduces its cooldown by 25%.",
+      "description": "Increases the damage of Decay by 21% and reduces its cooldown by 24%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -437,8 +437,8 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "ability_venomancer_decay_damage": 0.072,
-        "ability_venomancer_decay_cooldown_pct": 0.0833
+        "ability_venomancer_decay_damage": 0.07,
+        "ability_venomancer_decay_cooldown_pct": 0.08
       },
       "connected_to": [
         "venomancer_venom_from_death_comes_life"
@@ -512,7 +512,7 @@
     {
       "talent_id": "venomancer_venom_fungal_link",
       "name": "Fungal Link",
-      "description": "Increases your haste by 3% and reduces the threat your spells generate by 20%.",
+      "description": "Increases your haste by 3% and reduces the threat your spells generate by 21%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -521,7 +521,7 @@
       "hex_y": 2,
       "effects": {
         "haste": 1,
-        "threat_generation_pct": -0.0667
+        "threat_generation_pct": -0.07
       },
       "connected_to": [
         "venomancer_venom_sporelord"
@@ -645,7 +645,7 @@
     {
       "talent_id": "venomancer_venom_rot_lich",
       "name": "Rot Lich",
-      "description": "Everything rots: your damage-over-time spells deal 40% more, and Wilt and Spore hit 50% harder.",
+      "description": "Everything rots: your damage-over-time spells deal 40% more, and Wilt and Spore hit 27% harder.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,

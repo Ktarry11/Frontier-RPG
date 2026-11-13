@@ -16,7 +16,7 @@
     {
       "talent_id": "reaper_harvest_bountiful_harvest",
       "name": "Bountiful Harvest",
-      "description": "Increases the damage of Reap and Murder by 13.5%.",
+      "description": "Increases the damage of Reap and Murder by 15%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,8 +24,8 @@
       "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "ability_reaper_reap_damage": 0.045,
-        "ability_reaper_murder_damage": 0.045
+        "ability_reaper_reap_damage": 0.05,
+        "ability_reaper_murder_damage": 0.05
       },
       "connected_to": [
         "reaper_harvest_maw_knight"
@@ -35,7 +35,7 @@
     {
       "talent_id": "reaper_harvest_maw_knight",
       "name": "Maw Knight",
-      "description": "Increases the critical strike chance of Doomrend by 10%.",
+      "description": "Increases the critical strike chance of Doomrend by 6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -54,7 +54,7 @@
     {
       "talent_id": "reaper_harvest_sanguine_harvester",
       "name": "Sanguine Harvester",
-      "description": "Increases your haste by 20%.",
+      "description": "Increases your haste by 21%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -62,7 +62,7 @@
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "haste": 6.6667
+        "haste": 7
       },
       "connected_to": [
         "reaper_harvest_red_wake"
@@ -72,7 +72,7 @@
     {
       "talent_id": "reaper_harvest_dark_fate",
       "name": "Dark Fate",
-      "description": "Reduces the mana cost of Crow's Harvest and Wraithblade by 20%.",
+      "description": "Reduces the mana cost of Crow's Harvest and Wraithblade by 21%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -80,8 +80,8 @@
       "hex_x": 2,
       "hex_y": -6,
       "effects": {
-        "ability_reaper_crows_harvest_cost_pct": 0.0667,
-        "ability_reaper_wraithblade_cost_pct": 0.0667
+        "ability_reaper_crows_harvest_cost_pct": 0.07,
+        "ability_reaper_wraithblade_cost_pct": 0.07
       },
       "connected_to": [
         "reaper_harvest_crimson_wraith"
@@ -91,7 +91,7 @@
     {
       "talent_id": "reaper_harvest_crimson_wraith",
       "name": "Crimson Wraith",
-      "description": "Increases your physical critical damage by 20%.",
+      "description": "Increases your physical critical damage by 21%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -99,7 +99,7 @@
       "hex_x": 4,
       "hex_y": -6,
       "effects": {
-        "crit_damage_physical": 0.0667
+        "crit_damage_physical": 0.07
       },
       "connected_to": [
         "reaper_harvest_hemorrhage"
@@ -193,7 +193,7 @@
     {
       "talent_id": "reaper_harvest_genocide",
       "name": "Genocide",
-      "description": "Increases the damage and critical damage of Slaughter by 20%.",
+      "description": "Increases the damage and critical damage of Slaughter by 21%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -201,8 +201,8 @@
       "hex_x": 3,
       "hex_y": -2,
       "effects": {
-        "ability_reaper_slaughter_damage": 0.036,
-        "ability_reaper_slaughter_crit_damage": 0.0667
+        "ability_reaper_slaughter_damage": 0.04,
+        "ability_reaper_slaughter_crit_damage": 0.07
       },
       "connected_to": [
         "reaper_harvest_extinction"
@@ -366,7 +366,7 @@
     {
       "talent_id": "reaper_harvest_doomer",
       "name": "Doomer",
-      "description": "Increases the damage of Doomrend and Slaughter by 30%.",
+      "description": "Increases the damage of Doomrend and Slaughter by 15%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -374,8 +374,8 @@
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "ability_reaper_doomrend_damage": 0.054,
-        "ability_reaper_slaughter_damage": 0.054
+        "ability_reaper_doomrend_damage": 0.05,
+        "ability_reaper_slaughter_damage": 0.05
       },
       "connected_to": [
         "reaper_harvest_executioner"
@@ -403,7 +403,7 @@
     {
       "talent_id": "reaper_harvest_executioner",
       "name": "Executioner",
-      "description": "Increases your critical strike chance by 20% of your Strength, and your damage against enemies below 35% health by a further 25%.",
+      "description": "Increases your critical strike chance by 21% of your Strength, and your damage against enemies below 35% health by a further 24%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -411,8 +411,8 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "crit_chance_from_strength_pct": 0.0667,
-        "low_health_damage_pct": 0.0833,
+        "crit_chance_from_strength_pct": 0.07,
+        "low_health_damage_pct": 0.08,
         "low_health_threshold_pct": 0.35
       },
       "connected_to": [
@@ -423,7 +423,7 @@
     {
       "talent_id": "reaper_harvest_unbound",
       "name": "Unbound",
-      "description": "Increases the damage of Reliquary of the Lost by 40% and your physical critical damage by a further 15%.",
+      "description": "Increases the damage of Reliquary of the Lost by 21% and your physical critical damage by a further 15%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -431,7 +431,7 @@
       "hex_x": 4,
       "hex_y": 4,
       "effects": {
-        "ability_reaper_reliquary_of_the_lost_damage": 0.072,
+        "ability_reaper_reliquary_of_the_lost_damage": 0.07,
         "crit_damage_physical": 0.05
       },
       "connected_to": [
@@ -460,7 +460,7 @@
     {
       "talent_id": "reaper_harvest_blood_wraith",
       "name": "Blood Wraith",
-      "description": "Increases the damage of Wraithblade by 50% and reduces its mana cost by a further 15%.",
+      "description": "Increases the damage of Wraithblade by 27% and reduces its mana cost by a further 15%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,

@@ -186,7 +186,7 @@
     {
       "talent_id": "sun_cleric_valkyrie_sun_gift",
       "name": "Sun's Gift",
-      "description": "Increases the damage of Valkyr's Calling by 13.5%, and its casts restore 100 Mana.",
+      "description": "Increases the damage of Valkyr's Calling by 14%, and its casts restore 100 Mana.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
@@ -194,7 +194,7 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "ability_sun_cleric_valkyrs_calling_damage": 0.135
+        "ability_sun_cleric_valkyrs_calling_damage": 0.14
       },
       "connected_to": [
         "sun_cleric_valkyrie_sunsworn"
@@ -406,7 +406,7 @@
     {
       "talent_id": "sun_cleric_valkyrie_warriors_light",
       "name": "Warrior's Light",
-      "description": "Increases Sunflare and Justice damage by 4% per rank.",
+      "description": "Increases Sunflare and Justice damage by 2% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
@@ -414,7 +414,7 @@
       "hex_x": -3,
       "hex_y": -2,
       "effects": {
-        "ability_sun_cleric_justice_damage": 0.022
+        "ability_sun_cleric_justice_damage": 0.02
       },
       "connected_to": [
         "sun_cleric_valkyrie_glorious_execution",
@@ -501,7 +501,7 @@
     {
       "talent_id": "sun_cleric_valkyrie_vindicator",
       "name": "Vindicator",
-      "description": "Increases the damage of Glorious Execution by 13.5%.",
+      "description": "Increases the damage of Glorious Execution by 14%.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -509,7 +509,7 @@
       "hex_x": -1,
       "hex_y": 6,
       "effects": {
-        "ability_sun_cleric_glorious_execution_damage": 0.135
+        "ability_sun_cleric_glorious_execution_damage": 0.14
       },
       "connected_to": [
         "sun_cleric_valkyrie_holy_giant"

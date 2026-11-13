@@ -16,7 +16,7 @@
     {
       "talent_id": "guardian_inspiration_a_heros_tale",
       "name": "A Hero's Tale",
-      "description": "Reduces the Energy cost of your songs and presences by 20%.",
+      "description": "Reduces the Energy cost of your songs and presences by 21%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,10 +24,10 @@
       "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "ability_guardian_song_of_steel_cost_pct": 0.0667,
-        "ability_guardian_inspiring_presence_cost_pct": 0.0667,
-        "ability_guardian_standard_of_valiance_cost_pct": 0.0667,
-        "ability_guardian_champions_presence_cost_pct": 0.0667
+        "ability_guardian_song_of_steel_cost_pct": 0.07,
+        "ability_guardian_inspiring_presence_cost_pct": 0.07,
+        "ability_guardian_standard_of_valiance_cost_pct": 0.07,
+        "ability_guardian_champions_presence_cost_pct": 0.07
       },
       "connected_to": [
         "guardian_inspiration_leading_the_march"
@@ -37,7 +37,7 @@
     {
       "talent_id": "guardian_inspiration_leading_the_march",
       "name": "Leading the March",
-      "description": "Increases your attack power and armour by 8%.",
+      "description": "Increases your attack power and armour by 9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -45,8 +45,8 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "attack_power_pct": 2.6667,
-        "armor_pct": 2.6667
+        "attack_power_pct": 3,
+        "armor_pct": 3
       },
       "connected_to": [
         "guardian_inspiration_dragonslayer"
@@ -56,7 +56,7 @@
     {
       "talent_id": "guardian_inspiration_dragonslayer",
       "name": "Dragonslayer",
-      "description": "Increases your Agility by 5%.",
+      "description": "Increases your Agility by 6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -64,7 +64,7 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "agility_pct": 1.6667
+        "agility_pct": 2
       },
       "connected_to": [
         "guardian_inspiration_spirit_of_battle"
@@ -74,7 +74,7 @@
     {
       "talent_id": "guardian_inspiration_wars_muse",
       "name": "War's Muse",
-      "description": "Increases your critical strike damage by 20%.",
+      "description": "Increases your critical strike damage by 21%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -82,7 +82,7 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "crit_damage_physical": 0.0667
+        "crit_damage_physical": 0.07
       },
       "connected_to": [
         "guardian_inspiration_spirit_of_battle"
@@ -110,7 +110,7 @@
     {
       "talent_id": "guardian_inspiration_battle_bard",
       "name": "Battle Bard",
-      "description": "Increases the damage of your Ballads by 8.1%.",
+      "description": "Increases the damage of your Ballads by 9%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -118,8 +118,8 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "ability_guardian_ballad_of_steel_damage": 0.027,
-        "ability_guardian_song_of_battle_damage": 0.027
+        "ability_guardian_ballad_of_steel_damage": 0.03,
+        "ability_guardian_song_of_battle_damage": 0.03
       },
       "connected_to": [
         "guardian_inspiration_minstrel"
@@ -129,7 +129,7 @@
     {
       "talent_id": "guardian_inspiration_soundwave",
       "name": "Soundwave",
-      "description": "Increases the damage of Sound of War by 8.1%.",
+      "description": "Increases the damage of Sound of War by 9%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -137,7 +137,7 @@
       "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "ability_guardian_sound_of_war_damage": 0.027
+        "ability_guardian_sound_of_war_damage": 0.03
       },
       "connected_to": [
         "guardian_inspiration_minstrel"
@@ -147,7 +147,7 @@
     {
       "talent_id": "guardian_inspiration_powerful_voice",
       "name": "Powerful Voice",
-      "description": "Increases the critical strike chance of your Ballads by 10%.",
+      "description": "Increases the critical strike chance of your Ballads by 6%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -249,7 +249,7 @@
     {
       "talent_id": "guardian_inspiration_pied_piper",
       "name": "Pied Piper",
-      "description": "Increases the damage of Ram by 10.8%.",
+      "description": "Increases the damage of Ram by 12%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -257,7 +257,7 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_guardian_ram_damage": 0.036
+        "ability_guardian_ram_damage": 0.04
       },
       "connected_to": [
         "guardian_inspiration_knights_song"
@@ -466,7 +466,7 @@
     {
       "talent_id": "guardian_inspiration_bards_manuscript",
       "name": "Bard's Manuscript",
-      "description": "Reduces the cooldown of Hero's March by 40%.",
+      "description": "Reduces the cooldown of Hero's March by 39%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -474,7 +474,7 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "ability_guardian_heros_march_cooldown_pct": 0.1333
+        "ability_guardian_heros_march_cooldown_pct": 0.13
       },
       "connected_to": [
         "guardian_inspiration_war_drums"
@@ -510,7 +510,7 @@
     {
       "talent_id": "guardian_inspiration_legion_commander",
       "name": "Legion Commander",
-      "description": "Increases the damage of Harrowing Melody by 50% and of your Ballads by 30%.",
+      "description": "Increases the damage of Harrowing Melody by 51% and of your Ballads by 15%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -518,9 +518,9 @@
       "hex_x": -3,
       "hex_y": 4,
       "effects": {
-        "ability_guardian_harrowing_melody_potency": 0.1667,
-        "ability_guardian_ballad_of_steel_damage": 0.054,
-        "ability_guardian_song_of_battle_damage": 0.054
+        "ability_guardian_harrowing_melody_potency": 0.17,
+        "ability_guardian_ballad_of_steel_damage": 0.05,
+        "ability_guardian_song_of_battle_damage": 0.05
       },
       "connected_to": [
         "guardian_inspiration_inspiring_presence_mastery"

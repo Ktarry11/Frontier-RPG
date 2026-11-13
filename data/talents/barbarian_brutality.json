@@ -16,7 +16,7 @@
     {
       "talent_id": "barbarian_brutality_pure_power",
       "name": "Pure Power",
-      "description": "Increases the damage of Smash by 16.2% and your expertise by 10.",
+      "description": "Increases the damage of Smash by 15% and your expertise by 10.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,8 +24,8 @@
       "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "ability_barbarian_smash_damage": 0.054,
-        "expertise": 3.3333
+        "ability_barbarian_smash_damage": 0.05,
+        "expertise": 3
       },
       "connected_to": [
         "barbarian_brutality_reckless_movements"
@@ -35,7 +35,7 @@
     {
       "talent_id": "barbarian_brutality_reckless_movements",
       "name": "Reckless Movements",
-      "description": "Increases the damage of Ancestral Strike and Barbaric Whirl by 10.8%.",
+      "description": "Increases the damage of Ancestral Strike and Barbaric Whirl by 12%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -43,8 +43,8 @@
       "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "ability_barbarian_ancestral_strike_damage": 0.036,
-        "ability_barbarian_barbaric_whirl_damage": 0.036
+        "ability_barbarian_ancestral_strike_damage": 0.04,
+        "ability_barbarian_barbaric_whirl_damage": 0.04
       },
       "connected_to": [
         "barbarian_brutality_bloody_fighter",
@@ -55,7 +55,7 @@
     {
       "talent_id": "barbarian_brutality_bloody_fighter",
       "name": "Bloody Fighter",
-      "description": "Increases the critical strike chance of Brutal Swing and Smash by 10%.",
+      "description": "Increases the critical strike chance of Brutal Swing and Smash by 6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -167,7 +167,7 @@
     {
       "talent_id": "barbarian_brutality_spiked_weapons",
       "name": "Spiked Weapons",
-      "description": "Increases your physical critical damage by 20% and your armor penetration by 100.",
+      "description": "Increases your physical critical damage by 21% and your armor penetration by 100.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -175,8 +175,8 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "crit_damage_physical": 0.0667,
-        "armor_penetration": 33.3333
+        "crit_damage_physical": 0.07,
+        "armor_penetration": 33
       },
       "connected_to": [
         "barbarian_brutality_overkill"
@@ -279,7 +279,7 @@
     {
       "talent_id": "barbarian_brutality_ancestral_trauma",
       "name": "Ancestral Trauma",
-      "description": "Increases your attack power by 25% of your Strength.",
+      "description": "Increases your attack power by 24% of your Strength.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -287,7 +287,7 @@
       "hex_x": -2,
       "hex_y": 2,
       "effects": {
-        "attack_power_from_strength_pct": 0.0833
+        "attack_power_from_strength_pct": 0.08
       },
       "connected_to": [
         "barbarian_brutality_ogres_strength"
@@ -297,7 +297,7 @@
     {
       "talent_id": "barbarian_brutality_overkill",
       "name": "Overkill",
-      "description": "Increases the critical strike chance of Decapitate and Headhunter's Spear by 30%, and your damage against enemies below 35% health by 25%.",
+      "description": "Increases the critical strike chance of Decapitate and Headhunter's Spear by 18%, and your damage against enemies below 35% health by 24%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -307,7 +307,7 @@
       "effects": {
         "ability_barbarian_decapitate_crit": 6.0,
         "ability_barbarian_headhunters_spear_crit": 6.0,
-        "low_health_damage_pct": 0.0833,
+        "low_health_damage_pct": 0.08,
         "low_health_threshold_pct": 0.35
       },
       "connected_to": [
@@ -318,7 +318,7 @@
     {
       "talent_id": "barbarian_brutality_ogres_strength",
       "name": "Ogre's Strength",
-      "description": "Increases your Strength by 25%.",
+      "description": "Increases your Strength by 24%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -326,7 +326,7 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "strength_pct": 8.3333
+        "strength_pct": 8
       },
       "connected_to": [
         "barbarian_brutality_sustaining_swings"
@@ -336,7 +336,7 @@
     {
       "talent_id": "barbarian_brutality_whirling_assault",
       "name": "Whirling Assault",
-      "description": "Increases the damage of Whirling Advance by 60% and of Barbaric Whirl by 30%.",
+      "description": "Increases the damage of Whirling Advance by 33% and of Barbaric Whirl by 15%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -344,8 +344,8 @@
       "hex_x": 3,
       "hex_y": 4,
       "effects": {
-        "ability_barbarian_whirling_advance_damage": 0.108,
-        "ability_barbarian_barbaric_whirl_damage": 0.054
+        "ability_barbarian_whirling_advance_damage": 0.11,
+        "ability_barbarian_barbaric_whirl_damage": 0.05
       },
       "connected_to": [
         "barbarian_brutality_sustaining_swings"
@@ -355,7 +355,7 @@
     {
       "talent_id": "barbarian_brutality_killing_spree",
       "name": "Killing Spree",
-      "description": "Increases the damage of Killing Spree and Berserker Rush by 18.9%.",
+      "description": "Increases the damage of Killing Spree and Berserker Rush by 18%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -363,8 +363,8 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "ability_barbarian_killing_spree_damage": 0.063,
-        "ability_barbarian_berserker_rush_damage": 0.063
+        "ability_barbarian_killing_spree_damage": 0.06,
+        "ability_barbarian_berserker_rush_damage": 0.06
       },
       "connected_to": [
         "barbarian_brutality_pure_power"
@@ -374,7 +374,7 @@
     {
       "talent_id": "barbarian_brutality_storm_of_steel",
       "name": "Storm of Steel",
-      "description": "Increases the damage of Storm of Steel by 21.6% and its duration by 2 turns.",
+      "description": "Increases the damage of Storm of Steel by 22% and its duration by 2 turns.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 1,
@@ -382,7 +382,7 @@
       "hex_x": -3,
       "hex_y": -2,
       "effects": {
-        "ability_barbarian_storm_of_steel_damage": 0.216,
+        "ability_barbarian_storm_of_steel_damage": 0.22,
         "ability_barbarian_storm_of_steel_duration": 2
       },
       "connected_to": [
@@ -393,7 +393,7 @@
     {
       "talent_id": "barbarian_brutality_maximum_carnage",
       "name": "Maximum Carnage",
-      "description": "Increases the damage of Unbridled Rage's follow-up by 30% and your area damage by 20%.",
+      "description": "Increases the damage of Unbridled Rage's follow-up by 30% and your area damage by 21%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -402,7 +402,7 @@
       "hex_y": 0,
       "effects": {
         "ability_barbarian_unbridled_rage_potency": 0.1,
-        "aoe_damage": 0.0667
+        "aoe_damage": 0.07
       },
       "connected_to": [
         "barbarian_brutality_horde_breaker"
@@ -412,7 +412,7 @@
     {
       "talent_id": "barbarian_brutality_skullseeker",
       "name": "Skullseeker",
-      "description": "Increases your critical strike chance by 8% and your physical damage by 6%.",
+      "description": "Increases your critical strike chance by 9% and your physical damage by 6%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -420,7 +420,7 @@
       "hex_x": 2,
       "hex_y": 2,
       "effects": {
-        "crit_chance_physical": 2.6667,
+        "crit_chance_physical": 3,
         "physical_damage": 0.02
       },
       "connected_to": [

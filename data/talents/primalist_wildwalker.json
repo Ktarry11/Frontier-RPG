@@ -16,7 +16,7 @@
     {
       "talent_id": "primalist_wildwalker_wild_rampage",
       "name": "Wild Rampage",
-      "description": "Increases your attack power by up to 10% and your chance to hit by up to 4%.",
+      "description": "Increases your attack power by up to 9% and your chance to hit by up to 3%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,8 +24,8 @@
       "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "attack_power_pct": 3.3333,
-        "hit_rating": 1.3333
+        "attack_power_pct": 3,
+        "hit_rating": 1
       },
       "connected_to": [
         "primalist_wildwalker_rips_and_tears"
@@ -35,7 +35,7 @@
     {
       "talent_id": "primalist_wildwalker_raptor_talons_passive",
       "name": "Raptor Talons",
-      "description": "Increases your Strength by up to 10%.",
+      "description": "Increases your Strength by up to 9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -43,7 +43,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "strength_pct": 3.3333
+        "strength_pct": 3
       },
       "connected_to": [
         "primalist_wildwalker_rips_and_tears"
@@ -71,7 +71,7 @@
     {
       "talent_id": "primalist_wildwalker_pulverize",
       "name": "Pulverize",
-      "description": "Increases the critical strike chance of Totemic Smash by 10% per rank.",
+      "description": "Increases the critical strike chance of Totemic Smash by 4% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -97,7 +97,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "ability_primalist_rylaks_bite_cost_pct": 0.3333
+        "ability_primalist_rylaks_bite_cost_pct": 0.33
       },
       "connected_to": [
         "primalist_wildwalker_rylaks_bite"
@@ -285,7 +285,7 @@
     {
       "talent_id": "primalist_wildwalker_earthshaker",
       "name": "Earthshaker",
-      "description": "Increases the damage dealt by your Seismic abilities by 5.4%.",
+      "description": "Increases the damage dealt by your Seismic abilities by 6%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -293,9 +293,9 @@
       "hex_x": 1,
       "hex_y": -2,
       "effects": {
-        "ability_primalist_seismic_crash_damage": 0.018,
-        "ability_primalist_seismic_tremor_damage": 0.018,
-        "ability_primalist_seismic_wave_damage": 0.018
+        "ability_primalist_seismic_crash_damage": 0.02,
+        "ability_primalist_seismic_tremor_damage": 0.02,
+        "ability_primalist_seismic_wave_damage": 0.02
       },
       "connected_to": [
         "primalist_wildwalker_tremors"
@@ -313,7 +313,7 @@
       "hex_x": 3,
       "hex_y": -2,
       "effects": {
-        "pet_damage": 0.024,
+        "pet_damage": 0.02,
         "pet_health": 0.06
       },
       "connected_to": [

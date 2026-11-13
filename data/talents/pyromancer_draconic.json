@@ -35,7 +35,7 @@
     {
       "talent_id": "pyromancer_draconic_timed_attacks",
       "name": "Timed Attacks",
-      "description": "Increases your haste by 8%.",
+      "description": "Increases your haste by 9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -43,7 +43,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "haste": 2.6667
+        "haste": 3
       },
       "connected_to": [
         "pyromancer_draconic_alexstraszas_gift"
@@ -53,7 +53,7 @@
     {
       "talent_id": "pyromancer_draconic_alexstraszas_gift",
       "name": "Alexstrasza's Gift",
-      "description": "Increases the damage of Explode, Flames of Neltharion and Lava Shard by 8.1%.",
+      "description": "Increases the damage of Explode, Flames of Neltharion and Lava Shard by 9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -61,9 +61,9 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "ability_pyromancer_explode_damage": 0.027,
-        "ability_pyromancer_flames_of_neltharion_damage": 0.027,
-        "ability_pyromancer_lava_shard_damage": 0.027
+        "ability_pyromancer_explode_damage": 0.03,
+        "ability_pyromancer_flames_of_neltharion_damage": 0.03,
+        "ability_pyromancer_lava_shard_damage": 0.03
       },
       "connected_to": [
         "pyromancer_draconic_searing_flames"
@@ -73,7 +73,7 @@
     {
       "talent_id": "pyromancer_draconic_searing_flames",
       "name": "Searing Flames",
-      "description": "Increases the damage of Lava Shard by 16.2%.",
+      "description": "Increases the damage of Lava Shard by 15%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -81,7 +81,7 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "ability_pyromancer_lava_shard_damage": 0.054
+        "ability_pyromancer_lava_shard_damage": 0.05
       },
       "connected_to": [
         "pyromancer_draconic_agonizing_burns"
@@ -135,7 +135,7 @@
     {
       "talent_id": "pyromancer_draconic_aspects_blessing",
       "name": "Aspect's Blessing",
-      "description": "Increases the critical strike chance of Echo of Nozdormu and Flames of Neltharion by 25%.",
+      "description": "Increases the critical strike chance of Echo of Nozdormu and Flames of Neltharion by 15%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -154,7 +154,7 @@
     {
       "talent_id": "pyromancer_draconic_cinderstorm",
       "name": "Cinderstorm",
-      "description": "Increases the critical strike chance of Firefall by 10% and reduces the threat it generates by 25%.",
+      "description": "Increases the critical strike chance of Firefall by 6% and reduces the threat it generates by 24%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -163,7 +163,7 @@
       "hex_y": -4,
       "effects": {
         "ability_pyromancer_firefall_crit": 2.0,
-        "threat_generation_pct": -0.0833
+        "threat_generation_pct": -0.08
       },
       "connected_to": [
         "pyromancer_draconic_overwhelming_flames"
@@ -227,7 +227,7 @@
     {
       "talent_id": "pyromancer_draconic_mad_aspects_scepter",
       "name": "Mad Aspect's Scepter",
-      "description": "Increases the damage of Destroyer's Maw by 21.6%.",
+      "description": "Increases the damage of Destroyer's Maw by 21%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -235,7 +235,7 @@
       "hex_x": -4,
       "hex_y": -2,
       "effects": {
-        "ability_pyromancer_destroyers_maw_damage": 0.072
+        "ability_pyromancer_destroyers_maw_damage": 0.07
       },
       "connected_to": [
         "pyromancer_draconic_flames_of_the_aspects"
@@ -343,7 +343,7 @@
     {
       "talent_id": "pyromancer_draconic_flames_of_execution",
       "name": "Flames of Execution",
-      "description": "Increases the damage of Blaze by 13.5%.",
+      "description": "Increases the damage of Blaze by 15%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -351,7 +351,7 @@
       "hex_x": -4,
       "hex_y": 0,
       "effects": {
-        "ability_pyromancer_blaze_damage": 0.045
+        "ability_pyromancer_blaze_damage": 0.05
       },
       "connected_to": [
         "pyromancer_draconic_perpetual_burning"
@@ -380,7 +380,7 @@
     {
       "talent_id": "pyromancer_draconic_molten_fury",
       "name": "Molten Fury",
-      "description": "Increases the damage of Eruption by 15% and reduces its cooldown by 40%.",
+      "description": "Increases the damage of Eruption by 15% and reduces its cooldown by 39%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -389,7 +389,7 @@
       "hex_y": 0,
       "effects": {
         "ability_pyromancer_eruption_potency": 0.05,
-        "ability_pyromancer_eruption_cooldown_pct": 0.1333
+        "ability_pyromancer_eruption_cooldown_pct": 0.13
       },
       "connected_to": [
         "pyromancer_draconic_expediting_power"
@@ -447,7 +447,7 @@
     {
       "talent_id": "pyromancer_draconic_draconic_invocation",
       "name": "Draconic Invocation",
-      "description": "Increases all damage you deal by 3.9%.",
+      "description": "Increases all damage you deal by 3%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -455,7 +455,7 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "all_damage": 0.013
+        "all_damage": 0.01
       },
       "connected_to": [
         "pyromancer_draconic_fire_and_brimstone"
@@ -579,7 +579,7 @@
     {
       "talent_id": "pyromancer_draconic_death_from_above",
       "name": "Death From Above",
-      "description": "Teaches Death From Above, and Echo of Nozdormu and Flames of Neltharion hit 18.9% harder.",
+      "description": "Teaches Death From Above, and Echo of Nozdormu and Flames of Neltharion hit 19% harder.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -588,8 +588,8 @@
       "hex_y": 6,
       "effects": {
         "unlock_ability": "pyromancer_death_from_above",
-        "ability_pyromancer_echo_of_nozdormu_damage": 0.189,
-        "ability_pyromancer_flames_of_neltharion_damage": 0.189
+        "ability_pyromancer_echo_of_nozdormu_damage": 0.19,
+        "ability_pyromancer_flames_of_neltharion_damage": 0.19
       },
       "connected_to": [],
       "_source": "LOAD-BEARING UNLOCK: pyromancer_death_from_above carries requires_talent, so without this node it is unobtainable forever. Kept at tier 6, completing Pyromancer's 4/5/6 gated-ability pattern across all three trees. The damage on the two Aspect nukes is added because a capstone that only grants an ability is thin, and it pays off Aspect of Time at tier 1 - the bigger the nuke, the bigger its echo, since bonus_pct is a share of the hit. Same shape as Incineration's Pyroclasm capstone."

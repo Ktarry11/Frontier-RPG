@@ -16,7 +16,7 @@
     {
       "talent_id": "necromancer_rime_runic_reservoir",
       "name": "Runic Reservoir",
-      "description": "Increases your Frost damage by 10%.",
+      "description": "Increases your Frost damage by 9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,7 +24,7 @@
       "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "frost_spell_damage": 0.0333
+        "frost_spell_damage": 0.03
       },
       "connected_to": [
         "necromancer_rime_piercing_icicles"
@@ -34,7 +34,7 @@
     {
       "talent_id": "necromancer_rime_piercing_icicles",
       "name": "Piercing Icicles",
-      "description": "Increases the damage of Ice Barrage by 25% and of Lichfrost by 20%.",
+      "description": "Increases the damage of Ice Barrage by 15% and of Lichfrost by 12%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -42,8 +42,8 @@
       "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "ability_necromancer_ice_barrage_damage": 0.045,
-        "ability_necromancer_lichfrost_damage": 0.036
+        "ability_necromancer_ice_barrage_damage": 0.05,
+        "ability_necromancer_lichfrost_damage": 0.04
       },
       "connected_to": [
         "necromancer_rime_bone_legion",
@@ -54,7 +54,7 @@
     {
       "talent_id": "necromancer_rime_bone_legion",
       "name": "Bone Legion",
-      "description": "Increases the damage of Lichfrost by a further 20% and your spell critical strike chance by 4%.",
+      "description": "Increases the damage of Lichfrost by a further 12% and your spell critical strike chance by 3%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -62,8 +62,8 @@
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "ability_necromancer_lichfrost_damage": 0.036,
-        "crit_chance_spell": 1.3333
+        "ability_necromancer_lichfrost_damage": 0.04,
+        "crit_chance_spell": 1
       },
       "connected_to": [
         "necromancer_rime_freeze_dry"
@@ -243,7 +243,7 @@
     {
       "talent_id": "necromancer_rime_raising_the_kirin_tor",
       "name": "Raising the Kirin Tor",
-      "description": "Reduces the cost of your spells by 20% and the cooldown of Ice Barrage by 30%.",
+      "description": "Reduces the cost of your spells by 21% and the cooldown of Ice Barrage by 30%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -251,7 +251,7 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "all_ability_cost_pct": 0.0667,
+        "all_ability_cost_pct": 0.07,
         "ability_necromancer_ice_barrage_cooldown_pct": 0.1
       },
       "connected_to": [
@@ -295,7 +295,7 @@
     {
       "talent_id": "necromancer_rime_chilling_presence",
       "name": "Chilling Presence",
-      "description": "Increases your Frost damage by a further 10% and reduces the cooldown of Chilling Presence by 35%.",
+      "description": "Increases your Frost damage by a further 9% and reduces the cooldown of Chilling Presence by 36%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -303,8 +303,8 @@
       "hex_x": 0,
       "hex_y": 4,
       "effects": {
-        "frost_spell_damage": 0.0333,
-        "ability_necromancer_chilling_presence_cooldown_pct": 0.1167
+        "frost_spell_damage": 0.03,
+        "ability_necromancer_chilling_presence_cooldown_pct": 0.12
       },
       "connected_to": [
         "necromancer_rime_ice_mastery"
@@ -314,7 +314,7 @@
     {
       "talent_id": "necromancer_rime_command_bonefreeze",
       "name": "Command: Bonefreeze",
-      "description": "Increases the damage of Animate: Frost Wyrm by 40% and reduces the cooldown of Command: Bonefreeze by 30%.",
+      "description": "Increases the damage of Animate: Frost Wyrm by 21% and reduces the cooldown of Command: Bonefreeze by 30%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -322,7 +322,7 @@
       "hex_x": 2,
       "hex_y": 4,
       "effects": {
-        "ability_necromancer_animate_frost_wyrm_damage": 0.072,
+        "ability_necromancer_animate_frost_wyrm_damage": 0.07,
         "ability_necromancer_command_bonefreeze_cooldown_pct": 0.1
       },
       "connected_to": [
@@ -333,7 +333,7 @@
     {
       "talent_id": "necromancer_rime_curse_of_the_lich",
       "name": "Curse of the Lich",
-      "description": "Increases your spell critical strike chance by a further 5% and your Frost critical damage by 15%.",
+      "description": "Increases your spell critical strike chance by a further 6% and your Frost critical damage by 15%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -341,7 +341,7 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "crit_chance_spell": 1.6667,
+        "crit_chance_spell": 2,
         "frost_crit_damage_pct": 0.05
       },
       "connected_to": [
@@ -352,7 +352,7 @@
     {
       "talent_id": "necromancer_rime_harrowing_winds",
       "name": "Harrowing Winds",
-      "description": "Increases the damage of Glacial Impact by a further 30% and your area damage by 20%.",
+      "description": "Increases the damage of Glacial Impact by a further 15% and your area damage by 21%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -360,8 +360,8 @@
       "hex_x": -4,
       "hex_y": -2,
       "effects": {
-        "ability_necromancer_glacial_impact_damage": 0.054,
-        "aoe_damage": 0.0667
+        "ability_necromancer_glacial_impact_damage": 0.05,
+        "aoe_damage": 0.07
       },
       "connected_to": [
         "necromancer_rime_runic_reservoir"
@@ -371,7 +371,7 @@
     {
       "talent_id": "necromancer_rime_champion_of_kelthuzad",
       "name": "Champion of Kel'Thuzad",
-      "description": "Reduces the cost of Raise: Skeletal Mage by 40% and increases your pets' damage by 25%.",
+      "description": "Reduces the cost of Raise: Skeletal Mage by 39% and increases your pets' damage by 25%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -379,8 +379,8 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_necromancer_raise_skeletal_mage_cost_pct": 0.1333,
-        "pet_damage": 0.033
+        "ability_necromancer_raise_skeletal_mage_cost_pct": 0.13,
+        "pet_damage": 0.03
       },
       "connected_to": [
         "necromancer_rime_arch_lich"
@@ -390,7 +390,7 @@
     {
       "talent_id": "necromancer_rime_crowns_call",
       "name": "Crown's Call",
-      "description": "Increases your Intellect by 10% and your pets' health by 25%.",
+      "description": "Increases your Intellect by 9% and your pets' health by 24%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -398,8 +398,8 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "intellect_pct": 3.3333,
-        "pet_health": 0.0833
+        "intellect_pct": 3,
+        "pet_health": 0.08
       },
       "connected_to": [
         "necromancer_rime_raising_the_kirin_tor"

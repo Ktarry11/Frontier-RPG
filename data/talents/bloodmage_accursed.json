@@ -25,10 +25,10 @@
       "hex_y": -6,
       "effects": {
         "armor_penetration_pct": 10,
-        "ability_bloodmage_bloodbolt_damage": 0.054,
-        "ability_bloodmage_bloodmoon_blast_damage": 0.054,
-        "ability_bloodmage_veinburst_damage": 0.054,
-        "ability_bloodmage_hemoburst_damage": 0.054
+        "ability_bloodmage_bloodbolt_damage": 0.05,
+        "ability_bloodmage_bloodmoon_blast_damage": 0.05,
+        "ability_bloodmage_veinburst_damage": 0.05,
+        "ability_bloodmage_hemoburst_damage": 0.05
       },
       "connected_to": [
         "bloodmage_accursed_puncturing_fangs"
@@ -38,7 +38,7 @@
     {
       "talent_id": "bloodmage_accursed_rage_talent",
       "name": "Rage",
-      "description": "Increases your spell damage by 15% of your attack power and the damage of Reave by up to 20%.",
+      "description": "Increases your spell damage by 15% of your attack power and the damage of Reave by up to 12%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -47,7 +47,7 @@
       "hex_y": -6,
       "effects": {
         "spell_power_from_ap_pct": 0.05,
-        "ability_bloodmage_reave_damage": 0.036
+        "ability_bloodmage_reave_damage": 0.04
       },
       "connected_to": [
         "bloodmage_accursed_puncturing_fangs"
@@ -76,7 +76,7 @@
     {
       "talent_id": "bloodmage_accursed_dark_hunt",
       "name": "Dark Hunt",
-      "description": "Increases your Shadow spell damage by 10%.",
+      "description": "Increases your Shadow spell damage by 9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -84,7 +84,7 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "shadow_spell_damage": 0.0333
+        "shadow_spell_damage": 0.03
       },
       "connected_to": [
         "bloodmage_accursed_fang_over_fang"
@@ -220,7 +220,7 @@
     {
       "talent_id": "bloodmage_accursed_crimson_expedition",
       "name": "Crimson Expedition",
-      "description": "Increases the critical strike chance of Bloodbolt and Aortic Assault by 10%.",
+      "description": "Increases the critical strike chance of Bloodbolt and Aortic Assault by 6%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -276,7 +276,7 @@
     {
       "talent_id": "bloodmage_accursed_terrorizer",
       "name": "Terrorizer",
-      "description": "Increases the damage of Veinburst, Bloodfang Bite and Claw Sweep by 13.5%.",
+      "description": "Increases the damage of Veinburst, Bloodfang Bite and Claw Sweep by 15%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -284,9 +284,9 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_bloodmage_veinburst_damage": 0.045,
-        "ability_bloodmage_bloodfang_bite_damage": 0.045,
-        "ability_bloodmage_claw_sweep_damage": 0.045
+        "ability_bloodmage_veinburst_damage": 0.05,
+        "ability_bloodmage_bloodfang_bite_damage": 0.05,
+        "ability_bloodmage_claw_sweep_damage": 0.05
       },
       "connected_to": [
         "bloodmage_accursed_cursed_blood"
@@ -352,7 +352,7 @@
     {
       "talent_id": "bloodmage_accursed_sanguine_scripture",
       "name": "Sanguine Scripture",
-      "description": "Increases your haste by 8%.",
+      "description": "Increases your haste by 9%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -360,7 +360,7 @@
       "hex_x": 4,
       "hex_y": -2,
       "effects": {
-        "haste": 2.6667
+        "haste": 3
       },
       "connected_to": [
         "bloodmage_accursed_bloodsurge"
@@ -644,7 +644,7 @@
     {
       "talent_id": "bloodmage_accursed_veinburst_mastery",
       "name": "Veinburst",
-      "description": "Increases the damage of Veinburst by 50% and its critical strike damage by 25%.",
+      "description": "Increases the damage of Veinburst by 27% and its critical strike damage by 24%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -653,7 +653,7 @@
       "hex_y": 4,
       "effects": {
         "ability_bloodmage_veinburst_damage": 0.09,
-        "ability_bloodmage_veinburst_crit_damage": 0.0833
+        "ability_bloodmage_veinburst_crit_damage": 0.08
       },
       "connected_to": [
         "bloodmage_accursed_crimson_terror_acc"
@@ -663,7 +663,7 @@
     {
       "talent_id": "bloodmage_accursed_blood_plague",
       "name": "Blood Plague",
-      "description": "Increases the critical strike chance and critical damage of Ravenous Strike and Claw Sweep by 10%.",
+      "description": "Increases the critical strike chance and critical damage of Ravenous Strike and Claw Sweep by 9%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -673,7 +673,7 @@
       "effects": {
         "ability_bloodmage_ravenous_strike_crit": 2.0,
         "ability_bloodmage_claw_sweep_crit": 2.0,
-        "crit_damage_physical": 0.0333
+        "crit_damage_physical": 0.03
       },
       "connected_to": [
         "bloodmage_accursed_crimson_terror_acc"
@@ -683,7 +683,7 @@
     {
       "talent_id": "bloodmage_accursed_reave_mastery",
       "name": "Reave",
-      "description": "Increases the damage of Reave by 60%.",
+      "description": "Increases the damage of Reave by 33%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -691,7 +691,7 @@
       "hex_x": 3,
       "hex_y": 4,
       "effects": {
-        "ability_bloodmage_reave_damage": 0.108
+        "ability_bloodmage_reave_damage": 0.11
       },
       "connected_to": [
         "bloodmage_accursed_crimson_terror_acc"
@@ -701,7 +701,7 @@
     {
       "talent_id": "bloodmage_accursed_crimson_terror_acc",
       "name": "Monstrous Appetite",
-      "description": "Your strikes drink deep, healing you for 12% of the damage dealt, and your blood spells hit 25% harder.",
+      "description": "Your strikes drink deep, healing you for 12% of the damage dealt, and your blood spells hit 14% harder.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -709,10 +709,10 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "ability_bloodmage_bloodbolt_damage": 0.135,
-        "ability_bloodmage_bloodmoon_blast_damage": 0.135,
-        "ability_bloodmage_veinburst_damage": 0.135,
-        "ability_bloodmage_hemoburst_damage": 0.135
+        "ability_bloodmage_bloodbolt_damage": 0.14,
+        "ability_bloodmage_bloodmoon_blast_damage": 0.14,
+        "ability_bloodmage_veinburst_damage": 0.14,
+        "ability_bloodmage_hemoburst_damage": 0.14
       },
       "connected_to": [],
       "proc": {

@@ -16,7 +16,7 @@
     {
       "talent_id": "barbarian_headhunting_strong_arm",
       "name": "Strong Arm",
-      "description": "Increases the damage of your spears by 25% and your hit chance by 6%.",
+      "description": "Increases the damage of your spears by 24% and your hit chance by 6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,11 +24,11 @@
       "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "ability_barbarian_headhunters_spear_damage": 0.045,
-        "ability_barbarian_maiming_spear_potency": 0.0833,
-        "ability_barbarian_impaling_spear_damage": 0.045,
-        "ability_barbarian_barbed_spear_damage": 0.045,
-        "ability_barbarian_javelin_toss_damage": 0.045,
+        "ability_barbarian_headhunters_spear_damage": 0.05,
+        "ability_barbarian_maiming_spear_potency": 0.08,
+        "ability_barbarian_impaling_spear_damage": 0.05,
+        "ability_barbarian_barbed_spear_damage": 0.05,
+        "ability_barbarian_javelin_toss_damage": 0.05,
         "hit_rating": 2
       },
       "connected_to": [
@@ -39,7 +39,7 @@
     {
       "talent_id": "barbarian_headhunting_gruesome",
       "name": "Gruesome",
-      "description": "Increases the damage of Throw Weapon, Gutspiller and Berserker Axe by 10.8%.",
+      "description": "Increases the damage of Throw Weapon, Gutspiller and Berserker Axe by 12%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -47,9 +47,9 @@
       "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "ability_barbarian_throw_weapon_damage": 0.036,
-        "ability_barbarian_gutspiller_damage": 0.036,
-        "ability_barbarian_berserker_axe_damage": 0.036
+        "ability_barbarian_throw_weapon_damage": 0.04,
+        "ability_barbarian_gutspiller_damage": 0.04,
+        "ability_barbarian_berserker_axe_damage": 0.04
       },
       "connected_to": [
         "barbarian_headhunting_puncture_wounds",
@@ -194,7 +194,7 @@
     {
       "talent_id": "barbarian_headhunting_frothing_savage",
       "name": "Frothing Savage",
-      "description": "Increases the critical strike chance of your spears and Berserker Axe by 16%.",
+      "description": "Increases the critical strike chance of your spears and Berserker Axe by 9%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -202,10 +202,10 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "ability_barbarian_headhunters_spear_crit": 3.2,
-        "ability_barbarian_barbed_spear_crit": 3.2,
-        "ability_barbarian_impaling_spear_crit": 3.2,
-        "ability_barbarian_berserker_axe_crit": 3.2
+        "ability_barbarian_headhunters_spear_crit": 3,
+        "ability_barbarian_barbed_spear_crit": 3,
+        "ability_barbarian_impaling_spear_crit": 3,
+        "ability_barbarian_berserker_axe_crit": 3
       },
       "connected_to": [
         "barbarian_headhunting_payback"
@@ -243,7 +243,7 @@
     {
       "talent_id": "barbarian_headhunting_payback",
       "name": "Payback",
-      "description": "Increases the damage of Gutspiller and Impaling Spear by 40% and your periodic damage by 15%.",
+      "description": "Increases the damage of Gutspiller and Impaling Spear by 21% and your periodic damage by 15%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -251,8 +251,8 @@
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "ability_barbarian_gutspiller_damage": 0.072,
-        "ability_barbarian_impaling_spear_damage": 0.072,
+        "ability_barbarian_gutspiller_damage": 0.07,
+        "ability_barbarian_impaling_spear_damage": 0.07,
         "dot_damage": 0.05
       },
       "connected_to": [
@@ -306,7 +306,7 @@
     {
       "talent_id": "barbarian_headhunting_raging_spirit",
       "name": "Raging Spirit",
-      "description": "Reduces the cost of all your abilities by 15% and increases your ranged attack power by 20% of your Agility.",
+      "description": "Reduces the cost of all your abilities by 15% and increases your ranged attack power by 21% of your Agility.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -315,7 +315,7 @@
       "hex_y": 4,
       "effects": {
         "all_ability_cost_pct": 0.05,
-        "ranged_ap_from_agility_pct": 0.0667
+        "ranged_ap_from_agility_pct": 0.07
       },
       "connected_to": [
         "barbarian_headhunting_gurubashi_technique"
@@ -325,7 +325,7 @@
     {
       "talent_id": "barbarian_headhunting_power_tosser",
       "name": "Power Tosser",
-      "description": "Increases your ranged attack power by a further 25% of your Agility and your critical damage by 25%.",
+      "description": "Increases your ranged attack power by a further 24% of your Agility and your critical damage by 24%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -333,8 +333,8 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "ranged_ap_from_agility_pct": 0.0833,
-        "crit_damage_pct": 0.0833
+        "ranged_ap_from_agility_pct": 0.08,
+        "crit_damage_pct": 0.08
       },
       "connected_to": [
         "barbarian_headhunting_gurubashi_technique"
@@ -344,7 +344,7 @@
     {
       "talent_id": "barbarian_headhunting_skullseeker",
       "name": "Skullseeker",
-      "description": "Increases your critical strike chance by 8%.",
+      "description": "Increases your critical strike chance by 9%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -352,7 +352,7 @@
       "hex_x": 3,
       "hex_y": 4,
       "effects": {
-        "crit_chance_physical": 2.6667
+        "crit_chance_physical": 3
       },
       "connected_to": [
         "barbarian_headhunting_gurubashi_technique"
@@ -362,7 +362,7 @@
     {
       "talent_id": "barbarian_headhunting_axe_twirling",
       "name": "Axe Twirling",
-      "description": "Reduces the cooldown of Axe Twirling by 40% and increases your area damage by 20%.",
+      "description": "Reduces the cooldown of Axe Twirling by 39% and increases your area damage by 21%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -370,8 +370,8 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_barbarian_axe_twirling_cooldown_pct": 0.1333,
-        "aoe_damage": 0.0667
+        "ability_barbarian_axe_twirling_cooldown_pct": 0.13,
+        "aoe_damage": 0.07
       },
       "connected_to": [
         "barbarian_headhunting_to_the_bone"
@@ -381,7 +381,7 @@
     {
       "talent_id": "barbarian_headhunting_manhunter",
       "name": "Manhunter",
-      "description": "Increases your critical strike chance by 5% and your physical damage by 8%.",
+      "description": "Increases your critical strike chance by 6% and your physical damage by 9%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -389,8 +389,8 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "crit_chance_physical": 1.6667,
-        "physical_damage": 0.0267
+        "crit_chance_physical": 2,
+        "physical_damage": 0.03
       },
       "connected_to": [
         "barbarian_headhunting_puncture_wounds"
@@ -400,7 +400,7 @@
     {
       "talent_id": "barbarian_headhunting_brutal_form",
       "name": "Brutal Form",
-      "description": "Increases the healing of Ancestral Roar and Savage Revelry by 15.9%.",
+      "description": "Increases the healing of Ancestral Roar and Savage Revelry by 15%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -408,8 +408,8 @@
       "hex_x": -3,
       "hex_y": 0,
       "effects": {
-        "ability_barbarian_ancestral_roar_healing": 0.053,
-        "ability_barbarian_savage_revelry_healing": 0.053
+        "ability_barbarian_ancestral_roar_healing": 0.05,
+        "ability_barbarian_savage_revelry_healing": 0.05
       },
       "connected_to": [
         "barbarian_headhunting_puncture_wounds"
@@ -419,7 +419,7 @@
     {
       "talent_id": "barbarian_headhunting_spite",
       "name": "Spite",
-      "description": "Increases the damage of Spite and Javelin Toss by 35% and reduces Spite's cooldown by 30%.",
+      "description": "Increases the damage of Spite and Javelin Toss by 18% and reduces Spite's cooldown by 30%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -427,8 +427,8 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "ability_barbarian_spite_damage": 0.063,
-        "ability_barbarian_javelin_toss_damage": 0.063,
+        "ability_barbarian_spite_damage": 0.06,
+        "ability_barbarian_javelin_toss_damage": 0.06,
         "ability_barbarian_spite_cooldown_pct": 0.1
       },
       "connected_to": [

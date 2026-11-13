@@ -34,7 +34,7 @@
     {
       "talent_id": "cultist_corruption_terror",
       "name": "Terror",
-      "description": "Increases Horrorbolt and Wrath of the Black Empire damage by 3% per rank.",
+      "description": "Increases Horrorbolt and Wrath of the Black Empire damage by 2% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -42,7 +42,7 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "ability_cultist_horrorbolt_damage": 0.016
+        "ability_cultist_horrorbolt_damage": 0.02
       },
       "connected_to": [
         "cultist_corruption_horrorbolt_volley"
@@ -144,7 +144,7 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_cultist_wrath_of_the_black_empire_crit": 0.6
+        "ability_cultist_wrath_of_the_black_empire_crit": 1
       },
       "connected_to": [
         "cultist_corruption_lightbreaker"

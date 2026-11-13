@@ -16,7 +16,7 @@
     {
       "talent_id": "witch_hunter_houndmaster_expert_shot",
       "name": "Expert Shot",
-      "description": "Increases the damage of Shadowblast by up to 20% and your chance to hit by up to 4%.",
+      "description": "Increases the damage of Shadowblast by up to 12% and your chance to hit by up to 3%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,8 +24,8 @@
       "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "ability_witch_hunter_shadowblast_damage": 0.036,
-        "hit_rating": 1.3333
+        "ability_witch_hunter_shadowblast_damage": 0.04,
+        "hit_rating": 1
       },
       "connected_to": [
         "witch_hunter_houndmaster_sharpshooter"
@@ -35,7 +35,7 @@
     {
       "talent_id": "witch_hunter_houndmaster_dark_mind",
       "name": "Dark Mind",
-      "description": "Increases your critical strike chance by 25% of your Intellect.",
+      "description": "Increases your critical strike chance by 24% of your Intellect.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -43,7 +43,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "crit_chance_from_intellect_pct": 0.0833
+        "crit_chance_from_intellect_pct": 0.08
       },
       "connected_to": [
         "witch_hunter_houndmaster_sharpshooter"
@@ -53,7 +53,7 @@
     {
       "talent_id": "witch_hunter_houndmaster_houndfeeder",
       "name": "Houndfeeder",
-      "description": "Increases your critical strike chance by 4% and your hounds' damage by 4%.",
+      "description": "Increases your critical strike chance by 3% and your hounds' damage by 3%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -61,8 +61,8 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "crit_chance_physical": 1.3333,
-        "pet_damage": 0.005
+        "crit_chance_physical": 1,
+        "pet_damage": 0.01
       },
       "connected_to": [
         "witch_hunter_houndmaster_dark_ranger"
@@ -72,7 +72,7 @@
     {
       "talent_id": "witch_hunter_houndmaster_trapper",
       "name": "Trapper",
-      "description": "Reduces the cooldown of your Trap spells by 25%.",
+      "description": "Reduces the cooldown of your Trap spells by 24%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -80,9 +80,9 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "ability_witch_hunter_inquisitors_trap_cooldown_pct": 0.0833,
-        "ability_witch_hunter_shadow_trap_cooldown_pct": 0.0833,
-        "ability_witch_hunter_death_trap_cooldown_pct": 0.0833
+        "ability_witch_hunter_inquisitors_trap_cooldown_pct": 0.08,
+        "ability_witch_hunter_shadow_trap_cooldown_pct": 0.08,
+        "ability_witch_hunter_death_trap_cooldown_pct": 0.08
       },
       "connected_to": [
         "witch_hunter_houndmaster_dark_ranger"
@@ -92,7 +92,7 @@
     {
       "talent_id": "witch_hunter_houndmaster_hail_of_gunfire",
       "name": "Hail of Gunfire",
-      "description": "Increases your haste by 10%.",
+      "description": "Increases your haste by 9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -100,7 +100,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "haste": 3.3333
+        "haste": 3
       },
       "connected_to": [
         "witch_hunter_houndmaster_reload"
@@ -138,7 +138,7 @@
     {
       "talent_id": "witch_hunter_houndmaster_dark_ranger",
       "name": "Dark Ranger",
-      "description": "Increases your hounds' damage by up to 3.9%.",
+      "description": "Increases your hounds' damage by up to 3%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -146,7 +146,7 @@
       "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "pet_damage": 0.013
+        "pet_damage": 0.01
       },
       "connected_to": [
         "witch_hunter_houndmaster_kennel_master"
@@ -186,7 +186,7 @@
     {
       "talent_id": "witch_hunter_houndmaster_reload",
       "name": "Reload",
-      "description": "Reduces the cooldown of Quickdraw by 35%.",
+      "description": "Reduces the cooldown of Quickdraw by 36%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -194,7 +194,7 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_witch_hunter_quickdraw_cooldown_pct": 0.1167
+        "ability_witch_hunter_quickdraw_cooldown_pct": 0.12
       },
       "connected_to": [
         "witch_hunter_houndmaster_pure_agony"
@@ -204,7 +204,7 @@
     {
       "talent_id": "witch_hunter_houndmaster_pure_agony",
       "name": "Pure Agony",
-      "description": "Increases the critical strike damage of Quickdraw by 50%.",
+      "description": "Increases the critical strike damage of Quickdraw by 51%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -212,7 +212,7 @@
       "hex_x": 4,
       "hex_y": -4,
       "effects": {
-        "ability_witch_hunter_quickdraw_crit_damage": 0.1667
+        "ability_witch_hunter_quickdraw_crit_damage": 0.17
       },
       "connected_to": [
         "witch_hunter_houndmaster_darkhunter"
@@ -265,7 +265,7 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "pet_damage": 0.016,
+        "pet_damage": 0.02,
         "pet_health": 0.04
       },
       "connected_to": [
@@ -284,7 +284,7 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_witch_hunter_shadowblast_damage": 0.027,
+        "ability_witch_hunter_shadowblast_damage": 0.03,
         "ability_witch_hunter_vault_potency": 0.05,
         "ability_witch_hunter_unleash_the_hounds_cost_pct": 0.05
       },
@@ -358,7 +358,7 @@
     {
       "talent_id": "witch_hunter_houndmaster_decimate",
       "name": "Decimate",
-      "description": "Increases your hounds' damage by 15% and your armor penetration by 10%.",
+      "description": "Increases your hounds' damage by 6% and your armor penetration by 9%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -367,7 +367,7 @@
       "hex_y": 0,
       "effects": {
         "pet_damage": 0.02,
-        "armor_penetration_pct": 3.3333
+        "armor_penetration_pct": 3
       },
       "connected_to": [
         "witch_hunter_houndmaster_daredevil"
@@ -377,7 +377,7 @@
     {
       "talent_id": "witch_hunter_houndmaster_silver_bullets",
       "name": "Silver Bullets",
-      "description": "Increases the damage of Darkslayer by up to 30%.",
+      "description": "Increases the damage of Darkslayer by up to 15%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -385,7 +385,7 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_witch_hunter_darkslayer_damage": 0.054
+        "ability_witch_hunter_darkslayer_damage": 0.05
       },
       "connected_to": [
         "witch_hunter_houndmaster_daredevil"
@@ -395,7 +395,7 @@
     {
       "talent_id": "witch_hunter_houndmaster_rampaging_hounds",
       "name": "Rampaging Hounds",
-      "description": "Increases your hounds' damage and health by 10%.",
+      "description": "Increases your hounds' damage and health by 9%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -403,8 +403,8 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "pet_damage": 0.013,
-        "pet_health": 0.0333
+        "pet_damage": 0.01,
+        "pet_health": 0.03
       },
       "connected_to": [
         "witch_hunter_houndmaster_veiled_in_darkness"
@@ -501,7 +501,7 @@
     {
       "talent_id": "witch_hunter_houndmaster_veiled_in_darkness",
       "name": "Veiled in Darkness",
-      "description": "Increases your attack power by 5%.",
+      "description": "Increases your attack power by 6%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -509,7 +509,7 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "attack_power_pct": 1.6667
+        "attack_power_pct": 2
       },
       "connected_to": [
         "witch_hunter_houndmaster_lethal_pursuit"
@@ -519,7 +519,7 @@
     {
       "talent_id": "witch_hunter_houndmaster_loksey_journal",
       "name": "Loksey's Journal",
-      "description": "Increases the damage your damage-over-time effects deal by 10%.",
+      "description": "Increases the damage your damage-over-time effects deal by 9%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -527,7 +527,7 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "dot_damage": 0.0333
+        "dot_damage": 0.03
       },
       "connected_to": [
         "witch_hunter_houndmaster_rearmament"
@@ -537,7 +537,7 @@
     {
       "talent_id": "witch_hunter_houndmaster_rearmament",
       "name": "Rearmament",
-      "description": "Reduces the cooldown of your Traps by a further 20%.",
+      "description": "Reduces the cooldown of your Traps by a further 21%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -545,9 +545,9 @@
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "ability_witch_hunter_inquisitors_trap_cooldown_pct": 0.0667,
-        "ability_witch_hunter_shadow_trap_cooldown_pct": 0.0667,
-        "ability_witch_hunter_death_trap_cooldown_pct": 0.0667
+        "ability_witch_hunter_inquisitors_trap_cooldown_pct": 0.07,
+        "ability_witch_hunter_shadow_trap_cooldown_pct": 0.07,
+        "ability_witch_hunter_death_trap_cooldown_pct": 0.07
       },
       "connected_to": [
         "witch_hunter_houndmaster_feast_of_talons"
@@ -592,7 +592,7 @@
     {
       "talent_id": "witch_hunter_houndmaster_deal_with_the_devil",
       "name": "Deal With The Devil",
-      "description": "Increases your shadow critical strike damage by 50%.",
+      "description": "Increases your shadow critical strike damage by 51%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -600,7 +600,7 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "shadow_crit_damage_pct": 0.1667
+        "shadow_crit_damage_pct": 0.17
       },
       "connected_to": [
         "witch_hunter_houndmaster_feast_of_talons"
@@ -610,7 +610,7 @@
     {
       "talent_id": "witch_hunter_houndmaster_lethal_pursuit",
       "name": "Lethal Pursuit",
-      "description": "Increases your hounds' damage by 15%.",
+      "description": "Increases your hounds' damage by 6%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,

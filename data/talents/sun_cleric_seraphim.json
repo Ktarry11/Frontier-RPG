@@ -537,7 +537,7 @@
     {
       "talent_id": "sun_cleric_seraphim_sun_warriors_guidance",
       "name": "Sun Warrior's Guidance",
-      "description": "Increases the critical strike chance of Gavel of Light and Justicar's Wrath by 2% per rank. Your critical strikes generate 1 Solar Power, no more than once per turn.",
+      "description": "Increases the critical strike chance of Gavel of Light and Justicar's Wrath by 1% per rank. Your critical strikes generate 1 Solar Power, no more than once per turn.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 5,
@@ -545,8 +545,8 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "ability_sun_cleric_gavel_of_light_crit": 1.2,
-        "ability_sun_cleric_justicars_wrath_crit": 1.2
+        "ability_sun_cleric_gavel_of_light_crit": 1,
+        "ability_sun_cleric_justicars_wrath_crit": 1
       },
       "connected_to": [
         "sun_cleric_seraphim_devoted",

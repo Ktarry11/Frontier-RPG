@@ -34,7 +34,7 @@
     {
       "talent_id": "pyromancer_incineration_magnitude_10",
       "name": "Magnitude 10",
-      "description": "Increases the critical strike chance of Flare Bolt by 10%.",
+      "description": "Increases the critical strike chance of Flare Bolt by 6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -52,7 +52,7 @@
     {
       "talent_id": "pyromancer_incineration_searing_power",
       "name": "Searing Power",
-      "description": "Increases the damage of Flare Bolt by 10.8%.",
+      "description": "Increases the damage of Flare Bolt by 12%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -60,7 +60,7 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "ability_pyromancer_flare_bolt_damage": 0.036
+        "ability_pyromancer_flare_bolt_damage": 0.04
       },
       "connected_to": [
         "pyromancer_incineration_embrace_the_fire"
@@ -70,7 +70,7 @@
     {
       "talent_id": "pyromancer_incineration_embrace_the_fire",
       "name": "Embrace the Fire",
-      "description": "Increases the damage of Blaze and Ignite by 10.8%.",
+      "description": "Increases the damage of Blaze and Ignite by 12%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -78,8 +78,8 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "ability_pyromancer_ignite_damage": 0.036,
-        "ability_pyromancer_blaze_damage": 0.036
+        "ability_pyromancer_ignite_damage": 0.04,
+        "ability_pyromancer_blaze_damage": 0.04
       },
       "connected_to": [
         "pyromancer_incineration_arsonist"
@@ -107,7 +107,7 @@
     {
       "talent_id": "pyromancer_incineration_cataclysmic_power",
       "name": "Cataclysmic Power",
-      "description": "Increases the damage of Flare Bolt by 14.7%.",
+      "description": "Increases the damage of Flare Bolt by 15%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -115,7 +115,7 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "ability_pyromancer_flare_bolt_damage": 0.049
+        "ability_pyromancer_flare_bolt_damage": 0.05
       },
       "connected_to": [
         "pyromancer_incineration_combustion"
@@ -125,7 +125,7 @@
     {
       "talent_id": "pyromancer_incineration_combustion",
       "name": "Combustion",
-      "description": "Increases the damage of Explode by 24.3%.",
+      "description": "Increases the damage of Explode by 24%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -133,7 +133,7 @@
       "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "ability_pyromancer_explode_damage": 0.081
+        "ability_pyromancer_explode_damage": 0.08
       },
       "connected_to": [
         "pyromancer_incineration_scorched"
@@ -207,7 +207,7 @@
     {
       "talent_id": "pyromancer_incineration_explosive",
       "name": "Explosive",
-      "description": "Increases the damage your damage-over-time spells deal by 20%.",
+      "description": "Increases the damage your damage-over-time spells deal by 21%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -215,7 +215,7 @@
       "hex_x": 4,
       "hex_y": -4,
       "effects": {
-        "dot_damage": 0.0667
+        "dot_damage": 0.07
       },
       "connected_to": [
         "pyromancer_incineration_wreath_of_flames"
@@ -257,7 +257,7 @@
     {
       "talent_id": "pyromancer_incineration_flames_of_focus",
       "name": "Flames of Focus",
-      "description": "Increases your haste by 5%.",
+      "description": "Increases your haste by 6%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -265,7 +265,7 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "haste": 1.6667
+        "haste": 2
       },
       "connected_to": [
         "pyromancer_incineration_to_ashes"
@@ -300,7 +300,7 @@
     {
       "talent_id": "pyromancer_incineration_pyromaniac",
       "name": "Pyromaniac",
-      "description": "Increases the critical strike chance of Explode, Flames of Neltharion and Lava Shard by 5%.",
+      "description": "Increases the critical strike chance of Explode, Flames of Neltharion and Lava Shard by 3%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -320,7 +320,7 @@
     {
       "talent_id": "pyromancer_incineration_pyromantic_accelerants",
       "name": "Pyromantic Accelerants",
-      "description": "Increases the damage of Flames of Neltharion and Explode by 8.1%.",
+      "description": "Increases the damage of Flames of Neltharion and Explode by 9%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -328,8 +328,8 @@
       "hex_x": -4,
       "hex_y": 0,
       "effects": {
-        "ability_pyromancer_flames_of_neltharion_damage": 0.027,
-        "ability_pyromancer_explode_damage": 0.027
+        "ability_pyromancer_flames_of_neltharion_damage": 0.03,
+        "ability_pyromancer_explode_damage": 0.03
       },
       "connected_to": [
         "pyromancer_incineration_fiery_passion"
@@ -357,7 +357,7 @@
     {
       "talent_id": "pyromancer_incineration_rapid_incineration",
       "name": "Rapid Incineration",
-      "description": "Reduces the cooldown of Lava Shard and Pillar of Flame by 20%.",
+      "description": "Reduces the cooldown of Lava Shard and Pillar of Flame by 21%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -365,8 +365,8 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_pyromancer_lava_shard_cooldown_pct": 0.0667,
-        "ability_pyromancer_pillar_of_flame_cooldown_pct": 0.0667
+        "ability_pyromancer_lava_shard_cooldown_pct": 0.07,
+        "ability_pyromancer_pillar_of_flame_cooldown_pct": 0.07
       },
       "connected_to": [
         "pyromancer_incineration_sizzle"
@@ -438,7 +438,7 @@
     {
       "talent_id": "pyromancer_incineration_roasted_alive",
       "name": "Roasted Alive",
-      "description": "Reduces the cooldown of Fired Up! by 25%.",
+      "description": "Reduces the cooldown of Fired Up! by 24%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -446,7 +446,7 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "ability_pyromancer_fired_up_cooldown_pct": 0.0833
+        "ability_pyromancer_fired_up_cooldown_pct": 0.08
       },
       "connected_to": [
         "pyromancer_incineration_flamespiller"
@@ -501,7 +501,7 @@
     {
       "talent_id": "pyromancer_incineration_residual_power",
       "name": "Residual Power",
-      "description": "Reduces the mana cost of Explode, Flames of Neltharion and Lava Shard by 20%.",
+      "description": "Reduces the mana cost of Explode, Flames of Neltharion and Lava Shard by 21%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -509,9 +509,9 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "ability_pyromancer_explode_cost_pct": 0.0667,
-        "ability_pyromancer_flames_of_neltharion_cost_pct": 0.0667,
-        "ability_pyromancer_lava_shard_cost_pct": 0.0667
+        "ability_pyromancer_explode_cost_pct": 0.07,
+        "ability_pyromancer_flames_of_neltharion_cost_pct": 0.07,
+        "ability_pyromancer_lava_shard_cost_pct": 0.07
       },
       "connected_to": [
         "pyromancer_incineration_magmatic"
@@ -521,7 +521,7 @@
     {
       "talent_id": "pyromancer_incineration_magmatic",
       "name": "Magmatic",
-      "description": "Increases all damage you deal by 5.1%.",
+      "description": "Increases all damage you deal by 6%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -529,7 +529,7 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "all_damage": 0.017
+        "all_damage": 0.02
       },
       "connected_to": [
         "pyromancer_incineration_pyroclasm"

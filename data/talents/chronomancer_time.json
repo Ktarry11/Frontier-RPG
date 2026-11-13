@@ -16,7 +16,7 @@
     {
       "talent_id": "chronomancer_time_sands_of_life",
       "name": "Sands of Life",
-      "description": "Increases your healing power by 13.2% of your Spirit.",
+      "description": "Increases your healing power by 12% of your Spirit.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,7 +24,7 @@
       "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "healing_power_from_spirit_pct": 0.044
+        "healing_power_from_spirit_pct": 0.04
       },
       "connected_to": [
         "chronomancer_time_patient_mending"
@@ -34,7 +34,7 @@
     {
       "talent_id": "chronomancer_time_patient_mending",
       "name": "Patient Mending",
-      "description": "Increases the duration of your heal over time effects by 20%.",
+      "description": "Increases the duration of your heal over time effects by 21%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -42,7 +42,7 @@
       "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "hot_duration_pct": 0.0667
+        "hot_duration_pct": 0.07
       },
       "connected_to": [
         "chronomancer_time_time_wizard",
@@ -53,7 +53,7 @@
     {
       "talent_id": "chronomancer_time_time_wizard",
       "name": "Time Wizard",
-      "description": "Increases the critical strike chance of Reverse Wound, Epoch and Correct the Mistake by 8%.",
+      "description": "Increases the critical strike chance of Reverse Wound, Epoch and Correct the Mistake by 6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -61,9 +61,9 @@
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "ability_chronomancer_reverse_wound_crit": 1.6,
-        "ability_chronomancer_epoch_crit": 1.6,
-        "ability_chronomancer_correct_the_mistake_crit": 1.6
+        "ability_chronomancer_reverse_wound_crit": 2,
+        "ability_chronomancer_epoch_crit": 2,
+        "ability_chronomancer_correct_the_mistake_crit": 2
       },
       "connected_to": [
         "chronomancer_time_fabric_of_time"
@@ -73,7 +73,7 @@
     {
       "talent_id": "chronomancer_time_timeless",
       "name": "Timeless",
-      "description": "Reduces the mana cost of your healing spells by 10%.",
+      "description": "Reduces the mana cost of your healing spells by 9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -81,7 +81,7 @@
       "hex_x": 2,
       "hex_y": -6,
       "effects": {
-        "heal_cost_pct": 0.0333
+        "heal_cost_pct": 0.03
       },
       "connected_to": [
         "chronomancer_time_keep_accelerating"
@@ -91,7 +91,7 @@
     {
       "talent_id": "chronomancer_time_carbon_dating",
       "name": "Carbon Dating",
-      "description": "Increases the healing of Epoch by 10.8%.",
+      "description": "Increases the healing of Epoch by 12%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -99,7 +99,7 @@
       "hex_x": 4,
       "hex_y": -6,
       "effects": {
-        "ability_chronomancer_epoch_healing": 0.036
+        "ability_chronomancer_epoch_healing": 0.04
       },
       "connected_to": [
         "chronomancer_time_cadence_of_time"
@@ -340,7 +340,7 @@
     {
       "talent_id": "chronomancer_time_chronicler",
       "name": "Chronicler",
-      "description": "Increases the duration of your heal over time effects by a further 25% and their healing by 15%.",
+      "description": "Increases the duration of your heal over time effects by a further 24% and their healing by 9%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -348,8 +348,8 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "hot_duration_pct": 0.0833,
-        "healing_power_pct": 2.7
+        "hot_duration_pct": 0.08,
+        "healing_power_pct": 3
       },
       "connected_to": [
         "chronomancer_time_timeline_tether"
@@ -393,7 +393,7 @@
     {
       "talent_id": "chronomancer_time_cycling_aeons",
       "name": "Cycling Aeons",
-      "description": "Reduces the cooldown of your Aeons by 40%.",
+      "description": "Reduces the cooldown of your Aeons by 39%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -401,9 +401,9 @@
       "hex_x": 0,
       "hex_y": 4,
       "effects": {
-        "ability_chronomancer_aeon_of_protection_cooldown_pct": 0.1333,
-        "ability_chronomancer_aeon_of_renewal_cooldown_pct": 0.1333,
-        "ability_chronomancer_aeon_of_oblivion_cooldown_pct": 0.1333
+        "ability_chronomancer_aeon_of_protection_cooldown_pct": 0.13,
+        "ability_chronomancer_aeon_of_renewal_cooldown_pct": 0.13,
+        "ability_chronomancer_aeon_of_oblivion_cooldown_pct": 0.13
       },
       "connected_to": [
         "chronomancer_time_the_vast_infinite"
@@ -440,7 +440,7 @@
     {
       "talent_id": "chronomancer_time_mark_of_order",
       "name": "Mark of Order",
-      "description": "Increases your healing done by 10% and the healing of Reverse Wound by a further 20%.",
+      "description": "Increases your healing done by 6% and the healing of Reverse Wound by a further 12%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -448,8 +448,8 @@
       "hex_x": 2,
       "hex_y": 4,
       "effects": {
-        "healing_power_pct": 1.8,
-        "ability_chronomancer_reverse_wound_healing": 0.036
+        "healing_power_pct": 2,
+        "ability_chronomancer_reverse_wound_healing": 0.04
       },
       "connected_to": [
         "chronomancer_time_the_vast_infinite"
@@ -489,7 +489,7 @@
     {
       "talent_id": "chronomancer_time_titans_gaze",
       "name": "Titan's Gaze",
-      "description": "Reduces all damage you take by 6% and increases your maximum health by 5%.",
+      "description": "Reduces all damage you take by 6% and increases your maximum health by 6%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -498,7 +498,7 @@
       "hex_y": 2,
       "effects": {
         "damage_taken_pct": -0.02,
-        "max_health_pct": 0.0167
+        "max_health_pct": 0.02
       },
       "connected_to": [
         "chronomancer_time_cycling_aeons"
@@ -508,7 +508,7 @@
     {
       "talent_id": "chronomancer_time_the_vast_infinite",
       "name": "The Vast Infinite",
-      "description": "Increases the duration of your heal over time effects by a further 35%, your healing done by 20%, and your healing spells have a 40% chance to mend your most wounded ally for 35% of the amount healed.",
+      "description": "Increases the duration of your heal over time effects by a further 35%, your healing done by 11%, and your healing spells have a 40% chance to mend your most wounded ally for 35% of the amount healed.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -517,7 +517,7 @@
       "hex_y": 6,
       "effects": {
         "hot_duration_pct": 0.35,
-        "healing_power_pct": 10.7
+        "healing_power_pct": 11
       },
       "connected_to": [],
       "proc": {

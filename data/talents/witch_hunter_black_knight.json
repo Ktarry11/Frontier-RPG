@@ -54,7 +54,7 @@
     {
       "talent_id": "witch_hunter_black_knight_dark_penance",
       "name": "Dark Penance",
-      "description": "Increases your Agility by up to 4% and your parry and dodge by up to 4%.",
+      "description": "Increases your Agility by up to 3% and your parry and dodge by up to 3%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -62,9 +62,9 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "agility_pct": 1.3333,
-        "parry": 1.3333,
-        "dodge": 1.3333
+        "agility_pct": 1,
+        "parry": 1,
+        "dodge": 1
       },
       "connected_to": [
         "witch_hunter_black_knight_dark_riposte"
@@ -74,7 +74,7 @@
     {
       "talent_id": "witch_hunter_black_knight_dusk_knight",
       "name": "Dusk Knight",
-      "description": "Increases your parry by 40% of your Agility and your dodge by 25% of your Intellect.",
+      "description": "Increases your parry by 39% of your Agility and your dodge by 24% of your Intellect.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -82,8 +82,8 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "parry_from_agility_pct": 0.1333,
-        "dodge_from_intellect_pct": 0.0833
+        "parry_from_agility_pct": 0.13,
+        "dodge_from_intellect_pct": 0.08
       },
       "connected_to": [
         "witch_hunter_black_knight_dark_riposte"
@@ -111,7 +111,7 @@
     {
       "talent_id": "witch_hunter_black_knight_dark_chivalry",
       "name": "Dark Chivalry",
-      "description": "Increases your armor by 20%.",
+      "description": "Increases your armor by 21%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -119,7 +119,7 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "armor_pct": 6.6667
+        "armor_pct": 7
       },
       "connected_to": [
         "witch_hunter_black_knight_secret_society"
@@ -153,7 +153,7 @@
     {
       "talent_id": "witch_hunter_black_knight_shadow_order",
       "name": "Shadow Order",
-      "description": "Increases the damage of Shadow Brand by up to 40% and the damage of your damage-over-time effects by up to 10%.",
+      "description": "Increases the damage of Shadow Brand by up to 21% and the damage of your damage-over-time effects by up to 9%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -161,8 +161,8 @@
       "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "ability_witch_hunter_shadow_brand_damage": 0.072,
-        "dot_damage": 0.0333
+        "ability_witch_hunter_shadow_brand_damage": 0.07,
+        "dot_damage": 0.03
       },
       "connected_to": [
         "witch_hunter_black_knight_wide_swings"
@@ -233,7 +233,7 @@
     {
       "talent_id": "witch_hunter_black_knight_secret_society",
       "name": "Secret Society",
-      "description": "Increases your Shadow spell damage by up to 8% and your spell critical strike chance by up to 8%.",
+      "description": "Increases your Shadow spell damage by up to 9% and your spell critical strike chance by up to 9%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -241,8 +241,8 @@
       "hex_x": 4,
       "hex_y": -4,
       "effects": {
-        "shadow_spell_damage": 0.0267,
-        "crit_chance_spell": 2.6667
+        "shadow_spell_damage": 0.03,
+        "crit_chance_spell": 3
       },
       "connected_to": [
         "witch_hunter_black_knight_witch_knight"
@@ -282,7 +282,7 @@
     {
       "talent_id": "witch_hunter_black_knight_wide_swings",
       "name": "Wide Swings",
-      "description": "Increases the damage of Noctis Blade by 10.8%.",
+      "description": "Increases the damage of Noctis Blade by 12%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -290,7 +290,7 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "ability_witch_hunter_noctis_blade_damage": 0.036
+        "ability_witch_hunter_noctis_blade_damage": 0.04
       },
       "connected_to": [
         "witch_hunter_black_knight_bulwark_of_darkness"
@@ -352,7 +352,7 @@
     {
       "talent_id": "witch_hunter_black_knight_calm_under_pressure",
       "name": "Calm Under Pressure",
-      "description": "Reduces the cooldown of Stoicism by 40% and Burrow Bolt by 25%.",
+      "description": "Reduces the cooldown of Stoicism by 39% and Burrow Bolt by 24%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -360,8 +360,8 @@
       "hex_x": 4,
       "hex_y": -2,
       "effects": {
-        "ability_witch_hunter_stoicism_cooldown_pct": 0.1333,
-        "ability_witch_hunter_burrow_bolt_cooldown_pct": 0.0833
+        "ability_witch_hunter_stoicism_cooldown_pct": 0.13,
+        "ability_witch_hunter_burrow_bolt_cooldown_pct": 0.08
       },
       "connected_to": [
         "witch_hunter_black_knight_dark_barrier"
@@ -439,7 +439,7 @@
     {
       "talent_id": "witch_hunter_black_knight_bulwark_of_darkness",
       "name": "Bulwark of Darkness",
-      "description": "Increases the damage of Dawn Blade by 13.5%.",
+      "description": "Increases the damage of Dawn Blade by 15%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -447,7 +447,7 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_witch_hunter_dawn_blade_damage": 0.045
+        "ability_witch_hunter_dawn_blade_damage": 0.05
       },
       "connected_to": [
         "witch_hunter_black_knight_clinch_fighting"
@@ -543,7 +543,7 @@
     {
       "talent_id": "witch_hunter_black_knight_guardbreaker",
       "name": "Guardbreaker",
-      "description": "Increases the damage of Pommel Smash by up to 21.6%.",
+      "description": "Increases the damage of Pommel Smash by up to 21%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -551,7 +551,7 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "ability_witch_hunter_pommel_smash_damage": 0.072
+        "ability_witch_hunter_pommel_smash_damage": 0.07
       },
       "connected_to": [
         "witch_hunter_black_knight_blade_of_the_misbegotten"

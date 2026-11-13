@@ -16,7 +16,7 @@
     {
       "talent_id": "tinker_demolition_incendiary_bullets",
       "name": "Incendiary Bullets",
-      "description": "Increases the damage of Scrap Shot by up to 30% and your chance to hit by\n    up to 4%.",
+      "description": "Increases the damage of Scrap Shot by up to 15% and your chance to hit by\n    up to 3%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,8 +24,8 @@
       "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "ability_tinker_scrap_shot_damage": 0.054,
-        "hit_rating": 1.3333
+        "ability_tinker_scrap_shot_damage": 0.05,
+        "hit_rating": 1
       },
       "connected_to": [
         "tinker_demolition_bomb_builder"
@@ -35,7 +35,7 @@
     {
       "talent_id": "tinker_demolition_bomb_builder",
       "name": "Bomb Builder",
-      "description": "Increases Fire damage dealt by you and your constructs by 2.1%.",
+      "description": "Increases Fire damage dealt by you and your constructs by 3%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -43,8 +43,8 @@
       "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "fire_spell_power": 0.0167,
-        "pet_damage": 0.007
+        "fire_spell_power": 0.02,
+        "pet_damage": 0.01
       },
       "connected_to": [
         "tinker_demolition_war_crimes"
@@ -54,7 +54,7 @@
     {
       "talent_id": "tinker_demolition_boom_hour",
       "name": "Boom Hour",
-      "description": "Increases the critical strike chance of Bomb Toss by 10% and the critical damage of Rocket Launcher by 10%.",
+      "description": "Increases the critical strike chance of Bomb Toss by 9% and the critical damage of Rocket Launcher by 9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -63,7 +63,7 @@
       "hex_y": -6,
       "effects": {
         "ability_tinker_bomb_toss_crit": 2.0,
-        "ability_tinker_rocket_launcher_crit_damage": 0.0333
+        "ability_tinker_rocket_launcher_crit_damage": 0.03
       },
       "connected_to": [
         "tinker_demolition_war_crimes"
@@ -98,7 +98,7 @@
     {
       "talent_id": "tinker_demolition_tank_buster",
       "name": "Tank Buster",
-      "description": "Your Scrap Shot ignores 25% of the target's armor.",
+      "description": "Your Scrap Shot ignores 24% of the target's armor.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -106,7 +106,7 @@
       "hex_x": 4,
       "hex_y": -6,
       "effects": {
-        "armor_penetration_pct": 8.3333
+        "armor_penetration_pct": 8
       },
       "connected_to": [
         "tinker_demolition_sparked_and_ready"
@@ -176,7 +176,7 @@
     {
       "talent_id": "tinker_demolition_i_need_more_explosions",
       "name": "I Need More Explosions!",
-      "description": "Increases the damage of Sticky Bomb by 5% per rank.",
+      "description": "Increases the damage of Sticky Bomb by 3% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -184,7 +184,7 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "ability_tinker_sticky_bomb_damage": 0.027
+        "ability_tinker_sticky_bomb_damage": 0.03
       },
       "connected_to": [
         "tinker_demolition_target_acquired"
@@ -308,8 +308,8 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_tinker_sticky_bomb_damage": 0.054,
-        "ability_tinker_spider_bomb_damage": 0.054
+        "ability_tinker_sticky_bomb_damage": 0.05,
+        "ability_tinker_spider_bomb_damage": 0.05
       },
       "connected_to": [
         "tinker_demolition_bombastic"
@@ -319,7 +319,7 @@
     {
       "talent_id": "tinker_demolition_duobombers",
       "name": "Duobombers",
-      "description": "Build: Spider Bomb sends out a second bomb, dealing 100% more damage.",
+      "description": "Build: Spider Bomb sends out a second bomb, dealing 54% more damage.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -445,7 +445,7 @@
     {
       "talent_id": "tinker_demolition_gazlowes_wisdom",
       "name": "Gazlowe's Wisdom",
-      "description": "Sticky Bomb deals 20% more damage, and all of your area attacks deal 15% more.",
+      "description": "Sticky Bomb deals 12% more damage, and all of your area attacks deal 15% more.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -453,7 +453,7 @@
       "hex_x": -2,
       "hex_y": 2,
       "effects": {
-        "ability_tinker_sticky_bomb_damage": 0.036,
+        "ability_tinker_sticky_bomb_damage": 0.04,
         "aoe_damage": 0.05
       },
       "connected_to": [
@@ -464,7 +464,7 @@
     {
       "talent_id": "tinker_demolition_the_big_guns",
       "name": "The BIG Guns!",
-      "description": "Increases your attack power by up to 5%.",
+      "description": "Increases your attack power by up to 6%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -472,7 +472,7 @@
       "hex_x": 2,
       "hex_y": 2,
       "effects": {
-        "attack_power_pct": 1.6667
+        "attack_power_pct": 2
       },
       "connected_to": [
         "tinker_demolition_rockadier"
@@ -482,7 +482,7 @@
     {
       "talent_id": "tinker_demolition_bomb_squad",
       "name": "Bomb Squad",
-      "description": "Increases your spell power by 50% of your Agility.",
+      "description": "Increases your spell power by 51% of your Agility.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -490,7 +490,7 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "spell_power_from_agility_pct": 0.1667
+        "spell_power_from_agility_pct": 0.17
       },
       "connected_to": [
         "tinker_demolition_rockadier"
@@ -524,7 +524,7 @@
     {
       "talent_id": "tinker_demolition_rockadier",
       "name": "Rockadier",
-      "description": "Your Scrap Shot and Rocket Launcher deal 100% more damage.",
+      "description": "Your Scrap Shot and Rocket Launcher deal 54% more damage.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,

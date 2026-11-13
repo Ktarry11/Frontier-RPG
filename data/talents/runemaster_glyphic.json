@@ -103,7 +103,7 @@
     {
       "talent_id": "runemaster_glyphic_glyph_seeker",
       "name": "Glyph Seeker",
-      "description": "Increases Primordial Blast and Thaumaturgy damage by 4% per rank.",
+      "description": "Increases Primordial Blast and Thaumaturgy damage by 2% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -111,7 +111,7 @@
       "hex_x": -1,
       "hex_y": -4,
       "effects": {
-        "ability_runemaster_primordial_blast_damage": 0.022
+        "ability_runemaster_primordial_blast_damage": 0.02
       },
       "connected_to": [
         "runemaster_glyphic_cosmic_impact"
@@ -228,7 +228,7 @@
     {
       "talent_id": "runemaster_glyphic_unleashed_power",
       "name": "Unleashed Power",
-      "description": "Increases the damage of Glyphic Ruin and Thaumaturgy by 3% per rank.",
+      "description": "Increases the damage of Glyphic Ruin and Thaumaturgy by 2% per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 5,
@@ -236,8 +236,8 @@
       "hex_x": -2,
       "hex_y": 2,
       "effects": {
-        "ability_runemaster_glyphic_ruin_damage": 0.016,
-        "ability_runemaster_thaumaturgy_damage": 0.016
+        "ability_runemaster_glyphic_ruin_damage": 0.02,
+        "ability_runemaster_thaumaturgy_damage": 0.02
       },
       "connected_to": [
         "runemaster_glyphic_glyphic_ruin",
@@ -733,7 +733,7 @@
     {
       "talent_id": "runemaster_glyphic_arcane_student",
       "name": "Arcane Student",
-      "description": "Increases the critical strike chance of Glyphic Ruin by 50%.",
+      "description": "Increases the critical strike chance of Glyphic Ruin by 30%.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,

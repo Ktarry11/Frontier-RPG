@@ -16,7 +16,7 @@
     {
       "talent_id": "tinker_invention_scientific_nature",
       "name": "Scientific Nature",
-      "description": "Increases your healing power by 20% of your Intellect and your spell critical strike chance by 15% of your Intellect.",
+      "description": "Increases your healing power by 12% of your Intellect and your spell critical strike chance by 15% of your Intellect.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,7 +24,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "healing_power_from_intellect_pct": 0.036,
+        "healing_power_from_intellect_pct": 0.04,
         "crit_chance_spell_from_intellect_pct": 0.05
       },
       "connected_to": [
@@ -43,7 +43,7 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "ability_tinker_repair_shot_healing": 0.053
+        "ability_tinker_repair_shot_healing": 0.05
       },
       "connected_to": [
         "tinker_invention_eureka"
@@ -53,7 +53,7 @@
     {
       "talent_id": "tinker_invention_field_medic",
       "name": "Field Medic",
-      "description": "Increases your spell critical strike chance by 5%.",
+      "description": "Increases your spell critical strike chance by 6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -61,7 +61,7 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "crit_chance_spell": 1.6667
+        "crit_chance_spell": 2
       },
       "connected_to": [
         "tinker_invention_eureka"
@@ -170,7 +170,7 @@
     {
       "talent_id": "tinker_invention_triage_protocol",
       "name": "Triage Protocol",
-      "description": "Your healing is 15% stronger on allies below 35% health.",
+      "description": "Your healing is 9% stronger on allies below 35% health.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -178,7 +178,7 @@
       "hex_x": 4,
       "hex_y": -4,
       "effects": {
-        "low_health_healing_pct": 0.027
+        "low_health_healing_pct": 0.03
       },
       "connected_to": [
         "tinker_invention_macro_designer"
@@ -353,7 +353,7 @@
     {
       "talent_id": "tinker_invention_stim_shots",
       "name": "Stim Shots",
-      "description": "Increases the healing done by Repair Shot and Emergency Heal by 5.4%.",
+      "description": "Increases the healing done by Repair Shot and Emergency Heal by 6%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -361,8 +361,8 @@
       "hex_x": 3,
       "hex_y": 0,
       "effects": {
-        "ability_tinker_repair_shot_healing": 0.018,
-        "ability_tinker_emergency_heal_healing": 0.018
+        "ability_tinker_repair_shot_healing": 0.02,
+        "ability_tinker_emergency_heal_healing": 0.02
       },
       "connected_to": [
         "tinker_invention_trust_the_science"
@@ -408,7 +408,7 @@
     {
       "talent_id": "tinker_invention_trust_the_science",
       "name": "Trust the Science!",
-      "description": "Reduces the cooldown of Zap! by 10.8%.",
+      "description": "Reduces the cooldown of Zap! by 12%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -416,7 +416,7 @@
       "hex_x": 0,
       "hex_y": 2,
       "effects": {
-        "ability_tinker_zap_healing": 0.036
+        "ability_tinker_zap_healing": 0.04
       },
       "connected_to": [
         "tinker_invention_emergency_circumvented"
@@ -426,7 +426,7 @@
     {
       "talent_id": "tinker_invention_resourceful_tech",
       "name": "Resourceful Tech",
-      "description": "Increases the critical strike chance of Zap! by 35%.",
+      "description": "Increases the critical strike chance of Zap! by 21%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -524,7 +524,7 @@
     {
       "talent_id": "tinker_invention_emergency_circumvented",
       "name": "Emergency Circumvented",
-      "description": "Increases the critical strike chance of Emergency Heal by 15%.",
+      "description": "Increases the critical strike chance of Emergency Heal by 9%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -567,7 +567,7 @@
     {
       "talent_id": "tinker_invention_surge_protector",
       "name": "Surge Protector",
-      "description": "While above 65% mana, your healing is 8% stronger.",
+      "description": "While above 65% mana, your healing is 3% stronger.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -575,7 +575,7 @@
       "hex_x": 5,
       "hex_y": 4,
       "effects": {
-        "high_mana_healing_pct": 0.014
+        "high_mana_healing_pct": 0.01
       },
       "connected_to": [
         "tinker_invention_emergency_enhancer"

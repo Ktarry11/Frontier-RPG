@@ -16,7 +16,7 @@
     {
       "talent_id": "barbarian_ancestry_trip_to_the_alehouse",
       "name": "Trip to the Alehouse",
-      "description": "Increases the damage of Keg Smash by 20% and your area damage by 15%.",
+      "description": "Increases the damage of Keg Smash by 12% and your area damage by 15%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,7 +24,7 @@
       "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "ability_barbarian_keg_smash_damage": 0.036,
+        "ability_barbarian_keg_smash_damage": 0.04,
         "aoe_damage": 0.05
       },
       "connected_to": [
@@ -35,7 +35,7 @@
     {
       "talent_id": "barbarian_ancestry_drinking_frenzy",
       "name": "Drinking Frenzy",
-      "description": "Increases your hit chance by 5% and your pets' damage by 20%.",
+      "description": "Increases your hit chance by 6% and your pets' damage by 20%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -43,8 +43,8 @@
       "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "hit_rating": 1.6667,
-        "pet_damage": 0.027
+        "hit_rating": 2,
+        "pet_damage": 0.03
       },
       "connected_to": [
         "barbarian_ancestry_uniting_voice",
@@ -55,7 +55,7 @@
     {
       "talent_id": "barbarian_ancestry_uniting_voice",
       "name": "Uniting Voice",
-      "description": "Reduces the cooldown of Ancestral Roar and Warband by 35% and increases Ancestral Roar's healing by 25%.",
+      "description": "Reduces the cooldown of Ancestral Roar and Warband by 36% and increases Ancestral Roar's healing by 25%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -63,9 +63,9 @@
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "ability_barbarian_ancestral_roar_cooldown_pct": 0.1167,
-        "ability_barbarian_warband_cooldown_pct": 0.1167,
-        "ability_barbarian_ancestral_roar_healing": 0.044
+        "ability_barbarian_ancestral_roar_cooldown_pct": 0.12,
+        "ability_barbarian_warband_cooldown_pct": 0.12,
+        "ability_barbarian_ancestral_roar_healing": 0.04
       },
       "connected_to": [
         "barbarian_ancestry_ancestral_wisdom"
@@ -75,7 +75,7 @@
     {
       "talent_id": "barbarian_ancestry_frost_giants_fury",
       "name": "Frost Giant's Fury",
-      "description": "Increases your Frost damage by 12% and your haste by 10%.",
+      "description": "Increases your Frost damage by 12% and your haste by 9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -84,7 +84,7 @@
       "hex_y": -6,
       "effects": {
         "frost_spell_damage": 0.04,
-        "haste": 3.3333
+        "haste": 3
       },
       "connected_to": [
         "barbarian_ancestry_icebound_ancestry"
@@ -94,7 +94,7 @@
     {
       "talent_id": "barbarian_ancestry_ancestral_wisdom",
       "name": "Ancestral Wisdom",
-      "description": "Reduces the cooldown of your party auras by 35%.",
+      "description": "Reduces the cooldown of your party auras by 36%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -102,10 +102,10 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "ability_barbarian_ancestral_fury_potency": 0.1167,
-        "ability_barbarian_frozen_blades_potency": 0.1167,
-        "ability_barbarian_splash_zone_cooldown_pct": 0.1167,
-        "ability_barbarian_clanlords_totem_cooldown_pct": 0.1167
+        "ability_barbarian_ancestral_fury_potency": 0.12,
+        "ability_barbarian_frozen_blades_potency": 0.12,
+        "ability_barbarian_splash_zone_cooldown_pct": 0.12,
+        "ability_barbarian_clanlords_totem_cooldown_pct": 0.12
       },
       "connected_to": [
         "barbarian_ancestry_cold_brew",
@@ -116,7 +116,7 @@
     {
       "talent_id": "barbarian_ancestry_icebound_ancestry",
       "name": "Icebound Ancestry",
-      "description": "Increases the critical strike chance of your Frost abilities by 15%.",
+      "description": "Increases the critical strike chance of your Frost abilities by 9%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -161,7 +161,7 @@
     {
       "talent_id": "barbarian_ancestry_the_spins",
       "name": "The Spins",
-      "description": "Increases your pets' damage by a further 30% and their health by 25%.",
+      "description": "Increases your pets' damage by a further 12% and their health by 24%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -170,7 +170,7 @@
       "hex_y": -2,
       "effects": {
         "pet_damage": 0.04,
-        "pet_health": 0.0833
+        "pet_health": 0.08
       },
       "connected_to": [
         "barbarian_ancestry_blind_stupor"
@@ -180,7 +180,7 @@
     {
       "talent_id": "barbarian_ancestry_liquid_courage",
       "name": "Liquid Courage",
-      "description": "Reduces all damage you take by 6% and increases your maximum health by 8%.",
+      "description": "Reduces all damage you take by 6% and increases your maximum health by 9%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -189,7 +189,7 @@
       "hex_y": 0,
       "effects": {
         "damage_taken_pct": -0.02,
-        "max_health_pct": 0.0267
+        "max_health_pct": 0.03
       },
       "connected_to": [
         "barbarian_ancestry_frostbite"
@@ -263,7 +263,7 @@
     {
       "talent_id": "barbarian_ancestry_unified_rage",
       "name": "Unified Rage",
-      "description": "Reduces the cooldown of Unbridled Rage and Ancestral Combat by 35% and increases your physical damage by 6%.",
+      "description": "Reduces the cooldown of Unbridled Rage and Ancestral Combat by 36% and increases your physical damage by 6%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -271,8 +271,8 @@
       "hex_x": 2,
       "hex_y": 2,
       "effects": {
-        "ability_barbarian_unbridled_rage_cooldown_pct": 0.1167,
-        "ability_barbarian_ancestral_combat_potency": 0.1167,
+        "ability_barbarian_unbridled_rage_cooldown_pct": 0.12,
+        "ability_barbarian_ancestral_combat_potency": 0.12,
         "physical_damage": 0.02
       },
       "connected_to": [
@@ -283,7 +283,7 @@
     {
       "talent_id": "barbarian_ancestry_ramhorn_rage",
       "name": "Ramhorn Rage",
-      "description": "Reduces the cooldown of Ramhorn Rage and Warband by 40% and increases their healing by 25%.",
+      "description": "Reduces the cooldown of Ramhorn Rage and Warband by 39% and increases their healing by 25%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -291,10 +291,10 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "ability_barbarian_ramhorn_rage_cooldown_pct": 0.1333,
-        "ability_barbarian_warband_cooldown_pct": 0.1333,
-        "ability_barbarian_ramhorn_rage_healing": 0.044,
-        "ability_barbarian_warband_healing": 0.044
+        "ability_barbarian_ramhorn_rage_cooldown_pct": 0.13,
+        "ability_barbarian_warband_cooldown_pct": 0.13,
+        "ability_barbarian_ramhorn_rage_healing": 0.04,
+        "ability_barbarian_warband_healing": 0.04
       },
       "connected_to": [
         "barbarian_ancestry_ancestral_spirit"
@@ -304,7 +304,7 @@
     {
       "talent_id": "barbarian_ancestry_war_cry",
       "name": "War Cry",
-      "description": "Reduces the cooldown of War Cry and Tavern Brawl by 40% and increases your attack power by 8%.",
+      "description": "Reduces the cooldown of War Cry and Tavern Brawl by 39% and increases your attack power by 9%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -312,9 +312,9 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "ability_barbarian_war_cry_cooldown_pct": 0.1333,
-        "ability_barbarian_tavern_brawl_cooldown_pct": 0.1333,
-        "attack_power_pct": 2.6667
+        "ability_barbarian_war_cry_cooldown_pct": 0.13,
+        "ability_barbarian_tavern_brawl_cooldown_pct": 0.13,
+        "attack_power_pct": 3
       },
       "connected_to": [
         "barbarian_ancestry_ancestral_spirit"
@@ -344,7 +344,7 @@
     {
       "talent_id": "barbarian_ancestry_ice_cold_bubbles",
       "name": "Ice Cold Bubbles",
-      "description": "Increases your Frost damage by a further 10% and the damage of Frozen Tankard by 30%.",
+      "description": "Increases your Frost damage by a further 9% and the damage of Frozen Tankard by 15%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -352,8 +352,8 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "frost_spell_damage": 0.0333,
-        "ability_barbarian_frozen_tankard_damage": 0.054
+        "frost_spell_damage": 0.03,
+        "ability_barbarian_frozen_tankard_damage": 0.05
       },
       "connected_to": [
         "barbarian_ancestry_trip_to_the_alehouse"
@@ -407,7 +407,7 @@
     {
       "talent_id": "barbarian_ancestry_the_finest_ale",
       "name": "The Finest Ale",
-      "description": "Increases the healing of Savage Revelry by 35% and reduces its cooldown by 30%.",
+      "description": "Increases the healing of Savage Revelry by 18% and reduces its cooldown by 30%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -415,7 +415,7 @@
       "hex_x": -2,
       "hex_y": 2,
       "effects": {
-        "ability_barbarian_savage_revelry_healing": 0.062,
+        "ability_barbarian_savage_revelry_healing": 0.06,
         "ability_barbarian_savage_revelry_cooldown_pct": 0.1
       },
       "connected_to": [
@@ -426,7 +426,7 @@
     {
       "talent_id": "barbarian_ancestry_ancestral_spirit",
       "name": "Ancestral Spirit",
-      "description": "Reduces the cost of all your abilities by 20%, increases your pets' damage by a further 35%, and your critical strikes restore 15 Energy.",
+      "description": "Reduces the cost of all your abilities by 20%, increases your pets' damage by a further 14%, and your critical strikes restore 15 Energy.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,

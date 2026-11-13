@@ -16,7 +16,7 @@
     {
       "talent_id": "cultist_heretic_shadow_training",
       "name": "Shadow Training",
-      "description": "Increases Eldritch Mending and Gaze of C'Thun healing. Your heals cannot be parried or dodged. +3% Eldritch Mending healing.",
+      "description": "Increases Eldritch Mending healing by 2% per rank. Your heals cannot be parried or dodged.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -24,7 +24,7 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "ability_cultist_eldritch_mending_healing": 0.016
+        "ability_cultist_eldritch_mending_healing": 0.02
       },
       "connected_to": [
         "cultist_heretic_abyssal_guard"
@@ -34,7 +34,7 @@
     {
       "talent_id": "cultist_heretic_void_power",
       "name": "Void Power",
-      "description": "Increases healing power gained from main-hand weapon damage by 2% per rank.",
+      "description": "Increases healing power gained from main-hand weapon damage by 1% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -42,7 +42,7 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "healing_power_from_weapon_pct": 0.011
+        "healing_power_from_weapon_pct": 0.01
       },
       "connected_to": [
         "cultist_heretic_devour_curse"
@@ -528,7 +528,7 @@
     {
       "talent_id": "cultist_heretic_hymn_of_hope",
       "name": "Hymn of Hope",
-      "description": "Increases the healing power of Malevolence's Black Blood effect by 4% per rank.",
+      "description": "Increases the healing power of Malevolence's Black Blood effect by 2% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
@@ -536,7 +536,7 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_cultist_malevolence_healing": 0.021
+        "ability_cultist_malevolence_healing": 0.02
       },
       "connected_to": [
         "cultist_heretic_malevolence",
@@ -546,7 +546,7 @@
     {
       "talent_id": "cultist_heretic_faith_unbroken",
       "name": "Faith Unbroken",
-      "description": "Reduces the Mana cost of your healing spells by 2% per rank.",
+      "description": "Reduces the Mana cost of your healing spells by 1% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -554,7 +554,7 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "healing_spell_cost_pct": 0.011
+        "healing_spell_cost_pct": 0.01
       },
       "connected_to": [
         "cultist_heretic_greater_void_blessing",
@@ -564,7 +564,7 @@
     {
       "talent_id": "cultist_heretic_grace_of_the_deep",
       "name": "Grace of the Deep",
-      "description": "Increases healing done to targets below 50% health by 3% per rank.",
+      "description": "Increases healing done to targets below 50% health by 2% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -572,7 +572,7 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "low_health_healing_pct": 0.016
+        "low_health_healing_pct": 0.02
       },
       "connected_to": [
         "cultist_heretic_blade_of_yoggsaron",

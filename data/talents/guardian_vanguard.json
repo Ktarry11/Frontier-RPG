@@ -34,7 +34,7 @@
     {
       "talent_id": "guardian_vanguard_heavy_expert",
       "name": "Heavy Expert",
-      "description": "Increases your chance to parry and dodge by 4% and your armour by 20%.",
+      "description": "Increases your chance to parry and dodge by 3% and your armour by 21%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -42,9 +42,9 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "parry": 1.3333,
-        "dodge": 1.3333,
-        "armor_pct": 6.6667
+        "parry": 1,
+        "dodge": 1,
+        "armor_pct": 7
       },
       "connected_to": [
         "guardian_vanguard_knights_conviction"
@@ -54,7 +54,7 @@
     {
       "talent_id": "guardian_vanguard_knights_conviction",
       "name": "Knight's Conviction",
-      "description": "Increases your block value by 50% and your chance to block by 2%.",
+      "description": "Increases your block value by 51% and your chance to block by 2%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -62,8 +62,8 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "block_value_pct": 0.1667,
-        "block": 0.6667
+        "block_value_pct": 0.17,
+        "block": 0.67
       },
       "connected_to": [
         "guardian_vanguard_seasoned_fighter"
@@ -73,7 +73,7 @@
     {
       "talent_id": "guardian_vanguard_stalwart",
       "name": "Stalwart",
-      "description": "Increases your block value by 20% and your expertise by 4.",
+      "description": "Increases your block value by 21% and your expertise by 4.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -81,8 +81,8 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "block_value_pct": 0.0667,
-        "expertise": 1.3333
+        "block_value_pct": 0.07,
+        "expertise": 1
       },
       "connected_to": [
         "guardian_vanguard_seasoned_fighter"
@@ -92,7 +92,7 @@
     {
       "talent_id": "guardian_vanguard_seasoned_fighter",
       "name": "Seasoned Fighter",
-      "description": "Reduces the Energy cost of Pulverize, Ram and Broad Sweep by 10%.",
+      "description": "Reduces the Energy cost of Pulverize, Ram and Broad Sweep by 9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -100,9 +100,9 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "ability_guardian_pulverize_cost_pct": 0.0333,
-        "ability_guardian_ram_cost_pct": 0.0333,
-        "ability_guardian_broad_sweep_cost_pct": 0.0333
+        "ability_guardian_pulverize_cost_pct": 0.03,
+        "ability_guardian_ram_cost_pct": 0.03,
+        "ability_guardian_broad_sweep_cost_pct": 0.03
       },
       "connected_to": [
         "guardian_vanguard_footmans_call"
@@ -112,7 +112,7 @@
     {
       "talent_id": "guardian_vanguard_bulwark",
       "name": "Bulwark",
-      "description": "Increases your block value by 25% and your chance to hit by 5%.",
+      "description": "Increases your block value by 24% and your chance to hit by 6%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -120,8 +120,8 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "block_value_pct": 0.0833,
-        "hit_rating": 1.6667
+        "block_value_pct": 0.08,
+        "hit_rating": 2
       },
       "connected_to": [
         "guardian_vanguard_retaliation"
@@ -131,7 +131,7 @@
     {
       "talent_id": "guardian_vanguard_footmans_call",
       "name": "Footman's Call",
-      "description": "Increases the damage of Pulverize by 10.8%.",
+      "description": "Increases the damage of Pulverize by 12%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -139,7 +139,7 @@
       "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "ability_guardian_pulverize_damage": 0.036
+        "ability_guardian_pulverize_damage": 0.04
       },
       "connected_to": [
         "guardian_vanguard_retaliation"
@@ -149,7 +149,7 @@
     {
       "talent_id": "guardian_vanguard_with_honor",
       "name": "With Honor",
-      "description": "Reduces the cooldown of Ram by 25%.",
+      "description": "Reduces the cooldown of Ram by 24%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -157,7 +157,7 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "ability_guardian_ram_cooldown_pct": 0.0833
+        "ability_guardian_ram_cooldown_pct": 0.08
       },
       "connected_to": [
         "guardian_vanguard_vanguards_shield"
@@ -167,7 +167,7 @@
     {
       "talent_id": "guardian_vanguard_honorbound",
       "name": "Honorbound",
-      "description": "Reduces the Energy cost of Shield Challenge by 50%.",
+      "description": "Reduces the Energy cost of Shield Challenge by 51%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -175,7 +175,7 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "ability_guardian_shield_challenge_cost_pct": 0.1667
+        "ability_guardian_shield_challenge_cost_pct": 0.17
       },
       "connected_to": [
         "guardian_vanguard_vanguards_shield"
@@ -519,7 +519,7 @@
     {
       "talent_id": "guardian_vanguard_the_green_tower",
       "name": "The Green Tower",
-      "description": "Reduces the Energy cost of your Formations by 25% and raises the threat they generate by 25%.",
+      "description": "Reduces the Energy cost of your Formations by 24% and raises the threat they generate by 24%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -527,9 +527,9 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "ability_guardian_tower_formation_cost_pct": 0.0833,
-        "ability_guardian_line_formation_cost_pct": 0.0833,
-        "threat_generation_pct": 0.0833
+        "ability_guardian_tower_formation_cost_pct": 0.08,
+        "ability_guardian_line_formation_cost_pct": 0.08,
+        "threat_generation_pct": 0.08
       },
       "connected_to": [
         "guardian_vanguard_wreck_formation"
@@ -539,7 +539,7 @@
     {
       "talent_id": "guardian_vanguard_valiant_defender",
       "name": "Valiant Defender",
-      "description": "Increases the damage of Pulverize and Broad Sweep by 5.4%.",
+      "description": "Increases the damage of Pulverize and Broad Sweep by 6%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -547,8 +547,8 @@
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "ability_guardian_pulverize_damage": 0.018,
-        "ability_guardian_broad_sweep_damage": 0.018
+        "ability_guardian_pulverize_damage": 0.02,
+        "ability_guardian_broad_sweep_damage": 0.02
       },
       "connected_to": [
         "guardian_vanguard_wreck_formation"
@@ -630,7 +630,7 @@
     {
       "talent_id": "guardian_vanguard_shieldlords_strength",
       "name": "Shieldlord's Strength",
-      "description": "Increases your Stamina by 15% and the damage of Heavy Blow and Hammer of the Law by 40%.",
+      "description": "Increases your Stamina by 15% and the damage of Heavy Blow and Hammer of the Law by 22%.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -639,8 +639,8 @@
       "hex_y": 6,
       "effects": {
         "stamina_pct": 15.0,
-        "ability_guardian_heavy_blow_damage": 0.216,
-        "ability_guardian_hammer_of_the_law_damage": 0.216
+        "ability_guardian_heavy_blow_damage": 0.22,
+        "ability_guardian_hammer_of_the_law_damage": 0.22
       },
       "connected_to": [],
       "_source": "CoA verbatim: 'You may now use two-handed Maces and can now equip two-handed Maces with a shield. Your Heavy Blow and Hammer of the Law now deal additional damage scaling with your Stamina and your Stamina is increased by 15%.' The weapon-rule half is not a talent effect - equip rules live on items, and a two-hander with a shield would need the slot system changed, which is well outside a talent. Stamina-scaling damage has no key (coefficients live on the ability), so it is paid as flat damage. CoA's 15% Stamina ports exactly, and stacks with Iron Guardian at tier 0 for 30% on a pure-Vanguard build. CoA's own Paragon node at this tier is the unresolved token '$32' and is not built."

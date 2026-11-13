@@ -16,7 +16,7 @@
     {
       "talent_id": "ranger_archery_devastating_shots",
       "name": "Devastating Shots",
-      "description": "Increases your critical strike chance by 4% and your hit chance by 2%.",
+      "description": "Increases your critical strike chance by 3% and your hit chance by 2%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,8 +24,8 @@
       "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "crit_chance_physical": 1.3333,
-        "hit_rating": 0.6667
+        "crit_chance_physical": 1,
+        "hit_rating": 0.67
       },
       "connected_to": [
         "ranger_archery_improved_serrated_shot"
@@ -35,7 +35,7 @@
     {
       "talent_id": "ranger_archery_improved_serrated_shot",
       "name": "Improved Serrated Shot",
-      "description": "Increases the damage of Serrated Shot by 16.2% and its duration by 2 turns.",
+      "description": "Increases the damage of Serrated Shot by 16% and its duration by 2 turns.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 1,
@@ -43,7 +43,7 @@
       "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "ability_ranger_serrated_shot_damage": 0.162,
+        "ability_ranger_serrated_shot_damage": 0.16,
         "ability_ranger_serrated_shot_duration": 2
       },
       "connected_to": [
@@ -55,7 +55,7 @@
     {
       "talent_id": "ranger_archery_studded_arrows",
       "name": "Studded Arrows",
-      "description": "Increases the damage of Quick Shot by 20% and of Skullpiercer by 15%.",
+      "description": "Increases the damage of Quick Shot by 12% and of Skullpiercer by 9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -63,8 +63,8 @@
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "ability_ranger_quick_shot_damage": 0.036,
-        "ability_ranger_skullpiercer_damage": 0.027
+        "ability_ranger_quick_shot_damage": 0.04,
+        "ability_ranger_skullpiercer_damage": 0.03
       },
       "connected_to": [
         "ranger_archery_archery_master"
@@ -74,7 +74,7 @@
     {
       "talent_id": "ranger_archery_boots_of_elvenkind",
       "name": "Boots of Elvenkind",
-      "description": "Increases your Agility by 10% and your ranged attack power by 20% of your Agility.",
+      "description": "Increases your Agility by 9% and your ranged attack power by 21% of your Agility.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -82,8 +82,8 @@
       "hex_x": 2,
       "hex_y": -6,
       "effects": {
-        "agility_pct": 3.3333,
-        "ranged_ap_from_agility_pct": 0.0667
+        "agility_pct": 3,
+        "ranged_ap_from_agility_pct": 0.07
       },
       "connected_to": [
         "ranger_archery_pierced"
@@ -174,7 +174,7 @@
     {
       "talent_id": "ranger_archery_skirmish",
       "name": "Skirmish",
-      "description": "Increases your critical strike chance by 10% and reduces all your ability costs by 15%.",
+      "description": "Increases your critical strike chance by 9% and reduces all your ability costs by 15%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -182,7 +182,7 @@
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "crit_chance_physical": 3.3333,
+        "crit_chance_physical": 3,
         "all_ability_cost_pct": 0.05
       },
       "connected_to": [
@@ -193,7 +193,7 @@
     {
       "talent_id": "ranger_archery_serrations",
       "name": "Serrations",
-      "description": "Increases the damage of your periodic effects by 20%.",
+      "description": "Increases the damage of your periodic effects by 21%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -201,7 +201,7 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "dot_damage": 0.0667
+        "dot_damage": 0.07
       },
       "connected_to": [
         "ranger_archery_strike_where_it_hurts"
@@ -211,7 +211,7 @@
     {
       "talent_id": "ranger_archery_mortal_shots",
       "name": "Mortal Shots",
-      "description": "Reduces the cooldown of Crippling Shot by 40% and of Skullpiercer by 25%.",
+      "description": "Reduces the cooldown of Crippling Shot by 39% and of Skullpiercer by 24%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -219,8 +219,8 @@
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "ability_ranger_crippling_shot_cooldown_pct": 0.1333,
-        "ability_ranger_skullpiercer_cooldown_pct": 0.0833
+        "ability_ranger_crippling_shot_cooldown_pct": 0.13,
+        "ability_ranger_skullpiercer_cooldown_pct": 0.08
       },
       "connected_to": [
         "ranger_archery_swiftshot"
@@ -294,7 +294,7 @@
     {
       "talent_id": "ranger_archery_hunting_with_precision",
       "name": "Hunting with Precision",
-      "description": "Increases the damage of Hunting Shot by 35% and of Precision Shot by 25%.",
+      "description": "Increases the damage of Hunting Shot by 18% and of Precision Shot by 15%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -302,8 +302,8 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_ranger_hunting_shot_damage": 0.063,
-        "ability_ranger_precision_shot_damage": 0.045
+        "ability_ranger_hunting_shot_damage": 0.06,
+        "ability_ranger_precision_shot_damage": 0.05
       },
       "connected_to": [
         "ranger_archery_maximum_power"
@@ -313,7 +313,7 @@
     {
       "talent_id": "ranger_archery_maximum_power",
       "name": "Maximum Power",
-      "description": "Increases the damage of your ranged abilities by 8% and your critical damage by 20%.",
+      "description": "Increases the damage of your ranged abilities by 9% and your critical damage by 21%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -321,8 +321,8 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "physical_damage": 0.0267,
-        "crit_damage_physical": 0.0667
+        "physical_damage": 0.03,
+        "crit_damage_physical": 0.07
       },
       "connected_to": [
         "ranger_archery_one_shot_one_kill"
@@ -340,7 +340,7 @@
       "hex_x": 2,
       "hex_y": 2,
       "effects": {
-        "armor_penetration": 33.3333
+        "armor_penetration": 33
       },
       "connected_to": [
         "ranger_archery_silent_but_deadly"
@@ -383,7 +383,7 @@
     {
       "talent_id": "ranger_archery_one_shot_one_kill",
       "name": "One Shot, One Kill",
-      "description": "Increases the damage of Deadshot by 75% and your damage against enemies below 20% health by 20%.",
+      "description": "Increases the damage of Deadshot by 60% and your damage against enemies below 21% health by 21%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -391,8 +391,8 @@
       "hex_x": 2,
       "hex_y": 4,
       "effects": {
-        "ability_ranger_deadshot_damage": 0.135,
-        "low_health_damage_pct": 0.0667,
+        "ability_ranger_deadshot_damage": 0.14,
+        "low_health_damage_pct": 0.07,
         "low_health_threshold_pct": 0.2
       },
       "connected_to": [
@@ -403,7 +403,7 @@
     {
       "talent_id": "ranger_archery_pierced_quiver",
       "name": "Elven Enchantments",
-      "description": "Increases the damage of your Poison and Searing Quivers by 25% and your periodic damage by a further 10%.",
+      "description": "Increases the damage of your Poison and Searing Quivers by 24% and your periodic damage by a further 9%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -411,9 +411,9 @@
       "hex_x": -2,
       "hex_y": 4,
       "effects": {
-        "ability_ranger_poison_quiver_potency": 0.0833,
-        "ability_ranger_searing_quiver_potency": 0.0833,
-        "dot_damage": 0.0333
+        "ability_ranger_poison_quiver_potency": 0.08,
+        "ability_ranger_searing_quiver_potency": 0.08,
+        "dot_damage": 0.03
       },
       "connected_to": [
         "ranger_archery_hawkeye"
@@ -423,7 +423,7 @@
     {
       "talent_id": "ranger_archery_neurotoxin_arrow",
       "name": "Neurotoxin Arrow",
-      "description": "Increases the damage of Neurotoxin Arrow by 30% and reduces the duration of stuns against you by 25%.",
+      "description": "Increases the damage of Neurotoxin Arrow by 15% and reduces the duration of stuns against you by 24%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -431,8 +431,8 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "ability_ranger_neurotoxin_arrow_damage": 0.054,
-        "stun_duration_reduction_pct": 0.0833
+        "ability_ranger_neurotoxin_arrow_damage": 0.05,
+        "stun_duration_reduction_pct": 0.08
       },
       "connected_to": [
         "ranger_archery_devastating_shots"

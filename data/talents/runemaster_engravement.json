@@ -96,7 +96,7 @@
     {
       "talent_id": "runemaster_engravement_elementalist",
       "name": "Elementalist",
-      "description": "Increases the damage of Fist of the Ancients and Runic Brand by 4% per rank.",
+      "description": "Increases the damage of Fist of the Ancients and Runic Brand by 2% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -104,8 +104,8 @@
       "hex_x": -3,
       "hex_y": -4,
       "effects": {
-        "ability_runemaster_fist_of_the_ancients_damage": 0.022,
-        "ability_runemaster_runic_brand_damage": 0.022
+        "ability_runemaster_fist_of_the_ancients_damage": 0.02,
+        "ability_runemaster_runic_brand_damage": 0.02
       },
       "connected_to": [
         "runemaster_engravement_primordial_strength"

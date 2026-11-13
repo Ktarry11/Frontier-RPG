@@ -16,7 +16,7 @@
     {
       "talent_id": "witch_doctor_shadowhunting_senjins_apprentice",
       "name": "Sen'jin's Apprentice",
-      "description": "Increases your ranged attack power by 100% of your Intellect, and your ranged attack power and spell power by 25% of your Agility.",
+      "description": "Increases your ranged attack power by 99% of your Intellect, and your ranged attack power and spell power by 24% of your Agility.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,9 +24,9 @@
       "hex_x": -5,
       "hex_y": -6,
       "effects": {
-        "ranged_ap_from_intellect_pct": 0.3333,
-        "ranged_ap_from_agility_pct": 0.0833,
-        "spell_power_from_agility_pct": 0.0833
+        "ranged_ap_from_intellect_pct": 0.33,
+        "ranged_ap_from_agility_pct": 0.08,
+        "spell_power_from_agility_pct": 0.08
       },
       "connected_to": [
         "witch_doctor_shadowhunting_loas_strength"
@@ -55,7 +55,7 @@
     {
       "talent_id": "witch_doctor_shadowhunting_village_wisdom",
       "name": "Village Wisdom",
-      "description": "Increases your chance to hit by 5% and the damage of Reclamation by 15%.",
+      "description": "Increases your chance to hit by 6% and the damage of Reclamation by 9%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -63,8 +63,8 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "hit_rating": 1.6667,
-        "ability_witch_doctor_reclamation_damage": 0.027
+        "hit_rating": 2,
+        "ability_witch_doctor_reclamation_damage": 0.03
       },
       "connected_to": [
         "witch_doctor_shadowhunting_improved_malefic_arrow"
@@ -74,7 +74,7 @@
     {
       "talent_id": "witch_doctor_shadowhunting_improved_malefic_arrow",
       "name": "Improved Malefic Arrow",
-      "description": "Reduces the cooldown of Malefic Arrow by 20%.",
+      "description": "Reduces the cooldown of Malefic Arrow by 21%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -82,7 +82,7 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "ability_witch_doctor_malefic_arrow_cooldown_pct": 0.0667
+        "ability_witch_doctor_malefic_arrow_cooldown_pct": 0.07
       },
       "connected_to": [
         "witch_doctor_shadowhunting_shadow_enchantments"
@@ -113,7 +113,7 @@
     {
       "talent_id": "witch_doctor_shadowhunting_soul_feeder",
       "name": "Soul Feeder",
-      "description": "Increases the damage of Malefic Arrow by 13.5%.",
+      "description": "Increases the damage of Malefic Arrow by 15%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -121,7 +121,7 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "ability_witch_doctor_malefic_arrow_damage": 0.045
+        "ability_witch_doctor_malefic_arrow_damage": 0.05
       },
       "connected_to": [
         "witch_doctor_shadowhunting_spirit_hunting"
@@ -159,7 +159,7 @@
     {
       "talent_id": "witch_doctor_shadowhunting_umbral_glaive",
       "name": "Umbral Glaive",
-      "description": "Increases the damage of Spirit Glaive by 10.8%.",
+      "description": "Increases the damage of Spirit Glaive by 12%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -167,7 +167,7 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "ability_witch_doctor_spirit_glaive_damage": 0.036
+        "ability_witch_doctor_spirit_glaive_damage": 0.04
       },
       "connected_to": [
         "witch_doctor_shadowhunting_eye_of_kimbul"
@@ -281,7 +281,7 @@
     {
       "talent_id": "witch_doctor_shadowhunting_darkspear_traditionalist",
       "name": "Darkspear Traditionalist",
-      "description": "Increases your haste by 10%, and Hex of Malice has a 20% chance to collect a Spirit.",
+      "description": "Increases your haste by 9%, and Hex of Malice has a 20% chance to collect a Spirit.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -289,7 +289,7 @@
       "hex_x": -2,
       "hex_y": -2,
       "effects": {
-        "haste": 3.3333
+        "haste": 3
       },
       "connected_to": [
         "witch_doctor_shadowhunting_dambalas_lethality"
@@ -398,7 +398,7 @@
     {
       "talent_id": "witch_doctor_shadowhunting_bwonsamdis_edge",
       "name": "Bwonsamdi's Edge",
-      "description": "Increases the damage of Spirit Eclipse by 21.6%.",
+      "description": "Increases the damage of Spirit Eclipse by 21%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -406,7 +406,7 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_witch_doctor_spirit_eclipse_damage": 0.072
+        "ability_witch_doctor_spirit_eclipse_damage": 0.07
       },
       "connected_to": [
         "witch_doctor_shadowhunting_the_true_spirit"
@@ -416,7 +416,7 @@
     {
       "talent_id": "witch_doctor_shadowhunting_the_true_spirit",
       "name": "The True Spirit",
-      "description": "Increases the damage of Spirit Glaive and Spirit Eclipse by 16.2%.",
+      "description": "Increases the damage of Spirit Glaive and Spirit Eclipse by 15%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -424,8 +424,8 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_witch_doctor_spirit_glaive_damage": 0.054,
-        "ability_witch_doctor_spirit_eclipse_damage": 0.054
+        "ability_witch_doctor_spirit_glaive_damage": 0.05,
+        "ability_witch_doctor_spirit_eclipse_damage": 0.05
       },
       "connected_to": [
         "witch_doctor_shadowhunting_residual_energy"
@@ -464,7 +464,7 @@
     {
       "talent_id": "witch_doctor_shadowhunting_residual_energy",
       "name": "Residual Energy",
-      "description": "Increases your spell damage by 10% and reduces the cooldown of Spirit Glaive by 20%.",
+      "description": "Increases your spell damage by 9% and reduces the cooldown of Spirit Glaive by 21%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -472,8 +472,8 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "spell_damage": 0.0333,
-        "ability_witch_doctor_spirit_glaive_cooldown_pct": 0.0667
+        "spell_damage": 0.03,
+        "ability_witch_doctor_spirit_glaive_cooldown_pct": 0.07
       },
       "connected_to": [
         "witch_doctor_shadowhunting_a_price_to_pay"
@@ -519,7 +519,7 @@
     {
       "talent_id": "witch_doctor_shadowhunting_strength_of_da_loa",
       "name": "Strength of Da Loa",
-      "description": "Increases your attack power by 5% and your Spirit by 10%.",
+      "description": "Increases your attack power by 6% and your Spirit by 9%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -527,8 +527,8 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "attack_power_pct": 1.6667,
-        "spirit_pct": 3.3333
+        "attack_power_pct": 2,
+        "spirit_pct": 3
       },
       "connected_to": [
         "witch_doctor_shadowhunting_voodoo_hunger"
@@ -637,7 +637,7 @@
     {
       "talent_id": "witch_doctor_shadowhunting_serpent_handler",
       "name": "Serpent Handler",
-      "description": "Increases the damage of Call of Sseratus by 40% and the damage your damage-over-time spells deal by 15%.",
+      "description": "Increases the damage of Call of Sseratus by 21% and the damage your damage-over-time spells deal by 15%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -645,7 +645,7 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "ability_witch_doctor_call_of_sseratus_damage": 0.072,
+        "ability_witch_doctor_call_of_sseratus_damage": 0.07,
         "dot_damage": 0.05
       },
       "connected_to": [
@@ -656,7 +656,7 @@
     {
       "talent_id": "witch_doctor_shadowhunting_bwonsamdis_gift",
       "name": "Bwonsamdi's Gift",
-      "description": "Bwonsamdi's favour: your haste rises by 15%, Reclamation strikes 60% harder, and your shots bring Mimic Ward a turn closer to ready.",
+      "description": "Bwonsamdi's favour: your haste rises by 15%, Reclamation strikes 32% harder, and your shots bring Mimic Ward a turn closer to ready.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -665,7 +665,7 @@
       "hex_y": 6,
       "effects": {
         "haste": 15.0,
-        "ability_witch_doctor_reclamation_damage": 0.324
+        "ability_witch_doctor_reclamation_damage": 0.32
       },
       "connected_to": [],
       "proc": {

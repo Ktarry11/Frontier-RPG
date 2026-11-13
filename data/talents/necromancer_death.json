@@ -16,7 +16,7 @@
     {
       "talent_id": "necromancer_death_cycle_of_death",
       "name": "Cycle of Death",
-      "description": "Increases your haste by 10% and your Shadow damage by 4%.",
+      "description": "Increases your haste by 9% and your Shadow damage by 3%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -24,8 +24,8 @@
       "hex_x": -4,
       "hex_y": -6,
       "effects": {
-        "haste": 3.3333,
-        "shadow_spell_damage": 0.0133
+        "haste": 3,
+        "shadow_spell_damage": 0.01
       },
       "connected_to": [
         "necromancer_death_damnation"
@@ -35,7 +35,7 @@
     {
       "talent_id": "necromancer_death_damnation",
       "name": "Damnation",
-      "description": "Increases your Shadow damage by 10%, and your damage against enemies below 20% health by a further 20%.",
+      "description": "Increases your Shadow damage by 9%, and your damage against enemies below 21% health by a further 21%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -43,8 +43,8 @@
       "hex_x": -2,
       "hex_y": -6,
       "effects": {
-        "shadow_spell_damage": 0.0333,
-        "low_health_damage_pct": 0.0667,
+        "shadow_spell_damage": 0.03,
+        "low_health_damage_pct": 0.07,
         "low_health_threshold_pct": 0.2
       },
       "connected_to": [
@@ -56,7 +56,7 @@
     {
       "talent_id": "necromancer_death_necrosis",
       "name": "Necrosis",
-      "description": "Increases the duration of your diseases by 25%.",
+      "description": "Increases the duration of your diseases by 24%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -64,7 +64,7 @@
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "dot_duration_pct": 0.0833
+        "dot_duration_pct": 0.08
       },
       "connected_to": [
         "necromancer_death_swarmer"
@@ -119,7 +119,7 @@
     {
       "talent_id": "necromancer_death_plague_science",
       "name": "Plague Science",
-      "description": "Increases the damage of your periodic effects by 25%.",
+      "description": "Increases the damage of your periodic effects by 24%.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -127,7 +127,7 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "dot_damage": 0.0833
+        "dot_damage": 0.08
       },
       "connected_to": [
         "necromancer_death_foul_contagion"
@@ -255,7 +255,7 @@
     {
       "talent_id": "necromancer_death_unholy_runes",
       "name": "Unholy Runes",
-      "description": "Increases the damage of Crypt Swarm by 20% and of Corpse Explosion by 15%.",
+      "description": "Increases the damage of Crypt Swarm by 12% and of Corpse Explosion by 9%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -263,8 +263,8 @@
       "hex_x": 2,
       "hex_y": 2,
       "effects": {
-        "ability_necromancer_crypt_swarm_damage": 0.036,
-        "ability_necromancer_corpse_explosion_damage": 0.027
+        "ability_necromancer_crypt_swarm_damage": 0.04,
+        "ability_necromancer_corpse_explosion_damage": 0.03
       },
       "connected_to": [
         "necromancer_death_death_commander"
@@ -314,7 +314,7 @@
       "hex_x": -2,
       "hex_y": 4,
       "effects": {
-        "spell_penetration": 16.6667
+        "spell_penetration": 17
       },
       "connected_to": [
         "necromancer_death_waking_crypts"
@@ -324,7 +324,7 @@
     {
       "talent_id": "necromancer_death_apothecarys_cauldron",
       "name": "Apothecary's Cauldron",
-      "description": "Increases your Shadow damage by a further 8% and reduces the cooldown of Apothecary's Cauldron by 30%.",
+      "description": "Increases your Shadow damage by a further 9% and reduces the cooldown of Apothecary's Cauldron by 30%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -332,7 +332,7 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "shadow_spell_damage": 0.0267,
+        "shadow_spell_damage": 0.03,
         "ability_necromancer_apothecarys_cauldron_cooldown_pct": 0.1
       },
       "connected_to": [
@@ -343,7 +343,7 @@
     {
       "talent_id": "necromancer_death_plague_of_undeath",
       "name": "Plague of Undeath",
-      "description": "Increases the damage of Plague of Undeath by 35%, and your critical strikes reduce the target's healing received by 20% for 3 turns.",
+      "description": "Increases the damage of Plague of Undeath by 18%, and your critical strikes reduce the target's healing received by 20% for 3 turns.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -351,7 +351,7 @@
       "hex_x": -2,
       "hex_y": -4,
       "effects": {
-        "ability_necromancer_plague_of_undeath_damage": 0.063
+        "ability_necromancer_plague_of_undeath_damage": 0.06
       },
       "connected_to": [
         "necromancer_death_damnation"
@@ -377,7 +377,7 @@
     {
       "talent_id": "necromancer_death_lichplague",
       "name": "Lichplague",
-      "description": "Increases the damage of Lichplague and Virulency by 16.2%.",
+      "description": "Increases the damage of Lichplague and Virulency by 15%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -385,8 +385,8 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "ability_necromancer_lichplague_damage": 0.054,
-        "ability_necromancer_virulency_damage": 0.054
+        "ability_necromancer_lichplague_damage": 0.05,
+        "ability_necromancer_virulency_damage": 0.05
       },
       "connected_to": [
         "necromancer_death_plague_science"
@@ -396,7 +396,7 @@
     {
       "talent_id": "necromancer_death_creeping_crypt",
       "name": "Creeping Crypt",
-      "description": "Increases the critical strike chance of Flesh to Worms and Lichplague by 25%.",
+      "description": "Increases the critical strike chance of Flesh to Worms and Lichplague by 15%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -423,7 +423,7 @@
       "hex_x": -2,
       "hex_y": 0,
       "effects": {
-        "ability_necromancer_lichfrost_damage": 0.045,
+        "ability_necromancer_lichfrost_damage": 0.05,
         "crit_damage_spell": 0.2
       },
       "connected_to": [
@@ -434,7 +434,7 @@
     {
       "talent_id": "necromancer_death_master_of_death",
       "name": "Master of Death",
-      "description": "Increases the damage of Harvest Plague by 30% and its healing by 25%.",
+      "description": "Increases the damage of Harvest Plague by 12% and its healing by 15%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -442,8 +442,8 @@
       "hex_x": 4,
       "hex_y": 0,
       "effects": {
-        "ability_necromancer_harvest_plague_damage": 0.054,
-        "ability_necromancer_harvest_plague_healing": 0.044
+        "ability_necromancer_harvest_plague_damage": 0.05,
+        "ability_necromancer_harvest_plague_healing": 0.04
       },
       "connected_to": [
         "necromancer_death_lichplague"

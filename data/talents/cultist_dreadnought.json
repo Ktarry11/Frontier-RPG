@@ -507,7 +507,7 @@
     {
       "talent_id": "cultist_dreadnought_blessing_of_yshaarj",
       "name": "Blessing of Y'Shaarj",
-      "description": "Increases the damage of Armageddon and Entropic Slam by 6% per rank. Each enemy you slay leaves Y'Shaarj's blessing on you, increasing all damage you deal by 5% for 3 turns.",
+      "description": "Increases the damage of Armageddon and Entropic Slam by 3% per rank. Each enemy you slay leaves Y'Shaarj's blessing on you, increasing all damage you deal by 3% for 3 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -515,8 +515,8 @@
       "hex_x": 2,
       "hex_y": 4,
       "effects": {
-        "ability_cultist_armageddon_damage": 0.032,
-        "ability_cultist_entropic_slam_damage": 0.032
+        "ability_cultist_armageddon_damage": 0.03,
+        "ability_cultist_entropic_slam_damage": 0.03
       },
       "connected_to": [
         "cultist_dreadnought_strength_of_the_black_empire"
