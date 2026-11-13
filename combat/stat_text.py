@@ -60,7 +60,7 @@ def amount(key, value):
     turned round for the reader: a 30% discount must not read as a 30% surcharge.
     """
     mag = abs(value)
-    if key.endswith("_pct") and mag < 1:
+    if key.endswith("_pct") and (mag < 1 or (key == "all_ability_cost_pct" and mag <= 1)):
         mag *= 100
     negative = value < 0
     if key == "all_ability_cost_pct":

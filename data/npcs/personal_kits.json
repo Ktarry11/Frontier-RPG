@@ -191,23 +191,26 @@
         "ability_id": "personal_ama_no_limit_at_all",
         "name": "No Limit At All",
         "from": "'Here there's light in her hands and no limit at all, and for a year nothing in the world told her to stop.'",
-        "engine": "needs: free-cast window billed to caster health; caster excluded as a target",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
         "cooldown": 15,
         "duration": 3,
         "is_instant": true,
-        "stat_mods": {},
-        "description": "For 3 turns Ama's heals cost no mana and land for 50% more, and cannot target her. Each heal costs her 15% of her maximum health.",
+        "stat_mods": {
+          "all_ability_cost_pct": 0.9,
+          "healing_done_pct": 50
+        },
+        "description": "Costs Ama 30% of her maximum health. For 3 turns her spells cost 90% less mana and her heals land for 50% more.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 0,
-            "effect_value": 6
+            "effect_value": 100
           }
-        ]
+        ],
+        "health_cost_pct": 30
       }
     ]
   },
@@ -560,21 +563,23 @@
         "ability_id": "personal_marcus_right_early",
         "name": "Right Early",
         "from": "'He spent a career being right early and watching it change nothing.'",
-        "engine": "needs: reveal the enemy's next action and pre-mitigate it",
+        "engine": "later: also SHOW the enemy's next ability once enemies telegraph (with Berat's To See Round a Corner)",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
         "cooldown": 10,
         "duration": 2,
         "is_instant": true,
-        "stat_mods": {},
-        "description": "Reveals the enemy's next ability and reduces its damage by 25%.",
+        "stat_mods": {
+          "damage_taken_pct": -0.25
+        },
+        "description": "Marcus calls the enemy's next move before it comes. For 2 turns the party takes 25% less damage.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 25,
-            "effect_value": 40
+            "effect_value": 100
           }
         ]
       },
@@ -829,7 +834,6 @@
         "ability_id": "personal_ryan_clause_by_clause",
         "name": "Clause by Clause",
         "from": "'His demons are on contracts he drafted and can recite clause by clause.'",
-        "engine": "needs: pet-targeted buff",
         "effect_type": "buff",
         "target_type": "pet",
         "resource_type": "mana",
@@ -1597,7 +1601,6 @@
         "ability_id": "personal_marta_forty_machines_one_toolkit",
         "name": "Forty Machines, One Toolkit",
         "from": "'Forty machines, one toolkit'",
-        "engine": "needs: repair all summoned devices and pets",
         "effect_type": "heal",
         "target_type": "pet",
         "resource_type": "mana",
@@ -1613,7 +1616,9 @@
             "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "party_pets": true,
+        "heals_pct_max": 100
       },
       {
         "ability_id": "personal_marta_fixes_it_properly",
@@ -3178,7 +3183,6 @@
         "ability_id": "personal_esteban_he_asks_every_time",
         "name": "He Asks. Every Time.",
         "from": "'He asks. Every time, on the record, and then treats them anyway.'",
-        "engine": "needs: dealing the effect's remaining damage to whoever applied it",
         "effect_type": "dispel",
         "target_type": "ally",
         "resource_type": "rage",
@@ -3201,7 +3205,8 @@
           "poison",
           "disease"
         ],
-        "dispel_count": 1
+        "dispel_count": 1,
+        "returns_dispelled_damage": true
       }
     ]
   },
@@ -3764,14 +3769,13 @@
         "ability_id": "personal_freja_taught_four_women",
         "name": "She Taught Four Women",
         "from": "'She has taught four women to do what she does with their hands when she is not there.'",
-        "engine": "needs: grant an ally a heal-over-time they apply themselves",
         "effect_type": "buff",
         "target_type": "ally",
         "resource_type": "mana",
         "cooldown": 12,
         "duration": 5,
         "stat_mods": {},
-        "description": "For 5 turns that ally heals whoever they damage or defend for 20% of the amount.",
+        "description": "For 5 turns, 20% of the damage that ally deals heals whoever in the party is worst hurt.",
         "ranks": [
           {
             "rank": 1,
@@ -3780,7 +3784,16 @@
             "effect_value": 20
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "proc": {
+          "trigger": "on_damage_cast",
+          "chance": 100,
+          "icd": 0,
+          "leech_pct": {
+            "pct": 0.2,
+            "smart": true
+          }
+        }
       }
     ]
   },

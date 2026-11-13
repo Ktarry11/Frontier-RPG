@@ -325,7 +325,7 @@ class Ability:
     #: from, War Stomp and Arcane Torrent. Nothing disagreed anywhere; the
     #: ability fired, named itself and landed on one enemy.
     TARGET_TYPES = ("self", "ally", "party", "enemy", "enemy_aoe",
-                    "all_enemies")
+                    "all_enemies", "pet")
 
     #: Fraction of an ability's normal single-target damage/DoT tick each
     #: target takes when the ability is enemy_aoe. Tunable in one place
@@ -2089,6 +2089,21 @@ class Ability:
         if not free and not self.is_available():
             return False, f"{self.name} is on cooldown ({self.turns_remaining} turns remaining)"
 
+        # AIMED AT A PET. "pet" was authored as a target and nothing read it, so the cast fell
+        # through to the caster: Ryan's "his demon deals 30% more" buffed Ryan. It lands on the
+        # caster's own living pets (every pet in the party with party_pets), and with none out
+        # it is refused before it costs anything.
+        if self.target_type == "pet":
+            owners = [m for m in (party or []) if m is not None] if self.party_pets else []
+            if caster not in owners:
+                owners.append(caster)
+            self._pet_targets = [pet for owner in owners
+                                 for pet in (getattr(owner, "all_pets", None) or [])
+                                 if pet is not None and pet.is_alive()]
+            if not self._pet_targets:
+                return False, f"{caster.name} has no pet out for {self.name}."
+            target = list(self._pet_targets)
+
         # WRONG KIND OF CREATURE. Kyle, 10 Nov: "why can i BANISH a naga?" Refused here, before
         # the cost and the cooldown, so pointing Banish at a naga costs nothing and says why.
         # (An area effect is not refused as a whole; each target it cannot affect shrugs it off
@@ -2481,6 +2496,28 @@ class Ability:
     heals_pct_max = 0.0
     #: Caster and target trade rows for the rest of the fight (Dan Okafor, "Shift Change").
     swaps_rows = False
+    #: A dispel that deals what was LEFT of the effect it removed to whoever put it there
+    #: (Esteban's "He Asks. Every Time.").
+    returns_dispelled_damage = False
+    #: A "pet"-targeted ability that reaches every pet in the party, not only the caster's.
+    party_pets = False
+
+    def _send_back(self, removed, engine, caster):
+        """The damage a removed effect still had to deal, dealt to the enemy that applied it.
+        The effect remembers a name, not a creature, so it is matched by name among the living
+        and falls to the first enemy standing when the name is the spell's rather than theirs."""
+        if not self.returns_dispelled_damage or engine is None or not hasattr(engine, "living_enemies"):
+            return 0
+        owed = int((getattr(removed, "potency", 0) or 0) * max(0, getattr(removed, "duration", 0) or 0))
+        enemies = engine.living_enemies()
+        if owed <= 0 or not enemies:
+            return 0
+        culprit = next((e for e in enemies if getattr(e, "name", None) == getattr(removed, "source_name", "")),
+                       enemies[0])
+        before = culprit.current_health
+        culprit.take_damage(owed, getattr(removed, "damage_school", "shadow") or "shadow",
+                            attacker_level=getattr(caster, "level", None), attacker=caster)
+        return max(0, before - culprit.current_health)
 
     def _cast_riders(self, caster, target):
         """Set up whatever bends this one cast, and return the function that puts it back.
@@ -2541,6 +2578,13 @@ class Ability:
                     single.current_health = want
                 message = (f"{caster.name} casts {self.name} on {single.name} for "
                            f"{int(single.current_health - before)} healing!")
+        if self.heals_pct_max and self.target_type == "pet":
+            pets = [p for p in (getattr(self, "_pet_targets", None) or []) if p.is_alive()]
+            for pet in pets:
+                pet.current_health = max(pet.current_health,
+                                         min(pet.health, pet.current_health + pet.health * self.heals_pct_max / 100.0))
+            if pets:
+                message = f"{caster.name} uses {self.name}: {', '.join(p.name for p in pets)} repaired."
         if self.self_stun_turns and hasattr(caster, "apply_status_effect"):
             from combat.status_effects import StatusEffect, EffectType
             caster.apply_status_effect(StatusEffect(
@@ -2809,6 +2853,9 @@ class Ability:
         """
         if self.target_type == "self":
             return [caster]
+
+        if self.target_type == "pet":
+            return list(getattr(self, "_pet_targets", None) or []) or [caster]
 
         if self.target_type == "party":
             if isinstance(target, (list, tuple)) and target:
@@ -4103,6 +4150,7 @@ class Ability:
             # Runemaster who trains it.
             recipients = self._recipients(caster, target)
             removed_names = []
+            sent_back = 0
             for recipient in recipients:
                 if not hasattr(recipient, "dispel_effect"):
                     continue
@@ -4111,6 +4159,7 @@ class Ability:
                     if removed is None:
                         break
                     removed_names.append(removed.name)
+                    sent_back += self._send_back(removed, engine, caster)
             target_label = getattr(target, "name", None) or ", ".join(
                 getattr(r, "name", "?") for r in recipients)
             if not removed_names:
@@ -4122,7 +4171,8 @@ class Ability:
                     dispel_label = dispel_label.capitalize()
                 return f"{target_label} has no {dispel_label} effect to remove!"
             return (f"{caster.name} dispels {', '.join(removed_names)} "
-                    f"from {target_label}!")
+                    f"from {target_label}!"
+                    + (f" {sent_back} damage goes back where it came from." if sent_back else ""))
 
         elif self.effect_type == "revive":
             # Battle-resurrection-style ability: brings a DEAD ally back to
@@ -4636,7 +4686,7 @@ def _ability_from_data(entry):
         ability.self_stun_turns = int(entry["self_stun_turns"])
     if entry.get("heals_pct_max"):
         ability.heals_pct_max = float(entry["heals_pct_max"])
-    for key in ("always_crits", "grants_turn", "health_buys_mana", "swaps_rows"):
+    for key in ("always_crits", "grants_turn", "health_buys_mana", "swaps_rows", "returns_dispelled_damage", "party_pets"):
         if entry.get(key):
             setattr(ability, key, True)
     if isinstance(entry.get("low_health_bonus"), dict):

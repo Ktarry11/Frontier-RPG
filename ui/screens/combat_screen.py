@@ -598,8 +598,8 @@ class CombatScreen(BaseScreen):
         # Determine which combatants are valid targets based on target_type
         target_type = getattr(ability, "target_type", "enemy")
         
-        if target_type == "self":
-            # No choice - cast on self immediately
+        if target_type in ("self", "pet"):
+            # No choice - cast on self (or the caster's pets) immediately
             self._execute_ability(actor, ability_id, actor)
             return
         
@@ -733,7 +733,7 @@ class CombatScreen(BaseScreen):
         allies = self.combat_engine.living_allies()
         target_type = getattr(ability, "target_type", None)
 
-        if target_type == "self":
+        if target_type in ("self", "pet"):
             return actor
         if target_type == "party":
             return allies or [actor]
