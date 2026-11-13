@@ -1,4 +1,30 @@
 {
-  "kb_sentinel_wager": {"accept_append": "The Dim Reaches are the unlit south-west corner of the Underdark, as far from our gate as the cavern goes."},
-  "kb_sealed_entry": {"accept_append": "The Weeping Colonnade is south of our gate, the Hollow Geode east, the Deep Bloom in the south-west. You know all three by now."}
+  "kb_sentinel_wager": {
+    "accept_append": "The Dim Reaches are the unlit south-west corner of the Underdark, as far from our gate as the cavern goes."
+  },
+  "kb_sealed_entry": {
+    "accept_append": "The Weeping Colonnade is south of our gate, the Hollow Geode east, the Deep Bloom in the south-west. You know all three by now.",
+    "sub_accept": [
+      [
+        "leaves off the thing in the Bloom",
+        "grown leaves off the shelf-grown in the Bloom"
+      ]
+    ]
+  },
+  "ud_dim_walkers": {
+    "sub_accept": [
+      [
+        "All of them, and take them at the boundary",
+        "The Dim-walkers. Take them at the boundary"
+      ]
+    ]
+  },
+  "ud_riftward_unfinished": {
+    "sub_accept": [
+      [
+        "All of them, and I want you to watch",
+        "The Codex has filed them as the Unfinished. Kill them, and I want you to watch"
+      ]
+    ]
+  }
 }

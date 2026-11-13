@@ -1,7 +1,55 @@
 {
-  "hg_prism": {"sub_accept": [["Through the north throat and into the inner cavity.", "The Hollow Geode, east of the Bastion. Through its north throat and into the inner cavity."]]},
-  "hg_heartgrown": {"sub_accept": [["The core, through the last throat,", "The core of the Hollow Geode, east of the Bastion, through the last throat,"]]},
-  "db_index": {"sub_accept": [["Up the central hall, past the shelf-ranks, to where the galleries meet.", "The Deep Bloom, in the south-west of the Underdark. Up its central hall, past the shelf-ranks, to where the galleries meet."]]},
-  "db_second_copy": {"accept_append": "It is in the Deep Bloom, south-west of the Bastion, where the two halls join."},
-  "db_what_it_learned": {"accept_append": "The Deep Bloom is in the south-west of the Underdark. It is at the bottom of everything it has written."}
+  "hg_prism": {
+    "sub_accept": [
+      [
+        "Through the north throat and into the inner cavity.",
+        "The Hollow Geode, east of the Bastion. Through its north throat and into the inner cavity."
+      ]
+    ]
+  },
+  "hg_heartgrown": {
+    "sub_accept": [
+      [
+        "The core, through the last throat,",
+        "The core of the Hollow Geode, east of the Bastion, through the last throat,"
+      ]
+    ],
+    "accept_append": "It is entered in the Codex as the Heartgrown."
+  },
+  "db_index": {
+    "sub_accept": [
+      [
+        "Up the central hall, past the shelf-ranks, to where the galleries meet.",
+        "The Deep Bloom, in the south-west of the Underdark. Up its central hall, past the shelf-ranks, to where the galleries meet."
+      ]
+    ]
+  },
+  "db_second_copy": {
+    "accept_append": "It is in the Deep Bloom, south-west of the Bastion, where the two halls join."
+  },
+  "db_what_it_learned": {
+    "accept_append": "The Deep Bloom is in the south-west of the Underdark. It is at the bottom of everything it has written."
+  },
+  "fd_cartographer": {
+    "accept_append": "The Codex has him down as the Frozen Cartographer."
+  },
+  "hg_shardmaw": {
+    "accept_append": "The diggers named it Shardmaw."
+  },
+  "fd_latticeborn": {
+    "sub_accept": [
+      [
+        "The lower chambers have grown a warden.",
+        "The lower chambers have grown a warden. I have entered it as the Latticeborn."
+      ]
+    ]
+  },
+  "db_errata": {
+    "sub_accept": [
+      [
+        "What is below is made of mistakes",
+        "What is below is entered as Errata. It is made of mistakes"
+      ]
+    ]
+  }
 }

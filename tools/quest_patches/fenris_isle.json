@@ -1,11 +1,35 @@
 {
   "fen_walk_spine": {
     "accept_text": "The spine road, north from this pier through Bloodmoon and over the ridge to the manor gate. The whole length.",
-    "labels": ["the spine road above Bloodmoon", "the spine road at the ridge", "the manor gate"]
+    "labels": [
+      "the spine road above Bloodmoon",
+      "the spine road at the ridge",
+      "the manor gate"
+    ]
   },
   "fen_manor_approach": {
-    "labels": ["the ridge walls", "the cracked gate", "the manor fountain"]
+    "labels": [
+      "the ridge walls",
+      "the cracked gate",
+      "the manor fountain"
+    ]
   },
-  "fen_altar_arch": {"labels": ["the foot of the stair in the Shadowpine Altar"]},
-  "fen_isle_reckoning": {"labels": ["the Bloodmoon well"]}
+  "fen_altar_arch": {
+    "labels": [
+      "the foot of the stair in the Shadowpine Altar"
+    ]
+  },
+  "fen_isle_reckoning": {
+    "labels": [
+      "the Bloodmoon well"
+    ]
+  },
+  "fen_wretches": {
+    "sub_accept": [
+      [
+        "The beach at the Drowned Docks",
+        "The waterlogged wretches, on the beach at the Drowned Docks"
+      ]
+    ]
+  }
 }

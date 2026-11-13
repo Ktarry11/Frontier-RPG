@@ -1,26 +1,78 @@
 {
-  "fw_one_road_in": {"labels": ["the first bend of the Windward Road"]},
-  "fw_feed_below": {"accept_append": "The best of the wash beds are under the Seam, north-west of the ramp foot, where the elk graze them down."},
+  "fw_one_road_in": {
+    "labels": [
+      "the first bend of the Windward Road"
+    ]
+  },
+  "fw_feed_below": {
+    "accept_append": "The best of the wash beds are under the Seam, north-west of the ramp foot, where the elk graze them down."
+  },
   "fw_the_anvil": {
     "accept_append": "The Anvil is the great flat rock at the far west end of the floor, past Needle's Eye - which is where you will start meeting rooktenders.",
-    "labels": ["the scree at the foot of the Anvil"]
+    "labels": [
+      "the scree at the foot of the Anvil"
+    ]
   },
-  "fw_at_the_ramp_foot": {"accept_append": "Their wranglers hold the kodo back at Broadback, south-west of the ramp. Go that far."},
+  "fw_at_the_ramp_foot": {
+    "accept_append": "Their wranglers hold the kodo back at Broadback, south-west of the ramp. Go that far."
+  },
   "fw_clay_up_the_ramp": {
-    "sub": [["There is clay in the salt pans east of here, two days closer.", "There is clay in the salt pans south of the ramp, two days closer."]],
-    "sub_accept": [["Dig me seven good sacks off the pans at Saltwatch.", "Dig me good sacks off the pans at Saltwatch, south of the ramp foot."]]
+    "sub": [
+      [
+        "There is clay in the salt pans east of here, two days closer.",
+        "There is clay in the salt pans south of the ramp, two days closer."
+      ]
+    ],
+    "sub_accept": [
+      [
+        "Dig me seven good sacks off the pans at Saltwatch.",
+        "Dig me good sacks off the pans at Saltwatch, south of the ramp foot."
+      ]
+    ]
   },
   "fw_older_than_the_wrong": {
-    "sub_accept": [["Go out to the hollow and stand", "Go out to Dryhollow, south of the ramp beyond the salt pans, and stand"]],
-    "labels": ["the middle of Dryhollow"]
+    "sub_accept": [
+      [
+        "Go out to the hollow and stand",
+        "Go out to Dryhollow, south of the ramp beyond the salt pans, and stand"
+      ]
+    ],
+    "labels": [
+      "the middle of Dryhollow"
+    ]
   },
   "fw_the_glass_pan": {
     "accept_append": "The glass pan is at the south edge of Dryhollow - south of the ramp, on past Saltwatch.",
-    "labels": ["the glass pan"]
+    "labels": [
+      "the glass pan"
+    ]
   },
-  "fw_pale_wood_wrong_wood": {"accept_append": "The flood brings aspen down every year and the Drowning Floor keeps it. The cave mouth is at the foot of Broadback, west of the ramp, and the blind kodo bed on the stacks."},
-  "fw_the_drowned": {"accept_append": "They are in the Drowning Floor, the cave at the foot of Broadback, west of the ramp."},
-  "fw_yearmaw": {"accept_append": "The Drowning Floor. The mouth is at the foot of Broadback, west of the ramp, and the sump is as far down as it goes."},
-  "fw_the_parley": {"labels": ["the gap at the Sisters"]},
-  "fw_where_the_water_goes": {"labels": ["the mouth of the wash at Broadback"]}
+  "fw_pale_wood_wrong_wood": {
+    "accept_append": "The flood brings aspen down every year and the Drowning Floor keeps it. The cave mouth is at the foot of Broadback, west of the ramp, and the blind kodo bed on the stacks."
+  },
+  "fw_the_drowned": {
+    "accept_append": "They are in the Drowning Floor, the cave at the foot of Broadback, west of the ramp. The crews call them saltbound shamblers."
+  },
+  "fw_yearmaw": {
+    "accept_append": "The Drowning Floor. The mouth is at the foot of Broadback, west of the ramp, and the sump is as far down as it goes. The crews call it Yearmaw."
+  },
+  "fw_the_parley": {
+    "labels": [
+      "the gap at the Sisters"
+    ]
+  },
+  "fw_where_the_water_goes": {
+    "labels": [
+      "the mouth of the wash at Broadback"
+    ]
+  },
+  "fw_light_caravans": {
+    "accept_append": "They are Galak outriders. You will have to kill them to get the slips."
+  },
+  "fw_the_spill": {
+    "accept_append": "The sunstruck elk and the downslope lynx, both."
+  },
+  "fw_hollowhorn_wants_less": {
+    "accept_append": "The wind-readers are the Galak windcatchers. The ones under the standard are the Khan's Chosen. Kill both."
+  }
 }

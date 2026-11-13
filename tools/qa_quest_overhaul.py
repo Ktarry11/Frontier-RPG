@@ -81,6 +81,13 @@ def main():
             if len(text) > 420 and n.npc_id not in rec.get("long_greetings", []):
                 bad.append(f"{stem}: {n.name}'s greeting is {len(text)} characters")
 
+    # Every kill / fetch / gather objective is NAMED in the offer text (tools/audit_quest_clarity.py).
+    import subprocess
+    out = subprocess.run([sys.executable, "tools/audit_quest_clarity.py"] + sorted(done),
+                         capture_output=True, text=True).stdout
+    for line in out.splitlines():
+        if line.startswith("    "):
+            bad.append("the text never names what you are sent after: " + line.strip())
     print(f"{len(done)} zones through the overhaul: {', '.join(sorted(done))}")
     if bad:
         print(f"\n{len(bad)} problem(s):")
