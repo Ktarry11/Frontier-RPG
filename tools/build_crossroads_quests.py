@@ -454,6 +454,9 @@ def main():
             'EVERY TOPIC A QUEST NAMES MUST BE IN HERE - see world/quest_dialogue_shimmering_flats.py.\n"""\n\n'
             "QUEST_TOPICS = " + json.dumps(TOPICS, indent=4) + "\n")
     (ROOT / "world/quest_dialogue_crossroads.py").write_text(body)
+    # Reward items come out of pack() with fractional stats; the files must hold whole numbers.
+    import subprocess
+    subprocess.run([sys.executable, str(ROOT / "tools/whole_number_gear.py")], cwd=ROOT, check=True)
     print(f"crossroads: {len(quests)} new quests, {len(MOVED)} moved, {len(RETEXT)} re-worded")
 
 
