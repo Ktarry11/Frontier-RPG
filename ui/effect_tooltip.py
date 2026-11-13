@@ -214,6 +214,57 @@ def effect_icon_path(effect):
     return found
 
 
+#: Stand-in art for an effect with no picture of its own - every monster ability (over a thousand
+#: of them) and anything else unnamed. Chosen by what the effect IS, the way WoW reuses one icon
+#: for every bleed: a stun looks like a stun, a poison like a poison, a fire DoT like fire.
+_AB = Path("assets/icons/abilities")
+_GENERIC = {
+    "stun": "rogue_cheap_shot", "shield": "priest_power_word_shield", "hot": "druid_rejuvenation",
+    "buff": "druid_enrage", "debuff": "warrior_demoralizing_shout", "armor": "warrior_sunder_armor",
+    "dispel_curse": "warlock_curse_of_weakness", "dispel_poison": "rogue_crippling_poison",
+    "dispel_disease": "necromancer_plague_of_undeath", "dispel_magic": "warlock_fear",
+    "dispel_bleed": "rogue_rupture",
+    "dot_physical": "rogue_rupture", "dot_nature": "rogue_crippling_poison",
+    "dot_shadow": "warlock_corruption", "dot_fire": "warlock_immolate", "dot_frost": "mage_frostbolt",
+    "dot_arcane": "druid_moonfire", "dot_holy": "priest_holy_fire", "dot_magic": "priest_shadow_word_pain",
+}
+
+
+def generic_icon_key(effect):
+    """Which stand-in suits this effect (a key of _GENERIC)."""
+    kind = getattr(effect, "effect_type", None)
+    if getattr(effect, "is_stun", False):
+        return "stun"
+    if int(getattr(effect, "absorb", 0) or 0) > 0:
+        return "shield"
+    if kind == EffectType.HOT:
+        return "hot"
+    if kind == EffectType.DOT:
+        dispel = getattr(effect, "dispel_type", None)
+        if dispel in ("poison", "disease", "curse", "bleed"):
+            return "dispel_" + dispel
+        key = "dot_" + str(getattr(effect, "damage_school", None) or "physical").lower()
+        return key if key in _GENERIC else "dot_physical"
+    if kind == EffectType.BUFF:
+        return "buff"
+    dispel = getattr(effect, "dispel_type", None)
+    if dispel and ("dispel_" + str(dispel)) in _GENERIC:
+        return "dispel_" + str(dispel)
+    mods = getattr(effect, "stat_mods", None) or {}
+    if any("armor" in str(k) for k in mods):
+        return "armor"
+    return "debuff"
+
+
+def effect_icon_or_generic(effect):
+    """The effect's own art, or the stand-in for its kind. Never None while the stock art exists."""
+    own = effect_icon_path(effect)
+    if own is not None:
+        return own
+    p = _AB / (_GENERIC[generic_icon_key(effect)] + ".png")
+    return p if p.exists() else None
+
+
 _surface_cache = {}
 
 
@@ -221,7 +272,7 @@ def draw_effect_icon(renderer, screen, effect, rect, show_count=True):
     """Draw the effect's square into `rect`: art (or a lettered tile), coloured border, and the
     turns left in the corner."""
     border, fill = KIND_COLORS.get(effect.effect_type, (COLOR_WHITE, (30, 30, 30)))
-    path = effect_icon_path(effect)
+    path = effect_icon_or_generic(effect)
     surf = None
     if path is not None:
         key = (str(path), rect.w)
