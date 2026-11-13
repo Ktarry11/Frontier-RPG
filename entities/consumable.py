@@ -158,6 +158,13 @@ class Consumable:
                 character.apply_consumable_buff("food", self, seconds=WELL_FED_SECONDS)
                 log_msg += f" Well fed: {bonus_text(self.stat_bonuses)} for 30 minutes."
 
+        elif self.consumable_type == "lure":
+            # Beast Lure: no stats. While it burns, beasts answer the party's encounter rolls half
+            # again as often, so a skinner is not waiting on the table to deal them an animal.
+            character.beast_lure_seconds = float(self.effect_duration)
+            log_msg = (f"Lit {self.name}: beasts are 50% more likely to turn up for "
+                       f"{int(self.effect_duration // 60)} minutes.")
+
         elif self.consumable_type == "ammo":
             # Crafted arrows / bolts (Woodworking): a timed ranged-attack buff in its own slot, since the game has
             # no ammunition mechanic.  Same flat-value treatment as elixirs and food.

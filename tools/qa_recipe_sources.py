@@ -104,6 +104,21 @@ def main():
           f"live drop pool")
     print(f"== {len(vendor_stock)} stocked by a vendor, {len(quest_rewards)} given by a quest, "
           f"{len(hidden)} hidden vendors checked\n")
+    # HALF FROM THE TRAINER, HALF FROM THE WORLD. Kyle, 12 Nov: "i still want only 50-55% from
+    # trainer and 50-55% from world...hidden vendors, quests, bosses, random world drops" - "for
+    # ALL crafting". The sawmill (woodcutting) is processing, like smelting, and stays taught.
+    share = {}
+    for rid, (prof, r) in recipes.items():
+        t = share.setdefault(prof, [0, 0])
+        t[0] += 1
+        t[1] += r.get("source", "trainer") == "trainer"
+    for prof, (total, taught) in sorted(share.items()):
+        if prof == "woodcutting" or total < 20:
+            continue
+        pct = taught / total
+        print(f"   {prof:16s} {pct:.0%} trainer-taught")
+        if not 0.495 <= pct <= 0.555:
+            fails.append(f"{prof}: {pct:.0%} of its recipes come from the trainer; the band is 50-55%")
     if fails:
         print(f"FAIL ({len(fails)})")
         for f in fails:

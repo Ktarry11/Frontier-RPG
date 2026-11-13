@@ -1,5 +1,5 @@
 {
-  "_comment": "Leatherworking recipes. Leather drops directly from beasts via Skinning (entities/skinning_drops.py) \u2014 it is NOT processed like ore->bar. Leatherworking uses the raw leather (and hides/armor kits as intermediates) to craft gear. Recipe structure mirrors blacksmithing_manager.py: 'armor' kind outputs go through LootGenerator.generate_armor_piece, 'material' kind outputs are stackable materials (armor kits, upgrade kits). WoW Classic bracket: Apprentice 1-75 (scrap/light), Journeyman 75-150 (medium/heavy), Expert 150-225 (thick/rugged + Frontier tiers 7-10), Artisan 225-300 (Frontier tiers 11-18). Stat templates: LW gear is mail armor, agility-focused for hunters/shaman. Every output carries 'material_tier' for upgrade kit matching (upgrade_manager.py).",
+  "_comment": "Leatherworking recipes. Leather drops directly from beasts via Skinning (entities/skinning_drops.py) — it is NOT processed like ore->bar. Leatherworking uses the raw leather (and hides/armor kits as intermediates) to craft gear. Recipe structure mirrors blacksmithing_manager.py: 'armor' kind outputs go through LootGenerator.generate_armor_piece, 'material' kind outputs are stackable materials (armor kits, upgrade kits). WoW Classic bracket: Apprentice 1-75 (scrap/light), Journeyman 75-150 (medium/heavy), Expert 150-225 (thick/rugged + Frontier tiers 7-10), Artisan 225-300 (Frontier tiers 11-18). Stat templates: LW gear is mail armor, agility-focused for hunters/shaman. Every output carries 'material_tier' for upgrade kit matching (upgrade_manager.py).",
   "recipes": {
     "lw_light_armor_kit": {
       "name": "Light Armor Kit",
@@ -1244,7 +1244,7 @@
         317,
         327
       ],
-      "source": "trainer"
+      "source": "drop"
     },
     "lw_bloodtanned_helm": {
       "name": "Bloodtanned Helm",
@@ -1269,7 +1269,7 @@
         320,
         330
       ],
-      "source": "trainer"
+      "source": "drop"
     },
     "lw_kit_rugged": {
       "name": "Rugged Leather Upgrade Kit",
@@ -4584,7 +4584,7 @@
         320,
         330
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "leather_emberscale": 8,
         "thread_silken": 1
@@ -4608,7 +4608,7 @@
         325,
         335
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "leather_emberscale": 3,
         "thread_silken": 1
@@ -4656,7 +4656,7 @@
         325,
         335
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "leather_mossback": 4,
         "thread_silken": 1
@@ -4680,7 +4680,7 @@
         325,
         335
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "leather_mossback": 7,
         "thread_silken": 1
@@ -4704,7 +4704,7 @@
         325,
         335
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "leather_mossback": 4,
         "thread_silken": 1
@@ -4752,7 +4752,7 @@
         325,
         335
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "leather_bloodtanned": 6,
         "thread_silken": 1
@@ -4776,7 +4776,7 @@
         325,
         335
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "leather_bloodtanned": 5,
         "thread_silken": 1
@@ -4800,7 +4800,7 @@
         325,
         335
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "leather_bloodtanned": 8,
         "thread_silken": 1
@@ -4824,7 +4824,7 @@
         325,
         335
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "leather_duskfang": 3,
         "thread_silken": 1
@@ -4848,7 +4848,7 @@
         325,
         335
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "leather_duskfang": 4,
         "thread_silken": 1
@@ -4872,7 +4872,7 @@
         325,
         335
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "leather_duskfang": 4,
         "thread_silken": 1
@@ -4896,7 +4896,7 @@
         325,
         335
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "leather_duskfang": 7,
         "thread_silken": 1
@@ -4920,7 +4920,7 @@
         325,
         335
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "leather_frostscale": 4,
         "thread_silken": 1
@@ -4944,7 +4944,7 @@
         325,
         335
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "leather_frostscale": 4,
         "thread_silken": 1
@@ -4968,7 +4968,7 @@
         325,
         335
       ],
-      "source": "trainer",
+      "source": "drop",
       "inputs": {
         "leather_frostscale": 6,
         "thread_silken": 1

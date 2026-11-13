@@ -5431,7 +5431,7 @@
             325,
             335
           ],
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "cloth_soulcloth": 3
           },
@@ -5449,7 +5449,7 @@
             325,
             335
           ],
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "cloth_sunthread": 3
           },
@@ -6475,7 +6475,7 @@
             325,
             335
           ],
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "bolt_imperial_silk": 7,
             "thread_silken": 1
@@ -6499,7 +6499,7 @@
             325,
             335
           ],
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "bolt_imperial_silk": 4,
             "thread_silken": 1
@@ -6523,7 +6523,7 @@
             325,
             335
           ],
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "bolt_voidweave": 4,
             "thread_silken": 1
@@ -6547,7 +6547,7 @@
             325,
             335
           ],
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "bolt_voidweave": 6,
             "thread_silken": 1
@@ -6571,7 +6571,7 @@
             325,
             335
           ],
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "bolt_voidweave": 5,
             "thread_silken": 1
@@ -13753,7 +13753,8 @@
             "kind": "consumable",
             "consumable_id": "meal_cooked_feast_roast",
             "count": 1
-          }
+          },
+          "source": "drop"
         },
         "cook_skewers": {
           "name": "Fire-Charred Skewers",
@@ -13870,7 +13871,7 @@
             180,
             200
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "cook_medallions": {
           "name": "Seared Medallions",
@@ -13889,7 +13890,7 @@
             220,
             240
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "cook_terrine": {
           "name": "Spiced Terrine",
@@ -13909,7 +13910,7 @@
             230,
             250
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "cook_loin": {
           "name": "Blackened Loin",
@@ -13958,7 +13959,7 @@
             210,
             220
           ],
-          "source": "trainer",
+          "source": "quest",
           "inputs": {
             "meat_marbled": 2
           },
@@ -13998,7 +13999,7 @@
             250,
             260
           ],
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "meat_aged": 2,
             "salt": 1
@@ -14039,7 +14040,7 @@
             290,
             300
           ],
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "meat_select": 2,
             "salt": 1
@@ -14059,7 +14060,7 @@
             305,
             315
           ],
-          "source": "trainer",
+          "source": "drop",
           "inputs": {
             "meat_select": 2,
             "meat_aged": 2,
@@ -14080,7 +14081,7 @@
             325,
             335
           ],
-          "source": "trainer",
+          "source": "vendor",
           "inputs": {
             "meat_select": 3,
             "meat_aged": 2,
@@ -14091,7 +14092,8 @@
             "kind": "consumable",
             "consumable_id": "meal_cooked_cooks_own_table",
             "count": 1
-          }
+          },
+          "vendor_location": "Any pattern vendor"
         },
         "cookx_trail_dumplings": {
           "name": "Trail Dumplings",
@@ -14146,7 +14148,8 @@
             "kind": "consumable",
             "consumable_id": "meal_cooked_marrow_pie",
             "count": 1
-          }
+          },
+          "source": "quest"
         },
         "cookx_warden_s_pot_roast": {
           "name": "Warden's Pot Roast",
@@ -14159,7 +14162,8 @@
             "kind": "consumable",
             "consumable_id": "meal_cooked_warden_s_pot_roast",
             "count": 1
-          }
+          },
+          "source": "drop"
         },
         "cookx_stockade_hotpot": {
           "name": "Stockade Hotpot",
@@ -14201,7 +14205,7 @@
             265,
             275
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "cookx_bulwark_feast": {
           "name": "Bulwark Feast",
@@ -14222,7 +14226,7 @@
             300,
             310
           ],
-          "source": "trainer"
+          "source": "quest"
         },
         "cookx_honey_cakes": {
           "name": "Honey Cakes",
@@ -14274,7 +14278,8 @@
             "kind": "consumable",
             "consumable_id": "meal_cooked_sage_honey_roast",
             "count": 1
-          }
+          },
+          "source": "quest"
         },
         "cookx_fruit_stuffed_loin": {
           "name": "Fruit-Stuffed Loin",
@@ -14287,7 +14292,8 @@
             "kind": "consumable",
             "consumable_id": "meal_cooked_fruit_stuffed_loin",
             "count": 1
-          }
+          },
+          "source": "quest"
         },
         "cookx_mead_glazed_steak": {
           "name": "Mead-Glazed Steak",
@@ -14307,7 +14313,7 @@
             231,
             241
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "cookx_vigil_pudding": {
           "name": "Vigil Pudding",
@@ -14328,7 +14334,7 @@
             271,
             281
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "cookx_seer_s_table": {
           "name": "Seer's Table",
@@ -14401,7 +14407,9 @@
             "kind": "consumable",
             "consumable_id": "meal_cooked_redpepper_haunch",
             "count": 1
-          }
+          },
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "cookx_warband_grill": {
           "name": "Warband Grill",
@@ -14414,7 +14422,8 @@
             "kind": "consumable",
             "consumable_id": "meal_cooked_warband_grill",
             "count": 1
-          }
+          },
+          "source": "quest"
         },
         "cookx_bloodspice_steak": {
           "name": "Bloodspice Steak",
@@ -14434,7 +14443,8 @@
             237,
             247
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "cookx_reaver_s_rack": {
           "name": "Reaver's Rack",
@@ -14454,7 +14464,7 @@
             277,
             287
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "cookx_champion_s_carvery": {
           "name": "Champion's Carvery",
@@ -14475,7 +14485,8 @@
             312,
             322
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "cookx_fried_mushrooms": {
           "name": "Fried Mushrooms",
@@ -14514,7 +14525,9 @@
             "kind": "consumable",
             "consumable_id": "meal_cooked_glowcap_ragout",
             "count": 1
-          }
+          },
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "cookx_scholar_s_fricassee": {
           "name": "Scholar's Fricassee",
@@ -14528,7 +14541,8 @@
             "kind": "consumable",
             "consumable_id": "meal_cooked_scholar_s_fricassee",
             "count": 1
-          }
+          },
+          "source": "drop"
         },
         "cookx_nightcap_roast": {
           "name": "Nightcap Roast",
@@ -14541,7 +14555,9 @@
             "kind": "consumable",
             "consumable_id": "meal_cooked_nightcap_roast",
             "count": 1
-          }
+          },
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "cookx_arcanist_s_plate": {
           "name": "Arcanist's Plate",
@@ -14561,7 +14577,7 @@
             243,
             253
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "cookx_duskcap_roulade": {
           "name": "Duskcap Roulade",
@@ -14670,7 +14686,8 @@
             "kind": "consumable",
             "consumable_id": "meal_cooked_hearthkeeper_s_pie",
             "count": 1
-          }
+          },
+          "source": "drop"
         },
         "cookx_chaplain_s_platter": {
           "name": "Chaplain's Platter",
@@ -14691,7 +14708,7 @@
             249,
             259
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "cookx_mercy_roast": {
           "name": "Mercy Roast",
@@ -14712,7 +14729,8 @@
             289,
             299
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "cookx_lifewarden_s_board": {
           "name": "Lifewarden's Board",
@@ -14733,7 +14751,8 @@
             324,
             334
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "cookx_ale_boiled_strips": {
           "name": "Ale-Boiled Strips",
@@ -14799,7 +14818,8 @@
             "kind": "consumable",
             "consumable_id": "meal_cooked_black_ale_roast",
             "count": 1
-          }
+          },
+          "source": "drop"
         },
         "cookx_shieldwall_steak": {
           "name": "Shieldwall Steak",
@@ -14874,7 +14894,8 @@
             "kind": "consumable",
             "consumable_id": "meal_cooked_emberproof_stew",
             "count": 1
-          }
+          },
+          "source": "drop"
         },
         "cookx_frostbite_chowder": {
           "name": "Frostbite Chowder",
@@ -14902,7 +14923,8 @@
             "kind": "consumable",
             "consumable_id": "meal_cooked_greenroot_broth",
             "count": 1
-          }
+          },
+          "source": "drop"
         },
         "cookx_gravewatch_pottage": {
           "name": "Gravewatch Pottage",
@@ -14916,7 +14938,9 @@
             "kind": "consumable",
             "consumable_id": "meal_cooked_gravewatch_pottage",
             "count": 1
-          }
+          },
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "cookx_bread": {
           "name": "Bread",

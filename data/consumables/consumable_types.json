@@ -3730,5 +3730,21 @@
         "stamina": 5
       }
     }
+  ],
+  "lures": [
+    {
+      "consumable_id": "beast_lure",
+      "name": "Beast Lure",
+      "consumable_type": "lure",
+      "description": "A greased bundle of offal and musk, lit and left to smoulder on somebody's pack. For 30 minutes beasts are 50% more likely to be what the party runs into. It covers the whole party; a second one only restarts the clock.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 5,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 40,
+      "sell_price": 10
+    }
   ]
 }

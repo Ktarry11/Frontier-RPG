@@ -70,7 +70,13 @@ SOURCES = {
 }
 
 #: Kyle's band. The tool aims at the middle rather than an edge.
-TRAINER_MIN, TRAINER_TARGET, TRAINER_MAX = 0.40, 0.50, 0.60
+# Kyle, 12 Nov 2026, tightening it: "for recipies...i still want only 50-55% from trainer and
+# 50-55% from world...hidden vendors, quests, bosses, random world drops etc." - "for ALL crafting".
+TRAINER_MIN, TRAINER_TARGET, TRAINER_MAX = 0.50, 0.52, 0.55
+
+#: Never leave the trainer: the things a cook makes in order to cook. A dropped recipe for
+#: Bread would lock every dish that needs a slice.
+PINNED = {"cookx_bread", "cookx_stock"}
 
 #: Largest gap, in skill, allowed between consecutive TRAINER-taught recipes.
 #: Any larger and a player who reaches that skill has nothing to train.
@@ -166,6 +172,7 @@ def main():
         # the very top of the ladder always stays teachable
         if trainers:
             keep.add(trainers[-1][0])
+        keep.update(rid for rid, _ in trainers if rid in PINNED)
 
         # Pass 2 - satisfy the ratio out of whatever is left.
         target_n = int(round(total * TRAINER_TARGET))

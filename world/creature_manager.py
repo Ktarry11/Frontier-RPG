@@ -422,7 +422,11 @@ class CreatureManager:
     #: Chance a subzone roll is a named rare when the player is hunting that very rare for a quest.
     QUEST_RARE_SPAWN_CHANCE = 0.25
 
-    def get_random_creature(self, zone_name, location_type="open_zone", subzone_name=None, quest_targets=None):
+    #: Weight multiplier on skinnable beasts while the party has a Beast Lure burning.
+    BEAST_LURE_BOOST = 1.5
+
+    def get_random_creature(self, zone_name, location_type="open_zone", subzone_name=None, quest_targets=None,
+                            beast_lure=False):
         """Get a random weighted creature from an encounter table.
 
         quest_targets (optional set of creature names): kill targets of the player's active, unfinished
@@ -479,6 +483,11 @@ class CreatureManager:
         creatures = list(trash_table.keys())
         weights = [w * (self.QUEST_TARGET_WEIGHT_BOOST if n in quest_targets else 1.0)
                    for n, w in trash_table.items()]
+        if beast_lure:
+            from entities.skinning_drops import SKINNABLE
+            from entities.vendor_trash import classify
+            weights = [w * (self.BEAST_LURE_BOOST if classify(n)[0] in SKINNABLE else 1.0)
+                       for n, w in zip(creatures, weights)]
         chosen_creature = random.choices(creatures, weights=weights, k=1)[0]
         
         # Spawn creature

@@ -303,7 +303,8 @@ class ZoneManager:
                      else self.current_zone.name)
         targets = self.active_kill_targets()
         enemy = self.creature_manager.get_random_creature(
-            zone_name, location_type=location_type, subzone_name=subzone_key, quest_targets=targets)
+            zone_name, location_type=location_type, subzone_name=subzone_key, quest_targets=targets,
+            beast_lure=getattr(self, "beast_lure_active", False))
 
         # Fall back to the open-zone table if a subzone has no table entry, so a geographic region
         # without encounter data never yields None - EXCEPT for a subzone flagged safe, where
@@ -343,7 +344,31 @@ class ZoneManager:
                     if o.target:
                         names.add(o.target)
                     names.update(getattr(o, "alt_targets", None) or [])
+                # WHATEVER CARRIES THE THING YOU WERE SENT FOR counts too. Only KILL quests were
+                # weighted up, so "bring me six coral" did nothing for the crab that drops it -
+                # which is the quest a playtester called out for its spawn rate (12 Nov).
+                elif (o.objective_type in (ObjectiveType.FETCH, ObjectiveType.GATHER)
+                        and o.progress < o.count and o.target):
+                    names.update(self._carriers_of(o.target))
         return names
+
+    _carriers = None
+
+    def _carriers_of(self, item_id):
+        """Creatures whose quest drops include this item (data/creatures/quest_drops.json)."""
+        if ZoneManager._carriers is None:
+            import json
+            from pathlib import Path
+            table = {}
+            try:
+                data = json.loads((Path(__file__).parent.parent / "data/creatures/quest_drops.json").read_text())
+                for creature, drops in data.get("drops", {}).items():
+                    for d in drops:
+                        table.setdefault(d.get("item_id"), set()).add(creature)
+            except (OSError, ValueError):
+                pass
+            ZoneManager._carriers = table
+        return ZoneManager._carriers.get(item_id, ())
 
     def trigger_encounter_group(self, player_level=1, party_size=1):
         """

@@ -362,6 +362,9 @@ class Character(StatusEffectMixin):
         self.battle_buff = None    # (consumable, remaining_duration)
         self.food_buff = None      # (consumable, remaining_duration)
         self.ammo_buff = None      # (consumable, remaining_duration) - crafted arrows/bolts (Woodworking)
+        #: Seconds of Beast Lure left. While anyone in the party has it, beasts turn up half
+        #: again as often (world/creature_manager.BEAST_LURE_BOOST) - the skinner's consumable.
+        self.beast_lure_seconds = 0.0
         
         # Currency moved to Party.copper (shared party purse) - see the
         # CURRENCY comment further down in this class for why.
@@ -3997,6 +4000,7 @@ class Character(StatusEffectMixin):
             "battle_buff": self.battle_buff,
             "food_buff": self.food_buff,
             "ammo_buff": self.ammo_buff,
+            "beast_lure_seconds": self.beast_lure_seconds,
             "class_base_stats": self.class_base_stats,
             "secondary_resources": self.secondary_resources,
             # Party identity (save v6). Without these a loaded companion lost
@@ -4125,6 +4129,7 @@ class Character(StatusEffectMixin):
         char.battle_buff = data.get("battle_buff")
         char.food_buff = data.get("food_buff")
         char.ammo_buff = data.get("ammo_buff")
+        char.beast_lure_seconds = float(data.get("beast_lure_seconds", 0) or 0)
 
         # Restore talent point spend (save v4). The character was constructed
         # with fresh trees and a level-derived point pool by __init__; here we
@@ -4651,6 +4656,9 @@ class Character(StatusEffectMixin):
                 self.food_buff = None
             else:
                 self.food_buff = (consumable, new_duration)
+
+        if getattr(self, "beast_lure_seconds", 0) > 0:
+            self.beast_lure_seconds = max(0.0, self.beast_lure_seconds - dt)
 
         if self.ammo_buff is not None:
             consumable, duration = self.ammo_buff
