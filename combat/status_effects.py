@@ -780,12 +780,10 @@ class StatusEffectMixin:
         """Turn {'agility': 8, 'armor': -10} into '+8 Agility, -10 Armor'."""
         if not stat_mods:
             return ""
-        parts = []
-        for stat, value in stat_mods.items():
-            label = cls.STAT_LABELS.get(stat, stat.replace("_", " ").title())
-            sign = "+" if value >= 0 else ""
-            parts.append(f"{sign}{value} {label}")
-        return ", ".join(parts)
+        from combat.stat_text import stat_text
+        return ", ".join(stat_text(stat, value, value_first=True)
+                         for stat, value in stat_mods.items()
+                         if isinstance(value, (int, float)))
 
     @classmethod
     def _describe_effect(cls, effect):

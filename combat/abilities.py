@@ -1318,43 +1318,8 @@ class Ability:
         _pct carry BOTH conventions in this game's data (a fraction below 1, a whole percentage
         at or above it), so the magnitude decides which - the same test used elsewhere.
         """
-        label = {
-            "cc_immune": "Immune to crowd control",
-            "forced_front": "Dragged into the front row",
-            "taunt": "Forces the target to attack you",
-            "damage_taken_pct": "Damage taken",
-            "physical_damage_taken_pct": "Physical damage taken",
-            "magic_damage_taken_pct": "Magic damage taken",
-            "damage_dealt_pct": "Damage dealt",
-            "healing_done_pct": "Healing done",
-            "healing_taken_pct": "Healing received",
-            "max_health_pct": "Maximum health",
-            "max_mana_pct": "Maximum mana",
-            # Three that the .title() fallback mangled into internal names
-            # the moment the personal kits started using them: "Threat
-            # Generation Pct +200%", "All Ability Cost Pct +30%" (which also
-            # reads as a COST INCREASE when the key means a reduction), and
-            # "Haste -50" with no unit on a percent-point value.
-            "threat_generation_pct": "Threat",
-            "all_ability_cost_pct": "Ability costs",
-            "haste": "Haste",
-        }.get(key, key.replace("_", " ").title())
-        # Flags, not magnitudes - the number is always 1 and printing it says
-        # nothing.
-        if key in ("cc_immune", "taunt", "forced_front"):
-            return label
-        # all_ability_cost_pct is the one key whose POSITIVE value is a
-        # REDUCTION (abilities.py:1257 subtracts it), so the sign has to be
-        # flipped for the reader or a 30% discount reads as a 30% surcharge.
-        if key == "all_ability_cost_pct":
-            pct = abs(value) * 100 if abs(value) < 1 else abs(value)
-            return f"{label} {'-' if value >= 0 else '+'}{pct:g}%"
-        if key == "haste":
-            return f"{label} {'+' if value >= 0 else '-'}{abs(value):g}%"
-        if key.endswith("_pct"):
-            pct = abs(value) * 100 if abs(value) < 1 else abs(value)
-            return f"{label} {'+' if value >= 0 else '-'}{pct:g}%"
-        return f"{label} {'+' if value >= 0 else ''}{value:g}"
+        from combat.stat_text import stat_text
+        return stat_text(key, value)
 
     # ------------------------------------------------------------------
     # TALENT INTEGRATION (Phase 4.5b)

@@ -65,6 +65,8 @@ _PLAIN_WORDS = {
     "cc_immune": "Immune to crowd control",
 }
 
+from combat.stat_text import stat_text  # noqa: E402
+
 _ICON_DIRS = [Path("assets/icons") / d for d in ("abilities", "talents", "consumables", "coa")]
 _icon_cache = {}
 
@@ -111,9 +113,9 @@ def _stat_lines(effect, holder):
         if stat in _PLAIN_WORDS:                     # a state, not a number
             out.append(_PLAIN_WORDS[stat].format(value=_fmt(round(value, 1))))
             continue
-        label = StatusEffectMixin.STAT_LABELS.get(stat, stat.replace("_", " ").title())
-        pct = "%" if (any(h in stat for h in _PCT_HINTS) and "%" not in label) else ""
-        out.append(f"{'+' if value > 0 else ''}{_fmt(round(value, 1))}{pct} {label}")
+        # The same function the spell's own tooltip uses - so a buff cannot read "+15 Haste"
+        # under a spell that said "Haste +15%". See combat/stat_text.py.
+        out.append(stat_text(stat, value, value_first=True))
     return out
 
 
