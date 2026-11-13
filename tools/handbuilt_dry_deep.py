@@ -70,6 +70,8 @@ TUNNELS = [
 BOSSES = {"The Weight of the Floor": (60, 48), "Old Dry-Eye": (38, 78)}
 # NOT the Glasswall Elemental: a quest on the surface sends you to the Glasswall for nine of them,
 # and with them down here too the quest's own directions stopped pointing at the Glasswall.
+#: Off the ring, in the corners of rooms a quest does not send you to the middle of.
+CHESTS = [(30, 22), (80, 58), (24, 56)]
 TRASH = ["Limestone Crawler", "Hollowing Ooze", "Sinkhole Lurker", "Saltbone Revenant"]
 
 
@@ -100,7 +102,9 @@ def build_dry_deep():
         zone.set_tile(px, py, "portal", "interaction")
         L.mark("portal", px, py)
     for n, (x, y) in BOSSES.items():
-        L.mark("boss", x, y)
+        L.mark("boss_marker", x, y)        # the tile the other caves use; "boss" is not a tile at all
+    for c in CHESTS:
+        L.mark("chest", *c)
 
     for (name, cx, cy, rx, ry) in CHAMBERS:
         zone.add_subzone(name, max(0, cx - rx), max(0, cy - ry), rx * 2, ry * 2)
@@ -157,7 +161,7 @@ def verify(zone):
 
 
 def finish(zone, L):
-    return L.finish(list(PORTALS) + list(BOSSES.values()))
+    return L.finish(list(PORTALS) + list(BOSSES.values()) + list(CHESTS))
 
 
 def build_dry_deep_baked():
