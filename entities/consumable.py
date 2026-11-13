@@ -8,7 +8,7 @@ Separate from Item (gear) to keep types clean and independent.
 WELL_FED_SECONDS = 1800
 
 #: Stat keys that do not read well title-cased ("Hp5", "Healing Power").
-BONUS_LABELS = {"hp5": "Health per turn", "mp5": "Mana per turn", "healing_power": "Healing",
+BONUS_LABELS = {"hp5": "Health per turn", "mp5": "Mana per turn", 
                 "crit_chance_physical": "% Physical Crit", "crit_chance_spell": "% Spell Crit",
                 "dodge": "% Dodge", "haste": "% Haste"}
 

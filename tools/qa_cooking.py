@@ -14,7 +14,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 os.chdir(ROOT)
 
-ROLES = ("stamina", "hp5", "mp5", "attack_power", "spell_power", "healing_power", "armor", "agility", "intellect")
+ROLES = ("stamina", "hp5", "mp5", "attack_power", "spell_power", "healing_power", "armor")
 MEATS = ("meat_stringy", "meat_lean", "meat_thick", "meat_rich", "meat_prime", "meat_marbled", "meat_aged", "meat_select")
 
 
@@ -30,8 +30,20 @@ def main():
     vendors = vendors if isinstance(vendors, list) else list(vendors.values())
     sold = {i for v in vendors for i in (v.get("sells") or [])}
 
-    by_meat = {m: set() for m in MEATS}
+    LEVELS = (1, 8, 16, 24, 32, 38, 46, 54)
+    by_tier = {lv: set() for lv in LEVELS}
+    made = {r["output"]["material_id"] for r in recipes.values() if r["output"].get("kind") == "material"}
+    meatless = 0
     for rid, r in recipes.items():
+        for mid in r["inputs"]:
+            if mid not in mats:
+                bad.append(f"{r['name']}: needs {mid}, which does not exist")
+            elif not mid.startswith("meat_") and mid not in sold and mid not in made:
+                bad.append(f"{r['name']}: needs {mid}, which nobody sells and no recipe makes")
+            elif not mid.startswith("meat_") and not os.path.isfile(f"assets/gathering_nodes/reagents/{mats[mid]['icon_id']}.png"):
+                bad.append(f"{mid}: no icon")
+        if r["output"].get("kind") == "material":
+            continue                                   # bread, stock: made to cook with
         cid = r["output"].get("consumable_id")
         meal = meals.get(cid)
         if meal is None:
@@ -41,22 +53,28 @@ def main():
             bad.append(f"{r['name']}: no icon")
         if not meal.get("stat_bonuses"):
             bad.append(f"{r['name']}: leaves you with no Well Fed buff")
-        for k, v in meal["stat_bonuses"].items():
-            if k == "hp5" and "Health per turn" not in meal["description"]:
-                bad.append(f"{r['name']}: gives hp5 and its text does not say so")
-        for mid in r["inputs"]:
-            if mid not in mats:
-                bad.append(f"{r['name']}: needs {mid}, which does not exist")
-            elif not mid.startswith("meat_") and mid not in sold:
-                bad.append(f"{r['name']}: needs {mid}, which nobody sells")
-            elif not mid.startswith("meat_") and not os.path.isfile(f"assets/gathering_nodes/reagents/{mats[mid]['icon_id']}.png"):
-                bad.append(f"{mid}: no icon")
-            if mid in by_meat:
-                by_meat[mid].update(meal["stat_bonuses"])
-    for meat, stats in by_meat.items():
+        if "hp5" in meal["stat_bonuses"] and "Health per turn" not in meal["description"]:
+            bad.append(f"{r['name']}: gives hp5 and its text does not say so")
+        if "healing_power" in meal["stat_bonuses"] and "Healing Power" not in meal["description"]:
+            bad.append(f"{r['name']}: its text does not call Healing Power by its name")
+        if not any(m.startswith("meat_") for m in r["inputs"]):
+            meatless += 1
+        if meal["required_level"] in by_tier:
+            by_tier[meal["required_level"]].update(meal["stat_bonuses"])
+    for lv, stats in by_tier.items():
         missing = [r for r in ROLES if r not in stats]
         if missing:
-            bad.append(f"{meat} tier has no meal for: {', '.join(missing)}")
+            bad.append(f"level {lv} tier has no meal for: {', '.join(missing)}")
+    # A dish is made of what its name says.
+    by_name = {r["name"]: r["inputs"] for r in recipes.values()}
+    if any(m.startswith("meat_") for m in by_name.get("Cheese Toastie", {"meat_x": 1})):
+        bad.append("a Cheese Toastie has meat in it")
+    if "cook_bread" not in by_name.get("Cheese Toastie", {}):
+        bad.append("a Cheese Toastie is not made of bread")
+    if by_name.get("Bread") != {"cook_flour": 1, "cook_water": 1}:
+        bad.append("Bread is not flour and water")
+    if meatless < 5:
+        bad.append("almost every dish is still meat-and-one-thing")
     if len(recipes) < 70:
         bad.append(f"only {len(recipes)} cooking recipes")
 

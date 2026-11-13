@@ -7268,7 +7268,7 @@
       "description": "Milled fine. Thickens a stew, wraps a pie.",
       "stack_limit": 20,
       "vendor_price": 3,
-      "sell_price": 1,
+      "sell_price": 0,
       "icon_id": "cook_flour"
     },
     "cook_honey": {
@@ -7325,6 +7325,59 @@
       "vendor_price": 8,
       "sell_price": 2,
       "icon_id": "cook_ale"
+    },
+    "cook_fruit": {
+      "name": "Orchard Fruit",
+      "material_type": "reagent",
+      "profession": "cooking",
+      "tier": "starter",
+      "description": "Whatever was ripe. Bruised on one side.",
+      "stack_limit": 20,
+      "vendor_price": 4,
+      "sell_price": 1,
+      "icon_id": "cook_fruit"
+    },
+    "cook_roots": {
+      "name": "Root Vegetables",
+      "material_type": "reagent",
+      "profession": "cooking",
+      "tier": "starter",
+      "description": "Carrots, mostly. They keep.",
+      "stack_limit": 20,
+      "vendor_price": 3,
+      "sell_price": 0,
+      "icon_id": "cook_roots"
+    },
+    "cook_water": {
+      "name": "Fresh Water",
+      "material_type": "reagent",
+      "profession": "cooking",
+      "tier": "starter",
+      "description": "From the well. For the pot, not the road.",
+      "stack_limit": 20,
+      "vendor_price": 2,
+      "sell_price": 0,
+      "icon_id": "cook_water"
+    },
+    "cook_bread": {
+      "name": "Bread",
+      "material_type": "reagent",
+      "profession": "cooking",
+      "tier": "starter",
+      "description": "A plain loaf. Half of what a kitchen makes starts here.",
+      "stack_limit": 20,
+      "sell_price": 0,
+      "icon_id": "cook_bread"
+    },
+    "cook_stock": {
+      "name": "Soup Stock",
+      "material_type": "reagent",
+      "profession": "cooking",
+      "tier": "starter",
+      "description": "Roots boiled down until the water is worth something.",
+      "stack_limit": 20,
+      "sell_price": 0,
+      "icon_id": "cook_stock"
     }
   }
 }

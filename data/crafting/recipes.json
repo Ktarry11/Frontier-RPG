@@ -13733,7 +13733,8 @@
         "cook_slow_stew": {
           "name": "Slow Stew",
           "inputs": {
-            "meat_rich": 3
+            "meat_rich": 3,
+            "cook_stock": 1
           },
           "skill_required": 150,
           "output": {
@@ -13776,7 +13777,8 @@
         "cook_broth": {
           "name": "Thin Broth",
           "inputs": {
-            "meat_stringy": 2
+            "meat_stringy": 2,
+            "cook_stock": 1
           },
           "skill_required": 35,
           "output": {
@@ -13795,7 +13797,8 @@
         "cook_strips": {
           "name": "Peppered Strips",
           "inputs": {
-            "meat_lean": 2
+            "meat_lean": 2,
+            "cook_spice": 1
           },
           "skill_required": 65,
           "output": {
@@ -13814,7 +13817,8 @@
         "cook_pottage": {
           "name": "Barley Pottage",
           "inputs": {
-            "meat_lean": 2
+            "meat_lean": 2,
+            "cook_flour": 1
           },
           "skill_required": 75,
           "output": {
@@ -13890,7 +13894,8 @@
         "cook_terrine": {
           "name": "Spiced Terrine",
           "inputs": {
-            "meat_rich": 3
+            "meat_rich": 3,
+            "cook_spice": 1
           },
           "skill_required": 175,
           "output": {
@@ -14092,8 +14097,9 @@
           "name": "Trail Dumplings",
           "skill_required": 5,
           "inputs": {
-            "meat_stringy": 2,
-            "cook_flour": 1
+            "meat_stringy": 1,
+            "cook_flour": 1,
+            "cook_water": 1
           },
           "output": {
             "kind": "consumable",
@@ -14106,7 +14112,8 @@
           "skill_required": 55,
           "inputs": {
             "meat_lean": 2,
-            "cook_flour": 1
+            "cook_flour": 1,
+            "cook_roots": 1
           },
           "output": {
             "kind": "consumable",
@@ -14119,7 +14126,8 @@
           "skill_required": 105,
           "inputs": {
             "meat_thick": 2,
-            "cook_flour": 1
+            "cook_roots": 1,
+            "cook_stock": 1
           },
           "output": {
             "kind": "consumable",
@@ -14131,8 +14139,8 @@
           "name": "Marrow Pie",
           "skill_required": 155,
           "inputs": {
-            "meat_rich": 3,
-            "cook_flour": 1
+            "meat_rich": 2,
+            "cook_flour": 2
           },
           "output": {
             "kind": "consumable",
@@ -14145,7 +14153,7 @@
           "skill_required": 205,
           "inputs": {
             "meat_prime": 3,
-            "cook_flour": 1
+            "cook_roots": 2
           },
           "output": {
             "kind": "consumable",
@@ -14157,8 +14165,9 @@
           "name": "Stockade Hotpot",
           "skill_required": 200,
           "inputs": {
-            "meat_marbled": 3,
-            "cook_flour": 2
+            "meat_marbled": 2,
+            "cook_roots": 1,
+            "cook_stock": 2
           },
           "output": {
             "kind": "consumable",
@@ -14178,7 +14187,8 @@
           "skill_required": 240,
           "inputs": {
             "meat_aged": 3,
-            "cook_flour": 2
+            "cook_roots": 2,
+            "cook_ale": 1
           },
           "output": {
             "kind": "consumable",
@@ -14198,6 +14208,7 @@
           "skill_required": 275,
           "inputs": {
             "meat_select": 3,
+            "cook_roots": 2,
             "cook_flour": 2
           },
           "output": {
@@ -14213,42 +14224,42 @@
           ],
           "source": "trainer"
         },
-        "cookx_honeyed_strips": {
-          "name": "Honeyed Strips",
+        "cookx_honey_cakes": {
+          "name": "Honey Cakes",
           "skill_required": 11,
           "inputs": {
-            "meat_stringy": 2,
+            "cook_flour": 1,
             "cook_honey": 1
           },
           "output": {
             "kind": "consumable",
-            "consumable_id": "meal_cooked_honeyed_strips",
+            "consumable_id": "meal_cooked_honey_cakes",
             "count": 1
           }
         },
-        "cookx_orchard_glaze_cut": {
-          "name": "Orchard-Glaze Cut",
+        "cookx_baked_apples": {
+          "name": "Baked Apples",
           "skill_required": 61,
           "inputs": {
-            "meat_lean": 2,
+            "cook_fruit": 2,
             "cook_honey": 1
           },
           "output": {
             "kind": "consumable",
-            "consumable_id": "meal_cooked_orchard_glaze_cut",
+            "consumable_id": "meal_cooked_baked_apples",
             "count": 1
           }
         },
-        "cookx_applewood_chop": {
-          "name": "Applewood Chop",
+        "cookx_orchard_tart": {
+          "name": "Orchard Tart",
           "skill_required": 111,
           "inputs": {
-            "meat_thick": 2,
-            "cook_honey": 1
+            "cook_flour": 2,
+            "cook_fruit": 2
           },
           "output": {
             "kind": "consumable",
-            "consumable_id": "meal_cooked_applewood_chop",
+            "consumable_id": "meal_cooked_orchard_tart",
             "count": 1
           }
         },
@@ -14256,8 +14267,8 @@
           "name": "Sage-Honey Roast",
           "skill_required": 161,
           "inputs": {
-            "meat_rich": 3,
-            "cook_honey": 1
+            "meat_rich": 2,
+            "cook_honey": 2
           },
           "output": {
             "kind": "consumable",
@@ -14269,8 +14280,8 @@
           "name": "Fruit-Stuffed Loin",
           "skill_required": 211,
           "inputs": {
-            "meat_prime": 3,
-            "cook_honey": 1
+            "meat_prime": 2,
+            "cook_fruit": 2
           },
           "output": {
             "kind": "consumable",
@@ -14278,16 +14289,16 @@
             "count": 1
           }
         },
-        "cookx_mead_braised_steak": {
-          "name": "Mead-Braised Steak",
+        "cookx_mead_glazed_steak": {
+          "name": "Mead-Glazed Steak",
           "skill_required": 206,
           "inputs": {
-            "meat_marbled": 3,
+            "meat_marbled": 2,
             "cook_honey": 2
           },
           "output": {
             "kind": "consumable",
-            "consumable_id": "meal_cooked_mead_braised_steak",
+            "consumable_id": "meal_cooked_mead_glazed_steak",
             "count": 1
           },
           "skill_range": [
@@ -14298,16 +14309,17 @@
           ],
           "source": "trainer"
         },
-        "cookx_vigil_supper": {
-          "name": "Vigil Supper",
+        "cookx_vigil_pudding": {
+          "name": "Vigil Pudding",
           "skill_required": 246,
           "inputs": {
-            "meat_aged": 3,
+            "cook_flour": 2,
+            "cook_fruit": 2,
             "cook_honey": 2
           },
           "output": {
             "kind": "consumable",
-            "consumable_id": "meal_cooked_vigil_supper",
+            "consumable_id": "meal_cooked_vigil_pudding",
             "count": 1
           },
           "skill_range": [
@@ -14322,7 +14334,8 @@
           "name": "Seer's Table",
           "skill_required": 281,
           "inputs": {
-            "meat_select": 3,
+            "meat_select": 2,
+            "cook_fruit": 2,
             "cook_honey": 2
           },
           "output": {
@@ -14395,7 +14408,7 @@
           "skill_required": 217,
           "inputs": {
             "meat_prime": 3,
-            "cook_spice": 1
+            "cook_spice": 2
           },
           "output": {
             "kind": "consumable",
@@ -14407,7 +14420,7 @@
           "name": "Bloodspice Steak",
           "skill_required": 212,
           "inputs": {
-            "meat_marbled": 3,
+            "meat_marbled": 2,
             "cook_spice": 2
           },
           "output": {
@@ -14448,7 +14461,8 @@
           "skill_required": 287,
           "inputs": {
             "meat_select": 3,
-            "cook_spice": 2
+            "cook_spice": 2,
+            "salt": 1
           },
           "output": {
             "kind": "consumable",
@@ -14463,16 +14477,15 @@
           ],
           "source": "trainer"
         },
-        "cookx_mushroom_skewer": {
-          "name": "Mushroom Skewer",
+        "cookx_fried_mushrooms": {
+          "name": "Fried Mushrooms",
           "skill_required": 23,
           "inputs": {
-            "meat_stringy": 2,
-            "cook_mushroom": 1
+            "cook_mushroom": 2
           },
           "output": {
             "kind": "consumable",
-            "consumable_id": "meal_cooked_mushroom_skewer",
+            "consumable_id": "meal_cooked_fried_mushrooms",
             "count": 1
           }
         },
@@ -14480,8 +14493,8 @@
           "name": "Cellar-Cap Fry",
           "skill_required": 73,
           "inputs": {
-            "meat_lean": 2,
-            "cook_mushroom": 1
+            "cook_mushroom": 2,
+            "meat_lean": 1
           },
           "output": {
             "kind": "consumable",
@@ -14493,8 +14506,9 @@
           "name": "Glowcap Ragout",
           "skill_required": 123,
           "inputs": {
-            "meat_thick": 2,
-            "cook_mushroom": 1
+            "cook_mushroom": 2,
+            "meat_thick": 1,
+            "cook_stock": 1
           },
           "output": {
             "kind": "consumable",
@@ -14506,8 +14520,9 @@
           "name": "Scholar's Fricassee",
           "skill_required": 173,
           "inputs": {
-            "meat_rich": 3,
-            "cook_mushroom": 1
+            "meat_rich": 2,
+            "cook_mushroom": 2,
+            "cook_stock": 1
           },
           "output": {
             "kind": "consumable",
@@ -14519,8 +14534,8 @@
           "name": "Nightcap Roast",
           "skill_required": 223,
           "inputs": {
-            "meat_prime": 3,
-            "cook_mushroom": 1
+            "meat_prime": 2,
+            "cook_mushroom": 2
           },
           "output": {
             "kind": "consumable",
@@ -14532,7 +14547,7 @@
           "name": "Arcanist's Plate",
           "skill_required": 218,
           "inputs": {
-            "meat_marbled": 3,
+            "meat_marbled": 2,
             "cook_mushroom": 2
           },
           "output": {
@@ -14552,8 +14567,8 @@
           "name": "Duskcap Roulade",
           "skill_required": 258,
           "inputs": {
-            "meat_aged": 3,
-            "cook_mushroom": 2
+            "meat_aged": 2,
+            "cook_mushroom": 3
           },
           "output": {
             "kind": "consumable",
@@ -14572,8 +14587,9 @@
           "name": "Magister's Supper",
           "skill_required": 293,
           "inputs": {
-            "meat_select": 3,
-            "cook_mushroom": 2
+            "meat_select": 2,
+            "cook_mushroom": 3,
+            "cook_spice": 1
           },
           "output": {
             "kind": "consumable",
@@ -14592,7 +14608,7 @@
           "name": "Cheese Toastie",
           "skill_required": 29,
           "inputs": {
-            "meat_stringy": 2,
+            "cook_bread": 1,
             "cook_cheese": 1
           },
           "output": {
@@ -14601,29 +14617,31 @@
             "count": 1
           }
         },
-        "cookx_melted_cut": {
-          "name": "Melted Cut",
+        "cookx_herder_s_melt": {
+          "name": "Herder's Melt",
           "skill_required": 79,
           "inputs": {
-            "meat_lean": 2,
-            "cook_cheese": 1
+            "meat_lean": 1,
+            "cook_cheese": 1,
+            "cook_bread": 1
           },
           "output": {
             "kind": "consumable",
-            "consumable_id": "meal_cooked_melted_cut",
+            "consumable_id": "meal_cooked_herder_s_melt",
             "count": 1
           }
         },
-        "cookx_herder_s_bake": {
-          "name": "Herder's Bake",
+        "cookx_shepherd_s_bake": {
+          "name": "Shepherd's Bake",
           "skill_required": 129,
           "inputs": {
             "meat_thick": 2,
-            "cook_cheese": 1
+            "cook_cheese": 1,
+            "cook_roots": 1
           },
           "output": {
             "kind": "consumable",
-            "consumable_id": "meal_cooked_herder_s_bake",
+            "consumable_id": "meal_cooked_shepherd_s_bake",
             "count": 1
           }
         },
@@ -14631,8 +14649,8 @@
           "name": "Mender's Gratin",
           "skill_required": 179,
           "inputs": {
-            "meat_rich": 3,
-            "cook_cheese": 1
+            "cook_roots": 2,
+            "cook_cheese": 2
           },
           "output": {
             "kind": "consumable",
@@ -14644,8 +14662,9 @@
           "name": "Hearthkeeper's Pie",
           "skill_required": 229,
           "inputs": {
-            "meat_prime": 3,
-            "cook_cheese": 1
+            "meat_prime": 2,
+            "cook_cheese": 2,
+            "cook_flour": 1
           },
           "output": {
             "kind": "consumable",
@@ -14657,8 +14676,9 @@
           "name": "Chaplain's Platter",
           "skill_required": 224,
           "inputs": {
-            "meat_marbled": 3,
-            "cook_cheese": 2
+            "meat_marbled": 2,
+            "cook_cheese": 2,
+            "cook_bread": 1
           },
           "output": {
             "kind": "consumable",
@@ -14677,8 +14697,9 @@
           "name": "Mercy Roast",
           "skill_required": 264,
           "inputs": {
-            "meat_aged": 3,
-            "cook_cheese": 2
+            "meat_aged": 2,
+            "cook_cheese": 2,
+            "cook_roots": 1
           },
           "output": {
             "kind": "consumable",
@@ -14697,8 +14718,9 @@
           "name": "Lifewarden's Board",
           "skill_required": 299,
           "inputs": {
-            "meat_select": 3,
-            "cook_cheese": 2
+            "meat_select": 2,
+            "cook_cheese": 3,
+            "cook_fruit": 1
           },
           "output": {
             "kind": "consumable",
@@ -14756,8 +14778,9 @@
           "name": "Stout Stew",
           "skill_required": 185,
           "inputs": {
-            "meat_rich": 3,
-            "cook_ale": 1
+            "meat_rich": 2,
+            "cook_ale": 1,
+            "cook_stock": 1
           },
           "output": {
             "kind": "consumable",
@@ -14770,7 +14793,7 @@
           "skill_required": 235,
           "inputs": {
             "meat_prime": 3,
-            "cook_ale": 1
+            "cook_ale": 2
           },
           "output": {
             "kind": "consumable",
@@ -14782,7 +14805,7 @@
           "name": "Shieldwall Steak",
           "skill_required": 230,
           "inputs": {
-            "meat_marbled": 3,
+            "meat_marbled": 2,
             "cook_ale": 2
           },
           "output": {
@@ -14823,7 +14846,8 @@
           "skill_required": 300,
           "inputs": {
             "meat_select": 3,
-            "cook_ale": 2
+            "cook_ale": 2,
+            "cook_roots": 2
           },
           "output": {
             "kind": "consumable",
@@ -14843,7 +14867,8 @@
           "skill_required": 160,
           "inputs": {
             "meat_rich": 2,
-            "cook_spice": 2
+            "cook_spice": 2,
+            "cook_stock": 1
           },
           "output": {
             "kind": "consumable",
@@ -14856,7 +14881,8 @@
           "skill_required": 165,
           "inputs": {
             "meat_rich": 2,
-            "cook_flour": 2
+            "cook_roots": 2,
+            "cook_stock": 1
           },
           "output": {
             "kind": "consumable",
@@ -14869,7 +14895,8 @@
           "skill_required": 170,
           "inputs": {
             "meat_rich": 2,
-            "cook_mushroom": 2
+            "cook_mushroom": 2,
+            "cook_stock": 1
           },
           "output": {
             "kind": "consumable",
@@ -14882,12 +14909,42 @@
           "skill_required": 175,
           "inputs": {
             "meat_rich": 2,
-            "cook_cheese": 2
+            "cook_cheese": 2,
+            "cook_stock": 1
           },
           "output": {
             "kind": "consumable",
             "consumable_id": "meal_cooked_gravewatch_pottage",
             "count": 1
+          }
+        },
+        "cookx_bread": {
+          "name": "Bread",
+          "skill_required": 0,
+          "inputs": {
+            "cook_flour": 1,
+            "cook_water": 1
+          },
+          "count": 2,
+          "output": {
+            "kind": "material",
+            "material_id": "cook_bread",
+            "count": 2
+          }
+        },
+        "cookx_stock": {
+          "name": "Soup Stock",
+          "skill_required": 30,
+          "inputs": {
+            "cook_roots": 1,
+            "cook_water": 1,
+            "salt": 1
+          },
+          "count": 2,
+          "output": {
+            "kind": "material",
+            "material_id": "cook_stock",
+            "count": 2
           }
         }
       }
