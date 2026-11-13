@@ -81,6 +81,20 @@ def main():
             if len(text) > 420 and n.npc_id not in rec.get("long_greetings", []):
                 bad.append(f"{stem}: {n.name}'s greeting is {len(text)} characters")
 
+    # Vendors greet you properly too: who they are and what they sell, no two alike.
+    from world.vendor_manager import get_vendor_manager
+    vsaid = {}
+    for v in get_vendor_manager().vendors.values():
+        text = (v.greeting or "").strip()
+        vsaid.setdefault(text, []).append(v.name)
+        if len(text) < 60:
+            bad.append(f"vendor {v.name}: greeting is {len(text)} characters - says too little")
+        if not text.isascii():
+            bad.append(f"vendor {v.name}: greeting is not plain ASCII")
+    for text, names in vsaid.items():
+        if len(names) > 1:
+            bad.append(f"vendors share a greeting: {names}")
+
     # Every kill / fetch / gather objective is NAMED in the offer text (tools/audit_quest_clarity.py).
     import subprocess
     out = subprocess.run([sys.executable, "tools/audit_quest_clarity.py"] + sorted(done),

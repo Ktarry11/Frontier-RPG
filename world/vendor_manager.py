@@ -212,7 +212,19 @@ class VendorManager:
                 if key not in self.vendors_by_zone:
                     self.vendors_by_zone[key] = []
                 self.vendors_by_zone[key].append(vendor)
-        
+
+            # Greetings rewritten in the quest overhaul live in data/npcs/vendor_greetings/*.json
+            # ({vendor_id: text}) and are laid over vendors.json, which the town tools rewrite.
+            for path in sorted((vendors_path.parent / "vendor_greetings").glob("*.json")):
+                try:
+                    for vendor_id, text in json.loads(path.read_text()).items():
+                        if vendor_id in self.vendors and text:
+                            self.vendors[vendor_id].greeting = text
+                        else:
+                            print(f"WARNING: vendor greeting overlay {path.name} names unknown vendor {vendor_id}")
+                except (OSError, ValueError) as e:
+                    print(f"ERROR: vendor greeting overlay {path.name}: {e}")
+
         except FileNotFoundError:
             print(f"WARNING: Vendor file not found at {vendors_path}")
         except json.JSONDecodeError as e:
