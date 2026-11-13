@@ -400,6 +400,9 @@ def _landmarks(L):
     def one(fn, x, y):
         return float(np.asarray(fn(np.array([[float(x)]]), np.array([[float(y)]]))).ravel()[0])
 
+    from tools.recruit_sites import recruit_tiles
+    people = recruit_tiles(NAME)
+
     def put(name, x, y, h):
         nonlocal n
         x, y = int(round(x)), int(round(y))
@@ -408,6 +411,9 @@ def _landmarks(L):
         if one(_gate_cut, x, y) > -4.0 or one(_tunnel_cut, x, y) > -2.5:
             return False
         if any(abs(x - ax) + abs(y - ay) < 8 for (ax, ay) in list(ARRIVALS) + list(PORTALS) + list(CHESTS)):
+            return False
+        # nor on a recruit: they are placed from recruits.json and this file cannot see them
+        if any(abs(x - rx) <= 6 and -2 <= y - ry <= h + 1 for (rx, ry) in people):
             return False
         ok = L.prop(SF + name + ".png", x, y, h)
         n += bool(ok)

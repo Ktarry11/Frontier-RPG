@@ -150,6 +150,17 @@ _set("entrances_4a", 6, 4, "assets/tiles/cave_entrances", """
 _set("entrances_4b", 6, 4, "assets/tiles/cave_entrances", """
     ent_exit_crypt_stairs_b ent_exit_spider_web_b ent_exit_troll_temple_b ent_exit_lava_fissure_b ent_exit_ogre_hall_b ent_exit_kobold_tunnel_b ent_exit_dwarven_vault_b ent_exit_keep_gate_b ent_exit_tower_door_b ent_exit_root_hollow_b ent_exit_sewer_grate_b ent_exit_salt_shaft_b ent_exit_bramble_b ent_exit_wreck_hull_b ent_exit_bell_window_b ent_exit_slot_canyon_b ent_exit_fern_cavern_b ent_exit_coral_arch_b ent_door_ship_cabin_b ent_door_ship_hatch_down_b ent_door_stairs_down_b ent_door_bronze_pipe_b ent_door_ice_steps_b ent_door_crystal_rift_b""")
 
+#: DARK IRON buildings (assets/buildings/_src/tempest_dark_iron_buildings_sheet_30.png). Drawn for
+#: Tempest Isle and first used for Onyxhollow, the Dark Iron town under the Abyssal Sands (Kyle, 13
+#: Nov 2026: "We have all the art"). Rows: the works, the heavy plant, the town and its ruins, forge
+#: gear, street furniture.
+_set("dark_iron", 6, 5, "assets/buildings", """
+    di_smeltery di_great_hall di_gatehouse di_barracks di_watchtower di_wall_section
+    di_blast_furnace di_boiler_works di_mine_head di_crane_warehouse di_smithy di_vault
+    di_inn di_shop di_shrine di_ruined_hall di_ruined_tower di_ruined_gate
+    di_forge_anvil di_bellows di_crucible di_ore_cart di_steam_pipes di_slag_heap
+    di_brazier di_crane_hook di_cage di_rune_obelisk di_dwarf_statue di_rubble""")
+
 #: SMOKE DRAWN OVER A MAGENTA KEY COMES BACK PURPLE. A generator asked for a lodge with a smoke hole
 #: draws the plume semi-transparent, and whatever is behind it - the key - bleeds through. Keying then
 #: gives a correctly-shaped wisp in the wrong colour, which is invisible against dark ground and obvious
@@ -159,7 +170,8 @@ _set("entrances_4b", 6, 4, "assets/tiles/cave_entrances", """
 #: Aspen set has fireweed, which really is magenta. So it is opt-in per sprite and confined to the top
 #: fraction of that sprite, where a plume lives and hanging beads do not.
 #: {sprite: fraction of height treated, measured from the top}
-DESPILL_TOP = {"tau_great_lodge": 0.22}
+DESPILL_TOP = {"tau_great_lodge": 0.22, "di_smeltery": 0.30, "di_boiler_works": 0.30,
+               "di_steam_pipes": 0.30}
 
 
 def _despill_plume(cut, frac):

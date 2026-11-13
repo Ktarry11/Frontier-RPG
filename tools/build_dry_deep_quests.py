@@ -124,6 +124,9 @@ def main():
     if "--apply" in sys.argv:
         OUT.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
         print("written")
+        # B.Q() budgets rewards in fractions; stored gear is whole numbers (qa_whole_number_gear).
+        import subprocess
+        subprocess.run([sys.executable, str(ROOT / "tools/whole_number_gear.py")], check=True)
     return 0
 
 
