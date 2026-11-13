@@ -131,8 +131,8 @@ def dress(L):
     p, b = L.prop, L.bld
     UF, HF, CI, UC = T.UFP, T.HFP, T.CIP, T.UCP
     # ---- gates
-    b("palisade_gatehouse", 6, 49, 7, solid=False, road_ok=True, nudge=0)
-    b("palisade_gatehouse", 89, 47, 7, solid=False, road_ok=True, nudge=0)
+    # No gatehouses here: they were the ORC palisade gatehouse, in a Forsaken town. The exit
+    # pass (world/exit_frames.py TOWN) stands Brill's own iron gate over each road out.
     p("ek_forsaken_banner", 11, 41, 5)
     p("ek_forsaken_banner", 85, 41, 5)
     p("ek_signpost", 14, 47, 4)

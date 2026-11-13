@@ -88,7 +88,7 @@ TOWN = [
     (r"Astranaar", ["ent_town_nightelf_bridge"]),
     (r"Zoram", ["ent_moonlit_arch"]),
     (r"Tarren Mill", ["ent_town_forsaken_gate"]),
-    (r"Sepulcher|Deathknell", ["ent_gate_lychgate"]),
+    (r"Sepulcher|Deathknell|Brill", ["ent_gate_lychgate"]),     # stone and iron, like the town
     (r"Echo Isles", ["ent_town_troll_gate"]),
     (r"Saltwheel", ["ent_town_wheel_arch"]),
     (r"Kael's Bastion", ["ent_town_highelf_gate"]),
@@ -106,7 +106,7 @@ TOWN = [
 REGION = [
     (r"Barrens|Durotar|Valley of Trials|Crossroads|Razor Hill|Taurajo",
      ["ent_gate_kodo_tusks", "ent_gate_tusk_banners"]),
-    (r"Tirisfal|Silverpine|Fenris|Deathknell|Sepulcher|Undercity",
+    (r"Tirisfal|Silverpine|Fenris|Deathknell|Sepulcher|Undercity|Brill",
      ["ent_gate_lychgate", "ent_gate_stone_pillars"]),
     (r"Hillsbrad|Tarren", ["ent_gate_tollgate", "ent_gate_logs"]),
     (r"Arathi|Hammerfall", ["ent_gate_standing_stones", "ent_gate_wall_breach"]),
