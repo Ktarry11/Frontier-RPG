@@ -1237,7 +1237,17 @@ class QuestDialogScreen(BaseScreen):
                 pretty = str(where).replace("_", " ").strip()
                 if pretty and pretty == pretty.lower():
                     pretty = pretty.title()
-                out.append(f"Scout {pretty}.")
+                # A NAMED PLACE, when the quest has one. Almost every explore objective is a
+                # spot inside a zone, and the line named the zone: "Scout Durotar." for a quest
+                # given IN Durotar about one den (playtest, 12 Nov: "quest text on Scouting the
+                # Prowler Den is messed up").
+                spot = field(obj, "label")
+                if spot:
+                    out.append(f"Find {spot}.")
+                elif field(obj, "target_x") is not None:
+                    out.append(f"Find the place described, in {pretty}.")
+                else:
+                    out.append(f"Scout {pretty}.")
             elif kind == "dialogue":
                 # EVERY dialogue objective in the game (50 of them) is
                 # stored with no target - the conversation is with the

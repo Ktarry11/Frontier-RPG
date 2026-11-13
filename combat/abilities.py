@@ -813,6 +813,17 @@ class Ability:
             target_type = self.DEFAULT_TARGET_TYPE.get(effect_type, "enemy")
         self.target_type = target_type
 
+        # AN ATTACK YOU CAN USE EVERY TURN IS NOT A FREE ACTION. "Instant" means the cast does
+        # not end your turn, which is right for Swiftmend or a cooldown you weave in. Fourteen
+        # ATTACKS were marked instant with no cooldown - Maul, Claw, Shred, Sunder Armor,
+        # Devastate, Mutilate, Curse of Agony - because that is what "instant" means in WoW.
+        # Here it meant a bear could Maul until the rage ran out without the enemy ever
+        # getting a turn (playtest, 12 Nov: "can chain multiple maul attacks and just keep
+        # going until my rage is empty"). Something that hurts the enemy and has no real
+        # cooldown always costs the turn.
+        if self.is_instant and (self.cooldown or 0) < 2 and self.effect_type in ("damage", "dot", "debuff"):
+            self.is_instant = False
+
         # max_targets: caps an "enemy_aoe" hit to N targets instead of
         # every living enemy in the fight - a real, distinct mechanic from
         # the flat AOE_DAMAGE_MULTIPLIER penalty. Several abilities are

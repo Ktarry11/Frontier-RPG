@@ -273,14 +273,44 @@ class InventoryScreen(BaseScreen):
             x = SLOT_START_X + i * (BAG_SLOT_SIZE + BAG_SLOT_GAP)
             self.slot_rects[slot_key] = pygame.Rect(x, bag_row_y, BAG_SLOT_SIZE, BAG_SLOT_SIZE)
 
-    def _build_inventory_rects(self, count):
-        self.inventory_rects = []
+    #: Where a slot scrolled out of view is parked: it draws nowhere and no click reaches it.
+    OFF_SCREEN = -4000
+
+    def _grid(self, count, cols, size, gap, x0, y0):
+        """Slot rects for a grid of `count`, scrolled by self.grid_scroll rows.
+
+        THE BAG SCROLLS. The grid was laid straight down the screen with nothing to move it,
+        so a seventh row was drawn below the bottom edge (playtest, 12 Nov: "there is no way to
+        scroll down in the inventory so if you have six rows full you can't see anything else
+        below that"). Mouse wheel or Page Up / Page Down; rows out of view are parked off
+        screen rather than dropped, so every rect still lines up with its item by index."""
+        step = size + gap
+        fit = max(1, (SCREEN_HEIGHT - 8 - y0 + gap) // step)
+        rows = (count + cols - 1) // cols
+        self.grid_rows_hidden = max(0, rows - fit)
+        self.grid_scroll = max(0, min(getattr(self, "grid_scroll", 0), self.grid_rows_hidden))
+        rects = []
         for i in range(count):
-            col = i % INV_GRID_COLS
-            row = i // INV_GRID_COLS
-            x = INV_START_X + col * (INV_SLOT_SIZE + INV_SLOT_SPACING)
-            y = INV_START_Y + row * (INV_SLOT_SIZE + INV_SLOT_SPACING)
-            self.inventory_rects.append(pygame.Rect(x, y, INV_SLOT_SIZE, INV_SLOT_SIZE))
+            row = i // cols - self.grid_scroll
+            y = y0 + row * step if 0 <= row < fit else self.OFF_SCREEN
+            rects.append(pygame.Rect(x0 + (i % cols) * step, y, size, size))
+        return rects
+
+    def _draw_scroll_hint(self, screen, x0, y0, width):
+        """A thin bar at the right of the grid, only when there is more than fits."""
+        hidden = getattr(self, "grid_rows_hidden", 0)
+        if not hidden:
+            return
+        track = pygame.Rect(x0 + width + 6, y0, 6, SCREEN_HEIGHT - 8 - y0)
+        pygame.draw.rect(screen, (40, 40, 48), track, border_radius=3)
+        shown = track.height / (track.height + hidden * 98.0)
+        knob_h = max(30, int(track.height * shown))
+        knob_y = track.y + int((track.height - knob_h) * self.grid_scroll / hidden)
+        pygame.draw.rect(screen, COLOR_GOLD, (track.x, knob_y, track.width, knob_h), border_radius=3)
+
+    def _build_inventory_rects(self, count):
+        self.inventory_rects = self._grid(count, INV_GRID_COLS, INV_SLOT_SIZE, INV_SLOT_SPACING,
+                                          INV_START_X, INV_START_Y)
 
     def _build_materials_rects(self, count):
         """Grid layout for the Materials tab. Uses a wider column count
@@ -288,13 +318,8 @@ class InventoryScreen(BaseScreen):
         (INV_START_X=600) which has to squeeze in next to the gear panel
         - the materials tab has the WHOLE screen to itself, no gear grid
         sharing the view, so it gets more breathing room."""
-        self.materials_rects = []
-        for i in range(count):
-            col = i % MATERIALS_GRID_COLS
-            row = i // MATERIALS_GRID_COLS
-            x = MATERIALS_START_X + col * (MATERIALS_SLOT_SIZE + MATERIALS_SLOT_SPACING)
-            y = MATERIALS_START_Y + row * (MATERIALS_SLOT_SIZE + MATERIALS_SLOT_SPACING)
-            self.materials_rects.append(pygame.Rect(x, y, MATERIALS_SLOT_SIZE, MATERIALS_SLOT_SIZE))
+        self.materials_rects = self._grid(count, MATERIALS_GRID_COLS, MATERIALS_SLOT_SIZE,
+                                          MATERIALS_SLOT_SPACING, MATERIALS_START_X, MATERIALS_START_Y)
 
     def _build_consumables_rects(self, count):
         """Grid layout for the Consumables tab - the same geometry as the
@@ -302,13 +327,8 @@ class InventoryScreen(BaseScreen):
         a flat stackable list, so giving them different column counts or slot
         sizes would be two layouts for one job and the tabs would jump under
         the cursor as you switched between them."""
-        self.consumables_rects = []
-        for i in range(count):
-            col = i % MATERIALS_GRID_COLS
-            row = i // MATERIALS_GRID_COLS
-            x = MATERIALS_START_X + col * (MATERIALS_SLOT_SIZE + MATERIALS_SLOT_SPACING)
-            y = MATERIALS_START_Y + row * (MATERIALS_SLOT_SIZE + MATERIALS_SLOT_SPACING)
-            self.consumables_rects.append(pygame.Rect(x, y, MATERIALS_SLOT_SIZE, MATERIALS_SLOT_SIZE))
+        self.consumables_rects = self._grid(count, MATERIALS_GRID_COLS, MATERIALS_SLOT_SIZE,
+                                            MATERIALS_SLOT_SPACING, MATERIALS_START_X, MATERIALS_START_Y)
 
     def _use_consumable(self, subject, consumable):
         """Click-to-use from the bag. Mirrors what the combat hotbar does with
@@ -352,6 +372,17 @@ class InventoryScreen(BaseScreen):
 
     def handle_event(self, event):
         subject = self._get_subject()
+
+        # Scroll the grid: wheel, or Page Up / Page Down.
+        step = 0
+        if event.type == pygame.MOUSEWHEEL:
+            step = -event.y
+        elif event.type == pygame.KEYDOWN and event.key in (pygame.K_PAGEDOWN, pygame.K_PAGEUP):
+            step = 3 if event.key == pygame.K_PAGEDOWN else -3
+        if step:
+            self.grid_scroll = max(0, min(getattr(self, "grid_rows_hidden", 0),
+                                          getattr(self, "grid_scroll", 0) + step))
+            return
 
         if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
             if self.pending_destroy_item is not None:
@@ -409,16 +440,19 @@ class InventoryScreen(BaseScreen):
             # never also falls through and hits a gear slot underneath it.
             if self.gear_tab_button.collidepoint(mouse_pos):
                 self.active_tab = "gear"
+                self.grid_scroll = 0
                 self.selected_item = None
                 self.discard_mode = False
                 return
             if self.materials_tab_button.collidepoint(mouse_pos):
                 self.active_tab = "materials"
+                self.grid_scroll = 0
                 self.selected_item = None
                 self.discard_mode = False
                 return
             if self.consumables_tab_button.collidepoint(mouse_pos):
                 self.active_tab = "consumables"
+                self.grid_scroll = 0
                 self.selected_item = None
                 self.discard_mode = False
                 return
@@ -604,6 +638,7 @@ class InventoryScreen(BaseScreen):
         subject = self._get_subject()
         bag = self._bag_source(subject)
         self._build_inventory_rects(len(bag.inventory))
+        self._draw_scroll_hint(screen, INV_START_X, INV_START_Y, INV_GRID_COLS * (INV_SLOT_SIZE + INV_SLOT_SPACING))
 
         # Title names the subject when gearing a companion, so there is no
         # chance of dressing the wrong character without noticing.
@@ -848,6 +883,7 @@ class InventoryScreen(BaseScreen):
         read as a broken item.
         """
         self._build_consumables_rects(len(self._consumable_source(subject).consumables))
+        self._draw_scroll_hint(screen, MATERIALS_START_X, MATERIALS_START_Y, MATERIALS_GRID_COLS * (MATERIALS_SLOT_SIZE + MATERIALS_SLOT_SPACING))
 
         # What is already running, in the same place the materials tab puts the
         # profession line - these four slots are what can_use() checks against.
@@ -980,6 +1016,7 @@ class InventoryScreen(BaseScreen):
         broken out below - render() dispatches to one or the other, it
         doesn't interleave them."""
         self._build_materials_rects(len(subject.materials))
+        self._draw_scroll_hint(screen, MATERIALS_START_X, MATERIALS_START_Y, MATERIALS_GRID_COLS * (MATERIALS_SLOT_SIZE + MATERIALS_SLOT_SPACING))
 
         # Profession skill line - the only place these numbers are
         # visible anywhere in the game right now (Phase 1 has no
@@ -1279,8 +1316,10 @@ class InventoryScreen(BaseScreen):
         if tag:
             header += f"  |  {tag}"
         lines = [item.name, header]
-        if item.armor_type and item.armor_type not in ("accessory", "weapon"):
-            lines.append(item.armor_type.capitalize())
+        from ui.item_kind import item_kind
+        kind = item_kind(item)                           # "Leather Chest", "Two-Hand Axe"
+        if kind:
+            lines.append(kind)
         # ARMOR IS SHOWN FOR ANYTHING THAT HAS IT, not only things with an
         # armor_type. Kyle, 2 Nov: "also shields need armor." They have it -
         # all 95 hand-authored shields carry an armor_value, the Dun Garok

@@ -678,7 +678,9 @@ class QuestJournalScreen(BaseScreen):
         if objective.objective_type == ObjectiveType.CRAFT:
             return "Craft it at a Forge (Professions, K)."
         if objective.objective_type == ObjectiveType.EXPLORE and objective.target:
-            return f"Go to: {str(objective.target).replace('_', ' ').title()}"
+            zone = str(objective.target).replace('_', ' ').title()
+            spot = getattr(objective, "label", None)
+            return f"Go to: {spot} ({zone})" if spot else f"Go to: {zone}"
         return ""
 
     def _render_detail(self, screen):

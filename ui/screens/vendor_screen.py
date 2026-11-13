@@ -684,7 +684,8 @@ class VendorScreen(BaseScreen):
 
         if is_gear:
             from world.upgrade_manager import upgrade_tag
-            slot_label = item.slot.replace("_", " ").title()
+            from ui.item_kind import item_kind
+            slot_label = item_kind(item)                 # "Leather Chest", "Two-Hand Axe"
             tag = upgrade_tag(item)
             if tag:
                 slot_label = f"{slot_label}  ·  {tag}"
@@ -705,7 +706,8 @@ class VendorScreen(BaseScreen):
             # Refined/Superior shown as a badge, never folded into the name.
             from world.upgrade_manager import upgrade_tag
             tag = upgrade_tag(item)
-            head = f"{item.rarity.title()} — {item.slot.replace('_', ' ').title()}"
+            from ui.item_kind import item_kind
+            head = f"{item.rarity.title()} — {item_kind(item)}"
             if tag:
                 head += f" — {tag}"
             lines.append(head)

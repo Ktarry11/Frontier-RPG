@@ -55,6 +55,11 @@ CRAFT_TABS = {
     "alchemy": ("alchemy", "Alchemy", None),
     "tailoring": ("tailoring", "Tailoring", None),
     "woodworking": ("woodworking", "Woodworking", None),
+    # Three professions you could learn, level and buy recipes for, and never open: there was no
+    # tab (playtest, 12 Nov: "There is no tab for cooking or leather working professions").
+    "leatherworking": ("leatherworking", "Leatherworking", None),
+    "engineering": ("engineering", "Engineering", None),
+    "cooking": ("cooking", "Cooking", None),
 }
 
 PANEL_X = 20
@@ -90,6 +95,10 @@ class ProfessionsScreen(BaseScreen):
 
         self.smelting_manager = get_smelting_manager()
         self.blacksmithing_manager = get_blacksmithing_manager()
+        from world.leatherworking_manager import get_leatherworking_manager
+        #: Professions with a manager of their own; everything else goes through CraftingManager.
+        self.own_managers = {"blacksmithing": self.blacksmithing_manager,
+                             "leatherworking": get_leatherworking_manager()}
         self.gathering_manager = get_gathering_node_manager()
         self.smelt_message = None
         self.smelt_message_color = (140, 220, 160)
@@ -237,11 +246,11 @@ class ProfessionsScreen(BaseScreen):
         reasoning as _attempt_smelt). Blacksmithing keeps its own manager; everything else goes through CraftingManager."""
         player = self.state_manager.player
         profession, _, station = CRAFT_TABS[self.active_tab]
-        if profession == "blacksmithing":
-            if not player.knows_profession("blacksmithing"):
-                ok, msg = False, "You haven't learned Blacksmithing."
+        if profession in self.own_managers:
+            if not player.knows_profession(profession):
+                ok, msg = False, f"You haven't learned {profession.title()}."
             else:
-                result = self.blacksmithing_manager.craft(player, recipe_id)
+                result = self.own_managers[profession].craft(player, recipe_id)
                 if result is not None:
                     ok, msg = True, f"Crafted {result.name}."
                 elif len(player.inventory) >= player.inventory_capacity:
@@ -342,7 +351,7 @@ class ProfessionsScreen(BaseScreen):
             tabs.append(("smelting", "Smelting"))
         if player.knows_profession("woodcutting") or self.active_tab == "sawmill":
             tabs.append(("sawmill", "Sawmill"))
-        for key in ("blacksmithing", "alchemy", "tailoring", "woodworking"):
+        for key in ("blacksmithing", "leatherworking", "alchemy", "tailoring", "woodworking", "engineering", "cooking"):
             if player.knows_profession(key):
                 tabs.append((key, CRAFT_TABS[key][1]))
         tabs.append(("upgrade", "Upgrade"))
@@ -482,8 +491,8 @@ class ProfessionsScreen(BaseScreen):
             self.renderer.draw_text(screen, self.smelt_message, (PANEL_X, SCREEN_HEIGHT - 60), color=self.smelt_message_color)
 
     def _craft_recipes(self, profession):
-        if profession == "blacksmithing":
-            recipes = self.blacksmithing_manager.recipes
+        if profession in self.own_managers:
+            recipes = self.own_managers[profession].recipes
         else:
             recipes = self.crafting_manager.all_recipes(profession)
         return sorted(recipes.items(), key=lambda kv: kv[1].get("skill_required", 0))
@@ -549,8 +558,8 @@ class ProfessionsScreen(BaseScreen):
             rect = pygame.Rect(PANEL_X, y, PANEL_WIDTH, row_h - 6)
             req = recipe.get("skill_required", 0)
             unlocked = skill >= req
-            if profession == "blacksmithing":
-                can_craft = self.blacksmithing_manager.can_craft(player, recipe_id)
+            if profession in self.own_managers:
+                can_craft = self.own_managers[profession].can_craft(player, recipe_id)
                 name = recipe["name"]
             else:
                 can_craft = self.crafting_manager.can_craft(player, profession, recipe_id)
