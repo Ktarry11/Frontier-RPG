@@ -95,6 +95,9 @@ class World:
                     self.npcs[vid] = (slug(v.zone), v.x, v.y, v.name)
         except Exception:
             pass
+        #: Names of places you go INSIDE (caves, dungeons). A compass word in a quest for one of
+        #: these is usually about the inside - "the west wing" - so naming the place is enough.
+        self.doors = set()
         self.enc = json.load(open("data/creatures/encounters.json"))["zones"]
         drops = json.load(open("data/creatures/quest_drops.json"))["drops"]
         self.carriers = {}
@@ -147,8 +150,8 @@ class World:
         for key, sz in (table.get("subzones") or {}).items():
             if creature in (sz.get("creatures") or {}):
                 known = True
-                rect = next((s for s in tm.subzones if s.get("table_key") == key or s.get("name") == key), None)
-                if rect is not None:
+                # every rectangle of that name: a canyon or a river is drawn as a run of them
+                for rect in [s for s in tm.subzones if s.get("table_key") == key or s.get("name") == key]:
                     # the nearest point of the subzone to the giver, not its middle: someone
                     # standing inside it, or on its edge, is AT the place
                     gx, gy = getattr(self, "_from", (rect["x"] + rect["w"] / 2, rect["y"] + rect["h"] / 2))
@@ -165,6 +168,7 @@ class World:
                     dest = self.zm.portal_manager.get_destination(name, px, py)
                     if dest and dest[0] == key:
                         out.append((cave.get("name") or key, px, py))
+                        self.doors.add(cave.get("name") or key)
         # hand-placed spawns on this map (pinned bosses, dungeon trash)
         for attr in ("fixed_spawns", "trash_spawns"):
             spawns = getattr(tm, attr, None)
@@ -256,7 +260,8 @@ def audit(world, stems):
             # west to boars that are also south-east is still true.
             anywhere = {bearing(x - gx, y - gy) for _l, x, y in targets if math.hypot(x - gx, y - gy) >= NEAR}
             if words:
-                if not any(agrees(w, a) for w in words for a in anywhere):
+                inside = any(l in world.doors and re.search(re.escape(l), text, re.I) for l, _x, _y in targets)
+                if not inside and not any(agrees(w, a) for w in words for a in anywhere):
                     findings["WRONG"].append((stem, q["title"],
                                               f"says {'/'.join(sorted(words))}; {far[0][0]} is {actual[0]}"
                                               + (f" (also {', '.join(actual[1:])})" if len(actual) > 1 else "")))
