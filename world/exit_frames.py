@@ -195,9 +195,18 @@ def _gives_way(lm, ax, ay, w, h):
     return _rooted_in(lm, ax, ay, w, h) and "/props/" in str(lm["sprite_key"])
 
 
+def _is_a_gate(sprite_key):
+    """Entrance art, or anything a zone's own builder placed AS a gate. A hand-built town
+    names its gate for what it is (br_kodo_tusk_gate, palisade_gatehouse, stv_liana_arch)
+    rather than with the ent_ prefix, and this pass then stood a second gate on top of it -
+    Camp Taurajo's north road had a tusk gate with a totem gate drawn through it."""
+    name = os.path.basename(str(sprite_key)).lower()
+    return is_entrance_art(sprite_key) or any(word in name for word in ("_gate", "gatehouse", "_arch"))
+
+
 def _framed(tilemap, tiles):
     for lm in getattr(tilemap, "landmarks", []) or []:
-        if not is_entrance_art(lm["sprite_key"]):
+        if not _is_a_gate(lm["sprite_key"]):
             continue
         for (x, y) in tiles:
             if (lm["anchor_x"] - 1 <= x <= lm["anchor_x"] + lm["width_tiles"]

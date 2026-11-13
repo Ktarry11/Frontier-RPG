@@ -43,8 +43,8 @@ def main():
     with contextlib.redirect_stdout(io.StringIO()):
         from world.zone_manager import ZoneManager
         from world import exit_frames as EF
-        from world.portal_art import is_entrance_art
-        import world.exit_frames
+        from world.exit_frames import _is_a_gate as is_entrance_art     # a hand-placed gate counts
+        import world.exit_frames, world.portal_art
         # collision before frames: build the world once with the pass switched off
         real = world.exit_frames.frame_exits
         world.exit_frames.frame_exits = lambda *a, **k: {"placed": 0, "skipped": []}
@@ -104,7 +104,7 @@ def main():
             if len({d for _t, d in inside}) > 1:
                 bad.append(f"{src}: {name} covers doors to {sorted({d for _t, d in inside})}")
             for other in tm.landmarks:
-                if other is lm or not is_entrance_art(other["sprite_key"]):
+                if other is lm or not world.portal_art.is_entrance_art(other["sprite_key"]):
                     continue
                 if EF._rect_hits(lm["anchor_x"], lm["anchor_y"], lm["width_tiles"], lm["height_tiles"], other):
                     bad.append(f"{src}: {name} overlaps {os.path.basename(other['sprite_key'])}")

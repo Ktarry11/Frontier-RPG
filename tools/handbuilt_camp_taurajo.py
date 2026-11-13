@@ -157,32 +157,32 @@ def dress(L):
     D("vot_war_banner", 38, 17, 5)
     # ---- the great fire and the ring of tipis
     D("vot_fire_pit", 32, 29, 3, solid=False, road_ok=True)
-    P("br_tauren_totem", 32, 25, 11, road_ok=True)
+    # KYLE, [5]: "Camp Taurajo is overloaded with props." It had 81 on a 64x56 map: ten tipis
+    # in a ring with an eleven-tile totem in the middle of them, totems in pairs at both
+    # gates and in the carver's yard (several drawn through a tipi), and scatter on every
+    # patch of grass. Thinned to what tells you where you are: six tipis round the fire, one
+    # totem by it, one pair at the north gate, and about half the scatter.
+    P("br_tauren_totem", 32, 24, 8, road_ok=True)
     D("vot_war_drum", 28, 30, 3)
-    D("vot_war_drum", 36, 32, 3)
-    D("vot_hide_rack", 29, 26, 3)
-    for k in range(10):
-        a = math.radians(18 + 36 * k)
+    for k in range(6):
+        a = math.radians(30 + 60 * k)
         P("br_tauren_tipi", int(round(32 + 17 * math.cos(a))), int(round(29 + 12 * math.sin(a))), 7, nudge=3)
     # ---- west: tanner, carver, trader
     B("hide_tanners_hut", 9, 30, 7)
     B("generic_hut_a", 11, 22, 6)
     B("generic_hut_b", 7, 37, 6)
     D("vot_hide_rack", 14, 33, 3)
-    D("vot_hide_rack", 6, 27, 3)
     # ---- south-west: the spring - healer's tent, the totem-carver's yard
     B("generic_tent_b", 24, 47, 5)
-    P("br_tauren_totem", 17, 36, 7)
-    P("br_tauren_totem", 20, 36, 7)
+    P("br_tauren_totem", 15, 43, 7)
     D("vot_trail_cairn", 24, 41, 3)
-    for (x, y) in [(9, 47), (20, 49), (12, 40)]:
+    for (x, y) in [(9, 47)]:
         D("vot_thornbush", x, y, 2, solid=False)
     # ---- east: the kodo corral, stables, beast trainer
     B("taurajo_stables", 56, 25, 7)
     for (x, y) in [(50, 33), (52, 33), (54, 33), (56, 33), (58, 33), (58, 35), (58, 37), (58, 39),
                    (58, 41), (56, 41), (54, 41), (52, 41), (50, 41), (50, 39), (50, 37), (50, 35)]:
         D("vot_palisade", x, y, 3, solid=True, nudge=0)
-    P("br_kodo_skeleton", 54, 37, 4)
     P("br_hitching_trough", 53, 30, 3)
     # ---- south-east: quartermaster, granary, the orc liaison
     B("generic_tent_a", 38, 24, 5)
@@ -191,20 +191,19 @@ def dress(L):
     D("vot_crate_stack", 36, 48, 3)
     D("vot_crate_stack", 44, 50, 3)
     P("br_caravan_wagon", 41, 38, 4)
-    # ---- south gate: totems and the Southern Barrens signpost
-    P("br_tauren_totem", 28, 50, 7)
-    P("br_tauren_totem", 37, 50, 7)
+    # ---- south gate: the Southern Barrens signpost (the gate itself is the totem gate
+    # world/exit_frames.py stands over the door)
     P("br_signpost", 36, 46, 5)
     P("br_kodo_skeleton", 25, 52, 4)
     P("br_dead_tree_vulture", 40, 52, 7)
     # ---- plains scatter: acacia, scrub, boulders, tufts
     for (x, y) in [(8, 8), (57, 9), (9, 52), (53, 20), (24, 37)]:
         P("br_umbrella_acacia" if (x + y) % 3 else "acacia_tree", x, y, 7)
-    for (x, y) in [(15, 10), (47, 9), (54, 45), (6, 20), (60, 28), (16, 52), (31, 41), (46, 31)]:
+    for (x, y) in [(15, 10), (47, 9), (54, 45), (6, 20), (16, 52)]:
         P("br_thorn_scrub" if (x * y) % 3 else "br_agave_spike", x, y, 3)
-    for (x, y) in [(8, 41), (60, 22), (22, 52), (57, 14)]:
+    for (x, y) in [(8, 41), (57, 14)]:
         P("br_sandstone_boulders", x, y, 4)
-    for (x, y) in [(14, 25), (24, 21), (42, 22), (30, 38), (48, 20), (12, 47), (36, 36), (22, 12), (46, 12)]:
+    for (x, y) in [(14, 25), (42, 22), (30, 38), (12, 47), (46, 12)]:
         P("br_golden_grass_tuft", x, y, 2, solid=False)
 
 
