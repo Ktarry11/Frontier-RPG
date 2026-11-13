@@ -28,29 +28,61 @@ it in reach, so meat_drops needs no floor.
 #: No material listed below may be rolled under this level.
 HIGH_TIER_FLOOR = 60
 
-#: Cloth above Runecloth. Felcloth is NOT here: it is Classic's level-53 zone-locked drop, the same
-#: height as Runecloth rather than above it, and holding it to 60 would break a real Classic behaviour.
-HIGH_TIER_CLOTH = {
-    "cloth_netherweave", "cloth_frostweave", "cloth_emberweave", "cloth_moonsilk",
-    "cloth_shadowsilk", "cloth_bloodsilk", "cloth_starweave", "cloth_soulcloth",
-    "cloth_imperial_silk", "cloth_windwool", "cloth_sunthread", "cloth_voidweave",
-    "cloth_dreamsilk", "cloth_abyssal_velvet", "cloth_chronoweave", "cloth_stormweave",
-    "cloth_lightwoven", "cloth_phoenix_cloth", "cloth_wyrmsilk", "cloth_arcanoweave",
-    "cloth_titanweave", "cloth_nightmare_lace", "cloth_spiritwoven", "cloth_genesis_cloth",
-    "cloth_ghostgauze", "cloth_primordial_weave", "cloth_starsilk", "cloth_worldweave",
-}
+#: THE LINE MOVED ON 13 NOV 2026. It used to sit at the top Classic rung (Runecloth, Rugged Leather),
+#: which left 12 cloths and 9 leathers before 60 and about a hundred recipes at skill 300 or under
+#: that nobody could make until 60. Kyle: "We will use roughly around 22 or so
+#: herbs/leather/cloth/ore/gemstones/trees BEFORE lvl 60. As the rest of them will be basically like
+#: 'Raid tiers'" - and, asked whether to move the line to skill 300: "Lets mix in some earlier tiered
+#: cloth and leather, yes. We should have around 20 - 22. The crafting 300 gate will still be the
+#: original wow stuff. Please move that line, yes."
+#:
+#: So the test is the material's own gathering skill: 300 or under is the pre-60 ladder (22 cloths,
+#: 22 leathers), anything above is a raid tier and held to level 60. Read from the data, so a new
+#: material lands on the right side of the line by its number and not by somebody remembering a list.
+PRE_60_SKILL_CEILING = 300
 
-#: Leather above Rugged.
-HIGH_TIER_LEATHER = {
-    "leather_dredged", "leather_fiendish", "leather_pristine", "leather_savage",
-    "leather_frostscale", "leather_emberscale", "leather_wyvern", "leather_duskfang",
-    "leather_mossback", "leather_basilisk", "leather_bloodtanned", "leather_hydra",
-    "leather_netherdrake", "leather_behemoth", "leather_frostwyrm", "leather_manticore",
-    "leather_chimera", "leather_phoenix", "leather_kraken", "leather_lavahound",
-    "leather_nightsaber", "leather_thunderlizard", "leather_dreamstag", "leather_sandwurm",
-    "leather_voidstalker", "leather_chronodrake", "leather_sunhawk", "leather_abyssal",
-    "leather_genesis", "leather_primordial", "leather_worldserpent",
-}
+
+def _ladder(kind):
+    """[(material_id, skill)] for one material type, lowest skill first."""
+    import json
+    from pathlib import Path
+    mats = json.loads((Path(__file__).resolve().parent.parent / "data/gathering/materials.json").read_text())
+    mats = mats.get("materials", mats)
+    return sorted(((mid, m["skill_range"][0]) for mid, m in mats.items()
+                   if m.get("material_type") == kind and m.get("skill_range")), key=lambda t: (t[1], t[0]))
+
+
+def pre60_ladder(kind):
+    """The materials of this kind a player meets before level 60, lowest skill first."""
+    return [(mid, s) for mid, s in _ladder(kind) if s <= PRE_60_SKILL_CEILING]
+
+
+def pre60_bands(kind, backbone, rare=()):
+    """Drop bands for levels 1-59, built from each material's skill.
+
+    A material of skill S belongs to level S/5. It starts dropping three levels before that and
+    stays for nine after, so neighbours overlap and every level has a few to roll. The Classic
+    materials in `backbone` carry weight 3 - they are still what most of the 300 recipes are made
+    of - and the Frontier tiers mixed in between them carry 1. Anything in `rare` is left out
+    (it has its own hand-written band).
+    """
+    bands = []
+    ladder = [(mid, max(1, round(skill / 5))) for mid, skill in pre60_ladder(kind) if mid not in rare]
+    spine = [level for mid, level in ladder if mid in backbone]
+    for mid, level in ladder:
+        last = level + 9
+        if mid in backbone:
+            # a Classic material keeps dropping until the next Classic one has taken over, so the
+            # recipes written for it are never starved by the tiers mixed in between
+            later = [lv for lv in spine if lv > level]
+            if later:
+                last = max(last, later[0] + 3)
+        bands.append((max(1, level - 3), min(HIGH_TIER_FLOOR - 1, last), {mid: 3 if mid in backbone else 1}))
+    return bands
+
+
+HIGH_TIER_CLOTH = {mid for mid, s in _ladder("cloth") if s > PRE_60_SKILL_CEILING}
+HIGH_TIER_LEATHER = {mid for mid, s in _ladder("leather") if s > PRE_60_SKILL_CEILING}
 
 HIGH_TIER = HIGH_TIER_CLOTH | HIGH_TIER_LEATHER
 

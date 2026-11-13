@@ -62,14 +62,32 @@ def main():
                 fails.append(f"{label}: level {level} can drop {', '.join(early)}")
 
         # And confirm the ladder actually opens up at the floor, so this is a gate and not a wall.
-        dummy.level = HIGH_TIER_FLOOR
+        # (13 Nov 2026: the line is now the material's skill, 300. The first raid tier is banded in
+        # the 70s, so "opens" is checked from the floor upward rather than at exactly 60.)
         opened = set()
-        for _ in range(SAMPLES):
-            for mid, _qty in roll(dummy):
-                opened.add(mid)
+        for level in range(HIGH_TIER_FLOOR, 100):
+            dummy.level = level
+            for _ in range(40):
+                for mid, _qty in roll(dummy):
+                    opened.add(mid)
         if not (opened & HIGH_TIER):
-            fails.append(f"{label}: nothing high-tier drops at level {HIGH_TIER_FLOOR} either - "
+            fails.append(f"{label}: nothing high-tier drops at any level from {HIGH_TIER_FLOOR} up - "
                          f"the floor is a wall")
+
+        # ...and everything BELOW the line is really reachable before 60: about 22 of each.
+        from entities.material_tiers import pre60_ladder
+        kind = "cloth" if "cloth" in label.lower() else "leather"
+        want = {mid for mid, _s in pre60_ladder(kind)}
+        got = set()
+        for level in range(1, HIGH_TIER_FLOOR):
+            dummy.level = level
+            for _ in range(SAMPLES):
+                for mid, _qty in roll(dummy):
+                    got.add(mid)
+        if not (20 <= len(want) <= 22):
+            fails.append(f"{label}: {len(want)} materials before 60, Kyle asked for 20-22")
+        if want - got:
+            fails.append(f"{label}: never drops before 60: {', '.join(sorted(want - got))}")
 
     pools = json.loads((ROOT / "data/gathering/node_pools.json").read_text())["zones"]
     for zone, v in pools.items():

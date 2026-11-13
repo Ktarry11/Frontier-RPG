@@ -18,7 +18,7 @@ Everything else (humanoid, undead, elemental, demon, insect, aquatic, plant) can
 """
 import random
 
-from entities.material_tiers import HIGH_TIER_FLOOR, in_reach
+from entities.material_tiers import HIGH_TIER_FLOOR, in_reach, pre60_bands
 from entities.vendor_trash import classify
 
 SKINNABLE = {"beast"}
@@ -74,9 +74,15 @@ BANDS = [
 BOSS_QTY = (2, 4)   # bosses give a small extra handful
 
 
+#: Levels 1-59 (13 Nov 2026): the 22 leathers of skill 300 or under, each placed by its own skill,
+#: Classic leathers as the backbone. BANDS above is still the truth from level 60 on.
+PRE_60_BANDS = pre60_bands("leather", backbone={"leather_scrap", "leather_light", "leather_medium",
+                                                "leather_heavy", "leather_thick", "leather_rugged"})
+
+
 def _pick_material(level: int, rng) -> str:
     pool: dict[str, float] = {}
-    for lo, hi, weights in BANDS:
+    for lo, hi, weights in (PRE_60_BANDS if level < HIGH_TIER_FLOOR else BANDS):
         if lo <= level <= hi:
             for mat, w in in_reach(weights, level).items():
                 pool[mat] = pool.get(mat, 0.0) + w

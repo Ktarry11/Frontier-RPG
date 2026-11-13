@@ -19,7 +19,7 @@ Beasts, elementals, insects, undead husks never drop cloth.
 import random
 import re
 
-from entities.material_tiers import HIGH_TIER_FLOOR, in_reach
+from entities.material_tiers import HIGH_TIER_FLOOR, in_reach, pre60_bands
 from entities.vendor_trash import classify
 
 NO_CLOTH = re.compile(r"murloc", re.I)
@@ -82,9 +82,17 @@ BOSS_QTY = (2, 4)
 #: back is everything ABOVE Runecloth, wherever the name came from.
 
 
+#: Levels 1-59 (13 Nov 2026): the 22 cloths of skill 300 or under, each placed by its own skill, with
+#: the Classic cloths as the backbone and the Frontier tiers mixed in between them. Felcloth keeps
+#: its hand-written rare band. BANDS above is still the truth from level 60 on.
+PRE_60_BANDS = pre60_bands("cloth", backbone={"cloth_linen", "cloth_wool", "cloth_silk", "cloth_mageweave",
+                                              "cloth_runecloth"}, rare={"cloth_felcloth"}) \
+    + [(53, 59, {"cloth_felcloth": 1})]
+
+
 def _pick_material(level: int, rng) -> str:
     pool: dict[str, float] = {}
-    for lo, hi, weights in BANDS:
+    for lo, hi, weights in (PRE_60_BANDS if level < HIGH_TIER_FLOOR else BANDS):
         if lo <= level <= hi:
             for mid, w in in_reach(weights, level).items():
                 pool[mid] = pool.get(mid, 0.0) + w
