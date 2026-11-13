@@ -77,35 +77,31 @@ def thresholds(definition):
 #                                "bonuses": {"2": {...}, "4": {...}}},
 #                "elemental": {...}}
 #
-# THE RULES:
-#   * every version of every piece counts toward the ONE set - mixing never costs you a piece;
-#   * the BONUSES you get are those of the version you wear most of (a tie goes to whichever
-#     the set lists first), so a 5 Enhancement / 3 Elemental shaman has eight pieces and
-#     Enhancement's bonuses;
+# THE RULES (Kyle, 12 Nov 2026: "No bro, we wont mix and match. A shaman who uses 5 enhancement
+# and 3 elemental gets 2 and 4 piece enhancement bonus and 2 piece elemental."):
+#   * each version is counted ON ITS OWN - five Enhancement pieces and three Elemental pieces
+#     are a five-piece set and a three-piece set, never an eight-piece one;
+#   * each version pays its own bonuses for its own count, so both can be running at once;
 #   * an exchange changes the piece's name, stats and version and nothing else - same slot,
-#     same item level, same rarity, same set.
+#     same item level, same rarity, same set. It is free, at the exchange NPCs.
 
 def variants(definition):
     """{key: variant} for a set, or {} for a set with one version."""
     return (definition or {}).get("variants") or {}
 
 
-def leading_variant(character, set_id):
-    """The version this character wears most of, or None (no versions / none worn)."""
-    definition = get(set_id)
-    order = list(variants(definition))
-    if not order:
-        return None
+def version_counts(character, set_id):
+    """{version key: pieces worn} for one set. A set with no versions is {None: n}."""
     slots = getattr(getattr(character, "equipment", None), "slots", None) or {}
-    tally = {}
+    order = list(variants(get(set_id)))
+    out = {}
     for item in slots.values():
         if item is not None and getattr(item, "set_id", None) == set_id:
-            key = getattr(item, "set_variant", None)
-            if key in order:
-                tally[key] = tally.get(key, 0) + 1
-    if not tally:
-        return None
-    return max(order, key=lambda k: (tally.get(k, 0), -order.index(k)))
+            key = getattr(item, "set_variant", None) if order else None
+            if order and key not in order:
+                continue              # a piece of no known version belongs to no version's count
+            out[key] = out.get(key, 0) + 1
+    return out
 
 
 def bonuses_for(definition, variant=None):
@@ -147,22 +143,20 @@ def exchange(item, variant):
 
 
 def active_bonuses(character):
-    """{stat: total} from every set bonus this character has earned."""
+    """{stat: total} from every set bonus this character has earned - each version of each
+    set paying for its own piece count."""
     slots = getattr(getattr(character, "equipment", None), "slots", None) or {}
-    worn = {}
-    for item in slots.values():
-        sid = getattr(item, "set_id", None) if item is not None else None
-        if sid:
-            worn[sid] = worn.get(sid, 0) + 1
+    set_ids = {getattr(item, "set_id", None) for item in slots.values() if item is not None}
     out = {}
-    for sid, n in worn.items():
+    for sid in set_ids:
         definition = get(sid)
         if not definition:
             continue
-        for need, bonus in bonuses_for(definition, leading_variant(character, sid)):
-            if n >= need:
-                for stat, value in (bonus.get("stats") or {}).items():
-                    out[stat] = out.get(stat, 0) + value
+        for version, n in version_counts(character, sid).items():
+            for need, bonus in bonuses_for(definition, version):
+                if n >= need:
+                    for stat, value in (bonus.get("stats") or {}).items():
+                        out[stat] = out.get(stat, 0) + value
     return out
 
 
@@ -191,24 +185,46 @@ def tooltip_lines(item, character=None):
     if not definition:
         return []
     kinds = variants(definition)
-    lead = leading_variant(character, item.set_id) if character is not None else None
-    shown = lead or getattr(item, "set_variant", None) or (next(iter(kinds)) if kinds else None)
+    # The card is about THIS piece's version: its pieces, its count, its bonuses.
+    shown = getattr(item, "set_variant", None) if kinds else None
+    if kinds and shown not in kinds:
+        shown = next(iter(kinds))
     if kinds:
         pieces = {slot: spec.get("name", slot) for slot, spec in (kinds[shown].get("pieces") or {}).items()}
     else:
         pieces = definition.get("pieces") or {}
     slots = getattr(getattr(character, "equipment", None), "slots", None) or {}
-    worn = set(worn_slots(character, item.set_id)) if character is not None else set()
+    worn = set()
+    if character is not None:
+        worn = {slot for slot in worn_slots(character, item.set_id)
+                if not kinds or getattr(slots[slot], "set_variant", None) == shown}
     title = definition.get("name", item.set_id)
     if kinds:
         title += f" - {kinds[shown].get('label', shown.title())}"
     lines = [(f"{title} ({len(worn)}/{len(pieces)})", "title")]
     for slot, name in pieces.items():
-        # a worn piece is listed under the name it actually has, whichever version it is
-        lines.append((f"  {slots[slot].name if slot in worn else name}", "have" if slot in worn else "missing"))
+        lines.append((f"  {name}", "have" if slot in worn else "missing"))
     for need, bonus in bonuses_for(definition, shown):
         lines.append((f"({need}) Set: {describe(bonus)}", "active" if len(worn) >= need else "inactive"))
     options = exchange_options(item)
     if options:
         lines.append(("Exchange for: " + ", ".join(f"{name} ({label})" for _k, label, name in options), "missing"))
     return lines
+
+
+# ----------------------------------------------------------------------
+# The exchange
+# ----------------------------------------------------------------------
+
+def exchangeable(party):
+    """[(member, item, where, version key, label, new name)] - every exchange on offer to a
+    party: each set piece worn or carried by an active member, once per other version."""
+    out = []
+    for member in getattr(party, "members", []) or []:
+        slots = getattr(getattr(member, "equipment", None), "slots", None) or {}
+        held = [(it, "worn") for it in slots.values() if it is not None]
+        held += [(it, "in bags") for it in getattr(member, "inventory", []) or []]
+        for it, where in held:
+            for key, label, name in exchange_options(it):
+                out.append((member, it, where, key, label, name))
+    return out

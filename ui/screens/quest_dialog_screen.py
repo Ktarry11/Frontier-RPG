@@ -421,7 +421,8 @@ class QuestDialogScreen(BaseScreen):
 
     # ------------------------------------------------------------------ greeting action row
     SERVICE_LABELS = {"revive": "Revive the Fallen", "inn": "Bind Hearthstone", "flight": "Fly", "riding": "Train Riding", "mounts": "Buy Mounts",
-                      "train_class": "Train Skills", "train_prof": "Train Profession"}
+                      "train_class": "Train Skills", "train_prof": "Train Profession",
+                      "set_exchange": "Exchange Set Gear"}
 
     def _offered(self):
         """The services on offer right now. An innkeeper also raises the dead - but only shows
@@ -524,7 +525,7 @@ class QuestDialogScreen(BaseScreen):
             zone = zm.current_zone
             travel.set_bind(zone.name, zm.player_x, zm.player_y, zone.name)
             self.result_message = f"Your hearthstone is now bound to {zone.name}."
-        elif action in ("flight", "riding", "mounts", "train_class", "train_prof"):
+        elif action in ("flight", "riding", "mounts", "train_class", "train_prof", "set_exchange"):
             screen = sm.states.get(GameState.TRAVEL)
             screen.open_service(action, self.npc)
             sm.transition_to(GameState.TRAVEL)

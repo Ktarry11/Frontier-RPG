@@ -55,7 +55,8 @@ def _teach_trainer_recipes(character, profession: str) -> list:
 
 class TravelServiceScreen(BaseScreen):
     TITLES = {"flight": "Windrider Flight Master", "riding": "Riding Trainer", "mounts": "Mount Vendor",
-              "train_class": "Class Trainer", "train_prof": "Profession Trainer"}
+              "train_class": "Class Trainer", "train_prof": "Profession Trainer",
+              "set_exchange": "Set Gear Exchange"}
 
     def __init__(self, state_manager):
         super().__init__(state_manager)
@@ -131,6 +132,21 @@ class TravelServiceScreen(BaseScreen):
             rows = self._train_rows(player, copper)
         elif self.kind == "train_prof":
             rows = self._prof_rows(player, copper)
+        elif self.kind == "set_exchange":
+            # One row per exchange on offer: a set piece somebody is wearing or carrying, and
+            # another spec's version of it. Free (Kyle, 12 Nov) - respeccing must never mean
+            # farming the set again.
+            from world.gear_sets import exchangeable
+            for member, item, where, key, label, name in exchangeable(self._party()):
+                rows.append(dict(name=f"{item.name}  ->  {name}",
+                                 sub=f"{label} version  -  {where}, {member.name}",
+                                 price=None, label="Exchange", enabled=True, reason=None,
+                                 action="set_exchange", arg=(member, item, key)))
+            if not rows:
+                rows.append(dict(name="Nothing to exchange",
+                                 sub="Bring a class set piece that comes in more than one version.",
+                                 price=None, label="-", enabled=False, reason=None,
+                                 action="set_exchange", arg=None))
         elif self.kind == "mounts":
             for mount in travel.mounts_for_vendor(self._npc_id()):
                 owned = mount["id"] in travel.owned_mounts
@@ -223,6 +239,14 @@ class TravelServiceScreen(BaseScreen):
     def _act(self, action, arg):
         travel = get_travel_manager()
         party = self._party()
+        if action == "set_exchange":
+            from world.gear_sets import exchange
+            member, item, key = arg
+            before = item.name
+            if exchange(item, key):
+                member._recalculate_derived_stats()
+                return self._say(f"{before} is now {item.name}.", GREEN)
+            return self._say("That cannot be exchanged.", RED)
         if action in ("train", "train_all"):
             from world import training_manager as tm
             player = self.state_manager.player
@@ -374,6 +398,9 @@ class TravelServiceScreen(BaseScreen):
             # fewer slot than they really do.
             hint = (f"I teach {shown}. You know {pm.primary_count(player)} of "
                     f"{pm.max_primary()} professions.")
+        elif self.kind == "set_exchange":
+            hint = ("Bring me a piece of your class set and I will trade it for another spec's "
+                    "version of the same piece. No charge.")
         else:
             hint = (f"Riding skill: {travel.riding_skill(travel.riding_rank)['name']}" if travel.riding_rank
                     else "You need to learn riding first (level 20, any riding trainer).")

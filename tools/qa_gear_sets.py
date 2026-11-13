@@ -17,9 +17,11 @@ EIGHT CLAIMS:
   6. THE CARD LISTS the set, every piece (worn ones marked), and every bonus (earned ones
      marked) - for whoever is reading it.
   8. ONE SET, A VERSION PER SPEC. Kyle: "we have hybrid classes too... keep the SET name, but
-     change the stuff inside." Every version counts toward the one set, the bonuses are those
-     of the version you wear most of, and a piece can be exchanged for another spec's version -
-     name, stats and version change; slot, level, rarity and set do not.
+     change the stuff inside... we wont mix and match. A shaman who uses 5 enhancement and 3
+     elemental gets 2 and 4 piece enhancement bonus and 2 piece elemental." Each version is
+     counted on its own and pays its own bonuses; a piece can be exchanged, free, for another
+     spec's version at the capitals, Freewind Post and Booty Bay - name, stats and version
+     change; slot, level, rarity and set do not.
   7. EVERY SET THAT SHIPS IS WELL FORMED: real slots, a class that exists, bonuses whose stats
      actually move a character sheet, and thresholds that can be reached.
 """
@@ -143,37 +145,42 @@ def main():
     if "tooltip_lines(item, self._get_subject())" not in src:
         bad.append("the inventory's item card does not draw the set block")
 
-    # 8. one set, a version per spec
+    # 8. one set, a version per spec - each version counted on its own
     H = "qa_hybrid_set"
     GS.register(H, {"name": "Test Harness", "class": "Shaman", "variants": {
         "enh": {"label": "Enhancement",
                 "pieces": {s: {"name": f"Enh {s}", "primary_stats": {"strength": 10}} for s in SLOTS},
-                "bonuses": {"2": {"stats": {"attack_power": 30}}}},
+                "bonuses": {"2": {"stats": {"attack_power": 30}}, "4": {"stats": {"stamina": 15}}}},
         "ele": {"label": "Elemental",
                 "pieces": {s: {"name": f"Ele {s}", "primary_stats": {"intellect": 10}} for s in SLOTS},
-                "bonuses": {"2": {"stats": {"spell_power": 30}}}}}})
+                "bonuses": {"2": {"stats": {"spell_power": 30}}, "4": {"stats": {"spirit": 15}}}}}})
 
     def hybrid(slot, variant):
         it = Item(f"qa_h_{slot}", "raw", slot, 60, "rare", armor_type="mail", set_id=H)
         GS.exchange(it, variant)
         return it
 
+    def dress(ch, layout):
+        for s in SLOTS:
+            ch.equipment.slots[s] = None
+        for slot, variant in layout.items():
+            ch.equipment.slots[slot] = hybrid(slot, variant)
+        ch._recalculate_derived_stats()
+
     sh = make("Shaman")
-    for s in SLOTS:
-        sh.equipment.slots[s] = None
-    sh._recalculate_derived_stats()
-    ap0, sp0 = sh.attack_power, sh.spell_power
-    sh.equipment.slots["head"] = hybrid("head", "enh")
-    sh.equipment.slots["chest"] = hybrid("chest", "ele")
-    sh.equipment.slots["legs"] = hybrid("legs", "enh")
-    sh._recalculate_derived_stats()
-    if GS.count(sh, H) != 3:
-        bad.append("mixed versions of one set did not all count toward it")
-    if GS.leading_variant(sh, H) != "enh":
-        bad.append("with 2 Enhancement and 1 Elemental piece the leading version is not Enhancement")
-    got = GS.active_bonuses(sh)
-    if got != {"attack_power": 30}:
-        bad.append(f"2 Enhancement + 1 Elemental should pay Enhancement's bonus only, paid {got}")
+    # Kyle's own example, scaled to six slots: 4 Enhancement + 2 Elemental
+    dress(sh, {"head": "enh", "shoulder": "enh", "chest": "enh", "hands": "enh", "legs": "ele", "feet": "ele"})
+    if GS.version_counts(sh, H) != {"enh": 4, "ele": 2}:
+        bad.append(f"4 Enhancement + 2 Elemental counted as {GS.version_counts(sh, H)}")
+    want = {"attack_power": 30, "stamina": 15, "spell_power": 30}
+    if GS.active_bonuses(sh) != want:
+        bad.append(f"4 Enhancement + 2 Elemental should pay Enhancement's 2 and 4 and Elemental's 2 "
+                   f"({want}); paid {GS.active_bonuses(sh)}")
+    # NO MIXING: three of one and one of the other is not a four-piece anything
+    dress(sh, {"head": "enh", "shoulder": "enh", "chest": "enh", "hands": "ele"})
+    if GS.active_bonuses(sh) != {"attack_power": 30}:
+        bad.append(f"3 Enhancement + 1 Elemental should pay only Enhancement's 2-piece; paid "
+                   f"{GS.active_bonuses(sh)} - versions are being mixed")
     it = sh.equipment.slots["head"]
     if (it.name, it.set_variant, it.primary_stats) != ("Enh head", "enh", {"strength": 10}):
         bad.append(f"an Enhancement piece is {it.name} / {it.set_variant} / {it.primary_stats}")
@@ -187,16 +194,43 @@ def main():
     if GS.exchange(it, "ele") or GS.exchange(it, "no_such_spec"):
         bad.append("an exchange to the same version, or to one the set does not have, 'succeeded'")
     sh._recalculate_derived_stats()
-    if GS.active_bonuses(sh) != {"spell_power": 30}:
-        bad.append("after exchanging the helm the bonus did not follow to Elemental")
+    # now 2 Enhancement (shoulder, chest) + 2 Elemental (head, hands)
+    if GS.active_bonuses(sh) != {"attack_power": 30, "spell_power": 30}:
+        bad.append(f"after exchanging the helm, 2 + 2 should pay both 2-piece bonuses; paid {GS.active_bonuses(sh)}")
     back2 = Item.from_dict(it.to_dict())
     if back2.set_variant != "ele" or back2.name != "Ele head":
         bad.append("an exchanged piece did not survive a save as the version it was exchanged to")
     card = GS.tooltip_lines(it, sh)
-    if not card or not card[0][0].startswith("Test Harness - Elemental (3/6)"):
-        bad.append(f"the card heading for a hybrid set reads {card[:1]}")
+    if not card or card[0][0] != "Test Harness - Elemental (2/6)":
+        bad.append(f"the card heading for an Elemental piece with 2 Elemental worn reads {card[:1]}")
+    if [k for _t, k in card].count("active") != 1:
+        bad.append("the card for a 2-piece version does not light exactly its 2-piece bonus")
     if not any(t.startswith("Exchange for: Enh head (Enhancement)") for t, _k in card):
         bad.append("the card does not say what the piece can be exchanged for")
+
+    # the exchange itself: free, at the capitals, Freewind Post and Booty Bay
+    from entities.party import Party
+    party = Party(sh)
+    spare = hybrid("legs", "enh")
+    sh.inventory.append(spare)
+    offers = GS.exchangeable(party)
+    if len(offers) != 5 or not any(o[1] is spare and o[2] == "in bags" for o in offers):
+        bad.append(f"the exchange should offer the 4 worn pieces and the 1 in the bags; it offers {len(offers)}")
+    sh.inventory.remove(spare)
+    import json
+    services = json.load(open("data/travel/travel_data.json"))["services"]
+    for npc, place in (("org_innkeeper", "Orgrimmar"), ("uc_innkeeper", "Undercity"),
+                       ("fw_innkeeper", "Freewind Post"), ("bootybay_tavern_keeper", "Booty Bay")):
+        if "set_exchange" not in services.get(npc, []):
+            bad.append(f"nobody in {place} offers the set exchange")
+    elsewhere = [n for n, v in services.items() if "set_exchange" in v]
+    if len(elsewhere) != 4:
+        bad.append(f"the set exchange is offered by {len(elsewhere)} NPCs, not the four Kyle named")
+    svc = Path("ui/screens/travel_service_screen.py").read_text()
+    if 'self.kind == "set_exchange"' not in svc or "price=None, label=\"Exchange\"" not in svc:
+        bad.append("the service screen has no free set-exchange list")
+    if '"set_exchange": "Exchange Set Gear"' not in Path("ui/screens/quest_dialog_screen.py").read_text():
+        bad.append("the NPC dialog has no Exchange Set Gear button")
     GS.all_sets().pop(H, None)
 
     # 7. shipped sets
