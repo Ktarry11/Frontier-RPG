@@ -101,6 +101,11 @@ class CombatEngine:
         #: name three, and losing a boss weapon matters more than losing a
         #: Choice Demon Horn.
         self.loot_missed = []
+        # What each ally remembers about THIS fight only (how often they have used an ability,
+        # who they hit last) - see Ability._cast_riders.
+        for _ally in self.party.members:
+            _ally._fight_uses = {}
+            _ally._attack_streak = (None, 0)
         self.copper_earned = 0     # coin dropped this fight (humanoids only), for the victory screen
         self.trash_gained = 0      # vendor trash items picked up this fight
         self.trash_value = 0       # their total sell value in copper

@@ -903,6 +903,22 @@ class Monster(StatusEffectMixin):
         return int(self.get_status_stat_mod("attack_power"))
 
     @property
+    def health(self):
+        """Maximum health, under the name a Character uses for it.
+
+        A Monster only ever had max_health, and everything that asks "how hurt is the target"
+        reads target.health - so against a real monster none of it fired: the 48 talents
+        worded "more damage to enemies below 35% health", execute thresholds, a recruit's
+        "+20% for each quarter of its health it has lost". The checks passed because their
+        harness wrote m.health onto the test monster by hand. Found 13 Nov 2026.
+        """
+        return self.max_health
+
+    @health.setter
+    def health(self, value):
+        self.max_health = value
+
+    @property
     def damage_output_multiplier(self):
         """Multiplier on this monster's outgoing damage from buffs/debuffs.
 

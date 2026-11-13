@@ -1477,6 +1477,7 @@ class StatusEffectMixin:
         """End of the holder's turn: pay out the effects that care whether they attacked."""
         attacked = bool(getattr(self, "_attacked_this_turn", False))
         self._attacked_this_turn = False
+        self._attacked_last_turn = attacked      # read by "punish what just attacked" abilities
         out = []
         for effect in list(self._effects()):
             if getattr(effect, "breaks_on_attack", False) and attacked:

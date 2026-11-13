@@ -2558,6 +2558,20 @@ class Ability:
     cast_bonus_pct = 0.0
     #: {"below": 50, "bonus": 30} - 30% more against a target under half health (Marisol).
     low_health_bonus = None
+    #: {"above": 60, "bonus": 100} - the mirror of low_health_bonus.
+    high_health_bonus = None
+    #: More damage the healthier the target: this many percent at full health, none at empty.
+    target_health_bonus_pct = 0.0
+    #: More damage to an enemy this caster has already hit this fight.
+    struck_before_bonus_pct = 0.0
+    #: More damage to an enemy that attacked on its last turn.
+    punish_attacker_bonus_pct = 0.0
+    #: {"pct": 25, "cap": 100} - per consecutive attack on the same target.
+    consecutive_target_bonus = None
+    #: {"pct": 12, "cap": 60} - per earlier use of this ability this fight.
+    per_use_bonus = None
+    #: Cannot miss, be dodged or be parried.
+    cannot_miss = False
     #: After the cast, every living ally is healed for this share of their own maximum health
     #: (Marco Rossi, "He Fixes Other Things": the small heal that comes with the cleanse).
     heals_party_pct_max = 0.0
@@ -2618,6 +2632,60 @@ class Ability:
             low = self.low_health_bonus
             if low and frac * 100 < float(low.get("below", 0)):
                 points += float(low.get("bonus", 0))
+            # --- seven more, 13 Nov: each was a plain attack whose text promised a condition ---
+            high = self.high_health_bonus
+            if high and frac * 100 >= float(high.get("above", 100)):
+                points += float(high.get("bonus", 0))
+            if self.target_health_bonus_pct:
+                points += self.target_health_bonus_pct * frac
+            if self.struck_before_bonus_pct and getattr(caster, "name", None) in (getattr(single, "_struck_by", None) or ()):
+                points += self.struck_before_bonus_pct
+            if self.punish_attacker_bonus_pct and getattr(single, "_attacked_last_turn", False):
+                points += self.punish_attacker_bonus_pct
+            streak = self.consecutive_target_bonus
+            if streak:
+                last, run = getattr(caster, "_attack_streak", (None, 0))
+                if last is single:
+                    points += min(float(streak.get("cap", 100)), float(streak.get("pct", 0)) * run)
+        per_use = self.per_use_bonus
+        if per_use:
+            used = (getattr(caster, "_fight_uses", None) or {}).get(self.ability_id, 0)
+            points += min(float(per_use.get("cap", 100)), float(per_use.get("pct", 0)) * used)
+        if self.cannot_miss and hasattr(caster, "apply_status_effect"):
+            # hit_rating and expertise in percent points: 100 of each leaves no miss, dodge or
+            # parry. A block is a reduction rather than avoidance, so the blow still lands.
+            from combat.status_effects import StatusEffect, EffectType
+            caster.apply_status_effect(StatusEffect(
+                "_cast_sure", self.name, EffectType.BUFF, 1,
+                stat_mods={"hit_rating": 100, "expertise": 100}, source_name=caster.name,
+                real_time_seconds=None))
+
+            def unsure():
+                effects = caster._effects()
+                effects[:] = [e for e in effects if e.effect_id != "_cast_sure"]
+                if hasattr(caster, "_recalculate_derived_stats"):
+                    caster._recalculate_derived_stats()
+            undo.append(unsure)
+        # what this cast will be remembered as, for the conditions above on later casts
+        if self.effect_type in ("damage", "spell_damage", "ranged_damage", "dot", "spell_dot", "damage_and_heal"):
+            uses = getattr(caster, "_fight_uses", None)
+            if uses is None:
+                uses = {}
+                try:
+                    caster._fight_uses = uses
+                except Exception:
+                    pass
+            uses[self.ability_id] = uses.get(self.ability_id, 0) + 1
+            if single is not None:
+                last, run = getattr(caster, "_attack_streak", (None, 0))
+                try:
+                    caster._attack_streak = (single, run + 1 if last is single else 1)
+                    struck = getattr(single, "_struck_by", None)
+                    if struck is None:
+                        struck = single._struck_by = set()
+                    struck.add(getattr(caster, "name", None))
+                except Exception:
+                    pass
         if points:
             # As a one-cast buff on the caster, NOT by scaling effect_value: most of a hit or a
             # heal is the caster's attack or spell power, so doubling the ability's own base
@@ -4797,7 +4865,8 @@ def _ability_from_data(entry):
     # Riders that bend one cast (see Ability._cast_riders). Set here rather than threaded
     # through a constructor that already takes ninety arguments.
     for key in ("armor_ignore_pct", "missing_health_bonus_pct", "heals_lowest_ally_pct",
-                "cast_bonus_pct", "heals_party_pct_max"):
+                "cast_bonus_pct", "heals_party_pct_max", "target_health_bonus_pct",
+                "struck_before_bonus_pct", "punish_attacker_bonus_pct"):
         if entry.get(key):
             setattr(ability, key, float(entry[key]))
     if entry.get("self_stun_turns"):
@@ -4809,6 +4878,11 @@ def _ability_from_data(entry):
             setattr(ability, key, True)
     if isinstance(entry.get("low_health_bonus"), dict):
         ability.low_health_bonus = dict(entry["low_health_bonus"])
+    for key in ("high_health_bonus", "consecutive_target_bonus", "per_use_bonus"):
+        if isinstance(entry.get(key), dict):
+            setattr(ability, key, dict(entry[key]))
+    if entry.get("cannot_miss"):
+        ability.cannot_miss = True
     return ability
 
 

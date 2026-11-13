@@ -310,7 +310,7 @@
         "ability_id": "personal_emre_a_short_conversation",
         "name": "A Short Conversation",
         "from": "'every lock is a short conversation with somebody who isn't in the room'",
-        "engine": "needs: guaranteed-hit flag that also bypasses dodge/parry/block",
+        "engine": "live: cannot_miss - no miss, dodge or parry",
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "energy",
@@ -326,13 +326,14 @@
             "cost": 30,
             "effect_value": 85
           }
-        ]
+        ],
+        "cannot_miss": true
       },
       {
         "ability_id": "personal_emre_the_thing_behind_the_door",
         "name": "The Thing Behind the Door",
         "from": "'once, with his picks still in the mechanism, the thing behind the door asked him a question. He got the door open. He's never said whether he answered.'",
-        "engine": "needs: damage scaled UP by target's current health fraction",
+        "engine": "live: target_health_bonus_pct - up to 50% more against a full-health enemy",
         "effect_type": "spell_damage",
         "damage_school": "shadow",
         "target_type": "enemy",
@@ -349,7 +350,8 @@
             "effect_value": 120
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "target_health_bonus_pct": 50
       },
       {
         "ability_id": "personal_emre_one_door_closes",
@@ -1065,7 +1067,7 @@
         "ability_id": "personal_ivan_committed_middle",
         "name": "Committed Middle",
         "from": "'He maintains a two-handed weapon the same way: slow start, committed middle, and knowing exactly how long it takes to stop.'",
-        "engine": "needs: damage that scales with consecutive turns attacking the same target",
+        "engine": "live: consecutive_target_bonus - 25% per attack in a row on the same target, to 100%",
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "rage",
@@ -1080,7 +1082,11 @@
             "cost": 15,
             "effect_value": 70
           }
-        ]
+        ],
+        "consecutive_target_bonus": {
+          "pct": 25,
+          "cap": 100
+        }
       },
       {
         "ability_id": "personal_ivan_he_never_hit_one",
@@ -1411,7 +1417,7 @@
         "ability_id": "personal_haruto_a_single_stroke",
         "name": "A Single Stroke",
         "from": "'The discipline is a single stroke, studied until the hand no longer requires the mind.'",
-        "engine": "needs: attack that cannot miss and always crits, usable once per fight",
+        "engine": "live: cannot_miss and always_crits",
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "mana",
@@ -1427,7 +1433,9 @@
             "effect_value": 130
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "cannot_miss": true,
+        "always_crits": true
       },
       {
         "ability_id": "personal_haruto_eleven_years_before_praise",
@@ -2925,7 +2933,7 @@
         "ability_id": "personal_eino_the_same_axe",
         "name": "The Same Axe",
         "from": "'The axe is the same axe.'",
-        "engine": "needs: attack whose damage rises with repeated identical use",
+        "engine": "live: per_use_bonus - 12% per earlier use this fight, to 60%",
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "energy",
@@ -2940,13 +2948,17 @@
             "cost": 15,
             "effect_value": 65
           }
-        ]
+        ],
+        "per_use_bonus": {
+          "pct": 12,
+          "cap": 60
+        }
       },
       {
         "ability_id": "personal_eino_timber_the_size_of_towers",
         "name": "Timber the Size of Towers",
         "from": "'Winterspring. Snow, dark, and timber the size of towers.'",
-        "engine": "needs: single-target felling strike against high-health enemies",
+        "engine": "live: high_health_bonus - double damage above 60% health",
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "energy",
@@ -2962,7 +2974,11 @@
             "effect_value": 110
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "high_health_bonus": {
+          "above": 60,
+          "bonus": 100
+        }
       },
       {
         "ability_id": "personal_eino_six_months_of_dark",
@@ -3357,7 +3373,7 @@
         "ability_id": "personal_ratih_a_route_she_drew_herself",
         "name": "A Route She Drew Herself",
         "from": "'walking a route she drew herself, looking for the one wrong thing'",
-        "engine": "needs: ranged strike at any row",
+        "engine": "live: high_health_bonus - 40% more to a full-health target",
         "effect_type": "ranged_damage",
         "target_type": "enemy",
         "resource_type": "archery_points",
@@ -3373,7 +3389,11 @@
             "effect_value": 85
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "high_health_bonus": {
+          "above": 100,
+          "bonus": 40
+        }
       },
       {
         "ability_id": "personal_ratih_signed_none_of_the_reports",
@@ -4002,7 +4022,7 @@
         "ability_id": "personal_matias_the_same_forty_faces",
         "name": "The Same Forty Faces",
         "from": "'A route, a fare box, and the same forty faces every morning.'",
-        "engine": "needs: damage bonus against a target already struck this fight",
+        "engine": "live: struck_before_bonus_pct - 30% more to anything he has already hit this fight",
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "mana",
@@ -4017,7 +4037,8 @@
             "cost": 15,
             "effect_value": 70
           }
-        ]
+        ],
+        "struck_before_bonus_pct": 30
       },
       {
         "ability_id": "personal_matias_clicks_it_twice",
@@ -4375,7 +4396,7 @@
         "ability_id": "personal_adrian_when_you_were_in_the_wrong",
         "name": "When You Were in the Wrong",
         "from": "'he is the only man in any party who will tell you honestly when you were in the wrong'",
-        "engine": "needs: punish an enemy for its last action",
+        "engine": "live: punish_attacker_bonus_pct - 50% more to an enemy that attacked on its last turn",
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "combo",
@@ -4391,7 +4412,8 @@
             "effect_value": 85
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "punish_attacker_bonus_pct": 50
       }
     ]
   },
