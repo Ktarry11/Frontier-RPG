@@ -22,8 +22,7 @@ sys.path.insert(0, os.path.join(ROOT, "tools"))
 os.chdir(ROOT)
 
 #: Pieces missing today. Lower it when you site some; never raise it.
-CEILING = 133      # 134 while one Glittervein scatter mushroom landed on rock; back to 133 on 13 Nov when the
-                   # Tarren Mill granary was re-sited and appears again. It can only fall.
+CEILING = 131      # falls as pieces are re-sited or the overlap pass makes room; it can only fall. 131 on 13 Nov 2026.
 #: Early-game towns must have every building they were given.
 MUST_BE_WHOLE = ("brill", "razor_hill", "orgrimmar", "durotar", "deathknell", "undercity", "vot")
 

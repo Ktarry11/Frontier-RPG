@@ -1,0 +1,447 @@
+{
+  "_notes": "Blackfathom Deeps boss loot (2026-11-13). ONE item drops per kill from the pool. item_level = boss level + 3; hand-authored in tools/build_blackfathom_loot.py.",
+  "Ghamoo-ra": [
+    {
+      "name": "Ghamoo-ra's Shellplate Girdle",
+      "slot": "waist",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "primary_stats": {
+        "strength": 6,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 158
+    },
+    {
+      "name": "Carapace of the Old Snapper",
+      "slot": "off_hand",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 7
+      },
+      "armor_value": 59,
+      "block_value": 73
+    },
+    {
+      "name": "Tide-Worn Wristguards",
+      "slot": "wrist",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "primary_stats": {
+        "intellect": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 105
+    },
+    {
+      "name": "Snapjaw Hide Boots",
+      "slot": "feet",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "primary_stats": {
+        "agility": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 65
+    }
+  ],
+  "Lady Sarevess": [
+    {
+      "name": "Sarevess's Recurve",
+      "slot": "ranged",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "weapon_type": "bow",
+      "primary_stats": {
+        "agility": 5
+      },
+      "secondary_stats": {
+        "attack_power": 10
+      },
+      "weapon_damage_min": 47,
+      "weapon_damage_max": 63,
+      "attack_speed": 2.8
+    },
+    {
+      "name": "Coilscale Hauberk",
+      "slot": "chest",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "primary_stats": {
+        "agility": 8,
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "attack_power": 14
+      },
+      "armor_type": "mail",
+      "armor_value": 152
+    },
+    {
+      "name": "Sea-Witch's Circlet",
+      "slot": "head",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "primary_stats": {
+        "intellect": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {
+        "spell_power": 5
+      },
+      "armor_type": "cloth",
+      "armor_value": 40
+    },
+    {
+      "name": "Band of the Drowned Shrine",
+      "slot": "ring",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "primary_stats": {
+        "agility": 5,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "attack_power": 8
+      }
+    }
+  ],
+  "Gelihast": [
+    {
+      "name": "Gelihast's Tidecaller",
+      "slot": "main_hand",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "intellect": 6,
+        "spirit": 6
+      },
+      "secondary_stats": {
+        "healing_power": 6
+      },
+      "weapon_damage_min": 55,
+      "weapon_damage_max": 74,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Reef-Scale Gauntlets",
+      "slot": "hands",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "primary_stats": {
+        "agility": 8,
+        "intellect": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 105
+    },
+    {
+      "name": "Murk-Silt Leggings",
+      "slot": "legs",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "primary_stats": {
+        "stamina": 8,
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "healing_power": 6
+      },
+      "armor_type": "leather",
+      "armor_value": 95
+    },
+    {
+      "name": "Oracle's Fin Cloak",
+      "slot": "back",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "primary_stats": {
+        "intellect": 5,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "mp5": 1
+      },
+      "armor_type": "cloth",
+      "armor_value": 29
+    }
+  ],
+  "Lorgus Jett": [
+    {
+      "name": "Jett's Thunder Maul",
+      "slot": "main_hand",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 8
+      },
+      "secondary_stats": {
+        "hit_rating": 1,
+        "crit_chance_physical": 1
+      },
+      "weapon_damage_min": 74,
+      "weapon_damage_max": 101,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Stormcaller's Mantle",
+      "slot": "shoulder",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "primary_stats": {
+        "spirit": 9,
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "healing_power": 5
+      },
+      "armor_type": "mail",
+      "armor_value": 128
+    },
+    {
+      "name": "Hammerbound Bracers",
+      "slot": "wrist",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "primary_stats": {
+        "strength": 6,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 158
+    },
+    {
+      "name": "Twilight Litany",
+      "slot": "off_hand",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "spell_power": 7
+      }
+    }
+  ],
+  "Old Serra'kis": [
+    {
+      "name": "Thresher's Tooth",
+      "slot": "main_hand",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 7
+      },
+      "secondary_stats": {
+        "hit_rating": 1,
+        "crit_chance_physical": 1
+      },
+      "weapon_damage_min": 55,
+      "weapon_damage_max": 74,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Serra'kis Hide Tunic",
+      "slot": "chest",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "primary_stats": {
+        "agility": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "attack_power": 14
+      },
+      "armor_type": "leather",
+      "armor_value": 95
+    },
+    {
+      "name": "Deepwater Legguards",
+      "slot": "legs",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "primary_stats": {
+        "strength": 8,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "defense_rating": 1
+      },
+      "armor_type": "plate",
+      "armor_value": 228
+    },
+    {
+      "name": "Fishbone Pendant",
+      "slot": "neck",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "primary_stats": {
+        "agility": 5,
+        "stamina": 6
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Twilight Lord Kelris": [
+    {
+      "name": "Rod of the Sleepwalker",
+      "slot": "main_hand",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "weapon_type": "staff",
+      "primary_stats": {},
+      "secondary_stats": {
+        "shadow_spell_power": 35
+      },
+      "weapon_damage_min": 30,
+      "weapon_damage_max": 41,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Gaze-Dreamer's Robes",
+      "slot": "chest",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "primary_stats": {
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "spell_power": 9,
+        "mp5": 2
+      },
+      "armor_type": "cloth",
+      "armor_value": 47
+    },
+    {
+      "name": "Kelris's Dreamweave Gloves",
+      "slot": "hands",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "primary_stats": {
+        "intellect": 8,
+        "spirit": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 32
+    },
+    {
+      "name": "Twilight Lord's Blade",
+      "slot": "main_hand",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "strength": 7,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "defense_rating": 1
+      },
+      "weapon_damage_min": 55,
+      "weapon_damage_max": 74,
+      "attack_speed": 2.4
+    }
+  ],
+  "Aku'mai": [
+    {
+      "name": "Strike of the Hydra",
+      "slot": "main_hand",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "weapon_type": "sword_2h",
+      "primary_stats": {
+        "strength": 7,
+        "agility": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 74,
+      "weapon_damage_max": 101,
+      "attack_speed": 3.4
+    },
+    {
+      "name": "Moss Cinch",
+      "slot": "waist",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "primary_stats": {
+        "agility": 8,
+        "spirit": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 65
+    },
+    {
+      "name": "Leech-Silk Trousers",
+      "slot": "legs",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "primary_stats": {
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "spell_power": 9,
+        "crit_chance_spell": 1
+      },
+      "armor_type": "cloth",
+      "armor_value": 47
+    },
+    {
+      "name": "Three-Crowned Helm",
+      "slot": "head",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 26,
+      "primary_stats": {
+        "strength": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 193
+    }
+  ]
+}
