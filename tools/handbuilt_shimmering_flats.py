@@ -332,7 +332,10 @@ BASE = {"salt": 0.46, "hard": 0.26, "clay": 0.18, "rock": 0.10}
 PAINT = {}
 COBBLE = []
 NPC_POSITIONS = {}
-CHESTS = [(24, 74), (104, 44), (132, 104), (172, 118)]
+#: Two of the four were aimed at cliff (13 Nov 2026): (24, 74) was dropped without a word and the
+#: map showed three chests, and (172, 118) was nudged to the nearest floor. Both are on reachable
+#: sand now and tools/qa_flats_chests.py counts them.
+CHESTS = [(20, 82), (105, 45), (132, 104), (172, 116)]
 FOREST = None
 
 
