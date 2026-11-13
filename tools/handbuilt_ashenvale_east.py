@@ -317,15 +317,15 @@ def dress(L):
 
     # ---- The Crossing: the hub - a ranger waystation, signposts, the fork stones ------------------------------
     P("br_signpost", 100, 109, 5)
-    L.bld("generic_tent_a", 90, 100, 4)
+    L.bld("orc_quartermaster_post", 90, 100, 4)
     L.dp("vot_fire_pit", 91, 107, 2, solid=False)
     L.dp("vot_crate_stack", 87, 103, 3)
 
     # ---- Warsong Lumber Camp: a Horde logging camp in a stump-field clearing ---------------------------------
     L.bld("frontier_barracks", 50, 47, 9)
-    L.bld("generic_tent_b", 36, 45, 4)
-    L.bld("generic_tent_a", 34, 54, 4)
-    L.bld("hide_tanners_hut", 48, 57, 5)
+    L.bld("orc_supply_store", 36, 45, 4)
+    L.bld("orc_quartermaster_post", 34, 54, 4)
+    L.bld("orc_smokehouse", 48, 57, 5)
     L.bld("watchtower", 52, 57, 9)
     P("br_caravan_wagon", 40, 59, 4)
     for (lx, ly) in ((44, 44), (47, 52), (37, 50), (55, 52)):

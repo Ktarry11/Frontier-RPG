@@ -185,7 +185,7 @@ def dress(L):
     p("ek_cross_crows", 98, 95, 4)
     p("ek_thorn_bush", 96, 91, 2, solid=False)
     # ---- Brill's west gate
-    b("palisade_gatehouse", 113, 88, 7, solid=False, road_ok=True, nudge=0)
+    # (no orc palisade gatehouse in Tirisfal - world/exit_frames.py stands a lychgate over the road)
     b("watchtower", 105, 80, 9, nudge=1)
     p("ek_forsaken_banner", 109, 82, 5)
     p("ek_forsaken_banner", 109, 84, 5, nudge=1)
@@ -234,7 +234,7 @@ def dress(L):
     p("ek_signpost", 61, 54, 4)
     # ---- Agamand Mills: an overrun mill, its race poisoned
     b("forsaken_house_medium", 80, 36, 9, nudge=2)
-    b("well_house", 74, 42, 5, nudge=2)
+    # (the orc well house on its sand disc is gone; a farm does not need it)
     p("ek_plague_cart", 88, 40, 4)
     p("ek_plague_cauldron", 78, 42, 3)
     p("ek_farm_fence", 92, 46, 3, solid=True)

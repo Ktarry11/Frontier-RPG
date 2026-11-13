@@ -242,7 +242,7 @@ def dress(L):
     # ---- the palisade ring itself: posts on the inside of the wall, gates marked -------------------
     for (x, y) in [(22, 6), (42, 6), (58, 22), (58, 34), (22, 53), (46, 53), (56, 10), (54, 46)]:
         D("vot_palisade", x, y, 4, solid=False, nudge=1)
-    B("palisade_gatehouse", 26, 52, 8, road_ok=True, nudge=1)
+    B("orc_great_gatehouse", 26, 52, 8, road_ok=True, nudge=1)
     B("gg_watchtower", 38, 47, 10, nudge=3)
     D("vot_war_banner", 30, 50, 5)
     L.prop("stv_arena_standard", 36, 49, 5, path_dir=SP)

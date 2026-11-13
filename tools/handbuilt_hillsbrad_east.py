@@ -298,7 +298,7 @@ def dress(L):
     p("ek_dead_oak", 100, 88, 6)
 
     # ---- Nethander Stead: ogres squatting an abandoned farm
-    b("generic_shack_b", 122, 114, 8, nudge=2)
+    b("ek_cottage_small", 122, 114, 8, nudge=2)
     p(HF + "burned_house_ruin.png", 130, 120, 7)
     p("ek_farm_cart", 116, 120, 4)
     p("ek_haystack", 126, 108, 4)

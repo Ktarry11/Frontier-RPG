@@ -173,7 +173,7 @@ def dress(L):
     p, b = L.prop, L.bld
     UF, HF, CI, UC = T.UFP, T.HFP, T.CIP, T.UCP
     # ---- Brill's east gate and the bypass road in from Western Tirisfal
-    b("palisade_gatehouse", 7, 91, 7, solid=False, road_ok=True, nudge=0)
+    # (no orc palisade gatehouse in Tirisfal - world/exit_frames.py stands a lychgate over the road)
     p("ek_forsaken_banner", 10, 83, 5)
     p("ek_signpost", 14, 85, 4)
     p("ek_signpost", 10, 60, 4)

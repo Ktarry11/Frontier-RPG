@@ -332,11 +332,11 @@ def dress(L):
 
     # ---- the fork at the bluff: where the coast road splits to Zoram and Blackfathom ----------------------------
     P("br_signpost", 28, 52, 5)
-    L.bld("generic_tent_a", 38, 48, 4)
+    L.bld("orc_quartermaster_post", 38, 48, 4)
     L.dp("vot_fire_pit", 34, 50, 2, solid=False)
 
     # ---- bluff camp on the coast road (a ranger waystation) -------------------------------------------------
-    L.bld("generic_tent_a", 48, 98, 4)
+    L.bld("orc_quartermaster_post", 48, 98, 4)
     L.dp("vot_fire_pit", 44, 100, 2, solid=False)
     L.dp("vot_crate_stack", 51, 100, 3)
     L.cp("driftwood_pile", 30, 128, 3, shore_ok=True)
@@ -404,7 +404,7 @@ def dress(L):
     A("dead_corrupted_tree", 182, 172, 7)
     L.dp("skull_pile", 180, 174, 2)
     L.dp("vot_beast_ribcage", 186, 170, 3)
-    L.bld("generic_tent_b", 152, 166, 4)
+    L.bld("orc_supply_store", 152, 166, 4)
     L.dp("vot_fire_pit", 148, 168, 2, solid=False)
     A("rock_outcrop_large", 190, 160, 5)
     P("br_signpost", 134, 158, 5)

@@ -268,7 +268,7 @@ def dress(L):
     _veg(L, "stv_palm_young", 24, 5, 10, path_dir=SP)
 
     # ---- the ramp foot: toll post and the harbourmaster's tower, first thing off the cliff --------
-    B("guard_post", 47, 21, 6, nudge=2)
+    B("bb_lean_shack", 47, 21, 6, nudge=2)
     B("bb_harbourmaster_tower", 46, 28, 10, nudge=3)
     D("vot_crate_stack", 44, 21, 3)
     P("br_signpost", 43, 22, 5)

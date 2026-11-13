@@ -67,7 +67,7 @@ CHESTS = [(34, 24), (78, 54)]
 def dress(L):
     A, B, F, V = L.p, L.b, L.f, L.v
     # ---- the south gate: palisade gatehouse over the road, towers either side, banners
-    V("palisade_gatehouse", 45, 60, 9)
+    V("orc_great_gatehouse", 45, 60, 9)
     B("watchtower", 35, 65, 13)
     B("watchtower", 55, 65, 13)
     A("vot_war_banner", 40, 63, 6)
@@ -80,7 +80,7 @@ def dress(L):
     A("ash_orc_trophy_pole", 39, 41, 6, solid="core")        # captured glaives, tattered banner: why the post is here
     A("rf_brazier", 52, 33, 4)
     # ---- west: barracks, forge, the burned flank
-    B("outpost_barracks", 21, 36, 9)
+    B("orc_barracks_longhouse", 21, 36, 9)
     A("weapon_rack", 29, 38, 4)
     B("grand_forge", 26, 56, 9)
     A("rf_tool_rack", 33, 55, 3)
@@ -91,7 +91,7 @@ def dress(L):
     # ---- east: supply depot and the lumber yard
     B("supply_depot", 67, 41, 11)
     A("rf_supply_crates", 65, 41, 3)
-    B("guard_post", 80, 27, 8)
+    B("orc_guard_post", 80, 27, 8)
     for (x, y) in [(66, 21), (77, 21)]:
         A("vot_fallen_log", x, y, 3, solid="core")
     A("ash_log_pile", 71, 20, 4)
@@ -101,10 +101,10 @@ def dress(L):
     A("rf_tool_rack", 79, 23, 3)
     A("gob_tarp_leanto", 71, 31, 6)
     # ---- south-east: inn, staging tents, well
-    B("crossroads_inn", 68, 55, 10)
-    B("well_house", 56, 53, 6)
-    B("generic_tent_a", 77, 61, 8)
-    B("generic_tent_b", 69, 64, 7)
+    B("orc_mess_hall", 68, 55, 10)
+    B("orc_smokehouse", 56, 53, 6)
+    B("orc_quartermaster_post", 77, 61, 8)
+    B("orc_supply_store", 69, 64, 7)
     A("vot_crate_stack", 60, 55, 3)
     # ---- the north flank: a roost for the flight master, trees
     A("vot_totem_pole", 62, 24, 7)

@@ -188,7 +188,7 @@ def dress(L):
     # The smithy was authored at (67,57) with a one-tile nudge, on top of the crates and the
     # medium house, so it was refused and BRILL HAD NO FORGE BUILDING - only the forge tile.
     # It goes in first now, south of the houses and over its tile; the cart moved along.
-    b("smithy", 69, 60, 7, nudge=2)                                       # Brill's forge (tile at 67,60)
+    b("ek_smithy_forge", 69, 60, 7, nudge=2)                                       # Brill's forge (tile at 67,60)
     p("ek_plague_cart", 76, 59, 4)
     p("ek_signpost", 72, 46, 4)
     # ---- the south plots

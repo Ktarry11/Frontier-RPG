@@ -271,10 +271,10 @@ def dress(L):
     T.grove(L, 140, 76, 6, 6, 6, OAKS, seed=2)
 
     # ---- Hillsbrad Fields: the green heart. Worked farms, hedgerows, scarecrows.
-    b("generic_house_a", 94, 72, 9, nudge=2)
-    b("generic_house_b", 108, 84, 9, nudge=2)
-    b("generic_shack_a", 78, 86, 7, nudge=2)
-    b("generic_house_b", 82, 60, 9, nudge=2)
+    b("ek_cottage_medium", 94, 72, 9, nudge=2)
+    b("ek_townhouse", 108, 84, 9, nudge=2)
+    b("ek_cottage_small", 78, 86, 7, nudge=2)
+    b("ek_townhouse", 82, 60, 9, nudge=2)
     p("ek_farm_well", 98, 78, 4)
     p("ek_farm_cart", 104, 74, 4)
     p("ek_farm_cart", 82, 90, 4)
@@ -326,10 +326,10 @@ def dress(L):
 
     # ---- Southshore: the Alliance port. Hostile ground - no inn for you.
     b("crossroads_inn", 90, 124, 10, nudge=2)
-    b("generic_house_a", 102, 126, 9, nudge=2)
-    b("harbor_tower", 84, 132, 9, nudge=2)
-    b("guard_post", 100, 134, 7, nudge=2)
-    b("generic_house_b", 78, 124, 9, nudge=2)
+    b("ek_cottage_medium", 102, 126, 9, nudge=2)
+    b("ek_border_watchtower", 84, 132, 9, nudge=2)
+    b("ek_boathouse", 100, 134, 7, nudge=2)
+    b("ek_townhouse", 78, 124, 9, nudge=2)
     p(CO + "mooring_posts.png", 92, 136, 3, shore_ok=True)
     p(CO + "fish_crates_traps.png", 96, 135, 3)
     p(CO + "dock_lantern_post.png", 89, 135, 4)
