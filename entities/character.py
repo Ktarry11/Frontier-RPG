@@ -4167,6 +4167,17 @@ class Character(StatusEffectMixin):
         elif not char.recruit_id:
             char.enable_training(grandfather=True)
 
+        # RACIAL AND PERSONAL ABILITIES ARE NOT SAVED - they are what the character IS, so
+        # they are put back here from the data, before the hotbar is checked against the
+        # book. Without this an Orc kept Blood Fury until the first save and lost it on the
+        # load (the passive half survived, the abilities did not), and only companions got
+        # theirs back, because only world/recruit_manager.py ever called grant().
+        try:
+            from world.personal_kits import grant
+            grant(char)
+        except Exception:
+            pass   # a broken kit file must not stop a save loading
+
         char._recalculate_derived_stats()
         char.current_health = data.get("current_health", char.health)
         char.current_mana = data.get("current_mana", char.mana)

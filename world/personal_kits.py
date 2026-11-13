@@ -105,6 +105,21 @@ def get_kit(recruit_id):
     return kits().get(recruit_id)
 
 
+def racial_of(character):
+    """The racial block this character carries, or None.
+
+    A COMPANION HAS NONE. All 68 are drawn as humans, so each was handed the Azerothian Human
+    racial - the same "Every Man for Himself", "Perception" and "The Human Spirit" on 67 Core
+    tabs. They are people from Earth, not natives (Kyle's standing rule, and the note at the
+    top of racials.json says exactly this: "RECRUITS GET NOTHING FROM THIS FILE"); what makes
+    each of them different is their personal kit. Kyle, [10]: "Recruits need to feel unique -
+    not all the same human racials."
+    """
+    if getattr(character, "recruit_id", None):
+        return None
+    return get_racial(getattr(character, "race", None))
+
+
 def get_racial(race):
     """The racial block for this race, or None."""
     if not race:
@@ -163,7 +178,7 @@ def passive_entries_for(character):
     out = []
     for source, block, fallback in (
             ("Personal", (get_kit(getattr(character, "recruit_id", None)) or {}).get("passives"), "Personal Trait"),
-            ("Racial", (get_racial(getattr(character, "race", None)) or {}).get("passives"),
+            ("Racial", (racial_of(character) or {}).get("passives"),
              f"{str(getattr(character, 'race', '') or '').replace('_', ' ').title()} Heritage")):
         if not isinstance(block, dict):
             continue
@@ -193,7 +208,7 @@ def passives_for(character):
     if kit:
         for k, v in _scalars(kit.get("passives")).items():
             total[k] = total.get(k, 0) + v
-    racial = get_racial(getattr(character, "race", None))
+    racial = racial_of(character)
     if racial:
         for k, v in _scalars(racial.get("passives")).items():
             total[k] = total.get(k, 0) + v
@@ -206,7 +221,7 @@ def ability_entries_for(character):
     kit = get_kit(getattr(character, "recruit_id", None))
     if kit:
         out.extend(a for a in (kit.get("abilities") or []) if isinstance(a, dict))
-    racial = get_racial(getattr(character, "race", None))
+    racial = racial_of(character)
     if racial:
         out.extend(a for a in (racial.get("abilities") or []) if isinstance(a, dict))
     return out
@@ -228,6 +243,10 @@ def grant(character):
         return 0
     from combat.abilities import _ability_from_data
     added = 0
+    # A companion saved before racials came off them still has the two in their book.
+    if getattr(character, "recruit_id", None):
+        for ability_id in [a for a in list(book.abilities) if str(a).startswith("racial_")]:
+            del book.abilities[ability_id]
     for entry in ability_entries_for(character):
         try:
             book.add_ability(_ability_from_data(entry))

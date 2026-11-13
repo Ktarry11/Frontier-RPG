@@ -89,13 +89,14 @@ def main():
                 findings.append(f"{r.name}: missing kit abilities {missing}")
 
         race = getattr(ch, "race", None)
-        rac = pk.get_racial(race)
-        if rac:
-            want = {a["ability_id"] for a in (rac.get("abilities") or [])
-                    if isinstance(a, dict) and a.get("ability_id")}
-            missing = sorted(want - have)
-            if missing:
-                findings.append(f"{r.name} ({race}): missing racials {missing}")
+# A COMPANION CARRIES NO RACIAL (Kyle, [10]: "not all the same human racials"). This
+        # check used to demand the Human racial on all of them, which is how 67 companions
+        # came to share one Core tab; tools/qa_racials.py holds the rule now.
+        if pk.racial_of(ch) is not None:
+            findings.append(f"{r.name} ({race}): a companion was given the {race} racial")
+        extra = sorted(a for a in ch.ability_book.abilities if str(a).startswith("racial_"))
+        if extra:
+            findings.append(f"{r.name} ({race}): carries racial abilities {extra}")
 
         # the quiet half - does a passive actually move the stat, by the right amount?
         passives = pk.passives_for(ch)

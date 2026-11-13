@@ -310,6 +310,12 @@ class CharacterCreationScreen(BaseScreen):
         race = self._current_race()
         gender_option = self._current_gender_option()
         char.race = race.race_id
+        # What the character has for being what it is: an Orc's Blood Fury, a Tauren's War
+        # Stomp. The race is only known from this line on, so this is the first moment the
+        # racial abilities can be given - and nothing gave them, so a new character had its
+        # race's passive and none of its abilities.
+        from world.personal_kits import grant
+        grant(char)
         char.gender = gender_option.gender_id if gender_option else "male"
         char.appearance_variant = self.selected_variant
 
