@@ -43,7 +43,10 @@ def main():
         said.setdefault((n.greeting or "").strip(), []).append(n)
     for stem, rec in done.items():
         quests = json.load(open(f"data/quests/{stem}.json")).get("quests", [])
-        zones = {A.slug(q.get("zone")) for q in quests if isinstance(q, dict)} | {A.slug(z) for z in rec.get("npc_zones", [])}
+        # The maps whose NPCs this pass covered: named in the record when a quest file reaches
+        # into maps that belong to another pass (Tirisfal's file has quests set in Undercity).
+        zones = ({A.slug(z) for z in rec["npc_zones"]} if rec.get("npc_zones")
+                 else {A.slug(q.get("zone")) for q in quests if isinstance(q, dict)})
         for q in quests:
             for o in q.get("objectives", []):
                 if o.get("type") == "explore" and o.get("target_x") is not None and not o.get("label"):

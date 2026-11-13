@@ -102,6 +102,31 @@ class World:
             for d in ds:
                 self.carriers.setdefault(d.get("item_id"), set()).add(creature)
 
+    def next_door(self, map_key, creature):
+        """[(place name, door x, door y)] for a creature that lives on a map this one has a door to."""
+        name, _tm = self.maps[map_key]
+        out = []
+        for (px, py) in self.zm.portal_manager.get_portal_positions(name) or []:
+            dest = self.zm.portal_manager.get_destination(name, px, py)
+            dkey = slug(dest[0]) if dest else None
+            if dkey not in self.maps:
+                continue
+            keep = getattr(self, "_from", None)
+            self._from = (dest[1], dest[2])                 # measured from where you arrive
+            there = self.places(dkey, creature)
+            self._from = keep
+            if there is None:
+                continue
+            if there:
+                # The bearing people give is the one in the country outside: "Thunder Ridge,
+                # north of town" is true even when the town's only gate faces south. So the
+                # place is laid out from the giver as it lies from the point you arrive at.
+                gx, gy = keep if keep else (px, py)
+                out.extend((label, gx + (x - dest[1]), gy + (y - dest[2])) for label, x, y in there)
+            else:
+                out.append((self.maps[dkey][0], px, py))     # roams that whole map: point at the gate
+        return out
+
     def anywhere(self, creature):
         from world.quest_locator import locate
         try:
@@ -124,7 +149,15 @@ class World:
                 known = True
                 rect = next((s for s in tm.subzones if s.get("table_key") == key or s.get("name") == key), None)
                 if rect is not None:
-                    out.append((sz.get("name") or key, rect["x"] + rect["w"] / 2, rect["y"] + rect["h"] / 2))
+                    # the nearest point of the subzone to the giver, not its middle: someone
+                    # standing inside it, or on its edge, is AT the place
+                    gx, gy = getattr(self, "_from", (rect["x"] + rect["w"] / 2, rect["y"] + rect["h"] / 2))
+                    nx = min(max(gx, rect["x"]), rect["x"] + rect["w"])
+                    ny = min(max(gy, rect["y"]), rect["y"] + rect["h"])
+                    if (nx, ny) != (gx, gy):           # outside: aim a little way in, not at the fence
+                        cx, cy = rect["x"] + rect["w"] / 2, rect["y"] + rect["h"] / 2
+                        nx, ny = nx + (cx - nx) * 0.35, ny + (cy - ny) * 0.35
+                    out.append((sz.get("name") or key, nx, ny))
         for key, cave in (table.get("caves") or {}).items():
             if creature in (cave.get("creatures") or {}):
                 known = True
@@ -174,10 +207,12 @@ def audit(world, stems):
             if giver is None or giver[0] not in world.maps:
                 continue
             gmap, gx, gy, _gname = giver
+            world._from = (gx, gy)
             text = " ".join(str(q.get(k, "")) for k in ("accept_text", "description"))
             words = said(text)
-            targets, unplaced = [], []
+            targets, unplaced, groups = [], [], []
             for o in q["objectives"]:
+                groups.append(len(targets))            # where this objective's places start
                 kind, tgt = o.get("type"), o.get("target")
                 if kind == "explore" and o.get("target_x") is not None and slug(tgt) == gmap:
                     targets.append((o.get("label") or "the place", o["target_x"], o["target_y"]))
@@ -192,21 +227,36 @@ def audit(world, stems):
                 for c in creatures:
                     where = world.places(gmap, c)
                     if where is None:
-                        # not on the giver's map: fine if it lives somewhere. Nowhere at all is the bug.
-                        if not world.anywhere(c):
+                        # Not on the giver's map. If it lives on a map one door away - a town
+                        # giver sending you into the country round the town - the direction is
+                        # the way to that door, and the place still has a name to say.
+                        through = world.next_door(gmap, c)
+                        if through:
+                            targets.extend(through)
+                        elif not world.anywhere(c):
                             unplaced.append(f"{c} is in no spawn table or dungeon anywhere")
                         continue
                     targets.extend(where)
             for u in unplaced:
                 findings["UNPLACED"].append((stem, q["title"], u))
-            far = [(label, x, y, math.hypot(x - gx, y - gy)) for label, x, y in targets]
-            far = [t for t in far if t[3] >= NEAR]
+            # A creature met in several places is hunted at the NEAREST one, so each objective
+            # is judged by its closest place - not by a far corner of the map it also lives in.
+            nearest = []
+            for gi, start in enumerate(groups):
+                end = groups[gi + 1] if gi + 1 < len(groups) else len(targets)
+                mine = [(label, x, y, math.hypot(x - gx, y - gy)) for label, x, y in targets[start:end]]
+                if mine:
+                    nearest.append(min(mine, key=lambda t: t[3]))
+            far = [t for t in nearest if t[3] >= NEAR]
             if not far:
                 continue
             judged += 1
             actual = sorted({bearing(x - gx, y - gy) for _l, x, y, _d in far})
+            # A direction is only WRONG if it matches NOWHERE the thing is found; sending you
+            # west to boars that are also south-east is still true.
+            anywhere = {bearing(x - gx, y - gy) for _l, x, y in targets if math.hypot(x - gx, y - gy) >= NEAR}
             if words:
-                if not any(agrees(w, a) for w in words for a in actual):
+                if not any(agrees(w, a) for w in words for a in anywhere):
                     findings["WRONG"].append((stem, q["title"],
                                               f"says {'/'.join(sorted(words))}; {far[0][0]} is {actual[0]}"
                                               + (f" (also {', '.join(actual[1:])})" if len(actual) > 1 else "")))
