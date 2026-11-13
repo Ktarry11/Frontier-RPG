@@ -16,6 +16,7 @@ listing anything real here would be lying about what the game can
 currently do. The section exists now so the layout doesn't need to be
 rebuilt when crafting arrives; it just gets populated.
 """
+import os
 import pygame
 from config import SCREEN_WIDTH, SCREEN_HEIGHT, COLOR_WHITE, COLOR_GOLD, COLOR_LIGHT_GRAY
 from core.game_states import GameState
@@ -497,6 +498,32 @@ class ProfessionsScreen(BaseScreen):
             recipes = self.crafting_manager.all_recipes(profession)
         return sorted(recipes.items(), key=lambda kv: kv[1].get("skill_required", 0))
 
+    def _consumable_preview(self, consumable_id):
+        """(icon or None, one line saying what it does) for a recipe that makes a consumable."""
+        cache = self.__dict__.setdefault("_consumable_previews", {})
+        if consumable_id in cache:
+            return cache[consumable_id]
+        icon, text = None, ""
+        try:
+            from entities.consumable_manager import get_consumable_manager
+            from entities.consumable_icons import icon_for
+            from entities.consumable import bonus_text
+            cons = get_consumable_manager().get_consumable(consumable_id)
+            if cons is not None:
+                if cons.stat_bonuses:
+                    text = ("Well fed: " if cons.consumable_type == "meal" else "") + bonus_text(cons.stat_bonuses)
+                elif cons.effect_value:
+                    text = {"health_potion": f"Restores {cons.effect_value} health",
+                            "mana_potion": f"Restores {cons.effect_value} mana"}.get(cons.consumable_type, "")
+            stem = icon_for(consumable_id)
+            path = f"assets/icons/consumables/{stem}.png" if stem else None
+            if path and os.path.isfile(path):
+                icon = pygame.transform.smoothscale(pygame.image.load(path).convert_alpha(), (44, 44))
+        except Exception:
+            pass
+        cache[consumable_id] = (icon, text)
+        return cache[consumable_id]
+
     def _material_icon(self, material_id):
         mat_def = self.gathering_manager.get_material_def(material_id)
         if not mat_def or not mat_def.get("icon_id"):
@@ -573,9 +600,19 @@ class ProfessionsScreen(BaseScreen):
             if sprite is None:
                 first_input = next(iter(recipe["inputs"]), None)
                 sprite = self._material_icon(first_input) if first_input else None
+            # WHAT YOU ARE MAKING, not what it is made of. A consumable's row showed its first
+            # ingredient's icon and never said what the thing did, so every Cooking row was a
+            # picture of raw meat and a name.
+            effect = ""
+            if out.get("kind") == "consumable":
+                made, effect = self._consumable_preview(out.get("consumable_id"))
+                sprite = made or sprite
             if sprite is not None:
                 screen.blit(sprite, (rect.x + 6, rect.y + 2))
             text_x = rect.x + (54 if sprite is not None else 12)
+            if effect:
+                self.renderer.draw_text(screen, effect, (rect.x + 330, rect.y + 6), size="small",
+                                        color=(140, 220, 160) if unlocked else (90, 120, 100))
 
             parts = []
             for input_id, qty in recipe["inputs"].items():

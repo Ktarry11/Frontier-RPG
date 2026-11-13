@@ -4,6 +4,24 @@ Separate from Item (gear) to keep types clean and independent.
 """
 
 
+#: How long a cooked meal leaves you well fed.
+WELL_FED_SECONDS = 1800
+
+#: Stat keys that do not read well title-cased ("Hp5", "Healing Power").
+BONUS_LABELS = {"hp5": "Health per turn", "mp5": "Mana per turn", "healing_power": "Healing",
+                "crit_chance_physical": "% Physical Crit", "crit_chance_spell": "% Spell Crit",
+                "dodge": "% Dodge", "haste": "% Haste"}
+
+
+def bonus_text(stat_bonuses):
+    """'+3 Stamina, +2 Health per turn' - one wording for the log, the bag and the recipe list."""
+    parts = []
+    for key, value in (stat_bonuses or {}).items():
+        label = BONUS_LABELS.get(key, key.replace("_", " ").title())
+        parts.append(f"+{value}{label}" if label.startswith("%") else f"+{value} {label}")
+    return ", ".join(parts)
+
+
 class Consumable:
     """A consumable item (potion, elixir, food buff) with quantity tracking."""
     
@@ -111,13 +129,13 @@ class Consumable:
             # Elixirs are buffs - store them in the appropriate buff slot. Flat
             # values, no level scaling (Kyle's call - see stat_bonuses docstring).
             character.apply_consumable_buff(self.buff_category, self)
-            bonus_str = ", ".join(f"+{v} {k.replace('_', ' ').title()}" for k, v in self.stat_bonuses.items())
+            bonus_str = bonus_text(self.stat_bonuses)
             log_msg = f"Drank {self.name}: {bonus_str}"
         
         elif self.consumable_type == "food":
             # Food buffs go in the food slot - same flat-value treatment as elixirs.
             character.apply_consumable_buff("food", self)
-            bonus_str = ", ".join(f"+{v} {k.replace('_', ' ').title()}" for k, v in self.stat_bonuses.items())
+            bonus_str = bonus_text(self.stat_bonuses)
             log_msg = f"Ate {self.name}: {bonus_str} for {self.effect_duration}s"
         
         elif self.consumable_type in ("meal", "drink"):
@@ -132,17 +150,19 @@ class Consumable:
                        f"{int(self.effect_duration)}s. Stops if you take a hit.")
             # A COOKED meal carries the Well Fed buff on top of the regen, which is the entire reason
             # to cook rather than buy. Vendor meals have no stat_bonuses and skip this.
+            # WELL FED LASTS HALF AN HOUR, as every meal's description says. It was applied with
+            # effect_duration - the twenty-odd seconds the meal takes to eat - so the buff was
+            # gone before the next pull and cooked food looked like it gave nothing (Kyle, 12 Nov:
+            # "Also food should give buffs!").
             if self.stat_bonuses and self.buff_category == "food":
-                character.apply_consumable_buff("food", self)
-                bonus = ", ".join(f"+{v} {k.replace('_', ' ').title()}"
-                                  for k, v in self.stat_bonuses.items())
-                log_msg += f" Well fed: {bonus}."
+                character.apply_consumable_buff("food", self, seconds=WELL_FED_SECONDS)
+                log_msg += f" Well fed: {bonus_text(self.stat_bonuses)} for 30 minutes."
 
         elif self.consumable_type == "ammo":
             # Crafted arrows / bolts (Woodworking): a timed ranged-attack buff in its own slot, since the game has
             # no ammunition mechanic.  Same flat-value treatment as elixirs and food.
             character.apply_consumable_buff("ammo", self)
-            bonus_str = ", ".join(f"+{v} {k.replace('_', ' ').title()}" for k, v in self.stat_bonuses.items())
+            bonus_str = bonus_text(self.stat_bonuses)
             log_msg = f"Nocked {self.name}: {bonus_str} for {int(self.effect_duration)}s"
 
         else:

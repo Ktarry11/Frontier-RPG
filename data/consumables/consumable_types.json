@@ -2768,6 +2768,967 @@
         "spirit": 18,
         "stamina": 18
       }
+    },
+    {
+      "consumable_id": "meal_cooked_trail_dumplings",
+      "name": "Trail Dumplings",
+      "consumable_type": "meal",
+      "description": "Heavy, hot, and it stays with you. Restores 250 health over 20 seconds while you rest, and leaves you well fed (+3 Stamina, +2 Health per turn) for 30 minutes.",
+      "effect_value": 250,
+      "effect_duration": 20,
+      "level_multiplier": 0.0,
+      "required_level": 1,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 8,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "stamina": 3,
+        "hp5": 2
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_hunter_s_pie",
+      "name": "Hunter's Pie",
+      "consumable_type": "meal",
+      "description": "Heavy, hot, and it stays with you. Restores 380 health over 22 seconds while you rest, and leaves you well fed (+5 Stamina, +3 Health per turn) for 30 minutes.",
+      "effect_value": 380,
+      "effect_duration": 22,
+      "level_multiplier": 0.0,
+      "required_level": 8,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 15,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "stamina": 5,
+        "hp5": 3
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_ironpot_stew",
+      "name": "Ironpot Stew",
+      "consumable_type": "meal",
+      "description": "Heavy, hot, and it stays with you. Restores 520 health over 24 seconds while you rest, and leaves you well fed (+7 Stamina, +5 Health per turn) for 30 minutes.",
+      "effect_value": 520,
+      "effect_duration": 24,
+      "level_multiplier": 0.0,
+      "required_level": 16,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 22,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "stamina": 7,
+        "hp5": 5
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_marrow_pie",
+      "name": "Marrow Pie",
+      "consumable_type": "meal",
+      "description": "Heavy, hot, and it stays with you. Restores 690 health over 26 seconds while you rest, and leaves you well fed (+9 Stamina, +7 Health per turn) for 30 minutes.",
+      "effect_value": 690,
+      "effect_duration": 26,
+      "level_multiplier": 0.0,
+      "required_level": 24,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 30,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "stamina": 9,
+        "hp5": 7
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_warden_s_pot_roast",
+      "name": "Warden's Pot Roast",
+      "consumable_type": "meal",
+      "description": "Heavy, hot, and it stays with you. Restores 900 health over 28 seconds while you rest, and leaves you well fed (+12 Stamina, +9 Health per turn) for 30 minutes.",
+      "effect_value": 900,
+      "effect_duration": 28,
+      "level_multiplier": 0.0,
+      "required_level": 32,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 38,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "stamina": 12,
+        "hp5": 9
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_stockade_hotpot",
+      "name": "Stockade Hotpot",
+      "consumable_type": "meal",
+      "description": "Heavy, hot, and it stays with you. Restores 1100 health over 30 seconds while you rest, and leaves you well fed (+14 Stamina, +11 Health per turn) for 30 minutes.",
+      "effect_value": 1100,
+      "effect_duration": 30,
+      "level_multiplier": 0.0,
+      "required_level": 38,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 88,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "stamina": 14,
+        "hp5": 11
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_long_simmer_shank",
+      "name": "Long-Simmer Shank",
+      "consumable_type": "meal",
+      "description": "Heavy, hot, and it stays with you. Restores 1400 health over 32 seconds while you rest, and leaves you well fed (+17 Stamina, +13 Health per turn) for 30 minutes.",
+      "effect_value": 1400,
+      "effect_duration": 32,
+      "level_multiplier": 0.0,
+      "required_level": 46,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 98,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "stamina": 17,
+        "hp5": 13
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_bulwark_feast",
+      "name": "Bulwark Feast",
+      "consumable_type": "meal",
+      "description": "Heavy, hot, and it stays with you. Restores 1800 health over 34 seconds while you rest, and leaves you well fed (+20 Stamina, +16 Health per turn) for 30 minutes.",
+      "effect_value": 1800,
+      "effect_duration": 34,
+      "level_multiplier": 0.0,
+      "required_level": 54,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 108,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "stamina": 20,
+        "hp5": 16
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_honeyed_strips",
+      "name": "Honeyed Strips",
+      "consumable_type": "meal",
+      "description": "Sweet over smoke. It clears the head. Restores 250 health over 20 seconds while you rest, and leaves you well fed (+3 Spirit, +2 Mana per turn) for 30 minutes.",
+      "effect_value": 250,
+      "effect_duration": 20,
+      "level_multiplier": 0.0,
+      "required_level": 1,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 8,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "spirit": 3,
+        "mp5": 2
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_orchard_glaze_cut",
+      "name": "Orchard-Glaze Cut",
+      "consumable_type": "meal",
+      "description": "Sweet over smoke. It clears the head. Restores 380 health over 22 seconds while you rest, and leaves you well fed (+5 Spirit, +3 Mana per turn) for 30 minutes.",
+      "effect_value": 380,
+      "effect_duration": 22,
+      "level_multiplier": 0.0,
+      "required_level": 8,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 15,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "spirit": 5,
+        "mp5": 3
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_applewood_chop",
+      "name": "Applewood Chop",
+      "consumable_type": "meal",
+      "description": "Sweet over smoke. It clears the head. Restores 520 health over 24 seconds while you rest, and leaves you well fed (+7 Spirit, +4 Mana per turn) for 30 minutes.",
+      "effect_value": 520,
+      "effect_duration": 24,
+      "level_multiplier": 0.0,
+      "required_level": 16,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 22,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "spirit": 7,
+        "mp5": 4
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_sage_honey_roast",
+      "name": "Sage-Honey Roast",
+      "consumable_type": "meal",
+      "description": "Sweet over smoke. It clears the head. Restores 690 health over 26 seconds while you rest, and leaves you well fed (+9 Spirit, +6 Mana per turn) for 30 minutes.",
+      "effect_value": 690,
+      "effect_duration": 26,
+      "level_multiplier": 0.0,
+      "required_level": 24,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 30,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "spirit": 9,
+        "mp5": 6
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_fruit_stuffed_loin",
+      "name": "Fruit-Stuffed Loin",
+      "consumable_type": "meal",
+      "description": "Sweet over smoke. It clears the head. Restores 900 health over 28 seconds while you rest, and leaves you well fed (+12 Spirit, +8 Mana per turn) for 30 minutes.",
+      "effect_value": 900,
+      "effect_duration": 28,
+      "level_multiplier": 0.0,
+      "required_level": 32,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 38,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "spirit": 12,
+        "mp5": 8
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_mead_braised_steak",
+      "name": "Mead-Braised Steak",
+      "consumable_type": "meal",
+      "description": "Sweet over smoke. It clears the head. Restores 1100 health over 30 seconds while you rest, and leaves you well fed (+14 Spirit, +9 Mana per turn) for 30 minutes.",
+      "effect_value": 1100,
+      "effect_duration": 30,
+      "level_multiplier": 0.0,
+      "required_level": 38,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 88,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "spirit": 14,
+        "mp5": 9
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_vigil_supper",
+      "name": "Vigil Supper",
+      "consumable_type": "meal",
+      "description": "Sweet over smoke. It clears the head. Restores 1400 health over 32 seconds while you rest, and leaves you well fed (+17 Spirit, +11 Mana per turn) for 30 minutes.",
+      "effect_value": 1400,
+      "effect_duration": 32,
+      "level_multiplier": 0.0,
+      "required_level": 46,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 98,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "spirit": 17,
+        "mp5": 11
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_seer_s_table",
+      "name": "Seer's Table",
+      "consumable_type": "meal",
+      "description": "Sweet over smoke. It clears the head. Restores 1800 health over 34 seconds while you rest, and leaves you well fed (+20 Spirit, +13 Mana per turn) for 30 minutes.",
+      "effect_value": 1800,
+      "effect_duration": 34,
+      "level_multiplier": 0.0,
+      "required_level": 54,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 108,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "spirit": 20,
+        "mp5": 13
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_spiced_jerky",
+      "name": "Spiced Jerky",
+      "consumable_type": "meal",
+      "description": "Hot enough to make you want to hit something. Restores 250 health over 20 seconds while you rest, and leaves you well fed (+6 Attack Power) for 30 minutes.",
+      "effect_value": 250,
+      "effect_duration": 20,
+      "level_multiplier": 0.0,
+      "required_level": 1,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 8,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "attack_power": 6
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_pepper_crust_chop",
+      "name": "Pepper-Crust Chop",
+      "consumable_type": "meal",
+      "description": "Hot enough to make you want to hit something. Restores 380 health over 22 seconds while you rest, and leaves you well fed (+10 Attack Power) for 30 minutes.",
+      "effect_value": 380,
+      "effect_duration": 22,
+      "level_multiplier": 0.0,
+      "required_level": 8,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 15,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "attack_power": 10
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_firebrand_ribs",
+      "name": "Firebrand Ribs",
+      "consumable_type": "meal",
+      "description": "Hot enough to make you want to hit something. Restores 520 health over 24 seconds while you rest, and leaves you well fed (+14 Attack Power) for 30 minutes.",
+      "effect_value": 520,
+      "effect_duration": 24,
+      "level_multiplier": 0.0,
+      "required_level": 16,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 22,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "attack_power": 14
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_redpepper_haunch",
+      "name": "Redpepper Haunch",
+      "consumable_type": "meal",
+      "description": "Hot enough to make you want to hit something. Restores 690 health over 26 seconds while you rest, and leaves you well fed (+20 Attack Power) for 30 minutes.",
+      "effect_value": 690,
+      "effect_duration": 26,
+      "level_multiplier": 0.0,
+      "required_level": 24,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 30,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "attack_power": 20
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_warband_grill",
+      "name": "Warband Grill",
+      "consumable_type": "meal",
+      "description": "Hot enough to make you want to hit something. Restores 900 health over 28 seconds while you rest, and leaves you well fed (+26 Attack Power) for 30 minutes.",
+      "effect_value": 900,
+      "effect_duration": 28,
+      "level_multiplier": 0.0,
+      "required_level": 32,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 38,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "attack_power": 26
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_bloodspice_steak",
+      "name": "Bloodspice Steak",
+      "consumable_type": "meal",
+      "description": "Hot enough to make you want to hit something. Restores 1100 health over 30 seconds while you rest, and leaves you well fed (+30 Attack Power) for 30 minutes.",
+      "effect_value": 1100,
+      "effect_duration": 30,
+      "level_multiplier": 0.0,
+      "required_level": 38,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 88,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "attack_power": 30
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_reaver_s_rack",
+      "name": "Reaver's Rack",
+      "consumable_type": "meal",
+      "description": "Hot enough to make you want to hit something. Restores 1400 health over 32 seconds while you rest, and leaves you well fed (+36 Attack Power) for 30 minutes.",
+      "effect_value": 1400,
+      "effect_duration": 32,
+      "level_multiplier": 0.0,
+      "required_level": 46,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 98,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "attack_power": 36
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_champion_s_carvery",
+      "name": "Champion's Carvery",
+      "consumable_type": "meal",
+      "description": "Hot enough to make you want to hit something. Restores 1800 health over 34 seconds while you rest, and leaves you well fed (+44 Attack Power) for 30 minutes.",
+      "effect_value": 1800,
+      "effect_duration": 34,
+      "level_multiplier": 0.0,
+      "required_level": 54,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 108,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "attack_power": 44
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_mushroom_skewer",
+      "name": "Mushroom Skewer",
+      "consumable_type": "meal",
+      "description": "Earthy, and faintly luminous if you leave it too long. Restores 250 health over 20 seconds while you rest, and leaves you well fed (+4 Spell Power) for 30 minutes.",
+      "effect_value": 250,
+      "effect_duration": 20,
+      "level_multiplier": 0.0,
+      "required_level": 1,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 8,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "spell_power": 4
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_cellar_cap_fry",
+      "name": "Cellar-Cap Fry",
+      "consumable_type": "meal",
+      "description": "Earthy, and faintly luminous if you leave it too long. Restores 380 health over 22 seconds while you rest, and leaves you well fed (+7 Spell Power) for 30 minutes.",
+      "effect_value": 380,
+      "effect_duration": 22,
+      "level_multiplier": 0.0,
+      "required_level": 8,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 15,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "spell_power": 7
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_glowcap_ragout",
+      "name": "Glowcap Ragout",
+      "consumable_type": "meal",
+      "description": "Earthy, and faintly luminous if you leave it too long. Restores 520 health over 24 seconds while you rest, and leaves you well fed (+10 Spell Power) for 30 minutes.",
+      "effect_value": 520,
+      "effect_duration": 24,
+      "level_multiplier": 0.0,
+      "required_level": 16,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 22,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "spell_power": 10
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_scholar_s_fricassee",
+      "name": "Scholar's Fricassee",
+      "consumable_type": "meal",
+      "description": "Earthy, and faintly luminous if you leave it too long. Restores 690 health over 26 seconds while you rest, and leaves you well fed (+14 Spell Power) for 30 minutes.",
+      "effect_value": 690,
+      "effect_duration": 26,
+      "level_multiplier": 0.0,
+      "required_level": 24,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 30,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "spell_power": 14
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_nightcap_roast",
+      "name": "Nightcap Roast",
+      "consumable_type": "meal",
+      "description": "Earthy, and faintly luminous if you leave it too long. Restores 900 health over 28 seconds while you rest, and leaves you well fed (+18 Spell Power) for 30 minutes.",
+      "effect_value": 900,
+      "effect_duration": 28,
+      "level_multiplier": 0.0,
+      "required_level": 32,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 38,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "spell_power": 18
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_arcanist_s_plate",
+      "name": "Arcanist's Plate",
+      "consumable_type": "meal",
+      "description": "Earthy, and faintly luminous if you leave it too long. Restores 1100 health over 30 seconds while you rest, and leaves you well fed (+21 Spell Power) for 30 minutes.",
+      "effect_value": 1100,
+      "effect_duration": 30,
+      "level_multiplier": 0.0,
+      "required_level": 38,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 88,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "spell_power": 21
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_duskcap_roulade",
+      "name": "Duskcap Roulade",
+      "consumable_type": "meal",
+      "description": "Earthy, and faintly luminous if you leave it too long. Restores 1400 health over 32 seconds while you rest, and leaves you well fed (+25 Spell Power) for 30 minutes.",
+      "effect_value": 1400,
+      "effect_duration": 32,
+      "level_multiplier": 0.0,
+      "required_level": 46,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 98,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "spell_power": 25
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_magister_s_supper",
+      "name": "Magister's Supper",
+      "consumable_type": "meal",
+      "description": "Earthy, and faintly luminous if you leave it too long. Restores 1800 health over 34 seconds while you rest, and leaves you well fed (+30 Spell Power) for 30 minutes.",
+      "effect_value": 1800,
+      "effect_duration": 34,
+      "level_multiplier": 0.0,
+      "required_level": 54,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 108,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "spell_power": 30
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_cheese_toastie",
+      "name": "Cheese Toastie",
+      "consumable_type": "meal",
+      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 250 health over 20 seconds while you rest, and leaves you well fed (+7 Healing) for 30 minutes.",
+      "effect_value": 250,
+      "effect_duration": 20,
+      "level_multiplier": 0.0,
+      "required_level": 1,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 8,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "healing_power": 7
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_melted_cut",
+      "name": "Melted Cut",
+      "consumable_type": "meal",
+      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 380 health over 22 seconds while you rest, and leaves you well fed (+12 Healing) for 30 minutes.",
+      "effect_value": 380,
+      "effect_duration": 22,
+      "level_multiplier": 0.0,
+      "required_level": 8,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 15,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "healing_power": 12
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_herder_s_bake",
+      "name": "Herder's Bake",
+      "consumable_type": "meal",
+      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 520 health over 24 seconds while you rest, and leaves you well fed (+18 Healing) for 30 minutes.",
+      "effect_value": 520,
+      "effect_duration": 24,
+      "level_multiplier": 0.0,
+      "required_level": 16,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 22,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "healing_power": 18
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_mender_s_gratin",
+      "name": "Mender's Gratin",
+      "consumable_type": "meal",
+      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 690 health over 26 seconds while you rest, and leaves you well fed (+25 Healing) for 30 minutes.",
+      "effect_value": 690,
+      "effect_duration": 26,
+      "level_multiplier": 0.0,
+      "required_level": 24,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 30,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "healing_power": 25
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_hearthkeeper_s_pie",
+      "name": "Hearthkeeper's Pie",
+      "consumable_type": "meal",
+      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 900 health over 28 seconds while you rest, and leaves you well fed (+33 Healing) for 30 minutes.",
+      "effect_value": 900,
+      "effect_duration": 28,
+      "level_multiplier": 0.0,
+      "required_level": 32,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 38,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "healing_power": 33
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_chaplain_s_platter",
+      "name": "Chaplain's Platter",
+      "consumable_type": "meal",
+      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 1100 health over 30 seconds while you rest, and leaves you well fed (+38 Healing) for 30 minutes.",
+      "effect_value": 1100,
+      "effect_duration": 30,
+      "level_multiplier": 0.0,
+      "required_level": 38,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 88,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "healing_power": 38
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_mercy_roast",
+      "name": "Mercy Roast",
+      "consumable_type": "meal",
+      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 1400 health over 32 seconds while you rest, and leaves you well fed (+46 Healing) for 30 minutes.",
+      "effect_value": 1400,
+      "effect_duration": 32,
+      "level_multiplier": 0.0,
+      "required_level": 46,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 98,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "healing_power": 46
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_lifewarden_s_board",
+      "name": "Lifewarden's Board",
+      "consumable_type": "meal",
+      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 1800 health over 34 seconds while you rest, and leaves you well fed (+55 Healing) for 30 minutes.",
+      "effect_value": 1800,
+      "effect_duration": 34,
+      "level_multiplier": 0.0,
+      "required_level": 54,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 108,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "healing_power": 55
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_ale_boiled_strips",
+      "name": "Ale-Boiled Strips",
+      "consumable_type": "meal",
+      "description": "Boiled in ale until it stops arguing. Restores 250 health over 20 seconds while you rest, and leaves you well fed (+20 Armor) for 30 minutes.",
+      "effect_value": 250,
+      "effect_duration": 20,
+      "level_multiplier": 0.0,
+      "required_level": 1,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 8,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "armor": 20
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_tavern_chop",
+      "name": "Tavern Chop",
+      "consumable_type": "meal",
+      "description": "Boiled in ale until it stops arguing. Restores 380 health over 22 seconds while you rest, and leaves you well fed (+40 Armor) for 30 minutes.",
+      "effect_value": 380,
+      "effect_duration": 22,
+      "level_multiplier": 0.0,
+      "required_level": 8,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 15,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "armor": 40
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_brewer_s_brisket",
+      "name": "Brewer's Brisket",
+      "consumable_type": "meal",
+      "description": "Boiled in ale until it stops arguing. Restores 520 health over 24 seconds while you rest, and leaves you well fed (+70 Armor) for 30 minutes.",
+      "effect_value": 520,
+      "effect_duration": 24,
+      "level_multiplier": 0.0,
+      "required_level": 16,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 22,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "armor": 70
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_stout_stew",
+      "name": "Stout Stew",
+      "consumable_type": "meal",
+      "description": "Boiled in ale until it stops arguing. Restores 690 health over 26 seconds while you rest, and leaves you well fed (+100 Armor, +1% Dodge) for 30 minutes.",
+      "effect_value": 690,
+      "effect_duration": 26,
+      "level_multiplier": 0.0,
+      "required_level": 24,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 30,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "armor": 100,
+        "dodge": 1
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_black_ale_roast",
+      "name": "Black-Ale Roast",
+      "consumable_type": "meal",
+      "description": "Boiled in ale until it stops arguing. Restores 900 health over 28 seconds while you rest, and leaves you well fed (+140 Armor, +1% Dodge) for 30 minutes.",
+      "effect_value": 900,
+      "effect_duration": 28,
+      "level_multiplier": 0.0,
+      "required_level": 32,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 38,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "armor": 140,
+        "dodge": 1
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_shieldwall_steak",
+      "name": "Shieldwall Steak",
+      "consumable_type": "meal",
+      "description": "Boiled in ale until it stops arguing. Restores 1100 health over 30 seconds while you rest, and leaves you well fed (+170 Armor, +1% Dodge) for 30 minutes.",
+      "effect_value": 1100,
+      "effect_duration": 30,
+      "level_multiplier": 0.0,
+      "required_level": 38,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 88,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "armor": 170,
+        "dodge": 1
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_keg_braised_shank",
+      "name": "Keg-Braised Shank",
+      "consumable_type": "meal",
+      "description": "Boiled in ale until it stops arguing. Restores 1400 health over 32 seconds while you rest, and leaves you well fed (+210 Armor, +2% Dodge) for 30 minutes.",
+      "effect_value": 1400,
+      "effect_duration": 32,
+      "level_multiplier": 0.0,
+      "required_level": 46,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 98,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "armor": 210,
+        "dodge": 2
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_old_guard_s_feast",
+      "name": "Old Guard's Feast",
+      "consumable_type": "meal",
+      "description": "Boiled in ale until it stops arguing. Restores 1800 health over 34 seconds while you rest, and leaves you well fed (+260 Armor, +2% Dodge) for 30 minutes.",
+      "effect_value": 1800,
+      "effect_duration": 34,
+      "level_multiplier": 0.0,
+      "required_level": 54,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 108,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "armor": 260,
+        "dodge": 2
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_emberproof_stew",
+      "name": "Emberproof Stew",
+      "consumable_type": "meal",
+      "description": "So hot the fire seems reasonable after. Restores 690 health over 26 seconds while you rest, and leaves you well fed (+15 Fire Resistance, +5 Stamina) for 30 minutes.",
+      "effect_value": 690,
+      "effect_duration": 26,
+      "level_multiplier": 0.0,
+      "required_level": 24,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 30,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "fire_resistance": 15,
+        "stamina": 5
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_frostbite_chowder",
+      "name": "Frostbite Chowder",
+      "consumable_type": "meal",
+      "description": "Thick enough to stand a spoon in. Keeps the cold out. Restores 690 health over 26 seconds while you rest, and leaves you well fed (+15 Frost Resistance, +5 Stamina) for 30 minutes.",
+      "effect_value": 690,
+      "effect_duration": 26,
+      "level_multiplier": 0.0,
+      "required_level": 24,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 30,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "frost_resistance": 15,
+        "stamina": 5
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_greenroot_broth",
+      "name": "Greenroot Broth",
+      "consumable_type": "meal",
+      "description": "Bitter. Whatever bites you afterwards regrets it. Restores 690 health over 26 seconds while you rest, and leaves you well fed (+15 Nature Resistance, +5 Stamina) for 30 minutes.",
+      "effect_value": 690,
+      "effect_duration": 26,
+      "level_multiplier": 0.0,
+      "required_level": 24,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 30,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "nature_resistance": 15,
+        "stamina": 5
+      }
+    },
+    {
+      "consumable_id": "meal_cooked_gravewatch_pottage",
+      "name": "Gravewatch Pottage",
+      "consumable_type": "meal",
+      "description": "What the night watch eats. They are still here. Restores 690 health over 26 seconds while you rest, and leaves you well fed (+15 Shadow Resistance, +5 Stamina) for 30 minutes.",
+      "effect_value": 690,
+      "effect_duration": 26,
+      "level_multiplier": 0.0,
+      "required_level": 24,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 30,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "shadow_resistance": 15,
+        "stamina": 5
+      }
     }
   ]
 }

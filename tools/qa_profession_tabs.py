@@ -39,6 +39,7 @@ def main():
             continue
         scr.active_tab = prof
         try:
+            screen.fill((0, 0, 0))
             scr.render(screen)
         except Exception as e:
             bad.append(f"{prof}: the tab crashes - {e!r}")

@@ -4583,12 +4583,14 @@ class Character(StatusEffectMixin):
         self.profession_skills[profession] = new_value
         return False
     
-    def apply_consumable_buff(self, buff_category, consumable):
+    def apply_consumable_buff(self, buff_category, consumable, seconds=None):
         """
         Apply a buff from a consumable (elixir or food).
         buff_category: "guardian", "battle", or "food"
+        seconds: how long it lasts, when that is not the consumable's own effect_duration -
+        a cooked meal's effect_duration is how long it takes to EAT.
         """
-        buff_tuple = (consumable, consumable.effect_duration)
+        buff_tuple = (consumable, consumable.effect_duration if seconds is None else seconds)
         
         if buff_category == "guardian":
             self.guardian_buff = buff_tuple

@@ -983,9 +983,12 @@ class InventoryScreen(BaseScreen):
             lines.append(f"Restores {cons.effect_value} {bar} over "
                          f"{int(cons.effect_duration)}s while you sit still.")
         if cons.stat_bonuses:
-            lines.append(", ".join(f"+{v} {k.replace('_', ' ').title()}"
-                                   for k, v in cons.stat_bonuses.items())
-                         + (f" for {int(cons.effect_duration)}s" if cons.effect_duration else ""))
+            from entities.consumable import bonus_text, WELL_FED_SECONDS
+            if cons.consumable_type == "meal":           # effect_duration is how long it takes to eat
+                lines.append(f"Well fed: {bonus_text(cons.stat_bonuses)} for {WELL_FED_SECONDS // 60} minutes")
+            else:
+                lines.append(bonus_text(cons.stat_bonuses)
+                             + (f" for {int(cons.effect_duration)}s" if cons.effect_duration else ""))
         if cons.description:
             lines.extend(self.renderer.wrap_text(cons.description, BODY_W, size="small"))
         lines.append(f"Sell price: {format_coins(cons.sell_price)}")
