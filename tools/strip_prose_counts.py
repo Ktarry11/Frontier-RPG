@@ -71,7 +71,7 @@ def fix(text, counts):
     # second round: the lists. "Eight of their binders, five plates, four tags" -> "Their binders, plates, tags"
     text = re.sub(START + N + r" of (the|their|those|these)\b", lambda m: cap(m.group(1)), text, flags=f)
     text = re.sub(START + N + r" (should|would|will|ought to) ", r"That \1 ", text, flags=f)
-    text = re.sub(r"\b" + N + r" of (the|their|those|these|them)\b", r"\1", text, flags=f)
+    text = re.sub(r"(?<!the )(?<!all )\b" + N + r" of (the|their|those|these|them)\b", r"\1", text, flags=f)
     def item(m):
         return m.group(0) if m.group(2).lower() in KEEP_AFTER | SKIP_NOUNS else m.group(1) + m.group(2)
     text = re.sub(r"(, |\band |\bme |\bbring |\btake |\bwant |\bneed |\bget |\bcut |\bmill |\bdig |\bfind )"
