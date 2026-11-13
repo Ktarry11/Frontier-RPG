@@ -461,6 +461,10 @@ class StatusEffect:
         self.charge = 0
         #: A buff: an attack the holder dodges or parries is answered with a free basic attack.
         self.counter_on_miss = False
+        #: A buff counted in CASTS, not turns: the holder's next sure_crits damaging casts are
+        #: critical hits, then the next forced_misses miss, then it is gone. Kourosh.
+        self.sure_crits = 0
+        self.forced_misses = 0
         #: A debuff that is a TRAP: the first holder to take a turn pays trap_damage of
         #: trap_school and loses that turn, and the trap is gone from everyone it was laid on.
         self.trap_damage = 0

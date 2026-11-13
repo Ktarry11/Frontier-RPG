@@ -358,7 +358,7 @@ class Ability:
                  immediate=None,
                  variance_mode=None, reveals_intent=None, mark=None, bonus_vs_debuffers_pct=0,
                  breaks_on_attack=False, idle_charge=None, counter_on_miss=False,
-                 trap=None, anticipate_resist=0,
+                 trap=None, anticipate_resist=0, crit_then_miss=None,
                  variance=None,
                  is_aoe=False, consumes_target_stacks_of=None, damage_per_stack_pct=0.0,
                  cooldown_per_stack=0.0, scales_with_target_stacks_of=None,
@@ -654,6 +654,8 @@ class Ability:
         #: A party buff that picks its own resistance: the magic school the living enemies'
         #: kits lean on most gets this many points. See _anticipated_school.
         self.anticipate_resist = anticipate_resist or 0
+        #: {"crits": 3, "misses": 1} - see StatusEffect.sure_crits.
+        self.crit_then_miss = dict(crit_then_miss) if crit_then_miss else None
         #: PER-ABILITY damage/heal spread, as a fraction, overriding
         #: SPELL_VARIANCE. Kyle, 8 Nov 2026: "So you can just....fix up each
         #: spell by adding +/-12% to what it does?" - a fair challenge, and
@@ -2666,6 +2668,48 @@ class Ability:
                 if hasattr(caster, "_recalculate_derived_stats"):
                     caster._recalculate_derived_stats()
             undo.append(unsure)
+        # A run of certain crits and then a certain miss, counted in casts (Kourosh).
+        if self.effect_type in ("damage", "spell_damage", "ranged_damage", "damage_and_heal"):
+            run = next((e for e in (getattr(caster, "active_effects", None) or [])
+                        if getattr(e, "sure_crits", 0) or getattr(e, "forced_misses", 0)), None)
+            if run is not None and run.sure_crits > 0:
+                run.sure_crits -= 1
+                was = self.__dict__.get("always_crits", None)
+                self.always_crits = True
+
+                def uncrit():
+                    if was is None:
+                        self.__dict__.pop("always_crits", None)
+                    else:
+                        self.always_crits = was
+                undo.append(uncrit)
+                # "WILL crit" means it lands: a certain crit that can miss is not certain.
+                from combat.status_effects import StatusEffect, EffectType
+                caster.apply_status_effect(StatusEffect(
+                    "_cast_fumble", run.name, EffectType.BUFF, 1,
+                    stat_mods={"hit_rating": 100}, source_name=caster.name, real_time_seconds=None))
+
+                def unsure_crit():
+                    effects = caster._effects()
+                    effects[:] = [e for e in effects if e.effect_id != "_cast_fumble"]
+                    if hasattr(caster, "_recalculate_derived_stats"):
+                        caster._recalculate_derived_stats()
+                undo.append(unsure_crit)
+            elif run is not None and run.forced_misses > 0:
+                run.forced_misses -= 1
+                from combat.status_effects import StatusEffect, EffectType
+                caster.apply_status_effect(StatusEffect(
+                    "_cast_fumble", run.name, EffectType.BUFF, 1,
+                    stat_mods={"hit_rating": -1000}, source_name=caster.name, real_time_seconds=None))
+
+                def unfumble():
+                    effects = caster._effects()
+                    effects[:] = [e for e in effects if e.effect_id != "_cast_fumble"]
+                    if hasattr(caster, "_recalculate_derived_stats"):
+                        caster._recalculate_derived_stats()
+                undo.append(unfumble)
+            if run is not None and run.sure_crits <= 0 and run.forced_misses <= 0:
+                caster._discard_effect(run)
         # what this cast will be remembered as, for the conditions above on later casts
         if self.effect_type in ("damage", "spell_damage", "ranged_damage", "dot", "spell_dot", "damage_and_heal"):
             uses = getattr(caster, "_fight_uses", None)
@@ -4067,6 +4111,9 @@ class Ability:
                     effect.idle_charge_cap = self.idle_charge.get("cap", 0)
                 if self.counter_on_miss:
                     effect.counter_on_miss = True
+                if self.crit_then_miss:
+                    effect.sure_crits = int(self.crit_then_miss.get("crits", 0))
+                    effect.forced_misses = int(self.crit_then_miss.get("misses", 0))
                 if self.max_stacks > 1:
                     effect.max_stacks = self.max_stacks
                 if self.stack_on == "repeat":
@@ -4836,6 +4883,7 @@ def _ability_from_data(entry):
         counter_on_miss=entry.get("counter_on_miss", False),
         trap=entry.get("trap"),
         anticipate_resist=entry.get("anticipate_resist", 0),
+        crit_then_miss=entry.get("crit_then_miss"),
         variance=entry.get("variance"),
         consumes_stacks_of=entry.get("consumes_stacks_of"),
         consumes_target_stacks_of=entry.get("consumes_target_stacks_of"),

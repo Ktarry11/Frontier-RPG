@@ -157,8 +157,35 @@ def main():
         missed = sum(1 for seed in range(12) if hit(ch, plain, m, seed=seed) <= 0)
         check(missed >= 8, f"{name}: harness - a plain attack only failed {missed} of 12 against the same enemy")
 
-    print("9 abilities: health-scaled, felling strike, full-health shot, struck before, same axe, "
-          "committed, punish, two sure hits")
+    # Kourosh (Kyle, 13 Nov): "Next three shots WILL crit, followed by next 1 attack WILL miss"
+    ch, ab = setup("How Likely a Thing Is")
+    fill(ch, ab); ab.use(ch, ch, party=[ch])
+    spell = next(x for x in ch.ability_book.get_all_abilities()
+                 if getattr(x, "effect_type", "") == "spell_damage" and not x.ability_id.startswith("personal_"))
+    m = foe(ch)
+    seq = []
+    for i in range(6):
+        spell._last_crit = False
+        dealt = hit(ch, spell, m, seed=40 + i)
+        seq.append("miss" if dealt <= 0 else ("crit" if getattr(spell, "_last_crit", False) else "hit"))
+    check(seq[:4] == ["crit", "crit", "crit", "miss"], f"How Likely a Thing Is: went {seq}, wanted crit crit crit miss")
+    check(not any(getattr(e, "sure_crits", 0) or getattr(e, "forced_misses", 0) for e in ch.active_effects)
+          and seq[4] != "miss", f"How Likely a Thing Is: not spent after four casts ({seq})")
+
+    # Giorgi (Kyle, 13 Nov): "cant dodge or parry for 3 turns"
+    ch, ab = setup("The Ground Tells the Truth")
+    m = foe(ch, "humanoid_warrior"); m.dodge, m.parry = 60.0, 40.0
+    plain = ch.ability_book.abilities[ch.get_basic_attack_id()]
+    ch.hit_rating = 100
+    before = sum(1 for seed in range(12) if hit(ch, plain, m, seed=seed) > 0)
+    fill(ch, ab); ab.use(ch, [m], party=[ch])
+    after = sum(1 for seed in range(12) if hit(ch, plain, m, seed=seed) > 0)
+    held = next((e for e in m.active_effects if e.effect_id == ab.ability_id), None)
+    check(before <= 3 and after == 12 and held is not None and held.duration == 3,
+          f"The Ground Tells the Truth: {before}/12 landed before, {after}/12 after, effect {held and held.duration} turns")
+
+    print("11 abilities: health-scaled, felling strike, full-health shot, struck before, same axe, "
+          "committed, punish, two sure hits, crit-crit-crit-miss, no dodge or parry")
     if bad:
         print("FAIL:")
         for b in bad:

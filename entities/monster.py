@@ -1128,8 +1128,10 @@ class Monster(StatusEffectMixin):
                 # (expertise 50 for 3 turns) removed nothing.
                 if hasattr(attacker, "get_status_stat_mod"):
                     expertise += attacker.get_status_stat_mod("expertise") or 0.0
-            dodge = max(0.0, self.dodge - expertise)
-            parry = max(0.0, self.parry - expertise)
+            # A debuff on the monster itself ("cannot dodge or parry for 3 turns") counts the
+            # same way: dodge and parry in stat_mods, in percent points.
+            dodge = max(0.0, self.dodge + (self.get_status_stat_mod("dodge") or 0.0) - expertise)
+            parry = max(0.0, self.parry + (self.get_status_stat_mod("parry") or 0.0) - expertise)
 
             roll = random.uniform(0, 100)
             if roll < dodge:

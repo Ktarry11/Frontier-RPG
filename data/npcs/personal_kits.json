@@ -3434,16 +3434,14 @@
         "ability_id": "personal_kourosh_how_likely_a_thing_is",
         "name": "How Likely a Thing Is",
         "from": "'The work of establishing, very carefully, how likely a thing is.'",
-        "engine": "needs: being unable to CRIT (crit_chance_spell has no lower clamp)",
+        "engine": "live: crit_then_miss - counted in casts, not turns",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
         "cooldown": 12,
-        "duration": 3,
-        "stat_mods": {
-          "hit_rating": 100
-        },
-        "description": "For 3 turns Kourosh's spells cannot miss and cannot critically strike. They deal exactly their average.",
+        "duration": 12,
+        "stat_mods": {},
+        "description": "Kourosh's next three damaging spells will critically strike. The one after them will miss.",
         "ranks": [
           {
             "rank": 1,
@@ -3453,7 +3451,10 @@
           }
         ],
         "is_instant": true,
-        "variance_mode": "average"
+        "crit_then_miss": {
+          "crits": 3,
+          "misses": 1
+        }
       },
       {
         "ability_id": "personal_kourosh_finish_the_sum",
@@ -4106,20 +4107,23 @@
         "ability_id": "personal_giorgi_the_ground_tells_the_truth",
         "name": "The Ground Tells the Truth",
         "from": "'The high country, where the air is right and the ground tells the truth.'",
-        "engine": "needs: reveal all hidden and disguised enemy states",
+        "engine": "live: dodge and parry in stat_mods on the enemy",
         "effect_type": "debuff",
         "target_type": "all_enemies",
         "resource_type": "rage",
         "cooldown": 12,
-        "duration": 4,
-        "stat_mods": {},
-        "description": "For 4 turns every enemy is revealed and cannot stealth, feign or hide.",
+        "duration": 3,
+        "stat_mods": {
+          "dodge": -100,
+          "parry": -100
+        },
+        "description": "For 3 turns no enemy can dodge or parry.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 30,
-            "effect_value": 0
+            "effect_value": 100
           }
         ],
         "is_instant": true
