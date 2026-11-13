@@ -42,13 +42,41 @@ def main():
             hits += bool(c is not None and test(c.name))
         return hits / n
 
+    # Kyle, 12 Nov: "coconut crabs which should only be in tidal flats and they're barely spawning."
     crab = lambda name: name == "Isle Coconut Crab"
-    plain = share(crab)
-    if plain < 0.30:
-        bad.append(f"a coconut crab is {plain:.0%} of Echo Isles encounters with no quest")
-    hunting = share(crab, quest_targets={"Isle Coconut Crab"})
+    if "Isle Coconut Crab" in cm.get_encounter_table("Echo Isles", "open_zone", None):
+        bad.append("coconut crabs are in the Echo Isles open-zone table; they belong to the Tidal Flats only")
+    flats = dict(location_type="subzone", subzone_name="Tidal Flats")
+    plain = share(crab, **flats)
+    if plain < 0.33:
+        bad.append(f"a coconut crab is {plain:.0%} of Tidal Flats encounters with no quest")
+    hunting = share(crab, quest_targets={"Isle Coconut Crab"}, **flats)
     if hunting < 0.6:
-        bad.append(f"a coconut crab is only {hunting:.0%} of encounters while you are hunting it")
+        bad.append(f"a coconut crab is only {hunting:.0%} of Tidal Flats encounters while you are hunting it")
+
+    # EVERY SUBZONE: 90% its own, 10% the country around it - or 84 / 6 / 10 with a rare.
+    # Kyle, 12 Nov: "subzones also are 90% special mobs (or 84% and 6% if there's a rare). With
+    # the other 10% being non-subzone." Worked out of the tables, not sampled.
+    checked = 0
+    for zone, table in cm.encounters.items():
+        open_names = set((table.get("open_zone", {}) or {}).get("creatures", {}) or {})
+        for key, sz in (table.get("subzones") or {}).items():
+            own = {n: w for n, w in (sz.get("creatures") or {}).items()}
+            trash_own = {n: w for n, w in own.items() if w > 0 and not cm.creatures.get(n, {}).get("is_boss")}
+            if not trash_own or cm.is_safe_subzone(zone, key):
+                continue
+            blended = cm.get_encounter_table(zone, "subzone", key)
+            trash = {n: w for n, w in blended.items() if w > 0 and not cm.creatures.get(n, {}).get("is_boss")}
+            outsiders = sum(w for n, w in trash.items() if n not in own)
+            if not outsiders:
+                continue                      # the open zone has nothing this subzone lacks
+            has_rare = any(cm.creatures.get(n, {}).get("is_boss") for n in own)
+            of_roll = (outsiders / sum(trash.values())) * (0.94 if has_rare else 1.0)
+            checked += 1
+            if abs(of_roll - 0.10) > 0.005:
+                bad.append(f"{zone} / {key}: {of_roll:.1%} of encounters come from outside the subzone, not 10%")
+    if checked < 100:
+        bad.append(f"only {checked} subzones could be checked for the 90/10 split")
 
     # ...and "hunting it" has to be true for a FETCH quest, which is what this one is
     from world.zone_manager import ZoneManager
@@ -116,13 +144,14 @@ def main():
     if not os.path.isfile("assets/icons/consumables/beast_lure.png"):
         bad.append("the Beast Lure has no icon")
 
-    print(f"coconut crabs: {plain:.0%} of Echo Isles encounters, {hunting:.0%} on the quest; coral {FLOOR:.0%}")
+    print(f"coconut crabs: {plain:.0%} of Tidal Flats encounters, {hunting:.0%} on the quest; coral {FLOOR:.0%}; "
+          f"{checked} subzones hold the 90/10 split")
     if bad:
         print(f"\n{len(bad)} problem(s):")
         for b in bad:
             print("  -", b)
         return 1
-    print("\nhunting OK - multi-item quest drops are 75%, the crabs turn up, and a lure brings beasts.")
+    print("\nhunting OK - multi-item quest drops are 75%, subzones are 90% their own, the crabs turn up, and a lure brings beasts.")
     return 0
 
 

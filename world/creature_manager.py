@@ -88,7 +88,7 @@ class CreatureManager:
     # shouldn't have Barrens surface critters bleeding in), this is only
     # about open-world subzones inside a zone the player is already
     # walking through.
-    SUBZONE_OPEN_ZONE_BLEND = 0.35
+    SUBZONE_OPEN_ZONE_BLEND = 0.35     # superseded 12 Nov 2026 by SUBZONE_OUTSIDER_CHANCE (see get_encounter_table)
 
     def is_safe_subzone(self, zone_name, subzone_name):
         """True for a subzone flagged "safe": true in encounters.json.
@@ -149,7 +149,20 @@ class CreatureManager:
                 return dict(open_table)
             open_total = sum(open_table.values())
             if open_table and open_total > 0:
-                blend_budget = subzone_total * self.SUBZONE_OPEN_ZONE_BLEND
+                # ONE ROLL IN TEN IN A SUBZONE IS THE COUNTRY AROUND IT - no more. Kyle, 12 Nov
+                # 2026: "subzones also are 90% special mobs (or 84% and 6% if there's a rare).
+                # With the other 10% being non-subzone." This blend used to hand the open zone
+                # 26% of every subzone's encounters (SUBZONE_OPEN_ZONE_BLEND 0.35), which is why
+                # the thing a subzone is FOR was hard to find in it. The rare takes its 6% before
+                # this table is rolled, so the share is worked out of what is left.
+                own_weight = sum(w for n, w in subzone_table.items()
+                                 if not self.creatures.get(n, {}).get("is_boss", False))
+                has_rare = any(self.creatures.get(n, {}).get("is_boss", False) for n in subzone_table)
+                share_of_roll = self.SUBZONE_OUTSIDER_CHANCE / (1.0 - (self.RARE_SPAWN_CHANCE if has_rare else 0.0))
+                blend_budget = own_weight * share_of_roll / (1.0 - share_of_roll)
+                open_table = {n: w for n, w in open_table.items() if n not in subzone_table
+                              and not self.creatures.get(n, {}).get("is_boss", False)}
+                open_total = sum(open_table.values()) or 1
                 for name, weight in open_table.items():
                     if name in subzone_table:
                         # Already in the subzone's own table (its own
@@ -416,6 +429,8 @@ class CreatureManager:
     #: dungeon semantics to hang a fixed spawn point off of), so this is
     #: a genuine low-probability roll rather than a scaled-up weight.
     RARE_SPAWN_CHANCE = 0.06
+    #: Share of a subzone's encounters that come from the open zone around it instead.
+    SUBZONE_OUTSIDER_CHANCE = 0.10
 
     #: Weight multiplier for creatures an ACTIVE quest still needs killed.
     QUEST_TARGET_WEIGHT_BOOST = 4.0
