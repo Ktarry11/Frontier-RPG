@@ -1,0 +1,445 @@
+{
+  "_notes": "Ashenvale's named open-world rares (2026-11-13). ONE item drops per kill from the pool. item_level = level + 2; hand-authored in tools/build_ashenvale_rare_loot.py.",
+  "Felstalker": [
+    {
+      "name": "Felstalker's Leash",
+      "slot": "waist",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "primary_stats": {
+        "agility": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 56
+    },
+    {
+      "name": "Manaburnt Fang",
+      "slot": "main_hand",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 6
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 48,
+      "weapon_damage_max": 66,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Houndmaster's Wristguards",
+      "slot": "wrist",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "primary_stats": {
+        "agility": 5,
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "attack_power": 8
+      },
+      "armor_type": "mail",
+      "armor_value": 90
+    },
+    {
+      "name": "Collar of the Demon Wastes",
+      "slot": "neck",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 22,
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "spell_power": 3
+      }
+    }
+  ],
+  "Lord Malgan": [
+    {
+      "name": "Malgan's Throne-Staff",
+      "slot": "main_hand",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "spell_power": 8
+      },
+      "weapon_damage_min": 28,
+      "weapon_damage_max": 38,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Satyr-Lord's Mantle",
+      "slot": "shoulder",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "primary_stats": {
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "spell_power": 7
+      },
+      "armor_type": "cloth",
+      "armor_value": 37
+    },
+    {
+      "name": "Cloven Stompers",
+      "slot": "feet",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "primary_stats": {
+        "strength": 5,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 147
+    },
+    {
+      "name": "Horn of Satyr's Throne",
+      "slot": "off_hand",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "weapon_type": "idol",
+      "primary_stats": {
+        "intellect": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {
+        "healing_power": 3
+      }
+    }
+  ],
+  "Twilight Overseer": [
+    {
+      "name": "Overseer's Flail",
+      "slot": "main_hand",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "strength": 7
+      },
+      "secondary_stats": {
+        "hit_rating": 1,
+        "crit_chance_physical": 1
+      },
+      "weapon_damage_min": 52,
+      "weapon_damage_max": 70,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Barrow-Keeper's Breastplate",
+      "slot": "chest",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "primary_stats": {
+        "strength": 7,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "defense_rating": 1
+      },
+      "armor_type": "plate",
+      "armor_value": 212
+    },
+    {
+      "name": "Twilight Barrow Hood",
+      "slot": "head",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "primary_stats": {
+        "intellect": 9,
+        "spirit": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 37
+    },
+    {
+      "name": "Barrow-Warden's Gauntlets",
+      "slot": "hands",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "primary_stats": {
+        "strength": 5,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 147
+    }
+  ],
+  "Pit Lord Emissary": [
+    {
+      "name": "Emissary's Glaive",
+      "slot": "main_hand",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 6,
+        "agility": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 70,
+      "weapon_damage_max": 95,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Wastes-Walker Leggings",
+      "slot": "legs",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "primary_stats": {
+        "agility": 11,
+        "intellect": 11
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 141
+    },
+    {
+      "name": "Fel-Scorched Handwraps",
+      "slot": "hands",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "primary_stats": {
+        "intellect": 5,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "spell_power": 4
+      },
+      "armor_type": "cloth",
+      "armor_value": 30
+    },
+    {
+      "name": "Pit-Iron Shoulderguards",
+      "slot": "shoulder",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 24,
+      "primary_stats": {
+        "strength": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 179
+    }
+  ],
+  "Elder Timberling": [
+    {
+      "name": "Heartwood Cudgel",
+      "slot": "main_hand",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 72,
+      "weapon_damage_max": 98,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Barkhide Jerkin",
+      "slot": "chest",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "primary_stats": {
+        "agility": 8,
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "attack_power": 13
+      },
+      "armor_type": "leather",
+      "armor_value": 91
+    },
+    {
+      "name": "Timberling Root Sandals",
+      "slot": "feet",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "primary_stats": {
+        "intellect": 5,
+        "spirit": 5
+      },
+      "secondary_stats": {
+        "healing_power": 5
+      },
+      "armor_type": "cloth",
+      "armor_value": 31
+    },
+    {
+      "name": "Mossgrown Bracers",
+      "slot": "wrist",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 25,
+      "primary_stats": {
+        "agility": 8,
+        "spirit": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 63
+    }
+  ],
+  "Ursal the Mauler": [
+    {
+      "name": "Mauler's Paw",
+      "slot": "main_hand",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "agility": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "attack_power": 10
+      },
+      "weapon_damage_min": 56,
+      "weapon_damage_max": 77,
+      "attack_speed": 1.8
+    },
+    {
+      "name": "Ursal's Pelt",
+      "slot": "back",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "primary_stats": {
+        "agility": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 30
+    },
+    {
+      "name": "Highland Bearhide Leggings",
+      "slot": "legs",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "primary_stats": {
+        "agility": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 98
+    },
+    {
+      "name": "Ragged Highlands Coif",
+      "slot": "head",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "primary_stats": {
+        "agility": 7,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 133
+    }
+  ],
+  "Keeper Rustveil": [
+    {
+      "name": "Rustveil's Bough",
+      "slot": "ranged",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "spell_power": 6,
+        "mp5": 1
+      },
+      "weapon_damage_min": 48,
+      "weapon_damage_max": 65,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Grovewarden's Chainmail",
+      "slot": "chest",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "primary_stats": {
+        "intellect": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 157
+    },
+    {
+      "name": "Keeper's Antlered Helm",
+      "slot": "head",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "primary_stats": {
+        "stamina": 7,
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "healing_power": 5
+      },
+      "armor_type": "leather",
+      "armor_value": 83
+    },
+    {
+      "name": "Moonwhisper Band",
+      "slot": "ring",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 27,
+      "primary_stats": {
+        "spirit": 7,
+        "intellect": 3
+      },
+      "secondary_stats": {
+        "healing_power": 4
+      }
+    }
+  ]
+}
