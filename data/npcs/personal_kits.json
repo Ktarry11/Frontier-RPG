@@ -695,7 +695,7 @@
         "ability_id": "personal_rosa_long_sightlines",
         "name": "Long Sightlines",
         "from": "'Dry grass, long sightlines, big animals moving slow in the heat.'",
-        "engine": "needs: ranged attack that ignores row order",
+        "engine": "live: a ranged attack reaches any row (combat/rows.py)",
         "effect_type": "ranged_damage",
         "target_type": "enemy",
         "resource_type": "mana",
@@ -979,7 +979,7 @@
         "ability_id": "personal_amber_slow_and_correct",
         "name": "Slow and Correct",
         "from": "'It is a profession of doing something slow and correct and having nothing to show anybody for a decade.'",
-        "engine": "needs: heal-over-time that grows each turn it runs",
+        "engine": "live: tick_growth_pct - each tick heals 40% more than the last",
         "effect_type": "hot",
         "target_type": "ally",
         "resource_type": "mana",
@@ -995,7 +995,8 @@
             "effect_value": 28
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "tick_growth_pct": 40
       },
       {
         "ability_id": "personal_amber_a_mistake_corrects_itself",
@@ -1269,14 +1270,14 @@
         "ability_id": "personal_mateo_learning_them_from_scratch",
         "name": "Learning Them From Scratch",
         "from": "'spent his first winter learning them from scratch, alone, on his back in the grass'",
-        "engine": "needs: heal that grows with turns elapsed this fight",
+        "engine": "live: fight_turn_bonus",
         "effect_type": "heal",
         "target_type": "ally",
         "resource_type": "mana",
         "cooldown": 0,
         "duration": 0,
         "stat_mods": {},
-        "description": "Heals an ally for more the longer the fight has run, up to double at turn 10.",
+        "description": "Heals an ally for 10% more for each turn Mateo has taken this fight, up to double.",
         "ranks": [
           {
             "rank": 1,
@@ -1284,7 +1285,11 @@
             "cost": 22,
             "effect_value": 45
           }
-        ]
+        ],
+        "fight_turn_bonus": {
+          "pct": 10,
+          "cap": 100
+        }
       },
       {
         "ability_id": "personal_mateo_most_of_the_sky_at_once",
@@ -1527,7 +1532,7 @@
         "ability_id": "personal_liam_when_called_and_all_at_once",
         "name": "When Called and All At Once",
         "from": "'The sun answers him the way a good crew does, when called and all at once.'",
-        "engine": "needs: heal scaled by number of wounded allies",
+        "engine": "live: wounded_allies_bonus_pct",
         "effect_type": "heal",
         "target_type": "party",
         "resource_type": "mana",
@@ -1543,7 +1548,8 @@
             "effect_value": 60
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "wounded_allies_bonus_pct": 25
       },
       {
         "ability_id": "personal_liam_four_lines_long",
@@ -1924,14 +1930,14 @@
         "ability_id": "personal_anjali_several_seasons",
         "name": "Several Seasons for the Sentence to Finish",
         "from": "'A plant will tell you what it needs if you are willing to wait several seasons for the sentence to finish.'",
-        "engine": "needs: heal-over-time that pays its full value in one burst at the end",
+        "engine": "live: final_burst_mult - the last tick pays five times",
         "effect_type": "hot",
         "target_type": "ally",
         "resource_type": "mana",
         "cooldown": 10,
         "duration": 4,
         "stat_mods": {},
-        "description": "Heals an ally slightly for 4 turns, then heals them heavily when it finishes.",
+        "description": "Heals an ally a little each turn for 4 turns; the last turn heals five times as much.",
         "ranks": [
           {
             "rank": 1,
@@ -1940,14 +1946,15 @@
             "effect_value": 150
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "final_burst_mult": 4
       },
       {
         "ability_id": "personal_anjali_the_ability_to_answer_back",
         "name": "The Ability to Answer Back",
         "from": "'Druidry asked her for the same patience and gave her, for the first time in her life, the ability to answer back.'",
-        "engine": "needs: convert a heal-over-time into direct damage on the attacker",
-        "effect_type": "spell_damage",
+        "engine": "live: immediate hot_to_damage",
+        "effect_type": "buff",
         "target_type": "enemy",
         "resource_type": "mana",
         "cooldown": 10,
@@ -1963,7 +1970,10 @@
           }
         ],
         "is_instant": true,
-        "damage_school": "nature"
+        "damage_school": "nature",
+        "immediate": {
+          "action": "hot_to_damage"
+        }
       },
       {
         "ability_id": "personal_anjali_sick_in_a_patterned_way",
@@ -2441,14 +2451,14 @@
         "ability_id": "personal_junseo_the_same_two_motions",
         "name": "The Same Two Motions",
         "from": "'the same two motions ten thousand times a day'",
-        "engine": "needs: repeating attack that gains speed while unchanged",
+        "engine": "live: repeat_discount (the 'strikes faster' half is dropped from the text)",
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "mana",
         "cooldown": 0,
         "duration": 0,
         "stat_mods": {},
-        "description": "Each consecutive use against the same target costs 20% less and strikes 15% faster, up to five times.",
+        "description": "Each use in a row costs 20% less, down to a fifth of the cost.",
         "ranks": [
           {
             "rank": 1,
@@ -2457,7 +2467,11 @@
             "effect_value": 60
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "repeat_discount": {
+          "pct": 20,
+          "floor": 20
+        }
       },
       {
         "ability_id": "personal_junseo_without_deciding_to",
@@ -2486,14 +2500,14 @@
         "ability_id": "personal_junseo_the_lift_takes_its_time",
         "name": "The Lift Takes Its Time",
         "from": "'the only way up is a lift and the lift takes its time'",
-        "engine": "needs: delayed heavy strike that resolves after N turns",
+        "engine": "live: delayed - lands two of his turns later",
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "mana",
         "cooldown": 10,
         "duration": 2,
         "stat_mods": {},
-        "description": "Lands at the end of two turns for triple damage. Cannot be interrupted.",
+        "description": "Jun-seo commits now; the blow lands at the end of his second turn from now, far harder than an ordinary strike. It cannot be interrupted.",
         "ranks": [
           {
             "rank": 1,
@@ -2502,7 +2516,11 @@
             "effect_value": 210
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "delayed": {
+          "turns": 2,
+          "mult": 1.0
+        }
       }
     ]
   },
@@ -2544,14 +2562,14 @@
         "ability_id": "personal_minh_never_letting_your_voice_carry",
         "name": "Never Letting Your Voice Carry",
         "from": "'the discipline of never once letting your voice carry what your pulse is doing'",
-        "engine": "needs: suppress a lethal blow and rewind it",
-        "effect_type": "heal",
+        "engine": "live: immediate rewind",
+        "effect_type": "buff",
         "target_type": "ally",
         "resource_type": "mana",
         "cooldown": 15,
         "duration": 0,
         "stat_mods": {},
-        "description": "Returns one ally to the health they had two turns ago.",
+        "description": "Returns one ally to the health they had two of their turns ago, if that was more.",
         "ranks": [
           {
             "rank": 1,
@@ -2560,7 +2578,11 @@
             "effect_value": 0
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "immediate": {
+          "action": "rewind",
+          "turns": 2
+        }
       },
       {
         "ability_id": "personal_minh_the_one_in_which_nobody_dies",
@@ -2628,14 +2650,14 @@
         "ability_id": "personal_alonso_exactly_right",
         "name": "Exactly Right",
         "from": "'the whole year's work turns on four hours of heat going exactly right'",
-        "engine": "needs: heal-over-time that pays double if it runs its full length",
+        "engine": "live: final_burst_mult - the last tick is triple",
         "effect_type": "hot",
         "target_type": "ally",
         "resource_type": "mana",
         "cooldown": 10,
         "duration": 4,
         "stat_mods": {},
-        "description": "Heals an ally for 4 turns. If it is not interrupted or overwritten, the final turn heals for triple.",
+        "description": "Heals an ally for 4 turns. The final turn heals for triple.",
         "ranks": [
           {
             "rank": 1,
@@ -2644,7 +2666,8 @@
             "effect_value": 35
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "final_burst_mult": 2
       },
       {
         "ability_id": "personal_alonso_made_a_cup_badly",
@@ -2684,7 +2707,7 @@
         "ability_id": "personal_delroy_everybody_gets_something",
         "name": "Everybody Gets Something",
         "from": "'everybody gets something, nobody waits long, and the complaining is part of the process'",
-        "engine": "needs: heal split evenly rather than by need",
+        "engine": "live: a party heal already gives every ally the same amount",
         "effect_type": "heal",
         "target_type": "party",
         "resource_type": "mana",
@@ -2732,14 +2755,14 @@
         "ability_id": "personal_delroy_an_order_going_out_at_dawn",
         "name": "An Order Going Out at Dawn",
         "from": "'He treats a wounded party like an order going out at dawn'",
-        "engine": "needs: queued heal that lands at the start of the next round",
+        "engine": "live: delayed - lands one turn later at 160%",
         "effect_type": "heal",
         "target_type": "party",
         "resource_type": "mana",
         "cooldown": 12,
         "duration": 0,
         "stat_mods": {},
-        "description": "Heals the party at the start of the next round, for 60% more than an immediate heal.",
+        "description": "Heals the party at the end of Delroy's next turn, for 60% more than an immediate heal.",
         "ranks": [
           {
             "rank": 1,
@@ -2748,7 +2771,11 @@
             "effect_value": 70
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "delayed": {
+          "turns": 1,
+          "mult": 1.6
+        }
       }
     ]
   },
@@ -2876,14 +2903,14 @@
         "ability_id": "personal_tomas_hanging_weight",
         "name": "Hanging Weight Overhead",
         "from": "'hanging weight over the heads of people who'd never once look up'",
-        "engine": "needs: delayed area strike on a chosen row",
+        "engine": "live: delayed - the row strike lands two of his turns later",
         "effect_type": "damage",
         "target_type": "enemy_aoe",
         "resource_type": "rage",
         "cooldown": 12,
         "duration": 2,
         "stat_mods": {},
-        "description": "Drops a heavy strike on one enemy row at the end of two turns.",
+        "description": "Drops a heavy strike on one enemy row at the end of Tomas's second turn from now.",
         "ranks": [
           {
             "rank": 1,
@@ -2892,7 +2919,11 @@
             "effect_value": 130
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "delayed": {
+          "turns": 2,
+          "mult": 1.0
+        }
       },
       {
         "ability_id": "personal_tomas_tie_off_badly",
@@ -3019,14 +3050,14 @@
         "ability_id": "personal_ziad_first_on_scene",
         "name": "First On Scene. Always.",
         "from": "'He is first on scene. Always.'",
-        "engine": "needs: move to a fallen ally and stabilise",
+        "engine": "live: requires_target_below_pct and heals_pct_max",
         "effect_type": "heal",
         "target_type": "ally",
         "resource_type": "felfury",
         "cooldown": 12,
         "duration": 0,
         "stat_mods": {},
-        "description": "Reaches any ally below 25% health immediately and heals them for 50% of their maximum.",
+        "description": "Usable on an ally below 25% health. Heals them for at least half their maximum.",
         "ranks": [
           {
             "rank": 1,
@@ -3035,13 +3066,15 @@
             "effect_value": 50
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "requires_target_below_pct": 25,
+        "heals_pct_max": 50
       },
       {
         "ability_id": "personal_ziad_a_van_with_four_spaces",
         "name": "A Van With Four Spaces",
         "from": "'the bitter arithmetic of a van with four spaces'",
-        "engine": "needs: heal exactly four allies, strongest first",
+        "engine": "live: max_recipients - the four most wounded",
         "effect_type": "heal",
         "target_type": "party",
         "resource_type": "felfury",
@@ -3057,20 +3090,21 @@
             "effect_value": 65
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "max_recipients": 4
       },
       {
         "ability_id": "personal_ziad_the_arithmetic_in_public",
         "name": "The Arithmetic, In Public",
         "from": "'three years on he is still doing the arithmetic in public, out loud, for anyone who wants to argue'",
-        "engine": "needs: self-damage converted to party healing",
-        "effect_type": "heal",
+        "engine": "live: immediate blood_heal",
+        "effect_type": "buff",
         "target_type": "party",
         "resource_type": "felfury",
         "cooldown": 15,
         "duration": 0,
         "stat_mods": {},
-        "description": "Ziad spends 25% of his maximum health and heals the party for twice that amount.",
+        "description": "Ziad spends 25% of his maximum health. Twice that amount is shared equally among the rest of the party.",
         "ranks": [
           {
             "rank": 1,
@@ -3079,7 +3113,12 @@
             "effect_value": 25
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "immediate": {
+          "action": "blood_heal",
+          "cost_pct": 25,
+          "mult": 2
+        }
       }
     ]
   },
@@ -3316,14 +3355,14 @@
         "ability_id": "personal_stelios_one_hundred_and_forty",
         "name": "One Hundred and Forty",
         "from": "'He has conducted one hundred and forty. He keeps a register.'",
-        "engine": "needs: heal scaled by allies lost this fight",
+        "engine": "live: fallen_allies_bonus_pct",
         "effect_type": "heal",
         "target_type": "party",
         "resource_type": "life_force",
         "cooldown": 15,
         "duration": 0,
         "stat_mods": {},
-        "description": "Heals the party. Heals 40% more for each ally who has fallen this fight.",
+        "description": "Heals the party. Heals 40% more for each ally who is down.",
         "ranks": [
           {
             "rank": 1,
@@ -3332,7 +3371,8 @@
             "effect_value": 55
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "fallen_allies_bonus_pct": 40
       }
     ]
   },
@@ -3460,14 +3500,14 @@
         "ability_id": "personal_kourosh_finish_the_sum",
         "name": "Finish the Sum",
         "from": "'the first thing he did on this world was finish the sum'",
-        "engine": "needs: delayed spell that resolves for accumulated value",
+        "engine": "live: delayed accumulate",
         "effect_type": "spell_damage",
         "target_type": "enemy",
         "resource_type": "mana",
         "cooldown": 12,
         "duration": 3,
         "stat_mods": {},
-        "description": "Builds for 3 turns, then deals arcane damage equal to everything Kourosh cast in that time.",
+        "description": "Kourosh marks an enemy. At the end of his third turn from now it takes arcane damage equal to all the damage he dealt in between.",
         "ranks": [
           {
             "rank": 1,
@@ -3477,7 +3517,11 @@
           }
         ],
         "is_instant": true,
-        "damage_school": "arcane"
+        "damage_school": "arcane",
+        "delayed": {
+          "turns": 3,
+          "mode": "accumulate"
+        }
       },
       {
         "ability_id": "personal_kourosh_characterising_it",
@@ -4194,7 +4238,7 @@
         "ability_id": "personal_camille_taking_all_of_it",
         "name": "Taking All of It",
         "from": "'knowing exactly how much space you have and taking all of it'",
-        "engine": "needs: strike every enemy in a chosen row once",
+        "engine": "live: an area attack aimed at a row hits that row",
         "effect_type": "damage",
         "target_type": "enemy_aoe",
         "resource_type": "archery_points",
@@ -4241,7 +4285,7 @@
         "ability_id": "personal_camille_she_has_not_read",
         "name": "She Will Not Take a Message She Has Not Read",
         "from": "'She will not take a message she has not read.'",
-        "engine": "live: reveals_intent - the combat log says what each revealed enemy will do on its next turn",
+        "engine": "live: reveals_intent and sure_target - her attacks on it cannot miss",
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "archery_points",
@@ -4258,7 +4302,8 @@
           }
         ],
         "is_instant": true,
-        "reveals_intent": "all"
+        "reveals_intent": "all",
+        "sure_target": true
       }
     ]
   },
@@ -4275,7 +4320,7 @@
         "ability_id": "personal_orlando_sit_down_tell_me",
         "name": "Sit Down, Tell Me What Is Wrong",
         "from": "'sit down, tell me what is wrong, I am going to fix it and we are going to talk the whole time'",
-        "engine": "needs: channelled heal that also cleanses each turn",
+        "engine": "live: cleanses_each_tick",
         "effect_type": "hot",
         "target_type": "ally",
         "resource_type": "mana",
@@ -4291,20 +4336,21 @@
             "effect_value": 40
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "cleanses_each_tick": true
       },
       {
         "ability_id": "personal_orlando_he_rebuilt_the_room",
         "name": "He Rebuilt the Room",
         "from": "'the reason is simple: he rebuilt the room'",
-        "engine": "needs: restore the party's starting condition",
+        "engine": "live: heals_party_pct_max and restore_buff_each",
         "effect_type": "heal",
         "target_type": "party",
         "resource_type": "mana",
         "cooldown": 15,
         "duration": 0,
         "stat_mods": {},
-        "description": "Heals the party for 35% of their maximum and restores one expired buff to each.",
+        "description": "Heals the party, then each ally for a further 35% of their maximum, and restores one lapsed buff to each.",
         "ranks": [
           {
             "rank": 1,
@@ -4313,20 +4359,22 @@
             "effect_value": 35
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "heals_party_pct_max": 35,
+        "restore_buff_each": true
       },
       {
         "ability_id": "personal_orlando_never_refused_twice",
         "name": "Never Been Refused Twice",
         "from": "'he has never been refused twice by the same person'",
-        "engine": "needs: second application of a resisted effect cannot be resisted",
+        "engine": "live: second_try_lands - the game has misses, not resists",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
         "cooldown": 12,
         "duration": 4,
         "stat_mods": {},
-        "description": "For 4 turns, any spell of Orlando's that is resisted cannot be resisted on its next cast.",
+        "description": "For 4 turns, when one of Orlando's spells misses, his next cannot.",
         "ranks": [
           {
             "rank": 1,
@@ -4335,7 +4383,8 @@
             "effect_value": 0
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "second_try_lands": true
       }
     ]
   },
@@ -4545,14 +4594,14 @@
         "ability_id": "personal_nicolas_leave_somebody_behind",
         "name": "Told to Leave Somebody Behind",
         "from": "'the one thing that will shut him down completely is being told to leave somebody behind'",
-        "engine": "needs: reach a downed ally and restore them",
+        "engine": "live: auto_lowest_ally, requires_target_below_pct, heals_pct_max",
         "effect_type": "heal",
         "target_type": "ally",
         "resource_type": "rage",
         "cooldown": 15,
         "duration": 0,
         "stat_mods": {},
-        "description": "Heals the lowest-health ally for 70% of their maximum. Usable only while they are below 30%.",
+        "description": "Heals the lowest-health ally for at least 70% of their maximum. Usable only while they are below 30%.",
         "ranks": [
           {
             "rank": 1,
@@ -4561,7 +4610,10 @@
             "effect_value": 70
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "auto_lowest_ally": true,
+        "requires_target_below_pct": 30,
+        "heals_pct_max": 70
       },
       {
         "ability_id": "personal_nicolas_toward_what_everyone_goes_away_from",
@@ -4634,14 +4686,16 @@
         "ability_id": "personal_ileana_the_cold_comes_off_her",
         "name": "The Cold Comes Off Her",
         "from": "'where the cold comes off her in a way the front rank has learned to stand clear of'",
-        "engine": "needs: persistent frost aura on a row",
+        "engine": "live: haste -30 rides on the frost",
         "effect_type": "spell_dot",
         "target_type": "enemy_aoe",
         "resource_type": "life_force",
         "cooldown": 12,
         "duration": 4,
-        "stat_mods": {},
-        "description": "Frost damage to one enemy row each turn for 4 turns, slowing everything in it.",
+        "stat_mods": {
+          "haste": -30
+        },
+        "description": "Frost damage to one enemy row each turn for 4 turns. Everything in it is slowed by 30%.",
         "ranks": [
           {
             "rank": 1,
@@ -4694,7 +4748,7 @@
         "ability_id": "personal_thiago_relentlessly_encouraging",
         "name": "Relentlessly Encouraging",
         "from": "'The work is being relentlessly encouraging to somebody who wants to give up and is entitled to.'",
-        "engine": "needs: heal that grows the longer an ally stays wounded",
+        "engine": "live: target_low_turns_bonus",
         "effect_type": "heal",
         "target_type": "ally",
         "resource_type": "mana",
@@ -4710,13 +4764,17 @@
             "effect_value": 50
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "target_low_turns_bonus": {
+          "pct": 30,
+          "cap": 200
+        }
       },
       {
         "ability_id": "personal_thiago_reach_either_end",
         "name": "Where He Can Reach Either End",
         "from": "'In the middle of the party, where he can reach either end of it.'",
-        "engine": "needs: heal both rows at once",
+        "engine": "live: a party heal reaches both rows",
         "effect_type": "heal",
         "target_type": "party",
         "resource_type": "mana",
@@ -4796,7 +4854,7 @@
         "ability_id": "personal_skye_discovering_she_could_start_one",
         "name": "Discovering She Could Start One",
         "from": "'The harder part was discovering she could start one.'",
-        "engine": "needs: area fire that spreads on kill",
+        "engine": "live: on_kill_repeat_pct",
         "effect_type": "spell_damage",
         "target_type": "enemy_aoe",
         "resource_type": "mana",
@@ -4813,7 +4871,8 @@
           }
         ],
         "is_instant": true,
-        "damage_school": "fire"
+        "damage_school": "fire",
+        "on_kill_repeat_pct": 50
       },
       {
         "ability_id": "personal_skye_a_rule_she_tells_nobody",
@@ -4854,14 +4913,14 @@
         "ability_id": "personal_vuk_the_thing_he_is_actually_good_at",
         "name": "The Thing He Is Actually Good At",
         "from": "'At the front with an axe, badly, and at the fire afterwards doing the thing he is actually good at.'",
-        "engine": "needs: out-of-combat party restore",
+        "engine": "live: heals_party_pct_max and party_resource_pct (mana only)",
         "effect_type": "heal",
         "target_type": "party",
         "resource_type": "rage",
         "cooldown": 15,
         "duration": 0,
         "stat_mods": {},
-        "description": "Feeds the party. Heals everyone for 40% of their maximum and restores 20% resource.",
+        "description": "Feeds the party. Heals everyone, then each for a further 40% of their maximum, and restores 20% of their mana.",
         "ranks": [
           {
             "rank": 1,
@@ -4870,7 +4929,9 @@
             "effect_value": 40
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "heals_party_pct_max": 40,
+        "party_resource_pct": 20
       },
       {
         "ability_id": "personal_vuk_too_irritated_to_leave_it_alone",
@@ -5107,7 +5168,7 @@
         "ability_id": "personal_osvaldo_the_loud_part",
         "name": "Doing the Loud Part",
         "from": "'At the back, doing the loud part, with a flat expression that unsettles people.'",
-        "engine": "needs: high-damage single cast with a long wind-up",
+        "engine": "live: self_stun_turns",
         "effect_type": "spell_damage",
         "target_type": "enemy",
         "resource_type": "mana",
@@ -5124,20 +5185,21 @@
           }
         ],
         "is_instant": true,
-        "damage_school": "fire"
+        "damage_school": "fire",
+        "self_stun_turns": 1
       },
       {
         "ability_id": "personal_osvaldo_six_nights_a_week",
         "name": "Six Nights a Week",
         "from": "'sixteen years, six nights a week, for tourists who talked through all of it'",
-        "engine": "needs: repeating cast that costs less each time",
+        "engine": "live: repeat_discount",
         "effect_type": "spell_damage",
         "target_type": "enemy",
         "resource_type": "mana",
         "cooldown": 0,
         "duration": 0,
         "stat_mods": {},
-        "description": "Each consecutive cast against the same target costs 20% less, to a minimum of a fifth.",
+        "description": "Each cast in a row costs 20% less, to a minimum of a fifth.",
         "ranks": [
           {
             "rank": 1,
@@ -5146,20 +5208,24 @@
             "effect_value": 70
           }
         ],
-        "damage_school": "fire"
+        "damage_school": "fire",
+        "repeat_discount": {
+          "pct": 20,
+          "floor": 20
+        }
       },
       {
         "ability_id": "personal_osvaldo_just_sitting_there",
         "name": "Just Sitting There",
         "from": "'he has twice stayed up all night with people who were in a bad way, saying almost nothing, just sitting there'",
-        "engine": "needs: Osvaldo healing them MORE on a turn he does not attack",
+        "engine": "live: idle_bonus_pct",
         "effect_type": "hot",
         "target_type": "ally",
         "resource_type": "mana",
         "cooldown": 12,
         "duration": 5,
         "stat_mods": {},
-        "description": "For 5 turns the chosen ally heals each turn. Osvaldo heals them more on any turn he does not attack.",
+        "description": "For 5 turns the chosen ally heals each turn - half as much again on any turn Osvaldo did not attack.",
         "ranks": [
           {
             "rank": 1,
@@ -5168,7 +5234,8 @@
             "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "idle_bonus_pct": 50
       }
     ]
   },
@@ -5233,14 +5300,14 @@
         "ability_id": "personal_bashir_no_interest_in_how_long",
         "name": "No Interest At All In How Long It Takes",
         "from": "'with no interest at all in how long it takes'",
-        "engine": "needs: damage-over-time that cannot be dispelled",
+        "engine": "live: an untyped damage-over-time cannot be dispelled",
         "effect_type": "dot",
         "target_type": "enemy",
         "resource_type": "focus",
         "cooldown": 12,
         "duration": 6,
         "stat_mods": {},
-        "description": "Shadow damage over 6 turns. It cannot be removed, resisted or reduced.",
+        "description": "Shadow damage over 6 turns. It cannot be dispelled.",
         "ranks": [
           {
             "rank": 1,
@@ -5376,7 +5443,7 @@
         "ability_id": "personal_elias_check_on_people_behind_him",
         "name": "To Check On People Behind Him",
         "from": "'to check on people behind him without turning round'",
-        "engine": "needs: heal the lowest ally without targeting",
+        "engine": "live: auto_lowest_ally",
         "effect_type": "heal",
         "target_type": "ally",
         "resource_type": "mana",
@@ -5392,7 +5459,8 @@
             "effect_value": 70
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "auto_lowest_ally": true
       },
       {
         "ability_id": "personal_elias_four_walls_and_a_roof",
@@ -5434,7 +5502,7 @@
         "ability_id": "personal_rui_something_offered",
         "name": "Something Offered",
         "from": "'He was alone, he was hurt, and something offered. He said yes.'",
-        "engine": "needs: heal paid for with the caster's own health",
+        "engine": "live: self_damage_pct_of_heal",
         "effect_type": "heal",
         "target_type": "ally",
         "resource_type": "mana",
@@ -5450,13 +5518,14 @@
             "effect_value": 140
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "self_damage_pct_of_heal": 20
       },
       {
         "ability_id": "personal_rui_visibly_uncomfortable",
         "name": "Extremely Effective and Visibly Uncomfortable",
         "from": "'Behind the party, where he is extremely effective and visibly uncomfortable about it.'",
-        "engine": "needs: strong party heal with a self debuff",
+        "engine": "live: self_debuff",
         "effect_type": "heal",
         "target_type": "party",
         "resource_type": "mana",
@@ -5472,7 +5541,13 @@
             "effect_value": 70
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "self_debuff": {
+          "mods": {
+            "healing_taken_pct": -50
+          },
+          "turns": 3
+        }
       },
       {
         "ability_id": "personal_rui_he_sleeps_nearest_the_fire",
@@ -5563,14 +5638,14 @@
         "ability_id": "personal_nizar_runs_backwards_on_its_chain",
         "name": "It Runs Backwards On Its Chain",
         "from": "'The broken watch runs backwards on its chain. He winds it every morning regardless.'",
-        "engine": "needs: return a target to an earlier state",
-        "effect_type": "heal",
+        "engine": "live: immediate rewind with mana",
+        "effect_type": "buff",
         "target_type": "ally",
         "resource_type": "mana",
         "cooldown": 15,
         "duration": 0,
         "stat_mods": {},
-        "description": "Returns an ally to the health and resource they had three turns ago.",
+        "description": "Returns an ally to the health and mana they had three of their turns ago, if that was more.",
         "ranks": [
           {
             "rank": 1,
@@ -5579,7 +5654,12 @@
             "effect_value": 0
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "immediate": {
+          "action": "rewind",
+          "turns": 3,
+          "resource": true
+        }
       }
     ]
   },
@@ -5623,9 +5703,9 @@
         "ability_id": "personal_yusuf_how_much_of_the_truth",
         "name": "How Much of the Truth a Frightened Person Can Take",
         "from": "'he knows exactly how much of the truth a frightened person can take at once'",
-        "engine": "needs: heal capped to need, remainder shared",
+        "engine": "live: overheal_shared",
         "effect_type": "heal",
-        "target_type": "party",
+        "target_type": "ally",
         "resource_type": "mana",
         "cooldown": 12,
         "duration": 0,
@@ -5639,7 +5719,8 @@
             "effect_value": 110
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "overheal_shared": true
       },
       {
         "ability_id": "personal_yusuf_whose_numbers_are_always_right",

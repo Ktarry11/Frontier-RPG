@@ -106,6 +106,14 @@ class CombatEngine:
         for _ally in self.party.members:
             _ally._fight_uses = {}
             _ally._attack_streak = (None, 0)
+            _ally._fight_turns = 0
+            _ally._turns_below_half = 0
+            _ally._health_history = []
+            _ally._damage_tally = 0
+            _ally._next_cast_sure = False
+            _ally._fight_party = self.party.members     # the fallen included
+        #: Abilities paid for and not yet landed: see queue_delayed.
+        self._delayed = []
         self.copper_earned = 0     # coin dropped this fight (humanoids only), for the victory screen
         self.trash_gained = 0      # vendor trash items picked up this fight
         self.trash_value = 0       # their total sell value in copper
@@ -930,6 +938,9 @@ class CombatEngine:
         if hasattr(actor, "restore_resources_between_turns"):
             actor.restore_resources_between_turns()
 
+        if self._delayed:
+            self._land_delayed(actor)
+
         # Tick DoTs/HoTs/buffs riding on the actor who just acted.
         if hasattr(actor, "tick_status_effects"):
             for msg in actor.tick_status_effects():
@@ -1361,6 +1372,30 @@ class CombatEngine:
             if told.get(id(enemy)) != text:
                 told[id(enemy)] = text
                 self.combat_log.append(f"Foreseen: {enemy.name} will use {text}.")
+
+    def queue_delayed(self, caster, ability, target, party):
+        """Hold an ability until `delayed.turns` of the caster's own turns have ended."""
+        self._delayed.append({"caster": caster, "ability": ability, "target": target, "party": party,
+                              "turns": int((ability.delayed or {}).get("turns", 1)) + 1,
+                              "snapshot": getattr(caster, "_damage_tally", 0)})
+
+    def _land_delayed(self, actor):
+        """At the end of `actor`'s turn, count their held abilities down and land any that are due."""
+        for held in list(self._delayed):
+            if held["caster"] is not actor:
+                continue
+            held["turns"] -= 1
+            if held["turns"] > 0:
+                continue
+            self._delayed.remove(held)
+            if not actor.is_alive():
+                continue
+            try:
+                msg = held["ability"].fire_delayed(actor, held["target"], held["party"], self, held["snapshot"])
+            except Exception as exc:
+                msg = f"{actor.name}'s {held['ability'].name} fails to land ({exc})."
+            self.combat_log.append(msg)
+            self._generate_threat_from_ability(actor, held["ability"])
 
     def coin_find_multiplier(self):
         """gold_find_pct (Silas reads a dock): the best one in the party counts, not the sum."""

@@ -461,6 +461,20 @@ class StatusEffect:
         self.charge = 0
         #: A buff: an attack the holder dodges or parries is answered with a free basic attack.
         self.counter_on_miss = False
+        # ---- HEAL-OVER-TIME SHAPES (recruit kits, 13 Nov) ----------------
+        #: Each tick heals this much more than the last (Amber: 40).
+        self.tick_growth_pct = 0
+        #: The LAST tick heals this many times extra (Alonso 2 = triple; Anjali's late payout).
+        self.final_burst_mult = 0
+        #: The caster, and how much more a tick heals on a turn they did not attack (Osvaldo).
+        self.idle_source = None
+        self.idle_bonus_pct = 0
+        #: Each tick also removes one harmful effect from the holder (Orlando).
+        self.cleanses_each_tick = False
+        #: A debuff: the named caster's attacks on the holder cannot miss (Camille).
+        self.sure_hit_by = ""
+        #: A buff: after one of the holder's spells misses, the next cannot (Orlando).
+        self.second_try_lands = False
         #: A buff counted in CASTS, not turns: the holder's next sure_crits damaging casts are
         #: critical hits, then the next forced_misses miss, then it is gone. Kourosh.
         self.sure_crits = 0
@@ -1431,7 +1445,21 @@ class StatusEffectMixin:
             self._note_proc(
                 f"{effect.name} turns {gained} into a shield on {self.name}")
 
-    def restore_expired_buffs(self, turns=3):
+    def rewind(self, turns, resource=False):
+        """Back to the health (and mana) held `turns` of the holder's own turns ago - never
+        down, and never from the dead. Returns the health gained."""
+        history = getattr(self, "_health_history", None) or []
+        if not history or self.current_health <= 0:
+            return 0
+        then_hp, then_mana = history[max(0, len(history) - turns)]
+        gained = max(0, int(then_hp - self.current_health))
+        if gained:
+            self.current_health = min(getattr(self, "health", then_hp) or then_hp, then_hp)
+        if resource and then_mana is not None and hasattr(self, "current_mana"):
+            self.current_mana = max(self.current_mana, then_mana)
+        return gained
+
+    def restore_expired_buffs(self, turns=3, limit=None):
         """Put back every turn-based buff that ran out on the holder within their last `turns`
         turns, at full length. Returns how many. Owen Pryce's "A Record of the Route"."""
         now = getattr(self, "_turns_taken", 0)
@@ -1441,6 +1469,8 @@ class StatusEffectMixin:
                 effect.duration = getattr(effect, "max_duration", None) or 1
                 self.apply_status_effect(effect)
                 back += 1
+                if limit and back >= limit:
+                    break
         self._recently_expired = []
         return back
 
@@ -1789,6 +1819,16 @@ class StatusEffectMixin:
                   if e.effect_type == EffectType.BUFF and getattr(e, "real_time_seconds", None) is None]
         messages = self._tick_status_effects()
         self._turns_taken = getattr(self, "_turns_taken", 0) + 1
+        # What "how long", "how hurt for how long" and "as you were two turns ago" read.
+        self._fight_turns = getattr(self, "_fight_turns", 0) + 1
+        top = getattr(self, "health", 0) or 0
+        low = bool(top) and self.current_health < top * 0.5
+        self._turns_below_half = (getattr(self, "_turns_below_half", 0) + 1) if low else 0
+        history = getattr(self, "_health_history", None)
+        if history is None:
+            history = self._health_history = []
+        history.append((self.current_health, getattr(self, "current_mana", None)))
+        del history[:-6]
         live = self._effects()
         gone = [e for e in before if not any(e is x for x in live) and e.is_expired()]
         kept = [(e, t) for e, t in (getattr(self, "_recently_expired", None) or [])
@@ -1851,7 +1891,21 @@ class StatusEffectMixin:
                     messages.append(f"{effect.name} fades from {self.name}.")
             elif effect.effect_type == EffectType.HOT:
                 healed = effect.tick_potency()
+                watcher = getattr(effect, "idle_source", None)
+                if watcher is not None and not getattr(watcher, "_attacked_last_turn", False):
+                    healed = int(healed * (1.0 + (getattr(effect, "idle_bonus_pct", 0) or 0) / 100.0))
+                if effect.duration <= 1 and getattr(effect, "final_burst_mult", 0):
+                    healed = int(healed * (1.0 + effect.final_burst_mult))
                 self.heal(healed)
+                if getattr(effect, "tick_growth_pct", 0):
+                    effect.potency = max(1, int(round(effect.potency * (1.0 + effect.tick_growth_pct / 100.0))))
+                if getattr(effect, "cleanses_each_tick", False):
+                    harm = next((e for e in self._effects()
+                                 if e.effect_type in (EffectType.DEBUFF, EffectType.DOT)), None)
+                    if harm is not None and self._discard_effect(harm):
+                        messages.append(f"{effect.name} clears {harm.name} from {self.name}.")
+                        if hasattr(self, "_on_status_effects_changed"):
+                            self._on_status_effects_changed()
                 messages.append(f"{self.name} is healed {healed} by {effect.name}.")
                 effect.duration -= 1
                 if effect.is_expired():

@@ -1425,7 +1425,13 @@ class Ability:
             pct += self._talent(caster, "healing_spell_cost_pct")
         # Clamped so a stack of reductions discounts rather than inverts.
         pct = min(0.90, max(-0.90, pct))
-        return max(0, int(round(cost * (1.0 - pct))))
+        cost = cost * (1.0 - pct)
+        # repeat_discount: cheaper for each cast in a row (Jun-seo, Osvaldo), down to a floor.
+        deal = self.repeat_discount
+        if deal and getattr(caster, "_last_ability_id", None) == self.ability_id:
+            run = getattr(self, "_repeat_run", 0)
+            cost *= max(float(deal.get("floor", 20)) / 100.0, 1.0 - float(deal.get("pct", 0)) / 100.0 * run)
+        return max(0, int(round(cost)))
 
     def talented_duration(self, caster):
         """Effect duration in turns after talent extensions.
@@ -1724,6 +1730,37 @@ class Ability:
                 return f"{caster.name} uses {self.name}, but nothing is running."
             return (f"{caster.name} uses {self.name}, extending {total} effect"
                     f"{'s' if total != 1 else ''} by {turns} turns!")
+        if action == "rewind":
+            who = self._recipients(caster, target if target is not None else party)[0]
+            turns = int(spec.get("turns", 2))
+            gained = who.rewind(turns, bool(spec.get("resource"))) if hasattr(who, "rewind") else 0
+            if not gained:
+                return f"{caster.name} uses {self.name}, but {who.name} was no better off {turns} turns ago."
+            return f"{caster.name} uses {self.name}: {who.name} is as they were {turns} turns ago (+{gained} health)."
+        if action == "blood_heal":
+            spent = min(int(caster.health * float(spec.get("cost_pct", 25)) / 100.0), max(0, int(caster.current_health) - 1))
+            others = [m for m in (getattr(party, 'members', party) or []) if m is not None and m is not caster and m.is_alive()]
+            if spent <= 0 or not others:
+                return f"{caster.name} uses {self.name}, but there is nobody to give it to."
+            caster.current_health -= spent
+            each = spent * float(spec.get("mult", 2)) / len(others)
+            for m in others:
+                m.heal(each)
+            return f"{caster.name} spends {spent} health with {self.name}: {int(each)} to each of the others."
+        if action == "hot_to_damage":
+            from combat.status_effects import EffectType
+            foes = self._hostile_recipients(target)
+            for ally in [m for m in (getattr(party, 'members', party) or [caster]) if m is not None]:
+                for e in list(ally._effects()):
+                    if e.effect_type == EffectType.HOT and e.source_name == caster.name and foes:
+                        left = int(e.tick_potency() * max(1, e.duration))
+                        ally._discard_effect(e)
+                        dealt = foes[0].take_damage(left, "nature", attacker_level=getattr(caster, "level", None),
+                                                    attacker=caster)
+                        self._last_threat_events = [(foes[0], dealt, True)]
+                        return (f"{caster.name} ends {e.name} on {ally.name} with {self.name}: "
+                                f"{dealt} nature damage to {foes[0].name}!")
+            return f"{caster.name} uses {self.name}, but has no healing running to turn."
         if action == "restore_expired":
             turns = spec.get("turns", 3)
             total = 0
@@ -2204,6 +2241,21 @@ class Ability:
         # normal restriction" talents) - checked via the same _effects()
         # a real proc reads, not a special-cased talent lookup, so any
         # future ability/talent can grant this bypass the same way.
+        # Three things a recruit's heal can say about WHO it lands on.
+        if self.auto_lowest_ally and party:
+            living = [m for m in getattr(party, "members", party) if m is not None and m.is_alive()]
+            if living:
+                target = min(living, key=lambda m: m.current_health / max(1, m.health))
+        if self.max_recipients and isinstance(target, (list, tuple)):
+            living = sorted((m for m in target if m is not None and m.is_alive()),
+                            key=lambda m: m.current_health / max(1, m.health))
+            target = living[:self.max_recipients] or list(target)
+        if self.requires_target_below_pct and target is not None and not isinstance(target, (list, tuple)):
+            top = getattr(target, "health", 0) or 0
+            if top and target.current_health / top * 100.0 >= self.requires_target_below_pct:
+                return False, (f"{target.name} is not below {self.requires_target_below_pct:g}% health - "
+                               f"{self.name} is for the badly hurt.")
+
         if self.execute_threshold_pct is not None and target is not None:
             bypassed = any(
                 getattr(e, "proc", None) and e.proc.get("bypass_execute_threshold")
@@ -2282,13 +2334,22 @@ class Ability:
             self.turns_remaining = self.talented_cooldown(caster)
         
         # Apply effect
-        undo = self._cast_riders(caster, target)
-        try:
-            result_msg = self._apply_effect(caster, target, cost=cost, party=party,
-                                            engine=engine)
-        finally:
-            undo()
-        result_msg = self._after_cast_riders(caster, party, result_msg, target)
+        if self.delayed and not free and engine is not None and hasattr(engine, "queue_delayed"):
+            # Paid for now, lands later - see CombatEngine.queue_delayed and fire_delayed.
+            engine.queue_delayed(caster, self, target, party)
+            self._last_threat_events = []
+            turns = int(self.delayed.get("turns", 1))
+            result_msg = (f"{caster.name} begins {self.name}. It lands in "
+                          f"{turns} turn{'s' if turns != 1 else ''}.")
+        else:
+            undo = self._cast_riders(caster, target, party)
+            try:
+                result_msg = self._apply_effect(caster, target, cost=cost, party=party,
+                                                engine=engine)
+            finally:
+                undo()
+            self._tally_damage(caster)
+            result_msg = self._after_cast_riders(caster, party, result_msg, target)
 
         # EVENT STACKING. Feeds any effect on the caster that gains a stack
         # from repeating an ability or from landing an attack - and, for a
@@ -2574,6 +2635,36 @@ class Ability:
     per_use_bonus = None
     #: Cannot miss, be dodged or be parried.
     cannot_miss = False
+    # ---- the rest of the recruit kits, 13 Nov ----
+    #: {"turns": 2, "mult": 3} - the effect resolves that many of the caster's turns later, at
+    #: mult times its size. "mode": "accumulate" deals instead everything the caster dealt
+    #: in between. See CombatEngine.queue_delayed.
+    delayed = None
+    #: Heal bonuses read at cast time.
+    fight_turn_bonus = None            # {"pct": 10, "cap": 100} per turn the fight has run
+    wounded_allies_bonus_pct = 0.0     # per living ally below half health
+    fallen_allies_bonus_pct = 0.0      # per ally who has fallen
+    target_low_turns_bonus = None      # {"pct": 30, "cap": 200} per turn the target has been below half
+    #: After the cast.
+    self_damage_pct_of_heal = 0.0      # the caster pays this share of what was healed
+    self_debuff = None                 # {"mods": {...}, "turns": 3} on the caster
+    overheal_shared = False            # what the target did not need goes to the others
+    party_resource_pct = 0.0           # every ally gets this share of their mana back
+    restore_buff_each = False          # every ally gets one lapsed buff back
+    on_kill_repeat_pct = 0.0           # a kill makes the survivors take this share again
+    #: Before the cast.
+    auto_lowest_ally = False           # lands on whoever is lowest, whoever was clicked
+    requires_target_below_pct = 0.0    # usable only on a target this hurt
+    max_recipients = 0                 # a party heal that reaches only this many, most hurt first
+    repeat_discount = None             # {"pct": 20, "floor": 20} cheaper each cast in a row
+    #: Carried onto the heal-over-time it applies - see StatusEffect.
+    tick_growth_pct = 0.0
+    final_burst_mult = 0.0
+    idle_bonus_pct = 0.0
+    cleanses_each_tick = False
+    #: Carried onto the debuff / buff it applies.
+    sure_target = False
+    second_try_lands = False
     #: After the cast, every living ally is healed for this share of their own maximum health
     #: (Marco Rossi, "He Fixes Other Things": the small heal that comes with the cleanse).
     heals_party_pct_max = 0.0
@@ -2612,7 +2703,49 @@ class Ability:
                             attacker_level=getattr(caster, "level", None), attacker=caster)
         return max(0, before - culprit.current_health)
 
-    def _cast_riders(self, caster, target):
+    def _tally_damage(self, caster):
+        """Add what this cast dealt to the caster's running total for the fight."""
+        dealt = sum(ev[1] for ev in (getattr(self, "_last_threat_events", None) or [])
+                    if len(ev) >= 3 and ev[2] and ev[0] is not None and ev[1])
+        if dealt:
+            try:
+                caster._damage_tally = getattr(caster, "_damage_tally", 0) + dealt
+            except Exception:
+                pass
+
+    def fire_delayed(self, caster, target, party, engine, snapshot=0):
+        """The landing of a delayed ability. Returns the log line."""
+        spec = self.delayed or {}
+        foes = [t for t in (target if isinstance(target, (list, tuple)) else [target])
+                if t is not None and t.is_alive()]
+        hostile = self.target_type in ("enemy", "enemy_aoe", "all_enemies")
+        if hostile and not foes:
+            fallback = engine.default_target_for(caster) if engine is not None else None
+            if fallback is None:
+                return f"{caster.name}'s {self.name} finds nothing left to land on."
+            foes = [fallback]
+        if spec.get("mode") == "accumulate":
+            total = max(0, int(getattr(caster, "_damage_tally", 0) - snapshot))
+            if total <= 0:
+                return f"{caster.name}'s {self.name} comes due, and there is nothing in it."
+            school = self.damage_school if isinstance(self.damage_school, str) else "arcane"
+            dealt = foes[0].take_damage(total, school, attacker_level=getattr(caster, "level", None),
+                                        attacker=caster)
+            return f"{caster.name}'s {self.name} comes due: {dealt} {school} damage to {foes[0].name}!"
+        aim = (foes if isinstance(target, (list, tuple)) else foes[0]) if hostile else target
+        bonus = (float(spec.get("mult", 1.0)) - 1.0) * 100.0
+        before = self.cast_bonus_pct
+        self.cast_bonus_pct = before + bonus
+        undo = self._cast_riders(caster, aim, party)
+        try:
+            msg = self._apply_effect(caster, aim, cost=0, party=party, engine=engine)
+        finally:
+            undo()
+            self.cast_bonus_pct = before
+        self._tally_damage(caster)
+        return self._after_cast_riders(caster, party, msg, aim)
+
+    def _cast_riders(self, caster, target, party=None):
         """Set up whatever bends this one cast, and return the function that puts it back.
 
         Both riders work by leaning on a number the damage and heal code ALREADY reads - the
@@ -2649,11 +2782,39 @@ class Ability:
                 last, run = getattr(caster, "_attack_streak", (None, 0))
                 if last is single:
                     points += min(float(streak.get("cap", 100)), float(streak.get("pct", 0)) * run)
+        bonus = self.fight_turn_bonus
+        if bonus:
+            points += min(float(bonus.get("cap", 100)), float(bonus.get("pct", 0)) * getattr(caster, "_fight_turns", 0))
+        allies = [m for m in (getattr(party, "members", party) or []) if m is not None]
+        if self.wounded_allies_bonus_pct:
+            points += self.wounded_allies_bonus_pct * sum(
+                1 for m in allies if m.is_alive() and m.current_health < m.health * 0.5)
+        if self.fallen_allies_bonus_pct:
+            # the party list a cast is handed holds only the living, so ask the fight itself
+            everyone = getattr(caster, "_fight_party", None) or allies
+            points += self.fallen_allies_bonus_pct * sum(1 for m in everyone if not m.is_alive())
+        bonus = self.target_low_turns_bonus
+        if bonus and single is not None:
+            points += min(float(bonus.get("cap", 200)),
+                          float(bonus.get("pct", 0)) * getattr(single, "_turns_below_half", 0))
+        # cheaper each cast in a row: count the run here, where the previous ability is still known
+        if self.repeat_discount:
+            self._repeat_run = (getattr(self, "_repeat_run", 0) + 1
+                                if getattr(caster, "_last_ability_id", None) == self.ability_id else 1)
+        sure = self.cannot_miss
+        if single is not None and any(getattr(e, "sure_hit_by", "") == getattr(caster, "name", None)
+                                      for e in (getattr(single, "active_effects", None) or [])):
+            sure = True
+        if getattr(caster, "_next_cast_sure", False) and self.effect_type in (
+                "spell_damage", "spell_dot", "debuff", "dot", "damage"):
+            if any(getattr(e, "second_try_lands", False) for e in (getattr(caster, "active_effects", None) or [])):
+                sure = True
+            caster._next_cast_sure = False
         per_use = self.per_use_bonus
         if per_use:
             used = (getattr(caster, "_fight_uses", None) or {}).get(self.ability_id, 0)
             points += min(float(per_use.get("cap", 100)), float(per_use.get("pct", 0)) * used)
-        if self.cannot_miss and hasattr(caster, "apply_status_effect"):
+        if sure and hasattr(caster, "apply_status_effect"):
             # hit_rating and expertise in percent points: 100 of each leaves no miss, dodge or
             # parry. A block is a reduction rather than avoidance, so the blow still lands.
             from combat.status_effects import StatusEffect, EffectType
@@ -2774,6 +2935,56 @@ class Ability:
                                          min(pet.health, pet.current_health + pet.health * self.heals_pct_max / 100.0))
             if pets:
                 message = f"{caster.name} uses {self.name}: {', '.join(p.name for p in pets)} repaired."
+        events = getattr(self, "_last_threat_events", None) or []
+        healed = sum(ev[1] for ev in events if len(ev) >= 3 and not ev[2] and ev[1])
+        allies = [m for m in (getattr(party, "members", party) or []) if m is not None and m.is_alive()]
+        if self.second_try_lands is False and " misses " in f" {message} " and any(
+                getattr(e, "second_try_lands", False) for e in (getattr(caster, "active_effects", None) or [])):
+            caster._next_cast_sure = True
+            message = f"{message} The next one will not be refused."
+        if self.self_damage_pct_of_heal and healed > 0:
+            price = int(healed * self.self_damage_pct_of_heal / 100.0)
+            if price > 0:
+                caster.current_health = max(1, caster.current_health - price)
+                message = f"{message} It costs {caster.name} {price} health."
+        if self.self_debuff and hasattr(caster, "apply_status_effect"):
+            from combat.status_effects import StatusEffect, EffectType
+            caster.apply_status_effect(StatusEffect(
+                f"{self.ability_id}_price", self.name, EffectType.DEBUFF,
+                int(self.self_debuff.get("turns", 3)), stat_mods=dict(self.self_debuff.get("mods") or {}),
+                source_name=caster.name, real_time_seconds=None))
+        if self.overheal_shared and single is not None and healed > 0:
+            before = getattr(self, "_target_health_before", None)
+            if before is not None:
+                spare = int(healed - max(0, single.current_health - before))
+                others = [m for m in allies if m is not single and m.current_health < m.health]
+                if spare > 0 and others:
+                    each = spare / len(others)
+                    for m in others:
+                        m.heal(each)
+                    message = f"{message} The {spare} {single.name} did not need is shared out."
+        if self.party_resource_pct:
+            for m in allies:
+                top = getattr(m, "mana", 0) or 0
+                if top and hasattr(m, "current_mana"):
+                    m.current_mana = min(top, m.current_mana + int(top * self.party_resource_pct / 100.0))
+        if self.restore_buff_each:
+            back = sum(m.restore_expired_buffs(99, limit=1) for m in allies if hasattr(m, "restore_expired_buffs"))
+            if back:
+                message = f"{message} {back} lapsed effect{'s' if back != 1 else ''} restored."
+        if self.on_kill_repeat_pct:
+            hits = [(ev[0], ev[1]) for ev in events if len(ev) >= 3 and ev[2] and ev[0] is not None and ev[1]]
+            killed = [who for who, _ in hits if not who.is_alive()]
+            if killed and hits:
+                again = int(sum(a for _, a in hits) / len(hits) * self.on_kill_repeat_pct / 100.0)
+                school = self._resolve_damage_school(caster)
+                school = school if isinstance(school, str) else "fire"
+                row = target if isinstance(target, (list, tuple)) else [target]
+                burned = [t for t in row if t is not None and t.is_alive()]
+                for t in burned:
+                    t.take_damage(again, school, attacker_level=getattr(caster, "level", None), attacker=caster)
+                if burned:
+                    message = f"{message} {killed[0].name} falls and the row burns again for {again}."
         if self.self_stun_turns and hasattr(caster, "apply_status_effect"):
             from combat.status_effects import StatusEffect, EffectType
             caster.apply_status_effect(StatusEffect(
@@ -3964,6 +4175,15 @@ class Ability:
                     effect_type=EffectType.HOT, duration=duration,
                     potency=per_turn, source_name=caster.name,
                 )
+                if self.tick_growth_pct:
+                    effect.tick_growth_pct = self.tick_growth_pct
+                if self.final_burst_mult:
+                    effect.final_burst_mult = self.final_burst_mult
+                if self.idle_bonus_pct:
+                    effect.idle_source = caster
+                    effect.idle_bonus_pct = self.idle_bonus_pct
+                if self.cleanses_each_tick:
+                    effect.cleanses_each_tick = True
                 # A HoT can carry DOT IMMUNITY too. Thiago's "takes no
                 # damage-over-time and is healed each turn" is one ability
                 # doing both, and re-categorising it from buff to hot moved
@@ -4111,6 +4331,8 @@ class Ability:
                     effect.idle_charge_cap = self.idle_charge.get("cap", 0)
                 if self.counter_on_miss:
                     effect.counter_on_miss = True
+                if self.second_try_lands:
+                    effect.second_try_lands = True
                 if self.crit_then_miss:
                     effect.sure_crits = int(self.crit_then_miss.get("crits", 0))
                     effect.forced_misses = int(self.crit_then_miss.get("misses", 0))
@@ -4228,6 +4450,8 @@ class Ability:
                     if self.mark:
                         effect.marked_by = caster.name
                         effect.marked_pct = self.mark.get("pct", 0)
+                    if self.sure_target:
+                        effect.sure_hit_by = caster.name
                     if self.trap:
                         power = max(getattr(caster, "attack_power", 0) or 0, getattr(caster, "spell_power", 0) or 0)
                         effect.trap_damage = max(1, int((self.effect_value + power * 0.8)
@@ -4931,6 +5155,20 @@ def _ability_from_data(entry):
             setattr(ability, key, dict(entry[key]))
     if entry.get("cannot_miss"):
         ability.cannot_miss = True
+    for key in ("delayed", "fight_turn_bonus", "target_low_turns_bonus", "self_debuff", "repeat_discount"):
+        if isinstance(entry.get(key), dict):
+            setattr(ability, key, dict(entry[key]))
+    for key in ("wounded_allies_bonus_pct", "fallen_allies_bonus_pct", "self_damage_pct_of_heal",
+                "party_resource_pct", "on_kill_repeat_pct", "requires_target_below_pct",
+                "tick_growth_pct", "final_burst_mult", "idle_bonus_pct"):
+        if entry.get(key):
+            setattr(ability, key, float(entry[key]))
+    for key in ("overheal_shared", "restore_buff_each", "auto_lowest_ally", "cleanses_each_tick",
+                "sure_target", "second_try_lands"):
+        if entry.get(key):
+            setattr(ability, key, True)
+    if entry.get("max_recipients"):
+        ability.max_recipients = int(entry["max_recipients"])
     return ability
 
 
