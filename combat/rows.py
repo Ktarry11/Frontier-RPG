@@ -61,6 +61,10 @@ def row_of(combatant):
     mod = getattr(combatant, "get_status_stat_mod", None)
     if mod is not None and mod("forced_front") > 0:
         return FRONT_ROW
+    # forced_back: the other half of a swap (Dan Okafor, "Shift Change") - somebody who has
+    # been stepped in front of stands in the back row until the fight ends.
+    if mod is not None and mod("forced_back") > 0:
+        return BACK_ROW
     return getattr(combatant, "row", None) or FRONT_ROW
 
 

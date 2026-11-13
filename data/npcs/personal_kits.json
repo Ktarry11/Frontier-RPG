@@ -52,7 +52,7 @@
         "ability_id": "personal_dan_stand_in_front",
         "name": "Stand In Front",
         "from": "'He stands in front and the rest of you get on with it.'",
-        "engine": "needs: redirect a queued attack to another character",
+        "engine": "live: damage_share with one use - the first hit on any ally lands on Dan, halved",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "rage",
@@ -79,7 +79,7 @@
         "ability_id": "personal_dan_four_men_long_shifts",
         "name": "Four Men, Long Shifts",
         "from": "'A crew. Four men, long shifts, a Friday.' / 'a four-man crew and the kind of trust you can't talk about without sounding daft'",
-        "engine": "needs: forcing all enemies onto him at full party; a cooldown that starts on expiry",
+        "engine": "live: stat_mods scaled by living allies (cap 4). The 'forces all enemies onto him at full party' clause was dropped from the text - not built",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "rage",
@@ -90,7 +90,7 @@
           "physical_damage_taken_pct": -6,
           "magic_damage_taken_pct": -6
         },
-        "description": "For 4 turns Dan takes 6% less damage for each ally still alive. At full party he also forces all enemies to target him. The cooldown begins when it ends.",
+        "description": "For 4 turns Dan takes 6% less damage for each ally still alive.",
         "ranks": [
           {
             "rank": 1,
@@ -109,7 +109,7 @@
         "ability_id": "personal_dan_shift_change",
         "name": "Shift Change",
         "from": "'He takes the front of whatever goes out and he's never once asked to be paid differently for it.'",
-        "engine": "needs: swapping row position with the ally",
+        "engine": "live: swaps_rows (rows.row_of reads forced_front / forced_back until the fight ends) and damage_share for the one hit already coming",
         "effect_type": "buff",
         "target_type": "ally",
         "resource_type": "rage",
@@ -129,7 +129,8 @@
         "damage_share": {
           "pct": 100,
           "uses": 1
-        }
+        },
+        "swaps_rows": true
       }
     ]
   },
@@ -223,7 +224,7 @@
         "ability_id": "personal_silas_which_crate_is_light",
         "name": "Which Crate's Light",
         "from": "'Which crate's light, which captain's lying, who's about to be robbed by the man standing next to him.'",
-        "engine": "needs: read target resistances and route damage to the lowest",
+        "engine": "live: dynamic_resist flatten_to_lowest - every school is brought down to the target's weakest",
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "energy",
@@ -468,7 +469,7 @@
         "ability_id": "personal_marco_somebody_had_to",
         "name": "Somebody Had To",
         "from": "'He settled disputes because somebody had to and because he was the only one everybody owed a favour.'",
-        "engine": "needs: damage transfer from a chosen ally to self",
+        "engine": "live: damage_share - every hit on the chosen ally lands on Marco instead, 33% smaller",
         "effect_type": "buff",
         "target_type": "ally",
         "resource_type": "mana",
@@ -524,7 +525,7 @@
         "ability_id": "personal_marco_a_formality_arrived_late",
         "name": "A Formality, Arrived Late",
         "from": "'The Light found him already doing the work and he regards the whole business as a formality that arrived late.'",
-        "engine": "needs: restricting it to HOLY abilities - the cost key has no school",
+        "engine": "live: all_ability_cost_pct 1.0. Text no longer says 'Holy abilities' - the discount has no school and nearly everything Marco casts is Holy anyway",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
@@ -534,7 +535,7 @@
         "stat_mods": {
           "all_ability_cost_pct": 1.0
         },
-        "description": "For 3 turns Marco's Holy abilities cost no mana.",
+        "description": "For 3 turns Marco's abilities cost no mana.",
         "ranks": [
           {
             "rank": 1,
@@ -719,7 +720,7 @@
         "ability_id": "personal_sophia_simultaneous",
         "name": "Simultaneous",
         "from": "'Simultaneous, four languages: you hold a sentence in one tongue while it finishes in another.'",
-        "engine": "needs: confining the reduction to the extra cast alone",
+        "engine": "live: turn_meter_boost 1.0 gives the second cast; damage_dealt_pct -40 for that turn makes it 60%",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
@@ -803,7 +804,7 @@
         "ability_id": "personal_ryan_read_what_it_wants",
         "name": "Read What It Wants",
         "from": "'read what a thing wants, work out what it'll take, close'",
-        "engine": "needs: zero out the target's highest resistance",
+        "engine": "live: dynamic_resist highest_to_zero - the target's best resistance is debuffed to nothing",
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "mana",
@@ -1986,7 +1987,7 @@
         "ability_id": "personal_hana_shes_pulled_a_lot_of_people_out",
         "name": "She's Pulled a Lot of People Out",
         "from": "'She's pulled a lot of people out. She remembers the two she didn't, by name.'",
-        "engine": "needs: instant large heal usable only on an ally below 25%",
+        "engine": "live: execute_threshold_pct 25 (refused on anyone healthier) and heals_pct_max 60",
         "effect_type": "heal",
         "target_type": "ally",
         "resource_type": "mana",
@@ -2002,7 +2003,9 @@
             "effect_value": 60
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "execute_threshold_pct": 25,
+        "heals_pct_max": 60
       },
       {
         "ability_id": "personal_hana_read_the_break",
@@ -3632,16 +3635,17 @@
         "ability_id": "personal_diego_working_in_the_dark",
         "name": "Everybody Learned to Keep Working in the Dark",
         "from": "'a mall where the power went off twice a day and everybody had learned to keep working in the dark'",
-        "engine": "needs: immunity to blind, silence and interrupt",
+        "engine": "live: cc_immune and all_ability_cost_pct 0.3. Blind, silence and interrupt do not exist for a player character, so the text names what can actually happen to him",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
         "cooldown": 12,
         "duration": 4,
         "stat_mods": {
-          "all_ability_cost_pct": 0.3
+          "all_ability_cost_pct": 0.3,
+          "cc_immune": 1
         },
-        "description": "For 4 turns Diego cannot be blinded, silenced or interrupted, and his abilities cost 30% less.",
+        "description": "For 4 turns Diego cannot be stunned, feared or otherwise controlled, and his abilities cost 30% less.",
         "ranks": [
           {
             "rank": 1,
@@ -3682,7 +3686,7 @@
         "ability_id": "personal_diego_the_clockwork_beetle",
         "name": "The Clockwork Beetle",
         "from": "'He has a half-built clockwork beetle that has been nearly finished for eleven months. Nobody has seen it move.'",
-        "engine": "needs: summon a temporary construct",
+        "engine": "live: summons the Clockwork Assistant",
         "effect_type": "summon_pet",
         "target_type": "self",
         "resource_type": "mana",
@@ -3793,7 +3797,7 @@
         "ability_id": "personal_sondre_something_he_had_not_asked_for",
         "name": "Something He Had Not Asked For",
         "from": "'the wind did something he had not asked for and a barn went over with people inside it'",
-        "engine": "needs: high-damage area strike with a self penalty",
+        "engine": "live: one row struck, and self_stun_turns 1",
         "effect_type": "spell_damage",
         "target_type": "enemy_aoe",
         "resource_type": "mana",
@@ -3810,7 +3814,8 @@
           }
         ],
         "is_instant": true,
-        "damage_school": "nature"
+        "damage_school": "nature",
+        "self_stun_turns": 1
       },
       {
         "ability_id": "personal_sondre_control_not_power",
@@ -3842,7 +3847,7 @@
         "ability_id": "personal_sondre_first_awake_every_morning",
         "name": "First Awake Every Morning",
         "from": "'He is first awake every morning and has made the fire before anybody else is up.'",
-        "engine": "needs: party acts first next round",
+        "engine": "live: turn_meter_boost 1.0 - every ally's turn meter is filled",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
@@ -3876,7 +3881,7 @@
         "ability_id": "personal_berat_small_careful_work",
         "name": "Small Careful Work Inside a Fist",
         "from": "'The job is small careful work inside a space the size of a fist, on a person who would rather be anywhere else.'",
-        "engine": "needs: precise single-target heal with no overheal",
+        "engine": "live: a heal stops at full health, so nothing is wasted by construction; the limit is the heal's own size",
         "effect_type": "heal",
         "target_type": "ally",
         "resource_type": "mana",

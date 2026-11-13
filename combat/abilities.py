@@ -16,6 +16,7 @@ remain simple properties for backward compatibility with UI code
 whichever rank is currently unlocked for the owning character, rather than
 being fixed at construction time.
 """
+import re
 from enum import Enum
 from combat.rank_generator import generate_ranks
 from combat.status_effects import StatusEffect, EffectType, _UNSET, DamageSchool
@@ -783,6 +784,22 @@ class Ability:
         # the fight it was cast in has never been the intent here).
         if buff_scope not in ("raid", "combat"):
             buff_scope = "raid" if effect_type == "buff" else "combat"
+            # A BUFF THAT SAYS HOW MANY TURNS IT LASTS LASTS THAT MANY TURNS. The default
+            # above is right for Mark of the Wild and wrong for "For 3 turns, damage dealt
+            # to the chosen ally is redirected to Marco": with no scope written, all 89
+            # companion-kit buffs, the three racial ones and 13 class buffs were thirty-
+            # MINUTE buffs. They did not count down in a fight and they outlived it, so a
+            # three-turn redirect, a four-turn "cannot be stunned" and a two-turn "the next
+            # hit lands for 40% less" were all effectively permanent. Found 12 Nov when a
+            # test's "end of combat" failed to remove one.
+            #   - a companion's or a race's own buff with a duration is always a turn count;
+            #   - any buff whose text says "for N turns" means it.
+            if effect_type == "buff" and self.duration:
+                own = str(ability_id).startswith(("personal_", "racial_"))
+                says = re.search(r"\bfor (?:\d+|a|one|two|three|four|five|six) turns?\b",
+                                 str(description or ""), re.IGNORECASE)
+                if own or says:
+                    buff_scope = "combat"
         self.buff_scope = buff_scope
 
         # Who this ability is aimed at. Previously there was no such concept:
@@ -2456,6 +2473,14 @@ class Ability:
     grants_turn = False
     always_crits = False
     health_buys_mana = False
+    #: The caster is stunned for this many of their own turns after the cast (Sondre Haugen,
+    #: "Something He Had Not Asked For").
+    self_stun_turns = 0
+    #: A heal that brings the target up by exactly this share of their maximum health, however
+    #: little the base heal did (Hana Tamihana: "heals them for 60% of their maximum").
+    heals_pct_max = 0.0
+    #: Caster and target trade rows for the rest of the fight (Dan Okafor, "Shift Change").
+    swaps_rows = False
 
     def _cast_riders(self, caster, target):
         """Set up whatever bends this one cast, and return the function that puts it back.
@@ -2466,6 +2491,7 @@ class Ability:
         """
         undo = []
         single = target if (target is not None and not isinstance(target, (list, tuple))) else None
+        self._target_health_before = getattr(single, "current_health", None)
         if self.armor_ignore_pct and hasattr(caster, "armor_penetration_pct"):
             before = caster.armor_penetration_pct
             caster.armor_penetration_pct = min(1.0, before + self.armor_ignore_pct / 100.0)
@@ -2506,6 +2532,34 @@ class Ability:
 
     def _after_cast_riders(self, caster, party, message, target=None):
         """Riders that act on what the cast DID. Returns the message, with a line added."""
+        single = target if (target is not None and not isinstance(target, (list, tuple))) else None
+        if self.heals_pct_max and single is not None and single.is_alive():
+            before = getattr(self, "_target_health_before", None)
+            if before is not None:
+                want = min(single.health, before + single.health * self.heals_pct_max / 100.0)
+                if single.current_health < want:
+                    single.current_health = want
+                message = (f"{caster.name} casts {self.name} on {single.name} for "
+                           f"{int(single.current_health - before)} healing!")
+        if self.self_stun_turns and hasattr(caster, "apply_status_effect"):
+            from combat.status_effects import StatusEffect, EffectType
+            caster.apply_status_effect(StatusEffect(
+                f"{self.ability_id}_recoil", self.name, EffectType.DEBUFF, int(self.self_stun_turns),
+                is_stun=True, source_name=caster.name, real_time_seconds=None))
+            message = f"{message} {caster.name} is stunned by the effort."
+        if self.swaps_rows and single is not None and single is not caster:
+            from combat import rows as _rows
+            from combat.status_effects import StatusEffect, EffectType
+            mine, theirs = _rows.row_of(caster), _rows.row_of(single)
+            if mine != theirs:
+                for who, row in ((caster, theirs), (single, mine)):
+                    effects = who._effects()
+                    effects[:] = [e for e in effects if e.effect_id != "row_swap"]
+                    who.apply_status_effect(StatusEffect(
+                        "row_swap", self.name, EffectType.BUFF, 99,
+                        stat_mods={"forced_front" if row == _rows.FRONT_ROW else "forced_back": 1},
+                        source_name=caster.name, real_time_seconds=None))
+                message = f"{message} {caster.name} and {single.name} trade places."
         bought = getattr(self, "_health_turned_to_mana", 0)
         if bought:
             self._health_turned_to_mana = 0
@@ -4578,7 +4632,11 @@ def _ability_from_data(entry):
                 "cast_bonus_pct", "heals_party_pct_max"):
         if entry.get(key):
             setattr(ability, key, float(entry[key]))
-    for key in ("always_crits", "grants_turn", "health_buys_mana"):
+    if entry.get("self_stun_turns"):
+        ability.self_stun_turns = int(entry["self_stun_turns"])
+    if entry.get("heals_pct_max"):
+        ability.heals_pct_max = float(entry["heals_pct_max"])
+    for key in ("always_crits", "grants_turn", "health_buys_mana", "swaps_rows"):
         if entry.get(key):
             setattr(ability, key, True)
     if isinstance(entry.get("low_health_bonus"), dict):

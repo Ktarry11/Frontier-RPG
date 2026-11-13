@@ -27,11 +27,12 @@ LABELS = {
     "threat_generation_pct": "Threat", "all_ability_cost_pct": "Ability costs",
     "mp5": "Mana per turn", "hp5": "Health per turn",
     "cc_immune": "Immune to crowd control", "forced_front": "Dragged into the front row",
+    "forced_back": "Standing in the back row",
     "taunt": "Forces the target to attack you",
 }
 
 #: States, not magnitudes: the number is always 1 and printing it says nothing.
-FLAGS = ("cc_immune", "taunt", "forced_front")
+FLAGS = ("cc_immune", "taunt", "forced_front", "forced_back")
 
 #: A stat whose number is a percentage even though its name does not end _pct.
 _PERCENT_WORDS = ("crit", "dodge", "parry", "haste", "hit")
