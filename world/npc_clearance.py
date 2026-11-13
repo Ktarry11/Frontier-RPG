@@ -68,6 +68,12 @@ def clear_props_over_npcs(tilemap):
             continue
         if any(covered(lm, x, y) > COVER for (x, y) in npcs):
             doomed.append(lm)
+    return remove_landmarks(tilemap, doomed)
+
+
+def remove_landmarks(tilemap, doomed):
+    """Take these landmarks off the map and free the tiles only they were blocking."""
+    landmarks = tilemap.landmarks
     if not doomed:
         return 0
     keep = [lm for lm in landmarks if not any(lm is d for d in doomed)]

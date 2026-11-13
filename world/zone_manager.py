@@ -90,6 +90,11 @@ class ZoneManager:
         from world.exit_frames import frame_exits
         self.exit_frames = frame_exits(all_zones, self.portal_manager, self.cave_names)
 
+        # Maps that were swamped with props lose a share of the repeated filler
+        # (world/prop_thinning.py) - before the NPC pass, which removes for its own reason.
+        from world.prop_thinning import thin_all
+        self.props_thinned = thin_all(self.zones)
+
         # ...and now that everybody is standing where they will stand, no tree, banner or
         # crate is drawn over any of them. See world/npc_clearance.py.
         from world.npc_clearance import clear_props_over_npcs
