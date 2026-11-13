@@ -4283,7 +4283,8 @@ class Ability:
             # Sized per RECIPIENT inside the loop below, so a party-wide shield
             # scales to each ally's own health rather than the caster's.
             for recipient in recipients:
-                shield_amt = int(self.absorb or 0)
+                # a rank may carry its own shield size (recruit abilities grow at 15/30/45/60)
+                shield_amt = int(self.current_rank.get("absorb", self.absorb) or 0)
                 if self.absorb_pct_max_health:
                     shield_amt = max(1, int(getattr(recipient, "health", 0)
                                             * self.absorb_pct_max_health))
@@ -4383,7 +4384,8 @@ class Ability:
                 if self.dot_immune:
                     effect.dot_immune = True
                 if self.on_damage_hot:
-                    effect.on_damage_hot_potency = self.on_damage_hot.get("potency", 0)
+                    effect.on_damage_hot_potency = self.current_rank.get(
+                        "on_damage_hot_potency", self.on_damage_hot.get("potency", 0))
                     effect.on_damage_hot_duration = self.on_damage_hot.get("duration", 3)
                     effect.on_damage_hot_uses = self.on_damage_hot.get("uses", 1)
                 recipient.apply_status_effect(effect)
