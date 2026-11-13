@@ -146,7 +146,7 @@
         "ability_id": "personal_ama_the_arithmetic",
         "name": "The Arithmetic",
         "from": "'what she carried over wasn't the healing. It was the arithmetic. She still runs it, every time.'",
-        "engine": "needs: heal magnitude scaled by target's missing health",
+        "engine": "live: missing_health_bonus_pct 100 - the heal grows in a straight line to double on a target at no health",
         "effect_type": "heal",
         "target_type": "ally",
         "resource_type": "mana",
@@ -161,7 +161,8 @@
             "cost": 18,
             "effect_value": 40
           }
-        ]
+        ],
+        "missing_health_bonus_pct": 100
       },
       {
         "ability_id": "personal_ama_four_cots_to_a_bay",
@@ -2318,7 +2319,7 @@
         "ability_id": "personal_pavlo_by_presence_alone",
         "name": "By Presence Alone",
         "from": "'keeping it together by presence alone'",
-        "engine": "needs: party-wide fear and control immunity",
+        "engine": "live: cc_immune on the whole party for 3 turns (status_effects refuses stuns, fears and charms while it holds)",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "rage",
@@ -2720,7 +2721,7 @@
         "ability_id": "personal_imelda_she_hits_things",
         "name": "She Hits Things and Her People Get Better",
         "from": "'Her healing isn't gentle and doesn't look like healing. She hits things and her people get better.'",
-        "engine": "needs: damage dealt converted to party healing",
+        "engine": "live: heals_lowest_ally_pct 80 - the most wounded living ally is healed for 80% of the damage dealt",
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "rage",
@@ -2736,7 +2737,8 @@
             "effect_value": 75
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "heals_lowest_ally_pct": 80
       },
       {
         "ability_id": "personal_imelda_ten_fights_a_year",
@@ -2801,7 +2803,7 @@
         "ability_id": "personal_tomas_through_small_gaps",
         "name": "Heavy Things Through Small Gaps",
         "from": "'He swings a two-hander like a man who's spent his life moving heavy things through small gaps.'",
-        "engine": "needs: attack that ignores a share of armour",
+        "engine": "live: armor_ignore_pct 60, added to the caster's armour penetration for this one swing",
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "rage",
@@ -2817,7 +2819,8 @@
             "effect_value": 95
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "armor_ignore_pct": 60
       },
       {
         "ability_id": "personal_tomas_hanging_weight",
@@ -3699,14 +3702,14 @@
         "ability_id": "personal_freja_the_first_ninety_seconds",
         "name": "The First Ninety Seconds",
         "from": "'Six years of her life were about the first ninety seconds of somebody else's.'",
-        "engine": "needs: revive at low health with a short window",
+        "engine": "live: revive at 25% health. The 'within two turns of falling' window was dropped from the text - nothing records when somebody fell",
         "effect_type": "revive",
         "target_type": "ally",
         "resource_type": "mana",
         "cooldown": 15,
         "duration": 0,
         "stat_mods": {},
-        "description": "Returns a fallen ally to the fight at 25% health. Usable only within two turns of them falling.",
+        "description": "Returns a fallen ally to the fight at 25% health.",
         "ranks": [
           {
             "rank": 1,
@@ -4068,13 +4071,15 @@
         "ability_id": "personal_giorgi_bringing_the_herd_down",
         "name": "Bringing the Herd Down",
         "from": "'Every autumn, on roughly the right day, he walks down to lower ground. He is bringing the herd down. There is no herd.'",
-        "engine": "needs: pull all enemies into the front row",
+        "engine": "live: forced_front, read by combat/rows.row_of - every enemy counts as front row for 2 turns",
         "effect_type": "debuff",
         "target_type": "all_enemies",
         "resource_type": "rage",
         "cooldown": 15,
         "duration": 2,
-        "stat_mods": {},
+        "stat_mods": {
+          "forced_front": 1
+        },
         "description": "Drives every enemy into the front row for 2 turns, where melee can reach them.",
         "ranks": [
           {
@@ -5079,7 +5084,7 @@
         "ability_id": "personal_bashir_taking_something_apart_correctly",
         "name": "Taking Something Apart Correctly",
         "from": "'a trade of taking something apart correctly before you rebuild it'",
-        "engine": "needs: damage that rises against a weakened target",
+        "engine": "live: missing_health_bonus_pct 80 - +20% for every 25% of health the target is missing",
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "focus",
@@ -5095,7 +5100,8 @@
             "effect_value": 80
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "missing_health_bonus_pct": 80
       },
       {
         "ability_id": "personal_bashir_he_snaps_the_chalk_line",

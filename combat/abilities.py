@@ -1320,6 +1320,7 @@ class Ability:
         """
         label = {
             "cc_immune": "Immune to crowd control",
+            "forced_front": "Dragged into the front row",
             "taunt": "Forces the target to attack you",
             "damage_taken_pct": "Damage taken",
             "physical_damage_taken_pct": "Physical damage taken",
@@ -1340,7 +1341,7 @@ class Ability:
         }.get(key, key.replace("_", " ").title())
         # Flags, not magnitudes - the number is always 1 and printing it says
         # nothing.
-        if key in ("cc_immune", "taunt"):
+        if key in ("cc_immune", "taunt", "forced_front"):
             return label
         # all_ability_cost_pct is the one key whose POSITIVE value is a
         # REDUCTION (abilities.py:1257 subtracts it), so the sign has to be
@@ -2200,8 +2201,13 @@ class Ability:
             self.turns_remaining = self.talented_cooldown(caster)
         
         # Apply effect
-        result_msg = self._apply_effect(caster, target, cost=cost, party=party,
-                                        engine=engine)
+        undo = self._cast_riders(caster, target)
+        try:
+            result_msg = self._apply_effect(caster, target, cost=cost, party=party,
+                                            engine=engine)
+        finally:
+            undo()
+        result_msg = self._after_cast_riders(caster, party, result_msg)
 
         # EVENT STACKING. Feeds any effect on the caster that gains a stack
         # from repeating an ability or from landing an attack - and, for a
@@ -2455,6 +2461,76 @@ class Ability:
     #: Rider keys that describe the CASTER, whatever the ability hits.
     _RIDER_CASTER_KEYS = ("threat_generation_pct",)
     RIDER_MIN_TURNS = 2
+
+    # ------------------------------------------------------------------
+    # Riders that bend ONE cast
+    # ------------------------------------------------------------------
+    #: Share of the target's armour this attack ignores, in points (Tomas Havel, "Heavy
+    #: Things Through Small Gaps": 60).
+    armor_ignore_pct = 0.0
+    #: Extra effect, in points, against a target at NO health, scaling in a straight line
+    #: from nothing at full health. 100 on a heal is "up to double at critical" (Ama Boateng,
+    #: "The Arithmetic"); 80 on an attack is "20% more for every 25% missing" (Bashir Khalidi).
+    missing_health_bonus_pct = 0.0
+    #: Share of the damage this cast deals that is given, as healing, to the most wounded
+    #: living ally (Imelda Salonga, "She Hits Things and Her People Get Better": 80).
+    heals_lowest_ally_pct = 0.0
+
+    def _cast_riders(self, caster, target):
+        """Set up whatever bends this one cast, and return the function that puts it back.
+
+        Both riders work by leaning on a number the damage and heal code ALREADY reads - the
+        caster's armour penetration, and their damage-dealt / healing-done percentage - so
+        neither needs a new branch in any of the dozen places damage is rolled.
+        """
+        undo = []
+        single = target if (target is not None and not isinstance(target, (list, tuple))) else None
+        if self.armor_ignore_pct and hasattr(caster, "armor_penetration_pct"):
+            before = caster.armor_penetration_pct
+            caster.armor_penetration_pct = min(1.0, before + self.armor_ignore_pct / 100.0)
+            undo.append(lambda: setattr(caster, "armor_penetration_pct", before))
+        if self.missing_health_bonus_pct and single is not None and getattr(single, "health", 0):
+            missing = 1.0 - max(0.0, min(1.0, single.current_health / single.health))
+            points = self.missing_health_bonus_pct * missing
+            # As a one-cast buff on the caster, NOT by scaling effect_value: most of a hit or a
+            # heal is the caster's attack or spell power, so doubling the ability's own base
+            # number moved the total by a fifth. damage_dealt_pct and healing_done_pct multiply
+            # the finished amount, which is what "up to double" means. (Below one point the
+            # game reads these keys as fractions, so a sliver is skipped rather than misread.)
+            if points >= 1 and hasattr(caster, "apply_status_effect"):
+                from combat.status_effects import StatusEffect, EffectType
+                key = "healing_done_pct" if self.effect_type in ("heal", "hot") else "damage_dealt_pct"
+                rider = StatusEffect("_cast_rider", self.name, EffectType.BUFF, 1,
+                                     stat_mods={key: points}, source_name=caster.name,
+                                     real_time_seconds=None)
+                caster.apply_status_effect(rider)
+
+                def lift():
+                    effects = caster._effects()
+                    effects[:] = [e for e in effects if e.effect_id != "_cast_rider"]
+                    if hasattr(caster, "_recalculate_derived_stats"):
+                        caster._recalculate_derived_stats()
+                undo.append(lift)
+
+        def restore():
+            for fn in undo:
+                fn()
+        return restore
+
+    def _after_cast_riders(self, caster, party, message):
+        """Riders that act on what the cast DID. Returns the message, with a line added."""
+        if self.heals_lowest_ally_pct and party:
+            dealt = sum(amount for who, amount, is_damage in getattr(self, "_last_threat_events", [])
+                        if is_damage and who is not None)
+            hurt = [m for m in party if m.is_alive() and m.current_health < m.health]
+            if dealt > 0 and hurt:
+                ally = min(hurt, key=lambda m: m.current_health / max(1, m.health))
+                before = ally.current_health
+                ally.heal(dealt * self.heals_lowest_ally_pct / 100.0)
+                got = int(ally.current_health - before)
+                if got > 0:
+                    message = f"{message} {ally.name} is healed for {got}."
+        return message
 
     def _apply_stat_rider(self, caster, target):
         """A damage or healing ability's stat_mods, applied as a short buff or debuff.
@@ -4411,7 +4487,7 @@ def _ability_from_data(entry):
                       entry.get("immune_creature_types"))
     resource = _RESOURCE_BY_NAME.get(
         entry.get("resource_type", "mana"), ResourceType.MANA)
-    return Ability(
+    ability = Ability(
         entry["ability_id"],
         entry["name"],
         resource,
@@ -4485,6 +4561,12 @@ def _ability_from_data(entry):
         is_stun=entry.get("is_stun", False),
         icon_id=entry.get("icon_id"),
     )
+    # Riders that bend one cast (see Ability._cast_riders). Set here rather than threaded
+    # through a constructor that already takes ninety arguments.
+    for key in ("armor_ignore_pct", "missing_health_bonus_pct", "heals_lowest_ally_pct"):
+        if entry.get(key):
+            setattr(ability, key, float(entry[key]))
+    return ability
 
 
 _UNIVERSAL_ABILITY_CACHE = None

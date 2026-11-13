@@ -609,6 +609,15 @@ class CombatScreen(BaseScreen):
             self._execute_ability(actor, ability_id, targets)
             return
 
+        if target_type == "all_enemies":
+            # Nothing to aim: it lands on every enemy standing.
+            targets = self.combat_engine.living_enemies()
+            if not targets:
+                self.message_log.append("No valid targets!")
+                return
+            self._execute_ability(actor, ability_id, targets)
+            return
+
         if target_type == "enemy_aoe":
             # Real UX bug fix: this used to fall through to the manual
             # single-enemy click path below, forcing a target pick before

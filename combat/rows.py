@@ -55,6 +55,12 @@ def row_of(combatant):
     Characters carry `row` already (entities/party.py sets it from
     DEFAULT_ROW_BY_CLASS). Monsters get theirs from their template.
     """
+    # forced_front (Giorgi Beridze, "Bringing the Herd Down"): driven out of the back row for
+    # as long as the effect lasts, where melee can reach. The combatant's own row is untouched,
+    # so it goes back by itself when the effect ends.
+    mod = getattr(combatant, "get_status_stat_mod", None)
+    if mod is not None and mod("forced_front") > 0:
+        return FRONT_ROW
     return getattr(combatant, "row", None) or FRONT_ROW
 
 

@@ -521,6 +521,14 @@ class CombatEngine:
             else:
                 target = living
 
+        # all_enemies means ALL of them, whichever one was clicked. The ability side already
+        # treats a LIST as "everyone living" - but a click hands this method one combatant,
+        # and nothing here widened it, so in real play War Stomp, Arcane Torrent and every
+        # "all enemies" kit ability landed on the single enemy under the cursor. (The rigs
+        # that test them pass a list, which is why it went unseen.)
+        elif getattr(ability, "target_type", None) == "all_enemies":
+            target = self.living_enemies()
+
         # Nature's Swiftness-style effects: a buff that makes the CASTER'S
         # NEXT cast instant, rather than the triggering ability itself
         # being instant. next_cast_instant is a one-shot flag on the
