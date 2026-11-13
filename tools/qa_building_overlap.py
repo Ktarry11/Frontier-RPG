@@ -46,16 +46,30 @@ MAX_COVERED = 0.34
 #:
 #: If something has to go in here again, it is debt with a date on it, not a
 #: decision.
-KNOWN = set()
+KNOWN = {
+    # 13 Nov 2026: the rectangles were wrong until today (see _rect). Measured properly there
+    # are eight real pairs, mostly a tall building standing behind a low one. Debt, by eye.
+    ("Ratchet", "generic_house_a", 16, 7, "generic_shack_b", 21, 7),
+    ("Orgrimmar", "orc_barracks_longhouse", 147, 34, "plain_orc_house_c", 146, 44),
+    ("Northern Barrens", "frontier_watchtower", 161, 24, "generic_tent_a", 160, 30),
+    ("Tarren Mill", "ek_granary", 26, 60, "ek_village_inn", 22, 59),
+    ("Saltspur Landing", "orc_officers_house", 19, 32, "orc_smokehouse", 22, 38),
+    ("Freewind Post", "tau_smithy", 92, 103, "tau_tent_medium", 96, 107),
+    ("Steamwheedle Port", "bb_warehouse", 5, 33, "bb_lean_shack", 10, 40),
+    ("Booty Bay", "bb_harbourmaster_tower", 42, 19, "bb_trade_shop", 45, 21),
+}
 
 
 def _rect(lm):
-    """(x0, y0, x1, y1) in tiles. Anchored bottom-centre, as drawn."""
+    """(x0, y0, x1, y1) in tiles. The anchor is the TOP-LEFT tile (world/tilemap.py), which is
+    how the renderer draws it. This used to read it as bottom-centre, so every rectangle was
+    half a width left and a whole height up of the building and the check was measuring air:
+    it passed real overlaps and failed two buildings standing side by side."""
     w = float(lm.get("width_tiles") or 0)
     h = float(lm.get("height_tiles") or 0)
     ax = float(lm.get("anchor_x", 0))
     ay = float(lm.get("anchor_y", 0))
-    return (ax - w / 2.0, ay - h, ax + w / 2.0, ay)
+    return (ax, ay, ax + w, ay + h)
 
 
 def _overlap(a, b):

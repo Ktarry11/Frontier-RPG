@@ -183,11 +183,13 @@ def dress(L):
     # ---- the east market yard
     p(UC + "uc_stall_goods.png", 70, 51, 4)
     p(UC + "uc_stall_bottles.png", 76, 50, 4)
-    p(UC + "uc_crate_stack.png", 69, 56, 3)
     b("forsaken_house_small", 78, 54, 8, nudge=1)
     b("forsaken_house_medium", 62, 54, 9, nudge=1)
-    p("ek_plague_cart", 74, 58, 4)
-    b("smithy", 67, 57, 8, nudge=1)                                       # Brill's forge (tile at 67,60)
+    # The smithy was authored at (67,57) with a one-tile nudge, on top of the crates and the
+    # medium house, so it was refused and BRILL HAD NO FORGE BUILDING - only the forge tile.
+    # It goes in first now, south of the houses and over its tile; the cart moved along.
+    b("smithy", 69, 60, 7, nudge=2)                                       # Brill's forge (tile at 67,60)
+    p("ek_plague_cart", 76, 59, 4)
     p("ek_signpost", 72, 46, 4)
     # ---- the south plots
     for (x, y) in [(36, 60), (46, 64), (40, 68)]:

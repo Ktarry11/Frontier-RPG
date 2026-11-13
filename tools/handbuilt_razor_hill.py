@@ -243,7 +243,7 @@ def _dress(L):
     p("vot_war_banner", 24, 27, 5)
     p("vot_war_banner", 36, 27, 5)
     p("vot_totem_pole", 35, 34, 6)
-    b("well_house", 29, 36, 5)
+    b("well_house", 26, 40, 5, nudge=1)       # (29,36) was on the road and never appeared
     # ---- west: smithy, inn, elder, garden, training lodge + yard
     b("smithy", 13, 19, 7)
     p("vot_crate_stack", 18, 22, 3)

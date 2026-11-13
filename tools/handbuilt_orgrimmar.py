@@ -434,7 +434,7 @@ def _dress(L):
 
     # ================================================================ MAGIC QUARTER
     b("training_pavilion", 100, 29, 13)
-    b("orc_warlock_tower", 86, 36, 11)                         # enchanter
+    b("orc_warlock_tower", 83, 32, 11, nudge=1)                # enchanter (86,36 stood on an NPC and was dropped)
     b("scrapyard_workshop", 114, 29, 8)                   # engineering
     p("rf_tool_rack", 120, 32, 3)
     b("zep_tower_orc", 88, 51, 12)                       # the flight roost
@@ -533,7 +533,9 @@ def _dress(L):
     # ================================================================ CRAFT ROW
     b("orc_healer_house", 68, 158, 9)                      # alchemist
     p("vot_crate_stack", 70, 164, 3)
-    b("orc_tannery_hall", 82, 182, 11)                     # leatherworker
+    # Was 11 tall at (82,182): fourteen tiles square on a road, refused, so Orgrimmar had
+    # no tannery. Smaller, and beside the gate rather than across the street from it.
+    b("orc_tannery_hall", 82, 176, 8, nudge=1)             # leatherworker
     p("vot_hide_rack", 81, 170, 3)
     p("vot_hide_rack", 85, 171, 3)
     p("rf_tool_rack", 68, 178, 4)
