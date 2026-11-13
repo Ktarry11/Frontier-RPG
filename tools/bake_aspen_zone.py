@@ -82,7 +82,7 @@ LAND = ("duff", "duff_mix", "needle", "needle_dk", "deadfall", "moss", "grass", 
 # capped so it can never win on open slope. What the eye gets is a handful of bright patches high up, which
 # is what tells it those are the peaks - the rest of the alpine stays grey rock. SNOW_BUDGET is the share
 # of walkable land the verifier allows to come out white.
-SNOW_BUDGET = 0.035
+SNOW_BUDGET = 0.09
 
 
 def build_scores(P, M):
@@ -199,9 +199,18 @@ def build_scores(P, M):
     # stays grey however high it is. That asymmetry is the whole trick: a few white eyes on the dark rock
     # tell you where the summits are, and a blanket would not.
     summit = smoothstep(TL + 2.2, TL + 6.5, elev)
-    pocket = flat * smoothstep(0.60, 0.86, n_mid)
-    drift = smoothstep(0.74, 0.93, n_fine)
-    S["snow"] = -0.75 + 2.95 * summit * (0.95 * pocket + 0.26 * drift)
+    # MORE OF IT, 13 Nov 2026. Kyle: "Aspen can have that golden snow and sun alpine mountain
+    # feel." The October rule (snow "sparingly", a hint not a band) left the top of the range grey
+    # rock under a cold tint, which is the opposite of a sunlit summit. Still patches, still only
+    # near the top - but wider pockets and longer drifts, so the high ground is bright.
+    pocket = flat * smoothstep(0.44, 0.74, n_mid)
+    drift = smoothstep(0.62, 0.88, n_fine)
+    S["snow"] = -0.60 + 3.10 * summit * (0.95 * pocket + 0.42 * drift)
+    # ...and snowfields across the open alpine, which is where the eye expects them. The pocket
+    # rule alone put almost all of it on the flat ground at the very top of the map - which is the
+    # Barrens seam, orange, with white blobs on it.
+    S["snow"] = np.maximum(S["snow"], -0.60 + 2.6 * alp * smoothstep(0.50, 0.68, n_mid) * (1.0 - 0.6 * steep))
+    S["snow"] = S["snow"] - 5.0 * smoothstep(26.0, 16.0, gy)        # not on the seam
 
     # ---- THE SEAM: Barrens ground, in a hard line, only at the very top of the map
     seam = smoothstep(21.0, 12.0, gy) * (0.75 + 0.25 * n_fine)
@@ -265,13 +274,45 @@ def post(rgb, X, Y, P):
     # LIGHTS the map rather than dimming it, and driven by the tile-scale gradient computed in
     # build_scores - see the note there about the unit mismatch that made this halve the whole zone.
     gxs, gys = sf(f["dzdx"]), sf(f["dzdy"])
-    shade = np.clip(1.0 + 0.95 * (-gxs * 0.70 - gys * 0.70), 0.62, 1.42)
+    # + NOT -. This read 1 + k * (-dzdx - dzdy), which brightens the slopes that face SOUTH-EAST:
+    # the comment said north-west and the arithmetic said the opposite. Lit from below-right, a
+    # ridge reads as a trench - the same fault that made Southern Needles' mesas look like craters
+    # (found there 13 Nov 2026). A slope that FACES the north-west rises toward the south-east,
+    # so its gradient is positive in both axes.
+    # WEST of north-west: the range runs east-west and falls away to the south, so a sun square in
+    # the north-west puts the whole alpine face in shade. Mostly from the west, the ridges still
+    # light on one side and the high ground stays in the sun.
+    shade = np.clip(1.0 + 0.95 * (gxs * 0.92 + gys * 0.30), 0.70, 1.42)
     out = out * shade[..., None]
 
-    # Cool the high ground, warm the timber - altitude reads as colour temperature as much as brightness.
+    # GOLDEN SUN, BLUE SHADE. Kyle, 13 Nov: "that golden snow and sun alpine mountain feel" - and
+    # this is the Rockies, which is his home. The light was white and the high ground was tinted
+    # cold, so the summits read as overcast. Now a slope facing the sun is warmed toward gold and
+    # one turned away is cooled toward blue: late-afternoon light, which is what puts gold on snow.
+    sun = np.clip((shade - 1.0) / 0.42, 0.0, 1.0)[..., None]
+    dark = np.clip((1.0 - shade) / 0.30, 0.0, 1.0)[..., None]
+    out = out * (1.0 + sun * np.array([0.12, 0.05, -0.12], np.float32))
+    out = out * (1.0 + dark * np.array([-0.07, -0.02, 0.09], np.float32))
+
+    # SNOW ON THE ROCK. The alpine band is cliff, and no ground material can win on a cliff - so
+    # the snow score above could never put snow where the eye wants it most, on the high face.
+    # Laid here instead, over whatever rock is there: ledges and gullies of it across the alpine,
+    # thicker with height, lit gold where the sun is on it and blue where it is not.
+    snow_n = P.sample_field(P.noise(3.2, "snowface", octaves=3), X, Y)
+    # ON THE ROCK ONLY (cf > 0): the first pass snowed over the tarn and the road up to the pass.
+    snow = (np.clip(alp, 0, 1) * smoothstep(0.55, 0.69, snow_n + 0.10 * smoothstep(10.0, 24.0, elev))
+            * smoothstep(17.0, 25.0, Y / float(TILE_PX))
+            * smoothstep(0.0, 0.08, sf(f["cf"])) * (1.0 - smoothstep(-0.5, 0.4, sf(f["water"]))))[..., None]
+    snow_rgb = np.array([246.0, 244.0, 238.0], np.float32) * (0.80 + 0.20 * shade[..., None])
+    snow_rgb = snow_rgb * (1.0 + sun * np.array([0.02, -0.02, -0.14], np.float32))
+    snow_rgb = snow_rgb * (1.0 + dark * np.array([-0.10, -0.04, 0.06], np.float32))
+    out = out * (1.0 - 0.88 * snow) + snow_rgb * 0.88 * snow
+
+    # Warm the timber; leave the high ground to the sun and the shade above rather than cooling
+    # all of it.
     cool = np.clip(alp, 0, 1)[..., None]
     out = out * ((1 - cool) * np.array([1.05, 1.02, 0.94], np.float32)
-                 + cool * np.array([0.97, 1.00, 1.07], np.float32))
+                 + cool * np.array([1.03, 1.01, 0.98], np.float32))
 
     wd = sf(f["water"])
     depth = smoothstep(0.4, 4.0, wd)
