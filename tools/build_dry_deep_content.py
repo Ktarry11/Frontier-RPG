@@ -34,7 +34,7 @@ LOOT = ROOT / "data/loot/dry_deep_boss_loot.json"
 #: name -> (template, level, boss multiplier). Unchanged from 898fd8c except the kit.
 ROSTER = {
     "The Weight of the Floor": ("elemental_bruiser", 47, 2.0),
-    "Old Dry-Eye":             ("vermin_sneaky",     46, 1.8),
+    "Old Dry-Eye":             ("beast_large",       46, 1.8),   # vermin_sneaky left it at 1,324 health (Kyle: no)
 }
 
 

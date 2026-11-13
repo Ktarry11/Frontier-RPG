@@ -52,7 +52,7 @@ ABYSSAL_CREATURES = {
     # ---- named rares, one per subzone, weight 0, never quested
     "The First Down": C("beast_large", 45, 45, "the_first_down", True, 1.7),
     "Axleback": C("beast_large", 45, 45, "axleback", True, 1.7),
-    "The Wide Sink Mother": C("vermin_sneaky", 46, 46, "the_wide_sink_mother", True, 1.8),
+    "The Wide Sink Mother": C("beast_large", 46, 46, "the_wide_sink_mother", True, 1.8),
     "Glasswall Warden": C("elemental_bruiser", 46, 46, "glasswall_warden", True, 1.8),
     "The Thing in the Throat": C("aquatic_basic", 46, 46, "the_thing_in_the_throat", True, 1.9),
     "Longcollapse": C("beast_large", 47, 47, "longcollapse", True, 1.9),

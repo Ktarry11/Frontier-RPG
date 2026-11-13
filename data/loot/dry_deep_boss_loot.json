@@ -11,19 +11,19 @@
       "weapon_type": null,
       "stat_template": "str_physical",
       "primary_stats": {
-        "stamina": 4
+        "strength": 20,
+        "spirit": 17
       },
       "secondary_stats": {
-        "frost_resistance": 3,
         "attack_power": 5
       },
-      "armor_value": 352,
+      "armor_value": 339,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_shoulder_11",
+      "icon_id": "gear_inv_shoulder_27",
       "required_level": 49,
       "sell_price": 10637,
       "flavor_text": "",
@@ -50,11 +50,10 @@
       "weapon_type": null,
       "stat_template": "agi_int_hybrid",
       "primary_stats": {
-        "stamina": 4
+        "stamina": 24
       },
       "secondary_stats": {
-        "healing_power": 22,
-        "mp5": 5,
+        "nature_resistance": 2,
         "spell_power": 2
       },
       "armor_value": 267,
@@ -63,7 +62,7 @@
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_chest_chain_15",
+      "icon_id": "gear_inv_chest_chain_12",
       "required_level": 49,
       "sell_price": 13296,
       "flavor_text": "",
@@ -90,11 +89,11 @@
       "weapon_type": null,
       "stat_template": "agi_physical",
       "primary_stats": {
-        "agility": 22
+        "agility": 20,
+        "stamina": 14
       },
       "secondary_stats": {
-        "attack_power": 28,
-        "hit_rating": 1
+        "attack_power": 24
       },
       "armor_value": 167,
       "weapon_damage_min": 0,
@@ -102,7 +101,7 @@
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_pants_04",
+      "icon_id": "gear_inv_pants_03",
       "required_level": 49,
       "sell_price": 13296,
       "flavor_text": "",
@@ -129,12 +128,11 @@
       "weapon_type": null,
       "stat_template": "int_caster",
       "primary_stats": {
-        "intellect": 11
+        "intellect": 20
       },
       "secondary_stats": {
-        "spell_power": 14,
-        "mp5": 3,
-        "healing_power": 2
+        "spell_penetration": 1,
+        "spell_power": 7
       },
       "armor_value": 70,
       "weapon_damage_min": 0,
@@ -142,7 +140,7 @@
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_shoulder_28",
+      "icon_id": "gear_inv_shoulder_23",
       "required_level": 49,
       "sell_price": 10637,
       "flavor_text": "",
@@ -169,18 +167,19 @@
       "weapon_type": "mace_2h",
       "stat_template": "str_physical",
       "primary_stats": {
-        "stamina": 21
+        "strength": 12,
+        "stamina": 19
       },
       "secondary_stats": {
-        "parry_rating": 1
+        "defense_rating": 1
       },
-      "armor_value": 42,
+      "armor_value": 0,
       "weapon_damage_min": 121,
       "weapon_damage_max": 164,
       "attack_speed": 3.6,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_hammer_24",
+      "icon_id": "gear_inv_hammer_14",
       "required_level": 49,
       "sell_price": 16620,
       "flavor_text": "",
@@ -209,12 +208,10 @@
       "weapon_type": null,
       "stat_template": "str_int_hybrid",
       "primary_stats": {
-        "intellect": 14
+        "stamina": 1
       },
       "secondary_stats": {
-        "spell_penetration": 1,
-        "spell_power": 5,
-        "attack_power": 4
+        "shadow_resistance": 3
       },
       "armor_value": 272,
       "weapon_damage_min": 0,
@@ -222,7 +219,7 @@
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_boots_08",
+      "icon_id": "gear_inv_boots_plate_01",
       "required_level": 48,
       "sell_price": 8290,
       "flavor_text": "",
@@ -249,18 +246,19 @@
       "weapon_type": null,
       "stat_template": "agi_physical",
       "primary_stats": {
-        "strength": 16,
-        "agility": 11,
-        "stamina": 11
+        "stamina": 18
       },
-      "secondary_stats": {},
-      "armor_value": 222,
+      "secondary_stats": {
+        "dodge_rating": 1,
+        "parry_rating": 1
+      },
+      "armor_value": 234,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_helmet_45",
+      "icon_id": "gear_inv_helmet_07",
       "required_level": 48,
       "sell_price": 10203,
       "flavor_text": "",
@@ -287,19 +285,18 @@
       "weapon_type": null,
       "stat_template": "agi_int_hybrid",
       "primary_stats": {
-        "intellect": 10,
-        "stamina": 15
+        "stamina": 1
       },
       "secondary_stats": {
-        "mp5": 2
+        "fire_resistance": 3
       },
-      "armor_value": 123,
+      "armor_value": 113,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_gauntlets_30",
+      "icon_id": "gear_inv_gauntlets_21",
       "required_level": 48,
       "sell_price": 8290,
       "flavor_text": "",
@@ -326,20 +323,19 @@
       "weapon_type": null,
       "stat_template": "spi_healer",
       "primary_stats": {
-        "intellect": 8
+        "intellect": 10,
+        "stamina": 15
       },
       "secondary_stats": {
-        "spell_power": 11,
-        "crit_chance_spell": 1,
-        "healing_power": 2
+        "mp5": 2
       },
-      "armor_value": 56,
+      "armor_value": 66,
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
       "attack_speed": 0.0,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_belt_11",
+      "icon_id": "gear_inv_belt_07",
       "required_level": 48,
       "sell_price": 7015,
       "flavor_text": "",
@@ -366,17 +362,20 @@
       "weapon_type": "dagger",
       "stat_template": "agi_physical",
       "primary_stats": {
-        "agility": 16,
-        "spirit": 14
+        "stamina": 15,
+        "agility": 8
       },
-      "secondary_stats": {},
-      "armor_value": 11,
+      "secondary_stats": {
+        "dodge_rating": 1,
+        "attack_power": 4
+      },
+      "armor_value": 0,
       "weapon_damage_min": 88,
       "weapon_damage_max": 120,
       "attack_speed": 1.7,
       "block_value": 0,
       "bag_capacity": 0,
-      "icon_id": "gear_inv_throwingknife_02",
+      "icon_id": "gear_inv_weapon_shortblade_08",
       "required_level": 48,
       "sell_price": 12117,
       "flavor_text": "",
