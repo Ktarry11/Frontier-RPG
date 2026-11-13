@@ -2476,13 +2476,15 @@ class StatusEffectMixin:
             # tick. Previously stored on Character (see mp5 field) but
             # never actually consumed anywhere - gear rolling it did
             # nothing.
-            mp5_bonus = getattr(self, "mp5", 0)
+            mp5_bonus = self.mp5_total() if hasattr(self, "mp5_total") else getattr(self, "mp5", 0)
             if mp5_bonus:
                 gain += (mp5_bonus / 5.0) * mult * dt
             self.current_mana = min(self.mana, self.current_mana + gain)
 
         if hasattr(self, "current_health") and hasattr(self, "health"):
             hp_gain = spirit * self.OUT_OF_COMBAT_HP_REGEN_PER_SPIRIT * mult * dt
+            if hasattr(self, "hp5_total"):
+                hp_gain += (self.hp5_total() / 5.0) * mult * dt
             self.current_health = min(self.health, self.current_health + hp_gain)
 
     def _tick_attunement(self, dt):

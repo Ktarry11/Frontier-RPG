@@ -1542,6 +1542,7 @@ class Character(StatusEffectMixin):
         # do, since nothing in the doc's suffixes scales them off Str/
         # Agi/Int - they're gear-only stats.
         self.mp5 = bonuses.get("mp5", 0)
+        self.hp5 = bonuses.get("hp5", 0)
         self.spell_penetration = bonuses.get("spell_penetration", 0)
         self.fire_spell_power = bonuses.get("fire_spell_power", 0)
         self.frost_spell_power = bonuses.get("frost_spell_power", 0)
@@ -3748,7 +3749,37 @@ class Character(StatusEffectMixin):
         # druid in Bear or Cat Form read as a rage/energy user and got no mana back at the end
         # of the turn. Kyle, 12 Nov: "mana doesnt regen while in shapeshift forms."
         if self.mana > 0:
-            self.current_mana = min(self.mana, self.current_mana + (self.effective_spirit * 0.5))
+            self.current_mana = min(self.mana, self.current_mana + self.mana_per_turn())
+        # hp5: health back at the end of your own turn. The dead get nothing (heal() refuses).
+        if self.hp5_total() > 0:
+            self.heal(self.hp5_total())
+
+    #: Mana back per point of Spirit at the end of each of your turns.
+    MANA_PER_SPIRIT_PER_TURN = 0.5
+
+    def mp5_total(self):
+        """mp5 from gear, talents and whatever buffs are granting right now.
+
+        ONE COMBAT TURN IS ONE "FIVE SECONDS". mp5 used to be read only by the out-of-combat
+        clock, so in a fight - the only place mana is short - it did nothing; and a buff that
+        granted mp5 (Chronomancer, Cultist, Pyromancer... a dozen abilities) was read nowhere
+        at all. Kyle's [79]: "Regen per 5 is not doing what it should."
+        """
+        # self.mp5 already holds gear, talents AND live buffs: _recalculate_derived_stats folds
+        # status stat_mods into the same bonuses it reads gear from. Adding the buff again here
+        # counted it twice.
+        return max(0, getattr(self, "mp5", 0) or 0)
+
+    def hp5_total(self):
+        """hp5 from gear and talents plus buffs - health back per turn, or per five seconds."""
+        return max(0, getattr(self, "hp5", 0) or 0)
+
+    def mana_per_turn(self):
+        """What the mana bar gets back at the end of each of this character's turns. The
+        number on the character sheet is this method, so the sheet cannot disagree with it."""
+        if getattr(self, "mana", 0) <= 0:
+            return 0
+        return self.effective_spirit * self.MANA_PER_SPIRIT_PER_TURN + self.mp5_total()
 
     def restore_resources_out_of_combat_step(self):
         """

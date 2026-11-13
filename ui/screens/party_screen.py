@@ -734,7 +734,10 @@ class PartyScreen(BaseScreen):
             ("Parry", self._num(getattr(member, "parry", 0), pct=True)),
             ("Block chance", self._num(getattr(member, "block_chance", 0), pct=True)),
             ("Block value", self._num(getattr(member, "block_value", 0))),
-            ("mp5", self._num(getattr(member, "mp5", 0))),
+            # What actually comes back each turn - Spirit's share AND mp5 - not the bare mp5
+            # stat, which read "0" on a caster regenerating 40 a turn.
+            ("Mana per turn", self._num(member.mana_per_turn() if hasattr(member, "mana_per_turn") else 0)),
+            ("Health per turn", self._num(member.hp5_total() if hasattr(member, "hp5_total") else 0)),
             ("Spell pen.", self._num(getattr(member, "spell_penetration", 0))),
         ], col2, start)
 
