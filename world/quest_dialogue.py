@@ -249,6 +249,7 @@ _ZONE_TOPIC_MODULES = (
     "glittervein",
     "lashings",
     "crossroads",
+    "black_strand",
 )
 
 for _mod_name in _ZONE_TOPIC_MODULES:

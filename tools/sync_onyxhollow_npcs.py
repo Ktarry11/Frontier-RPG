@@ -35,8 +35,12 @@ from tools import onyxhollow_npc_roster as R  # noqa: E402
 #: gear_level tracks the band: Freewind's 25-30 sits at 19 and the Underdark's 33-40 cluster at 20-22.
 #: Saltwheel runs 35-40, so 22 - and these shelves are raceday stock laid in before the track died,
 #: which is a reason for them to be good rather than a reason for them to be thin.
+import tools.handbuilt_black_strand as BS  # noqa: E402
+
 ZONES = [
     ("onyxhollow", OH, R.ONYXHOLLOW_VENDORS, R.ONYXHOLLOW_AMBIENT, 52),
+    # the three people outside the gate. No vendors: the shops are in town.
+    ("the_black_strand", BS, {}, R.BLACK_STRAND_AMBIENT, 52),
 ]
 
 #: the innkeeper gets the hearth service. Nobody here gets ["flight"] - see the module docstring.
@@ -83,6 +87,9 @@ def main():
                 moved += 1
             if rec is not None:
                 rec["name"], rec["greeting"] = name, greet     # the roster owns the words
+                # ...and anything the roster stocks that the shelf lacks. Added at the FRONT and
+                # nothing removed, so the tiering overhaul_vendor_stock did is left alone.
+                rec["sells"] = [i for i in sells if i not in rec["sells"]] + rec["sells"]
 
         for nid, (name, race, gender, var, greet) in AMB.items():
             x, y = pos[nid]

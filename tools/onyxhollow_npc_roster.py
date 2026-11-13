@@ -34,7 +34,8 @@ of it comes out.
 ONYXHOLLOW_VENDORS = {
     "oh_innkeeper": (
         "Innkeeper Brenna Coalcask", "dwarf", "female", 3,
-        ["bread_and_cheese", "roasted_meat", "meal_kodo_ribs", "meal_spiced_haunch",
+        ["meal_ember_glazed_ribs", "drink_starfall_wine", "bread_and_cheese", "roasted_meat",
+         "meal_kodo_ribs", "meal_spiced_haunch",
          "drink_barley_beer", "drink_honeyed_mead", "healing_potion_mega", "mana_potion_mega",
          "spiced_stew", "cook_flour", "cook_spice", "cook_mushroom", "cook_ale", "cook_water"],
         False,
@@ -159,4 +160,28 @@ ONYXHOLLOW_AMBIENT = {
         "the desert. That's our roof, and it's a lot thinner than people here like to think "
         "about.\n\nI listen to it for the Thane. It's holding, for now. I'd be happier if "
         "things stopped eating the pillars."),
+}
+
+#: The three people outside the gate, in The Black Strand (handbuilt_black_strand.NPC_POSITIONS).
+#: The geologist is from Earth and is drawn as a human; the other two are Dark Iron.
+BLACK_STRAND_AMBIENT = {
+    "bs_lookout": (
+        "Lookout Hervi Longstair", "dwarf", "male", 2,
+        "You made it down. Sit a minute if you need to, it's a long stair.\n\nI'm posted here "
+        "to see who comes down and send them on to the gate. Follow the slag road south-east "
+        "and keep to it. You'll see the braziers. Onyxhollow's at the end, between the two "
+        "towers."),
+    "bs_geologist": (
+        "Noor Haddad", "human", "female", 6,
+        "Oh, hello. Sorry, I don't get many people coming past.\n\nI'm a geologist. I was one "
+        "before all this, in Amman, and it turns out the job still exists if you don't mind who "
+        "you work for. The surveyors up at Fourth Peg told me about the caves and I kept going "
+        "down. I've been camped here about a month. The dwarves think I'm odd but they sell me "
+        "bread."),
+    "bs_castout": (
+        "Brannoc", "dwarf", "male", 6,
+        "I'm allowed as far as this brazier. Yrsa lets me sit here as long as I don't go near "
+        "the gate.\n\nI lived in there for forty years. I was put out with the rest of my "
+        "shift and I've been in the old diggings since. If you're going into town, don't tell "
+        "them you spoke to me. It won't help you."),
 }

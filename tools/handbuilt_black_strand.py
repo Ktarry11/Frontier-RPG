@@ -112,7 +112,15 @@ ROADS = [
 
 SUBZONES = [(n, int(cx - rx - 2), int(cy - ry - 2), int(2 * rx + 4), int(2 * ry + 4)) for (n, cx, cy, rx, ry) in CHAMBERS]
 CHESTS = [(62, 22), (16, 84), (132, 16), (90, 108), (108, 96), (141, 110)]
-NPC_POSITIONS = {}
+#: THREE PEOPLE OUTSIDE THE GATE, and no more (Kyle: a small group of quest givers outside a town
+#: is fine, a second town is not). Two at the foot of the stair - the Dark Iron lookout posted to
+#: see who comes down, and a topside geologist who came down on her own - and one Castout who is
+#: allowed to sit at the gate's brazier and not allowed through it.
+NPC_POSITIONS = {
+    "bs_lookout": (19, 18),
+    "bs_geologist": (17, 25),
+    "bs_castout": (92, 60),
+}
 
 
 def _tunnel_pts(a, b):
@@ -228,6 +236,10 @@ def build_black_strand():
                    key=lambda t: (t[0] - cx) ** 2 + (t[1] - cy) ** 2)
         L.chests.append(best)
         L.mark("chest", *best)
+    for npc_id, (x, y) in NPC_POSITIONS.items():
+        if not zone.is_walkable(x, y):
+            raise AssertionError(f"{NAME}: {npc_id} at ({x},{y}) is not on walkable ground")
+        zone.set_tile(x, y, "npc", "interaction")
     for (name, x, y, w, h) in SUBZONES:
         zone.add_subzone(name, max(0, x), max(0, y), w, h)
     zone.arrivals = list(ARRIVALS)
@@ -309,6 +321,8 @@ def dress(zone, L):
         x, y = int(rng.integers(3, W - 3)), int(rng.integers(3, H - 3))
         if not zone.is_walkable(x, y) or rd[y, x] > -1.2 or taken(x, y):
             continue
+        if any(abs(x - nx) <= 4 and -2 <= y - ny <= 7 for (nx, ny) in NPC_POSITIONS.values()):
+            continue        # nothing grows over the people
         r = rng.random()
         f, h, g = fung[y, x], hive[y, x], forge[y, x]
         near_wall = o[y, x] < 3.0
@@ -363,7 +377,7 @@ def verify(zone):
 
 
 def finish(zone, L):
-    return L.finish(list(PORTALS) + list(L.chests))
+    return L.finish(list(PORTALS) + list(L.chests) + list(NPC_POSITIONS.values()))
 
 
 def build_black_strand_baked():

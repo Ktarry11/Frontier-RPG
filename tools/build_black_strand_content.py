@@ -212,10 +212,8 @@ TABLE = {
                       "Lantern Sporeling": 2, "Hive Swarmer": 2},
     },
     "subzones": {
-        "The Bottom Step": {
-            "name": "The Bottom Step",
-            "creatures": {"Strand Bat": 5, "Blacksand Scorpion": 5, "Ashdune Basilisk": 3},
-        },
+        # The foot of the stair. The lookout keeps a brazier lit and two people stand by it.
+        "The Bottom Step": {"name": "The Bottom Step", "safe": True, "creatures": {}},
         "The Ash Dunes": {
             "name": "The Ash Dunes",
             "creatures": {"Ashdune Basilisk": 5, "Blacksand Scorpion": 5, "Strand Bat": 3,

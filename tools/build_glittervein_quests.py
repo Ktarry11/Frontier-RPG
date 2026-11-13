@@ -500,7 +500,7 @@ def build():
 
     q.append(Q("gv_the_seam_is_the_zone", "Follow One Down", CUTTER, GV, 48, 49, "seam",
                "Pick a seam out from the rim and walk the length of it.",
-               [explore(GV, 108, 60, 8), explore(GV, 50, 126, 8)],
+               [explore(GV, 108, 60, 8), explore(GV, 56, 120, 8)],
                "Here is a thing nobody tells newcomers and everybody works out: you can see the "
                "seams from the top. They are the only lit thing in the hole.\n\nStand on the rim, "
                "pick one, and follow it all the way down. Everybody who works this wall knows "

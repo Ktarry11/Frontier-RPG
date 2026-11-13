@@ -1,0 +1,2878 @@
+{
+  "quests": [
+    {
+      "quest_id": "bst_long_way_down",
+      "title": "The Long Way Down",
+      "giver_npc_id": "bs_lookout",
+      "zone": "the_black_strand",
+      "level_min": 50,
+      "level_max": 50,
+      "description": "Follow the slag road to the gate of Onyxhollow and report to the Gate-Captain.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_black_strand",
+          "target_x": 84,
+          "target_y": 58,
+          "radius": 7,
+          "label": "the gate of Onyxhollow"
+        },
+        {
+          "type": "deliver",
+          "target": "bst_lookout_token",
+          "count": 1,
+          "label": "Hervi's tally token, to Gate-Captain Yrsa"
+        }
+      ],
+      "reward_exp": 3640,
+      "reward_gold": 14400,
+      "accept_text": "You'll want the town. There's an inn, and you look like you could use one.\n\nTake this token to Gate-Captain Yrsa. It tells her I've seen you and you came down the stair, not up out of the sand. She likes to know.\n\nThe slag road starts right here and runs south-east. Stay on it and follow the braziers. The gate's at the end, between the two watchtowers.",
+      "turn_in_text": "One of Hervi's tokens. All right, you came down the stair.\n\nYou're welcome in Onyxhollow as long as you're here to trade or to work. The inn's up the road on the left. If it's work you want, most of the town has something that needs doing outside this gate, and I'm short of people to send.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Ashdune Chain Belt",
+          "slot": "waist",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "Carried down a very long stair by somebody who meant to stay.",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "spell_power": 8
+          },
+          "armor_type": "mail",
+          "armor_value": 141,
+          "label": "Mail Belt (Int/Hit/SP)"
+        },
+        {
+          "name": "Bottom-Step Belt",
+          "slot": "waist",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "It was pale once. Nothing stays pale down here.",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 9
+          },
+          "armor_type": "cloth",
+          "armor_value": 44,
+          "label": "Cloth Belt (Int/SP/Hit)"
+        },
+        {
+          "name": "Strandwalker's Axe",
+          "slot": "main_hand",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "Worn smooth by something. The dwarves say sand; the geologist says water.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "parry_rating": 1
+          },
+          "weapon_damage_min": 69,
+          "weapon_damage_max": 93,
+          "attack_speed": 2.6,
+          "label": "Axe (Sta/Armor/Parry)",
+          "armor_value": 33
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "uncommon",
+      "turn_in_npc_id": "oh_gate_captain",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "bst_lookout_token",
+            "name": "Hervi's Tally Token",
+            "description": "An iron token with a notch filed in it. The lookout at the Bottom Step hands one to everybody who comes down.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "bst_clear_the_slag_road",
+      "title": "Sand on the Road",
+      "giver_npc_id": "oh_gate_guard_w",
+      "zone": "the_black_strand",
+      "level_min": 50,
+      "level_max": 50,
+      "description": "Kill Blacksand Scorpions and Strand Bats along the slag road across the Ash Dunes.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Blacksand Scorpion",
+          "count": 10,
+          "zone": "the_black_strand"
+        },
+        {
+          "type": "kill",
+          "target": "Strand Bat",
+          "count": 8,
+          "zone": "the_black_strand"
+        }
+      ],
+      "reward_exp": 3640,
+      "reward_gold": 14400,
+      "accept_text": "You walked in on the slag road, so you'll have seen what's on it.\n\nThe scorpions bury themselves in the black sand beside the paving and the bats come down off the roof at anything carrying a lamp. We lose a carter to them every couple of months.\n\nThey're thickest out on the Ash Dunes, north-west of the gate, the way you came. Kill what you find near the road. I'd do it myself but I'm not allowed off this gate.",
+      "turn_in_text": "That'll keep the carts moving for a while. Thanks.\n\nTake something from the gate stores. The Captain signs for it, so don't feel bad.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Onyxhollow Bracers",
+          "slot": "wrist",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "Issued at the gate, and they'll want to know where it went.",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 10
+          },
+          "secondary_stats": {},
+          "armor_type": "plate",
+          "armor_value": 212,
+          "label": "Plate Bracers (Str/Sta/Crit)"
+        },
+        {
+          "name": "Anvil-Road Cuffs",
+          "slot": "wrist",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "Stamped with the Onyxhollow vault's weight mark.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 1,
+            "parry_rating": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 88,
+          "label": "Leather Bracers (Dodge/Parry)"
+        },
+        {
+          "name": "Banked-Fire Band",
+          "slot": "ring",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "Issued at the gate, and they'll want to know where it went.",
+          "primary_stats": {
+            "intellect": 6,
+            "spirit": 6
+          },
+          "secondary_stats": {
+            "healing_power": 6
+          },
+          "label": "Ring (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "bst_keep_them_lit",
+      "title": "Keep Them Lit",
+      "giver_npc_id": "oh_gate_guard_e",
+      "zone": "the_black_strand",
+      "level_min": 50,
+      "level_max": 50,
+      "description": "Collect Basilisk Fat from Ashdune Basilisks on the Ash Dunes for the gate braziers.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "bst_basilisk_fat",
+          "count": 8
+        }
+      ],
+      "reward_exp": 3640,
+      "reward_gold": 14400,
+      "accept_text": "See the braziers? The hive won't come past them. I don't know why and I don't much care, as long as they stay lit.\n\nThey burn basilisk fat. Coal smokes too much in a cave and lamp oil comes down a rope, so it's fat or nothing. We're nearly out.\n\nThe Ashdune Basilisks are out on the Ash Dunes, north-west of the gate. Don't look them in the eye for long. Bring me the fat and I'll render it tonight.",
+      "turn_in_text": "That's plenty. That's a month of nights.\n\nYou didn't stare at one, did you? No, you'd be greyer. Here, this is for the trouble.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Gatewarden's Gauntlets",
+          "slot": "hands",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "Stamped with the Onyxhollow vault's weight mark.",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 10
+          },
+          "secondary_stats": {},
+          "armor_type": "mail",
+          "armor_value": 141,
+          "label": "Mail Gloves (Str/Sta/Crit)"
+        },
+        {
+          "name": "Banked-Fire Fists",
+          "slot": "hands",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "Issued at the gate, and they'll want to know where it went.",
+          "primary_stats": {
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "defense_rating": 1,
+            "dodge_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 212,
+          "label": "Plate Gloves (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Gatewarden's Wand",
+          "slot": "main_hand",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "Stamped with the Onyxhollow vault's weight mark.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 7,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "mp5": 2
+          },
+          "weapon_damage_min": 58,
+          "weapon_damage_max": 79,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "bst_sign_the_board",
+      "title": "Three Names, One Mark",
+      "giver_npc_id": "oh_mining_supplier",
+      "zone": "the_black_strand",
+      "level_min": 50,
+      "level_max": 50,
+      "description": "Find the miners who went to dig on the Ash Dunes and bring back their picks.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_black_strand",
+          "target_x": 56,
+          "target_y": 44,
+          "radius": 7,
+          "label": "the sand diggings on the Ash Dunes"
+        },
+        {
+          "type": "fetch",
+          "target": "bst_stone_pick",
+          "count": 3
+        }
+      ],
+      "reward_exp": 3640,
+      "reward_gold": 14400,
+      "accept_text": "Three of mine signed out to dig dark iron in the sand, out on the Ash Dunes. That was five shifts ago and none of them has signed back in.\n\nI've a fair idea what happened. The basilisks out there turn a body to stone if it stands still long enough, and miners stand still a lot.\n\nThe sand diggings are north-west of the gate, off the south side of the slag road. Go and look. If I'm right, the Ashdune Basilisks will have what's left. Bring me the picks. Each one has a name on the haft and I need to know which names.",
+      "turn_in_text": "Stone, all three. Haft and head.\n\nThat's Orm's, and that's Sifa's. I don't recognise the third hand. It'll be in the book.\n\nI'll tell their people. Thank you for bringing them back. Most wouldn't have carried the weight.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Bottom-Step Treads",
+          "slot": "feet",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "Worn smooth by something. The dwarves say sand; the geologist says water.",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 10
+          },
+          "secondary_stats": {},
+          "armor_type": "plate",
+          "armor_value": 212,
+          "label": "Plate Boots (Str/Sta/Crit)"
+        },
+        {
+          "name": "Ashdune Shoulderguards",
+          "slot": "shoulder",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "There's black sand in every seam and there always will be.",
+          "primary_stats": {
+            "stamina": 12
+          },
+          "secondary_stats": {
+            "dodge_rating": 1,
+            "parry_rating": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 173,
+          "label": "Mail Shoulders (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Ashdune Necklace",
+          "slot": "neck",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "It was pale once. Nothing stays pale down here.",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 9
+          },
+          "secondary_stats": {},
+          "label": "Necklace (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "bst_bats_in_the_flue",
+      "title": "Bats in the Flue",
+      "giver_npc_id": "oh_stoker",
+      "zone": "the_black_strand",
+      "level_min": 50,
+      "level_max": 50,
+      "description": "Kill Strand Bats on the Ash Dunes, where the furnace flue comes out.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Strand Bat",
+          "count": 12,
+          "zone": "the_black_strand"
+        }
+      ],
+      "reward_exp": 3640,
+      "reward_gold": 14400,
+      "accept_text": "The furnace has been drawing badly all week. I went up the flue with a lamp and it's full of bats.\n\nThe flue comes out through the rock onto the Ash Dunes, north-west of the gate. It's warm, so they roost in it. Every time I clear them out, more come in from the dunes.\n\nThin out the Strand Bats out there and I'll have a chance of keeping it clear. Garrun's blaming my shovelling and I'd like him to stop.",
+      "turn_in_text": "It's drawing properly again. Listen to that.\n\nI told Garrun it was bats. He said he'd believe it when the furnace did. Well, the furnace does.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Anvil-Road Armguards",
+          "slot": "wrist",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "Made on Forge Row by someone who signed it underneath.",
+          "primary_stats": {
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "dodge_rating": 1,
+            "parry_rating": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 141,
+          "label": "Mail Bracers (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Anvil-Road Coat",
+          "slot": "chest",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "Issued at the gate, and they'll want to know where it went.",
+          "primary_stats": {
+            "agility": 11,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_type": "leather",
+          "armor_value": 127,
+          "label": "Leather Chest (Agi/Int/AP)"
+        },
+        {
+          "name": "Banked-Fire Wand",
+          "slot": "main_hand",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "Made on Forge Row by someone who signed it underneath.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 7,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "mp5": 2
+          },
+          "weapon_damage_min": 58,
+          "weapon_damage_max": 79,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "bst_forgemasters_test",
+      "title": "The Forgemaster's Test",
+      "giver_npc_id": "oh_forgemaster",
+      "zone": "the_black_strand",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "Smelt Dark Iron Bars to show Forgemaster Garrun you can work the ore.",
+      "objectives": [
+        {
+          "type": "craft",
+          "target": "bar_dark_iron",
+          "count": 4,
+          "label": "Dark Iron Bar"
+        }
+      ],
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "accept_text": "Anybody can swing a pick. I want to see what you do with what comes out.\n\nThere's dark iron ore in the sand all over the Strand, and in our own rock if Kelda lets you down the head. Mine some and smelt it into bars. You'll need the skill for it. If you haven't got it yet, come back when you have.\n\nDark iron's fussy. Too cold and it won't flow, too hot and it goes brittle. Bring me the bars and I'll tell you which you did.",
+      "turn_in_text": "Let me see. That one's a touch hot. The rest are good.\n\nBetter than most of my apprentices manage in their first year. Don't tell them I said so. Take this, you've earned it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Anvil-Road Fists",
+          "slot": "hands",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "Issued at the gate, and they'll want to know where it went.",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "defense_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 216,
+          "label": "Plate Gloves (Str/Sta/Def)"
+        },
+        {
+          "name": "Banked-Fire Belt",
+          "slot": "waist",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "Stamped with the Onyxhollow vault's weight mark.",
+          "primary_stats": {
+            "agility": 9
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "crit_chance_physical": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 90,
+          "label": "Leather Belt (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Forge-Row Dirk",
+          "slot": "main_hand",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "Issued at the gate, and they'll want to know where it went.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 14
+          },
+          "weapon_damage_min": 70,
+          "weapon_damage_max": 95,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Sta/AP)"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "bst_a_keg_for_the_stair",
+      "title": "A Keg for the Stair",
+      "giver_npc_id": "oh_innkeeper",
+      "zone": "the_black_strand",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "Carry a keg of Banked Fire ale to Lookout Hervi at the Bottom Step.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "bst_ale_keg",
+          "count": 1,
+          "label": "the keg of Banked Fire ale, to Lookout Hervi"
+        }
+      ],
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "accept_text": "Hervi's been on the stair post for three weeks without relief. Nobody's sent him anything but bread.\n\nTake him this keg, would you? He's at the Bottom Step, at the far north-west end of the slag road, where you came down. It's heavy but it's a straight road.\n\nTell him it's from Brenna and he still owes me for the last one.",
+      "turn_in_text": "From Brenna? Oh, that's good of her.\n\nShe says I owe her for the last one. I do. Tell her I'll settle when I'm relieved, which at this rate is never.\n\nHere, take this for the carrying. It's a long road with a keg.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Gatewarden's Cuffs",
+          "slot": "wrist",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "Made on Forge Row by someone who signed it underneath.",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "spell_power": 8
+          },
+          "armor_type": "mail",
+          "armor_value": 144,
+          "label": "Mail Bracers (Int/Hit/SP)"
+        },
+        {
+          "name": "Anvil-Road Grips",
+          "slot": "hands",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "Dark Iron work. Heavier than it looks and built to be repaired.",
+          "primary_stats": {
+            "agility": 9
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "crit_chance_physical": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 90,
+          "label": "Leather Gloves (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Forge-Row Scepter",
+          "slot": "main_hand",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "Stamped with the Onyxhollow vault's weight mark.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 8
+          },
+          "weapon_damage_min": 59,
+          "weapon_damage_max": 80,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/SP/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon",
+      "turn_in_npc_id": "bs_lookout",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "bst_ale_keg",
+            "name": "Keg of Banked Fire Ale",
+            "description": "A small iron-hooped keg. It sloshes. It's brewed from mushrooms and tastes better than that sounds.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "bst_tide_marks",
+      "title": "Tide Marks",
+      "giver_npc_id": "bs_geologist",
+      "zone": "the_black_strand",
+      "level_min": 50,
+      "level_max": 50,
+      "description": "Look at the cavern wall on the west and east sides of the Ash Dunes.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_black_strand",
+          "target_x": 34,
+          "target_y": 26,
+          "radius": 7,
+          "label": "the west wall of the Ash Dunes"
+        },
+        {
+          "type": "explore",
+          "target": "the_black_strand",
+          "target_x": 68,
+          "target_y": 28,
+          "radius": 7,
+          "label": "the east wall of the Ash Dunes"
+        }
+      ],
+      "reward_exp": 3640,
+      "reward_gold": 14400,
+      "accept_text": "Can I ask you something? You'll be walking across the dunes anyway.\n\nThere are lines on the cavern walls out there, high up. Pale bands, dead level, one above another. I think they're tide marks. If they are, they should be at the same height on both sides of the cavern.\n\nI can't get to the far wall. There's too much out there that wants to eat me. The Ash Dunes are just south-east of here. Have a look at the west wall and then the east one, and tell me whether the lines match.",
+      "turn_in_text": "They match? Same height, both sides?\n\nThen it was water, standing water, and a lot of it. This whole cavern was a sea.\n\nI used to take students to the Dead Sea to look at lines exactly like these. That was before the change, and I didn't think I'd ever see them again. Thank you. Really.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Strandwalker's Gauntlets",
+          "slot": "hands",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "It was pale once. Nothing stays pale down here.",
+          "primary_stats": {
+            "agility": 7,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 13
+          },
+          "armor_type": "leather",
+          "armor_value": 88,
+          "label": "Leather Gloves (Agi/Sta/AP)"
+        },
+        {
+          "name": "Blacksand Waistguard",
+          "slot": "waist",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "Worn smooth by something. The dwarves say sand; the geologist says water.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 1,
+            "block_rating": 1,
+            "dodge_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 212,
+          "label": "Plate Belt (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Ashdune Spear",
+          "slot": "main_hand",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "required_level": 50,
+          "flavor_text": "Worn smooth by something. The dwarves say sand; the geologist says water.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 12
+          },
+          "secondary_stats": {
+            "defense_rating": 1
+          },
+          "weapon_damage_min": 93,
+          "weapon_damage_max": 126,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta/Def)"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "bst_black_sand",
+      "title": "Why It's Black",
+      "giver_npc_id": "bs_geologist",
+      "zone": "the_black_strand",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "Kill Blacksand Scorpions on the Ash Dunes and visit the miners' sand diggings.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Blacksand Scorpion",
+          "count": 10,
+          "zone": "the_black_strand"
+        },
+        {
+          "type": "explore",
+          "target": "the_black_strand",
+          "target_x": 56,
+          "target_y": 44,
+          "radius": 7,
+          "label": "the sand diggings on the Ash Dunes"
+        }
+      ],
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "accept_text": "The sand's bothering me. Beach sand is pale. This is black and it's heavy, and the dwarves dig iron out of it.\n\nI'd like to see a fresh cut, somewhere it's been dug deep. The miners have a diggings on the Ash Dunes, south-east of here on the south side of the slag road. Go and look at how the sand lies in the sides of the pit.\n\nThe Blacksand Scorpions nest in the loose spoil round it. You'll have to clear them before you can see anything.",
+      "turn_in_text": "Layers? Black, then a thin pale one, then black again?\n\nThen the iron washed in. Something up above was wearing away and the sea was carrying it down here, season after season.\n\nThe dwarves think the iron was always in the sand. It wasn't. It came from somewhere, and I'd love to know where.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Strandwalker's Mantle",
+          "slot": "back",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "Worn smooth by something. The dwarves say sand; the geologist says water.",
+          "primary_stats": {
+            "agility": 7,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 12
+          },
+          "armor_type": "leather",
+          "armor_value": 80,
+          "label": "Leather Cloak (Agi/Sta/AP)"
+        },
+        {
+          "name": "Strandwalker's Spaulders",
+          "slot": "shoulder",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "It was pale once. Nothing stays pale down here.",
+          "primary_stats": {
+            "stamina": 9,
+            "spirit": 9
+          },
+          "secondary_stats": {
+            "healing_power": 6
+          },
+          "armor_type": "mail",
+          "armor_value": 176,
+          "label": "Mail Shoulders (Sta/Spi/HP)"
+        },
+        {
+          "name": "Blacksand Signet",
+          "slot": "ring",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "There's black sand in every seam and there always will be.",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "spell_power": 7
+          },
+          "label": "Ring (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "bst_whose_shore",
+      "title": "Made, Not Grown",
+      "giver_npc_id": "oh_loremaster",
+      "zone": "the_black_strand",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "Collect Worked Shells from Blindwater Lurkers at the Last Water.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "bst_worked_shell",
+          "count": 6
+        }
+      ],
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "accept_text": "A carter brought me a shell last month. It had a hole drilled in it, clean through, and a pattern scratched round the hole. Shells don't grow like that. Somebody made it.\n\nHe got it out of a Blindwater Lurker. They swallow anything on the bottom and it sits in the gut for years.\n\nThe Lurkers are at the Last Water. Go out of the gate and south, past the big rock, until you reach the lake. If you find any more shells like it, I want them.",
+      "turn_in_text": "They're all drilled, and the patterns are all different.\n\nLook, this one's a string of little marks, and this one's a spiral. I think they were worn. On a cord, round the neck.\n\nSomebody lived on this shore and made jewellery. The Thane says it's only rock down here. I'm going to enjoy showing him these.",
+      "next_quest_id": "bst_standing_stones",
+      "unique_item_defs": [
+        {
+          "name": "Gloomcap Robe",
+          "slot": "chest",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "Sigrun says the stain is harmless. She says that about a lot of things.",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 13,
+            "crit_chance_spell": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 65,
+          "label": "Cloth Chest (Int/SP/Crit)"
+        },
+        {
+          "name": "Gloomcap Mantle",
+          "slot": "back",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "Sigrun says the stain is harmless. She says that about a lot of things.",
+          "primary_stats": {
+            "agility": 8
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "crit_chance_physical": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 80,
+          "label": "Leather Cloak (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Lastwater Pendant",
+          "slot": "neck",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "It glows a little in the dark. That wears off in a week or so.",
+          "primary_stats": {
+            "intellect": 6,
+            "spirit": 6
+          },
+          "secondary_stats": {
+            "healing_power": 6
+          },
+          "label": "Necklace (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "bst_standing_stones",
+      "title": "The Three Stones",
+      "giver_npc_id": "oh_loremaster",
+      "zone": "the_black_strand",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "Find the three stones the carters mention: two in the Lantern Wood, one at the Last Water.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_black_strand",
+          "target_x": 22,
+          "target_y": 90,
+          "radius": 7,
+          "label": "the stone at the west end of the Lantern Wood"
+        },
+        {
+          "type": "explore",
+          "target": "the_black_strand",
+          "target_x": 46,
+          "target_y": 72,
+          "radius": 7,
+          "label": "the stone at the north edge of the Lantern Wood"
+        },
+        {
+          "type": "explore",
+          "target": "the_black_strand",
+          "target_x": 62,
+          "target_y": 104,
+          "radius": 7,
+          "label": "the stone on the west shore of the Last Water"
+        }
+      ],
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "accept_text": "If they wore shells, they'll have left more than shells.\n\nThe carters talk about three stones. They call them the Old Men. Two are in the Lantern Wood and one's by the Last Water. I'd always assumed they were stalagmites. Now I'm not so sure.\n\nThe Lantern Wood is south-west of the gate. One stone is at its far west end and one at its north edge. The third is on the west shore of the Last Water, south of the gate. Go and look at each of them closely. I want to know if they've been shaped.",
+      "turn_in_text": "Flat on one side, all three, and the flat side faces the water?\n\nThen they were set there. They're markers. Maybe for a landing, maybe for graves. Either way somebody stood them up.\n\nI've made rubbings from your description as best I can. There's one more thing I'd like you to do with them.",
+      "next_quest_id": "bst_two_notebooks",
+      "unique_item_defs": [
+        {
+          "name": "Gloomcap Leggings",
+          "slot": "legs",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "It glows a little in the dark. That wears off in a week or so.",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "spell_power": 12
+          },
+          "armor_type": "mail",
+          "armor_value": 212,
+          "label": "Mail Legs (Int/Hit/SP)"
+        },
+        {
+          "name": "Lantern-Wood Belt",
+          "slot": "waist",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Sigrun says the stain is harmless. She says that about a lot of things.",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "defense_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 221,
+          "label": "Plate Belt (Str/Sta/Def)"
+        },
+        {
+          "name": "Gloomcap Pendant",
+          "slot": "neck",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "It glows a little in the dark. That wears off in a week or so.",
+          "primary_stats": {
+            "intellect": 6,
+            "spirit": 6
+          },
+          "secondary_stats": {
+            "healing_power": 6
+          },
+          "label": "Necklace (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "bst_two_notebooks",
+      "title": "Two Notebooks",
+      "giver_npc_id": "oh_loremaster",
+      "zone": "the_black_strand",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "Take Ingrid's notes to the topside woman camped at the Bottom Step.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "bst_ingrids_notes",
+          "count": 1,
+          "label": "Ingrid's notes, to Noor Haddad at the Bottom Step"
+        }
+      ],
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "accept_text": "Hervi tells me there's a topside woman camped at the Bottom Step who measures the walls. He thinks she's cracked. I think she might be asking the same thing I am.\n\nI can't leave the town. The Thane's made that clear. So would you take her my notes? The shells, the stones, all of it.\n\nThe Bottom Step is at the far north-west end of the slag road. I don't know her name. She'll be the only person there who isn't a dwarf.",
+      "turn_in_text": "From the loremaster? I didn't know they had one.\n\nShells with holes drilled in them. Marker stones facing the water. And I've got tide marks and layered sand.\n\nShe's got the people and I've got the sea. Put the two together and you've got a whole coast, with somebody living on it.\n\nI need to talk to her. They won't let me through the gate, but they can't stop me writing. Thank you for carrying this. You've no idea how long I've been working on my own.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Blacksand Helm",
+          "slot": "head",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "It was pale once. Nothing stays pale down here.",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "spell_power": 10
+          },
+          "armor_type": "mail",
+          "armor_value": 180,
+          "label": "Mail Helm (Int/Hit/SP)"
+        },
+        {
+          "name": "Bottom-Step Breastplate",
+          "slot": "chest",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Carried down a very long stair by somebody who meant to stay.",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 319,
+          "label": "Plate Chest (Str/Sta/Crit)"
+        },
+        {
+          "name": "Ashdune Saber",
+          "slot": "main_hand",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Carried down a very long stair by somebody who meant to stay.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "parry_rating": 1
+          },
+          "weapon_damage_min": 71,
+          "weapon_damage_max": 96,
+          "attack_speed": 2.4,
+          "label": "Sword (Sta/Armor/Parry)",
+          "armor_value": 34
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon",
+      "turn_in_npc_id": "bs_geologist",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "bst_ingrids_notes",
+            "name": "Ingrid's Notes",
+            "description": "A sheaf of careful drawings: shells with holes in them, and three stones, each with one flat face.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "bst_young_caps",
+      "title": "Young Caps",
+      "giver_npc_id": "oh_reagents",
+      "zone": "the_black_strand",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "Collect Unopened Lantern Caps from Lantern Sporelings in the Lantern Wood.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "bst_young_cap",
+          "count": 10
+        }
+      ],
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "accept_text": "I'm down to my last jar of caps and I've orders to fill.\n\nI need young ones, picked before they open. Once they open the good part's gone into the air. The trouble is the young caps walk about. We call them Lantern Sporelings, and they don't like being picked.\n\nThe Lantern Wood is south-west of the gate. You'll see the glow well before you get there. Kill the Sporelings and cut the caps off before they open.",
+      "turn_in_text": "These are lovely. Look how tight they are.\n\nThat's a month of healing draughts for the whole town. I'll put a few bottles aside for you. And take this as well. It's been in my store cupboard for years and it ought to be used.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Gloomcap Spaulders",
+          "slot": "shoulder",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "Cut and stitched by lamplight that wasn't a lamp.",
+          "primary_stats": {
+            "agility": 9,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "attack_power": 16
+          },
+          "armor_type": "leather",
+          "armor_value": 110,
+          "label": "Leather Shoulders (Agi/Int/AP)"
+        },
+        {
+          "name": "Capcutter's Girdle",
+          "slot": "waist",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "It glows a little in the dark. That wears off in a week or so.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 1,
+            "block_rating": 1,
+            "dodge_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 216,
+          "label": "Plate Belt (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Lantern-Wood Talisman",
+          "slot": "neck",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "It glows a little in the dark. That wears off in a week or so.",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 9
+          },
+          "secondary_stats": {},
+          "label": "Necklace (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "bst_trampler_gills",
+      "title": "Something for the Lungs",
+      "giver_npc_id": "oh_reagents",
+      "zone": "the_black_strand",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "Kill Gloomcap Tramplers in the Lantern Wood and collect their gills.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Gloomcap Trampler",
+          "count": 8,
+          "zone": "the_black_strand"
+        },
+        {
+          "type": "fetch",
+          "target": "bst_trampler_gill",
+          "count": 6
+        }
+      ],
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "accept_text": "Half the furnace crew has a cough that won't shift. It's the smoke. I can make something for it, but I need gills from the big mushrooms.\n\nGloomcap Tramplers, we call them. They're slow, but they're the size of a cart and they'll walk straight over you. They're in the Lantern Wood, south-west of the gate, further in than the Sporelings.\n\nCut the gills from under the cap. Wear something over your mouth while you do it.",
+      "turn_in_text": "Good thick ones. These'll do nicely.\n\nI'll have a syrup ready by tomorrow. Hald's going to complain about the taste and then ask for more. Thank you for going in there. I know it isn't pleasant.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Lastwater Belt",
+          "slot": "waist",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "It glows a little in the dark. That wears off in a week or so.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 1,
+            "block_rating": 1,
+            "dodge_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 216,
+          "label": "Plate Belt (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Sporelit Cap",
+          "slot": "head",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "Cut and stitched by lamplight that wasn't a lamp.",
+          "primary_stats": {
+            "strength": 9,
+            "agility": 9,
+            "stamina": 9
+          },
+          "armor_type": "leather",
+          "armor_value": 110,
+          "label": "Leather Helm (Str/Agi/Sta)"
+        },
+        {
+          "name": "Sporelit Loop",
+          "slot": "ring",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "Sigrun says the stain is harmless. She says that about a lot of things.",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 9
+          },
+          "secondary_stats": {},
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "bst_the_last_water",
+      "title": "The Last Water",
+      "giver_npc_id": "oh_geomancer",
+      "zone": "the_black_strand",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "Visit the north and south shores of the Last Water and kill Blindwater Lurkers.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_black_strand",
+          "target_x": 79,
+          "target_y": 92,
+          "radius": 7,
+          "label": "the north shore of the Last Water"
+        },
+        {
+          "type": "explore",
+          "target": "the_black_strand",
+          "target_x": 70,
+          "target_y": 108,
+          "radius": 7,
+          "label": "the south shore of the Last Water"
+        },
+        {
+          "type": "kill",
+          "target": "Blindwater Lurker",
+          "count": 8,
+          "zone": "the_black_strand"
+        }
+      ],
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "accept_text": "There's a lake south of here. It's the only standing water left in this whole cavern, so we call it the Last Water.\n\nI need to know if it's rising or falling. If it's falling, the rock above us is drying out and it'll crack. If it's rising, something's leaking in from above, and that's worse.\n\nGo out of the gate and south. Look at the shoreline on the north side and then on the south. Wet rock above the waterline means it's dropped. The Blindwater Lurkers will come at you the moment you're near the edge, so deal with them first.",
+      "turn_in_text": "Wet rock a hand's width above the water, all the way round?\n\nSo it's falling. Slowly, but it's falling.\n\nThat's what I was afraid of. The roof over this town is the floor of those dry caves you came through, and it's been drying for three years, ever since the ground shook. I need to think about what to tell the Thane.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Gloomcap Shroud",
+          "slot": "back",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "It glows a little in the dark. That wears off in a week or so.",
+          "primary_stats": {
+            "intellect": 7,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "spell_power": 5
+          },
+          "armor_type": "cloth",
+          "armor_value": 40,
+          "label": "Cloth Cloak (Int/Sta/SP)"
+        },
+        {
+          "name": "Lantern-Wood Bracers",
+          "slot": "wrist",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "Cut and stitched by lamplight that wasn't a lamp.",
+          "primary_stats": {
+            "stamina": 8,
+            "spirit": 8
+          },
+          "secondary_stats": {
+            "healing_power": 5
+          },
+          "armor_type": "mail",
+          "armor_value": 144,
+          "label": "Mail Bracers (Sta/Spi/HP)"
+        },
+        {
+          "name": "Capcutter's Axe",
+          "slot": "main_hand",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "Smells of the Lantern Wood, which is to say of wet cellar.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 12
+          },
+          "secondary_stats": {
+            "defense_rating": 1
+          },
+          "weapon_damage_min": 70,
+          "weapon_damage_max": 95,
+          "attack_speed": 2.6,
+          "label": "Axe (Str/Sta/Def)"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "bst_water_for_the_quench",
+      "title": "Water for the Quench",
+      "giver_npc_id": "oh_smith",
+      "zone": "the_black_strand",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "Collect Lurker's Water Bladders from Blindwater Lurkers at the Last Water.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "bst_water_bladder",
+          "count": 6
+        }
+      ],
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "accept_text": "Our well water's too soft. Dark iron quenched in it comes out with a skin like an eggshell.\n\nThe Last Water's hard and bitter and very cold, and blades quenched in it hold an edge twice as long. I'd send an apprentice with buckets, but the Blindwater Lurkers take apprentices.\n\nThe Lurkers carry water in a bladder under the jaw. Kill them and bring me the bladders, full. The lake's south of the gate.",
+      "turn_in_text": "Still cold. Good.\n\nThat's enough for a dozen blades. You'll see the difference if you buy one. Here, this was quenched in the last lot. Take it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Anvil-Road Breeches",
+          "slot": "legs",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "Made on Forge Row by someone who signed it underneath.",
+          "primary_stats": {
+            "intellect": 11,
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "mp5": 3
+          },
+          "armor_type": "cloth",
+          "armor_value": 65,
+          "label": "Cloth Legs (Int/Sta/MP5)"
+        },
+        {
+          "name": "Anvil-Road Gauntlets",
+          "slot": "hands",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "Dark Iron work. Heavier than it looks and built to be repaired.",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 13
+          },
+          "armor_type": "leather",
+          "armor_value": 90,
+          "label": "Leather Gloves (Agi/Sta/AP)"
+        },
+        {
+          "name": "Onyxhollow Pike",
+          "slot": "main_hand",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "Stamped with the Onyxhollow vault's weight mark.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 12
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 1
+          },
+          "weapon_damage_min": 94,
+          "weapon_damage_max": 128,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "bst_the_lights_go_out",
+      "title": "The Lights Are Going Out",
+      "giver_npc_id": "oh_reagents",
+      "zone": "the_black_strand",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "Go to the east side of the Lantern Wood and kill the Hive Swarmers there.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_black_strand",
+          "target_x": 52,
+          "target_y": 80,
+          "radius": 7,
+          "label": "the east side of the Lantern Wood"
+        },
+        {
+          "type": "kill",
+          "target": "Hive Swarmer",
+          "count": 12,
+          "zone": "the_black_strand"
+        }
+      ],
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "accept_text": "The east side of the wood's gone dark. I noticed when I was out for caps. A whole stretch that used to glow has nothing growing in it now.\n\nMushrooms don't just stop. Something's taking them.\n\nGo and look, would you? The Lantern Wood is south-west of the gate, and the dark part is on its east side, nearest the lake. If it's what I think it is, you'll find Hive Swarmers there. Kill them.",
+      "turn_in_text": "Swarmers, in the wood. I thought so.\n\nThe hive used to stay on its own side. If they're coming this far for mushrooms, they're short of food, or there are more of them than there were.\n\nI'll tell Captain Yrsa. She won't be pleased.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Lantern-Wood Boots",
+          "slot": "feet",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Cut and stitched by lamplight that wasn't a lamp.",
+          "primary_stats": {
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "defense_rating": 1,
+            "dodge_rating": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 147,
+          "label": "Mail Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Lastwater Slippers",
+          "slot": "feet",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Sigrun says the stain is harmless. She says that about a lot of things.",
+          "primary_stats": {
+            "intellect": 7,
+            "spirit": 7
+          },
+          "secondary_stats": {
+            "healing_power": 7
+          },
+          "armor_type": "cloth",
+          "armor_value": 46,
+          "label": "Cloth Boots (Int/Spi/HP)"
+        },
+        {
+          "name": "Lastwater Wand",
+          "slot": "main_hand",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Sigrun says the stain is harmless. She says that about a lot of things.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 7,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "mp5": 2
+          },
+          "weapon_damage_min": 60,
+          "weapon_damage_max": 82,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "bst_what_they_carry",
+      "title": "What They Carry",
+      "giver_npc_id": "item:bst_half_eaten_cap",
+      "zone": "the_black_strand",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "A Hive Swarmer was carrying a cut mushroom cap. Show it to Alchemist Sigrun.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "bst_half_eaten_cap",
+          "count": 1,
+          "label": "the half-eaten cap, to Alchemist Sigrun in Onyxhollow"
+        }
+      ],
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "accept_text": "The Swarmer had a piece of mushroom cap held in its jaws. It's been cut, not bitten. The edges are straight and clean.\n\nAlchemist Sigrun in Onyxhollow knows the Lantern Wood's mushrooms better than anyone. She'd want to see this.",
+      "turn_in_text": "Where did you get this? Off a Swarmer?\n\nThey're not eating them. Look at the cuts. They're harvesting. They're carrying the caps back to the hive whole.\n\nYou only do that if you're growing something. They're farming, in there, and they're using my wood for seed. Thank you for bringing it. I'd never have known.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Lastwater Boots",
+          "slot": "feet",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Cut and stitched by lamplight that wasn't a lamp.",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 10
+          },
+          "secondary_stats": {},
+          "armor_type": "mail",
+          "armor_value": 147,
+          "label": "Mail Boots (Str/Sta/Crit)"
+        },
+        {
+          "name": "Gloomcap Wristguards",
+          "slot": "wrist",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "It glows a little in the dark. That wears off in a week or so.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 2,
+            "parry_rating": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 92,
+          "label": "Leather Bracers (Dodge/Parry)"
+        },
+        {
+          "name": "Gloomcap Rod",
+          "slot": "main_hand",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "It glows a little in the dark. That wears off in a week or so.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 8
+          },
+          "weapon_damage_min": 60,
+          "weapon_damage_max": 82,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/SP/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon",
+      "turn_in_npc_id": "oh_reagents"
+    },
+    {
+      "quest_id": "bst_names_in_the_book",
+      "title": "Names in the Book",
+      "giver_npc_id": "oh_vault_keeper",
+      "zone": "the_black_strand",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "Ask Vault-Keeper Aldis about the people who were put out, then go and look at the old diggings.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "bst_who_was_put_out",
+            "bst_the_gallery"
+          ]
+        },
+        {
+          "type": "explore",
+          "target": "the_black_strand",
+          "target_x": 100,
+          "target_y": 31,
+          "radius": 7,
+          "label": "the entrance to the Castout Diggings"
+        }
+      ],
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "accept_text": "You've heard people here go quiet about the old diggings. I'll tell you why, since nobody else will.\n\nAsk me what you like. Then go and see the place for yourself. It's north-east of the gate, where the slag road ends. You'll know it by the broken gate arch. Don't go in further than that unless you mean to fight.",
+      "turn_in_text": "You saw it, then. There are lamps lit in there. They're still working the seam.\n\nForty people, living in a mine with no forge and no gate. Some of them I've known since they were children.\n\nI've said for three years that the Thane put out too many. I couldn't prove who should have gone and who shouldn't. If you ever find something that does, bring it to me.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Castout's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "The maker's mark has been filed off. You can still feel where it was.",
+          "primary_stats": {
+            "stamina": 12
+          },
+          "secondary_stats": {
+            "dodge_rating": 1,
+            "parry_rating": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 176,
+          "label": "Mail Shoulders (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Tally-Marked Spaulders",
+          "slot": "shoulder",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "Company issue from before the gallery came down.",
+          "primary_stats": {
+            "strength": 9,
+            "agility": 9,
+            "stamina": 9
+          },
+          "armor_type": "leather",
+          "armor_value": 110,
+          "label": "Leather Shoulders (Str/Agi/Sta)"
+        },
+        {
+          "name": "Castout's Charm",
+          "slot": "neck",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "Company issue from before the gallery came down.",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "spell_power": 7
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "bst_the_old_diggings",
+      "title": "The Old Diggings",
+      "giver_npc_id": "oh_gate_captain",
+      "zone": "the_black_strand",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "Kill Castout Diggers and Castout Cutthroats raiding from the Castout Diggings.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Castout Digger",
+          "count": 10,
+          "zone": "the_black_strand"
+        },
+        {
+          "type": "kill",
+          "target": "Castout Cutthroat",
+          "count": 8,
+          "zone": "the_black_strand"
+        }
+      ],
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "accept_text": "I'll say this plainly. The people in the old diggings were ours, and I don't enjoy this.\n\nBut they've started raiding the slag road. Two carts last month, and a carter with his arm broken. They've no forge and no stores, so they take ours.\n\nThe Castout Diggings are north-east of the gate, at the end of the road. Go up there and push them back. The Castout Diggers and the Cutthroats are the ones doing the raiding. Leave anyone who doesn't raise a hand to you.",
+      "turn_in_text": "It's done? All right.\n\nI knew some of them. I'm not going to ask you which ones you met.\n\nThe road's safe for now. That's what I'm paid for. Take this.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Second-Shift Bindings",
+          "slot": "wrist",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "The maker's mark has been filed off. You can still feel where it was.",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "spell_power": 9
+          },
+          "armor_type": "cloth",
+          "armor_value": 45,
+          "label": "Cloth Bracers (Int/SP/Crit)"
+        },
+        {
+          "name": "Struck-Name Spaulders",
+          "slot": "shoulder",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "The maker's mark has been filed off. You can still feel where it was.",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 12
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 265,
+          "label": "Plate Shoulders (Str/Sta/Crit)"
+        },
+        {
+          "name": "Castout's Mace",
+          "slot": "main_hand",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "required_level": 51,
+          "flavor_text": "The maker's mark has been filed off. You can still feel where it was.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "parry_rating": 1
+          },
+          "weapon_damage_min": 70,
+          "weapon_damage_max": 95,
+          "attack_speed": 2.6,
+          "label": "Mace (Sta/Armor/Parry)",
+          "armor_value": 33
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "bst_brannocs_shift",
+      "title": "Brannoc's Shift",
+      "giver_npc_id": "bs_castout",
+      "zone": "the_black_strand",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "Hear Brannoc out, then recover Shift Tally Sticks from Castout Diggers.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "bst_brannocs_side"
+          ]
+        },
+        {
+          "type": "fetch",
+          "target": "bst_tally_stick",
+          "count": 8
+        }
+      ],
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "accept_text": "You've been in and out of that gate. You'll have heard their side. I've had three years in the old diggings to think about mine.\n\nI'd like you to hear mine. It won't take long. After that there's something I need, and I can't get it myself.\n\nEvery miner on my shift kept a tally stick. It's notched for each cart, and it's branded with the gallery you were working. The Diggers still carry theirs. They're up in the Castout Diggings, north-east of here. They won't hand them over. Most of them think I'm a traitor for sitting this close to the gate.",
+      "turn_in_text": "Let me see the brands. North drift. North drift. West heading. North drift.\n\nNot one of these is branded for the low gallery. We weren't in it.\n\nMost of the shift was nowhere near that gallery when it came down. The Thane never asked, and we were too frightened of the Foreman to say.\n\nI can't take these in. You can.",
+      "next_quest_id": "bst_weights_still_true",
+      "unique_item_defs": [
+        {
+          "name": "Castout's Leggings",
+          "slot": "legs",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "There's a shift tally scratched inside, in a careful hand.",
+          "primary_stats": {
+            "agility": 11,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "attack_power": 19
+          },
+          "armor_type": "leather",
+          "armor_value": 133,
+          "label": "Leather Legs (Agi/Int/AP)"
+        },
+        {
+          "name": "Old-Diggings Leggings",
+          "slot": "legs",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "There's a shift tally scratched inside, in a careful hand.",
+          "primary_stats": {
+            "stamina": 15
+          },
+          "secondary_stats": {
+            "dodge_rating": 1,
+            "parry_rating": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 212,
+          "label": "Mail Legs (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Second-Shift Knife",
+          "slot": "main_hand",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Mended many times by someone with no forge to mend it at.",
+          "weapon_type": "dagger",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 2,
+            "parry_rating": 1
+          },
+          "weapon_damage_min": 71,
+          "weapon_damage_max": 96,
+          "attack_speed": 1.7,
+          "label": "Dagger (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "bst_weights_still_true",
+      "title": "The Weights Are Still True",
+      "giver_npc_id": "bs_castout",
+      "zone": "the_black_strand",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "Take the bundle of tally sticks to Vault-Keeper Aldis in Onyxhollow.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "bst_tally_bundle",
+          "count": 1,
+          "label": "the bundle of tally sticks, to Vault-Keeper Aldis"
+        }
+      ],
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "accept_text": "Aldis keeps the weigh-books. Every cart that came out of every gallery is written down in them, with the name of whoever filled it.\n\nIf she sets these sticks against her books, she can show where each of us was working that shift. That's all I want. I'm not asking to be forgiven.\n\nShe's at the vault in the north-east corner of the town. Tell her they came from me.",
+      "turn_in_text": "From Brannoc? Give them here.\n\nNorth drift, cart by cart. It matches. Every notch is in my book under the right name, on the right shift.\n\nThey weren't in the low gallery. Nine of them were, with the Foreman. The other thirty were half a mile away, filling carts.\n\nThree years they've been out there. I'm taking this to the Thane now, and he's going to listen this time.",
+      "next_quest_id": "bst_the_thanes_answer",
+      "unique_item_defs": [
+        {
+          "name": "Struck-Name Cuffs",
+          "slot": "wrist",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "There's a shift tally scratched inside, in a careful hand.",
+          "primary_stats": {
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "dodge_rating": 1,
+            "parry_rating": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 147,
+          "label": "Mail Bracers (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Old-Diggings Mitts",
+          "slot": "hands",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Mended many times by someone with no forge to mend it at.",
+          "primary_stats": {
+            "intellect": 7,
+            "spirit": 7
+          },
+          "secondary_stats": {
+            "healing_power": 7
+          },
+          "armor_type": "cloth",
+          "armor_value": 46,
+          "label": "Cloth Gloves (Int/Spi/HP)"
+        },
+        {
+          "name": "Tally-Marked Charm",
+          "slot": "neck",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Mended many times by someone with no forge to mend it at.",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "spell_power": 7
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon",
+      "turn_in_npc_id": "oh_vault_keeper",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "bst_tally_bundle",
+            "name": "Bundle of Tally Sticks",
+            "description": "Eight notched sticks tied with a bootlace. Each one is branded with the gallery its owner was working.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "bst_the_thanes_answer",
+      "title": "The Thane's Answer",
+      "giver_npc_id": "oh_thane",
+      "zone": "the_black_strand",
+      "level_min": 53,
+      "level_max": 53,
+      "description": "Kill Foreman Durn the Castout in the Castout Diggings.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Foreman Durn the Castout",
+          "count": 1,
+          "zone": "the_black_strand"
+        }
+      ],
+      "reward_exp": 5044,
+      "reward_gold": 19890,
+      "accept_text": "Aldis has shown me her books. I've spent all night with them.\n\nThree years ago, the day the ground shook, a gallery came down and killed eleven of my people.\n\nI put out forty people for what nine of them did. I did it because nobody would give me a name, and I took that for guilt. It was fear. I should have known the difference.\n\nThey can come home, all of them who want to. But Durn won't let them. He was Foreman of that shift, he ordered them into a gallery he'd been told was unsafe, and he's run the old diggings ever since. Anyone who tries to leave, he kills.\n\nHe's in the Castout Diggings, north-east of the gate. I'm not asking you to bring him back.",
+      "turn_in_text": "Durn's dead. Good.\n\nI've told Yrsa to open the gate to anyone from the old diggings who comes with empty hands. Brannoc walked through an hour ago. He didn't say anything to me and I didn't expect him to.\n\nThis doesn't put it right. But it's a start, and it wouldn't have happened without you. The vault has something set aside. Take it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Tally-Marked Cloak",
+          "slot": "back",
+          "item_level": 55,
+          "rarity": "rare",
+          "required_level": 53,
+          "flavor_text": "Company issue from before the gallery came down.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 2,
+            "parry_rating": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 111,
+          "label": "Leather Cloak (Dodge/Parry)"
+        },
+        {
+          "name": "Struck-Name Belt",
+          "slot": "waist",
+          "item_level": 55,
+          "rarity": "rare",
+          "required_level": 53,
+          "flavor_text": "The maker's mark has been filed off. You can still feel where it was.",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "defense_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 299,
+          "label": "Plate Belt (Str/Sta/Def)"
+        },
+        {
+          "name": "Castout's Halberd",
+          "slot": "main_hand",
+          "item_level": 55,
+          "rarity": "rare",
+          "required_level": 53,
+          "flavor_text": "The maker's mark has been filed off. You can still feel where it was.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 13,
+            "stamina": 16
+          },
+          "secondary_stats": {
+            "defense_rating": 1
+          },
+          "weapon_damage_min": 130,
+          "weapon_damage_max": 176,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta/Def)"
+        },
+        {
+          "name": "Castout's Mantle",
+          "slot": "shoulder",
+          "item_level": 55,
+          "rarity": "rare",
+          "required_level": 53,
+          "flavor_text": "The maker's mark has been filed off. You can still feel where it was.",
+          "primary_stats": {
+            "intellect": 13,
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "spell_power": 9
+          },
+          "armor_type": "cloth",
+          "armor_value": 76,
+          "label": "Cloth Shoulders (Int/Sta/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "rare",
+      "requires_quests": [
+        "bst_weights_still_true"
+      ]
+    },
+    {
+      "quest_id": "bst_the_shrine_fire",
+      "title": "The Shrine Fire",
+      "giver_npc_id": "oh_shrine_keeper",
+      "zone": "the_black_strand",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "Kill Castout Slagcallers in the Castout Diggings and bring back their Shrine Embers.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Castout Slagcaller",
+          "count": 8,
+          "zone": "the_black_strand"
+        },
+        {
+          "type": "fetch",
+          "target": "bst_shrine_ember",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "accept_text": "When they were put out, some of them took fire from this bowl with them. I let them. It seemed wrong to send people into the dark without it.\n\nI shouldn't have. The ones we call Slagcallers have done something to it. They feed it things that aren't coal, and it burns the wrong colour now.\n\nIt's still our fire. I want it back before they do worse with it. The Slagcallers are in the Castout Diggings, north-east of the gate. They each carry some of it in a clay pot.",
+      "turn_in_text": "Give them here. Carefully.\n\nYes, that's ours. You can see it trying to burn clean again now it's near the bowl.\n\nI'll put them back in, one at a time. Thank you. I've been ashamed of that for three years.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Castout's Gloves",
+          "slot": "hands",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "The maker's mark has been filed off. You can still feel where it was.",
+          "primary_stats": {
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "defense_rating": 1,
+            "dodge_rating": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 147,
+          "label": "Mail Gloves (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Old-Diggings Visor",
+          "slot": "head",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Mended many times by someone with no forge to mend it at.",
+          "primary_stats": {
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "block_rating": 1,
+            "block_value": 14
+          },
+          "armor_type": "plate",
+          "armor_value": 270,
+          "label": "Plate Helm (Sta/Block/BV)"
+        },
+        {
+          "name": "Tally-Marked Signet",
+          "slot": "ring",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "There's a shift tally scratched inside, in a careful hand.",
+          "primary_stats": {
+            "stamina": 7,
+            "spirit": 7
+          },
+          "secondary_stats": {
+            "healing_power": 5
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "bst_unsent_letter",
+      "title": "An Unsent Letter",
+      "giver_npc_id": "item:bst_unsent_letter",
+      "zone": "the_black_strand",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "A Castout was carrying a letter addressed to Innkeeper Brenna. Take it to her.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "bst_unsent_letter",
+          "count": 1,
+          "label": "the unsent letter, to Innkeeper Brenna in Onyxhollow"
+        }
+      ],
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "accept_text": "The Cutthroat had a letter folded inside his jerkin. It's worn soft, as if it's been carried a long time. The outside reads: Brenna Coalcask, the Banked Fire.\n\nIt was never sent. Brenna keeps the inn in Onyxhollow.",
+      "turn_in_text": "Where did you get this?\n\nThat's Hakon's hand. That's my brother.\n\nHe was on the shift that got put out. I haven't heard a word in three years. I thought he hated me for staying.\n\nHe says he's sorry he didn't write. He says he kept meaning to send it.\n\nHe's dead, isn't he? You wouldn't have this if he wasn't.\n\nNo, don't say anything. Thank you for bringing it. I'd sooner know.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Tally-Marked Bracers",
+          "slot": "wrist",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Company issue from before the gallery came down.",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "defense_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 221,
+          "label": "Plate Bracers (Str/Sta/Def)"
+        },
+        {
+          "name": "Second-Shift Shroud",
+          "slot": "back",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Mended many times by someone with no forge to mend it at.",
+          "primary_stats": {
+            "intellect": 7,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "mp5": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 40,
+          "label": "Cloth Cloak (Int/Sta/MP5)"
+        },
+        {
+          "name": "Second-Shift Dagger",
+          "slot": "main_hand",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "There's a shift tally scratched inside, in a careful hand.",
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 9
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "crit_chance_physical": 1
+          },
+          "weapon_damage_min": 71,
+          "weapon_damage_max": 96,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Hit/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon",
+      "turn_in_npc_id": "oh_innkeeper"
+    },
+    {
+      "quest_id": "bst_listening_at_the_wall",
+      "title": "Listening at the Wall",
+      "giver_npc_id": "oh_wall_sentry",
+      "zone": "the_black_strand",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "Check the north side of the Chitin Reach in two places and kill Hive Sandburrowers.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_black_strand",
+          "target_x": 108,
+          "target_y": 63,
+          "radius": 7,
+          "label": "the north-west edge of the Chitin Reach"
+        },
+        {
+          "type": "explore",
+          "target": "the_black_strand",
+          "target_x": 126,
+          "target_y": 62,
+          "radius": 7,
+          "label": "the north-east edge of the Chitin Reach"
+        },
+        {
+          "type": "kill",
+          "target": "Hive Sandburrower",
+          "count": 8,
+          "zone": "the_black_strand"
+        }
+      ],
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "accept_text": "I can hear digging through the wall. I've heard it every night this month, and it's getting closer. They never dug this way before the change.\n\nIt's the big ones, the Sandburrowers. They tunnel, and the rest of the hive follows down the tunnel after them.\n\nThe Chitin Reach is south-east of the gate. I want to know how far north they've dug. Look along the north edge of the Reach, the side nearest the town, at the west end and the east end. Kill any Hive Sandburrowers you find working there.",
+      "turn_in_text": "Fresh tunnels at both ends, heading north. That's what I've been hearing.\n\nThey're maybe a month from the wall at that rate. Less, if there are more of them than you saw.\n\nI'll take it to the Captain. And I'll tell Brokk to start making charges.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Hivebreaker's Coif",
+          "slot": "head",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "It still hums faintly near the Reach.",
+          "primary_stats": {
+            "stamina": 12
+          },
+          "secondary_stats": {
+            "dodge_rating": 1,
+            "parry_rating": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 180,
+          "label": "Mail Helm (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Hivebreaker's Leggings",
+          "slot": "legs",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Taken off something that was digging toward the wall.",
+          "primary_stats": {
+            "strength": 11,
+            "agility": 11,
+            "stamina": 11
+          },
+          "armor_type": "leather",
+          "armor_value": 133,
+          "label": "Leather Legs (Str/Agi/Sta)"
+        },
+        {
+          "name": "Chitin-Reach Buckler",
+          "slot": "off_hand",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "It still hums faintly near the Reach.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 11
+          },
+          "armor_value": 82,
+          "block_value": 103,
+          "label": "Shield (Sta/Block/BV)"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "bst_a_charge_down_the_hole",
+      "title": "A Charge Down the Hole",
+      "giver_npc_id": "oh_powder",
+      "zone": "the_black_strand",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "Set blasting charges at three burrow mouths in the Chitin Reach.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_black_strand",
+          "target_x": 112,
+          "target_y": 78,
+          "radius": 7,
+          "label": "the western burrow mouth"
+        },
+        {
+          "type": "explore",
+          "target": "the_black_strand",
+          "target_x": 128,
+          "target_y": 74,
+          "radius": 7,
+          "label": "the northern burrow mouth"
+        },
+        {
+          "type": "explore",
+          "target": "the_black_strand",
+          "target_x": 124,
+          "target_y": 94,
+          "radius": 7,
+          "label": "the southern burrow mouth"
+        }
+      ],
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "accept_text": "Rurik says they're tunnelling at the wall. Right. I've got just the thing.\n\nThese are slow charges. You set one at the mouth of a burrow, light the fuse and walk away. Don't run. It looks bad and you've plenty of time.\n\nThere are three big burrows in the Chitin Reach, south-east of the gate. One's on the west side, one's up at the north and one's down at the south. Drop a charge at each. The hive won't thank you, so expect company.",
+      "turn_in_text": "All three? I felt them go. The whole Row did.\n\nThat's bought us a few months. They'll dig new ones, they always do, but they'll have to start from further back.\n\nYou kept your fingers, I see. Take this. I made it between batches.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Reaver's Cuffs",
+          "slot": "wrist",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "The amber in it was soft when it was fitted and isn't now.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 2,
+            "parry_rating": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 92,
+          "label": "Leather Bracers (Dodge/Parry)"
+        },
+        {
+          "name": "Royal-Cell Chausses",
+          "slot": "legs",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Taken off something that was digging toward the wall.",
+          "primary_stats": {
+            "stamina": 15
+          },
+          "secondary_stats": {
+            "dodge_rating": 1,
+            "parry_rating": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 212,
+          "label": "Mail Legs (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Royal-Cell Longsword",
+          "slot": "main_hand",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "The amber in it was soft when it was fitted and isn't now.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 2,
+            "parry_rating": 1
+          },
+          "weapon_damage_min": 71,
+          "weapon_damage_max": 96,
+          "attack_speed": 2.4,
+          "label": "Sword (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "bst_slow_charges",
+            "name": "Slow Charges",
+            "description": "Three iron canisters with long fuses. Brokk says they're perfectly safe. He was sitting on one when he said it.",
+            "count": 3
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "bst_amber_for_runes",
+      "title": "Amber for the Runes",
+      "giver_npc_id": "oh_armorer",
+      "zone": "the_black_strand",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "Collect Clear Amber Resin from Hive Resinspitters in the Chitin Reach.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "bst_amber_resin",
+          "count": 8
+        }
+      ],
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "accept_text": "I fill my runes with silver. It works, but it's soft and it wears out.\n\nThe hive makes a resin that sets clear and hard as glass. If I can inlay a rune with that, it should last as long as the plate does. I've only ever had a thumb's worth to try.\n\nThe Resinspitters make it. They're in the Chitin Reach, south-east of the gate. They'll spit it at you, which is unpleasant, but what I need is the clear stuff they carry inside.",
+      "turn_in_text": "That's ten times what I've ever had. And it's clean.\n\nGive me a day. If this works I'll never buy silver again.\n\nHere. It's one of my older pieces, but the rune's good. If the amber works I'll redo it for you.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Resin-Set Sabatons",
+          "slot": "feet",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "The amber in it was soft when it was fitted and isn't now.",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "defense_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 221,
+          "label": "Plate Boots (Str/Sta/Def)"
+        },
+        {
+          "name": "Resin-Set Shawl",
+          "slot": "shoulder",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "The amber in it was soft when it was fitted and isn't now.",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 11,
+            "crit_chance_spell": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 56,
+          "label": "Cloth Shoulders (Int/SP/Crit)"
+        },
+        {
+          "name": "Hivebreaker's Axe",
+          "slot": "main_hand",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Hive carapace, trimmed and riveted. Lighter than plate and nearly as hard.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 12
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 1
+          },
+          "weapon_damage_min": 71,
+          "weapon_damage_max": 96,
+          "attack_speed": 2.6,
+          "label": "Axe (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "bst_reaver_plate",
+      "title": "Lighter Than Plate",
+      "giver_npc_id": "oh_smith",
+      "zone": "the_black_strand",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "Kill Hive Reavers in the Chitin Reach and collect their carapaces.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Hive Reaver",
+          "count": 8,
+          "zone": "the_black_strand"
+        },
+        {
+          "type": "fetch",
+          "target": "bst_reaver_plate",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "accept_text": "One of the gate guards came back with a Reaver's back-plate strapped on as a shield. It turned a pick. I tried it myself.\n\nIt's lighter than dark iron and nearly as hard. I want to know if it can be riveted. If it can, I can make armour for the carters that they'll actually wear.\n\nThe Hive Reavers are in the Chitin Reach, south-east of the gate. They're the ones that walk upright. I need the back-plates whole, so try not to crack them.",
+      "turn_in_text": "Whole, and hardly scratched. Well done.\n\nIt takes a rivet. I just tried. It takes a rivet and it doesn't split.\n\nThe carters are getting new jerkins. You're getting the first thing I made from the last piece I had.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Royal-Cell Gauntlets",
+          "slot": "hands",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "It still hums faintly near the Reach.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 1,
+            "block_rating": 2,
+            "dodge_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 221,
+          "label": "Plate Gloves (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Resin-Set Gauntlets",
+          "slot": "hands",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "The amber in it was soft when it was fitted and isn't now.",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 13
+          },
+          "armor_type": "leather",
+          "armor_value": 92,
+          "label": "Leather Gloves (Agi/Int/AP)"
+        },
+        {
+          "name": "Hivebreaker's Loop",
+          "slot": "ring",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Taken off something that was digging toward the wall.",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "spell_power": 7
+          },
+          "label": "Ring (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "bst_toward_the_wood",
+      "title": "Between the Wood and the Wall",
+      "giver_npc_id": "oh_gate_captain",
+      "zone": "the_black_strand",
+      "level_min": 53,
+      "level_max": 53,
+      "description": "Kill Hive Reavers and Hive Swarmers in the Chitin Reach.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Hive Reaver",
+          "count": 12,
+          "zone": "the_black_strand"
+        },
+        {
+          "type": "kill",
+          "target": "Hive Swarmer",
+          "count": 12,
+          "zone": "the_black_strand"
+        }
+      ],
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "accept_text": "Sigrun says the hive's in her wood. Rurik says it's under my wall. They're both right, and I haven't the guards to hold both.\n\nSo I'm not going to hold either. I want the hive hurt badly enough at home that it pulls its raiders back.\n\nGo into the Chitin Reach, south-east of the gate, and kill Reavers and Swarmers until they stop coming out to meet you. Then come and tell me how deep the place goes.",
+      "turn_in_text": "It goes down, at the back? Into a smaller chamber?\n\nThen that's where she is. Every hive has a queen. I've been hoping this one's had died.\n\nGo and see the Thane. This is past what a gate-captain decides.",
+      "next_quest_id": "bst_the_royal_cell",
+      "unique_item_defs": [
+        {
+          "name": "Chitin-Reach Vestments",
+          "slot": "chest",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "Hive carapace, trimmed and riveted. Lighter than plate and nearly as hard.",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 13,
+            "hit_rating": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 67,
+          "label": "Cloth Chest (Int/SP/Hit)"
+        },
+        {
+          "name": "Resin-Set Legplates",
+          "slot": "legs",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "The amber in it was soft when it was fitted and isn't now.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 1,
+            "block_rating": 2,
+            "dodge_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 325,
+          "label": "Plate Legs (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Resin-Set Roundshield",
+          "slot": "off_hand",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "It still hums faintly near the Reach.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 11
+          },
+          "armor_value": 84,
+          "block_value": 105,
+          "label": "Shield (Sta/Def/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "bst_the_royal_cell",
+      "title": "The Royal Cell",
+      "giver_npc_id": "oh_thane",
+      "zone": "the_black_strand",
+      "level_min": 53,
+      "level_max": 53,
+      "description": "Kill Hive Queen Zil'kesh in the Royal Cell, beyond the Chitin Reach.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Hive Queen Zil'kesh",
+          "count": 1,
+          "zone": "the_black_strand"
+        }
+      ],
+      "reward_exp": 5044,
+      "reward_gold": 19890,
+      "accept_text": "Yrsa's told me. There's a queen.\n\nWe've lived beside that hive since we opened the gate. We burned its tunnels and it took our carters, and both sides could bear that. A hive that's farming and digging at my wall is a different matter. It means to grow.\n\nIt stops growing if the queen dies. The Royal Cell is at the far south-east corner of the cavern, through the back of the Chitin Reach. Her name, if the old tablets are right, is Zil'kesh.\n\nI can't spare guards for this. I'm asking you.",
+      "turn_in_text": "She's dead. You're certain?\n\nThen the hive will fall apart. It may take a year, but it will.\n\nYou've done more for this town than most people born in it. I don't say that easily. The vault's open to you. Take what Aldis has set aside, and know that the gate's open to you for as long as I'm Thane.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Reaver's Belt",
+          "slot": "waist",
+          "item_level": 55,
+          "rarity": "rare",
+          "required_level": 53,
+          "flavor_text": "Hive carapace, trimmed and riveted. Lighter than plate and nearly as hard.",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "defense_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 299,
+          "label": "Plate Belt (Str/Sta/Def)"
+        },
+        {
+          "name": "Royal-Cell Legguards",
+          "slot": "legs",
+          "item_level": 55,
+          "rarity": "rare",
+          "required_level": 53,
+          "flavor_text": "The amber in it was soft when it was fitted and isn't now.",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "spell_power": 16
+          },
+          "armor_type": "mail",
+          "armor_value": 288,
+          "label": "Mail Legs (Int/Hit/SP)"
+        },
+        {
+          "name": "Resin-Set Walking Stick",
+          "slot": "main_hand",
+          "item_level": 55,
+          "rarity": "rare",
+          "required_level": 53,
+          "flavor_text": "It still hums faintly near the Reach.",
+          "weapon_type": "staff",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 37,
+            "mp5": 8
+          },
+          "weapon_damage_min": 53,
+          "weapon_damage_max": 71,
+          "attack_speed": 3.2,
+          "label": "Staff (HP/MP5)"
+        },
+        {
+          "name": "Hivebreaker's Jerkin",
+          "slot": "chest",
+          "item_level": 55,
+          "rarity": "rare",
+          "required_level": 53,
+          "flavor_text": "It still hums faintly near the Reach.",
+          "primary_stats": {
+            "strength": 15,
+            "agility": 14,
+            "stamina": 14
+          },
+          "armor_type": "leather",
+          "armor_value": 180,
+          "label": "Leather Chest (Str/Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "bst_the_roof_report",
+      "title": "The Roof Report",
+      "giver_npc_id": "oh_geomancer",
+      "zone": "the_black_strand",
+      "level_min": 53,
+      "level_max": 53,
+      "description": "Carry Vigdis's soundings up to Chief Surveyor Peska Vane at Fourth Peg, in the Abyssal Sands.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "bst_soundings",
+          "count": 1,
+          "label": "Vigdis's soundings, to Chief Surveyor Peska Vane at Fourth Peg"
+        }
+      ],
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "accept_text": "I've told the Thane the lake's falling and the roof's drying. He asked me how long we have. I couldn't tell him.\n\nI can hear the roof from underneath. I can't see the top of it. Somebody up there must be able to.\n\nYou came down through the desert. Is there anyone up there who measures the ground? If there is, take them these. They're my soundings, three years of them, from the day the ground shook to now.\n\nThe only way up is the way you came: the stair at the Bottom Step, through the dry caves, and up one of the pits. Fourth Peg is the camp in the north-east of the Abyssal Sands.",
+      "turn_in_text": "Soundings? From underneath?\n\nShe's been listening to the same roof I've been walking on. For three years.\n\nI've got how fast the pillars are being eaten. She's got how thick the rock is. I've never had the thickness. With both, I can work out how long it'll stand.\n\nGive me an hour with these. Then I'll have something for you to take back down.",
+      "next_quest_id": "bst_what_peska_sent_back",
+      "unique_item_defs": [
+        {
+          "name": "Tide-Mark Armguards",
+          "slot": "wrist",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "Carried down a very long stair by somebody who meant to stay.",
+          "primary_stats": {
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "defense_rating": 1,
+            "dodge_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 225,
+          "label": "Plate Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Ashdune Cape",
+          "slot": "back",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "There's black sand in every seam and there always will be.",
+          "primary_stats": {
+            "agility": 7,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 12
+          },
+          "armor_type": "leather",
+          "armor_value": 83,
+          "label": "Leather Cloak (Agi/Sta/AP)"
+        },
+        {
+          "name": "Tide-Mark Loop",
+          "slot": "ring",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "It was pale once. Nothing stays pale down here.",
+          "primary_stats": {
+            "stamina": 7,
+            "spirit": 7
+          },
+          "secondary_stats": {
+            "healing_power": 5
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon",
+      "turn_in_npc_id": "ab_surveyor",
+      "requires_quests": [
+        "bst_the_last_water"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "bst_soundings",
+            "name": "Vigdis's Soundings",
+            "description": "A thick roll of rubbings and figures. Three years of a geomancer listening to the roof of Onyxhollow.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "bst_what_peska_sent_back",
+      "title": "What Peska Sent Back",
+      "giver_npc_id": "ab_surveyor",
+      "zone": "the_abyssal_sands",
+      "level_min": 53,
+      "level_max": 53,
+      "description": "Carry Peska's survey down to Thane Morgrim in Onyxhollow.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "bst_pillar_survey",
+          "count": 1,
+          "label": "Peska's survey, to Thane Morgrim in Onyxhollow"
+        }
+      ],
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "accept_text": "Right. I've put her numbers and mine together.\n\nIt isn't good, but it's better than not knowing. The roof over that town will stand for about forty years if nothing changes. If somebody kills what's eating the pillars and keeps killing it, it'll stand a good deal longer.\n\nTake this to whoever runs the place. Tell them I'll send my crew down to shore the worst pillars if they'll send miners up to help. They know rock better than we do.\n\nBack the way you came: down a pit, through the Dry Deep to its east end, and down the stair. Onyxhollow's gate is at the end of the slag road.",
+      "turn_in_text": "Forty years.\n\nI was expecting to hear five.\n\nAnd she'll shore the pillars if I send miners up. A goblin surveyor. My grandfather would have shut the gate on her.\n\nI'm not my grandfather. Tell Vigdis she has her answer, and tell Kelda to pick me twenty miners who don't mind daylight. We're going to go and look after our roof.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Forge-Row Helm",
+          "slot": "head",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "Made on Forge Row by someone who signed it underneath.",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "spell_power": 10
+          },
+          "armor_type": "mail",
+          "armor_value": 183,
+          "label": "Mail Helm (Int/Hit/SP)"
+        },
+        {
+          "name": "Onyxhollow Belt",
+          "slot": "waist",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "Issued at the gate, and they'll want to know where it went.",
+          "primary_stats": {
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "block_rating": 1,
+            "block_value": 11
+          },
+          "armor_type": "plate",
+          "armor_value": 225,
+          "label": "Plate Belt (Sta/Block/BV)"
+        },
+        {
+          "name": "Onyxhollow Walking Stick",
+          "slot": "main_hand",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "Dark Iron work. Heavier than it looks and built to be repaired.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 15,
+            "spirit": 15
+          },
+          "secondary_stats": {
+            "healing_power": 16
+          },
+          "weapon_damage_min": 39,
+          "weapon_damage_max": 54,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon",
+      "turn_in_npc_id": "oh_thane",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "bst_pillar_survey",
+            "name": "Peska's Pillar Survey",
+            "description": "Four pages of figures in a very small hand, and a sketch of the Dry Deep with eleven pillars circled.",
+            "count": 1
+          }
+        ]
+      }
+    }
+  ]
+}

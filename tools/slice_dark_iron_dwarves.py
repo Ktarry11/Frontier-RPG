@@ -43,6 +43,9 @@ NPCS = {
     "oh_stoker": "did_stoker",
     "oh_loremaster": "did_scholar",
     "oh_geomancer": "did_geomancer",
+    # two of the three people outside the gate, in The Black Strand
+    "bs_lookout": "did_cleaver",
+    "bs_castout": "did_ragged",
 }
 
 #: creature sprite id -> figure
@@ -62,7 +65,7 @@ def main():
         shutil.copyfile(STAGE / f"{fig}.png", d / "down.png")
     for sprite, fig in CREATURES.items():
         shutil.copyfile(STAGE / f"{fig}.png", ROOT / "assets/creatures" / f"{sprite}.png")
-    print(f"{len(NPCS)} Onyxhollow people and {len(CREATURES)} creature sprites filed")
+    print(f"{len(NPCS)} Dark Iron people and {len(CREATURES)} creature sprites filed")
     return 0
 
 
