@@ -1,0 +1,586 @@
+{
+  "_note": "Built by tools/build_crossroads_quests.py - do not hand-edit.",
+  "quests": [
+    {
+      "quest_id": "cr_orders_east",
+      "title": "Orders for the Plainswatcher",
+      "giver_npc_id": "crossroads_sergra",
+      "zone": "crossroads",
+      "level_min": 13,
+      "level_max": 16,
+      "description": "Sergra Darkthorn. I command here, and you'll forgive me if I get to it.\n\nThe Kolkar hold the plains east of this town. They've had an outpost on the east road for years; now there's a war camp behind it, and a war camp means somebody has decided to stop raiding and start taking.\n\nI have one watcher on that road - Dorn, on the rise where the grass gives out. He's been asking me for soldiers. I don't have soldiers. I have these orders, which tell him to hold where he is and use whoever I send.\n\nThat's you. Take them to him. If he has work, it's my work.",
+      "accept_text": "Out the south gate - it's the only one - then east along the road. Dorn keeps his watch on the rise before the Kolkar Outpost. If you can see their tents, you've passed him.",
+      "turn_in_text": "From Sergra? Give it here.\n\n'Hold where you are and use whoever I send.' That's it? That's the whole - no. No, that's fair. That's exactly what I'd have written.\n\nRight. You're who she sent. Let me show you what I've been looking at.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "cr_sealed_orders",
+          "count": 1,
+          "label": "Sergra's orders, to Plainswatcher Dorn"
+        }
+      ],
+      "reward_exp": 360,
+      "reward_gold": 1400,
+      "next_quest_id": null,
+      "turn_in_npc_id": "barrens_scout_2",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "cr_sealed_orders",
+            "name": "Sergra's Sealed Orders",
+            "description": "Folded twice and sealed with a thumb. For the Plainswatcher.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "cr_arrows_south",
+      "title": "Arrows for the South Road",
+      "giver_npc_id": "crossroads_quartermaster",
+      "zone": "crossroads",
+      "level_min": 15,
+      "level_max": 18,
+      "description": "Ruka, quartermaster. You're not in my ledger, which means you're free, which means you can carry.\n\nThe road south to Camp Taurajo runs between two quilboar holds - Bramblescar on one side, Agama'gor on the other. There is one ranger on it, a tauren called Kishi, and she has been holding that road with a bow and a bad temper since the season turned.\n\nShe sent word she's down to her last quiver. I can't send a patrol. I can send arrows.\n\nDon't tell her they're from me. She'll want to argue about the fletching.",
+      "accept_text": "South gate, then straight down the Taurajo road - a long walk, most of the way to the camp. Kishi stands on the road itself, where the thorn closes in on both sides.",
+      "turn_in_text": "Arrows. From the Crossroads. Let me guess - Ruka, and she told you not to say.\n\nThe fletching's crooked. It always is. I'll use every one.\n\nSince you've walked this far: the thorn on both sides of this road is full of quilboar, and I've got a list.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "cr_arrow_bundle",
+          "count": 1,
+          "label": "the arrow bundle, to Ranger Kishi Plainstalker"
+        }
+      ],
+      "reward_exp": 420,
+      "reward_gold": 1650,
+      "next_quest_id": null,
+      "turn_in_npc_id": "cb_quilboar_ranger",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "cr_arrow_bundle",
+            "name": "Bundle of Crossroads Arrows",
+            "description": "Forty shafts, fletched in a hurry. For the south road.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "cr_stew_for_sanu",
+      "title": "Stew for the Waterkeeper",
+      "giver_npc_id": "crossroads_innkeeper",
+      "zone": "crossroads",
+      "level_min": 14,
+      "level_max": 17,
+      "description": "Boorka. Sit - no, don't sit, I need you standing.\n\nThere's a tauren at Lushwater Oasis, Sanu, who keeps the springs. She used to come up to town once a month for a proper meal and the gossip. She hasn't come in two. The caravan drivers say she won't leave the water now - that something's wrong with it and she's sitting up nights watching it.\n\nNobody who sits up nights is eating. I've made her a crock.\n\nTake it down to her. And look at that water while you're there, because if the oases are going bad, this town is the next thing that does.",
+      "accept_text": "South gate, then south-west across the plain to Lushwater Oasis - the big green one, you can't miss the trees. Sanu sits on the east bank.",
+      "turn_in_text": "Boorka sent this? Earth Mother keep her. I had not noticed I was hungry until I smelled it.\n\nSit a moment. You have walked a long way to bring an old cow her supper, and I have something to show you that I would rather not look at alone.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "cr_stew_crock",
+          "count": 1,
+          "label": "the crock of stew, to Waterkeeper Sanu Goldenhoof"
+        }
+      ],
+      "reward_exp": 390,
+      "reward_gold": 1500,
+      "next_quest_id": null,
+      "turn_in_npc_id": "cb_waterkeeper",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "cr_stew_crock",
+            "name": "Crock of Crossroads Stew",
+            "description": "Sealed with wax and still warm. It weighs more than it should.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "cr_board_dreadmist",
+      "title": "The Bounty Nobody Takes",
+      "giver_npc_id": "crossroads_bounty_reader",
+      "zone": "crossroads",
+      "level_min": 15,
+      "level_max": 18,
+      "description": "Grukan. I keep the board. You're looking at the bottom of it, which is where the old ones go.\n\nThat one's been up since before the last rains. The Burning Blade has a den on Dreadmist Peak, north-west of here, and somebody posted coin for it. Others have taken the notice down before you. None of them put it back, and none of them collected.\n\nThere's a scout up there now - Zarla Blackthorn. She went to find out what happened to them. She's still reporting, so she's still alive, which makes her the only one who knows the ground.\n\nTake her the notice. If the bounty's ever going to be paid, it'll be on her say.",
+      "accept_text": "South gate, then north-west - a long way, past the Forgotten Pools, to where the ground climbs toward Dreadmist Peak. Zarla's camp is in the rocks below the canyon mouth. Keep your voice down when you get there.",
+      "turn_in_text": "Quiet. Quieter than that.\n\nLet me see - oh, that old thing. Grukan still has it up? There are names on the back. I found most of them.\n\nYou want to collect on this, you do it my way, and my way starts with not being heard.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "cr_bounty_notice",
+          "count": 1,
+          "label": "the bounty notice, to Scout Zarla Blackthorn"
+        }
+      ],
+      "reward_exp": 420,
+      "reward_gold": 1650,
+      "next_quest_id": null,
+      "turn_in_npc_id": "cb_dreadmist_scout",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "cr_bounty_notice",
+            "name": "Torn Bounty Notice",
+            "description": "'The Dreadmist cult. Reward on proof.' The corner is brown with age.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "cr_wheels_for_dogan",
+      "title": "Wheels for Dogan",
+      "giver_npc_id": "crossroads_caravan_guard",
+      "zone": "crossroads",
+      "level_min": 16,
+      "level_max": 19,
+      "description": "Dresk. Caravan guard. I'm meant to be on the Ratchet run today and I'm not, because the Ratchet run isn't running.\n\nDogan Ironcart's wagons are stopped at Raider's Rest Oasis, on the road south-east. Three of them, axles gone. Not broken - gone. Somebody pulled the pins in the night, which is a thing bandits do when they'd like you to stay put while they fetch their friends.\n\nI've got spare pins. I've also got orders not to leave the gate. You haven't.",
+      "accept_text": "South gate, then south-east along the Ratchet road until you see water and wagons. That's Raider's Rest. Dogan is the goblin shouting at the wagons.",
+      "turn_in_text": "Pins! Finally! Do you know what it costs me per day to sit here? I do, I've been counting, it's the only thing keeping me warm.\n\nDresk sent you? Then you can fight. Good. Because the people who took these are still here, and I would like to discuss it with them.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "cr_axle_pins",
+          "count": 1,
+          "label": "the axle pins, to Caravan-Master Dogan Ironcart"
+        }
+      ],
+      "reward_exp": 450,
+      "reward_gold": 1800,
+      "next_quest_id": null,
+      "turn_in_npc_id": "cb_caravan_master",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "cr_axle_pins",
+            "name": "Sack of Axle Pins",
+            "description": "Iron pins, greased and wrapped. Heavy for their size.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "cr_dispatch_orgrimmar",
+      "title": "By Nightfall",
+      "giver_npc_id": "crossroads_runner",
+      "zone": "crossroads",
+      "level_min": 13,
+      "level_max": 16,
+      "description": "Kol. Runner. I've got a problem and it's got two legs, both mine.\n\nThis goes to Orgrimmar - Sergra's count of what the Crossroads is holding and what it can't. It's meant to be there by nightfall. I've already run it from the south road this morning, and my left knee has made its position clear.\n\nYou're going that way sooner or later; everyone does. Take it. Scout Windrider at the city takes the Barrens reports - he'll want to hear how the road looked, too, so keep your eyes open on the way.",
+      "accept_text": "North-east from the south gate to the Southfury bridge, across into Durotar, then north up the highway to Orgrimmar. Scout Windrider takes the reports in the city. Don't open the case.",
+      "turn_in_text": "From the Crossroads? You're not Kol.\n\nNo - don't explain, I can guess, it's the knee. Let me see the seal. Good.\n\nSergra says she's holding. She always says she's holding. Tell me what the road actually looked like, and then I've got work for someone who's just walked it.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "cr_dispatch_case",
+          "count": 1,
+          "label": "the dispatch case, to Scout Windrider in Orgrimmar"
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 2100,
+      "next_quest_id": null,
+      "turn_in_npc_id": "org_scout",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "cr_dispatch_case",
+            "name": "Sealed Dispatch Case",
+            "description": "Crossroads to Orgrimmar. The seal is Sergra's.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "cr_hale_letter",
+      "title": "By Hand, Please",
+      "giver_npc_id": "crossroads_human_traveler",
+      "zone": "crossroads",
+      "level_min": 14,
+      "level_max": 17,
+      "description": "Corwin Hale. I drive for the caravans. You'll have noticed I'm not an orc.\n\nThere's a woman in Ratchet called Delia Thorne. Stormwind, like me, and left it, like me. We came over on the same boat and agreed we'd never speak of home again, and we've kept to that for years by not speaking at all.\n\nI've written to her. I've written to her eleven times, as it happens, and this is the first one I haven't burned.\n\nThe Ratchet run's stopped. I'd take it myself, but I think if I had the whole road to think about it I'd turn round. Would you? By hand. She won't take it from a goblin.",
+      "accept_text": "South gate, then the Ratchet road south-east, all the way to the coast. Delia keeps to the south end of town, away from the docks.",
+      "turn_in_text": "From Corwin? Corwin Hale?\n\n...He wrote 'by hand'. Of course he did. Twelve years and he still thinks I'd lose a letter.\n\nGive me a moment. No - stay. If you're going back that way, I may need you to carry something that isn't a letter, and isn't short.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "cr_hale_letter",
+          "count": 1,
+          "label": "Corwin's letter, to Delia Thorne in Ratchet"
+        }
+      ],
+      "reward_exp": 520,
+      "reward_gold": 2100,
+      "next_quest_id": null,
+      "turn_in_npc_id": "ratchet_human_expat",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "cr_hale_letter",
+            "name": "Corwin Hale's Letter",
+            "description": "Addressed in a careful hand: 'Delia Thorne, Ratchet. By hand, please.'",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "cr_what_it_costs",
+      "title": "What It Costs",
+      "giver_npc_id": "crossroads_retired_warrior",
+      "zone": "crossroads",
+      "level_min": 17,
+      "level_max": 20,
+      "description": "Thokk. Sit down, you make the gate look untidy.\n\nYou're going north eventually. They all do - up the Gold Road, through the Rampart, into Ashenvale to cut trees the night elves would rather keep. I did it for six years.\n\nThere's a captain on the Rampart now, Korvash. Gatebreaker, they call him, which tells you he's young. He sends recruits past that wall every week and I don't believe anyone has told him what's on the other side of it.\n\nAsk me about it first. Then take him my tag. He'll know the notches.",
+      "accept_text": "Ask me what you want to know. Then it's north: out the gate, up the Gold Road the whole length of the Northern Barrens, to the Mor'shan Rampart at the very top. Korvash stands in front of the wall.",
+      "turn_in_text": "Where did you get - this is a Warsong tally tag. Nine notches. An eye punched through it.\n\nOne-Eye Thokk. He's alive? They told us the whole first line went down at the river.\n\nNine seasons. Nobody does nine seasons. Tell me what he said to you. All of it - and then I'm going to change some orders.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "cr_thokk_eye",
+            "cr_thokk_line"
+          ]
+        },
+        {
+          "type": "deliver",
+          "target": "cr_warsong_tag",
+          "count": 1,
+          "label": "Thokk's Warsong tag, to Captain Korvash at the Mor'shan Rampart"
+        }
+      ],
+      "reward_exp": 650,
+      "reward_gold": 2500,
+      "next_quest_id": null,
+      "turn_in_npc_id": "nb_rampart_captain",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "cr_warsong_tag",
+            "name": "Thokk's Warsong Tag",
+            "description": "A lumber-camp tally tag, punched with an eye and nine notches.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "cr_envoys_report",
+      "title": "The Envoy's Report",
+      "giver_npc_id": "crossroads_beltelf_envoy",
+      "zone": "crossroads",
+      "level_min": 14,
+      "level_max": 17,
+      "description": "Envoy Thaelis, of Silvermoon. You will do.\n\nI am to report on the Horde's holdings in the Barrens. I have so far reported on this town, which took a paragraph. Silvermoon will want more than a paragraph, and I am told the rest of it is outdoors.\n\nThree places. The Sentinel Rocks, north of here, which the herders say something has nested in. The Kodo Graveyard beyond them, where the great beasts go to die - I am assured this is a real place and not an orcish joke. And the Forgotten Pools to the north-west, where pilgrims went to pray and did not come back.\n\nWalk to each. Look at it. Tell me what the Horde is actually holding.",
+      "accept_text": "South gate, then north. The Sentinel Rocks are the red stones just north of town; the Kodo Graveyard is the bowl east of them; the Forgotten Pools lie north-west, a longer walk. I shall wait here, in the shade.",
+      "turn_in_text": "Scorpids in the rocks. A valley of bones with something walking in it. And a pool full of the drowned.\n\nI see. So the Horde holds a town, three roads, and a great deal of ground it has not yet asked for permission to stand on.\n\nThat is, in fact, more honest than I expected, and I shall report it as such. Silvermoon thanks you. Take something from the envoy's chest.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "central_barrens",
+          "target_x": 146,
+          "target_y": 98,
+          "radius": 12,
+          "label": "the Sentinel Rocks, north of the Crossroads"
+        },
+        {
+          "type": "explore",
+          "target": "central_barrens",
+          "target_x": 205,
+          "target_y": 120,
+          "radius": 12,
+          "label": "the Kodo Graveyard, east of the Sentinel Rocks"
+        },
+        {
+          "type": "explore",
+          "target": "central_barrens",
+          "target_x": 81,
+          "target_y": 86,
+          "radius": 12,
+          "label": "the Forgotten Pools, north-west of the Crossroads"
+        }
+      ],
+      "reward_exp": 850,
+      "reward_gold": 3300,
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Envoy's Dust Veil",
+          "slot": "head",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "mp5": 0.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 16,
+          "label": "Cloth Helm (Int/Sta/MP5)"
+        },
+        {
+          "name": "Silvermoon Surveyor's Bracers",
+          "slot": "wrist",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "",
+          "primary_stats": {
+            "agility": 2,
+            "stamina": 2
+          },
+          "secondary_stats": {
+            "attack_power": 4.0
+          },
+          "armor_type": "leather",
+          "armor_value": 27,
+          "label": "Leather Bracers (Agi/Sta/AP)"
+        },
+        {
+          "name": "Thaelis's Measuring Rod",
+          "slot": "main_hand",
+          "item_level": 16,
+          "rarity": "uncommon",
+          "required_level": 14,
+          "flavor_text": "",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "spell_power": 5.9,
+            "crit_chance_spell": 0.3
+          },
+          "weapon_damage_min": 14,
+          "weapon_damage_max": 19,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/SP/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "cr_one_careful_owner",
+      "title": "One Careful Owner",
+      "giver_npc_id": "crossroads_goblin_peddler",
+      "zone": "crossroads",
+      "level_min": 13,
+      "level_max": 15,
+      "description": "Snix Cogsworth! Purveyor! You look like someone with legs.\n\nHere's the thing. I sell luck. Charms, mostly - a plainstrider feather on a bit of cord, blessed by a shaman, or by somebody standing near a shaman. Used to be I couldn't keep them on the table. A caravan driver would buy three.\n\nThen your lot showed up. People who get killed on Tuesday and are back complaining about it on Wednesday. Nobody buys luck from me any more, friend. Why would they? You've made dying look like a bad night's sleep.\n\nSo I'm doing hats. Feathers in hats. Bring me the feathers and I'll cut you in.",
+      "accept_text": "The big plainstriders, out the south gate on the Central Barrens plain - any direction, they're everywhere. Unbroken feathers. The broken ones look like bad luck, and I've got enough of that.",
+      "turn_in_text": "Unbroken! Every one! Look at the barbs on that.\n\nYou know, I hold your whole kind responsible for my margins, and I want that understood. But you personally I've got no quarrel with. Here. First hat's on the house. The second one I'm charging you double.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "cr_plainstrider_feather",
+          "count": 6,
+          "label": "Unbroken Plainstrider Feather"
+        }
+      ],
+      "reward_exp": 800,
+      "reward_gold": 3100,
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Cogsworth's Lucky Hat",
+          "slot": "head",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 13,
+          "flavor_text": "",
+          "primary_stats": {
+            "agility": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "attack_power": 4.6
+          },
+          "armor_type": "leather",
+          "armor_value": 31,
+          "label": "Leather Helm (Agi/Sta/AP)"
+        },
+        {
+          "name": "Caravan Driver's Charm",
+          "slot": "neck",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 13,
+          "flavor_text": "",
+          "primary_stats": {
+            "strength": 3,
+            "stamina": 3
+          },
+          "label": "Necklace (Str/Sta)"
+        },
+        {
+          "name": "Peddler's Road Boots",
+          "slot": "feet",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "required_level": 13,
+          "flavor_text": "",
+          "primary_stats": {
+            "strength": 2,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 0.1
+          },
+          "armor_type": "mail",
+          "armor_value": 41,
+          "label": "Mail Boots (Str/Sta/Crit)"
+        }
+      ]
+    },
+    {
+      "quest_id": "cr_crossroads_holds",
+      "title": "The Crossroads Holds",
+      "giver_npc_id": "crossroads_sergra",
+      "zone": "crossroads",
+      "level_min": 18,
+      "level_max": 22,
+      "description": "You. Come here. I've been counting.\n\nWhen you first walked through my gate I had the Kolkar building a war camp east of me, quilboar closing the Taurajo road to the south, and the oases going bad to the south-west. Three fires, and one town in the middle with no soldiers to send to any of them.\n\nDorn's last report says the warbringer is dead. Kishi's says the wardchief of Bramblescar is dead. And Sanu sent a runner - Sanu, who never sends anyone - to say the queen under Lushwater is dead and the springs are running clean.\n\nI did not do that. I sat behind this wall and wrote orders. Sit down and tell me how it was done, because I have to put it in a report and I intend to get it right.",
+      "accept_text": "Tell me about each of them. The east first.",
+      "turn_in_text": "East, south and water. All three, and I never left the wall.\n\nI'm going to write it exactly as you told it, and I'm going to write that the Crossroads holds - which I have written every month for three years, and this is the first time I've believed it.\n\nTake your pick of the armoury. Then I've one more thing to ask, and it isn't an order.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "cr_hold_east",
+            "cr_hold_south",
+            "cr_hold_water"
+          ]
+        }
+      ],
+      "reward_exp": 1700,
+      "reward_gold": 6000,
+      "next_quest_id": "cr_word_for_the_tribes",
+      "requires_quests": [
+        "cr_orders_east",
+        "cb_warbringer_gorrak",
+        "cb_wardchief_thulg",
+        "cb_queen_skitterwing"
+      ],
+      "unique_item_defs": [
+        {
+          "name": "Crossroads Warden's Breastplate",
+          "slot": "chest",
+          "item_level": 22,
+          "rarity": "rare",
+          "required_level": 18,
+          "flavor_text": "",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 173,
+          "label": "Plate Chest (Str/Sta/Def)"
+        },
+        {
+          "name": "Darkthorn's Dispatch Mantle",
+          "slot": "shoulder",
+          "item_level": 22,
+          "rarity": "rare",
+          "required_level": 18,
+          "flavor_text": "",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "spell_power": 5.9,
+            "mp5": 1.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 30,
+          "label": "Cloth Shoulders (Int/SP/MP5)"
+        },
+        {
+          "name": "Three Fires Longbow",
+          "slot": "ranged",
+          "item_level": 22,
+          "rarity": "rare",
+          "required_level": 18,
+          "flavor_text": "",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "attack_power": 6.4
+          },
+          "weapon_damage_min": 37,
+          "weapon_damage_max": 50,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Int/AP)"
+        },
+        {
+          "name": "Gatekeeper's Linked Coif",
+          "slot": "head",
+          "item_level": 22,
+          "rarity": "rare",
+          "required_level": 18,
+          "flavor_text": "",
+          "primary_stats": {
+            "stamina": 5,
+            "spirit": 5
+          },
+          "secondary_stats": {
+            "healing_power": 3.5
+          },
+          "armor_type": "mail",
+          "armor_value": 97,
+          "label": "Mail Helm (Sta/Spi/HP)"
+        }
+      ]
+    },
+    {
+      "quest_id": "cr_word_for_the_tribes",
+      "title": "Word for the Tribes",
+      "giver_npc_id": "crossroads_sergra",
+      "zone": "crossroads",
+      "level_min": 18,
+      "level_max": 22,
+      "description": "Orgrimmar gets a copy of this. Orgrimmar gets a copy of everything.\n\nThe other copy is for Camp Taurajo. The tauren lost their city and they lost Cairne, and since then every piece of news that's gone down that road has been bad - another herd gone, another well soured, another camp that stopped answering. Elder Longtread carries all of it. I've met him. He doesn't complain, which is how you know.\n\nI want him to hear this from someone who was there. Not a runner. You.\n\nAnd when you've told him, ask him what the south looks like. The road's open now. I expect that means I'm about to find out what was on the other end of it.",
+      "accept_text": "South gate, then straight down the Taurajo road, past Kishi, all the way to the camp. Longtread sits on the north-west side, by the carvers.",
+      "turn_in_text": "From Sergra Darkthorn. Read it to me - my eyes are not what they were.\n\n...'The Crossroads holds.'\n\nI have not had a letter that began well since the bluffs fell. I am going to have it read out at the fire tonight, and I am going to have it read twice.\n\nYou were there. Then sit, and eat, and afterwards I will tell you what lies south of this camp - because the road you opened does not end here.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "cr_sergra_report",
+          "count": 1,
+          "label": "Sergra's report, to Elder Longtread at Camp Taurajo"
+        }
+      ],
+      "reward_exp": 700,
+      "reward_gold": 2600,
+      "next_quest_id": null,
+      "turn_in_npc_id": "taurajo_elder",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "cr_sergra_report",
+            "name": "Sergra Darkthorn's Report",
+            "description": "'The Crossroads holds.' Underlined once, hard enough to tear the page.",
+            "count": 1
+          }
+        ]
+      }
+    }
+  ]
+}

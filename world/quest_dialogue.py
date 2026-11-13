@@ -248,6 +248,7 @@ _ZONE_TOPIC_MODULES = (
     "abyssal",
     "glittervein",
     "lashings",
+    "crossroads",
 )
 
 for _mod_name in _ZONE_TOPIC_MODULES:
