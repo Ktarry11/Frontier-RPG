@@ -142,6 +142,14 @@ def main():
             ab.turns_remaining = 0
             hostile = ab.target_type in ("enemy", "enemy_aoe", "all_enemies")
             foe = Monster("Target", "beast_basic", level=max(1, ch.level))
+            if ab.target_type == "pet":
+                # A pet-targeted buff lands on the pet (it used to fall through to the caster,
+                # which is what this check was unknowingly measuring). Give them one.
+                from combat.pet_templates import PET_TEMPLATES
+                if not [p for p in (ch.all_pets or []) if p is not None and p.is_alive()]:
+                    for template_id in PET_TEMPLATES:
+                        if ch.summon_pet(template_id)[0]:
+                            break
             ok, msg = ab.use(ch, foe if hostile else ch, party=[ch], in_combat=True)
             if not ok:
                 findings.append(f"{kit.get('name')} / {a.get('name')}: "
@@ -149,6 +157,8 @@ def main():
                 continue
 
             holder = foe if hostile else ch
+            if ab.target_type == "pet":
+                holder = next(p for p in ch.all_pets if p is not None and p.is_alive())
             for key, want in authored.items():
                 if key == "taunt":
                     events = getattr(ab, "_last_threat_events", None) or []
