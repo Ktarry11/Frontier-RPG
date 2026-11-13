@@ -46,16 +46,16 @@ def quests():
         "dd_down_the_wide_sink", "Down the Wide Sink", B.VIZZI, B.AB, 45, 45, "cameup",
         "Climb down the Wide Sink into the Dry Deep and walk to the Drained Sea.",
         [explore(37, 40, "under the Wide Sink"), explore(60, 48, "the Drained Sea", 9)],
-        "I have put a line down every hole on this map. Most of them it comes back up wet with "
-        "nothing and you learn nothing.\n\nThe Wide Sink is different. The line goes slack. There "
-        "is a FLOOR down there, and the debris has slumped into a ramp a person can walk.\n\nGo "
-        "down the Wide Sink. It is the big pit south-west of this camp. At the "
-        "bottom you are in the Dry Deep. Keep going until the "
-        "roof lifts and you cannot see the far wall. Peska calls that room the Drained Sea. Then "
-        "come and tell me I am not imagining it.",
-        "So it is one room. Not eleven holes. One enormous room with a roof that has fallen in "
-        "eleven places.\n\nI have been lowering lamps into the same cavern for two years from "
-        "different sides and writing each one down as a separate hole.",
+        "I've had a rope down every hole on this map. Mostly it comes back up and tells me "
+        "nothing.\n\nThe Wide Sink's different. The line goes slack partway, so there's a floor "
+        "down there, and the rubble has slid into a ramp you could walk down.\n\nI'd like "
+        "somebody to walk it. The Wide Sink is the big pit south-west of this camp. At the bottom "
+        "you'll be in what we've been calling the Dry Deep. Keep going until you reach a cavern "
+        "so big your lamp won't find the far wall. Peska named it the Drained Sea off my lamp "
+        "readings. Then come back and tell me what's really down there.",
+        "So it's all one cave. I've been lowering lamps into the same cavern from different "
+        "sides for two years and logging every one as its own hole.\n\nPeska is going to make "
+        "me redraw the whole map. Thanks for going down. This is yours.",
         nxt="dd_up_a_different_hole"))
 
     q.append(B.Q(
@@ -63,46 +63,44 @@ def quests():
         "Walk the Dry Deep from shaft to shaft and find out which sinkholes join underground.",
         [explore(62, 29, "under Nineteen Mile Pit"), explore(50, 67, "under the Long Collapse"),
          explore(89, 70, "under the Underlight")],
-        "Vizzi says it joins up down there. I want to know if she is right, because I lost a "
-        "road down Nineteen Mile and I have always wondered where it went.\n\nGo down into the "
-        "Dry Deep by any hole that has a ramp. Find the daylight under Nineteen Mile Pit, the "
-        "daylight under the Long Collapse and the daylight under the Underlight. If you can "
-        "walk between all of them without coming up, then it is not a field of pits at all. "
-        "It is a roof.",
-        "All of them. You walked from one to the next under the desert.\n\nThen my road did not "
-        "fall into a hole. It fell into a country. That is somehow worse and I am glad to "
-        "know it.",
+        "Vizzi says the holes all join up underneath. I want to know if that's true, because I "
+        "lost a cart and a team down Nineteen Mile and I never found out where they ended "
+        "up.\n\nGo down into the Dry Deep by any pit with a ramp. See if you can walk to the "
+        "bottom of Nineteen Mile Pit, the Long Collapse and the Underlight without coming back "
+        "up. You'll know each one by the daylight coming down the shaft.",
+        "All three, and you never came up once.\n\nThen I know where my team ended up, and I "
+        "can get down there myself to see to them. I've wanted to for a long time. Thank you.",
         nxt="dd_what_eats_the_floor"))
 
     q.append(B.Q(
         "dd_what_eats_the_floor", "What Eats the Floor", B.PESKA, B.AB, 46, 46, "survey",
-        "Kill Hollowing Oozes and Limestone Crawlers in the Dry Deep, where they eat the rock "
-        "that holds the desert up.",
+        "Kill Hollowing Oozes and Limestone Crawlers in the Dry Deep, where they are eating "
+        "the rock that holds the desert up.",
         [B.k("Hollowing Ooze", 8, zone=DD), B.k("Limestone Crawler", 6, zone=DD)],
-        "If there is one cavern under all of this then the question I am paid to answer has "
-        "changed. It is no longer whether the pits are finished. It is whether the ROOF is.\n\n"
-        "The Hollowing Oozes eat limestone and the Limestone Crawlers nest in what the oozes "
-        "leave. Up here they are a nuisance. Down in the Dry Deep they are working on the "
-        "pillars.\n\nGo down and thin them, the Hollowing Oozes and the Limestone Crawlers "
-        "both, and look at what they have been eating while you are there.",
-        "Then they are at the pillars. I thought they would be.\n\nI can slow it. I cannot "
-        "stop it. But a survey that says how long is a better survey than one that says "
-        "nothing, and that is the first honest line I will have written in two years.",
+        "If it's one cavern under all of this, then I've been asking the wrong question. I've "
+        "been trying to work out whether the pits have stopped opening. What I should be asking "
+        "is how long the roof will last.\n\nThe Hollowing Oozes dissolve limestone and the "
+        "Limestone Crawlers nest in the holes the oozes leave. Up here that's a nuisance. Down "
+        "in the Dry Deep they're eating the pillars that hold the roof up.\n\nGo down and "
+        "kill as many of both as you can, and have a look at the pillars while you're there.",
+        "That's about what I expected. They're well into the pillars.\n\nI can't stop it, but "
+        "I can slow it down, and now I can put a number of years in the survey. That's more "
+        "than I've been able to write in two years out here.",
         nxt="dd_the_weight_of_the_floor"))
 
     q.append(B.Q(
         "dd_the_weight_of_the_floor", "The Weight of the Floor", B.VIZZI, B.AB, 47, 47, "cameup",
         "Kill the Weight of the Floor, the thing that stands in the middle of the Drained Sea.",
         [boss("The Weight of the Floor")],
-        "There is something standing in the Drained Sea. My lamps find it and then they go "
-        "out.\n\nIt is made of the same rock as the roof. I think it IS roof, a piece that came "
-        "down whole and did not lie still. Peska's people will not go past it and I do not "
-        "blame them.\n\nKill the Weight of the Floor. Go back down the Wide Sink, south-west of this "
-        "camp, into the Dry Deep. It stands in the middle of the Drained Sea, the biggest room "
-        "down there, and you will not mistake it for anything else.",
-        "It is down. I felt it through the rope from up here.\n\nThe way further in is open, "
-        "then. I do not know what is further in. Nobody has had a reason to find out until "
-        "today."))
+        "There's something standing in the Drained Sea. Every lamp I lower near it gets "
+        "smashed.\n\nFrom what I could see it's made of the same stone as the roof. I think a "
+        "piece of the roof came down in one lump and then got up. Peska's crew won't go near it "
+        "and I can't survey past it.\n\nWe've been calling it the Weight of the Floor. Go back "
+        "down the Wide Sink, south-west of this camp, into the Dry Deep. It's in the middle of "
+        "the Drained Sea, the biggest cavern down there. Kill it if you can.",
+        "I felt that through the rope from up here. It's dead, then.\n\nThere's a passage on "
+        "the east side of the Sea that goes further down. I've never had a lamp past it. If you "
+        "go looking, I'd like to hear what you find."))
     return q
 
 

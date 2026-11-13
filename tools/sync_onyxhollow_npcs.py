@@ -81,6 +81,8 @@ def main():
             elif (rec["x"], rec["y"]) != (x, y):
                 rec["x"], rec["y"] = x, y
                 moved += 1
+            if rec is not None:
+                rec["name"], rec["greeting"] = name, greet     # the roster owns the words
 
         for nid, (name, race, gender, var, greet) in AMB.items():
             x, y = pos[nid]
@@ -93,6 +95,8 @@ def main():
             elif (rec["x"], rec["y"]) != (x, y):
                 rec["x"], rec["y"] = x, y
                 moved += 1
+            if rec is not None:
+                rec["name"], rec["greeting"] = name, greet
 
     # prune ghosts: anything in our zone the roster no longer names is a person who should not be there.
     # Trainers (ct_*, pt_*) belong to build_class_trainers / build_profession_trainers, never to us.

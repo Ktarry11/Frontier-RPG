@@ -17,9 +17,11 @@ SO THE TOWN FACES INWARD. The rock is theirs and the Strand is a nuisance that h
 other side of the door. Nobody here is frightened of it and nobody here is curious about it, with
 two exceptions (the geomancer and the loremaster) who are tolerated.
 
-VOICE: craftsmen. Short sentences, exact about weights and tempers, no interest in the surface.
-They say "topside" the way a sailor says "ashore". They do not explain themselves to visitors and
-they do not turn away anyone who can pay or carry.
+VOICE: people at work, talking to a customer. Contractions, plain sentences, and the useful
+thing first - what they sell, where to go, what to watch for. Kyle, 13 Nov 2026, of the first draft
+of these: "Don't use weird AI tics". That draft had every dwarf speaking in stiff unshortened
+sentences and signing off with a neat little saying. Nobody talks like that. One piece of
+character each is plenty, and it should be something the person would actually mention.
 
 THE CASTOUTS are the one thing nobody will discuss past a sentence. People were put out of the
 gate. They are in the old diggings. That is all a visitor gets, and the quests are where the rest
@@ -36,119 +38,125 @@ ONYXHOLLOW_VENDORS = {
          "drink_barley_beer", "drink_honeyed_mead", "healing_potion_mega", "mana_potion_mega",
          "spiced_stew", "cook_flour", "cook_spice", "cook_mushroom", "cook_ale", "cook_water"],
         False,
-        "The Banked Fire. Beds are stone with wool on them and the ale is brewed down here, from "
-        "what grows down here. You will get used to it or you will not.\n\nRest by the hearth and "
-        "the hearth will know you. Come back to it from anywhere - topside, the sand, wherever "
-        "your business takes you. That is worth more than the bed."),
+        "Welcome to the Banked Fire. The beds are stone with wool on top and the ale's brewed "
+        "down here, so it tastes like down here. Most people come round to it by the second "
+        "mug.\n\nIf you want to bind your hearth, say so and I'll set you a place by the fire. "
+        "It's a long walk back from topside otherwise."),
     "oh_quartermaster": (
         "Quartermaster Dolf Ironledger", "dwarf", "male", 7,
         ["runeforged_strongbox", "healing_potion_mega", "mana_potion_mega", "meal_kodo_ribs",
-         "drink_birch_wine", "whetstone", "flux_strong", "component_string", "glue", "parchment", "coal",
-         "thread_fine", "resin", "spiced_stew", "hunters_brace_platter"],
+         "drink_birch_wine", "whetstone", "flux_strong", "component_string", "glue", "parchment",
+         "coal", "thread_fine", "resin", "spiced_stew", "hunters_brace_platter"],
         True,
-        "Company store. Everything in it came down a rope or out of the rock, and the price tells "
-        "you which.\n\nIf it is on the shelf it is for sale. If it is not on the shelf, I do not "
-        "have it, and asking twice will not put it there."),
+        "Company store. Everything on these shelves came down a rope or out of the rock, and "
+        "the rope goods cost more.\n\nHave a look. If you need something I don't stock, tell me"
+        " and I'll put it on the next order, but the next order is a month out."),
     "oh_smith": (
         "Smith Hulda Emberfall", "dwarf", "female", 5,
         ["whetstone", "flux_strong", "coal", "glue", "thread_fine", "resin",
          "healing_potion_mega", "mana_potion_mega", "bs300_deepearth_axe_1h",
          "bs300_bloodiron_feet", "bs300_bloodiron_legs", "bs_mithril_shield"],
         True,
-        "Dark iron does not forgive a cold strike. You hit it right, at the right heat, or you "
-        "start again with less of it.\n\nWhat is on the rack is mine and it is sound. If you "
-        "want to make your own, the anvil in the yard is free to anyone who can use it and "
-        "Forgemaster Garrun will tell you whether you can."),
+        "Mind the quench trough, it's hot.\n\nEverything on the rack is dark iron and I made "
+        "all of it. If you'd rather make your own, the anvil in the yard is open to anyone, and"
+        " Forgemaster Garrun over at the smeltery teaches. He's hard on beginners but he's "
+        "fair."),
     "oh_armorer": (
         "Armorer Thrain Runehammer", "dwarf", "male", 9,
         ["whetstone", "flux_strong", "coal", "thread_fine", "healing_potion_mega",
          "mana_potion_mega", "bs300_truesilver_wrist", "bs300_kit_deepearth",
          "bs300_bloodiron_legs", "bs_mithril_shield"],
         True,
-        "Plate, mail, and the rune that makes either of them worth wearing. In that order of "
-        "price.\n\nI will not fit topside work. I will sell you something better than what you "
-        "came in with and you can carry the old set out yourself."),
+        "Plate and mail, and I'll set a rune in either if you can pay for it.\n\nI don't repair"
+        " topside armour. I'm not being rude, the steel's too soft to take our rivets. I can "
+        "sell you something that'll last longer down here."),
     "oh_mining_supplier": (
         "Shaft-Warden Kelda Deepvein", "dwarf", "female", 1,
         ["coal", "flux_strong", "whetstone", "component_string", "resin", "glue",
          "healing_potion_mega", "drink_waterskin", "meal_trailbread"],
         False,
-        "Nobody goes down the head without signing the board and nobody comes up without "
-        "signing it again. That is the whole of my rule and I have never needed a second "
-        "one.\n\nDark iron runs in the sand out there as well as in our rock. The seam does not "
-        "care whose side of the gate it is on. If you are digging it, dig it properly."),
+        "Sign the board before you go down the head and sign it again when you're back up. I "
+        "check it every shift, and if a name's missing its second mark I send people "
+        "looking.\n\nThere's dark iron in the sand outside the gate as well, if you'd rather "
+        "dig there. Nobody here will stop you. Just watch for the hive while your head's down."),
     "oh_reagents": (
         "Alchemist Sigrun Vialwright", "dwarf", "female", 11,
         ["healing_potion_mega", "mana_potion_mega", "battle_elixir_superior",
          "guardian_elixir_superior", "elixir_of_greater_endurance", "vial_leaded", "vial_empty"],
         False,
-        "Everything green in these bottles started as something blue out on the sand. The caps "
-        "are good for more than light, if you know which ones and you pick them before they "
-        "open.\n\nI buy them. I am the only one in this town who will admit to wanting anything "
-        "from the other side of the gate."),
+        "Careful with the blue jars, they stain.\n\nMost of what I brew starts as mushrooms "
+        "from the Lantern Wood. The young caps are the good ones, before they open. I pay for "
+        "them, if you're heading out that way. Nobody else in town will go."),
     "oh_powder": (
         "Powderman Brokk Shortfuse", "dwarf", "male", 2,
-        ["bomb_sapper", "coal", "glue", "component_string", "flux_strong",
-         "healing_potion_mega", "vial_empty"],
+        ["bomb_sapper", "coal", "glue", "component_string", "flux_strong", "healing_potion_mega",
+         "vial_empty"],
         False,
-        "Stand where you like. If I thought it was going to go off I would not be standing "
-        "here either.\n\nBlasting charges for the face, and the smaller sort for whatever comes "
-        "up the face after you have opened it. Same powder. Different amount of running."),
+        "You can stand closer than that. If I thought any of this was going off I wouldn't be "
+        "sat on it.\n\nBlasting charges for the mine, mostly. The small ones are for the hive. "
+        "They dig up into our tunnels a few times a year and a charge down the hole is quicker "
+        "than arguing."),
 }
 
 ONYXHOLLOW_AMBIENT = {
     "oh_thane": (
         "Thane Morgrim Onyxhand", "dwarf", "male", 0,
-        "You came down the long way. Nobody comes down the long way by accident.\n\nOnyxhollow "
-        "is a working, not a kingdom, and I am the one who signs for it. We dig, we smelt, we "
-        "forge, and we keep a gate shut on a beach we did not ask for. If you have trade, the "
-        "Row is behind you. If you have trouble, it had better be somebody else's."),
+        "You came down through the Dry Deep. We don't get many who do.\n\nI'm Morgrim. I run "
+        "the working, which means the mine, the forges and the gate. Trade's welcome and the "
+        "shops are on the Row behind you. If you're looking for work as well, talk to Captain "
+        "Yrsa at the gate. She always has more trouble than guards."),
     "oh_forgemaster": (
         "Forgemaster Garrun Slagborn", "dwarf", "male", 4,
-        "Ore in one hand, hammer in the other. I teach both halves or neither. There is no "
-        "sense knowing where to dig if you cannot do anything with what comes out.\n\nShow me "
-        "what you know and I will show you what you do not."),
+        "I teach mining and smithing, and I teach them together. I've no use for a smith who "
+        "can't tell good ore from bad.\n\nShow me what you already know and we'll start from "
+        "there."),
     "oh_gate_captain": (
         "Gate-Captain Yrsa Stonebar", "dwarf", "female", 6,
-        "The gate opens for you because the Thane says it opens for trade. It shuts behind you "
-        "because I say so.\n\nHive to the south-east, lights to the south-west, and the old "
-        "diggings north-east. Do not bring any of the three back with you."),
+        "The Thane says the gate opens for trade, so it opens for you. I'd still like to know "
+        "your business before you go back out.\n\nThere are three things to watch for out "
+        "there. The hive's to the south-east. The mushroom wood is south-west, and it's worse "
+        "than it looks. North-east are the old diggings, and the people in them used to live "
+        "here. Don't expect a welcome."),
     "oh_gate_guard_w": (
         "Gate-Guard Dunmar", "dwarf", "male", 8,
-        "Sand on your boots. Knock it off before the Row. Hulda will not thank you for grit in "
-        "her quench."),
+        "Knock the sand off your boots before you go up the Row, would you? Hulda found grit in"
+        " her quench last week and we all heard about it."),
     "oh_gate_guard_e": (
         "Gate-Guard Oda", "dwarf", "female", 10,
-        "Six years on this door. The things outside have not got any prettier and the people "
-        "coming in have not got any cleverer."),
+        "Six years I've stood on this gate. I've seen the hive come right up to the towers "
+        "twice. Both times they turned round at the braziers, so we keep the braziers lit."),
     "oh_wall_sentry": (
         "Sentry Rurik Boltwright", "dwarf", "male", 3,
-        "I watch the wall from the inside. You would think that was the easy posting.\n\nIt is "
-        "the rock I am listening to. The hive digs, and it does not knock first."),
+        "Quiet a moment.\n\n...No. Thought I heard digging. The hive tunnels under the wall "
+        "sometimes, so I spend most of my watch with an ear to the rock. You get so you can "
+        "tell them from our own miners."),
     "oh_vault_keeper": (
         "Vault-Keeper Aldis Greylock", "dwarf", "female", 1,
-        "Every bar poured in this town is weighed here and written here. I have the book for "
-        "every year since the first shaft.\n\nThere are names in the early pages that are not "
-        "said aloud any more. They are still in the book. I do not strike a line through a "
-        "weight just because the hand that poured it was sent away."),
+        "Every bar poured in Onyxhollow gets weighed and written down here. I have the books "
+        "going back to the first shaft.\n\nSome of the names in the early ones belong to people"
+        " who were put out of the gate. The Thane wanted them struck from the record. I told "
+        "him the weights were still true, and he let it go."),
     "oh_shrine_keeper": (
         "Ashkeeper Torvald", "dwarf", "male", 5,
-        "The fire in the bowl was lit from the first furnace and it has not been out since. "
-        "That is all the shrine is. We do not pray to it. We keep it.\n\nPut your hand near it "
-        "if you are cold. That is what it is for."),
+        "This fire was lit from the first furnace we built, and it hasn't gone out since. "
+        "Keeping it fed is my whole job.\n\nYou're welcome to warm your hands. Half the town "
+        "does on their way to shift."),
     "oh_stoker": (
         "Stoker Hald Cinderlung", "dwarf", "male", 7,
-        "Furnace eats a cart of coal a shift and gives back a bar and a headache.\n\nGarrun "
-        "says the heat is the craft. Garrun does not shovel."),
+        "The furnace takes a cart of coal a shift, and I'm the one who shovels it.\n\nGarrun "
+        "says the heat is where the craft is. He's probably right, but I notice he says it from"
+        " the other side of the yard."),
     "oh_loremaster": (
         "Loremaster Ingrid Pagewright", "dwarf", "female", 9,
-        "A beach, under a desert, with the tide marks still on the wall. I have been told it is "
-        "not our concern because it is not rock.\n\nIt was a sea. Seas have shores, and shores "
-        "have people, and I would like to know who stood on this one before it was dark. Nobody "
-        "else in Onyxhollow would."),
+        "Have you seen the walls out on the Strand? There are tide marks on them, high up. That"
+        " was a sea once, with a shoreline, and somebody must have lived on it.\n\nI'd like to "
+        "find out who. The Thane thinks it's a waste of lamp oil, so I mostly ask travellers. "
+        "If you come across anything out there that looks made rather than grown, I'd be glad "
+        "to hear about it."),
     "oh_geomancer": (
         "Geomancer Vigdis Stonesong", "dwarf", "female", 11,
-        "The rock above us is hollow. You walked through it to get here - the dry caves, the "
-        "holes in the desert. I can hear it settle.\n\nThe Thane asks me every month whether the "
-        "roof will hold. Every month I tell him it will hold this month."),
+        "You walked through the caves above us to get here, the dry ones with the holes up to "
+        "the desert. That's our roof, and it's a lot thinner than people here like to think "
+        "about.\n\nI listen to it for the Thane. It's holding, for now. I'd be happier if "
+        "things stopped eating the pillars."),
 }
