@@ -151,7 +151,7 @@
         "effect_type": "heal",
         "target_type": "ally",
         "resource_type": "mana",
-        "cooldown": 0,
+        "cooldown": 10,
         "duration": 0,
         "stat_mods": {},
         "description": "Heals an ally for more the lower their health is, up to double at critical.",
@@ -166,25 +166,25 @@
             "rank": 2,
             "level_req": 15,
             "cost": 25,
-            "effect_value": 191
+            "effect_value": 254
           },
           {
             "rank": 3,
             "level_req": 30,
             "cost": 32,
-            "effect_value": 342
+            "effect_value": 468
           },
           {
             "rank": 4,
             "level_req": 45,
             "cost": 40,
-            "effect_value": 493
+            "effect_value": 682
           },
           {
             "rank": 5,
             "level_req": 60,
             "cost": 47,
-            "effect_value": 644
+            "effect_value": 896
           }
         ],
         "missing_health_bonus_pct": 100
@@ -482,7 +482,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "energy",
-        "cooldown": 0,
+        "cooldown": 10,
         "duration": 4,
         "is_instant": true,
         "stat_mods": {},
@@ -1340,7 +1340,7 @@
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "rage",
-        "cooldown": 0,
+        "cooldown": 10,
         "duration": 0,
         "stat_mods": {},
         "description": "Deals 25% more damage for each consecutive turn Ivan has attacked this target, up to 100%.",
@@ -1355,25 +1355,25 @@
             "rank": 2,
             "level_req": 15,
             "cost": 15,
-            "effect_value": 118
+            "effect_value": 153
           },
           {
             "rank": 3,
             "level_req": 30,
             "cost": 15,
-            "effect_value": 167
+            "effect_value": 236
           },
           {
             "rank": 4,
             "level_req": 45,
             "cost": 15,
-            "effect_value": 216
+            "effect_value": 319
           },
           {
             "rank": 5,
             "level_req": 60,
             "cost": 15,
-            "effect_value": 264
+            "effect_value": 402
           }
         ],
         "consecutive_target_bonus": {
@@ -1389,7 +1389,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "rage",
-        "cooldown": 0,
+        "cooldown": 10,
         "duration": 4,
         "is_instant": true,
         "stat_mods": {
@@ -1567,7 +1567,7 @@
         "effect_type": "heal",
         "target_type": "ally",
         "resource_type": "mana",
-        "cooldown": 0,
+        "cooldown": 10,
         "duration": 0,
         "stat_mods": {},
         "description": "Heals an ally for 10% more for each turn Mateo has taken this fight, up to double.",
@@ -1582,25 +1582,25 @@
             "rank": 2,
             "level_req": 15,
             "cost": 31,
-            "effect_value": 195
+            "effect_value": 258
           },
           {
             "rank": 3,
             "level_req": 30,
             "cost": 40,
-            "effect_value": 344
+            "effect_value": 470
           },
           {
             "rank": 4,
             "level_req": 45,
             "cost": 48,
-            "effect_value": 494
+            "effect_value": 683
           },
           {
             "rank": 5,
             "level_req": 60,
             "cost": 57,
-            "effect_value": 644
+            "effect_value": 896
           }
         ],
         "fight_turn_bonus": {
@@ -2939,7 +2939,7 @@
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "rage",
-        "cooldown": 0,
+        "cooldown": 10,
         "duration": 4,
         "stat_mods": {
           "physical_damage_taken_pct": -35,
@@ -3002,14 +3002,14 @@
         "ability_id": "personal_junseo_the_same_two_motions",
         "name": "The Same Two Motions",
         "from": "'the same two motions ten thousand times a day'",
-        "engine": "live: repeat_discount (the 'strikes faster' half is dropped from the text)",
+        "engine": "live: consecutive_target_bonus",
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "mana",
-        "cooldown": 0,
+        "cooldown": 10,
         "duration": 0,
         "stat_mods": {},
-        "description": "Each use in a row costs 20% less, down to a fifth of the cost.",
+        "description": "Deals 15% more damage for each attack in a row Jun-seo has already made on this target, up to 75%.",
         "ranks": [
           {
             "rank": 1,
@@ -3021,31 +3021,31 @@
             "rank": 2,
             "level_req": 15,
             "cost": 28,
-            "effect_value": 111
+            "effect_value": 137
           },
           {
             "rank": 3,
             "level_req": 30,
             "cost": 36,
-            "effect_value": 162
+            "effect_value": 214
           },
           {
             "rank": 4,
             "level_req": 45,
             "cost": 44,
-            "effect_value": 213
+            "effect_value": 291
           },
           {
             "rank": 5,
             "level_req": 60,
             "cost": 52,
-            "effect_value": 264
+            "effect_value": 368
           }
         ],
         "is_instant": true,
-        "repeat_discount": {
-          "pct": 20,
-          "floor": 20
+        "consecutive_target_bonus": {
+          "pct": 15,
+          "cap": 75
         }
       },
       {
@@ -3767,14 +3767,14 @@
         "ability_id": "personal_eino_the_same_axe",
         "name": "The Same Axe",
         "from": "'The axe is the same axe.'",
-        "engine": "live: per_use_bonus - 12% per earlier use this fight, to 60%",
+        "engine": "live: per_use_bonus any - every attack he has made this fight counts",
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "energy",
-        "cooldown": 0,
+        "cooldown": 10,
         "duration": 0,
         "stat_mods": {},
-        "description": "Deals 12% more damage for each time Eino has used it already this fight, up to 60%.",
+        "description": "Deals 12% more damage for each attack Eino has already made this fight, up to 60%.",
         "ranks": [
           {
             "rank": 1,
@@ -3786,30 +3786,31 @@
             "rank": 2,
             "level_req": 15,
             "cost": 15,
-            "effect_value": 115
+            "effect_value": 142
           },
           {
             "rank": 3,
             "level_req": 30,
             "cost": 15,
-            "effect_value": 164
+            "effect_value": 220
           },
           {
             "rank": 4,
             "level_req": 45,
             "cost": 15,
-            "effect_value": 214
+            "effect_value": 297
           },
           {
             "rank": 5,
             "level_req": 60,
             "cost": 15,
-            "effect_value": 264
+            "effect_value": 374
           }
         ],
         "per_use_bonus": {
           "pct": 12,
-          "cap": 60
+          "cap": 60,
+          "any": true
         }
       },
       {
@@ -5215,7 +5216,7 @@
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "mana",
-        "cooldown": 0,
+        "cooldown": 10,
         "duration": 0,
         "stat_mods": {},
         "description": "Deals 30% more damage to any enemy Matías has already hit this fight.",
@@ -5230,25 +5231,25 @@
             "rank": 2,
             "level_req": 15,
             "cost": 21,
-            "effect_value": 118
+            "effect_value": 153
           },
           {
             "rank": 3,
             "level_req": 30,
             "cost": 27,
-            "effect_value": 167
+            "effect_value": 236
           },
           {
             "rank": 4,
             "level_req": 45,
             "cost": 33,
-            "effect_value": 216
+            "effect_value": 319
           },
           {
             "rank": 5,
             "level_req": 60,
             "cost": 39,
-            "effect_value": 264
+            "effect_value": 402
           }
         ],
         "struck_before_bonus_pct": 30
@@ -6701,14 +6702,14 @@
         "ability_id": "personal_osvaldo_six_nights_a_week",
         "name": "Six Nights a Week",
         "from": "'sixteen years, six nights a week, for tourists who talked through all of it'",
-        "engine": "live: repeat_discount",
+        "engine": "live: per_use_bonus any",
         "effect_type": "spell_damage",
         "target_type": "enemy",
         "resource_type": "mana",
-        "cooldown": 0,
+        "cooldown": 10,
         "duration": 0,
         "stat_mods": {},
-        "description": "Each cast in a row costs 20% less, to a minimum of a fifth.",
+        "description": "Deals 15% more damage for each damaging spell Osvaldo has already cast this fight, up to 75%.",
         "ranks": [
           {
             "rank": 1,
@@ -6720,31 +6721,32 @@
             "rank": 2,
             "level_req": 15,
             "cost": 42,
-            "effect_value": 133
+            "effect_value": 164
           },
           {
             "rank": 3,
             "level_req": 30,
             "cost": 54,
-            "effect_value": 196
+            "effect_value": 259
           },
           {
             "rank": 4,
             "level_req": 45,
             "cost": 66,
-            "effect_value": 259
+            "effect_value": 354
           },
           {
             "rank": 5,
             "level_req": 60,
             "cost": 78,
-            "effect_value": 322
+            "effect_value": 448
           }
         ],
         "damage_school": "fire",
-        "repeat_discount": {
-          "pct": 20,
-          "floor": 20
+        "per_use_bonus": {
+          "pct": 15,
+          "cap": 75,
+          "any": true
         }
       },
       {

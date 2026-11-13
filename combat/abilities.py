@@ -2827,7 +2827,10 @@ class Ability:
             caster._next_cast_sure = False
         per_use = self.per_use_bonus
         if per_use:
-            used = (getattr(caster, "_fight_uses", None) or {}).get(self.ability_id, 0)
+            uses = getattr(caster, "_fight_uses", None) or {}
+            # "any": every attack or damaging spell this fight counts, not only this one - so
+            # the bonus is worth having on an ability with a long cooldown.
+            used = sum(uses.values()) if per_use.get("any") else uses.get(self.ability_id, 0)
             points += min(float(per_use.get("cap", 100)), float(per_use.get("pct", 0)) * used)
         if sure and hasattr(caster, "apply_status_effect"):
             # hit_rating and expertise in percent points: 100 of each leaves no miss, dodge or

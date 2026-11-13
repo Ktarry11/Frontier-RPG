@@ -333,15 +333,31 @@ def main():
     cast(ch, ab, mobs[0], eng)
     check(getattr(ch, "is_stunned", False), "Doing the Loud Part: Osvaldo can still act next turn")
 
-    for name in ("Six Nights a Week", "The Same Two Motions"):
-        ch, ab, others, mobs, eng = setup(name)
-        ch._last_ability_id = None
-        costs = []
-        for _ in range(7):
-            costs.append(ab.talented_cost(ch))
-            cast(ch, ab, mobs[0], eng)
-        rs = [round(ratio(c, costs[0]), 2) for c in costs]
-        check(costs[0] > 0 and all(abs(r - w) <= 0.07 for r, w in zip(rs, [1, .8, .6, .4, .2, .2, .2])), f"{name}: cost went {costs}, wanted 100/80/60/40/20/20/20%")
+    # Kyle, 13 Nov: all of them true trump cards with cooldowns. The two "cheaper each cast in
+    # a row" abilities made no sense on a 10-turn cooldown and now build on what he has done.
+    ch, ab, others, mobs, eng = setup("Six Nights a Week")
+    def dealt(c, a_, m, seed=5):
+        fill(c, a_); random.seed(seed); hp = m.current_health
+        a_.use(c, m, party=[c], engine=eng)
+        return hp - m.current_health
+    ch._fight_uses = {}
+    first = dealt(ch, ab, mobs[0])
+    ch._fight_uses = {"some_other_spell": 3}
+    later = dealt(ch, ab, mobs[0])
+    ch._fight_uses = {"some_other_spell": 30}
+    capped = dealt(ch, ab, mobs[0])
+    check(1.38 <= ratio(later, first) <= 1.52 and 1.68 <= ratio(capped, first) <= 1.82,
+          f"Six Nights a Week: fresh {first}, after three spells {later}, after thirty {capped}")
+
+    ch, ab, others, mobs, eng = setup("The Same Two Motions")
+    ch._attack_streak = (None, 0)
+    first = dealt(ch, ab, mobs[0])
+    ch._attack_streak = (mobs[0], 2)
+    later = dealt(ch, ab, mobs[0])
+    ch._attack_streak = (mobs[0], 40)
+    capped = dealt(ch, ab, mobs[0])
+    check(1.24 <= ratio(later, first) <= 1.36 and 1.68 <= ratio(capped, first) <= 1.82,
+          f"The Same Two Motions: fresh {first}, two attacks in {later}, forty in {capped}")
 
     ch, ab, others, mobs, eng = setup("No Interest At All In How Long It Takes")
     cast(ch, ab, mobs[0], eng)

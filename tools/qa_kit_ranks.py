@@ -40,6 +40,10 @@ def main():
         for a in kit["abilities"]:
             ranks, what = a["ranks"], R.grows(a)
             who = f"{kit['name']} / {a['name']}"
+            # Kyle, 13 Nov: "i want them all as true trump cards ... they do need cooldowns" -
+            # "hence why they have 10-15 turn CDs".
+            if (a.get("cooldown") or 0) < 10:
+                bad.append(f"{who}: cooldown {a.get('cooldown')} - a trump card has at least 10 turns")
             if ranks != R.ranks_for(a, doc):
                 bad.append(f"{who}: ranks are not what tools/rank_kit_abilities.py writes - run it with --apply")
                 continue
