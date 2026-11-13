@@ -49,11 +49,7 @@ MAX_COVERED = 0.34
 KNOWN = {
     # 13 Nov 2026: the rectangles were wrong until today (see _rect). Measured properly there
     # were eight real pairs (three early-game ones since removed), mostly a tall building standing behind a low one. Debt, by eye.
-    ("Tarren Mill", "ek_granary", 26, 60, "ek_village_inn", 22, 59),
-    ("Saltspur Landing", "orc_officers_house", 19, 32, "orc_smokehouse", 22, 38),
-    ("Freewind Post", "tau_smithy", 92, 103, "tau_tent_medium", 96, 107),
-    ("Steamwheedle Port", "bb_warehouse", 5, 33, "bb_lean_shack", 10, 40),
-    ("Booty Bay", "bb_harbourmaster_tower", 42, 19, "bb_trade_shop", 45, 21),
+    # all five cleared 13 Nov 2026 by moving one building of each pair
 }
 
 

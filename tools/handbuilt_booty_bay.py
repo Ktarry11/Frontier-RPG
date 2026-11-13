@@ -276,7 +276,8 @@ def dress(L):
     # ---- the upper gallery: the market row ------------------------------------------------------
     B("bb_trade_shop", 29, 28, 5)
     B("bb_trade_shop", 37, 28, 6)
-    B("bb_trade_shop", 46, 26, 6, nudge=3)
+    # A third shop stood here at (46, 26), drawn through the harbourmaster's tower. The gallery
+    # has no room for it east of the tower, so it is gone until Booty Bay is rebuilt (backlog C [51]).
     D("rf_supply_crates", 33, 28, 3)
     D("vot_crate_stack", 24, 28, 3)
 

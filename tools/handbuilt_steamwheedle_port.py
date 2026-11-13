@@ -94,7 +94,7 @@ BUILDINGS = [
     # A building on a quay has to leave the quay walkable in front of it.
     ("bb_warehouse", 15, 44, 12),
     ("bb_trade_shop", 29, 40, 11),
-    ("bb_lean_shack", 16, 47, 8),
+    ("bb_lean_shack", 25, 50, 7),      # out from under the warehouse
     # the upper yard - newer, scrappier, and a scrapyard workshop is exactly right for it
     ("scrapyard_workshop", 56, 44, 13),
     ("gg_forge", 75, 42, 12),

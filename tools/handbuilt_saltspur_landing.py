@@ -209,7 +209,7 @@ def dress(L):
     b("orc_officers_house", 23, 40, 9, nudge=2)
     # Pulled in off the bluff: at x=19 the strand is barely three tiles wide here
     # and the bluff planting grew straight through the roof.
-    b("orc_smokehouse", 24, 45, 8, nudge=2)
+    b("orc_smokehouse", 26, 47, 6, nudge=2)   # smaller and lower: it stood through the officers' house
 
     # ---- the shipwright's beach: the hull she pulled up
     p("ek_farm_cart", 32, 46, 4)

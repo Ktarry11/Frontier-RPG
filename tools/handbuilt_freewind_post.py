@@ -356,7 +356,7 @@ def _dress(L):
     p(T("tau_food_cache"), 36, 88, 6)
     p(T("tau_storehouse"), 24, 92, 8)
     # --- a second market lane, east of the square, and the bunkhouses behind the craft row
-    _row(L, T("tau_tent_medium"), 98, 112, 98, 130, 2, 6)
+    _row(L, T("tau_tent_medium"), 113, 114, 113, 130, 2, 6)   # east of the kiln: at x=98 they stood in the smithies
 
     _row(L, T("tau_longhouse"), 72, 140, 86, 142, 2, 10)
     _row(L, S("sn_hide_banner"), 88, 112, 88, 128, 2, 6, solid=False)
