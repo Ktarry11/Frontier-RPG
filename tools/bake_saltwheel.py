@@ -69,23 +69,28 @@ TEX_DIR = ROOT / "assets/tiles/shimmering_flats/materials"
 #:    194-221  the salt itself, at the fence and in the disused corners. The accent, and nothing more:
 #:             at a quarter of the map in the earlier bakes it stopped being an accent and the whole
 #:             place read as snow.
+# LESS IS MORE (13 Nov 2026). Kyle, of the Shimmering Flats: "Its just TOO many tiles ... too many
+# blended tiles which looks gross. Sometimes less is more" - and then asked for the same cut across
+# the region. One texture per material, no cross-faded pairs, and materials that were only ever a
+# variation on the ground beside them now share its texture. The ranges are one calm rock drawn
+# large instead of rubble alternating with scrub, which tiled into a patterned border round the map.
 MATERIALS = {
     # --- 63-98: the straight
-    "tar":      ("tan_quay_tarred", "tan_basalt_grit", 1.0),
+    "tar":      ("tan_quay_tarred", None, 1.0),
     "oiled":    ("tan_deck_oiled", None, 1.0),
-    "rut":      ("sf_track_rut", None, 1.0),
+    "rut":      ("sf_hardpan_swept", None, 1.0),
     # --- 98-156: the town
-    "clay":     ("sf_clay_saltrim", "sf_mud_curled", 1.0),
-    "trodden":  ("sf_hardpan_swept", "sf_salt_thin_mud", 1.0),
-    "gravel":   ("sf_salt_gravel", "sf_tunnel_spoil", 1.0),
+    "clay":     ("sf_dust_hardpan", None, 1.5),
+    "trodden":  ("sf_hardpan_swept", None, 1.0),
+    "gravel":   ("sf_dust_hardpan", None, 1.5),
     "plank":    ("tan_plank_bleached", None, 1.0),
     # --- 169-184: the pan outside the fence
-    "pan":      ("sf_dust_hardpan", "sf_crust_shattered", 1.0),
-    "pan_grit": ("sf_stones_salt", "sf_salt_dark", 1.0),
+    "pan":      ("sf_dust_hardpan", None, 1.5),
+    "pan_grit": ("sf_dust_hardpan", None, 1.5),
     # --- 194-221: the salt
-    "rime":     ("sf_salt_white", "sf_salt_polygon", 1.0),
-    "glaze":    ("sf_salt_glazed", "sf_salt_ripple", 1.0),
-    "plates":   ("sf_salt_plates", "sf_salt_clay", 1.0),
+    "rime":     ("sf_salt_white", None, 1.25),
+    "glaze":    ("sf_salt_white", None, 1.25),
+    "plates":   ("sf_salt_white", None, 1.25),
 }
 
 #: mean per-pixel (max-min) channel spread. Everything in this town is near-neutral; the Tanaris gold

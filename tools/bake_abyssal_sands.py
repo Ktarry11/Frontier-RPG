@@ -47,6 +47,11 @@ from tools.bake_shimmering_flats import band                           # noqa: E
 #: one sheet covered both zones, so the tan_* half has been sitting here waiting for this zone.
 TEX_DIR = ROOT / "assets/tiles/shimmering_flats/materials"
 
+# LESS IS MORE (13 Nov 2026). Kyle, of the Shimmering Flats: "Its just TOO many tiles ... too many
+# blended tiles which looks gross. Sometimes less is more" - and then asked for the same cut across
+# the region. One texture per material, no cross-faded pairs, and materials that were only ever a
+# variation on the ground beside them now share its texture. The ranges are one calm rock drawn
+# large instead of rubble alternating with scrub, which tiled into a patterned border round the map.
 MATERIALS = {
     # --- the ranges. NO quay, harbour or road family: this zone has no sea and no road, and
     # carrying three materials that can never win is how a palette rots. The dead-material check
@@ -65,16 +70,16 @@ MATERIALS = {
     # 181 against the rubble's 127) the variation layer read as pale blotches across the ranges -
     # patchy snow on a desert. tan_scrub_sand is 134 to the rubble's 127 and 111 saturation to its
     # 108, so it breaks the repeat without being visible as a second thing.
-    "rock":     ("tan_rubble_sandstone", "tan_scrub_sand", 1.0),
-    "crag":     ("tan_basalt_grit", None, 1.0),
+    "rock":     ("tan_sandstone_floor", None, 2.5),
+    "crag":     ("tan_sandstone_floor", None, 2.5),
     # --- 124-140: the road and the ground people have used
-    "hardpan":  ("tan_hardpan_orange", "tan_scrub_sand", 1.0),
-    "drift":    ("tan_dust_drift", None, 1.0),
+    "hardpan":  ("tan_sand_pebble", None, 1.5),
+    "drift":    ("tan_sand_gold", None, 1.5),
     # --- 147-156: the open sand, most of the map
-    "sand":     ("tan_sand_gold", "tan_dune_ripple", 1.0),
-    "pebble":   ("tan_sand_pebble", None, 1.0),
+    "sand":     ("tan_sand_gold", None, 1.5),
+    "pebble":   ("tan_sand_pebble", None, 1.5),
     # --- 181: the ruins
-    "stone":    ("tan_sandstone_floor", "tan_paving_carved", 1.0),
+    "stone":    ("tan_paving_carved", None, 1.0),
 }
 
 #: THE SAND FAMILY HAS TO BE LOUD. See the note above - this is a floor, not a ceiling, and it is the
@@ -152,6 +157,13 @@ def build_scores(P, M):
 
     P.fields = dict(cliff=cliff, water=water, rock=rock, sea=sea, road=road, ruin=ruin,
                     pit=pit_in)
+    # RELIEF FOR THE LIGHT. There is no elevation model here - a range is a mask - so the mask is
+    # the height: softened, and its slope taken PER TILE (the grid is four samples to a tile).
+    from scipy.ndimage import gaussian_filter
+    _h = gaussian_filter((8.0 * rock - 5.0 * pit_in).astype(np.float32), 5.0)
+    _pt = 1.0 / float(gx[0, 1] - gx[0, 0])
+    P.fields["dzdx"] = (np.gradient(_h, axis=1) * _pt).astype(np.float32)
+    P.fields["dzdy"] = (np.gradient(_h, axis=0) * _pt).astype(np.float32)
 
     # ---- the ranges. ONE MATERIAL, NOT TWO ALTERNATING: the pair's second tile is the lighter
     # rubble, and letting the painter swap between them freely turned 46% of the map into a leopard
@@ -199,6 +211,10 @@ def post(rgb, X, Y, P):
     sf = lambda a: P.sample_field(a.astype(np.float32), X, Y)          # noqa: E731
     rock, sea, road, ruin = sf(f["rock"]), sf(f["sea"]), sf(f["road"]), sf(f["ruin"])
     out = rgb.copy().astype(np.float32)
+    # HILLSHADE, sun in the north-west: a slope FACING it rises toward the south-east. These zones
+    # had none, so a mountain range was a flat band of a different colour round the map.
+    shade = np.clip(1.0 + 0.55 * (sf(f["dzdx"]) * 0.70 + sf(f["dzdy"]) * 0.70), 0.55, 1.40)
+    out = out * shade[..., None]
 
     # SUN. A desert at noon is bleached in the open and holds its colour in shade, so the open sand
     # is lifted and desaturated slightly while the rock keeps its chroma. Without this the sand and

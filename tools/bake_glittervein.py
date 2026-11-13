@@ -58,27 +58,32 @@ UNDER = ROOT / "assets/tiles/underdark/materials"
 #: VARIATION LAYER, not a competing material - a pair inside one family breaks its repeat, whereas
 #: two families at similar weights is what makes a leopard print. The partner has to be close in
 #: value or it reads as blotches rather than as texture.
+# LESS IS MORE (13 Nov 2026). Kyle, of the Shimmering Flats: "Its just TOO many tiles ... too many
+# blended tiles which looks gross. Sometimes less is more" - and then asked for the same cut across
+# the region. One texture per material, no cross-faded pairs, and materials that were only ever a
+# variation on the ground beside them now share its texture. The ranges are one calm rock drawn
+# large instead of rubble alternating with scrub, which tiled into a patterned border round the map.
 MATERIALS = {
     # --- the dry rim: loud gold, and deliberately the brightest large area
-    "sand":      ("tan_sand_gold", "tan_dune_ripple", 1.0),
-    "hardpan":   ("tan_hardpan_orange", "tan_scrub_sand", 1.0),
+    "sand":      ("tan_sand_gold", None, 1.5),
+    "hardpan":   ("tan_sand_pebble", None, 1.5),
     # --- the cliff faces and terrace treads
-    "rock":      ("tan_rubble_sandstone", "tan_scrub_sand", 1.0),
-    "terrace":   ("sn_stone_terrace", "sn_layered_stone", 1.0),
+    "rock":      ("tan_sandstone_floor", None, 2.5),
+    "terrace":   ("sn_stone_terrace", None, 1.5),
     # --- the limestone band, where the damp starts
-    "limestone": ("cen_limestone_moss", "cen_roots_stone", 1.0),
+    "limestone": ("cen_limestone_moss", None, 1.5),
     "wet":       ("cen_limestone_wet", None, 1.0),
     # --- the green shelf
-    "grass":     ("cen_grass_sunlit", "cen_leaf_litter", 1.0),
+    "grass":     ("cen_leaf_litter", None, 1.5),
     "fern":      ("cen_ferns", None, 1.0),
     # --- the pool
     "shallow":   ("cen_water_shallow", None, 1.0),
     "deep":      ("cen_water_deep", None, 1.0),
     # --- the haul road. See the note in build_scores.
-    "track":     ("sn_packed_path", "tan_wadi_gravel", 1.0),
+    "track":     ("sn_packed_path", None, 1.0),
     # --- the seams, and only the seams
-    "crystal":   ("ud_crystal_floor_c", "ud_crystal_floor_v", 1.0),
-    "lattice":   ("ud_lattice_floor", "ud_seam_floor", 1.0),
+    "crystal":   ("ud_crystal_floor_c", None, 1.0),
+    "lattice":   ("ud_lattice_floor", None, 1.0),
 }
 
 #: which directory each tile came from. Three sheets feed this map, which is the point of it.

@@ -33,18 +33,19 @@ MODULES = {"steamwheedle": STW, "drownbell": DB}
 
 SF = "shimmering_flats/materials/"
 
+# LESS IS MORE (13 Nov 2026): one texture per material, no cross-faded pairs - see bake_shimmering_flats.
 SPECS = {}
 
 SPECS["steamwheedle"] = lambda: dict(
     build="build_steamwheedle_baked", seed=771, slug="steamwheedle_port",
     materials={
-        "floor":   M(SF + "tan_sand_pebble", SF + "tan_scrub_sand"),
-        "quay":    M(SF + "tan_paving_carved", SF + "tan_flagstone_buried"),
-        "yard":    M(SF + "tan_hardpan_orange", SF + "tan_wadi_gravel"),
-        "tar":     M(SF + "tan_quay_tarred", SF + "tan_deck_oiled"),
+        "floor":   M(SF + "tan_sand_pebble", None, 1.5),
+        "quay":    M(SF + "tan_paving_carved"),
+        "yard":    M(SF + "tan_sand_pebble", None, 1.5),
+        "tar":     M(SF + "tan_quay_tarred"),
         "water_s": M(SF + "cen_water_shallow"),
         "water_d": M(SF + "cen_water_deep"),
-        "wall":    M(SF + "tan_rubble_sandstone", SF + "tan_basalt_grit"),
+        "wall":    M(SF + "tan_sandstone_floor", None, 2.0),
     },
     floor_keys=["floor", "quay", "yard", "tar"],
     wall_keys=["wall"],
@@ -65,13 +66,13 @@ SPECS["steamwheedle"] = lambda: dict(
 SPECS["drownbell"] = lambda: dict(
     build="build_drownbell_baked", seed=772, slug="drownbell",
     materials={
-        "floor":   M(dim(SF + "tan_wadi_gravel", 0.62), dim(SF + "tan_sand_pebble", 0.58)),
-        "dry":     M(dim(SF + "tan_hardpan_orange", 0.66)),
-        "wet":     M(dim(SF + "sf_mud_curled", 0.58), dim(SF + "sf_clay_saltrim", 0.60)),
-        "deck":    M(dim(SF + "tan_plank_bleached", 0.60), dim(SF + "tan_deck_oiled", 0.70)),
+        "floor":   M(dim(SF + "tan_wadi_gravel", 0.62)),
+        "dry":     M(dim(SF + "tan_wadi_gravel", 0.62)),
+        "wet":     M(dim(SF + "sf_mud_curled", 0.58)),
+        "deck":    M(dim(SF + "tan_plank_bleached", 0.60)),
         "water_s": M(dim(SF + "cen_water_shallow", 0.78)),
         "water_d": M(dim(SF + "cen_water_deep", 0.70)),
-        "wall":    M(dim(SF + "tan_rubble_sandstone", 0.52), dim(SF + "tan_basalt_grit", 0.66)),
+        "wall":    M(dim(SF + "tan_sandstone_floor", 0.50), None, 2.0),
     },
     floor_keys=["floor", "dry", "wet", "deck"],
     wall_keys=["wall"],
