@@ -45360,6 +45360,128 @@
         "self_only": true,
         "hp_below": 0.25
       }
+    ],
+    "the_weight_of_the_floor": [
+      {
+        "name": "The Floor's Weight",
+        "kind": "damage",
+        "amount": 412,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Comes Down Whole",
+        "kind": "damage",
+        "amount": 536,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "The Roof Lets Go",
+        "kind": "damage",
+        "amount": 348,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Settled",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 750,
+        "authored_mechanic": "shield"
+      },
+      {
+        "name": "Nothing Holding It Up",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 132
+        }
+      }
+    ],
+    "old_dry_eye": [
+      {
+        "name": "Dry-Eye's Snap",
+        "kind": "damage",
+        "amount": 384,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Hears You Breathe",
+        "kind": "damage",
+        "amount": 326,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "dodge_rating": -44
+          }
+        }
+      },
+      {
+        "name": "Brine Rot",
+        "kind": "dot",
+        "amount": 132,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "dispel_type": "poison",
+        "authored_mechanic": "curse"
+      },
+      {
+        "name": "Thrash in the Shallows",
+        "kind": "damage",
+        "amount": 298,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Blind and Cornered",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 112
+        }
+      }
     ]
   }
 }
