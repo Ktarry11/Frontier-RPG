@@ -30,6 +30,28 @@ SAW_TAN = (210, 170, 105)
 SHOP_YELLOW = (255, 215, 90)
 
 
+
+def clear_label_rect(lrect, placed, bounds=None):
+    """Move a label rect just far enough that it overlaps none already placed.
+
+    Subzones overlap on several maps (Shimmering Flats, the Drowned Barrow), and two names
+    centred on overlapping regions printed on top of each other. Tries the spot asked for,
+    then steps down and up a line at a time, and keeps inside `bounds` when given.
+    """
+    def free(r):
+        return not any(r.colliderect(o.inflate(4, 2)) for o in placed)
+    if free(lrect):
+        return lrect
+    step = lrect.height + 2
+    for n in range(1, 9):
+        for dy in (n * step, -n * step):
+            cand = lrect.move(0, dy)
+            if bounds is not None and not bounds.contains(cand):
+                continue
+            if free(cand):
+                return cand
+    return lrect
+
 class MapScreen(BaseScreen):
     """Scaled overview of the current zone."""
 
@@ -216,6 +238,7 @@ class MapScreen(BaseScreen):
             return spans
 
         outline = (170, 160, 110)
+        placed = []          # label rects already drawn, so no two names print over each other
         for name, regions in groups.items():
             for r in regions:
                 pygame.draw.line(screen, outline, (r.left, r.top), (r.right, r.top))
@@ -247,10 +270,13 @@ class MapScreen(BaseScreen):
                 label = self.renderer._get_font(font_size=10).render(
                     name, True, (200, 190, 140))
                 lrect = label.get_rect(midbottom=(region.centerx, region.y - 2))
+                lrect = clear_label_rect(lrect, placed, rect)
+                placed.append(lrect)
                 screen.blit(label, lrect)
                 continue
 
-            row_offset = (hash(name) % 3) * 14
+            # (sum of code points, not hash(): hash() of a string changes every run)
+            row_offset = (sum(map(ord, name)) % 3) * 14
             label_y = region.y + 12 + row_offset
             # If the staggered row would push the label below the
             # region's own bottom edge (small/short regions), clamp back
@@ -260,6 +286,8 @@ class MapScreen(BaseScreen):
                 label_y = region.centery - label.get_height() // 2
             lrect = label.get_rect(center=((cx if len(regions) > 1 else region.centerx),
                                            label_y + label.get_height() // 2))
+            lrect = clear_label_rect(lrect, placed, rect)
+            placed.append(lrect)
             screen.blit(label, lrect)
 
         # Points of interest from the interaction layer
