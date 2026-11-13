@@ -100,9 +100,15 @@ def main():
             m = mob()
             a1.current_health = int(a1.health * 0.9)
             a2.current_health = max(1, int(a2.health * 0.2))
-            h2, before = a2.current_health, m.current_health
-            ok, msg = ab.use(c, m, party=[c, a1, a2], free=True)
-            dealt, got = before - m.current_health, a2.current_health - h2
+            # An attack can miss, and a miss is not a bug: cast until one lands (this check
+            # failed one sweep in a dozen on exactly that).
+            for _attempt in range(12):
+                h2, before = a2.current_health, m.current_health
+                ab.turns_remaining = 0
+                ok, msg = ab.use(c, m, party=[c, a1, a2], free=True)
+                dealt, got = before - m.current_health, a2.current_health - h2
+                if dealt > 0:
+                    break
             check(ok and dealt > 0, f"{title} did no damage ({msg})")
             check(abs(got - min(a2.health - h2, dealt * share)) <= max(2, dealt * 0.05),
                   f"{title} dealt {dealt:.0f} and healed the lowest ally for {got:.0f}; {share:.0%} is {dealt * share:.0f}")
