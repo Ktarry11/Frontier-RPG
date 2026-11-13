@@ -115,7 +115,17 @@ TERRACES = 3
 # it is cut into. THE PITCH MUST STILL EXCEED THE BAND WIDTH - if it does not, the single pass wraps
 # into itself, no riser is left anywhere, and the "spiral" is the bare cone again under another
 # name: walkable nowhere, and looking perfectly correct from above the whole time.
-SPIRAL_TURNS = 1.0
+# LESS THAN HALF A LAP, AND IT STARTS AT THE GATE. Kyle, 13 Nov 2026: "reduce the number of turns
+# needed to go to glittervein!" One lap was still three hundred tiles of walking round a hole to
+# reach a camp people come back to, and it began on the EAST rim - the far side from the only
+# gate - so every visit opened with half a lap of rim before the descent even started.
+#
+# Three tenths of a turn from the west rim, round to the north, down to the floor beside the spit:
+# about ninety tiles of ramp at a gradient of 0.5 against a walk limit of 0.70. Measured gate to
+# dig mouth: 698 steps before, 182 now. (0.26 of a turn seals the ramp; 0.3 is the short end.)
+SPIRAL_TURNS = 0.3
+#: Bearing the ramp leaves the rim at, as a fraction of a turn from east (0.5 = due west, the gate).
+SPIRAL_START = 0.5
 # A PLATEAU, NOT A TRIANGLE. A mask that falls off linearly from the spiral's centreline makes
 # the ramp flat only along one line and sloped everywhere else, because the blend between the ramp
 # depth and the cone behind it IS a gradient. The band needs a flat CORE with a short shoulder:
@@ -209,7 +219,14 @@ def _spiral_geom(gx, gy):
     a lane ends up running down somewhere the ramp is not."""
     dx, dy = gx - CX, gy - CY
     r = np.maximum(_wr(gx, gy), 0.5)
-    ang = (np.arctan2(dy, dx) / TAU) % 1.0            # 0..1 round the hole
+    ang = (np.arctan2(dy, dx) / TAU - SPIRAL_START) % 1.0      # 0..1 round the hole, from the ramp's top
+    if SPIRAL_TURNS < 1.0:
+        # A PART TURN. The ramp only exists over the first SPIRAL_TURNS of the circle; past its
+        # foot the band is the flat shore and before its head it is the flat rim, so nothing is
+        # left hanging at either end.
+        mid = 0.5 * (R_LIP + R_FLOOR)
+        t = np.where(ang <= SPIRAL_TURNS, ang / SPIRAL_TURNS, np.where(r < mid, 1.0, 0.0))
+        return r, R_LIP - (R_LIP - R_FLOOR) * t, t
 
     # How many whole turns in is this point? The spiral passes every bearing SPIRAL_TURNS times at
     # different radii, so pick the pass whose radius is nearest to r.
@@ -456,7 +473,8 @@ NPC_POSITIONS = {
 #: They now sit IN THE CLEAR LANE, which is the only ground on the wall that nothing can ever be
 #: dropped on - chests are placed after the dressing pass, so a chest on the ramp's shoulder is a
 #: chest a fern can bury, and that is a silent loss rather than a crash.
-CHESTS = [(46, 132), (67, 51), (119, 112), (58, 94)]
+# Re-sited 13 Nov 2026 when the descent became three tenths of a turn: two of the four were in rock.
+CHESTS = [(43, 70), (72, 49), (119, 112), (58, 94)]
 #: What a stalled dig camp has lying around. The underdark set has the survey and excavation props
 #: already - they were made for the Codex's dig in the Sunken Archive, and a goblin works stoppage
 #: looks much the same from the outside. Placed by hand and checked, never rolled.
@@ -662,7 +680,7 @@ def verify(zone):
     blocked = []
     for i in range(int(SPIRAL_TURNS * 12) + 1):
         t = i / (SPIRAL_TURNS * 12)
-        a = (t * SPIRAL_TURNS) % 1.0 * TAU
+        a = ((t * SPIRAL_TURNS + SPIRAL_START) % 1.0) * TAU
         rr = R_LIP - (R_LIP - R_FLOOR) * t           # the SAME mapping _spiral uses, or this
         passable = False                             # looks eleven tiles from where the ramp is
         for off in np.arange(-8.0, 8.01, 0.5):       # hunt the band across _wr's disagreement
