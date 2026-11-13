@@ -57,8 +57,9 @@ def main():
                 for old, new in p["sub"]:
                     if text.count(old) == 1:
                         text = text.replace(old, new)
-                    elif new not in text:
-                        bad.append(f"{stem}: {qid}: cannot find {old!r}")
+                    elif not new or new not in text:
+                        if old in text or new:
+                            bad.append(f"{stem}: {qid}: cannot find {old!r}")
                 entry["description"] = text
             if p.get("sub_accept") or p.get("accept_append"):
                 q = live[qid]
@@ -102,6 +103,10 @@ def main():
         if relabelled:
             qpath.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
         print(f"{stem}: {len(patches)} quests patched, {relabelled} places named")
+    # A patch that sets a whole field can carry an objective count back in; take it out again.
+    import subprocess
+    subprocess.run([sys.executable, str(ROOT / "tools/strip_prose_counts.py"), "--apply"] + list(stems),
+                   cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     for b in bad:
         print("  !!", b)
     return 1 if bad else 0

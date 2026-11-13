@@ -76,6 +76,16 @@ def fix(text, counts):
         return m.group(0) if m.group(2).lower() in KEEP_AFTER | SKIP_NOUNS else m.group(1) + m.group(2)
     text = re.sub(r"(, |\band |\bme |\bbring |\btake |\bwant |\bneed |\bget |\bcut |\bmill |\bdig |\bfind )"
                   + N + r" ([a-z][a-z'-]*)", item, text, flags=f)
+    # third round: what the first two left
+    text = re.sub(r"\b(Bring|Get|Fetch|Find) me " + N + r" more\b", r"\1 me more", text, flags=f)
+    text = re.sub(r"\b(Bring|Get|Fetch|Find) me " + N + r"(?=[.,])", r"\1 me some", text, flags=f)
+    text = re.sub(START + N + r" down and ", "Done, and ", text, flags=f)
+    text = re.sub(START + N + r" more ", "More ", text, flags=f)
+    text = re.sub(START + N + r" fewer ", "Fewer ", text, flags=f)
+    text = re.sub(r"(, and |\band )" + N + r" more ", r"\1more ", text, flags=f)
+    text = re.sub(START + N + r" (in|off|out|up|along|among|on|at|round|from) ", lambda m: cap(m.group(1)) + " ", text, flags=f)
+    text = re.sub(START + N + r" of ([a-z]+)", lambda m: cap(m.group(1)), text, flags=f)
+    text = re.sub(r"\b(smelt|Smelt) " + N + r" ", r"\1 ", text, flags=f)
     # a fragment left without its number reads better as an order
     text = re.sub(START + r"Them (off|out of|on|in|at|along|round|while) ", r"Clear them \1 ", text)
     text = re.sub(START + r"Them and ", "Those, and ", text)
