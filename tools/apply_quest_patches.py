@@ -8,6 +8,9 @@ only what changes:
         "accept_text": "...",                      # replaces the short line under the offer
         "title": "...",
         "sub": [["old sentence", "new sentence"]], # replaced inside the description
+        "sub_accept": [["old", "new"]],            # the same, inside the accept text
+        "accept_append": "One more paragraph.",    # added to the end of the accept text
+        "sub_turnin": [["old", "new"]],            # the same, inside the hand-in text
         "labels": ["place one", "place two"]       # names for its explore objectives, in order
     }}
 
@@ -57,6 +60,29 @@ def main():
                     elif new not in text:
                         bad.append(f"{stem}: {qid}: cannot find {old!r}")
                 entry["description"] = text
+            if p.get("sub_accept") or p.get("accept_append"):
+                q = live[qid]
+                text = entry.get("accept_text") or (q.get("accept_text") if isinstance(q, dict)
+                                                    else getattr(q, "accept_text", ""))
+                for old, new in p.get("sub_accept", []):
+                    if text.count(old) == 1:
+                        text = text.replace(old, new)
+                    elif new not in text:
+                        bad.append(f"{stem}: {qid}: cannot find {old!r}")
+                extra = p.get("accept_append")
+                if extra and extra not in text:
+                    text = text.rstrip() + "\n\n" + extra
+                entry["accept_text"] = text
+            if p.get("sub_turnin"):
+                q = live[qid]
+                text = entry.get("turn_in_text") or (q.get("turn_in_text") if isinstance(q, dict)
+                                                     else getattr(q, "turn_in_text", ""))
+                for old, new in p["sub_turnin"]:
+                    if text.count(old) == 1:
+                        text = text.replace(old, new)
+                    elif new not in text:
+                        bad.append(f"{stem}: {qid}: cannot find {old!r}")
+                entry["turn_in_text"] = text
             if p.get("labels"):
                 spots = [o for o in by_id[qid]["objectives"] if o.get("type") == "explore"]
                 if len(spots) != len(p["labels"]):

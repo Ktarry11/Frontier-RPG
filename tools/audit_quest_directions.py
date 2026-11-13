@@ -133,6 +133,10 @@ class World:
                 out.extend((label, gx + (x - dest[1]), gy + (y - dest[2])) for label, x, y in there)
             else:
                 out.append((self.maps[dkey][0], px, py))     # roams that whole map: point at the gate
+                if len(self.zm.portal_manager.get_portal_positions(name) or []) == 1:
+                    # a town with one gate, and the thing is all over the country outside it:
+                    # "out of the gate" is the whole of the direction
+                    self.roams.add((map_key, creature))
         return out
 
     def anywhere(self, creature):

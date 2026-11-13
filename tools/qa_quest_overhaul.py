@@ -36,6 +36,11 @@ def main():
             if (stem, title) not in {tuple(x) for x in done.get(stem, {}).get("direction_exceptions", [])}:
                 bad.append(f"{stem}: {title} - {kind.lower()}: {why}")
 
+    import re
+    from world.quest_manager import QuestManager
+    qm = QuestManager()
+    NUMBERS = {w: i + 2 for i, w in enumerate("two three four five six seven eight nine ten eleven twelve".split())}
+    COUNT = re.compile(r"\s*(" + "|".join(NUMBERS) + r")\s*[.,]", re.I)
     from world.ambient_npc_manager import get_ambient_npc_manager
     npcs = get_ambient_npc_manager().npcs
     said = {}
@@ -51,6 +56,14 @@ def main():
             for o in q.get("objectives", []):
                 if o.get("type") == "explore" and o.get("target_x") is not None and not o.get("label"):
                     bad.append(f"{stem}: {q['title']} - its explore objective has no place name")
+        # "Eight." said over six bears: a hand-in that opens with a bare count must match one.
+        for q in quests:
+            live = qm.quests.get(q.get("quest_id"))
+            said_n = COUNT.match((live.get("turn_in_text") if isinstance(live, dict)
+                                  else getattr(live, "turn_in_text", "")) or "") if live else None
+            if said_n and NUMBERS[said_n.group(1).lower()] not in [o.get("count") for o in q["objectives"]]:
+                bad.append(f"{stem}: {q['title']} - hands in with \"{said_n.group(1)}\" but asks for "
+                           f"{[o.get('count') for o in q['objectives']]}")
         for n in npcs.values():
             if A.slug(n.zone) not in zones:
                 continue
