@@ -48,7 +48,10 @@ WORDS = {
 
 
 def slug(s):
-    return re.sub(r"[^a-z0-9]+", "_", str(s or "").lower()).strip("_")
+    # "The Sepulcher" is the map and "sepulcher" is what its NPCs and quests are filed under
+    # (world/zone_keys.py). Inside this tool both sides of every lookup drop the article.
+    key = re.sub(r"[^a-z0-9]+", "_", str(s or "").lower()).strip("_")
+    return key[4:] if key.startswith("the_") else key
 
 
 def bearing(dx, dy):
@@ -98,6 +101,8 @@ class World:
         #: Names of places you go INSIDE (caves, dungeons). A compass word in a quest for one of
         #: these is usually about the inside - "the west wing" - so naming the place is enough.
         self.doors = set()
+        #: (map, creature) pairs met all over that map as well as in a subzone of it.
+        self.roams = set()
         self.enc = json.load(open("data/creatures/encounters.json"))["zones"]
         drops = json.load(open("data/creatures/quest_drops.json"))["drops"]
         self.carriers = {}
@@ -181,6 +186,11 @@ class World:
                     out.append((creature, sp.get("x", 0), sp.get("y", 0)))
         if not known:
             return None
+        # A creature on the open-zone table AND in a subzone is met all over the map: the
+        # subzone is still where a compass word must point, but "the spiders in the woods" with
+        # no compass at all is a true direction for it (see `roams` in audit()).
+        if anywhere and out:
+            self.roams.add((map_key, creature))
         return [] if (anywhere and not out) else out
 
 
@@ -214,9 +224,10 @@ def audit(world, stems):
             world._from = (gx, gy)
             text = " ".join(str(q.get(k, "")) for k in ("accept_text", "description"))
             words = said(text)
-            targets, unplaced, groups = [], [], []
+            targets, unplaced, groups, roaming = [], [], [], []
             for o in q["objectives"]:
                 groups.append(len(targets))            # where this objective's places start
+                roaming.append(False)                  # ... and whether what it hunts roams
                 kind, tgt = o.get("type"), o.get("target")
                 if kind == "explore" and o.get("target_x") is not None and slug(tgt) == gmap:
                     targets.append((o.get("label") or "the place", o["target_x"], o["target_y"]))
@@ -230,6 +241,8 @@ def audit(world, stems):
                         unplaced.append(f"nothing drops {tgt}")
                 for c in creatures:
                     where = world.places(gmap, c)
+                    if (gmap, c) in world.roams:
+                        roaming[-1] = True
                     if where is None:
                         # Not on the giver's map. If it lives on a map one door away - a town
                         # giver sending you into the country round the town - the direction is
@@ -250,12 +263,12 @@ def audit(world, stems):
                 end = groups[gi + 1] if gi + 1 < len(groups) else len(targets)
                 mine = [(label, x, y, math.hypot(x - gx, y - gy)) for label, x, y in targets[start:end]]
                 if mine:
-                    nearest.append(min(mine, key=lambda t: t[3]))
+                    nearest.append(min(mine, key=lambda t: t[3]) + (gi < len(roaming) and roaming[gi],))
             far = [t for t in nearest if t[3] >= NEAR]
             if not far:
                 continue
             judged += 1
-            actual = sorted({bearing(x - gx, y - gy) for _l, x, y, _d in far})
+            actual = sorted({bearing(x - gx, y - gy) for _l, x, y, _d, _r in far})
             # A direction is only WRONG if it matches NOWHERE the thing is found; sending you
             # west to boars that are also south-east is still true.
             anywhere = {bearing(x - gx, y - gy) for _l, x, y in targets if math.hypot(x - gx, y - gy) >= NEAR}
@@ -266,9 +279,10 @@ def audit(world, stems):
                                               f"says {'/'.join(sorted(words))}; {far[0][0]} is {actual[0]}"
                                               + (f" (also {', '.join(actual[1:])})" if len(actual) > 1 else "")))
             else:
+                far = [t for t in far if not t[4]]          # roamers need no compass
                 named = any(slug(l) and re.search(re.escape(l), text, re.I) for l, *_ in far)
-                longest = max(far, key=lambda t: t[3])
-                if not named and longest[3] >= FAR:
+                longest = max(far, key=lambda t: t[3]) if far else None
+                if longest and not named and longest[3] >= FAR:
                     findings["SILENT"].append((stem, q["title"],
                                                f"{longest[0]} is {int(longest[3])} tiles {bearing(longest[1] - gx, longest[2] - gy)} and the text gives no direction or name"))
     return findings, seen, judged
