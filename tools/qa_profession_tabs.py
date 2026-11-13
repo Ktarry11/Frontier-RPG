@@ -14,7 +14,7 @@ sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 os.chdir(ROOT)
 
-GATHERING = {"mining", "herbalism", "woodcutting", "skinning"}
+GATHERING = {"mining", "herbalism", "woodcutting", "skinning", "fishing"}
 
 
 def main():

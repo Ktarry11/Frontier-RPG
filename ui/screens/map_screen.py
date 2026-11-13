@@ -496,8 +496,9 @@ class MapScreen(BaseScreen):
 
     #: Tracked node colours: a small diamond, so it cannot be mistaken for the round NPC and
     #: portal dots.
-    TRACK_COLORS = {"ore": (235, 150, 60), "herb": (110, 220, 90), "wood": (170, 120, 70)}
-    TRACK_PROFESSION = {"ore": "mining", "herb": "herbalism", "wood": "woodcutting"}
+    TRACK_COLORS = {"ore": (235, 150, 60), "herb": (110, 220, 90), "wood": (170, 120, 70),
+                    "fish": (90, 190, 235)}
+    TRACK_PROFESSION = {"ore": "mining", "herb": "herbalism", "wood": "woodcutting", "fish": "fishing"}
 
     def _tracked_professions(self):
         """The gathering trades the player has learned."""

@@ -882,7 +882,8 @@
             150,
             160
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "alch_greater_arcane": {
           "name": "Greater Arcane Elixir",
@@ -922,7 +923,8 @@
             160,
             170
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "alch_elixir_fortitude_drop": {
           "name": "Elixir of Fortitude",
@@ -2206,6 +2208,129 @@
             300,
             310
           ]
+        },
+        "fishx_oil_blackmouth": {
+          "name": "Blackmouth Oil",
+          "skill_required": 105,
+          "inputs": {
+            "fish_oily_blackmouth": 2,
+            "vial_empty": 1
+          },
+          "source": "trainer",
+          "count": 1,
+          "skill_range": [
+            110,
+            120,
+            130,
+            140
+          ],
+          "output": {
+            "kind": "material",
+            "material_id": "oil_blackmouth"
+          }
+        },
+        "fishx_oil_fire": {
+          "name": "Fire Oil",
+          "skill_required": 130,
+          "inputs": {
+            "fish_firefin_snapper": 2,
+            "vial_empty": 1
+          },
+          "source": "trainer",
+          "count": 1,
+          "skill_range": [
+            135,
+            145,
+            155,
+            165
+          ],
+          "output": {
+            "kind": "material",
+            "material_id": "oil_fire"
+          }
+        },
+        "fishx_oil_stonescale": {
+          "name": "Stonescale Oil",
+          "skill_required": 195,
+          "inputs": {
+            "fish_stonescale_eel": 2,
+            "vial_empty": 1
+          },
+          "source": "trainer",
+          "count": 1,
+          "skill_range": [
+            200,
+            210,
+            220,
+            230
+          ],
+          "output": {
+            "kind": "material",
+            "material_id": "oil_stonescale"
+          }
+        },
+        "fishx_elixir_of_the_current": {
+          "name": "Elixir of the Current",
+          "skill_required": 120,
+          "inputs": {
+            "oil_blackmouth": 1,
+            "herb_stranglekelp": 1,
+            "vial_leaded": 1
+          },
+          "source": "trainer",
+          "count": 1,
+          "skill_range": [
+            125,
+            135,
+            145,
+            155
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_the_current"
+          }
+        },
+        "fishx_elixir_of_the_firefin": {
+          "name": "Elixir of the Firefin",
+          "skill_required": 145,
+          "inputs": {
+            "oil_fire": 1,
+            "herb_kingsblood": 1,
+            "vial_leaded": 1
+          },
+          "source": "trainer",
+          "count": 1,
+          "skill_range": [
+            150,
+            160,
+            170,
+            180
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_the_firefin"
+          }
+        },
+        "fishx_elixir_of_stonescale": {
+          "name": "Elixir of Stonescale",
+          "skill_required": 205,
+          "inputs": {
+            "oil_stonescale": 1,
+            "herb_goldthorn": 1,
+            "vial_leaded": 1
+          },
+          "source": "trainer",
+          "count": 1,
+          "skill_range": [
+            210,
+            220,
+            230,
+            240
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "elixir_of_stonescale"
+          }
         }
       }
     },
@@ -14355,7 +14480,7 @@
             306,
             316
           ],
-          "source": "trainer"
+          "source": "drop"
         },
         "cookx_spiced_jerky": {
           "name": "Spiced Jerky",
@@ -14618,7 +14743,8 @@
             318,
             328
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "cookx_cheese_toastie": {
           "name": "Cheese Toastie",
@@ -14805,7 +14931,8 @@
             "kind": "consumable",
             "consumable_id": "meal_cooked_stout_stew",
             "count": 1
-          }
+          },
+          "source": "drop"
         },
         "cookx_black_ale_roast": {
           "name": "Black-Ale Roast",
@@ -14839,7 +14966,8 @@
             255,
             265
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "cookx_keg_braised_shank": {
           "name": "Keg-Braised Shank",
@@ -14859,7 +14987,8 @@
             295,
             305
           ],
-          "source": "trainer"
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor"
         },
         "cookx_old_guard_s_feast": {
           "name": "Old Guard's Feast",
@@ -14969,6 +15098,408 @@
             "kind": "material",
             "material_id": "cook_stock",
             "count": 2
+          }
+        },
+        "fishx_fried_smallfish": {
+          "name": "Fried Smallfish",
+          "skill_required": 6,
+          "inputs": {
+            "fish_brilliant_smallfish": 1,
+            "cook_flour": 1
+          },
+          "source": "trainer",
+          "skill_range": [
+            11,
+            21,
+            31,
+            41
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_fried_smallfish",
+            "count": 1
+          }
+        },
+        "fishx_smoked_mackerel": {
+          "name": "Smoked Mackerel",
+          "skill_required": 6,
+          "inputs": {
+            "fish_slitherskin_mackerel": 1,
+            "cook_spice": 1
+          },
+          "source": "trainer",
+          "skill_range": [
+            11,
+            21,
+            31,
+            41
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_smoked_mackerel",
+            "count": 1
+          }
+        },
+        "fishx_mud_snapper_fillet": {
+          "name": "Mud Snapper Fillet",
+          "skill_required": 30,
+          "inputs": {
+            "fish_longjaw_mud_snapper": 1,
+            "cook_roots": 1
+          },
+          "source": "trainer",
+          "skill_range": [
+            35,
+            45,
+            55,
+            65
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_mud_snapper_fillet",
+            "count": 1
+          }
+        },
+        "fishx_whisker_catfish_stew": {
+          "name": "Whisker Catfish Stew",
+          "skill_required": 55,
+          "inputs": {
+            "fish_bristle_whisker_catfish": 1,
+            "cook_water": 1
+          },
+          "source": "trainer",
+          "skill_range": [
+            60,
+            70,
+            80,
+            90
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_whisker_catfish_stew",
+            "count": 1
+          }
+        },
+        "fishx_frenzy_skewers": {
+          "name": "Frenzy Skewers",
+          "skill_required": 65,
+          "inputs": {
+            "fish_loch_frenzy": 1,
+            "cook_spice": 1
+          },
+          "source": "trainer",
+          "skill_range": [
+            70,
+            80,
+            90,
+            100
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_frenzy_skewers",
+            "count": 1
+          }
+        },
+        "fishx_seared_albacore": {
+          "name": "Seared Albacore",
+          "skill_required": 80,
+          "inputs": {
+            "fish_rainbow_fin_albacore": 1,
+            "cook_ale": 1
+          },
+          "source": "trainer",
+          "skill_range": [
+            85,
+            95,
+            105,
+            115
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_seared_albacore",
+            "count": 1
+          }
+        },
+        "fishx_sagefish_delight": {
+          "name": "Sagefish Delight",
+          "skill_required": 95,
+          "inputs": {
+            "fish_sagefish": 1,
+            "cook_honey": 1
+          },
+          "source": "trainer",
+          "skill_range": [
+            100,
+            110,
+            120,
+            130
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_sagefish_delight",
+            "count": 1
+          }
+        },
+        "fishx_savory_deviate_delight": {
+          "name": "Savory Deviate Delight",
+          "skill_required": 120,
+          "inputs": {
+            "fish_deviate_fish": 1,
+            "cook_spice": 1
+          },
+          "source": "trainer",
+          "skill_range": [
+            125,
+            135,
+            145,
+            155
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_savory_deviate_delight",
+            "count": 1
+          }
+        },
+        "fishx_firefin_chowder": {
+          "name": "Firefin Chowder",
+          "skill_required": 135,
+          "inputs": {
+            "fish_firefin_snapper": 1,
+            "cook_cheese": 1
+          },
+          "source": "trainer",
+          "skill_range": [
+            140,
+            150,
+            160,
+            170
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_firefin_chowder",
+            "count": 1
+          }
+        },
+        "fishx_rockscale_cod_pie": {
+          "name": "Rockscale Cod Pie",
+          "skill_required": 145,
+          "inputs": {
+            "fish_rockscale_cod": 1,
+            "cook_flour": 1
+          },
+          "source": "trainer",
+          "skill_range": [
+            150,
+            160,
+            170,
+            180
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_rockscale_cod_pie",
+            "count": 1
+          }
+        },
+        "fishx_mithril_head_trout": {
+          "name": "Mithril Head Trout",
+          "skill_required": 160,
+          "inputs": {
+            "fish_mithril_head_trout": 1,
+            "cook_roots": 1
+          },
+          "source": "trainer",
+          "skill_range": [
+            165,
+            175,
+            185,
+            195
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_mithril_head_trout",
+            "count": 1
+          }
+        },
+        "fishx_sagefish_feast": {
+          "name": "Sagefish Feast",
+          "skill_required": 170,
+          "inputs": {
+            "fish_greater_sagefish": 1,
+            "cook_honey": 1
+          },
+          "source": "drop",
+          "skill_range": [
+            175,
+            185,
+            195,
+            205
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_sagefish_feast",
+            "count": 1
+          }
+        },
+        "fishx_grilled_yellowtail": {
+          "name": "Grilled Yellowtail",
+          "skill_required": 185,
+          "inputs": {
+            "fish_spotted_yellowtail": 1,
+            "cook_spice": 1
+          },
+          "source": "trainer",
+          "skill_range": [
+            190,
+            200,
+            210,
+            220
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_grilled_yellowtail",
+            "count": 1
+          }
+        },
+        "fishx_redgill_steak": {
+          "name": "Redgill Steak",
+          "skill_required": 210,
+          "inputs": {
+            "fish_redgill": 1,
+            "cook_ale": 1
+          },
+          "source": "drop",
+          "skill_range": [
+            215,
+            225,
+            235,
+            245
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_redgill_steak",
+            "count": 1
+          }
+        },
+        "fishx_nightfin_soup": {
+          "name": "Nightfin Soup",
+          "skill_required": 220,
+          "inputs": {
+            "fish_nightfin_snapper": 1,
+            "cook_water": 1
+          },
+          "source": "vendor",
+          "skill_range": [
+            225,
+            235,
+            245,
+            255
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_nightfin_soup",
+            "count": 1
+          },
+          "vendor_location": "Any pattern vendor"
+        },
+        "fishx_poached_sunscale_salmon": {
+          "name": "Poached Sunscale Salmon",
+          "skill_required": 230,
+          "inputs": {
+            "fish_sunscale_salmon": 1,
+            "cook_fruit": 1
+          },
+          "source": "trainer",
+          "skill_range": [
+            235,
+            245,
+            255,
+            265
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_poached_sunscale_salmon",
+            "count": 1
+          }
+        },
+        "fishx_winter_squid_fry": {
+          "name": "Winter Squid Fry",
+          "skill_required": 240,
+          "inputs": {
+            "fish_winter_squid": 1,
+            "cook_flour": 1
+          },
+          "source": "quest",
+          "skill_range": [
+            245,
+            255,
+            265,
+            275
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_winter_squid_fry",
+            "count": 1
+          }
+        },
+        "fishx_mightfish_steak": {
+          "name": "Mightfish Steak",
+          "skill_required": 255,
+          "inputs": {
+            "fish_glossy_mightfish": 1,
+            "cook_spice": 1
+          },
+          "source": "vendor",
+          "skill_range": [
+            260,
+            270,
+            280,
+            290
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_mightfish_steak",
+            "count": 1
+          },
+          "vendor_location": "Any pattern vendor"
+        },
+        "fishx_lobster_stew": {
+          "name": "Lobster Stew",
+          "skill_required": 270,
+          "inputs": {
+            "fish_darkclaw_lobster": 1,
+            "cook_cheese": 1
+          },
+          "source": "trainer",
+          "skill_range": [
+            275,
+            285,
+            295,
+            305
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_lobster_stew",
+            "count": 1
+          }
+        },
+        "fishx_charred_lightning_eel": {
+          "name": "Charred Lightning Eel",
+          "skill_required": 285,
+          "inputs": {
+            "fish_lightning_eel": 1,
+            "cook_spice": 1
+          },
+          "source": "trainer",
+          "skill_range": [
+            290,
+            300,
+            310,
+            320
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "meal_cooked_charred_lightning_eel",
+            "count": 1
           }
         }
       }

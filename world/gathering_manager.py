@@ -197,6 +197,7 @@ class GatheringNodeManager:
             return
 
         self.zone_key = key
+        self._populate_fishing(tilemap, zone_name, pool.get("fishing"))
         slots = pool.get("slots", 0)
         active_percent = pool.get("active_percent", 0.0)
         table = pool.get("table", {})
@@ -220,6 +221,27 @@ class GatheringNodeManager:
         for (x, y) in chosen:
             material_id = random.choices(material_ids, weights=weights, k=1)[0]
             self.active_nodes.append(GatheringNode(x, y, material_id))
+            tilemap.set_tile(x, y, "gathering_node", "interaction")
+
+    def _populate_fishing(self, tilemap, zone_name, fishing):
+        """Fishing spots: nodes on walkable tiles beside water, rolled from the zone's own
+        "fishing" pool (tools/build_fishing.py). You fish by stepping on one, like any node."""
+        if not fishing or not fishing.get("table"):
+            return
+        avoid = self._settlement_test(tilemap, zone_name)
+        spots = [t for t in shore_tiles(tilemap)
+                 if tilemap.get_tile(t[0], t[1], "interaction") is None and not (avoid and avoid(*t))]
+        random.shuffle(spots)
+        want = max(1, round(fishing.get("slots", 0) * fishing.get("active_percent", 0.0)))
+        ids, weights = list(fishing["table"].keys()), list(fishing["table"].values())
+        placed = []
+        for (x, y) in spots:
+            if len(placed) >= want:
+                break
+            if any(abs(x - px) + abs(y - py) < 6 for px, py in placed):      # spread along the shore
+                continue
+            placed.append((x, y))
+            self.active_nodes.append(GatheringNode(x, y, random.choices(ids, weights=weights, k=1)[0]))
             tilemap.set_tile(x, y, "gathering_node", "interaction")
 
     #: A node keeps this far from any single NPC, and this far from a cluster of them.
@@ -519,6 +541,27 @@ class GatheringNodeManager:
         return result
 
 
+WATER_TILES = ("shallow_water", "deep_water")
+
+
+def shore_tiles(tilemap):
+    """Walkable tiles with water on at least one side - where a line can be cast."""
+    base = getattr(tilemap, "base_layer", None)
+    if base is None:
+        return []
+    out = []
+    w, h = tilemap.width, tilemap.height
+    for y in range(1, h - 1):
+        row = base[y]
+        for x in range(1, w - 1):
+            if row[x] in WATER_TILES or not tilemap.is_walkable(x, y):
+                continue
+            if (base[y][x - 1] in WATER_TILES or base[y][x + 1] in WATER_TILES
+                    or base[y - 1][x] in WATER_TILES or base[y + 1][x] in WATER_TILES):
+                out.append((x, y))
+    return out
+
+
 _gathering_node_manager = None
 
 
@@ -551,6 +594,7 @@ MATERIAL_TYPE_FOLDERS = {
     # singular "wood" on disk, matching "ore" staying singular rather
     # than the "herb"->"herbs" pluralization.
     "wood": "wood",
+    "fish": "fish",
     # Crafting intermediates (Oct 2026). Art for these is still to come (prompts: claude/crafting_art_prompts.md);
     # until a PNG exists the UI falls back to the usual text/rarity box.
     "plank": "planks",
