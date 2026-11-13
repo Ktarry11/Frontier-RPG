@@ -4439,10 +4439,13 @@
       "vendor_id": "gv_innkeeper",
       "name": "Cook Brodd Kettlewick",
       "zone": "glittervein",
-      "x": 80,
-      "y": 95,
+      "x": 77,
+      "y": 98,
       "tile_sprite": "npc",
       "sells": [
+        "meal_spiced_haunch",
+        "drink_barley_beer",
+        "healing_potion_superior",
         "runeforged_strongbox",
         "flameward_coffer",
         "verdant_reagent_case",
@@ -4481,7 +4484,7 @@
       "race": "goblin",
       "gender": "male",
       "appearance_variant": 16,
-      "greeting": "Bedrolls by the fire, stew in the pot, and both of them are included because there is nowhere else to go.\n\nI am not an innkeeper. I am a camp cook with eleven bedrolls who got told in a memorandum that the eleven bedrolls make me an innkeeper. Lie down anyway. You walked down the spiral, I watched you do it, and nobody does that twice in a day."
+      "greeting": "Welcome to the Kettle. It was my cook tent until the dig stopped. Then people kept sleeping in it, so the crew put up walls and now it's an inn.\n\nThere's stew on and there are real beds upstairs. If you want to bind your hearth here, say so. It saves you the walk down the ramp next time."
     },
     {
       "vendor_id": "gv_quartermaster",
@@ -4491,6 +4494,10 @@
       "y": 92,
       "tile_sprite": "npc",
       "sells": [
+        "healing_potion_superior",
+        "mana_potion_superior",
+        "meal_trailbread",
+        "drink_waterskin",
         "runeforged_strongbox",
         "flameward_coffer",
         "verdant_reagent_case",
@@ -4563,6 +4570,8 @@
       "y": 96,
       "tile_sprite": "npc",
       "sells": [
+        "healing_potion_superior",
+        "mana_potion_superior",
         "healing_potion_mega",
         "mana_potion_mega",
         "battle_elixir_superior",

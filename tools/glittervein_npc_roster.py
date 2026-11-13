@@ -36,11 +36,9 @@ VOICE: goblin, so fast and mercantile - but down here it is goblins who have bee
 a year and talk more quietly than goblins should. Ulla Stormhollow is the exception in every way:
 slow, exact, and the only person in the camp who is not arguing.
 
-NO FLIGHT MASTER AND NO WIND RIDER. Lastwater is a camp, not a town. Kezzik in Steamwheedle already
-has the standing line about what a bird costs to feed and who pays for it, and a ten-person rock at
-the bottom of a sinkhole is not a town that makes him wrong. There IS a cook with bedrolls, because
-a dungeon doorway forty-six units below the rim with nowhere to rest is a cruelty rather than a
-design, and Brodd's record below registers the inn.
+AN INN AND A FLIGHT POINT (13 Nov 2026). This used to say Lastwater got neither - a cook with
+bedrolls and no bird. Kyle, finishing the zone: "It'll need an inn and a flight path." So Brodd's
+cook tent is a building now and he keeps it, and Tazzi flies from a platform on the east side.
 
 (record shapes: VENDORS -> name, race, gender, variant, stock, sells_gear, greeting
                 AMBIENT -> name, race, gender, variant, greeting)
@@ -51,10 +49,10 @@ GLITTERVEIN_VENDORS = {
         "Cook Brodd Kettlewick", "goblin", "male", 16,
         ["bread_and_cheese", "roasted_meat", "meal_spiced_haunch", "meal_river_fish",
          "drink_barley_beer", "drink_waterskin", "healing_potion_superior"], False,
-        "Bedrolls by the fire, stew in the pot, and both of them are included because there is "
-        "nowhere else to go.\n\nI am not an innkeeper. I am a camp cook with eleven bedrolls who "
-        "got told in a memorandum that the eleven bedrolls make me an innkeeper. Lie down anyway. "
-        "You walked down the spiral, I watched you do it, and nobody does that twice in a day."),
+        "Welcome to the Kettle. It was my cook tent until the dig stopped. Then people kept "
+        "sleeping in it, so the crew put up walls and now it's an inn.\n\nThere's stew on and "
+        "there are real beds upstairs. If you want to bind your hearth here, say so. It saves "
+        "you the walk down the ramp next time."),
     "gv_quartermaster": (
         "Quartermaster Dez Hobbin", "goblin", "female", 19,
         ["healing_potion_superior", "mana_potion_superior", "meal_trailbread", "drink_waterskin",
@@ -88,6 +86,14 @@ GLITTERVEIN_VENDORS = {
 }
 
 GLITTERVEIN_AMBIENT = {
+    # Kyle, 13 Nov 2026: "It'll need an inn and a flight path." Every town has both.
+    "gv_flight_master": (
+        "Wind-Rider Tazzi Updraft", "goblin", "female", 9,
+        "Need a lift out? It's a long climb otherwise.\n\nI fly from the platform. The birds "
+        "like it down here, there's water and it's out of the wind. Getting them to leave again "
+        "is the hard part. I can take you to Steamwheedle Port or anywhere beyond it you've "
+        "already been."),
+
     # ================= THE COMPANY =================
     "gv_dig_boss": (
         "Dig-Boss Marn Cobble", "goblin", "male", 4,

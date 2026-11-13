@@ -45,6 +45,7 @@ ZONES = {
     "galleon_hold": "tools.handbuilt_bloodsail_galleon",
     "cabin": "tools.handbuilt_bloodsail_galleon",
     "black_strand": "tools.handbuilt_black_strand",
+    "glittervein": "tools.handbuilt_glittervein",
     "onyxhollow": "tools.handbuilt_onyxhollow",
     "dry_deep": "tools.handbuilt_dry_deep",
 }

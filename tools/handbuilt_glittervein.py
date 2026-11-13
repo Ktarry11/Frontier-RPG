@@ -146,7 +146,10 @@ RAMP_LANE = 2.0
 #: scenery, it is the destination, and the zone's job is to put the player on it.
 #: Widened from seven to eleven because it now has to hold a camp as well as a doorway. Kyle: "I'd
 #: like an outpost with quest givers outside of the cenote dungeon too."
-DUNGEON_ISLE = (86, 94, 11.0)
+# WIDENED AGAIN, eleven to fifteen (13 Nov 2026). Kyle, of finishing the zone: "It'll need an inn
+# and a flight path." Ten people, two tents and a dig mouth already filled eleven; a real inn and a
+# flight post need ground of their own, and the rule is every town has both.
+DUNGEON_ISLE = (86, 94, 15.0)
 
 #: Rock stacks standing in the water. These are NOT meant to be stood on - they are the bits of the
 #: collapsed roof that landed too far out to walk to. Because they are walkable ground with no route
@@ -263,8 +266,17 @@ def _ramp_lane(gx, gy):
     middle, not a clear everything - so seven tiles down the centreline take nothing and the
     shoulders either side are dressed like any other ground.
     """
-    r, r_center, _t = _spiral_geom(gx, gy)
-    return np.abs(r - r_center) < RAMP_LANE
+    r, r_center, t = _spiral_geom(gx, gy)
+    lane = np.abs(r - r_center) < RAMP_LANE
+    if SPIRAL_TURNS < 1.0:
+        # ONLY WHERE THE RAMP IS. Off a part-turn ramp, r_center sits at the rim radius on one
+        # side of the hole and the floor radius on the other, so this used to be true round the
+        # whole circle at both - and the baker painted a haul road all the way round the rim and
+        # all the way round the shore, about two laps of road for a third of a lap of ramp. Found
+        # 13 Nov 2026 looking at the whole zone at once: the painted road led away from the way
+        # down.
+        lane = lane & (t > 0.0) & (t < 1.0)
+    return lane
 
 
 def vein_field(gx, gy):
@@ -440,7 +452,7 @@ SUBZONES = [
     # The camp on the isle. It sits INSIDE the Waterline box on purpose - the more specific box
     # wins when a tile is in both, so the player reads "Lastwater" standing in the camp and
     # "The Waterline" standing on the shore twenty tiles away.
-    ("Lastwater", 74, 82, 24, 24),
+    ("Lastwater", 70, 78, 32, 32),
 ]
 
 BASE = {"sand": 0.40, "hard": 0.26, "clay": 0.20, "rock": 0.14}
@@ -454,9 +466,10 @@ NPC_POSITIONS = {
     # the north end, where the spit lands
     "gv_surveyor":       (84, 88),
     "gv_tally_clerk":    (89, 87),
-    "gv_diver":          (78, 92),
+    "gv_diver":          (73, 100),      # at the water's edge, where a diver would be
     # the camp proper
-    "gv_innkeeper":      (80, 95),
+    "gv_innkeeper":      (77, 98),       # at the door of the inn, on the west side
+    "gv_flight_master":  (98, 95),       # the flight post, on the east side
     "gv_quartermaster":  (82, 92),
     "gv_crystal_cutter": (91, 93),
     "gv_reagents":       (93, 96),
@@ -483,11 +496,9 @@ CAMP_PROPS = [
     (85, 103, "ud_dig_scaffold"),
     (81, 89, "ud_survey_tripod"),     # Ulla's instruments, at the north end where she stands
     (87, 86, "ud_survey_tripod"),
-    (79, 97, "ud_codex_tent"),
     (92, 98, "ud_codex_tent"),
     (84, 94, "ud_field_desk"),        # the tally clerk's book, in the middle of the argument
     (92, 90, "ud_codex_crates"),
-    (78, 94, "ud_codex_crates"),
     (94, 93, "ud_specimen_rack"),     # the cutter's stock
     (82, 86, "ud_arcane_brazier"),
     (90, 103, "ud_arcane_brazier"),
@@ -604,6 +615,18 @@ def dress(L):
     for (px, py, nm) in CAMP_PROPS:
         if L.prop(A(UD, nm), px, py, 5):
             n += 1
+    # THE INN AND THE FLIGHT POST (13 Nov 2026). The camp cook's eleven bedrolls were the inn; now
+    # there is a building, on the west side where his tent was, and he stands at its door. The
+    # flight post is on the east side: a platform and a windsock, which is what the tauren at
+    # Freewind fly from and what a goblin camp would copy.
+    SNP = "assets/tiles/southern_needles/props/"
+    for (path, px, py, ht, kw) in [
+            ("assets/buildings/bb_harbour_inn.png", 76, 96, 9, dict(solid="core")),
+            (SNP + "sn_lookout_platform.png", 100, 93, 6, dict()),
+            (SNP + "sn_windsock.png", 99, 100, 5, dict())]:
+        if not L.prop(path, px, py, ht, **kw):
+            raise AssertionError(f"Lastwater: could not place {path} at ({px},{py})")
+        n += 1
     return n
 
 
