@@ -75,7 +75,7 @@ NPC_POSITIONS = {
     "fw_stablemaster": (118, 48),
     "fw_kodo_wrangler": (78, 54),
     "fw_warehouse_keeper": (78, 44),
-    "fw_tally_clerk": (108, 52),
+    "fw_tally_clerk": (106, 60),        # in front of the trading post; she was drawn under its roof
 
     # ===== THE LONG MESA - the city =====
     "fw_high_elder": (64, 100),
@@ -87,7 +87,7 @@ NPC_POSITIONS = {
     "fw_rememberer": (64, 120),
     # market row, down the west side
     "fw_quartermaster": (30, 108),
-    "fw_market_herbs": (30, 118),
+    "fw_market_herbs": (34, 119),       # beside the stall, not inside the tent
     "fw_market_hides": (30, 126),
     "fw_market_spices": (30, 134),
     "fw_market_relics": (20, 122),
@@ -174,6 +174,10 @@ class Layout:
                             "that was not here three years ago. The tauren live on top of it.")
         self.z = self.zone
         self.z.region = "Kalimdor - Thousand Needles"
+        # A TOWN, and it never said so (found by tools/audit_region_south.py, 13 Nov 2026).
+        # is_town is what keeps gathering nodes out; the only reason none grew on the mesa tops
+        # is that this map has no node pool of its own.
+        self.z.is_town = True
         self.skipped = []
         self.placed = 0
         ys, xs = np.mgrid[0:H, 0:W]
