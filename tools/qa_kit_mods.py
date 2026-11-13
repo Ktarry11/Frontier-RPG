@@ -195,6 +195,7 @@ def main():
                 # actually using.
                 if applied is not None and (
                         getattr(applied, "stack_on_repeat", False)
+                        or getattr(applied, "stack_on_reuse", False)
                         or getattr(applied, "stack_on_attack", False)):
                     mult *= getattr(applied, "stacks", 0)
                 want = want * mult

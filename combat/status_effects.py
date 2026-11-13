@@ -461,6 +461,10 @@ class StatusEffect:
         self.charge = 0
         #: A buff: an attack the holder dodges or parries is answered with a free basic attack.
         self.counter_on_miss = False
+        #: A debuff that is a TRAP: the first holder to take a turn pays trap_damage of
+        #: trap_school and loses that turn, and the trap is gone from everyone it was laid on.
+        self.trap_damage = 0
+        self.trap_school = "nature"
 
         # ---- DAMAGE-OVER-TIME IMMUNITY -----------------------------------
         #: True suppresses DOT ticks on the holder entirely - Thiago's
@@ -497,6 +501,9 @@ class StatusEffect:
         self.stack_on_repeat = False
         #: True gains a stack when the HOLDER lands a damaging ability.
         self.stack_on_attack = False
+        #: Gains a stack each time the holder uses an ability it has ALREADY used this fight
+        #: (not only twice running). Pavlo's "the same four wars every spring".
+        self.stack_on_reuse = False
 
         self.max_duration = duration
         self.potency = potency
@@ -1420,6 +1427,28 @@ class StatusEffectMixin:
             self._note_proc(
                 f"{effect.name} turns {gained} into a shield on {self.name}")
 
+    def restore_expired_buffs(self, turns=3):
+        """Put back every turn-based buff that ran out on the holder within their last `turns`
+        turns, at full length. Returns how many. Owen Pryce's "A Record of the Route"."""
+        now = getattr(self, "_turns_taken", 0)
+        back = 0
+        for effect, when in list(getattr(self, "_recently_expired", None) or []):
+            if now - when < turns and not any(e.effect_id == effect.effect_id for e in self._effects()):
+                effect.duration = getattr(effect, "max_duration", None) or 1
+                self.apply_status_effect(effect)
+                back += 1
+        self._recently_expired = []
+        return back
+
+    def spring_trap(self):
+        """If the holder is standing in a trap, it goes off now. Returns (effect, damage) or None."""
+        effect = next((e for e in self._effects() if getattr(e, "trap_damage", 0)), None)
+        if effect is None:
+            return None
+        self._discard_effect(effect)
+        dealt = self.take_damage(effect.trap_damage, getattr(effect, "trap_school", "nature"))
+        return effect, dealt
+
     def counter_missed_attack(self, attacker, engine=None):
         """Answer an attack that just missed the holder, if an effect says so. Returns the log
         line, or "". Jun-seo Park: "every attack that misses Jun-seo is answered immediately."
@@ -1483,8 +1512,14 @@ class StatusEffectMixin:
         previous = getattr(self, "_last_ability_id", None)
         repeated = previous is not None and previous == ability_id
         self._last_ability_id = ability_id
+        used = getattr(self, "_abilities_used", None)
+        if used is None:
+            used = self._abilities_used = set()
+        reused = ability_id in used
+        used.add(ability_id)
         for effect in list(self._effects()):
             gain = ((repeated and getattr(effect, "stack_on_repeat", False))
+                    or (reused and getattr(effect, "stack_on_reuse", False))
                     or (was_damage and getattr(effect, "stack_on_attack", False)))
             if not gain:
                 continue
@@ -1711,6 +1746,7 @@ class StatusEffectMixin:
         # put every one of these abilities permanently one stack ahead of
         # its own tooltip.
         earned = (getattr(effect, "stack_on_repeat", False)
+                  or getattr(effect, "stack_on_reuse", False)
                   or getattr(effect, "stack_on_attack", False))
         raw = getattr(effect, "stacks", 1)
         stacks = raw if earned else max(1, raw or 1)
@@ -1742,6 +1778,20 @@ class StatusEffectMixin:
         return total
 
     def tick_status_effects(self):
+        """One turn of the holder's effects (see _tick_status_effects), remembering which buffs
+        ran out so they can be brought back."""
+        before = [e for e in self._effects()
+                  if e.effect_type == EffectType.BUFF and getattr(e, "real_time_seconds", None) is None]
+        messages = self._tick_status_effects()
+        self._turns_taken = getattr(self, "_turns_taken", 0) + 1
+        live = self._effects()
+        gone = [e for e in before if not any(e is x for x in live) and e.is_expired()]
+        kept = [(e, t) for e, t in (getattr(self, "_recently_expired", None) or [])
+                if self._turns_taken - t < 6]
+        self._recently_expired = kept + [(e, self._turns_taken) for e in gone]
+        return messages
+
+    def _tick_status_effects(self):
         """Advance DOT/HOT/turn-based-BUFF/DEBUFF effects by one turn.
         Returns a list of log messages.
 

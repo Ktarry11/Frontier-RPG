@@ -734,6 +734,22 @@ class CombatEngine:
         if not enemy or self.is_ally(enemy) or not enemy.is_alive():
             return
 
+        # A TRAP laid on this enemy's row goes off on the first of them to act: it takes the
+        # damage and loses the turn, and the trap is spent for the rest of the row.
+        sprung = enemy.spring_trap() if hasattr(enemy, "spring_trap") else None
+        if sprung:
+            effect, dealt = sprung
+            for other in self.enemies:
+                for e in list(getattr(other, "active_effects", None) or []):
+                    if e.effect_id == effect.effect_id and getattr(e, "trap_damage", 0):
+                        other._discard_effect(e)
+            self.combat_log.append(
+                f"{enemy.name} walks into {effect.name}: {dealt} {effect.trap_school} damage, and it loses the turn!")
+            if not enemy.is_alive():
+                self.combat_log.append(f"{enemy.name} is defeated!")
+            self._end_turn(enemy)
+            return
+
         target = self.default_target_for(enemy)
         if target is None:
             self._end_turn(enemy)

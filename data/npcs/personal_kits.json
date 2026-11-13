@@ -1200,7 +1200,7 @@
         "ability_id": "personal_owen_a_record_of_the_route",
         "name": "A Record of the Route",
         "from": "'he has begun writing down what he hears, on the grounds that if he ever goes wrong, somebody will want a record of the route'",
-        "engine": "needs: reapply the party's expired buffs",
+        "engine": "live: immediate restore_expired - buffs that ran out in each ally's last 3 turns come back at full length",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
@@ -1216,7 +1216,11 @@
             "cost": 40,
             "effect_value": 3
           }
-        ]
+        ],
+        "immediate": {
+          "action": "restore_expired",
+          "turns": 3
+        }
       }
     ]
   },
@@ -1626,20 +1630,22 @@
         "ability_id": "personal_marta_fixes_it_properly",
         "name": "Fixes It Properly",
         "from": "'She undercuts them by a third and fixes it properly.'",
-        "engine": "needs: extend summoned-device duration",
+        "engine": "live: damage_dealt_pct on her devices (they do not expire, so there is nothing to lengthen)",
         "effect_type": "buff",
-        "target_type": "self",
+        "target_type": "pet",
         "resource_type": "mana",
         "cooldown": 12,
-        "duration": 0,
-        "stat_mods": {},
-        "description": "Every device Marta has out lasts 3 turns longer and deals 20% more damage.",
+        "duration": 6,
+        "stat_mods": {
+          "damage_dealt_pct": 20
+        },
+        "description": "For 6 turns every device Marta has out deals 20% more damage.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 25,
-            "effect_value": 20
+            "effect_value": 100
           }
         ],
         "is_instant": true
@@ -2390,23 +2396,27 @@
         "ability_id": "personal_pavlo_the_same_four_wars",
         "name": "The Same Four Wars Every Spring",
         "from": "'He taught the same four wars every spring.'",
-        "engine": "needs: per-ability damage reduction that grows each time that ability is used",
-        "effect_type": "buff",
-        "target_type": "party",
+        "engine": "live: stack_on reuse - a stack of -25% damage each time the enemy reuses an ability",
+        "effect_type": "debuff",
+        "target_type": "all_enemies",
         "resource_type": "rage",
         "cooldown": 12,
         "duration": 6,
         "is_instant": true,
-        "stat_mods": {},
-        "description": "For 6 turns, each time an enemy repeats an ability it has already used this fight, it lands for 25% less, stacking.",
+        "stat_mods": {
+          "damage_dealt_pct": -25
+        },
+        "description": "For 6 turns, each time an enemy uses an ability it has already used this fight, it deals 25% less damage, stacking twice.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 25,
-            "effect_value": 25
+            "effect_value": 100
           }
-        ]
+        ],
+        "max_stacks": 2,
+        "stack_on": "reuse"
       }
     ]
   },
@@ -2796,23 +2806,29 @@
         "ability_id": "personal_imelda_rules_a_count",
         "name": "Rules, A Count, Somebody Keeping Time",
         "from": "'whether anybody here fights properly. Rules. A count. Somebody keeping time.'",
-        "engine": "needs: duel - force one enemy and one ally into isolated exchange",
+        "engine": "live: taunt holds it on her, damage_dealt_pct +30 on it, mark +30% for her against it",
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "rage",
         "cooldown": 15,
         "duration": 3,
-        "stat_mods": {},
-        "description": "For 3 turns Imelda and the target can only attack each other, and both deal 30% more damage.",
+        "stat_mods": {
+          "damage_dealt_pct": 30,
+          "taunt": 1
+        },
+        "description": "For 3 turns the target is locked onto Imelda. It deals 30% more damage, and so does she to it.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 30,
-            "effect_value": 30
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "mark": {
+          "pct": 30
+        }
       }
     ]
   },
@@ -4921,14 +4937,14 @@
         "ability_id": "personal_khalid_exactly_where_he_said",
         "name": "Exactly Where He Said He Would Be",
         "from": "'Out ahead of the party, usually invisible, always exactly where he said he would be.'",
-        "engine": "needs: pre-placed trap that triggers on a chosen row",
+        "engine": "live: trap - springs on the first trapped enemy to take a turn",
         "effect_type": "debuff",
         "target_type": "enemy_aoe",
         "resource_type": "mana",
         "cooldown": 12,
         "duration": 4,
         "stat_mods": {},
-        "description": "Sets a trap on one enemy row. The next enemy to act there is rooted and takes heavy nature damage.",
+        "description": "Sets a trap on one enemy row. The first enemy there to act takes heavy nature damage and loses its turn.",
         "ranks": [
           {
             "rank": 1,
@@ -4937,7 +4953,10 @@
             "effect_value": 110
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "trap": {
+          "school": "nature"
+        }
       },
       {
         "ability_id": "personal_khalid_took_food_from_his_hand",
@@ -5271,14 +5290,14 @@
         "ability_id": "personal_gianluca_already_knew",
         "name": "He Already Knew",
         "from": "'the six o'clock crowd who never ordered because he already knew'",
-        "engine": "needs: pre-apply the correct defensive buff per ally",
+        "engine": "live: anticipate_resist - reads the living enemies' kits",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "energy",
         "cooldown": 15,
         "duration": 4,
         "stat_mods": {},
-        "description": "For 4 turns each ally gains whichever resistance the enemy is about to use most.",
+        "description": "For 4 turns each ally gains 25 resistance to whichever school of magic the enemy leans on most. Against enemies with no magic, 10% less physical damage instead.",
         "ranks": [
           {
             "rank": 1,
@@ -5287,7 +5306,8 @@
             "effect_value": 25
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "anticipate_resist": 25
       }
     ]
   },

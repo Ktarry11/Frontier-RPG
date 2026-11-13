@@ -358,6 +358,7 @@ class Ability:
                  immediate=None,
                  variance_mode=None, reveals_intent=None, mark=None, bonus_vs_debuffers_pct=0,
                  breaks_on_attack=False, idle_charge=None, counter_on_miss=False,
+                 trap=None, anticipate_resist=0,
                  variance=None,
                  is_aoe=False, consumes_target_stacks_of=None, damage_per_stack_pct=0.0,
                  cooldown_per_stack=0.0, scales_with_target_stacks_of=None,
@@ -648,6 +649,11 @@ class Ability:
         self.breaks_on_attack = bool(breaks_on_attack)
         self.idle_charge = dict(idle_charge) if idle_charge else None
         self.counter_on_miss = bool(counter_on_miss)
+        #: {"school": "nature"} - a debuff that is a trap; see StatusEffect.trap_damage.
+        self.trap = dict(trap) if trap else None
+        #: A party buff that picks its own resistance: the magic school the living enemies'
+        #: kits lean on most gets this many points. See _anticipated_school.
+        self.anticipate_resist = anticipate_resist or 0
         #: PER-ABILITY damage/heal spread, as a fraction, overriding
         #: SPELL_VARIANCE. Kyle, 8 Nov 2026: "So you can just....fix up each
         #: spell by adding +/-12% to what it does?" - a fair challenge, and
@@ -1673,6 +1679,21 @@ class Ability:
             return self.damage_school
         return getattr(caster, "current_attunement", None) or DamageSchool.ARCANE
 
+    @staticmethod
+    def _anticipated_school(engine):
+        """The magic school the living enemies' kits lean on most, or None if they have none."""
+        if engine is None:
+            return None
+        from collections import Counter
+        from combat.status_effects import DamageSchool
+        count = Counter()
+        for foe in engine.living_enemies():
+            for a in getattr(foe, "abilities", None) or []:
+                school = getattr(a, "school", None)
+                if school in DamageSchool.ALL_SCHOOLS and getattr(a, "kind", "") in ("damage", "dot"):
+                    count[school] += 1
+        return count.most_common(1)[0][0] if count else None
+
     def _run_immediate(self, caster, target, party):
         """Act on state that already exists. Returns a log line, or None.
 
@@ -1701,6 +1722,15 @@ class Ability:
                 return f"{caster.name} uses {self.name}, but nothing is running."
             return (f"{caster.name} uses {self.name}, extending {total} effect"
                     f"{'s' if total != 1 else ''} by {turns} turns!")
+        if action == "restore_expired":
+            turns = spec.get("turns", 3)
+            total = 0
+            for ally in self._recipients(caster, target if target is not None else party):
+                if hasattr(ally, "restore_expired_buffs"):
+                    total += ally.restore_expired_buffs(turns)
+            if not total:
+                return f"{caster.name} uses {self.name}, but nothing has lapsed."
+            return f"{caster.name} uses {self.name}, bringing back {total} effect{'s' if total != 1 else ''}!"
         if action == "steal_buff":
             victims = self._hostile_recipients(target)
             for v in victims:
@@ -3877,6 +3907,13 @@ class Ability:
             for k, v in (self.stat_mods or {}).items():
                 scaled = v * scalar * (1.0 + potency_bonus)
                 mods[k] = scaled if k.endswith("_pct") else int(scaled)
+            if self.anticipate_resist:
+                school = self._anticipated_school(engine)
+                mods = dict(mods)
+                if school:
+                    mods[f"{school}_resistance"] = int(self.anticipate_resist)
+                else:           # nothing out there casts: brace for the blows instead
+                    mods["physical_damage_taken_pct"] = -10
             recipients = self._recipients(caster, target)
             # "raid" buffs (Fortitude, Mark of the Wild, ...) run on the
             # 30-min real-time clock and survive between fights; "combat"
@@ -3968,6 +4005,8 @@ class Ability:
                     effect.stack_on_repeat = True
                 elif self.stack_on == "attack":
                     effect.stack_on_attack = True
+                elif self.stack_on == "reuse":
+                    effect.stack_on_reuse = True
                 if self.stack_on:
                     # earned from zero - see _status_mods_for
                     effect.stacks = 0
@@ -4063,6 +4102,8 @@ class Ability:
                         effect.stack_on_repeat = True
                     elif self.stack_on == "attack":
                         effect.stack_on_attack = True
+                    elif self.stack_on == "reuse":
+                        effect.stack_on_reuse = True
                     if self.stack_on:
                         effect.stacks = 0
                     if self.scaling and (self.scaling.get("source") == "living_allies"):
@@ -4072,6 +4113,11 @@ class Ability:
                     if self.mark:
                         effect.marked_by = caster.name
                         effect.marked_pct = self.mark.get("pct", 0)
+                    if self.trap:
+                        power = max(getattr(caster, "attack_power", 0) or 0, getattr(caster, "spell_power", 0) or 0)
+                        effect.trap_damage = max(1, int((self.effect_value + power * 0.8)
+                                                        * self._damage_multiplier(caster, "spell", recipient=t)))
+                        effect.trap_school = self.trap.get("school", "nature")
                     t.apply_status_effect(effect)
                     # force_proc_group (Barbed Stinger): find whichever
                     # active effect on the CASTER shares this
@@ -4720,6 +4766,8 @@ def _ability_from_data(entry):
         breaks_on_attack=entry.get("breaks_on_attack", False),
         idle_charge=entry.get("idle_charge"),
         counter_on_miss=entry.get("counter_on_miss", False),
+        trap=entry.get("trap"),
+        anticipate_resist=entry.get("anticipate_resist", 0),
         variance=entry.get("variance"),
         consumes_stacks_of=entry.get("consumes_stacks_of"),
         consumes_target_stacks_of=entry.get("consumes_target_stacks_of"),
