@@ -20,7 +20,8 @@ EIGHT CLAIMS:
      change the stuff inside... we wont mix and match. A shaman who uses 5 enhancement and 3
      elemental gets 2 and 4 piece enhancement bonus and 2 piece elemental." Each version is
      counted on its own and pays its own bonuses; a piece can be exchanged, free, for another
-     spec's version at the capitals, Freewind Post and Booty Bay - name, stats and version
+     spec's version by an Artifact Keeper (Orgrimmar, Undercity, Kael's Bastion, Freewind
+     Post, Booty Bay) - name, stats and version
      change; slot, level, rarity and set do not.
   7. EVERY SET THAT SHIPS IS WELL FORMED: real slots, a class that exists, bonuses whose stats
      actually move a character sheet, and thresholds that can be reached.
@@ -219,13 +220,22 @@ def main():
     sh.inventory.remove(spare)
     import json
     services = json.load(open("data/travel/travel_data.json"))["services"]
-    for npc, place in (("org_innkeeper", "Orgrimmar"), ("uc_innkeeper", "Undercity"),
-                       ("fw_innkeeper", "Freewind Post"), ("bootybay_tavern_keeper", "Booty Bay")):
-        if "set_exchange" not in services.get(npc, []):
-            bad.append(f"nobody in {place} offers the set exchange")
-    elsewhere = [n for n, v in services.items() if "set_exchange" in v]
-    if len(elsewhere) != 4:
-        bad.append(f"the set exchange is offered by {len(elsewhere)} NPCs, not the four Kyle named")
+    # ...by an Artifact Keeper - a person of their own, not the innkeeper or the banker
+    keepers = {"ak_org": "Orgrimmar", "ak_uc": "Undercity", "ak_kb": "Kael's Bastion",
+               "ak_freewind": "Freewind Post", "ak_bootybay": "Booty Bay"}
+    people = {n["npc_id"]: n for n in json.load(open("data/npcs/ambient_npcs.json"))["npcs"]}
+    for npc, place in keepers.items():
+        if services.get(npc) != ["set_exchange"]:
+            bad.append(f"the Artifact Keeper in {place} does not offer the set exchange (and only that)")
+        if npc not in people or not people[npc]["name"].startswith("Artifact Keeper "):
+            bad.append(f"there is no Artifact Keeper standing in {place}")
+    offering = sorted(n for n, v in services.items() if "set_exchange" in v)
+    if offering != sorted(keepers):
+        bad.append(f"the set exchange is offered by {offering}; it should be the five Keepers and nobody else")
+    spots = [(people[k]["zone"], people[k]["x"], people[k]["y"]) for k in keepers if k in people]
+    taken = [(n["zone"], n["x"], n["y"]) for n in people.values() if n["npc_id"] not in keepers]
+    if any(s in taken for s in spots):
+        bad.append("an Artifact Keeper is standing on somebody else's tile")
     svc = Path("ui/screens/travel_service_screen.py").read_text()
     if 'self.kind == "set_exchange"' not in svc or "price=None, label=\"Exchange\"" not in svc:
         bad.append("the service screen has no free set-exchange list")
@@ -235,30 +245,117 @@ def main():
 
     # 7. shipped sets
     GS.all_sets().pop(TEST, None)
-    classes = {os.path.basename(p)[:-5] for p in __import__("glob").glob("data/abilities/*.json")}
+    import glob
+    classes = {os.path.basename(p)[:-5] for p in glob.glob("data/abilities/*.json")
+               if not os.path.basename(p).startswith("_") and "asher" not in p}
     shipped = GS.all_sets()
+    proven = {}                      # a bonus dict that has been shown to move a sheet
+    pieces_total = 0
     for sid, d in shipped.items():
-        pieces = d.get("pieces") or {}
-        for slot in pieces:
-            if slot not in EQUIPMENT_SLOTS:
-                bad.append(f"{sid}: '{slot}' is not an equipment slot")
         cls = str(d.get("class", "")).lower().replace(" ", "_")
         if cls not in classes:
             bad.append(f"{sid}: class {d.get('class')!r} does not exist")
-        for need, bonus in GS.thresholds(d):
-            if need > len(pieces):
-                bad.append(f"{sid}: a {need}-piece bonus on a set of {len(pieces)}")
-            probe = make(d.get("class", "Warrior"))
-            before = dict(vars(probe))
-            GS.register("_probe", {"pieces": {"head": "p"}, "bonuses": {"1": bonus}})
-            probe.equipment.slots["head"] = piece("head", "_probe")
-            probe._recalculate_derived_stats()
-            after = vars(probe)
-            if not any(isinstance(v, (int, float)) and before.get(k) != v for k, v in after.items()):
-                bad.append(f"{sid}: the {need}-piece bonus {bonus.get('stats')} changes nothing on the sheet")
-            GS.all_sets().pop("_probe", None)
+        kinds = GS.variants(d) or {None: d}
+        frames = d.get("slots") or {}
+        names_by_slot, totals_by_slot = {}, {}
+        for key, v in kinds.items():
+            pieces = v.get("pieces") or {}
+            for slot, spec in pieces.items():
+                pieces_total += 1
+                if slot not in EQUIPMENT_SLOTS:
+                    bad.append(f"{sid}: '{slot}' is not an equipment slot")
+                if isinstance(spec, dict):
+                    names_by_slot.setdefault(slot, []).append(spec["name"])
+                    totals_by_slot.setdefault(slot, set()).add(sum(spec["primary_stats"].values()))
+                    it = GS.make_piece(sid, slot, key)
+                    if it is None or it.set_variant != key or it.name != spec["name"]:
+                        bad.append(f"{sid}/{key}: make_piece does not make the {slot}")
+                    elif it.required_level != frames[slot]["required_level"]:
+                        bad.append(f"{sid}: {it.name} requires level {it.required_level}, the set says "
+                                   f"{frames[slot]['required_level']}")
+            for need, bonus in GS.bonuses_for(d, key):
+                if need > len(pieces):
+                    bad.append(f"{sid}/{key}: a {need}-piece bonus on a set of {len(pieces)}")
+                sig = (d.get("class"), json.dumps(bonus.get("stats"), sort_keys=True))
+                if sig not in proven:
+                    probe = make(d.get("class", "Warrior"))
+                    before = {k: v for k, v in vars(probe).items() if isinstance(v, (int, float))}
+                    GS.register("_probe", {"pieces": {"head": "p"}, "bonuses": {"1": bonus}})
+                    probe.equipment.slots["head"] = piece("head", "_probe")
+                    probe._recalculate_derived_stats()
+                    after = vars(probe)
+                    proven[sig] = sorted(k for k, v in before.items() if after.get(k) != v)
+                    GS.all_sets().pop("_probe", None)
+                moved = proven[sig]
+                for stat in (bonus.get("stats") or {}):
+                    want = {"spirit": "effective_spirit", "stamina": "effective_stamina", "strength": "effective_strength",
+                            "agility": "effective_agility", "intellect": "effective_intellect"}.get(stat, stat)
+                    if want not in moved:
+                        bad.append(f"{sid}/{key}: the {need}-piece bonus says +{stat} and {want} does not "
+                                   f"move on a {d.get('class')} (moved: {moved[:6]})")
+        for slot, names in names_by_slot.items():
+            if len(set(names)) != len(names):
+                bad.append(f"{sid}: two versions share a {slot} name: {names}")
+        for slot, totals in totals_by_slot.items():
+            if len(totals) != 1:
+                bad.append(f"{sid}: the {slot} is worth {sorted(totals)} primary points depending on "
+                           f"version - an exchange must never be an upgrade")
 
-    print(f"{len(shipped)} sets shipped; engine checked on a six-piece test set")
+    # THE T0 SETS: every class has one, eight pieces, levels 52-58 as in Classic
+    t0 = {d["class"]: (sid, d) for sid, d in shipped.items() if d.get("tier") == "T0"}
+    missing = sorted(c for c in classes if c.replace("_", " ").title() not in {k.title() for k in t0})
+    if missing:
+        bad.append(f"no T0 set for: {missing}")
+    for cls, (sid, d) in t0.items():
+        reqs = sorted(f["required_level"] for f in d["slots"].values())
+        if reqs != [52, 53, 54, 54, 55, 56, 57, 58]:
+            bad.append(f"{sid}: required levels are {reqs}; Classic's dungeon set is 52,53,54,54,55,56,57,58")
+        for key, v in d["variants"].items():
+            if len(v["pieces"]) != 8:
+                bad.append(f"{sid}/{key}: {len(v['pieces'])} pieces, T0 is eight")
+            if sorted(v["bonuses"]) != ["2", "4"]:
+                bad.append(f"{sid}/{key}: bonuses at {sorted(v['bonuses'])}; 2 and 4 are designed, 6 and 8 are not yet")
+            two = v["bonuses"]["2"]["stats"]
+            if sum(two.values()) != 30:
+                bad.append(f"{sid}/{key}: the 2-piece bonus totals {sum(two.values())}, Kyle said +30")
+            four = set(v["bonuses"]["4"]["stats"])
+            if not four <= {"attack_power", "ranged_attack_power", "spell_power", "healing_power"}:
+                bad.append(f"{sid}/{key}: the 4-piece bonus is {sorted(four)}; it is power of one kind or two")
+    if t0:
+        if "cryomancer" not in t0["Mage"][1]["variants"]:
+            bad.append("the Mage set has no Cryomancer version (Kyle's home-brew DPS healer)")
+        if "enhancement_tank" not in t0["Shaman"][1]["variants"]:
+            bad.append("the Shaman set has no Enhancement Tank version (Kyle's home-brew)")
+        if len(t0["Necromancer"][1]["variants"]) != 1:
+            bad.append("the Necromancer set has more than one version - every tree is dps")
+        ret = [v for v in t0["Paladin"][1]["variants"].values() if "Retribution" in v["label"]]
+        if not ret or set(ret[0]["bonuses"]["4"]["stats"]) != {"attack_power", "spell_power"}:
+            bad.append("Retribution's 4-piece is not attack power AND spell power")
+        # Kyle's example, on the real set
+        sham = make("Shaman")
+        sid = t0["Shaman"][0]
+        for s in EQUIPMENT_SLOTS:
+            sham.equipment.slots[s] = None
+        sham._recalculate_derived_stats()
+        ap0, sp0, agi0, int0 = sham.attack_power, sham.spell_power, sham.effective_agility, sham.effective_intellect
+        order = ["head", "shoulder", "chest", "wrist", "hands", "waist", "legs", "feet"]
+        for s in order[:5]:
+            sham.equipment.slots[s] = GS.make_piece(sid, s, "melee")
+        for s in order[5:]:
+            sham.equipment.slots[s] = GS.make_piece(sid, s, "caster")
+        sham._recalculate_derived_stats()
+        if GS.active_bonuses(sham) != {"agility": 30, "attack_power": 40, "intellect": 30}:
+            bad.append(f"a Shaman in 5 Enhancement + 3 Elemental should have Enhancement's 2 and 4 and "
+                       f"Elemental's 2; has {GS.active_bonuses(sham)}")
+        # the generator and the data file agree
+        import subprocess
+        fresh = subprocess.run([sys.executable, "tools/build_t0_sets.py", "--dry-run"],
+                               capture_output=True, text=True).stdout
+        if f"{len(t0)} sets" not in fresh:
+            bad.append("tools/build_t0_sets.py no longer builds the sets that are in the data file")
+
+    print(f"{len(shipped)} sets shipped ({sum(len(GS.variants(d)) for d in shipped.values())} versions, "
+          f"{pieces_total} pieces); engine checked on a six-piece test set")
     if bad:
         print(f"\n{len(bad)} problem(s):")
         for line in bad:

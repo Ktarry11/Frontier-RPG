@@ -1,4 +1,9095 @@
 {
-  "_about": "Gear sets. See world/gear_sets.py for the shape. bonuses is {pieces: {stats: {...}, text: optional}}.",
-  "sets": {}
+ "_about": "Gear sets. BUILT by tools/build_t0_sets.py - edit that, not this. Shape: world/gear_sets.py. T0: eight pieces, required levels 52-58 as in Classic's dungeon set 1, one version per way a class gears, bonuses at 2 and 4 (6 and 8 not designed yet). No drop source yet, on purpose.",
+ "sets": {
+  "t0_warrior": {
+   "name": "Gatebreaker's Battlegear",
+   "class": "Warrior",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "plate",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 393
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 393
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 472
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 294
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 305
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 304
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 456
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 305
+    }
+   },
+   "variants": {
+    "melee": {
+     "label": "Arms / Fury",
+     "profile": "melee_str",
+     "pieces": {
+      "head": {
+       "name": "Gatebreaker's Helm",
+       "primary_stats": {
+        "strength": 16,
+        "stamina": 12
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "hit_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Gatebreaker's Pauldrons",
+       "primary_stats": {
+        "strength": 17,
+        "stamina": 13
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "hit_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Gatebreaker's Hauberk",
+       "primary_stats": {
+        "strength": 23,
+        "stamina": 18
+       },
+       "secondary_stats": {
+        "attack_power": 10,
+        "hit_rating": 1
+       }
+      },
+      "wrist": {
+       "name": "Gatebreaker's Bracers",
+       "primary_stats": {
+        "strength": 13,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "hit_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Gatebreaker's Gauntlets",
+       "primary_stats": {
+        "strength": 11,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "hit_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Gatebreaker's Girdle",
+       "primary_stats": {
+        "strength": 11,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "hit_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Gatebreaker's Legguards",
+       "primary_stats": {
+        "strength": 17,
+        "stamina": 13
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "hit_rating": 1
+       }
+      },
+      "feet": {
+       "name": "Gatebreaker's Greaves",
+       "primary_stats": {
+        "strength": 11,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "hit_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "strength": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    },
+    "tank": {
+     "label": "Protection",
+     "profile": "tank_str",
+     "pieces": {
+      "head": {
+       "name": "Gatebreaker's Greathelm",
+       "primary_stats": {
+        "stamina": 17,
+        "strength": 11
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Gatebreaker's Shoulderguards",
+       "primary_stats": {
+        "stamina": 18,
+        "strength": 12
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Gatebreaker's Chestguard",
+       "primary_stats": {
+        "stamina": 25,
+        "strength": 16
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "wrist": {
+       "name": "Gatebreaker's Vambraces",
+       "primary_stats": {
+        "stamina": 14,
+        "strength": 9
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Gatebreaker's Handguards",
+       "primary_stats": {
+        "stamina": 12,
+        "strength": 7
+       },
+       "secondary_stats": {
+        "defense_rating": 1,
+        "dodge_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Gatebreaker's Waistguard",
+       "primary_stats": {
+        "stamina": 12,
+        "strength": 7
+       },
+       "secondary_stats": {
+        "defense_rating": 1,
+        "dodge_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Gatebreaker's Legplates",
+       "primary_stats": {
+        "stamina": 18,
+        "strength": 12
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "feet": {
+       "name": "Gatebreaker's Sabatons",
+       "primary_stats": {
+        "stamina": 12,
+        "strength": 7
+       },
+       "secondary_stats": {
+        "defense_rating": 1,
+        "dodge_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "stamina": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_paladin": {
+   "name": "Dawnwarden Plate",
+   "class": "Paladin",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "plate",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 393
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 379
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 472
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 294
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 305
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 299
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 456
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 305
+    }
+   },
+   "variants": {
+    "healer": {
+     "label": "Holy",
+     "profile": "healer",
+     "pieces": {
+      "head": {
+       "name": "Dawnwarden Cowl",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 8,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      },
+      "shoulder": {
+       "name": "Dawnwarden Shoulderpads",
+       "primary_stats": {
+        "intellect": 8,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      },
+      "chest": {
+       "name": "Dawnwarden Robe",
+       "primary_stats": {
+        "intellect": 12,
+        "spirit": 7,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      },
+      "wrist": {
+       "name": "Dawnwarden Wraps",
+       "primary_stats": {
+        "intellect": 10,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 8
+       }
+      },
+      "hands": {
+       "name": "Dawnwarden Handwraps",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 9,
+        "healing_power": 8
+       }
+      },
+      "waist": {
+       "name": "Dawnwarden Cord",
+       "primary_stats": {
+        "intellect": 8,
+        "spirit": 5,
+        "stamina": 5
+       },
+       "secondary_stats": {
+        "spell_power": 7,
+        "healing_power": 6
+       }
+      },
+      "legs": {
+       "name": "Dawnwarden Kilt",
+       "primary_stats": {
+        "intellect": 14,
+        "spirit": 10,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "spell_power": 13,
+        "healing_power": 12
+       }
+      },
+      "feet": {
+       "name": "Dawnwarden Sandals",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 9,
+        "healing_power": 8
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "spirit": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "healing_power": 40
+       }
+      }
+     }
+    },
+    "tank": {
+     "label": "Protection",
+     "profile": "tank_hybrid",
+     "pieces": {
+      "head": {
+       "name": "Dawnwarden Greathelm",
+       "primary_stats": {
+        "stamina": 15,
+        "strength": 6,
+        "intellect": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 8
+       }
+      },
+      "shoulder": {
+       "name": "Dawnwarden Shoulderguards",
+       "primary_stats": {
+        "stamina": 10,
+        "strength": 5,
+        "intellect": 5
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "spell_power": 6
+       }
+      },
+      "chest": {
+       "name": "Dawnwarden Chestguard",
+       "primary_stats": {
+        "stamina": 14,
+        "strength": 6,
+        "intellect": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 8
+       }
+      },
+      "wrist": {
+       "name": "Dawnwarden Vambraces",
+       "primary_stats": {
+        "stamina": 12,
+        "strength": 5,
+        "intellect": 5
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 7
+       }
+      },
+      "hands": {
+       "name": "Dawnwarden Handguards",
+       "primary_stats": {
+        "stamina": 13,
+        "strength": 5,
+        "intellect": 5
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 7
+       }
+      },
+      "waist": {
+       "name": "Dawnwarden Waistguard",
+       "primary_stats": {
+        "stamina": 10,
+        "strength": 4,
+        "intellect": 4
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "spell_power": 6
+       }
+      },
+      "legs": {
+       "name": "Dawnwarden Legplates",
+       "primary_stats": {
+        "stamina": 18,
+        "strength": 8,
+        "intellect": 8
+       },
+       "secondary_stats": {
+        "defense_rating": 4,
+        "spell_power": 10
+       }
+      },
+      "feet": {
+       "name": "Dawnwarden Sabatons",
+       "primary_stats": {
+        "stamina": 13,
+        "strength": 5,
+        "intellect": 5
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 7
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "stamina": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 20,
+        "spell_power": 14
+       }
+      }
+     }
+    },
+    "hybrid": {
+     "label": "Retribution",
+     "profile": "hybrid_str",
+     "pieces": {
+      "head": {
+       "name": "Dawnwarden Headguard",
+       "primary_stats": {
+        "strength": 10,
+        "intellect": 8,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 9
+       }
+      },
+      "shoulder": {
+       "name": "Dawnwarden Epaulets",
+       "primary_stats": {
+        "strength": 7,
+        "intellect": 6,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 7
+       }
+      },
+      "chest": {
+       "name": "Dawnwarden Harness",
+       "primary_stats": {
+        "strength": 10,
+        "intellect": 7,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 9
+       }
+      },
+      "wrist": {
+       "name": "Dawnwarden Armguards",
+       "primary_stats": {
+        "strength": 9,
+        "intellect": 6,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 8
+       }
+      },
+      "hands": {
+       "name": "Dawnwarden Fists",
+       "primary_stats": {
+        "strength": 9,
+        "intellect": 6,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 8
+       }
+      },
+      "waist": {
+       "name": "Dawnwarden Clasp",
+       "primary_stats": {
+        "strength": 7,
+        "intellect": 5,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "attack_power": 4,
+        "spell_power": 6
+       }
+      },
+      "legs": {
+       "name": "Dawnwarden Tassets",
+       "primary_stats": {
+        "strength": 13,
+        "intellect": 10,
+        "stamina": 11
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "spell_power": 12
+       }
+      },
+      "feet": {
+       "name": "Dawnwarden Treads",
+       "primary_stats": {
+        "strength": 9,
+        "intellect": 6,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 8
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "strength": 15,
+        "intellect": 15
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 20,
+        "spell_power": 14
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_knight_of_xoroth": {
+   "name": "Hellforged Warplate",
+   "class": "Knight of Xoroth",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "plate",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 393
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 379
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 472
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 294
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 305
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 299
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 456
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 305
+    }
+   },
+   "variants": {
+    "tank": {
+     "label": "Defiance",
+     "profile": "tank_hybrid",
+     "pieces": {
+      "head": {
+       "name": "Hellforged Greathelm",
+       "primary_stats": {
+        "stamina": 15,
+        "strength": 6,
+        "intellect": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 8
+       }
+      },
+      "shoulder": {
+       "name": "Hellforged Shoulderguards",
+       "primary_stats": {
+        "stamina": 10,
+        "strength": 5,
+        "intellect": 5
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "spell_power": 6
+       }
+      },
+      "chest": {
+       "name": "Hellforged Chestguard",
+       "primary_stats": {
+        "stamina": 14,
+        "strength": 6,
+        "intellect": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 8
+       }
+      },
+      "wrist": {
+       "name": "Hellforged Vambraces",
+       "primary_stats": {
+        "stamina": 12,
+        "strength": 5,
+        "intellect": 5
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 7
+       }
+      },
+      "hands": {
+       "name": "Hellforged Handguards",
+       "primary_stats": {
+        "stamina": 13,
+        "strength": 5,
+        "intellect": 5
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 7
+       }
+      },
+      "waist": {
+       "name": "Hellforged Waistguard",
+       "primary_stats": {
+        "stamina": 10,
+        "strength": 4,
+        "intellect": 4
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "spell_power": 6
+       }
+      },
+      "legs": {
+       "name": "Hellforged Legplates",
+       "primary_stats": {
+        "stamina": 18,
+        "strength": 8,
+        "intellect": 8
+       },
+       "secondary_stats": {
+        "defense_rating": 4,
+        "spell_power": 10
+       }
+      },
+      "feet": {
+       "name": "Hellforged Sabatons",
+       "primary_stats": {
+        "stamina": 13,
+        "strength": 5,
+        "intellect": 5
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 7
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "stamina": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 20,
+        "spell_power": 14
+       }
+      }
+     }
+    },
+    "melee": {
+     "label": "Hellfire / War",
+     "profile": "melee_str",
+     "pieces": {
+      "head": {
+       "name": "Hellforged Helm",
+       "primary_stats": {
+        "strength": 15,
+        "stamina": 12
+       },
+       "secondary_stats": {
+        "attack_power": 10,
+        "hit_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Hellforged Pauldrons",
+       "primary_stats": {
+        "strength": 11,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "hit_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Hellforged Hauberk",
+       "primary_stats": {
+        "strength": 15,
+        "stamina": 11
+       },
+       "secondary_stats": {
+        "attack_power": 10,
+        "hit_rating": 1
+       }
+      },
+      "wrist": {
+       "name": "Hellforged Bracers",
+       "primary_stats": {
+        "strength": 13,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "hit_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Hellforged Gauntlets",
+       "primary_stats": {
+        "strength": 13,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 9,
+        "hit_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Hellforged Girdle",
+       "primary_stats": {
+        "strength": 10,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "hit_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Hellforged Legguards",
+       "primary_stats": {
+        "strength": 19,
+        "stamina": 15
+       },
+       "secondary_stats": {
+        "attack_power": 13,
+        "hit_rating": 1
+       }
+      },
+      "feet": {
+       "name": "Hellforged Greaves",
+       "primary_stats": {
+        "strength": 13,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 9,
+        "hit_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "strength": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_guardian": {
+   "name": "Lastwall Bulwark",
+   "class": "Guardian",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "plate",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 393
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 393
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 472
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 294
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 305
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 304
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 456
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 305
+    }
+   },
+   "variants": {
+    "melee": {
+     "label": "Gladiator / Inspiration",
+     "profile": "melee_str",
+     "pieces": {
+      "head": {
+       "name": "Lastwall Helm",
+       "primary_stats": {
+        "strength": 16,
+        "stamina": 12
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "hit_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Lastwall Pauldrons",
+       "primary_stats": {
+        "strength": 17,
+        "stamina": 13
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "hit_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Lastwall Hauberk",
+       "primary_stats": {
+        "strength": 23,
+        "stamina": 18
+       },
+       "secondary_stats": {
+        "attack_power": 10,
+        "hit_rating": 1
+       }
+      },
+      "wrist": {
+       "name": "Lastwall Bracers",
+       "primary_stats": {
+        "strength": 13,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "hit_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Lastwall Gauntlets",
+       "primary_stats": {
+        "strength": 11,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "hit_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Lastwall Girdle",
+       "primary_stats": {
+        "strength": 11,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "hit_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Lastwall Legguards",
+       "primary_stats": {
+        "strength": 17,
+        "stamina": 13
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "hit_rating": 1
+       }
+      },
+      "feet": {
+       "name": "Lastwall Greaves",
+       "primary_stats": {
+        "strength": 11,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "hit_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "strength": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    },
+    "tank": {
+     "label": "Vanguard",
+     "profile": "tank_str",
+     "pieces": {
+      "head": {
+       "name": "Lastwall Greathelm",
+       "primary_stats": {
+        "stamina": 17,
+        "strength": 11
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Lastwall Shoulderguards",
+       "primary_stats": {
+        "stamina": 18,
+        "strength": 12
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Lastwall Chestguard",
+       "primary_stats": {
+        "stamina": 25,
+        "strength": 16
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "wrist": {
+       "name": "Lastwall Vambraces",
+       "primary_stats": {
+        "stamina": 14,
+        "strength": 9
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Lastwall Handguards",
+       "primary_stats": {
+        "stamina": 12,
+        "strength": 7
+       },
+       "secondary_stats": {
+        "defense_rating": 1,
+        "dodge_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Lastwall Waistguard",
+       "primary_stats": {
+        "stamina": 12,
+        "strength": 7
+       },
+       "secondary_stats": {
+        "defense_rating": 1,
+        "dodge_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Lastwall Legplates",
+       "primary_stats": {
+        "stamina": 18,
+        "strength": 12
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "feet": {
+       "name": "Lastwall Sabatons",
+       "primary_stats": {
+        "stamina": 12,
+        "strength": 7
+       },
+       "secondary_stats": {
+        "defense_rating": 1,
+        "dodge_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "stamina": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_cultist": {
+   "name": "Hollow Saint's Harness",
+   "class": "Cultist",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "plate",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 393
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 379
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 472
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 294
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 305
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 299
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 456
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 305
+    }
+   },
+   "variants": {
+    "hybrid": {
+     "label": "Corruption",
+     "profile": "hybrid_str",
+     "pieces": {
+      "head": {
+       "name": "Hollow Saint's Headguard",
+       "primary_stats": {
+        "strength": 10,
+        "intellect": 8,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 9
+       }
+      },
+      "shoulder": {
+       "name": "Hollow Saint's Epaulets",
+       "primary_stats": {
+        "strength": 7,
+        "intellect": 6,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 7
+       }
+      },
+      "chest": {
+       "name": "Hollow Saint's Harness",
+       "primary_stats": {
+        "strength": 10,
+        "intellect": 7,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 9
+       }
+      },
+      "wrist": {
+       "name": "Hollow Saint's Armguards",
+       "primary_stats": {
+        "strength": 9,
+        "intellect": 6,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 8
+       }
+      },
+      "hands": {
+       "name": "Hollow Saint's Fists",
+       "primary_stats": {
+        "strength": 9,
+        "intellect": 6,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 8
+       }
+      },
+      "waist": {
+       "name": "Hollow Saint's Clasp",
+       "primary_stats": {
+        "strength": 7,
+        "intellect": 5,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "attack_power": 4,
+        "spell_power": 6
+       }
+      },
+      "legs": {
+       "name": "Hollow Saint's Tassets",
+       "primary_stats": {
+        "strength": 13,
+        "intellect": 10,
+        "stamina": 11
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "spell_power": 12
+       }
+      },
+      "feet": {
+       "name": "Hollow Saint's Treads",
+       "primary_stats": {
+        "strength": 9,
+        "intellect": 6,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 8
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "strength": 15,
+        "intellect": 15
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 20,
+        "spell_power": 14
+       }
+      }
+     }
+    },
+    "tank": {
+     "label": "Dreadnought",
+     "profile": "tank_hybrid",
+     "pieces": {
+      "head": {
+       "name": "Hollow Saint's Greathelm",
+       "primary_stats": {
+        "stamina": 15,
+        "strength": 6,
+        "intellect": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 8
+       }
+      },
+      "shoulder": {
+       "name": "Hollow Saint's Shoulderguards",
+       "primary_stats": {
+        "stamina": 10,
+        "strength": 5,
+        "intellect": 5
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "spell_power": 6
+       }
+      },
+      "chest": {
+       "name": "Hollow Saint's Chestguard",
+       "primary_stats": {
+        "stamina": 14,
+        "strength": 6,
+        "intellect": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 8
+       }
+      },
+      "wrist": {
+       "name": "Hollow Saint's Vambraces",
+       "primary_stats": {
+        "stamina": 12,
+        "strength": 5,
+        "intellect": 5
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 7
+       }
+      },
+      "hands": {
+       "name": "Hollow Saint's Handguards",
+       "primary_stats": {
+        "stamina": 13,
+        "strength": 5,
+        "intellect": 5
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 7
+       }
+      },
+      "waist": {
+       "name": "Hollow Saint's Waistguard",
+       "primary_stats": {
+        "stamina": 10,
+        "strength": 4,
+        "intellect": 4
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "spell_power": 6
+       }
+      },
+      "legs": {
+       "name": "Hollow Saint's Legplates",
+       "primary_stats": {
+        "stamina": 18,
+        "strength": 8,
+        "intellect": 8
+       },
+       "secondary_stats": {
+        "defense_rating": 4,
+        "spell_power": 10
+       }
+      },
+      "feet": {
+       "name": "Hollow Saint's Sabatons",
+       "primary_stats": {
+        "stamina": 13,
+        "strength": 5,
+        "intellect": 5
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 7
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "stamina": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 20,
+        "spell_power": 14
+       }
+      }
+     }
+    },
+    "melee": {
+     "label": "Godblade",
+     "profile": "melee_str",
+     "pieces": {
+      "head": {
+       "name": "Hollow Saint's Helm",
+       "primary_stats": {
+        "strength": 15,
+        "stamina": 12
+       },
+       "secondary_stats": {
+        "attack_power": 10,
+        "hit_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Hollow Saint's Pauldrons",
+       "primary_stats": {
+        "strength": 11,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "hit_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Hollow Saint's Hauberk",
+       "primary_stats": {
+        "strength": 15,
+        "stamina": 11
+       },
+       "secondary_stats": {
+        "attack_power": 10,
+        "hit_rating": 1
+       }
+      },
+      "wrist": {
+       "name": "Hollow Saint's Bracers",
+       "primary_stats": {
+        "strength": 13,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "hit_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Hollow Saint's Gauntlets",
+       "primary_stats": {
+        "strength": 13,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 9,
+        "hit_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Hollow Saint's Girdle",
+       "primary_stats": {
+        "strength": 10,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "hit_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Hollow Saint's Legguards",
+       "primary_stats": {
+        "strength": 19,
+        "stamina": 15
+       },
+       "secondary_stats": {
+        "attack_power": 13,
+        "hit_rating": 1
+       }
+      },
+      "feet": {
+       "name": "Hollow Saint's Greaves",
+       "primary_stats": {
+        "strength": 13,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 9,
+        "hit_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "strength": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    },
+    "healer": {
+     "label": "Heretic",
+     "profile": "healer",
+     "pieces": {
+      "head": {
+       "name": "Hollow Saint's Cowl",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 8,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      },
+      "shoulder": {
+       "name": "Hollow Saint's Shoulderpads",
+       "primary_stats": {
+        "intellect": 8,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      },
+      "chest": {
+       "name": "Hollow Saint's Robe",
+       "primary_stats": {
+        "intellect": 12,
+        "spirit": 7,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      },
+      "wrist": {
+       "name": "Hollow Saint's Wraps",
+       "primary_stats": {
+        "intellect": 10,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 8
+       }
+      },
+      "hands": {
+       "name": "Hollow Saint's Handwraps",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 9,
+        "healing_power": 8
+       }
+      },
+      "waist": {
+       "name": "Hollow Saint's Cord",
+       "primary_stats": {
+        "intellect": 8,
+        "spirit": 5,
+        "stamina": 5
+       },
+       "secondary_stats": {
+        "spell_power": 7,
+        "healing_power": 6
+       }
+      },
+      "legs": {
+       "name": "Hollow Saint's Kilt",
+       "primary_stats": {
+        "intellect": 14,
+        "spirit": 10,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "spell_power": 13,
+        "healing_power": 12
+       }
+      },
+      "feet": {
+       "name": "Hollow Saint's Sandals",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 9,
+        "healing_power": 8
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "spirit": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "healing_power": 40
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_starcaller": {
+   "name": "Nightglass Plate",
+   "class": "Starcaller",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "plate",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 393
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 379
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 472
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 294
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 305
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 299
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 456
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 305
+    }
+   },
+   "variants": {
+    "tank": {
+     "label": "Moon Guard",
+     "profile": "tank_str",
+     "pieces": {
+      "head": {
+       "name": "Nightglass Greathelm",
+       "primary_stats": {
+        "stamina": 11,
+        "strength": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Nightglass Shoulderguards",
+       "primary_stats": {
+        "stamina": 15,
+        "strength": 9
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 2
+       }
+      },
+      "chest": {
+       "name": "Nightglass Chestguard",
+       "primary_stats": {
+        "stamina": 18,
+        "strength": 11
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "wrist": {
+       "name": "Nightglass Vambraces",
+       "primary_stats": {
+        "stamina": 12,
+        "strength": 8
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Nightglass Handguards",
+       "primary_stats": {
+        "stamina": 14,
+        "strength": 9
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 2
+       }
+      },
+      "waist": {
+       "name": "Nightglass Waistguard",
+       "primary_stats": {
+        "stamina": 11,
+        "strength": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Nightglass Legplates",
+       "primary_stats": {
+        "stamina": 19,
+        "strength": 12
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "feet": {
+       "name": "Nightglass Sabatons",
+       "primary_stats": {
+        "stamina": 14,
+        "strength": 9
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 2
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "stamina": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    },
+    "healer": {
+     "label": "Moon Priest",
+     "profile": "healer",
+     "pieces": {
+      "head": {
+       "name": "Nightglass Cowl",
+       "primary_stats": {
+        "intellect": 7,
+        "spirit": 5,
+        "stamina": 5
+       },
+       "secondary_stats": {
+        "spell_power": 6,
+        "healing_power": 5
+       }
+      },
+      "shoulder": {
+       "name": "Nightglass Shoulderpads",
+       "primary_stats": {
+        "intellect": 10,
+        "spirit": 7,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      },
+      "chest": {
+       "name": "Nightglass Robe",
+       "primary_stats": {
+        "intellect": 13,
+        "spirit": 8,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      },
+      "wrist": {
+       "name": "Nightglass Wraps",
+       "primary_stats": {
+        "intellect": 8,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 7,
+        "healing_power": 6
+       }
+      },
+      "hands": {
+       "name": "Nightglass Handwraps",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      },
+      "waist": {
+       "name": "Nightglass Cord",
+       "primary_stats": {
+        "intellect": 7,
+        "spirit": 5,
+        "stamina": 5
+       },
+       "secondary_stats": {
+        "spell_power": 6,
+        "healing_power": 5
+       }
+      },
+      "legs": {
+       "name": "Nightglass Kilt",
+       "primary_stats": {
+        "intellect": 13,
+        "spirit": 9,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "spell_power": 11,
+        "healing_power": 10
+       }
+      },
+      "feet": {
+       "name": "Nightglass Sandals",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "spirit": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "healing_power": 40
+       }
+      }
+     }
+    },
+    "caster": {
+     "label": "Sentinel",
+     "profile": "caster",
+     "pieces": {
+      "head": {
+       "name": "Nightglass Circlet",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 5,
+        "spirit": 2
+       },
+       "secondary_stats": {
+        "spell_power": 11
+       }
+      },
+      "shoulder": {
+       "name": "Nightglass Mantle",
+       "primary_stats": {
+        "intellect": 13,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 15
+       }
+      },
+      "chest": {
+       "name": "Nightglass Vestments",
+       "primary_stats": {
+        "intellect": 15,
+        "stamina": 10,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 18
+       }
+      },
+      "wrist": {
+       "name": "Nightglass Bindings",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 7,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 12
+       }
+      },
+      "hands": {
+       "name": "Nightglass Gloves",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 14
+       }
+      },
+      "waist": {
+       "name": "Nightglass Sash",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 5,
+        "spirit": 2
+       },
+       "secondary_stats": {
+        "spell_power": 11
+       }
+      },
+      "legs": {
+       "name": "Nightglass Trousers",
+       "primary_stats": {
+        "intellect": 17,
+        "stamina": 10,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 19
+       }
+      },
+      "feet": {
+       "name": "Nightglass Slippers",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 14
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "intellect": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "spell_power": 25
+       }
+      }
+     }
+    },
+    "melee": {
+     "label": "Warden",
+     "profile": "melee_str",
+     "pieces": {
+      "head": {
+       "name": "Nightglass Helm",
+       "primary_stats": {
+        "strength": 10,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "hit_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Nightglass Pauldrons",
+       "primary_stats": {
+        "strength": 14,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "hit_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Nightglass Hauberk",
+       "primary_stats": {
+        "strength": 16,
+        "stamina": 13
+       },
+       "secondary_stats": {
+        "attack_power": 10,
+        "hit_rating": 1
+       }
+      },
+      "wrist": {
+       "name": "Nightglass Bracers",
+       "primary_stats": {
+        "strength": 11,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "hit_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Nightglass Gauntlets",
+       "primary_stats": {
+        "strength": 13,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "hit_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Nightglass Girdle",
+       "primary_stats": {
+        "strength": 10,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "hit_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Nightglass Legguards",
+       "primary_stats": {
+        "strength": 18,
+        "stamina": 13
+       },
+       "secondary_stats": {
+        "attack_power": 11,
+        "hit_rating": 1
+       }
+      },
+      "feet": {
+       "name": "Nightglass Greaves",
+       "primary_stats": {
+        "strength": 13,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "hit_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "strength": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_sun_cleric": {
+   "name": "Noonfire Regalia",
+   "class": "Sun Cleric",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "plate",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 393
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 379
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 472
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 294
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 305
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 299
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 456
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 305
+    }
+   },
+   "variants": {
+    "healer": {
+     "label": "Blessings",
+     "profile": "healer",
+     "pieces": {
+      "head": {
+       "name": "Noonfire Cowl",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 8,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      },
+      "shoulder": {
+       "name": "Noonfire Shoulderpads",
+       "primary_stats": {
+        "intellect": 8,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      },
+      "chest": {
+       "name": "Noonfire Robe",
+       "primary_stats": {
+        "intellect": 12,
+        "spirit": 7,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      },
+      "wrist": {
+       "name": "Noonfire Wraps",
+       "primary_stats": {
+        "intellect": 10,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 8
+       }
+      },
+      "hands": {
+       "name": "Noonfire Handwraps",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 9,
+        "healing_power": 8
+       }
+      },
+      "waist": {
+       "name": "Noonfire Cord",
+       "primary_stats": {
+        "intellect": 8,
+        "spirit": 5,
+        "stamina": 5
+       },
+       "secondary_stats": {
+        "spell_power": 7,
+        "healing_power": 6
+       }
+      },
+      "legs": {
+       "name": "Noonfire Kilt",
+       "primary_stats": {
+        "intellect": 14,
+        "spirit": 10,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "spell_power": 13,
+        "healing_power": 12
+       }
+      },
+      "feet": {
+       "name": "Noonfire Sandals",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 9,
+        "healing_power": 8
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "spirit": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "healing_power": 40
+       }
+      }
+     }
+    },
+    "hybrid": {
+     "label": "Piety / Valkyrie",
+     "profile": "hybrid_str",
+     "pieces": {
+      "head": {
+       "name": "Noonfire Headguard",
+       "primary_stats": {
+        "strength": 10,
+        "intellect": 8,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 9
+       }
+      },
+      "shoulder": {
+       "name": "Noonfire Epaulets",
+       "primary_stats": {
+        "strength": 7,
+        "intellect": 6,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 7
+       }
+      },
+      "chest": {
+       "name": "Noonfire Harness",
+       "primary_stats": {
+        "strength": 10,
+        "intellect": 7,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 9
+       }
+      },
+      "wrist": {
+       "name": "Noonfire Armguards",
+       "primary_stats": {
+        "strength": 9,
+        "intellect": 6,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 8
+       }
+      },
+      "hands": {
+       "name": "Noonfire Fists",
+       "primary_stats": {
+        "strength": 9,
+        "intellect": 6,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 8
+       }
+      },
+      "waist": {
+       "name": "Noonfire Clasp",
+       "primary_stats": {
+        "strength": 7,
+        "intellect": 5,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "attack_power": 4,
+        "spell_power": 6
+       }
+      },
+      "legs": {
+       "name": "Noonfire Tassets",
+       "primary_stats": {
+        "strength": 13,
+        "intellect": 10,
+        "stamina": 11
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "spell_power": 12
+       }
+      },
+      "feet": {
+       "name": "Noonfire Treads",
+       "primary_stats": {
+        "strength": 9,
+        "intellect": 6,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 8
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "strength": 15,
+        "intellect": 15
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 20,
+        "spell_power": 14
+       }
+      }
+     }
+    },
+    "tank": {
+     "label": "Seraphim",
+     "profile": "tank_hybrid",
+     "pieces": {
+      "head": {
+       "name": "Noonfire Greathelm",
+       "primary_stats": {
+        "stamina": 15,
+        "strength": 6,
+        "intellect": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 8
+       }
+      },
+      "shoulder": {
+       "name": "Noonfire Shoulderguards",
+       "primary_stats": {
+        "stamina": 10,
+        "strength": 5,
+        "intellect": 5
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "spell_power": 6
+       }
+      },
+      "chest": {
+       "name": "Noonfire Chestguard",
+       "primary_stats": {
+        "stamina": 14,
+        "strength": 6,
+        "intellect": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 8
+       }
+      },
+      "wrist": {
+       "name": "Noonfire Vambraces",
+       "primary_stats": {
+        "stamina": 12,
+        "strength": 5,
+        "intellect": 5
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 7
+       }
+      },
+      "hands": {
+       "name": "Noonfire Handguards",
+       "primary_stats": {
+        "stamina": 13,
+        "strength": 5,
+        "intellect": 5
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 7
+       }
+      },
+      "waist": {
+       "name": "Noonfire Waistguard",
+       "primary_stats": {
+        "stamina": 10,
+        "strength": 4,
+        "intellect": 4
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "spell_power": 6
+       }
+      },
+      "legs": {
+       "name": "Noonfire Legplates",
+       "primary_stats": {
+        "stamina": 18,
+        "strength": 8,
+        "intellect": 8
+       },
+       "secondary_stats": {
+        "defense_rating": 4,
+        "spell_power": 10
+       }
+      },
+      "feet": {
+       "name": "Noonfire Sabatons",
+       "primary_stats": {
+        "stamina": 13,
+        "strength": 5,
+        "intellect": 5
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 7
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "stamina": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 20,
+        "spell_power": 14
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_primalist": {
+   "name": "Wildhorn Warplate",
+   "class": "Primalist",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "plate",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 393
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 379
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 472
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 294
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 305
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 299
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 456
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 305
+    }
+   },
+   "variants": {
+    "hybrid": {
+     "label": "Geomancy / Wildwalker",
+     "profile": "hybrid_str",
+     "pieces": {
+      "head": {
+       "name": "Wildhorn Headguard",
+       "primary_stats": {
+        "strength": 10,
+        "intellect": 8,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 9
+       }
+      },
+      "shoulder": {
+       "name": "Wildhorn Epaulets",
+       "primary_stats": {
+        "strength": 7,
+        "intellect": 6,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 7
+       }
+      },
+      "chest": {
+       "name": "Wildhorn Harness",
+       "primary_stats": {
+        "strength": 10,
+        "intellect": 7,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 9
+       }
+      },
+      "wrist": {
+       "name": "Wildhorn Armguards",
+       "primary_stats": {
+        "strength": 9,
+        "intellect": 6,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 8
+       }
+      },
+      "hands": {
+       "name": "Wildhorn Fists",
+       "primary_stats": {
+        "strength": 9,
+        "intellect": 6,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 8
+       }
+      },
+      "waist": {
+       "name": "Wildhorn Clasp",
+       "primary_stats": {
+        "strength": 7,
+        "intellect": 5,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "attack_power": 4,
+        "spell_power": 6
+       }
+      },
+      "legs": {
+       "name": "Wildhorn Tassets",
+       "primary_stats": {
+        "strength": 13,
+        "intellect": 10,
+        "stamina": 11
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "spell_power": 12
+       }
+      },
+      "feet": {
+       "name": "Wildhorn Treads",
+       "primary_stats": {
+        "strength": 9,
+        "intellect": 6,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 8
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "strength": 15,
+        "intellect": 15
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 20,
+        "spell_power": 14
+       }
+      }
+     }
+    },
+    "healer": {
+     "label": "Grovekeeper",
+     "profile": "healer",
+     "pieces": {
+      "head": {
+       "name": "Wildhorn Cowl",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 8,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      },
+      "shoulder": {
+       "name": "Wildhorn Shoulderpads",
+       "primary_stats": {
+        "intellect": 8,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      },
+      "chest": {
+       "name": "Wildhorn Robe",
+       "primary_stats": {
+        "intellect": 12,
+        "spirit": 7,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      },
+      "wrist": {
+       "name": "Wildhorn Wraps",
+       "primary_stats": {
+        "intellect": 10,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 8
+       }
+      },
+      "hands": {
+       "name": "Wildhorn Handwraps",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 9,
+        "healing_power": 8
+       }
+      },
+      "waist": {
+       "name": "Wildhorn Cord",
+       "primary_stats": {
+        "intellect": 8,
+        "spirit": 5,
+        "stamina": 5
+       },
+       "secondary_stats": {
+        "spell_power": 7,
+        "healing_power": 6
+       }
+      },
+      "legs": {
+       "name": "Wildhorn Kilt",
+       "primary_stats": {
+        "intellect": 14,
+        "spirit": 10,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "spell_power": 13,
+        "healing_power": 12
+       }
+      },
+      "feet": {
+       "name": "Wildhorn Sandals",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 9,
+        "healing_power": 8
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "spirit": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "healing_power": 40
+       }
+      }
+     }
+    },
+    "tank": {
+     "label": "Mountain King",
+     "profile": "tank_hybrid",
+     "pieces": {
+      "head": {
+       "name": "Wildhorn Greathelm",
+       "primary_stats": {
+        "stamina": 15,
+        "strength": 6,
+        "intellect": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 8
+       }
+      },
+      "shoulder": {
+       "name": "Wildhorn Shoulderguards",
+       "primary_stats": {
+        "stamina": 10,
+        "strength": 5,
+        "intellect": 5
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "spell_power": 6
+       }
+      },
+      "chest": {
+       "name": "Wildhorn Chestguard",
+       "primary_stats": {
+        "stamina": 14,
+        "strength": 6,
+        "intellect": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 8
+       }
+      },
+      "wrist": {
+       "name": "Wildhorn Vambraces",
+       "primary_stats": {
+        "stamina": 12,
+        "strength": 5,
+        "intellect": 5
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 7
+       }
+      },
+      "hands": {
+       "name": "Wildhorn Handguards",
+       "primary_stats": {
+        "stamina": 13,
+        "strength": 5,
+        "intellect": 5
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 7
+       }
+      },
+      "waist": {
+       "name": "Wildhorn Waistguard",
+       "primary_stats": {
+        "stamina": 10,
+        "strength": 4,
+        "intellect": 4
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "spell_power": 6
+       }
+      },
+      "legs": {
+       "name": "Wildhorn Legplates",
+       "primary_stats": {
+        "stamina": 18,
+        "strength": 8,
+        "intellect": 8
+       },
+       "secondary_stats": {
+        "defense_rating": 4,
+        "spell_power": 10
+       }
+      },
+      "feet": {
+       "name": "Wildhorn Sabatons",
+       "primary_stats": {
+        "stamina": 13,
+        "strength": 5,
+        "intellect": 5
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "spell_power": 7
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "stamina": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 20,
+        "spell_power": 14
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_shaman": {
+   "name": "Rainspeaker's Harness",
+   "class": "Shaman",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "mail",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 262
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 253
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 315
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 196
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 203
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 199
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 304
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 203
+    }
+   },
+   "variants": {
+    "caster": {
+     "label": "Elemental",
+     "profile": "caster",
+     "pieces": {
+      "head": {
+       "name": "Rainspeaker's Circlet",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 5,
+        "spirit": 2
+       },
+       "secondary_stats": {
+        "spell_power": 11
+       }
+      },
+      "shoulder": {
+       "name": "Rainspeaker's Mantle",
+       "primary_stats": {
+        "intellect": 13,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 15
+       }
+      },
+      "chest": {
+       "name": "Rainspeaker's Vestments",
+       "primary_stats": {
+        "intellect": 15,
+        "stamina": 10,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 18
+       }
+      },
+      "wrist": {
+       "name": "Rainspeaker's Bindings",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 7,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 12
+       }
+      },
+      "hands": {
+       "name": "Rainspeaker's Gloves",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 14
+       }
+      },
+      "waist": {
+       "name": "Rainspeaker's Sash",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 5,
+        "spirit": 2
+       },
+       "secondary_stats": {
+        "spell_power": 11
+       }
+      },
+      "legs": {
+       "name": "Rainspeaker's Trousers",
+       "primary_stats": {
+        "intellect": 17,
+        "stamina": 10,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 19
+       }
+      },
+      "feet": {
+       "name": "Rainspeaker's Slippers",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 14
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "intellect": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "spell_power": 25
+       }
+      }
+     }
+    },
+    "melee": {
+     "label": "Enhancement",
+     "profile": "melee_agi",
+     "pieces": {
+      "head": {
+       "name": "Rainspeaker's Helm",
+       "primary_stats": {
+        "agility": 10,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "hit_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Rainspeaker's Pauldrons",
+       "primary_stats": {
+        "agility": 14,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "hit_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Rainspeaker's Hauberk",
+       "primary_stats": {
+        "agility": 16,
+        "stamina": 13
+       },
+       "secondary_stats": {
+        "attack_power": 10,
+        "hit_rating": 1
+       }
+      },
+      "wrist": {
+       "name": "Rainspeaker's Bracers",
+       "primary_stats": {
+        "agility": 11,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "hit_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Rainspeaker's Gauntlets",
+       "primary_stats": {
+        "agility": 13,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "hit_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Rainspeaker's Girdle",
+       "primary_stats": {
+        "agility": 10,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "hit_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Rainspeaker's Legguards",
+       "primary_stats": {
+        "agility": 18,
+        "stamina": 13
+       },
+       "secondary_stats": {
+        "attack_power": 11,
+        "hit_rating": 1
+       }
+      },
+      "feet": {
+       "name": "Rainspeaker's Greaves",
+       "primary_stats": {
+        "agility": 13,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "hit_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "agility": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    },
+    "healer": {
+     "label": "Restoration",
+     "profile": "healer",
+     "pieces": {
+      "head": {
+       "name": "Rainspeaker's Cowl",
+       "primary_stats": {
+        "intellect": 7,
+        "spirit": 5,
+        "stamina": 5
+       },
+       "secondary_stats": {
+        "spell_power": 6,
+        "healing_power": 5
+       }
+      },
+      "shoulder": {
+       "name": "Rainspeaker's Shoulderpads",
+       "primary_stats": {
+        "intellect": 10,
+        "spirit": 7,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      },
+      "chest": {
+       "name": "Rainspeaker's Robe",
+       "primary_stats": {
+        "intellect": 13,
+        "spirit": 8,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      },
+      "wrist": {
+       "name": "Rainspeaker's Wraps",
+       "primary_stats": {
+        "intellect": 8,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 7,
+        "healing_power": 6
+       }
+      },
+      "hands": {
+       "name": "Rainspeaker's Handwraps",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      },
+      "waist": {
+       "name": "Rainspeaker's Cord",
+       "primary_stats": {
+        "intellect": 7,
+        "spirit": 5,
+        "stamina": 5
+       },
+       "secondary_stats": {
+        "spell_power": 6,
+        "healing_power": 5
+       }
+      },
+      "legs": {
+       "name": "Rainspeaker's Kilt",
+       "primary_stats": {
+        "intellect": 13,
+        "spirit": 9,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "spell_power": 11,
+        "healing_power": 10
+       }
+      },
+      "feet": {
+       "name": "Rainspeaker's Sandals",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "spirit": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "healing_power": 40
+       }
+      }
+     }
+    },
+    "enhancement_tank": {
+     "label": "Enhancement Tank",
+     "profile": "tank_agi",
+     "pieces": {
+      "head": {
+       "name": "Rainspeaker's Greathelm",
+       "primary_stats": {
+        "stamina": 11,
+        "agility": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Rainspeaker's Shoulderguards",
+       "primary_stats": {
+        "stamina": 15,
+        "agility": 9
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 2
+       }
+      },
+      "chest": {
+       "name": "Rainspeaker's Chestguard",
+       "primary_stats": {
+        "stamina": 18,
+        "agility": 11
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "wrist": {
+       "name": "Rainspeaker's Vambraces",
+       "primary_stats": {
+        "stamina": 12,
+        "agility": 8
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Rainspeaker's Handguards",
+       "primary_stats": {
+        "stamina": 14,
+        "agility": 9
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 2
+       }
+      },
+      "waist": {
+       "name": "Rainspeaker's Waistguard",
+       "primary_stats": {
+        "stamina": 11,
+        "agility": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Rainspeaker's Legplates",
+       "primary_stats": {
+        "stamina": 19,
+        "agility": 12
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "feet": {
+       "name": "Rainspeaker's Sabatons",
+       "primary_stats": {
+        "stamina": 14,
+        "agility": 9
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 2
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "stamina": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_hunter": {
+   "name": "Longstalk Mail",
+   "class": "Hunter",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "mail",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 262
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 253
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 333
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 196
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 203
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 199
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 304
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 203
+    }
+   },
+   "variants": {
+    "ranged": {
+     "label": "Beast Mastery / Marksmanship / Survival",
+     "profile": "ranged_agi",
+     "pieces": {
+      "head": {
+       "name": "Longstalk Coif",
+       "primary_stats": {
+        "agility": 20,
+        "stamina": 12
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 11,
+        "hit_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Longstalk Spaulders",
+       "primary_stats": {
+        "agility": 16,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 9,
+        "hit_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Longstalk Brigandine",
+       "primary_stats": {
+        "agility": 21,
+        "stamina": 14
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 12,
+        "hit_rating": 1
+       }
+      },
+      "wrist": {
+       "name": "Longstalk Wristguards",
+       "primary_stats": {
+        "agility": 14,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 8,
+        "hit_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Longstalk Grips",
+       "primary_stats": {
+        "agility": 11,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 6,
+        "hit_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Longstalk Belt",
+       "primary_stats": {
+        "agility": 17,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 9,
+        "hit_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Longstalk Leggings",
+       "primary_stats": {
+        "agility": 23,
+        "stamina": 14
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 13,
+        "hit_rating": 1
+       }
+      },
+      "feet": {
+       "name": "Longstalk Boots",
+       "primary_stats": {
+        "agility": 11,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 6,
+        "hit_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "agility": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "ranged_attack_power": 40
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_witch_hunter": {
+   "name": "Pyrewatch Mail",
+   "class": "Witch Hunter",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "mail",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 262
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 253
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 333
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 196
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 203
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 199
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 304
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 203
+    }
+   },
+   "variants": {
+    "tank": {
+     "label": "Black Knight",
+     "profile": "tank_agi",
+     "pieces": {
+      "head": {
+       "name": "Pyrewatch Greathelm",
+       "primary_stats": {
+        "stamina": 20,
+        "agility": 12
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "shoulder": {
+       "name": "Pyrewatch Shoulderguards",
+       "primary_stats": {
+        "stamina": 16,
+        "agility": 10
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Pyrewatch Chestguard",
+       "primary_stats": {
+        "stamina": 21,
+        "agility": 14
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "wrist": {
+       "name": "Pyrewatch Vambraces",
+       "primary_stats": {
+        "stamina": 14,
+        "agility": 8
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Pyrewatch Handguards",
+       "primary_stats": {
+        "stamina": 11,
+        "agility": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 1,
+        "dodge_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Pyrewatch Waistguard",
+       "primary_stats": {
+        "stamina": 17,
+        "agility": 10
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 2
+       }
+      },
+      "legs": {
+       "name": "Pyrewatch Legplates",
+       "primary_stats": {
+        "stamina": 23,
+        "agility": 14
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "feet": {
+       "name": "Pyrewatch Sabatons",
+       "primary_stats": {
+        "stamina": 11,
+        "agility": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 1,
+        "dodge_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "stamina": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    },
+    "melee": {
+     "label": "Boltslinger / Houndmaster / Inquisition",
+     "profile": "melee_agi",
+     "pieces": {
+      "head": {
+       "name": "Pyrewatch Helm",
+       "primary_stats": {
+        "agility": 18,
+        "stamina": 14
+       },
+       "secondary_stats": {
+        "attack_power": 9,
+        "hit_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Pyrewatch Pauldrons",
+       "primary_stats": {
+        "agility": 15,
+        "stamina": 11
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "hit_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Pyrewatch Hauberk",
+       "primary_stats": {
+        "agility": 20,
+        "stamina": 15
+       },
+       "secondary_stats": {
+        "attack_power": 10,
+        "hit_rating": 1
+       }
+      },
+      "wrist": {
+       "name": "Pyrewatch Bracers",
+       "primary_stats": {
+        "agility": 13,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "hit_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Pyrewatch Gauntlets",
+       "primary_stats": {
+        "agility": 10,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "hit_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Pyrewatch Girdle",
+       "primary_stats": {
+        "agility": 15,
+        "stamina": 12
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "hit_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Pyrewatch Legguards",
+       "primary_stats": {
+        "agility": 21,
+        "stamina": 16
+       },
+       "secondary_stats": {
+        "attack_power": 11,
+        "hit_rating": 1
+       }
+      },
+      "feet": {
+       "name": "Pyrewatch Greaves",
+       "primary_stats": {
+        "agility": 10,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "hit_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "agility": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_tinker": {
+   "name": "Sparkwright's Rig",
+   "class": "Tinker",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "mail",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 262
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 253
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 315
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 196
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 203
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 199
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 304
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 203
+    }
+   },
+   "variants": {
+    "hybrid": {
+     "label": "Demolition",
+     "profile": "hybrid_agi",
+     "pieces": {
+      "head": {
+       "name": "Sparkwright's Headguard",
+       "primary_stats": {
+        "agility": 9,
+        "intellect": 7,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 8
+       }
+      },
+      "shoulder": {
+       "name": "Sparkwright's Epaulets",
+       "primary_stats": {
+        "agility": 7,
+        "intellect": 6,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 7
+       }
+      },
+      "chest": {
+       "name": "Sparkwright's Harness",
+       "primary_stats": {
+        "agility": 10,
+        "intellect": 7,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 9
+       }
+      },
+      "wrist": {
+       "name": "Sparkwright's Armguards",
+       "primary_stats": {
+        "agility": 9,
+        "intellect": 6,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 8
+       }
+      },
+      "hands": {
+       "name": "Sparkwright's Fists",
+       "primary_stats": {
+        "agility": 10,
+        "intellect": 7,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 9
+       }
+      },
+      "waist": {
+       "name": "Sparkwright's Clasp",
+       "primary_stats": {
+        "agility": 9,
+        "intellect": 6,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 8
+       }
+      },
+      "legs": {
+       "name": "Sparkwright's Tassets",
+       "primary_stats": {
+        "agility": 13,
+        "intellect": 10,
+        "stamina": 12
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "spell_power": 12
+       }
+      },
+      "feet": {
+       "name": "Sparkwright's Treads",
+       "primary_stats": {
+        "agility": 10,
+        "intellect": 7,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 9
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "agility": 15,
+        "intellect": 15
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 20,
+        "spell_power": 14
+       }
+      }
+     }
+    },
+    "healer": {
+     "label": "Invention",
+     "profile": "healer",
+     "pieces": {
+      "head": {
+       "name": "Sparkwright's Cowl",
+       "primary_stats": {
+        "intellect": 10,
+        "spirit": 7,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "spell_power": 9,
+        "healing_power": 8
+       }
+      },
+      "shoulder": {
+       "name": "Sparkwright's Shoulderpads",
+       "primary_stats": {
+        "intellect": 8,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      },
+      "chest": {
+       "name": "Sparkwright's Robe",
+       "primary_stats": {
+        "intellect": 12,
+        "spirit": 7,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      },
+      "wrist": {
+       "name": "Sparkwright's Wraps",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 9,
+        "healing_power": 8
+       }
+      },
+      "hands": {
+       "name": "Sparkwright's Handwraps",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 7,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      },
+      "waist": {
+       "name": "Sparkwright's Cord",
+       "primary_stats": {
+        "intellect": 10,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 8
+       }
+      },
+      "legs": {
+       "name": "Sparkwright's Kilt",
+       "primary_stats": {
+        "intellect": 15,
+        "spirit": 10,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "spell_power": 13,
+        "healing_power": 12
+       }
+      },
+      "feet": {
+       "name": "Sparkwright's Sandals",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 7,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "spirit": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "healing_power": 40
+       }
+      }
+     }
+    },
+    "melee": {
+     "label": "Mechanics",
+     "profile": "melee_agi",
+     "pieces": {
+      "head": {
+       "name": "Sparkwright's Helm",
+       "primary_stats": {
+        "agility": 14,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 9,
+        "hit_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Sparkwright's Pauldrons",
+       "primary_stats": {
+        "agility": 11,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "hit_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Sparkwright's Hauberk",
+       "primary_stats": {
+        "agility": 15,
+        "stamina": 11
+       },
+       "secondary_stats": {
+        "attack_power": 10,
+        "hit_rating": 1
+       }
+      },
+      "wrist": {
+       "name": "Sparkwright's Bracers",
+       "primary_stats": {
+        "agility": 13,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 9,
+        "hit_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Sparkwright's Gauntlets",
+       "primary_stats": {
+        "agility": 14,
+        "stamina": 11
+       },
+       "secondary_stats": {
+        "attack_power": 10,
+        "hit_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Sparkwright's Girdle",
+       "primary_stats": {
+        "agility": 13,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "hit_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Sparkwright's Legguards",
+       "primary_stats": {
+        "agility": 20,
+        "stamina": 15
+       },
+       "secondary_stats": {
+        "attack_power": 13,
+        "hit_rating": 1
+       }
+      },
+      "feet": {
+       "name": "Sparkwright's Greaves",
+       "primary_stats": {
+        "agility": 14,
+        "stamina": 11
+       },
+       "secondary_stats": {
+        "attack_power": 10,
+        "hit_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "agility": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_venomancer": {
+   "name": "Fangsilk Mail",
+   "class": "Venomancer",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "mail",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 262
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 253
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 315
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 196
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 203
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 199
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 304
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 203
+    }
+   },
+   "variants": {
+    "tank": {
+     "label": "Fortitude",
+     "profile": "tank_agi",
+     "pieces": {
+      "head": {
+       "name": "Fangsilk Greathelm",
+       "primary_stats": {
+        "stamina": 15,
+        "agility": 9
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "shoulder": {
+       "name": "Fangsilk Shoulderguards",
+       "primary_stats": {
+        "stamina": 12,
+        "agility": 8
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 2
+       }
+      },
+      "chest": {
+       "name": "Fangsilk Chestguard",
+       "primary_stats": {
+        "stamina": 16,
+        "agility": 10
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "wrist": {
+       "name": "Fangsilk Vambraces",
+       "primary_stats": {
+        "stamina": 14,
+        "agility": 9
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "hands": {
+       "name": "Fangsilk Handguards",
+       "primary_stats": {
+        "stamina": 15,
+        "agility": 10
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "waist": {
+       "name": "Fangsilk Waistguard",
+       "primary_stats": {
+        "stamina": 14,
+        "agility": 8
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "legs": {
+       "name": "Fangsilk Legplates",
+       "primary_stats": {
+        "stamina": 21,
+        "agility": 14
+       },
+       "secondary_stats": {
+        "defense_rating": 4,
+        "dodge_rating": 3
+       }
+      },
+      "feet": {
+       "name": "Fangsilk Sabatons",
+       "primary_stats": {
+        "stamina": 15,
+        "agility": 10
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "stamina": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    },
+    "melee": {
+     "label": "Stalking",
+     "profile": "melee_agi",
+     "pieces": {
+      "head": {
+       "name": "Fangsilk Helm",
+       "primary_stats": {
+        "agility": 14,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 9,
+        "hit_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Fangsilk Pauldrons",
+       "primary_stats": {
+        "agility": 11,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "hit_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Fangsilk Hauberk",
+       "primary_stats": {
+        "agility": 15,
+        "stamina": 11
+       },
+       "secondary_stats": {
+        "attack_power": 10,
+        "hit_rating": 1
+       }
+      },
+      "wrist": {
+       "name": "Fangsilk Bracers",
+       "primary_stats": {
+        "agility": 13,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 9,
+        "hit_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Fangsilk Gauntlets",
+       "primary_stats": {
+        "agility": 14,
+        "stamina": 11
+       },
+       "secondary_stats": {
+        "attack_power": 10,
+        "hit_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Fangsilk Girdle",
+       "primary_stats": {
+        "agility": 13,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "hit_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Fangsilk Legguards",
+       "primary_stats": {
+        "agility": 20,
+        "stamina": 15
+       },
+       "secondary_stats": {
+        "attack_power": 13,
+        "hit_rating": 1
+       }
+      },
+      "feet": {
+       "name": "Fangsilk Greaves",
+       "primary_stats": {
+        "agility": 14,
+        "stamina": 11
+       },
+       "secondary_stats": {
+        "attack_power": 10,
+        "hit_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "agility": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    },
+    "hybrid": {
+     "label": "Venom",
+     "profile": "hybrid_agi",
+     "pieces": {
+      "head": {
+       "name": "Fangsilk Headguard",
+       "primary_stats": {
+        "agility": 9,
+        "intellect": 7,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 8
+       }
+      },
+      "shoulder": {
+       "name": "Fangsilk Epaulets",
+       "primary_stats": {
+        "agility": 7,
+        "intellect": 6,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 7
+       }
+      },
+      "chest": {
+       "name": "Fangsilk Harness",
+       "primary_stats": {
+        "agility": 10,
+        "intellect": 7,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 9
+       }
+      },
+      "wrist": {
+       "name": "Fangsilk Armguards",
+       "primary_stats": {
+        "agility": 9,
+        "intellect": 6,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 8
+       }
+      },
+      "hands": {
+       "name": "Fangsilk Fists",
+       "primary_stats": {
+        "agility": 10,
+        "intellect": 7,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 9
+       }
+      },
+      "waist": {
+       "name": "Fangsilk Clasp",
+       "primary_stats": {
+        "agility": 9,
+        "intellect": 6,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 8
+       }
+      },
+      "legs": {
+       "name": "Fangsilk Tassets",
+       "primary_stats": {
+        "agility": 13,
+        "intellect": 10,
+        "stamina": 12
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "spell_power": 12
+       }
+      },
+      "feet": {
+       "name": "Fangsilk Treads",
+       "primary_stats": {
+        "agility": 10,
+        "intellect": 7,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 9
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "agility": 15,
+        "intellect": 15
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 20,
+        "spell_power": 14
+       }
+      }
+     }
+    },
+    "healer": {
+     "label": "Vizier",
+     "profile": "healer",
+     "pieces": {
+      "head": {
+       "name": "Fangsilk Cowl",
+       "primary_stats": {
+        "intellect": 10,
+        "spirit": 7,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "spell_power": 9,
+        "healing_power": 8
+       }
+      },
+      "shoulder": {
+       "name": "Fangsilk Shoulderpads",
+       "primary_stats": {
+        "intellect": 8,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      },
+      "chest": {
+       "name": "Fangsilk Robe",
+       "primary_stats": {
+        "intellect": 12,
+        "spirit": 7,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      },
+      "wrist": {
+       "name": "Fangsilk Wraps",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 9,
+        "healing_power": 8
+       }
+      },
+      "hands": {
+       "name": "Fangsilk Handwraps",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 7,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      },
+      "waist": {
+       "name": "Fangsilk Cord",
+       "primary_stats": {
+        "intellect": 10,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 8
+       }
+      },
+      "legs": {
+       "name": "Fangsilk Kilt",
+       "primary_stats": {
+        "intellect": 15,
+        "spirit": 10,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "spell_power": 13,
+        "healing_power": 12
+       }
+      },
+      "feet": {
+       "name": "Fangsilk Sandals",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 7,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "spirit": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "healing_power": 40
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_reaper": {
+   "name": "Last Harvest Mail",
+   "class": "Reaper",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "mail",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 262
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 253
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 333
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 196
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 203
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 199
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 304
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 203
+    }
+   },
+   "variants": {
+    "tank": {
+     "label": "Domination",
+     "profile": "tank_agi",
+     "pieces": {
+      "head": {
+       "name": "Last Harvest Greathelm",
+       "primary_stats": {
+        "stamina": 20,
+        "agility": 12
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "shoulder": {
+       "name": "Last Harvest Shoulderguards",
+       "primary_stats": {
+        "stamina": 16,
+        "agility": 10
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Last Harvest Chestguard",
+       "primary_stats": {
+        "stamina": 21,
+        "agility": 14
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "wrist": {
+       "name": "Last Harvest Vambraces",
+       "primary_stats": {
+        "stamina": 14,
+        "agility": 8
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Last Harvest Handguards",
+       "primary_stats": {
+        "stamina": 11,
+        "agility": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 1,
+        "dodge_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Last Harvest Waistguard",
+       "primary_stats": {
+        "stamina": 17,
+        "agility": 10
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 2
+       }
+      },
+      "legs": {
+       "name": "Last Harvest Legplates",
+       "primary_stats": {
+        "stamina": 23,
+        "agility": 14
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "feet": {
+       "name": "Last Harvest Sabatons",
+       "primary_stats": {
+        "stamina": 11,
+        "agility": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 1,
+        "dodge_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "stamina": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    },
+    "melee": {
+     "label": "Harvest / Soul",
+     "profile": "melee_agi",
+     "pieces": {
+      "head": {
+       "name": "Last Harvest Helm",
+       "primary_stats": {
+        "agility": 18,
+        "stamina": 14
+       },
+       "secondary_stats": {
+        "attack_power": 9,
+        "hit_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Last Harvest Pauldrons",
+       "primary_stats": {
+        "agility": 15,
+        "stamina": 11
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "hit_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Last Harvest Hauberk",
+       "primary_stats": {
+        "agility": 20,
+        "stamina": 15
+       },
+       "secondary_stats": {
+        "attack_power": 10,
+        "hit_rating": 1
+       }
+      },
+      "wrist": {
+       "name": "Last Harvest Bracers",
+       "primary_stats": {
+        "agility": 13,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "hit_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Last Harvest Gauntlets",
+       "primary_stats": {
+        "agility": 10,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "hit_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Last Harvest Girdle",
+       "primary_stats": {
+        "agility": 15,
+        "stamina": 12
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "hit_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Last Harvest Legguards",
+       "primary_stats": {
+        "agility": 21,
+        "stamina": 16
+       },
+       "secondary_stats": {
+        "attack_power": 11,
+        "hit_rating": 1
+       }
+      },
+      "feet": {
+       "name": "Last Harvest Greaves",
+       "primary_stats": {
+        "agility": 10,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "hit_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "agility": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_rogue": {
+   "name": "Lowlight Leathers",
+   "class": "Rogue",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "leather",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 163
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 158
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 214
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 122
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 127
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 124
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 190
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 127
+    }
+   },
+   "variants": {
+    "melee": {
+     "label": "Assassination / Combat / Subtlety",
+     "profile": "melee_agi",
+     "pieces": {
+      "head": {
+       "name": "Lowlight Helm",
+       "primary_stats": {
+        "agility": 18,
+        "stamina": 14
+       },
+       "secondary_stats": {
+        "attack_power": 9,
+        "hit_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Lowlight Pauldrons",
+       "primary_stats": {
+        "agility": 15,
+        "stamina": 11
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "hit_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Lowlight Hauberk",
+       "primary_stats": {
+        "agility": 20,
+        "stamina": 15
+       },
+       "secondary_stats": {
+        "attack_power": 10,
+        "hit_rating": 1
+       }
+      },
+      "wrist": {
+       "name": "Lowlight Bracers",
+       "primary_stats": {
+        "agility": 13,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "hit_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Lowlight Gauntlets",
+       "primary_stats": {
+        "agility": 10,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "hit_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Lowlight Girdle",
+       "primary_stats": {
+        "agility": 15,
+        "stamina": 12
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "hit_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Lowlight Legguards",
+       "primary_stats": {
+        "agility": 21,
+        "stamina": 16
+       },
+       "secondary_stats": {
+        "attack_power": 11,
+        "hit_rating": 1
+       }
+      },
+      "feet": {
+       "name": "Lowlight Greaves",
+       "primary_stats": {
+        "agility": 10,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "hit_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "agility": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_druid": {
+   "name": "Deeproot Raiment",
+   "class": "Druid",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "leather",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 163
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 158
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 196
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 122
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 127
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 124
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 190
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 127
+    }
+   },
+   "variants": {
+    "caster": {
+     "label": "Balance",
+     "profile": "caster",
+     "pieces": {
+      "head": {
+       "name": "Deeproot Circlet",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 5,
+        "spirit": 2
+       },
+       "secondary_stats": {
+        "spell_power": 11
+       }
+      },
+      "shoulder": {
+       "name": "Deeproot Mantle",
+       "primary_stats": {
+        "intellect": 13,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 15
+       }
+      },
+      "chest": {
+       "name": "Deeproot Vestments",
+       "primary_stats": {
+        "intellect": 15,
+        "stamina": 10,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 18
+       }
+      },
+      "wrist": {
+       "name": "Deeproot Bindings",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 7,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 12
+       }
+      },
+      "hands": {
+       "name": "Deeproot Gloves",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 14
+       }
+      },
+      "waist": {
+       "name": "Deeproot Sash",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 5,
+        "spirit": 2
+       },
+       "secondary_stats": {
+        "spell_power": 11
+       }
+      },
+      "legs": {
+       "name": "Deeproot Trousers",
+       "primary_stats": {
+        "intellect": 17,
+        "stamina": 10,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 19
+       }
+      },
+      "feet": {
+       "name": "Deeproot Slippers",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 14
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "intellect": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "spell_power": 25
+       }
+      }
+     }
+    },
+    "tank": {
+     "label": "Feral",
+     "profile": "tank_agi",
+     "pieces": {
+      "head": {
+       "name": "Deeproot Greathelm",
+       "primary_stats": {
+        "stamina": 11,
+        "agility": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Deeproot Shoulderguards",
+       "primary_stats": {
+        "stamina": 15,
+        "agility": 9
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 2
+       }
+      },
+      "chest": {
+       "name": "Deeproot Chestguard",
+       "primary_stats": {
+        "stamina": 18,
+        "agility": 11
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "wrist": {
+       "name": "Deeproot Vambraces",
+       "primary_stats": {
+        "stamina": 12,
+        "agility": 8
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Deeproot Handguards",
+       "primary_stats": {
+        "stamina": 14,
+        "agility": 9
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 2
+       }
+      },
+      "waist": {
+       "name": "Deeproot Waistguard",
+       "primary_stats": {
+        "stamina": 11,
+        "agility": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Deeproot Legplates",
+       "primary_stats": {
+        "stamina": 19,
+        "agility": 12
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "feet": {
+       "name": "Deeproot Sabatons",
+       "primary_stats": {
+        "stamina": 14,
+        "agility": 9
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 2
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "stamina": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    },
+    "healer": {
+     "label": "Restoration",
+     "profile": "healer",
+     "pieces": {
+      "head": {
+       "name": "Deeproot Cowl",
+       "primary_stats": {
+        "intellect": 7,
+        "spirit": 5,
+        "stamina": 5
+       },
+       "secondary_stats": {
+        "spell_power": 6,
+        "healing_power": 5
+       }
+      },
+      "shoulder": {
+       "name": "Deeproot Shoulderpads",
+       "primary_stats": {
+        "intellect": 10,
+        "spirit": 7,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      },
+      "chest": {
+       "name": "Deeproot Robe",
+       "primary_stats": {
+        "intellect": 13,
+        "spirit": 8,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      },
+      "wrist": {
+       "name": "Deeproot Wraps",
+       "primary_stats": {
+        "intellect": 8,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 7,
+        "healing_power": 6
+       }
+      },
+      "hands": {
+       "name": "Deeproot Handwraps",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      },
+      "waist": {
+       "name": "Deeproot Cord",
+       "primary_stats": {
+        "intellect": 7,
+        "spirit": 5,
+        "stamina": 5
+       },
+       "secondary_stats": {
+        "spell_power": 6,
+        "healing_power": 5
+       }
+      },
+      "legs": {
+       "name": "Deeproot Kilt",
+       "primary_stats": {
+        "intellect": 13,
+        "spirit": 9,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "spell_power": 11,
+        "healing_power": 10
+       }
+      },
+      "feet": {
+       "name": "Deeproot Sandals",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "spirit": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "healing_power": 40
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_barbarian": {
+   "name": "Ramhorn Warhide",
+   "class": "Barbarian",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "leather",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 163
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 172
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 196
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 122
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 127
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 129
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 190
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 127
+    }
+   },
+   "variants": {
+    "melee": {
+     "label": "Ancestry / Brutality / Headhunting",
+     "profile": "melee_str",
+     "pieces": {
+      "head": {
+       "name": "Ramhorn Helm",
+       "primary_stats": {
+        "strength": 16,
+        "stamina": 12
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "hit_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Ramhorn Pauldrons",
+       "primary_stats": {
+        "strength": 17,
+        "stamina": 13
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "hit_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Ramhorn Hauberk",
+       "primary_stats": {
+        "strength": 23,
+        "stamina": 18
+       },
+       "secondary_stats": {
+        "attack_power": 10,
+        "hit_rating": 1
+       }
+      },
+      "wrist": {
+       "name": "Ramhorn Bracers",
+       "primary_stats": {
+        "strength": 13,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "hit_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Ramhorn Gauntlets",
+       "primary_stats": {
+        "strength": 11,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "hit_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Ramhorn Girdle",
+       "primary_stats": {
+        "strength": 11,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "hit_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Ramhorn Legguards",
+       "primary_stats": {
+        "strength": 17,
+        "stamina": 13
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "hit_rating": 1
+       }
+      },
+      "feet": {
+       "name": "Ramhorn Greaves",
+       "primary_stats": {
+        "strength": 11,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "hit_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "strength": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_witch_doctor": {
+   "name": "Bonecharm Wraps",
+   "class": "Witch Doctor",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "leather",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 163
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 158
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 196
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 122
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 127
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 124
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 190
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 127
+    }
+   },
+   "variants": {
+    "healer": {
+     "label": "Brewing",
+     "profile": "healer",
+     "pieces": {
+      "head": {
+       "name": "Bonecharm Cowl",
+       "primary_stats": {
+        "intellect": 10,
+        "spirit": 7,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "spell_power": 9,
+        "healing_power": 8
+       }
+      },
+      "shoulder": {
+       "name": "Bonecharm Shoulderpads",
+       "primary_stats": {
+        "intellect": 8,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      },
+      "chest": {
+       "name": "Bonecharm Robe",
+       "primary_stats": {
+        "intellect": 12,
+        "spirit": 7,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      },
+      "wrist": {
+       "name": "Bonecharm Wraps",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 9,
+        "healing_power": 8
+       }
+      },
+      "hands": {
+       "name": "Bonecharm Handwraps",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 7,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      },
+      "waist": {
+       "name": "Bonecharm Cord",
+       "primary_stats": {
+        "intellect": 10,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 8
+       }
+      },
+      "legs": {
+       "name": "Bonecharm Kilt",
+       "primary_stats": {
+        "intellect": 15,
+        "spirit": 10,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "spell_power": 13,
+        "healing_power": 12
+       }
+      },
+      "feet": {
+       "name": "Bonecharm Sandals",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 7,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "spirit": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "healing_power": 40
+       }
+      }
+     }
+    },
+    "hybrid": {
+     "label": "Shadowhunting / Voodoo",
+     "profile": "hybrid_agi",
+     "pieces": {
+      "head": {
+       "name": "Bonecharm Headguard",
+       "primary_stats": {
+        "agility": 9,
+        "intellect": 7,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 8
+       }
+      },
+      "shoulder": {
+       "name": "Bonecharm Epaulets",
+       "primary_stats": {
+        "agility": 7,
+        "intellect": 6,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 7
+       }
+      },
+      "chest": {
+       "name": "Bonecharm Harness",
+       "primary_stats": {
+        "agility": 10,
+        "intellect": 7,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 9
+       }
+      },
+      "wrist": {
+       "name": "Bonecharm Armguards",
+       "primary_stats": {
+        "agility": 9,
+        "intellect": 6,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 8
+       }
+      },
+      "hands": {
+       "name": "Bonecharm Fists",
+       "primary_stats": {
+        "agility": 10,
+        "intellect": 7,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 9
+       }
+      },
+      "waist": {
+       "name": "Bonecharm Clasp",
+       "primary_stats": {
+        "agility": 9,
+        "intellect": 6,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 8
+       }
+      },
+      "legs": {
+       "name": "Bonecharm Tassets",
+       "primary_stats": {
+        "agility": 13,
+        "intellect": 10,
+        "stamina": 12
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "spell_power": 12
+       }
+      },
+      "feet": {
+       "name": "Bonecharm Treads",
+       "primary_stats": {
+        "agility": 10,
+        "intellect": 7,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 9
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "agility": 15,
+        "intellect": 15
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 20,
+        "spell_power": 14
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_felsworn": {
+   "name": "Felscar Hides",
+   "class": "Felsworn",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "leather",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 163
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 158
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 196
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 122
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 127
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 124
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 190
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 127
+    }
+   },
+   "variants": {
+    "hybrid": {
+     "label": "Infernal / Slayer",
+     "profile": "hybrid_agi",
+     "pieces": {
+      "head": {
+       "name": "Felscar Headguard",
+       "primary_stats": {
+        "agility": 9,
+        "intellect": 7,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 8
+       }
+      },
+      "shoulder": {
+       "name": "Felscar Epaulets",
+       "primary_stats": {
+        "agility": 7,
+        "intellect": 6,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 7
+       }
+      },
+      "chest": {
+       "name": "Felscar Harness",
+       "primary_stats": {
+        "agility": 10,
+        "intellect": 7,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 9
+       }
+      },
+      "wrist": {
+       "name": "Felscar Armguards",
+       "primary_stats": {
+        "agility": 9,
+        "intellect": 6,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 8
+       }
+      },
+      "hands": {
+       "name": "Felscar Fists",
+       "primary_stats": {
+        "agility": 10,
+        "intellect": 7,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 9
+       }
+      },
+      "waist": {
+       "name": "Felscar Clasp",
+       "primary_stats": {
+        "agility": 9,
+        "intellect": 6,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 8
+       }
+      },
+      "legs": {
+       "name": "Felscar Tassets",
+       "primary_stats": {
+        "agility": 13,
+        "intellect": 10,
+        "stamina": 12
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "spell_power": 12
+       }
+      },
+      "feet": {
+       "name": "Felscar Treads",
+       "primary_stats": {
+        "agility": 10,
+        "intellect": 7,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 9
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "agility": 15,
+        "intellect": 15
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 20,
+        "spell_power": 14
+       }
+      }
+     }
+    },
+    "tank": {
+     "label": "Tyrant",
+     "profile": "tank_agi",
+     "pieces": {
+      "head": {
+       "name": "Felscar Greathelm",
+       "primary_stats": {
+        "stamina": 15,
+        "agility": 9
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "shoulder": {
+       "name": "Felscar Shoulderguards",
+       "primary_stats": {
+        "stamina": 12,
+        "agility": 8
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 2
+       }
+      },
+      "chest": {
+       "name": "Felscar Chestguard",
+       "primary_stats": {
+        "stamina": 16,
+        "agility": 10
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "wrist": {
+       "name": "Felscar Vambraces",
+       "primary_stats": {
+        "stamina": 14,
+        "agility": 9
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "hands": {
+       "name": "Felscar Handguards",
+       "primary_stats": {
+        "stamina": 15,
+        "agility": 10
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "waist": {
+       "name": "Felscar Waistguard",
+       "primary_stats": {
+        "stamina": 14,
+        "agility": 8
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "legs": {
+       "name": "Felscar Legplates",
+       "primary_stats": {
+        "stamina": 21,
+        "agility": 14
+       },
+       "secondary_stats": {
+        "defense_rating": 4,
+        "dodge_rating": 3
+       }
+      },
+      "feet": {
+       "name": "Felscar Sabatons",
+       "primary_stats": {
+        "stamina": 15,
+        "agility": 10
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "stamina": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_templar": {
+   "name": "Penitent's Leathers",
+   "class": "Templar",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "leather",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 163
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 158
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 214
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 122
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 127
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 124
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 190
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 127
+    }
+   },
+   "variants": {
+    "melee": {
+     "label": "Crusader / Zealot",
+     "profile": "melee_agi",
+     "pieces": {
+      "head": {
+       "name": "Penitent's Helm",
+       "primary_stats": {
+        "agility": 18,
+        "stamina": 14
+       },
+       "secondary_stats": {
+        "attack_power": 9,
+        "hit_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Penitent's Pauldrons",
+       "primary_stats": {
+        "agility": 15,
+        "stamina": 11
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "hit_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Penitent's Hauberk",
+       "primary_stats": {
+        "agility": 20,
+        "stamina": 15
+       },
+       "secondary_stats": {
+        "attack_power": 10,
+        "hit_rating": 1
+       }
+      },
+      "wrist": {
+       "name": "Penitent's Bracers",
+       "primary_stats": {
+        "agility": 13,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "hit_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Penitent's Gauntlets",
+       "primary_stats": {
+        "agility": 10,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "hit_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Penitent's Girdle",
+       "primary_stats": {
+        "agility": 15,
+        "stamina": 12
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "hit_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Penitent's Legguards",
+       "primary_stats": {
+        "agility": 21,
+        "stamina": 16
+       },
+       "secondary_stats": {
+        "attack_power": 11,
+        "hit_rating": 1
+       }
+      },
+      "feet": {
+       "name": "Penitent's Greaves",
+       "primary_stats": {
+        "agility": 10,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "hit_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "agility": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    },
+    "tank": {
+     "label": "Oathkeeper",
+     "profile": "tank_agi",
+     "pieces": {
+      "head": {
+       "name": "Penitent's Greathelm",
+       "primary_stats": {
+        "stamina": 20,
+        "agility": 12
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "shoulder": {
+       "name": "Penitent's Shoulderguards",
+       "primary_stats": {
+        "stamina": 16,
+        "agility": 10
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Penitent's Chestguard",
+       "primary_stats": {
+        "stamina": 21,
+        "agility": 14
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "wrist": {
+       "name": "Penitent's Vambraces",
+       "primary_stats": {
+        "stamina": 14,
+        "agility": 8
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Penitent's Handguards",
+       "primary_stats": {
+        "stamina": 11,
+        "agility": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 1,
+        "dodge_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Penitent's Waistguard",
+       "primary_stats": {
+        "stamina": 17,
+        "agility": 10
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 2
+       }
+      },
+      "legs": {
+       "name": "Penitent's Legplates",
+       "primary_stats": {
+        "stamina": 23,
+        "agility": 14
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "feet": {
+       "name": "Penitent's Sabatons",
+       "primary_stats": {
+        "stamina": 11,
+        "agility": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 1,
+        "dodge_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "stamina": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_bloodmage": {
+   "name": "Bloodletter's Finery",
+   "class": "Bloodmage",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "leather",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 163
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 158
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 214
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 122
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 127
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 124
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 190
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 127
+    }
+   },
+   "variants": {
+    "melee": {
+     "label": "Accursed",
+     "profile": "melee_agi",
+     "pieces": {
+      "head": {
+       "name": "Bloodletter's Helm",
+       "primary_stats": {
+        "agility": 18,
+        "stamina": 14
+       },
+       "secondary_stats": {
+        "attack_power": 9,
+        "hit_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Bloodletter's Pauldrons",
+       "primary_stats": {
+        "agility": 15,
+        "stamina": 11
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "hit_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Bloodletter's Hauberk",
+       "primary_stats": {
+        "agility": 20,
+        "stamina": 15
+       },
+       "secondary_stats": {
+        "attack_power": 10,
+        "hit_rating": 1
+       }
+      },
+      "wrist": {
+       "name": "Bloodletter's Bracers",
+       "primary_stats": {
+        "agility": 13,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "hit_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Bloodletter's Gauntlets",
+       "primary_stats": {
+        "agility": 10,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "hit_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Bloodletter's Girdle",
+       "primary_stats": {
+        "agility": 15,
+        "stamina": 12
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "hit_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Bloodletter's Legguards",
+       "primary_stats": {
+        "agility": 21,
+        "stamina": 16
+       },
+       "secondary_stats": {
+        "attack_power": 11,
+        "hit_rating": 1
+       }
+      },
+      "feet": {
+       "name": "Bloodletter's Greaves",
+       "primary_stats": {
+        "agility": 10,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "hit_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "agility": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    },
+    "tank": {
+     "label": "Eternal",
+     "profile": "tank_agi",
+     "pieces": {
+      "head": {
+       "name": "Bloodletter's Greathelm",
+       "primary_stats": {
+        "stamina": 20,
+        "agility": 12
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "shoulder": {
+       "name": "Bloodletter's Shoulderguards",
+       "primary_stats": {
+        "stamina": 16,
+        "agility": 10
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Bloodletter's Chestguard",
+       "primary_stats": {
+        "stamina": 21,
+        "agility": 14
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "wrist": {
+       "name": "Bloodletter's Vambraces",
+       "primary_stats": {
+        "stamina": 14,
+        "agility": 8
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Bloodletter's Handguards",
+       "primary_stats": {
+        "stamina": 11,
+        "agility": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 1,
+        "dodge_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Bloodletter's Waistguard",
+       "primary_stats": {
+        "stamina": 17,
+        "agility": 10
+       },
+       "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 2
+       }
+      },
+      "legs": {
+       "name": "Bloodletter's Legplates",
+       "primary_stats": {
+        "stamina": 23,
+        "agility": 14
+       },
+       "secondary_stats": {
+        "defense_rating": 3,
+        "dodge_rating": 2
+       }
+      },
+      "feet": {
+       "name": "Bloodletter's Sabatons",
+       "primary_stats": {
+        "stamina": 11,
+        "agility": 6
+       },
+       "secondary_stats": {
+        "defense_rating": 1,
+        "dodge_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "stamina": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    },
+    "healer": {
+     "label": "Fleshweaver",
+     "profile": "healer",
+     "pieces": {
+      "head": {
+       "name": "Bloodletter's Cowl",
+       "primary_stats": {
+        "intellect": 14,
+        "spirit": 9,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "spell_power": 9,
+        "healing_power": 8
+       }
+      },
+      "shoulder": {
+       "name": "Bloodletter's Shoulderpads",
+       "primary_stats": {
+        "intellect": 12,
+        "spirit": 7,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "spell_power": 7,
+        "healing_power": 7
+       }
+      },
+      "chest": {
+       "name": "Bloodletter's Robe",
+       "primary_stats": {
+        "intellect": 15,
+        "spirit": 10,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      },
+      "wrist": {
+       "name": "Bloodletter's Wraps",
+       "primary_stats": {
+        "intellect": 10,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 6,
+        "healing_power": 6
+       }
+      },
+      "hands": {
+       "name": "Bloodletter's Handwraps",
+       "primary_stats": {
+        "intellect": 7,
+        "spirit": 5,
+        "stamina": 5
+       },
+       "secondary_stats": {
+        "spell_power": 5,
+        "healing_power": 4
+       }
+      },
+      "waist": {
+       "name": "Bloodletter's Cord",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 8,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      },
+      "legs": {
+       "name": "Bloodletter's Kilt",
+       "primary_stats": {
+        "intellect": 15,
+        "spirit": 11,
+        "stamina": 11
+       },
+       "secondary_stats": {
+        "spell_power": 11,
+        "healing_power": 10
+       }
+      },
+      "feet": {
+       "name": "Bloodletter's Sandals",
+       "primary_stats": {
+        "intellect": 7,
+        "spirit": 5,
+        "stamina": 5
+       },
+       "secondary_stats": {
+        "spell_power": 5,
+        "healing_power": 4
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "spirit": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "healing_power": 40
+       }
+      }
+     }
+    },
+    "ranged": {
+     "label": "Sanguine",
+     "profile": "ranged_agi",
+     "pieces": {
+      "head": {
+       "name": "Bloodletter's Coif",
+       "primary_stats": {
+        "agility": 20,
+        "stamina": 12
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 11,
+        "hit_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Bloodletter's Spaulders",
+       "primary_stats": {
+        "agility": 16,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 9,
+        "hit_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Bloodletter's Brigandine",
+       "primary_stats": {
+        "agility": 21,
+        "stamina": 14
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 12,
+        "hit_rating": 1
+       }
+      },
+      "wrist": {
+       "name": "Bloodletter's Wristguards",
+       "primary_stats": {
+        "agility": 14,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 8,
+        "hit_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Bloodletter's Grips",
+       "primary_stats": {
+        "agility": 11,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 6,
+        "hit_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Bloodletter's Belt",
+       "primary_stats": {
+        "agility": 17,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 9,
+        "hit_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Bloodletter's Leggings",
+       "primary_stats": {
+        "agility": 23,
+        "stamina": 14
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 13,
+        "hit_rating": 1
+       }
+      },
+      "feet": {
+       "name": "Bloodletter's Boots",
+       "primary_stats": {
+        "agility": 11,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 6,
+        "hit_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "agility": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "ranged_attack_power": 40
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_ranger": {
+   "name": "Greenway Leathers",
+   "class": "Ranger",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "leather",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 163
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 158
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 214
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 122
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 127
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 124
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 190
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 127
+    }
+   },
+   "variants": {
+    "ranged": {
+     "label": "Archery / Farstrider",
+     "profile": "ranged_agi",
+     "pieces": {
+      "head": {
+       "name": "Greenway Coif",
+       "primary_stats": {
+        "agility": 20,
+        "stamina": 12
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 11,
+        "hit_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Greenway Spaulders",
+       "primary_stats": {
+        "agility": 16,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 9,
+        "hit_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Greenway Brigandine",
+       "primary_stats": {
+        "agility": 21,
+        "stamina": 14
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 12,
+        "hit_rating": 1
+       }
+      },
+      "wrist": {
+       "name": "Greenway Wristguards",
+       "primary_stats": {
+        "agility": 14,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 8,
+        "hit_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Greenway Grips",
+       "primary_stats": {
+        "agility": 11,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 6,
+        "hit_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Greenway Belt",
+       "primary_stats": {
+        "agility": 17,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 9,
+        "hit_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Greenway Leggings",
+       "primary_stats": {
+        "agility": 23,
+        "stamina": 14
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 13,
+        "hit_rating": 1
+       }
+      },
+      "feet": {
+       "name": "Greenway Boots",
+       "primary_stats": {
+        "agility": 11,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "ranged_attack_power": 6,
+        "hit_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "agility": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "ranged_attack_power": 40
+       }
+      }
+     }
+    },
+    "melee": {
+     "label": "Brigand",
+     "profile": "melee_agi",
+     "pieces": {
+      "head": {
+       "name": "Greenway Helm",
+       "primary_stats": {
+        "agility": 18,
+        "stamina": 14
+       },
+       "secondary_stats": {
+        "attack_power": 9,
+        "hit_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Greenway Pauldrons",
+       "primary_stats": {
+        "agility": 15,
+        "stamina": 11
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "hit_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Greenway Hauberk",
+       "primary_stats": {
+        "agility": 20,
+        "stamina": 15
+       },
+       "secondary_stats": {
+        "attack_power": 10,
+        "hit_rating": 1
+       }
+      },
+      "wrist": {
+       "name": "Greenway Bracers",
+       "primary_stats": {
+        "agility": 13,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "hit_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Greenway Gauntlets",
+       "primary_stats": {
+        "agility": 10,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "hit_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Greenway Girdle",
+       "primary_stats": {
+        "agility": 15,
+        "stamina": 12
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "hit_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Greenway Legguards",
+       "primary_stats": {
+        "agility": 21,
+        "stamina": 16
+       },
+       "secondary_stats": {
+        "attack_power": 11,
+        "hit_rating": 1
+       }
+      },
+      "feet": {
+       "name": "Greenway Greaves",
+       "primary_stats": {
+        "agility": 10,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "hit_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "agility": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_priest": {
+   "name": "Vestments of the Quiet Hour",
+   "class": "Priest",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "cloth",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 81
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 79
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 98
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 61
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 63
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 62
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 95
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 63
+    }
+   },
+   "variants": {
+    "healer": {
+     "label": "Discipline / Holy",
+     "profile": "healer",
+     "pieces": {
+      "head": {
+       "name": "Quiet Hour Cowl",
+       "primary_stats": {
+        "intellect": 7,
+        "spirit": 5,
+        "stamina": 5
+       },
+       "secondary_stats": {
+        "spell_power": 6,
+        "healing_power": 5
+       }
+      },
+      "shoulder": {
+       "name": "Quiet Hour Shoulderpads",
+       "primary_stats": {
+        "intellect": 10,
+        "spirit": 7,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      },
+      "chest": {
+       "name": "Quiet Hour Robe",
+       "primary_stats": {
+        "intellect": 13,
+        "spirit": 8,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      },
+      "wrist": {
+       "name": "Quiet Hour Wraps",
+       "primary_stats": {
+        "intellect": 8,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 7,
+        "healing_power": 6
+       }
+      },
+      "hands": {
+       "name": "Quiet Hour Handwraps",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      },
+      "waist": {
+       "name": "Quiet Hour Cord",
+       "primary_stats": {
+        "intellect": 7,
+        "spirit": 5,
+        "stamina": 5
+       },
+       "secondary_stats": {
+        "spell_power": 6,
+        "healing_power": 5
+       }
+      },
+      "legs": {
+       "name": "Quiet Hour Kilt",
+       "primary_stats": {
+        "intellect": 13,
+        "spirit": 9,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "spell_power": 11,
+        "healing_power": 10
+       }
+      },
+      "feet": {
+       "name": "Quiet Hour Sandals",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "spirit": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "healing_power": 40
+       }
+      }
+     }
+    },
+    "caster": {
+     "label": "Shadow",
+     "profile": "caster",
+     "pieces": {
+      "head": {
+       "name": "Quiet Hour Circlet",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 5,
+        "spirit": 2
+       },
+       "secondary_stats": {
+        "spell_power": 11
+       }
+      },
+      "shoulder": {
+       "name": "Quiet Hour Mantle",
+       "primary_stats": {
+        "intellect": 13,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 15
+       }
+      },
+      "chest": {
+       "name": "Quiet Hour Vestments",
+       "primary_stats": {
+        "intellect": 15,
+        "stamina": 10,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 18
+       }
+      },
+      "wrist": {
+       "name": "Quiet Hour Bindings",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 7,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 12
+       }
+      },
+      "hands": {
+       "name": "Quiet Hour Gloves",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 14
+       }
+      },
+      "waist": {
+       "name": "Quiet Hour Sash",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 5,
+        "spirit": 2
+       },
+       "secondary_stats": {
+        "spell_power": 11
+       }
+      },
+      "legs": {
+       "name": "Quiet Hour Trousers",
+       "primary_stats": {
+        "intellect": 17,
+        "stamina": 10,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 19
+       }
+      },
+      "feet": {
+       "name": "Quiet Hour Slippers",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 14
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "intellect": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "spell_power": 25
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_mage": {
+   "name": "Leyweaver's Regalia",
+   "class": "Mage",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "cloth",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 81
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 79
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 98
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 61
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 63
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 62
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 95
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 63
+    }
+   },
+   "variants": {
+    "caster": {
+     "label": "Arcane / Fire / Frost",
+     "profile": "caster",
+     "pieces": {
+      "head": {
+       "name": "Leyweaver's Circlet",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 5,
+        "spirit": 2
+       },
+       "secondary_stats": {
+        "spell_power": 11
+       }
+      },
+      "shoulder": {
+       "name": "Leyweaver's Mantle",
+       "primary_stats": {
+        "intellect": 13,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 15
+       }
+      },
+      "chest": {
+       "name": "Leyweaver's Vestments",
+       "primary_stats": {
+        "intellect": 15,
+        "stamina": 10,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 18
+       }
+      },
+      "wrist": {
+       "name": "Leyweaver's Bindings",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 7,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 12
+       }
+      },
+      "hands": {
+       "name": "Leyweaver's Gloves",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 14
+       }
+      },
+      "waist": {
+       "name": "Leyweaver's Sash",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 5,
+        "spirit": 2
+       },
+       "secondary_stats": {
+        "spell_power": 11
+       }
+      },
+      "legs": {
+       "name": "Leyweaver's Trousers",
+       "primary_stats": {
+        "intellect": 17,
+        "stamina": 10,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 19
+       }
+      },
+      "feet": {
+       "name": "Leyweaver's Slippers",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 14
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "intellect": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "spell_power": 25
+       }
+      }
+     }
+    },
+    "cryomancer": {
+     "label": "Cryomancer",
+     "profile": "cryomancer",
+     "pieces": {
+      "head": {
+       "name": "Leyweaver's Hood",
+       "primary_stats": {
+        "intellect": 9,
+        "stamina": 5,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 3
+       }
+      },
+      "shoulder": {
+       "name": "Leyweaver's Shawl",
+       "primary_stats": {
+        "intellect": 13,
+        "stamina": 7,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 12,
+        "healing_power": 4
+       }
+      },
+      "chest": {
+       "name": "Leyweaver's Raiment",
+       "primary_stats": {
+        "intellect": 16,
+        "stamina": 8,
+        "spirit": 5
+       },
+       "secondary_stats": {
+        "spell_power": 14,
+        "healing_power": 5
+       }
+      },
+      "wrist": {
+       "name": "Leyweaver's Cuffs",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 6,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 3
+       }
+      },
+      "hands": {
+       "name": "Leyweaver's Mitts",
+       "primary_stats": {
+        "intellect": 13,
+        "stamina": 6,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 11,
+        "healing_power": 4
+       }
+      },
+      "waist": {
+       "name": "Leyweaver's Cincture",
+       "primary_stats": {
+        "intellect": 9,
+        "stamina": 5,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 3
+       }
+      },
+      "legs": {
+       "name": "Leyweaver's Skirt",
+       "primary_stats": {
+        "intellect": 16,
+        "stamina": 9,
+        "spirit": 6
+       },
+       "secondary_stats": {
+        "spell_power": 15,
+        "healing_power": 5
+       }
+      },
+      "feet": {
+       "name": "Leyweaver's Footwraps",
+       "primary_stats": {
+        "intellect": 13,
+        "stamina": 6,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 11,
+        "healing_power": 4
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "intellect": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "spell_power": 14,
+        "healing_power": 20
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_warlock": {
+   "name": "Pactbinder's Raiment",
+   "class": "Warlock",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "cloth",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 81
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 79
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 98
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 61
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 63
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 62
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 95
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 63
+    }
+   },
+   "variants": {
+    "caster": {
+     "label": "Affliction / Demonology / Destruction",
+     "profile": "caster",
+     "pieces": {
+      "head": {
+       "name": "Pactbinder's Circlet",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 5,
+        "spirit": 2
+       },
+       "secondary_stats": {
+        "spell_power": 11
+       }
+      },
+      "shoulder": {
+       "name": "Pactbinder's Mantle",
+       "primary_stats": {
+        "intellect": 13,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 15
+       }
+      },
+      "chest": {
+       "name": "Pactbinder's Vestments",
+       "primary_stats": {
+        "intellect": 15,
+        "stamina": 10,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 18
+       }
+      },
+      "wrist": {
+       "name": "Pactbinder's Bindings",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 7,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 12
+       }
+      },
+      "hands": {
+       "name": "Pactbinder's Gloves",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 14
+       }
+      },
+      "waist": {
+       "name": "Pactbinder's Sash",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 5,
+        "spirit": 2
+       },
+       "secondary_stats": {
+        "spell_power": 11
+       }
+      },
+      "legs": {
+       "name": "Pactbinder's Trousers",
+       "primary_stats": {
+        "intellect": 17,
+        "stamina": 10,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 19
+       }
+      },
+      "feet": {
+       "name": "Pactbinder's Slippers",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 14
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "intellect": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "spell_power": 25
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_necromancer": {
+   "name": "Gravewright's Shroud",
+   "class": "Necromancer",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "cloth",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 81
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 79
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 98
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 61
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 63
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 62
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 95
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 63
+    }
+   },
+   "variants": {
+    "caster": {
+     "label": "Animation / Death / Rime",
+     "profile": "caster",
+     "pieces": {
+      "head": {
+       "name": "Gravewright's Circlet",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 5,
+        "spirit": 2
+       },
+       "secondary_stats": {
+        "spell_power": 11
+       }
+      },
+      "shoulder": {
+       "name": "Gravewright's Mantle",
+       "primary_stats": {
+        "intellect": 13,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 15
+       }
+      },
+      "chest": {
+       "name": "Gravewright's Vestments",
+       "primary_stats": {
+        "intellect": 15,
+        "stamina": 10,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 18
+       }
+      },
+      "wrist": {
+       "name": "Gravewright's Bindings",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 7,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 12
+       }
+      },
+      "hands": {
+       "name": "Gravewright's Gloves",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 14
+       }
+      },
+      "waist": {
+       "name": "Gravewright's Sash",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 5,
+        "spirit": 2
+       },
+       "secondary_stats": {
+        "spell_power": 11
+       }
+      },
+      "legs": {
+       "name": "Gravewright's Trousers",
+       "primary_stats": {
+        "intellect": 17,
+        "stamina": 10,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 19
+       }
+      },
+      "feet": {
+       "name": "Gravewright's Slippers",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 14
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "intellect": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "spell_power": 25
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_pyromancer": {
+   "name": "Cinderscale Robes",
+   "class": "Pyromancer",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "cloth",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 81
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 79
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 98
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 61
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 63
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 62
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 95
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 63
+    }
+   },
+   "variants": {
+    "caster": {
+     "label": "Draconic / Incineration",
+     "profile": "caster",
+     "pieces": {
+      "head": {
+       "name": "Cinderscale Circlet",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 5,
+        "spirit": 2
+       },
+       "secondary_stats": {
+        "spell_power": 11
+       }
+      },
+      "shoulder": {
+       "name": "Cinderscale Mantle",
+       "primary_stats": {
+        "intellect": 13,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 15
+       }
+      },
+      "chest": {
+       "name": "Cinderscale Vestments",
+       "primary_stats": {
+        "intellect": 15,
+        "stamina": 10,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 18
+       }
+      },
+      "wrist": {
+       "name": "Cinderscale Bindings",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 7,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 12
+       }
+      },
+      "hands": {
+       "name": "Cinderscale Gloves",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 14
+       }
+      },
+      "waist": {
+       "name": "Cinderscale Sash",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 5,
+        "spirit": 2
+       },
+       "secondary_stats": {
+        "spell_power": 11
+       }
+      },
+      "legs": {
+       "name": "Cinderscale Trousers",
+       "primary_stats": {
+        "intellect": 17,
+        "stamina": 10,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 19
+       }
+      },
+      "feet": {
+       "name": "Cinderscale Slippers",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 14
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "intellect": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "spell_power": 25
+       }
+      }
+     }
+    },
+    "healer": {
+     "label": "Flameweaving",
+     "profile": "healer",
+     "pieces": {
+      "head": {
+       "name": "Cinderscale Cowl",
+       "primary_stats": {
+        "intellect": 7,
+        "spirit": 5,
+        "stamina": 5
+       },
+       "secondary_stats": {
+        "spell_power": 6,
+        "healing_power": 5
+       }
+      },
+      "shoulder": {
+       "name": "Cinderscale Shoulderpads",
+       "primary_stats": {
+        "intellect": 10,
+        "spirit": 7,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      },
+      "chest": {
+       "name": "Cinderscale Robe",
+       "primary_stats": {
+        "intellect": 13,
+        "spirit": 8,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      },
+      "wrist": {
+       "name": "Cinderscale Wraps",
+       "primary_stats": {
+        "intellect": 8,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 7,
+        "healing_power": 6
+       }
+      },
+      "hands": {
+       "name": "Cinderscale Handwraps",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      },
+      "waist": {
+       "name": "Cinderscale Cord",
+       "primary_stats": {
+        "intellect": 7,
+        "spirit": 5,
+        "stamina": 5
+       },
+       "secondary_stats": {
+        "spell_power": 6,
+        "healing_power": 5
+       }
+      },
+      "legs": {
+       "name": "Cinderscale Kilt",
+       "primary_stats": {
+        "intellect": 13,
+        "spirit": 9,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "spell_power": 11,
+        "healing_power": 10
+       }
+      },
+      "feet": {
+       "name": "Cinderscale Sandals",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "spirit": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "healing_power": 40
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_runemaster": {
+   "name": "Glyphwoven Regalia",
+   "class": "Runemaster",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "cloth",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 81
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 79
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 98
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 61
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 63
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 62
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 95
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 63
+    }
+   },
+   "variants": {
+    "caster": {
+     "label": "Engravement / Glyphic / Riftblade",
+     "profile": "caster",
+     "pieces": {
+      "head": {
+       "name": "Glyphwoven Circlet",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 5,
+        "spirit": 2
+       },
+       "secondary_stats": {
+        "spell_power": 11
+       }
+      },
+      "shoulder": {
+       "name": "Glyphwoven Mantle",
+       "primary_stats": {
+        "intellect": 13,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 15
+       }
+      },
+      "chest": {
+       "name": "Glyphwoven Vestments",
+       "primary_stats": {
+        "intellect": 15,
+        "stamina": 10,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 18
+       }
+      },
+      "wrist": {
+       "name": "Glyphwoven Bindings",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 7,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 12
+       }
+      },
+      "hands": {
+       "name": "Glyphwoven Gloves",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 14
+       }
+      },
+      "waist": {
+       "name": "Glyphwoven Sash",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 5,
+        "spirit": 2
+       },
+       "secondary_stats": {
+        "spell_power": 11
+       }
+      },
+      "legs": {
+       "name": "Glyphwoven Trousers",
+       "primary_stats": {
+        "intellect": 17,
+        "stamina": 10,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 19
+       }
+      },
+      "feet": {
+       "name": "Glyphwoven Slippers",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 14
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "intellect": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "spell_power": 25
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_chronomancer": {
+   "name": "Vestments of the Stopped Clock",
+   "class": "Chronomancer",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "cloth",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 81
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 79
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 98
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 61
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 63
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 62
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 95
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 63
+    }
+   },
+   "variants": {
+    "caster": {
+     "label": "Artificer / Infinite",
+     "profile": "caster",
+     "pieces": {
+      "head": {
+       "name": "Stopped Clock Circlet",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 5,
+        "spirit": 2
+       },
+       "secondary_stats": {
+        "spell_power": 11
+       }
+      },
+      "shoulder": {
+       "name": "Stopped Clock Mantle",
+       "primary_stats": {
+        "intellect": 13,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 15
+       }
+      },
+      "chest": {
+       "name": "Stopped Clock Vestments",
+       "primary_stats": {
+        "intellect": 15,
+        "stamina": 10,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 18
+       }
+      },
+      "wrist": {
+       "name": "Stopped Clock Bindings",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 7,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 12
+       }
+      },
+      "hands": {
+       "name": "Stopped Clock Gloves",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 14
+       }
+      },
+      "waist": {
+       "name": "Stopped Clock Sash",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 5,
+        "spirit": 2
+       },
+       "secondary_stats": {
+        "spell_power": 11
+       }
+      },
+      "legs": {
+       "name": "Stopped Clock Trousers",
+       "primary_stats": {
+        "intellect": 17,
+        "stamina": 10,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 19
+       }
+      },
+      "feet": {
+       "name": "Stopped Clock Slippers",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 14
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "intellect": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "spell_power": 25
+       }
+      }
+     }
+    },
+    "healer": {
+     "label": "Time",
+     "profile": "healer",
+     "pieces": {
+      "head": {
+       "name": "Stopped Clock Cowl",
+       "primary_stats": {
+        "intellect": 7,
+        "spirit": 5,
+        "stamina": 5
+       },
+       "secondary_stats": {
+        "spell_power": 6,
+        "healing_power": 5
+       }
+      },
+      "shoulder": {
+       "name": "Stopped Clock Shoulderpads",
+       "primary_stats": {
+        "intellect": 10,
+        "spirit": 7,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      },
+      "chest": {
+       "name": "Stopped Clock Robe",
+       "primary_stats": {
+        "intellect": 13,
+        "spirit": 8,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "spell_power": 10,
+        "healing_power": 9
+       }
+      },
+      "wrist": {
+       "name": "Stopped Clock Wraps",
+       "primary_stats": {
+        "intellect": 8,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 7,
+        "healing_power": 6
+       }
+      },
+      "hands": {
+       "name": "Stopped Clock Handwraps",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      },
+      "waist": {
+       "name": "Stopped Clock Cord",
+       "primary_stats": {
+        "intellect": 7,
+        "spirit": 5,
+        "stamina": 5
+       },
+       "secondary_stats": {
+        "spell_power": 6,
+        "healing_power": 5
+       }
+      },
+      "legs": {
+       "name": "Stopped Clock Kilt",
+       "primary_stats": {
+        "intellect": 13,
+        "spirit": 9,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "spell_power": 11,
+        "healing_power": 10
+       }
+      },
+      "feet": {
+       "name": "Stopped Clock Sandals",
+       "primary_stats": {
+        "intellect": 11,
+        "spirit": 6,
+        "stamina": 6
+       },
+       "secondary_stats": {
+        "spell_power": 8,
+        "healing_power": 7
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "spirit": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "healing_power": 40
+       }
+      }
+     }
+    }
+   }
+  },
+  "t0_stormbringer": {
+   "name": "Thunderhead Raiment",
+   "class": "Stormbringer",
+   "tier": "T0",
+   "rarity": "rare",
+   "armor_type": "cloth",
+   "slots": {
+    "head": {
+     "item_level": 59,
+     "required_level": 57,
+     "armor": 81
+    },
+    "shoulder": {
+     "item_level": 57,
+     "required_level": 55,
+     "armor": 79
+    },
+    "chest": {
+     "item_level": 60,
+     "required_level": 58,
+     "armor": 98
+    },
+    "wrist": {
+     "item_level": 54,
+     "required_level": 52,
+     "armor": 61
+    },
+    "hands": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 63
+    },
+    "waist": {
+     "item_level": 55,
+     "required_level": 53,
+     "armor": 62
+    },
+    "legs": {
+     "item_level": 58,
+     "required_level": 56,
+     "armor": 95
+    },
+    "feet": {
+     "item_level": 56,
+     "required_level": 54,
+     "armor": 63
+    }
+   },
+   "variants": {
+    "melee": {
+     "label": "Lightning",
+     "profile": "melee_agi",
+     "pieces": {
+      "head": {
+       "name": "Thunderhead Helm",
+       "primary_stats": {
+        "agility": 10,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "hit_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Thunderhead Pauldrons",
+       "primary_stats": {
+        "agility": 14,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "hit_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Thunderhead Hauberk",
+       "primary_stats": {
+        "agility": 16,
+        "stamina": 13
+       },
+       "secondary_stats": {
+        "attack_power": 10,
+        "hit_rating": 1
+       }
+      },
+      "wrist": {
+       "name": "Thunderhead Bracers",
+       "primary_stats": {
+        "agility": 11,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "hit_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Thunderhead Gauntlets",
+       "primary_stats": {
+        "agility": 13,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "hit_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Thunderhead Girdle",
+       "primary_stats": {
+        "agility": 10,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "hit_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Thunderhead Legguards",
+       "primary_stats": {
+        "agility": 18,
+        "stamina": 13
+       },
+       "secondary_stats": {
+        "attack_power": 11,
+        "hit_rating": 1
+       }
+      },
+      "feet": {
+       "name": "Thunderhead Greaves",
+       "primary_stats": {
+        "agility": 13,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 8,
+        "hit_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "agility": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
+       }
+      }
+     }
+    },
+    "caster": {
+     "label": "Maelstrom / Wind",
+     "profile": "caster",
+     "pieces": {
+      "head": {
+       "name": "Thunderhead Circlet",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 5,
+        "spirit": 2
+       },
+       "secondary_stats": {
+        "spell_power": 11
+       }
+      },
+      "shoulder": {
+       "name": "Thunderhead Mantle",
+       "primary_stats": {
+        "intellect": 13,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 15
+       }
+      },
+      "chest": {
+       "name": "Thunderhead Vestments",
+       "primary_stats": {
+        "intellect": 15,
+        "stamina": 10,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 18
+       }
+      },
+      "wrist": {
+       "name": "Thunderhead Bindings",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 7,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 12
+       }
+      },
+      "hands": {
+       "name": "Thunderhead Gloves",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 14
+       }
+      },
+      "waist": {
+       "name": "Thunderhead Sash",
+       "primary_stats": {
+        "intellect": 10,
+        "stamina": 5,
+        "spirit": 2
+       },
+       "secondary_stats": {
+        "spell_power": 11
+       }
+      },
+      "legs": {
+       "name": "Thunderhead Trousers",
+       "primary_stats": {
+        "intellect": 17,
+        "stamina": 10,
+        "spirit": 4
+       },
+       "secondary_stats": {
+        "spell_power": 19
+       }
+      },
+      "feet": {
+       "name": "Thunderhead Slippers",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 8,
+        "spirit": 3
+       },
+       "secondary_stats": {
+        "spell_power": 14
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "intellect": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "spell_power": 25
+       }
+      }
+     }
+    }
+   }
+  }
+ }
 }

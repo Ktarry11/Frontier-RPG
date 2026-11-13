@@ -199,7 +199,7 @@ def tooltip_lines(item, character=None):
         worn = {slot for slot in worn_slots(character, item.set_id)
                 if not kinds or getattr(slots[slot], "set_variant", None) == shown}
     title = definition.get("name", item.set_id)
-    if kinds:
+    if len(kinds) > 1:              # a set with one version needs no version in its title
         title += f" - {kinds[shown].get('label', shown.title())}"
     lines = [(f"{title} ({len(worn)}/{len(pieces)})", "title")]
     for slot, name in pieces.items():
@@ -210,6 +210,38 @@ def tooltip_lines(item, character=None):
     if options:
         lines.append(("Exchange for: " + ", ".join(f"{name} ({label})" for _k, label, name in options), "missing"))
     return lines
+
+
+# ----------------------------------------------------------------------
+# Making a piece
+# ----------------------------------------------------------------------
+
+def make_piece(set_id, slot, variant=None):
+    """A new Item: the named version's piece for that slot (the set's first version if none
+    is named). None if the set, the version or the slot does not exist.
+
+    THE ONE PLACE A SET PIECE IS MADE - a boss table, a quest reward and a test all call this,
+    so a piece cannot exist with a level, armour or name the set does not give it.
+    """
+    from entities.item import Item
+    definition = get(set_id)
+    kinds = variants(definition)
+    if not definition or not kinds:
+        return None
+    variant = variant or next(iter(kinds))
+    spec = ((kinds.get(variant) or {}).get("pieces") or {}).get(slot)
+    frame = (definition.get("slots") or {}).get(slot)
+    if not spec or not frame:
+        return None
+    item = Item(f"{set_id}_{slot}", spec["name"], slot, frame["item_level"],
+                definition.get("rarity", "rare"), armor_type=definition.get("armor_type"),
+                primary_stats=dict(spec.get("primary_stats") or {}),
+                secondary_stats=dict(spec.get("secondary_stats") or {}),
+                armor_value=frame.get("armor", 0), required_level=frame.get("required_level", 1),
+                sell_price=None,            # None = priced by the gear curve like any other blue
+                set_id=set_id)
+    item.set_variant = variant
+    return item
 
 
 # ----------------------------------------------------------------------

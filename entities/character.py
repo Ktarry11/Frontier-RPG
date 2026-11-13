@@ -1357,7 +1357,13 @@ class Character(StatusEffectMixin):
         # top) rather than feeding into the strength/agility formula itself.
         self.attack_power = int((int(eff_strength * 2 + eff_agility * 0.5) + int(bonuses.get("attack_power", 0)))
                                  * (1.0 + bonuses.get("attack_power_pct", 0) / 100.0))
-        self.ranged_attack_power = int(eff_agility * 2 + eff_strength * 0.5)
+        # RANGED attack power takes +Attack Power from gear too, as in WoW, plus anything that
+        # is ranged-only. It used to be Agility and Strength and nothing else, so every point
+        # of attack power on a Hunter's gear did nothing for the bow it was bought for.
+        self.ranged_attack_power = int(
+            (int(eff_agility * 2 + eff_strength * 0.5) + int(bonuses.get("attack_power", 0))
+             + int(bonuses.get("ranged_attack_power", 0)))
+            * (1.0 + bonuses.get("attack_power_pct", 0) / 100.0))
 
         # Spell Power / Healing Power: small per-point contribution from base
         # stats (0.2 per INT for Spell Power; 0.2 per INT + 0.2 per Spirit for
