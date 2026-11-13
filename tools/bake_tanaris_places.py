@@ -24,12 +24,13 @@ import sys
 from tools import bake_durotar_caves as BD
 from tools import handbuilt_steamwheedle_port as STW
 from tools import handbuilt_drownbell as DB
+from tools import handbuilt_dry_deep as DD
 from tools.bake_durotar_caves import M, dim
 
 #: bake_spec() resolves its build function off BD.C, which is bound to the Durotar caves module.
 #: Each zone here lives in its own module, so C is swapped per bake - the same thing
 #: tools/bake_return_voyage.py does for the seven ship zones.
-MODULES = {"steamwheedle": STW, "drownbell": DB}
+MODULES = {"steamwheedle": STW, "drownbell": DB, "dry_deep": DD}
 
 SF = "shimmering_flats/materials/"
 
@@ -85,6 +86,26 @@ SPECS["drownbell"] = lambda: dict(
     pools=[],
     # A CAVE UNDER A HEADLAND. High ao, deep shading, a cold lip - no sky gets in here.
     cfg=dict(ao=0.44, depth=0.82, lip=24, lip_col=(0.72, 0.86, 1.0), deep_dark=0.40,
+             foam_col=(170, 210, 215), glows=[]),
+)
+
+SPECS["dry_deep"] = lambda: dict(
+    build="build_dry_deep_baked", seed=773, slug="dry_deep",
+    materials={
+        # THREE THINGS: the dry bed of a sea, the pale dust under each shaft where daylight and
+        # sand come down, and rock. See bake_shimmering_flats for why not more.
+        "floor":   M(dim(SF + "sf_mud_curled", 0.62), None, 1.5),
+        "light":   M(dim(SF + "tan_sand_gold", 0.80), None, 1.5),
+        "wall":    M(dim(SF + "tan_sandstone_floor", 0.46), None, 2.0),
+    },
+    floor_keys=["floor", "light"],
+    wall_keys=["wall"],
+    floors={
+        "light": [(x, y, 7, 6) for (x, y) in DD.PORTALS],
+    },
+    walls={},
+    pools=[],
+    cfg=dict(ao=0.42, depth=0.78, lip=22, lip_col=(1.0, 0.90, 0.70), deep_dark=0.40,
              foam_col=(170, 210, 215), glows=[]),
 )
 

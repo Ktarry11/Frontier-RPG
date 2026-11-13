@@ -58,7 +58,10 @@ TAU = 2.0 * np.pi
 #: Southern Needles did with the road that pointed at the Flats.
 #: The east gate to Glittervein was carved and walkable and deliberately unregistered for two
 #: passes, exactly as the Flats' south pass was before Tanaris existed. Glittervein exists now.
-PORTALS = {(60, 2): "Northern Tanaris", (176, 96): "Glittervein"}
+PORTALS = {(60, 2): "Northern Tanaris", (176, 96): "Glittervein",
+           # the six sinkholes that can be climbed down - see DESCENTS. The tile is the pit's centre.
+           (44, 34): "The Dry Deep", (104, 48): "The Dry Deep", (62, 66): "The Dry Deep",
+           (36, 92): "The Dry Deep", (84, 112): "The Dry Deep", (148, 116): "The Dry Deep"}
 ARRIVALS = [(60, 8), (170, 96), (46, 152)]
 START = (60, 8)
 
@@ -86,6 +89,24 @@ PITS = [
 #: debris down one side, and it is the zone's only interior. A field of eleven sealed holes with no
 #: way into any of them is a field of eleven pieces of scenery.
 DESCENT = ("The Wide Sink", 0.28)
+
+#: SIX WAYS DOWN, AND THEY ALL GO TO THE SAME PLACE. Kyle, 13 Nov 2026: "if we cant go into places
+#: in abyssal sands theyre wasted space too" - and then: "build an underground that is fully
+#: linked by 6 entrances ... another underground layer entered by each sinkhole that links up
+#: underground." That underground is The Dry Deep (tools/handbuilt_dry_deep.py), whose chambers
+#: sit under these six pits at six tenths of the scale.
+#:
+#: (pit, bearing its ramp of fallen debris leaves on, as a fraction of a turn: 0 east, 0.25 south)
+#: Each bearing points at open sand, away from the next pit and the rim. The other five pits stay
+#: sealed: a field where every hole can be climbed has no walls left in it.
+DESCENTS = [
+    ("The First Hole", 0.25),
+    ("Nineteen Mile Pit", 0.50),
+    ("The Wide Sink", 0.28),
+    ("The Throat", 0.0),
+    ("The Long Collapse", 0.75),
+    ("Underlight", 0.50),
+]
 
 #: The rim mountains. North is the wall against zone 1, east is Kyle's divider, and west and south
 #: run toward Uldum.
@@ -144,15 +165,16 @@ def _rim_lip(gx, gy):
 
 def _descent_cut(gx, gy):
     """>0 on the one ramp down into the Wide Sink - its own debris, fallen in a slope."""
-    name, turn = DESCENT
+    out = np.full(np.shape(gx), -9.0)
+    turns = dict(DESCENTS)
     for (n, cx, cy, rx, ry, _rim) in PITS:
-        if n != name:
+        if n not in turns:
             continue
-        a = turn * TAU
+        a = turns[n] * TAU
         ex, ey = cx + np.cos(a) * (rx + 8), cy + np.sin(a) * (ry + 8)
         d = T.seg_dist(gx, gy, cx, cy, ex, ey)
-        return (5.0 - d) + 0.8 * wob(gx * 0.7, gy * 0.7)
-    return np.full(np.shape(gx), -9.0)
+        out = np.maximum(out, (5.0 - d) + 0.8 * wob(gx * 0.7, gy * 0.7))
+    return out
 
 
 def _gate_cut(gx, gy):
@@ -340,9 +362,9 @@ def verify(zone):
     # 1) every pit must actually be a hole - blocked in the middle, not a crater with a floor
     open_floors = []
     for (name, cx, cy, _rx, _ry, _rim) in PITS:
-        if name == DESCENT[0]:
+        if name in dict(DESCENTS):
             continue
-        if zone.is_walkable(cx, cy):
+        if zone.is_walkable(cx, cy) or zone.interaction_layer[cy][cx]:
             open_floors.append(name)
     assert not open_floors, f"these pits have walkable floors and are craters, not holes: {open_floors}"
 

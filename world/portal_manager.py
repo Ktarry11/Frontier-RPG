@@ -393,6 +393,23 @@ class PortalManager:
             "The Abyssal Sands": {
                 (60, 2): ("Northern Tanaris", 60, 108),
                 (176, 96): ("Glittervein", 6, 96),
+                # SIX SINKHOLES, ONE UNDERGROUND. Kyle, 13 Nov 2026: "another underground layer
+                # entered by each sinkhole that links up underground." Each pit's centre goes down
+                # to the chamber under it, and each chamber's shaft comes back up the same pit.
+                (44, 34): ("The Dry Deep", 26, 20),      # The First Hole
+                (104, 48): ("The Dry Deep", 62, 29),      # Nineteen Mile Pit
+                (62, 66): ("The Dry Deep", 37, 40),      # The Wide Sink
+                (36, 92): ("The Dry Deep", 22, 55),      # The Throat
+                (84, 112): ("The Dry Deep", 50, 67),      # The Long Collapse
+                (148, 116): ("The Dry Deep", 89, 70),      # Underlight
+            },
+            "The Dry Deep": {
+                (26, 20): ("The Abyssal Sands", 44, 34),      # up The First Hole
+                (62, 29): ("The Abyssal Sands", 104, 48),      # up Nineteen Mile Pit
+                (37, 40): ("The Abyssal Sands", 62, 66),      # up The Wide Sink
+                (22, 55): ("The Abyssal Sands", 36, 92),      # up The Throat
+                (50, 67): ("The Abyssal Sands", 84, 112),      # up The Long Collapse
+                (89, 70): ("The Abyssal Sands", 148, 116),      # up Underlight
             },
             # Zone 3, the cenote, and the end of the five-zone water chain. Three doors on the
             # surface map: the gate west back to the Sands, the dig mouth on the isle that is the
