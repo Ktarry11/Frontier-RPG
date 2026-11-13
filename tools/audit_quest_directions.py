@@ -153,7 +153,7 @@ def audit(world, stems):
     # Rewritten zones keep their text in an overlay (data/quests/text/<zone>.json) that
     # QuestManager lays over the quest files; judge that, not the text underneath it.
     overlay = {}
-    for path in glob.glob("data/quests/text/*.json"):
+    for path in sorted(glob.glob("data/quests/text/*.json")):
         data = json.load(open(path))
         for qid, fields in (data.get("quests", data) if isinstance(data, dict) else {}).items():
             if isinstance(fields, dict):

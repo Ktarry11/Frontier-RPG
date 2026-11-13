@@ -79,6 +79,20 @@ class AmbientNPCManager:
                     self.npcs_by_zone[key] = []
                 self.npcs_by_zone[key].append(npc)
 
+            # GREETINGS REWRITTEN IN THE QUEST OVERHAUL live in data/npcs/greetings/<zone>.json
+            # ({npc_id: text}) and are laid over the file above, the same way quest text has an
+            # overlay: ambient_npcs.json is written by several placement tools, and a line of
+            # dialogue should not be lost because somebody moved the person who says it.
+            for path in sorted((npcs_path.parent / "greetings").glob("*.json")):
+                try:
+                    for npc_id, text in json.loads(path.read_text()).items():
+                        if npc_id in self.npcs and text:
+                            self.npcs[npc_id].greeting = text
+                        elif not npc_id.startswith("_"):
+                            print(f"WARNING: greeting overlay {path.name} names unknown NPC {npc_id}")
+                except (OSError, ValueError) as e:
+                    print(f"ERROR: greeting overlay {path.name}: {e}")
+
         except FileNotFoundError:
             # No ambient NPCs authored yet is a valid, quiet state (not
             # every zone needs them, and the file may not exist at all
