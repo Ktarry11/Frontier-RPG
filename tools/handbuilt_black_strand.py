@@ -268,38 +268,6 @@ def dress(zone, L):
     # carpets. The ground already says which place this is - the light does - so the props only
     # have to punctuate it: under half as many, and the floor shows between them.
     n = dict(fungi=0, hive=0, iron=0, stone=0)
-    for _ in range(5200):
-        x, y = int(rng.integers(3, W - 3)), int(rng.integers(3, H - 3))
-        if not zone.is_walkable(x, y) or rd[y, x] > -1.2:
-            continue
-        r = rng.random()
-        f, h, g = fung[y, x], hive[y, x], forge[y, x]
-        near_wall = o[y, x] < 3.0
-        if h > 0.25 and r < 0.085 * h:
-            if near_wall and rng.random() < 0.5:
-                nm, ht, kw = hive_big[int(rng.integers(len(hive_big)))]
-                ok = L.prop(nm, x, y, ht, solid="base", fraction=0.4, **kw)
-            else:
-                nm, ht, kw = hive_small[int(rng.integers(len(hive_small)))]
-                ok = L.prop(nm, x, y, ht, **kw)
-            n["hive"] += bool(ok)
-        elif f > 0.25 and r < 0.10 * f:
-            if near_wall or rng.random() < 0.22:
-                nm, ht = tall[int(rng.integers(len(tall)))]
-                ok = L.prop(nm, x, y, ht, solid="base", fraction=0.3, **U)
-            else:
-                nm, ht = small[int(rng.integers(len(small)))]
-                ok = L.prop(nm, x, y, ht, **U)
-            n["fungi"] += bool(ok)
-        elif g > 0.3 and r < 0.035 * g:
-            nm, ht = iron[int(rng.integers(len(iron)))]
-            n["iron"] += bool(L.prop(nm, x, y, ht, **D))
-        elif r < 0.014:
-            # the thin scatter: a lone cap or a stalagmite on open black sand
-            nm, ht = [("ud_shroom_small", 2), ("ud_stalagmites", 3), ("ud_lichen_boulder", 3),
-                      ("ud_fungal_node", 2)][int(rng.integers(4))]
-            n["stone"] += bool(L.prop(nm, x, y, ht, **U))
-
     # ---- set pieces
     # the foot of the descent: what the first people down left
     L.prop("ud_survey_tripod", 25, 20, 3, near_ok=True, **U)
@@ -328,6 +296,49 @@ def dress(zone, L):
     # the Last Water's shore
     for (x, y) in [(64, 98), (90, 100), (76, 93)]:
         L.prop("ud_glow_pool", x, y, 3, **U)
+
+    def taken(x, y, pad=1):
+        """Inside (or within `pad` of) something already placed. The set pieces go down first and
+        the scatter keeps off them: the first build scattered an ore cart through the statue at
+        the gate and a cage through a watchtower (tools/qa_building_overlap.py)."""
+        for lm in zone.landmarks:
+            if (lm["anchor_x"] - pad <= x < lm["anchor_x"] + lm["width_tiles"] + pad
+                    and lm["anchor_y"] - pad <= y < lm["anchor_y"] + lm["height_tiles"] + pad + 2):
+                return True
+        return False
+
+    for _ in range(5200):
+        x, y = int(rng.integers(3, W - 3)), int(rng.integers(3, H - 3))
+        if not zone.is_walkable(x, y) or rd[y, x] > -1.2 or taken(x, y):
+            continue
+        r = rng.random()
+        f, h, g = fung[y, x], hive[y, x], forge[y, x]
+        near_wall = o[y, x] < 3.0
+        if h > 0.25 and r < 0.11 * h:
+            if near_wall and rng.random() < 0.5:
+                nm, ht, kw = hive_big[int(rng.integers(len(hive_big)))]
+                ok = L.prop(nm, x, y, ht, solid="base", fraction=0.4, **kw)
+            else:
+                nm, ht, kw = hive_small[int(rng.integers(len(hive_small)))]
+                ok = L.prop(nm, x, y, ht, **kw)
+            n["hive"] += bool(ok)
+        elif f > 0.25 and r < 0.13 * f:
+            if near_wall or rng.random() < 0.22:
+                nm, ht = tall[int(rng.integers(len(tall)))]
+                ok = L.prop(nm, x, y, ht, solid="base", fraction=0.3, **U)
+            else:
+                nm, ht = small[int(rng.integers(len(small)))]
+                ok = L.prop(nm, x, y, ht, **U)
+            n["fungi"] += bool(ok)
+        elif g > 0.3 and r < 0.035 * g:
+            nm, ht = iron[int(rng.integers(len(iron)))]
+            n["iron"] += bool(L.prop(nm, x, y, ht, **D))
+        elif r < 0.014:
+            # the thin scatter: a lone cap or a stalagmite on open black sand
+            nm, ht = [("ud_shroom_small", 2), ("ud_stalagmites", 3), ("ud_lichen_boulder", 3),
+                      ("ud_fungal_node", 2)][int(rng.integers(4))]
+            n["stone"] += bool(L.prop(nm, x, y, ht, **U))
+
     L.dress_counts = n
     return zone, L
 
