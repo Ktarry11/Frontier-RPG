@@ -138,7 +138,7 @@
     "name": "Ama Boateng",
     "passives": {
       "_from": "'a ward sister who taught her to keep her voice level while her hands did something frightening'",
-      "pushback_reduction_pct": 100,
+      "stun_duration_reduction_pct": 50,
       "spirit": 8,
       "_name": "A Level Voice"
     },
@@ -380,7 +380,7 @@
     "name": "Kiet Somsak",
     "passives": {
       "_from": "'eleven years of being invisible in traffic and arriving before anyone expected'",
-      "threat_pct": -30,
+      "threat_generation_pct": -30,
       "haste": 8,
       "_name": "Invisible in Traffic"
     },
@@ -463,7 +463,7 @@
     "name": "Marco Rossi",
     "passives": {
       "_from": "'he was the only one everybody owed a favour' - thirty years of credit, and the neighbourhood pays it back",
-      "healing_taken_pct": 25,
+      "healing_received_pct": 25,
       "max_health_pct": 8,
       "_name": "Everybody Owed Him"
     },
@@ -717,7 +717,7 @@
     "passives": {
       "_from": "'you hold a sentence in one tongue while it finishes in another' / fourteen years of sustained attention",
       "crit_chance_spell": 3,
-      "pushback_reduction_pct": 50,
+      "stun_duration_reduction_pct": 25,
       "_name": "Four Languages"
     },
     "abilities": [
@@ -1480,7 +1480,7 @@
     "name": "Liam Hartigan",
     "passives": {
       "_from": "'The most useful thing in a burning room is a calm voice.'",
-      "pushback_reduction_pct": 100,
+      "stun_duration_reduction_pct": 50,
       "healing_done": 7,
       "_name": "A Calm Voice in a Burning Room"
     },
@@ -2479,7 +2479,7 @@
     "name": "Minh Tran",
     "passives": {
       "_from": "'holding forty futures in your head simultaneously and choosing the one in which nobody dies'",
-      "pushback_reduction_pct": 100,
+      "stun_duration_reduction_pct": 50,
       "healing_done": 5,
       "_name": "Forty Futures"
     },
@@ -3216,7 +3216,7 @@
       "_name": "Unshockable",
       "_from": "'He is unshockable in a way that has nothing to do with callousness.'",
       "shadow_resistance": 15,
-      "pushback_reduction_pct": 100
+      "stun_duration_reduction_pct": 50
     },
     "abilities": [
       {
@@ -3718,7 +3718,7 @@
       "_name": "The Calmest Person in the Room",
       "_from": "'The job is being the calmest person in a room where something enormous is happening.'",
       "healing_done": 7,
-      "pushback_reduction_pct": 100
+      "stun_duration_reduction_pct": 50
     },
     "abilities": [
       {
@@ -5271,7 +5271,7 @@
       "_name": "Learning Its Tolerances",
       "_from": "'He treats it as a tool that showed up and he has been learning its tolerances ever since.'",
       "armor_pct": 10,
-      "healing_taken_pct": 20
+      "healing_received_pct": 20
     },
     "abilities": [
       {

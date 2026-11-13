@@ -104,7 +104,8 @@ def main():
         if racial_ids(back) != want:
             bad.append(f"a {race} loaded from a save has {racial_ids(back)}, not {want}")
         # the passive is in force: every number the race lists reaches the character
-        scal = PK.passives_for(c)
+        scal = dict(PK.passives_for(c))
+        scal.update({k: c.get_talent_effect(k, 0) for k in PK.combat_passives_for(c)})   # the ones combat reads by name
         listed = [k for k, v in (block.get("passives") or {}).items()
                   if not k.startswith("_") and isinstance(v, (int, float)) and v]
         gone = [k for k in listed if not scal.get(k)]

@@ -1274,10 +1274,17 @@ class CombatEngine:
             print(f"WARNING: skinning drop failed: {exc}")
         self.trash_gained = trash_count
         self.trash_value = trash_value
+        total_copper = int(round(total_copper * self.coin_find_multiplier()))
         self.copper_earned = total_copper
         if total_copper > 0:
             self.party.add_currency(total_copper)
             self.combat_log.append(f"Looted: {self.party.get_currency_string()}")
+
+    def coin_find_multiplier(self):
+        """gold_find_pct (Silas reads a dock): the best one in the party counts, not the sum."""
+        find = max([m.get_talent_effect("gold_find_pct", 0.0) or 0.0
+                    for m in self.party.members if hasattr(m, "get_talent_effect")] or [0.0])
+        return 1.0 + max(0.0, find)
 
     def _format_level_gains(self):
         """Turn the player's aggregated level-up gains into combat log lines."""

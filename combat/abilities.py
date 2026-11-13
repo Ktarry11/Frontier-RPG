@@ -2017,6 +2017,16 @@ class Ability:
                                 "low_health_threshold_pct", 0.35) or 0.35
                         if cur_hp / max_hp <= threshold:
                             global_key += bonus
+            # <type>_damage_pct: more damage to one kind of creature (Rosa Hunter's year of
+            # hunting pigs: beast_damage_pct). Keys off the target's creature type.
+            if recipient is not None:
+                try:
+                    from world.creature_types import creature_type_of
+                    kind = creature_type_of(recipient)
+                except Exception:
+                    kind = None
+                if kind:
+                    global_key += self._talent(caster, f"{kind}_damage_pct")
             if self.target_type in ("enemy_aoe", "all_enemies"):
                 global_key += self._talent(caster, "aoe_damage")
             if self.effect_type in ("dot", "spell_dot"):

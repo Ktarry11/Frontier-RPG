@@ -780,6 +780,15 @@ class Character(StatusEffectMixin):
                     for v in incoming:
                         if isinstance(totals[key], list) and v not in totals[key]:
                             totals[key].append(v)
+        # A recruit's kit passive and a race's passive, for the keys combat looks up by name.
+        # They only ever reached the stat sheet, so "+7% healing done" healed for nothing more.
+        try:
+            from world.personal_kits import combat_passives_for
+            for key, value in combat_passives_for(self).items():
+                if isinstance(totals.get(key, 0), (int, float)):
+                    totals[key] = totals.get(key, 0) + value
+        except Exception:
+            pass
         return totals
 
     #: Fixed real section keys for the 4-part background system - see
@@ -3717,6 +3726,8 @@ class Character(StatusEffectMixin):
         if self.current_health <= 0:
             return
         mult = 1.0 + (self.get_status_stat_mod("healing_taken_pct") if hasattr(self, "get_status_stat_mod") else 0.0) / 100.0
+        # healing_received_pct: the always-on version (a recruit's kit passive), as a fraction.
+        mult += self.get_talent_effect("healing_received_pct", 0.0) or 0.0
         landed = amount * max(0.0, mult)
         spare = self.current_health + landed - self.health
         self.current_health = min(self.health, self.current_health + landed)

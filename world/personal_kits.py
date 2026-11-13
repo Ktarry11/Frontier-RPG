@@ -152,6 +152,39 @@ FRACTION_KEYS = {
 }
 
 
+#: Passive keys the COMBAT code looks up by name (get_talent_effect) rather than reading off the
+#: stat sheet. Measured 13 Nov 2026: a kit passive only ever reached the stat-sheet pool, so
+#: every one of these did nothing - "+7% healing done" on fifteen healers, every school damage
+#: bonus, pet damage and health, crit damage, shorter stuns. They are written in the kit as
+#: whole percents and the combat code wants fractions, so they are converted here.
+COMBAT_KEYS = {
+    "healing_done", "crit_damage_physical", "crit_damage_spell", "pet_damage", "pet_health",
+    "stun_duration_reduction_pct", "threat_generation_pct", "healing_received_pct",
+    "gold_find_pct",
+}
+
+
+def is_combat_key(key):
+    """True for a passive the combat code reads by name: the set above, any school's damage
+    (fire_damage_pct) and any creature type's (beast_damage_pct)."""
+    return key in COMBAT_KEYS or (key.endswith("_damage_pct") and not key.endswith("_crit_damage_pct"))
+
+
+def combat_passives_for(character):
+    """This character's kit and racial passives that combat reads by name, as fractions.
+    Character.get_talent_effects adds these to what talents, stances and forms give."""
+    total = {}
+    for block in ((get_kit(getattr(character, "recruit_id", None)) or {}).get("passives"),
+                  (racial_of(character) or {}).get("passives")):
+        if not isinstance(block, dict):
+            continue
+        for k, v in block.items():
+            if k.startswith("_") or not isinstance(v, (int, float)) or not is_combat_key(k):
+                continue
+            total[k] = total.get(k, 0) + v / 100.0
+    return total
+
+
 def _scalars(block):
     """Numeric entries only, converted to the unit the engine reads.
 
@@ -161,10 +194,21 @@ def _scalars(block):
         return {}
     out = {}
     for k, v in block.items():
-        if k.startswith("_") or not isinstance(v, (int, float)):
-            continue
+        if k.startswith("_") or not isinstance(v, (int, float)) or is_combat_key(k):
+            continue      # combat keys go through combat_passives_for, never both
         out[k] = v / 100.0 if k in FRACTION_KEYS else v
     return out
+
+
+#: Plain words for the passives the stat-label table does not know.
+PASSIVE_LABELS = {
+    "healing_done": "Healing Done", "healing_received_pct": "Healing Received",
+    "stun_duration_reduction_pct": "Shorter Stuns and Silences",
+    "threat_generation_pct": "Threat", "gold_find_pct": "Coin from Kills",
+    "crit_damage_physical": "Physical Crit Damage", "crit_damage_spell": "Spell Crit Damage",
+    "pet_damage": "Pet Damage", "pet_health": "Pet Health",
+    "beast_damage_pct": "Damage to Beasts",
+}
 
 
 def passive_entries_for(character):
@@ -187,7 +231,10 @@ def passive_entries_for(character):
             if key.startswith("_") or not isinstance(value, (int, float)) or not value:
                 continue
             label = StatusEffectMixin.STAT_LABELS.get(key)
-            pct = key.endswith("_pct") or key in ("haste", "dodge", "parry", "crit_chance_physical", "crit_chance_spell", "pet_damage")
+            pct = key.endswith("_pct") or key in ("haste", "dodge", "parry", "crit_chance_physical", "crit_chance_spell",
+                                                  "pet_damage", "pet_health", "healing_done",
+                                                  "crit_damage_physical", "crit_damage_spell")
+            label = label or PASSIVE_LABELS.get(key)
             if label is None:
                 label = key[:-4].replace("_", " ").title() if key.endswith("_pct") else key.replace("_", " ").title()
             label = label.replace(" %", "").replace(" Pct", "").strip()     # "+10% Max Health", not "+10% Max Health %"
