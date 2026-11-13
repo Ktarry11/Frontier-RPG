@@ -1256,6 +1256,17 @@ class Character(StatusEffectMixin):
                 for _target in BONUS_KEY_ALIASES.get(_key, (_key,)):
                     bonuses[_target] = bonuses.get(_target, 0) + _value
 
+        # GEAR SET BONUSES, through the same pool again - see world/gear_sets.py. Read fresh
+        # each recalc from what is worn right now, so taking a piece off drops the bonus on
+        # the spot and nothing can double.
+        try:
+            from world.gear_sets import active_bonuses
+            for _key, _value in active_bonuses(self).items():
+                for _target in BONUS_KEY_ALIASES.get(_key, (_key,)):
+                    bonuses[_target] = bonuses.get(_target, 0) + _value
+        except Exception:
+            pass  # a broken set file must not stop a character existing
+
         # Temporary combat buffs/debuffs (Battle Shout, Demoralizing Shout,
         # Blessing of Kings, etc.) fold in through the exact same pool, so a
         # +30 Attack Power buff and a +30 Attack Power item are indistinguish-

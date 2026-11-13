@@ -1322,6 +1322,20 @@ class InventoryScreen(BaseScreen):
             for wrapped in self.renderer.wrap_text(f"Equip: {proc['describe']}", 300 - 20):
                 green_lines.add(len(lines))
                 lines.append(wrapped)
+        # THE SET IT BELONGS TO: every piece (the ones worn lit), then each bonus (the ones
+        # earned lit). Counted against whoever the card is being read for.
+        set_colors = {}
+        if getattr(item, "set_id", None):
+            from world.gear_sets import tooltip_lines
+            palette = {"title": (255, 209, 0), "have": (255, 255, 160), "missing": (128, 128, 128),
+                       "active": (30, 255, 0), "inactive": (128, 128, 128)}
+            block = tooltip_lines(item, self._get_subject())
+            if block:
+                lines.append("")
+            for text, kind in block:
+                for wrapped in self.renderer.wrap_text(text, 300 - 20):
+                    set_colors[len(lines)] = palette[kind]
+                    lines.append(wrapped)
         if item.required_level > 1:
             lines.append(f"Requires Level {item.required_level}")
 
@@ -1366,6 +1380,8 @@ class InventoryScreen(BaseScreen):
                 color = item.get_rarity_color()
             elif i in green_lines:
                 color = (30, 255, 0)
+            elif i in set_colors:
+                color = set_colors[i]
             elif i >= first_warning:
                 kind = warning_lines[i - first_warning][0]
                 color = (220, 70, 70) if kind == "blocked" else (220, 180, 70)
