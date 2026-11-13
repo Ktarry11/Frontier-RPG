@@ -50,7 +50,8 @@ WORDS = {
 def slug(s):
     # "The Sepulcher" is the map and "sepulcher" is what its NPCs and quests are filed under
     # (world/zone_keys.py). Inside this tool both sides of every lookup drop the article.
-    key = re.sub(r"[^a-z0-9]+", "_", str(s or "").lower()).strip("_")
+    # ... and drop apostrophes the way the game does: "Grom'gol" is filed as gromgol.
+    key = re.sub(r"[^a-z0-9]+", "_", str(s or "").lower().replace("'", "").replace("\u2019", "")).strip("_")
     return key[4:] if key.startswith("the_") else key
 
 
