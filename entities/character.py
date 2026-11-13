@@ -3373,16 +3373,20 @@ class Character(StatusEffectMixin):
                         pending = []
                         self._pending_proc_messages = pending
                     pending.append(f"{getattr(attacker, 'name', 'The attack')} misses {self.name}!")
+                    self._avoided_last_attack = True
                     return 0
 
+        self._avoided_last_attack = False     # True only for a dodge, a parry or the attacker's own miss
         if damage_type == "physical":
             import random
             roll = random.uniform(0, 100)
             if roll < self.dodge:
+                self._avoided_last_attack = True
                 self._fire_avoidance_procs(("on_dodge", "on_avoid"), attacker)
                 return 0
             roll -= self.dodge
             if roll < self.parry:
+                self._avoided_last_attack = True
                 self._fire_avoidance_procs(("on_parry", "on_avoid"), attacker)
                 return 0
             roll -= self.parry

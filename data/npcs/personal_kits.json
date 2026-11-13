@@ -437,7 +437,7 @@
         "ability_id": "personal_kiet_two_rooms_away",
         "name": "Two Rooms Away",
         "from": "'the hard part was the quiet. Eleven years of engine noise and then a world where he can hear people breathing two rooms away.'",
-        "engine": "needs: reveal enemy intent for N turns",
+        "engine": "live: reveals_intent - the combat log says what each revealed enemy will do on its next turn",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "energy",
@@ -455,7 +455,8 @@
             "cost": 30,
             "effect_value": 0
           }
-        ]
+        ],
+        "reveals_intent": "all"
       }
     ]
   },
@@ -1279,7 +1280,7 @@
         "ability_id": "personal_mateo_most_of_the_sky_at_once",
         "name": "Most of the Sky At Once",
         "from": "'From the top of one of them he can see most of the sky at once'",
-        "engine": "needs: party-wide reveal of enemy intent",
+        "engine": "live: reveals_intent - the combat log says what each revealed enemy will do on its next turn",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
@@ -1297,7 +1298,8 @@
             "effect_value": 0
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "reveals_intent": "all"
       }
     ]
   },
@@ -1744,7 +1746,7 @@
         "ability_id": "personal_bakyt_a_sky_other_people_call_clear",
         "name": "A Sky Other People Call Clear",
         "from": "'He reads weather in a sky other people call clear'",
-        "engine": "needs: reveal enemy intent for the whole fight",
+        "engine": "live: reveals_intent - the combat log says what each revealed enemy will do on its next turn",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
@@ -1760,7 +1762,8 @@
             "effect_value": 0
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "reveals_intent": "all"
       },
       {
         "ability_id": "personal_bakyt_water_where_there_is_none",
@@ -2192,7 +2195,7 @@
         "ability_id": "personal_tarek_a_visible_enemy",
         "name": "A Visible Enemy",
         "from": "'the thing poisoning the water here is a visible enemy that can be fought, and he waited twenty years for an enemy that simple'",
-        "engine": "needs: damage bonus against whatever applied a debuff to the party",
+        "engine": "live: bonus_vs_debuffers_pct - 35% more damage to any enemy with a harmful effect on the party",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "combo",
@@ -2208,7 +2211,8 @@
             "effect_value": 35
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "bonus_vs_debuffers_pct": 35
       },
       {
         "ability_id": "personal_tarek_he_calls_it_building",
@@ -2356,23 +2360,31 @@
         "ability_id": "personal_pavlo_stand_still_while_something_comes",
         "name": "Stand Still While Something Comes",
         "from": "'There's a lot of work for a man who'll stand still while something comes at him, and he took it.'",
-        "engine": "needs: mitigation that increases the longer he does not move or attack",
+        "engine": "live: breaks_on_attack - the guard drops at the end of any turn in which he attacked",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "rage",
         "cooldown": 0,
         "duration": 4,
-        "stat_mods": {},
-        "description": "If Pavlo does not attack, he takes 35% less damage that turn and returns 20% of it.",
+        "stat_mods": {
+          "physical_damage_taken_pct": -35,
+          "magic_damage_taken_pct": -35
+        },
+        "description": "For 4 turns, or until he attacks, Pavlo takes 35% less damage and returns 20% of what does land.",
         "ranks": [
           {
             "rank": 1,
             "level_req": 1,
             "cost": 10,
-            "effect_value": 35
+            "effect_value": 100
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "reflect": {
+          "pct": 20,
+          "school": "physical"
+        },
+        "breaks_on_attack": true
       },
       {
         "ability_id": "personal_pavlo_the_same_four_wars",
@@ -2433,7 +2445,7 @@
         "ability_id": "personal_junseo_without_deciding_to",
         "name": "Without Deciding To",
         "from": "'he moves without deciding to and it's fast, and the only thing that frightens him about it is how little of it he chooses'",
-        "engine": "needs: automatic counterattack on being missed",
+        "engine": "live: counter_on_miss - a dodged, parried or missed attack is answered with a free basic attack",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
@@ -2449,7 +2461,8 @@
             "effect_value": 0
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "counter_on_miss": true
       },
       {
         "ability_id": "personal_junseo_the_lift_takes_its_time",
@@ -3939,7 +3952,7 @@
         "ability_id": "personal_berat_to_see_round_a_corner",
         "name": "To See Round a Corner",
         "from": "'He still carries the mouth mirror behind his ear. He has used it twice for its actual purpose and perhaps forty times to see round a corner.'",
-        "engine": "needs: reveal enemy intent",
+        "engine": "live: reveals_intent - the combat log says what each revealed enemy will do on its next turn",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
@@ -3955,7 +3968,8 @@
             "effect_value": 0
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "reveals_intent": "all"
       }
     ]
   },
@@ -4186,7 +4200,7 @@
         "ability_id": "personal_camille_she_has_not_read",
         "name": "She Will Not Take a Message She Has Not Read",
         "from": "'She will not take a message she has not read.'",
-        "engine": "needs: reveal and copy an enemy's prepared ability",
+        "engine": "live: reveals_intent - the combat log says what each revealed enemy will do on its next turn",
         "effect_type": "debuff",
         "target_type": "enemy",
         "resource_type": "archery_points",
@@ -4202,7 +4216,8 @@
             "effect_value": 0
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "reveals_intent": "all"
       }
     ]
   },
@@ -4880,7 +4895,7 @@
         "ability_id": "personal_khalid_the_waiting",
         "name": "The Waiting",
         "from": "'The hunting is the part of his old life that transferred whole: the waiting, the reading of ground.'",
-        "engine": "needs: damage that builds while holding position",
+        "engine": "live: idle_charge - each turn without an attack adds 30% to the next one, up to 120%",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
@@ -4896,7 +4911,11 @@
             "effect_value": 30
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "idle_charge": {
+          "pct": 30,
+          "cap": 120
+        }
       },
       {
         "ability_id": "personal_khalid_exactly_where_he_said",
@@ -4958,7 +4977,7 @@
         "ability_id": "personal_karim_when_he_lets_it_swing",
         "name": "When He Lets It Swing",
         "from": "'The party has learned that when he stops and lets it swing, something ahead is wrong.'",
-        "engine": "needs: reveal the strongest enemy and its intent",
+        "engine": "live: reveals_intent - the combat log says what each revealed enemy will do on its next turn",
         "effect_type": "debuff",
         "target_type": "all_enemies",
         "resource_type": "felfury",
@@ -4974,7 +4993,8 @@
             "effect_value": 0
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "reveals_intent": "strongest"
       },
       {
         "ability_id": "personal_karim_the_fastest_route_to_useful",
@@ -5006,13 +5026,15 @@
         "ability_id": "personal_karim_he_has_stopped_apologising",
         "name": "He Has Stopped Apologising For It",
         "from": "'where the green light makes the people behind him uncomfortable and he has stopped apologising for it'",
-        "engine": "needs: aura that damages and taunts adjacent enemies",
-        "effect_type": "debuff",
+        "engine": "live: a fire damage-over-time on the row, and taunt in stat_mods turns the row on Karim",
+        "effect_type": "spell_dot",
         "target_type": "enemy_aoe",
         "resource_type": "felfury",
         "cooldown": 12,
         "duration": 4,
-        "stat_mods": {},
+        "stat_mods": {
+          "taunt": 1
+        },
         "description": "For 4 turns one enemy row burns with fel light each turn and attacks only Karim.",
         "ranks": [
           {
@@ -5022,7 +5044,8 @@
             "effect_value": 45
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "damage_school": "fire"
       }
     ]
   },
@@ -5140,7 +5163,7 @@
         "ability_id": "personal_bashir_he_snaps_the_chalk_line",
         "name": "He Snaps the Chalk Line",
         "from": "'He snaps the chalk line before he goes in anywhere.'",
-        "engine": "needs: mark a row and gain bonuses against it",
+        "engine": "live: mark - Bashir's own damage to a marked enemy is 30% higher",
         "effect_type": "debuff",
         "target_type": "enemy_aoe",
         "resource_type": "focus",
@@ -5156,7 +5179,10 @@
             "effect_value": 30
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "mark": {
+          "pct": 30
+        }
       },
       {
         "ability_id": "personal_bashir_no_interest_in_how_long",

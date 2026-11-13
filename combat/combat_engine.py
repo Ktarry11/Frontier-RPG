@@ -403,6 +403,8 @@ class CombatEngine:
                 # stun was visible only as an icon in the stat panel, and a
                 # turn that silently disappears reads as a broken game
                 # rather than as a mechanic working.
+                if self.is_ally(actor):
+                    self.announce_intents()
                 if getattr(actor, "is_stunned", False):
                     self.combat_log.append(
                         f"{actor.name} is stunned and loses the turn!")
@@ -1279,6 +1281,65 @@ class CombatEngine:
         if total_copper > 0:
             self.party.add_currency(total_copper)
             self.combat_log.append(f"Looted: {self.party.get_currency_string()}")
+
+    # ---------------------------------------------------------------------------------------
+    # Seeing what the enemy will do. A monster's choice is a fixed priority list over its own
+    # state (Monster.choose_action rolls nothing), so asking it early gives the true answer
+    # unless the fight changes before its turn - which is exactly what foresight is for.
+    # ---------------------------------------------------------------------------------------
+    def intent_of(self, enemy):
+        """Name of what this enemy will do on its next turn, or None."""
+        try:
+            if getattr(enemy, "is_stunned", False):
+                return "nothing (stunned)"
+            target = self.default_target_for(enemy)
+            if target is None:
+                return None
+            chosen = enemy.choose_action(target)
+            name = getattr(chosen, "name", None)
+            if not name:
+                return None
+            if getattr(chosen, "is_aoe", False):
+                return f"{name} on the whole party"
+            return f"{name} on {target.name}"
+        except Exception:
+            return None
+
+    def revealed_intents(self):
+        """{enemy: text} for every living enemy whose next action the party can see now."""
+        def flags(who):
+            return [getattr(e, "reveals_intent", "") for e in (getattr(who, "active_effects", None) or [])
+                    if getattr(e, "reveals_intent", "")]
+        enemies = self.living_enemies()
+        seen = set()
+        party = [f for a in self.living_allies() for f in flags(a)]
+        if "all" in party:
+            seen.update(enemies)
+        elif "strongest" in party and enemies:
+            seen.add(max(enemies, key=lambda e: (bool(getattr(e, "is_boss", False)),
+                                                 getattr(e, "attack_power", 0), getattr(e, "level", 0))))
+        marked = [e for e in enemies if flags(e)]
+        if marked and all("strongest" in flags(e) for e in marked):
+            marked = [max(marked, key=lambda e: (bool(getattr(e, "is_boss", False)),
+                                                 getattr(e, "attack_power", 0), getattr(e, "level", 0)))]
+        seen.update(marked)
+        out = {}
+        for e in enemies:
+            if e in seen:
+                text = self.intent_of(e)
+                if text:
+                    out[e] = text
+        return out
+
+    def announce_intents(self):
+        """Log what the party can foresee, once per change - called as an ally's turn starts."""
+        told = getattr(self, "_intents_told", None)
+        if told is None:
+            told = self._intents_told = {}
+        for enemy, text in self.revealed_intents().items():
+            if told.get(id(enemy)) != text:
+                told[id(enemy)] = text
+                self.combat_log.append(f"Foreseen: {enemy.name} will use {text}.")
 
     def coin_find_multiplier(self):
         """gold_find_pct (Silas reads a dock): the best one in the party counts, not the sum."""

@@ -356,7 +356,8 @@ class Ability:
                  reach=None,
                  health_cost_pct=0, spares_bosses=False, taunts_all=False,
                  immediate=None,
-                 variance_mode=None,
+                 variance_mode=None, reveals_intent=None, mark=None, bonus_vs_debuffers_pct=0,
+                 breaks_on_attack=False, idle_charge=None, counter_on_miss=False,
                  variance=None,
                  is_aoe=False, consumes_target_stacks_of=None, damage_per_stack_pct=0.0,
                  cooldown_per_stack=0.0, scales_with_target_stacks_of=None,
@@ -639,6 +640,14 @@ class Ability:
         self.immediate = dict(immediate) if immediate else None
         #: "max" or "average" - see StatusEffect.variance_mode.
         self.variance_mode = variance_mode or None
+        #: "all" or "strongest" - see StatusEffect.reveals_intent.
+        self.reveals_intent = reveals_intent or None
+        #: See the StatusEffect attributes of the same names.
+        self.mark = dict(mark) if mark else None
+        self.bonus_vs_debuffers_pct = bonus_vs_debuffers_pct or 0
+        self.breaks_on_attack = bool(breaks_on_attack)
+        self.idle_charge = dict(idle_charge) if idle_charge else None
+        self.counter_on_miss = bool(counter_on_miss)
         #: PER-ABILITY damage/heal spread, as a fraction, overriding
         #: SPELL_VARIANCE. Kyle, 8 Nov 2026: "So you can just....fix up each
         #: spell by adding +/-12% to what it does?" - a fair challenge, and
@@ -2017,6 +2026,23 @@ class Ability:
                                 "low_health_threshold_pct", 0.35) or 0.35
                         if cur_hp / max_hp <= threshold:
                             global_key += bonus
+            # Recruit mechanics that live on an effect rather than a talent key: a mark the
+            # caster left on this target, a grudge against whoever has hurt the party, and
+            # a charge built by waiting. See the StatusEffect attributes.
+            for held in (getattr(caster, "active_effects", None) or []):
+                global_key += (getattr(held, "charge", 0) or 0) / 100.0
+                grudge = getattr(held, "bonus_vs_debuffers_pct", 0) or 0
+                if grudge and recipient is not None:
+                    from combat.status_effects import EffectType
+                    name = getattr(recipient, "name", None)
+                    if any(e.source_name == name and e.effect_type in (EffectType.DEBUFF, EffectType.DOT)
+                           for ally in (getattr(held, "watch_party", None) or [])
+                           for e in (getattr(ally, "active_effects", None) or [])):
+                        global_key += grudge / 100.0
+            if recipient is not None:
+                for mark in (getattr(recipient, "active_effects", None) or []):
+                    if getattr(mark, "marked_pct", 0) and getattr(mark, "marked_by", "") == getattr(caster, "name", None):
+                        global_key += mark.marked_pct / 100.0
             # <type>_damage_pct: more damage to one kind of creature (Rosa Hunter's year of
             # hunting pigs: beast_damage_pct). Keys off the target's creature type.
             if recipient is not None:
@@ -3924,6 +3950,18 @@ class Ability:
                     effect.damage_to_shield_school = self.damage_to_shield.get("school", "")
                 if self.variance_mode:
                     effect.variance_mode = self.variance_mode
+                if self.reveals_intent:
+                    effect.reveals_intent = self.reveals_intent
+                if self.bonus_vs_debuffers_pct:
+                    effect.bonus_vs_debuffers_pct = self.bonus_vs_debuffers_pct
+                    effect.watch_party = list(party or [caster])
+                if self.breaks_on_attack:
+                    effect.breaks_on_attack = True
+                if self.idle_charge:
+                    effect.idle_charge_pct = self.idle_charge.get("pct", 0)
+                    effect.idle_charge_cap = self.idle_charge.get("cap", 0)
+                if self.counter_on_miss:
+                    effect.counter_on_miss = True
                 if self.max_stacks > 1:
                     effect.max_stacks = self.max_stacks
                 if self.stack_on == "repeat":
@@ -4029,6 +4067,11 @@ class Ability:
                         effect.stacks = 0
                     if self.scaling and (self.scaling.get("source") == "living_allies"):
                         effect.scaling_party = list(party or [caster])
+                    if self.reveals_intent:
+                        effect.reveals_intent = self.reveals_intent
+                    if self.mark:
+                        effect.marked_by = caster.name
+                        effect.marked_pct = self.mark.get("pct", 0)
                     t.apply_status_effect(effect)
                     # force_proc_group (Barbed Stinger): find whichever
                     # active effect on the CASTER shares this
@@ -4671,6 +4714,12 @@ def _ability_from_data(entry):
         taunts_all=entry.get("taunts_all", False),
         immediate=entry.get("immediate"),
         variance_mode=entry.get("variance_mode"),
+        reveals_intent=entry.get("reveals_intent"),
+        mark=entry.get("mark"),
+        bonus_vs_debuffers_pct=entry.get("bonus_vs_debuffers_pct", 0),
+        breaks_on_attack=entry.get("breaks_on_attack", False),
+        idle_charge=entry.get("idle_charge"),
+        counter_on_miss=entry.get("counter_on_miss", False),
         variance=entry.get("variance"),
         consumes_stacks_of=entry.get("consumes_stacks_of"),
         consumes_target_stacks_of=entry.get("consumes_target_stacks_of"),

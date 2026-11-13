@@ -403,12 +403,24 @@ class MonsterAbility:
             if self.is_aoe and len(targets) > 1:
                 amount = int(amount * self.AOE_DAMAGE_MULTIPLIER)
             lines = []
+            counters = []
             first_actual = None
             total = 0
             landed = []
             for t in targets:
+                # attacker=caster. This call never said who was attacking, so nothing that
+                # answers an attacker could fire when a monster hit somebody: thorns and reflect,
+                # "enemies have a chance to miss", retaliation on a dodge or a parry, "cannot
+                # hurt whoever marked it". All of them worked when a test called take_damage by
+                # hand and none in a fight. Found 13 Nov 2026.
                 actual = t.take_damage(amount, self.school,
-                                        attacker_level=getattr(caster, "level", None))
+                                        attacker_level=getattr(caster, "level", None),
+                                        attacker=caster)
+                if actual <= 0 and getattr(t, "_avoided_last_attack", False) \
+                        and hasattr(t, "counter_missed_attack"):
+                    answer = t.counter_missed_attack(caster, engine=engine)
+                    if answer:
+                        counters.append(answer)
                 lines.append(f"{actual} to {t.name}")
                 total += actual
                 if actual > 0:
@@ -428,6 +440,8 @@ class MonsterAbility:
             extra = self._apply_rider(caster, landed)
             if extra:
                 msg += " " + " ".join(extra)
+            if counters:
+                msg += " " + " ".join(counters)
             return True, msg
 
         if self.kind == "dot":

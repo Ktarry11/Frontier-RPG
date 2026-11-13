@@ -436,6 +436,32 @@ class StatusEffect:
         #: act on.
         self.variance_mode = ""
 
+        # ---- SEEING WHAT THE ENEMY WILL DO --------------------------------
+        #: "all": while a party member carries this, the party is told what every enemy will
+        #: do on its next turn. "strongest": only the most dangerous one. On an ENEMY it
+        #: reveals that enemy alone. Six recruit abilities promise this ("the party sees each
+        #: enemy's next action") and nothing showed anything. See CombatEngine.revealed_intents.
+        self.reveals_intent = ""
+
+        # ---- FIVE MORE THINGS A RECRUIT'S ABILITY CAN PROMISE ------------
+        #: A debuff: whoever cast it (by name) deals marked_pct more damage to the holder.
+        #: Bashir's chalk line - HIS damage, not the party's.
+        self.marked_by = ""
+        self.marked_pct = 0
+        #: A buff: the holder deals this much more to any enemy that has put a harmful effect
+        #: on one of watch_party. Tarek's "A Visible Enemy".
+        self.bonus_vs_debuffers_pct = 0
+        self.watch_party = None
+        #: A buff that ends the moment the holder makes an attack. Pavlo standing still.
+        self.breaks_on_attack = False
+        #: A buff that builds each of the holder's turns that passes without an attack, and is
+        #: spent by the next one. Khalid's "The Waiting": charge is percent more damage.
+        self.idle_charge_pct = 0
+        self.idle_charge_cap = 0
+        self.charge = 0
+        #: A buff: an attack the holder dodges or parries is answered with a free basic attack.
+        self.counter_on_miss = False
+
         # ---- DAMAGE-OVER-TIME IMMUNITY -----------------------------------
         #: True suppresses DOT ticks on the holder entirely - Thiago's
         #: "takes no damage-over-time". Not a dispel: the DoT stays on and
@@ -1394,6 +1420,51 @@ class StatusEffectMixin:
             self._note_proc(
                 f"{effect.name} turns {gained} into a shield on {self.name}")
 
+    def counter_missed_attack(self, attacker, engine=None):
+        """Answer an attack that just missed the holder, if an effect says so. Returns the log
+        line, or "". Jun-seo Park: "every attack that misses Jun-seo is answered immediately."
+        """
+        if attacker is None or not getattr(attacker, "is_alive", lambda: False)() or not self.is_alive():
+            return ""
+        if getattr(self, "is_stunned", False) or getattr(self, "_countering", False):
+            return ""
+        effect = next((e for e in self._effects() if getattr(e, "counter_on_miss", False)), None)
+        book = getattr(self, "ability_book", None)
+        if effect is None or book is None or not hasattr(self, "get_basic_attack_id"):
+            return ""
+        basic = book.abilities.get(self.get_basic_attack_id())
+        if basic is None:
+            return ""
+        self._countering = True
+        try:
+            ok, msg = basic.use(self, attacker, free=True, engine=engine)
+        except Exception:
+            ok, msg = False, ""
+        finally:
+            self._countering = False
+        return f"{effect.name}: {msg}" if ok and msg else ""
+
+    def _settle_attack_conditionals(self):
+        """End of the holder's turn: pay out the effects that care whether they attacked."""
+        attacked = bool(getattr(self, "_attacked_this_turn", False))
+        self._attacked_this_turn = False
+        out = []
+        for effect in list(self._effects()):
+            if getattr(effect, "breaks_on_attack", False) and attacked:
+                if self._discard_effect(effect):
+                    out.append(f"{effect.name} ends - {self.name} attacked.")
+                    if hasattr(self, "_on_status_effects_changed"):
+                        self._on_status_effects_changed()
+            pct = getattr(effect, "idle_charge_pct", 0) or 0
+            if pct:
+                if attacked:
+                    effect.charge = 0
+                else:
+                    cap = getattr(effect, "idle_charge_cap", 0) or pct
+                    effect.charge = min(cap, (getattr(effect, "charge", 0) or 0) + pct)
+                    out.append(f"{effect.name}: {self.name}'s next attack deals {effect.charge:g}% more.")
+        return out
+
     def note_ability_used(self, ability_id, was_damage):
         """Record a cast and feed any event-stacking effects on this actor.
 
@@ -1407,6 +1478,8 @@ class StatusEffectMixin:
         every cast path - cast_panel and the out-of-combat path both call
         use() without one.
         """
+        if was_damage:
+            self._attacked_this_turn = True
         previous = getattr(self, "_last_ability_id", None)
         repeated = previous is not None and previous == ability_id
         self._last_ability_id = ability_id
@@ -1699,7 +1772,7 @@ class StatusEffectMixin:
         mean threading a (caster, combat_engine) reference through every
         StatusEffect, which is a bigger change than this pass needs.
         """
-        messages = []
+        messages = list(self._settle_attack_conditionals())
         for effect in list(self._effects()):
             if effect.proc_icd_remaining > 0:
                 effect.proc_icd_remaining -= 1
