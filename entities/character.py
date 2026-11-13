@@ -502,7 +502,7 @@ class Character(StatusEffectMixin):
             "Runemaster": {  # Cloth, hybrid Int(Glyphic)/Agi(Engravement/Riftblade), Mana+Runes
                 "strength": 8, "stamina": 11, "intellect": 15, "spirit": 10, "agility": 13
             },
-            "Primalist": {  # Mail, Strength (melee) / Intellect (Geomancy) hybrid
+            "Primalist": {  # Plate (Kyle, 12 Nov 2026), Strength (melee) / Intellect (Geomancy) hybrid
                 "strength": 13, "stamina": 13, "intellect": 13, "spirit": 11, "agility": 10
             },
             "Reaper": {  # Mail, Agility/Stamina lead, Mana+Souls

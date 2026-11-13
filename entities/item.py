@@ -145,6 +145,11 @@ class Item:
         self.proc = dict(proc) if proc else None
 
         self.set_id = set_id
+        # WHICH SPEC'S VERSION of a set piece this is ("enhancement", "elemental"...). One set
+        # per class, but a hybrid class's pieces come in a version per spec and can be
+        # exchanged between them - see world/gear_sets.py. None for a set with one version
+        # and for everything that is not a set piece.
+        self.set_variant = None
         self.sockets = sockets or []
         self.enchant_id = enchant_id
 
@@ -298,6 +303,7 @@ class Item:
             "sell_price": self.sell_price,
             "flavor_text": self.flavor_text,
             "set_id": self.set_id,
+            "set_variant": getattr(self, "set_variant", None),
             "sockets": self.sockets,
             "enchant_id": self.enchant_id,
             "is_crafted": self.is_crafted,
@@ -313,7 +319,7 @@ class Item:
     @classmethod
     def from_dict(cls, data):
         """Deserialize from save data."""
-        return cls(
+        item = cls(
             item_id=data["item_id"],
             name=data["name"],
             slot=data["slot"],
@@ -346,6 +352,8 @@ class Item:
             recipe_profession=data.get("recipe_profession"),
             proc=data.get("proc"),
         )
+        item.set_variant = data.get("set_variant")
+        return item
 
     def __repr__(self):
         return f"<Item {self.name} (ilvl {self.item_level}, {self.rarity}, {self.slot})>"

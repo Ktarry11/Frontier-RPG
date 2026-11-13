@@ -6,7 +6,7 @@
 Kyle, [95]: "We NEED to start working on getting gear sets." Item.set_id had been stored and
 saved since the item class was written and nothing read it.
 
-SEVEN CLAIMS:
+EIGHT CLAIMS:
 
   1. A BONUS ARRIVES AT ITS PIECE COUNT and not one piece sooner.
   2. BONUSES STACK UP THE LADDER - at four pieces you have the two-piece bonus too.
@@ -16,6 +16,10 @@ SEVEN CLAIMS:
   5. A PIECE SURVIVES A SAVE with its set intact.
   6. THE CARD LISTS the set, every piece (worn ones marked), and every bonus (earned ones
      marked) - for whoever is reading it.
+  8. ONE SET, A VERSION PER SPEC. Kyle: "we have hybrid classes too... keep the SET name, but
+     change the stuff inside." Every version counts toward the one set, the bonuses are those
+     of the version you wear most of, and a piece can be exchanged for another spec's version -
+     name, stats and version change; slot, level, rarity and set do not.
   7. EVERY SET THAT SHIPS IS WELL FORMED: real slots, a class that exists, bonuses whose stats
      actually move a character sheet, and thresholds that can be reached.
 """
@@ -138,6 +142,62 @@ def main():
     src = Path("ui/screens/inventory_screen.py").read_text()
     if "tooltip_lines(item, self._get_subject())" not in src:
         bad.append("the inventory's item card does not draw the set block")
+
+    # 8. one set, a version per spec
+    H = "qa_hybrid_set"
+    GS.register(H, {"name": "Test Harness", "class": "Shaman", "variants": {
+        "enh": {"label": "Enhancement",
+                "pieces": {s: {"name": f"Enh {s}", "primary_stats": {"strength": 10}} for s in SLOTS},
+                "bonuses": {"2": {"stats": {"attack_power": 30}}}},
+        "ele": {"label": "Elemental",
+                "pieces": {s: {"name": f"Ele {s}", "primary_stats": {"intellect": 10}} for s in SLOTS},
+                "bonuses": {"2": {"stats": {"spell_power": 30}}}}}})
+
+    def hybrid(slot, variant):
+        it = Item(f"qa_h_{slot}", "raw", slot, 60, "rare", armor_type="mail", set_id=H)
+        GS.exchange(it, variant)
+        return it
+
+    sh = make("Shaman")
+    for s in SLOTS:
+        sh.equipment.slots[s] = None
+    sh._recalculate_derived_stats()
+    ap0, sp0 = sh.attack_power, sh.spell_power
+    sh.equipment.slots["head"] = hybrid("head", "enh")
+    sh.equipment.slots["chest"] = hybrid("chest", "ele")
+    sh.equipment.slots["legs"] = hybrid("legs", "enh")
+    sh._recalculate_derived_stats()
+    if GS.count(sh, H) != 3:
+        bad.append("mixed versions of one set did not all count toward it")
+    if GS.leading_variant(sh, H) != "enh":
+        bad.append("with 2 Enhancement and 1 Elemental piece the leading version is not Enhancement")
+    got = GS.active_bonuses(sh)
+    if got != {"attack_power": 30}:
+        bad.append(f"2 Enhancement + 1 Elemental should pay Enhancement's bonus only, paid {got}")
+    it = sh.equipment.slots["head"]
+    if (it.name, it.set_variant, it.primary_stats) != ("Enh head", "enh", {"strength": 10}):
+        bad.append(f"an Enhancement piece is {it.name} / {it.set_variant} / {it.primary_stats}")
+    if [k for k, _l, _n in GS.exchange_options(it)] != ["ele"]:
+        bad.append("an Enhancement piece does not offer exactly the Elemental exchange")
+    lvl, rar, slot = it.item_level, it.rarity, it.slot
+    if not GS.exchange(it, "ele") or (it.name, it.set_variant, it.primary_stats) != ("Ele head", "ele", {"intellect": 10}):
+        bad.append("exchanging to Elemental did not change the name, version and stats")
+    if (it.item_level, it.rarity, it.slot, it.set_id) != (lvl, rar, slot, H):
+        bad.append("an exchange changed the piece's level, rarity, slot or set")
+    if GS.exchange(it, "ele") or GS.exchange(it, "no_such_spec"):
+        bad.append("an exchange to the same version, or to one the set does not have, 'succeeded'")
+    sh._recalculate_derived_stats()
+    if GS.active_bonuses(sh) != {"spell_power": 30}:
+        bad.append("after exchanging the helm the bonus did not follow to Elemental")
+    back2 = Item.from_dict(it.to_dict())
+    if back2.set_variant != "ele" or back2.name != "Ele head":
+        bad.append("an exchanged piece did not survive a save as the version it was exchanged to")
+    card = GS.tooltip_lines(it, sh)
+    if not card or not card[0][0].startswith("Test Harness - Elemental (3/6)"):
+        bad.append(f"the card heading for a hybrid set reads {card[:1]}")
+    if not any(t.startswith("Exchange for: Enh head (Enhancement)") for t, _k in card):
+        bad.append("the card does not say what the piece can be exchanged for")
+    GS.all_sets().pop(H, None)
 
     # 7. shipped sets
     GS.all_sets().pop(TEST, None)

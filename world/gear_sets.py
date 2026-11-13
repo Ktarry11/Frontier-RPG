@@ -62,6 +62,90 @@ def thresholds(definition):
                   key=lambda pair: pair[0])
 
 
+# ----------------------------------------------------------------------
+# One set, a version per spec
+# ----------------------------------------------------------------------
+#
+# Kyle, 12 Nov 2026: "we have hybrid classes too... We can keep the SET name, but change the
+# stuff inside." A Shaman's chest drops as Rainspeaker's Hauberk (Enhancement) and can be
+# EXCHANGED for Rainspeaker's Vestments (Elemental). So a set may carry `variants`:
+#
+#   "variants": {"enhancement": {"label": "Enhancement",
+#                                "pieces": {"chest": {"name": "Rainspeaker's Hauberk",
+#                                                     "primary_stats": {...},
+#                                                     "secondary_stats": {...}}, ...},
+#                                "bonuses": {"2": {...}, "4": {...}}},
+#                "elemental": {...}}
+#
+# THE RULES:
+#   * every version of every piece counts toward the ONE set - mixing never costs you a piece;
+#   * the BONUSES you get are those of the version you wear most of (a tie goes to whichever
+#     the set lists first), so a 5 Enhancement / 3 Elemental shaman has eight pieces and
+#     Enhancement's bonuses;
+#   * an exchange changes the piece's name, stats and version and nothing else - same slot,
+#     same item level, same rarity, same set.
+
+def variants(definition):
+    """{key: variant} for a set, or {} for a set with one version."""
+    return (definition or {}).get("variants") or {}
+
+
+def leading_variant(character, set_id):
+    """The version this character wears most of, or None (no versions / none worn)."""
+    definition = get(set_id)
+    order = list(variants(definition))
+    if not order:
+        return None
+    slots = getattr(getattr(character, "equipment", None), "slots", None) or {}
+    tally = {}
+    for item in slots.values():
+        if item is not None and getattr(item, "set_id", None) == set_id:
+            key = getattr(item, "set_variant", None)
+            if key in order:
+                tally[key] = tally.get(key, 0) + 1
+    if not tally:
+        return None
+    return max(order, key=lambda k: (tally.get(k, 0), -order.index(k)))
+
+
+def bonuses_for(definition, variant=None):
+    """[(pieces, bonus)] ascending - the named version's, else the set's own."""
+    source = variants(definition).get(variant) if variant else None
+    table = (source or {}).get("bonuses") or definition.get("bonuses") or {}
+    return sorted(((int(n), b) for n, b in table.items()), key=lambda pair: pair[0])
+
+
+def exchange_options(item):
+    """[(key, label, piece name)] this piece could be exchanged for - every OTHER version of
+    the set that has a piece for this slot. [] if there is nothing to exchange for."""
+    definition = get(getattr(item, "set_id", None))
+    out = []
+    for key, variant in variants(definition).items():
+        spec = (variant.get("pieces") or {}).get(item.slot)
+        if spec and key != getattr(item, "set_variant", None):
+            out.append((key, variant.get("label", key.title()), spec.get("name", item.name)))
+    return out
+
+
+def exchange(item, variant):
+    """Turn this piece into another spec's version of itself. Returns True if it changed.
+
+    Only the name, the stats and the version move. Refused (False) for a piece of no set, a
+    version the set does not have, or a slot that version has no piece for.
+    """
+    definition = get(getattr(item, "set_id", None))
+    spec = ((variants(definition).get(variant) or {}).get("pieces") or {}).get(item.slot)
+    if not spec or variant == getattr(item, "set_variant", None):
+        return False
+    item.name = spec.get("name", item.name)
+    if "primary_stats" in spec:
+        item.primary_stats = dict(spec["primary_stats"])
+    if "secondary_stats" in spec:
+        item.secondary_stats = dict(spec["secondary_stats"])
+    item.set_variant = variant
+    return True
+
+
 def active_bonuses(character):
     """{stat: total} from every set bonus this character has earned."""
     slots = getattr(getattr(character, "equipment", None), "slots", None) or {}
@@ -75,7 +159,7 @@ def active_bonuses(character):
         definition = get(sid)
         if not definition:
             continue
-        for need, bonus in thresholds(definition):
+        for need, bonus in bonuses_for(definition, leading_variant(character, sid)):
             if n >= need:
                 for stat, value in (bonus.get("stats") or {}).items():
                     out[stat] = out.get(stat, 0) + value
@@ -106,11 +190,25 @@ def tooltip_lines(item, character=None):
     definition = get(getattr(item, "set_id", None))
     if not definition:
         return []
-    pieces = definition.get("pieces") or {}
+    kinds = variants(definition)
+    lead = leading_variant(character, item.set_id) if character is not None else None
+    shown = lead or getattr(item, "set_variant", None) or (next(iter(kinds)) if kinds else None)
+    if kinds:
+        pieces = {slot: spec.get("name", slot) for slot, spec in (kinds[shown].get("pieces") or {}).items()}
+    else:
+        pieces = definition.get("pieces") or {}
+    slots = getattr(getattr(character, "equipment", None), "slots", None) or {}
     worn = set(worn_slots(character, item.set_id)) if character is not None else set()
-    lines = [(f"{definition.get('name', item.set_id)} ({len(worn)}/{len(pieces)})", "title")]
+    title = definition.get("name", item.set_id)
+    if kinds:
+        title += f" - {kinds[shown].get('label', shown.title())}"
+    lines = [(f"{title} ({len(worn)}/{len(pieces)})", "title")]
     for slot, name in pieces.items():
-        lines.append((f"  {name}", "have" if slot in worn else "missing"))
-    for need, bonus in thresholds(definition):
+        # a worn piece is listed under the name it actually has, whichever version it is
+        lines.append((f"  {slots[slot].name if slot in worn else name}", "have" if slot in worn else "missing"))
+    for need, bonus in bonuses_for(definition, shown):
         lines.append((f"({need}) Set: {describe(bonus)}", "active" if len(worn) >= need else "inactive"))
+    options = exchange_options(item)
+    if options:
+        lines.append(("Exchange for: " + ", ".join(f"{name} ({label})" for _k, label, name in options), "missing"))
     return lines
