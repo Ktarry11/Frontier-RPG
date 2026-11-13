@@ -463,7 +463,7 @@ def _dress(L):
     p("kennel_cage_empty", 182, 54, 5)
     p("vot_hide_rack", 182, 24, 3)
     b("orc_officers_house", 189, 36, 9)
-    b("plain_orc_house_c", 150, 47, 4)
+    # (a small house was drawn through the front of the hunters' longhouse)
     p("weapon_rack", 182, 38, 4)
     b("orc_watch_tower", 182, 21, 12, nudge=3)
 

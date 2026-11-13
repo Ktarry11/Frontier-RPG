@@ -191,7 +191,7 @@ def dress(L):
     B("generic_house_a", 20, 13, 7)
     B("generic_shack_a", 6, 14, 5)
     B("generic_house_b", 38, 11, 6)
-    B("generic_shack_b", 24, 11, 5)
+    # (a shack stood half inside the house next door; Ratchet does not need both)
     P("br_signpost", 29, 20, 5)
     # ---- the headland: harbour tower and signal light
     B("harbor_tower", 51, 13, 9, road_ok=True)

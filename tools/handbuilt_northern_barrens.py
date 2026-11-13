@@ -427,7 +427,7 @@ def dress(L):
     L.dp("vot_war_banner", 144, 34, 5)
     L.dp("vot_war_banner", 156, 34, 5)
     L.dp("vot_fire_pit", 160, 35, 2, solid=False)
-    L.bld("generic_tent_a", 163, 33, 5)
+    # (a tent was drawn through the foot of the watchtower; the tower is the landmark)
     P("br_signpost", 152, 40, 5)
     # north of the wall: the road to Ashenvale, an abandoned Sentinel signal fire
     L.dp("rf_brazier", 144, 14, 3)

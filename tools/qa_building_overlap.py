@@ -48,10 +48,7 @@ MAX_COVERED = 0.34
 #: decision.
 KNOWN = {
     # 13 Nov 2026: the rectangles were wrong until today (see _rect). Measured properly there
-    # are eight real pairs, mostly a tall building standing behind a low one. Debt, by eye.
-    ("Ratchet", "generic_house_a", 16, 7, "generic_shack_b", 21, 7),
-    ("Orgrimmar", "orc_barracks_longhouse", 147, 34, "plain_orc_house_c", 146, 44),
-    ("Northern Barrens", "frontier_watchtower", 161, 24, "generic_tent_a", 160, 30),
+    # were eight real pairs (three early-game ones since removed), mostly a tall building standing behind a low one. Debt, by eye.
     ("Tarren Mill", "ek_granary", 26, 60, "ek_village_inn", 22, 59),
     ("Saltspur Landing", "orc_officers_house", 19, 32, "orc_smokehouse", 22, 38),
     ("Freewind Post", "tau_smithy", 92, 103, "tau_tent_medium", 96, 107),
