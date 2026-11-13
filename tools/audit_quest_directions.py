@@ -245,18 +245,20 @@ def audit(world, stems):
                         unplaced.append(f"nothing drops {tgt}")
                 for c in creatures:
                     where = world.places(gmap, c)
-                    if (gmap, c) in world.roams:
-                        roaming[-1] = True
                     if where is None:
                         # Not on the giver's map. If it lives on a map one door away - a town
                         # giver sending you into the country round the town - the direction is
                         # the way to that door, and the place still has a name to say.
                         through = world.next_door(gmap, c)
+                        if any(rc == c for _m, rc in world.roams):
+                            roaming[-1] = True      # all over the country outside the gate
                         if through:
                             targets.extend(through)
                         elif not world.anywhere(c):
                             unplaced.append(f"{c} is in no spawn table or dungeon anywhere")
                         continue
+                    if (gmap, c) in world.roams:
+                        roaming[-1] = True
                     targets.extend(where)
             for u in unplaced:
                 findings["UNPLACED"].append((stem, q["title"], u))
