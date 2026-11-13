@@ -64,9 +64,9 @@ ZONES = {"shimmering_flats": "tools.handbuilt_shimmering_flats"}
 # The other forty textures stay on disk. Unused art is cheaper than a zone that looks like a
 # sample book.
 MATERIALS = {
-    "salt":     ("sf_salt_white", None, 2.0),
+    "salt":     ("sf_salt_white", None, 1.25),
     "sink":     ("sf_salt_dark", None, 2.0),
-    "sand":     ("tan_sand_gold", None, 2.0),
+    "sand":     ("tan_sand_gold", None, 1.5),
     "hive":     ("sf_hive_floor", None, 1.5),
     "rock":     ("tan_sandstone_floor", None, 2.5),
     "road":     ("sf_dust_hardpan", None, 1.0),
@@ -148,7 +148,7 @@ def build_scores(P, M):
     per_tile = 1.0 / float(gx[0, 1] - gx[0, 0])
     P.fields = {"dzdx": (np.gradient(elev, axis=1) * per_tile).astype(np.float32),
                 "dzdy": (np.gradient(elev, axis=0) * per_tile).astype(np.float32),
-                "mount": mount, "elev": elev}
+                "mount": mount, "elev": elev, "hive": hive_near}
     return {k: np.asarray(v, np.float32) for k, v in S.items()}
 
 
@@ -172,6 +172,11 @@ def post(rgb, X, Y, P):
         # the range sits back: a little darker and cooler than the pan it holds
         m = sf(f["mount"])[..., None]
         out = out * (1.0 - 0.10 * m) * (1.0 - m + m * np.array([0.97, 0.98, 1.03], np.float32))
+    if f:
+        # A MOUND IS A CONE, and from above a cone is lighter toward the crown. Without this a
+        # hive was a flat dark disc - the shading alone cannot carry it on ground this dark.
+        crown = np.clip(sf(f["elev"]) / 12.0, 0.0, 1.0) * sf(f["hive"])
+        out = out * (1.0 + 0.85 * crown)[..., None] + 26.0 * crown[..., None]
     lum = out.mean(axis=2, keepdims=True)
     bright = np.clip((lum - 150.0) / 80.0, 0.0, 1.0)
     out = out + bright * 16.0

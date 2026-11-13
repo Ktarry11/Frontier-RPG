@@ -380,6 +380,96 @@ def dress(L):
     return n
 
 
+def _landmarks(L):
+    """THE ZONE'S OWN PROPS, WHICH IT NEVER USED. Found 13 Nov 2026, looking for something to see.
+
+    assets/tiles/shimmering_flats/props holds a grandstand, a start gantry, pit awnings, wrecked
+    racers, fuel drums and wheel stacks - a whole raceway - and hive mounds, tunnel mouths, chitin
+    spires, egg clusters and resin growths. dress() above reached for Southern Needles' cactus and
+    the Broodspiral's leavings and placed none of them. The Mirage Raceway was a ring painted on
+    the salt with nothing standing at it, and a hive was a dark disc.
+
+    A SECOND pass with its own dice, after dress(), so nothing already placed moves. Everything
+    goes through L.prop (never on a road, never on top of something), and nothing is put in a gate
+    through the rim or in a tunnel into a mound.
+    """
+    rng = np.random.default_rng(SEED + 9173)
+    SF = "assets/tiles/shimmering_flats/props/"
+    n = 0
+
+    def one(fn, x, y):
+        return float(np.asarray(fn(np.array([[float(x)]]), np.array([[float(y)]]))).ravel()[0])
+
+    def put(name, x, y, h):
+        nonlocal n
+        x, y = int(round(x)), int(round(y))
+        if not (6 <= x < W - 6 and 6 <= y < H - 6):
+            return False
+        if one(_gate_cut, x, y) > -4.0 or one(_tunnel_cut, x, y) > -2.5:
+            return False
+        if any(abs(x - ax) + abs(y - ay) < 8 for (ax, ay) in list(ARRIVALS) + list(PORTALS) + list(CHESTS)):
+            return False
+        ok = L.prop(SF + name + ".png", x, y, h)
+        n += bool(ok)
+        return ok
+
+    # ---- THE MIRAGE RACEWAY. The crowd watches the north straight; the pits are inside the ring.
+    put("sf_start_gantry", 104, 31, 7)
+    # inside the north straight: outside it is the foot of the rim, where nothing can stand
+    for (x, y) in [(116, 38), (128, 36), (140, 40)]:
+        put("sf_grandstand", x, y, 6)
+    for (x, y) in [(112, 44), (119, 47), (127, 45)]:
+        put("sf_pit_awning", x, y, 5)
+    for (name, x, y, h) in [("sf_fuel_drums", 115, 51, 3), ("sf_wheel_stack", 122, 53, 3),
+                            ("sf_crate_stack", 130, 51, 3), ("sf_scrap_heap", 136, 47, 4),
+                            ("sf_condenser", 124, 58, 4), ("sf_hand_winch", 110, 56, 3),
+                            ("sf_wheel_stack", 133, 57, 3), ("sf_fuel_drums", 140, 55, 3),
+                            ("sf_signboard", 98, 30, 3), ("sf_signboard", 97, 108, 3),
+                            ("sf_signboard", 44, 124, 3)]:
+        put(name, x, y, h)
+    # the ones that did not make the corner, and the ones that left the track altogether
+    for (x, y) in [(158, 40), (96, 62), (146, 70), (70, 150), (118, 162), (62, 32), (176, 152),
+                   (142, 86), (84, 100)]:
+        put("sf_wrecked_racer", x, y, 4)
+    # lamps down the spur, which is how anybody found the place at night
+    for y in range(62, 110, 9):
+        put("sf_lamp_post", 108, y, 5)
+
+    # ---- THE HIVES. A ring of spires round each mound, its leavings, and a mouth where the way in is.
+    for (_nm, cx, cy, r, _h, turn) in HIVES:
+        ang = turn * TAU
+        put("sf_tunnel_mouth", cx + np.cos(ang) * r * 1.75 + np.sin(ang) * 5,
+            cy + np.sin(ang) * r * 1.75 - np.cos(ang) * 5, 6)
+        for _ in range(int(r * 0.9)):
+            a, d = rng.random() * TAU, r * (1.18 + 0.5 * rng.random())
+            put("sf_chitin_spire", cx + np.cos(a) * d, cy + np.sin(a) * d, int(rng.integers(5, 9)))
+        for _ in range(int(r * 0.7)):
+            a, d = rng.random() * TAU, r * (1.2 + 0.9 * rng.random())
+            put(str(rng.choice(["sf_egg_cluster", "sf_resin_growth", "sf_carapace_heap"])),
+                cx + np.cos(a) * d, cy + np.sin(a) * d, int(rng.integers(3, 5)))
+        for _ in range(2):          # and the young ones starting beside it
+            a, d = rng.random() * TAU, r * (2.0 + 0.5 * rng.random())
+            put("sf_hive_mound", cx + np.cos(a) * d, cy + np.sin(a) * d, 5)
+
+    # ---- THE SHORE: what the sand had already half taken before the salt came
+    for (x, y) in [(40, 60), (34, 104), (46, 146)]:
+        put("tan_obelisk", x, y, 6)
+    for (x, y) in [(44, 64), (38, 58), (30, 108), (50, 150), (42, 142)]:
+        put("tan_ruin_block", x, y, 4)
+    for _ in range(40):
+        x, y = int(rng.integers(22, 70)), int(rng.integers(20, 162))
+        put(str(rng.choice(["tan_dead_palm", "tan_dune_grass", "tan_thorn_scrub", "tan_skeleton"])), x, y,
+            int(rng.integers(3, 6)))
+    return n
+
+
+_dress_scatter = dress
+
+
+def dress(L):          # noqa: F811 - the scatter, then the landmarks
+    return _dress_scatter(L) + _landmarks(L)
+
+
 def build_layout():
     return T.build(sys.modules[__name__])
 
