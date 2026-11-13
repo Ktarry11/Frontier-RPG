@@ -136,7 +136,13 @@ RUINS = [
     # HEIGHT 24, NOT 9. At 9 the flanks sloped under WALK_SLOPE and the whole pyramid was walkable
     # ground - it rendered as nothing at all in the shape preview, which is what a landmark that is
     # not actually there looks like. A step pyramid is steep; that is the only reason it reads.
-    ("Zul'Farrak", 36, 58, 22, 24, 24.0),         # the step pyramid, broken open down one side
+    # A LANDMARK, NOT A DISTRICT. Kyle, 13 Nov 2026: "ruins of ZF are just wasted space" - and of the
+    # three ways to fix that he chose this one: shrink the pyramid, give the ground to the
+    # Bonefields, and make walking in pay. It was 44 by 48 tiles of rock with one corridor into
+    # it; at 26 by 28 it is still the biggest thing on the western skyline and no longer a third
+    # of the zone's west end. The centre has not moved, so every quest that sends you to
+    # "Zul'Farrak Ruins" (36, 58) still lands on it.
+    ("Zul'Farrak", 36, 58, 13, 14, 24.0),         # the step pyramid, broken open down one side
     # The ground inside the walls only - low, because you walk THROUGH the city, not over it. The
     # walls themselves are a separate term below.
     # HEIGHT 1.2, NOT 3.0. At 3.0 the mound's own falloff put a slope over WALK_SLOPE around its
@@ -147,7 +153,9 @@ RUINS = [
 
 #: Where the pyramid is broken open, as a fraction of a turn. The cut crosses the ruin's flank in one
 #: place, same trick the Flats' hive tunnels use - without it the mound is a sealed cone and scenery.
-ZF_BREACH = 0.62
+# EAST, toward the road. It was 0.62 - the north-west face, the far side from everywhere a player
+# comes from - so the one way in was a walk round the back of the largest obstacle in the zone.
+ZF_BREACH = 0.97
 
 # =========================================================================================================
 # THE ROAD. Gadgetzan to the port, with one spur going south.
@@ -368,10 +376,10 @@ def tile_kind(gx, gy):
 #: encounter tables can differ by where you are, and so the rares have somewhere to live (rares only
 #: spawn in subzones; see tools/qa_rare_placement.py).
 SUBZONES = [
-    ("Zul'Farrak Ruins", 12, 32, 52, 54),
+    ("Zul'Farrak Ruins", 20, 42, 34, 32),             # the pyramid and its apron, not the whole west end
     ("Gadgetzan Ruins", 74, 28, 48, 34),
     ("The Caravan Road", 118, 44, 62, 28),
-    ("The Bonefields", 70, 68, 76, 34),
+    ("The Bonefields", 54, 68, 92, 34),               # west to the pyramid's foot: the ground it gave up
     ("Steamwheedle Approach", 184, 34, 44, 44),
     ("The Drownbell Shore", 160, 76, 68, 30),
 ]
@@ -380,7 +388,8 @@ BASE = {"sand": 0.52, "hard": 0.24, "clay": 0.14, "rock": 0.10}
 PAINT = {}
 COBBLE = []
 NPC_POSITIONS = {}
-CHESTS = [(40, 62), (104, 46), (152, 58), (196, 84)]
+# (36, 58) is the HEART OF THE PYRAMID, at the end of the breach: what walking in is for.
+CHESTS = [(36, 58), (104, 46), (152, 58), (196, 84)]
 FOREST = None
 
 
@@ -416,6 +425,32 @@ def _gadgetzan(L):
     return n
 
 
+def _sandfury_camp(L):
+    """The Sandfury at the breach. Kyle chose "troll packs and a rare inside the breach so walking
+    in pays off": the trolls and Thaka the Unburied already roll in this subzone, and now the
+    subzone IS the pyramid, so that is where they are met. This is the camp that says so - at the
+    mouth of the breach, either side of the way in and never on it - and the chest is at the heart.
+    """
+    SN = "assets/tiles/southern_needles/props/"
+    SF = "assets/tiles/shimmering_flats/props/"
+    _n, cx, cy, rx, ry, _h = RUINS[0]
+    a = ZF_BREACH * TAU
+    mx, my = cx + np.cos(a) * (rx + 9), cy + np.sin(a) * (ry + 9)        # just outside the mouth
+    px, py = -np.sin(a), np.cos(a)                                        # across the way in
+    n = 0
+    for (name, along, across, h, d) in [
+            ("sn_hide_tent", 2, -7, 5, SN), ("sn_hide_tent", 6, -9, 5, SN), ("sn_hide_tent", 3, 8, 5, SN),
+            ("sn_cook_fire", 5, -6, 2, SN), ("sn_drying_rack", 8, 7, 3, SN),
+            ("sn_spear_bundle", 0, -6, 3, SN), ("sn_spear_bundle", 0, 6, 3, SN),
+            ("sn_hide_banner", -2, -6, 5, SN), ("sn_hide_banner", -2, 6, 5, SN),
+            ("sn_totem_aspen", 10, -4, 6, SN), ("sn_kodo_skull", 9, 5, 3, SN),
+            ("tan_obelisk", -5, -7, 6, SF), ("tan_obelisk", -5, 7, 6, SF)]:
+        x = int(round(mx + np.cos(a) * along + px * across))
+        y = int(round(my + np.sin(a) * along + py * across))
+        n += bool(L.prop(d + name + ".png", x, y, h))
+    return n
+
+
 def dress(L):
     """Desert, and what is lying in it.
 
@@ -427,6 +462,7 @@ def dress(L):
     """
     z = L.z
     n = _gadgetzan(L)
+    n += _sandfury_camp(L)
     rng = np.random.default_rng(SEED)
     # KEEP CLEAR OF THE WAYS IN AND OUT. dress() blocks the tile it decorates, and the Drownbell's
     # portal sat inside the bonefield band - a rib cage rolled onto it and sealed the only cave in
