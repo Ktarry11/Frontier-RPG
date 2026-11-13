@@ -576,7 +576,21 @@ def generate_sunken_grotto_of_the_deep():
 RF = DP + "rf_"
 
 
+BAKED_RFC = "assets/tiles/ragefire_chasm/baked"
+
+
 def generate_ragefire_chasm():
+    """The runtime zone: the built layout under its painted ground (tools/bake_small_caves.py
+    ragefire_chasm). Until 13 Nov 2026 this dungeon had no painting at all and drew in tiles."""
+    import os
+    zone = build_ragefire_chasm()
+    if os.path.exists(f"{BAKED_RFC}/ground_0_0.jpg"):
+        from tools.handbuilt_vot_caves import register_baked
+        register_baked(zone, BAKED_RFC)
+    return zone
+
+
+def build_ragefire_chasm():
     """Ragefire Chasm (240x220): the volcanic cultist warren under Orgrimmar.
 
     Cleft Gate (portal, quest NPCs) -> Trogg Warrens (trash) -> Searing Blade

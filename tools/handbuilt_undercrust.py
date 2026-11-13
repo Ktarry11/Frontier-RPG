@@ -230,4 +230,9 @@ def build_undercrust_baked():
 
 def generate_undercrust():
     zone, L = build_undercrust_baked()
+    # The painted ground (tools/bake_small_caves.py undercrust). This cave declared BAKED from the
+    # day it was written and never had a bake, so it drew in fallback tiles.
+    import os
+    if os.path.exists(f"{BAKED}/ground_0_0.jpg"):
+        register_baked(zone, BAKED)
     return zone
