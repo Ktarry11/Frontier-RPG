@@ -304,7 +304,7 @@ class ZoneManager:
         targets = self.active_kill_targets()
         enemy = self.creature_manager.get_random_creature(
             zone_name, location_type=location_type, subzone_name=subzone_key, quest_targets=targets,
-            beast_lure=getattr(self, "beast_lure_active", False))
+            beast_lure=getattr(self, "beast_lure_pct", 0))
 
         # Fall back to the open-zone table if a subzone has no table entry, so a geographic region
         # without encounter data never yields None - EXCEPT for a subzone flagged safe, where

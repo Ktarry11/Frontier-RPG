@@ -760,9 +760,10 @@ class OverworldScreen(BaseScreen):
         is_standing_still = self.seconds_since_last_move >= StatusEffectMixin.STANDING_STILL_THRESHOLD
         party = self.state_manager.get_party()
         if party:
-            # one lure burning anywhere in the party is enough
-            self.zone_manager.beast_lure_active = any(
-                getattr(m, "beast_lure_seconds", 0) > 0 for m in party.members)
+            # one lure burning anywhere in the party covers everyone; the strongest counts
+            self.zone_manager.beast_lure_pct = max(
+                [getattr(m, "beast_lure_pct", 0) for m in party.members
+                 if getattr(m, "beast_lure_seconds", 0) > 0] or [0])
             for member in party.members:
                 if member.consumable_cooldown > 0:
                     member.consumable_cooldown -= dt

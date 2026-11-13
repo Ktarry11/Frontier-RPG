@@ -3733,18 +3733,46 @@
   ],
   "lures": [
     {
-      "consumable_id": "beast_lure",
-      "name": "Beast Lure",
+      "consumable_id": "beast_lure_lesser",
+      "name": "Lesser Beast Lure",
       "consumable_type": "lure",
-      "description": "A greased bundle of offal and musk, lit and left to smoulder on somebody's pack. For 30 minutes beasts are 50% more likely to be what the party runs into. It covers the whole party; a second one only restarts the clock.",
-      "effect_value": 0,
+      "description": "A twist of offal and grease, lit and left to smoulder on somebody's pack. For 30 minutes beasts are 25% more likely to be what the party runs into. It covers the whole party; lighting another replaces it.",
+      "effect_value": 25,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
       "required_level": 5,
       "cooldown_seconds": 2,
       "stack_limit": 20,
-      "vendor_price": 40,
-      "sell_price": 10
+      "vendor_price": 500,
+      "sell_price": 125
+    },
+    {
+      "consumable_id": "beast_lure",
+      "name": "Beast Lure",
+      "consumable_type": "lure",
+      "description": "A greased bundle of offal and musk, lit and left to smoulder on somebody's pack. For 30 minutes beasts are 50% more likely to be what the party runs into. It covers the whole party; lighting another replaces it.",
+      "effect_value": 50,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 15,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 5000,
+      "sell_price": 1250
+    },
+    {
+      "consumable_id": "beast_lure_greater",
+      "name": "Greater Beast Lure",
+      "consumable_type": "lure",
+      "description": "Rendered musk gland in a wax casing. Everything with a nose for a mile comes to look. For 30 minutes beasts are 100% more likely to be what the party runs into. It covers the whole party; lighting another replaces it.",
+      "effect_value": 100,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 30,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 50000,
+      "sell_price": 12500
     }
   ]
 }

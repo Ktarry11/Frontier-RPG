@@ -365,6 +365,8 @@ class Character(StatusEffectMixin):
         #: Seconds of Beast Lure left. While anyone in the party has it, beasts turn up half
         #: again as often (world/creature_manager.BEAST_LURE_BOOST) - the skinner's consumable.
         self.beast_lure_seconds = 0.0
+        #: How much the burning lure adds, in percent: 25 lesser, 50 normal, 100 greater.
+        self.beast_lure_pct = 0
         
         # Currency moved to Party.copper (shared party purse) - see the
         # CURRENCY comment further down in this class for why.
@@ -4001,6 +4003,7 @@ class Character(StatusEffectMixin):
             "food_buff": self.food_buff,
             "ammo_buff": self.ammo_buff,
             "beast_lure_seconds": self.beast_lure_seconds,
+            "beast_lure_pct": self.beast_lure_pct,
             "class_base_stats": self.class_base_stats,
             "secondary_resources": self.secondary_resources,
             # Party identity (save v6). Without these a loaded companion lost
@@ -4130,6 +4133,7 @@ class Character(StatusEffectMixin):
         char.food_buff = data.get("food_buff")
         char.ammo_buff = data.get("ammo_buff")
         char.beast_lure_seconds = float(data.get("beast_lure_seconds", 0) or 0)
+        char.beast_lure_pct = int(data.get("beast_lure_pct", 50 if char.beast_lure_seconds else 0) or 0)
 
         # Restore talent point spend (save v4). The character was constructed
         # with fresh trees and a level-derived point pool by __init__; here we
@@ -4659,6 +4663,8 @@ class Character(StatusEffectMixin):
 
         if getattr(self, "beast_lure_seconds", 0) > 0:
             self.beast_lure_seconds = max(0.0, self.beast_lure_seconds - dt)
+            if not self.beast_lure_seconds:
+                self.beast_lure_pct = 0
 
         if self.ammo_buff is not None:
             consumable, duration = self.ammo_buff

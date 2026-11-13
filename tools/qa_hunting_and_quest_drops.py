@@ -67,13 +67,27 @@ def main():
     w_beast = sum(w for n, w in table.items() if beast(n) and not cm.creatures.get(n, {}).get("is_boss"))
     w_other = sum(w for n, w in table.items() if not beast(n) and not cm.creatures.get(n, {}).get("is_boss"))
     if w_beast and w_other:
-        random.seed(9)
         n = 6000
+        random.seed(9)
         base = sum(beast(cm.get_random_creature(zone).name) for _ in range(n)) / n
-        lit = sum(beast(cm.get_random_creature(zone, beast_lure=True).name) for _ in range(n)) / n
-        want = 1.5 * w_beast / (1.5 * w_beast + w_other)
-        if abs(lit - want) > 0.03 or lit <= base:
-            bad.append(f"Beast Lure: beasts went {base:.0%} -> {lit:.0%}, expected about {want:.0%}")
+        for pct in (25, 50, 100):
+            random.seed(9)
+            lit = sum(beast(cm.get_random_creature(zone, beast_lure=pct).name) for _ in range(n)) / n
+            k = 1 + pct / 100.0
+            want = k * w_beast / (k * w_beast + w_other)
+            if abs(lit - want) > 0.03 or lit <= base:
+                bad.append(f"+{pct}% lure: beasts went {base:.0%} -> {lit:.0%}, expected about {want:.0%}")
+
+    # Kyle, 12 Nov: "5s for 25% more beasts, 50s for 50% more beasts and 5g for 100% more beasts.
+    # Lesser, normal, greater."
+    from entities.consumable_manager import get_consumable_manager as _gcm
+    for cid, pct, price in (("beast_lure_lesser", 25, 500), ("beast_lure", 50, 5000), ("beast_lure_greater", 100, 50000)):
+        c = _gcm().get_consumable(cid)
+        if c is None or c.effect_value != pct or c.vendor_price != price:
+            bad.append(f"{cid}: should be +{pct}% for {price}c, is "
+                       f"{getattr(c, 'effect_value', None)}% for {getattr(c, 'vendor_price', None)}c")
+        if not os.path.isfile(f"assets/icons/consumables/{cid}.png"):
+            bad.append(f"{cid} has no icon")
 
     from entities.character import Character
     from entities.consumable_manager import get_consumable_manager
@@ -83,16 +97,16 @@ def main():
         bad.append("there is no Beast Lure")
     else:
         lure.use(hero)
-        if hero.beast_lure_seconds != 1800:
+        if hero.beast_lure_seconds != 1800 or hero.beast_lure_pct != 50:
             bad.append(f"lighting a lure leaves {hero.beast_lure_seconds}s of it")
         hero.update_buff_timers(1700)
         if not 0 < hero.beast_lure_seconds <= 100:
             bad.append("the lure does not burn down")
         again = Character.from_dict(hero.to_dict())
-        if not again.beast_lure_seconds:
+        if not again.beast_lure_seconds or again.beast_lure_pct != 50:
             bad.append("the lure is lost on save and load")
         hero.update_buff_timers(200)
-        if hero.beast_lure_seconds:
+        if hero.beast_lure_seconds or hero.beast_lure_pct:
             bad.append("the lure never goes out")
     vendors = json.load(open("data/npcs/vendors.json"))
     vendors = vendors.get("vendors", vendors)

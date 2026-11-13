@@ -159,11 +159,14 @@ class Consumable:
                 log_msg += f" Well fed: {bonus_text(self.stat_bonuses)} for 30 minutes."
 
         elif self.consumable_type == "lure":
-            # Beast Lure: no stats. While it burns, beasts answer the party's encounter rolls half
-            # again as often, so a skinner is not waiting on the table to deal them an animal.
+            # Beast Lure: no stats. While it burns, beasts answer the party's encounter rolls more
+            # often - effect_value is the percentage (25 lesser, 50 normal, 100 greater) - so a
+            # skinner is not waiting on the table to deal them an animal. Lighting another
+            # replaces the one burning; they do not add up.
             character.beast_lure_seconds = float(self.effect_duration)
-            log_msg = (f"Lit {self.name}: beasts are 50% more likely to turn up for "
-                       f"{int(self.effect_duration // 60)} minutes.")
+            character.beast_lure_pct = int(self.effect_value)
+            log_msg = (f"Lit {self.name}: beasts are {int(self.effect_value)}% more likely to turn up "
+                       f"for {int(self.effect_duration // 60)} minutes.")
 
         elif self.consumable_type == "ammo":
             # Crafted arrows / bolts (Woodworking): a timed ranged-attack buff in its own slot, since the game has
