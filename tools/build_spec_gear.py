@@ -337,7 +337,26 @@ def weapon_plan(char_class, spec, role, is_caster, weapons, may_dw, wants):
     types = weapons["weapon_types"]
     plan = {"main_hand": None, "off_hand": None, "ranged": None}
 
+    # THE CLASS'S OWN WEAPON FIRST. The orders below are generic - "a one-hander" means a
+    # sword before anything else - so every class that can hold a sword came out holding
+    # one: a Barbarian with swords, a Venomancer tank with maces, a Witch Hunter with a bow,
+    # while entities/starting_gear.CLASS_WEAPON_TYPE (the hand-written list of what each
+    # class is KNOWN for) says axe, dagger, crossbow. Where a pick has that weapon, or its
+    # two-handed or one-handed sibling, among its choices, that comes first. The order is
+    # otherwise untouched, so a class with no listed identity for a slot picks as before.
+    import sys as _sys
+    _root = str(Path(__file__).resolve().parent.parent)
+    if _root not in _sys.path:
+        _sys.path.insert(0, _root)
+    from entities.starting_gear import CLASS_WEAPON_TYPE
+    family = CLASS_WEAPON_TYPE.get(char_class, "").split("_")[0]
+
+    def own_first(order):
+        mine = [wt for wt in order if family and wt.split("_")[0] == family]
+        return mine + [wt for wt in order if wt not in mine]
+
     def one(order, w=wants):
+        order = own_first(order)
         return pick(order, allowed, weapons, w) or pick(order, allowed)
 
     caster_hands = is_caster and role in ("healer", "ranged_dps")

@@ -202,6 +202,32 @@ def _make_armor(slot, armor_type):
     )
 
 
+#: Ranged-slot items that are real weapons. The rest of that slot's types are relics.
+_REAL_RANGED = ("wand", "bow", "gun", "crossbow", "thrown")
+
+
+def _second_weapons(char_class, class_weapon):
+    """Weapon types to grant besides the class weapon: a main hand for a class whose weapon
+    is ranged, a ranged weapon for a class whose weapon is melee. [] if its specs do not
+    agree on one."""
+    from collections import Counter
+    from entities.spec_gear import all_specs
+    plans = [v["weapons"] for v in all_specs().values() if v.get("class") == char_class]
+    if not plans:
+        return []
+    need = "main_hand" if class_weapon in _RANGED_WEAPON_TYPES else "ranged"
+    wanted = Counter(p.get(need) for p in plans if p.get(need))
+    if need == "ranged":
+        wanted = Counter({k: n for k, n in wanted.items() if k in _REAL_RANGED})
+    if not wanted:
+        return []
+    choice, votes = wanted.most_common(1)[0]
+    # A hand to hold something in is not optional, so a main hand goes to the most common
+    # choice even when the specs split three ways (Tinker). A ranged weapon is: it is only
+    # given when at least half the class's specs carry one.
+    return [choice] if (need == "main_hand" or votes * 2 >= len(plans)) else []
+
+
 def grant_starting_gear(character):
     """Equip a brand-new character with one weapon (in the Ranged slot
     instead of main_hand if their class's weapon_type is itself ranged),
@@ -223,6 +249,15 @@ def grant_starting_gear(character):
     stat_template = stat_map.get(char_class, "int_caster")
 
     character.equipment.equip(_make_weapon(weapon_type, stat_template))
+
+    # THE OTHER HAND. One weapon per class left every wand, bow and gun class with nothing
+    # to hold - a Mage walked into her first fight with a wand and bare fists, a Hunter with
+    # a bow and no blade - and left a Rogue or a Warlock with no ranged weapon to open with.
+    # What the class's specs carry in the slot the class weapon does NOT fill is the answer
+    # (data/items/spec_gear.json): given when at least half of them carry one. Real weapons
+    # only - a libram, idol or totem is a relic, and a white relic would be an empty item.
+    for extra in _second_weapons(char_class, weapon_type):
+        character.equipment.equip(_make_weapon(extra, stat_template))
 
     for slot in ("chest", "legs", "feet"):
         character.equipment.equip(_make_armor(slot, armor_type))
