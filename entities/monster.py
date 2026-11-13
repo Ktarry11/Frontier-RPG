@@ -716,7 +716,12 @@ class Monster(StatusEffectMixin):
     # ------------------------------------------------------------------
     @property
     def armor(self):
-        return max(0, self.base_armor + self.get_status_stat_mod("armor"))
+        # armor_pct: a share of the creature's armour, in points ("armour -30%"). Only the flat
+        # key was read, so a debuff written as a percentage took nothing off a monster.
+        pct = self.get_status_stat_mod("armor_pct")
+        if 0 < abs(pct) < 1:
+            pct *= 100
+        return max(0, int((self.base_armor + self.get_status_stat_mod("armor")) * max(0.0, 1.0 + pct / 100.0)))
 
     @armor.setter
     def armor(self, value):

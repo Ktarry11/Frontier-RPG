@@ -272,7 +272,7 @@
         "ability_id": "personal_silas_sharper_rules",
         "name": "Sharper Rules Than Antwerp",
         "from": "'a frontier with sharper rules than Antwerp ever had, because out here the people who break them don't get a hearing'",
-        "engine": "needs: execute threshold",
+        "engine": "live: execute_threshold_pct 30 (refused above it) and cast_bonus_pct 200 (triple)",
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "energy",
@@ -289,7 +289,8 @@
             "cost": 30,
             "effect_value": 90
           }
-        ]
+        ],
+        "cast_bonus_pct": 200
       }
     ]
   },
@@ -493,7 +494,7 @@
         "ability_id": "personal_marco_he_fixes_other_things",
         "name": "He Fixes Other Things",
         "from": "'He fixes locks. He also fixes other things and nobody has ever asked him to.'",
-        "engine": "needs: the small heal that accompanies it",
+        "engine": "live: heals_party_pct_max 5 after the cleanse",
         "effect_type": "dispel",
         "target_type": "party",
         "resource_type": "mana",
@@ -501,7 +502,7 @@
         "duration": 0,
         "is_instant": true,
         "stat_mods": {},
-        "description": "Removes one harmful effect from every ally and heals each for a small amount.",
+        "description": "Removes one harmful effect from every ally and heals each for 5% of their maximum health.",
         "ranks": [
           {
             "rank": 1,
@@ -516,7 +517,8 @@
           "poison",
           "disease"
         ],
-        "dispel_count": 1
+        "dispel_count": 1,
+        "heals_party_pct_max": 5
       },
       {
         "ability_id": "personal_marco_a_formality_arrived_late",
@@ -602,7 +604,7 @@
         "ability_id": "personal_marcus_the_biggest_one_there_is",
         "name": "The Biggest One There Is",
         "from": "'he'd like to stand in the middle of the biggest one there is. He's a meteorologist. He knows how that ends.'",
-        "engine": "needs: self-damaging AoE",
+        "engine": "live: health_cost_pct 25, and all_enemies now reaches every enemy",
         "effect_type": "spell_damage",
         "damage_school": "nature",
         "target_type": "all_enemies",
@@ -619,7 +621,8 @@
             "effect_value": 190
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "health_cost_pct": 25
       }
     ]
   },
@@ -741,7 +744,7 @@
         "ability_id": "personal_sophia_a_grammar_of_this_world",
         "name": "A Grammar of This World",
         "from": "'A grammar of this world's arcane. She is convinced the thing has a syntax.'",
-        "engine": "needs: ignore target resistance for a window",
+        "engine": "live: spell_penetration cancels the target's resistance (as Sondre's Control, Not Power)",
         "effect_type": "buff",
         "target_type": "self",
         "resource_type": "mana",
@@ -850,7 +853,7 @@
         "ability_id": "personal_ryan_pays_on_time",
         "name": "Pays On Time",
         "from": "'He pays on time, exactly on time. That's not virtue, it's the only thing stopping the arrangement running the other direction.'",
-        "engine": "needs: spending 15% of his maximum health to pay for it",
+        "engine": "live: health_cost_pct 15 and health_buys_mana - the health paid comes back as mana",
         "effect_type": "restore_resource",
         "target_type": "self",
         "resource_type": "mana",
@@ -864,11 +867,13 @@
             "rank": 1,
             "level_req": 1,
             "cost": 0,
-            "effect_value": 15,
-            "mana_restore_pct": 15
+            "effect_value": 0,
+            "mana_restore_pct": 0
           }
         ],
-        "mana_restore_pct": 15
+        "mana_restore_pct": 15,
+        "health_cost_pct": 15,
+        "health_buys_mana": true
       }
     ]
   },
@@ -3124,7 +3129,7 @@
         "ability_id": "personal_esteban_absolute_precision",
         "name": "Absolute Precision",
         "from": "'doing a violent thing for a good reason, with absolute precision'",
-        "engine": "needs: guaranteed critical strike",
+        "engine": "live: always_crits",
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "rage",
@@ -3140,13 +3145,14 @@
             "effect_value": 85
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "always_crits": true
       },
       {
         "ability_id": "personal_esteban_the_formalities_removed",
         "name": "The Formalities Removed",
         "from": "'Blood magic is the identical proposition with the formalities removed.'",
-        "engine": "needs: convert damage dealt into healing on an ally",
+        "engine": "live: heals_lowest_ally_pct 60",
         "effect_type": "damage",
         "target_type": "enemy",
         "resource_type": "rage",
@@ -3162,7 +3168,8 @@
             "effect_value": 80
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "heals_lowest_ally_pct": 60
       },
       {
         "ability_id": "personal_esteban_he_asks_every_time",
@@ -3539,7 +3546,7 @@
         "ability_id": "personal_marisol_one_more_instrument",
         "name": "One More Instrument on a Tray",
         "from": "'The Light moves through her easily and she treats it as one more instrument on a tray.'",
-        "engine": "needs: shadow damage that heals the lowest ally",
+        "engine": "live: heals_lowest_ally_pct 70",
         "effect_type": "spell_damage",
         "target_type": "enemy",
         "resource_type": "mana",
@@ -3556,13 +3563,14 @@
           }
         ],
         "is_instant": true,
-        "damage_school": "shadow"
+        "damage_school": "shadow",
+        "heals_lowest_ally_pct": 70
       },
       {
         "ability_id": "personal_marisol_the_habit_of_narrating",
         "name": "The Habit of Narrating",
         "from": "'The habit of narrating came with her and half the party finds it steadying and half find it maddening.'",
-        "engine": "needs: party buff that also mildly hinders",
+        "engine": "live: damage_taken_pct -20% and damage_dealt_pct -5 on the whole party for 4 turns",
         "effect_type": "buff",
         "target_type": "party",
         "resource_type": "mana",
@@ -3587,14 +3595,14 @@
         "ability_id": "personal_marisol_she_reaches_them_faster",
         "name": "She Reaches Them Faster",
         "from": "'the raptors take travellers and the garrison gets to them slowly. She reaches them faster.'",
-        "engine": "needs: instant heal with no cast time at any range",
+        "engine": "live: low_health_bonus 30% under half health",
         "effect_type": "heal",
         "target_type": "ally",
         "resource_type": "mana",
         "cooldown": 10,
         "duration": 0,
         "stat_mods": {},
-        "description": "An instant heal on any ally, for 30% more if they are below half health.",
+        "description": "A heal on any ally, for 30% more if they are below half health.",
         "ranks": [
           {
             "rank": 1,
@@ -3603,7 +3611,11 @@
             "effect_value": 60
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "low_health_bonus": {
+          "below": 50,
+          "bonus": 30
+        }
       }
     ]
   },
@@ -3644,13 +3656,15 @@
         "ability_id": "personal_diego_take_a_thing_apart",
         "name": "Take a Thing Apart",
         "from": "'He can take a thing apart faster than he can explain why.'",
-        "engine": "needs: the 30% armour reduction",
+        "engine": "live: strips buffs, then armor_pct -30 for 4 turns (Monster.armor reads it)",
         "effect_type": "dispel",
         "target_type": "enemy",
         "resource_type": "mana",
         "cooldown": 10,
-        "duration": 0,
-        "stat_mods": {},
+        "duration": 4,
+        "stat_mods": {
+          "armor_pct": -30
+        },
         "description": "Removes two buffs from the target and reduces its armour by 30% for 4 turns.",
         "ranks": [
           {
@@ -3724,14 +3738,14 @@
         "ability_id": "personal_freja_a_working_pair_of_hands",
         "name": "A Working Pair of Hands",
         "from": "'What she had was a working pair of hands and a world full of people who needed them.'",
-        "engine": "needs: heal that ignores cast time and cannot be interrupted",
+        "engine": "live: a party heal. 'Cannot be interrupted or pushed back' was dropped from the text - nothing in this game interrupts a cast, so it promised a protection against nothing",
         "effect_type": "heal",
         "target_type": "party",
         "resource_type": "mana",
         "cooldown": 10,
         "duration": 0,
         "stat_mods": {},
-        "description": "Heals the party. Cannot be interrupted or pushed back.",
+        "description": "Heals the party.",
         "ranks": [
           {
             "rank": 1,
@@ -3884,7 +3898,7 @@
         "ability_id": "personal_berat_a_frightened_patient_moves",
         "name": "A Frightened Patient Moves",
         "from": "'a frightened patient is a patient who moves'",
-        "engine": "needs: heal plus movement or action grant",
+        "engine": "live: grants_turn - the healed ally's turn meter is filled",
         "effect_type": "heal",
         "target_type": "ally",
         "resource_type": "mana",
@@ -3900,7 +3914,8 @@
             "effect_value": 55
           }
         ],
-        "is_instant": true
+        "is_instant": true,
+        "grants_turn": true
       },
       {
         "ability_id": "personal_berat_to_see_round_a_corner",

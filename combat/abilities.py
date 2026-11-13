@@ -1492,7 +1492,8 @@ class Ability:
             crit_taken_reduction = target.get_talent_effect("crit_taken_reduction", 0.0) or 0.0
         crit_chance = max(0.0, crit_chance - crit_taken_reduction)
 
-        is_crit = random.uniform(0, 100) < crit_chance
+        # always_crits: "an attack that always critically strikes" (Esteban Ruiz).
+        is_crit = getattr(self, "always_crits", False) or random.uniform(0, 100) < crit_chance
         if not is_crit:
             return False, 1.0
         return True, self.CRIT_DAMAGE_MULTIPLIER + self._crit_damage_bonus(caster, school)
@@ -2144,6 +2145,10 @@ class Ability:
         if self.health_cost_pct > 0 and hasattr(caster, "current_health"):
             price = int(getattr(caster, "health", 0) * self.health_cost_pct / 100.0)
             caster.current_health = max(1, caster.current_health - price)
+            # health_buys_mana: the blood paid comes back as mana (Ryan Murphy, "Pays On Time").
+            if getattr(self, "health_buys_mana", False) and getattr(caster, "mana", 0) > 0:
+                caster.current_mana = min(caster.mana, caster.current_mana + price)
+                self._health_turned_to_mana = price
 
         # Apply cooldown (in turns, not seconds; talent-reduced).
         #
@@ -2172,7 +2177,7 @@ class Ability:
                                             engine=engine)
         finally:
             undo()
-        result_msg = self._after_cast_riders(caster, party, result_msg)
+        result_msg = self._after_cast_riders(caster, party, result_msg, target)
 
         # EVENT STACKING. Feeds any effect on the caster that gains a stack
         # from repeating an ability or from landing an attack - and, for a
@@ -2440,6 +2445,17 @@ class Ability:
     #: Share of the damage this cast deals that is given, as healing, to the most wounded
     #: living ally (Imelda Salonga, "She Hits Things and Her People Get Better": 80).
     heals_lowest_ally_pct = 0.0
+    #: Flat extra effect on this cast, in points: 200 is "triple damage" (Silas Vance).
+    cast_bonus_pct = 0.0
+    #: {"below": 50, "bonus": 30} - 30% more against a target under half health (Marisol).
+    low_health_bonus = None
+    #: After the cast, every living ally is healed for this share of their own maximum health
+    #: (Marco Rossi, "He Fixes Other Things": the small heal that comes with the cleanse).
+    heals_party_pct_max = 0.0
+    #: The target takes their next turn at once (Berat Yilmaz, "A Frightened Patient Moves").
+    grants_turn = False
+    always_crits = False
+    health_buys_mana = False
 
     def _cast_riders(self, caster, target):
         """Set up whatever bends this one cast, and return the function that puts it back.
@@ -2454,9 +2470,15 @@ class Ability:
             before = caster.armor_penetration_pct
             caster.armor_penetration_pct = min(1.0, before + self.armor_ignore_pct / 100.0)
             undo.append(lambda: setattr(caster, "armor_penetration_pct", before))
-        if self.missing_health_bonus_pct and single is not None and getattr(single, "health", 0):
-            missing = 1.0 - max(0.0, min(1.0, single.current_health / single.health))
-            points = self.missing_health_bonus_pct * missing
+        points = float(self.cast_bonus_pct or 0)
+        if single is not None and getattr(single, "health", 0):
+            frac = max(0.0, min(1.0, single.current_health / single.health))
+            if self.missing_health_bonus_pct:
+                points += self.missing_health_bonus_pct * (1.0 - frac)
+            low = self.low_health_bonus
+            if low and frac * 100 < float(low.get("below", 0)):
+                points += float(low.get("bonus", 0))
+        if points:
             # As a one-cast buff on the caster, NOT by scaling effect_value: most of a hit or a
             # heal is the caster's attack or spell power, so doubling the ability's own base
             # number moved the total by a fifth. damage_dealt_pct and healing_done_pct multiply
@@ -2482,8 +2504,21 @@ class Ability:
                 fn()
         return restore
 
-    def _after_cast_riders(self, caster, party, message):
+    def _after_cast_riders(self, caster, party, message, target=None):
         """Riders that act on what the cast DID. Returns the message, with a line added."""
+        bought = getattr(self, "_health_turned_to_mana", 0)
+        if bought:
+            self._health_turned_to_mana = 0
+            message = f"{caster.name} pays {bought} health and takes {bought} mana for it."
+        if self.heals_party_pct_max and party:
+            for ally in party:
+                if ally.is_alive():
+                    ally.heal(ally.health * self.heals_party_pct_max / 100.0)
+        if self.grants_turn and target is not None and not isinstance(target, (list, tuple)) \
+                and target is not caster and getattr(target, "is_alive", lambda: False)():
+            from config import TURN_THRESHOLD
+            target.turn_meter = max(getattr(target, "turn_meter", 0.0), TURN_THRESHOLD)
+            message = f"{message} {target.name} is ready to act."
         if self.heals_lowest_ally_pct and party:
             dealt = sum(amount for who, amount, is_damage in getattr(self, "_last_threat_events", [])
                         if is_damage and who is not None)
@@ -2512,6 +2547,17 @@ class Ability:
         if not mods:
             return
         is_damage = self.effect_type in self._RIDER_DAMAGE_TYPES
+        if self.effect_type == "dispel" and self.target_type in ("enemy", "enemy_aoe", "all_enemies"):
+            # A strip that also weakens ("removes two buffs and reduces its armour by 30%"):
+            # the mods go on whatever was targeted, as a debuff.
+            from combat.status_effects import StatusEffect, EffectType
+            for foe in self._hostile_recipients(target):
+                if foe is not None and foe.is_alive():
+                    foe.apply_status_effect(StatusEffect(
+                        f"{self.ability_id}_rider", self.name, EffectType.DEBUFF,
+                        max(self.RIDER_MIN_TURNS, int(self.duration or 0)), stat_mods=dict(mods),
+                        source_name=getattr(caster, "name", ""), real_time_seconds=None))
+            return
         if not is_damage and self.effect_type != "heal":
             return
         from combat.status_effects import StatusEffect, EffectType
@@ -4528,9 +4574,15 @@ def _ability_from_data(entry):
     )
     # Riders that bend one cast (see Ability._cast_riders). Set here rather than threaded
     # through a constructor that already takes ninety arguments.
-    for key in ("armor_ignore_pct", "missing_health_bonus_pct", "heals_lowest_ally_pct"):
+    for key in ("armor_ignore_pct", "missing_health_bonus_pct", "heals_lowest_ally_pct",
+                "cast_bonus_pct", "heals_party_pct_max"):
         if entry.get(key):
             setattr(ability, key, float(entry[key]))
+    for key in ("always_crits", "grants_turn", "health_buys_mana"):
+        if entry.get(key):
+            setattr(ability, key, True)
+    if isinstance(entry.get("low_health_bonus"), dict):
+        ability.low_health_bonus = dict(entry["low_health_bonus"])
     return ability
 
 
