@@ -48,6 +48,8 @@ class Secrets:
         self._by_tile = {}      # (zone, x, y) -> secret id, for passage and area tiles
         self._caches = {}       # (zone, x, y) -> secret
         self._hidden_vendors = set()
+        self._vendor_secret = {}  # vendor id -> secret
+        self._tiles = {}        # secret id -> its passage and area tiles
         self.load()
 
     # ------------------------------------------------------------------ data
@@ -58,14 +60,18 @@ class Secrets:
             doc = {}
         self.secrets = list(doc.get("secrets") or [])
         self._by_tile, self._caches, self._hidden_vendors = {}, {}, set()
+        self._vendor_secret, self._tiles = {}, {}
         for s in self.secrets:
-            for x, y in list(s.get("passage") or []) + list(s.get("area") or []):
+            tiles = {(x, y) for x, y in list(s.get("passage") or []) + list(s.get("area") or [])}
+            self._tiles[s["id"]] = tiles
+            for x, y in tiles:
                 self._by_tile[(s["zone"], x, y)] = s["id"]
             c = s.get("cache")
             if c:
                 self._caches[(s["zone"], c["x"], c["y"])] = s
             if s.get("vendor"):
                 self._hidden_vendors.add(s["vendor"])
+                self._vendor_secret[s["vendor"]] = s
 
     def by_id(self, sid):
         return next((s for s in self.secrets if s["id"] == sid), None)
@@ -134,6 +140,30 @@ class Secrets:
         return s.get("found_text") or "You've found a hidden place."
 
     # ------------------------------------------------------------------ map and chests
+    #: How close you have to be before a hidden cache or seller is drawn at all.
+    SHOW_WITHIN = 3
+
+    def shows(self, zone_name, x, y, player_pos, vendor_id=None):
+        """Is the cache or hidden seller at (x, y) drawn? Kyle, 14 Nov: "Hidden should be HIIIIIDEN"
+        and "They need to be off screen so you don't just straight up see the chest there". So a
+        secret's chest or seller is not drawn at all until you are in its secret ground (on the
+        hidden path, in the room in the wall, on the island) and close to it. Behind a building
+        it is enough to be close, because the building is drawn over it anyway. Anything that is
+        not a secret always shows."""
+        s = self._vendor_secret.get(vendor_id) if vendor_id else None
+        if s is None:
+            s = self._caches.get((zone_name, x, y))
+        if s is None:
+            return True
+        if not player_pos:
+            return False
+        px, py = player_pos[0], player_pos[1]
+        if max(abs(px - x), abs(py - y)) > self.SHOW_WITHIN:
+            return False
+        if s.get("kind") == "behind":
+            return True
+        return (px, py) in self._tiles.get(s["id"], ()) or (px, py) == (x, y)
+
     def is_hidden_vendor(self, vendor_id):
         return vendor_id in self._hidden_vendors
 

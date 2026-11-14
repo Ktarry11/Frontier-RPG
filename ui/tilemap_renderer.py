@@ -767,10 +767,14 @@ class TilemapRenderer:
                 self.portal_markers_drawn += 1
 
         # Draw chests (unlooted chest tiles keep "chest" on the interaction layer; looting clears it)
+        from world.secrets import get_secrets
+        _secrets = get_secrets()
         for y in range(tile_top, tile_bottom):
             for x in range(tile_left, tile_right):
                 if tilemap.get_tile(x, y, "interaction") != "chest":
                     continue
+                if not _secrets.shows(tilemap.name, x, y, player_pos):
+                    continue        # a secret's cache: not drawn until you're in there with it
                 look = chest_look(tilemap.name, x, y, is_boss_chest(tilemap, x, y), getattr(tilemap, "is_cave", False))
                 csprite = chest_sprite(look, self.tile_size)
                 if csprite is None:
@@ -836,6 +840,9 @@ class TilemapRenderer:
         # Draw vendor NPCs (Phase 6)
         if vendors:
             for vendor in vendors:
+                if getattr(vendor, "hidden", False) and not _secrets.shows(
+                        tilemap.name, vendor.x, vendor.y, player_pos, vendor_id=getattr(vendor, "vendor_id", None)):
+                    continue        # a hidden seller: not drawn until you're in there with them
                 screen_x, screen_y = camera.world_to_screen(vendor.x, vendor.y, self.tile_size)
                 
                 # Offset by viewport position on screen

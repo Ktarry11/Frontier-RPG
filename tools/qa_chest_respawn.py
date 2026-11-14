@@ -55,9 +55,14 @@ def main():
         e = zm.zones[name]
         return e["tilemap"] if isinstance(e, dict) else e
 
+    from world.secrets import get_secrets
+    secrets = get_secrets()
+
     def chests_in(name):
+        # a secret's cache is one-time by design (world/secrets.py), so it is not a respawn test case
         t = tmap(name)
-        return [(x, y) for y in range(t.height) for x in range(t.width) if t.interaction_layer[y][x] == "chest"]
+        return [(x, y) for y in range(t.height) for x in range(t.width)
+                if t.interaction_layer[y][x] == "chest" and not secrets.is_cache(name, x, y)]
 
     dungeon = next((n for n in zm.zones if n in zm.cave_names and chests_in(n)), None)
     field = next((n for n in zm.zones if n not in zm.cave_names and chests_in(n)), None)
