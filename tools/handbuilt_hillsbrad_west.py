@@ -207,6 +207,16 @@ COBBLE = [(94, 129, 10, 6.5, 0.9), (96, 76, 6, 4.2, 0.8), (38, 62, 5.5, 4, 0.8),
 
 # ---- NPC spots -----------------------------------------------------------------------------------------------------
 NPC_POSITIONS = {
+    # Southshore's own people (tools/hillsbrad_npc_roster.py; Kyle, backlog [72])
+    "hbw_ss_sentry_garrick": (96, 117),     # at the gate
+    "hbw_ss_sentry_ivy": (91, 119),
+    "hbw_ss_captain_callard": (97, 125),
+    "hbw_ss_farmer_holloway": (88, 130),
+    "hbw_ss_brother_venn": (113, 131),
+    "hbw_ss_innkeeper_rowe": (103, 133),
+    "hbw_ss_child_pip": (99, 137),
+    "hbw_ss_dockmaster_pryce": (95, 139),   # the quay
+    "hbw_ss_netmender_rose": (108, 141),
     # Southpoint Tower - the hub for this half
     "hbw_southpoint_commander": (44, 22),
     "hbw_southpoint_quartermaster": (48, 26),   # vendor

@@ -82,6 +82,38 @@ WEST_AMBIENT = {
     "hbw_southshore_saboteur": (
         "Saboteur Henk", "orc", "male", 8,
         "Dey build a dock, I burn a dock. Simple arrangement. Works fine."),
+    # SOUTHSHORE'S OWN PEOPLE. Kyle, backlog [72]: "Southshore should have some humans. It's a human
+    # town in WoW; it currently has none." Their stance to a Horde player is the town's: wary, armed,
+    # and not about to start a fight on their own quay. The marines and militia you fight are out on
+    # the approaches (the Southshore encounter table); the people inside the walls talk to you, and
+    # none of them likes it.
+    "hbw_ss_sentry_garrick": (
+        "Sentry Garrick Hale", "human", "male", 2,
+        "Keep walking. The militia hasn't decided whether you're worth the arrows yet."),
+    "hbw_ss_sentry_ivy": (
+        "Sentry Ivy Coombs", "human", "female", 5,
+        "One step past this post and we stop being polite. We've only just started being polite."),
+    "hbw_ss_captain_callard": (
+        "Militia Captain Ros Callard", "human", "female", 9,
+        "Southshore stands because people like me stand at its gate. Remember that if you're thinking of trying it."),
+    "hbw_ss_dockmaster_pryce": (
+        "Dockmaster Ewan Pryce", "human", "male", 11,
+        "Every crate on this quay gets counted twice. If one goes missing, I'll know whose boots were nearest."),
+    "hbw_ss_netmender_rose": (
+        "Netmender Rose Abernathy", "human", "female", 1,
+        "My husband sailed with the Lordaeron fleet and never came home. Mind the nets, they're all I've got left of him."),
+    "hbw_ss_brother_venn": (
+        "Brother Aldous Venn", "human", "male", 4,
+        "The Light doesn't ask what you are. The people of this town do. I'm sorry for that, I really am."),
+    "hbw_ss_innkeeper_rowe": (
+        "Innkeeper Beatrix Rowe", "human", "female", 12,
+        "Rooms are for Southshore folk. I'll sell you bread through the window, and that's as far as it goes."),
+    "hbw_ss_farmer_holloway": (
+        "Farmer Tom Holloway", "human", "male", 7,
+        "Turnips, cabbages and no trouble. That's all I'm asking of this season, and I'm not getting the last one."),
+    "hbw_ss_child_pip": (
+        "Pip Corwin", "human", "male", 13,
+        "Are you really an orc? My mum says orcs eat people. You don't look very hungry."),
 }
 
 # =====================================================================================================
