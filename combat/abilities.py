@@ -3834,8 +3834,9 @@ class Ability:
                 # Wand equipped in the Ranged slot.
                 wand_dmg = caster.get_weapon_damage_roll(use_ranged=True) if hasattr(caster, "get_weapon_damage_roll") else 0
                 spell_damage_school = self._resolve_damage_school(caster) or "magic"
+                sp_coef = getattr(self, "sp_coefficient", 1.5)
                 base_damage = self._roll_variance(
-                    int(self.effect_value + caster.get_effective_spell_power(spell_damage_school) * 1.5),
+                    int(self.effect_value + caster.get_effective_spell_power(spell_damage_school) * sp_coef),
                     caster) + wand_dmg
                 base_damage = int(base_damage * self._damage_multiplier(
                     caster, "spell", recipient=target) * aoe_mult)
@@ -5209,6 +5210,10 @@ def _ability_from_data(entry):
             setattr(ability, key, float(entry[key]))
     if entry.get("self_stun_turns"):
         ability.self_stun_turns = int(entry["self_stun_turns"])
+    # How much spell power a spell_damage ability adds per point. 1.5 for every spell; the
+    # universal Wand sets its own (see data/abilities/_universal.json, 14 Nov 2026).
+    if entry.get("sp_coefficient") is not None:
+        ability.sp_coefficient = float(entry["sp_coefficient"])
     if entry.get("heals_pct_max"):
         ability.heals_pct_max = float(entry["heals_pct_max"])
     for key in ("always_crits", "grants_turn", "health_buys_mana", "swaps_rows", "returns_dispelled_damage", "party_pets"):

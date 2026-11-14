@@ -47,7 +47,8 @@
       "icon_id": "universal_wand",
       "damage_school": "arcane",
       "requires_ranged_weapon": "wand",
-      "_balance": "14 Nov 2026, playtest: 'the first priest's wand ability is doing 1.5 to 2x my druid's damage on attack... don't have to use smite, just wand everything to death.' Measured: Wand 29 at level 1 against a druid's Attack 15 and a warrior's 20, for no mana and no cooldown. The flat 20 was most of it. At 8 the wand sits level with a druid's swing and under a warrior's, and still grows with spell power and a better wand."
+      "_balance": "14 Nov 2026, playtest: 'the first priest's wand ability is doing 1.5 to 2x my druid's damage on attack... don't have to use smite, just wand everything to death.' Measured: Wand 29 at level 1 against a druid's Attack 15 and a warrior's 20, for no mana and no cooldown. The flat 20 was most of it. At 8 the wand sits level with a druid's swing and under a warrior's, and still grows with spell power and a better wand. SECOND PASS, the same evening: the playtester's level 17 priest was hitting for 115-135 with gear on. The flat number was not the real cause; the wand took spell power at the full spell coefficient of 1.5, so every point of caster gear made the free auto-attack grow as fast as Smite. A WoW wand does not scale with spell power at all. At 0.3 it still notices gear, and the wand itself is what makes it hit harder.",
+      "sp_coefficient": 0.3
     }
   ]
 }
