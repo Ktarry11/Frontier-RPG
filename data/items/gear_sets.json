@@ -8535,8 +8535,115 @@
     }
    },
    "variants": {
+    "hybrid": {
+     "label": "Engravement / Riftblade",
+     "profile": "hybrid_int",
+     "pieces": {
+      "head": {
+       "name": "Glyphwoven Headguard",
+       "primary_stats": {
+        "intellect": 14,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "spell_power": 10
+       }
+      },
+      "shoulder": {
+       "name": "Glyphwoven Epaulets",
+       "primary_stats": {
+        "intellect": 16,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "spell_power": 11
+       }
+      },
+      "chest": {
+       "name": "Glyphwoven Harness",
+       "primary_stats": {
+        "intellect": 13,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 6,
+        "spell_power": 9
+       }
+      },
+      "wrist": {
+       "name": "Glyphwoven Armguards",
+       "primary_stats": {
+        "intellect": 11,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 8
+       }
+      },
+      "hands": {
+       "name": "Glyphwoven Fists",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 8
+       }
+      },
+      "waist": {
+       "name": "Glyphwoven Clasp",
+       "primary_stats": {
+        "intellect": 14,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "spell_power": 10
+       }
+      },
+      "legs": {
+       "name": "Glyphwoven Tassets",
+       "primary_stats": {
+        "intellect": 14,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 7,
+        "spell_power": 10
+       }
+      },
+      "feet": {
+       "name": "Glyphwoven Treads",
+       "primary_stats": {
+        "intellect": 12,
+        "stamina": 7
+       },
+       "secondary_stats": {
+        "attack_power": 5,
+        "spell_power": 8
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "intellect": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 20,
+        "spell_power": 14
+       }
+      }
+     }
+    },
     "caster": {
-     "label": "Engravement / Glyphic / Riftblade",
+     "label": "Glyphic",
      "profile": "caster",
      "pieces": {
       "head": {

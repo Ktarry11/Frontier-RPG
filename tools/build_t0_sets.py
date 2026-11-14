@@ -127,6 +127,12 @@ PROFILES = {
     # "Fun fact, chronomancer DPS is spirit based."
     "caster_spi": dict(split={"spirit": 0.5, "stamina": 0.35, "intellect": 0.15}, sec={"spell_power": 18},
                        two={"spirit": 30}, four={"spell_power": 25}, words="caster"),
+    # "do NOT have runemaster as one thing. riftblade and engravement is like a ret paladin. where
+    # glyphic is like an arcane mage ... runemaster needs 2 sets, one melee hybrid and one caster".
+    # The melee Runemaster is the INTELLECT melee class (standing canon), so its hybrid version
+    # leads with Intellect and pays attack power and spell power together, the way Retribution's does.
+    "hybrid_int": dict(split={"intellect": 0.6, "stamina": 0.4}, sec={"attack_power": 6, "spell_power": 9},
+                       two={"intellect": 30}, four={"attack_power": 20, "spell_power": 14}, words="hybrid"),
     # HOME-BREW: a healer who heals by doing damage - spell power first, healing behind it.
     "cryomancer": dict(split={"intellect": 0.5, "stamina": 0.3, "spirit": 0.2},
                        sec={"spell_power": 14, "healing_power": 5},
@@ -163,6 +169,7 @@ OVERRIDES = {
     "bloodmage_fleshweaver": "healer_flesh",
     "druid_feral": "tank_druid",
     "chronomancer_artificer": "caster_spi", "chronomancer_infinite": "caster_spi",
+    "runemaster_engravement": "hybrid_int", "runemaster_riftblade": "hybrid_int",
 }
 
 
