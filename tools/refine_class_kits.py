@@ -448,6 +448,38 @@ CLASSES = {
         },
         "PASSIVE": {},
     },
+    # Knight of Xoroth: plain strikes and a hook with nothing of their own, three personal
+    # cooldowns, two imps.
+    "Knight of Xoroth": {
+        "CUT": {
+            "knight_of_xoroth_suffuse": "a small self heal beside Sacrificial Circle",
+            "knight_of_xoroth_flesh_hook": "a hook shot nothing is built around",
+            "knight_of_xoroth_chainwhip": "a plain strike with nothing of its own",
+            "knight_of_xoroth_burning_rage": "a third personal cooldown",
+            "knight_of_xoroth_hellfire_bellows": "a second Defiance area burn beside Implosion",
+            "knight_of_xoroth_chains_of_xoroth": "an area slow nothing is built around",
+            "knight_of_xoroth_decimation": "a crit cooldown beside Burning Blade",
+            "knight_of_xoroth_summon_greater_imp": "a second imp beside Call Hellfire Imp",
+        },
+        "REWORD": {},
+        "PASSIVE": {},
+    },
+    # Stormbringer: one Pressure was pure movement; one Call buffed resistances; 'allied player'.
+    "Stormbringer": {
+        "CUT": {
+            "stormbringer_barometric_pressure": "a Pressure that slows movement and casting speed",
+            "stormbringer_call_of_the_lightning": "a third Call, for resistances",
+        },
+        "REWORD": {
+            "stormbringer_call_of_the_storm": "Call upon the power of the storm to empower an ally, increasing their Intellect. Does not stack with Call of the Wind.",
+            "stormbringer_call_of_the_wind": "Call upon the power of the wind to empower an ally, restoring mana over time. Does not stack with Call of the Storm.",
+            "stormbringer_conjure_storm": "Conjure a storm over the enemy, instantly dealing Nature damage plus additional damage over time.",
+            "stormbringer_gust_of_wind": "Send a gust of wind through the enemy line, staggering them and interrupting their current spell cast.",
+            "stormbringer_crushing_pressure": "Thicken the air around the target until it can barely stand: it takes 5% more damage from every source. Only 1 Pressure spell can be active at a time.",
+            "stormbringer_aeroblast": "Crush an enemy with the weight of the winds, dealing Nature damage now and more next turn.",
+        },
+        "PASSIVE": {},
+    },
 }
 
 

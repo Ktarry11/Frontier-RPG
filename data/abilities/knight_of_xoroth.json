@@ -278,63 +278,6 @@
       "target_type": "enemy"
     },
     {
-      "ability_id": "knight_of_xoroth_suffuse",
-      "name": "Suffuse",
-      "resource_type": "deathfire",
-      "cooldown": 2,
-      "effect_type": "heal",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Heals you.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 12,
-          "cost": 50,
-          "effect_value": 60
-        },
-        {
-          "rank": 2,
-          "level_req": 19,
-          "cost": 50,
-          "effect_value": 86
-        },
-        {
-          "rank": 3,
-          "level_req": 26,
-          "cost": 50,
-          "effect_value": 112
-        },
-        {
-          "rank": 4,
-          "level_req": 33,
-          "cost": 50,
-          "effect_value": 138
-        },
-        {
-          "rank": 5,
-          "level_req": 40,
-          "cost": 50,
-          "effect_value": 164
-        },
-        {
-          "rank": 6,
-          "level_req": 47,
-          "cost": 50,
-          "effect_value": 190
-        },
-        {
-          "rank": 7,
-          "level_req": 54,
-          "cost": 50,
-          "effect_value": 216
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'You spend Demonfire on Suffuse, an instant self-heal that scales off Stamina and defensive stats, so you top yourself off constantly as a side effect of pressing your rotation.' Frontier heals scale off healing_power, not Stamina or defense rating, so the Stamina scaling is lost; the Deathfire-funded self-sustain loop, which is the actual identity, is intact. VALUE RESOLVED 2026-10-29: this script and the shipped JSON disagreed - data had cost 30 / effect_value 150-570, this script had cost 50 / 60-216 - which means one side was edited and the other never re-run. Kept THESE values because they sit in the peer band for a single-target self-heal (Paladin Holy Light 52-162, Priest Heal 54-166, Shaman Healing Wave 56-171) while the data's 150 at rank 1 was roughly 3x that AND cheaper. A one-line revert if the 30/150 table was deliberate.",
-      "target_type": "self"
-    },
-    {
       "ability_id": "knight_of_xoroth_melt",
       "name": "Melt",
       "resource_type": "rage",
@@ -438,108 +381,6 @@
       "target_type": "enemy_aoe",
       "max_targets": 4,
       "damage_school": "fire"
-    },
-    {
-      "ability_id": "knight_of_xoroth_flesh_hook",
-      "name": "Flesh Hook",
-      "resource_type": "rage",
-      "cooldown": 4,
-      "effect_type": "ranged_damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals damage to the target.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 8,
-          "cost": 15,
-          "effect_value": 38
-        },
-        {
-          "rank": 2,
-          "level_req": 18,
-          "cost": 15,
-          "effect_value": 49
-        },
-        {
-          "rank": 3,
-          "level_req": 28,
-          "cost": 15,
-          "effect_value": 60
-        },
-        {
-          "rank": 4,
-          "level_req": 38,
-          "cost": 15,
-          "effect_value": 71
-        },
-        {
-          "rank": 5,
-          "level_req": 48,
-          "cost": 15,
-          "effect_value": 82
-        },
-        {
-          "rank": 6,
-          "level_req": 58,
-          "cost": 15,
-          "effect_value": 93
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Flesh Hook (pulls the enemy to you)', 'Flesh Hook is your only reach tool'. ranged_damage - it is thrown. The engine has no forced-reposition mechanic, so the pull itself is flavour.",
-      "target_type": "enemy"
-    },
-    {
-      "ability_id": "knight_of_xoroth_chainwhip",
-      "name": "Chainwhip",
-      "resource_type": "rage",
-      "cooldown": 3,
-      "effect_type": "damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals damage to the target.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 10,
-          "cost": 15,
-          "effect_value": 44
-        },
-        {
-          "rank": 2,
-          "level_req": 19,
-          "cost": 15,
-          "effect_value": 57
-        },
-        {
-          "rank": 3,
-          "level_req": 28,
-          "cost": 15,
-          "effect_value": 70
-        },
-        {
-          "rank": 4,
-          "level_req": 37,
-          "cost": 15,
-          "effect_value": 104
-        },
-        {
-          "rank": 5,
-          "level_req": 46,
-          "cost": 15,
-          "effect_value": 120
-        },
-        {
-          "rank": 6,
-          "level_req": 55,
-          "cost": 15,
-          "effect_value": 136
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Swing a chain at an enemy dealing Physical damage and silencing them for 2 seconds, generating a large amount of threat.' The engine has no silence category (see StatusEffect.is_stun, the only incapacitate), so the damage and its threat are what lands.",
-      "target_type": "enemy"
     },
     {
       "ability_id": "knight_of_xoroth_chains_of_malice",
@@ -681,31 +522,6 @@
         "resource": "deathfire",
         "amount": 20
       }
-    },
-    {
-      "ability_id": "knight_of_xoroth_burning_rage",
-      "name": "Burning Rage",
-      "resource_type": "rage",
-      "cooldown": 12,
-      "effect_type": "buff",
-      "duration": 2,
-      "stat_mods": {
-        "cc_immune": 1,
-        "haste": 10.0
-      },
-      "description": "Immune to crowd control, Haste +10 for 2 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 26,
-          "cost": 0,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Enrage, generating 15 Rage every 1 sec and making you immune to incapacitate, banish, and polymorph effects for 6 seconds. Usable while incapacitated.' cc_immune is a real stat_mod the engine checks before applying an incapacitate. The Rage-per-second half belongs to Demon Heart instead - one ability cannot both buff and restore.",
-      "target_type": "self",
-      "buff_scope": "combat"
     },
     {
       "ability_id": "knight_of_xoroth_juggernaut",
@@ -1078,76 +894,6 @@
       ]
     },
     {
-      "ability_id": "knight_of_xoroth_chains_of_xoroth",
-      "name": "Chains of Xoroth",
-      "resource_type": "rage",
-      "cooldown": 6,
-      "effect_type": "debuff",
-      "duration": 2,
-      "stat_mods": {
-        "haste": -20.0
-      },
-      "description": "Applies to all nearby enemies: Haste -20 for 2 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 26,
-          "cost": 20,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Create demonic chains at target location that slow enemies inside by -80% for 5 seconds. At the end of the duration, it pulls all affected enemies to it.' The slow is real; the terminal pull is not. Same haste-negative snare shape Guardian's Net Throw uses.",
-      "target_type": "enemy_aoe"
-    },
-    {
-      "ability_id": "knight_of_xoroth_hellfire_bellows",
-      "name": "Hellfire Bellows",
-      "resource_type": "rage",
-      "cooldown": 3,
-      "effect_type": "damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals Fire damage to up to 4 targets.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 32,
-          "cost": 25,
-          "effect_value": 50
-        },
-        {
-          "rank": 2,
-          "level_req": 38,
-          "cost": 25,
-          "effect_value": 81
-        },
-        {
-          "rank": 3,
-          "level_req": 44,
-          "cost": 25,
-          "effect_value": 100
-        },
-        {
-          "rank": 4,
-          "level_req": 50,
-          "cost": 25,
-          "effect_value": 119
-        },
-        {
-          "rank": 5,
-          "level_req": 56,
-          "cost": 25,
-          "effect_value": 138
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Transforms your Flames of Xoroth into Hellfire Bellows. Bellow fire on all enemies in a 6 yd cone in front of and behind you.' Frontier has no facing, so the cone is a capped cleave.",
-      "target_type": "enemy_aoe",
-      "max_targets": 4,
-      "damage_school": "fire"
-    },
-    {
       "ability_id": "knight_of_xoroth_legions_presence",
       "name": "Legion's Presence",
       "resource_type": "rage",
@@ -1319,30 +1065,6 @@
       "target_type": "enemy_aoe",
       "max_targets": 4,
       "requires_talent": true
-    },
-    {
-      "ability_id": "knight_of_xoroth_decimation",
-      "name": "Decimation",
-      "resource_type": "rage",
-      "cooldown": 8,
-      "effect_type": "buff",
-      "duration": 2,
-      "stat_mods": {
-        "crit_chance_physical": 40.0
-      },
-      "description": "Physical crit chance +40 for 2 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 36,
-          "cost": 20,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Your next Skulltaker or Warbringer is guaranteed to critically strike for 25% increased damage.' Nothing can guarantee a crit or restrict a buff to the next cast of two named abilities, so it is a large crit window instead - the same shape as Warrior's Recklessness (crit_chance_physical 100).",
-      "target_type": "self",
-      "buff_scope": "combat"
     },
     {
       "ability_id": "knight_of_xoroth_burning_blade",
@@ -1598,28 +1320,6 @@
       "target_type": "enemy_aoe",
       "max_targets": 6,
       "damage_school": "fire"
-    },
-    {
-      "ability_id": "knight_of_xoroth_summon_greater_imp",
-      "name": "Summon: Greater Imp",
-      "resource_type": "rage",
-      "cooldown": 10,
-      "effect_type": "summon_pet",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Summons a pet to fight for you.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 18,
-          "cost": 25,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Teaches you Summon: Greater Imp ... Greater Imp has various combat abilities that provide excellent single target damage and control.' NOW A REAL GREATER IMP: this used to borrow felhunter and summoned a pet named Felhunter, picked as the demon with a real single-target kit. The template now exists, tuned up against this class's own Hellfire Imp rather than down from the Warlock's Felhunter, since 'excellent single target damage' is the brief. The 'control' half is not authored - every control shape here is a debuff or the is_stun flag, and a pet never casts a debuff. CoA makes this a free level-10 passive of the Hellfire tree; Frontier has no free passives, so it is an ordinary summon the whole class can train.",
-      "target_type": "self",
-      "summon_pet_template": "greater_imp"
     }
   ]
 }

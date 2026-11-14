@@ -171,7 +171,7 @@
       "stat_mods": {
         "intellect": 3
       },
-      "description": "Call upon the power of the storm to empower an allied player, increasing their Intellect. Does not stack with Call of the Wind.",
+      "description": "Call upon the power of the storm to empower an ally, increasing their Intellect. Does not stack with Call of the Wind.",
       "_source": "Confirmed screenshot: Lvl 4 (was Lvl 6), 'increasing their Intellect by 3 for 30 min.'",
       "target_type": "party",
       "ranks": [
@@ -267,7 +267,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Conjure a storm over a target area, instantly dealing Nature damage plus additional damage over time.",
+      "description": "Conjure a storm over the enemy, instantly dealing Nature damage plus additional damage over time.",
       "_source": "Confirmed screenshot: Lvl 8, Depletes 50 Static, '25 initial Nature damage. Deals an additional 102 Nature damage to enemies in the area over 12 sec.'",
       "target_type": "enemy_aoe",
       "ranks": [
@@ -419,30 +419,6 @@
       "exclusive_group": "stormbringer_aegis"
     },
     {
-      "ability_id": "stormbringer_barometric_pressure",
-      "name": "Barometric Pressure",
-      "resource_type": "mana",
-      "cooldown": 4,
-      "effect_type": "debuff",
-      "duration": 3,
-      "stat_mods": {
-        "haste": -40
-      },
-      "description": "Thicken the air around you, slowing the movement speed of enemies and reducing their casting speed. Only 1 Pressure spell can be active at a time.",
-      "_source": "Confirmed screenshot: Lvl 12, 'slowing the movement speed of enemies by 20% and reducing their casting speed by 20%.' Part of the mutually-exclusive Pressure family (Barometric/Crushing/Atmospheric/Stabilizing).",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 12,
-          "cost": 28,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "exclusive_group": "stormbringer_pressure",
-      "buff_scope": "combat"
-    },
-    {
       "ability_id": "stormbringer_call_of_the_wind",
       "name": "Call of the Wind",
       "resource_type": "mana",
@@ -452,7 +428,7 @@
       "stat_mods": {
         "mp5": 10
       },
-      "description": "Call upon the power of the wind to empower an allied player, restoring mana over time. Does not stack with Call of the Storm.",
+      "description": "Call upon the power of the wind to empower an ally, restoring mana over time. Does not stack with Call of the Storm.",
       "_source": "Confirmed screenshot: Lvl 14 (was Lvl 6), 'restoring 10 mana every 5 seconds for 30 min.'",
       "target_type": "party",
       "ranks": [
@@ -480,7 +456,7 @@
       "effect_type": "debuff",
       "duration": 1,
       "stat_mods": {},
-      "description": "Send forth a gust of wind in a frontal cone, knocking enemies back and interrupting their current spell cast.",
+      "description": "Send a gust of wind through the enemy line, staggering them and interrupting their current spell cast.",
       "_source": "Confirmed screenshot: Lvl 16, 'knocking enemies back and interrupting all enemies current spell cast, preventing any spell from that school from being cast for 5 sec.' Knockback translated to N/A in turn-based (no positioning system); interrupt+silence kept as the real mechanical payoff.  Removed dead flag stat_mod(s) ['silenced']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "target_type": "enemy_aoe",
       "ranks": [
@@ -539,7 +515,7 @@
       "stat_mods": {
         "damage_taken_pct": 0.05
       },
-      "description": "Thicken the air around the target until it can barely move: it takes 5% more damage from every source. Only 1 Pressure spell can be active at a time.",
+      "description": "Thicken the air around the target until it can barely stand: it takes 5% more damage from every source. Only 1 Pressure spell can be active at a time.",
       "_source": "Confirmed screenshot: Lvl 18, 'increasing the duration of movement impairing, fear, and horrify effects on enemies by 20%.'",
       "ranks": [
         {
@@ -905,7 +881,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Crush an enemy with the weight of the winds, dealing Nature damage now and additional damage shortly after.",
+      "description": "Crush an enemy with the weight of the winds, dealing Nature damage now and more next turn.",
       "_source": "Confirmed screenshot: Lightning-locked (despite the wind-sounding name), Requires Lvl 20, Depletes 50 Static, '207 Nature damage to them and then an additional time for 40% of the damage dealt after 1 sec.'",
       "ranks": [
         {
@@ -935,34 +911,6 @@
       ],
       "icon_id": null,
       "damage_school": "nature"
-    },
-    {
-      "ability_id": "stormbringer_call_of_the_lightning",
-      "name": "Call of the Lightning",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 30,
-      "stat_mods": {
-        "fire_resistance": 20,
-        "frost_resistance": 20,
-        "nature_resistance": 20,
-        "shadow_resistance": 20,
-        "arcane_resistance": 20
-      },
-      "description": "Call upon the power of storms to empower an allied player, increasing their resistances.",
-      "_source": "Confirmed screenshot: Lightning-locked, Requires Lvl 50, 'increasing their resistances by 20 for 30 min.'",
-      "target_type": "party",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 50,
-          "cost": 45,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": "stormbringer_call_of_the_lightning",
-      "buff_scope": "raid"
     },
     {
       "ability_id": "stormbringer_stormflow",
