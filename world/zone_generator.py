@@ -5979,6 +5979,11 @@ def create_all_zones():
     except ImportError:
         pass
 
+    # No snags underground (world/cave_smoothing.py): every cave whose painting was baked smooth is
+    # smoothed the same way here, before anything is placed on its floor.
+    from world.cave_smoothing import apply as _smooth_caves
+    _smooth_caves(zones)
+
     # Group pulls: dungeons with fixed trash get 3-4 mob packs (data/dungeons/trash_packs.json, built by
     # tools/build_dungeon_pulls.py; no-op for a dungeon that has no entry).
     from world.dungeon_packs import apply_packs

@@ -257,6 +257,16 @@ def region(P, wp, ellipses, noise=None):
 def bake_spec(key, preview=None):
     spec = SPECS[key]
     zone, L = getattr(C, spec["build"])()
+    # The painting is made of the SMOOTHED floor, and the game smooths the same caves the same way
+    # (world/cave_smoothing.py) - listed here, so a cave nobody has rebaked is never changed under
+    # its old painting.
+    if getattr(zone, "is_cave", False) and not spec.get("no_smoothing"):
+        from world.cave_smoothing import smooth, secret_guard, record
+        opened = smooth(zone, secret_guard(zone.name))
+        record(zone.name, opened)
+        print(f"{zone.name}: {len(opened)} snag tiles opened")
+        if os.environ.get("SMOOTH_ONLY"):
+            return
     P = Painter(zone.width, zone.height, TEX, seed=spec["seed"])
     wall_f, wall, d_in, d_out = wall_fields(P, zone, spec.get("wall_tile", "rock"))
     n_big = P.noise(9.0, key + "_big", octaves=3)
