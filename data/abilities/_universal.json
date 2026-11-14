@@ -19,7 +19,12 @@
         }
       ],
       "icon_id": "universal_shoot",
-      "requires_ranged_weapon": ["thrown", "bow", "gun", "crossbow"]
+      "requires_ranged_weapon": [
+        "thrown",
+        "bow",
+        "gun",
+        "crossbow"
+      ]
     },
     {
       "ability_id": "universal_wand",
@@ -36,12 +41,13 @@
           "rank": 1,
           "level_req": 1,
           "cost": 0,
-          "effect_value": 20
+          "effect_value": 8
         }
       ],
       "icon_id": "universal_wand",
       "damage_school": "arcane",
-      "requires_ranged_weapon": "wand"
+      "requires_ranged_weapon": "wand",
+      "_balance": "14 Nov 2026, playtest: 'the first priest's wand ability is doing 1.5 to 2x my druid's damage on attack... don't have to use smite, just wand everything to death.' Measured: Wand 29 at level 1 against a druid's Attack 15 and a warrior's 20, for no mana and no cooldown. The flat 20 was most of it. At 8 the wand sits level with a druid's swing and under a warrior's, and still grows with spell power and a better wand."
     }
   ]
 }

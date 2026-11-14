@@ -74,6 +74,7 @@ class VendorScreen(BaseScreen):
         self.message = None
         self.message_color = COLOR_WHITE
         self.message_timer = 0.0
+        self._plain_armed = False
 
         self.PANEL_Y = 130
         self.PANEL_HEIGHT = self.ITEM_ROW_HEIGHT * self.VISIBLE_ROWS
@@ -382,6 +383,54 @@ class VendorScreen(BaseScreen):
             f"{'Auto-sold' if auto else 'Sold'} {count} junk item{'s' if count != 1 else ''} for {format_coins(total)}.",
             COLOR_GREEN)
 
+    #: Playtest, 14 Nov 2026: "a way to sell all grey and white non junk items at once". Gear of
+    #: these two rarities, in the bags (never what is worn), plus the vendor trash Sell Junk sells.
+    PLAIN_RARITIES = ("poor", "common")
+
+    def _plain_gear_stacks(self):
+        player = self.state_manager.player
+        worn = set(id(i) for i in player.equipment.to_dict().values() if i is not None)
+        out = []
+        for i in player.inventory:
+            if id(i) in worn or not getattr(i, "is_sellable", True):
+                continue
+            if isinstance(i, LootItem) and i.category == "trash":
+                out.append(i)
+            elif (self._is_gear(i) and getattr(i, "rarity", None) in self.PLAIN_RARITIES
+                    and not getattr(i, "set_id", None)):
+                out.append(i)
+        return out
+
+    def _sell_all_plain(self):
+        """First click names what will go and for how much; a second click within the message's
+        life sells it. Whites can still be wanted early on, so it never sells on one click."""
+        if not self.vendor.buys_from_player:
+            self._show_message(f"{self.vendor.name} doesn't buy from adventurers.", COLOR_RED)
+            return
+        stacks = self._plain_gear_stacks()
+        if not stacks:
+            self._show_message("No grey or white items to sell.", COLOR_WHITE)
+            return
+        count = sum(max(1, getattr(i, "quantity", 1) or 1) for i in stacks)
+        total = sum(i.sell_price * max(1, getattr(i, "quantity", 1) or 1) for i in stacks)
+        if not (self._plain_armed and self.message_timer > 0):
+            self._plain_armed = True
+            self._show_message(f"Click again to sell {count} grey and white item"
+                               f"{'s' if count != 1 else ''} for {format_coins(total)}.", COLOR_GOLD)
+            return
+        self._plain_armed = False
+        player = self.state_manager.player
+        for i in stacks:
+            player.inventory.remove(i)
+        self.state_manager.get_party().add_currency(total)
+        if self.selected_player_item in stacks:
+            self.selected_player_item = None
+        self._show_message(f"Sold {count} grey and white item{'s' if count != 1 else ''} for "
+                           f"{format_coins(total)}.", COLOR_GREEN)
+
+    def _get_plain_button_rect(self):
+        return pygame.Rect(SCREEN_WIDTH // 2 + 380, SCREEN_HEIGHT - 70, 230, 44)
+
     def _show_message(self, text, color):
         self.message = text
         self.message_color = color
@@ -478,6 +527,10 @@ class VendorScreen(BaseScreen):
                             self._set_buy_qty(self.buy_qty + delta)
                         return
 
+            if self._get_plain_button_rect().collidepoint(pos):
+                self._sell_all_plain()
+                return
+            self._plain_armed = False
             if self._get_junk_button_rect().collidepoint(pos):
                 self._sell_all_junk()
             elif self._get_buy_button_rect().collidepoint(pos):
@@ -573,6 +626,13 @@ class VendorScreen(BaseScreen):
         pygame.draw.rect(screen, (180, 180, 180) if has_junk else COLOR_DARK_GRAY, junk_rect, 2)
         self.renderer.draw_text(screen, "Sell Junk", (junk_rect.x + 18, junk_rect.y + 10),
                                 color=(200, 200, 200) if has_junk else COLOR_DARK_GRAY)
+
+        plain_rect = self._get_plain_button_rect()
+        has_plain = bool(self._plain_gear_stacks()) and self.vendor.buys_from_player
+        pygame.draw.rect(screen, (60, 60, 60) if has_plain else (30, 30, 30), plain_rect)
+        pygame.draw.rect(screen, (200, 200, 200) if has_plain else COLOR_DARK_GRAY, plain_rect, 2)
+        self.renderer.draw_text(screen, "Sell Greys & Whites", (plain_rect.x + 14, plain_rect.y + 10),
+                                color=(220, 220, 220) if has_plain else COLOR_DARK_GRAY)
 
         box = self._auto_box_rect()
         on = getattr(self.state_manager.player, "auto_sell_junk", False)
