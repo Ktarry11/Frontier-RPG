@@ -20,6 +20,8 @@ from pathlib import Path
 _DATA = Path(__file__).parent.parent / "data" / "crafting" / "recipes.json"
 #: Jewelcrafting keeps its own file (tools/build_jewelcrafting.py), read in alongside the rest.
 _JEWEL = Path(__file__).parent.parent / "data" / "jewelcrafting" / "recipes.json"
+#: So does Enchanting (tools/build_enchanting.py).
+_ENCHANT = Path(__file__).parent.parent / "data" / "enchanting" / "recipes.json"
 _GEAR_KINDS = ("armor", "weapon", "bag", "fixed")
 
 
@@ -31,6 +33,8 @@ class CraftingManager:
             self.recipes = {p: v.get("recipes", {}) for p, v in doc.get("professions", {}).items()}
         if _JEWEL.exists():
             self.recipes["jewelcrafting"] = json.loads(_JEWEL.read_text(encoding="utf-8")).get("recipes", {})
+        if _ENCHANT.exists():
+            self.recipes["enchanting"] = json.loads(_ENCHANT.read_text(encoding="utf-8")).get("recipes", {})
 
     # ------------------------------------------------------------------ queries
     def professions(self):
@@ -65,9 +69,22 @@ class CraftingManager:
             return False
         if self.skill(character, profession) < r.get("skill_required", 0):
             return False
-        if r.get("tool") and character.get_material_quantity(r["tool"]) < 1:
+        if not self.has_tool(character, r):
             return False
         return character.has_materials(r["inputs"])
+
+    @staticmethod
+    def tools_of(recipe):
+        """The tool ids that will do for a recipe: one id (the Jeweler's Kit), or a list of which
+        any one will do (an enchanting formula takes its tier's runed rod or any better one)."""
+        tool = recipe.get("tool")
+        if not tool:
+            return []
+        return [tool] if isinstance(tool, str) else list(tool)
+
+    def has_tool(self, character, recipe):
+        tools = self.tools_of(recipe)
+        return not tools or any(character.get_material_quantity(t) >= 1 for t in tools)
 
     def output_name(self, recipe):
         n = recipe.get("count", 1)
@@ -85,11 +102,13 @@ class CraftingManager:
             return False, f"Requires {profession.title()} skill {r['skill_required']}.", None
         if r.get("station") == "sawmill" and not at_station:
             return False, "You must be at a Sawmill to saw planks.", None
-        if r.get("tool") and character.get_material_quantity(r["tool"]) < 1:
-            # a tool is needed in the bags but never used up (the Jeweler's Kit)
+        if not self.has_tool(character, r):
+            # a tool is needed in the bags but never used up (the Jeweler's Kit, a runed rod)
             from world.gathering_manager import get_gathering_node_manager
-            tool = get_gathering_node_manager().get_material_def(r["tool"]) or {}
-            return False, f"You need a {tool.get('name', r['tool'])} in your bags.", None
+            first = self.tools_of(r)[0]
+            tool = get_gathering_node_manager().get_material_def(first) or {}
+            better = " or a better one" if len(self.tools_of(r)) > 1 else ""
+            return False, f"You need a {tool.get('name', first)}{better} in your bags.", None
         if not character.has_materials(r["inputs"]):
             return False, "Missing materials for that recipe.", None
         out = r["output"]

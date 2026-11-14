@@ -50,6 +50,8 @@ VENDORS = ROOT / "data/npcs/vendors.json"
 TITLES = [
     # gem sellers (tools/build_gem_sellers.py): pre-cut gems for people who aren't jewelcrafters
     ("gems", ["gem-trader", "gemcutter", "gemstone"]),
+    # enchanters (tools/build_enchanters.py): rods, vials and formulas
+    ("enchanting", ["enchanter", "enchantress"]),
     ("travel", ["wind rider", "zeppelin", "stablemaster"]),
     ("inn", ["innkeeper", "tavern", "campkeeper"]),
     ("cook", ["cook", "provisioner", "brewer", "butcher", "grainkeeper", "goodwife",
@@ -73,10 +75,11 @@ TITLES = [
 #: trade -> the kinds of thing it sells
 TRADE_KINDS = {
     "gems": {"cut_gem", "gem", "jc_supply"},
+    "enchanting": {"ench_supply", "recipe_enchanting", "alch_supply"},
     "inn": {"food", "drink", "buff_food", "cook_ingredient", "recipe_cooking"},
     "cook": {"food", "drink", "buff_food", "cook_ingredient", "recipe_cooking", "fish"},
     "alchemy": {"potion", "elixir", "alch_supply", "herb", "recipe_alchemy"},
-    "reagent": {"alch_supply", "scribe", "elixir", "herb", "mana_potion", "recipe_enchanting",
+    "reagent": {"alch_supply", "scribe", "elixir", "herb", "mana_potion", "recipe_enchanting", "ench_supply",
                 "recipe_alchemy", "raw_crystal"},
     "smith": {"smith_supply", "raw_bar", "raw_ore", "recipe_blacksmithing", "shot",
               "upgrade_kit", "jc_supply", "recipe_jewelcrafting"},
@@ -136,6 +139,10 @@ def _mats():
             out[k] = by_id[k]
         elif k.startswith("setting_"):
             out[k] = "jc_supply"
+        elif t == "rod":
+            out[k] = "ench_supply"                      # runed rods (tools/build_enchanting.py)
+        elif t in ("enchant_mat", "enchant_scroll"):
+            out[k] = t                                  # disenchanted or made; never stocked
         elif t == "cut_gem":
             out[k] = "cut_gem"
         elif p == "cooking":
@@ -204,6 +211,13 @@ def best(cons, kind_name, tier, n):
     return [i for _l, i in rows[:n]]
 
 
+def _rods(tier):
+    """Kyle, 14 Nov 2026: rods "sold by vendors (they can get very pricy very fast)". Every runed
+    rod up to the town's level; the arcanite one only a blacksmith makes."""
+    return ["runed_copper_rod"] + (["runed_silver_rod"] if tier >= 20 else []) + \
+        (["runed_golden_rod"] if tier >= 35 else []) + (["runed_truesilver_rod"] if tier >= 48 else [])
+
+
 def core(trade, tier, cons):
     """What a shop of this trade always has, at its tier."""
     if trade in ("inn", "cook"):
@@ -212,7 +226,11 @@ def core(trade, tier, cons):
     if trade == "alchemy":
         return best(cons, "potion", tier, 2) + best(cons, "mana_potion", tier, 2) + ["vial_empty"]
     if trade == "reagent":
-        return best(cons, "mana_potion", tier, 1) + ["vial_empty", "parchment"]
+        # the best runed rod for the town's level, for the passing enchanter
+        return best(cons, "mana_potion", tier, 1) + ["vial_empty", "parchment"] + _rods(tier)[-1:]
+    if trade == "enchanting":
+        vial = "vial_empty" if tier < 20 else "vial_leaded" if tier < 40 else "vial_crystal"
+        return _rods(tier) + [vial]
     if trade == "smith":
         flux = "flux_weak" if tier < 20 else "flux_medium" if tier < 40 else "flux_strong"
         # Kyle, 14 Nov 2026: "Vendors can sell jewel cutting kits and even sets for gemstones"
@@ -238,7 +256,7 @@ def core(trade, tier, cons):
 #: trade -> the profession whose recipes it sells
 TRADE_RECIPES = {"inn": "cooking", "cook": "cooking", "alchemy": "alchemy", "smith": "blacksmithing",
                  "engineer": "engineering", "tailor": "tailoring", "leather": "leatherworking",
-                 "bowyer": "woodworking"}
+                 "bowyer": "woodworking", "enchanting": "enchanting"}
 
 
 def _pick(pool, vid, n):
@@ -257,12 +275,17 @@ def extras(trade, tier, vid, cons, recipes):
     if prof:
         skill = min(300, tier * 5)
         pool = [r for r, (p, sk) in recipes.items() if p == prof and skill - 60 <= sk <= skill + 10]
-        out += _pick(pool, vid, 3)
+        out += _pick(pool, vid, 6 if trade == "enchanting" else 3)
     if trade == "smith":
         # jewelcrafting designs: a smith's shop is where a jeweller buys supplies
         skill = min(300, tier * 5)
         pool = [r for r, (p, sk) in recipes.items() if p == "jewelcrafting" and skill - 60 <= sk <= skill + 10]
         out += _pick(pool, vid + "j", 2)
+    if trade == "reagent":
+        # enchanting formulas: a reagent shop is where an enchanter buys vials and rods
+        skill = min(300, tier * 5)
+        pool = [r for r, (p, sk) in recipes.items() if p == "enchanting" and skill - 60 <= sk <= skill + 10]
+        out += _pick(pool, vid + "f", 2)
     if trade in ("alchemy", "reagent"):
         pool = [i for i, (k, lvl) in cons.items() if k == "elixir" and tier - 12 <= lvl <= tier]
         out += _pick(pool, vid + "e", 3 if trade == "alchemy" else 2)
@@ -352,7 +375,8 @@ def plan(vendors, kind, cons):
         if still[rid]:
             continue
         shops = [v for v in vendors if TRADE_RECIPES.get(trades[v["vendor_id"]]) == prof
-                 or (prof == "jewelcrafting" and trades[v["vendor_id"]] == "smith")]
+                 or (prof == "jewelcrafting" and trades[v["vendor_id"]] == "smith")
+                 or (prof == "enchanting" and trades[v["vendor_id"]] == "reagent")]
         if shops:
             best_shop = min(shops, key=lambda v: abs(int(v.get("gear_level") or 1) * 5 - sk))
             new[best_shop["vendor_id"]].append(rid)

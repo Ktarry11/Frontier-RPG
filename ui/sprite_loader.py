@@ -68,6 +68,22 @@ def get_tile_sprite(sheet_path, rect, tile_size):
     return _get_tile_sprite_impl(sheet_path, rect, tile_size, smooth=False)
 
 
+def get_icon_sprite(path, size):
+    """A whole single-icon image scaled to `size`, whatever size it was drawn at.
+
+    Material icons were drawn through get_tile_sprite with a fixed (0, 0, 32, 32) crop, which is
+    right for the 32px gathering art and wrong for everything since: the 64px gems, the 60px kits
+    and settings and the enchanting icons all showed only their top-left quarter in the bags and
+    on the crafting list. This takes the image's own size, and smooths anything drawn larger than
+    32px rather than leaving it aliased.
+    """
+    sheet = _load_sheet(path)
+    if sheet is None:
+        return None
+    w, h = sheet.get_size()
+    return _get_tile_sprite_impl(path, (0, 0, w, h), size, smooth=max(w, h) > 32)
+
+
 def get_tile_sprite_smooth(sheet_path, rect, tile_size):
     """
     Same as get_tile_sprite, but uses smoothscale (bilinear) instead of

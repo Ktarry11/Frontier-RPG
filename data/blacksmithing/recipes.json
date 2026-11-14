@@ -5772,6 +5772,106 @@
       ],
       "source": "trainer",
       "_source": "Jewelcrafting settings (tools/build_jewelcrafting.py). Kyle, 14 Nov 2026: vendors can sell settings for gemstones, or they can make them with blacksmith."
+    },
+    "bs_runed_copper_rod": {
+      "name": "Runed Copper Rod",
+      "inputs": {
+        "bar_copper": 2,
+        "flux_weak": 1
+      },
+      "skill_required": 25,
+      "output": {
+        "kind": "material",
+        "material_id": "runed_copper_rod"
+      },
+      "skill_range": [
+        25,
+        35,
+        45,
+        55
+      ],
+      "source": "trainer",
+      "_source": "Enchanting rods (tools/build_enchanting.py). Kyle, 14 Nov 2026: rods will be made by Blacksmiths or sold by vendors."
+    },
+    "bs_runed_silver_rod": {
+      "name": "Runed Silver Rod",
+      "inputs": {
+        "bar_silver": 2,
+        "flux_weak": 1
+      },
+      "skill_required": 100,
+      "output": {
+        "kind": "material",
+        "material_id": "runed_silver_rod"
+      },
+      "skill_range": [
+        100,
+        110,
+        120,
+        130
+      ],
+      "source": "trainer",
+      "_source": "Enchanting rods (tools/build_enchanting.py). Kyle, 14 Nov 2026: rods will be made by Blacksmiths or sold by vendors."
+    },
+    "bs_runed_golden_rod": {
+      "name": "Runed Golden Rod",
+      "inputs": {
+        "bar_gold": 2,
+        "flux_medium": 1
+      },
+      "skill_required": 150,
+      "output": {
+        "kind": "material",
+        "material_id": "runed_golden_rod"
+      },
+      "skill_range": [
+        150,
+        160,
+        170,
+        180
+      ],
+      "source": "trainer",
+      "_source": "Enchanting rods (tools/build_enchanting.py). Kyle, 14 Nov 2026: rods will be made by Blacksmiths or sold by vendors."
+    },
+    "bs_runed_truesilver_rod": {
+      "name": "Runed Truesilver Rod",
+      "inputs": {
+        "bar_truesilver": 2,
+        "flux_strong": 1
+      },
+      "skill_required": 200,
+      "output": {
+        "kind": "material",
+        "material_id": "runed_truesilver_rod"
+      },
+      "skill_range": [
+        200,
+        210,
+        220,
+        230
+      ],
+      "source": "trainer",
+      "_source": "Enchanting rods (tools/build_enchanting.py). Kyle, 14 Nov 2026: rods will be made by Blacksmiths or sold by vendors."
+    },
+    "bs_runed_arcanite_rod": {
+      "name": "Runed Arcanite Rod",
+      "inputs": {
+        "bar_arcanite": 2,
+        "bar_thorium": 2
+      },
+      "skill_required": 275,
+      "output": {
+        "kind": "material",
+        "material_id": "runed_arcanite_rod"
+      },
+      "skill_range": [
+        275,
+        285,
+        295,
+        305
+      ],
+      "source": "vendor",
+      "_source": "Enchanting rods (tools/build_enchanting.py). Kyle, 14 Nov 2026: rods will be made by Blacksmiths or sold by vendors."
     }
   }
 }

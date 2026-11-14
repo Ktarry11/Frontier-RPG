@@ -66,8 +66,12 @@ class SaveSystem:
             save_data["factions"] = faction_manager.to_dict()
 
         save_path = self.save_dir / filename
+        # Serialise first, then write. json.dump straight into the open file truncated the old
+        # save before it found out something couldn't be written, so a failed save destroyed the
+        # good one it was replacing.
+        text = json.dumps(save_data, indent=2)
         with open(save_path, "w", encoding="utf-8") as f:
-            json.dump(save_data, f, indent=2)
+            f.write(text)
 
         return save_path
 

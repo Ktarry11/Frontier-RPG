@@ -78,26 +78,27 @@ def stock(stones):
     return out
 
 
-def _roster_add(path, var, vid, s, sells):
-    """Add the seller to a town roster module's vendor dict, so its sync tool keeps them."""
+def _roster_add(path, var, vid, s, sells, note="gem seller (tools/build_gem_sellers.py, 14 Nov 2026)"):
+    """Add the seller to a town roster module's vendor dict, so its sync tool keeps them. A re-run
+    replaces the entry and its comment line rather than stacking another copy."""
     text = path.read_text(encoding="utf-8")
     if f'"{vid}":' in text:
-        text = re.sub(rf'    "{vid}": \(.*?\n    \),\n', "", text, flags=re.S)
+        text = re.sub(rf'(    # [^\n]*\n)?    "{vid}": \(\n.*?\),\n(?=    ["#]|}})', "", text, flags=re.S)
     entry = (f'    "{vid}": (\n        "{s["name"]}", "{s["race"]}", "{s["gender"]}", {s["variant"]},\n'
              f'        {json.dumps(sells)},\n        False,\n        {json.dumps(s["greeting"])}),\n')
     head = f"{var} = {{\n"
     assert head in text, f"{path.name} has no {var}"
-    text = text.replace(head, head + "    # gem seller (tools/build_gem_sellers.py, 14 Nov 2026)\n" + entry, 1)
+    text = text.replace(head, head + f"    # {note}\n" + entry, 1)
     path.write_text(text, encoding="utf-8")
 
 
-def _position_add(path, vid, xy):
+def _position_add(path, vid, xy, note="gem seller (tools/build_gem_sellers.py)"):
     text = path.read_text(encoding="utf-8")
     if f'"{vid}":' in text:
-        text = re.sub(rf'    "{vid}": \(\d+, \d+\),\n', "", text)
+        text = re.sub(rf'    "{vid}": \(\d+, \d+\),[^\n]*\n', "", text)
     head = "NPC_POSITIONS = {\n"
     assert head in text
-    text = text.replace(head, head + f'    "{vid}": {xy},          # gem seller (tools/build_gem_sellers.py)\n', 1)
+    text = text.replace(head, head + f'    "{vid}": {xy},          # {note}\n', 1)
     path.write_text(text, encoding="utf-8")
 
 

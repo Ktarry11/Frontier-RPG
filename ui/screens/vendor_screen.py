@@ -807,6 +807,8 @@ class VendorScreen(BaseScreen):
                 lines.append(f"Damage: {item.weapon_damage_min}–{item.weapon_damage_max}")
             from world.jewelcrafting import tooltip_lines as _socket_lines
             lines.extend(text for text, _kind in _socket_lines(item))
+            from world.enchanting import tooltip_lines as _enchant_lines
+            lines.extend(_enchant_lines(item))
             lines.append(f"Requires level {item.required_level}")
 
         elif is_mat:

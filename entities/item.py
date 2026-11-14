@@ -254,6 +254,11 @@ class Item:
             from world.jewelcrafting import socket_stats
             for stat, value in socket_stats(self).items():
                 merged[stat] = merged.get(stat, 0) + value
+        if self.enchant_id:
+            # the enchantment read onto it (world/enchanting.py)
+            from world.enchanting import stats as _enchant_stats
+            for stat, value in _enchant_stats(self).items():
+                merged[stat] = merged.get(stat, 0) + value
         return merged
 
     def get_rarity_color(self):

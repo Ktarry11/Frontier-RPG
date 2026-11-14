@@ -1,0 +1,2653 @@
+{
+  "_doc": "Written by tools/build_enchanting.py; read by world/enchanting.py.",
+  "groups": {
+    "bracer": {
+      "label": "Bracer",
+      "share": 0.3
+    },
+    "boots": {
+      "label": "Boots",
+      "share": 0.26
+    },
+    "gloves": {
+      "label": "Gloves",
+      "share": 0.3
+    },
+    "cloak": {
+      "label": "Cloak",
+      "share": 0.22
+    },
+    "chest": {
+      "label": "Chest",
+      "share": 0.4
+    },
+    "shield": {
+      "label": "Shield",
+      "share": 0.28
+    },
+    "weapon": {
+      "label": "Weapon",
+      "share": 0.55
+    },
+    "2h": {
+      "label": "2H Weapon",
+      "share": 0.85
+    }
+  },
+  "enchants": {
+    "enchant_bracer_minor_stamina": {
+      "name": "Enchant Bracer: Minor Stamina",
+      "title": "Minor Stamina",
+      "group": "bracer",
+      "family": "sta",
+      "tier": 0,
+      "rank": 0,
+      "level": 8,
+      "skill": 1,
+      "stats": {
+        "stamina": 1
+      },
+      "hybrid": false
+    },
+    "enchant_bracer_stamina": {
+      "name": "Enchant Bracer: Stamina",
+      "title": "Stamina",
+      "group": "bracer",
+      "family": "sta",
+      "tier": 2,
+      "rank": 1,
+      "level": 28,
+      "skill": 115,
+      "stats": {
+        "stamina": 4
+      },
+      "hybrid": false
+    },
+    "enchant_bracer_superior_stamina": {
+      "name": "Enchant Bracer: Superior Stamina",
+      "title": "Superior Stamina",
+      "group": "bracer",
+      "family": "sta",
+      "tier": 4,
+      "rank": 2,
+      "level": 48,
+      "skill": 225,
+      "stats": {
+        "stamina": 7
+      },
+      "hybrid": false
+    },
+    "enchant_bracer_major_stamina": {
+      "name": "Enchant Bracer: Major Stamina",
+      "title": "Major Stamina",
+      "group": "bracer",
+      "family": "sta",
+      "tier": 5,
+      "rank": 3,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "stamina": 8
+      },
+      "hybrid": false
+    },
+    "enchant_bracer_minor_strength": {
+      "name": "Enchant Bracer: Minor Strength",
+      "title": "Minor Strength",
+      "group": "bracer",
+      "family": "str",
+      "tier": 0,
+      "rank": 0,
+      "level": 8,
+      "skill": 1,
+      "stats": {
+        "strength": 1
+      },
+      "hybrid": false
+    },
+    "enchant_bracer_strength": {
+      "name": "Enchant Bracer: Strength",
+      "title": "Strength",
+      "group": "bracer",
+      "family": "str",
+      "tier": 2,
+      "rank": 1,
+      "level": 28,
+      "skill": 115,
+      "stats": {
+        "strength": 4
+      },
+      "hybrid": false
+    },
+    "enchant_bracer_superior_strength": {
+      "name": "Enchant Bracer: Superior Strength",
+      "title": "Superior Strength",
+      "group": "bracer",
+      "family": "str",
+      "tier": 4,
+      "rank": 2,
+      "level": 48,
+      "skill": 225,
+      "stats": {
+        "strength": 7
+      },
+      "hybrid": false
+    },
+    "enchant_bracer_major_strength": {
+      "name": "Enchant Bracer: Major Strength",
+      "title": "Major Strength",
+      "group": "bracer",
+      "family": "str",
+      "tier": 5,
+      "rank": 3,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "strength": 8
+      },
+      "hybrid": false
+    },
+    "enchant_bracer_minor_spirit": {
+      "name": "Enchant Bracer: Minor Spirit",
+      "title": "Minor Spirit",
+      "group": "bracer",
+      "family": "spi",
+      "tier": 0,
+      "rank": 0,
+      "level": 8,
+      "skill": 1,
+      "stats": {
+        "spirit": 1
+      },
+      "hybrid": false
+    },
+    "enchant_bracer_spirit": {
+      "name": "Enchant Bracer: Spirit",
+      "title": "Spirit",
+      "group": "bracer",
+      "family": "spi",
+      "tier": 2,
+      "rank": 1,
+      "level": 28,
+      "skill": 115,
+      "stats": {
+        "spirit": 4
+      },
+      "hybrid": false
+    },
+    "enchant_bracer_superior_spirit": {
+      "name": "Enchant Bracer: Superior Spirit",
+      "title": "Superior Spirit",
+      "group": "bracer",
+      "family": "spi",
+      "tier": 4,
+      "rank": 2,
+      "level": 48,
+      "skill": 225,
+      "stats": {
+        "spirit": 7
+      },
+      "hybrid": false
+    },
+    "enchant_bracer_major_spirit": {
+      "name": "Enchant Bracer: Major Spirit",
+      "title": "Major Spirit",
+      "group": "bracer",
+      "family": "spi",
+      "tier": 5,
+      "rank": 3,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "spirit": 8
+      },
+      "hybrid": false
+    },
+    "enchant_bracer_lesser_agility": {
+      "name": "Enchant Bracer: Lesser Agility",
+      "title": "Lesser Agility",
+      "group": "bracer",
+      "family": "agi",
+      "tier": 1,
+      "rank": 0,
+      "level": 18,
+      "skill": 60,
+      "stats": {
+        "agility": 3
+      },
+      "hybrid": false
+    },
+    "enchant_bracer_greater_agility": {
+      "name": "Enchant Bracer: Greater Agility",
+      "title": "Greater Agility",
+      "group": "bracer",
+      "family": "agi",
+      "tier": 3,
+      "rank": 1,
+      "level": 38,
+      "skill": 170,
+      "stats": {
+        "agility": 5
+      },
+      "hybrid": false
+    },
+    "enchant_bracer_major_agility": {
+      "name": "Enchant Bracer: Major Agility",
+      "title": "Major Agility",
+      "group": "bracer",
+      "family": "agi",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "agility": 8
+      },
+      "hybrid": false
+    },
+    "enchant_bracer_lesser_intellect": {
+      "name": "Enchant Bracer: Lesser Intellect",
+      "title": "Lesser Intellect",
+      "group": "bracer",
+      "family": "int",
+      "tier": 1,
+      "rank": 0,
+      "level": 18,
+      "skill": 60,
+      "stats": {
+        "intellect": 3
+      },
+      "hybrid": false
+    },
+    "enchant_bracer_greater_intellect": {
+      "name": "Enchant Bracer: Greater Intellect",
+      "title": "Greater Intellect",
+      "group": "bracer",
+      "family": "int",
+      "tier": 3,
+      "rank": 1,
+      "level": 38,
+      "skill": 170,
+      "stats": {
+        "intellect": 5
+      },
+      "hybrid": false
+    },
+    "enchant_bracer_major_intellect": {
+      "name": "Enchant Bracer: Major Intellect",
+      "title": "Major Intellect",
+      "group": "bracer",
+      "family": "int",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "intellect": 8
+      },
+      "hybrid": false
+    },
+    "enchant_bracer_mana_regeneration": {
+      "name": "Enchant Bracer: Mana Regeneration",
+      "title": "Mana Regeneration",
+      "group": "bracer",
+      "family": "mp5",
+      "tier": 2,
+      "rank": 0,
+      "level": 28,
+      "skill": 115,
+      "stats": {
+        "mp5": 2
+      },
+      "hybrid": false
+    },
+    "enchant_bracer_superior_mana_regeneration": {
+      "name": "Enchant Bracer: Superior Mana Regeneration",
+      "title": "Superior Mana Regeneration",
+      "group": "bracer",
+      "family": "mp5",
+      "tier": 4,
+      "rank": 1,
+      "level": 48,
+      "skill": 225,
+      "stats": {
+        "mp5": 3
+      },
+      "hybrid": false
+    },
+    "enchant_bracer_major_mana_regeneration": {
+      "name": "Enchant Bracer: Major Mana Regeneration",
+      "title": "Major Mana Regeneration",
+      "group": "bracer",
+      "family": "mp5",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "mp5": 3
+      },
+      "hybrid": false
+    },
+    "enchant_bracer_greater_healing": {
+      "name": "Enchant Bracer: Greater Healing",
+      "title": "Greater Healing",
+      "group": "bracer",
+      "family": "heal",
+      "tier": 3,
+      "rank": 0,
+      "level": 38,
+      "skill": 170,
+      "stats": {
+        "healing_power": 4
+      },
+      "hybrid": false
+    },
+    "enchant_bracer_major_healing": {
+      "name": "Enchant Bracer: Major Healing",
+      "title": "Major Healing",
+      "group": "bracer",
+      "family": "heal",
+      "tier": 5,
+      "rank": 1,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "healing_power": 7
+      },
+      "hybrid": false
+    },
+    "enchant_bracer_valor": {
+      "name": "Enchant Bracer: Valor",
+      "title": "Valor",
+      "group": "bracer",
+      "family": "valor",
+      "tier": 2,
+      "rank": 0,
+      "level": 28,
+      "skill": 120,
+      "stats": {
+        "strength": 2,
+        "intellect": 2
+      },
+      "hybrid": true
+    },
+    "enchant_bracer_superior_valor": {
+      "name": "Enchant Bracer: Superior Valor",
+      "title": "Superior Valor",
+      "group": "bracer",
+      "family": "valor",
+      "tier": 4,
+      "rank": 1,
+      "level": 48,
+      "skill": 230,
+      "stats": {
+        "strength": 3,
+        "intellect": 3
+      },
+      "hybrid": true
+    },
+    "enchant_bracer_major_valor": {
+      "name": "Enchant Bracer: Major Valor",
+      "title": "Major Valor",
+      "group": "bracer",
+      "family": "valor",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 285,
+      "stats": {
+        "strength": 4,
+        "intellect": 4
+      },
+      "hybrid": true
+    },
+    "enchant_bracer_wildheart": {
+      "name": "Enchant Bracer: Wildheart",
+      "title": "Wildheart",
+      "group": "bracer",
+      "family": "wild",
+      "tier": 2,
+      "rank": 0,
+      "level": 28,
+      "skill": 120,
+      "stats": {
+        "agility": 2,
+        "intellect": 2
+      },
+      "hybrid": true
+    },
+    "enchant_bracer_superior_wildheart": {
+      "name": "Enchant Bracer: Superior Wildheart",
+      "title": "Superior Wildheart",
+      "group": "bracer",
+      "family": "wild",
+      "tier": 4,
+      "rank": 1,
+      "level": 48,
+      "skill": 230,
+      "stats": {
+        "agility": 3,
+        "intellect": 3
+      },
+      "hybrid": true
+    },
+    "enchant_bracer_major_wildheart": {
+      "name": "Enchant Bracer: Major Wildheart",
+      "title": "Major Wildheart",
+      "group": "bracer",
+      "family": "wild",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 285,
+      "stats": {
+        "agility": 4,
+        "intellect": 4
+      },
+      "hybrid": true
+    },
+    "enchant_bracer_greater_devotion": {
+      "name": "Enchant Bracer: Greater Devotion",
+      "title": "Greater Devotion",
+      "group": "bracer",
+      "family": "devotion",
+      "tier": 3,
+      "rank": 0,
+      "level": 38,
+      "skill": 175,
+      "stats": {
+        "strength": 3,
+        "healing_power": 2
+      },
+      "hybrid": true
+    },
+    "enchant_bracer_major_devotion": {
+      "name": "Enchant Bracer: Major Devotion",
+      "title": "Major Devotion",
+      "group": "bracer",
+      "family": "devotion",
+      "tier": 5,
+      "rank": 1,
+      "level": 58,
+      "skill": 285,
+      "stats": {
+        "strength": 4,
+        "healing_power": 3
+      },
+      "hybrid": true
+    },
+    "enchant_boots_minor_stamina": {
+      "name": "Enchant Boots: Minor Stamina",
+      "title": "Minor Stamina",
+      "group": "boots",
+      "family": "sta",
+      "tier": 0,
+      "rank": 0,
+      "level": 8,
+      "skill": 1,
+      "stats": {
+        "stamina": 1
+      },
+      "hybrid": false
+    },
+    "enchant_boots_stamina": {
+      "name": "Enchant Boots: Stamina",
+      "title": "Stamina",
+      "group": "boots",
+      "family": "sta",
+      "tier": 2,
+      "rank": 1,
+      "level": 28,
+      "skill": 115,
+      "stats": {
+        "stamina": 3
+      },
+      "hybrid": false
+    },
+    "enchant_boots_superior_stamina": {
+      "name": "Enchant Boots: Superior Stamina",
+      "title": "Superior Stamina",
+      "group": "boots",
+      "family": "sta",
+      "tier": 4,
+      "rank": 2,
+      "level": 48,
+      "skill": 225,
+      "stats": {
+        "stamina": 6
+      },
+      "hybrid": false
+    },
+    "enchant_boots_major_stamina": {
+      "name": "Enchant Boots: Major Stamina",
+      "title": "Major Stamina",
+      "group": "boots",
+      "family": "sta",
+      "tier": 5,
+      "rank": 3,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "stamina": 7
+      },
+      "hybrid": false
+    },
+    "enchant_boots_minor_agility": {
+      "name": "Enchant Boots: Minor Agility",
+      "title": "Minor Agility",
+      "group": "boots",
+      "family": "agi",
+      "tier": 0,
+      "rank": 0,
+      "level": 8,
+      "skill": 1,
+      "stats": {
+        "agility": 1
+      },
+      "hybrid": false
+    },
+    "enchant_boots_agility": {
+      "name": "Enchant Boots: Agility",
+      "title": "Agility",
+      "group": "boots",
+      "family": "agi",
+      "tier": 2,
+      "rank": 1,
+      "level": 28,
+      "skill": 115,
+      "stats": {
+        "agility": 3
+      },
+      "hybrid": false
+    },
+    "enchant_boots_superior_agility": {
+      "name": "Enchant Boots: Superior Agility",
+      "title": "Superior Agility",
+      "group": "boots",
+      "family": "agi",
+      "tier": 4,
+      "rank": 2,
+      "level": 48,
+      "skill": 225,
+      "stats": {
+        "agility": 6
+      },
+      "hybrid": false
+    },
+    "enchant_boots_major_agility": {
+      "name": "Enchant Boots: Major Agility",
+      "title": "Major Agility",
+      "group": "boots",
+      "family": "agi",
+      "tier": 5,
+      "rank": 3,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "agility": 7
+      },
+      "hybrid": false
+    },
+    "enchant_boots_lesser_spirit": {
+      "name": "Enchant Boots: Lesser Spirit",
+      "title": "Lesser Spirit",
+      "group": "boots",
+      "family": "spi",
+      "tier": 1,
+      "rank": 0,
+      "level": 18,
+      "skill": 60,
+      "stats": {
+        "spirit": 2
+      },
+      "hybrid": false
+    },
+    "enchant_boots_greater_spirit": {
+      "name": "Enchant Boots: Greater Spirit",
+      "title": "Greater Spirit",
+      "group": "boots",
+      "family": "spi",
+      "tier": 3,
+      "rank": 1,
+      "level": 38,
+      "skill": 170,
+      "stats": {
+        "spirit": 5
+      },
+      "hybrid": false
+    },
+    "enchant_boots_major_spirit": {
+      "name": "Enchant Boots: Major Spirit",
+      "title": "Major Spirit",
+      "group": "boots",
+      "family": "spi",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "spirit": 7
+      },
+      "hybrid": false
+    },
+    "enchant_boots_swiftness": {
+      "name": "Enchant Boots: Swiftness",
+      "title": "Swiftness",
+      "group": "boots",
+      "family": "swift",
+      "tier": 2,
+      "rank": 0,
+      "level": 28,
+      "skill": 120,
+      "stats": {
+        "agility": 2,
+        "stamina": 2
+      },
+      "hybrid": true
+    },
+    "enchant_boots_superior_swiftness": {
+      "name": "Enchant Boots: Superior Swiftness",
+      "title": "Superior Swiftness",
+      "group": "boots",
+      "family": "swift",
+      "tier": 4,
+      "rank": 1,
+      "level": 48,
+      "skill": 230,
+      "stats": {
+        "agility": 3,
+        "stamina": 3
+      },
+      "hybrid": true
+    },
+    "enchant_boots_major_swiftness": {
+      "name": "Enchant Boots: Major Swiftness",
+      "title": "Major Swiftness",
+      "group": "boots",
+      "family": "swift",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 285,
+      "stats": {
+        "agility": 4,
+        "stamina": 4
+      },
+      "hybrid": true
+    },
+    "enchant_boots_greater_vigor": {
+      "name": "Enchant Boots: Greater Vigor",
+      "title": "Greater Vigor",
+      "group": "boots",
+      "family": "vigor",
+      "tier": 3,
+      "rank": 0,
+      "level": 38,
+      "skill": 175,
+      "stats": {
+        "strength": 2,
+        "stamina": 2
+      },
+      "hybrid": true
+    },
+    "enchant_boots_major_vigor": {
+      "name": "Enchant Boots: Major Vigor",
+      "title": "Major Vigor",
+      "group": "boots",
+      "family": "vigor",
+      "tier": 5,
+      "rank": 1,
+      "level": 58,
+      "skill": 285,
+      "stats": {
+        "strength": 4,
+        "stamina": 4
+      },
+      "hybrid": true
+    },
+    "enchant_boots_superior_stormcaller": {
+      "name": "Enchant Boots: Superior Stormcaller",
+      "title": "Superior Stormcaller",
+      "group": "boots",
+      "family": "storm",
+      "tier": 4,
+      "rank": 0,
+      "level": 48,
+      "skill": 230,
+      "stats": {
+        "agility": 3,
+        "spell_power": 2
+      },
+      "hybrid": true
+    },
+    "enchant_boots_major_stormcaller": {
+      "name": "Enchant Boots: Major Stormcaller",
+      "title": "Major Stormcaller",
+      "group": "boots",
+      "family": "storm",
+      "tier": 5,
+      "rank": 1,
+      "level": 58,
+      "skill": 285,
+      "stats": {
+        "agility": 4,
+        "spell_power": 3
+      },
+      "hybrid": true
+    },
+    "enchant_gloves_lesser_strength": {
+      "name": "Enchant Gloves: Lesser Strength",
+      "title": "Lesser Strength",
+      "group": "gloves",
+      "family": "str",
+      "tier": 1,
+      "rank": 0,
+      "level": 18,
+      "skill": 60,
+      "stats": {
+        "strength": 3
+      },
+      "hybrid": false
+    },
+    "enchant_gloves_greater_strength": {
+      "name": "Enchant Gloves: Greater Strength",
+      "title": "Greater Strength",
+      "group": "gloves",
+      "family": "str",
+      "tier": 3,
+      "rank": 1,
+      "level": 38,
+      "skill": 170,
+      "stats": {
+        "strength": 5
+      },
+      "hybrid": false
+    },
+    "enchant_gloves_major_strength": {
+      "name": "Enchant Gloves: Major Strength",
+      "title": "Major Strength",
+      "group": "gloves",
+      "family": "str",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "strength": 8
+      },
+      "hybrid": false
+    },
+    "enchant_gloves_lesser_agility": {
+      "name": "Enchant Gloves: Lesser Agility",
+      "title": "Lesser Agility",
+      "group": "gloves",
+      "family": "agi",
+      "tier": 1,
+      "rank": 0,
+      "level": 18,
+      "skill": 60,
+      "stats": {
+        "agility": 3
+      },
+      "hybrid": false
+    },
+    "enchant_gloves_greater_agility": {
+      "name": "Enchant Gloves: Greater Agility",
+      "title": "Greater Agility",
+      "group": "gloves",
+      "family": "agi",
+      "tier": 3,
+      "rank": 1,
+      "level": 38,
+      "skill": 170,
+      "stats": {
+        "agility": 5
+      },
+      "hybrid": false
+    },
+    "enchant_gloves_major_agility": {
+      "name": "Enchant Gloves: Major Agility",
+      "title": "Major Agility",
+      "group": "gloves",
+      "family": "agi",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "agility": 8
+      },
+      "hybrid": false
+    },
+    "enchant_gloves_greater_spell_power": {
+      "name": "Enchant Gloves: Greater Spell Power",
+      "title": "Greater Spell Power",
+      "group": "gloves",
+      "family": "sp",
+      "tier": 3,
+      "rank": 0,
+      "level": 38,
+      "skill": 170,
+      "stats": {
+        "spell_power": 4
+      },
+      "hybrid": false
+    },
+    "enchant_gloves_major_spell_power": {
+      "name": "Enchant Gloves: Major Spell Power",
+      "title": "Major Spell Power",
+      "group": "gloves",
+      "family": "sp",
+      "tier": 5,
+      "rank": 1,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "spell_power": 7
+      },
+      "hybrid": false
+    },
+    "enchant_gloves_greater_healing": {
+      "name": "Enchant Gloves: Greater Healing",
+      "title": "Greater Healing",
+      "group": "gloves",
+      "family": "heal",
+      "tier": 3,
+      "rank": 0,
+      "level": 38,
+      "skill": 170,
+      "stats": {
+        "healing_power": 4
+      },
+      "hybrid": false
+    },
+    "enchant_gloves_major_healing": {
+      "name": "Enchant Gloves: Major Healing",
+      "title": "Major Healing",
+      "group": "gloves",
+      "family": "heal",
+      "tier": 5,
+      "rank": 1,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "healing_power": 7
+      },
+      "hybrid": false
+    },
+    "enchant_gloves_battlemage": {
+      "name": "Enchant Gloves: Battlemage",
+      "title": "Battlemage",
+      "group": "gloves",
+      "family": "battlemage",
+      "tier": 2,
+      "rank": 0,
+      "level": 28,
+      "skill": 120,
+      "stats": {
+        "attack_power": 4,
+        "spell_power": 2
+      },
+      "hybrid": true
+    },
+    "enchant_gloves_superior_battlemage": {
+      "name": "Enchant Gloves: Superior Battlemage",
+      "title": "Superior Battlemage",
+      "group": "gloves",
+      "family": "battlemage",
+      "tier": 4,
+      "rank": 1,
+      "level": 48,
+      "skill": 230,
+      "stats": {
+        "attack_power": 7,
+        "spell_power": 3
+      },
+      "hybrid": true
+    },
+    "enchant_gloves_major_battlemage": {
+      "name": "Enchant Gloves: Major Battlemage",
+      "title": "Major Battlemage",
+      "group": "gloves",
+      "family": "battlemage",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 285,
+      "stats": {
+        "attack_power": 8,
+        "spell_power": 3
+      },
+      "hybrid": true
+    },
+    "enchant_gloves_greater_stormcaller": {
+      "name": "Enchant Gloves: Greater Stormcaller",
+      "title": "Greater Stormcaller",
+      "group": "gloves",
+      "family": "storm",
+      "tier": 3,
+      "rank": 0,
+      "level": 38,
+      "skill": 175,
+      "stats": {
+        "agility": 3,
+        "spell_power": 2
+      },
+      "hybrid": true
+    },
+    "enchant_gloves_major_stormcaller": {
+      "name": "Enchant Gloves: Major Stormcaller",
+      "title": "Major Stormcaller",
+      "group": "gloves",
+      "family": "storm",
+      "tier": 5,
+      "rank": 1,
+      "level": 58,
+      "skill": 285,
+      "stats": {
+        "agility": 4,
+        "spell_power": 3
+      },
+      "hybrid": true
+    },
+    "enchant_gloves_superior_valor": {
+      "name": "Enchant Gloves: Superior Valor",
+      "title": "Superior Valor",
+      "group": "gloves",
+      "family": "valor",
+      "tier": 4,
+      "rank": 0,
+      "level": 48,
+      "skill": 230,
+      "stats": {
+        "strength": 3,
+        "intellect": 3
+      },
+      "hybrid": true
+    },
+    "enchant_gloves_major_valor": {
+      "name": "Enchant Gloves: Major Valor",
+      "title": "Major Valor",
+      "group": "gloves",
+      "family": "valor",
+      "tier": 5,
+      "rank": 1,
+      "level": 58,
+      "skill": 285,
+      "stats": {
+        "strength": 4,
+        "intellect": 4
+      },
+      "hybrid": true
+    },
+    "enchant_cloak_minor_protection": {
+      "name": "Enchant Cloak: Minor Protection",
+      "title": "Minor Protection",
+      "group": "cloak",
+      "family": "armor",
+      "tier": 0,
+      "rank": 0,
+      "level": 8,
+      "skill": 1,
+      "stats": {
+        "armor": 4
+      },
+      "hybrid": false
+    },
+    "enchant_cloak_protection": {
+      "name": "Enchant Cloak: Protection",
+      "title": "Protection",
+      "group": "cloak",
+      "family": "armor",
+      "tier": 2,
+      "rank": 1,
+      "level": 28,
+      "skill": 115,
+      "stats": {
+        "armor": 14
+      },
+      "hybrid": false
+    },
+    "enchant_cloak_superior_protection": {
+      "name": "Enchant Cloak: Superior Protection",
+      "title": "Superior Protection",
+      "group": "cloak",
+      "family": "armor",
+      "tier": 4,
+      "rank": 2,
+      "level": 48,
+      "skill": 225,
+      "stats": {
+        "armor": 25
+      },
+      "hybrid": false
+    },
+    "enchant_cloak_major_protection": {
+      "name": "Enchant Cloak: Major Protection",
+      "title": "Major Protection",
+      "group": "cloak",
+      "family": "armor",
+      "tier": 5,
+      "rank": 3,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "armor": 30
+      },
+      "hybrid": false
+    },
+    "enchant_cloak_lesser_agility": {
+      "name": "Enchant Cloak: Lesser Agility",
+      "title": "Lesser Agility",
+      "group": "cloak",
+      "family": "agi",
+      "tier": 1,
+      "rank": 0,
+      "level": 18,
+      "skill": 60,
+      "stats": {
+        "agility": 2
+      },
+      "hybrid": false
+    },
+    "enchant_cloak_greater_agility": {
+      "name": "Enchant Cloak: Greater Agility",
+      "title": "Greater Agility",
+      "group": "cloak",
+      "family": "agi",
+      "tier": 3,
+      "rank": 1,
+      "level": 38,
+      "skill": 170,
+      "stats": {
+        "agility": 4
+      },
+      "hybrid": false
+    },
+    "enchant_cloak_major_agility": {
+      "name": "Enchant Cloak: Major Agility",
+      "title": "Major Agility",
+      "group": "cloak",
+      "family": "agi",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "agility": 6
+      },
+      "hybrid": false
+    },
+    "enchant_cloak_greater_warding": {
+      "name": "Enchant Cloak: Greater Warding",
+      "title": "Greater Warding",
+      "group": "cloak",
+      "family": "warding",
+      "tier": 3,
+      "rank": 0,
+      "level": 38,
+      "skill": 175,
+      "stats": {
+        "stamina": 2,
+        "armor": 8
+      },
+      "hybrid": true
+    },
+    "enchant_cloak_major_warding": {
+      "name": "Enchant Cloak: Major Warding",
+      "title": "Major Warding",
+      "group": "cloak",
+      "family": "warding",
+      "tier": 5,
+      "rank": 1,
+      "level": 58,
+      "skill": 285,
+      "stats": {
+        "stamina": 4,
+        "armor": 12
+      },
+      "hybrid": true
+    },
+    "enchant_chest_minor_stamina": {
+      "name": "Enchant Chest: Minor Stamina",
+      "title": "Minor Stamina",
+      "group": "chest",
+      "family": "sta",
+      "tier": 0,
+      "rank": 0,
+      "level": 8,
+      "skill": 1,
+      "stats": {
+        "stamina": 1
+      },
+      "hybrid": false
+    },
+    "enchant_chest_stamina": {
+      "name": "Enchant Chest: Stamina",
+      "title": "Stamina",
+      "group": "chest",
+      "family": "sta",
+      "tier": 2,
+      "rank": 1,
+      "level": 28,
+      "skill": 115,
+      "stats": {
+        "stamina": 5
+      },
+      "hybrid": false
+    },
+    "enchant_chest_superior_stamina": {
+      "name": "Enchant Chest: Superior Stamina",
+      "title": "Superior Stamina",
+      "group": "chest",
+      "family": "sta",
+      "tier": 4,
+      "rank": 2,
+      "level": 48,
+      "skill": 225,
+      "stats": {
+        "stamina": 9
+      },
+      "hybrid": false
+    },
+    "enchant_chest_major_stamina": {
+      "name": "Enchant Chest: Major Stamina",
+      "title": "Major Stamina",
+      "group": "chest",
+      "family": "sta",
+      "tier": 5,
+      "rank": 3,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "stamina": 11
+      },
+      "hybrid": false
+    },
+    "enchant_chest_minor_intellect": {
+      "name": "Enchant Chest: Minor Intellect",
+      "title": "Minor Intellect",
+      "group": "chest",
+      "family": "int",
+      "tier": 0,
+      "rank": 0,
+      "level": 8,
+      "skill": 1,
+      "stats": {
+        "intellect": 1
+      },
+      "hybrid": false
+    },
+    "enchant_chest_intellect": {
+      "name": "Enchant Chest: Intellect",
+      "title": "Intellect",
+      "group": "chest",
+      "family": "int",
+      "tier": 2,
+      "rank": 1,
+      "level": 28,
+      "skill": 115,
+      "stats": {
+        "intellect": 5
+      },
+      "hybrid": false
+    },
+    "enchant_chest_superior_intellect": {
+      "name": "Enchant Chest: Superior Intellect",
+      "title": "Superior Intellect",
+      "group": "chest",
+      "family": "int",
+      "tier": 4,
+      "rank": 2,
+      "level": 48,
+      "skill": 225,
+      "stats": {
+        "intellect": 9
+      },
+      "hybrid": false
+    },
+    "enchant_chest_major_intellect": {
+      "name": "Enchant Chest: Major Intellect",
+      "title": "Major Intellect",
+      "group": "chest",
+      "family": "int",
+      "tier": 5,
+      "rank": 3,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "intellect": 11
+      },
+      "hybrid": false
+    },
+    "enchant_chest_lesser_stats": {
+      "name": "Enchant Chest: Lesser Stats",
+      "title": "Lesser Stats",
+      "group": "chest",
+      "family": "stats",
+      "tier": 1,
+      "rank": 0,
+      "level": 18,
+      "skill": 60,
+      "stats": {
+        "stamina": 1,
+        "strength": 1,
+        "agility": 1,
+        "intellect": 1,
+        "spirit": 1
+      },
+      "hybrid": false
+    },
+    "enchant_chest_greater_stats": {
+      "name": "Enchant Chest: Greater Stats",
+      "title": "Greater Stats",
+      "group": "chest",
+      "family": "stats",
+      "tier": 3,
+      "rank": 1,
+      "level": 38,
+      "skill": 170,
+      "stats": {
+        "stamina": 2,
+        "strength": 2,
+        "agility": 2,
+        "intellect": 2,
+        "spirit": 2
+      },
+      "hybrid": false
+    },
+    "enchant_chest_major_stats": {
+      "name": "Enchant Chest: Major Stats",
+      "title": "Major Stats",
+      "group": "chest",
+      "family": "stats",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "stamina": 3,
+        "strength": 3,
+        "agility": 3,
+        "intellect": 3,
+        "spirit": 3
+      },
+      "hybrid": false
+    },
+    "enchant_chest_spirit": {
+      "name": "Enchant Chest: Spirit",
+      "title": "Spirit",
+      "group": "chest",
+      "family": "spi",
+      "tier": 2,
+      "rank": 0,
+      "level": 28,
+      "skill": 115,
+      "stats": {
+        "spirit": 5
+      },
+      "hybrid": false
+    },
+    "enchant_chest_superior_spirit": {
+      "name": "Enchant Chest: Superior Spirit",
+      "title": "Superior Spirit",
+      "group": "chest",
+      "family": "spi",
+      "tier": 4,
+      "rank": 1,
+      "level": 48,
+      "skill": 225,
+      "stats": {
+        "spirit": 9
+      },
+      "hybrid": false
+    },
+    "enchant_chest_major_spirit": {
+      "name": "Enchant Chest: Major Spirit",
+      "title": "Major Spirit",
+      "group": "chest",
+      "family": "spi",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "spirit": 11
+      },
+      "hybrid": false
+    },
+    "enchant_chest_sagacity": {
+      "name": "Enchant Chest: Sagacity",
+      "title": "Sagacity",
+      "group": "chest",
+      "family": "sagacity",
+      "tier": 2,
+      "rank": 0,
+      "level": 28,
+      "skill": 120,
+      "stats": {
+        "intellect": 3,
+        "spirit": 3
+      },
+      "hybrid": true
+    },
+    "enchant_chest_superior_sagacity": {
+      "name": "Enchant Chest: Superior Sagacity",
+      "title": "Superior Sagacity",
+      "group": "chest",
+      "family": "sagacity",
+      "tier": 4,
+      "rank": 1,
+      "level": 48,
+      "skill": 230,
+      "stats": {
+        "intellect": 4,
+        "spirit": 4
+      },
+      "hybrid": true
+    },
+    "enchant_chest_major_sagacity": {
+      "name": "Enchant Chest: Major Sagacity",
+      "title": "Major Sagacity",
+      "group": "chest",
+      "family": "sagacity",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 285,
+      "stats": {
+        "intellect": 5,
+        "spirit": 5
+      },
+      "hybrid": true
+    },
+    "enchant_chest_greater_vigor": {
+      "name": "Enchant Chest: Greater Vigor",
+      "title": "Greater Vigor",
+      "group": "chest",
+      "family": "vigor",
+      "tier": 3,
+      "rank": 0,
+      "level": 38,
+      "skill": 175,
+      "stats": {
+        "strength": 4,
+        "stamina": 4
+      },
+      "hybrid": true
+    },
+    "enchant_chest_major_vigor": {
+      "name": "Enchant Chest: Major Vigor",
+      "title": "Major Vigor",
+      "group": "chest",
+      "family": "vigor",
+      "tier": 5,
+      "rank": 1,
+      "level": 58,
+      "skill": 285,
+      "stats": {
+        "strength": 5,
+        "stamina": 5
+      },
+      "hybrid": true
+    },
+    "enchant_chest_superior_devotion": {
+      "name": "Enchant Chest: Superior Devotion",
+      "title": "Superior Devotion",
+      "group": "chest",
+      "family": "devotion",
+      "tier": 4,
+      "rank": 0,
+      "level": 48,
+      "skill": 230,
+      "stats": {
+        "strength": 4,
+        "healing_power": 4
+      },
+      "hybrid": true
+    },
+    "enchant_chest_major_devotion": {
+      "name": "Enchant Chest: Major Devotion",
+      "title": "Major Devotion",
+      "group": "chest",
+      "family": "devotion",
+      "tier": 5,
+      "rank": 1,
+      "level": 58,
+      "skill": 285,
+      "stats": {
+        "strength": 5,
+        "healing_power": 4
+      },
+      "hybrid": true
+    },
+    "enchant_shield_minor_stamina": {
+      "name": "Enchant Shield: Minor Stamina",
+      "title": "Minor Stamina",
+      "group": "shield",
+      "family": "sta",
+      "tier": 0,
+      "rank": 0,
+      "level": 8,
+      "skill": 1,
+      "stats": {
+        "stamina": 1
+      },
+      "hybrid": false
+    },
+    "enchant_shield_stamina": {
+      "name": "Enchant Shield: Stamina",
+      "title": "Stamina",
+      "group": "shield",
+      "family": "sta",
+      "tier": 2,
+      "rank": 1,
+      "level": 28,
+      "skill": 115,
+      "stats": {
+        "stamina": 4
+      },
+      "hybrid": false
+    },
+    "enchant_shield_superior_stamina": {
+      "name": "Enchant Shield: Superior Stamina",
+      "title": "Superior Stamina",
+      "group": "shield",
+      "family": "sta",
+      "tier": 4,
+      "rank": 2,
+      "level": 48,
+      "skill": 225,
+      "stats": {
+        "stamina": 6
+      },
+      "hybrid": false
+    },
+    "enchant_shield_major_stamina": {
+      "name": "Enchant Shield: Major Stamina",
+      "title": "Major Stamina",
+      "group": "shield",
+      "family": "sta",
+      "tier": 5,
+      "rank": 3,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "stamina": 8
+      },
+      "hybrid": false
+    },
+    "enchant_shield_minor_spirit": {
+      "name": "Enchant Shield: Minor Spirit",
+      "title": "Minor Spirit",
+      "group": "shield",
+      "family": "spi",
+      "tier": 0,
+      "rank": 0,
+      "level": 8,
+      "skill": 1,
+      "stats": {
+        "spirit": 1
+      },
+      "hybrid": false
+    },
+    "enchant_shield_spirit": {
+      "name": "Enchant Shield: Spirit",
+      "title": "Spirit",
+      "group": "shield",
+      "family": "spi",
+      "tier": 2,
+      "rank": 1,
+      "level": 28,
+      "skill": 115,
+      "stats": {
+        "spirit": 4
+      },
+      "hybrid": false
+    },
+    "enchant_shield_superior_spirit": {
+      "name": "Enchant Shield: Superior Spirit",
+      "title": "Superior Spirit",
+      "group": "shield",
+      "family": "spi",
+      "tier": 4,
+      "rank": 2,
+      "level": 48,
+      "skill": 225,
+      "stats": {
+        "spirit": 6
+      },
+      "hybrid": false
+    },
+    "enchant_shield_major_spirit": {
+      "name": "Enchant Shield: Major Spirit",
+      "title": "Major Spirit",
+      "group": "shield",
+      "family": "spi",
+      "tier": 5,
+      "rank": 3,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "spirit": 8
+      },
+      "hybrid": false
+    },
+    "enchant_shield_lesser_blocking": {
+      "name": "Enchant Shield: Lesser Blocking",
+      "title": "Lesser Blocking",
+      "group": "shield",
+      "family": "block",
+      "tier": 1,
+      "rank": 0,
+      "level": 18,
+      "skill": 60,
+      "stats": {
+        "block_value": 5
+      },
+      "hybrid": false
+    },
+    "enchant_shield_greater_blocking": {
+      "name": "Enchant Shield: Greater Blocking",
+      "title": "Greater Blocking",
+      "group": "shield",
+      "family": "block",
+      "tier": 3,
+      "rank": 1,
+      "level": 38,
+      "skill": 170,
+      "stats": {
+        "block_value": 10
+      },
+      "hybrid": false
+    },
+    "enchant_shield_major_blocking": {
+      "name": "Enchant Shield: Major Blocking",
+      "title": "Major Blocking",
+      "group": "shield",
+      "family": "block",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "block_value": 15
+      },
+      "hybrid": false
+    },
+    "enchant_shield_intellect": {
+      "name": "Enchant Shield: Intellect",
+      "title": "Intellect",
+      "group": "shield",
+      "family": "int",
+      "tier": 2,
+      "rank": 0,
+      "level": 28,
+      "skill": 115,
+      "stats": {
+        "intellect": 4
+      },
+      "hybrid": false
+    },
+    "enchant_shield_superior_intellect": {
+      "name": "Enchant Shield: Superior Intellect",
+      "title": "Superior Intellect",
+      "group": "shield",
+      "family": "int",
+      "tier": 4,
+      "rank": 1,
+      "level": 48,
+      "skill": 225,
+      "stats": {
+        "intellect": 6
+      },
+      "hybrid": false
+    },
+    "enchant_shield_major_intellect": {
+      "name": "Enchant Shield: Major Intellect",
+      "title": "Major Intellect",
+      "group": "shield",
+      "family": "int",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "intellect": 8
+      },
+      "hybrid": false
+    },
+    "enchant_shield_warding": {
+      "name": "Enchant Shield: Warding",
+      "title": "Warding",
+      "group": "shield",
+      "family": "warding",
+      "tier": 2,
+      "rank": 0,
+      "level": 28,
+      "skill": 120,
+      "stats": {
+        "stamina": 2,
+        "armor": 7
+      },
+      "hybrid": true
+    },
+    "enchant_shield_superior_warding": {
+      "name": "Enchant Shield: Superior Warding",
+      "title": "Superior Warding",
+      "group": "shield",
+      "family": "warding",
+      "tier": 4,
+      "rank": 1,
+      "level": 48,
+      "skill": 230,
+      "stats": {
+        "stamina": 4,
+        "armor": 13
+      },
+      "hybrid": true
+    },
+    "enchant_shield_major_warding": {
+      "name": "Enchant Shield: Major Warding",
+      "title": "Major Warding",
+      "group": "shield",
+      "family": "warding",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 285,
+      "stats": {
+        "stamina": 5,
+        "armor": 15
+      },
+      "hybrid": true
+    },
+    "enchant_shield_greater_valor": {
+      "name": "Enchant Shield: Greater Valor",
+      "title": "Greater Valor",
+      "group": "shield",
+      "family": "valor",
+      "tier": 3,
+      "rank": 0,
+      "level": 38,
+      "skill": 175,
+      "stats": {
+        "strength": 2,
+        "intellect": 2
+      },
+      "hybrid": true
+    },
+    "enchant_shield_major_valor": {
+      "name": "Enchant Shield: Major Valor",
+      "title": "Major Valor",
+      "group": "shield",
+      "family": "valor",
+      "tier": 5,
+      "rank": 1,
+      "level": 58,
+      "skill": 285,
+      "stats": {
+        "strength": 4,
+        "intellect": 4
+      },
+      "hybrid": true
+    },
+    "enchant_weapon_lesser_spirit": {
+      "name": "Enchant Weapon: Lesser Spirit",
+      "title": "Lesser Spirit",
+      "group": "weapon",
+      "family": "spi",
+      "tier": 1,
+      "rank": 0,
+      "level": 18,
+      "skill": 60,
+      "stats": {
+        "spirit": 5
+      },
+      "hybrid": false
+    },
+    "enchant_weapon_greater_spirit": {
+      "name": "Enchant Weapon: Greater Spirit",
+      "title": "Greater Spirit",
+      "group": "weapon",
+      "family": "spi",
+      "tier": 3,
+      "rank": 1,
+      "level": 38,
+      "skill": 170,
+      "stats": {
+        "spirit": 10
+      },
+      "hybrid": false
+    },
+    "enchant_weapon_major_spirit": {
+      "name": "Enchant Weapon: Major Spirit",
+      "title": "Major Spirit",
+      "group": "weapon",
+      "family": "spi",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "spirit": 15
+      },
+      "hybrid": false
+    },
+    "enchant_weapon_strength": {
+      "name": "Enchant Weapon: Strength",
+      "title": "Strength",
+      "group": "weapon",
+      "family": "str",
+      "tier": 2,
+      "rank": 0,
+      "level": 28,
+      "skill": 115,
+      "stats": {
+        "strength": 7
+      },
+      "hybrid": false
+    },
+    "enchant_weapon_superior_strength": {
+      "name": "Enchant Weapon: Superior Strength",
+      "title": "Superior Strength",
+      "group": "weapon",
+      "family": "str",
+      "tier": 4,
+      "rank": 1,
+      "level": 48,
+      "skill": 225,
+      "stats": {
+        "strength": 12
+      },
+      "hybrid": false
+    },
+    "enchant_weapon_major_strength": {
+      "name": "Enchant Weapon: Major Strength",
+      "title": "Major Strength",
+      "group": "weapon",
+      "family": "str",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "strength": 15
+      },
+      "hybrid": false
+    },
+    "enchant_weapon_agility": {
+      "name": "Enchant Weapon: Agility",
+      "title": "Agility",
+      "group": "weapon",
+      "family": "agi",
+      "tier": 2,
+      "rank": 0,
+      "level": 28,
+      "skill": 115,
+      "stats": {
+        "agility": 7
+      },
+      "hybrid": false
+    },
+    "enchant_weapon_superior_agility": {
+      "name": "Enchant Weapon: Superior Agility",
+      "title": "Superior Agility",
+      "group": "weapon",
+      "family": "agi",
+      "tier": 4,
+      "rank": 1,
+      "level": 48,
+      "skill": 225,
+      "stats": {
+        "agility": 12
+      },
+      "hybrid": false
+    },
+    "enchant_weapon_major_agility": {
+      "name": "Enchant Weapon: Major Agility",
+      "title": "Major Agility",
+      "group": "weapon",
+      "family": "agi",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "agility": 15
+      },
+      "hybrid": false
+    },
+    "enchant_weapon_intellect": {
+      "name": "Enchant Weapon: Intellect",
+      "title": "Intellect",
+      "group": "weapon",
+      "family": "int",
+      "tier": 2,
+      "rank": 0,
+      "level": 28,
+      "skill": 115,
+      "stats": {
+        "intellect": 7
+      },
+      "hybrid": false
+    },
+    "enchant_weapon_superior_intellect": {
+      "name": "Enchant Weapon: Superior Intellect",
+      "title": "Superior Intellect",
+      "group": "weapon",
+      "family": "int",
+      "tier": 4,
+      "rank": 1,
+      "level": 48,
+      "skill": 225,
+      "stats": {
+        "intellect": 12
+      },
+      "hybrid": false
+    },
+    "enchant_weapon_major_intellect": {
+      "name": "Enchant Weapon: Major Intellect",
+      "title": "Major Intellect",
+      "group": "weapon",
+      "family": "int",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "intellect": 15
+      },
+      "hybrid": false
+    },
+    "enchant_weapon_greater_spell_power": {
+      "name": "Enchant Weapon: Greater Spell Power",
+      "title": "Greater Spell Power",
+      "group": "weapon",
+      "family": "sp",
+      "tier": 3,
+      "rank": 0,
+      "level": 38,
+      "skill": 170,
+      "stats": {
+        "spell_power": 8
+      },
+      "hybrid": false
+    },
+    "enchant_weapon_major_spell_power": {
+      "name": "Enchant Weapon: Major Spell Power",
+      "title": "Major Spell Power",
+      "group": "weapon",
+      "family": "sp",
+      "tier": 5,
+      "rank": 1,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "spell_power": 12
+      },
+      "hybrid": false
+    },
+    "enchant_weapon_greater_healing": {
+      "name": "Enchant Weapon: Greater Healing",
+      "title": "Greater Healing",
+      "group": "weapon",
+      "family": "heal",
+      "tier": 3,
+      "rank": 0,
+      "level": 38,
+      "skill": 170,
+      "stats": {
+        "healing_power": 8
+      },
+      "hybrid": false
+    },
+    "enchant_weapon_major_healing": {
+      "name": "Enchant Weapon: Major Healing",
+      "title": "Major Healing",
+      "group": "weapon",
+      "family": "heal",
+      "tier": 5,
+      "rank": 1,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "healing_power": 12
+      },
+      "hybrid": false
+    },
+    "enchant_weapon_greater_valor": {
+      "name": "Enchant Weapon: Greater Valor",
+      "title": "Greater Valor",
+      "group": "weapon",
+      "family": "valor",
+      "tier": 3,
+      "rank": 0,
+      "level": 38,
+      "skill": 175,
+      "stats": {
+        "strength": 5,
+        "intellect": 5
+      },
+      "hybrid": true
+    },
+    "enchant_weapon_major_valor": {
+      "name": "Enchant Weapon: Major Valor",
+      "title": "Major Valor",
+      "group": "weapon",
+      "family": "valor",
+      "tier": 5,
+      "rank": 1,
+      "level": 58,
+      "skill": 285,
+      "stats": {
+        "strength": 7,
+        "intellect": 7
+      },
+      "hybrid": true
+    },
+    "enchant_weapon_greater_wildheart": {
+      "name": "Enchant Weapon: Greater Wildheart",
+      "title": "Greater Wildheart",
+      "group": "weapon",
+      "family": "wild",
+      "tier": 3,
+      "rank": 0,
+      "level": 38,
+      "skill": 175,
+      "stats": {
+        "agility": 5,
+        "intellect": 5
+      },
+      "hybrid": true
+    },
+    "enchant_weapon_major_wildheart": {
+      "name": "Enchant Weapon: Major Wildheart",
+      "title": "Major Wildheart",
+      "group": "weapon",
+      "family": "wild",
+      "tier": 5,
+      "rank": 1,
+      "level": 58,
+      "skill": 285,
+      "stats": {
+        "agility": 7,
+        "intellect": 7
+      },
+      "hybrid": true
+    },
+    "enchant_weapon_superior_battlemage": {
+      "name": "Enchant Weapon: Superior Battlemage",
+      "title": "Superior Battlemage",
+      "group": "weapon",
+      "family": "battlemage",
+      "tier": 4,
+      "rank": 0,
+      "level": 48,
+      "skill": 230,
+      "stats": {
+        "attack_power": 12,
+        "spell_power": 5
+      },
+      "hybrid": true
+    },
+    "enchant_weapon_major_battlemage": {
+      "name": "Enchant Weapon: Major Battlemage",
+      "title": "Major Battlemage",
+      "group": "weapon",
+      "family": "battlemage",
+      "tier": 5,
+      "rank": 1,
+      "level": 58,
+      "skill": 285,
+      "stats": {
+        "attack_power": 15,
+        "spell_power": 6
+      },
+      "hybrid": true
+    },
+    "enchant_weapon_superior_stormcaller": {
+      "name": "Enchant Weapon: Superior Stormcaller",
+      "title": "Superior Stormcaller",
+      "group": "weapon",
+      "family": "storm",
+      "tier": 4,
+      "rank": 0,
+      "level": 48,
+      "skill": 230,
+      "stats": {
+        "agility": 6,
+        "spell_power": 5
+      },
+      "hybrid": true
+    },
+    "enchant_weapon_major_stormcaller": {
+      "name": "Enchant Weapon: Major Stormcaller",
+      "title": "Major Stormcaller",
+      "group": "weapon",
+      "family": "storm",
+      "tier": 5,
+      "rank": 1,
+      "level": 58,
+      "skill": 285,
+      "stats": {
+        "agility": 7,
+        "spell_power": 6
+      },
+      "hybrid": true
+    },
+    "enchant_2h_lesser_intellect": {
+      "name": "Enchant 2H Weapon: Lesser Intellect",
+      "title": "Lesser Intellect",
+      "group": "2h",
+      "family": "int",
+      "tier": 1,
+      "rank": 0,
+      "level": 18,
+      "skill": 60,
+      "stats": {
+        "intellect": 7
+      },
+      "hybrid": false
+    },
+    "enchant_2h_greater_intellect": {
+      "name": "Enchant 2H Weapon: Greater Intellect",
+      "title": "Greater Intellect",
+      "group": "2h",
+      "family": "int",
+      "tier": 3,
+      "rank": 1,
+      "level": 38,
+      "skill": 170,
+      "stats": {
+        "intellect": 15
+      },
+      "hybrid": false
+    },
+    "enchant_2h_major_intellect": {
+      "name": "Enchant 2H Weapon: Major Intellect",
+      "title": "Major Intellect",
+      "group": "2h",
+      "family": "int",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "intellect": 23
+      },
+      "hybrid": false
+    },
+    "enchant_2h_lesser_spirit": {
+      "name": "Enchant 2H Weapon: Lesser Spirit",
+      "title": "Lesser Spirit",
+      "group": "2h",
+      "family": "spi",
+      "tier": 1,
+      "rank": 0,
+      "level": 18,
+      "skill": 60,
+      "stats": {
+        "spirit": 7
+      },
+      "hybrid": false
+    },
+    "enchant_2h_greater_spirit": {
+      "name": "Enchant 2H Weapon: Greater Spirit",
+      "title": "Greater Spirit",
+      "group": "2h",
+      "family": "spi",
+      "tier": 3,
+      "rank": 1,
+      "level": 38,
+      "skill": 170,
+      "stats": {
+        "spirit": 15
+      },
+      "hybrid": false
+    },
+    "enchant_2h_major_spirit": {
+      "name": "Enchant 2H Weapon: Major Spirit",
+      "title": "Major Spirit",
+      "group": "2h",
+      "family": "spi",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "spirit": 23
+      },
+      "hybrid": false
+    },
+    "enchant_2h_strength": {
+      "name": "Enchant 2H Weapon: Strength",
+      "title": "Strength",
+      "group": "2h",
+      "family": "str",
+      "tier": 2,
+      "rank": 0,
+      "level": 28,
+      "skill": 115,
+      "stats": {
+        "strength": 11
+      },
+      "hybrid": false
+    },
+    "enchant_2h_superior_strength": {
+      "name": "Enchant 2H Weapon: Superior Strength",
+      "title": "Superior Strength",
+      "group": "2h",
+      "family": "str",
+      "tier": 4,
+      "rank": 1,
+      "level": 48,
+      "skill": 225,
+      "stats": {
+        "strength": 19
+      },
+      "hybrid": false
+    },
+    "enchant_2h_major_strength": {
+      "name": "Enchant 2H Weapon: Major Strength",
+      "title": "Major Strength",
+      "group": "2h",
+      "family": "str",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "strength": 23
+      },
+      "hybrid": false
+    },
+    "enchant_2h_agility": {
+      "name": "Enchant 2H Weapon: Agility",
+      "title": "Agility",
+      "group": "2h",
+      "family": "agi",
+      "tier": 2,
+      "rank": 0,
+      "level": 28,
+      "skill": 115,
+      "stats": {
+        "agility": 11
+      },
+      "hybrid": false
+    },
+    "enchant_2h_superior_agility": {
+      "name": "Enchant 2H Weapon: Superior Agility",
+      "title": "Superior Agility",
+      "group": "2h",
+      "family": "agi",
+      "tier": 4,
+      "rank": 1,
+      "level": 48,
+      "skill": 225,
+      "stats": {
+        "agility": 19
+      },
+      "hybrid": false
+    },
+    "enchant_2h_major_agility": {
+      "name": "Enchant 2H Weapon: Major Agility",
+      "title": "Major Agility",
+      "group": "2h",
+      "family": "agi",
+      "tier": 5,
+      "rank": 2,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "agility": 23
+      },
+      "hybrid": false
+    },
+    "enchant_2h_superior_spell_power": {
+      "name": "Enchant 2H Weapon: Superior Spell Power",
+      "title": "Superior Spell Power",
+      "group": "2h",
+      "family": "sp",
+      "tier": 4,
+      "rank": 0,
+      "level": 48,
+      "skill": 225,
+      "stats": {
+        "spell_power": 15
+      },
+      "hybrid": false
+    },
+    "enchant_2h_major_spell_power": {
+      "name": "Enchant 2H Weapon: Major Spell Power",
+      "title": "Major Spell Power",
+      "group": "2h",
+      "family": "sp",
+      "tier": 5,
+      "rank": 1,
+      "level": 58,
+      "skill": 280,
+      "stats": {
+        "spell_power": 18
+      },
+      "hybrid": false
+    },
+    "enchant_2h_greater_valor": {
+      "name": "Enchant 2H Weapon: Greater Valor",
+      "title": "Greater Valor",
+      "group": "2h",
+      "family": "valor",
+      "tier": 3,
+      "rank": 0,
+      "level": 38,
+      "skill": 175,
+      "stats": {
+        "strength": 8,
+        "intellect": 8
+      },
+      "hybrid": true
+    },
+    "enchant_2h_major_valor": {
+      "name": "Enchant 2H Weapon: Major Valor",
+      "title": "Major Valor",
+      "group": "2h",
+      "family": "valor",
+      "tier": 5,
+      "rank": 1,
+      "level": 58,
+      "skill": 285,
+      "stats": {
+        "strength": 12,
+        "intellect": 12
+      },
+      "hybrid": true
+    },
+    "enchant_2h_superior_wildheart": {
+      "name": "Enchant 2H Weapon: Superior Wildheart",
+      "title": "Superior Wildheart",
+      "group": "2h",
+      "family": "wild",
+      "tier": 4,
+      "rank": 0,
+      "level": 48,
+      "skill": 230,
+      "stats": {
+        "agility": 10,
+        "intellect": 10
+      },
+      "hybrid": true
+    },
+    "enchant_2h_major_wildheart": {
+      "name": "Enchant 2H Weapon: Major Wildheart",
+      "title": "Major Wildheart",
+      "group": "2h",
+      "family": "wild",
+      "tier": 5,
+      "rank": 1,
+      "level": 58,
+      "skill": 285,
+      "stats": {
+        "agility": 12,
+        "intellect": 12
+      },
+      "hybrid": true
+    },
+    "enchant_weapon_fiery": {
+      "name": "Enchant Weapon: Fiery Weapon",
+      "title": "Fiery Weapon",
+      "group": "weapon",
+      "family": "fiery",
+      "tier": 3,
+      "rank": 0,
+      "level": 38,
+      "skill": 190,
+      "stats": {},
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 15,
+        "icd": 0,
+        "damage_flat": 40,
+        "school": "fire",
+        "describe": "Your attacks have a chance to burn the target for 40 fire damage."
+      },
+      "hybrid": false
+    },
+    "enchant_weapon_bladesong": {
+      "name": "Enchant Weapon: Bladesong",
+      "title": "Bladesong",
+      "group": "weapon",
+      "family": "bladesong",
+      "tier": 4,
+      "rank": 0,
+      "level": 48,
+      "skill": 220,
+      "stats": {},
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 15,
+        "icd": 3,
+        "apply_effect": {
+          "effect_id": "ench_bladesong",
+          "name": "Bladesong",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "spell_power": 30
+          },
+          "on_target": false
+        },
+        "describe": "Your attacks have a chance to grant 30 spell power for 3 turns."
+      },
+      "hybrid": true
+    },
+    "enchant_weapon_spellblade": {
+      "name": "Enchant Weapon: Spellblade",
+      "title": "Spellblade",
+      "group": "weapon",
+      "family": "spellblade",
+      "tier": 4,
+      "rank": 0,
+      "level": 48,
+      "skill": 230,
+      "stats": {},
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 15,
+        "icd": 3,
+        "apply_effect": {
+          "effect_id": "ench_spellblade",
+          "name": "Spellblade",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "attack_power": 60
+          },
+          "on_target": false
+        },
+        "describe": "Your damaging spells have a chance to grant 60 attack power for 3 turns."
+      },
+      "hybrid": true
+    },
+    "enchant_weapon_lifestealing": {
+      "name": "Enchant Weapon: Lifestealing",
+      "title": "Lifestealing",
+      "group": "weapon",
+      "family": "lifestealing",
+      "tier": 4,
+      "rank": 0,
+      "level": 48,
+      "skill": 235,
+      "stats": {},
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 12,
+        "icd": 0,
+        "damage_flat": 30,
+        "school": "shadow",
+        "heal_flat": 30,
+        "describe": "Your attacks have a chance to steal 30 health from the target."
+      },
+      "hybrid": false
+    },
+    "enchant_weapon_spellsurge": {
+      "name": "Enchant Weapon: Spellsurge",
+      "title": "Spellsurge",
+      "group": "weapon",
+      "family": "spellsurge",
+      "tier": 4,
+      "rank": 0,
+      "level": 48,
+      "skill": 240,
+      "stats": {},
+      "proc": {
+        "trigger": "on_cast",
+        "chance": 10,
+        "icd": 3,
+        "grant_resource": {
+          "resource": "mana",
+          "amount": 60
+        },
+        "describe": "Your spells have a chance to give you back 60 mana."
+      },
+      "hybrid": false
+    },
+    "enchant_weapon_battlemaster": {
+      "name": "Enchant Weapon: Battlemaster",
+      "title": "Battlemaster",
+      "group": "weapon",
+      "family": "battlemaster",
+      "tier": 5,
+      "rank": 0,
+      "level": 58,
+      "skill": 275,
+      "stats": {},
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 10,
+        "icd": 2,
+        "heal_flat": 60,
+        "describe": "Your attacks have a chance to heal you for 60."
+      },
+      "hybrid": false
+    },
+    "enchant_weapon_crusader": {
+      "name": "Enchant Weapon: Crusader",
+      "title": "Crusader",
+      "group": "weapon",
+      "family": "crusader",
+      "tier": 5,
+      "rank": 0,
+      "level": 58,
+      "skill": 290,
+      "stats": {},
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 12,
+        "icd": 2,
+        "heal_flat": 40,
+        "apply_effect": {
+          "effect_id": "ench_crusader",
+          "name": "Holy Strength",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "strength": 60
+          },
+          "on_target": false
+        },
+        "describe": "Your attacks have a chance to heal you for 40 and grant 60 Strength for 3 turns."
+      },
+      "hybrid": false
+    }
+  },
+  "disenchant": [
+    {
+      "max_level": 10,
+      "dust": "strange_dust",
+      "dust_count": [
+        1,
+        2
+      ],
+      "essence": "lesser_magic_essence",
+      "essence_count": [
+        1,
+        1
+      ],
+      "shard": "small_glimmering_shard",
+      "skill": 1
+    },
+    {
+      "max_level": 15,
+      "dust": "strange_dust",
+      "dust_count": [
+        2,
+        3
+      ],
+      "essence": "greater_magic_essence",
+      "essence_count": [
+        1,
+        1
+      ],
+      "shard": "small_glimmering_shard",
+      "skill": 1
+    },
+    {
+      "max_level": 20,
+      "dust": "strange_dust",
+      "dust_count": [
+        2,
+        3
+      ],
+      "essence": "greater_magic_essence",
+      "essence_count": [
+        1,
+        2
+      ],
+      "shard": "small_glimmering_shard",
+      "skill": 1
+    },
+    {
+      "max_level": 25,
+      "dust": "strange_dust",
+      "dust_count": [
+        4,
+        6
+      ],
+      "essence": "lesser_astral_essence",
+      "essence_count": [
+        1,
+        2
+      ],
+      "shard": "small_glimmering_shard",
+      "skill": 25
+    },
+    {
+      "max_level": 30,
+      "dust": "soul_dust",
+      "dust_count": [
+        1,
+        2
+      ],
+      "essence": "greater_astral_essence",
+      "essence_count": [
+        1,
+        2
+      ],
+      "shard": "large_glimmering_shard",
+      "skill": 50
+    },
+    {
+      "max_level": 35,
+      "dust": "soul_dust",
+      "dust_count": [
+        2,
+        5
+      ],
+      "essence": "lesser_mystic_essence",
+      "essence_count": [
+        1,
+        2
+      ],
+      "shard": "small_glowing_shard",
+      "skill": 75
+    },
+    {
+      "max_level": 40,
+      "dust": "vision_dust",
+      "dust_count": [
+        1,
+        2
+      ],
+      "essence": "greater_mystic_essence",
+      "essence_count": [
+        1,
+        2
+      ],
+      "shard": "large_glowing_shard",
+      "skill": 100
+    },
+    {
+      "max_level": 45,
+      "dust": "vision_dust",
+      "dust_count": [
+        2,
+        5
+      ],
+      "essence": "lesser_nether_essence",
+      "essence_count": [
+        1,
+        2
+      ],
+      "shard": "small_radiant_shard",
+      "skill": 125
+    },
+    {
+      "max_level": 50,
+      "dust": "dream_dust",
+      "dust_count": [
+        1,
+        2
+      ],
+      "essence": "greater_nether_essence",
+      "essence_count": [
+        1,
+        2
+      ],
+      "shard": "large_radiant_shard",
+      "skill": 150
+    },
+    {
+      "max_level": 55,
+      "dust": "dream_dust",
+      "dust_count": [
+        2,
+        5
+      ],
+      "essence": "lesser_eternal_essence",
+      "essence_count": [
+        1,
+        2
+      ],
+      "shard": "small_brilliant_shard",
+      "skill": 175
+    },
+    {
+      "max_level": 60,
+      "dust": "illusion_dust",
+      "dust_count": [
+        1,
+        2
+      ],
+      "essence": "greater_eternal_essence",
+      "essence_count": [
+        1,
+        2
+      ],
+      "shard": "large_brilliant_shard",
+      "skill": 200
+    },
+    {
+      "max_level": 999,
+      "dust": "illusion_dust",
+      "dust_count": [
+        2,
+        5
+      ],
+      "essence": "greater_eternal_essence",
+      "essence_count": [
+        2,
+        3
+      ],
+      "shard": "large_brilliant_shard",
+      "skill": 225
+    }
+  ],
+  "rods": [
+    "runed_copper_rod",
+    "runed_silver_rod",
+    "runed_golden_rod",
+    "runed_truesilver_rod",
+    "runed_arcanite_rod"
+  ]
+}

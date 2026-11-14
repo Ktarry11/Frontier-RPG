@@ -61,6 +61,7 @@ BUILDINGS = [
 FORGE = (32, 58)      # the working anvil, beside the smithy (forges.json)
 
 NPC_POSITIONS = {
+    "oh_enchanter": (23, 68),          # enchanter (tools/build_enchanters.py, 14 Nov 2026)
     "oh_gem_trader": (21, 68),          # gem seller (tools/build_gem_sellers.py)
     # the hall
     "oh_thane": (50, 27),

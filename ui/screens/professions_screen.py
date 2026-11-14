@@ -21,7 +21,7 @@ import pygame
 from config import SCREEN_WIDTH, SCREEN_HEIGHT, COLOR_WHITE, COLOR_GOLD, COLOR_LIGHT_GRAY
 from core.game_states import GameState
 from ui.screens.base_screen import BaseScreen
-from ui.sprite_loader import get_tile_sprite
+from ui.sprite_loader import get_tile_sprite, get_icon_sprite
 from world.gathering_manager import TIER_SKILL_CAPS, MATERIAL_TYPE_FOLDERS, get_gathering_node_manager
 from world.smelting_manager import get_smelting_manager
 from world.blacksmithing_manager import get_blacksmithing_manager
@@ -62,6 +62,7 @@ CRAFT_TABS = {
     "engineering": ("engineering", "Engineering", None),
     "cooking": ("cooking", "Cooking", None),
     "jewelcrafting": ("jewelcrafting", "Jewelcrafting", None),
+    "enchanting": ("enchanting", "Enchanting", None),
 }
 
 PANEL_X = 20
@@ -354,7 +355,7 @@ class ProfessionsScreen(BaseScreen):
         if player.knows_profession("woodcutting") or self.active_tab == "sawmill":
             tabs.append(("sawmill", "Sawmill"))
         for key in ("blacksmithing", "leatherworking", "alchemy", "tailoring", "woodworking", "engineering", "cooking",
-                    "jewelcrafting"):
+                    "jewelcrafting", "enchanting"):
             if player.knows_profession(key):
                 tabs.append((key, CRAFT_TABS[key][1]))
         tabs.append(("upgrade", "Upgrade"))
@@ -467,7 +468,7 @@ class ProfessionsScreen(BaseScreen):
             icon_drawn = False
             if mat_def and mat_def.get("icon_id"):
                 folder = MATERIAL_TYPE_FOLDERS.get(mat_def["material_type"], mat_def["material_type"])
-                sprite = get_tile_sprite(f"assets/gathering_nodes/{folder}/{mat_def['icon_id']}.png", (0, 0, 32, 32), 40)
+                sprite = get_icon_sprite(f"assets/gathering_nodes/{folder}/{mat_def['icon_id']}.png", 40)
                 if sprite is not None:
                     screen.blit(sprite, (rect.x + 8, rect.y + 8))
                     icon_drawn = True
@@ -531,7 +532,7 @@ class ProfessionsScreen(BaseScreen):
         if not mat_def or not mat_def.get("icon_id"):
             return None
         folder = MATERIAL_TYPE_FOLDERS.get(mat_def["material_type"], mat_def["material_type"])
-        return get_tile_sprite(f"assets/gathering_nodes/{folder}/{mat_def['icon_id']}.png", (0, 0, 32, 32), 40)
+        return get_icon_sprite(f"assets/gathering_nodes/{folder}/{mat_def['icon_id']}.png", 40)
 
     @staticmethod
     def _difficulty_color(skill, recipe):
@@ -578,6 +579,15 @@ class ProfessionsScreen(BaseScreen):
             self.renderer.draw_text(screen, "You need a Jeweler's Kit in your bags. Smiths in towns with a forge sell them.",
                                     (PANEL_X, y), color=(220, 160, 120))
             y += 30
+        if profession == "enchanting":
+            from world.enchanting import rods as _rods
+            if not any(player.get_material_quantity(r) for r in _rods()):
+                self.renderer.draw_text(screen, "Formulas need a runed rod in your bags. Enchanters sell them and blacksmiths make them.",
+                                        (PANEL_X, y), color=(220, 160, 120))
+            else:
+                self.renderer.draw_text(screen, "Disenchant gear and read your scrolls onto it with the Enchant button in your bags.",
+                                        (PANEL_X, y), color=(170, 170, 180))
+            y += 30
 
         recipes = self._craft_recipes(profession)
         row_h = 52
@@ -616,6 +626,12 @@ class ProfessionsScreen(BaseScreen):
                 if g:
                     from world.jewelcrafting import stat_text
                     effect = f"{g['color'].capitalize()}: {stat_text(g['stats'])}"
+                from world.enchanting import enchant as _enchant, label as _elabel
+                if _enchant(out.get("material_id")):
+                    e = _enchant(out["material_id"])
+                    effect = self.renderer.truncate(
+                        e["proc"]["describe"] if e.get("proc") else _elabel(out["material_id"]),
+                        rect.right - 140 - (rect.x + 410), size="small")
             elif out.get("kind") == "prospect":
                 effect = "A stone or two from this ore"
             elif out.get("kind") == "fixed":
@@ -627,13 +643,22 @@ class ProfessionsScreen(BaseScreen):
                 screen.blit(sprite, (rect.x + 6, rect.y + 2))
             text_x = rect.x + (54 if sprite is not None else 12)
             if effect:
-                self.renderer.draw_text(screen, effect, (rect.x + 330, rect.y + 6), size="small",
+                # enchanting's names run long ("Enchant 2H Weapon: Superior Spell Power"), so its
+                # effect column starts further right
+                effect_x = rect.x + (410 if profession == "enchanting" else 330)
+                self.renderer.draw_text(screen, effect, (effect_x, rect.y + 6), size="small",
                                         color=(140, 220, 160) if unlocked else (90, 120, 100))
 
             parts = []
             for input_id, qty in recipe["inputs"].items():
                 mat_def = self.gathering_manager.get_material_def(input_id)
                 parts.append(f"{mat_def['name'] if mat_def else input_id} {player.get_material_quantity(input_id)}/{qty}")
+            tools = recipe.get("tool")
+            if isinstance(tools, list) and tools:
+                # a runed rod of this tier or better, needed in the bags and never used up
+                have = any(player.get_material_quantity(t) for t in tools)
+                tdef = self.gathering_manager.get_material_def(tools[0]) or {}
+                parts.append(f"{tdef.get('name', tools[0])}{'+' if len(tools) > 1 else ''} ({'have' if have else 'needed'})")
             self.renderer.draw_text(screen, name, (text_x, rect.y + 4), color=COLOR_WHITE if unlocked else (120, 120, 125))
             self.renderer.draw_text(screen, "   ".join(parts), (text_x, rect.y + 25), size="small", color=COLOR_LIGHT_GRAY if unlocked else (100, 100, 105))
             if unlocked:

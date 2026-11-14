@@ -130,7 +130,9 @@ class Consumable:
             # values, no level scaling (Kyle's call - see stat_bonuses docstring).
             character.apply_consumable_buff(self.buff_category, self)
             bonus_str = bonus_text(self.stat_bonuses)
-            log_msg = f"Drank {self.name}: {bonus_str}"
+            # weapon oils (Enchanting) share the elixir path with their own slot, "oil"
+            verb = "Rubbed on" if self.buff_category == "oil" else "Drank"
+            log_msg = f"{verb} {self.name}: {bonus_str}"
         
         elif self.consumable_type == "food":
             # Food buffs go in the food slot - same flat-value treatment as elixirs.

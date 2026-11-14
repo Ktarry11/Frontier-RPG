@@ -43,6 +43,7 @@ def _load_all_recipes() -> dict:
         "blacksmithing": repo / "data/blacksmithing/recipes.json",
         "leatherworking": repo / "data/leatherworking/recipes.json",
         "jewelcrafting": repo / "data/jewelcrafting/recipes.json",
+        "enchanting": repo / "data/enchanting/recipes.json",
     }
     for prof, path in flat_files.items():
         if path.exists():
@@ -171,6 +172,8 @@ def _profession_prefix(profession: str) -> str:
         "woodworking": "Schematic",
         "cooking": "Recipe",
         "engineering": "Schematic",
+        "jewelcrafting": "Design",
+        "enchanting": "Formula",
     }.get(profession, "Recipe")
 
 

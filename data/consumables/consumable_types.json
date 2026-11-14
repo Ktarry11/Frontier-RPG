@@ -4188,5 +4188,192 @@
       "vendor_price": 50000,
       "sell_price": 12500
     }
+  ],
+  "weapon_oils": [
+    {
+      "consumable_id": "minor_wizard_oil",
+      "name": "Minor Wizard Oil",
+      "consumable_type": "elixir",
+      "description": "Rub it on your weapon: +3 Spell Power for 30 minutes. One weapon oil at a time.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 5,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 60,
+      "buff_category": "oil",
+      "stat_bonuses": {
+        "spell_power": 3
+      }
+    },
+    {
+      "consumable_id": "lesser_wizard_oil",
+      "name": "Lesser Wizard Oil",
+      "consumable_type": "elixir",
+      "description": "Rub it on your weapon: +7 Spell Power for 30 minutes. One weapon oil at a time.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 20,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 150,
+      "buff_category": "oil",
+      "stat_bonuses": {
+        "spell_power": 7
+      }
+    },
+    {
+      "consumable_id": "wizard_oil",
+      "name": "Wizard Oil",
+      "consumable_type": "elixir",
+      "description": "Rub it on your weapon: +12 Spell Power for 30 minutes. One weapon oil at a time.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 35,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 240,
+      "buff_category": "oil",
+      "stat_bonuses": {
+        "spell_power": 12
+      }
+    },
+    {
+      "consumable_id": "brilliant_wizard_oil",
+      "name": "Brilliant Wizard Oil",
+      "consumable_type": "elixir",
+      "description": "Rub it on your weapon: +13 Spell Power, +1 Spell Crit for 30 minutes. One weapon oil at a time.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 50,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 330,
+      "buff_category": "oil",
+      "stat_bonuses": {
+        "spell_power": 13,
+        "crit_chance_spell": 1
+      }
+    },
+    {
+      "consumable_id": "minor_mana_oil",
+      "name": "Minor Mana Oil",
+      "consumable_type": "elixir",
+      "description": "Rub it on your weapon: +3 Mana per 5 for 30 minutes. One weapon oil at a time.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 15,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 120,
+      "buff_category": "oil",
+      "stat_bonuses": {
+        "mp5": 3
+      }
+    },
+    {
+      "consumable_id": "lesser_mana_oil",
+      "name": "Lesser Mana Oil",
+      "consumable_type": "elixir",
+      "description": "Rub it on your weapon: +6 Mana per 5 for 30 minutes. One weapon oil at a time.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 33,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 228,
+      "buff_category": "oil",
+      "stat_bonuses": {
+        "mp5": 6
+      }
+    },
+    {
+      "consumable_id": "brilliant_mana_oil",
+      "name": "Brilliant Mana Oil",
+      "consumable_type": "elixir",
+      "description": "Rub it on your weapon: +5 Mana per 5, +7 Healing for 30 minutes. One weapon oil at a time.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 50,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 330,
+      "buff_category": "oil",
+      "stat_bonuses": {
+        "mp5": 5,
+        "healing_power": 7
+      }
+    },
+    {
+      "consumable_id": "battlemage_oil",
+      "name": "Battlemage's Oil",
+      "consumable_type": "elixir",
+      "description": "Rub it on your weapon: +12 Attack Power, +5 Spell Power for 30 minutes. One weapon oil at a time.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 27,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 192,
+      "buff_category": "oil",
+      "stat_bonuses": {
+        "attack_power": 12,
+        "spell_power": 5
+      }
+    },
+    {
+      "consumable_id": "superior_battlemage_oil",
+      "name": "Superior Battlemage's Oil",
+      "consumable_type": "elixir",
+      "description": "Rub it on your weapon: +19 Attack Power, +8 Spell Power for 30 minutes. One weapon oil at a time.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 47,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 312,
+      "buff_category": "oil",
+      "stat_bonuses": {
+        "attack_power": 19,
+        "spell_power": 8
+      }
+    },
+    {
+      "consumable_id": "oil_of_devotion",
+      "name": "Oil of Devotion",
+      "consumable_type": "elixir",
+      "description": "Rub it on your weapon: +8 Strength, +7 Healing for 30 minutes. One weapon oil at a time.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 40,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 270,
+      "buff_category": "oil",
+      "stat_bonuses": {
+        "strength": 8,
+        "healing_power": 7
+      }
+    }
   ]
 }

@@ -34,6 +34,12 @@ treats crush injuries, because that is what a working dock does to people.
 """
 
 STEAMWHEEDLE_VENDORS = {
+    # enchanter (tools/build_enchanters.py, 14 Nov 2026)
+    "stw_enchanter": (
+        "Enchanter Zizzle Sparkwick", "goblin", "male", 7,
+        ["runed_copper_rod", "runed_silver_rod", "runed_golden_rod", "vial_leaded"],
+        False,
+        "I teach enchanting, and I sell the rods for it. The good rods cost a fortune, and that's because the bars cost a fortune. Get a blacksmith to make you one if you know a blacksmith.\n\nBring me your green gear before you sell it. You'll get more out of it as dust."),
     # gem seller (tools/build_gem_sellers.py, 14 Nov 2026)
     "stw_gem_trader": (
         "Gem-Trader Pixi Quartzwhistle", "goblin", "female", 5,

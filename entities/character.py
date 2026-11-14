@@ -67,6 +67,28 @@ STAT_CONVERSION_SOURCES = frozenset({
 })
 
 
+def _buff_to_data(buff):
+    """A consumable buff slot, (Consumable, seconds left), as something json can write."""
+    if not buff:
+        return None
+    cons, secs = buff[0], (buff[1] if len(buff) > 1 else 0)
+    if hasattr(cons, "to_dict"):
+        cons = cons.to_dict()
+    return {"consumable": cons, "seconds": secs}
+
+
+def _buff_from_data(data):
+    """The other way. Takes the dict written above, or None; anything else (an old save that never
+    managed to write a buff) comes back empty rather than as a half-built buff."""
+    if not isinstance(data, dict) or not isinstance(data.get("consumable"), dict):
+        return None
+    try:
+        from entities.consumable import Consumable
+        return (Consumable.from_dict(data["consumable"]), float(data.get("seconds") or 0))
+    except Exception:
+        return None
+
+
 def _main_hand_average_damage(equipment):
     """Average damage of the equipped main hand, or 0 while unarmed.
 
@@ -362,6 +384,7 @@ class Character(StatusEffectMixin):
         self.battle_buff = None    # (consumable, remaining_duration)
         self.food_buff = None      # (consumable, remaining_duration)
         self.ammo_buff = None      # (consumable, remaining_duration) - crafted arrows/bolts (Woodworking)
+        self.oil_buff = None       # (consumable, remaining_duration) - weapon oils (Enchanting)
         #: Seconds of Beast Lure left. While anyone in the party has it, beasts turn up half
         #: again as often (world/creature_manager.BEAST_LURE_BOOST) - the skinner's consumable.
         self.beast_lure_seconds = 0.0
@@ -2160,7 +2183,15 @@ class Character(StatusEffectMixin):
         for slot, item in slots.items():
             proc = getattr(item, "proc", None) if item is not None else None
             if proc:
-                wanted[f"{ITEM_PROC_PREFIX}{slot}"] = (item, proc)
+                wanted[f"{ITEM_PROC_PREFIX}{slot}"] = (item.name, proc)
+            # A PROC ENCHANTMENT (Crusader, Fiery Weapon... world/enchanting.py) rides beside the
+            # item's own proc under its own key, so a weapon can carry both and each keeps its
+            # own internal cooldown.
+            if item is not None and getattr(item, "enchant_id", None):
+                from world.enchanting import enchant as _enchant
+                _e = _enchant(item.enchant_id)
+                if _e and _e.get("proc"):
+                    wanted[f"{ITEM_PROC_PREFIX}{slot}_enchant"] = (_e["title"], _e["proc"])
 
         effects = self._effects()
         current = {e.effect_id: e for e in effects
@@ -2169,19 +2200,19 @@ class Character(StatusEffectMixin):
         stale = [eid for eid, e in current.items()
                  if eid not in wanted
                  or getattr(e, "proc", None) != wanted[eid][1]
-                 or getattr(e, "name", None) != wanted[eid][0].name]
+                 or getattr(e, "name", None) != wanted[eid][0]]
         if stale:
             self.active_effects = [e for e in effects if e.effect_id not in stale]
             for eid in stale:
                 current.pop(eid, None)
 
-        for eid, (item, proc) in wanted.items():
+        for eid, (name, proc) in wanted.items():
             if eid in current:
                 continue
             self.active_effects.append(StatusEffect(
-                effect_id=eid, name=item.name,
+                effect_id=eid, name=name,
                 effect_type=EffectType.BUFF, duration=999999,
-                stat_mods={}, source_name=item.name,
+                stat_mods={}, source_name=name,
                 real_time_seconds=None,
                 proc=dict(proc),
             ))
@@ -4013,10 +4044,14 @@ class Character(StatusEffectMixin):
             "current_form": self.current_form,
             "guardian_stance_active": bool(self.guardian_stance_active),
             "consumable_cooldown": self.consumable_cooldown,
-            "guardian_buff": self.guardian_buff,
-            "battle_buff": self.battle_buff,
-            "food_buff": self.food_buff,
-            "ammo_buff": self.ammo_buff,
+            # A buff slot holds (Consumable, seconds left). Written as plain data: the Consumable
+            # object itself made json.dump raise half way through writing the save file, so
+            # saving with any elixir, food, ammo or oil running left a cut-off save behind.
+            "guardian_buff": _buff_to_data(self.guardian_buff),
+            "battle_buff": _buff_to_data(self.battle_buff),
+            "food_buff": _buff_to_data(self.food_buff),
+            "ammo_buff": _buff_to_data(self.ammo_buff),
+            "oil_buff": _buff_to_data(getattr(self, "oil_buff", None)),
             "beast_lure_seconds": self.beast_lure_seconds,
             "beast_lure_pct": self.beast_lure_pct,
             "class_base_stats": self.class_base_stats,
@@ -4143,10 +4178,11 @@ class Character(StatusEffectMixin):
         else:
             char._migrate_known_recipes()
         char.consumable_cooldown = data.get("consumable_cooldown", 0.0)
-        char.guardian_buff = data.get("guardian_buff")
-        char.battle_buff = data.get("battle_buff")
-        char.food_buff = data.get("food_buff")
-        char.ammo_buff = data.get("ammo_buff")
+        char.guardian_buff = _buff_from_data(data.get("guardian_buff"))
+        char.battle_buff = _buff_from_data(data.get("battle_buff"))
+        char.food_buff = _buff_from_data(data.get("food_buff"))
+        char.ammo_buff = _buff_from_data(data.get("ammo_buff"))
+        char.oil_buff = _buff_from_data(data.get("oil_buff"))
         char.beast_lure_seconds = float(data.get("beast_lure_seconds", 0) or 0)
         char.beast_lure_pct = int(data.get("beast_lure_pct", 50 if char.beast_lure_seconds else 0) or 0)
 
@@ -4669,6 +4705,9 @@ class Character(StatusEffectMixin):
             self.food_buff = buff_tuple
         elif buff_category == "ammo":
             self.ammo_buff = buff_tuple
+        elif buff_category == "oil":
+            # a weapon oil (Enchanting): a new one wipes the old one off the blade
+            self.oil_buff = buff_tuple
     
     def get_active_buff_stats(self):
         """
@@ -4683,7 +4722,8 @@ class Character(StatusEffectMixin):
         """
         buff_stats = {}
 
-        for buff in (self.guardian_buff, self.battle_buff, self.food_buff, self.ammo_buff):
+        for buff in (self.guardian_buff, self.battle_buff, self.food_buff, self.ammo_buff,
+                     getattr(self, "oil_buff", None)):
             if buff is None:
                 continue
             consumable, _ = buff
@@ -4733,3 +4773,8 @@ class Character(StatusEffectMixin):
                 self.ammo_buff = None
             else:
                 self.ammo_buff = (consumable, new_duration)
+
+        if getattr(self, "oil_buff", None) is not None:
+            consumable, duration = self.oil_buff
+            new_duration = duration - dt
+            self.oil_buff = None if new_duration <= 0 else (consumable, new_duration)

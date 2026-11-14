@@ -32,6 +32,12 @@ of it comes out.
 """
 
 ONYXHOLLOW_VENDORS = {
+    # enchanter (tools/build_enchanters.py, 14 Nov 2026)
+    "oh_enchanter": (
+        "Enchanter Halvard Runeglow", "dwarf", "male", 5,
+        ["runed_copper_rod", "runed_silver_rod", "runed_golden_rod", "runed_truesilver_rod", "vial_crystal"],
+        False,
+        "Garrun's people make the rods and I put the runes in them. Then I sell them back at a price that annoys him.\n\nIf you want to learn enchanting, I'll teach you. It starts with breaking good gear into dust, and nobody enjoys that part."),
     # gem seller (tools/build_gem_sellers.py, 14 Nov 2026)
     "oh_gem_trader": (
         "Gem-Trader Brynja Facetstone", "dwarf", "female", 2,

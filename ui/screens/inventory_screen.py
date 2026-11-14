@@ -142,6 +142,8 @@ class InventoryScreen(BaseScreen):
         self.consumables_tab_button = pygame.Rect(SCREEN_WIDTH - 310, 20, 140, 36)
         # Socket gems into gear (ui/screens/socket_screen.py, world/jewelcrafting.py)
         self.sockets_button = pygame.Rect(SCREEN_WIDTH - 670, 20, 100, 36)
+        # Enchant gear and disenchant it (ui/screens/enchant_screen.py, world/enchanting.py)
+        self.enchant_button = pygame.Rect(SCREEN_WIDTH - 780, 20, 100, 36)
         self.materials_rects = []  # list of pygame.Rect, index-aligned to subject.materials
         # CONSUMABLES HAD NO HOME IN THE BAG AT ALL. Kyle, 2026-10-31: "i have
         # tough jerky (food) in my inventory but there is no way to use it. I
@@ -444,6 +446,13 @@ class InventoryScreen(BaseScreen):
                     self.state_manager.transition_to(GameState.SOCKETING)
                 return
 
+            if self.enchant_button.collidepoint(mouse_pos):
+                screen_ = self.state_manager.states.get(GameState.ENCHANTING)
+                if screen_ is not None:
+                    screen_.start("enchant", return_state=GameState.INVENTORY)
+                    self.state_manager.transition_to(GameState.ENCHANTING)
+                return
+
             # Tab toggle - checked before any gear/bag click handling
             # below, and returns immediately either way so a tab click
             # never also falls through and hits a gear slot underneath it.
@@ -644,7 +653,8 @@ class InventoryScreen(BaseScreen):
         size = size or min(rect.width, rect.height) - 8
         folder = MATERIAL_TYPE_FOLDERS.get(material.material_type, material.material_type)
         sheet_path = f"assets/gathering_nodes/{folder}/{material.icon_id}.png"
-        sprite = get_tile_sprite(sheet_path, (0, 0, 32, 32), size)
+        from ui.sprite_loader import get_icon_sprite
+        sprite = get_icon_sprite(sheet_path, size)
         if sprite is not None:
             screen.blit(sprite, (rect.x + (rect.width - size) // 2,
                                  rect.y + (rect.height - size) // 2))
@@ -689,6 +699,10 @@ class InventoryScreen(BaseScreen):
         self.renderer.draw_rect(screen, self.sockets_button, (120, 150, 220), fill=False)
         self.renderer.draw_text(screen, "Sockets", (self.sockets_button.x + 16, self.sockets_button.y + 9),
                                 color=(150, 180, 240))
+        self.renderer.draw_rect(screen, self.enchant_button, (35, 35, 40))
+        self.renderer.draw_rect(screen, self.enchant_button, (170, 120, 220), fill=False)
+        self.renderer.draw_text(screen, "Enchant", (self.enchant_button.x + 16, self.enchant_button.y + 9),
+                                color=(200, 160, 245))
         cons_color = COLOR_GOLD if self.active_tab == "consumables" else (90, 90, 95)
         self.renderer.draw_rect(screen, self.consumables_tab_button, (35, 35, 40))
         self.renderer.draw_rect(screen, self.consumables_tab_button, cons_color, fill=False)
@@ -910,7 +924,7 @@ class InventoryScreen(BaseScreen):
         # profession line - these four slots are what can_use() checks against.
         active = []
         for label, slot in (("Guardian", "guardian_buff"), ("Battle", "battle_buff"),
-                            ("Food", "food_buff"), ("Ammo", "ammo_buff")):
+                            ("Food", "food_buff"), ("Ammo", "ammo_buff"), ("Oil", "oil_buff")):
             entry = getattr(subject, slot, None)
             if entry:
                 cons = entry[0] if isinstance(entry, (tuple, list)) else entry
@@ -1393,6 +1407,13 @@ class InventoryScreen(BaseScreen):
         # say so is indistinguishable from one that is broken - Kyle, 10 Nov: trinkets "do
         # stuff". Wrapped against the box's real inner width so a sentence cannot run off.
         green_lines = set()
+        # THE ENCHANTMENT (world/enchanting.py), green as in WoW: "Enchanted: +8 Strength", and a
+        # proc enchantment's line saying what it does
+        from world.enchanting import tooltip_lines as _enchant_lines
+        for text in _enchant_lines(item):
+            for wrapped in self.renderer.wrap_text(text, 300 - 20):
+                green_lines.add(len(lines))
+                lines.append(wrapped)
         proc = getattr(item, "proc", None)
         if proc and proc.get("describe"):
             for wrapped in self.renderer.wrap_text(f"Equip: {proc['describe']}", 300 - 20):

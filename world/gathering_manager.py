@@ -744,6 +744,11 @@ MATERIAL_TYPE_FOLDERS = {
     "part": "parts",
     "meat": "meat",
     "kit": "kits",
+    # Enchanting (tools/build_enchanting.py): dusts, essences, shards, runed rods and the
+    # enchantment scrolls all draw from one folder.
+    "enchant_mat": "enchanting",
+    "rod": "enchanting",
+    "enchant_scroll": "enchanting",
 }
 
 #: CUMULATIVE skill cap for a material of each tier - the skill a character
