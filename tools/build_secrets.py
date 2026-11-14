@@ -362,10 +362,9 @@ CREATURE_SELLERS = [
 #: map to lie about them and puts a cache on each.  (zone, module, island key, ford key)
 BAKED_ISLANDS = [
     # (zone, zone module, island centre and reach (cx, cy, r), ford polyline, ford width)
-    ("Echo Isles", "tools.handbuilt_echo_isles", (23, 14, 9), [(24, 37), (23, 29), (22, 21)], 3.0),
-    ("Echo Isles", "tools.handbuilt_echo_isles", (144, 148, 8), [(140, 119), (141, 130), (142, 141)], 3.0),
-    ("Arathi East", "tools.handbuilt_arathi_east", (152, 16, 10), [(147, 44), (148, 35), (149, 28), (150, 22)], 3.4),
-    ("Durotar", "tools.handbuilt_durotar", (122, 186, 7), [(107, 185), (114, 185.5), (120, 186)], 3.0),
+    ("Echo Isles", "tools.handbuilt_echo_isles", (23, 9, 9), [(24, 37), (23, 27), (22, 16)], 2.4),
+    ("Echo Isles", "tools.handbuilt_echo_isles", (144, 148, 8), [(140, 119), (141, 130), (142, 141)], 2.4),
+    ("Arathi East", "tools.handbuilt_arathi_east", (151, 10, 10), [(139, 33), (143, 26), (147, 18)], 2.4),
 ]
 
 
@@ -387,11 +386,30 @@ def _baked_island(module, isle, pts, w):
         for x in range(int(min(p[0] for p in pts)) - 3, int(max(p[0] for p in pts)) + 4):
             px, py = x + 0.5, y + 0.5
             d = min(_seg_dist(px, py, a, b) for a, b in zip(pts, pts[1:]))
-            if d <= w / 2 + 0.6 and (px - start[0]) ** 2 + (py - start[1]) ** 2 > 9 and kind_at(x, y) == 1:
+            # a hidden ford is exactly its own field; the start of an old open one is the shore's
+            if hasattr(M, "secret_ford_field"):
+                if float(M.secret_ford_field(np.array([px]), np.array([py]))[0]) > 0 and kind_at(x, y) == 1:
+                    ford.append((x, y))
+            elif d <= w / 2 + 0.6 and (px - start[0]) ** 2 + (py - start[1]) ** 2 > 9 and kind_at(x, y) == 1:
                 ford.append((x, y))
     cx = sum(p[0] for p in land) / len(land)
     cy = sum(p[1] for p in land) / len(land)
     centre = min(land, key=lambda p: (p[0] - cx) ** 2 + (p[1] - cy) ** 2)
+    # The island is everything that isn't deep water joined to its middle, not just a disc round
+    # it: its shallow ring shows on screen too, and the check that nobody can see it from the
+    # mainland (tools/qa_secrets.py) needs all of it. The ford is the way in, not the island.
+    fset, seen, todo = set(ford), {centre}, [centre]
+    lim = r + 10
+    while todo:
+        x, y = todo.pop()
+        for n in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
+            if n in seen or n in fset or abs(n[0] - cx0) > lim or abs(n[1] - cy0) > lim:
+                continue
+            if n[0] < 0 or n[1] < 0 or n[0] >= M.W or n[1] >= M.H or kind_at(*n) == 2:
+                continue
+            seen.add(n)
+            todo.append(n)
+    isle_tiles = sorted(seen)
     return isle_tiles, ford, centre
 
 
@@ -570,8 +588,12 @@ def main():
                         "vendor": v["vendor_id"], "found_text": FOUND["behind"][0]})
 
     def use(zone, cand):
+        """Kyle, 14 Nov 2026: "Our maps are huge. Don't compress secrets so they're obvious and
+        boring." So secrets in one map keep a third of the map's size apart: find one and the next
+        is somewhere else entirely, not round the corner."""
         spot = tuple(cand["spot"])
-        if any(abs(spot[0] - t[0]) + abs(spot[1] - t[1]) < 12 for t in taken.get(zone, [])):
+        gap = max(12, int((cand.get("map_area") or 0) ** 0.5 / 3))
+        if any(abs(spot[0] - t[0]) + abs(spot[1] - t[1]) < gap for t in taken.get(zone, [])):
             return False
         return True
 

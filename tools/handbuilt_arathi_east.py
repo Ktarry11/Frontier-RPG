@@ -164,8 +164,8 @@ ISLANDS = {
                        (99.0, 130.0, 4.0, 3.4, 0.0)], 1.6, 0.4),
     # A SECRET ISLE (tools/build_secrets.py). The map draws it and its ford as open sea. Underscore,
     # so it gets no subzone or centre of its own. Don't describe where it is to Kyle.
-    "_secret_isle": ([(151.0, 17.0, 5.5, 4.0, 10.0),
-                      (155.0, 15.0, 3.0, 2.6, 0.0)], 1.0, 2.2),
+    "_secret_isle": ([(150.0, 11.0, 5.0, 3.6, 10.0),
+                      (154.0, 9.0, 3.0, 2.4, 0.0)], 1.0, 2.2),
     # skerries - scenery, no content, no flats to them
     "_skerries": ([(134.0, 40.0, 3.6, 2.6, 20.0),
                    (108.0, 84.0, 3.0, 4.2, 0.0),
@@ -180,11 +180,6 @@ ISLANDS = {
 #: Each one is checked against coast_x(y) and the real lobe edges, not by eye - see the note on FLATS
 #: being the thing that silently strands an island.
 FLATS = [
-    # the secret isle's ford: four narrow flats laid end to end
-    (147.0, 42.0, 1.7, 4.2),
-    (148.0, 35.0, 1.7, 4.2),
-    (149.0, 28.0, 1.7, 4.2),
-    (150.0, 22.5, 1.8, 3.6),
     (101.0, 55.0, 14.0, 6.0),       # the shore to The Wrack
     (130.0, 57.0, 9.0, 5.0),        # Wrack to Gallowmast
     (167.0, 58.0, 10.0, 5.0),       # Gallowmast to the Far Cairn
@@ -209,6 +204,34 @@ FLATS = [
     (104.0, 122.0, 13.0, 11.0),     # Bothy Rock down to The Spindrift
     (124.0, 142.0, 11.0, 7.0),      # The Spindrift east to the Tidewrack rocks
 ]
+
+
+#: THE SECRET ISLE'S FORD. Kyle, 14 Nov 2026: "you can't have them adjacent to the shore and they
+#: can't be that obvious... Tone shift the natural water" and "They should not be visible from the
+#: main land." So the ford is WALKABLE (tile_kind makes it shallow) but PAINTED as deep sea, a shade
+#: lighter, and the isle sits where no ordinary walkable ground can see it (tools/qa_secrets.py
+#: checks with the real camera). Don't describe where it is to Kyle.
+SECRET_FORDS = [
+    ([(139.0, 33.0), (143.0, 26.0), (147.0, 18.0)], 2.4),
+]
+
+
+def _seg_field(gx, gy, pts, w):
+    gx = np.asarray(gx, float)
+    gy = np.asarray(gy, float)
+    best = np.full(np.shape(gx), 99.0)
+    for (ax, ay), (bx, by) in zip(pts, pts[1:]):
+        dx, dy = bx - ax, by - ay
+        t = np.clip(((gx - ax) * dx + (gy - ay) * dy) / (dx * dx + dy * dy), 0.0, 1.0)
+        best = np.minimum(best, np.hypot(gx - ax - t * dx, gy - ay - t * dy))
+    return w * 0.5 - best
+
+
+def secret_ford_field(gx, gy):
+    best = np.full(np.shape(gx), -99.0)
+    for pts, w in SECRET_FORDS:
+        best = np.maximum(best, _seg_field(gx, gy, pts, w))
+    return best
 
 
 def _ell(gx, gy, cx, cy, rx, ry, rot=0.0):
@@ -306,11 +329,17 @@ def fields(gx, gy):
     wet = water_field(gx, gy)
     # Deep is water further than SHORE_W from any shore, EXCEPT where a flat forces a crossing.
     deep = np.minimum(wet - SHORE_W, -flat_field(gx, gy))
-    return dict(cliff=cliff_field(gx, gy), shallow=wet, deep=deep, deck=deck_field(gx, gy))
+    sford = secret_ford_field(gx, gy)
+    deep = np.where(sford > 0, np.minimum(deep, 1.4), deep)   # painted deep, a shade lighter
+    return dict(cliff=cliff_field(gx, gy), shallow=wet, deep=deep, deck=deck_field(gx, gy),
+                secret_ford=sford)
 
 
 def tile_kind(gx, gy):
-    return K.kind_from_fields(fields(gx, gy), np.shape(gx))
+    f = fields(gx, gy)
+    kind = K.kind_from_fields(f, np.shape(gx))
+    kind[(f["secret_ford"] > 0) & (kind == 2)] = 1      # walkable, though it doesn't look it
+    return kind
 
 
 # ---- subzones (x, y, w, h) ---------------------------------------------------------------------------

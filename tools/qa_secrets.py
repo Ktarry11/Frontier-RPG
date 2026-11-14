@@ -18,6 +18,12 @@ CLAIMS
   4. A cache gives rare or better, and never comes back after it is opened.
   5. A secret recipe is sold by its hidden seller and by nobody else.
   6. The map keeps lying after a secret is found.
+  7. An island can never be seen from ordinary ground. Kyle, 14 Nov: "They should not be visible
+     from the main land" and "Ensure islands or caves can't EVER be seen from main path". With the
+     real camera (800x600 viewport, 32px tiles, clamped at the map's edges), no walkable tile that
+     isn't part of a secret puts any of an island, or the three tiles round it, on screen.
+  8. A secret's cache or seller is not drawn until you're in its secret ground and close (or, behind
+     a building, just close). Kyle: "Hidden should be HIIIIIIIIDEN". world/secrets.Secrets.shows.
 """
 import contextlib
 import io
@@ -182,6 +188,90 @@ def main():
                 bad.append("the map redrew a secret after it was found")
             break
 
+    # 7. islands stay off screen from ordinary ground
+    import numpy as np
+    TS, VW, VH = 32, 800, 600
+    secret_tiles = {}
+    for s in S.secrets:
+        for x, y in list(s.get("passage") or []) + list(s.get("area") or []):
+            secret_tiles.setdefault(s["zone"], set()).add((x, y))
+    unseen_ok = 0
+    for s in S.secrets:
+        if s.get("kind") not in ("island", "baked_island") or s["zone"] not in zones:
+            continue
+        tm = zones[s["zone"]]
+        W, H = tm.width, tm.height
+        mine = secret_tiles.get(s["zone"], set())
+        walk = np.zeros((H, W), bool)
+        for y in range(H):
+            for x in range(W):
+                walk[y, x] = tm.is_walkable(x, y) and (x, y) not in mine
+        # the ground a player gets to without the secret: the biggest walkable piece
+        lab = np.zeros((H, W), int)
+        sizes, n = [0], 0
+        for y in range(H):
+            for x in range(W):
+                if walk[y, x] and not lab[y, x]:
+                    n += 1
+                    lab[y, x] = n
+                    q, c = deque([(x, y)]), 1
+                    while q:
+                        cx, cy = q.popleft()
+                        for nx, ny in ((cx + 1, cy), (cx - 1, cy), (cx, cy + 1), (cx, cy - 1)):
+                            if 0 <= nx < W and 0 <= ny < H and walk[ny, nx] and not lab[ny, nx]:
+                                lab[ny, nx] = n
+                                c += 1
+                                q.append((nx, ny))
+                    sizes.append(c)
+        ground = lab == int(np.argmax(sizes))
+        diff = np.zeros((H + 1, W + 1), int)
+        ys, xs = np.nonzero(ground)
+        camx = np.clip(xs * TS - VW // 2 + TS // 2, 0, max(0, W * TS - VW))
+        camy = np.clip(ys * TS - VH // 2 + TS // 2, 0, max(0, H * TS - VH))
+        for a, b, c, d in zip(camx // TS, np.minimum(W, (camx + VW - 1) // TS + 1),
+                              camy // TS, np.minimum(H, (camy + VH - 1) // TS + 1)):
+            diff[c, a] += 1
+            diff[c, b] -= 1
+            diff[d, a] -= 1
+            diff[d, b] += 1
+        seen = np.cumsum(np.cumsum(diff, 0), 1)[:H, :W] > 0
+        shown = sum(1 for x, y in s.get("area") or [] for dx in range(-3, 4) for dy in range(-3, 4)
+                    if 0 <= x + dx < W and 0 <= y + dy < H and seen[y + dy, x + dx])
+        if shown:
+            bad.append(f"secret {s['id']}: {shown} tiles of the island (or round it) can be seen from ordinary ground")
+        else:
+            unseen_ok += 1
+
+    # 8. caches and hidden sellers aren't drawn from outside their secret
+    shown_from_outside = 0
+    for s in S.secrets:
+        tm = zones.get(s["zone"])
+        if tm is None:
+            continue
+        spot = (s["cache"]["x"], s["cache"]["y"]) if s.get("cache") else None
+        if s.get("vendor") and s["vendor"] in vendors:
+            spot = (vendors[s["vendor"]].x, vendors[s["vendor"]].y)
+        if spot is None:
+            continue
+        inside = {(x, y) for x, y in list(s.get("passage") or []) + list(s.get("area") or [])}
+        for dx in range(-3, 4):
+            for dy in range(-3, 4):
+                p = (spot[0] + dx, spot[1] + dy)
+                if p in inside or p == spot or not (0 <= p[0] < tm.width and 0 <= p[1] < tm.height):
+                    continue
+                if not tm.is_walkable(*p):
+                    continue
+                if s.get("kind") != "behind" and S.shows(s["zone"], spot[0], spot[1], p, vendor_id=s.get("vendor")):
+                    shown_from_outside += 1
+        far = (spot[0] + 12, spot[1])
+        if S.shows(s["zone"], spot[0], spot[1], far, vendor_id=s.get("vendor")):
+            shown_from_outside += 1
+        if not S.shows(s["zone"], spot[0], spot[1], spot, vendor_id=s.get("vendor")):
+            bad.append(f"secret {s['id']}: not drawn even when you're standing on it")
+    if shown_from_outside:
+        bad.append(f"{shown_from_outside} times a secret's cache or seller is drawn for someone outside it")
+
+    print(f"{unseen_ok} islands out of sight of ordinary ground")
     print(f"{len(S.secrets)} secrets ({', '.join(f'{k} {n}' for k, n in sorted(kinds.items(), key=str))}); "
           f"{len(hidden)} hidden sellers, {uniques} one-of-a-kind items on their shelves, "
           f"{len(caches)} caches, {len(secret)} secret recipes")

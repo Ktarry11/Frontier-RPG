@@ -70,7 +70,7 @@ ISLANDS = {
     # SECRET ISLETS (tools/build_secrets.py, world/secrets.py). Kyle, 14 Nov: "a shallow water you can
     # walk to an island that doesn't even appear [on the map]". Real land, baked into the painting; the
     # map draws it and its ford as open sea. Don't describe where they are to Kyle.
-    "secret_a": [(22, 15, 5.0, 4.0), (25, 13, 3.0, 2.6)],
+    "secret_a": [(22, 10, 5.0, 4.0), (25, 8, 3.0, 2.6)],
     "secret_b": [(143, 147, 4.6, 3.8), (146, 149, 2.8, 2.4)],
     "footings": [(96, 59, 3.0, 3.0), (112, 58, 3.0, 3.0),
                  (59, 90, 3.0, 3.0), (43, 90, 3.0, 3.0),
@@ -90,10 +90,22 @@ FORDS = {
     "causeway":  ([(128, 69), (131, 78), (133, 86), (133, 93)], 5.2),
     "steps":     ([(27, 77), (28, 69), (27, 61)], 4.8),
     "razorjaw":  ([(66, 121), (64, 129), (62, 138)], 6.0),
-    # the secret islets' fords: narrow, pale, and missing from the map
-    "secret_a":  ([(24, 37), (23, 29), (22, 21)], 3.0),
-    "secret_b":  ([(140, 119), (141, 130), (142, 141)], 3.0),
 }
+#: THE SECRET ISLETS' WAYS OUT. Kyle, 14 Nov, on the first try: "they can't be that obvious. Tone shift
+#: the natural water or put a bit of land under it. No one is going to call that a secret." So these
+#: are WALKABLE (tile_kind makes them shallow) but PAINTED as deep sea, a shade lighter than the water
+#: around them. You find them by looking hard or by walking where you shouldn't.
+SECRET_FORDS = {
+    "secret_a":  ([(24, 37), (23, 27), (22, 16)], 2.4),
+    "secret_b":  ([(140, 119), (141, 130), (142, 141)], 2.4),
+}
+
+
+def secret_ford_field(gx, gy):
+    best = np.full(np.shape(gx), -99.0)
+    for n, (pts, w) in SECRET_FORDS.items():
+        best = np.maximum(best, w * 0.5 - _poly_dist(("secret", n), pts, gx, gy))
+    return best
 # open shallow flats: (cx, cy, rx, ry)
 FLATS = {
     "wreck":     (138, 36, 8, 5),
@@ -249,7 +261,9 @@ def fields(gx, gy):
     wet = -land                                   # >0 = water
     ford = ford_field(gx, gy)
     deep = np.minimum(wet - SHORE_W, -ford)       # >0 = deep (fords cut shallow channels)
-    return dict(land=land, wet=wet, deep=deep, ford=ford, deck=deck_field(gx, gy),
+    sford = secret_ford_field(gx, gy)
+    deep = np.where(sford > 0, np.minimum(deep, 1.4), deep)   # painted deep, a shade lighter
+    return dict(land=land, wet=wet, deep=deep, ford=ford, secret_ford=sford, deck=deck_field(gx, gy),
                 bridge=bridge_field(gx, gy), rock=rock_field(gx, gy),
                 rock_vis=rock_field(gx, gy, notch=False))
 
@@ -260,6 +274,7 @@ def tile_kind(gx, gy):
     kind = np.zeros(np.shape(gx), int)
     kind[f["wet"] > 0] = 1
     kind[f["deep"] > 0] = 2
+    kind[(f["secret_ford"] > 0) & (kind == 2)] = 1      # walkable, though it doesn't look it
     kind[f["rock"] > 0] = 3
     kind[(f["deck"] > 0) | (f["bridge"] > 0)] = 4
     return kind

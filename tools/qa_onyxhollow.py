@@ -77,7 +77,7 @@ def main():
 
     # 4
     vendors = {v["vendor_id"]: v for v in json.load(open("data/npcs/vendors.json", encoding="utf-8"))["vendors"]
-               if v["zone"] == "onyxhollow"}
+               if v["zone"] == "onyxhollow" and not v.get("hidden")}   # hidden sellers: world/secrets.py
     cons = json.load(open("data/items/consumables.json", encoding="utf-8")) if Path("data/items/consumables.json").exists() else None
     if set(vendors) != set(R.ONYXHOLLOW_VENDORS):
         bad.append(f"vendors on file differ from the roster: {sorted(set(vendors) ^ set(R.ONYXHOLLOW_VENDORS))}")

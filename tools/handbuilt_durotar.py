@@ -168,8 +168,10 @@ def coast_south(gx):
 
 #: A SECRET ISLET off the east coast (tools/build_secrets.py): land in the sea and a narrow ford of
 #: shallows out to it. The map draws both as open sea. Don't describe where it is to Kyle.
-SECRET_ISLETS = [(122.0, 186.0, 3.6, 3.0)]
-SECRET_FORDS = [((107.0, 185.0), (120.0, 186.0), 1.5)]     # (from, to, half-width)
+#: Kyle, 14 Nov: "you can't have them adjacent to the shore... They should not be visible from the main
+#: land." Durotar's sea is too narrow for that (the map ends 20 tiles out), so it has none for now.
+SECRET_ISLETS = []
+SECRET_FORDS = []     # (from, to, half-width)
 
 
 def _secret_isle(gx, gy):
