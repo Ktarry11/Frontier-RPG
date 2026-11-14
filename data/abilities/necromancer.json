@@ -263,29 +263,6 @@
       "is_instant": true
     },
     {
-      "ability_id": "necromancer_command_hook",
-      "name": "Command: Hook",
-      "resource_type": "life_force",
-      "cooldown": 4,
-      "effect_type": "debuff",
-      "duration": 1,
-      "stat_mods": {},
-      "description": "Interrupts and stuns the target for 1 turn.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 12,
-          "cost": 15,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree: 'Command your Abominations to hook an enemy to their location, slowing their movement speed to a halt for 2 seconds'. A halt is a root; the engine has no root, so it lands as a one-turn stun.",
-      "target_type": "enemy",
-      "is_stun": true,
-      "is_instant": true
-    },
-    {
       "ability_id": "necromancer_corpse_explosion",
       "name": "Corpse Explosion",
       "resource_type": "life_force",
@@ -365,75 +342,6 @@
       "_source": "CoA: 'Force a target to accept the reality of death, removing any invulnerability or immunity effects from them'. An enemy purge - the same shape as shaman_purge and stormbringer_razorwind. The 5-second curse and its below-20% payoff have no hook and are dropped.",
       "target_type": "enemy",
       "dispel_type": "magic"
-    },
-    {
-      "ability_id": "necromancer_bone_tithe",
-      "name": "Bone Tithe",
-      "resource_type": "life_force",
-      "cooldown": 5,
-      "effect_type": "buff",
-      "duration": 3,
-      "stat_mods": {
-        "armor": 120,
-        "magic_resistance": 55
-      },
-      "description": "Armor +120, Magic Resistance +55 for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 14,
-          "cost": 20,
-          "effect_value": 110
-        },
-        {
-          "rank": 2,
-          "level_req": 28,
-          "cost": 20,
-          "effect_value": 150
-        },
-        {
-          "rank": 3,
-          "level_req": 42,
-          "cost": 20,
-          "effect_value": 190
-        },
-        {
-          "rank": 4,
-          "level_req": 56,
-          "cost": 20,
-          "effect_value": 230
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree: 'Siphon life from your undead minions, sacrificing 40% of their health to grant yourself an absorb shield ... Usable while stunned'. There is no absorb-shield mechanic, so it is an armour and magic resistance window, the same substitution mage_ice_barrier and priest_power_word_shield already ship with. Nothing models 'usable while stunned'.",
-      "target_type": "self",
-      "buff_scope": "combat",
-      "is_instant": true
-    },
-    {
-      "ability_id": "necromancer_fetid_ward",
-      "name": "Fetid Ward",
-      "resource_type": "life_force",
-      "cooldown": 6,
-      "effect_type": "buff",
-      "duration": 5,
-      "stat_mods": {
-        "healing_power": 45,
-        "magic_resistance": 40
-      },
-      "description": "Healing Power +45, Magic Resistance +40 for 5 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 18,
-          "cost": 25,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree: 'While active, 30% of your damage dealt heals you and your minions ... and healing received is increased by 10%'. Damage-to-healing conversion has no ability-level hook, so the healing-received half is what the buff carries. Animation's Vampiric Aura talent is where the leech actually lives.",
-      "target_type": "self",
-      "buff_scope": "combat"
     },
     {
       "ability_id": "necromancer_anti_magic_shell",
@@ -559,31 +467,6 @@
       "target_type": "self",
       "buff_scope": "combat",
       "is_instant": true
-    },
-    {
-      "ability_id": "necromancer_foul_invocation",
-      "name": "Foul Invocation",
-      "resource_type": "life_force",
-      "cooldown": 14,
-      "effect_type": "buff",
-      "duration": 3,
-      "stat_mods": {
-        "max_health_pct": 0.3,
-        "magic_resistance": 60
-      },
-      "description": "Maximum health +30%, Magic Resistance +60 for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 44,
-          "cost": 35,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree: 'Transform into an undead monstrosity for 20 seconds, increasing your maximum health by 30%. While transformed you are immune to Fear, Sleep, Charm, and Disease effects.' max_health_pct is a FRACTION even from a buff - ability stat_mods and talent effects share one bonus pool in _recalculate_derived_stats, so 0.3 is +30% and 30.0 would be +3000%. The immunities have no hook; the magic resistance stands in.",
-      "target_type": "self",
-      "buff_scope": "combat"
     },
     {
       "ability_id": "necromancer_call_of_the_scourge",
@@ -982,29 +865,6 @@
       "is_instant": true
     },
     {
-      "ability_id": "necromancer_heartchill",
-      "name": "Heartchill",
-      "resource_type": "life_force",
-      "cooldown": 5,
-      "effect_type": "debuff",
-      "duration": 1,
-      "stat_mods": {},
-      "description": "Interrupts and stuns the target for 1 turn.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 22,
-          "cost": 15,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Heartchill to interrupt a caster' - 'interrupting their current spell cast'. There is no cast bar to interrupt in a turn engine, so a one-turn stun is the honest equivalent: the enemy loses the action it was about to take.",
-      "target_type": "enemy",
-      "is_stun": true,
-      "is_instant": true
-    },
-    {
       "ability_id": "necromancer_lich_form",
       "name": "Lich Form",
       "resource_type": "life_force",
@@ -1381,47 +1241,6 @@
       "target_type": "self",
       "buff_scope": "combat",
       "is_instant": true
-    },
-    {
-      "ability_id": "necromancer_march_of_the_dead",
-      "name": "March of the Dead",
-      "resource_type": "life_force",
-      "cooldown": 6,
-      "effect_type": "spell_damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals Shadow damage to up to 5 targets.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 36,
-          "cost": 35,
-          "effect_value": 70
-        },
-        {
-          "rank": 2,
-          "level_req": 43,
-          "cost": 35,
-          "effect_value": 90
-        },
-        {
-          "rank": 3,
-          "level_req": 50,
-          "cost": 35,
-          "effect_value": 110
-        },
-        {
-          "rank": 4,
-          "level_req": 57,
-          "cost": 35,
-          "effect_value": 130
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'March of the Dead is your AoE plague nuke' - 'When they reach an enemy they explode, dealing SP Plague damage to nearby enemies and slowing their movement speed by 70%'. The slow has no hook.",
-      "target_type": "enemy_aoe",
-      "max_targets": 5,
-      "damage_school": "shadow"
     },
     {
       "ability_id": "necromancer_sacrifice_undead",

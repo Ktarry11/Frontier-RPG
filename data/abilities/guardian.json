@@ -353,7 +353,7 @@
         "block": 10.0,
         "haste": -5.0
       },
-      "description": "Take a braced stance, slower to move but far harder to move.",
+      "description": "Take a braced stance that makes you far harder to bring down.",
       "ranks": [
         {
           "rank": 1,
@@ -393,30 +393,6 @@
       "exclusive_group": "guardian_formation"
     },
     {
-      "ability_id": "guardian_challenging_cry",
-      "name": "Challenging Cry",
-      "resource_type": "energy",
-      "cooldown": 8,
-      "effect_type": "buff",
-      "duration": 2,
-      "stat_mods": {
-        "threat_generation_pct": 200
-      },
-      "description": "Threat generated +200% for 2 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 14,
-          "cost": 20,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "AoE taunt. Implemented as a threat_generation_pct buff, the convention Cultist's Twilight Domain (180) and Primalist's Heart of the Mountain (150) already use - ability buff stat_mods are percent POINTS here, unlike talent effects which are fractions.",
-      "target_type": "self",
-      "buff_scope": "combat"
-    },
-    {
       "ability_id": "guardian_shield_challenge",
       "name": "Shield Challenge",
       "resource_type": "energy",
@@ -439,64 +415,6 @@
       "_source": "Single-target taunt, cheaper and shorter than the cry.",
       "target_type": "self",
       "buff_scope": "combat"
-    },
-    {
-      "ability_id": "guardian_hammer_of_kings",
-      "name": "Hammer of Kings",
-      "resource_type": "energy",
-      "cooldown": 4,
-      "effect_type": "damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals damage to up to 4 targets.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 16,
-          "cost": 30,
-          "effect_value": 44
-        },
-        {
-          "rank": 2,
-          "level_req": 23,
-          "cost": 30,
-          "effect_value": 57
-        },
-        {
-          "rank": 3,
-          "level_req": 30,
-          "cost": 30,
-          "effect_value": 70
-        },
-        {
-          "rank": 4,
-          "level_req": 37,
-          "cost": 30,
-          "effect_value": 83
-        },
-        {
-          "rank": 5,
-          "level_req": 44,
-          "cost": 30,
-          "effect_value": 96
-        },
-        {
-          "rank": 6,
-          "level_req": 51,
-          "cost": 30,
-          "effect_value": 109
-        },
-        {
-          "rank": 7,
-          "level_req": 58,
-          "cost": 30,
-          "effect_value": 122
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Hammer of Kings is an AoE slam that slows casting'. The pull opener.",
-      "target_type": "enemy_aoe",
-      "max_targets": 4
     },
     {
       "ability_id": "guardian_hammer_of_the_law",
@@ -929,58 +847,6 @@
       "buff_scope": "party"
     },
     {
-      "ability_id": "guardian_cavalry_charge",
-      "name": "Cavalry Charge",
-      "resource_type": "energy",
-      "cooldown": 6,
-      "effect_type": "damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals damage to up to 3 targets.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 20,
-          "cost": 25,
-          "effect_value": 34
-        },
-        {
-          "rank": 2,
-          "level_req": 27,
-          "cost": 25,
-          "effect_value": 45
-        },
-        {
-          "rank": 3,
-          "level_req": 34,
-          "cost": 25,
-          "effect_value": 56
-        },
-        {
-          "rank": 4,
-          "level_req": 41,
-          "cost": 25,
-          "effect_value": 67
-        },
-        {
-          "rank": 5,
-          "level_req": 48,
-          "cost": 25,
-          "effect_value": 78
-        },
-        {
-          "rank": 6,
-          "level_req": 55,
-          "cost": 25,
-          "effect_value": 89
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Open packs with Cavalry Charge to close distance'.",
-      "target_type": "enemy_aoe",
-      "max_targets": 3
-    },
-    {
       "ability_id": "guardian_champions_presence",
       "name": "Champion's Presence",
       "resource_type": "energy",
@@ -1003,30 +869,6 @@
       "_source": "CoA: 'Pop Champion's Presence for a haste burst window'. || target_type self -> party, 5 Nov 2026. CoA: 'Enrage all nearby allies, increasing their haste by 30% for 20 seconds.' Explicitly allies-only in CoA; held at 15% party-wide rather than CoA's 30%.",
       "target_type": "party",
       "buff_scope": "party"
-    },
-    {
-      "ability_id": "guardian_liberation",
-      "name": "Liberation",
-      "resource_type": "energy",
-      "cooldown": 8,
-      "effect_type": "buff",
-      "duration": 2,
-      "stat_mods": {
-        "cc_immune": 1
-      },
-      "description": "Grants an ally: Immune to crowd control for 2 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 22,
-          "cost": 20,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Liberation / Cavalry Charge / Song of Battle's stun = Landslide root / Wing Buffet / Time Stop', and 'Hallucination sheds movement-impairing effects'. REMOVED NOTHING, EVER, UNTIL 2026-10-29: this was effect_type 'dispel' with dispel_type 'movement', and 'movement' is not a DispelType - the real members are NONE/MAGIC/CURSE/POISON/DISEASE - so remove_debuff_by_dispel_type took its guaranteed no-match path and the cast logged 'has no Movement effect to remove!' against a target visibly carrying four dispellable debuffs. Now a cc_immune buff, which is the shape the engine actually supports and the same one Ranger's Freedom and Cultist's Dark Veil already use; since apply_status_effect now also clears active stuns when cc_immune lands, this both frees the ally and keeps them free, which is closer to CoA than the dispel ever was.",
-      "target_type": "ally",
-      "buff_scope": "combat"
     },
     {
       "ability_id": "guardian_harrowing_melody",
@@ -1145,33 +987,6 @@
       ],
       "icon_id": null,
       "_source": "The caster-facing decree of the same trio.",
-      "target_type": "self",
-      "buff_scope": "party",
-      "exclusive_group": "guardian_decree"
-    },
-    {
-      "ability_id": "guardian_heros_decree",
-      "name": "Hero's Decree",
-      "resource_type": "energy",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 0,
-      "stat_mods": {
-        "max_health_pct": 0.08,
-        "crit_chance_physical": 2.0,
-        "crit_chance_spell": 2.0
-      },
-      "description": "Maximum health +8%, Physical crit chance +2, Spell crit chance +2.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 46,
-          "cost": 30,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "The third and latest decree - both stats, smaller each.",
       "target_type": "self",
       "buff_scope": "party",
       "exclusive_group": "guardian_decree"
@@ -1332,29 +1147,6 @@
       "target_type": "enemy"
     },
     {
-      "ability_id": "guardian_net_throw",
-      "name": "Net Throw",
-      "resource_type": "energy",
-      "cooldown": 6,
-      "effect_type": "debuff",
-      "duration": 2,
-      "stat_mods": {
-        "haste": -20.0
-      },
-      "description": "Applies to the target: Haste -20 for 2 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 18,
-          "cost": 15,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Battle Rush (charge + stun) or Net Throw to close or lock a mob'.",
-      "target_type": "enemy"
-    },
-    {
       "ability_id": "guardian_reprisal",
       "name": "Reprisal",
       "resource_type": "energy",
@@ -1413,7 +1205,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A practised, heavy strike - the kind that buys you another few seconds behind the shield.",
+      "description": "A practised, heavy strike - the kind that buys you another turn behind the shield.",
       "ranks": [
         {
           "rank": 1,
@@ -1451,46 +1243,6 @@
       "target_type": "enemy"
     },
     {
-      "ability_id": "guardian_glorious_arena",
-      "name": "Glorious Arena",
-      "resource_type": "energy",
-      "cooldown": 10,
-      "effect_type": "dot",
-      "duration": 3,
-      "stat_mods": {},
-      "description": "Deals damage to up to 5 targets over time for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 36,
-          "cost": 35,
-          "effect_value": 24
-        },
-        {
-          "rank": 2,
-          "level_req": 43,
-          "cost": 35,
-          "effect_value": 31
-        },
-        {
-          "rank": 3,
-          "level_req": 50,
-          "cost": 35,
-          "effect_value": 38
-        },
-        {
-          "rank": 4,
-          "level_req": 57,
-          "cost": 35,
-          "effect_value": 45
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Glorious Arena drops a ring that punishes enemies clumped on a node or choke point'.",
-      "target_type": "enemy_aoe",
-      "max_targets": 5
-    },
-    {
       "ability_id": "guardian_heroism",
       "name": "Heroism",
       "resource_type": "energy",
@@ -1510,30 +1262,6 @@
       "icon_id": null,
       "_source": "CoA: 'lean on Heroism's free Pulverizes/Broad Sweeps once Glory or Favor peaks'.",
       "target_type": "self"
-    },
-    {
-      "ability_id": "guardian_fearless",
-      "name": "Fearless",
-      "resource_type": "energy",
-      "cooldown": 10,
-      "effect_type": "buff",
-      "duration": 3,
-      "stat_mods": {
-        "damage_taken_pct": -0.1
-      },
-      "description": "Damage taken -10% for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 30,
-          "cost": 20,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Use Veteran of the Third War's on-block heal and Fearless while surrounded'.",
-      "target_type": "self",
-      "buff_scope": "combat"
     }
   ]
 }

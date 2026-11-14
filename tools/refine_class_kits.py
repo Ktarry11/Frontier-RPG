@@ -278,6 +278,37 @@ CLASSES = {
         },
         "PASSIVE": {},
     },
+    # Guardian: 41 buttons; four area swings, three decrees, two taunts, two -damage cooldowns.
+    "Guardian": {
+        "CUT": {
+            "guardian_challenging_cry": "a threat cooldown beside Shield Challenge",
+            "guardian_cavalry_charge": "a fourth 3-target swing",
+            "guardian_hammer_of_kings": "a core area swing beside Broad Sweep and Sound of War",
+            "guardian_liberation": "an ally crowd-control immunity nothing is built around",
+            "guardian_heros_decree": "a third decree",
+            "guardian_net_throw": "a slow nothing is built around",
+            "guardian_glorious_arena": "an area DoT beside Song of Battle",
+            "guardian_fearless": "-10% damage taken beside Bastion's -15%",
+        },
+        "REWORD": {
+            "guardian_tower_formation": "Take a braced stance that makes you far harder to bring down.",
+            "guardian_centurion_strike": "A practised, heavy strike - the kind that buys you another turn behind the shield.",
+        },
+        "PASSIVE": {},
+    },
+    # Necromancer: 40 buttons; five interrupts and five personal defensives.
+    "Necromancer": {
+        "CUT": {
+            "necromancer_command_hook": "a 1-turn interrupt beside Ghoulify's 2-turn one",
+            "necromancer_heartchill": "another 1-turn interrupt",
+            "necromancer_bone_tithe": "a third personal defensive",
+            "necromancer_fetid_ward": "a fourth personal defensive",
+            "necromancer_foul_invocation": "a fifth personal defensive",
+            "necromancer_march_of_the_dead": "a fourth Shadow area spell",
+        },
+        "REWORD": {},
+        "PASSIVE": {},
+    },
 }
 
 
