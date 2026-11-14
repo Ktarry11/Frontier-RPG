@@ -275,7 +275,7 @@ def main():
                 stats = J.stats_for(weights, budget)
             cuts[cid] = {"name": name, "color": colour, "quality": quality, "level": level,
                          "stats": stats, "raw": gid, "cut": cut}
-            stat_text = ", ".join(f"+{v} {k.replace('_', ' ')}" for k, v in stats.items())
+            stat_text = J.stat_text(stats)
             fits = " or ".join(sorted(J.FITS[colour])) if colour != "prismatic" else "any"
             mats[cid] = {
                 "name": name, "material_type": "cut_gem", "profession": "jewelcrafting",

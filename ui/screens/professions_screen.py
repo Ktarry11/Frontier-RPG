@@ -614,8 +614,8 @@ class ProfessionsScreen(BaseScreen):
                 from world.jewelcrafting import cut as _cut
                 g = _cut(out.get("material_id"))
                 if g:
-                    effect = f"{g['color'].capitalize()}: " + ", ".join(
-                        f"+{v} {k.replace('_', ' ')}" for k, v in g["stats"].items())
+                    from world.jewelcrafting import stat_text
+                    effect = f"{g['color'].capitalize()}: {stat_text(g['stats'])}"
             elif out.get("kind") == "prospect":
                 effect = "A stone or two from this ore"
             elif out.get("kind") == "fixed":

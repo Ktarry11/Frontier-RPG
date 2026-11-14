@@ -93,6 +93,21 @@ def stats_for(weights, budget):
     return {s: max(1, int(budget * w / costs.get(s, 1.0) + 0.5)) for s, w in weights.items()}
 
 
+#: how a stat reads on a gem
+STAT_NAMES = {"crit_chance_physical": "Crit", "crit_chance_spell": "Spell Crit", "hit_rating": "Hit",
+              "mp5": "Mana per 5", "spell_power": "Spell Power", "healing_power": "Healing",
+              "attack_power": "Attack Power", "defense_rating": "Defense", "dodge_rating": "Dodge",
+              "spell_penetration": "Spell Penetration", "haste": "Haste"}
+
+
+def stat_name(stat):
+    return STAT_NAMES.get(stat, stat.replace("_", " ").title())
+
+
+def stat_text(stats):
+    return ", ".join(f"+{v} {stat_name(k)}" for k, v in stats.items())
+
+
 def cut(cut_id):
     return data()["cut_gems"].get(cut_id)
 
@@ -248,18 +263,32 @@ def describe_socket(s):
     g = cut(s.get("gem")) if s.get("gem") else None
     if not g:
         return f"{colour} Socket", "", False
-    stats = ", ".join(f"+{v} {k.replace('_', ' ').title()}" for k, v in g["stats"].items())
-    return g["name"], stats, fits(g["color"], s["color"])
+    return g["name"], stat_text(g["stats"]), fits(g["color"], s["color"])
 
 
 #: tooltip colours by kind, shared by every screen that draws an item card
 SOCKET_COLOURS = {"red": (230, 90, 90), "yellow": (235, 210, 90), "blue": (110, 150, 240)}
 TOOLTIP_PALETTE = {"empty": (150, 150, 150), "gem": (255, 255, 255), "bonus_on": (30, 255, 0),
                    "bonus_off": (128, 128, 128)}
+#: a gem's line on an item card is drawn in the gem's own colour (Kyle, 14 Nov 2026: "Colour the
+#: names ... based on colour of gems. So a +9 str would be red")
+GEM_TEXT_COLOURS = {"red": (235, 85, 85), "yellow": (240, 215, 90), "blue": (105, 150, 245),
+                    "orange": (245, 150, 60), "green": (90, 205, 110), "purple": (190, 110, 235),
+                    "prismatic": (235, 235, 245), "meta": (200, 200, 210)}
+
+
+def line_colour(kind, socket=None):
+    """The colour an item card draws one socket line in."""
+    if kind.startswith("gem:"):
+        return GEM_TEXT_COLOURS.get(kind[4:], TOOLTIP_PALETTE["gem"])
+    if kind == "empty" and socket:
+        return SOCKET_COLOURS.get(socket.get("color"), TOOLTIP_PALETTE["empty"])
+    return TOOLTIP_PALETTE.get(kind, TOOLTIP_PALETTE["gem"])
 
 
 def tooltip_lines(item):
-    """[(text, kind)] for an item card: each socket, then the bonus (lit when earned)."""
+    """[(text, kind)] for an item card: each socket, then the bonus (lit when earned). kind is
+    "gem:<colour>", "empty", "bonus_on" or "bonus_off"; line_colour() turns it into a colour."""
     ss = sockets(item)
     if not ss:
         return []
@@ -267,13 +296,13 @@ def tooltip_lines(item):
     for s in ss:
         name, stats, _fits = describe_socket(s)
         if stats:
-            out.append((f"{name}: {stats}", "gem"))
+            g = cut(s.get("gem")) or {}
+            out.append((f"{name}: {stats}", f"gem:{g.get('color', '')}"))
         else:
             out.append((name, "empty"))
     bonus = getattr(item, "socket_bonus", None) or {}
     if bonus:
-        text = ", ".join(f"+{v} {k.replace('_', ' ').title()}" for k, v in bonus.items())
-        out.append((f"Socket Bonus: {text}", "bonus_on" if bonus_active(item) else "bonus_off"))
+        out.append((f"Socket Bonus: {stat_text(bonus)}", "bonus_on" if bonus_active(item) else "bonus_off"))
     return out
 
 

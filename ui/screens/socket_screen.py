@@ -18,7 +18,7 @@ from config import SCREEN_WIDTH, SCREEN_HEIGHT, COLOR_WHITE, COLOR_GOLD
 from core.game_states import GameState
 from ui.screens.base_screen import BaseScreen
 
-LIST_X, LIST_Y, LIST_W, ROW_H = 20, 90, 430, 40
+LIST_X, LIST_Y, LIST_W, ROW_H = 20, 90, 430, 50
 PANEL_X = LIST_X + LIST_W + 30
 
 
@@ -164,7 +164,7 @@ class SocketScreen(BaseScreen):
             filled = sum(1 for s in J.sockets(it) if s.get("gem"))
             self.renderer.draw_text(screen, it.name, (rect.x + 8, rect.y + 3), color=it.get_rarity_color())
             self.renderer.draw_text(screen, f"{where}, {filled} of {len(J.sockets(it))} sockets filled",
-                                    (rect.x + 8, rect.y + 20), font_size=13, color=(160, 160, 170))
+                                    (rect.x + 8, rect.y + 24), font_size=13, color=(160, 160, 170))
             self.item_rects.append((it, rect))
             y += ROW_H
 
@@ -196,7 +196,7 @@ class SocketScreen(BaseScreen):
                 py += 46
             bonus = getattr(item, "socket_bonus", None) or {}
             if bonus:
-                text = ", ".join(f"+{v} {k.replace('_', ' ').title()}" for k, v in bonus.items())
+                text = J.stat_text(bonus)
                 on = J.bonus_active(item)
                 self.renderer.draw_text(screen, f"Socket Bonus: {text}" + ("" if on else "  (fill every socket with a matching gem)"),
                                         (PANEL_X, py + 4), color=(30, 255, 0) if on else (130, 130, 130))
@@ -218,7 +218,7 @@ class SocketScreen(BaseScreen):
                 self.renderer.draw_rect(screen, rect, (40, 40, 52) if chosen else (24, 24, 30))
                 self.renderer.draw_rect(screen, rect, colour if chosen else (60, 60, 70), fill=False)
                 fits = "any" if g["color"] == "prismatic" else " or ".join(sorted(J.FITS[g["color"]]))
-                stats = ", ".join(f"+{v} {k.replace('_', ' ')}" for k, v in g["stats"].items())
+                stats = J.stat_text(g["stats"])
                 self.renderer.draw_text(screen, f"{g['name']} x{n}   {stats}   fits {fits}",
                                         (rect.x + 10, rect.y + 7), color=COLOR_WHITE)
                 self.gem_rects.append((cid, rect))

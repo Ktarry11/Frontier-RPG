@@ -1378,14 +1378,17 @@ class InventoryScreen(BaseScreen):
             lines.append(f"+{value} {stat.replace('_', ' ').title()}")
         # SOCKETS (world/jewelcrafting.py): each socket in its colour, the gem in it, and the
         # bonus, lit when every gem fits.
-        from world.jewelcrafting import tooltip_lines as _socket_lines, TOOLTIP_PALETTE, SOCKET_COLOURS
+        # A gem's line is drawn in the gem's own colour (Kyle, 14 Nov: "a +9 str would be red").
+        from world.jewelcrafting import tooltip_lines as _socket_lines, line_colour
         socket_colors = {}
-        for (text, kind), s in zip(_socket_lines(item), list(getattr(item, "sockets", [])) + [None]):
-            if kind == "empty" and s:
-                socket_colors[len(lines)] = SOCKET_COLOURS.get(s.get("color"), TOOLTIP_PALETTE["empty"])
-            else:
-                socket_colors[len(lines)] = TOOLTIP_PALETTE[kind]
-            lines.append(text)
+        socket_list = list(getattr(item, "sockets", []))
+        for i, (text, kind) in enumerate(_socket_lines(item)):
+            colour = line_colour(kind, socket_list[i] if i < len(socket_list) else None)
+            # the card widens to fit a long gem line (below); it only wraps past the widest card,
+            # so a two-stat gem reads on one line and never runs out of the box
+            for wrapped in self.renderer.wrap_text(text, 460 - 22):
+                socket_colors[len(lines)] = colour
+                lines.append(wrapped)
         # WHAT THE ITEM DOES, in WoW's green "Equip:" line. A trinket that procs and does not
         # say so is indistinguishable from one that is broken - Kyle, 10 Nov: trinkets "do
         # stuff". Wrapped against the box's real inner width so a sentence cannot run off.
@@ -1437,7 +1440,10 @@ class InventoryScreen(BaseScreen):
             from ui.coin_format import format_coins
             sell_line = f"Sell Price: {format_coins(price)}"
 
-        box_w = 300
+        # The card grows to its widest line (up to a limit) instead of letting a long line run out
+        # through the border. Kyle, 14 Nov: "Ensure text is in the box."
+        widest = max([self.renderer.font_normal.size(t)[0] for t in lines + [sell_line] if t] or [0])
+        box_w = min(460, max(300, widest + 22))
         box_h = 20 * (len(lines) + (1 if sell_line else 0)) + 16
         x = min(mouse_pos[0] + 16, SCREEN_WIDTH - box_w - 10)
         y = min(mouse_pos[1] + 16, SCREEN_HEIGHT - box_h - 10)
