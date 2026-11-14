@@ -377,31 +377,6 @@
       "dispel_type": "curse"
     },
     {
-      "ability_id": "witch_doctor_mirage",
-      "name": "Mirage",
-      "resource_type": "mana",
-      "cooldown": 8,
-      "effect_type": "buff",
-      "duration": 2,
-      "stat_mods": {
-        "threat_generation_pct": -60,
-        "dodge": 10
-      },
-      "description": "Threat generated -60%, Dodge +10 for 2 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 16,
-          "cost": 30,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Become invisible for 20 seconds, gaining 5 Spirits, leaving a copy of yourself behind, and reducing threat each second.' Both DPS pages call the class's escapes 'threat drops, they do not move you', so this is threat and avoidance rather than a blink.",
-      "target_type": "self",
-      "buff_scope": "combat"
-    },
-    {
       "ability_id": "witch_doctor_shadowflare",
       "name": "Shadowflare",
       "resource_type": "mana",
@@ -532,81 +507,6 @@
       ]
     },
     {
-      "ability_id": "witch_doctor_slither",
-      "name": "Slither",
-      "resource_type": "mana",
-      "cooldown": 6,
-      "effect_type": "buff",
-      "duration": 2,
-      "stat_mods": {
-        "dodge": 25,
-        "haste": 15
-      },
-      "description": "Dodge +25, Haste +15 for 2 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 26,
-          "cost": 25,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Transform into a serpent, removing all movement impairing effects and increasing movement speed by 80% ... chance to be hit by ranged attacks and spells is reduced'. No movement-impairment category exists on the player side, so the avoidance half carries the node.",
-      "target_type": "self",
-      "buff_scope": "combat"
-    },
-    {
-      "ability_id": "witch_doctor_stasis_ward",
-      "name": "Stasis Ward",
-      "resource_type": "mana",
-      "cooldown": 8,
-      "effect_type": "debuff",
-      "duration": 1,
-      "stat_mods": {
-        "haste": -20
-      },
-      "description": "Interrupts and stuns up to 4 targets for 1 turn.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 28,
-          "cost": 50,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree: 'Touch of Mueh'zala - Increases the duration of Stasis Ward's stun effect by 1 sec', so the ward stuns. The class's only AoE stun.",
-      "target_type": "enemy_aoe",
-      "max_targets": 4,
-      "is_stun": true
-    },
-    {
-      "ability_id": "witch_doctor_swift_idol",
-      "name": "Swift Idol",
-      "resource_type": "mana",
-      "cooldown": 6,
-      "effect_type": "buff",
-      "duration": 3,
-      "stat_mods": {
-        "haste": 12,
-        "dodge": 5
-      },
-      "description": "Grants your party: Haste +12, Dodge +5 for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 30,
-          "cost": 35,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Drop a Swift Idol near you for 10 seconds. Allies within 30 yds gain 25% increased movement speed and their chance to resist movement impairing effects is increased'. Movement speed has no combat meaning in a turn engine, so it lands as Haste, which is what moving faster buys.",
-      "target_type": "party",
-      "buff_scope": "combat"
-    },
-    {
       "ability_id": "witch_doctor_mimic_ward",
       "name": "Mimic Ward",
       "resource_type": "mana",
@@ -641,31 +541,6 @@
       "icon_id": null,
       "_source": "CoA: 'Summon a mimic ward for 12 seconds. For the duration when you cast Malefic Wrath and Loa's Brew the ward will also cast it on your target.' There is no repeat-my-last-cast mechanic in the engine, so the window lands as the spell power the echo would have been worth. The cast-echo is the one part of this kit with no honest equivalent.",
       "target_type": "self",
-      "buff_scope": "combat"
-    },
-    {
-      "ability_id": "witch_doctor_cursed_effigy",
-      "name": "Cursed Effigy",
-      "resource_type": "mana",
-      "cooldown": 10,
-      "effect_type": "buff",
-      "duration": 3,
-      "stat_mods": {
-        "physical_damage_taken_pct": -8,
-        "magic_damage_taken_pct": -8
-      },
-      "description": "Grants your party: Physical damage taken -8%, Magic damage taken -8% for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 34,
-          "cost": 45,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Drop a Cursed Effigy near you for 15 seconds. Enemies within 15 yds are unable to critically strike.' GAP: a monster's crit_chance is a plain template attribute (entities/monster.py) that no status effect touches, so crit suppression has no hook at all. Implemented from the other side - the party takes less damage, which is what losing enemy crits is worth.",
-      "target_type": "party",
       "buff_scope": "combat"
     },
     {
@@ -1463,31 +1338,6 @@
       "buff_scope": "combat"
     },
     {
-      "ability_id": "witch_doctor_base_beast_blood",
-      "name": "Base: Beast Blood",
-      "resource_type": "mana",
-      "cooldown": 10,
-      "effect_type": "buff",
-      "duration": 3,
-      "stat_mods": {
-        "physical_damage_taken_pct": -15
-      },
-      "description": "Grants your party: Physical damage taken -15% for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 38,
-          "cost": 50,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Infuse your Cauldron with Beast Blood for 10 seconds, causing 15% of the direct Physical damage taken by allies within 40 yds to instead be dealt over time. Only 1 Base can be active at a time.' GAP: there is no convert-a-hit-into-a-DoT mechanic, so the 15% is simply removed rather than deferred. The two Bases share an exclusive_group, as CoA requires.",
-      "target_type": "party",
-      "exclusive_group": "witch_doctor_base",
-      "buff_scope": "combat"
-    },
-    {
       "ability_id": "witch_doctor_base_crystal_water",
       "name": "Base: Crystal Water",
       "resource_type": "mana",
@@ -1512,39 +1362,6 @@
       "target_type": "party",
       "exclusive_group": "witch_doctor_base",
       "buff_scope": "combat"
-    },
-    {
-      "ability_id": "witch_doctor_tiki_splash",
-      "name": "Tiki Splash",
-      "resource_type": "mana",
-      "cooldown": 12,
-      "effect_type": "heal",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Heals your party.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 44,
-          "cost": 100,
-          "effect_value": 150
-        },
-        {
-          "rank": 2,
-          "level_req": 51,
-          "cost": 210,
-          "effect_value": 300
-        },
-        {
-          "rank": 3,
-          "level_req": 58,
-          "cost": 320,
-          "effect_value": 450
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA lists Tiki Splash among Brewing's 23-TE tier-6 picks with no tooltip text ('see builder tooltip'), so the name is real and the mechanic is read off its slot: the spec's emergency group heal, which the rotation otherwise lacks ('Hold Master Mixologist as the group heal-burst and wipe-prevention amplify window').",
-      "target_type": "party"
     },
     {
       "ability_id": "witch_doctor_master_mixologist",
@@ -1841,57 +1658,6 @@
       "target_type": "enemy_aoe",
       "max_targets": 4,
       "damage_school": "shadow"
-    },
-    {
-      "ability_id": "witch_doctor_shadowstalker",
-      "name": "Shadowstalker",
-      "resource_type": "mana",
-      "cooldown": 12,
-      "effect_type": "buff",
-      "duration": 2,
-      "stat_mods": {
-        "dodge": 30,
-        "haste": 15,
-        "threat_generation_pct": -80
-      },
-      "description": "Dodge +30, Haste +15, Threat generated -80% for 2 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 36,
-          "cost": 20,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Disappear into darkness, entering an improved stealth mode, clearing all harmful effects, and increasing movement speed by 50%'. GAP: a buff cannot also dispel, so the clear-all-harmful-effects half is gone - which matters, because CoA calls it 'the entire answer to CC' for this spec. The disengage half is real.",
-      "target_type": "self",
-      "buff_scope": "combat"
-    },
-    {
-      "ability_id": "witch_doctor_shadow_avatar",
-      "name": "Shadow Avatar",
-      "resource_type": "mana",
-      "cooldown": 15,
-      "effect_type": "buff",
-      "duration": 3,
-      "stat_mods": {
-        "damage_dealt_pct": 12,
-        "haste": 10
-      },
-      "description": "Damage dealt +12%, Haste +10 for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 42,
-          "cost": 50,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Lesser Shadow Avatar - Increases magic damage dealt by 10% and reduces the cooldown of Spirit Glaive by 20% every 1 sec'; 'then Shadow Avatar ... and Fool's Play'. damage_dealt_pct is school-agnostic in this engine (see Ability._damage_multiplier), so 'magic damage dealt' lands as all damage dealt.",
-      "target_type": "self",
-      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_doctor_frenzied_spirits",

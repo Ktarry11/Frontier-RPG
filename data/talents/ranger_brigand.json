@@ -155,7 +155,7 @@
     {
       "talent_id": "ranger_brigand_excessive_but_necessary",
       "name": "Excessive But Necessary",
-      "description": "Reduces the cooldown of Elude, Knockout and Cutthroat by 36%.",
+      "description": "Reduces the cooldown of Elude and Knockout by 36%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -164,8 +164,7 @@
       "hex_y": -2,
       "effects": {
         "ability_ranger_elude_cooldown_pct": 0.12,
-        "ability_ranger_knockout_cooldown_pct": 0.12,
-        "ability_ranger_cutthroat_cooldown_pct": 0.12
+        "ability_ranger_knockout_cooldown_pct": 0.12
       },
       "connected_to": [
         "ranger_brigand_bounty_hunter"

@@ -284,58 +284,6 @@
       "target_type": "enemy"
     },
     {
-      "ability_id": "ranger_cutthroat",
-      "name": "Cutthroat",
-      "resource_type": "archery_points",
-      "cooldown": 5,
-      "effect_type": "ranged_damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals damage to the target and stuns it.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 16,
-          "cost": 25,
-          "effect_value": 54
-        },
-        {
-          "rank": 2,
-          "level_req": 24,
-          "cost": 25,
-          "effect_value": 70
-        },
-        {
-          "rank": 3,
-          "level_req": 32,
-          "cost": 25,
-          "effect_value": 86
-        },
-        {
-          "rank": 4,
-          "level_req": 40,
-          "cost": 25,
-          "effect_value": 102
-        },
-        {
-          "rank": 5,
-          "level_req": 48,
-          "cost": 25,
-          "effect_value": 118
-        },
-        {
-          "rank": 6,
-          "level_req": 56,
-          "cost": 25,
-          "effect_value": 134
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree: 'Shoot a powerful arrow that deals Weapon Damage plus 40 and stuns the target for 1 seconds'.",
-      "target_type": "enemy",
-      "is_stun": true
-    },
-    {
       "ability_id": "ranger_knockout",
       "name": "Knockout",
       "resource_type": "archery_points",
@@ -430,29 +378,6 @@
       "_source": "CoA gates a third of the class tree behind Elude ('Elude stealth-window abilities'). There is no stealth in this engine, so Elude lands as the opener window its own talents describe - CoA's Woodland Stalker is 'While in Elude, your critical strike chance is increased by 20%'.",
       "target_type": "self",
       "buff_scope": "combat"
-    },
-    {
-      "ability_id": "ranger_snatch",
-      "name": "Snatch",
-      "resource_type": "archery_points",
-      "cooldown": 6,
-      "effect_type": "debuff",
-      "duration": 2,
-      "stat_mods": {
-        "attack_power": -45
-      },
-      "description": "Applies to the target: Attack Power -45 for 2 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 24,
-          "cost": 15,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree: 'Snatch an enemy's melee weapons, disarming them for 4 seconds'. Disarm is not a state the engine tracks; an attack power debuff is what a disarm costs the target.",
-      "target_type": "enemy"
     },
     {
       "ability_id": "ranger_survival_potion",
@@ -885,81 +810,6 @@
       "max_targets": 5
     },
     {
-      "ability_id": "ranger_brutal_shot",
-      "name": "Brutal Shot",
-      "resource_type": "archery_points",
-      "cooldown": 5,
-      "effect_type": "ranged_damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals damage to up to 4 targets. Requires a ranged weapon.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 30,
-          "cost": 40,
-          "effect_value": 76
-        },
-        {
-          "rank": 2,
-          "level_req": 37,
-          "cost": 40,
-          "effect_value": 98
-        },
-        {
-          "rank": 3,
-          "level_req": 44,
-          "cost": 40,
-          "effect_value": 120
-        },
-        {
-          "rank": 4,
-          "level_req": 51,
-          "cost": 40,
-          "effect_value": 142
-        },
-        {
-          "rank": 5,
-          "level_req": 58,
-          "cost": 40,
-          "effect_value": 164
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Fire a volley of powerful shots that pierce through Armor ... to all targets in a 40 yd line'. The other ranged-weapon-gated ability, same reasoning as Deadshot ('450% Ranged Weapon Damage plus 300').",
-      "target_type": "enemy_aoe",
-      "max_targets": 4,
-      "requires_ranged_weapon": [
-        "bow",
-        "gun",
-        "crossbow"
-      ]
-    },
-    {
-      "ability_id": "ranger_skirmish",
-      "name": "Skirmish",
-      "resource_type": "archery_points",
-      "cooldown": 10,
-      "effect_type": "buff",
-      "duration": 3,
-      "stat_mods": {
-        "crit_chance_physical": 15.0
-      },
-      "description": "Physical crit chance +15 for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 34,
-          "cost": 25,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Skirmish's crit and Focus-cost window sharpens the whole sequence', 'Increases your critical strike chance by 15% and reduces your Focus costs by -25%'. The cost half cannot ride along: all_ability_cost_pct is read through get_talent_effect, which does not see status effects, so a buff carrying it would do nothing.",
-      "target_type": "self",
-      "buff_scope": "combat"
-    },
-    {
       "ability_id": "ranger_poison_quiver",
       "name": "Poison Quiver",
       "resource_type": "archery_points",
@@ -1144,69 +994,6 @@
       }
     },
     {
-      "ability_id": "ranger_rusty_shiv",
-      "name": "Rusty Shiv",
-      "resource_type": "archery_points",
-      "cooldown": 0,
-      "effect_type": "damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals damage to the target.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 2,
-          "cost": 15,
-          "effect_value": 30
-        },
-        {
-          "rank": 2,
-          "level_req": 10,
-          "cost": 15,
-          "effect_value": 39
-        },
-        {
-          "rank": 3,
-          "level_req": 18,
-          "cost": 15,
-          "effect_value": 48
-        },
-        {
-          "rank": 4,
-          "level_req": 26,
-          "cost": 15,
-          "effect_value": 57
-        },
-        {
-          "rank": 5,
-          "level_req": 34,
-          "cost": 15,
-          "effect_value": 66
-        },
-        {
-          "rank": 6,
-          "level_req": 42,
-          "cost": 15,
-          "effect_value": 75
-        },
-        {
-          "rank": 7,
-          "level_req": 50,
-          "cost": 15,
-          "effect_value": 84
-        },
-        {
-          "rank": 8,
-          "level_req": 58,
-          "cost": 15,
-          "effect_value": 93
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA names Rusty Shiv with Flank as the pair Bounty Hunter reads ('Damage dealt by Flank and Rusty Shiv now increases the target's damage taken').",
-      "target_type": "enemy"
-    },
-    {
       "ability_id": "ranger_flank",
       "name": "Flank",
       "resource_type": "archery_points",
@@ -1262,58 +1049,6 @@
       "icon_id": null,
       "_source": "CoA: 'Flank from behind for the Beatdown/Bounty payoff'. Position is not a concept here, so the bonus Flank gets for being behind the target is baked into its base damage rather than conditional.",
       "target_type": "enemy"
-    },
-    {
-      "ability_id": "ranger_bushwhack",
-      "name": "Bushwhack",
-      "resource_type": "archery_points",
-      "cooldown": 5,
-      "effect_type": "damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals damage to the target and stuns it.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 16,
-          "cost": 20,
-          "effect_value": 46
-        },
-        {
-          "rank": 2,
-          "level_req": 24,
-          "cost": 20,
-          "effect_value": 60
-        },
-        {
-          "rank": 3,
-          "level_req": 32,
-          "cost": 20,
-          "effect_value": 74
-        },
-        {
-          "rank": 4,
-          "level_req": 40,
-          "cost": 20,
-          "effect_value": 88
-        },
-        {
-          "rank": 5,
-          "level_req": 48,
-          "cost": 20,
-          "effect_value": 102
-        },
-        {
-          "rank": 6,
-          "level_req": 56,
-          "cost": 20,
-          "effect_value": 116
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Bushwhack (teleport-behind plus stun) plays like Shadowstep-into-Cheap-Shot'. The teleport has no engine hook; the stun does.",
-      "target_type": "enemy",
-      "is_stun": true
     },
     {
       "ability_id": "ranger_assault",
@@ -1486,51 +1221,6 @@
       "max_targets": 5
     },
     {
-      "ability_id": "ranger_hookshot",
-      "name": "Hookshot",
-      "resource_type": "archery_points",
-      "cooldown": 4,
-      "effect_type": "damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals damage to the target.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 22,
-          "cost": 25,
-          "effect_value": 50
-        },
-        {
-          "rank": 2,
-          "level_req": 31,
-          "cost": 25,
-          "effect_value": 65
-        },
-        {
-          "rank": 3,
-          "level_req": 40,
-          "cost": 25,
-          "effect_value": 80
-        },
-        {
-          "rank": 4,
-          "level_req": 49,
-          "cost": 25,
-          "effect_value": 95
-        },
-        {
-          "rank": 5,
-          "level_req": 58,
-          "cost": 25,
-          "effect_value": 110
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Hookshot to yank a breakaway bleeding add back'. The pull is not modellable; the hit is.",
-      "target_type": "enemy"
-    },
-    {
       "ability_id": "ranger_dirty_blades",
       "name": "Dirty Blades",
       "resource_type": "archery_points",
@@ -1554,45 +1244,6 @@
       "_source": "CoA: 'your melee auto attacks deal an additional 30% of the damage dealt as Nature damage and reduces your target's healing received'. An on-swing damage rider is a proc, not a buff stat_mod, so this carries flat power and crit for the same window instead.",
       "target_type": "self",
       "buff_scope": "combat"
-    },
-    {
-      "ability_id": "ranger_outmaneuver",
-      "name": "Outmaneuver",
-      "resource_type": "archery_points",
-      "cooldown": 8,
-      "effect_type": "damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals damage to the target.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 34,
-          "cost": 40,
-          "effect_value": 100
-        },
-        {
-          "rank": 2,
-          "level_req": 42,
-          "cost": 40,
-          "effect_value": 130
-        },
-        {
-          "rank": 3,
-          "level_req": 50,
-          "cost": 40,
-          "effect_value": 160
-        },
-        {
-          "rank": 4,
-          "level_req": 58,
-          "cost": 40,
-          "effect_value": 190
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Outmaneuver's teleport-in, decoy, teleport-back is a Shadowstep-with-Preparation-reset analog'. Reduced to its damage, which is the only half of a three-step teleport the engine can express.",
-      "target_type": "enemy"
     },
     {
       "ability_id": "ranger_emerald_arrow",
@@ -1794,80 +1445,6 @@
       "target_type": "enemy"
     },
     {
-      "ability_id": "ranger_queldorei_poison",
-      "name": "Quel'dorei Poison",
-      "resource_type": "archery_points",
-      "cooldown": 3,
-      "effect_type": "dot",
-      "duration": 3,
-      "stat_mods": {},
-      "description": "Deals damage to the target over time for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 16,
-          "cost": 20,
-          "effect_value": 44
-        },
-        {
-          "rank": 2,
-          "level_req": 24,
-          "cost": 20,
-          "effect_value": 58
-        },
-        {
-          "rank": 3,
-          "level_req": 32,
-          "cost": 20,
-          "effect_value": 72
-        },
-        {
-          "rank": 4,
-          "level_req": 40,
-          "cost": 20,
-          "effect_value": 86
-        },
-        {
-          "rank": 5,
-          "level_req": 48,
-          "cost": 20,
-          "effect_value": 100
-        },
-        {
-          "rank": 6,
-          "level_req": 56,
-          "cost": 20,
-          "effect_value": 114
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Open tougher fights with Toxic Dart and Quel'dorei Poison for DoT pressure'. The ability_id deliberately carries the word 'poison': Ability._damage_multiplier only adds poison_dot_damage when that substring is in the id, so this is the one place the flavour key is live.",
-      "target_type": "enemy"
-    },
-    {
-      "ability_id": "ranger_falcons_call",
-      "name": "Falcon's Call",
-      "resource_type": "archery_points",
-      "cooldown": 6,
-      "effect_type": "debuff",
-      "duration": 2,
-      "stat_mods": {
-        "haste": -30.0
-      },
-      "description": "Applies to all nearby enemies: Haste -30 for 2 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 24,
-          "cost": 20,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'open with Falcon's Call (AoE slow + Falcon summons)', 'slowing up to 8 enemies'. The slow is the half the engine can carry; the summons are their own ability below.",
-      "target_type": "enemy_aoe"
-    },
-    {
       "ability_id": "ranger_summon_war_falcon",
       "name": "Call War Falcon",
       "resource_type": "archery_points",
@@ -1974,54 +1551,6 @@
       "buff_scope": "combat"
     },
     {
-      "ability_id": "ranger_battle_prowess",
-      "name": "Battle Prowess",
-      "resource_type": "archery_points",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 0,
-      "stat_mods": {
-        "hit_rating": 2
-      },
-      "description": "Grants your party: Hit Rating +2.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 24,
-          "cost": 20,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Battle Prowess (party hit)', 'Increases chance to hit with all spells and attacks by 1% for you and party and raid members'. hit_rating is 1 rating = 1% less miss in this engine.",
-      "target_type": "party",
-      "buff_scope": "raid"
-    },
-    {
-      "ability_id": "ranger_defense_of_the_ancients",
-      "name": "Defense of the Ancients",
-      "resource_type": "archery_points",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 0,
-      "stat_mods": {
-        "armor_pct": 15.0
-      },
-      "description": "Grants your party: Armor Pct +15%.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 40,
-          "cost": 25,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Defense of the Ancients' armor' aura. armor_pct is percentage POINTS (Character._recalculate_derived_stats divides it by 100), so 15.0 is +15%.",
-      "target_type": "party",
-      "buff_scope": "raid"
-    },
-    {
       "ability_id": "ranger_frenzy",
       "name": "Frenzy",
       "resource_type": "archery_points",
@@ -2107,30 +1636,6 @@
       "icon_id": null,
       "_source": "CoA: 'Thalassian Brand to mark a priority target, which grants your allies bonus ranged attack power against it and ticks Nature damage'. The ally-side ranged AP bonus is target-conditional and has no engine hook, so the ability is the Nature tick and the capstone pays the rest.",
       "target_type": "enemy"
-    },
-    {
-      "ability_id": "ranger_backstep",
-      "name": "Backstep",
-      "resource_type": "archery_points",
-      "cooldown": 3,
-      "effect_type": "buff",
-      "duration": 1,
-      "stat_mods": {
-        "dodge": 15.0
-      },
-      "description": "Dodge +15 for 1 turn.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 14,
-          "cost": 10,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Backstep repositions you on a hit-and-run kill', 'Leap backwards up to 10 yds'. A leap is a dodge window here.",
-      "target_type": "self",
-      "buff_scope": "combat"
     },
     {
       "ability_id": "ranger_command_aura",

@@ -161,6 +161,45 @@ CLASSES = {
             "Calm Under Pressure": "Reduces the cooldown of Stoicism by 39%.",
         },
     },
+    # Ranger: 53 buttons. Farstrider alone carried eight party buffs; Brigand four plain strikes.
+    "Ranger": {
+        "CUT": {
+            "ranger_snatch": "a small Attack Power debuff no talent touches",
+            "ranger_cutthroat": "a damage-and-stun beside Knockout's interrupt-and-stun",
+            "ranger_skirmish": "Elude again (+15% crit)",
+            "ranger_backstep": "a smaller Briar Veil",
+            "ranger_brutal_shot": "a third Archery area shot between Hunting Shot and Incendiary Shot",
+            "ranger_rusty_shiv": "a plain strike beside Wild Strike",
+            "ranger_hookshot": "a plain strike with nothing of its own",
+            "ranger_outmaneuver": "a plain strike with nothing of its own",
+            "ranger_bushwhack": "a damage-and-stun beside Knockout",
+            "ranger_battle_prowess": "+2 hit as a party buff, beside four better ones",
+            "ranger_defense_of_the_ancients": "a party armour buff on the archer spec",
+            "ranger_queldorei_poison": "a second Farstrider DoT beside Thalassian Brand",
+            "ranger_falcons_call": "a third slow beside Crippling Shot and Throatpunch",
+        },
+        "REWORD": {},
+        "PASSIVE": {},
+        "TALENT_TEXT": {
+            "Excessive But Necessary": "Reduces the cooldown of Elude and Knockout by 36%.",
+        },
+    },
+    # Witch Doctor: 50 buttons, six of them personal defensives and five party buffs.
+    "Witch Doctor": {
+        "CUT": {
+            "witch_doctor_mirage": "a fourth personal defensive (threat and dodge)",
+            "witch_doctor_slither": "a fifth personal defensive (dodge and haste)",
+            "witch_doctor_stasis_ward": "a 1-turn area stun beside Amphibimorph's 2-turn interrupt",
+            "witch_doctor_swift_idol": "a small party haste buff nothing is built around",
+            "witch_doctor_cursed_effigy": "a party damage-reduction buff beside Frog Bones and Big Bad Voodoo",
+            "witch_doctor_shadow_avatar": "a core damage cooldown when every spec has its own",
+            "witch_doctor_tiki_splash": "a second party heal beside Splash Potion",
+            "witch_doctor_base_beast_blood": "a third party damage-reduction buff",
+            "witch_doctor_shadowstalker": "a dodge-and-threat escape on the damage spec",
+        },
+        "REWORD": {},
+        "PASSIVE": {},
+    },
 }
 
 
