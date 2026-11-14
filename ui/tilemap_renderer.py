@@ -853,7 +853,10 @@ class TilemapRenderer:
                 # dwarves with their own figures; without this only the people who do NOT sell
                 # anything would have looked like themselves.
                 own = f"assets/npcs/leaders/{getattr(vendor, 'vendor_id', '')}"
-                if os.path.exists(f"{own}/down.png"):
+                if getattr(vendor, "creature_sprite", None):
+                    from ui.sprite_loader import get_creature_sprite_by_id
+                    sprite = get_creature_sprite_by_id(vendor.creature_sprite, self.tile_size)
+                elif os.path.exists(f"{own}/down.png"):
                     sprite = get_npc_sprite(own, "down", tile_height=int(self.tile_size * self.npc_sprite_scale))
                 if sprite is None and base_path:
                     sprite = get_npc_sprite(base_path, getattr(vendor, "facing", "down"), tile_height=int(self.tile_size * self.npc_sprite_scale))

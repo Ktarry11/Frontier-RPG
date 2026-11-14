@@ -121,6 +121,7 @@ class VendorScreen(BaseScreen):
                 gathering_manager=gathering_mgr,
                 loot_generator=self.loot_generator)
             if thing is not None:
+                thing._sells_id = item_id      # a barter shelf prices by what it was listed as
                 items.append(thing)
                 continue
             # Genuinely unknown ID - warn and skip rather than crash
@@ -221,7 +222,26 @@ class VendorScreen(BaseScreen):
         """Reagents, food, drink - anything that is not a single piece of gear."""
         return item is not None and not self._is_gear(item)
 
+    def _barter(self):
+        """{"currency": id, "name": ..., "prices": {sells id: n}, "default": n}, or None for gold."""
+        return getattr(getattr(self, "vendor", None), "barter", None)
+
+    def _fmt(self, amount):
+        """A buy price as the vendor wants it: coins, or so many of whatever they barter for."""
+        b = self._barter()
+        if not b:
+            return format_coins(amount)
+        return f"{amount} {b.get('name', b['currency'])}"
+
+    def _held_currency(self):
+        b = self._barter()
+        player = self.state_manager.player
+        return player.get_material_quantity(b["currency"]) if b else 0
+
     def _unit_price(self, item):
+        b = self._barter()
+        if b:
+            return int((b.get("prices") or {}).get(getattr(item, "_sells_id", None), b.get("default", 1)))
         price = getattr(item, "vendor_price", None)
         if not price:
             # None (a recipe scroll) or 0: six planks and a feast were on sale for nothing.
@@ -272,6 +292,9 @@ class VendorScreen(BaseScreen):
 
         player = self.state_manager.player
         party = self.state_manager.get_party()
+        if self._barter():
+            self._barter_buy(item, qty, price)
+            return
         if not party.remove_currency(price):
             can = party.copper // unit if unit else 0
             if qty > 1 and can >= 1:
@@ -314,6 +337,41 @@ class VendorScreen(BaseScreen):
                     self.consumable_manager.get_consumable(item.consumable_id, quantity=1))
 
         self._show_message(f"Bought {label} for {format_coins(price)}.", COLOR_GOLD)
+
+    def _barter_buy(self, item, qty, price):
+        """Pay in the vendor's own currency (a rat wants cheese), all or nothing."""
+        b = self._barter()
+        player = self.state_manager.player
+        have = self._held_currency()
+        if have < price:
+            self._show_message(f"{self.vendor.name} wants {self._fmt(price)}. You have {have}.", COLOR_RED)
+            return
+        if self._is_gear(item):
+            if not player.add_to_inventory(item):
+                self._show_message("Your bags are full.", COLOR_RED)
+                return
+            player.consume_material(b["currency"], price)
+            self.selected_vendor_item = None
+            self._rebuild_after_unique()
+        elif self._is_material(item):
+            from world.gathering_manager import GatheringNodeManager
+            maker = GatheringNodeManager()
+            player.consume_material(b["currency"], price)
+            for _ in range(qty):
+                player.add_material(maker.make_material_instance(item.material_id))
+        else:
+            player.consume_material(b["currency"], price)
+            for _ in range(qty):
+                player.add_consumable(self.consumable_manager.get_consumable(item.consumable_id, quantity=1))
+        label = f"{qty} x {item.name}" if qty > 1 else item.name
+        self._show_message(f"Traded {self._fmt(price)} for {label}.", COLOR_GOLD)
+
+    def _rebuild_after_unique(self):
+        """A one-of-a-kind item leaves the shelf with you: rebuild, so the next one shown is a fresh copy."""
+        try:
+            self.vendor_items = self._build_vendor_stock()
+        except Exception:
+            pass
 
     def _sell_item(self):
         item = self.selected_player_item
@@ -643,7 +701,7 @@ class VendorScreen(BaseScreen):
             self.renderer.draw_text(screen, count, (r.centerx - tw // 2, r.y + 12), color=COLOR_GOLD)
             total = self._unit_price(self.selected_vendor_item) * self.buy_qty
             afford = self.state_manager.get_party().copper >= total
-            self.renderer.draw_text(screen, format_coins(total), (q["total_x"], r.y + 12),
+            self.renderer.draw_text(screen, self._fmt(total), (q["total_x"], r.y + 12),
                                     size="small", color=COLOR_GOLD if afford else COLOR_RED)
 
         pygame.draw.rect(screen, (70, 40, 40) if sell_enabled else (30, 30, 30), sell_rect)
@@ -760,7 +818,7 @@ class VendorScreen(BaseScreen):
 
         if mode == "buy":
             price = self._unit_price(item)
-            price_text = format_coins(price)
+            price_text = self._fmt(price)
         elif not getattr(item, "is_sellable", True):
             qty = getattr(item, "quantity", None)
             price_text = f"x{qty}  Quest" if qty is not None else "Quest"
@@ -862,7 +920,7 @@ class VendorScreen(BaseScreen):
 
         if mode == "buy":
             price = self._unit_price(item)
-            lines.append(f"Price: {format_coins(price)}")
+            lines.append(f"Price: {self._fmt(price)}")
         elif getattr(item, "is_sellable", True):
             lines.append(f"Sells for: {format_coins(item.sell_price)}")
 

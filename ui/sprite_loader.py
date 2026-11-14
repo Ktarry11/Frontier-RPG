@@ -445,3 +445,26 @@ def get_creature_sprite(name, template=None, tile_size=48, boss=False):
         result = None
     _sprite_cache[cache_key] = result
     return result
+
+
+def get_creature_sprite_by_id(sprite_id, tile_size=48, tiles=1.6):
+    """A creature picture by its file id (assets/creatures/<id>.png), scaled to `tiles` tall.
+    For sellers who are not people (world/secrets.py)."""
+    cache_key = ("creature_id", sprite_id, tile_size, tiles)
+    if cache_key in _sprite_cache:
+        return _sprite_cache[cache_key]
+    result = None
+    try:
+        from creature_sprites import sprite_path
+        path = sprite_path(sprite_id)
+        if not path.exists():
+            path = sprite_path(f"{sprite_id}_1")       # a family name stands for its first variant
+        raw = _load_sheet(str(path))
+        if raw is not None and raw.get_height():
+            k = tiles * tile_size / raw.get_height()
+            result = pygame.transform.smoothscale(
+                raw, (max(1, round(raw.get_width() * k)), max(1, round(raw.get_height() * k))))
+    except Exception:
+        result = None
+    _sprite_cache[cache_key] = result
+    return result

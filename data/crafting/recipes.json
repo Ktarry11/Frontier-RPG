@@ -6904,6 +6904,205 @@
           "sold_by": [
             "secret_kael_lirael"
           ]
+        },
+        "secret_ashen_kyrenne_tail_silk_robe": {
+          "name": "Shadowbark's Silk Robe",
+          "inputs": {
+            "bolt_silk": 4,
+            "thread_fine": 1
+          },
+          "skill_required": 125,
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 30,
+            "rarity": "rare",
+            "material_tier": "silk"
+          },
+          "skill_range": [
+            130,
+            140,
+            150,
+            160
+          ],
+          "source": "vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_ashen_kyrenne"
+          ]
+        },
+        "secret_flats_mabs_p300_ta_moonsilk_hands": {
+          "name": "Mabs's Moonsilk Gloves",
+          "skill_required": 200,
+          "skill_range": [
+            205,
+            215,
+            225,
+            235
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_moonsilk": 4,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 43,
+            "rarity": "epic",
+            "material_tier": "moonsilk"
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_flats_mabs"
+          ]
+        },
+        "secret_cstv_jalu_p300_ta_emberweave_head": {
+          "name": "Jalu's Emberweave Hood",
+          "skill_required": 185,
+          "skill_range": [
+            190,
+            200,
+            210,
+            220
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_emberweave": 6,
+            "thread_fine": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 40,
+            "rarity": "epic",
+            "material_tier": "emberweave"
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_cstv_jalu"
+          ]
+        },
+        "secret_spnorth_moll_tail_wool_hood": {
+          "name": "Moll's Wool Hood",
+          "inputs": {
+            "bolt_wool": 3,
+            "thread_coarse": 1
+          },
+          "skill_required": 80,
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 21,
+            "rarity": "rare",
+            "material_tier": "wool"
+          },
+          "skill_range": [
+            85,
+            95,
+            105,
+            115
+          ],
+          "source": "vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_spnorth_moll"
+          ]
+        },
+        "secret_fenris_ferrin_tail_silk_cloak": {
+          "name": "Ferryless's Silk Cloak",
+          "inputs": {
+            "bolt_silk": 2,
+            "thread_fine": 1
+          },
+          "skill_required": 105,
+          "output": {
+            "kind": "armor",
+            "slot": "back",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 26,
+            "rarity": "rare",
+            "material_tier": "silk",
+            "armor_value": 18
+          },
+          "skill_range": [
+            110,
+            120,
+            130,
+            140
+          ],
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_fenris_ferrin"
+          ]
+        },
+        "secret_hillse_tamsin_tai_silverpine_mournerobe": {
+          "name": "Tamsin's Silverpine Mournerobe",
+          "skill_required": 135,
+          "skill_range": [
+            140,
+            150,
+            160,
+            170
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_spidersilk": 6,
+            "thread_fine": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 30,
+            "rarity": "rare",
+            "material_tier": "spidersilk"
+          },
+          "vendor_location": "The Sepulcher",
+          "secret": true,
+          "sold_by": [
+            "secret_hillse_tamsin"
+          ]
+        },
+        "secret_saltspur_hewitt_p300_ta_moonsilk_hands": {
+          "name": "Hewitt's Moonsilk Gloves",
+          "skill_required": 200,
+          "skill_range": [
+            205,
+            215,
+            225,
+            235
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_moonsilk": 4,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 43,
+            "rarity": "epic",
+            "material_tier": "moonsilk"
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_saltspur_hewitt"
+          ]
         }
       }
     },
@@ -12009,6 +12208,67 @@
           "sold_by": [
             "secret_freewind_talo"
           ]
+        },
+        "secret_nbarrens_mirela_ww_frostpine_grimoire": {
+          "name": "Sandsong's Frostpine Grimoire",
+          "inputs": {
+            "pages_fine": 8,
+            "fiber_tough": 3,
+            "plank_frostpine": 1,
+            "glue": 1,
+            "stick_seasoned": 1
+          },
+          "skill_required": 110,
+          "output": {
+            "kind": "weapon",
+            "slot": "off_hand",
+            "weapon_type": "tome",
+            "stat_template": "int_caster",
+            "item_level": 27,
+            "rarity": "rare",
+            "material_tier": "ironbark"
+          },
+          "skill_range": [
+            115,
+            125,
+            135,
+            145
+          ],
+          "source": "vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_nbarrens_mirela"
+          ]
+        },
+        "secret_needles_skyfeather_ww_staff_spi_heavy": {
+          "name": "Skyfeather's Lifebark Staff",
+          "skill_required": 170,
+          "skill_range": [
+            175,
+            185,
+            195,
+            205
+          ],
+          "source": "vendor",
+          "inputs": {
+            "plank_ironbark": 5,
+            "resin": 1,
+            "stick_hardened": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "main_hand",
+            "weapon_type": "staff",
+            "stat_template": "spi_healer",
+            "item_level": 37,
+            "rarity": "epic",
+            "material_tier": "ironbark"
+          },
+          "vendor_location": "Any pattern vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_needles_skyfeather"
+          ]
         }
       }
     },
@@ -14250,6 +14510,211 @@
           "sold_by": [
             "secret_stw_fizzby"
           ]
+        },
+        "secret_sbarrens_snitch_eng_gun_emberglass_repeater": {
+          "name": "Grimtooth's Emberglass Repeater",
+          "skill_required": 120,
+          "skill_range": [
+            125,
+            135,
+            145,
+            155
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_iron": 4,
+            "part_steel_barrel": 1,
+            "part_wooden_stock": 1,
+            "part_unstable_trigger": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "gun",
+            "stat_template": "agi_physical",
+            "item_level": 27,
+            "rarity": "epic",
+            "material_tier": "iron"
+          },
+          "drop_zone": "Razorfen Kraul",
+          "secret": true,
+          "sold_by": [
+            "secret_sbarrens_snitch"
+          ]
+        },
+        "secret_flats_mabs_eng300_mithril_blunderbuss": {
+          "name": "Mabs's Mithril Blunderbuss",
+          "skill_required": 190,
+          "skill_range": [
+            195,
+            205,
+            215,
+            225
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_mithril": 6,
+            "part_steel_barrel": 1,
+            "part_wooden_stock": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "gun",
+            "stat_template": "agi_physical",
+            "item_level": 41,
+            "rarity": "epic",
+            "material_tier": "mithril"
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_flats_mabs"
+          ]
+        },
+        "secret_nstv_ezra_eng_gilded_goggles": {
+          "name": "Blackpowder's Gilded Marksman's Goggles",
+          "skill_required": 165,
+          "skill_range": [
+            170,
+            180,
+            190,
+            200
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_gold": 6,
+            "bar_steel": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "mail",
+            "stat_template": "agi_physical",
+            "item_level": 36,
+            "rarity": "rare",
+            "material_tier": "gold"
+          },
+          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials).",
+          "secret": true,
+          "sold_by": [
+            "secret_nstv_ezra"
+          ]
+        },
+        "secret_fenris_ferrin_eng_gun_long_barrelled_musket": {
+          "name": "Ferryless's Long-Barrelled Musket",
+          "skill_required": 104,
+          "skill_range": [
+            109,
+            119,
+            129,
+            139
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_iron": 4,
+            "part_steel_barrel": 1,
+            "part_wooden_stock": 1,
+            "part_unstable_trigger": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "gun",
+            "stat_template": "agi_physical",
+            "item_level": 23,
+            "rarity": "epic",
+            "material_tier": "iron"
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_fenris_ferrin"
+          ]
+        },
+        "secret_vot_kazzik_eng_tinkers_gloves": {
+          "name": "Runaway's Tinker's Gloves",
+          "skill_required": 30,
+          "skill_range": [
+            35,
+            45,
+            55,
+            65
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_copper": 3,
+            "part_copper_bolts": 2,
+            "crystal_quartz": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 9,
+            "rarity": "rare",
+            "material_tier": "copper"
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_vot_kazzik"
+          ]
+        },
+        "secret_strand_kezz_eng300_thorium_shellguard": {
+          "name": "Kezz's Thorium Shellguard",
+          "skill_required": 260,
+          "skill_range": [
+            265,
+            275,
+            285,
+            295
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_thorium": 6,
+            "part_iron_casing": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "mail",
+            "stat_template": "agi_physical",
+            "item_level": 55,
+            "rarity": "epic",
+            "material_tier": "thorium"
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_strand_kezz"
+          ]
+        },
+        "secret_glitter_nim_eng300_truesilver_repeater": {
+          "name": "Copperbolt's Truesilver Repeater",
+          "skill_required": 235,
+          "skill_range": [
+            240,
+            250,
+            260,
+            270
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_truesilver": 6,
+            "part_steel_barrel": 1,
+            "part_precision_sight": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "gun",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 50,
+            "rarity": "epic",
+            "material_tier": "truesilver"
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_glitter_nim"
+          ]
         }
       }
     },
@@ -15937,6 +16402,72 @@
             "consumable_id": "meal_cooked_charred_lightning_eel",
             "count": 1
           }
+        },
+        "secret_recipe_secret_zenji_0": {
+          "name": "Deepwater Brine Stew",
+          "skill_required": 65,
+          "inputs": {
+            "fish_loch_frenzy": 1,
+            "cook_spice": 1
+          },
+          "source": "vendor",
+          "skill_range": [
+            70,
+            80,
+            90,
+            100
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "secret_zenji_0",
+            "count": 1
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_echo_zenji"
+          ]
+        },
+        "secret_recipe_secret_zenji_1": {
+          "name": "Reef-Smoked Mackerel",
+          "skill_required": 55,
+          "inputs": {
+            "fish_bristle_whisker_catfish": 1,
+            "cook_water": 1
+          },
+          "source": "vendor",
+          "skill_range": [
+            60,
+            70,
+            80,
+            90
+          ],
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "secret_zenji_1",
+            "count": 1
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_echo_zenji"
+          ]
+        },
+        "secret_recipe_secret_zenji_2": {
+          "name": "Zenji's Salted Roe",
+          "skill_required": 85,
+          "inputs": {
+            "meat_lean": 2,
+            "cook_ale": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "secret_zenji_2",
+            "count": 1
+          },
+          "source": "vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_echo_zenji"
+          ]
         }
       }
     }

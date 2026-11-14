@@ -179,7 +179,10 @@ SELLERS = [
      ["leatherworking", "tailoring"],
      [("Zenji's Bone Charm Staff", "main_hand", "of the Owl", "weapon", "staff", "Every bone on it belonged to somebody who owed her."),
       ("Tidecaller's Sandals", "feet", "of the Seer", "armor", "cloth", "Damp. Always damp."),
-      ("Darkspear Throwing Glaive", "ranged", "of the Monkey", "weapon", "thrown", "It comes back. Usually.")]),
+      ("Darkspear Throwing Glaive", "ranged", "of the Monkey", "weapon", "thrown", "It comes back. Usually.")],
+     {"meals": [("Deepwater Brine Stew", "Slow-cooked the way Zenji's grandmother did it, which is to say for far longer than you'd think."),
+                ("Reef-Smoked Mackerel", "Smoked over driftwood and kelp until it tastes of the whole sea at once."),
+                ("Zenji's Salted Roe", "A spoonful is plenty. Two is showing off.")]}),
     ("secret_onyx_dagna", "Onyxhollow", "Dagna Coalbeard", "dwarf", "female",
      "My cousin runs the forge. I run what falls off the back of it.",
      ["blacksmithing", "jewelcrafting"],
@@ -192,6 +195,166 @@ SELLERS = [
      [("Unindexed Spellblade", "main_hand", "of Arcane Wrath", "weapon", "sword_1h", "There's no entry for it in any catalogue. She checked."),
       ("Marginalia Gloves", "hands", "of the Sorcerer", "armor", "cloth", "Ink-stained. The ink moves."),
       ("Sunstrand Pendant", "neck", "of Intellect", "armor", None, "Warm when somebody lies to you.")]),
+    # ---- more hidden sellers, so the creatures stay rare (Kyle: monsters "5% max")
+    ("secret_durotar_grallik", "Durotar", "Hermit Grallik", "orc", "male",
+     "I left Razor Hill because it got loud. If you found me, you're quiet enough to buy something.",
+     ["leatherworking", "blacksmithing"],
+     [("Scorpid-Tail Flail", "main_hand", "of the Tiger", "weapon", "mace_1h", "The barb still twitches in the heat."),
+      ("Red Wastes Wraps", "wrist", "of the Monkey", "armor", "leather", "Sun-bleached and sand-scoured."),
+      ("Hermit's Lantern Staff", "main_hand", "of the Owl", "weapon", "staff", "He reads by it. He doesn't read much.")]),
+    ("secret_nbarrens_mirela", "Northern Barrens", "Mirela Sandsong", "tauren", "female",
+     "The plains keep whatever travellers drop. I just walk along behind them.",
+     ["woodworking", "leatherworking"],
+     [("Thunderhoof Maul", "main_hand", "of the Bear", "weapon", "mace_2h", "Heavy enough to stop a kodo. It has."),
+      ("Sandsong Shawl", "back", "of the Owl", "armor", None, "Woven from kodo hair and patience."),
+      ("Plainswalker Boots", "feet", "of the Eagle", "armor", "mail", "Resoled six times and still going.")]),
+    ("secret_sbarrens_snitch", "Southern Barrens", "Snitch Grimtooth", "goblin", "male",
+     "Bael'dun had more in its vaults than the dwarves ever let on. Had, I said.",
+     ["engineering", "blacksmithing"],
+     [("Vault-Cracker Hammer", "main_hand", "of Strength", "weapon", "mace_1h", "Built for doors. Works on most things that aren't doors too."),
+      ("Bael'dun Blunderbuss", "ranged", "of the Marksman", "weapon", "gun", "Dwarven make. Goblin improvements. Mostly improvements."),
+      ("Borrowed Ironforge Belt", "waist", "of the Soldier", "armor", "plate", "Snitch says borrowed. Nobody's asked for it back.")]),
+    ("secret_ashen_kyrenne", "Ashenvale East", "Kyrenne Shadowbark", "night_elf", "female",
+     "The Horde cuts down the forest. I sell what it leaves behind to whoever finds me, and I don't ask which side they're on.",
+     ["tailoring", "enchanting"],
+     [("Felscorched Robe", "chest", "of Shadow Wrath", "armor", "cloth", "The hem is singed green and won't wash out."),
+      ("Shadowbark Recurve", "ranged", "of the Hunt", "weapon", "bow", "Carved from a tree that died standing."),
+      ("Satyrbane Glaive", "main_hand", "of the Champion", "weapon", "sword_1h", "Made for satyrs. It isn't fussy.")]),
+    ("secret_needles_skyfeather", "Southern Thousand Needles", "Old Skyfeather", "tauren", "male",
+     "Up here the only visitors are birds and fools. You don't look much like a bird.",
+     ["leatherworking", "woodworking"],
+     [("Mesa Runner's Jerkin", "chest", "of the Falcon", "armor", "leather", "Cut for climbing. Stitched for falling."),
+      ("Spire-Climber Gloves", "hands", "of the Soldier", "armor", "mail", "Grip like a hawk's foot."),
+      ("Skyfeather Totem", "ranged", "of the Elder", "weapon", "totem", "Carved from a spire that fell in a storm.")]),
+    ("secret_flats_mabs", "The Shimmering Flats", "Grease Monkey Mabs", "goblin", "female",
+     "Pit crews throw out better parts than most shops sell. I don't throw anything out.",
+     ["engineering", "tailoring"],
+     [("Racing Goggles", "head", "of the Falcon", "armor", "leather", "The salt never quite comes off the lenses."),
+      ("Nitro-Boosted Boomstick", "ranged", "of the Sharpshooter", "weapon", "gun", "Mabs says it's perfectly safe. Mabs is missing two fingers."),
+      ("Crash-Padded Leggings", "legs", "of the Bear", "armor", "mail", "Designed after the third crash. Tested on the fourth.")]),
+    ("secret_tanaris_ahmiru", "Northern Tanaris", "Ahmiru Dustwalker", "troll", "male",
+     "The desert buries everything in the end. I just get there before it's finished.",
+     ["jewelcrafting", "leatherworking"],
+     [("Sunscorched Khopesh", "main_hand", "of the Gladiator", "weapon", "sword_1h", "The grip is too hot to hold at noon. Hold it anyway."),
+      ("Dune-Sealed Leggings", "legs", "of the Monkey", "armor", "leather", "Not one grain of sand gets in. Ahmiru guarantees it, loudly."),
+      ("Sandworm Tooth Pendant", "neck", "of Stamina", "armor", None, "Big tooth. Bigger worm.")]),
+    ("secret_nstv_ezra", "Northern Stranglethorn", "Ezra Blackpowder", "human", "male",
+     "Booty Bay charges a landing fee. I don't have a landing, so I don't charge one.",
+     ["engineering", "blacksmithing"],
+     [("Smuggler's Hook Blade", "main_hand", "of the Duelist", "weapon", "sword_1h", "Good for rigging, better for arguments."),
+      ("Powder-Burned Gauntlets", "hands", "of the Soldier", "armor", "mail", "Black to the elbow and proud of it."),
+      ("Jungle-Run Musket", "ranged", "of the Marksman", "weapon", "gun", "Wrapped in oilcloth for the wet season, which is every season.")]),
+    ("secret_cstv_jalu", "Central Stranglethorn", "Mama Jalu", "troll", "female",
+     "The old temples are full of things the Gurubashi forgot. I remember them for them.",
+     ["tailoring", "leatherworking"],
+     [("Zandali Bone Fetish", "off_hand", "of the Necromancer", "weapon", "tome", "It rattles when nobody is moving it."),
+      ("Jalu's Ritual Mask", "head", "of the Seer", "armor", "leather", "The eyes follow you. That's the point."),
+      ("Gurubashi Throwing Axe", "ranged", "of the Monkey", "weapon", "thrown", "Balanced for a throw and a long walk to fetch it.")]),
+    ("secret_arathiw_wren", "Arathi West", "Tobias Wren", "human", "male",
+     "Stromgarde's quartermasters sold everything that wasn't nailed down. I bought the nails.",
+     ["blacksmithing", "leatherworking"],
+     [("Stromgarde Longsword", "main_hand", "of the Champion", "weapon", "sword_2h", "Old Stromgarde steel. They don't make it like this any more because there's nobody left to."),
+      ("Highland Tabard Coat", "chest", "of the Soldier", "armor", "mail", "The crest has been unpicked. You can still see where it was."),
+      ("Wren's Crossbow", "ranged", "of the Hunt", "weapon", "crossbow", "He says it's never missed. He says a lot of things.")]),
+    ("secret_arathie_brakka", "Arathi East", "Brakka Coldwater", "orc", "female",
+     "Ogres don't count their hoards. That's how I've lived this long.",
+     ["blacksmithing", "leatherworking"],
+     [("Ogre-Hide Belt", "waist", "of the Bear", "armor", "leather", "One belt. One very large ogre."),
+      ("Boulderfist Club", "main_hand", "of Strength", "weapon", "mace_2h", "Two rocks and a tree. Ogre craftsmanship."),
+      ("Coldwater Shield", "off_hand", "of the Defender", "weapon", "shield", "Still damp from the river she pulled it out of.")]),
+    ("secret_spnorth_moll", "Silverpine North", "Gravedigger Moll", "forsaken", "female",
+     "The dead don't need their boots. I've asked them, very politely.",
+     ["leatherworking", "tailoring"],
+     [("Dead Man's Boots", "feet", "of the Tiger", "armor", "leather", "Broken in. Thoroughly."),
+      ("Pyrewood Shroud", "back", "of the Necromancer", "armor", None, "It smells faintly of smoke and somebody's grandmother."),
+      ("Moll's Shovel Blade", "main_hand", "of Strength", "weapon", "polearm", "Sharpened on both edges, for reasons Moll keeps to herself.")]),
+    ("secret_fenris_ferrin", "Fenris Isle", "Ferrin the Ferryless", "forsaken", "male",
+     "I used to run a boat out here. Then the boat sank, and I stayed with it, mostly.",
+     ["tailoring", "engineering"],
+     [("Bloodmoon Charm", "neck", "of the Seer", "armor", None, "Red under any moon."),
+      ("Fenris Keep Signet", "ring", "of the Champion", "armor", None, "The keep's seal. The keep doesn't need it any more."),
+      ("Ferryman's Oar-Blade", "main_hand", "of the Breaker", "weapon", "polearm", "An oar, mostly. The rest is spite and an iron edge.")]),
+    ("secret_hillse_tamsin", "Eastern Hillsbrad", "Hedgewitch Tamsin", "human", "female",
+     "The Forsaken think I left. The Alliance thinks I'm dead. Both of those suit me fine.",
+     ["tailoring", "enchanting"],
+     [("Hedgewitch's Bramble Staff", "main_hand", "of the Restorer", "weapon", "staff", "Still sprouting. She keeps meaning to trim it."),
+      ("Thornwoven Gloves", "hands", "of the Prophet", "armor", "cloth", "Prickly on the outside, kind on the inside."),
+      ("Witch-Knot Amulet", "neck", "of Intellect", "armor", None, "Tied in a knot nobody else in Hillsbrad remembers how to tie.")]),
+    ("secret_dk_grubbs", "Deathknell", "Grubbs the Digger", "forsaken", "male",
+     "I dig graves. Sometimes I dig them up again. Don't look at me like that, it's honest work.",
+     ["leatherworking", "blacksmithing"],
+     [("Grubbs' Shovel", "main_hand", "of Strength", "weapon", "polearm", "Dug a lot of holes. Filled in most of them."),
+      ("Burial Gloves", "hands", "of the Monkey", "armor", "leather", "Never wash them. Grubbs certainly doesn't."),
+      ("Lantern of the Dug-Up", "off_hand", "of Intellect", "weapon", "tome", "A ledger of everyone he's dug up, and what they had on them.")]),
+    ("secret_vot_kazzik", "Valley of Trials", "Kazzik the Runaway", "goblin", "male",
+     "Don't tell the overseers I'm here. I'm supposed to be shovelling something somewhere.",
+     ["engineering", "leatherworking"],
+     [("Runaway's Wrench", "main_hand", "of the Tiger", "weapon", "mace_1h", "He took it when he ran. He says it was owed."),
+      ("Shovelling Gloves", "hands", "of the Bear", "armor", "leather", "Never actually used for shovelling."),
+      ("Spare Slingshot", "ranged", "of the Monkey", "weapon", "thrown", "For the boar that chased him in here.")]),
+    ("secret_strand_kezz", "The Black Strand", "Saltjaw Kezz", "goblin", "female",
+     "Everything on this beach washed up from somewhere. Some of it washed up from very deep.",
+     ["engineering", "jewelcrafting"],
+     [("Deepwreck Harpoon", "main_hand", "of the Spearhead", "weapon", "polearm", "Barbed for something much bigger than you."),
+      ("Abyssal Diver's Helm", "head", "of the Juggernaut", "armor", "plate", "Brass and glass. The glass is cracked from the inside."),
+      ("Kelp-Stained Cord", "waist", "of the Sorcerer", "armor", "cloth", "Still smells of low tide.")]),
+    ("secret_cinder_varga", "Cinderwharf", "Ashfoot Varga", "orc", "female",
+     "The wharf burns down every few years. I'm the one who sorts through what's left.",
+     ["blacksmithing", "leatherworking"],
+     [("Ashforged Greataxe", "main_hand", "of the Vanquisher", "weapon", "axe_2h", "Forged in a fire nobody lit on purpose."),
+      ("Cinder-Proof Gauntlets", "hands", "of the Bastion", "armor", "plate", "She's put her hands in the fire to prove it. Twice."),
+      ("Wharfwatcher's Rifle", "ranged", "of the Sharpshooter", "weapon", "gun", "Smoke-blackened and dead accurate.")]),
+    ("secret_glitter_nim", "Glittervein", "Nim Copperbolt", "gnome", "male",
+     "Everybody else dug for gold. I dug for the things the gold was sitting on.",
+     ["jewelcrafting", "engineering"],
+     [("Gem-Studded Pick", "main_hand", "of the Champion", "weapon", "axe_1h", "More gems in the handle than most mines have left."),
+      ("Copperbolt's Loupe", "head", "of the Seer", "armor", "cloth", "Sees the flaw in every stone and most people."),
+      ("Glittervein Band", "ring", "of the Eagle", "armor", None, "Cut from a seam that isn't on any map.")]),
+    ("secret_saltspur_hewitt", "Saltspur Landing", "Old Barnacle Hewitt", "human", "male",
+     "Fish don't care who wins the war. Neither do I, as long as you're buying.",
+     ["leatherworking", "tailoring"],
+     [("Hewitt's Gaff Hook", "main_hand", "of the Tiger", "weapon", "polearm", "Landed a shark with it once. The shark's still upset."),
+      ("Oilskin Sou'wester", "head", "of the Eagle", "armor", "leather", "Keeps the rain off and the gossip in."),
+      ("Net-Weaver's Gloves", "hands", "of the Owl", "armor", "cloth", "Fingerless, for knots.")]),
+    ("secret_tempest_ilse", "Tempest Shallows", "Stormwatcher Ilse", "dwarf", "female",
+     "I came to study the storm. The storm studied me back, so I stayed.",
+     ["enchanting", "jewelcrafting"],
+     [("Stormcaller's Rod", "main_hand", "of Spellstorm", "weapon", "staff", "The tip crackles before every storm. It's crackling now."),
+      ("Lightning-Rod Pauldrons", "shoulder", "of the Falcon", "armor", "mail", "Not recommended in a thunderstorm. Ilse wears them anyway."),
+      ("Tempest-Glass Pendant", "neck", "of the Sorcerer", "armor", None, "Glass made where lightning hit the sand.")]),
+    ("secret_underdark_haldur", "The Crystalline Underdark", "Haldur Deepdelve", "dwarf", "male",
+     "Down here nobody asks where things came from. That's the best thing about down here.",
+     ["blacksmithing", "jewelcrafting"],
+     [("Crystal-Edged Axe", "main_hand", "of the Tiger", "weapon", "axe_1h", "The edge is a crystal that grew there. Haldur swears it."),
+      ("Deepdelve's Hauberk", "chest", "of the Soldier", "armor", "mail", "Three generations of Deepdelves. One very long tunnel."),
+      ("Glowcap Lantern", "off_hand", "of the Prophet", "weapon", "tome", "Lit by mushrooms. Don't eat the lamp.")]),
+
+]
+
+#: SELLERS WHO ARE NOT PEOPLE - and only a few. Kyle, 14 Nov: "Only some of them are monsters though.
+#: Maybe 5% max. They should feel unique not the norm." Keep these at one in twenty of all hidden sellers.
+#: Kyle, 14 Nov: "vendors found in hidden areas DONT have to be traditional
+#: sprites. Like, you can have a Naga vendor selling unique cooking recipes. Or a fire elemental with a
+#: unique enchant... Or a rat that just squeaks at you and then opens its trade for something other
+#: than gold. Don't be shy." Each stands in a hidden room in its zone, is drawn as the creature, and
+#: (where "barter" is set) wants something other than coin.
+#:   (id, zone, name, creature sprite, barter currency or None, greeting, uniques, extras)
+#:   extras: {"meals": [(name, description)], "enchant": {...}, "trades": [...]}
+CREATURE_SELLERS = [
+    ("secret_uc_squeak", "Undercity", "Squeak", "rat_plague_1", ("cook_cheese", "Sharp Cheese", 3),
+     "[A plague rat sits up on its haunches. It sniffs at your pack, then at you, and squeaks twice. "
+     "It clearly wants the cheese.]",
+     [("Gnawed Signet", "ring", "of the Monkey", "armor", None, "Somebody's seal ring. Somebody's teeth marks."),
+      ("Sewer-Slick Slippers", "feet", "of the Owl", "armor", "cloth", "Slightly damp. Slightly chewed. Very comfortable."),
+      ("A Very Good Stick", "ranged", "of Shadow Wrath", "weapon", "wand", "Squeak's favourite. It's giving it up for you, and that should mean something.")],
+     {}),
+    ("secret_sands_cinder", "The Abyssal Sands", "Cinder-That-Listens", "elemental_fire_2", ("crystal_emberglass", "Emberglass", 2),
+     "[The fire leans toward you as you come in, the way a cat does.] Glass. Bring me glass that remembers "
+     "burning, and I'll give you a little of my heat to carry.",
+     [("Ashheart Mantle", "back", "of Fiery Wrath", "armor", None, "Warm on the coldest night. Uncomfortably warm on every other.")],
+     {"enchant": {"id": "enchant_weapon_living_ember", "title": "Living Ember", "group": "weapon",
+                  "describe": "Your attacks have a chance to set a living ember on the target, burning it for 70 fire damage.",
+                  "chance": 18, "damage": 70, "level": 44, "skill": 225}}),
 ]
 
 FOUND = {
@@ -264,11 +427,74 @@ def _write_recipes(recipes):
     (ROOT / NESTED).write_text(json.dumps(nested, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
+CONSUMABLES = ROOT / "data/consumables/consumable_types.json"
+ENCHANTS = ROOT / "data/enchanting/enchants.json"
+MATERIALS = ROOT / "data/gathering/materials.json"
+
+
+def _secret_meals(seller_id, meals, level, cons_doc, cook_recipes):
+    """Unique cooking recipes: the best cooked meal for this level, made better, under a new name."""
+    base_pool = [m for m in cons_doc["cooked_meals"] if not m["consumable_id"].startswith("secret_")
+                 and m.get("required_level", 1) <= level]
+    base_pool.sort(key=lambda m: (m.get("required_level", 1), m.get("effect_value", 0)))
+    out = []
+    for i, (name, desc) in enumerate(meals):
+        base = base_pool[-1 - (i % min(3, len(base_pool)))]
+        cid = f"secret_{seller_id.split('_', 2)[-1]}_{i}"
+        meal = json.loads(json.dumps(base))
+        meal["consumable_id"] = cid
+        meal["name"] = name
+        meal["effect_value"] = int(base.get("effect_value", 100) * 1.3)
+        bonus = {k: v + 2 for k, v in (base.get("stat_bonuses") or {"stamina": 2}).items()}
+        meal["stat_bonuses"] = bonus
+        stat = ", ".join(f"+{v} {k.replace('_', ' ').title()}" for k, v in bonus.items())
+        meal["description"] = (f"{desc} Restores {meal['effect_value']} health over "
+                               f"{meal.get('effect_duration', 20)} seconds while you rest, and leaves you well fed "
+                               f"({stat}) for 30 minutes.")
+        rec_base = next((r for r in cook_recipes.values()
+                         if (r.get("output") or {}).get("consumable_id") == base["consumable_id"]), None)
+        recipe = json.loads(json.dumps(rec_base)) if rec_base else {
+            "inputs": {"meat_stringy": 2}, "skill_required": level * 5, "skill_range": [0, 0, 0, 0]}
+        recipe.update({"name": name, "source": "vendor", "secret": True, "sold_by": [seller_id]})
+        recipe["output"] = {"kind": "consumable", "consumable_id": cid, "count": 1}
+        # its picture is the dish it was made from (assets/icons/consumables/<id>.png)
+        import shutil
+        src = ROOT / f"assets/icons/consumables/{base['consumable_id']}.png"
+        if src.exists():
+            shutil.copyfile(src, ROOT / f"assets/icons/consumables/{cid}.png")
+        out.append((meal, ("cooking", f"secret_recipe_{cid}", recipe)))
+    return out
+
+
+def _secret_enchant(seller_id, e, ench_doc, mat_doc):
+    """A unique enchantment: its definition, its scroll, and the formula for enchanters."""
+    eid = e["id"]
+    ench_doc["enchants"][eid] = {
+        "name": f"Enchant Weapon: {e['title']}", "title": e["title"], "group": e["group"],
+        "family": "secret", "tier": 4, "rank": 0, "level": e["level"], "skill": e["skill"], "stats": {},
+        "proc": {"trigger": "on_weapon_swing", "chance": e["chance"], "icd": 0, "damage_flat": e["damage"],
+                 "school": "fire", "describe": e["describe"]},
+        "hybrid": False, "secret": True}
+    mat_doc["materials"][eid] = {
+        "name": f"Enchant Weapon: {e['title']}", "material_type": "enchant_scroll", "profession": "enchanting",
+        "tier": "late", "description": "A scroll holding an enchantment you won't find written down anywhere else. "
+                                       "Read it onto gear with the Enchant button in your bags.",
+        "stack_limit": 20, "sell_price": e["level"] * 40, "icon_id": "enchant_scroll", "secret": True}
+    recipe = {"name": f"Enchant Weapon: {e['title']}",
+              "inputs": {"crystal_emberglass": 3, "herb_firebloom": 2},
+              "skill_required": e["skill"], "skill_range": [e["skill"], e["skill"] + 10, e["skill"] + 20, e["skill"] + 30],
+              "output": {"kind": "material", "material_id": eid},
+              "tool": ["runed_truesilver_rod", "runed_arcanite_rod"],
+              "source": "vendor", "secret": True, "sold_by": [seller_id]}
+    return ("enchanting", f"secret_formula_{eid}", recipe)
+
+
 def main():
     levels = json.loads((ROOT / "data/zones/zone_levels.json").read_text(encoding="utf-8"))["zones"]
     cand_path = ROOT / "data/world/secret_candidates.json"
     cands = json.loads(cand_path.read_text(encoding="utf-8")) if cand_path.exists() else {}
     uniques, recipes, secrets = {}, [], []
+    pending_meals = []      # (seller, meals, level, their stock list): made once the cookbook is loaded
     vendors_doc = json.loads(VENDORS_PATH.read_text(encoding="utf-8"))
     vendors = [v for v in vendors_doc["vendors"] if not v["vendor_id"].startswith("secret_")]
     from entities.consumable_manager import get_consumable_manager
@@ -304,7 +530,9 @@ def main():
         return True
 
     # hidden sellers, each in its own town
-    for (vid, zone, name, race, gender, greeting, trades, items) in SELLERS:
+    for entry in SELLERS:
+        vid, zone, name, race, gender, greeting, trades, items = entry[:8]
+        extras = entry[8] if len(entry) > 8 else {}
         opts = [c for c in cands.get(zone, []) if c["kind"] in ("behind", "glade") and use(zone, c)]
         opts.sort(key=lambda c: (c["kind"] != "behind", -c["depth"]))
         if not opts:
@@ -312,7 +540,7 @@ def main():
             continue
         c = opts[0]
         level = _level(zone, levels)
-        ilvl = level + 3
+        ilvl = max(10, level + 3)
         stock = []
         for (iname, slot, suffix, kind, typ, flavor) in items:
             uid = vid.replace("secret_", "") + "_" + iname.lower().replace("'", "").replace(" ", "_").replace("-", "_")
@@ -329,11 +557,74 @@ def main():
         for trade, rid, rec in _secret_recipes(vid, surname, trades, level):
             recipes.append((trade, rid, rec))
             stock.append(rid)
+        if extras.get("meals"):
+            pending_meals.append((vid, extras["meals"], level, stock))
         add_vendor(vid, name, zone, c["spot"], race, gender, greeting, stock, level, c["kind"])
         secrets.append({"id": vid, "zone": zone, "kind": c["kind"], "passage": c["passage"],
                         "area": c["area"] if c["kind"] != "behind" else [c["spot"]],
                         "mask": c.get("mask"), "cache": None, "vendor": vid,
                         "found_text": FOUND[c["kind"]][len(secrets) % len(FOUND[c["kind"]])]})
+
+    # sellers who are not people
+    cons_doc = json.loads(CONSUMABLES.read_text(encoding="utf-8"))
+    cons_doc["cooked_meals"] = [m for m in cons_doc["cooked_meals"] if not m["consumable_id"].startswith("secret_")]
+    ench_doc = json.loads(ENCHANTS.read_text(encoding="utf-8"))
+    for k in [k for k, v in ench_doc["enchants"].items() if isinstance(v, dict) and v.get("secret")]:
+        del ench_doc["enchants"][k]
+    mat_doc = json.loads(MATERIALS.read_text(encoding="utf-8"))
+    for k in [k for k, v in mat_doc["materials"].items() if isinstance(v, dict) and v.get("secret")]:
+        del mat_doc["materials"][k]
+    cook_recipes = json.loads((ROOT / NESTED).read_text(encoding="utf-8"))["professions"]["cooking"]["recipes"]
+    for (pvid, meals, plevel, pstock) in pending_meals:
+        for meal, rec in _secret_meals(pvid, meals, plevel, cons_doc, cook_recipes):
+            cons_doc["cooked_meals"].append(meal)
+            recipes.append(rec)
+            pstock.append(rec[1])
+    for (vid, zone, name, sprite, barter, greeting, items, extras) in CREATURE_SELLERS:
+        opts = [c for c in cands.get(zone, []) if c["kind"] == "glade" and use(zone, c)]
+        opts.sort(key=lambda c: -c["depth"])
+        if not opts:
+            print(f"  no hidden room for {name} in {zone}")
+            continue
+        c = opts[0]
+        level = _level(zone, levels)
+        stock, prices = [], {}
+        for (iname, slot, suffix, kind, typ, flavor) in items:
+            uid = vid.replace("secret_", "") + "_" + "".join(ch for ch in iname.lower().replace(" ", "_") if ch.isalnum() or ch == "_")
+            kw = {"weapon_type": typ} if kind == "weapon" else ({"armor_type": typ} if typ else {})
+            _, d = unique(uid, iname, slot, suffix, level + 3, flavor, rarity="epic" if level >= 45 else "rare", **kw)
+            uniques[uid] = d
+            stock.append(f"unique:{uid}")
+            prices[f"unique:{uid}"] = (barter[2] + 2) if barter else None
+        for meal, rec in _secret_meals(vid, extras.get("meals", []), level, cons_doc, cook_recipes):
+            cons_doc["cooked_meals"].append(meal)
+            recipes.append(rec)
+            stock.append(rec[1])
+            prices[rec[1]] = barter[2] if barter else None
+        if extras.get("enchant"):
+            rec = _secret_enchant(vid, extras["enchant"], ench_doc, mat_doc)
+            recipes.append(rec)
+            stock += [extras["enchant"]["id"], rec[1]]
+            prices[extras["enchant"]["id"]] = barter[2] if barter else None
+            prices[rec[1]] = (barter[2] * 3) if barter else None
+        if extras.get("trades"):
+            for trade, rid, rec in _secret_recipes(vid, name.split()[-1], extras["trades"], level):
+                recipes.append((trade, rid, rec))
+                stock.append(rid)
+                prices[rid] = (barter[2] + 1) if barter else None
+        add_vendor(vid, name, zone, c["spot"], "goblin", "male", greeting, stock, level, "glade")
+        v = vendors[-1]
+        v["creature_sprite"] = sprite
+        if barter:
+            v["barter"] = {"currency": barter[0], "name": barter[1], "default": barter[2],
+                           "prices": {k: n for k, n in prices.items() if n}}
+            v["buys_from_player"] = False
+        secrets.append({"id": vid, "zone": zone, "kind": "glade", "passage": c["passage"], "area": c["area"],
+                        "mask": c.get("mask"), "cache": None, "vendor": vid,
+                        "found_text": "Something in here is watching you. It doesn't look hostile."})
+    CONSUMABLES.write_text(json.dumps(cons_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    ENCHANTS.write_text(json.dumps(ench_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    MATERIALS.write_text(json.dumps(mat_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     # caches everywhere else: up to three a map, one in a town
     n = 0

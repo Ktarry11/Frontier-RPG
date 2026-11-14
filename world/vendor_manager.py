@@ -207,6 +207,13 @@ class VendorManager:
                 )
                 # A hidden seller (world/secrets.py) has no map icon and no dot.
                 vendor.hidden = bool(vendor_def.get("hidden", False))
+                # NOT EVERY SELLER IS A PERSON. Kyle, 14 Nov: "vendors found in hidden areas DONT have
+                # to be traditional sprites... a Naga vendor selling unique cooking recipes. Or a fire
+                # elemental with a unique enchant... Or a rat that just squeaks at you and then opens
+                # its trade for something other than gold." creature_sprite draws them as a creature
+                # (assets/creatures/<id>.png); barter prices their shelf in something else entirely.
+                vendor.creature_sprite = vendor_def.get("creature_sprite")
+                vendor.barter = vendor_def.get("barter")
                 self.vendors[vendor.vendor_id] = vendor
                 
                 # Index by zone

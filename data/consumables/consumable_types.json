@@ -4143,6 +4143,60 @@
       "stat_bonuses": {
         "intellect": 20
       }
+    },
+    {
+      "consumable_id": "secret_zenji_0",
+      "name": "Deepwater Brine Stew",
+      "consumable_type": "meal",
+      "description": "Slow-cooked the way Zenji's grandmother did it, which is to say for far longer than you'd think. Restores 494 health over 22 seconds while you rest, and leaves you well fed (+9 Intellect) for 30 minutes.",
+      "effect_value": 494,
+      "effect_duration": 22,
+      "level_multiplier": 0.0,
+      "required_level": 12,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 27,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "intellect": 9
+      }
+    },
+    {
+      "consumable_id": "secret_zenji_1",
+      "name": "Reef-Smoked Mackerel",
+      "consumable_type": "meal",
+      "description": "Smoked over driftwood and kelp until it tastes of the whole sea at once. Restores 494 health over 22 seconds while you rest, and leaves you well fed (+8 Agility) for 30 minutes.",
+      "effect_value": 494,
+      "effect_duration": 22,
+      "level_multiplier": 0.0,
+      "required_level": 10,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 24,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "agility": 8
+      }
+    },
+    {
+      "consumable_id": "secret_zenji_2",
+      "name": "Zenji's Salted Roe",
+      "consumable_type": "meal",
+      "description": "A spoonful is plenty. Two is showing off. Restores 494 health over 22 seconds while you rest, and leaves you well fed (+42 Armor) for 30 minutes.",
+      "effect_value": 494,
+      "effect_duration": 22,
+      "level_multiplier": 0.0,
+      "required_level": 8,
+      "cooldown_seconds": 2,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 15,
+      "buff_category": "food",
+      "stat_bonuses": {
+        "armor": 42
+      }
     }
   ],
   "lures": [

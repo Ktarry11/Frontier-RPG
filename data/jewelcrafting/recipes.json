@@ -4019,6 +4019,156 @@
       "sold_by": [
         "secret_onyx_dagna"
       ]
+    },
+    "secret_tanaris_ahmiru_jc_ring_mithril_spi_healer": {
+      "name": "Dustwalker's Aquamarine Circle",
+      "inputs": {
+        "setting_ring_mithril": 1,
+        "bar_mithril": 1,
+        "gem_aquamarine": 1
+      },
+      "skill_required": 210,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "spi_healer",
+        "item_level": 49,
+        "rarity": "rare",
+        "material_tier": "mithril"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        210,
+        220,
+        230,
+        240
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_tanaris_ahmiru"
+      ]
+    },
+    "secret_strand_kezz_jc_ring_truesilver_spi_healer": {
+      "name": "Kezz's Blue Sapphire Circle",
+      "inputs": {
+        "setting_ring_truesilver": 1,
+        "bar_truesilver": 1,
+        "gem_blue_sapphire": 2
+      },
+      "skill_required": 255,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "spi_healer",
+        "item_level": 57,
+        "rarity": "epic",
+        "material_tier": "truesilver"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        255,
+        265,
+        275,
+        285
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_strand_kezz"
+      ]
+    },
+    "secret_glitter_nim_jc_ring_truesilver_agi_physical": {
+      "name": "Copperbolt's Black Diamond Band",
+      "inputs": {
+        "setting_ring_truesilver": 1,
+        "bar_truesilver": 1,
+        "gem_black_diamond": 1
+      },
+      "skill_required": 245,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "agi_physical",
+        "item_level": 55,
+        "rarity": "rare",
+        "material_tier": "truesilver"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        245,
+        255,
+        265,
+        275
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_glitter_nim"
+      ]
+    },
+    "secret_tempest_ilse_jc_ring_thorium_str_physical": {
+      "name": "Ilse's Heartsblood Garnet Signet",
+      "inputs": {
+        "setting_ring_thorium": 1,
+        "bar_thorium": 1,
+        "gem_heartsblood_garnet": 2
+      },
+      "skill_required": 275,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "str_physical",
+        "item_level": 60,
+        "rarity": "epic",
+        "material_tier": "thorium"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        275,
+        285,
+        295,
+        305
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_tempest_ilse"
+      ]
+    },
+    "secret_underdark_haldur_jc_ring_gold_spi_healer": {
+      "name": "Deepdelve's Rime Opal Circle",
+      "inputs": {
+        "setting_ring_gold": 1,
+        "bar_gold": 1,
+        "gem_rime_opal": 1
+      },
+      "skill_required": 175,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "spi_healer",
+        "item_level": 41,
+        "rarity": "rare",
+        "material_tier": "gold"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        175,
+        185,
+        195,
+        205
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_underdark_haldur"
+      ]
     }
   }
 }

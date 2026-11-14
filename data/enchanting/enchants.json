@@ -2459,6 +2459,27 @@
         "describe": "Your attacks have a chance to heal you for 40 and grant 60 Strength for 3 turns."
       },
       "hybrid": false
+    },
+    "enchant_weapon_living_ember": {
+      "name": "Enchant Weapon: Living Ember",
+      "title": "Living Ember",
+      "group": "weapon",
+      "family": "secret",
+      "tier": 4,
+      "rank": 0,
+      "level": 44,
+      "skill": 225,
+      "stats": {},
+      "proc": {
+        "trigger": "on_weapon_swing",
+        "chance": 18,
+        "icd": 0,
+        "damage_flat": 70,
+        "school": "fire",
+        "describe": "Your attacks have a chance to set a living ember on the target, burning it for 70 fire damage."
+      },
+      "hybrid": false,
+      "secret": true
     }
   },
   "disenchant": [

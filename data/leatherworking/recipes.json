@@ -5232,6 +5232,345 @@
       "sold_by": [
         "secret_echo_zenji"
       ]
+    },
+    "secret_durotar_grallik_lw_verdant_scale_gloves": {
+      "name": "Grallik's Verdant Scale Gloves",
+      "skill_required": 90,
+      "skill_range": [
+        95,
+        105,
+        115,
+        125
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_heavy": 6,
+        "thread_coarse": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 21,
+        "rarity": "rare",
+        "material_tier": "heavy"
+      },
+      "drop_zone": "Wailing Caverns",
+      "secret": true,
+      "sold_by": [
+        "secret_durotar_grallik"
+      ]
+    },
+    "secret_nbarrens_mirela_lw_medium_leather_vest": {
+      "name": "Sandsong's Medium Leather Vest",
+      "inputs": {
+        "leather_medium": 10,
+        "thread_fine": 1
+      },
+      "skill_required": 110,
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 25,
+        "rarity": "rare",
+        "material_tier": "medium"
+      },
+      "skill_range": [
+        115,
+        125,
+        135,
+        145
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_nbarrens_mirela"
+      ]
+    },
+    "secret_needles_skyfeather_p300_le_dredged_waist": {
+      "name": "Skyfeather's Dredged Belt",
+      "skill_required": 170,
+      "skill_range": [
+        175,
+        185,
+        195,
+        205
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_dredged": 4,
+        "thread_fine": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "mail",
+        "stat_template": "spi_healer",
+        "item_level": 37,
+        "rarity": "epic",
+        "material_tier": "dredged"
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_needles_skyfeather"
+      ]
+    },
+    "secret_tanaris_ahmiru_p300_le_hydra_back": {
+      "name": "Dustwalker's Hydra Cloak",
+      "skill_required": 220,
+      "skill_range": [
+        225,
+        235,
+        245,
+        255
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_hydra": 4,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "back",
+        "armor_type": "mail",
+        "stat_template": "spi_healer",
+        "item_level": 47,
+        "rarity": "epic",
+        "material_tier": "hydra"
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_tanaris_ahmiru"
+      ]
+    },
+    "secret_cstv_jalu_p300_le_fiendish_head": {
+      "name": "Jalu's Fiendish Helm",
+      "skill_required": 185,
+      "skill_range": [
+        190,
+        200,
+        210,
+        220
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_fiendish": 6,
+        "thread_fine": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 40,
+        "rarity": "epic",
+        "material_tier": "fiendish"
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_cstv_jalu"
+      ]
+    },
+    "secret_arathiw_wren_p300_le_heavy_wrist": {
+      "name": "Wren's Heavy Bracers",
+      "skill_required": 165,
+      "skill_range": [
+        170,
+        180,
+        190,
+        200
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_heavy": 3,
+        "thread_fine": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 36,
+        "rarity": "epic",
+        "material_tier": "heavy"
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_arathiw_wren"
+      ]
+    },
+    "secret_arathie_brakka_p300_le_thick_wrist": {
+      "name": "Coldwater's Thick Bracers",
+      "skill_required": 200,
+      "skill_range": [
+        205,
+        215,
+        225,
+        235
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_thick": 3,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 43,
+        "rarity": "epic",
+        "material_tier": "thick"
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_arathie_brakka"
+      ]
+    },
+    "secret_spnorth_moll_lw_medium_leather_belt": {
+      "name": "Moll's Medium Leather Belt",
+      "inputs": {
+        "leather_medium": 5,
+        "thread_coarse": 1
+      },
+      "skill_required": 85,
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 21,
+        "rarity": "rare",
+        "material_tier": "medium"
+      },
+      "skill_range": [
+        90,
+        100,
+        110,
+        120
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_spnorth_moll"
+      ]
+    },
+    "secret_dk_grubbs_lw_light_leather_cloak": {
+      "name": "Digger's Light Leather Cloak",
+      "inputs": {
+        "leather_light": 5,
+        "thread_coarse": 1
+      },
+      "skill_required": 30,
+      "output": {
+        "kind": "armor",
+        "slot": "back",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 10,
+        "rarity": "rare",
+        "material_tier": "light",
+        "armor_value": 6
+      },
+      "skill_range": [
+        35,
+        45,
+        55,
+        65
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_dk_grubbs"
+      ]
+    },
+    "secret_vot_kazzik_lw_light_leather_cloak": {
+      "name": "Runaway's Light Leather Cloak",
+      "inputs": {
+        "leather_light": 5,
+        "thread_coarse": 1
+      },
+      "skill_required": 30,
+      "output": {
+        "kind": "armor",
+        "slot": "back",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 10,
+        "rarity": "rare",
+        "material_tier": "light",
+        "armor_value": 6
+      },
+      "skill_range": [
+        35,
+        45,
+        55,
+        65
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_vot_kazzik"
+      ]
+    },
+    "secret_cinder_varga_p300_le_netherdrake_back": {
+      "name": "Varga's Netherdrake Cloak",
+      "skill_required": 290,
+      "skill_range": [
+        295,
+        305,
+        315,
+        325
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_netherdrake": 4,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "back",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 61,
+        "rarity": "rare",
+        "material_tier": "netherdrake"
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_cinder_varga"
+      ]
+    },
+    "secret_saltspur_hewitt_p300_le_thick_wrist": {
+      "name": "Hewitt's Thick Bracers",
+      "skill_required": 200,
+      "skill_range": [
+        205,
+        215,
+        225,
+        235
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_thick": 3,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 43,
+        "rarity": "epic",
+        "material_tier": "thick"
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_saltspur_hewitt"
+      ]
     }
   }
 }

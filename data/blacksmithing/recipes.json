@@ -6046,6 +6046,237 @@
       "sold_by": [
         "secret_onyx_dagna"
       ]
+    },
+    "secret_durotar_grallik_bs_warsong_mail_helm": {
+      "name": "Grallik's Warsong Chain Coif",
+      "skill_required": 90,
+      "skill_range": [
+        95,
+        105,
+        115,
+        125
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_copper": 10,
+        "flux_weak": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 21,
+        "rarity": "rare",
+        "material_tier": "copper"
+      },
+      "vendor_location": "Orgrimmar",
+      "secret": true,
+      "sold_by": [
+        "secret_durotar_grallik"
+      ]
+    },
+    "secret_sbarrens_snitch_bs_bronze_crusader_helm": {
+      "name": "Grimtooth's Bronze Crusader Helm",
+      "skill_required": 120,
+      "skill_range": [
+        125,
+        135,
+        145,
+        155
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 12,
+        "flux_medium": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 27,
+        "rarity": "rare",
+        "material_tier": "bronze"
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_sbarrens_snitch"
+      ]
+    },
+    "secret_nstv_ezra_bs_iron_shield": {
+      "name": "Blackpowder's Iron Tower Shield",
+      "skill_required": 170,
+      "skill_range": [
+        175,
+        185,
+        195,
+        205
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 10,
+        "flux_medium": 1,
+        "whetstone": 1
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "off_hand",
+        "weapon_type": "shield",
+        "stat_template": "str_physical",
+        "item_level": 37,
+        "rarity": "epic",
+        "material_tier": "bronze",
+        "armor_value": 357,
+        "block_value": 41
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_nstv_ezra"
+      ]
+    },
+    "secret_arathiw_wren_bs_iron_plate_gloves": {
+      "name": "Wren's Iron Plate Gloves",
+      "skill_required": 165,
+      "skill_range": [
+        170,
+        180,
+        190,
+        200
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 10,
+        "flux_medium": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 36,
+        "rarity": "epic",
+        "material_tier": "bronze"
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_arathiw_wren"
+      ]
+    },
+    "secret_arathie_brakka_bs_runeplate_cuirass": {
+      "name": "Coldwater's Runeplate Cuirass",
+      "skill_required": 200,
+      "skill_range": [
+        205,
+        215,
+        225,
+        235
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 18,
+        "flux_strong": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 43,
+        "rarity": "epic",
+        "material_tier": "bronze"
+      },
+      "vendor_location": "Undercity",
+      "secret": true,
+      "sold_by": [
+        "secret_arathie_brakka"
+      ]
+    },
+    "secret_dk_grubbs_bs_copper_warden_gloves": {
+      "name": "Digger's Copper Warden Gloves",
+      "skill_required": 30,
+      "skill_range": [
+        35,
+        45,
+        55,
+        65
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_copper": 5,
+        "flux_weak": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "mail",
+        "stat_template": "str_int_hybrid",
+        "item_level": 9,
+        "rarity": "rare",
+        "material_tier": "copper"
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_dk_grubbs"
+      ]
+    },
+    "secret_cinder_varga_bs300_elementium_head": {
+      "name": "Varga's Elementium Helm",
+      "skill_required": 290,
+      "skill_range": [
+        295,
+        305,
+        315,
+        325
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_elementium": 6,
+        "flux_strong": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 61,
+        "rarity": "rare",
+        "material_tier": "elementium"
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_cinder_varga"
+      ]
+    },
+    "secret_underdark_haldur_bs_razortusk_2h_axe": {
+      "name": "Deepdelve's Razortusk Cleaver",
+      "skill_required": 185,
+      "skill_range": [
+        190,
+        200,
+        210,
+        220
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 20,
+        "flux_medium": 1,
+        "whetstone": 1
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "axe_2h",
+        "stat_template": "str_physical",
+        "item_level": 40,
+        "rarity": "epic",
+        "material_tier": "bronze"
+      },
+      "drop_zone": "Razorfen Kraul",
+      "secret": true,
+      "sold_by": [
+        "secret_underdark_haldur"
+      ]
     }
   }
 }

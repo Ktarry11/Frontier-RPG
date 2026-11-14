@@ -4724,6 +4724,132 @@
       "sold_by": [
         "secret_kael_lirael"
       ]
+    },
+    "secret_ashen_kyrenne_ench_greater_magic_wand": {
+      "name": "Shadowbark's Greater Magic Wand",
+      "inputs": {
+        "plank_oakheart": 1,
+        "greater_magic_essence": 1
+      },
+      "skill_required": 110,
+      "output": {
+        "kind": "weapon",
+        "slot": "ranged",
+        "weapon_type": "wand",
+        "stat_template": "int_caster",
+        "item_level": 19,
+        "rarity": "rare"
+      },
+      "tool": [
+        "runed_silver_rod",
+        "runed_golden_rod",
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        110,
+        120,
+        130,
+        140
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_ashen_kyrenne"
+      ]
+    },
+    "secret_hillse_tamsin_ench_greater_magic_wand": {
+      "name": "Tamsin's Greater Magic Wand",
+      "inputs": {
+        "plank_oakheart": 1,
+        "greater_magic_essence": 1
+      },
+      "skill_required": 110,
+      "output": {
+        "kind": "weapon",
+        "slot": "ranged",
+        "weapon_type": "wand",
+        "stat_template": "int_caster",
+        "item_level": 19,
+        "rarity": "rare"
+      },
+      "tool": [
+        "runed_silver_rod",
+        "runed_golden_rod",
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        110,
+        120,
+        130,
+        140
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_hillse_tamsin"
+      ]
+    },
+    "secret_tempest_ilse_ench_lesser_eternal_wand": {
+      "name": "Ilse's Lesser Eternal Wand",
+      "inputs": {
+        "plank_starleaf": 1,
+        "lesser_eternal_essence": 1,
+        "dream_dust": 3,
+        "small_brilliant_shard": 1
+      },
+      "skill_required": 270,
+      "output": {
+        "kind": "weapon",
+        "slot": "ranged",
+        "weapon_type": "wand",
+        "stat_template": "int_caster",
+        "item_level": 56,
+        "rarity": "rare"
+      },
+      "tool": [
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        270,
+        280,
+        290,
+        300
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_tempest_ilse"
+      ]
+    },
+    "secret_formula_enchant_weapon_living_ember": {
+      "name": "Enchant Weapon: Living Ember",
+      "inputs": {
+        "crystal_emberglass": 3,
+        "herb_firebloom": 2
+      },
+      "skill_required": 225,
+      "skill_range": [
+        225,
+        235,
+        245,
+        255
+      ],
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_weapon_living_ember"
+      },
+      "tool": [
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_sands_cinder"
+      ]
     }
   }
 }
