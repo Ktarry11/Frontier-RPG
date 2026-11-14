@@ -728,6 +728,218 @@ ZONES["The Buried Caravan"] = dict(
 )
 
 
+# ======================================================================= THE FOURTH WAVE
+def _creature(t, lvl, boss, sprite, *ab):
+    return (t, lvl, boss, sprite, list(ab))
+
+
+DMG = lambda n, m=1.0, cd=0, sch="physical": (n, "damage", m, cd, sch, {})  # noqa: E731
+DOT = lambda n, m=0.4, cd=3, sch="magic", d=3: (n, "dot", m, cd, sch, D(d))  # noqa: E731
+DEB = lambda n, cd=4, sch="magic", **mods: (n, "debuff", 0, cd, sch, MODS(3, **mods))  # noqa: E731
+BUF = lambda n, cd=5, sch="physical", **mods: (n, "buff", 0, cd, sch, SELF(3, **mods))  # noqa: E731
+HEAL = lambda n, m=1.5, cd=4, sch="magic": (n, "heal", m, cd, sch, {})  # noqa: E731
+
+ZONES["The Sunken Kraal"] = dict(
+    kind="skull", parent="Central Barrens", levels=(19, 22),
+    creatures={
+        "Kraal Bonewalker": _creature("undead_warrior", 20, False, "zombie", DMG("Bone Tusk"), DOT("Grave Rot", 0.35, sch="physical"), BUF("Thorn-Bound", armor=40)),
+        "Sinkhole Quillboar": _creature("humanoid_warrior", 20, False, "quilboar", DMG("Spear Thrust"), DMG("Charge", 1.5, 3), DEB("Quill Spray", sch="physical", armor=-25)),
+        "Kraal Thornspeaker": _creature("humanoid_caster", 21, False, "quilboar_geomancer", DMG("Thorn Bolt", sch="magic"), HEAL("Thorn Blessing"), DEB("Bramble Curse", agility=-12)),
+        "Pit Hyena": _creature("beast_fast", 19, False, "hyena", DMG("Bite", 0.95), DOT("Infected Bite", 0.3, sch="physical")),
+        "The Thorn-Mother's Echo": _creature("undead_caster", 22, True, "spectre",
+            DMG("Thorn-Song", sch="magic"), DEB("Bind in Brambles", agility=-20, armor=-30), DOT("Bleeding Thorns", 0.5, d=4),
+            BUF("Ghost of the Kraal", sch="magic", armor=50, magic_resistance=40), DMG("Call the Pit", 1.9, 4, "magic")),
+        "Gutripper": _creature("beast_large", 21, True, "boar", DMG("Gore"), DOT("Ripping Tusks", 0.5, sch="physical"), BUF("Rage", attack_power=30), DMG("Trample", 1.7, 4)),
+    },
+    encounters=_skull_table("The Sunken Kraal", {"Pit Hyena": 3, "Sinkhole Quillboar": 1}, {
+        "The Sinkhole Floor": {"Pit Hyena": 3, "Sinkhole Quillboar": 2},
+        "The Thornwalls": {"Sinkhole Quillboar": 3, "Kraal Thornspeaker": 2, "Gutripper": 0},
+        "The Bone Pens": {"Kraal Bonewalker": 3, "Pit Hyena": 2},
+        "The Drowned Shrine-Pool": {"Kraal Thornspeaker": 2, "Kraal Bonewalker": 2, "Sinkhole Quillboar": 1},
+        "The Thorn-Mother's Seat": {"Kraal Bonewalker": 3, "Kraal Thornspeaker": 2, "The Thorn-Mother's Echo": 0}}),
+    weights={},
+    loot={
+        "The Thorn-Mother's Echo": [
+            ("Thorn-Mother's Last Word", "main_hand", "of the Prophet", "A thorn staff that still flowers when it's angry.", None, "staff"),
+            ("Kraal-Queen's Mantle", "shoulder", "of the Monkey", "Quills, every one of them sharp.", "leather", None),
+            ("Sinkhole Greaves", "legs", "of the Champion", "Stained red by the pit.", "plate", None),
+            ("Echo of the Kraal", "neck", "of the Sorcerer", "You can hear the drums in it.", None, None),
+        ],
+        "Gutripper": [
+            ("Gutripper Tusk", "main_hand", "of the Tiger", "Still sharp. Still warm.", None, "dagger"),
+            ("Boarhide Hauberk", "chest", "of the Hunt", "Bristles on the outside, for the look of it.", "mail", None),
+            ("Pit-Fighter's Wraps", "wrist", "of the Eagle", "They've seen a lot of fights.", "cloth", None),
+        ],
+    },
+)
+
+ZONES["The Moonless Glade"] = dict(
+    kind="skull", parent="Ashenvale West", levels=(26, 29),
+    creatures={
+        "Moonless Satyr": _creature("humanoid_rogue", 27, False, "satyr", DMG("Dark Claw"), DOT("Shadowstalk", 0.4), DEB("Cruel Laugh", attack_power=-18)),
+        "Shade of the Sentinel": _creature("undead_warrior", 27, False, "nightelf_sentinel", DMG("Glaive", 1.0), DMG("Moonless Strike", 1.5, 3, "magic"), BUF("Old Vigil", armor=45)),
+        "Gloomwisp": _creature("undead_caster", 26, False, "wisp", DMG("Cold Light", sch="magic"), DEB("Lost Way", agility=-14, intellect=-10), DOT("Fade", 0.35)),
+        "Withered Furbolg": _creature("humanoid_warrior", 28, False, "furbolg", DMG("Maul"), BUF("Fury of the Lost", attack_power=25), DOT("Festering Claw", 0.35, sch="physical")),
+        "The Unlit Priestess": _creature("undead_caster", 29, True, "banshee",
+            DMG("Prayer Unanswered", sch="magic"), DEB("Eclipse", intellect=-25, magic_resistance=-40), DOT("Starless Night", 0.5, d=4),
+            HEAL("Elune Does Not Hear", 2.0, 5), BUF("Veil of Night", sch="magic", armor=50, magic_resistance=60), DMG("Falling Dark", 1.9, 4, "magic")),
+        "Old Gnarlhorn": _creature("humanoid_warrior", 28, True, "satyr", DMG("Horn Rake"), DEB("Hex of Thorns", agility=-20), DOT("Fel Wound", 0.5, d=4), DMG("Goring Charge", 1.8, 4)),
+    },
+    encounters=_skull_table("The Moonless Glade", {"Gloomwisp": 3, "Moonless Satyr": 1}, {
+        "The Shadowed Path": {"Gloomwisp": 3, "Moonless Satyr": 2},
+        "The Silent Grove": {"Shade of the Sentinel": 3, "Gloomwisp": 2},
+        "The Twisted Hollow": {"Moonless Satyr": 3, "Withered Furbolg": 2, "Old Gnarlhorn": 0},
+        "The Dark Pool": {"Shade of the Sentinel": 2, "Withered Furbolg": 2, "Gloomwisp": 1},
+        "The Sealed Shrine": {"Shade of the Sentinel": 3, "Gloomwisp": 2, "The Unlit Priestess": 0}}),
+    weights={},
+    loot={
+        "The Unlit Priestess": [
+            ("Moonless Glaive", "main_hand", "of the Assassin", "A sentinel's glaive that has never once caught the moonlight.", None, "polearm"),
+            ("Robes of the Unlit Temple", "chest", "of the Prophet", "Silver thread gone black.", "cloth", None),
+            ("Vigil-Keeper's Helm", "head", "of the Defender", "The eyes are blindfolded on the inside.", "plate", None),
+            ("Shard of a Dead Moon", "neck", "of the Owl", "Cold enough to frost the skin.", None, None),
+        ],
+        "Old Gnarlhorn": [
+            ("Gnarlhorn Cleaver", "main_hand", "of the Bear", "Hooked, cruel and heavy.", None, "axe_2h"),
+            ("Satyr-Hide Boots", "feet", "of the Monkey", "Cloven, if you look closely.", "leather", None),
+            ("Thornhex Band", "ring", "of the Necromancer", "It pricks when you lie.", None, None),
+        ],
+    },
+)
+
+ZONES["The Stormcrag"] = dict(
+    kind="skull", parent="Arathi Central", levels=(36, 39),
+    creatures={
+        "Crag Stormling": _creature("elemental_caster", 37, False, "elemental_air", DMG("Spark", sch="magic"), DOT("Static", 0.4), DEB("Gust", agility=-16)),
+        "Thunderhide Ram": _creature("beast_large", 36, False, "ram", DMG("Headbutt"), DMG("Charge", 1.5, 3), BUF("Storm Fleece", armor=50)),
+        "Stone-Circle Warden": _creature("elemental_bruiser", 38, False, "golem_stone", DMG("Standing Stone Fist", 1.05), BUF("Rooted", armor=80), DMG("Lightning Rod", 1.4, 4, "magic")),
+        "Stormcrag Harpy": _creature("humanoid_rogue", 37, False, "harpy", DMG("Talon"), DOT("Rending Talons", 0.35, sch="physical"), DEB("Screech", attack_power=-20)),
+        "The Calling Stone": _creature("elemental_caster", 39, True, "crystal_sentinel",
+            DMG("Thunderclap", sch="magic"), DMG("Chain Lightning", 2.0, 4, "magic"), DEB("Grounded", agility=-25, armor=-50),
+            BUF("Storm Shell", sch="magic", armor=70, magic_resistance=70), DOT("Crackle", 0.5, d=4)),
+        "Skyrender": _creature("humanoid_rogue", 38, True, "harpy_matriarch", DMG("Skyrend"), DOT("Bleeding Gale", 0.5, sch="physical"), DEB("Deafening Cry", attack_power=-30), DMG("Dive", 1.8, 4)),
+    },
+    encounters=_skull_table("The Stormcrag", {"Thunderhide Ram": 3, "Crag Stormling": 2}, {
+        "The Crag Path": {"Thunderhide Ram": 3, "Stormcrag Harpy": 1},
+        "The West Ring": {"Stone-Circle Warden": 3, "Crag Stormling": 2},
+        "The East Ring": {"Stormcrag Harpy": 3, "Crag Stormling": 2, "Skyrender": 0},
+        "The Thunder Table": {"Crag Stormling": 3, "Stone-Circle Warden": 2},
+        "The Calling Stone": {"Stone-Circle Warden": 3, "Crag Stormling": 2, "The Calling Stone": 0}}),
+    weights={},
+    loot={
+        "The Calling Stone": [
+            ("Heart of the Calling Stone", "neck", "of the Invoker", "It hums before every storm.", None, None, "epic"),
+            ("Stormcaller's Mace", "main_hand", "of the Sorcerer", "Lightning-scarred, and lighter than it should be.", None, "mace_1h"),
+            ("Crag-Rider's Hauberk", "chest", "of the Hunt", "Rings of iron, every one fused by a strike.", "mail", None),
+            ("Standing-Stone Pauldrons", "shoulder", "of the Juggernaut", "Cut from a stone that fell over.", "plate", None),
+            ("Thunderwool Leggings", "legs", "of the Wolf", "They crackle when you walk.", "leather", None),
+        ],
+        "Skyrender": [
+            ("Skyrender's Talon", "main_hand", "of the Assassin", "Hooked and wicked.", None, "fist_weapon"),
+            ("Harpy-Feather Mantle", "shoulder", "of the Owl", "Light as wind.", "cloth", None),
+            ("Gale-Walker Boots", "feet", "of the Monkey", "You never lose your footing in them.", "leather", None),
+        ],
+    },
+)
+
+ZONES["The Ashen Orchard"] = dict(
+    kind="skull", parent="Western Tirisfal", levels=(9, 12),
+    creatures={
+        "Orchard Ghoul": _creature("undead_basic", 10, False, "ghoul", DMG("Claw"), DOT("Plague Bite", 0.3, sch="physical")),
+        "Blighted Scarecrow": _creature("undead_warrior", 10, False, "scarecrow_golem", DMG("Scythe Arm"), DEB("Crow Swarm", sch="physical", agility=-8)),
+        "Rotfruit Bat": _creature("beast_fast", 9, False, "bat", DMG("Bite", 0.9), DEB("Shriek", intellect=-6)),
+        "Plague Picker": _creature("undead_caster", 11, False, "zombie", DMG("Rotten Fruit", sch="magic"), DOT("Blight", 0.35), HEAL("Gnaw", 1.2)),
+        "Old Bramley": _creature("undead_warrior", 12, True, "scarecrow_golem",
+            DMG("Harvest Scythe"), DOT("Plague Harvest", 0.5, d=4), DEB("Crows of the Orchard", agility=-15, armor=-20),
+            BUF("Straw Stuffing", armor=40), DMG("Reap", 1.8, 4)),
+        "The Cider-Wife": _creature("undead_caster", 11, True, "banshee", DMG("Sour Wail", sch="magic"), DEB("Bitter Brew", intellect=-10, agility=-10), DOT("Spoiled Cider", 0.45), HEAL("One More Cup", 1.6, 5)),
+    },
+    encounters=_skull_table("The Ashen Orchard", {"Rotfruit Bat": 3, "Orchard Ghoul": 2}, {
+        "The Orchard Gate": {"Rotfruit Bat": 3, "Orchard Ghoul": 2},
+        "The Grey Rows": {"Blighted Scarecrow": 3, "Orchard Ghoul": 2},
+        "The Cider House": {"Plague Picker": 3, "Orchard Ghoul": 1, "The Cider-Wife": 0},
+        "The Old Tree": {"Blighted Scarecrow": 2, "Plague Picker": 2, "Old Bramley": 0}}),
+    weights={},
+    loot={
+        "Old Bramley": [
+            ("Bramley's Harvest Scythe", "main_hand", "of the Bear", "Still keen. Still hungry for a harvest.", None, "polearm"),
+            ("Orchard-Keeper's Smock", "chest", "of the Owl", "Patched a hundred times, and every patch an apple.", "cloth", None),
+            ("Crowfeather Gloves", "hands", "of the Monkey", "The crows still follow them.", "leather", None),
+            ("Grey Apple Charm", "neck", "of the Eagle", "Don't eat it.", None, None),
+        ],
+        "The Cider-Wife": [
+            ("Cider-Press Mallet", "main_hand", "of the Tiger", "Stained a colour no apple should be.", None, "mace_1h"),
+            ("Bitterbrew Belt", "waist", "of the Physician", "There's still a flask on it. Leave it.", "mail", None),
+            ("Apron of the Cider House", "legs", "of the Sorcerer", "Sticky. Always sticky.", "cloth", None),
+        ],
+    },
+)
+
+ZONES["The Thornheart Warren"] = dict(
+    kind="layer", parent="Razorfen Kraul", region="Southern Barrens", levels=(33, 35),
+    creatures={
+        "Thornheart Bristleback": _creature("humanoid_warrior", 33, False, "quilboar", DMG("Bristle Spear"), DMG("Thorn Charge", 1.5, 3), BUF("Bramble Armour", armor=50)),
+        "Warren Thornseer": _creature("humanoid_caster", 34, False, "quilboar_geomancer", DMG("Thorn Volley", sch="magic"), HEAL("Root Mend"), DEB("Thornbind", agility=-18)),
+        "Bramble Boar": _creature("beast_large", 33, False, "boar", DMG("Gore"), DOT("Thorned Tusks", 0.35, sch="physical")),
+        "The Thorn-Mother": _creature("humanoid_caster", 35, True, "quilboar_geomancer",
+            DMG("Mother's Thorns", sch="magic"), DEB("The Bramble Takes You", agility=-25, armor=-50), DOT("Thousand Thorns", 0.5, d=4),
+            HEAL("Feed the Root", 2.0, 5), BUF("Crown of Thorns", sch="magic", armor=70, magic_resistance=50), DMG("Root Eruption", 2.0, 4, "magic")),
+    },
+    weights={"Thornheart Bristleback": 3, "Warren Thornseer": 2, "Bramble Boar": 2},
+    loot={
+        "The Thorn-Mother": [
+            ("Crown of the Thorn-Mother", "head", "of the Prophet", "It draws a little blood, every day, to stay alive.", "cloth", None, "epic"),
+            ("Heartroot Spear", "main_hand", "of the Vanquisher", "Cut from the root the warren grew round.", None, "polearm"),
+            ("Bristleback Hauberk", "chest", "of the Hunt", "Quills on the shoulders, iron underneath.", "mail", None),
+            ("Thornweave Leggings", "legs", "of the Assassin", "Bramble fibres, woven tight.", "leather", None),
+            ("Warren-Warden Gauntlets", "hands", "of the Champion", "Spiked at the knuckles.", "plate", None),
+        ],
+    },
+)
+
+ZONES["The Palimpsest Vault"] = dict(
+    kind="frontier", frontier_type="deep", parent="The Unwritten Stacks", region="The Crystalline Underdark",
+    levels=(44, 46),
+    creatures={
+        "Palimpsest Wraith": _creature("undead_caster", 44, False, "wraith_pale", DMG("Overwrite", sch="magic"), DEB("Unwritten", intellect=-25), DOT("Fading Ink", 0.4)),
+        "Vault Golem": _creature("elemental_bruiser", 45, False, "crystal_sentinel", DMG("Bookend", 1.05), BUF("Bound in Stone", armor=90), DMG("Slam the Cover", 1.5, 4)),
+        "Ink-Drowned Scholar": _creature("humanoid_caster", 45, False, "necromancer", DMG("Black Ink", sch="magic"), HEAL("Footnote", 1.4), DEB("Redact", magic_resistance=-35, attack_power=-25)),
+        "Erasure": _creature("undead_caster", 45, False, "spectre", DMG("Blank Page", sch="magic"), DOT("Rubbed Out", 0.45), DEB("Forget", agility=-20)),
+        "The Erased": _creature("undead_caster", 45, True, "spectre",
+            DMG("Nothing Left", sch="magic"), DEB("Unremembered", intellect=-30, agility=-25), DOT("Gone", 0.5, d=4), DMG("Blank", 1.9, 4, "magic")),
+        "The Last Editor": _creature("humanoid_caster", 46, True, "archmage_robed",
+            DMG("Red Ink", sch="magic"), DMG("Strike Through", 2.0, 4, "magic"), DEB("Edit Out", intellect=-35, armor=-60),
+            HEAL("Second Draft", 2.0, 5), DOT("Marginal Notes", 0.5, d=4), BUF("Final Cut", sch="magic", armor=80, magic_resistance=70)),
+        "The Keeper of the First Page": _creature("elemental_caster", 47, True, "archmage_robed",
+            DMG("The First Word", sch="magic"), DMG("Read Aloud", 2.2, 4, "magic"), DEB("Illegible", intellect=-40, agility=-30, armor=-60),
+            DOT("Older Than Language", 0.6, d=4), HEAL("Rewrite Yourself", 2.2, 6), BUF("Bound in Vellum", sch="magic", armor=100, magic_resistance=80)),
+    },
+    weights={"Palimpsest Wraith": 3, "Vault Golem": 2, "Ink-Drowned Scholar": 2, "Erasure": 2},
+    loot={
+        "The Erased": [
+            ("Nameless Signet", "ring", "of the Void", "Whoever wore it is gone. So is their name.", None, None, "epic"),
+            ("Blank-Page Wraps", "wrist", "of the Invoker", "Nothing written on them. Yet.", "cloth", None),
+            ("Forgotten Greaves", "legs", "of the Defender", "You'll forget you're wearing them.", "plate", None),
+        ],
+        "The Last Editor": [
+            ("The Red Quill", "off_hand", "of the Sorcerer", "Every mark it makes is final.", None, "tome", "epic"),
+            ("Editor's Cutting Blade", "main_hand", "of the Assassin", "For cutting what doesn't belong.", None, "dagger", "epic"),
+            ("Vellum Robes", "chest", "of the Prophet", "Scraped clean and written over, more than once.", "cloth", None),
+            ("Margin-Guard Pauldrons", "shoulder", "of the Champion", "Ruled lines, hammered into steel.", "plate", None),
+            ("Scribe-Stalker's Jerkin", "chest", "of the Monkey", "Soft as old paper.", "leather", None),
+        ],
+        "The Keeper of the First Page": [
+            ("The First Page", "neck", "of the Archmage", "The oldest thing anyone has ever written, on a chain.", None, None, "epic"),
+            ("Keeper's Lexicon Staff", "main_hand", "of the Invoker", "Every word it knows is a spell.", None, "staff", "epic"),
+            ("Bindings of the Vault", "chest", "of the Juggernaut", "Iron bands that held the oldest books shut.", "plate", None, "epic"),
+            ("Ink-Black Hauberk", "chest", "of the Hunt", "Dyed in the vault's own ink.", "mail", None),
+            ("Archivist's Hood", "head", "of the Physician", "It whispers the catalogue.", "leather", None),
+            ("First-Edition Leggings", "legs", "of the Owl", "Rare. Very rare.", "cloth", None),
+        ],
+    },
+)
+
+
 # a rare of its own for each of the other open hidden maps (Kyle: "even rares >;)")
 ZONES["The Saltgrave"]["creatures"]["Gullmother Shrike"] = ("beast_fast", 39, True, "vulture", [
     ("Rending Beak", "damage", 1.0, 0, "physical", {}),
@@ -777,6 +989,19 @@ NPCS = {
                             greeting="Shh! Keep your voice down, the gods are napping. Probably. Want to get rich?"),
     "hz_caravan_rizzo": dict(name="Rizzo Dustwhistle", zone="The Buried Caravan", race="goblin", gender="female",
                              greeting="My great-great-grandmother's caravan is under this sand somewhere. So's her money."),
+    "hz_kraal_brannoc": dict(name="Brannoc Dustmane", zone="The Sunken Kraal", race="tauren", gender="male",
+                             greeting="I climbed down to see where the ground went. Now I'm the only one who knows."),
+    "hz_glade_ithrael": dict(name="Ithrael Nightwell", zone="The Moonless Glade", race="night_elf", gender="female",
+                             greeting="My grandmother sealed this place. I came to find out why. Speak quietly."),
+    "hz_storm_halvard": dict(name="Halvard Grey", zone="The Stormcrag", race="human", gender="male",
+                             greeting="Lightning hits the same place twice up here. Four times, sometimes. Don't stand near the stones."),
+    "hz_orchard_marta": dict(name="Marta Hollis", zone="The Ashen Orchard", race="forsaken", gender="female",
+                             greeting="This was my family's orchard. It still is, I suppose. Mind the apples."),
+    # the frontier zones: somebody who has been down there a very long time
+    "hz_root_ashka": dict(name="Grandmother Ash'ka", zone="The World-Root Hollow", race="troll", gender="female",
+                          greeting="You found my granddaughter's tree. Good. She was always going to send someone. Sit, child. Listen to the roots."),
+    "hz_vault_librarian": dict(name="The Librarian", zone="The Palimpsest Vault", race="forsaken", gender="male",
+                               greeting="Shh. Not because of the books. Because of what's reading them."),
     "hz_pines_ilsabet": dict(name="Ilsabet Graves", zone="The Weeping Pines", race="forsaken", gender="female",
                              greeting="Keep your voice down. The water listens, and when it hears a living "
                                       "voice it starts to cry."),
@@ -792,6 +1017,9 @@ DROPS = {
     "Idol-Drowned Troll": ("jade_idol_shard", "Jade Idol Shard", "A chip of green stone off a drowned god. It's cold, and it hums.", 0.75),
     "Drowned Hexer": ("jade_idol_shard", "Jade Idol Shard", "A chip of green stone off a drowned god. It's cold, and it hums.", 0.75),
     "Dune Revenant": ("caravan_manifest_page", "Caravan Manifest Page", "A page from a ledger, sand-scoured, every line a debt.", 0.75),
+    "Kraal Thornspeaker": ("kraal_prayer_bone", "Kraal Prayer-Bone", "A carved bone covered in thorn-marks. It's a prayer, and it's still being said.", 0.75),
+    "Crag Stormling": ("storm_shard", "Storm Shard", "A chip of crystal with lightning still moving inside it.", 0.75),
+    "Ink-Drowned Scholar": ("unwritten_page", "Unwritten Page", "A page that was written once and scraped clean. If you hold it to the light, the old words are still there.", 0.75),
     "Mere Wraith": ("vial_of_mere_water", "Vial of Mere-Water", "Black water that doesn't settle. It moves a little when you aren't holding it still.", 0.75),
 }
 
@@ -805,7 +1033,7 @@ def Q(qid, title, giver, zone, lvl, objectives, desc, accept, turn_in, rewards, 
             "turn_in_text": turn_in, "unique_item_defs": rewards, "next_quest_id": nxt}
 
 
-def R(lvl, *items):
+def R(lvl, *items, rarity="rare"):
     out = []
     for (name, slot, suffix, armor, weapon, label) in items:
         kw = {}
@@ -813,7 +1041,7 @@ def R(lvl, *items):
             kw["armor_type"] = armor
         if weapon:
             kw["weapon_type"] = weapon
-        d = make(name, slot, suffix, lvl + 4, "", rarity="rare", req=lvl, **kw)
+        d = make(name, slot, suffix, lvl + 4, "", rarity=rarity, req=lvl, **kw)
         d.pop("flavor_text", None)
         d["label"] = label
         out.append(d)
@@ -823,6 +1051,8 @@ def R(lvl, *items):
 def quests():
     sz, gw, wp, tw = "the_saltgrave", "the_glasswaste", "the_weeping_pines", "the_tanglewood_shoals"
     di, bc = "the_drowned_idols", "the_buried_caravan"
+    kr, mg, sc, ao = "the_sunken_kraal", "the_moonless_glade", "the_stormcrag", "the_ashen_orchard"
+    wr, pv = "the_world-root_hollow", "the_palimpsest_vault"
     return [
         # ------------------------------------------------------------------ The Saltgrave
         Q("hz_saltgrave_coins", "Grave-Gold", "hz_saltgrave_maud", sz, 38,
@@ -1034,6 +1264,224 @@ def quests():
             ("Dunewarden Helm", "head", "of the Defender", "plate", None, "Plate Helm (Sta/Def/Dodge)"),
             ("Sandstalker's Hood", "head", "of the Assassin", "leather", None, "Leather Helm (Agi/Hit/Crit)")),
           elite=True),
+        # ------------------------------------------------------------------ The Sunken Kraal
+        Q("hz_kraal_hyenas", "What Fell In", "hz_kraal_brannoc", kr, 19,
+          [{"type": "kill", "target": "Pit Hyena", "count": 6}, {"type": "kill", "target": "Sinkhole Quillboar", "count": 6}],
+          "I'm Brannoc. The ground opened under the Barrens and I came down on a rope to see why. The "
+          "rope's gone now, and so is the way I came.\n\nThe hyenas came down the same way, and the "
+          "quillboar were already here. Clear the floor for me. Six of each.",
+          "The sinkhole floor, and the thornwalls west of it.",
+          "The floor's quiet. I can hear the drums further in now. That isn't better.",
+          R(19, ("Dustmane Hide Vest", "chest", "of the Monkey", "leather", None, "Leather Chest (Agi/Sta)"),
+            ("Rope-Burnt Gloves", "hands", "of the Bear", "mail", None, "Mail Gloves (Str/Sta)"),
+            ("Sinkhole Sash", "waist", "of the Owl", "cloth", None, "Cloth Belt (Int/Spi)")),
+          nxt="hz_kraal_bones"),
+        Q("hz_kraal_bones", "Prayer-Bones", "hz_kraal_brannoc", kr, 20,
+          [{"type": "fetch", "target": "kraal_prayer_bone", "count": 8}],
+          "The thornspeakers carry bones carved with prayers. I want to know who they're praying to "
+          "down here, because something's answering.\n\nEight bones. The thornspeakers keep to the "
+          "walls and the shrine-pool north.",
+          "The thornwalls west, and the shrine-pool north. They'll pray at you. Ignore it.",
+          "These are all one name, over and over. The Thorn-Mother. She's not alive. She doesn't need to be.",
+          R(20, ("Thornspeaker's Rod", "main_hand", "of the Sorcerer", None, "wand", "Wand (Int/Sta/SP)"),
+            ("Bone-Carver's Bracers", "wrist", "of the Champion", "plate", None, "Plate Bracers (Str/Sta/Def)"),
+            ("Kraal-Runner Boots", "feet", "of the Hunt", "mail", None, "Mail Boots (Agi/Int/AP)")),
+          nxt="hz_kraal_mother"),
+        Q("hz_kraal_mother", "The Thorn-Mother's Echo", "hz_kraal_brannoc", kr, 21,
+          [{"type": "kill", "target": "The Thorn-Mother's Echo", "count": 1}, {"type": "kill", "target": "Kraal Bonewalker", "count": 5}],
+          "Her seat is at the north end, above everything. Her dead walk round it. And she walks "
+          "among them, what's left of her.\n\nShe's why the ground opened. I'm sure of it. Put her "
+          "down and maybe it closes again. Don't go alone.",
+          "North, to her seat. Bring friends. She'll sing and the thorns will listen.",
+          "The drums stopped. Thank you. I think I can find a way up now.",
+          R(21, ("Thornbreaker Maul", "main_hand", "of the Bear", None, "mace_2h", "Two-Hand Mace (Str/Sta)"),
+            ("Echo-Ward Helm", "head", "of the Defender", "plate", None, "Plate Helm (Sta/Def/Dodge)"),
+            ("Kraal Witch's Robe", "chest", "of the Prophet", "cloth", None, "Cloth Robe (Int/Spi/Healing)"),
+            ("Pitstalker Hood", "head", "of the Assassin", "leather", None, "Leather Helm (Agi/Hit/Crit)")),
+          elite=True),
+        # ------------------------------------------------------------------ The Moonless Glade
+        Q("hz_glade_wisps", "Lights That Lie", "hz_glade_ithrael", mg, 26,
+          [{"type": "kill", "target": "Gloomwisp", "count": 8}],
+          "I'm Ithrael. My grandmother put the seal on this glade and never spoke of it. I'm here "
+          "to read what she wouldn't say.\n\nThe wisps lead people off the path and leave them. "
+          "Put out eight of them before they put me out.",
+          "Along the shadowed path, near where you came in.",
+          "Darker. Honest dark, though. I'll take it.",
+          R(26, ("Glade-Walker's Cloak", "back", "of the Wolf", None, None, "Cloak (Agi/Spi)"),
+            ("Nightwell Slippers", "feet", "of the Sorcerer", "cloth", None, "Cloth Boots (Int/Sta/SP)"),
+            ("Shade-Touched Bracers", "wrist", "of the Champion", "mail", None, "Mail Bracers (Str/Sta/Def)")),
+          nxt="hz_glade_sentinels"),
+        Q("hz_glade_sentinels", "The Sentinels Who Stayed", "hz_glade_ithrael", mg, 27,
+          [{"type": "kill", "target": "Shade of the Sentinel", "count": 6}, {"type": "kill", "target": "Moonless Satyr", "count": 6}],
+          "The sentinels my grandmother left here are still on watch. They died on watch. They "
+          "don't know they can stop.\n\nAnd the satyrs came because the sentinels can't see them "
+          "any more. Free six of the sentinels, and end six of the satyrs.",
+          "The silent grove west for the sentinels, the twisted hollow east for the satyrs.",
+          "They went quietly. I think they were glad. The satyrs weren't.",
+          R(27, ("Sentinel's Moonless Glaive", "main_hand", "of the Assassin", None, "polearm", "Polearm (Agi/Hit/Crit)"),
+            ("Vigil Plate Girdle", "waist", "of the Defender", "plate", None, "Plate Belt (Sta/Def/Dodge)"),
+            ("Moonlace Gloves", "hands", "of the Invoker", "cloth", None, "Cloth Gloves (Int/SP/Crit)")),
+          nxt="hz_glade_priestess"),
+        Q("hz_glade_priestess", "The Unlit Priestess", "hz_glade_ithrael", mg, 28,
+          [{"type": "kill", "target": "The Unlit Priestess", "count": 1}, {"type": "kill", "target": "Shade of the Sentinel", "count": 4}],
+          "I've read it now. A priestess here prayed to Elune for something she shouldn't have, and "
+          "Elune turned away, and the moon has not shone on this glade since.\n\nShe's still in "
+          "the shrine at the north end, still praying. Go with friends and give her an answer.",
+          "North, to the sealed shrine. Bring friends. She won't stop praying long enough to talk.",
+          "The clouds are thinning. Is that... look. Look up.\n\nThank you. Take whatever you like.",
+          R(28, ("Moonrise Bow", "ranged", "of the Sharpshooter", None, "bow", "Bow (Agi/AP/Hit)"),
+            ("Priestess-Bane Breastplate", "chest", "of the Champion", "plate", None, "Plate Chest (Str/Sta/Def)"),
+            ("Mantle of the First Moonrise", "shoulder", "of the Prophet", "cloth", None, "Cloth Shoulders (Int/Spi/Healing)"),
+            ("Nightstalker Leggings", "legs", "of the Monkey", "leather", None, "Leather Legs (Agi/Sta)")),
+          elite=True),
+        # ------------------------------------------------------------------ The Stormcrag
+        Q("hz_storm_rams", "Rams and Wings", "hz_storm_halvard", sc, 36,
+          [{"type": "kill", "target": "Thunderhide Ram", "count": 6}, {"type": "kill", "target": "Stormcrag Harpy", "count": 6}],
+          "Halvard Grey. I chase storms. This one never moves, which makes it either the easiest "
+          "storm in the world to study or the most dangerous.\n\nThe rams charge anything that "
+          "moves, and the harpies nest in the east ring. Six of each, so I can set up my rods.",
+          "The rams are on the crag path. The harpies nest east, in the ring.",
+          "My rods are up. Now we wait for the lightning. We won't wait long.",
+          R(36, ("Stormchaser's Hauberk", "chest", "of the Hunt", "mail", None, "Mail Chest (Agi/Int/AP)"),
+            ("Ram-Horn Helm", "head", "of the Bear", "plate", None, "Plate Helm (Str/Sta)"),
+            ("Windproof Gloves", "hands", "of the Owl", "cloth", None, "Cloth Gloves (Int/Spi)")),
+          nxt="hz_storm_shards"),
+        Q("hz_storm_shards", "Bottled Lightning", "hz_storm_halvard", sc, 37,
+          [{"type": "fetch", "target": "storm_shard", "count": 8}],
+          "The stormlings carry shards with lightning still inside. If I can read eight of them I "
+          "can tell you what's calling the storm.\n\nThey're thickest up on the thunder table.",
+          "North, on the thunder table. They'll shock you. That's how you know it's working.",
+          "It's the stone. The big one, at the very top. The storm isn't sitting here. It's being called.",
+          R(37, ("Lightning-Rod Staff", "main_hand", "of the Invoker", None, "staff", "Staff (Int/SP/Crit)"),
+            ("Thunderwool Boots", "feet", "of the Monkey", "leather", None, "Leather Boots (Agi/Sta)"),
+            ("Insulated Bracers", "wrist", "of the Defender", "plate", None, "Plate Bracers (Sta/Def/Dodge)")),
+          nxt="hz_storm_stone"),
+        Q("hz_storm_stone", "The Calling Stone", "hz_storm_halvard", sc, 38,
+          [{"type": "kill", "target": "The Calling Stone", "count": 1}, {"type": "kill", "target": "Stone-Circle Warden", "count": 5}],
+          "The stone at the top calls the storm, and the wardens in the rings keep anyone from "
+          "getting to it. Somebody made them for that. Somebody wanted this storm.\n\nBreak the "
+          "stone. Bring people who don't mind being struck by lightning.",
+          "North, to the very top of the crag. Bring friends. Don't wear anything metal. Joking. Mostly.",
+          "Look at that. Blue sky. First time in a hundred years, the old books say.\n\nYou earned this.",
+          R(38, ("Stormbreaker", "main_hand", "of the Gladiator", None, "sword_2h", "Two-Hand Sword (Str/Hit/Crit)"),
+            ("Crag-Warden's Shield", "off_hand", None, None, "shield", "Shield (Sta/Block)"),
+            ("Robes of the Clearing Sky", "chest", "of the Sorcerer", "cloth", None, "Cloth Robe (Int/Sta/SP)"),
+            ("Stormstrider Leggings", "legs", "of the Assassin", "leather", None, "Leather Legs (Agi/Hit/Crit)")),
+          elite=True),
+        # ------------------------------------------------------------------ The Ashen Orchard
+        Q("hz_orchard_rows", "The Grey Rows", "hz_orchard_marta", ao, 9,
+          [{"type": "kill", "target": "Blighted Scarecrow", "count": 6}, {"type": "kill", "target": "Orchard Ghoul", "count": 6}],
+          "I'm Marta. My family grew apples here before the plague. I died in that house over "
+          "there, and when I woke up I walked straight back. Funny, that.\n\nThe scarecrows don't "
+          "know me any more and the ghouls never did. Six of each, if you would.",
+          "The grey rows west of the gate. The scarecrows only look like they're not moving.",
+          "Thank you. I walked the rows just now. My father planted those.",
+          R(9, ("Orchard-Hand Gloves", "hands", "of the Monkey", "leather", None, "Leather Gloves (Agi/Sta)"),
+            ("Pruning Knife", "main_hand", "of the Tiger", None, "dagger", "Dagger (Str/Agi)"),
+            ("Grey Apron", "chest", "of the Owl", "cloth", None, "Cloth Robe (Int/Spi)")),
+          nxt="hz_orchard_cider"),
+        Q("hz_orchard_cider", "The Cider House", "hz_orchard_marta", ao, 10,
+          [{"type": "kill", "target": "Plague Picker", "count": 6}, {"type": "kill", "target": "Rotfruit Bat", "count": 6}],
+          "The pickers in the cider house are still pressing apples. Plagued apples. Somebody is "
+          "going to drink that one day.\n\nStop the pickers, and the bats that eat the fallen "
+          "fruit and carry it off. Six of each.",
+          "The cider house, east. The bats are everywhere. Look up.",
+          "No more cider. I never thought I'd be glad to say that.",
+          R(10, ("Cider-Press Bracers", "wrist", "of the Bear", "mail", None, "Mail Bracers (Str/Sta)"),
+            ("Bat-Wing Mantle", "shoulder", "of the Eagle", "cloth", None, "Cloth Shoulders (Int/Sta)"),
+            ("Orchard Walker's Boots", "feet", "of the Wolf", "leather", None, "Leather Boots (Agi/Spi)")),
+          nxt="hz_orchard_bramley"),
+        Q("hz_orchard_bramley", "Old Bramley", "hz_orchard_marta", ao, 11,
+          [{"type": "kill", "target": "Old Bramley", "count": 1}, {"type": "kill", "target": "Blighted Scarecrow", "count": 4}],
+          "My father made the first scarecrow and named it Bramley after the apple. It stands under "
+          "the old tree now with a scythe, and the plague's in it, and it doesn't stop.\n\nPlease "
+          "put it down. Take friends. It was built to keep things away, and it's good at it.",
+          "North, under the old tree. Bring friends. It's bigger than it was.",
+          "He's down. Father would have hated what it became. Thank you.\n\nTake something. I've "
+          "no use for any of it now.",
+          R(11, ("Bramley's Scythe", "main_hand", "of the Bear", None, "polearm", "Polearm (Str/Sta)"),
+            ("Old Tree Helm", "head", "of the Defender", "plate", None, "Plate Helm (Sta/Def/Dodge)"),
+            ("Orchard Keeper's Robe", "chest", "of the Prophet", "cloth", None, "Cloth Robe (Int/Spi/Healing)"),
+            ("Crowstalker Hood", "head", "of the Monkey", "leather", None, "Leather Helm (Agi/Sta)")),
+          elite=True),
+        # ------------------------------------------------------------------ The World-Root Hollow
+        Q("hz_root_listen", "What the Roots Remember", "hz_root_ashka", wr, 18,
+          [{"type": "kill", "target": "Lost Rootspeaker", "count": 5}, {"type": "kill", "target": "Heartwood Spider", "count": 6}],
+          "I'm Ash'ka. Koji'ra's grandmother. I told her about this tree when she was small, and then "
+          "I came to find it myself, and it kept me. I don't mind. It's beautiful down here.\n\nThe "
+          "Darkspear who followed me down stopped listening to the roots and started speaking for them. "
+          "They're wrong about what the tree wants. Quiet five of them, and the spiders that nest in "
+          "the galleries.",
+          "Through the amber hollows and out along the roots. The spiders like the dark places between.",
+          "Listen. Hear that? That's the tree, not them. It's been a long time.",
+          R(18, ("Rootspeaker's Mantle", "shoulder", "of the Prophet", "cloth", None, "Cloth Shoulders (Int/Spi/Healing)"),
+            ("Amber-Hollow Leggings", "legs", "of the Monkey", "leather", None, "Leather Legs (Agi/Sta)"),
+            ("Heartwood Bracers", "wrist", "of the Champion", "plate", None, "Plate Bracers (Str/Sta/Def)")),
+          nxt="hz_root_amber"),
+        Q("hz_root_amber", "The Sap-Mother", "hz_root_ashka", wr, 19,
+          [{"type": "kill", "target": "Amberheart, the Sap-Mother", "count": 1}],
+          "In the heartwood there's a pool of sap that woke up. Amberheart. She was meant to feed the "
+          "tree and she's started keeping it all for herself, and the tree is getting hungry.\n\nShe'll "
+          "seal you in amber if she can. Bring friends who can cut you out.",
+          "The heartwood, in the middle of everything. You'll know it by the light.",
+          "The sap's running again. Can you feel it? Warm, all the way down.",
+          R(19, ("Sap-Mother's Lantern", "off_hand", "of the Invoker", None, "tome", "Tome (Int/SP/Crit)"),
+            ("Ambershell Pauldrons", "shoulder", "of the Defender", "plate", None, "Plate Shoulders (Sta/Def/Dodge)"),
+            ("Glowroot Jerkin", "chest", "of the Hunt", "mail", None, "Mail Chest (Agi/Int/AP)")),
+          nxt="hz_root_father", elite=True),
+        Q("hz_root_father", "The Root-Father", "hz_root_ashka", wr, 19,
+          [{"type": "kill", "target": "The Root-Father", "count": 1}, {"type": "kill", "target": "Gnarl the Unburied", "count": 1}],
+          "At the very bottom of the tree, which is the top of everything down here, the oldest root "
+          "of all has woken up. The Root-Father. He was here before the isles were. He's angry that "
+          "anyone found him.\n\nAnd old Gnarl, out in the knotted dark, has been feeding him. Put "
+          "them both back to sleep. Not alone. Never alone, not down here.",
+          "Up through the knotted deep to the root-father's bed. Gnarl lurks off to the west.",
+          "He's sleeping. The whole tree just sighed. Did you hear it?\n\nTake this. Then go and "
+          "tell my granddaughter I'm happy here. She'll want to know.",
+          R(20, ("Root-Father's Splinter", "main_hand", "of the Vanquisher", None, "polearm", "Polearm (Str/AP/Hit)"),
+            ("Crown of the World-Root", "head", "of the Prophet", "cloth", None, "Cloth Helm (Int/Spi/Healing)"),
+            ("Heartwood Aegis", "off_hand", None, None, "shield", "Shield (Sta/Block)"),
+            ("Treewalker Hood", "head", "of the Assassin", "leather", None, "Leather Helm (Agi/Hit/Crit)"), rarity="epic"),
+          elite=True),
+        # ------------------------------------------------------------------ The Palimpsest Vault
+        Q("hz_vault_quiet", "Nothing Left to Read", "hz_vault_librarian", pv, 44,
+          [{"type": "kill", "target": "Palimpsest Wraith", "count": 6}, {"type": "kill", "target": "Erasure", "count": 6}],
+          "I was the librarian here. Before the Bloom. Before the Scourge. Before most things. I "
+          "stayed because someone has to know where everything is.\n\nThe wraiths are what's left "
+          "of the books the Bloom wrote over. The erasures are what's left of the readers. Give them "
+          "rest. Six of each.",
+          "The outer stacks. Go round. Everything down here goes round.",
+          "Quieter. You can almost hear the pages turning. That's a good sound, down here.",
+          R(44, ("Librarian's Reading Spectacles", "head", "of the Sorcerer", "cloth", None, "Cloth Helm (Int/Sta/SP)"),
+            ("Vault-Walker's Boots", "feet", "of the Monkey", "leather", None, "Leather Boots (Agi/Sta)"),
+            ("Bookbinder's Gauntlets", "hands", "of the Juggernaut", "plate", None, "Plate Gloves (Sta/Armor/Parry)")),
+          nxt="hz_vault_pages"),
+        Q("hz_vault_pages", "The Pages Underneath", "hz_vault_librarian", pv, 45,
+          [{"type": "fetch", "target": "unwritten_page", "count": 8}],
+          "The scholars drowned in the ink carry pages scraped clean. But a scraped page remembers. "
+          "Bring me eight and I'll read what was on them first.\n\nThey walk the inner shelves. "
+          "You'll have to find the way in. The gates are never where you'd want them.",
+          "The inner shelves. The gate into each ring is on a different side. Walk round.",
+          "Here. Under the Bloom's writing, under the one before that. A name. The Keeper's. He's "
+          "still here, at the top, still trying to finish the first page.",
+          R(45, ("Ink-Stained Quill Blade", "main_hand", "of the Assassin", None, "dagger", "Dagger (Agi/Hit/Crit)"),
+            ("Vellum Wraps", "wrist", "of the Invoker", "cloth", None, "Cloth Bracers (Int/SP/Crit)"),
+            ("Shelf-Warden's Girdle", "waist", "of the Defender", "plate", None, "Plate Belt (Sta/Def/Dodge)")),
+          nxt="hz_vault_keeper"),
+        Q("hz_vault_keeper", "The First Page", "hz_vault_librarian", pv, 46,
+          [{"type": "kill", "target": "The Keeper of the First Page", "count": 1}, {"type": "kill", "target": "The Last Editor", "count": 1}],
+          "The Keeper has been trying to finish the first page for longer than there have been "
+          "people to read it. The Editor at the heart of the vault strikes out every word he writes. "
+          "They will never finish. And while they try, nothing down here can rest.\n\nEnd it. Both "
+          "of them. Take everyone you trust.",
+          "The Editor sits at the heart of the rings. The Keeper reads alone, beyond the top of the vault.",
+          "It's finished. Not the page. The trying.\n\nTake one of these. I've been keeping them for "
+          "whoever finally did it.",
+          R(46, ("The Closing Line", "main_hand", "of the Invoker", None, "staff", "Staff (Int/SP/Crit)"),
+            ("Folio-Plate Breastplate", "chest", "of the Champion", "plate", None, "Plate Chest (Str/Sta/Def)"),
+            ("Margin-Runner's Jerkin", "chest", "of the Assassin", "leather", None, "Leather Chest (Agi/Hit/Crit)"),
+            ("First-Edition Robes", "chest", "of the Prophet", "cloth", None, "Cloth Robe (Int/Spi/Healing)"), rarity="epic"),
+          elite=True),
         # ------------------------------------------------------------------ The Weeping Pines
         Q("hz_pines_webs", "The Hanging Wood", "hz_pines_ilsabet", wp, 17,
           [{"type": "kill", "target": "Gloom Spider", "count": 8}],
@@ -1145,7 +1593,9 @@ def build():
 def write_people():
     """The givers (ambient_npcs.json), their quests (data/quests/hidden_zones.json) and the quest
     items' sources (data/creatures/quest_drops.json)."""
-    from tools.handbuilt_skull_zones import GIVERS
+    from tools.handbuilt_skull_zones import GIVERS as _G
+    from tools.handbuilt_hidden_layers import GIVERS as _G2
+    GIVERS = dict(_G, **_G2)
     p = DATA / "npcs/ambient_npcs.json"
     doc = json.loads(p.read_text(encoding="utf-8"))
     lst = doc if isinstance(doc, list) else doc["npcs"]
@@ -1170,7 +1620,9 @@ def write_people():
 #: the ground a skull zone's herbs, ore and fish come from (data/gathering/node_pools.json key)
 NODE_PARENT = {"The Saltgrave": "arathi_east", "The Glasswaste": "durotar", "The Weeping Pines": "silverpine_north",
                "The Tanglewood Shoals": "echo_isles", "The Drowned Idols": "northern_stranglethorn",
-               "The Buried Caravan": "northern_tanaris"}
+               "The Buried Caravan": "northern_tanaris", "The Sunken Kraal": "central_barrens",
+               "The Moonless Glade": "ashenvale_west", "The Stormcrag": "arathi_central",
+               "The Ashen Orchard": "western_tirisfal"}
 
 
 def write_node_pools():

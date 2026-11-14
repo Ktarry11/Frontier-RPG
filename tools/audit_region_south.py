@@ -175,7 +175,7 @@ def main():
             if not (0 <= x < W and 0 <= y < H):
                 bad.append(f"people: {i} is filed off the map at ({x},{y})")
                 continue
-            if not beside((x, y)):
+            if not beside((x, y)) and not r.get("hidden"):     # hidden sellers: qa_secrets checks the secret path
                 bad.append(f"people: {i} at ({x},{y}) cannot be reached")
             over = [lm["sprite_key"].split("/")[-1] for lm in z.landmarks
                     if "assets/buildings" in lm["sprite_key"] and covered(lm, x, y) > 0.5]

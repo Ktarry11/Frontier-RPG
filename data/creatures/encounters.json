@@ -1328,6 +1328,15 @@
             "Gnash the Hollow-Maw": 0,
             "Chitterlord Skrix": 0
           }
+        },
+        "The Thornheart Warren": {
+          "name": "The Thornheart Warren",
+          "creatures": {
+            "Thornheart Bristleback": 3,
+            "Warren Thornseer": 2,
+            "Bramble Boar": 2,
+            "The Thorn-Mother": 0
+          }
         }
       }
     },
@@ -2486,6 +2495,18 @@
             "Spore Archivist": 2,
             "The First Draft": 0,
             "Marginalia": 0
+          }
+        },
+        "The Palimpsest Vault": {
+          "name": "The Palimpsest Vault",
+          "creatures": {
+            "Palimpsest Wraith": 3,
+            "Vault Golem": 2,
+            "Ink-Drowned Scholar": 2,
+            "Erasure": 2,
+            "The Erased": 0,
+            "The Last Editor": 0,
+            "The Keeper of the First Page": 0
           }
         }
       }
@@ -4412,6 +4433,193 @@
             "Dune Revenant": 3,
             "Sandstone Colossus": 1,
             "The Last Caravan Master": 0
+          }
+        }
+      }
+    },
+    "The Sunken Kraal": {
+      "open_zone": {
+        "name": "The Sunken Kraal",
+        "creatures": {
+          "Pit Hyena": 3,
+          "Sinkhole Quillboar": 1
+        }
+      },
+      "subzones": {
+        "The Sinkhole Floor": {
+          "name": "The Sinkhole Floor",
+          "creatures": {
+            "Pit Hyena": 3,
+            "Sinkhole Quillboar": 2
+          }
+        },
+        "The Thornwalls": {
+          "name": "The Thornwalls",
+          "creatures": {
+            "Sinkhole Quillboar": 3,
+            "Kraal Thornspeaker": 2,
+            "Gutripper": 0
+          }
+        },
+        "The Bone Pens": {
+          "name": "The Bone Pens",
+          "creatures": {
+            "Kraal Bonewalker": 3,
+            "Pit Hyena": 2
+          }
+        },
+        "The Drowned Shrine-Pool": {
+          "name": "The Drowned Shrine-Pool",
+          "creatures": {
+            "Kraal Thornspeaker": 2,
+            "Kraal Bonewalker": 2,
+            "Sinkhole Quillboar": 1
+          }
+        },
+        "The Thorn-Mother's Seat": {
+          "name": "The Thorn-Mother's Seat",
+          "creatures": {
+            "Kraal Bonewalker": 3,
+            "Kraal Thornspeaker": 2,
+            "The Thorn-Mother's Echo": 0
+          }
+        }
+      }
+    },
+    "The Moonless Glade": {
+      "open_zone": {
+        "name": "The Moonless Glade",
+        "creatures": {
+          "Gloomwisp": 3,
+          "Moonless Satyr": 1
+        }
+      },
+      "subzones": {
+        "The Shadowed Path": {
+          "name": "The Shadowed Path",
+          "creatures": {
+            "Gloomwisp": 3,
+            "Moonless Satyr": 2
+          }
+        },
+        "The Silent Grove": {
+          "name": "The Silent Grove",
+          "creatures": {
+            "Shade of the Sentinel": 3,
+            "Gloomwisp": 2
+          }
+        },
+        "The Twisted Hollow": {
+          "name": "The Twisted Hollow",
+          "creatures": {
+            "Moonless Satyr": 3,
+            "Withered Furbolg": 2,
+            "Old Gnarlhorn": 0
+          }
+        },
+        "The Dark Pool": {
+          "name": "The Dark Pool",
+          "creatures": {
+            "Shade of the Sentinel": 2,
+            "Withered Furbolg": 2,
+            "Gloomwisp": 1
+          }
+        },
+        "The Sealed Shrine": {
+          "name": "The Sealed Shrine",
+          "creatures": {
+            "Shade of the Sentinel": 3,
+            "Gloomwisp": 2,
+            "The Unlit Priestess": 0
+          }
+        }
+      }
+    },
+    "The Stormcrag": {
+      "open_zone": {
+        "name": "The Stormcrag",
+        "creatures": {
+          "Thunderhide Ram": 3,
+          "Crag Stormling": 2
+        }
+      },
+      "subzones": {
+        "The Crag Path": {
+          "name": "The Crag Path",
+          "creatures": {
+            "Thunderhide Ram": 3,
+            "Stormcrag Harpy": 1
+          }
+        },
+        "The West Ring": {
+          "name": "The West Ring",
+          "creatures": {
+            "Stone-Circle Warden": 3,
+            "Crag Stormling": 2
+          }
+        },
+        "The East Ring": {
+          "name": "The East Ring",
+          "creatures": {
+            "Stormcrag Harpy": 3,
+            "Crag Stormling": 2,
+            "Skyrender": 0
+          }
+        },
+        "The Thunder Table": {
+          "name": "The Thunder Table",
+          "creatures": {
+            "Crag Stormling": 3,
+            "Stone-Circle Warden": 2
+          }
+        },
+        "The Calling Stone": {
+          "name": "The Calling Stone",
+          "creatures": {
+            "Stone-Circle Warden": 3,
+            "Crag Stormling": 2,
+            "The Calling Stone": 0
+          }
+        }
+      }
+    },
+    "The Ashen Orchard": {
+      "open_zone": {
+        "name": "The Ashen Orchard",
+        "creatures": {
+          "Rotfruit Bat": 3,
+          "Orchard Ghoul": 2
+        }
+      },
+      "subzones": {
+        "The Orchard Gate": {
+          "name": "The Orchard Gate",
+          "creatures": {
+            "Rotfruit Bat": 3,
+            "Orchard Ghoul": 2
+          }
+        },
+        "The Grey Rows": {
+          "name": "The Grey Rows",
+          "creatures": {
+            "Blighted Scarecrow": 3,
+            "Orchard Ghoul": 2
+          }
+        },
+        "The Cider House": {
+          "name": "The Cider House",
+          "creatures": {
+            "Plague Picker": 3,
+            "Orchard Ghoul": 1,
+            "The Cider-Wife": 0
+          }
+        },
+        "The Old Tree": {
+          "name": "The Old Tree",
+          "creatures": {
+            "Blighted Scarecrow": 2,
+            "Plague Picker": 2,
+            "Old Bramley": 0
           }
         }
       }

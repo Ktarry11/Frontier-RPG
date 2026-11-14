@@ -51653,6 +51653,1269 @@
         },
         "self_only": true
       }
+    ],
+    "hidden_kraal_bonewalker": [
+      {
+        "name": "Bone Tusk",
+        "kind": "damage",
+        "amount": 62,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Grave Rot",
+        "kind": "dot",
+        "amount": 22,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      },
+      {
+        "name": "Thorn-Bound",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 40
+        },
+        "self_only": true
+      }
+    ],
+    "hidden_sinkhole_quillboar": [
+      {
+        "name": "Spear Thrust",
+        "kind": "damage",
+        "amount": 62,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Charge",
+        "kind": "damage",
+        "amount": 93,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Quill Spray",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -25
+        }
+      }
+    ],
+    "hidden_kraal_thornspeaker": [
+      {
+        "name": "Thorn Bolt",
+        "kind": "damage",
+        "amount": 67,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Thorn Blessing",
+        "kind": "heal",
+        "amount": 100,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Bramble Curse",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -12
+        }
+      }
+    ],
+    "hidden_pit_hyena": [
+      {
+        "name": "Bite",
+        "kind": "damage",
+        "amount": 57,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Infected Bite",
+        "kind": "dot",
+        "amount": 18,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "hidden_the_thornmothers_echo": [
+      {
+        "name": "Thorn-Song",
+        "kind": "damage",
+        "amount": 181,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Bind in Brambles",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -20,
+          "armor": -30
+        }
+      },
+      {
+        "name": "Bleeding Thorns",
+        "kind": "dot",
+        "amount": 90,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 4
+      },
+      {
+        "name": "Ghost of the Kraal",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 50,
+          "magic_resistance": 40
+        },
+        "self_only": true
+      },
+      {
+        "name": "Call the Pit",
+        "kind": "damage",
+        "amount": 344,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic"
+      }
+    ],
+    "hidden_gutripper": [
+      {
+        "name": "Gore",
+        "kind": "damage",
+        "amount": 173,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Ripping Tusks",
+        "kind": "dot",
+        "amount": 86,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      },
+      {
+        "name": "Rage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": 30
+        },
+        "self_only": true
+      },
+      {
+        "name": "Trample",
+        "kind": "damage",
+        "amount": 294,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "hidden_moonless_satyr": [
+      {
+        "name": "Dark Claw",
+        "kind": "damage",
+        "amount": 106,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shadowstalk",
+        "kind": "dot",
+        "amount": 42,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3
+      },
+      {
+        "name": "Cruel Laugh",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -18
+        }
+      }
+    ],
+    "hidden_shade_of_the_sentinel": [
+      {
+        "name": "Glaive",
+        "kind": "damage",
+        "amount": 106,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Moonless Strike",
+        "kind": "damage",
+        "amount": 159,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Old Vigil",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 45
+        },
+        "self_only": true
+      }
+    ],
+    "hidden_gloomwisp": [
+      {
+        "name": "Cold Light",
+        "kind": "damage",
+        "amount": 96,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Lost Way",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -14,
+          "intellect": -10
+        }
+      },
+      {
+        "name": "Fade",
+        "kind": "dot",
+        "amount": 34,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3
+      }
+    ],
+    "hidden_withered_furbolg": [
+      {
+        "name": "Maul",
+        "kind": "damage",
+        "amount": 115,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Fury of the Lost",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": 25
+        },
+        "self_only": true
+      },
+      {
+        "name": "Festering Claw",
+        "kind": "dot",
+        "amount": 40,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "hidden_the_unlit_priestess": [
+      {
+        "name": "Prayer Unanswered",
+        "kind": "damage",
+        "amount": 271,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Eclipse",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -25,
+          "magic_resistance": -40
+        }
+      },
+      {
+        "name": "Starless Night",
+        "kind": "dot",
+        "amount": 135,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 4
+      },
+      {
+        "name": "Elune Does Not Hear",
+        "kind": "heal",
+        "amount": 541,
+        "cooldown": 5,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Veil of Night",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 50,
+          "magic_resistance": 60
+        },
+        "self_only": true
+      },
+      {
+        "name": "Falling Dark",
+        "kind": "damage",
+        "amount": 514,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic"
+      }
+    ],
+    "hidden_old_gnarlhorn": [
+      {
+        "name": "Horn Rake",
+        "kind": "damage",
+        "amount": 254,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hex of Thorns",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -20
+        }
+      },
+      {
+        "name": "Fel Wound",
+        "kind": "dot",
+        "amount": 127,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 4
+      },
+      {
+        "name": "Goring Charge",
+        "kind": "damage",
+        "amount": 458,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "hidden_crag_stormling": [
+      {
+        "name": "Spark",
+        "kind": "damage",
+        "amount": 153,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Static",
+        "kind": "dot",
+        "amount": 61,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3
+      },
+      {
+        "name": "Gust",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -16
+        }
+      }
+    ],
+    "hidden_thunderhide_ram": [
+      {
+        "name": "Headbutt",
+        "kind": "damage",
+        "amount": 150,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Charge",
+        "kind": "damage",
+        "amount": 225,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Storm Fleece",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 50
+        },
+        "self_only": true
+      }
+    ],
+    "hidden_stonecircle_warden": [
+      {
+        "name": "Standing Stone Fist",
+        "kind": "damage",
+        "amount": 164,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rooted",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 80
+        },
+        "self_only": true
+      },
+      {
+        "name": "Lightning Rod",
+        "kind": "damage",
+        "amount": 218,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic"
+      }
+    ],
+    "hidden_stormcrag_harpy": [
+      {
+        "name": "Talon",
+        "kind": "damage",
+        "amount": 153,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rending Talons",
+        "kind": "dot",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      },
+      {
+        "name": "Screech",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -20
+        }
+      }
+    ],
+    "hidden_the_calling_stone": [
+      {
+        "name": "Thunderclap",
+        "kind": "damage",
+        "amount": 355,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Chain Lightning",
+        "kind": "damage",
+        "amount": 710,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Grounded",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -25,
+          "armor": -50
+        }
+      },
+      {
+        "name": "Storm Shell",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 70,
+          "magic_resistance": 70
+        },
+        "self_only": true
+      },
+      {
+        "name": "Crackle",
+        "kind": "dot",
+        "amount": 177,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 4
+      }
+    ],
+    "hidden_skyrender": [
+      {
+        "name": "Skyrend",
+        "kind": "damage",
+        "amount": 345,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bleeding Gale",
+        "kind": "dot",
+        "amount": 172,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      },
+      {
+        "name": "Deafening Cry",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -30
+        }
+      },
+      {
+        "name": "Dive",
+        "kind": "damage",
+        "amount": 620,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "hidden_orchard_ghoul": [
+      {
+        "name": "Claw",
+        "kind": "damage",
+        "amount": 44,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Plague Bite",
+        "kind": "dot",
+        "amount": 13,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "hidden_blighted_scarecrow": [
+      {
+        "name": "Scythe Arm",
+        "kind": "damage",
+        "amount": 44,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Crow Swarm",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -8
+        }
+      }
+    ],
+    "hidden_rotfruit_bat": [
+      {
+        "name": "Bite",
+        "kind": "damage",
+        "amount": 37,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shriek",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -6
+        }
+      }
+    ],
+    "hidden_plague_picker": [
+      {
+        "name": "Rotten Fruit",
+        "kind": "damage",
+        "amount": 45,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Blight",
+        "kind": "dot",
+        "amount": 16,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3
+      },
+      {
+        "name": "Gnaw",
+        "kind": "heal",
+        "amount": 54,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic"
+      }
+    ],
+    "hidden_old_bramley": [
+      {
+        "name": "Harvest Scythe",
+        "kind": "damage",
+        "amount": 108,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Plague Harvest",
+        "kind": "dot",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 4
+      },
+      {
+        "name": "Crows of the Orchard",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -15,
+          "armor": -20
+        }
+      },
+      {
+        "name": "Straw Stuffing",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 40
+        },
+        "self_only": true
+      },
+      {
+        "name": "Reap",
+        "kind": "damage",
+        "amount": 194,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "hidden_the_ciderwife": [
+      {
+        "name": "Sour Wail",
+        "kind": "damage",
+        "amount": 102,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Bitter Brew",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -10,
+          "agility": -10
+        }
+      },
+      {
+        "name": "Spoiled Cider",
+        "kind": "dot",
+        "amount": 46,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3
+      },
+      {
+        "name": "One More Cup",
+        "kind": "heal",
+        "amount": 164,
+        "cooldown": 5,
+        "mana_cost": 12,
+        "school": "magic"
+      }
+    ],
+    "hidden_thornheart_bristleback": [
+      {
+        "name": "Bristle Spear",
+        "kind": "damage",
+        "amount": 142,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Thorn Charge",
+        "kind": "damage",
+        "amount": 213,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bramble Armour",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 50
+        },
+        "self_only": true
+      }
+    ],
+    "hidden_warren_thornseer": [
+      {
+        "name": "Thorn Volley",
+        "kind": "damage",
+        "amount": 144,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Root Mend",
+        "kind": "heal",
+        "amount": 217,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Thornbind",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -18
+        }
+      }
+    ],
+    "hidden_bramble_boar": [
+      {
+        "name": "Gore",
+        "kind": "damage",
+        "amount": 142,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Thorned Tusks",
+        "kind": "dot",
+        "amount": 50,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "hidden_the_thornmother": [
+      {
+        "name": "Mother's Thorns",
+        "kind": "damage",
+        "amount": 314,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "The Bramble Takes You",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -25,
+          "armor": -50
+        }
+      },
+      {
+        "name": "Thousand Thorns",
+        "kind": "dot",
+        "amount": 157,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 4
+      },
+      {
+        "name": "Feed the Root",
+        "kind": "heal",
+        "amount": 628,
+        "cooldown": 5,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Crown of Thorns",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 70,
+          "magic_resistance": 50
+        },
+        "self_only": true
+      },
+      {
+        "name": "Root Eruption",
+        "kind": "damage",
+        "amount": 628,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic"
+      }
+    ],
+    "hidden_palimpsest_wraith": [
+      {
+        "name": "Overwrite",
+        "kind": "damage",
+        "amount": 189,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Unwritten",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -25
+        }
+      },
+      {
+        "name": "Fading Ink",
+        "kind": "dot",
+        "amount": 76,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3
+      }
+    ],
+    "hidden_vault_golem": [
+      {
+        "name": "Bookend",
+        "kind": "damage",
+        "amount": 206,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bound in Stone",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 90
+        },
+        "self_only": true
+      },
+      {
+        "name": "Slam the Cover",
+        "kind": "damage",
+        "amount": 294,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "hidden_inkdrowned_scholar": [
+      {
+        "name": "Black Ink",
+        "kind": "damage",
+        "amount": 196,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Footnote",
+        "kind": "heal",
+        "amount": 274,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Redact",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "magic_resistance": -35,
+          "attack_power": -25
+        }
+      }
+    ],
+    "hidden_erasure": [
+      {
+        "name": "Blank Page",
+        "kind": "damage",
+        "amount": 196,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Rubbed Out",
+        "kind": "dot",
+        "amount": 88,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3
+      },
+      {
+        "name": "Forget",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -20
+        }
+      }
+    ],
+    "hidden_the_erased": [
+      {
+        "name": "Nothing Left",
+        "kind": "damage",
+        "amount": 385,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Unremembered",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -30,
+          "agility": -25
+        }
+      },
+      {
+        "name": "Gone",
+        "kind": "dot",
+        "amount": 192,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 4
+      },
+      {
+        "name": "Blank",
+        "kind": "damage",
+        "amount": 732,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic"
+      }
+    ],
+    "hidden_the_last_editor": [
+      {
+        "name": "Red Ink",
+        "kind": "damage",
+        "amount": 385,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Strike Through",
+        "kind": "damage",
+        "amount": 770,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Edit Out",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -35,
+          "armor": -60
+        }
+      },
+      {
+        "name": "Second Draft",
+        "kind": "heal",
+        "amount": 770,
+        "cooldown": 5,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Marginal Notes",
+        "kind": "dot",
+        "amount": 192,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 4
+      },
+      {
+        "name": "Final Cut",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 80,
+          "magic_resistance": 70
+        },
+        "self_only": true
+      }
+    ],
+    "hidden_the_keeper_of_the_first_page": [
+      {
+        "name": "The First Word",
+        "kind": "damage",
+        "amount": 385,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Read Aloud",
+        "kind": "damage",
+        "amount": 847,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Illegible",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -40,
+          "agility": -30,
+          "armor": -60
+        }
+      },
+      {
+        "name": "Older Than Language",
+        "kind": "dot",
+        "amount": 231,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 4
+      },
+      {
+        "name": "Rewrite Yourself",
+        "kind": "heal",
+        "amount": 847,
+        "cooldown": 6,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Bound in Vellum",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 100,
+          "magic_resistance": 80
+        },
+        "self_only": true
+      }
     ]
   }
 }

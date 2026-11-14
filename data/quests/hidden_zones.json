@@ -1245,6 +1245,1498 @@
       "next_quest_id": null
     },
     {
+      "quest_id": "hz_kraal_hyenas",
+      "title": "What Fell In",
+      "giver_npc_id": "hz_kraal_brannoc",
+      "zone": "the_sunken_kraal",
+      "level_min": 19,
+      "level_max": 21,
+      "elite": false,
+      "description": "I'm Brannoc. The ground opened under the Barrens and I came down on a rope to see why. The rope's gone now, and so is the way I came.\n\nThe hyenas came down the same way, and the quillboar were already here. Clear the floor for me. Six of each.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Pit Hyena",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Sinkhole Quillboar",
+          "count": 6
+        }
+      ],
+      "reward_exp": 2075,
+      "reward_gold": 7942,
+      "accept_text": "The sinkhole floor, and the thornwalls west of it.",
+      "turn_in_text": "The floor's quiet. I can hear the drums further in now. That isn't better.",
+      "unique_item_defs": [
+        {
+          "name": "Dustmane Hide Vest",
+          "slot": "chest",
+          "item_level": 23,
+          "rarity": "rare",
+          "required_level": 19,
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 9
+          },
+          "secondary_stats": {},
+          "armor_type": "leather",
+          "armor_value": 75,
+          "label": "Leather Chest (Agi/Sta)"
+        },
+        {
+          "name": "Rope-Burnt Gloves",
+          "slot": "hands",
+          "item_level": 23,
+          "rarity": "rare",
+          "required_level": 19,
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 6
+          },
+          "secondary_stats": {},
+          "armor_type": "mail",
+          "armor_value": 83,
+          "label": "Mail Gloves (Str/Sta)"
+        },
+        {
+          "name": "Sinkhole Sash",
+          "slot": "waist",
+          "item_level": 23,
+          "rarity": "rare",
+          "required_level": 19,
+          "primary_stats": {
+            "intellect": 6,
+            "spirit": 6
+          },
+          "secondary_stats": {},
+          "armor_type": "cloth",
+          "armor_value": 26,
+          "label": "Cloth Belt (Int/Spi)"
+        }
+      ],
+      "next_quest_id": "hz_kraal_bones"
+    },
+    {
+      "quest_id": "hz_kraal_bones",
+      "title": "Prayer-Bones",
+      "giver_npc_id": "hz_kraal_brannoc",
+      "zone": "the_sunken_kraal",
+      "level_min": 20,
+      "level_max": 22,
+      "elite": false,
+      "description": "The thornspeakers carry bones carved with prayers. I want to know who they're praying to down here, because something's answering.\n\nEight bones. The thornspeakers keep to the walls and the shrine-pool north.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "kraal_prayer_bone",
+          "count": 8
+        }
+      ],
+      "reward_exp": 2185,
+      "reward_gold": 8360,
+      "accept_text": "The thornwalls west, and the shrine-pool north. They'll pray at you. Ignore it.",
+      "turn_in_text": "These are all one name, over and over. The Thorn-Mother. She's not alive. She doesn't need to be.",
+      "unique_item_defs": [
+        {
+          "name": "Thornspeaker's Rod",
+          "slot": "main_hand",
+          "item_level": 24,
+          "rarity": "rare",
+          "required_level": 20,
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "spell_power": 2.8
+          },
+          "weapon_damage_min": 40,
+          "weapon_damage_max": 54,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/SP)"
+        },
+        {
+          "name": "Bone-Carver's Bracers",
+          "slot": "wrist",
+          "item_level": 24,
+          "rarity": "rare",
+          "required_level": 20,
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 130,
+          "label": "Plate Bracers (Str/Sta/Def)"
+        },
+        {
+          "name": "Kraal-Runner Boots",
+          "slot": "feet",
+          "item_level": 24,
+          "rarity": "rare",
+          "required_level": 20,
+          "primary_stats": {
+            "agility": 5,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "attack_power": 7.9
+          },
+          "armor_type": "mail",
+          "armor_value": 87,
+          "label": "Mail Boots (Agi/Int/AP)"
+        }
+      ],
+      "next_quest_id": "hz_kraal_mother"
+    },
+    {
+      "quest_id": "hz_kraal_mother",
+      "title": "The Thorn-Mother's Echo (Elite)",
+      "giver_npc_id": "hz_kraal_brannoc",
+      "zone": "the_sunken_kraal",
+      "level_min": 21,
+      "level_max": 23,
+      "elite": true,
+      "description": "Her seat is at the north end, above everything. Her dead walk round it. And she walks among them, what's left of her.\n\nShe's why the ground opened. I'm sure of it. Put her down and maybe it closes again. Don't go alone.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "The Thorn-Mother's Echo",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Kraal Bonewalker",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3990,
+      "reward_gold": 15960,
+      "accept_text": "North, to her seat. Bring friends. She'll sing and the thorns will listen.",
+      "turn_in_text": "The drums stopped. Thank you. I think I can find a way up now.",
+      "unique_item_defs": [
+        {
+          "name": "Thornbreaker Maul",
+          "slot": "main_hand",
+          "item_level": 25,
+          "rarity": "rare",
+          "required_level": 21,
+          "weapon_type": "mace_2h",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 8
+          },
+          "secondary_stats": {},
+          "weapon_damage_min": 66,
+          "weapon_damage_max": 89,
+          "attack_speed": 3.6,
+          "label": "Two-Hand Mace (Str/Sta)"
+        },
+        {
+          "name": "Echo-Ward Helm",
+          "slot": "head",
+          "item_level": 25,
+          "rarity": "rare",
+          "required_level": 21,
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "plate",
+          "armor_value": 166,
+          "label": "Plate Helm (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Kraal Witch's Robe",
+          "slot": "chest",
+          "item_level": 25,
+          "rarity": "rare",
+          "required_level": 21,
+          "primary_stats": {
+            "intellect": 6,
+            "spirit": 6
+          },
+          "secondary_stats": {
+            "healing_power": 6.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 41,
+          "label": "Cloth Robe (Int/Spi/Healing)"
+        },
+        {
+          "name": "Pitstalker Hood",
+          "slot": "head",
+          "item_level": 25,
+          "rarity": "rare",
+          "required_level": 21,
+          "primary_stats": {
+            "agility": 7
+          },
+          "secondary_stats": {
+            "hit_rating": 0.5,
+            "crit_chance_physical": 0.5
+          },
+          "armor_type": "leather",
+          "armor_value": 69,
+          "label": "Leather Helm (Agi/Hit/Crit)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_glade_wisps",
+      "title": "Lights That Lie",
+      "giver_npc_id": "hz_glade_ithrael",
+      "zone": "the_moonless_glade",
+      "level_min": 26,
+      "level_max": 28,
+      "elite": false,
+      "description": "I'm Ithrael. My grandmother put the seal on this glade and never spoke of it. I'm here to read what she wouldn't say.\n\nThe wisps lead people off the path and leave them. Put out eight of them before they put me out.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Gloomwisp",
+          "count": 8
+        }
+      ],
+      "reward_exp": 2840,
+      "reward_gold": 10868,
+      "accept_text": "Along the shadowed path, near where you came in.",
+      "turn_in_text": "Darker. Honest dark, though. I'll take it.",
+      "unique_item_defs": [
+        {
+          "name": "Glade-Walker's Cloak",
+          "slot": "back",
+          "item_level": 30,
+          "rarity": "rare",
+          "required_level": 26,
+          "primary_stats": {
+            "agility": 7,
+            "spirit": 7
+          },
+          "secondary_stats": {},
+          "label": "Cloak (Agi/Spi)"
+        },
+        {
+          "name": "Nightwell Slippers",
+          "slot": "feet",
+          "item_level": 30,
+          "rarity": "rare",
+          "required_level": 26,
+          "primary_stats": {
+            "intellect": 6,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "spell_power": 3.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 34,
+          "label": "Cloth Boots (Int/Sta/SP)"
+        },
+        {
+          "name": "Shade-Touched Bracers",
+          "slot": "wrist",
+          "item_level": 30,
+          "rarity": "rare",
+          "required_level": 26,
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4
+          },
+          "armor_type": "mail",
+          "armor_value": 109,
+          "label": "Mail Bracers (Str/Sta/Def)"
+        }
+      ],
+      "next_quest_id": "hz_glade_sentinels"
+    },
+    {
+      "quest_id": "hz_glade_sentinels",
+      "title": "The Sentinels Who Stayed",
+      "giver_npc_id": "hz_glade_ithrael",
+      "zone": "the_moonless_glade",
+      "level_min": 27,
+      "level_max": 29,
+      "elite": false,
+      "description": "The sentinels my grandmother left here are still on watch. They died on watch. They don't know they can stop.\n\nAnd the satyrs came because the sentinels can't see them any more. Free six of the sentinels, and end six of the satyrs.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Shade of the Sentinel",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Moonless Satyr",
+          "count": 6
+        }
+      ],
+      "reward_exp": 2949,
+      "reward_gold": 11286,
+      "accept_text": "The silent grove west for the sentinels, the twisted hollow east for the satyrs.",
+      "turn_in_text": "They went quietly. I think they were glad. The satyrs weren't.",
+      "unique_item_defs": [
+        {
+          "name": "Sentinel's Moonless Glaive",
+          "slot": "main_hand",
+          "item_level": 31,
+          "rarity": "rare",
+          "required_level": 27,
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "agility": 8
+          },
+          "secondary_stats": {
+            "hit_rating": 0.6,
+            "crit_chance_physical": 0.6
+          },
+          "weapon_damage_min": 79,
+          "weapon_damage_max": 106,
+          "attack_speed": 3.3,
+          "label": "Polearm (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Vigil Plate Girdle",
+          "slot": "waist",
+          "item_level": 31,
+          "rarity": "rare",
+          "required_level": 27,
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "plate",
+          "armor_value": 169,
+          "label": "Plate Belt (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Moonlace Gloves",
+          "slot": "hands",
+          "item_level": 31,
+          "rarity": "rare",
+          "required_level": 27,
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "spell_power": 6.8,
+            "crit_chance_spell": 0.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 35,
+          "label": "Cloth Gloves (Int/SP/Crit)"
+        }
+      ],
+      "next_quest_id": "hz_glade_priestess"
+    },
+    {
+      "quest_id": "hz_glade_priestess",
+      "title": "The Unlit Priestess (Elite)",
+      "giver_npc_id": "hz_glade_ithrael",
+      "zone": "the_moonless_glade",
+      "level_min": 28,
+      "level_max": 30,
+      "elite": true,
+      "description": "I've read it now. A priestess here prayed to Elune for something she shouldn't have, and Elune turned away, and the moon has not shone on this glade since.\n\nShe's still in the shrine at the north end, still praying. Go with friends and give her an answer.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "The Unlit Priestess",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Shade of the Sentinel",
+          "count": 4
+        }
+      ],
+      "reward_exp": 5320,
+      "reward_gold": 21280,
+      "accept_text": "North, to the sealed shrine. Bring friends. She won't stop praying long enough to talk.",
+      "turn_in_text": "The clouds are thinning. Is that... look. Look up.\n\nThank you. Take whatever you like.",
+      "unique_item_defs": [
+        {
+          "name": "Moonrise Bow",
+          "slot": "ranged",
+          "item_level": 32,
+          "rarity": "rare",
+          "required_level": 28,
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 5
+          },
+          "secondary_stats": {
+            "attack_power": 10.9,
+            "hit_rating": 0.5
+          },
+          "weapon_damage_min": 51,
+          "weapon_damage_max": 69,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/AP/Hit)"
+        },
+        {
+          "name": "Priestess-Bane Breastplate",
+          "slot": "chest",
+          "item_level": 32,
+          "rarity": "rare",
+          "required_level": 28,
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "defense_rating": 0.7
+          },
+          "armor_type": "plate",
+          "armor_value": 252,
+          "label": "Plate Chest (Str/Sta/Def)"
+        },
+        {
+          "name": "Mantle of the First Moonrise",
+          "slot": "shoulder",
+          "item_level": 32,
+          "rarity": "rare",
+          "required_level": 28,
+          "primary_stats": {
+            "intellect": 6,
+            "spirit": 6
+          },
+          "secondary_stats": {
+            "healing_power": 6.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 44,
+          "label": "Cloth Shoulders (Int/Spi/Healing)"
+        },
+        {
+          "name": "Nightstalker Leggings",
+          "slot": "legs",
+          "item_level": 32,
+          "rarity": "rare",
+          "required_level": 28,
+          "primary_stats": {
+            "agility": 13,
+            "stamina": 13
+          },
+          "secondary_stats": {},
+          "armor_type": "leather",
+          "armor_value": 105,
+          "label": "Leather Legs (Agi/Sta)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_storm_rams",
+      "title": "Rams and Wings",
+      "giver_npc_id": "hz_storm_halvard",
+      "zone": "the_stormcrag",
+      "level_min": 36,
+      "level_max": 38,
+      "elite": false,
+      "description": "Halvard Grey. I chase storms. This one never moves, which makes it either the easiest storm in the world to study or the most dangerous.\n\nThe rams charge anything that moves, and the harpies nest in the east ring. Six of each, so I can set up my rods.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Thunderhide Ram",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Stormcrag Harpy",
+          "count": 6
+        }
+      ],
+      "reward_exp": 3932,
+      "reward_gold": 15048,
+      "accept_text": "The rams are on the crag path. The harpies nest east, in the ring.",
+      "turn_in_text": "My rods are up. Now we wait for the lightning. We won't wait long.",
+      "unique_item_defs": [
+        {
+          "name": "Stormchaser's Hauberk",
+          "slot": "chest",
+          "item_level": 40,
+          "rarity": "rare",
+          "required_level": 36,
+          "primary_stats": {
+            "agility": 11,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "attack_power": 18.9
+          },
+          "armor_type": "mail",
+          "armor_value": 210,
+          "label": "Mail Chest (Agi/Int/AP)"
+        },
+        {
+          "name": "Ram-Horn Helm",
+          "slot": "head",
+          "item_level": 40,
+          "rarity": "rare",
+          "required_level": 36,
+          "primary_stats": {
+            "strength": 13,
+            "stamina": 13
+          },
+          "secondary_stats": {},
+          "armor_type": "plate",
+          "armor_value": 266,
+          "label": "Plate Helm (Str/Sta)"
+        },
+        {
+          "name": "Windproof Gloves",
+          "slot": "hands",
+          "item_level": 40,
+          "rarity": "rare",
+          "required_level": 36,
+          "primary_stats": {
+            "intellect": 11,
+            "spirit": 11
+          },
+          "secondary_stats": {},
+          "armor_type": "cloth",
+          "armor_value": 45,
+          "label": "Cloth Gloves (Int/Spi)"
+        }
+      ],
+      "next_quest_id": "hz_storm_shards"
+    },
+    {
+      "quest_id": "hz_storm_shards",
+      "title": "Bottled Lightning",
+      "giver_npc_id": "hz_storm_halvard",
+      "zone": "the_stormcrag",
+      "level_min": 37,
+      "level_max": 39,
+      "elite": false,
+      "description": "The stormlings carry shards with lightning still inside. If I can read eight of them I can tell you what's calling the storm.\n\nThey're thickest up on the thunder table.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "storm_shard",
+          "count": 8
+        }
+      ],
+      "reward_exp": 4042,
+      "reward_gold": 15466,
+      "accept_text": "North, on the thunder table. They'll shock you. That's how you know it's working.",
+      "turn_in_text": "It's the stone. The big one, at the very top. The storm isn't sitting here. It's being called.",
+      "unique_item_defs": [
+        {
+          "name": "Lightning-Rod Staff",
+          "slot": "main_hand",
+          "item_level": 41,
+          "rarity": "rare",
+          "required_level": 37,
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 15
+          },
+          "secondary_stats": {
+            "spell_power": 19.7,
+            "crit_chance_spell": 1.0
+          },
+          "weapon_damage_min": 40,
+          "weapon_damage_max": 55,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/SP/Crit)"
+        },
+        {
+          "name": "Thunderwool Boots",
+          "slot": "feet",
+          "item_level": 41,
+          "rarity": "rare",
+          "required_level": 37,
+          "primary_stats": {
+            "agility": 11,
+            "stamina": 11
+          },
+          "secondary_stats": {},
+          "armor_type": "leather",
+          "armor_value": 93,
+          "label": "Leather Boots (Agi/Sta)"
+        },
+        {
+          "name": "Insulated Bracers",
+          "slot": "wrist",
+          "item_level": 41,
+          "rarity": "rare",
+          "required_level": 37,
+          "primary_stats": {
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "defense_rating": 0.8,
+            "dodge_rating": 0.8
+          },
+          "armor_type": "plate",
+          "armor_value": 223,
+          "label": "Plate Bracers (Sta/Def/Dodge)"
+        }
+      ],
+      "next_quest_id": "hz_storm_stone"
+    },
+    {
+      "quest_id": "hz_storm_stone",
+      "title": "The Calling Stone (Elite)",
+      "giver_npc_id": "hz_storm_halvard",
+      "zone": "the_stormcrag",
+      "level_min": 38,
+      "level_max": 40,
+      "elite": true,
+      "description": "The stone at the top calls the storm, and the wardens in the rings keep anyone from getting to it. Somebody made them for that. Somebody wanted this storm.\n\nBreak the stone. Bring people who don't mind being struck by lightning.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "The Calling Stone",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Stone-Circle Warden",
+          "count": 5
+        }
+      ],
+      "reward_exp": 7220,
+      "reward_gold": 28880,
+      "accept_text": "North, to the very top of the crag. Bring friends. Don't wear anything metal. Joking. Mostly.",
+      "turn_in_text": "Look at that. Blue sky. First time in a hundred years, the old books say.\n\nYou earned this.",
+      "unique_item_defs": [
+        {
+          "name": "Stormbreaker",
+          "slot": "main_hand",
+          "item_level": 42,
+          "rarity": "rare",
+          "required_level": 38,
+          "weapon_type": "sword_2h",
+          "primary_stats": {
+            "strength": 11
+          },
+          "secondary_stats": {
+            "hit_rating": 0.8,
+            "crit_chance_physical": 0.8
+          },
+          "weapon_damage_min": 102,
+          "weapon_damage_max": 138,
+          "attack_speed": 3.4,
+          "label": "Two-Hand Sword (Str/Hit/Crit)"
+        },
+        {
+          "name": "Crag-Warden's Shield",
+          "slot": "off_hand",
+          "item_level": 42,
+          "rarity": "rare",
+          "required_level": 38,
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 11
+          },
+          "armor_value": 85,
+          "block_value": 107,
+          "label": "Shield (Sta/Block)"
+        },
+        {
+          "name": "Robes of the Clearing Sky",
+          "slot": "chest",
+          "item_level": 42,
+          "rarity": "rare",
+          "required_level": 38,
+          "primary_stats": {
+            "intellect": 12,
+            "stamina": 12
+          },
+          "secondary_stats": {
+            "spell_power": 7.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 68,
+          "label": "Cloth Robe (Int/Sta/SP)"
+        },
+        {
+          "name": "Stormstrider Leggings",
+          "slot": "legs",
+          "item_level": 42,
+          "rarity": "rare",
+          "required_level": 38,
+          "primary_stats": {
+            "agility": 13
+          },
+          "secondary_stats": {
+            "hit_rating": 1.0,
+            "crit_chance_physical": 1.0
+          },
+          "armor_type": "leather",
+          "armor_value": 137,
+          "label": "Leather Legs (Agi/Hit/Crit)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_orchard_rows",
+      "title": "The Grey Rows",
+      "giver_npc_id": "hz_orchard_marta",
+      "zone": "the_ashen_orchard",
+      "level_min": 9,
+      "level_max": 11,
+      "elite": false,
+      "description": "I'm Marta. My family grew apples here before the plague. I died in that house over there, and when I woke up I walked straight back. Funny, that.\n\nThe scarecrows don't know me any more and the ghouls never did. Six of each, if you would.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Blighted Scarecrow",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Orchard Ghoul",
+          "count": 6
+        }
+      ],
+      "reward_exp": 983,
+      "reward_gold": 3762,
+      "accept_text": "The grey rows west of the gate. The scarecrows only look like they're not moving.",
+      "turn_in_text": "Thank you. I walked the rows just now. My father planted those.",
+      "unique_item_defs": [
+        {
+          "name": "Orchard-Hand Gloves",
+          "slot": "hands",
+          "item_level": 13,
+          "rarity": "rare",
+          "required_level": 9,
+          "primary_stats": {
+            "agility": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {},
+          "armor_type": "leather",
+          "armor_value": 29,
+          "label": "Leather Gloves (Agi/Sta)"
+        },
+        {
+          "name": "Pruning Knife",
+          "slot": "main_hand",
+          "item_level": 13,
+          "rarity": "rare",
+          "required_level": 9,
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "strength": 4,
+            "agility": 4
+          },
+          "secondary_stats": {},
+          "weapon_damage_min": 29,
+          "weapon_damage_max": 40,
+          "attack_speed": 1.7,
+          "label": "Dagger (Str/Agi)"
+        },
+        {
+          "name": "Grey Apron",
+          "slot": "chest",
+          "item_level": 13,
+          "rarity": "rare",
+          "required_level": 9,
+          "primary_stats": {
+            "intellect": 5,
+            "spirit": 5
+          },
+          "secondary_stats": {},
+          "armor_type": "cloth",
+          "armor_value": 21,
+          "label": "Cloth Robe (Int/Spi)"
+        }
+      ],
+      "next_quest_id": "hz_orchard_cider"
+    },
+    {
+      "quest_id": "hz_orchard_cider",
+      "title": "The Cider House",
+      "giver_npc_id": "hz_orchard_marta",
+      "zone": "the_ashen_orchard",
+      "level_min": 10,
+      "level_max": 12,
+      "elite": false,
+      "description": "The pickers in the cider house are still pressing apples. Plagued apples. Somebody is going to drink that one day.\n\nStop the pickers, and the bats that eat the fallen fruit and carry it off. Six of each.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Plague Picker",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Rotfruit Bat",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1092,
+      "reward_gold": 4180,
+      "accept_text": "The cider house, east. The bats are everywhere. Look up.",
+      "turn_in_text": "No more cider. I never thought I'd be glad to say that.",
+      "unique_item_defs": [
+        {
+          "name": "Cider-Press Bracers",
+          "slot": "wrist",
+          "item_level": 14,
+          "rarity": "rare",
+          "required_level": 10,
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {},
+          "armor_type": "mail",
+          "armor_value": 50,
+          "label": "Mail Bracers (Str/Sta)"
+        },
+        {
+          "name": "Bat-Wing Mantle",
+          "slot": "shoulder",
+          "item_level": 14,
+          "rarity": "rare",
+          "required_level": 10,
+          "primary_stats": {
+            "intellect": 5,
+            "stamina": 5
+          },
+          "secondary_stats": {},
+          "armor_type": "cloth",
+          "armor_value": 19,
+          "label": "Cloth Shoulders (Int/Sta)"
+        },
+        {
+          "name": "Orchard Walker's Boots",
+          "slot": "feet",
+          "item_level": 14,
+          "rarity": "rare",
+          "required_level": 10,
+          "primary_stats": {
+            "agility": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {},
+          "armor_type": "leather",
+          "armor_value": 31,
+          "label": "Leather Boots (Agi/Spi)"
+        }
+      ],
+      "next_quest_id": "hz_orchard_bramley"
+    },
+    {
+      "quest_id": "hz_orchard_bramley",
+      "title": "Old Bramley (Elite)",
+      "giver_npc_id": "hz_orchard_marta",
+      "zone": "the_ashen_orchard",
+      "level_min": 11,
+      "level_max": 13,
+      "elite": true,
+      "description": "My father made the first scarecrow and named it Bramley after the apple. It stands under the old tree now with a scythe, and the plague's in it, and it doesn't stop.\n\nPlease put it down. Take friends. It was built to keep things away, and it's good at it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Old Bramley",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Blighted Scarecrow",
+          "count": 4
+        }
+      ],
+      "reward_exp": 2090,
+      "reward_gold": 8360,
+      "accept_text": "North, under the old tree. Bring friends. It's bigger than it was.",
+      "turn_in_text": "He's down. Father would have hated what it became. Thank you.\n\nTake something. I've no use for any of it now.",
+      "unique_item_defs": [
+        {
+          "name": "Bramley's Scythe",
+          "slot": "main_hand",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 11,
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 5
+          },
+          "secondary_stats": {},
+          "weapon_damage_min": 44,
+          "weapon_damage_max": 60,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta)"
+        },
+        {
+          "name": "Old Tree Helm",
+          "slot": "head",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 11,
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.4,
+            "dodge_rating": 0.4
+          },
+          "armor_type": "plate",
+          "armor_value": 99,
+          "label": "Plate Helm (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Orchard Keeper's Robe",
+          "slot": "chest",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 11,
+          "primary_stats": {
+            "intellect": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 3.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 24,
+          "label": "Cloth Robe (Int/Spi/Healing)"
+        },
+        {
+          "name": "Crowstalker Hood",
+          "slot": "head",
+          "item_level": 15,
+          "rarity": "rare",
+          "required_level": 11,
+          "primary_stats": {
+            "agility": 5,
+            "stamina": 5
+          },
+          "secondary_stats": {},
+          "armor_type": "leather",
+          "armor_value": 41,
+          "label": "Leather Helm (Agi/Sta)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_root_listen",
+      "title": "What the Roots Remember",
+      "giver_npc_id": "hz_root_ashka",
+      "zone": "the_world-root_hollow",
+      "level_min": 18,
+      "level_max": 20,
+      "elite": false,
+      "description": "I'm Ash'ka. Koji'ra's grandmother. I told her about this tree when she was small, and then I came to find it myself, and it kept me. I don't mind. It's beautiful down here.\n\nThe Darkspear who followed me down stopped listening to the roots and started speaking for them. They're wrong about what the tree wants. Quiet five of them, and the spiders that nest in the galleries.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Lost Rootspeaker",
+          "count": 5
+        },
+        {
+          "type": "kill",
+          "target": "Heartwood Spider",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1966,
+      "reward_gold": 7524,
+      "accept_text": "Through the amber hollows and out along the roots. The spiders like the dark places between.",
+      "turn_in_text": "Listen. Hear that? That's the tree, not them. It's been a long time.",
+      "unique_item_defs": [
+        {
+          "name": "Rootspeaker's Mantle",
+          "slot": "shoulder",
+          "item_level": 22,
+          "rarity": "rare",
+          "required_level": 18,
+          "primary_stats": {
+            "intellect": 4,
+            "spirit": 4
+          },
+          "secondary_stats": {
+            "healing_power": 4.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 30,
+          "label": "Cloth Shoulders (Int/Spi/Healing)"
+        },
+        {
+          "name": "Amber-Hollow Leggings",
+          "slot": "legs",
+          "item_level": 22,
+          "rarity": "rare",
+          "required_level": 18,
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 9
+          },
+          "secondary_stats": {},
+          "armor_type": "leather",
+          "armor_value": 72,
+          "label": "Leather Legs (Agi/Sta)"
+        },
+        {
+          "name": "Heartwood Bracers",
+          "slot": "wrist",
+          "item_level": 22,
+          "rarity": "rare",
+          "required_level": 18,
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 119,
+          "label": "Plate Bracers (Str/Sta/Def)"
+        }
+      ],
+      "next_quest_id": "hz_root_amber"
+    },
+    {
+      "quest_id": "hz_root_amber",
+      "title": "The Sap-Mother (Elite)",
+      "giver_npc_id": "hz_root_ashka",
+      "zone": "the_world-root_hollow",
+      "level_min": 19,
+      "level_max": 21,
+      "elite": true,
+      "description": "In the heartwood there's a pool of sap that woke up. Amberheart. She was meant to feed the tree and she's started keeping it all for herself, and the tree is getting hungry.\n\nShe'll seal you in amber if she can. Bring friends who can cut you out.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Amberheart, the Sap-Mother",
+          "count": 1
+        }
+      ],
+      "reward_exp": 3610,
+      "reward_gold": 14440,
+      "accept_text": "The heartwood, in the middle of everything. You'll know it by the light.",
+      "turn_in_text": "The sap's running again. Can you feel it? Warm, all the way down.",
+      "unique_item_defs": [
+        {
+          "name": "Sap-Mother's Lantern",
+          "slot": "off_hand",
+          "item_level": 23,
+          "rarity": "rare",
+          "required_level": 19,
+          "weapon_type": "tome",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "spell_power": 5.6,
+            "crit_chance_spell": 0.3
+          },
+          "label": "Tome (Int/SP/Crit)"
+        },
+        {
+          "name": "Ambershell Pauldrons",
+          "slot": "shoulder",
+          "item_level": 23,
+          "rarity": "rare",
+          "required_level": 19,
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6,
+            "dodge_rating": 0.6
+          },
+          "armor_type": "plate",
+          "armor_value": 153,
+          "label": "Plate Shoulders (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Glowroot Jerkin",
+          "slot": "chest",
+          "item_level": 23,
+          "rarity": "rare",
+          "required_level": 19,
+          "primary_stats": {
+            "agility": 6,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 10.9
+          },
+          "armor_type": "mail",
+          "armor_value": 120,
+          "label": "Mail Chest (Agi/Int/AP)"
+        }
+      ],
+      "next_quest_id": "hz_root_father"
+    },
+    {
+      "quest_id": "hz_root_father",
+      "title": "The Root-Father (Elite)",
+      "giver_npc_id": "hz_root_ashka",
+      "zone": "the_world-root_hollow",
+      "level_min": 19,
+      "level_max": 21,
+      "elite": true,
+      "description": "At the very bottom of the tree, which is the top of everything down here, the oldest root of all has woken up. The Root-Father. He was here before the isles were. He's angry that anyone found him.\n\nAnd old Gnarl, out in the knotted dark, has been feeding him. Put them both back to sleep. Not alone. Never alone, not down here.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "The Root-Father",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Gnarl the Unburied",
+          "count": 1
+        }
+      ],
+      "reward_exp": 3610,
+      "reward_gold": 14440,
+      "accept_text": "Up through the knotted deep to the root-father's bed. Gnarl lurks off to the west.",
+      "turn_in_text": "He's sleeping. The whole tree just sighed. Did you hear it?\n\nTake this. Then go and tell my granddaughter I'm happy here. She'll want to know.",
+      "unique_item_defs": [
+        {
+          "name": "Root-Father's Splinter",
+          "slot": "main_hand",
+          "item_level": 24,
+          "rarity": "epic",
+          "required_level": 20,
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 7
+          },
+          "secondary_stats": {
+            "attack_power": 14.5,
+            "hit_rating": 0.6
+          },
+          "weapon_damage_min": 82,
+          "weapon_damage_max": 112,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/AP/Hit)"
+        },
+        {
+          "name": "Crown of the World-Root",
+          "slot": "head",
+          "item_level": 24,
+          "rarity": "epic",
+          "required_level": 20,
+          "primary_stats": {
+            "intellect": 6,
+            "spirit": 6
+          },
+          "secondary_stats": {
+            "healing_power": 6.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 43,
+          "label": "Cloth Helm (Int/Spi/Healing)"
+        },
+        {
+          "name": "Heartwood Aegis",
+          "slot": "off_hand",
+          "item_level": 24,
+          "rarity": "epic",
+          "required_level": 20,
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "armor_value": 63,
+          "block_value": 79,
+          "label": "Shield (Sta/Block)"
+        },
+        {
+          "name": "Treewalker Hood",
+          "slot": "head",
+          "item_level": 24,
+          "rarity": "epic",
+          "required_level": 20,
+          "primary_stats": {
+            "agility": 8
+          },
+          "secondary_stats": {
+            "hit_rating": 0.6,
+            "crit_chance_physical": 0.6
+          },
+          "armor_type": "leather",
+          "armor_value": 86,
+          "label": "Leather Helm (Agi/Hit/Crit)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_vault_quiet",
+      "title": "Nothing Left to Read",
+      "giver_npc_id": "hz_vault_librarian",
+      "zone": "the_palimpsest_vault",
+      "level_min": 44,
+      "level_max": 46,
+      "elite": false,
+      "description": "I was the librarian here. Before the Bloom. Before the Scourge. Before most things. I stayed because someone has to know where everything is.\n\nThe wraiths are what's left of the books the Bloom wrote over. The erasures are what's left of the readers. Give them rest. Six of each.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Palimpsest Wraith",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Erasure",
+          "count": 6
+        }
+      ],
+      "reward_exp": 4807,
+      "reward_gold": 18392,
+      "accept_text": "The outer stacks. Go round. Everything down here goes round.",
+      "turn_in_text": "Quieter. You can almost hear the pages turning. That's a good sound, down here.",
+      "unique_item_defs": [
+        {
+          "name": "Librarian's Reading Spectacles",
+          "slot": "head",
+          "item_level": 48,
+          "rarity": "rare",
+          "required_level": 44,
+          "primary_stats": {
+            "intellect": 11,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "spell_power": 7.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 66,
+          "label": "Cloth Helm (Int/Sta/SP)"
+        },
+        {
+          "name": "Vault-Walker's Boots",
+          "slot": "feet",
+          "item_level": 48,
+          "rarity": "rare",
+          "required_level": 44,
+          "primary_stats": {
+            "agility": 13,
+            "stamina": 13
+          },
+          "secondary_stats": {},
+          "armor_type": "leather",
+          "armor_value": 109,
+          "label": "Leather Boots (Agi/Sta)"
+        },
+        {
+          "name": "Bookbinder's Gauntlets",
+          "slot": "hands",
+          "item_level": 48,
+          "rarity": "rare",
+          "required_level": 44,
+          "primary_stats": {
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "armor": 32.7,
+            "parry_rating": 0.7
+          },
+          "armor_type": "plate",
+          "armor_value": 261,
+          "label": "Plate Gloves (Sta/Armor/Parry)"
+        }
+      ],
+      "next_quest_id": "hz_vault_pages"
+    },
+    {
+      "quest_id": "hz_vault_pages",
+      "title": "The Pages Underneath",
+      "giver_npc_id": "hz_vault_librarian",
+      "zone": "the_palimpsest_vault",
+      "level_min": 45,
+      "level_max": 47,
+      "elite": false,
+      "description": "The scholars drowned in the ink carry pages scraped clean. But a scraped page remembers. Bring me eight and I'll read what was on them first.\n\nThey walk the inner shelves. You'll have to find the way in. The gates are never where you'd want them.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "unwritten_page",
+          "count": 8
+        }
+      ],
+      "reward_exp": 4916,
+      "reward_gold": 18810,
+      "accept_text": "The inner shelves. The gate into each ring is on a different side. Walk round.",
+      "turn_in_text": "Here. Under the Bloom's writing, under the one before that. A name. The Keeper's. He's still here, at the top, still trying to finish the first page.",
+      "unique_item_defs": [
+        {
+          "name": "Ink-Stained Quill Blade",
+          "slot": "main_hand",
+          "item_level": 49,
+          "rarity": "rare",
+          "required_level": 45,
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "agility": 11
+          },
+          "secondary_stats": {
+            "hit_rating": 0.8,
+            "crit_chance_physical": 0.8
+          },
+          "weapon_damage_min": 87,
+          "weapon_damage_max": 117,
+          "attack_speed": 1.7,
+          "label": "Dagger (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Vellum Wraps",
+          "slot": "wrist",
+          "item_level": 49,
+          "rarity": "rare",
+          "required_level": 45,
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 10.7,
+            "crit_chance_spell": 0.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 55,
+          "label": "Cloth Bracers (Int/SP/Crit)"
+        },
+        {
+          "name": "Shelf-Warden's Girdle",
+          "slot": "waist",
+          "item_level": 49,
+          "rarity": "rare",
+          "required_level": 45,
+          "primary_stats": {
+            "stamina": 12
+          },
+          "secondary_stats": {
+            "defense_rating": 1.0,
+            "dodge_rating": 1.0
+          },
+          "armor_type": "plate",
+          "armor_value": 267,
+          "label": "Plate Belt (Sta/Def/Dodge)"
+        }
+      ],
+      "next_quest_id": "hz_vault_keeper"
+    },
+    {
+      "quest_id": "hz_vault_keeper",
+      "title": "The First Page (Elite)",
+      "giver_npc_id": "hz_vault_librarian",
+      "zone": "the_palimpsest_vault",
+      "level_min": 46,
+      "level_max": 48,
+      "elite": true,
+      "description": "The Keeper has been trying to finish the first page for longer than there have been people to read it. The Editor at the heart of the vault strikes out every word he writes. They will never finish. And while they try, nothing down here can rest.\n\nEnd it. Both of them. Take everyone you trust.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "The Keeper of the First Page",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "The Last Editor",
+          "count": 1
+        }
+      ],
+      "reward_exp": 8740,
+      "reward_gold": 34960,
+      "accept_text": "The Editor sits at the heart of the rings. The Keeper reads alone, beyond the top of the vault.",
+      "turn_in_text": "It's finished. Not the page. The trying.\n\nTake one of these. I've been keeping them for whoever finally did it.",
+      "unique_item_defs": [
+        {
+          "name": "The Closing Line",
+          "slot": "main_hand",
+          "item_level": 50,
+          "rarity": "epic",
+          "required_level": 46,
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 23
+          },
+          "secondary_stats": {
+            "spell_power": 31.0,
+            "crit_chance_spell": 1.6
+          },
+          "weapon_damage_min": 63,
+          "weapon_damage_max": 85,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/SP/Crit)"
+        },
+        {
+          "name": "Folio-Plate Breastplate",
+          "slot": "chest",
+          "item_level": 50,
+          "rarity": "epic",
+          "required_level": 46,
+          "primary_stats": {
+            "strength": 18,
+            "stamina": 23
+          },
+          "secondary_stats": {
+            "defense_rating": 1.4
+          },
+          "armor_type": "plate",
+          "armor_value": 509,
+          "label": "Plate Chest (Str/Sta/Def)"
+        },
+        {
+          "name": "Margin-Runner's Jerkin",
+          "slot": "chest",
+          "item_level": 50,
+          "rarity": "epic",
+          "required_level": 46,
+          "primary_stats": {
+            "agility": 20
+          },
+          "secondary_stats": {
+            "hit_rating": 1.5,
+            "crit_chance_physical": 1.5
+          },
+          "armor_type": "leather",
+          "armor_value": 212,
+          "label": "Leather Chest (Agi/Hit/Crit)"
+        },
+        {
+          "name": "First-Edition Robes",
+          "slot": "chest",
+          "item_level": 50,
+          "rarity": "epic",
+          "required_level": 46,
+          "primary_stats": {
+            "intellect": 15,
+            "spirit": 15
+          },
+          "secondary_stats": {
+            "healing_power": 16.3
+          },
+          "armor_type": "cloth",
+          "armor_value": 106,
+          "label": "Cloth Robe (Int/Spi/Healing)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
       "quest_id": "hz_pines_webs",
       "title": "The Hanging Wood",
       "giver_npc_id": "hz_pines_ilsabet",

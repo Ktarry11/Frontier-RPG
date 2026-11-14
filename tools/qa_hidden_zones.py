@@ -24,8 +24,8 @@ CLAIMS
      every kill target lives there, every fetch item drops from something that lives there, and
      every reward builds and can be worn at the quest's level.
   8. The testing screen's zone list doesn't name them.
-  9. A frontier zone (a hidden zone inside a hidden zone) opens off a skull zone, about one in ten
-     of them; it is a step harder (5 / 5.5 deep, 3.5 / 3.5 open), drops 8 item levels up, and
+  9. A frontier zone (a hidden zone inside a hidden zone) opens off a skull zone or a hidden layer,
+     and stays rare; it is a step harder (5 / 5.5 deep, 3.5 / 3.5 open), drops 8 item levels up, and
      every one of its bosses has an epic.
 """
 import contextlib
@@ -115,8 +115,8 @@ def main():
         if total - len(seen) > 0:
             bad.append(f"{total - len(seen)} tiles of a hidden zone can't be walked to")
         # a frontier's door is inside another hidden zone
-        if info["kind"] == "frontier" and reg.get(info["parent"], {}).get("kind") not in ("skull",):
-            bad.append("a frontier zone's door is not inside a skull zone")
+        if info["kind"] == "frontier" and reg.get(info["parent"], {}).get("kind") not in ("skull", "layer"):
+            bad.append("a frontier zone's door is not inside another hidden zone")
         # 4. a layer's shape
         if info["kind"] == "layer":
             bosses = getattr(tm, "boss_positions", None) or []
@@ -225,8 +225,10 @@ def main():
     if any(d["zone"] in reg for d in test_zones(zm)):
         bad.append("the testing screen lists a hidden zone")
 
-    if kinds.get("frontier", 0) > max(1, round(0.1 * kinds.get("skull", 0))) + 0:
-        bad.append("more frontier zones than one in ten skull zones")
+    # Kyle: "They will only be in 10% of the skull zones" - and then asked for a second, in the
+    # Underdark dungeon. So rare, not a rule of exactly one in ten: never more than one in four.
+    if kinds.get("frontier", 0) * 4 > max(4, kinds.get("skull", 0) + kinds.get("layer", 0)):
+        bad.append("frontier zones are getting common")
     print(f"{kinds.get('layer', 0)} hidden layers, {kinds.get('skull', 0)} skull zones, "
           f"{kinds.get('frontier', 0)} frontier zones, {len(ck)} creatures, "
           f"{sum(len(v) for k, v in loot.items() if not k.startswith('_'))} boss items, {n_quests} quests")

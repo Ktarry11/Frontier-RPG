@@ -537,6 +537,11 @@ WR_SAP = (56, 50)
 WR_FATHER = (56, 10)
 WR_GNARL = (12, 30)
 WR_CHESTS = [(56, 7), (100, 30), (14, 78)]
+#: Kyle, 14 Nov: "the first frontier zone should be a beautiful under the roots zone as it is found by
+#: going under a tree." So: pools of still, glowing water in the hollows, amber light in the
+#: heartwood, roots hanging like curtains, moon-pale flowers that grow without the moon.
+WR_POOLS = [(56, 50, 4.5, 3.5, 0.9), (30, 77, 4.0, 2.6, 1.3), (84, 77, 3.6, 2.4, 0.4),
+            (12, 52, 2.8, 3.6, 2.2), (100, 56, 2.8, 3.4, 1.7), (34, 30, 3.4, 2.4, 0.8), (80, 30, 3.4, 2.4, 2.6)]
 
 
 def build_world_root():
@@ -562,7 +567,7 @@ def build_world_root():
     for n, (a, c) in enumerate(web):
         mid = ((a[0] + c[0]) / 2 + 4 * math.sin(n), (a[1] + c[1]) / 2 + 3 * math.cos(n))
         tube(b, [a, mid, c], 3, ph=n * 0.4)
-    _apply_pools(zone, [(56, 50, 4.5, 3.5, 0.9)], shallow_only=True)
+    _apply_pools(zone, WR_POOLS, shallow_only=True)
 
     rooms = [("The Rootgate", 46, 84, 20, 12), ("The Amber Hollows", 18, 68, 76, 18),
              ("The Weeping Roots", 6, 42, 20, 22), ("The Sap Galleries", 92, 42, 18, 24),
@@ -583,19 +588,192 @@ def build_world_root():
     _close(L, zone, WR_PORTAL, bosses, packs, WR_CHESTS, rooms)
 
     p = L.prop
-    p("ashx_nightmare_root_pillar", 49, 92, 6, solid="core", where=ASHX)
-    p("ashx_nightmare_root_pillar", 63, 92, 6, solid="core", where=ASHX)
-    p("ud_shroom_cluster_blue", 26, 80, 3, where=UDP)
-    p("ud_glow_pool", 86, 80, 3, where=UDP)
-    p("ud_shroom_tall_violet", 10, 56, 5, solid="core", where=UDP)
-    p("den_glow_mushrooms", 102, 58, 3)
-    p("ashx_corrupt_ancient_tree", 56, 44, 7, solid="core", where=ASHX, near_ok=True)
-    p("ud_moss_curtain", 30, 26, 4, where=UDP)
-    p("ud_fungal_node", 84, 26, 3, where=UDP)
+    AVP = "assets/tiles/ashenvale/props/"
+    # the Rootgate: the tree's roots arch over the way in
+    p("ash_root_arch", 56, 86, 6, where=AVP, near_ok=True)
+    p("ash_root_curtain", 50, 88, 4, where=AVP)
+    p("ash_root_curtain", 62, 88, 4, where=AVP)
+    # the Amber Hollows: glow-pools, moon-pale flowers, hanging roots
+    p("ash_glow_mushroom_ring", 24, 80, 2, where=AVP)
+    p("ash_nightbloom_bush", 36, 72, 3, where=AVP)
+    p("ash_silver_saplings", 26, 72, 3, where=AVP)
+    p("ash_foxglove_patch", 88, 72, 2, where=AVP)
+    p("ash_glow_mushrooms", 78, 80, 2, where=AVP)
+    p("ash_root_curtain", 82, 71, 4, where=AVP)
+    p("ud_crystal_cyan", 16, 80, 3, where=UDP)
+    # the Weeping Roots and the Sap Galleries
+    p("ash_ivy_pillar", 14, 46, 5, solid="core", where=AVP)
+    p("ash_glow_mushrooms", 16, 58, 2, where=AVP)
+    p("ash_moonstone_crystals", 102, 48, 3, where=AVP)
+    p("ud_shroom_canopy", 98, 60, 5, solid="core", where=UDP)
+    # the Heartwood: the living core of the tree, amber all round
+    p("ash_waterfall_pool", 56, 40, 5, solid="core", where=AVP, near_ok=True)
+    p("ash_silver_saplings", 48, 56, 3, where=AVP)
+    p("ash_silver_saplings", 64, 56, 3, where=AVP)
+    p("ash_nightbloom_bush", 46, 46, 3, where=AVP)
+    p("ash_nightbloom_bush", 66, 46, 3, where=AVP)
+    # the Knotted Deep
+    p("ash_root_curtain", 30, 25, 4, where=AVP)
+    p("ash_glow_mushroom_ring", 38, 33, 2, where=AVP)
+    p("ud_glow_pool", 84, 26, 3, where=UDP)
+    p("ash_root_curtain", 76, 25, 4, where=AVP)
     p("vot_beast_ribcage", 14, 34, 3)
-    p("ashx_nightmare_cocoon", 46, 10, 4, solid="core", where=ASHX)
-    p("ashx_nightmare_cocoon", 66, 10, 4, solid="core", where=ASHX)
+    # the Root-Father's Bed: the oldest root of all, and flowers that grew in its shade
+    p("ash_root_arch", 56, 18, 5, where=AVP, near_ok=True)
+    p("ash_moonwater_pool", 46, 12, 3, where=AVP)
+    p("ash_moonwater_pool", 66, 12, 3, where=AVP)
+    p("ash_foxglove_patch", 50, 16, 2, where=AVP)
+    p("ash_foxglove_patch", 62, 16, 2, where=AVP)
     L.finish([WR_PORTAL, WR_FATHER, WR_GNARL, (WR_SAP[0], WR_SAP[1] - 4)] + WR_CHESTS)
+    return zone, L
+
+
+# ======================================================================= THE THORNHEART WARREN
+# Under Razorfen Kraul. STAIR-STEPPED TERRACES: four long ledges cut one above the other into the
+# root of the great bramble, each joined to the next by a single ramp at alternating ends, so the
+# way down is a zig-zag and you can see the ledge you're going to fight on from the one above.
+TW_PORTAL = (14, 94)
+TW_MOTHER = (96, 12)
+TW_CHESTS = [(104, 12), (100, 72)]
+
+
+def build_thornheart():
+    zone, L = _layer(
+        "The Thornheart Warren", 116, 100,
+        "Below the Kraul, the bramble's root goes down in ledges like a stair for giants. The "
+        "quillboar who live here have never seen the sky, and they think the thorns are a god.",
+        "Southern Barrens", TW_PORTAL)
+    b = L.b
+    cavern(b, 16, 90, 8, 4, 0, 0.3)                                    # The Root Stair
+    # four terraces, bottom to top, and a ramp at alternating ends
+    terraces = [(80, 18, 100, 6), (68, 18, 100, 6), (44, 14, 100, 6), (22, 14, 100, 6)]
+    for n, (y, x0, x1, h) in enumerate(terraces):
+        for xx in range(x0, x1):
+            ph = math.sin(xx * 0.31 + n) * 1.2
+            for yy in range(int(y - h / 2 + ph), int(y + h / 2 + ph) + 1):
+                b._open(xx, yy)
+        cavern(b, (x0 + x1) / 2, y, 9, 5, 0, n * 0.9)                  # a wider landing mid-ledge
+    tube(b, [(16, 86), (20, 82)], 4)
+    tube(b, [(98, 78), (100, 72), (98, 68)], 4)                        # ramp up at the east end
+    tube(b, [(20, 66), (16, 56), (18, 46)], 4)                         # ramp up at the west end
+    tube(b, [(98, 42), (100, 32), (98, 24)], 4)                        # ramp up at the east end
+    cavern(b, 100, 72, 5, 4, 0, 1.1)                                   # a ledge-end hoard
+    cavern(b, 96, 12, 12, 7, 0, 1.8)                                   # The Thorn-Mother's Bower
+    tube(b, [(86, 20), (90, 16)], 5)
+
+    rooms = [("The Root Stair", 8, 84, 18, 14), ("The Lowest Ledge", 16, 74, 88, 14),
+             ("The Pen Ledge", 16, 62, 88, 12), ("The Totem Ledge", 12, 38, 92, 14),
+             ("The High Ledge", 12, 16, 72, 12), ("The Thorn-Mother's Bower", 82, 3, 30, 18)]
+    lv = 33
+    packs = [
+        [(50, 80, "Thornheart Bristleback", lv), (54, 80, "Thornheart Bristleback", lv)],
+        [(40, 68, "Warren Thornseer", lv), (44, 68, "Bramble Boar", lv), (36, 68, "Bramble Boar", lv)],
+        [(80, 68, "Thornheart Bristleback", lv + 1), (84, 68, "Warren Thornseer", lv + 1)],
+        [(58, 44, "Bramble Boar", lv + 1), (62, 44, "Thornheart Bristleback", lv + 1), (54, 44, "Warren Thornseer", lv + 1)],
+        [(40, 22, "Thornheart Bristleback", lv + 1), (44, 22, "Bramble Boar", lv + 1)],
+    ]
+    bosses = [(TW_MOTHER[0], TW_MOTHER[1], "The Thorn-Mother")]
+    _close(L, zone, TW_PORTAL, bosses, packs, TW_CHESTS, rooms)
+
+    p = L.prop
+    p("br_razorfen_bramble_gate", 16, 84, 5, where="assets/tiles/barrens/props/", near_ok=True)
+    p("br_thorn_scrub", 30, 80, 2, where="assets/tiles/barrens/props/")
+    p("br_quilboar_hut", 70, 66, 5, solid="core", where="assets/tiles/barrens/props/")
+    p("kennel_cage_empty", 26, 68, 4, solid="core")
+    p("vot_totem_pole", 30, 44, 5, solid="core")
+    p("vot_totem_pole", 76, 44, 5, solid="core")
+    p("vot_war_drum", 50, 42, 3, solid="core")
+    p("bbc_skull_pile", 70, 22, 3)
+    p("rf_sacrificial_altar", 96, 8, 4, solid="core", avoid=1)
+    p("ashx_nightmare_thorns", 88, 12, 3, where=ASHX)
+    p("ashx_nightmare_thorns", 104, 16, 3, where=ASHX)
+    L.finish([TW_PORTAL, TW_MOTHER] + TW_CHESTS)
+    return zone, L
+
+
+# ======================================================================== THE PALIMPSEST VAULT
+# A FRONTIER ZONE, under the Unwritten Stacks (Kyle: "Make the dungeon frontier zone in the underdark
+# dungeon"). What the Bloom wrote over: the first library, the one that was here before. NESTED
+# VAULTS - three rings of wall one inside another, each with its one gate on a different side, so
+# every ring is walked half way round to find the way in. No other map in the game is a labyrinth.
+PV_PORTAL = (60, 104)
+PV_EDITOR = (60, 56)
+PV_KEEPER = (60, 14)
+PV_ERASED = (14, 96)
+PV_CHESTS = [(60, 50), (106, 96), (60, 10)]
+
+
+def build_palimpsest():
+    zone, L = _layer(
+        "The Palimpsest Vault", 120, 110,
+        "Under the Bloom's library is the library it grew over: older, colder, written in a hand "
+        "nobody living can read. Something down here is still trying to finish the last page.",
+        "The Crystalline Underdark", PV_PORTAL)
+    b = L.b
+    cavern(b, 60, 100, 9, 4, 0, 0.4)                                   # The Scriptorium Stair
+    cx, cy = 60, 56
+    # the rings: open everything inside the outer wall, then stand the walls back up
+    for y in range(cy - 46, cy + 36):
+        for x in range(cx - 52, cx + 52):
+            if max(abs(x - cx) / 52, abs(y - (cy - 5)) / 41) < 1.0:
+                b._open(x, y)
+    def ring(r_x, r_y, gate):
+        for y in range(cy - r_y, cy + r_y + 1):
+            for x in range(cx - r_x, cx + r_x + 1):
+                on = (abs(x - cx) in (r_x, r_x - 1) and abs(y - cy) <= r_y) or \
+                     (abs(y - cy) in (r_y, r_y - 1) and abs(x - cx) <= r_x)
+                if not on:
+                    continue
+                gx, gy = gate
+                if abs(x - gx) <= 2 and abs(y - gy) <= 2:
+                    continue
+                zone.collision_layer[y][x] = "rock"
+    ring(42, 30, (cx, cy - 30))          # the outer ring's gate is at the top
+    ring(28, 20, (cx + 28, cy))          # the middle ring's on the right
+    ring(14, 10, (cx - 14, cy))          # the inner vault's on the left
+    # the outer wall of the whole vault, and the way in from the stair at the bottom
+    for y in range(cy - 46, cy + 36):
+        for x in range(cx - 52, cx + 52):
+            if 0.92 <= max(abs(x - cx) / 52, abs(y - (cy - 5)) / 41) < 1.0:
+                zone.collision_layer[y][x] = "rock"
+    tube(b, [(60, 96), (60, 90)], 4)
+    tube(b, [(60, 92), (60, 88)], 5)              # into the outer corridor only, not through the first ring
+    # beyond the top of the rings, the Keeper's reading room, and two side chambers
+    cavern(b, 60, 14, 12, 6, 0, 1.2)
+    tube(b, [(60, 22), (60, 18)], 5)
+    cavern(b, 14, 96, 6, 5, 0, 2.0)                                    # The Erased Wing
+    tube(b, [(20, 92), (30, 89), (40, 88)], 3)
+    cavern(b, 106, 96, 5, 4, 0, 0.6)
+    tube(b, [(100, 92), (90, 89), (80, 88)], 3)
+
+    rooms = [("The Scriptorium Stair", 50, 94, 20, 12), ("The Outer Stacks", 8, 10, 104, 82),
+             ("The Inner Shelves", 32, 36, 56, 40), ("The Editor's Desk", 46, 46, 28, 20),
+             ("The Keeper's Reading Room", 46, 6, 28, 14), ("The Erased Wing", 6, 88, 18, 16)]
+    lv = 44
+    packs = [
+        [(40, 84, "Palimpsest Wraith", lv), (44, 84, "Palimpsest Wraith", lv)],
+        [(20, 50, "Vault Golem", lv), (20, 46, "Ink-Drowned Scholar", lv)],
+        [(60, 24, "Ink-Drowned Scholar", lv + 1), (56, 24, "Palimpsest Wraith", lv + 1), (64, 24, "Erasure", lv + 1)],
+        [(96, 56, "Vault Golem", lv + 1), (96, 60, "Erasure", lv + 1)],
+        [(72, 40, "Ink-Drowned Scholar", lv + 1), (68, 40, "Palimpsest Wraith", lv + 1)],
+        [(40, 70, "Erasure", lv + 1), (44, 70, "Erasure", lv + 1), (36, 70, "Vault Golem", lv + 1)],
+    ]
+    bosses = [(PV_EDITOR[0], PV_EDITOR[1], "The Last Editor"), (PV_KEEPER[0], PV_KEEPER[1], "The Keeper of the First Page"),
+              (PV_ERASED[0], PV_ERASED[1], "The Erased")]
+    _close(L, zone, PV_PORTAL, bosses, packs, PV_CHESTS, rooms)
+
+    p = L.prop
+    p("ud_codex_banner", 53, 98, 5, solid="core", where=UDP)
+    p("ud_codex_banner", 67, 98, 5, solid="core", where=UDP)
+    p("bbc_bookshelf", 24, 30, 4, solid="core")
+    p("bbc_bookshelf", 96, 30, 4, solid="core")
+    p("ud_statue_armless", 28, 80, 5, solid="core", where=UDP)
+    p("ud_statue_armless", 92, 80, 5, solid="core", where=UDP)
+    p("wizard_desk", 60, 60, 3, solid="core", near_ok=True)
+    p("ud_arcane_brazier", 52, 10, 4, solid="core", where=UDP)
+    p("ud_arcane_brazier", 68, 10, 4, solid="core", where=UDP)
+    p("ud_rune_stone", 14, 92, 4, solid="core", where=UDP)
+    L.finish([PV_PORTAL, PV_EDITOR, PV_KEEPER, PV_ERASED] + PV_CHESTS)
     return zone, L
 
 
@@ -608,12 +786,20 @@ BUILDS = {
     "The Blood Pits": (build_blood_pits, "blood_pits"),
     "The Unwritten Stacks": (build_unwritten_stacks, "unwritten_stacks"),
     "The World-Root Hollow": (build_world_root, "world_root_hollow"),
+    "The Thornheart Warren": (build_thornheart, "thornheart_warren"),
+    "The Palimpsest Vault": (build_palimpsest, "palimpsest_vault"),
 }
 
 #: the portal tile of each layer (its way in and out)
 PORTALS = {"The Cinderwell": CW_PORTAL, "The Dreaming Root": DR_PORTAL, "The Ossuary Below": OB_PORTAL,
            "The Lightless Reach": LR_PORTAL, "The Blood Pits": BP_PORTAL, "The Unwritten Stacks": US_PORTAL,
-           "The World-Root Hollow": WR_PORTAL}
+           "The World-Root Hollow": WR_PORTAL, "The Thornheart Warren": TW_PORTAL,
+           "The Palimpsest Vault": PV_PORTAL}
+
+
+#: the people living down in the frontier zones: npc id -> (zone, x, y)
+GIVERS = {"hz_root_ashka": ("The World-Root Hollow", 52, 91),
+          "hz_vault_librarian": ("The Palimpsest Vault", 64, 101)}
 
 
 def generate_all():

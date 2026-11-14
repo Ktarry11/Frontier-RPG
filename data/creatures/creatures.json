@@ -5366,13 +5366,12 @@
       "ability_kit": "weeping_shade"
     },
     "Blighted Scarecrow": {
-      "template": "elemental_bruiser",
+      "template": "undead_warrior",
       "level_range": [
-        4,
-        6
+        10,
+        10
       ],
-      "is_boss": false,
-      "ability_kit": "blighted_scarecrow"
+      "ability_kit": "hidden_blighted_scarecrow"
     },
     "Burned Farmhand": {
       "template": "undead_basic",
@@ -11968,6 +11967,302 @@
         46
       ],
       "ability_kit": "hidden_old_stinger",
+      "is_boss": true,
+      "boss_multiplier": 2.5
+    },
+    "Kraal Bonewalker": {
+      "template": "undead_warrior",
+      "level_range": [
+        20,
+        20
+      ],
+      "ability_kit": "hidden_kraal_bonewalker"
+    },
+    "Sinkhole Quillboar": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        20,
+        20
+      ],
+      "ability_kit": "hidden_sinkhole_quillboar"
+    },
+    "Kraal Thornspeaker": {
+      "template": "humanoid_caster",
+      "level_range": [
+        21,
+        21
+      ],
+      "ability_kit": "hidden_kraal_thornspeaker"
+    },
+    "Pit Hyena": {
+      "template": "beast_fast",
+      "level_range": [
+        19,
+        19
+      ],
+      "ability_kit": "hidden_pit_hyena"
+    },
+    "The Thorn-Mother's Echo": {
+      "template": "undead_caster",
+      "level_range": [
+        22,
+        22
+      ],
+      "ability_kit": "hidden_the_thornmothers_echo",
+      "is_boss": true,
+      "boss_multiplier": 2.5
+    },
+    "Gutripper": {
+      "template": "beast_large",
+      "level_range": [
+        21,
+        21
+      ],
+      "ability_kit": "hidden_gutripper",
+      "is_boss": true,
+      "boss_multiplier": 2.5
+    },
+    "Moonless Satyr": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        27,
+        27
+      ],
+      "ability_kit": "hidden_moonless_satyr"
+    },
+    "Shade of the Sentinel": {
+      "template": "undead_warrior",
+      "level_range": [
+        27,
+        27
+      ],
+      "ability_kit": "hidden_shade_of_the_sentinel"
+    },
+    "Gloomwisp": {
+      "template": "undead_caster",
+      "level_range": [
+        26,
+        26
+      ],
+      "ability_kit": "hidden_gloomwisp"
+    },
+    "Withered Furbolg": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        28,
+        28
+      ],
+      "ability_kit": "hidden_withered_furbolg"
+    },
+    "The Unlit Priestess": {
+      "template": "undead_caster",
+      "level_range": [
+        29,
+        29
+      ],
+      "ability_kit": "hidden_the_unlit_priestess",
+      "is_boss": true,
+      "boss_multiplier": 2.5
+    },
+    "Old Gnarlhorn": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        28,
+        28
+      ],
+      "ability_kit": "hidden_old_gnarlhorn",
+      "is_boss": true,
+      "boss_multiplier": 2.5
+    },
+    "Crag Stormling": {
+      "template": "elemental_caster",
+      "level_range": [
+        37,
+        37
+      ],
+      "ability_kit": "hidden_crag_stormling"
+    },
+    "Thunderhide Ram": {
+      "template": "beast_large",
+      "level_range": [
+        36,
+        36
+      ],
+      "ability_kit": "hidden_thunderhide_ram"
+    },
+    "Stone-Circle Warden": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        38,
+        38
+      ],
+      "ability_kit": "hidden_stonecircle_warden"
+    },
+    "Stormcrag Harpy": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        37,
+        37
+      ],
+      "ability_kit": "hidden_stormcrag_harpy"
+    },
+    "The Calling Stone": {
+      "template": "elemental_caster",
+      "level_range": [
+        39,
+        39
+      ],
+      "ability_kit": "hidden_the_calling_stone",
+      "is_boss": true,
+      "boss_multiplier": 2.5
+    },
+    "Skyrender": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        38,
+        38
+      ],
+      "ability_kit": "hidden_skyrender",
+      "is_boss": true,
+      "boss_multiplier": 2.5
+    },
+    "Orchard Ghoul": {
+      "template": "undead_basic",
+      "level_range": [
+        10,
+        10
+      ],
+      "ability_kit": "hidden_orchard_ghoul"
+    },
+    "Rotfruit Bat": {
+      "template": "beast_fast",
+      "level_range": [
+        9,
+        9
+      ],
+      "ability_kit": "hidden_rotfruit_bat"
+    },
+    "Plague Picker": {
+      "template": "undead_caster",
+      "level_range": [
+        11,
+        11
+      ],
+      "ability_kit": "hidden_plague_picker"
+    },
+    "Old Bramley": {
+      "template": "undead_warrior",
+      "level_range": [
+        12,
+        12
+      ],
+      "ability_kit": "hidden_old_bramley",
+      "is_boss": true,
+      "boss_multiplier": 2.5
+    },
+    "The Cider-Wife": {
+      "template": "undead_caster",
+      "level_range": [
+        11,
+        11
+      ],
+      "ability_kit": "hidden_the_ciderwife",
+      "is_boss": true,
+      "boss_multiplier": 2.5
+    },
+    "Thornheart Bristleback": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        33,
+        33
+      ],
+      "ability_kit": "hidden_thornheart_bristleback"
+    },
+    "Warren Thornseer": {
+      "template": "humanoid_caster",
+      "level_range": [
+        34,
+        34
+      ],
+      "ability_kit": "hidden_warren_thornseer"
+    },
+    "Bramble Boar": {
+      "template": "beast_large",
+      "level_range": [
+        33,
+        33
+      ],
+      "ability_kit": "hidden_bramble_boar"
+    },
+    "The Thorn-Mother": {
+      "template": "humanoid_caster",
+      "level_range": [
+        35,
+        35
+      ],
+      "ability_kit": "hidden_the_thornmother",
+      "is_boss": true,
+      "boss_multiplier": 2.5
+    },
+    "Palimpsest Wraith": {
+      "template": "undead_caster",
+      "level_range": [
+        44,
+        44
+      ],
+      "ability_kit": "hidden_palimpsest_wraith"
+    },
+    "Vault Golem": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        45,
+        45
+      ],
+      "ability_kit": "hidden_vault_golem"
+    },
+    "Ink-Drowned Scholar": {
+      "template": "humanoid_caster",
+      "level_range": [
+        45,
+        45
+      ],
+      "ability_kit": "hidden_inkdrowned_scholar"
+    },
+    "Erasure": {
+      "template": "undead_caster",
+      "level_range": [
+        45,
+        45
+      ],
+      "ability_kit": "hidden_erasure"
+    },
+    "The Erased": {
+      "template": "undead_caster",
+      "level_range": [
+        45,
+        45
+      ],
+      "ability_kit": "hidden_the_erased",
+      "is_boss": true,
+      "boss_multiplier": 2.5
+    },
+    "The Last Editor": {
+      "template": "humanoid_caster",
+      "level_range": [
+        46,
+        46
+      ],
+      "ability_kit": "hidden_the_last_editor",
+      "is_boss": true,
+      "boss_multiplier": 2.5
+    },
+    "The Keeper of the First Page": {
+      "template": "elemental_caster",
+      "level_range": [
+        47,
+        47
+      ],
+      "ability_kit": "hidden_the_keeper_of_the_first_page",
       "is_boss": true,
       "boss_multiplier": 2.5
     }

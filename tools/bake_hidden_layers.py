@@ -159,26 +159,72 @@ SPECS["unwritten_stacks"] = lambda: dict(
 
 
 SPECS["world_root_hollow"] = lambda: dict(
+    # Kyle: "a beautiful under the roots zone". Warm root-earth, glowing lichen in the hollows, the
+    # heartwood floored in amber light, still pools that glow pale blue, walls of living root.
     build="build_world_root", seed=907, slug="world_root_hollow",
     materials={
-        "floor":  M(dim(SP + "root_earth", 0.70)),
-        "moss":   M(dim(CS + "mossy_cave_floor_a", 0.75)),
-        "amber":  M(dim(UD + "ud_bloom_floor", 0.85)),
-        "fern":   M(dim(SP + "fern_floor", 0.65)),
-        "water_s": M(dim(WC + "wc_river_water", 0.8)),
-        "water_d": M(dim(WC + "wc_river_water", 0.6)),
-        "wall":   M(dim(WC + "wc_cavern_wall", 0.6), None, 2.0),
-        "bark":   M(dim(SP + "moss_rock", 0.6), None, 2.0),
+        "floor":  M(dim(SP + "root_earth", 0.85)),
+        "lichen": M(UD + "ud_glow_lichen"),
+        "moss":   M(dim(UD + "ud_spore_moss", 0.9)),
+        "amber":  M(UD + "ud_bloom_floor"),
+        "water_s": M(UD + "ud_lumen_shallow"),
+        "water_d": M(UD + "ud_lumen_deep"),
+        "wall":   M(dim(SP + "moss_rock", 0.7), None, 2.0),
+        "root":   M(dim(UD + "ud_myc_threads", 0.75), None, 2.0),
     },
-    floor_keys=["floor", "moss", "amber", "fern"],
-    wall_keys=["wall", "bark"],
-    floors={"amber": [(56, 50, 13, 13), (56, 12, 14, 8)], "moss": [(30, 76, 10, 8), (82, 76, 10, 8), (14, 52, 8, 10)],
-            "fern": [(34, 30, 11, 8), (80, 30, 11, 8)]},
-    walls={"bark": [(56, 50, 18, 18), (56, 12, 18, 12)]},
-    pools=[[(56, 50, 4.5, 3.5, 0.9)]],
-    glow_floors=("amber",),
-    cfg=dict(ao=0.5, depth=0.88, lip=20, lip_col=(1.0, 0.8, 0.4), deep_dark=0.5,
-             foam_col=(200, 200, 160), glows=[("d_amber", (150, 95, 20), 3.0, 0.9)]),
+    floor_keys=["floor", "lichen", "moss", "amber"],
+    wall_keys=["wall", "root"],
+    floors={"amber": [(56, 50, 13, 13), (56, 12, 14, 8)],
+            "lichen": [(30, 76, 10, 8), (82, 76, 10, 8), (14, 52, 8, 10), (100, 54, 8, 10)],
+            "moss": [(34, 30, 11, 8), (80, 30, 11, 8), (56, 88, 10, 5)]},
+    walls={"root": [(56, 50, 20, 20), (56, 12, 20, 12), (56, 88, 14, 8)]},
+    pools=[[(56, 50, 4.5, 3.5, 0.9), (30, 77, 4.0, 2.6, 1.3), (84, 77, 3.6, 2.4, 0.4),
+            (12, 52, 2.8, 3.6, 2.2), (100, 56, 2.8, 3.4, 1.7), (34, 30, 3.4, 2.4, 0.8), (80, 30, 3.4, 2.4, 2.6)]],
+    glow_floors=("amber", "lichen"),
+    cfg=dict(ao=0.42, depth=0.80, lip=22, lip_col=(1.0, 0.85, 0.5), deep_dark=0.35,
+             foam_col=(170, 230, 230),
+             glows=[("d_amber", (160, 105, 30), 3.4, 1.0), ("d_lichen", (30, 120, 110), 2.8, 0.8)]),
+)
+
+
+RFK = "razorfen_kraul/materials/"
+SPECS["thornheart_warren"] = lambda: dict(
+    build="build_thornheart", seed=908, slug="thornheart_warren",
+    materials={
+        "floor":  M(dim(RFK + "rfk_thorn_tunnel_floor", 0.75)),
+        "pen":    M(dim(RFK + "rfk_boar_pen_floor", 0.75)),
+        "bones":  M(dim("vot_cluster/vot_bonesand", 0.6)),
+        "wall":   M(dim(RFK + "rfk_packed_earth_wall", 0.65), None, 2.0),
+        "bramble": M(dim(RFK + "rfk_bramble_wall", 0.65), None, 2.0),
+    },
+    floor_keys=["floor", "pen", "bones"],
+    wall_keys=["wall", "bramble"],
+    floors={"pen": [(58, 68, 40, 6)], "bones": [(96, 12, 12, 7), (58, 22, 30, 5)]},
+    walls={"bramble": [(96, 12, 16, 10), (58, 44, 46, 8)]},
+    pools=[],
+    cfg=dict(ao=0.52, depth=0.9, lip=20, lip_col=(0.9, 0.8, 0.5), deep_dark=0.5,
+             foam_col=(170, 160, 140), glows=[]),
+)
+
+SPECS["palimpsest_vault"] = lambda: dict(
+    build="build_palimpsest", seed=909, slug="palimpsest_vault",
+    materials={
+        "floor":  M(dim(UD + "ud_dalaran_floor", 0.65)),
+        "crack":  M(dim(UD + "ud_dalaran_cracked", 0.65)),
+        "crystal": M(dim(UD + "ud_crystal_floor_c", 0.7)),
+        "rune":   M(dim(UD + "ud_rune_floor", 0.75)),
+        "wall":   M(dim(UD + "ud_dalaran_wall", 0.6), None, 2.0),
+        "cwall":  M(dim(UD + "ud_crystal_wall_c", 0.6), None, 2.0),
+    },
+    floor_keys=["floor", "crack", "crystal", "rune"],
+    wall_keys=["wall", "cwall"],
+    floors={"rune": [(60, 56, 13, 9), (60, 14, 12, 6)], "crystal": [(14, 96, 6, 5), (106, 96, 5, 4)],
+            "crack": [(30, 40, 20, 30), (90, 70, 20, 20)]},
+    walls={"cwall": [(60, 56, 16, 12), (60, 14, 16, 9)]},
+    pools=[],
+    glow_floors=("rune", "crystal"),
+    cfg=dict(ao=0.5, depth=0.9, lip=18, lip_col=(0.6, 0.8, 1.0), deep_dark=0.55,
+             foam_col=(170, 190, 220), glows=[("d_rune", (40, 60, 120), 2.6, 0.7), ("d_crystal", (30, 90, 120), 2.4, 0.6)]),
 )
 
 
@@ -194,7 +240,8 @@ class _C:
 def _attach_builds():
     from tools import handbuilt_hidden_layers as H
     for name in ("build_cinderwell", "build_dreaming_root", "build_ossuary", "build_lightless_reach",
-                 "build_blood_pits", "build_unwritten_stacks", "build_world_root"):
+                 "build_blood_pits", "build_unwritten_stacks", "build_world_root",
+                 "build_thornheart", "build_palimpsest"):
         setattr(_C, name, staticmethod(getattr(H, name)))
 
 

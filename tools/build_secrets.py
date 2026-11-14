@@ -84,6 +84,24 @@ AUTHORED_VENDORS = [{
 SELLERS = [
     # ---- people living deep inside the hidden zones (world/hidden_zones.py). Kyle: "I WANT to be
     # rewarded for exploring." A secret inside a secret.
+    # ---- the frontier zones, a secret inside a secret inside a secret. Kyle: "put EXTRA care into
+    # frontier zones. They carry the name of the game." Their shelves are all epic.
+    ("secret_hz_root_seedkeeper", "The World-Root Hollow", "The Seed-Keeper", "night_elf", "female",
+     "You found the tree, and the hollow under it, and now the knot in the roots where I keep the "
+     "seeds. Nobody's done all three. Take your time choosing. These grew a long while.",
+     ["herbalism", "alchemy", "leatherworking"],
+     [("Seed of the First Grove", "neck", "of the Restorer", "armor", None, "It's warm, and it's trying to grow."),
+      ("World-Root Longbow", "ranged", "of the Sharpshooter", "weapon", "bow", "Strung with a root as fine as hair. It never slackens."),
+      ("Barkskin Jerkin of the Hollow", "chest", "of the Beast", "armor", "leather", "Grown on the wearer, they say. Slowly."),
+      ("Amberglow Staff", "main_hand", "of the Invoker", "weapon", "staff", "A drop of sap at its crown that never stops glowing.")]),
+    ("secret_hz_vault_scribe", "The Palimpsest Vault", "The Unfinished Scribe", "forsaken", "male",
+     "Oh. A reader. I haven't had a reader in... I couldn't tell you. I've been copying the same page. "
+     "Buy something. Then go, before I start copying you.",
+     ["inscription", "enchanting", "tailoring"],
+     [("Robes of the Unfinished Page", "chest", "of the Archmage", "armor", "cloth", "The hem is still being written."),
+      ("Scribe's Ruled Gauntlets", "hands", "of the Juggernaut", "armor", "plate", "Every knuckle ruled with a straight line."),
+      ("Palimpsest Codex", "off_hand", "of the Sorcerer", "weapon", "tome", "Three books, one over the other, and all of them true."),
+      ("Ink-Drinker", "main_hand", "of the Assassin", "weapon", "dagger", "It stains whatever it cuts. Permanently.")]),
     ("secret_hz_glass_vessa", "The Glasswaste", "Vessa Glassmouth", "blood_elf", "female",
      "You got past the kilns AND found the crack in the wall? Then you've earned a look at what "
      "I've made from the glass. Don't tell Durek where I live.",
@@ -387,6 +405,14 @@ BAKED_ISLANDS = [
     ("Echo Isles", "tools.handbuilt_echo_isles", (144, 148, 8), [(140, 119), (141, 130), (142, 141)], 2.4),
     ("Arathi East", "tools.handbuilt_arathi_east", (151, 10, 10), [(139, 33), (143, 26), (147, 18)], 2.4),
 ]
+
+
+def _is_frontier(zone):
+    try:
+        reg = json.loads((ROOT / "data/world/hidden_zones.json").read_text(encoding="utf-8"))["zones"]
+    except (OSError, ValueError, KeyError):
+        return False
+    return (reg.get(zone) or {}).get("kind") == "frontier"
 
 
 def _hidden_doors():
@@ -703,7 +729,7 @@ def main():
         c = opts[0]
         level = _level(zone, levels)
         # inside a hidden zone the shelves sit as high as its drops (world/hidden_zones.py)
-        ilvl = max(10, level + (6 if vid.startswith("secret_hz_") else 3))
+        ilvl = max(10, level + (9 if _is_frontier(zone) else 6 if vid.startswith("secret_hz_") else 3))
         stock = []
         for (iname, slot, suffix, kind, typ, flavor) in items:
             uid = vid.replace("secret_", "") + "_" + iname.lower().replace("'", "").replace(" ", "_").replace("-", "_")
@@ -712,7 +738,7 @@ def main():
                 kw["weapon_type"] = typ
             elif typ:
                 kw["armor_type"] = typ
-            rarity = "epic" if level >= 45 else "rare"
+            rarity = "epic" if level >= 45 or _is_frontier(zone) else "rare"
             _, d = unique(uid, iname, slot, suffix, ilvl, flavor, rarity=rarity, **kw)
             uniques[uid] = d
             stock.append(f"unique:{uid}")
@@ -821,7 +847,10 @@ def main():
                         "zone": parent, "kind": "glade", "passage": c["passage"], "area": c["area"],
                         "mask": c.get("mask"), "cache": None, "vendor": None,
                         "door": {"x": sx, "y": sy + 1, "to": zname, "tx": tx, "ty": ty},
-                        "found_text": "There's a way down here. It goes a long way down."})
+                        "found_text": ("The air changes. Nobody has ever stood where you're standing, and "
+                                       "the way on goes deeper than anything you know."
+                                       if _is_frontier(zname) else
+                                       "There's a way down here. It goes a long way down.")})
         taken.setdefault(parent, []).append((sx, sy))
 
     for sec in _placed_door_secrets():
