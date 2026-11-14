@@ -100,6 +100,15 @@ class SoulScreen(BaseScreen):
         ok, msg = R.imprint(self.state_manager.player, who, self.slot, rid)
         self._say(ok, msg)
 
+    def _icon(self, rune_id, size):
+        """The rune's own icon (tools/slice_rune_sheets.py), or None."""
+        from ui.sprite_loader import get_icon_sprite
+        from world.gathering_manager import get_gathering_node_manager
+        d = get_gathering_node_manager().get_material_def(rune_id) or {}
+        if not d.get("icon_id"):
+            return None
+        return get_icon_sprite(f"assets/gathering_nodes/runes/{d['icon_id']}.png", size)
+
     def _say(self, ok, msg):
         self.message, self.message_ok = msg, ok
 
@@ -124,15 +133,21 @@ class SoulScreen(BaseScreen):
             self.renderer.draw_rect(screen, rect, edge if chosen else (70, 70, 85), fill=False)
             rn = R.rune(soul[i])
             label = "Capstone" if cap else f"Rune {i + 1}"
-            self.renderer.draw_text(screen, label, (rect.x + 12, rect.y + 8), font_size=14, color=edge)
+            tx = rect.x + 12
             if rn:
-                self.renderer.draw_text(screen, self.renderer.truncate(rn["name"], rect.width - 24),
-                                        (rect.x + 12, rect.y + 28), color=COLOR_WHITE)
-                for j, line in enumerate(self.renderer.wrap_text(rn["text"], rect.width - 24, font_size=14)[:2]):
-                    self.renderer.draw_text(screen, line, (rect.x + 12, rect.y + 52 + j * 18), font_size=14,
+                icon = self._icon(soul[i], 76)
+                if icon is not None:
+                    screen.blit(icon, (rect.x + 8, rect.y + (rect.height - 76) // 2))
+                    tx = rect.x + 92
+            self.renderer.draw_text(screen, label, (tx, rect.y + 8), font_size=14, color=edge)
+            if rn:
+                self.renderer.draw_text(screen, self.renderer.truncate(rn["name"], rect.right - tx - 12),
+                                        (tx, rect.y + 28), color=COLOR_WHITE)
+                for j, line in enumerate(self.renderer.wrap_text(rn["text"], rect.right - tx - 12, font_size=14)[:2]):
+                    self.renderer.draw_text(screen, line, (tx, rect.y + 52 + j * 18), font_size=14,
                                             color=(170, 200, 170))
             else:
-                self.renderer.draw_text(screen, "Empty", (rect.x + 12, rect.y + 34), color=(110, 110, 120))
+                self.renderer.draw_text(screen, "Empty", (tx, rect.y + 34), color=(110, 110, 120))
             self.slot_rects.append((i, rect))
 
         # the runes in the bags
@@ -156,10 +171,15 @@ class SoulScreen(BaseScreen):
             colour = CAPSTONE_COLOUR if rn["capstone"] else ROLE_COLOURS.get(rn.get("role", "any"), COLOR_WHITE)
             self.renderer.draw_rect(screen, rect, (44, 36, 30) if armed else ((30, 32, 38) if fits else (22, 22, 26)))
             self.renderer.draw_rect(screen, rect, colour if fits else (60, 60, 70), fill=False)
-            self.renderer.draw_text(screen, self.renderer.truncate(f"{rn['name']} x{n}   (level {rn['level']})", rect.width - 20),
-                                    (rect.x + 10, rect.y + 4), color=colour if fits else (120, 120, 125))
-            self.renderer.draw_text(screen, self.renderer.truncate(rn["text"], rect.width - 20, font_size=13),
-                                    (rect.x + 10, rect.y + 26), font_size=13,
+            icon = self._icon(rid, ROW_H - 10)
+            tx = rect.x + 10
+            if icon is not None:
+                screen.blit(icon, (rect.x + 4, rect.y + 2))
+                tx = rect.x + ROW_H
+            self.renderer.draw_text(screen, self.renderer.truncate(f"{rn['name']} x{n}   (level {rn['level']})", rect.right - tx - 10),
+                                    (tx, rect.y + 4), color=colour if fits else (120, 120, 125))
+            self.renderer.draw_text(screen, self.renderer.truncate(rn["text"], rect.right - tx - 10, font_size=13),
+                                    (tx, rect.y + 26), font_size=13,
                                     color=(170, 190, 170) if fits else (100, 105, 100))
             self.rune_rects.append((rid, rect))
             y += ROW_H

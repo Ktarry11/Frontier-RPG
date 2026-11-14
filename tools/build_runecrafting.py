@@ -441,7 +441,8 @@ def main():
                      "description": rn["text"] + (" A Capstone: one per soul." if rn["capstone"] else "")
                                     + f" Imprint it on a soul (level {rn['level']}) from the Soul screen.",
                      "stack_limit": 5, "sell_price": rn["level"] * (60 if rn["capstone"] else 25),
-                     "icon_id": f"rune_{rn['family']}"}
+                     # each rank has its own tinted icon (tools/slice_rune_sheets.py) once the art is in
+                     "icon_id": rid if (ART / f"{rid}.png").exists() else f"rune_{rn['family']}"}
     for r in recipes.values():
         for m in r["inputs"]:
             assert m in mats, f"{r['name']}: no material {m}"
