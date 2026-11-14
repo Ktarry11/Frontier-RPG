@@ -14,8 +14,9 @@ than in every kit, and it can be turned back by editing three pairs of numbers.
   boss   a boss of a real five-player dungeon (world/zone_classification.DUNGEONS)
   field_boss  every other boss: the named one at the back of a small cave, a named rare in the
          open. Kyle, 14 Nov, after a friend at level 17 met Tidelord Gharesh in the Echo Isles grotto
-         with 5,700 health: "it shouldn't be that high." The dungeon numbers had been handed to all
-         398 bosses when only 97 stand in a dungeon.
+         with 5,700 health: "it shouldn't be that high." Then: "keep Dungeons around 3x health and
+         3x damage... He did it with 2 people. So why the fuck not." Both kinds are 3x/3x today;
+         they are separate keys so they can be split again.
   tuned_boss  a boss whose kit was already tuned by hand against the sim (the Tempest Isle
          dungeons and the Royal Hive), named in the table's "tuned_bosses" list
 
