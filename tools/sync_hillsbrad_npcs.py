@@ -30,9 +30,11 @@ from tools import hillsbrad_npc_roster as R  # noqa: E402
 #: gear_level tracks the band: the west is the 20-24 door into Hillsbrad, the east and the town run 23-27.
 #: Brill, a 10-12 town, sits at 8 for comparison.
 ZONES = [
-    ("western_hillsbrad", HW, R.WEST_VENDORS, R.WEST_AMBIENT, 14),
-    ("eastern_hillsbrad", HE, R.EAST_VENDORS, R.EAST_AMBIENT, 16),
-    ("tarren_mill", TM, R.TOWN_VENDORS, R.TOWN_AMBIENT, 16),
+    # were 14 / 16 / 16, under their own zones' bands (tools/overhaul_vendor_stock.py --check,
+    # fixed 14 Nov 2026)
+    ("western_hillsbrad", HW, R.WEST_VENDORS, R.WEST_AMBIENT, 23),
+    ("eastern_hillsbrad", HE, R.EAST_VENDORS, R.EAST_AMBIENT, 24),
+    ("tarren_mill", TM, R.TOWN_VENDORS, R.TOWN_AMBIENT, 24),
 ]
 
 

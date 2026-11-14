@@ -35,7 +35,7 @@ NEW_VENDORS = [
     {"vendor_id": "zoram_fishmonger", "name": "Fishmonger Sylra", "zone": "zoram_strand", "tile_sprite": "npc",
      "sells": ["healing_potion_minor", "healing_potion_standard", "mana_potion_minor", "bread_and_cheese",
                "roasted_meat"],
-     "buys_from_player": True, "faction": "neutral", "gear_level": 14, "sells_gear": False,
+     "buys_from_player": True, "faction": "neutral", "gear_level": 25, "sells_gear": False,
      "race": "night_elf", "appearance_variant": 3,
      "greeting": "Fresh from the tide, and the only honest scales on the coast."},
 ]
