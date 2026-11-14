@@ -352,6 +352,10 @@ def _P(r, deg):
 
 
 NPC_POSITIONS = {
+    "et_scarlet_watch_scout": (105, 32),      # quest hub: Scout Hollowmere, the Scarlet Watch Post
+    "et_cult_warden": (108, 28),              # quest hub: Warden Ysolde Grave, the Cult's farm
+    "et_hunter_ravel": (93, 26),              # quest hub: Huntress Ravel, the Venomweb Vale
+    "et_gunther_lorn": (105, 26),             # quest hub: Gunther Lorn, Brightwater Lake
     # ---- the Long Descent / elevator
     "uc_guard_1": (97, 18),
     "uc_guard_2": (103, 46),

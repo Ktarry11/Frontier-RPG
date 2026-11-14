@@ -152,14 +152,8 @@ COBBLE = [(10, 112, 6, 4, 0.9), (21, 98, 7, 4, 0.9)]
 # ---- NPC spots -------------------------------------------------------------------------------------
 NPC_POSITIONS = {
     "et_deathguard_linnea": (17, 93),        # Deathguard Linnea, Zeppelin Landing
-    "et_gravekeeper_morvyn": (61, 64),       # Gravekeeper Morvyn, Faol's Rest
-    "et_gunther_lorn": (38, 59),             # Warden Gunther Lorn, Brightwater Lake
     "et_scout_hallam": (44, 82),             # Scout Hallam, Crusader's Outpost
-    "et_hunter_ravel": (78, 69),             # Huntress Ravel, Venomweb Vale
-    "et_balnir_edric": (36, 99),             # Stablehand Edric, Balnir Farmstead
-    "et_cult_warden": (49, 116),             # Warden Ysolde Grave, Cult of the Damned Farm
     "et_cave_warden": (55, 114),             # Boneward Calder, beside the Scourge Cave mouth
-    "et_scarlet_watch_scout": (46, 40),      # Scout Hollowmere, watching the Watch Post from the lakeside slope
 }
 CHESTS = [(36, 70), (20, 122), (70, 80), (60, 34), (44, 122)]
 

@@ -135,15 +135,9 @@ PAINT = {
 
 # ---- NPC spots -------------------------------------------------------------------------------------
 NPC_POSITIONS = {
-    "wt_vale_ranger": (81, 111),             # Ranger Corvin Ashe, where the Deathknell road enters Nightmare Vale
-    "wt_coldhearth_watcher": (100, 90),      # Watcher Pell, at Cold Hearth Manor's gate
     "wt_shore_fisher": (40, 39),             # Fisher Quillon, on the Whispering Shore
     "wt_outpost_scout": (40, 66),            # Scout Dessa Vane, watching the Crusader Outpost from the thorn-line
-    "wt_solliden_farmer": (63, 71),          # Widow Marren, on the Solliden road
     "wt_pond_hermit": (80, 71),              # Hermit Oswin, Stillwater Pond
-    "wt_agamand_envoy": (82, 42),            # Envoy Sorren, Agamand Mills
-    "wt_crypt_keeper": (85, 16),             # Keeper Halvard, the Agamand family crypt gate
-    "wt_garren_warden": (104, 49),           # Warden Brask, Garren's Haunt
 }
 CHESTS = [(70, 100), (54, 78), (96, 24), (106, 50), (76, 86)]
 

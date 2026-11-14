@@ -296,7 +296,6 @@ NPC_POSITIONS = {
     "sb_rift_warden": (137, 116),        # Rift-Warden Brakka, Waystation (north ramp of the Rift)
     "sb_waystation_vendor": (138, 113),  # Provisioner Hemma
     "sb_bonehunter": (128, 172),         # Bonehunter Rurk, Field of Giants gate
-    "sb_thornwatch": (62, 141),          # Thornwatch Ranger Oggra, Razorfen approach
     "sb_keep_spy": (121, 41),            # Spy Zhuul, east of the Bael'dun gate
     "sb_modan_scout": (63, 57),          # Dig-Scout Tarrik, quarry rim
     "sb_hoodoo_huntress": (195, 49),     # Huntress Alamir, the hunter's blind

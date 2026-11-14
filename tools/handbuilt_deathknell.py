@@ -157,6 +157,8 @@ def _aspect(path):
 
 # ----------------------------------------------------------------- NPC spots
 NPC_POSITIONS = {
+    "wt_crypt_keeper": (63, 62),              # quest hub: Keeper Halvard, the Agamand crypt
+    "wt_vale_ranger": (61, 59),               # quest hub: Corvin Ashe, Nightmare Vale
     "dk_quest_overseer": (50, 38),        # Overseer Krell, outside the town hall's south face
     "dk_elder": (43, 42),                 # Death Knight Instructor, on the square
     "dk_risen": (53, 60),                 # the Newly Risen, among the graves

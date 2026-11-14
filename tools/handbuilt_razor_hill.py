@@ -95,6 +95,10 @@ def _aspect(path):
 
 # ----------------------------------------------------------------- NPC spots
 NPC_POSITIONS = {
+    "durotar_goblin_prospector": (19, 33),    # quest hub: Fitz, the Red Wastes and the mesas
+    "durotar_human_prisoner_convert": (23, 35),# quest hub: Wyll Marrow, the Crag
+    "durotar_beltelf_merchant": (36, 34),     # quest hub: Sylthressa, Scuttle Coast
+    "durotar_rocktusk_scout": (32, 35),       # quest hub: Borka, Rocktusk Farm and the prowler den
     "razorhill_guard_1": (27, 17),        # barracks door
     "razorhill_guard_2": (27, 51),        # gate sentries (outside the gatehouse)
     "razorhill_guard_3": (33, 51),

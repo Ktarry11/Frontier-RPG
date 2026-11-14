@@ -179,24 +179,24 @@ COBBLE = [(74, 50, 8, 6, 0.9), (88, 98, 7, 5, 0.9), (49, 148, 7, 4, 0.9), (120, 
 
 # ---- NPC spots ----------------------------------------------------------------------------------------------------
 NPC_POSITIONS = {
+    "sp_talon_trapper": (81, 43),             # the March: Trapper Hask, the hill
+    "sp_wall_corporal": (66, 49),             # the March: Corporal Teague, the Greymane Wall
+    "sp_pond_marshwalker": (75, 55),          # the March: Marshwalker Thorne, Olivia's Pond
+    "sp_peril_packbreaker": (75, 41),         # the March: Packbreaker Rynn, the Peril
+    "sp_amber_millwright": (70, 44),          # the March: Millwright Haskell, Ambermill
+    "sp_amber_magister": (81, 48),            # the March: Magister Orsolo, Ambermill
+    "sp_sfk_gatekeeper": (74, 45),            # the March: Gatekeeper Marl, Shadowfang Keep
     "sp_south_gate_scout": (82, 12),
     "sp_south_hunter": (77, 38),
     "sp_buckle_farmer": (39, 33),
     "sp_buckle_goodwife": (34, 31),
-    "sp_pond_marshwalker": (38, 57),
     "sp_elem_foreman": (27, 99),
     "sp_south_march_sergeant": (70, 48),      # Sergeant Dallow
     "sp_valgan_surgeon": (77, 53),
     "sp_south_quartermaster": (72, 53),       # vendor
     "sp_pyre_hearthwarden": (84, 95),
-    "sp_talon_trapper": (58, 130),
-    "sp_peril_packbreaker": (92, 114),
-    "sp_wall_corporal": (112, 140),
-    "sp_amber_millwright": (116, 80),
-    "sp_amber_magister": (123, 80),
     "sp_ferryman": (143, 41),
     "sp_ferry_dockhand": (137, 44),
-    "sp_sfk_gatekeeper": (55, 146),
 }
 CHESTS = [(22, 46), (110, 100), (136, 62), (28, 128), (96, 138)]
 

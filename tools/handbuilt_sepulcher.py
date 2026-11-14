@@ -102,6 +102,9 @@ COBBLE = []
 
 # ---- NPC spots ------------------------------------------------------------------------------------
 NPC_POSITIONS = {
+    "sp_sd_webhunter": (36, 52),              # quest hub: Webhunter Corvane, the Skittering Dark and the Widow's Lair
+    "sp_north_pools_warden": (41, 47),        # quest hub: Warden Yaelis, the Shadowspring Pools
+    "sp_orchard_warden": (38, 49),            # quest hub: Malwick, Malden's Orchard
     "sepulcher_crypt_guard": (41, 63),         # Molsen, at the south gate
     "sepulcher_pilgrim": (48, 62),
     "sepulcher_innkeeper": (34, 58),           # Doss, at the Hollow Cask

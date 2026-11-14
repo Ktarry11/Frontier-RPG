@@ -58,7 +58,7 @@ TRADES = {
 #: how far from the innkeeper a building still counts as "in town". A zone that is just the town
 #: (Razor Hill, Hammerfall, Brill...) counts all of it; a town inside a bigger zone (the Valley,
 #: Freewind on its mesas, Southern Barrens) only what is near the inn.
-TOWN_RADIUS = 60
+TOWN_RADIUS = 30
 TOWN_ZONE_AREA = 120 * 120
 CAPITALS = {"Orgrimmar": 110, "Undercity": 110}
 

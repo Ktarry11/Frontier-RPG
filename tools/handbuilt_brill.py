@@ -103,6 +103,12 @@ COBBLE = []
 
 # ---- NPC spots -------------------------------------------------------------------------------------
 NPC_POSITIONS = {
+    "et_balnir_edric": (46, 33),              # quest hub: Stablehand Edric, Balnir
+    "et_gravekeeper_morvyn": (44, 53),        # quest hub: Gravekeeper Morvyn, Faol's Rest
+    "wt_solliden_farmer": (55, 43),           # quest hub: Widow Marren, Solliden Farm
+    "wt_garren_warden": (50, 46),             # quest hub: Warden Brask, Garren's Haunt
+    "wt_coldhearth_watcher": (40, 44),        # quest hub: Watcher Pell, Cold Hearth Manor
+    "wt_agamand_envoy": (46, 47),             # quest hub: Envoy Sorren, the Agamand mill
     "brill_deathguard": (46, 44),            # Deathguard Rennick, at the square (quest giver)
     "brill_town_crier": (52, 43),
     "brill_guard": (10, 46),                 # west gate

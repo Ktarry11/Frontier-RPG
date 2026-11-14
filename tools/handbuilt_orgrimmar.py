@@ -227,6 +227,9 @@ def district_of(x, y):
 
 # ----------------------------------------------------------------- NPC spots
 NPC_POSITIONS = {
+    "durotar_thunder_ridge_scout": (106, 190),# quest hub: Ridgewatch Kurr, Thunder Ridge
+    "durotar_skull_rock_patrol": (94, 186),   # quest hub: the Skull Rock watcher, back off the cliff
+    "durotar_burning_blade_warden": (105, 186),# quest hub: Bloodwarden Ashgrym, Skull Rock
     # ---- Valley of Wisdom
     "org_thrall": (34, 30),
     "org_elder_2": (18, 28),

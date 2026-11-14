@@ -168,9 +168,6 @@ NPC_POSITIONS = {
     "sp_df_huntress": (110, 50),
     "sp_df_farmhand": (104, 57),
     "sp_sep_gatewarden": (39, 100),
-    "sp_orchard_warden": (46, 127),
-    "sp_north_pools_warden": (101, 104),  # Warden Yaelis
-    "sp_sd_webhunter": (137, 87),
 }
 CHESTS = [(28, 44), (126, 66), (118, 126), (30, 138), (96, 18)]
 

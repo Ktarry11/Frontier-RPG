@@ -120,6 +120,7 @@ PAINT = {
 }
 
 NPC_POSITIONS = {
+    "sb_thornwatch": (30, 34),                # quest hub: Thornwatch Ranger Oggra, in from the Razorfen approach
     "taurajo_guard": (30, 6),                 # Camp Sentry, north gate
     "taurajo_elder": (20, 19),                # Elder Longtread, roundhouse door
     "taurajo_hunter_1": (49, 18),             # Windrunner Kala
