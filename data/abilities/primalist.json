@@ -366,7 +366,7 @@
       "stat_mods": {
         "attack_power": 30
       },
-      "description": "Invoke a savage instinct on an ally, increasing Attack Power. Players may only have one Instinct on them at a time.",
+      "description": "Invoke a savage instinct on an ally, increasing Attack Power. An ally can only carry one Instinct at a time.",
       "_source": "Confirmed screenshot: Lvl 8, '+30 Attack Power. Lasts 30 min.' Part of the mutually-exclusive Instinct family (Grove/Primal).",
       "target_type": "party",
       "ranks": [
@@ -498,31 +498,6 @@
       ],
       "icon_id": null,
       "buff_scope": "combat"
-    },
-    {
-      "ability_id": "primalist_boon_of_the_wolf",
-      "name": "Boon of the Wolf",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 30,
-      "stat_mods": {
-        "haste": 25,
-        "dodge": 8
-      },
-      "description": "Increase movement speed and Dodge chance. Only 1 Boon may be active at a time.",
-      "_source": "Confirmed screenshot: Lvl 20, '+25% movement speed, +8% dodge.' Part of the Boon family.  DEAD STAT KEY CORRECTED: 'dodge_chance' is read by nothing in the engine; the live key is dodge. Verified by applying each as a status stat_mod and reading the stat back.",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 20,
-          "cost": 20,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "exclusive_group": "primalist_boon"
     },
     {
       "ability_id": "primalist_ursocs_bellow",
@@ -663,72 +638,6 @@
       "buff_scope": "raid"
     },
     {
-      "ability_id": "primalist_boon_of_the_lion",
-      "name": "Boon of the Lion",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 30,
-      "stat_mods": {
-        "stun_duration_reduction_pct": 40
-      },
-      "description": "Increase your chance to resist fear, charm, and sleep effects, and periodically dispel them from nearby party members. Only 1 Boon may be active at a time.",
-      "_source": "Confirmed screenshot: Lvl 30, '+40% resist fear/charm/sleep, dispel 1 such effect from party members within 30 yds every 3 sec.' Part of the Boon family.  DEAD STAT KEY CORRECTED: 'cc_resist' is read by nothing in the engine; the live key is stun_duration_reduction_pct. Verified by applying each as a status stat_mod and reading the stat back.",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 30,
-          "cost": 26,
-          "effect_value": 100
-        },
-        {
-          "rank": 2,
-          "level_req": 40,
-          "cost": 31,
-          "effect_value": 119
-        },
-        {
-          "rank": 3,
-          "level_req": 52,
-          "cost": 37,
-          "effect_value": 142
-        }
-      ],
-      "icon_id": null,
-      "exclusive_group": "primalist_boon"
-    },
-    {
-      "ability_id": "primalist_essence_of_nature",
-      "name": "Essence of Nature",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 10,
-      "stat_mods": {
-        "nature_resistance": 45
-      },
-      "description": "Increase the Nature Resistance of a targeted party member.",
-      "_source": "Confirmed screenshot: Lvl 44, '+45 Nature Resistance. Lasts 10 min.'",
-      "target_type": "party",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 44,
-          "cost": 42,
-          "effect_value": 100
-        },
-        {
-          "rank": 2,
-          "level_req": 60,
-          "cost": 52,
-          "effect_value": 124
-        }
-      ],
-      "icon_id": null,
-      "buff_scope": "raid"
-    },
-    {
       "ability_id": "primalist_grove_instinct",
       "name": "Grove Instinct",
       "resource_type": "mana",
@@ -738,7 +647,7 @@
       "stat_mods": {
         "mp5": 5
       },
-      "description": "Invoke a calm and earthly instinct on an ally, restoring mana over time. Players may only have one Instinct on them at a time.",
+      "description": "Invoke a calm and earthly instinct on an ally, restoring mana over time. An ally can only carry one Instinct at a time.",
       "_source": "Confirmed screenshot: Lvl 2, 'restoring 5 mana every 5 seconds.' Part of the mutually-exclusive Instinct family.",
       "target_type": "party",
       "ranks": [
@@ -974,7 +883,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Rush forward through enemies in a line, generating Rage.",
+      "description": "Crash through the enemy line, striking everyone in your way and generating Rage.",
       "_source": "Confirmed screenshot: Wildwalker-locked, Lvl 18, '102 Nature damage. Generates 20 Rage.'",
       "target_type": "enemy_aoe",
       "ranks": [
@@ -1483,7 +1392,7 @@
         "armor_pct": 20,
         "haste": 10
       },
-      "description": "Shapeshift into an earthen golem, increasing Armor and reducing spell cast time.",
+      "description": "Shapeshift into an earthen golem, increasing Armor and quickening your spells.",
       "_source": "Structurally referenced from Geomancy tree - not yet confirmed via a dedicated screenshot in this batch. Not a real resource-swap form like Venomancer's (Primalist stays Mana+Rage), modeled as a strong self-buff.",
       "target_type": "self",
       "ranks": [
@@ -1534,7 +1443,7 @@
         "damage_taken_pct": -0.15,
         "haste": 20
       },
-      "description": "Take the shape of the earth itself: slower to fall, quicker to strike, and harder to move.",
+      "description": "Take the shape of the earth itself: slower to fall, quicker to strike, and harder to bring down.",
       "target_type": "self",
       "ranks": [
         {

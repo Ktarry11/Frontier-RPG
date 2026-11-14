@@ -480,6 +480,39 @@ CLASSES = {
         },
         "PASSIVE": {},
     },
+    # Tinker: six pets, four party-mana buffs, two armour-pen rounds, and an 'ally' buff that makes
+    # them take 75% more magic damage.
+    "Tinker": {
+        "CUT": {
+            "tinker_explosive_augmentation": "an unnamed 'strengthens you' augment",
+            "tinker_round_armor_pen": "armour-piercing rounds beside the Piercing Augmentation",
+            "tinker_nanobot_recharger": "a second party mana buff beside the Mana Module",
+            "tinker_build_replenishment_beacon": "a third party mana buff",
+            "tinker_strength_bionics": "an ally 'buff' that makes them take 75% more magic damage",
+            "tinker_build_clockwork_assistant": "a sixth pet",
+        },
+        "REWORD": {
+            "tinker_zap": "Fires a zap of electricity that heals an ally for 332. Scales with modifiers to Repair Shot.",
+        },
+        "PASSIVE": {},
+    },
+    # Primalist: five Boons (one was movement speed, one resisted fear and charm), two
+    # resistance buffs, 'players may only', 'rush forward in a line' and 'spell cast time'.
+    "Primalist": {
+        "CUT": {
+            "primalist_boon_of_the_wolf": "a Boon for movement speed",
+            "primalist_boon_of_the_lion": "a Boon that resists fear, charm and sleep",
+            "primalist_essence_of_nature": "a single-ally Nature Resistance buff",
+        },
+        "REWORD": {
+            "primalist_primal_instinct": "Invoke a savage instinct on an ally, increasing Attack Power. An ally can only carry one Instinct at a time.",
+            "primalist_grove_instinct": "Invoke a calm and earthly instinct on an ally, restoring mana over time. An ally can only carry one Instinct at a time.",
+            "primalist_primal_rush": "Crash through the enemy line, striking everyone in your way and generating Rage.",
+            "primalist_golem_form": "Shapeshift into an earthen golem, increasing Armor and quickening your spells.",
+            "primalist_earthen_avatar": "Take the shape of the earth itself: slower to fall, quicker to strike, and harder to bring down.",
+        },
+        "PASSIVE": {},
+    },
 }
 
 

@@ -397,44 +397,6 @@
       "damage_school": "fire"
     },
     {
-      "ability_id": "tinker_explosive_augmentation",
-      "name": "Explosive Augmentation",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 60,
-      "stat_mods": {},
-      "description": "Strengthens you for 60 turns.",
-      "_source": "Real screenshot: Requires Level 22. Demolition leveling sequence.  DESCRIPTION REWRITTEN - CoA tooltip verbatim, with stat numbers and real-world units in a turn-based game. Original: \"Add an Explosive Augmentation to your gun for 1 hour, causing your ranged attacks to explode on your target dealing 1 Fire damage to them and nearby enemies. Can only occur once per sec.\"",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 22,
-          "cost": 22,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "buff_scope": "raid",
-      "exclusive_group": "tinker_round",
-      "proc": {
-        "trigger": "on_weapon_swing",
-        "chance": 100,
-        "icd": 0,
-        "apply_effect": {
-          "effect_id": "explosive_round",
-          "name": "Explosive Round",
-          "effect_type": "dot",
-          "duration": 2,
-          "potency": 30,
-          "damage_school": "fire",
-          "on_target": true,
-          "real_time_seconds": null
-        }
-      }
-    },
-    {
       "ability_id": "tinker_rocket_launcher",
       "name": "Rocket Launcher",
       "resource_type": "mana",
@@ -674,30 +636,6 @@
       "icon_id": null
     },
     {
-      "ability_id": "tinker_nanobot_recharger",
-      "name": "Nanobot Recharger",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 0,
-      "stat_mods": {
-        "mp5": 13
-      },
-      "description": "Grants your party: Mp5 +13.",
-      "_source": "Real screenshot: Requires Level 20. Invention leveling sequence.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Send Nanobots to an ally, regenerating 13 mana every 5 sec for 1 min. Nanobot Recharger can only be sent to 1 target at a time and cannot be dispelled.\"",
-      "target_type": "party",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 20,
-          "cost": 39,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "buff_scope": "raid"
-    },
-    {
       "ability_id": "tinker_emergency_heal",
       "name": "Emergency Heal",
       "resource_type": "mana",
@@ -775,31 +713,6 @@
       "exclusive_group": "tinker_round"
     },
     {
-      "ability_id": "tinker_build_replenishment_beacon",
-      "name": "Build: Replenishment Beacon",
-      "resource_type": "mana",
-      "cooldown": 15,
-      "effect_type": "buff",
-      "duration": 3,
-      "stat_mods": {
-        "mp5": 30
-      },
-      "description": "Grants your party: Mp5 +30 for 3 turns.",
-      "_source": "Real screenshot: Requires Level 24. Invention leveling sequence.  DESCRIPTION REWRITTEN. The original was the CoA tooltip verbatim, which broke two of Kyle's standing rules at once: stat-sheet numbers in prose, and real-world units - seconds, minutes, yards, hours - in a TURN-BASED game, where none of them mean anything. Every number it quoted already lives in this entry's own data fields, so the prose was duplicating the mechanics and going stale against them. Original: \"Throw down a replenishment beacon for 15 sec which projects a force field restoring 5 Rage, Energy, Focus, Runic Power and 5% base mana every 2.50 sec to allies. 3 Charges, 15 sec recharge.\"",
-      "target_type": "party",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 24,
-          "cost": 30,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "exclusive_group": "tinker_beacon",
-      "buff_scope": "combat"
-    },
-    {
       "ability_id": "tinker_med_pack",
       "name": "Med Pack",
       "resource_type": "mana",
@@ -848,73 +761,6 @@
         "poison",
         "disease"
       ]
-    },
-    {
-      "ability_id": "tinker_round_armor_pen",
-      "name": "Armor-Piercing Rounds",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 60,
-      "stat_mods": {
-        "armor_penetration": 15
-      },
-      "description": "Load Armor-Piercing Rounds, increasing your Armor Penetration.",
-      "_source": "Kept from the previous session's real data - Kyle confirmed 'Armor piercing is [real]' when asked whether Armor-Piercing/Overcharged Rounds were real. Not in the leveling doc screenshots, real duration is ~1hr per Kyle, modeled as 60-turn buff per project convention. Same exclusive_group as the Augmentation family it's now unified with per Kyle's 'Rename the augmentation as rounds' direction.",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 6,
-          "cost": 20,
-          "effect_value": 100
-        },
-        {
-          "rank": 2,
-          "level_req": 12,
-          "cost": 24,
-          "effect_value": 121
-        },
-        {
-          "rank": 3,
-          "level_req": 18,
-          "cost": 28,
-          "effect_value": 141
-        },
-        {
-          "rank": 4,
-          "level_req": 24,
-          "cost": 32,
-          "effect_value": 162
-        },
-        {
-          "rank": 5,
-          "level_req": 30,
-          "cost": 37,
-          "effect_value": 183
-        },
-        {
-          "rank": 6,
-          "level_req": 38,
-          "cost": 42,
-          "effect_value": 210
-        },
-        {
-          "rank": 7,
-          "level_req": 46,
-          "cost": 48,
-          "effect_value": 238
-        },
-        {
-          "rank": 8,
-          "level_req": 54,
-          "cost": 53,
-          "effect_value": 266
-        }
-      ],
-      "icon_id": null,
-      "buff_scope": "raid",
-      "exclusive_group": "tinker_round"
     },
     {
       "ability_id": "tinker_stim_rounds",
@@ -1001,7 +847,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Fires a long range zap of electricity that heals an ally for 332. Scales with modifiers to Repair Shot.",
+      "description": "Fires a zap of electricity that heals an ally for 332. Scales with modifiers to Repair Shot.",
       "_source": "Real screenshot: Requires Level 38, Zap! (Rank 1) - real self-rank gate, Kyle-confirmed. Granted by an Invention talent node.",
       "requires_talent": true,
       "target_type": "ally",
@@ -1124,30 +970,6 @@
       "buff_scope": "raid"
     },
     {
-      "ability_id": "tinker_build_clockwork_assistant",
-      "name": "Build: Clockwork Assistant",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "summon_pet",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Summons a pet to fight for you.",
-      "_source": "Real screenshot: Requires Level 8. Mechanics leveling sequence (real pet summon, first of 4 real Tinker pets - Clockwork Assistant/Mechano-Bear/Rusthound/Battle Turret X-13).  ADDITIONAL PET: coexists with the caster's primary rather than replacing it. Character.active_pet was a single slot, so this class's summons could only ever overwrite each other. CoA Mechanics: 'Your permanent Scrapmaw, PLUS proc'd Clockwork Guardians, fights alongside you'. Explicitly simultaneous with the primary pet.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 8,
-          "cost": 20,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "summon_pet_template": "clockwork_assistant",
-      "target_type": "self",
-      "_implementation_note": "Was effect_type=\"summon\", which the ability engine never branches on - only \"summon_pet\", and only with a summon_pet_template. This ability spent its mana and summoned nothing. Fixed 2026-10-28 alongside the four new constructs in combat/pet_templates.py.",
-      "additional_pet": true
-    },
-    {
       "ability_id": "tinker_build_mechano_bear",
       "name": "Build: Mechano-Bear",
       "resource_type": "mana",
@@ -1254,7 +1076,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Launch a massive ball of fire at an enemy that also damages nearby enemies, dealing 91 Fire damage. Usable while moving. Shares a cooldown with other Mechsuit abilities.",
+      "description": "Launch a massive ball of fire at an enemy that also damages nearby enemies, dealing 91 Fire damage. Shares a cooldown with other Mechsuit abilities.",
       "_source": "Real screenshot: Requires Level 24, Mechsuit: Combustion (Rank 1) - real self-rank gate, Kyle-confirmed. Only usable during real Mechsuit Form (see requires_form). Granted by a Mechanics talent node. Fixed during DPS niche audit (Oct 2026): had is_aoe=true sitting dead next to a missing target_type - Ability.__init__ only ever reads target_type (DEFAULT_TARGET_TYPE maps effect_type='damage' with no target_type to plain 'enemy', single-target), is_aoe is never consumed anywhere in combat/abilities.py. Added target_type='enemy_aoe' so 'also damages nearby enemies' actually hits multiple targets (at the real AOE_DAMAGE_MULTIPLIER=0.6x per-hit penalty, same as every other AoE ability).",
       "requires_talent": true,
       "requires_form": [
@@ -1357,30 +1179,6 @@
       ],
       "icon_id": null,
       "buff_scope": "raid"
-    },
-    {
-      "ability_id": "tinker_strength_bionics",
-      "name": "Strength Bionics",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "debuff",
-      "duration": 10,
-      "stat_mods": {
-        "magic_damage_taken_pct": 75,
-        "healing_taken_pct": 80
-      },
-      "description": "Applies to an ally: Magic damage taken +75%, Healing Taken Pct +80% for 10 turns.",
-      "_source": "Real screenshot: Requires Level 56. Mechanics leveling sequence.  DESCRIPTION REWRITTEN - CoA tooltip verbatim, with stat numbers and real-world units in a turn-based game. Original: \"Amplifies magic used against the targeted party member, increasing damage taken from spells by up to 75 and healing spells by up to 80. Lasts 10 min.\"",
-      "target_type": "ally",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 56,
-          "cost": 46,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null
     },
     {
       "ability_id": "tinker_mechsuit_form",
