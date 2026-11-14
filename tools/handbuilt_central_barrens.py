@@ -639,10 +639,10 @@ def dress(L):
     P("br_hitching_trough", 143, 141, 3)
     P("br_caravan_wagon", 158, 140, 4)
     P("br_signpost", 146, 135, 5)
-    L.bld("palisade_gatehouse", 150, 143, 7, solid=False, road_ok=True)
+    L.bld("orc_great_gatehouse", 150, 143, 8, solid=False, road_ok=True)
     # Durotar landing
     P("br_crossroads_watchtower", 278, 24, 9)
-    L.bld("guard_post", 265, 37, 5)
+    L.bld("orc_guard_post", 265, 37, 6)
     P("br_caravan_wagon", 273, 40, 4)
     P("br_signpost", 263, 26, 5)
     P("br_agave_spike", 283, 33, 3)
@@ -765,9 +765,9 @@ def dress(L):
     _grove(L, [("br_green_oak", 8)] + TUFTS, 82, 86, 26, 18, 10, 7, gap=4.5, solid="core")
 
     # ---- Grol'dom Farm ----------------------------------------------------------
-    L.bld("generic_house_a", 79, 141, 6)
-    L.bld("generic_shack_a", 93, 140, 5)
-    L.bld("generic_shack_b", 90, 156, 4)
+    L.bld("plain_orc_house_b", 79, 141, 5)
+    L.bld("plain_orc_house_a", 93, 140, 4)
+    L.bld("orc_smokehouse", 90, 156, 5)
     P("br_hitching_trough", 84, 150, 3)
     P("br_caravan_wagon", 96, 149, 4)
     P("br_signpost", 74, 147, 5)

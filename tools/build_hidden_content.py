@@ -30,6 +30,7 @@ sys.path.insert(0, str(ROOT))
 
 from tools.build_durotar_content import make  # noqa: E402
 from tools.build_return_voyage_content import merge_json  # noqa: E402
+from world.zone_keys import zone_key  # noqa: E402
 
 DATA = ROOT / "data"
 
@@ -52,15 +53,48 @@ def whole(d):
     """Stats are whole numbers and bonus armour goes into the armour value (entities/item.whole_stats;
     Kyle, 10 Nov: "i asked you to remove these partial values from gear")."""
     from entities.item import whole_stats
-    prim, sec, armor = whole_stats(d.get("primary_stats"), d.get("secondary_stats"), d.get("armor_value", 0))
-    d["primary_stats"] = prim
-    if sec:
-        d["secondary_stats"] = sec
-    else:
-        d.pop("secondary_stats", None)
-    if armor or "armor_value" in d:
-        d["armor_value"] = armor
+    # Folding bonus armour into the armour value takes it out of the stat spend, so an epic is
+    # checked again afterwards and lifted until what is left still clears the floor.
+    for _ in range(4):
+        before = json.dumps(d, sort_keys=True)
+        _epic_floor(d)
+        prim, sec, armor = whole_stats(d.get("primary_stats"), d.get("secondary_stats"), d.get("armor_value", 0))
+        d["primary_stats"] = prim
+        if sec:
+            d["secondary_stats"] = sec
+        else:
+            d.pop("secondary_stats", None)
+        if armor or "armor_value" in d:
+            d["armor_value"] = armor
+        if json.dumps(d, sort_keys=True) == before:
+            break
     return d
+
+
+def _epic_floor(d, share=0.88):
+    """An epic out of a hidden zone never loses to a blue of its own level (tools/qa_epic_superiority:
+    Kyle, 7 Nov, "We need to ensure that epics are better than rares"). The hand-written lines
+    are lifted to at least `share` of the epic budget on every axis they have."""
+    if d.get("rarity") != "epic":
+        return
+    import math
+    sys.path.insert(0, str(ROOT / "tools"))
+    from audit_item_budgets import spend, budget_for
+    budget, armor, dmg = budget_for(d)
+    have = spend(d)
+    if budget and have and have < budget * share:
+        f = budget * share / have
+        for block in ("primary_stats", "secondary_stats"):
+            if d.get(block):
+                d[block] = {k: math.ceil(v * f) for k, v in d[block].items()}
+    if armor and d.get("armor_value", 0) < armor * share:
+        d["armor_value"] = math.ceil(armor * share)
+    if dmg and d.get("weapon_damage_max"):
+        avg = (d["weapon_damage_min"] + d["weapon_damage_max"]) / 2
+        if avg < dmg * share:
+            f = dmg * share / avg
+            d["weapon_damage_min"] = math.ceil(d["weapon_damage_min"] * f)
+            d["weapon_damage_max"] = math.ceil(d["weapon_damage_max"] * f)
 
 
 def kit(level, boss, abilities):
@@ -1653,14 +1687,43 @@ def write_node_pools():
         src = z.get(parent)
         if not src:
             continue
-        key = zone.lower().replace(" ", "_").replace("'", "")
+        key = zone_key(zone)
+        z.pop(zone.lower().replace(" ", "_").replace("'", ""), None)     # the old spelling
         pool = json.loads(json.dumps(src))
         pool["slots"] = int(round(pool.get("slots", 12) * 1.5))
         pool["active_percent"] = min(0.8, pool.get("active_percent", 0.45) + 0.25)
         if "fishing" in pool:
             pool["fishing"]["slots"] = int(round(pool["fishing"].get("slots", 4) * 1.5))
         z[key] = pool
+        _fit_fish(pool, zone)
     p.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    # A skull zone sits a level or two off its parent, so a copied table can hold a herb or ore
+    # that is too low to be worth picking there. The same retable every other zone goes through.
+    import subprocess
+    subprocess.run([sys.executable, str(ROOT / "tools/retable_gathering_nodes.py"), "--apply"], check=True)
+
+
+def _fit_fish(pool, zone):
+    """Fish a skull zone's levels can catch: (lo-15)*5 <= skill <= hi*5, nearest fish swapped in."""
+    fishing = pool.get("fishing")
+    if not fishing:
+        return
+    lo, hi = registry_levels(zone)
+    s_lo, s_hi = max(0, (lo - 15) * 5), hi * 5
+    mats = json.loads((DATA / "gathering/materials.json").read_text(encoding="utf-8"))["materials"]
+    fish = {k: v["skill_range"][0] for k, v in mats.items() if v.get("material_type") == "fish"}
+    fits = [f for f, sk in fish.items() if s_lo <= sk <= s_hi]
+    table = {}
+    for f, w in fishing["table"].items():
+        if f in fish and not (s_lo <= fish[f] <= s_hi) and fits:
+            f = min(fits, key=lambda g: abs(fish[g] - fish[f]))
+        table[f] = table.get(f, 0) + w
+    fishing["table"] = table
+
+
+def registry_levels(zone):
+    lv = json.loads((DATA / "zones/zone_levels.json").read_text(encoding="utf-8"))["zones"]
+    return tuple(lv[zone])
 
 
 def sprite_rules():

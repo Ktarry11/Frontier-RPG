@@ -49,6 +49,17 @@ ZONE_POOLS = {
     "weeping_ice": ("pool_ice_hole",),
     "thunder_ridge": ("pool_storm", "pool_bubbling"),
     "black_strand": ("pool_cave", "pool_glowing"),
+    # hidden open maps (data/world/hidden_zones.json)
+    "saltgrave": ("pool_brine", "pool_coast"),
+    "glasswaste": ("pool_oasis", "pool_bubbling"),
+    "weeping_pines": ("pool_moonlit", "pool_fresh"),
+    "tanglewood_shoals": ("pool_jungle", "pool_coast"),
+    "drowned_idols": ("pool_jungle", "pool_glowing"),
+    "buried_caravan": ("pool_oasis", "pool_brine"),
+    "sunken_kraal": ("pool_swamp", "pool_reeds"),
+    "moonless_glade": ("pool_moonlit", "pool_glowing"),
+    "stormcrag": ("pool_storm", "pool_river"),
+    "ashen_orchard": ("pool_plagued", "pool_bubbling"),
 }
 
 

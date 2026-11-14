@@ -475,7 +475,7 @@ def _dress(L):
     p("rf_ore_cart", 16, 98, 4)
     p("rf_tool_rack", 30, 90, 4)
     p("rf_supply_crates", 15, 87, 4)
-    b("weapon_rack_shelter", 46, 90, 8)
+    b("orc_armoury", 46, 90, 8)
     b("auction_house", 46, 117, 11)
     b("valley_bank", 22, 117, 11)
     p("vot_training_dummy", 16, 108, 4)

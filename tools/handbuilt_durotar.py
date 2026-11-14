@@ -498,8 +498,8 @@ def _dress_gate(L):
     p("vot_war_banner", 58, 28, 5)
     p("vot_war_banner", 72, 28, 5)
     p("vot_fire_pit", 60, 31, 3)
-    b("watchtower", 51, 29, 9)
-    b("watchtower", 79, 29, 9)
+    b("orc_watch_tower", 51, 29, 9)
+    b("orc_watch_tower", 79, 29, 9)
 
 
 def _dress_drygulch(L):
@@ -507,12 +507,12 @@ def _dress_drygulch(L):
     p("vot_trail_cairn", 91, 29, 3)
     p("bbc_rubble" if False else "den_rock_rubble", 99, 27, 2, solid=False)
     p("vot_totem_pole", 98, 29, 6)
-    b("guard_post", 88, 25, 4)
+    b("orc_guard_post", 88, 25, 4)
 
 
 def _dress_thunder(L):
     p, b = L.prop, L.bld
-    b("guard_post", 49, 49, 5)
+    b("orc_guard_post", 49, 49, 5)
     b("watchers_perch", 61, 53, 8)
     p("vot_mesa_pillar", 63, 62, 7)
     p("vot_mesa_pillar", 46, 62, 6)
@@ -525,7 +525,7 @@ def _dress_thunder(L):
 def _dress_highway(L):
     """The long road: a watchpost, a burnt caravan, a prospector's dig, cairns."""
     p, b = L.prop, L.bld
-    b("watchtower", 84, 47, 9)
+    b("orc_watch_tower", 84, 47, 9)
     p("vot_trail_cairn", 80, 51, 3)
     # prospector's dig by the east road
     b("generic_tent_b", 90, 58, 4)
@@ -578,7 +578,7 @@ def _dress_razor_hill(L):
     """Razor Hill crossing: palisade gate arched over the road, market, houses."""
     z = L.z
     p, b = L.prop, L.bld
-    z.add_landmark(f"{BLD}palisade_gatehouse.png", 60, 99, 11, 7, solid=False)
+    z.add_landmark(f"{BLD}orc_great_gatehouse.png", 61, 97, 9, 9, solid=False)
     L.row("vot_palisade", [54, 56], 104, 3)
     L.row("vot_palisade", [74, 76], 104, 3)
     b("watchers_perch", 52, 105, 8)
@@ -586,7 +586,7 @@ def _dress_razor_hill(L):
     b("plain_orc_house_a", 56, 98, 5)
     b("plain_orc_house_b", 74, 98, 5)
     b("well_house", 60, 112, 5)
-    b("supply_cache_shed", 76, 113, 5)
+    b("orc_supply_store", 76, 113, 6)
     p("vot_war_banner", 62, 109, 5)
     p("vot_war_banner", 68, 105, 5)
     p("vot_crate_stack", 72, 110, 3)
@@ -689,7 +689,7 @@ def _dress_river_and_barrens(L):
     # Barrens bridge: banners and a toll post at the east end
     p("vot_war_banner", 17, 83, 5)
     p("vot_war_banner", 17, 89, 5)
-    b("guard_post", 22, 82, 4)
+    b("orc_guard_post", 22, 82, 4)
     # the road to the Barrens
     p("vot_trail_cairn", 40, 96, 3)
     p("vot_dead_tree", 28, 90, 6)

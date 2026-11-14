@@ -419,7 +419,7 @@ def dress(L):
     P = L.prop
 
     # ---- Mor'shan Rampart: the palisade gate in the wall ----------------------------------------
-    L.bld("palisade_gatehouse", 150, 30, 8, solid=False, road_ok=True)
+    L.bld("orc_great_gatehouse", 150, 30, 9, solid=False, road_ok=True)
     L.bld("frontier_watchtower", 134, 30, 9)
     L.bld("frontier_watchtower", 166, 30, 9)
     L.dp("vot_palisade", 138, 32, 3, solid=True)
