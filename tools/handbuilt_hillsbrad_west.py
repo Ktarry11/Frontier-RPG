@@ -86,7 +86,9 @@ _RS = K.RoadSet(ROADS)
 road_dist = _RS.dist
 
 # Southshore's quay, laid over the south bay: (x0, x1, y0, y1)
-DECKS = [(88.0, 100.0, 137.0, 139.6)]
+# Southshore's dock runs OUT into the water to the moored ship. It was a strip along the beach above
+# the waterline, a plank lying on the sand (backlog [72]).
+DECKS = [(91.0, 94.6, 136.0, 146.6)]
 
 
 def paved(gx, gy):
@@ -255,7 +257,7 @@ def dress(L):
     p(RU + "ruin_tower_skulls.png", 46, 20, 9, solid=True, nudge=0)
     b("forsaken_house_small", 40, 26, 8, nudge=2)
     b("forsaken_house_small", 52, 26, 8, nudge=2)
-    b("command_war_tent", 46, 30, 8, nudge=2)
+    b("command_war_tent", 46, 30, 8, nudge=5)
     p("ek_forsaken_banner", 42, 21, 5)
     p("ek_forsaken_banner", 51, 21, 5)
     p("ek_farm_well", 46, 27, 4)
@@ -325,7 +327,9 @@ def dress(L):
     p("ek_signpost", 32, 90, 4)
 
     # ---- Southshore: the Alliance port. Hostile ground - no inn for you.
-    b("crossroads_inn", 90, 124, 10, nudge=2)
+    # A human village inn, not the Horde crossroads one this had (which was refused anyway: an
+    # NPC stands on its spot). Kyle, 14 Nov 2026: "do proper art in the proper towns."
+    b("ek_village_inn", 90, 124, 10, nudge=8)
     b("ek_cottage_medium", 102, 126, 9, nudge=2)
     b("ek_border_watchtower", 84, 132, 9, nudge=2)
     b("ek_boathouse", 100, 134, 7, nudge=2)

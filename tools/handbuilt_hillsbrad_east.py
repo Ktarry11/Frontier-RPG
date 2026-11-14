@@ -249,14 +249,14 @@ def dress(L):
     T.grove(L, 18, 76, 6, 6, 6, OAKS, seed=2)
 
     # ---- Tarren Mill: the Forsaken town, the only friendly ground in the zone
-    b("forsaken_town_hall", 62, 25, 10, nudge=2)
+    b("forsaken_town_hall", 62, 25, 10, nudge=6)
     b("forsaken_house_medium", 54, 30, 9, nudge=2)
     b("forsaken_house_small", 70, 27, 8, nudge=2)
     b("forsaken_house_small", 68, 36, 8, nudge=2)
     b("forsaken_house_small", 52, 38, 8, nudge=2)
     p("ek_forsaken_banner", 57, 26, 5)
     p("ek_forsaken_banner", 67, 32, 5)
-    p("ek_farm_well", 62, 34, 4)
+    p("ek_farm_well", 62, 34, 4, nudge=4)
     p("ek_plague_cauldron", 66, 24, 4)
     p("ek_plague_cart", 72, 32, 4)
     p("ek_signpost", 52, 28, 4)

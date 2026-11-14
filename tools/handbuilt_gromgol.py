@@ -266,8 +266,8 @@ def dress(L):
     for (x, y) in [(55, 24), (22, 49), (45, 49), (50, 10)]:
         L.prop("stv_boulder_mossy", x, y, 4, path_dir=SP)
     # the troll stonework the camp was pitched on top of
-    J("stv_troll_ziggurat_block", 31, 50, 8)
-    J("stv_troll_idol_head", 51, 17, 8)
+    J("stv_troll_ziggurat_block", 31, 50, 8, nudge=8)
+    J("stv_troll_idol_head", 51, 17, 8, nudge=5)
 
 
 def build_layout():

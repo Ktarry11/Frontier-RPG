@@ -191,7 +191,7 @@ def dress(L):
     p("ek_forsaken_banner", 84, 8, 5)
     b("forsaken_house_small", 68, 14, 8, nudge=2)                 # the barracks
     b("forsaken_house_medium", 92, 13, 9, nudge=2)                # the captain's hall
-    b("gallows_post", 62, 26, 7, nudge=2)
+    b("gallows_post", 62, 26, 7, nudge=4)
     p("ek_plague_cart", 90, 22, 4)
     p("ek_plague_cauldron", 74, 12, 3)                            # Apothecary Pell's pot
     p("ek_forsaken_banner", 78, 26, 5)

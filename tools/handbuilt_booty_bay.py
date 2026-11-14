@@ -289,7 +289,7 @@ def dress(L):
     D("rf_supply_crates", 37, 36, 3)
 
     # ---- the east walk: the working side, clear of all three pier junctions ----------------------
-    B("bb_warehouse", 41, 42, 8, nudge=2)
+    B("bb_warehouse", 41, 42, 8, nudge=5)
     B("gg_supply_store", 40, 31, 5, nudge=2)
     L.prop("stv_fish_rack", 39, 39, 4, path_dir=SP)
     L.prop("stv_fish_crates", 40, 29, 3, path_dir=SP)

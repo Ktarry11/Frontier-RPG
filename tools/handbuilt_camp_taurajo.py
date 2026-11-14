@@ -167,13 +167,14 @@ def dress(L):
     for k in range(6):
         a = math.radians(30 + 60 * k)
         P("br_tauren_tipi", int(round(32 + 17 * math.cos(a))), int(round(29 + 12 * math.sin(a))), 7, nudge=3)
-    # ---- west: tanner, carver, trader
-    B("hide_tanners_hut", 9, 30, 7)
-    B("generic_hut_a", 11, 22, 6)
-    B("generic_hut_b", 7, 37, 6)
+    # ---- west: tanner, carver, trader. Tauren buildings (Kyle, 14 Nov 2026: "do proper art in the
+    # proper towns"); these were the generic Valley of Trials huts.
+    B("tau_tannery", 9, 30, 7, nudge=2)
+    B("tau_carver_shop", 11, 22, 6, nudge=2)
+    B("tau_trading_post", 7, 37, 6, nudge=2)
     D("vot_hide_rack", 14, 33, 3)
     # ---- south-west: the spring - healer's tent, the totem-carver's yard
-    B("generic_tent_b", 24, 47, 5)
+    B("tau_herb_hut", 24, 47, 5, nudge=2)        # the healer
     P("br_tauren_totem", 15, 43, 7)
     D("vot_trail_cairn", 24, 41, 3)
     for (x, y) in [(9, 47)]:
@@ -185,7 +186,7 @@ def dress(L):
         D("vot_palisade", x, y, 3, solid=True, nudge=0)
     P("br_hitching_trough", 53, 30, 3)
     # ---- south-east: quartermaster, granary, the orc liaison
-    B("generic_tent_a", 38, 24, 5)
+    B("tau_storehouse", 38, 24, 5, nudge=2)      # the quartermaster
     B("taurajo_granary", 40, 50, 8)
     B("plain_orc_house_a", 46, 45, 5)
     D("vot_crate_stack", 36, 48, 3)

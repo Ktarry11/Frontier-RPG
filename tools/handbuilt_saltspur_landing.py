@@ -162,7 +162,7 @@ COBBLE = []
 NPC_POSITIONS = {
     "saltspur_scout":            (9, 27),    # Scout Vel Ashgrave, watching the bluff cut
     "saltspur_quartermaster":    (21, 16),   # Quartermaster Dreg, up at the stores
-    "saltspur_innkeeper":        (24, 31),   # Innkeeper Vara Dunn, at the one timber building
+    "saltspur_innkeeper":        (31, 22),   # Innkeeper Vara Dunn, at the mess hall door (moved 14 Nov 2026 with the hall)
     "saltspur_bosun":            (32, 28),   # Bosun Kaz Tidewright, at the landward end of the jetty  # moved off shallow water 7 Nov
     "saltspur_windrider_master": (33, 22),   # Wind Rider Keeper Ozra, on the rock above the yard
     "saltspur_shipwright":       (28, 43),   # Shipwright Oona Keelsplice, at the hauled-up hull
@@ -192,7 +192,10 @@ def dress(L):
     b("orc_watch_tower", 36, 32, 11)
 
     # ---- the landing yard: the one timber building, the stores under the tarp
-    b("orc_mess_hall", 24, 33, 11, nudge=2)            # the inn: a beachhead's inn is its mess
+    # The inn: a beachhead's inn is its mess. It never appeared (its spot was the road and the
+    # innkeeper); it stands now in the north yard on the rock above the jetty, the innkeeper at its
+    # door. The south ground belongs to the officers' house.
+    b("orc_mess_hall", 35, 20, 9, nudge=0)
     b("orc_supply_store", 20, 18, 10, nudge=2)
     b("orc_quartermaster_post", 25, 14, 9, nudge=2)
     p("ek_scarlet_crates", 26, 26, 4)
@@ -205,7 +208,9 @@ def dress(L):
     # SPRITE, so each one sat on a brown oval of its own that had nothing to do
     # with the ground under it. On shingle that reads as a bug. The orc set from
     # the 30-building sheet is the newer painterly family and has no baked ground.
-    b("orc_healer_house", 31, 37, 9, nudge=2)
+    # The healer's house has no room on this strand: its spot is the road and every free patch is
+    # taken by the mess hall or the officers' house. Left out (Kyle, 12 Nov: not every town needs
+    # every building).
     b("orc_officers_house", 23, 40, 9, nudge=2)
     # Pulled in off the bluff: at x=19 the strand is barely three tiles wide here
     # and the bluff planting grew straight through the roof.
@@ -217,8 +222,8 @@ def dress(L):
 
     # ---- the bluff cut
     b("orc_great_gatehouse", 6, 28, 12, solid=False, road_ok=True, nudge=0)
-    b("orc_watch_tower", 10, 20, 11)
-    b("orc_watch_tower", 10, 36, 11)
+    b("orc_watch_tower", 10, 20, 11, nudge=4)
+    b("orc_watch_tower", 10, 36, 11, nudge=4)
 
 
 def build_layout():

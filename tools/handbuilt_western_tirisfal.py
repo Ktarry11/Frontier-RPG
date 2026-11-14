@@ -186,7 +186,7 @@ def dress(L):
     p("ek_thorn_bush", 96, 91, 2, solid=False)
     # ---- Brill's west gate
     # (no orc palisade gatehouse in Tirisfal - world/exit_frames.py stands a lychgate over the road)
-    b("watchtower", 105, 80, 9, nudge=1)
+    b("watchtower", 105, 80, 9, nudge=4)
     p("ek_forsaken_banner", 109, 82, 5)
     p("ek_forsaken_banner", 109, 84, 5, nudge=1)
     p("ek_signpost", 106, 93, 4, nudge=1)

@@ -631,18 +631,18 @@ def dress(L):
         p(A("asp_red_drift"), x, y, 2, solid=False)
 
     # ---- beaver works on the benches ---------------------------------------------------------------------
-    p(A("asp_beaver_lodge"), 146, 42, 4)
+    p(A("asp_beaver_lodge"), 146, 42, 4, shore_ok=True)     # a lodge stands in the water
     p(A("asp_beaver_dam"), 141, 47, 3)
     p(A("asp_beaver_dam"), 152, 36, 3)
-    p(A("asp_beaver_lodge"), 60, 106, 4)
+    p(A("asp_beaver_lodge"), 60, 106, 4, shore_ok=True)
     p(A("asp_beaver_dam"), 55, 110, 3)
 
     # ---- the tauren push south: a working camp, not a settlement ----------------------------------------
-    p(A("tau_hide_tent_small"), 88, 70, 5)
-    p(A("tau_hide_tent_small"), 96, 72, 5)
+    p(A("tau_hide_tent_small"), 88, 70, 5, nudge=4)
+    p(A("tau_hide_tent_small"), 96, 72, 5, nudge=4)
     p(A("tau_cook_fire"), 92, 74, 3)
     p(A("tau_timber_stack"), 84, 76, 3)
-    p(A("tau_drying_rack"), 100, 76, 4)
+    p(A("tau_drying_rack"), 100, 76, 4, nudge=4)
     p(A("tau_totem_carved"), 92, 66, 6)
     p(A("tau_hitching_post"), 82, 70, 3)
 
