@@ -527,7 +527,7 @@ class QuestDialogScreen(BaseScreen):
             self.result_message = f"Your hearthstone is now bound to {zone.name}."
         elif action == "jeweller":
             screen = sm.states.get(GameState.SOCKETING)
-            screen.open("remove", return_state=GameState.OVERWORLD)
+            screen.start("remove", return_state=GameState.OVERWORLD)
             sm.transition_to(GameState.SOCKETING)
         elif action in ("flight", "riding", "mounts", "train_class", "train_prof", "set_exchange"):
             screen = sm.states.get(GameState.TRAVEL)

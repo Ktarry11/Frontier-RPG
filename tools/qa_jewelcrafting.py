@@ -235,7 +235,7 @@ def main():
             gsm.get_party = lambda: party
             ss = gsm.states[GameState.SOCKETING]
             for mode in ("socket", "remove"):
-                ss.open(mode)
+                ss.start(mode)
                 ss.selected_item = helm
                 ss.render(screen)
             check(ss.socket_rects, "the socket screen shows no sockets")

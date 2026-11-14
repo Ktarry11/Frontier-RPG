@@ -440,7 +440,7 @@ class InventoryScreen(BaseScreen):
             if self.sockets_button.collidepoint(mouse_pos):
                 screen_ = self.state_manager.states.get(GameState.SOCKETING)
                 if screen_ is not None:
-                    screen_.open("socket", return_state=GameState.INVENTORY)
+                    screen_.start("socket", return_state=GameState.INVENTORY)
                     self.state_manager.transition_to(GameState.SOCKETING)
                 return
 

@@ -36,7 +36,7 @@ class SocketScreen(BaseScreen):
         self.item_rects, self.socket_rects, self.gem_rects = [], [], []
         self.scroll = 0
 
-    def open(self, mode="socket", return_state=None):
+    def start(self, mode="socket", return_state=None):
         self.mode = mode
         self.return_state = return_state or (GameState.INVENTORY if mode == "socket" else GameState.OVERWORLD)
         self.selected_item = self.selected_gem = self.armed_socket = None
