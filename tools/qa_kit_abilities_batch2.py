@@ -220,6 +220,21 @@ def main():
             out.append(victim.take_damage(amount, school, attacker_level=60, attacker=attacker) or 0)
         return out
 
+    def landed(victim, attacker, n, school="physical", amount=1000):
+        """Like hits(), but a clean miss (0) is swung again, up to a few times, so a check about
+        how much a hit does isn't decided by where the random sequence happens to be."""
+        out = []
+        for _ in range(n):
+            got = 0
+            for _try in range(8):
+                victim.dodge = victim.parry = victim.block_chance = 0.0
+                victim.current_health = victim.health
+                got = victim.take_damage(amount, school, attacker_level=60, attacker=attacker) or 0
+                if got:
+                    break
+            out.append(got)
+        return out
+
     # Hana - Read the Break: the FIRST hit on each ally is 40% lighter, the second is not
     c, ab = kit("Hana Tamihana", "Read the Break")
     if ab:
@@ -230,7 +245,7 @@ def main():
         ok, msg = ab.use(c, [c, ally], party=party, free=True)
         check(ok and ally.get_status_stat_mod("next_hit_taken_pct") == -40 and c.get_status_stat_mod("next_hit_taken_pct") == -40,
               f"Read the Break did not cover the whole party ({msg})")
-        first, second = hits(ally, mob(), 2)
+        first, second = landed(ally, mob(), 2)
         check(base and abs(first / base - 0.6) < 0.03, f"Read the Break: the first hit was {first / max(1, base):.2f}x a normal one, want 0.60x")
         check(abs(second - base) <= 2, f"Read the Break: the second hit was {second}, a normal hit is {base} - it should not be reduced")
 

@@ -274,10 +274,12 @@ def _grant_rarity_stats(item, new_rarity):
         from entities.loot_generator import LootGenerator
         gen = LootGenerator()
         template = item.stat_template or "str_physical"
-        if item.weapon_type:
-            ref = gen.generate_weapon(item.slot, item.weapon_type, template, item.item_level, new_rarity)
-        else:
-            ref = gen.generate_armor_piece(item.slot, item.armor_type, template, item.item_level, new_rarity)
+        from world.jewelcrafting import no_sockets
+        with no_sockets():      # the stats are copied, so no socket may have taken its cut
+            if item.weapon_type:
+                ref = gen.generate_weapon(item.slot, item.weapon_type, template, item.item_level, new_rarity)
+            else:
+                ref = gen.generate_armor_piece(item.slot, item.armor_type, template, item.item_level, new_rarity)
     except Exception:
         return
     item.primary_stats = dict(ref.primary_stats)

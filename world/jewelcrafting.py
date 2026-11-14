@@ -158,11 +158,25 @@ def socket_stats(item):
     return out
 
 
+_SUPPRESSED = [0]
+
+
+class no_sockets:
+    """with no_sockets(): ... generates gear without sockets - for a reference item whose stats
+    get copied somewhere else (world/upgrade_manager.py), where a socket's cost would come
+    across without the socket."""
+    def __enter__(self):
+        _SUPPRESSED[0] += 1
+
+    def __exit__(self, *exc):
+        _SUPPRESSED[0] -= 1
+
+
 def roll_sockets(item, total_budget, rng=random):
     """Give a freshly generated item its sockets, paid for out of its own stats. Called by
     LootGenerator for every armour piece and weapon; does nothing below level 30, on white or
     grey gear, or on slots that never have sockets."""
-    if getattr(item, "required_level", 1) < SOCKET_LEVEL or item.slot in NO_SOCKETS:
+    if _SUPPRESSED[0] or getattr(item, "required_level", 1) < SOCKET_LEVEL or item.slot in NO_SOCKETS:
         return item
     roll = SOCKET_ROLLS.get(item.rarity)
     if not roll or total_budget <= 0:
