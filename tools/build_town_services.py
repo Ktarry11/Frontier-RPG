@@ -39,7 +39,7 @@ from world.zone_keys import zone_key as _zk  # noqa: E402
 #: npc zone key -> the zone's display name. These are the TOWNS; wilderness zones are deliberately out.
 TOWNS = {
     "orgrimmar": "Orgrimmar", "razor_hill": "Razor Hill", "crossroads": "Crossroads",
-    "camp_taurajo": "Camp Taurajo", "ratchet": "Ratchet", "southern_barrens": "Southern Barrens",
+    "camp_taurajo": "Camp Taurajo", "ratchet": "Ratchet",
     "splintertree_post": "Splintertree Post", "astranaar": "Astranaar", "zoram_strand": "Zoram Strand",
     "freewind_post": "Freewind Post", "undercity": "Undercity", "brill": "Brill",
     "sepulcher": "The Sepulcher", "tarren_mill": "Tarren Mill", "kaels_bastion": "Kael's Bastion",

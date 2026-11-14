@@ -23,8 +23,6 @@ EK_NODES = {
     "brill": {"name": "Brill", "zone": "Brill", "master": "brill_flight_master", "pos": [10, -32]},
     "sepulcher": {"name": "The Sepulcher", "zone": "The Sepulcher", "master": "sepulcher_flight_master",
                   "pos": [-24, 26]},
-    "silverpine_south": {"name": "Silverpine South (Forsaken Rearguard)", "zone": "Silverpine South",
-                         "master": "sp_south_flight_master", "pos": [-30, 58]},
 }
 
 # npc_id -> (name, zone slug, x, y, variant, gender, facing, greeting)
@@ -35,15 +33,12 @@ BAT_HANDLERS = {
                             "Fed, saddled and only mildly hungry for you. Name your destination."),
     "sepulcher_flight_master": ("Bat Handler Odo", "sepulcher", 38, 58, 12, "male", "down",
                                 "Fly the Rearguard's route and you'll never see the Dalaran wall from the ground. Where to?"),
-    "sp_south_flight_master": ("Bat Handler Veshka", "silverpine_south", 72, 49, 6, "female", "right",
-                               "Forest roads are for the careless. Hold the straps and pick a roost."),
 }
 
 SERVICES = {
     "uc_flight_master": ["flight"],
     "brill_flight_master": ["flight"],
     "sepulcher_flight_master": ["flight"],
-    "sp_south_flight_master": ["flight"],
     "brill_innkeeper": ["inn"],
     "sepulcher_innkeeper": ["inn"],
 }

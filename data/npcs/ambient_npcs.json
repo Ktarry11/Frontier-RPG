@@ -2584,30 +2584,6 @@
       "facing": "down"
     },
     {
-      "npc_id": "sb_innkeeper",
-      "name": "Innkeeper Doda Longhorn",
-      "zone": "southern_barrens",
-      "x": 140,
-      "y": 112,
-      "greeting": "The Waystation's cots are narrow and the soup is mostly soup. Bind here?",
-      "gender": "female",
-      "race": "tauren",
-      "appearance_variant": 13,
-      "facing": "down"
-    },
-    {
-      "npc_id": "sb_flight_master",
-      "name": "Windrider Master Orga",
-      "zone": "southern_barrens",
-      "x": 139,
-      "y": 114,
-      "greeting": "The canyon's too wide to walk and too wide to jump. Fly with me.",
-      "gender": "male",
-      "race": "orc",
-      "appearance_variant": 12,
-      "facing": "down"
-    },
-    {
       "npc_id": "zoram_boatwright",
       "name": "Boatwright Illyen",
       "zone": "zoram_strand",
@@ -3764,18 +3740,6 @@
       "race": "forsaken",
       "appearance_variant": 12,
       "facing": "down"
-    },
-    {
-      "npc_id": "sp_south_flight_master",
-      "name": "Bat Handler Veshka",
-      "zone": "silverpine_south",
-      "x": 72,
-      "y": 49,
-      "greeting": "Forest roads are for the careless. Hold the straps and pick a roost.",
-      "gender": "female",
-      "race": "forsaken",
-      "appearance_variant": 6,
-      "facing": "right"
     },
     {
       "npc_id": "tarren_mill_gate_guard",
@@ -6086,19 +6050,6 @@
       "trains_class": "*"
     },
     {
-      "npc_id": "ct_sbarrens",
-      "name": "Trainer Sunwalker",
-      "zone": "southern_barrens",
-      "x": 144,
-      "y": 110,
-      "greeting": "I have taught every one of the disciplines at one time or another, and I am not precious about which you picked. Show me where you are and bring gold.",
-      "gender": "male",
-      "race": "tauren",
-      "appearance_variant": 0,
-      "facing": "down",
-      "trains_class": "*"
-    },
-    {
       "npc_id": "ct_splintertree",
       "name": "Trainer Bruga",
       "zone": "splintertree_post",
@@ -6186,19 +6137,6 @@
       "gender": "male",
       "race": "forsaken",
       "appearance_variant": 10,
-      "facing": "down",
-      "trains_class": "*"
-    },
-    {
-      "npc_id": "ct_spsouth",
-      "name": "Trainer Osric",
-      "zone": "silverpine_south",
-      "x": 75,
-      "y": 48,
-      "greeting": "I have taught every one of the disciplines at one time or another, and I am not precious about which you picked. Show me where you are and bring gold.",
-      "gender": "female",
-      "race": "forsaken",
-      "appearance_variant": 3,
       "facing": "down",
       "trains_class": "*"
     },
@@ -6723,88 +6661,6 @@
       "gender": "female",
       "race": "goblin",
       "appearance_variant": 19,
-      "facing": "down",
-      "trains_profession": [
-        "engineering"
-      ]
-    },
-    {
-      "npc_id": "pt_sbarrens_forge",
-      "name": "Forge Kaga",
-      "zone": "southern_barrens",
-      "x": 166,
-      "y": 117,
-      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
-      "gender": "male",
-      "race": "tauren",
-      "appearance_variant": 8,
-      "facing": "down",
-      "trains_profession": [
-        "mining",
-        "blacksmithing",
-        "jewelcrafting"
-      ]
-    },
-    {
-      "npc_id": "pt_sbarrens_herbs",
-      "name": "Apothecary Greyhoof",
-      "zone": "southern_barrens",
-      "x": 130,
-      "y": 116,
-      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
-      "gender": "female",
-      "race": "tauren",
-      "appearance_variant": 11,
-      "facing": "down",
-      "trains_profession": [
-        "herbalism",
-        "alchemy"
-      ]
-    },
-    {
-      "npc_id": "pt_sbarrens_wood",
-      "name": "Woodwright Bloodhoof",
-      "zone": "southern_barrens",
-      "x": 173,
-      "y": 105,
-      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
-      "gender": "male",
-      "race": "tauren",
-      "appearance_variant": 14,
-      "facing": "down",
-      "trains_profession": [
-        "woodcutting",
-        "woodworking"
-      ]
-    },
-    {
-      "npc_id": "pt_sbarrens_hide",
-      "name": "Tanner Moonfeather",
-      "zone": "southern_barrens",
-      "x": 135,
-      "y": 117,
-      "greeting": "Hide, leather, cloth and the meat off the same carcass - it all comes across my bench. Pay once and I will teach you the lot of it, cooking included, because a skinner who throws the meat away is a skinner who goes hungry holding a full pack.",
-      "gender": "female",
-      "race": "tauren",
-      "appearance_variant": 17,
-      "facing": "down",
-      "trains_profession": [
-        "skinning",
-        "leatherworking",
-        "tailoring",
-        "cooking"
-      ]
-    },
-    {
-      "npc_id": "pt_sbarrens_essence",
-      "name": "Tinker Nara",
-      "zone": "southern_barrens",
-      "x": 156,
-      "y": 109,
-      "greeting": "Metal, a crystal out of a vein, and a steady hand. Bring me the first two and I will see about the third.",
-      "gender": "male",
-      "race": "tauren",
-      "appearance_variant": 0,
       "facing": "down",
       "trains_profession": [
         "engineering"
@@ -7342,88 +7198,6 @@
       "gender": "male",
       "race": "forsaken",
       "appearance_variant": 14,
-      "facing": "down",
-      "trains_profession": [
-        "engineering"
-      ]
-    },
-    {
-      "npc_id": "pt_spsouth_forge",
-      "name": "Forge Verity",
-      "zone": "silverpine_south",
-      "x": 86,
-      "y": 51,
-      "greeting": "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to dig if you cannot do anything with it.",
-      "gender": "female",
-      "race": "forsaken",
-      "appearance_variant": 7,
-      "facing": "down",
-      "trains_profession": [
-        "mining",
-        "blacksmithing",
-        "jewelcrafting"
-      ]
-    },
-    {
-      "npc_id": "pt_spsouth_herbs",
-      "name": "Apothecary Harken",
-      "zone": "silverpine_south",
-      "x": 88,
-      "y": 45,
-      "greeting": "Every weed is a medicine to someone. I will show you which to pull and what to do with it after, and the second part is where people go wrong.",
-      "gender": "male",
-      "race": "forsaken",
-      "appearance_variant": 10,
-      "facing": "down",
-      "trains_profession": [
-        "herbalism",
-        "alchemy"
-      ]
-    },
-    {
-      "npc_id": "pt_spsouth_wood",
-      "name": "Woodwright Lenore",
-      "zone": "silverpine_south",
-      "x": 88,
-      "y": 51,
-      "greeting": "Fell it, saw it, make something of it. A plank is just a bow that has not happened yet.",
-      "gender": "female",
-      "race": "forsaken",
-      "appearance_variant": 13,
-      "facing": "down",
-      "trains_profession": [
-        "woodcutting",
-        "woodworking"
-      ]
-    },
-    {
-      "npc_id": "pt_spsouth_hide",
-      "name": "Tanner Rothgar",
-      "zone": "silverpine_south",
-      "x": 98,
-      "y": 41,
-      "greeting": "Hide, leather, cloth and the meat off the same carcass - it all comes across my bench. Pay once and I will teach you the lot of it, cooking included, because a skinner who throws the meat away is a skinner who goes hungry holding a full pack.",
-      "gender": "male",
-      "race": "forsaken",
-      "appearance_variant": 0,
-      "facing": "down",
-      "trains_profession": [
-        "skinning",
-        "leatherworking",
-        "tailoring",
-        "cooking"
-      ]
-    },
-    {
-      "npc_id": "pt_spsouth_essence",
-      "name": "Tinker Ysolde",
-      "zone": "silverpine_south",
-      "x": 69,
-      "y": 38,
-      "greeting": "Metal, a crystal out of a vein, and a steady hand. Bring me the first two and I will see about the third.",
-      "gender": "female",
-      "race": "forsaken",
-      "appearance_variant": 3,
       "facing": "down",
       "trains_profession": [
         "engineering"

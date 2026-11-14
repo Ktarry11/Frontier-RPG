@@ -44,7 +44,6 @@ TOWNS = {
     "Crossroads": ("crossroads", "crossroads_innkeeper"),
     "Camp Taurajo": ("taurajo", "taurajo_innkeeper"),
     "Ratchet": ("ratchet", "ratchet_tavern_keeper"),
-    "Southern Barrens": ("sbarrens", "sb_innkeeper"),
     "Splintertree Post": ("splintertree", "splintertree_innkeeper"),
     "Astranaar": ("astranaar", "astranaar_innkeeper"),
     "Zoram Strand": ("zoram", None),
@@ -52,7 +51,6 @@ TOWNS = {
     "Brill": ("brill", "brill_innkeeper"),
     "The Sepulcher": ("sepulcher", "sepulcher_innkeeper"),
     "Undercity": ("uc", "uc_innkeeper"),
-    "Silverpine South": ("spsouth", "sp_south_flight_master"),
     # The tauren capital-in-exile. A capital gets its trainers from the same pipeline as
     # everywhere else - it would be strange for the biggest tauren settlement in the world to
     # be the one place you cannot learn anything.
