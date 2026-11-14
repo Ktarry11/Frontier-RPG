@@ -389,7 +389,7 @@ ZONES["The Saltgrave"] = dict(
         "The Landing Bar": {"Saltgrave Crab": 3, "Gravegull": 2},
         "The West Barrow": {"Brine-Wight": 3, "Barrow Lantern": 2, "Gravegull": 1},
         "The East Barrow": {"Brine-Wight": 2, "Drowned Barrow-Thane": 2, "Barrow Lantern": 1},
-        "The Middle Bar": {"Saltgrave Crab": 2, "Gravegull": 2, "Brine-Wight": 1},
+        "The Middle Bar": {"Saltgrave Crab": 2, "Gravegull": 2, "Brine-Wight": 1, "Gullmother Shrike": 0},
         "The King's Barrow": {"Drowned Barrow-Thane": 3, "Brine-Wight": 2, "Barrow Lantern": 2, "The Brine King": 0}}),
     weights={},
     loot={
@@ -429,7 +429,7 @@ ZONES["The Glasswaste"] = dict(
             ("Spit Glass", "damage", 1.8, 4, "physical", {})]),
     },
     encounters=_skull_table("The Glasswaste", {"Ash Hyena": 3, "Glasswing Wasp": 2}, {
-        "The Scorched Mouth": {"Ash Hyena": 3, "Glasswing Wasp": 2},
+        "The Scorched Mouth": {"Ash Hyena": 3, "Glasswing Wasp": 2, "Cindermaw": 0},
         "The Shard Fields": {"Glassback Basilisk": 3, "Glasswing Wasp": 2, "Ash Hyena": 1},
         "The Kiln Rise": {"Kiln-Walker": 3, "Glassback Basilisk": 1, "Glasswing Wasp": 1},
         "Blister's Hollow": {"Glassback Basilisk": 2, "Kiln-Walker": 2, "Old Blister": 0}}),
@@ -476,7 +476,7 @@ ZONES["The Weeping Pines"] = dict(
         "The Hanging Wood": {"Gloom Spider": 3, "Rotbark Treant": 2},
         "The Weeping Mere": {"Mere Wraith": 3, "Weeping Worgen": 2, "The Widow of the Mere": 0},
         "The Stillwater Shrine": {"Mere Wraith": 2, "Weeping Worgen": 2},
-        "The Drowned Copse": {"Rotbark Treant": 3, "Mere Wraith": 1}}),
+        "The Drowned Copse": {"Rotbark Treant": 3, "Mere Wraith": 1, "Old Hollowbark": 0}}),
     weights={},
     loot={
         "The Widow of the Mere": [
@@ -490,6 +490,277 @@ ZONES["The Weeping Pines"] = dict(
 )
 
 
+# ================================================================ THE TANGLEWOOD AND ITS ROOT
+ZONES["The Tanglewood Shoals"] = dict(
+    kind="skull", parent="Echo Isles", levels=(14, 17),
+    creatures={
+        "Mangrove Snapper": ("beast_large", 15, False, "crocolisk", [
+            ("Snap", "damage", 1.0, 0, "physical", {}),
+            ("Death Roll", "damage", 1.5, 3, "physical", {}),
+            ("Thick Scales", "buff", 0, 5, "physical", SELF(3, armor=40))]),
+        "Shoal Stalker": ("beast_fast", 15, False, "panther", [
+            ("Rake", "damage", 1.0, 0, "physical", {}),
+            ("Pounce", "damage", 1.4, 3, "physical", {}),
+            ("Bleeding Claws", "dot", 0.3, 3, "physical", D(3))]),
+        "Tangle Lurker": ("beast_basic", 16, False, "vine_strangler", [
+            ("Lash", "damage", 1.0, 0, "physical", {}),
+            ("Root Snare", "debuff", 0, 4, "physical", MODS(3, agility=-10)),
+            ("Sap Burn", "dot", 0.35, 3, "magic", D(3))]),
+        "Rootbound Guardian": ("beast_large", 16, False, "treant", [
+            ("Branch Slam", "damage", 1.05, 0, "physical", {}),
+            ("Bark Up", "buff", 0, 5, "physical", SELF(3, armor=45)),
+            ("Spore Puff", "debuff", 0, 4, "magic", MODS(3, intellect=-8))]),
+        "Glimmerwing Darter": ("vermin_swarm", 14, False, "sprite_darter", [
+            ("Glimmer Bolt", "damage", 0.9, 0, "magic", {}),
+            ("Dazzle", "debuff", 0, 4, "magic", MODS(3, agility=-8, intellect=-6))]),
+        "Grandfather Mangrove": ("beast_large", 17, True, "treant", [
+            ("Old Wood", "damage", 1.0, 0, "physical", {}),
+            ("Drown the Roots", "dot", 0.5, 3, "magic", D(4)),
+            ("Strangling Vines", "debuff", 0, 4, "physical", MODS(3, agility=-18, armor=-30)),
+            ("Ironbark", "buff", 0, 5, "physical", SELF(3, armor=70)),
+            ("Fall of a Great Bough", "damage", 1.9, 4, "physical", {})]),
+        "Old Snag-Jaw": ("beast_large", 16, True, "crocolisk", [
+            ("Snag", "damage", 1.0, 0, "physical", {}),
+            ("Pull Under", "debuff", 0, 4, "physical", MODS(3, agility=-14)),
+            ("Gnash", "dot", 0.45, 3, "physical", D(3)),
+            ("Lunge", "damage", 1.7, 4, "physical", {})]),
+    },
+    encounters=_skull_table("The Tanglewood Shoals", {"Mangrove Snapper": 2, "Glimmerwing Darter": 2}, {
+        "The Mangrove Landing": {"Mangrove Snapper": 3, "Glimmerwing Darter": 2, "Old Snag-Jaw": 0},
+        "The Rootward Isle": {"Rootbound Guardian": 3, "Tangle Lurker": 2, "Shoal Stalker": 1, "Grandfather Mangrove": 0},
+        "The West Tangle": {"Tangle Lurker": 3, "Shoal Stalker": 2},
+        "The East Tangle": {"Shoal Stalker": 3, "Glimmerwing Darter": 2},
+        "The Northern Shoals": {"Mangrove Snapper": 2, "Rootbound Guardian": 2, "Glimmerwing Darter": 1}}),
+    weights={},
+    loot={
+        "Grandfather Mangrove": [
+            ("Mangrove-Heart Staff", "main_hand", "of the Prophet", "A living branch. It still puts out leaves in spring.", None, "staff"),
+            ("Barkweave Jerkin", "chest", "of the Monkey", "Grown, not stitched.", "leather", None),
+            ("Shoalwalker Boots", "feet", "of the Bear", "They grip wet roots like they were made for it.", "mail", None),
+            ("Seed of the Old Wood", "neck", "of the Owl", "It's warm, and it's growing. Slowly.", None, None),
+        ],
+        "Old Snag-Jaw": [
+            ("Snag-Tooth Dagger", "main_hand", "of the Tiger", "One of his teeth. He has plenty more.", None, "dagger"),
+            ("Crocscale Bracers", "wrist", "of the Champion", "Tough enough to turn a bite.", "mail", None),
+            ("Swamp-Lurker's Cord", "waist", "of the Eagle", "Smells of the shallows forever.", "cloth", None),
+        ],
+    },
+)
+
+ZONES["The World-Root Hollow"] = dict(
+    kind="frontier", frontier_type="deep", parent="The Tanglewood Shoals", region="The Tanglewood Shoals",
+    levels=(18, 20),
+    creatures={
+        "Hollow Rootling": ("beast_basic", 18, False, "sapling_thorn", [
+            ("Thorn Jab", "damage", 1.0, 0, "physical", {}),
+            ("Sap Spit", "dot", 0.35, 3, "magic", D(3)),
+            ("Root Down", "buff", 0, 5, "physical", SELF(3, armor=40))]),
+        "Sapdrunk Bat": ("beast_fast", 18, False, "bat", [
+            ("Bite", "damage", 0.95, 0, "physical", {}),
+            ("Amber Shriek", "debuff", 0, 4, "magic", MODS(3, intellect=-10, agility=-8)),
+            ("Drain", "heal", 1.2, 4, "physical", {})]),
+        "Heartwood Spider": ("beast_fast", 19, False, "spider", [
+            ("Fang", "damage", 1.0, 0, "physical", {}),
+            ("Amber Web", "debuff", 0, 4, "physical", MODS(3, agility=-16)),
+            ("Sapvenom", "dot", 0.4, 3, "magic", D(3))]),
+        "Lost Rootspeaker": ("humanoid_caster", 19, False, "troll_witchdoctor", [
+            ("Root-Hex", "damage", 1.0, 0, "magic", {}),
+            ("The Tree Answers", "heal", 1.5, 4, "magic", {}),
+            ("Thorn Ward", "buff", 0, 5, "magic", SELF(3, armor=40, magic_resistance=30)),
+            ("Grasping Roots", "debuff", 0, 4, "magic", MODS(3, agility=-14))]),
+        "Gnarl the Unburied": ("beast_large", 19, True, "treant", [
+            ("Gnarled Fist", "damage", 1.0, 0, "physical", {}),
+            ("Unburied", "heal", 1.8, 5, "physical", {}),
+            ("Splinter Storm", "dot", 0.45, 3, "physical", D(3)),
+            ("Bark Shell", "buff", 0, 5, "physical", SELF(3, armor=60))]),
+        "Amberheart, the Sap-Mother": ("elemental_caster", 20, True, "elemental_earth", [
+            ("Amber Lance", "damage", 1.0, 0, "magic", {}),
+            ("Entomb in Amber", "debuff", 0, 4, "magic", MODS(3, agility=-25, armor=-40)),
+            ("Sapflood", "dot", 0.5, 3, "magic", D(4)),
+            ("Harden", "buff", 0, 5, "magic", SELF(3, armor=70, magic_resistance=50)),
+            ("Mother's Tears", "heal", 2.0, 5, "magic", {}),
+            ("Burst of Sap", "damage", 1.9, 4, "magic", {})]),
+        "The Root-Father": ("beast_large", 21, True, "treant", [
+            ("Root of the World", "damage", 1.0, 0, "physical", {}),
+            ("The Tree Wakes", "buff", 0, 5, "physical", SELF(3, attack_power=40, armor=80)),
+            ("Crushing Roots", "damage", 2.1, 4, "physical", {}),
+            ("Strangle", "dot", 0.55, 3, "physical", D(4)),
+            ("Old as the Isles", "debuff", 0, 4, "magic", MODS(3, attack_power=-30, intellect=-25, agility=-20)),
+            ("Drink the Deep Water", "heal", 2.2, 6, "magic", {})]),
+    },
+    weights={"Hollow Rootling": 3, "Sapdrunk Bat": 2, "Heartwood Spider": 2, "Lost Rootspeaker": 2},
+    loot={
+        "Gnarl the Unburied": [
+            ("Gnarlwood Bludgeon", "main_hand", "of the Bear", "Pulled out of him. He didn't miss it.", None, "mace_2h", "epic"),
+            ("Unburied Mantle", "shoulder", "of the Wolf", "Moss grows on it even in a bag.", "leather", None),
+            ("Rootknot Ring", "ring", "of the Physician", "A ring of living root. It tightens when you're hurt.", None, None),
+        ],
+        "Amberheart, the Sap-Mother": [
+            ("Tear of the Sap-Mother", "neck", "of the Invoker", "A drop of amber with a flower in it that hasn't grown anywhere for ten thousand years.", None, None, "epic"),
+            ("Amber-Sealed Aegis", "off_hand", None, "A shield with a beetle in it the size of your hand. It's still alive.", None, "shield", "epic"),
+            ("Sapweave Robes", "chest", "of the Sorcerer", "Sticky. Worth it.", "cloth", None),
+            ("Amberplate Greaves", "legs", "of the Champion", "Plate set in amber, and the amber doesn't crack.", "plate", None),
+            ("Heartwood Grips", "hands", "of the Assassin", "Carved from the inside of the tree.", "leather", None),
+        ],
+        "The Root-Father": [
+            ("World-Root", "main_hand", "of the Invoker", "A staff cut from the root of the oldest tree in the world. It cut back.", None, "staff", "epic"),
+            ("Root-Father's Reach", "main_hand", "of the Vanquisher", "A spear of root as hard as iron and twice as patient.", None, "polearm", "epic"),
+            ("Bark of the First Tree", "chest", "of the Defender", "Armour that grows back.", "plate", None, "epic"),
+            ("Crown of Living Wood", "head", "of the Prophet", "Small white flowers open on it at dawn.", "cloth", None),
+            ("Treewalker's Hauberk", "chest", "of the Hunt", "Rings of bark, linked like mail.", "mail", None),
+            ("Hollow-Stalker Leggings", "legs", "of the Monkey", "You don't make a sound in them.", "leather", None),
+        ],
+    },
+)
+
+ZONES["The Drowned Idols"] = dict(
+    kind="skull", parent="Northern Stranglethorn", levels=(33, 36),
+    creatures={
+        "Idol-Drowned Troll": ("undead_warrior", 34, False, "zombie", [
+            ("Waterlogged Axe", "damage", 1.0, 0, "physical", {}),
+            ("Dead God's Hymn", "buff", 0, 5, "magic", SELF(3, attack_power=30)),
+            ("Silt in the Lungs", "dot", 0.35, 3, "physical", D(3))]),
+        "Drowned Hexer": ("undead_caster", 35, False, "troll_witchdoctor", [
+            ("Hex of the Deep", "damage", 1.0, 0, "magic", {}),
+            ("Curse of the Old Gods", "debuff", 0, 4, "magic", MODS(3, magic_resistance=-25, intellect=-15)),
+            ("Mend the Dead", "heal", 1.5, 4, "magic", {})]),
+        "Lagoon Crocolisk": ("beast_large", 33, False, "crocolisk", [
+            ("Jaws", "damage", 1.0, 0, "physical", {}),
+            ("Death Roll", "damage", 1.5, 3, "physical", {}),
+            ("Mud Hide", "buff", 0, 5, "physical", SELF(3, armor=50))]),
+        "Jade Serpent": ("beast_fast", 34, False, "serpent", [
+            ("Fang", "damage", 1.0, 0, "physical", {}),
+            ("Jade Venom", "dot", 0.4, 3, "magic", D(3)),
+            ("Hypnotic Sway", "debuff", 0, 4, "magic", MODS(3, agility=-16))]),
+        "Mire Gorilla": ("beast_large", 35, False, "gorilla", [
+            ("Pound", "damage", 1.05, 0, "physical", {}),
+            ("Chest Beat", "buff", 0, 5, "physical", SELF(3, attack_power=35)),
+            ("Hurl Mud", "debuff", 0, 4, "physical", MODS(3, agility=-14))]),
+        "Idol-Keeper Zun'jal": ("undead_caster", 36, True, "troll_witchdoctor", [
+            ("Word of the Drowned God", "damage", 1.0, 0, "magic", {}),
+            ("The God Looks At You", "debuff", 0, 4, "magic", MODS(3, intellect=-25, armor=-50)),
+            ("Tide of Hexes", "dot", 0.5, 3, "magic", D(4)),
+            ("Idol's Ward", "buff", 0, 5, "magic", SELF(3, armor=60, magic_resistance=60)),
+            ("Offering", "heal", 2.0, 5, "magic", {}),
+            ("Wrath of the Forgotten", "damage", 1.9, 4, "magic", {})]),
+        "Mother Mire": ("beast_large", 35, True, "gorilla", [
+            ("Crushing Grip", "damage", 1.0, 0, "physical", {}),
+            ("Protect the Young", "buff", 0, 5, "physical", SELF(3, armor=60, attack_power=30)),
+            ("Ground Slam", "damage", 1.8, 4, "physical", {}),
+            ("Roar", "debuff", 0, 4, "physical", MODS(3, attack_power=-25))]),
+    },
+    encounters=_skull_table("The Drowned Idols", {"Lagoon Crocolisk": 3, "Jade Serpent": 2}, {
+        "The Idol Landing": {"Lagoon Crocolisk": 3, "Jade Serpent": 2},
+        "The Western Idols": {"Idol-Drowned Troll": 3, "Drowned Hexer": 2, "Mire Gorilla": 1},
+        "The Eastern Idols": {"Idol-Drowned Troll": 2, "Drowned Hexer": 2, "Jade Serpent": 1},
+        "The Sunken Altar": {"Drowned Hexer": 2, "Idol-Drowned Troll": 2, "Lagoon Crocolisk": 1},
+        "The Jade Isles": {"Mire Gorilla": 3, "Jade Serpent": 2, "Mother Mire": 0},
+        "The Last God's Isle": {"Drowned Hexer": 3, "Idol-Drowned Troll": 2, "Idol-Keeper Zun'jal": 0}}),
+    weights={},
+    loot={
+        "Idol-Keeper Zun'jal": [
+            ("Eye of the Drowned God", "neck", "of the Void", "A jade eye on a cord of hair. It blinks.", None, None, "epic"),
+            ("Zun'jal's Hexing Rod", "main_hand", "of the Necromancer", "Carved from an idol's finger.", None, "wand"),
+            ("Waterlogged Ritual Robes", "chest", "of the Prophet", "They never dry, and they never rot.", "cloth", None),
+            ("Idol-Breaker's Pauldrons", "shoulder", "of the Champion", "Hammered from the bronze of a drowned god.", "plate", None),
+            ("Lagoon-Stalker's Boots", "feet", "of the Assassin", "Silent on wet stone.", "leather", None),
+        ],
+        "Mother Mire": [
+            ("Mire-Mother's Knuckles", "main_hand", "of the Tiger", "Big enough for her. They'll do for you.", None, "fist_weapon"),
+            ("Silverback Mantle", "shoulder", "of the Beast", "Grey fur over hard hide.", "mail", None),
+            ("Mudslick Gloves", "hands", "of the Eagle", "You'll never drop anything again.", "cloth", None),
+        ],
+    },
+)
+
+ZONES["The Buried Caravan"] = dict(
+    kind="skull", parent="Northern Tanaris", levels=(44, 47),
+    creatures={
+        "Dune Revenant": ("undead_warrior", 45, False, "revenant", [
+            ("Sand-Scoured Blade", "damage", 1.0, 0, "physical", {}),
+            ("Still Owed", "debuff", 0, 4, "magic", MODS(3, armor=-50)),
+            ("Grit Storm", "dot", 0.35, 3, "physical", D(3))]),
+        "Sandscour Scorpid": ("beast_large", 44, False, "scorpion", [
+            ("Pincer", "damage", 1.0, 0, "physical", {}),
+            ("Sting", "dot", 0.4, 3, "magic", D(3)),
+            ("Carapace", "buff", 0, 5, "physical", SELF(3, armor=60))]),
+        "Caravan Ghoul": ("undead_basic", 45, False, "ghoul", [
+            ("Claw", "damage", 1.0, 0, "physical", {}),
+            ("Hunger of the Lost", "buff", 0, 5, "physical", SELF(3, attack_power=35)),
+            ("Rot", "dot", 0.35, 3, "physical", D(3))]),
+        "Sandstone Colossus": ("elemental_bruiser", 46, False, "mountain_giant_sandstone", [
+            ("Boulder Fist", "damage", 1.1, 0, "physical", {}),
+            ("Quake", "damage", 1.5, 4, "physical", {}),
+            ("Stone Skin", "buff", 0, 5, "physical", SELF(3, armor=90))]),
+        "The Last Caravan Master": ("undead_warrior", 47, True, "revenant", [
+            ("Ledger Blade", "damage", 1.0, 0, "physical", {}),
+            ("Call the Teamsters", "buff", 0, 5, "magic", SELF(3, attack_power=60, armor=60)),
+            ("Buried Alive", "debuff", 0, 4, "magic", MODS(3, agility=-30, armor=-60)),
+            ("Sandstorm", "dot", 0.55, 3, "physical", D(4)),
+            ("Collect the Debt", "damage", 2.0, 4, "physical", {})]),
+        "Old Stinger": ("beast_large", 46, True, "scorpion", [
+            ("Great Pincer", "damage", 1.0, 0, "physical", {}),
+            ("Paralysing Sting", "debuff", 0, 4, "magic", MODS(3, agility=-30)),
+            ("Venom Pool", "dot", 0.5, 3, "magic", D(4)),
+            ("Old Shell", "buff", 0, 5, "physical", SELF(3, armor=80))]),
+    },
+    encounters=_skull_table("The Buried Caravan", {"Sandscour Scorpid": 3, "Dune Revenant": 1}, {
+        "The Last Dune": {"Sandscour Scorpid": 3, "Caravan Ghoul": 1},
+        "The Wagon Graves": {"Caravan Ghoul": 3, "Dune Revenant": 2, "Old Stinger": 0},
+        "The Drowned Market": {"Dune Revenant": 3, "Caravan Ghoul": 2},
+        "The Buried Gate": {"Sandstone Colossus": 2, "Dune Revenant": 2, "Sandscour Scorpid": 1},
+        "The Caravan Master's Rest": {"Dune Revenant": 3, "Sandstone Colossus": 1, "The Last Caravan Master": 0}}),
+    weights={},
+    loot={
+        "The Last Caravan Master": [
+            ("The Master's Ledger", "off_hand", "of the Sorcerer", "Every debt ever owed this caravan, in a hand that never shook.", None, "tome", "epic"),
+            ("Caravan-Breaker", "main_hand", "of the Gladiator", "A wagon axle, sharpened. He wasn't picky.", None, "axe_2h", "epic"),
+            ("Dune-Buried Breastplate", "chest", "of the Defender", "Sand pours out of it for a week.", "plate", None),
+            ("Teamster's Duster", "chest", "of the Hunt", "Sun-faded, sand-scoured, still waterproof.", "mail", None),
+            ("Silk of the Lost Market", "legs", "of the Invoker", "The finest thing the caravan carried.", "cloth", None),
+        ],
+        "Old Stinger": [
+            ("Stinger's Barb", "main_hand", "of the Assassin", "Still wet at the tip. Don't lick it.", None, "dagger"),
+            ("Chitin Pauldrons", "shoulder", "of the Juggernaut", "Plates off the oldest scorpid in the desert.", "plate", None),
+            ("Sand-Shed Wraps", "wrist", "of the Owl", "Light as a moult.", "cloth", None),
+        ],
+    },
+)
+
+
+# a rare of its own for each of the other open hidden maps (Kyle: "even rares >;)")
+ZONES["The Saltgrave"]["creatures"]["Gullmother Shrike"] = ("beast_fast", 39, True, "vulture", [
+    ("Rending Beak", "damage", 1.0, 0, "physical", {}),
+    ("Flock", "dot", 0.45, 3, "physical", D(3)),
+    ("Shriek", "debuff", 0, 4, "physical", MODS(3, agility=-20)),
+    ("Stoop", "damage", 1.8, 4, "physical", {})])
+ZONES["The Saltgrave"]["loot"]["Gullmother Shrike"] = [
+    ("Shrike-Feather Cloak", "back", "of the Falcon", "Grey and white, and it moves in a wind you can't feel.", None, None),
+    ("Talon-Hook Knife", "main_hand", "of the Assassin", "One of her claws, fitted with a grip.", None, "dagger"),
+    ("Gull-Bone Wristguards", "wrist", "of the Bear", "Light as anything and harder than they look.", "plate", None),
+]
+ZONES["The Glasswaste"]["creatures"]["Cindermaw"] = ("beast_fast", 17, True, "hyena", [
+    ("Burning Bite", "damage", 1.0, 0, "physical", {}),
+    ("Laugh of the Pack", "buff", 0, 5, "physical", SELF(3, attack_power=25)),
+    ("Ember Mange", "dot", 0.45, 3, "magic", D(3)),
+    ("Tear Out", "damage", 1.7, 4, "physical", {})])
+ZONES["The Glasswaste"]["loot"]["Cindermaw"] = [
+    ("Cindermaw Fang Necklace", "neck", "of the Tiger", "Still smells of smoke.", None, None),
+    ("Scorchhide Leggings", "legs", "of the Monkey", "Singed, but they hold.", "leather", None),
+    ("Ember-Sworn Wraps", "wrist", "of the Sorcerer", "Warm whatever the weather.", "cloth", None),
+]
+ZONES["The Weeping Pines"]["creatures"]["Old Hollowbark"] = ("beast_large", 19, True, "treant", [
+    ("Rotten Swing", "damage", 1.0, 0, "physical", {}),
+    ("Hollow Moan", "debuff", 0, 4, "magic", MODS(3, intellect=-15, attack_power=-15)),
+    ("Spore Cloud", "dot", 0.45, 3, "magic", D(3)),
+    ("Petrify Bark", "buff", 0, 5, "physical", SELF(3, armor=60))])
+ZONES["The Weeping Pines"]["loot"]["Old Hollowbark"] = [
+    ("Hollowbark Shield", "off_hand", None, "Cut from his chest. He's hollow there anyway.", None, "shield"),
+    ("Pinesap Gloves", "hands", "of the Owl", "Sticky with something that smells like rain.", "cloth", None),
+    ("Mosswalker Boots", "feet", "of the Hunt", "Soft soled, made for dead ground.", "mail", None),
+]
+
+
 # =============================================================================== THE PEOPLE
 # One person in each open hidden map, and three or four things they need doing; the last is an
 # elite job. Kyle: "max of like 3 or 4....they're not quest hubs but they CAN have elite quests."
@@ -500,6 +771,12 @@ NPCS = {
     "hz_glasswaste_durek": dict(name="Durek Ashfoot", zone="The Glasswaste", race="orc", gender="male",
                                 greeting="Nobody walks in here by accident. I didn't. I came for the glass and "
                                          "the glass kept me. Don't touch anything that's still glowing."),
+    "hz_tangle_kojira": dict(name="Koji'ra", zone="The Tanglewood Shoals", race="troll", gender="female",
+                             greeting="You found the way out here. Then the isles let you. They don't let many."),
+    "hz_idols_fizzle": dict(name="Fizzle Brassgut", zone="The Drowned Idols", race="goblin", gender="male",
+                            greeting="Shh! Keep your voice down, the gods are napping. Probably. Want to get rich?"),
+    "hz_caravan_rizzo": dict(name="Rizzo Dustwhistle", zone="The Buried Caravan", race="goblin", gender="female",
+                             greeting="My great-great-grandmother's caravan is under this sand somewhere. So's her money."),
     "hz_pines_ilsabet": dict(name="Ilsabet Graves", zone="The Weeping Pines", race="forsaken", gender="female",
                              greeting="Keep your voice down. The water listens, and when it hears a living "
                                       "voice it starts to cry."),
@@ -510,6 +787,10 @@ DROPS = {
     "Brine-Wight": ("barrow_coin", "Barrow Coin", "Old gold, green with salt, stamped with a king nobody remembers.", 0.6),
     "Drowned Barrow-Thane": ("barrow_coin", "Barrow Coin", "Old gold, green with salt, stamped with a king nobody remembers.", 0.6),
     "Glassback Basilisk": ("fused_glass_shard", "Fused Glass Shard", "A splinter of the canyon's glass, pulled from a basilisk's back. Still warm.", 0.7),
+    "Rootbound Guardian": ("glowing_sap", "Glowing Sap", "Amber sap that gives off its own light. It's warm, like something's alive in it.", 0.65),
+    "Idol-Drowned Troll": ("jade_idol_shard", "Jade Idol Shard", "A chip of green stone off a drowned god. It's cold, and it hums.", 0.6),
+    "Drowned Hexer": ("jade_idol_shard", "Jade Idol Shard", "A chip of green stone off a drowned god. It's cold, and it hums.", 0.6),
+    "Dune Revenant": ("caravan_manifest_page", "Caravan Manifest Page", "A page from a ledger, sand-scoured, every line a debt.", 0.6),
     "Mere Wraith": ("vial_of_mere_water", "Vial of Mere-Water", "Black water that doesn't settle. It moves a little when you aren't holding it still.", 0.65),
 }
 
@@ -539,7 +820,8 @@ def R(lvl, *items):
 
 
 def quests():
-    sz, gw, wp = "the_saltgrave", "the_glasswaste", "the_weeping_pines"
+    sz, gw, wp, tw = "the_saltgrave", "the_glasswaste", "the_weeping_pines", "the_tanglewood_shoals"
+    di, bc = "the_drowned_idols", "the_buried_caravan"
     return [
         # ------------------------------------------------------------------ The Saltgrave
         Q("hz_saltgrave_coins", "Grave-Gold", "hz_saltgrave_maud", sz, 38,
@@ -603,11 +885,11 @@ def quests():
           nxt="hz_glass_kilns"),
         Q("hz_glass_kilns", "Walking Kilns", "hz_glasswaste_durek", gw, 16,
           [{"type": "kill", "target": "Kiln-Walker", "count": 8}],
-          "Whatever burned this canyon didn't stop. It's still up on the rise to the east, walking "
+          "Whatever burned this canyon didn't stop. It's still up on the rise to the north, walking "
           "about on its own, and every time one of them comes down the sand goes to glass under it "
           "and my camp gets smaller.\n\nKiln-walkers, I call them. Put out eight and I'll get a "
           "season's peace.",
-          "Up the rise to the east. Water won't help. Hitting them will.",
+          "Up the rise to the north. Water won't help. Hitting them will.",
           "I could hear them stop. You don't notice a noise till it stops.\n\nHere, for your "
           "trouble.",
           R(16, ("Ashfoot's Spare Axe", "main_hand", "of the Bear", None, "axe_2h", "Two-Hand Axe (Str/Sta)"),
@@ -629,6 +911,127 @@ def quests():
             ("Glassbreaker Pauldrons", "shoulder", "of the Defender", "plate", None, "Plate Shoulders (Sta/Def/Dodge)"),
             ("Kiln-Fired Focus", "off_hand", "of the Invoker", None, "tome", "Tome (Int/SP/Crit)"),
             ("Canyon-Runner's Boots", "feet", "of the Assassin", "leather", None, "Leather Boots (Agi/Hit/Crit)")),
+          elite=True),
+        # ------------------------------------------------------------------ The Tanglewood Shoals
+        Q("hz_tangle_shallows", "Teeth in the Green Water", "hz_tangle_kojira", tw, 14,
+          [{"type": "kill", "target": "Mangrove Snapper", "count": 6},
+           {"type": "kill", "target": "Shoal Stalker", "count": 6}],
+          "I'm Koji'ra. My grandmother told me about these shoals, and everybody laughed at her, and "
+          "I came anyway. Now I'm the one nobody would believe.\n\nThe snappers own the water and "
+          "the stalkers own the trees, and between them I can't get off this beach. Thin them out "
+          "for me. Six of each.",
+          "The snappers are in the water round the landing. The stalkers are in the tangles east and "
+          "west. Watch the branches.",
+          "I walked to the big island this morning and nothing tried to eat me. First time.",
+          R(14, ("Snapper-Hide Vest", "chest", "of the Monkey", "leather", None, "Leather Chest (Agi/Sta)"),
+            ("Shoal-Runner's Sandals", "feet", "of the Eagle", "cloth", None, "Cloth Boots (Int/Sta)"),
+            ("Stalker's Claw", "main_hand", "of the Tiger", None, "fist_weapon", "Fist (Str/Agi)")),
+          nxt="hz_tangle_sap"),
+        Q("hz_tangle_sap", "Sap That Glows", "hz_tangle_kojira", tw, 15,
+          [{"type": "fetch", "target": "glowing_sap", "count": 6}],
+          "The trees out here bleed light. The guardians on the big island carry it in them, and "
+          "my grandmother said it came up from the roots of one tree, older than the isles.\n\nI "
+          "want to know if she was right. Bring me six of it and I'll read what's in it.",
+          "The big island. The guardians are slow, but they don't forget you.",
+          "Look at it move. It's not sap at all. It's coming up from something, a long way down.\n\n"
+          "She was right. I knew she was right.",
+          R(15, ("Sapglow Wand", "main_hand", "of the Sorcerer", None, "wand", "Wand (Int/Sta/SP)"),
+            ("Rootward Bracers", "wrist", "of the Champion", "plate", None, "Plate Bracers (Str/Sta/Def)"),
+            ("Glimmerwing Mantle", "shoulder", "of the Hunt", "mail", None, "Mail Shoulders (Agi/Int/AP)")),
+          nxt="hz_tangle_grandfather"),
+        Q("hz_tangle_grandfather", "Grandfather Mangrove", "hz_tangle_kojira", tw, 16,
+          [{"type": "kill", "target": "Grandfather Mangrove", "count": 1},
+           {"type": "kill", "target": "Rootbound Guardian", "count": 5}],
+          "There's one guardian on the big island bigger than the rest. Grandfather Mangrove, my "
+          "grandmother called him, and she said he walks round the old tree the way a dog walks "
+          "round a door it's guarding.\n\nI'd like to see that door. I'm not getting past him, and "
+          "you won't either, not alone. Bring friends. Cut through his guardians and put him down.",
+          "The big island, where the trees get older. Bring friends. He's been growing a long time.",
+          "He's down. Now let's see what he was standing in front of.\n\nTake this, you've earned it "
+          "twice over.",
+          R(16, ("Grandfather's Cudgel", "main_hand", "of the Bear", None, "mace_2h", "Two-Hand Mace (Str/Sta)"),
+            ("Mangrove-Bark Helm", "head", "of the Defender", "plate", None, "Plate Helm (Sta/Def/Dodge)"),
+            ("Leafwoven Robe", "chest", "of the Prophet", "cloth", None, "Cloth Robe (Int/Spi/Healing)"),
+            ("Tanglewalker's Hood", "head", "of the Assassin", "leather", None, "Leather Helm (Agi/Hit/Crit)")),
+          elite=True),
+        # ------------------------------------------------------------------ The Drowned Idols
+        Q("hz_idols_teeth", "Nothing Bites Like a Lagoon", "hz_idols_fizzle", di, 33,
+          [{"type": "kill", "target": "Lagoon Crocolisk", "count": 6},
+           {"type": "kill", "target": "Jade Serpent", "count": 6}],
+          "Fizzle Brassgut, treasure hunter, at your service. I've got a boat, a map and a lagoon "
+          "full of drowned gods made of solid jade, and I can't get off this beach because every "
+          "single thing in the water wants to eat me.\n\nCrocs and serpents. Six of each and I'll "
+          "cut you in.",
+          "They're all round the landing. You'll hear the crocs before you see them.",
+          "Look at that! I can see the water! I can see the TREASURE in the water!",
+          R(33, ("Croc-Leather Jerkin", "chest", "of the Monkey", "leather", None, "Leather Chest (Agi/Sta)"),
+            ("Treasure Hunter's Goggles", "head", "of the Eagle", "cloth", None, "Cloth Helm (Int/Sta)"),
+            ("Serpent-Scale Girdle", "waist", "of the Champion", "plate", None, "Plate Belt (Str/Sta/Def)")),
+          nxt="hz_idols_jade"),
+        Q("hz_idols_jade", "Small Pieces of God", "hz_idols_fizzle", di, 34,
+          [{"type": "fetch", "target": "jade_idol_shard", "count": 8}],
+          "The trolls that drowned with the idols carry bits of them. Shards. Chipped off for luck, "
+          "I reckon, and it didn't work, did it?\n\nThe drowned ones on the west and east isles have "
+          "them. Eight shards and I've got enough to buy a bigger boat.",
+          "The western and eastern isles. The hexers will try to put a curse on you. Don't let them.",
+          "Eight! These are going to make me so rich. Us. Us rich. Here, your share up front.",
+          R(34, ("Jade-Edge Scimitar", "main_hand", "of the Tiger", None, "sword_1h", "Sword (Str/Agi)"),
+            ("Hexward Mantle", "shoulder", "of the Invoker", "cloth", None, "Cloth Shoulders (Int/SP/Crit)"),
+            ("Drowned-Idol Coif", "head", "of the Hunt", "mail", None, "Mail Helm (Agi/Int/AP)")),
+          nxt="hz_idols_zunjal"),
+        Q("hz_idols_zunjal", "The Idol-Keeper", "hz_idols_fizzle", di, 35,
+          [{"type": "kill", "target": "Idol-Keeper Zun'jal", "count": 1},
+           {"type": "kill", "target": "Drowned Hexer", "count": 5}],
+          "Bad news. The biggest idol, on the last isle up north, has a keeper. Zun'jal. Drowned "
+          "with the rest of them and didn't let it slow him down one bit. He's got his hexers round "
+          "him and he's not sharing.\n\nI'm not asking you to go alone. I'm asking you to bring "
+          "every friend you've got.",
+          "The last isle, north past the jade isles. Bring friends. Lots of friends.",
+          "He's gone? He's GONE! Fizzle Brassgut, richest goblin in the jungle!\n\nTake your pick, "
+          "partner. You earned it.",
+          R(35, ("Keeper's Hexblade", "main_hand", "of the Necromancer", None, "dagger", "Dagger (Int/Sta/Hit)"),
+            ("Jadeplate Breastplate", "chest", "of the Defender", "plate", None, "Plate Chest (Sta/Def/Dodge)"),
+            ("Drowned God's Vestments", "chest", "of the Prophet", "cloth", None, "Cloth Robe (Int/Spi/Healing)"),
+            ("Lagoon-Runner's Leggings", "legs", "of the Assassin", "leather", None, "Leather Legs (Agi/Hit/Crit)")),
+          elite=True),
+        # ------------------------------------------------------------------ The Buried Caravan
+        Q("hz_caravan_dunes", "Things in the Sand", "hz_caravan_rizzo", bc, 44,
+          [{"type": "kill", "target": "Sandscour Scorpid", "count": 6},
+           {"type": "kill", "target": "Caravan Ghoul", "count": 6}],
+          "Rizzo Dustwhistle. My family's been looking for this caravan for four generations and "
+          "I'm the one who found it. Of course I am.\n\nProblem is it's full of scorpids and the "
+          "people who were on it, who aren't people any more. Clear me a way in. Six of each.",
+          "The dunes by the landing, and the wagon graves west. Watch the sand, it moves.",
+          "I can see a wagon wheel sticking up out of the sand. Grandma's wagon wheel, maybe!",
+          R(44, ("Scorpid-Shell Gauntlets", "hands", "of the Juggernaut", "plate", None, "Plate Gloves (Sta/Armor/Parry)"),
+            ("Sandwalker's Sash", "waist", "of the Owl", "cloth", None, "Cloth Belt (Int/Spi)"),
+            ("Dune-Dancer's Boots", "feet", "of the Monkey", "leather", None, "Leather Boots (Agi/Sta)")),
+          nxt="hz_caravan_manifest"),
+        Q("hz_caravan_manifest", "The Manifest", "hz_caravan_rizzo", bc, 45,
+          [{"type": "fetch", "target": "caravan_manifest_page", "count": 8}],
+          "The caravan's ledger got torn up when they went under. Every guard on that caravan was "
+          "carrying a piece of it, because the Master didn't trust anybody.\n\nThe revenants in "
+          "the market still have them. Eight pages and I'll know what's buried here, and where.",
+          "The drowned market, north of the dunes. The revenants carry them. They won't give them up.",
+          "Silk, spice, a dragon's egg... a DRAGON'S EGG? Oh, Grandma.",
+          R(45, ("Ledger-Keeper's Wand", "main_hand", "of the Sorcerer", None, "wand", "Wand (Int/Sta/SP)"),
+            ("Caravan Guard's Hauberk", "chest", "of the Hunt", "mail", None, "Mail Chest (Agi/Int/AP)"),
+            ("Trader's Ring of Sand", "ring", "of the Assassin", None, None, "Ring (Agi/Hit/Crit)")),
+          nxt="hz_caravan_master"),
+        Q("hz_caravan_master", "The Last Caravan Master", "hz_caravan_rizzo", bc, 46,
+          [{"type": "kill", "target": "The Last Caravan Master", "count": 1},
+           {"type": "kill", "target": "Sandstone Colossus", "count": 3}],
+          "The ledger says the Master kept the good stuff in his own wagon, at the very back. And "
+          "he's still in it. He still thinks he's delivering it.\n\nThe colossi at the gate keep "
+          "people away from him, and he'll be harder than all of them. Bring a crew. Then I'll "
+          "finally know what four generations of my family died looking for.",
+          "North, through the buried gate to the back of the caravan. Bring a crew.",
+          "It's real. All of it. Four generations, and it's real.\n\nPick something. Pick two, I "
+          "won't tell.",
+          R(46, ("Caravan Master's Halberd", "main_hand", "of the Vanquisher", None, "polearm", "Polearm (Str/AP/Hit)"),
+            ("Sunscoured Cowl", "head", "of the Invoker", "cloth", None, "Cloth Helm (Int/SP/Crit)"),
+            ("Dunewarden Helm", "head", "of the Defender", "plate", None, "Plate Helm (Sta/Def/Dodge)"),
+            ("Sandstalker's Hood", "head", "of the Assassin", "leather", None, "Leather Helm (Agi/Hit/Crit)")),
           elite=True),
         # ------------------------------------------------------------------ The Weeping Pines
         Q("hz_pines_webs", "The Hanging Wood", "hz_pines_ilsabet", wp, 17,
@@ -706,7 +1109,7 @@ def build():
             creatures[cname] = d
             names.append(cname)
         table = {n: (0 if z["creatures"][n][2] else z["weights"].get(n, 1)) for n in names}
-        if z["kind"] == "layer":
+        if z["kind"] == "layer" or (z["kind"] == "frontier" and z.get("frontier_type") == "deep"):
             region = enc["zones"].setdefault(z["region"], {})
             region.setdefault("caves", {})[zname] = {"name": zname, "creatures": table}
         else:
@@ -717,19 +1120,20 @@ def build():
             for it in items:
                 iname, slot, suffix, flavor, armor, weapon = it[:6]
                 rarity = it[6] if len(it) > 6 else "rare"
-                ilvl = lvl + 5
+                ilvl = lvl + (8 if z["kind"] == "frontier" else 5)
                 kw = {}
                 if armor:
                     kw["armor_type"] = armor
                 if weapon:
                     kw["weapon_type"] = weapon
-                if rarity == "epic":
+                if rarity == "epic" and z["kind"] != "frontier":
                     assert lvl >= 30, f"{iname}: unique epics only from level 30 (Kyle)"
                 pool.append(make(iname, slot, suffix or "of the Bear", ilvl, flavor, rarity=rarity,
                                  req=max(1, lvl - 2), **kw))
             loot[boss] = pool
         registry[zname] = {"kind": z["kind"], "parent": z["parent"], "levels": list(z["levels"]),
                            "region": z.get("region"),
+                           **({"frontier_type": z["frontier_type"]} if z.get("frontier_type") else {}),
                            "bosses": [n for n in names if z["creatures"][n][2]],
                            "multi_drop": 2}
         for ex in z.get("extra_registry", {}).items():
@@ -762,6 +1166,32 @@ def write_people():
     p.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
+#: the ground a skull zone's herbs, ore and fish come from (data/gathering/node_pools.json key)
+NODE_PARENT = {"The Saltgrave": "arathi_east", "The Glasswaste": "durotar", "The Weeping Pines": "silverpine_north",
+               "The Tanglewood Shoals": "echo_isles", "The Drowned Idols": "northern_stranglethorn",
+               "The Buried Caravan": "northern_tanaris"}
+
+
+def write_node_pools():
+    """Kyle: "I WANT to be rewarded for exploring." A skull zone's ground carries what its parent's
+    does, half again as much of it, and more of it showing at once."""
+    p = DATA / "gathering/node_pools.json"
+    doc = json.loads(p.read_text(encoding="utf-8"))
+    z = doc["zones"]
+    for zone, parent in NODE_PARENT.items():
+        src = z.get(parent)
+        if not src:
+            continue
+        key = zone.lower().replace(" ", "_").replace("'", "")
+        pool = json.loads(json.dumps(src))
+        pool["slots"] = int(round(pool.get("slots", 12) * 1.5))
+        pool["active_percent"] = min(0.8, pool.get("active_percent", 0.45) + 0.25)
+        if "fishing" in pool:
+            pool["fishing"]["slots"] = int(round(pool["fishing"].get("slots", 4) * 1.5))
+        z[key] = pool
+    p.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
 def sprite_rules():
     """name -> sprite id, for creature_sprites.py (tools/build_hidden_content.SPRITES)."""
     return {c: v[3] for z in ZONES.values() for c, v in z["creatures"].items()}
@@ -783,6 +1213,7 @@ def main():
     (DATA / "creatures/hidden_sprites.json").write_text(json.dumps(sprite_rules(), indent=2, ensure_ascii=False) + "\n",
                                                         encoding="utf-8")
     write_people()
+    write_node_pools()
     print(f"{len(registry)} hidden zones, {len(creatures)} creatures, {sum(len(v) for k, v in loot.items() if not k.startswith('_'))} boss items")
 
 

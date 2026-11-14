@@ -4139,7 +4139,8 @@
           "creatures": {
             "Saltgrave Crab": 2,
             "Gravegull": 2,
-            "Brine-Wight": 1
+            "Brine-Wight": 1,
+            "Gullmother Shrike": 0
           }
         },
         "The King's Barrow": {
@@ -4166,7 +4167,8 @@
           "name": "The Scorched Mouth",
           "creatures": {
             "Ash Hyena": 3,
-            "Glasswing Wasp": 2
+            "Glasswing Wasp": 2,
+            "Cindermaw": 0
           }
         },
         "The Shard Fields": {
@@ -4237,7 +4239,179 @@
           "name": "The Drowned Copse",
           "creatures": {
             "Rotbark Treant": 3,
-            "Mere Wraith": 1
+            "Mere Wraith": 1,
+            "Old Hollowbark": 0
+          }
+        }
+      }
+    },
+    "The Tanglewood Shoals": {
+      "open_zone": {
+        "name": "The Tanglewood Shoals",
+        "creatures": {
+          "Mangrove Snapper": 2,
+          "Glimmerwing Darter": 2
+        }
+      },
+      "subzones": {
+        "The Mangrove Landing": {
+          "name": "The Mangrove Landing",
+          "creatures": {
+            "Mangrove Snapper": 3,
+            "Glimmerwing Darter": 2,
+            "Old Snag-Jaw": 0
+          }
+        },
+        "The Rootward Isle": {
+          "name": "The Rootward Isle",
+          "creatures": {
+            "Rootbound Guardian": 3,
+            "Tangle Lurker": 2,
+            "Shoal Stalker": 1,
+            "Grandfather Mangrove": 0
+          }
+        },
+        "The West Tangle": {
+          "name": "The West Tangle",
+          "creatures": {
+            "Tangle Lurker": 3,
+            "Shoal Stalker": 2
+          }
+        },
+        "The East Tangle": {
+          "name": "The East Tangle",
+          "creatures": {
+            "Shoal Stalker": 3,
+            "Glimmerwing Darter": 2
+          }
+        },
+        "The Northern Shoals": {
+          "name": "The Northern Shoals",
+          "creatures": {
+            "Mangrove Snapper": 2,
+            "Rootbound Guardian": 2,
+            "Glimmerwing Darter": 1
+          }
+        }
+      },
+      "caves": {
+        "The World-Root Hollow": {
+          "name": "The World-Root Hollow",
+          "creatures": {
+            "Hollow Rootling": 3,
+            "Sapdrunk Bat": 2,
+            "Heartwood Spider": 2,
+            "Lost Rootspeaker": 2,
+            "Gnarl the Unburied": 0,
+            "Amberheart, the Sap-Mother": 0,
+            "The Root-Father": 0
+          }
+        }
+      }
+    },
+    "The Drowned Idols": {
+      "open_zone": {
+        "name": "The Drowned Idols",
+        "creatures": {
+          "Lagoon Crocolisk": 3,
+          "Jade Serpent": 2
+        }
+      },
+      "subzones": {
+        "The Idol Landing": {
+          "name": "The Idol Landing",
+          "creatures": {
+            "Lagoon Crocolisk": 3,
+            "Jade Serpent": 2
+          }
+        },
+        "The Western Idols": {
+          "name": "The Western Idols",
+          "creatures": {
+            "Idol-Drowned Troll": 3,
+            "Drowned Hexer": 2,
+            "Mire Gorilla": 1
+          }
+        },
+        "The Eastern Idols": {
+          "name": "The Eastern Idols",
+          "creatures": {
+            "Idol-Drowned Troll": 2,
+            "Drowned Hexer": 2,
+            "Jade Serpent": 1
+          }
+        },
+        "The Sunken Altar": {
+          "name": "The Sunken Altar",
+          "creatures": {
+            "Drowned Hexer": 2,
+            "Idol-Drowned Troll": 2,
+            "Lagoon Crocolisk": 1
+          }
+        },
+        "The Jade Isles": {
+          "name": "The Jade Isles",
+          "creatures": {
+            "Mire Gorilla": 3,
+            "Jade Serpent": 2,
+            "Mother Mire": 0
+          }
+        },
+        "The Last God's Isle": {
+          "name": "The Last God's Isle",
+          "creatures": {
+            "Drowned Hexer": 3,
+            "Idol-Drowned Troll": 2,
+            "Idol-Keeper Zun'jal": 0
+          }
+        }
+      }
+    },
+    "The Buried Caravan": {
+      "open_zone": {
+        "name": "The Buried Caravan",
+        "creatures": {
+          "Sandscour Scorpid": 3,
+          "Dune Revenant": 1
+        }
+      },
+      "subzones": {
+        "The Last Dune": {
+          "name": "The Last Dune",
+          "creatures": {
+            "Sandscour Scorpid": 3,
+            "Caravan Ghoul": 1
+          }
+        },
+        "The Wagon Graves": {
+          "name": "The Wagon Graves",
+          "creatures": {
+            "Caravan Ghoul": 3,
+            "Dune Revenant": 2,
+            "Old Stinger": 0
+          }
+        },
+        "The Drowned Market": {
+          "name": "The Drowned Market",
+          "creatures": {
+            "Dune Revenant": 3,
+            "Caravan Ghoul": 2
+          }
+        },
+        "The Buried Gate": {
+          "name": "The Buried Gate",
+          "creatures": {
+            "Sandstone Colossus": 2,
+            "Dune Revenant": 2,
+            "Sandscour Scorpid": 1
+          }
+        },
+        "The Caravan Master's Rest": {
+          "name": "The Caravan Master's Rest",
+          "creatures": {
+            "Dune Revenant": 3,
+            "Sandstone Colossus": 1,
+            "The Last Caravan Master": 0
           }
         }
       }

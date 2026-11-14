@@ -1133,8 +1133,8 @@ class TilemapRenderer:
             mine = me is not None and inside(me)
             if not hides and not mine:
                 continue
-            if not NC.is_building(lm):
-                continue
+            if not (NC.is_building(lm) or lm.get("occluder")):
+                continue        # an "occluder" is anything else that hides a secret (a great tree)
             if mine and NC.covered(lm, *me) < 0.5:
                 mine = False
             if not hides and not mine:

@@ -89,5 +89,8 @@ def is_dungeon(zone_name):
     are listed in data/world/hidden_zones.json rather than here so this file doesn't name them."""
     if zone_name in DUNGEONS:
         return True
-    from world.hidden_zones import kind
-    return kind(zone_name) == "layer"
+    from world.hidden_zones import kind, registry
+    if kind(zone_name) == "layer":
+        return True
+    info = registry().get(zone_name) or {}
+    return info.get("kind") == "frontier" and info.get("frontier_type", "deep") == "deep"

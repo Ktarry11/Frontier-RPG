@@ -329,7 +329,7 @@
       "level_min": 16,
       "level_max": 18,
       "elite": false,
-      "description": "Whatever burned this canyon didn't stop. It's still up on the rise to the east, walking about on its own, and every time one of them comes down the sand goes to glass under it and my camp gets smaller.\n\nKiln-walkers, I call them. Put out eight and I'll get a season's peace.",
+      "description": "Whatever burned this canyon didn't stop. It's still up on the rise to the north, walking about on its own, and every time one of them comes down the sand goes to glass under it and my camp gets smaller.\n\nKiln-walkers, I call them. Put out eight and I'll get a season's peace.",
       "objectives": [
         {
           "type": "kill",
@@ -339,7 +339,7 @@
       ],
       "reward_exp": 1747,
       "reward_gold": 6688,
-      "accept_text": "Up the rise to the east. Water won't help. Hitting them will.",
+      "accept_text": "Up the rise to the north. Water won't help. Hitting them will.",
       "turn_in_text": "I could hear them stop. You don't notice a noise till it stops.\n\nHere, for your trouble.",
       "unique_item_defs": [
         {
@@ -490,6 +490,756 @@
           "armor_type": "leather",
           "armor_value": 47,
           "label": "Leather Boots (Agi/Hit/Crit)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_tangle_shallows",
+      "title": "Teeth in the Green Water",
+      "giver_npc_id": "hz_tangle_kojira",
+      "zone": "the_tanglewood_shoals",
+      "level_min": 14,
+      "level_max": 16,
+      "elite": false,
+      "description": "I'm Koji'ra. My grandmother told me about these shoals, and everybody laughed at her, and I came anyway. Now I'm the one nobody would believe.\n\nThe snappers own the water and the stalkers own the trees, and between them I can't get off this beach. Thin them out for me. Six of each.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Mangrove Snapper",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Shoal Stalker",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1529,
+      "reward_gold": 5852,
+      "accept_text": "The snappers are in the water round the landing. The stalkers are in the tangles east and west. Watch the branches.",
+      "turn_in_text": "I walked to the big island this morning and nothing tried to eat me. First time.",
+      "unique_item_defs": [
+        {
+          "name": "Snapper-Hide Vest",
+          "slot": "chest",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 14,
+          "primary_stats": {
+            "agility": 7,
+            "stamina": 7
+          },
+          "secondary_stats": {},
+          "armor_type": "leather",
+          "armor_value": 59,
+          "label": "Leather Chest (Agi/Sta)"
+        },
+        {
+          "name": "Shoal-Runner's Sandals",
+          "slot": "feet",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 14,
+          "primary_stats": {
+            "intellect": 5,
+            "stamina": 5
+          },
+          "secondary_stats": {},
+          "armor_type": "cloth",
+          "armor_value": 20,
+          "label": "Cloth Boots (Int/Sta)"
+        },
+        {
+          "name": "Stalker's Claw",
+          "slot": "main_hand",
+          "item_level": 18,
+          "rarity": "rare",
+          "required_level": 14,
+          "weapon_type": "fist_weapon",
+          "primary_stats": {
+            "strength": 5,
+            "agility": 5
+          },
+          "secondary_stats": {},
+          "weapon_damage_min": 37,
+          "weapon_damage_max": 51,
+          "attack_speed": 1.8,
+          "label": "Fist (Str/Agi)"
+        }
+      ],
+      "next_quest_id": "hz_tangle_sap"
+    },
+    {
+      "quest_id": "hz_tangle_sap",
+      "title": "Sap That Glows",
+      "giver_npc_id": "hz_tangle_kojira",
+      "zone": "the_tanglewood_shoals",
+      "level_min": 15,
+      "level_max": 17,
+      "elite": false,
+      "description": "The trees out here bleed light. The guardians on the big island carry it in them, and my grandmother said it came up from the roots of one tree, older than the isles.\n\nI want to know if she was right. Bring me six of it and I'll read what's in it.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "glowing_sap",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1638,
+      "reward_gold": 6270,
+      "accept_text": "The big island. The guardians are slow, but they don't forget you.",
+      "turn_in_text": "Look at it move. It's not sap at all. It's coming up from something, a long way down.\n\nShe was right. I knew she was right.",
+      "unique_item_defs": [
+        {
+          "name": "Sapglow Wand",
+          "slot": "main_hand",
+          "item_level": 19,
+          "rarity": "rare",
+          "required_level": 15,
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 3,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "spell_power": 2.2
+          },
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 45,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/SP)"
+        },
+        {
+          "name": "Rootward Bracers",
+          "slot": "wrist",
+          "item_level": 19,
+          "rarity": "rare",
+          "required_level": 15,
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "armor_type": "plate",
+          "armor_value": 103,
+          "label": "Plate Bracers (Str/Sta/Def)"
+        },
+        {
+          "name": "Glimmerwing Mantle",
+          "slot": "shoulder",
+          "item_level": 19,
+          "rarity": "rare",
+          "required_level": 15,
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "attack_power": 7.6
+          },
+          "armor_type": "mail",
+          "armor_value": 84,
+          "label": "Mail Shoulders (Agi/Int/AP)"
+        }
+      ],
+      "next_quest_id": "hz_tangle_grandfather"
+    },
+    {
+      "quest_id": "hz_tangle_grandfather",
+      "title": "Grandfather Mangrove (Elite)",
+      "giver_npc_id": "hz_tangle_kojira",
+      "zone": "the_tanglewood_shoals",
+      "level_min": 16,
+      "level_max": 18,
+      "elite": true,
+      "description": "There's one guardian on the big island bigger than the rest. Grandfather Mangrove, my grandmother called him, and she said he walks round the old tree the way a dog walks round a door it's guarding.\n\nI'd like to see that door. I'm not getting past him, and you won't either, not alone. Bring friends. Cut through his guardians and put him down.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Grandfather Mangrove",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Rootbound Guardian",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3040,
+      "reward_gold": 12160,
+      "accept_text": "The big island, where the trees get older. Bring friends. He's been growing a long time.",
+      "turn_in_text": "He's down. Now let's see what he was standing in front of.\n\nTake this, you've earned it twice over.",
+      "unique_item_defs": [
+        {
+          "name": "Grandfather's Cudgel",
+          "slot": "main_hand",
+          "item_level": 20,
+          "rarity": "rare",
+          "required_level": 16,
+          "weapon_type": "mace_2h",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 7
+          },
+          "secondary_stats": {},
+          "weapon_damage_min": 55,
+          "weapon_damage_max": 74,
+          "attack_speed": 3.6,
+          "label": "Two-Hand Mace (Str/Sta)"
+        },
+        {
+          "name": "Mangrove-Bark Helm",
+          "slot": "head",
+          "item_level": 20,
+          "rarity": "rare",
+          "required_level": 16,
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.5,
+            "dodge_rating": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 133,
+          "label": "Plate Helm (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Leafwoven Robe",
+          "slot": "chest",
+          "item_level": 20,
+          "rarity": "rare",
+          "required_level": 16,
+          "primary_stats": {
+            "intellect": 5,
+            "spirit": 5
+          },
+          "secondary_stats": {
+            "healing_power": 5.0
+          },
+          "armor_type": "cloth",
+          "armor_value": 32,
+          "label": "Cloth Robe (Int/Spi/Healing)"
+        },
+        {
+          "name": "Tanglewalker's Hood",
+          "slot": "head",
+          "item_level": 20,
+          "rarity": "rare",
+          "required_level": 16,
+          "primary_stats": {
+            "agility": 5
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4,
+            "crit_chance_physical": 0.4
+          },
+          "armor_type": "leather",
+          "armor_value": 55,
+          "label": "Leather Helm (Agi/Hit/Crit)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_idols_teeth",
+      "title": "Nothing Bites Like a Lagoon",
+      "giver_npc_id": "hz_idols_fizzle",
+      "zone": "the_drowned_idols",
+      "level_min": 33,
+      "level_max": 35,
+      "elite": false,
+      "description": "Fizzle Brassgut, treasure hunter, at your service. I've got a boat, a map and a lagoon full of drowned gods made of solid jade, and I can't get off this beach because every single thing in the water wants to eat me.\n\nCrocs and serpents. Six of each and I'll cut you in.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Lagoon Crocolisk",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Jade Serpent",
+          "count": 6
+        }
+      ],
+      "reward_exp": 3605,
+      "reward_gold": 13794,
+      "accept_text": "They're all round the landing. You'll hear the crocs before you see them.",
+      "turn_in_text": "Look at that! I can see the water! I can see the TREASURE in the water!",
+      "unique_item_defs": [
+        {
+          "name": "Croc-Leather Jerkin",
+          "slot": "chest",
+          "item_level": 37,
+          "rarity": "rare",
+          "required_level": 33,
+          "primary_stats": {
+            "agility": 15,
+            "stamina": 15
+          },
+          "secondary_stats": {},
+          "armor_type": "leather",
+          "armor_value": 121,
+          "label": "Leather Chest (Agi/Sta)"
+        },
+        {
+          "name": "Treasure Hunter's Goggles",
+          "slot": "head",
+          "item_level": 37,
+          "rarity": "rare",
+          "required_level": 33,
+          "primary_stats": {
+            "intellect": 12,
+            "stamina": 12
+          },
+          "secondary_stats": {},
+          "armor_type": "cloth",
+          "armor_value": 51,
+          "label": "Cloth Helm (Int/Sta)"
+        },
+        {
+          "name": "Serpent-Scale Girdle",
+          "slot": "waist",
+          "item_level": 37,
+          "rarity": "rare",
+          "required_level": 33,
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "defense_rating": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 201,
+          "label": "Plate Belt (Str/Sta/Def)"
+        }
+      ],
+      "next_quest_id": "hz_idols_jade"
+    },
+    {
+      "quest_id": "hz_idols_jade",
+      "title": "Small Pieces of God",
+      "giver_npc_id": "hz_idols_fizzle",
+      "zone": "the_drowned_idols",
+      "level_min": 34,
+      "level_max": 36,
+      "elite": false,
+      "description": "The trolls that drowned with the idols carry bits of them. Shards. Chipped off for luck, I reckon, and it didn't work, did it?\n\nThe drowned ones on the west and east isles have them. Eight shards and I've got enough to buy a bigger boat.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "jade_idol_shard",
+          "count": 8
+        }
+      ],
+      "reward_exp": 3714,
+      "reward_gold": 14212,
+      "accept_text": "The western and eastern isles. The hexers will try to put a curse on you. Don't let them.",
+      "turn_in_text": "Eight! These are going to make me so rich. Us. Us rich. Here, your share up front.",
+      "unique_item_defs": [
+        {
+          "name": "Jade-Edge Scimitar",
+          "slot": "main_hand",
+          "item_level": 38,
+          "rarity": "rare",
+          "required_level": 34,
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 13,
+            "agility": 13
+          },
+          "secondary_stats": {},
+          "weapon_damage_min": 69,
+          "weapon_damage_max": 94,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Agi)"
+        },
+        {
+          "name": "Hexward Mantle",
+          "slot": "shoulder",
+          "item_level": 38,
+          "rarity": "rare",
+          "required_level": 34,
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 10.1,
+            "crit_chance_spell": 0.5
+          },
+          "armor_type": "cloth",
+          "armor_value": 52,
+          "label": "Cloth Shoulders (Int/SP/Crit)"
+        },
+        {
+          "name": "Drowned-Idol Coif",
+          "slot": "head",
+          "item_level": 38,
+          "rarity": "rare",
+          "required_level": 34,
+          "primary_stats": {
+            "agility": 9,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "attack_power": 15.2
+          },
+          "armor_type": "mail",
+          "armor_value": 168,
+          "label": "Mail Helm (Agi/Int/AP)"
+        }
+      ],
+      "next_quest_id": "hz_idols_zunjal"
+    },
+    {
+      "quest_id": "hz_idols_zunjal",
+      "title": "The Idol-Keeper (Elite)",
+      "giver_npc_id": "hz_idols_fizzle",
+      "zone": "the_drowned_idols",
+      "level_min": 35,
+      "level_max": 37,
+      "elite": true,
+      "description": "Bad news. The biggest idol, on the last isle up north, has a keeper. Zun'jal. Drowned with the rest of them and didn't let it slow him down one bit. He's got his hexers round him and he's not sharing.\n\nI'm not asking you to go alone. I'm asking you to bring every friend you've got.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Idol-Keeper Zun'jal",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Drowned Hexer",
+          "count": 5
+        }
+      ],
+      "reward_exp": 6650,
+      "reward_gold": 26600,
+      "accept_text": "The last isle, north past the jade isles. Bring friends. Lots of friends.",
+      "turn_in_text": "He's gone? He's GONE! Fizzle Brassgut, richest goblin in the jungle!\n\nTake your pick, partner. You earned it.",
+      "unique_item_defs": [
+        {
+          "name": "Keeper's Hexblade",
+          "slot": "main_hand",
+          "item_level": 39,
+          "rarity": "rare",
+          "required_level": 35,
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "intellect": 8,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "hit_rating": 0.4
+          },
+          "weapon_damage_min": 71,
+          "weapon_damage_max": 96,
+          "attack_speed": 1.7,
+          "label": "Dagger (Int/Sta/Hit)"
+        },
+        {
+          "name": "Jadeplate Breastplate",
+          "slot": "chest",
+          "item_level": 39,
+          "rarity": "rare",
+          "required_level": 35,
+          "primary_stats": {
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "defense_rating": 1.1,
+            "dodge_rating": 1.1
+          },
+          "armor_type": "plate",
+          "armor_value": 307,
+          "label": "Plate Chest (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Drowned God's Vestments",
+          "slot": "chest",
+          "item_level": 39,
+          "rarity": "rare",
+          "required_level": 35,
+          "primary_stats": {
+            "intellect": 9,
+            "spirit": 9
+          },
+          "secondary_stats": {
+            "healing_power": 9.8
+          },
+          "armor_type": "cloth",
+          "armor_value": 63,
+          "label": "Cloth Robe (Int/Spi/Healing)"
+        },
+        {
+          "name": "Lagoon-Runner's Leggings",
+          "slot": "legs",
+          "item_level": 39,
+          "rarity": "rare",
+          "required_level": 35,
+          "primary_stats": {
+            "agility": 12
+          },
+          "secondary_stats": {
+            "hit_rating": 0.9,
+            "crit_chance_physical": 0.9
+          },
+          "armor_type": "leather",
+          "armor_value": 127,
+          "label": "Leather Legs (Agi/Hit/Crit)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_caravan_dunes",
+      "title": "Things in the Sand",
+      "giver_npc_id": "hz_caravan_rizzo",
+      "zone": "the_buried_caravan",
+      "level_min": 44,
+      "level_max": 46,
+      "elite": false,
+      "description": "Rizzo Dustwhistle. My family's been looking for this caravan for four generations and I'm the one who found it. Of course I am.\n\nProblem is it's full of scorpids and the people who were on it, who aren't people any more. Clear me a way in. Six of each.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Sandscour Scorpid",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Caravan Ghoul",
+          "count": 6
+        }
+      ],
+      "reward_exp": 4807,
+      "reward_gold": 18392,
+      "accept_text": "The dunes by the landing, and the wagon graves west. Watch the sand, it moves.",
+      "turn_in_text": "I can see a wagon wheel sticking up out of the sand. Grandma's wagon wheel, maybe!",
+      "unique_item_defs": [
+        {
+          "name": "Scorpid-Shell Gauntlets",
+          "slot": "hands",
+          "item_level": 48,
+          "rarity": "rare",
+          "required_level": 44,
+          "primary_stats": {
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "armor": 32.7,
+            "parry_rating": 0.7
+          },
+          "armor_type": "plate",
+          "armor_value": 261,
+          "label": "Plate Gloves (Sta/Armor/Parry)"
+        },
+        {
+          "name": "Sandwalker's Sash",
+          "slot": "waist",
+          "item_level": 48,
+          "rarity": "rare",
+          "required_level": 44,
+          "primary_stats": {
+            "intellect": 13,
+            "spirit": 13
+          },
+          "secondary_stats": {},
+          "armor_type": "cloth",
+          "armor_value": 54,
+          "label": "Cloth Belt (Int/Spi)"
+        },
+        {
+          "name": "Dune-Dancer's Boots",
+          "slot": "feet",
+          "item_level": 48,
+          "rarity": "rare",
+          "required_level": 44,
+          "primary_stats": {
+            "agility": 13,
+            "stamina": 13
+          },
+          "secondary_stats": {},
+          "armor_type": "leather",
+          "armor_value": 109,
+          "label": "Leather Boots (Agi/Sta)"
+        }
+      ],
+      "next_quest_id": "hz_caravan_manifest"
+    },
+    {
+      "quest_id": "hz_caravan_manifest",
+      "title": "The Manifest",
+      "giver_npc_id": "hz_caravan_rizzo",
+      "zone": "the_buried_caravan",
+      "level_min": 45,
+      "level_max": 47,
+      "elite": false,
+      "description": "The caravan's ledger got torn up when they went under. Every guard on that caravan was carrying a piece of it, because the Master didn't trust anybody.\n\nThe revenants in the market still have them. Eight pages and I'll know what's buried here, and where.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "caravan_manifest_page",
+          "count": 8
+        }
+      ],
+      "reward_exp": 4916,
+      "reward_gold": 18810,
+      "accept_text": "The drowned market, north of the dunes. The revenants carry them. They won't give them up.",
+      "turn_in_text": "Silk, spice, a dragon's egg... a DRAGON'S EGG? Oh, Grandma.",
+      "unique_item_defs": [
+        {
+          "name": "Ledger-Keeper's Wand",
+          "slot": "main_hand",
+          "item_level": 49,
+          "rarity": "rare",
+          "required_level": 45,
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 8,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "spell_power": 5.7
+          },
+          "weapon_damage_min": 74,
+          "weapon_damage_max": 100,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/SP)"
+        },
+        {
+          "name": "Caravan Guard's Hauberk",
+          "slot": "chest",
+          "item_level": 49,
+          "rarity": "rare",
+          "required_level": 45,
+          "primary_stats": {
+            "agility": 14,
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "attack_power": 23.2
+          },
+          "armor_type": "mail",
+          "armor_value": 257,
+          "label": "Mail Chest (Agi/Int/AP)"
+        },
+        {
+          "name": "Trader's Ring of Sand",
+          "slot": "ring",
+          "item_level": 49,
+          "rarity": "rare",
+          "required_level": 45,
+          "primary_stats": {
+            "agility": 10
+          },
+          "secondary_stats": {
+            "hit_rating": 0.7,
+            "crit_chance_physical": 0.7
+          },
+          "label": "Ring (Agi/Hit/Crit)"
+        }
+      ],
+      "next_quest_id": "hz_caravan_master"
+    },
+    {
+      "quest_id": "hz_caravan_master",
+      "title": "The Last Caravan Master (Elite)",
+      "giver_npc_id": "hz_caravan_rizzo",
+      "zone": "the_buried_caravan",
+      "level_min": 46,
+      "level_max": 48,
+      "elite": true,
+      "description": "The ledger says the Master kept the good stuff in his own wagon, at the very back. And he's still in it. He still thinks he's delivering it.\n\nThe colossi at the gate keep people away from him, and he'll be harder than all of them. Bring a crew. Then I'll finally know what four generations of my family died looking for.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "The Last Caravan Master",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Sandstone Colossus",
+          "count": 3
+        }
+      ],
+      "reward_exp": 8740,
+      "reward_gold": 34960,
+      "accept_text": "North, through the buried gate to the back of the caravan. Bring a crew.",
+      "turn_in_text": "It's real. All of it. Four generations, and it's real.\n\nPick something. Pick two, I won't tell.",
+      "unique_item_defs": [
+        {
+          "name": "Caravan Master's Halberd",
+          "slot": "main_hand",
+          "item_level": 50,
+          "rarity": "rare",
+          "required_level": 46,
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 12
+          },
+          "secondary_stats": {
+            "attack_power": 23.3,
+            "hit_rating": 1.0
+          },
+          "weapon_damage_min": 119,
+          "weapon_damage_max": 162,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/AP/Hit)"
+        },
+        {
+          "name": "Sunscoured Cowl",
+          "slot": "head",
+          "item_level": 50,
+          "rarity": "rare",
+          "required_level": 46,
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 13.3,
+            "crit_chance_spell": 0.7
+          },
+          "armor_type": "cloth",
+          "armor_value": 69,
+          "label": "Cloth Helm (Int/SP/Crit)"
+        },
+        {
+          "name": "Dunewarden Helm",
+          "slot": "head",
+          "item_level": 50,
+          "rarity": "rare",
+          "required_level": 46,
+          "primary_stats": {
+            "stamina": 15
+          },
+          "secondary_stats": {
+            "defense_rating": 1.2,
+            "dodge_rating": 1.2
+          },
+          "armor_type": "plate",
+          "armor_value": 333,
+          "label": "Plate Helm (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Sandstalker's Hood",
+          "slot": "head",
+          "item_level": 50,
+          "rarity": "rare",
+          "required_level": 46,
+          "primary_stats": {
+            "agility": 13
+          },
+          "secondary_stats": {
+            "hit_rating": 1.0,
+            "crit_chance_physical": 1.0
+          },
+          "armor_type": "leather",
+          "armor_value": 138,
+          "label": "Leather Helm (Agi/Hit/Crit)"
         }
       ],
       "next_quest_id": null

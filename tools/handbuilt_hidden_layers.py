@@ -525,6 +525,80 @@ def build_unwritten_stacks():
     return zone, L
 
 
+# ======================================================================= THE WORLD-ROOT HOLLOW
+# A FRONTIER ZONE (world/hidden_zones.py): a hidden zone inside a hidden zone. Kyle named this one
+# and said where its door is ("hidden behind a massive tree (Frontier zone can be called The
+# World-Root Hollow)"). Inside the great tree's roots: a ROOT-WEB, the one shape no cave in the game
+# has - a knot of tunnels that cross and re-cross between hollows, so there is no single way
+# through and every chamber has two or three ways out. The heartwood is in the middle; the
+# root-father sleeps at the very bottom of the tree, which is the top of the map.
+WR_PORTAL = (56, 94)
+WR_SAP = (56, 50)
+WR_FATHER = (56, 10)
+WR_GNARL = (12, 30)
+WR_CHESTS = [(56, 7), (100, 30), (14, 78)]
+
+
+def build_world_root():
+    zone, L = _layer(
+        "The World-Root Hollow", 112, 100,
+        "Inside the roots of a tree older than the Darkspear: hollows full of amber light, sap that "
+        "moves on its own, and something at the bottom that the whole tree is growing round.",
+        "The Tanglewood Shoals", WR_PORTAL)
+    b = L.b
+    cavern(b, 56, 90, 9, 4, 0, 0.3)                                    # The Rootgate
+    hollows = [(30, 76, 9, 7), (82, 76, 9, 7), (14, 78, 5, 4), (100, 54, 7, 9), (14, 52, 7, 9),
+               (34, 30, 10, 7), (80, 30, 10, 7), (100, 30, 5, 5), (12, 30, 6, 6)]
+    for n, (hx, hy, rx, ry) in enumerate(hollows):
+        cavern(b, hx, hy, rx, ry, (n * 23) % 50 - 25, n * 0.7)
+    disc(b, WR_SAP[0], WR_SAP[1], 12, ph=1.1)                          # The Heartwood
+    cavern(b, 56, 12, 14, 8, 0, 2.2)                                   # The Root-Father's Bed
+    # the web: every hollow tied to two or three others by roots that cross
+    web = [((56, 86), (34, 78)), ((56, 86), (78, 78)), ((30, 72), (16, 58)), ((82, 72), (98, 60)),
+           ((24, 78), (16, 78)), ((36, 72), (48, 56)), ((76, 72), (64, 56)), ((16, 46), (28, 34)),
+           ((98, 48), (84, 34)), ((44, 46), (38, 36)), ((68, 46), (74, 36)), ((40, 28), (52, 16)),
+           ((74, 28), (62, 16)), ((86, 30), (98, 30)), ((24, 30), (16, 30)), ((20, 52), (44, 52)),
+           ((92, 54), (68, 52)), ((30, 70), (76, 36)), ((82, 70), (36, 36))]
+    for n, (a, c) in enumerate(web):
+        mid = ((a[0] + c[0]) / 2 + 4 * math.sin(n), (a[1] + c[1]) / 2 + 3 * math.cos(n))
+        tube(b, [a, mid, c], 3, ph=n * 0.4)
+    _apply_pools(zone, [(56, 50, 4.5, 3.5, 0.9)], shallow_only=True)
+
+    rooms = [("The Rootgate", 46, 84, 20, 12), ("The Amber Hollows", 18, 68, 76, 18),
+             ("The Weeping Roots", 6, 42, 20, 22), ("The Sap Galleries", 92, 42, 18, 24),
+             ("The Heartwood", 42, 36, 28, 28), ("The Knotted Deep", 22, 20, 70, 20),
+             ("The Root-Father's Bed", 40, 2, 32, 20)]
+    lv = 18
+    packs = [
+        [(30, 76, "Hollow Rootling", lv), (27, 74, "Hollow Rootling", lv), (33, 78, "Sapdrunk Bat", lv)],
+        [(82, 76, "Heartwood Spider", lv), (85, 74, "Sapdrunk Bat", lv)],
+        [(14, 52, "Lost Rootspeaker", lv + 1), (16, 55, "Hollow Rootling", lv)],
+        [(100, 54, "Heartwood Spider", lv + 1), (98, 51, "Heartwood Spider", lv + 1)],
+        [(34, 30, "Lost Rootspeaker", lv + 1), (31, 28, "Hollow Rootling", lv + 1), (37, 32, "Sapdrunk Bat", lv + 1)],
+        [(80, 30, "Heartwood Spider", lv + 1), (83, 32, "Lost Rootspeaker", lv + 1), (77, 28, "Hollow Rootling", lv + 1)],
+    ]
+    bosses = [(WR_SAP[0], WR_SAP[1] - 4, "Amberheart, the Sap-Mother"),
+              (WR_FATHER[0], WR_FATHER[1], "The Root-Father"),
+              (WR_GNARL[0], WR_GNARL[1], "Gnarl the Unburied")]
+    _close(L, zone, WR_PORTAL, bosses, packs, WR_CHESTS, rooms)
+
+    p = L.prop
+    p("ashx_nightmare_root_pillar", 49, 92, 6, solid="core", where=ASHX)
+    p("ashx_nightmare_root_pillar", 63, 92, 6, solid="core", where=ASHX)
+    p("ud_shroom_cluster_blue", 26, 80, 3, where=UDP)
+    p("ud_glow_pool", 86, 80, 3, where=UDP)
+    p("ud_shroom_tall_violet", 10, 56, 5, solid="core", where=UDP)
+    p("den_glow_mushrooms", 102, 58, 3)
+    p("ashx_corrupt_ancient_tree", 56, 44, 7, solid="core", where=ASHX, near_ok=True)
+    p("ud_moss_curtain", 30, 26, 4, where=UDP)
+    p("ud_fungal_node", 84, 26, 3, where=UDP)
+    p("vot_beast_ribcage", 14, 34, 3)
+    p("ashx_nightmare_cocoon", 46, 10, 4, solid="core", where=ASHX)
+    p("ashx_nightmare_cocoon", 66, 10, 4, solid="core", where=ASHX)
+    L.finish([WR_PORTAL, WR_FATHER, WR_GNARL, (WR_SAP[0], WR_SAP[1] - 4)] + WR_CHESTS)
+    return zone, L
+
+
 # ======================================================================= registry for the world
 BUILDS = {
     "The Cinderwell": (build_cinderwell, "cinderwell"),
@@ -533,11 +607,13 @@ BUILDS = {
     "The Lightless Reach": (build_lightless_reach, "lightless_reach"),
     "The Blood Pits": (build_blood_pits, "blood_pits"),
     "The Unwritten Stacks": (build_unwritten_stacks, "unwritten_stacks"),
+    "The World-Root Hollow": (build_world_root, "world_root_hollow"),
 }
 
 #: the portal tile of each layer (its way in and out)
 PORTALS = {"The Cinderwell": CW_PORTAL, "The Dreaming Root": DR_PORTAL, "The Ossuary Below": OB_PORTAL,
-           "The Lightless Reach": LR_PORTAL, "The Blood Pits": BP_PORTAL, "The Unwritten Stacks": US_PORTAL}
+           "The Lightless Reach": LR_PORTAL, "The Blood Pits": BP_PORTAL, "The Unwritten Stacks": US_PORTAL,
+           "The World-Root Hollow": WR_PORTAL}
 
 
 def generate_all():

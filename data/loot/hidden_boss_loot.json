@@ -863,6 +863,55 @@
       "armor_value": 104
     }
   ],
+  "Gullmother Shrike": [
+    {
+      "name": "Shrike-Feather Cloak",
+      "slot": "back",
+      "item_level": 44,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Grey and white, and it moves in a wind you can't feel.",
+      "primary_stats": {
+        "agility": 11,
+        "intellect": 11
+      },
+      "secondary_stats": {}
+    },
+    {
+      "name": "Talon-Hook Knife",
+      "slot": "main_hand",
+      "item_level": 44,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "One of her claws, fitted with a grip.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 10
+      },
+      "secondary_stats": {
+        "hit_rating": 0.7,
+        "crit_chance_physical": 0.7
+      },
+      "weapon_damage_min": 79,
+      "weapon_damage_max": 107,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Gull-Bone Wristguards",
+      "slot": "wrist",
+      "item_level": 44,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Light as anything and harder than they look.",
+      "primary_stats": {
+        "strength": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 239
+    }
+  ],
   "Old Blister": [
     {
       "name": "Blister's Fused Fang",
@@ -942,6 +991,53 @@
       },
       "armor_type": "mail",
       "armor_value": 120
+    }
+  ],
+  "Cindermaw": [
+    {
+      "name": "Cindermaw Fang Necklace",
+      "slot": "neck",
+      "item_level": 22,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "Still smells of smoke.",
+      "primary_stats": {
+        "strength": 5,
+        "agility": 5
+      },
+      "secondary_stats": {}
+    },
+    {
+      "name": "Scorchhide Leggings",
+      "slot": "legs",
+      "item_level": 22,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "Singed, but they hold.",
+      "primary_stats": {
+        "agility": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 72
+    },
+    {
+      "name": "Ember-Sworn Wraps",
+      "slot": "wrist",
+      "item_level": 22,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "Warm whatever the weather.",
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "spell_power": 2.9
+      },
+      "armor_type": "cloth",
+      "armor_value": 24
     }
   ],
   "The Widow of the Mere": [
@@ -1025,6 +1121,682 @@
       },
       "armor_type": "plate",
       "armor_value": 136
+    }
+  ],
+  "Old Hollowbark": [
+    {
+      "name": "Hollowbark Shield",
+      "slot": "off_hand",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "Cut from his chest. He's hollow there anyway.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 6
+      },
+      "armor_value": 48,
+      "block_value": 61
+    },
+    {
+      "name": "Pinesap Gloves",
+      "slot": "hands",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "Sticky with something that smells like rain.",
+      "primary_stats": {
+        "intellect": 7,
+        "spirit": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 27
+    },
+    {
+      "name": "Mosswalker Boots",
+      "slot": "feet",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "Soft soled, made for dead ground.",
+      "primary_stats": {
+        "agility": 5,
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "attack_power": 7.9
+      },
+      "armor_type": "mail",
+      "armor_value": 87
+    }
+  ],
+  "Grandfather Mangrove": [
+    {
+      "name": "Mangrove-Heart Staff",
+      "slot": "main_hand",
+      "item_level": 22,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "A living branch. It still puts out leaves in spring.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 8,
+        "spirit": 8
+      },
+      "secondary_stats": {
+        "healing_power": 8.4
+      },
+      "weapon_damage_min": 24,
+      "weapon_damage_max": 32,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Barkweave Jerkin",
+      "slot": "chest",
+      "item_level": 22,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "Grown, not stitched.",
+      "primary_stats": {
+        "agility": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 72
+    },
+    {
+      "name": "Shoalwalker Boots",
+      "slot": "feet",
+      "item_level": 22,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "They grip wet roots like they were made for it.",
+      "primary_stats": {
+        "strength": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 79
+    },
+    {
+      "name": "Seed of the Old Wood",
+      "slot": "neck",
+      "item_level": 22,
+      "rarity": "rare",
+      "required_level": 15,
+      "flavor_text": "It's warm, and it's growing. Slowly.",
+      "primary_stats": {
+        "intellect": 5,
+        "spirit": 5
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Old Snag-Jaw": [
+    {
+      "name": "Snag-Tooth Dagger",
+      "slot": "main_hand",
+      "item_level": 21,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "One of his teeth. He has plenty more.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "strength": 6,
+        "agility": 6
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 42,
+      "weapon_damage_max": 57,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Crocscale Bracers",
+      "slot": "wrist",
+      "item_level": 21,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "Tough enough to turn a bite.",
+      "primary_stats": {
+        "strength": 4,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "defense_rating": 0.3
+      },
+      "armor_type": "mail",
+      "armor_value": 76
+    },
+    {
+      "name": "Swamp-Lurker's Cord",
+      "slot": "waist",
+      "item_level": 21,
+      "rarity": "rare",
+      "required_level": 14,
+      "flavor_text": "Smells of the shallows forever.",
+      "primary_stats": {
+        "intellect": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 23
+    }
+  ],
+  "Gnarl the Unburied": [
+    {
+      "name": "Gnarlwood Bludgeon",
+      "slot": "main_hand",
+      "item_level": 27,
+      "rarity": "epic",
+      "required_level": 17,
+      "flavor_text": "Pulled out of him. He didn't miss it.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 91,
+      "weapon_damage_max": 123,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Unburied Mantle",
+      "slot": "shoulder",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "Moss grows on it even in a bag.",
+      "primary_stats": {
+        "agility": 9,
+        "spirit": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 74
+    },
+    {
+      "name": "Rootknot Ring",
+      "slot": "ring",
+      "item_level": 27,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "A ring of living root. It tightens when you're hurt.",
+      "primary_stats": {
+        "stamina": 5,
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "healing_power": 3.1
+      }
+    }
+  ],
+  "Amberheart, the Sap-Mother": [
+    {
+      "name": "Tear of the Sap-Mother",
+      "slot": "neck",
+      "item_level": 28,
+      "rarity": "epic",
+      "required_level": 18,
+      "flavor_text": "A drop of amber with a flower in it that hasn't grown anywhere for ten thousand years.",
+      "primary_stats": {
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "spell_power": 7.0,
+        "crit_chance_spell": 0.4
+      }
+    },
+    {
+      "name": "Amber-Sealed Aegis",
+      "slot": "off_hand",
+      "item_level": 28,
+      "rarity": "epic",
+      "required_level": 18,
+      "flavor_text": "A shield with a beetle in it the size of your hand. It's still alive.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 9
+      },
+      "armor_value": 73,
+      "block_value": 92
+    },
+    {
+      "name": "Sapweave Robes",
+      "slot": "chest",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 18,
+      "flavor_text": "Sticky. Worth it.",
+      "primary_stats": {
+        "intellect": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "spell_power": 5.3
+      },
+      "armor_type": "cloth",
+      "armor_value": 45
+    },
+    {
+      "name": "Amberplate Greaves",
+      "slot": "legs",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 18,
+      "flavor_text": "Plate set in amber, and the amber doesn't crack.",
+      "primary_stats": {
+        "strength": 8,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "defense_rating": 0.6
+      },
+      "armor_type": "plate",
+      "armor_value": 220
+    },
+    {
+      "name": "Heartwood Grips",
+      "slot": "hands",
+      "item_level": 28,
+      "rarity": "rare",
+      "required_level": 18,
+      "flavor_text": "Carved from the inside of the tree.",
+      "primary_stats": {
+        "agility": 6
+      },
+      "secondary_stats": {
+        "hit_rating": 0.5,
+        "crit_chance_physical": 0.5
+      },
+      "armor_type": "leather",
+      "armor_value": 63
+    }
+  ],
+  "The Root-Father": [
+    {
+      "name": "World-Root",
+      "slot": "main_hand",
+      "item_level": 29,
+      "rarity": "epic",
+      "required_level": 19,
+      "flavor_text": "A staff cut from the root of the oldest tree in the world. It cut back.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 14
+      },
+      "secondary_stats": {
+        "spell_power": 18.0,
+        "crit_chance_spell": 0.9
+      },
+      "weapon_damage_min": 39,
+      "weapon_damage_max": 53,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Root-Father's Reach",
+      "slot": "main_hand",
+      "item_level": 29,
+      "rarity": "epic",
+      "required_level": 19,
+      "flavor_text": "A spear of root as hard as iron and twice as patient.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 9
+      },
+      "secondary_stats": {
+        "attack_power": 17.5,
+        "hit_rating": 0.8
+      },
+      "weapon_damage_min": 96,
+      "weapon_damage_max": 130,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Bark of the First Tree",
+      "slot": "chest",
+      "item_level": 29,
+      "rarity": "epic",
+      "required_level": 19,
+      "flavor_text": "Armour that grows back.",
+      "primary_stats": {
+        "stamina": 14
+      },
+      "secondary_stats": {
+        "defense_rating": 1.1,
+        "dodge_rating": 1.1
+      },
+      "armor_type": "plate",
+      "armor_value": 295
+    },
+    {
+      "name": "Crown of Living Wood",
+      "slot": "head",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 19,
+      "flavor_text": "Small white flowers open on it at dawn.",
+      "primary_stats": {
+        "intellect": 6,
+        "spirit": 6
+      },
+      "secondary_stats": {
+        "healing_power": 6.2
+      },
+      "armor_type": "cloth",
+      "armor_value": 40
+    },
+    {
+      "name": "Treewalker's Hauberk",
+      "slot": "chest",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 19,
+      "flavor_text": "Rings of bark, linked like mail.",
+      "primary_stats": {
+        "agility": 8,
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "attack_power": 13.7
+      },
+      "armor_type": "mail",
+      "armor_value": 152
+    },
+    {
+      "name": "Hollow-Stalker Leggings",
+      "slot": "legs",
+      "item_level": 29,
+      "rarity": "rare",
+      "required_level": 19,
+      "flavor_text": "You don't make a sound in them.",
+      "primary_stats": {
+        "agility": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 95
+    }
+  ],
+  "Idol-Keeper Zun'jal": [
+    {
+      "name": "Eye of the Drowned God",
+      "slot": "neck",
+      "item_level": 41,
+      "rarity": "epic",
+      "required_level": 34,
+      "flavor_text": "A jade eye on a cord of hair. It blinks.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "shadow_spell_power": 12.9,
+        "arcane_spell_power": 12.9
+      }
+    },
+    {
+      "name": "Zun'jal's Hexing Rod",
+      "slot": "main_hand",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Carved from an idol's finger.",
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 7,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "hit_rating": 0.4
+      },
+      "weapon_damage_min": 63,
+      "weapon_damage_max": 85,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Waterlogged Ritual Robes",
+      "slot": "chest",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "They never dry, and they never rot.",
+      "primary_stats": {
+        "intellect": 10,
+        "spirit": 10
+      },
+      "secondary_stats": {
+        "healing_power": 10.3
+      },
+      "armor_type": "cloth",
+      "armor_value": 67
+    },
+    {
+      "name": "Idol-Breaker's Pauldrons",
+      "slot": "shoulder",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Hammered from the bronze of a drowned god.",
+      "primary_stats": {
+        "strength": 10,
+        "stamina": 12
+      },
+      "secondary_stats": {
+        "defense_rating": 0.7
+      },
+      "armor_type": "plate",
+      "armor_value": 273
+    },
+    {
+      "name": "Lagoon-Stalker's Boots",
+      "slot": "feet",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 34,
+      "flavor_text": "Silent on wet stone.",
+      "primary_stats": {
+        "agility": 9
+      },
+      "secondary_stats": {
+        "hit_rating": 0.7,
+        "crit_chance_physical": 0.7
+      },
+      "armor_type": "leather",
+      "armor_value": 93
+    }
+  ],
+  "Mother Mire": [
+    {
+      "name": "Mire-Mother's Knuckles",
+      "slot": "main_hand",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Big enough for her. They'll do for you.",
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "strength": 11,
+        "agility": 11
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 72,
+      "weapon_damage_max": 98,
+      "attack_speed": 1.8
+    },
+    {
+      "name": "Silverback Mantle",
+      "slot": "shoulder",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "Grey fur over hard hide.",
+      "primary_stats": {
+        "strength": 9,
+        "agility": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 177
+    },
+    {
+      "name": "Mudslick Gloves",
+      "slot": "hands",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 33,
+      "flavor_text": "You'll never drop anything again.",
+      "primary_stats": {
+        "intellect": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 45
+    }
+  ],
+  "The Last Caravan Master": [
+    {
+      "name": "The Master's Ledger",
+      "slot": "off_hand",
+      "item_level": 52,
+      "rarity": "epic",
+      "required_level": 45,
+      "flavor_text": "Every debt ever owed this caravan, in a hand that never shook.",
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {
+        "spell_power": 9.8
+      }
+    },
+    {
+      "name": "Caravan-Breaker",
+      "slot": "main_hand",
+      "item_level": 52,
+      "rarity": "epic",
+      "required_level": 45,
+      "flavor_text": "A wagon axle, sharpened. He wasn't picky.",
+      "weapon_type": "axe_2h",
+      "primary_stats": {
+        "strength": 18
+      },
+      "secondary_stats": {
+        "hit_rating": 1.3,
+        "crit_chance_physical": 1.3
+      },
+      "weapon_damage_min": 160,
+      "weapon_damage_max": 217,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Dune-Buried Breastplate",
+      "slot": "chest",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 45,
+      "flavor_text": "Sand pours out of it for a week.",
+      "primary_stats": {
+        "stamina": 19
+      },
+      "secondary_stats": {
+        "defense_rating": 1.5,
+        "dodge_rating": 1.5
+      },
+      "armor_type": "plate",
+      "armor_value": 409
+    },
+    {
+      "name": "Teamster's Duster",
+      "slot": "chest",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 45,
+      "flavor_text": "Sun-faded, sand-scoured, still waterproof.",
+      "primary_stats": {
+        "agility": 14,
+        "intellect": 14
+      },
+      "secondary_stats": {
+        "attack_power": 24.6
+      },
+      "armor_type": "mail",
+      "armor_value": 273
+    },
+    {
+      "name": "Silk of the Lost Market",
+      "slot": "legs",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 45,
+      "flavor_text": "The finest thing the caravan carried.",
+      "primary_stats": {
+        "intellect": 12
+      },
+      "secondary_stats": {
+        "spell_power": 16.4,
+        "crit_chance_spell": 0.8
+      },
+      "armor_type": "cloth",
+      "armor_value": 85
+    }
+  ],
+  "Old Stinger": [
+    {
+      "name": "Stinger's Barb",
+      "slot": "main_hand",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 44,
+      "flavor_text": "Still wet at the tip. Don't lick it.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 12
+      },
+      "secondary_stats": {
+        "hit_rating": 0.9,
+        "crit_chance_physical": 0.9
+      },
+      "weapon_damage_min": 90,
+      "weapon_damage_max": 122,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Chitin Pauldrons",
+      "slot": "shoulder",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 44,
+      "flavor_text": "Plates off the oldest scorpid in the desert.",
+      "primary_stats": {
+        "stamina": 17
+      },
+      "secondary_stats": {
+        "armor": 42.5,
+        "parry_rating": 0.8
+      },
+      "armor_type": "plate",
+      "armor_value": 339
+    },
+    {
+      "name": "Sand-Shed Wraps",
+      "slot": "wrist",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 44,
+      "flavor_text": "Light as a moult.",
+      "primary_stats": {
+        "intellect": 14,
+        "spirit": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 57
     }
   ]
 }

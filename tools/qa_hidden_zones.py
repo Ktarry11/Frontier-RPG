@@ -24,6 +24,9 @@ CLAIMS
      every kill target lives there, every fetch item drops from something that lives there, and
      every reward builds and can be worn at the quest's level.
   8. The testing screen's zone list doesn't name them.
+  9. A frontier zone (a hidden zone inside a hidden zone) opens off a skull zone, about one in ten
+     of them; it is a step harder (5 / 5.5 deep, 3.5 / 3.5 open), drops 8 item levels up, and
+     every one of its bosses has an epic.
 """
 import contextlib
 import io
@@ -71,7 +74,7 @@ def main():
         return seen
 
     doors = {d[3]: d for d in S.doors()}
-    kinds = {"layer": 0, "skull": 0}
+    kinds = {"layer": 0, "skull": 0, "frontier": 0}
     for zname, info in reg.items():
         kinds[info["kind"]] = kinds.get(info["kind"], 0) + 1
         tm = zones.get(zname)
@@ -111,6 +114,9 @@ def main():
         total = sum(tm.is_walkable(xx, yy) for yy in range(tm.height) for xx in range(tm.width))
         if total - len(seen) > 0:
             bad.append(f"{total - len(seen)} tiles of a hidden zone can't be walked to")
+        # a frontier's door is inside another hidden zone
+        if info["kind"] == "frontier" and reg.get(info["parent"], {}).get("kind") not in ("skull",):
+            bad.append("a frontier zone's door is not inside a skull zone")
         # 4. a layer's shape
         if info["kind"] == "layer":
             bosses = getattr(tm, "boss_positions", None) or []
@@ -136,7 +142,9 @@ def main():
     # 5. creatures
     from world.creature_manager import CreatureManager
     cm = zm.creature_manager if hasattr(zm, "creature_manager") else CreatureManager()
-    want = {"hidden_layer": (4.0, 4.5), "skull_zone": (2.5, 2.5)}
+    want = {"hidden_layer": (4.0, 4.5), "skull_zone": (2.5, 2.5),
+            "frontier_deep": (5.0, 5.5), "frontier_open": (3.5, 3.5)}
+    lift = {"hidden_layer": (4, 5), "skull_zone": (4, 5), "frontier_deep": (8, 8), "frontier_open": (8, 8)}
     ck = creature_kinds()
     if not ck:
         bad.append("no creature is in a hidden zone's table")
@@ -154,8 +162,9 @@ def main():
         h, dmg = want[kind]
         if abs(getattr(m, "_difficulty_health", 0) - h) > 1e-6 or abs(difficulty.factor(m, "damage") - dmg) > 1e-6:
             bad.append(f"a hidden creature is not at {h}x health / {dmg}x damage")
-        if not 4 <= getattr(m, "loot_ilvl_bonus", 0) <= 5:
-            bad.append("a hidden creature's loot is not lifted 4-5 item levels")
+        lo, hi = lift[kind]
+        if not lo <= getattr(m, "loot_ilvl_bonus", 0) <= hi:
+            bad.append(f"a hidden creature's loot is not lifted {lo}-{hi} item levels")
     # 6. boss loot
     from entities.boss_loot import get_fixed_boss_loot_all
     for zname, info in reg.items():
@@ -165,12 +174,15 @@ def main():
             if not pool:
                 bad.append("a hidden boss has no loot of its own")
                 continue
-            if any(it["item_level"] != lvl + 5 for it in pool):
-                bad.append("a hidden boss's loot is not at its level + 5")
+            frontier = info["kind"] == "frontier"
+            if any(it["item_level"] != lvl + (8 if frontier else 5) for it in pool):
+                bad.append("a hidden boss's loot is not at its level + 5 (+ 8 in a frontier)")
             epics = [it for it in pool if it["rarity"] == "epic"]
+            if frontier and not epics:
+                bad.append("a frontier boss has no epic")
             if lvl >= 30 and info["kind"] == "layer" and not epics:
                 bad.append("a hidden boss from level 30 has no one-of-a-kind epic")
-            if lvl < 30 and epics:
+            if lvl < 30 and epics and not frontier:
                 bad.append("a hidden boss below level 30 has an epic")
             if len(get_fixed_boss_loot_all(boss)) != 2:
                 bad.append("a hidden boss doesn't drop two pieces")
@@ -213,7 +225,10 @@ def main():
     if any(d["zone"] in reg for d in test_zones(zm)):
         bad.append("the testing screen lists a hidden zone")
 
-    print(f"{kinds.get('layer', 0)} hidden layers, {kinds.get('skull', 0)} skull zones, {len(ck)} creatures, "
+    if kinds.get("frontier", 0) > max(1, round(0.1 * kinds.get("skull", 0))) + 0:
+        bad.append("more frontier zones than one in ten skull zones")
+    print(f"{kinds.get('layer', 0)} hidden layers, {kinds.get('skull', 0)} skull zones, "
+          f"{kinds.get('frontier', 0)} frontier zones, {len(ck)} creatures, "
           f"{sum(len(v) for k, v in loot.items() if not k.startswith('_'))} boss items, {n_quests} quests")
     if bad:
         print(f"\n{len(bad)} problem(s):")

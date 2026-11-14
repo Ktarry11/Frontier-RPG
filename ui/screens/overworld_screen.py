@@ -1109,13 +1109,17 @@ class OverworldScreen(BaseScreen):
                                 center=True)
         # A HIDDEN ZONE WEARS A SKULL beside its name (world/hidden_zones.py). Kyle, 14 Nov:
         # "These new zones will still have the level range but maybe a skull next to them."
-        from world.hidden_zones import is_hidden
-        if is_hidden(zone.name):
+        # A FRONTIER ZONE (a hidden zone inside a hidden zone) wears two on each side.
+        from world.hidden_zones import skulls
+        n_sk = skulls(zone.name)
+        if n_sk:
             from ui.skull_mark import skull
             w = self.renderer._get_font("large", None).size(zone_levels.banner(zone.name))[0]
             mark = skull(28)
-            screen.blit(mark, (SCREEN_WIDTH // 2 - w // 2 - mark.get_width() - 8, 12))
-            screen.blit(mark, (SCREEN_WIDTH // 2 + w // 2 + 8, 12))
+            mw = mark.get_width()
+            for i in range(n_sk):
+                screen.blit(mark, (SCREEN_WIDTH // 2 - w // 2 - (mw + 8) * (i + 1), 12))
+                screen.blit(mark, (SCREEN_WIDTH // 2 + w // 2 + 8 + (mw + 8) * i, 12))
         
         # Draw encounter status (top left)
         encounter_status = "ON" if self.encounters_enabled else "OFF"

@@ -158,6 +158,30 @@ SPECS["unwritten_stacks"] = lambda: dict(
 )
 
 
+SPECS["world_root_hollow"] = lambda: dict(
+    build="build_world_root", seed=907, slug="world_root_hollow",
+    materials={
+        "floor":  M(dim(SP + "root_earth", 0.70)),
+        "moss":   M(dim(CS + "mossy_cave_floor_a", 0.75)),
+        "amber":  M(dim(UD + "ud_bloom_floor", 0.85)),
+        "fern":   M(dim(SP + "fern_floor", 0.65)),
+        "water_s": M(dim(WC + "wc_river_water", 0.8)),
+        "water_d": M(dim(WC + "wc_river_water", 0.6)),
+        "wall":   M(dim(WC + "wc_cavern_wall", 0.6), None, 2.0),
+        "bark":   M(dim(SP + "moss_rock", 0.6), None, 2.0),
+    },
+    floor_keys=["floor", "moss", "amber", "fern"],
+    wall_keys=["wall", "bark"],
+    floors={"amber": [(56, 50, 13, 13), (56, 12, 14, 8)], "moss": [(30, 76, 10, 8), (82, 76, 10, 8), (14, 52, 8, 10)],
+            "fern": [(34, 30, 11, 8), (80, 30, 11, 8)]},
+    walls={"bark": [(56, 50, 18, 18), (56, 12, 18, 12)]},
+    pools=[[(56, 50, 4.5, 3.5, 0.9)]],
+    glow_floors=("amber",),
+    cfg=dict(ao=0.5, depth=0.88, lip=20, lip_col=(1.0, 0.8, 0.4), deep_dark=0.5,
+             foam_col=(200, 200, 160), glows=[("d_amber", (150, 95, 20), 3.0, 0.9)]),
+)
+
+
 class _C:
     BAKED = "assets/tiles/hidden/{}/baked"
 
@@ -170,7 +194,7 @@ class _C:
 def _attach_builds():
     from tools import handbuilt_hidden_layers as H
     for name in ("build_cinderwell", "build_dreaming_root", "build_ossuary", "build_lightless_reach",
-                 "build_blood_pits", "build_unwritten_stacks"):
+                 "build_blood_pits", "build_unwritten_stacks", "build_world_root"):
         setattr(_C, name, staticmethod(getattr(H, name)))
 
 

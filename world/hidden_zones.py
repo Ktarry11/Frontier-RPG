@@ -37,6 +37,27 @@ _PATH = _ROOT / "data" / "world" / "hidden_zones.json"
 #: kind in hidden_zones.json -> the difficulty row (world/difficulty.py) its monsters use
 DIFFICULTY_KIND = {"layer": "hidden_layer", "skull": "skull_zone"}
 
+# FRONTIER ZONES. Kyle, 14 Nov 2026: "double skull zones. Hidden zones WITHIN hidden zones... let's
+# Call these ones Frontier Zones. They can be in open world, Dungeons, or caves. But they are hidden
+# zones FROM hidden zones. They will only be in 10% of the skull zones", "They will drop higher epics
+# and ilvl about 8 over the regular stuff", and "I'll let you deal with the math". So a frontier is
+# a step above whatever it would otherwise be: a frontier cave or dungeon ("frontier_type": "deep")
+# is harder than a hidden layer, a frontier open map ("open") harder than a skull zone. Two skulls
+# on the banner.
+FRONTIER_KIND = {"deep": "frontier_deep", "open": "frontier_open"}
+
+
+def difficulty_kind(info):
+    if info.get("kind") == "frontier":
+        return FRONTIER_KIND.get(info.get("frontier_type", "deep"))
+    return DIFFICULTY_KIND.get(info.get("kind"))
+
+
+def skulls(zone_name):
+    """How many skulls the banner shows: 2 for a frontier, 1 for any other hidden zone, else 0."""
+    k = kind(zone_name)
+    return 2 if k == "frontier" else (1 if k else 0)
+
 
 @lru_cache(maxsize=1)
 def registry():
@@ -90,7 +111,7 @@ def creature_kinds():
                 find(v)
     find(enc)
     for zone, info in registry().items():
-        dk = DIFFICULTY_KIND.get(info.get("kind"))
+        dk = difficulty_kind(info)
         if not dk:
             continue
         for t in tables.get(zone, []):

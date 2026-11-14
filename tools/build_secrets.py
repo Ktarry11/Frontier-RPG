@@ -383,21 +383,49 @@ def _hidden_doors():
     except ImportError:
         SKULL_PORTALS, ISLAND_DOORS = {}, {}
     portals.update(SKULL_PORTALS)
+    try:
+        from tools.handbuilt_skull_zones import placed_doors
+        placed = placed_doors()
+    except ImportError:
+        placed = {}
     for zname, info in sorted(reg.items()):
-        if zname in ISLAND_DOORS or zname not in portals:
+        if zname in ISLAND_DOORS or zname in placed or zname not in portals:
             continue
         out.append((zname, (info["parent"], *portals[zname])))
     return out
 
 
-def _island_door(zone, module, isle, centre):
+def _placed_door_secrets():
+    """Doors placed by hand in a skull zone's own layout (behind its great tree): kind "behind",
+    so the renderer draws the tree back over the door's glow."""
+    try:
+        from tools.handbuilt_skull_zones import placed_doors
+        from tools.handbuilt_hidden_layers import PORTALS
+    except ImportError:
+        return []
+    out = []
+    for to, (parent, (x, y)) in sorted(placed_doors().items()):
+        if to not in PORTALS:
+            continue
+        tx, ty = PORTALS[to]
+        out.append({"id": "door_" + "".join(ch for ch in to.lower().replace(" ", "_") if ch.isalnum() or ch == "_"),
+                    "zone": parent, "kind": "behind", "passage": [],
+                    "area": [[x + dx, y + dy] for dx in (-2, -1, 0, 1, 2) for dy in (-3, -2, -1, 0)],
+                    "mask": None, "cache": None, "vendor": None,
+                    "door": {"x": x, "y": y, "to": to, "tx": tx, "ty": ty},
+                    "found_text": "There's a hollow in the roots, and it goes down a very long way."})
+    return out
+
+
+def _island_door(zone, module, isle, centre, isle_at):
     """A door on a secret island, if a hidden zone's way in is meant to stand there: a dry tile
     near the middle, not the cache's, with dry ground two tiles north for coming back out."""
     try:
         from tools.handbuilt_skull_zones import ISLAND_DOORS, PORTALS
     except ImportError:
         return None
-    to = next((h for h, parent in ISLAND_DOORS.items() if parent == zone), None)
+    to = next((h for h, (parent, at) in ISLAND_DOORS.items()
+               if parent == zone and tuple(at) == tuple(isle_at[:2])), None)
     if to is None:
         return None
     import importlib
@@ -749,7 +777,7 @@ def main():
                         "cache": {"x": centre[0], "y": centre[1], "level": level}, "vendor": None,
                         "found_text": FOUND["island"][len(secrets) % len(FOUND["island"])]})
         # a hidden zone whose door stands on this island (tools/handbuilt_skull_zones.ISLAND_DOORS)
-        door = _island_door(zone, module, isle, centre)
+        door = _island_door(zone, module, isle, centre, isle_at)
         if door:
             secrets[-1]["door"] = door
         taken.setdefault(zone, []).append(tuple(centre))
@@ -773,6 +801,10 @@ def main():
                         "door": {"x": sx, "y": sy + 1, "to": zname, "tx": tx, "ty": ty},
                         "found_text": "There's a way down here. It goes a long way down."})
         taken.setdefault(parent, []).append((sx, sy))
+
+    for sec in _placed_door_secrets():
+        secrets.append(sec)
+        taken.setdefault(sec["zone"], []).append((sec["door"]["x"], sec["door"]["y"]))
 
     # caches everywhere else: up to three a map, one in a town
     n = 0

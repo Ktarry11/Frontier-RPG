@@ -195,6 +195,134 @@ SPECS["The Weeping Pines"] = dict(
 )
 
 
+# THE TANGLEWOOD SHOALS. Reached from a secret island off Echo Isles (Kyle asked for this one by
+# shape: "first skull zone is from a hidden island off the coast....within that NEW skull zone, the
+# frontier zone entrance is hidden behind a massive tree"). Mangrove islets in green water round one
+# big island, and on its north shore, backed against the rock, a tree older than the Darkspear.
+EP = "assets/tiles/echo_isles/props/"
+SPECS["The Tanglewood Shoals"] = dict(
+    slug="tanglewood_shoals", W=104, H=90, region="Echo Isles", seed=934,
+    desc="Mangrove islets far out past the Echo Isles, in water gone green with sap. The trolls "
+         "have a word for this place, and they don't say it.",
+    mode="islands", shore_w=3.0,
+    land=[(52, 80, 12, 6, 0), (52, 40, 22, 15, 0), (20, 54, 10, 7, 10), (86, 48, 10, 8, -10),
+          (22, 18, 9, 6, 0), (84, 16, 9, 6, 0)],
+    flats=[(52, 66, 4.5, 9), (35, 50, 8, 4.5), (70, 46, 8, 4.5), (21, 35, 4.5, 10), (85, 31, 4.5, 10)],
+    rocks=[(52, 20, 11, 5), (38, 30, 3, 2.5), (68, 31, 3, 2.5)],
+    roads=[],
+    portal=(52, 84),
+    giver=("hz_tangle_kojira", (46, 78)),
+    great_tree=("stv_tree_buttress", STV, 52, 34, 13),
+    tree_leads_to="The World-Root Hollow",
+    subzones=[("The Mangrove Landing", 38, 72, 28, 16), ("The Rootward Isle", 28, 22, 48, 36),
+              ("The West Tangle", 8, 44, 24, 20), ("The East Tangle", 74, 38, 24, 20),
+              ("The Northern Shoals", 10, 8, 86, 18)],
+    materials={"land": ("echo_isles/materials/echo_jungle_a", "echo_isles/materials/echo_jungle_b"),
+               "sand": ("echo_isles/materials/echo_wetsand", None),
+               "mud": ("echo_isles/materials/vot_mudshore", None),
+               "water_s": ("vot_cluster/vot_water_shallow", None),
+               "water_d": ("vot_cluster/vot_water_deep", None),
+               "rock": ("echo_isles/materials/echo_rock_a", "echo_isles/materials/echo_rock_b")},
+    regions={"sand": [(52, 80, 12, 6)], "mud": [(20, 54, 9, 6), (86, 48, 9, 7), (52, 50, 12, 5)]},
+    tint=(0.82, 0.98, 0.86), dark=0.12,
+    props=[
+        ("stv_mangrove", STV, 40, 80, 5, "core"), ("stv_mangrove", STV, 63, 78, 5, "core"),
+        ("stv_palm_young", STV, 58, 82, 4, "core"), ("stv_fern_clump", STV, 44, 82, 2, False),
+        ("stv_tree_vined", STV, 36, 44, 7, "core"), ("stv_tree_vined", STV, 68, 46, 7, "core"),
+        ("stv_tree_strangler", STV, 40, 52, 6, "core"), ("stv_tree_strangler", STV, 66, 52, 6, "core"),
+        ("stv_root_tangle", STV, 46, 47, 3, False), ("stv_root_tangle", STV, 60, 44, 3, False),
+        ("stv_troll_idol_head", STV, 52, 52, 4, "core"), ("stv_moss_curtain", STV, 34, 38, 4, False),
+        ("stv_mangrove", STV, 16, 56, 5, "core"), ("stv_mangrove", STV, 24, 50, 5, "core"),
+        ("stv_lily_pads", STV, 27, 58, 2, False), ("stv_mangrove", STV, 90, 50, 5, "core"),
+        ("stv_tree_leaning", STV, 82, 45, 6, "core"), ("stv_stump_fungus", STV, 88, 53, 2, False),
+        ("stv_tree_cluster", STV, 20, 18, 6, "core"), ("stv_troll_obelisk", STV, 26, 16, 4, "core"),
+        ("stv_tree_cluster", STV, 86, 16, 6, "core"), ("stv_turtle_shell", STV, 80, 18, 2, False),
+    ],
+)
+
+
+# THE DROWNED IDOLS. A lagoon the jungle closed over: the Gurubashi sank their old gods here when
+# the new ones took over, and the idols are still looking up out of the water.
+SFP = "assets/tiles/shimmering_flats/props/"
+SPECS["The Drowned Idols"] = dict(
+    slug="drowned_idols", W=100, H=88, region="Northern Stranglethorn", seed=935,
+    desc="A jungle lagoon behind the cliffs of Stranglethorn, where the Gurubashi drowned the gods "
+         "they stopped praying to. The gods haven't stopped listening.",
+    mode="islands", shore_w=3.2,
+    land=[(50, 78, 13, 6, 0), (24, 56, 12, 9, 20), (76, 58, 12, 9, -20), (50, 40, 10, 7, 0),
+          (24, 22, 11, 8, -10), (76, 22, 11, 8, 10), (50, 12, 8, 5, 0)],
+    flats=[(37, 68, 9, 4.5), (63, 68, 9, 4.5), (36, 47, 8, 4.5), (64, 47, 8, 4.5), (24, 39, 4.5, 9),
+           (76, 39, 4.5, 9), (37, 16, 8, 4), (63, 16, 8, 4)],
+    rocks=[(24, 52, 3, 2.5), (76, 54, 3, 2.5), (50, 9, 4, 2.6)],
+    roads=[],
+    portal=(50, 82),
+    giver=("hz_idols_fizzle", (44, 77)),
+    subzones=[("The Idol Landing", 36, 70, 28, 16), ("The Western Idols", 10, 46, 28, 20),
+              ("The Eastern Idols", 62, 48, 28, 20), ("The Sunken Altar", 38, 32, 24, 16),
+              ("The Jade Isles", 10, 12, 80, 20), ("The Last God's Isle", 40, 4, 20, 14)],
+    materials={"land": ("stranglethorn/materials/stv_jungle", "stranglethorn/materials/stv_jungle_b"),
+               "mud": ("stranglethorn/materials/stv_mud", None),
+               "ruin": ("stranglethorn/materials/stv_ruin", None),
+               "water_s": ("stranglethorn/materials/stv_sea_s", None),
+               "water_d": ("stranglethorn/materials/stv_sea_d", None),
+               "rock": ("stranglethorn/materials/stv_cliff_a", "stranglethorn/materials/stv_cliff_b")},
+    regions={"ruin": [(50, 40, 7, 5), (50, 12, 6, 4), (24, 56, 5, 4), (76, 58, 5, 4)],
+             "mud": [(50, 78, 10, 4)]},
+    tint=(0.86, 0.96, 0.90), dark=0.12,
+    props=[
+        ("stv_troll_idol_head", STV, 24, 60, 5, "core"), ("stv_troll_idol_head", STV, 76, 62, 5, "core"),
+        ("stv_troll_serpent_head", STV, 50, 44, 5, "core"), ("stv_troll_obelisk", STV, 44, 40, 5, "core"),
+        ("stv_troll_obelisk", STV, 56, 40, 5, "core"), ("stv_troll_column_fallen", STV, 30, 24, 3, False),
+        ("stv_troll_column", STV, 18, 20, 5, "core"), ("stv_troll_column", STV, 82, 20, 5, "core"),
+        ("stv_troll_altar", STV, 50, 14, 4, "core"), ("stv_mangrove", STV, 40, 80, 5, "core"),
+        ("stv_tree_vined", STV, 60, 78, 6, "core"), ("stv_lily_pads", STV, 36, 66, 2, False),
+        ("stv_troll_skull_pile", STV, 72, 24, 3, False), ("stv_tree_strangler", STV, 28, 50, 6, "core"),
+        ("stv_tree_strangler", STV, 72, 52, 6, "core"), ("stv_moss_curtain", STV, 20, 54, 4, False),
+    ],
+)
+
+# THE BURIED CARAVAN. A whole trading caravan, and the town it was going to, under the dunes in a
+# bowl of sandstone. The sand moves at night. Things walk out of it.
+SPECS["The Buried Caravan"] = dict(
+    slug="buried_caravan", W=100, H=84, region="Northern Tanaris", seed=936,
+    desc="A bowl of sandstone off the Tanaris trade road where a whole caravan, and the town it was "
+         "bound for, went under the dunes in a single night. They're still trying to arrive.",
+    mode="canyon", shore_w=1.5,
+    lakes=[], flats=[],
+    open=[(50, 74, 12, 7, 0), (28, 52, 15, 12, 15), (70, 50, 16, 11, -10), (50, 30, 18, 10, 0),
+          (20, 22, 9, 8, 0), (82, 24, 9, 9, 0), (50, 10, 10, 5, 0)],
+    passes=[([(50, 74), (38, 62), (30, 54)], 6), ([(50, 74), (62, 62), (70, 52)], 6),
+            ([(30, 46), (40, 34)], 6), ([(70, 44), (60, 34)], 6), ([(34, 30), (22, 24)], 5),
+            ([(66, 30), (80, 26)], 5), ([(50, 22), (50, 12)], 6)],
+    rocks=[(26, 50, 3, 3), (72, 48, 4, 3), (50, 30, 3, 2)],
+    roads=[([(50, 78), (48, 66), (36, 56), (40, 40), (50, 30), (50, 12)], 2.4)],
+    portal=(50, 80),
+    giver=("hz_caravan_rizzo", (56, 75)),
+    subzones=[("The Last Dune", 36, 66, 28, 16), ("The Wagon Graves", 12, 40, 32, 24),
+              ("The Drowned Market", 54, 38, 34, 24), ("The Buried Gate", 32, 20, 36, 20),
+              ("The Caravan Master's Rest", 38, 3, 24, 14)],
+    materials={"land": ("shimmering_flats/materials/tan_sand_gold", None),
+               "dune": ("shimmering_flats/materials/tan_dune_ripple", None),
+               "paving": ("shimmering_flats/materials/tan_flagstone_buried", None),
+               "road": ("shimmering_flats/materials/tan_wadi_gravel", None),
+               "water_s": ("vot_cluster/vot_water_shallow", None),
+               "water_d": ("vot_cluster/vot_water_deep", None),
+               "rock": ("shimmering_flats/materials/tan_sandstone_floor", None)},
+    regions={"dune": [(28, 52, 12, 9), (82, 24, 7, 7)], "paving": [(70, 50, 12, 8), (50, 30, 12, 7), (50, 10, 8, 4)]},
+    tint=(1.02, 0.96, 0.88), dark=0.08,
+    props=[
+        ("vot_broken_cart", DP, 44, 70, 3, "core"), ("tan_skeleton", SFP, 58, 70, 2, False),
+        ("tan_dead_palm", SFP, 22, 46, 5, "core"), ("vot_broken_cart", DP, 30, 58, 3, "core"),
+        ("sf_crate_stack", SFP, 36, 50, 3, "core"), ("sf_wheel_stack", SFP, 20, 56, 3, "core"),
+        ("tan_ruin_block", SFP, 64, 46, 3, "core"), ("tan_ruin_block", SFP, 78, 54, 3, "core"),
+        ("tan_obelisk", SFP, 42, 26, 5, "core"), ("tan_obelisk", SFP, 58, 26, 5, "core"),
+        ("tan_skeleton", SFP, 82, 26, 2, False), ("tan_thorn_scrub", SFP, 18, 20, 2, False),
+        ("vot_beast_ribcage", DP, 76, 46, 3, False), ("tan_dune_grass", SFP, 46, 78, 2, False),
+        ("sf_crate_stack", SFP, 54, 8, 3, "core"),
+    ],
+)
+
+
 # ============================================================================== THE LANDFORMS
 def fields(spec, gx, gy):
     gx = np.asarray(gx, float)
@@ -330,12 +458,39 @@ def build_zone(name):
             if z.interaction_layer[yy][xx] is None:
                 z.collision_layer[yy][xx] = "landmark"
         placed += 1
+    if spec.get("great_tree"):
+        z.great_tree_door = _great_tree(z, spec, kind)
     z.add_subzone(name, 0, 0, W, H)
     for (sn, x, y, w, h) in spec["subzones"]:
         z.add_subzone(sn, x, y, w, h)
     _seal_unreachable(z, (px, py - 2))
     z.props_skipped = skipped
     return z
+
+
+def _great_tree(z, spec, kind):
+    """The great tree: drawn over everything under it, its roots solid, the ground under its crown
+    walkable. Returns the tile behind the trunk where a secret door can stand (world/secrets.py,
+    kind "behind"): the renderer draws the tree back over whatever is hidden there, and goes
+    see-through only when you're standing under it yourself."""
+    pname, pdir, cx, by, h = spec["great_tree"]
+    path = f"{pdir}{pname}.png"
+    wt = max(1, round(h * _aspect(path)))
+    ax, ay = cx - wt // 2, by - h + 1
+    z.add_landmark(path, ax, ay, wt, h, solid=False)
+    z.landmarks[-1]["occluder"] = True
+    # the trunk and roots: the bottom three rows, the middle half
+    for yy in range(by - 2, by + 1):
+        for xx in range(ax + wt // 4, ax + wt - wt // 4):
+            if 0 <= xx < z.width and 0 <= yy < z.height and kind[yy, xx] == 0:
+                z.collision_layer[yy][xx] = "landmark"
+    # under the crown: open ground, so you can get round behind the trunk
+    for yy in range(ay + 1, by - 2):
+        for xx in range(ax + 1, ax + wt - 1):
+            if 0 <= xx < z.width and 0 <= yy < z.height and kind[yy, xx] == 0 \
+                    and z.collision_layer[yy][xx] == "landmark":
+                z.collision_layer[yy][xx] = None
+    return (cx, by - 6)
 
 
 def _seal_unreachable(z, start):
@@ -379,8 +534,18 @@ def register_baked(zone, baked_dir, chunk=20):
 PORTALS = {n: s["portal"] for n, s in SPECS.items()}
 
 #: hidden zones whose door is not a room in a wall but stands on a secret island
-#: (tools/build_secrets.BAKED_ISLANDS), keyed to the island's map
-ISLAND_DOORS = {"The Saltgrave": "Arathi East"}
+#: (tools/build_secrets.BAKED_ISLANDS): the island's map and its centre as BAKED_ISLANDS gives it
+ISLAND_DOORS = {"The Saltgrave": ("Arathi East", (151, 10)),
+                "The Tanglewood Shoals": ("Echo Isles", (23, 9))}
+
+#: hidden zones whose door is placed by hand in a skull zone's layout: zone -> (parent, door tile)
+def placed_doors():
+    out = {}
+    for name, spec in SPECS.items():
+        if spec.get("great_tree") and spec.get("tree_leads_to"):
+            pname, pdir, cx, by, h = spec["great_tree"]
+            out[spec["tree_leads_to"]] = (name, (cx, by - 6))
+    return out
 
 #: quest givers: npc id -> (zone, x, y)
 GIVERS = {s["giver"][0]: (n, *s["giver"][1]) for n, s in SPECS.items()}
