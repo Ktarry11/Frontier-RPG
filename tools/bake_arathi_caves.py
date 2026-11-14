@@ -51,6 +51,10 @@ PEARL_F = _L + "gro_pearl_floor_a_dim60"
 GRAVEL_F = _L + "vot_gravel_dim62"
 WATER_S = _L + "cen_water_shallow_dim78"
 WATER_D = _L + "cen_water_deep_dim70"
+# A pool only paints if the spec carries water materials: bake_spec drops any material with no score
+# and scores pools as "water_s"/"water_d". These four had pools and no water, so all that showed
+# was the pool's rim drawn across dry floor (seen 14 Nov smoothing the Drowned Barrow).
+WATER = {"water_s": M(WATER_S), "water_d": M(WATER_D)}
 
 
 def _rooms(spec, *keys):
@@ -95,7 +99,7 @@ def spec_barrow():
     # water at the head. That is the one thing this cave is about.
     return dict(
         build="_baked_barrow", seed=403, slug="barrow",
-        materials={"floor": M(MARBLE), "wet_f": M(WET_F), "wall": M(CRYPT_W)},
+        materials={"floor": M(MARBLE), "wet_f": M(WET_F), "wall": M(CRYPT_W), **WATER},
         floor_keys=["floor", "wet_f"], wall_keys=["wall"],
         floors={"wet_f": _rooms(s, "n_e", "n_f", "head") + [(28, 18, 10, 10)]},
         walls={},
@@ -111,7 +115,7 @@ def spec_wrackline():
     s = CV.WRACKLINE
     return dict(
         build="_baked_wrackline", seed=404, slug="wrackline",
-        materials={"floor": M(GRO_F), "sand_f": M(GRO_SAND), "deck_f": M(GRO_DECK), "wall": M(ROCK_W)},
+        materials={"floor": M(GRO_F), "sand_f": M(GRO_SAND), "deck_f": M(GRO_DECK), "wall": M(ROCK_W), **WATER},
         floor_keys=["floor", "sand_f", "deck_f"], wall_keys=["wall"],
         floors={"sand_f": _rooms(s, "dock"), "deck_f": _rooms(s, "cargo", "crew")},
         walls={},
@@ -125,7 +129,7 @@ def spec_tidewrack():
     s = CV.TIDEWRACK
     return dict(
         build="_baked_tidewrack", seed=405, slug="tidewrack",
-        materials={"floor": M(GRO_SAND), "pearl_f": M(PEARL_F), "wall": M(ROCK_W)},
+        materials={"floor": M(GRO_SAND), "pearl_f": M(PEARL_F), "wall": M(ROCK_W), **WATER},
         floor_keys=["floor", "pearl_f"], wall_keys=["wall"],
         floors={"pearl_f": _rooms(s, "sump")},
         walls={},
@@ -163,7 +167,7 @@ def spec_drywhisker():
         return ((x0 + x1) / 2.0, (y0 + y1) / 2.0, (x1 - x0) / 2.0, (y1 - y0) / 2.0)
     return dict(
         build="build_drywhisker_baked", seed=407, slug="drywhisker_deeps",
-        materials={"floor": M(GRAVEL_F), "wet_f": M(WET_F), "wall": M(ROCK_W)},
+        materials={"floor": M(GRAVEL_F), "wet_f": M(WET_F), "wall": M(ROCK_W), **WATER},
         floor_keys=["floor", "wet_f"], wall_keys=["wall"],
         # a mine fills from underneath: the bottom two levels are wet, the top two are spoil
         floors={"wet_f": [gal("sump"), gal("g3", pad=0)]},

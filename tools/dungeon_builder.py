@@ -172,3 +172,55 @@ class Builder:
         if missing:
             raise AssertionError(f"{self.zone.name}: unreachable from {start}: {missing}")
         return len(seen)
+
+
+def smooth(zone, passes=3, keep=()):
+    """Take the snags out of a carved cave floor (backlog O [86], Kyle: the Drowned Barrow's floor
+    is "full of single-tile notches and pillars-of-wall, so movement snags constantly... no 1-tile
+    jags on walkable edges, minimum corridor width").
+
+    Works on the collision layer after carving and before anything is dressed, so it only ever
+    sees rock and floor. Each pass:
+      - a passage one tile wide is opened to two (the side that opens onto more floor wins);
+      - a rock tile with floor on three or four sides (a notch, a lone pillar stub) becomes floor;
+      - a floor tile with floor on one side or none (a one-tile dead end) becomes rock.
+    `keep` is tiles that must stay floor whatever their neighbours say (the portal and its step).
+    """
+    W, H = zone.width, zone.height
+    col = zone.collision_layer
+    keep = set(keep)
+
+    def is_open(x, y):
+        return 0 <= x < W and 0 <= y < H and col[y][x] is None
+
+    def open_(x, y):
+        if 1 <= x < W - 1 and 1 <= y < H - 1 and col[y][x] is not None:
+            col[y][x] = None
+            zone.set_tile(x, y, None, "collision")
+            return True
+        return False
+
+    for _ in range(passes):
+        changed = False
+        for y in range(1, H - 1):
+            for x in range(1, W - 1):
+                if col[y][x] is not None:
+                    continue
+                for (ax, ay, bx, by) in ((x - 1, y, x + 1, y), (x, y - 1, x, y + 1)):
+                    if not is_open(ax, ay) and not is_open(bx, by):
+                        # open toward whichever side has more floor beyond it
+                        def more(px, py):
+                            return sum(is_open(px + dx, py + dy) for dx in (-1, 0, 1) for dy in (-1, 0, 1))
+                        side = (ax, ay) if more(ax, ay) >= more(bx, by) else (bx, by)
+                        changed |= open_(*side)
+        for y in range(1, H - 1):
+            for x in range(1, W - 1):
+                n = sum(is_open(x + dx, y + dy) for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)))
+                if col[y][x] is not None and n >= 3:
+                    changed |= open_(x, y)
+                elif col[y][x] is None and n <= 1 and (x, y) not in keep:
+                    col[y][x] = "wall"
+                    zone.set_tile(x, y, "rock", "collision")
+                    changed = True
+        if not changed:
+            break

@@ -83,7 +83,11 @@ def _carve(zone, spec):
                     zone.collision_layer[yy][xx] = "wall"
                     zone.set_tile(xx, yy, "rock", "collision")
 
+    # No snags (backlog O [86]): one-wide passages opened to two, rock notches and one-tile dead
+    # ends taken out, before anything is dressed.
+    from tools.dungeon_builder import smooth
     px, py = spec["PORTAL"]
+    smooth(zone, keep={(px, py), (px, py - 1)})
     zone.collision_layer[py][px] = None
     zone.collision_layer[py - 1][px] = None
     L.mark("portal", px, py)

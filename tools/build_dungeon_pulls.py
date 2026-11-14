@@ -44,10 +44,10 @@ CONFIG = {
     # Stromgarde's four bosses sit along one spine with the undercroft hanging off it, so four
     # pulls each; The Vault-Thing is down there behind a knock-through and is reached last either
     # way you walk the keep.
-    "Stromgarde Keep": dict(p_main=4, p_rare=1, rares=()),
+    "Stromgarde Keep": dict(p_main=4, p_rare=1, rares=(), top_up=True),
     # Drywhisker is four stacked galleries joined by three inclines - the route is forced, so
     # three pulls a boss rather than four, same reasoning as Durnholde.
-    "Drywhisker Deeps": dict(p_main=3, p_rare=1, rares=()),
+    "Drywhisker Deeps": dict(p_main=4, p_rare=1, rares=(), top_up=True),
 }
 
 ROLE = {"humanoid_warrior": "melee", "beast_large": "melee", "elemental_bruiser": "melee", "undead_basic": "melee",
@@ -415,6 +415,26 @@ def build_dungeon(zone, cfg, cm, creatures, drops, quests):
                 if others:
                     mobs_of[min(others, key=lambda o: boss_dist[o].get(t, 10 ** 9))].append(m)
             mobs_of[b] = []
+
+    # TOP-UP (Kyle, 2 Nov, Arathi: "dungeons lack mobs"). An authored list can be too short for the
+    # pulls a boss is meant to have - Stromgarde's 49 mobs made 12 packs across 11,000 tiles of keep
+    # where Shadowfang has 20. A dungeon flagged top_up fills each short segment from its own encounter
+    # table, placed along the route to that boss, up to about 3.5 mobs a pull.
+    if cfg.get("top_up") and not generated:
+        gen = route_pool(zone, creatures, cm, dist_s, par_s, start, bosses, cfg, rng)
+        gen_of = collections.defaultdict(list)
+        for m in gen:
+            t = snap(dist_s, m[0], m[1])
+            if t is None:
+                continue
+            m = (t[0], t[1], m[2], m[3], dist_s[t])
+            gen_of[min(bosses, key=lambda b: boss_dist[b].get(t, 10 ** 9))].append(m)
+        for b in bosses:
+            want = int(k_cfg[b] * 3.5)
+            extra = gen_of.get(b, [])
+            while len(mobs_of[b]) < want and extra:
+                mobs_of[b].append(extra.pop(0))
+                counter[mobs_of[b][-1][2]] += 1
 
     cap = {b: 4 * k_cfg[b] for b in bosses}
     # phase A: drop surplus mobs wherever a quest does not need them
