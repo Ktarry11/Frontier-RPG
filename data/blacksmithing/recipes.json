@@ -5532,6 +5532,246 @@
         "rarity": "epic",
         "material_tier": "ashen_steel"
       }
+    },
+    "bs_setting_ring_copper": {
+      "name": "Copper Ring Setting",
+      "inputs": {
+        "bar_copper": 2,
+        "flux_weak": 1
+      },
+      "skill_required": 5,
+      "output": {
+        "kind": "material",
+        "material_id": "setting_ring_copper"
+      },
+      "skill_range": [
+        5,
+        15,
+        25,
+        35
+      ],
+      "source": "trainer",
+      "_source": "Jewelcrafting settings (tools/build_jewelcrafting.py). Kyle, 14 Nov 2026: vendors can sell settings for gemstones, or they can make them with blacksmith."
+    },
+    "bs_setting_necklace_copper": {
+      "name": "Copper Necklace Setting",
+      "inputs": {
+        "bar_copper": 3,
+        "flux_weak": 1
+      },
+      "skill_required": 5,
+      "output": {
+        "kind": "material",
+        "material_id": "setting_necklace_copper"
+      },
+      "skill_range": [
+        5,
+        15,
+        25,
+        35
+      ],
+      "source": "trainer",
+      "_source": "Jewelcrafting settings (tools/build_jewelcrafting.py). Kyle, 14 Nov 2026: vendors can sell settings for gemstones, or they can make them with blacksmith."
+    },
+    "bs_setting_ring_silver": {
+      "name": "Silver Ring Setting",
+      "inputs": {
+        "bar_silver": 2,
+        "flux_weak": 1
+      },
+      "skill_required": 75,
+      "output": {
+        "kind": "material",
+        "material_id": "setting_ring_silver"
+      },
+      "skill_range": [
+        75,
+        85,
+        95,
+        105
+      ],
+      "source": "trainer",
+      "_source": "Jewelcrafting settings (tools/build_jewelcrafting.py). Kyle, 14 Nov 2026: vendors can sell settings for gemstones, or they can make them with blacksmith."
+    },
+    "bs_setting_necklace_silver": {
+      "name": "Silver Necklace Setting",
+      "inputs": {
+        "bar_silver": 3,
+        "flux_weak": 1
+      },
+      "skill_required": 75,
+      "output": {
+        "kind": "material",
+        "material_id": "setting_necklace_silver"
+      },
+      "skill_range": [
+        75,
+        85,
+        95,
+        105
+      ],
+      "source": "trainer",
+      "_source": "Jewelcrafting settings (tools/build_jewelcrafting.py). Kyle, 14 Nov 2026: vendors can sell settings for gemstones, or they can make them with blacksmith."
+    },
+    "bs_setting_ring_gold": {
+      "name": "Gold Ring Setting",
+      "inputs": {
+        "bar_gold": 2,
+        "flux_medium": 1
+      },
+      "skill_required": 145,
+      "output": {
+        "kind": "material",
+        "material_id": "setting_ring_gold"
+      },
+      "skill_range": [
+        145,
+        155,
+        165,
+        175
+      ],
+      "source": "trainer",
+      "_source": "Jewelcrafting settings (tools/build_jewelcrafting.py). Kyle, 14 Nov 2026: vendors can sell settings for gemstones, or they can make them with blacksmith."
+    },
+    "bs_setting_necklace_gold": {
+      "name": "Gold Necklace Setting",
+      "inputs": {
+        "bar_gold": 3,
+        "flux_medium": 1
+      },
+      "skill_required": 145,
+      "output": {
+        "kind": "material",
+        "material_id": "setting_necklace_gold"
+      },
+      "skill_range": [
+        145,
+        155,
+        165,
+        175
+      ],
+      "source": "trainer",
+      "_source": "Jewelcrafting settings (tools/build_jewelcrafting.py). Kyle, 14 Nov 2026: vendors can sell settings for gemstones, or they can make them with blacksmith."
+    },
+    "bs_setting_ring_mithril": {
+      "name": "Mithril Ring Setting",
+      "inputs": {
+        "bar_mithril": 2,
+        "flux_medium": 1
+      },
+      "skill_required": 180,
+      "output": {
+        "kind": "material",
+        "material_id": "setting_ring_mithril"
+      },
+      "skill_range": [
+        180,
+        190,
+        200,
+        210
+      ],
+      "source": "trainer",
+      "_source": "Jewelcrafting settings (tools/build_jewelcrafting.py). Kyle, 14 Nov 2026: vendors can sell settings for gemstones, or they can make them with blacksmith."
+    },
+    "bs_setting_necklace_mithril": {
+      "name": "Mithril Necklace Setting",
+      "inputs": {
+        "bar_mithril": 3,
+        "flux_medium": 1
+      },
+      "skill_required": 180,
+      "output": {
+        "kind": "material",
+        "material_id": "setting_necklace_mithril"
+      },
+      "skill_range": [
+        180,
+        190,
+        200,
+        210
+      ],
+      "source": "trainer",
+      "_source": "Jewelcrafting settings (tools/build_jewelcrafting.py). Kyle, 14 Nov 2026: vendors can sell settings for gemstones, or they can make them with blacksmith."
+    },
+    "bs_setting_ring_truesilver": {
+      "name": "Truesilver Ring Setting",
+      "inputs": {
+        "bar_truesilver": 2,
+        "flux_strong": 1
+      },
+      "skill_required": 225,
+      "output": {
+        "kind": "material",
+        "material_id": "setting_ring_truesilver"
+      },
+      "skill_range": [
+        225,
+        235,
+        245,
+        255
+      ],
+      "source": "trainer",
+      "_source": "Jewelcrafting settings (tools/build_jewelcrafting.py). Kyle, 14 Nov 2026: vendors can sell settings for gemstones, or they can make them with blacksmith."
+    },
+    "bs_setting_necklace_truesilver": {
+      "name": "Truesilver Necklace Setting",
+      "inputs": {
+        "bar_truesilver": 3,
+        "flux_strong": 1
+      },
+      "skill_required": 225,
+      "output": {
+        "kind": "material",
+        "material_id": "setting_necklace_truesilver"
+      },
+      "skill_range": [
+        225,
+        235,
+        245,
+        255
+      ],
+      "source": "trainer",
+      "_source": "Jewelcrafting settings (tools/build_jewelcrafting.py). Kyle, 14 Nov 2026: vendors can sell settings for gemstones, or they can make them with blacksmith."
+    },
+    "bs_setting_ring_thorium": {
+      "name": "Thorium Ring Setting",
+      "inputs": {
+        "bar_thorium": 2,
+        "flux_strong": 1
+      },
+      "skill_required": 260,
+      "output": {
+        "kind": "material",
+        "material_id": "setting_ring_thorium"
+      },
+      "skill_range": [
+        260,
+        270,
+        280,
+        290
+      ],
+      "source": "trainer",
+      "_source": "Jewelcrafting settings (tools/build_jewelcrafting.py). Kyle, 14 Nov 2026: vendors can sell settings for gemstones, or they can make them with blacksmith."
+    },
+    "bs_setting_necklace_thorium": {
+      "name": "Thorium Necklace Setting",
+      "inputs": {
+        "bar_thorium": 3,
+        "flux_strong": 1
+      },
+      "skill_required": 260,
+      "output": {
+        "kind": "material",
+        "material_id": "setting_necklace_thorium"
+      },
+      "skill_range": [
+        260,
+        270,
+        280,
+        290
+      ],
+      "source": "trainer",
+      "_source": "Jewelcrafting settings (tools/build_jewelcrafting.py). Kyle, 14 Nov 2026: vendors can sell settings for gemstones, or they can make them with blacksmith."
     }
   }
 }

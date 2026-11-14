@@ -24,6 +24,7 @@ from ui.screens.guardian_screen import GuardianScreen
 from ui.screens.cast_screen import CastScreen
 from ui.screens.background_screen import BackgroundScreen
 from ui.screens.bond_test_screen import BondTestScreen
+from ui.screens.socket_screen import SocketScreen
 from ui.screens.travel_service_screen import TravelServiceScreen
 from config import save_slot_filename
 
@@ -100,6 +101,7 @@ class GameStateManager:
             GameState.CAST: CastScreen(self, icon_ui_helper=self.icon_ui_helper),
             GameState.BACKGROUND: BackgroundScreen(self),
             GameState.BOND_TEST: BondTestScreen(self),
+            GameState.SOCKETING: SocketScreen(self),
             GameState.TRAVEL: TravelServiceScreen(self),
             # VendorScreen is created dynamically when entering vendor state
         }

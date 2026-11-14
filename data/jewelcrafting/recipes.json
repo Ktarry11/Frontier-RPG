@@ -1,0 +1,3904 @@
+{
+  "_comment": "Jewelcrafting. Written by tools/build_jewelcrafting.py.",
+  "recipes": {
+    "jc_cut_brilliant_tigerseye": {
+      "name": "Brilliant Tigerseye",
+      "inputs": {
+        "gem_tigerseye": 1
+      },
+      "skill_required": 1,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_brilliant_tigerseye"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        1,
+        11,
+        21,
+        31
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_prismatic_rock_crystal": {
+      "name": "Prismatic Rock Crystal",
+      "inputs": {
+        "gem_rock_crystal": 1
+      },
+      "skill_required": 1,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_prismatic_rock_crystal"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        1,
+        11,
+        21,
+        31
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_bold_bloodstone": {
+      "name": "Bold Bloodstone",
+      "inputs": {
+        "gem_bloodstone": 1
+      },
+      "skill_required": 40,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_bold_bloodstone"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        40,
+        50,
+        60,
+        70
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_delicate_bloodstone": {
+      "name": "Delicate Bloodstone",
+      "inputs": {
+        "gem_bloodstone": 1
+      },
+      "skill_required": 50,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_delicate_bloodstone"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        50,
+        60,
+        70,
+        80
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_runed_bloodstone": {
+      "name": "Runed Bloodstone",
+      "inputs": {
+        "gem_bloodstone": 1
+      },
+      "skill_required": 50,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_runed_bloodstone"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        50,
+        60,
+        70,
+        80
+      ],
+      "source": "drop"
+    },
+    "jc_cut_teardrop_bloodstone": {
+      "name": "Teardrop Bloodstone",
+      "inputs": {
+        "gem_bloodstone": 1
+      },
+      "skill_required": 50,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_teardrop_bloodstone"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        50,
+        60,
+        70,
+        80
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_bright_bloodstone": {
+      "name": "Bright Bloodstone",
+      "inputs": {
+        "gem_bloodstone": 1
+      },
+      "skill_required": 50,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_bright_bloodstone"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        50,
+        60,
+        70,
+        80
+      ],
+      "source": "drop"
+    },
+    "jc_cut_dazzling_moss_agate": {
+      "name": "Dazzling Moss Agate",
+      "inputs": {
+        "gem_moss_agate": 1
+      },
+      "skill_required": 65,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_dazzling_moss_agate"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        65,
+        75,
+        85,
+        95
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_sovereign_shadowgem": {
+      "name": "Sovereign Shadowgem",
+      "inputs": {
+        "gem_shadowgem": 1
+      },
+      "skill_required": 65,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_sovereign_shadowgem"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        65,
+        75,
+        85,
+        95
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_shifting_shadowgem": {
+      "name": "Shifting Shadowgem",
+      "inputs": {
+        "gem_shadowgem": 1
+      },
+      "skill_required": 75,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_shifting_shadowgem"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        75,
+        85,
+        95,
+        105
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_glowing_shadowgem": {
+      "name": "Glowing Shadowgem",
+      "inputs": {
+        "gem_shadowgem": 1
+      },
+      "skill_required": 75,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_glowing_shadowgem"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        75,
+        85,
+        95,
+        105
+      ],
+      "source": "drop"
+    },
+    "jc_cut_royal_shadowgem": {
+      "name": "Royal Shadowgem",
+      "inputs": {
+        "gem_shadowgem": 1
+      },
+      "skill_required": 75,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_royal_shadowgem"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        75,
+        85,
+        95,
+        105
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_balanced_shadowgem": {
+      "name": "Balanced Shadowgem",
+      "inputs": {
+        "gem_shadowgem": 1
+      },
+      "skill_required": 75,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_balanced_shadowgem"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        75,
+        85,
+        95,
+        105
+      ],
+      "source": "drop"
+    },
+    "jc_cut_purified_shadowgem": {
+      "name": "Purified Shadowgem",
+      "inputs": {
+        "gem_shadowgem": 1
+      },
+      "skill_required": 75,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_purified_shadowgem"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        75,
+        85,
+        95,
+        105
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_fluorescent_shadowgem": {
+      "name": "Fluorescent Shadowgem",
+      "inputs": {
+        "gem_shadowgem": 1
+      },
+      "skill_required": 75,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_fluorescent_shadowgem"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        75,
+        85,
+        95,
+        105
+      ],
+      "source": "drop"
+    },
+    "jc_cut_solid_lesser_moonstone": {
+      "name": "Solid Lesser Moonstone",
+      "inputs": {
+        "gem_lesser_moonstone": 1
+      },
+      "skill_required": 75,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_solid_lesser_moonstone"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        75,
+        85,
+        95,
+        105
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_sparkling_lesser_moonstone": {
+      "name": "Sparkling Lesser Moonstone",
+      "inputs": {
+        "gem_lesser_moonstone": 1
+      },
+      "skill_required": 85,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_sparkling_lesser_moonstone"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        85,
+        95,
+        105,
+        115
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_lustrous_lesser_moonstone": {
+      "name": "Lustrous Lesser Moonstone",
+      "inputs": {
+        "gem_lesser_moonstone": 1
+      },
+      "skill_required": 85,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_lustrous_lesser_moonstone"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        85,
+        95,
+        105,
+        115
+      ],
+      "source": "drop"
+    },
+    "jc_cut_luminous_carnelian": {
+      "name": "Luminous Carnelian",
+      "inputs": {
+        "gem_carnelian": 1
+      },
+      "skill_required": 95,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_luminous_carnelian"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        95,
+        105,
+        115,
+        125
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_sovereign_jet": {
+      "name": "Sovereign Jet",
+      "inputs": {
+        "gem_jet": 1
+      },
+      "skill_required": 105,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_sovereign_jet"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        105,
+        115,
+        125,
+        135
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_shifting_jet": {
+      "name": "Shifting Jet",
+      "inputs": {
+        "gem_jet": 1
+      },
+      "skill_required": 115,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_shifting_jet"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        115,
+        125,
+        135,
+        145
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_glowing_jet": {
+      "name": "Glowing Jet",
+      "inputs": {
+        "gem_jet": 1
+      },
+      "skill_required": 115,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_glowing_jet"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        115,
+        125,
+        135,
+        145
+      ],
+      "source": "drop"
+    },
+    "jc_cut_royal_jet": {
+      "name": "Royal Jet",
+      "inputs": {
+        "gem_jet": 1
+      },
+      "skill_required": 115,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_royal_jet"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        115,
+        125,
+        135,
+        145
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_balanced_jet": {
+      "name": "Balanced Jet",
+      "inputs": {
+        "gem_jet": 1
+      },
+      "skill_required": 115,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_balanced_jet"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        115,
+        125,
+        135,
+        145
+      ],
+      "source": "drop"
+    },
+    "jc_cut_purified_jet": {
+      "name": "Purified Jet",
+      "inputs": {
+        "gem_jet": 1
+      },
+      "skill_required": 115,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_purified_jet"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        115,
+        125,
+        135,
+        145
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_fluorescent_jet": {
+      "name": "Fluorescent Jet",
+      "inputs": {
+        "gem_jet": 1
+      },
+      "skill_required": 115,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_fluorescent_jet"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        115,
+        125,
+        135,
+        145
+      ],
+      "source": "drop"
+    },
+    "jc_cut_brilliant_honey_amber": {
+      "name": "Brilliant Honey Amber",
+      "inputs": {
+        "gem_honey_amber": 1
+      },
+      "skill_required": 115,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_brilliant_honey_amber"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        115,
+        125,
+        135,
+        145
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_thick_honey_amber": {
+      "name": "Thick Honey Amber",
+      "inputs": {
+        "gem_honey_amber": 1
+      },
+      "skill_required": 125,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_thick_honey_amber"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        125,
+        135,
+        145,
+        155
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_dazzling_jade": {
+      "name": "Dazzling Jade",
+      "inputs": {
+        "gem_jade": 1
+      },
+      "skill_required": 125,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_dazzling_jade"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        125,
+        135,
+        145,
+        155
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_brilliant_citrine": {
+      "name": "Brilliant Citrine",
+      "inputs": {
+        "gem_citrine": 1
+      },
+      "skill_required": 125,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_brilliant_citrine"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        125,
+        135,
+        145,
+        155
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_thick_citrine": {
+      "name": "Thick Citrine",
+      "inputs": {
+        "gem_citrine": 1
+      },
+      "skill_required": 135,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_thick_citrine"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        135,
+        145,
+        155,
+        165
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_solid_rime_opal": {
+      "name": "Solid Rime Opal",
+      "inputs": {
+        "gem_rime_opal": 1
+      },
+      "skill_required": 140,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_solid_rime_opal"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        140,
+        150,
+        160,
+        170
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_sparkling_rime_opal": {
+      "name": "Sparkling Rime Opal",
+      "inputs": {
+        "gem_rime_opal": 1
+      },
+      "skill_required": 150,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_sparkling_rime_opal"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        150,
+        160,
+        170,
+        180
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_lustrous_rime_opal": {
+      "name": "Lustrous Rime Opal",
+      "inputs": {
+        "gem_rime_opal": 1
+      },
+      "skill_required": 150,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_lustrous_rime_opal"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        150,
+        160,
+        170,
+        180
+      ],
+      "source": "drop"
+    },
+    "jc_cut_stormy_rime_opal": {
+      "name": "Stormy Rime Opal",
+      "inputs": {
+        "gem_rime_opal": 1
+      },
+      "skill_required": 150,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_stormy_rime_opal"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        150,
+        160,
+        170,
+        180
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_brilliant_topaz": {
+      "name": "Brilliant Topaz",
+      "inputs": {
+        "gem_topaz": 1
+      },
+      "skill_required": 155,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_brilliant_topaz"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        155,
+        165,
+        175,
+        185
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_smooth_topaz": {
+      "name": "Smooth Topaz",
+      "inputs": {
+        "gem_topaz": 1
+      },
+      "skill_required": 165,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_smooth_topaz"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        165,
+        175,
+        185,
+        195
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_gleaming_topaz": {
+      "name": "Gleaming Topaz",
+      "inputs": {
+        "gem_topaz": 1
+      },
+      "skill_required": 165,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_gleaming_topaz"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        165,
+        175,
+        185,
+        195
+      ],
+      "source": "drop"
+    },
+    "jc_cut_rigid_topaz": {
+      "name": "Rigid Topaz",
+      "inputs": {
+        "gem_topaz": 1
+      },
+      "skill_required": 165,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_rigid_topaz"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        165,
+        175,
+        185,
+        195
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_thick_topaz": {
+      "name": "Thick Topaz",
+      "inputs": {
+        "gem_topaz": 1
+      },
+      "skill_required": 165,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_thick_topaz"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        165,
+        175,
+        185,
+        195
+      ],
+      "source": "drop"
+    },
+    "jc_cut_dazzling_peridot": {
+      "name": "Dazzling Verdant Peridot",
+      "inputs": {
+        "gem_peridot": 1
+      },
+      "skill_required": 165,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_dazzling_peridot"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        165,
+        175,
+        185,
+        195
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_solid_aquamarine": {
+      "name": "Solid Aquamarine",
+      "inputs": {
+        "gem_aquamarine": 1
+      },
+      "skill_required": 175,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_solid_aquamarine"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        175,
+        185,
+        195,
+        205
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_sparkling_aquamarine": {
+      "name": "Sparkling Aquamarine",
+      "inputs": {
+        "gem_aquamarine": 1
+      },
+      "skill_required": 185,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_sparkling_aquamarine"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        185,
+        195,
+        205,
+        215
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_lustrous_aquamarine": {
+      "name": "Lustrous Aquamarine",
+      "inputs": {
+        "gem_aquamarine": 1
+      },
+      "skill_required": 185,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_lustrous_aquamarine"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        185,
+        195,
+        205,
+        215
+      ],
+      "source": "drop"
+    },
+    "jc_cut_stormy_aquamarine": {
+      "name": "Stormy Aquamarine",
+      "inputs": {
+        "gem_aquamarine": 1
+      },
+      "skill_required": 185,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_stormy_aquamarine"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        185,
+        195,
+        205,
+        215
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_bold_star_ruby": {
+      "name": "Bold Star Ruby",
+      "inputs": {
+        "gem_star_ruby": 1
+      },
+      "skill_required": 175,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_bold_star_ruby"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        175,
+        185,
+        195,
+        205
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_delicate_star_ruby": {
+      "name": "Delicate Star Ruby",
+      "inputs": {
+        "gem_star_ruby": 1
+      },
+      "skill_required": 185,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_delicate_star_ruby"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        185,
+        195,
+        205,
+        215
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_runed_star_ruby": {
+      "name": "Runed Star Ruby",
+      "inputs": {
+        "gem_star_ruby": 1
+      },
+      "skill_required": 185,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_runed_star_ruby"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        185,
+        195,
+        205,
+        215
+      ],
+      "source": "drop"
+    },
+    "jc_cut_teardrop_star_ruby": {
+      "name": "Teardrop Star Ruby",
+      "inputs": {
+        "gem_star_ruby": 1
+      },
+      "skill_required": 185,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_teardrop_star_ruby"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        185,
+        195,
+        205,
+        215
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_bright_star_ruby": {
+      "name": "Bright Star Ruby",
+      "inputs": {
+        "gem_star_ruby": 1
+      },
+      "skill_required": 185,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_bright_star_ruby"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        185,
+        195,
+        205,
+        215
+      ],
+      "source": "drop"
+    },
+    "jc_cut_solid_blue_sapphire": {
+      "name": "Solid Blue Sapphire",
+      "inputs": {
+        "gem_blue_sapphire": 1
+      },
+      "skill_required": 245,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_solid_blue_sapphire"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        245,
+        255,
+        265,
+        275
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_sparkling_blue_sapphire": {
+      "name": "Sparkling Blue Sapphire",
+      "inputs": {
+        "gem_blue_sapphire": 1
+      },
+      "skill_required": 255,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_sparkling_blue_sapphire"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        255,
+        265,
+        275,
+        285
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_lustrous_blue_sapphire": {
+      "name": "Lustrous Blue Sapphire",
+      "inputs": {
+        "gem_blue_sapphire": 1
+      },
+      "skill_required": 255,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_lustrous_blue_sapphire"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        255,
+        265,
+        275,
+        285
+      ],
+      "source": "drop"
+    },
+    "jc_cut_stormy_blue_sapphire": {
+      "name": "Stormy Blue Sapphire",
+      "inputs": {
+        "gem_blue_sapphire": 1
+      },
+      "skill_required": 255,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_stormy_blue_sapphire"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        255,
+        265,
+        275,
+        285
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_prismatic_large_opal": {
+      "name": "Prismatic Large Opal",
+      "inputs": {
+        "gem_large_opal": 1
+      },
+      "skill_required": 245,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_prismatic_large_opal"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        245,
+        255,
+        265,
+        275
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_enduring_huge_emerald": {
+      "name": "Enduring Huge Emerald",
+      "inputs": {
+        "gem_huge_emerald": 1
+      },
+      "skill_required": 230,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_enduring_huge_emerald"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        230,
+        240,
+        250,
+        260
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_dazzling_huge_emerald": {
+      "name": "Dazzling Huge Emerald",
+      "inputs": {
+        "gem_huge_emerald": 1
+      },
+      "skill_required": 240,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_dazzling_huge_emerald"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_dazzling_felfire_shard": {
+      "name": "Dazzling Felfire Shard",
+      "inputs": {
+        "gem_felfire_shard": 1
+      },
+      "skill_required": 190,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_dazzling_felfire_shard"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        190,
+        200,
+        210,
+        220
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_bold_heartsblood_garnet": {
+      "name": "Bold Heartsblood Garnet",
+      "inputs": {
+        "gem_heartsblood_garnet": 1
+      },
+      "skill_required": 205,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_bold_heartsblood_garnet"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        205,
+        215,
+        225,
+        235
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_delicate_heartsblood_garnet": {
+      "name": "Delicate Heartsblood Garnet",
+      "inputs": {
+        "gem_heartsblood_garnet": 1
+      },
+      "skill_required": 215,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_delicate_heartsblood_garnet"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        215,
+        225,
+        235,
+        245
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_runed_heartsblood_garnet": {
+      "name": "Runed Heartsblood Garnet",
+      "inputs": {
+        "gem_heartsblood_garnet": 1
+      },
+      "skill_required": 215,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_runed_heartsblood_garnet"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        215,
+        225,
+        235,
+        245
+      ],
+      "source": "drop"
+    },
+    "jc_cut_teardrop_heartsblood_garnet": {
+      "name": "Teardrop Heartsblood Garnet",
+      "inputs": {
+        "gem_heartsblood_garnet": 1
+      },
+      "skill_required": 215,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_teardrop_heartsblood_garnet"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        215,
+        225,
+        235,
+        245
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_bright_heartsblood_garnet": {
+      "name": "Bright Heartsblood Garnet",
+      "inputs": {
+        "gem_heartsblood_garnet": 1
+      },
+      "skill_required": 215,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_bright_heartsblood_garnet"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        215,
+        225,
+        235,
+        245
+      ],
+      "source": "drop"
+    },
+    "jc_cut_sovereign_deepearth_geode": {
+      "name": "Sovereign Deepearth Geode",
+      "inputs": {
+        "gem_deepearth_geode": 1
+      },
+      "skill_required": 220,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_sovereign_deepearth_geode"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        220,
+        230,
+        240,
+        250
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_shifting_deepearth_geode": {
+      "name": "Shifting Deepearth Geode",
+      "inputs": {
+        "gem_deepearth_geode": 1
+      },
+      "skill_required": 230,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_shifting_deepearth_geode"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        230,
+        240,
+        250,
+        260
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_glowing_deepearth_geode": {
+      "name": "Glowing Deepearth Geode",
+      "inputs": {
+        "gem_deepearth_geode": 1
+      },
+      "skill_required": 230,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_glowing_deepearth_geode"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        230,
+        240,
+        250,
+        260
+      ],
+      "source": "drop"
+    },
+    "jc_cut_royal_deepearth_geode": {
+      "name": "Royal Deepearth Geode",
+      "inputs": {
+        "gem_deepearth_geode": 1
+      },
+      "skill_required": 230,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_royal_deepearth_geode"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        230,
+        240,
+        250,
+        260
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_balanced_deepearth_geode": {
+      "name": "Balanced Deepearth Geode",
+      "inputs": {
+        "gem_deepearth_geode": 1
+      },
+      "skill_required": 230,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_balanced_deepearth_geode"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        230,
+        240,
+        250,
+        260
+      ],
+      "source": "drop"
+    },
+    "jc_cut_regal_deepearth_geode": {
+      "name": "Regal Deepearth Geode",
+      "inputs": {
+        "gem_deepearth_geode": 1
+      },
+      "skill_required": 230,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_regal_deepearth_geode"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        230,
+        240,
+        250,
+        260
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_purified_deepearth_geode": {
+      "name": "Purified Deepearth Geode",
+      "inputs": {
+        "gem_deepearth_geode": 1
+      },
+      "skill_required": 230,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_purified_deepearth_geode"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        230,
+        240,
+        250,
+        260
+      ],
+      "source": "drop"
+    },
+    "jc_cut_fluorescent_deepearth_geode": {
+      "name": "Fluorescent Deepearth Geode",
+      "inputs": {
+        "gem_deepearth_geode": 1
+      },
+      "skill_required": 230,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_fluorescent_deepearth_geode"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        230,
+        240,
+        250,
+        260
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_bold_black_diamond": {
+      "name": "Bold Black Diamond",
+      "inputs": {
+        "gem_black_diamond": 1
+      },
+      "skill_required": 230,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_bold_black_diamond"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        230,
+        240,
+        250,
+        260
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_delicate_black_diamond": {
+      "name": "Delicate Black Diamond",
+      "inputs": {
+        "gem_black_diamond": 1
+      },
+      "skill_required": 240,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_delicate_black_diamond"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_runed_black_diamond": {
+      "name": "Runed Black Diamond",
+      "inputs": {
+        "gem_black_diamond": 1
+      },
+      "skill_required": 240,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_runed_black_diamond"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "drop"
+    },
+    "jc_cut_teardrop_black_diamond": {
+      "name": "Teardrop Black Diamond",
+      "inputs": {
+        "gem_black_diamond": 1
+      },
+      "skill_required": 240,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_teardrop_black_diamond"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_bright_black_diamond": {
+      "name": "Bright Black Diamond",
+      "inputs": {
+        "gem_black_diamond": 1
+      },
+      "skill_required": 240,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_bright_black_diamond"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "drop"
+    },
+    "jc_cut_brilliant_truesilver_zircon": {
+      "name": "Brilliant Moonsilver Zircon",
+      "inputs": {
+        "gem_truesilver_zircon": 1
+      },
+      "skill_required": 230,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_brilliant_truesilver_zircon"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        230,
+        240,
+        250,
+        260
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_smooth_truesilver_zircon": {
+      "name": "Smooth Moonsilver Zircon",
+      "inputs": {
+        "gem_truesilver_zircon": 1
+      },
+      "skill_required": 240,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_smooth_truesilver_zircon"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_gleaming_truesilver_zircon": {
+      "name": "Gleaming Moonsilver Zircon",
+      "inputs": {
+        "gem_truesilver_zircon": 1
+      },
+      "skill_required": 240,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_gleaming_truesilver_zircon"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "drop"
+    },
+    "jc_cut_rigid_truesilver_zircon": {
+      "name": "Rigid Moonsilver Zircon",
+      "inputs": {
+        "gem_truesilver_zircon": 1
+      },
+      "skill_required": 240,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_rigid_truesilver_zircon"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_thick_truesilver_zircon": {
+      "name": "Thick Moonsilver Zircon",
+      "inputs": {
+        "gem_truesilver_zircon": 1
+      },
+      "skill_required": 240,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_thick_truesilver_zircon"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "drop"
+    },
+    "jc_cut_quick_truesilver_zircon": {
+      "name": "Quick Moonsilver Zircon",
+      "inputs": {
+        "gem_truesilver_zircon": 1
+      },
+      "skill_required": 240,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_quick_truesilver_zircon"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_luminous_cinder_agate": {
+      "name": "Luminous Cinder Agate",
+      "inputs": {
+        "gem_cinder_agate": 1
+      },
+      "skill_required": 260,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_luminous_cinder_agate"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        260,
+        270,
+        280,
+        290
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_prismatic_elementium_prism": {
+      "name": "Elementium Prism",
+      "inputs": {
+        "gem_elementium_prism": 1
+      },
+      "skill_required": 290,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_prismatic_elementium_prism"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        290,
+        300,
+        310,
+        320
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_inscribed_fire_opal": {
+      "name": "Inscribed Fire Opal",
+      "inputs": {
+        "gem_fire_opal": 1
+      },
+      "skill_required": 205,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_inscribed_fire_opal"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        205,
+        215,
+        225,
+        235
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_glinting_fire_opal": {
+      "name": "Glinting Fire Opal",
+      "inputs": {
+        "gem_fire_opal": 1
+      },
+      "skill_required": 215,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_glinting_fire_opal"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        215,
+        225,
+        235,
+        245
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_potent_fire_opal": {
+      "name": "Potent Fire Opal",
+      "inputs": {
+        "gem_fire_opal": 1
+      },
+      "skill_required": 215,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_potent_fire_opal"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        215,
+        225,
+        235,
+        245
+      ],
+      "source": "drop"
+    },
+    "jc_cut_luminous_fire_opal": {
+      "name": "Luminous Fire Opal",
+      "inputs": {
+        "gem_fire_opal": 1
+      },
+      "skill_required": 215,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_luminous_fire_opal"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        215,
+        225,
+        235,
+        245
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_wicked_fire_opal": {
+      "name": "Wicked Fire Opal",
+      "inputs": {
+        "gem_fire_opal": 1
+      },
+      "skill_required": 215,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_wicked_fire_opal"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        215,
+        225,
+        235,
+        245
+      ],
+      "source": "drop"
+    },
+    "jc_cut_etched_fire_opal": {
+      "name": "Etched Fire Opal",
+      "inputs": {
+        "gem_fire_opal": 1
+      },
+      "skill_required": 215,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_etched_fire_opal"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        215,
+        225,
+        235,
+        245
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_veiled_fire_opal": {
+      "name": "Veiled Fire Opal",
+      "inputs": {
+        "gem_fire_opal": 1
+      },
+      "skill_required": 215,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_veiled_fire_opal"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        215,
+        225,
+        235,
+        245
+      ],
+      "source": "drop"
+    },
+    "jc_cut_solid_azure_diamond": {
+      "name": "Solid Skyglass Diamond",
+      "inputs": {
+        "gem_azure_diamond": 1
+      },
+      "skill_required": 245,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_solid_azure_diamond"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        245,
+        255,
+        265,
+        275
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_sparkling_azure_diamond": {
+      "name": "Sparkling Skyglass Diamond",
+      "inputs": {
+        "gem_azure_diamond": 1
+      },
+      "skill_required": 255,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_sparkling_azure_diamond"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        255,
+        265,
+        275,
+        285
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_lustrous_azure_diamond": {
+      "name": "Lustrous Skyglass Diamond",
+      "inputs": {
+        "gem_azure_diamond": 1
+      },
+      "skill_required": 255,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_lustrous_azure_diamond"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        255,
+        265,
+        275,
+        285
+      ],
+      "source": "drop"
+    },
+    "jc_cut_stormy_azure_diamond": {
+      "name": "Stormy Skyglass Diamond",
+      "inputs": {
+        "gem_azure_diamond": 1
+      },
+      "skill_required": 255,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_stormy_azure_diamond"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        255,
+        265,
+        275,
+        285
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_luminous_pyrite_star": {
+      "name": "Luminous Fool's Star",
+      "inputs": {
+        "gem_pyrite_star": 1
+      },
+      "skill_required": 155,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_luminous_pyrite_star"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        155,
+        165,
+        175,
+        185
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_prismatic_prismatic_shard": {
+      "name": "Prismatic Shard",
+      "inputs": {
+        "gem_prismatic_shard": 1
+      },
+      "skill_required": 290,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_prismatic_prismatic_shard"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        290,
+        300,
+        310,
+        320
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_solid_azurite": {
+      "name": "Solid Azurite",
+      "inputs": {
+        "gem_azurite": 1
+      },
+      "skill_required": 40,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_solid_azurite"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        40,
+        50,
+        60,
+        70
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_sparkling_azurite": {
+      "name": "Sparkling Azurite",
+      "inputs": {
+        "gem_azurite": 1
+      },
+      "skill_required": 50,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_sparkling_azurite"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        50,
+        60,
+        70,
+        80
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_lustrous_azurite": {
+      "name": "Lustrous Azurite",
+      "inputs": {
+        "gem_azurite": 1
+      },
+      "skill_required": 50,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_lustrous_azurite"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        50,
+        60,
+        70,
+        80
+      ],
+      "source": "drop"
+    },
+    "jc_cut_bold_garnet": {
+      "name": "Bold Garnet",
+      "inputs": {
+        "gem_garnet": 1
+      },
+      "skill_required": 95,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_bold_garnet"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        95,
+        105,
+        115,
+        125
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_delicate_garnet": {
+      "name": "Delicate Garnet",
+      "inputs": {
+        "gem_garnet": 1
+      },
+      "skill_required": 105,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_delicate_garnet"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        105,
+        115,
+        125,
+        135
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_runed_garnet": {
+      "name": "Runed Garnet",
+      "inputs": {
+        "gem_garnet": 1
+      },
+      "skill_required": 105,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_runed_garnet"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        105,
+        115,
+        125,
+        135
+      ],
+      "source": "drop"
+    },
+    "jc_cut_teardrop_garnet": {
+      "name": "Teardrop Garnet",
+      "inputs": {
+        "gem_garnet": 1
+      },
+      "skill_required": 105,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_teardrop_garnet"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        105,
+        115,
+        125,
+        135
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_bright_garnet": {
+      "name": "Bright Garnet",
+      "inputs": {
+        "gem_garnet": 1
+      },
+      "skill_required": 105,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_bright_garnet"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        105,
+        115,
+        125,
+        135
+      ],
+      "source": "drop"
+    },
+    "jc_cut_sovereign_amethyst": {
+      "name": "Sovereign Amethyst",
+      "inputs": {
+        "gem_amethyst": 1
+      },
+      "skill_required": 230,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_sovereign_amethyst"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        230,
+        240,
+        250,
+        260
+      ],
+      "source": "trainer"
+    },
+    "jc_cut_shifting_amethyst": {
+      "name": "Shifting Amethyst",
+      "inputs": {
+        "gem_amethyst": 1
+      },
+      "skill_required": 240,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_shifting_amethyst"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_glowing_amethyst": {
+      "name": "Glowing Amethyst",
+      "inputs": {
+        "gem_amethyst": 1
+      },
+      "skill_required": 240,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_glowing_amethyst"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "drop"
+    },
+    "jc_cut_royal_amethyst": {
+      "name": "Royal Amethyst",
+      "inputs": {
+        "gem_amethyst": 1
+      },
+      "skill_required": 240,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_royal_amethyst"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_balanced_amethyst": {
+      "name": "Balanced Amethyst",
+      "inputs": {
+        "gem_amethyst": 1
+      },
+      "skill_required": 240,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_balanced_amethyst"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "drop"
+    },
+    "jc_cut_regal_amethyst": {
+      "name": "Regal Amethyst",
+      "inputs": {
+        "gem_amethyst": 1
+      },
+      "skill_required": 240,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_regal_amethyst"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "vendor"
+    },
+    "jc_cut_purified_amethyst": {
+      "name": "Purified Amethyst",
+      "inputs": {
+        "gem_amethyst": 1
+      },
+      "skill_required": 240,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_purified_amethyst"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "drop"
+    },
+    "jc_cut_fluorescent_amethyst": {
+      "name": "Fluorescent Amethyst",
+      "inputs": {
+        "gem_amethyst": 1
+      },
+      "skill_required": 240,
+      "output": {
+        "kind": "material",
+        "material_id": "cut_fluorescent_amethyst"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "vendor"
+    },
+    "jc_prospect_copper": {
+      "name": "Prospect Copper Ore",
+      "inputs": {
+        "ore_copper": 5
+      },
+      "skill_required": 20,
+      "output": {
+        "kind": "prospect",
+        "ore": "ore_copper"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        20,
+        30,
+        40,
+        50
+      ],
+      "source": "trainer"
+    },
+    "jc_prospect_weakstone": {
+      "name": "Prospect Weakstone",
+      "inputs": {
+        "ore_weakstone": 5
+      },
+      "skill_required": 20,
+      "output": {
+        "kind": "prospect",
+        "ore": "ore_weakstone"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        20,
+        30,
+        40,
+        50
+      ],
+      "source": "trainer"
+    },
+    "jc_prospect_rough_iron": {
+      "name": "Prospect Rough Iron Ore",
+      "inputs": {
+        "ore_rough_iron": 5
+      },
+      "skill_required": 40,
+      "output": {
+        "kind": "prospect",
+        "ore": "ore_rough_iron"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        40,
+        50,
+        60,
+        70
+      ],
+      "source": "trainer"
+    },
+    "jc_prospect_tin": {
+      "name": "Prospect Tin Ore",
+      "inputs": {
+        "ore_tin": 5
+      },
+      "skill_required": 65,
+      "output": {
+        "kind": "prospect",
+        "ore": "ore_tin"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        65,
+        75,
+        85,
+        95
+      ],
+      "source": "trainer"
+    },
+    "jc_prospect_silver": {
+      "name": "Prospect Silver Ore",
+      "inputs": {
+        "ore_silver": 5
+      },
+      "skill_required": 75,
+      "output": {
+        "kind": "prospect",
+        "ore": "ore_silver"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        75,
+        85,
+        95,
+        105
+      ],
+      "source": "trainer"
+    },
+    "jc_prospect_bronze_vein": {
+      "name": "Prospect Bronze Vein Ore",
+      "inputs": {
+        "ore_bronze_vein": 5
+      },
+      "skill_required": 95,
+      "output": {
+        "kind": "prospect",
+        "ore": "ore_bronze_vein"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        95,
+        105,
+        115,
+        125
+      ],
+      "source": "trainer"
+    },
+    "jc_prospect_coal": {
+      "name": "Prospect Coal",
+      "inputs": {
+        "ore_coal": 5
+      },
+      "skill_required": 105,
+      "output": {
+        "kind": "prospect",
+        "ore": "ore_coal"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        105,
+        115,
+        125,
+        135
+      ],
+      "source": "trainer"
+    },
+    "jc_prospect_living_copper": {
+      "name": "Prospect Living Copper Ore",
+      "inputs": {
+        "ore_living_copper": 5
+      },
+      "skill_required": 115,
+      "output": {
+        "kind": "prospect",
+        "ore": "ore_living_copper"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        115,
+        125,
+        135,
+        145
+      ],
+      "source": "trainer"
+    },
+    "jc_prospect_iron": {
+      "name": "Prospect Iron Ore",
+      "inputs": {
+        "ore_iron": 5
+      },
+      "skill_required": 125,
+      "output": {
+        "kind": "prospect",
+        "ore": "ore_iron"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        125,
+        135,
+        145,
+        155
+      ],
+      "source": "trainer"
+    },
+    "jc_prospect_frostveined_tin": {
+      "name": "Prospect Frostveined Tin Ore",
+      "inputs": {
+        "ore_frostveined_tin": 5
+      },
+      "skill_required": 140,
+      "output": {
+        "kind": "prospect",
+        "ore": "ore_frostveined_tin"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        140,
+        150,
+        160,
+        170
+      ],
+      "source": "trainer"
+    },
+    "jc_prospect_gold": {
+      "name": "Prospect Gold Ore",
+      "inputs": {
+        "ore_gold": 5
+      },
+      "skill_required": 155,
+      "output": {
+        "kind": "prospect",
+        "ore": "ore_gold"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        155,
+        165,
+        175,
+        185
+      ],
+      "source": "trainer"
+    },
+    "jc_prospect_verdant_iron": {
+      "name": "Prospect Verdant Iron Ore",
+      "inputs": {
+        "ore_verdant_iron": 5
+      },
+      "skill_required": 165,
+      "output": {
+        "kind": "prospect",
+        "ore": "ore_verdant_iron"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        165,
+        175,
+        185,
+        195
+      ],
+      "source": "trainer"
+    },
+    "jc_prospect_mithril": {
+      "name": "Prospect Mithril Ore",
+      "inputs": {
+        "ore_mithril": 5
+      },
+      "skill_required": 175,
+      "output": {
+        "kind": "prospect",
+        "ore": "ore_mithril"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        175,
+        185,
+        195,
+        205
+      ],
+      "source": "trainer"
+    },
+    "jc_prospect_thorium": {
+      "name": "Prospect Thorium Ore",
+      "inputs": {
+        "ore_thorium": 5
+      },
+      "skill_required": 245,
+      "output": {
+        "kind": "prospect",
+        "ore": "ore_thorium"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        245,
+        255,
+        265,
+        275
+      ],
+      "source": "trainer"
+    },
+    "jc_prospect_truesilver": {
+      "name": "Prospect Truesilver Ore",
+      "inputs": {
+        "ore_truesilver": 5
+      },
+      "skill_required": 230,
+      "output": {
+        "kind": "prospect",
+        "ore": "ore_truesilver"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        230,
+        240,
+        250,
+        260
+      ],
+      "source": "trainer"
+    },
+    "jc_prospect_felslag": {
+      "name": "Prospect Felslag Ore",
+      "inputs": {
+        "ore_felslag": 5
+      },
+      "skill_required": 190,
+      "output": {
+        "kind": "prospect",
+        "ore": "ore_felslag"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        190,
+        200,
+        210,
+        220
+      ],
+      "source": "trainer"
+    },
+    "jc_prospect_bloodiron": {
+      "name": "Prospect Bloodiron Ore",
+      "inputs": {
+        "ore_bloodiron": 5
+      },
+      "skill_required": 205,
+      "output": {
+        "kind": "prospect",
+        "ore": "ore_bloodiron"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        205,
+        215,
+        225,
+        235
+      ],
+      "source": "trainer"
+    },
+    "jc_prospect_deepearth": {
+      "name": "Prospect Deepearth Ore",
+      "inputs": {
+        "ore_deepearth": 5
+      },
+      "skill_required": 220,
+      "output": {
+        "kind": "prospect",
+        "ore": "ore_deepearth"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        220,
+        230,
+        240,
+        250
+      ],
+      "source": "trainer"
+    },
+    "jc_prospect_dark_iron": {
+      "name": "Prospect Dark Iron Ore",
+      "inputs": {
+        "ore_dark_iron": 5
+      },
+      "skill_required": 230,
+      "output": {
+        "kind": "prospect",
+        "ore": "ore_dark_iron"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        230,
+        240,
+        250,
+        260
+      ],
+      "source": "trainer"
+    },
+    "jc_prospect_ashen_steel": {
+      "name": "Prospect Ashen Steel Ore",
+      "inputs": {
+        "ore_ashen_steel": 5
+      },
+      "skill_required": 260,
+      "output": {
+        "kind": "prospect",
+        "ore": "ore_ashen_steel"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        260,
+        270,
+        280,
+        290
+      ],
+      "source": "trainer"
+    },
+    "jc_prospect_elementium": {
+      "name": "Prospect Elementium Ore",
+      "inputs": {
+        "ore_elementium": 5
+      },
+      "skill_required": 290,
+      "output": {
+        "kind": "prospect",
+        "ore": "ore_elementium"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        290,
+        300,
+        310,
+        320
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_copper_str_physical": {
+      "name": "Bloodstone Signet",
+      "inputs": {
+        "setting_ring_copper": 1,
+        "bar_copper": 1,
+        "gem_bloodstone": 1
+      },
+      "skill_required": 20,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "str_physical",
+        "item_level": 12,
+        "rarity": "uncommon",
+        "material_tier": "copper"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        20,
+        30,
+        40,
+        50
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_copper_agi_physical": {
+      "name": "Bloodstone Band",
+      "inputs": {
+        "setting_ring_copper": 1,
+        "bar_copper": 1,
+        "gem_bloodstone": 1
+      },
+      "skill_required": 25,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "agi_physical",
+        "item_level": 13,
+        "rarity": "uncommon",
+        "material_tier": "copper"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        25,
+        35,
+        45,
+        55
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_copper_int_caster": {
+      "name": "Tigerseye Loop",
+      "inputs": {
+        "setting_ring_copper": 1,
+        "bar_copper": 1,
+        "gem_tigerseye": 1
+      },
+      "skill_required": 30,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "int_caster",
+        "item_level": 14,
+        "rarity": "uncommon",
+        "material_tier": "copper"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        30,
+        40,
+        50,
+        60
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_copper_spi_healer": {
+      "name": "Azurite Circle",
+      "inputs": {
+        "setting_ring_copper": 1,
+        "bar_copper": 1,
+        "gem_azurite": 1
+      },
+      "skill_required": 35,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "spi_healer",
+        "item_level": 15,
+        "rarity": "uncommon",
+        "material_tier": "copper"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        35,
+        45,
+        55,
+        65
+      ],
+      "source": "trainer"
+    },
+    "jc_neck_copper_str_physical": {
+      "name": "Bloodstone Pendant",
+      "inputs": {
+        "setting_necklace_copper": 1,
+        "bar_copper": 1,
+        "gem_bloodstone": 1
+      },
+      "skill_required": 20,
+      "output": {
+        "kind": "armor",
+        "slot": "neck",
+        "armor_type": null,
+        "stat_template": "str_physical",
+        "item_level": 12,
+        "rarity": "uncommon",
+        "material_tier": "copper"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        20,
+        30,
+        40,
+        50
+      ],
+      "source": "trainer"
+    },
+    "jc_neck_copper_int_caster": {
+      "name": "Tigerseye Choker",
+      "inputs": {
+        "setting_necklace_copper": 1,
+        "bar_copper": 1,
+        "gem_tigerseye": 1
+      },
+      "skill_required": 25,
+      "output": {
+        "kind": "armor",
+        "slot": "neck",
+        "armor_type": null,
+        "stat_template": "int_caster",
+        "item_level": 13,
+        "rarity": "uncommon",
+        "material_tier": "copper"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        25,
+        35,
+        45,
+        55
+      ],
+      "source": "trainer"
+    },
+    "jc_neck_copper_spi_healer": {
+      "name": "Azurite Locket",
+      "inputs": {
+        "setting_necklace_copper": 1,
+        "bar_copper": 1,
+        "gem_azurite": 1
+      },
+      "skill_required": 30,
+      "output": {
+        "kind": "armor",
+        "slot": "neck",
+        "armor_type": null,
+        "stat_template": "spi_healer",
+        "item_level": 14,
+        "rarity": "uncommon",
+        "material_tier": "copper"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        30,
+        40,
+        50,
+        60
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_silver_str_physical": {
+      "name": "Garnet Signet",
+      "inputs": {
+        "setting_ring_silver": 1,
+        "bar_silver": 1,
+        "gem_garnet": 1
+      },
+      "skill_required": 90,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "str_physical",
+        "item_level": 24,
+        "rarity": "uncommon",
+        "material_tier": "silver"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        90,
+        100,
+        110,
+        120
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_silver_agi_physical": {
+      "name": "Garnet Band",
+      "inputs": {
+        "setting_ring_silver": 1,
+        "bar_silver": 1,
+        "gem_garnet": 1
+      },
+      "skill_required": 95,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "agi_physical",
+        "item_level": 25,
+        "rarity": "uncommon",
+        "material_tier": "silver"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        95,
+        105,
+        115,
+        125
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_silver_int_caster": {
+      "name": "Honey Amber Loop",
+      "inputs": {
+        "setting_ring_silver": 1,
+        "bar_silver": 1,
+        "gem_honey_amber": 1
+      },
+      "skill_required": 100,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "int_caster",
+        "item_level": 26,
+        "rarity": "uncommon",
+        "material_tier": "silver"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        100,
+        110,
+        120,
+        130
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_silver_spi_healer": {
+      "name": "Lesser Moonstone Circle",
+      "inputs": {
+        "setting_ring_silver": 1,
+        "bar_silver": 1,
+        "gem_lesser_moonstone": 1
+      },
+      "skill_required": 105,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "spi_healer",
+        "item_level": 27,
+        "rarity": "uncommon",
+        "material_tier": "silver"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        105,
+        115,
+        125,
+        135
+      ],
+      "source": "trainer"
+    },
+    "jc_neck_silver_str_physical": {
+      "name": "Garnet Pendant",
+      "inputs": {
+        "setting_necklace_silver": 1,
+        "bar_silver": 1,
+        "gem_garnet": 1
+      },
+      "skill_required": 90,
+      "output": {
+        "kind": "armor",
+        "slot": "neck",
+        "armor_type": null,
+        "stat_template": "str_physical",
+        "item_level": 24,
+        "rarity": "uncommon",
+        "material_tier": "silver"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        90,
+        100,
+        110,
+        120
+      ],
+      "source": "trainer"
+    },
+    "jc_neck_silver_int_caster": {
+      "name": "Honey Amber Choker",
+      "inputs": {
+        "setting_necklace_silver": 1,
+        "bar_silver": 1,
+        "gem_honey_amber": 1
+      },
+      "skill_required": 95,
+      "output": {
+        "kind": "armor",
+        "slot": "neck",
+        "armor_type": null,
+        "stat_template": "int_caster",
+        "item_level": 25,
+        "rarity": "uncommon",
+        "material_tier": "silver"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        95,
+        105,
+        115,
+        125
+      ],
+      "source": "trainer"
+    },
+    "jc_neck_silver_spi_healer": {
+      "name": "Lesser Moonstone Locket",
+      "inputs": {
+        "setting_necklace_silver": 1,
+        "bar_silver": 1,
+        "gem_lesser_moonstone": 1
+      },
+      "skill_required": 100,
+      "output": {
+        "kind": "armor",
+        "slot": "neck",
+        "armor_type": null,
+        "stat_template": "spi_healer",
+        "item_level": 26,
+        "rarity": "uncommon",
+        "material_tier": "silver"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        100,
+        110,
+        120,
+        130
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_gold_str_physical": {
+      "name": "Carnelian Signet",
+      "inputs": {
+        "setting_ring_gold": 1,
+        "bar_gold": 1,
+        "gem_carnelian": 1
+      },
+      "skill_required": 160,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "str_physical",
+        "item_level": 36,
+        "rarity": "uncommon",
+        "material_tier": "gold"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        160,
+        170,
+        180,
+        190
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_gold_agi_physical": {
+      "name": "Carnelian Band",
+      "inputs": {
+        "setting_ring_gold": 1,
+        "bar_gold": 1,
+        "gem_carnelian": 1
+      },
+      "skill_required": 165,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "agi_physical",
+        "item_level": 37,
+        "rarity": "uncommon",
+        "material_tier": "gold"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        165,
+        175,
+        185,
+        195
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_gold_int_caster": {
+      "name": "Citrine Loop",
+      "inputs": {
+        "setting_ring_gold": 1,
+        "bar_gold": 1,
+        "gem_citrine": 1
+      },
+      "skill_required": 170,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "int_caster",
+        "item_level": 38,
+        "rarity": "uncommon",
+        "material_tier": "gold"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        170,
+        180,
+        190,
+        200
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_gold_spi_healer": {
+      "name": "Rime Opal Circle",
+      "inputs": {
+        "setting_ring_gold": 1,
+        "bar_gold": 1,
+        "gem_rime_opal": 1
+      },
+      "skill_required": 175,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "spi_healer",
+        "item_level": 39,
+        "rarity": "uncommon",
+        "material_tier": "gold"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        175,
+        185,
+        195,
+        205
+      ],
+      "source": "trainer"
+    },
+    "jc_neck_gold_str_physical": {
+      "name": "Carnelian Pendant",
+      "inputs": {
+        "setting_necklace_gold": 1,
+        "bar_gold": 1,
+        "gem_carnelian": 1
+      },
+      "skill_required": 160,
+      "output": {
+        "kind": "armor",
+        "slot": "neck",
+        "armor_type": null,
+        "stat_template": "str_physical",
+        "item_level": 36,
+        "rarity": "uncommon",
+        "material_tier": "gold"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        160,
+        170,
+        180,
+        190
+      ],
+      "source": "trainer"
+    },
+    "jc_neck_gold_int_caster": {
+      "name": "Citrine Choker",
+      "inputs": {
+        "setting_necklace_gold": 1,
+        "bar_gold": 1,
+        "gem_citrine": 1
+      },
+      "skill_required": 165,
+      "output": {
+        "kind": "armor",
+        "slot": "neck",
+        "armor_type": null,
+        "stat_template": "int_caster",
+        "item_level": 37,
+        "rarity": "uncommon",
+        "material_tier": "gold"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        165,
+        175,
+        185,
+        195
+      ],
+      "source": "trainer"
+    },
+    "jc_neck_gold_spi_healer": {
+      "name": "Rime Opal Locket",
+      "inputs": {
+        "setting_necklace_gold": 1,
+        "bar_gold": 1,
+        "gem_rime_opal": 1
+      },
+      "skill_required": 170,
+      "output": {
+        "kind": "armor",
+        "slot": "neck",
+        "armor_type": null,
+        "stat_template": "spi_healer",
+        "item_level": 38,
+        "rarity": "uncommon",
+        "material_tier": "gold"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        170,
+        180,
+        190,
+        200
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_mithril_str_physical": {
+      "name": "Star Ruby Signet",
+      "inputs": {
+        "setting_ring_mithril": 1,
+        "bar_mithril": 1,
+        "gem_star_ruby": 1
+      },
+      "skill_required": 195,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "str_physical",
+        "item_level": 44,
+        "rarity": "uncommon",
+        "material_tier": "mithril"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        195,
+        205,
+        215,
+        225
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_mithril_agi_physical": {
+      "name": "Star Ruby Band",
+      "inputs": {
+        "setting_ring_mithril": 1,
+        "bar_mithril": 1,
+        "gem_star_ruby": 1
+      },
+      "skill_required": 200,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "agi_physical",
+        "item_level": 45,
+        "rarity": "uncommon",
+        "material_tier": "mithril"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        200,
+        210,
+        220,
+        230
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_mithril_int_caster": {
+      "name": "Topaz Loop",
+      "inputs": {
+        "setting_ring_mithril": 1,
+        "bar_mithril": 1,
+        "gem_topaz": 1
+      },
+      "skill_required": 205,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "int_caster",
+        "item_level": 46,
+        "rarity": "uncommon",
+        "material_tier": "mithril"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        205,
+        215,
+        225,
+        235
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_mithril_spi_healer": {
+      "name": "Aquamarine Circle",
+      "inputs": {
+        "setting_ring_mithril": 1,
+        "bar_mithril": 1,
+        "gem_aquamarine": 1
+      },
+      "skill_required": 210,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "spi_healer",
+        "item_level": 47,
+        "rarity": "uncommon",
+        "material_tier": "mithril"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        210,
+        220,
+        230,
+        240
+      ],
+      "source": "trainer"
+    },
+    "jc_neck_mithril_str_physical": {
+      "name": "Star Ruby Pendant",
+      "inputs": {
+        "setting_necklace_mithril": 1,
+        "bar_mithril": 1,
+        "gem_star_ruby": 1
+      },
+      "skill_required": 195,
+      "output": {
+        "kind": "armor",
+        "slot": "neck",
+        "armor_type": null,
+        "stat_template": "str_physical",
+        "item_level": 44,
+        "rarity": "uncommon",
+        "material_tier": "mithril"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        195,
+        205,
+        215,
+        225
+      ],
+      "source": "trainer"
+    },
+    "jc_neck_mithril_int_caster": {
+      "name": "Topaz Choker",
+      "inputs": {
+        "setting_necklace_mithril": 1,
+        "bar_mithril": 1,
+        "gem_topaz": 1
+      },
+      "skill_required": 200,
+      "output": {
+        "kind": "armor",
+        "slot": "neck",
+        "armor_type": null,
+        "stat_template": "int_caster",
+        "item_level": 45,
+        "rarity": "uncommon",
+        "material_tier": "mithril"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        200,
+        210,
+        220,
+        230
+      ],
+      "source": "trainer"
+    },
+    "jc_neck_mithril_spi_healer": {
+      "name": "Aquamarine Locket",
+      "inputs": {
+        "setting_necklace_mithril": 1,
+        "bar_mithril": 1,
+        "gem_aquamarine": 1
+      },
+      "skill_required": 205,
+      "output": {
+        "kind": "armor",
+        "slot": "neck",
+        "armor_type": null,
+        "stat_template": "spi_healer",
+        "item_level": 46,
+        "rarity": "uncommon",
+        "material_tier": "mithril"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        205,
+        215,
+        225,
+        235
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_truesilver_str_physical": {
+      "name": "Black Diamond Signet",
+      "inputs": {
+        "setting_ring_truesilver": 1,
+        "bar_truesilver": 1,
+        "gem_black_diamond": 2
+      },
+      "skill_required": 240,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "str_physical",
+        "item_level": 52,
+        "rarity": "rare",
+        "material_tier": "truesilver"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_truesilver_agi_physical": {
+      "name": "Black Diamond Band",
+      "inputs": {
+        "setting_ring_truesilver": 1,
+        "bar_truesilver": 1,
+        "gem_black_diamond": 1
+      },
+      "skill_required": 245,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "agi_physical",
+        "item_level": 53,
+        "rarity": "uncommon",
+        "material_tier": "truesilver"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        245,
+        255,
+        265,
+        275
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_truesilver_int_caster": {
+      "name": "Moonsilver Zircon Loop",
+      "inputs": {
+        "setting_ring_truesilver": 1,
+        "bar_truesilver": 1,
+        "gem_truesilver_zircon": 1
+      },
+      "skill_required": 250,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "int_caster",
+        "item_level": 54,
+        "rarity": "uncommon",
+        "material_tier": "truesilver"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        250,
+        260,
+        270,
+        280
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_truesilver_spi_healer": {
+      "name": "Blue Sapphire Circle",
+      "inputs": {
+        "setting_ring_truesilver": 1,
+        "bar_truesilver": 1,
+        "gem_blue_sapphire": 2
+      },
+      "skill_required": 255,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "spi_healer",
+        "item_level": 55,
+        "rarity": "rare",
+        "material_tier": "truesilver"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        255,
+        265,
+        275,
+        285
+      ],
+      "source": "trainer"
+    },
+    "jc_neck_truesilver_str_physical": {
+      "name": "Black Diamond Pendant",
+      "inputs": {
+        "setting_necklace_truesilver": 1,
+        "bar_truesilver": 1,
+        "gem_black_diamond": 2
+      },
+      "skill_required": 240,
+      "output": {
+        "kind": "armor",
+        "slot": "neck",
+        "armor_type": null,
+        "stat_template": "str_physical",
+        "item_level": 52,
+        "rarity": "rare",
+        "material_tier": "truesilver"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "trainer"
+    },
+    "jc_neck_truesilver_int_caster": {
+      "name": "Moonsilver Zircon Choker",
+      "inputs": {
+        "setting_necklace_truesilver": 1,
+        "bar_truesilver": 1,
+        "gem_truesilver_zircon": 1
+      },
+      "skill_required": 245,
+      "output": {
+        "kind": "armor",
+        "slot": "neck",
+        "armor_type": null,
+        "stat_template": "int_caster",
+        "item_level": 53,
+        "rarity": "uncommon",
+        "material_tier": "truesilver"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        245,
+        255,
+        265,
+        275
+      ],
+      "source": "trainer"
+    },
+    "jc_neck_truesilver_spi_healer": {
+      "name": "Blue Sapphire Locket",
+      "inputs": {
+        "setting_necklace_truesilver": 1,
+        "bar_truesilver": 1,
+        "gem_blue_sapphire": 1
+      },
+      "skill_required": 250,
+      "output": {
+        "kind": "armor",
+        "slot": "neck",
+        "armor_type": null,
+        "stat_template": "spi_healer",
+        "item_level": 54,
+        "rarity": "uncommon",
+        "material_tier": "truesilver"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        250,
+        260,
+        270,
+        280
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_thorium_str_physical": {
+      "name": "Heartsblood Garnet Signet",
+      "inputs": {
+        "setting_ring_thorium": 1,
+        "bar_thorium": 1,
+        "gem_heartsblood_garnet": 2
+      },
+      "skill_required": 275,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "str_physical",
+        "item_level": 58,
+        "rarity": "rare",
+        "material_tier": "thorium"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        275,
+        285,
+        295,
+        305
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_thorium_agi_physical": {
+      "name": "Heartsblood Garnet Band",
+      "inputs": {
+        "setting_ring_thorium": 1,
+        "bar_thorium": 1,
+        "gem_heartsblood_garnet": 1
+      },
+      "skill_required": 280,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "agi_physical",
+        "item_level": 59,
+        "rarity": "uncommon",
+        "material_tier": "thorium"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        280,
+        290,
+        300,
+        310
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_thorium_int_caster": {
+      "name": "Large Opal Loop",
+      "inputs": {
+        "setting_ring_thorium": 1,
+        "bar_thorium": 1,
+        "gem_large_opal": 1
+      },
+      "skill_required": 285,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "int_caster",
+        "item_level": 60,
+        "rarity": "uncommon",
+        "material_tier": "thorium"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        285,
+        295,
+        305,
+        315
+      ],
+      "source": "trainer"
+    },
+    "jc_ring_thorium_spi_healer": {
+      "name": "Skyglass Diamond Circle",
+      "inputs": {
+        "setting_ring_thorium": 1,
+        "bar_thorium": 1,
+        "gem_azure_diamond": 2
+      },
+      "skill_required": 290,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "spi_healer",
+        "item_level": 61,
+        "rarity": "rare",
+        "material_tier": "thorium"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        290,
+        300,
+        310,
+        320
+      ],
+      "source": "trainer"
+    },
+    "jc_neck_thorium_str_physical": {
+      "name": "Heartsblood Garnet Pendant",
+      "inputs": {
+        "setting_necklace_thorium": 1,
+        "bar_thorium": 1,
+        "gem_heartsblood_garnet": 2
+      },
+      "skill_required": 275,
+      "output": {
+        "kind": "armor",
+        "slot": "neck",
+        "armor_type": null,
+        "stat_template": "str_physical",
+        "item_level": 58,
+        "rarity": "rare",
+        "material_tier": "thorium"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        275,
+        285,
+        295,
+        305
+      ],
+      "source": "trainer"
+    },
+    "jc_neck_thorium_int_caster": {
+      "name": "Large Opal Choker",
+      "inputs": {
+        "setting_necklace_thorium": 1,
+        "bar_thorium": 1,
+        "gem_large_opal": 1
+      },
+      "skill_required": 280,
+      "output": {
+        "kind": "armor",
+        "slot": "neck",
+        "armor_type": null,
+        "stat_template": "int_caster",
+        "item_level": 59,
+        "rarity": "uncommon",
+        "material_tier": "thorium"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        280,
+        290,
+        300,
+        310
+      ],
+      "source": "trainer"
+    },
+    "jc_neck_thorium_spi_healer": {
+      "name": "Skyglass Diamond Locket",
+      "inputs": {
+        "setting_necklace_thorium": 1,
+        "bar_thorium": 1,
+        "gem_azure_diamond": 1
+      },
+      "skill_required": 285,
+      "output": {
+        "kind": "armor",
+        "slot": "neck",
+        "armor_type": null,
+        "stat_template": "spi_healer",
+        "item_level": 60,
+        "rarity": "uncommon",
+        "material_tier": "thorium"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        285,
+        295,
+        305,
+        315
+      ],
+      "source": "trainer"
+    },
+    "jc_jade_owl": {
+      "name": "Jade Owl",
+      "inputs": {
+        "gem_jade": 2,
+        "bar_iron": 2
+      },
+      "skill_required": 120,
+      "output": {
+        "kind": "fixed",
+        "item": {
+          "name": "Jade Owl",
+          "slot": "trinket",
+          "item_level": 30,
+          "rarity": "uncommon",
+          "required_level": 28,
+          "primary_stats": {
+            "intellect": 6,
+            "spirit": 4
+          },
+          "secondary_stats": {},
+          "icon_id": "gear_inv_jewelry_talisman_01"
+        }
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        120,
+        130,
+        140,
+        150
+      ],
+      "source": "trainer"
+    },
+    "jc_carnelian_fox": {
+      "name": "Carnelian Fox",
+      "inputs": {
+        "gem_carnelian": 2,
+        "bar_iron": 2
+      },
+      "skill_required": 150,
+      "output": {
+        "kind": "fixed",
+        "item": {
+          "name": "Carnelian Fox",
+          "slot": "trinket",
+          "item_level": 34,
+          "rarity": "uncommon",
+          "required_level": 32,
+          "primary_stats": {
+            "agility": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {},
+          "icon_id": "gear_inv_jewelry_talisman_03"
+        }
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        150,
+        160,
+        170,
+        180
+      ],
+      "source": "trainer"
+    },
+    "jc_star_ruby_lion": {
+      "name": "Star Ruby Lion",
+      "inputs": {
+        "gem_star_ruby": 2,
+        "gem_topaz": 2,
+        "bar_truesilver": 3
+      },
+      "skill_required": 255,
+      "output": {
+        "kind": "fixed",
+        "item": {
+          "name": "Star Ruby Lion",
+          "slot": "trinket",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 52,
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 9
+          },
+          "secondary_stats": {},
+          "icon_id": "gear_inv_jewelry_talisman_04",
+          "proc": {
+            "trigger": "on_crit",
+            "chance": 15,
+            "icd": 5,
+            "apply_effect": {
+              "effect_id": "jc_lion_roar",
+              "name": "Lion's Roar",
+              "effect_type": "buff",
+              "duration": 3,
+              "stat_mods": {
+                "attack_power": 46
+              },
+              "on_target": false
+            },
+            "describe": "Your critical strikes have a chance to grant 46 attack power for 3 turns."
+          }
+        }
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        255,
+        265,
+        275,
+        285
+      ],
+      "source": "drop"
+    },
+    "jc_aquamarine_heron": {
+      "name": "Aquamarine Heron",
+      "inputs": {
+        "gem_aquamarine": 3,
+        "gem_huge_emerald": 1,
+        "bar_truesilver": 3
+      },
+      "skill_required": 265,
+      "output": {
+        "kind": "fixed",
+        "item": {
+          "name": "Aquamarine Heron",
+          "slot": "trinket",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 54,
+          "primary_stats": {
+            "intellect": 9,
+            "spirit": 9
+          },
+          "secondary_stats": {},
+          "icon_id": "gear_inv_jewelry_talisman_01",
+          "proc": {
+            "trigger": "on_heal_cast",
+            "chance": 10,
+            "icd": 5,
+            "apply_effect": {
+              "effect_id": "jc_heron_still_water",
+              "name": "Still Water",
+              "effect_type": "buff",
+              "duration": 3,
+              "stat_mods": {
+                "healing_power": 42
+              },
+              "on_target": false
+            },
+            "describe": "Your healing spells have a chance to grant 42 healing power for 3 turns."
+          }
+        }
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        265,
+        275,
+        285,
+        295
+      ],
+      "source": "drop"
+    },
+    "jc_black_diamond_crab": {
+      "name": "Black Diamond Crab",
+      "inputs": {
+        "gem_black_diamond": 2,
+        "gem_amethyst": 2,
+        "bar_thorium": 3
+      },
+      "skill_required": 275,
+      "output": {
+        "kind": "fixed",
+        "item": {
+          "name": "Black Diamond Crab",
+          "slot": "trinket",
+          "item_level": 57,
+          "rarity": "rare",
+          "required_level": 55,
+          "primary_stats": {
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "defense_rating": 1
+          },
+          "icon_id": "gear_inv_jewelry_talisman_03",
+          "proc": {
+            "trigger": "on_damage_taken",
+            "chance": 10,
+            "icd": 5,
+            "apply_effect": {
+              "effect_id": "jc_crab_shell",
+              "name": "Diamond Shell",
+              "effect_type": "buff",
+              "duration": 3,
+              "stat_mods": {
+                "armor": 400
+              },
+              "on_target": false
+            },
+            "describe": "When you are hit, you have a chance to gain 400 armour for 3 turns."
+          }
+        }
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        275,
+        285,
+        295,
+        305
+      ],
+      "source": "drop"
+    },
+    "jc_blue_sapphire_owl": {
+      "name": "Blue Sapphire Owl",
+      "inputs": {
+        "gem_blue_sapphire": 3,
+        "gem_large_opal": 1,
+        "bar_thorium": 3
+      },
+      "skill_required": 285,
+      "output": {
+        "kind": "fixed",
+        "item": {
+          "name": "Blue Sapphire Owl",
+          "slot": "trinket",
+          "item_level": 58,
+          "rarity": "rare",
+          "required_level": 56,
+          "primary_stats": {
+            "intellect": 11,
+            "stamina": 8
+          },
+          "secondary_stats": {},
+          "icon_id": "gear_inv_jewelry_talisman_04",
+          "proc": {
+            "trigger": "on_damage_cast",
+            "chance": 8,
+            "icd": 5,
+            "apply_effect": {
+              "effect_id": "jc_owl_night_sight",
+              "name": "Night Sight",
+              "effect_type": "buff",
+              "duration": 3,
+              "stat_mods": {
+                "spell_power": 34
+              },
+              "on_target": false
+            },
+            "describe": "Your damaging spells have a chance to grant 34 spell power for 3 turns."
+          }
+        }
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        285,
+        295,
+        305,
+        315
+      ],
+      "source": "drop"
+    }
+  }
+}

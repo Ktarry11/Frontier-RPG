@@ -6460,6 +6460,507 @@
       ],
       "description": "The one piece a butcher keeps back and does not put on the board."
     },
+    "cook_flour": {
+      "name": "Flour",
+      "material_type": "reagent",
+      "profession": "cooking",
+      "tier": "starter",
+      "description": "Milled fine. Thickens a stew, wraps a pie.",
+      "stack_limit": 20,
+      "vendor_price": 3,
+      "sell_price": 0,
+      "icon_id": "cook_flour"
+    },
+    "cook_honey": {
+      "name": "Wild Honey",
+      "material_type": "reagent",
+      "profession": "cooking",
+      "tier": "early",
+      "description": "Dark, and it does not pour so much as give way.",
+      "stack_limit": 20,
+      "vendor_price": 8,
+      "sell_price": 2,
+      "icon_id": "cook_honey"
+    },
+    "cook_spice": {
+      "name": "Hot Spices",
+      "material_type": "reagent",
+      "profession": "cooking",
+      "tier": "early",
+      "description": "A twist of paper. Do not touch your eyes.",
+      "stack_limit": 20,
+      "vendor_price": 8,
+      "sell_price": 2,
+      "icon_id": "cook_spice"
+    },
+    "cook_mushroom": {
+      "name": "Cellar Mushrooms",
+      "material_type": "reagent",
+      "profession": "cooking",
+      "tier": "early",
+      "description": "Grown in the dark on purpose.",
+      "stack_limit": 20,
+      "vendor_price": 6,
+      "sell_price": 1,
+      "icon_id": "cook_mushroom"
+    },
+    "cook_cheese": {
+      "name": "Sharp Cheese",
+      "material_type": "reagent",
+      "profession": "cooking",
+      "tier": "early",
+      "description": "Hard, yellow, and older than the innkeeper admits.",
+      "stack_limit": 20,
+      "vendor_price": 6,
+      "sell_price": 1,
+      "icon_id": "cook_cheese"
+    },
+    "cook_ale": {
+      "name": "Cooking Ale",
+      "material_type": "reagent",
+      "profession": "cooking",
+      "tier": "early",
+      "description": "Not for drinking. People drink it.",
+      "stack_limit": 20,
+      "vendor_price": 8,
+      "sell_price": 2,
+      "icon_id": "cook_ale"
+    },
+    "cook_fruit": {
+      "name": "Orchard Fruit",
+      "material_type": "reagent",
+      "profession": "cooking",
+      "tier": "starter",
+      "description": "Whatever was ripe. Bruised on one side.",
+      "stack_limit": 20,
+      "vendor_price": 4,
+      "sell_price": 1,
+      "icon_id": "cook_fruit"
+    },
+    "cook_roots": {
+      "name": "Root Vegetables",
+      "material_type": "reagent",
+      "profession": "cooking",
+      "tier": "starter",
+      "description": "Carrots, mostly. They keep.",
+      "stack_limit": 20,
+      "vendor_price": 3,
+      "sell_price": 0,
+      "icon_id": "cook_roots"
+    },
+    "cook_water": {
+      "name": "Fresh Water",
+      "material_type": "reagent",
+      "profession": "cooking",
+      "tier": "starter",
+      "description": "From the well. For the pot, not the road.",
+      "stack_limit": 20,
+      "vendor_price": 2,
+      "sell_price": 0,
+      "icon_id": "cook_water"
+    },
+    "cook_bread": {
+      "name": "Bread",
+      "material_type": "reagent",
+      "profession": "cooking",
+      "tier": "starter",
+      "description": "A plain loaf. Half of what a kitchen makes starts here.",
+      "stack_limit": 20,
+      "sell_price": 0,
+      "icon_id": "cook_bread"
+    },
+    "cook_stock": {
+      "name": "Soup Stock",
+      "material_type": "reagent",
+      "profession": "cooking",
+      "tier": "starter",
+      "description": "Roots boiled down until the water is worth something.",
+      "stack_limit": 20,
+      "sell_price": 0,
+      "icon_id": "cook_stock"
+    },
+    "fish_brilliant_smallfish": {
+      "name": "Brilliant Smallfish",
+      "material_type": "fish",
+      "profession": "fishing",
+      "tier": "early",
+      "description": "Silver, quick, and gone the moment your shadow crosses the water.",
+      "stack_limit": 20,
+      "sell_price": 4,
+      "icon_id": "brilliant_smallfish",
+      "skill_range": [
+        1,
+        26,
+        51,
+        76
+      ]
+    },
+    "fish_slitherskin_mackerel": {
+      "name": "Slitherskin Mackerel",
+      "material_type": "fish",
+      "profession": "fishing",
+      "tier": "early",
+      "description": "Oily and plentiful. The first fish anybody catches.",
+      "stack_limit": 20,
+      "sell_price": 4,
+      "icon_id": "slitherskin_mackerel",
+      "skill_range": [
+        1,
+        26,
+        51,
+        76
+      ]
+    },
+    "fish_longjaw_mud_snapper": {
+      "name": "Longjaw Mud Snapper",
+      "material_type": "fish",
+      "profession": "fishing",
+      "tier": "early",
+      "description": "Lives in the silt and tastes of it until you soak it.",
+      "stack_limit": 20,
+      "sell_price": 15,
+      "icon_id": "longjaw_mud_snapper",
+      "skill_range": [
+        25,
+        50,
+        75,
+        100
+      ]
+    },
+    "fish_bristle_whisker_catfish": {
+      "name": "Bristle Whisker Catfish",
+      "material_type": "fish",
+      "profession": "fishing",
+      "tier": "early",
+      "description": "All mouth and whiskers. Fights like a much bigger fish.",
+      "stack_limit": 20,
+      "sell_price": 26,
+      "icon_id": "bristle_whisker_catfish",
+      "skill_range": [
+        50,
+        75,
+        100,
+        125
+      ]
+    },
+    "fish_loch_frenzy": {
+      "name": "Loch Frenzy",
+      "material_type": "fish",
+      "profession": "fishing",
+      "tier": "early",
+      "description": "Teeth first. Mind your fingers getting the hook out.",
+      "stack_limit": 20,
+      "sell_price": 31,
+      "icon_id": "loch_frenzy",
+      "skill_range": [
+        60,
+        85,
+        110,
+        135
+      ]
+    },
+    "fish_rainbow_fin_albacore": {
+      "name": "Rainbow Fin Albacore",
+      "material_type": "fish",
+      "profession": "fishing",
+      "tier": "early",
+      "description": "The fins catch the light. The meat is firm and clean.",
+      "stack_limit": 20,
+      "sell_price": 38,
+      "icon_id": "rainbow_fin_albacore",
+      "skill_range": [
+        75,
+        100,
+        125,
+        150
+      ]
+    },
+    "fish_sagefish": {
+      "name": "Sagefish",
+      "material_type": "fish",
+      "profession": "fishing",
+      "tier": "early",
+      "description": "Shamans say eating one clears the head. Cooks agree.",
+      "stack_limit": 20,
+      "sell_price": 44,
+      "icon_id": "sagefish",
+      "skill_range": [
+        90,
+        115,
+        140,
+        165
+      ]
+    },
+    "fish_oily_blackmouth": {
+      "name": "Oily Blackmouth",
+      "material_type": "fish",
+      "profession": "fishing",
+      "tier": "mid",
+      "description": "Too greasy to eat. Alchemists press it for the oil.",
+      "stack_limit": 20,
+      "sell_price": 51,
+      "icon_id": "oily_blackmouth",
+      "skill_range": [
+        105,
+        130,
+        155,
+        180
+      ]
+    },
+    "fish_deviate_fish": {
+      "name": "Deviate Fish",
+      "material_type": "fish",
+      "profession": "fishing",
+      "tier": "mid",
+      "description": "Something in the water has got into it. Cook it thoroughly.",
+      "stack_limit": 20,
+      "sell_price": 56,
+      "icon_id": "deviate_fish",
+      "skill_range": [
+        115,
+        140,
+        165,
+        190
+      ]
+    },
+    "fish_firefin_snapper": {
+      "name": "Firefin Snapper",
+      "material_type": "fish",
+      "profession": "fishing",
+      "tier": "mid",
+      "description": "Warm to the touch for an hour after it is landed.",
+      "stack_limit": 20,
+      "sell_price": 62,
+      "icon_id": "firefin_snapper",
+      "skill_range": [
+        130,
+        155,
+        180,
+        205
+      ]
+    },
+    "fish_rockscale_cod": {
+      "name": "Rockscale Cod",
+      "material_type": "fish",
+      "profession": "fishing",
+      "tier": "mid",
+      "description": "Scales like slate. Blunts a knife and is worth it.",
+      "stack_limit": 20,
+      "sell_price": 67,
+      "icon_id": "rockscale_cod",
+      "skill_range": [
+        140,
+        165,
+        190,
+        215
+      ]
+    },
+    "fish_mithril_head_trout": {
+      "name": "Mithril Head Trout",
+      "material_type": "fish",
+      "profession": "fishing",
+      "tier": "mid",
+      "description": "The skull shines like the metal. Nobody knows why.",
+      "stack_limit": 20,
+      "sell_price": 74,
+      "icon_id": "mithril_head_trout",
+      "skill_range": [
+        155,
+        180,
+        205,
+        230
+      ]
+    },
+    "fish_greater_sagefish": {
+      "name": "Greater Sagefish",
+      "material_type": "fish",
+      "profession": "fishing",
+      "tier": "mid",
+      "description": "Older, deeper, and harder to fool than its cousin.",
+      "stack_limit": 20,
+      "sell_price": 78,
+      "icon_id": "greater_sagefish",
+      "skill_range": [
+        165,
+        190,
+        215,
+        240
+      ]
+    },
+    "fish_spotted_yellowtail": {
+      "name": "Spotted Yellowtail",
+      "material_type": "fish",
+      "profession": "fishing",
+      "tier": "mid",
+      "description": "A strong swimmer from warm water. Good on a grill.",
+      "stack_limit": 20,
+      "sell_price": 85,
+      "icon_id": "spotted_yellowtail",
+      "skill_range": [
+        180,
+        205,
+        230,
+        255
+      ]
+    },
+    "fish_stonescale_eel": {
+      "name": "Stonescale Eel",
+      "material_type": "fish",
+      "profession": "fishing",
+      "tier": "mid",
+      "description": "Comes up at night. The skin gives a grey oil that hardens.",
+      "stack_limit": 20,
+      "sell_price": 92,
+      "icon_id": "stonescale_eel",
+      "skill_range": [
+        195,
+        220,
+        245,
+        270
+      ]
+    },
+    "fish_redgill": {
+      "name": "Redgill",
+      "material_type": "fish",
+      "profession": "fishing",
+      "tier": "late",
+      "description": "Bright as a wound. Sweet under the skin.",
+      "stack_limit": 20,
+      "sell_price": 96,
+      "icon_id": "redgill",
+      "skill_range": [
+        205,
+        230,
+        255,
+        280
+      ]
+    },
+    "fish_nightfin_snapper": {
+      "name": "Nightfin Snapper",
+      "material_type": "fish",
+      "profession": "fishing",
+      "tier": "late",
+      "description": "Only bites after dark. Eating one settles the mind.",
+      "stack_limit": 20,
+      "sell_price": 101,
+      "icon_id": "nightfin_snapper",
+      "skill_range": [
+        215,
+        240,
+        265,
+        290
+      ]
+    },
+    "fish_sunscale_salmon": {
+      "name": "Sunscale Salmon",
+      "material_type": "fish",
+      "profession": "fishing",
+      "tier": "late",
+      "description": "Only bites by day. Runs upriver gold.",
+      "stack_limit": 20,
+      "sell_price": 105,
+      "icon_id": "sunscale_salmon",
+      "skill_range": [
+        225,
+        250,
+        275,
+        300
+      ]
+    },
+    "fish_winter_squid": {
+      "name": "Winter Squid",
+      "material_type": "fish",
+      "profession": "fishing",
+      "tier": "late",
+      "description": "Cold-water catch. Tough until you beat it flat.",
+      "stack_limit": 20,
+      "sell_price": 110,
+      "icon_id": "winter_squid",
+      "skill_range": [
+        235,
+        260,
+        285,
+        310
+      ]
+    },
+    "fish_glossy_mightfish": {
+      "name": "Glossy Mightfish",
+      "material_type": "fish",
+      "profession": "fishing",
+      "tier": "late",
+      "description": "Heavy, slow and stubborn. Takes two hands to land.",
+      "stack_limit": 20,
+      "sell_price": 116,
+      "icon_id": "glossy_mightfish",
+      "skill_range": [
+        250,
+        275,
+        300,
+        325
+      ]
+    },
+    "fish_darkclaw_lobster": {
+      "name": "Darkclaw Lobster",
+      "material_type": "fish",
+      "profession": "fishing",
+      "tier": "late",
+      "description": "Not a fish. Nobody who has eaten one cares.",
+      "stack_limit": 20,
+      "sell_price": 123,
+      "icon_id": "darkclaw_lobster",
+      "skill_range": [
+        265,
+        290,
+        315,
+        340
+      ]
+    },
+    "fish_lightning_eel": {
+      "name": "Lightning Eel",
+      "material_type": "fish",
+      "profession": "fishing",
+      "tier": "late",
+      "description": "Wear gloves. Wear them afterwards too.",
+      "stack_limit": 20,
+      "sell_price": 130,
+      "icon_id": "lightning_eel",
+      "skill_range": [
+        280,
+        305,
+        330,
+        355
+      ]
+    },
+    "oil_blackmouth": {
+      "name": "Blackmouth Oil",
+      "material_type": "reagent",
+      "profession": "alchemy",
+      "tier": "mid",
+      "description": "Pressed from Oily Blackmouth. Slick, dark, and it never quite washes off.",
+      "stack_limit": 20,
+      "sell_price": 60,
+      "icon_id": "oil_blackmouth"
+    },
+    "oil_fire": {
+      "name": "Fire Oil",
+      "material_type": "reagent",
+      "profession": "alchemy",
+      "tier": "mid",
+      "description": "Rendered from Firefin Snapper. Keep it away from lamps.",
+      "stack_limit": 20,
+      "sell_price": 60,
+      "icon_id": "oil_fire"
+    },
+    "oil_stonescale": {
+      "name": "Stonescale Oil",
+      "material_type": "reagent",
+      "profession": "alchemy",
+      "tier": "mid",
+      "description": "From the skin of a Stonescale Eel. Sets hard on whatever it touches.",
+      "stack_limit": 20,
+      "sell_price": 60,
+      "icon_id": "oil_stonescale"
+    },
     "gem_malachite": {
       "name": "Malachite",
       "material_type": "gem",
@@ -7260,506 +7761,3252 @@
         340
       ]
     },
-    "cook_flour": {
-      "name": "Flour",
-      "material_type": "reagent",
-      "profession": "cooking",
-      "tier": "starter",
-      "description": "Milled fine. Thickens a stew, wraps a pie.",
-      "stack_limit": 20,
-      "vendor_price": 3,
-      "sell_price": 0,
-      "icon_id": "cook_flour"
-    },
-    "cook_honey": {
-      "name": "Wild Honey",
-      "material_type": "reagent",
-      "profession": "cooking",
+    "gem_azurite": {
+      "name": "Azurite",
+      "material_type": "gem",
+      "profession": "mining",
       "tier": "early",
-      "description": "Dark, and it does not pour so much as give way.",
+      "description": "A deep blue crust with paler swirls, scraped off the inside of iron-stained rock. Found in Rough Iron veins.",
       "stack_limit": 20,
-      "vendor_price": 8,
-      "sell_price": 2,
-      "icon_id": "cook_honey"
-    },
-    "cook_spice": {
-      "name": "Hot Spices",
-      "material_type": "reagent",
-      "profession": "cooking",
-      "tier": "early",
-      "description": "A twist of paper. Do not touch your eyes.",
-      "stack_limit": 20,
-      "vendor_price": 8,
-      "sell_price": 2,
-      "icon_id": "cook_spice"
-    },
-    "cook_mushroom": {
-      "name": "Cellar Mushrooms",
-      "material_type": "reagent",
-      "profession": "cooking",
-      "tier": "early",
-      "description": "Grown in the dark on purpose.",
-      "stack_limit": 20,
-      "vendor_price": 6,
-      "sell_price": 1,
-      "icon_id": "cook_mushroom"
-    },
-    "cook_cheese": {
-      "name": "Sharp Cheese",
-      "material_type": "reagent",
-      "profession": "cooking",
-      "tier": "early",
-      "description": "Hard, yellow, and older than the innkeeper admits.",
-      "stack_limit": 20,
-      "vendor_price": 6,
-      "sell_price": 1,
-      "icon_id": "cook_cheese"
-    },
-    "cook_ale": {
-      "name": "Cooking Ale",
-      "material_type": "reagent",
-      "profession": "cooking",
-      "tier": "early",
-      "description": "Not for drinking. People drink it.",
-      "stack_limit": 20,
-      "vendor_price": 8,
-      "sell_price": 2,
-      "icon_id": "cook_ale"
-    },
-    "cook_fruit": {
-      "name": "Orchard Fruit",
-      "material_type": "reagent",
-      "profession": "cooking",
-      "tier": "starter",
-      "description": "Whatever was ripe. Bruised on one side.",
-      "stack_limit": 20,
-      "vendor_price": 4,
-      "sell_price": 1,
-      "icon_id": "cook_fruit"
-    },
-    "cook_roots": {
-      "name": "Root Vegetables",
-      "material_type": "reagent",
-      "profession": "cooking",
-      "tier": "starter",
-      "description": "Carrots, mostly. They keep.",
-      "stack_limit": 20,
-      "vendor_price": 3,
-      "sell_price": 0,
-      "icon_id": "cook_roots"
-    },
-    "cook_water": {
-      "name": "Fresh Water",
-      "material_type": "reagent",
-      "profession": "cooking",
-      "tier": "starter",
-      "description": "From the well. For the pot, not the road.",
-      "stack_limit": 20,
-      "vendor_price": 2,
-      "sell_price": 0,
-      "icon_id": "cook_water"
-    },
-    "cook_bread": {
-      "name": "Bread",
-      "material_type": "reagent",
-      "profession": "cooking",
-      "tier": "starter",
-      "description": "A plain loaf. Half of what a kitchen makes starts here.",
-      "stack_limit": 20,
-      "sell_price": 0,
-      "icon_id": "cook_bread"
-    },
-    "cook_stock": {
-      "name": "Soup Stock",
-      "material_type": "reagent",
-      "profession": "cooking",
-      "tier": "starter",
-      "description": "Roots boiled down until the water is worth something.",
-      "stack_limit": 20,
-      "sell_price": 0,
-      "icon_id": "cook_stock"
-    },
-    "fish_brilliant_smallfish": {
-      "name": "Brilliant Smallfish",
-      "material_type": "fish",
-      "profession": "fishing",
-      "tier": "early",
-      "description": "Silver, quick, and gone the moment your shadow crosses the water.",
-      "stack_limit": 20,
-      "sell_price": 4,
-      "icon_id": "brilliant_smallfish",
+      "sell_price": 84,
+      "icon_id": "azurite",
       "skill_range": [
-        1,
-        26,
-        51,
-        76
-      ]
-    },
-    "fish_slitherskin_mackerel": {
-      "name": "Slitherskin Mackerel",
-      "material_type": "fish",
-      "profession": "fishing",
-      "tier": "early",
-      "description": "Oily and plentiful. The first fish anybody catches.",
-      "stack_limit": 20,
-      "sell_price": 4,
-      "icon_id": "slitherskin_mackerel",
-      "skill_range": [
-        1,
-        26,
-        51,
-        76
-      ]
-    },
-    "fish_longjaw_mud_snapper": {
-      "name": "Longjaw Mud Snapper",
-      "material_type": "fish",
-      "profession": "fishing",
-      "tier": "early",
-      "description": "Lives in the silt and tastes of it until you soak it.",
-      "stack_limit": 20,
-      "sell_price": 15,
-      "icon_id": "longjaw_mud_snapper",
-      "skill_range": [
-        25,
-        50,
-        75,
-        100
-      ]
-    },
-    "fish_bristle_whisker_catfish": {
-      "name": "Bristle Whisker Catfish",
-      "material_type": "fish",
-      "profession": "fishing",
-      "tier": "early",
-      "description": "All mouth and whiskers. Fights like a much bigger fish.",
-      "stack_limit": 20,
-      "sell_price": 26,
-      "icon_id": "bristle_whisker_catfish",
-      "skill_range": [
-        50,
-        75,
-        100,
-        125
-      ]
-    },
-    "fish_loch_frenzy": {
-      "name": "Loch Frenzy",
-      "material_type": "fish",
-      "profession": "fishing",
-      "tier": "early",
-      "description": "Teeth first. Mind your fingers getting the hook out.",
-      "stack_limit": 20,
-      "sell_price": 31,
-      "icon_id": "loch_frenzy",
-      "skill_range": [
+        40,
         60,
-        85,
-        110,
-        135
-      ]
-    },
-    "fish_rainbow_fin_albacore": {
-      "name": "Rainbow Fin Albacore",
-      "material_type": "fish",
-      "profession": "fishing",
-      "tier": "early",
-      "description": "The fins catch the light. The meat is firm and clean.",
-      "stack_limit": 20,
-      "sell_price": 38,
-      "icon_id": "rainbow_fin_albacore",
-      "skill_range": [
         75,
-        100,
-        125,
-        150
+        90
       ]
     },
-    "fish_sagefish": {
-      "name": "Sagefish",
-      "material_type": "fish",
-      "profession": "fishing",
-      "tier": "early",
-      "description": "Shamans say eating one clears the head. Cooks agree.",
+    "gem_garnet": {
+      "name": "Garnet",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "mid",
+      "description": "Small, round and dark red. Common enough that miners keep them in a jar. Found in Bronze Vein veins.",
       "stack_limit": 20,
-      "sell_price": 44,
-      "icon_id": "sagefish",
+      "sell_price": 330,
+      "icon_id": "garnet",
       "skill_range": [
-        90,
+        95,
         115,
-        140,
-        165
-      ]
-    },
-    "fish_oily_blackmouth": {
-      "name": "Oily Blackmouth",
-      "material_type": "fish",
-      "profession": "fishing",
-      "tier": "mid",
-      "description": "Too greasy to eat. Alchemists press it for the oil.",
-      "stack_limit": 20,
-      "sell_price": 51,
-      "icon_id": "oily_blackmouth",
-      "skill_range": [
-        105,
         130,
-        155,
-        180
+        145
       ]
     },
-    "fish_deviate_fish": {
-      "name": "Deviate Fish",
-      "material_type": "fish",
-      "profession": "fishing",
-      "tier": "mid",
-      "description": "Something in the water has got into it. Cook it thoroughly.",
+    "gem_amethyst": {
+      "name": "Amethyst",
+      "material_type": "gem",
+      "profession": "mining",
+      "tier": "endgame",
+      "description": "A clear purple point that darkens toward the tip, grown in the cracks of black iron. Found in Dark Iron veins.",
       "stack_limit": 20,
-      "sell_price": 56,
-      "icon_id": "deviate_fish",
+      "sell_price": 1776,
+      "icon_id": "amethyst",
       "skill_range": [
-        115,
-        140,
-        165,
-        190
-      ]
-    },
-    "fish_firefin_snapper": {
-      "name": "Firefin Snapper",
-      "material_type": "fish",
-      "profession": "fishing",
-      "tier": "mid",
-      "description": "Warm to the touch for an hour after it is landed.",
-      "stack_limit": 20,
-      "sell_price": 62,
-      "icon_id": "firefin_snapper",
-      "skill_range": [
-        130,
-        155,
-        180,
-        205
-      ]
-    },
-    "fish_rockscale_cod": {
-      "name": "Rockscale Cod",
-      "material_type": "fish",
-      "profession": "fishing",
-      "tier": "mid",
-      "description": "Scales like slate. Blunts a knife and is worth it.",
-      "stack_limit": 20,
-      "sell_price": 67,
-      "icon_id": "rockscale_cod",
-      "skill_range": [
-        140,
-        165,
-        190,
-        215
-      ]
-    },
-    "fish_mithril_head_trout": {
-      "name": "Mithril Head Trout",
-      "material_type": "fish",
-      "profession": "fishing",
-      "tier": "mid",
-      "description": "The skull shines like the metal. Nobody knows why.",
-      "stack_limit": 20,
-      "sell_price": 74,
-      "icon_id": "mithril_head_trout",
-      "skill_range": [
-        155,
-        180,
-        205,
-        230
-      ]
-    },
-    "fish_greater_sagefish": {
-      "name": "Greater Sagefish",
-      "material_type": "fish",
-      "profession": "fishing",
-      "tier": "mid",
-      "description": "Older, deeper, and harder to fool than its cousin.",
-      "stack_limit": 20,
-      "sell_price": 78,
-      "icon_id": "greater_sagefish",
-      "skill_range": [
-        165,
-        190,
-        215,
-        240
-      ]
-    },
-    "fish_spotted_yellowtail": {
-      "name": "Spotted Yellowtail",
-      "material_type": "fish",
-      "profession": "fishing",
-      "tier": "mid",
-      "description": "A strong swimmer from warm water. Good on a grill.",
-      "stack_limit": 20,
-      "sell_price": 85,
-      "icon_id": "spotted_yellowtail",
-      "skill_range": [
-        180,
-        205,
         230,
-        255
-      ]
-    },
-    "fish_stonescale_eel": {
-      "name": "Stonescale Eel",
-      "material_type": "fish",
-      "profession": "fishing",
-      "tier": "mid",
-      "description": "Comes up at night. The skin gives a grey oil that hardens.",
-      "stack_limit": 20,
-      "sell_price": 92,
-      "icon_id": "stonescale_eel",
-      "skill_range": [
-        195,
-        220,
-        245,
-        270
-      ]
-    },
-    "fish_redgill": {
-      "name": "Redgill",
-      "material_type": "fish",
-      "profession": "fishing",
-      "tier": "late",
-      "description": "Bright as a wound. Sweet under the skin.",
-      "stack_limit": 20,
-      "sell_price": 96,
-      "icon_id": "redgill",
-      "skill_range": [
-        205,
-        230,
-        255,
+        250,
+        265,
         280
       ]
     },
-    "fish_nightfin_snapper": {
-      "name": "Nightfin Snapper",
-      "material_type": "fish",
-      "profession": "fishing",
-      "tier": "late",
-      "description": "Only bites after dark. Eating one settles the mind.",
+    "cut_brilliant_tigerseye": {
+      "name": "Brilliant Tigerseye",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A cut yellow gem: +1 intellect. Fits a yellow socket.",
       "stack_limit": 20,
-      "sell_price": 101,
-      "icon_id": "nightfin_snapper",
+      "sell_price": 45,
+      "icon_id": "tigerseye",
       "skill_range": [
-        215,
-        240,
+        1,
+        21,
+        36,
+        51
+      ]
+    },
+    "cut_prismatic_rock_crystal": {
+      "name": "Prismatic Rock Crystal",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A cut prismatic gem: +1 stamina. Fits a any socket.",
+      "stack_limit": 20,
+      "sell_price": 45,
+      "icon_id": "rock_crystal",
+      "skill_range": [
+        1,
+        21,
+        36,
+        51
+      ]
+    },
+    "cut_bold_bloodstone": {
+      "name": "Bold Bloodstone",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A cut red gem: +2 strength. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 126,
+      "icon_id": "bloodstone",
+      "skill_range": [
+        40,
+        60,
+        75,
+        90
+      ]
+    },
+    "cut_delicate_bloodstone": {
+      "name": "Delicate Bloodstone",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A cut red gem: +2 agility. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 126,
+      "icon_id": "bloodstone",
+      "skill_range": [
+        40,
+        60,
+        75,
+        90
+      ]
+    },
+    "cut_runed_bloodstone": {
+      "name": "Runed Bloodstone",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A cut red gem: +2 spell power. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 126,
+      "icon_id": "bloodstone",
+      "skill_range": [
+        40,
+        60,
+        75,
+        90
+      ]
+    },
+    "cut_teardrop_bloodstone": {
+      "name": "Teardrop Bloodstone",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A cut red gem: +2 healing power. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 126,
+      "icon_id": "bloodstone",
+      "skill_range": [
+        40,
+        60,
+        75,
+        90
+      ]
+    },
+    "cut_bright_bloodstone": {
+      "name": "Bright Bloodstone",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A cut red gem: +4 attack power. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 126,
+      "icon_id": "bloodstone",
+      "skill_range": [
+        40,
+        60,
+        75,
+        90
+      ]
+    },
+    "cut_dazzling_moss_agate": {
+      "name": "Dazzling Moss Agate",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A cut green gem: +1 intellect, +1 mp5. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 252,
+      "icon_id": "moss_agate",
+      "skill_range": [
+        65,
+        85,
+        100,
+        115
+      ]
+    },
+    "cut_sovereign_shadowgem": {
+      "name": "Sovereign Shadowgem",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A cut purple gem: +1 strength, +1 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 252,
+      "icon_id": "shadowgem",
+      "skill_range": [
+        65,
+        85,
+        100,
+        115
+      ]
+    },
+    "cut_shifting_shadowgem": {
+      "name": "Shifting Shadowgem",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A cut purple gem: +1 agility, +1 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 252,
+      "icon_id": "shadowgem",
+      "skill_range": [
+        65,
+        85,
+        100,
+        115
+      ]
+    },
+    "cut_glowing_shadowgem": {
+      "name": "Glowing Shadowgem",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A cut purple gem: +1 spell power, +1 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 252,
+      "icon_id": "shadowgem",
+      "skill_range": [
+        65,
+        85,
+        100,
+        115
+      ]
+    },
+    "cut_royal_shadowgem": {
+      "name": "Royal Shadowgem",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A cut purple gem: +1 healing power, +1 mp5. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 252,
+      "icon_id": "shadowgem",
+      "skill_range": [
+        65,
+        85,
+        100,
+        115
+      ]
+    },
+    "cut_balanced_shadowgem": {
+      "name": "Balanced Shadowgem",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A cut purple gem: +3 attack power, +1 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 252,
+      "icon_id": "shadowgem",
+      "skill_range": [
+        65,
+        85,
+        100,
+        115
+      ]
+    },
+    "cut_purified_shadowgem": {
+      "name": "Purified Shadowgem",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A cut purple gem: +1 healing power, +1 spirit. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 252,
+      "icon_id": "shadowgem",
+      "skill_range": [
+        65,
+        85,
+        100,
+        115
+      ]
+    },
+    "cut_fluorescent_shadowgem": {
+      "name": "Fluorescent Shadowgem",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A cut purple gem: +1 spell power, +1 spirit. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 252,
+      "icon_id": "shadowgem",
+      "skill_range": [
+        65,
+        85,
+        100,
+        115
+      ]
+    },
+    "cut_solid_lesser_moonstone": {
+      "name": "Solid Lesser Moonstone",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A cut blue gem: +3 stamina. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 324,
+      "icon_id": "lesser_moonstone",
+      "skill_range": [
+        75,
+        95,
+        110,
+        125
+      ]
+    },
+    "cut_sparkling_lesser_moonstone": {
+      "name": "Sparkling Lesser Moonstone",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A cut blue gem: +3 spirit. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 324,
+      "icon_id": "lesser_moonstone",
+      "skill_range": [
+        75,
+        95,
+        110,
+        125
+      ]
+    },
+    "cut_lustrous_lesser_moonstone": {
+      "name": "Lustrous Lesser Moonstone",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A cut blue gem: +1 mp5. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 324,
+      "icon_id": "lesser_moonstone",
+      "skill_range": [
+        75,
+        95,
+        110,
+        125
+      ]
+    },
+    "cut_luminous_carnelian": {
+      "name": "Luminous Carnelian",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut orange gem: +2 healing power, +2 intellect. Fits a red or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 495,
+      "icon_id": "carnelian",
+      "skill_range": [
+        95,
+        115,
+        130,
+        145
+      ]
+    },
+    "cut_sovereign_jet": {
+      "name": "Sovereign Jet",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut purple gem: +2 strength, +2 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 594,
+      "icon_id": "jet",
+      "skill_range": [
+        105,
+        125,
+        140,
+        155
+      ]
+    },
+    "cut_shifting_jet": {
+      "name": "Shifting Jet",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut purple gem: +2 agility, +2 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 594,
+      "icon_id": "jet",
+      "skill_range": [
+        105,
+        125,
+        140,
+        155
+      ]
+    },
+    "cut_glowing_jet": {
+      "name": "Glowing Jet",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut purple gem: +2 spell power, +2 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 594,
+      "icon_id": "jet",
+      "skill_range": [
+        105,
+        125,
+        140,
+        155
+      ]
+    },
+    "cut_royal_jet": {
+      "name": "Royal Jet",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut purple gem: +2 healing power, +1 mp5. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 594,
+      "icon_id": "jet",
+      "skill_range": [
+        105,
+        125,
+        140,
+        155
+      ]
+    },
+    "cut_balanced_jet": {
+      "name": "Balanced Jet",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut purple gem: +4 attack power, +2 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 594,
+      "icon_id": "jet",
+      "skill_range": [
+        105,
+        125,
+        140,
+        155
+      ]
+    },
+    "cut_purified_jet": {
+      "name": "Purified Jet",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut purple gem: +2 healing power, +2 spirit. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 594,
+      "icon_id": "jet",
+      "skill_range": [
+        105,
+        125,
+        140,
+        155
+      ]
+    },
+    "cut_fluorescent_jet": {
+      "name": "Fluorescent Jet",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut purple gem: +2 spell power, +2 spirit. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 594,
+      "icon_id": "jet",
+      "skill_range": [
+        105,
+        125,
+        140,
+        155
+      ]
+    },
+    "cut_brilliant_honey_amber": {
+      "name": "Brilliant Honey Amber",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut yellow gem: +5 intellect. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 702,
+      "icon_id": "honey_amber",
+      "skill_range": [
+        115,
+        135,
+        150,
+        165
+      ]
+    },
+    "cut_thick_honey_amber": {
+      "name": "Thick Honey Amber",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut yellow gem: +1 defense rating. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 702,
+      "icon_id": "honey_amber",
+      "skill_range": [
+        115,
+        135,
+        150,
+        165
+      ]
+    },
+    "cut_dazzling_jade": {
+      "name": "Dazzling Jade",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut green gem: +2 intellect, +1 mp5. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 819,
+      "icon_id": "jade",
+      "skill_range": [
+        125,
+        145,
+        160,
+        175
+      ]
+    },
+    "cut_brilliant_citrine": {
+      "name": "Brilliant Citrine",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut yellow gem: +5 intellect. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 819,
+      "icon_id": "citrine",
+      "skill_range": [
+        125,
+        145,
+        160,
+        175
+      ]
+    },
+    "cut_thick_citrine": {
+      "name": "Thick Citrine",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut yellow gem: +1 defense rating. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 819,
+      "icon_id": "citrine",
+      "skill_range": [
+        125,
+        145,
+        160,
+        175
+      ]
+    },
+    "cut_solid_rime_opal": {
+      "name": "Solid Rime Opal",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut blue gem: +5 stamina. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 1017,
+      "icon_id": "rime_opal",
+      "skill_range": [
+        140,
+        160,
+        175,
+        190
+      ]
+    },
+    "cut_sparkling_rime_opal": {
+      "name": "Sparkling Rime Opal",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut blue gem: +5 spirit. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 1017,
+      "icon_id": "rime_opal",
+      "skill_range": [
+        140,
+        160,
+        175,
+        190
+      ]
+    },
+    "cut_lustrous_rime_opal": {
+      "name": "Lustrous Rime Opal",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut blue gem: +2 mp5. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 1017,
+      "icon_id": "rime_opal",
+      "skill_range": [
+        140,
+        160,
+        175,
+        190
+      ]
+    },
+    "cut_stormy_rime_opal": {
+      "name": "Stormy Rime Opal",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut blue gem: +1 spell penetration. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 1017,
+      "icon_id": "rime_opal",
+      "skill_range": [
+        140,
+        160,
+        175,
+        190
+      ]
+    },
+    "cut_brilliant_topaz": {
+      "name": "Brilliant Topaz",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut yellow gem: +6 intellect. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 1233,
+      "icon_id": "topaz",
+      "skill_range": [
+        155,
+        175,
+        190,
+        205
+      ]
+    },
+    "cut_smooth_topaz": {
+      "name": "Smooth Topaz",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut yellow gem: +1 crit chance physical. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 1233,
+      "icon_id": "topaz",
+      "skill_range": [
+        155,
+        175,
+        190,
+        205
+      ]
+    },
+    "cut_gleaming_topaz": {
+      "name": "Gleaming Topaz",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut yellow gem: +1 crit chance spell. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 1233,
+      "icon_id": "topaz",
+      "skill_range": [
+        155,
+        175,
+        190,
+        205
+      ]
+    },
+    "cut_rigid_topaz": {
+      "name": "Rigid Topaz",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut yellow gem: +1 hit rating. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 1233,
+      "icon_id": "topaz",
+      "skill_range": [
+        155,
+        175,
+        190,
+        205
+      ]
+    },
+    "cut_thick_topaz": {
+      "name": "Thick Topaz",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut yellow gem: +1 defense rating. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 1233,
+      "icon_id": "topaz",
+      "skill_range": [
+        155,
+        175,
+        190,
+        205
+      ]
+    },
+    "cut_dazzling_peridot": {
+      "name": "Dazzling Verdant Peridot",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut green gem: +3 intellect, +1 mp5. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 1395,
+      "icon_id": "peridot",
+      "skill_range": [
+        165,
+        185,
+        200,
+        215
+      ]
+    },
+    "cut_solid_aquamarine": {
+      "name": "Solid Aquamarine",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut blue gem: +7 stamina. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 1557,
+      "icon_id": "aquamarine",
+      "skill_range": [
+        175,
+        195,
+        210,
+        225
+      ]
+    },
+    "cut_sparkling_aquamarine": {
+      "name": "Sparkling Aquamarine",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut blue gem: +7 spirit. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 1557,
+      "icon_id": "aquamarine",
+      "skill_range": [
+        175,
+        195,
+        210,
+        225
+      ]
+    },
+    "cut_lustrous_aquamarine": {
+      "name": "Lustrous Aquamarine",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut blue gem: +3 mp5. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 1557,
+      "icon_id": "aquamarine",
+      "skill_range": [
+        175,
+        195,
+        210,
+        225
+      ]
+    },
+    "cut_stormy_aquamarine": {
+      "name": "Stormy Aquamarine",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut blue gem: +1 spell penetration. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 1557,
+      "icon_id": "aquamarine",
+      "skill_range": [
+        175,
+        195,
+        210,
+        225
+      ]
+    },
+    "cut_bold_star_ruby": {
+      "name": "Bold Star Ruby",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut red gem: +9 strength. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 1557,
+      "icon_id": "star_ruby",
+      "skill_range": [
+        175,
+        195,
+        210,
+        225
+      ]
+    },
+    "cut_delicate_star_ruby": {
+      "name": "Delicate Star Ruby",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut red gem: +9 agility. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 1557,
+      "icon_id": "star_ruby",
+      "skill_range": [
+        175,
+        195,
+        210,
+        225
+      ]
+    },
+    "cut_runed_star_ruby": {
+      "name": "Runed Star Ruby",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut red gem: +7 spell power. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 1557,
+      "icon_id": "star_ruby",
+      "skill_range": [
+        175,
+        195,
+        210,
+        225
+      ]
+    },
+    "cut_teardrop_star_ruby": {
+      "name": "Teardrop Star Ruby",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut red gem: +7 healing power. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 1557,
+      "icon_id": "star_ruby",
+      "skill_range": [
+        175,
+        195,
+        210,
+        225
+      ]
+    },
+    "cut_bright_star_ruby": {
+      "name": "Bright Star Ruby",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut red gem: +18 attack power. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 1557,
+      "icon_id": "star_ruby",
+      "skill_range": [
+        175,
+        195,
+        210,
+        225
+      ]
+    },
+    "cut_solid_blue_sapphire": {
+      "name": "Solid Blue Sapphire",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +9 stamina. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 3015,
+      "icon_id": "blue_sapphire",
+      "skill_range": [
+        245,
         265,
-        290
+        280,
+        295
       ]
     },
-    "fish_sunscale_salmon": {
-      "name": "Sunscale Salmon",
-      "material_type": "fish",
-      "profession": "fishing",
-      "tier": "late",
-      "description": "Only bites by day. Runs upriver gold.",
+    "cut_sparkling_blue_sapphire": {
+      "name": "Sparkling Blue Sapphire",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +9 spirit. Fits a blue socket.",
       "stack_limit": 20,
-      "sell_price": 105,
-      "icon_id": "sunscale_salmon",
+      "sell_price": 3015,
+      "icon_id": "blue_sapphire",
       "skill_range": [
-        225,
+        245,
+        265,
+        280,
+        295
+      ]
+    },
+    "cut_lustrous_blue_sapphire": {
+      "name": "Lustrous Blue Sapphire",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +4 mp5. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 3015,
+      "icon_id": "blue_sapphire",
+      "skill_range": [
+        245,
+        265,
+        280,
+        295
+      ]
+    },
+    "cut_stormy_blue_sapphire": {
+      "name": "Stormy Blue Sapphire",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +1 spell penetration. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 3015,
+      "icon_id": "blue_sapphire",
+      "skill_range": [
+        245,
+        265,
+        280,
+        295
+      ]
+    },
+    "cut_prismatic_large_opal": {
+      "name": "Prismatic Large Opal",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut prismatic gem: +2 stamina, +2 strength, +2 agility, +2 intellect, +1 spirit. Fits a any socket.",
+      "stack_limit": 20,
+      "sell_price": 3015,
+      "icon_id": "large_opal",
+      "skill_range": [
+        245,
+        265,
+        280,
+        295
+      ]
+    },
+    "cut_enduring_huge_emerald": {
+      "name": "Enduring Huge Emerald",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut green gem: +1 defense rating, +4 stamina. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "huge_emerald",
+      "skill_range": [
+        230,
         250,
-        275,
-        300
+        265,
+        280
       ]
     },
-    "fish_winter_squid": {
-      "name": "Winter Squid",
-      "material_type": "fish",
-      "profession": "fishing",
-      "tier": "late",
-      "description": "Cold-water catch. Tough until you beat it flat.",
+    "cut_dazzling_huge_emerald": {
+      "name": "Dazzling Huge Emerald",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut green gem: +4 intellect, +2 mp5. Fits a blue or yellow socket.",
       "stack_limit": 20,
-      "sell_price": 110,
-      "icon_id": "winter_squid",
+      "sell_price": 2664,
+      "icon_id": "huge_emerald",
       "skill_range": [
-        235,
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "cut_dazzling_felfire_shard": {
+      "name": "Dazzling Felfire Shard",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut green gem: +4 intellect, +1 mp5. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 1836,
+      "icon_id": "felfire_shard",
+      "skill_range": [
+        190,
+        210,
+        225,
+        240
+      ]
+    },
+    "cut_bold_heartsblood_garnet": {
+      "name": "Bold Heartsblood Garnet",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut red gem: +8 strength. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 2124,
+      "icon_id": "heartsblood_garnet",
+      "skill_range": [
+        205,
+        225,
+        240,
+        255
+      ]
+    },
+    "cut_delicate_heartsblood_garnet": {
+      "name": "Delicate Heartsblood Garnet",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut red gem: +8 agility. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 2124,
+      "icon_id": "heartsblood_garnet",
+      "skill_range": [
+        205,
+        225,
+        240,
+        255
+      ]
+    },
+    "cut_runed_heartsblood_garnet": {
+      "name": "Runed Heartsblood Garnet",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut red gem: +6 spell power. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 2124,
+      "icon_id": "heartsblood_garnet",
+      "skill_range": [
+        205,
+        225,
+        240,
+        255
+      ]
+    },
+    "cut_teardrop_heartsblood_garnet": {
+      "name": "Teardrop Heartsblood Garnet",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut red gem: +6 healing power. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 2124,
+      "icon_id": "heartsblood_garnet",
+      "skill_range": [
+        205,
+        225,
+        240,
+        255
+      ]
+    },
+    "cut_bright_heartsblood_garnet": {
+      "name": "Bright Heartsblood Garnet",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut red gem: +15 attack power. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 2124,
+      "icon_id": "heartsblood_garnet",
+      "skill_range": [
+        205,
+        225,
+        240,
+        255
+      ]
+    },
+    "cut_sovereign_deepearth_geode": {
+      "name": "Sovereign Deepearth Geode",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut purple gem: +4 strength, +4 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 2439,
+      "icon_id": "deepearth_geode",
+      "skill_range": [
+        220,
+        240,
+        255,
+        270
+      ]
+    },
+    "cut_shifting_deepearth_geode": {
+      "name": "Shifting Deepearth Geode",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut purple gem: +4 agility, +4 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 2439,
+      "icon_id": "deepearth_geode",
+      "skill_range": [
+        220,
+        240,
+        255,
+        270
+      ]
+    },
+    "cut_glowing_deepearth_geode": {
+      "name": "Glowing Deepearth Geode",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut purple gem: +3 spell power, +4 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 2439,
+      "icon_id": "deepearth_geode",
+      "skill_range": [
+        220,
+        240,
+        255,
+        270
+      ]
+    },
+    "cut_royal_deepearth_geode": {
+      "name": "Royal Deepearth Geode",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut purple gem: +3 healing power, +2 mp5. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 2439,
+      "icon_id": "deepearth_geode",
+      "skill_range": [
+        220,
+        240,
+        255,
+        270
+      ]
+    },
+    "cut_balanced_deepearth_geode": {
+      "name": "Balanced Deepearth Geode",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut purple gem: +8 attack power, +4 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 2439,
+      "icon_id": "deepearth_geode",
+      "skill_range": [
+        220,
+        240,
+        255,
+        270
+      ]
+    },
+    "cut_regal_deepearth_geode": {
+      "name": "Regal Deepearth Geode",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut purple gem: +1 dodge rating, +4 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 2439,
+      "icon_id": "deepearth_geode",
+      "skill_range": [
+        220,
+        240,
+        255,
+        270
+      ]
+    },
+    "cut_purified_deepearth_geode": {
+      "name": "Purified Deepearth Geode",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut purple gem: +3 healing power, +4 spirit. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 2439,
+      "icon_id": "deepearth_geode",
+      "skill_range": [
+        220,
+        240,
+        255,
+        270
+      ]
+    },
+    "cut_fluorescent_deepearth_geode": {
+      "name": "Fluorescent Deepearth Geode",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut purple gem: +3 spell power, +4 spirit. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 2439,
+      "icon_id": "deepearth_geode",
+      "skill_range": [
+        220,
+        240,
+        255,
+        270
+      ]
+    },
+    "cut_bold_black_diamond": {
+      "name": "Bold Black Diamond",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut red gem: +8 strength. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "black_diamond",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "cut_delicate_black_diamond": {
+      "name": "Delicate Black Diamond",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut red gem: +8 agility. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "black_diamond",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "cut_runed_black_diamond": {
+      "name": "Runed Black Diamond",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut red gem: +7 spell power. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "black_diamond",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "cut_teardrop_black_diamond": {
+      "name": "Teardrop Black Diamond",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut red gem: +7 healing power. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "black_diamond",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "cut_bright_black_diamond": {
+      "name": "Bright Black Diamond",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut red gem: +17 attack power. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "black_diamond",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "cut_brilliant_truesilver_zircon": {
+      "name": "Brilliant Moonsilver Zircon",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +11 intellect. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "truesilver_zircon",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "cut_smooth_truesilver_zircon": {
+      "name": "Smooth Moonsilver Zircon",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +1 crit chance physical. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "truesilver_zircon",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "cut_gleaming_truesilver_zircon": {
+      "name": "Gleaming Moonsilver Zircon",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +1 crit chance spell. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "truesilver_zircon",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "cut_rigid_truesilver_zircon": {
+      "name": "Rigid Moonsilver Zircon",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +1 hit rating. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "truesilver_zircon",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "cut_thick_truesilver_zircon": {
+      "name": "Thick Moonsilver Zircon",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +2 defense rating. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "truesilver_zircon",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "cut_quick_truesilver_zircon": {
+      "name": "Quick Moonsilver Zircon",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +1 haste. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "truesilver_zircon",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "cut_luminous_cinder_agate": {
+      "name": "Luminous Cinder Agate",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut orange gem: +4 healing power, +5 intellect. Fits a red or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 3393,
+      "icon_id": "cinder_agate",
+      "skill_range": [
         260,
-        285,
+        280,
+        295,
         310
       ]
     },
-    "fish_glossy_mightfish": {
-      "name": "Glossy Mightfish",
-      "material_type": "fish",
-      "profession": "fishing",
-      "tier": "late",
-      "description": "Heavy, slow and stubborn. Takes two hands to land.",
+    "cut_prismatic_elementium_prism": {
+      "name": "Elementium Prism",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut prismatic gem: +2 stamina, +2 strength, +2 agility, +2 intellect, +2 spirit. Fits a any socket.",
       "stack_limit": 20,
-      "sell_price": 116,
-      "icon_id": "glossy_mightfish",
+      "sell_price": 4212,
+      "icon_id": "elementium_prism",
       "skill_range": [
-        250,
-        275,
-        300,
-        325
-      ]
-    },
-    "fish_darkclaw_lobster": {
-      "name": "Darkclaw Lobster",
-      "material_type": "fish",
-      "profession": "fishing",
-      "tier": "late",
-      "description": "Not a fish. Nobody who has eaten one cares.",
-      "stack_limit": 20,
-      "sell_price": 123,
-      "icon_id": "darkclaw_lobster",
-      "skill_range": [
-        265,
         290,
-        315,
+        310,
+        325,
         340
       ]
     },
-    "fish_lightning_eel": {
-      "name": "Lightning Eel",
-      "material_type": "fish",
-      "profession": "fishing",
-      "tier": "late",
-      "description": "Wear gloves. Wear them afterwards too.",
+    "cut_solid_glacier_sapphire": {
+      "name": "Solid Glacier Sapphire",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +10 stamina. Fits a blue socket.",
       "stack_limit": 20,
-      "sell_price": 130,
-      "icon_id": "lightning_eel",
+      "sell_price": 4806,
+      "icon_id": "glacier_sapphire",
       "skill_range": [
-        280,
-        305,
+        310,
         330,
-        355
+        345,
+        360
       ]
     },
-    "oil_blackmouth": {
-      "name": "Blackmouth Oil",
-      "material_type": "reagent",
-      "profession": "alchemy",
-      "tier": "mid",
-      "description": "Pressed from Oily Blackmouth. Slick, dark, and it never quite washes off.",
+    "cut_sparkling_glacier_sapphire": {
+      "name": "Sparkling Glacier Sapphire",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +10 spirit. Fits a blue socket.",
       "stack_limit": 20,
-      "sell_price": 60,
-      "icon_id": "oil_blackmouth"
+      "sell_price": 4806,
+      "icon_id": "glacier_sapphire",
+      "skill_range": [
+        310,
+        330,
+        345,
+        360
+      ]
     },
-    "oil_fire": {
-      "name": "Fire Oil",
-      "material_type": "reagent",
-      "profession": "alchemy",
-      "tier": "mid",
-      "description": "Rendered from Firefin Snapper. Keep it away from lamps.",
+    "cut_lustrous_glacier_sapphire": {
+      "name": "Lustrous Glacier Sapphire",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +4 mp5. Fits a blue socket.",
       "stack_limit": 20,
-      "sell_price": 60,
-      "icon_id": "oil_fire"
+      "sell_price": 4806,
+      "icon_id": "glacier_sapphire",
+      "skill_range": [
+        310,
+        330,
+        345,
+        360
+      ]
     },
-    "oil_stonescale": {
-      "name": "Stonescale Oil",
-      "material_type": "reagent",
-      "profession": "alchemy",
-      "tier": "mid",
-      "description": "From the skin of a Stonescale Eel. Sets hard on whatever it touches.",
+    "cut_stormy_glacier_sapphire": {
+      "name": "Stormy Glacier Sapphire",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +1 spell penetration. Fits a blue socket.",
       "stack_limit": 20,
+      "sell_price": 4806,
+      "icon_id": "glacier_sapphire",
+      "skill_range": [
+        310,
+        330,
+        345,
+        360
+      ]
+    },
+    "cut_enduring_sylvan_emerald": {
+      "name": "Enduring Sylvan Emerald",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut green gem: +1 defense rating, +5 stamina. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 4806,
+      "icon_id": "sylvan_emerald",
+      "skill_range": [
+        310,
+        335,
+        355,
+        385
+      ]
+    },
+    "cut_dazzling_sylvan_emerald": {
+      "name": "Dazzling Sylvan Emerald",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut green gem: +5 intellect, +2 mp5. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 4806,
+      "icon_id": "sylvan_emerald",
+      "skill_range": [
+        310,
+        335,
+        355,
+        385
+      ]
+    },
+    "cut_bold_magma_ruby": {
+      "name": "Bold Magma Ruby",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut red gem: +10 strength. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 5112,
+      "icon_id": "magma_ruby",
+      "skill_range": [
+        320,
+        345,
+        365,
+        395
+      ]
+    },
+    "cut_delicate_magma_ruby": {
+      "name": "Delicate Magma Ruby",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut red gem: +10 agility. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 5112,
+      "icon_id": "magma_ruby",
+      "skill_range": [
+        320,
+        345,
+        365,
+        395
+      ]
+    },
+    "cut_runed_magma_ruby": {
+      "name": "Runed Magma Ruby",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut red gem: +8 spell power. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 5112,
+      "icon_id": "magma_ruby",
+      "skill_range": [
+        320,
+        345,
+        365,
+        395
+      ]
+    },
+    "cut_teardrop_magma_ruby": {
+      "name": "Teardrop Magma Ruby",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut red gem: +8 healing power. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 5112,
+      "icon_id": "magma_ruby",
+      "skill_range": [
+        320,
+        345,
+        365,
+        395
+      ]
+    },
+    "cut_bright_magma_ruby": {
+      "name": "Bright Magma Ruby",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut red gem: +20 attack power. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 5112,
+      "icon_id": "magma_ruby",
+      "skill_range": [
+        320,
+        345,
+        365,
+        395
+      ]
+    },
+    "cut_brilliant_sunstone": {
+      "name": "Brilliant Sunstone",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +10 intellect. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 5112,
+      "icon_id": "sunstone",
+      "skill_range": [
+        320,
+        340,
+        355,
+        370
+      ]
+    },
+    "cut_smooth_sunstone": {
+      "name": "Smooth Sunstone",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +1 crit chance physical. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 5112,
+      "icon_id": "sunstone",
+      "skill_range": [
+        320,
+        340,
+        355,
+        370
+      ]
+    },
+    "cut_gleaming_sunstone": {
+      "name": "Gleaming Sunstone",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +1 crit chance spell. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 5112,
+      "icon_id": "sunstone",
+      "skill_range": [
+        320,
+        340,
+        355,
+        370
+      ]
+    },
+    "cut_rigid_sunstone": {
+      "name": "Rigid Sunstone",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +1 hit rating. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 5112,
+      "icon_id": "sunstone",
+      "skill_range": [
+        320,
+        340,
+        355,
+        370
+      ]
+    },
+    "cut_thick_sunstone": {
+      "name": "Thick Sunstone",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +1 defense rating. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 5112,
+      "icon_id": "sunstone",
+      "skill_range": [
+        320,
+        340,
+        355,
+        370
+      ]
+    },
+    "cut_quick_sunstone": {
+      "name": "Quick Sunstone",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +1 haste. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 5112,
+      "icon_id": "sunstone",
+      "skill_range": [
+        320,
+        340,
+        355,
+        370
+      ]
+    },
+    "cut_sovereign_nightshard_onyx": {
+      "name": "Sovereign Nightshard Onyx",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +5 strength, +5 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 5436,
+      "icon_id": "nightshard_onyx",
+      "skill_range": [
+        330,
+        350,
+        365,
+        380
+      ]
+    },
+    "cut_shifting_nightshard_onyx": {
+      "name": "Shifting Nightshard Onyx",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +5 agility, +5 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 5436,
+      "icon_id": "nightshard_onyx",
+      "skill_range": [
+        330,
+        350,
+        365,
+        380
+      ]
+    },
+    "cut_glowing_nightshard_onyx": {
+      "name": "Glowing Nightshard Onyx",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +4 spell power, +5 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 5436,
+      "icon_id": "nightshard_onyx",
+      "skill_range": [
+        330,
+        350,
+        365,
+        380
+      ]
+    },
+    "cut_royal_nightshard_onyx": {
+      "name": "Royal Nightshard Onyx",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +4 healing power, +2 mp5. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 5436,
+      "icon_id": "nightshard_onyx",
+      "skill_range": [
+        330,
+        350,
+        365,
+        380
+      ]
+    },
+    "cut_balanced_nightshard_onyx": {
+      "name": "Balanced Nightshard Onyx",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +10 attack power, +5 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 5436,
+      "icon_id": "nightshard_onyx",
+      "skill_range": [
+        330,
+        350,
+        365,
+        380
+      ]
+    },
+    "cut_regal_nightshard_onyx": {
+      "name": "Regal Nightshard Onyx",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +1 dodge rating, +5 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 5436,
+      "icon_id": "nightshard_onyx",
+      "skill_range": [
+        330,
+        350,
+        365,
+        380
+      ]
+    },
+    "cut_purified_nightshard_onyx": {
+      "name": "Purified Nightshard Onyx",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +4 healing power, +5 spirit. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 5436,
+      "icon_id": "nightshard_onyx",
+      "skill_range": [
+        330,
+        350,
+        365,
+        380
+      ]
+    },
+    "cut_fluorescent_nightshard_onyx": {
+      "name": "Fluorescent Nightshard Onyx",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +4 spell power, +5 spirit. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 5436,
+      "icon_id": "nightshard_onyx",
+      "skill_range": [
+        330,
+        350,
+        365,
+        380
+      ]
+    },
+    "cut_solid_abyssal_pearlstone": {
+      "name": "Solid Abyssal Pearlstone",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +10 stamina. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 5769,
+      "icon_id": "abyssal_pearlstone",
+      "skill_range": [
+        340,
+        365,
+        385,
+        415
+      ]
+    },
+    "cut_sparkling_abyssal_pearlstone": {
+      "name": "Sparkling Abyssal Pearlstone",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +10 spirit. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 5769,
+      "icon_id": "abyssal_pearlstone",
+      "skill_range": [
+        340,
+        365,
+        385,
+        415
+      ]
+    },
+    "cut_lustrous_abyssal_pearlstone": {
+      "name": "Lustrous Abyssal Pearlstone",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +4 mp5. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 5769,
+      "icon_id": "abyssal_pearlstone",
+      "skill_range": [
+        340,
+        365,
+        385,
+        415
+      ]
+    },
+    "cut_stormy_abyssal_pearlstone": {
+      "name": "Stormy Abyssal Pearlstone",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +1 spell penetration. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 5769,
+      "icon_id": "abyssal_pearlstone",
+      "skill_range": [
+        340,
+        365,
+        385,
+        415
+      ]
+    },
+    "cut_sovereign_void_amethyst": {
+      "name": "Sovereign Void Amethyst",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +5 strength, +5 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 5769,
+      "icon_id": "void_amethyst",
+      "skill_range": [
+        340,
+        360,
+        375,
+        390
+      ]
+    },
+    "cut_shifting_void_amethyst": {
+      "name": "Shifting Void Amethyst",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +5 agility, +5 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 5769,
+      "icon_id": "void_amethyst",
+      "skill_range": [
+        340,
+        360,
+        375,
+        390
+      ]
+    },
+    "cut_glowing_void_amethyst": {
+      "name": "Glowing Void Amethyst",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +4 spell power, +5 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 5769,
+      "icon_id": "void_amethyst",
+      "skill_range": [
+        340,
+        360,
+        375,
+        390
+      ]
+    },
+    "cut_royal_void_amethyst": {
+      "name": "Royal Void Amethyst",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +4 healing power, +2 mp5. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 5769,
+      "icon_id": "void_amethyst",
+      "skill_range": [
+        340,
+        360,
+        375,
+        390
+      ]
+    },
+    "cut_balanced_void_amethyst": {
+      "name": "Balanced Void Amethyst",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +10 attack power, +5 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 5769,
+      "icon_id": "void_amethyst",
+      "skill_range": [
+        340,
+        360,
+        375,
+        390
+      ]
+    },
+    "cut_regal_void_amethyst": {
+      "name": "Regal Void Amethyst",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +1 dodge rating, +5 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 5769,
+      "icon_id": "void_amethyst",
+      "skill_range": [
+        340,
+        360,
+        375,
+        390
+      ]
+    },
+    "cut_purified_void_amethyst": {
+      "name": "Purified Void Amethyst",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +4 healing power, +5 spirit. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 5769,
+      "icon_id": "void_amethyst",
+      "skill_range": [
+        340,
+        360,
+        375,
+        390
+      ]
+    },
+    "cut_fluorescent_void_amethyst": {
+      "name": "Fluorescent Void Amethyst",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +4 spell power, +5 spirit. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 5769,
+      "icon_id": "void_amethyst",
+      "skill_range": [
+        340,
+        360,
+        375,
+        390
+      ]
+    },
+    "cut_solid_stormglass": {
+      "name": "Solid Stormglass",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +10 stamina. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 5940,
+      "icon_id": "stormglass",
+      "skill_range": [
+        345,
+        365,
+        380,
+        395
+      ]
+    },
+    "cut_sparkling_stormglass": {
+      "name": "Sparkling Stormglass",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +10 spirit. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 5940,
+      "icon_id": "stormglass",
+      "skill_range": [
+        345,
+        365,
+        380,
+        395
+      ]
+    },
+    "cut_lustrous_stormglass": {
+      "name": "Lustrous Stormglass",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +4 mp5. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 5940,
+      "icon_id": "stormglass",
+      "skill_range": [
+        345,
+        365,
+        380,
+        395
+      ]
+    },
+    "cut_stormy_stormglass": {
+      "name": "Stormy Stormglass",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +1 spell penetration. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 5940,
+      "icon_id": "stormglass",
+      "skill_range": [
+        345,
+        365,
+        380,
+        395
+      ]
+    },
+    "cut_sovereign_ebon_spinel": {
+      "name": "Sovereign Ebon Spinel",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +5 strength, +5 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 6111,
+      "icon_id": "ebon_spinel",
+      "skill_range": [
+        350,
+        375,
+        395,
+        425
+      ]
+    },
+    "cut_shifting_ebon_spinel": {
+      "name": "Shifting Ebon Spinel",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +5 agility, +5 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 6111,
+      "icon_id": "ebon_spinel",
+      "skill_range": [
+        350,
+        375,
+        395,
+        425
+      ]
+    },
+    "cut_glowing_ebon_spinel": {
+      "name": "Glowing Ebon Spinel",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +4 spell power, +5 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 6111,
+      "icon_id": "ebon_spinel",
+      "skill_range": [
+        350,
+        375,
+        395,
+        425
+      ]
+    },
+    "cut_royal_ebon_spinel": {
+      "name": "Royal Ebon Spinel",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +4 healing power, +2 mp5. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 6111,
+      "icon_id": "ebon_spinel",
+      "skill_range": [
+        350,
+        375,
+        395,
+        425
+      ]
+    },
+    "cut_balanced_ebon_spinel": {
+      "name": "Balanced Ebon Spinel",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +10 attack power, +5 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 6111,
+      "icon_id": "ebon_spinel",
+      "skill_range": [
+        350,
+        375,
+        395,
+        425
+      ]
+    },
+    "cut_regal_ebon_spinel": {
+      "name": "Regal Ebon Spinel",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +1 dodge rating, +5 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 6111,
+      "icon_id": "ebon_spinel",
+      "skill_range": [
+        350,
+        375,
+        395,
+        425
+      ]
+    },
+    "cut_purified_ebon_spinel": {
+      "name": "Purified Ebon Spinel",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +4 healing power, +5 spirit. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 6111,
+      "icon_id": "ebon_spinel",
+      "skill_range": [
+        350,
+        375,
+        395,
+        425
+      ]
+    },
+    "cut_fluorescent_ebon_spinel": {
+      "name": "Fluorescent Ebon Spinel",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +4 spell power, +5 spirit. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 6111,
+      "icon_id": "ebon_spinel",
+      "skill_range": [
+        350,
+        375,
+        395,
+        425
+      ]
+    },
+    "cut_enduring_sundered_tourmaline": {
+      "name": "Enduring Sundered Tourmaline",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut green gem: +1 defense rating, +5 stamina. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 6282,
+      "icon_id": "sundered_tourmaline",
+      "skill_range": [
+        355,
+        380,
+        400,
+        430
+      ]
+    },
+    "cut_dazzling_sundered_tourmaline": {
+      "name": "Dazzling Sundered Tourmaline",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut green gem: +5 intellect, +2 mp5. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 6282,
+      "icon_id": "sundered_tourmaline",
+      "skill_range": [
+        355,
+        380,
+        400,
+        430
+      ]
+    },
+    "cut_prismatic_starfall_diamond": {
+      "name": "Prismatic Starfall Diamond",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut prismatic gem: +2 stamina, +2 strength, +2 agility, +2 intellect, +2 spirit. Fits a any socket.",
+      "stack_limit": 20,
+      "sell_price": 6462,
+      "icon_id": "starfall_diamond",
+      "skill_range": [
+        360,
+        385,
+        405,
+        435
+      ]
+    },
+    "cut_solid_astral_moonstone": {
+      "name": "Solid Astral Moonstone",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +10 stamina. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 6642,
+      "icon_id": "astral_moonstone",
+      "skill_range": [
+        365,
+        390,
+        410,
+        440
+      ]
+    },
+    "cut_sparkling_astral_moonstone": {
+      "name": "Sparkling Astral Moonstone",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +10 spirit. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 6642,
+      "icon_id": "astral_moonstone",
+      "skill_range": [
+        365,
+        390,
+        410,
+        440
+      ]
+    },
+    "cut_lustrous_astral_moonstone": {
+      "name": "Lustrous Astral Moonstone",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +4 mp5. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 6642,
+      "icon_id": "astral_moonstone",
+      "skill_range": [
+        365,
+        390,
+        410,
+        440
+      ]
+    },
+    "cut_stormy_astral_moonstone": {
+      "name": "Stormy Astral Moonstone",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +1 spell penetration. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 6642,
+      "icon_id": "astral_moonstone",
+      "skill_range": [
+        365,
+        390,
+        410,
+        440
+      ]
+    },
+    "cut_brilliant_hourglass_topaz": {
+      "name": "Brilliant Hourglass Topaz",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +10 intellect. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 6750,
+      "icon_id": "hourglass_topaz",
+      "skill_range": [
+        368,
+        393,
+        413,
+        443
+      ]
+    },
+    "cut_smooth_hourglass_topaz": {
+      "name": "Smooth Hourglass Topaz",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +1 crit chance physical. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 6750,
+      "icon_id": "hourglass_topaz",
+      "skill_range": [
+        368,
+        393,
+        413,
+        443
+      ]
+    },
+    "cut_gleaming_hourglass_topaz": {
+      "name": "Gleaming Hourglass Topaz",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +1 crit chance spell. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 6750,
+      "icon_id": "hourglass_topaz",
+      "skill_range": [
+        368,
+        393,
+        413,
+        443
+      ]
+    },
+    "cut_rigid_hourglass_topaz": {
+      "name": "Rigid Hourglass Topaz",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +1 hit rating. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 6750,
+      "icon_id": "hourglass_topaz",
+      "skill_range": [
+        368,
+        393,
+        413,
+        443
+      ]
+    },
+    "cut_thick_hourglass_topaz": {
+      "name": "Thick Hourglass Topaz",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +1 defense rating. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 6750,
+      "icon_id": "hourglass_topaz",
+      "skill_range": [
+        368,
+        393,
+        413,
+        443
+      ]
+    },
+    "cut_quick_hourglass_topaz": {
+      "name": "Quick Hourglass Topaz",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +1 haste. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 6750,
+      "icon_id": "hourglass_topaz",
+      "skill_range": [
+        368,
+        393,
+        413,
+        443
+      ]
+    },
+    "cut_luminous_titans_eye": {
+      "name": "Luminous Titan's Eye",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut orange gem: +4 healing power, +5 intellect. Fits a red or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 6822,
+      "icon_id": "titans_eye",
+      "skill_range": [
+        370,
+        395,
+        415,
+        445
+      ]
+    },
+    "cut_bold_wyrmheart_ruby": {
+      "name": "Bold Wyrmheart Ruby",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut red gem: +10 strength. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 6894,
+      "icon_id": "wyrmheart_ruby",
+      "skill_range": [
+        372,
+        397,
+        417,
+        447
+      ]
+    },
+    "cut_delicate_wyrmheart_ruby": {
+      "name": "Delicate Wyrmheart Ruby",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut red gem: +10 agility. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 6894,
+      "icon_id": "wyrmheart_ruby",
+      "skill_range": [
+        372,
+        397,
+        417,
+        447
+      ]
+    },
+    "cut_runed_wyrmheart_ruby": {
+      "name": "Runed Wyrmheart Ruby",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut red gem: +8 spell power. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 6894,
+      "icon_id": "wyrmheart_ruby",
+      "skill_range": [
+        372,
+        397,
+        417,
+        447
+      ]
+    },
+    "cut_teardrop_wyrmheart_ruby": {
+      "name": "Teardrop Wyrmheart Ruby",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut red gem: +8 healing power. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 6894,
+      "icon_id": "wyrmheart_ruby",
+      "skill_range": [
+        372,
+        397,
+        417,
+        447
+      ]
+    },
+    "cut_bright_wyrmheart_ruby": {
+      "name": "Bright Wyrmheart Ruby",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut red gem: +20 attack power. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 6894,
+      "icon_id": "wyrmheart_ruby",
+      "skill_range": [
+        372,
+        397,
+        417,
+        447
+      ]
+    },
+    "cut_luminous_cataclysm_opal": {
+      "name": "Luminous Cataclysm Opal",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut orange gem: +4 healing power, +5 intellect. Fits a red or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 6966,
+      "icon_id": "cataclysm_opal",
+      "skill_range": [
+        374,
+        399,
+        419,
+        449
+      ]
+    },
+    "cut_enduring_dreamers_jade": {
+      "name": "Enduring Dreamer's Jade",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut green gem: +1 defense rating, +5 stamina. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 7047,
+      "icon_id": "dreamers_jade",
+      "skill_range": [
+        376,
+        401,
+        421,
+        451
+      ]
+    },
+    "cut_dazzling_dreamers_jade": {
+      "name": "Dazzling Dreamer's Jade",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut green gem: +5 intellect, +2 mp5. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 7047,
+      "icon_id": "dreamers_jade",
+      "skill_range": [
+        376,
+        401,
+        421,
+        451
+      ]
+    },
+    "cut_brilliant_primordial_amber": {
+      "name": "Brilliant Primordial Amber",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +10 intellect. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 7047,
+      "icon_id": "primordial_amber",
+      "skill_range": [
+        376,
+        401,
+        421,
+        451
+      ]
+    },
+    "cut_smooth_primordial_amber": {
+      "name": "Smooth Primordial Amber",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +1 crit chance physical. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 7047,
+      "icon_id": "primordial_amber",
+      "skill_range": [
+        376,
+        401,
+        421,
+        451
+      ]
+    },
+    "cut_gleaming_primordial_amber": {
+      "name": "Gleaming Primordial Amber",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +1 crit chance spell. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 7047,
+      "icon_id": "primordial_amber",
+      "skill_range": [
+        376,
+        401,
+        421,
+        451
+      ]
+    },
+    "cut_rigid_primordial_amber": {
+      "name": "Rigid Primordial Amber",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +1 hit rating. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 7047,
+      "icon_id": "primordial_amber",
+      "skill_range": [
+        376,
+        401,
+        421,
+        451
+      ]
+    },
+    "cut_thick_primordial_amber": {
+      "name": "Thick Primordial Amber",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +1 defense rating. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 7047,
+      "icon_id": "primordial_amber",
+      "skill_range": [
+        376,
+        401,
+        421,
+        451
+      ]
+    },
+    "cut_quick_primordial_amber": {
+      "name": "Quick Primordial Amber",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +1 haste. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 7047,
+      "icon_id": "primordial_amber",
+      "skill_range": [
+        376,
+        401,
+        421,
+        451
+      ]
+    },
+    "cut_prismatic_worldheart_crystal": {
+      "name": "Prismatic Worldheart Crystal",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut prismatic gem: +3 stamina, +3 strength, +3 agility, +2 intellect, +2 spirit. Fits a any socket.",
+      "stack_limit": 20,
+      "sell_price": 7119,
+      "icon_id": "worldheart_crystal",
+      "skill_range": [
+        378,
+        403,
+        423,
+        453
+      ]
+    },
+    "cut_inscribed_fire_opal": {
+      "name": "Inscribed Fire Opal",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut orange gem: +5 strength, +1 crit chance physical. Fits a red or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 2124,
+      "icon_id": "fire_opal",
+      "skill_range": [
+        205,
+        225,
+        240,
+        255
+      ]
+    },
+    "cut_glinting_fire_opal": {
+      "name": "Glinting Fire Opal",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut orange gem: +5 agility, +1 hit rating. Fits a red or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 2124,
+      "icon_id": "fire_opal",
+      "skill_range": [
+        205,
+        225,
+        240,
+        255
+      ]
+    },
+    "cut_potent_fire_opal": {
+      "name": "Potent Fire Opal",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut orange gem: +4 spell power, +1 crit chance spell. Fits a red or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 2124,
+      "icon_id": "fire_opal",
+      "skill_range": [
+        205,
+        225,
+        240,
+        255
+      ]
+    },
+    "cut_luminous_fire_opal": {
+      "name": "Luminous Fire Opal",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut orange gem: +4 healing power, +5 intellect. Fits a red or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 2124,
+      "icon_id": "fire_opal",
+      "skill_range": [
+        205,
+        225,
+        240,
+        255
+      ]
+    },
+    "cut_wicked_fire_opal": {
+      "name": "Wicked Fire Opal",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut orange gem: +10 attack power, +1 crit chance physical. Fits a red or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 2124,
+      "icon_id": "fire_opal",
+      "skill_range": [
+        205,
+        225,
+        240,
+        255
+      ]
+    },
+    "cut_etched_fire_opal": {
+      "name": "Etched Fire Opal",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut orange gem: +5 strength, +1 hit rating. Fits a red or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 2124,
+      "icon_id": "fire_opal",
+      "skill_range": [
+        205,
+        225,
+        240,
+        255
+      ]
+    },
+    "cut_veiled_fire_opal": {
+      "name": "Veiled Fire Opal",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut orange gem: +4 spell power, +1 hit rating. Fits a red or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 2124,
+      "icon_id": "fire_opal",
+      "skill_range": [
+        205,
+        225,
+        240,
+        255
+      ]
+    },
+    "cut_solid_azure_diamond": {
+      "name": "Solid Skyglass Diamond",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +12 stamina. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 3015,
+      "icon_id": "azure_diamond",
+      "skill_range": [
+        245,
+        265,
+        280,
+        295
+      ]
+    },
+    "cut_sparkling_azure_diamond": {
+      "name": "Sparkling Skyglass Diamond",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +12 spirit. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 3015,
+      "icon_id": "azure_diamond",
+      "skill_range": [
+        245,
+        265,
+        280,
+        295
+      ]
+    },
+    "cut_lustrous_azure_diamond": {
+      "name": "Lustrous Skyglass Diamond",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +5 mp5. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 3015,
+      "icon_id": "azure_diamond",
+      "skill_range": [
+        245,
+        265,
+        280,
+        295
+      ]
+    },
+    "cut_stormy_azure_diamond": {
+      "name": "Stormy Skyglass Diamond",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut blue gem: +1 spell penetration. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 3015,
+      "icon_id": "azure_diamond",
+      "skill_range": [
+        245,
+        265,
+        280,
+        295
+      ]
+    },
+    "cut_luminous_pyrite_star": {
+      "name": "Luminous Fool's Star",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut orange gem: +3 healing power, +4 intellect. Fits a red or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 1233,
+      "icon_id": "pyrite_star",
+      "skill_range": [
+        155,
+        175,
+        190,
+        205
+      ]
+    },
+    "cut_prismatic_prismatic_shard": {
+      "name": "Prismatic Shard",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut prismatic gem: +3 stamina, +3 strength, +3 agility, +2 intellect, +2 spirit. Fits a any socket.",
+      "stack_limit": 20,
+      "sell_price": 4212,
+      "icon_id": "prismatic_shard",
+      "skill_range": [
+        290,
+        310,
+        325,
+        340
+      ]
+    },
+    "cut_solid_azurite": {
+      "name": "Solid Azurite",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A cut blue gem: +2 stamina. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 126,
+      "icon_id": "azurite",
+      "skill_range": [
+        40,
+        60,
+        75,
+        90
+      ]
+    },
+    "cut_sparkling_azurite": {
+      "name": "Sparkling Azurite",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A cut blue gem: +2 spirit. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 126,
+      "icon_id": "azurite",
+      "skill_range": [
+        40,
+        60,
+        75,
+        90
+      ]
+    },
+    "cut_lustrous_azurite": {
+      "name": "Lustrous Azurite",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A cut blue gem: +1 mp5. Fits a blue socket.",
+      "stack_limit": 20,
+      "sell_price": 126,
+      "icon_id": "azurite",
+      "skill_range": [
+        40,
+        60,
+        75,
+        90
+      ]
+    },
+    "cut_bold_garnet": {
+      "name": "Bold Garnet",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut red gem: +4 strength. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 495,
+      "icon_id": "garnet",
+      "skill_range": [
+        95,
+        115,
+        130,
+        145
+      ]
+    },
+    "cut_delicate_garnet": {
+      "name": "Delicate Garnet",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut red gem: +4 agility. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 495,
+      "icon_id": "garnet",
+      "skill_range": [
+        95,
+        115,
+        130,
+        145
+      ]
+    },
+    "cut_runed_garnet": {
+      "name": "Runed Garnet",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut red gem: +3 spell power. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 495,
+      "icon_id": "garnet",
+      "skill_range": [
+        95,
+        115,
+        130,
+        145
+      ]
+    },
+    "cut_teardrop_garnet": {
+      "name": "Teardrop Garnet",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut red gem: +3 healing power. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 495,
+      "icon_id": "garnet",
+      "skill_range": [
+        95,
+        115,
+        130,
+        145
+      ]
+    },
+    "cut_bright_garnet": {
+      "name": "Bright Garnet",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut red gem: +8 attack power. Fits a red socket.",
+      "stack_limit": 20,
+      "sell_price": 495,
+      "icon_id": "garnet",
+      "skill_range": [
+        95,
+        115,
+        130,
+        145
+      ]
+    },
+    "cut_sovereign_amethyst": {
+      "name": "Sovereign Amethyst",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +4 strength, +4 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "amethyst",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "cut_shifting_amethyst": {
+      "name": "Shifting Amethyst",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +4 agility, +4 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "amethyst",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "cut_glowing_amethyst": {
+      "name": "Glowing Amethyst",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +3 spell power, +4 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "amethyst",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "cut_royal_amethyst": {
+      "name": "Royal Amethyst",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +3 healing power, +2 mp5. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "amethyst",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "cut_balanced_amethyst": {
+      "name": "Balanced Amethyst",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +8 attack power, +4 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "amethyst",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "cut_regal_amethyst": {
+      "name": "Regal Amethyst",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +1 dodge rating, +4 stamina. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "amethyst",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "cut_purified_amethyst": {
+      "name": "Purified Amethyst",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +3 healing power, +4 spirit. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "amethyst",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "cut_fluorescent_amethyst": {
+      "name": "Fluorescent Amethyst",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut purple gem: +3 spell power, +4 spirit. Fits a blue or red socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "amethyst",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "jewelers_kit": {
+      "name": "Jeweler's Kit",
+      "material_type": "kit",
+      "profession": "jewelcrafting",
+      "tier": "starter",
+      "description": "Files, a loupe, tweezers and a polishing wheel in a roll of leather. Every jewelcrafting recipe needs one in your bags. It isn't used up.",
+      "stack_limit": 1,
+      "vendor_price": 250,
       "sell_price": 60,
-      "icon_id": "oil_stonescale"
+      "icon_id": "jewelers_kit"
+    },
+    "setting_ring_copper": {
+      "name": "Copper Ring Setting",
+      "material_type": "part",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A plain copper band with an empty mount, waiting for a stone. Blacksmiths make them; some shops sell the plainer ones.",
+      "stack_limit": 20,
+      "vendor_price": 40,
+      "sell_price": 10,
+      "icon_id": "setting_ring_copper"
+    },
+    "setting_necklace_copper": {
+      "name": "Copper Necklace Setting",
+      "material_type": "part",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A plain copper chain and clasp with an empty mount, waiting for a stone. Blacksmiths make them; some shops sell the plainer ones.",
+      "stack_limit": 20,
+      "vendor_price": 80,
+      "sell_price": 20,
+      "icon_id": "setting_necklace_copper"
+    },
+    "setting_ring_silver": {
+      "name": "Silver Ring Setting",
+      "material_type": "part",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A plain silver band with an empty mount, waiting for a stone. Blacksmiths make them; some shops sell the plainer ones.",
+      "stack_limit": 20,
+      "vendor_price": 288,
+      "sell_price": 72,
+      "icon_id": "setting_ring_silver"
+    },
+    "setting_necklace_silver": {
+      "name": "Silver Necklace Setting",
+      "material_type": "part",
+      "profession": "jewelcrafting",
+      "tier": "early",
+      "description": "A plain silver chain and clasp with an empty mount, waiting for a stone. Blacksmiths make them; some shops sell the plainer ones.",
+      "stack_limit": 20,
+      "vendor_price": 576,
+      "sell_price": 144,
+      "icon_id": "setting_necklace_silver"
+    },
+    "setting_ring_gold": {
+      "name": "Gold Ring Setting",
+      "material_type": "part",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A plain gold band with an empty mount, waiting for a stone. Blacksmiths make them; some shops sell the plainer ones.",
+      "stack_limit": 20,
+      "vendor_price": 1096,
+      "sell_price": 274,
+      "icon_id": "setting_ring_gold"
+    },
+    "setting_necklace_gold": {
+      "name": "Gold Necklace Setting",
+      "material_type": "part",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A plain gold chain and clasp with an empty mount, waiting for a stone. Blacksmiths make them; some shops sell the plainer ones.",
+      "stack_limit": 20,
+      "vendor_price": 2192,
+      "sell_price": 548,
+      "icon_id": "setting_necklace_gold"
+    },
+    "setting_ring_mithril": {
+      "name": "Mithril Ring Setting",
+      "material_type": "part",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A plain mithril band with an empty mount, waiting for a stone. Blacksmiths make them; some shops sell the plainer ones.",
+      "stack_limit": 20,
+      "vendor_price": 1388,
+      "sell_price": 347,
+      "icon_id": "setting_ring_mithril"
+    },
+    "setting_necklace_mithril": {
+      "name": "Mithril Necklace Setting",
+      "material_type": "part",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A plain mithril chain and clasp with an empty mount, waiting for a stone. Blacksmiths make them; some shops sell the plainer ones.",
+      "stack_limit": 20,
+      "vendor_price": 2776,
+      "sell_price": 694,
+      "icon_id": "setting_necklace_mithril"
+    },
+    "setting_ring_truesilver": {
+      "name": "Truesilver Ring Setting",
+      "material_type": "part",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A plain truesilver band with an empty mount, waiting for a stone. Blacksmiths make them; some shops sell the plainer ones.",
+      "stack_limit": 20,
+      "vendor_price": 2368,
+      "sell_price": 592,
+      "icon_id": "setting_ring_truesilver"
+    },
+    "setting_necklace_truesilver": {
+      "name": "Truesilver Necklace Setting",
+      "material_type": "part",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A plain truesilver chain and clasp with an empty mount, waiting for a stone. Blacksmiths make them; some shops sell the plainer ones.",
+      "stack_limit": 20,
+      "vendor_price": 4736,
+      "sell_price": 1184,
+      "icon_id": "setting_necklace_truesilver"
+    },
+    "setting_ring_thorium": {
+      "name": "Thorium Ring Setting",
+      "material_type": "part",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A plain thorium band with an empty mount, waiting for a stone. Blacksmiths make them; some shops sell the plainer ones.",
+      "stack_limit": 20,
+      "vendor_price": 2680,
+      "sell_price": 670,
+      "icon_id": "setting_ring_thorium"
+    },
+    "setting_necklace_thorium": {
+      "name": "Thorium Necklace Setting",
+      "material_type": "part",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A plain thorium chain and clasp with an empty mount, waiting for a stone. Blacksmiths make them; some shops sell the plainer ones.",
+      "stack_limit": 20,
+      "vendor_price": 5360,
+      "sell_price": 1340,
+      "icon_id": "setting_necklace_thorium"
     }
   }
 }

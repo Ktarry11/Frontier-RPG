@@ -83,13 +83,28 @@ GEMS = [
     ("gem_prismatic_shard", "Prismatic Shard", "ore_elementium", 0.015, "long shard splitting light into a rainbow", "A long shard that breaks any light into every colour and hands them back in order."),
 ]
 
+#: Three more, 14 Nov 2026, for jewelcrafting's colours (world/jewelcrafting.py). Laid out by
+#: mining band, the 50 left holes: no blue gem below skill 75, no red one from 75 to 149, and no
+#: purple one from 225 to 300, so a socket of that colour would have had nothing to fill it at
+#: those levels. Kyle asked "Should we get more gemstones?" and these were the three proposed.
+#: Their art borrows the nearest existing stone until Kyle makes theirs (the icon prompts are in
+#: the project doc claude/jewelcrafting.md).
+GEMS += [
+    ("gem_azurite", "Azurite", "ore_rough_iron", 0.04, "deep blue crust with lighter blue swirls",
+     "A deep blue crust with paler swirls, scraped off the inside of iron-stained rock."),
+    ("gem_garnet", "Garnet", "ore_bronze_vein", 0.04, "dark wine-red, small and round",
+     "Small, round and dark red. Common enough that miners keep them in a jar."),
+    ("gem_amethyst", "Amethyst", "ore_dark_iron", 0.03, "clear purple point, darker at the tip",
+     "A clear purple point that darkens toward the tip, grown in the cracks of black iron."),
+]
+
 
 def main():
     from reprice_materials import curve
     raw = MATS.read_text(encoding="utf-8")
     data = json.loads(raw)
     mats = data.get("materials", data)
-    assert len(GEMS) == 50 and len({g[0] for g in GEMS}) == 50, len(GEMS)
+    assert len(GEMS) == 53 and len({g[0] for g in GEMS}) == 53, len(GEMS)
     for gid in [k for k, v in mats.items() if v.get("material_type") == "gem"]:
         del mats[gid]
     drops = {}

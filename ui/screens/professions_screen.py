@@ -61,6 +61,7 @@ CRAFT_TABS = {
     "leatherworking": ("leatherworking", "Leatherworking", None),
     "engineering": ("engineering", "Engineering", None),
     "cooking": ("cooking", "Cooking", None),
+    "jewelcrafting": ("jewelcrafting", "Jewelcrafting", None),
 }
 
 PANEL_X = 20
@@ -352,7 +353,8 @@ class ProfessionsScreen(BaseScreen):
             tabs.append(("smelting", "Smelting"))
         if player.knows_profession("woodcutting") or self.active_tab == "sawmill":
             tabs.append(("sawmill", "Sawmill"))
-        for key in ("blacksmithing", "leatherworking", "alchemy", "tailoring", "woodworking", "engineering", "cooking"):
+        for key in ("blacksmithing", "leatherworking", "alchemy", "tailoring", "woodworking", "engineering", "cooking",
+                    "jewelcrafting"):
             if player.knows_profession(key):
                 tabs.append((key, CRAFT_TABS[key][1]))
         tabs.append(("upgrade", "Upgrade"))
@@ -572,6 +574,10 @@ class ProfessionsScreen(BaseScreen):
         elif skill >= cap and cap < 300:
             self.renderer.draw_text(screen, f"Skill cap reached - visit a {label} trainer to advance.", (PANEL_X, y), color=(220, 190, 120))
             y += 30
+        if profession == "jewelcrafting" and player.get_material_quantity("jewelers_kit") < 1:
+            self.renderer.draw_text(screen, "You need a Jeweler's Kit in your bags. Smiths in towns with a forge sell them.",
+                                    (PANEL_X, y), color=(220, 160, 120))
+            y += 30
 
         recipes = self._craft_recipes(profession)
         row_h = 52
@@ -604,6 +610,16 @@ class ProfessionsScreen(BaseScreen):
             # ingredient's icon and never said what the thing did, so every Cooking row was a
             # picture of raw meat and a name.
             effect = ""
+            if out.get("kind") == "material":
+                from world.jewelcrafting import cut as _cut
+                g = _cut(out.get("material_id"))
+                if g:
+                    effect = f"{g['color'].capitalize()}: " + ", ".join(
+                        f"+{v} {k.replace('_', ' ')}" for k, v in g["stats"].items())
+            elif out.get("kind") == "prospect":
+                effect = "A stone or two from this ore"
+            elif out.get("kind") == "fixed":
+                effect = (out["item"].get("proc") or {}).get("describe", "")[:48]
             if out.get("kind") == "consumable":
                 made, effect = self._consumable_preview(out.get("consumable_id"))
                 sprite = made or sprite

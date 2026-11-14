@@ -18,7 +18,9 @@ import random
 from pathlib import Path
 
 _DATA = Path(__file__).parent.parent / "data" / "crafting" / "recipes.json"
-_GEAR_KINDS = ("armor", "weapon", "bag")
+#: Jewelcrafting keeps its own file (tools/build_jewelcrafting.py), read in alongside the rest.
+_JEWEL = Path(__file__).parent.parent / "data" / "jewelcrafting" / "recipes.json"
+_GEAR_KINDS = ("armor", "weapon", "bag", "fixed")
 
 
 class CraftingManager:
@@ -27,6 +29,8 @@ class CraftingManager:
         if _DATA.exists():
             doc = json.loads(_DATA.read_text(encoding="utf-8"))
             self.recipes = {p: v.get("recipes", {}) for p, v in doc.get("professions", {}).items()}
+        if _JEWEL.exists():
+            self.recipes["jewelcrafting"] = json.loads(_JEWEL.read_text(encoding="utf-8")).get("recipes", {})
 
     # ------------------------------------------------------------------ queries
     def professions(self):
@@ -61,6 +65,8 @@ class CraftingManager:
             return False
         if self.skill(character, profession) < r.get("skill_required", 0):
             return False
+        if r.get("tool") and character.get_material_quantity(r["tool"]) < 1:
+            return False
         return character.has_materials(r["inputs"])
 
     def output_name(self, recipe):
@@ -79,6 +85,11 @@ class CraftingManager:
             return False, f"Requires {profession.title()} skill {r['skill_required']}.", None
         if r.get("station") == "sawmill" and not at_station:
             return False, "You must be at a Sawmill to saw planks.", None
+        if r.get("tool") and character.get_material_quantity(r["tool"]) < 1:
+            # a tool is needed in the bags but never used up (the Jeweler's Kit)
+            from world.gathering_manager import get_gathering_node_manager
+            tool = get_gathering_node_manager().get_material_def(r["tool"]) or {}
+            return False, f"You need a {tool.get('name', r['tool'])} in your bags.", None
         if not character.has_materials(r["inputs"]):
             return False, "Missing materials for that recipe.", None
         out = r["output"]
@@ -91,7 +102,10 @@ class CraftingManager:
         for mid, qty in r["inputs"].items():
             character.consume_material(mid, qty)
 
-        if out["kind"] == "material":
+        if out["kind"] == "prospect":
+            for m in product:
+                character.add_material(m)
+        elif out["kind"] == "material":
             character.add_material(product)
         elif out["kind"] == "consumable":
             character.add_consumable(product)
@@ -108,6 +122,9 @@ class CraftingManager:
                 get_quest_manager().record_craft(out["material_id"])
         except Exception:
             pass
+        if out["kind"] == "prospect":
+            found = ", ".join(f"{m.name}" + (f" x{m.quantity}" if m.quantity > 1 else "") for m in product)
+            return True, f"Prospected: {found}.", product
         return True, f"Crafted {self.output_name(r)}.", product
 
     def _award_craft_xp(self, character, recipe):
@@ -164,6 +181,15 @@ class CraftingManager:
             if m is not None:
                 m.quantity = count
             return m
+        if kind == "prospect":
+            return self._prospect(out["ore"])
+        if kind == "fixed":
+            # a hand-authored item (the jewelcrafting figurines): its stats and proc are written
+            # out in the recipe, the same shape a boss's fixed drop uses
+            from entities.boss_loot import _item_from_def
+            item = _item_from_def(out["item"])
+            item.is_crafted = True
+            return item
         if kind == "consumable":
             from entities.consumable_manager import get_consumable_manager
             return get_consumable_manager().get_consumable(out["consumable_id"], count)
@@ -186,6 +212,29 @@ class CraftingManager:
         item.name = recipe["name"]
         item.crafting_material = out.get("material_tier")
         return item
+
+
+    #: Prospecting five ore always turns up a stone, sometimes two. Each of the ore's stones is
+    #: weighted by how often a miner finds it, so the rare one stays the rare one.
+    PROSPECT_SECOND = 0.3
+
+    def _prospect(self, ore_id):
+        from world.gathering_manager import get_gathering_node_manager
+        gm = get_gathering_node_manager()
+        table = gm.gem_table().get(ore_id, [])
+        if not table:
+            return None
+        found = {}
+        for _ in range(1 + (1 if random.random() < self.PROSPECT_SECOND else 0)):
+            gid = random.choices([g for g, _c in table], weights=[c for _g, c in table])[0]
+            found[gid] = found.get(gid, 0) + 1
+        out = []
+        for gid, n in found.items():
+            m = gm.make_material_instance(gid)
+            if m is not None:
+                m.quantity = n
+                out.append(m)
+        return out
 
 
 _crafting_manager = None

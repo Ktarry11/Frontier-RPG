@@ -140,6 +140,8 @@ class InventoryScreen(BaseScreen):
         self.gear_tab_button = pygame.Rect(SCREEN_WIDTH - 560, 20, 100, 36)
         self.materials_tab_button = pygame.Rect(SCREEN_WIDTH - 450, 20, 130, 36)
         self.consumables_tab_button = pygame.Rect(SCREEN_WIDTH - 310, 20, 140, 36)
+        # Socket gems into gear (ui/screens/socket_screen.py, world/jewelcrafting.py)
+        self.sockets_button = pygame.Rect(SCREEN_WIDTH - 670, 20, 100, 36)
         self.materials_rects = []  # list of pygame.Rect, index-aligned to subject.materials
         # CONSUMABLES HAD NO HOME IN THE BAG AT ALL. Kyle, 2026-10-31: "i have
         # tough jerky (food) in my inventory but there is no way to use it. I
@@ -435,6 +437,13 @@ class InventoryScreen(BaseScreen):
                 self.selected_item = None
                 return
 
+            if self.sockets_button.collidepoint(mouse_pos):
+                screen_ = self.state_manager.states.get(GameState.SOCKETING)
+                if screen_ is not None:
+                    screen_.open("socket", return_state=GameState.INVENTORY)
+                    self.state_manager.transition_to(GameState.SOCKETING)
+                return
+
             # Tab toggle - checked before any gear/bag click handling
             # below, and returns immediately either way so a tab click
             # never also falls through and hits a gear slot underneath it.
@@ -676,6 +685,10 @@ class InventoryScreen(BaseScreen):
         self.renderer.draw_rect(screen, self.materials_tab_button, (35, 35, 40))
         self.renderer.draw_rect(screen, self.materials_tab_button, materials_color, fill=False)
         self.renderer.draw_text(screen, "Materials", (self.materials_tab_button.x + 14, self.materials_tab_button.y + 9), color=materials_color)
+        self.renderer.draw_rect(screen, self.sockets_button, (35, 35, 40))
+        self.renderer.draw_rect(screen, self.sockets_button, (120, 150, 220), fill=False)
+        self.renderer.draw_text(screen, "Sockets", (self.sockets_button.x + 16, self.sockets_button.y + 9),
+                                color=(150, 180, 240))
         cons_color = COLOR_GOLD if self.active_tab == "consumables" else (90, 90, 95)
         self.renderer.draw_rect(screen, self.consumables_tab_button, (35, 35, 40))
         self.renderer.draw_rect(screen, self.consumables_tab_button, cons_color, fill=False)
@@ -1363,6 +1376,16 @@ class InventoryScreen(BaseScreen):
             lines.append(f"+{value} {stat.replace('_', ' ').title()}")
         for stat, value in item.secondary_stats.items():
             lines.append(f"+{value} {stat.replace('_', ' ').title()}")
+        # SOCKETS (world/jewelcrafting.py): each socket in its colour, the gem in it, and the
+        # bonus, lit when every gem fits.
+        from world.jewelcrafting import tooltip_lines as _socket_lines, TOOLTIP_PALETTE, SOCKET_COLOURS
+        socket_colors = {}
+        for (text, kind), s in zip(_socket_lines(item), list(getattr(item, "sockets", [])) + [None]):
+            if kind == "empty" and s:
+                socket_colors[len(lines)] = SOCKET_COLOURS.get(s.get("color"), TOOLTIP_PALETTE["empty"])
+            else:
+                socket_colors[len(lines)] = TOOLTIP_PALETTE[kind]
+            lines.append(text)
         # WHAT THE ITEM DOES, in WoW's green "Equip:" line. A trinket that procs and does not
         # say so is indistinguishable from one that is broken - Kyle, 10 Nov: trinkets "do
         # stuff". Wrapped against the box's real inner width so a sentence cannot run off.
@@ -1432,6 +1455,8 @@ class InventoryScreen(BaseScreen):
                 color = (30, 255, 0)
             elif i in set_colors:
                 color = set_colors[i]
+            elif i in socket_colors:
+                color = socket_colors[i]
             elif i >= first_warning:
                 kind = warning_lines[i - first_warning][0]
                 color = (220, 70, 70) if kind == "blocked" else (220, 180, 70)

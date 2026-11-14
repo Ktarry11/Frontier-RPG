@@ -4,7 +4,7 @@ Ore veins give up gemstones, the way they do in WoW.
 Kyle, 12 Nov: "we get crystals from ore! ... Start adding gemstones and crystals to ore
 (think of wow!)" - for jewelcrafting later.
 
-  1. there are 50 gems, every one a real material with a name, a description, a price and an
+  1. there are 53 gems, every one a real material with a name, a description, a price and an
      icon id, and every one comes from an ore that exists
   2. all 40 ores have at least one gem
   3. rolled 20,000 times per ore, each gem turns up at its stated rate, and only from its ore
@@ -13,7 +13,7 @@ Kyle, 12 Nov: "we get crystals from ore! ... Start adding gemstones and crystals
   6. a gem is worth more than the ore it came out of
   7. mining a vein for real puts the gem in the bag
   8. the crafting crystals still drop as before
-  9. all 50 have their own icon on disk (Kyle's two sheets, sliced by tools/slice_gem_sheets.py)
+  9. all 53 have their own icon on disk (Kyle's two sheets, sliced by tools/slice_gem_sheets.py)
 """
 import json
 import os
@@ -43,7 +43,7 @@ def main():
     ores = {k: v for k, v in mats.items() if v.get("material_type") == "ore"}
     table = gm.gem_table()
 
-    check(len(gems) == 50, f"{len(gems)} gems, wanted 50")
+    check(len(gems) == 53, f"{len(gems)} gems, wanted 53 (50, plus Azurite, Garnet and Amethyst for jewelcrafting colours)")
     names = [g["name"] for g in gems.values()]
     check(len(set(names)) == len(names), "two gems share a name")
     listed = {g for rows in table.values() for g, _c in rows}

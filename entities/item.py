@@ -150,7 +150,10 @@ class Item:
         # exchanged between them - see world/gear_sets.py. None for a set with one version
         # and for everything that is not a set piece.
         self.set_variant = None
+        # SOCKETS (world/jewelcrafting.py): [{"color": "red"|"yellow"|"blue", "gem": cut gem id or
+        # None}], and the bonus that turns on when every socket holds a gem that fits.
         self.sockets = sockets or []
+        self.socket_bonus = {}
         self.enchant_id = enchant_id
 
         # True only for items produced by a real crafting profession
@@ -246,6 +249,11 @@ class Item:
         merged = dict(self.primary_stats)
         for stat, value in self.secondary_stats.items():
             merged[stat] = merged.get(stat, 0) + value
+        if self.sockets:
+            # gems in the sockets, and the socket bonus when they all fit
+            from world.jewelcrafting import socket_stats
+            for stat, value in socket_stats(self).items():
+                merged[stat] = merged.get(stat, 0) + value
         return merged
 
     def get_rarity_color(self):
@@ -305,6 +313,7 @@ class Item:
             "set_id": self.set_id,
             "set_variant": getattr(self, "set_variant", None),
             "sockets": self.sockets,
+            "socket_bonus": getattr(self, "socket_bonus", {}),
             "enchant_id": self.enchant_id,
             "is_crafted": self.is_crafted,
             "crafting_material": self.crafting_material,
@@ -352,6 +361,7 @@ class Item:
             recipe_profession=data.get("recipe_profession"),
             proc=data.get("proc"),
         )
+        item.socket_bonus = dict(data.get("socket_bonus") or {})
         item.set_variant = data.get("set_variant")
         if item.set_variant == "cryomancer":
             item.set_variant = "cryotherapist"      # renamed 13 Nov 2026; old saves still say the old name

@@ -357,7 +357,10 @@ class LootGenerator:
         name = self._generate_armor_name(rarity, slot, stat_template, suffix_name)
         item_id = f"{slot}_{effective_armor_type}_{stat_template}_{item_level}_{rarity}_{uuid.uuid4().hex[:6]}"
 
-        return Item(
+        # SOCKETS (world/jewelcrafting.py): gear from level 30 may come with some, paid for out
+        # of the stats just rolled.
+        from world.jewelcrafting import roll_sockets
+        return roll_sockets(Item(
             item_id=item_id,
             name=name,
             slot=slot,
@@ -379,7 +382,7 @@ class LootGenerator:
             # for any real slot - gear_icons.py has full coverage - but
             # never crash generation over missing icon art either way).
             icon_id=pick_armor_icon(slot, effective_armor_type, rarity=rarity),
-        )
+        ), total_budget)
 
     def generate_weapon(self, slot, weapon_type, stat_template, item_level, rarity,
                         strict=False, school=None):
@@ -547,7 +550,8 @@ class LootGenerator:
         name = self._generate_weapon_name(rarity, weapon_type, stat_template, suffix_name)
         item_id = f"{slot}_{weapon_type}_{stat_template}_{item_level}_{rarity}_{uuid.uuid4().hex[:6]}"
 
-        return Item(
+        from world.jewelcrafting import roll_sockets
+        return roll_sockets(Item(
             item_id=item_id,
             name=name,
             slot=slot,
@@ -567,7 +571,7 @@ class LootGenerator:
             sell_price=max(1, int(item_level * rarity_data["stat_budget_multiplier"] * 1.5)),
             flavor_text="",
             icon_id=pick_weapon_icon(weapon_type, rarity=rarity),
-        )
+        ), total_budget)
 
     def generate_loot_for_creature(self, creature_level, char_class=None, drop_chance=0.35, player_level=None):
         """

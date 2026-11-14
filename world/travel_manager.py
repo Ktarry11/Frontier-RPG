@@ -271,6 +271,11 @@ def services_for_npc(npc):
     from world.profession_manager import profession_for_trainer
     if profession_for_trainer(npc_id) and "train_prof" not in services:
         services.append("train_prof")
+    # A jewelcrafting trainer is the town's jeweller: they'll take gems out of sockets for a fee
+    # (world/jewelcrafting.py, Kyle 14 Nov 2026).
+    from world.profession_manager import professions_for_trainer
+    if "jewelcrafting" in (professions_for_trainer(npc_id) or []) and "jeweller" not in services:
+        services.append("jeweller")
     return services
 
 

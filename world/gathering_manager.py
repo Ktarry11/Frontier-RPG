@@ -731,6 +731,8 @@ MATERIAL_TYPE_FOLDERS = {
     # Gemstones, out of ore veins (tools/build_gems.py). Art goes in
     # assets/gathering_nodes/gems/<icon_id>.png; until it lands the UI uses its text box.
     "gem": "gems",
+    # Cut gems (tools/build_jewelcrafting.py) draw the stone they were cut from.
+    "cut_gem": "gems",
     # Crafting reagents bought from vendors rather than gathered (thread,
     # vials, flux, ...). They never appear as a world node, but they do show
     # in the bag and on vendor rows, both of which route through here.

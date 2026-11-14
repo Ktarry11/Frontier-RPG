@@ -76,14 +76,14 @@ TRADE_KINDS = {
     "reagent": {"alch_supply", "scribe", "elixir", "herb", "mana_potion", "recipe_enchanting",
                 "recipe_alchemy", "raw_crystal"},
     "smith": {"smith_supply", "raw_bar", "raw_ore", "recipe_blacksmithing", "shot",
-              "upgrade_kit"},
+              "upgrade_kit", "jc_supply", "recipe_jewelcrafting"},
     "engineer": {"engineering_goods", "raw_part", "recipe_engineering", "shot", "smith_supply"},
     "tailor": {"tailor_supply", "raw_cloth", "raw_bolt", "recipe_tailoring", "bag"},
     "leather": {"leather_supply", "raw_leather", "recipe_leatherworking", "bag"},
     "bowyer": {"arrow", "wood_supply", "raw_plank", "raw_wood", "recipe_woodworking"},
     "beast": {"lure", "food", "drink", "meat"},
     "travel": {"drink", "food", "lure"},
-    "general": {"bag", "potion", "mana_potion", "food", "drink", "lure", "travel_kit",
+    "general": {"bag", "potion", "mana_potion", "food", "drink", "lure", "travel_kit", "jc_kit",
                 "scribe", "arrow", "shot"},
 }
 #: in a general store, these kinds are capped to this many items, best tier first
@@ -122,12 +122,19 @@ def _mats():
         "curing_salt": "leather_supply", "sinew": "leather_supply",
         "component_string": "wood_supply", "fletching": "wood_supply", "resin": "wood_supply",
         "glue": "wood_supply",
+        # jewelcrafting (tools/build_jewelcrafting.py): the kit and the settings are supplies a
+        # smith stocks; a general store keeps a kit for the passing jeweller
+        "jewelers_kit": "jc_supply",
     }
     out = {}
     for k, v in m.items():
         t, p = v.get("material_type"), v.get("profession")
         if k in by_id:
             out[k] = by_id[k]
+        elif k.startswith("setting_"):
+            out[k] = "jc_supply"
+        elif t == "cut_gem":
+            out[k] = "cut_gem"
         elif p == "cooking":
             out[k] = "meat" if t == "meat" else "cook_ingredient"
         elif t == "herb":
@@ -205,7 +212,11 @@ def core(trade, tier, cons):
         return best(cons, "mana_potion", tier, 1) + ["vial_empty", "parchment"]
     if trade == "smith":
         flux = "flux_weak" if tier < 20 else "flux_medium" if tier < 40 else "flux_strong"
-        return ["whetstone", "coal", flux]
+        # Kyle, 14 Nov 2026: "Vendors can sell jewel cutting kits and even sets for gemstones"
+        # - the plain settings; mithril and finer come from a blacksmith
+        metals = ["copper"] + (["silver"] if tier >= 15 else []) + (["gold"] if tier >= 28 else [])
+        settings = [f"setting_{k}_{m}" for m in metals[-2:] for k in ("ring", "necklace")]
+        return ["whetstone", "coal", flux, "jewelers_kit"] + settings
     if trade == "tailor":
         thread = "thread_coarse" if tier < 20 else "thread_fine" if tier < 40 else "thread_silken"
         return [thread, "dye_mild", "bleach"]
@@ -244,6 +255,11 @@ def extras(trade, tier, vid, cons, recipes):
         skill = min(300, tier * 5)
         pool = [r for r, (p, sk) in recipes.items() if p == prof and skill - 60 <= sk <= skill + 10]
         out += _pick(pool, vid, 3)
+    if trade == "smith":
+        # jewelcrafting designs: a smith's shop is where a jeweller buys supplies
+        skill = min(300, tier * 5)
+        pool = [r for r, (p, sk) in recipes.items() if p == "jewelcrafting" and skill - 60 <= sk <= skill + 10]
+        out += _pick(pool, vid + "j", 2)
     if trade in ("alchemy", "reagent"):
         pool = [i for i, (k, lvl) in cons.items() if k == "elixir" and tier - 12 <= lvl <= tier]
         out += _pick(pool, vid + "e", 3 if trade == "alchemy" else 2)
@@ -326,6 +342,17 @@ def plan(vendors, kind, cons):
         fit = [v for v in had if kind(i) in TRADE_KINDS[trades[v["vendor_id"]]]] or had
         for v in fit[:RARE]:
             new[v["vendor_id"]].append(i)
+    # every vendor-source recipe is on some shelf: one nobody picked goes to the shop of its trade
+    # whose level is closest to the recipe's skill
+    still = Counter(i for s in new.values() for i in s)
+    for rid, (prof, sk) in recipes.items():
+        if still[rid]:
+            continue
+        shops = [v for v in vendors if TRADE_RECIPES.get(trades[v["vendor_id"]]) == prof
+                 or (prof == "jewelcrafting" and trades[v["vendor_id"]] == "smith")]
+        if shops:
+            best_shop = min(shops, key=lambda v: abs(int(v.get("gear_level") or 1) * 5 - sk))
+            new[best_shop["vendor_id"]].append(rid)
     return trades, new, moves
 
 

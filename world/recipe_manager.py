@@ -42,6 +42,7 @@ def _load_all_recipes() -> dict:
     flat_files = {
         "blacksmithing": repo / "data/blacksmithing/recipes.json",
         "leatherworking": repo / "data/leatherworking/recipes.json",
+        "jewelcrafting": repo / "data/jewelcrafting/recipes.json",
     }
     for prof, path in flat_files.items():
         if path.exists():
