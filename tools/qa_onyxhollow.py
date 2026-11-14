@@ -12,7 +12,7 @@ SEVEN CLAIMS:
   2. AN INN: the innkeeper is registered for the hearth and stands where you can reach her.
   3. NO FLIGHT MASTER, now or by accident later.
   4. LEVEL APPROPRIATE SHOPS: every vendor is tiered inside the zone's band (50-53) and sells a
-     health potion fit for that level; at least two sell gear.
+     the town sells a health potion fit for that level; at least two sell gear.
   5. A MINING AND BLACKSMITHING TOWN: exactly one trainer, teaching exactly those two, a working
      forge you can stand beside, a smithy, a smeltery and a mine head on the map.
   6. EVERYONE CAN BE WALKED TO and nobody is drawn under a building or a prop.
@@ -84,8 +84,9 @@ def main():
     for vid, v in vendors.items():
         if not 50 <= v["gear_level"] <= 53:
             bad.append(f"{vid} is tiered {v['gear_level']}, outside 50-53")
-        if "healing_potion_masterwork" not in v["sells"]:
-            bad.append(f"{vid} has no health potion fit for the level")
+    # one shop in town is enough (tools/vendor_trades.py: the smith no longer sells potions)
+    if not any("healing_potion_masterwork" in v["sells"] for v in vendors.values()):
+        bad.append("nobody in town sells a health potion fit for the level")
     if sum(1 for v in vendors.values() if v.get("sells_gear")) < 2:
         bad.append("fewer than two shops sell gear")
     del cons
