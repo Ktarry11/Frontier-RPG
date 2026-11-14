@@ -95,7 +95,7 @@ def main():
 
     SELF = {   # ability -> index into the before/after tuple that must rise
         "tinker_magic_augmentation": 0, "tinker_aether_augmentation": 1,
-        "runemaster_runic_tattoos_air": 3, "stormbringer_stabilizing_pressure": 2,
+        "runemaster_weapon_engraving_air": 2, "stormbringer_stabilizing_pressure": 2,
         "tinker_build_battle_turret_x13": 5, "cultist_protection_from_light": 6, "primalist_fae_dust": 7,
     }
     for aid, idx in SELF.items():

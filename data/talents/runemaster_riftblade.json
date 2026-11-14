@@ -248,21 +248,22 @@
     },
     {
       "talent_id": "runemaster_riftblade_echo_rune",
-      "name": "Echo Rune",
-      "description": "Learn Echo Rune, marking your location so you can warp back and heal when it expires or is reactivated.",
-      "node_type": "active",
+      "name": "Echoing Ward",
+      "description": "Augur's Shield's cooldown is 20% shorter.",
+      "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "unlock_ability": "runemaster_echo_rune"
+        "ability_runemaster_augurs_shield_cooldown_pct": 0.2
       },
       "connected_to": [
         "runemaster_riftblade_hoarfrost",
         "runemaster_riftblade_genesis"
-      ]
+      ],
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "runemaster_riftblade_genesis",
@@ -284,21 +285,22 @@
     },
     {
       "talent_id": "runemaster_riftblade_turbulence",
-      "name": "Turbulence",
-      "description": "Learn Turbulence, dropping a Nature-damage AoE zone.",
-      "node_type": "active",
+      "name": "Gale Force",
+      "description": "Hurricane deals 15% more damage.",
+      "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": 4,
       "effects": {
-        "unlock_ability": "runemaster_turbulence"
+        "ability_runemaster_hurricane_damage": 0.15
       },
       "connected_to": [
         "runemaster_riftblade_genesis",
         "runemaster_riftblade_primordial_fury"
-      ]
+      ],
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "runemaster_riftblade_primordial_fury",
@@ -486,39 +488,41 @@
     },
     {
       "talent_id": "runemaster_riftblade_aspect_of_the_rune_knight",
-      "name": "Aspect of the Rune Knight",
-      "description": "Reduces damage taken and increases maximum Mana. Only one Aspect active.",
-      "node_type": "active",
+      "name": "Rune Knight's Bearing",
+      "description": "Increases your maximum Mana by 4%.",
+      "node_type": "passive",
       "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -4,
       "effects": {
-        "unlock_ability": "runemaster_aspect_of_the_rune_knight"
+        "max_mana_pct": 0.04
       },
       "connected_to": [
         "runemaster_riftblade_augurs_shield"
       ],
-      "_source": "CoA handoff doc: 'Reduces damage taken; boosts max mana. One Aspect active.'"
+      "_source": "CoA handoff doc: 'Reduces damage taken; boosts max mana. One Aspect active.'",
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "runemaster_riftblade_ley_power",
-      "name": "Ley Power",
-      "description": "Increases your damage per nearby enemy, up to a cap, and increases melee/spell haste while active.",
-      "node_type": "active",
+      "name": "Riftborn Fury",
+      "description": "Your attacks have 2% more critical strike chance.",
+      "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 4,
       "effects": {
-        "unlock_ability": "runemaster_ley_power_riftblade"
+        "crit_chance_physical": 2.0
       },
       "connected_to": [
         "runemaster_riftblade_surging_slash"
       ],
-      "_source": "CoA handoff doc, Riftblade Strengths writeup: 'Turbulence's AoE zone pays for being surrounded' - Ley Power is the same shared mechanic seen in Engravement."
+      "_source": "CoA handoff doc, Riftblade Strengths writeup: 'Turbulence's AoE zone pays for being surrounded' - Ley Power is the same shared mechanic seen in Engravement.",
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "runemaster_riftblade_pierce_resistances",
@@ -539,21 +543,22 @@
     },
     {
       "talent_id": "runemaster_riftblade_elder_magi_rune",
-      "name": "Elder Magi Rune",
-      "description": "Learn Elder Magi Rune, dealing Arcane damage to nearby enemies and increasing the target's Arcane damage taken.",
-      "node_type": "active",
+      "name": "Elder Runes",
+      "description": "Hoarfrost deals 10% more damage.",
+      "node_type": "passive",
       "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -4,
       "hex_y": -2,
       "effects": {
-        "unlock_ability": "runemaster_elder_magi_rune"
+        "ability_runemaster_hoarfrost_damage": 0.1
       },
       "connected_to": [
         "runemaster_riftblade_frost_blade"
       ],
-      "_source": "CoA handoff doc: 'Nearby Arcane damage; boosts target's Arcane damage taken.'"
+      "_source": "CoA handoff doc: 'Nearby Arcane damage; boosts target's Arcane damage taken.'",
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "runemaster_riftblade_elemental_inscription",
@@ -645,21 +650,22 @@
     },
     {
       "talent_id": "runemaster_riftblade_runecarve",
-      "name": "Runecarve",
-      "description": "Clear your active Sigils. Doesn't break Runeshroud.",
-      "node_type": "active",
+      "name": "Carved Edge",
+      "description": "Your attacks have 1% more critical strike chance.",
+      "node_type": "passive",
       "tier": 0,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "unlock_ability": "runemaster_runecarve"
+        "crit_chance_physical": 1.0
       },
       "connected_to": [
         "runemaster_riftblade_tempo"
       ],
-      "_source": "CoA handoff doc: 'Clears active Sigils. Doesn't break Runeshroud.' Utility reset tool."
+      "_source": "CoA handoff doc: 'Clears active Sigils. Doesn't break Runeshroud.' Utility reset tool.",
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "runemaster_riftblade_runic_power",

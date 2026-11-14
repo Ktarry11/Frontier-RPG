@@ -84,9 +84,7 @@
       "hex_y": -6,
       "effects": {
         "ability_runemaster_runic_tattoos_earth_cost_pct": 0.03,
-        "ability_runemaster_runic_tattoos_frost_cost_pct": 0.03,
-        "ability_runemaster_runic_tattoos_water_cost_pct": 0.03,
-        "ability_runemaster_runic_tattoos_air_cost_pct": 0.03
+        "ability_runemaster_runic_tattoos_water_cost_pct": 0.03
       },
       "connected_to": [
         "runemaster_engravement_leystone_springs"
@@ -326,21 +324,22 @@
     },
     {
       "talent_id": "runemaster_engravement_runic_tempest",
-      "name": "Runic Tempest",
-      "description": "Learn Runic Tempest, resetting Fist of the Ancients' cooldown.",
-      "node_type": "active",
+      "name": "Ancient Momentum",
+      "description": "Fist of the Ancients' cooldown is 1 turn shorter.",
+      "node_type": "passive",
       "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 4,
       "hex_y": 0,
       "effects": {
-        "unlock_ability": "runemaster_runic_tempest"
+        "ability_runemaster_fist_of_the_ancients_cooldown": 1
       },
       "connected_to": [
         "runemaster_engravement_elemental_carvings"
       ],
-      "_source": "CoA handoff doc: 'Runic Tempest - Resets Fist of the Ancients cooldown; enables Runeshroud-required abilities + castable while moving.'"
+      "_source": "CoA handoff doc: 'Runic Tempest - Resets Fist of the Ancients cooldown; enables Runeshroud-required abilities + castable while moving.'",
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "runemaster_engravement_magic_etchings",
@@ -379,21 +378,22 @@
     },
     {
       "talent_id": "runemaster_engravement_leyline_disturbance_boost",
-      "name": "Runes of Quickness",
-      "description": "Grants the party a spell haste buff and increases Glyphic spell range. Does not stack with similar effects.",
-      "node_type": "active",
+      "name": "Quickened Leylines",
+      "description": "Increases your haste by 2.",
+      "node_type": "passive",
       "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -4,
       "hex_y": 0,
       "effects": {
-        "unlock_ability": "runemaster_runes_of_quickness"
+        "haste": 2.0
       },
       "connected_to": [
         "runemaster_engravement_elemental_carvings"
       ],
-      "_source": "CoA handoff doc: 'Party/raid spell haste buff (no stacking with similar); boosts Glyphic spell range.'"
+      "_source": "CoA handoff doc: 'Party/raid spell haste buff (no stacking with similar); boosts Glyphic spell range.'",
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "runemaster_engravement_leyborn",
@@ -488,21 +488,22 @@
     },
     {
       "talent_id": "runemaster_engravement_resonance_rune",
-      "name": "Resonance Rune",
-      "description": "Learn Resonance Rune, a ground rune that dispels harmful magic from allies and purges beneficial magic from enemies in radius.",
-      "node_type": "active",
+      "name": "Resonant Wards",
+      "description": "Guarding Rune's cooldown is 20% shorter.",
+      "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "unlock_ability": "runemaster_resonance_rune"
+        "ability_runemaster_guarding_rune_cooldown_pct": 0.2
       },
       "connected_to": [
         "runemaster_engravement_guarding_rune"
       ],
-      "_source": "CoA handoff doc: 'Ground rune: dispels harmful magic from allies, purges beneficial magic from enemies in radius.'"
+      "_source": "CoA handoff doc: 'Ground rune: dispels harmful magic from allies, purges beneficial magic from enemies in radius.'",
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "runemaster_engravement_rune_of_the_elder_magus",
@@ -525,25 +526,26 @@
     {
       "talent_id": "runemaster_engravement_power_engraving",
       "name": "Power Engraving",
-      "description": "Learn Power Engraving, a ground zone that grants allies increased Magic damage and critical strike chance.",
-      "node_type": "active",
+      "description": "Your Arcane, Fire, Frost and Nature damage is increased by 4%.",
+      "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -2,
       "hex_y": 6,
       "effects": {
-        "unlock_ability": "runemaster_power_engraving"
+        "arcane_fire_frost_nature_damage_pct": 0.04
       },
       "connected_to": [
         "runemaster_engravement_zenith"
       ],
-      "_source": "CoA handoff doc, called out as a group DPS cooldown to save for the kill in Engravement's dungeon writeup: 'Ground zone: allies get Magic damage + crit chance boost.'"
+      "_source": "CoA handoff doc, called out as a group DPS cooldown to save for the kill in Engravement's dungeon writeup: 'Ground zone: allies get Magic damage + crit chance boost.'",
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "runemaster_engravement_rune_of_the_kirin_tor",
       "name": "Rune of the Kirin Tor",
-      "description": "Power Engraving lasts 5 turns longer, and casting it grants you 2 Runes.",
+      "description": "Zenith lasts 2 turns longer.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -551,23 +553,12 @@
       "hex_x": 2,
       "hex_y": 6,
       "effects": {
-        "ability_runemaster_power_engraving_duration": 5
+        "ability_runemaster_zenith_duration": 2
       },
       "connected_to": [
         "runemaster_engravement_power_engraving"
       ],
-      "proc": {
-        "trigger": "on_cast",
-        "chance": 100,
-        "icd": 1,
-        "ability_filter": [
-          "runemaster_power_engraving"
-        ],
-        "grant_resource": {
-          "resource": "runes",
-          "amount": 2
-        }
-      }
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "runemaster_engravement_protective_warding",

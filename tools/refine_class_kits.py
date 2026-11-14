@@ -1,0 +1,209 @@
+#!/usr/bin/env python3
+"""The spellbook refine pass: fewer, better buttons for a turn-based game.
+
+    PYTHONPATH=. python3 tools/refine_class_kits.py [--check]
+
+Kyle, 14 Nov 2026: "we don't need every single ability as they become too heavy. I mean look at
+runemaster. So abilities need to be refined for turn based, 'usable while moving' is pointless.
+Some CoA are coming off as clunky messes."
+
+So the CoA port is trimmed class by class. For each class below:
+  CUT     abilities that leave the game: a near-duplicate of something kept, a stance that repeats
+          another stance, a rider that only means something in real time. The entry leaves the
+          class file and the spellbook tabs, any talent number that only tuned it goes with it, and
+          it is listed in data/reference/retired_abilities.json so an old save drops it off the hotbar.
+  REWORD  description fixes, mostly deleting real-time clauses ("Usable while moving.").
+  PASSIVE a talent node that used to unlock a cut ability becomes a passive that strengthens what
+          is left, so a tree keeps its shape, its tiers and its point count.
+
+Idempotent: running it again changes nothing. --check reports what it would do and exits 1 if
+anything is still to be done.
+"""
+import json
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+AB = ROOT / "data" / "abilities"
+TABS = ROOT / "data" / "spellbook_tabs_coa.json"
+TALENTS = ROOT / "data" / "talents"
+RETIRED = ROOT / "data" / "reference" / "retired_abilities.json"
+
+#: real-time clauses that mean nothing on a turn-based board
+REALTIME = [r"\s*Usable while (?:moving|stealthed|stunned|casting)[^.]*\.",
+            r"\s*Cannot move while active[^.]*\.", r"\s*Can be cast while moving[^.]*\."]
+
+def P(name, description, effects, drop_proc=False):
+    """A talent node rewritten as a passive."""
+    out = {"name": name, "description": description, "node_type": "passive", "effects": effects,
+           "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"}
+    if drop_proc:
+        out["proc"] = None
+    return out
+
+
+CLASSES = {
+    "Runemaster": {
+        "CUT": {
+            # baseline: stances and riders that repeat each other
+            "runemaster_weapon_engraving_earth": "five Weapon Engravings is four choices nobody makes; Fire, Ice and Air stay",
+            "runemaster_weapon_engraving_water": "five Weapon Engravings is four choices nobody makes; Fire, Ice and Air stay",
+            "runemaster_runic_tattoos_frost": "slows attackers, a movement effect; Earth (armour) and Water (mana) stay",
+            "runemaster_runic_tattoos_air": "haste again - the Air Engraving already does it",
+            "runemaster_palm_sigil_fire": "a next-spell rider that costs a turn to set up; Earth (stun) and Arcane (silence) stay",
+            "runemaster_palm_sigil_water": "a next-spell rider that costs a turn to set up; Earth (stun) and Arcane (silence) stay",
+            "runemaster_palm_sigil_frost": "a next-spell rider that costs a turn to set up; Earth (stun) and Arcane (silence) stay",
+            "runemaster_etching_of_the_dextrous": "+10 Agility to the party when Etching of the Leylines gives +10% to everything",
+            "runemaster_inscription_leyline": "a debuff you put on your own ally",
+            "runemaster_leyline_adjustment": "a threat redirect at level 60",
+            # talent unlocks: a second of something each tree already has
+            "runemaster_manuscription": "a second Glyphic AoE beside Primordial Pulse",
+            "runemaster_devour_mana": "a mana burn in a game where few enemies run on mana",
+            "runemaster_silencing_rune": "a delayed silence zone when Ley Lock already interrupts",
+            "runemaster_rune_master": "a third burst cooldown that also says 'cannot move'",
+            "runemaster_runic_tempest": "a button that only resets Fist of the Ancients",
+            "runemaster_runes_of_quickness": "a second haste aura beside Leyline Disturbance",
+            "runemaster_resonance_rune": "an area dispel when Leyfeed already dispels",
+            "runemaster_power_engraving": "a third damage zone",
+            "runemaster_turbulence": "a second Nature AoE zone beside Hurricane",
+            "runemaster_echo_rune": "'warp back to your mark' means nothing on a turn-based board",
+            "runemaster_ley_power_riftblade": "a copy of Engravement's Ley Power",
+            "runemaster_elder_magi_rune": "a third Riftblade AoE",
+            "runemaster_runecarve": "clears Sigils to no purpose",
+            "runemaster_aspect_of_the_rune_knight": "an Aspect stance on top of Tattoos and Engravings",
+        },
+        "REWORD": {},
+        "PASSIVE": {
+            # Glyphic
+            "runemaster_glyphic_manuscription": P("Lingering Script", "Primordial Pulse deals 15% more damage.",
+                                                  {"ability_runemaster_primordial_pulse_damage": 0.15}),
+            "runemaster_glyphic_devour_mana": P("Leyline Thirst", "Primordial Blast deals 8% more damage.",
+                                                {"ability_runemaster_primordial_blast_damage": 0.08}),
+            "runemaster_glyphic_silencing_rune": P("Silent Script", "Ley Lock's cooldown is 1 turn shorter.",
+                                                   {"ability_runemaster_ley_lock_cooldown": 1}),
+            "runemaster_glyphic_rune_master": P("Rune Master", "Your spells have 3% more critical strike chance.",
+                                                {"crit_chance_spell": 3.0}),
+            # Engravement
+            "runemaster_engravement_runic_tempest": P("Ancient Momentum", "Fist of the Ancients' cooldown is 1 turn shorter.",
+                                                      {"ability_runemaster_fist_of_the_ancients_cooldown": 1}),
+            "runemaster_engravement_leyline_disturbance_boost": P("Quickened Leylines", "Increases your haste by 2.",
+                                                                  {"haste": 2.0}),
+            "runemaster_engravement_resonance_rune": P("Resonant Wards", "Guarding Rune's cooldown is 20% shorter.",
+                                                       {"ability_runemaster_guarding_rune_cooldown_pct": 0.2}),
+            "runemaster_engravement_power_engraving": P("Power Engraving", "Your Arcane, Fire, Frost and Nature damage is increased by 4%.",
+                                                        {"arcane_fire_frost_nature_damage_pct": 0.04}),
+            "runemaster_engravement_rune_of_the_kirin_tor": P("Rune of the Kirin Tor", "Zenith lasts 2 turns longer.",
+                                                              {"ability_runemaster_zenith_duration": 2}, drop_proc=True),
+            # Riftblade
+            "runemaster_riftblade_echo_rune": P("Echoing Ward", "Augur's Shield's cooldown is 20% shorter.",
+                                                {"ability_runemaster_augurs_shield_cooldown_pct": 0.2}),
+            "runemaster_riftblade_turbulence": P("Gale Force", "Hurricane deals 15% more damage.",
+                                                 {"ability_runemaster_hurricane_damage": 0.15}),
+            "runemaster_riftblade_aspect_of_the_rune_knight": P("Rune Knight's Bearing", "Increases your maximum Mana by 4%.",
+                                                                {"max_mana_pct": 0.04}),
+            "runemaster_riftblade_ley_power": P("Riftborn Fury", "Your attacks have 2% more critical strike chance.",
+                                                {"crit_chance_physical": 2.0}),
+            "runemaster_riftblade_elder_magi_rune": P("Elder Runes", "Hoarfrost deals 10% more damage.",
+                                                      {"ability_runemaster_hoarfrost_damage": 0.1}),
+            "runemaster_riftblade_runecarve": P("Carved Edge", "Your attacks have 1% more critical strike chance.",
+                                                {"crit_chance_physical": 1.0}),
+        },
+    },
+}
+
+
+def load(p):
+    return json.loads(p.read_text(encoding="utf-8"))
+
+
+def dump(p, doc, indent=2):
+    p.write_text(json.dumps(doc, indent=indent, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def strip_realtime(text):
+    for pat in REALTIME:
+        text = re.sub(pat, "", text)
+    return text.strip()
+
+
+def refine(cls, spec, dry):
+    todo = []
+    prefix = cls.lower().replace(" ", "_")
+    path = AB / f"{prefix}.json"
+    doc = load(path)
+    cut = spec["CUT"]
+    keep = [a for a in doc["abilities"] if a["ability_id"] not in cut]
+    if len(keep) != len(doc["abilities"]):
+        todo.append(f"{cls}: remove {len(doc['abilities']) - len(keep)} abilities")
+    for a in keep:
+        new = spec["REWORD"].get(a["ability_id"]) or strip_realtime(a.get("description", ""))
+        if new != a.get("description", ""):
+            todo.append(f"{cls}: reword {a['name']}")
+            a["description"] = new
+    doc["abilities"] = keep
+
+    tabs = load(TABS)
+    t = tabs.get(cls, {})
+    gone = [k for k in t if k in cut]
+    if gone:
+        todo.append(f"{cls}: {len(gone)} spellbook tab entries")
+        for k in gone:
+            del t[k]
+
+    talent_docs = {}
+    for tp in sorted(TALENTS.glob(f"{prefix}_*.json")):
+        td = load(tp)
+        changed = False
+        for n in td.get("nodes", []):
+            eff = n.get("effects") or {}
+            for k in list(eff):
+                if any(k.startswith(f"ability_{c}_") for c in cut):
+                    del eff[k]
+                    changed = True
+            u = eff.get("unlock_ability")
+            if u in cut:
+                rep = spec["PASSIVE"].get(n["talent_id"])
+                if not rep:
+                    raise SystemExit(f"{tp.name}: {n['talent_id']} unlocks cut {u} and has no PASSIVE")
+                n.update(rep)
+                changed = True
+            elif n["talent_id"] in spec["PASSIVE"] and n.get("_refined") is None:
+                n.update(spec["PASSIVE"][n["talent_id"]])
+                changed = True
+            if "proc" in n and n["proc"] is None:
+                del n["proc"]
+        if changed:
+            todo.append(f"{cls}: talents in {tp.name}")
+            talent_docs[tp] = td
+
+    retired = load(RETIRED) if RETIRED.exists() else {"ids": {}}
+    new_ret = {k: v for k, v in cut.items() if k not in retired["ids"]}
+    if new_ret:
+        todo.append(f"{cls}: {len(new_ret)} ids to the retired list")
+        retired["ids"].update(new_ret)
+
+    if not dry and todo:
+        dump(path, doc)
+        dump(TABS, tabs)
+        for tp, td in talent_docs.items():
+            dump(tp, td)
+        retired["_note"] = ("Abilities taken out in the spellbook refine pass (tools/refine_class_kits.py). "
+                            "A save that still has one on its hotbar drops it on load.")
+        dump(RETIRED, retired)
+    return todo
+
+
+def main():
+    dry = "--check" in sys.argv
+    todo = []
+    for cls, spec in CLASSES.items():
+        todo += refine(cls, spec, dry)
+    for t in todo:
+        print(" ", t)
+    print(f"{len(todo)} change(s) {'to make' if dry else 'made'}")
+    return 1 if (dry and todo) else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

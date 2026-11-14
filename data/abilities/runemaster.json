@@ -311,72 +311,6 @@
       "exclusive_group": "runemaster_runic_tattoo"
     },
     {
-      "ability_id": "runemaster_runic_tattoos_frost",
-      "name": "Runic Tattoos: Frost",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 30,
-      "stat_mods": {
-        "frost_resistance": 5
-      },
-      "description": "Attune yourself to frost, increasing Frost Resistance and slowing attackers who strike you. Only one Tattoo active.",
-      "_source": "Confirmed screenshot: Lvl 10, '+5 Frost resistance, melee/ranged attacks against you slow the attacker's movement speed and attack speed by 20% for 8 sec.'",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 10,
-          "cost": 15,
-          "effect_value": 100
-        },
-        {
-          "rank": 2,
-          "level_req": 16,
-          "cost": 18,
-          "effect_value": 118
-        },
-        {
-          "rank": 3,
-          "level_req": 22,
-          "cost": 20,
-          "effect_value": 136
-        },
-        {
-          "rank": 4,
-          "level_req": 28,
-          "cost": 23,
-          "effect_value": 155
-        },
-        {
-          "rank": 5,
-          "level_req": 34,
-          "cost": 26,
-          "effect_value": 173
-        },
-        {
-          "rank": 6,
-          "level_req": 42,
-          "cost": 30,
-          "effect_value": 197
-        },
-        {
-          "rank": 7,
-          "level_req": 50,
-          "cost": 33,
-          "effect_value": 221
-        },
-        {
-          "rank": 8,
-          "level_req": 58,
-          "cost": 37,
-          "effect_value": 245
-        }
-      ],
-      "icon_id": null,
-      "exclusive_group": "runemaster_runic_tattoo"
-    },
-    {
       "ability_id": "runemaster_runic_tattoos_water",
       "name": "Runic Tattoos: Water",
       "resource_type": "mana",
@@ -399,49 +333,6 @@
       ],
       "icon_id": null,
       "exclusive_group": "runemaster_runic_tattoo"
-    },
-    {
-      "ability_id": "runemaster_weapon_engraving_earth",
-      "name": "Weapon Engraving: Earth",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 30,
-      "stat_mods": {},
-      "description": "Engrave an earth rune onto your weapon, granting Earth Engraving: your direct damage has a chance to deal Nature damage to nearby enemies. Only one Engraving active.",
-      "_source": "Confirmed screenshot: Lvl 14, 2 Mana, 'Your direct damage has a 15% chance to deal 1 Nature damage to enemies within 8 yds of your target.' The actual splash is now real, via the splash_damage proc payload (added 2026-10-27 as the mirror of splash_heal). This engine has no AoE radius, so 'within 8 yds of your target' becomes 'the other enemies in this fight', capped at 3 and excluding the enemy that took the original hit. 25% of the triggering damage rather than the screenshot's flat 1, which is a level-1-scaled number that would be invisible at 60. The armour shred is kept as a rider: it was all this ability had before, and it is one of the few debuffs a Monster reads.",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 14,
-          "cost": 2,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "exclusive_group": "runemaster_weapon_engraving",
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 15,
-        "icd": 0,
-        "splash_damage": {
-          "pct": 0.25,
-          "school": "nature",
-          "max_targets": 3
-        },
-        "apply_effect": {
-          "effect_id": "earth_engraving",
-          "name": "Earth Engraving",
-          "effect_type": "debuff",
-          "duration": 4,
-          "stat_mods": {
-            "armor": -100
-          },
-          "on_target": true,
-          "real_time_seconds": null
-        }
-      }
     },
     {
       "ability_id": "runemaster_etching_of_the_leylines",
@@ -511,80 +402,6 @@
       "damage_school": "attunement"
     },
     {
-      "ability_id": "runemaster_runic_tattoos_air",
-      "name": "Runic Tattoos: Air",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 30,
-      "stat_mods": {
-        "haste": 15,
-        "dodge": 3
-      },
-      "description": "Attune yourself to the air: +15% haste and +3% dodge. Only one Tattoo active.",
-      "_source": "Per CoA handoff doc: 'Boosts movement speed; boosts movement-slow resistance.' Exact numbers not confirmed via a dedicated screenshot in this batch.",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 16,
-          "cost": 15,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "exclusive_group": "runemaster_runic_tattoo"
-    },
-    {
-      "ability_id": "runemaster_palm_sigil_fire",
-      "name": "Palm Sigil: Fire",
-      "resource_type": "mana",
-      "cooldown": 6,
-      "effect_type": "buff",
-      "duration": 1,
-      "stat_mods": {
-        "spell_power": 70
-      },
-      "description": "Engrave a fire rune into your palm: your next direct damaging spell deals bonus damage as Fire. Usable while moving.",
-      "_source": "Confirmed screenshot: Lvl 4, 'your next direct damaging spell deals 70% bonus damage as Fire. Lasts 6 sec.' Part of the mutually-exclusive Palm Sigil family (Fire/Earth/Arcane/Water/Frost).",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 4,
-          "cost": 15,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "exclusive_group": "runemaster_palm_sigil",
-      "buff_scope": "combat"
-    },
-    {
-      "ability_id": "runemaster_inscription_leyline",
-      "name": "Inscription: Leyline",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "debuff",
-      "duration": 30,
-      "stat_mods": {
-        "magic_damage_taken_pct": 15,
-        "healing_taken_pct": 16
-      },
-      "description": "Attune an ally to the leylines, increasing damage and healing taken from spells.",
-      "_source": "Confirmed screenshot: Lvl 16, 'increasing damage taken from spells by up to 15 and healing spells by up to 16. Lasts 30 min.' A support debuff-on-ally (amplifies incoming spell effects) - real Focus Magic-style tool.",
-      "target_type": "ally",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 16,
-          "cost": 26,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null
-    },
-    {
       "ability_id": "runemaster_palm_sigil_earth",
       "name": "Palm Sigil: Earth",
       "resource_type": "mana",
@@ -595,7 +412,7 @@
         "spell_power": 40,
         "armor": 150
       },
-      "description": "Engrave an earth rune into your palm: your next Magic damage stuns the target. Usable while moving.",
+      "description": "Engrave an earth rune into your palm: your next Magic damage stuns the target.",
       "_source": "Confirmed screenshot: Lvl 8, 'your next instance of direct Magic damage within 6 sec stuns a target enemy for 4 sec.' Part of the Palm Sigil family.  THE STUN NEVER HAPPENED. The description is 'your next Magic damage stuns the target' and the ability carried no stun of any kind - not is_stun, which would have been wrong anyway (this is a DEFERRED stun on a later cast, not a stun on this one), and no proc. Now a 100% on_damage_cast proc that lands a 1-turn is_stun debuff on the target, which is the shape the description describes. StatusEffect accepts is_stun and apply_effect passes it through.",
       "target_type": "self",
       "ranks": [
@@ -622,60 +439,6 @@
           "on_target": true
         }
       }
-    },
-    {
-      "ability_id": "runemaster_etching_of_the_dextrous",
-      "name": "Etching of the Dextrous",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 30,
-      "stat_mods": {
-        "agility": 10
-      },
-      "description": "Grants your party: Agility +10 for 30 turns.",
-      "_source": "Confirmed screenshot: Lvl 18, '+10 Agility. Lasts 30 min.'",
-      "target_type": "party",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 18,
-          "cost": 36,
-          "effect_value": 100
-        },
-        {
-          "rank": 2,
-          "level_req": 24,
-          "cost": 41,
-          "effect_value": 115
-        },
-        {
-          "rank": 3,
-          "level_req": 30,
-          "cost": 47,
-          "effect_value": 129
-        },
-        {
-          "rank": 4,
-          "level_req": 38,
-          "cost": 54,
-          "effect_value": 149
-        },
-        {
-          "rank": 5,
-          "level_req": 46,
-          "cost": 61,
-          "effect_value": 168
-        },
-        {
-          "rank": 6,
-          "level_req": 54,
-          "cost": 68,
-          "effect_value": 188
-        }
-      ],
-      "icon_id": null,
-      "buff_scope": "raid"
     },
     {
       "ability_id": "runemaster_ley_lock",
@@ -732,7 +495,7 @@
         "spell_power": 55,
         "crit_chance_spell": 5.0
       },
-      "description": "Engrave an arcane rune into your palm: your next Magic damage also deals Arcane damage over time and silences. Usable while moving.",
+      "description": "Engrave an arcane rune into your palm: your next Magic damage also deals Arcane damage over time and silences.",
       "_source": "Confirmed screenshot: Lvl 20, 'an additional 5% of the damage dealt as Arcane damage every 3 sec for 12 sec and silences the target for 3 sec.' Part of the Palm Sigil family.",
       "target_type": "self",
       "ranks": [
@@ -797,114 +560,6 @@
         "icd": 0,
         "bonus_pct": 0.3
       }
-    },
-    {
-      "ability_id": "runemaster_weapon_engraving_water",
-      "name": "Weapon Engraving: Water",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 30,
-      "stat_mods": {},
-      "description": "Engrave a water rune onto your weapon, granting Water Engraving: your direct damage has a chance to drain mana and deal Frost damage, also granting nearby allies Replenishment. Only one Engraving active.",
-      "_source": "Confirmed screenshot: Lvl 26, 2 Mana, 'Your direct damage has a 30% chance to drain up to 2% of your maximum mana from the target, restoring the amount drained and dealing Frost damage based on how much mana was drained. Also grants nearby allies Replenishment: Replenishes 5% of maximum mana per 5 sec for 15 sec.' The mana return is grant_resource; the 'Frost damage based on how much mana was drained' is bonus_pct 0.15 on the same hit, since a drain of a fixed 2% always converts to the same damage anyway and most monsters here have no mana pool to drain from. The ally Replenishment is NOT modelled: there is no party-wide resource payload (splash_heal spreads healing, not mana) and on_target false reaches only the caster. That is the one part of this tooltip still unbuilt - it needs a splash_resource payload.",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 26,
-          "cost": 2,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "exclusive_group": "runemaster_weapon_engraving",
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 30,
-        "icd": 0,
-        "bonus_pct": 0.15,
-        "grant_resource": {
-          "resource": "mana",
-          "amount": 60
-        }
-      }
-    },
-    {
-      "ability_id": "runemaster_palm_sigil_water",
-      "name": "Palm Sigil: Water",
-      "resource_type": "mana",
-      "cooldown": 6,
-      "effect_type": "buff",
-      "duration": 1,
-      "stat_mods": {
-        "spell_power": 40,
-        "mp5": 20
-      },
-      "description": "Engrave a water rune into your palm: your next Magic damage drains the target's mana. Usable while moving.",
-      "_source": "Confirmed screenshot: Lvl 32, 'drains the target's mana equal to 50% of the damage dealt.' Part of the Palm Sigil family.",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 32,
-          "cost": 15,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "exclusive_group": "runemaster_palm_sigil",
-      "buff_scope": "combat"
-    },
-    {
-      "ability_id": "runemaster_palm_sigil_frost",
-      "name": "Palm Sigil: Frost",
-      "resource_type": "mana",
-      "cooldown": 6,
-      "effect_type": "buff",
-      "duration": 1,
-      "stat_mods": {
-        "spell_power": 50,
-        "haste": 10.0
-      },
-      "description": "Engrave a frost rune into your palm: your next Magic damage deals extra Frost damage and slows the target. Usable while moving.",
-      "_source": "Confirmed screenshot: Lvl 34, '30% of the damage dealt as Frost damage and slow the enemy's movement speed by 70% for 8 sec.' Part of the Palm Sigil family.",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 34,
-          "cost": 15,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "exclusive_group": "runemaster_palm_sigil",
-      "buff_scope": "combat"
-    },
-    {
-      "ability_id": "runemaster_leyline_adjustment",
-      "name": "Leyline Adjustment",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 3,
-      "stat_mods": {
-        "threat_generation_pct": -50
-      },
-      "description": "Adjust the leylines beneath you, redirecting the threat you generate to a targeted party member.",
-      "_source": "Confirmed screenshot: Lvl 60, 'redirecting the threat you generate for 30 sec to the targeted party member.' Real tank-support redirect tool, capstone-tier class-wide utility.",
-      "target_type": "ally",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 60,
-          "cost": 30,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "buff_scope": "raid"
     },
     {
       "ability_id": "runemaster_frigid_blast",
@@ -1064,34 +719,6 @@
       "buff_scope": "combat"
     },
     {
-      "ability_id": "runemaster_manuscription",
-      "name": "Manuscription",
-      "resource_type": "mana",
-      "cooldown": 5,
-      "effect_type": "spell_dot",
-      "duration": 4,
-      "stat_mods": {},
-      "description": "Deals Arcane damage to all nearby enemies over time for 4 turns.",
-      "_source": "CoA handoff doc confirmed: 'Arcane DoT enveloping target + nearby; grants Transcribing.' Real numbers not confirmed via a dedicated screenshot.",
-      "target_type": "enemy_aoe",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 40,
-          "cost": 45,
-          "effect_value": 275
-        },
-        {
-          "rank": 2,
-          "level_req": 52,
-          "cost": 54,
-          "effect_value": 328
-        }
-      ],
-      "icon_id": null,
-      "damage_school": "arcane"
-    },
-    {
       "ability_id": "runemaster_glyphic_overload",
       "name": "Glyphic Overload",
       "resource_type": "mana",
@@ -1101,7 +728,7 @@
       "stat_mods": {
         "spell_power": 60
       },
-      "description": "Instantly grants all 3 Glyphs and empowers their next unleash effect. Usable while stealthed.",
+      "description": "Instantly grants all 3 Glyphs and empowers their next unleash effect.",
       "_source": "CoA handoff doc confirmed as the Glyphic capstone. Real numbers not confirmed via a dedicated screenshot; grants 3 Runes stacks as an approximation of 'instantly grants all 3 Glyphs.'",
       "target_type": "self",
       "ranks": [
@@ -1118,63 +745,6 @@
       },
       "icon_id": null,
       "buff_scope": "combat"
-    },
-    {
-      "ability_id": "runemaster_devour_mana",
-      "name": "Devour Mana",
-      "resource_type": "mana",
-      "cooldown": 3,
-      "effect_type": "spell_damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Destroy an enemy's mana, dealing Arcane damage based on the amount burned.",
-      "_source": "CoA handoff doc: 'Destroys enemy mana; each point burned deals Arcane damage.' Real numbers not confirmed via a dedicated screenshot.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 12,
-          "cost": 42,
-          "effect_value": 60
-        },
-        {
-          "rank": 2,
-          "level_req": 18,
-          "cost": 49,
-          "effect_value": 70
-        },
-        {
-          "rank": 3,
-          "level_req": 24,
-          "cost": 56,
-          "effect_value": 81
-        },
-        {
-          "rank": 4,
-          "level_req": 32,
-          "cost": 66,
-          "effect_value": 94
-        },
-        {
-          "rank": 5,
-          "level_req": 40,
-          "cost": 76,
-          "effect_value": 135
-        },
-        {
-          "rank": 6,
-          "level_req": 48,
-          "cost": 85,
-          "effect_value": 152
-        },
-        {
-          "rank": 7,
-          "level_req": 56,
-          "cost": 95,
-          "effect_value": 169
-        }
-      ],
-      "icon_id": null,
-      "damage_school": "arcane"
     },
     {
       "ability_id": "runemaster_fist_of_the_ancients",
@@ -1266,30 +836,6 @@
       ],
       "icon_id": null,
       "damage_school": "fire"
-    },
-    {
-      "ability_id": "runemaster_runic_tempest",
-      "name": "Runic Tempest",
-      "resource_type": "mana",
-      "cooldown": 8,
-      "effect_type": "buff",
-      "duration": 1,
-      "stat_mods": {
-        "haste": 30.0
-      },
-      "description": "Reset the cooldown of Fist of the Ancients.",
-      "_source": "CoA handoff doc: 'Resets Fist of the Ancients cooldown; enables Runeshroud-required abilities + castable while moving.' Real numbers not confirmed via a dedicated screenshot.",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 30,
-          "cost": 25,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "buff_scope": "combat"
     },
     {
       "ability_id": "runemaster_leyline_disturbance",
@@ -1663,45 +1209,6 @@
       "damage_school": "nature"
     },
     {
-      "ability_id": "runemaster_echo_rune",
-      "name": "Echo Rune",
-      "resource_type": "mana",
-      "cooldown": 8,
-      "effect_type": "heal",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Mark your location; when this effect expires or is reactivated, warp back and heal yourself.",
-      "_source": "CoA handoff doc: 'Marks your location; at expiry/reactivation, warps back + heals you.' Real numbers not confirmed via a dedicated screenshot.",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 30,
-          "cost": 30,
-          "effect_value": 180
-        },
-        {
-          "rank": 2,
-          "level_req": 37,
-          "cost": 34,
-          "effect_value": 205
-        },
-        {
-          "rank": 3,
-          "level_req": 45,
-          "cost": 38,
-          "effect_value": 230
-        },
-        {
-          "rank": 4,
-          "level_req": 52,
-          "cost": 42,
-          "effect_value": 255
-        }
-      ],
-      "icon_id": null
-    },
-    {
       "ability_id": "runemaster_genesis",
       "name": "Genesis",
       "resource_type": "mana",
@@ -1733,34 +1240,6 @@
       ],
       "icon_id": null,
       "damage_school": "attunement"
-    },
-    {
-      "ability_id": "runemaster_turbulence",
-      "name": "Turbulence",
-      "resource_type": "mana",
-      "cooldown": 6,
-      "effect_type": "spell_damage",
-      "duration": 2,
-      "stat_mods": {},
-      "description": "Drop a zone of Nature-damage turbulence.",
-      "_source": "CoA handoff doc: 'Ground zone: repeating Nature damage to enemies inside.' Real numbers not confirmed via a dedicated screenshot.",
-      "target_type": "enemy_aoe",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 44,
-          "cost": 42,
-          "effect_value": 75
-        },
-        {
-          "rank": 2,
-          "level_req": 60,
-          "cost": 52,
-          "effect_value": 92
-        }
-      ],
-      "icon_id": null,
-      "damage_school": "nature"
     },
     {
       "ability_id": "runemaster_primordial_fury",
@@ -1836,125 +1315,6 @@
       "damage_school": "attunement"
     },
     {
-      "ability_id": "runemaster_silencing_rune",
-      "name": "Silencing Rune",
-      "resource_type": "mana",
-      "cooldown": 6,
-      "effect_type": "debuff",
-      "duration": 2,
-      "stat_mods": {},
-      "description": "A ground area that activates after a delay and silences enemies inside.",
-      "_source": "CoA handoff doc: 'Ground area, activates after a delay: silences enemies inside.' Real numbers not confirmed via a dedicated screenshot.  Removed dead flag stat_mod(s) ['silenced']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
-      "target_type": "enemy_aoe",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 38,
-          "cost": 35,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "is_stun": true,
-      "buff_scope": "combat"
-    },
-    {
-      "ability_id": "runemaster_rune_master",
-      "name": "Rune Master",
-      "resource_type": "mana",
-      "cooldown": 10,
-      "effect_type": "buff",
-      "duration": 2,
-      "stat_mods": {
-        "haste": 20,
-        "damage_dealt_pct": 15
-      },
-      "description": "Empower your casting, increasing haste and damage but raising costs, while draining mana. Cannot move while active.",
-      "_source": "CoA handoff doc: 'Empowers casting (haste+damage up, cost up) while draining mana; can't move; scales with active-cast dealing damage.' A real channel-style burst cooldown - real numbers not confirmed via a dedicated screenshot.",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 46,
-          "cost": 50,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "buff_scope": "combat"
-    },
-    {
-      "ability_id": "runemaster_runes_of_quickness",
-      "name": "Runes of Quickness",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 30,
-      "stat_mods": {
-        "haste": 10
-      },
-      "description": "Grant the party a spell haste buff and increase Glyphic spell range. Does not stack with similar effects.",
-      "_source": "CoA handoff doc: 'Party/raid spell haste buff (no stacking with similar); boosts Glyphic spell range.' Real numbers not confirmed via a dedicated screenshot.",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 30,
-          "cost": 35,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "buff_scope": "raid"
-    },
-    {
-      "ability_id": "runemaster_resonance_rune",
-      "name": "Resonance Rune",
-      "resource_type": "mana",
-      "cooldown": 8,
-      "effect_type": "dispel",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "A ground rune that dispels harmful magic from allies and purges beneficial magic from enemies in radius.",
-      "_source": "CoA handoff doc: 'Ground rune: dispels harmful magic from allies, purges beneficial magic from enemies in radius.' Real numbers not confirmed via a dedicated screenshot.",
-      "target_type": "party",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 40,
-          "cost": 40,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "dispel_type": "magic"
-    },
-    {
-      "ability_id": "runemaster_power_engraving",
-      "name": "Power Engraving",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 15,
-      "stat_mods": {
-        "damage_dealt_pct": 10,
-        "crit_chance_spell": 5
-      },
-      "description": "A ground zone that grants allies increased Magic damage and critical strike chance.",
-      "_source": "CoA handoff doc, called out as a group DPS cooldown saved for the kill: 'Ground zone: allies get Magic damage + crit chance boost.' Real numbers not confirmed via a dedicated screenshot.",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 55,
-          "cost": 45,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "buff_scope": "raid"
-    },
-    {
       "ability_id": "runemaster_granite_resolve",
       "name": "Granite Resolve",
       "resource_type": "mana",
@@ -1964,7 +1324,7 @@
       "stat_mods": {
         "physical_damage_taken_pct": -20
       },
-      "description": "Reduces Physical damage taken. Usable while stunned.",
+      "description": "Reduces Physical damage taken.",
       "_source": "CoA handoff doc: 'Reduces Physical damage taken. Usable while stunned.' Real on-demand physical mitigation cooldown - real numbers not confirmed via a dedicated screenshot.",
       "target_type": "self",
       "ranks": [
@@ -2000,130 +1360,6 @@
         }
       ],
       "icon_id": null
-    },
-    {
-      "ability_id": "runemaster_ley_power_riftblade",
-      "name": "Ley Power",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 30,
-      "stat_mods": {
-        "haste": 5
-      },
-      "description": "Increases your damage per nearby enemy, up to a cap, and increases haste while active.",
-      "_source": "Same real ability as Engravement's Ley Power, per the handoff doc's shared-flavor writeup for both specs - separate ability_id since Riftblade unlocks it independently in its own tree.",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 45,
-          "cost": 40,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null
-    },
-    {
-      "ability_id": "runemaster_elder_magi_rune",
-      "name": "Elder Magi Rune",
-      "resource_type": "mana",
-      "cooldown": 4,
-      "effect_type": "spell_damage",
-      "duration": 2,
-      "stat_mods": {
-        "magic_damage_taken_pct": 10
-      },
-      "description": "Deal Arcane damage to nearby enemies and increase the target's Arcane damage taken.",
-      "_source": "CoA handoff doc: 'Nearby Arcane damage; boosts target's Arcane damage taken.' Real numbers not confirmed via a dedicated screenshot.",
-      "target_type": "enemy_aoe",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 18,
-          "cost": 38,
-          "effect_value": 55
-        },
-        {
-          "rank": 2,
-          "level_req": 24,
-          "cost": 44,
-          "effect_value": 63
-        },
-        {
-          "rank": 3,
-          "level_req": 30,
-          "cost": 49,
-          "effect_value": 71
-        },
-        {
-          "rank": 4,
-          "level_req": 38,
-          "cost": 57,
-          "effect_value": 102
-        },
-        {
-          "rank": 5,
-          "level_req": 46,
-          "cost": 64,
-          "effect_value": 116
-        },
-        {
-          "rank": 6,
-          "level_req": 54,
-          "cost": 71,
-          "effect_value": 129
-        }
-      ],
-      "icon_id": null,
-      "damage_school": "arcane"
-    },
-    {
-      "ability_id": "runemaster_aspect_of_the_rune_knight",
-      "name": "Aspect of the Rune Knight",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 30,
-      "stat_mods": {
-        "damage_taken_pct": -0.08,
-        "max_mana_pct": 0.1
-      },
-      "description": "Reduces damage taken and increases maximum Mana. Only one Aspect active.",
-      "_source": "CoA handoff doc: 'Reduces damage taken; boosts max mana. One Aspect active.' Real numbers not confirmed via a dedicated screenshot. damage_taken_pct in a status stat_mod is a FRACTION: character.py's take_damage adds get_status_stat_mod('damage_taken_pct') to taken_mult undivided, while physical_damage_taken_pct and magic_damage_taken_pct four lines below it in the same method are divided by 100. The convention is per key with no naming rule, so do not generalise from either one. This was -8, which is -800%: it clamped every hit to 1 damage and made a 30-turn stance a flat immunity.  max_mana_pct IS A FRACTION, NOT PERCENT POINTS. This was 10, i.e. 1000%. It was invisible until the effect_value-0 fix made this buff apply at all - 113 buffs across seven classes were multiplying their own stat_mods by zero, so a latent unit error in one of them did nothing either. Bringing dead content to life is exactly when you re-measure: Guardian Vanguard's effective HP jumped from ~3,270 to 26,571 and its survival to 577 turns against peers at 6-23. Verified: max_health_pct 0.08 takes 532 health to 574, 8.0 takes it to 4,788.",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 16,
-          "cost": 20,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null
-    },
-    {
-      "ability_id": "runemaster_runecarve",
-      "name": "Runecarve",
-      "resource_type": "mana",
-      "cooldown": 4,
-      "effect_type": "restore_resource",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Clear your active Sigils. Does not break Runeshroud.",
-      "_source": "CoA handoff doc: 'Clears active Sigils. Doesn't break Runeshroud.' Utility reset tool.",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 2,
-          "cost": 5,
-          "effect_value": 0,
-          "mana_restore_pct": 50
-        }
-      ],
-      "icon_id": null,
-      "restore_resource_type": "runes"
     },
     {
       "ability_id": "runemaster_runic_power",

@@ -264,21 +264,22 @@
     },
     {
       "talent_id": "runemaster_glyphic_manuscription",
-      "name": "Manuscription",
-      "description": "Learn Manuscription, a strong Arcane DoT that envelops the target and nearby enemies.",
-      "node_type": "active",
+      "name": "Lingering Script",
+      "description": "Primordial Pulse deals 15% more damage.",
+      "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "unlock_ability": "runemaster_manuscription"
+        "ability_runemaster_primordial_pulse_damage": 0.15
       },
       "connected_to": [
         "runemaster_glyphic_unleashed_power",
         "runemaster_glyphic_glyphic_overload"
-      ]
+      ],
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "runemaster_glyphic_glyphic_overload",
@@ -390,22 +391,23 @@
     },
     {
       "talent_id": "runemaster_glyphic_devour_mana",
-      "name": "Devour Mana",
-      "description": "Learn Devour Mana, destroying an enemy's mana and dealing Arcane damage based on the amount burned.",
-      "node_type": "active",
+      "name": "Leyline Thirst",
+      "description": "Primordial Blast deals 8% more damage.",
+      "node_type": "passive",
       "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": -2,
       "effects": {
-        "unlock_ability": "runemaster_devour_mana"
+        "ability_runemaster_primordial_blast_damage": 0.08
       },
       "connected_to": [
         "runemaster_glyphic_frigid_blast",
         "runemaster_glyphic_primordial_pulse"
       ],
-      "_source": "CoA handoff doc: 'Destroys enemy mana; each point burned deals Arcane damage.'"
+      "_source": "CoA handoff doc: 'Destroys enemy mana; each point burned deals Arcane damage.'",
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "runemaster_glyphic_kirin_tor_adept",
@@ -445,39 +447,41 @@
     },
     {
       "talent_id": "runemaster_glyphic_silencing_rune",
-      "name": "Silencing Rune",
-      "description": "Learn Silencing Rune, a ground area that activates after a delay and silences enemies inside.",
-      "node_type": "active",
+      "name": "Silent Script",
+      "description": "Ley Lock's cooldown is 1 turn shorter.",
+      "node_type": "passive",
       "tier": 3,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 4,
       "hex_y": 0,
       "effects": {
-        "unlock_ability": "runemaster_silencing_rune"
+        "ability_runemaster_ley_lock_cooldown": 1
       },
       "connected_to": [
         "runemaster_glyphic_thaumaturgy"
       ],
-      "_source": "CoA handoff doc confirmed as a real school-lock/AoE-silence tool: 'Ground area, activates after a delay: silences enemies inside.'"
+      "_source": "CoA handoff doc confirmed as a real school-lock/AoE-silence tool: 'Ground area, activates after a delay: silences enemies inside.'",
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "runemaster_glyphic_rune_master",
       "name": "Rune Master",
-      "description": "Empower your casting, increasing haste and damage but raising costs, while draining mana. Cannot move while active.",
-      "node_type": "active",
+      "description": "Your spells have 3% more critical strike chance.",
+      "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": 4,
       "effects": {
-        "unlock_ability": "runemaster_rune_master"
+        "crit_chance_spell": 3.0
       },
       "connected_to": [
         "runemaster_glyphic_manuscription"
       ],
-      "_source": "CoA handoff doc: 'Empowers casting (haste+damage up, cost up) while draining mana; can't move; scales with active-cast dealing damage.' A real channel-style burst cooldown."
+      "_source": "CoA handoff doc: 'Empowers casting (haste+damage up, cost up) while draining mana; can't move; scales with active-cast dealing damage.' A real channel-style burst cooldown.",
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "runemaster_glyphic_scroll_of_magic",

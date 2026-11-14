@@ -2427,8 +2427,15 @@ class Character(StatusEffectMixin):
             return
         known = {a.ability_id for a in self.ability_book.get_all_abilities()}
         learned = {a.ability_id for a in self.get_learned_abilities()}
+        # Abilities taken out in the spellbook refine pass (data/reference/retired_abilities.json, Kyle
+        # 14 Nov 2026: "we don't need every single ability"). An old save can still have one
+        # slotted; it is not in the book any more, so it goes too.
+        retired = _retired_ability_ids()
         for slots in (self.hotbar, getattr(self, "extra_slots", None) or []):
             for i, aid in enumerate(slots):
+                if aid and aid in retired:
+                    slots[i] = None
+                    continue
                 if aid and aid in known and aid not in learned:
                     slots[i] = None
                     if hasattr(self, "hotbar_autofilled_ids"):
@@ -4799,3 +4806,21 @@ class Character(StatusEffectMixin):
             consumable, duration = self.oil_buff
             new_duration = duration - dt
             self.oil_buff = None if new_duration <= 0 else (consumable, new_duration)
+
+
+_RETIRED_IDS = None
+
+
+def _retired_ability_ids():
+    """Ability ids taken out of the game (data/reference/retired_abilities.json). Empty set if unreadable."""
+    global _RETIRED_IDS
+    if _RETIRED_IDS is None:
+        import json
+        from pathlib import Path
+        try:
+            doc = json.loads((Path(__file__).resolve().parent.parent / "data" / "reference" / "retired_abilities.json")
+                             .read_text(encoding="utf-8"))
+            _RETIRED_IDS = frozenset(doc.get("ids") or {})
+        except (OSError, ValueError):
+            _RETIRED_IDS = frozenset()
+    return _RETIRED_IDS
