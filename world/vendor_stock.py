@@ -25,6 +25,29 @@ same bug again; added here, it is right everywhere at once.
 """
 
 
+_UNIQUES = None
+
+
+def make_unique(unique_id):
+    """A fresh copy of one hand-made item from data/items/secret_uniques.json, or None."""
+    global _UNIQUES
+    if _UNIQUES is None:
+        import json
+        from pathlib import Path
+        path = Path(__file__).resolve().parent.parent / "data" / "items" / "secret_uniques.json"
+        try:
+            _UNIQUES = json.loads(path.read_text(encoding="utf-8")).get("items", {})
+        except (OSError, ValueError):
+            _UNIQUES = {}
+    d = _UNIQUES.get(unique_id)
+    if d is None:
+        return None
+    from entities.boss_loot import _item_from_def
+    item = _item_from_def(d)
+    item.vendor_price = d.get("price")
+    return item
+
+
 def resolve_vendor_item(item_id, consumable_manager=None, gathering_manager=None,
                         loot_generator=None):
     """Turn one `sells` id into a real item, or None if nothing answers to it.
@@ -49,6 +72,11 @@ def resolve_vendor_item(item_id, consumable_manager=None, gathering_manager=None
     # crafting reagent rather than a consumable is the normal case here,
     # not an error. Probing with get_consumable printed one false warning
     # per reagent (~190 per vendor open).
+    # ONE OF A KIND (world/secrets.py's hidden sellers): a hand-made item from
+    # data/items/secret_uniques.json, the same shape as a boss's fixed drop.
+    if isinstance(item_id, str) and item_id.startswith("unique:"):
+        return make_unique(item_id[len("unique:"):])
+
     if consumable_manager.has_consumable(item_id):
         return consumable_manager.get_consumable(item_id, quantity=1)
 

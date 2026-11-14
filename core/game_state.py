@@ -445,6 +445,11 @@ class GameStateManager:
             chests.load_dict((world or {}).get("chests"))
             chests.apply_to_world({n: (e["tilemap"] if isinstance(e, dict) else e)
                                    for n, e in zone_manager.zones.items()})
+            # Secrets this character has found: the map stops lying about those, and only those.
+            from world.secrets import get_secrets
+            get_secrets().load_dict((world or {}).get("secrets"),
+                                    {n: (e["tilemap"] if isinstance(e, dict) else e)
+                                     for n, e in zone_manager.zones.items()})
         if world and zone_manager:
             if not zone_manager.transition_to_zone(
                     world.get("zone"), world.get("x"), world.get("y")):

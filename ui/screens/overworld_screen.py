@@ -987,6 +987,10 @@ class OverworldScreen(BaseScreen):
             if moved:
                 from world.travel_manager import get_travel_manager
                 self.movement_cooldown = 0.1 / get_travel_manager().speed_mult()  # 100ms/tile on foot, faster mounted
+                found = getattr(self.zone_manager, "last_secret_found", None)
+                if found:
+                    self.zone_manager.last_secret_found = None
+                    self._notify(found, (230, 200, 120))
                 self.seconds_since_last_move = 0.0
 
                 # Out-of-combat resource regen/decay, once per tile actually

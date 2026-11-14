@@ -126,6 +126,8 @@ def main():
     wanted = all_recipes_by_source("vendor")
     counts, unmatched = {}, []
     for rid, (prof, r) in sorted(wanted.items(), key=lambda kv: kv[1][1].get("skill_required", 0)):
+        if r.get("secret"):
+            continue    # sold only by its hidden seller (tools/build_secrets.py), never in town
         skill = r.get("skill_required", 0)
         level = max(1, skill // 5)
         v, how = pick_vendor(vendors, prof, r.get("name", rid), level)

@@ -6734,6 +6734,176 @@
             "rarity": "epic",
             "material_tier": "voidweave"
           }
+        },
+        "secret_brill_grisle_tail_wool_belt": {
+          "name": "Grisle's Wool Belt",
+          "inputs": {
+            "bolt_wool": 2,
+            "thread_coarse": 1
+          },
+          "skill_required": 60,
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 17,
+            "rarity": "rare",
+            "material_tier": "wool"
+          },
+          "skill_range": [
+            65,
+            75,
+            85,
+            95
+          ],
+          "source": "vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_brill_grisle"
+          ]
+        },
+        "secret_ratchet_lissa_tai_blazethread_robes": {
+          "name": "Undertow's Blazethread Robes",
+          "skill_required": 95,
+          "skill_range": [
+            100,
+            110,
+            120,
+            130
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_silk": 4,
+            "thread_coarse": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 22,
+            "rarity": "rare",
+            "material_tier": "silk"
+          },
+          "drop_zone": "Ragefire Chasm",
+          "secret": true,
+          "sold_by": [
+            "secret_ratchet_lissa"
+          ]
+        },
+        "secret_sepulcher_ashmund_tail_wool_hood": {
+          "name": "Ashmund's Wool Hood",
+          "inputs": {
+            "bolt_wool": 3,
+            "thread_coarse": 1
+          },
+          "skill_required": 80,
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 21,
+            "rarity": "rare",
+            "material_tier": "wool"
+          },
+          "skill_range": [
+            85,
+            95,
+            105,
+            115
+          ],
+          "source": "vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_sepulcher_ashmund"
+          ]
+        },
+        "secret_tarrenmill_calloway_tai_silverpine_mournerobe": {
+          "name": "Calloway's Silverpine Mournerobe",
+          "skill_required": 135,
+          "skill_range": [
+            140,
+            150,
+            160,
+            170
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_spidersilk": 6,
+            "thread_fine": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 30,
+            "rarity": "rare",
+            "material_tier": "spidersilk"
+          },
+          "vendor_location": "The Sepulcher",
+          "secret": true,
+          "sold_by": [
+            "secret_tarrenmill_calloway"
+          ]
+        },
+        "secret_echo_zenji_tail_wool_gloves": {
+          "name": "Zenji's Wool Gloves",
+          "inputs": {
+            "bolt_wool": 3,
+            "thread_coarse": 1
+          },
+          "skill_required": 70,
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 19,
+            "rarity": "rare",
+            "material_tier": "wool"
+          },
+          "skill_range": [
+            75,
+            85,
+            95,
+            105
+          ],
+          "source": "vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_echo_zenji"
+          ]
+        },
+        "secret_kael_lirael_p300_ta_emberweave_head": {
+          "name": "Sunstrand's Emberweave Hood",
+          "skill_required": 185,
+          "skill_range": [
+            190,
+            200,
+            210,
+            220
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_emberweave": 6,
+            "thread_fine": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 40,
+            "rarity": "epic",
+            "material_tier": "emberweave"
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_kael_lirael"
+          ]
         }
       }
     },
@@ -11719,6 +11889,126 @@
             "rarity": "epic",
             "material_tier": "stormoak"
           }
+        },
+        "secret_taurajo_brannoch_ww_venom_stave": {
+          "name": "Brannoch's Venomwood Staff",
+          "skill_required": 120,
+          "skill_range": [
+            125,
+            135,
+            145,
+            155
+          ],
+          "source": "vendor",
+          "inputs": {
+            "plank_ironbark": 4,
+            "glue": 1,
+            "stick_hardened": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "main_hand",
+            "weapon_type": "staff",
+            "stat_template": "int_caster",
+            "item_level": 27,
+            "rarity": "epic",
+            "material_tier": "ironbark"
+          },
+          "drop_zone": "Widow's Lair",
+          "secret": true,
+          "sold_by": [
+            "secret_taurajo_brannoch"
+          ]
+        },
+        "secret_splinter_grokka_ww_bramblewood_staff": {
+          "name": "Quiet's Bramblewood Staff",
+          "inputs": {
+            "plank_bramblewood": 6,
+            "fiber_tough": 3,
+            "glue": 1,
+            "stick_hardened": 1
+          },
+          "skill_required": 125,
+          "output": {
+            "kind": "weapon",
+            "slot": "main_hand",
+            "weapon_type": "staff",
+            "stat_template": "int_caster",
+            "item_level": 30,
+            "rarity": "rare",
+            "material_tier": "ironbark"
+          },
+          "skill_range": [
+            130,
+            140,
+            150,
+            160
+          ],
+          "source": "vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_splinter_grokka"
+          ]
+        },
+        "secret_gromgol_zuni_ww_staff_spi_heavy": {
+          "name": "Hushfang's Lifebark Staff",
+          "skill_required": 170,
+          "skill_range": [
+            175,
+            185,
+            195,
+            205
+          ],
+          "source": "vendor",
+          "inputs": {
+            "plank_ironbark": 5,
+            "resin": 1,
+            "stick_hardened": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "main_hand",
+            "weapon_type": "staff",
+            "stat_template": "spi_healer",
+            "item_level": 37,
+            "rarity": "epic",
+            "material_tier": "ironbark"
+          },
+          "vendor_location": "Any pattern vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_gromgol_zuni"
+          ]
+        },
+        "secret_freewind_talo_ww_staff_spi_heavy": {
+          "name": "Skyhide's Lifebark Staff",
+          "skill_required": 170,
+          "skill_range": [
+            175,
+            185,
+            195,
+            205
+          ],
+          "source": "vendor",
+          "inputs": {
+            "plank_ironbark": 5,
+            "resin": 1,
+            "stick_hardened": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "main_hand",
+            "weapon_type": "staff",
+            "stat_template": "spi_healer",
+            "item_level": 37,
+            "rarity": "epic",
+            "material_tier": "ironbark"
+          },
+          "vendor_location": "Any pattern vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_freewind_talo"
+          ]
         }
       }
     },
@@ -13814,6 +14104,152 @@
             "rarity": "epic",
             "material_tier": "elementium"
           }
+        },
+        "secret_uc_edwin_eng_trinket_pocket_orrery": {
+          "name": "Edwin's Pocket Orrery",
+          "skill_required": 60,
+          "skill_range": [
+            65,
+            75,
+            85,
+            95
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_bronze": 3,
+            "part_gear_assembly": 1,
+            "crystal_azure": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "int_caster",
+            "item_level": 15,
+            "rarity": "rare",
+            "material_tier": "bronze"
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_uc_edwin"
+          ]
+        },
+        "secret_xroads_tazzle_eng_goggles_rangefinder_goggles": {
+          "name": "Tazzle's Rangefinder Goggles",
+          "skill_required": 94,
+          "skill_range": [
+            99,
+            109,
+            119,
+            129
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_iron": 3,
+            "part_sight_glass": 2,
+            "part_bronze_framework": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "mail",
+            "stat_template": "agi_physical",
+            "item_level": 21,
+            "rarity": "rare",
+            "material_tier": "iron"
+          },
+          "vendor_location": "Any pattern vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_xroads_tazzle"
+          ]
+        },
+        "secret_ratchet_lissa_eng_goggles_rangefinder_goggles": {
+          "name": "Undertow's Rangefinder Goggles",
+          "skill_required": 94,
+          "skill_range": [
+            99,
+            109,
+            119,
+            129
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_iron": 3,
+            "part_sight_glass": 2,
+            "part_bronze_framework": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "mail",
+            "stat_template": "agi_physical",
+            "item_level": 21,
+            "rarity": "rare",
+            "material_tier": "iron"
+          },
+          "vendor_location": "Any pattern vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_ratchet_lissa"
+          ]
+        },
+        "secret_bootybay_vell_eng300_mithril_field_goggles": {
+          "name": "Vell's Mithril Field Goggles",
+          "skill_required": 205,
+          "skill_range": [
+            210,
+            220,
+            230,
+            240
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_mithril": 4,
+            "part_glass_lens": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "mail",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 44,
+            "rarity": "epic",
+            "material_tier": "mithril"
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_bootybay_vell"
+          ]
+        },
+        "secret_stw_fizzby_eng300_voidglass_targeting_scope": {
+          "name": "Crankloot's Voidglass Targeting Scope",
+          "skill_required": 220,
+          "skill_range": [
+            225,
+            235,
+            245,
+            255
+          ],
+          "source": "vendor",
+          "inputs": {
+            "crystal_voidglass": 2,
+            "bar_mithril": 2,
+            "part_precision_sight": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "agi_physical",
+            "item_level": 47,
+            "rarity": "epic",
+            "material_tier": "voidglass"
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_stw_fizzby"
+          ]
         }
       }
     },

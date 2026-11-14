@@ -1,5 +1,5 @@
 {
-  "_comment": "Leatherworking recipes. Leather drops directly from beasts via Skinning (entities/skinning_drops.py) \u2014 it is NOT processed like ore->bar. Leatherworking uses the raw leather (and hides/armor kits as intermediates) to craft gear. Recipe structure mirrors blacksmithing_manager.py: 'armor' kind outputs go through LootGenerator.generate_armor_piece, 'material' kind outputs are stackable materials (armor kits, upgrade kits). WoW Classic bracket: Apprentice 1-75 (scrap/light), Journeyman 75-150 (medium/heavy), Expert 150-225 (thick/rugged + Frontier tiers 7-10), Artisan 225-300 (Frontier tiers 11-18). Stat templates: LW gear is mail armor, agility-focused for hunters/shaman. Every output carries 'material_tier' for upgrade kit matching (upgrade_manager.py).",
+  "_comment": "Leatherworking recipes. Leather drops directly from beasts via Skinning (entities/skinning_drops.py) — it is NOT processed like ore->bar. Leatherworking uses the raw leather (and hides/armor kits as intermediates) to craft gear. Recipe structure mirrors blacksmithing_manager.py: 'armor' kind outputs go through LootGenerator.generate_armor_piece, 'material' kind outputs are stackable materials (armor kits, upgrade kits). WoW Classic bracket: Apprentice 1-75 (scrap/light), Journeyman 75-150 (medium/heavy), Expert 150-225 (thick/rugged + Frontier tiers 7-10), Artisan 225-300 (Frontier tiers 11-18). Stat templates: LW gear is mail armor, agility-focused for hunters/shaman. Every output carries 'material_tier' for upgrade kit matching (upgrade_manager.py).",
   "recipes": {
     "lw_light_armor_kit": {
       "name": "Light Armor Kit",
@@ -5006,6 +5006,232 @@
         "rarity": "epic",
         "material_tier": "frostscale"
       }
+    },
+    "secret_brill_grisle_lw_light_leather_vest": {
+      "name": "Grisle's Light Leather Vest",
+      "inputs": {
+        "leather_light": 8,
+        "thread_coarse": 1
+      },
+      "skill_required": 60,
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 14,
+        "rarity": "rare",
+        "material_tier": "light"
+      },
+      "skill_range": [
+        65,
+        75,
+        85,
+        95
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_brill_grisle"
+      ]
+    },
+    "secret_org_gashna_lw_verdant_scale_gloves": {
+      "name": "Two-Coins's Verdant Scale Gloves",
+      "skill_required": 90,
+      "skill_range": [
+        95,
+        105,
+        115,
+        125
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_heavy": 6,
+        "thread_coarse": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 21,
+        "rarity": "rare",
+        "material_tier": "heavy"
+      },
+      "drop_zone": "Wailing Caverns",
+      "secret": true,
+      "sold_by": [
+        "secret_org_gashna"
+      ]
+    },
+    "secret_taurajo_brannoch_lw_venom_sac_spaulders": {
+      "name": "Brannoch's Venom Sac Spaulders",
+      "skill_required": 120,
+      "skill_range": [
+        125,
+        135,
+        145,
+        155
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_cragscale": 7,
+        "thread_fine": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "shoulder",
+        "armor_type": "leather",
+        "stat_template": "str_int_hybrid",
+        "item_level": 27,
+        "rarity": "epic",
+        "material_tier": "cragscale"
+      },
+      "drop_zone": "Widow's Lair",
+      "secret": true,
+      "sold_by": [
+        "secret_taurajo_brannoch"
+      ]
+    },
+    "secret_sepulcher_ashmund_lw_medium_leather_belt": {
+      "name": "Ashmund's Medium Leather Belt",
+      "inputs": {
+        "leather_medium": 5,
+        "thread_coarse": 1
+      },
+      "skill_required": 85,
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 21,
+        "rarity": "rare",
+        "material_tier": "medium"
+      },
+      "skill_range": [
+        90,
+        100,
+        110,
+        120
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_sepulcher_ashmund"
+      ]
+    },
+    "secret_hammerfall_mog_p300_le_fiendish_head": {
+      "name": "Halfear's Fiendish Helm",
+      "skill_required": 185,
+      "skill_range": [
+        190,
+        200,
+        210,
+        220
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_fiendish": 6,
+        "thread_fine": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 40,
+        "rarity": "epic",
+        "material_tier": "fiendish"
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_hammerfall_mog"
+      ]
+    },
+    "secret_gromgol_zuni_p300_le_dredged_waist": {
+      "name": "Hushfang's Dredged Belt",
+      "skill_required": 170,
+      "skill_range": [
+        175,
+        185,
+        195,
+        205
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_dredged": 4,
+        "thread_fine": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "mail",
+        "stat_template": "spi_healer",
+        "item_level": 37,
+        "rarity": "epic",
+        "material_tier": "dredged"
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_gromgol_zuni"
+      ]
+    },
+    "secret_freewind_talo_p300_le_dredged_waist": {
+      "name": "Skyhide's Dredged Belt",
+      "skill_required": 170,
+      "skill_range": [
+        175,
+        185,
+        195,
+        205
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_dredged": 4,
+        "thread_fine": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "armor_type": "mail",
+        "stat_template": "spi_healer",
+        "item_level": 37,
+        "rarity": "epic",
+        "material_tier": "dredged"
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_freewind_talo"
+      ]
+    },
+    "secret_echo_zenji_lw_light_leather_helm": {
+      "name": "Zenji's Light Leather Helm",
+      "inputs": {
+        "leather_light": 6,
+        "thread_coarse": 1
+      },
+      "skill_required": 70,
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "leather",
+        "stat_template": "agi_physical",
+        "item_level": 15,
+        "rarity": "rare",
+        "material_tier": "light"
+      },
+      "skill_range": [
+        75,
+        85,
+        95,
+        105
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_echo_zenji"
+      ]
     }
   }
 }

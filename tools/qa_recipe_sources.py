@@ -94,7 +94,10 @@ def main():
         x, y = v["x"], v["y"]
         blocked = [(x + dx, y + dy) for dx in (-1, 0, 1) for dy in (-1, 0, 1)
                    if not tm.is_walkable(x + dx, y + dy)]
-        if blocked:
+        # The secret sellers (tools/build_secrets.py) stand behind buildings and inside walls on
+        # purpose, so a wall beside them is the point; tools/qa_secrets.py checks they can be
+        # walked to instead.
+        if blocked and not v["vendor_id"].startswith("secret_"):
             fails.append(f"hidden vendor {v['name']} at ({x},{y}) in {zone} has unwalkable tiles "
                          f"around them: {blocked}")
 
@@ -109,6 +112,8 @@ def main():
     # ALL crafting". The sawmill (woodcutting) is processing, like smelting, and stays taught.
     share = {}
     for rid, (prof, r) in recipes.items():
+        if r.get("secret"):
+            continue    # a hidden seller's recipe is an extra on top of the trade, not part of its split
         t = share.setdefault(prof, [0, 0])
         t[0] += 1
         t[1] += r.get("source", "trainer") == "trainer"

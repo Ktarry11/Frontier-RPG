@@ -3899,6 +3899,126 @@
         315
       ],
       "source": "drop"
+    },
+    "secret_xroads_tazzle_jc_ring_silver_agi_physical": {
+      "name": "Tazzle's Garnet Band",
+      "inputs": {
+        "setting_ring_silver": 1,
+        "bar_silver": 1,
+        "gem_garnet": 1
+      },
+      "skill_required": 95,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "agi_physical",
+        "item_level": 27,
+        "rarity": "rare",
+        "material_tier": "silver"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        95,
+        105,
+        115,
+        125
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_xroads_tazzle"
+      ]
+    },
+    "secret_astranaar_sevalis_jc_ring_silver_spi_healer": {
+      "name": "Moonwhisper's Lesser Moonstone Circle",
+      "inputs": {
+        "setting_ring_silver": 1,
+        "bar_silver": 1,
+        "gem_lesser_moonstone": 1
+      },
+      "skill_required": 105,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "spi_healer",
+        "item_level": 29,
+        "rarity": "rare",
+        "material_tier": "silver"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        105,
+        115,
+        125,
+        135
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_astranaar_sevalis"
+      ]
+    },
+    "secret_bootybay_vell_jc_ring_mithril_spi_healer": {
+      "name": "Vell's Aquamarine Circle",
+      "inputs": {
+        "setting_ring_mithril": 1,
+        "bar_mithril": 1,
+        "gem_aquamarine": 1
+      },
+      "skill_required": 210,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "spi_healer",
+        "item_level": 49,
+        "rarity": "rare",
+        "material_tier": "mithril"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        210,
+        220,
+        230,
+        240
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_bootybay_vell"
+      ]
+    },
+    "secret_onyx_dagna_jc_ring_truesilver_spi_healer": {
+      "name": "Coalbeard's Blue Sapphire Circle",
+      "inputs": {
+        "setting_ring_truesilver": 1,
+        "bar_truesilver": 1,
+        "gem_blue_sapphire": 2
+      },
+      "skill_required": 255,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "spi_healer",
+        "item_level": 57,
+        "rarity": "epic",
+        "material_tier": "truesilver"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        255,
+        265,
+        275,
+        285
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_onyx_dagna"
+      ]
     }
   }
 }

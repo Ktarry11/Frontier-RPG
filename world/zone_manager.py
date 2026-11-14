@@ -107,6 +107,12 @@ class ZoneManager:
         self.props_cleared_off_props = sum(
             clear_props_through_props(entry["tilemap"]) for entry in self.zones.values())
 
+        # Hidden paths, hidden sellers, one-time caches and the map's lies about them
+        # (world/secrets.py). Last, so nothing above moves a cache or a passage after it is laid.
+        from world.secrets import get_secrets
+        get_secrets().apply_all({name: entry["tilemap"] for name, entry in self.zones.items()})
+        self.last_secret_found = None
+
         # Start player in the default start zone (world/start_zones.py). ZoneManager is built once per
         # process, before any character exists, so there is nothing to ask here - the real choice is
         # applied by reset_to_start() when a character is created.
@@ -268,11 +274,17 @@ class ZoneManager:
         
         # Check collision layer
         collision = self.current_zone.get_tile(new_x, new_y, "collision")
-        if collision:
+        if collision and (new_x, new_y) not in getattr(self.current_zone, "secret_walkable", ()):
             return False
         
         self.player_x = new_x
         self.player_y = new_y
+
+        # A secret's ground, stood on for the first time (world/secrets.py).
+        from world.secrets import get_secrets
+        found = get_secrets().on_step(self.current_zone, new_x, new_y)
+        if found:
+            self.last_secret_found = found
 
         # Hearthstone cooldown is counted in overworld steps.
         from world.travel_manager import get_travel_manager
@@ -977,6 +989,9 @@ class ZoneManager:
         if not self.current_zone:
             return None
         x, y = chest_pos
+        from world.secrets import get_secrets
+        if get_secrets().is_cache(self.current_zone.name, x, y):
+            return self.chest_manager.open_secret_cache(self.current_zone, x, y, player_level)
         is_boss = self._is_boss_chest(x, y)
         return self.chest_manager.open_chest(
             self.current_zone, x, y, player_level, is_boss_chest=is_boss

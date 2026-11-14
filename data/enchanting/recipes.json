@@ -4625,6 +4625,105 @@
         240
       ],
       "source": "vendor"
+    },
+    "secret_splinter_grokka_ench_greater_magic_wand": {
+      "name": "Quiet's Greater Magic Wand",
+      "inputs": {
+        "plank_oakheart": 1,
+        "greater_magic_essence": 1
+      },
+      "skill_required": 110,
+      "output": {
+        "kind": "weapon",
+        "slot": "ranged",
+        "weapon_type": "wand",
+        "stat_template": "int_caster",
+        "item_level": 19,
+        "rarity": "rare"
+      },
+      "tool": [
+        "runed_silver_rod",
+        "runed_golden_rod",
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        110,
+        120,
+        130,
+        140
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_splinter_grokka"
+      ]
+    },
+    "secret_astranaar_sevalis_ench_greater_magic_wand": {
+      "name": "Moonwhisper's Greater Magic Wand",
+      "inputs": {
+        "plank_oakheart": 1,
+        "greater_magic_essence": 1
+      },
+      "skill_required": 110,
+      "output": {
+        "kind": "weapon",
+        "slot": "ranged",
+        "weapon_type": "wand",
+        "stat_template": "int_caster",
+        "item_level": 19,
+        "rarity": "rare"
+      },
+      "tool": [
+        "runed_silver_rod",
+        "runed_golden_rod",
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        110,
+        120,
+        130,
+        140
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_astranaar_sevalis"
+      ]
+    },
+    "secret_kael_lirael_ench_greater_mystic_wand": {
+      "name": "Sunstrand's Greater Mystic Wand",
+      "inputs": {
+        "plank_duskwood": 1,
+        "greater_mystic_essence": 1,
+        "vision_dust": 1
+      },
+      "skill_required": 175,
+      "output": {
+        "kind": "weapon",
+        "slot": "ranged",
+        "weapon_type": "wand",
+        "stat_template": "int_caster",
+        "item_level": 37,
+        "rarity": "rare"
+      },
+      "tool": [
+        "runed_golden_rod",
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        175,
+        185,
+        195,
+        205
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_kael_lirael"
+      ]
     }
   }
 }

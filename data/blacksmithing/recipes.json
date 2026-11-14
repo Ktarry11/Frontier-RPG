@@ -5872,6 +5872,180 @@
       ],
       "source": "vendor",
       "_source": "Enchanting rods (tools/build_enchanting.py). Kyle, 14 Nov 2026: rods will be made by Blacksmiths or sold by vendors."
+    },
+    "secret_uc_edwin_bs_copper_runic_coif": {
+      "name": "Edwin's Copper Runic Coif",
+      "skill_required": 60,
+      "skill_range": [
+        65,
+        75,
+        85,
+        95
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_copper": 8,
+        "flux_weak": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 15,
+        "rarity": "rare",
+        "material_tier": "copper"
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_uc_edwin"
+      ]
+    },
+    "secret_org_gashna_bs_warsong_mail_helm": {
+      "name": "Two-Coins's Warsong Chain Coif",
+      "skill_required": 90,
+      "skill_range": [
+        95,
+        105,
+        115,
+        125
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_copper": 10,
+        "flux_weak": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 21,
+        "rarity": "rare",
+        "material_tier": "copper"
+      },
+      "vendor_location": "Orgrimmar",
+      "secret": true,
+      "sold_by": [
+        "secret_org_gashna"
+      ]
+    },
+    "secret_tarrenmill_calloway_bs_thunderfist_gauntlets": {
+      "name": "Calloway's Thunderfist Gauntlets",
+      "skill_required": 135,
+      "skill_range": [
+        140,
+        150,
+        160,
+        170
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 10,
+        "flux_medium": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 30,
+        "rarity": "rare",
+        "material_tier": "bronze"
+      },
+      "vendor_location": "The Crossroads",
+      "secret": true,
+      "sold_by": [
+        "secret_tarrenmill_calloway"
+      ]
+    },
+    "secret_hammerfall_mog_bs_razortusk_2h_axe": {
+      "name": "Halfear's Razortusk Cleaver",
+      "skill_required": 185,
+      "skill_range": [
+        190,
+        200,
+        210,
+        220
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 20,
+        "flux_medium": 1,
+        "whetstone": 1
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "axe_2h",
+        "stat_template": "str_physical",
+        "item_level": 40,
+        "rarity": "epic",
+        "material_tier": "bronze"
+      },
+      "drop_zone": "Razorfen Kraul",
+      "secret": true,
+      "sold_by": [
+        "secret_hammerfall_mog"
+      ]
+    },
+    "secret_stw_fizzby_bs300_deepearth_head": {
+      "name": "Crankloot's Deepearth Coif",
+      "skill_required": 220,
+      "skill_range": [
+        225,
+        235,
+        245,
+        255
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_deepearth": 6,
+        "flux_strong": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 47,
+        "rarity": "epic",
+        "material_tier": "deepearth"
+      },
+      "vendor_location": "Any pattern vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_stw_fizzby"
+      ]
+    },
+    "secret_onyx_dagna_bs300_thorium_polearm": {
+      "name": "Coalbeard's Thorium Halberd",
+      "skill_required": 265,
+      "skill_range": [
+        270,
+        280,
+        290,
+        300
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_thorium": 10,
+        "flux_strong": 1,
+        "whetstone": 1
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "two_hand",
+        "weapon_type": "polearm",
+        "stat_template": "str_physical",
+        "item_level": 56,
+        "rarity": "rare",
+        "material_tier": "thorium"
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_onyx_dagna"
+      ]
     }
   }
 }

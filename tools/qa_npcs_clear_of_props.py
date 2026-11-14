@@ -42,11 +42,16 @@ def main():
         from world.portal_art import is_entrance_art
         zm = ZoneManager()
     bad, on_buildings, npcs = [], [], 0
+    # A HIDDEN SELLER (world/secrets.py) stands behind a building on purpose. Kyle, 14 Nov: "people
+    # behind buildings and exploration is rewarded."
+    hidden = {(v.zone, v.x, v.y) for v in zm.vendor_manager.vendors.values() if getattr(v, "hidden", False)}
     for name, entry in zm.zones.items():
         tm = entry["tilemap"]
         for y, row in enumerate(tm.interaction_layer):
             for x, kind in enumerate(row):
                 if kind != "npc":
+                    continue
+                if any((z, x, y) in hidden for z in (name, name.lower().replace(" ", "_"))):
                     continue
                 npcs += 1
                 for lm in tm.landmarks:

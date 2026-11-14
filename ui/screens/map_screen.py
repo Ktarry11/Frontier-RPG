@@ -110,12 +110,18 @@ class MapScreen(BaseScreen):
     def _build_terrain_surface(self, tilemap):
         """Render the whole map to a 1px-per-tile surface, once."""
         surf = pygame.Surface((tilemap.width, tilemap.height))
+        # THE MAP LIES (world/secrets.py). A hidden path and the ground behind it are drawn as
+        # whatever they pretend to be until the player has stood on them.
+        mask = getattr(tilemap, "map_mask", None) or {}
         for y in range(tilemap.height):
             row_base = tilemap.base_layer[y]
             row_coll = tilemap.collision_layer[y]
             for x in range(tilemap.width):
                 coll = row_coll[x]
-                if coll:
+                lie = mask.get((x, y))
+                if lie:
+                    color = self.COLLISION_COLORS.get(lie) or self.TERRAIN_COLORS.get(lie, (72, 68, 66))
+                elif coll:
                     color = self.COLLISION_COLORS.get(coll, (72, 68, 66))
                 else:
                     color = self.TERRAIN_COLORS.get(row_base[x], self.UNKNOWN)
@@ -178,9 +184,11 @@ class MapScreen(BaseScreen):
         screen.blit(ct, ct.get_rect(center=self.close_button.center))
 
         # Terrain (cached per zone)
-        if self._cached_zone != tilemap.name or self._cached_surface is None:
+        # keyed on the mask version too, so a secret found mid-zone redraws the truth
+        key = (tilemap.name, getattr(tilemap, "map_mask_version", 0))
+        if self._cached_zone != key or self._cached_surface is None:
             self._cached_surface = self._build_terrain_surface(tilemap)
-            self._cached_zone = tilemap.name
+            self._cached_zone = key
 
         rect = self._map_rect(tilemap)
         screen.blit(pygame.transform.scale(self._cached_surface, (rect.width, rect.height)),
@@ -300,11 +308,17 @@ class MapScreen(BaseScreen):
             "chest": (230, 150, 60),
             "quest_marker": (110, 210, 230),
         }
+        # Hidden sellers and hidden caches get no dot (world/secrets.py): finding them is the point.
+        from world.secrets import get_secrets
+        unmarked = set(get_secrets().hidden_points(tilemap.name))
+        for v in (getattr(zm, "vendor_manager", None) and zm.vendor_manager.get_vendors_in_zone(tilemap.name) or []):
+            if getattr(v, "hidden", False):
+                unmarked.add((v.x, v.y))
         for y in range(tilemap.height):
             row = tilemap.interaction_layer[y]
             for x in range(tilemap.width):
                 kind = row[x]
-                if kind in poi_colors:
+                if kind in poi_colors and (x, y) not in unmarked:
                     px, py = self._tile_to_screen(tilemap, rect, x, y)
                     pygame.draw.circle(screen, poi_colors[kind], (px, py), 4)
                     pygame.draw.circle(screen, (20, 20, 20), (px, py), 4, 1)
@@ -352,6 +366,8 @@ class MapScreen(BaseScreen):
         markers = {"inn": set(), "ride": set(), "flight": set(), "class": set(), "prof": set(),
                    "forge": set(), "sawmill": set(), "shop": set()}
         for npc in service_npcs:
+            if getattr(npc, "hidden", False):
+                continue
             svcs = services_for_npc(npc)
             for svc in svcs:
                 kind = {"inn": "inn", "riding": "ride", "mounts": "ride", "flight": "flight",

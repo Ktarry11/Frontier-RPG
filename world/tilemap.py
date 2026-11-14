@@ -18,6 +18,10 @@ class Tilemap:
         self.visual_layer = [[None for _ in range(width)] for _ in range(height)]
         self.collision_layer = [[None for _ in range(width)] for _ in range(height)]
         self.interaction_layer = [[None for _ in range(width)] for _ in range(height)]
+        # HIDDEN PATHS (world/secrets.py): tiles that are drawn as rock, trees or a wall and can
+        # be walked through anyway. Kyle, 14 Nov: "pathways on maps that look like they can't be
+        # walked through, but they can." The art is untouched; only walking is.
+        self.secret_walkable = set()
 
         # Named subzone regions within this map.
         # Until now "subzones" existed ONLY as encounter-table keys in
@@ -419,6 +423,8 @@ class Tilemap:
         # Every collision tile in the game did the opposite of its job.
         # A tile on the collision layer blocks unless its own flag says it
         # can be walked through (bushes = passable undergrowth).
+        if (x, y) in getattr(self, "secret_walkable", ()):
+            return True
         collision_tile = self.collision_layer[y][x]
         if collision_tile:
             return is_walkable(collision_tile)

@@ -1081,8 +1081,51 @@ class TilemapRenderer:
                     rect = pygame.Rect(screen_x, screen_y, self.tile_size, self.tile_size)
                     pygame.draw.rect(screen, (200, 60, 60), rect)  # dull red = trash mob
 
+        # BEHIND A BUILDING. Every character is drawn after every landmark, so somebody standing in
+        # the ground a building's picture covers used to stand on its roof. Kyle, 14 Nov: "people
+        # behind buildings and exploration is rewarded." A building is drawn again, over the top, when
+        # a hidden seller or a hidden cache is behind it (world/secrets.py), so they really are hidden;
+        # and see-through when the player is behind it, so you can still see yourself back there.
+        self._draw_occluders(screen, camera, viewport_rect, tilemap, player_pos, vendors)
+
         # Draw viewport border
         pygame.draw.rect(screen, (100, 150, 100), viewport_rect, 2)
+
+    def _draw_occluders(self, screen, camera, viewport_rect, tilemap, player_pos, vendors):
+        from world import npc_clearance as NC
+        from world.secrets import get_secrets
+        hide = {(v.x, v.y) for v in (vendors or []) if getattr(v, "hidden", False)}
+        hide |= get_secrets().hidden_points(tilemap.name)
+        me = tuple(player_pos) if player_pos else None
+        if not hide and me is None:
+            return
+        for lm in getattr(tilemap, "landmarks", []):
+            if lm.get("rotation"):
+                continue
+            ax, ay, w, h = lm["anchor_x"], lm["anchor_y"], lm["width_tiles"], lm["height_tiles"]
+            inside = lambda p: ax <= p[0] < ax + w and ay <= p[1] < ay + h - 1  # noqa: E731
+            hides = [p for p in hide if inside(p)]
+            mine = me is not None and inside(me)
+            if not hides and not mine:
+                continue
+            if not NC.is_building(lm):
+                continue
+            if mine and NC.covered(lm, *me) < 0.5:
+                mine = False
+            if not hides and not mine:
+                continue
+            sx, sy = camera.world_to_screen(ax, ay, self.tile_size)
+            sx += viewport_rect.x
+            sy += viewport_rect.y
+            sprite = get_landmark_sprite(lm["sprite_key"], w * self.tile_size, h * self.tile_size)
+            if sprite is None:
+                continue
+            if mine:
+                # you're back here too: the building goes see-through, so you can see yourself,
+                # and whoever else has been hiding behind it
+                sprite = sprite.copy()
+                sprite.set_alpha(150)
+            screen.blit(sprite, (sx, sy))
     
     #: How far a ground-matched sprite is pulled toward the colour of what it stands on. Not all
     #: the way: it should look like it belongs to the place, not like it is made of the floor.

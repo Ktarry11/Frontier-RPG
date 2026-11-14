@@ -239,6 +239,16 @@ class ChestManager:
     # nodes once they stop re-rolling, etc).
     # ------------------------------------------------------------------
 
+    def open_secret_cache(self, tilemap, x, y, player_level):
+        """A hidden cache (world/secrets.py): opens once, always holds something good, never returns."""
+        key = (tilemap.name, x, y)
+        if key in self._looted:
+            return None
+        self._looted.add(key)
+        tilemap.set_tile(x, y, None, "interaction")
+        from world.secrets import get_secrets
+        return get_secrets().open_cache(tilemap.name, x, y, player_level)
+
     @staticmethod
     def _now():
         import time
@@ -256,7 +266,11 @@ class ChestManager:
         chance = self.RESPAWN_CHANCE_DUNGEON if is_dungeon else self.RESPAWN_CHANCE_OVERWORLD
         now = self._now()
         back = 0
+        from world.secrets import get_secrets
+        secrets = get_secrets()
         for key in [k for k in self._looted if k[0] == tilemap.name]:
+            if secrets.is_cache(*key):
+                continue        # a hidden cache is found once and never comes back
             if now < self._next_roll.get(key, 0):
                 continue
             if random.random() < chance:

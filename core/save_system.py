@@ -98,6 +98,8 @@ class SaveSystem:
         chests = getattr(zone_manager, "chest_manager", None)
         if chests is not None:
             state["chests"] = chests.to_dict()
+        from world.secrets import get_secrets
+        state["secrets"] = get_secrets().to_dict()
         return state
 
     # ------------------------------------------------------------------

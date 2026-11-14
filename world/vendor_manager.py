@@ -205,6 +205,8 @@ class VendorManager:
                     facing=vendor_def.get("facing", "down"),
                     greeting=vendor_def.get("greeting", ""),
                 )
+                # A hidden seller (world/secrets.py) has no map icon and no dot.
+                vendor.hidden = bool(vendor_def.get("hidden", False))
                 self.vendors[vendor.vendor_id] = vendor
                 
                 # Index by zone
