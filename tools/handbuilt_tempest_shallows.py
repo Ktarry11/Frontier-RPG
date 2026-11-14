@@ -227,6 +227,10 @@ NPC_POSITIONS = {
     "ts_gate_watch": (98, 70),            # watching Khaz Varun's gate from outside it
     "ts_belt_prospector": (126, 50),      # out in the green belt
     "ts_shallows_wader": (160, 68),       # at the head of the strand road
+    "ts_landing_cook": (80, 58),          # the long tent and the pot
+    "ts_landing_medic": (91, 62),         # the doctor from the Likoni ferry
+    "ts_landing_shipwright": (81, 70),    # the saw pit by the jetty
+    "ts_belt_botanist": (150, 45),        # east end of the green belt
 }
 
 CHESTS = [(176, 92), (194, 82), (116, 72), (144, 56), (70, 22), (190, 44), (138, 46)]

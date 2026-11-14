@@ -574,7 +574,12 @@
         "_comment": "Per quest, by shape. Matches the Crimson Codex rates so nothing new needs tuning.",
         "default": 225,
         "boss": 250,
-        "capstones": {}
+        "capstones": {},
+        "zones": [
+          "tempest_shallows",
+          "the_ashen_reach",
+          "cinderwharf"
+        ]
       },
       "kill_rep": {
         "_comment": [
@@ -583,7 +588,17 @@
           "Island wildlife and the deep-volcano elementals pay nothing - farming a corridor must never beat",
           "running a dungeon."
         ],
-        "creatures": {}
+        "creatures": {
+          "Gate-Squatter Brawler": 10,
+          "Gate-Squatter Ashpreacher": 12,
+          "Wreckpicker Murloc": 8,
+          "Stormscale Naga Raider": 10,
+          "Scoria Fire Elemental": 8,
+          "Ventborn Flame Spirit": 8,
+          "Borrik the Unhoused": 60,
+          "Wreck-Captain Vess'ira": 60,
+          "Karrath the Ventlord": 60
+        }
       },
       "dungeon_rep": {
         "_comment": "A dungeon boss kill pays 75 in the dungeons linked to this faction. Trash pays nothing, so the unit of progress is a boss.",
@@ -599,7 +614,18 @@
           "The deep claim at exalted opens the Emberdeep's shortcut permanently, so later runs skip the",
           "first two islands."
         ],
-        "vendor_stock": {},
+        "vendor_stock": {
+          "cw_quartermaster": {
+            "friendly": [
+              "battle_elixir_superior",
+              "guardian_elixir_superior"
+            ],
+            "honored": [
+              "elixir_of_greater_endurance",
+              "bomb_sapper"
+            ]
+          }
+        },
         "quests": {}
       }
     }

@@ -220,6 +220,9 @@ NPC_POSITIONS = {
     "cw_flight_master":        (68, 26),   # the pad, out over the water
     "cw_alchemist":            (62, 60),   # volcanic reagents, by the yard
     "cw_salvage_broker":       (70, 62),   # buys the dungeon's trash, at the cargo
+    "cw_harbourmaster":        (76, 32),   # the berth office on the wharf
+    "cw_archivist":            (22, 22),   # the rolls, beside the hall
+    "cw_claims_clerk":         (50, 46),   # the Merchant House front desk
 }
 
 CHESTS = [(28, 20), (18, 58), (44, 68), (72, 56), (70, 20)]

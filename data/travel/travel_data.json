@@ -391,6 +391,16 @@
         172
       ],
       "continent": "kalimdor"
+    },
+    "cinderwharf": {
+      "name": "Cinderwharf",
+      "zone": "Cinderwharf",
+      "master": "cw_flight_master",
+      "pos": [
+        66,
+        122
+      ],
+      "continent": "eastern_kingdoms"
     }
   },
   "flight_cost": {
@@ -591,6 +601,15 @@
       "inn"
     ],
     "gv_flight_master": [
+      "flight"
+    ],
+    "ts_landing_cook": [
+      "inn"
+    ],
+    "cw_innkeeper": [
+      "inn"
+    ],
+    "cw_flight_master": [
       "flight"
     ]
   }

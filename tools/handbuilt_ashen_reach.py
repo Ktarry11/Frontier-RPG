@@ -216,6 +216,9 @@ NPC_POSITIONS = {
     "ar_coast_surveyor": (44, 86),         # the scoured coast
     "ar_flats_scout": (134, 86),           # the cinder flats
     "ar_gate_factor": (178, 98),           # the goblin factor at Cinderwharf's gate
+    "ar_works_assayer": (72, 116),         # the weigh shed
+    "ar_works_powderman": (87, 130),       # the red shed, away from everything
+    "ar_works_volcanologist": (86, 112),   # the instrument hut on the north edge
 }
 
 CHESTS = [(56, 60), (44, 100), (70, 140), (150, 120), (178, 118), (96, 48), (148, 72)]
