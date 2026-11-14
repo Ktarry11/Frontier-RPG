@@ -232,8 +232,7 @@ def build():
                "You've got timber in the Belt, wrecks at the strand and nothing on the "
                "slope but ash and scorpions.\n\nThat's about what I'd guessed, but now I "
                "can write it down with a clear conscience. My cousin Nix will take the "
-               "figure to the Thane and the Thane will say the island's beyond price. He "
-               "says that every time, and then he signs."))
+               "figure to the Thane and the Thane will say the island's beyond price. He always says that, but he does sign in the end."))
 
     q.append(Q("tmp_preachers_in_the_forecourt", "Preachers in the Forecourt", PIM, 53, 53,
                "khazvarun",
@@ -271,8 +270,7 @@ def build():
                "own tongue while you were putting your pack down, and my whole mouth's "
                "gone numb. That's a real anaesthetic, growing on a tree forty minutes from "
                "my tent.\n\nI spent eleven years on a ferry wishing for better supplies. "
-               "It turns out I needed to come to the other side of the world and ask a "
-               "gorilla."))
+               "I wish I'd had something like this back then."))
 
     q.append(Q("tmp_snapper_fat", "A Dressing That Keeps", IMANI, 53, 53, "landing",
                "Collect Snapper Fat from Shallows Snappers in the Tempest Shallows for Dr. "
@@ -289,7 +287,7 @@ def build():
                "That's lovely clean fat, and there's plenty of it.\n\nI'll melt it down "
                "with the bitterbark and see what I get. If it works I'll have a burn "
                "dressing better than the one I used before I came through, made out of a turtle and a "
-               "tree.\n\nYou've still got all your fingers, I see. Hold onto them."))
+               "tree.\n\nI'm glad to see you came back with all your fingers."))
 
     q.append(Q("tmp_hulls_and_ribs", "Hulls and Ribs", ROZZ, 53, 53, "wreck",
                "Take Seasoned Wreck Timber from the Wreckpicker Murlocs in the Tempest "
@@ -321,7 +319,7 @@ def build():
                "Barge-Eater.\n\nIt lives out in the deep part of the Tempest Shallows, "
                "south-east of here past the last of the wrecks. It doesn't show itself "
                "often, but it does seem to come up for anybody who goes out there hunting "
-               "it. Kill it, or I'm building coffins.",
+               "it. Please kill it, because I can't keep losing crews.",
                "My whole crew watched you drag that claw up the beach, and nobody's done "
                "a stroke of work since.\n\nI'm going to mount it on the bow of the next "
                "hull. The goblins on the wharf will say it's bad luck. I say anything "
@@ -356,13 +354,11 @@ def build():
                "forecourt, and he told the others the city had turned him away. They've "
                "called him Borrik the Unhoused ever since.\n\nHe keeps to the broken "
                "ground south and east of where I'm standing, and he doesn't come out for "
-               "everyone. He'll come out for somebody who's hunting him. I can't leave "
-               "this post and I couldn't do it anyway, because I'd see the mason.",
+               "everyone. He'll come out for somebody who's hunting him. I can't leave this post. I don't think I could do it anyway, because I knew him.",
                "So it's finished, and I'm glad I wasn't the one to see it.\n\nHe built "
                "half the hold at Cinderwharf with his own hands before he went down. I "
                "want that remembered about him, and not the rest.\n\nThe squatters will "
-               "drift without him. Some of them might even walk back up the road. Take "
-               "this, and don't thank me for it."))
+               "drift without him. Some of them might even walk back up the road. Take this for doing it."))
 
     q.append(Q("tmp_whelps_in_the_vents", "Whelps in the Vents", BRON, 54, 54, "khazvarun",
                "Kill Ashwing Whelps on the Scoured Slope, where the old city's vents come out.",
@@ -458,9 +454,7 @@ def build():
                "I walked up after you and the ferns on the lower plot are still "
                "standing.\n\nYou won't think that's much to look at. I can tell you that "
                "in ten years those ferns will be soil, and in fifty that slope will be "
-               "forest, and I'll have written down how it started.\n\nNobody will read "
-               "it in Quito, and I've made my peace with that. Somebody will read it "
-               "here."))
+               "forest, and I'll have written down how it started.\n\nI can't send it to anyone in Quito, but the Ashclaim will keep a copy, and that's good enough for me."))
 
     q.append(Q("tmp_pressed_and_labelled", "Pressed and Labelled", TEODORA, 54, 54, "ashclaim",
                "Carry Teodora's specimen press to Alchemist Pell in Cinderwharf.",
@@ -558,7 +552,7 @@ def build():
                "ship. I used to watch her come in past the ferry.\n\nThe last entry's "
                "the day everything changed. The mate wrote that the coast had gone and "
                "the stars were wrong, and that they were making for the only land "
-               "they could see. That land was this island.",
+               "they could see. They must have meant this island.",
                nxt="tmp_who_was_aboard", turn_in_npc_id=IMANI))
 
     q.append(Q("tmp_who_was_aboard", "Who Was Aboard", IMANI, 55, 55, "wreck",
@@ -616,8 +610,7 @@ def build():
                "So Forge-Lord Darrok was still at it, after all this time.\n\nThe Underwriter will be "
                "delighted that the forge works. I'm less delighted about what it was "
                "being used for. You say the moulds were shaped like dwarves, and I "
-               "believe you.\n\nThat leaves the hall itself. I've been putting off "
-               "saying it aloud.",
+               "believe you.\n\nThat leaves the hall itself, and I haven't wanted to talk about the hall.",
                nxt="tmp_thane_morrun", zone=CW))
 
     q.append(Q("tmp_thane_morrun", "The Thane in the Chair", THANE, 55, 56, "khazvarun",
@@ -700,8 +693,7 @@ def build():
                "The crucibles are whole and the flues draw, and you're telling me "
                "the Great Forge is hot.\n\nThat's better than I'd dared to put in "
                "the prospectus. I'd have settled for four walls and a chimney.\n\n"
-               "I won't ask what Smelter-Master Vaud was smelting. I'll put down "
-               "that the position's vacant.",
+               "I'm not going to ask what Smelter-Master Vaud was smelting in there. I'll just write that the Smelter's ready for a new crew.",
                zone=CW))
 
     q.append(Q("tmp_what_masks_fetch", "What It Fetches on the Mainland", TAZZ, 54, 54,
@@ -735,8 +727,7 @@ def build():
                "stamping engine they call The Crusher, and that it's armoured with "
                "plate taken off the walls. He swears one of those plates carries the "
                "Stonecast mark.\n\nThe Workshop's on the west side of the city, just "
-               "past the Ember Road. I want that breastplate. I can't learn her hand "
-               "from stories.",
+               "past the Ember Road. I want that breastplate. I want to see how she worked, and I can't get that from stories.",
                "Turn it over and let me see under the left arm.\n\nThat's her mark, "
                "three chisel cuts and a dot. She showed it to me in the dirt when I "
                "was small.\n\nLook how she's drawn the edge out thin there and left "
@@ -762,8 +753,7 @@ def build():
                "It's all here, every leaf, and the ring's still closed.\n\nI can "
                "see the Emberholds, the Stonecasts and the Deepveins. Every family "
                "on this wharf swore to the Ashholds, in iron, and now I can show "
-               "it to anyone who asks.\n\nThe Underwriter's going to be very polite "
-               "to me tomorrow. I'm looking forward to it more than I should.",
+               "it to anyone who asks.\n\nThe Underwriter's lawyers have been asking for this for a year, so I'll take it to him tomorrow.",
                zone=CW))
 
     q.append(Q("tmp_what_they_breathed", "What They Breathed", PELL, 54, 54, "khazvarun",

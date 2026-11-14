@@ -143,8 +143,7 @@ def build():
                "who won't sail until it's dead, so I'm asking you.",
                "That's its helm, and it's wearing one of my berth tags as an "
                "earring.\n\nI'll post the news on the wharf tonight and I'll have "
-               "pilots signing on again by morning. The Underwriter's already sent word "
-               "that the berth fees are going up, which is how he says thank you.\n\n"
+               "pilots signing on again by morning. The Underwriter's already sent word that he's pleased, and he's putting the berth fees up as well.\n\n"
                "This is from the harbour office, with my thanks and my pilots'.",
                zone=CW, requires_quests=["tmp_bad_luck_or_bad_seamanship"]))
 
@@ -481,7 +480,7 @@ def build():
                "same moment.\n\nI've walked this ground for two years and I've "
                "never seen it lie still. I'm going to sit down and look at it "
                "for a while.\n\nThe Foreman told me to give you this if you "
-               "came back. She said 'when', and I was the one who said 'if'."))
+               "came back. She was sure you'd be back, and I'm glad she was right."))
 
     q.append(Q("tmp_the_door_was_sealed", "The Door Was Sealed", KETTIL, 57, 57, "emberdeep",
                "Hear what Doorwarden Kettil knows about the Emberdeep, then carry his door "
@@ -560,16 +559,14 @@ def build():
                "shelf of rock just inside the Emberdeep where a party could set "
                "up. The Doorwarden says it's held by a pack of hounds made of "
                "cinders, and that the pack follows one animal. He calls it "
-               "Pack-Alpha Cinderhound, which tells you how much imagination "
-               "the dwarves spend on naming things.\n\nGo out of the town gate "
+               "Pack-Alpha Cinderhound, and I didn't ask him why.\n\nGo out of the town gate "
                "and south-west across the Reach. The door's at the end of the "
                "Emberdeep Approach, east of the Works. Kill the alpha and the "
                "pack should scatter.",
                "So the shelf's clear, and I can put surveyors on it by the end "
                "of the week.\n\nI'll be honest, I expected to be writing you "
                "off as a loss. I had the form half filled in. It's a pleasure "
-               "to tear it up.\n\nThe Ashclaim pays its debts, and this one's "
-               "yours.",
+               "to tear it up.\n\nHere's what the Ashclaim owes you for it.",
                nxt="tmp_geyser_rights", zone=CW,
                requires_quests=["tmp_the_number_he_wont_like"]))
 
@@ -590,8 +587,7 @@ def build():
                "shouting at them.\n\nThat's free power for a foundry. Three "
                "years ago I was selling shares in a deed nobody could reach, "
                "and now I'm standing on the best industrial site in the "
-               "world.\n\nI'm told it's customary to say thank you. I'd sooner "
-               "pay you, so here.",
+               "world.\n\nThank you for doing that, and here's your pay.",
                zone=CW, requires_quests=["tmp_the_landing_shelf"]))
 
     q.append(Q("tmp_a_scale_that_stays_hot", "A Scale That Stays Hot", HOGAR, 57, 57,
