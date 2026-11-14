@@ -782,16 +782,17 @@ NPCS = {
                                       "voice it starts to cry."),
 }
 
-#: quest item drops: creature -> (item id, name, description, chance)
+#: quest item drops: creature -> (item id, name, description, chance). 0.75 is the game's floor for
+#: an item a quest wants several of (tools/set_quest_drop_rates.FLOOR).
 DROPS = {
-    "Brine-Wight": ("barrow_coin", "Barrow Coin", "Old gold, green with salt, stamped with a king nobody remembers.", 0.6),
-    "Drowned Barrow-Thane": ("barrow_coin", "Barrow Coin", "Old gold, green with salt, stamped with a king nobody remembers.", 0.6),
-    "Glassback Basilisk": ("fused_glass_shard", "Fused Glass Shard", "A splinter of the canyon's glass, pulled from a basilisk's back. Still warm.", 0.7),
-    "Rootbound Guardian": ("glowing_sap", "Glowing Sap", "Amber sap that gives off its own light. It's warm, like something's alive in it.", 0.65),
-    "Idol-Drowned Troll": ("jade_idol_shard", "Jade Idol Shard", "A chip of green stone off a drowned god. It's cold, and it hums.", 0.6),
-    "Drowned Hexer": ("jade_idol_shard", "Jade Idol Shard", "A chip of green stone off a drowned god. It's cold, and it hums.", 0.6),
-    "Dune Revenant": ("caravan_manifest_page", "Caravan Manifest Page", "A page from a ledger, sand-scoured, every line a debt.", 0.6),
-    "Mere Wraith": ("vial_of_mere_water", "Vial of Mere-Water", "Black water that doesn't settle. It moves a little when you aren't holding it still.", 0.65),
+    "Brine-Wight": ("barrow_coin", "Barrow Coin", "Old gold, green with salt, stamped with a king nobody remembers.", 0.75),
+    "Drowned Barrow-Thane": ("barrow_coin", "Barrow Coin", "Old gold, green with salt, stamped with a king nobody remembers.", 0.75),
+    "Glassback Basilisk": ("fused_glass_shard", "Fused Glass Shard", "A splinter of the canyon's glass, pulled from a basilisk's back. Still warm.", 0.75),
+    "Rootbound Guardian": ("glowing_sap", "Glowing Sap", "Amber sap that gives off its own light. It's warm, like something's alive in it.", 0.75),
+    "Idol-Drowned Troll": ("jade_idol_shard", "Jade Idol Shard", "A chip of green stone off a drowned god. It's cold, and it hums.", 0.75),
+    "Drowned Hexer": ("jade_idol_shard", "Jade Idol Shard", "A chip of green stone off a drowned god. It's cold, and it hums.", 0.75),
+    "Dune Revenant": ("caravan_manifest_page", "Caravan Manifest Page", "A page from a ledger, sand-scoured, every line a debt.", 0.75),
+    "Mere Wraith": ("vial_of_mere_water", "Vial of Mere-Water", "Black water that doesn't settle. It moves a little when you aren't holding it still.", 0.75),
 }
 
 
