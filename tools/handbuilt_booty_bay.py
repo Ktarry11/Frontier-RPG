@@ -49,7 +49,10 @@ KEY = "booty_bay"
 NAME = "Booty Bay"
 DESC = "A goblin port standing on pilings over a lagoon. Nothing sails without the Baron."
 REGION = "Eastern Kingdoms - Stranglethorn"
-W, H = 70, 60
+#: 104 wide since 14 Nov 2026 (backlog [51], Kyle: "Rebuild Booty Bay as a real goblin hub - EXPAND THE
+#: DOCKS OUTWARD"). The old town stands where it stood; everything east of x=70 is new water and the
+#: outer harbour built over it.
+W, H = 104, 60
 BAKED_DIR = "assets/tiles/booty_bay/baked"
 IS_TOWN = True
 BASE_TILE = "grass"
@@ -79,6 +82,16 @@ DECKS = [
     (44.0, 66.0, 32.6, 35.6),        # middle pier
     (58.5, 69.0, 30.2, 38.8),        # middle pier head platform (boat at 64,34)
     (44.0, 58.0, 44.6, 47.4),        # south pier
+    # ---- THE OUTER HARBOUR (14 Nov 2026). The three piers run on out past the cove mouth, and at
+    # their ends the town starts again: a wharf, a long quay for the deep-water ships, a fish market,
+    # and a boardwalk joining all three, so the docks are a second ring of town out on the open bay.
+    (62.0, 80.0, 24.6, 27.4),        # the north pier, run out
+    (77.0, 93.0, 17.0, 30.0),        # THE OUTER WHARF: the warehouses
+    (69.0, 82.0, 32.6, 35.6),        # the middle pier, run out past the boat
+    (80.0, 101.0, 29.0, 40.0),       # THE LONG QUAY: where the deep-water ships tie up
+    (58.0, 78.0, 44.6, 47.4),        # the south pier, run out
+    (75.0, 91.0, 41.0, 53.0),        # THE FISH MARKET
+    (84.0, 88.0, 28.0, 44.0),        # the boardwalk joining the three
 ]
 
 _RS = K.RoadSet(ROADS)
@@ -119,7 +132,8 @@ def cliff_field(gx, gy):
     inland = shore(gy) - gx                       # >0 on the land side of the waterline
     out = inland * 1.6 + 1.0 * _wob(gx, gy)
     # knuckles standing out of the water: the stacks off the cove mouth and one inside the arms
-    for (cx, cy, rx, ry) in [(63, 12, 5.0, 3.6), (56, 54, 4.6, 3.2), (52, 40, 3.0, 2.4)]:
+    for (cx, cy, rx, ry) in [(63, 12, 5.0, 3.6), (56, 54, 4.6, 3.2), (52, 40, 3.0, 2.4),
+                             (97, 8, 4.0, 3.2), (99, 55, 3.4, 2.8), (70, 57, 3.0, 2.2)]:
         r = np.sqrt(((gx - cx) / rx) ** 2 + ((gy - cy) / ry) ** 2)
         out = np.maximum(out, (1 - r) * min(rx, ry))
     clear = np.full(gx.shape, -99.0)
@@ -181,6 +195,13 @@ NPC_POSITIONS = {
     "bootybay_baron": (44, 35),                # Baron Revilgaz, on the gallery above his warehouse
     "bootybay_baron_aide": (29, 44),           # Aide Fipple
     "bootybay_bloodsail_captive": (24, 44),    # a Bloodsail nobody has decided what to do with
+    # the outer harbour
+    "bootybay_wharf_boss": (82, 28),           # Wharf-Boss Grizzle, the outer wharf
+    "bootybay_cannoneer": (99, 35),            # Gunner Spark, the quay's end
+    "bootybay_quay_bookie": (90, 31),          # Lucky Fen, takes bets on which ship sinks
+    "bootybay_net_mender": (89, 51),           # Old Tansy, mends nets at the fish market
+    "bootybay_deckhand": (86, 38),             # Deckhand Mox, on the boardwalk
+    "bootybay_smuggler": (77, 52),             # Velvet Pike, who isn't here
 }
 FORGE = (23, 27)
 EXTRA_NPC_XY = [FORGE]
@@ -189,7 +210,7 @@ EXTRA_NPC_XY = [FORGE]
 #: decking, and decking is laid down as "path". So the chests are placed directly on the boards below,
 #: as crates on the quay, which is where they would actually be in a port.
 CHESTS = []
-DECK_CHESTS = [(18, 26), (59, 26), (62, 34), (18, 49), (40, 35)]
+DECK_CHESTS = [(18, 26), (59, 26), (62, 34), (18, 49), (40, 35), (78, 19), (100, 39), (76, 52)]
 
 
 def _veg(L, name, cx, base_y, height, path_dir=SP, max_push=14):
@@ -252,7 +273,9 @@ def dress(L):
     # top of the boarding tile it is supposed to mark. Kyle, 10 Nov: "boat portal from BB to
     # ratchet is blocked by a boat, move that prop off the dock and into the water." It now
     # rides just south of the pier, where the boarding tile reads as the way onto it.
-    L.deco("boat_orc", 65, 46, 8)
+    # (the orc ship that rode south of the middle pier moved out to the long quay when the south pier
+    # was run out over its mooring, 14 Nov 2026; a rowboat keeps the berth)
+    L.deco("stv_rowboat", 66, 42, 3, path_dir=SP)
     L.deco("boat_troll", 61, 29, 7)
 
     # ---- the headland: the gate, the bone arch, the only soil in the zone ------------------------
@@ -318,6 +341,39 @@ def dress(L):
     L.deco("stv_fish_crates", 66, 38, 3, path_dir=SP)
     L.deco("stv_outrigger", 49, 48, 4, path_dir=SP)
     L.deco("stv_boat_wreck", 60, 50, 4, path_dir=SP)
+
+    # ---- THE OUTER HARBOUR: wharf, long quay, fish market, and the ships riding off them -------------
+    B("bb_warehouse", 85, 23, 7, nudge=3)
+    B("gg_supply_store", 80, 27, 5, nudge=2)
+    B("bb_lean_shack", 90, 27, 5, nudge=2)
+    B("bb_trade_shop", 93, 37, 6, nudge=3)
+    B("bd_dock_house", 82, 38, 6, nudge=3)
+    B("bb_lean_shack", 80, 50, 5, nudge=2)
+    B("bb_trade_shop", 87, 49, 5, nudge=2)
+    L.prop("stv_fish_rack", 78, 45, 4, path_dir=SP)
+    L.prop("stv_fish_crates", 84, 45, 3, path_dir=SP)
+    L.prop("stv_lobster_pots", 90, 44, 3, path_dir=SP)
+    L.prop("stv_dock_crane", 92, 21, 7, path_dir=SP)
+    L.prop("stv_cargo_net", 79, 20, 3, path_dir=SP)
+    L.prop("stv_barrel_stack", 96, 31, 3, path_dir=SP)
+    L.prop("stv_dock_cannon", 100, 33, 3, path_dir=SP)
+    L.prop("stv_ships_bell", 98, 38, 3, path_dir=SP)
+    for (x, y) in [(66, 25), (72, 25), (78, 25), (72, 33), (78, 33), (64, 45), (70, 45), (76, 45),
+                   (82, 30), (94, 30), (100, 30), (82, 40), (100, 40), (77, 42), (90, 42), (86, 34)]:
+        L.deco("stv_dock_lantern", x, y, 4, path_dir=SP)
+    for (x, y) in [(81, 36), (91, 36), (79, 47), (89, 47)]:
+        L.deco("stv_bollard", x, y, 3, path_dir=SP)
+    # the ships: the deep-water traders tie up along the long quay, the fishing boats off the market
+    L.deco("boat_orc", 94, 46, 8)
+    L.deco("boat_troll", 92, 15, 7)
+    L.deco("boat_orc", 100, 25, 7)
+    L.deco("stv_outrigger", 74, 56, 4, path_dir=SP)
+    L.deco("stv_rowboat", 94, 54, 3, path_dir=SP)
+    L.deco("stv_rowboat", 72, 30, 3, path_dir=SP)
+    L.deco("stv_buoy", 70, 40, 3, path_dir=SP)
+    L.deco("stv_buoy", 98, 46, 3, path_dir=SP)
+    L.deco("stv_sea_stack", 97, 10, 9, path_dir=SP)
+    L.deco("stv_sea_stack", 99, 57, 8, path_dir=SP)
 
     # ---- the lagoon and the cliffs it is cut into ------------------------------------------------
     L.deco("stv_coral_outcrop", 62, 44, 4, path_dir=SP)

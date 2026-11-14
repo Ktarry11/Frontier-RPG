@@ -1600,7 +1600,9 @@ def build():
                            "region": z.get("region"),
                            **({"frontier_type": z["frontier_type"]} if z.get("frontier_type") else {}),
                            "bosses": [n for n in names if z["creatures"][n][2]],
-                           "multi_drop": 2}
+                           "multi_drop": 2,
+                           # Kyle: "Boss can have epic drop anywhere between 5% to 8% for now."
+                           "epic_chance": 0.08 if z["kind"] == "frontier" else 0.05}
         for ex in z.get("extra_registry", {}).items():
             registry[zname][ex[0]] = ex[1]
     return kits, creatures, loot, registry, enc

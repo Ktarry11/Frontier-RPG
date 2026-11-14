@@ -170,6 +170,16 @@ def _hidden_multi_drop():
     return out
 
 
+def _hidden_epic_chance():
+    from world.hidden_zones import registry
+    out = {}
+    for z in registry().values():
+        for b in z.get("bosses") or []:
+            if "epic_chance" in z:
+                out[b] = float(z["epic_chance"])
+    return out
+
+
 def shares_hoard(boss_name):
     """True if this boss's drops come from another boss's table, so the
     caller must not roll anything for him at all."""
@@ -195,4 +205,15 @@ def get_fixed_boss_loot_all(boss_name):
     if not pool:
         return []
     count = min(MULTI_DROP.get(boss_name) or _hidden_multi_drop().get(boss_name, 1), len(pool))
+    # A HIDDEN-ZONE BOSS'S EPIC IS A CHANCE, NOT A GIVEN. Kyle, 14 Nov 2026: "Boss can have epic drop
+    # anywhere between 5% to 8% for now." The usual drops come from the rest of the pool; then the
+    # epic is rolled for on its own and, if it hits, takes one of their places.
+    chance = _hidden_epic_chance().get(boss_name)
+    if chance is not None:
+        plain = [d for d in pool if d.get("rarity") != "epic"]
+        epics = [d for d in pool if d.get("rarity") == "epic"]
+        picks = random.sample(plain, min(count, len(plain)))
+        if epics and random.random() < chance:
+            picks = picks[:max(0, count - 1)] + [random.choice(epics)]
+        return [_item_from_def(d) for d in picks]
     return [_item_from_def(d) for d in random.sample(pool, count)]

@@ -117,6 +117,19 @@ BOOTY_BAY = {
                         "The vault is under the waterline and it has never flooded. Think about that."),
     "bootybay_flight_master": ("Wind-Rider Zekki", "troll", "female",
                                "North to the camp, and that is the whole map. Nobody flies out of this jungle."),
+    # the outer harbour (backlog [51], 14 Nov 2026)
+    "bootybay_wharf_boss": ("Wharf-Boss Grizzle", "goblin", "male",
+                            "Everything that comes off a ship comes past me. I've got a list. You're not on it yet."),
+    "bootybay_cannoneer": ("Gunner Spark", "goblin", "female",
+                           "Bloodsail sails come round that point about once a week. I'm the reason they keep going."),
+    "bootybay_quay_bookie": ("Lucky Fen", "goblin", "male",
+                             "Three to one the Crimson Gull doesn't make Ratchet. Want in? Course you do."),
+    "bootybay_net_mender": ("Old Tansy", "goblin", "female",
+                            "Hold that end. No, the other end. You've never held a net before, have you."),
+    "bootybay_deckhand": ("Deckhand Mox", "orc", "male",
+                          "Unload, load, unload. The tide doesn't take a day off, so neither do I."),
+    "bootybay_smuggler": ("Velvet Pike", "human", "female",
+                          "I'm not here. You didn't see me. And if you did, you saw somebody taller."),
 }
 BOOTY_BAY_VENDORS = {
     "bootybay_trader": ("Trader Nixxle", "goblin", "female", 38,
@@ -192,7 +205,7 @@ def merge(path, key, id_field, new):
     for e in new:
         by_id[e[id_field]] = e
     data[key] = [by_id[k] for k in by_id]
-    path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+    path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return added, len(new) - added
 
 

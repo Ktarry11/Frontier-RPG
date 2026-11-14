@@ -167,9 +167,10 @@ def main():
             bad.append(f"a hidden creature's loot is not lifted {lo}-{hi} item levels")
         # Kyle: "frontier dungeon zones can have epics at low chance" - and only there
         ec = getattr(m, "loot_epic_chance", 0.0)
-        if kind == "frontier_deep" and not 0 < ec <= 0.1:
-            bad.append("frontier dungeon trash has no low chance of an epic")
-        if kind != "frontier_deep" and ec:
+        # and then: "epic drops from trash in frontier zone can be set at 1%"
+        if kind.startswith("frontier") and abs(ec - 0.01) > 1e-9:
+            bad.append(f"frontier trash epic chance is {ec}, not 1%")
+        if not kind.startswith("frontier") and ec:
             bad.append("a non-frontier hidden creature rolls trash epics")
     # 6. boss loot
     from entities.boss_loot import get_fixed_boss_loot_all
@@ -192,6 +193,14 @@ def main():
                 bad.append("a hidden boss below level 30 has an epic")
             if len(get_fixed_boss_loot_all(boss)) != 2:
                 bad.append("a hidden boss doesn't drop two pieces")
+            # "Boss can have epic drop anywhere between 5% to 8%": measured, not assumed
+            if epics:
+                import random as _r
+                _r.seed(hash(boss) & 0xffff)
+                n = 4000
+                got = sum(any(i.rarity == "epic" for i in get_fixed_boss_loot_all(boss)) for _ in range(n)) / n
+                if not 0.03 <= got <= 0.10:
+                    bad.append(f"a hidden boss drops an epic {got:.1%} of the time, not 5-8%")
     # 7. skull zone quests
     from world.quest_manager import QuestManager
     with contextlib.redirect_stdout(io.StringIO()):
