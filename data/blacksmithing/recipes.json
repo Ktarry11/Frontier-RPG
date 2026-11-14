@@ -6249,29 +6249,31 @@
         "secret_arathie_brakka"
       ]
     },
-    "secret_dk_grubbs_bs_copper_warden_gloves": {
-      "name": "Digger's Copper Warden Gloves",
-      "skill_required": 30,
+    "secret_dk_grubbs_bs_troll_bronze_axe": {
+      "name": "Digger's Troll-Wrought Axe",
+      "skill_required": 50,
       "skill_range": [
-        35,
-        45,
         55,
-        65
+        65,
+        75,
+        85
       ],
       "source": "vendor",
       "inputs": {
-        "bar_copper": 5,
-        "flux_weak": 1
+        "bar_copper": 6,
+        "flux_weak": 1,
+        "whetstone": 1
       },
       "output": {
-        "kind": "armor",
-        "slot": "hands",
-        "armor_type": "mail",
-        "stat_template": "str_int_hybrid",
-        "item_level": 9,
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "axe_1h",
+        "stat_template": "agi_physical",
+        "item_level": 13,
         "rarity": "rare",
         "material_tier": "copper"
       },
+      "drop_zone": "Echo Isles",
       "secret": true,
       "sold_by": [
         "secret_dk_grubbs"

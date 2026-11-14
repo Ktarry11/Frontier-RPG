@@ -4626,6 +4626,38 @@
       ],
       "source": "vendor"
     },
+    "secret_hz_vault_scribe_ench_lesser_nether_wand": {
+      "name": "Scribe's Lesser Nether Wand",
+      "inputs": {
+        "plank_bloodroot": 1,
+        "lesser_nether_essence": 1,
+        "vision_dust": 2
+      },
+      "skill_required": 215,
+      "output": {
+        "kind": "weapon",
+        "slot": "ranged",
+        "weapon_type": "wand",
+        "stat_template": "int_caster",
+        "item_level": 45,
+        "rarity": "rare"
+      },
+      "tool": [
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        215,
+        225,
+        235,
+        245
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_hz_vault_scribe"
+      ]
+    },
     "secret_splinter_grokka_ench_greater_magic_wand": {
       "name": "Quiet's Greater Magic Wand",
       "inputs": {

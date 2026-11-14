@@ -6735,6 +6735,34 @@
             "material_tier": "voidweave"
           }
         },
+        "secret_hz_vault_scribe_p300_ta_starweave_chest": {
+          "name": "Scribe's Starweave Robe",
+          "skill_required": 225,
+          "skill_range": [
+            230,
+            240,
+            250,
+            260
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_starweave": 8,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 48,
+            "rarity": "epic",
+            "material_tier": "starweave"
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_hz_vault_scribe"
+          ]
+        },
         "secret_hz_pines_osric_tai_blazethread_robes": {
           "name": "Unwept's Blazethread Robes",
           "skill_required": 95,

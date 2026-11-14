@@ -69,7 +69,8 @@ def main():
         check(zm.current_zone and zm.current_zone.name == dest["zone"], f"teleport to {dest['label']} landed in "
               f"{zm.current_zone.name if zm.current_zone else None}")
     zones = T.zones(zm)
-    check(len(zones) == len(zm.zones), "the zone list is missing zones")
+    from world.hidden_zones import is_hidden
+    check(len(zones) == len([n for n in zm.zones if not is_hidden(n)]), "the zone list is missing zones")
     caves = [z for z in zones if z["x"] is not None and z["zone"] not in {t["zone"] for t in towns}]
     if caves:
         with contextlib.redirect_stdout(io.StringIO()):

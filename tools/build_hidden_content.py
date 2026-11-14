@@ -48,6 +48,21 @@ def base(level, boss=False):
     return a + (b - a) * t
 
 
+def whole(d):
+    """Stats are whole numbers and bonus armour goes into the armour value (entities/item.whole_stats;
+    Kyle, 10 Nov: "i asked you to remove these partial values from gear")."""
+    from entities.item import whole_stats
+    prim, sec, armor = whole_stats(d.get("primary_stats"), d.get("secondary_stats"), d.get("armor_value", 0))
+    d["primary_stats"] = prim
+    if sec:
+        d["secondary_stats"] = sec
+    else:
+        d.pop("secondary_stats", None)
+    if armor or "armor_value" in d:
+        d["armor_value"] = armor
+    return d
+
+
 def kit(level, boss, abilities):
     """abilities: (name, kind, mult, cd, school, extra). mult scales the level's basic hit;
     for a buff/debuff it is ignored. Mana is a token cost for casters."""
@@ -1043,6 +1058,7 @@ def R(lvl, *items, rarity="rare"):
             kw["weapon_type"] = weapon
         d = make(name, slot, suffix, lvl + 4, "", rarity=rarity, req=lvl, **kw)
         d.pop("flavor_text", None)
+        whole(d)
         d["label"] = label
         out.append(d)
     return out
@@ -1577,8 +1593,8 @@ def build():
                     kw["weapon_type"] = weapon
                 if rarity == "epic" and z["kind"] != "frontier":
                     assert lvl >= 30, f"{iname}: unique epics only from level 30 (Kyle)"
-                pool.append(make(iname, slot, suffix or "of the Bear", ilvl, flavor, rarity=rarity,
-                                 req=max(1, lvl - 2), **kw))
+                pool.append(whole(make(iname, slot, suffix or "of the Bear", ilvl, flavor, rarity=rarity,
+                                       req=max(1, lvl - 2), **kw)))
             loot[boss] = pool
         registry[zname] = {"kind": z["kind"], "parent": z["parent"], "levels": list(z["levels"]),
                            "region": z.get("region"),

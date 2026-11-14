@@ -68,6 +68,9 @@ def main():
     print(f"  {len(referenced)} creatures referenced, {len(missing)} missing")
     if missing:
         fails.append(f"encounters reference missing creatures: {missing}")
+    # the hidden levels and frontier zones down here are checked by tools/qa_hidden_zones.py
+    from world.hidden_zones import creature_kinds
+    referenced -= set(creature_kinds())
 
     ours = {n: c for n, c in cre.items() if c.get("ability_kit") in kits or n in referenced}
     nokit = sorted(n for n in referenced if n in cre and cre[n].get("ability_kit") not in kits)

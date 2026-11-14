@@ -5007,6 +5007,35 @@
         "material_tier": "frostscale"
       }
     },
+    "secret_hz_root_seedkeeper_lw_serpentkin_leather_vest": {
+      "name": "Seed-Keeper's Serpentkin Leather Vest",
+      "skill_required": 95,
+      "skill_range": [
+        100,
+        110,
+        120,
+        130
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_heavy": 10,
+        "thread_coarse": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 22,
+        "rarity": "rare",
+        "material_tier": "heavy"
+      },
+      "drop_zone": "Wailing Caverns",
+      "secret": true,
+      "sold_by": [
+        "secret_hz_root_seedkeeper"
+      ]
+    },
     "secret_hz_pines_osric_lw_serpentkin_leather_vest": {
       "name": "Unwept's Serpentkin Leather Vest",
       "skill_required": 95,
@@ -5487,30 +5516,29 @@
         "secret_spnorth_moll"
       ]
     },
-    "secret_dk_grubbs_lw_light_leather_cloak": {
-      "name": "Digger's Light Leather Cloak",
+    "secret_dk_grubbs_lw_light_stint_helm": {
+      "name": "Digger's Ironhide Leather Helm",
+      "skill_required": 50,
+      "skill_range": [
+        55,
+        65,
+        75,
+        85
+      ],
+      "source": "vendor",
       "inputs": {
         "leather_light": 5,
         "thread_coarse": 1
       },
-      "skill_required": 30,
       "output": {
         "kind": "armor",
-        "slot": "back",
+        "slot": "head",
         "armor_type": "leather",
-        "stat_template": "agi_physical",
-        "item_level": 10,
+        "stat_template": "str_int_hybrid",
+        "item_level": 13,
         "rarity": "rare",
-        "material_tier": "light",
-        "armor_value": 6
+        "material_tier": "light"
       },
-      "skill_range": [
-        35,
-        45,
-        55,
-        65
-      ],
-      "source": "vendor",
       "secret": true,
       "sold_by": [
         "secret_dk_grubbs"
