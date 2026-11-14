@@ -386,7 +386,6 @@ def dress(L):
     # and thirteen tiles tall, so the gate was drawn 94% through the tower.
     # tools/qa_building_overlap.py measures the rectangles.
     b("orc_great_gatehouse", 50, 94, 13, solid=False, road_ok=True, nudge=0)
-    b("orc_watch_tower", 40, 100, 12, nudge=2)
     b("orc_signal_beacon", 60, 88, 11, nudge=2)
     p("ek_signpost", 56, 98, 4)
     p(CO + "fish_drying_rack.png", 48, 104, 4)
@@ -398,7 +397,6 @@ def dress(L):
     L.deco("boat_orc", 92, 106, 5, path_dir=CO)
 
     # ---- THE DROWNED BARROW: a hill barrow with the sea coming into its mouth -----------------------
-    p(ENT + "ent_burial_barrow.png", 34, 36, 8, solid=False, nudge=0, road_ok=True, allow_overlap=True)
     for (x, y) in ((26, 34), (42, 34)):
         p("ek_web_boulder", x, y, 6)
     p(RU + "ruin_stone_ring.png", 34, 48, 5, solid=False)
@@ -422,9 +420,7 @@ def dress(L):
     # ---- GALLOWMAST ISLE: the crew's island, and the hold under it -----------------------------------
     # The Wrackline get the BANDIT sheet, not a tropical pirate set: they are Arathi coast people whose
     # villages went under, working the drowned ones, so their buildings are the ones they grew up in.
-    p(ENT + "ent_mangrove_cave.png", 150, 58, 8, solid=False, nudge=0, road_ok=True, allow_overlap=True)
     # The wharf sits in the crook of the boomerang - the sheltered bay is why the hold is here.
-    b("bd_dock_house", 147, 66, 9, nudge=2)
     b("bd_warehouse", 156, 72, 9, nudge=2)
     b("bd_lookout_tower", 145, 53, 12, nudge=2)
     b("bd_fence_shop", 140, 68, 8, nudge=2)
@@ -445,7 +441,6 @@ def dress(L):
     p(CO + "driftwood_pile.png", 130, 121, 4)
 
     # ---- THE TIDEWRACK: the flooded cave, and the rocks round it --------------------------------------
-    p(ENT + "ent_mangrove_cave.png", 160, 130, 8, solid=False, nudge=0, road_ok=True, allow_overlap=True)
     p(CO + "rowboat_wreck.png", 155, 142, 7)
     p(CO + "driftwood_pile.png", 163, 134, 4)
     b("bd_boat_shed", 152, 128, 8, nudge=2)

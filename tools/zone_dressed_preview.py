@@ -49,6 +49,10 @@ ZONES = {
     "abyssal_sands": "tools.handbuilt_abyssal_sands",
     "onyxhollow": "tools.handbuilt_onyxhollow",
     "dry_deep": "tools.handbuilt_dry_deep",
+    "hammerfall": "tools.handbuilt_hammerfall",
+    "arathi_central": "tools.handbuilt_arathi_central",
+    "arathi_east": "tools.handbuilt_arathi_east",
+    "arathi_west": "tools.handbuilt_arathi_west",
 }
 
 #: A cave module's entry point is build_<slug>_baked() rather than build_layout(), and it returns

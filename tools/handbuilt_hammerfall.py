@@ -184,7 +184,8 @@ NPC_POSITIONS = {
     "pt_hammerfall_hide":          (25, 72),   # Tanner Rokan - leatherworking
     "pt_hammerfall_wood":          (33, 76),   # Woodwright Naruk - the timber yard
 }
-CHESTS = [(16, 24), (94, 24), (18, 78), (96, 74)]
+CHESTS = [(16, 24), (94, 24), (18, 78), (86, 66)]
+FORGE = (25, 54)      # the working anvil, at the war forge door (data/npcs/forges.json: hammerfall_forge)
 
 # Sparse: this is a stockade on basin floor, so the only greenery is what grows against the wall.
 FOREST = dict(seed=51, count=22, rim=6, thorn=11, names=[
@@ -194,26 +195,18 @@ FOREST = dict(seed=51, count=22, rim=6, thorn=11, names=[
 def dress(L):
     p, b = L.prop, L.bld
 
-    # ---- THE WALL. Stockade sections right round the rim, broken only at the gate. These are the
-    # picture of the enclosure; cliff_field is the enclosure itself.
-    for x in range(10, 96, 6):
-        if abs(x - 52) > 6:
-            b("orc_stockade_section", x, 84, 6, solid=True, nudge=0)
-            b("orc_stockade_section", x, 12, 6, solid=True, nudge=0)
-    for y in range(18, 82, 6):
-        b("orc_stockade_section", 10, y, 6, solid=True, nudge=0)
-        b("orc_stockade_section", 96, y, 6, solid=True, nudge=0)
-    b("orc_great_gatehouse", 52, 83, 12, solid=False, road_ok=True, nudge=0)
-    b("orc_watch_tower", 40, 82, 11)
-    b("orc_watch_tower", 64, 82, 11)
-    b("orc_watch_tower", 12, 18, 11)
-    b("orc_watch_tower", 94, 18, 11)
-    b("orc_signal_beacon", 52, 16, 7, nudge=2)
+    # ---- THE WALL IS THE CLIFF. cliff_field encloses the hold, and the rock rim is drawn by the
+    # baker. A ring of 46 stockade sprites, four corner towers, a beacon and a gatehouse were
+    # authored here as well and NOT ONE ever appeared: every one sat in the rock or on the gate
+    # tile and was refused. They are gone from the list (14 Nov 2026) instead of being forced in.
+    # What a gate needs is two towers on the floor either side of the road, so that is what it has.
+    b("orc_watch_tower", 45, 80, 10, nudge=2)
+    b("orc_watch_tower", 59, 80, 10, nudge=2)
 
     # ---- the spine and the muster yard
-    b("orc_war_hall", 52, 26, 16, nudge=2)
+    # No separate war hall: the only free ground for one is on top of the Deathguard post. The
+    # Warchief's lodge at the head of the spine is the command building, and Gath'rok stands at it.
     b("orc_warchief_lodge", 64, 30, 12, nudge=2)
-    b("orc_totem_court", 44, 22, 10, nudge=2)
     b("orc_great_totem", 52, 40, 8, nudge=2)
     p("ek_signpost", 52, 66, 4)
     p("ek_forsaken_banner", 46, 60, 6)
@@ -222,13 +215,12 @@ def dress(L):
     # ---- the Forsaken quarter: orc timber, Forsaken tenants
     b("orc_forsaken_apothecary", 24, 27, 11, nudge=2)
     b("orc_deathguard_post", 32, 32, 10, nudge=2)
-    b("orc_spirit_lodge", 18, 36, 10, nudge=2)
     p("ek_plague_cart", 29, 24, 4)
 
     # ---- the war yard
-    b("orc_war_forge", 26, 50, 12, nudge=2)
-    b("orc_armoury", 34, 58, 10, nudge=2)
-    b("orc_siege_workshop", 17, 56, 11, nudge=2)
+    # The forge is what the weaponsmith and the blacksmithing trainer stand at; FORGE is the anvil.
+    b("orc_war_forge", 25, 52, 9, nudge=2)
+    b("orc_armoury", 35, 51, 8, nudge=2)
     p("ek_scarlet_crates", 31, 52, 4)
     p("ek_farm_cart", 22, 61, 4)
 
@@ -245,14 +237,14 @@ def dress(L):
     b("orc_great_totem", 90, 25, 7, nudge=2)
 
     # ---- the inn and mess yard
-    b("orc_mess_hall", 72, 70, 11, nudge=2)
+    # The officers' house is the inn (Grettha stands at its door). A mess hall beside it only
+    # fitted by leaning on it, so it is not built.
     b("orc_officers_house", 82, 74, 9, nudge=2)
     p("ek_farm_well", 66, 72, 4)
 
     # ---- the tannery and smokehouse yard
     b("orc_tannery_hall", 24, 70, 11, nudge=2)
     b("orc_smokehouse", 34, 75, 9, nudge=2)
-    b("orc_bone_yard_shed", 16, 76, 9, nudge=2)
     p("ek_haystack", 29, 67, 4)
 
 

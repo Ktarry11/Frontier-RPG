@@ -295,10 +295,10 @@ def dress(L):
 
     # ---- Refuge Pointe: hold-outs camped in the lee of the scarp -----------------------------------------
     b("ek_command_tent", 66, 100, 8, nudge=2)
-    b("ek_village_inn", 60, 108, 9, nudge=2)
+    b("ek_village_inn", 60, 106, 9, nudge=2)
     b("ek_border_watchtower", 74, 98, 11, nudge=2)
-    b("ek_stable_block", 74, 110, 8, nudge=2)
-    p("ek_farm_well", 66, 106, 4)
+    b("ek_stable_block", 70, 110, 8, nudge=2)
+    p("ek_farm_well", 70, 103, 4)
     p("ek_signpost", 56, 104, 4)
     for (x, y) in ((58, 96), (76, 104)):
         p("ek_farm_fence", x, y, 3, solid=True)
@@ -323,7 +323,6 @@ def dress(L):
     # ---- Boulder'gor: the ogre cave, high on the moor ----------------------------------------------------
     # Portal at (44,34), arrival (44,36): the mouth is drawn ABOVE the tile and the column below it is left
     # clear, because an ogre midden placed on the arrival tile is a player stuck inside a boulder.
-    p(ENT + "cave_entrance_plain.png", 44, 32, 8, solid=False, nudge=0, road_ok=True, allow_overlap=True)
     for (x, y) in ((36, 30), (52, 30)):
         p("ek_web_boulder", x, y, 6)
     p("ek_haystack", 38, 42, 4)          # ogre bedding, such as it is
@@ -340,7 +339,7 @@ def dress(L):
         p("ek_thorn_bush", x, y, 3, solid=False)
 
     # ---- Go'Shek Farm: a working farm the Syndicate took -------------------------------------------------
-    b("ek_barn", 124, 120, 9, nudge=2)
+    b("ek_barn", 122, 120, 9, nudge=2)
     b("ek_cottage_medium", 132, 126, 8, nudge=2)
     b("ek_granary", 116, 126, 8, nudge=2)
     p("ek_scarlet_tent", 128, 132, 6)

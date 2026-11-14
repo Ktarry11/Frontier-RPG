@@ -278,7 +278,6 @@ def dress(L):
     b("orc_watch_tower", 158, 56, 13, nudge=2)
     # Same footprint lesson as the Arathi East gate: eight tiles from a
     # fourteen-tile gatehouse is inside it.
-    b("orc_signal_beacon", 148, 44, 8, nudge=2)
     p("ek_signpost", 136, 72, 4)
     for (x, y) in ((126, 42), (158, 42)):
         p(RU + "ruin_wall_arch.png", x, y, 6)
@@ -299,7 +298,6 @@ def dress(L):
 
     # ---- BOULDERFIST HALL: the ogre cave on the north ridge -----------------------------------------
     # Portal (38,40), arrival (38,42): mouth drawn ABOVE the tile, column below left clear.
-    p(ENT + "cave_entrance_plain.png", 38, 38, 8, solid=False, nudge=0, road_ok=True, allow_overlap=True)
     for (x, y) in ((30, 36), (46, 36)):
         p("ek_web_boulder", x, y, 6)
     p("ek_farm_cart", 44, 48, 4)
@@ -319,7 +317,6 @@ def dress(L):
 
     # ---- DRYWHISKER GORGE: the kobold dig, and the door down ---------------------------------------
     # Tuned 37-40, above this zone on purpose (Kyle's call): the entrance is here, you come back for it.
-    p(ENT + "cave_entrance_plain.png", 170, 112, 8, solid=False, nudge=0, road_ok=True, allow_overlap=True)
     b("bd_winch_house", 164, 118, 8, nudge=2)        # the kobolds took the dig gear with the dig
     p("ek_farm_cart", 176, 118, 4)
     p("ek_scarlet_crates", 166, 124, 4)
