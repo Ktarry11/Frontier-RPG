@@ -401,22 +401,23 @@
     },
     {
       "talent_id": "starcaller_sentinel_huntress_saber",
-      "name": "Huntress Saber",
-      "description": "Learn Huntress Saber, a mount granting increased movement speed, slow immunity, and the ability to cast offensive spells while moving.",
-      "node_type": "active",
+      "name": "Huntress's Eye",
+      "description": "Huntress Shot deals 10% more damage.",
+      "node_type": "passive",
       "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 0,
       "hex_y": -2,
       "effects": {
-        "unlock_ability": "starcaller_huntress_saber"
+        "ability_starcaller_huntress_shot_damage": 0.1
       },
       "connected_to": [
         "starcaller_sentinel_arrows_in_the_night",
         "starcaller_sentinel_aspect_of_the_cosmos"
       ],
-      "_source": "CoA handoff doc confirmed as Sentinel's real mobility/repositioning tool: 'Mount: +movement speed, slow immunity, cast offensive spells while moving/without dismounting.'"
+      "_source": "CoA handoff doc confirmed as Sentinel's real mobility/repositioning tool: 'Mount: +movement speed, slow immunity, cast offensive spells while moving/without dismounting.'",
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "starcaller_sentinel_starlight",
@@ -457,8 +458,8 @@
     },
     {
       "talent_id": "starcaller_sentinel_stellar_drift",
-      "name": "Stellar Drift",
-      "description": "Learn Stellar Drift, slowing nearby enemies and then knocking them back. Each rank reduces its cooldown by 4%.",
+      "name": "Stellar Fury",
+      "description": "Starcall deals 15% more damage.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 5,
@@ -466,12 +467,12 @@
       "hex_x": 0,
       "hex_y": 2,
       "effects": {
-        "unlock_ability": "starcaller_stellar_drift",
-        "ability_starcaller_stellar_drift_cooldown_pct": 0.04
+        "ability_starcaller_starcall_damage": 0.03
       },
       "connected_to": [
         "starcaller_sentinel_lo_sho_amplification"
-      ]
+      ],
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     }
   ]
 }

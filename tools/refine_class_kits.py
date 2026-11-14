@@ -342,6 +342,44 @@ CLASSES = {
                                                    {"ability_cultist_hammer_of_twilight_damage": 0.12}),
         },
     },
+    # Starcaller: 57 abilities. A mount, a sprint, stealth, a tether-and-grip and a knockback came over
+    # from a real-time game and do nothing on a turn-based board.
+    "Starcaller": {
+        "CUT": {
+            "starcaller_huntress_saber": "a mount for movement speed and casting on the run",
+            "starcaller_shooting_star": "a sprint",
+            "starcaller_cosmic_shift": "stealth for an ally, mid-fight",
+            "starcaller_bonds_of_justice": "a tether that grips an enemy back to you - positioning",
+            "starcaller_stellar_drift": "a slow and a knockback - positioning",
+            "starcaller_celestial_mind": "+3 Intellect to the party",
+            "starcaller_tidal_rebirth": "a plain heal beside Moonwell Splash and Hand of Elune",
+        },
+        "REWORD": {
+            "starcaller_command": "Taunt an enemy to attack you.",
+            "starcaller_moonflow": "Send forth moonwell waters to heal your whole party.",
+            "starcaller_starburst": "Smash up to 8 enemies for Arcane damage, scaling with block value and maximum mana, and slowing them. Applies 1 Scattered Star per hit.",
+            "starcaller_shrouded_stars": "Grant your party a damage reduction buff. Does not stack with similar effects.",
+            "starcaller_starlight": "A beam that repeatedly deals Arcane damage to the enemies in its path and slows them.",
+            "starcaller_stellar_convergence": "Apply Eclipsing Arrows to your party, letting a Sentinel's Huntress Shot heal them.",
+            "starcaller_vigil_of_the_watchers": "Grant your party a critical strike chance buff. Does not stack with similar effects.",
+            "starcaller_avatar_of_vengeance": "Transform into an avatar of vengeance, greatly increasing your Intellect.",
+        },
+        "PASSIVE": {
+            "starcaller_warden_bonds_of_justice": P("Bound by Justice", "Astral Blade deals 10% more damage.",
+                                                    {"ability_starcaller_astral_blade_damage": 0.1}),
+            "starcaller_warden_shooting_star": P("Falling Star", "Sentinel Glaive deals 12% more damage.",
+                                                 {"ability_starcaller_sentinel_glaive_damage": 0.12}),
+            "starcaller_moon_priest_cosmic_shift": P("Moonwell Depths", "Moonwell Splash heals 10% more.",
+                                                     {"ability_starcaller_moonwell_splash_healing": 0.1}),
+            "starcaller_sentinel_huntress_saber": P("Huntress's Eye", "Huntress Shot deals 10% more damage.",
+                                                    {"ability_starcaller_huntress_shot_damage": 0.1}),
+            "starcaller_sentinel_stellar_drift": P("Stellar Fury", "Starcall deals 15% more damage.",
+                                                   {"ability_starcaller_starcall_damage": 0.03}),
+        },
+        "TALENT_TEXT": {
+            "Flowing Grace": "Increases Prayer of Elune healing by 2% per rank.",
+        },
+    },
 }
 
 

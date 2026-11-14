@@ -300,21 +300,22 @@
     },
     {
       "talent_id": "starcaller_warden_bonds_of_justice",
-      "name": "Bonds of Justice",
-      "description": "Learn Bonds of Justice, tethering an enemy. When the tether breaks, they are gripped back to you with Arcane damage.",
-      "node_type": "active",
+      "name": "Bound by Justice",
+      "description": "Astral Blade deals 10% more damage.",
+      "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "unlock_ability": "starcaller_bonds_of_justice"
+        "ability_starcaller_astral_blade_damage": 0.1
       },
       "connected_to": [
         "starcaller_warden_rally_the_sentinels"
       ],
-      "_source": "CoA handoff doc confirmed as a real group-value control tool: 'Tethers an enemy; break (expiry or 10+ yds distance) grips them back with Arcane damage.'"
+      "_source": "CoA handoff doc confirmed as a real group-value control tool: 'Tethers an enemy; break (expiry or 10+ yds distance) grips them back with Arcane damage.'",
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "starcaller_warden_halt",
@@ -336,21 +337,22 @@
     },
     {
       "talent_id": "starcaller_warden_shooting_star",
-      "name": "Shooting Star",
-      "description": "Learn Shooting Star, a burst of movement speed. Cannot be slowed and cannot stop moving while active.",
-      "node_type": "active",
+      "name": "Falling Star",
+      "description": "Sentinel Glaive deals 12% more damage.",
+      "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "unlock_ability": "starcaller_shooting_star"
+        "ability_starcaller_sentinel_glaive_damage": 0.12
       },
       "connected_to": [
         "starcaller_warden_halt"
       ],
-      "_source": "CoA handoff doc confirmed: 'Movement speed burst; can't be slowed, can't stop moving while active.' The spec's only real defensive/disengage tool."
+      "_source": "CoA handoff doc confirmed: 'Movement speed burst; can't be slowed, can't stop moving while active.' The spec's only real defensive/disengage tool.",
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "starcaller_warden_avatar_of_vengeance",

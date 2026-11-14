@@ -241,7 +241,7 @@
       "stat_mods": {
         "taunt": 1
       },
-      "description": "Taunt an enemy to attack you. If the target is a player, they are unable to stop moving.",
+      "description": "Taunt an enemy to attack you.",
       "_source": "Confirmed screenshot: Lvl 12, 'Taunt an enemy to attack you for 3 sec. If the target is a player, they are unable to stop moving for 3 sec.'",
       "ranks": [
         {
@@ -397,36 +397,6 @@
       "icon_id": null,
       "exclusive_group": "starcaller_aegis",
       "buff_scope": "combat"
-    },
-    {
-      "ability_id": "starcaller_celestial_mind",
-      "name": "Celestial Mind",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 30,
-      "stat_mods": {
-        "intellect": 3
-      },
-      "description": "Grants your party: Intellect +3 for 30 turns.",
-      "_source": "Confirmed screenshot: Lvl 4, '+3 Intellect for 30 min.'",
-      "target_type": "party",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 4,
-          "cost": 33,
-          "effect_value": 60
-        },
-        {
-          "rank": 2,
-          "level_req": 32,
-          "cost": 33,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "buff_scope": "raid"
     },
     {
       "ability_id": "starcaller_aspect_of_the_moonwell",
@@ -704,7 +674,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Envelop an ally in Elune's grace, healing them, scaling with maximum mana. Usable while moving.",
+      "description": "Envelop an ally in Elune's grace, healing them, scaling with maximum mana.",
       "_source": "Confirmed screenshot: Lvl 16, 'Drains 20% Maximum Mana. Healing them, scaling with maximum mana.'",
       "target_type": "ally",
       "ranks": [
@@ -761,7 +731,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Send forth moonwell waters to all nearby party and raid members, healing them.",
+      "description": "Send forth moonwell waters to heal your whole party.",
       "_source": "Confirmed screenshot: Lvl 20ish, 12 Mana, instant, 10 sec cooldown, '140 healing.' Party-wide heal.",
       "target_type": "party",
       "ranks": [
@@ -800,39 +770,6 @@
           "level_req": 56,
           "cost": 265,
           "effect_value": 331
-        }
-      ],
-      "icon_id": null
-    },
-    {
-      "ability_id": "starcaller_tidal_rebirth",
-      "name": "Tidal Rebirth",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "heal",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Heals an ally.",
-      "_source": "Confirmed screenshot: Lvl 40, '400 health and 635 mana. This spell is usable in combat.' Real in-combat battle-rez, unusual for the archetype.",
-      "target_type": "ally",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 40,
-          "cost": 50,
-          "effect_value": 999
-        },
-        {
-          "rank": 2,
-          "level_req": 46,
-          "cost": 55,
-          "effect_value": 1094
-        },
-        {
-          "rank": 3,
-          "level_req": 52,
-          "cost": 60,
-          "effect_value": 1189
         }
       ],
       "icon_id": null
@@ -1143,7 +1080,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Smash up to 8 enemies for Arcane damage, scaling with block value and maximum mana, reducing their attack speed. Applies 1 Scattered Star per hit.",
+      "description": "Smash up to 8 enemies for Arcane damage, scaling with block value and maximum mana, and slowing them. Applies 1 Scattered Star per hit.",
       "_source": "CoA handoff doc confirmed as Moon Guard's real AoE builder. Real numbers not confirmed via a dedicated screenshot.",
       "target_type": "enemy_aoe",
       "ranks": [
@@ -1226,7 +1163,7 @@
       "effect_type": "buff",
       "duration": 1,
       "stat_mods": {},
-      "description": "Shield yourself for an amount equal to your maximum mana. Usable while stunned.",
+      "description": "Shield yourself for an amount equal to your maximum mana.",
       "_source": "CoA handoff doc confirmed: 'Shields for an amount equal to max mana. Usable while stunned.' Real numbers not confirmed via a dedicated screenshot.",
       "target_type": "self",
       "ranks": [
@@ -1302,7 +1239,7 @@
       "stat_mods": {
         "damage_taken_pct": -0.05
       },
-      "description": "Grant the party and raid a damage reduction buff. Does not stack with similar effects.",
+      "description": "Grant your party a damage reduction buff. Does not stack with similar effects.",
       "_source": "CoA handoff doc: 'Party/raid damage reduction (no stacking with similar).' Real numbers not confirmed via a dedicated screenshot. DAMAGE_TAKEN_PCT IN AN ABILITY'S stat_mods IS A FRACTION, NOT PERCENT POINTS. This was authored in points, so the engine read it as -500% and floored every incoming hit at 1 damage for the buff's whole duration - a flat immunity, not a mitigation cooldown. Character.take_damage adds get_status_stat_mod('damage_taken_pct') UNDIVIDED, while the physical_/magic_ variants four lines away ARE divided by 100, so the convention is per-key with no naming rule. Verified: -0.10 takes a 1000 hit to 900, -10 takes it to 1. 41 of the game's 51 abilities carrying this key already use the fraction form (warrior_shield_wall -0.4, druid_barkskin -0.2).",
       "target_type": "self",
       "ranks": [
@@ -1356,30 +1293,6 @@
       }
     },
     {
-      "ability_id": "starcaller_huntress_saber",
-      "name": "Huntress Saber",
-      "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 30,
-      "stat_mods": {
-        "haste": 60,
-        "cc_immune": 1
-      },
-      "description": "Summon a mount granting increased movement speed, slow immunity, and the ability to cast offensive spells while moving.",
-      "_source": "CoA handoff doc: 'Mount: +movement speed, slow immunity, cast offensive spells while moving/without dismounting.' Real numbers not confirmed via a dedicated screenshot.",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 20,
-          "cost": 25,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null
-    },
-    {
       "ability_id": "starcaller_starlight",
       "name": "Starlight",
       "resource_type": "mana",
@@ -1389,7 +1302,7 @@
       "stat_mods": {
         "haste": -25
       },
-      "description": "A beam that repeatedly deals Arcane damage and slows enemies passing through.",
+      "description": "A beam that repeatedly deals Arcane damage to the enemies in its path and slows them.",
       "_source": "CoA handoff doc: 'Beam: repeating Arcane damage + slows enemies passing through.' Real numbers not confirmed via a dedicated screenshot.",
       "target_type": "enemy_aoe",
       "ranks": [
@@ -1436,30 +1349,6 @@
       ],
       "icon_id": null,
       "damage_school": "arcane"
-    },
-    {
-      "ability_id": "starcaller_stellar_drift",
-      "name": "Stellar Drift",
-      "resource_type": "mana",
-      "cooldown": 5,
-      "effect_type": "debuff",
-      "duration": 1,
-      "stat_mods": {
-        "haste": -30
-      },
-      "description": "Slow nearby enemies, then knock them back.",
-      "_source": "CoA handoff doc: 'Slows nearby enemies, then knocks them back.' Real numbers not confirmed via a dedicated screenshot.",
-      "target_type": "enemy_aoe",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 38,
-          "cost": 28,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "buff_scope": "combat"
     },
     {
       "ability_id": "starcaller_flow_of_waters",
@@ -1575,34 +1464,6 @@
         "mechanical",
         "elemental"
       ]
-    },
-    {
-      "ability_id": "starcaller_cosmic_shift",
-      "name": "Cosmic Shift",
-      "resource_type": "mana",
-      "cooldown": 8,
-      "effect_type": "buff",
-      "duration": 2,
-      "stat_mods": {},
-      "description": "Phase a target ally into improved stealth. Does not break on damage.",
-      "_source": "CoA handoff doc: 'Phases target ally into improved stealth; doesn't break on damage.' Real numbers not confirmed via a dedicated screenshot.  Removed dead flag stat_mod(s) ['stealthed']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries - EXCEPT IT DOES NOT, so this was a stun that never stunned. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
-      "target_type": "ally",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 34,
-          "cost": 30,
-          "effect_value": 100
-        },
-        {
-          "rank": 2,
-          "level_req": 46,
-          "cost": 36,
-          "effect_value": 121
-        }
-      ],
-      "icon_id": null,
-      "buff_scope": "combat"
     },
     {
       "ability_id": "starcaller_celestial_form",
@@ -1730,7 +1591,7 @@
       "stat_mods": {
         "healing_taken_pct": 15
       },
-      "description": "Apply Eclipsing Arrows to the party and raid, letting a Sentinel's Huntress Shot heal them.",
+      "description": "Apply Eclipsing Arrows to your party, letting a Sentinel's Huntress Shot heal them.",
       "_source": "CoA handoff doc: 'Applies Eclipsing Arrows to party/raid.' Real numbers not confirmed via a dedicated screenshot.",
       "target_type": "self",
       "ranks": [
@@ -1754,7 +1615,7 @@
       "stat_mods": {
         "crit_chance_physical": 5
       },
-      "description": "Grant the party and raid a critical strike chance buff. Does not stack with similar effects.",
+      "description": "Grant your party a critical strike chance buff. Does not stack with similar effects.",
       "_source": "CoA handoff doc: 'Party/raid crit chance buff (no stacking with similar).' Real numbers not confirmed via a dedicated screenshot.",
       "target_type": "self",
       "ranks": [
@@ -1847,44 +1708,6 @@
       "damage_school": "arcane"
     },
     {
-      "ability_id": "starcaller_bonds_of_justice",
-      "name": "Bonds of Justice",
-      "resource_type": "mana",
-      "cooldown": 10,
-      "effect_type": "debuff",
-      "duration": 3,
-      "stat_mods": {
-        "haste": -20.0
-      },
-      "description": "Tether an enemy. When the tether breaks, they are gripped back to you with Arcane damage.",
-      "_source": "CoA handoff doc confirmed: 'Tethers an enemy; break (expiry or 10+ yds distance) grips them back with Arcane damage.' Real numbers not confirmed via a dedicated screenshot.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 32,
-          "cost": 30,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "buff_scope": "combat",
-      "proc": {
-        "trigger": "on_damage_taken",
-        "chance": 100,
-        "icd": 1,
-        "apply_effect": {
-          "effect_id": "bonds_snap",
-          "name": "Bonds of Justice",
-          "effect_type": "dot",
-          "duration": 2,
-          "potency": 80,
-          "damage_school": "arcane",
-          "on_target": true,
-          "real_time_seconds": null
-        }
-      }
-    },
-    {
       "ability_id": "starcaller_halt",
       "name": "Halt",
       "resource_type": "mana",
@@ -1905,31 +1728,6 @@
       ],
       "icon_id": null,
       "is_stun": true,
-      "buff_scope": "combat"
-    },
-    {
-      "ability_id": "starcaller_shooting_star",
-      "name": "Shooting Star",
-      "resource_type": "mana",
-      "cooldown": 15,
-      "effect_type": "buff",
-      "duration": 1,
-      "stat_mods": {
-        "haste": 70,
-        "cc_immune": 1
-      },
-      "description": "A burst of movement speed. Cannot be slowed and cannot stop moving while active.",
-      "_source": "CoA handoff doc confirmed: 'Movement speed burst; can't be slowed, can't stop moving while active.' Warden's only real defensive/disengage tool. Real numbers not confirmed via a dedicated screenshot.",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 44,
-          "cost": 20,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
       "buff_scope": "combat"
     },
     {
@@ -1966,7 +1764,7 @@
       "stat_mods": {
         "intellect": 30
       },
-      "description": "Transform, teleporting to your target and increasing your Intellect. Extends Astral Blade's range and teleports you to the target while active.",
+      "description": "Transform into an avatar of vengeance, greatly increasing your Intellect.",
       "_source": "CoA handoff doc confirmed as Warden's real capstone transform, analogous to Metamorphosis. Real numbers not confirmed via a dedicated screenshot.",
       "target_type": "self",
       "ranks": [

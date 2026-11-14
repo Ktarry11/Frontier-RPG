@@ -313,21 +313,22 @@
     },
     {
       "talent_id": "starcaller_moon_priest_cosmic_shift",
-      "name": "Cosmic Shift",
-      "description": "Learn Cosmic Shift, phasing a target ally into improved stealth. Does not break on damage.",
-      "node_type": "active",
+      "name": "Moonwell Depths",
+      "description": "Moonwell Splash heals 10% more.",
+      "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 4,
       "effects": {
-        "unlock_ability": "starcaller_cosmic_shift"
+        "ability_starcaller_moonwell_splash_healing": 0.1
       },
       "connected_to": [
         "starcaller_moon_priest_cycle_of_the_moon"
       ],
-      "_source": "CoA handoff doc: 'Phases target ally into improved stealth; doesn't break on damage.'"
+      "_source": "CoA handoff doc: 'Phases target ally into improved stealth; doesn't break on damage.'",
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "starcaller_moon_priest_celestial_form",
@@ -462,7 +463,7 @@
     {
       "talent_id": "starcaller_moon_priest_flowing_grace",
       "name": "Flowing Grace",
-      "description": "Increases Prayer of Elune and Tidal Rebirth healing by 2% per rank.",
+      "description": "Increases Prayer of Elune healing by 2% per rank.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -470,8 +471,7 @@
       "hex_x": -1,
       "hex_y": 0,
       "effects": {
-        "ability_starcaller_prayer_of_elune_healing": 0.02,
-        "ability_starcaller_tidal_rebirth_healing": 0.02
+        "ability_starcaller_prayer_of_elune_healing": 0.02
       },
       "connected_to": [
         "starcaller_moon_priest_rippling_moonwater",
