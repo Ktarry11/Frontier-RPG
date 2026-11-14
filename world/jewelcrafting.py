@@ -191,6 +191,93 @@ def roll_sockets(item, total_budget, rng=random):
     return item
 
 
+# ---------------------------------------------------------------- hand-made gear
+#: Kyle, 14 Nov 2026: "go back through items post lvl 30 and add more gem slots while reducing
+#: stats accordingly. Like a small stat reduction on some blues and add 1 to 2 gem slots. Like 25%
+#: of the gear." Boss drops, quest rewards, named epics and set pieces are written by hand, so
+#: they never went through roll_sockets. A quarter of the blues and epics from level 30 now carry
+#: one or two sockets, paid for the same way: a gem's worth of stats per socket.
+AUTHORED_SHARE = 25          # percent of eligible hand-made items that get sockets
+AUTHORED_RARITIES = ("rare", "epic")
+AUTHORED_COST = 0.6          # each socket takes this share of one gem's worth off the item
+AUTHORED_KEEP_FLOOR = 0.8    # and the item always keeps at least this much of its stats
+
+
+def _template_of(item):
+    """The stat family of a hand-made item that names none: whatever its stats lean toward."""
+    if item.stat_template in TEMPLATE_COLOURS:
+        return item.stat_template
+    st = dict(item.primary_stats or {})
+    st.update(item.secondary_stats or {})
+    score = {
+        "str_physical": st.get("strength", 0) + st.get("attack_power", 0) / 2,
+        "agi_physical": st.get("agility", 0),
+        "int_caster": st.get("intellect", 0) + st.get("spell_power", 0),
+        "spi_healer": st.get("spirit", 0) + st.get("healing_power", 0) + st.get("mp5", 0),
+    }
+    best = max(score, key=score.get)
+    return best if score[best] > 0 else "str_physical"
+
+
+def _authored_budget(item):
+    """The stat budget the generator would give an item of this level, rarity and slot."""
+    d = json.loads((ROOT / "data/items/rarity.json").read_text(encoding="utf-8"))["rarity_tiers"]
+    slots = json.loads((ROOT / "data/items/slots.json").read_text(encoding="utf-8"))
+    rm = d.get(item.rarity, d["rare"])["stat_budget_multiplier"]
+    tier = (slots["slots"].get(item.slot) or {}).get("weight_tier", "medium")
+    return item.item_level * 0.36 * rm * slots["weight_tiers"].get(tier, 1.0)
+
+
+def socket_authored(item, seed=None):
+    """Give a hand-made item its sockets if it's one of the quarter that gets them. The choice and
+    the colours are seeded on the item (a set piece on its set and slot, so every spec's version
+    of a piece matches), so the same item always comes out the same. Returns the item."""
+    import zlib
+    if item is None or getattr(item, "sockets", None):
+        return item
+    if getattr(item, "required_level", 1) < SOCKET_LEVEL or item.rarity not in AUTHORED_RARITIES \
+            or item.slot in NO_SOCKETS:
+        return item
+    key = seed or (f"set:{item.set_id}:{item.slot}" if getattr(item, "set_id", None) else f"item:{item.name}")
+    h = zlib.crc32(key.encode("utf-8"))
+    if h % 100 >= AUTHORED_SHARE:
+        return item
+    rng = random.Random(h)
+    n = 2 if (item.rarity == "epic" and rng.random() < 0.6) or rng.random() < 0.3 else 1
+    wt = getattr(item, "weapon_type", None) or ""
+    two_hand = "_2h" in wt or wt in ("staff", "polearm")
+    n = min(n, SLOT_MAX.get("two_hand" if two_hand else item.slot, 2))
+    template = _template_of(item)
+    weights = TEMPLATE_COLOURS[template]
+    colours = rng.choices(list(weights), weights=list(weights.values()), k=n)
+    item.sockets = [{"color": c, "gem": None} for c in sorted(colours, key=COLOURS.index)]
+    return charge_sockets(item)
+
+
+def charge_sockets(item):
+    """Take the sockets' cost off a hand-made item's stats and set its bonus. Called when the
+    sockets are added, and again when a set piece is exchanged for another spec's version (the
+    exchange writes that version's full stats back, and the gems in the sockets stay put)."""
+    n = len(sockets(item))
+    if not n:
+        return item
+    # A SMALL reduction (Kyle: "a small stat reduction on some blues"): the sockets take back
+    # most of a gem's worth each, measured against what the item's own stats are actually worth,
+    # and never more than a fifth of them.
+    gb = gem_budget(item.item_level)
+    costs = stat_costs()
+    worth = sum(v * costs.get(k, 1.0) for g in (item.primary_stats, item.secondary_stats)
+                for k, v in (g or {}).items() if isinstance(v, (int, float)) and not isinstance(v, bool))
+    keep = max(AUTHORED_KEEP_FLOOR, 1.0 - n * gb * AUTHORED_COST / max(worth, 1.0))
+    from entities.item import whole
+    for group in (item.primary_stats, item.secondary_stats):
+        for k, v in list(group.items()):
+            if isinstance(v, (int, float)) and not isinstance(v, bool) and v > 0:
+                group[k] = max(1, whole(v * keep))
+    item.socket_bonus = stats_for({TEMPLATE_BONUS[_template_of(item)]: 1.0}, gb * BONUS_SHARE)
+    return item
+
+
 # ---------------------------------------------------------------- putting gems in, taking them out
 def place(character, item, index, cut_id):
     """Put a cut gem from the character's bags into a socket. Anything already in that socket is

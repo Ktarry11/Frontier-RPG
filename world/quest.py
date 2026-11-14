@@ -527,6 +527,8 @@ def build_unique_reward_set(item_defs):
             # bag and the one on the character sheet are the same picture.
             icon_id=_reward_icon(item_def),
         )
+        from world.jewelcrafting import socket_authored
+        socket_authored(item)           # a quarter of the blues and epics from level 30
         label = item_def.get("label", item.name)
         choices.append(QuestRewardGearChoice(label, item))
     return choices

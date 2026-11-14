@@ -80,4 +80,5 @@ def roll_epic(enemy, player_level, in_dungeon=False, rng=random):
         return None
 
     from entities.item import Item
-    return Item.from_dict(dict(rng.choice(pool)))
+    from world.jewelcrafting import socket_authored
+    return socket_authored(Item.from_dict(dict(rng.choice(pool))))

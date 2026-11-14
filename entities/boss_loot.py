@@ -93,7 +93,8 @@ def _item_from_def(item_def):
         rarity=item_def.get("rarity"), seed=f"fixedboss:{item_def['name']}",
         explicit=item_def.get("icon_id"))
 
-    return Item(
+    from world.jewelcrafting import socket_authored
+    return socket_authored(Item(
         item_id=item_id,
         name=item_def["name"],
         slot=item_def["slot"],
@@ -116,7 +117,7 @@ def _item_from_def(item_def):
         # A trinket that does something (see Item.proc). Dropping this here would be the
         # project's oldest bug again: authored in the JSON, read by nothing.
         proc=item_def.get("proc"),
-    )
+    ))
 
 
 def has_fixed_boss_loot(boss_name):

@@ -140,6 +140,11 @@ def exchange(item, variant):
         item.secondary_stats = dict(spec["secondary_stats"])
     item.set_variant = variant
     item.icon_id = icon_for(item.set_id, item.slot, variant) or item.icon_id
+    if getattr(item, "sockets", None):
+        # the new version's stats came in full; its sockets (and any gems in them) stay, so
+        # their cost comes off again (world/jewelcrafting.charge_sockets)
+        from world.jewelcrafting import charge_sockets
+        charge_sockets(item)
     return True
 
 
@@ -265,7 +270,8 @@ def make_piece(set_id, slot, variant=None):
                 set_id=set_id)
     item.set_variant = variant
     item.icon_id = icon_for(set_id, slot, variant)
-    return item
+    from world.jewelcrafting import socket_authored
+    return socket_authored(item)    # seeded on set and slot, so every version of a piece matches
 
 
 # ----------------------------------------------------------------------

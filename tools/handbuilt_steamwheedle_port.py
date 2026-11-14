@@ -52,6 +52,7 @@ QUAY = dict(x0=10, y0=22, x1=60, y1=62)
 YARD = dict(x0=52, y0=30, x1=110, y1=78)
 
 NPC_POSITIONS = {
+    "stw_gem_trader": (71, 45),          # gem seller (tools/build_gem_sellers.py)
     # ===== THE QUAY - old harbour families, stone buildings, four generations =====
     "stw_harbourmaster": (24, 30),
     "stw_innkeeper": (34, 36),

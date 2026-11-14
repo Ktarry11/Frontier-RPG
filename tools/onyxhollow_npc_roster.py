@@ -32,6 +32,12 @@ of it comes out.
 """
 
 ONYXHOLLOW_VENDORS = {
+    # gem seller (tools/build_gem_sellers.py, 14 Nov 2026)
+    "oh_gem_trader": (
+        "Gem-Trader Brynja Facetstone", "dwarf", "female", 2,
+        ["cut_sovereign_deepearth_geode", "cut_shifting_deepearth_geode", "cut_glowing_deepearth_geode", "cut_enduring_huge_emerald", "cut_dazzling_huge_emerald", "cut_bold_black_diamond", "cut_delicate_black_diamond", "cut_runed_black_diamond", "cut_sovereign_amethyst", "cut_shifting_amethyst", "cut_glowing_amethyst", "cut_solid_blue_sapphire", "cut_sparkling_blue_sapphire", "cut_lustrous_blue_sapphire"],
+        False,
+        "These are cut from what comes up out of the deep veins. They're ready for a socket now. Garrun's people can cut you something better if you bring them the rough stone."),
     "oh_innkeeper": (
         "Innkeeper Brenna Coalcask", "dwarf", "female", 3,
         ["meal_ember_glazed_ribs", "drink_starfall_wine", "bread_and_cheese", "roasted_meat",

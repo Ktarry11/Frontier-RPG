@@ -47,7 +47,7 @@ ZONES = [
 INN = "oh_innkeeper"
 TOWN = "Onyxhollow"
 TRAINER = "oh_forgemaster"
-TRADES = ["mining", "blacksmithing"]
+TRADES = ["mining", "blacksmithing", "jewelcrafting"]   # jewelcrafting joined the forge, 14 Nov 2026
 FORGE_ID = "onyxhollow_forge"
 
 

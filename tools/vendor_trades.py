@@ -48,6 +48,8 @@ VENDORS = ROOT / "data/npcs/vendors.json"
 
 #: title words -> trade, checked in order, as whole words in the lowercased name
 TITLES = [
+    # gem sellers (tools/build_gem_sellers.py): pre-cut gems for people who aren't jewelcrafters
+    ("gems", ["gem-trader", "gemcutter", "gemstone"]),
     ("travel", ["wind rider", "zeppelin", "stablemaster"]),
     ("inn", ["innkeeper", "tavern", "campkeeper"]),
     ("cook", ["cook", "provisioner", "brewer", "butcher", "grainkeeper", "goodwife",
@@ -70,6 +72,7 @@ TITLES = [
 
 #: trade -> the kinds of thing it sells
 TRADE_KINDS = {
+    "gems": {"cut_gem", "gem", "jc_supply"},
     "inn": {"food", "drink", "buff_food", "cook_ingredient", "recipe_cooking"},
     "cook": {"food", "drink", "buff_food", "cook_ingredient", "recipe_cooking", "fish"},
     "alchemy": {"potion", "elixir", "alch_supply", "herb", "recipe_alchemy"},

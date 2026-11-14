@@ -311,7 +311,7 @@ CINDERWHARF_AMBIENT = {
 #: Extra fields a record carries beyond the roster shape: what a trainer teaches.
 EXTRA = {
     "ct_cinderwharf": {"trains_class": "*"},
-    "pt_cinderwharf_forge": {"trains_profession": ["mining", "blacksmithing"]},
+    "pt_cinderwharf_forge": {"trains_profession": ["mining", "blacksmithing", "jewelcrafting"]},
     "pt_cinderwharf_herbs": {"trains_profession": ["herbalism", "alchemy"]},
     "pt_cinderwharf_hide": {"trains_profession": ["skinning", "leatherworking", "tailoring",
                                                   "cooking", "fishing"]},

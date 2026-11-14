@@ -94,11 +94,11 @@ def main():
     # 5
     tr = json.load(open("data/training/trainers.json", encoding="utf-8"))["profession_trainers"]
     here = {k: v for k, v in tr.items() if k.startswith("oh_")}
-    if here != {"oh_forgemaster": ["mining", "blacksmithing"]}:
+    if here != {"oh_forgemaster": ["mining", "blacksmithing", "jewelcrafting"]}:
         bad.append(f"trainers here: {here}")
     npcs = {n["npc_id"]: n for n in json.load(open("data/npcs/ambient_npcs.json", encoding="utf-8"))["npcs"]
             if n["zone"] == "onyxhollow"}
-    if npcs.get("oh_forgemaster", {}).get("trains_profession") != ["mining", "blacksmithing"]:
+    if npcs.get("oh_forgemaster", {}).get("trains_profession") != ["mining", "blacksmithing", "jewelcrafting"]:
         bad.append("the forgemaster's own record does not say what he teaches")
     forge = [f for f in json.load(open("data/npcs/forges.json", encoding="utf-8"))["forges"] if f["zone"] == "onyxhollow"]
     if len(forge) != 1 or not beside((forge[0]["x"], forge[0]["y"])):

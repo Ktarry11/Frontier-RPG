@@ -22,6 +22,12 @@ CLAIMS:
   5. Settings: smiths sell the plain ones and the kit, blacksmiths can make every setting.
   6. Meta gems: the rules work, and nothing in the game makes a meta socket yet.
   7. The screens draw: the Jewelcrafting tab, the socket screen both ways, an item card.
+  8. Hand-made gear (Kyle: "add more gem slots while reducing stats accordingly... a small stat
+     reduction on some blues... Like 25% of the gear"): about a quarter of the boss, quest, epic
+     and set blues and epics from level 30 carry one or two sockets, always the same ones, with a
+     small cut to their stats; a set piece keeps its sockets through a spec exchange.
+  9. Gem sellers (Kyle: "make gem sellers! For weaker pre-cut gems"): four towns, common-stone
+     cuts only, so a jewelcrafter can always cut better.
 """
 import contextlib
 import io
@@ -223,6 +229,56 @@ def main():
     for _ in range(40):
         h = gen.generate_armor_piece("head", "plate", "str_physical", 58, "epic")
         check(all(s["color"] != "meta" for s in J.sockets(h)), "a meta socket was rolled while switched off")
+
+    # 8
+    with contextlib.redirect_stdout(io.StringIO()):
+        from entities.boss_loot import _item_from_def, _load_boss_loot_tables
+        from world import gear_sets
+    elig = sock = 0
+    for pool in _load_boss_loot_tables().values():
+        for dfn in pool:
+            a, b = _item_from_def(dfn), _item_from_def(dfn)
+            if a.required_level >= 30 and a.rarity in ("rare", "epic") and a.slot not in J.NO_SOCKETS:
+                elig += 1
+                if a.sockets:
+                    sock += 1
+                    check(1 <= len(a.sockets) <= 2, f"{a.name}: {len(a.sockets)} sockets")
+                    check([x["color"] for x in a.sockets] == [x["color"] for x in b.sockets],
+                          f"{a.name} comes out with different sockets each time")
+                    for k, v in (dfn.get("primary_stats") or {}).items():
+                        if v >= 5:
+                            check(a.primary_stats.get(k, 0) >= int(0.8 * v),
+                                  f"{a.name}: {k} cut from {v} to {a.primary_stats.get(k)}")
+            elif a.sockets:
+                bad.append(f"{a.name} has sockets but is below 30 or not blue or better")
+    check(0.18 <= sock / max(1, elig) <= 0.32, f"{sock} of {elig} hand-made items have sockets")
+    done = 0
+    for sid in list(gear_sets.all_sets()):
+        for slot in ("chest", "legs", "head", "hands", "feet", "shoulder", "waist", "wrist"):
+            p = gear_sets.make_piece(sid, slot)
+            if p is None or not p.sockets:
+                continue
+            opts = gear_sets.exchange_options(p)
+            if not opts:
+                continue
+            p.sockets[0]["gem"] = "cut_bold_star_ruby"
+            before = [x["color"] for x in p.sockets]
+            gear_sets.exchange(p, opts[0][0])
+            check([x["color"] for x in p.sockets] == before and p.sockets[0]["gem"] == "cut_bold_star_ruby",
+                  f"{sid} {slot}: the exchange lost the sockets or the gem")
+            done += 1
+            break
+    check(done > 0, "no set piece with sockets was found to test the exchange on")
+
+    # 9
+    sellers = [v for v in vendors if v["vendor_id"] in
+               ("org_market_jewelcrafter", "uc_market_gems", "stw_gem_trader", "oh_gem_trader")]
+    check(len(sellers) == 4, f"{len(sellers)} gem sellers, wanted 4")
+    for v in sellers:
+        gems = [i for i in v["sells"] if i in cuts]
+        check(len(gems) >= 8, f"{v['name']} sells only {len(gems)} gems")
+        for i in gems:
+            check(cuts[i]["quality"] == "uncommon", f"{v['name']} sells {cuts[i]['name']}, a rare-quality gem")
 
     # 7
     with contextlib.redirect_stdout(io.StringIO()):

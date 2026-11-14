@@ -43,7 +43,7 @@ import build_class_trainers as bct  # noqa: E402
 #: (pair key, shown title, [professions taught], greeting). The gathering half is listed first in every
 #: pair, because that is the order a player meets them in.
 PAIRS = [
-    ("forge", "Forge", ["mining", "blacksmithing"],
+    ("forge", "Forge", ["mining", "blacksmithing", "jewelcrafting"],
      "Ore in one hand, hammer in the other. I teach both halves or neither - no sense knowing where to "
      "dig if you cannot do anything with it."),
     ("herbs", "Apothecary", ["herbalism", "alchemy"],

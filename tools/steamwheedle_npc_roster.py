@@ -34,6 +34,12 @@ treats crush injuries, because that is what a working dock does to people.
 """
 
 STEAMWHEEDLE_VENDORS = {
+    # gem seller (tools/build_gem_sellers.py, 14 Nov 2026)
+    "stw_gem_trader": (
+        "Gem-Trader Pixi Quartzwhistle", "goblin", "female", 5,
+        ["cut_brilliant_topaz", "cut_smooth_topaz", "cut_gleaming_topaz", "cut_dazzling_peridot", "cut_solid_aquamarine", "cut_sparkling_aquamarine", "cut_lustrous_aquamarine", "cut_dazzling_felfire_shard", "cut_bold_heartsblood_garnet", "cut_delicate_heartsblood_garnet", "cut_runed_heartsblood_garnet"],
+        False,
+        "Cut gems, ready to go, no jeweller needed. Half of these came up out of the Glittervein, and the other half came off a ship. I won't say which half."),
     # ================= THE QUAY =================
     "stw_innkeeper": (
         "Innkeeper Mirabel Sump", "goblin", "female", 9,
