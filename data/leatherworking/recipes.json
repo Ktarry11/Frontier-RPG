@@ -5007,6 +5007,35 @@
         "material_tier": "frostscale"
       }
     },
+    "secret_hz_pines_osric_lw_serpentkin_leather_vest": {
+      "name": "Unwept's Serpentkin Leather Vest",
+      "skill_required": 95,
+      "skill_range": [
+        100,
+        110,
+        120,
+        130
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_heavy": 10,
+        "thread_coarse": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "leather",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 22,
+        "rarity": "rare",
+        "material_tier": "heavy"
+      },
+      "drop_zone": "Wailing Caverns",
+      "secret": true,
+      "sold_by": [
+        "secret_hz_pines_osric"
+      ]
+    },
     "secret_brill_grisle_lw_light_leather_vest": {
       "name": "Grisle's Light Leather Vest",
       "inputs": {

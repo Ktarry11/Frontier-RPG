@@ -6735,6 +6735,35 @@
             "material_tier": "voidweave"
           }
         },
+        "secret_hz_pines_osric_tai_blazethread_robes": {
+          "name": "Unwept's Blazethread Robes",
+          "skill_required": 95,
+          "skill_range": [
+            100,
+            110,
+            120,
+            130
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_silk": 4,
+            "thread_coarse": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 22,
+            "rarity": "rare",
+            "material_tier": "silk"
+          },
+          "drop_zone": "Ragefire Chasm",
+          "secret": true,
+          "sold_by": [
+            "secret_hz_pines_osric"
+          ]
+        },
         "secret_brill_grisle_tail_wool_belt": {
           "name": "Grisle's Wool Belt",
           "inputs": {
@@ -14364,6 +14393,35 @@
             "rarity": "epic",
             "material_tier": "elementium"
           }
+        },
+        "secret_hz_caravan_amun_eng300_voidglass_targeting_scope": {
+          "name": "Amun-Who-Stayed's Voidglass Targeting Scope",
+          "skill_required": 220,
+          "skill_range": [
+            225,
+            235,
+            245,
+            255
+          ],
+          "source": "vendor",
+          "inputs": {
+            "crystal_voidglass": 2,
+            "bar_mithril": 2,
+            "part_precision_sight": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "agi_physical",
+            "item_level": 47,
+            "rarity": "epic",
+            "material_tier": "voidglass"
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_hz_caravan_amun"
+          ]
         },
         "secret_uc_edwin_eng_trinket_pocket_orrery": {
           "name": "Edwin's Pocket Orrery",

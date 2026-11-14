@@ -3900,6 +3900,36 @@
       ],
       "source": "drop"
     },
+    "secret_hz_glass_vessa_jc_ring_copper_spi_healer": {
+      "name": "Glassmouth's Azurite Circle",
+      "inputs": {
+        "setting_ring_copper": 1,
+        "bar_copper": 1,
+        "gem_azurite": 1
+      },
+      "skill_required": 35,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "armor_type": null,
+        "stat_template": "spi_healer",
+        "item_level": 17,
+        "rarity": "rare",
+        "material_tier": "copper"
+      },
+      "tool": "jewelers_kit",
+      "skill_range": [
+        35,
+        45,
+        55,
+        65
+      ],
+      "source": "vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_hz_glass_vessa"
+      ]
+    },
     "secret_xroads_tazzle_jc_ring_silver_agi_physical": {
       "name": "Tazzle's Garnet Band",
       "inputs": {

@@ -5873,6 +5873,63 @@
       "source": "vendor",
       "_source": "Enchanting rods (tools/build_enchanting.py). Kyle, 14 Nov 2026: rods will be made by Blacksmiths or sold by vendors."
     },
+    "secret_hz_glass_vessa_bs_plains_scale_vest": {
+      "name": "Glassmouth's Plains Scale Vest",
+      "skill_required": 85,
+      "skill_range": [
+        90,
+        100,
+        110,
+        120
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_copper": 12,
+        "flux_weak": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "str_int_hybrid",
+        "item_level": 20,
+        "rarity": "rare",
+        "material_tier": "copper"
+      },
+      "vendor_location": "The Crossroads",
+      "secret": true,
+      "sold_by": [
+        "secret_hz_glass_vessa"
+      ]
+    },
+    "secret_hz_caravan_amun_bs300_truesilver_head": {
+      "name": "Amun-Who-Stayed's Truesilver Helm",
+      "skill_required": 230,
+      "skill_range": [
+        235,
+        245,
+        255,
+        265
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_truesilver": 6,
+        "flux_strong": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "plate",
+        "stat_template": "int_caster",
+        "item_level": 49,
+        "rarity": "epic",
+        "material_tier": "truesilver"
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_hz_caravan_amun"
+      ]
+    },
     "secret_uc_edwin_bs_copper_runic_coif": {
       "name": "Edwin's Copper Runic Coif",
       "skill_required": 60,

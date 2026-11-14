@@ -56,7 +56,11 @@ def main():
     bad = []
 
     by_src = {}
+    from world.secrets import get_secrets
+    _secrets = get_secrets()
     for (src, x, y), dest in zm.portal_manager._lookup.items():
+        if _secrets.is_door(src, x, y):
+            continue        # a secret door is meant to have nothing round it (world/secrets.py)
         by_src.setdefault(src, {}).setdefault(dest[0], []).append((x, y))
 
     def art_on(tm, tiles):

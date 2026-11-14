@@ -82,6 +82,27 @@ AUTHORED_VENDORS = [{
 #: sold nowhere else, and three one-of-a-kind items at the town's level.
 #:   (id, town, name, race, gender, greeting, [trades], [(item, slot, suffix, kind, type, flavor)])
 SELLERS = [
+    # ---- people living deep inside the hidden zones (world/hidden_zones.py). Kyle: "I WANT to be
+    # rewarded for exploring." A secret inside a secret.
+    ("secret_hz_glass_vessa", "The Glasswaste", "Vessa Glassmouth", "blood_elf", "female",
+     "You got past the kilns AND found the crack in the wall? Then you've earned a look at what "
+     "I've made from the glass. Don't tell Durek where I live.",
+     ["jewelcrafting", "blacksmithing"],
+     [("Fused Glass Longblade", "main_hand", "of the Gladiator", "weapon", "sword_2h", "Glass, folded like steel. It sings when it cuts."),
+      ("Glassblower's Leggings", "legs", "of the Sorcerer", "armor", "cloth", "Scorched at the knees and proud of it."),
+      ("Kilnscale Hauberk", "chest", "of the Champion", "armor", "mail", "Little plates of glass, sewn on one by one.")]),
+    ("secret_hz_pines_osric", "The Weeping Pines", "Osric the Unwept", "human", "male",
+     "Nobody comes in here who isn't lost or looking. You don't look lost. What are you looking for?",
+     ["leatherworking", "tailoring"],
+     [("Fogwalker's Cloak", "back", "of the Wolf", "armor", None, "Grey wool that drinks the fog and gives it back."),
+      ("Pine-Ghost Bow", "ranged", "of the Sharpshooter", "weapon", "bow", "Strung with a widow's hair. Don't ask whose."),
+      ("Mereside Boots", "feet", "of the Physician", "armor", "leather", "Waterproof. That's rarer out here than you'd think.")]),
+    ("secret_hz_caravan_amun", "The Buried Caravan", "Amun-Who-Stayed", "human", "male",
+     "I was the caravan's last guard. I'm still guarding it. Buy something, and I'll pretend I didn't see you.",
+     ["blacksmithing", "engineering"],
+     [("Caravan Guard's Kopesh", "main_hand", "of the Vanquisher", "weapon", "sword_1h", "Sand-polished for three hundred years."),
+      ("Sun-Bleached Turban", "head", "of the Invoker", "armor", "cloth", "It keeps the head cool, and the thoughts clear."),
+      ("Duneplate Sabatons", "feet", "of the Defender", "armor", "plate", "Every step leaves a perfect print.")]),
     ("secret_brill_grisle", "Brill", "Mother Grisle", "forsaken", "female",
      "You found the back of the town hall. Most people never think to look behind anything. "
      "Buy something before you start telling people.",
@@ -681,7 +702,8 @@ def main():
             continue
         c = opts[0]
         level = _level(zone, levels)
-        ilvl = max(10, level + 3)
+        # inside a hidden zone the shelves sit as high as its drops (world/hidden_zones.py)
+        ilvl = max(10, level + (6 if vid.startswith("secret_hz_") else 3))
         stock = []
         for (iname, slot, suffix, kind, typ, flavor) in items:
             uid = vid.replace("secret_", "") + "_" + iname.lower().replace("'", "").replace(" ", "_").replace("-", "_")
