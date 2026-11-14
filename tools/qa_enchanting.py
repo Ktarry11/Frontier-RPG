@@ -100,6 +100,8 @@ def main():
         for m in r["inputs"]:
             check(m in mats, f"{rid}: no material {m}")
         out = r["output"]
+        if out["kind"] == "material" and "_essence" in rid:
+            continue                                  # the essence swaps, checked in play below
         if out["kind"] == "material":
             check(out["material_id"] in enchants, f"{rid}: makes {out['material_id']}, which isn't an enchantment")
             rods = r.get("tool") or []
@@ -233,6 +235,20 @@ def main():
     check(not [e for e in hero.active_effects if str(e.effect_id).endswith("_enchant")], "the proc stayed after the weapon came off")
     back = Item.from_dict(json.loads(json.dumps(sword.to_dict())))
     check(back.enchant_id == "enchant_weapon_crusader", "the enchantment doesn't survive a save")
+    # essences both ways (Kyle: "3 lesser for 1 greater or 1 greater breaks to 3 lesser")
+    for key in ("magic", "astral", "mystic", "nether", "eternal"):
+        check(f"ench_combine_{key}_essence" in recipes and f"ench_split_{key}_essence" in recipes, f"no {key} essence swap")
+    hero.materials = [m for m in hero.materials if "nether_essence" not in m.material_id]
+    give("lesser_nether_essence", 3)
+    xp = hero.experience
+    ok, msg, _ = cm.craft(hero, "enchanting", "ench_combine_nether_essence")
+    check(ok and hero.get_material_quantity("greater_nether_essence") == 1 and hero.get_material_quantity("lesser_nether_essence") == 0,
+          f"3 lesser didn't make a greater: {msg}")
+    ok, msg, _ = cm.craft(hero, "enchanting", "ench_split_nether_essence")
+    check(ok and hero.get_material_quantity("lesser_nether_essence") == 3 and hero.get_material_quantity("greater_nether_essence") == 0,
+          f"a greater didn't break into 3 lesser: {msg}")
+    check(hero.experience == xp, "swapping essences gave experience")
+
     # a wand and an oil
     give("plank_duskwood", 1)
     ok, msg, made = cm.craft(hero, "enchanting", "ench_greater_mystic_wand")

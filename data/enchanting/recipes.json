@@ -3986,6 +3986,206 @@
       ],
       "source": "drop"
     },
+    "ench_combine_magic_essence": {
+      "name": "Greater Magic Essence (from 3 Lesser)",
+      "inputs": {
+        "lesser_magic_essence": 3
+      },
+      "skill_required": 1,
+      "output": {
+        "kind": "material",
+        "material_id": "greater_magic_essence"
+      },
+      "count": 1,
+      "skill_range": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "trainer",
+      "no_xp": true
+    },
+    "ench_split_magic_essence": {
+      "name": "Lesser Magic Essence (3, from a Greater)",
+      "inputs": {
+        "greater_magic_essence": 1
+      },
+      "skill_required": 1,
+      "output": {
+        "kind": "material",
+        "material_id": "lesser_magic_essence"
+      },
+      "count": 3,
+      "skill_range": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "trainer",
+      "no_xp": true
+    },
+    "ench_combine_astral_essence": {
+      "name": "Greater Astral Essence (from 3 Lesser)",
+      "inputs": {
+        "lesser_astral_essence": 3
+      },
+      "skill_required": 1,
+      "output": {
+        "kind": "material",
+        "material_id": "greater_astral_essence"
+      },
+      "count": 1,
+      "skill_range": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "trainer",
+      "no_xp": true
+    },
+    "ench_split_astral_essence": {
+      "name": "Lesser Astral Essence (3, from a Greater)",
+      "inputs": {
+        "greater_astral_essence": 1
+      },
+      "skill_required": 1,
+      "output": {
+        "kind": "material",
+        "material_id": "lesser_astral_essence"
+      },
+      "count": 3,
+      "skill_range": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "trainer",
+      "no_xp": true
+    },
+    "ench_combine_mystic_essence": {
+      "name": "Greater Mystic Essence (from 3 Lesser)",
+      "inputs": {
+        "lesser_mystic_essence": 3
+      },
+      "skill_required": 1,
+      "output": {
+        "kind": "material",
+        "material_id": "greater_mystic_essence"
+      },
+      "count": 1,
+      "skill_range": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "trainer",
+      "no_xp": true
+    },
+    "ench_split_mystic_essence": {
+      "name": "Lesser Mystic Essence (3, from a Greater)",
+      "inputs": {
+        "greater_mystic_essence": 1
+      },
+      "skill_required": 1,
+      "output": {
+        "kind": "material",
+        "material_id": "lesser_mystic_essence"
+      },
+      "count": 3,
+      "skill_range": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "trainer",
+      "no_xp": true
+    },
+    "ench_combine_nether_essence": {
+      "name": "Greater Nether Essence (from 3 Lesser)",
+      "inputs": {
+        "lesser_nether_essence": 3
+      },
+      "skill_required": 1,
+      "output": {
+        "kind": "material",
+        "material_id": "greater_nether_essence"
+      },
+      "count": 1,
+      "skill_range": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "trainer",
+      "no_xp": true
+    },
+    "ench_split_nether_essence": {
+      "name": "Lesser Nether Essence (3, from a Greater)",
+      "inputs": {
+        "greater_nether_essence": 1
+      },
+      "skill_required": 1,
+      "output": {
+        "kind": "material",
+        "material_id": "lesser_nether_essence"
+      },
+      "count": 3,
+      "skill_range": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "trainer",
+      "no_xp": true
+    },
+    "ench_combine_eternal_essence": {
+      "name": "Greater Eternal Essence (from 3 Lesser)",
+      "inputs": {
+        "lesser_eternal_essence": 3
+      },
+      "skill_required": 1,
+      "output": {
+        "kind": "material",
+        "material_id": "greater_eternal_essence"
+      },
+      "count": 1,
+      "skill_range": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "trainer",
+      "no_xp": true
+    },
+    "ench_split_eternal_essence": {
+      "name": "Lesser Eternal Essence (3, from a Greater)",
+      "inputs": {
+        "greater_eternal_essence": 1
+      },
+      "skill_required": 1,
+      "output": {
+        "kind": "material",
+        "material_id": "lesser_eternal_essence"
+      },
+      "count": 3,
+      "skill_range": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "trainer",
+      "no_xp": true
+    },
     "ench_lesser_magic_wand": {
       "name": "Lesser Magic Wand",
       "inputs": {

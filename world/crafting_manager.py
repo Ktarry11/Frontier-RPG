@@ -133,7 +133,9 @@ class CraftingManager:
                 return False, "Your bags are full.", None
 
         self._skill_up(character, profession, r)
-        self._award_craft_xp(character, r)
+        if not r.get("no_xp"):
+            # no_xp: swapping three lesser essences for a greater one (and back) isn't a craft
+            self._award_craft_xp(character, r)
         try:
             from world.quest_manager import get_quest_manager
             get_quest_manager().record_craft(recipe_id)

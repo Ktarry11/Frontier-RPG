@@ -69,6 +69,7 @@ class VendorScreen(BaseScreen):
         self.buy_qty = 1
         self.scroll_vendor = 0
         self.scroll_player = 0
+        self._bars()
         self.sell_filter = "all"
 
         self.message = None
@@ -189,6 +190,13 @@ class VendorScreen(BaseScreen):
                                         self._max_scroll(len(self.vendor_inventory))))
         self.scroll_player = max(0, min(self.scroll_player,
                                         self._max_scroll(len(self._player_stock()))))
+
+    def _bars(self):
+        """(vendor list's scrollbar, player list's), made on first use."""
+        if not hasattr(self, "vendor_bar"):
+            from ui.scrollbar import ScrollBar
+            self.vendor_bar, self.player_bar = ScrollBar(), ScrollBar()
+        return self.vendor_bar, self.player_bar
 
     def _panel_rect(self, x):
         return pygame.Rect(x, self.PANEL_Y, self.PANEL_WIDTH, self.PANEL_HEIGHT)
@@ -443,6 +451,14 @@ class VendorScreen(BaseScreen):
     # ------------------------------------------------------------------ update
 
     def handle_event(self, event):
+        # the scrollbars first: a click on one must never select the row beside it
+        vbar, pbar = self._bars()
+        for bar, attr in ((vbar, "scroll_vendor"), (pbar, "scroll_player")):
+            new = bar.handle_event(event, getattr(self, attr))
+            if new is not None:
+                setattr(self, attr, new)
+                self._clamp_scrolls()
+                return
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 self.state_manager.transition_to(GameState.OVERWORLD)
@@ -706,21 +722,19 @@ class VendorScreen(BaseScreen):
                                     size="small", color=color)
 
     def _draw_scrollbar(self, screen, panel_x, total, scroll):
-        """A track and thumb on the panel's right edge, drawn only when there is
-        something off-screen. Without it the wheel works but nothing says so."""
-        if total <= self.VISIBLE_ROWS:
-            return
-        track = pygame.Rect(panel_x + self.PANEL_WIDTH - 9, self.PANEL_Y + 3,
-                            6, self.PANEL_HEIGHT - 6)
-        pygame.draw.rect(screen, (20, 20, 26), track)
-        thumb_h = max(24, int(track.height * self.VISIBLE_ROWS / total))
-        span = track.height - thumb_h
-        top = track.y + int(span * scroll / max(1, self._max_scroll(total)))
-        pygame.draw.rect(screen, (110, 110, 130), pygame.Rect(track.x, top, track.width, thumb_h))
+        """The panel's scrollbar (ui/scrollbar.py), in the gutter the rows leave clear on the
+        right, drawn only when there is something off-screen. It drags and takes clicks; it used to
+        be a picture drawn over the rows' right edge (Kyle, 14 Nov: "it overlaps with the right
+        side of the item so you can't actually use it")."""
+        vbar, pbar = self._bars()
+        bar = vbar if panel_x == self.VENDOR_PANEL_X else pbar
+        bar.draw(screen, bar.track_for(self._panel_rect(panel_x).inflate(0, -6)),
+                 scroll, self._max_scroll(total), self.VISIBLE_ROWS)
 
     def _row_rect(self, panel_x, row_index):
+        from ui.scrollbar import GUTTER
         y = self.PANEL_Y + row_index * self.ITEM_ROW_HEIGHT
-        return pygame.Rect(panel_x, y, self.PANEL_WIDTH, self.ITEM_ROW_HEIGHT - 2)
+        return pygame.Rect(panel_x, y, self.PANEL_WIDTH - GUTTER, self.ITEM_ROW_HEIGHT - 2)
 
     def _draw_item_row(self, screen, panel_x, row_index, item, selected, mode):
         rect = self._row_rect(panel_x, row_index)

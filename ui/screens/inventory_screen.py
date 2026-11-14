@@ -75,6 +75,36 @@ MATERIALS_SLOT_SPACING = 10
 MATERIALS_START_X = 40
 MATERIALS_START_Y = 110
 
+# MATERIALS SUBTABS. Kyle, 14 Nov 2026: "At some point we might need subtabs for materials lmao."
+# Enchanting alone added 24 materials, 5 rods and 164 scrolls to one grid already holding ore,
+# herbs, cloth, wood, gems and cooking. (key, label, material_types); "other" takes the rest and
+# "all" shows everything, so nothing can hide behind a filter.
+MATERIAL_SUBTABS = [
+    ("all", "All", None),
+    ("mining", "Ore & Bars", {"ore", "bar", "crystal"}),
+    ("herbs", "Herbs", {"herb"}),
+    ("cloth", "Cloth & Leather", {"cloth", "bolt", "leather"}),
+    ("wood", "Wood", {"wood", "plank", "fiber", "pages", "stick"}),
+    ("gems", "Gems", {"gem", "cut_gem"}),
+    ("enchanting", "Enchanting", {"enchant_mat", "rod", "enchant_scroll"}),
+    ("cooking", "Cooking", {"meat", "fish"}),
+    ("other", "Other", None),
+]
+#: the subtab row sits under the skill line; the materials grid starts below it
+MATERIAL_SUBTAB_Y = 84
+MATERIALS_GRID_Y = MATERIALS_START_Y + 26
+
+
+def material_subtab(material):
+    """Which subtab a material belongs to (never "all")."""
+    mtype = getattr(material, "material_type", None)
+    if getattr(material, "profession", None) == "cooking":
+        return "cooking"
+    for key, _label, types in MATERIAL_SUBTABS:
+        if types and mtype in types:
+            return key
+    return "other"
+
 
 from ui.coin_format import format_coins
 
@@ -144,7 +174,8 @@ class InventoryScreen(BaseScreen):
         self.sockets_button = pygame.Rect(SCREEN_WIDTH - 670, 20, 100, 36)
         # Enchant gear and disenchant it (ui/screens/enchant_screen.py, world/enchanting.py)
         self.enchant_button = pygame.Rect(SCREEN_WIDTH - 780, 20, 100, 36)
-        self.materials_rects = []  # list of pygame.Rect, index-aligned to subject.materials
+        self.materials_rects = []  # list of pygame.Rect, index-aligned to the open subtab's materials
+        self.material_subtab = "all"     # MATERIAL_SUBTABS key
         # CONSUMABLES HAD NO HOME IN THE BAG AT ALL. Kyle, 2026-10-31: "i have
         # tough jerky (food) in my inventory but there is no way to use it. I
         # dont see it in my actual inventory unless im trying to sell it."
@@ -292,6 +323,7 @@ class InventoryScreen(BaseScreen):
         fit = max(1, (SCREEN_HEIGHT - 8 - y0 + gap) // step)
         rows = (count + cols - 1) // cols
         self.grid_rows_hidden = max(0, rows - fit)
+        self.grid_rows_fit = fit
         self.grid_scroll = max(0, min(getattr(self, "grid_scroll", 0), self.grid_rows_hidden))
         rects = []
         for i in range(count):
@@ -301,16 +333,14 @@ class InventoryScreen(BaseScreen):
         return rects
 
     def _draw_scroll_hint(self, screen, x0, y0, width):
-        """A thin bar at the right of the grid, only when there is more than fits."""
-        hidden = getattr(self, "grid_rows_hidden", 0)
-        if not hidden:
-            return
-        track = pygame.Rect(x0 + width + 6, y0, 6, SCREEN_HEIGHT - 8 - y0)
-        pygame.draw.rect(screen, (40, 40, 48), track, border_radius=3)
-        shown = track.height / (track.height + hidden * 98.0)
-        knob_h = max(30, int(track.height * shown))
-        knob_y = track.y + int((track.height - knob_h) * self.grid_scroll / hidden)
-        pygame.draw.rect(screen, COLOR_GOLD, (track.x, knob_y, track.width, knob_h), border_radius=3)
+        """The grid's scrollbar, right of the grid and only when there is more than fits. It drags
+        and takes clicks (ui/scrollbar.py); it used to be a picture."""
+        from ui.scrollbar import ScrollBar, WIDTH
+        if not hasattr(self, "grid_bar"):
+            self.grid_bar = ScrollBar()
+        track = pygame.Rect(x0 + width + 4, y0, WIDTH, SCREEN_HEIGHT - 8 - y0)
+        self.grid_bar.draw(screen, track, getattr(self, "grid_scroll", 0),
+                           getattr(self, "grid_rows_hidden", 0), getattr(self, "grid_rows_fit", 1))
 
     def _build_inventory_rects(self, count):
         self.inventory_rects = self._grid(count, INV_GRID_COLS, INV_SLOT_SIZE, INV_SLOT_SPACING,
@@ -323,7 +353,15 @@ class InventoryScreen(BaseScreen):
         - the materials tab has the WHOLE screen to itself, no gear grid
         sharing the view, so it gets more breathing room."""
         self.materials_rects = self._grid(count, MATERIALS_GRID_COLS, MATERIALS_SLOT_SIZE,
-                                          MATERIALS_SLOT_SPACING, MATERIALS_START_X, MATERIALS_START_Y)
+                                          MATERIALS_SLOT_SPACING, MATERIALS_START_X, MATERIALS_GRID_Y)
+
+    def _shown_materials(self, subject):
+        """The materials in the open subtab, in bag order."""
+        key = getattr(self, "material_subtab", "all")
+        mats = list(getattr(subject, "materials", []) or [])
+        if key == "all":
+            return mats
+        return [m for m in mats if material_subtab(m) == key]
 
     def _build_consumables_rects(self, count):
         """Grid layout for the Consumables tab - the same geometry as the
@@ -377,6 +415,13 @@ class InventoryScreen(BaseScreen):
     def handle_event(self, event):
         subject = self._get_subject()
 
+        # The grid's scrollbar: dragged, or a click on its track.
+        bar = getattr(self, "grid_bar", None)
+        if bar is not None:
+            new = bar.handle_event(event, getattr(self, "grid_scroll", 0))
+            if new is not None:
+                self.grid_scroll = max(0, min(getattr(self, "grid_rows_hidden", 0), new))
+                return
         # Scroll the grid: wheel, or Page Up / Page Down.
         step = 0
         if event.type == pygame.MOUSEWHEEL:
@@ -493,6 +538,11 @@ class InventoryScreen(BaseScreen):
             # tooltip, same "look but no action yet" state consumables
             # were already in before this session.
             if self.active_tab == "materials":
+                for key, rect in getattr(self, "material_subtab_rects", {}).items():
+                    if rect.collidepoint(mouse_pos):
+                        self.material_subtab = key
+                        self.grid_scroll = 0
+                        return
                 return
 
             # Click an equipped slot -> unequip, back into the SAME bag this
@@ -664,8 +714,15 @@ class InventoryScreen(BaseScreen):
     def render(self, screen):
         subject = self._get_subject()
         bag = self._bag_source(subject)
-        self._build_inventory_rects(len(bag.inventory))
-        self._draw_scroll_hint(screen, INV_START_X, INV_START_Y, INV_GRID_COLS * (INV_SLOT_SIZE + INV_SLOT_SPACING))
+        # THE GEAR GRID ONLY ON THE GEAR TAB. It was laid out on every tab first, and laying it
+        # out clamps the one shared grid_scroll to the GEAR bag's rows, so whenever your gear fit
+        # on one screen the materials and consumables grids snapped back to the top on every
+        # frame and could never be scrolled. It also drew the gear grid's bar on those tabs.
+        if self.active_tab == "gear":
+            self._build_inventory_rects(len(bag.inventory))
+            self._draw_scroll_hint(screen, INV_START_X, INV_START_Y, INV_GRID_COLS * (INV_SLOT_SIZE + INV_SLOT_SPACING))
+        else:
+            self.inventory_rects = []
 
         # Title names the subject when gearing a companion, so there is no
         # chance of dressing the wrong character without noticing.
@@ -1053,8 +1110,9 @@ class InventoryScreen(BaseScreen):
         separate view, same reasoning _render_destroy_confirmation is
         broken out below - render() dispatches to one or the other, it
         doesn't interleave them."""
-        self._build_materials_rects(len(subject.materials))
-        self._draw_scroll_hint(screen, MATERIALS_START_X, MATERIALS_START_Y, MATERIALS_GRID_COLS * (MATERIALS_SLOT_SIZE + MATERIALS_SLOT_SPACING))
+        shown = self._shown_materials(subject)
+        self._build_materials_rects(len(shown))
+        self._draw_scroll_hint(screen, MATERIALS_START_X, MATERIALS_GRID_Y, MATERIALS_GRID_COLS * (MATERIALS_SLOT_SIZE + MATERIALS_SLOT_SPACING))
 
         # Profession skill line - the only place these numbers are
         # visible anywhere in the game right now (Phase 1 has no
@@ -1066,12 +1124,37 @@ class InventoryScreen(BaseScreen):
         skill_line = "  ".join(skill_parts) if skill_parts else "No gathering professions learned yet."
         self.renderer.draw_text(screen, skill_line, (20, 60), color=COLOR_LIGHT_GRAY)
 
+        # the subtabs: the open one gold, an empty one dim, each with how many stacks it holds
+        counts = {"all": len(subject.materials or [])}
+        for m in subject.materials or []:
+            k = material_subtab(m)
+            counts[k] = counts.get(k, 0) + 1
+        self.material_subtab_rects = {}
+        x = MATERIALS_START_X
+        current = getattr(self, "material_subtab", "all")
+        for key, label, _types in MATERIAL_SUBTABS:
+            n = counts.get(key, 0)
+            text = f"{label} ({n})" if n else label
+            w = self.renderer._get_font("small").size(text)[0] + 18
+            rect = pygame.Rect(x, MATERIAL_SUBTAB_Y, w, 22)
+            on = key == current
+            colour = COLOR_GOLD if on else ((170, 170, 180) if n else (85, 85, 92))
+            self.renderer.draw_rect(screen, rect, (45, 40, 30) if on else (28, 28, 34))
+            self.renderer.draw_rect(screen, rect, colour if on else (70, 70, 80), fill=False)
+            self.renderer.draw_text(screen, text, (rect.x + 9, rect.y + 3), size="small", color=colour)
+            self.material_subtab_rects[key] = rect
+            x += w + 6
+
         if not subject.materials:
             self.renderer.draw_text(screen, "No materials yet - gather herbs and ore out in the world.",
-                                    (MATERIALS_START_X, MATERIALS_START_Y), color=(150, 150, 150))
+                                    (MATERIALS_START_X, MATERIALS_GRID_Y), color=(150, 150, 150))
+            return
+        if not shown:
+            self.renderer.draw_text(screen, "Nothing of this kind in your bags.",
+                                    (MATERIALS_START_X, MATERIALS_GRID_Y), color=(150, 150, 150))
             return
 
-        for i, material in enumerate(subject.materials):
+        for i, material in enumerate(shown):
             rect = self.materials_rects[i]
             self.renderer.draw_rect(screen, rect, (35, 35, 40))
             self.renderer.draw_rect(screen, rect, (150, 150, 150), fill=False)
@@ -1092,8 +1175,8 @@ class InventoryScreen(BaseScreen):
         # inventory_rects/bag.inventory.
         mouse_pos = pygame.mouse.get_pos()
         for i, rect in enumerate(self.materials_rects):
-            if rect.collidepoint(mouse_pos) and i < len(subject.materials):
-                self._draw_material_tooltip(screen, subject.materials[i], mouse_pos)
+            if rect.collidepoint(mouse_pos) and i < len(shown):
+                self._draw_material_tooltip(screen, shown[i], mouse_pos)
                 break
 
     def _draw_material_tooltip(self, screen, material, mouse_pos):

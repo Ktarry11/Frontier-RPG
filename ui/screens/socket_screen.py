@@ -79,6 +79,13 @@ class SocketScreen(BaseScreen):
 
     # ------------------------------------------------------------ input
     def handle_event(self, event):
+        from ui.scrollbar import ScrollBar
+        if not hasattr(self, "gear_bar"):
+            self.gear_bar = ScrollBar()
+        new = self.gear_bar.handle_event(event, self.scroll)
+        if new is not None:
+            self.scroll = new
+            return
         if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
             self.state_manager.transition_to(self.return_state)
             return
@@ -156,13 +163,21 @@ class SocketScreen(BaseScreen):
         if not gear:
             self.renderer.draw_text(screen, "Nothing in reach has a socket. Gear from level 30 up can have them.",
                                     (LIST_X, y), color=(200, 160, 120))
-        for owner, it, where in gear[self.scroll:self.scroll + 16]:
-            rect = pygame.Rect(LIST_X, y, LIST_W, ROW_H - 4)
+        # as many rows as fit (it drew sixteen, which ran off the bottom), with a scrollbar
+        from ui.scrollbar import ScrollBar, GUTTER
+        if not hasattr(self, "gear_bar"):
+            self.gear_bar = ScrollBar()
+        visible = (SCREEN_HEIGHT - 60 - LIST_Y) // ROW_H
+        self.scroll = max(0, min(self.scroll, max(0, len(gear) - visible)))
+        self.gear_bar.draw(screen, ScrollBar.track_for(pygame.Rect(LIST_X, LIST_Y, LIST_W, visible * ROW_H - 4)),
+                           self.scroll, max(0, len(gear) - visible), visible)
+        for owner, it, where in gear[self.scroll:self.scroll + visible]:
+            rect = pygame.Rect(LIST_X, y, LIST_W - GUTTER, ROW_H - 4)
             chosen = it is self.selected_item
             self.renderer.draw_rect(screen, rect, (40, 40, 52) if chosen else (26, 26, 32))
             self.renderer.draw_rect(screen, rect, it.get_rarity_color() if chosen else (70, 70, 80), fill=False)
             filled = sum(1 for s in J.sockets(it) if s.get("gem"))
-            self.renderer.draw_text(screen, it.name, (rect.x + 8, rect.y + 3), color=it.get_rarity_color())
+            self.renderer.draw_text(screen, self.renderer.truncate(it.name, rect.width - 16), (rect.x + 8, rect.y + 3), color=it.get_rarity_color())
             self.renderer.draw_text(screen, f"{where}, {filled} of {len(J.sockets(it))} sockets filled",
                                     (rect.x + 8, rect.y + 24), font_size=13, color=(160, 160, 170))
             self.item_rects.append((it, rect))

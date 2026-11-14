@@ -410,6 +410,19 @@ def main():
             "output": {"kind": "material", "material_id": eid},
             "tool": rods_for(e["skill"]), "skill_range": skill_range(e["skill"]), "source": source}
 
+    # ---- essences, both ways (Kyle, 14 Nov 2026: "3 lesser for 1 greater or 1 greater breaks to 3
+    # lesser"). Taught at skill 1, no rod, no skill-ups: it's tidying the bags, not a craft.
+    for key, word, _sell in ESSENCES:
+        lesser, greater = f"lesser_{key}_essence", f"greater_{key}_essence"
+        recipes[f"ench_combine_{key}_essence"] = {
+            "name": f"Greater {word} Essence (from 3 Lesser)", "inputs": {lesser: 3}, "skill_required": 1,
+            "output": {"kind": "material", "material_id": greater}, "count": 1,
+            "skill_range": [0, 0, 0, 0], "source": "trainer", "no_xp": True}
+        recipes[f"ench_split_{key}_essence"] = {
+            "name": f"Lesser {word} Essence (3, from a Greater)", "inputs": {greater: 1}, "skill_required": 1,
+            "output": {"kind": "material", "material_id": lesser}, "count": 3,
+            "skill_range": [0, 0, 0, 0], "source": "trainer", "no_xp": True}
+
     # ---- wands
     for wid, name, level, skill, source, inp, rarity in WANDS:
         for m in inp:

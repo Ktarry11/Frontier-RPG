@@ -352,7 +352,9 @@ class QuestJournalScreen(BaseScreen):
 
         y = list_top - self.scroll_offset
         for quest in quests:
-            row_rect = pygame.Rect(20, y, SCREEN_WIDTH - 40, row_h - 8)
+            # rows stop short of the scrollbar's gutter (ui/scrollbar.py) so the bar never sits on them
+            from ui.scrollbar import GUTTER
+            row_rect = pygame.Rect(20, y, SCREEN_WIDTH - 40 - GUTTER, row_h - 8)
 
             # Rows fully above or below the viewport contribute nothing
             # visible - skip drawing them (cheap, and set_clip would hide
@@ -473,7 +475,8 @@ class QuestJournalScreen(BaseScreen):
         screen.set_clip(viewport)
         y = list_top - self.scroll_offset
         for f in factions:
-            row = pygame.Rect(20, y, SCREEN_WIDTH - 40, row_h - 8)
+            from ui.scrollbar import GUTTER
+            row = pygame.Rect(20, y, SCREEN_WIDTH - 40 - GUTTER, row_h - 8)
             # Recorded at its real position whether or not it is on screen, so the index stays aligned
             # with all_factions() regardless of scroll - same contract as quest_row_rects.
             self.faction_row_rects.append(row)
@@ -606,17 +609,18 @@ class QuestJournalScreen(BaseScreen):
             self._scroll_track = pygame.Rect(0, 0, 0, 0)
             return  # everything fits - no scrollbar needed, matches how a real scrollbar hides itself
 
-        track_x = viewport.right - 6
-        track = pygame.Rect(track_x, viewport.top, 4, viewport.height)
+        from ui.scrollbar import ScrollBar, WIDTH
+        track = ScrollBar.track_for(viewport)
+        track_x = track.x
         self._scroll_track = track
-        pygame.draw.rect(screen, (40, 40, 48), track)
+        pygame.draw.rect(screen, (40, 40, 48), track, border_radius=4)
 
         thumb_h = max(24, int(viewport.height * (viewport.height / content_height)))
         max_scroll = content_height - viewport.height
         scroll_frac = (self.scroll_offset / max_scroll) if max_scroll > 0 else 0
         thumb_y = viewport.top + int((viewport.height - thumb_h) * scroll_frac)
-        thumb = pygame.Rect(track_x, thumb_y, 4, thumb_h)
-        pygame.draw.rect(screen, (150, 140, 100), thumb)
+        thumb = pygame.Rect(track_x, thumb_y, WIDTH, thumb_h)
+        pygame.draw.rect(screen, (150, 140, 100), thumb, border_radius=4)
 
     def _objective_summary(self, quest):
         """One-line 'N/M target, N/M target' progress string for the list

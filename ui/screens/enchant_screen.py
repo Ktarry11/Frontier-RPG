@@ -13,6 +13,7 @@ import pygame
 from config import SCREEN_WIDTH, SCREEN_HEIGHT, COLOR_WHITE, COLOR_GOLD
 from core.game_states import GameState
 from ui.screens.base_screen import BaseScreen
+from ui.scrollbar import ScrollBar, GUTTER
 
 LIST_X, LIST_Y, LIST_W, ROW_H = 20, 100, 430, 50
 PANEL_X = LIST_X + LIST_W + 30
@@ -35,6 +36,7 @@ class EnchantScreen(BaseScreen):
         self.item_rects, self.scroll_rects = [], []
         self.scroll = 0
         self.scroll_list_offset = 0
+        self.gear_bar, self.scrolls_bar = ScrollBar(), ScrollBar()
 
     def start(self, mode="enchant", return_state=None):
         self.mode = mode
@@ -90,6 +92,11 @@ class EnchantScreen(BaseScreen):
 
     # ------------------------------------------------------------ input
     def handle_event(self, event):
+        for bar, attr in ((self.gear_bar, "scroll"), (self.scrolls_bar, "scroll_list_offset")):
+            new = bar.handle_event(event, getattr(self, attr))
+            if new is not None:
+                setattr(self, attr, new)
+                return
         if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
             self.state_manager.transition_to(self.return_state)
             return
@@ -179,23 +186,25 @@ class EnchantScreen(BaseScreen):
         y = LIST_Y
         visible = (SCREEN_HEIGHT - 60 - LIST_Y) // ROW_H
         self.scroll = max(0, min(self.scroll, max(0, len(gear) - visible)))
+        self.gear_bar.draw(screen, ScrollBar.track_for(pygame.Rect(LIST_X, LIST_Y, LIST_W, visible * ROW_H - 4)),
+                           self.scroll, max(0, len(gear) - visible), visible)
         if not gear:
             msg = ("Nothing in reach takes an enchantment." if self.mode == "enchant"
                    else "Nothing in your bags can be disenchanted.")
             self.renderer.draw_text(screen, msg, (LIST_X, y), color=(200, 160, 120))
         for owner, it, where in gear[self.scroll:self.scroll + visible]:
-            rect = pygame.Rect(LIST_X, y, LIST_W, ROW_H - 4)
+            rect = pygame.Rect(LIST_X, y, LIST_W - GUTTER, ROW_H - 4)
             chosen = it is self.selected_item
             self.renderer.draw_rect(screen, rect, (40, 40, 52) if chosen else (26, 26, 32))
             self.renderer.draw_rect(screen, rect, it.get_rarity_color() if chosen else (70, 70, 80), fill=False)
-            self.renderer.draw_text(screen, self._fit(it.name, LIST_W - 16), (rect.x + 8, rect.y + 3),
+            self.renderer.draw_text(screen, self._fit(it.name, rect.width - 16), (rect.x + 8, rect.y + 3),
                                     color=it.get_rarity_color())
             if self.mode == "enchant":
                 ench = E.label(getattr(it, "enchant_id", None))
                 sub = f"{where}, " + (f"enchanted: {ench}" if ench else "not enchanted")
             else:
                 sub = f"level {E.item_level(it)}, needs Enchanting {E.skill_needed(it)}"
-            self.renderer.draw_text(screen, self._fit(sub, LIST_W - 16, 13), (rect.x + 8, rect.y + 25),
+            self.renderer.draw_text(screen, self._fit(sub, rect.width - 16, 13), (rect.x + 8, rect.y + 25),
                                     font_size=13, color=(160, 160, 170))
             self.item_rects.append((it, rect))
             y += ROW_H
@@ -244,8 +253,10 @@ class EnchantScreen(BaseScreen):
             return
         visible = max(1, (SCREEN_HEIGHT - 70 - py) // 40)
         self.scroll_list_offset = max(0, min(self.scroll_list_offset, max(0, len(scrolls) - visible)))
+        self.scrolls_bar.draw(screen, ScrollBar.track_for(pygame.Rect(PANEL_X, py, PANEL_W, visible * 40 - 4)),
+                              self.scroll_list_offset, max(0, len(scrolls) - visible), visible)
         for sid, n, e in scrolls[self.scroll_list_offset:self.scroll_list_offset + visible]:
-            rect = pygame.Rect(PANEL_X, py, PANEL_W, 36)
+            rect = pygame.Rect(PANEL_X, py, PANEL_W - GUTTER, 36)
             fits = item is not None and E.fits(item, sid)
             armed = sid == self.armed_scroll
             self.renderer.draw_rect(screen, rect, (40, 34, 30) if armed else ((30, 34, 30) if fits else (24, 24, 30)))
@@ -253,7 +264,7 @@ class EnchantScreen(BaseScreen):
             what = e["proc"]["describe"] if e.get("proc") else stat_text(e["stats"])
             self.renderer.draw_text(screen, self._fit(f"{e['name']} x{n}", PANEL_W // 2 - 10), (rect.x + 10, rect.y + 9),
                                     color=COLOR_WHITE if fits or item is None else (130, 130, 135))
-            self.renderer.draw_text(screen, self._fit(what, PANEL_W // 2 - 14, 14), (rect.x + PANEL_W // 2, rect.y + 10),
+            self.renderer.draw_text(screen, self._fit(what, PANEL_W // 2 - 14 - GUTTER, 14), (rect.x + PANEL_W // 2, rect.y + 10),
                                     font_size=14, color=(140, 220, 160) if fits else (110, 130, 115))
             self.scroll_rects.append((sid, rect))
             py += 40

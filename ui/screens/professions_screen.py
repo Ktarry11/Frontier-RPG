@@ -164,6 +164,15 @@ class ProfessionsScreen(BaseScreen):
         if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
             self._close()
             return
+        if self.active_tab in CRAFT_TABS:
+            # the recipe list's scrollbar (ui/scrollbar.py): drag it, or click its track
+            from ui.scrollbar import ScrollBar
+            if not hasattr(self, "craft_bar"):
+                self.craft_bar = ScrollBar()
+            new = self.craft_bar.handle_event(event, self.craft_scroll)
+            if new is not None:
+                self.craft_scroll = new
+                return
         if event.type == pygame.MOUSEWHEEL and self.active_tab in CRAFT_TABS:
             self.craft_scroll = max(0, self.craft_scroll - event.y * 2)
             return
@@ -597,8 +606,14 @@ class ProfessionsScreen(BaseScreen):
             self.renderer.draw_text(screen, f"Scroll for more ({self.craft_scroll + 1}-{min(len(recipes), self.craft_scroll + visible)} of {len(recipes)})",
                                     (SCREEN_WIDTH - 520, PANEL_Y), size="small", color=(150, 150, 150))
 
+        from ui.scrollbar import ScrollBar, GUTTER
+        if not hasattr(self, "craft_bar"):
+            self.craft_bar = ScrollBar()
+        list_area = pygame.Rect(PANEL_X, y, PANEL_WIDTH, visible * row_h - 6)
+        self.craft_bar.draw(screen, ScrollBar.track_for(list_area), self.craft_scroll,
+                            max(0, len(recipes) - visible), visible)
         for recipe_id, recipe in recipes[self.craft_scroll:self.craft_scroll + visible]:
-            rect = pygame.Rect(PANEL_X, y, PANEL_WIDTH, row_h - 6)
+            rect = pygame.Rect(PANEL_X, y, PANEL_WIDTH - GUTTER, row_h - 6)
             req = recipe.get("skill_required", 0)
             unlocked = skill >= req
             if profession in self.own_managers:
