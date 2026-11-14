@@ -15,6 +15,11 @@ from world.gathering_manager import MATERIAL_TYPE_FOLDERS
 from boss_icons import get_boss_icon_path
 from world.tiles import WATER_BASE_TILES
 
+def _secret_door(zone_name, x, y):
+    from world.secrets import get_secrets
+    return get_secrets().is_door(zone_name, x, y)
+
+
 class TilemapRenderer:
     """Renders tilemaps as textured (or flat-color fallback) grids with camera viewport."""
 
@@ -625,6 +630,10 @@ class TilemapRenderer:
                     # tile bleeding through underneath the fix.
                     if layer_tile == "boss_marker":
                         continue
+                    # A SECRET DOOR (world/secrets.py) is never painted as a portal tile: it is a
+                    # room in the wall, and its glow is drawn later only once you're in there.
+                    if layer_tile == "portal" and _secret_door(tilemap.name, x, y):
+                        continue
                     # "gathering_node" is the same story - a placement
                     # marker for GatheringNodeManager, not a texture. The
                     # real material icon (Peacebloom, Copper Ore, ...) is
@@ -757,11 +766,17 @@ class TilemapRenderer:
         # and no prop can ever cover one again whatever is placed there later.
         self.portal_markers_drawn = 0
         glow = self._portal_glow()
+        from world.secrets import get_secrets as _gs
+        _sec = _gs()
+        _door_hidden = lambda x, y: (_sec.is_door(tilemap.name, x, y)  # noqa: E731
+                                     and not _sec.shows(tilemap.name, x, y, player_pos))
         for y in range(tile_top, tile_bottom):
             row = tilemap.interaction_layer[y]
             for x in range(tile_left, tile_right):
                 if row[x] not in ("portal", "boat"):
                     continue
+                if row[x] == "portal" and _door_hidden(x, y):
+                    continue        # a secret door glows only once you're in its room
                 gx, gy = camera.world_to_screen(x, y, self.tile_size)
                 screen.blit(glow, (gx + viewport_rect.x, gy + viewport_rect.y))
                 self.portal_markers_drawn += 1

@@ -1,0 +1,820 @@
+{
+  "quests": [
+    {
+      "quest_id": "hz_saltgrave_coins",
+      "title": "Grave-Gold",
+      "giver_npc_id": "hz_saltgrave_maud",
+      "zone": "the_saltgrave",
+      "level_min": 38,
+      "level_max": 40,
+      "elite": false,
+      "description": "I'm Maud. I comb this sand for a living, and the living's been thin since the barrows opened.\n\nThe dead out here were buried with their gold, and now they walk about with it in their pockets. Coins with a king on them that nobody remembers. I've a buyer in the highlands who'll pay for every one, and I'm too old to argue with a wight over it.\n\nThey come up out of the west barrow and the east one. Bring me eight coins and I'll make it worth the trip.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "barrow_coin",
+          "count": 8
+        }
+      ],
+      "reward_exp": 4151,
+      "reward_gold": 15884,
+      "accept_text": "The west barrow and the east one. Mind your feet on the way over, the shallows shift.",
+      "turn_in_text": "Eight. Look at that king. Nobody's spent one of these in a thousand years, and now I'm going to.\n\nYou've earned your cut.",
+      "unique_item_defs": [
+        {
+          "name": "Beachcomber's Hauberk",
+          "slot": "chest",
+          "item_level": 42,
+          "rarity": "rare",
+          "required_level": 38,
+          "primary_stats": {
+            "agility": 12,
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "attack_power": 19.8
+          },
+          "armor_type": "mail",
+          "armor_value": 220,
+          "label": "Mail Chest (Agi/Int/AP)"
+        },
+        {
+          "name": "Wight-Gold Signet",
+          "slot": "ring",
+          "item_level": 42,
+          "rarity": "rare",
+          "required_level": 38,
+          "primary_stats": {
+            "intellect": 7,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "spell_power": 4.9
+          },
+          "label": "Ring (Int/Sta/SP)"
+        },
+        {
+          "name": "Saltpenny's Cudgel",
+          "slot": "main_hand",
+          "item_level": 42,
+          "rarity": "rare",
+          "required_level": 38,
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 14,
+            "stamina": 14
+          },
+          "secondary_stats": {},
+          "weapon_damage_min": 76,
+          "weapon_damage_max": 102,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta)"
+        }
+      ],
+      "next_quest_id": "hz_saltgrave_lanterns"
+    },
+    {
+      "quest_id": "hz_saltgrave_lanterns",
+      "title": "Lights on the Barrows",
+      "giver_npc_id": "hz_saltgrave_maud",
+      "zone": "the_saltgrave",
+      "level_min": 39,
+      "level_max": 41,
+      "elite": false,
+      "description": "You've seen the lights out on the barrows at night. Corpse-lights, my mother called them. They're not lights. They're the dead that couldn't find their bodies, and they lead the living ones out into the water.\n\nI lost a boat to them last winter. I'd like to stop losing things.\n\nPut out six of the lights, and six of the wights they keep lit for.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Barrow Lantern",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Brine-Wight",
+          "count": 6
+        }
+      ],
+      "reward_exp": 4260,
+      "reward_gold": 16302,
+      "accept_text": "The barrows, west and east. Don't follow a light anywhere it wants you to go.",
+      "turn_in_text": "It's darker out there tonight. Good dark. The kind you can sleep in.",
+      "unique_item_defs": [
+        {
+          "name": "Corpse-Light Mantle",
+          "slot": "shoulder",
+          "item_level": 43,
+          "rarity": "rare",
+          "required_level": 39,
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 11.5,
+            "crit_chance_spell": 0.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 59,
+          "label": "Cloth Shoulders (Int/SP/Crit)"
+        },
+        {
+          "name": "Barrow-Warden's Belt",
+          "slot": "waist",
+          "item_level": 43,
+          "rarity": "rare",
+          "required_level": 39,
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "defense_rating": 0.6
+          },
+          "armor_type": "plate",
+          "armor_value": 234,
+          "label": "Plate Belt (Str/Sta/Def)"
+        },
+        {
+          "name": "Tide-Slick Leggings",
+          "slot": "legs",
+          "item_level": 43,
+          "rarity": "rare",
+          "required_level": 39,
+          "primary_stats": {
+            "agility": 14
+          },
+          "secondary_stats": {
+            "hit_rating": 1.0,
+            "crit_chance_physical": 1.0
+          },
+          "armor_type": "leather",
+          "armor_value": 141,
+          "label": "Leather Legs (Agi/Hit/Crit)"
+        }
+      ],
+      "next_quest_id": "hz_saltgrave_king"
+    },
+    {
+      "quest_id": "hz_saltgrave_king",
+      "title": "The Brine King (Elite)",
+      "giver_npc_id": "hz_saltgrave_maud",
+      "zone": "the_saltgrave",
+      "level_min": 40,
+      "level_max": 42,
+      "elite": true,
+      "description": "There's a fourth barrow, out on its own to the north. The King's. The others are his thanes, and they don't rest because he doesn't.\n\nHe walks the top of his barrow at low tide with his crown on, and he doesn't like visitors. I won't lie to you: I wouldn't go alone. I wouldn't go at all. But if anyone's going to put him back in the ground, it'll be somebody who brought friends.\n\nHis thanes stand round him. Cut through five and you'll find him.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "The Brine King",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Drowned Barrow-Thane",
+          "count": 5
+        }
+      ],
+      "reward_exp": 7600,
+      "reward_gold": 30400,
+      "accept_text": "North, out past the middle bar. Bring friends. I mean it.",
+      "turn_in_text": "You did it. The water's gone still out there, first time since I came.\n\nThat's the best thing I own. Take it.",
+      "unique_item_defs": [
+        {
+          "name": "Kingsbane Greataxe",
+          "slot": "main_hand",
+          "item_level": 44,
+          "rarity": "rare",
+          "required_level": 40,
+          "weapon_type": "axe_2h",
+          "primary_stats": {
+            "strength": 12
+          },
+          "secondary_stats": {
+            "hit_rating": 0.9,
+            "crit_chance_physical": 0.9
+          },
+          "weapon_damage_min": 106,
+          "weapon_damage_max": 144,
+          "attack_speed": 3.6,
+          "label": "Two-Hand Axe (Str/Hit/Crit)"
+        },
+        {
+          "name": "Thane-Breaker's Helm",
+          "slot": "head",
+          "item_level": 44,
+          "rarity": "rare",
+          "required_level": 40,
+          "primary_stats": {
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "defense_rating": 1.1,
+            "dodge_rating": 1.1
+          },
+          "armor_type": "plate",
+          "armor_value": 293,
+          "label": "Plate Helm (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Robes of the Low Tide",
+          "slot": "chest",
+          "item_level": 44,
+          "rarity": "rare",
+          "required_level": 40,
+          "primary_stats": {
+            "intellect": 10,
+            "spirit": 10
+          },
+          "secondary_stats": {
+            "healing_power": 11.1
+          },
+          "armor_type": "cloth",
+          "armor_value": 72,
+          "label": "Cloth Robe (Int/Spi/Healing)"
+        },
+        {
+          "name": "Barrowstalker Hood",
+          "slot": "head",
+          "item_level": 44,
+          "rarity": "rare",
+          "required_level": 40,
+          "primary_stats": {
+            "agility": 15,
+            "stamina": 15
+          },
+          "secondary_stats": {},
+          "armor_type": "leather",
+          "armor_value": 122,
+          "label": "Leather Helm (Agi/Sta)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_glass_shards",
+      "title": "Glass Teeth",
+      "giver_npc_id": "hz_glasswaste_durek",
+      "zone": "the_glasswaste",
+      "level_min": 15,
+      "level_max": 17,
+      "elite": false,
+      "description": "The basilisks here grow glass on their backs. They lie in the hot sand and it fuses to them, a little more every year, till they're walking about wearing a fortune.\n\nI make blades from it. Best edge you'll ever see, and it never rusts. But I've got one good leg left and I'm keeping it.\n\nThe shard fields, west of the mouth. Eight shards.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "fused_glass_shard",
+          "count": 8
+        }
+      ],
+      "reward_exp": 1638,
+      "reward_gold": 6270,
+      "accept_text": "West of the mouth, where the sand shines. They'll see you coming. Let them.",
+      "turn_in_text": "Feel the edge on that one. Careful. See?\n\nI'll have one of these sharpened for you by the time you're back.",
+      "unique_item_defs": [
+        {
+          "name": "Glass-Edge Shiv",
+          "slot": "main_hand",
+          "item_level": 19,
+          "rarity": "rare",
+          "required_level": 15,
+          "weapon_type": "dagger",
+          "primary_stats": {
+            "strength": 5,
+            "agility": 5
+          },
+          "secondary_stats": {},
+          "weapon_damage_min": 39,
+          "weapon_damage_max": 53,
+          "attack_speed": 1.7,
+          "label": "Dagger (Str/Agi)"
+        },
+        {
+          "name": "Shardscale Vest",
+          "slot": "chest",
+          "item_level": 19,
+          "rarity": "rare",
+          "required_level": 15,
+          "primary_stats": {
+            "agility": 7,
+            "stamina": 7
+          },
+          "secondary_stats": {},
+          "armor_type": "leather",
+          "armor_value": 62,
+          "label": "Leather Chest (Agi/Sta)"
+        },
+        {
+          "name": "Fused Sand Cord",
+          "slot": "waist",
+          "item_level": 19,
+          "rarity": "rare",
+          "required_level": 15,
+          "primary_stats": {
+            "intellect": 5,
+            "stamina": 5
+          },
+          "secondary_stats": {},
+          "armor_type": "cloth",
+          "armor_value": 21,
+          "label": "Cloth Belt (Int/Sta)"
+        }
+      ],
+      "next_quest_id": "hz_glass_kilns"
+    },
+    {
+      "quest_id": "hz_glass_kilns",
+      "title": "Walking Kilns",
+      "giver_npc_id": "hz_glasswaste_durek",
+      "zone": "the_glasswaste",
+      "level_min": 16,
+      "level_max": 18,
+      "elite": false,
+      "description": "Whatever burned this canyon didn't stop. It's still up on the rise to the east, walking about on its own, and every time one of them comes down the sand goes to glass under it and my camp gets smaller.\n\nKiln-walkers, I call them. Put out eight and I'll get a season's peace.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Kiln-Walker",
+          "count": 8
+        }
+      ],
+      "reward_exp": 1747,
+      "reward_gold": 6688,
+      "accept_text": "Up the rise to the east. Water won't help. Hitting them will.",
+      "turn_in_text": "I could hear them stop. You don't notice a noise till it stops.\n\nHere, for your trouble.",
+      "unique_item_defs": [
+        {
+          "name": "Ashfoot's Spare Axe",
+          "slot": "main_hand",
+          "item_level": 20,
+          "rarity": "rare",
+          "required_level": 16,
+          "weapon_type": "axe_2h",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 7
+          },
+          "secondary_stats": {},
+          "weapon_damage_min": 55,
+          "weapon_damage_max": 74,
+          "attack_speed": 3.6,
+          "label": "Two-Hand Axe (Str/Sta)"
+        },
+        {
+          "name": "Kilnwalker Gloves",
+          "slot": "hands",
+          "item_level": 20,
+          "rarity": "rare",
+          "required_level": 16,
+          "primary_stats": {
+            "intellect": 4,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "spell_power": 2.6
+          },
+          "armor_type": "cloth",
+          "armor_value": 22,
+          "label": "Cloth Gloves (Int/Sta/SP)"
+        },
+        {
+          "name": "Heat-Tempered Bracers",
+          "slot": "wrist",
+          "item_level": 20,
+          "rarity": "rare",
+          "required_level": 16,
+          "primary_stats": {
+            "strength": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 0.3
+          },
+          "armor_type": "mail",
+          "armor_value": 72,
+          "label": "Mail Bracers (Str/Sta/Def)"
+        }
+      ],
+      "next_quest_id": "hz_glass_blister"
+    },
+    {
+      "quest_id": "hz_glass_blister",
+      "title": "Old Blister (Elite)",
+      "giver_npc_id": "hz_glasswaste_durek",
+      "zone": "the_glasswaste",
+      "level_min": 17,
+      "level_max": 19,
+      "elite": true,
+      "description": "There's one basilisk up in the hollow at the north end that's more glass than beast. Old Blister. She's the reason I've got one good leg.\n\nShe's been growing that hide since before I was born, and nothing I own cuts it. Don't go alone. Take people you trust and go up through the basilisks round her, and when she opens her mouth, don't be in front of it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Old Blister",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Glassback Basilisk",
+          "count": 6
+        }
+      ],
+      "reward_exp": 3230,
+      "reward_gold": 12920,
+      "accept_text": "North, into the hollow. Bring people. She'll take your leg too.",
+      "turn_in_text": "You've no idea. You've no idea what that means.\n\nI made this from the first shard I ever took off her. It's yours.",
+      "unique_item_defs": [
+        {
+          "name": "Blister-Glass Glaive",
+          "slot": "main_hand",
+          "item_level": 21,
+          "rarity": "rare",
+          "required_level": 17,
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 5
+          },
+          "secondary_stats": {
+            "attack_power": 9.8,
+            "hit_rating": 0.4
+          },
+          "weapon_damage_min": 57,
+          "weapon_damage_max": 77,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/AP/Hit)"
+        },
+        {
+          "name": "Glassbreaker Pauldrons",
+          "slot": "shoulder",
+          "item_level": 21,
+          "rarity": "rare",
+          "required_level": 17,
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 0.5,
+            "dodge_rating": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 139,
+          "label": "Plate Shoulders (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Kiln-Fired Focus",
+          "slot": "off_hand",
+          "item_level": 21,
+          "rarity": "rare",
+          "required_level": 17,
+          "weapon_type": "tome",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "spell_power": 5.1,
+            "crit_chance_spell": 0.3
+          },
+          "label": "Tome (Int/SP/Crit)"
+        },
+        {
+          "name": "Canyon-Runner's Boots",
+          "slot": "feet",
+          "item_level": 21,
+          "rarity": "rare",
+          "required_level": 17,
+          "primary_stats": {
+            "agility": 5
+          },
+          "secondary_stats": {
+            "hit_rating": 0.3,
+            "crit_chance_physical": 0.3
+          },
+          "armor_type": "leather",
+          "armor_value": 47,
+          "label": "Leather Boots (Agi/Hit/Crit)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_pines_webs",
+      "title": "The Hanging Wood",
+      "giver_npc_id": "hz_pines_ilsabet",
+      "zone": "the_weeping_pines",
+      "level_min": 17,
+      "level_max": 19,
+      "elite": false,
+      "description": "I'm Ilsabet. I came here to study the mere and I've stayed because I can't leave it unfinished.\n\nThe spiders in the west wood hang their kills in the pines, and then the kills come down again on their own. I'd like fewer of both.\n\nEight spiders. The wood west of the track.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Gloom Spider",
+          "count": 8
+        }
+      ],
+      "reward_exp": 1857,
+      "reward_gold": 7106,
+      "accept_text": "West of the track, where the pines are thickest. Look up before you look down.",
+      "turn_in_text": "Quieter. I can hear the water again, which isn't better, but at least I know where it is.",
+      "unique_item_defs": [
+        {
+          "name": "Gloomsilk Gloves",
+          "slot": "hands",
+          "item_level": 21,
+          "rarity": "rare",
+          "required_level": 17,
+          "primary_stats": {
+            "intellect": 6,
+            "spirit": 6
+          },
+          "secondary_stats": {},
+          "armor_type": "cloth",
+          "armor_value": 23,
+          "label": "Cloth Gloves (Int/Spi)"
+        },
+        {
+          "name": "Pine-Needle Leggings",
+          "slot": "legs",
+          "item_level": 21,
+          "rarity": "rare",
+          "required_level": 17,
+          "primary_stats": {
+            "agility": 8,
+            "spirit": 8
+          },
+          "secondary_stats": {},
+          "armor_type": "leather",
+          "armor_value": 68,
+          "label": "Leather Legs (Agi/Spi)"
+        },
+        {
+          "name": "Webcutter",
+          "slot": "main_hand",
+          "item_level": 21,
+          "rarity": "rare",
+          "required_level": 17,
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "strength": 7,
+            "agility": 7
+          },
+          "secondary_stats": {},
+          "weapon_damage_min": 42,
+          "weapon_damage_max": 57,
+          "attack_speed": 2.4,
+          "label": "Sword (Str/Agi)"
+        }
+      ],
+      "next_quest_id": "hz_pines_water"
+    },
+    {
+      "quest_id": "hz_pines_water",
+      "title": "Mere-Water",
+      "giver_npc_id": "hz_pines_ilsabet",
+      "zone": "the_weeping_pines",
+      "level_min": 18,
+      "level_max": 20,
+      "elite": false,
+      "description": "The wraiths at the mere are made of it. The water, I mean. If you break one apart there's a little left that won't drain away, and that's what I need. It remembers things, and I want to know what.\n\nSix vials. The wraiths keep to the mere and the shrine above it.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "vial_of_mere_water",
+          "count": 6
+        }
+      ],
+      "reward_exp": 1966,
+      "reward_gold": 7524,
+      "accept_text": "The mere, and the shrine north of it. Don't drink any. I know you weren't going to.",
+      "turn_in_text": "Six. Hold one up to the light. See the shapes? Those are the pines, from before.\n\nThank you. Truly.",
+      "unique_item_defs": [
+        {
+          "name": "Mere-Dipped Wand",
+          "slot": "main_hand",
+          "item_level": 22,
+          "rarity": "rare",
+          "required_level": 18,
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 4,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "hit_rating": 0.2
+          },
+          "weapon_damage_min": 37,
+          "weapon_damage_max": 50,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/Hit)"
+        },
+        {
+          "name": "Stillwater Coif",
+          "slot": "head",
+          "item_level": 22,
+          "rarity": "rare",
+          "required_level": 18,
+          "primary_stats": {
+            "intellect": 7,
+            "stamina": 7
+          },
+          "secondary_stats": {},
+          "armor_type": "mail",
+          "armor_value": 97,
+          "label": "Mail Helm (Int/Sta)"
+        },
+        {
+          "name": "Drowned Copse Girdle",
+          "slot": "waist",
+          "item_level": 22,
+          "rarity": "rare",
+          "required_level": 18,
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 6
+          },
+          "secondary_stats": {},
+          "armor_type": "plate",
+          "armor_value": 119,
+          "label": "Plate Belt (Str/Sta)"
+        }
+      ],
+      "next_quest_id": "hz_pines_weeping"
+    },
+    {
+      "quest_id": "hz_pines_weeping",
+      "title": "What Weeps",
+      "giver_npc_id": "hz_pines_ilsabet",
+      "zone": "the_weeping_pines",
+      "level_min": 18,
+      "level_max": 20,
+      "elite": false,
+      "description": "The worgen here don't hunt. They walk the track and weep, and if you get between one and the water it'll tear you apart to get past. The trees in the drowned copse have started doing the same.\n\nI've read enough to know they're not the cause. But they're in the way of the cause. Eight worgen and four of the rotbarks.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Weeping Worgen",
+          "count": 8
+        },
+        {
+          "type": "kill",
+          "target": "Rotbark Treant",
+          "count": 4
+        }
+      ],
+      "reward_exp": 1966,
+      "reward_gold": 7524,
+      "accept_text": "The track, and the copse east of the mere. They won't stop crying. Don't let it get to you.",
+      "turn_in_text": "It's not the worgen. It never was. It's her.",
+      "unique_item_defs": [
+        {
+          "name": "Weeping Hide Jerkin",
+          "slot": "chest",
+          "item_level": 22,
+          "rarity": "rare",
+          "required_level": 18,
+          "primary_stats": {
+            "agility": 6,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 10.4
+          },
+          "armor_type": "mail",
+          "armor_value": 115,
+          "label": "Mail Chest (Agi/Int/AP)"
+        },
+        {
+          "name": "Rotbark Buckler",
+          "slot": "off_hand",
+          "item_level": 22,
+          "rarity": "rare",
+          "required_level": 18,
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "armor_value": 44,
+          "block_value": 56,
+          "label": "Shield (Sta/Block)"
+        },
+        {
+          "name": "Mourner's Sash",
+          "slot": "waist",
+          "item_level": 22,
+          "rarity": "rare",
+          "required_level": 18,
+          "primary_stats": {
+            "stamina": 4,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "healing_power": 2.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 24,
+          "label": "Cloth Belt (Sta/Int/Healing)"
+        }
+      ],
+      "next_quest_id": "hz_pines_widow"
+    },
+    {
+      "quest_id": "hz_pines_widow",
+      "title": "The Widow of the Mere (Elite)",
+      "giver_npc_id": "hz_pines_ilsabet",
+      "zone": "the_weeping_pines",
+      "level_min": 19,
+      "level_max": 21,
+      "elite": true,
+      "description": "She drowned herself in the mere after the pines died, and she took the wood with her. That's what the vials showed me. Everything here weeps because she does.\n\nShe rises out of the water when the fog's thickest, with her wraiths round her. I can't fight her. You can't either, not alone. Bring people who aren't afraid of crying things.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "The Widow of the Mere",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Mere Wraith",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3610,
+      "reward_gold": 14440,
+      "accept_text": "The mere. Wait for the fog. Bring friends, and don't listen when she says your name.",
+      "turn_in_text": "The fog's thinning. I can see the far shore.\n\nI think I can go home now. Take this. I won't need it where I'm going.",
+      "unique_item_defs": [
+        {
+          "name": "Widow's Lament",
+          "slot": "main_hand",
+          "item_level": 23,
+          "rarity": "rare",
+          "required_level": 19,
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 11.0,
+            "crit_chance_spell": 0.6
+          },
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 34,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/SP/Crit)"
+        },
+        {
+          "name": "Fogpiercer Bow",
+          "slot": "ranged",
+          "item_level": 23,
+          "rarity": "rare",
+          "required_level": 19,
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {
+            "attack_power": 7.8,
+            "hit_rating": 0.3
+          },
+          "weapon_damage_min": 38,
+          "weapon_damage_max": 52,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/AP/Hit)"
+        },
+        {
+          "name": "Mere-Guard Breastplate",
+          "slot": "chest",
+          "item_level": 23,
+          "rarity": "rare",
+          "required_level": 19,
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 0.5
+          },
+          "armor_type": "plate",
+          "armor_value": 181,
+          "label": "Plate Chest (Str/Sta/Def)"
+        },
+        {
+          "name": "Stillwater Cowl",
+          "slot": "head",
+          "item_level": 23,
+          "rarity": "rare",
+          "required_level": 19,
+          "primary_stats": {
+            "intellect": 5,
+            "spirit": 5
+          },
+          "secondary_stats": {
+            "healing_power": 4.9
+          },
+          "armor_type": "cloth",
+          "armor_value": 31,
+          "label": "Cloth Helm (Int/Spi/Healing)"
+        }
+      ],
+      "next_quest_id": null
+    }
+  ]
+}

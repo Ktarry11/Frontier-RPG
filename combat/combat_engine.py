@@ -1084,19 +1084,25 @@ class CombatEngine:
             # mechanic into a farm. Same reasoning in _calculate_exp_reward.
             if getattr(enemy, "is_summoned", False):
                 continue
+            # HIDDEN ZONES LIFT THE LOOT. Kyle, 14 Nov: in a hidden level "they drop at 4 to 5 ilvl",
+            # and "I WANT to be rewarded for exploring". world/difficulty.apply_health sets the lift;
+            # it raises both the creature's level and the player-level cap the item is held to, and
+            # a hidden-zone monster drops more often than ordinary trash.
+            lift = int(getattr(enemy, "loot_ilvl_bonus", 0) or 0)
             if getattr(enemy, "is_boss", False):
                 drops = get_fixed_boss_loot_all(enemy.name)
                 if not drops and not shares_hoard(enemy.name):
                     drops = [self.loot_generator.generate_boss_loot(
-                        creature_level=enemy.level,
+                        creature_level=enemy.level + lift,
                         char_class=self.player.char_class,
-                        player_level=self.player.level,
+                        player_level=self.player.level + lift,
                     )]
             else:
                 drops = [self.loot_generator.generate_loot_for_creature(
-                    creature_level=enemy.level,
+                    creature_level=enemy.level + lift,
                     char_class=self.player.char_class,
-                    player_level=self.player.level,
+                    player_level=self.player.level + lift,
+                    **({"drop_chance": 0.6} if lift else {}),
                 )]
             for loot in [d for d in drops if d]:
                 if self.player.add_to_inventory(loot):

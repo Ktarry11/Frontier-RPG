@@ -23,7 +23,10 @@ def towns(zone_manager):
 def zones(zone_manager):
     """[{label, zone, x, y}] for every zone in the world, landing on its first arrival point."""
     out = []
+    from world.hidden_zones import is_hidden
     for name, z in sorted(zone_manager.zones.items()):
+        if is_hidden(name):
+            continue        # Kyle wants to find these himself (world/hidden_zones.py)
         tm = z.get("tilemap") if isinstance(z, dict) else None
         arrivals = list(getattr(tm, "arrivals", None) or [])
         x, y = arrivals[0] if arrivals else (None, None)

@@ -1,0 +1,126 @@
+{
+  "_about": "Hidden zones (world/hidden_zones.py). Written by tools/build_hidden_content.py. Kyle, 14 Nov 2026: 'I don't want to see as I want these to be secrets.'",
+  "zones": {
+    "The Cinderwell": {
+      "kind": "layer",
+      "parent": "Ragefire Chasm",
+      "levels": [
+        17,
+        19
+      ],
+      "region": "Orgrimmar",
+      "bosses": [
+        "Ashcaller Vorn",
+        "The Furnace Heart"
+      ],
+      "multi_drop": 2
+    },
+    "The Dreaming Root": {
+      "kind": "layer",
+      "parent": "Wailing Caverns",
+      "levels": [
+        23,
+        25
+      ],
+      "region": "Central Barrens",
+      "bosses": [
+        "Vel'dran the Unwaking"
+      ],
+      "multi_drop": 2
+    },
+    "The Ossuary Below": {
+      "kind": "layer",
+      "parent": "Shadowfang Keep",
+      "levels": [
+        26,
+        28
+      ],
+      "region": "Silverpine South",
+      "bosses": [
+        "Gnasher, the Bone-Fed",
+        "The Archmage's Shade"
+      ],
+      "multi_drop": 2
+    },
+    "The Lightless Reach": {
+      "kind": "layer",
+      "parent": "Blackfathom Deeps",
+      "levels": [
+        29,
+        31
+      ],
+      "region": "Ashenvale West",
+      "bosses": [
+        "Ul'gotha, Mother of the Deep"
+      ],
+      "multi_drop": 2
+    },
+    "The Blood Pits": {
+      "kind": "layer",
+      "parent": "Gurbashi Arena",
+      "levels": [
+        38,
+        40
+      ],
+      "region": "Eastern Kingdoms - Stranglethorn",
+      "bosses": [
+        "Ja'kesh the Unchained",
+        "Skrell, Mother of Ravagers"
+      ],
+      "multi_drop": 2
+    },
+    "The Unwritten Stacks": {
+      "kind": "layer",
+      "parent": "The Deep Bloom",
+      "levels": [
+        40,
+        42
+      ],
+      "region": "The Crystalline Underdark",
+      "bosses": [
+        "The First Draft",
+        "Marginalia"
+      ],
+      "multi_drop": 2
+    },
+    "The Saltgrave": {
+      "kind": "skull",
+      "parent": "Arathi East",
+      "levels": [
+        38,
+        41
+      ],
+      "region": null,
+      "bosses": [
+        "The Brine King"
+      ],
+      "multi_drop": 2
+    },
+    "The Glasswaste": {
+      "kind": "skull",
+      "parent": "Durotar",
+      "levels": [
+        15,
+        18
+      ],
+      "region": null,
+      "bosses": [
+        "Old Blister"
+      ],
+      "multi_drop": 2
+    },
+    "The Weeping Pines": {
+      "kind": "skull",
+      "parent": "The Sepulcher",
+      "levels": [
+        17,
+        20
+      ],
+      "region": null,
+      "bosses": [
+        "The Widow of the Mere"
+      ],
+      "multi_drop": 2
+    }
+  }
+}

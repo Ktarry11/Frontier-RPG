@@ -5967,6 +5967,18 @@ def create_all_zones():
     zones["Razorfen Kraul"] = generate_razorfen_kraul()
     zones["The Broodspiral"] = generate_the_broodspiral()
 
+    # THE HIDDEN ZONES (world/hidden_zones.py): levels under dungeons and maps off the edge of the
+    # world, reached only through secret doors (world/secrets.py). Kyle, 14 Nov 2026: "I don't
+    # want to see as I want these to be secrets." Built by their own modules so nothing here
+    # names them.
+    from tools.handbuilt_hidden_layers import generate_all as _hidden_layers
+    zones.update(_hidden_layers())
+    try:
+        from tools.handbuilt_skull_zones import generate_all as _skull_zones
+        zones.update(_skull_zones())
+    except ImportError:
+        pass
+
     # Group pulls: dungeons with fixed trash get 3-4 mob packs (data/dungeons/trash_packs.json, built by
     # tools/build_dungeon_pulls.py; no-op for a dungeon that has no entry).
     from world.dungeon_packs import apply_packs
@@ -5999,6 +6011,8 @@ def _mark_portal_tiles(zones):
     art - keeps whatever it set.
     """
     from world.portal_manager import PortalManager
+    from world.secrets import get_secrets
+    secrets = get_secrets()
     marked = 0
     for src, doors in PortalManager()._links.items():
         zone = zones.get(src)
@@ -6007,6 +6021,8 @@ def _mark_portal_tiles(zones):
         for (x, y) in doors:
             if not (0 <= x < zone.width and 0 <= y < zone.height):
                 continue
+            if secrets.is_door(src, x, y):
+                continue        # world/secrets.py puts a secret door down itself, later, unframed
             if zone.get_tile(x, y, "interaction") in ("portal", "boat"):
                 continue
             zone.set_tile(x, y, "portal", "interaction")

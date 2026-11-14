@@ -17,7 +17,11 @@ THE DATA is data/world/secrets.json, written by tools/build_secrets.py. Each sec
      "ground":  base tile for the carved ground; "shallow": base tile for an island's ford
      "mask":    tile id         what the map shows over passage and area until it is found
      "cache":   {"x", "y", "level"} or null   a one-time chest, never respawns
-     "vendor":  vendor id or null             a hidden seller standing in the area}
+     "vendor":  vendor id or null             a hidden seller standing in the area
+     "door":    {"x", "y", "to", "tx", "ty"} or null
+                                a portal in the area to a hidden zone (world/hidden_zones.py); the
+                                portal manager links it both ways, and its glow is only drawn once
+                                you are in there with it}
 
 THREE THINGS HAPPEN AT RUNTIME.
   1. apply_all() lets the passage tiles be walked (Tilemap.secret_walkable; the art is untouched),
@@ -49,6 +53,7 @@ class Secrets:
         self._caches = {}       # (zone, x, y) -> secret
         self._hidden_vendors = set()
         self._vendor_secret = {}  # vendor id -> secret
+        self._doors = {}        # (zone, x, y) -> secret, for doors to hidden zones
         self._tiles = {}        # secret id -> its passage and area tiles
         self.load()
 
@@ -60,7 +65,7 @@ class Secrets:
             doc = {}
         self.secrets = list(doc.get("secrets") or [])
         self._by_tile, self._caches, self._hidden_vendors = {}, {}, set()
-        self._vendor_secret, self._tiles = {}, {}
+        self._vendor_secret, self._tiles, self._doors = {}, {}, {}
         for s in self.secrets:
             tiles = {(x, y) for x, y in list(s.get("passage") or []) + list(s.get("area") or [])}
             self._tiles[s["id"]] = tiles
@@ -72,6 +77,9 @@ class Secrets:
             if s.get("vendor"):
                 self._hidden_vendors.add(s["vendor"])
                 self._vendor_secret[s["vendor"]] = s
+            d = s.get("door")
+            if d:
+                self._doors[(s["zone"], d["x"], d["y"])] = s
 
     def by_id(self, sid):
         return next((s for s in self.secrets if s["id"] == sid), None)
@@ -87,6 +95,10 @@ class Secrets:
             c = s.get("cache")
             if c and tm.get_tile(c["x"], c["y"], "interaction") is None:
                 tm.set_tile(c["x"], c["y"], "chest", "interaction")
+            d = s.get("door")
+            if d:
+                tm.set_tile(d["x"], d["y"], "portal", "interaction")
+                tm.secret_walkable.add((d["x"], d["y"]))
             self._mask(tm, s)
 
     @staticmethod
@@ -152,7 +164,7 @@ class Secrets:
         not a secret always shows."""
         s = self._vendor_secret.get(vendor_id) if vendor_id else None
         if s is None:
-            s = self._caches.get((zone_name, x, y))
+            s = self._caches.get((zone_name, x, y)) or self._doors.get((zone_name, x, y))
         if s is None:
             return True
         if not player_pos:
@@ -173,7 +185,16 @@ class Secrets:
     def hidden_points(self, zone_name):
         """Tiles the map must not mark: hidden sellers and caches."""
         out = {(x, y) for (z, x, y) in self._caches if z == zone_name}
+        out |= {(x, y) for (z, x, y) in self._doors if z == zone_name}
         return out
+
+    def is_door(self, zone_name, x, y):
+        return (zone_name, x, y) in self._doors
+
+    def doors(self):
+        """[(zone, x, y, to_zone, to_x, to_y)] for every secret door."""
+        return [(s["zone"], s["door"]["x"], s["door"]["y"], s["door"]["to"], s["door"]["tx"], s["door"]["ty"])
+                for s in self.secrets if s.get("door")]
 
     def open_cache(self, zone_name, x, y, player_level, char_class=None):
         """The item in a cache: rare at worst, epic about a third of the time."""

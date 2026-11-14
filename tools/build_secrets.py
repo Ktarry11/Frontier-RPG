@@ -368,6 +368,51 @@ BAKED_ISLANDS = [
 ]
 
 
+def _hidden_doors():
+    """[(hidden zone, (parent map, its portal x, y))] for every hidden zone whose door is a room in
+    its parent's wall. (A door in a baked island is placed with that island.)"""
+    out = []
+    try:
+        reg = json.loads((ROOT / "data/world/hidden_zones.json").read_text(encoding="utf-8"))["zones"]
+    except (OSError, ValueError, KeyError):
+        return out
+    from tools.handbuilt_hidden_layers import PORTALS
+    portals = dict(PORTALS)
+    try:
+        from tools.handbuilt_skull_zones import PORTALS as SKULL_PORTALS, ISLAND_DOORS
+    except ImportError:
+        SKULL_PORTALS, ISLAND_DOORS = {}, {}
+    portals.update(SKULL_PORTALS)
+    for zname, info in sorted(reg.items()):
+        if zname in ISLAND_DOORS or zname not in portals:
+            continue
+        out.append((zname, (info["parent"], *portals[zname])))
+    return out
+
+
+def _island_door(zone, module, isle, centre):
+    """A door on a secret island, if a hidden zone's way in is meant to stand there: a dry tile
+    near the middle, not the cache's, with dry ground two tiles north for coming back out."""
+    try:
+        from tools.handbuilt_skull_zones import ISLAND_DOORS, PORTALS
+    except ImportError:
+        return None
+    to = next((h for h, parent in ISLAND_DOORS.items() if parent == zone), None)
+    if to is None:
+        return None
+    import importlib
+    import numpy as np
+    M = importlib.import_module(module)
+    dry = {p for p in isle if int(M.tile_kind(np.array([p[0] + 0.5]), np.array([p[1] + 0.5]))[0]) == 0}
+    ok = [p for p in dry if p != tuple(centre) and (p[0], p[1] - 2) in dry and (p[0], p[1] - 1) in dry
+          and abs(p[0] - centre[0]) + abs(p[1] - centre[1]) >= 2]
+    if not ok:
+        return None
+    x, y = min(ok, key=lambda p: (abs(p[0] - centre[0]) + abs(p[1] - centre[1]), p))
+    tx, ty = PORTALS[to]
+    return {"x": x, "y": y, "to": to, "tx": tx, "ty": ty}
+
+
 def _baked_island(module, isle, pts, w):
     """(island tiles, ford tiles, centre) from the zone's own landform functions."""
     import importlib
@@ -703,7 +748,31 @@ def main():
                         "passage": [list(p) for p in ford], "area": [list(p) for p in isle], "mask": "deep_water",
                         "cache": {"x": centre[0], "y": centre[1], "level": level}, "vendor": None,
                         "found_text": FOUND["island"][len(secrets) % len(FOUND["island"])]})
+        # a hidden zone whose door stands on this island (tools/handbuilt_skull_zones.ISLAND_DOORS)
+        door = _island_door(zone, module, isle, centre)
+        if door:
+            secrets[-1]["door"] = door
         taken.setdefault(zone, []).append(tuple(centre))
+
+    # SECRET DOORS to the hidden zones (world/hidden_zones.py). Each is a room in the wall of its
+    # parent map, reached by a path that looks like rock, with the way in standing in the room.
+    # The door is the bottom-middle tile of the room; coming back out you arrive two tiles north
+    # of it (world/portal_manager._offset_spawn), in the middle of the room.
+    for zname, door_at in _hidden_doors():
+        parent, tx, ty = door_at
+        opts = [c for c in cands.get(parent, []) if c["kind"] == "glade" and use(parent, c)]
+        opts.sort(key=lambda c: -c["depth"])
+        if not opts:
+            print(f"  no hidden room for the door to a hidden zone in {parent}")
+            continue
+        c = opts[0]
+        sx, sy = c["spot"]
+        secrets.append({"id": "door_" + "".join(ch for ch in zname.lower().replace(" ", "_") if ch.isalnum() or ch == "_"),
+                        "zone": parent, "kind": "glade", "passage": c["passage"], "area": c["area"],
+                        "mask": c.get("mask"), "cache": None, "vendor": None,
+                        "door": {"x": sx, "y": sy + 1, "to": zname, "tx": tx, "ty": ty},
+                        "found_text": "There's a way down here. It goes a long way down."})
+        taken.setdefault(parent, []).append((sx, sy))
 
     # caches everywhere else: up to three a map, one in a town
     n = 0

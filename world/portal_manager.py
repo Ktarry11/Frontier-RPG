@@ -780,6 +780,17 @@ class PortalManager:
             },
         }
 
+        # SECRET DOORS to hidden zones (world/secrets.py, world/hidden_zones.py) come from
+        # data/world/secrets.json, both ways: the door in the parent map, and the hidden zone's own
+        # way out back to it. Kept out of the table above so nothing here says where they are.
+        try:
+            from world.secrets import get_secrets
+            for (zone, x, y, to, tx, ty) in get_secrets().doors():
+                self._links.setdefault(zone, {})[(x, y)] = (to, tx, ty)
+                self._links.setdefault(to, {})[(tx, ty)] = (zone, x, y)
+        except Exception:
+            pass
+
         # Build fast lookup
         self._lookup = {}
         for zone, portals in self._links.items():

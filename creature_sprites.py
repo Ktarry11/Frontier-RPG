@@ -610,8 +610,27 @@ def _family(name, template):
         return None
 
 
+_HIDDEN = None
+
+
+def _hidden_sprites():
+    """Exact names -> sprite, for the hidden zones' creatures (data/creatures/hidden_sprites.json,
+    written by tools/build_hidden_content.py). Kept out of _RULES so nothing here names them."""
+    global _HIDDEN
+    if _HIDDEN is None:
+        import json
+        try:
+            _HIDDEN = json.loads((Path(__file__).resolve().parent / "data/creatures/hidden_sprites.json")
+                                 .read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            _HIDDEN = {}
+    return _HIDDEN
+
+
 def sprite_for(name, template=None):
     """-> sprite id for a creature. Never None, so nothing ever renders as a red box again."""
+    if name in _hidden_sprites():
+        return _hidden_sprites()[name]
     fam = None
     for rx, sprite, only in RULES:
         if not rx.search(name or ""):

@@ -48,5 +48,16 @@
     "Thrass, the Geyser Spirit",
     "Tunnel-King Ruzzak"
   ],
-  "_field_boss": "Kyle, 14 Nov 2026, after a pair at level 17 beat Tidelord Gharesh (5,618 health) in the Echo Isles grotto: 'keep Dungeons around 3x health and 3x damage. So harder than [1.5x] but easier than they were [4.4x]. He did it with 2 people. So why the fuck not.' Every boss, dungeon or cave or named rare, is 3x health and 3x damage. 'boss' (the 97 in real dungeons) and 'field_boss' stay separate keys so they can be split again."
+  "_field_boss": "Kyle, 14 Nov 2026, after a pair at level 17 beat Tidelord Gharesh (5,618 health) in the Echo Isles grotto: 'keep Dungeons around 3x health and 3x damage. So harder than [1.5x] but easier than they were [4.4x]. He did it with 2 people. So why the fuck not.' Every boss, dungeon or cave or named rare, is 3x health and 3x damage. 'boss' (the 97 in real dungeons) and 'field_boss' stay separate keys so they can be split again.",
+  "hidden_layer": {
+    "damage": 4.5,
+    "health": 4.0,
+    "loot_ilvl_bonus": 5
+  },
+  "skull_zone": {
+    "damage": 2.5,
+    "health": 2.5,
+    "loot_ilvl_bonus": 4
+  },
+  "_hidden": "Kyle, 14 Nov 2026. A hidden level under a dungeon: 'instead of... 3x HP and 3x Damage... it's 4x HP and 4.5x Damage... they drop at 4 to 5 ilvl... Trash gets buffed too.' A hidden open-world map (skull zone): 'Open world will be 2.5x hp and 2.5x damage.' Which creatures are which comes from world/hidden_zones.py; loot_ilvl_bonus lifts their drops (combat/combat_engine.py)."
 }

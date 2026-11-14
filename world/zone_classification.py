@@ -83,5 +83,11 @@ def is_dungeon(zone_name):
     node_pools.json's zone keys which normalize separately for lookup
     purposes only) - silently fuzzy-matching here would risk a typo'd
     zone name quietly resolving to "not a dungeon" instead of failing
-    loudly."""
-    return zone_name in DUNGEONS
+    loudly.
+
+    The hidden levels under dungeons (world/hidden_zones.py, kind "layer") are dungeons too; they
+    are listed in data/world/hidden_zones.json rather than here so this file doesn't name them."""
+    if zone_name in DUNGEONS:
+        return True
+    from world.hidden_zones import kind
+    return kind(zone_name) == "layer"

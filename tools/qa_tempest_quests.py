@@ -110,7 +110,7 @@ def main():
             bad.append(f"{nid} has no record")
         elif r["zone"] in maps and not maps[r["zone"]].is_walkable(r["x"], r["y"]):
             bad.append(f"{nid} stands on a tile nobody can stand on")
-    islanders = [r for r in people.values() if r["zone"] in maps]
+    islanders = [r for r in people.values() if r["zone"] in maps and not r.get("hidden")]   # hidden sellers: world/secrets.py
     if len(islanders) != 40:
         bad.append(f"{len(islanders)} people on the island, expected 40")
     travel = json.loads((ROOT / "data/travel/travel_data.json").read_text(encoding="utf-8"))

@@ -159,6 +159,17 @@ SHARED_HOARD = {
 }
 
 
+def _hidden_multi_drop():
+    """Bosses of the hidden zones drop more than one piece (world/hidden_zones.py, "multi_drop").
+    Kyle, 14 Nov 2026: "I WANT to be rewarded for exploring." """
+    from world.hidden_zones import registry
+    out = {}
+    for z in registry().values():
+        for b in z.get("bosses") or []:
+            out[b] = int(z.get("multi_drop", 1))
+    return out
+
+
 def shares_hoard(boss_name):
     """True if this boss's drops come from another boss's table, so the
     caller must not roll anything for him at all."""
@@ -183,5 +194,5 @@ def get_fixed_boss_loot_all(boss_name):
     pool = _load_boss_loot_tables().get(boss_name)
     if not pool:
         return []
-    count = min(MULTI_DROP.get(boss_name, 1), len(pool))
+    count = min(MULTI_DROP.get(boss_name) or _hidden_multi_drop().get(boss_name, 1), len(pool))
     return [_item_from_def(d) for d in random.sample(pool, count)]

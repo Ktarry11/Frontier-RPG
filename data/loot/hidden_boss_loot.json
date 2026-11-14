@@ -1,0 +1,1030 @@
+{
+  "_notes": "Hidden zones' bosses (tools/build_hidden_content.py). Item level is the boss's level + 5; every boss drops two of these (world/hidden_zones multi_drop); from level 30 one of them is a one-of-a-kind epic. Kyle, 14 Nov 2026: 'they drop at 4 to 5 ilvl and can have unique epics above level 30.'",
+  "Ashcaller Vorn": [
+    {
+      "name": "Vorn's Unburnt Hand",
+      "slot": "main_hand",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "A wand of fused bone. The cult said it never cooled.",
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "spell_power": 2.7
+      },
+      "weapon_damage_min": 38,
+      "weapon_damage_max": 52,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Cassock of the Inner Kiln",
+      "slot": "chest",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "Stitched from robes that went into the well and came back.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "fire_spell_power": 18.1
+      },
+      "armor_type": "cloth",
+      "armor_value": 37
+    },
+    {
+      "name": "Tithe-Taker's Grips",
+      "slot": "hands",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "Every finger is scarred where the coins were hot.",
+      "primary_stats": {
+        "strength": 6,
+        "agility": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 52
+    },
+    {
+      "name": "Smoke-Stained Cord",
+      "slot": "waist",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "It smells of the deep vents no matter how long it's aired.",
+      "primary_stats": {
+        "intellect": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 83
+    }
+  ],
+  "The Furnace Heart": [
+    {
+      "name": "Heartstone Maul",
+      "slot": "main_hand",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "It's warm. It's always going to be warm.",
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 63,
+      "weapon_damage_max": 86,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Kilnplate Pauldrons",
+      "slot": "shoulder",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "Hammered out over the well itself.",
+      "primary_stats": {
+        "strength": 6,
+        "stamina": 7
+      },
+      "secondary_stats": {
+        "defense_rating": 0.4
+      },
+      "armor_type": "plate",
+      "armor_value": 159
+    },
+    {
+      "name": "Cinder-Walker's Boots",
+      "slot": "feet",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "The soles are glass.",
+      "primary_stats": {
+        "agility": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 54
+    },
+    {
+      "name": "Ember of the Well",
+      "slot": "neck",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "A coal on a chain that has never gone out.",
+      "primary_stats": {
+        "intellect": 3
+      },
+      "secondary_stats": {
+        "spell_power": 4.7,
+        "crit_chance_spell": 0.2
+      }
+    },
+    {
+      "name": "Furnace-Born Bulwark",
+      "slot": "off_hand",
+      "item_level": 24,
+      "rarity": "rare",
+      "required_level": 17,
+      "flavor_text": "A shield poured, not forged.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 6
+      },
+      "armor_value": 48,
+      "block_value": 61
+    }
+  ],
+  "Vel'dran the Unwaking": [
+    {
+      "name": "Staff of the Unwaking",
+      "slot": "main_hand",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 23,
+      "flavor_text": "Root, knotted round a pearl that dreams.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 11,
+        "spirit": 11
+      },
+      "secondary_stats": {
+        "healing_power": 11.5
+      },
+      "weapon_damage_min": 31,
+      "weapon_damage_max": 42,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Dreamwalker Leggings",
+      "slot": "legs",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 23,
+      "flavor_text": "Worn by someone who walked a long way without waking.",
+      "primary_stats": {
+        "agility": 12,
+        "spirit": 12
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 98
+    },
+    {
+      "name": "Thornbed Hauberk",
+      "slot": "chest",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 23,
+      "flavor_text": "The thorns are on the inside. They don't hurt. That's worse.",
+      "primary_stats": {
+        "agility": 8,
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "attack_power": 14.2
+      },
+      "armor_type": "mail",
+      "armor_value": 157
+    },
+    {
+      "name": "Somnus Band",
+      "slot": "ring",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 23,
+      "flavor_text": "You feel rested wearing it, and you shouldn't.",
+      "primary_stats": {
+        "intellect": 7,
+        "spirit": 7
+      },
+      "secondary_stats": {}
+    },
+    {
+      "name": "Pool-Drinker's Bracers",
+      "slot": "wrist",
+      "item_level": 30,
+      "rarity": "rare",
+      "required_level": 23,
+      "flavor_text": "Stained a green that won't wash out.",
+      "primary_stats": {
+        "strength": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 163
+    }
+  ],
+  "Gnasher, the Bone-Fed": [
+    {
+      "name": "Marrowcrack Axe",
+      "slot": "main_hand",
+      "item_level": 32,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Notched where it caught on something it didn't cut.",
+      "weapon_type": "axe_1h",
+      "primary_stats": {
+        "strength": 11,
+        "agility": 11
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 60,
+      "weapon_damage_max": 81,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Kennelmaster's Hide",
+      "slot": "chest",
+      "item_level": 32,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Whoever kept him here wore this. It didn't help.",
+      "primary_stats": {
+        "agility": 13,
+        "stamina": 13
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 105
+    },
+    {
+      "name": "Gnawed Greaves",
+      "slot": "legs",
+      "item_level": 32,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Tooth-marks a finger deep.",
+      "primary_stats": {
+        "strength": 9,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "defense_rating": 0.7
+      },
+      "armor_type": "plate",
+      "armor_value": 252
+    },
+    {
+      "name": "Collar of the Bone-Fed",
+      "slot": "neck",
+      "item_level": 32,
+      "rarity": "rare",
+      "required_level": 25,
+      "flavor_text": "Too big for any dog.",
+      "primary_stats": {
+        "strength": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "The Archmage's Shade": [
+    {
+      "name": "Arugal's Last Lesson",
+      "slot": "main_hand",
+      "item_level": 33,
+      "rarity": "rare",
+      "required_level": 26,
+      "flavor_text": "A staff that still remembers the words.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 14,
+        "stamina": 18
+      },
+      "secondary_stats": {
+        "hit_rating": 0.8
+      },
+      "weapon_damage_min": 33,
+      "weapon_damage_max": 45,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Mantle of the Unquiet Mage",
+      "slot": "shoulder",
+      "item_level": 33,
+      "rarity": "rare",
+      "required_level": 26,
+      "flavor_text": "Cold to the touch even in summer.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "shadow_spell_power": 22.0
+      },
+      "armor_type": "cloth",
+      "armor_value": 45
+    },
+    {
+      "name": "Ossuary Warden's Coif",
+      "slot": "head",
+      "item_level": 33,
+      "rarity": "rare",
+      "required_level": 26,
+      "flavor_text": "Taken off a guard who never left his post.",
+      "primary_stats": {
+        "intellect": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 146
+    },
+    {
+      "name": "Signet of the Pale Study",
+      "slot": "ring",
+      "item_level": 33,
+      "rarity": "rare",
+      "required_level": 26,
+      "flavor_text": "Engraved on the inside: 'for my children'.",
+      "primary_stats": {
+        "intellect": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "spell_power": 3.8
+      }
+    },
+    {
+      "name": "Grave-Cold Cuffs",
+      "slot": "wrist",
+      "item_level": 33,
+      "rarity": "rare",
+      "required_level": 26,
+      "flavor_text": "They keep a wound from bleeding. They keep a lot of things.",
+      "primary_stats": {
+        "stamina": 6,
+        "intellect": 6
+      },
+      "secondary_stats": {
+        "healing_power": 4.3
+      },
+      "armor_type": "leather",
+      "armor_value": 74
+    }
+  ],
+  "Ul'gotha, Mother of the Deep": [
+    {
+      "name": "Ul'gotha's Unblinking Eye",
+      "slot": "neck",
+      "item_level": 36,
+      "rarity": "epic",
+      "required_level": 29,
+      "flavor_text": "It closes when you sleep. Only then.",
+      "primary_stats": {},
+      "secondary_stats": {
+        "shadow_spell_power": 11.3,
+        "arcane_spell_power": 11.3
+      }
+    },
+    {
+      "name": "Tidecrush Trident",
+      "slot": "main_hand",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 29,
+      "flavor_text": "Pulled from the mother's mantle, still wet.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 8
+      },
+      "secondary_stats": {
+        "attack_power": 16.8,
+        "hit_rating": 0.7
+      },
+      "weapon_damage_min": 89,
+      "weapon_damage_max": 121,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Robes of the Lightless Choir",
+      "slot": "chest",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 29,
+      "flavor_text": "The drowned sang in these.",
+      "primary_stats": {
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "spell_power": 11.3,
+        "crit_chance_spell": 0.6
+      },
+      "armor_type": "cloth",
+      "armor_value": 59
+    },
+    {
+      "name": "Deepcoil Spaulders",
+      "slot": "shoulder",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 29,
+      "flavor_text": "Shell, ground smooth by water that never saw light.",
+      "primary_stats": {
+        "agility": 8,
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "attack_power": 14.4
+      },
+      "armor_type": "mail",
+      "armor_value": 159
+    },
+    {
+      "name": "Lurker-Skin Gloves",
+      "slot": "hands",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 29,
+      "flavor_text": "Cold, slick, and they never slip.",
+      "primary_stats": {
+        "agility": 8
+      },
+      "secondary_stats": {
+        "hit_rating": 0.6,
+        "crit_chance_physical": 0.6
+      },
+      "armor_type": "leather",
+      "armor_value": 81
+    }
+  ],
+  "Ja'kesh the Unchained": [
+    {
+      "name": "The Broken Chain",
+      "slot": "main_hand",
+      "item_level": 44,
+      "rarity": "epic",
+      "required_level": 37,
+      "flavor_text": "He wore it for forty years and then he didn't.",
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "strength": 13
+      },
+      "secondary_stats": {
+        "hit_rating": 1.0,
+        "crit_chance_physical": 1.0
+      },
+      "weapon_damage_min": 102,
+      "weapon_damage_max": 138,
+      "attack_speed": 1.8
+    },
+    {
+      "name": "Pitfighter's Harness",
+      "slot": "chest",
+      "item_level": 44,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Older than the arena above.",
+      "primary_stats": {
+        "strength": 17,
+        "agility": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 144
+    },
+    {
+      "name": "Shacklebreaker Gauntlets",
+      "slot": "hands",
+      "item_level": 44,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "One link still dangles from each wrist.",
+      "primary_stats": {
+        "stamina": 12
+      },
+      "secondary_stats": {
+        "armor": 30.0,
+        "parry_rating": 0.6
+      },
+      "armor_type": "plate",
+      "armor_value": 239
+    },
+    {
+      "name": "Crowd-Roar Band",
+      "slot": "ring",
+      "item_level": 44,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "You can almost hear them.",
+      "primary_stats": {
+        "strength": 7
+      },
+      "secondary_stats": {
+        "attack_power": 14.9,
+        "hit_rating": 0.6
+      }
+    },
+    {
+      "name": "Bloodcaller's Loincloth",
+      "slot": "legs",
+      "item_level": 44,
+      "rarity": "rare",
+      "required_level": 37,
+      "flavor_text": "Dyed the colour of the pit floor.",
+      "primary_stats": {
+        "intellect": 10,
+        "spirit": 10
+      },
+      "secondary_stats": {
+        "healing_power": 11.1
+      },
+      "armor_type": "cloth",
+      "armor_value": 72
+    }
+  ],
+  "Skrell, Mother of Ravagers": [
+    {
+      "name": "Skrell's Last Clutch",
+      "slot": "neck",
+      "item_level": 45,
+      "rarity": "epic",
+      "required_level": 38,
+      "flavor_text": "Three eggs on a cord. They never hatched.",
+      "primary_stats": {
+        "strength": 10,
+        "agility": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {}
+    },
+    {
+      "name": "Ravager-Bone Glaive",
+      "slot": "main_hand",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "Her own spine, sharpened.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 10
+      },
+      "secondary_stats": {
+        "attack_power": 21.0,
+        "hit_rating": 0.9
+      },
+      "weapon_damage_min": 109,
+      "weapon_damage_max": 147,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Mothershell Mantle",
+      "slot": "shoulder",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "Plates from her back, and they turn steel.",
+      "primary_stats": {
+        "stamina": 14
+      },
+      "secondary_stats": {
+        "defense_rating": 1.1,
+        "dodge_rating": 1.1
+      },
+      "armor_type": "mail",
+      "armor_value": 199
+    },
+    {
+      "name": "Den-Stalker Treads",
+      "slot": "feet",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "You walk softer in them. So did she.",
+      "primary_stats": {
+        "agility": 10
+      },
+      "secondary_stats": {
+        "hit_rating": 0.7,
+        "crit_chance_physical": 0.7
+      },
+      "armor_type": "leather",
+      "armor_value": 102
+    },
+    {
+      "name": "Pit-Priest's Wraps",
+      "slot": "wrist",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 38,
+      "flavor_text": "Wound tight against the heat of the blood-fires.",
+      "primary_stats": {
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "spell_power": 9.8,
+        "crit_chance_spell": 0.5
+      },
+      "armor_type": "cloth",
+      "armor_value": 51
+    }
+  ],
+  "Marginalia": [
+    {
+      "name": "Quill of Marginalia",
+      "slot": "off_hand",
+      "item_level": 46,
+      "rarity": "epic",
+      "required_level": 39,
+      "flavor_text": "It writes on its own if you let it.",
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 13,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "spell_power": 8.7
+      }
+    },
+    {
+      "name": "Annotated Mantle",
+      "slot": "shoulder",
+      "item_level": 46,
+      "rarity": "rare",
+      "required_level": 39,
+      "flavor_text": "Notes in a hand nobody recognises cover every inch.",
+      "primary_stats": {
+        "intellect": 15,
+        "spirit": 15
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 63
+    },
+    {
+      "name": "Scribe's Fingerless Gloves",
+      "slot": "hands",
+      "item_level": 46,
+      "rarity": "rare",
+      "required_level": 39,
+      "flavor_text": "Inkstains that move when you aren't looking.",
+      "primary_stats": {
+        "agility": 13,
+        "intellect": 13
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 104
+    },
+    {
+      "name": "Margin-Ruled Bracers",
+      "slot": "wrist",
+      "item_level": 46,
+      "rarity": "rare",
+      "required_level": 39,
+      "flavor_text": "Straight lines, ruled into steel.",
+      "primary_stats": {
+        "stamina": 12
+      },
+      "secondary_stats": {
+        "defense_rating": 0.9,
+        "dodge_rating": 0.9
+      },
+      "armor_type": "plate",
+      "armor_value": 250
+    }
+  ],
+  "The First Draft": [
+    {
+      "name": "The Unedited Word",
+      "slot": "main_hand",
+      "item_level": 47,
+      "rarity": "epic",
+      "required_level": 40,
+      "flavor_text": "A staff of pressed fungus-paper, and whatever it says, it means.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 22
+      },
+      "secondary_stats": {
+        "spell_power": 29.2,
+        "crit_chance_spell": 1.5
+      },
+      "weapon_damage_min": 59,
+      "weapon_damage_max": 80,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Bound Volume Breastplate",
+      "slot": "chest",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Pages hammered flat into plate. Some of them are still legible.",
+      "primary_stats": {
+        "strength": 13,
+        "stamina": 17
+      },
+      "secondary_stats": {
+        "defense_rating": 1.0
+      },
+      "armor_type": "plate",
+      "armor_value": 370
+    },
+    {
+      "name": "Archivist's Spore-Hood",
+      "slot": "head",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Grows back if you cut it.",
+      "primary_stats": {
+        "stamina": 11,
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "healing_power": 7.5
+      },
+      "armor_type": "mail",
+      "armor_value": 208
+    },
+    {
+      "name": "Errata Loop",
+      "slot": "ring",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Corrected. Then corrected again.",
+      "primary_stats": {
+        "agility": 9
+      },
+      "secondary_stats": {
+        "hit_rating": 0.7,
+        "crit_chance_physical": 0.7
+      }
+    },
+    {
+      "name": "Stackwalker's Slippers",
+      "slot": "feet",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 40,
+      "flavor_text": "Made for long nights between the shelves.",
+      "primary_stats": {
+        "spirit": 12,
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "healing_power": 7.2
+      },
+      "armor_type": "cloth",
+      "armor_value": 53
+    }
+  ],
+  "The Brine King": [
+    {
+      "name": "Crown of the Drowned Thane",
+      "slot": "head",
+      "item_level": 46,
+      "rarity": "epic",
+      "required_level": 39,
+      "flavor_text": "Salt-crusted gold. It still fits somebody.",
+      "primary_stats": {
+        "strength": 14,
+        "stamina": 18
+      },
+      "secondary_stats": {
+        "defense_rating": 1.1
+      },
+      "armor_type": "plate",
+      "armor_value": 396
+    },
+    {
+      "name": "Barrow-King's Bane",
+      "slot": "main_hand",
+      "item_level": 46,
+      "rarity": "rare",
+      "required_level": 39,
+      "flavor_text": "Buried with him so nobody else could have it.",
+      "weapon_type": "sword_2h",
+      "primary_stats": {
+        "strength": 11
+      },
+      "secondary_stats": {
+        "attack_power": 21.5,
+        "hit_rating": 0.9
+      },
+      "weapon_damage_min": 111,
+      "weapon_damage_max": 150,
+      "attack_speed": 3.4
+    },
+    {
+      "name": "Saltgrave Shroud",
+      "slot": "back",
+      "item_level": 46,
+      "rarity": "rare",
+      "required_level": 39,
+      "flavor_text": "Grey wool, and never once dry.",
+      "primary_stats": {
+        "intellect": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {}
+    },
+    {
+      "name": "Lantern-Keeper's Wraps",
+      "slot": "wrist",
+      "item_level": 46,
+      "rarity": "rare",
+      "required_level": 39,
+      "flavor_text": "Warm, which is the strangest thing about them.",
+      "primary_stats": {
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "spell_power": 10.0,
+        "crit_chance_spell": 0.5
+      },
+      "armor_type": "cloth",
+      "armor_value": 52
+    },
+    {
+      "name": "Tidewalker's Treads",
+      "slot": "feet",
+      "item_level": 46,
+      "rarity": "rare",
+      "required_level": 39,
+      "flavor_text": "Sand runs out of them forever.",
+      "primary_stats": {
+        "agility": 13,
+        "stamina": 13
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 104
+    }
+  ],
+  "Old Blister": [
+    {
+      "name": "Blister's Fused Fang",
+      "slot": "main_hand",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "Half tooth, half glass. Sharper than either.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "strength": 7,
+        "agility": 7
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 45,
+      "weapon_damage_max": 61,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Glasswalker's Jerkin",
+      "slot": "chest",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "Basilisk hide that turns a blade.",
+      "primary_stats": {
+        "agility": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 75
+    },
+    {
+      "name": "Kiln-Fired Gauntlets",
+      "slot": "hands",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "Hammered out on a hot stone in the canyon.",
+      "primary_stats": {
+        "strength": 6,
+        "stamina": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 125
+    },
+    {
+      "name": "Shard of the Glasswaste",
+      "slot": "neck",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "It holds the heat of a fire nobody lit.",
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "spell_power": 2.7
+      }
+    },
+    {
+      "name": "Ashfoot's Hauberk",
+      "slot": "chest",
+      "item_level": 23,
+      "rarity": "rare",
+      "required_level": 16,
+      "flavor_text": "Durek's old mail, from before he stopped going out.",
+      "primary_stats": {
+        "agility": 6,
+        "intellect": 6
+      },
+      "secondary_stats": {
+        "attack_power": 10.9
+      },
+      "armor_type": "mail",
+      "armor_value": 120
+    }
+  ],
+  "The Widow of the Mere": [
+    {
+      "name": "Veil of the Weeping Widow",
+      "slot": "head",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 18,
+      "flavor_text": "Black lace, soaked through and never dripping.",
+      "primary_stats": {
+        "intellect": 8,
+        "spirit": 8
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 34
+    },
+    {
+      "name": "Mere-Drowned Longbow",
+      "slot": "ranged",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 18,
+      "flavor_text": "Strung with something that isn't gut.",
+      "weapon_type": "bow",
+      "primary_stats": {
+        "agility": 4,
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "attack_power": 7.3
+      },
+      "weapon_damage_min": 41,
+      "weapon_damage_max": 56,
+      "attack_speed": 2.8
+    },
+    {
+      "name": "Mourning Band",
+      "slot": "ring",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 18,
+      "flavor_text": "Inside it says 'until the water's still'.",
+      "primary_stats": {
+        "stamina": 4,
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "healing_power": 2.9
+      }
+    },
+    {
+      "name": "Pinewalker's Leggings",
+      "slot": "legs",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 18,
+      "flavor_text": "They make no noise at all.",
+      "primary_stats": {
+        "agility": 10,
+        "spirit": 10
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 82
+    },
+    {
+      "name": "Stillwater Girdle",
+      "slot": "waist",
+      "item_level": 25,
+      "rarity": "rare",
+      "required_level": 18,
+      "flavor_text": "Rusted, and stronger for it.",
+      "primary_stats": {
+        "strength": 5,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "defense_rating": 0.4
+      },
+      "armor_type": "plate",
+      "armor_value": 136
+    }
+  ]
+}

@@ -1771,6 +1771,12 @@ def get_biome_for_zone(zone_name, is_cave=False):
     first since dungeon names don't overlap the overworld ZONE_BIOME list."""
     if is_cave and zone_name in CAVE_BIOME:
         return CAVE_BIOME[zone_name]
+    if zone_name not in ZONE_BIOME and zone_name not in CAVE_BIOME:
+        # a hidden zone takes its parent's biome (world/hidden_zones.py)
+        from world.hidden_zones import parent
+        p = parent(zone_name)
+        if p:
+            return get_biome_for_zone(p, is_cave=is_cave or p in CAVE_BIOME)
     return ZONE_BIOME.get(zone_name, DEFAULT_BIOME)
 
 

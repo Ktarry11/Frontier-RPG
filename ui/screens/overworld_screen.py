@@ -1107,6 +1107,15 @@ class OverworldScreen(BaseScreen):
         self.renderer.draw_text(screen, zone_levels.banner(zone.name),
                                 (SCREEN_WIDTH // 2, 10), size="large", color=(200, 200, 100),
                                 center=True)
+        # A HIDDEN ZONE WEARS A SKULL beside its name (world/hidden_zones.py). Kyle, 14 Nov:
+        # "These new zones will still have the level range but maybe a skull next to them."
+        from world.hidden_zones import is_hidden
+        if is_hidden(zone.name):
+            from ui.skull_mark import skull
+            w = self.renderer._get_font("large", None).size(zone_levels.banner(zone.name))[0]
+            mark = skull(28)
+            screen.blit(mark, (SCREEN_WIDTH // 2 - w // 2 - mark.get_width() - 8, 12))
+            screen.blit(mark, (SCREEN_WIDTH // 2 + w // 2 + 8, 12))
         
         # Draw encounter status (top left)
         encounter_status = "ON" if self.encounters_enabled else "OFF"

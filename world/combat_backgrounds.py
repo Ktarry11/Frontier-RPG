@@ -407,6 +407,13 @@ def resolve_place(zone_name, subzone_name=None, is_cave=False):
     """
     from world.tile_textures import get_biome_for_zone, get_subzone_biome_by_name
 
+    # A HIDDEN ZONE fights in its parent's backdrop unless it has its own (world/hidden_zones.py):
+    # Kyle, 14 Nov 2026, "hidden Dungeons can look similar to their base Dungeons".
+    from world.hidden_zones import parent as _hidden_parent
+    if zone_name not in ZONE_BACKGROUND and _hidden_parent(zone_name):
+        zone_name = _hidden_parent(zone_name)
+        if subzone_name and subzone_name not in ZONE_BACKGROUND:
+            subzone_name = None
     own = get_subzone_biome_by_name(subzone_name)
     biome = own or get_biome_for_zone(zone_name, is_cave=is_cave)
     if subzone_name and subzone_name in ZONE_BACKGROUND:

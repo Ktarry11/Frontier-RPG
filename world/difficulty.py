@@ -19,6 +19,9 @@ than in every kit, and it can be turned back by editing three pairs of numbers.
          they are separate keys so they can be split again.
   tuned_boss  a boss whose kit was already tuned by hand against the sim (the Tempest Isle
          dungeons and the Royal Hive), named in the table's "tuned_bosses" list
+  hidden_layer / skull_zone  every monster, trash and boss alike, in a hidden level under a dungeon
+         or a hidden open-world map (world/hidden_zones.py). These rows also carry
+         loot_ilvl_bonus: what they drop sits that many item levels above them.
 
 Damage is a multiplier on what the monster deals (Monster.damage_output_multiplier); health is
 applied once, when the creature is made.
@@ -69,6 +72,10 @@ def dungeon_bosses():
 
 
 def kind_of(monster):
+    from world.hidden_zones import creature_kinds
+    hidden = creature_kinds().get(getattr(monster, "name", None))
+    if hidden:
+        return hidden
     if getattr(monster, "is_boss", False):
         name = getattr(monster, "name", None)
         if name in _tuned():
@@ -91,3 +98,4 @@ def apply_health(monster):
     monster.current_health = monster.max_health
     monster._difficulty_health = new
     monster._difficulty_kind = kind_of(monster)
+    monster.loot_ilvl_bonus = int((table().get(monster._difficulty_kind) or {}).get("loot_ilvl_bonus", 0))

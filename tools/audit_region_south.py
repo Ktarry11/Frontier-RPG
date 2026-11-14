@@ -179,7 +179,7 @@ def main():
                 bad.append(f"people: {i} at ({x},{y}) cannot be reached")
             over = [lm["sprite_key"].split("/")[-1] for lm in z.landmarks
                     if "assets/buildings" in lm["sprite_key"] and covered(lm, x, y) > 0.5]
-            if over:
+            if over and not r.get("hidden"):       # a hidden seller is behind it on purpose (world/secrets.py)
                 bad.append(f"people: {i} is drawn under {over[0]}")
 
         # ---- 6. quests given here

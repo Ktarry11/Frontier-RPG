@@ -267,7 +267,11 @@ def frame_exits(zones, portal_manager, cave_names):
     {"placed": n, "skipped": [(src, dest, why), ...]}."""
     placed, skipped = 0, []
     by_src = {}
+    from world.secrets import get_secrets
+    secrets = get_secrets()
     for (src, x, y), dest in portal_manager._lookup.items():
+        if secrets.is_door(src, x, y):
+            continue        # a secret door is a room in the wall: no frame, nothing that says "way out"
         by_src.setdefault(src, {}).setdefault(dest[0], []).append((x, y))
 
     # A dungeon map you can walk into from the open world is the dungeon's top level.
@@ -290,7 +294,9 @@ def frame_exits(zones, portal_manager, cave_names):
             sprite = None
             for attempt in range(3):
                 look_key = (src_cave, dest in cave_names)
-                sprite = choose(src, dest, src_cave, dest in cave_names, boat,
+                # a hidden zone's way out looks like its parent's (world/hidden_zones.py)
+                from world.hidden_zones import parent as _hp
+                sprite = choose(_hp(src) or src, dest, src_cave, dest in cave_names, boat,
                                 getattr(tilemap, "is_town", False),
                                 getattr(dest_map, "is_town", False), src_region,
                                 turn.get(look_key, 0),
