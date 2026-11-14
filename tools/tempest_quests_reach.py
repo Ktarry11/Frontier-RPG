@@ -114,8 +114,7 @@ def build():
                 explore(50, 108, "the southern barge wreck on the Scoured Coast", AR),
                 fetch("tmp_boarding_hook", 5)],
                "The Harbourmaster says it was naga and the Underwriter says it was her "
-               "pilots, and I'm paid to find out which.\n\nI did this for nine years in "
-               "Singapore. A hull tells you how it died if you look at it properly. A "
+               "pilots, and I'm paid to find out which.\n\nI did this for nine years in Singapore, before I came through. A hull tells you how it died if you look at it properly. A "
                "barge that ran aground is holed from below, and a barge that was boarded "
                "is damaged along the rail, where the hooks went in.\n\nTwo of the wrecks "
                "are lying on the Scoured Coast, on the far west shore of the Reach. One's "
@@ -212,7 +211,7 @@ def build():
                "If you're heading out to the Works, you can take the weigh book with "
                "you and save my runner a pair of boots.\n\nI weigh every cart of ore "
                "that comes through this gate. Assayer Ruddi weighs the same carts when "
-               "they leave the Works. If the two books don't match, somebody's been "
+               "they leave the Works. If his book and hers don't match, somebody's been "
                "stealing on the road, and she likes to know before the dwarves blame "
                "her for it.\n\nThe Works is a long walk west of here, on the far side "
                "of the Cinder Flats. Follow the cart ruts and you can't miss the "
@@ -386,7 +385,7 @@ def build():
                 explore(60, 70, "the steam vent on the Scoured Coast", AR),
                 explore(120, 136, "the fissure on the Emberdeep Approach", AR)],
                "I told the Foreman that this mountain has a pulse, and she asked me to "
-               "prove it.\n\nAt Sakurajima I had forty instruments and a room full of "
+               "prove it.\n\nBefore the change I had forty instruments at Sakurajima and a room full of "
                "students. Here I've got three tiltmeters I built from clock parts. If "
                "I put them at three vents a long way apart and they all jump at the "
                "same moment, then one thing's moving under the whole island.\n\nThe "
@@ -413,7 +412,7 @@ def build():
                "I need to know what's in the lake under this mountain, and I can't "
                "get a sample without being cooked.\n\nThe Calderaborn Drakes can. They "
                "roost inside the crater and they swallow hot glass from the lake's "
-               "edge, the way a hen swallows grit. At home I'd have sent a drone over "
+               "edge, the way a hen swallows grit. Before I came through I'd have sent a drone over "
                "the rim. Here I'm asking you to open up a drake.\n\nThey hunt over "
                "the Emberdeep Approach, south-east of the yard. Bring me the glass "
                "while it's fresh, because the chemistry changes as it cools.",
@@ -441,8 +440,7 @@ def build():
                "All three needles stopped at once, and I've been sitting here "
                "watching them ever since.\n\nThe ground's still warm and the vents "
                "still smoke. It's an ordinary volcano now. I can read an ordinary "
-               "volcano, and so the Foreman can have her warnings again.\n\nWhen "
-               "the bay at Kagoshima vanished I thought I'd never be useful to "
+               "volcano, and so the Foreman can have her warnings again.\n\nWhen the bay at Kagoshima vanished three years ago I thought I'd never be useful to "
                "anyone again. You've given me my trade back.",
                requires_quests=["tmp_what_the_drakes_carry"]))
 

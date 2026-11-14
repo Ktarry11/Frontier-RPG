@@ -169,7 +169,7 @@ def build():
                "I've got forty people to feed and the supply boat brought me flour, salt "
                "and a letter of apology.\n\nThere's good eating in the shallows if you can "
                "get it out of its shell. The Bargebreaker Crabs out there are the size of a "
-               "handcart, and one claw feeds a table. They're also bad tempered, which is "
+               "handcart, and each claw feeds a table. They're also bad tempered, which is "
                "why I'm asking you and not going myself.\n\nFollow the trunk road east and "
                "take the strand road down to the water. The whole bay's shallow enough to "
                "wade. Bring me the claws and I'll have them in the pot before dark.",
@@ -220,7 +220,7 @@ def build():
                [explore(134, 56, "the heart of the Green Belt", TS),
                 explore(168, 80, "the head of the strand road", TS),
                 explore(62, 22, "the western pass on the Scoured Slope", TS)],
-               "I'm supposed to put a number on this whole island, and there are three "
+               "Nobody could reach this island before the change, so nobody's ever valued it. I'm supposed to put a number on the whole of it, and there are three "
                "places I haven't managed to stand in yet.\n\nThe underwriters won't accept "
                "a figure for ground nobody's walked. I've tried all three and I was chased "
                "out of each of them by something different.\n\nThe first is the middle of "
@@ -259,7 +259,7 @@ def build():
                "Mwangi.",
                [fetch("tmp_bitterbark", 6)],
                "I've run out of anything that takes pain away, and the boat won't bring "
-               "more for a month.\n\nAt home I'd have had a cabinet full of tablets. Here "
+               "more for a month.\n\nBefore I came through I had a cabinet full of tablets. Here "
                "I've got clean water and bandages. But the woodcutters tell me the Ashfur "
                "Gorillas in the Green Belt chew a grey bark and pack it on their burns, and "
                "they've seen burned ones up and climbing again in a day.\n\nPeople have "
@@ -288,7 +288,7 @@ def build():
                "Mind their beaks, because I've already stitched two hands this week.",
                "That's lovely clean fat, and there's plenty of it.\n\nI'll melt it down "
                "with the bitterbark and see what I get. If it works I'll have a burn "
-               "dressing better than the one I used at home, made out of a turtle and a "
+               "dressing better than the one I used before I came through, made out of a turtle and a "
                "tree.\n\nYou've still got all your fingers, I see. Hold onto them."))
 
     q.append(Q("tmp_hulls_and_ribs", "Hulls and Ribs", ROZZ, 53, 53, "wreck",
@@ -448,8 +448,7 @@ def build():
                "coming back.",
                [k("Ashscree Scorpion", 10, TS)],
                "There's a strip of the Scoured Slope where plants are coming back onto "
-               "bare ash, and I've been watching it since I got here.\n\nI did the same "
-               "thing at home. When Cotopaxi dusted the hills south of Quito, I walked "
+               "bare ash, and I've been watching it since I got here.\n\nI did the same thing before the change. When Cotopaxi dusted the hills south of Quito, I walked "
                "the same plots every month for two years and wrote down what grew first. "
                "It's always something small and stubborn, and here it's a red fern I'd "
                "never seen before this island.\n\nThe Ashscree Scorpions burrow in the "
@@ -574,7 +573,7 @@ def build():
                "cover.\n\nThe log puts her aground at the far south-east corner of the "
                "Tempest Shallows. She'll be the only wreck out there made of steel. "
                "Would you go and see that she's really there, and bring back whatever "
-               "books you can find? I'd like to know who they were.",
+               "books you can find? They've been lost for three years, and I'd like to know who they were.",
                "You found some of them, and I can read every name.\n\nThis one's "
                "Juma Otieno, the second engineer, and he was born in Kisumu. I don't "
                "know whether they drowned or walked ashore. If they walked, they may "
@@ -625,7 +624,7 @@ def build():
                "Kill Thane Morrun the Unmade in the Hall of Ashhold, at the top of Khaz Varun.",
                [boss("Thane Morrun the Unmade", KV)],
                "My great-grandfather's name was Morrun Ashhold, and he's sitting in his "
-               "own chair at the top of that city.\n\nI've known it for a year. One of "
+               "own chair at the top of that city.\n\nThe gate opened three years ago, and I've known it for one of them. One of "
                "the first party got as far as the Hall of Ashhold and saw him through "
                "the doors. He hasn't been a dwarf for a long time. The squatters call "
                "him the Unmade, and I've got no better word.\n\nMy claim rests on being "

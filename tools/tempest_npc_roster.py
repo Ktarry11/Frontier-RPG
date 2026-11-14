@@ -262,6 +262,5 @@ CINDERWHARF_AMBIENT = {
         "sunk barge was bad luck or bad seamanship.\n\nI did the same job in Singapore "
         "for a marine insurer. Three years ago I was inspecting a container ship when "
         "the harbour changed around it, and my employer and my flat went with the old "
-        "one. Goblins turned out to understand insurance better than anyone I'd worked "
-        "with, which was a comfort and a worry."),
+        "one. Goblins understand insurance better than anyone I worked with there."),
 }
