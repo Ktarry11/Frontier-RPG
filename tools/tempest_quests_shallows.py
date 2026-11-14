@@ -125,7 +125,7 @@ def build():
                "Kill Greenbelt Raptors and Canopy Panthers in the Green Belt, east of Ashclaim "
                "Landing.",
                [k("Greenbelt Raptor", 10, TS), k("Canopy Panther", 8, TS)],
-               "Everything we land here has to go east along the trunk road, and the trunk "
+               "Nobody could land on this island at all until the sea route opened three years ago, and now everything we land has to go east along the trunk road, and the trunk "
                "road goes straight through the Green Belt.\n\nThat's the jungle you can see "
                "from the jetty. The Greenbelt Raptors hunt the road in packs, and the Canopy "
                "Panthers wait in the trees over it and drop on whoever's last in the line. "
@@ -149,7 +149,7 @@ def build():
                "end and she wants to know which four.\n\nTake the trunk road east through "
                "the Green Belt, then follow the east road north round the foot of the "
                "mountain into the Ashen Reach. Keep going north along the shore and you'll "
-               "come to the town gate. The country up there is rougher than this, so don't "
+               "come to the town gate. It's rougher country up there than this, so don't "
                "go until you're ready for it.",
                "This is Grekka's tally, and it's exactly as bad as I thought it would be.\n\n"
                "Four barges left her jetty loaded and none of them tied up at mine. That's "
@@ -210,7 +210,7 @@ def build():
                "of the line again.",
                "You've brought me her hide, and it's bigger than my awning.\n\nI'm going to "
                "hang it over the stores where the porters can see it. They've been walking "
-               "that road backwards for a month.\n\nTake your pick of what I've put by for "
+               "that road backwards for a month.\n\nChoose from what I've put by for "
                "this. I set it aside the day I lost the first of them."))
 
     q.append(Q("tmp_what_its_worth", "What It's Worth", PIM, 52, 52, "landing",
@@ -333,7 +333,7 @@ def build():
                "Kill Shallows Snappers and Bargebreaker Crabs along the barge channel in the "
                "Tempest Shallows.",
                [k("Shallows Snapper", 10, TS), k("Bargebreaker Crab", 8, TS)],
-               "A barge needs a clear channel to get out of the bay, and mine's full of "
+               "I built yachts in Booty Bay until the sea route opened three years ago and the Ashclaim offered me double. A barge needs a clear channel to get out of the bay, and mine's full of "
                "things with shells.\n\nThe Shallows Snappers lie on the bottom and bite "
                "at the steering oar. The Bargebreaker Crabs hang onto the hull until "
                "something gives. Neither of them can sink a boat alone, but between them "
@@ -409,7 +409,7 @@ def build():
                "greenbelt",
                "Collect Basilisk Gizzard Stones from Rubble Basilisks around Khaz Varun's Gate.",
                [fetch("tmp_gizzard_stone", 6)],
-               "I've found a way to prospect this island without digging, and you're "
+               "Nobody's prospected this island since the day the world changed, so I'm the first, and I've found a way to do it without digging, and you're "
                "going to think I've lost my mind.\n\nBasilisks swallow stones to grind "
                "their food. A Rubble Basilisk picks them up wherever it's been walking, "
                "and it walks over ground I can't get to. So if I open one up and there's "
@@ -417,8 +417,7 @@ def build():
                "rounds.\n\nThe Rubble Basilisks are thickest in the broken stone round "
                "Khaz Varun's Gate, south-west of here. Bring me what's in their gizzards "
                "and I'll tell you where the seams are.",
-               "Look at that streak, bright as a new coin.\n\nFour of these have "
-               "truesilver in them and one's got something I don't recognise at all. "
+               "Look at that streak, bright as a new coin.\n\nMost of these have truesilver in them and one's got something I don't recognise at all. "
                "That basilisk had been walking over a seam nobody's found yet.\n\nMy old "
                "master would have thrown me out of the guild for this method. He also "
                "died poor, so take your share and don't tell the goblins how I did it."))
@@ -537,7 +536,7 @@ def build():
                "and it's stamped with a number.\n\nQuartermaster Durn keeps the pay book "
                "at Ashclaim Landing. He'd know whose number this was.",
                "Where did you get this? I know this number without opening the book.\n\n"
-               "It's Hedda's. She carried for me all spring and she was the best I had. "
+               "This number belongs to Hedda, who carried for me all spring and was the best I had. "
                "She went to look at the gate on her rest day, because she wanted to see "
                "where her grandmother was born. I marked her down as gone home on the "
                "boat.\n\nI'll change the book. I'd sooner it said what happened to her. "
@@ -576,7 +575,7 @@ def build():
                "Tempest Shallows. She'll be the only wreck out there made of steel. "
                "Would you go and see that she's really there, and bring back whatever "
                "books you can find? I'd like to know who they were.",
-               "You found four of them, and I can read every name.\n\nThis one's "
+               "You found some of them, and I can read every name.\n\nThis one's "
                "Juma Otieno, the second engineer, and he was born in Kisumu. I don't "
                "know whether they drowned or walked ashore. If they walked, they may "
                "be somewhere in this world wondering if anyone knows they were "
@@ -592,7 +591,7 @@ def build():
                "My great-grandfather's gatewarden is still at his post, and that's the "
                "first thing I need you to put right.\n\nHis name was Hrun. He held the "
                "gate of Khaz Varun the night the city went dark, and by every account "
-               "he's holding it still. Nobody I've sent has got past him, and those "
+               "he's holding it still. The gate opened by itself three years ago, on the day the world changed, and nobody I've sent since has got past him, and those "
                "who've come back can't tell me what they saw.\n\nThe gate's on the south "
                "shore of the island, a short walk south-east of Ashclaim Landing. Go "
                "through the arch and you'll find him in the Gatehouse Hall beyond the "
@@ -614,8 +613,7 @@ def build():
                "Somebody's working it, and the rolls say the last Forge-Lord was a "
                "dwarf named Darrok who never left his anvil.\n\nYou'll find the Great "
                "Forge on the east side of the city, past the Counting Hall. Whatever's "
-               "standing at that anvil is making something, and I don't want to learn "
-               "what it is by having it walk out of my gate.",
+               "standing at that anvil is making something, and I don't want to learn what it's making by having it walk out of my gate.",
                "So Forge-Lord Darrok was still at it, after all this time.\n\nThe Underwriter will be "
                "delighted that the forge works. I'm less delighted about what it was "
                "being used for. You say the moulds were shaped like dwarves, and I "
@@ -657,7 +655,7 @@ def build():
                "Ash-Wretches keep to the Ash Pits and the Deep Way in the middle of "
                "the city. Bring me the tablets. I'd like to give each of them a flame "
                "of their own.",
-               "There are eight names here, and I'm going to read them all aloud "
+               "I'm going to read every one of these names aloud "
                "before I do anything else.\n\nTwo of these are Ashholds. One's an "
                "Emberhold, so Bron at the gate will want to know. The rest I'll look "
                "up in the Deedkeeper's rolls.\n\nI've tended one flame for three "
@@ -669,7 +667,7 @@ def build():
                "Kill The Iron Mask in the Cells of Khaz Varun, the Black Hollow.",
                [boss("The Iron Mask", KV)],
                "There are dwarves in that city with iron masks riveted over their faces, "
-               "and they weren't born down there.\n\nThey're recent. Some of them are "
+               "and they weren't born down there.\n\nThe masks are new, and some of them are "
                "wearing Ashclaim boots. Something in the Cells is taking the people who "
                "go in, masking them and sending them back out into the halls to "
                "preach. The ones who've seen it call it The Iron Mask, because nobody's "
@@ -776,8 +774,7 @@ def build():
                "People go into that city sane and come out raving, and I'd like to "
                "know whether it's something in the air.\n\nIf it is, it matters to "
                "everyone on this wharf. We're shipping ore out of the same rock. The "
-               "Crazed Miners in the lower workings have been breathing whatever it "
-               "is for longest, and their clothes will be thick with it.\n\nGo "
+               "Crazed Miners in the lower workings have been breathing it for longest, and their clothes will be thick with it.\n\nGo "
                "through the gate on the south shore near Ashclaim Landing. The "
                "miners are in the Ember Road and the Borer Workings. Shake out "
                "their pockets and bring me the dust, and tie something over your "

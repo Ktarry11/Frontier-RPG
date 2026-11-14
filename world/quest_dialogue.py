@@ -250,6 +250,7 @@ _ZONE_TOPIC_MODULES = (
     "lashings",
     "crossroads",
     "black_strand",
+    "tempest",
 )
 
 for _mod_name in _ZONE_TOPIC_MODULES:

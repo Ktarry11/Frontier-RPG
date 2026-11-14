@@ -124,7 +124,9 @@ class VendorScreen(BaseScreen):
             # Genuinely unknown ID - warn and skip rather than crash
             print(f"[VendorScreen] WARNING: unknown sell ID '{item_id}' on vendor '{self.vendor.vendor_id}'")
 
-        items.sort(key=lambda x: getattr(x, "vendor_price", 0))
+        # A recipe scroll carries vendor_price=None (its price is worked out from sell_price),
+        # and None cannot be sorted against a number: every shop that sold a recipe crashed.
+        items.sort(key=self._unit_price)
 
         # Gear appended after supplies when the vendor has a gear stock
         if getattr(self.vendor, "sells_gear", False):
@@ -212,9 +214,10 @@ class VendorScreen(BaseScreen):
 
     def _unit_price(self, item):
         price = getattr(item, "vendor_price", None)
-        if price is None:
-            price = max(1, int(item.sell_price * 4))
-        return price
+        if not price:
+            # None (a recipe scroll) or 0: six planks and a feast were on sale for nothing.
+            price = max(1, int((getattr(item, "sell_price", 0) or 0) * 4))
+        return int(price)
 
     def _set_buy_qty(self, qty):
         item = self.selected_vendor_item
@@ -667,9 +670,7 @@ class VendorScreen(BaseScreen):
                                 size="small", color=name_color)
 
         if mode == "buy":
-            price = getattr(item, "vendor_price", None)
-            if price is None:
-                price = max(1, int(item.sell_price * 4))
+            price = self._unit_price(item)
             price_text = format_coins(price)
         elif not getattr(item, "is_sellable", True):
             qty = getattr(item, "quantity", None)
@@ -767,9 +768,7 @@ class VendorScreen(BaseScreen):
                 lines.append(item.description)
 
         if mode == "buy":
-            price = getattr(item, "vendor_price", None)
-            if price is None:
-                price = max(1, int(item.sell_price * 4))
+            price = self._unit_price(item)
             lines.append(f"Price: {format_coins(price)}")
         elif getattr(item, "is_sellable", True):
             lines.append(f"Sells for: {format_coins(item.sell_price)}")

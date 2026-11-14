@@ -1,0 +1,3060 @@
+{
+  "quests": [
+    {
+      "quest_id": "tmp_off_the_boat",
+      "title": "Off the Boat",
+      "giver_npc_id": "ts_landing_bosun",
+      "zone": "tempest_shallows",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "Carry the boat's manifest from Bosun Grekka to Quartermaster Durn at Ashclaim Landing.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "tmp_manifest",
+          "count": 1,
+          "label": "the boat's manifest, to Quartermaster Durn"
+        }
+      ],
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "accept_text": "You're the first one off who isn't carrying a crate, so you can carry this for me.\n\nIt's the manifest for the boat you came in on. Quartermaster Durn won't release a thing from the stores until he's checked it against what was landed, and I can't leave the jetty while there's a hull tied to it.\n\nHe's just along the shore to the south-east, under the big awning with all the barrels. Tell him the count's right this time.",
+      "turn_in_text": "She says the count's right, does she? I'll believe that when I've counted it myself.\n\nYou're new off the boat, so I'll tell you how this place works. Everybody here has a job that's bigger than they are, and most of them will pay you to take a piece of it. Ask around the landing before you go anywhere near that gate.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Tidewalker's Legplates",
+          "slot": "legs",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Carried up from the jetty by hand, like everything else there.",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 319,
+          "label": "Plate Legs (Str/Sta/Crit)"
+        },
+        {
+          "name": "Tidewalker's Grips",
+          "slot": "hands",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Carried up from the jetty by hand, like everything else there.",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 13
+          },
+          "armor_type": "leather",
+          "armor_value": 92,
+          "label": "Leather Gloves (Agi/Int/AP)"
+        },
+        {
+          "name": "Jetty-Hand's Pendant",
+          "slot": "neck",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "It smells of tar and crab, like everything at the landing.",
+          "primary_stats": {
+            "intellect": 6,
+            "spirit": 6
+          },
+          "secondary_stats": {
+            "healing_power": 6
+          },
+          "label": "Necklace (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon",
+      "turn_in_npc_id": "ts_landing_quartermaster",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "tmp_manifest",
+            "name": "Boat's Manifest",
+            "description": "Four pages of cargo in Grekka's square hand, with a tar thumbprint on every one.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "tmp_teeth_on_the_trunk_road",
+      "title": "Teeth on the Trunk Road",
+      "giver_npc_id": "ts_landing_bosun",
+      "zone": "tempest_shallows",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "Kill Greenbelt Raptors and Canopy Panthers in the Green Belt, east of Ashclaim Landing.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Greenbelt Raptor",
+          "count": 10,
+          "zone": "tempest_shallows"
+        },
+        {
+          "type": "kill",
+          "target": "Canopy Panther",
+          "count": 8,
+          "zone": "tempest_shallows"
+        }
+      ],
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "accept_text": "Nobody could land on this island at all until the sea route opened three years ago, and now everything we land has to go east along the trunk road, and the trunk road goes straight through the Green Belt.\n\nThat's the jungle you can see from the jetty. The Greenbelt Raptors hunt the road in packs, and the Canopy Panthers wait in the trees over it and drop on whoever's last in the line. I've stopped sending porters out in groups smaller than six.\n\nGo east along the road until the trees close over you, and kill whatever comes at you. I'd like to send a cart out tomorrow without writing a will first.",
+      "turn_in_text": "The porters who came back this afternoon said they didn't see a single raptor on the road.\n\nOne of them was almost disappointed. He'd sharpened a boathook specially. Take this from the jetty stores, and thanks for making my morning easier.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Botanist's Belt",
+          "slot": "waist",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "The vine lashing has put out a leaf since it was tied.",
+          "primary_stats": {
+            "strength": 8,
+            "agility": 7,
+            "stamina": 7
+          },
+          "armor_type": "leather",
+          "armor_value": 92,
+          "label": "Leather Belt (Str/Agi/Sta)"
+        },
+        {
+          "name": "Greenbelt Chainmail",
+          "slot": "chest",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Lined with gorilla fur that still smells of woodsmoke.",
+          "primary_stats": {
+            "stamina": 11,
+            "spirit": 11
+          },
+          "secondary_stats": {
+            "healing_power": 8
+          },
+          "armor_type": "mail",
+          "armor_value": 212,
+          "label": "Mail Chest (Sta/Spi/HP)"
+        },
+        {
+          "name": "Warm-Ash Ring",
+          "slot": "ring",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Teodora labelled it before she let anyone wear it.",
+          "primary_stats": {
+            "intellect": 6,
+            "spirit": 6
+          },
+          "secondary_stats": {
+            "healing_power": 6
+          },
+          "label": "Ring (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tmp_the_road_to_the_wharf",
+      "title": "The Road to the Wharf",
+      "giver_npc_id": "ts_landing_bosun",
+      "zone": "tempest_shallows",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Carry the jetty tally to Harbourmaster Skezz in Cinderwharf, on the north-east shore of the island.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "tmp_jetty_tally",
+          "count": 1,
+          "label": "the jetty tally, to Harbourmaster Skezz in Cinderwharf"
+        }
+      ],
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "accept_text": "You've been useful here, so I'm going to send you somewhere with a roof.\n\nThe town's called Cinderwharf and it's on the far side of the volcano. Harbourmaster Skezz runs the berths there, and she needs my tally of every barge that's left this jetty since spring. Four of them never arrived at her end and she wants to know which four.\n\nTake the trunk road east through the Green Belt, then follow the east road north round the foot of the mountain into the Ashen Reach. Keep going north along the shore and you'll come to the town gate. It's rougher country up there than this, so don't go until you're ready for it.",
+      "turn_in_text": "This is Grekka's tally, and it's exactly as bad as I thought it would be.\n\nFour barges left her jetty loaded and none of them tied up at mine. That's ore, hulls and crews, and the Underwriter has started asking whether I can count.\n\nYou walked here through the Reach, so you can handle yourself. I've got work for somebody like that.",
+      "next_quest_id": "tmp_four_barges",
+      "unique_item_defs": [
+        {
+          "name": "Ashclaim Wristguards",
+          "slot": "wrist",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "Ashclaim issue. Dwarf made and goblin priced.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 2,
+            "parry_rating": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 95,
+          "label": "Leather Bracers (Dodge/Parry)"
+        },
+        {
+          "name": "Underwriter's Girdle",
+          "slot": "waist",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "There's a weigh stamp inside from the Cinderwharf gate.",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "defense_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 229,
+          "label": "Plate Belt (Str/Sta/Def)"
+        },
+        {
+          "name": "Tapped-Vein Talisman",
+          "slot": "neck",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "There's a weigh stamp inside from the Cinderwharf gate.",
+          "primary_stats": {
+            "intellect": 7,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "mp5": 2
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon",
+      "turn_in_npc_id": "cw_harbourmaster",
+      "requires_quests": [
+        "tmp_off_the_boat"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "tmp_jetty_tally",
+            "name": "Jetty Tally",
+            "description": "A roll of oilcloth listing every barge that left Ashclaim Landing, with four names circled.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "tmp_crab_for_the_pot",
+      "title": "Crab for the Pot",
+      "giver_npc_id": "ts_landing_cook",
+      "zone": "tempest_shallows",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "Collect Bargebreaker Claws from Bargebreaker Crabs in the Tempest Shallows, east of Ashclaim Landing.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "tmp_crab_claw",
+          "count": 8
+        }
+      ],
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "accept_text": "I've got forty people to feed and the supply boat brought me flour, salt and a letter of apology.\n\nThere's good eating in the shallows if you can get it out of its shell. The Bargebreaker Crabs out there are the size of a handcart, and one claw feeds a table. They're also bad tempered, which is why I'm asking you and not going myself.\n\nFollow the trunk road east and take the strand road down to the water. The whole bay's shallow enough to wade. Bring me the claws and I'll have them in the pot before dark.",
+      "turn_in_text": "Those are beautiful, and there's enough here for two nights.\n\nSit down and I'll crack one for you while it's hot. You can take this as well. Somebody left it in the long tent and never came back for it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Long-Tent Byrnie",
+          "slot": "chest",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "It smells of tar and crab, like everything at the landing.",
+          "primary_stats": {
+            "stamina": 11,
+            "spirit": 11
+          },
+          "secondary_stats": {
+            "healing_power": 8
+          },
+          "armor_type": "mail",
+          "armor_value": 212,
+          "label": "Mail Chest (Sta/Spi/HP)"
+        },
+        {
+          "name": "Landing Belt",
+          "slot": "waist",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Stitched by lamplight in the long tent.",
+          "primary_stats": {
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "block_rating": 1,
+            "block_value": 11
+          },
+          "armor_type": "plate",
+          "armor_value": 221,
+          "label": "Plate Belt (Sta/Block/BV)"
+        },
+        {
+          "name": "Long-Tent Flail",
+          "slot": "main_hand",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Salt has got into the buckles and it isn't coming out.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 12
+          },
+          "secondary_stats": {
+            "defense_rating": 1
+          },
+          "weapon_damage_min": 71,
+          "weapon_damage_max": 96,
+          "attack_speed": 2.6,
+          "label": "Mace (Str/Sta/Def)"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tmp_carried_up_by_hand",
+      "title": "Carried Up by Hand",
+      "giver_npc_id": "ts_landing_quartermaster",
+      "zone": "tempest_shallows",
+      "level_min": 53,
+      "level_max": 53,
+      "description": "Kill Gate-Squatter Brawlers in the forecourt of Khaz Varun's Gate and take back the Ashclaim Supply Crates they stole.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Gate-Squatter Brawler",
+          "count": 10,
+          "zone": "tempest_shallows"
+        },
+        {
+          "type": "fetch",
+          "target": "tmp_supply_crate",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "accept_text": "I've lost crates off the ruin road three nights running, and I know exactly who's got them.\n\nThere are dwarves camped in the forecourt of Khaz Varun's Gate, just south-east of here where the road ends in rubble. They went into the city at some point and they came out wrong. They don't talk sense and they don't leave. The big ones, the Gate-Squatter Brawlers, come up the road at night and carry off whatever my porters set down.\n\nI want my crates back. You'll have to go through the Brawlers to get them, and I won't pretend I'm sorry about that.",
+      "turn_in_text": "Every one of these has my tally number on it, and two of them haven't even been opened.\n\nI don't think they wanted what was inside. I think they just wanted to be carrying something. That bothers me more than the stealing did.\n\nHere's something for your trouble out of a crate they didn't get.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Saw-Pit Treads",
+          "slot": "feet",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "It smells of tar and crab, like everything at the landing.",
+          "primary_stats": {
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "block_rating": 1,
+            "block_value": 11
+          },
+          "armor_type": "plate",
+          "armor_value": 225,
+          "label": "Plate Boots (Sta/Block/BV)"
+        },
+        {
+          "name": "Saw-Pit Cuffs",
+          "slot": "wrist",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "Salt has got into the buckles and it isn't coming out.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 2,
+            "parry_rating": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 93,
+          "label": "Leather Bracers (Dodge/Parry)"
+        },
+        {
+          "name": "Landing Pendant",
+          "slot": "neck",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "Salt has got into the buckles and it isn't coming out.",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 9
+          },
+          "secondary_stats": {},
+          "label": "Necklace (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tmp_mother_canopy",
+      "title": "The Last in the Line",
+      "giver_npc_id": "ts_landing_quartermaster",
+      "zone": "tempest_shallows",
+      "level_min": 53,
+      "level_max": 53,
+      "description": "Kill Mother Canopy, the great panther that hunts the trunk road in the Green Belt.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Mother Canopy",
+          "count": 1,
+          "zone": "tempest_shallows"
+        }
+      ],
+      "reward_exp": 5044,
+      "reward_gold": 19890,
+      "accept_text": "I've lost three porters this month, and it was the last one in the line every time.\n\nThe others never hear a thing. They get to the far end of the Green Belt, they turn round to count heads, and they're one short. The woodcutters say it's a panther twice the size of the rest, and they call her Mother Canopy because the others seem to be hers.\n\nShe hunts the trunk road where it runs under the thickest trees, east of the landing. She's hard to find, but she seems to come out for people who are looking for her. I'd like her dead before I've got to promote somebody to the back of the line again.",
+      "turn_in_text": "You've brought me her hide, and it's bigger than my awning.\n\nI'm going to hang it over the stores where the porters can see it. They've been walking that road backwards for a month.\n\nChoose from what I've put by for this. I set it aside the day I lost the first of them.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Warm-Ash Spaulders",
+          "slot": "shoulder",
+          "item_level": 55,
+          "rarity": "rare",
+          "required_level": 53,
+          "flavor_text": "Teodora labelled it before she let anyone wear it.",
+          "primary_stats": {
+            "stamina": 13,
+            "spirit": 13
+          },
+          "secondary_stats": {
+            "healing_power": 9
+          },
+          "armor_type": "mail",
+          "armor_value": 244,
+          "label": "Mail Shoulders (Sta/Spi/HP)"
+        },
+        {
+          "name": "Botanist's Bracers",
+          "slot": "wrist",
+          "item_level": 55,
+          "rarity": "rare",
+          "required_level": 53,
+          "flavor_text": "Lined with gorilla fur that still smells of woodsmoke.",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 12,
+            "hit_rating": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 62,
+          "label": "Cloth Bracers (Int/SP/Hit)"
+        },
+        {
+          "name": "Warm-Ash Hatchet",
+          "slot": "main_hand",
+          "item_level": 55,
+          "rarity": "rare",
+          "required_level": 53,
+          "flavor_text": "Dyed green by the jungle, and it won't wash out.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "stamina": 18
+          },
+          "secondary_stats": {
+            "parry_rating": 1
+          },
+          "weapon_damage_min": 96,
+          "weapon_damage_max": 130,
+          "attack_speed": 2.6,
+          "label": "Axe (Sta/Armor/Parry)",
+          "armor_value": 46
+        },
+        {
+          "name": "Botanist's Girdle",
+          "slot": "waist",
+          "item_level": 55,
+          "rarity": "rare",
+          "required_level": 53,
+          "flavor_text": "Dyed green by the jungle, and it won't wash out.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 2,
+            "parry_rating": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 124,
+          "label": "Leather Belt (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "tmp_what_its_worth",
+      "title": "What It's Worth",
+      "giver_npc_id": "ts_landing_surveyor",
+      "zone": "tempest_shallows",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "Visit the three places Surveyor Pim hasn't been able to cost: the heart of the Green Belt, the head of the strand road, and the western pass on the Scoured Slope.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "tempest_shallows",
+          "target_x": 134,
+          "target_y": 56,
+          "radius": 7,
+          "label": "the heart of the Green Belt"
+        },
+        {
+          "type": "explore",
+          "target": "tempest_shallows",
+          "target_x": 168,
+          "target_y": 80,
+          "radius": 7,
+          "label": "the head of the strand road"
+        },
+        {
+          "type": "explore",
+          "target": "tempest_shallows",
+          "target_x": 62,
+          "target_y": 22,
+          "radius": 7,
+          "label": "the western pass on the Scoured Slope"
+        }
+      ],
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "accept_text": "I'm supposed to put a number on this whole island, and there are three places I haven't managed to stand in yet.\n\nThe underwriters won't accept a figure for ground nobody's walked. I've tried all three and I was chased out of each of them by something different.\n\nThe first is the middle of the Green Belt, east of here along the trunk road. The second is further east, where the strand road comes down to the water. The third is the pass on the Scoured Slope, north-west of the landing up the west road, where it climbs round the side of the volcano. Stand in each one, have a proper look, and come back and tell me what's there.",
+      "turn_in_text": "You've got timber in the Belt, wrecks at the strand and nothing on the slope but ash and scorpions.\n\nThat's about what I'd guessed, but now I can write it down with a clear conscience. My cousin Nix will take the figure to the Thane and the Thane will say the island's beyond price. He says that every time, and then he signs.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Long-Tent Gauntlets",
+          "slot": "hands",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Stitched by lamplight in the long tent.",
+          "primary_stats": {
+            "agility": 9
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "crit_chance_physical": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 92,
+          "label": "Leather Gloves (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Saw-Pit Waistguard",
+          "slot": "waist",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "It smells of tar and crab, like everything at the landing.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 1,
+            "block_rating": 2,
+            "dodge_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 221,
+          "label": "Plate Belt (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Tidewalker's Necklace",
+          "slot": "neck",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Salt has got into the buckles and it isn't coming out.",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 9
+          },
+          "secondary_stats": {},
+          "label": "Necklace (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tmp_preachers_in_the_forecourt",
+      "title": "Preachers in the Forecourt",
+      "giver_npc_id": "ts_landing_surveyor",
+      "zone": "tempest_shallows",
+      "level_min": 53,
+      "level_max": 53,
+      "description": "Kill Gate-Squatter Ashpreachers at Khaz Varun's Gate and collect their Ash-Prayer Tablets.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Gate-Squatter Ashpreacher",
+          "count": 8,
+          "zone": "tempest_shallows"
+        },
+        {
+          "type": "fetch",
+          "target": "tmp_ash_tablet",
+          "count": 4
+        }
+      ],
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "accept_text": "I can't survey the forecourt of Khaz Varun's Gate, because every time I set up the tripod somebody sets fire to it.\n\nThe squatters down there have preachers. The Gate-Squatter Ashpreachers stand in the rubble and shout at the arch, and when they see a stranger they throw fire. They carry slates with writing on them, and I'd like to know what it says. If it's a claim on the property, the underwriters need to hear about it.\n\nThe forecourt's south-east of here at the end of the ruin road. Deal with the Ashpreachers and bring me a few of those slates.",
+      "turn_in_text": "They all say the same line, scratched over and over until the slate's nearly worn through.\n\nIt says 'the forge is lit and we were not called'. That isn't a property claim. I don't know what it is, and I don't think I like it.\n\nI'll send these on to the Deedkeeper in Cinderwharf. She reads the old hand better than I do.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Gatewarden's Boots",
+          "slot": "feet",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "It came up through the gate of Khaz Varun in somebody's pack.",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "spell_power": 8
+          },
+          "armor_type": "mail",
+          "armor_value": 150,
+          "label": "Mail Boots (Int/Hit/SP)"
+        },
+        {
+          "name": "Gatewarden's Breeches",
+          "slot": "legs",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "Old Dark Iron work, four generations in the dark and still sound.",
+          "primary_stats": {
+            "intellect": 10,
+            "spirit": 10
+          },
+          "secondary_stats": {
+            "healing_power": 10
+          },
+          "armor_type": "cloth",
+          "armor_value": 67,
+          "label": "Cloth Legs (Int/Spi/HP)"
+        },
+        {
+          "name": "Counting-Hall Hatchet",
+          "slot": "main_hand",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "It came up through the gate of Khaz Varun in somebody's pack.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 2,
+            "parry_rating": 1
+          },
+          "weapon_damage_min": 72,
+          "weapon_damage_max": 98,
+          "attack_speed": 2.6,
+          "label": "Axe (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tmp_bitterbark",
+      "title": "What the Gorillas Know",
+      "giver_npc_id": "ts_landing_medic",
+      "zone": "tempest_shallows",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "Collect Chewed Bitterbark from Ashfur Gorillas in the Green Belt for Dr. Mwangi.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "tmp_bitterbark",
+          "count": 6
+        }
+      ],
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "accept_text": "I've run out of anything that takes pain away, and the boat won't bring more for a month.\n\nAt home I'd have had a cabinet full of tablets. Here I've got clean water and bandages. But the woodcutters tell me the Ashfur Gorillas in the Green Belt chew a grey bark and pack it on their burns, and they've seen burned ones up and climbing again in a day.\n\nPeople have been learning medicine from animals for as long as there have been people. Aspirin started as willow bark. I'd like to know what this is.\n\nThe Green Belt's east of the landing, along the trunk road. The gorillas carry the chewed bark with them. They won't give it up politely.",
+      "turn_in_text": "This is it, and you can smell how strong it is.\n\nI tried a little on my own tongue while you were putting your pack down, and my whole mouth's gone numb. That's a real anaesthetic, growing on a tree forty minutes from my tent.\n\nI spent eleven years on a ferry wishing for better supplies. It turns out I needed to come to the other side of the world and ask a gorilla.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Botanist's Vambraces",
+          "slot": "wrist",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "The vine lashing has put out a leaf since it was tied.",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "defense_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 221,
+          "label": "Plate Bracers (Str/Sta/Def)"
+        },
+        {
+          "name": "Greenbelt Coif",
+          "slot": "head",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Dyed green by the jungle, and it won't wash out.",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "spell_power": 10
+          },
+          "armor_type": "mail",
+          "armor_value": 180,
+          "label": "Mail Helm (Int/Hit/SP)"
+        },
+        {
+          "name": "Canopy Hunting Bow",
+          "slot": "main_hand",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "required_level": 52,
+          "flavor_text": "Teodora labelled it before she let anyone wear it.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 12
+          },
+          "weapon_damage_min": 60,
+          "weapon_damage_max": 82,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Int/AP)"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tmp_snapper_fat",
+      "title": "A Dressing That Keeps",
+      "giver_npc_id": "ts_landing_medic",
+      "zone": "tempest_shallows",
+      "level_min": 53,
+      "level_max": 53,
+      "description": "Collect Snapper Fat from Shallows Snappers in the Tempest Shallows for Dr. Mwangi's burn dressings.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "tmp_snapper_fat",
+          "count": 6
+        }
+      ],
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "accept_text": "Nearly everything I treat here is a burn, and a burn needs a dressing that stays clean.\n\nThe smelter crews come to me with their arms cooked, and the people who've been near the gate come with worse. Butter goes off in a day in this heat. Lamp oil poisons the wound. What I need is a clean fat that keeps.\n\nThe cook says the fat from under a Shallows Snapper's shell stays sweet for weeks, and she'd know. The snappers are out in the Tempest Shallows, east along the trunk road and down the strand road to the water. Mind their beaks, because I've already stitched two hands this week.",
+      "turn_in_text": "That's lovely clean fat, and there's plenty of it.\n\nI'll melt it down with the bitterbark and see what I get. If it works I'll have a burn dressing better than the one I used at home, made out of a turtle and a tree.\n\nYou've still got all your fingers, I see. Hold onto them.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Saw-Pit Wraps",
+          "slot": "shoulder",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "Stitched by lamplight in the long tent.",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 11,
+            "crit_chance_spell": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 57,
+          "label": "Cloth Shoulders (Int/SP/Crit)"
+        },
+        {
+          "name": "Tidewalker's Cuirass",
+          "slot": "chest",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "Stitched by lamplight in the long tent.",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 15
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 325,
+          "label": "Plate Chest (Str/Sta/Crit)"
+        },
+        {
+          "name": "Saw-Pit Hammer",
+          "slot": "main_hand",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "Stitched by lamplight in the long tent.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 2,
+            "parry_rating": 1
+          },
+          "weapon_damage_min": 72,
+          "weapon_damage_max": 98,
+          "attack_speed": 2.6,
+          "label": "Mace (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tmp_hulls_and_ribs",
+      "title": "Hulls and Ribs",
+      "giver_npc_id": "ts_landing_shipwright",
+      "zone": "tempest_shallows",
+      "level_min": 53,
+      "level_max": 53,
+      "description": "Take Seasoned Wreck Timber from the Wreckpicker Murlocs in the Tempest Shallows.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "tmp_wreck_timber",
+          "count": 8
+        }
+      ],
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "accept_text": "I can't build a barge out of jungle wood, because it's green and it warps before the pitch is dry.\n\nThe best timber on this island is already shaped and seasoned, and it's sitting in the wrecks out in the Tempest Shallows. The trouble is the Wreckpicker Murlocs got there first. They strip the old ships plank by plank and carry the wood off to build their own huts.\n\nGo east along the trunk road and down the strand road to the water, and take the timber off them. I need ribs and strakes, and I don't care which murloc was carrying them.",
+      "turn_in_text": "Feel the weight of that plank, and then try to mark it with your thumbnail.\n\nThat's oak that's sat in salt water for longer than I've been alive. You can't buy wood like that. I'll have a hull framed by the end of the week.\n\nWhether it stays afloat is another question, and I want to talk to you about that.",
+      "next_quest_id": "tmp_the_barge_eater",
+      "unique_item_defs": [
+        {
+          "name": "Wreck-Salvage Cloak",
+          "slot": "back",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "Salvage from a ship older than the Ashclaim.",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 8
+          },
+          "armor_type": "cloth",
+          "armor_value": 41,
+          "label": "Cloth Cloak (Int/SP/Hit)"
+        },
+        {
+          "name": "Scourcoast Shoulderguards",
+          "slot": "shoulder",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "It was under water for a long time and came up in good order.",
+          "primary_stats": {
+            "stamina": 10,
+            "spirit": 10
+          },
+          "secondary_stats": {
+            "healing_power": 7
+          },
+          "armor_type": "mail",
+          "armor_value": 183,
+          "label": "Mail Shoulders (Sta/Spi/HP)"
+        },
+        {
+          "name": "Scourcoast Band",
+          "slot": "ring",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "The barnacles came off and the marks they left didn't.",
+          "primary_stats": {
+            "stamina": 7,
+            "spirit": 7
+          },
+          "secondary_stats": {
+            "healing_power": 5
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tmp_the_barge_eater",
+      "title": "The Barge-Eater",
+      "giver_npc_id": "ts_landing_shipwright",
+      "zone": "tempest_shallows",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Kill The Barge-Eater in the Tempest Shallows.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Barge-Eater",
+          "count": 1,
+          "zone": "tempest_shallows"
+        }
+      ],
+      "reward_exp": 5148,
+      "reward_gold": 20280,
+      "accept_text": "I've launched six hulls since spring and I've got two left, and I finally know why.\n\nOne of my crew saw it happen from the beach. A barge was crossing the bay low in the water with a full load of ore, and a crab came up underneath it. He says the claw went through the bottom planks like a pick through a crate. The jetty hands have started calling it The Barge-Eater.\n\nIt lives out in the deep part of the Tempest Shallows, south-east of here past the last of the wrecks. It doesn't show itself often, but it does seem to come up for anybody who goes out there hunting it. Kill it, or I'm building coffins.",
+      "turn_in_text": "My whole crew watched you drag that claw up the beach, and nobody's done a stroke of work since.\n\nI'm going to mount it on the bow of the next hull. The goblins on the wharf will say it's bad luck. I say anything that sees it coming will think twice.\n\nYou've saved me four barges a season. Take this, and take a share of the crab while you're at it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Scourcoast Visor",
+          "slot": "head",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "It was under water for a long time and came up in good order.",
+          "primary_stats": {
+            "stamina": 17
+          },
+          "secondary_stats": {
+            "defense_rating": 1,
+            "dodge_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 373,
+          "label": "Plate Helm (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Barge-Timber Cape",
+          "slot": "back",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "It has a berth number burned into it from Cinderwharf.",
+          "primary_stats": {
+            "agility": 10,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "attack_power": 16
+          },
+          "armor_type": "leather",
+          "armor_value": 113,
+          "label": "Leather Cloak (Agi/Sta/AP)"
+        },
+        {
+          "name": "Scourcoast Knife",
+          "slot": "main_hand",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "Salvage from a ship older than the Ashclaim.",
+          "weapon_type": "dagger",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 2,
+            "parry_rating": 2
+          },
+          "weapon_damage_min": 98,
+          "weapon_damage_max": 132,
+          "attack_speed": 1.7,
+          "label": "Dagger (Dodge/Parry)"
+        },
+        {
+          "name": "Barge-Timber Bindings",
+          "slot": "wrist",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "Salvage from a ship older than the Ashclaim.",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 12,
+            "mp5": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 63,
+          "label": "Cloth Bracers (Int/SP/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "rare",
+      "requires_quests": [
+        "tmp_hulls_and_ribs"
+      ]
+    },
+    {
+      "quest_id": "tmp_clear_the_slip",
+      "title": "Clear the Slip",
+      "giver_npc_id": "ts_landing_shipwright",
+      "zone": "tempest_shallows",
+      "level_min": 53,
+      "level_max": 53,
+      "description": "Kill Shallows Snappers and Bargebreaker Crabs along the barge channel in the Tempest Shallows.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Shallows Snapper",
+          "count": 10,
+          "zone": "tempest_shallows"
+        },
+        {
+          "type": "kill",
+          "target": "Bargebreaker Crab",
+          "count": 8,
+          "zone": "tempest_shallows"
+        }
+      ],
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "accept_text": "I built yachts in Booty Bay until the sea route opened three years ago and the Ashclaim offered me double. A barge needs a clear channel to get out of the bay, and mine's full of things with shells.\n\nThe Shallows Snappers lie on the bottom and bite at the steering oar. The Bargebreaker Crabs hang onto the hull until something gives. Neither of them can sink a boat alone, but between them they slow one down enough for worse to catch it.\n\nThe channel runs out through the Tempest Shallows, east along the trunk road and down the strand road. Wade out and clear whatever you find on the bottom.",
+      "turn_in_text": "The pilot took a barge out on the evening tide and he says the oar came back with no new teeth marks.\n\nThat's the first time since I got here. He was so pleased that he forgot to complain about the pay.\n\nHere's something from the saw pit stores for you.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Long-Tent Gloves",
+          "slot": "hands",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "Stitched by lamplight in the long tent.",
+          "primary_stats": {
+            "agility": 9
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "crit_chance_physical": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 93,
+          "label": "Leather Gloves (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Jetty-Hand's Belt",
+          "slot": "waist",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "Salt has got into the buckles and it isn't coming out.",
+          "primary_stats": {
+            "intellect": 7,
+            "spirit": 7
+          },
+          "secondary_stats": {
+            "healing_power": 7
+          },
+          "armor_type": "cloth",
+          "armor_value": 46,
+          "label": "Cloth Belt (Int/Spi/HP)"
+        },
+        {
+          "name": "Saw-Pit Axe",
+          "slot": "main_hand",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "Salt has got into the buckles and it isn't coming out.",
+          "weapon_type": "axe_1h",
+          "primary_stats": {
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "parry_rating": 1
+          },
+          "weapon_damage_min": 72,
+          "weapon_damage_max": 98,
+          "attack_speed": 2.6,
+          "label": "Axe (Sta/Armor/Parry)",
+          "armor_value": 34
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tmp_the_unhoused",
+      "title": "The Unhoused",
+      "giver_npc_id": "ts_gate_watch",
+      "zone": "tempest_shallows",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Kill Borrik the Unhoused, who leads the squatters at Khaz Varun's Gate.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Borrik the Unhoused",
+          "count": 1,
+          "zone": "tempest_shallows"
+        }
+      ],
+      "reward_exp": 5148,
+      "reward_gold": 20280,
+      "accept_text": "There's one of them out in the rubble that the others follow, and I knew him before he went in.\n\nHis name's Borrik. He was a mason, and the Thane sent him down with the first party to shore up the gatehouse. He was inside for six days. When he came out he wouldn't go further than the forecourt, and he told the others the city had turned him away. They've called him Borrik the Unhoused ever since.\n\nHe keeps to the broken ground south and east of where I'm standing, and he doesn't come out for everyone. He'll come out for somebody who's hunting him. I can't leave this post and I couldn't do it anyway, because I'd see the mason.",
+      "turn_in_text": "So it's finished, and I'm glad I wasn't the one to see it.\n\nHe built half the hold at Cinderwharf with his own hands before he went down. I want that remembered about him, and not the rest.\n\nThe squatters will drift without him. Some of them might even walk back up the road. Take this, and don't thank me for it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Black-Hollow Cuffs",
+          "slot": "wrist",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "There's an Ashhold oath-mark stamped under the strap.",
+          "primary_stats": {
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "defense_rating": 1,
+            "dodge_rating": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 203,
+          "label": "Mail Bracers (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Gatewarden's Bracers",
+          "slot": "wrist",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "There's an Ashhold oath-mark stamped under the strap.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 2,
+            "parry_rating": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 127,
+          "label": "Leather Bracers (Dodge/Parry)"
+        },
+        {
+          "name": "Black-Hollow Halberd",
+          "slot": "main_hand",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "The Thane says it should go back down one day.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 13,
+            "stamina": 17
+          },
+          "secondary_stats": {
+            "defense_rating": 1
+          },
+          "weapon_damage_min": 132,
+          "weapon_damage_max": 179,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta/Def)"
+        },
+        {
+          "name": "Ashhold Armguards",
+          "slot": "wrist",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "There's an Ashhold oath-mark stamped under the strap.",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 305,
+          "label": "Plate Bracers (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "tmp_whelps_in_the_vents",
+      "title": "Whelps in the Vents",
+      "giver_npc_id": "ts_gate_watch",
+      "zone": "tempest_shallows",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Kill Ashwing Whelps on the Scoured Slope, where the old city's vents come out.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Ashwing Whelp",
+          "count": 10,
+          "zone": "tempest_shallows"
+        }
+      ],
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "accept_text": "Khaz Varun breathes through shafts that come out high on the mountain, and something's nesting in them.\n\nMy family kept those vents clear for nine generations. A city under a volcano needs air or everyone in it chokes. Now the Ashwing Whelps roost in the shaft mouths because the stone's warm, and they've packed them with ash and bones.\n\nThe vents open onto the Scoured Slope, north of here up the west road. I can't do anything about what's inside the city, but I can still do this part of my family's job, if you'll be my hands.",
+      "turn_in_text": "I felt the draught change at the arch about an hour ago, and I thought it might be you.\n\nIt's blowing outward again, the way my grandfather said it should. There's no one alive down there to breathe it, but the Thane means to change that.\n\nYou've done Emberhold work today. Take this with my family's thanks.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Black-Hollow Bracers",
+          "slot": "wrist",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "Old Dark Iron work, four generations in the dark and still sound.",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "defense_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 229,
+          "label": "Plate Bracers (Str/Sta/Def)"
+        },
+        {
+          "name": "Gatewarden's Grips",
+          "slot": "hands",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "There's an Ashhold oath-mark stamped under the strap.",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 14
+          },
+          "armor_type": "leather",
+          "armor_value": 95,
+          "label": "Leather Gloves (Agi/Int/AP)"
+        },
+        {
+          "name": "Khaz Varun Scepter",
+          "slot": "main_hand",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "Old Dark Iron work, four generations in the dark and still sound.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 7,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "spell_power": 5
+          },
+          "weapon_damage_min": 62,
+          "weapon_damage_max": 85,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tmp_nine_generations",
+      "title": "Nine Generations",
+      "giver_npc_id": "ts_gate_watch",
+      "zone": "tempest_shallows",
+      "level_min": 53,
+      "level_max": 53,
+      "description": "Hear Gatewatch Bron out, then carry his count book to Thane Durgan Ashhold in Cinderwharf.",
+      "objectives": [
+        {
+          "type": "dialogue",
+          "topics": [
+            "tmp_bron_the_gate",
+            "tmp_bron_the_count"
+          ]
+        },
+        {
+          "type": "deliver",
+          "target": "tmp_count_book",
+          "count": 1,
+          "label": "Bron's count book, to Thane Durgan Ashhold in Cinderwharf"
+        }
+      ],
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "accept_text": "You keep looking at the arch, so I'll tell you about it before you do anything foolish.\n\nAsk me what you like. When you've heard it, I've got a favour to ask. I keep a book of everyone who goes through that gate and everyone who comes back, and the Thane hasn't seen it in two months because nobody will carry it.\n\nHe's in Cinderwharf, on the north-east shore. Take the trunk road east, then the east road north round the mountain, and follow the shore north to the town.",
+      "turn_in_text": "This is Bron's book, and I can see he's kept it carefully.\n\nForty-one have gone in since the spring. Twenty-six have come out, and he's marked nine of those as 'not right'. I signed the orders for most of these names.\n\nI've been waiting for somebody who'd read this book and go down anyway. I think that might be you.",
+      "next_quest_id": "tmp_empty_the_gatehouse",
+      "unique_item_defs": [
+        {
+          "name": "Khaz Varun Cord",
+          "slot": "waist",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "It came up through the gate of Khaz Varun in somebody's pack.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 13,
+            "mp5": 3
+          },
+          "armor_type": "cloth",
+          "armor_value": 46,
+          "label": "Cloth Belt (HP/MP5)"
+        },
+        {
+          "name": "Khaz Varun Jerkin",
+          "slot": "chest",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "Old Dark Iron work, four generations in the dark and still sound.",
+          "primary_stats": {
+            "agility": 13
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "crit_chance_physical": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 135,
+          "label": "Leather Chest (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Counting-Hall Band",
+          "slot": "ring",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "Old Dark Iron work, four generations in the dark and still sound.",
+          "primary_stats": {
+            "intellect": 7,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "mp5": 2
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon",
+      "turn_in_npc_id": "cw_thane_ashhold",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "tmp_count_book",
+            "name": "Bron's Count Book",
+            "description": "Two columns in a neat dwarven hand, in and out. The second column is a good deal shorter.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "tmp_prospecting_by_gizzard",
+      "title": "Prospecting by Gizzard",
+      "giver_npc_id": "ts_belt_prospector",
+      "zone": "tempest_shallows",
+      "level_min": 53,
+      "level_max": 53,
+      "description": "Collect Basilisk Gizzard Stones from Rubble Basilisks around Khaz Varun's Gate.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "tmp_gizzard_stone",
+          "count": 6
+        }
+      ],
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "accept_text": "Nobody's prospected this island since the day the world changed, so I'm the first, and I've found a way to do it without digging, and you're going to think I've lost my mind.\n\nBasilisks swallow stones to grind their food. A Rubble Basilisk picks them up wherever it's been walking, and it walks over ground I can't get to. So if I open one up and there's truesilver in its gizzard, I know there's truesilver somewhere on its rounds.\n\nThe Rubble Basilisks are thickest in the broken stone round Khaz Varun's Gate, south-west of here. Bring me what's in their gizzards and I'll tell you where the seams are.",
+      "turn_in_text": "Look at that streak, bright as a new coin.\n\nMost of these have truesilver in them and one's got something I don't recognise at all. That basilisk had been walking over a seam nobody's found yet.\n\nMy old master would have thrown me out of the guild for this method. He also died poor, so take your share and don't tell the goblins how I did it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Canopy Mitts",
+          "slot": "hands",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "The vine lashing has put out a leaf since it was tied.",
+          "primary_stats": {
+            "intellect": 8,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "mp5": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 46,
+          "label": "Cloth Gloves (Int/Sta/MP5)"
+        },
+        {
+          "name": "Greenbelt Boots",
+          "slot": "feet",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "Lined with gorilla fur that still smells of woodsmoke.",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 14
+          },
+          "armor_type": "leather",
+          "armor_value": 93,
+          "label": "Leather Boots (Agi/Int/AP)"
+        },
+        {
+          "name": "Botanist's Pendant",
+          "slot": "neck",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "The vine lashing has put out a leaf since it was tied.",
+          "primary_stats": {
+            "intellect": 7,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "mp5": 2
+          },
+          "label": "Necklace (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tmp_the_colour_of_the_rock",
+      "title": "The Colour of the Rock",
+      "giver_npc_id": "ts_belt_prospector",
+      "zone": "tempest_shallows",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Look at the two outcrops on the Scoured Slope and kill the Cinderslope Flame Spirits that gather round them.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "tempest_shallows",
+          "target_x": 82,
+          "target_y": 26,
+          "radius": 7,
+          "label": "the western outcrop on the Scoured Slope"
+        },
+        {
+          "type": "explore",
+          "target": "tempest_shallows",
+          "target_x": 150,
+          "target_y": 27,
+          "radius": 7,
+          "label": "the eastern outcrop on the Scoured Slope"
+        },
+        {
+          "type": "kill",
+          "target": "Cinderslope Flame Spirit",
+          "count": 8,
+          "zone": "tempest_shallows"
+        }
+      ],
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "accept_text": "Truesilver hides in a rock that's the blue of a pigeon's neck, and I can see two patches of that colour from here.\n\nThey're both up on the Scoured Slope, on the flank of the volcano. One's to the north-west above the west road, and the other's to the north-east above the east road. I'd walk up myself, but the Cinderslope Flame Spirits gather on exactly that kind of rock. I think the metal draws them.\n\nGo up to each outcrop and look at it closely for me. You'll have to put out the Flame Spirits before they let you near.",
+      "turn_in_text": "So the western one's the true colour, and the eastern one's only weathered slag.\n\nThat's saved me a week of climbing and probably my eyebrows. I'll stake the western outcrop tomorrow, before Pim costs it and the goblins decide it was theirs all along.\n\nYou've got a good eye for rock. Take this, it came out of the first seam I ever found here.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Greenbelt Bracers",
+          "slot": "wrist",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "Teodora labelled it before she let anyone wear it.",
+          "primary_stats": {
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "dodge_rating": 1,
+            "parry_rating": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 152,
+          "label": "Mail Bracers (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Ashfur Mantle",
+          "slot": "back",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "Dyed green by the jungle, and it won't wash out.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 11,
+            "mp5": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 42,
+          "label": "Cloth Cloak (HP/MP5)"
+        },
+        {
+          "name": "Ashfur Longbow",
+          "slot": "main_hand",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "Lined with gorilla fur that still smells of woodsmoke.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "strength": 7,
+            "agility": 7,
+            "stamina": 7
+          },
+          "weapon_damage_min": 62,
+          "weapon_damage_max": 85,
+          "attack_speed": 2.8,
+          "label": "Bow (Str/Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tmp_what_grows_back",
+      "title": "What Grows Back First",
+      "giver_npc_id": "ts_belt_botanist",
+      "zone": "tempest_shallows",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Kill Ashscree Scorpions on the Scoured Slope, where the first plants are coming back.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Ashscree Scorpion",
+          "count": 10,
+          "zone": "tempest_shallows"
+        }
+      ],
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "accept_text": "There's a strip of the Scoured Slope where plants are coming back onto bare ash, and I've been watching it since I got here.\n\nI did the same thing at home. When Cotopaxi dusted the hills south of Quito, I walked the same plots every month for two years and wrote down what grew first. It's always something small and stubborn, and here it's a red fern I'd never seen before this island.\n\nThe Ashscree Scorpions burrow in the loose ash under the ferns and tear the roots out. The slope's north of here, where the trees stop. If you can thin the scorpions I might get a full season of notes.",
+      "turn_in_text": "I walked up after you and the ferns on the lower plot are still standing.\n\nYou won't think that's much to look at. I can tell you that in ten years those ferns will be soil, and in fifty that slope will be forest, and I'll have written down how it started.\n\nNobody will read it in Quito, and I've made my peace with that. Somebody will read it here.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Canopy Chain Belt",
+          "slot": "waist",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "Dyed green by the jungle, and it won't wash out.",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 152,
+          "label": "Mail Belt (Str/Sta/Crit)"
+        },
+        {
+          "name": "Botanist's Veil",
+          "slot": "head",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "Lined with gorilla fur that still smells of woodsmoke.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 16,
+            "mp5": 3
+          },
+          "armor_type": "cloth",
+          "armor_value": 58,
+          "label": "Cloth Helm (HP/MP5)"
+        },
+        {
+          "name": "Ashfur Crook",
+          "slot": "main_hand",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "Teodora labelled it before she let anyone wear it.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 15,
+            "spirit": 15
+          },
+          "secondary_stats": {
+            "healing_power": 16
+          },
+          "weapon_damage_min": 40,
+          "weapon_damage_max": 55,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tmp_pressed_and_labelled",
+      "title": "Pressed and Labelled",
+      "giver_npc_id": "ts_belt_botanist",
+      "zone": "tempest_shallows",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Carry Teodora's specimen press to Alchemist Pell in Cinderwharf.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "tmp_specimen_press",
+          "count": 1,
+          "label": "the specimen press, to Alchemist Pell in Cinderwharf"
+        }
+      ],
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "accept_text": "The Ashclaim pays me to say which plants are worth money, and I've got forty answers pressed between these boards.\n\nEvery one's labelled with where I found it and what it did to the mouse. Alchemist Pell in Cinderwharf is the one who decides what the Ashclaim will buy, so the press needs to reach him flat and dry.\n\nTake the east road north round the mountain into the Ashen Reach, then follow the shore north to the town. He's by the salvage yard at the south end. Please don't let him keep the boards, because I only brought the one press with me.",
+      "turn_in_text": "She's labelled every one of these, and in a better hand than mine.\n\nI'll be straight with you, I expected a sack of leaves. This is proper work. Three of these I can sell tomorrow, and that red fern's going to make somebody rich.\n\nTell her she can have her boards back. Tell her the Ashclaim's doubling what it pays her as well, and that it was my idea.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Tapped-Vein Coif",
+          "slot": "head",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "Ashclaim issue. Dwarf made and goblin priced.",
+          "primary_stats": {
+            "strength": 10,
+            "agility": 9,
+            "stamina": 9
+          },
+          "armor_type": "leather",
+          "armor_value": 116,
+          "label": "Leather Helm (Str/Agi/Sta)"
+        },
+        {
+          "name": "Ashclaim Veil",
+          "slot": "head",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "Signed out of the Ashclaim stores, with the signature still wet.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 16,
+            "mp5": 3
+          },
+          "armor_type": "cloth",
+          "armor_value": 58,
+          "label": "Cloth Helm (HP/MP5)"
+        },
+        {
+          "name": "Ashclaim Charm",
+          "slot": "neck",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "It came over on the supply boat and it's been repaired twice since.",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 9
+          },
+          "secondary_stats": {},
+          "label": "Necklace (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon",
+      "turn_in_npc_id": "cw_alchemist",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "tmp_specimen_press",
+            "name": "Teodora's Specimen Press",
+            "description": "Two boards strapped tight round forty sheets of pressed plants, each one labelled in small careful writing.",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "quest_id": "tmp_my_boots",
+      "title": "My Boots",
+      "giver_npc_id": "ts_shallows_wader",
+      "zone": "tempest_shallows",
+      "level_min": 53,
+      "level_max": 53,
+      "description": "Wade out to the near wreck in the Tempest Shallows and get Jex's boots back from the Bargebreaker Crabs.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "tempest_shallows",
+          "target_x": 178,
+          "target_y": 92,
+          "radius": 7,
+          "label": "the near wreck in the Tempest Shallows"
+        },
+        {
+          "type": "fetch",
+          "target": "tmp_jex_boot",
+          "count": 2
+        }
+      ],
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "accept_text": "I had a good pair of sea boots when I walked out there, and I walked back in my socks.\n\nI was on the near wreck, the one you can see sticking up to the south-east. A Bargebreaker Crab got hold of one foot and I left the boot in its claw. Another one got the second boot while I was hopping.\n\nThey were made for me in Booty Bay and they've got brass toes. I want them back. The crabs round that wreck will still have them, because a crab never lets go of anything.",
+      "turn_in_text": "They've been chewed, but those are my boots and they've still got their toes.\n\nI'm putting them on right now and I'm never taking them off again. You've got no idea what it's like to stand on a beach full of crabs in your socks.\n\nHere, this came out of the wreck before the crabs came out after me.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Wreck-Salvage Gauntlets",
+          "slot": "hands",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "Salvage from a ship older than the Ashclaim.",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 225,
+          "label": "Plate Gloves (Str/Sta/Crit)"
+        },
+        {
+          "name": "Tide-Chart Girdle",
+          "slot": "waist",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "It was under water for a long time and came up in good order.",
+          "primary_stats": {
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "dodge_rating": 1,
+            "parry_rating": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 150,
+          "label": "Mail Belt (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Brinebound Longbow",
+          "slot": "main_hand",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "It was under water for a long time and came up in good order.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 12
+          },
+          "weapon_damage_min": 61,
+          "weapon_damage_max": 83,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Int/AP)"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tmp_whats_still_aboard",
+      "title": "What's Still Aboard",
+      "giver_npc_id": "ts_shallows_wader",
+      "zone": "tempest_shallows",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Search the two far wrecks in the Tempest Shallows and take the Sealed Cargo Casks the Wreckpicker Murlocs have carried off.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "tempest_shallows",
+          "target_x": 204,
+          "target_y": 90,
+          "radius": 7,
+          "label": "the eastern wreck in the Tempest Shallows"
+        },
+        {
+          "type": "explore",
+          "target": "tempest_shallows",
+          "target_x": 190,
+          "target_y": 120,
+          "radius": 7,
+          "label": "the southern wreck in the Tempest Shallows"
+        },
+        {
+          "type": "fetch",
+          "target": "tmp_cargo_cask",
+          "count": 5
+        }
+      ],
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "accept_text": "Now that I've got my boots, I can tell you about the wrecks that are really worth the walk.\n\nThere are two big ones a long way out. One lies to the south-east at the edge of the deep water, and the other's further south again, past the sandbar. They went down with their holds full, and whoever sailed them sealed the cargo in small casks.\n\nThe Wreckpicker Murlocs have been carrying those casks off. Go out to both wrecks and see what's left, and take back whatever casks the murlocs have got. We'll split what's inside.",
+      "turn_in_text": "Let's get one of these open and see what we've got.\n\nIt's lamp oil, and good lamp oil at that. It's still clear after all those years under the bay. That isn't treasure, but Trader Gex in Cinderwharf will pay for it as if it were.\n\nTake your half in this, and I'll keep the casks. I told you they were worth the walk.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Barge-Timber Shawl",
+          "slot": "shoulder",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "It was under water for a long time and came up in good order.",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 11,
+            "mp5": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 58,
+          "label": "Cloth Shoulders (Int/SP/MP5)"
+        },
+        {
+          "name": "Wreck-Salvage Boots",
+          "slot": "feet",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "Salvage from a ship older than the Ashclaim.",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 152,
+          "label": "Mail Boots (Str/Sta/Crit)"
+        },
+        {
+          "name": "Barge-Timber Loop",
+          "slot": "ring",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "It has a berth number burned into it from Cinderwharf.",
+          "primary_stats": {
+            "intellect": 7,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "mp5": 2
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tmp_pay_chit",
+      "title": "A Porter's Number",
+      "giver_npc_id": "item:tmp_pay_chit",
+      "zone": "tempest_shallows",
+      "level_min": 53,
+      "level_max": 53,
+      "description": "A Gate-Squatter was wearing an Ashclaim pay chit. Take it to Quartermaster Durn at Ashclaim Landing.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "tmp_pay_chit",
+          "count": 1,
+          "label": "the pay chit, to Quartermaster Durn at Ashclaim Landing"
+        }
+      ],
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "accept_text": "The Brawler had a brass tag on a string round its neck. It's a pay chit from the Ashclaim stores, the kind every porter at the landing is issued, and it's stamped with a number.\n\nQuartermaster Durn keeps the pay book at Ashclaim Landing. He'd know whose number this was.",
+      "turn_in_text": "Where did you get this? I know this number without opening the book.\n\nThis number belongs to Hedda, who carried for me all spring and was the best I had. She went to look at the gate on her rest day, because she wanted to see where her grandmother was born. I marked her down as gone home on the boat.\n\nI'll change the book. I'd sooner it said what happened to her. It was right of you to bring it back.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Landing Handguards",
+          "slot": "hands",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "Carried up from the jetty by hand, like everything else there.",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 150,
+          "label": "Mail Gloves (Str/Sta/Crit)"
+        },
+        {
+          "name": "Jetty-Hand's Boots",
+          "slot": "feet",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "Carried up from the jetty by hand, like everything else there.",
+          "primary_stats": {
+            "strength": 8,
+            "agility": 7,
+            "stamina": 7
+          },
+          "armor_type": "leather",
+          "armor_value": 93,
+          "label": "Leather Boots (Str/Agi/Sta)"
+        },
+        {
+          "name": "Landing Band",
+          "slot": "ring",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "required_level": 53,
+          "flavor_text": "Salt has got into the buckles and it isn't coming out.",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 9
+          },
+          "secondary_stats": {},
+          "label": "Ring (Str/Sta/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon",
+      "turn_in_npc_id": "ts_landing_quartermaster"
+    },
+    {
+      "quest_id": "tmp_the_ships_log",
+      "title": "The Ship's Log",
+      "giver_npc_id": "item:tmp_ships_log",
+      "zone": "tempest_shallows",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "A Wreckpicker Murloc was carrying a ship's log written in an Earth language. Take it to Dr. Mwangi at Ashclaim Landing.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "tmp_ships_log",
+          "count": 1,
+          "label": "the ship's log, to Dr. Mwangi at Ashclaim Landing"
+        }
+      ],
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "accept_text": "The murloc had a hardbound book tucked under its arm. The pages are swollen with sea water, but the writing's in ink and most of it can still be read. It's in English, and the dates are from three years ago.\n\nThe dwarves and goblins at the landing won't be able to read it. Dr. Mwangi at Ashclaim Landing came through from Earth, and she will.",
+      "turn_in_text": "Give me a moment with this, because I haven't held a book in English for three years.\n\nShe was the MV Amani, a coastal freighter out of Dar es Salaam, carrying cement and tinned fish to Mombasa. I knew that ship. I used to watch her come in past the ferry.\n\nThe last entry's the day everything changed. The mate wrote that the coast had gone and the stars were wrong, and that they were making for the only land they could see. That land was this island.",
+      "next_quest_id": "tmp_who_was_aboard",
+      "unique_item_defs": [
+        {
+          "name": "Wreck-Salvage Girdle",
+          "slot": "waist",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "It was under water for a long time and came up in good order.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 2,
+            "parry_rating": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 95,
+          "label": "Leather Belt (Dodge/Parry)"
+        },
+        {
+          "name": "Scourcoast Chestguard",
+          "slot": "chest",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "It was under water for a long time and came up in good order.",
+          "primary_stats": {
+            "stamina": 15
+          },
+          "secondary_stats": {
+            "defense_rating": 1,
+            "dodge_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 331,
+          "label": "Plate Chest (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Scourcoast Ring",
+          "slot": "ring",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "Salvage from a ship older than the Ashclaim.",
+          "primary_stats": {
+            "stamina": 7,
+            "spirit": 7
+          },
+          "secondary_stats": {
+            "healing_power": 5
+          },
+          "label": "Ring (Sta/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon",
+      "turn_in_npc_id": "ts_landing_medic"
+    },
+    {
+      "quest_id": "tmp_who_was_aboard",
+      "title": "Who Was Aboard",
+      "giver_npc_id": "ts_landing_medic",
+      "zone": "tempest_shallows",
+      "level_min": 55,
+      "level_max": 55,
+      "description": "Find the steel wreck in the far Tempest Shallows and recover the crew's discharge books from the Wreckpicker Murlocs.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "tempest_shallows",
+          "target_x": 206,
+          "target_y": 116,
+          "radius": 7,
+          "label": "the steel wreck in the far Tempest Shallows"
+        },
+        {
+          "type": "fetch",
+          "target": "tmp_discharge_book",
+          "count": 4
+        }
+      ],
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "accept_text": "There were eleven people on that ship, and the log gives me nothing but their ranks.\n\nEvery seaman carries a discharge book with a name and a photograph in it. If the murlocs took the log, they'll have taken those as well, because they take anything with a hard cover.\n\nThe log puts her aground at the far south-east corner of the Tempest Shallows. She'll be the only wreck out there made of steel. Would you go and see that she's really there, and bring back whatever books you can find? I'd like to know who they were.",
+      "turn_in_text": "You found some of them, and I can read every name.\n\nThis one's Juma Otieno, the second engineer, and he was born in Kisumu. I don't know whether they drowned or walked ashore. If they walked, they may be somewhere in this world wondering if anyone knows they were here.\n\nI'm going to copy these names out and send them with every boat that leaves this jetty. Somebody may have met them.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Brinebound Gloves",
+          "slot": "hands",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "required_level": 55,
+          "flavor_text": "Salvage from a ship older than the Ashclaim.",
+          "primary_stats": {
+            "agility": 9
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "crit_chance_physical": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 97,
+          "label": "Leather Gloves (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Wreck-Salvage Mitts",
+          "slot": "hands",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "required_level": 55,
+          "flavor_text": "Salvage from a ship older than the Ashclaim.",
+          "primary_stats": {
+            "intellect": 8,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "spell_power": 6
+          },
+          "armor_type": "cloth",
+          "armor_value": 48,
+          "label": "Cloth Gloves (Int/Sta/SP)"
+        },
+        {
+          "name": "Barge-Timber Targe",
+          "slot": "off_hand",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "required_level": 55,
+          "flavor_text": "Salvage from a ship older than the Ashclaim.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 11
+          },
+          "armor_value": 87,
+          "block_value": 109,
+          "label": "Shield (Sta/Def/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon",
+      "requires_quests": [
+        "tmp_the_ships_log"
+      ]
+    },
+    {
+      "quest_id": "tmp_empty_the_gatehouse",
+      "title": "Empty the Gatehouse",
+      "giver_npc_id": "cw_thane_ashhold",
+      "zone": "cinderwharf",
+      "level_min": 53,
+      "level_max": 54,
+      "description": "Enter Khaz Varun, the Black Hollow, and kill Gatewarden Hrun in the Gatehouse Hall.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Gatewarden Hrun",
+          "count": 1,
+          "zone": "khaz_varun,_the_black_hollow"
+        }
+      ],
+      "reward_exp": 5148,
+      "reward_gold": 20280,
+      "accept_text": "My great-grandfather's gatewarden is still at his post, and that's the first thing I need you to put right.\n\nHis name was Hrun. He held the gate of Khaz Varun the night the city went dark, and by every account he's holding it still. The gate opened by itself three years ago, on the day the world changed, and nobody I've sent since has got past him, and those who've come back can't tell me what they saw.\n\nThe gate's on the south shore of the island, a short walk south-east of Ashclaim Landing. Go through the arch and you'll find him in the Gatehouse Hall beyond the Ember Road. He was a loyal dwarf, so make it quick.",
+      "turn_in_text": "Then Hrun's relieved at last, and it's taken four generations.\n\nI'll have his name cut at the shrine tonight. He kept the gate against everything for a hundred years, and it's no shame on him that he couldn't tell friend from stranger at the end.\n\nThe gatehouse was the lock. The city's behind it, and the worst of the city's further in.",
+      "next_quest_id": "tmp_the_forge_lord",
+      "unique_item_defs": [
+        {
+          "name": "Ashhold Greathelm",
+          "slot": "head",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 53,
+          "flavor_text": "It came up through the gate of Khaz Varun in somebody's pack.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 1,
+            "block_rating": 3,
+            "dodge_rating": 2
+          },
+          "armor_type": "plate",
+          "armor_value": 373,
+          "label": "Plate Helm (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Ashhold Epaulets",
+          "slot": "shoulder",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 53,
+          "flavor_text": "The Thane says it should go back down one day.",
+          "primary_stats": {
+            "agility": 15
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "crit_chance_physical": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 155,
+          "label": "Leather Shoulders (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Black-Hollow Charm",
+          "slot": "neck",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 53,
+          "flavor_text": "The Thane says it should go back down one day.",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "spell_power": 10
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        },
+        {
+          "name": "Gatewarden's Legguards",
+          "slot": "legs",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 53,
+          "flavor_text": "There's an Ashhold oath-mark stamped under the strap.",
+          "primary_stats": {
+            "stamina": 20
+          },
+          "secondary_stats": {
+            "dodge_rating": 2,
+            "parry_rating": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 294,
+          "label": "Mail Legs (Sta/Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "rare",
+      "requires_quests": [
+        "tmp_nine_generations"
+      ]
+    },
+    {
+      "quest_id": "tmp_the_forge_lord",
+      "title": "The Forge Is Lit",
+      "giver_npc_id": "cw_thane_ashhold",
+      "zone": "cinderwharf",
+      "level_min": 54,
+      "level_max": 55,
+      "description": "Kill Forge-Lord Darrok at the Great Forge in Khaz Varun, the Black Hollow.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Forge-Lord Darrok",
+          "count": 1,
+          "zone": "khaz_varun,_the_black_hollow"
+        }
+      ],
+      "reward_exp": 5252,
+      "reward_gold": 20670,
+      "accept_text": "The squatters at the gate keep saying that the forge is lit, and I've learned that they're telling the truth.\n\nThe Great Forge of Khaz Varun has been cold since before my father was born. It's burning now. Somebody's working it, and the rolls say the last Forge-Lord was a dwarf named Darrok who never left his anvil.\n\nYou'll find the Great Forge on the east side of the city, past the Counting Hall. Whatever's standing at that anvil is making something, and I don't want to learn what it's making by having it walk out of my gate.",
+      "turn_in_text": "So Forge-Lord Darrok was still at it, after all this time.\n\nThe Underwriter will be delighted that the forge works. I'm less delighted about what it was being used for. You say the moulds were shaped like dwarves, and I believe you.\n\nThat leaves the hall itself. I've been putting off saying it aloud.",
+      "next_quest_id": "tmp_thane_morrun",
+      "unique_item_defs": [
+        {
+          "name": "Ashhold Chaps",
+          "slot": "legs",
+          "item_level": 57,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "There's an Ashhold oath-mark stamped under the strap.",
+          "primary_stats": {
+            "agility": 16,
+            "intellect": 16
+          },
+          "secondary_stats": {
+            "attack_power": 27
+          },
+          "armor_type": "leather",
+          "armor_value": 187,
+          "label": "Leather Legs (Agi/Int/AP)"
+        },
+        {
+          "name": "Gatewarden's Handguards",
+          "slot": "hands",
+          "item_level": 57,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "Old Dark Iron work, four generations in the dark and still sound.",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "defense_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 310,
+          "label": "Plate Gloves (Str/Sta/Def)"
+        },
+        {
+          "name": "Ashhold Charm",
+          "slot": "neck",
+          "item_level": 57,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "The Thane says it should go back down one day.",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "spell_power": 10
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        },
+        {
+          "name": "Khaz Varun Wraps",
+          "slot": "hands",
+          "item_level": 57,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "The Thane says it should go back down one day.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 17,
+            "mp5": 4
+          },
+          "armor_type": "cloth",
+          "armor_value": 64,
+          "label": "Cloth Gloves (HP/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "tmp_thane_morrun",
+      "title": "The Thane in the Chair",
+      "giver_npc_id": "cw_thane_ashhold",
+      "zone": "cinderwharf",
+      "level_min": 55,
+      "level_max": 56,
+      "description": "Kill Thane Morrun the Unmade in the Hall of Ashhold, at the top of Khaz Varun.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Thane Morrun the Unmade",
+          "count": 1,
+          "zone": "khaz_varun,_the_black_hollow"
+        }
+      ],
+      "reward_exp": 5356,
+      "reward_gold": 21060,
+      "accept_text": "My great-grandfather's name was Morrun Ashhold, and he's sitting in his own chair at the top of that city.\n\nI've known it for a year. One of the first party got as far as the Hall of Ashhold and saw him through the doors. He hasn't been a dwarf for a long time. The squatters call him the Unmade, and I've got no better word.\n\nMy claim rests on being his heir. I can't inherit from a thane who's still in the chair, and I can't lay my family to rest while he keeps them walking. The hall's at the north end of the city, beyond the Shadow Gallery. I'm asking you to kill Thane Morrun the Unmade, and I know what I'm asking.",
+      "turn_in_text": "You've done it, then, and I find I need to sit down.\n\nI've carried that deed since I was a boy. I slept on it in rented rooms and I kept it dry on a goblin barge. I never once let myself picture the day it would mean something.\n\nKhaz Varun has one thane tonight. Morn will light a flame for the old one, and I'll stand beside him while he does it. Whatever the Ashclaim owes you, it won't be enough, but take it anyway.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Black-Hollow Visor",
+          "slot": "head",
+          "item_level": 58,
+          "rarity": "rare",
+          "required_level": 55,
+          "flavor_text": "The Thane says it should go back down one day.",
+          "primary_stats": {
+            "strength": 14,
+            "stamina": 17
+          },
+          "secondary_stats": {
+            "defense_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 386,
+          "label": "Plate Helm (Str/Sta/Def)"
+        },
+        {
+          "name": "Black-Hollow Belt",
+          "slot": "waist",
+          "item_level": 58,
+          "rarity": "rare",
+          "required_level": 55,
+          "flavor_text": "Old Dark Iron work, four generations in the dark and still sound.",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 13,
+            "mp5": 3
+          },
+          "armor_type": "cloth",
+          "armor_value": 65,
+          "label": "Cloth Belt (Int/SP/MP5)"
+        },
+        {
+          "name": "Ashhold Glaive",
+          "slot": "main_hand",
+          "item_level": 58,
+          "rarity": "rare",
+          "required_level": 55,
+          "flavor_text": "There's an Ashhold oath-mark stamped under the strap.",
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "strength": 14,
+            "stamina": 17
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 1
+          },
+          "weapon_damage_min": 136,
+          "weapon_damage_max": 185,
+          "attack_speed": 3.3,
+          "label": "Polearm (Str/Sta/Crit)"
+        },
+        {
+          "name": "Ashhold Spaulders",
+          "slot": "shoulder",
+          "item_level": 58,
+          "rarity": "rare",
+          "required_level": 55,
+          "flavor_text": "There's an Ashhold oath-mark stamped under the strap.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 3,
+            "parry_rating": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 161,
+          "label": "Leather Shoulders (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "rare",
+      "requires_quests": [
+        "tmp_the_forge_lord"
+      ]
+    },
+    {
+      "quest_id": "tmp_a_flame_for_each",
+      "title": "A Flame for Each",
+      "giver_npc_id": "cw_shrine_keeper",
+      "zone": "cinderwharf",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Recover Ashhold Name-Tablets from the Ash-Wretches in Khaz Varun, the Black Hollow.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "tmp_name_tablet",
+          "count": 8
+        }
+      ],
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "accept_text": "I keep one flame on this terrace for everyone still down there, because I don't know their names.\n\nEvery Dark Iron of Khaz Varun carried a name-tablet from the day they could walk. It's a thumb of iron with the name punched in. The Ash-Wretches in the lower city were our people once, and some of them will still have a tablet on them somewhere.\n\nThe gate's on the south shore, south-east of Ashclaim Landing, and the Ash-Wretches keep to the Ash Pits and the Deep Way in the middle of the city. Bring me the tablets. I'd like to give each of them a flame of their own.",
+      "turn_in_text": "I'm going to read every one of these names aloud before I do anything else.\n\nTwo of these are Ashholds. One's an Emberhold, so Bron at the gate will want to know. The rest I'll look up in the Deedkeeper's rolls.\n\nI've tended one flame for three years. Tonight I'll tend nine, and I'm happier about that than I can tell you.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Gatewarden's Cord",
+          "slot": "waist",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "There's an Ashhold oath-mark stamped under the strap.",
+          "primary_stats": {
+            "stamina": 8,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 6
+          },
+          "armor_type": "cloth",
+          "armor_value": 47,
+          "label": "Cloth Belt (Sta/Int/HP)"
+        },
+        {
+          "name": "Counting-Hall Boots",
+          "slot": "feet",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "It came up through the gate of Khaz Varun in somebody's pack.",
+          "primary_stats": {
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "defense_rating": 1,
+            "dodge_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 229,
+          "label": "Plate Boots (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Black-Hollow Rod",
+          "slot": "main_hand",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "The Thane says it should go back down one day.",
+          "weapon_type": "staff",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 28,
+            "mp5": 6
+          },
+          "weapon_damage_min": 40,
+          "weapon_damage_max": 55,
+          "attack_speed": 3.2,
+          "label": "Staff (HP/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tmp_the_iron_mask",
+      "title": "The Iron Mask",
+      "giver_npc_id": "cw_shrine_keeper",
+      "zone": "cinderwharf",
+      "level_min": 55,
+      "level_max": 55,
+      "description": "Kill The Iron Mask in the Cells of Khaz Varun, the Black Hollow.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Iron Mask",
+          "count": 1,
+          "zone": "khaz_varun,_the_black_hollow"
+        }
+      ],
+      "reward_exp": 5252,
+      "reward_gold": 20670,
+      "accept_text": "There are dwarves in that city with iron masks riveted over their faces, and they weren't born down there.\n\nThe masks are new, and some of them are wearing Ashclaim boots. Something in the Cells is taking the people who go in, masking them and sending them back out into the halls to preach. The ones who've seen it call it The Iron Mask, because nobody's seen a face.\n\nThe Cells are on the west side of the city, below the Deep Way. I keep a flame for the dead. I can't keep one for people who are still walking about, so I need The Iron Mask stopped.",
+      "turn_in_text": "Then nobody else will be masked, and that's more than I'd hoped for.\n\nThe ones already wearing them are past my help. I'll say the words for them anyway. My cousin would tell you the words don't work on the living, and he'd be right, and I'll say them all the same.\n\nTake this from the shrine's keeping, because it should be worn by someone who's been down there.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Black-Hollow Gloves",
+          "slot": "hands",
+          "item_level": 57,
+          "rarity": "rare",
+          "required_level": 55,
+          "flavor_text": "The Thane says it should go back down one day.",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 12,
+            "mp5": 3
+          },
+          "armor_type": "cloth",
+          "armor_value": 64,
+          "label": "Cloth Gloves (Int/SP/MP5)"
+        },
+        {
+          "name": "Black-Hollow Coif",
+          "slot": "head",
+          "item_level": 57,
+          "rarity": "rare",
+          "required_level": 55,
+          "flavor_text": "There's an Ashhold oath-mark stamped under the strap.",
+          "primary_stats": {
+            "stamina": 17
+          },
+          "secondary_stats": {
+            "defense_rating": 1,
+            "dodge_rating": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 253,
+          "label": "Mail Helm (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Khaz Varun Mace",
+          "slot": "main_hand",
+          "item_level": 57,
+          "rarity": "rare",
+          "required_level": 55,
+          "flavor_text": "It came up through the gate of Khaz Varun in somebody's pack.",
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "stamina": 19
+          },
+          "secondary_stats": {
+            "parry_rating": 1
+          },
+          "weapon_damage_min": 99,
+          "weapon_damage_max": 135,
+          "attack_speed": 2.6,
+          "label": "Mace (Sta/Armor/Parry)",
+          "armor_value": 48
+        },
+        {
+          "name": "Counting-Hall Belt",
+          "slot": "waist",
+          "item_level": 57,
+          "rarity": "rare",
+          "required_level": 55,
+          "flavor_text": "Old Dark Iron work, four generations in the dark and still sound.",
+          "primary_stats": {
+            "stamina": 16
+          },
+          "secondary_stats": {
+            "block_rating": 2,
+            "block_value": 16
+          },
+          "armor_type": "plate",
+          "armor_value": 310,
+          "label": "Plate Belt (Sta/Block/BV)"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "tmp_foundry_inventory",
+      "title": "Foundry Inventory",
+      "giver_npc_id": "cw_underwriter",
+      "zone": "cinderwharf",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Inspect the Smelter and the Great Forge in Khaz Varun, the Black Hollow, and kill Smelter-Master Vaud.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "khaz_varun,_the_black_hollow",
+          "target_x": 150,
+          "target_y": 146,
+          "radius": 7,
+          "label": "the Smelter in Khaz Varun"
+        },
+        {
+          "type": "explore",
+          "target": "khaz_varun,_the_black_hollow",
+          "target_x": 150,
+          "target_y": 116,
+          "radius": 7,
+          "label": "the Great Forge in Khaz Varun"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Smelter-Master Vaud",
+          "count": 1,
+          "zone": "khaz_varun,_the_black_hollow"
+        }
+      ],
+      "reward_exp": 5148,
+      "reward_gold": 20280,
+      "accept_text": "I've underwritten a foundry that I've never seen, and my partners have started to notice.\n\nThe whole venture rests on Khaz Varun's works being sound. The Thane says they are. The Thane also says the island's beyond price, so I'd like a second opinion from someone who's stood in them.\n\nBoth works are on the east side of the city, through the gate on the south shore near Ashclaim Landing. Look over the Smelter and the Great Forge and tell me what state they're in. I'm told the Smelter still has its master, a Smelter-Master Vaud, and that he doesn't take visitors. You'll need to remove him before anyone can do an inventory.",
+      "turn_in_text": "The crucibles are whole and the flues draw, and you're telling me the Great Forge is hot.\n\nThat's better than I'd dared to put in the prospectus. I'd have settled for four walls and a chimney.\n\nI won't ask what Smelter-Master Vaud was smelting. I'll put down that the position's vacant.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Tapped-Vein Handguards",
+          "slot": "hands",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "There's a weigh stamp inside from the Cinderwharf gate.",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 305,
+          "label": "Plate Gloves (Str/Sta/Crit)"
+        },
+        {
+          "name": "Underwriter's Robe",
+          "slot": "chest",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "There's a weigh stamp inside from the Cinderwharf gate.",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 18,
+            "mp5": 4
+          },
+          "armor_type": "cloth",
+          "armor_value": 91,
+          "label": "Cloth Chest (Int/SP/MP5)"
+        },
+        {
+          "name": "Cinderwharf Wand",
+          "slot": "main_hand",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "Ashclaim issue. Dwarf made and goblin priced.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 9,
+            "stamina": 12
+          },
+          "secondary_stats": {
+            "mp5": 2
+          },
+          "weapon_damage_min": 83,
+          "weapon_damage_max": 112,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/MP5)"
+        },
+        {
+          "name": "Ashclaim Cord",
+          "slot": "waist",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "There's a weigh stamp inside from the Cinderwharf gate.",
+          "primary_stats": {
+            "strength": 10,
+            "agility": 10,
+            "stamina": 10
+          },
+          "armor_type": "leather",
+          "armor_value": 127,
+          "label": "Leather Belt (Str/Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "tmp_what_masks_fetch",
+      "title": "What It Fetches on the Mainland",
+      "giver_npc_id": "cw_salvage_broker",
+      "zone": "cinderwharf",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Collect Zealot's Iron Masks from the Masked Zealots in Khaz Varun, the Black Hollow.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "tmp_zealot_mask",
+          "count": 6
+        }
+      ],
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "accept_text": "I've got a buyer on the mainland who collects Dark Iron work, and he's asked for something I can't get anywhere else.\n\nHe wants the masks. The Masked Zealots in Khaz Varun wear iron ones, riveted shut, and there's nothing like them in any hold on the continent. He doesn't need to know where they came from, and I'd thank you not to tell the Keeper where they went.\n\nThe Zealots are all through the city, from the Gatehouse Hall inward. The gate's on the south shore near Ashclaim Landing. I'll pay well over the odds for every mask.",
+      "turn_in_text": "Those are the real thing, and the rivets are still tight.\n\nI'll be honest with you, I didn't enjoy handling them as much as I expected to. They're heavier than they ought to be. The buyer can have the lot and I won't be asking for more.\n\nHere's your money, and here's something from the yard on top of it.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Gatewarden's Cuffs",
+          "slot": "wrist",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "It came up through the gate of Khaz Varun in somebody's pack.",
+          "primary_stats": {
+            "intellect": 7,
+            "spirit": 7
+          },
+          "secondary_stats": {
+            "healing_power": 7
+          },
+          "armor_type": "cloth",
+          "armor_value": 47,
+          "label": "Cloth Bracers (Int/Spi/HP)"
+        },
+        {
+          "name": "Ashhold Cord",
+          "slot": "waist",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "The Thane says it should go back down one day.",
+          "primary_stats": {
+            "agility": 9
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "crit_chance_physical": 1
+          },
+          "armor_type": "leather",
+          "armor_value": 95,
+          "label": "Leather Belt (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Ashhold Longbow",
+          "slot": "main_hand",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "It came up through the gate of Khaz Varun in somebody's pack.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "strength": 7,
+            "agility": 7,
+            "stamina": 7
+          },
+          "weapon_damage_min": 62,
+          "weapon_damage_max": 85,
+          "attack_speed": 2.8,
+          "label": "Bow (Str/Agi/Sta)"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tmp_grandmothers_mark",
+      "title": "My Grandmother's Mark",
+      "giver_npc_id": "cw_armoursmith",
+      "zone": "cinderwharf",
+      "level_min": 54,
+      "level_max": 55,
+      "description": "Recover the Stonecast Breastplate from The Crusher in the Workshop of Khaz Varun, the Black Hollow.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "tmp_stonecast_plate",
+          "count": 1
+        }
+      ],
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "accept_text": "My grandmother was the best armoursmith Khaz Varun ever had, and I've never seen a single piece she made.\n\nShe got out as a girl with nothing but her hammer. Everything she'd forged stayed behind. One of the Thane's people says there's a machine in the Workshop, a great stamping engine they call The Crusher, and that it's armoured with plate taken off the walls. He swears one of those plates carries the Stonecast mark.\n\nThe Workshop's on the west side of the city, just past the Ember Road. I want that breastplate. I can't learn her hand from stories.",
+      "turn_in_text": "Turn it over and let me see under the left arm.\n\nThat's her mark, three chisel cuts and a dot. She showed it to me in the dirt when I was small.\n\nLook how she's drawn the edge out thin there and left the centre thick. I've been doing that wrong my whole life. I'm going to be at the forge all night, so take this now before I forget you're here.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Black-Hollow Byrnie",
+          "slot": "chest",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "Old Dark Iron work, four generations in the dark and still sound.",
+          "primary_stats": {
+            "stamina": 16
+          },
+          "secondary_stats": {
+            "defense_rating": 1,
+            "dodge_rating": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 224,
+          "label": "Mail Chest (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Khaz Varun Slippers",
+          "slot": "feet",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "The Thane says it should go back down one day.",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "spell_power": 9,
+            "mp5": 2
+          },
+          "armor_type": "cloth",
+          "armor_value": 48,
+          "label": "Cloth Boots (Int/SP/MP5)"
+        },
+        {
+          "name": "Counting-Hall Charm",
+          "slot": "neck",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "The Thane says it should go back down one day.",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "spell_power": 8
+          },
+          "label": "Necklace (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tmp_the_rolls_below",
+      "title": "The Rolls Below",
+      "giver_npc_id": "cw_archivist",
+      "zone": "cinderwharf",
+      "level_min": 55,
+      "level_max": 55,
+      "description": "Search the Counting Hall of Khaz Varun, the Black Hollow, and take the Roll of Oaths from Overseer Grall.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "khaz_varun,_the_black_hollow",
+          "target_x": 88,
+          "target_y": 122,
+          "radius": 7,
+          "label": "the Counting Hall in Khaz Varun"
+        },
+        {
+          "type": "fetch",
+          "target": "tmp_roll_of_oaths",
+          "count": 1
+        }
+      ],
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "accept_text": "The Thane's claim stands on the rolls I keep, and the rolls I keep have a hole in them.\n\nWhen the city went dark, the Deedkeeper of the day carried out the births and the debts. He left the Roll of Oaths behind, because it was chained to the desk in the Counting Hall. Without it I can't prove who swore to the Ashholds and who didn't, and the goblins' lawyers know that.\n\nThe Counting Hall's in the middle of the city, beyond the Gatehouse Hall. The Overseer of the hall was a dwarf called Grall, and I'm told Overseer Grall still walks his rounds with the roll on his belt.",
+      "turn_in_text": "It's all here, every leaf, and the ring's still closed.\n\nI can see the Emberholds, the Stonecasts and the Deepveins. Every family on this wharf swore to the Ashholds, in iron, and now I can show it to anyone who asks.\n\nThe Underwriter's going to be very polite to me tomorrow. I'm looking forward to it more than I should.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Counting-Hall Handguards",
+          "slot": "hands",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "required_level": 55,
+          "flavor_text": "It came up through the gate of Khaz Varun in somebody's pack.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 1,
+            "block_rating": 2,
+            "dodge_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 233,
+          "label": "Plate Gloves (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Ashhold Sash",
+          "slot": "waist",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "required_level": 55,
+          "flavor_text": "There's an Ashhold oath-mark stamped under the strap.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 13,
+            "mp5": 3
+          },
+          "armor_type": "cloth",
+          "armor_value": 48,
+          "label": "Cloth Belt (HP/MP5)"
+        },
+        {
+          "name": "Black-Hollow Crook",
+          "slot": "main_hand",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "required_level": 55,
+          "flavor_text": "It came up through the gate of Khaz Varun in somebody's pack.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 15
+          },
+          "secondary_stats": {
+            "spell_power": 21,
+            "crit_chance_spell": 1
+          },
+          "weapon_damage_min": 41,
+          "weapon_damage_max": 55,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/SP/Crit)"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tmp_what_they_breathed",
+      "title": "What They Breathed",
+      "giver_npc_id": "cw_alchemist",
+      "zone": "cinderwharf",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Collect Pouches of Black Dust from the Crazed Miners in Khaz Varun, the Black Hollow.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "tmp_black_dust",
+          "count": 6
+        }
+      ],
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "accept_text": "People go into that city sane and come out raving, and I'd like to know whether it's something in the air.\n\nIf it is, it matters to everyone on this wharf. We're shipping ore out of the same rock. The Crazed Miners in the lower workings have been breathing it for longest, and their clothes will be thick with it.\n\nGo through the gate on the south shore near Ashclaim Landing. The miners are in the Ember Road and the Borer Workings. Shake out their pockets and bring me the dust, and tie something over your own mouth while you're doing it.",
+      "turn_in_text": "I've had a pinch of this under the glass while you were washing your hands.\n\nIt's forge soot, mostly, but there's a fine red grit in it that glows when I breathe on it. That isn't in the ore we ship, and I checked three sacks to be sure.\n\nSo it's coming from something that's burning down there now. The doctor at the landing ought to hear about this, and I'll write to her tonight.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Ashhold Helm",
+          "slot": "head",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "It came up through the gate of Khaz Varun in somebody's pack.",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "spell_power": 10
+          },
+          "armor_type": "mail",
+          "armor_value": 186,
+          "label": "Mail Helm (Int/Hit/SP)"
+        },
+        {
+          "name": "Black-Hollow Cuisses",
+          "slot": "legs",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "It came up through the gate of Khaz Varun in somebody's pack.",
+          "primary_stats": {
+            "stamina": 17
+          },
+          "secondary_stats": {
+            "block_rating": 2,
+            "block_value": 17
+          },
+          "armor_type": "plate",
+          "armor_value": 331,
+          "label": "Plate Legs (Sta/Block/BV)"
+        },
+        {
+          "name": "Gatewarden's Band",
+          "slot": "ring",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "There's an Ashhold oath-mark stamped under the strap.",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "spell_power": 7
+          },
+          "label": "Ring (Int/Hit/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    }
+  ]
+}

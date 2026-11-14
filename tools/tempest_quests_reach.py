@@ -160,8 +160,7 @@ def build():
                "west side.\n\nCinderwharf's on the north-east shore. Head east across "
                "the Cinder Flats until you reach the town gate, and she's on the wharf "
                "at the north end of town.",
-               "Every reef's marked on here, and so is every wreck.\n\nI've been "
-               "sending pilots down that shore with a sketch and a prayer. I owe that "
+               "Every reef's marked on here, and so is every wreck.\n\nNobody's had a chart of this island since the sea route opened three years ago, and I've been sending pilots down that shore with a sketch and a prayer. I owe that "
                "surveyor an apology, and I'll send it with a bottle.\n\nYou crossed "
                "the Flats with this under your arm and it isn't even singed. Take "
                "something from the harbour office for that.",
@@ -288,7 +287,7 @@ def build():
     q.append(Q("tmp_brass_in_a_month", "Brass in a Month", TOBBLE, 55, 55, "cinderflat",
                "Collect Ooze Membranes from the Steamvent Oozes on the Scoured Coast.",
                [fetch("tmp_ooze_membrane", 6)],
-               "The air off these vents eats my gaskets faster than I can cut them, "
+               "The dwarves say the vents were gentle before the day the world changed, but now the air off them eats my gaskets faster than I can cut them, "
                "and I've found something it doesn't eat.\n\nThere are oozes living in "
                "the steam vents on the coast. A Steamvent Ooze sits in acid all day "
                "and its skin doesn't mind at all. I cut a strip off a dead one and "
@@ -324,7 +323,7 @@ def build():
                [deliver("tmp_assay_report", "the assay report, to Underwriter Nix in "
                                             "Cinderwharf")],
                "I've worked out why we're short of ore, and the Underwriter isn't going "
-               "to enjoy reading it.\n\nNobody's stealing. The seam's thinning. Every "
+               "to enjoy reading it.\n\nNobody's stealing it, because the seam's thinning. Every "
                "cart that comes up is a little poorer than the one before, and at this "
                "rate the upper workings are finished in a year. The rich ore's all "
                "deeper, under the Emberdeep, where nobody can dig.\n\nI can't leave "
@@ -541,7 +540,7 @@ def build():
                "know what's in it, and if anyone at the gate asks, it's pickled "
                "fish.\n\nThe Works is west of town across the Cinder Flats. "
                "Carry it level and don't drop it, and I'd also keep it away from "
-               "anything that's on fire, which out there is most things.",
+               "anything that's on fire, and out there that means most things.",
                "That'll be the pickled fish, then, and it's the best powder "
                "I'll see all month.\n\nYou may as well know what you carried. "
                "The Works powder comes over on the boat, and half of it's damp "
