@@ -44,6 +44,11 @@ def check(ok, msg):
 
 
 def main():
+    # SEEDED. Two full sweeps on 13 Nov each failed this file on a different line - a single cast
+    # that missed ("did no damage"), then a single heal that crit ("healed 556; 60% of 804 is
+    # 482") - and it passed every time it was run alone. Those are dice, not defects. One fixed
+    # seed makes every run the same run, so a failure here means the game changed.
+    random.seed(20261113)
     from world.recruit_manager import get_recruit_manager
     from entities.monster import Monster
     from entities.party import Party

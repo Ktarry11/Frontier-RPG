@@ -211,6 +211,17 @@ ALL_SPRITES = {s for v in SHEETS.values() for s in v}
 #: FIRST MATCH WINS, so order matters - the specific sits above the general. Each entry is
 #: (compiled pattern on the creature NAME, sprite id).
 _RULES = [
+    # TEMPEST ISLE, the open world (tools/build_tempest_openworld.py). Named rares and the Dark
+    # Iron squatters carry no word a weaker rule could read: "Mother Canopy" is a panther,
+    # "Sootwing" a drake and "The Barge-Eater" a crab, and none of them says so.
+    (r"^mother canopy$", "panther"),
+    (r"^borrik the unhoused$", "dark_iron_warlord"),
+    (r"^sootwing$", "dragon_whelp"),
+    (r"^the barge-eater$", "crab_giant"),
+    (r"^wreck-captain vess'ira$", "naga_warrior"),
+    (r"^old scoria$|^karrath the ventlord$", "elemental_fire"),
+    (r"gate-squatter ashpreacher", "dark_iron_slagcaller"),
+    (r"gate-squatter", "dark_iron_digger"),
     # THE CASTOUTS (The Black Strand). Dark Iron dwarves put out of Onyxhollow's gate. First in
     # the list because every word in their names belongs to a weaker rule below: a "Digger" is a
     # human bandit, a "Slagcaller" a robed cultist and a "Foreman" an overseer.
