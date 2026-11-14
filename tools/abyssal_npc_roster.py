@@ -42,65 +42,34 @@ ABYSSAL_VENDORS = {
         "Quartermaster Tobbit Lund", "goblin", "male", 5,
         ["healing_potion_superior", "mana_potion_superior", "meal_trailbread", "drink_waterskin",
          "whetstone", "flux_strong", "component_string", "parchment", "glue", "coal"], True,
-        "Everything a camp needs and nothing a camp cannot carry on four carts.\n\nThat is the "
-        "rule and I did not make it. Four carts is what we can strike and move in a day, and we "
-        "have moved in a day twice, and both times I was glad about the rule and nobody else "
-        "was."),
+        "I stock what a camp needs, as long as it fits on four carts.\n\nFour carts is what we can pack and move in a day. We've had to do that twice. I was glad of the rule both times, and I was the only one."),
     "ab_cook": (
         "Cook Marda Pell", "goblin", "female", 23,
         ["bread_and_cheese", "roasted_meat", "meal_trailbread", "meal_spiced_haunch",
          "drink_barley_beer", "drink_waterskin", "healing_potion_superior"], False,
-        "Bedrolls under the awning and the pot is on. Both of them come with the posting.\n\nI "
-        "have fed this camp in four places and the food has got better every time, which is not a "
-        "thing anybody expected including me. You learn a desert's pantry eventually. It is a "
-        "short pantry and I know all of it now."),
+        "There are bedrolls under the awning and the pot's on. You get both with the posting.\n\nI've fed this camp in four places and the food's got better each time. It took me a while to learn what a desert has to eat. There isn't much, but I know all of it now."),
     "ab_smith": (
         "Smith Gorra Blacktooth", "goblin", "female", 17,
         ["whetstone", "flux_strong", "coal", "glue", "thread_fine", "resin"], True,
-        "Bring it before it goes, not after. There is no second forge between here and the "
-        "port.\n\nI shoe nothing and I shod kodo for nine years, which tells you what this posting "
-        "is. These days it is peg irons, chain, and whatever the crawlers have been at."),
+        "Bring me your gear before it breaks. There's no other forge between here and the port.\n\nI shod kodo for nine years and there's nothing to shoe out here. These days I make peg irons and chain, and I mend whatever the crawlers have chewed."),
     "ab_reagents": (
         "Brewer Sepp Narrow", "goblin", "male", 11,
         ["healing_potion_superior", "mana_potion_superior", "battle_elixir_superior",
          "guardian_elixir_superior", "elixir_of_greater_endurance", "vial_empty"], False,
-        "Mixed thin, because everything out here has to survive a cart.\n\nI came out with the "
-        "second camp on a three-month contract. That was two years and two camps ago and nobody "
-        "has ever mentioned the contract again, including me."),
+        "I mix everything thin, so the bottles survive the cart.\n\nI came out with the second camp on a three-month contract. That was two years and two camps ago. Nobody's mentioned the contract since, and I haven't either."),
 }
 
 ABYSSAL_AMBIENT = {
     "ab_surveyor": (
         "Chief Surveyor Peska Vane", "goblin", "female", 20,
-        "Fourth Peg. Seven months on this one, which is the longest any of them has stood.\n\nThe "
-        "first went in with the ground under it. The second is sitting on the lip of the Wide Sink "
-        "being perfectly accurate about a place that is no longer there. The third we moved "
-        "ourselves because Hask did not like the hardpan, and four days later he was right, and I "
-        "have still not got him to tell me how he knew in a way I can write down.\n\nI am not "
-        "trying to build a road. I want that clear. I am trying to find out whether a road is "
-        "POSSIBLE, and those are different jobs with different answers and only one of them has "
-        "ever been funded."),
+        "This is Fourth Peg. The peg's stood seven months, which is longer than the other three did.\n\nThe first fell in with the ground under it. The second's on the lip of the Wide Sink, marking ground that's gone. We moved the third because Hask didn't like the hardpan, and that spot fell in four days later.\n\nThe port at Steamwheedle pays me to find out if a road can be built across the Abyssal Sands. I don't know yet."),
     "ab_rodman": (
         "Rodman Hask Quill", "goblin", "male", 14,
-        "Somebody has to stand at the far end holding the staff, and out here the far end is "
-        "usually somewhere nobody has walked.\n\nI like it. I know how that sounds.\n\nYou can "
-        "read this ground if you are willing to go slowly. The hardpan rings different over a void "
-        "- not much, but different, and it is louder in the morning when it is cold. Peska wants "
-        "me to write that down as a method. I have tried. It comes out sounding like a man "
-        "guessing."),
+        "I'm the one who stands at the far end holding the staff. Out here the far end's usually somewhere nobody's walked before.\n\nI like the work. I know that sounds odd.\n\nYou can read this ground if you go slowly. The hardpan sounds different over a hollow, and it's louder on a cold morning. Peska wants that written up as a method. Every time I try, it reads like guessing."),
     "ab_teamster": (
         "Teamster Odd Varrow", "goblin", "male", 2,
-        "Nineteen Mile. I was on the box and the lead pair were six lengths ahead of me when it "
-        "went.\n\nI did not do anything clever. The cart went down and I came off the back of it "
-        "and the ground I landed on held, and that is the entire story and I have told it four "
-        "hundred times.\n\nThe part nobody asks about: the lead pair went in. I could hear them "
-        "for about a day and a half. So when the camp talks about the ground like it is weather, "
-        "I let them, and I go and stand somewhere else."),
+        "I was driving the second cart at Nineteen Mile when the road went. The lead pair were six lengths ahead of me.\n\nThe cart went down and I fell off the back, and the ground I landed on held. I didn't do anything clever. I've told that story four hundred times.\n\nI could hear the lead pair down there for a day and a half. So when the camp talks about the ground like it's weather, I go and stand somewhere else."),
     "ab_digger": (
         "Rope-Hand Vizzi Trask", "goblin", "female", 12,
-        "Somebody has to go down them. Not far. Far enough to see whether there is a floor and "
-        "whether the floor is going anywhere.\n\nNine of the eleven have floors. Two do not, and "
-        "the two that do not are the two on the east side, and east is where the ground is worst "
-        "and nobody has to tell me twice why.\n\nPeska logs it as 'no bottom observed'. I would "
-        "log it differently. I would log it as 'do not'."),
+        "Somebody has to go down the pits on a rope and see if there's a floor. That's me.\n\nNine of the eleven have floors. The Throats in the southwest and Underlight in the southeast don't, as far as my line reaches.\n\nPeska writes those up as 'no bottom observed'. I'd write 'don't go down'."),
 }

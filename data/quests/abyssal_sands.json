@@ -7,7 +7,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 44,
       "level_max": 44,
-      "description": "The camp is named for the stake it is pitched around. Learn why there are four.",
+      "description": "Find out from Peska Vane why the survey camp is called Fourth Peg, and what it's for.",
       "objectives": [
         {
           "type": "dialogue",
@@ -27,8 +27,8 @@
       ],
       "reward_exp": 3160,
       "reward_gold": 12600,
-      "accept_text": "You came down the north gate, so you have walked about nine miles of this and you will have noticed there is no road.\n\nThere was one. It is in a hole. I am not here to build you a new one - I am here to find out whether a new one is POSSIBLE, which is a different job with a different answer, and only one of those has ever been funded.\n\nStand by the peg a moment. Everything this camp does is measured from that stake.",
-      "turn_in_text": "Seven months, that one has stood. The longest any of them has managed.\n\nIf you are going to be out in it, I can use you. Everything we need is a reading taken somewhere I would rather not send Hask on his own.",
+      "accept_text": "You came in by the north gate, so you've walked nine miles of this and seen there's no road. There used to be one. It fell into a pit three years ago, with the first of the collapses.\n\nThe port at Steamwheedle pays me to find out if a new road can be built across the Abyssal Sands. I haven't got an answer yet.\n\nGo and stand by the peg in the middle of camp, then ask me about it. We measure everything from that stake.",
+      "turn_in_text": "That peg's stood seven months, which is longer than the other three managed.\n\nIf you're going out there anyway, I've got work for you. Most of what I need is readings from places I don't like sending Hask alone.",
       "next_quest_id": "ab_the_level_run",
       "unique_item_defs": [
         {
@@ -94,7 +94,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 44,
       "level_max": 44,
-      "description": "Run the level west from the peg and come back with the ground under it.",
+      "description": "Walk Hask's survey line west from Fourth Peg to Cartfall and the First Hole, and kill the Pit Shrikes nesting along it.",
       "objectives": [
         {
           "type": "explore",
@@ -121,8 +121,8 @@
       ],
       "reward_exp": 3160,
       "reward_gold": 12600,
-      "accept_text": "A level run is two people and a long walk and it is the dullest work in the world right up until it is not.\n\nI need the ground between here and Cartfall, in a straight line, which means walking it rather than going round. Mind the shrikes - they nest where the ground is thin and they have opinions about company.",
-      "turn_in_text": "Good numbers. Boring numbers, which out here is the only kind worth having - and three years ago there were no numbers at all, because nobody had thought to take any.\n\nWhat I cannot write down is the other thing. The hardpan RINGS different over a void. Not much. It is louder in the cold. I have been trying to put that in a book for two years and it keeps coming out sounding like a man guessing.",
+      "accept_text": "I need the ground levelled in a straight line west of here, from the peg to Cartfall and on to the First Hole at the far west end. A straight line means walking it, so you can't go round the bad stretches.\n\nPit Shrikes nest along that line where the ground's thin, and they'll come at anyone who walks past. Kill the ones you meet so I can follow you with the staff.",
+      "turn_in_text": "Those are good numbers. They're dull, and dull's what I want out here. Three years ago nobody had any numbers for this ground, because nobody thought it needed measuring.\n\nThere's one thing I can't get into the book. The hardpan sounds different when there's a hollow under it, and it's louder when it's cold. I've tried to write that down for two years and it still reads like guessing.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -184,7 +184,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 44,
       "level_max": 45,
-      "description": "Test the thing he cannot write down, in the one place it can be checked.",
+      "description": "Kill Limestone Crawlers at the Wide Sink and bring Hask their shell-plates, so he can test what he hears in the ground.",
       "objectives": [
         {
           "type": "kill",
@@ -200,8 +200,8 @@
       ],
       "reward_exp": 3240,
       "reward_gold": 12900,
-      "accept_text": "There is one way to test me and you are going to hate it: the crawlers come up through the thin ground. Where they are thickest is where the roof is worst.\n\nSo. Go where I say the hardpan rings wrong, count what comes out at you, and bring me the plates. If I am right you will have a bad afternoon and I will have a method.",
-      "turn_in_text": "Five. You got five off a stretch I called thin, and Peska's rod came back at eleven on the stretch either side of it.\n\nThat is not proof. It is the first thing I have had that is even the same SHAPE as proof.",
+      "accept_text": "I think I can test what I hear, and you won't enjoy it. Limestone Crawlers come up where the ground's thin. If I'm right about the sound, there'll be more of them where the hardpan sounds wrong to me.\n\nI've marked a stretch by the Wide Sink, southwest of camp. Kill the crawlers that come up there and bring me their plates, so I can count them against Peska's rod readings.",
+      "turn_in_text": "That's a lot of plates for a stretch that short. Peska's rod says the roof there is the thinnest we've measured, and I called it thin before she put the rod in.\n\nOne match doesn't prove anything. It's the first time my ear and her rod have agreed on paper, though, and I'll take it.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -268,7 +268,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 45,
       "level_max": 45,
-      "description": "A survey is one reading taken twice, and the second reading is the whole job.",
+      "description": "Take Peska's second set of readings at the Wide Sink and Cartfall, and kill the Hollowing Oozes eating the Wide Sink's rim.",
       "objectives": [
         {
           "type": "explore",
@@ -295,8 +295,8 @@
       ],
       "reward_exp": 3240,
       "reward_gold": 12900,
-      "accept_text": "Anybody can take a reading. A reading is a number and a number on its own cannot tell you whether ground is going anywhere.\n\nTwo readings, four days apart, at the same stake: THAT tells you. We have been doing it for two years and I have nine hundred pairs of numbers and about four of them matter.\n\nTake the second pass on the Wide Sink and Nineteen Mile. And bring me ooze residue - they eat limestone, and I want to know how fast.",
-      "turn_in_text": "The Wide Sink has moved eleven inches in four days. Eleven inches is nothing to look at and it is enormous in a column.\n\nThat rim is still going. Four years on, and the hole we all think of as finished is not finished.",
+      "accept_text": "One reading tells me where the ground is. It takes a second reading at the same stake, a few days later, to tell me if it's moving. I took the first set four days ago.\n\nTake the second set for me at the Wide Sink, southwest of here, and at Cartfall to the west. While you're at the Wide Sink, kill the Hollowing Oozes on the rim. They eat limestone, and I'd like fewer of them eating that one.",
+      "turn_in_text": "The Wide Sink's rim has moved eleven inches in four days. You wouldn't see that standing on it, but it's a big number in my book.\n\nThat pit opened three years ago and the whole camp treats it as finished. It's still going.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -358,7 +358,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 44,
       "level_max": 45,
-      "description": "The top of a survey stake, snapped off, with a number still on it.",
+      "description": "Take the snapped survey stake head to Chief Surveyor Vane at Fourth Peg.",
       "objectives": [
         {
           "type": "deliver",
@@ -369,8 +369,8 @@
       ],
       "reward_exp": 3240,
       "reward_gold": 12900,
-      "accept_text": "It is the top four inches of a proper survey stake, driven and then broken off about a foot above where it was driven. There is a number burned into it.",
-      "turn_in_text": "Two. That is Second Peg, and Second Peg is sitting on the lip of the Wide Sink being perfectly accurate about a place that is not there any more.\n\nSomebody broke the head off it. That was not the ground. Somebody stood out there and snapped the top off a survey stake, and I have no idea who or why and I think about it more than I should.",
+      "accept_text": "This is the top few inches of a survey stake, broken off clean. There's a number burned into the wood. The surveyor at Fourth Peg, in the northeast corner of the Abyssal Sands, will know which stake it came from.",
+      "turn_in_text": "That's a two, so it's off Second Peg. Second Peg's on the lip of the Wide Sink, marking ground that fell in.\n\nThe ground didn't do this. The break's too clean, so somebody snapped it off by hand. I don't know who'd walk out there to break a survey stake, and I'd like to.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -435,7 +435,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 46,
       "level_max": 46,
-      "description": "Enough readings to say something careful, finally.",
+      "description": "Kill Saltbone Revenants around the Long Collapse, bring Peska residue from Hollowing Oozes, then ask her for her answer about the road.",
       "objectives": [
         {
           "type": "dialogue",
@@ -457,8 +457,8 @@
       ],
       "reward_exp": 3320,
       "reward_gold": 13200,
-      "accept_text": "I have two years of pairs and I am close to being able to say a sentence I can defend. I would like one more set from the south, where the revenants are, and then I am going to say it whether the port likes it or not.",
-      "turn_in_text": "Here it is, and you may tell Rullo Tack I said it.\n\nA road is possible. A road is NOT possible on a twenty-year bond, which is the only kind anybody will finance, because this field is still opening and four of my eleven are still moving.\n\nSo the honest answer is: ask me again in ten years. Nobody has ever paid a surveyor to say that and I expect it will cost me the contract.",
+      "accept_text": "I've got two years of readings and I'm nearly ready to give the port an answer. I want one more set from the south first.\n\nSaltbone Revenants walk the ground around the Long Collapse, southwest of here, and I can't put a rod in while they're there. Kill them, and bring me residue from the Hollowing Oozes while you're out. Then ask me for the answer. You'll hear it before the port does.",
+      "turn_in_text": "You can tell Rullo Tack at Steamwheedle I said this.\n\nA road can be built. Nobody will pay for it, because lenders want twenty years of safe ground and four of my eleven pits are still moving.\n\nSo my answer is to ask again in ten years. I expect the port will end my contract over it.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -523,7 +523,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 44,
       "level_max": 44,
-      "description": "The teamster who came off the back of a cart that kept going down.",
+      "description": "Hear Odd Varrow's story of Nineteen Mile, and kill the Cartfall Scavengers picking over the wrecks at Cartfall.",
       "objectives": [
         {
           "type": "dialogue",
@@ -540,8 +540,8 @@
       ],
       "reward_exp": 3160,
       "reward_gold": 12600,
-      "accept_text": "Nineteen Mile. I was on the box and the lead pair were six lengths ahead of me when it went.\n\nI did not do anything clever. The cart went down and I came off the back of it and the ground I landed on held. That is the whole story and I have told it four hundred times.\n\nWhat I would like is for the scavengers to stop going through it. They are at the rim of that hole every day and there are people in it.",
-      "turn_in_text": "Thank you. I know what they are. They came through with everything else and found a desert full of carts with nobody guarding them, and I would probably be doing the same.\n\nI would still rather they did it somewhere else.",
+      "accept_text": "I was driving the second cart at Nineteen Mile when the road fell in. The lead pair were six lengths ahead of me. The cart went down, I fell off the back, and the ground I landed on held. I didn't do anything clever.\n\nCartfall Scavengers pick through the wrecks at Cartfall, west of here, every day. There are still people down in those pits. Kill the scavengers and get them off the rim.",
+      "turn_in_text": "Thank you. I don't blame them much. They came through three years ago with everything else and found a desert full of carts nobody was guarding. I'd probably loot them too.\n\nI just don't want them doing it on top of my friends.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -608,7 +608,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 44,
       "level_max": 45,
-      "description": "The beasts went in ahead of the cart and some of them came back out.",
+      "description": "Put down the Pitfall Kodo around Cartfall and bring Odd the harness straps off them.",
       "objectives": [
         {
           "type": "kill",
@@ -624,8 +624,8 @@
       ],
       "reward_exp": 3240,
       "reward_gold": 12900,
-      "accept_text": "The kodo that went down are not all dead. Some of them came out the other side of something down there and they are not right, and they are the ones you see on the flats with harness still on them.\n\nCut the harness off what you have to put down. Bring it to me. It is a house mark and somebody should know whose.",
-      "turn_in_text": "[He goes through the straps one at a time without hurrying.]\n\nThis one is Tarrow's. This one is Tarrow's. This one I do not know.\n\nI will write to Steamwheedle. It is four years late and I am going to do it anyway.",
+      "accept_text": "Some of the kodo that went into the pits climbed back out, and they came out wrong. You'll see Pitfall Kodo around Cartfall, west of camp, still wearing their harness.\n\nThey can't be led and they charge the camp's animals, so they have to be put down. Cut the harness off the ones you kill and bring it to me. Every strap has a house mark, and the owners should be told.",
+      "turn_in_text": "Let me look through them. This one's Tarrow's mark. So is this one. I don't know this last one.\n\nI'll write to Steamwheedle about them. It's three years late, but those houses still don't know where their teams went.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -690,7 +690,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 45,
       "level_max": 45,
-      "description": "The drovers are still on the route, in the sense that nobody ever called them off.",
+      "description": "Put down the Sunken Drovers at Cartfall and the First Hole, and bring Marda their tags.",
       "objectives": [
         {
           "type": "kill",
@@ -706,8 +706,8 @@
       ],
       "reward_exp": 3240,
       "reward_gold": 12900,
-      "accept_text": "I cooked for caravans for eleven years before this and I will tell you the thing about drovers: they do not stop. Weather, raiders, a broken axle - the road keeps going and so do they.\n\nThe ones out there still have not stopped. Bring me their tags. I want to cook for a camp that has done right by them, and we have not.",
-      "turn_in_text": "I knew two of these. Not well. Well enough to know how they take their tea, which is the sort of thing you know about a drover.\n\nPeska will put the numbers in the book. I am going to do something else about it, and I am not going to tell you what because it is not your business and it is not hers either.",
+      "accept_text": "I cooked for caravans for eleven years before I came here, so I knew a lot of drovers. They don't stop for weather or raiders or a broken axle.\n\nThe ones who went into the pits haven't stopped either. Sunken Drovers still walk the old route at Cartfall and the First Hole, west of camp. Put them down and bring me their tags. Nobody's ever told their families.",
+      "turn_in_text": "I knew two of these names. I didn't know them well, but I knew how they took their tea.\n\nPeska will write them in her book as numbers. I'm going to send the tags home with the next cart to Steamwheedle.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -771,7 +771,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 45,
       "level_max": 45,
-      "description": "A sealed manifest for freight that is somewhere under the First Hole.",
+      "description": "Take the sealed waybill to Quartermaster Lund at Fourth Peg.",
       "objectives": [
         {
           "type": "deliver",
@@ -782,8 +782,8 @@
       ],
       "reward_exp": 3240,
       "reward_gold": 12900,
-      "accept_text": "A cargo manifest, still sealed, for a cart that is not going to arrive. The wax is intact, which after four years in a desert is its own small miracle.",
-      "turn_in_text": "[He breaks the seal, reads it, and sets it down.]\n\nSeed grain. Forty bushels of seed grain for Gadgetzan, dated the spring the wells went.\n\nSomebody in that city ordered seed. In the second dry season, with the well dropping, somebody sat down and ordered next year's seed.\n\nI am going to keep this. I do not entirely know why.",
+      "accept_text": "It's a cargo manifest with the wax seal still whole. The cart it belonged to went into a pit. The quartermaster at Fourth Peg, in the northeast corner of the Abyssal Sands, keeps the camp's freight records and might want it.",
+      "turn_in_text": "Let me break the seal. It's seed grain, forty bushels, bound for Gadgetzan and dated the spring the wells failed.\n\nSo somebody in that city ordered next year's seed while the water was dropping. They still thought there'd be a next year.\n\nI'll keep this with the camp ledgers. It ought to be on record somewhere.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -844,7 +844,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 45,
       "level_max": 46,
-      "description": "A shrike's crop is a survey of what is living where nobody can look.",
+      "description": "Kill Pit Shrikes around the Wide Sink and bring Hask their crops, to see what they've been eating down in the pits.",
       "objectives": [
         {
           "type": "kill",
@@ -860,8 +860,8 @@
       ],
       "reward_exp": 3320,
       "reward_gold": 13200,
-      "accept_text": "Here is a free method and it is not mine, it is every rodman's: open the bird.\n\nA shrike hunts the thin ground and the rim and it will eat anything it can carry. What is in its crop is a list of what is living in a place you cannot get to.\n\nSix crops will tell me more about the floor of those holes than Vizzi's rope has in a year, and I would like that on record before I say it to her face.",
-      "turn_in_text": "Four of six had something in them from below the water line. From a WATER line, in the Abyssal Sands, where there has not been standing water in living memory.\n\nShe is going to be insufferable. She has been saying there is water down there for a year.",
+      "accept_text": "Every rodman knows this trick. If you want to know what lives somewhere you can't reach, open a bird that hunts there.\n\nPit Shrikes hunt the rims and down inside the pits, and they eat anything they can carry. Kill the ones around the Wide Sink, southwest of camp, and bring me their crops. Vizzi says there's water at the bottom of those pits. I'd like to check before I argue with her.",
+      "turn_in_text": "Most of these had something in them that lives in water. There hasn't been standing water in the Abyssal Sands in anyone's lifetime.\n\nSo Vizzi's right, and she's been saying it for a year. She's going to be unbearable about it.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -927,7 +927,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 46,
       "level_max": 46,
-      "description": "The newest hole on the map, and the longest.",
+      "description": "Walk the north rim of the Long Collapse for Peska, kill the Sinkhole Lurkers denning there and bring back their spurs.",
       "objectives": [
         {
           "type": "explore",
@@ -951,8 +951,8 @@
       ],
       "reward_exp": 3320,
       "reward_gold": 13200,
-      "accept_text": "The Long Collapse opened eleven months ago, over about four hours, and it took twenty-two tiles of ground and a stretch of the old road with it.\n\nIt is the only one any of us watched happen. I want the rim walked and I want it walked by somebody who is not me, because I have walked it nine times and I have stopped seeing it.",
-      "turn_in_text": "You can walk the length of that one and never be more than a step from the edge, and three years ago it was road.\n\nThat is in my book now, in those words, which is not how I usually write. Some things want saying plainly.",
+      "accept_text": "The Long Collapse opened eleven months ago. It took four hours and it swallowed a long stretch of the old road. It's the only pit any of us watched open.\n\nIt's southwest of camp. I've walked the north rim nine times and I've stopped noticing things, so I want somebody else to walk it. Sinkhole Lurkers den under the lip there. Kill them and bring me their spurs, so I know how many have moved in.",
+      "turn_in_text": "You can walk the whole length of it and never be more than a step from the edge. Three years ago that was road, and I'd have driven a cart down it.\n\nI've written that in the book in those words. I don't usually write that way, but the measurements alone didn't cover it.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1013,7 +1013,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 44,
       "level_max": 45,
-      "description": "Somebody has to go down them, and she has been doing it alone.",
+      "description": "Ask Vizzi Trask about going down the pits on a rope, and kill the Limestone Crawlers around the Wide Sink before her next descent.",
       "objectives": [
         {
           "type": "dialogue",
@@ -1031,8 +1031,8 @@
       ],
       "reward_exp": 3240,
       "reward_gold": 12900,
-      "accept_text": "Somebody has to go down them. Not far - far enough to see whether there is a floor and whether the floor is going anywhere.\n\nNine of the eleven have floors. Two do not. I would like a second pair of hands on the line and I would like them attached to somebody who can fight, because the floors are not empty.",
-      "turn_in_text": "Peska logs the two as 'no bottom observed'. I would log them differently. I would log them as 'do not'.\n\nNone of the eleven existed three years ago. People forget that, out here, as fast as they can.\n\nShe is being careful and I am being accurate and we have agreed to disagree about which of those is the job.",
+      "accept_text": "Somebody has to go down the pits on a rope and see if there's a floor. I've been doing it with only Hask on the line.\n\nLimestone Crawlers come up the walls while I'm hanging there, and Hask can't hold a rope and fight. Kill the crawlers round the Wide Sink, southwest of camp, before my next descent. Ask me about the rope first, if you want to know what you're guarding.",
+      "turn_in_text": "Nine of the eleven pits have floors and two don't. Peska writes those two up as 'no bottom observed'. I'd write 'don't go down', because the next person who reads her book might try.\n\nNone of these pits were here three years ago. People out here forget that quickly.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1094,7 +1094,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 45,
       "level_max": 45,
-      "description": "The holes did not only swallow.",
+      "description": "Kill the Limestone Crawlers and Hollowing Oozes coming up at the Wide Sink.",
       "objectives": [
         {
           "type": "kill",
@@ -1111,8 +1111,8 @@
       ],
       "reward_exp": 3240,
       "reward_gold": 12900,
-      "accept_text": "Everybody out here talks about what went IN. Four years of it. The carts, the kodo, the road.\n\nNobody wants to talk about what came OUT, and I have been down nine of these on a rope, and I am telling you that the crawlers and the oozes were not living on this desert four years ago because this desert could not feed them.\n\nThe holes opened a way. It goes both directions.",
-      "turn_in_text": "Thin them where they come up and you buy the camp a week. You do not buy it two.\n\nBefore the change there was nothing under this desert that wanted to be above it.\n\nI have stopped pretending this is a problem that gets solved. It is a problem that gets managed by people who are still here, and that is me.",
+      "accept_text": "Everyone here talks about what fell into the pits. Carts, kodo, the road. I've been down nine of them and I'm more worried about what's climbing out.\n\nLimestone Crawlers and Hollowing Oozes are cave animals. This desert couldn't feed them three years ago. Now they come up at the Wide Sink, southwest of camp, and every month they get closer to our tents. Kill both kinds along that rim.",
+      "turn_in_text": "That'll keep them off the camp for a week or so. It won't be two.\n\nBefore the change, nothing lived under this desert that wanted to come up. Now I thin them out, they come back, and I do it again. I don't see that ending while the pits are open.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1179,7 +1179,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 45,
       "level_max": 46,
-      "description": "The revenants are salt-cured and there is no salt out here.",
+      "description": "Kill Saltbone Revenants at the Long Collapse and bring Sepp their knucklebones, so he can test where the salt came from.",
       "objectives": [
         {
           "type": "kill",
@@ -1195,8 +1195,8 @@
       ],
       "reward_exp": 3320,
       "reward_gold": 13200,
-      "accept_text": "I am a brewer, so I know what brine does to a bone, and the things coming up out of the southern holes are BRINE-CURED.\n\nThe nearest brine is the Shimmering Flats and that is four days' walk northwest. Either somebody is carrying salt out here for a purpose I do not want to think about, or there is brine under us.",
-      "turn_in_text": "Under us. It has to be under us, and it has been coming this way for three years.\n\nThe pan is four days northwest and everybody there will tell you the water goes under and goes EAST. We are east. We have always been east. Nobody ever stopped to ask what it was going through on the way.",
+      "accept_text": "I'm a brewer, so I know what brine does to bone. The Saltbone Revenants that come up out of the Long Collapse, southwest of camp, have been cured in brine.\n\nThe nearest brine I know of is the Shimmering Flats, four days northwest. So either somebody's hauling salt out here, or there's brine under our feet. Kill the revenants and bring me their knucklebones, and I'll test the salt against what I've got from the Flats.",
+      "turn_in_text": "It's the same salt as the Flats. So it's under us, and it's been coming this way for three years.\n\nEveryone on the Flats will tell you their water went underground and headed east. We're east of them. I don't think anybody asked what it passed through on the way.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1263,7 +1263,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 46,
       "level_max": 46,
-      "description": "The two holes with no floor, and what comes up them.",
+      "description": "Walk the rim of the Throats in the far southwest, kill the Deepwater Horrors there and bring Vizzi their scales.",
       "objectives": [
         {
           "type": "explore",
@@ -1287,8 +1287,8 @@
       ],
       "reward_exp": 3320,
       "reward_gold": 13200,
-      "accept_text": "The Throats are the two with no floor and they are the two I will not go down past forty feet.\n\nThere is something living in them that is WET. I need scale off whatever you can reach, and somebody else has to be holding the knife, because I been down that hole nine times and the tenth is where people stop coming back.",
-      "turn_in_text": "Still wet. It has been in a bag, in a desert, for a day, and it is still wet.\n\nThere is water down there. Not damp - water, enough of it to keep something that size alive. Everybody in this camp has been walking over it for two years.",
+      "accept_text": "The Throats are the pair of pits in the far southwest corner, and they've got no floor I can find. I won't go below forty feet in them.\n\nDeepwater Horrors climb out of them, and they come out wet. Walk the rim, kill the horrors you find and bring me scales off them. I want to show Peska that something down there lives in water.",
+      "turn_in_text": "This scale's been in a bag in the desert for a day and it's still wet.\n\nSo there's water down there, and enough of it to keep an animal that size alive. This camp's been walking over it for two years.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1353,7 +1353,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 46,
       "level_max": 47,
-      "description": "Nothing in this zone is native to a desert, which is the point.",
+      "description": "Kill Hollowing Oozes at the Wide Sink for their residue, and the Pit Shrikes feeding on them, so Sepp can show where these animals came from.",
       "objectives": [
         {
           "type": "kill",
@@ -1375,8 +1375,8 @@
       ],
       "reward_exp": 3400,
       "reward_gold": 13500,
-      "accept_text": "Go through the bestiary of this place with me. Crawlers: cave animal. Oozes: cave animal. The horrors in the Throats: aquatic. The revenants: brine.\n\nThere is not one thing on this map that belongs in a desert except the shrikes, and the shrikes are here because everything ELSE is here.\n\nThe entire population of this zone is a consequence of the water leaving. Bring me enough residue to say that with a number on it.",
-      "turn_in_text": "A number. Finally a number.\n\nThat is not a desert bestiary with some cave animals in it. That is a cave bestiary that has had its roof taken off.",
+      "accept_text": "Look at what lives out here. Crawlers and oozes are cave animals. The horrors in the Throats live in water. The revenants are cured in brine. The only desert animal on the list is the Pit Shrike, and it's here to eat the others.\n\nI think they all came up after the water under the desert drained away. Kill Hollowing Oozes at the Wide Sink, southwest of camp, and bring me their residue. Kill the shrikes feeding there too, or they'll have the residue before you do.",
+      "turn_in_text": "That's enough residue to measure, and it's all dissolved limestone from deep down.\n\nSo these are cave animals, and they're up here because their cave drained and lost its roof three years ago. I can put that in front of Peska with a number on it.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1435,7 +1435,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 47,
       "level_max": 47,
-      "description": "Buy the camp another week, properly this time.",
+      "description": "Kill the Sinkhole Lurkers along the Long Collapse and the Limestone Crawlers between there and camp, and bring Vizzi the lurkers' spurs.",
       "objectives": [
         {
           "type": "kill",
@@ -1457,8 +1457,8 @@
       ],
       "reward_exp": 3400,
       "reward_gold": 13500,
-      "accept_text": "Peska wants the readings. Hask wants his method. Odd wants the scavengers off the rim.\n\nI want the camp to still be here in a month, and that is a different list and it is mostly killing.\n\nI am not going to dress it up. Go and make the ground round this peg quiet for a while.",
-      "turn_in_text": "Quiet. For a while.\n\nThat is the whole job and anybody who tells you different has not been here two years.",
+      "accept_text": "Peska wants readings, Hask wants his method and Odd wants the scavengers gone. I'd like the camp to still be standing next month.\n\nSinkhole Lurkers have started denning along the Long Collapse, southwest of here, and Limestone Crawlers are coming up between there and the tents. Kill both. Bring me the lurkers' spurs, so I can show Tobbit how many there were.",
+      "turn_in_text": "That's bought us some quiet. They'll be back, and I'll ask somebody to do this again.\n\nI've been here two years and it's gone like that the whole time. Thanks for taking a turn.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1521,7 +1521,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 45,
       "level_max": 46,
-      "description": "The south face of one pit is fused, and nothing out here is hot enough.",
+      "description": "Go and look at the Glasswall, south of Fourth Peg, and kill the Glasswall Elementals on its rim.",
       "objectives": [
         {
           "type": "explore",
@@ -1540,8 +1540,8 @@
       ],
       "reward_exp": 3320,
       "reward_gold": 13200,
-      "accept_text": "The Glasswall. South face, about sixty feet of it, fused solid - proper glass, you can see yourself in it in the afternoon.\n\nSand goes to glass at about three thousand degrees. There is nothing in this desert that gets to three thousand degrees, there is no volcanic rock within a hundred miles, and lightning does not do sixty feet in a line.\n\nGo and look at it and tell me what you think, because I have run out of things to think.",
-      "turn_in_text": "It is not weathered. That is the part. Three years of sand on glass and the face is still smooth, which means it happened AFTER the hole opened, not before.",
+      "accept_text": "There's a pit south of camp called the Glasswall. About sixty feet of its south face has melted into glass. You can see your reflection in it in the afternoon.\n\nSand needs a furnace's heat to do that. Nothing in this desert burns that hot, and lightning doesn't melt sixty feet in a straight line. Go and look at it for me. Glasswall Elementals wander the rim, so you'll have to kill those to get close.",
+      "turn_in_text": "Did you see how smooth it is? Three years of blowing sand should've scratched it dull.\n\nSo it melted after the pit opened, and not long ago. I still don't know what did it.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1604,7 +1604,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 46,
       "level_max": 46,
-      "description": "Shards off the fused face, still warm hours after sundown.",
+      "description": "Kill Glasswall Elementals at the Glasswall and bring Sepp their fused shards.",
       "objectives": [
         {
           "type": "kill",
@@ -1620,8 +1620,8 @@
       ],
       "reward_exp": 3320,
       "reward_gold": 13200,
-      "accept_text": "I have had a shard of that face on my bench for a month and it is WARM. Not hot. Warm, at midnight, in a desert that goes to freezing.\n\nBring me five more and I will find out whether it is the stone or whether it is something in the stone, and I would like it to be the stone.",
-      "turn_in_text": "It is not the stone.\n\nI have crushed one, dissolved one, and left one in the dark for a week, and the one in the dark is the warmest of the three. Whatever is in that glass is not being heated. It is heating.",
+      "accept_text": "I've had a shard from the Glasswall on my bench for a month and it's still warm. It's warm at midnight, when the rest of the desert's freezing.\n\nThe Glasswall Elementals at that pit, south of camp, are made of the same glass. Kill them and bring me their shards. I want to find out if the heat's in the stone or in something inside the stone.",
+      "turn_in_text": "The stone's ordinary. I crushed one shard, dissolved one and left one in the dark for a week. The one in the dark's the warmest.\n\nNothing's heating that glass from outside. Something inside the glass makes its own heat, and I don't know what.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1687,7 +1687,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 46,
       "level_max": 46,
-      "description": "You can see the Glasswall from the camp at the right hour, and the camp has opinions.",
+      "description": "Kill the Glasswall Elementals coming up the slope from the Glasswall, then ask Marda what the camp thinks of it.",
       "objectives": [
         {
           "type": "dialogue",
@@ -1704,8 +1704,8 @@
       ],
       "reward_exp": 3320,
       "reward_gold": 13200,
-      "accept_text": "Twice a year the sun gets the angle right and that face throws the whole afternoon back at us, and for about forty minutes this camp is the brightest place in Tanaris.\n\nTobbit says it is a hazard. Hask says it is beautiful. I say it is the only thing out here that does anything on a schedule and I will not have it spoken of badly.",
-      "turn_in_text": "There. Now I can stand and watch it without something coming up the rise at me, which is all I have ever wanted out of that wall.",
+      "accept_text": "Twice a year the sun hits the Glasswall at the right angle and it throws the light back at the camp. For forty minutes we're the brightest place in Tanaris. Tobbit says it's a hazard and Hask says it's beautiful.\n\nI like to stand on the rise and watch it, and lately Glasswall Elementals have been coming up the slope at me from the pit, south of here. Kill them. Then ask me about the glass, and you'll hear what the rest of the camp thinks.",
+      "turn_in_text": "Good. Now I can watch it without keeping one eye on the slope.\n\nIt's the only thing out here that keeps a schedule, and I look forward to it.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1768,7 +1768,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 47,
       "level_max": 47,
-      "description": "Put the Glasswall in the book properly, with the thing nobody wants to write.",
+      "description": "Kill Glasswall Elementals at the Glasswall, bring Peska their fused shards, and ask her how she'll write the place up.",
       "objectives": [
         {
           "type": "fetch",
@@ -1790,8 +1790,8 @@
       ],
       "reward_exp": 3400,
       "reward_gold": 13500,
-      "accept_text": "I have to write up that face and I have been putting it off for seven months, because the honest entry is 'cause unknown' and I have never written that in a book with my name on it.\n\nGet me enough of it that 'cause unknown' comes with six samples and a date, which is the difference between an admission and a finding.",
-      "turn_in_text": "'Cause unknown. Sixty feet, south-facing, post-collapse, six samples, no local heat source identified.'\n\nThere. It is in. I feel worse than I expected and better than I deserve.",
+      "accept_text": "I've got to write up the Glasswall and I've put it off for seven months. I don't know what melted it, so the entry has to say 'cause unknown'. I've never written that under my name.\n\nIf I must write it, I want samples and a date beside it. Kill the Glasswall Elementals at the pit, south of camp, and bring me their fused shards. Ask me about the glass after, and I'll tell you how the entry's going to read.",
+      "turn_in_text": "Here's the entry. 'Cause unknown. Sixty feet, south face, melted after the collapse, samples taken, no heat source found.'\n\nIt's in the book now. I hate it, but it's true, and the samples make it a finding.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1852,7 +1852,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 46,
       "level_max": 46,
-      "description": "The easternmost pit has light coming up out of it.",
+      "description": "Stand on the rim of Underlight, in the far southeast, and kill the Deepwater Horrors climbing out of it.",
       "objectives": [
         {
           "type": "explore",
@@ -1871,8 +1871,8 @@
       ],
       "reward_exp": 3320,
       "reward_gold": 13200,
-      "accept_text": "East pit. Underlight, which is what the camp calls it and what Peska has grudgingly started calling it in the book.\n\nThere is light coming UP out of that hole. Not much - you cannot see it at noon - but stand on the rim after dark and you can read by it, and light does not come up out of the ground.\n\nGo and stand on it. Everybody has to once.",
-      "turn_in_text": "Everybody who looks in wants to go in. That is the part nobody says out loud and it is true of every single person in this camp including me.\n\nThat light was not there before the change. Nothing here was.",
+      "accept_text": "The pit in the far southeast corner is called Underlight. There's light coming up out of it. You can't see it at noon, but after dark you can read by it on the rim.\n\nGo down the east side of the Sands and stand on that rim. Everybody in camp has done it once. Deepwater Horrors climb out of that pit, so kill the ones you find before you turn your back on the edge.",
+      "turn_in_text": "Everybody who looks into Underlight wants to climb down. Nobody in camp says so, and I felt it too.\n\nThat light wasn't there before the change. I asked the old caravan hands and none of them ever saw it.",
       "next_quest_id": "ab_lit_from_below",
       "unique_item_defs": [
         {
@@ -1935,7 +1935,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 46,
       "level_max": 47,
-      "description": "Work out what is making the light, which means getting close to it.",
+      "description": "Kill the Glasswall Elementals and Hollowing Oozes on the rim of Underlight, and bring Hask wet scales from the Deepwater Horrors there.",
       "objectives": [
         {
           "type": "kill",
@@ -1957,8 +1957,8 @@
       ],
       "reward_exp": 3400,
       "reward_gold": 13500,
-      "accept_text": "It is not fire. Fire flickers and that does not. It is not the glass - wrong colour and wrong place.\n\nWhat it IS doing is getting slightly brighter every season, which I have measured, and I would like a sample of everything living within forty feet of it before I say anything about that in front of Peska.",
-      "turn_in_text": "Every single thing within forty feet of that pit is wet, and the further east you go the wetter they get.\n\nEast. Everything about this zone points east and the camp is pitched in the northeast corner and I do not think that was an accident on Peska's part, whatever she says.",
+      "accept_text": "The light in Underlight doesn't flicker, so it's no fire. It's the wrong colour for the Glasswall's glass. I've measured it getting a little brighter every season.\n\nBefore I tell Peska that, I want samples of what lives next to it. Go to Underlight, in the far southeast corner. Kill the Glasswall Elementals and Hollowing Oozes on the rim, and bring me wet scales off the Deepwater Horrors there.",
+      "turn_in_text": "Everything you brought back from that rim is wet. The samples I've had from further west were drier.\n\nSo the water's closer to the surface on the east side. Peska pitched this camp in the northeast corner, and I'm starting to think she'd guessed that.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -2021,7 +2021,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 47,
       "level_max": 47,
-      "description": "Both bottomless pits are on the east side, and east is where the ground is worst.",
+      "description": "Walk the rims of the Throats and then Underlight in one trip, and kill the Deepwater Horrors at both.",
       "objectives": [
         {
           "type": "explore",
@@ -2048,8 +2048,8 @@
       ],
       "reward_exp": 3400,
       "reward_gold": 13500,
-      "accept_text": "Nine have floors. Two do not. Both of the two are east.\n\nI have been down both to the end of my line and the line is a hundred and twenty feet and it does not reach anything.\n\nWalk both rims for me in one day, in order, and tell me whether you come back thinking what I think.",
-      "turn_in_text": "They are the same hole. That is what I think and I have thought it for a year and there is no way to prove it from up here.\n\nSomething runs between them. Under us. East.",
+      "accept_text": "Nine pits have floors and two don't. The Throats are in the southwest and Underlight's in the southeast, with the whole field between them. I've let out all hundred and twenty feet of my line in both and touched nothing.\n\nWalk both rims in one trip, the Throats first and then Underlight. Deepwater Horrors come out of both, so kill them as you go. Tell me if the two pits look alike to you.",
+      "turn_in_text": "I think they're one hole. The same animals come out of both, and they come out wet, with a whole field of pits between them.\n\nI think there's water running under all of it, from the Throats to Underlight and on to the east. I can't prove that from up here.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -2111,7 +2111,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 47,
       "level_max": 47,
-      "description": "Put it together: the brine, the wet scale, the light, the two with no floor.",
+      "description": "Bring Peska wet scales from the Deepwater Horrors at Underlight, kill Saltbone Revenants on the way, then ask her what points east.",
       "objectives": [
         {
           "type": "dialogue",
@@ -2133,8 +2133,8 @@
       ],
       "reward_exp": 3400,
       "reward_gold": 13500,
-      "accept_text": "Sepp has brine. Hask has four shrike crops with water animals in them. Vizzi has a hundred and twenty feet of line that does not reach anything, twice, both on the east side. And there is light coming up out of the ground.\n\nI am a surveyor. I do not get to say what that MEANS. I do get to say that every single one of those points the same direction, and I want one more set of readings before I write the sentence.",
-      "turn_in_text": "East. All of it, east, toward the big hole with the water in it that the goblins are sitting on - a hole that was not there before the change either, like everything else I have had to measure.\n\nSomebody over there needs to see my book and I am four years too busy to carry it.",
+      "accept_text": "Sepp's found brine in the revenants. Hask's found water animals in shrike crops. Vizzi can't reach the bottom of two pits, and one of them has light coming out of it.\n\nI'm a surveyor, so I won't guess at a cause. I'll say it all runs toward the east, and I want one more set of samples before I write that. Bring me wet scales from the Deepwater Horrors at Underlight, in the southeast corner, and kill the Saltbone Revenants you meet on the way down. Then ask me what points east.",
+      "turn_in_text": "It all points east, toward the Glittervein. That's the big pit with water in it, where the goblins have their camp. It wasn't there before the change either.\n\nSomebody over there should see my book. I can't leave the readings long enough to carry it.",
       "next_quest_id": "ab_carry_the_book",
       "unique_item_defs": [
         {
@@ -2200,7 +2200,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 44,
       "level_max": 44,
-      "description": "Everything this camp owns has to fit on four carts and be gone in a day.",
+      "description": "Kill the Cartfall Scavengers at Cartfall and bring Tobbit back the camp's stolen brass.",
       "objectives": [
         {
           "type": "kill",
@@ -2216,8 +2216,8 @@
       ],
       "reward_exp": 3160,
       "reward_gold": 12600,
-      "accept_text": "Four carts. That is the rule and I did not make it, and we have struck camp in a day twice and both times I was glad about the rule and nobody else was.\n\nThe scavengers have been at the spare fittings. Brass, mostly, which they can sell and I cannot replace. Get it back.",
-      "turn_in_text": "That is a cart's worth of brass. I know exactly what that is worth because I know exactly what everything here is worth, which is the entire job.\n\nPrices have been mad since the day the ground changed, and brass has been the maddest of them.",
+      "accept_text": "Everything this camp owns has to fit on four carts, so we can pack up and leave in a day. We've done it twice. I didn't make the rule, but I was glad of it both times.\n\nCartfall Scavengers have been stealing our spare brass fittings, and I can't replace brass out here. They take it back to Cartfall, west of camp. Kill them and bring the brass home.",
+      "turn_in_text": "That's most of a cart's fittings. I can tell you what it's worth to the copper.\n\nPrices have been wild since the ground changed three years ago, and brass has been the worst.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -2284,7 +2284,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 44,
       "level_max": 45,
-      "description": "There is food out here. It is a short list and she knows all of it now.",
+      "description": "Hunt Pitfall Kodo and Pit Shrikes around Cartfall for Marda's larder.",
       "objectives": [
         {
           "type": "kill",
@@ -2301,8 +2301,8 @@
       ],
       "reward_exp": 3240,
       "reward_gold": 12900,
-      "accept_text": "A desert has a pantry. It is short and most of it is unpleasant and after four camps I know all of it.\n\nKodo is the bulk of it. Shrike, if you are quick and you do not mind the work. Go and get me enough for a fortnight and I will cook you something you will be rude about and finish.",
-      "turn_in_text": "There. You were rude about it and you finished it.\n\nSome of what I cook with came through with everybody else, you know. There are things growing in Tanaris now that have no business in a desert and they go in the pot like anything else.\n\nFour camps. The food has got better every time and nobody expected that, including me.",
+      "accept_text": "A desert doesn't offer much to eat, and I've learned what there is over four camps. Most of our meat is Pitfall Kodo. Pit Shrike's good too, if you don't mind the plucking.\n\nYou'll find both around Cartfall, west of here. The camp's larder is nearly empty, so kill some of each and I'll butcher them. I'll cook you a plate for it.",
+      "turn_in_text": "You complained about it and you cleaned the plate. Most people do.\n\nSome of what goes in my pot came through three years ago, with everything else. There are plants in Tanaris now that shouldn't grow in a desert, and they stew well.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -2367,7 +2367,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 45,
       "level_max": 45,
-      "description": "Survey stakes need iron and the crawlers keep eating it.",
+      "description": "Kill Limestone Crawlers at the Wide Sink and bring Gorra their shell-plates to line the survey pegs.",
       "objectives": [
         {
           "type": "fetch",
@@ -2383,8 +2383,8 @@
       ],
       "reward_exp": 3240,
       "reward_gold": 12900,
-      "accept_text": "I shod kodo for nine years and now I make peg irons, which is a sentence I try not to say out loud too often.\n\nThe crawlers go for them. Something in the iron, or something in the heat of it - Sepp has a theory and I have stopped listening. Bring me plate and I will line the next batch with it, and we will find out whether a crawler will chew through its own cousin.",
-      "turn_in_text": "It will not. Six weeks and not a mark on them.\n\nI have lined survey stakes with the shells of the things that eat survey stakes. I would like somebody to write that down somewhere it will be found.",
+      "accept_text": "I shod kodo for nine years. Now I make iron tips for survey pegs. Limestone Crawlers chew those irons off the stakes, and nobody's told me why.\n\nI want to line the next batch with crawler shell and see if they'll leave it alone. Kill the crawlers at the Wide Sink, southwest of camp, and bring me their plates.",
+      "turn_in_text": "These'll do. I tried it with a scrap of shell last month and the crawlers left that peg alone, so now I can line the whole batch.\n\nThe survey's stakes are going to be armoured with the animal that eats them. I'd like Peska to write that in her book.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -2445,7 +2445,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 46,
       "level_max": 47,
-      "description": "He came out on a three-month contract two years and two camps ago.",
+      "description": "Kill the Saltbone Revenants and Sinkhole Lurkers along the Long Collapse, then ask Sepp why he stayed.",
       "objectives": [
         {
           "type": "dialogue",
@@ -2468,8 +2468,8 @@
       ],
       "reward_exp": 3400,
       "reward_gold": 13500,
-      "accept_text": "I came out with the second camp on a three-month contract.\n\nThat was two years and two camps ago and nobody has ever mentioned the contract again, including me.\n\nI am not complaining and I would like that understood before I ask you for anything. Go south and make the run to the Throats survivable for a woman carrying glass, and I will tell you why I stayed.",
-      "turn_in_text": "Because somebody has to be the one who is still here when the answer turns up.\n\nThat is it. That is the whole reason and it took me eight months to work it out and about four seconds to say.",
+      "accept_text": "I came out with the second camp on a three-month contract. That was two years and two camps ago. Nobody's brought the contract up since, and I haven't either.\n\nVizzi carries my glass sample jars down to the Throats, in the southwest, and her path runs along the Long Collapse. Saltbone Revenants and Sinkhole Lurkers hunt that path. Kill them so she can make the trip. Then ask me why I stayed, and I'll tell you.",
+      "turn_in_text": "I stayed because I want to be here when somebody finds out what's draining this desert. Peska might get recalled, and Hask will follow the work.\n\nIt took me eight months to work that out. Thanks for clearing the path.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -2524,12 +2524,12 @@
     },
     {
       "quest_id": "ab_carry_the_book",
-      "title": "Four Years of Dates",
+      "title": "Three Years of Dates",
       "giver_npc_id": "ab_surveyor",
       "zone": "the_abyssal_sands",
       "level_min": 47,
       "level_max": 47,
-      "description": "Her collapse log, east, to somebody who has been waiting four years for it.",
+      "description": "Carry Peska Vane's collapse log to Ulla Stormhollow, the surveyor at Lastwater in the Glittervein.",
       "objectives": [
         {
           "type": "deliver",
@@ -2546,8 +2546,8 @@
       ],
       "reward_exp": 3400,
       "reward_gold": 13500,
-      "accept_text": "Through the east gate, down into the hole with the water in it. There is a camp at the bottom and there is a tauren in it doing the same job I am doing from the other end.\n\nI have every collapse date since this began and no theory at all. I am told she has four years of theory and has never once had a set of dates from inside a collapse field.\n\nNeither of us knew the other existed. That is not a charming coincidence, it is a disgrace, and it is the ordinary condition of everybody who has worked on this since the sky changed.",
-      "turn_in_text": "[Ulla Stormhollow reads the first twenty pages standing up, then sits down on a crate and reads the rest without saying anything.]\n\nShe has dates.\n\nFour years I have had a shape with no numbers in it, and there is a goblin four days northwest who has been writing the numbers down the entire time and thought she was doing something else.\n\nTell her - no. I will write. Some things should not be carried by somebody else.",
+      "accept_text": "Go out by the east gate and down into the Glittervein. There's a camp at the bottom called Lastwater, and a tauren surveyor there named Ulla Stormhollow. She's been studying where the water went.\n\nI've got the date of every collapse since the first one, three years ago, and no idea what causes them. I'm told she has a cause and no dates. Take her my log. Ask me why I'm not going myself, if you want to know.",
+      "turn_in_text": "Give me a moment to read this.\n\nShe's got dates. Every collapse, to the day, for three years. I've known what was happening all that time, and I've never had numbers to check it against.\n\nThere's been a goblin four days northwest of me writing them down, and neither of us knew about the other. I'll write her a reply myself.",
       "next_quest_id": "ab_the_answer_comes_back",
       "unique_item_defs": [
         {
@@ -2621,7 +2621,7 @@
       "zone": "the_abyssal_sands",
       "level_min": 47,
       "level_max": 47,
-      "description": "Carry the reply west, and the Sands finally get told what happened to them.",
+      "description": "Carry Ulla's reply back to Chief Surveyor Vane at Fourth Peg, in the Abyssal Sands.",
       "objectives": [
         {
           "type": "deliver",
@@ -2638,8 +2638,8 @@
       ],
       "reward_exp": 3400,
       "reward_gold": 13500,
-      "accept_text": "I have written it out. It is four pages and the first three are arithmetic she will be able to check herself, which is the only kind of letter worth sending to somebody like her.\n\nThe fourth page is what it means, and she is not going to like it, because it means her field is going to keep opening until somebody stops the thing that is doing it.",
-      "turn_in_text": "[Peska reads it twice. Then she goes and stands by the peg for a while.]\n\nIt is not the ground.\n\nTwo years. Two years of me reading the hardpan and Hask listening to it and both of us trying to work out what was wrong with the ROCK, and the rock is fine. The rock has done nothing. The rock has been holding up exactly as well as rock does when there is water under it.\n\nI am going to have to tell the camp. And then I am going to have to write to the port and tell them the answer to 'is a road possible' is 'ask whoever is at the bottom of that hole'.",
+      "accept_text": "I've written her four pages. The first three are sums she can check herself, because she won't trust the rest otherwise.\n\nThe fourth page says what's causing it, and she won't like it. Her pits will keep opening until somebody stops what's taking the water. Carry it back to Peska Vane at Fourth Peg, in the northeast corner of the Abyssal Sands. Ask me what's in it first, so you can answer her questions.",
+      "turn_in_text": "I've read it twice. Give me a minute.\n\nThere's nothing wrong with the ground. Hask and I spent two years trying to find the fault in the rock, and the rock's sound. It was sitting on water, and the water's been draining out from under it since the change.\n\nI've got to tell the camp. Then I've got to write to the port and tell them their road depends on whatever's at the bottom of the Glittervein.",
       "next_quest_id": null,
       "unique_item_defs": [
         {

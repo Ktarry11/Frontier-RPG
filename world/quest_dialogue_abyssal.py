@@ -7,17 +7,14 @@ EVERY TOPIC A QUEST NAMES MUST BE IN HERE. QuestObjective.topics is only the com
 the dialogue screen renders a button per AUTHORED topic, so a topic named in an objective and
 missing here is a quest that cannot be finished and does not look broken.
 
-FOURTH PEG IS NOT STUCK, WHICH IS THE WHOLE TONAL DIFFERENCE from Lastwater. Ten people on a rock
-in the Glittervein are deadlocked against each other; eight people in tents here could strike camp
-and be gone in a day, and have, three times. Their argument is with the GROUND, and none of them
-expects to win it. So these conversations are dry, specific and unromantic - the voice of people
-who ran out of ways to make a sinkhole sound like an event about three years ago.
+THE VOICE (Kyle, 13 Nov 2026: "Don't use weird AI tics"). Eight working people in tents, talking
+the way people talk: contractions, the place and the animal named, a reason given, and no line
+written to sound clever. Rewritten on 13 Nov with tools/rewrite_abyssal_voice.py, which holds the
+quest text these go with.
 
-Two topics carry the thread:
-
-  ab_the_answer  Peska saying the sentence no surveyor is ever paid to say.
-  ab_the_east    What it costs her to admit that the answer to her question is four days away and
-                 belongs to somebody else.
+THE FACTS THESE AGREE ON. The pits began with the Integration, three years ago. The camp has been
+out two years. The Throats are in the southwest, Underlight in the southeast, and the water under
+the field drains east toward the Glittervein.
 """
 
 QUEST_TOPICS = {
@@ -26,45 +23,39 @@ QUEST_TOPICS = {
         "ab_the_pegs": {
             "label": "Ask why the camp is called Fourth Peg.",
             "response": (
-                "Because it is pitched round the fourth stake, and the first three are all in "
-                "holes.\n\nFirst Peg went in with the ground under it in the second season. "
-                "Nobody was standing on it, which is the only reason that sentence is dull.\n\n"
-                "Second Peg is sitting on the lip of the Wide Sink being perfectly accurate about "
-                "a place that is no longer there. I have not had it moved. I have thought about "
-                "why I have not had it moved and I do not have a good answer.\n\nThird Peg we "
-                "moved ourselves, because Hask did not like the hardpan. Four days later he was "
-                "right. That is the only one we are proud of and he still cannot tell me how he "
-                "knew in a way I can write in a book.\n\nFourth Peg has held seven months. We do "
-                "not say that out loud much."),
+                "The camp's pitched round the fourth survey peg. The first three are gone or "
+                "useless.\n\nFirst Peg fell in with the ground under it in our second season. "
+                "Nobody was standing there.\n\nSecond Peg's still on the lip of the Wide Sink, "
+                "marking ground that fell away. I haven't had it moved and I couldn't tell you "
+                "why.\n\nWe moved Third Peg ourselves, because Hask didn't like the sound of the "
+                "hardpan. That spot fell in four days later. He still can't explain how he knew "
+                "in words I can put in the book.\n\nFourth Peg's held seven months. We try not to "
+                "say that too loudly."),
         },
         "ab_the_job": {
-            "label": "Ask what the camp is actually for.",
+            "label": "Ask what the camp is for.",
             "response": (
-                "The port wants a road south. Rullo Tack out in Steamwheedle has wanted one for "
-                "three years and he will tell you at length that there is nothing coming back the "
-                "other way worth the axle, which is true and is also not why there is no road."
-                "\n\nThere is no road because the ground keeps going.\n\nSo they funded a survey, "
-                "and the survey they think they funded is 'find me a line'. The survey I am "
-                "actually running is 'find out whether a line is possible'. Those produce "
-                "different books and only one of them has ever been paid for.\n\nI took the "
-                "contract knowing that. I will take the consequences knowing it too."),
+                "The port wants a road south. Rullo Tack at Steamwheedle has wanted one for three "
+                "years. He'll tell you there's no trade down there worth an axle, and he's right "
+                "about that. The trade was never what stopped it, though. The ground keeps "
+                "falling in.\n\nSo the port paid for a survey, and they think they're paying me "
+                "to find a route. I'm finding out if any route can last, and they haven't asked "
+                "for that.\n\nI knew that when I signed. If they don't like the answer, I'll live "
+                "with it."),
         },
     },
     "ab_is_it_possible": {
         "ab_the_answer": {
-            "label": "Ask Peska for the sentence.",
+            "label": "Ask Peska for her answer.",
             "response": (
-                "A road is possible.\n\nA road is not possible on a twenty-year bond, which is "
-                "the only kind anybody will finance, because this field is still opening. Four of "
-                "my eleven holes are still moving - the Wide Sink took eleven inches in four days "
-                "last week and it is four years old and everybody thinks of it as finished.\n\n"
-                "So the honest answer to 'can you build a road across the Abyssal Sands' is: ask "
-                "me again in ten years.\n\nNobody has ever paid a surveyor to say that. I expect "
-                "it will cost me the contract and I have had two years to make my peace with it, "
-                "and the thing that actually bothers me is much smaller than that.\n\nI do not "
-                "know WHY. I can tell you that the ground is going. I cannot tell you what is "
-                "taking it, and a surveyor who cannot say why is a surveyor with a very good book "
-                "and no finding."),
+                "A road can be built across the Abyssal Sands. Nobody will lend money for it."
+                "\n\nLenders want twenty years of safe ground. Four of my eleven pits are still "
+                "moving. The Wide Sink is three years old and its rim moved eleven inches in four "
+                "days last week.\n\nSo my answer to the port is to ask me again in ten years. I "
+                "expect to lose the contract over it, and I've had two years to get used to that."
+                "\n\nWhat bothers me more is that I don't know why it's happening. I can show you "
+                "the ground's going. I can't tell you what's taking it, and a survey that can't "
+                "say why is only half finished."),
         },
     },
 
@@ -73,18 +64,16 @@ QUEST_TOPICS = {
         "ab_nineteen_mile": {
             "label": "Let Odd tell it.",
             "response": (
-                "It was an ordinary afternoon. I want to start there because everybody expects a "
-                "sign and there was not one.\n\nNineteen miles out of Gadgetzan on the old south "
-                "road, four carts, me on the second box. Good ground. Road ground - packed by "
-                "twenty years of traffic, the best ground there is.\n\nThere was a noise like a "
-                "door closing somewhere else. Then the front of the road was not there, and the "
-                "lead pair were six lengths ahead of me and they went into it, and the cart "
-                "followed them, and I came off the back of it.\n\nThe ground I landed on held. "
-                "That is it. That is the entire difference between me and four other people and "
-                "it is nothing I did.\n\nThe part nobody asks about is that I could hear the lead "
-                "pair for about a day and a half.\n\nSo when the camp talks about the ground like "
-                "it is weather - and they do, and they are right to, you cannot do this work "
-                "otherwise - I let them. And I go and stand somewhere else for a bit."),
+                "It was an ordinary afternoon. People expect me to say there was a warning, and "
+                "there wasn't.\n\nWe were nineteen miles out of Gadgetzan on the old south road, "
+                "four carts, and I was driving the second. The road was good. Twenty years of "
+                "traffic had packed it hard.\n\nI heard a noise like a door shutting a long way "
+                "off. Then the road in front of us was gone. The lead pair went in, the cart went "
+                "after them, and I fell off the back.\n\nThe ground I landed on held. Four other "
+                "people landed on ground that didn't, and that's all that separates us.\n\nI "
+                "could hear the lead pair down there for a day and a half. Nobody asks about that "
+                "part.\n\nThe camp talks about the ground the way you'd talk about weather. They "
+                "have to, to do this work. When they start, I go for a walk."),
         },
     },
 
@@ -93,25 +82,22 @@ QUEST_TOPICS = {
         "ab_the_rope": {
             "label": "Ask Vizzi about going down on a line.",
             "response": (
-                "A hundred and twenty feet of line, a harness Gorra made out of kodo tack, and "
-                "two people on the top who have to actually be paying attention.\n\nThat last "
-                "part is the job. Everybody thinks the dangerous end is the bottom. The dangerous "
-                "end is whether Hask is still holding the line in four minutes or whether "
-                "something has come up the rise at him.\n\nI go down about forty feet. Far enough "
-                "to see whether there is a floor and whether the floor is going anywhere, which "
-                "is all Peska has ever asked for and more than anybody else has ever offered."),
+                "I've got a hundred and twenty feet of line and a harness Gorra made from kodo "
+                "tack. Two people hold the top, and they have to keep their minds on it.\n\n"
+                "People think the bottom's the dangerous end. I worry more about the top. If "
+                "something comes up the rise at Hask, he has to choose between the rope and his "
+                "own neck.\n\nI go down about forty feet. From there I can see if there's a floor "
+                "and if it's sound. Peska's never asked for more than that."),
         },
         "ab_no_bottom": {
             "label": "Ask about the two without floors.",
             "response": (
-                "A hundred and twenty feet of line and it does not reach anything. Twice. Both on "
-                "the east side.\n\nPeska logs that as 'no bottom observed', and she is being "
-                "careful and she is right to be - I did not observe a bottom, that is all I can "
-                "honestly say.\n\nI would log it differently. I would log it as 'do not'.\n\nWe "
-                "have agreed to disagree about which of those is the job. She thinks a survey "
-                "records. I think a survey is read by somebody who then walks out there, and what "
-                "they need is a sentence that stops them.\n\nWe are both right and I am going to "
-                "keep losing because it is her book."),
+                "I've let out the whole line in two pits and it's touched nothing. That's the "
+                "Throats in the southwest and Underlight in the southeast.\n\nPeska writes that "
+                "up as 'no bottom observed'. She's being careful, and it's true. I didn't see a "
+                "bottom.\n\nI'd write 'don't go down'. She thinks a survey's there to record "
+                "things. I think somebody's going to read it and then walk out to those pits, and "
+                "they need a warning.\n\nIt's her book, so her wording stays."),
         },
     },
 
@@ -120,30 +106,26 @@ QUEST_TOPICS = {
         "ab_the_glass": {
             "label": "Ask the camp about the Glasswall.",
             "response": (
-                "[Marda, and then most of the camp, at length.]\n\nTwice a year the sun gets the "
-                "angle right and that face throws the whole afternoon back at us. Forty minutes, "
-                "and for forty minutes this is the brightest place in Tanaris.\n\nTobbit calls it "
-                "a hazard and has written a memorandum about it, which nobody has read, including "
-                "Tobbit.\n\nHask calls it beautiful and will stand out in it until somebody makes "
-                "him come in.\n\nOdd will not look at it. He has never said why and nobody has "
-                "ever asked.\n\nI say it is the only thing out here that does anything on a "
-                "schedule, and in a place where the ground itself cannot be relied on to stay "
-                "where you left it, that is worth more than any of them think it is."),
+                "Twice a year the sun hits that face at the right angle and throws the afternoon "
+                "back at us. It lasts forty minutes, and for that long this is the brightest "
+                "place in Tanaris.\n\nTobbit calls it a hazard. He wrote a memo about it that "
+                "nobody's read, and I doubt he's read it himself.\n\nHask thinks it's beautiful "
+                "and stands out in it until somebody fetches him.\n\nOdd won't look at it. He's "
+                "never said why and we've never asked.\n\nI like it because it comes on time. "
+                "Nothing else out here does, and the ground won't even stay where you left it."),
         },
     },
     "ab_nothing_is_hot_enough": {
         "ab_the_glass": {
             "label": "Ask Peska how she is going to write up the Glasswall.",
             "response": (
-                "Badly. I am going to write it up badly, and carefully, and it will be the worst "
-                "entry in the book.\n\nSand goes to glass at about three thousand degrees. There "
-                "is no volcanic rock within a hundred miles. Lightning does not do sixty feet in "
-                "a straight line. And the face is unweathered, which means it happened after the "
-                "hole opened, not before - so whatever did it was standing in a four-year-old "
-                "sinkhole in the Abyssal Sands doing something at three thousand degrees.\n\nThe "
-                "entry is going to read 'cause unknown'.\n\nI have never written that in a book "
-                "with my name on it. Six samples and a date makes it a finding instead of an "
-                "admission, which is the only comfort available and it is a thin one."),
+                "It'll be the worst entry in the book, and I'll write it carefully anyway.\n\n"
+                "Sand only melts in a furnace's heat. There's no volcanic rock within a hundred "
+                "miles, and lightning doesn't melt sixty feet in a straight line. The face hasn't "
+                "weathered, so it melted after the pit opened three years ago.\n\nSomething stood "
+                "in that pit and made a furnace's heat, and I don't know what. The entry will say "
+                "'cause unknown'.\n\nI've never written that under my name. With samples and a "
+                "date it counts as a finding, so I'll have those."),
         },
     },
 
@@ -152,51 +134,42 @@ QUEST_TOPICS = {
         "ab_the_east": {
             "label": "Have Peska list what points east.",
             "response": (
-                "All of it. That is the problem.\n\nSepp's revenants are brine-cured and the "
-                "nearest brine is the pan, four days northwest, and everybody on the pan will "
-                "tell you the water goes under and goes EAST.\n\nHask has four shrike crops with "
-                "water animals in them, in a desert with no standing water.\n\nVizzi has a "
-                "hundred and twenty feet of line that does not reach anything, twice, both east.\n\n"
-                "My two biggest holes are east and they are the two that are still moving.\n\nAnd "
-                "there is light coming up out of the ground on the eastern boundary, getting "
-                "brighter by about a measurable amount every season.\n\nI am a surveyor. I do not "
-                "get to say what that MEANS. I do get to say that six independent lines of "
-                "evidence point the same direction, and that the direction has a very large hole "
-                "with water in it at the end of it, and that the goblins sitting on that hole "
-                "have been there for two years."),
+                "Everything I've got points east.\n\nSepp's revenants are cured in brine. The "
+                "nearest brine is the Shimmering Flats, four days northwest, and the people there "
+                "say their water went underground and headed east.\n\nHask found water animals in "
+                "shrike crops, in a desert with no standing water.\n\nVizzi can't find the bottom "
+                "of the Throats or of Underlight, and what climbs out of both is wet.\n\n"
+                "Underlight's on our eastern edge, and the light in it gets a little brighter "
+                "every season.\n\nI'm a surveyor, so I won't say what's causing it. I'll say "
+                "those are separate findings and they all lead toward the Glittervein, east of "
+                "here. It's a very large pit with water in it, and the goblins have had a camp at "
+                "the bottom for two years."),
         },
     },
     "ab_carry_the_book": {
         "ab_the_east": {
             "label": "Ask why she will not carry the book herself.",
             "response": (
-                "Because I am two years into a survey and if I walk away from Fourth Peg for a "
-                "fortnight the readings have a fortnight-shaped hole in them, and a column with a "
-                "hole in it is worth considerably less than half a column.\n\nThat is the "
-                "professional answer and it is true.\n\nThe other answer is that I have spent two "
-                "years being the person who does not know why, and she is the person who does, "
-                "and I would like somebody else to be in the room when I find out whether she is "
-                "better at this than me.\n\nI am aware of how that sounds. I am forty-one years "
-                "old and I would still rather hear it secondhand.\n\nTake her the book. It is "
-                "good work. Whatever else happens, the dates are good work."),
+                "If I leave Fourth Peg for a fortnight, there'll be a fortnight missing from the "
+                "readings. A record with a gap is worth a lot less.\n\nThat's the reason "
+                "I'd give the port, and it's true.\n\nI've also spent two years not knowing why "
+                "this is happening, and she knows. I'd like to find out if she's better at this than me, and I'd sooner not be in the room for it.\n\nI know how that sounds. I'm forty-one "
+                "and I'd still sooner hear it secondhand.\n\nTake her the book. The dates in it "
+                "are good work, whatever she makes of them."),
         },
     },
     "ab_the_answer_comes_back": {
         "ab_the_reply": {
             "label": "Ask Ulla what she put in the reply.",
             "response": (
-                "Three pages of arithmetic she can check herself, and that is deliberate - the "
-                "only letter worth sending to somebody like her is one she can take apart.\n\nThe "
-                "fourth page is what it means, and she is not going to like it.\n\nHer ground is "
-                "not failing. There is nothing wrong with her rock. Limestone floats on water and "
-                "it has been doing that competently for ten thousand years, and the only thing "
-                "that has changed is that the water left.\n\nSo every reading she has taken for "
-                "two years is correct and every conclusion anybody has drawn from it is about the "
-                "wrong thing. Her field will keep opening - not because of anything in the "
-                "ground, but because something four days east of her is still drinking.\n\nI have "
-                "put that as kindly as I know how, which is not very. She is a professional. She "
-                "would rather have it straight and I would rather give it to her that way than "
-                "have her find out from the ground."),
+                "The first three pages are sums. I did that on purpose. She'll want to check my "
+                "working before she believes a word.\n\nThe fourth page says what it means, and "
+                "she won't like it.\n\nThere's nothing wrong with her rock. That limestone sat on "
+                "water for ten thousand years and held. The water's gone now, so the rock's "
+                "falling in.\n\nEvery reading she's taken is right. She's been looking for the "
+                "cause in the ground, and the cause is four days east of her and still drinking. "
+                "Her pits will keep opening until it stops.\n\nI've put it as kindly as I can, "
+                "and I'm no good at kind. She'd want it told straight anyway."),
         },
     },
 
@@ -205,17 +178,13 @@ QUEST_TOPICS = {
         "ab_the_contract": {
             "label": "Ask Sepp why he stayed.",
             "response": (
-                "Three months. It was a three-month contract and that was two years and two camps "
-                "ago, and nobody has ever mentioned it again including me.\n\nI could have gone. "
-                "I want that understood - there was no moment where I was trapped out here. Four "
-                "carts, a week's walk, and I would have been back in the port with a story.\n\nIt "
-                "took me about eight months to work out why I did not, and about four seconds to "
-                "say once I had.\n\nSomebody has to be the one who is still here when the answer "
-                "turns up.\n\nThat is it. Peska will not be - she will have been reassigned or "
-                "sacked. Hask will follow the work. Vizzi will go down one hole too many. Somebody "
-                "has to still be standing at this peg on the day it makes sense, and I have "
-                "decided that is my job, and it is the only decision I have ever made that I have "
-                "not revisited once."),
+                "It was a three-month contract. That was two years and two camps ago, and "
+                "nobody's brought it up since.\n\nI could've left any time. It's a week's walk to "
+                "the port and I'd have had a good story to tell.\n\nIt took me eight months to "
+                "work out why I didn't. I want to be here when somebody finds out what's draining "
+                "this desert.\n\nPeska might get recalled or sacked before then. Hask will follow "
+                "the work wherever it goes. Vizzi's going to go down one pit too many. I can brew "
+                "anywhere, so I can afford to wait, and I've never regretted staying."),
         },
     },
 }
