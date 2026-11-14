@@ -27,6 +27,8 @@ nothing else.
 Writes: data/npcs/ambient_npcs.json (ids pt_<town>_<pair>), data/npcs/sawmills.json,
 data/training/trainers.json (profession_trainers maps npc_id -> LIST of professions).
 Run from the repo root:   python3 tools/build_profession_trainers.py [--dry-run]
+AFTER RUNNING THIS, run tools/place_trainers_at_trades.py. This script scatters trainers near the inn;
+that one stands each at the building of their trade (the forge, the tannery, the training hall).
 """
 import json
 import os

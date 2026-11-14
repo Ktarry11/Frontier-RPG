@@ -157,7 +157,7 @@ NPC_POSITIONS = {
     # vendors
     "gromgol_trader": (34, 32),               # Trader Burg
     "gromgol_provisioner": (20, 41),          # Provisioner Nakka
-    "gromgol_weaponsmith": (51, 27),          # Weaponsmith Trag
+    "gromgol_weaponsmith": (58, 21),          # Weaponsmith Trag, at the forge (was inside the longhouse)
     "gromgol_herbalist": (12, 32),            # Herbalist Mossa, at the top of the sand
 }
 FORGE = (54, 22)

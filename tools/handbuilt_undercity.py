@@ -392,7 +392,7 @@ NPC_POSITIONS = {
     "uc_hunter_trainer": (60, 168),
     "uc_beastmaster": (68, 179),
     "uc_rogue_trainer": (20, 121),
-    "uc_poison_vendor": (25, 128),
+    "uc_poison_vendor": (23, 135),  # in front of the grand forge, not inside it
     "uc_blacksmith": (24, 136),
     "uc_weaponsmith": (44, 128),
     "uc_drillmaster": (50, 146),

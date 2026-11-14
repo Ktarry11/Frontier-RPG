@@ -178,7 +178,7 @@ NPC_POSITIONS = {
     "bootybay_troll_pilot": (45, 38),          # Pilot Zan'rek, knows the reef
     "bootybay_fishmonger": (47, 46),           # Gurgle, the south pier
     # the lower gallery
-    "bootybay_baron": (38, 40),                # Baron Revilgaz, outside his own door
+    "bootybay_baron": (44, 35),                # Baron Revilgaz, on the gallery above his warehouse
     "bootybay_baron_aide": (29, 44),           # Aide Fipple
     "bootybay_bloodsail_captive": (24, 44),    # a Bloodsail nobody has decided what to do with
 }

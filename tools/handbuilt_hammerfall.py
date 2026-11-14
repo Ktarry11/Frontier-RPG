@@ -167,7 +167,7 @@ NPC_POSITIONS = {
     # the Forsaken quarter, north-west
     "hammerfall_apothecary":       (25, 29),   # Apothecary Dellwyn Voss
     "hammerfall_deathguard":       (31, 35),   # Deathguard Olen, on the lane in
-    "pt_hammerfall_herbs":         (20, 34),   # Apothecary Vashka - herbalism
+    "pt_hammerfall_herbs":         (23, 27),   # Apothecary Vashka - herbalism, at the apothecary door
     # the war yard, west
     "hammerfall_weaponsmith":      (27, 53),   # Weaponsmith Krol Anvilbrand, at the war forge
     "pt_hammerfall_forge":         (21, 58),   # Forge Grokk - blacksmithing

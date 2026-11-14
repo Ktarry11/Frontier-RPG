@@ -130,7 +130,7 @@ NPC_POSITIONS = {
     "taurajo_young_calf": (28, 33),           # Little Rundu
     "taurajo_warband_scout": (38, 9),         # Scout Ashhoof
     "taurajo_orc_liaison": (44, 43),          # Liaison Grukdar
-    "taurajo_healer": (22, 44),               # Earthsong Mara, by the spring
+    "taurajo_healer": (18, 46),               # Earthsong Mara, by the spring, beside the herb hut
     # vendors
     "taurajo_quartermaster": (39, 25),        # Hela Windhoof
     "taurajo_hide_trader": (10, 36),          # Trader Bloodhorn

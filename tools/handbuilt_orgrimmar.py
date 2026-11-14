@@ -236,7 +236,7 @@ NPC_POSITIONS = {
     "orgrimmar_quartermaster": (21, 44),
     "orgrimmar_provisioner": (47, 45),
     "orgrimmar_elixir_trader": (27, 50),
-    "org_scout": (24, 24),
+    "org_scout": (24, 26),  # in front of the hall, not inside its wall
     # ---- Magic Quarter
     "org_mage_trainer": (100, 31),
     "org_enchanter": (86, 32),

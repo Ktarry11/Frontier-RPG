@@ -19,6 +19,8 @@ virtue of it - these are veterans who have taught all of it and are not precious
 Writes: data/npcs/ambient_npcs.json  (npc ids  ct_<town>)   and   data/training/trainers.json
     class_trainers maps npc_id -> "*" (universal) or a class name (older data still works).
 Run from the repo root:   python3 tools/build_class_trainers.py [--dry-run]
+AFTER RUNNING THIS, run tools/place_trainers_at_trades.py. This script scatters trainers near the inn;
+that one stands each at the building of their trade (the forge, the tannery, the training hall).
 """
 import json
 import os
@@ -59,7 +61,7 @@ TOWNS = {
     # the hub of a 28-40 region. Refuge Pointe and Saltspur deliberately get none - a forward camp
     # and a beachhead do not teach, and making the player come back to the hold to train is the
     # thing that makes Hammerfall feel like the middle of the region rather than one more camp.
-    "Arathi Central": ("hammerfall", "hammerfall_innkeeper"),
+    "Hammerfall": ("hammerfall", "hammerfall_innkeeper"),
 }
 
 CLASS_TITLE = {c: c for c in CLASSES}
@@ -81,7 +83,7 @@ NAMES = {
 }
 RACE_FOR_ZONE_FALLBACK = "orc"
 # the zone field existing ambient NPCs use where it differs from the display name
-ZONE_FIELD = {"The Sepulcher": "sepulcher"}
+ZONE_FIELD = {"The Sepulcher": "sepulcher", "Hammerfall": "hammerfall"}
 DRY = "--dry-run" in sys.argv
 
 
