@@ -31,6 +31,7 @@ class GameState(Enum):
     SOCKETING = "socketing"
     ENCHANTING = "enchanting"
     SOUL = "soul"
+    TESTING = "testing"
     TRAVEL = "travel"
     PAUSED = "paused"
     QUIT = "quit"

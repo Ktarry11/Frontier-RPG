@@ -235,6 +235,11 @@ class OverworldScreen(BaseScreen):
                 self._rest("drink")
                 return
 
+            # F10: the Testing menu (ui/screens/testing_screen.py), test only
+            if event.key == pygame.K_F10 and DEBUG_LEVEL_BUTTON:
+                self._open_testing()
+                return
+
             # F5 quicksave. Until now the game saved exactly once, at
             # character creation, and never again - so a recruited party,
             # every level gained and all loot found was lost on exit.
@@ -514,7 +519,7 @@ class OverworldScreen(BaseScreen):
                 self._release_movement_keys()
                 self.teleport_menu_open = True
             elif action == "test_levels":
-                self._debug_level_party(5)
+                self._open_testing()
             return
 
     def _render_tab_column(self, screen):
@@ -562,9 +567,18 @@ class OverworldScreen(BaseScreen):
         if DEBUG_LEVEL_BUTTON:
             y += self.tab_h + self.tab_gap
             test_rect = pygame.Rect(self.tab_column_x, y, self.tab_w, self.tab_h)
-            self.renderer.draw_button(screen, test_rect, "TEST: +5 Levels", color=(90, 60, 130))
+            # the Testing menu (Kyle, 14 Nov 2026): travel, recruits, gold and levels,
+            # professions, materials. +5 levels lives on in its Gold & Levels tab.
+            self.renderer.draw_button(screen, test_rect, "TEST (F10)", color=(90, 60, 130))
             self.tab_rects["test_levels"] = test_rect
     
+    def _open_testing(self):
+        self._release_movement_keys()
+        screen_ = self.state_manager.states.get(GameState.TESTING)
+        if screen_ is not None:
+            screen_.start(return_state=GameState.OVERWORLD)
+            self.state_manager.transition_to(GameState.TESTING)
+
     def _debug_level_party(self, levels=5):
         """TEST ONLY: raise every party member (active + bench) by `levels`, capped at
         MAX_LEVEL, through the real Character.level_up() so stats, ability ranks, talent
