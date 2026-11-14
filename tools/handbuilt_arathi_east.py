@@ -162,6 +162,10 @@ ISLANDS = {
     "The Spindrift": ([(106.0, 138.0, 6.0, 9.0, -25.0),
                        (113.0, 148.0, 5.5, 4.5, 15.0),
                        (99.0, 130.0, 4.0, 3.4, 0.0)], 1.6, 0.4),
+    # A SECRET ISLE (tools/build_secrets.py). The map draws it and its ford as open sea. Underscore,
+    # so it gets no subzone or centre of its own. Don't describe where it is to Kyle.
+    "_secret_isle": ([(151.0, 17.0, 5.5, 4.0, 10.0),
+                      (155.0, 15.0, 3.0, 2.6, 0.0)], 1.0, 2.2),
     # skerries - scenery, no content, no flats to them
     "_skerries": ([(134.0, 40.0, 3.6, 2.6, 20.0),
                    (108.0, 84.0, 3.0, 4.2, 0.0),
@@ -176,6 +180,11 @@ ISLANDS = {
 #: Each one is checked against coast_x(y) and the real lobe edges, not by eye - see the note on FLATS
 #: being the thing that silently strands an island.
 FLATS = [
+    # the secret isle's ford: four narrow flats laid end to end
+    (147.0, 42.0, 1.7, 4.2),
+    (148.0, 35.0, 1.7, 4.2),
+    (149.0, 28.0, 1.7, 4.2),
+    (150.0, 22.5, 1.8, 3.6),
     (101.0, 55.0, 14.0, 6.0),       # the shore to The Wrack
     (130.0, 57.0, 9.0, 5.0),        # Wrack to Gallowmast
     (167.0, 58.0, 10.0, 5.0),       # Gallowmast to the Far Cairn

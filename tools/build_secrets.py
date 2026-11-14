@@ -361,41 +361,38 @@ CREATURE_SELLERS = [
 #: landforms in the zone module (see its ISLANDS and FORDS, keys "secret_*"), baked; this only tells the
 #: map to lie about them and puts a cache on each.  (zone, module, island key, ford key)
 BAKED_ISLANDS = [
-    ("Echo Isles", "tools.handbuilt_echo_isles", "secret_a", "secret_a"),
-    ("Echo Isles", "tools.handbuilt_echo_isles", "secret_b", "secret_b"),
+    # (zone, zone module, island centre and reach (cx, cy, r), ford polyline, ford width)
+    ("Echo Isles", "tools.handbuilt_echo_isles", (23, 14, 9), [(24, 37), (23, 29), (22, 21)], 3.0),
+    ("Echo Isles", "tools.handbuilt_echo_isles", (144, 148, 8), [(140, 119), (141, 130), (142, 141)], 3.0),
+    ("Arathi East", "tools.handbuilt_arathi_east", (152, 16, 10), [(147, 44), (148, 35), (149, 28), (150, 22)], 3.4),
+    ("Durotar", "tools.handbuilt_durotar", (122, 186, 7), [(107, 185), (114, 185.5), (120, 186)], 3.0),
 ]
 
 
-def _baked_island(module, isle_key, ford_key):
+def _baked_island(module, isle, pts, w):
     """(island tiles, ford tiles, centre) from the zone's own landform functions."""
     import importlib
     import numpy as np
     M = importlib.import_module(module)
-    blobs = M.ISLANDS[isle_key]
-    x0 = int(min(cx - rx for cx, cy, rx, ry in blobs)) - 4
-    x1 = int(max(cx + rx for cx, cy, rx, ry in blobs)) + 5
-    y0 = int(min(cy - ry for cx, cy, rx, ry in blobs)) - 4
-    y1 = int(max(cy + ry for cx, cy, rx, ry in blobs)) + 5
-    gx, gy = np.meshgrid(np.arange(x0, x1) + 0.5, np.arange(y0, y1) + 0.5)
-    kind = M.tile_kind(gx, gy)
-    isle = [(int(x), int(y)) for x, y, k in zip(gx.ravel() - 0.5, gy.ravel() - 0.5, kind.ravel()) if k in (0, 1)]
-    pts, w = M.FORDS[ford_key]
+    cx0, cy0, r = isle
+    kind_at = lambda x, y: int(M.tile_kind(np.array([x + 0.5]), np.array([y + 0.5]))[0])  # noqa: E731
+    near = [(x, y) for y in range(cy0 - r, cy0 + r + 1) for x in range(cx0 - r, cx0 + r + 1)
+            if (x - cx0) ** 2 + (y - cy0) ** 2 <= r * r]
+    kinds = {p: kind_at(*p) for p in near}
+    isle_tiles = [p for p, k in kinds.items() if k in (0, 1)]
+    land = [p for p, k in kinds.items() if k == 0]
     start = pts[0]
     ford = []
-    xs = range(int(min(p[0] for p in pts)) - 3, int(max(p[0] for p in pts)) + 4)
-    ys = range(int(min(p[1] for p in pts)) - 3, int(max(p[1] for p in pts)) + 4)
-    for y in ys:
-        for x in xs:
+    for y in range(int(min(p[1] for p in pts)) - 3, int(max(p[1] for p in pts)) + 4):
+        for x in range(int(min(p[0] for p in pts)) - 3, int(max(p[0] for p in pts)) + 4):
             px, py = x + 0.5, y + 0.5
             d = min(_seg_dist(px, py, a, b) for a, b in zip(pts, pts[1:]))
-            if d <= w / 2 + 0.6 and (px - start[0]) ** 2 + (py - start[1]) ** 2 > 9 \
-                    and M.tile_kind(np.array([px]), np.array([py]))[0] == 1:
+            if d <= w / 2 + 0.6 and (px - start[0]) ** 2 + (py - start[1]) ** 2 > 9 and kind_at(x, y) == 1:
                 ford.append((x, y))
-    land = [p for p, k in zip(isle, [M.tile_kind(np.array([p[0] + 0.5]), np.array([p[1] + 0.5]))[0] for p in isle]) if k == 0]
     cx = sum(p[0] for p in land) / len(land)
     cy = sum(p[1] for p in land) / len(land)
     centre = min(land, key=lambda p: (p[0] - cx) ** 2 + (p[1] - cy) ** 2)
-    return isle, ford, centre
+    return isle_tiles, ford, centre
 
 
 def _seg_dist(px, py, a, b):
@@ -676,10 +673,11 @@ def main():
     MATERIALS.write_text(json.dumps(mat_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     # islands baked into the painting: a cache on each, and the map shows only sea
-    for (zone, module, ik, fk) in BAKED_ISLANDS:
-        isle, ford, centre = _baked_island(module, ik, fk)
+    for n_isle, (zone, module, isle_at, ford_pts, ford_w) in enumerate(BAKED_ISLANDS):
+        isle, ford, centre = _baked_island(module, isle_at, ford_pts, ford_w)
+        ik = f"isle_{n_isle}"
         level = _level(zone, levels)
-        secrets.append({"id": f"isle_{zone.lower().replace(' ', '_')}_{ik}", "zone": zone, "kind": "baked_island",
+        secrets.append({"id": f"{zone.lower().replace(' ', '_')}_{ik}", "zone": zone, "kind": "baked_island",
                         "passage": [list(p) for p in ford], "area": [list(p) for p in isle], "mask": "deep_water",
                         "cache": {"x": centre[0], "y": centre[1], "level": level}, "vendor": None,
                         "found_text": FOUND["island"][len(secrets) % len(FOUND["island"])]})

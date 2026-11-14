@@ -166,6 +166,32 @@ def coast_south(gx):
     return 201.5 + 2.0 * np.sin(gx * 0.11 + 0.5) + 1.2 * np.sin(gx * 0.27)
 
 
+#: A SECRET ISLET off the east coast (tools/build_secrets.py): land in the sea and a narrow ford of
+#: shallows out to it. The map draws both as open sea. Don't describe where it is to Kyle.
+SECRET_ISLETS = [(122.0, 186.0, 3.6, 3.0)]
+SECRET_FORDS = [((107.0, 185.0), (120.0, 186.0), 1.5)]     # (from, to, half-width)
+
+
+def _secret_isle(gx, gy):
+    best = np.full(np.shape(gx), -99.0)
+    for (cx, cy, rx, ry) in SECRET_ISLETS:
+        d = np.sqrt(((gx - cx) / rx) ** 2 + ((gy - cy) / ry) ** 2)
+        best = np.maximum(best, (1.0 - d) * min(rx, ry))
+    return best
+
+
+def _secret_ford(gx, gy):
+    best = np.full(np.shape(gx), -99.0)
+    for (a, b, hw) in SECRET_FORDS:
+        ax, ay = a
+        bx, by = b
+        dx, dy = bx - ax, by - ay
+        t = np.clip(((gx - ax) * dx + (gy - ay) * dy) / (dx * dx + dy * dy), 0.0, 1.0)
+        dist = np.sqrt((gx - ax - t * dx) ** 2 + (gy - ay - t * dy) ** 2)
+        best = np.maximum(best, hw - dist)
+    return best
+
+
 def water_fields(gx, gy):
     """(shallow_extent, deep_extent): >0 inside, in tiles. Union of river + sea."""
     gx = np.asarray(gx, float)
@@ -176,6 +202,9 @@ def water_fields(gx, gy):
     ss = gy - coast_south(gx)
     s_ext = np.maximum(se, ss)
     sea_s, sea_d = s_ext, s_ext - 3.2
+    isle = _secret_isle(gx, gy)
+    sea_s = np.minimum(sea_s, -isle)                              # the islet is land
+    sea_d = np.minimum(sea_d, np.minimum(-(isle + 2.2), -_secret_ford(gx, gy)))   # ringed and forded by shallows
     return np.maximum(r_s, sea_s), np.maximum(r_d, sea_d)
 
 
