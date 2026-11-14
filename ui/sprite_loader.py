@@ -342,6 +342,7 @@ def prewarm_chunk_sprites(tilemap, tile_size, feather_px=48):
     transition_to_zone) - not every frame, this does real image scaling
     work.
     """
+    drop_other_zones_chunks(tilemap)
     for chunks in (getattr(tilemap, "ground_chunks", []),
                    getattr(tilemap, "water_chunks", []),
                    getattr(tilemap, "obstacle_chunks", [])):
@@ -350,6 +351,34 @@ def prewarm_chunk_sprites(tilemap, tile_size, feather_px=48):
             px_h = chunk["height_tiles"] * tile_size
             get_landmark_sprite(chunk["sprite_key"], px_w, px_h)
             get_feathered_chunk_sprite(chunk["sprite_key"], px_w, px_h, feather_px=feather_px)
+
+
+def drop_other_zones_chunks(tilemap):
+    """Forget every OTHER zone's ground chunks. Returns how many cache entries were dropped.
+
+    A zone's ground is a few dozen large images, each cached three times (the sheet, the scaled
+    copy, the feathered copy) and never released. Measured 13 Nov 2026 by teleporting town to
+    town: 200-400 MB per zone visited, 2.1 GB at the first town and 4 GB by the ninth, and the
+    process was killed before the twentieth. A long session on foot did the same thing more
+    slowly. Chunks belong to exactly one zone, so the ones for the zone just left can go; props,
+    NPCs and icons are shared between zones and stay cached.
+    """
+    keep = set()
+    for name in ("ground_chunks", "water_chunks", "obstacle_chunks"):
+        keep.update(chunk["sprite_key"] for chunk in getattr(tilemap, name, []) or [])
+
+    def is_stale_chunk(path):
+        return isinstance(path, str) and "/baked/" in path.replace("\\", "/") and path not in keep
+
+    dropped = 0
+    for key in [k for k in _sprite_cache
+                if any(is_stale_chunk(part) for part in (k if isinstance(k, tuple) else (k,)))]:
+        del _sprite_cache[key]
+        dropped += 1
+    for key in [k for k in _sheet_cache if is_stale_chunk(k)]:
+        del _sheet_cache[key]
+        dropped += 1
+    return dropped
 
 
 def clear_cache():

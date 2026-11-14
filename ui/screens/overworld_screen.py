@@ -72,36 +72,30 @@ class OverworldScreen(BaseScreen):
         # the previous screen was open.
         self.seconds_since_last_move = 999.0
 
-        # Unstuck confirmation modal. A tester stuck in a broken/unwalkable
-        # cave layout (Kyle, 2026-09-06: "I know caves are still broken...
-        # so I need an 'unstuck' button that force teleports you to Razor
-        # Hill") needs a way out that doesn't depend on the very navigation
-        # that's currently broken. Fires immediately on confirm - no
-        # multi-step wizard - since the whole point is getting a stuck
-        # player moving again as fast as possible. Gated behind one Yes/No
-        # confirm (Kyle's explicit ask) so a stray misclick mid-dungeon-run
-        # doesn't yank a NOT-stuck player away from wherever they actually
-        # are.
-        self.unstuck_confirm_pending = False
-        self.unstuck_yes_button = pygame.Rect(0, 0, 140, 44)
-        self.unstuck_no_button = pygame.Rect(0, 0, 140, 44)
+        # THE TELEPORT MENU. Kyle, 13 Nov 2026: "change that 'stuck' option into a fast teleport.
+        # Basically you open it and it lets me teleport to any town. So I don't need to run. Make
+        # it a separate menu that replaces the stuck. Remove the hotkey from it." It was an
+        # Unstuck button that only went to Razor Hill, on U. Now a button with no hotkey that
+        # opens a list of every town with an inn (world/fast_travel.py).
+        self.teleport_menu_open = False
+        self.teleport_rects = []          # [(rect, destination)] built each frame while open
+        self.teleport_close_rect = None
     
     def handle_event(self, event):
         """Handle input."""
-        # Unstuck confirmation takes over ALL input while pending - same
-        # modal convention as inventory_screen.py's destroy-confirmation
-        # (see _render_destroy_confirmation there) - so a click meant for
-        # the Yes/No box can never also register as a movement key or a
-        # tab click underneath it.
-        if self.unstuck_confirm_pending:
+        # The teleport menu takes over ALL input while it is open, so a click on a town can never
+        # also be a movement key or a tab click underneath it.
+        if self.teleport_menu_open:
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if self.unstuck_yes_button.collidepoint(event.pos):
-                    self._do_unstuck()
-                    self.unstuck_confirm_pending = False
-                elif self.unstuck_no_button.collidepoint(event.pos):
-                    self.unstuck_confirm_pending = False
+                for rect, dest in self.teleport_rects:
+                    if rect.collidepoint(event.pos):
+                        self._teleport_to(dest)
+                        break
+                else:
+                    if self.teleport_close_rect is None or self.teleport_close_rect.collidepoint(event.pos):
+                        self.teleport_menu_open = False
             elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-                self.unstuck_confirm_pending = False
+                self.teleport_menu_open = False
             return
 
         if event.type == pygame.KEYDOWN:
@@ -172,13 +166,6 @@ class OverworldScreen(BaseScreen):
                 self.state_manager.transition_to(GameState.PROFESSIONS)
                 return
 
-            # Unstuck - force-teleport to Razor Hill, for testers who hit
-            # a broken/unwalkable cave layout and have no other way out.
-            # Opens the confirm modal rather than firing immediately (see
-            # constructor comment) - actual teleport happens in
-            # _do_unstuck() once confirmed.
-            if event.key == pygame.K_u:
-                self.unstuck_confirm_pending = True
                 return
 
             # Cast screen - N opens the full-screen buff/heal menu (see
@@ -523,8 +510,9 @@ class OverworldScreen(BaseScreen):
                 self.state_manager.transition_to(GameState.PROFESSIONS)
             elif action == "menu":
                 self.state_manager.transition_to(GameState.MENU)
-            elif action == "unstuck":
-                self.unstuck_confirm_pending = True
+            elif action == "teleport":
+                self._release_movement_keys()
+                self.teleport_menu_open = True
             elif action == "test_levels":
                 self._debug_level_party(5)
             return
@@ -562,14 +550,12 @@ class OverworldScreen(BaseScreen):
             self.tab_rects[action] = rect
             y += self.tab_h + self.tab_gap
 
-        # Unstuck sits apart from the main action stack (a gap below,
-        # warning-red rather than the tab blue) - it's an emergency/testing
-        # tool, not a normal navigation action, and shouldn't visually
-        # blend into "just another tab" next to Map/Party/Inventory.
+        # Teleport sits apart from the main action stack (a gap below, its own colour): it is
+        # a convenience for getting around, not a screen. No hotkey, on purpose.
         y += self.tab_gap
-        unstuck_rect = pygame.Rect(self.tab_column_x, y, self.tab_w, self.tab_h)
-        self.renderer.draw_button(screen, unstuck_rect, "Unstuck (U)", color=(110, 40, 40))
-        self.tab_rects["unstuck"] = unstuck_rect
+        teleport_rect = pygame.Rect(self.tab_column_x, y, self.tab_w, self.tab_h)
+        self.renderer.draw_button(screen, teleport_rect, "Teleport", color=(70, 50, 110))
+        self.tab_rects["teleport"] = teleport_rect
 
         # TEST BUTTON (Kyle): +5 levels for the whole party, so every zone can be
         # play-tested without grinding. Flip DEBUG_LEVEL_BUTTON off before release.
@@ -1186,58 +1172,55 @@ class OverworldScreen(BaseScreen):
         # Drawn last so it always sits on top of everything else on this
         # screen, same "modal is always the topmost thing" convention as
         # inventory_screen.py's destroy-confirmation.
-        if self.unstuck_confirm_pending:
-            self._render_unstuck_confirmation(screen)
+        if self.teleport_menu_open:
+            self._render_teleport_menu(screen)
 
         # Last, so nothing in the HUD draws over it.
         self._render_banter(screen)
 
-    def _do_unstuck(self):
-        """Force-teleport the player to Razor Hill. Reuses
-        ZoneManager.transition_to_zone with no explicit spawn_x/spawn_y,
-        so it falls back to Razor Hill's zone center and goes through the
-        SAME walkable-tile safety net every normal portal/cave-exit
-        transition already relies on (transition_to_zone's
-        _find_nearest_walkable spiral-search) - no separate teleport
-        logic to keep in sync with that.
+    def _teleport_to(self, dest):
+        """Put the party in front of that town's innkeeper. A teleport, not a walk through a door
+        (via_portal=False), and it goes through transition_to_zone's own nearest-walkable net."""
+        self.teleport_menu_open = False
+        self._cast = None
+        self.zone_manager.transition_to_zone(dest["zone"], dest["x"], dest["y"], via_portal=False)
+        self._notify(f"Teleported to {dest['label']}.", (140, 210, 230))
 
-        Also correctly clears cave-spawn state on the way out (is_in_cave()
-        is checked against self.current_zone AFTER transition_to_zone has
-        already swapped it to Razor Hill, so it always resolves to "not a
-        cave" here and calls cave_spawns.clear() - see
-        ZoneManager.transition_to_zone), so a player unstuck-ing out of a
-        cave doesn't drag that cave's fixed-spawn bookkeeping along with
-        them into Razor Hill.
-        """
-        self.zone_manager.transition_to_zone("Razor Hill")
-        self._notify("Teleported to Razor Hill.", (140, 210, 230))
-
-    def _render_unstuck_confirmation(self, screen):
-        """Modal Yes/No confirmation before force-teleporting - Kyle's
-        explicit ask ("Give it confirmation option too") so a misclick
-        doesn't yank a player away from wherever they actually are,
-        mid-dungeon-run or otherwise. Same visual convention as
-        inventory_screen.py's _render_destroy_confirmation (dim overlay,
-        centered box, Yes/No pair)."""
+    def _render_teleport_menu(self, screen):
+        """Every town with an inn, in two columns by continent. Click one to go; Esc or Close to
+        stay where you are."""
+        from world.fast_travel import destinations, CONTINENT_TITLES
         overlay = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
-        overlay.fill((0, 0, 0, 180))
+        overlay.fill((0, 0, 0, 190))
         screen.blit(overlay, (0, 0))
 
-        box_w, box_h = 420, 190
-        box = pygame.Rect((SCREEN_WIDTH - box_w) // 2, (SCREEN_HEIGHT - box_h) // 2 - 20, box_w, box_h)
+        dests = destinations(self.zone_manager)
+        groups = {}
+        for d in dests:
+            groups.setdefault(d["continent"], []).append(d)
+        rows = max((len(v) for v in groups.values()), default=1)
+        col_w, row_h, gap = 300, 30, 6
+        box_w = len(groups) * (col_w + 24) + 24
+        box_h = 96 + rows * (row_h + gap) + 60
+        box = pygame.Rect((SCREEN_WIDTH - box_w) // 2, max(8, (SCREEN_HEIGHT - box_h) // 2), box_w, box_h)
         self.renderer.draw_rect(screen, box, (25, 25, 30))
-        self.renderer.draw_rect(screen, box, (170, 70, 70), fill=False)
+        self.renderer.draw_rect(screen, box, (130, 110, 180), fill=False)
+        self.renderer.draw_text(screen, "Teleport to a town", (box.x + 24, box.y + 14),
+                                color=(210, 195, 240), size="large")
 
-        self.renderer.draw_text(screen, "Teleport to Razor Hill?", (box.x + 20, box.y + 16),
-                                color=(220, 140, 140), size="large")
-        self.renderer.draw_text(
-            screen, "Use this if you're stuck in a broken area.",
-            (box.x + 20, box.y + 60), color=(200, 200, 205), size="small")
-        self.renderer.draw_text(
-            screen, "Any unsaved zone progress this session stays as-is.",
-            (box.x + 20, box.y + 84), color=(160, 160, 168), size="small")
-
-        self.unstuck_yes_button.center = (box.centerx - 80, box.bottom - 40)
-        self.unstuck_no_button.center = (box.centerx + 80, box.bottom - 40)
-        self.renderer.draw_button(screen, self.unstuck_yes_button, "Teleport", color=(110, 40, 40))
-        self.renderer.draw_button(screen, self.unstuck_no_button, "Cancel")
+        here = self.zone_manager.current_zone.name if self.zone_manager.current_zone else None
+        self.teleport_rects = []
+        for c, (continent, towns) in enumerate(groups.items()):
+            x = box.x + 24 + c * (col_w + 24)
+            self.renderer.draw_text(screen, CONTINENT_TITLES.get(continent, continent),
+                                    (x, box.y + 60), color=(200, 200, 100))
+            y = box.y + 90
+            for d in towns:
+                rect = pygame.Rect(x, y, col_w, row_h)
+                colour = (60, 90, 60) if d["zone"] == here else (45, 45, 70)
+                self.renderer.draw_button(screen, rect, d["label"], color=colour)
+                self.teleport_rects.append((rect, d))
+                y += row_h + gap
+        self.teleport_close_rect = pygame.Rect(0, 0, 140, 36)
+        self.teleport_close_rect.midbottom = (box.centerx, box.bottom - 14)
+        self.renderer.draw_button(screen, self.teleport_close_rect, "Close")
