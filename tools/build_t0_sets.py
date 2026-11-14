@@ -108,6 +108,25 @@ PROFILES = {
     "hybrid_agi": dict(split={"agility": 0.35, "intellect": 0.3, "stamina": 0.35},
                        sec={"attack_power": 6, "spell_power": 9},
                        two={"agility": 15, "intellect": 15}, four={"attack_power": 20, "spell_power": 14}, words="hybrid"),
+    # ---- Kyle's corrections, 13 Nov 2026 -------------------------------------------------------
+    # "holy paladin is int not spirit. heretic is int healer. ... tinkerer invention is int."
+    "healer_int": dict(split={"intellect": 0.6, "stamina": 0.4}, sec={"spell_power": 10, "healing_power": 9},
+                       two={"intellect": 30}, four={"healing_power": 40}, words="healer"),
+    # "suncleric blessing is spirit/int. ... resto shaman is int/spi."
+    "healer_intspi": dict(split={"intellect": 0.35, "spirit": 0.35, "stamina": 0.3},
+                          sec={"spell_power": 10, "healing_power": 9},
+                          two={"intellect": 15, "spirit": 15}, four={"healing_power": 40}, words="healer"),
+    # "bloodmage flesh weaver is 20int/10spir."
+    "healer_flesh": dict(split={"intellect": 0.45, "spirit": 0.25, "stamina": 0.3},
+                         sec={"spell_power": 10, "healing_power": 9},
+                         two={"intellect": 20, "spirit": 10}, four={"healing_power": 40}, words="healer"),
+    # "make druid feral as either cat or tank. we need 2. cat is 30 agi, tank is 20agi/10stam."
+    # The bear is an agility tank (standing canon), so its pieces lead with agility too.
+    "tank_druid": dict(split={"agility": 0.55, "stamina": 0.45}, sec={"defense_rating": 3, "dodge_rating": 2},
+                       two={"agility": 20, "stamina": 10}, four={"attack_power": 40}, words="tank"),
+    # "Fun fact, chronomancer DPS is spirit based."
+    "caster_spi": dict(split={"spirit": 0.5, "stamina": 0.35, "intellect": 0.15}, sec={"spell_power": 18},
+                       two={"spirit": 30}, four={"spell_power": 25}, words="caster"),
     # HOME-BREW: a healer who heals by doing damage - spell power first, healing behind it.
     "cryomancer": dict(split={"intellect": 0.5, "stamina": 0.3, "spirit": 0.2},
                        sec={"spell_power": 14, "healing_power": 5},
@@ -128,12 +147,23 @@ WORDS = {
 HOMEBREW = {
     "Mage": [("cryotherapist", "Cryotherapist", "cryomancer")],   # Kyle, 13 Nov 2026: "Call them cryotherapist."
     "Shaman": [("enhancement_tank", "Enhancement Tank", "tank_agi")],
+    "Druid": [("cat", "Feral (Cat)", "melee_agi")],                # the other half of Feral
 }
+
+#: A version whose label should not just be its trees' names. (class, version key) -> label
+LABELS = {("Druid", "tank"): "Feral (Bear)"}
 
 
 #: Specs whose recorded stat profile is not how Kyle wants the set to gear them.
 #: "for hybrid classes like ret pally or primalist - we can do SP + AP".
-OVERRIDES = {"paladin_retribution": "hybrid_str"}
+OVERRIDES = {
+    "paladin_retribution": "hybrid_str",
+    "paladin_holy": "healer_int", "cultist_heretic": "healer_int", "tinker_invention": "healer_int",
+    "sun_cleric_blessings": "healer_intspi", "shaman_restoration": "healer_intspi",
+    "bloodmage_fleshweaver": "healer_flesh",
+    "druid_feral": "tank_druid",
+    "chronomancer_artificer": "caster_spi", "chronomancer_infinite": "caster_spi",
+}
 
 
 def profile_for(spec, key=None):
@@ -197,6 +227,7 @@ def build():
             by_profile.setdefault(profile_for(spec, key), []).append(key[len(slug) + 1:].replace("_", " ").title())
         versions = [(prof.split("_")[0] if len([p for p in by_profile if p.split("_")[0] == prof.split("_")[0]]) == 1 else prof,
                      " / ".join(trees), prof) for prof, trees in by_profile.items()]
+        versions = [(k, LABELS.get((char_class, k), label), prof) for k, label, prof in versions]
         versions += HOMEBREW.get(char_class, [])
         budget = budgets(gen, char_class)
         chest_total = budget["chest"][2]

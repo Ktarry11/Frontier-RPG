@@ -315,14 +315,13 @@
    "variants": {
     "healer": {
      "label": "Holy",
-     "profile": "healer",
+     "profile": "healer_int",
      "pieces": {
       "head": {
        "name": "Dawnwarden Cowl",
        "primary_stats": {
-        "intellect": 11,
-        "spirit": 6,
-        "stamina": 6
+        "intellect": 14,
+        "stamina": 9
        },
        "secondary_stats": {
         "spell_power": 8,
@@ -332,9 +331,8 @@
       "shoulder": {
        "name": "Dawnwarden Shoulderpads",
        "primary_stats": {
-        "intellect": 12,
-        "spirit": 9,
-        "stamina": 9
+        "intellect": 18,
+        "stamina": 12
        },
        "secondary_stats": {
         "spell_power": 10,
@@ -344,9 +342,8 @@
       "chest": {
        "name": "Dawnwarden Robe",
        "primary_stats": {
-        "intellect": 12,
-        "spirit": 9,
-        "stamina": 9
+        "intellect": 18,
+        "stamina": 12
        },
        "secondary_stats": {
         "spell_power": 10,
@@ -356,9 +353,8 @@
       "wrist": {
        "name": "Dawnwarden Wraps",
        "primary_stats": {
-        "intellect": 8,
-        "spirit": 5,
-        "stamina": 5
+        "intellect": 11,
+        "stamina": 7
        },
        "secondary_stats": {
         "spell_power": 6,
@@ -368,9 +364,8 @@
       "hands": {
        "name": "Dawnwarden Handwraps",
        "primary_stats": {
-        "intellect": 8,
-        "spirit": 4,
-        "stamina": 4
+        "intellect": 10,
+        "stamina": 6
        },
        "secondary_stats": {
         "spell_power": 5,
@@ -380,9 +375,8 @@
       "waist": {
        "name": "Dawnwarden Cord",
        "primary_stats": {
-        "intellect": 11,
-        "spirit": 6,
-        "stamina": 6
+        "intellect": 14,
+        "stamina": 9
        },
        "secondary_stats": {
         "spell_power": 8,
@@ -392,9 +386,8 @@
       "legs": {
        "name": "Dawnwarden Kilt",
        "primary_stats": {
-        "intellect": 13,
-        "spirit": 9,
-        "stamina": 9
+        "intellect": 19,
+        "stamina": 12
        },
        "secondary_stats": {
         "spell_power": 10,
@@ -404,9 +397,8 @@
       "feet": {
        "name": "Dawnwarden Sandals",
        "primary_stats": {
-        "intellect": 8,
-        "spirit": 4,
-        "stamina": 4
+        "intellect": 10,
+        "stamina": 6
        },
        "secondary_stats": {
         "spell_power": 5,
@@ -417,7 +409,7 @@
      "bonuses": {
       "2": {
        "stats": {
-        "spirit": 30
+        "intellect": 30
        }
       },
       "4": {
@@ -1583,14 +1575,13 @@
     },
     "healer": {
      "label": "Heretic",
-     "profile": "healer",
+     "profile": "healer_int",
      "pieces": {
       "head": {
        "name": "Hollow Saint's Cowl",
        "primary_stats": {
-        "intellect": 11,
-        "spirit": 6,
-        "stamina": 6
+        "intellect": 14,
+        "stamina": 9
        },
        "secondary_stats": {
         "spell_power": 8,
@@ -1600,9 +1591,8 @@
       "shoulder": {
        "name": "Hollow Saint's Shoulderpads",
        "primary_stats": {
-        "intellect": 12,
-        "spirit": 9,
-        "stamina": 9
+        "intellect": 18,
+        "stamina": 12
        },
        "secondary_stats": {
         "spell_power": 10,
@@ -1612,9 +1602,8 @@
       "chest": {
        "name": "Hollow Saint's Robe",
        "primary_stats": {
-        "intellect": 12,
-        "spirit": 9,
-        "stamina": 9
+        "intellect": 18,
+        "stamina": 12
        },
        "secondary_stats": {
         "spell_power": 10,
@@ -1624,9 +1613,8 @@
       "wrist": {
        "name": "Hollow Saint's Wraps",
        "primary_stats": {
-        "intellect": 8,
-        "spirit": 5,
-        "stamina": 5
+        "intellect": 11,
+        "stamina": 7
        },
        "secondary_stats": {
         "spell_power": 6,
@@ -1636,9 +1624,8 @@
       "hands": {
        "name": "Hollow Saint's Handwraps",
        "primary_stats": {
-        "intellect": 8,
-        "spirit": 4,
-        "stamina": 4
+        "intellect": 10,
+        "stamina": 6
        },
        "secondary_stats": {
         "spell_power": 5,
@@ -1648,9 +1635,8 @@
       "waist": {
        "name": "Hollow Saint's Cord",
        "primary_stats": {
-        "intellect": 11,
-        "spirit": 6,
-        "stamina": 6
+        "intellect": 14,
+        "stamina": 9
        },
        "secondary_stats": {
         "spell_power": 8,
@@ -1660,9 +1646,8 @@
       "legs": {
        "name": "Hollow Saint's Kilt",
        "primary_stats": {
-        "intellect": 13,
-        "spirit": 9,
-        "stamina": 9
+        "intellect": 19,
+        "stamina": 12
        },
        "secondary_stats": {
         "spell_power": 10,
@@ -1672,9 +1657,8 @@
       "feet": {
        "name": "Hollow Saint's Sandals",
        "primary_stats": {
-        "intellect": 8,
-        "spirit": 4,
-        "stamina": 4
+        "intellect": 10,
+        "stamina": 6
        },
        "secondary_stats": {
         "spell_power": 5,
@@ -1685,7 +1669,7 @@
      "bonuses": {
       "2": {
        "stats": {
-        "spirit": 30
+        "intellect": 30
        }
       },
       "4": {
@@ -2231,13 +2215,13 @@
    "variants": {
     "healer": {
      "label": "Blessings",
-     "profile": "healer",
+     "profile": "healer_intspi",
      "pieces": {
       "head": {
        "name": "Noonfire Cowl",
        "primary_stats": {
-        "intellect": 11,
-        "spirit": 6,
+        "intellect": 9,
+        "spirit": 8,
         "stamina": 6
        },
        "secondary_stats": {
@@ -2248,8 +2232,8 @@
       "shoulder": {
        "name": "Noonfire Shoulderpads",
        "primary_stats": {
-        "intellect": 12,
-        "spirit": 9,
+        "intellect": 11,
+        "spirit": 10,
         "stamina": 9
        },
        "secondary_stats": {
@@ -2260,8 +2244,8 @@
       "chest": {
        "name": "Noonfire Robe",
        "primary_stats": {
-        "intellect": 12,
-        "spirit": 9,
+        "intellect": 11,
+        "spirit": 10,
         "stamina": 9
        },
        "secondary_stats": {
@@ -2272,8 +2256,8 @@
       "wrist": {
        "name": "Noonfire Wraps",
        "primary_stats": {
-        "intellect": 8,
-        "spirit": 5,
+        "intellect": 7,
+        "spirit": 6,
         "stamina": 5
        },
        "secondary_stats": {
@@ -2284,8 +2268,8 @@
       "hands": {
        "name": "Noonfire Handwraps",
        "primary_stats": {
-        "intellect": 8,
-        "spirit": 4,
+        "intellect": 7,
+        "spirit": 5,
         "stamina": 4
        },
        "secondary_stats": {
@@ -2296,8 +2280,8 @@
       "waist": {
        "name": "Noonfire Cord",
        "primary_stats": {
-        "intellect": 11,
-        "spirit": 6,
+        "intellect": 9,
+        "spirit": 8,
         "stamina": 6
        },
        "secondary_stats": {
@@ -2308,8 +2292,8 @@
       "legs": {
        "name": "Noonfire Kilt",
        "primary_stats": {
-        "intellect": 13,
-        "spirit": 9,
+        "intellect": 12,
+        "spirit": 10,
         "stamina": 9
        },
        "secondary_stats": {
@@ -2320,8 +2304,8 @@
       "feet": {
        "name": "Noonfire Sandals",
        "primary_stats": {
-        "intellect": 8,
-        "spirit": 4,
+        "intellect": 7,
+        "spirit": 5,
         "stamina": 4
        },
        "secondary_stats": {
@@ -2333,7 +2317,8 @@
      "bonuses": {
       "2": {
        "stats": {
-        "spirit": 30
+        "intellect": 15,
+        "spirit": 15
        }
       },
       "4": {
@@ -3235,13 +3220,13 @@
     },
     "healer": {
      "label": "Restoration",
-     "profile": "healer",
+     "profile": "healer_intspi",
      "pieces": {
       "head": {
        "name": "Rainspeaker's Cowl",
        "primary_stats": {
-        "intellect": 11,
-        "spirit": 6,
+        "intellect": 9,
+        "spirit": 8,
         "stamina": 6
        },
        "secondary_stats": {
@@ -3252,8 +3237,8 @@
       "shoulder": {
        "name": "Rainspeaker's Shoulderpads",
        "primary_stats": {
-        "intellect": 12,
-        "spirit": 7,
+        "intellect": 10,
+        "spirit": 9,
         "stamina": 7
        },
        "secondary_stats": {
@@ -3264,8 +3249,8 @@
       "chest": {
        "name": "Rainspeaker's Robe",
        "primary_stats": {
-        "intellect": 9,
-        "spirit": 6,
+        "intellect": 8,
+        "spirit": 7,
         "stamina": 6
        },
        "secondary_stats": {
@@ -3276,8 +3261,8 @@
       "wrist": {
        "name": "Rainspeaker's Wraps",
        "primary_stats": {
-        "intellect": 8,
-        "spirit": 5,
+        "intellect": 7,
+        "spirit": 6,
         "stamina": 5
        },
        "secondary_stats": {
@@ -3288,8 +3273,8 @@
       "hands": {
        "name": "Rainspeaker's Handwraps",
        "primary_stats": {
-        "intellect": 9,
-        "spirit": 5,
+        "intellect": 8,
+        "spirit": 6,
         "stamina": 5
        },
        "secondary_stats": {
@@ -3300,8 +3285,8 @@
       "waist": {
        "name": "Rainspeaker's Cord",
        "primary_stats": {
-        "intellect": 11,
-        "spirit": 6,
+        "intellect": 9,
+        "spirit": 8,
         "stamina": 6
        },
        "secondary_stats": {
@@ -3312,8 +3297,8 @@
       "legs": {
        "name": "Rainspeaker's Kilt",
        "primary_stats": {
-        "intellect": 11,
-        "spirit": 6,
+        "intellect": 9,
+        "spirit": 8,
         "stamina": 6
        },
        "secondary_stats": {
@@ -3324,8 +3309,8 @@
       "feet": {
        "name": "Rainspeaker's Sandals",
        "primary_stats": {
-        "intellect": 9,
-        "spirit": 5,
+        "intellect": 8,
+        "spirit": 6,
         "stamina": 5
        },
        "secondary_stats": {
@@ -3337,7 +3322,8 @@
      "bonuses": {
       "2": {
        "stats": {
-        "spirit": 30
+        "intellect": 15,
+        "spirit": 15
        }
       },
       "4": {
@@ -4042,14 +4028,13 @@
     },
     "healer": {
      "label": "Invention",
-     "profile": "healer",
+     "profile": "healer_int",
      "pieces": {
       "head": {
        "name": "Sparkwright's Cowl",
        "primary_stats": {
-        "intellect": 10,
-        "spirit": 6,
-        "stamina": 6
+        "intellect": 14,
+        "stamina": 8
        },
        "secondary_stats": {
         "spell_power": 7,
@@ -4059,9 +4044,8 @@
       "shoulder": {
        "name": "Sparkwright's Shoulderpads",
        "primary_stats": {
-        "intellect": 14,
-        "spirit": 9,
-        "stamina": 9
+        "intellect": 20,
+        "stamina": 12
        },
        "secondary_stats": {
         "spell_power": 10,
@@ -4071,9 +4055,8 @@
       "chest": {
        "name": "Sparkwright's Robe",
        "primary_stats": {
-        "intellect": 15,
-        "spirit": 9,
-        "stamina": 9
+        "intellect": 20,
+        "stamina": 13
        },
        "secondary_stats": {
         "spell_power": 10,
@@ -4083,9 +4066,8 @@
       "wrist": {
        "name": "Sparkwright's Wraps",
        "primary_stats": {
-        "intellect": 10,
-        "spirit": 7,
-        "stamina": 7
+        "intellect": 15,
+        "stamina": 9
        },
        "secondary_stats": {
         "spell_power": 7,
@@ -4095,9 +4077,8 @@
       "hands": {
        "name": "Sparkwright's Handwraps",
        "primary_stats": {
-        "intellect": 8,
-        "spirit": 5,
-        "stamina": 5
+        "intellect": 11,
+        "stamina": 7
        },
        "secondary_stats": {
         "spell_power": 5,
@@ -4107,9 +4088,8 @@
       "waist": {
        "name": "Sparkwright's Cord",
        "primary_stats": {
-        "intellect": 10,
-        "spirit": 7,
-        "stamina": 7
+        "intellect": 15,
+        "stamina": 9
        },
        "secondary_stats": {
         "spell_power": 7,
@@ -4119,9 +4099,8 @@
       "legs": {
        "name": "Sparkwright's Kilt",
        "primary_stats": {
-        "intellect": 13,
-        "spirit": 9,
-        "stamina": 9
+        "intellect": 19,
+        "stamina": 12
        },
        "secondary_stats": {
         "spell_power": 9,
@@ -4131,9 +4110,8 @@
       "feet": {
        "name": "Sparkwright's Sandals",
        "primary_stats": {
-        "intellect": 8,
-        "spirit": 5,
-        "stamina": 5
+        "intellect": 11,
+        "stamina": 7
        },
        "secondary_stats": {
         "spell_power": 5,
@@ -4144,7 +4122,7 @@
      "bonuses": {
       "2": {
        "stats": {
-        "spirit": 30
+        "intellect": 30
        }
       },
       "4": {
@@ -5331,14 +5309,14 @@
      }
     },
     "tank": {
-     "label": "Feral",
-     "profile": "tank_agi",
+     "label": "Feral (Bear)",
+     "profile": "tank_druid",
      "pieces": {
       "head": {
        "name": "Deeproot Greathelm",
        "primary_stats": {
-        "stamina": 14,
-        "agility": 9
+        "agility": 13,
+        "stamina": 10
        },
        "secondary_stats": {
         "defense_rating": 3,
@@ -5348,8 +5326,8 @@
       "shoulder": {
        "name": "Deeproot Shoulderguards",
        "primary_stats": {
-        "stamina": 16,
-        "agility": 10
+        "agility": 15,
+        "stamina": 11
        },
        "secondary_stats": {
         "defense_rating": 4,
@@ -5359,8 +5337,8 @@
       "chest": {
        "name": "Deeproot Chestguard",
        "primary_stats": {
-        "stamina": 13,
-        "agility": 8
+        "agility": 12,
+        "stamina": 9
        },
        "secondary_stats": {
         "defense_rating": 3,
@@ -5370,8 +5348,8 @@
       "wrist": {
        "name": "Deeproot Vambraces",
        "primary_stats": {
-        "stamina": 11,
-        "agility": 7
+        "agility": 10,
+        "stamina": 8
        },
        "secondary_stats": {
         "defense_rating": 3,
@@ -5381,8 +5359,8 @@
       "hands": {
        "name": "Deeproot Handguards",
        "primary_stats": {
-        "stamina": 12,
-        "agility": 7
+        "agility": 11,
+        "stamina": 8
        },
        "secondary_stats": {
         "defense_rating": 3,
@@ -5392,8 +5370,8 @@
       "waist": {
        "name": "Deeproot Waistguard",
        "primary_stats": {
-        "stamina": 14,
-        "agility": 9
+        "agility": 13,
+        "stamina": 10
        },
        "secondary_stats": {
         "defense_rating": 3,
@@ -5403,8 +5381,8 @@
       "legs": {
        "name": "Deeproot Legplates",
        "primary_stats": {
-        "stamina": 14,
-        "agility": 9
+        "agility": 13,
+        "stamina": 10
        },
        "secondary_stats": {
         "defense_rating": 3,
@@ -5414,8 +5392,8 @@
       "feet": {
        "name": "Deeproot Sabatons",
        "primary_stats": {
-        "stamina": 12,
-        "agility": 7
+        "agility": 11,
+        "stamina": 8
        },
        "secondary_stats": {
         "defense_rating": 3,
@@ -5426,7 +5404,8 @@
      "bonuses": {
       "2": {
        "stats": {
-        "stamina": 30
+        "agility": 20,
+        "stamina": 10
        }
       },
       "4": {
@@ -5546,6 +5525,112 @@
       "4": {
        "stats": {
         "healing_power": 40
+       }
+      }
+     }
+    },
+    "cat": {
+     "label": "Feral (Cat)",
+     "profile": "melee_agi",
+     "pieces": {
+      "head": {
+       "name": "Deeproot Helm",
+       "primary_stats": {
+        "agility": 13,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 11,
+        "hit_rating": 1
+       }
+      },
+      "shoulder": {
+       "name": "Deeproot Pauldrons",
+       "primary_stats": {
+        "agility": 15,
+        "stamina": 11
+       },
+       "secondary_stats": {
+        "attack_power": 12,
+        "hit_rating": 1
+       }
+      },
+      "chest": {
+       "name": "Deeproot Hauberk",
+       "primary_stats": {
+        "agility": 12,
+        "stamina": 9
+       },
+       "secondary_stats": {
+        "attack_power": 10,
+        "hit_rating": 1
+       }
+      },
+      "wrist": {
+       "name": "Deeproot Bracers",
+       "primary_stats": {
+        "agility": 10,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 9,
+        "hit_rating": 1
+       }
+      },
+      "hands": {
+       "name": "Deeproot Gauntlets",
+       "primary_stats": {
+        "agility": 11,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 9,
+        "hit_rating": 1
+       }
+      },
+      "waist": {
+       "name": "Deeproot Girdle",
+       "primary_stats": {
+        "agility": 13,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 11,
+        "hit_rating": 1
+       }
+      },
+      "legs": {
+       "name": "Deeproot Legguards",
+       "primary_stats": {
+        "agility": 13,
+        "stamina": 10
+       },
+       "secondary_stats": {
+        "attack_power": 11,
+        "hit_rating": 1
+       }
+      },
+      "feet": {
+       "name": "Deeproot Greaves",
+       "primary_stats": {
+        "agility": 11,
+        "stamina": 8
+       },
+       "secondary_stats": {
+        "attack_power": 9,
+        "hit_rating": 1
+       }
+      }
+     },
+     "bonuses": {
+      "2": {
+       "stats": {
+        "agility": 30
+       }
+      },
+      "4": {
+       "stats": {
+        "attack_power": 40
        }
       }
      }
@@ -6789,13 +6874,13 @@
     },
     "healer": {
      "label": "Fleshweaver",
-     "profile": "healer",
+     "profile": "healer_flesh",
      "pieces": {
       "head": {
        "name": "Bloodletter's Cowl",
        "primary_stats": {
-        "intellect": 13,
-        "spirit": 9,
+        "intellect": 15,
+        "spirit": 7,
         "stamina": 9
        },
        "secondary_stats": {
@@ -6806,8 +6891,8 @@
       "shoulder": {
        "name": "Bloodletter's Shoulderpads",
        "primary_stats": {
-        "intellect": 14,
-        "spirit": 9,
+        "intellect": 15,
+        "spirit": 8,
         "stamina": 9
        },
        "secondary_stats": {
@@ -6818,8 +6903,8 @@
       "chest": {
        "name": "Bloodletter's Robe",
        "primary_stats": {
-        "intellect": 20,
-        "spirit": 15,
+        "intellect": 23,
+        "spirit": 12,
         "stamina": 15
        },
        "secondary_stats": {
@@ -6830,8 +6915,8 @@
       "wrist": {
        "name": "Bloodletter's Wraps",
        "primary_stats": {
-        "intellect": 11,
-        "spirit": 8,
+        "intellect": 13,
+        "spirit": 6,
         "stamina": 8
        },
        "secondary_stats": {
@@ -6842,8 +6927,8 @@
       "hands": {
        "name": "Bloodletter's Handwraps",
        "primary_stats": {
-        "intellect": 9,
-        "spirit": 5,
+        "intellect": 10,
+        "spirit": 4,
         "stamina": 5
        },
        "secondary_stats": {
@@ -6854,8 +6939,8 @@
       "waist": {
        "name": "Bloodletter's Cord",
        "primary_stats": {
-        "intellect": 8,
-        "spirit": 5,
+        "intellect": 9,
+        "spirit": 4,
         "stamina": 5
        },
        "secondary_stats": {
@@ -6866,8 +6951,8 @@
       "legs": {
        "name": "Bloodletter's Kilt",
        "primary_stats": {
-        "intellect": 15,
-        "spirit": 10,
+        "intellect": 17,
+        "spirit": 8,
         "stamina": 10
        },
        "secondary_stats": {
@@ -6878,8 +6963,8 @@
       "feet": {
        "name": "Bloodletter's Sandals",
        "primary_stats": {
-        "intellect": 9,
-        "spirit": 5,
+        "intellect": 10,
+        "spirit": 4,
         "stamina": 5
        },
        "secondary_stats": {
@@ -6891,7 +6976,8 @@
      "bonuses": {
       "2": {
        "stats": {
-        "spirit": 30
+        "intellect": 20,
+        "spirit": 10
        }
       },
       "4": {
@@ -8608,14 +8694,14 @@
    "variants": {
     "caster": {
      "label": "Artificer / Infinite",
-     "profile": "caster",
+     "profile": "caster_spi",
      "pieces": {
       "head": {
        "name": "Stopped Clock Circlet",
        "primary_stats": {
-        "intellect": 12,
+        "spirit": 12,
         "stamina": 8,
-        "spirit": 3
+        "intellect": 3
        },
        "secondary_stats": {
         "spell_power": 20
@@ -8624,9 +8710,9 @@
       "shoulder": {
        "name": "Stopped Clock Mantle",
        "primary_stats": {
-        "intellect": 14,
+        "spirit": 14,
         "stamina": 9,
-        "spirit": 3
+        "intellect": 3
        },
        "secondary_stats": {
         "spell_power": 22
@@ -8635,9 +8721,9 @@
       "chest": {
        "name": "Stopped Clock Vestments",
        "primary_stats": {
-        "intellect": 11,
+        "spirit": 11,
         "stamina": 7,
-        "spirit": 3
+        "intellect": 3
        },
        "secondary_stats": {
         "spell_power": 18
@@ -8646,9 +8732,9 @@
       "wrist": {
        "name": "Stopped Clock Bindings",
        "primary_stats": {
-        "intellect": 10,
+        "spirit": 10,
         "stamina": 6,
-        "spirit": 2
+        "intellect": 2
        },
        "secondary_stats": {
         "spell_power": 15
@@ -8657,9 +8743,9 @@
       "hands": {
        "name": "Stopped Clock Gloves",
        "primary_stats": {
-        "intellect": 11,
+        "spirit": 11,
         "stamina": 6,
-        "spirit": 2
+        "intellect": 2
        },
        "secondary_stats": {
         "spell_power": 16
@@ -8668,9 +8754,9 @@
       "waist": {
        "name": "Stopped Clock Sash",
        "primary_stats": {
-        "intellect": 12,
+        "spirit": 12,
         "stamina": 8,
-        "spirit": 3
+        "intellect": 3
        },
        "secondary_stats": {
         "spell_power": 20
@@ -8679,9 +8765,9 @@
       "legs": {
        "name": "Stopped Clock Trousers",
        "primary_stats": {
-        "intellect": 12,
+        "spirit": 12,
         "stamina": 8,
-        "spirit": 3
+        "intellect": 3
        },
        "secondary_stats": {
         "spell_power": 20
@@ -8690,9 +8776,9 @@
       "feet": {
        "name": "Stopped Clock Slippers",
        "primary_stats": {
-        "intellect": 11,
+        "spirit": 11,
         "stamina": 6,
-        "spirit": 2
+        "intellect": 2
        },
        "secondary_stats": {
         "spell_power": 16
@@ -8702,7 +8788,7 @@
      "bonuses": {
       "2": {
        "stats": {
-        "intellect": 30
+        "spirit": 30
        }
       },
       "4": {
