@@ -136,8 +136,9 @@ def main():
         check(landed, f"{aid} ({et}) carries {mods} and applies none of it")
     check(riders >= 10, f"rig: only {riders} rider abilities found")
 
-    ok, msg, c, foe, _b, _a = cast("venomancer_venom_shield", False)
-    check(ok and c.get_status_stat_mod("magic_damage_taken_pct") < 0, f"venom shield: magic damage taken not reduced ({msg})")
+    # was Venom Shield, cut in the spellbook refine (14 Nov); Anti-Magic Shell carries the same stat
+    ok, msg, c, foe, _b, _a = cast("necromancer_anti_magic_shell", False)
+    check(ok and c.get_status_stat_mod("magic_damage_taken_pct") < 0, f"anti-magic shell: magic damage taken not reduced ({msg})")
 
     print(f"{len(abilities)} abilities; every stat key is read; {len(SELF) + len(ENEMY) + 1} re-purposed abilities cast")
     if fails:

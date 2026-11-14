@@ -236,6 +236,48 @@ CLASSES = {
         },
         "PASSIVE": {},
     },
+    # Reaper: 49 buttons; three leeches, four personal defensives, two resource taps, two stuns, plain
+    # strikes with nothing of their own.
+    "Reaper": {
+        "CUT": {
+            "reaper_soul_harvest": "a second leech beside Soul Strike",
+            "reaper_scythe_rush": "a third Soul builder beside Reap and Murder",
+            "reaper_soul_shear": "a plain Shadow nuke nothing is built around",
+            "reaper_veilwalk": "a 'step half out of the world' escape - movement",
+            "reaper_soul_tap": "a mana tap beside Sinister Litany's Soul tap",
+            "reaper_ghost_claw": "a slow beside Harvesting Grounds",
+            "reaper_jailers_bargain": "a third personal defensive",
+            "reaper_shade": "a fourth personal defensive",
+            "reaper_masochistic_rage": "a damage cooldown when every spec has its own",
+            "reaper_mark_of_terror": "an area stun beside Soulstone Lure",
+            "reaper_decimate": "a plain strike with nothing of its own",
+            "reaper_sever": "a third leech",
+        },
+        "REWORD": {},
+        "PASSIVE": {},
+    },
+    # Venomancer: the 'for 2 hrs', 'rush forward', 'pushback' and 'attack speed' text came straight
+    # from a real-time game; three ally buffs did one job; webs that root mean nothing here.
+    "Venomancer": {
+        "CUT": {
+            "venomancer_spider_pheromones": "a party Agility buff beside Beetle Pheromones",
+            "venomancer_toxic_pheromones": "an ally Spell Power buff beside Beetle Pheromones",
+            "venomancer_shadras_boon": "a party Nature Resistance aura",
+            "venomancer_venom_shield": "a small magic-damage shield nothing is built around",
+            "venomancer_nullifying_venom": "a fourth Venom, slowing casts",
+            "venomancer_spindlebind": "webs that root - movement",
+        },
+        "REWORD": {
+            "venomancer_antivenom": "Cure a poison effect on the target, and again over the next few turns.",
+            "venomancer_chitin_rush": "Crash into the enemies in front of you. Generates increased threat.",
+            "venomancer_debilitating_venom": "Activate Debilitating Venom: your casts have a chance to inject a target and nearby enemies with a crippling venom that slows them.",
+            "venomancer_rejuvenating_venom": "Activate Rejuvenating Venom: your casts have a chance to heal your most wounded ally.",
+            "venomancer_blight_venom": "Activate Blight Venom: your harmful spells and abilities have a chance to poison an enemy.",
+            "venomancer_venomtip_poison": "Spray poison on an enemy and nearby enemies, slowing them.",
+            "venomancer_weaver_form": "Shapeshift into Weaver Form, granting periodic mana return.",
+        },
+        "PASSIVE": {},
+    },
 }
 
 

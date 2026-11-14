@@ -343,55 +343,6 @@
       "damage_school": "shadow"
     },
     {
-      "ability_id": "reaper_scythe_rush",
-      "name": "Scythe Rush",
-      "resource_type": "mana",
-      "cooldown": 5,
-      "effect_type": "damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals damage to the target. Generates 15 Souls.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 12,
-          "cost": 20,
-          "effect_value": 50
-        },
-        {
-          "rank": 2,
-          "level_req": 23,
-          "cost": 23,
-          "effect_value": 66
-        },
-        {
-          "rank": 3,
-          "level_req": 34,
-          "cost": 26,
-          "effect_value": 82
-        },
-        {
-          "rank": 4,
-          "level_req": 45,
-          "cost": 30,
-          "effect_value": 98
-        },
-        {
-          "rank": 5,
-          "level_req": 56,
-          "cost": 34,
-          "effect_value": 114
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree: 'Rush towards an enemy and generate 15 Runic Power. Cannot be used on the same target more than once every 20 seconds.' The per-target lockout has no engine hook; a 5 turn cooldown stands in for it.",
-      "target_type": "enemy",
-      "generates": {
-        "resource": "souls",
-        "amount": 15
-      }
-    },
-    {
       "ability_id": "reaper_spectre_stride",
       "name": "Spectre Stride",
       "resource_type": "mana",
@@ -439,118 +390,6 @@
         "resource": "souls",
         "amount": 10
       }
-    },
-    {
-      "ability_id": "reaper_soul_harvest",
-      "name": "Soul Harvest",
-      "resource_type": "souls",
-      "cooldown": 1,
-      "effect_type": "damage_and_heal",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals Shadow damage to the target and heals you for part of it.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 16,
-          "cost": 30,
-          "effect_value": 72,
-          "heal_value": 72
-        },
-        {
-          "rank": 2,
-          "level_req": 23,
-          "cost": 30,
-          "effect_value": 89,
-          "heal_value": 89
-        },
-        {
-          "rank": 3,
-          "level_req": 29,
-          "cost": 30,
-          "effect_value": 105,
-          "heal_value": 105
-        },
-        {
-          "rank": 4,
-          "level_req": 36,
-          "cost": 30,
-          "effect_value": 122,
-          "heal_value": 122
-        },
-        {
-          "rank": 5,
-          "level_req": 43,
-          "cost": 30,
-          "effect_value": 139,
-          "heal_value": 139
-        },
-        {
-          "rank": 6,
-          "level_req": 49,
-          "cost": 30,
-          "effect_value": 155,
-          "heal_value": 155
-        },
-        {
-          "rank": 7,
-          "level_req": 56,
-          "cost": 30,
-          "effect_value": 172,
-          "heal_value": 172
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree: 'Soul Harvest (Damage): Blasts your target for Shadow Damage, healing for 100% of the damage dealt.' In CoA it is a free cascade off generating Reaped Souls; here it is the Souls SPENDER, because a 0-100 pool needs somewhere to go and this is the class's signature effect. Heal equals damage, as the tooltip says.",
-      "target_type": "enemy",
-      "heal_scope": 1,
-      "damage_school": "shadow"
-    },
-    {
-      "ability_id": "reaper_soul_shear",
-      "name": "Soul Shear",
-      "resource_type": "mana",
-      "cooldown": 3,
-      "effect_type": "spell_damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals Shadow damage to the target.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 24,
-          "cost": 34,
-          "effect_value": 86
-        },
-        {
-          "rank": 2,
-          "level_req": 32,
-          "cost": 39,
-          "effect_value": 110
-        },
-        {
-          "rank": 3,
-          "level_req": 40,
-          "cost": 44,
-          "effect_value": 134
-        },
-        {
-          "rank": 4,
-          "level_req": 48,
-          "cost": 50,
-          "effect_value": 158
-        },
-        {
-          "rank": 5,
-          "level_req": 56,
-          "cost": 57,
-          "effect_value": 182
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: named in the class tree's Into The Shadow Realm and Soul's Reaver, both of which cut its cooldown alongside Deathstalker and Soulstone Lure. The reference never states its damage, so it is sized as the mid-cooldown Shadow nuke those two nodes imply.",
-      "target_type": "enemy",
-      "damage_school": "shadow"
     },
     {
       "ability_id": "reaper_ghastly_screech",
@@ -642,54 +481,6 @@
       "target_type": "self"
     },
     {
-      "ability_id": "reaper_veilwalk",
-      "name": "Veilwalk",
-      "resource_type": "mana",
-      "cooldown": 6,
-      "effect_type": "buff",
-      "duration": 2,
-      "stat_mods": {
-        "haste": 10.0,
-        "dodge": 5.0
-      },
-      "description": "Step half out of the world. Things move slower on the other side of it.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 16,
-          "cost": 20,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree: '2 Charges. 50% increased movement speed for 5 seconds, stacking 2 times. Removes all movement impairing effects.' Movement speed is not modelled in a turn engine and 'movement' is NOT a real DispelType (see DispelType.ALL), so authoring this as a dispel would have made a button that always fails and refunds. Haste and dodge are the honest turn-based reading of moving faster than the thing swinging at you. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect entirely - so THE `duration` FIELD WAS NEVER READ and this short combat cooldown was live for every fight in the next half hour. These are Icy Veins / Evasion-family cooldowns, which is exactly what 'combat' scope is for. Scoped to Reaper deliberately: FOUR talents in this class's rebuilt trees extend one of these durations (Harvest's Deathbringer on Harvest Time, Soul's Death Dealer on Ghostly Weapon) and every one of them was dead data while the duration was ignored. 65 buffs across 12 other classes still have the same shape - see tools/qa_buff_scope.py - and Kyle has parked that sweep as a separate balance decision; this is not it.",
-      "target_type": "self",
-      "buff_scope": "combat"
-    },
-    {
-      "ability_id": "reaper_soul_tap",
-      "name": "Soul Tap",
-      "resource_type": "souls",
-      "cooldown": 4,
-      "effect_type": "restore_resource",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Restores mana to you.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 18,
-          "cost": 25,
-          "effect_value": 25,
-          "mana_restore_pct": 25
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree: 'Chip away at the very essence of your own soul, generating 50 Runic Power.' With Mana as the primary pool this is the Souls-into-Mana valve, the same shape as cultist_sanity_tap. mana_restore_pct is on the rank because that, not effect_value, is the key restore_resource actually reads.",
-      "target_type": "self",
-      "restore_resource_type": "mana"
-    },
-    {
       "ability_id": "reaper_sinister_litany",
       "name": "Sinister Litany",
       "resource_type": "mana",
@@ -713,29 +504,6 @@
       "restore_resource_type": "souls"
     },
     {
-      "ability_id": "reaper_ghost_claw",
-      "name": "Ghost Claw",
-      "resource_type": "mana",
-      "cooldown": 4,
-      "effect_type": "debuff",
-      "duration": 2,
-      "stat_mods": {
-        "haste": -20.0
-      },
-      "description": "Applies to the target: Haste -20 for 2 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 22,
-          "cost": 22,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Ghost Claw (Speed): Chill an enemy with a ghostly claw, slowing and stealing -50% of their movement speed for 8 seconds.' Movement speed becomes attack speed, the only slow a turn engine can express.",
-      "target_type": "enemy"
-    },
-    {
       "ability_id": "reaper_tormented_souls",
       "name": "Tormented Souls",
       "resource_type": "souls",
@@ -757,29 +525,6 @@
       "icon_id": null,
       "_source": "CoA class tree: 'Tormented Souls: Reduces all direct damage you take by 10% and heals you for Stamina, removing 1 stack.' The stack-consuming heal has no hook; the 10% mitigation is literal. NOTE damage_taken_pct in a buff's stat_mods is read RAW by take_damage, so -0.10 is -10% - the OPPOSITE convention to the school-specific variants beside it, which are divided by 100. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect entirely - so THE `duration` FIELD WAS NEVER READ and this short combat cooldown was live for every fight in the next half hour. These are Icy Veins / Evasion-family cooldowns, which is exactly what 'combat' scope is for. Scoped to Reaper deliberately: FOUR talents in this class's rebuilt trees extend one of these durations (Harvest's Deathbringer on Harvest Time, Soul's Death Dealer on Ghostly Weapon) and every one of them was dead data while the duration was ignored. 65 buffs across 12 other classes still have the same shape - see tools/qa_buff_scope.py - and Kyle has parked that sweep as a separate balance decision; this is not it.",
       "target_type": "self",
-      "buff_scope": "combat"
-    },
-    {
-      "ability_id": "reaper_jailers_bargain",
-      "name": "Jailer's Bargain",
-      "resource_type": "mana",
-      "cooldown": 10,
-      "effect_type": "buff",
-      "duration": 3,
-      "stat_mods": {},
-      "description": "Strengthens you for 3 turns, absorbing damage.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 26,
-          "cost": 30,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree: 'gaining a shield that absorbs damage equal to 30% of your maximum health for 10 seconds. While this is active you are considered Undead and are immune to fear, sleep, and charm effects.' The absorb is literal; there is no creature-type swap or immunity-to-a-school-of-CC primitive. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect entirely - so THE `duration` FIELD WAS NEVER READ and this short combat cooldown was live for every fight in the next half hour. These are Icy Veins / Evasion-family cooldowns, which is exactly what 'combat' scope is for. Scoped to Reaper deliberately: FOUR talents in this class's rebuilt trees extend one of these durations (Harvest's Deathbringer on Harvest Time, Soul's Death Dealer on Ghostly Weapon) and every one of them was dead data while the duration was ignored. 65 buffs across 12 other classes still have the same shape - see tools/qa_buff_scope.py - and Kyle has parked that sweep as a separate balance decision; this is not it.",
-      "target_type": "self",
-      "absorb_pct_max_health": 0.3,
       "buff_scope": "combat"
     },
     {
@@ -856,30 +601,6 @@
       "_source": "CoA: Domination's 'Shadow's Embrace cleanses fear, charm and sleep one effect at a time'. Fear, charm and sleep are Magic in WoW's dispel schools, and magic is a real DispelType here, so this one survives translation intact.",
       "target_type": "ally",
       "dispel_type": "magic"
-    },
-    {
-      "ability_id": "reaper_masochistic_rage",
-      "name": "Masochistic Rage",
-      "resource_type": "mana",
-      "cooldown": 10,
-      "effect_type": "buff",
-      "duration": 3,
-      "stat_mods": {
-        "damage_dealt_pct": 20.0
-      },
-      "description": "Damage dealt +20% for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 36,
-          "cost": 30,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree: 'After a 1 sec delay, you suffer AP damage, enraging you and increasing your damage dealt by 20% for 15 seconds.' The self-damage cost has no hook, so a long cooldown pays for it instead. damage_dealt_pct in a buff is percentage POINTS. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect entirely - so THE `duration` FIELD WAS NEVER READ and this short combat cooldown was live for every fight in the next half hour. These are Icy Veins / Evasion-family cooldowns, which is exactly what 'combat' scope is for. Scoped to Reaper deliberately: FOUR talents in this class's rebuilt trees extend one of these durations (Harvest's Deathbringer on Harvest Time, Soul's Death Dealer on Ghostly Weapon) and every one of them was dead data while the duration was ignored. 65 buffs across 12 other classes still have the same shape - see tools/qa_buff_scope.py - and Kyle has parked that sweep as a separate balance decision; this is not it.",
-      "target_type": "self",
-      "buff_scope": "combat"
     },
     {
       "ability_id": "reaper_soulstone_lure",
@@ -1075,58 +796,6 @@
         "resource": "souls",
         "amount": 20
       }
-    },
-    {
-      "ability_id": "reaper_sever",
-      "name": "Sever",
-      "resource_type": "mana",
-      "cooldown": 5,
-      "effect_type": "damage_and_heal",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals Shadow damage to the target and heals you for part of it.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 30,
-          "cost": 34,
-          "effect_value": 96,
-          "heal_value": 60
-        },
-        {
-          "rank": 2,
-          "level_req": 37,
-          "cost": 38,
-          "effect_value": 117,
-          "heal_value": 74
-        },
-        {
-          "rank": 3,
-          "level_req": 44,
-          "cost": 42,
-          "effect_value": 138,
-          "heal_value": 87
-        },
-        {
-          "rank": 4,
-          "level_req": 50,
-          "cost": 46,
-          "effect_value": 159,
-          "heal_value": 100
-        },
-        {
-          "rank": 5,
-          "level_req": 57,
-          "cost": 50,
-          "effect_value": 180,
-          "heal_value": 114
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Attempt to drain an enemies vitals, leeching AP health, interrupting casting and preventing any spell from that school from being cast for 3 seconds.' There is no interrupt or school-lockout primitive, so the leech half is the whole ability and 'Sever to interrupt a dangerous cast' is lost.",
-      "target_type": "enemy",
-      "heal_scope": 1,
-      "damage_school": "shadow"
     },
     {
       "ability_id": "reaper_harvesting_grounds",
@@ -1450,31 +1119,6 @@
       "buff_scope": "combat"
     },
     {
-      "ability_id": "reaper_shade",
-      "name": "Shade",
-      "resource_type": "mana",
-      "cooldown": 15,
-      "effect_type": "buff",
-      "duration": 2,
-      "stat_mods": {
-        "dodge": 25.0,
-        "damage_taken_pct": -0.2
-      },
-      "description": "Dodge +25, Damage taken -20% for 2 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 32,
-          "cost": 28,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Become a shade, entering an improved stealth mode for 10 seconds and entering Underwalk. Removes all movement impairing effects.' No stealth in combat, so 'nothing can find you' lands as heavy avoidance plus flat mitigation - the second of the spec's two defensive outs. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect entirely - so THE `duration` FIELD WAS NEVER READ and this short combat cooldown was live for every fight in the next half hour. These are Icy Veins / Evasion-family cooldowns, which is exactly what 'combat' scope is for. Scoped to Reaper deliberately: FOUR talents in this class's rebuilt trees extend one of these durations (Harvest's Deathbringer on Harvest Time, Soul's Death Dealer on Ghostly Weapon) and every one of them was dead data while the duration was ignored. 65 buffs across 12 other classes still have the same shape - see tools/qa_buff_scope.py - and Kyle has parked that sweep as a separate balance decision; this is not it.",
-      "target_type": "self",
-      "buff_scope": "combat"
-    },
-    {
       "ability_id": "reaper_deaths_presence",
       "name": "Death's Presence",
       "resource_type": "mana",
@@ -1665,51 +1309,6 @@
       }
     },
     {
-      "ability_id": "reaper_decimate",
-      "name": "Decimate",
-      "resource_type": "mana",
-      "cooldown": 3,
-      "effect_type": "damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals damage to the target.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 28,
-          "cost": 40,
-          "effect_value": 100
-        },
-        {
-          "rank": 2,
-          "level_req": 35,
-          "cost": 46,
-          "effect_value": 126
-        },
-        {
-          "rank": 3,
-          "level_req": 42,
-          "cost": 52,
-          "effect_value": 152
-        },
-        {
-          "rank": 4,
-          "level_req": 49,
-          "cost": 59,
-          "effect_value": 178
-        },
-        {
-          "rank": 5,
-          "level_req": 56,
-          "cost": 68,
-          "effect_value": 204
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: Decimation, Domination's level-50 passive - 'Reap, whose every 6th cast turns into a Decimate'. A cast counter has no hook, so Decimate is its own short-cooldown heavy strike rather than a Reap replacement.",
-      "target_type": "enemy"
-    },
-    {
       "ability_id": "reaper_bolstered_form",
       "name": "Bolstered Form",
       "resource_type": "mana",
@@ -1863,33 +1462,6 @@
       "_source": "CoA: 'Increases critical strike chance of all party and raid members by 3%. Does not stack with similar effects.' The second half of what the reference calls 'Rare support from a tank'.",
       "target_type": "self",
       "buff_scope": "raid"
-    },
-    {
-      "ability_id": "reaper_mark_of_terror",
-      "name": "Mark of Terror",
-      "resource_type": "mana",
-      "cooldown": 12,
-      "effect_type": "debuff",
-      "duration": 2,
-      "stat_mods": {},
-      "description": "Interrupts and stuns up to 3 targets for 2 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 36,
-          "cost": 34,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: Domination's 'hard CC stops at Mark of Terror's fear and Soulstone Lure's horrify'. A fear is is_stun here; capped at 3 targets so it is a peel and not a full-pull lockdown.",
-      "target_type": "enemy_aoe",
-      "max_targets": 3,
-      "is_stun": true,
-      "immune_creature_types": [
-        "undead",
-        "mechanical"
-      ]
     }
   ]
 }
