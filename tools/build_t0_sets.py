@@ -38,8 +38,13 @@ sys.path.insert(0, str(ROOT))
 OUT = ROOT / "data" / "items" / "gear_sets.json"
 
 SLOTS = ["head", "shoulder", "chest", "wrist", "hands", "waist", "legs", "feet"]
-#: required level per slot - Classic's dungeon set 1. Item level is two above, this game's rule.
-LEVELS = {"wrist": 52, "waist": 53, "hands": 54, "feet": 54, "shoulder": 55, "legs": 56, "head": 57, "chest": 58}
+#: required level per slot - Classic's dungeon set 1, moved up one level (see ILVL_ABOVE).
+LEVELS = {"wrist": 53, "waist": 54, "hands": 55, "feet": 55, "shoulder": 56, "legs": 57, "head": 58, "chest": 59}
+#: A set piece's item level sits this far above its required level. Kyle, 13 Nov 2026: "The T0
+#: item set will be from lvl 53 to lvl 59 (So ilvl 56 to ilvl 62)" - one level later than the
+#: first draft (52-58) and three above instead of the usual two, so a set piece is a notch better
+#: than an ordinary blue of its level.
+ILVL_ABOVE = 3
 
 #: class -> (set name, the word(s) its pieces are named with)
 SETS = {
@@ -167,11 +172,11 @@ def budgets(gen, char_class):
         prim, armor, kind = [], [], None
         for seed in range(40):
             random.seed(seed * 7919 + req)
-            it = gen.generate_item_for_class(char_class, req + 2, slot=slot, rarity="rare")
+            it = gen.generate_item_for_class(char_class, req + ILVL_ABOVE, slot=slot, rarity="rare")
             prim.append(sum(it.primary_stats.values()))
             armor.append(it.armor_value)
             kind = it.armor_type
-        out[slot] = (req + 2, req, int(statistics.median(prim)), int(statistics.median(armor)), kind)
+        out[slot] = (req + ILVL_ABOVE, req, int(statistics.median(prim)), int(statistics.median(armor)), kind)
     return out
 
 
@@ -222,8 +227,10 @@ def build():
 def main():
     sets = build()
     doc = {"_about": "Gear sets. BUILT by tools/build_t0_sets.py - edit that, not this. Shape: world/gear_sets.py. "
-                     "T0: eight pieces, required levels 52-58 as in Classic's dungeon set 1, one version per way a "
-                     "class gears, bonuses at 2 and 4 (6 and 8 not designed yet). No drop source yet, on purpose.",
+                     "T0: eight pieces, required levels 53-59 with item level three above, one version per way a "
+                     "class gears, bonuses at 2 and 4 (6 and 8 not designed yet). Bracers, belts and legs "
+                     "come from tokens dropped in Khaz Varun and the Emberdeep (data/items/set_tokens.json); "
+                     "the other five slots have no drop source yet.",
            "sets": sets}
     text = json.dumps(doc, indent=1) + "\n"
     versions = sum(len(s["variants"]) for s in sets.values())

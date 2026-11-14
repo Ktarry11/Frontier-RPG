@@ -1152,7 +1152,10 @@ class CombatEngine:
             # data/creatures/quest_drops.json is the real source of
             # truth, keyed by the same creature-name string Monster.name
             # already carries.
-            for drop_def in self._get_loot_item_drops(enemy.name):
+            # ...plus a T0 set token, if this is one of the bosses that carries them
+            # (world/set_tokens.py: 20% a kill, guaranteed on a dungeon's last boss).
+            from world import set_tokens as _set_tokens
+            for drop_def in list(self._get_loot_item_drops(enemy.name)) + _set_tokens.roll(enemy.name):
                 import random as _random
                 if _random.random() > drop_def.get("chance", 1.0):
                     continue

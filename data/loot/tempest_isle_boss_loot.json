@@ -1,0 +1,994 @@
+{
+  "_notes": "Tempest Isle boss loot (2026-11-13): Khaz Varun and the Emberdeep. ONE item drops per kill from the pool of three. item_level = boss level + 3. T0 tokens are separate (data/items/set_tokens.json). Hand-authored in tools/build_tempest_loot.py.",
+  "Gatewarden Hrun": [
+    {
+      "name": "Gatewarden's Tower Shield",
+      "slot": "off_hand",
+      "item_level": 55,
+      "rarity": "rare",
+      "required_level": 52,
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 15
+      },
+      "armor_value": 112,
+      "block_value": 140
+    },
+    {
+      "name": "Hrun's Watch-Helm",
+      "slot": "head",
+      "item_level": 55,
+      "rarity": "rare",
+      "required_level": 52,
+      "primary_stats": {
+        "stamina": 17
+      },
+      "secondary_stats": {
+        "defense_rating": 1,
+        "dodge_rating": 1
+      },
+      "armor_type": "plate",
+      "armor_value": 366
+    },
+    {
+      "name": "Gatewarden's Horn",
+      "slot": "trinket",
+      "item_level": 55,
+      "rarity": "rare",
+      "required_level": 52,
+      "primary_stats": {
+        "strength": 9,
+        "stamina": 12
+      },
+      "secondary_stats": {
+        "defense_rating": 1
+      },
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 10,
+        "icd": 5,
+        "heal_flat": 150,
+        "describe": "When you are hit, you have a chance to heal for 150."
+      }
+    }
+  ],
+  "The Crusher": [
+    {
+      "name": "Crusher's Counterweight",
+      "slot": "main_hand",
+      "item_level": 55,
+      "rarity": "rare",
+      "required_level": 52,
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 15
+      },
+      "secondary_stats": {
+        "hit_rating": 1,
+        "crit_chance_physical": 1
+      },
+      "weapon_damage_min": 130,
+      "weapon_damage_max": 176,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Slagplate Sabatons",
+      "slot": "feet",
+      "item_level": 55,
+      "rarity": "rare",
+      "required_level": 52,
+      "primary_stats": {
+        "strength": 10,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 1
+      },
+      "armor_type": "plate",
+      "armor_value": 299
+    },
+    {
+      "name": "Stone-Dust Mantle",
+      "slot": "shoulder",
+      "item_level": 55,
+      "rarity": "rare",
+      "required_level": 52,
+      "primary_stats": {
+        "intellect": 13,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "spell_power": 9
+      },
+      "armor_type": "cloth",
+      "armor_value": 76
+    }
+  ],
+  "Smelter-Master Vaud": [
+    {
+      "name": "Vaud's Slag Ladle",
+      "slot": "main_hand",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 20
+      },
+      "secondary_stats": {
+        "spell_power": 27,
+        "crit_chance_spell": 1
+      },
+      "weapon_damage_min": 54,
+      "weapon_damage_max": 73,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Smelter's Apron",
+      "slot": "chest",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "stamina": 15,
+        "intellect": 15
+      },
+      "secondary_stats": {
+        "healing_power": 11
+      },
+      "armor_type": "leather",
+      "armor_value": 183
+    },
+    {
+      "name": "Crucible-Tender's Gloves",
+      "slot": "hands",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "agility": 15,
+        "intellect": 15
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 203
+    }
+  ],
+  "Powderkeg Nix": [
+    {
+      "name": "Nix's Bolt-Thrower",
+      "slot": "ranged",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "weapon_type": "crossbow",
+      "primary_stats": {
+        "agility": 9
+      },
+      "secondary_stats": {
+        "attack_power": 19,
+        "hit_rating": 1
+      },
+      "weapon_damage_min": 83,
+      "weapon_damage_max": 112,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Blast-Scorched Hood",
+      "slot": "head",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "agility": 15
+      },
+      "secondary_stats": {
+        "hit_rating": 1,
+        "crit_chance_physical": 1
+      },
+      "armor_type": "leather",
+      "armor_value": 155
+    },
+    {
+      "name": "Powder-Monkey's Boots",
+      "slot": "feet",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "agility": 11,
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "attack_power": 18
+      },
+      "armor_type": "mail",
+      "armor_value": 203
+    }
+  ],
+  "Overseer Grall": [
+    {
+      "name": "The Overseer's Ledger",
+      "slot": "off_hand",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 10
+      },
+      "secondary_stats": {
+        "spell_power": 14,
+        "mp5": 3
+      }
+    },
+    {
+      "name": "Grall's Tally-Blade",
+      "slot": "main_hand",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "agility": 13,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "attack_power": 22
+      },
+      "weapon_damage_min": 98,
+      "weapon_damage_max": 132,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Taskmaster's Pauldrons",
+      "slot": "shoulder",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "strength": 13
+      },
+      "secondary_stats": {
+        "attack_power": 26,
+        "hit_rating": 1
+      },
+      "armor_type": "plate",
+      "armor_value": 373
+    }
+  ],
+  "Forge-Lord Darrok": [
+    {
+      "name": "Darrok's Forge Hammer",
+      "slot": "main_hand",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "intellect": 11,
+        "spirit": 11
+      },
+      "secondary_stats": {
+        "healing_power": 12
+      },
+      "weapon_damage_min": 99,
+      "weapon_damage_max": 135,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Forge-Lord's Breastplate",
+      "slot": "chest",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "strength": 16,
+        "stamina": 20
+      },
+      "secondary_stats": {
+        "hit_rating": 1
+      },
+      "armor_type": "plate",
+      "armor_value": 448
+    },
+    {
+      "name": "Emberglass Band",
+      "slot": "ring",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "spell_power": 11,
+        "crit_chance_spell": 1
+      }
+    }
+  ],
+  "The Iron Mask": [
+    {
+      "name": "Mask of the Silent Warden",
+      "slot": "head",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "agility": 13,
+        "intellect": 13
+      },
+      "secondary_stats": {
+        "attack_power": 23
+      },
+      "armor_type": "mail",
+      "armor_value": 253
+    },
+    {
+      "name": "Jailer's Hooked Axe",
+      "slot": "main_hand",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "weapon_type": "axe_1h",
+      "primary_stats": {
+        "strength": 13,
+        "stamina": 17
+      },
+      "secondary_stats": {
+        "defense_rating": 1
+      },
+      "weapon_damage_min": 99,
+      "weapon_damage_max": 135,
+      "attack_speed": 2.6
+    },
+    {
+      "name": "Warden's Shackle-Cloak",
+      "slot": "back",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "dodge_rating": 1,
+        "parry_rating": 1
+      },
+      "armor_type": "cloth",
+      "armor_value": 57
+    }
+  ],
+  "The Ashwretch Brood": [
+    {
+      "name": "Broodwrap Robe",
+      "slot": "chest",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "intellect": 22,
+        "spirit": 22
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 93
+    },
+    {
+      "name": "Ash-Bitten Athame",
+      "slot": "main_hand",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "intellect": 10
+      },
+      "secondary_stats": {
+        "spell_power": 13,
+        "hit_rating": 1
+      },
+      "weapon_damage_min": 99,
+      "weapon_damage_max": 135,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Gravedust Treads",
+      "slot": "feet",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "agility": 16,
+        "stamina": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 129
+    }
+  ],
+  "The Rock-Borer Queen": [
+    {
+      "name": "Queen's Mandible",
+      "slot": "main_hand",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "agility": 19,
+        "stamina": 19
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 134,
+      "weapon_damage_max": 182,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Borer-Chitin Spaulders",
+      "slot": "shoulder",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "agility": 13,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "attack_power": 23
+      },
+      "armor_type": "mail",
+      "armor_value": 253
+    },
+    {
+      "name": "Tunnel-Mother's Hauberk",
+      "slot": "chest",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "intellect": 16,
+        "stamina": 20
+      },
+      "secondary_stats": {
+        "mp5": 4
+      },
+      "armor_type": "mail",
+      "armor_value": 299
+    }
+  ],
+  "Flamespeaker Maud": [
+    {
+      "name": "Maud's Kindling Rod",
+      "slot": "ranged",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "weapon_type": "wand",
+      "primary_stats": {},
+      "secondary_stats": {
+        "fire_spell_power": 28
+      },
+      "weapon_damage_min": 84,
+      "weapon_damage_max": 114,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Flamespeaker's Cowl",
+      "slot": "head",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "spell_power": 15,
+        "crit_chance_spell": 1
+      },
+      "armor_type": "cloth",
+      "armor_value": 79
+    },
+    {
+      "name": "Cinder-Prayer Beads",
+      "slot": "trinket",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "intellect": 8,
+        "spirit": 8
+      },
+      "secondary_stats": {
+        "healing_power": 9
+      },
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 10,
+        "icd": 5,
+        "apply_effect": {
+          "effect_id": "cinder_prayer_answered",
+          "name": "Prayer Answered",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "healing_power": 45
+          },
+          "on_target": false
+        },
+        "describe": "Your healing spells have a chance to grant 45 healing power for 3 turns."
+      }
+    }
+  ],
+  "The Shadow of the Forge": [
+    {
+      "name": "Shadowforged Greatsword",
+      "slot": "main_hand",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "weapon_type": "sword_2h",
+      "primary_stats": {
+        "strength": 13,
+        "stamina": 17
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 1
+      },
+      "weapon_damage_min": 134,
+      "weapon_damage_max": 182,
+      "attack_speed": 3.4
+    },
+    {
+      "name": "Sootveil Gloves",
+      "slot": "hands",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {},
+      "secondary_stats": {
+        "shadow_spell_power": 31
+      },
+      "armor_type": "cloth",
+      "armor_value": 64
+    },
+    {
+      "name": "Forge-Shade Leggings",
+      "slot": "legs",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "agility": 22,
+        "intellect": 22
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 187
+    }
+  ],
+  "Thane Morrun the Unmade": [
+    {
+      "name": "Morrun's Stone-Fused Crown",
+      "slot": "head",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "strength": 19,
+        "intellect": 19
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 379
+    },
+    {
+      "name": "Knuckles of the Unmade",
+      "slot": "main_hand",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "strength": 16,
+        "agility": 16
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 99,
+      "weapon_damage_max": 135,
+      "attack_speed": 1.8
+    },
+    {
+      "name": "Signet of Khaz Varun",
+      "slot": "ring",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "strength": 10,
+        "stamina": 12
+      },
+      "secondary_stats": {
+        "defense_rating": 1
+      }
+    }
+  ],
+  "Pack-Alpha Cinderhound": [
+    {
+      "name": "Alpha's Fang",
+      "slot": "main_hand",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 13
+      },
+      "secondary_stats": {
+        "hit_rating": 1,
+        "crit_chance_physical": 1
+      },
+      "weapon_damage_min": 103,
+      "weapon_damage_max": 139,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Cinderhound Hide Jerkin",
+      "slot": "chest",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "agility": 16,
+        "stamina": 16
+      },
+      "secondary_stats": {
+        "attack_power": 28
+      },
+      "armor_type": "leather",
+      "armor_value": 193
+    },
+    {
+      "name": "Alpha's Dewclaw",
+      "slot": "trinket",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "agility": 10
+      },
+      "secondary_stats": {
+        "attack_power": 20,
+        "hit_rating": 1
+      },
+      "proc": {
+        "trigger": "on_crit",
+        "chance": 15,
+        "icd": 5,
+        "apply_effect": {
+          "effect_id": "alphas_dewclaw_blooded",
+          "name": "Blooded",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "attack_power": 50
+          },
+          "on_target": false
+        },
+        "describe": "Your critical strikes have a chance to grant 50 attack power for 3 turns."
+      }
+    }
+  ],
+  "Thrass, the Geyser Spirit": [
+    {
+      "name": "Scaldwater Staff",
+      "slot": "main_hand",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "weapon_type": "staff",
+      "primary_stats": {
+        "spirit": 32,
+        "intellect": 14
+      },
+      "secondary_stats": {
+        "healing_power": 20
+      },
+      "weapon_damage_min": 56,
+      "weapon_damage_max": 76,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Steam-Wreathed Shoulderpads",
+      "slot": "shoulder",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "stamina": 14,
+        "intellect": 14
+      },
+      "secondary_stats": {
+        "healing_power": 9
+      },
+      "armor_type": "leather",
+      "armor_value": 163
+    },
+    {
+      "name": "Thrass's Boiling Wraps",
+      "slot": "wrist",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "intellect": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "spell_power": 8
+      },
+      "armor_type": "cloth",
+      "armor_value": 67
+    }
+  ],
+  "Basalt Guardian Vok": [
+    {
+      "name": "Vok's Basalt Bulwark",
+      "slot": "off_hand",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 16
+      },
+      "armor_value": 122,
+      "block_value": 153
+    },
+    {
+      "name": "Columnar Greathelm",
+      "slot": "head",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "stamina": 18
+      },
+      "secondary_stats": {
+        "dodge_rating": 1,
+        "parry_rating": 1
+      },
+      "armor_type": "plate",
+      "armor_value": 399
+    },
+    {
+      "name": "Guardian's Hexagon Girdle",
+      "slot": "waist",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "agility": 11,
+        "stamina": 15
+      },
+      "secondary_stats": {
+        "hit_rating": 1
+      },
+      "armor_type": "mail",
+      "armor_value": 218
+    }
+  ],
+  "The Molten Serpent": [
+    {
+      "name": "Serpent-Spine Longbow",
+      "slot": "ranged",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "weapon_type": "bow",
+      "primary_stats": {
+        "agility": 10,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "hit_rating": 1
+      },
+      "weapon_damage_min": 88,
+      "weapon_damage_max": 120,
+      "attack_speed": 2.8
+    },
+    {
+      "name": "Magma-Scale Gauntlets",
+      "slot": "hands",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "intellect": 11,
+        "stamina": 15
+      },
+      "secondary_stats": {
+        "mp5": 3
+      },
+      "armor_type": "mail",
+      "armor_value": 218
+    },
+    {
+      "name": "Lava-Shed Cloak",
+      "slot": "back",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "intellect": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 60
+    }
+  ],
+  "Flame Oracle Ysmel": [
+    {
+      "name": "Oracle's Burning Tome",
+      "slot": "off_hand",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 13
+      },
+      "secondary_stats": {
+        "spell_penetration": 2,
+        "spell_power": 7
+      }
+    },
+    {
+      "name": "Ysmel's Seeing Circlet",
+      "slot": "head",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "intellect": 12,
+        "spirit": 12
+      },
+      "secondary_stats": {
+        "healing_power": 13
+      },
+      "armor_type": "cloth",
+      "armor_value": 84
+    },
+    {
+      "name": "Ashen Prophecy Mantle",
+      "slot": "shoulder",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "spirit": 18,
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "healing_power": 11
+      },
+      "armor_type": "mail",
+      "armor_value": 271
+    }
+  ],
+  "The Mountain's Heart": [
+    {
+      "name": "Shard of the Mountain's Heart",
+      "slot": "trinket",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "intellect": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "spell_power": 7
+      },
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 8,
+        "icd": 5,
+        "apply_effect": {
+          "effect_id": "mountains_heart_pulse",
+          "name": "Heartbeat of Stone",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "spell_power": 32
+          },
+          "on_target": false
+        },
+        "describe": "Your damaging spells have a chance to grant 32 spell power for 3 turns."
+      }
+    },
+    {
+      "name": "Deep-Stone Sabatons",
+      "slot": "feet",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "strength": 12,
+        "stamina": 15
+      },
+      "secondary_stats": {
+        "defense_rating": 1
+      },
+      "armor_type": "plate",
+      "armor_value": 332
+    },
+    {
+      "name": "Magma-Vein Bracers",
+      "slot": "wrist",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "strength": 17,
+        "agility": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 138
+    }
+  ],
+  "The Caldera": [
+    {
+      "name": "Caldera's Fury",
+      "slot": "main_hand",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "weapon_type": "axe_2h",
+      "primary_stats": {
+        "strength": 14
+      },
+      "secondary_stats": {
+        "armor_penetration_pct": 3,
+        "attack_power": 20
+      },
+      "weapon_damage_min": 143,
+      "weapon_damage_max": 193,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Rimfire Gloves",
+      "slot": "hands",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "intellect": 10
+      },
+      "secondary_stats": {
+        "spell_power": 13,
+        "mp5": 3
+      },
+      "armor_type": "cloth",
+      "armor_value": 69
+    },
+    {
+      "name": "Crater-Forged Hauberk",
+      "slot": "chest",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "agility": 17,
+        "intellect": 17
+      },
+      "secondary_stats": {
+        "attack_power": 29
+      },
+      "armor_type": "mail",
+      "armor_value": 320
+    }
+  ]
+}

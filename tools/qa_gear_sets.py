@@ -301,15 +301,20 @@ def main():
                 bad.append(f"{sid}: the {slot} is worth {sorted(totals)} primary points depending on "
                            f"version - an exchange must never be an upgrade")
 
-    # THE T0 SETS: every class has one, eight pieces, levels 52-58 as in Classic
+    # THE T0 SETS: every class has one, eight pieces, levels 53-59
     t0 = {d["class"]: (sid, d) for sid, d in shipped.items() if d.get("tier") == "T0"}
     missing = sorted(c for c in classes if c.replace("_", " ").title() not in {k.title() for k in t0})
     if missing:
         bad.append(f"no T0 set for: {missing}")
     for cls, (sid, d) in t0.items():
         reqs = sorted(f["required_level"] for f in d["slots"].values())
-        if reqs != [52, 53, 54, 54, 55, 56, 57, 58]:
-            bad.append(f"{sid}: required levels are {reqs}; Classic's dungeon set is 52,53,54,54,55,56,57,58")
+        # Kyle, 13 Nov 2026: "The T0 item set will be from lvl 53 to lvl 59 (So ilvl 56 to ilvl 62)".
+        # One level later than Classic's 52-58, and item level THREE above the required level.
+        if reqs != [53, 54, 55, 55, 56, 57, 58, 59]:
+            bad.append(f"{sid}: required levels are {reqs}; T0 is 53,54,55,55,56,57,58,59")
+        off = {f["item_level"] - f["required_level"] for f in d["slots"].values()}
+        if off != {3}:
+            bad.append(f"{sid}: item level sits {sorted(off)} above the required level; T0 is three above")
         for key, v in d["variants"].items():
             if len(v["pieces"]) != 8:
                 bad.append(f"{sid}/{key}: {len(v['pieces'])} pieces, T0 is eight")

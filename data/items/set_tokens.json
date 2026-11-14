@@ -1,0 +1,277 @@
+{
+  "_about": "T0 set tokens. BUILT by tools/build_tempest_loot.py - edit that, not this. Rolled and redeemed by world/set_tokens.py.",
+  "chance": 0.2,
+  "tokens": {
+    "t0_token_wrist_plate": {
+      "name": "Bindings of the Black Hollow (Plate)",
+      "slot": "wrist",
+      "armor_type": "plate",
+      "tier": "T0",
+      "icon_id": "t0_warrior_wrist",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set bracers of a class that wears plate."
+    },
+    "t0_token_wrist_mail": {
+      "name": "Bindings of the Black Hollow (Mail)",
+      "slot": "wrist",
+      "armor_type": "mail",
+      "tier": "T0",
+      "icon_id": "t0_shaman_wrist",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set bracers of a class that wears mail."
+    },
+    "t0_token_wrist_leather": {
+      "name": "Bindings of the Black Hollow (Leather)",
+      "slot": "wrist",
+      "armor_type": "leather",
+      "tier": "T0",
+      "icon_id": "t0_rogue_wrist",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set bracers of a class that wears leather."
+    },
+    "t0_token_wrist_cloth": {
+      "name": "Bindings of the Black Hollow (Cloth)",
+      "slot": "wrist",
+      "armor_type": "cloth",
+      "tier": "T0",
+      "icon_id": "t0_priest_wrist",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set bracers of a class that wears cloth."
+    },
+    "t0_token_waist_plate": {
+      "name": "Girdle of the Black Hollow (Plate)",
+      "slot": "waist",
+      "armor_type": "plate",
+      "tier": "T0",
+      "icon_id": "t0_warrior_waist",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set belt of a class that wears plate."
+    },
+    "t0_token_waist_mail": {
+      "name": "Girdle of the Black Hollow (Mail)",
+      "slot": "waist",
+      "armor_type": "mail",
+      "tier": "T0",
+      "icon_id": "t0_shaman_waist",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set belt of a class that wears mail."
+    },
+    "t0_token_waist_leather": {
+      "name": "Girdle of the Black Hollow (Leather)",
+      "slot": "waist",
+      "armor_type": "leather",
+      "tier": "T0",
+      "icon_id": "t0_rogue_waist",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set belt of a class that wears leather."
+    },
+    "t0_token_waist_cloth": {
+      "name": "Girdle of the Black Hollow (Cloth)",
+      "slot": "waist",
+      "armor_type": "cloth",
+      "tier": "T0",
+      "icon_id": "t0_priest_waist",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set belt of a class that wears cloth."
+    },
+    "t0_token_legs_plate": {
+      "name": "Legguards of the Emberdeep (Plate)",
+      "slot": "legs",
+      "armor_type": "plate",
+      "tier": "T0",
+      "icon_id": "t0_warrior_legs",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set legs of a class that wears plate."
+    },
+    "t0_token_legs_mail": {
+      "name": "Legguards of the Emberdeep (Mail)",
+      "slot": "legs",
+      "armor_type": "mail",
+      "tier": "T0",
+      "icon_id": "t0_shaman_legs",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set legs of a class that wears mail."
+    },
+    "t0_token_legs_leather": {
+      "name": "Legguards of the Emberdeep (Leather)",
+      "slot": "legs",
+      "armor_type": "leather",
+      "tier": "T0",
+      "icon_id": "t0_rogue_legs",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set legs of a class that wears leather."
+    },
+    "t0_token_legs_cloth": {
+      "name": "Legguards of the Emberdeep (Cloth)",
+      "slot": "legs",
+      "armor_type": "cloth",
+      "tier": "T0",
+      "icon_id": "t0_priest_legs",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set legs of a class that wears cloth."
+    }
+  },
+  "bosses": {
+    "Gatewarden Hrun": {
+      "slot": "wrist",
+      "guaranteed": false,
+      "types": [
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "The Crusher": {
+      "slot": "wrist",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Smelter-Master Vaud": {
+      "slot": "wrist",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "cloth"
+      ]
+    },
+    "Powderkeg Nix": {
+      "slot": "wrist",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "leather"
+      ]
+    },
+    "Overseer Grall": {
+      "slot": "wrist",
+      "guaranteed": false,
+      "types": [
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Forge-Lord Darrok": {
+      "slot": "wrist",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "leather",
+        "cloth"
+      ]
+    },
+    "The Iron Mask": {
+      "slot": "waist",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "cloth"
+      ]
+    },
+    "The Ashwretch Brood": {
+      "slot": "waist",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "leather"
+      ]
+    },
+    "The Rock-Borer Queen": {
+      "slot": "waist",
+      "guaranteed": false,
+      "types": [
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Flamespeaker Maud": {
+      "slot": "waist",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "leather",
+        "cloth"
+      ]
+    },
+    "The Shadow of the Forge": {
+      "slot": "waist",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "cloth"
+      ]
+    },
+    "Thane Morrun the Unmade": {
+      "slot": "waist",
+      "guaranteed": true,
+      "types": [
+        "plate",
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Pack-Alpha Cinderhound": {
+      "slot": "legs",
+      "guaranteed": false,
+      "types": [
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Thrass, the Geyser Spirit": {
+      "slot": "legs",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Basalt Guardian Vok": {
+      "slot": "legs",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "cloth"
+      ]
+    },
+    "The Molten Serpent": {
+      "slot": "legs",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "leather"
+      ]
+    },
+    "Flame Oracle Ysmel": {
+      "slot": "legs",
+      "guaranteed": false,
+      "types": [
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "The Mountain's Heart": {
+      "slot": "legs",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "leather",
+        "cloth"
+      ]
+    },
+    "The Caldera": {
+      "slot": "legs",
+      "guaranteed": true,
+      "types": [
+        "plate",
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    }
+  }
+}

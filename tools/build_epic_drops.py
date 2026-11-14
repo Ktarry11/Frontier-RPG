@@ -105,6 +105,26 @@ WORLD = [
      "Every pouch labelled, in a hand that expected somebody else to read it."),
     ("Quietkeep", "off_hand", "weapon", "tome", 50, "spi_healer",
      "Half the pages are blank. The other half are names, and the list is still going."),
+
+    # ---- the 51-58 band. Kyle, 13 Nov 2026: "make about 5 new world epics that drop at 50+",
+    # and "TRINKETS CAN DO THINGS NOW - MOVE THE 50+ TRINKETS SLOWLY FROM BEING BASIC STAT
+    # STICKS". Two of the five are trinkets with a proc (PROCS below). The other three fill
+    # weapon types no epic had used (bow, axe_1h) and the hands slot.
+    ("Long Way Round", "ranged", "weapon", "bow", 52, "agi_physical",
+     "Somebody carried it the whole length of two worlds and never found a reason to draw it "
+     "until the last mile."),
+    ("Kindling", "main_hand", "weapon", "axe_1h", 53, "str_physical",
+     "It was a wood axe for forty years, and the man who owned it would be upset to see what "
+     "it gets used for now."),
+    ("The Borrowed Hour", "trinket", "armor", "accessory", 54, "spi_healer",
+     "A pocket watch that stopped on the day of the Integration and has been right about "
+     "everything since."),
+    ("The Even Hand", "hands", "armor", "leather", 56, "agi_int_hybrid",
+     "The left glove is more worn than the right, because whoever owned them kept the right "
+     "hand free for shaking."),
+    ("Witness", "trinket", "armor", "accessory", 57, "agi_physical",
+     "A brass spyglass lens with a crack across it, kept by someone who saw a thing happen and "
+     "was never asked about it."),
 ]
 
 #: Occasional drops from bosses at level 30 and up, themed to the dungeons that exist up there -
@@ -162,6 +182,18 @@ DUNGEON = [
     ("Ashfall", "ranged", "weapon", "gun", 58, "agi_physical",
      "Dark Iron barrel, goblin firing mechanism, and an argument about the trigger that is still "
      "going on in Cinderwharf."),
+    # Three more for the isle (Kyle, 13 Nov 2026: "about 3 new epic items from the boss drops.
+    # Since we want to keep a healthy amount of epics"). A two-handed mace, the first wand, and
+    # a tank trinket that does something.
+    ("The Unmaking", "main_hand", "weapon", "mace_2h", 57, "str_physical",
+     "Thane Morrun swung it at the wall of his own hall for a hundred years, and the wall still "
+     "shows where."),
+    ("Serpent's Second Skin", "trinket", "armor", "accessory", 60, "str_physical",
+     "A scale the Molten Serpent shed while it was under the lava, and it has never fully "
+     "cooled."),
+    ("What the Oracle Saw", "ranged", "weapon", "wand", 61, "int_caster",
+     "Ysmel looked into the caldera every day until it looked back, and this is the rod she was "
+     "holding when it did."),
 ]
 
 #: Trinkets that DO something. Kyle, 10 Nov: "trinkets over 50+ WILL AND MUST start to
@@ -186,6 +218,27 @@ PROCS = {
             "on_target": False,
         },
         "describe": "Your damaging spells have a chance to grant 40 spell power for 3 turns.",
+    },
+    # The healer's version of the same idea.
+    "The Borrowed Hour": {
+        "trigger": "on_heal_cast", "chance": 10, "icd": 5,
+        "apply_effect": {"effect_id": "borrowed_hour_minute", "name": "A Spare Minute",
+                         "effect_type": "buff", "duration": 3,
+                         "stat_mods": {"healing_power": 60}, "on_target": False},
+        "describe": "Your healing spells have a chance to grant 60 healing power for 3 turns.",
+    },
+    # Crits feed it, for anyone who hits with a weapon.
+    "Witness": {
+        "trigger": "on_crit", "chance": 20, "icd": 4,
+        "apply_effect": {"effect_id": "witness_clear_sight", "name": "Clear Sight",
+                         "effect_type": "buff", "duration": 3,
+                         "stat_mods": {"attack_power": 70}, "on_target": False},
+        "describe": "Your critical strikes have a chance to grant 70 attack power for 3 turns.",
+    },
+    # A tank trinket: being hit sometimes heals you. heal_flat lands on the wearer.
+    "Serpent's Second Skin": {
+        "trigger": "on_damage_taken", "chance": 12, "icd": 4, "heal_flat": 220,
+        "describe": "When you are hit, you have a chance to heal for 220.",
     },
 }
 

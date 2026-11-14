@@ -87,6 +87,10 @@ class LootItem:
         #: sell price for real gear and shouldn't double as "can't sell".
         self.is_sellable = category != "quest"
         self.sell_price = 0 if category == "quest" else sell_price
+        # A set token is worth a set piece at an Artifact Keeper and nothing at a vendor, so it
+        # must never be sold by accident (world/set_tokens.py).
+        if str(item_id).startswith("t0_token_"):
+            self.is_sellable = False
         #: rarity is explicit-or-category-default rather than always
         #: forced to the category default, so a real material (e.g. a
         #: rare ore) can carry its actual data/items/materials.json

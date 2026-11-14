@@ -136,6 +136,15 @@ class TravelServiceScreen(BaseScreen):
             # One row per exchange on offer: a set piece somebody is wearing or carrying, and
             # another spec's version of it. Free (Kyle, 12 Nov) - respeccing must never mean
             # farming the set again.
+            # TOKENS FIRST. A boss drops a token for a slot and an armour type; the keeper trades
+            # it for that slot's piece of the set of anyone in the party who wears that armour.
+            from world import set_tokens
+            for token_id, token_name, member, set_id, slot, piece in set_tokens.redeemable(
+                    self.state_manager.player, self._party()):
+                rows.append(dict(name=f"{token_name}  ->  {piece}",
+                                 sub=f"{member.char_class} set piece, for {member.name}",
+                                 price=None, label="Trade", enabled=True, reason=None,
+                                 action="set_token", arg=(token_id, member)))
             from world.gear_sets import exchangeable
             for member, item, where, key, label, name in exchangeable(self._party()):
                 rows.append(dict(name=f"{item.name}  ->  {name}",
@@ -144,7 +153,7 @@ class TravelServiceScreen(BaseScreen):
                                  action="set_exchange", arg=(member, item, key)))
             if not rows:
                 rows.append(dict(name="Nothing to exchange",
-                                 sub="Bring a class set piece that comes in more than one version.",
+                                 sub="Bring a set token, or a class set piece that comes in more than one version.",
                                  price=None, label="-", enabled=False, reason=None,
                                  action="set_exchange", arg=None))
         elif self.kind == "mounts":
@@ -239,6 +248,11 @@ class TravelServiceScreen(BaseScreen):
     def _act(self, action, arg):
         travel = get_travel_manager()
         party = self._party()
+        if action == "set_token":
+            from world import set_tokens
+            token_id, member = arg
+            ok, msg = set_tokens.redeem(self.state_manager.player, token_id, member)
+            return self._say(msg, GREEN if ok else RED)
         if action == "set_exchange":
             from world.gear_sets import exchange
             member, item, key = arg
@@ -399,8 +413,8 @@ class TravelServiceScreen(BaseScreen):
             hint = (f"I teach {shown}. You know {pm.primary_count(player)} of "
                     f"{pm.max_primary()} professions.")
         elif self.kind == "set_exchange":
-            hint = ("Bring me a piece of your class set and I will trade it for another spec's "
-                    "version of the same piece. No charge.")
+            hint = ("Bring me a set token and I'll trade it for your class's piece. I'll also swap a "
+                    "set piece for another spec's version of it. There's no charge for either.")
         else:
             hint = (f"Riding skill: {travel.riding_skill(travel.riding_rank)['name']}" if travel.riding_rank
                     else "You need to learn riding first (level 20, any riding trainer).")
