@@ -357,6 +357,55 @@ CREATURE_SELLERS = [
                   "chance": 18, "damage": 70, "level": 44, "skill": 225}}),
 ]
 
+#: ISLANDS BAKED INTO A ZONE'S PAINTING. A painted zone cannot grow land at runtime, so these are real
+#: landforms in the zone module (see its ISLANDS and FORDS, keys "secret_*"), baked; this only tells the
+#: map to lie about them and puts a cache on each.  (zone, module, island key, ford key)
+BAKED_ISLANDS = [
+    ("Echo Isles", "tools.handbuilt_echo_isles", "secret_a", "secret_a"),
+    ("Echo Isles", "tools.handbuilt_echo_isles", "secret_b", "secret_b"),
+]
+
+
+def _baked_island(module, isle_key, ford_key):
+    """(island tiles, ford tiles, centre) from the zone's own landform functions."""
+    import importlib
+    import numpy as np
+    M = importlib.import_module(module)
+    blobs = M.ISLANDS[isle_key]
+    x0 = int(min(cx - rx for cx, cy, rx, ry in blobs)) - 4
+    x1 = int(max(cx + rx for cx, cy, rx, ry in blobs)) + 5
+    y0 = int(min(cy - ry for cx, cy, rx, ry in blobs)) - 4
+    y1 = int(max(cy + ry for cx, cy, rx, ry in blobs)) + 5
+    gx, gy = np.meshgrid(np.arange(x0, x1) + 0.5, np.arange(y0, y1) + 0.5)
+    kind = M.tile_kind(gx, gy)
+    isle = [(int(x), int(y)) for x, y, k in zip(gx.ravel() - 0.5, gy.ravel() - 0.5, kind.ravel()) if k in (0, 1)]
+    pts, w = M.FORDS[ford_key]
+    start = pts[0]
+    ford = []
+    xs = range(int(min(p[0] for p in pts)) - 3, int(max(p[0] for p in pts)) + 4)
+    ys = range(int(min(p[1] for p in pts)) - 3, int(max(p[1] for p in pts)) + 4)
+    for y in ys:
+        for x in xs:
+            px, py = x + 0.5, y + 0.5
+            d = min(_seg_dist(px, py, a, b) for a, b in zip(pts, pts[1:]))
+            if d <= w / 2 + 0.6 and (px - start[0]) ** 2 + (py - start[1]) ** 2 > 9 \
+                    and M.tile_kind(np.array([px]), np.array([py]))[0] == 1:
+                ford.append((x, y))
+    land = [p for p, k in zip(isle, [M.tile_kind(np.array([p[0] + 0.5]), np.array([p[1] + 0.5]))[0] for p in isle]) if k == 0]
+    cx = sum(p[0] for p in land) / len(land)
+    cy = sum(p[1] for p in land) / len(land)
+    centre = min(land, key=lambda p: (p[0] - cx) ** 2 + (p[1] - cy) ** 2)
+    return isle, ford, centre
+
+
+def _seg_dist(px, py, a, b):
+    ax, ay = a
+    bx, by = b
+    dx, dy = bx - ax, by - ay
+    t = max(0.0, min(1.0, ((px - ax) * dx + (py - ay) * dy) / (dx * dx + dy * dy or 1)))
+    return ((px - ax - t * dx) ** 2 + (py - ay - t * dy) ** 2) ** 0.5
+
+
 FOUND = {
     "behind": ["Somebody's been hiding back here.", "There's more behind here than it looks.",
                "Nobody comes round this side. Somebody does."],
@@ -625,6 +674,16 @@ def main():
     CONSUMABLES.write_text(json.dumps(cons_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     ENCHANTS.write_text(json.dumps(ench_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     MATERIALS.write_text(json.dumps(mat_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    # islands baked into the painting: a cache on each, and the map shows only sea
+    for (zone, module, ik, fk) in BAKED_ISLANDS:
+        isle, ford, centre = _baked_island(module, ik, fk)
+        level = _level(zone, levels)
+        secrets.append({"id": f"isle_{zone.lower().replace(' ', '_')}_{ik}", "zone": zone, "kind": "baked_island",
+                        "passage": [list(p) for p in ford], "area": [list(p) for p in isle], "mask": "deep_water",
+                        "cache": {"x": centre[0], "y": centre[1], "level": level}, "vendor": None,
+                        "found_text": FOUND["island"][len(secrets) % len(FOUND["island"])]})
+        taken.setdefault(zone, []).append(tuple(centre))
 
     # caches everywhere else: up to three a map, one in a town
     n = 0

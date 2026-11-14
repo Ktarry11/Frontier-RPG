@@ -67,6 +67,11 @@ ISLANDS = {
     # sand cays on the Tidal Flats
     "cays":   [(109, 129, 2.6, 2.0), (100, 132, 2.2, 1.8), (113, 124, 2.0, 1.7)],
     # bridge footings: land under every pylon so the sprites never float
+    # SECRET ISLETS (tools/build_secrets.py, world/secrets.py). Kyle, 14 Nov: "a shallow water you can
+    # walk to an island that doesn't even appear [on the map]". Real land, baked into the painting; the
+    # map draws it and its ford as open sea. Don't describe where they are to Kyle.
+    "secret_a": [(22, 15, 5.0, 4.0), (25, 13, 3.0, 2.6)],
+    "secret_b": [(143, 147, 4.6, 3.8), (146, 149, 2.8, 2.4)],
     "footings": [(96, 59, 3.0, 3.0), (112, 58, 3.0, 3.0),
                  (59, 90, 3.0, 3.0), (43, 90, 3.0, 3.0),
                  (101, 104, 3.0, 3.0), (125, 104, 3.0, 3.0)],
@@ -85,6 +90,9 @@ FORDS = {
     "causeway":  ([(128, 69), (131, 78), (133, 86), (133, 93)], 5.2),
     "steps":     ([(27, 77), (28, 69), (27, 61)], 4.8),
     "razorjaw":  ([(66, 121), (64, 129), (62, 138)], 6.0),
+    # the secret islets' fords: narrow, pale, and missing from the map
+    "secret_a":  ([(24, 37), (23, 29), (22, 21)], 3.0),
+    "secret_b":  ([(140, 119), (141, 130), (142, 141)], 3.0),
 }
 # open shallow flats: (cx, cy, rx, ry)
 FLATS = {
