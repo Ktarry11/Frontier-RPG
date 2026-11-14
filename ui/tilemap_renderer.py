@@ -996,6 +996,18 @@ class TilemapRenderer:
                     screen_y - (node_h - self.tile_size),
                     node_w, node_h)
 
+                if material_type == "fishing_pool":
+                    # A pool lies flat on its water tile: a square three tiles across (Kyle: "these pools are tiny and hard to see"),
+                    # centred on it, instead of the tall bottom-anchored box a herb or a vein gets.
+                    side = int(self.tile_size * 3.0)
+                    sheet_path = f"assets/gathering_nodes/fishing_pools/{icon_id}.png"
+                    sprite = get_tile_sprite(sheet_path, (0, 0) + self._icon_size(sheet_path), side)
+                    if sprite is not None:
+                        screen.blit(pygame.transform.smoothscale(sprite, (side, side)),
+                                    (screen_x - (side - self.tile_size) // 2,
+                                     screen_y - (side - self.tile_size) // 2))
+                    continue
+
                 if icon_id:
                     folder = MATERIAL_TYPE_FOLDERS.get(material_type, material_type)
                     sheet_path = f"assets/gathering_nodes/{folder}/{icon_id}.png"

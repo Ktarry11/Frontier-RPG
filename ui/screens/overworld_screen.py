@@ -311,7 +311,10 @@ class OverworldScreen(BaseScreen):
                     # gathering" feel closely enough for Phase 1; a real
                     # cast-time/interrupt system can come later if Kyle
                     # wants it.
-                    self._gather_node(gathering_node)
+                    if getattr(gathering_node, "pool_tile", None):
+                        self._start_cast(gathering_node)
+                    else:
+                        self._gather_node(gathering_node)
                 elif chest:
                     # Also instant, same reasoning as gathering nodes -
                     # no cast bar, no confirm dialog, walk up and press
@@ -355,6 +358,12 @@ class OverworldScreen(BaseScreen):
                 return
             if getattr(self, "eat_button_rect", None) and self.eat_button_rect.collidepoint(mouse_pos):
                 self._rest("meal")
+                return
+            if getattr(self, "cast_button_rect", None) and self.cast_button_rect.collidepoint(mouse_pos):
+                node = self.zone_manager.gathering_manager.fishing_node_near(
+                    self.zone_manager.player_x, self.zone_manager.player_y)
+                if node is not None:
+                    self._start_cast(node)
                 return
             if getattr(self, "drink_button_rect", None) and self.drink_button_rect.collidepoint(mouse_pos):
                 self._rest("drink")
@@ -614,6 +623,175 @@ class OverworldScreen(BaseScreen):
             inventory.set_subject(None, return_state=GameState.OVERWORLD)
         self.state_manager.transition_to(GameState.INVENTORY)
 
+    # ---- TRACKING, AND THE CAST BUTTON ------------------------------------------------------
+    #: material_type -> (the trade that tracks it, marker colour). Same colours as the map.
+    TRACKING = {"ore": ("mining", (235, 150, 60)), "herb": ("herbalism", (110, 220, 90)),
+                "wood": ("woodcutting", (170, 120, 70)), "fish": ("fishing", (90, 190, 235))}
+    #: An off-screen node is pointed at from this far away, in tiles.
+    TRACK_RANGE = 28
+
+    def tracked_nodes(self):
+        """[(kind, colour, x, y)] for every unharvested node of a trade THE PLAYER HAS LEARNED.
+
+        Kyle, 13 Nov: "We need fish tracking. Also for each tracking you ONLY learn it if you
+        have the profession!!!" So this is the only gate there is: a miner tracks veins, a
+        fisher tracks pools, and somebody with neither trade gets no markers at all. A fishing
+        pool is tracked at the pool on the water, which is where it is drawn.
+        """
+        player = getattr(self.state_manager, "player", None)
+        known = set(getattr(player, "known_professions", []) or []) if player is not None else set()
+        gm = self.zone_manager.gathering_manager
+        out = []
+        for node in getattr(gm, "active_nodes", []) or []:
+            if node.gathered:
+                continue
+            kind = (gm.materials.get(node.material_id) or {}).get("material_type")
+            trade, colour = self.TRACKING.get(kind, (None, None))
+            if trade is None or trade not in known:
+                continue
+            x, y = node.pool_tile if (kind == "fish" and node.pool_tile) else (node.x, node.y)
+            out.append((kind, colour, x, y))
+        return out
+
+    def _render_tracking(self, screen):
+        """A pulsing marker over each tracked node in view, and an arrow at the edge of the view
+        toward the nearest one of each kind that is not."""
+        nodes = self.tracked_nodes()
+        if not nodes:
+            return
+        import math
+        ts = self.tilemap_renderer.tile_size
+        vr = self.viewport_rect
+        pulse = 0.5 + 0.5 * math.sin(pygame.time.get_ticks() / 260.0)
+        px, py = self.zone_manager.player_x, self.zone_manager.player_y
+        nearest_off = {}
+        for kind, colour, x, y in nodes:
+            sx, sy = self.camera.world_to_screen(x, y, ts)
+            cx, cy = sx + vr.x + ts // 2, sy + vr.y + ts // 2
+            if vr.collidepoint(cx, cy):
+                if kind == "fish":
+                    r = int(ts * (1.25 + 0.2 * pulse))
+                    pygame.draw.circle(screen, (10, 20, 30), (cx, cy), r + 1, 4)
+                    pygame.draw.circle(screen, colour, (cx, cy), r, 2)
+                top = cy - ts - int(4 * pulse) - (ts // 2 if kind == "fish" else ts)
+                pts = [(cx, top - 6), (cx + 6, top), (cx, top + 6), (cx - 6, top)]
+                pygame.draw.polygon(screen, (10, 10, 12), [(a + (2 if a > cx else -2 if a < cx else 0),
+                                                            b + (2 if b > top else -2 if b < top else 0)) for a, b in pts])
+                pygame.draw.polygon(screen, colour, pts)
+            else:
+                d = max(abs(x - px), abs(y - py))
+                if d <= self.TRACK_RANGE and (kind not in nearest_off or d < nearest_off[kind][0]):
+                    nearest_off[kind] = (d, colour, cx, cy)
+        mx, my = vr.centerx, vr.centery
+        for kind, (d, colour, cx, cy) in nearest_off.items():
+            ang = math.atan2(cy - my, cx - mx)
+            # walk out from the centre to just inside the frame
+            k = min((vr.width / 2 - 18) / max(1e-6, abs(math.cos(ang))),
+                    (vr.height / 2 - 18) / max(1e-6, abs(math.sin(ang))))
+            ax, ay = mx + math.cos(ang) * k, my + math.sin(ang) * k
+            tip = (ax + math.cos(ang) * 9, ay + math.sin(ang) * 9)
+            left = (ax + math.cos(ang + 2.5) * 9, ay + math.sin(ang + 2.5) * 9)
+            right = (ax + math.cos(ang - 2.5) * 9, ay + math.sin(ang - 2.5) * 9)
+            pygame.draw.polygon(screen, (10, 10, 12), [tip, left, right], 0)
+            pygame.draw.polygon(screen, colour, [tip, left, right], 0)
+            pygame.draw.polygon(screen, (10, 10, 12), [tip, left, right], 2)
+
+    # ---- THE CAST ------------------------------------------------------------------------------
+    #: Seconds from throwing the line to the fish coming out.
+    CAST_SECONDS = 1.8
+
+    def _start_cast(self, node):
+        """Throw a line at a pool. The fish arrives when the animation ends (_update_cast)."""
+        if getattr(self, "_cast", None):
+            return
+        player = self.state_manager.player
+        if not player.knows_profession("fishing"):
+            self._gather_node(node)          # says "you need to learn Fishing first"
+            return
+        zm = self.zone_manager
+        self._cast = {"node": node, "t": 0.0, "at": (zm.player_x, zm.player_y)}
+
+    def _update_cast(self, dt):
+        cast = getattr(self, "_cast", None)
+        if not cast:
+            return
+        zm = self.zone_manager
+        if (zm.player_x, zm.player_y) != cast["at"] or cast["node"].gathered:
+            self._cast = None                # walked off: the line comes in with nothing on it
+            return
+        cast["t"] += dt
+        if cast["t"] < self.CAST_SECONDS:
+            return
+        node = cast["node"]
+        self._cast = None
+        self._gather_node(node)
+        if self.recruit_message and self.recruit_message.startswith("Gathered"):
+            self.recruit_message += (" The pool is fished out." if node.gathered
+                                     else " Something is still moving in the pool.")
+
+    def _render_cast(self, screen):
+        """The line, the bobber and the splash. Thrown in an arc over the first fifth of the cast,
+        bobbing on the pool in the middle, pulled under with a ring of splash at the end."""
+        cast = getattr(self, "_cast", None)
+        if not cast or not cast["node"].pool_tile:
+            return
+        import math
+        ts = self.tilemap_renderer.tile_size
+        vr = self.viewport_rect
+        f = min(1.0, cast["t"] / self.CAST_SECONDS)
+        sx, sy = self.camera.world_to_screen(cast["at"][0], cast["at"][1], ts)
+        hand = (sx + vr.x + ts // 2, sy + vr.y - ts // 3)
+        wx, wy = self.camera.world_to_screen(cast["node"].pool_tile[0], cast["node"].pool_tile[1], ts)
+        pool = (wx + vr.x + ts // 2, wy + vr.y + ts // 2)
+        # the rod: a short pole from the hand toward the pool, tipped up
+        ang = math.atan2(pool[1] - hand[1], pool[0] - hand[0])
+        tip = (hand[0] + math.cos(ang) * ts * 0.9, hand[1] + math.sin(ang) * ts * 0.9 - ts * 0.6)
+        pygame.draw.line(screen, (30, 20, 12), hand, tip, 5)
+        pygame.draw.line(screen, (150, 105, 60), hand, tip, 3)
+        throw = min(1.0, f / 0.2)
+        bx = tip[0] + (pool[0] - tip[0]) * throw
+        by = tip[1] + (pool[1] - tip[1]) * throw - math.sin(throw * math.pi) * ts * 1.4
+        bite = max(0.0, (f - 0.82) / 0.18)
+        if throw >= 1.0:
+            by += math.sin(cast["t"] * 7.0) * 2.0 + bite * 7.0
+        # the line sags between the rod tip and the bobber
+        mid = ((tip[0] + bx) / 2, (tip[1] + by) / 2 + ts * 0.35 * throw)
+        pts = [((1 - u) ** 2 * tip[0] + 2 * (1 - u) * u * mid[0] + u * u * bx,
+                (1 - u) ** 2 * tip[1] + 2 * (1 - u) * u * mid[1] + u * u * by) for u in (i / 12 for i in range(13))]
+        pygame.draw.lines(screen, (235, 235, 225), False, pts, 1)
+        if throw >= 1.0:
+            ring = int(6 + 5 * (0.5 + 0.5 * math.sin(cast["t"] * 5.0)))
+            pygame.draw.ellipse(screen, (220, 240, 250), (bx - ring, by + 2 - ring // 3, ring * 2, ring * 2 // 3), 1)
+        if bite > 0:
+            for k in range(3):
+                r = int(ts * (0.25 + 0.5 * bite) + k * 5)
+                pygame.draw.ellipse(screen, (235, 248, 255), (pool[0] - r, pool[1] - r // 2, r * 2, r), 2)
+            for k in range(6):
+                a = k * math.pi / 3
+                pygame.draw.circle(screen, (235, 248, 255),
+                                   (int(pool[0] + math.cos(a) * ts * 0.5 * bite),
+                                    int(pool[1] - abs(math.sin(a)) * ts * 0.7 * bite - 4)), 2)
+        else:
+            pygame.draw.circle(screen, (20, 20, 24), (int(bx), int(by)), 5)
+            pygame.draw.circle(screen, (225, 60, 50), (int(bx), int(by)), 4)
+            pygame.draw.circle(screen, (245, 245, 240), (int(bx), int(by) - 2), 2)
+
+    def _render_cast_button(self, screen):
+        """"Cast line (Space)" at the foot of the view whenever a pool is in reach. Click it or
+        press Space. Shown to everyone: without Fishing it tells you to find a trainer."""
+        self.cast_button_rect = None
+        node = self.zone_manager.gathering_manager.fishing_node_near(
+            self.zone_manager.player_x, self.zone_manager.player_y)
+        if node is None or getattr(self, "_cast", None):
+            return
+        vr = self.viewport_rect
+        rect = pygame.Rect(0, 0, 210, 34)
+        rect.midbottom = (vr.centerx, vr.bottom - 14)
+        pygame.draw.rect(screen, (18, 34, 48), rect, border_radius=6)
+        pygame.draw.rect(screen, (90, 190, 235), rect, 2, border_radius=6)
+        self.renderer.draw_text(screen, "Cast line (Space)", (rect.centerx, rect.y + 7), color=(220, 240, 250), center=True)
+        self.cast_button_rect = rect
+
     def _notify(self, text, color=(120, 240, 140), duration=3.0):
         """Show a transient message over the viewport."""
         self.recruit_message = text
@@ -747,6 +925,7 @@ class OverworldScreen(BaseScreen):
             self.recruit_message_timer -= dt
             if self.recruit_message_timer <= 0:
                 self.recruit_message = None
+        self._update_cast(dt)
 
         # Buffs (Fortitude, Battle Shout, Mark of the Wild, ...) run on a
         # real-time 30-minute clock, so they have to keep ticking down out
@@ -910,8 +1089,11 @@ class OverworldScreen(BaseScreen):
         screen.set_clip(self.viewport_rect)
         try:
                     self.tilemap_renderer.render_tilemap(screen, zone, player_pos, camera=self.camera, viewport_rect=self.viewport_rect, vendors=vendors_in_zone, recruits=recruits_in_zone, ambient_npcs=ambient_npcs_in_zone, cave_spawns=cave_spawn_positions, gathering_nodes=gathering_node_positions, creature_manager=self.zone_manager.creature_manager, player=player, player_facing=self.zone_manager.player_facing, quest_indicators=quest_indicators)
+                    self._render_tracking(screen)
+                    self._render_cast(screen)
         finally:
             screen.set_clip(_old_clip)
+        self._render_cast_button(screen)
         
         # Draw large zone indicator at top center, with the zone's level band.
         #

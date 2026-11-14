@@ -451,7 +451,8 @@ class MapScreen(BaseScreen):
         # No crystal row: there are no crystal nodes to mine (Kyle, 12 Nov: "there is no crystal
         # mining. Delete crystals."). Crystals only ever come out of an ore vein as a bonus.
         for kind, text in (("ore", "Ore vein (Mining)"),
-                           ("herb", "Herb (Herbalism)"), ("wood", "Tree (Woodcutting)")):
+                           ("herb", "Herb (Herbalism)"), ("wood", "Tree (Woodcutting)"),
+                           ("fish", "Fishing pool (Fishing)")):
             if self.TRACK_PROFESSION[kind] in known:
                 self._draw_track_dot(screen, kind, lx + 7, ly + 7)
                 self.renderer.draw_text(screen, text, (lx + 22, ly), color=(200, 200, 210))

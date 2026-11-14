@@ -353,6 +353,11 @@ class Item:
             proc=data.get("proc"),
         )
         item.set_variant = data.get("set_variant")
+        if item.set_id:
+            # A set piece saved before its art existed has no icon_id. Give it one on load, so
+            # nobody has to re-earn a piece to see it drawn.
+            from world.gear_sets import icon_for
+            item.icon_id = icon_for(item.set_id, item.slot, item.set_variant) or item.icon_id
         return item
 
     def __repr__(self):

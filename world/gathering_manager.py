@@ -41,6 +41,12 @@ class GatheringNode:
         self.y = y
         self.material_id = material_id
         self.gathered = False
+        #: Fishing spots only: the pool sprite to draw and the WATER tile to draw it on (the node
+        #: itself is on the shore). None for every other node, and for a spot with no pool art.
+        self.pool = None
+        self.pool_tile = None
+        #: How many fish have come out of this pool so far (see GatheringNodeManager.POOL_STAYS).
+        self.catches = 0
 
     def __repr__(self):
         state = "gathered" if self.gathered else "active"
@@ -234,6 +240,9 @@ class GatheringNodeManager:
         random.shuffle(spots)
         want = max(1, round(fishing.get("slots", 0) * fishing.get("active_percent", 0.0)))
         ids, weights = list(fishing["table"].keys()), list(fishing["table"].values())
+        self._fishing_table = (ids, weights)
+        from world.fishing_pools import pools_for
+        pool_names = pools_for(self._zone_key(zone_name))
         placed = []
         for (x, y) in spots:
             if len(placed) >= want:
@@ -241,7 +250,11 @@ class GatheringNodeManager:
             if any(abs(x - px) + abs(y - py) < 6 for px, py in placed):      # spread along the shore
                 continue
             placed.append((x, y))
-            self.active_nodes.append(GatheringNode(x, y, random.choices(ids, weights=weights, k=1)[0]))
+            node = GatheringNode(x, y, random.choices(ids, weights=weights, k=1)[0])
+            node.pool_tile = _water_beside(tilemap, x, y)
+            if pool_names:
+                node.pool = random.choice(pool_names)
+            self.active_nodes.append(node)
             tilemap.set_tile(x, y, "gathering_node", "interaction")
 
     #: Two nodes are never closer than this many tiles on either axis.
@@ -357,6 +370,34 @@ class GatheringNodeManager:
                 return node
         return None
 
+    #: How near a fishing pool you must stand to cast into it, in tiles (Chebyshev), measured to
+    #: the spot on the bank OR to the pool on the water. Kyle, 13 Nov: "We need to find a way to
+    #: fish other than clicking in the water" - it used to be one exact, unmarked bank tile.
+    FISHING_REACH = 2
+    #: ...and how far you can cast: tiles from where you stand to the POOL. Kyle, 13 Nov: "The
+    #: ability to fish from a distance allows pools to be in deeper water."
+    CAST_RANGE = 5
+    #: A pool sits up to this many tiles out from the bank.
+    POOL_MAX_OUT = 4
+    #: The chance a pool is still there after its 1st, 2nd and 3rd fish. Kyle, 13 Nov: "100% for
+    #: 1 fish, then a 66% chance it sticks around for a 2nd fish. Then 33% it sticks around for a
+    #: 3rd fish. Then 10% it sticks around for a 4th fish." Nothing after the fourth.
+    POOL_STAYS = (0.66, 0.33, 0.10)
+
+    def fishing_node_near(self, x, y):
+        """The nearest unfished pool you can cast into from (x, y), or None."""
+        best, best_d = None, None
+        for node in self.active_nodes:
+            if node.gathered or not node.pool_tile:
+                continue
+            to_bank = max(abs(node.x - x), abs(node.y - y))
+            to_pool = max(abs(node.pool_tile[0] - x), abs(node.pool_tile[1] - y))
+            if to_bank > self.FISHING_REACH and to_pool > self.CAST_RANGE:
+                continue
+            if best_d is None or to_pool < best_d:
+                best, best_d = node, to_pool
+        return best
+
     def gather(self, node, tilemap):
         """Mark a node gathered, clear its interaction tile, and return
         the material_id it dropped. Returns None if the node was already
@@ -366,9 +407,20 @@ class GatheringNodeManager:
         """
         if node.gathered:
             return None
+        caught = node.material_id
+        if node.pool_tile:
+            # A FISHING POOL MAY HOLD MORE THAN ONE FISH (POOL_STAYS). If it stays, the next fish
+            # is rolled fresh from the zone's table, so a pool is not four of the same catch.
+            node.catches += 1
+            k = node.catches - 1
+            if k < len(self.POOL_STAYS) and random.random() < self.POOL_STAYS[k]:
+                table = getattr(self, "_fishing_table", None)
+                if table:
+                    node.material_id = random.choices(table[0], weights=table[1], k=1)[0]
+                return caught
         node.gathered = True
         tilemap.set_tile(node.x, node.y, None, "interaction")
-        return node.material_id
+        return caught
 
     def get_material_def(self, material_id):
         """Raw material definition dict (name, profession, tier, icon_id,
@@ -554,11 +606,48 @@ class GatheringNodeManager:
             data = self.materials.get(node.material_id)
             if data is None:
                 continue
-            result.append((node.x, node.y, data["material_type"], data.get("icon_id")))
+            if node.pool and node.pool_tile:
+                # A fishing spot is drawn as a pool ON THE WATER beside it, not as a fish on the bank.
+                result.append((node.pool_tile[0], node.pool_tile[1], "fishing_pool", node.pool))
+            else:
+                result.append((node.x, node.y, data["material_type"], data.get("icon_id")))
         return result
 
 
 WATER_TILES = ("shallow_water", "deep_water")
+
+
+def _water_beside(tilemap, x, y):
+    """The water tile next to a shore tile that is furthest out: the neighbour with the most water
+    round it, so the pool sits in the water and not half on the bank. None if there is none."""
+    base = getattr(tilemap, "base_layer", None)
+    if base is None:
+        return None
+    best, best_n = None, -1
+    for dx, dy in ((0, 1), (1, 0), (-1, 0), (0, -1)):
+        wx, wy = x + dx, y + dy
+        if not (0 <= wx < tilemap.width and 0 <= wy < tilemap.height) or base[wy][wx] not in WATER_TILES:
+            continue
+        n = sum(1 for ax in (-1, 0, 1) for ay in (-1, 0, 1)
+                if 0 <= wx + ax < tilemap.width and 0 <= wy + ay < tilemap.height
+                and base[wy + ay][wx + ax] in WATER_TILES)
+        if n > best_n:
+            best, best_n, step = (wx, wy), n, (dx, dy)
+    if best is not None:
+        # OUT INTO THE WATER, up to POOL_MAX_OUT tiles from the bank. You cast to a pool, you do
+        # not stand on it, so it can sit in deep water; and a pool is three tiles across, so one
+        # drawn hard against the bank covers whoever is standing there to fish it. It stops one
+        # tile short of the far side of a narrow river.
+        want = random.randint(2, GatheringNodeManager.POOL_MAX_OUT)
+        for _ in range(want - 1):
+            fx, fy = best[0] + step[0], best[1] + step[1]
+            gx, gy = fx + step[0], fy + step[1]
+            if not (0 <= gx < tilemap.width and 0 <= gy < tilemap.height):
+                break
+            if base[fy][fx] not in WATER_TILES or base[gy][gx] not in WATER_TILES:
+                break
+            best = (fx, fy)
+    return best
 
 
 def shore_tiles(tilemap):

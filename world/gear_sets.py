@@ -139,6 +139,7 @@ def exchange(item, variant):
     if "secondary_stats" in spec:
         item.secondary_stats = dict(spec["secondary_stats"])
     item.set_variant = variant
+    item.icon_id = icon_for(item.set_id, item.slot, variant) or item.icon_id
     return True
 
 
@@ -216,6 +217,28 @@ def tooltip_lines(item, character=None):
 # Making a piece
 # ----------------------------------------------------------------------
 
+_ICON_DIR = Path(__file__).parent.parent / "assets" / "icons" / "gear"
+
+
+def icon_for(set_id, slot, variant=None):
+    """The icon id for this set piece, or None if its art has not been drawn yet.
+
+    A set's FIRST version uses <set_id>_<slot>.png; every other version uses the recoloured
+    <set_id>_<slot>__<version>.png (tools/slice_t0_set_icons.py), so two versions of a piece can
+    be told apart in a bag. A version with no recolour falls back to the first version's picture,
+    and a set with no art at all returns None, which draws the ordinary slot box.
+    """
+    if not set_id or not slot:
+        return None
+    kinds = list(variants(get(set_id)) or [])
+    if variant and kinds and variant != kinds[0]:
+        name = f"{set_id}_{slot}__{variant}"
+        if (_ICON_DIR / f"{name}.png").exists():
+            return name
+    name = f"{set_id}_{slot}"
+    return name if (_ICON_DIR / f"{name}.png").exists() else None
+
+
 def make_piece(set_id, slot, variant=None):
     """A new Item: the named version's piece for that slot (the set's first version if none
     is named). None if the set, the version or the slot does not exist.
@@ -241,6 +264,7 @@ def make_piece(set_id, slot, variant=None):
                 sell_price=None,            # None = priced by the gear curve like any other blue
                 set_id=set_id)
     item.set_variant = variant
+    item.icon_id = icon_for(set_id, slot, variant)
     return item
 
 

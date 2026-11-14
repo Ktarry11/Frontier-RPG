@@ -926,7 +926,8 @@ class ZoneManager:
         tile - same lookup pattern as vendor/recruit/ambient NPC."""
         if not self.current_zone:
             return None
-        return self.gathering_manager.get_node_at(self.player_x, self.player_y)
+        return (self.gathering_manager.get_node_at(self.player_x, self.player_y)
+                or self.gathering_manager.fishing_node_near(self.player_x, self.player_y))
 
     def gather_node(self, node):
         """Gather the given node, returning the material_id it dropped
