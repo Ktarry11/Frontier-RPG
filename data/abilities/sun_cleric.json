@@ -644,7 +644,7 @@
       "effect_type": "spell_dot",
       "duration": 4,
       "stat_mods": {},
-      "description": "Slam an enemy repeatedly with the might of the sun, dealing Holy damage and stunning them each hit. Only usable while Dawn is active. Usable while moving.",
+      "description": "Slam an enemy repeatedly with the might of the sun, dealing Holy damage and stunning them each hit. Only usable while Dawn is active.",
       "_source": "Confirmed screenshot: Lvl 26, 'dealing 47 Holy damage and stunning them for 1 sec. Lasts 4 sec. Only usable while Dawn is active. Usable while moving.'  Removed dead flag stat_mod(s) ['stunned']: nothing in the engine reads them. The real mechanism is the ability-level is_stun flag, which this ability already carries. Keeping them was the is_aoe trap waiting to happen: data that looks like the mechanism and is not. This engine has exactly one incapacitate mechanic, is_stun, with no separate silence or root category (see StatusEffect.is_stun).",
       "ranks": [
         {
@@ -860,31 +860,6 @@
         "holy",
         "fire"
       ]
-    },
-    {
-      "ability_id": "sun_cleric_sun_gate",
-      "name": "Sun Gate",
-      "resource_type": "mana",
-      "cooldown": 10,
-      "effect_type": "buff",
-      "duration": 1,
-      "stat_mods": {
-        "dodge": 25.0,
-        "damage_taken_pct": -0.15
-      },
-      "description": "A forward blink that removes root effects and leaves a gate allies can use once.",
-      "_source": "CoA handoff doc: 'Forward blink, removes root; leaves a gate allies can use once.' Real numbers not confirmed via a dedicated screenshot.",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 50,
-          "cost": 25,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "buff_scope": "combat"
     },
     {
       "ability_id": "sun_cleric_daybreak",
@@ -1275,7 +1250,7 @@
         "damage_dealt_pct": 5,
         "parry": 5
       },
-      "description": "Grant the party and raid a damage buff, and increase your parry chance. Does not stack with similar effects.",
+      "description": "Grant your party a damage buff, and increase your parry chance. Does not stack with similar effects.",
       "_source": "CoA handoff doc: 'Party/raid damage buff (no stacking with similar); boosts your parry chance.' Real numbers not confirmed via a dedicated screenshot.  DEAD STAT KEY CORRECTED: 'parry_chance' is read by nothing in the engine; the live key is parry. Verified by applying each as a status stat_mod and reading the stat back.",
       "target_type": "self",
       "ranks": [
@@ -1297,7 +1272,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Leap at a target, immune to physical and spell damage during flight, then land dealing AoE Holy damage.",
+      "description": "Soar at a target, untouchable for the moment you are in the air, then land dealing Holy damage to every nearby enemy.",
       "_source": "CoA handoff doc confirmed: 'Leaps at a target, immune to physical + spell during flight; lands for AoE Holy damage.' Real numbers not confirmed via a dedicated screenshot.",
       "target_type": "enemy_aoe",
       "ranks": [
@@ -1310,31 +1285,6 @@
       ],
       "icon_id": null,
       "damage_school": "holy"
-    },
-    {
-      "ability_id": "sun_cleric_scrying_orb",
-      "name": "Scrying Orb",
-      "resource_type": "mana",
-      "cooldown": 20,
-      "effect_type": "buff",
-      "duration": 1,
-      "stat_mods": {
-        "hit_rating": 8.0,
-        "crit_chance_spell": 10.0
-      },
-      "description": "Summon a controllable scrying orb for reconnaissance.",
-      "_source": "CoA handoff doc: 'Summons a controllable scrying orb.' Utility, not combat-relevant.",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 22,
-          "cost": 20,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "buff_scope": "combat"
     },
     {
       "ability_id": "sun_cleric_gavel_of_light",
@@ -1439,7 +1389,7 @@
       "stat_mods": {
         "magic_damage_taken_pct": -20
       },
-      "description": "Reduce party and raid Magic damage taken. Anyone below 35% health during it receives a one-time heal.",
+      "description": "Reduce the Magic damage your party takes. Anyone below 35% health during it receives a one-time heal.",
       "_source": "CoA handoff doc confirmed: 'Reduces party/raid Magic damage taken; anyone below 35% health during it gets a one-time heal.'",
       "target_type": "self",
       "ranks": [
@@ -1522,7 +1472,7 @@
       "stat_mods": {
         "healing_done_pct": 15
       },
-      "description": "Bring down the light of An'she at the target location for a duration. Allies inside receive increased healing, enemies inside take increased damage and periodic Solar Flare.",
+      "description": "Bring down the light of An'she on the battlefield for a few turns. Allies receive increased healing, enemies take increased damage and periodic Solar Flare.",
       "_source": "Confirmed screenshot: 15 Mana, 30yd, 2 min cooldown, 'While inside, allies receive 15% increased healing from all sources and enemies take 15% increased damage from you and are struck by a Solar Flare every 1 sec.' Note: this class-wide entry is identical to Piety's shared Dawnfall - separate ability_id since Seraphim's own tree unlocks a talent-tier version.",
       "target_type": "self",
       "ranks": [

@@ -438,7 +438,7 @@
     {
       "talent_id": "chronomancer_artificer_fate_twister",
       "name": "Fate Twister",
-      "description": "Reduces the cooldown of Unstable Chronoglass by 51% and Collapse by 30%.",
+      "description": "Reduces the cooldown of Unstable Chronoglass by 51%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -446,8 +446,7 @@
       "hex_x": 4,
       "hex_y": 4,
       "effects": {
-        "ability_chronomancer_unstable_chronoglass_cooldown_pct": 0.17,
-        "ability_chronomancer_collapse_cooldown_pct": 0.1
+        "ability_chronomancer_unstable_chronoglass_cooldown_pct": 0.17
       },
       "connected_to": [
         "chronomancer_artificer_reverse_engineering"

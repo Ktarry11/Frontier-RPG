@@ -380,6 +380,45 @@ CLASSES = {
             "Flowing Grace": "Increases Prayer of Elune healing by 2% per rank.",
         },
     },
+    # Sun Cleric: a light baseline (19); the talent unlocks carried a blink and a scouting orb.
+    "Sun Cleric": {
+        "CUT": {
+            "sun_cleric_sun_gate": "a forward blink that clears roots - movement",
+            "sun_cleric_scrying_orb": "a controllable orb for reconnaissance",
+        },
+        "REWORD": {
+            "sun_cleric_march_of_the_valkyr": "Grant your party a damage buff, and increase your parry chance. Does not stack with similar effects.",
+            "sun_cleric_valkyrs_calling": "Soar at a target, untouchable for the moment you are in the air, then land dealing Holy damage to every nearby enemy.",
+            "sun_cleric_scroll_of_hope": "Reduce the Magic damage your party takes. Anyone below 35% health during it receives a one-time heal.",
+            "sun_cleric_dawnbreak_talent": "Bring down the light of An'she on the battlefield for a few turns. Allies receive increased healing, enemies take increased damage and periodic Solar Flare.",
+        },
+        "PASSIVE": {
+            "sun_cleric_valkyrie_scrying_orb": P("Far Sight", "Justice deals 8% more damage.",
+                                                 {"ability_sun_cleric_justice_damage": 0.08}),
+            "sun_cleric_piety_sun_gate": P("Gate of the Sun", "Rapture deals 12% more damage.",
+                                           {"ability_sun_cleric_rapture_damage": 0.12}),
+        },
+    },
+    # Chronomancer: 49 abilities; four 2-turn stuns, three dispels, five personal or ally shields.
+    "Chronomancer": {
+        "CUT": {
+            "chronomancer_chronostasis": "a single-target slow beside Clasp of Infinity's area one",
+            "chronomancer_waves_of_time": "a third Arcane area spell",
+            "chronomancer_infinite_shield": "an ally absorb beside Timeguard",
+            "chronomancer_temporal_focus": "crowd-control immunity nothing is built around",
+            "chronomancer_temporal_anomaly": "a self absorb beside Time Out",
+            "chronomancer_slipstream": "a third 2-turn stun",
+            "chronomancer_collapse": "a fourth 2-turn stun",
+            "chronomancer_timerend": "a third Infinite DoT",
+            "chronomancer_displacement": "a magic-only dispel beside Roll Back, which takes magic, poison and disease",
+            "chronomancer_continuum_restoration": "a third dispel",
+        },
+        "REWORD": {},
+        "PASSIVE": {},
+        "TALENT_TEXT": {
+            "Fate Twister": "Reduces the cooldown of Unstable Chronoglass by 51%.",
+        },
+    },
 }
 
 

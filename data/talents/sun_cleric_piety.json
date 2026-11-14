@@ -518,21 +518,22 @@
     },
     {
       "talent_id": "sun_cleric_piety_sun_gate",
-      "name": "Sun Gate",
-      "description": "Learn Sun Gate, a forward blink that removes root effects and leaves a gate allies can use once.",
-      "node_type": "active",
+      "name": "Gate of the Sun",
+      "description": "Rapture deals 12% more damage.",
+      "node_type": "passive",
       "tier": 6,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 6,
       "effects": {
-        "unlock_ability": "sun_cleric_sun_gate"
+        "ability_sun_cleric_rapture_damage": 0.12
       },
       "connected_to": [
         "sun_cleric_piety_horusath_blast"
       ],
-      "_source": "CoA handoff doc confirmed as Piety's real mobility/escape tool: 'Forward blink, removes root; leaves a gate allies can use once.'"
+      "_source": "CoA handoff doc confirmed as Piety's real mobility/escape tool: 'Forward blink, removes root; leaves a gate allies can use once.'",
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     }
   ]
 }

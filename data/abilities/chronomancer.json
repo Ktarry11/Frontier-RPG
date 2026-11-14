@@ -334,30 +334,6 @@
       "target_type": "ally"
     },
     {
-      "ability_id": "chronomancer_chronostasis",
-      "name": "Chronostasis",
-      "resource_type": "mana",
-      "cooldown": 3,
-      "effect_type": "debuff",
-      "duration": 2,
-      "stat_mods": {
-        "haste": -25.0
-      },
-      "description": "Applies to the target: Haste -25 for 2 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 12,
-          "cost": 25,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree: 'Temporal Dissonance - Chronostasis now slows your target's movement speed by an additional -10%'. Haste is the engine's real slow (turn_meter.py reads it off status effects for turn order), so a slow is a haste debuff.",
-      "target_type": "enemy",
-      "buff_scope": "combat"
-    },
-    {
       "ability_id": "chronomancer_roll_back",
       "name": "Roll Back",
       "resource_type": "mana",
@@ -434,53 +410,6 @@
       "_source": "CoA: Discordance is the shared cleave - Infinite's Timelost Power widens it, Artificer's Clocked In and Caverns of Time bank fragments off it.",
       "target_type": "enemy_aoe",
       "max_targets": 3,
-      "damage_school": "arcane"
-    },
-    {
-      "ability_id": "chronomancer_waves_of_time",
-      "name": "Waves of Time",
-      "resource_type": "mana",
-      "cooldown": 4,
-      "effect_type": "spell_damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals Arcane damage to up to 4 targets.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 18,
-          "cost": 50,
-          "effect_value": 44
-        },
-        {
-          "rank": 2,
-          "level_req": 28,
-          "cost": 68,
-          "effect_value": 58
-        },
-        {
-          "rank": 3,
-          "level_req": 38,
-          "cost": 87,
-          "effect_value": 72
-        },
-        {
-          "rank": 4,
-          "level_req": 48,
-          "cost": 105,
-          "effect_value": 86
-        },
-        {
-          "rank": 5,
-          "level_req": 58,
-          "cost": 123,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree: 'Blast enemies in a frontal cone with time fractals, knocking them back slightly. The knockback repeats 1 additional time after 2 sec.' There is no knockback or displacement in a turn engine, so this is the damage half only.",
-      "target_type": "enemy_aoe",
-      "max_targets": 4,
       "damage_school": "arcane"
     },
     {
@@ -661,76 +590,6 @@
       "buff_scope": "combat"
     },
     {
-      "ability_id": "chronomancer_temporal_focus",
-      "name": "Temporal Focus",
-      "resource_type": "mana",
-      "cooldown": 12,
-      "effect_type": "buff",
-      "duration": 2,
-      "stat_mods": {
-        "cc_immune": 1
-      },
-      "description": "Immune to crowd control for 2 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 32,
-          "cost": 30,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree: 'removing and becoming immune to banish, silence, and interrupt effects for 10 seconds'. cc_immune is the engine's real immunity flag (checked in StatusEffectMixin.apply_status_effect).",
-      "target_type": "self",
-      "buff_scope": "combat"
-    },
-    {
-      "ability_id": "chronomancer_temporal_anomaly",
-      "name": "Temporal Anomaly",
-      "resource_type": "mana",
-      "cooldown": 12,
-      "effect_type": "buff",
-      "duration": 2,
-      "stat_mods": {},
-      "description": "Strengthens you for 2 turns, absorbing damage.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 36,
-          "cost": 60,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree: 'causing 50% of the damage taken to be absorbed and converted into healing at the end of the duration'. An absorb shield is the absorb half; there is no deferred release, so the shield simply holds.",
-      "absorb_pct_max_health": 0.3,
-      "target_type": "self",
-      "buff_scope": "combat"
-    },
-    {
-      "ability_id": "chronomancer_infinite_shield",
-      "name": "Infinite Shield",
-      "resource_type": "mana",
-      "cooldown": 6,
-      "effect_type": "buff",
-      "duration": 4,
-      "stat_mods": {},
-      "description": "Strengthens an ally for 4 turns, absorbing damage.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 40,
-          "cost": 55,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree: '10 charges ... Each time they take damage, they will be healed and lose 1 charge.' Charges do not exist; a four-turn absorb is the same trade.",
-      "absorb_pct_max_health": 0.18,
-      "target_type": "ally",
-      "buff_scope": "combat"
-    },
-    {
       "ability_id": "chronomancer_gravity_bomb",
       "name": "Gravity Bomb",
       "resource_type": "mana",
@@ -895,64 +754,6 @@
       "damage_school": "arcane"
     },
     {
-      "ability_id": "chronomancer_timerend",
-      "name": "Timerend",
-      "resource_type": "mana",
-      "cooldown": 2,
-      "effect_type": "spell_dot",
-      "duration": 4,
-      "stat_mods": {},
-      "description": "Deals Arcane damage to the target over time for 4 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 14,
-          "cost": 22,
-          "effect_value": 88
-        },
-        {
-          "rank": 2,
-          "level_req": 21,
-          "cost": 31,
-          "effect_value": 118
-        },
-        {
-          "rank": 3,
-          "level_req": 28,
-          "cost": 39,
-          "effect_value": 148
-        },
-        {
-          "rank": 4,
-          "level_req": 35,
-          "cost": 48,
-          "effect_value": 179
-        },
-        {
-          "rank": 5,
-          "level_req": 42,
-          "cost": 56,
-          "effect_value": 209
-        },
-        {
-          "rank": 6,
-          "level_req": 49,
-          "cost": 65,
-          "effect_value": 238
-        },
-        {
-          "rank": 7,
-          "level_req": 56,
-          "cost": 74,
-          "effect_value": 268
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Transforms your Wand of Time into Timerend. Rend the fabric of time, dealing Chromatic Damage over 6 seconds.' Authored as its own spell rather than a transform - nothing in the engine replaces one ability with another. || Duration 2 -> 6 turns, 5 Nov 2026. Kyle: 'Chronomancer is a lot of DoTs. So we need to have longer dots to represent it properly.' effect_value is the TOTAL across the whole duration (abilities.py:2695) and per-turn potency is total/duration - so lengthening ALONE would have spread the same damage thinner and made the dot strictly worse. Totals raised by 1.95x alongside (2->6 is 3.00x duration, scaled by 0.65), so per-tick falls ~35% while total damage rises ~95%: a long patient dot that out-damages over a full fight without becoming burst. Part of a wider pass Kyle wants on dot AND hot durations - 82 ability dots across the game sit at exactly 3 turns. || Duration corrected to 4 turns, 6 Nov 2026, REVERSING the 8-10 turn lengthening I applied earlier the same day. Fight length was then measured through the real engine rather than assumed from CoA's 18-24 second windows: trash fights run 2-3 turns (p90 4-5) and boss fights 5-6 (p90 8-10). A 10-turn dot therefore delivers only 35% of its damage on trash and 63% on a boss, where a 3-turn dot delivers 91%/100% - so my 'longer dots to represent the class properly' had made Chronomancer WORSE than before I touched it. Kyle's call once measured: fit the dots to the fights. This ability now sits in the tail bucket of a five-bucket taxonomy capped at 6 turns (2 burst, 3 standard, 4 tail, 5 sustained, 6 boss finisher). Per-tick is held at 22.1, the value the game originally shipped with, and the total scales with duration - so length adds damage at unchanged tick strength instead of thinning a fixed total.",
-      "target_type": "enemy",
-      "damage_school": "arcane"
-    },
-    {
       "ability_id": "chronomancer_anomaly_spike",
       "name": "Anomaly Spike",
       "resource_type": "mana",
@@ -1030,29 +831,6 @@
       "target_type": "enemy",
       "buff_scope": "combat",
       "requires_talent": true
-    },
-    {
-      "ability_id": "chronomancer_slipstream",
-      "name": "Slipstream",
-      "resource_type": "mana",
-      "cooldown": 10,
-      "effect_type": "debuff",
-      "duration": 2,
-      "stat_mods": {},
-      "description": "Interrupts and stuns the target for 2 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 34,
-          "cost": 45,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Target an enemy and slip them into a pocket dimension for 5 seconds, banishing them and making them immune to damage.' The damage immunity is not expressible, so this is a two-turn incapacitate - which is the part the rotation actually uses it for ('Use Slipstream to remove a dangerous add from the fight').",
-      "target_type": "enemy",
-      "is_stun": true,
-      "buff_scope": "combat"
     },
     {
       "ability_id": "chronomancer_infinite_horizon",
@@ -1435,51 +1213,6 @@
       "buff_scope": "combat"
     },
     {
-      "ability_id": "chronomancer_continuum_restoration",
-      "name": "Continuum Restoration",
-      "resource_type": "mana",
-      "cooldown": 6,
-      "effect_type": "dispel",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "You restore the local continuum, and nothing anyone did to it stays done.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 38,
-          "cost": 45,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Restore the continuum at target location for all allies and enemies, removing all beneficial magic effects from enemies and harmful magic effects from allies. This dispel is potent enough to remove magic effects that are normally undispellable.' A dispel reads one target, so the enemy-purge half is gone; the two-count is the 'potent' half.",
-      "target_type": "ally",
-      "dispel_type": "magic",
-      "dispel_count": 2
-    },
-    {
-      "ability_id": "chronomancer_displacement",
-      "name": "Displacement",
-      "resource_type": "mana",
-      "cooldown": 8,
-      "effect_type": "dispel",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Removes 1 magic effect from an ally.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 30,
-          "cost": 30,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Displaces a party or raid member and pulls them to you, dispelling root and snare effects from them.' There are no root or snare dispel categories (DispelType is magic/curse/poison/disease), and no repositioning, so this is the cleanse.",
-      "target_type": "ally",
-      "dispel_type": "magic"
-    },
-    {
       "ability_id": "chronomancer_artificers_wand",
       "name": "Artificer's Wand",
       "resource_type": "mana",
@@ -1805,29 +1538,6 @@
       "icon_id": null,
       "_source": "CoA: 'Place an Unstable Chronoglass at target location that will redirect the next 3 offensive enemy spell casts onto itself.' Redirection needs a placed object that can be targeted, and the pet system's templates all carry their own display_name, so summoning one would put 'Sentry Turret' on screen. Implemented instead as the outcome - the enemy's spells stop landing - the same way mage_counterspell stands in for a real interrupt.",
       "target_type": "enemy",
-      "buff_scope": "combat"
-    },
-    {
-      "ability_id": "chronomancer_collapse",
-      "name": "Collapse",
-      "resource_type": "mana",
-      "cooldown": 8,
-      "effect_type": "debuff",
-      "duration": 2,
-      "stat_mods": {},
-      "description": "Interrupts and stuns the target for 2 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 40,
-          "cost": 45,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Collapse sets up a delayed stun'. The delay has no hook; the stun is real.",
-      "target_type": "enemy",
-      "is_stun": true,
       "buff_scope": "combat"
     }
   ]

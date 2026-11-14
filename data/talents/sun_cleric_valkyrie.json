@@ -538,21 +538,22 @@
     },
     {
       "talent_id": "sun_cleric_valkyrie_scrying_orb",
-      "name": "Scrying Orb",
-      "description": "Learn Scrying Orb, summoning a controllable scrying orb for reconnaissance.",
-      "node_type": "active",
+      "name": "Far Sight",
+      "description": "Justice deals 8% more damage.",
+      "node_type": "passive",
       "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": -2,
       "effects": {
-        "unlock_ability": "sun_cleric_scrying_orb"
+        "ability_sun_cleric_justice_damage": 0.08
       },
       "connected_to": [
         "sun_cleric_valkyrie_judgement_day"
       ],
-      "_source": "CoA handoff doc: 'Summons a controllable scrying orb.'"
+      "_source": "CoA handoff doc: 'Summons a controllable scrying orb.'",
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "sun_cleric_valkyrie_valkyries_watch",
