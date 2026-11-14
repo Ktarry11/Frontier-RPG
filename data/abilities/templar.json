@@ -310,7 +310,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Charge to your allies' side. Everyone who sees you come is steadier for it.",
+      "description": "Plant yourself at your allies' side. Everyone near you is steadier for it.",
       "ranks": [
         {
           "rank": 1,
@@ -563,59 +563,6 @@
       "target_type": "enemy"
     },
     {
-      "ability_id": "templar_silverhand_incantation",
-      "name": "Silverhand Incantation",
-      "resource_type": "combo",
-      "cooldown": 8,
-      "effect_type": "damage_and_heal",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals Holy damage to up to 4 targets and heals you for part of it.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 32,
-          "cost": 40,
-          "effect_value": 80,
-          "heal_value": 70
-        },
-        {
-          "rank": 2,
-          "level_req": 38,
-          "cost": 40,
-          "effect_value": 102,
-          "heal_value": 90
-        },
-        {
-          "rank": 3,
-          "level_req": 44,
-          "cost": 40,
-          "effect_value": 124,
-          "heal_value": 110
-        },
-        {
-          "rank": 4,
-          "level_req": 50,
-          "cost": 40,
-          "effect_value": 146,
-          "heal_value": 130
-        },
-        {
-          "rank": 5,
-          "level_req": 56,
-          "cost": 40,
-          "effect_value": 168,
-          "heal_value": 150
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree: 'toss a holy hammer at your target, charging you to them ... you deal AP Holy damage to all nearby enemies and heal nearby allies for the same amount'. damage_and_heal with heal_scope party is exactly that shape.",
-      "target_type": "enemy_aoe",
-      "max_targets": 4,
-      "heal_scope": "party",
-      "damage_school": "holy"
-    },
-    {
       "ability_id": "templar_libram_of_consecration",
       "name": "Libram of Consecration",
       "resource_type": "combo",
@@ -641,32 +588,6 @@
       "exclusive_group": "templar_libram"
     },
     {
-      "ability_id": "templar_libram_of_fervor",
-      "name": "Libram of Fervor",
-      "resource_type": "combo",
-      "cooldown": 6,
-      "effect_type": "buff",
-      "duration": 3,
-      "stat_mods": {
-        "spell_power_from_agility_pct": 0.3,
-        "ap_from_intellect_pct": 0.3
-      },
-      "description": "Spell Power From Agility Pct +30%, Ap From Intellect Pct +30% for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 18,
-          "cost": 0,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree, verbatim: 'granting you spell power equal to 30% of your Agility and attack power equal to 30% of your Intellect for 20 seconds'. Both are real <target>_from_<source>_pct conversions, and the conversion loop in _recalculate_derived_stats reads the shared bonus pool, so a buff can carry them.",
-      "target_type": "self",
-      "buff_scope": "combat",
-      "exclusive_group": "templar_libram"
-    },
-    {
       "ability_id": "templar_libram_of_zeal",
       "name": "Libram of Zeal",
       "resource_type": "combo",
@@ -687,31 +608,6 @@
       ],
       "icon_id": null,
       "_source": "CoA Zealot: 'Libram of Zeal ... increasing your melee haste by 20%'.",
-      "target_type": "self",
-      "buff_scope": "combat",
-      "exclusive_group": "templar_libram"
-    },
-    {
-      "ability_id": "templar_libram_of_tenacity",
-      "name": "Libram of Tenacity",
-      "resource_type": "combo",
-      "cooldown": 10,
-      "effect_type": "buff",
-      "duration": 3,
-      "stat_mods": {
-        "physical_damage_taken_pct": -20.0
-      },
-      "description": "Physical damage taken -20% for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 26,
-          "cost": 0,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree: 'reducing your Physical Damage taken by -30% for 20 seconds'. Trimmed to -20% because it sits on a 10 turn cooldown next to Guardian's Raise Shield (-40%, 2 turns) rather than being a panic button. NOTE the units: physical_damage_taken_pct is percentage POINTS in an ability's stat_mods and a FRACTION in a talent's effects.",
       "target_type": "self",
       "buff_scope": "combat",
       "exclusive_group": "templar_libram"
@@ -1019,53 +915,6 @@
       "target_type": "enemy"
     },
     {
-      "ability_id": "templar_divine_fury",
-      "name": "Divine Fury",
-      "resource_type": "combo",
-      "cooldown": 4,
-      "effect_type": "spell_damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals Holy damage to up to 4 targets.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 26,
-          "cost": 40,
-          "effect_value": 66
-        },
-        {
-          "rank": 2,
-          "level_req": 34,
-          "cost": 40,
-          "effect_value": 85
-        },
-        {
-          "rank": 3,
-          "level_req": 42,
-          "cost": 40,
-          "effect_value": 104
-        },
-        {
-          "rank": 4,
-          "level_req": 50,
-          "cost": 40,
-          "effect_value": 123
-        },
-        {
-          "rank": 5,
-          "level_req": 58,
-          "cost": 40,
-          "effect_value": 142
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA Zealot: 'Every ~10 Zealotries your Chastise becomes Divine Fury, a cleave holy hit that shreds armor'. There is no ability-transform mechanic, so it is its own button, and the armour shred is dropped - a damage ability cannot also apply a debuff.",
-      "target_type": "enemy_aoe",
-      "max_targets": 4,
-      "damage_school": "holy"
-    },
-    {
       "ability_id": "templar_force_of_golganneth",
       "name": "Force of Golganneth",
       "resource_type": "combo",
@@ -1105,45 +954,6 @@
       "target_type": "enemy_aoe",
       "max_targets": 5,
       "damage_school": "holy"
-    },
-    {
-      "ability_id": "templar_mortal_abdication",
-      "name": "Mortal Abdication",
-      "resource_type": "combo",
-      "cooldown": 8,
-      "effect_type": "damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals damage to the target.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 40,
-          "cost": 20,
-          "effect_value": 140
-        },
-        {
-          "rank": 2,
-          "level_req": 46,
-          "cost": 20,
-          "effect_value": 180
-        },
-        {
-          "rank": 3,
-          "level_req": 52,
-          "cost": 20,
-          "effect_value": 220
-        },
-        {
-          "rank": 4,
-          "level_req": 58,
-          "cost": 20,
-          "effect_value": 260
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA names Mortal Abdication twice as a Zealot cooldown (One With The Light 'reduces the cooldown of Librams, Force of Golganneth, and Mortal Abdication', and Libram of Zeal is read 'from your Libram of Mortal Abdication') without ever stating what it does. Implemented as the single-target counterpart to Force of Golganneth on the same cooldown band, which is the only thing the surrounding text supports. GAP: its real mechanic is not in the reference.",
-      "target_type": "enemy"
     },
     {
       "ability_id": "templar_norgannons_wrath",
@@ -1342,31 +1152,6 @@
       "icon_id": null,
       "_source": "CoA Oathkeeper: 'Emit saving light, increasing the healing received by nearby allies by 40% for 15 seconds. For the duration, threat generated by your allies is redirected to you.' The redirect half is dropped: one stat_mods dict applies to every recipient, so a threat key here would land on the allies too, which is backwards.",
       "target_type": "party",
-      "buff_scope": "combat"
-    },
-    {
-      "ability_id": "templar_spiritual_abdication",
-      "name": "Spiritual Abdication",
-      "resource_type": "combo",
-      "cooldown": 12,
-      "effect_type": "buff",
-      "duration": 3,
-      "stat_mods": {
-        "damage_taken_pct": -0.15,
-        "armor_pct": 15.0
-      },
-      "description": "Set your own body aside for 3 turns. What is left standing is harder to hurt.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 40,
-          "cost": 0,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA Oathkeeper's Spiritual Abdicator node ('Your Spiritual Abdication now reduces damage taken by an additional -5% per copy') is the only mention of the ability, and it names copies and damage reduction, so this is Testament of Hope's defensive sibling. GAP: the ability's own tooltip is not in the reference.",
-      "target_type": "self",
       "buff_scope": "combat"
     },
     {

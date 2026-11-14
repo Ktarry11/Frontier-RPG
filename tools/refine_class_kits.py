@@ -419,6 +419,35 @@ CLASSES = {
             "Fate Twister": "Reduces the cooldown of Unstable Chronoglass by 51%.",
         },
     },
+    # Pyromancer: seven baseline area spells, two mana taps, a 'step'.
+    "Pyromancer": {
+        "CUT": {
+            "pyromancer_circle_of_fire": "a second area burn beside Firestorm",
+            "pyromancer_slag_barrage": "another hit-everything Fire spell",
+            "pyromancer_ignis_ultimatus": "an area leech; Cleansing Flames does it for Flameweaving",
+            "pyromancer_cataclysm": "an area stun beside Meteor's",
+            "pyromancer_flame_step": "a one-turn haste-and-immunity 'step'",
+            "pyromancer_essence_of_malygos": "a mana tap beside Draconic Invocation",
+            "pyromancer_grace_of_alexstrasza": "party crowd-control immunity nothing is built around",
+        },
+        "REWORD": {},
+        "PASSIVE": {},
+    },
+    # Templar: four Librams and five Testaments; two of each did the same job.
+    "Templar": {
+        "CUT": {
+            "templar_libram_of_fervor": "a stat-conversion Libram nothing is built around",
+            "templar_libram_of_tenacity": "-20% physical damage beside Testament of Hope's -20% all damage",
+            "templar_spiritual_abdication": "a third personal defensive",
+            "templar_mortal_abdication": "a plain strike with nothing of its own",
+            "templar_divine_fury": "a third Holy area spell beside Holy Cleave and Reckoning",
+            "templar_silverhand_incantation": "an area leech nothing is built around",
+        },
+        "REWORD": {
+            "templar_temple_guardian": "Plant yourself at your allies' side. Everyone near you is steadier for it.",
+        },
+        "PASSIVE": {},
+    },
 }
 
 
