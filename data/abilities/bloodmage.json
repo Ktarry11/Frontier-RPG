@@ -320,54 +320,6 @@
       "buff_scope": "combat"
     },
     {
-      "ability_id": "bloodmage_shadow_howl",
-      "name": "Shadow Howl",
-      "resource_type": "rage",
-      "cooldown": 10,
-      "effect_type": "buff",
-      "duration": 2,
-      "stat_mods": {
-        "cc_immune": 1
-      },
-      "description": "Immune to crowd control for 2 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 22,
-          "cost": 25,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'granting immunity to movement impairing effects to all allies for 6 seconds'. cc_immune is the engine's one incapacitate immunity, checked in apply_status_effect.",
-      "target_type": "self",
-      "buff_scope": "party"
-    },
-    {
-      "ability_id": "bloodmage_wicked_howl",
-      "name": "Wicked Howl",
-      "resource_type": "rage",
-      "cooldown": 12,
-      "effect_type": "buff",
-      "duration": 3,
-      "stat_mods": {
-        "max_health_pct": 0.25
-      },
-      "description": "Maximum health +25% for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 28,
-          "cost": 20,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'increasing your maximum health by 30% for 20 seconds'. NOTE max_health_pct is a FRACTION here - health * (1.0 + value) - not percent points like armor_pct, in an ability's stat_mods exactly as in a talent's effects.",
-      "target_type": "self",
-      "buff_scope": "combat"
-    },
-    {
       "ability_id": "bloodmage_hemostasis",
       "name": "Hemostasis",
       "resource_type": "rage",
@@ -446,92 +398,6 @@
       "icon_id": null,
       "_source": "CoA's class tree points at Lunge from three directions - Bloodleaper cuts its cooldown, Dark Intent heals you when you use it, Cruel Intent adds auto attacks to it - so the ability itself has to exist.",
       "target_type": "enemy"
-    },
-    {
-      "ability_id": "bloodmage_scarlet_delirium",
-      "name": "Scarlet Delirium",
-      "resource_type": "health",
-      "cooldown": 8,
-      "effect_type": "spell_dot",
-      "duration": 3,
-      "stat_mods": {},
-      "description": "Deals Shadow damage to up to 5 targets over time for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 24,
-          "cost": 14,
-          "effect_value": 72
-        },
-        {
-          "rank": 2,
-          "level_req": 32,
-          "cost": 17,
-          "effect_value": 91
-        },
-        {
-          "rank": 3,
-          "level_req": 40,
-          "cost": 20,
-          "effect_value": 110
-        },
-        {
-          "rank": 4,
-          "level_req": 48,
-          "cost": 23,
-          "effect_value": 129
-        },
-        {
-          "rank": 5,
-          "level_req": 56,
-          "cost": 26,
-          "effect_value": 148
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Flood the minds of up to 5 nearby enemies with visions of unraveling flesh, fearing them ... while draining their life essence'. There is no fear mechanic distinct from a stun, and a fear that breaks on damage cannot coexist with its own damage, so only the drain half ships.",
-      "target_type": "enemy_aoe",
-      "max_targets": 5,
-      "damage_school": "shadow"
-    },
-    {
-      "ability_id": "bloodmage_transfusion",
-      "name": "Transfusion",
-      "resource_type": "health",
-      "cooldown": 6,
-      "effect_type": "heal",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Heals an ally.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 34,
-          "cost": 44,
-          "effect_value": 270
-        },
-        {
-          "rank": 2,
-          "level_req": 42,
-          "cost": 56,
-          "effect_value": 342
-        },
-        {
-          "rank": 3,
-          "level_req": 50,
-          "cost": 68,
-          "effect_value": 414
-        },
-        {
-          "rank": 4,
-          "level_req": 58,
-          "cost": 80,
-          "effect_value": 486
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Swap health percentages with an ally. Increases the lower health percentage of the two to 40%.' A two-way swap has no hook, so it is a one-way transfer: you pay health, they receive it.",
-      "target_type": "ally"
     },
     {
       "ability_id": "bloodmage_blood_veil",
@@ -1081,54 +947,6 @@
       "buff_scope": "combat"
     },
     {
-      "ability_id": "bloodmage_aneurysm",
-      "name": "Aneurysm",
-      "resource_type": "rage",
-      "cooldown": 5,
-      "effect_type": "debuff",
-      "duration": 1,
-      "stat_mods": {},
-      "description": "Interrupts and stuns the target for 1 turn.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 14,
-          "cost": 15,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Counter the enemy's spellcast, preventing any spell from that school of magic from being cast for 4 seconds.' There is no interrupt or school lock in this engine; a one-turn stun is the substitution rogue_kick already documents for Kick. The 5%-health reward for a successful interrupt has nothing to hang on.",
-      "target_type": "enemy",
-      "is_stun": true,
-      "buff_scope": "combat"
-    },
-    {
-      "ability_id": "bloodmage_sacrificial_rite",
-      "name": "Sacrificial Rite",
-      "resource_type": "rage",
-      "cooldown": 16,
-      "effect_type": "buff",
-      "duration": 3,
-      "stat_mods": {
-        "haste": 20.0,
-        "healing_taken_pct": 15.0
-      },
-      "description": "Haste +20, Healing Taken Pct +15% for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 40,
-          "cost": 30,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'increasing your haste by 20% for 15 seconds ... At the end of the duration, your healing done is increased by 15% and you are healed'. Held 'in reserve for an about to die spike' per the rotation.",
-      "target_type": "self",
-      "buff_scope": "combat"
-    },
-    {
       "ability_id": "bloodmage_transgression",
       "name": "Transgression",
       "resource_type": "rage",
@@ -1275,62 +1093,6 @@
       }
     },
     {
-      "ability_id": "bloodmage_hemoburst",
-      "name": "Hemoburst",
-      "resource_type": "health",
-      "cooldown": 4,
-      "effect_type": "spell_damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals Shadow damage to the target. Generates 26 Rage.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 24,
-          "cost": 16,
-          "effect_value": 90
-        },
-        {
-          "rank": 2,
-          "level_req": 30,
-          "cost": 19,
-          "effect_value": 114
-        },
-        {
-          "rank": 3,
-          "level_req": 36,
-          "cost": 22,
-          "effect_value": 138
-        },
-        {
-          "rank": 4,
-          "level_req": 42,
-          "cost": 25,
-          "effect_value": 162
-        },
-        {
-          "rank": 5,
-          "level_req": 48,
-          "cost": 28,
-          "effect_value": 186
-        },
-        {
-          "rank": 6,
-          "level_req": 54,
-          "cost": 31,
-          "effect_value": 210
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Unleash a powerful burst of blood at an enemy ... guaranteed to critically strike against bleeding targets.' The ranged finisher - 'Hemoburst as it closes'.",
-      "target_type": "enemy",
-      "damage_school": "shadow",
-      "generates": {
-        "resource": "rage",
-        "amount": 26
-      }
-    },
-    {
       "ability_id": "bloodmage_reave",
       "name": "Reave",
       "resource_type": "rage",
@@ -1450,57 +1212,6 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Ravenous Strike healing you off the damage it deals is a dead ringer for Death Strike', 'free and up every GCD, and it doubles as your sustain'.",
-      "target_type": "enemy"
-    },
-    {
-      "ability_id": "bloodmage_puncturing_fangs",
-      "name": "Puncturing Fangs",
-      "resource_type": "rage",
-      "cooldown": 3,
-      "effect_type": "damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals damage to the target.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 18,
-          "cost": 20,
-          "effect_value": 68
-        },
-        {
-          "rank": 2,
-          "level_req": 26,
-          "cost": 20,
-          "effect_value": 86
-        },
-        {
-          "rank": 3,
-          "level_req": 34,
-          "cost": 20,
-          "effect_value": 104
-        },
-        {
-          "rank": 4,
-          "level_req": 42,
-          "cost": 20,
-          "effect_value": 122
-        },
-        {
-          "rank": 5,
-          "level_req": 50,
-          "cost": 20,
-          "effect_value": 140
-        },
-        {
-          "rank": 6,
-          "level_req": 58,
-          "cost": 20,
-          "effect_value": 158
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA lists it with Reave and Ravenous Strike as the third transformed-melee button: 'cycle your free Reave / Ravenous Strike / Puncturing Fangs'.",
       "target_type": "enemy"
     },
     {
@@ -1705,70 +1416,6 @@
       "buff_scope": "raid"
     },
     {
-      "ability_id": "bloodmage_ravenous_bite",
-      "name": "Ravenous Bite",
-      "resource_type": "rage",
-      "cooldown": 0,
-      "effect_type": "damage_and_heal",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals damage to the target and heals you for part of it.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 12,
-          "cost": 25,
-          "effect_value": 58,
-          "heal_value": 42
-        },
-        {
-          "rank": 2,
-          "level_req": 19,
-          "cost": 25,
-          "effect_value": 73,
-          "heal_value": 54
-        },
-        {
-          "rank": 3,
-          "level_req": 26,
-          "cost": 25,
-          "effect_value": 88,
-          "heal_value": 66
-        },
-        {
-          "rank": 4,
-          "level_req": 33,
-          "cost": 25,
-          "effect_value": 103,
-          "heal_value": 78
-        },
-        {
-          "rank": 5,
-          "level_req": 40,
-          "cost": 25,
-          "effect_value": 118,
-          "heal_value": 90
-        },
-        {
-          "rank": 6,
-          "level_req": 47,
-          "cost": 25,
-          "effect_value": 133,
-          "heal_value": 102
-        },
-        {
-          "rank": 7,
-          "level_req": 54,
-          "cost": 25,
-          "effect_value": 148,
-          "heal_value": 114
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Ravenous Bite is a Death Strike analog, a melee swing that heals a share of the damage it deals' - the tank's whole sustain plan.",
-      "target_type": "enemy"
-    },
-    {
       "ability_id": "bloodmage_bloodfang_bite",
       "name": "Bloodfang Bite",
       "resource_type": "rage",
@@ -1965,30 +1612,6 @@
       "buff_scope": "combat"
     },
     {
-      "ability_id": "bloodmage_bare_fangs",
-      "name": "Bare Fangs",
-      "resource_type": "rage",
-      "cooldown": 4,
-      "effect_type": "buff",
-      "duration": 2,
-      "stat_mods": {
-        "threat_generation_pct": 140
-      },
-      "description": "Threat generated +140% for 2 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 12,
-          "cost": 15,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA's Eternal stat priority: 'Hit/Expertise (Bare Fangs/Blood Howl taunts ... must land)'. The single-target taunt of that pair, so cheaper and shorter.",
-      "target_type": "self",
-      "buff_scope": "combat"
-    },
-    {
       "ability_id": "bloodmage_night_hunters_howl",
       "name": "Night Hunter's Howl",
       "resource_type": "rage",
@@ -2059,52 +1682,6 @@
       "icon_id": null,
       "_source": "CoA: 'Monstrous Hunger turns your next 6 Bloodfang Bites into halved-GCD enrage hits'. enable_instant_cast is the engine's halved-GCD equivalent - an instant does not end your turn. The Shadow Bats it summons need a pet template that does not exist, so they are not here.",
       "target_type": "self"
-    },
-    {
-      "ability_id": "bloodmage_hypovolemic_shock",
-      "name": "Hypovolemic Shock",
-      "resource_type": "rage",
-      "cooldown": 5,
-      "effect_type": "spell_dot",
-      "duration": 3,
-      "stat_mods": {},
-      "description": "Deals Shadow damage to the target over time for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 28,
-          "cost": 25,
-          "effect_value": 62
-        },
-        {
-          "rank": 2,
-          "level_req": 35,
-          "cost": 25,
-          "effect_value": 78
-        },
-        {
-          "rank": 3,
-          "level_req": 42,
-          "cost": 25,
-          "effect_value": 94
-        },
-        {
-          "rank": 4,
-          "level_req": 49,
-          "cost": 25,
-          "effect_value": 110
-        },
-        {
-          "rank": 5,
-          "level_req": 56,
-          "cost": 25,
-          "effect_value": 126
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA's Cursed Strikes extends 'the duration of Rotclaw and Hypovolemic Shock by 50%', so Eternal has a second bleed. Single-target, where Rotclaw is the pack one.",
-      "target_type": "enemy",
-      "damage_school": "shadow"
     },
     {
       "ability_id": "bloodmage_sanguine_mend",
@@ -2605,70 +2182,6 @@
         "resource": "rage",
         "amount": 20
       }
-    },
-    {
-      "ability_id": "bloodmage_infuse",
-      "name": "Infuse",
-      "resource_type": "rage",
-      "cooldown": 6,
-      "effect_type": "spell_dot",
-      "duration": 3,
-      "stat_mods": {},
-      "description": "Deals Shadow damage to the target over time for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 34,
-          "cost": 30,
-          "effect_value": 70
-        },
-        {
-          "rank": 2,
-          "level_req": 42,
-          "cost": 30,
-          "effect_value": 88
-        },
-        {
-          "rank": 3,
-          "level_req": 50,
-          "cost": 30,
-          "effect_value": 106
-        },
-        {
-          "rank": 4,
-          "level_req": 58,
-          "cost": 30,
-          "effect_value": 124
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Accumulates 10% of all damage dealt to the target and unleashes it after 10 seconds ... and absorbing healing done to the target.' Bank-then-detonate and healing absorption both have no hook, same as Atherann's Anguish.",
-      "target_type": "enemy",
-      "damage_school": "shadow"
-    },
-    {
-      "ability_id": "bloodmage_blood_cursed_armor",
-      "name": "Blood-Cursed Armor",
-      "resource_type": "rage",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 0,
-      "stat_mods": {
-        "armor": 160
-      },
-      "description": "Armor +160.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 26,
-          "cost": 25,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'You now emanate an aura around you, increasing the Armor of party and raid members by 390.' A pre-pull party buff - 'put up your party buffs, Blood-Cursed Armor for group armor'. buff_scope raid is what makes it persist out of combat.",
-      "target_type": "self",
-      "buff_scope": "raid"
     },
     {
       "ability_id": "bloodmage_bloodthorns",

@@ -110,6 +110,32 @@ CLASSES = {
                                                 {"crit_chance_physical": 1.0}),
         },
     },
+    # Bloodmage had 65 buttons and no talent unlocks - every one of them on every Bloodmage. Four specs
+    # (Sanguine caster, Accursed melee, Eternal tank, Fleshweaver healer) each had a second of
+    # something. The talents say what each spec is built around (the three Blood Princes, Vampiric
+    # Fang, Sanguine Rupture, Crimson Tide), so those stay and the copies beside them go.
+    "Bloodmage": {
+        "CUT": {
+            "bloodmage_transfusion": "a second single-target heal beside Fleshcraft and Sanguine Mend",
+            "bloodmage_shadow_howl": "crowd-control immunity again - Blood Craving does it",
+            "bloodmage_wicked_howl": "+25% max health again - Eternal Resolve does it",
+            "bloodmage_aneurysm": "a 1-turn interrupt beside Hemostasis's 2-turn one",
+            "bloodmage_scarlet_delirium": "one of five area DoTs; every spec keeps its own",
+            "bloodmage_hypovolemic_shock": "a third single-target DoT",
+            "bloodmage_ravenous_bite": "the same leeching bite as Ravenous Strike",
+            "bloodmage_bare_fangs": "a threat button beside Eternal's Blood Howl",
+            "bloodmage_blood_cursed_armor": "a self armour buff on the healing spec",
+            "bloodmage_sacrificial_rite": "a third Sanguine cooldown",
+            "bloodmage_puncturing_fangs": "a second plain Accursed strike beside Crimson Maw",
+            "bloodmage_hemoburst": "Veinburst again, later",
+            "bloodmage_infuse": "a second Fleshweaver DoT beside Vampyr's Kiss",
+        },
+        "REWORD": {},
+        "PASSIVE": {},
+        "TALENT_TEXT": {
+            "Cursed Strikes": "Increases the damage of Rotclaw by up to 27%.",
+        },
+    },
 }
 
 
@@ -119,6 +145,25 @@ def load(p):
 
 def dump(p, doc, indent=2):
     p.write_text(json.dumps(doc, indent=indent, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def _drop_from_lists(node, cut, fname, tid):
+    """Take cut ids out of any list in a talent node (a proc's ability_filter, a cooldown reset).
+    A list left empty means the talent only ever touched cut abilities: that needs a PASSIVE."""
+    changed = False
+    if isinstance(node, dict):
+        for v in node.values():
+            changed |= _drop_from_lists(v, cut, fname, tid)
+    elif isinstance(node, list):
+        if any(isinstance(x, str) and x in cut for x in node):
+            kept = [x for x in node if not (isinstance(x, str) and x in cut)]
+            if not kept:
+                raise SystemExit(f"{fname}: {tid} only names cut abilities {node} - give it a PASSIVE")
+            node[:] = kept
+            changed = True
+        for v in node:
+            changed |= _drop_from_lists(v, cut, fname, tid)
+    return changed
 
 
 def strip_realtime(text):
@@ -157,10 +202,15 @@ def refine(cls, spec, dry):
         changed = False
         for n in td.get("nodes", []):
             eff = n.get("effects") or {}
+            had = bool(eff)
             for k in list(eff):
                 if any(k.startswith(f"ability_{c}_") for c in cut):
                     del eff[k]
                     changed = True
+            if had and not eff and not n.get("proc") and n["talent_id"] not in spec["PASSIVE"]:
+                raise SystemExit(f"{tp.name}: {n['talent_id']} only tuned cut abilities - give it a PASSIVE")
+            if _drop_from_lists(n, cut, tp.name, n["talent_id"]):
+                changed = True
             u = eff.get("unlock_ability")
             if u in cut:
                 rep = spec["PASSIVE"].get(n["talent_id"])
@@ -173,6 +223,10 @@ def refine(cls, spec, dry):
                 changed = True
             if "proc" in n and n["proc"] is None:
                 del n["proc"]
+            txt = spec.get("TALENT_TEXT", {}).get(n.get("name"))
+            if txt and n.get("description") != txt:
+                n["description"] = txt
+                changed = True
         if changed:
             todo.append(f"{cls}: talents in {tp.name}")
             talent_docs[tp] = td

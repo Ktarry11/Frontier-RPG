@@ -44,8 +44,16 @@ def main():
         for a in json.loads((ROOT / f"data/abilities/{prefix}.json").read_text(encoding="utf-8"))["abilities"]:
             for pat in R.REALTIME:
                 check(not re.search(pat, a.get("description", "")), f"{a['name']}: still says '{a['description']}'")
+    def live(o):
+        """The data the game reads - dev notes ("_source" and the like) are history, not references."""
+        if isinstance(o, dict):
+            return {k: live(v) for k, v in o.items() if not k.startswith("_")}
+        if isinstance(o, list):
+            return [live(v) for v in o]
+        return o
+
     for f in files:
-        text = f.read_text(encoding="utf-8")
+        text = json.dumps(live(json.loads(f.read_text(encoding="utf-8"))))
         for rid in retired:
             check(not re.search(re.escape(rid) + r"(?![a-z_])", text), f"{f.name} still names {rid}")
 

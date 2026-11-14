@@ -212,8 +212,6 @@
       "hex_y": -4,
       "effects": {
         "ability_bloodmage_blood_howl_cooldown_pct": 0.08,
-        "ability_bloodmage_shadow_howl_cooldown_pct": 0.08,
-        "ability_bloodmage_wicked_howl_cooldown_pct": 0.08,
         "ability_bloodmage_night_hunters_howl_cooldown_pct": 0.08
       },
       "connected_to": [
@@ -339,8 +337,6 @@
         "icd": 0,
         "ability_filter": [
           "bloodmage_blood_howl",
-          "bloodmage_shadow_howl",
-          "bloodmage_wicked_howl",
           "bloodmage_night_hunters_howl"
         ],
         "apply_effect": {
@@ -534,8 +530,6 @@
         "icd": 0,
         "ability_filter": [
           "bloodmage_blood_howl",
-          "bloodmage_shadow_howl",
-          "bloodmage_wicked_howl",
           "bloodmage_night_hunters_howl"
         ],
         "apply_effect": {
@@ -582,8 +576,6 @@
       "hex_y": 4,
       "effects": {
         "ability_bloodmage_blood_howl_cooldown_pct": 0.08,
-        "ability_bloodmage_shadow_howl_cooldown_pct": 0.08,
-        "ability_bloodmage_wicked_howl_cooldown_pct": 0.08,
         "ability_bloodmage_night_hunters_howl_cooldown_pct": 0.08,
         "threat_generation_pct": 0.07
       },
@@ -622,7 +614,7 @@
     {
       "talent_id": "bloodmage_eternal_cursed_strikes",
       "name": "Cursed Strikes",
-      "description": "Increases the damage of Rotclaw and Hypovolemic Shock by up to 27%.",
+      "description": "Increases the damage of Rotclaw by up to 27%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -630,8 +622,7 @@
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "ability_bloodmage_rotclaw_damage": 0.09,
-        "ability_bloodmage_hypovolemic_shock_damage": 0.09
+        "ability_bloodmage_rotclaw_damage": 0.09
       },
       "connected_to": [
         "bloodmage_eternal_eternal_presence"
