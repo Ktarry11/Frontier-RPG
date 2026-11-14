@@ -312,6 +312,11 @@ class PartyScreen(BaseScreen):
                 self._open_background(target)
             elif action == "talk":
                 self._open_talk(target)
+            elif action == "soul":
+                soul = self.state_manager.states.get(GameState.SOUL)
+                if soul is not None:
+                    soul.start(target, return_state=GameState.PARTY)
+                    self.state_manager.transition_to(GameState.SOUL)
             elif action == "dismiss":
                 if getattr(target, "recruit_id", None) == "asher_coleman":
                     # Kyle: "if we try to remove him, he won't let us? -
@@ -964,6 +969,8 @@ class PartyScreen(BaseScreen):
         buttons.append(("talents", "Talents"))
         buttons.append(("skills", "Skills"))
         buttons.append(("background", "Background"))
+        # the soul's runes (Runecrafting, ui/screens/soul_screen.py)
+        buttons.append(("soul", "Soul"))
         from world.bond_manager import get_bond_manager
         if get_bond_manager().has(getattr(member, "recruit_id", None)):
             buttons.append(("talk", "Talk"))
@@ -976,7 +983,10 @@ class PartyScreen(BaseScreen):
             else:
                 buttons.append(("dismiss", "Dismiss"))
 
-        start_y = max(y + 10, panel.bottom - 110)
+        # start high enough that every row fits in the panel (a ninth button made three rows)
+        per_row = max(1, (panel.width - 32 + gap) // (btn_w + gap))
+        rows = (len(buttons) + per_row - 1) // per_row
+        start_y = max(y + 10, panel.bottom - 8 - rows * (btn_h + gap))
         col_x = panel.x + 16
         cur_x, cur_y = col_x, start_y
         for action, label in buttons:

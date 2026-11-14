@@ -94,7 +94,10 @@ def main():
     # 5
     tr = json.load(open("data/training/trainers.json", encoding="utf-8"))["profession_trainers"]
     here = {k: v for k, v in tr.items() if k.startswith("oh_")}
-    if here != {"oh_forgemaster": ["mining", "blacksmithing", "jewelcrafting"]}:
+    # the forge, and the enchanter (tools/build_enchanters.py, 14 Nov 2026) who teaches enchanting
+    # and runecrafting
+    if here != {"oh_forgemaster": ["mining", "blacksmithing", "jewelcrafting"],
+                "oh_enchanter": ["enchanting", "runecrafting"]}:
         bad.append(f"trainers here: {here}")
     npcs = {n["npc_id"]: n for n in json.load(open("data/npcs/ambient_npcs.json", encoding="utf-8"))["npcs"]
             if n["zone"] == "onyxhollow"}

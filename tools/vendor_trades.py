@@ -75,11 +75,11 @@ TITLES = [
 #: trade -> the kinds of thing it sells
 TRADE_KINDS = {
     "gems": {"cut_gem", "gem", "jc_supply"},
-    "enchanting": {"ench_supply", "recipe_enchanting", "alch_supply"},
+    "enchanting": {"ench_supply", "recipe_enchanting", "recipe_runecrafting", "alch_supply"},
     "inn": {"food", "drink", "buff_food", "cook_ingredient", "recipe_cooking"},
     "cook": {"food", "drink", "buff_food", "cook_ingredient", "recipe_cooking", "fish"},
     "alchemy": {"potion", "elixir", "alch_supply", "herb", "recipe_alchemy"},
-    "reagent": {"alch_supply", "scribe", "elixir", "herb", "mana_potion", "recipe_enchanting", "ench_supply",
+    "reagent": {"alch_supply", "scribe", "elixir", "herb", "mana_potion", "recipe_enchanting", "recipe_runecrafting", "ench_supply",
                 "recipe_alchemy", "raw_crystal"},
     "smith": {"smith_supply", "raw_bar", "raw_ore", "recipe_blacksmithing", "shot",
               "upgrade_kit", "jc_supply", "recipe_jewelcrafting"},
@@ -286,6 +286,11 @@ def extras(trade, tier, vid, cons, recipes):
         skill = min(300, tier * 5)
         pool = [r for r, (p, sk) in recipes.items() if p == "enchanting" and skill - 60 <= sk <= skill + 10]
         out += _pick(pool, vid + "f", 2)
+    if trade in ("enchanting", "reagent"):
+        # rune scripts (Runecrafting): sold where enchanters shop
+        skill = min(300, tier * 5)
+        pool = [r for r, (p, sk) in recipes.items() if p == "runecrafting" and skill - 60 <= sk <= skill + 10]
+        out += _pick(pool, vid + "r", 4 if trade == "enchanting" else 1)
     if trade in ("alchemy", "reagent"):
         pool = [i for i, (k, lvl) in cons.items() if k == "elixir" and tier - 12 <= lvl <= tier]
         out += _pick(pool, vid + "e", 3 if trade == "alchemy" else 2)
@@ -376,7 +381,7 @@ def plan(vendors, kind, cons):
             continue
         shops = [v for v in vendors if TRADE_RECIPES.get(trades[v["vendor_id"]]) == prof
                  or (prof == "jewelcrafting" and trades[v["vendor_id"]] == "smith")
-                 or (prof == "enchanting" and trades[v["vendor_id"]] == "reagent")]
+                 or (prof in ("enchanting", "runecrafting") and trades[v["vendor_id"]] in ("reagent", "enchanting"))]
         if shops:
             best_shop = min(shops, key=lambda v: abs(int(v.get("gear_level") or 1) * 5 - sk))
             new[best_shop["vendor_id"]].append(rid)

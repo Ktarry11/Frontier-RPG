@@ -87,6 +87,7 @@ MATERIAL_SUBTABS = [
     ("wood", "Wood", {"wood", "plank", "fiber", "pages", "stick"}),
     ("gems", "Gems", {"gem", "cut_gem"}),
     ("enchanting", "Enchanting", {"enchant_mat", "rod", "enchant_scroll"}),
+    ("runes", "Runes", {"rune", "rune_ink"}),
     ("cooking", "Cooking", {"meat", "fish"}),
     ("other", "Other", None),
 ]

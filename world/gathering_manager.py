@@ -749,6 +749,9 @@ MATERIAL_TYPE_FOLDERS = {
     "enchant_mat": "enchanting",
     "rod": "enchanting",
     "enchant_scroll": "enchanting",
+    # Runecrafting (tools/build_runecrafting.py)
+    "rune": "runes",
+    "rune_ink": "runes",
 }
 
 #: CUMULATIVE skill cap for a material of each tier - the skill a character

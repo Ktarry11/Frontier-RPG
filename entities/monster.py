@@ -1050,6 +1050,13 @@ class Monster(StatusEffectMixin):
         """
         from combat.status_effects import DamageSchool
 
+        # A CONVERSION OR CHAOS CAPSTONE (world/runes.py) changes the school the hit LANDS as,
+        # here and only here: the ability kept its own school for every talent and bonus already
+        # applied, and from this line on the target's resistance to the new school decides it.
+        if attacker is not None and damage_type is not None:
+            from world.runes import landing_school
+            damage_type = landing_school(attacker, damage_type)
+
         # Attacker penetration, matching Character.take_damage. The docstring
         # above used to say Monster "has no use for" the attacker and only
         # accepted it for call-signature parity - but armor penetration is

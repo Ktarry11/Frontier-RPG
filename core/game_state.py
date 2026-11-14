@@ -26,6 +26,7 @@ from ui.screens.background_screen import BackgroundScreen
 from ui.screens.bond_test_screen import BondTestScreen
 from ui.screens.socket_screen import SocketScreen
 from ui.screens.enchant_screen import EnchantScreen
+from ui.screens.soul_screen import SoulScreen
 from ui.screens.travel_service_screen import TravelServiceScreen
 from config import save_slot_filename
 
@@ -104,6 +105,7 @@ class GameStateManager:
             GameState.BOND_TEST: BondTestScreen(self),
             GameState.SOCKETING: SocketScreen(self),
             GameState.ENCHANTING: EnchantScreen(self),
+            GameState.SOUL: SoulScreen(self),
             GameState.TRAVEL: TravelServiceScreen(self),
             # VendorScreen is created dynamically when entering vendor state
         }

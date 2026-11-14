@@ -63,6 +63,7 @@ CRAFT_TABS = {
     "cooking": ("cooking", "Cooking", None),
     "jewelcrafting": ("jewelcrafting", "Jewelcrafting", None),
     "enchanting": ("enchanting", "Enchanting", None),
+    "runecrafting": ("runecrafting", "Runecrafting", None),
 }
 
 PANEL_X = 20
@@ -364,7 +365,7 @@ class ProfessionsScreen(BaseScreen):
         if player.knows_profession("woodcutting") or self.active_tab == "sawmill":
             tabs.append(("sawmill", "Sawmill"))
         for key in ("blacksmithing", "leatherworking", "alchemy", "tailoring", "woodworking", "engineering", "cooking",
-                    "jewelcrafting", "enchanting"):
+                    "jewelcrafting", "enchanting", "runecrafting"):
             if player.knows_profession(key):
                 tabs.append((key, CRAFT_TABS[key][1]))
         tabs.append(("upgrade", "Upgrade"))
@@ -641,6 +642,10 @@ class ProfessionsScreen(BaseScreen):
                 if g:
                     from world.jewelcrafting import stat_text
                     effect = f"{g['color'].capitalize()}: {stat_text(g['stats'])}"
+                from world.runes import rune as _rune
+                if _rune(out.get("material_id")):
+                    effect = self.renderer.truncate(_rune(out["material_id"])["text"],
+                                                    rect.right - 140 - (rect.x + 410), size="small")
                 from world.enchanting import enchant as _enchant, label as _elabel
                 if _enchant(out.get("material_id")):
                     e = _enchant(out["material_id"])
@@ -660,7 +665,7 @@ class ProfessionsScreen(BaseScreen):
             if effect:
                 # enchanting's names run long ("Enchant 2H Weapon: Superior Spell Power"), so its
                 # effect column starts further right
-                effect_x = rect.x + (410 if profession == "enchanting" else 330)
+                effect_x = rect.x + (410 if profession in ("enchanting", "runecrafting") else 330)
                 self.renderer.draw_text(screen, effect, (effect_x, rect.y + 6), size="small",
                                         color=(140, 220, 160) if unlocked else (90, 120, 100))
 

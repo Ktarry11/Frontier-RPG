@@ -30,6 +30,7 @@ class GameState(Enum):
     BOND_TEST = "bond_test"
     SOCKETING = "socketing"
     ENCHANTING = "enchanting"
+    SOUL = "soul"
     TRAVEL = "travel"
     PAUSED = "paused"
     QUIT = "quit"

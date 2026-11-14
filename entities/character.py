@@ -385,6 +385,7 @@ class Character(StatusEffectMixin):
         self.food_buff = None      # (consumable, remaining_duration)
         self.ammo_buff = None      # (consumable, remaining_duration) - crafted arrows/bolts (Woodworking)
         self.oil_buff = None       # (consumable, remaining_duration) - weapon oils (Enchanting)
+        self.soul_runes = [None, None, None, None]   # Runecrafting: three runes and a Capstone
         #: Seconds of Beast Lure left. While anyone in the party has it, beasts turn up half
         #: again as often (world/creature_manager.BEAST_LURE_BOOST) - the skinner's consumable.
         self.beast_lure_seconds = 0.0
@@ -812,6 +813,16 @@ class Character(StatusEffectMixin):
                     totals[key] = totals.get(key, 0) + value
         except Exception:
             pass
+        # RUNES ON THE SOUL (world/runes.py): the same pool, so every formula that reads a talent
+        # key reads a rune's too.
+        if getattr(self, "soul_runes", None):
+            try:
+                from world.runes import effects as _rune_effects
+                for key, value in _rune_effects(self).items():
+                    if isinstance(totals.get(key, 0), (int, float)):
+                        totals[key] = totals.get(key, 0) + value
+            except Exception:
+                pass
         return totals
 
     #: Fixed real section keys for the 4-part background system - see
@@ -1532,6 +1543,9 @@ class Character(StatusEffectMixin):
                       + bonuses.get("dodge", 0)
                       + bonuses.get("dodge_rating", 0)
                       + defense_bonus)
+        # the Anvil (a Capstone rune, world/runes.py): you never dodge
+        if bonuses.get("rune_no_dodge"):
+            self.dodge = 0.0
         # spirit_guard_block_from_agility (Spirit Guard, Shaman Tank: "gain
         # Block Rating equal to 33%/66%/100% of your Agility per rank") -
         # an ADDITIONAL block source layered on top of the existing
@@ -2192,6 +2206,11 @@ class Character(StatusEffectMixin):
                 _e = _enchant(item.enchant_id)
                 if _e and _e.get("proc"):
                     wanted[f"{ITEM_PROC_PREFIX}{slot}_enchant"] = (_e["title"], _e["proc"])
+        # RUNES ON THE SOUL hang their procs the same way (world/runes.py)
+        if any(getattr(self, "soul_runes", None) or []):
+            from world.runes import procs as _rune_procs
+            for suffix, name, p in _rune_procs(self):
+                wanted[f"{ITEM_PROC_PREFIX}{suffix}"] = (name, p)
 
         effects = self._effects()
         current = {e.effect_id: e for e in effects
@@ -4021,6 +4040,7 @@ class Character(StatusEffectMixin):
             "profession_skills": dict(self.profession_skills),
             "known_professions": list(self.known_professions),
             "known_recipes": list(self.known_recipes),
+            "soul_runes": list(getattr(self, "soul_runes", None) or [None] * 4),
             "profession_tiers": dict(self.profession_tiers),
             "training_enabled": bool(self.training_enabled),
             "trained_ranks": dict(self.trained_ranks),
@@ -4177,6 +4197,7 @@ class Character(StatusEffectMixin):
             char.known_recipes = set(data["known_recipes"])
         else:
             char._migrate_known_recipes()
+        char.soul_runes = (list(data.get("soul_runes") or []) + [None] * 4)[:4]
         char.consumable_cooldown = data.get("consumable_cooldown", 0.0)
         char.guardian_buff = _buff_from_data(data.get("guardian_buff"))
         char.battle_buff = _buff_from_data(data.get("battle_buff"))

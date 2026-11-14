@@ -1,0 +1,3601 @@
+{
+  "_doc": "Written by tools/build_runecrafting.py; read by world/runes.py.",
+  "slots": 4,
+  "capstone_slot": 3,
+  "runes": {
+    "rune_riposte_1": {
+      "name": "Lesser Rune of Riposte",
+      "family": "riposte",
+      "rank": 1,
+      "capstone": false,
+      "role": "tank",
+      "level": 20,
+      "effects": {
+        "magic_damage_taken_pct": 0.02
+      },
+      "procs": [
+        {
+          "trigger": "on_avoid",
+          "chance": 100,
+          "icd": 0,
+          "describe": "When you dodge or parry, you strike back for 30.",
+          "damage_flat": 30,
+          "school": "physical"
+        }
+      ],
+      "text": "Dodging or parrying strikes back for 30. But you take 2% more magic damage."
+    },
+    "rune_riposte_2": {
+      "name": "Rune of Riposte",
+      "family": "riposte",
+      "rank": 2,
+      "capstone": false,
+      "role": "tank",
+      "level": 40,
+      "effects": {
+        "magic_damage_taken_pct": 0.03
+      },
+      "procs": [
+        {
+          "trigger": "on_avoid",
+          "chance": 100,
+          "icd": 0,
+          "describe": "When you dodge or parry, you strike back for 70.",
+          "damage_flat": 70,
+          "school": "physical"
+        }
+      ],
+      "text": "Dodging or parrying strikes back for 70. But you take 3% more magic damage."
+    },
+    "rune_riposte_3": {
+      "name": "Greater Rune of Riposte",
+      "family": "riposte",
+      "rank": 3,
+      "capstone": false,
+      "role": "tank",
+      "level": 55,
+      "effects": {
+        "magic_damage_taken_pct": 0.04
+      },
+      "procs": [
+        {
+          "trigger": "on_avoid",
+          "chance": 100,
+          "icd": 0,
+          "describe": "When you dodge or parry, you strike back for 130.",
+          "damage_flat": 130,
+          "school": "physical"
+        }
+      ],
+      "text": "Dodging or parrying strikes back for 130. But you take 4% more magic damage."
+    },
+    "rune_thorns_1": {
+      "name": "Lesser Rune of Thorns",
+      "family": "thorns",
+      "rank": 1,
+      "capstone": false,
+      "role": "tank",
+      "level": 20,
+      "effects": {
+        "healing_received_pct": -0.04
+      },
+      "procs": [
+        {
+          "trigger": "on_damage_taken",
+          "chance": 100,
+          "icd": 0,
+          "describe": "Whoever hits you takes 8 damage.",
+          "damage_flat": 8,
+          "school": "physical"
+        }
+      ],
+      "text": "Whoever hits you takes 8 damage. But heals on you are 4% weaker."
+    },
+    "rune_thorns_2": {
+      "name": "Rune of Thorns",
+      "family": "thorns",
+      "rank": 2,
+      "capstone": false,
+      "role": "tank",
+      "level": 40,
+      "effects": {
+        "healing_received_pct": -0.05
+      },
+      "procs": [
+        {
+          "trigger": "on_damage_taken",
+          "chance": 100,
+          "icd": 0,
+          "describe": "Whoever hits you takes 20 damage.",
+          "damage_flat": 20,
+          "school": "physical"
+        }
+      ],
+      "text": "Whoever hits you takes 20 damage. But heals on you are 5% weaker."
+    },
+    "rune_thorns_3": {
+      "name": "Greater Rune of Thorns",
+      "family": "thorns",
+      "rank": 3,
+      "capstone": false,
+      "role": "tank",
+      "level": 55,
+      "effects": {
+        "healing_received_pct": -0.06
+      },
+      "procs": [
+        {
+          "trigger": "on_damage_taken",
+          "chance": 100,
+          "icd": 0,
+          "describe": "Whoever hits you takes 38 damage.",
+          "damage_flat": 38,
+          "school": "physical"
+        }
+      ],
+      "text": "Whoever hits you takes 38 damage. But heals on you are 6% weaker."
+    },
+    "rune_bulwark_1": {
+      "name": "Lesser Rune of Bulwark",
+      "family": "bulwark",
+      "rank": 1,
+      "capstone": false,
+      "role": "tank",
+      "level": 20,
+      "effects": {
+        "physical_damage_taken_pct": -0.03,
+        "magic_damage_taken_pct": 0.02
+      },
+      "procs": [],
+      "text": "You take 3% less physical damage. But you take 2% more magic damage."
+    },
+    "rune_bulwark_2": {
+      "name": "Rune of Bulwark",
+      "family": "bulwark",
+      "rank": 2,
+      "capstone": false,
+      "role": "tank",
+      "level": 40,
+      "effects": {
+        "physical_damage_taken_pct": -0.05,
+        "magic_damage_taken_pct": 0.03
+      },
+      "procs": [],
+      "text": "You take 5% less physical damage. But you take 3% more magic damage."
+    },
+    "rune_bulwark_3": {
+      "name": "Greater Rune of Bulwark",
+      "family": "bulwark",
+      "rank": 3,
+      "capstone": false,
+      "role": "tank",
+      "level": 55,
+      "effects": {
+        "physical_damage_taken_pct": -0.08,
+        "magic_damage_taken_pct": 0.04
+      },
+      "procs": [],
+      "text": "You take 8% less physical damage. But you take 4% more magic damage."
+    },
+    "rune_warding_1": {
+      "name": "Lesser Rune of Warding",
+      "family": "warding",
+      "rank": 1,
+      "capstone": false,
+      "role": "tank",
+      "level": 20,
+      "effects": {
+        "magic_damage_taken_pct": -0.03,
+        "physical_damage_taken_pct": 0.02
+      },
+      "procs": [],
+      "text": "You take 3% less magic damage. But you take 2% more physical damage."
+    },
+    "rune_warding_2": {
+      "name": "Rune of Warding",
+      "family": "warding",
+      "rank": 2,
+      "capstone": false,
+      "role": "tank",
+      "level": 40,
+      "effects": {
+        "magic_damage_taken_pct": -0.05,
+        "physical_damage_taken_pct": 0.03
+      },
+      "procs": [],
+      "text": "You take 5% less magic damage. But you take 3% more physical damage."
+    },
+    "rune_warding_3": {
+      "name": "Greater Rune of Warding",
+      "family": "warding",
+      "rank": 3,
+      "capstone": false,
+      "role": "tank",
+      "level": 55,
+      "effects": {
+        "magic_damage_taken_pct": -0.08,
+        "physical_damage_taken_pct": 0.04
+      },
+      "procs": [],
+      "text": "You take 8% less magic damage. But you take 4% more physical damage."
+    },
+    "rune_bastion_1": {
+      "name": "Lesser Rune of the Bastion",
+      "family": "bastion",
+      "rank": 1,
+      "capstone": false,
+      "role": "tank",
+      "level": 20,
+      "effects": {
+        "max_health_pct": 0.04,
+        "all_damage": -0.03
+      },
+      "procs": [],
+      "text": "Your health is 4% higher. But you deal 3% less damage."
+    },
+    "rune_bastion_2": {
+      "name": "Rune of the Bastion",
+      "family": "bastion",
+      "rank": 2,
+      "capstone": false,
+      "role": "tank",
+      "level": 40,
+      "effects": {
+        "max_health_pct": 0.07,
+        "all_damage": -0.04
+      },
+      "procs": [],
+      "text": "Your health is 7% higher. But you deal 4% less damage."
+    },
+    "rune_bastion_3": {
+      "name": "Greater Rune of the Bastion",
+      "family": "bastion",
+      "rank": 3,
+      "capstone": false,
+      "role": "tank",
+      "level": 55,
+      "effects": {
+        "max_health_pct": 0.1,
+        "all_damage": -0.05
+      },
+      "procs": [],
+      "text": "Your health is 10% higher. But you deal 5% less damage."
+    },
+    "rune_ironhide_1": {
+      "name": "Lesser Rune of Ironhide",
+      "family": "ironhide",
+      "rank": 1,
+      "capstone": false,
+      "role": "tank",
+      "level": 20,
+      "effects": {
+        "armor": 120,
+        "dodge_rating": -1
+      },
+      "procs": [],
+      "text": "+120 armour. But you dodge 1% less often."
+    },
+    "rune_ironhide_2": {
+      "name": "Rune of Ironhide",
+      "family": "ironhide",
+      "rank": 2,
+      "capstone": false,
+      "role": "tank",
+      "level": 40,
+      "effects": {
+        "armor": 260,
+        "dodge_rating": -2
+      },
+      "procs": [],
+      "text": "+260 armour. But you dodge 2% less often."
+    },
+    "rune_ironhide_3": {
+      "name": "Greater Rune of Ironhide",
+      "family": "ironhide",
+      "rank": 3,
+      "capstone": false,
+      "role": "tank",
+      "level": 55,
+      "effects": {
+        "armor": 450,
+        "dodge_rating": -3
+      },
+      "procs": [],
+      "text": "+450 armour. But you dodge 3% less often."
+    },
+    "rune_evasion_1": {
+      "name": "Lesser Rune of Evasion",
+      "family": "evasion",
+      "rank": 1,
+      "capstone": false,
+      "role": "tank",
+      "level": 20,
+      "effects": {
+        "dodge_rating": 1,
+        "armor": -100
+      },
+      "procs": [],
+      "text": "You dodge 1% more often. But you lose 100 armour."
+    },
+    "rune_evasion_2": {
+      "name": "Rune of Evasion",
+      "family": "evasion",
+      "rank": 2,
+      "capstone": false,
+      "role": "tank",
+      "level": 40,
+      "effects": {
+        "dodge_rating": 2,
+        "armor": -200
+      },
+      "procs": [],
+      "text": "You dodge 2% more often. But you lose 200 armour."
+    },
+    "rune_evasion_3": {
+      "name": "Greater Rune of Evasion",
+      "family": "evasion",
+      "rank": 3,
+      "capstone": false,
+      "role": "tank",
+      "level": 55,
+      "effects": {
+        "dodge_rating": 3,
+        "armor": -350
+      },
+      "procs": [],
+      "text": "You dodge 3% more often. But you lose 350 armour."
+    },
+    "rune_last_stand_1": {
+      "name": "Lesser Rune of the Last Stand",
+      "family": "last_stand",
+      "rank": 1,
+      "capstone": false,
+      "role": "tank",
+      "level": 20,
+      "effects": {
+        "low_health_damage_reduction_pct": 0.1,
+        "max_health_pct": -0.02
+      },
+      "procs": [],
+      "text": "Below 35% health you take 10% less damage. But your health is 2% lower."
+    },
+    "rune_last_stand_2": {
+      "name": "Rune of the Last Stand",
+      "family": "last_stand",
+      "rank": 2,
+      "capstone": false,
+      "role": "tank",
+      "level": 40,
+      "effects": {
+        "low_health_damage_reduction_pct": 0.15,
+        "max_health_pct": -0.03
+      },
+      "procs": [],
+      "text": "Below 35% health you take 15% less damage. But your health is 3% lower."
+    },
+    "rune_last_stand_3": {
+      "name": "Greater Rune of the Last Stand",
+      "family": "last_stand",
+      "rank": 3,
+      "capstone": false,
+      "role": "tank",
+      "level": 55,
+      "effects": {
+        "low_health_damage_reduction_pct": 0.2,
+        "max_health_pct": -0.04
+      },
+      "procs": [],
+      "text": "Below 35% health you take 20% less damage. But your health is 4% lower."
+    },
+    "rune_second_wind_1": {
+      "name": "Lesser Rune of Second Wind",
+      "family": "second_wind",
+      "rank": 1,
+      "capstone": false,
+      "role": "tank",
+      "level": 20,
+      "effects": {
+        "healing_received_pct": -0.03
+      },
+      "procs": [
+        {
+          "trigger": "on_damage_taken",
+          "chance": 12,
+          "icd": 4,
+          "describe": "Being hit can give you a second wind, healing 60.",
+          "heal_flat": 60
+        }
+      ],
+      "text": "Being hit has a chance to heal you for 60. But heals on you are 3% weaker."
+    },
+    "rune_second_wind_2": {
+      "name": "Rune of Second Wind",
+      "family": "second_wind",
+      "rank": 2,
+      "capstone": false,
+      "role": "tank",
+      "level": 40,
+      "effects": {
+        "healing_received_pct": -0.04
+      },
+      "procs": [
+        {
+          "trigger": "on_damage_taken",
+          "chance": 12,
+          "icd": 4,
+          "describe": "Being hit can give you a second wind, healing 120.",
+          "heal_flat": 120
+        }
+      ],
+      "text": "Being hit has a chance to heal you for 120. But heals on you are 4% weaker."
+    },
+    "rune_second_wind_3": {
+      "name": "Greater Rune of Second Wind",
+      "family": "second_wind",
+      "rank": 3,
+      "capstone": false,
+      "role": "tank",
+      "level": 55,
+      "effects": {
+        "healing_received_pct": -0.05
+      },
+      "procs": [
+        {
+          "trigger": "on_damage_taken",
+          "chance": 12,
+          "icd": 4,
+          "describe": "Being hit can give you a second wind, healing 200.",
+          "heal_flat": 200
+        }
+      ],
+      "text": "Being hit has a chance to heal you for 200. But heals on you are 5% weaker."
+    },
+    "rune_rampart_1": {
+      "name": "Lesser Rune of the Rampart",
+      "family": "rampart",
+      "rank": 1,
+      "capstone": false,
+      "role": "tank",
+      "level": 20,
+      "effects": {
+        "magic_damage_taken_pct": 0.02
+      },
+      "procs": [
+        {
+          "trigger": "on_block",
+          "chance": 100,
+          "icd": 0,
+          "describe": "Blocking heals you for 30.",
+          "heal_flat": 30
+        }
+      ],
+      "text": "Blocking a hit heals you for 30. But you take 2% more magic damage."
+    },
+    "rune_rampart_2": {
+      "name": "Rune of the Rampart",
+      "family": "rampart",
+      "rank": 2,
+      "capstone": false,
+      "role": "tank",
+      "level": 40,
+      "effects": {
+        "magic_damage_taken_pct": 0.03
+      },
+      "procs": [
+        {
+          "trigger": "on_block",
+          "chance": 100,
+          "icd": 0,
+          "describe": "Blocking heals you for 70.",
+          "heal_flat": 70
+        }
+      ],
+      "text": "Blocking a hit heals you for 70. But you take 3% more magic damage."
+    },
+    "rune_rampart_3": {
+      "name": "Greater Rune of the Rampart",
+      "family": "rampart",
+      "rank": 3,
+      "capstone": false,
+      "role": "tank",
+      "level": 55,
+      "effects": {
+        "magic_damage_taken_pct": 0.04
+      },
+      "procs": [
+        {
+          "trigger": "on_block",
+          "chance": 100,
+          "icd": 0,
+          "describe": "Blocking heals you for 120.",
+          "heal_flat": 120
+        }
+      ],
+      "text": "Blocking a hit heals you for 120. But you take 4% more magic damage."
+    },
+    "rune_wild_hide_1": {
+      "name": "Lesser Rune of the Wild Hide",
+      "family": "wild_hide",
+      "rank": 1,
+      "capstone": false,
+      "role": "tank",
+      "level": 20,
+      "effects": {
+        "healing_done": -0.04
+      },
+      "procs": [
+        {
+          "trigger": "on_damage_taken",
+          "chance": 25,
+          "icd": 2,
+          "describe": "While shapeshifted, being hit can harden your hide for 150 armour, 2 turns.",
+          "require_form": [
+            "bear",
+            "beetle",
+            "cat",
+            "dire_bear",
+            "moonkin",
+            "shadowform",
+            "spider",
+            "tree_of_life",
+            "vizier_form",
+            "void_monstrosity",
+            "weaver"
+          ],
+          "apply_effect": {
+            "effect_id": "rune_wild_hide",
+            "name": "Hardened Hide",
+            "effect_type": "buff",
+            "duration": 2,
+            "stat_mods": {
+              "armor": 150
+            },
+            "on_target": false
+          }
+        }
+      ],
+      "text": "While in any shapeshift form, being hit can harden your hide: +150 armour for 2 turns. But your heals are 4% weaker."
+    },
+    "rune_wild_hide_2": {
+      "name": "Rune of the Wild Hide",
+      "family": "wild_hide",
+      "rank": 2,
+      "capstone": false,
+      "role": "tank",
+      "level": 40,
+      "effects": {
+        "healing_done": -0.05
+      },
+      "procs": [
+        {
+          "trigger": "on_damage_taken",
+          "chance": 25,
+          "icd": 2,
+          "describe": "While shapeshifted, being hit can harden your hide for 320 armour, 2 turns.",
+          "require_form": [
+            "bear",
+            "beetle",
+            "cat",
+            "dire_bear",
+            "moonkin",
+            "shadowform",
+            "spider",
+            "tree_of_life",
+            "vizier_form",
+            "void_monstrosity",
+            "weaver"
+          ],
+          "apply_effect": {
+            "effect_id": "rune_wild_hide",
+            "name": "Hardened Hide",
+            "effect_type": "buff",
+            "duration": 2,
+            "stat_mods": {
+              "armor": 320
+            },
+            "on_target": false
+          }
+        }
+      ],
+      "text": "While in any shapeshift form, being hit can harden your hide: +320 armour for 2 turns. But your heals are 5% weaker."
+    },
+    "rune_wild_hide_3": {
+      "name": "Greater Rune of the Wild Hide",
+      "family": "wild_hide",
+      "rank": 3,
+      "capstone": false,
+      "role": "tank",
+      "level": 55,
+      "effects": {
+        "healing_done": -0.06
+      },
+      "procs": [
+        {
+          "trigger": "on_damage_taken",
+          "chance": 25,
+          "icd": 2,
+          "describe": "While shapeshifted, being hit can harden your hide for 550 armour, 2 turns.",
+          "require_form": [
+            "bear",
+            "beetle",
+            "cat",
+            "dire_bear",
+            "moonkin",
+            "shadowform",
+            "spider",
+            "tree_of_life",
+            "vizier_form",
+            "void_monstrosity",
+            "weaver"
+          ],
+          "apply_effect": {
+            "effect_id": "rune_wild_hide",
+            "name": "Hardened Hide",
+            "effect_type": "buff",
+            "duration": 2,
+            "stat_mods": {
+              "armor": 550
+            },
+            "on_target": false
+          }
+        }
+      ],
+      "text": "While in any shapeshift form, being hit can harden your hide: +550 armour for 2 turns. But your heals are 6% weaker."
+    },
+    "rune_menace_1": {
+      "name": "Lesser Rune of Menace",
+      "family": "menace",
+      "rank": 1,
+      "capstone": false,
+      "role": "tank",
+      "level": 20,
+      "effects": {
+        "threat_generation_pct": 0.15,
+        "all_damage": -0.03
+      },
+      "procs": [],
+      "text": "You make 15% more threat. But you deal 3% less damage."
+    },
+    "rune_menace_2": {
+      "name": "Rune of Menace",
+      "family": "menace",
+      "rank": 2,
+      "capstone": false,
+      "role": "tank",
+      "level": 40,
+      "effects": {
+        "threat_generation_pct": 0.3,
+        "all_damage": -0.04
+      },
+      "procs": [],
+      "text": "You make 30% more threat. But you deal 4% less damage."
+    },
+    "rune_menace_3": {
+      "name": "Greater Rune of Menace",
+      "family": "menace",
+      "rank": 3,
+      "capstone": false,
+      "role": "tank",
+      "level": 55,
+      "effects": {
+        "threat_generation_pct": 0.5,
+        "all_damage": -0.05
+      },
+      "procs": [],
+      "text": "You make 50% more threat. But you deal 5% less damage."
+    },
+    "rune_steadfast_1": {
+      "name": "Lesser Rune of the Steadfast",
+      "family": "steadfast",
+      "rank": 1,
+      "capstone": false,
+      "role": "tank",
+      "level": 20,
+      "effects": {
+        "stun_duration_reduction_pct": 0.2,
+        "all_damage": -0.02
+      },
+      "procs": [],
+      "text": "Stuns on you last 20% shorter. But you deal 2% less damage."
+    },
+    "rune_steadfast_2": {
+      "name": "Rune of the Steadfast",
+      "family": "steadfast",
+      "rank": 2,
+      "capstone": false,
+      "role": "tank",
+      "level": 40,
+      "effects": {
+        "stun_duration_reduction_pct": 0.35,
+        "all_damage": -0.03
+      },
+      "procs": [],
+      "text": "Stuns on you last 35% shorter. But you deal 3% less damage."
+    },
+    "rune_steadfast_3": {
+      "name": "Greater Rune of the Steadfast",
+      "family": "steadfast",
+      "rank": 3,
+      "capstone": false,
+      "role": "tank",
+      "level": 55,
+      "effects": {
+        "stun_duration_reduction_pct": 0.5,
+        "all_damage": -0.04
+      },
+      "procs": [],
+      "text": "Stuns on you last 50% shorter. But you deal 4% less damage."
+    },
+    "rune_execution_1": {
+      "name": "Lesser Rune of Execution",
+      "family": "execution",
+      "rank": 1,
+      "capstone": false,
+      "role": "damage",
+      "level": 20,
+      "effects": {
+        "low_health_damage_pct": 0.08,
+        "all_damage": -0.03
+      },
+      "procs": [],
+      "text": "8% more damage to targets under 35% health. But you deal 3% less damage all the time."
+    },
+    "rune_execution_2": {
+      "name": "Rune of Execution",
+      "family": "execution",
+      "rank": 2,
+      "capstone": false,
+      "role": "damage",
+      "level": 40,
+      "effects": {
+        "low_health_damage_pct": 0.14,
+        "all_damage": -0.04
+      },
+      "procs": [],
+      "text": "14% more damage to targets under 35% health. But you deal 4% less damage all the time."
+    },
+    "rune_execution_3": {
+      "name": "Greater Rune of Execution",
+      "family": "execution",
+      "rank": 3,
+      "capstone": false,
+      "role": "damage",
+      "level": 55,
+      "effects": {
+        "low_health_damage_pct": 0.2,
+        "all_damage": -0.05
+      },
+      "procs": [],
+      "text": "20% more damage to targets under 35% health. But you deal 5% less damage all the time."
+    },
+    "rune_rupture_1": {
+      "name": "Lesser Rune of Rupture",
+      "family": "rupture",
+      "rank": 1,
+      "capstone": false,
+      "role": "damage",
+      "level": 20,
+      "effects": {
+        "all_ability_cost_pct": -0.03
+      },
+      "procs": [
+        {
+          "trigger": "on_damage_cast",
+          "chance": 15,
+          "icd": 0,
+          "describe": "Your attacks can tear the target for 25 more damage.",
+          "damage_flat": 25,
+          "school": "physical"
+        }
+      ],
+      "text": "Your attacks have a chance to tear for 25 more damage. But abilities cost 3% more."
+    },
+    "rune_rupture_2": {
+      "name": "Rune of Rupture",
+      "family": "rupture",
+      "rank": 2,
+      "capstone": false,
+      "role": "damage",
+      "level": 40,
+      "effects": {
+        "all_ability_cost_pct": -0.04
+      },
+      "procs": [
+        {
+          "trigger": "on_damage_cast",
+          "chance": 15,
+          "icd": 0,
+          "describe": "Your attacks can tear the target for 55 more damage.",
+          "damage_flat": 55,
+          "school": "physical"
+        }
+      ],
+      "text": "Your attacks have a chance to tear for 55 more damage. But abilities cost 4% more."
+    },
+    "rune_rupture_3": {
+      "name": "Greater Rune of Rupture",
+      "family": "rupture",
+      "rank": 3,
+      "capstone": false,
+      "role": "damage",
+      "level": 55,
+      "effects": {
+        "all_ability_cost_pct": -0.05
+      },
+      "procs": [
+        {
+          "trigger": "on_damage_cast",
+          "chance": 15,
+          "icd": 0,
+          "describe": "Your attacks can tear the target for 100 more damage.",
+          "damage_flat": 100,
+          "school": "physical"
+        }
+      ],
+      "text": "Your attacks have a chance to tear for 100 more damage. But abilities cost 5% more."
+    },
+    "rune_bloodlust_1": {
+      "name": "Lesser Rune of Bloodlust",
+      "family": "bloodlust",
+      "rank": 1,
+      "capstone": false,
+      "role": "damage",
+      "level": 20,
+      "effects": {
+        "max_health_pct": -0.02
+      },
+      "procs": [
+        {
+          "trigger": "on_kill",
+          "chance": 100,
+          "icd": 0,
+          "describe": "A kill grants 25 attack power and spell power for 3 turns.",
+          "apply_effect": {
+            "effect_id": "rune_bloodlust",
+            "name": "Bloodlust",
+            "effect_type": "buff",
+            "duration": 3,
+            "stat_mods": {
+              "attack_power": 50,
+              "spell_power": 25
+            },
+            "on_target": false
+          }
+        }
+      ],
+      "text": "Kills grant 50 attack power and 25 spell power for 3 turns. But your health is 2% lower."
+    },
+    "rune_bloodlust_2": {
+      "name": "Rune of Bloodlust",
+      "family": "bloodlust",
+      "rank": 2,
+      "capstone": false,
+      "role": "damage",
+      "level": 40,
+      "effects": {
+        "max_health_pct": -0.03
+      },
+      "procs": [
+        {
+          "trigger": "on_kill",
+          "chance": 100,
+          "icd": 0,
+          "describe": "A kill grants 55 attack power and spell power for 3 turns.",
+          "apply_effect": {
+            "effect_id": "rune_bloodlust",
+            "name": "Bloodlust",
+            "effect_type": "buff",
+            "duration": 3,
+            "stat_mods": {
+              "attack_power": 110,
+              "spell_power": 55
+            },
+            "on_target": false
+          }
+        }
+      ],
+      "text": "Kills grant 110 attack power and 55 spell power for 3 turns. But your health is 3% lower."
+    },
+    "rune_bloodlust_3": {
+      "name": "Greater Rune of Bloodlust",
+      "family": "bloodlust",
+      "rank": 3,
+      "capstone": false,
+      "role": "damage",
+      "level": 55,
+      "effects": {
+        "max_health_pct": -0.04
+      },
+      "procs": [
+        {
+          "trigger": "on_kill",
+          "chance": 100,
+          "icd": 0,
+          "describe": "A kill grants 95 attack power and spell power for 3 turns.",
+          "apply_effect": {
+            "effect_id": "rune_bloodlust",
+            "name": "Bloodlust",
+            "effect_type": "buff",
+            "duration": 3,
+            "stat_mods": {
+              "attack_power": 190,
+              "spell_power": 95
+            },
+            "on_target": false
+          }
+        }
+      ],
+      "text": "Kills grant 190 attack power and 95 spell power for 3 turns. But your health is 4% lower."
+    },
+    "rune_precision_1": {
+      "name": "Lesser Rune of Precision",
+      "family": "precision",
+      "rank": 1,
+      "capstone": false,
+      "role": "damage",
+      "level": 20,
+      "effects": {
+        "crit_chance": 2,
+        "crit_damage_pct": -0.1
+      },
+      "procs": [],
+      "text": "+2% critical strike chance. But your crits do 10% less."
+    },
+    "rune_precision_2": {
+      "name": "Rune of Precision",
+      "family": "precision",
+      "rank": 2,
+      "capstone": false,
+      "role": "damage",
+      "level": 40,
+      "effects": {
+        "crit_chance": 3,
+        "crit_damage_pct": -0.15
+      },
+      "procs": [],
+      "text": "+3% critical strike chance. But your crits do 15% less."
+    },
+    "rune_precision_3": {
+      "name": "Greater Rune of Precision",
+      "family": "precision",
+      "rank": 3,
+      "capstone": false,
+      "role": "damage",
+      "level": 55,
+      "effects": {
+        "crit_chance": 4,
+        "crit_damage_pct": -0.2
+      },
+      "procs": [],
+      "text": "+4% critical strike chance. But your crits do 20% less."
+    },
+    "rune_devastation_1": {
+      "name": "Lesser Rune of Devastation",
+      "family": "devastation",
+      "rank": 1,
+      "capstone": false,
+      "role": "damage",
+      "level": 20,
+      "effects": {
+        "crit_damage_pct": 0.1,
+        "crit_chance": -1
+      },
+      "procs": [],
+      "text": "Your crits do 10% more. But you crit 1% less often."
+    },
+    "rune_devastation_2": {
+      "name": "Rune of Devastation",
+      "family": "devastation",
+      "rank": 2,
+      "capstone": false,
+      "role": "damage",
+      "level": 40,
+      "effects": {
+        "crit_damage_pct": 0.18,
+        "crit_chance": -2
+      },
+      "procs": [],
+      "text": "Your crits do 18% more. But you crit 2% less often."
+    },
+    "rune_devastation_3": {
+      "name": "Greater Rune of Devastation",
+      "family": "devastation",
+      "rank": 3,
+      "capstone": false,
+      "role": "damage",
+      "level": 55,
+      "effects": {
+        "crit_damage_pct": 0.25,
+        "crit_chance": -2
+      },
+      "procs": [],
+      "text": "Your crits do 25% more. But you crit 2% less often."
+    },
+    "rune_thunder_1": {
+      "name": "Lesser Rune of Thunder",
+      "family": "thunder",
+      "rank": 1,
+      "capstone": false,
+      "role": "damage",
+      "level": 20,
+      "effects": {
+        "crit_damage_pct": -0.05
+      },
+      "procs": [
+        {
+          "trigger": "on_crit",
+          "chance": 100,
+          "icd": 1,
+          "describe": "Your critical hits call down lightning for 25 nature damage.",
+          "damage_flat": 25,
+          "school": "nature"
+        }
+      ],
+      "text": "Critical hits call down lightning for 25. But your crits do 5% less."
+    },
+    "rune_thunder_2": {
+      "name": "Rune of Thunder",
+      "family": "thunder",
+      "rank": 2,
+      "capstone": false,
+      "role": "damage",
+      "level": 40,
+      "effects": {
+        "crit_damage_pct": -0.08
+      },
+      "procs": [
+        {
+          "trigger": "on_crit",
+          "chance": 100,
+          "icd": 1,
+          "describe": "Your critical hits call down lightning for 55 nature damage.",
+          "damage_flat": 55,
+          "school": "nature"
+        }
+      ],
+      "text": "Critical hits call down lightning for 55. But your crits do 8% less."
+    },
+    "rune_thunder_3": {
+      "name": "Greater Rune of Thunder",
+      "family": "thunder",
+      "rank": 3,
+      "capstone": false,
+      "role": "damage",
+      "level": 55,
+      "effects": {
+        "crit_damage_pct": -0.1
+      },
+      "procs": [
+        {
+          "trigger": "on_crit",
+          "chance": 100,
+          "icd": 1,
+          "describe": "Your critical hits call down lightning for 95 nature damage.",
+          "damage_flat": 95,
+          "school": "nature"
+        }
+      ],
+      "text": "Critical hits call down lightning for 95. But your crits do 10% less."
+    },
+    "rune_chain_reaction_1": {
+      "name": "Lesser Rune of Chain Reaction",
+      "family": "chain_reaction",
+      "rank": 1,
+      "capstone": false,
+      "role": "damage",
+      "level": 20,
+      "effects": {
+        "threat_generation_pct": 0.1
+      },
+      "procs": [
+        {
+          "trigger": "on_crit",
+          "chance": 100,
+          "icd": 1,
+          "describe": "Your critical hits splash 20% onto two other enemies.",
+          "splash_damage": {
+            "pct": 0.2,
+            "max_targets": 2
+          }
+        }
+      ],
+      "text": "Critical hits splash 20% onto two other enemies. But you make 10% more threat."
+    },
+    "rune_chain_reaction_2": {
+      "name": "Rune of Chain Reaction",
+      "family": "chain_reaction",
+      "rank": 2,
+      "capstone": false,
+      "role": "damage",
+      "level": 40,
+      "effects": {
+        "threat_generation_pct": 0.15
+      },
+      "procs": [
+        {
+          "trigger": "on_crit",
+          "chance": 100,
+          "icd": 1,
+          "describe": "Your critical hits splash 35% onto two other enemies.",
+          "splash_damage": {
+            "pct": 0.35,
+            "max_targets": 2
+          }
+        }
+      ],
+      "text": "Critical hits splash 35% onto two other enemies. But you make 15% more threat."
+    },
+    "rune_chain_reaction_3": {
+      "name": "Greater Rune of Chain Reaction",
+      "family": "chain_reaction",
+      "rank": 3,
+      "capstone": false,
+      "role": "damage",
+      "level": 55,
+      "effects": {
+        "threat_generation_pct": 0.2
+      },
+      "procs": [
+        {
+          "trigger": "on_crit",
+          "chance": 100,
+          "icd": 1,
+          "describe": "Your critical hits splash 50% onto two other enemies.",
+          "splash_damage": {
+            "pct": 0.5,
+            "max_targets": 2
+          }
+        }
+      ],
+      "text": "Critical hits splash 50% onto two other enemies. But you make 20% more threat."
+    },
+    "rune_focus_1": {
+      "name": "Lesser Rune of Focus",
+      "family": "focus",
+      "rank": 1,
+      "capstone": false,
+      "role": "damage",
+      "level": 20,
+      "effects": {
+        "all_damage": 0.04,
+        "aoe_damage": -0.1
+      },
+      "procs": [],
+      "text": "You deal 4% more damage. But your area attacks do 10% less."
+    },
+    "rune_focus_2": {
+      "name": "Rune of Focus",
+      "family": "focus",
+      "rank": 2,
+      "capstone": false,
+      "role": "damage",
+      "level": 40,
+      "effects": {
+        "all_damage": 0.06,
+        "aoe_damage": -0.15
+      },
+      "procs": [],
+      "text": "You deal 6% more damage. But your area attacks do 15% less."
+    },
+    "rune_focus_3": {
+      "name": "Greater Rune of Focus",
+      "family": "focus",
+      "rank": 3,
+      "capstone": false,
+      "role": "damage",
+      "level": 55,
+      "effects": {
+        "all_damage": 0.08,
+        "aoe_damage": -0.2
+      },
+      "procs": [],
+      "text": "You deal 8% more damage. But your area attacks do 20% less."
+    },
+    "rune_sweeping_1": {
+      "name": "Lesser Rune of the Sweep",
+      "family": "sweeping",
+      "rank": 1,
+      "capstone": false,
+      "role": "damage",
+      "level": 20,
+      "effects": {
+        "aoe_damage": 0.1,
+        "all_damage": -0.03
+      },
+      "procs": [],
+      "text": "Your area attacks do 10% more. But you deal 3% less damage overall."
+    },
+    "rune_sweeping_2": {
+      "name": "Rune of the Sweep",
+      "family": "sweeping",
+      "rank": 2,
+      "capstone": false,
+      "role": "damage",
+      "level": 40,
+      "effects": {
+        "aoe_damage": 0.17,
+        "all_damage": -0.04
+      },
+      "procs": [],
+      "text": "Your area attacks do 17% more. But you deal 4% less damage overall."
+    },
+    "rune_sweeping_3": {
+      "name": "Greater Rune of the Sweep",
+      "family": "sweeping",
+      "rank": 3,
+      "capstone": false,
+      "role": "damage",
+      "level": 55,
+      "effects": {
+        "aoe_damage": 0.25,
+        "all_damage": -0.05
+      },
+      "procs": [],
+      "text": "Your area attacks do 25% more. But you deal 5% less damage overall."
+    },
+    "rune_overload_1": {
+      "name": "Lesser Rune of Overload",
+      "family": "overload",
+      "rank": 1,
+      "capstone": false,
+      "role": "damage",
+      "level": 20,
+      "effects": {
+        "all_damage": 0.05,
+        "all_ability_cost_pct": -0.1
+      },
+      "procs": [],
+      "text": "You deal 5% more damage. But abilities cost 10% more."
+    },
+    "rune_overload_2": {
+      "name": "Rune of Overload",
+      "family": "overload",
+      "rank": 2,
+      "capstone": false,
+      "role": "damage",
+      "level": 40,
+      "effects": {
+        "all_damage": 0.09,
+        "all_ability_cost_pct": -0.15
+      },
+      "procs": [],
+      "text": "You deal 9% more damage. But abilities cost 15% more."
+    },
+    "rune_overload_3": {
+      "name": "Greater Rune of Overload",
+      "family": "overload",
+      "rank": 3,
+      "capstone": false,
+      "role": "damage",
+      "level": 55,
+      "effects": {
+        "all_damage": 0.13,
+        "all_ability_cost_pct": -0.2
+      },
+      "procs": [],
+      "text": "You deal 13% more damage. But abilities cost 20% more."
+    },
+    "rune_rot_1": {
+      "name": "Lesser Rune of Rot",
+      "family": "rot",
+      "rank": 1,
+      "capstone": false,
+      "role": "damage",
+      "level": 20,
+      "effects": {
+        "dot_damage": 0.1,
+        "all_damage": -0.03
+      },
+      "procs": [],
+      "text": "Your DoTs do 10% more. But everything else does 3% less."
+    },
+    "rune_rot_2": {
+      "name": "Rune of Rot",
+      "family": "rot",
+      "rank": 2,
+      "capstone": false,
+      "role": "damage",
+      "level": 40,
+      "effects": {
+        "dot_damage": 0.17,
+        "all_damage": -0.04
+      },
+      "procs": [],
+      "text": "Your DoTs do 17% more. But everything else does 4% less."
+    },
+    "rune_rot_3": {
+      "name": "Greater Rune of Rot",
+      "family": "rot",
+      "rank": 3,
+      "capstone": false,
+      "role": "damage",
+      "level": 55,
+      "effects": {
+        "dot_damage": 0.25,
+        "all_damage": -0.05
+      },
+      "procs": [],
+      "text": "Your DoTs do 25% more. But everything else does 5% less."
+    },
+    "rune_piercing_1": {
+      "name": "Lesser Rune of Piercing",
+      "family": "piercing",
+      "rank": 1,
+      "capstone": false,
+      "role": "damage",
+      "level": 20,
+      "effects": {
+        "spell_penetration": 8,
+        "all_ability_cost_pct": -0.03
+      },
+      "procs": [],
+      "text": "+8 spell penetration: your spells ignore that much resistance. But abilities cost 3% more."
+    },
+    "rune_piercing_2": {
+      "name": "Rune of Piercing",
+      "family": "piercing",
+      "rank": 2,
+      "capstone": false,
+      "role": "damage",
+      "level": 40,
+      "effects": {
+        "spell_penetration": 16,
+        "all_ability_cost_pct": -0.04
+      },
+      "procs": [],
+      "text": "+16 spell penetration: your spells ignore that much resistance. But abilities cost 4% more."
+    },
+    "rune_piercing_3": {
+      "name": "Greater Rune of Piercing",
+      "family": "piercing",
+      "rank": 3,
+      "capstone": false,
+      "role": "damage",
+      "level": 55,
+      "effects": {
+        "spell_penetration": 30,
+        "all_ability_cost_pct": -0.05
+      },
+      "procs": [],
+      "text": "+30 spell penetration: your spells ignore that much resistance. But abilities cost 5% more."
+    },
+    "rune_wellspring_1": {
+      "name": "Lesser Rune of the Wellspring",
+      "family": "wellspring",
+      "rank": 1,
+      "capstone": false,
+      "role": "damage",
+      "level": 20,
+      "effects": {
+        "spell_damage": -0.02
+      },
+      "procs": [
+        {
+          "trigger": "on_cast",
+          "chance": 10,
+          "icd": 2,
+          "describe": "Your spells can give you 30 mana back.",
+          "grant_resource": {
+            "resource": "mana",
+            "amount": 30
+          }
+        }
+      ],
+      "text": "Casting has a chance to give you 30 mana back. But your spells do 2% less damage."
+    },
+    "rune_wellspring_2": {
+      "name": "Rune of the Wellspring",
+      "family": "wellspring",
+      "rank": 2,
+      "capstone": false,
+      "role": "damage",
+      "level": 40,
+      "effects": {
+        "spell_damage": -0.03
+      },
+      "procs": [
+        {
+          "trigger": "on_cast",
+          "chance": 10,
+          "icd": 2,
+          "describe": "Your spells can give you 60 mana back.",
+          "grant_resource": {
+            "resource": "mana",
+            "amount": 60
+          }
+        }
+      ],
+      "text": "Casting has a chance to give you 60 mana back. But your spells do 3% less damage."
+    },
+    "rune_wellspring_3": {
+      "name": "Greater Rune of the Wellspring",
+      "family": "wellspring",
+      "rank": 3,
+      "capstone": false,
+      "role": "damage",
+      "level": 55,
+      "effects": {
+        "spell_damage": -0.04
+      },
+      "procs": [
+        {
+          "trigger": "on_cast",
+          "chance": 10,
+          "icd": 2,
+          "describe": "Your spells can give you 100 mana back.",
+          "grant_resource": {
+            "resource": "mana",
+            "amount": 100
+          }
+        }
+      ],
+      "text": "Casting has a chance to give you 100 mana back. But your spells do 4% less damage."
+    },
+    "rune_reaping_1": {
+      "name": "Lesser Rune of Reaping",
+      "family": "reaping",
+      "rank": 1,
+      "capstone": false,
+      "role": "damage",
+      "level": 20,
+      "effects": {
+        "max_mana_pct": -0.04
+      },
+      "procs": [
+        {
+          "trigger": "on_kill",
+          "chance": 100,
+          "icd": 0,
+          "describe": "Killing an enemy gives you 40 mana.",
+          "grant_resource": {
+            "resource": "mana",
+            "amount": 40
+          }
+        }
+      ],
+      "text": "Kills give 40 mana. But your mana pool is 4% smaller."
+    },
+    "rune_reaping_2": {
+      "name": "Rune of Reaping",
+      "family": "reaping",
+      "rank": 2,
+      "capstone": false,
+      "role": "damage",
+      "level": 40,
+      "effects": {
+        "max_mana_pct": -0.06
+      },
+      "procs": [
+        {
+          "trigger": "on_kill",
+          "chance": 100,
+          "icd": 0,
+          "describe": "Killing an enemy gives you 90 mana.",
+          "grant_resource": {
+            "resource": "mana",
+            "amount": 90
+          }
+        }
+      ],
+      "text": "Kills give 90 mana. But your mana pool is 6% smaller."
+    },
+    "rune_reaping_3": {
+      "name": "Greater Rune of Reaping",
+      "family": "reaping",
+      "rank": 3,
+      "capstone": false,
+      "role": "damage",
+      "level": 55,
+      "effects": {
+        "max_mana_pct": -0.08
+      },
+      "procs": [
+        {
+          "trigger": "on_kill",
+          "chance": 100,
+          "icd": 0,
+          "describe": "Killing an enemy gives you 160 mana.",
+          "grant_resource": {
+            "resource": "mana",
+            "amount": 160
+          }
+        }
+      ],
+      "text": "Kills give 160 mana. But your mana pool is 8% smaller."
+    },
+    "rune_devourer_1": {
+      "name": "Lesser Rune of the Devourer",
+      "family": "devourer",
+      "rank": 1,
+      "capstone": false,
+      "role": "damage",
+      "level": 20,
+      "effects": {
+        "all_damage": -0.03
+      },
+      "procs": [
+        {
+          "trigger": "on_damage_cast",
+          "chance": 100,
+          "icd": 0,
+          "describe": "3% of the damage you deal heals you.",
+          "leech_pct": 0.03
+        }
+      ],
+      "text": "3% of your damage heals you. But you deal 3% less damage."
+    },
+    "rune_devourer_2": {
+      "name": "Rune of the Devourer",
+      "family": "devourer",
+      "rank": 2,
+      "capstone": false,
+      "role": "damage",
+      "level": 40,
+      "effects": {
+        "all_damage": -0.04
+      },
+      "procs": [
+        {
+          "trigger": "on_damage_cast",
+          "chance": 100,
+          "icd": 0,
+          "describe": "5% of the damage you deal heals you.",
+          "leech_pct": 0.05
+        }
+      ],
+      "text": "5% of your damage heals you. But you deal 4% less damage."
+    },
+    "rune_devourer_3": {
+      "name": "Greater Rune of the Devourer",
+      "family": "devourer",
+      "rank": 3,
+      "capstone": false,
+      "role": "damage",
+      "level": 55,
+      "effects": {
+        "all_damage": -0.05
+      },
+      "procs": [
+        {
+          "trigger": "on_damage_cast",
+          "chance": 100,
+          "icd": 0,
+          "describe": "8% of the damage you deal heals you.",
+          "leech_pct": 0.08
+        }
+      ],
+      "text": "8% of your damage heals you. But you deal 5% less damage."
+    },
+    "rune_pack_1": {
+      "name": "Lesser Rune of the Pack",
+      "family": "pack",
+      "rank": 1,
+      "capstone": false,
+      "role": "damage",
+      "level": 20,
+      "effects": {
+        "pet_damage": 0.08,
+        "all_damage": -0.03
+      },
+      "procs": [],
+      "text": "Your pets and summons do 8% more damage. But you deal 3% less yourself."
+    },
+    "rune_pack_2": {
+      "name": "Rune of the Pack",
+      "family": "pack",
+      "rank": 2,
+      "capstone": false,
+      "role": "damage",
+      "level": 40,
+      "effects": {
+        "pet_damage": 0.14,
+        "all_damage": -0.04
+      },
+      "procs": [],
+      "text": "Your pets and summons do 14% more damage. But you deal 4% less yourself."
+    },
+    "rune_pack_3": {
+      "name": "Greater Rune of the Pack",
+      "family": "pack",
+      "rank": 3,
+      "capstone": false,
+      "role": "damage",
+      "level": 55,
+      "effects": {
+        "pet_damage": 0.2,
+        "all_damage": -0.05
+      },
+      "procs": [],
+      "text": "Your pets and summons do 20% more damage. But you deal 5% less yourself."
+    },
+    "rune_condensing_1": {
+      "name": "Lesser Rune of Condensing",
+      "family": "condensing",
+      "rank": 1,
+      "capstone": false,
+      "role": "any",
+      "level": 20,
+      "effects": {
+        "rune_condense": 0.1,
+        "all_ability_cost_pct": -0.04
+      },
+      "procs": [],
+      "text": "Your DoTs and HoTs last half as long and do 10% more in total. But abilities cost 4% more."
+    },
+    "rune_condensing_2": {
+      "name": "Rune of Condensing",
+      "family": "condensing",
+      "rank": 2,
+      "capstone": false,
+      "role": "any",
+      "level": 40,
+      "effects": {
+        "rune_condense": 0.2,
+        "all_ability_cost_pct": -0.06
+      },
+      "procs": [],
+      "text": "Your DoTs and HoTs last half as long and do 20% more in total. But abilities cost 6% more."
+    },
+    "rune_condensing_3": {
+      "name": "Greater Rune of Condensing",
+      "family": "condensing",
+      "rank": 3,
+      "capstone": false,
+      "role": "any",
+      "level": 55,
+      "effects": {
+        "rune_condense": 0.3,
+        "all_ability_cost_pct": -0.08
+      },
+      "procs": [],
+      "text": "Your DoTs and HoTs last half as long and do 30% more in total. But abilities cost 8% more."
+    },
+    "rune_lingering_1": {
+      "name": "Lesser Rune of Lingering",
+      "family": "lingering",
+      "rank": 1,
+      "capstone": false,
+      "role": "any",
+      "level": 20,
+      "effects": {
+        "rune_linger": 0.5
+      },
+      "procs": [],
+      "text": "Your DoTs and HoTs last 50% longer, each tick a quarter softer."
+    },
+    "rune_lingering_2": {
+      "name": "Rune of Lingering",
+      "family": "lingering",
+      "rank": 2,
+      "capstone": false,
+      "role": "any",
+      "level": 40,
+      "effects": {
+        "rune_linger": 0.75
+      },
+      "procs": [],
+      "text": "Your DoTs and HoTs last 75% longer, each tick a quarter softer."
+    },
+    "rune_lingering_3": {
+      "name": "Greater Rune of Lingering",
+      "family": "lingering",
+      "rank": 3,
+      "capstone": false,
+      "role": "any",
+      "level": 55,
+      "effects": {
+        "rune_linger": 1.0
+      },
+      "procs": [],
+      "text": "Your DoTs and HoTs last 100% longer, each tick a quarter softer."
+    },
+    "rune_communion_1": {
+      "name": "Lesser Rune of Communion",
+      "family": "communion",
+      "rank": 1,
+      "capstone": false,
+      "role": "healing",
+      "level": 20,
+      "effects": {
+        "healing_done": -0.04
+      },
+      "procs": [
+        {
+          "trigger": "on_heal_cast",
+          "chance": 100,
+          "icd": 0,
+          "describe": "Your heals also heal another ally for 15%.",
+          "splash_heal": {
+            "pct": 0.15,
+            "max_targets": 1
+          }
+        }
+      ],
+      "text": "Your heals also heal one more ally for 15%. But your heals are 4% weaker."
+    },
+    "rune_communion_2": {
+      "name": "Rune of Communion",
+      "family": "communion",
+      "rank": 2,
+      "capstone": false,
+      "role": "healing",
+      "level": 40,
+      "effects": {
+        "healing_done": -0.06
+      },
+      "procs": [
+        {
+          "trigger": "on_heal_cast",
+          "chance": 100,
+          "icd": 0,
+          "describe": "Your heals also heal another ally for 25%.",
+          "splash_heal": {
+            "pct": 0.25,
+            "max_targets": 1
+          }
+        }
+      ],
+      "text": "Your heals also heal one more ally for 25%. But your heals are 6% weaker."
+    },
+    "rune_communion_3": {
+      "name": "Greater Rune of Communion",
+      "family": "communion",
+      "rank": 3,
+      "capstone": false,
+      "role": "healing",
+      "level": 55,
+      "effects": {
+        "healing_done": -0.08
+      },
+      "procs": [
+        {
+          "trigger": "on_heal_cast",
+          "chance": 100,
+          "icd": 0,
+          "describe": "Your heals also heal another ally for 35%.",
+          "splash_heal": {
+            "pct": 0.35,
+            "max_targets": 1
+          }
+        }
+      ],
+      "text": "Your heals also heal one more ally for 35%. But your heals are 8% weaker."
+    },
+    "rune_radiance_1": {
+      "name": "Lesser Rune of the Halo",
+      "family": "radiance",
+      "rank": 1,
+      "capstone": false,
+      "role": "healing",
+      "level": 20,
+      "effects": {
+        "all_ability_cost_pct": -0.04
+      },
+      "procs": [
+        {
+          "trigger": "on_heal_cast",
+          "chance": 100,
+          "icd": 0,
+          "describe": "Your heals spill 8% onto up to three other allies.",
+          "splash_heal": {
+            "pct": 0.08,
+            "max_targets": 3
+          }
+        }
+      ],
+      "text": "Your heals spill 8% onto up to three other allies. But abilities cost 4% more."
+    },
+    "rune_radiance_2": {
+      "name": "Rune of the Halo",
+      "family": "radiance",
+      "rank": 2,
+      "capstone": false,
+      "role": "healing",
+      "level": 40,
+      "effects": {
+        "all_ability_cost_pct": -0.06
+      },
+      "procs": [
+        {
+          "trigger": "on_heal_cast",
+          "chance": 100,
+          "icd": 0,
+          "describe": "Your heals spill 12% onto up to three other allies.",
+          "splash_heal": {
+            "pct": 0.12,
+            "max_targets": 3
+          }
+        }
+      ],
+      "text": "Your heals spill 12% onto up to three other allies. But abilities cost 6% more."
+    },
+    "rune_radiance_3": {
+      "name": "Greater Rune of the Halo",
+      "family": "radiance",
+      "rank": 3,
+      "capstone": false,
+      "role": "healing",
+      "level": 55,
+      "effects": {
+        "all_ability_cost_pct": -0.08
+      },
+      "procs": [
+        {
+          "trigger": "on_heal_cast",
+          "chance": 100,
+          "icd": 0,
+          "describe": "Your heals spill 16% onto up to three other allies.",
+          "splash_heal": {
+            "pct": 0.16,
+            "max_targets": 3
+          }
+        }
+      ],
+      "text": "Your heals spill 16% onto up to three other allies. But abilities cost 8% more."
+    },
+    "rune_triage_1": {
+      "name": "Lesser Rune of Triage",
+      "family": "triage",
+      "rank": 1,
+      "capstone": false,
+      "role": "healing",
+      "level": 20,
+      "effects": {
+        "low_health_healing_pct": 0.1,
+        "healing_done": -0.03
+      },
+      "procs": [],
+      "text": "Your heals are 10% stronger on allies under 35% health. But your heals are 3% weaker all the time."
+    },
+    "rune_triage_2": {
+      "name": "Rune of Triage",
+      "family": "triage",
+      "rank": 2,
+      "capstone": false,
+      "role": "healing",
+      "level": 40,
+      "effects": {
+        "low_health_healing_pct": 0.18,
+        "healing_done": -0.04
+      },
+      "procs": [],
+      "text": "Your heals are 18% stronger on allies under 35% health. But your heals are 4% weaker all the time."
+    },
+    "rune_triage_3": {
+      "name": "Greater Rune of Triage",
+      "family": "triage",
+      "rank": 3,
+      "capstone": false,
+      "role": "healing",
+      "level": 55,
+      "effects": {
+        "low_health_healing_pct": 0.25,
+        "healing_done": -0.05
+      },
+      "procs": [],
+      "text": "Your heals are 25% stronger on allies under 35% health. But your heals are 5% weaker all the time."
+    },
+    "rune_serenity_1": {
+      "name": "Lesser Rune of Serenity",
+      "family": "serenity",
+      "rank": 1,
+      "capstone": false,
+      "role": "healing",
+      "level": 20,
+      "effects": {
+        "heal_cost_pct": 0.05,
+        "healing_done": -0.03
+      },
+      "procs": [],
+      "text": "Your heals cost 5% less. But your heals are 3% weaker."
+    },
+    "rune_serenity_2": {
+      "name": "Rune of Serenity",
+      "family": "serenity",
+      "rank": 2,
+      "capstone": false,
+      "role": "healing",
+      "level": 40,
+      "effects": {
+        "heal_cost_pct": 0.08,
+        "healing_done": -0.04
+      },
+      "procs": [],
+      "text": "Your heals cost 8% less. But your heals are 4% weaker."
+    },
+    "rune_serenity_3": {
+      "name": "Greater Rune of Serenity",
+      "family": "serenity",
+      "rank": 3,
+      "capstone": false,
+      "role": "healing",
+      "level": 55,
+      "effects": {
+        "heal_cost_pct": 0.12,
+        "healing_done": -0.05
+      },
+      "procs": [],
+      "text": "Your heals cost 12% less. But your heals are 5% weaker."
+    },
+    "rune_martyr_1": {
+      "name": "Lesser Rune of the Martyr",
+      "family": "martyr",
+      "rank": 1,
+      "capstone": false,
+      "role": "healing",
+      "level": 20,
+      "effects": {
+        "healing_done": 0.06,
+        "damage_taken_pct": 0.03
+      },
+      "procs": [],
+      "text": "Your heals are 6% stronger. But you take 3% more damage."
+    },
+    "rune_martyr_2": {
+      "name": "Rune of the Martyr",
+      "family": "martyr",
+      "rank": 2,
+      "capstone": false,
+      "role": "healing",
+      "level": 40,
+      "effects": {
+        "healing_done": 0.1,
+        "damage_taken_pct": 0.04
+      },
+      "procs": [],
+      "text": "Your heals are 10% stronger. But you take 4% more damage."
+    },
+    "rune_martyr_3": {
+      "name": "Greater Rune of the Martyr",
+      "family": "martyr",
+      "rank": 3,
+      "capstone": false,
+      "role": "healing",
+      "level": 55,
+      "effects": {
+        "healing_done": 0.14,
+        "damage_taken_pct": 0.05
+      },
+      "procs": [],
+      "text": "Your heals are 14% stronger. But you take 5% more damage."
+    },
+    "rune_atonement_1": {
+      "name": "Lesser Rune of Atonement",
+      "family": "atonement",
+      "rank": 1,
+      "capstone": false,
+      "role": "healing",
+      "level": 20,
+      "effects": {
+        "healing_done": -0.05
+      },
+      "procs": [
+        {
+          "trigger": "on_damage_cast",
+          "chance": 100,
+          "icd": 0,
+          "describe": "Your damage heals up to two allies for 5% of it.",
+          "splash_heal": {
+            "pct": 0.05,
+            "max_targets": 2
+          }
+        }
+      ],
+      "text": "Your damage heals up to two allies for 5% of it. But your heals are 5% weaker."
+    },
+    "rune_atonement_2": {
+      "name": "Rune of Atonement",
+      "family": "atonement",
+      "rank": 2,
+      "capstone": false,
+      "role": "healing",
+      "level": 40,
+      "effects": {
+        "healing_done": -0.08
+      },
+      "procs": [
+        {
+          "trigger": "on_damage_cast",
+          "chance": 100,
+          "icd": 0,
+          "describe": "Your damage heals up to two allies for 8% of it.",
+          "splash_heal": {
+            "pct": 0.08,
+            "max_targets": 2
+          }
+        }
+      ],
+      "text": "Your damage heals up to two allies for 8% of it. But your heals are 8% weaker."
+    },
+    "rune_atonement_3": {
+      "name": "Greater Rune of Atonement",
+      "family": "atonement",
+      "rank": 3,
+      "capstone": false,
+      "role": "healing",
+      "level": 55,
+      "effects": {
+        "healing_done": -0.1
+      },
+      "procs": [
+        {
+          "trigger": "on_damage_cast",
+          "chance": 100,
+          "icd": 0,
+          "describe": "Your damage heals up to two allies for 12% of it.",
+          "splash_heal": {
+            "pct": 0.12,
+            "max_targets": 2
+          }
+        }
+      ],
+      "text": "Your damage heals up to two allies for 12% of it. But your heals are 10% weaker."
+    },
+    "rune_blood_pact_1": {
+      "name": "Lesser Rune of the Blood Pact",
+      "family": "blood_pact",
+      "rank": 1,
+      "capstone": false,
+      "role": "any",
+      "level": 20,
+      "effects": {
+        "all_ability_cost_pct": 0.06,
+        "max_health_pct": -0.04
+      },
+      "procs": [],
+      "text": "Abilities cost 6% less. But your health is 4% lower."
+    },
+    "rune_blood_pact_2": {
+      "name": "Rune of the Blood Pact",
+      "family": "blood_pact",
+      "rank": 2,
+      "capstone": false,
+      "role": "any",
+      "level": 40,
+      "effects": {
+        "all_ability_cost_pct": 0.09,
+        "max_health_pct": -0.06
+      },
+      "procs": [],
+      "text": "Abilities cost 9% less. But your health is 6% lower."
+    },
+    "rune_blood_pact_3": {
+      "name": "Greater Rune of the Blood Pact",
+      "family": "blood_pact",
+      "rank": 3,
+      "capstone": false,
+      "role": "any",
+      "level": 55,
+      "effects": {
+        "all_ability_cost_pct": 0.12,
+        "max_health_pct": -0.08
+      },
+      "procs": [],
+      "text": "Abilities cost 12% less. But your health is 8% lower."
+    },
+    "rune_fortune_1": {
+      "name": "Lesser Rune of Fortune",
+      "family": "fortune",
+      "rank": 1,
+      "capstone": false,
+      "role": "any",
+      "level": 20,
+      "effects": {
+        "gold_find_pct": 0.1,
+        "all_damage": -0.02
+      },
+      "procs": [],
+      "text": "You find 10% more gold. But you deal 2% less damage."
+    },
+    "rune_fortune_2": {
+      "name": "Rune of Fortune",
+      "family": "fortune",
+      "rank": 2,
+      "capstone": false,
+      "role": "any",
+      "level": 40,
+      "effects": {
+        "gold_find_pct": 0.2,
+        "all_damage": -0.03
+      },
+      "procs": [],
+      "text": "You find 20% more gold. But you deal 3% less damage."
+    },
+    "rune_fortune_3": {
+      "name": "Greater Rune of Fortune",
+      "family": "fortune",
+      "rank": 3,
+      "capstone": false,
+      "role": "any",
+      "level": 55,
+      "effects": {
+        "gold_find_pct": 0.3,
+        "all_damage": -0.04
+      },
+      "procs": [],
+      "text": "You find 30% more gold. But you deal 4% less damage."
+    },
+    "capstone_fire_spells_1": {
+      "name": "Lesser Capstone Rune of Flame",
+      "family": "fire_spells",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "magic",
+        "to": "fire",
+        "chance": 0.3
+      },
+      "text": "30% of your spell damage (any school) lands as fire. Abilities keep their own school for talents and bonuses; the target's fire resistance decides the hit."
+    },
+    "capstone_fire_spells_2": {
+      "name": "Capstone Rune of Flame",
+      "family": "fire_spells",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "magic",
+        "to": "fire",
+        "chance": 0.7
+      },
+      "text": "70% of your spell damage (any school) lands as fire. Abilities keep their own school for talents and bonuses; the target's fire resistance decides the hit."
+    },
+    "capstone_fire_spells_3": {
+      "name": "Greater Capstone Rune of Flame",
+      "family": "fire_spells",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "magic",
+        "to": "fire",
+        "chance": 1.0
+      },
+      "text": "100% of your spell damage (any school) lands as fire. Abilities keep their own school for talents and bonuses; the target's fire resistance decides the hit."
+    },
+    "capstone_fire_weapons_1": {
+      "name": "Lesser Capstone Rune of Cinders",
+      "family": "fire_weapons",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "physical",
+        "to": "fire",
+        "chance": 0.3
+      },
+      "text": "30% of your physical damage lands as fire. Abilities keep their own school for talents and bonuses; the target's fire resistance decides the hit."
+    },
+    "capstone_fire_weapons_2": {
+      "name": "Capstone Rune of Cinders",
+      "family": "fire_weapons",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "physical",
+        "to": "fire",
+        "chance": 0.7
+      },
+      "text": "70% of your physical damage lands as fire. Abilities keep their own school for talents and bonuses; the target's fire resistance decides the hit."
+    },
+    "capstone_fire_weapons_3": {
+      "name": "Greater Capstone Rune of Cinders",
+      "family": "fire_weapons",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "physical",
+        "to": "fire",
+        "chance": 1.0
+      },
+      "text": "100% of your physical damage lands as fire. Abilities keep their own school for talents and bonuses; the target's fire resistance decides the hit."
+    },
+    "capstone_fire_hybrid_1": {
+      "name": "Lesser Capstone Rune of the Emberblade",
+      "family": "fire_hybrid",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "both",
+        "to": "fire",
+        "chance": 0.15
+      },
+      "text": "15% of your spell and physical damage lands as fire. Abilities keep their own school for talents and bonuses; the target's fire resistance decides the hit."
+    },
+    "capstone_fire_hybrid_2": {
+      "name": "Capstone Rune of the Emberblade",
+      "family": "fire_hybrid",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "both",
+        "to": "fire",
+        "chance": 0.35
+      },
+      "text": "35% of your spell and physical damage lands as fire. Abilities keep their own school for talents and bonuses; the target's fire resistance decides the hit."
+    },
+    "capstone_fire_hybrid_3": {
+      "name": "Greater Capstone Rune of the Emberblade",
+      "family": "fire_hybrid",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "both",
+        "to": "fire",
+        "chance": 0.5
+      },
+      "text": "50% of your spell and physical damage lands as fire. Abilities keep their own school for talents and bonuses; the target's fire resistance decides the hit."
+    },
+    "capstone_frost_spells_1": {
+      "name": "Lesser Capstone Rune of Frost",
+      "family": "frost_spells",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "magic",
+        "to": "frost",
+        "chance": 0.3
+      },
+      "text": "30% of your spell damage (any school) lands as frost. Abilities keep their own school for talents and bonuses; the target's frost resistance decides the hit."
+    },
+    "capstone_frost_spells_2": {
+      "name": "Capstone Rune of Frost",
+      "family": "frost_spells",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "magic",
+        "to": "frost",
+        "chance": 0.7
+      },
+      "text": "70% of your spell damage (any school) lands as frost. Abilities keep their own school for talents and bonuses; the target's frost resistance decides the hit."
+    },
+    "capstone_frost_spells_3": {
+      "name": "Greater Capstone Rune of Frost",
+      "family": "frost_spells",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "magic",
+        "to": "frost",
+        "chance": 1.0
+      },
+      "text": "100% of your spell damage (any school) lands as frost. Abilities keep their own school for talents and bonuses; the target's frost resistance decides the hit."
+    },
+    "capstone_frost_weapons_1": {
+      "name": "Lesser Capstone Rune of Rime",
+      "family": "frost_weapons",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "physical",
+        "to": "frost",
+        "chance": 0.3
+      },
+      "text": "30% of your physical damage lands as frost. Abilities keep their own school for talents and bonuses; the target's frost resistance decides the hit."
+    },
+    "capstone_frost_weapons_2": {
+      "name": "Capstone Rune of Rime",
+      "family": "frost_weapons",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "physical",
+        "to": "frost",
+        "chance": 0.7
+      },
+      "text": "70% of your physical damage lands as frost. Abilities keep their own school for talents and bonuses; the target's frost resistance decides the hit."
+    },
+    "capstone_frost_weapons_3": {
+      "name": "Greater Capstone Rune of Rime",
+      "family": "frost_weapons",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "physical",
+        "to": "frost",
+        "chance": 1.0
+      },
+      "text": "100% of your physical damage lands as frost. Abilities keep their own school for talents and bonuses; the target's frost resistance decides the hit."
+    },
+    "capstone_frost_hybrid_1": {
+      "name": "Lesser Capstone Rune of the Frostblade",
+      "family": "frost_hybrid",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "both",
+        "to": "frost",
+        "chance": 0.15
+      },
+      "text": "15% of your spell and physical damage lands as frost. Abilities keep their own school for talents and bonuses; the target's frost resistance decides the hit."
+    },
+    "capstone_frost_hybrid_2": {
+      "name": "Capstone Rune of the Frostblade",
+      "family": "frost_hybrid",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "both",
+        "to": "frost",
+        "chance": 0.35
+      },
+      "text": "35% of your spell and physical damage lands as frost. Abilities keep their own school for talents and bonuses; the target's frost resistance decides the hit."
+    },
+    "capstone_frost_hybrid_3": {
+      "name": "Greater Capstone Rune of the Frostblade",
+      "family": "frost_hybrid",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "both",
+        "to": "frost",
+        "chance": 0.5
+      },
+      "text": "50% of your spell and physical damage lands as frost. Abilities keep their own school for talents and bonuses; the target's frost resistance decides the hit."
+    },
+    "capstone_nature_spells_1": {
+      "name": "Lesser Capstone Rune of Storms",
+      "family": "nature_spells",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "magic",
+        "to": "nature",
+        "chance": 0.3
+      },
+      "text": "30% of your spell damage (any school) lands as nature. Abilities keep their own school for talents and bonuses; the target's nature resistance decides the hit."
+    },
+    "capstone_nature_spells_2": {
+      "name": "Capstone Rune of Storms",
+      "family": "nature_spells",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "magic",
+        "to": "nature",
+        "chance": 0.7
+      },
+      "text": "70% of your spell damage (any school) lands as nature. Abilities keep their own school for talents and bonuses; the target's nature resistance decides the hit."
+    },
+    "capstone_nature_spells_3": {
+      "name": "Greater Capstone Rune of Storms",
+      "family": "nature_spells",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "magic",
+        "to": "nature",
+        "chance": 1.0
+      },
+      "text": "100% of your spell damage (any school) lands as nature. Abilities keep their own school for talents and bonuses; the target's nature resistance decides the hit."
+    },
+    "capstone_nature_weapons_1": {
+      "name": "Lesser Capstone Rune of the Tempest",
+      "family": "nature_weapons",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "physical",
+        "to": "nature",
+        "chance": 0.3
+      },
+      "text": "30% of your physical damage lands as nature. Abilities keep their own school for talents and bonuses; the target's nature resistance decides the hit."
+    },
+    "capstone_nature_weapons_2": {
+      "name": "Capstone Rune of the Tempest",
+      "family": "nature_weapons",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "physical",
+        "to": "nature",
+        "chance": 0.7
+      },
+      "text": "70% of your physical damage lands as nature. Abilities keep their own school for talents and bonuses; the target's nature resistance decides the hit."
+    },
+    "capstone_nature_weapons_3": {
+      "name": "Greater Capstone Rune of the Tempest",
+      "family": "nature_weapons",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "physical",
+        "to": "nature",
+        "chance": 1.0
+      },
+      "text": "100% of your physical damage lands as nature. Abilities keep their own school for talents and bonuses; the target's nature resistance decides the hit."
+    },
+    "capstone_nature_hybrid_1": {
+      "name": "Lesser Capstone Rune of the Stormblade",
+      "family": "nature_hybrid",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "both",
+        "to": "nature",
+        "chance": 0.15
+      },
+      "text": "15% of your spell and physical damage lands as nature. Abilities keep their own school for talents and bonuses; the target's nature resistance decides the hit."
+    },
+    "capstone_nature_hybrid_2": {
+      "name": "Capstone Rune of the Stormblade",
+      "family": "nature_hybrid",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "both",
+        "to": "nature",
+        "chance": 0.35
+      },
+      "text": "35% of your spell and physical damage lands as nature. Abilities keep their own school for talents and bonuses; the target's nature resistance decides the hit."
+    },
+    "capstone_nature_hybrid_3": {
+      "name": "Greater Capstone Rune of the Stormblade",
+      "family": "nature_hybrid",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "both",
+        "to": "nature",
+        "chance": 0.5
+      },
+      "text": "50% of your spell and physical damage lands as nature. Abilities keep their own school for talents and bonuses; the target's nature resistance decides the hit."
+    },
+    "capstone_shadow_spells_1": {
+      "name": "Lesser Capstone Rune of Shadows",
+      "family": "shadow_spells",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "magic",
+        "to": "shadow",
+        "chance": 0.3
+      },
+      "text": "30% of your spell damage (any school) lands as shadow. Abilities keep their own school for talents and bonuses; the target's shadow resistance decides the hit."
+    },
+    "capstone_shadow_spells_2": {
+      "name": "Capstone Rune of Shadows",
+      "family": "shadow_spells",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "magic",
+        "to": "shadow",
+        "chance": 0.7
+      },
+      "text": "70% of your spell damage (any school) lands as shadow. Abilities keep their own school for talents and bonuses; the target's shadow resistance decides the hit."
+    },
+    "capstone_shadow_spells_3": {
+      "name": "Greater Capstone Rune of Shadows",
+      "family": "shadow_spells",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "magic",
+        "to": "shadow",
+        "chance": 1.0
+      },
+      "text": "100% of your spell damage (any school) lands as shadow. Abilities keep their own school for talents and bonuses; the target's shadow resistance decides the hit."
+    },
+    "capstone_shadow_weapons_1": {
+      "name": "Lesser Capstone Rune of the Abyss",
+      "family": "shadow_weapons",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "physical",
+        "to": "shadow",
+        "chance": 0.3
+      },
+      "text": "30% of your physical damage lands as shadow. Abilities keep their own school for talents and bonuses; the target's shadow resistance decides the hit."
+    },
+    "capstone_shadow_weapons_2": {
+      "name": "Capstone Rune of the Abyss",
+      "family": "shadow_weapons",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "physical",
+        "to": "shadow",
+        "chance": 0.7
+      },
+      "text": "70% of your physical damage lands as shadow. Abilities keep their own school for talents and bonuses; the target's shadow resistance decides the hit."
+    },
+    "capstone_shadow_weapons_3": {
+      "name": "Greater Capstone Rune of the Abyss",
+      "family": "shadow_weapons",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "physical",
+        "to": "shadow",
+        "chance": 1.0
+      },
+      "text": "100% of your physical damage lands as shadow. Abilities keep their own school for talents and bonuses; the target's shadow resistance decides the hit."
+    },
+    "capstone_shadow_hybrid_1": {
+      "name": "Lesser Capstone Rune of the Shadowblade",
+      "family": "shadow_hybrid",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "both",
+        "to": "shadow",
+        "chance": 0.15
+      },
+      "text": "15% of your spell and physical damage lands as shadow. Abilities keep their own school for talents and bonuses; the target's shadow resistance decides the hit."
+    },
+    "capstone_shadow_hybrid_2": {
+      "name": "Capstone Rune of the Shadowblade",
+      "family": "shadow_hybrid",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "both",
+        "to": "shadow",
+        "chance": 0.35
+      },
+      "text": "35% of your spell and physical damage lands as shadow. Abilities keep their own school for talents and bonuses; the target's shadow resistance decides the hit."
+    },
+    "capstone_shadow_hybrid_3": {
+      "name": "Greater Capstone Rune of the Shadowblade",
+      "family": "shadow_hybrid",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "both",
+        "to": "shadow",
+        "chance": 0.5
+      },
+      "text": "50% of your spell and physical damage lands as shadow. Abilities keep their own school for talents and bonuses; the target's shadow resistance decides the hit."
+    },
+    "capstone_holy_spells_1": {
+      "name": "Lesser Capstone Rune of Radiance",
+      "family": "holy_spells",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "magic",
+        "to": "holy",
+        "chance": 0.3
+      },
+      "text": "30% of your spell damage (any school) lands as holy. Abilities keep their own school for talents and bonuses; the target's holy resistance decides the hit."
+    },
+    "capstone_holy_spells_2": {
+      "name": "Capstone Rune of Radiance",
+      "family": "holy_spells",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "magic",
+        "to": "holy",
+        "chance": 0.7
+      },
+      "text": "70% of your spell damage (any school) lands as holy. Abilities keep their own school for talents and bonuses; the target's holy resistance decides the hit."
+    },
+    "capstone_holy_spells_3": {
+      "name": "Greater Capstone Rune of Radiance",
+      "family": "holy_spells",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "magic",
+        "to": "holy",
+        "chance": 1.0
+      },
+      "text": "100% of your spell damage (any school) lands as holy. Abilities keep their own school for talents and bonuses; the target's holy resistance decides the hit."
+    },
+    "capstone_holy_weapons_1": {
+      "name": "Lesser Capstone Rune of Dawn",
+      "family": "holy_weapons",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "physical",
+        "to": "holy",
+        "chance": 0.3
+      },
+      "text": "30% of your physical damage lands as holy. Abilities keep their own school for talents and bonuses; the target's holy resistance decides the hit."
+    },
+    "capstone_holy_weapons_2": {
+      "name": "Capstone Rune of Dawn",
+      "family": "holy_weapons",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "physical",
+        "to": "holy",
+        "chance": 0.7
+      },
+      "text": "70% of your physical damage lands as holy. Abilities keep their own school for talents and bonuses; the target's holy resistance decides the hit."
+    },
+    "capstone_holy_weapons_3": {
+      "name": "Greater Capstone Rune of Dawn",
+      "family": "holy_weapons",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "physical",
+        "to": "holy",
+        "chance": 1.0
+      },
+      "text": "100% of your physical damage lands as holy. Abilities keep their own school for talents and bonuses; the target's holy resistance decides the hit."
+    },
+    "capstone_holy_hybrid_1": {
+      "name": "Lesser Capstone Rune of the Sunblade",
+      "family": "holy_hybrid",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "both",
+        "to": "holy",
+        "chance": 0.15
+      },
+      "text": "15% of your spell and physical damage lands as holy. Abilities keep their own school for talents and bonuses; the target's holy resistance decides the hit."
+    },
+    "capstone_holy_hybrid_2": {
+      "name": "Capstone Rune of the Sunblade",
+      "family": "holy_hybrid",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "both",
+        "to": "holy",
+        "chance": 0.35
+      },
+      "text": "35% of your spell and physical damage lands as holy. Abilities keep their own school for talents and bonuses; the target's holy resistance decides the hit."
+    },
+    "capstone_holy_hybrid_3": {
+      "name": "Greater Capstone Rune of the Sunblade",
+      "family": "holy_hybrid",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "both",
+        "to": "holy",
+        "chance": 0.5
+      },
+      "text": "50% of your spell and physical damage lands as holy. Abilities keep their own school for talents and bonuses; the target's holy resistance decides the hit."
+    },
+    "capstone_arcane_spells_1": {
+      "name": "Lesser Capstone Rune of Arcana",
+      "family": "arcane_spells",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "magic",
+        "to": "arcane",
+        "chance": 0.3
+      },
+      "text": "30% of your spell damage (any school) lands as arcane. Abilities keep their own school for talents and bonuses; the target's arcane resistance decides the hit."
+    },
+    "capstone_arcane_spells_2": {
+      "name": "Capstone Rune of Arcana",
+      "family": "arcane_spells",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "magic",
+        "to": "arcane",
+        "chance": 0.7
+      },
+      "text": "70% of your spell damage (any school) lands as arcane. Abilities keep their own school for talents and bonuses; the target's arcane resistance decides the hit."
+    },
+    "capstone_arcane_spells_3": {
+      "name": "Greater Capstone Rune of Arcana",
+      "family": "arcane_spells",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "magic",
+        "to": "arcane",
+        "chance": 1.0
+      },
+      "text": "100% of your spell damage (any school) lands as arcane. Abilities keep their own school for talents and bonuses; the target's arcane resistance decides the hit."
+    },
+    "capstone_arcane_weapons_1": {
+      "name": "Lesser Capstone Rune of the Arcanist",
+      "family": "arcane_weapons",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "physical",
+        "to": "arcane",
+        "chance": 0.3
+      },
+      "text": "30% of your physical damage lands as arcane. Abilities keep their own school for talents and bonuses; the target's arcane resistance decides the hit."
+    },
+    "capstone_arcane_weapons_2": {
+      "name": "Capstone Rune of the Arcanist",
+      "family": "arcane_weapons",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "physical",
+        "to": "arcane",
+        "chance": 0.7
+      },
+      "text": "70% of your physical damage lands as arcane. Abilities keep their own school for talents and bonuses; the target's arcane resistance decides the hit."
+    },
+    "capstone_arcane_weapons_3": {
+      "name": "Greater Capstone Rune of the Arcanist",
+      "family": "arcane_weapons",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "physical",
+        "to": "arcane",
+        "chance": 1.0
+      },
+      "text": "100% of your physical damage lands as arcane. Abilities keep their own school for talents and bonuses; the target's arcane resistance decides the hit."
+    },
+    "capstone_arcane_hybrid_1": {
+      "name": "Lesser Capstone Rune of the Arcblade",
+      "family": "arcane_hybrid",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "both",
+        "to": "arcane",
+        "chance": 0.15
+      },
+      "text": "15% of your spell and physical damage lands as arcane. Abilities keep their own school for talents and bonuses; the target's arcane resistance decides the hit."
+    },
+    "capstone_arcane_hybrid_2": {
+      "name": "Capstone Rune of the Arcblade",
+      "family": "arcane_hybrid",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "both",
+        "to": "arcane",
+        "chance": 0.35
+      },
+      "text": "35% of your spell and physical damage lands as arcane. Abilities keep their own school for talents and bonuses; the target's arcane resistance decides the hit."
+    },
+    "capstone_arcane_hybrid_3": {
+      "name": "Greater Capstone Rune of the Arcblade",
+      "family": "arcane_hybrid",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "convert",
+        "from": "both",
+        "to": "arcane",
+        "chance": 0.5
+      },
+      "text": "50% of your spell and physical damage lands as arcane. Abilities keep their own school for talents and bonuses; the target's arcane resistance decides the hit."
+    },
+    "capstone_chaos_1": {
+      "name": "Lesser Capstone Rune of Chaos",
+      "family": "chaos",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "chaos",
+        "chance": 0.3
+      },
+      "text": "30% of your hits land as a random element."
+    },
+    "capstone_chaos_2": {
+      "name": "Capstone Rune of Chaos",
+      "family": "chaos",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "chaos",
+        "chance": 0.7
+      },
+      "text": "70% of your hits land as a random element."
+    },
+    "capstone_chaos_3": {
+      "name": "Greater Capstone Rune of Chaos",
+      "family": "chaos",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "chaos",
+        "chance": 1.0
+      },
+      "text": "100% of your hits land as a random element."
+    },
+    "capstone_gambler_1": {
+      "name": "Lesser Capstone Rune of the Gambler",
+      "family": "gambler",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "gamble",
+        "low": 0.6,
+        "high": 1.05,
+        "jackpot": 0.2,
+        "jackpot_low": 1.2,
+        "jackpot_high": 1.6
+      },
+      "text": "Your damage rolls anywhere from 60% to 160% of normal, a little under normal on average. Heals aren't touched."
+    },
+    "capstone_gambler_2": {
+      "name": "Capstone Rune of the Gambler",
+      "family": "gambler",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "gamble",
+        "low": 0.3,
+        "high": 1.05,
+        "jackpot": 0.2,
+        "jackpot_low": 1.3,
+        "jackpot_high": 2.2
+      },
+      "text": "Your damage rolls anywhere from 30% to 220% of normal, a little under normal on average. Heals aren't touched."
+    },
+    "capstone_gambler_3": {
+      "name": "Greater Capstone Rune of the Gambler",
+      "family": "gambler",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "gamble",
+        "low": 0.01,
+        "high": 1.1,
+        "jackpot": 0.2,
+        "jackpot_low": 1.5,
+        "jackpot_high": 3.0
+      },
+      "text": "Your damage rolls anywhere from 1% to 300% of normal, a little under normal on average. Heals aren't touched."
+    },
+    "capstone_dancer_1": {
+      "name": "Lesser Capstone Rune of the Dancer",
+      "family": "dancer",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {
+        "dodge_rating": 8,
+        "physical_damage_taken_pct": 0.1
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "stats"
+      },
+      "text": "You dodge 8% more often, but take 10% more physical damage."
+    },
+    "capstone_dancer_2": {
+      "name": "Capstone Rune of the Dancer",
+      "family": "dancer",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {
+        "dodge_rating": 16,
+        "physical_damage_taken_pct": 0.2
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "stats"
+      },
+      "text": "You dodge 16% more often, but take 20% more physical damage."
+    },
+    "capstone_dancer_3": {
+      "name": "Greater Capstone Rune of the Dancer",
+      "family": "dancer",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {
+        "dodge_rating": 25,
+        "physical_damage_taken_pct": 0.3
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "stats"
+      },
+      "text": "You dodge 25% more often, but take 30% more physical damage."
+    },
+    "capstone_anvil_1": {
+      "name": "Lesser Capstone Rune of the Anvil",
+      "family": "anvil",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {
+        "rune_no_dodge": 1,
+        "physical_damage_taken_pct": -0.1
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "stats"
+      },
+      "text": "You never dodge, but take 10% less physical damage."
+    },
+    "capstone_anvil_2": {
+      "name": "Capstone Rune of the Anvil",
+      "family": "anvil",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {
+        "rune_no_dodge": 1,
+        "physical_damage_taken_pct": -0.2
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "stats"
+      },
+      "text": "You never dodge, but take 20% less physical damage."
+    },
+    "capstone_anvil_3": {
+      "name": "Greater Capstone Rune of the Anvil",
+      "family": "anvil",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {
+        "rune_no_dodge": 1,
+        "physical_damage_taken_pct": -0.3
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "stats"
+      },
+      "text": "You never dodge, but take 30% less physical damage."
+    },
+    "capstone_colossus_1": {
+      "name": "Lesser Capstone Rune of the Colossus",
+      "family": "colossus",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {
+        "max_health_pct": 0.2,
+        "healing_received_pct": -0.15
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "stats"
+      },
+      "text": "Your health is 20% higher, but heals on you are 15% weaker."
+    },
+    "capstone_colossus_2": {
+      "name": "Capstone Rune of the Colossus",
+      "family": "colossus",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {
+        "max_health_pct": 0.35,
+        "healing_received_pct": -0.25
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "stats"
+      },
+      "text": "Your health is 35% higher, but heals on you are 25% weaker."
+    },
+    "capstone_colossus_3": {
+      "name": "Greater Capstone Rune of the Colossus",
+      "family": "colossus",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {
+        "max_health_pct": 0.5,
+        "healing_received_pct": -0.35
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "stats"
+      },
+      "text": "Your health is 50% higher, but heals on you are 35% weaker."
+    },
+    "capstone_mirror_1": {
+      "name": "Lesser Capstone Rune of the Mirror",
+      "family": "mirror",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {
+        "magic_damage_taken_pct": -0.1,
+        "physical_damage_taken_pct": 0.08
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "stats"
+      },
+      "text": "You take 10% less magic damage, but 8% more physical."
+    },
+    "capstone_mirror_2": {
+      "name": "Capstone Rune of the Mirror",
+      "family": "mirror",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {
+        "magic_damage_taken_pct": -0.2,
+        "physical_damage_taken_pct": 0.15
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "stats"
+      },
+      "text": "You take 20% less magic damage, but 15% more physical."
+    },
+    "capstone_mirror_3": {
+      "name": "Greater Capstone Rune of the Mirror",
+      "family": "mirror",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {
+        "magic_damage_taken_pct": -0.3,
+        "physical_damage_taken_pct": 0.2
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "stats"
+      },
+      "text": "You take 30% less magic damage, but 20% more physical."
+    },
+    "capstone_glass_cannon_1": {
+      "name": "Lesser Capstone Rune of the Glass Cannon",
+      "family": "glass_cannon",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {
+        "all_damage": 0.1,
+        "damage_taken_pct": 0.1
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "stats"
+      },
+      "text": "You deal 10% more damage, and take 10% more."
+    },
+    "capstone_glass_cannon_2": {
+      "name": "Capstone Rune of the Glass Cannon",
+      "family": "glass_cannon",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {
+        "all_damage": 0.18,
+        "damage_taken_pct": 0.18
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "stats"
+      },
+      "text": "You deal 18% more damage, and take 18% more."
+    },
+    "capstone_glass_cannon_3": {
+      "name": "Greater Capstone Rune of the Glass Cannon",
+      "family": "glass_cannon",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {
+        "all_damage": 0.25,
+        "damage_taken_pct": 0.25
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "stats"
+      },
+      "text": "You deal 25% more damage, and take 25% more."
+    },
+    "capstone_blood_rite_1": {
+      "name": "Lesser Capstone Rune of the Blood Rite",
+      "family": "blood_rite",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {
+        "healing_done": 0.1,
+        "max_health_pct": -0.1
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "stats"
+      },
+      "text": "Your heals are 10% stronger, but your health is 10% lower."
+    },
+    "capstone_blood_rite_2": {
+      "name": "Capstone Rune of the Blood Rite",
+      "family": "blood_rite",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {
+        "healing_done": 0.18,
+        "max_health_pct": -0.15
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "stats"
+      },
+      "text": "Your heals are 18% stronger, but your health is 15% lower."
+    },
+    "capstone_blood_rite_3": {
+      "name": "Greater Capstone Rune of the Blood Rite",
+      "family": "blood_rite",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {
+        "healing_done": 0.25,
+        "max_health_pct": -0.2
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "stats"
+      },
+      "text": "Your heals are 25% stronger, but your health is 20% lower."
+    },
+    "capstone_hunger_1": {
+      "name": "Lesser Capstone Rune of the Hunger",
+      "family": "hunger",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {
+        "all_ability_cost_pct": 0.15,
+        "max_mana_pct": -0.15
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "stats"
+      },
+      "text": "Abilities cost 15% less, but your mana pool is 15% smaller."
+    },
+    "capstone_hunger_2": {
+      "name": "Capstone Rune of the Hunger",
+      "family": "hunger",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {
+        "all_ability_cost_pct": 0.25,
+        "max_mana_pct": -0.25
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "stats"
+      },
+      "text": "Abilities cost 25% less, but your mana pool is 25% smaller."
+    },
+    "capstone_hunger_3": {
+      "name": "Greater Capstone Rune of the Hunger",
+      "family": "hunger",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {
+        "all_ability_cost_pct": 0.35,
+        "max_mana_pct": -0.35
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "stats"
+      },
+      "text": "Abilities cost 35% less, but your mana pool is 35% smaller."
+    },
+    "capstone_echo_1": {
+      "name": "Lesser Capstone Rune of the Echo",
+      "family": "echo",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {
+        "all_damage": -0.1
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "echo",
+        "chance": 0.3
+      },
+      "text": "30% of your critical hits land a second time at normal size (the echo can't crit). DoTs don't echo. But you deal 10% less damage."
+    },
+    "capstone_echo_2": {
+      "name": "Capstone Rune of the Echo",
+      "family": "echo",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {
+        "all_damage": -0.18
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "echo",
+        "chance": 0.7
+      },
+      "text": "70% of your critical hits land a second time at normal size (the echo can't crit). DoTs don't echo. But you deal 18% less damage."
+    },
+    "capstone_echo_3": {
+      "name": "Greater Capstone Rune of the Echo",
+      "family": "echo",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {
+        "all_damage": -0.25
+      },
+      "procs": [],
+      "capstone_effect": {
+        "kind": "echo",
+        "chance": 1.0
+      },
+      "text": "100% of your critical hits land a second time at normal size (the echo can't crit). DoTs don't echo. But you deal 25% less damage."
+    },
+    "capstone_renewal_1": {
+      "name": "Lesser Capstone Rune of Renewal",
+      "family": "renewal",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "heal_to_hot",
+        "chance": 0.3,
+        "mult": 1.25,
+        "turns": 3
+      },
+      "text": "30% of your direct heals become a HoT over 3 turns that heals 25% more in total."
+    },
+    "capstone_renewal_2": {
+      "name": "Capstone Rune of Renewal",
+      "family": "renewal",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "heal_to_hot",
+        "chance": 0.7,
+        "mult": 1.25,
+        "turns": 3
+      },
+      "text": "70% of your direct heals become a HoT over 3 turns that heals 25% more in total."
+    },
+    "capstone_renewal_3": {
+      "name": "Greater Capstone Rune of Renewal",
+      "family": "renewal",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "heal_to_hot",
+        "chance": 1.0,
+        "mult": 1.25,
+        "turns": 3
+      },
+      "text": "100% of your direct heals become a HoT over 3 turns that heals 25% more in total."
+    },
+    "capstone_surge_1": {
+      "name": "Lesser Capstone Rune of Surge",
+      "family": "surge",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "hot_to_heal",
+        "chance": 0.3,
+        "mult": 0.85
+      },
+      "text": "30% of your HoTs land all at once, healing 85% of their total."
+    },
+    "capstone_surge_2": {
+      "name": "Capstone Rune of Surge",
+      "family": "surge",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "hot_to_heal",
+        "chance": 0.7,
+        "mult": 0.85
+      },
+      "text": "70% of your HoTs land all at once, healing 85% of their total."
+    },
+    "capstone_surge_3": {
+      "name": "Greater Capstone Rune of Surge",
+      "family": "surge",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "hot_to_heal",
+        "chance": 1.0,
+        "mult": 0.85
+      },
+      "text": "100% of your HoTs land all at once, healing 85% of their total."
+    },
+    "capstone_detonation_1": {
+      "name": "Lesser Capstone Rune of Detonation",
+      "family": "detonation",
+      "rank": 1,
+      "capstone": true,
+      "level": 25,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "dot_to_hit",
+        "chance": 0.3,
+        "mult": 0.9
+      },
+      "text": "30% of your DoTs hit all at once for 90% of their total."
+    },
+    "capstone_detonation_2": {
+      "name": "Capstone Rune of Detonation",
+      "family": "detonation",
+      "rank": 2,
+      "capstone": true,
+      "level": 45,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "dot_to_hit",
+        "chance": 0.7,
+        "mult": 0.9
+      },
+      "text": "70% of your DoTs hit all at once for 90% of their total."
+    },
+    "capstone_detonation_3": {
+      "name": "Greater Capstone Rune of Detonation",
+      "family": "detonation",
+      "rank": 3,
+      "capstone": true,
+      "level": 60,
+      "effects": {},
+      "procs": [],
+      "capstone_effect": {
+        "kind": "dot_to_hit",
+        "chance": 1.0,
+        "mult": 0.9
+      },
+      "text": "100% of your DoTs hit all at once for 90% of their total."
+    }
+  }
+}

@@ -22,6 +22,7 @@ _DATA = Path(__file__).parent.parent / "data" / "crafting" / "recipes.json"
 _JEWEL = Path(__file__).parent.parent / "data" / "jewelcrafting" / "recipes.json"
 #: So does Enchanting (tools/build_enchanting.py).
 _ENCHANT = Path(__file__).parent.parent / "data" / "enchanting" / "recipes.json"
+_RUNES = Path(__file__).parent.parent / "data" / "runecrafting" / "recipes.json"
 _GEAR_KINDS = ("armor", "weapon", "bag", "fixed")
 
 
@@ -35,6 +36,8 @@ class CraftingManager:
             self.recipes["jewelcrafting"] = json.loads(_JEWEL.read_text(encoding="utf-8")).get("recipes", {})
         if _ENCHANT.exists():
             self.recipes["enchanting"] = json.loads(_ENCHANT.read_text(encoding="utf-8")).get("recipes", {})
+        if _RUNES.exists():
+            self.recipes["runecrafting"] = json.loads(_RUNES.read_text(encoding="utf-8")).get("recipes", {})
 
     # ------------------------------------------------------------------ queries
     def professions(self):

@@ -1849,7 +1849,28 @@ class Ability:
         low, high = self.roll_range(amount)
         return f"{low} to {high}" if low != high else f"{low}"
 
-    def _roll_variance(self, amount, caster):
+    def _rune_echo(self, caster, target, base_damage, school, hit_lines):
+        """THE ECHO (a Capstone rune, world/runes.py). Kyle, 14 Nov 2026: "You deal 25% less damage
+        but crits will cast the same spell a second time. This spell can not critically hit.
+        (Obviously doesn't work with dots)." A direct hit that crits lands again at its plain,
+        uncritted size, against the same target and the same school. Only direct hits call this,
+        so DoT ticks never echo."""
+        from world.runes import echo as _echo
+        if not _echo(caster) or not getattr(target, "is_alive", lambda: True)():
+            return 0
+        dealt = target.take_damage(max(1, int(base_damage)), school,
+                                   attacker_level=getattr(caster, "level", None), attacker=caster)
+        if dealt:
+            hit_lines.append(f"echo {dealt} to {target.name}")
+            self._last_threat_events.append((target, dealt, True))
+        return dealt
+
+    @staticmethod
+    def _echo_text(hit_lines):
+        echoes = [h for h in hit_lines if h.startswith("echo ")]
+        return (" Echo: " + ", ".join(h[5:] for h in echoes) + ".") if echoes else ""
+
+    def _roll_variance(self, amount, caster, heal=False):
         """Spread a spell or heal around its listed value.
 
         Honours two caster-side flags, which is what makes
@@ -1873,6 +1894,11 @@ class Ability:
                    else self.SPELL_VARIANCE)
             return int(amount * (1.0 + top))
         import random as _random
+        if not heal:
+            # THE GAMBLER (a roulette Capstone, world/runes.py) replaces the usual spread on damage
+            from world.runes import capstone as _cap, gamble as _gamble
+            if (_cap(caster) or {}).get("kind") == "gamble":
+                return _gamble(caster, int(amount))
         spread = (self.variance if isinstance(self.variance, (int, float))
                   else self.SPELL_VARIANCE)
         return max(1, int(amount * _random.uniform(1.0 - spread, 1.0 + spread)))
@@ -3391,7 +3417,7 @@ class Ability:
         power scaling identically instead of copies drifting apart.
         """
         heal_amt = self._roll_variance(
-            int(heal_value + caster.healing_power * 1.2), caster)
+            int(heal_value + caster.healing_power * 1.2), caster, heal=True)
         # recipient stays None here: _apply_smart_heal has not chosen its
         # target yet (it picks the most wounded ally below), so a
         # recipient-conditional healing talent cannot apply to a smart heal.
@@ -3507,7 +3533,7 @@ class Ability:
         # of raw Spirit directly - same principle as spell_damage
         # above. Healing Power = Spirit*2 + INT*0.2 (base) + gear rolls.
         heal_amt = self._roll_variance(
-            int(self.effect_value + caster.healing_power * 1.2), caster)
+            int(self.effect_value + caster.healing_power * 1.2), caster, heal=True)
         heal_amt = int(heal_amt * self._damage_multiplier(caster, "healing", recipient=target))
 
         # HEALS CRIT. Kyle, 5 Nov 2026: "spells should be able to crit!"
@@ -3565,9 +3591,24 @@ class Ability:
         if is_aoe_heal:
             heal_amt = int(heal_amt * self.AOE_DAMAGE_MULTIPLIER)
 
+        from world import runes as _runes
+        renewed = []
         for r in recipients:
+            # RENEWAL (a Capstone, world/runes.py): this heal becomes a HoT that heals more in all
+            to_hot = _runes.heal_to_hot(caster)
+            if to_hot:
+                turns, mult = to_hot
+                per = max(1, int(heal_amt * mult / turns))
+                r.apply_status_effect(StatusEffect(
+                    effect_id=f"rune_renewal_{self.ability_id}", name=f"{self.name} (Renewal)",
+                    effect_type=EffectType.HOT, duration=turns, potency=per,
+                    source_name=caster.name))
+                renewed.append(f"{r.name} {per} a turn for {turns} turns")
+                continue
             r.heal(heal_amt)
             self._last_threat_events.append((None, heal_amt, False))
+        if renewed and len(renewed) == len(recipients):
+            return f"{caster.name}'s {self.name} becomes a renewal: {', '.join(renewed)}!"
 
         # Real Stim Rounds splash (Kyle: confirmed from real playtime as
         # a Tinker healer - "augment the tinkerer to allow Repair shot
@@ -3791,6 +3832,9 @@ class Ability:
                         if is_crit:
                             self._last_crit = True
                         hit_damage = int(base_damage * crit_mult)
+                        # the Gambler Capstone rolls weapon hits too (world/runes.py)
+                        from world.runes import gamble as _gamble
+                        hit_damage = _gamble(caster, hit_damage)
                         actual_damage = t.take_damage(hit_damage, "physical", attacker_level=getattr(caster, "level", None), attacker=caster)
                         if actual_damage == 0:
                             # Dodge/Parry (see Character.take_damage's
@@ -3810,12 +3854,15 @@ class Ability:
                                 first_hit_crit = is_crit
                             self._last_threat_events.append((t, actual_damage, True))
                             self._apply_earthen_attunement_shred(caster, t)
+                            if is_crit:
+                                self._rune_echo(caster, t, base_damage, "physical", hit_lines)
 
                 if is_aoe and len(recipients) > 1:
                     return f"{caster.name} uses {self.name} on {self._aoe_scope(recipients)} ({', '.join(hit_lines)})!"
                 if not any_hit:
                     return f"{caster.name}'s {self.name} misses {recipients[0].name}!"
-                return f"{caster.name} uses {self.name} on {recipients[0].name} for {first_hit_amount} damage!" + (" (CRIT!)" if first_hit_crit else "")
+                return (f"{caster.name} uses {self.name} on {recipients[0].name} for {first_hit_amount} damage!"
+                        + (" (CRIT!)" if first_hit_crit else "") + self._echo_text(hit_lines))
             return f"{caster.name} uses {self.name}!"
         
         elif self.effect_type == "spell_damage":
@@ -3860,6 +3907,8 @@ class Ability:
                             first_hit_amount = actual_damage
                             first_hit_crit = is_crit
                         self._last_threat_events.append((t, actual_damage, True))
+                        if is_crit:
+                            self._rune_echo(caster, t, base_damage, spell_damage_school, hit_lines)
 
                 if is_aoe and len(recipients) > 1:
                     summary = f"{caster.name} casts {self.name} on {self._aoe_scope(recipients)} ({', '.join(hit_lines)})!"
@@ -3875,7 +3924,8 @@ class Ability:
                     # wording to before this existed.
                     resolved_school = self._resolve_damage_school(caster)
                     school_label = resolved_school if isinstance(resolved_school, str) else "magic"
-                    summary = f"{caster.name} casts {self.name} on {recipients[0].name} for {first_hit_amount} {school_label} damage!" + (" (CRIT!)" if first_hit_crit else "")
+                    summary = (f"{caster.name} casts {self.name} on {recipients[0].name} for {first_hit_amount} {school_label} damage!"
+                               + (" (CRIT!)" if first_hit_crit else "") + self._echo_text(hit_lines))
 
                 # Cryotherapist (Cryobolt/Cryolance talent): once converted,
                 # Frostbolt/Ice Lance smart-heal the lowest-HP% ally on every
@@ -4101,17 +4151,32 @@ class Ability:
                 base_duration = max(1, (self.duration or 1)
                                     + int(consumed_stacks * self.duration_per_stack))
                 per_turn = max(1, int(total / base_duration))
+                # Condensing / Lingering runes reshape it (world/runes.py)
+                from world import runes as _runes
+                duration, per_turn = _runes.shape_over_time(caster, duration, per_turn)
 
                 hit_names = []
                 miss_names = []
+                detonations = []
                 for t in recipients:
                     if random.uniform(0, 100) > hit_chance:
                         miss_names.append(t.name)
                         continue
+                    # DETONATION (a Capstone): the whole DoT lands now instead of over time
+                    boom = _runes.dot_now(caster)
+                    if boom:
+                        dealt = t.take_damage(int(duration * per_turn * boom), school,
+                                              attacker_level=getattr(caster, "level", None), attacker=caster)
+                        self._last_threat_events.append((t, dealt, True))
+                        detonations.append(f"{t.name} {dealt}")
+                        hit_names.append(t.name)
+                        continue
                     effect = StatusEffect(
                         effect_id=self.ability_id, name=self.name,
                         effect_type=EffectType.DOT, duration=duration,
-                        potency=per_turn, damage_school=school,
+                        # a conversion Capstone sets the school the ticks LAND as; the tick has no
+                        # attacker to ask later, so it's decided once, here
+                        potency=per_turn, damage_school=_runes.landing_school(caster, school),
                         source_name=caster.name,
                         dispel_type=self.dispel_type,
                         # exclusive_group was plumbed everywhere EXCEPT here.
@@ -4141,8 +4206,12 @@ class Ability:
                             f"({per_turn} damage for {duration} turns) - {'; '.join(parts)}!")
                 if not hit_names:
                     return f"{caster.name}'s {self.name} misses {recipients[0].name}!"
+                if detonations and len(detonations) == len(hit_names):
+                    return (f"{caster.name}'s {self.name} detonates: "
+                            f"{', '.join(detonations)} damage at once!")
                 return (f"{caster.name} afflicts {recipients[0].name} with {self.name} "
-                        f"({per_turn} damage for {duration} turns)!")
+                        f"({per_turn} damage for {duration} turns)!"
+                        + (f" Detonated: {', '.join(detonations)}." if detonations else ""))
             return f"{caster.name} uses {self.name}!"
 
         elif self.effect_type == "hot":
@@ -4193,7 +4262,18 @@ class Ability:
             # with only one person needing it) still ticks for full value.
             if len(recipients) > 1:
                 per_turn = max(1, int(per_turn * self.AOE_DAMAGE_MULTIPLIER))
+            # Condensing / Lingering runes reshape it; Surge (a Capstone) lands it all now
+            from world import runes as _runes
+            duration, per_turn = _runes.shape_over_time(caster, duration, per_turn)
+            surged = []
             for recipient in recipients:
+                burst = _runes.hot_now(caster)
+                if burst:
+                    amt = max(1, int(duration * per_turn * burst))
+                    recipient.heal(amt)
+                    self._last_threat_events.append((None, amt, False))
+                    surged.append(f"{recipient.name} {amt}")
+                    continue
                 effect = StatusEffect(
                     effect_id=self.ability_id, name=self.name,
                     effect_type=EffectType.HOT, duration=duration,
@@ -4224,8 +4304,11 @@ class Ability:
                 who = "the party"
             else:
                 who = "themselves" if recipients[0] is caster else recipients[0].name
+            if surged and len(surged) == len(recipients):
+                return f"{caster.name}'s {self.name} surges: {', '.join(surged)} healed at once!"
             return (f"{caster.name} casts {self.name} on {who} "
-                    f"(healing {per_turn} per turn for {duration} turns)!")
+                    f"(healing {per_turn} per turn for {duration} turns)!"
+                    + (f" Surged: {', '.join(surged)}." if surged else ""))
 
         elif self.effect_type == "buff":
             # An IMMEDIATE action runs instead of applying anything, so an
