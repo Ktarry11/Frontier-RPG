@@ -1104,6 +1104,13 @@ class CombatEngine:
                     player_level=self.player.level + lift,
                     **({"drop_chance": 0.6} if lift else {}),
                 )]
+                # FRONTIER TRASH CAN DROP AN EPIC. Kyle, 14 Nov: "frontier dungeon zones can have
+                # epics at low chance." Rare, on top of the normal roll, at the lifted item level.
+                ec = float(getattr(enemy, "loot_epic_chance", 0.0) or 0.0)
+                if ec and random.random() < ec:
+                    drops.append(self.loot_generator.generate_item_for_class(
+                        self.loot_generator._roll_target_class(self.player.char_class),
+                        min(enemy.level, self.player.level + 2) + lift, rarity="epic"))
             for loot in [d for d in drops if d]:
                 if self.player.add_to_inventory(loot):
                     self.loot_dropped = loot

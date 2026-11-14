@@ -98,4 +98,6 @@ def apply_health(monster):
     monster.current_health = monster.max_health
     monster._difficulty_health = new
     monster._difficulty_kind = kind_of(monster)
-    monster.loot_ilvl_bonus = int((table().get(monster._difficulty_kind) or {}).get("loot_ilvl_bonus", 0))
+    row = table().get(monster._difficulty_kind) or {}
+    monster.loot_ilvl_bonus = int(row.get("loot_ilvl_bonus", 0))
+    monster.loot_epic_chance = float(row.get("trash_epic_chance", 0.0))

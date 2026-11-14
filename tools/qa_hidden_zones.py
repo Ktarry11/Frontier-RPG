@@ -165,6 +165,12 @@ def main():
         lo, hi = lift[kind]
         if not lo <= getattr(m, "loot_ilvl_bonus", 0) <= hi:
             bad.append(f"a hidden creature's loot is not lifted {lo}-{hi} item levels")
+        # Kyle: "frontier dungeon zones can have epics at low chance" - and only there
+        ec = getattr(m, "loot_epic_chance", 0.0)
+        if kind == "frontier_deep" and not 0 < ec <= 0.1:
+            bad.append("frontier dungeon trash has no low chance of an epic")
+        if kind != "frontier_deep" and ec:
+            bad.append("a non-frontier hidden creature rolls trash epics")
     # 6. boss loot
     from entities.boss_loot import get_fixed_boss_loot_all
     for zname, info in reg.items():
