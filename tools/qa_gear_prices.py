@@ -137,7 +137,10 @@ def main():
 
     # 5 ------------------------------------------------------------------------------------
     src = (ROOT / "ui/screens/vendor_screen.py").read_text(encoding="utf-8")
-    check(src.count("item.sell_price * 4") >= 3, "the vendor no longer charges 4x the sell price in all three places")
+    # One function now (14 Nov 2026): the three copies disagreed about None, and a recipe scroll
+    # crashed every shop that sold one. Price is 4x sell, and the list, tooltip and buy all use it.
+    check("sell_price\", 0) or 0) * 4" in src and src.count("self._unit_price(item)") >= 2,
+          "the vendor no longer charges 4x the sell price through one function everywhere")
 
     # 6 ------------------------------------------------------------------------------------
     for lvl in (10, 20, 30, 40, 50):

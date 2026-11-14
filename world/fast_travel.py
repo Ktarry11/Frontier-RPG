@@ -16,9 +16,9 @@ from world.zone_keys import zone_key
 _DATA = Path(__file__).parent.parent / "data"
 
 #: Camps that sit inside an open zone and have no flight point to borrow a name from.
-_NAMES = {"abyssal_sands": "Fourth Peg"}
+_NAMES = {"abyssal_sands": "Fourth Peg", "tempest_shallows": "Ashclaim Landing"}
 #: Continent for towns with no flight point to read it from.
-_CONTINENTS = {"sepulcher": "eastern_kingdoms"}
+_CONTINENTS = {"sepulcher": "eastern_kingdoms", "tempest_shallows": "eastern_kingdoms"}
 CONTINENT_TITLES = {"kalimdor": "Kalimdor", "eastern_kingdoms": "Eastern Kingdoms"}
 
 

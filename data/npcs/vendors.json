@@ -5697,24 +5697,20 @@
       "vendor_id": "ts_landing_quartermaster",
       "name": "Quartermaster Durn Slagbelt",
       "zone": "tempest_shallows",
-      "x": 90,
+      "x": 92,
       "y": 70,
       "tile_sprite": "npc",
       "sells": [
-        "healing_potion_mega",
-        "mana_potion_mega",
-        "healing_potion_masterwork",
-        "mana_potion_masterwork",
-        "meal_kodo_ribs",
-        "drink_birch_wine",
+        "runeforged_strongbox",
+        "duskwoven_carryall",
         "whetstone",
-        "flux_strong",
-        "component_string",
-        "glue",
-        "parchment",
         "coal",
-        "thread_fine",
-        "resin"
+        "flux_strong",
+        "parchment",
+        "component_string",
+        "drink_waterskin",
+        "meal_trailbread",
+        "healing_potion_masterwork"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -5723,7 +5719,7 @@
       "race": "dwarf",
       "gender": "male",
       "appearance_variant": 4,
-      "greeting": "Everything on these shelves came off that jetty and was carried up here by hand, and the price reflects the carrying.\n\nI kept the stores for a mining company on the mainland for thirty years. The Thane asked for somebody who could count, and I was the only one of his people who'd never lost a crate."
+      "greeting": "I keep the landing's stores. Everything on these shelves was carried up from the jetty by hand, so it costs a bit more than on the mainland.\n\nI kept the stores for a mining company for thirty years before the Thane asked me to come out here."
     },
     {
       "vendor_id": "ts_landing_cook",
@@ -5734,19 +5730,17 @@
       "tile_sprite": "npc",
       "sells": [
         "meal_ember_glazed_ribs",
-        "bread_and_cheese",
-        "roasted_meat",
-        "meal_kodo_ribs",
-        "meal_spiced_haunch",
-        "drink_barley_beer",
-        "drink_honeyed_mead",
+        "meal_saltback_roast",
         "spiced_stew",
         "hunters_brace_platter",
+        "drink_deepwell_cordial",
+        "drink_honeyed_mead",
+        "drink_barley_beer",
         "cook_flour",
         "cook_spice",
-        "cook_ale",
+        "salt",
         "cook_water",
-        "healing_potion_mega"
+        "cook_ale"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -5755,36 +5749,31 @@
       "race": "dwarf",
       "gender": "female",
       "appearance_variant": 9,
-      "greeting": "There's a pot on and there are bedrolls in the long tent, and you're welcome to both.\n\nMost of what I cook comes out of the shallows east of here, because the supply boat only brings flour and complaints. You'll get used to crab."
+      "greeting": "There's food in the pot and bedrolls in the long tent, and you're welcome to both.\n\nThe supply boat mostly brings flour and salt, so a lot of what I cook comes out of the shallows to the east. I hope you like crab."
     },
     {
       "vendor_id": "ar_gate_factor",
       "name": "Factor Grib Tallyman",
       "zone": "the_ashen_reach",
-      "x": 178,
-      "y": 98,
+      "x": 170,
+      "y": 102,
       "tile_sprite": "npc",
       "sells": [
-        "healing_potion_mega",
-        "mana_potion_mega",
+        "drink_waterskin",
+        "meal_trailbread",
         "healing_potion_masterwork",
         "mana_potion_masterwork",
-        "bomb_sapper",
-        "whetstone",
         "coal",
-        "component_string",
-        "glue",
-        "drink_barley_beer",
-        "bread_and_cheese"
+        "salt"
       ],
       "buys_from_player": true,
       "faction": "neutral",
       "gear_level": 57,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "goblin",
       "gender": "male",
       "appearance_variant": 10,
-      "greeting": "Everything that goes through this gate gets weighed, and that includes you if you're carrying ore.\n\nCinderwharf is through the arch behind me. I sell a few things to people heading the other way, because the walk to the Works is long and people forget what they needed until they're past me."
+      "greeting": "Every cart of ore that goes through this gate gets weighed, and I'm the one who weighs it.\n\nCinderwharf is through the arch. I keep a few supplies for people heading out to the Works, because it's a long walk."
     },
     {
       "vendor_id": "cw_quartermaster",
@@ -5794,21 +5783,11 @@
       "y": 36,
       "tile_sprite": "npc",
       "sells": [
-        "healing_potion_mega",
-        "mana_potion_mega",
-        "healing_potion_masterwork",
-        "mana_potion_masterwork",
         "runeforged_strongbox",
         "duskwoven_carryall",
         "warden_reliquary",
         "deepdelve_bearer",
-        "whetstone",
-        "flux_strong",
-        "component_string",
-        "parchment",
-        "coal",
-        "thread_fine",
-        "resin"
+        "whetstone"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -5817,29 +5796,24 @@
       "race": "dwarf",
       "gender": "female",
       "appearance_variant": 2,
-      "greeting": "What's on the front shelf is for anybody with coin, and what's behind me is for people the Ashclaim trusts.\n\nYou earn that by doing the Thane's work or the Underwriter's, and I don't much mind which. I've had people try to earn it with charm, and none of them got past the front shelf."
+      "greeting": "The front shelf is for anyone with coin. What's behind me is for people the Ashclaim trusts.\n\nYou earn that trust by working for the Thane or the Underwriter. I don't mind which."
     },
     {
       "vendor_id": "cw_blacksmith",
       "name": "Smith Hogar Deepvein",
       "zone": "cinderwharf",
-      "x": 31,
-      "y": 32,
+      "x": 33,
+      "y": 38,
       "tile_sprite": "npc",
       "sells": [
         "whetstone",
         "flux_strong",
         "coal",
-        "glue",
-        "thread_fine",
-        "resin",
-        "healing_potion_mega",
-        "mana_potion_mega",
-        "healing_potion_masterwork",
-        "mana_potion_masterwork",
         "bs300_deepearth_axe_1h",
+        "bs300_deepearth_head",
         "bs300_bloodiron_feet",
         "bs300_bloodiron_legs",
+        "bs_mithril_breastplate",
         "bs_mithril_shield"
       ],
       "buys_from_player": true,
@@ -5849,7 +5823,7 @@
       "race": "dwarf",
       "gender": "male",
       "appearance_variant": 3,
-      "greeting": "I work plate and mail, and I work them out of ore that came up through the old city's gate.\n\nIf you want leather stitched, the goblins keep somebody for that down by the water. I wouldn't trust the stitching, but I'm told the price is fair."
+      "greeting": "I work plate and mail, made from ore that came up through the old city's gate.\n\nThe forge behind me is yours to use if you know the trade. If you want leather, try the goblins down by the water."
     },
     {
       "vendor_id": "cw_armoursmith",
@@ -5862,17 +5836,10 @@
         "whetstone",
         "flux_strong",
         "coal",
-        "glue",
-        "thread_fine",
-        "resin",
-        "healing_potion_mega",
-        "mana_potion_mega",
-        "healing_potion_masterwork",
-        "mana_potion_masterwork",
         "bs300_truesilver_wrist",
         "bs300_kit_deepearth",
-        "bs300_bloodiron_legs",
-        "bs_mithril_shield"
+        "bs_runeplate_cuirass",
+        "bs_runescale_leggings"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -5881,7 +5848,7 @@
       "race": "dwarf",
       "gender": "female",
       "appearance_variant": 5,
-      "greeting": "Everything I make is forged from Khaz Varun's own iron, and I think it knows the way home.\n\nMy grandmother's mark is on a breastplate somewhere under that hill. I'd like to see it before I'm too old to lift a hammer."
+      "greeting": "Everything I make is forged from Khaz Varun's own iron.\n\nMy grandmother was an armoursmith in the old city. Her work is still down there somewhere, and I'd like to see a piece of it one day."
     },
     {
       "vendor_id": "cw_innkeeper",
@@ -5892,24 +5859,18 @@
       "tile_sprite": "npc",
       "sells": [
         "meal_ember_glazed_ribs",
-        "bread_and_cheese",
-        "roasted_meat",
-        "meal_kodo_ribs",
+        "drink_starfall_wine",
         "meal_spiced_haunch",
+        "roasted_meat",
+        "bread_and_cheese",
+        "spiced_stew",
         "drink_barley_beer",
         "drink_honeyed_mead",
-        "spiced_stew",
-        "hunters_brace_platter",
-        "drink_starfall_wine",
         "cook_flour",
         "cook_spice",
         "cook_mushroom",
         "cook_ale",
-        "cook_water",
-        "healing_potion_mega",
-        "mana_potion_mega",
-        "healing_potion_masterwork",
-        "mana_potion_masterwork"
+        "cook_water"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -5918,7 +5879,7 @@
       "race": "goblin",
       "gender": "female",
       "appearance_variant": 2,
-      "greeting": "Welcome to the Tapped Vein, where the dwarves drink on the left and my lot drink on the right.\n\nThe middle table is where the contracts get signed, so don't sit there unless you've brought a pen. Beds are upstairs and the stew is whatever came off the boat."
+      "greeting": "Welcome to the Tapped Vein. The dwarves sit on the left and my lot sit on the right.\n\nThe middle table is where the contracts get signed. Beds are upstairs, and the stew is whatever came in on the last boat."
     },
     {
       "vendor_id": "cw_general_goods",
@@ -5929,18 +5890,14 @@
       "tile_sprite": "npc",
       "sells": [
         "bomb_sapper",
-        "coal",
-        "glue",
-        "component_string",
-        "flux_strong",
+        "bomb_ember_cluster",
+        "bomb_emberglass",
+        "device_repair_bot",
         "parchment",
-        "vial_empty",
-        "drink_waterskin",
-        "meal_trailbread",
-        "healing_potion_mega",
-        "mana_potion_mega",
-        "healing_potion_masterwork",
-        "mana_potion_masterwork"
+        "glue",
+        "resin",
+        "component_string",
+        "vial_empty"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -5949,7 +5906,7 @@
       "race": "goblin",
       "gender": "male",
       "appearance_variant": 6,
-      "greeting": "I sell lamp oil, pipe fittings and blasting powder, and I ask no questions about the powder.\n\nI'd appreciate it if you didn't ask me any either. The hatch stays shut when the Thane's people walk past, and that suits both of us."
+      "greeting": "I sell blasting charges, glue, resin and parchment.\n\nI'd rather you didn't ask where my powder comes from. The Thane's people don't like it, so I keep the hatch shut when they walk past."
     },
     {
       "vendor_id": "cw_alchemist",
@@ -5959,15 +5916,15 @@
       "y": 60,
       "tile_sprite": "npc",
       "sells": [
-        "healing_potion_mega",
-        "mana_potion_mega",
         "healing_potion_masterwork",
         "mana_potion_masterwork",
         "battle_elixir_superior",
         "guardian_elixir_superior",
-        "elixir_of_greater_endurance",
         "vial_leaded",
-        "vial_empty"
+        "vial_crystal",
+        "alch_elixir_of_greater_fire_ward",
+        "alch_flask_black_lotus",
+        "alch_transmute_arcanite"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -5976,7 +5933,7 @@
       "race": "goblin",
       "gender": "male",
       "appearance_variant": 9,
-      "greeting": "I sell vials and reagents, and I buy whatever the vents cough up.\n\nThe yellow crust off the fissures is worth more than the ore, ounce for ounce. I haven't told the dwarves that, and I'd be grateful if you didn't either."
+      "greeting": "I sell potions, vials and a few recipes, including one for a fire ward that you'll want in the Emberdeep.\n\nThe yellow crust round the fissures is worth more than the ore. I'd be grateful if you didn't tell the dwarves that."
     },
     {
       "vendor_id": "cw_salvage_broker",
@@ -5986,24 +5943,23 @@
       "y": 62,
       "tile_sprite": "npc",
       "sells": [
-        "component_string",
-        "glue",
-        "resin",
-        "coal",
-        "whetstone",
-        "healing_potion_mega",
-        "mana_potion_mega",
-        "healing_potion_masterwork",
-        "mana_potion_masterwork"
+        "tanning_reagent",
+        "curing_salt",
+        "sinew",
+        "thread_silken",
+        "dye_bright",
+        "bleach",
+        "lw_rugged_leather_boots",
+        "lw_rugged_leather_gloves"
       ],
       "buys_from_player": true,
       "faction": "neutral",
       "gear_level": 58,
-      "sells_gear": true,
+      "sells_gear": false,
       "race": "goblin",
       "gender": "male",
       "appearance_variant": 3,
-      "greeting": "Whatever you dragged out of that hole, I'll take it off you and I'll pay over the odds for it.\n\nI pay well because I know what Dark Iron work fetches on the mainland. The Thane calls it grave robbing. I call it the reason his town has a roof."
+      "greeting": "If you've brought anything up out of the old city, I'll buy it, and I pay well.\n\nDark Iron work sells for a lot on the mainland. The Thane calls it grave robbing.\n\nI also sell leather and cloth supplies, and a couple of patterns for the rugged hides out of the Reach, because nobody else in town bothers."
     }
   ]
 }

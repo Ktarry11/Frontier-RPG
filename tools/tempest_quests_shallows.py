@@ -29,7 +29,7 @@ FETCH_DROPS = {
     "Bargebreaker Crab": [
         ("tmp_crab_claw", "Bargebreaker Claw", "As long as a forearm and full of sweet meat."),
         ("tmp_jex_boot", "Goblin Sea Boot", "A small tarred boot with a brass toe. It's been "
-                                            "chewed, and it's still in better shape than most."),
+                                            "chewed."),
     ],
     "Ashfur Gorilla": [
         ("tmp_bitterbark", "Chewed Bitterbark", "A wad of grey bark, chewed soft. The gorillas "
@@ -72,8 +72,8 @@ FETCH_DROPS = {
                                                    "carried one."),
     ],
     "Masked Zealot": [
-        ("tmp_zealot_mask", "Zealot's Iron Mask", "Riveted shut at the back. Whoever wore it "
-                                                  "didn't mean to take it off."),
+        ("tmp_zealot_mask", "Zealot's Iron Mask", "Riveted shut at the back, all the way "
+                                                  "round."),
     ],
     "The Crusher": [
         ("tmp_stonecast_plate", "Stonecast Breastplate",

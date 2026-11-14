@@ -186,11 +186,14 @@ def tile_kind(gx, gy):
 # ---- subzones (x, y, w, h) ---------------------------------------------------------------------------
 # Later registration wins on overlap. Keys must equal the encounters.json keys for this zone.
 SUBZONES = [
-    ("Ashclaim Landing", 68, 54, 32, 26),
+    # NO TWO OF THESE OVERLAP (14 Nov 2026). Ashclaim Landing and Khaz Varun's Gate shared a
+    # 14x18 block, and a player who died in the Shallows was woken at "the edge of Ashclaim
+    # Landing", which was a tile inside the squatters' forecourt (tools/qa_revival.py).
+    ("Ashclaim Landing", 66, 52, 30, 28),
     ("The Green Belt", 104, 40, 60, 34),
-    ("Khaz Varun's Gate", 86, 62, 38, 30),
+    ("Khaz Varun's Gate", 100, 74, 26, 18),
     ("The Scoured Slope", 56, 6, 120, 30),
-    ("The Tempest Shallows", 140, 60, 86, 76),
+    ("The Tempest Shallows", 140, 74, 86, 62),
 ]
 
 # ---- baker config -------------------------------------------------------------------------------------
@@ -222,7 +225,7 @@ COBBLE = [(102, 74, 10, 7, 0.9), (84, 66, 7, 5, 0.8)]
 # the town proper is Cinderwharf, in the high zone, so this stays a camp.
 NPC_POSITIONS = {
     "ts_landing_bosun": (84, 64),         # off the jetty head, first face you see
-    "ts_landing_quartermaster": (90, 70),
+    "ts_landing_quartermaster": (92, 70),
     "ts_landing_surveyor": (88, 56),      # the goblin who is costing the island
     "ts_gate_watch": (98, 70),            # watching Khaz Varun's gate from outside it
     "ts_belt_prospector": (126, 50),      # out in the green belt
@@ -237,9 +240,14 @@ CHESTS = [(176, 92), (194, 82), (116, 72), (144, 56), (70, 22), (190, 44), (138,
 
 #: Jungle, and only below the volcano. FOREST scatters within `rim` tiles of rock, which on this map
 #: is the volcano's foot - so the planting hugs the slope, which is where the shelter is.
-PALMS = [("ek_willow", 8, 0.30), ("ek_pine_trio", 7, 0.30), ("ek_thorn_bush", 4, 0.40)]
+#: Real palms (14 Nov 2026). This list was called PALMS and held snow-dusted pines, so a tropical
+#: island drew a Northrend treeline round its jungle. The Echo Isles and Stranglethorn palms fit.
+PALMS = [("assets/tiles/echo_isles/props/palm_lean_a.png", 9, 0.30), ("assets/tiles/echo_isles/props/palm_lean_b.png", 9, 0.30),
+         ("assets/tiles/echo_isles/props/palm_cluster.png", 8, 0.30), ("assets/tiles/stranglethorn/props/stv_palm_young.png", 5, 0.40),
+         ("ek_thorn_bush", 4, 0.40)]
 FOREST = dict(seed=59, count=78, rim=16, thorn=10, names=[
-    ("ek_willow", 8, 0.32), ("ek_pine_trio", 7, 0.30),
+    ("assets/tiles/echo_isles/props/palm_lean_a.png", 9, 0.30), ("assets/tiles/echo_isles/props/palm_lean_b.png", 9, 0.30),
+    ("assets/tiles/echo_isles/props/palm_cluster.png", 8, 0.30), ("ek_willow", 8, 0.32),
     ("ek_dead_oak", 7, 0.24), ("ek_thorn_bush", 4, 0.40)])
 
 
@@ -257,15 +265,18 @@ def dress(L):
     # arrives inside one. Durnholde shipped that wrong once.
     for (x, y) in ((82, 62), (82, 70)):
         p("ek_scarlet_crates", x, y, 3)
-    b("orc_supply_store", 90, 72, 10, nudge=2)
-    b("orc_mess_hall", 88, 58, 10, nudge=2)
+    b("orc_supply_store", 88, 76, 10, nudge=2)        # the landing stores, off the ruin road
+    b("orc_mess_hall", 93, 55, 10, nudge=2)           # the long tent: the cook's pot and the bedrolls
     p("ek_signpost", 92, 66, 4)
     p("ek_forsaken_banner", 94, 62, 6)
 
     # ---- Khaz Varun's gate: the collapsed front of a Dark Iron city --------------------------------
     # The set-piece, and the thing the whole faction is about. No roof anywhere, and the arch over
     # the door is passable because the dungeon portal is under it.
-    p(RU + "ruin_archway.png", 102, 76, 10, solid=False, nudge=0, road_ok=True, allow_overlap=True)
+    # Base at y=79, three below the door: the kit refuses a base within two tiles of a portal, and at
+    # y=76 the arch was silently dropped, so the city's front door had no door. At 79 the 12x10
+    # sprite is drawn over the portal and the arrival tile, centred on both.
+    p(RU + "ruin_archway.png", 102, 79, 10, solid=False, nudge=0, road_ok=True, allow_overlap=True)
     for (x, y) in ((94, 78), (112, 78), (96, 86), (112, 86)):
         p(RU + "ruin_wall_arch.png", x, y, 7)
     # x=90, not 98: this sprite is 11 tiles wide, and at 98 its left half was drawn straight

@@ -36,7 +36,7 @@ from tools.build_tempest_quests import voice_problems          # noqa: E402
 from tools import tempest_quest_kit as K                        # noqa: E402
 
 EARTH = re.compile(r"three years|the day the world changed|the day everything changed|from Earth|"
-                   r"at home|Mombasa|Quito|Kagoshima|Singapore|Sakurajima|came through", re.I)
+                   r"before I came through|before the change|sea route opened|at home|Mombasa|Quito|Kagoshima|Singapore|Sakurajima|came through", re.I)
 
 
 def load(path, key):
@@ -111,8 +111,8 @@ def main():
         elif r["zone"] in maps and not maps[r["zone"]].is_walkable(r["x"], r["y"]):
             bad.append(f"{nid} stands on a tile nobody can stand on")
     islanders = [r for r in people.values() if r["zone"] in maps]
-    if len(islanders) != 33:
-        bad.append(f"{len(islanders)} people on the island, expected 33")
+    if len(islanders) != 40:
+        bad.append(f"{len(islanders)} people on the island, expected 40")
     travel = json.loads((ROOT / "data/travel/travel_data.json").read_text(encoding="utf-8"))
     for inn in ("ts_landing_cook", "cw_innkeeper"):
         if "inn" not in travel["services"].get(inn, []):

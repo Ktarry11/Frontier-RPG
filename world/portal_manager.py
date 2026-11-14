@@ -623,7 +623,7 @@ class PortalManager:
             "The Ashen Reach": {
                 (58, 156): ("Tempest Shallows", 58, 6),
                 (176, 156): ("Tempest Shallows", 176, 6),
-                (186, 96): ("Cinderwharf", 5, 44),
+                (176, 98): ("Cinderwharf", 5, 44),       # moved inland 14 Nov: the gate stood in the sea
                 (115, 132): ("The Emberdeep", 85, 8),
             },
 
@@ -638,7 +638,7 @@ class PortalManager:
             },
 
             "Cinderwharf": {
-                (2, 42): ("The Ashen Reach", 184, 96),
+                (2, 42): ("The Ashen Reach", 173, 98),
             },
 
             "Boulderfist Hall": {(32, 50): ("Arathi Central", 38, 37)},

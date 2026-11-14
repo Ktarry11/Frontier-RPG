@@ -68,9 +68,9 @@ RU = "assets/tiles/ruins/"
 #: Filled in below from measured land. Declared here so the module reads top-down.
 PORTALS = {(58, 156): "Tempest Shallows",
            (176, 156): "Tempest Shallows",
-           (186, 96): "Cinderwharf",
+           (176, 98): "Cinderwharf",
            (115, 132): "The Emberdeep"}
-ARRIVALS = [(58, 153), (176, 153), (183, 96), (115, 129)]
+ARRIVALS = [(58, 153), (176, 153), (173, 98), (115, 129)]
 START = (58, 150)
 
 # ---- the coast: NOT DEFINED HERE ------------------------------------------------------------------
@@ -106,7 +106,7 @@ def deck_field(gx, gy):
 # volcano road branches off it to the Emberdeep's door. The east pass hangs off the trunk's far end.
 ROADS = {
     "trunk":   ([(58, 158), (54, 134), (62, 112), (82, 94), (112, 82), (146, 82), (172, 90),
-                 (186, 96)], 3.2),
+                 (176, 98)], 3.2),
     "east":    ([(146, 82), (168, 112), (176, 158)], 2.6),        # round the volcano's east flank
     "volcano": ([(112, 82), (114, 106), (115, 128)], 2.6),        # in to the Emberdeep's door
     "works":   ([(62, 112), (80, 122), (96, 128)], 2.4),          # the smelter and the mine head
@@ -160,10 +160,13 @@ def tile_kind(gx, gy):
 
 
 SUBZONES = [
-    ("The Scoured Coast", 34, 58, 40, 56),
-    ("The Ashclaim Works", 62, 106, 52, 36),
-    ("The Emberdeep Approach", 94, 112, 44, 40),
-    ("The Cinder Flats", 100, 60, 64, 40),
+    # NO TWO OF THESE OVERLAP (14 Nov 2026): the Works shared a 20x30 block with the Emberdeep
+    # Approach, so the yard's own engine house spawned fire spirits, and the Coast, Flats and
+    # Cinderwharf Gate each bled into a neighbour.
+    ("The Scoured Coast", 34, 58, 40, 48),
+    ("The Ashclaim Works", 62, 106, 36, 36),
+    ("The Emberdeep Approach", 98, 112, 40, 40),
+    ("The Cinder Flats", 100, 60, 60, 40),
     ("Cinderwharf Gate", 160, 80, 48, 36),
 ]
 
@@ -215,17 +218,17 @@ NPC_POSITIONS = {
     "ar_door_warden": (115, 126),          # outside the Emberdeep, where nobody wants to stand
     "ar_coast_surveyor": (44, 86),         # the scoured coast
     "ar_flats_scout": (134, 86),           # the cinder flats
-    "ar_gate_factor": (178, 98),           # the goblin factor at Cinderwharf's gate
+    "ar_gate_factor": (170, 102),           # the goblin factor at Cinderwharf's gate
     "ar_works_assayer": (72, 116),         # the weigh shed
     "ar_works_powderman": (87, 130),       # the red shed, away from everything
-    "ar_works_volcanologist": (86, 112),   # the instrument hut on the north edge
+    "ar_works_volcanologist": (78, 106),   # the instrument hut on the north edge
 }
 
 CHESTS = [(56, 60), (44, 100), (70, 140), (150, 120), (178, 118), (96, 48), (148, 72)]
 
-PALMS = [("ek_dead_oak", 7, 0.30), ("ek_thorn_bush", 4, 0.42), ("ek_pine_trio", 7, 0.24)]
+PALMS = [("ek_dead_oak", 7, 0.30), ("ek_thorn_bush", 4, 0.42), ("assets/tiles/shimmering_flats/props/tan_dead_palm.png", 7, 0.24)]
 FOREST = dict(seed=71, count=44, rim=12, thorn=12, names=[
-    ("ek_dead_oak", 7, 0.34), ("ek_thorn_bush", 4, 0.44), ("ek_pine_trio", 7, 0.22)])
+    ("ek_dead_oak", 7, 0.34), ("ek_thorn_bush", 4, 0.44), ("assets/tiles/shimmering_flats/props/tan_dead_palm.png", 7, 0.22)])
 
 
 def dress(L):
@@ -257,12 +260,13 @@ def dress(L):
         p("ek_web_boulder", x, y, 6)
 
     # ---- Cinderwharf's gate, north-east ---------------------------------------------------------------
-    b("orc_great_gatehouse", 190, 96, 12, solid=False, road_ok=True, nudge=0)
-    b("orc_watch_tower", 184, 88, 11, nudge=2)
-    # base_y 110, not 104: the tower is 11 tall, so from 104 it reached up over the gate's
-    # own portal tile at (186,96). The pair still flank the gatehouse.
-    b("orc_watch_tower", 184, 110, 11, nudge=2)
-    p("ek_signpost", 172, 96, 4)
+    # The gate to the town, moved inland to (176,98) on 14 Nov 2026. It was at (186,96) on the
+    # waterline, and the only way to fit the gatehouse there put half of it in the sea (Kyle: "that
+    # gate over the sea is bad"). Base three below the portal, which is the kit's minimum.
+    b("orc_great_gatehouse", 176, 101, 12, solid=False, road_ok=True, nudge=0)
+    # One tower on the shore side of the moved gate; the inland side is the road.
+    b("orc_watch_tower", 186, 104, 11, nudge=2)
+    p("ek_signpost", 166, 101, 4)
 
     # ---- the scoured coast, north-west ----------------------------------------------------------------
     p(RU + "ruin_stone_ring.png", 46, 90, 5, solid=False)

@@ -263,4 +263,251 @@ CINDERWHARF_AMBIENT = {
         "for a marine insurer. Three years ago I was inspecting a container ship when "
         "the harbour changed around it, and my employer and my flat went with the old "
         "one. Goblins understand insurance better than anyone I worked with there."),
+    # ---- trainers and the keeper (14 Nov 2026) ----
+    "ct_cinderwharf": (
+        "Battlemaster Ingra Coalbeard", "dwarf", "female", 10,
+        "I train fighters of every kind, and I don't much care which kind you are.\n\nThe "
+        "Thane brought me over to teach his own people before they went into the hall. Most of "
+        "them have gone in now, so I've got time for anyone who can pay. Show me what you can "
+        "do and I'll show you what comes next."),
+    "pt_cinderwharf_forge": (
+        "Forgemaster Ulfa Hammerdeep", "dwarf", "female", 11,
+        "If you want to mine Khaz Varun's iron or work it, I can teach you both.\n\nThe ore "
+        "on this island is better than anything on the mainland, and dark iron's the best of "
+        "it. It's also the fussiest metal you'll ever put in a fire, so learn it from someone "
+        "who's ruined plenty of it."),
+    "pt_cinderwharf_herbs": (
+        "Herbalist Zinnia Sporewick", "goblin", "female", 21,
+        "I can teach you which plants on this island are worth picking and what to do with them "
+        "once you've got them.\n\nThe Green Belt's full of things the mainland's never seen. "
+        "Half of them will heal you and the other half will put you in Dr. Mwangi's tent, so "
+        "it's worth paying someone to tell you which half is which."),
+    "pt_cinderwharf_hide": (
+        "Tanner Brog Ashpelt", "dwarf", "male", 5,
+        "I work hides, leather and cloth, and I cook, because nobody else on this wharf will do "
+        "it properly.\n\nA basilisk hide off the Cinder Flats makes the best leather I've ever "
+        "handled. I'll teach you to skin it, cure it and stitch it, and I'll teach you what to "
+        "do with the meat while you're at it."),
+    "pt_cinderwharf_wood": (
+        "Woodwright Kibble Sawtooth", "goblin", "male", 13,
+        "I can teach you to cut timber and work it, and on this island that mostly means "
+        "bloodwood and felbark.\n\nThe jungle wood's too green for hulls, so I use it for "
+        "everything else. If you want to know which trees are worth felling, I've felled most "
+        "of the wrong ones already."),
+    "pt_cinderwharf_essence": (
+        "Tinker Fezzik Coilspring", "goblin", "male", 17,
+        "I teach engineering, and I'll tell you now that the vents on this island will try to "
+        "eat everything you build.\n\nI keep the town's pumps running when Tobble at the "
+        "Works can spare me a gasket. If you want to learn how to build something that lasts "
+        "out here, I'm the one to ask."),
+    "ak_cinderwharf": (
+        "Artifact Keeper Hilde Ironveil", "dwarf", "female", 1,
+        "I can change a set piece you're wearing into the version that suits the way you fight "
+        "now, and I don't charge for it.\n\nIf you've brought a token up from the old city or "
+        "out of the Emberdeep, I'll turn that into a piece for you as well. The Keepers sent me "
+        "here because this is where the tokens are being found."),
 }
+
+#: Extra fields a record carries beyond the roster shape: what a trainer teaches.
+EXTRA = {
+    "ct_cinderwharf": {"trains_class": "*"},
+    "pt_cinderwharf_forge": {"trains_profession": ["mining", "blacksmithing"]},
+    "pt_cinderwharf_herbs": {"trains_profession": ["herbalism", "alchemy"]},
+    "pt_cinderwharf_hide": {"trains_profession": ["skinning", "leatherworking", "tailoring",
+                                                  "cooking"]},
+    "pt_cinderwharf_wood": {"trains_profession": ["woodcutting", "woodworking"]},
+    "pt_cinderwharf_essence": {"trains_profession": ["engineering"]},
+}
+
+#: SECOND DRAFT of every greeting (14 Nov 2026), laid over the tuples above by the sync. Same rule
+#: as the quest text (tools/tempest_quest_text.py): who they are, what they do here, and what's
+#: on their mind, said plainly. No little jokes and no closing line written to land.
+GREETINGS = {
+    # ---- Ashclaim Landing
+    "ts_landing_bosun":
+        "Welcome to Ashclaim Landing. Watch your step on the jetty, some of the planks are "
+        "loose.\n\nI run the jetty and the boat to Saltspur. The Thane's old city is under the "
+        "hill to the south-east, and the town is round the far side of the volcano. Most of the "
+        "work here is getting things from one to the other.",
+    "ts_landing_quartermaster":
+        "I keep the landing's stores. Everything on these shelves was carried up from the "
+        "jetty by hand, so it costs a bit more than on the mainland.\n\nI kept the stores for a "
+        "mining company for thirty years before the Thane asked me to come out here.",
+    "ts_landing_cook":
+        "There's food in the pot and bedrolls in the long tent, and you're welcome to both.\n\n"
+        "The supply boat mostly brings flour and salt, so a lot of what I cook comes out of the "
+        "shallows to the east. I hope you like crab.",
+    "ts_landing_surveyor":
+        "I'm surveying this island for the underwriters. Every tree, every seam of ore and "
+        "every hole in the ground needs a value written down.\n\nMy cousin Nix holds the "
+        "Ashclaim's paper in Cinderwharf. I do the walking.",
+    "ts_landing_medic":
+        "If you're hurt, sit down on the crate and I'll have a look.\n\nI ran the clinic on the "
+        "Likoni ferry in Mombasa for eleven years. Three years ago the ferry docked at a pier "
+        "that hadn't been there that morning, and I've been treating dwarves and goblins ever "
+        "since. Most of what I see here is burns.",
+    "ts_landing_shipwright":
+        "I build the barges that carry ore round the island.\n\nThey gave me this beach, a saw "
+        "pit and a crew of four. I've launched six hulls since spring and I've only got two "
+        "left. Something out in the shallows keeps sinking them.",
+    "ts_gate_watch":
+        "That arch is the front gate of Khaz Varun. My family kept it for nine generations "
+        "before the city went dark.\n\nThe Thane has me here to count who goes in and who comes "
+        "out. I've never been inside myself.",
+    "ts_belt_prospector":
+        "This is good ground for ore. There's mithril near the surface and truesilver if you "
+        "know what rock to look for.\n\nThe gorillas keep throwing my samples back at me, so "
+        "it's slow work.",
+    "ts_belt_botanist":
+        "Please watch where you step. Half of what's growing here hasn't been named yet.\n\nI "
+        "taught botany at the university in Quito before I came through. The Ashclaim pays me "
+        "to tell them which plants on this island are worth money. Nothing here is in any of "
+        "my books.",
+    "ts_shallows_wader":
+        "The water's only waist deep all the way out to the last rock, so you can walk to most "
+        "of the wrecks.\n\nA lot of them still have cargo on board. I'd go out myself, but the "
+        "crabs took my boots.",
+    # ---- The Ashen Reach
+    "ar_gate_factor":
+        "Every cart of ore that goes through this gate gets weighed, and I'm the one who weighs "
+        "it.\n\nCinderwharf is through the arch. I keep a few supplies for people heading out "
+        "to the Works, because it's a long walk.",
+    "ar_works_foreman":
+        "This is the Ashclaim Works. The smelter behind me is the only thing on the island "
+        "making money right now.\n\nI've got sixty people working here. The ground shakes twice "
+        "a day and the Cinder Flats are full of fire elementals, so keeping all sixty of them "
+        "alive takes most of my time.",
+    "ar_works_enginewright":
+        "I keep the pump engine and the winding gear at the mine head running.\n\nThe air off "
+        "the vents eats brass in a month and iron in a season, so I spend most of my time "
+        "rebuilding things I've already built.",
+    "ar_works_assayer":
+        "I weigh and test every load of ore that comes out of the mine.\n\nThe dwarves get paid "
+        "by what I weigh, so a lot of them think I'm cheating them. I'm not, and I'm the reason "
+        "the goblins aren't either.",
+    "ar_works_powderman":
+        "I set the blasting charges at the mine head. Please don't smoke near the red shed.\n\n"
+        "Blasting inside a volcano takes a lot of care. The last blaster here lost both his "
+        "hands.",
+    "ar_works_volcanologist":
+        "I watch the volcano for the Ashclaim and tell them when it's dangerous.\n\nI worked at "
+        "the observatory in Kagoshima for twenty years, watching Sakurajima. Three years ago I "
+        "walked out of the building and the bay was gone. This mountain doesn't behave like "
+        "any volcano I've studied.",
+    "ar_door_warden":
+        "That opening goes down into the Emberdeep. I'm here to tell people what's down there "
+        "before they go in.\n\nThere's a lake of molten rock with islands of cooled stone in it, "
+        "and everything living down there came out of the lake. The Thane's people sealed this "
+        "door a long time ago. It broke open three years ago.",
+    "ar_coast_surveyor":
+        "I'm charting this coast for a harbour, and I've lost two boats doing it.\n\nThe wrecks "
+        "along this shore are older than the Ashclaim. Somebody was sailing here long before "
+        "the goblins came, and the naga have moved into what's left of their ships.",
+    "ar_flats_scout":
+        "Stay on the dark ground out here. The pale crust is thin and there's steam under "
+        "it.\n\nI walk the Cinder Flats for the Foreman and mark where the vents have moved, so "
+        "the ore carts know which way is safe. They move most weeks.",
+    # ---- Cinderwharf
+    "cw_thane_ashhold":
+        "I'm Durgan Ashhold, Thane of Khaz Varun.\n\nMy great-grandfather's hall is under the "
+        "south shore, and it's full of what's left of my family. The Underwriter pays for the "
+        "work. I want the hall cleared and my people laid to rest.",
+    "cw_quartermaster":
+        "The front shelf is for anyone with coin. What's behind me is for people the Ashclaim "
+        "trusts.\n\nYou earn that trust by working for the Thane or the Underwriter. I don't "
+        "mind which.",
+    "cw_blacksmith":
+        "I work plate and mail, made from ore that came up through the old city's gate.\n\nThe "
+        "forge behind me is yours to use if you know the trade. If you want leather, try the "
+        "goblins down by the water.",
+    "cw_armoursmith":
+        "Everything I make is forged from Khaz Varun's own iron.\n\nMy grandmother was an "
+        "armoursmith in the old city. Her work is still down there somewhere, and I'd like to "
+        "see a piece of it one day.",
+    "cw_innkeeper":
+        "Welcome to the Tapped Vein. The dwarves sit on the left and my lot sit on the "
+        "right.\n\nThe middle table is where the contracts get signed. Beds are upstairs, and "
+        "the stew is whatever came in on the last boat.",
+    "cw_general_goods":
+        "I sell blasting charges, glue, resin and parchment.\n\nI'd rather you didn't ask where "
+        "my powder comes from. The Thane's people don't like it, so I keep the hatch shut when "
+        "they walk past.",
+    "cw_alchemist":
+        "I sell potions, vials and a few recipes, including one for a fire ward that you'll want "
+        "in the Emberdeep.\n\nThe yellow "
+        "crust round the fissures is worth more than the ore. I'd be grateful if you didn't "
+        "tell the dwarves that.",
+    "cw_salvage_broker":
+        "If you've brought anything up out of the old city, I'll buy it, and I pay well.\n\nDark "
+        "Iron work sells for a lot on the mainland. The Thane calls it grave robbing.\n\nI "
+        "also sell leather and cloth supplies, and a couple of patterns for the rugged hides "
+        "out of the Reach, because nobody else in town bothers.",
+    "cw_shrine_keeper":
+        "I keep a flame on this terrace for everyone who's still down in the city.\n\nMy cousin "
+        "Durgan is the Thane. He looks after the claim and I look after the dead.",
+    "cw_underwriter":
+        "I hold the paper on the Ashclaim, which means my partners paid for all of this.\n\nThe "
+        "Thane wants his ancestors laid to rest and I want a working foundry. Both need the "
+        "same doors opened, so we work well enough together.",
+    "cw_flight_master":
+        "The pad is out over the water so the wind from the wings doesn't damage the roofs.\n\n"
+        "I can fly you to Saltspur whenever you like, and you can get anywhere from there.",
+    "cw_harbourmaster":
+        "I run the berths. Every boat that ties up here pays a fee.\n\nI've lost four barges "
+        "between here and the landing this season, and the Underwriter wants to know why. So "
+        "do I.",
+    "cw_archivist":
+        "I keep the rolls of Khaz Varun, the records of every birth, oath and debt from before "
+        "the city went dark.\n\nThe Thane's claim depends on these rolls, so I keep the key on "
+        "a cord round my neck.",
+    "cw_claims_clerk":
+        "I assess losses for the Underwriter. When a barge sinks, I work out whether it was bad "
+        "luck or bad seamanship.\n\nI did the same job for a marine insurer in Singapore. Three "
+        "years ago I was inspecting a container ship when the harbour changed around it. The "
+        "goblins understand insurance better than anyone I worked with there.",
+}
+
+#: WHAT EACH SHOP SELLS, second draft (14 Nov 2026). Kyle, the same evening: "Shop vendors are
+#: boring and sell the SAME stuff." The first draft gave every shop on the island the same four
+#: potions. Now each sells its own trade, and what fits the island: fire-ward and Black Lotus
+#: recipes at the alchemist (the Lotus grows in the Ashen Reach), dark iron and truesilver plans at
+#: the smiths, rugged leather patterns at the broker (the Reach's beasts give rugged leather), and
+#: charges at the goblin who won't say where his powder comes from.
+STOCK = {
+    "ts_landing_quartermaster": (["runeforged_strongbox", "duskwoven_carryall", "whetstone",
+                                  "coal", "flux_strong", "parchment", "component_string",
+                                  "drink_waterskin", "meal_trailbread",
+                                  "healing_potion_masterwork"], True),
+    "ts_landing_cook": (["meal_ember_glazed_ribs", "meal_saltback_roast", "spiced_stew",
+                         "hunters_brace_platter", "drink_deepwell_cordial", "drink_honeyed_mead",
+                         "drink_barley_beer", "cook_flour", "cook_spice", "salt", "cook_water",
+                         "cook_ale"], False),
+    "ar_gate_factor": (["drink_waterskin", "meal_trailbread", "healing_potion_masterwork",
+                        "mana_potion_masterwork", "coal", "salt"], False),
+    "cw_quartermaster": (["runeforged_strongbox", "duskwoven_carryall", "warden_reliquary",
+                          "deepdelve_bearer", "whetstone"], True),
+    "cw_blacksmith": (["whetstone", "flux_strong", "coal", "bs300_deepearth_axe_1h",
+                       "bs300_deepearth_head", "bs300_bloodiron_feet", "bs300_bloodiron_legs",
+                       "bs_mithril_breastplate", "bs_mithril_shield"], True),
+    "cw_armoursmith": (["whetstone", "flux_strong", "coal", "bs300_truesilver_wrist",
+                        "bs300_kit_deepearth", "bs_runeplate_cuirass", "bs_runescale_leggings"],
+                       True),
+    "cw_innkeeper": (["meal_ember_glazed_ribs", "drink_starfall_wine", "meal_spiced_haunch",
+                      "roasted_meat", "bread_and_cheese", "spiced_stew", "drink_barley_beer",
+                      "drink_honeyed_mead", "cook_flour", "cook_spice", "cook_mushroom",
+                      "cook_ale", "cook_water"], False),
+    "cw_general_goods": (["bomb_sapper", "bomb_ember_cluster", "bomb_emberglass",
+                          "device_repair_bot", "parchment", "glue", "resin", "component_string",
+                          "vial_empty"], False),
+    "cw_alchemist": (["healing_potion_masterwork", "mana_potion_masterwork",
+                      "battle_elixir_superior", "guardian_elixir_superior", "vial_leaded",
+                      "vial_crystal", "alch_elixir_of_greater_fire_ward", "alch_flask_black_lotus",
+                      "alch_transmute_arcanite"], False),
+    "cw_salvage_broker": (["tanning_reagent", "curing_salt", "sinew", "thread_silken",
+                           "dye_bright", "bleach", "lw_rugged_leather_boots",
+                           "lw_rugged_leather_gloves"], False),
+}
+REP_STOCK = {"cw_quartermaster": {
+    "friendly": ["elixir_of_greater_endurance", "elixir_of_ironskin"],
+    "honored": ["alch_potion_invulnerability_vendor"],
+}}

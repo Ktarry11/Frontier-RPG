@@ -222,7 +222,9 @@ def main():
     services = json.load(open("data/travel/travel_data.json", encoding="utf-8"))["services"]
     # ...by an Artifact Keeper - a person of their own, not the innkeeper or the banker
     keepers = {"ak_org": "Orgrimmar", "ak_uc": "Undercity", "ak_kb": "Kael's Bastion",
-               "ak_freewind": "Freewind Post", "ak_bootybay": "Booty Bay"}
+               "ak_freewind": "Freewind Post", "ak_bootybay": "Booty Bay",
+               # the sixth: T0 tokens drop on Tempest Isle, so a Keeper stands where they are found
+               "ak_cinderwharf": "Cinderwharf"}
     people = {n["npc_id"]: n for n in json.load(open("data/npcs/ambient_npcs.json", encoding="utf-8"))["npcs"]}
     for npc, place in keepers.items():
         if services.get(npc) != ["set_exchange"]:
@@ -231,7 +233,7 @@ def main():
             bad.append(f"there is no Artifact Keeper standing in {place}")
     offering = sorted(n for n, v in services.items() if "set_exchange" in v)
     if offering != sorted(keepers):
-        bad.append(f"the set exchange is offered by {offering}; it should be the five Keepers and nobody else")
+        bad.append(f"the set exchange is offered by {offering}; it should be the Keepers and nobody else")
     spots = [(people[k]["zone"], people[k]["x"], people[k]["y"]) for k in keepers if k in people]
     taken = [(n["zone"], n["x"], n["y"]) for n in people.values() if n["npc_id"] not in keepers]
     if any(s in taken for s in spots):

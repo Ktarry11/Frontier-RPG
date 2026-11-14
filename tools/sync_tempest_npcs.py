@@ -51,10 +51,7 @@ KILL_REP = {
     "Borrik the Unhoused": 60, "Wreck-Captain Vess'ira": 60, "Karrath the Ventlord": 60,
 }
 #: What is "behind" Quartermaster Vela. Existing consumables only; nothing here is new power.
-REP_STOCK = {"cw_quartermaster": {
-    "friendly": ["battle_elixir_superior", "guardian_elixir_superior"],
-    "honored": ["elixir_of_greater_endurance", "bomb_sapper"],
-}}
+REP_STOCK = R.REP_STOCK
 
 
 def _check_variants(records):
@@ -95,6 +92,8 @@ def main():
         by_nid = {r["npc_id"]: r for r in npcs}
 
         for vid, (name, race, gender, var, sells, sells_gear, greet) in VEND.items():
+            greet = R.GREETINGS.get(vid, greet)
+            sells, sells_gear = R.STOCK.get(vid, (sells, sells_gear))
             want = {"name": name, "zone": zone, "x": pos[vid][0], "y": pos[vid][1],
                     "tile_sprite": "npc", "sells": sells, "buys_from_player": True,
                     "faction": "neutral", "gear_level": gear, "sells_gear": sells_gear,
@@ -108,9 +107,10 @@ def main():
                 changed += 1
 
         for nid, (name, race, gender, var, greet) in AMB.items():
+            greet = R.GREETINGS.get(nid, greet)
             want = {"name": name, "zone": zone, "x": pos[nid][0], "y": pos[nid][1],
                     "greeting": greet, "gender": gender, "race": race,
-                    "appearance_variant": var, "facing": "down"}
+                    "appearance_variant": var, "facing": "down", **R.EXTRA.get(nid, {})}
             rec = by_nid.get(nid)
             if rec is None:
                 npcs.append({"npc_id": nid, **want})
@@ -122,8 +122,7 @@ def main():
         # ghosts: anybody recorded in this zone that the roster no longer names
         for r in [r for r in vendors if r.get("zone") == zone and r["vendor_id"] not in VEND]:
             vendors.remove(r)
-        for r in [r for r in npcs if r.get("zone") == zone and r["npc_id"] not in AMB
-                  and not r["npc_id"].startswith(("ct_", "pt_"))]:
+        for r in [r for r in npcs if r.get("zone") == zone and r["npc_id"] not in AMB]:
             npcs.remove(r)
 
     vp.write_text(json.dumps(vd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
@@ -138,7 +137,24 @@ def main():
     node_id, node = FLIGHT
     td["flight_nodes"][node_id] = node
     svc[node["master"]] = sorted(set(svc.get(node["master"], [])) | {"flight"})
+    svc["ak_cinderwharf"] = ["set_exchange"]
     tp.write_text(json.dumps(td, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    # ===== the trainers teach, and the forge is a forge =====
+    trp = Path("data/training/trainers.json")
+    tr = json.loads(trp.read_text(encoding="utf-8"))
+    for nid, extra in R.EXTRA.items():
+        if "trains_class" in extra:
+            tr["class_trainers"][nid] = extra["trains_class"]
+        if "trains_profession" in extra:
+            tr["profession_trainers"][nid] = extra["trains_profession"]
+    trp.write_text(json.dumps(tr, indent=2) + "\n", encoding="utf-8")
+    fp_ = Path("data/npcs/forges.json")
+    fdoc = json.loads(fp_.read_text(encoding="utf-8"))
+    fdoc["forges"] = [f for f in fdoc["forges"] if f["forge_id"] != "cinderwharf_forge"]
+    fdoc["forges"].append({"forge_id": "cinderwharf_forge", "name": "Cinderwharf Forge",
+                           "zone": "cinderwharf", "x": CW.FORGE[0], "y": CW.FORGE[1]})
+    fp_.write_text(json.dumps(fdoc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     # ===== the Ashclaim owns its island =====
     fp = Path("data/factions/factions.json")

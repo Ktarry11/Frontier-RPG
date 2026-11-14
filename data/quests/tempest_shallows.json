@@ -18,8 +18,8 @@
       ],
       "reward_exp": 3800,
       "reward_gold": 15000,
-      "accept_text": "You're the first one off who isn't carrying a crate, so you can carry this for me.\n\nIt's the manifest for the boat you came in on. Quartermaster Durn won't release a thing from the stores until he's checked it against what was landed, and I can't leave the jetty while there's a hull tied to it.\n\nHe's just along the shore to the south-east, under the big awning with all the barrels. Tell him the count's right this time.",
-      "turn_in_text": "She says the count's right, does she? I'll believe that when I've counted it myself.\n\nYou're new off the boat, so I'll tell you how this place works. Everybody here has a job that's bigger than they are, and most of them will pay you to take a piece of it. Ask around the landing before you go anywhere near that gate.",
+      "accept_text": "Can you take this up to Quartermaster Durn for me? I can't leave the jetty while there's a boat tied up.\n\nIt's the manifest for the boat you came in on. Durn won't open the stores until he's checked it against what was landed.\n\nHe's under the big awning with the barrels, just along the shore to the south-east. Tell him the count's right.",
+      "turn_in_text": "Thanks. I'll check it myself, but it's good to have it.\n\nIf you're looking for work, ask around the landing. Most people here have more to do than hands to do it.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -28,7 +28,7 @@
           "item_level": 53,
           "rarity": "uncommon",
           "required_level": 52,
-          "flavor_text": "Carried up from the jetty by hand, like everything else there.",
+          "flavor_text": "It was carried up from the jetty by hand.",
           "primary_stats": {
             "strength": 11,
             "stamina": 14
@@ -46,7 +46,7 @@
           "item_level": 53,
           "rarity": "uncommon",
           "required_level": 52,
-          "flavor_text": "Carried up from the jetty by hand, like everything else there.",
+          "flavor_text": "It was carried up from the jetty by hand.",
           "primary_stats": {
             "agility": 8,
             "intellect": 8
@@ -64,7 +64,7 @@
           "item_level": 53,
           "rarity": "uncommon",
           "required_level": 52,
-          "flavor_text": "It smells of tar and crab, like everything at the landing.",
+          "flavor_text": "It smells of tar and salt water.",
           "primary_stats": {
             "intellect": 6,
             "spirit": 6
@@ -113,8 +113,8 @@
       ],
       "reward_exp": 3800,
       "reward_gold": 15000,
-      "accept_text": "Nobody could land on this island at all until the sea route opened three years ago, and now everything we land has to go east along the trunk road, and the trunk road goes straight through the Green Belt.\n\nThat's the jungle you can see from the jetty. The Greenbelt Raptors hunt the road in packs, and the Canopy Panthers wait in the trees over it and drop on whoever's last in the line. I've stopped sending porters out in groups smaller than six.\n\nGo east along the road until the trees close over you, and kill whatever comes at you. I'd like to send a cart out tomorrow without writing a will first.",
-      "turn_in_text": "The porters who came back this afternoon said they didn't see a single raptor on the road.\n\nOne of them was almost disappointed. He'd sharpened a boathook specially. Take this from the jetty stores, and thanks for making my morning easier.",
+      "accept_text": "Nobody could land on this island until the sea route opened three years ago. Now everything we land goes east along the trunk road through the Green Belt, and the road isn't safe.\n\nThe Greenbelt Raptors hunt it in packs. The Canopy Panthers wait in the trees above it and drop on whoever's at the back. I've lost porters to both.\n\nThe Green Belt is the jungle east of the landing. Follow the road in and kill what you find on it.",
+      "turn_in_text": "The porters made it through this afternoon without seeing a raptor.\n\nThat'll let me send carts out again. Take this from the jetty stores.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -123,7 +123,7 @@
           "item_level": 53,
           "rarity": "uncommon",
           "required_level": 52,
-          "flavor_text": "The vine lashing has put out a leaf since it was tied.",
+          "flavor_text": "It's tied with vine from the Green Belt.",
           "primary_stats": {
             "strength": 8,
             "agility": 7,
@@ -157,7 +157,7 @@
           "item_level": 53,
           "rarity": "uncommon",
           "required_level": 52,
-          "flavor_text": "Teodora labelled it before she let anyone wear it.",
+          "flavor_text": "There's a small paper label stitched inside it.",
           "primary_stats": {
             "intellect": 6,
             "spirit": 6
@@ -189,8 +189,8 @@
       ],
       "reward_exp": 3960,
       "reward_gold": 15600,
-      "accept_text": "You've been useful here, so I'm going to send you somewhere with a roof.\n\nThe town's called Cinderwharf and it's on the far side of the volcano. Harbourmaster Skezz runs the berths there, and she needs my tally of every barge that's left this jetty since spring. Four of them never arrived at her end and she wants to know which four.\n\nTake the trunk road east through the Green Belt, then follow the east road north round the foot of the mountain into the Ashen Reach. Keep going north along the shore and you'll come to the town gate. It's rougher country up there than this, so don't go until you're ready for it.",
-      "turn_in_text": "This is Grekka's tally, and it's exactly as bad as I thought it would be.\n\nFour barges left her jetty loaded and none of them tied up at mine. That's ore, hulls and crews, and the Underwriter has started asking whether I can count.\n\nYou walked here through the Reach, so you can handle yourself. I've got work for somebody like that.",
+      "accept_text": "I need my tally taken to Harbourmaster Skezz in Cinderwharf, and you've shown you can look after yourself.\n\nShe runs the berths over there. Four barges left this jetty since spring and never reached her, and she wants my list of which ones.\n\nTake the trunk road east through the Green Belt, then the east road north round the mountain into the Ashen Reach. Keep north along the shore until you reach the town gate. The country past the mountain is harder than this, so be ready for it.",
+      "turn_in_text": "That's Grekka's tally. Thank you for bringing it all this way.\n\nThe same four barges are missing from my book. I'd like to find out what happened to them, and I could use your help.",
       "next_quest_id": "tmp_four_barges",
       "unique_item_defs": [
         {
@@ -199,7 +199,7 @@
           "item_level": 55,
           "rarity": "uncommon",
           "required_level": 54,
-          "flavor_text": "Ashclaim issue. Dwarf made and goblin priced.",
+          "flavor_text": "Ashclaim issue, made by a dwarf smith and sold by a goblin.",
           "primary_stats": {},
           "secondary_stats": {
             "dodge_rating": 2,
@@ -278,8 +278,8 @@
       ],
       "reward_exp": 3800,
       "reward_gold": 15000,
-      "accept_text": "I've got forty people to feed and the supply boat brought me flour, salt and a letter of apology.\n\nThere's good eating in the shallows if you can get it out of its shell. The Bargebreaker Crabs out there are the size of a handcart, and each claw feeds a table. They're also bad tempered, which is why I'm asking you and not going myself.\n\nFollow the trunk road east and take the strand road down to the water. The whole bay's shallow enough to wade. Bring me the claws and I'll have them in the pot before dark.",
-      "turn_in_text": "Those are beautiful, and there's enough here for two nights.\n\nSit down and I'll crack one for you while it's hot. You can take this as well. Somebody left it in the long tent and never came back for it.",
+      "accept_text": "I've got forty people to feed and the supply boat brought me flour and salt.\n\nThere's plenty of food out in the shallows. The Bargebreaker Crabs are as big as a handcart and a claw will feed a table, but they fight.\n\nGo east along the trunk road and take the strand road down to the water. Bring me the claws and I'll get them cooking.",
+      "turn_in_text": "These are good claws. That's two nights of supper.\n\nSit down and have some once it's cooked. You can take this as well, somebody left it in the tent.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -288,7 +288,7 @@
           "item_level": 53,
           "rarity": "uncommon",
           "required_level": 52,
-          "flavor_text": "It smells of tar and crab, like everything at the landing.",
+          "flavor_text": "It smells of tar and salt water.",
           "primary_stats": {
             "stamina": 11,
             "spirit": 11
@@ -365,8 +365,8 @@
       ],
       "reward_exp": 3880,
       "reward_gold": 15300,
-      "accept_text": "I've lost crates off the ruin road three nights running, and I know exactly who's got them.\n\nThere are dwarves camped in the forecourt of Khaz Varun's Gate, just south-east of here where the road ends in rubble. They went into the city at some point and they came out wrong. They don't talk sense and they don't leave. The big ones, the Gate-Squatter Brawlers, come up the road at night and carry off whatever my porters set down.\n\nI want my crates back. You'll have to go through the Brawlers to get them, and I won't pretend I'm sorry about that.",
-      "turn_in_text": "Every one of these has my tally number on it, and two of them haven't even been opened.\n\nI don't think they wanted what was inside. I think they just wanted to be carrying something. That bothers me more than the stealing did.\n\nHere's something for your trouble out of a crate they didn't get.",
+      "accept_text": "Somebody's been stealing crates off the ruin road at night, and I know who.\n\nThere are dwarves camped in the forecourt of Khaz Varun's Gate, south-east of here at the end of the road. They went into the city and came out wrong, and now they won't leave. The big ones, the Gate-Squatter Brawlers, come up the road after dark and take whatever my porters put down.\n\nGet my crates back. You'll have to deal with the Brawlers to do it.",
+      "turn_in_text": "These all have my tally numbers on them. Some of them haven't even been opened.\n\nI don't understand what they wanted them for. Thank you for getting them back. Here's something from the stores.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -375,7 +375,7 @@
           "item_level": 54,
           "rarity": "uncommon",
           "required_level": 53,
-          "flavor_text": "It smells of tar and crab, like everything at the landing.",
+          "flavor_text": "It smells of tar and salt water.",
           "primary_stats": {
             "stamina": 11
           },
@@ -439,8 +439,8 @@
       ],
       "reward_exp": 5044,
       "reward_gold": 19890,
-      "accept_text": "I've lost three porters this month, and it was the last one in the line every time.\n\nThe others never hear a thing. They get to the far end of the Green Belt, they turn round to count heads, and they're one short. The woodcutters say it's a panther twice the size of the rest, and they call her Mother Canopy because the others seem to be hers.\n\nShe hunts the trunk road where it runs under the thickest trees, east of the landing. She's hard to find, but she seems to come out for people who are looking for her. I'd like her dead before I've got to promote somebody to the back of the line again.",
-      "turn_in_text": "You've brought me her hide, and it's bigger than my awning.\n\nI'm going to hang it over the stores where the porters can see it. They've been walking that road backwards for a month.\n\nChoose from what I've put by for this. I set it aside the day I lost the first of them.",
+      "accept_text": "I've lost three porters this month on the trunk road, and it was the last one in the line every time.\n\nThe woodcutters say it's a panther twice the size of the others. They call her Mother Canopy. She hunts the stretch of road under the thickest trees in the Green Belt, east of the landing.\n\nShe doesn't show herself to just anyone, but she'll come for someone who goes looking. Please kill her.",
+      "turn_in_text": "That's her hide. I'm glad to see it.\n\nI'll hang it over the stores so the porters can see she's gone. Choose something from what I've set aside for this.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -449,7 +449,7 @@
           "item_level": 55,
           "rarity": "rare",
           "required_level": 53,
-          "flavor_text": "Teodora labelled it before she let anyone wear it.",
+          "flavor_text": "There's a small paper label stitched inside it.",
           "primary_stats": {
             "stamina": 13,
             "spirit": 13
@@ -555,8 +555,8 @@
       ],
       "reward_exp": 3800,
       "reward_gold": 15000,
-      "accept_text": "Nobody could reach this island before the change, so nobody's ever valued it. I'm supposed to put a number on the whole of it, and there are three places I haven't managed to stand in yet.\n\nThe underwriters won't accept a figure for ground nobody's walked. I've tried all three and I was chased out of each of them by something different.\n\nThe first is the middle of the Green Belt, east of here along the trunk road. The second is further east, where the strand road comes down to the water. The third is the pass on the Scoured Slope, north-west of the landing up the west road, where it climbs round the side of the volcano. Stand in each one, have a proper look, and come back and tell me what's there.",
-      "turn_in_text": "You've got timber in the Belt, wrecks at the strand and nothing on the slope but ash and scorpions.\n\nThat's about what I'd guessed, but now I can write it down with a clear conscience. My cousin Nix will take the figure to the Thane and the Thane will say the island's beyond price. He always says that, but he does sign in the end.",
+      "accept_text": "I'm supposed to put a value on this whole island for the underwriters. Nobody could reach it before the change, so nobody's done it before.\n\nThere are three places I haven't been able to stand in. The first is the heart of the Green Belt, east of here along the trunk road. The second is further east, where the strand road meets the water. The third is the pass on the Scoured Slope, north-west of the landing up the west road.\n\nGo to each one, have a good look, and come back and tell me what's there.",
+      "turn_in_text": "Good timber in the Belt, wrecks at the strand, and ash and scorpions on the slope.\n\nThat's what I needed. I'll write it up and send it to my cousin Nix in Cinderwharf.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -583,7 +583,7 @@
           "item_level": 53,
           "rarity": "uncommon",
           "required_level": 52,
-          "flavor_text": "It smells of tar and crab, like everything at the landing.",
+          "flavor_text": "It smells of tar and salt water.",
           "primary_stats": {},
           "secondary_stats": {
             "parry_rating": 1,
@@ -635,8 +635,8 @@
       ],
       "reward_exp": 3880,
       "reward_gold": 15300,
-      "accept_text": "I can't survey the forecourt of Khaz Varun's Gate, because every time I set up the tripod somebody sets fire to it.\n\nThe squatters down there have preachers. The Gate-Squatter Ashpreachers stand in the rubble and shout at the arch, and when they see a stranger they throw fire. They carry slates with writing on them, and I'd like to know what it says. If it's a claim on the property, the underwriters need to hear about it.\n\nThe forecourt's south-east of here at the end of the ruin road. Deal with the Ashpreachers and bring me a few of those slates.",
-      "turn_in_text": "They all say the same line, scratched over and over until the slate's nearly worn through.\n\nIt says 'the forge is lit and we were not called'. That isn't a property claim. I don't know what it is, and I don't think I like it.\n\nI'll send these on to the Deedkeeper in Cinderwharf. She reads the old hand better than I do.",
+      "accept_text": "I can't survey the forecourt of Khaz Varun's Gate because the squatters keep setting fire to my equipment.\n\nThe ones doing it are the Gate-Squatter Ashpreachers. They stand in the rubble shouting at the arch, and they throw fire at strangers. They also carry slates with writing on them. If it's a claim on the city, the underwriters need to know.\n\nThe forecourt is south-east of here at the end of the ruin road. Deal with the Ashpreachers and bring me some of their slates.",
+      "turn_in_text": "They all say the same thing, over and over: \"the forge is lit and we were not called.\"\n\nIt isn't a claim. I don't know what it means. I'll send these to the Deedkeeper in Cinderwharf, she reads the old script better than I do.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -663,7 +663,7 @@
           "item_level": 54,
           "rarity": "uncommon",
           "required_level": 53,
-          "flavor_text": "Old Dark Iron work, four generations in the dark and still sound.",
+          "flavor_text": "Old Dark Iron work that has stayed sound for a hundred years.",
           "primary_stats": {
             "intellect": 10,
             "spirit": 10
@@ -714,8 +714,8 @@
       ],
       "reward_exp": 3800,
       "reward_gold": 15000,
-      "accept_text": "I've run out of anything that takes pain away, and the boat won't bring more for a month.\n\nBefore I came through I had a cabinet full of tablets. Here I've got clean water and bandages. But the woodcutters tell me the Ashfur Gorillas in the Green Belt chew a grey bark and pack it on their burns, and they've seen burned ones up and climbing again in a day.\n\nPeople have been learning medicine from animals for as long as there have been people. Aspirin started as willow bark. I'd like to know what this is.\n\nThe Green Belt's east of the landing, along the trunk road. The gorillas carry the chewed bark with them. They won't give it up politely.",
-      "turn_in_text": "This is it, and you can smell how strong it is.\n\nI tried a little on my own tongue while you were putting your pack down, and my whole mouth's gone numb. That's a real anaesthetic, growing on a tree forty minutes from my tent.\n\nI spent eleven years on a ferry wishing for better supplies. I wish I'd had something like this back then.",
+      "accept_text": "I've run out of painkillers, and the boat won't bring more for a month.\n\nBefore I came through I had a whole cabinet of them. Here I've got bandages and clean water. The woodcutters tell me the Ashfur Gorillas in the Green Belt chew a grey bark and put it on their burns, and the burned ones are climbing again in a day.\n\nThe Green Belt is east of the landing along the trunk road. The gorillas carry the chewed bark with them. I'd like to try it.",
+      "turn_in_text": "This is strong. Even a little of it numbs your mouth.\n\nI think I can make a proper painkiller out of it. Thank you, that's going to help a lot of people here.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -724,7 +724,7 @@
           "item_level": 53,
           "rarity": "uncommon",
           "required_level": 52,
-          "flavor_text": "The vine lashing has put out a leaf since it was tied.",
+          "flavor_text": "It's tied with vine from the Green Belt.",
           "primary_stats": {
             "strength": 8,
             "stamina": 10
@@ -760,7 +760,7 @@
           "item_level": 53,
           "rarity": "uncommon",
           "required_level": 52,
-          "flavor_text": "Teodora labelled it before she let anyone wear it.",
+          "flavor_text": "There's a small paper label stitched inside it.",
           "weapon_type": "bow",
           "primary_stats": {
             "agility": 7,
@@ -795,8 +795,8 @@
       ],
       "reward_exp": 3880,
       "reward_gold": 15300,
-      "accept_text": "Nearly everything I treat here is a burn, and a burn needs a dressing that stays clean.\n\nThe smelter crews come to me with their arms cooked, and the people who've been near the gate come with worse. Butter goes off in a day in this heat. Lamp oil poisons the wound. What I need is a clean fat that keeps.\n\nThe cook says the fat from under a Shallows Snapper's shell stays sweet for weeks, and she'd know. The snappers are out in the Tempest Shallows, east along the trunk road and down the strand road to the water. Mind their beaks, because I've already stitched two hands this week.",
-      "turn_in_text": "That's lovely clean fat, and there's plenty of it.\n\nI'll melt it down with the bitterbark and see what I get. If it works I'll have a burn dressing better than the one I used before I came through, made out of a turtle and a tree.\n\nI'm glad to see you came back with all your fingers.",
+      "accept_text": "Most of what I treat here is burns. Before I came through I'd have ordered dressings from the hospital stores, but here I've got to make them, and I need a clean fat that keeps.\n\nButter goes off in a day in this heat and lamp oil makes a wound worse. The cook says the fat under a Shallows Snapper's shell stays fresh for weeks.\n\nThe snappers are out in the Tempest Shallows, east along the trunk road and down the strand road. Watch their beaks.",
+      "turn_in_text": "That's good clean fat.\n\nI'll mix it with the bark and see if it holds. If it works I'll have proper burn dressings again. Thank you.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -874,8 +874,8 @@
       ],
       "reward_exp": 3880,
       "reward_gold": 15300,
-      "accept_text": "I can't build a barge out of jungle wood, because it's green and it warps before the pitch is dry.\n\nThe best timber on this island is already shaped and seasoned, and it's sitting in the wrecks out in the Tempest Shallows. The trouble is the Wreckpicker Murlocs got there first. They strip the old ships plank by plank and carry the wood off to build their own huts.\n\nGo east along the trunk road and down the strand road to the water, and take the timber off them. I need ribs and strakes, and I don't care which murloc was carrying them.",
-      "turn_in_text": "Feel the weight of that plank, and then try to mark it with your thumbnail.\n\nThat's oak that's sat in salt water for longer than I've been alive. You can't buy wood like that. I'll have a hull framed by the end of the week.\n\nWhether it stays afloat is another question, and I want to talk to you about that.",
+      "accept_text": "I built boats in Booty Bay until the sea route opened three years ago and the Ashclaim offered me more. I need seasoned timber for barge hulls, and the jungle wood is too green. It warps before the pitch has dried, and I can't use it.\n\nThe best timber on the island is in the old wrecks out in the Tempest Shallows, but the Wreckpicker Murlocs strip the wrecks and carry the planks off to build with.\n\nGo east along the trunk road and down the strand road to the water, and take the timber off the murlocs.",
+      "turn_in_text": "This is old oak that's been under salt water for years. It's harder than new wood.\n\nI can frame a hull with this. There's still something sinking my barges, though, and I want to talk to you about it.",
       "next_quest_id": "tmp_the_barge_eater",
       "unique_item_defs": [
         {
@@ -901,7 +901,7 @@
           "item_level": 54,
           "rarity": "uncommon",
           "required_level": 53,
-          "flavor_text": "It was under water for a long time and came up in good order.",
+          "flavor_text": "It was under water for a long time and is still in good condition.",
           "primary_stats": {
             "stamina": 10,
             "spirit": 10
@@ -919,7 +919,7 @@
           "item_level": 54,
           "rarity": "uncommon",
           "required_level": 53,
-          "flavor_text": "The barnacles came off and the marks they left didn't.",
+          "flavor_text": "You can still see where the barnacles were.",
           "primary_stats": {
             "stamina": 7,
             "spirit": 7
@@ -951,8 +951,8 @@
       ],
       "reward_exp": 5148,
       "reward_gold": 20280,
-      "accept_text": "I've launched six hulls since spring and I've got two left, and I finally know why.\n\nOne of my crew saw it happen from the beach. A barge was crossing the bay low in the water with a full load of ore, and a crab came up underneath it. He says the claw went through the bottom planks like a pick through a crate. The jetty hands have started calling it The Barge-Eater.\n\nIt lives out in the deep part of the Tempest Shallows, south-east of here past the last of the wrecks. It doesn't show itself often, but it does seem to come up for anybody who goes out there hunting it. Please kill it, because I can't keep losing crews.",
-      "turn_in_text": "My whole crew watched you drag that claw up the beach, and nobody's done a stroke of work since.\n\nI'm going to mount it on the bow of the next hull. The goblins on the wharf will say it's bad luck. I say anything that sees it coming will think twice.\n\nYou've saved me four barges a season. Take this, and take a share of the crab while you're at it.",
+      "accept_text": "I've found out what's been sinking my barges.\n\nOne of my crew watched it from the beach. A loaded barge was crossing the bay and a huge crab came up under it and put a claw through the hull. The jetty hands call it The Barge-Eater.\n\nIt lives in the deep part of the Tempest Shallows, south-east of here past the last of the wrecks. It comes up for people who go out hunting it. Please kill it before I lose another crew.",
+      "turn_in_text": "My crew saw you bring the claw up the beach.\n\nWe can launch again now. I'm going to mount the claw on the next hull. Take this, and thank you.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -961,7 +961,7 @@
           "item_level": 56,
           "rarity": "rare",
           "required_level": 54,
-          "flavor_text": "It was under water for a long time and came up in good order.",
+          "flavor_text": "It was under water for a long time and is still in good condition.",
           "primary_stats": {
             "stamina": 17
           },
@@ -1058,8 +1058,8 @@
       ],
       "reward_exp": 3880,
       "reward_gold": 15300,
-      "accept_text": "I built yachts in Booty Bay until the sea route opened three years ago and the Ashclaim offered me double. A barge needs a clear channel to get out of the bay, and mine's full of things with shells.\n\nThe Shallows Snappers lie on the bottom and bite at the steering oar. The Bargebreaker Crabs hang onto the hull until something gives. Neither of them can sink a boat alone, but between them they slow one down enough for worse to catch it.\n\nThe channel runs out through the Tempest Shallows, east along the trunk road and down the strand road. Wade out and clear whatever you find on the bottom.",
-      "turn_in_text": "The pilot took a barge out on the evening tide and he says the oar came back with no new teeth marks.\n\nThat's the first time since I got here. He was so pleased that he forgot to complain about the pay.\n\nHere's something from the saw pit stores for you.",
+      "accept_text": "My barges need a clear channel out of the bay, and the bottom's crawling with things that slow them down.\n\nThe Shallows Snappers bite at the steering oars and the Bargebreaker Crabs grab hold of the hulls. A slow barge is an easy target for worse.\n\nThe channel runs out through the Tempest Shallows, east along the trunk road and down the strand road. Wade out and clear what you find.",
+      "turn_in_text": "The pilot took a barge out on the evening tide and nothing touched the oar.\n\nThank you. Here's something from the saw pit stores.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1140,8 +1140,8 @@
       ],
       "reward_exp": 5148,
       "reward_gold": 20280,
-      "accept_text": "There's one of them out in the rubble that the others follow, and I knew him before he went in.\n\nHis name's Borrik. He was a mason, and the Thane sent him down with the first party to shore up the gatehouse. He was inside for six days. When he came out he wouldn't go further than the forecourt, and he told the others the city had turned him away. They've called him Borrik the Unhoused ever since.\n\nHe keeps to the broken ground south and east of where I'm standing, and he doesn't come out for everyone. He'll come out for somebody who's hunting him. I can't leave this post. I don't think I could do it anyway, because I knew him.",
-      "turn_in_text": "So it's finished, and I'm glad I wasn't the one to see it.\n\nHe built half the hold at Cinderwharf with his own hands before he went down. I want that remembered about him, and not the rest.\n\nThe squatters will drift without him. Some of them might even walk back up the road. Take this for doing it.",
+      "accept_text": "The squatters in the forecourt follow one of their own, and I knew him before he went in.\n\nHis name's Borrik. He was a mason, and the Thane sent him down with the first party. He came out after six days and wouldn't go further than the forecourt. He says the city turned him away, and the others call him Borrik the Unhoused.\n\nHe keeps to the broken ground south and east of here. He'll come out for someone who's hunting him. I can't leave my post, and I don't think I could do it anyway.",
+      "turn_in_text": "So he's gone.\n\nHe built half the hold in Cinderwharf before he went down there. The other squatters might go home now that he's not leading them. Take this, and thank you.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1184,7 +1184,7 @@
           "item_level": 56,
           "rarity": "rare",
           "required_level": 54,
-          "flavor_text": "The Thane says it should go back down one day.",
+          "flavor_text": "It was carried up out of the old city.",
           "weapon_type": "polearm",
           "primary_stats": {
             "strength": 13,
@@ -1238,8 +1238,8 @@
       ],
       "reward_exp": 3960,
       "reward_gold": 15600,
-      "accept_text": "Khaz Varun breathes through shafts that come out high on the mountain, and something's nesting in them.\n\nMy family kept those vents clear for nine generations. A city under a volcano needs air or everyone in it chokes. Now the Ashwing Whelps roost in the shaft mouths because the stone's warm, and they've packed them with ash and bones.\n\nThe vents open onto the Scoured Slope, north of here up the west road. I can't do anything about what's inside the city, but I can still do this part of my family's job, if you'll be my hands.",
-      "turn_in_text": "I felt the draught change at the arch about an hour ago, and I thought it might be you.\n\nIt's blowing outward again, the way my grandfather said it should. There's no one alive down there to breathe it, but the Thane means to change that.\n\nYou've done Emberhold work today. Take this with my family's thanks.",
+      "accept_text": "Khaz Varun gets its air through shafts that come out high on the mountain, and something's nesting in them.\n\nMy family kept those vents clear for nine generations. Now the Ashwing Whelps roost in the shaft mouths because the stone's warm, and they've filled them with ash and bones.\n\nThe vents open onto the Scoured Slope, north of here up the west road. Clear out the whelps for me.",
+      "turn_in_text": "I felt the air at the arch change about an hour ago. It's blowing out again, the way it should.\n\nThank you. Take this with my family's thanks.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1248,7 +1248,7 @@
           "item_level": 55,
           "rarity": "uncommon",
           "required_level": 54,
-          "flavor_text": "Old Dark Iron work, four generations in the dark and still sound.",
+          "flavor_text": "Old Dark Iron work that has stayed sound for a hundred years.",
           "primary_stats": {
             "strength": 8,
             "stamina": 10
@@ -1284,7 +1284,7 @@
           "item_level": 55,
           "rarity": "uncommon",
           "required_level": 54,
-          "flavor_text": "Old Dark Iron work, four generations in the dark and still sound.",
+          "flavor_text": "Old Dark Iron work that has stayed sound for a hundred years.",
           "weapon_type": "wand",
           "primary_stats": {
             "intellect": 7,
@@ -1327,8 +1327,8 @@
       ],
       "reward_exp": 3880,
       "reward_gold": 15300,
-      "accept_text": "You keep looking at the arch, so I'll tell you about it before you do anything foolish.\n\nAsk me what you like. When you've heard it, I've got a favour to ask. I keep a book of everyone who goes through that gate and everyone who comes back, and the Thane hasn't seen it in two months because nobody will carry it.\n\nHe's in Cinderwharf, on the north-east shore. Take the trunk road east, then the east road north round the mountain, and follow the shore north to the town.",
-      "turn_in_text": "This is Bron's book, and I can see he's kept it carefully.\n\nForty-one have gone in since the spring. Twenty-six have come out, and he's marked nine of those as 'not right'. I signed the orders for most of these names.\n\nI've been waiting for somebody who'd read this book and go down anyway. I think that might be you.",
+      "accept_text": "You keep looking at that arch. Ask me about it before you do anything about it.\n\nWhen you're done, I've got a favour to ask. I keep a book of everyone who goes through the gate and everyone who comes back. The Thane hasn't seen it in two months because nobody will carry it to him.\n\nHe's in Cinderwharf on the north-east shore. Take the trunk road east, the east road north round the mountain, and follow the shore north to the town.",
+      "turn_in_text": "This is Bron's book.\n\nForty-one have gone in since spring and twenty-six have come out. He's marked nine of those as not right. I signed the orders that sent most of them.\n\nI need someone who'll go down there anyway. If that's you, I've got work for you.",
       "next_quest_id": "tmp_empty_the_gatehouse",
       "unique_item_defs": [
         {
@@ -1353,7 +1353,7 @@
           "item_level": 54,
           "rarity": "uncommon",
           "required_level": 53,
-          "flavor_text": "Old Dark Iron work, four generations in the dark and still sound.",
+          "flavor_text": "Old Dark Iron work that has stayed sound for a hundred years.",
           "primary_stats": {
             "agility": 13
           },
@@ -1371,7 +1371,7 @@
           "item_level": 54,
           "rarity": "uncommon",
           "required_level": 53,
-          "flavor_text": "Old Dark Iron work, four generations in the dark and still sound.",
+          "flavor_text": "Old Dark Iron work that has stayed sound for a hundred years.",
           "primary_stats": {
             "intellect": 7,
             "stamina": 9
@@ -1413,8 +1413,8 @@
       ],
       "reward_exp": 3880,
       "reward_gold": 15300,
-      "accept_text": "Nobody's prospected this island since the day the world changed, so I'm the first, and I've found a way to do it without digging, and you're going to think I've lost my mind.\n\nBasilisks swallow stones to grind their food. A Rubble Basilisk picks them up wherever it's been walking, and it walks over ground I can't get to. So if I open one up and there's truesilver in its gizzard, I know there's truesilver somewhere on its rounds.\n\nThe Rubble Basilisks are thickest in the broken stone round Khaz Varun's Gate, south-west of here. Bring me what's in their gizzards and I'll tell you where the seams are.",
-      "turn_in_text": "Look at that streak, bright as a new coin.\n\nMost of these have truesilver in them and one's got something I don't recognise at all. That basilisk had been walking over a seam nobody's found yet.\n\nMy old master would have thrown me out of the guild for this method. He also died poor, so take your share and don't tell the goblins how I did it.",
+      "accept_text": "Nobody's prospected this island since the gate opened three years ago, and I want to find the truesilver without digging up half of it.\n\nBasilisks swallow stones to grind their food, and they pick them up wherever they walk. If there's truesilver in a basilisk's gizzard, there's a seam somewhere on its route.\n\nThe Rubble Basilisks are thickest round Khaz Varun's Gate, south-west of here. Bring me the stones from their gizzards.",
+      "turn_in_text": "Look at the silver in that one.\n\nMost of these have truesilver in them, so there's a seam near the gate. I'll go looking for it. Take your share of this.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1423,7 +1423,7 @@
           "item_level": 54,
           "rarity": "uncommon",
           "required_level": 53,
-          "flavor_text": "The vine lashing has put out a leaf since it was tied.",
+          "flavor_text": "It's tied with vine from the Green Belt.",
           "primary_stats": {
             "intellect": 8,
             "stamina": 10
@@ -1459,7 +1459,7 @@
           "item_level": 54,
           "rarity": "uncommon",
           "required_level": 53,
-          "flavor_text": "The vine lashing has put out a leaf since it was tied.",
+          "flavor_text": "It's tied with vine from the Green Belt.",
           "primary_stats": {
             "intellect": 7,
             "stamina": 9
@@ -1507,8 +1507,8 @@
       ],
       "reward_exp": 3960,
       "reward_gold": 15600,
-      "accept_text": "Truesilver hides in a rock that's the blue of a pigeon's neck, and I can see two patches of that colour from here.\n\nThey're both up on the Scoured Slope, on the flank of the volcano. One's to the north-west above the west road, and the other's to the north-east above the east road. I'd walk up myself, but the Cinderslope Flame Spirits gather on exactly that kind of rock. I think the metal draws them.\n\nGo up to each outcrop and look at it closely for me. You'll have to put out the Flame Spirits before they let you near.",
-      "turn_in_text": "So the western one's the true colour, and the eastern one's only weathered slag.\n\nThat's saved me a week of climbing and probably my eyebrows. I'll stake the western outcrop tomorrow, before Pim costs it and the goblins decide it was theirs all along.\n\nYou've got a good eye for rock. Take this, it came out of the first seam I ever found here.",
+      "accept_text": "Truesilver usually shows in a blue-grey rock, and I can see two patches of that colour from here.\n\nBoth are up on the Scoured Slope. One's north-west, above the west road, and the other's north-east, above the east road. The Cinderslope Flame Spirits gather on that kind of rock and I can't get close.\n\nGo up to both outcrops and take a good look. You'll have to deal with the Flame Spirits first.",
+      "turn_in_text": "The western one is the real thing and the eastern one is just weathered slag.\n\nThat saves me a lot of climbing. I'll stake the western outcrop tomorrow. Take this, it came out of the first seam I found here.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1517,7 +1517,7 @@
           "item_level": 55,
           "rarity": "uncommon",
           "required_level": 54,
-          "flavor_text": "Teodora labelled it before she let anyone wear it.",
+          "flavor_text": "There's a small paper label stitched inside it.",
           "primary_stats": {
             "stamina": 11
           },
@@ -1585,8 +1585,8 @@
       ],
       "reward_exp": 3960,
       "reward_gold": 15600,
-      "accept_text": "There's a strip of the Scoured Slope where plants are coming back onto bare ash, and I've been watching it since I got here.\n\nI did the same thing before the change. When Cotopaxi dusted the hills south of Quito, I walked the same plots every month for two years and wrote down what grew first. It's always something small and stubborn, and here it's a red fern I'd never seen before this island.\n\nThe Ashscree Scorpions burrow in the loose ash under the ferns and tear the roots out. The slope's north of here, where the trees stop. If you can thin the scorpions I might get a full season of notes.",
-      "turn_in_text": "I walked up after you and the ferns on the lower plot are still standing.\n\nYou won't think that's much to look at. I can tell you that in ten years those ferns will be soil, and in fifty that slope will be forest, and I'll have written down how it started.\n\nI can't send it to anyone in Quito, but the Ashclaim will keep a copy, and that's good enough for me.",
+      "accept_text": "I'm studying a strip of the Scoured Slope where plants are growing back on the bare ash.\n\nI did the same work in the hills near Quito before the change, after the eruptions there. Here the first thing to grow back is a small red fern. The Ashscree Scorpions burrow under it and tear the roots up.\n\nThe slope is north of here, where the trees stop. If you can thin out the scorpions I'll be able to finish my notes for the season.",
+      "turn_in_text": "The ferns on the lower plot are still standing. Thank you.\n\nI'll be able to keep watching that plot through the season now. The Ashclaim will get a copy of my notes.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1629,7 +1629,7 @@
           "item_level": 55,
           "rarity": "uncommon",
           "required_level": 54,
-          "flavor_text": "Teodora labelled it before she let anyone wear it.",
+          "flavor_text": "There's a small paper label stitched inside it.",
           "weapon_type": "staff",
           "primary_stats": {
             "intellect": 15,
@@ -1665,8 +1665,8 @@
       ],
       "reward_exp": 3960,
       "reward_gold": 15600,
-      "accept_text": "The Ashclaim pays me to say which plants are worth money, and I've got forty answers pressed between these boards.\n\nEvery one's labelled with where I found it and what it did to the mouse. Alchemist Pell in Cinderwharf is the one who decides what the Ashclaim will buy, so the press needs to reach him flat and dry.\n\nTake the east road north round the mountain into the Ashen Reach, then follow the shore north to the town. He's by the salvage yard at the south end. Please don't let him keep the boards, because I only brought the one press with me.",
-      "turn_in_text": "She's labelled every one of these, and in a better hand than mine.\n\nI'll be straight with you, I expected a sack of leaves. This is proper work. Three of these I can sell tomorrow, and that red fern's going to make somebody rich.\n\nTell her she can have her boards back. Tell her the Ashclaim's doubling what it pays her as well, and that it was my idea.",
+      "accept_text": "The Ashclaim pays me to tell them which plants here are worth money, and I've pressed forty of them between these boards.\n\nAlchemist Pell in Cinderwharf decides what the Ashclaim buys, so the press needs to reach him flat and dry.\n\nTake the east road north round the mountain into the Ashen Reach and follow the shore north to the town. He's by the salvage yard. Please ask him to send the boards back, it's the only press I've got.",
+      "turn_in_text": "She's labelled every one of these properly. I was expecting a sack of leaves.\n\nI can sell three of these straight away, and the red fern could be worth a lot. Tell her she'll have her boards back, and that I'm asking the Ashclaim to raise her pay.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1675,7 +1675,7 @@
           "item_level": 55,
           "rarity": "uncommon",
           "required_level": 54,
-          "flavor_text": "Ashclaim issue. Dwarf made and goblin priced.",
+          "flavor_text": "Ashclaim issue, made by a dwarf smith and sold by a goblin.",
           "primary_stats": {
             "strength": 10,
             "agility": 9,
@@ -1691,7 +1691,7 @@
           "item_level": 55,
           "rarity": "uncommon",
           "required_level": 54,
-          "flavor_text": "Signed out of the Ashclaim stores, with the signature still wet.",
+          "flavor_text": "Signed out of the Ashclaim stores in Cinderwharf.",
           "primary_stats": {},
           "secondary_stats": {
             "healing_power": 16,
@@ -1707,7 +1707,7 @@
           "item_level": 55,
           "rarity": "uncommon",
           "required_level": 54,
-          "flavor_text": "It came over on the supply boat and it's been repaired twice since.",
+          "flavor_text": "It came over on the supply boat and has been repaired twice since.",
           "primary_stats": {
             "strength": 7,
             "stamina": 9
@@ -1755,8 +1755,8 @@
       ],
       "reward_exp": 3880,
       "reward_gold": 15300,
-      "accept_text": "I had a good pair of sea boots when I walked out there, and I walked back in my socks.\n\nI was on the near wreck, the one you can see sticking up to the south-east. A Bargebreaker Crab got hold of one foot and I left the boot in its claw. Another one got the second boot while I was hopping.\n\nThey were made for me in Booty Bay and they've got brass toes. I want them back. The crabs round that wreck will still have them, because a crab never lets go of anything.",
-      "turn_in_text": "They've been chewed, but those are my boots and they've still got their toes.\n\nI'm putting them on right now and I'm never taking them off again. You've got no idea what it's like to stand on a beach full of crabs in your socks.\n\nHere, this came out of the wreck before the crabs came out after me.",
+      "accept_text": "I went out to the near wreck in my good sea boots and came back without them.\n\nIt's the wreck you can see sticking up to the south-east. A Bargebreaker Crab got one boot and another one got the second while I was getting away.\n\nThey were made for me in Booty Bay and they've got brass toes. The crabs round that wreck will still have them. Please get them back for me.",
+      "turn_in_text": "Those are mine. They're chewed, but they'll do.\n\nThank you. Here, this came out of the wreck before the crabs chased me off.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1783,7 +1783,7 @@
           "item_level": 54,
           "rarity": "uncommon",
           "required_level": 53,
-          "flavor_text": "It was under water for a long time and came up in good order.",
+          "flavor_text": "It was under water for a long time and is still in good condition.",
           "primary_stats": {
             "stamina": 10
           },
@@ -1801,7 +1801,7 @@
           "item_level": 54,
           "rarity": "uncommon",
           "required_level": 53,
-          "flavor_text": "It was under water for a long time and came up in good order.",
+          "flavor_text": "It was under water for a long time and is still in good condition.",
           "weapon_type": "bow",
           "primary_stats": {
             "agility": 7,
@@ -1852,8 +1852,8 @@
       ],
       "reward_exp": 3960,
       "reward_gold": 15600,
-      "accept_text": "Now that I've got my boots, I can tell you about the wrecks that are really worth the walk.\n\nThere are two big ones a long way out. One lies to the south-east at the edge of the deep water, and the other's further south again, past the sandbar. They went down with their holds full, and whoever sailed them sealed the cargo in small casks.\n\nThe Wreckpicker Murlocs have been carrying those casks off. Go out to both wrecks and see what's left, and take back whatever casks the murlocs have got. We'll split what's inside.",
-      "turn_in_text": "Let's get one of these open and see what we've got.\n\nIt's lamp oil, and good lamp oil at that. It's still clear after all those years under the bay. That isn't treasure, but Trader Gex in Cinderwharf will pay for it as if it were.\n\nTake your half in this, and I'll keep the casks. I told you they were worth the walk.",
+      "accept_text": "There are two big wrecks a long way out that still had cargo when they went down.\n\nOne is south-east of here at the edge of the deep water. The other is further south, past the sandbar. The cargo was sealed in small casks, and the Wreckpicker Murlocs have been carrying them off.\n\nGo out to both wrecks and see what's left, and get the casks back from the murlocs. We'll split whatever's inside.",
+      "turn_in_text": "It's lamp oil, and it's still good after all that time under water.\n\nTrader Gex in Cinderwharf will pay well for it. Take your half of the money, and I'll keep the casks.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1862,7 +1862,7 @@
           "item_level": 55,
           "rarity": "uncommon",
           "required_level": 54,
-          "flavor_text": "It was under water for a long time and came up in good order.",
+          "flavor_text": "It was under water for a long time and is still in good condition.",
           "primary_stats": {
             "intellect": 8
           },
@@ -1930,8 +1930,8 @@
       ],
       "reward_exp": 3880,
       "reward_gold": 15300,
-      "accept_text": "The Brawler had a brass tag on a string round its neck. It's a pay chit from the Ashclaim stores, the kind every porter at the landing is issued, and it's stamped with a number.\n\nQuartermaster Durn keeps the pay book at Ashclaim Landing. He'd know whose number this was.",
-      "turn_in_text": "Where did you get this? I know this number without opening the book.\n\nThis number belongs to Hedda, who carried for me all spring and was the best I had. She went to look at the gate on her rest day, because she wanted to see where her grandmother was born. I marked her down as gone home on the boat.\n\nI'll change the book. I'd sooner it said what happened to her. It was right of you to bring it back.",
+      "accept_text": "The Brawler had a brass tag on a string round its neck. It's a pay chit from the Ashclaim stores, the kind every porter at the landing gets, and it's stamped with a number.\n\nQuartermaster Durn at Ashclaim Landing keeps the pay book. He'll know whose number it is.",
+      "turn_in_text": "I know this number. It belonged to Hedda, one of my porters.\n\nShe went to look at the gate on her rest day, because her grandmother was born in the city. I thought she'd gone home on the boat. I'll correct the book. Thank you for bringing this back.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -1940,7 +1940,7 @@
           "item_level": 54,
           "rarity": "uncommon",
           "required_level": 53,
-          "flavor_text": "Carried up from the jetty by hand, like everything else there.",
+          "flavor_text": "It was carried up from the jetty by hand.",
           "primary_stats": {
             "strength": 8,
             "stamina": 10
@@ -1958,7 +1958,7 @@
           "item_level": 54,
           "rarity": "uncommon",
           "required_level": 53,
-          "flavor_text": "Carried up from the jetty by hand, like everything else there.",
+          "flavor_text": "It was carried up from the jetty by hand.",
           "primary_stats": {
             "strength": 8,
             "agility": 7,
@@ -2005,8 +2005,8 @@
       ],
       "reward_exp": 3960,
       "reward_gold": 15600,
-      "accept_text": "The murloc had a hardbound book tucked under its arm. The pages are swollen with sea water, but the writing's in ink and most of it can still be read. It's in English, and the dates are from three years ago.\n\nThe dwarves and goblins at the landing won't be able to read it. Dr. Mwangi at Ashclaim Landing came through from Earth, and she will.",
-      "turn_in_text": "Give me a moment with this, because I haven't held a book in English for three years.\n\nShe was the MV Amani, a coastal freighter out of Dar es Salaam, carrying cement and tinned fish to Mombasa. I knew that ship. I used to watch her come in past the ferry.\n\nThe last entry's the day everything changed. The mate wrote that the coast had gone and the stars were wrong, and that they were making for the only land they could see. They must have meant this island.",
+      "accept_text": "The murloc was carrying a hardbound book. The pages are swollen with sea water but the ink can still be read. It's written in English, and the dates are from three years ago.\n\nThe dwarves and goblins won't be able to read it. Dr. Mwangi at Ashclaim Landing came through from Earth, so she probably can.",
+      "turn_in_text": "This is the log of the MV Amani, a coastal freighter out of Dar es Salaam. I used to see her come into Mombasa.\n\nThe last entry is from the day everything changed. The mate wrote that the coast had disappeared and they were heading for the only land they could see. That must have been this island.",
       "next_quest_id": "tmp_who_was_aboard",
       "unique_item_defs": [
         {
@@ -2015,7 +2015,7 @@
           "item_level": 55,
           "rarity": "uncommon",
           "required_level": 54,
-          "flavor_text": "It was under water for a long time and came up in good order.",
+          "flavor_text": "It was under water for a long time and is still in good condition.",
           "primary_stats": {},
           "secondary_stats": {
             "dodge_rating": 2,
@@ -2031,7 +2031,7 @@
           "item_level": 55,
           "rarity": "uncommon",
           "required_level": 54,
-          "flavor_text": "It was under water for a long time and came up in good order.",
+          "flavor_text": "It was under water for a long time and is still in good condition.",
           "primary_stats": {
             "stamina": 15
           },
@@ -2089,8 +2089,8 @@
       ],
       "reward_exp": 4040,
       "reward_gold": 15900,
-      "accept_text": "There were eleven people on that ship, and the log gives me nothing but their ranks.\n\nEvery seaman carries a discharge book with a name and a photograph in it. If the murlocs took the log, they'll have taken those as well, because they take anything with a hard cover.\n\nThe log puts her aground at the far south-east corner of the Tempest Shallows. She'll be the only wreck out there made of steel. Would you go and see that she's really there, and bring back whatever books you can find? They've been lost for three years, and I'd like to know who they were.",
-      "turn_in_text": "You found some of them, and I can read every name.\n\nThis one's Juma Otieno, the second engineer, and he was born in Kisumu. I don't know whether they drowned or walked ashore. If they walked, they may be somewhere in this world wondering if anyone knows they were here.\n\nI'm going to copy these names out and send them with every boat that leaves this jetty. Somebody may have met them.",
+      "accept_text": "The log only lists the crew by rank. I'd like to know their names.\n\nEvery seaman carries a discharge book with his name and photograph in it. The murlocs took the log, so they've probably taken those as well.\n\nThe log puts the ship aground at the far south-east corner of the Tempest Shallows. She'll be the only steel wreck out there. See if she's there, and bring back any of the books you can find. These people have been missing for three years.",
+      "turn_in_text": "I can read every name in these.\n\nThis one is Juma Otieno, the second engineer, from Kisumu. I don't know if any of them got ashore. I'll copy the names out and send them with every boat that leaves, in case somebody has met them.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -2169,8 +2169,8 @@
       ],
       "reward_exp": 5148,
       "reward_gold": 20280,
-      "accept_text": "My great-grandfather's gatewarden is still at his post, and that's the first thing I need you to put right.\n\nHis name was Hrun. He held the gate of Khaz Varun the night the city went dark, and by every account he's holding it still. The gate opened by itself three years ago, on the day the world changed, and nobody I've sent since has got past him, and those who've come back can't tell me what they saw.\n\nThe gate's on the south shore of the island, a short walk south-east of Ashclaim Landing. Go through the arch and you'll find him in the Gatehouse Hall beyond the Ember Road. He was a loyal dwarf, so make it quick.",
-      "turn_in_text": "Then Hrun's relieved at last, and it's taken four generations.\n\nI'll have his name cut at the shrine tonight. He kept the gate against everything for a hundred years, and it's no shame on him that he couldn't tell friend from stranger at the end.\n\nThe gatehouse was the lock. The city's behind it, and the worst of the city's further in.",
+      "accept_text": "The first thing standing between us and the city is my great-grandfather's gatewarden.\n\nHis name was Hrun. He was holding the gate of Khaz Varun the night the city went dark, and he's still holding it. The gate opened by itself three years ago, on the day the world changed, and nobody I've sent in since has got past him.\n\nThe gate is on the south shore, a short walk south-east of Ashclaim Landing. Hrun is in the Gatehouse Hall past the Ember Road. He was a loyal dwarf, so make it quick.",
+      "turn_in_text": "So Hrun can rest now.\n\nI'll have his name added at the shrine tonight. The gatehouse was only the first part. The worst of it's deeper in.",
       "next_quest_id": "tmp_the_forge_lord",
       "unique_item_defs": [
         {
@@ -2196,7 +2196,7 @@
           "item_level": 56,
           "rarity": "rare",
           "required_level": 53,
-          "flavor_text": "The Thane says it should go back down one day.",
+          "flavor_text": "It was carried up out of the old city.",
           "primary_stats": {
             "agility": 15
           },
@@ -2214,7 +2214,7 @@
           "item_level": 56,
           "rarity": "rare",
           "required_level": 53,
-          "flavor_text": "The Thane says it should go back down one day.",
+          "flavor_text": "It was carried up out of the old city.",
           "primary_stats": {
             "intellect": 8
           },
@@ -2267,8 +2267,8 @@
       ],
       "reward_exp": 5252,
       "reward_gold": 20670,
-      "accept_text": "The squatters at the gate keep saying that the forge is lit, and I've learned that they're telling the truth.\n\nThe Great Forge of Khaz Varun has been cold since before my father was born. It's burning now. Somebody's working it, and the rolls say the last Forge-Lord was a dwarf named Darrok who never left his anvil.\n\nYou'll find the Great Forge on the east side of the city, past the Counting Hall. Whatever's standing at that anvil is making something, and I don't want to learn what it's making by having it walk out of my gate.",
-      "turn_in_text": "So Forge-Lord Darrok was still at it, after all this time.\n\nThe Underwriter will be delighted that the forge works. I'm less delighted about what it was being used for. You say the moulds were shaped like dwarves, and I believe you.\n\nThat leaves the hall itself, and I haven't wanted to talk about the hall.",
+      "accept_text": "The squatters at the gate say the forge is lit, and they're right.\n\nThe Great Forge of Khaz Varun has been cold since before my father was born, and now it's burning. The rolls say the last Forge-Lord was a dwarf named Darrok who never left his anvil.\n\nThe Great Forge is on the east side of the city, past the Counting Hall. Whatever is working that anvil, I want it stopped before it's finished.",
+      "turn_in_text": "So Forge-Lord Darrok was still there.\n\nThe Underwriter will be glad the forge works. I'm less glad about what was being made in it. That leaves the hall itself, and the one who's in it.",
       "next_quest_id": "tmp_thane_morrun",
       "unique_item_defs": [
         {
@@ -2295,7 +2295,7 @@
           "item_level": 57,
           "rarity": "rare",
           "required_level": 54,
-          "flavor_text": "Old Dark Iron work, four generations in the dark and still sound.",
+          "flavor_text": "Old Dark Iron work that has stayed sound for a hundred years.",
           "primary_stats": {
             "strength": 11,
             "stamina": 14
@@ -2313,7 +2313,7 @@
           "item_level": 57,
           "rarity": "rare",
           "required_level": 54,
-          "flavor_text": "The Thane says it should go back down one day.",
+          "flavor_text": "It was carried up out of the old city.",
           "primary_stats": {
             "intellect": 8
           },
@@ -2329,7 +2329,7 @@
           "item_level": 57,
           "rarity": "rare",
           "required_level": 54,
-          "flavor_text": "The Thane says it should go back down one day.",
+          "flavor_text": "It was carried up out of the old city.",
           "primary_stats": {},
           "secondary_stats": {
             "healing_power": 17,
@@ -2361,8 +2361,8 @@
       ],
       "reward_exp": 5356,
       "reward_gold": 21060,
-      "accept_text": "My great-grandfather's name was Morrun Ashhold, and he's sitting in his own chair at the top of that city.\n\nThe gate opened three years ago, and I've known it for one of them. One of the first party got as far as the Hall of Ashhold and saw him through the doors. He hasn't been a dwarf for a long time. The squatters call him the Unmade, and I've got no better word.\n\nMy claim rests on being his heir. I can't inherit from a thane who's still in the chair, and I can't lay my family to rest while he keeps them walking. The hall's at the north end of the city, beyond the Shadow Gallery. I'm asking you to kill Thane Morrun the Unmade, and I know what I'm asking.",
-      "turn_in_text": "You've done it, then, and I find I need to sit down.\n\nI've carried that deed since I was a boy. I slept on it in rented rooms and I kept it dry on a goblin barge. I never once let myself picture the day it would mean something.\n\nKhaz Varun has one thane tonight. Morn will light a flame for the old one, and I'll stand beside him while he does it. Whatever the Ashclaim owes you, it won't be enough, but take it anyway.",
+      "accept_text": "My great-grandfather was Morrun Ashhold, and he's still sitting in his chair at the top of the city.\n\nOne of the first party got as far as the Hall of Ashhold and saw him through the doors. He hasn't been a living dwarf for a long time. The squatters call him the Unmade.\n\nI can't take the city back while he's sitting in that chair. The hall is at the north end of the city, past the Shadow Gallery. I'm asking you to kill Thane Morrun the Unmade.",
+      "turn_in_text": "It's done, then.\n\nI've waited most of my life to hear that. Morn will light a flame for him tonight and I'll be there when he does. Take this, with the thanks of the Ashclaim.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -2371,7 +2371,7 @@
           "item_level": 58,
           "rarity": "rare",
           "required_level": 55,
-          "flavor_text": "The Thane says it should go back down one day.",
+          "flavor_text": "It was carried up out of the old city.",
           "primary_stats": {
             "strength": 14,
             "stamina": 17
@@ -2389,7 +2389,7 @@
           "item_level": 58,
           "rarity": "rare",
           "required_level": 55,
-          "flavor_text": "Old Dark Iron work, four generations in the dark and still sound.",
+          "flavor_text": "Old Dark Iron work that has stayed sound for a hundred years.",
           "primary_stats": {
             "intellect": 9
           },
@@ -2461,8 +2461,8 @@
       ],
       "reward_exp": 3960,
       "reward_gold": 15600,
-      "accept_text": "I keep one flame on this terrace for everyone still down there, because I don't know their names.\n\nEvery Dark Iron of Khaz Varun carried a name-tablet from the day they could walk. It's a thumb of iron with the name punched in. The Ash-Wretches in the lower city were our people once, and some of them will still have a tablet on them somewhere.\n\nThe gate's on the south shore, south-east of Ashclaim Landing, and the Ash-Wretches keep to the Ash Pits and the Deep Way in the middle of the city. Bring me the tablets. I'd like to give each of them a flame of their own.",
-      "turn_in_text": "I'm going to read every one of these names aloud before I do anything else.\n\nTwo of these are Ashholds. One's an Emberhold, so Bron at the gate will want to know. The rest I'll look up in the Deedkeeper's rolls.\n\nI've tended one flame for three years. Tonight I'll tend nine, and I'm happier about that than I can tell you.",
+      "accept_text": "I keep one flame on this terrace for everyone still down in the city, because I don't know their names.\n\nEvery Dark Iron of Khaz Varun carried a name-tablet, a small piece of iron with their name punched into it. The Ash-Wretches in the lower city were our people once, and some will still have their tablets.\n\nThe gate is on the south shore, south-east of Ashclaim Landing. The Ash-Wretches are in the Ash Pits and the Deep Way in the middle of the city. Bring me the tablets and I'll give each of them a flame.",
+      "turn_in_text": "I'll read every one of these names tonight.\n\nTwo of them are Ashholds and one is an Emberhold, so I'll tell Bron at the gate. I'll look the rest up in the Deedkeeper's rolls. Thank you.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -2507,7 +2507,7 @@
           "item_level": 55,
           "rarity": "uncommon",
           "required_level": 54,
-          "flavor_text": "The Thane says it should go back down one day.",
+          "flavor_text": "It was carried up out of the old city.",
           "weapon_type": "staff",
           "primary_stats": {},
           "secondary_stats": {
@@ -2541,8 +2541,8 @@
       ],
       "reward_exp": 5252,
       "reward_gold": 20670,
-      "accept_text": "There are dwarves in that city with iron masks riveted over their faces, and they weren't born down there.\n\nThe masks are new, and some of them are wearing Ashclaim boots. Something in the Cells is taking the people who go in, masking them and sending them back out into the halls to preach. The ones who've seen it call it The Iron Mask, because nobody's seen a face.\n\nThe Cells are on the west side of the city, below the Deep Way. I keep a flame for the dead. I can't keep one for people who are still walking about, so I need The Iron Mask stopped.",
-      "turn_in_text": "Then nobody else will be masked, and that's more than I'd hoped for.\n\nThe ones already wearing them are past my help. I'll say the words for them anyway. My cousin would tell you the words don't work on the living, and he'd be right, and I'll say them all the same.\n\nTake this from the shrine's keeping, because it should be worn by someone who's been down there.",
+      "accept_text": "There are dwarves in the city with iron masks riveted over their faces, and they weren't there before.\n\nSome of them are wearing Ashclaim boots. Something in the Cells is taking the people who go in, masking them, and sending them out to preach. Those who've seen it call it The Iron Mask.\n\nThe Cells are on the west side of the city, below the Deep Way. Please stop it before it takes anyone else.",
+      "turn_in_text": "Thank you. Nobody else will be masked now.\n\nI can't help the ones already wearing them, but I'll say the rites for them anyway. Take this from the shrine. It should go to someone who's been down there.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -2551,7 +2551,7 @@
           "item_level": 57,
           "rarity": "rare",
           "required_level": 55,
-          "flavor_text": "The Thane says it should go back down one day.",
+          "flavor_text": "It was carried up out of the old city.",
           "primary_stats": {
             "intellect": 9
           },
@@ -2607,7 +2607,7 @@
           "item_level": 57,
           "rarity": "rare",
           "required_level": 55,
-          "flavor_text": "Old Dark Iron work, four generations in the dark and still sound.",
+          "flavor_text": "Old Dark Iron work that has stayed sound for a hundred years.",
           "primary_stats": {
             "stamina": 16
           },
@@ -2657,8 +2657,8 @@
       ],
       "reward_exp": 5148,
       "reward_gold": 20280,
-      "accept_text": "I've underwritten a foundry that I've never seen, and my partners have started to notice.\n\nThe whole venture rests on Khaz Varun's works being sound. The Thane says they are. The Thane also says the island's beyond price, so I'd like a second opinion from someone who's stood in them.\n\nBoth works are on the east side of the city, through the gate on the south shore near Ashclaim Landing. Look over the Smelter and the Great Forge and tell me what state they're in. I'm told the Smelter still has its master, a Smelter-Master Vaud, and that he doesn't take visitors. You'll need to remove him before anyone can do an inventory.",
-      "turn_in_text": "The crucibles are whole and the flues draw, and you're telling me the Great Forge is hot.\n\nThat's better than I'd dared to put in the prospectus. I'd have settled for four walls and a chimney.\n\nI'm not going to ask what Smelter-Master Vaud was smelting in there. I'll just write that the Smelter's ready for a new crew.",
+      "accept_text": "I've put money into a foundry I've never seen, and my partners want to know what state it's in.\n\nThe Thane says the works in Khaz Varun are sound. I'd like to hear that from someone who's actually stood in them.\n\nThe Smelter and the Great Forge are both on the east side of the city. The gate is on the south shore near Ashclaim Landing. Look them over for me. The Smelter still has its old master, Smelter-Master Vaud, and you'll need to get rid of him first.",
+      "turn_in_text": "The crucibles are whole, the flues draw, and the Great Forge is hot.\n\nThat's better than I'd hoped. I'll tell my partners the works can be used. Here's your payment.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -2703,7 +2703,7 @@
           "item_level": 56,
           "rarity": "rare",
           "required_level": 54,
-          "flavor_text": "Ashclaim issue. Dwarf made and goblin priced.",
+          "flavor_text": "Ashclaim issue, made by a dwarf smith and sold by a goblin.",
           "weapon_type": "wand",
           "primary_stats": {
             "intellect": 9,
@@ -2754,8 +2754,8 @@
       ],
       "reward_exp": 3960,
       "reward_gold": 15600,
-      "accept_text": "I've got a buyer on the mainland who collects Dark Iron work, and he's asked for something I can't get anywhere else.\n\nHe wants the masks. The Masked Zealots in Khaz Varun wear iron ones, riveted shut, and there's nothing like them in any hold on the continent. He doesn't need to know where they came from, and I'd thank you not to tell the Keeper where they went.\n\nThe Zealots are all through the city, from the Gatehouse Hall inward. The gate's on the south shore near Ashclaim Landing. I'll pay well over the odds for every mask.",
-      "turn_in_text": "Those are the real thing, and the rivets are still tight.\n\nI'll be honest with you, I didn't enjoy handling them as much as I expected to. They're heavier than they ought to be. The buyer can have the lot and I won't be asking for more.\n\nHere's your money, and here's something from the yard on top of it.",
+      "accept_text": "I've got a buyer on the mainland who collects Dark Iron work, and he wants the iron masks.\n\nThe Masked Zealots in Khaz Varun wear them riveted shut, and there's nothing else like them. I'd rather the Keeper didn't hear where they went.\n\nThe Zealots are all through the city from the Gatehouse Hall inward. The gate is on the south shore near Ashclaim Landing. I'll pay well for every mask.",
+      "turn_in_text": "These are real. The rivets are still tight.\n\nThey're heavier than they look. I'll send them to the buyer and I won't be asking for more. Here's your money.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -2782,7 +2782,7 @@
           "item_level": 55,
           "rarity": "uncommon",
           "required_level": 54,
-          "flavor_text": "The Thane says it should go back down one day.",
+          "flavor_text": "It was carried up out of the old city.",
           "primary_stats": {
             "agility": 9
           },
@@ -2833,8 +2833,8 @@
       ],
       "reward_exp": 4040,
       "reward_gold": 15900,
-      "accept_text": "My grandmother was the best armoursmith Khaz Varun ever had, and I've never seen a single piece she made.\n\nShe got out as a girl with nothing but her hammer. Everything she'd forged stayed behind. One of the Thane's people says there's a machine in the Workshop, a great stamping engine they call The Crusher, and that it's armoured with plate taken off the walls. He swears one of those plates carries the Stonecast mark.\n\nThe Workshop's on the west side of the city, just past the Ember Road. I want that breastplate. I want to see how she worked, and I can't get that from stories.",
-      "turn_in_text": "Turn it over and let me see under the left arm.\n\nThat's her mark, three chisel cuts and a dot. She showed it to me in the dirt when I was small.\n\nLook how she's drawn the edge out thin there and left the centre thick. I've been doing that wrong my whole life. I'm going to be at the forge all night, so take this now before I forget you're here.",
+      "accept_text": "My grandmother was the best armoursmith in Khaz Varun, and I've never seen any of her work.\n\nShe got out as a girl with nothing but her hammer. One of the Thane's people says there's a machine in the Workshop called The Crusher, plated with armour taken off the walls, and that one of the plates carries the Stonecast mark.\n\nThe Workshop is on the west side of the city, just past the Ember Road. I'd like that breastplate.",
+      "turn_in_text": "That's her mark under the arm.\n\nI can see how she shaped the edge, and it's not how I was taught. I'm going to spend tonight at the forge working it out. Take this, and thank you.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -2843,7 +2843,7 @@
           "item_level": 56,
           "rarity": "uncommon",
           "required_level": 54,
-          "flavor_text": "Old Dark Iron work, four generations in the dark and still sound.",
+          "flavor_text": "Old Dark Iron work that has stayed sound for a hundred years.",
           "primary_stats": {
             "stamina": 16
           },
@@ -2861,7 +2861,7 @@
           "item_level": 56,
           "rarity": "uncommon",
           "required_level": 54,
-          "flavor_text": "The Thane says it should go back down one day.",
+          "flavor_text": "It was carried up out of the old city.",
           "primary_stats": {
             "intellect": 7
           },
@@ -2879,7 +2879,7 @@
           "item_level": 56,
           "rarity": "uncommon",
           "required_level": 54,
-          "flavor_text": "The Thane says it should go back down one day.",
+          "flavor_text": "It was carried up out of the old city.",
           "primary_stats": {
             "intellect": 6
           },
@@ -2918,8 +2918,8 @@
       ],
       "reward_exp": 4040,
       "reward_gold": 15900,
-      "accept_text": "The Thane's claim stands on the rolls I keep, and the rolls I keep have a hole in them.\n\nWhen the city went dark, the Deedkeeper of the day carried out the births and the debts. He left the Roll of Oaths behind, because it was chained to the desk in the Counting Hall. Without it I can't prove who swore to the Ashholds and who didn't, and the goblins' lawyers know that.\n\nThe Counting Hall's in the middle of the city, beyond the Gatehouse Hall. The Overseer of the hall was a dwarf called Grall, and I'm told Overseer Grall still walks his rounds with the roll on his belt.",
-      "turn_in_text": "It's all here, every leaf, and the ring's still closed.\n\nI can see the Emberholds, the Stonecasts and the Deepveins. Every family on this wharf swore to the Ashholds, in iron, and now I can show it to anyone who asks.\n\nThe Underwriter's lawyers have been asking for this for a year, so I'll take it to him tomorrow.",
+      "accept_text": "The Thane's claim rests on the rolls I keep, and one of them is missing.\n\nWhen the city went dark, the Deedkeeper of the day carried out the records of births and debts. He had to leave the Roll of Oaths, because it was chained to a desk in the Counting Hall. Without it I can't prove which families swore to the Ashholds.\n\nThe Counting Hall is in the middle of the city, past the Gatehouse Hall. I'm told Overseer Grall still walks his rounds with the roll on his belt.",
+      "turn_in_text": "It's all here, every leaf.\n\nEvery family on this wharf swore to the Ashholds, and now I can show it. I'll take this to the Underwriter tomorrow. Thank you.",
       "next_quest_id": null,
       "unique_item_defs": [
         {
@@ -2996,8 +2996,8 @@
       ],
       "reward_exp": 3960,
       "reward_gold": 15600,
-      "accept_text": "People go into that city sane and come out raving, and I'd like to know whether it's something in the air.\n\nIf it is, it matters to everyone on this wharf. We're shipping ore out of the same rock. The Crazed Miners in the lower workings have been breathing it for longest, and their clothes will be thick with it.\n\nGo through the gate on the south shore near Ashclaim Landing. The miners are in the Ember Road and the Borer Workings. Shake out their pockets and bring me the dust, and tie something over your own mouth while you're doing it.",
-      "turn_in_text": "I've had a pinch of this under the glass while you were washing your hands.\n\nIt's forge soot, mostly, but there's a fine red grit in it that glows when I breathe on it. That isn't in the ore we ship, and I checked three sacks to be sure.\n\nSo it's coming from something that's burning down there now. The doctor at the landing ought to hear about this, and I'll write to her tonight.",
+      "accept_text": "People go into that city sane and come out raving, and I want to know if it's something in the air.\n\nIf it is, it matters to everyone here, because we're shipping ore out of the same rock. The Crazed Miners in the lower workings have been breathing it longest, and their clothes will be full of it.\n\nThe gate is on the south shore near Ashclaim Landing. The miners are in the Ember Road and the Borer Workings. Bring me the dust, and cover your mouth while you collect it.",
+      "turn_in_text": "It's mostly forge soot, but there's a fine red grit in it that glows when I breathe on it. It isn't in the ore we ship.\n\nSo it's coming from something burning down there now. I'll write to the doctor at the landing tonight.",
       "next_quest_id": null,
       "unique_item_defs": [
         {

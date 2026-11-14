@@ -38,6 +38,7 @@ os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 from tools import tempest_quest_kit as K              # noqa: E402
 from tools import tempest_quests_shallows as SH       # noqa: E402
 from tools import tempest_quests_reach as RE          # noqa: E402
+from tools.tempest_quest_text import TEXT             # noqa: E402
 
 DROPS = ROOT / "data/creatures/quest_drops.json"
 FACTIONS = ROOT / "data/factions/factions.json"
@@ -67,6 +68,9 @@ def fragments(text):
     flat = _ABBR.sub(lambda m: m.group(1), text.replace("\n", " "))
     for s in re.split(r"(?<=[.!?])['\"]?\s+", flat):
         words = re.findall(r"[A-Za-z0-9'][\w'-]*", s)
+        # What people really do say in two words is allowed: "Thank you." is how a quest ends.
+        if " ".join(words).lower() in ("thank you", "thanks", "thank you all"):
+            continue
         if 0 < len(words) < 3:
             out.append(s.strip())
     return out
@@ -198,6 +202,10 @@ def main():
     built, all_q, rows = [], [], []
     for stem, M in FILES:
         qs = M.build()
+        # the second draft of the words (tools/tempest_quest_text.py) over the first
+        for q in qs:
+            if q["quest_id"] in TEXT:
+                q["accept_text"], q["turn_in_text"] = TEXT[q["quest_id"]]
         built.append((stem, qs))
         all_q += qs
         for cre, rr in M.FETCH_DROPS.items():
@@ -207,6 +215,10 @@ def main():
             for (iid, nm, desc, ch) in rr:
                 rows.append((cre, iid, nm, desc, ch, M.STARTER_IDS[iid]))
     ids = [q["quest_id"] for q in all_q]
+    missing = sorted(set(ids) - set(TEXT)) + sorted(set(TEXT) - set(ids))
+    if missing:
+        print(f"FAILED: second-draft text and quests disagree: {missing}")
+        return 1
     if len(set(ids)) != len(ids):
         print("FAILED: duplicate quest ids")
         return 1

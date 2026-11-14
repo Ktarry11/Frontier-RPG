@@ -219,9 +219,33 @@ _RULES = [
     (r"^sootwing$", "dragon_whelp"),
     (r"^the barge-eater$", "crab_giant"),
     (r"^wreck-captain vess'ira$", "naga_warrior"),
-    (r"^old scoria$|^karrath the ventlord$", "elemental_fire"),
+    (r"^old scoria$", "elemental_fire"),
     (r"gate-squatter ashpreacher", "dark_iron_slagcaller"),
     (r"gate-squatter", "dark_iron_digger"),
+    # TEMPEST ISLE, the two dungeons (14 Nov 2026). Khaz Varun is a Dark Iron city and nearly every
+    # name in it fell to a generic rule: its gatewarden, its thane and its berserkers drew as human
+    # bandits, a goblin sapper as a ranger, the geyser spirit as a zombie and the rock borers as
+    # plague rats. The Dark Iron and goblin art has existed since the Black Strand.
+    (r"^gatewarden hrun$", "warden_armoured"),
+    (r"^thane morrun the unmade$", "champion_plate"),
+    (r"^forge-lord darrok$|^molten thane$", "dark_iron_warlord"),
+    (r"^smelter-master vaud$", "dwarf_excavator"),
+    (r"^flamespeaker maud$", "dark_iron_slagcaller"),
+    (r"^the iron mask$", "executioner_hooded"),
+    (r"^powderkeg nix$", "goblin_sapper"),
+    (r"^chained berserker$|^ashclaim trespasser$", "dark_iron_cutthroat"),
+    (r"^crazed miner$", "dark_iron_digger"),
+    (r"^clockwork sentry$|^steam automaton$", "scarecrow_golem"),
+    (r"shadow of the forge", "voidwalker"),
+    (r"^the ashwretch brood$", "ghoul_gaunt"),
+    (r"^the rock-borer queen$", "matriarch_brood"),
+    (r"^rock borer$", "maggot"),
+    (r"cinder ?hound", "felhound"),
+    (r"geyser spirit", "elemental_water"),
+    (r"^fire sprite$|^ember swarm$", "wisp"),
+    (r"^smoke drake$|^calderaborn drake$", "dragon_whelp_bronze"),
+    (r"^karrath the ventlord$", "elemental_fire"),
+    (r"^the mountain's heart$", "elemental_earth"),
     # THE CASTOUTS (The Black Strand). Dark Iron dwarves put out of Onyxhollow's gate. First in
     # the list because every word in their names belongs to a weaker rule below: a "Digger" is a
     # human bandit, a "Slagcaller" a robed cultist and a "Foreman" an overseer.
@@ -536,9 +560,6 @@ SPARE = {
                      "here (it is a felhound, not a brute) and no other creature's name hash "
                      "reaches this variant. Kept, not deleted - the next brute-shaped demon "
                      "takes it.",
-    "dragon_whelp_bronze": "second dragon whelp; only 2 creatures are whelps and the name hash "
-                           "reaches one look. Wire up when a second dragonkin exists.",
-    "ghoul_gaunt": "third ghoul; 7 ghoul creatures spread over 2 looks.",
     "wraith_pale": "fourth wraith; 11 wraith creatures spread over 3 looks.",
     "mountain_giant_granite": "NOTHING IN THE GAME IS A MOUNTAIN GIANT - the only 'giant' names "
                               "are Giant Crab and Giant Spider, where giant is an adjective. Held "
@@ -553,9 +574,6 @@ SPARE = {
     # Scarlet Bowman). The creatures went; the ART is fine and stays, per Kyle on the first
     # sprite sheets: "don't toss the other stuff... Useful later don't lose them just rename
     # them!" Each of these had exactly one customer and now has none.
-    "executioner_hooded": "its only customer was Witchwing Slayer, matched on the word 'slayer' - "
-                          "and a Witchwing is a harpy, so she draws as one now (12 Nov 2026). "
-                          "Hold for a human headsman.",
     "skeleton_archer": "its only customer was the creature Skeleton Archer, a deleted draft. "
                        "The game still has skeletons - wire up when one is a ranged type.",
     "kobold_2": "second kobold look; its users were Rotting Kobold and Savage Rotting Kobold, "

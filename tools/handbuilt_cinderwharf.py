@@ -29,7 +29,7 @@ per thing the town does, each standing where their work is: the thane in his hal
 the forge, the flight master on the pad, the broker at the cargo. Nobody is more than a few tiles
 off a road, and no two share a quarter.
 
-HARD CONTRACTS (world/portal_manager.py): portal (2,42) <-> The Ashen Reach (186,96).
+HARD CONTRACTS (world/portal_manager.py): portal (2,42) <-> The Ashen Reach (176,98).
 Prop rule (Kyle): less is more; logical for the room; a few centrepieces.
 """
 import sys
@@ -61,9 +61,9 @@ START = (9, 42)
 # seam into a junction instead of a street.
 ROADS = {
     "high":   ([(2, 42), (16, 42), (34, 44), (52, 44), (66, 44), (76, 44)], 3.4),
-    "hall":   ([(24, 43), (24, 30), (26, 24)], 2.6),
+    "hall":   ([(24, 43), (24, 33), (25, 29)], 2.6),
     "shrine": ([(32, 45), (34, 58), (36, 66)], 2.4),
-    "quay":   ([(64, 44), (66, 30), (68, 24)], 2.4),
+    "quay":   ([(64, 44), (66, 33), (68, 29)], 2.4),
     "yard":   ([(58, 45), (60, 58), (62, 66)], 2.4),
 }
 PLAZA = (52.0, 44.0, 8.0, 6.0)          # the market, on the seam between the two halves
@@ -207,30 +207,42 @@ COBBLE = [(52, 44, 9, 6, 0.95), (25, 28, 8, 6, 0.9), (10, 42, 6, 5, 0.85)]
 # is the one place the player expects to walk between people. Each stands where their work is.
 NPC_POSITIONS = {
     # the hold, west - Dark Iron
-    "cw_thane_ashhold":        (25, 26),   # the Thane's Hall, at the top of its own road
+    "cw_thane_ashhold":        (25, 29),   # the Thane's Hall, at the top of its own road
     "cw_quartermaster":        (17, 36),   # rep-gated stock, inside the gate
-    "cw_blacksmith":           (31, 32),   # the forge, off the hall road
+    "cw_blacksmith":           (33, 38),   # the forge, off the hall road
     "cw_armoursmith":          (20, 50),   # plate and mail, south side of the hold
     "cw_shrine_keeper":        (36, 66),   # the shrine terrace, far south-west
     # the seam, middle - where the two halves meet
     "cw_innkeeper":            (46, 40),   # The Tapped Vein, on the street
-    "cw_underwriter":          (54, 50),   # Nix Brackwhistle, the Merchant House
+    "cw_underwriter":          (54, 55),   # Nix Brackwhistle, the Merchant House
     "cw_general_goods":        (58, 38),   # the shuttered counter hatch
     # the wharf, east - goblin
-    "cw_flight_master":        (68, 26),   # the pad, out over the water
+    "cw_flight_master":        (68, 29),   # the pad, out over the water
     "cw_alchemist":            (62, 60),   # volcanic reagents, by the yard
     "cw_salvage_broker":       (70, 62),   # buys the dungeon's trash, at the cargo
     "cw_harbourmaster":        (76, 32),   # the berth office on the wharf
-    "cw_archivist":            (22, 22),   # the rolls, beside the hall
-    "cw_claims_clerk":         (50, 46),   # the Merchant House front desk
+    "cw_archivist":            (19, 25),   # the rolls, beside the hall
+    "cw_claims_clerk":         (46, 46),   # the Merchant House front desk
+    # trainers, and the keeper who swaps set pieces (14 Nov 2026). A 52-58 town with no trainer
+    # sent every player back across the sea to Hammerfall to learn their next rank.
+    "ct_cinderwharf":          (38, 30),   # class trainer, in the hold
+    "pt_cinderwharf_forge":    (28, 41),   # mining and smithing, at the forge
+    "pt_cinderwharf_herbs":    (58, 64),   # herbs and alchemy, by the yard
+    "pt_cinderwharf_hide":     (66, 52),   # skins, leather, cloth and cooking, by the smokehouse
+    "pt_cinderwharf_wood":     (71, 40),   # timber, on the wharf
+    "pt_cinderwharf_essence":  (62, 44),   # engineering, on the high street
+    "ak_cinderwharf":          (44, 52),   # Artifact Keeper, by the Merchant House
 }
+
+#: The anvil at the war forge's door (data/npcs/forges.json: cinderwharf_forge).
+FORGE = (30, 38)
 
 CHESTS = [(28, 20), (18, 58), (44, 68), (72, 56), (70, 20)]
 
 #: Almost nothing grows inside the walls, and what does is at the edges. count is deliberately
 #: tiny: at Saltspur, rim planting at rim=5 grew pines straight through the camp buildings.
 FOREST = dict(seed=83, count=10, rim=2, thorn=10, names=[
-    ("ek_thorn_bush", 4, 0.5), ("ek_dead_oak", 6, 0.3), ("ek_pine_trio", 7, 0.2)])
+    ("ek_thorn_bush", 4, 0.5), ("ek_dead_oak", 6, 0.3), ("assets/tiles/shimmering_flats/props/tan_dead_palm.png", 7, 0.2)])
 
 
 def dress(L):
@@ -241,16 +253,16 @@ def dress(L):
     b("orc_great_gatehouse", 8, 42, 12, solid=False, road_ok=True, nudge=0)
     b("orc_watch_tower", 12, 34, 11, nudge=2)
     b("orc_watch_tower", 12, 50, 11, nudge=2)
-    p("ek_signpost", 16, 42, 4)
+    p("ek_signpost", 16, 46, 4)
 
     # ---- THE HOLD, west: Dark Iron, built out of Khaz Varun's own salvaged stone --------------
-    b("ek_command_tent", 25, 24, 10, nudge=2)          # the Thane's Hall
+    b("ek_command_tent", 25, 25, 10, nudge=2)          # the Thane's Hall
     b("ek_border_watchtower", 33, 24, 11, nudge=2)
     b("orc_quartermaster_post", 18, 34, 9, nudge=2)
-    b("orc_officers_house", 30, 34, 9, nudge=2)        # the forge
+    b("orc_war_forge", 30, 34, 9, nudge=2)             # the forge: Khaz Varun's iron is worked here
     b("orc_healer_house", 20, 48, 9, nudge=2)          # the armoursmith
     p("ek_forsaken_banner", 28, 30, 6)
-    p("ek_farm_well", 22, 32, 4)
+    p("ek_farm_well", 20, 32, 4)
 
     # ---- the shrine terrace, south-west -------------------------------------------------------
     b("ek_wayshrine", 36, 64, 6, nudge=2)
@@ -261,7 +273,7 @@ def dress(L):
     b("ek_village_inn", 46, 38, 10, nudge=2)           # The Tapped Vein
     b("orc_supply_store", 58, 36, 10, nudge=2)
     b("orc_mess_hall", 54, 52, 10, nudge=2)            # the Merchant House
-    p("ek_signpost", 52, 44, 4)
+    p("ek_signpost", 52, 48, 4)
     for (x, y) in ((48, 46), (56, 42)):
         p("ek_scarlet_crates", x, y, 3)
 
@@ -269,7 +281,7 @@ def dress(L):
     # deco(), not prop(): prop() checks the ground under a sprite and refuses when it is not
     # placeable, which is right for a building and wrong for a hull.
     L.deco("boat_orc", BOAT_SPRITE[0], BOAT_SPRITE[1], 7, path_dir=CO)
-    b("orc_watch_tower", 68, 24, 11, nudge=2)          # the flight pad
+    b("orc_watch_tower", 68, 25, 11, nudge=2)          # the flight pad
     b("orc_smokehouse", 62, 58, 9, nudge=2)
     b("orc_supply_store", 70, 60, 9, nudge=2)          # the salvage broker's shed
     for (x, y) in ((74, 36), (74, 50), (78, 44)):
