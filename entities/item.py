@@ -353,6 +353,8 @@ class Item:
             proc=data.get("proc"),
         )
         item.set_variant = data.get("set_variant")
+        if item.set_variant == "cryomancer":
+            item.set_variant = "cryotherapist"      # renamed 13 Nov 2026; old saves still say the old name
         if item.set_id:
             # A set piece saved before its art existed has no icon_id. Give it one on load, so
             # nobody has to re-earn a piece to see it drawn.

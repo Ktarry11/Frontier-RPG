@@ -327,8 +327,10 @@ def main():
             if not four <= {"attack_power", "ranged_attack_power", "spell_power", "healing_power"}:
                 bad.append(f"{sid}/{key}: the 4-piece bonus is {sorted(four)}; it is power of one kind or two")
     if t0:
-        if "cryomancer" not in t0["Mage"][1]["variants"]:
-            bad.append("the Mage set has no Cryomancer version (Kyle's home-brew DPS healer)")
+        if "cryotherapist" not in t0["Mage"][1]["variants"]:
+            bad.append("the Mage set has no Cryotherapist version (Kyle's home-brew DPS healer)")
+        if t0["Mage"][1]["variants"].get("cryotherapist", {}).get("label") != "Cryotherapist":
+            bad.append("the Mage healer version is not labelled Cryotherapist")
         if "enhancement_tank" not in t0["Shaman"][1]["variants"]:
             bad.append("the Shaman set has no Enhancement Tank version (Kyle's home-brew)")
         if len(t0["Necromancer"][1]["variants"]) != 1:

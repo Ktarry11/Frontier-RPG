@@ -11,7 +11,7 @@ Kyle's rulings, 12 Nov 2026, all of which this file is:
     54, shoulders 55, legs 56, helm 57, chest 58;
   * one set per class with a VERSION per way the class gears, not per talent tree ("we dont
     need 3 sets for a necromancer as each set is dps"), counted separately, never mixed;
-  * two home-brew versions: a Cryomancer healer for the Mage ("homebrew DPS healer") and an
+  * two home-brew versions: a Cryotherapist healer for the Mage ("homebrew DPS healer") and an
     Enhancement tank for the Shaman;
   * bonuses: "2 piece be stats like +30 (something appropriate). 4 Piece can be either +spell
     power, +Healing power, +attack power, or +ranged attack power (for hybrid classes like ret
@@ -126,7 +126,7 @@ WORDS = {
 
 #: Versions no talent tree asks for. class -> [(key, label, profile)]
 HOMEBREW = {
-    "Mage": [("cryomancer", "Cryomancer", "cryomancer")],
+    "Mage": [("cryotherapist", "Cryotherapist", "cryomancer")],   # Kyle, 13 Nov 2026: "Call them cryotherapist."
     "Shaman": [("enhancement_tank", "Enhancement Tank", "tank_agi")],
 }
 
