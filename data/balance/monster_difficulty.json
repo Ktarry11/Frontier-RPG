@@ -12,6 +12,10 @@
     "damage": 3.0,
     "health": 4.4
   },
+  "field_boss": {
+    "damage": 1.6,
+    "health": 1.5
+  },
   "_measured": "tools/sim_difficulty.py, 14 Nov 2026, geared but untalented characters. BEFORE: one same-level open-world creature cost a solo player about 19% of their health on average (a warrior 4-15%), three at once were often survivable, and a party of three beat every dungeon boss tested with nobody dying. AFTER, open world at 1.35: one creature costs melee 10-30% and casters 30-50%, two at once usually kills a caster and leaves melee low, three at once almost always kills. AFTER, dungeons (boss 3.0/4.4 for older kits, tuned_boss 2.2/3.6 for the hand-tuned isle and hive bosses): a party of five beat all 25 bosses tested in Ragefire, Wailing Caverns, Shadowfang, Razorfen Kraul, the Drowning Floor, the Cistern, Khaz Varun, the Emberdeep and the Royal Hive. A party of three lost to all but a few first bosses (Oggleflint, Roogug, Gatewarden Hrun).",
   "tuned_boss": {
     "damage": 2.2,
@@ -43,5 +47,6 @@
     "The Shadow of the Forge",
     "Thrass, the Geyser Spirit",
     "Tunnel-King Ruzzak"
-  ]
+  ],
+  "_field_boss": "Kyle, 14 Nov 2026, after a level-17 duo met a 5,700-health cave boss in the Echo Isles: 'it shouldn't be that high.' 'boss' is now only the 97 bosses of real dungeons. Every other boss (small caves, named rares in the open) is 'field_boss': a little above cave trash, so a solo player or a pair at level can take it with some care. Tidelord Gharesh: 5,618 -> about 1,900."
 }

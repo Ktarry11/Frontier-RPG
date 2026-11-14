@@ -11,7 +11,11 @@ than in every kit, and it can be turned back by editing three pairs of numbers.
 
   open   anything met in the open world
   cave   trash in a cave or dungeon (cave_spawns tags it)
-  boss   anything flagged is_boss, wherever it stands
+  boss   a boss of a real five-player dungeon (world/zone_classification.DUNGEONS)
+  field_boss  every other boss: the named one at the back of a small cave, a named rare in the
+         open. Kyle, 14 Nov, after a friend at level 17 met Tidelord Gharesh in the Echo Isles grotto
+         with 5,700 health: "it shouldn't be that high." The dungeon numbers had been handed to all
+         398 bosses when only 97 stand in a dungeon.
   tuned_boss  a boss whose kit was already tuned by hand against the sim (the Tempest Isle
          dungeons and the Royal Hive), named in the table's "tuned_bosses" list
 
@@ -38,11 +42,37 @@ def _tuned():
     return frozenset(table().get("tuned_bosses") or ())
 
 
+@lru_cache(maxsize=1)
+def dungeon_bosses():
+    """The bosses that appear in a real dungeon's encounter table (data/creatures/encounters.json)."""
+    from world.zone_classification import DUNGEONS
+    root = Path(__file__).resolve().parent.parent / "data" / "creatures"
+    try:
+        enc = json.loads((root / "encounters.json").read_text(encoding="utf-8"))
+        cre = json.loads((root / "creatures.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return frozenset()
+    cre = cre.get("creatures", cre)
+    found = {}
+
+    def walk(node, key):
+        if isinstance(node, dict):
+            if isinstance(node.get("creatures"), dict):
+                found.setdefault(node.get("name") or key, set()).update(node["creatures"])
+            for k, v in node.items():
+                walk(v, k)
+    walk(enc, None)
+    wanted = set(DUNGEONS)
+    return frozenset(c for zone, names in found.items() if zone in wanted
+                     for c in names if (cre.get(c) or {}).get("is_boss"))
+
+
 def kind_of(monster):
     if getattr(monster, "is_boss", False):
-        if getattr(monster, "name", None) in _tuned():
+        name = getattr(monster, "name", None)
+        if name in _tuned():
             return "tuned_boss"
-        return "boss"
+        return "boss" if name in dungeon_bosses() else "field_boss"
     return "cave" if getattr(monster, "location_type", None) == "cave" else "open"
 
 
