@@ -105,7 +105,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "A slow green ball of fel fire. You can throw it at a dead run.",
+      "description": "A slow green ball of fel fire.",
       "ranks": [
         {
           "rank": 1,
@@ -441,76 +441,6 @@
       "dispel_type": "magic"
     },
     {
-      "ability_id": "felsworn_felbreak",
-      "name": "Felbreak",
-      "resource_type": "felfury",
-      "cooldown": 5,
-      "effect_type": "debuff",
-      "duration": 1,
-      "stat_mods": {
-        "hit_chance_spell": -25.0
-      },
-      "description": "Interrupts and stuns the target for 1 turn.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 24,
-          "cost": 20,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Felbreak is a real interrupt on caster mobs, and that's your main group-facing contribution'. A turn engine has no cast bar to interrupt, so the honest equivalent is costing them the turn: is_stun with a 1-turn duration, which TurnMeter really does enforce. The school lockout rides along as a spell-hit debuff.",
-      "target_type": "enemy",
-      "is_stun": true
-    },
-    {
-      "ability_id": "felsworn_manaburn",
-      "name": "Manaburn",
-      "resource_type": "felfury",
-      "cooldown": 4,
-      "effect_type": "damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Burn what they were going to cast with and let the burning do the damage.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 18,
-          "cost": 30,
-          "effect_value": 58
-        },
-        {
-          "rank": 2,
-          "level_req": 28,
-          "cost": 30,
-          "effect_value": 75
-        },
-        {
-          "rank": 3,
-          "level_req": 38,
-          "cost": 30,
-          "effect_value": 92
-        },
-        {
-          "rank": 4,
-          "level_req": 48,
-          "cost": 30,
-          "effect_value": 109
-        },
-        {
-          "rank": 5,
-          "level_req": 58,
-          "cost": 30,
-          "effect_value": 126
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree: 'Burn an enemy's mana equal to 200% of your Stamina. Deals damage equal to the mana drained.' Monsters have no mana pool to drain in this engine, so only the damage half survives - the drain is flavour.",
-      "target_type": "enemy",
-      "damage_school": "shadow"
-    },
-    {
       "ability_id": "felsworn_whispers_of_the_pit",
       "name": "Whispers of the Pit",
       "resource_type": "felfury",
@@ -558,31 +488,6 @@
       ],
       "icon_id": null,
       "_source": "CoA class tree: 'guaranteeing your next direct instance of damage to critically strike, but causing it to consume 5% of your maximum health'. No guaranteed-crit flag exists, so it is a large crit window instead; the health cost has no hook and is dropped rather than faked. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect - so THE `duration` FIELD WAS NEVER READ and this short cooldown was live for every fight in the next half hour. On this class that is not cosmetic: Demonic Will is -30% physical damage taken on a 10-turn cooldown and was permanently on, and Illidan's Guile states 1 turn on an 18-turn cooldown. These are Icy Veins / Evasion-family cooldowns, which is what 'combat' scope is for. Scoped to Felsworn deliberately because its Tyrant tree is being rebuilt around these buffs; 45 across 11 other classes still have the shape (tools/qa_buff_scope.py) and Kyle has parked that sweep.",
-      "target_type": "self",
-      "buff_scope": "combat"
-    },
-    {
-      "ability_id": "felsworn_skull_of_guldan",
-      "name": "Skull of Gul'dan",
-      "resource_type": "felfury",
-      "cooldown": 14,
-      "effect_type": "buff",
-      "duration": 3,
-      "stat_mods": {
-        "max_health_pct": 0.15,
-        "stamina": 20
-      },
-      "description": "Maximum health +15%, Stamina +20 for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 30,
-          "cost": 25,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree: 'increasing your maximum health and Energy by 25% for 10 seconds'. max_health_pct is a FRACTION - health * (1.0 + value) - so 0.15 is +15%, not 15.0. The Energy half has no Energy pool to raise here. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect - so THE `duration` FIELD WAS NEVER READ and this short cooldown was live for every fight in the next half hour. On this class that is not cosmetic: Demonic Will is -30% physical damage taken on a 10-turn cooldown and was permanently on, and Illidan's Guile states 1 turn on an 18-turn cooldown. These are Icy Veins / Evasion-family cooldowns, which is what 'combat' scope is for. Scoped to Felsworn deliberately because its Tyrant tree is being rebuilt around these buffs; 45 across 11 other classes still have the shape (tools/qa_buff_scope.py) and Kyle has parked that sweep.",
       "target_type": "self",
       "buff_scope": "combat"
     },
@@ -994,31 +899,6 @@
       "target_type": "enemy"
     },
     {
-      "ability_id": "felsworn_blood_of_mannoroth",
-      "name": "Blood of Mannoroth",
-      "resource_type": "felfury",
-      "cooldown": 12,
-      "effect_type": "buff",
-      "duration": 3,
-      "stat_mods": {
-        "attack_power_pct": 15.0,
-        "crit_chance_physical": 8.0
-      },
-      "description": "Attack Power Pct +15%, Physical crit chance +8 for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 32,
-          "cost": 30,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA, Fel Haze: 'While active, Blood of Mannoroth now also causes you to ignore all enemy Armor'. The armour-ignore half has no talent-side key, so the buff carries attack power and crit instead. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect - so THE `duration` FIELD WAS NEVER READ and this short cooldown was live for every fight in the next half hour. On this class that is not cosmetic: Demonic Will is -30% physical damage taken on a 10-turn cooldown and was permanently on, and Illidan's Guile states 1 turn on an 18-turn cooldown. These are Icy Veins / Evasion-family cooldowns, which is what 'combat' scope is for. Scoped to Felsworn deliberately because its Tyrant tree is being rebuilt around these buffs; 45 across 11 other classes still have the shape (tools/qa_buff_scope.py) and Kyle has parked that sweep.",
-      "target_type": "self",
-      "buff_scope": "combat"
-    },
-    {
       "ability_id": "felsworn_ruin",
       "name": "Ruin",
       "resource_type": "felfury",
@@ -1192,55 +1072,6 @@
       }
     },
     {
-      "ability_id": "felsworn_felstrike",
-      "name": "Felstrike",
-      "resource_type": "felfury",
-      "cooldown": 0,
-      "effect_type": "spell_dot",
-      "duration": 3,
-      "stat_mods": {},
-      "description": "Deals Shadow/Fire damage to the target over time for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 22,
-          "cost": 20,
-          "effect_value": 26
-        },
-        {
-          "rank": 2,
-          "level_req": 31,
-          "cost": 20,
-          "effect_value": 34
-        },
-        {
-          "rank": 3,
-          "level_req": 40,
-          "cost": 20,
-          "effect_value": 42
-        },
-        {
-          "rank": 4,
-          "level_req": 49,
-          "cost": 20,
-          "effect_value": 50
-        },
-        {
-          "rank": 5,
-          "level_req": 58,
-          "cost": 20,
-          "effect_value": 58
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA, Fel Apprentice: 'While Inner Demon is active, your Fel Fireball will now unleash a Felstrike on your target. Felstrike: Burn an enemy for SP Shadowflame Damage over 6 seconds, stacking 3 times.' A real named ability, so it is castable here rather than existing only as a rider.",
-      "target_type": "enemy",
-      "damage_school": [
-        "shadow",
-        "fire"
-      ]
-    },
-    {
       "ability_id": "felsworn_sargeras_embrace",
       "name": "Sargeras Embrace",
       "resource_type": "felfury",
@@ -1301,58 +1132,6 @@
       "_source": "CoA: 'Drop an infernal from the sky with grotesque magic, dealing fire SP Fire damage to enemies in the radius, horrifying them for 4 seconds, and spawning an Infernal to fight by your side for 15 seconds.' NOW A REAL INFERNAL: this used to borrow voidwalker and summoned a pet named Voidwalker, a Warlock demon, on the reasoning that combat/pet_templates.py had no infernal. It has one now - a slow, heavy fire bruiser whose signature Immolation is real spell_damage/fire, matching CoA's own 'SP Fire damage'. Still only the pet survives: effect_type summon_pet does one thing, so the impact damage and the fear are lost.",
       "target_type": "self",
       "summon_pet_template": "infernal"
-    },
-    {
-      "ability_id": "felsworn_manafeed",
-      "name": "Manafeed",
-      "resource_type": "felfury",
-      "cooldown": 3,
-      "effect_type": "damage_and_heal",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals Shadow damage to the target and heals you for part of it.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 20,
-          "cost": 25,
-          "effect_value": 44
-        },
-        {
-          "rank": 2,
-          "level_req": 27,
-          "cost": 25,
-          "effect_value": 54
-        },
-        {
-          "rank": 3,
-          "level_req": 34,
-          "cost": 25,
-          "effect_value": 65
-        },
-        {
-          "rank": 4,
-          "level_req": 42,
-          "cost": 25,
-          "effect_value": 75
-        },
-        {
-          "rank": 5,
-          "level_req": 49,
-          "cost": 25,
-          "effect_value": 86
-        },
-        {
-          "rank": 6,
-          "level_req": 56,
-          "cost": 25,
-          "effect_value": 96
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Manafeed converts a target's burned mana into health for you, closer to a Drain Life than a real defensive', 'Manafeed is your only heal'. Monsters have no mana here, so the heal is unconditional rather than dead weight against a mana-less target - a deliberate divergence, because the alternative is a spec with no self-healing at all.",
-      "target_type": "enemy",
-      "damage_school": "shadow"
     },
     {
       "ability_id": "felsworn_fel_infusion",
@@ -1682,29 +1461,6 @@
       "_source": "CoA: 'Enrage up to 8 allies within 20 yds, reducing their damage taken by -15% and increasing their haste by 10% for 10 seconds', 'drop Infernal Whipcrack to enrage the group'. The external-cooldown layer CoA says Vengeance Demon Hunter does not have. || target_type 'self' -> 'party', 6 Nov 2026. CoA writes this as a party aura ('15% reduced damage taken and 10% haste to party and raid members. Does not stack with similar effects'). A TALENT EFFECT CAN NEVER REACH AN ALLY; a party-targeted ABILITY does, since abilities.py:2064 resolves 'party' to all living allies and degrades to the caster alone with no party context. Same call Kyle made for Guardian's four auras on 5 Nov 2026, applied to Reaper's two and Necromancer's three today. Felsworn's talents now shorten these auras' cooldowns instead of trying to be them.",
       "target_type": "party",
       "buff_scope": "party"
-    },
-    {
-      "ability_id": "felsworn_doomscarring",
-      "name": "Doomscarring",
-      "resource_type": "felfury",
-      "cooldown": 6,
-      "effect_type": "debuff",
-      "duration": 3,
-      "stat_mods": {
-        "armor": -110
-      },
-      "description": "Applies to the target: Armor -110 for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 32,
-          "cost": 25,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'scars enemies for 12 seconds, increasing your allies' attack power against them by Agility'. Nothing grants a buff scoped to one target, so the scar is a flat armour break on the enemy - same end result for the party's physical damage, without an invented key.",
-      "target_type": "enemy"
     },
     {
       "ability_id": "felsworn_fel_bargain",

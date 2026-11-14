@@ -263,7 +263,7 @@
     {
       "talent_id": "barbarian_ancestry_unified_rage",
       "name": "Unified Rage",
-      "description": "Reduces the cooldown of Unbridled Rage and Ancestral Combat by 36% and increases your physical damage by 6%.",
+      "description": "Reduces the cooldown of Unbridled Rage by 36% and increases your physical damage by 6%.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -272,7 +272,6 @@
       "hex_y": 2,
       "effects": {
         "ability_barbarian_unbridled_rage_cooldown_pct": 0.12,
-        "ability_barbarian_ancestral_combat_potency": 0.12,
         "physical_damage": 0.02
       },
       "connected_to": [

@@ -61,7 +61,10 @@ def main():
             for key in (a.get("stat_mods") or {}):
                 check(is_read(key), f"{a['ability_id']}: gives {key!r}, which nothing reads")
                 check(not NONSENSE.search(key), f"{a['ability_id']}: {key!r} means nothing in turn-based combat")
-    check(len(abilities) > 1200, f"rig: only {len(abilities)} abilities loaded")
+    # A floor that says the loader found the class files at all. It was 1200; the spellbook refine
+    # (tools/refine_class_kits.py, Kyle 14 Nov: "we don't need every single ability") takes
+    # abilities out on purpose, so it sits well under the trimmed total.
+    check(len(abilities) > 900, f"rig: only {len(abilities)} abilities loaded")
 
     # 2. the re-purposed ones, cast
     from entities.character import Character

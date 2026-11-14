@@ -92,58 +92,6 @@
       "target_type": "enemy"
     },
     {
-      "ability_id": "barbarian_whirling_advance",
-      "name": "Whirling Advance",
-      "resource_type": "energy",
-      "cooldown": 4,
-      "effect_type": "damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals damage to up to 3 targets.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 10,
-          "cost": 15,
-          "effect_value": 30
-        },
-        {
-          "rank": 2,
-          "level_req": 19,
-          "cost": 15,
-          "effect_value": 40
-        },
-        {
-          "rank": 3,
-          "level_req": 28,
-          "cost": 15,
-          "effect_value": 50
-        },
-        {
-          "rank": 4,
-          "level_req": 37,
-          "cost": 15,
-          "effect_value": 60
-        },
-        {
-          "rank": 5,
-          "level_req": 46,
-          "cost": 15,
-          "effect_value": 70
-        },
-        {
-          "rank": 6,
-          "level_req": 55,
-          "cost": 15,
-          "effect_value": 80
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA class tree builds a whole cluster around it - Dauntless, Rage Whirling, Forward Advance, Whirling Assault - so it is the shared gap-closer. The real one dispels a slow on hit; there is no self-dispel hook on a damage cast, so Dauntless carries mitigation instead.",
-      "target_type": "enemy_aoe",
-      "max_targets": 3
-    },
-    {
       "ability_id": "barbarian_barbaric_whirl",
       "name": "Barbaric Whirl",
       "resource_type": "energy",
@@ -349,28 +297,6 @@
       "icon_id": null,
       "_source": "CoA: 'Throw your ranged weapon at your enemy's legs ... slowing their movement speed by -50%'. There is no movement in a turn fight, and a haste debuff would have been worse than nothing: a Monster reads ONLY `armor` and `attack_power` out of a status effect's stat_mods (entities/monster.py), so haste on an enemy is inert. A hobbled enemy hitting softer is what actually lands.",
       "target_type": "enemy"
-    },
-    {
-      "ability_id": "barbarian_skull_smash",
-      "name": "Skull Smash",
-      "resource_type": "energy",
-      "cooldown": 8,
-      "effect_type": "debuff",
-      "duration": 1,
-      "stat_mods": {},
-      "description": "Interrupts and stuns the target for 1 turn.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 22,
-          "cost": 15,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'hurl it at an enemy's skull, disorienting them ... Damage taken will end this effect'. Disorient is modelled as the engine's stun, which is the closest honest fit; the break-on-damage half has no hook, so the duration is one turn to keep it from being strictly better than CoA's. DEAD FLAG REMOVED 2026-10-29: stat_mods carried {'stunned': 1}, which is read by nothing - the real mechanism is the is_stun flag this ability already sets. tools/validate_class.py now errors on it. Removed from the emitted JSON earlier the same day and not ported here, so re-running this script restored it.",
-      "target_type": "enemy",
-      "is_stun": true
     },
     {
       "ability_id": "barbarian_ancestral_roar",
@@ -776,31 +702,6 @@
       "restore_resource_type": "energy"
     },
     {
-      "ability_id": "barbarian_battle_vigor",
-      "name": "Battle Vigor",
-      "resource_type": "energy",
-      "cooldown": 10,
-      "effect_type": "buff",
-      "duration": 3,
-      "stat_mods": {
-        "max_health_pct": 0.15,
-        "attack_power": 30
-      },
-      "description": "Maximum health +15%, Attack Power +30 for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 34,
-          "cost": 20,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Battle Vigor is a +max-health defensive that still counts as an enrage, so it keeps Smash live'. max_health_pct is a FRACTION in the shared bonus pool - health * (1.0 + value) - not percent points.",
-      "target_type": "self",
-      "buff_scope": "combat"
-    },
-    {
       "ability_id": "barbarian_killing_spree",
       "name": "Killing Spree",
       "resource_type": "energy",
@@ -939,57 +840,6 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'filler Throw Weapon/Berserker Axe'. The spec's cheap ranged filler and the hub of its whole kit - Spear Thrower resets Spears off it, Gurubashi Technique transforms it, Sen'jin's Guidance replaces it.",
-      "target_type": "enemy"
-    },
-    {
-      "ability_id": "barbarian_barbed_spear",
-      "name": "Barbed Spear",
-      "resource_type": "energy",
-      "cooldown": 3,
-      "effect_type": "ranged_damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals damage to the target.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 16,
-          "cost": 25,
-          "effect_value": 52
-        },
-        {
-          "rank": 2,
-          "level_req": 24,
-          "cost": 25,
-          "effect_value": 67
-        },
-        {
-          "rank": 3,
-          "level_req": 32,
-          "cost": 25,
-          "effect_value": 82
-        },
-        {
-          "rank": 4,
-          "level_req": 40,
-          "cost": 25,
-          "effect_value": 97
-        },
-        {
-          "rank": 5,
-          "level_req": 48,
-          "cost": 25,
-          "effect_value": 112
-        },
-        {
-          "rank": 6,
-          "level_req": 56,
-          "cost": 25,
-          "effect_value": 127
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Barbed Spear to feed Furious Berserker's Born in Blood', 'reducing their healing received by -30%'. The anti-heal debuff cannot ride along: one cast is one effect_type here, and Monster reads only armor and attack_power out of a debuff's stat_mods anyway, so healing_taken_pct on an enemy would do nothing. Damage only, and the crit that feeds Furious Berserker is the part the rotation actually asks for.",
       "target_type": "enemy"
     },
     {
@@ -1293,39 +1143,6 @@
       "target_type": "enemy"
     },
     {
-      "ability_id": "barbarian_spite",
-      "name": "Spite",
-      "resource_type": "energy",
-      "cooldown": 8,
-      "effect_type": "ranged_damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals damage to the target.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 44,
-          "cost": 35,
-          "effect_value": 150
-        },
-        {
-          "rank": 2,
-          "level_req": 51,
-          "cost": 35,
-          "effect_value": 190
-        },
-        {
-          "rank": 3,
-          "level_req": 58,
-          "cost": 35,
-          "effect_value": 230
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Spite bursts and flings you a long way', 'Quickly unleash 3 Berserker Throws at your target and then fling yourself back'. Three throws resolve as one hit; the reposition is dropped.",
-      "target_type": "enemy"
-    },
-    {
       "ability_id": "barbarian_keg_smash",
       "name": "Keg Smash",
       "resource_type": "energy",
@@ -1388,37 +1205,6 @@
       "_source": "CoA: 'Keg Smash on cooldown (boosted by Trip to the Alehouse) as your core AoE/ST frost+physical hit'. Kept physical (effect_type='damage') because it is the one ability this spec presses every turn and should not depend on the Frozen Warlord conversion to function; the Frost half of the kit is Breath of the North and Frozen Tankard.",
       "target_type": "enemy_aoe",
       "max_targets": 5
-    },
-    {
-      "ability_id": "barbarian_ancestral_combat",
-      "name": "Ancestral Combat",
-      "resource_type": "energy",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 4,
-      "stat_mods": {
-        "haste": 12,
-        "frost_resistance": 15
-      },
-      "description": "Haste +12, Frost Resistance +15 for 4 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 16,
-          "cost": 20,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: \"Keep Ancestral Combat's self-buff rolling: it gives a chance for bonus Frost main-hand swings\". The bonus swing is a real 25% bonus_pct proc on the buff itself - extra damage on the same hit, which is what an extra main-hand attack buys. The Fill Level it also generates has no pool to go into.",
-      "target_type": "self",
-      "buff_scope": "combat",
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 25,
-        "icd": 0,
-        "bonus_pct": 0.2
-      }
     },
     {
       "ability_id": "barbarian_ancestral_fury",
@@ -1625,31 +1411,6 @@
       "summon_pet_template": "honored_ancestor"
     },
     {
-      "ability_id": "barbarian_cheers",
-      "name": "Cheers!",
-      "resource_type": "energy",
-      "cooldown": 0,
-      "effect_type": "buff",
-      "duration": 0,
-      "stat_mods": {
-        "damage_taken_pct": -0.08,
-        "stamina": 6
-      },
-      "description": "Grants an ally: Damage taken -8%, Stamina +6.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 36,
-          "cost": 15,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: \"Cheers! on the squishiest party member, or the healer. It redirects part of their incoming damage onto yourself and cuts what they take.\" The redirect has no hook - nothing reroutes damage between combatants - so only the reduction is real, and it is small because of it.",
-      "target_type": "ally",
-      "buff_scope": "raid"
-    },
-    {
       "ability_id": "barbarian_war_cry",
       "name": "War Cry",
       "resource_type": "energy",
@@ -1697,31 +1458,6 @@
       "icon_id": null,
       "_source": "CoA: 'Share a drink from your Tankard with all party and raid members, granting 95 increased attack or spell power'. CoA's either/or is both here - there is no 'whichever stat you use' selector, and giving both is closer to the intent than guessing.",
       "target_type": "party",
-      "buff_scope": "combat"
-    },
-    {
-      "ability_id": "barbarian_ale_of_the_god_king",
-      "name": "Ale of the God-King",
-      "resource_type": "energy",
-      "cooldown": 10,
-      "effect_type": "buff",
-      "duration": 4,
-      "stat_mods": {
-        "spell_power": 50,
-        "frost_resistance": 20
-      },
-      "description": "Spell Power +50, Frost Resistance +20 for 4 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 42,
-          "cost": 25,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: \"Empower your Honored Ancestor's melee attacks to deal additional Frost damage scaling with your attack power\", 'Ale of the God-King the instant your Tankard is full'. NOTHING a cast can carry reaches a pet: summon_damage_pct is authored on one shipped ability and read nowhere, and pet_damage/pet_health/pet_armor are read ONLY off the owner's TALENT effects, once, at Pet construction (entities/pet.py). So the Barbarian drinks it himself and his own Frost gets heavier - spell_power is what Breath of the North, Frozen Tankard and Hodir's Wrath read. The pet-facing half lives in the Ancestry tree as The Spins and Might of Utgarde, where pet_damage and pet_health are real. The Tankard gate is gone with the Tankard.",
-      "target_type": "self",
       "buff_scope": "combat"
     },
     {

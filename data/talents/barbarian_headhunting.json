@@ -27,7 +27,6 @@
         "ability_barbarian_headhunters_spear_damage": 0.05,
         "ability_barbarian_maiming_spear_potency": 0.08,
         "ability_barbarian_impaling_spear_damage": 0.05,
-        "ability_barbarian_barbed_spear_damage": 0.05,
         "ability_barbarian_javelin_toss_damage": 0.05,
         "hit_rating": 2
       },
@@ -203,7 +202,6 @@
       "hex_y": -2,
       "effects": {
         "ability_barbarian_headhunters_spear_crit": 3,
-        "ability_barbarian_barbed_spear_crit": 3,
         "ability_barbarian_impaling_spear_crit": 3,
         "ability_barbarian_berserker_axe_crit": 3
       },
@@ -263,7 +261,7 @@
     {
       "talent_id": "barbarian_headhunting_no_survivors",
       "name": "No Survivors",
-      "description": "Increases the duration of Maiming Spear, Barbed Spear and Gutspiller by 2 turns.",
+      "description": "Increases the duration of Maiming Spear and Gutspiller by 2 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
@@ -427,9 +425,7 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "ability_barbarian_spite_damage": 0.06,
-        "ability_barbarian_javelin_toss_damage": 0.06,
-        "ability_barbarian_spite_cooldown_pct": 0.1
+        "ability_barbarian_javelin_toss_damage": 0.06
       },
       "connected_to": [
         "barbarian_headhunting_furious_berserker"

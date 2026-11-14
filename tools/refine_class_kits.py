@@ -200,6 +200,42 @@ CLASSES = {
         "REWORD": {},
         "PASSIVE": {},
     },
+    # Barbarian: 46 buttons, six of them single-target throws.
+    "Barbarian": {
+        "CUT": {
+            "barbarian_skull_smash": "the same 1-turn interrupt as Jawbreaker",
+            "barbarian_battle_vigor": "a third personal cooldown no talent touches",
+            "barbarian_whirling_advance": "a fourth Brutality area swing",
+            "barbarian_barbed_spear": "one of six single-target throws",
+            "barbarian_spite": "one of six single-target throws",
+            "barbarian_ancestral_combat": "a self haste buff beside Ancestral Fury's party one",
+            "barbarian_cheers": "a small single-ally buff nothing is built around",
+            "barbarian_ale_of_the_god_king": "a Spell Power buff on a class that hits things",
+        },
+        "REWORD": {},
+        "PASSIVE": {},
+        "TALENT_TEXT": {
+            "Whirling Assault": "Increases the damage of Barbaric Whirl by 15%.",
+            "Unified Rage": "Reduces the cooldown of Unbridled Rage by 36% and increases your physical damage by 6%.",
+            "No Survivors": "Increases the duration of Maiming Spear and Gutspiller by 2 turns.",
+        },
+    },
+    # Felsworn: 43 buttons, three big damage cooldowns, three interrupts and three DoTs side by side.
+    "Felsworn": {
+        "CUT": {
+            "felsworn_blood_of_mannoroth": "a third damage cooldown beside Inner Demon and Annihilation",
+            "felsworn_felbreak": "a 1-turn interrupt beside Whispers of the Pit's 2-turn one",
+            "felsworn_skull_of_guldan": "a third personal defensive",
+            "felsworn_manaburn": "a mana burn in a game where few enemies run on mana",
+            "felsworn_doomscarring": "an armour debuff beside Bane of Frailty",
+            "felsworn_manafeed": "a leech nothing is built around",
+            "felsworn_felstrike": "a third Infernal DoT",
+        },
+        "REWORD": {
+            "felsworn_fel_fireball": "A slow green ball of fel fire.",
+        },
+        "PASSIVE": {},
+    },
 }
 
 

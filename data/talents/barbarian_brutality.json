@@ -336,7 +336,7 @@
     {
       "talent_id": "barbarian_brutality_whirling_assault",
       "name": "Whirling Assault",
-      "description": "Increases the damage of Whirling Advance by 33% and of Barbaric Whirl by 15%.",
+      "description": "Increases the damage of Barbaric Whirl by 15%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -344,7 +344,6 @@
       "hex_x": 3,
       "hex_y": 4,
       "effects": {
-        "ability_barbarian_whirling_advance_damage": 0.11,
         "ability_barbarian_barbaric_whirl_damage": 0.05
       },
       "connected_to": [
