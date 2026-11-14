@@ -636,9 +636,14 @@ class RecruitManager:
         weren't placed there at all)."""
         key = self._zone_key(zone)
         found = []
+        from world.bond_manager import get_bond_manager
+        bonds = get_bond_manager()
         for recruit in self.recruits.values():
             if not recruit.is_available():
                 continue
+            b = bonds.get(recruit.recruit_id)
+            if b is not None and b.away and not self.is_recruited(recruit.recruit_id):
+                continue        # on a break: their spot stands empty (bonds design, "gone means gone")
             location = self.current_location(recruit)
             if location and self._zone_key(location[0]) == key:
                 found.append(recruit)
@@ -648,8 +653,13 @@ class RecruitManager:
         """The recruit standing on this tile, if any and currently
         available (see RecruitNPC.is_available)."""
         key = self._zone_key(zone)
+        from world.bond_manager import get_bond_manager
+        bonds = get_bond_manager()
         for recruit in self.recruits.values():
             if not recruit.is_available():
+                continue
+            b = bonds.get(recruit.recruit_id)
+            if b is not None and b.away and not self.is_recruited(recruit.recruit_id):
                 continue
             location = self.current_location(recruit)
             if not location:
@@ -822,14 +832,19 @@ class RecruitManager:
     # ------------------------------------------------------------------
 
     def to_dict(self):
+        from world.bond_manager import get_bond_manager
         return {
             "recruited_ids": sorted(self.recruited_ids),
             "dismissed_characters": self.dismissed_characters,
+            # friendship rides along in the recruit block, so the save format needs no new key
+            "bonds": get_bond_manager().to_dict(),
         }
 
     def load_state(self, data):
         self.recruited_ids = set(data.get("recruited_ids", []))
         self.dismissed_characters = dict(data.get("dismissed_characters", {}))
+        from world.bond_manager import get_bond_manager
+        get_bond_manager().load_state(data.get("bonds"))
 
 
 _recruit_manager = None
@@ -865,4 +880,6 @@ def reset_recruit_manager():
     """
     global _recruit_manager
     _recruit_manager = RecruitManager()
+    from world.bond_manager import reset_bond_manager
+    reset_bond_manager()        # friendship belongs to a character, same as hires
     return _recruit_manager

@@ -281,6 +281,11 @@ class QuestManager:
             objective.progress = 0
             if hasattr(objective, "topics_asked"):
                 objective.topics_asked = []
+        try:
+            from world.bond_manager import get_bond_manager
+            get_bond_manager().on_quest_abandoned()
+        except Exception as exc:
+            print(f"[QuestManager] friendship update failed: {exc}")
         return True
 
     def turn_in_quest(self, quest_id, player, party):
@@ -378,6 +383,14 @@ class QuestManager:
                     "if it's all the same to you.\" He doesn't wait for an answer. "
                     "Asher has left the party."
                 )
+
+        # FRIENDSHIP. A quest handed in together is an outing (world/bond_manager.py), and handing
+        # one in outside a dungeon is a safe point, so anyone due to go home goes here.
+        try:
+            from world.bond_manager import get_bond_manager
+            get_bond_manager().on_deed("quest", party)
+        except Exception as exc:
+            print(f"[QuestManager] friendship update failed: {exc}")
 
         return True
 

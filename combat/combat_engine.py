@@ -1019,6 +1019,8 @@ class CombatEngine:
         # once the player is back on their feet - a line over the victory screen would be noise.
         from world.banter_manager import get_banter_manager
         banter = get_banter_manager()
+        from world.bond_manager import get_bond_manager
+        get_bond_manager().on_kills(self.enemies, self.party, zone=self.zone)
         if any(getattr(e, "is_boss", False) for e in self.enemies):
             banter.fire("boss_down", self.party, zone=self.zone)
         else:

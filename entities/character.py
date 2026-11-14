@@ -4276,6 +4276,7 @@ class Character(StatusEffectMixin):
         if not getattr(item, "is_gear", True) or not self.equipment.has_slot_for(item):
             return False
 
+        slot_before = getattr(item, "slot", None)
         result = self.equipment.equip(item)
         previous, displaced_offhand = result if isinstance(result, tuple) else (result, None)
 
@@ -4286,7 +4287,34 @@ class Character(StatusEffectMixin):
             self.inventory.append(displaced_offhand)
 
         self._recalculate_derived_stats()
+        self._tell_bonds_equipped(item, previous, slot_before)
         return True
+
+    @staticmethod
+    def _gear_power(item):
+        if item is None:
+            return 0
+        lvl = getattr(item, "item_level", None) or getattr(item, "ilvl", None)
+        if lvl:
+            return float(lvl)
+        stats = getattr(item, "stats", None) or {}
+        return float(sum(v for v in stats.values() if isinstance(v, (int, float))))
+
+    def _tell_bonds_equipped(self, item, previous, slot):
+        """A recruit with a friendship record notices an upgrade (world/bond_manager.py)."""
+        rid = getattr(self, "recruit_id", None)
+        if not rid:
+            return
+        try:
+            from world.bond_manager import get_bond_manager
+            bm = get_bond_manager()
+            # only once they're travelling with you: the starter kit put on while they're being
+            # built is not a gift from the player
+            if bm.has(rid) and bm.get(rid).in_party:
+                bm.on_gear_given(rid, slot or getattr(item, "slot", None),
+                                 better=self._gear_power(item) > self._gear_power(previous))
+        except Exception as exc:
+            print(f"[Character] friendship update failed: {exc}")
 
     def unequip_item(self, slot, into=None):
         """Unequip an item from a slot into a bag. Returns True on success.
@@ -4315,6 +4343,21 @@ class Character(StatusEffectMixin):
         # either, not just "can't be replaced".
         if getattr(self, "recruit_id", None) == "asher_coleman":
             return False
+        # FRIENDSHIP: a recruit who doesn't know you well yet, or a proud one, won't hand gear
+        # over (bonds design, decision 9). The refusal is said out loud, and nothing moves.
+        rid = getattr(self, "recruit_id", None)
+        bm = None
+        if rid:
+            from world.bond_manager import get_bond_manager
+            bm = get_bond_manager()
+            if bm.has(rid) and bm.get(rid).in_party:
+                allowed, refusal = bm.may_take(rid)
+                if not allowed:
+                    bm.say(rid, refusal)
+                    self.last_refusal = refusal
+                    return False
+            else:
+                bm = None
         bag = into if into is not None else self
         item = self.equipment.unequip(slot)
         if not item:
@@ -4330,6 +4373,8 @@ class Character(StatusEffectMixin):
         self._recalculate_derived_stats()
         if bag is not self:
             bag._recalculate_derived_stats()
+        if bm is not None:
+            bm.on_gear_taken(rid, slot)
         return True
 
     @property

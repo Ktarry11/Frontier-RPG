@@ -23,6 +23,7 @@ from ui.screens.form_screen import FormScreen
 from ui.screens.guardian_screen import GuardianScreen
 from ui.screens.cast_screen import CastScreen
 from ui.screens.background_screen import BackgroundScreen
+from ui.screens.bond_test_screen import BondTestScreen
 from ui.screens.travel_service_screen import TravelServiceScreen
 from config import save_slot_filename
 
@@ -98,6 +99,7 @@ class GameStateManager:
             GameState.COMBAT: CombatScreen(self),
             GameState.CAST: CastScreen(self, icon_ui_helper=self.icon_ui_helper),
             GameState.BACKGROUND: BackgroundScreen(self),
+            GameState.BOND_TEST: BondTestScreen(self),
             GameState.TRAVEL: TravelServiceScreen(self),
             # VendorScreen is created dynamically when entering vendor state
         }
@@ -180,6 +182,12 @@ class GameStateManager:
                           "lines": [f"The party was wiped out and wakes at {where}.",
                                     f"Everyone lost {int(party.WIPE_XP_LOSS * 100)}% of their "
                                     f"experience ({total} in all)."]}
+        # FRIENDSHIP: each wipe wears on the people in the party, and a nervy one who has
+        # already warned you can walk out at the dungeon door (world/bond_manager.py).
+        from world.bond_manager import get_bond_manager
+        from world.zone_classification import is_dungeon
+        here = getattr(getattr(zm, "current_zone", None), "name", "") if zm else ""
+        get_bond_manager().on_wipe(party, at_dungeon_door=bool(here and is_dungeon(here)))
         overworld = self.states.get(GameState.OVERWORLD)
         if overworld is not None and hasattr(overworld, "_notify"):
             overworld._notify(f"Wiped out. -{int(party.WIPE_XP_LOSS * 100)}% experience. "

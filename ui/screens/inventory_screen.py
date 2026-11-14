@@ -487,7 +487,15 @@ class InventoryScreen(BaseScreen):
                 if rect.collidepoint(mouse_pos):
                     item = subject.equipment.get_equipped(slot_key)
                     if item:
+                        subject.last_refusal = None
                         if not subject.unequip_item(slot_key, into=self._bag_source(subject)):
+                            # a recruit who won't hand it over says so in their own words
+                            refusal = getattr(subject, "last_refusal", None)
+                            if refusal:
+                                self.equip_error = f"{subject.name}: \"{refusal}\""
+                                self.equip_error_timer = 4.0
+                                self.selected_item = None
+                                return
                             # A refused unequip has to SAY so. The old code
                             # appended past inventory_capacity and silently
                             # overflowed; it refuses now, and a refusal the

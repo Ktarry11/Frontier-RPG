@@ -60,6 +60,8 @@ class PartyScreen(BaseScreen):
         super().__init__(state_manager)
 
         self.close_button = pygame.Rect(SCREEN_WIDTH - 120, 20, 100, 50)
+        # the friendship test panel (ui/screens/bond_test_screen.py); F9 opens it too
+        self.bond_test_button = pygame.Rect(SCREEN_WIDTH - 330, 20, 200, 50)
 
         # Selection is stored as the Character object, not an index, because
         # benching reorders both lists - an index would silently point at a
@@ -198,6 +200,15 @@ class PartyScreen(BaseScreen):
         background.set_subject(character, return_state=GameState.PARTY)
         self.state_manager.transition_to(GameState.BACKGROUND)
 
+    def _open_talk(self, character):
+        """Talk to a companion: what they've told you so far, and any reply waiting
+        (world/bond_manager.py). Reuses the recruit conversation screen in its talk view."""
+        from world.recruit_manager import get_recruit_manager
+        recruit = get_recruit_manager().recruits.get(getattr(character, "recruit_id", None))
+        if recruit is None:
+            return
+        self.state_manager.transition_to(GameState.RECRUIT_DIALOG, current_recruit_npc=recruit)
+
     def _dismiss(self, character):
         """
         Send a companion home. They are NOT deleted - their full state is
@@ -222,6 +233,13 @@ class PartyScreen(BaseScreen):
         if getattr(character, "recruit_id", None) == "asher_coleman":
             return
 
+        from world.bond_manager import get_bond_manager
+        bm = get_bond_manager()
+        b = bm.get(getattr(character, "recruit_id", None))
+        if b is not None and b.in_party:
+            # sent home by you, not leaving on their own: no break, and no hard feelings
+            b.in_party = False
+            b.last_with_you = bm.deeds
         recruit = get_recruit_manager().dismiss(character)
         if party.remove_member(character):
             if recruit is not None and recruit.has_home():
@@ -236,6 +254,13 @@ class PartyScreen(BaseScreen):
     # ------------------------------------------------------------------
 
     def handle_event(self, event):
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_F9:
+            self.state_manager.transition_to(GameState.BOND_TEST)
+            return
+        if event.type == pygame.MOUSEBUTTONDOWN and getattr(event, "button", 1) == 1 \
+                and self.bond_test_button.collidepoint(event.pos):
+            self.state_manager.transition_to(GameState.BOND_TEST)
+            return
         if event.type == pygame.KEYDOWN:
             if event.key in (pygame.K_ESCAPE, pygame.K_p):
                 self.state_manager.transition_to(GameState.OVERWORLD)
@@ -285,6 +310,8 @@ class PartyScreen(BaseScreen):
                 self._open_skills(target)
             elif action == "background":
                 self._open_background(target)
+            elif action == "talk":
+                self._open_talk(target)
             elif action == "dismiss":
                 if getattr(target, "recruit_id", None) == "asher_coleman":
                     # Kyle: "if we try to remove him, he won't let us? -
@@ -340,6 +367,7 @@ class PartyScreen(BaseScreen):
         self.renderer.draw_text(screen, "PARTY", (20, 20),
                                 size="large", color=COLOR_GOLD)
         self.renderer.draw_button(screen, self.close_button, "Close")
+        self.renderer.draw_button(screen, self.bond_test_button, "Friendship Test")
 
         if party is None:
             self.renderer.draw_text(screen, "No party.", (ROSTER_X, ROSTER_Y))
@@ -595,6 +623,19 @@ class PartyScreen(BaseScreen):
         self.renderer.draw_text(screen, member.name, (x, y),
                                 size="large", color=COLOR_GOLD)
         y += 38
+
+        # FRIENDSHIP: the stage and a line on their mood, in words (bonds design, decision 3)
+        from world.bond_manager import get_bond_manager, STAGE_NAMES
+        bm = get_bond_manager()
+        rid = getattr(member, "recruit_id", None)
+        if bm.has(rid):
+            b = bm.get(rid)
+            note = bm.mood_line(rid)
+            if bm.talk_moment(rid) is not None:
+                note += "  They want a word with you."
+            self.renderer.draw_text(screen, f"{STAGE_NAMES[b.stage_key]}. {note}", (x, y),
+                                    font_size=15, color=(150, 200, 160))
+            y += 24
 
         locked = getattr(member, "locked_spec", None)
         spec_text = f" - {self._spec_label(member, locked)} (locked)" if locked else ""
@@ -923,6 +964,9 @@ class PartyScreen(BaseScreen):
         buttons.append(("talents", "Talents"))
         buttons.append(("skills", "Skills"))
         buttons.append(("background", "Background"))
+        from world.bond_manager import get_bond_manager
+        if get_bond_manager().has(getattr(member, "recruit_id", None)):
+            buttons.append(("talk", "Talk"))
         if not is_player:
             buttons.append(
                 ("bench", "Bench" if member in party.members else "Activate"))

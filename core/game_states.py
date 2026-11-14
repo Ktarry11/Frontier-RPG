@@ -27,6 +27,7 @@ class GameState(Enum):
     QUEST_DIALOG = "quest_dialog"
     QUEST_JOURNAL = "quest_journal"
     RECRUIT_DIALOG = "recruit_dialog"
+    BOND_TEST = "bond_test"
     TRAVEL = "travel"
     PAUSED = "paused"
     QUIT = "quit"

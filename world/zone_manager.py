@@ -138,6 +138,8 @@ class ZoneManager:
         are silent rather than broken.
         """
         self._banter_party = party
+        from world.bond_manager import get_bond_manager
+        get_bond_manager().party = party
 
     def reset_to_start(self, start_id=None):
         """Snap back to the real starting position - Valley of Trials,
@@ -644,6 +646,12 @@ class ZoneManager:
                     banter.fire("town_arrive", party, zone=new_zone.name)
                 else:
                     banter.fire("zone_arrive", party, zone=new_zone.name)
+
+            # FRIENDSHIP: a dungeon left with its boss down is an outing, a town is a safe point,
+            # and a zone well above someone's level wears on them (world/bond_manager.py).
+            if party is not None:
+                from world.bond_manager import get_bond_manager
+                get_bond_manager().on_zone(new_zone, party, left_cleared_dungeon=left_cleared)
 
             self._enforce_asher_leash(leaving, new_zone)
 
