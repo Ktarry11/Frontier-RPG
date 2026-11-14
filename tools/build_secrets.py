@@ -85,7 +85,8 @@ SELLERS = [
     # ---- people living deep inside the hidden zones (world/hidden_zones.py). Kyle: "I WANT to be
     # rewarded for exploring." A secret inside a secret.
     # ---- the frontier zones, a secret inside a secret inside a secret. Kyle: "put EXTRA care into
-    # frontier zones. They carry the name of the game." Their shelves are all epic.
+    # frontier zones. They carry the name of the game." One-of-a-kind, and rare: Kyle, "Remove the
+    # sale of epics. That feels cheap."
     ("secret_hz_root_seedkeeper", "The World-Root Hollow", "The Seed-Keeper", "night_elf", "female",
      "You found the tree, and the hollow under it, and now the knot in the roots where I keep the "
      "seeds. Nobody's done all three. Take your time choosing. These grew a long while.",
@@ -575,7 +576,7 @@ def _secret_recipes(seller_id, surname, trades, level):
         new["secret"] = True
         new["sold_by"] = [seller_id]
         o = new["output"]
-        o["rarity"] = "epic" if o.get("rarity") == "rare" else "rare"
+        o["rarity"] = "rare"        # a bought recipe never makes an epic: Kyle, "no sell epics"
         o["item_level"] = int(o.get("item_level", level)) + 2
         out.append((trade, f"secret_{seller_id.split('_', 1)[1]}_{rid}", new))
     return out
@@ -738,7 +739,9 @@ def main():
                 kw["weapon_type"] = typ
             elif typ:
                 kw["armor_type"] = typ
-            rarity = "epic" if level >= 45 or _is_frontier(zone) else "rare"
+            # NO EPICS FOR SALE. Kyle, 14 Nov 2026: "Remove the sale of epics. That feels cheap."
+            # An epic is something you take off a boss, never something you buy.
+            rarity = "rare"
             _, d = unique(uid, iname, slot, suffix, ilvl, flavor, rarity=rarity, **kw)
             uniques[uid] = d
             stock.append(f"unique:{uid}")
@@ -781,7 +784,7 @@ def main():
         for (iname, slot, suffix, kind, typ, flavor) in items:
             uid = vid.replace("secret_", "") + "_" + "".join(ch for ch in iname.lower().replace(" ", "_") if ch.isalnum() or ch == "_")
             kw = {"weapon_type": typ} if kind == "weapon" else ({"armor_type": typ} if typ else {})
-            _, d = unique(uid, iname, slot, suffix, level + 3, flavor, rarity="epic" if level >= 45 else "rare", **kw)
+            _, d = unique(uid, iname, slot, suffix, level + 3, flavor, rarity="rare", **kw)   # never epic: see above
             uniques[uid] = d
             stock.append(f"unique:{uid}")
             prices[f"unique:{uid}"] = (barter[2] + 2) if barter else None

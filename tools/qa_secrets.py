@@ -145,6 +145,8 @@ def main():
                 bad.append(f"hidden seller {v.vendor_id}: '{sid}' cannot be made")
             elif str(sid).startswith("unique:"):
                 uniques += 1
+                if getattr(item, "rarity", None) == "epic":
+                    bad.append(f"hidden seller {v.vendor_id} sells an epic (Kyle: \"Remove the sale of epics\")")
     # map icons: the map screen skips them (checked by reading the same flags it reads)
     from world.travel_manager import services_for_npc
     for v in hidden:
