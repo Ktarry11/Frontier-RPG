@@ -7,7 +7,8 @@ Kyle, 14 Nov 2026: "we don't need every single ability as they become too heavy.
 moving' is pointless." Checked:
   1. the refine tool has nothing left to do (a class file was not rebuilt with cut abilities back in);
   2. no retired ability is named anywhere in a class file, the spellbook tabs or a talent tree;
-  3. no refined class's ability text still talks about moving, stealth or being stunned;
+  3. no ability text in ANY class still talks about moving, teleporting, knockback, attack or casting
+     speed, real-time durations, raids or players;
   4. an old save with a retired ability on its hotbar loses it on load, and keeps everything else.
 """
 import json
@@ -51,6 +52,16 @@ def main():
         if isinstance(o, list):
             return [live(v) for v in o]
         return o
+
+    # every class, refined or not: no ability text that only means something in real time
+    realtime = re.compile(r"usable while (?:moving|stealthed|stunned|casting)|cannot move|movement speed|"
+                          r"teleport|knock(?:s|ed)? back|knockback|pushback|attack speed|casting speed|"
+                          r"spell cast time|for \d+ (?:hrs?|hours?|minutes?|seconds?)|party and raid|"
+                          r"allied player|if the target is a player", re.I)
+    for f in sorted((ROOT / "data/abilities").glob("*.json")):
+        for a in json.loads(f.read_text(encoding="utf-8")).get("abilities", []):
+            m = realtime.search(a.get("description", ""))
+            check(not m, f"{a['ability_id']}: '{m.group(0) if m else ''}' in '{a.get('description', '')}'")
 
     for f in files:
         text = json.dumps(live(json.loads(f.read_text(encoding="utf-8"))))

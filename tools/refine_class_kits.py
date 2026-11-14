@@ -275,6 +275,7 @@ CLASSES = {
             "venomancer_blight_venom": "Activate Blight Venom: your harmful spells and abilities have a chance to poison an enemy.",
             "venomancer_venomtip_poison": "Spray poison on an enemy and nearby enemies, slowing them.",
             "venomancer_weaver_form": "Shapeshift into Weaver Form, granting periodic mana return.",
+            "venomancer_spider_form": "Shapeshift into Spider Form, allowing the use of claw-based abilities and increasing Agility and critical strike chance.",
         },
         "PASSIVE": {},
     },
@@ -510,6 +511,24 @@ CLASSES = {
             "primalist_primal_rush": "Crash through the enemy line, striking everyone in your way and generating Rage.",
             "primalist_golem_form": "Shapeshift into an earthen golem, increasing Armor and quickening your spells.",
             "primalist_earthen_avatar": "Take the shape of the earth itself: slower to fall, quicker to strike, and harder to bring down.",
+        },
+        "PASSIVE": {},
+    },
+    # The classic nine are WoW Classic kits at Classic sizes; they only needed their real-time
+    # words turned into turn-based ones.
+    "Rogue": {
+        "CUT": {},
+        "REWORD": {
+            "rogue_slice_and_dice": "Increases your haste for a short time.",
+            "rogue_sprint": "Greatly increases your haste for a short time.",
+            "rogue_blade_flurry": "Your blades become a blur, greatly increasing your haste for 3 turns.",
+        },
+        "PASSIVE": {},
+    },
+    "Mage": {
+        "CUT": {},
+        "REWORD": {
+            "mage_icy_veins": "Increases your haste for a short time.",
         },
         "PASSIVE": {},
     },
