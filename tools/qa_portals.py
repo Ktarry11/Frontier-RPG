@@ -43,6 +43,13 @@ def flood(t, start):
     return seen
 
 
+def _secret_door(zone, x, y):
+    """A secret door (world/secrets.py) is meant to look like nothing: whatever's drawn over it is
+    camouflage, not a hidden exit."""
+    from world.secrets import get_secrets
+    return get_secrets().is_door(zone, x, y)
+
+
 def main():
     from world.zone_manager import ZoneManager
     from world.portal_art import is_entrance_art
@@ -89,7 +96,7 @@ def main():
                 if (lm["anchor_x"] <= x < lm["anchor_x"] + lm["width_tiles"]
                         and lm["anchor_y"] <= y < lm["anchor_y"] + lm["height_tiles"]):
                     covered = True
-                    if not is_entrance_art(lm["sprite_key"]):
+                    if not is_entrance_art(lm["sprite_key"]) and not _secret_door(zone, x, y):
                         bad.append(f"{zone}: the exit at ({x},{y}) is under "
                                    f"{os.path.basename(lm['sprite_key'])}, which is not entrance art")
             framed += 1 if covered else 0
