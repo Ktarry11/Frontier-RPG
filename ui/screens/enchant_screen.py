@@ -271,6 +271,16 @@ class EnchantScreen(BaseScreen):
         if len(scrolls) > visible:
             self.renderer.draw_text(screen, f"{len(scrolls)} scrolls, scroll for more", (PANEL_X, py), font_size=13,
                                     color=(150, 150, 150))
+        # hover a scroll for its whole text (Kyle, 14 Nov: descriptions that run off)
+        mouse = pygame.mouse.get_pos()
+        for sid, rect in self.scroll_rects:
+            if rect.collidepoint(mouse):
+                e = E.enchant(sid)
+                from ui.hover_text import draw_hover
+                lines = [f"Goes on: {E.group_label(e['group'])}" + (" (any weapon)" if e["group"] == "weapon" else ""),
+                         e["proc"]["describe"] if e.get("proc") else stat_text(e["stats"])]
+                draw_hover(screen, self.renderer, e["name"], lines, mouse)
+                break
 
     def _render_disenchant_panel(self, screen):
         from world import enchanting as E

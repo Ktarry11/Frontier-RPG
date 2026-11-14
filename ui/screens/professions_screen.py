@@ -613,6 +613,7 @@ class ProfessionsScreen(BaseScreen):
         list_area = pygame.Rect(PANEL_X, y, PANEL_WIDTH, visible * row_h - 6)
         self.craft_bar.draw(screen, ScrollBar.track_for(list_area), self.craft_scroll,
                             max(0, len(recipes) - visible), visible)
+        hover_rows = []         # (rect, title, lines): rows whose text was cut short, shown whole on hover
         for recipe_id, recipe in recipes[self.craft_scroll:self.craft_scroll + visible]:
             rect = pygame.Rect(PANEL_X, y, PANEL_WIDTH - GUTTER, row_h - 6)
             req = recipe.get("skill_required", 0)
@@ -644,14 +645,15 @@ class ProfessionsScreen(BaseScreen):
                     effect = f"{g['color'].capitalize()}: {stat_text(g['stats'])}"
                 from world.runes import rune as _rune
                 if _rune(out.get("material_id")):
-                    effect = self.renderer.truncate(_rune(out["material_id"])["text"],
-                                                    rect.right - 140 - (rect.x + 410), size="small")
+                    full = _rune(out["material_id"])["text"]
+                    hover_rows.append((rect, recipe["name"], [full]))
+                    effect = self.renderer.truncate(full, rect.right - 140 - (rect.x + 410), size="small")
                 from world.enchanting import enchant as _enchant, label as _elabel
                 if _enchant(out.get("material_id")):
                     e = _enchant(out["material_id"])
-                    effect = self.renderer.truncate(
-                        e["proc"]["describe"] if e.get("proc") else _elabel(out["material_id"]),
-                        rect.right - 140 - (rect.x + 410), size="small")
+                    full = e["proc"]["describe"] if e.get("proc") else _elabel(out["material_id"])
+                    hover_rows.append((rect, recipe["name"], [full]))
+                    effect = self.renderer.truncate(full, rect.right - 140 - (rect.x + 410), size="small")
             elif out.get("kind") == "prospect":
                 effect = "A stone or two from this ore"
             elif out.get("kind") == "fixed":
@@ -689,6 +691,13 @@ class ProfessionsScreen(BaseScreen):
             y += row_h
 
         self._draw_craft_message(screen)
+        # hover a row for the whole description (Kyle, 14 Nov: runes and enchants that run off)
+        mouse = pygame.mouse.get_pos()
+        for rect, title, lines in hover_rows:
+            if rect.collidepoint(mouse):
+                from ui.hover_text import draw_hover
+                draw_hover(screen, self.renderer, title, lines, mouse)
+                break
 
     def _draw_craft_message(self, screen):
         if self.craft_message:

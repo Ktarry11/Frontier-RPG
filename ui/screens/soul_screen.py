@@ -188,3 +188,17 @@ class SoulScreen(BaseScreen):
             for i, line in enumerate(self.renderer.wrap_text(self.message, SCREEN_WIDTH - 40)[:2]):
                 self.renderer.draw_text(screen, line, (20, SCREEN_HEIGHT - 44 + i * 20),
                                         color=(140, 220, 160) if self.message_ok else (240, 180, 120))
+
+        # HOVER FOR THE WHOLE TEXT (Kyle: "rune descriptions that run off, we need to be able to
+        # have a way to see them fully")
+        mouse = pygame.mouse.get_pos()
+        hovered = next((rid for rid, rect in self.rune_rects if rect.collidepoint(mouse)), None)
+        if hovered is None:
+            hovered = next((soul[i] for i, rect in self.slot_rects if rect.collidepoint(mouse) and soul[i]), None)
+        if hovered:
+            rn = R.rune(hovered)
+            ok, why = R.can_imprint(who, self.slot, hovered)
+            role = "Capstone" if rn["capstone"] else {"tank": "Tanking", "damage": "Damage", "healing": "Healing"}.get(rn.get("role"), "Anyone")
+            from ui.hover_text import draw_hover
+            draw_hover(screen, self.renderer, rn["name"],
+                       [f"{role} rune, level {rn['level']}", rn["text"]] + ([] if ok or hovered in soul else [why]), mouse)
