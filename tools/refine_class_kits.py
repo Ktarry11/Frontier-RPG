@@ -136,6 +136,31 @@ CLASSES = {
             "Cursed Strikes": "Increases the damage of Rotclaw by up to 27%.",
         },
     },
+    # Witch Hunter: four specs (Black Knight tank, Boltslinger ranged, Houndmaster pets, Inquisition
+    # melee), 53 buttons on everyone. Cut what no talent is built around and something else covers.
+    "Witch Hunter": {
+        "CUT": {
+            "witch_hunter_burrow_bolt": "a fourth plain ranged shot",
+            "witch_hunter_vampiric_tonic": "an unnamed self-buff no talent touches",
+            "witch_hunter_death_trap": "a third trap that is just a DoT",
+            "witch_hunter_knights_seal": "a second Black Knight Shadow DoT beside Shadow Brand",
+            "witch_hunter_daring_escape": "Vault again, a little bigger",
+            "witch_hunter_hunt": "a plain Inquisition strike with nothing of its own",
+            "witch_hunter_darkslayers_lantern": "an area stun beside Shadow Trap's",
+        },
+        "REWORD": {},
+        "PASSIVE": {
+            "witch_hunter_boltslinger_escape_artist": P("Escape Artist", "Vault's cooldown is 1 turn shorter.",
+                                                        {"ability_witch_hunter_vault_cooldown": 0.34}, drop_proc=True),
+            "witch_hunter_inquisition_the_hunt_continues": P("The Hunt Continues", "Purifier's Edge costs 15% less Focus.",
+                                                             {"ability_witch_hunter_purifiers_edge_cost_pct": 0.05}, drop_proc=True),
+            "witch_hunter_inquisition_duskwood_renegade": P("Duskwood Renegade", "Shadowblast deals 6% more damage.",
+                                                            {"ability_witch_hunter_shadowblast_damage": 0.02}),
+        },
+        "TALENT_TEXT": {
+            "Calm Under Pressure": "Reduces the cooldown of Stoicism by 39%.",
+        },
+    },
 }
 
 
@@ -201,6 +226,11 @@ def refine(cls, spec, dry):
         td = load(tp)
         changed = False
         for n in td.get("nodes", []):
+            if n["talent_id"] in spec["PASSIVE"] and n.get("_refined") is None:
+                n.update(spec["PASSIVE"][n["talent_id"]])
+                if n.get("proc", 0) is None:
+                    del n["proc"]
+                changed = True
             eff = n.get("effects") or {}
             had = bool(eff)
             for k in list(eff):
@@ -217,9 +247,6 @@ def refine(cls, spec, dry):
                 if not rep:
                     raise SystemExit(f"{tp.name}: {n['talent_id']} unlocks cut {u} and has no PASSIVE")
                 n.update(rep)
-                changed = True
-            elif n["talent_id"] in spec["PASSIVE"] and n.get("_refined") is None:
-                n.update(spec["PASSIVE"][n["talent_id"]])
                 changed = True
             if "proc" in n and n["proc"] is None:
                 del n["proc"]

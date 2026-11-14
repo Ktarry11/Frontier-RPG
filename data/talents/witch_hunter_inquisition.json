@@ -230,7 +230,7 @@
     {
       "talent_id": "witch_hunter_inquisition_the_hunt_continues",
       "name": "The Hunt Continues",
-      "description": "Hunt returns 35 Focus and costs 15% less.",
+      "description": "Purifier's Edge costs 15% less Focus.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -238,24 +238,13 @@
       "hex_x": 4,
       "hex_y": -4,
       "effects": {
-        "ability_witch_hunter_hunt_cost_pct": 0.05
+        "ability_witch_hunter_purifiers_edge_cost_pct": 0.05
       },
       "connected_to": [
         "witch_hunter_inquisition_scarlet_inquisitor"
       ],
-      "proc": {
-        "trigger": "on_cast",
-        "chance": 33,
-        "icd": 0,
-        "ability_filter": [
-          "witch_hunter_hunt"
-        ],
-        "grant_resource": {
-          "resource": "focus",
-          "amount": 35
-        }
-      },
-      "_source": "CoA: 'Hunt now generates an additional 15 Rage and the mana cost is reduced by -15%.' Rage -> Focus, and CoA's base Hunt already generates 20, so the total it describes is 35 - built as the full 35 on this node, since Frontier's Hunt has no generation of its own to add to. on_cast rather than on_damage_cast: Hunt is a charge that slows, and filtering a damage trigger to it would have been a proc that never fired. Also carries CoA's Evil Never Sleeps, which extends Hunt's slow - movement does not exist."
+      "_source": "CoA: 'Hunt now generates an additional 15 Rage and the mana cost is reduced by -15%.' Rage -> Focus, and CoA's base Hunt already generates 20, so the total it describes is 35 - built as the full 35 on this node, since Frontier's Hunt has no generation of its own to add to. on_cast rather than on_damage_cast: Hunt is a charge that slows, and filtering a damage trigger to it would have been a proc that never fired. Also carries CoA's Evil Never Sleeps, which extends Hunt's slow - movement does not exist.",
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "witch_hunter_inquisition_dawn",
@@ -399,7 +388,6 @@
       "effects": {
         "ability_witch_hunter_inquisitors_trap_cost_pct": 0.17,
         "ability_witch_hunter_shadow_trap_cost_pct": 0.17,
-        "ability_witch_hunter_death_trap_cost_pct": 0.17,
         "ability_witch_hunter_shadow_brand_cost_pct": 0.17
       },
       "connected_to": [
@@ -469,7 +457,7 @@
     {
       "talent_id": "witch_hunter_inquisition_duskwood_renegade",
       "name": "Duskwood Renegade",
-      "description": "Reduces the cooldown of Burrow Bolt by 39%.",
+      "description": "Shadowblast deals 6% more damage.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -477,12 +465,13 @@
       "hex_x": 0,
       "hex_y": 0,
       "effects": {
-        "ability_witch_hunter_burrow_bolt_cooldown_pct": 0.13
+        "ability_witch_hunter_shadowblast_damage": 0.02
       },
       "connected_to": [
         "witch_hunter_inquisition_torch_the_wicked"
       ],
-      "_source": "CoA over 2 ranks: 'Reduces the cooldown of Burrow Bolt by -5 sec.' Expressed as a percentage because cooldowns are counted in turns here. The previous tree used the FLAT _cooldown key at 1 per rank, which is a different and much larger thing on a short-cooldown ability."
+      "_source": "CoA over 2 ranks: 'Reduces the cooldown of Burrow Bolt by -5 sec.' Expressed as a percentage because cooldowns are counted in turns here. The previous tree used the FLAT _cooldown key at 1 per rank, which is a different and much larger thing on a short-cooldown ability.",
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "witch_hunter_inquisition_flames_of_the_sinned",

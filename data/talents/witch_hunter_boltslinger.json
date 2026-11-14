@@ -507,33 +507,21 @@
     {
       "talent_id": "witch_hunter_boltslinger_escape_artist",
       "name": "Escape Artist",
-      "description": "Daring Escape resets the cooldown of Vault and returns 10 Focus.",
+      "description": "Vault's cooldown is 1 turn shorter.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 2,
-      "effects": {},
+      "effects": {
+        "ability_witch_hunter_vault_cooldown": 0.34
+      },
       "connected_to": [
         "witch_hunter_boltslinger_contract_killing"
       ],
-      "proc": {
-        "trigger": "on_cast",
-        "chance": 33,
-        "icd": 0,
-        "ability_filter": [
-          "witch_hunter_daring_escape"
-        ],
-        "reset_cooldown": [
-          "witch_hunter_vault"
-        ],
-        "grant_resource": {
-          "resource": "focus",
-          "amount": 10
-        }
-      },
-      "_source": "CoA verbatim but for the resource: 'Your Daring Escape now resets the cooldown of Vault and generates 10 Rage.' Rage -> Focus. on_cast rather than on_damage_cast, because Daring Escape is a self buff and deals no damage - filtering a damage trigger to it would have been a proc that never fired, which is the quiet way this kind of node dies."
+      "_source": "CoA verbatim but for the resource: 'Your Daring Escape now resets the cooldown of Vault and generates 10 Rage.' Rage -> Focus. on_cast rather than on_damage_cast, because Daring Escape is a self buff and deals no damage - filtering a damage trigger to it would have been a proc that never fired, which is the quiet way this kind of node dies.",
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "witch_hunter_boltslinger_crossbow_frenzy",

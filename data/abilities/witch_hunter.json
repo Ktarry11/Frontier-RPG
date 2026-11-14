@@ -233,57 +233,6 @@
       "target_type": "enemy"
     },
     {
-      "ability_id": "witch_hunter_burrow_bolt",
-      "name": "Burrow Bolt",
-      "resource_type": "focus",
-      "cooldown": 4,
-      "effect_type": "ranged_damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals damage to the target.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 14,
-          "cost": 20,
-          "effect_value": 40
-        },
-        {
-          "rank": 2,
-          "level_req": 22,
-          "cost": 20,
-          "effect_value": 52
-        },
-        {
-          "rank": 3,
-          "level_req": 30,
-          "cost": 20,
-          "effect_value": 64
-        },
-        {
-          "rank": 4,
-          "level_req": 38,
-          "cost": 20,
-          "effect_value": 76
-        },
-        {
-          "rank": 5,
-          "level_req": 46,
-          "cost": 20,
-          "effect_value": 88
-        },
-        {
-          "rank": 6,
-          "level_req": 54,
-          "cost": 20,
-          "effect_value": 100
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Shoot a bolt with a rope attached to it at an enemy dealing AP Physical damage and pulling them to you'. Both Inquisition and Black Knight list it as a gap-closer. The pull itself has no engine hook - there is no position in a turn-based fight to drag anything to - so it lands as the damage half on a short cooldown.",
-      "target_type": "enemy"
-    },
-    {
       "ability_id": "witch_hunter_vault",
       "name": "Vault",
       "resource_type": "focus",
@@ -355,34 +304,6 @@
       "dispel_type": "curse"
     },
     {
-      "ability_id": "witch_hunter_vampiric_tonic",
-      "name": "Vampiric Tonic",
-      "resource_type": "focus",
-      "cooldown": 10,
-      "effect_type": "buff",
-      "duration": 3,
-      "stat_mods": {},
-      "description": "Strengthens you for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 30,
-          "cost": 20,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Drink a vampiric tonic, allowing Physical damage dealt to heal you equal to 20% of the damage dealt for 10 seconds.' A real leech_pct proc carried on the buff's own StatusEffect, which is exactly 20% of the triggering hit. Three of the four spec pages call this the class's only real healing outside their own spec.",
-      "target_type": "self",
-      "proc": {
-        "trigger": "on_damage_cast",
-        "chance": 100,
-        "icd": 0,
-        "leech_pct": 0.2
-      },
-      "buff_scope": "combat"
-    },
-    {
       "ability_id": "witch_hunter_slayers_mark",
       "name": "Slayer's Mark",
       "resource_type": "focus",
@@ -451,52 +372,6 @@
       "target_type": "enemy_aoe",
       "is_stun": true,
       "max_targets": 5
-    },
-    {
-      "ability_id": "witch_hunter_death_trap",
-      "name": "Death Trap",
-      "resource_type": "focus",
-      "cooldown": 5,
-      "effect_type": "dot",
-      "duration": 3,
-      "stat_mods": {},
-      "description": "Deals Shadow damage to the target over time for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 28,
-          "cost": 25,
-          "effect_value": 34
-        },
-        {
-          "rank": 2,
-          "level_req": 35,
-          "cost": 25,
-          "effect_value": 44
-        },
-        {
-          "rank": 3,
-          "level_req": 42,
-          "cost": 25,
-          "effect_value": 54
-        },
-        {
-          "rank": 4,
-          "level_req": 49,
-          "cost": 25,
-          "effect_value": 64
-        },
-        {
-          "rank": 5,
-          "level_req": 56,
-          "cost": 25,
-          "effect_value": 74
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'a death trap... marking them for death, causing them to take AP Shadow damage after 1 minute.' A one-minute fuse is meaningless in turns, so it is a real Shadow DoT.",
-      "target_type": "enemy",
-      "damage_school": "shadow"
     },
     {
       "ability_id": "witch_hunter_noctis_blade",
@@ -883,52 +758,6 @@
       "restore_resource_type": "focus"
     },
     {
-      "ability_id": "witch_hunter_knights_seal",
-      "name": "Knight's Seal",
-      "resource_type": "focus",
-      "cooldown": 5,
-      "effect_type": "dot",
-      "duration": 3,
-      "stat_mods": {},
-      "description": "Deals Shadow damage to the target over time for 3 turns.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 30,
-          "cost": 25,
-          "effect_value": 30
-        },
-        {
-          "rank": 2,
-          "level_req": 37,
-          "cost": 25,
-          "effect_value": 39
-        },
-        {
-          "rank": 3,
-          "level_req": 44,
-          "cost": 25,
-          "effect_value": 48
-        },
-        {
-          "rank": 4,
-          "level_req": 51,
-          "cost": 25,
-          "effect_value": 57
-        },
-        {
-          "rank": 5,
-          "level_req": 58,
-          "cost": 25,
-          "effect_value": 66
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Curse an enemy, dealing shadow AP Shadow damage every 2 sec and applying Dark Oath to you, reducing all damage taken by 5% for 8 seconds.' A single cast cannot both DoT an enemy and buff the caster, so the Dark Oath half is dropped and the DoT kept.",
-      "target_type": "enemy",
-      "damage_school": "shadow"
-    },
-    {
       "ability_id": "witch_hunter_witching_idol",
       "name": "Witching Idol",
       "resource_type": "focus",
@@ -1289,30 +1118,6 @@
         "gun",
         "thrown"
       ]
-    },
-    {
-      "ability_id": "witch_hunter_daring_escape",
-      "name": "Daring Escape",
-      "resource_type": "focus",
-      "cooldown": 5,
-      "effect_type": "buff",
-      "duration": 1,
-      "stat_mods": {
-        "dodge": 30.0
-      },
-      "description": "Dodge +30 for 1 turn.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 22,
-          "cost": 0,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Jump backwards, causing all ranged attacks to miss you for 2 seconds.' Nothing distinguishes incoming RANGED attacks from melee ones, so the guaranteed miss becomes a large dodge window - the strongest one in the class, which is right for a spec whose summary is 'not being caught is the defense'.",
-      "target_type": "self",
-      "buff_scope": "combat"
     },
     {
       "ability_id": "witch_hunter_pavise",
@@ -2028,51 +1833,6 @@
       "max_targets": 4
     },
     {
-      "ability_id": "witch_hunter_hunt",
-      "name": "Hunt",
-      "resource_type": "focus",
-      "cooldown": 5,
-      "effect_type": "damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Deals damage to the target.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 24,
-          "cost": 20,
-          "effect_value": 44
-        },
-        {
-          "rank": 2,
-          "level_req": 32,
-          "cost": 20,
-          "effect_value": 57
-        },
-        {
-          "rank": 3,
-          "level_req": 40,
-          "cost": 20,
-          "effect_value": 70
-        },
-        {
-          "rank": 4,
-          "level_req": 48,
-          "cost": 20,
-          "effect_value": 83
-        },
-        {
-          "rank": 5,
-          "level_req": 56,
-          "cost": 20,
-          "effect_value": 96
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Charge an enemy, slowing their movement speed by -70% for 2 seconds and generating 20 Rage. 2 Charges, 25 sec recharge.' Neither charges nor movement speed exist here, so it is a cheap gap-closer on a real cooldown - and the tree's The Hunt Continues carries the Focus generation CoA puts on the ability itself.",
-      "target_type": "enemy"
-    },
-    {
       "ability_id": "witch_hunter_stake",
       "name": "Stake",
       "resource_type": "focus",
@@ -2111,29 +1871,6 @@
       "_source": "CoA: 'Drive your concealed stake into the chest of an injured enemy, dealing AP Physical damage... Only usable on enemies at or below 35% health.' The spec's execute, at CoA's own 35.",
       "target_type": "enemy",
       "execute_threshold_pct": 35
-    },
-    {
-      "ability_id": "witch_hunter_darkslayers_lantern",
-      "name": "Darkslayer's Lantern",
-      "resource_type": "focus",
-      "cooldown": 10,
-      "effect_type": "debuff",
-      "duration": 1,
-      "stat_mods": {},
-      "description": "Interrupts and stuns up to 5 targets for 1 turn.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 42,
-          "cost": 35,
-          "effect_value": 0
-        }
-      ],
-      "icon_id": null,
-      "_source": "CoA: 'Empower a lantern with your Flames of Sin and let it shine, dealing AP Fire damage and stunning all enemies within 5 yds for 5 seconds', described in the strengths as 'an AoE stun for locking down a pack'. A stun has to be a debuff for is_stun to be read, so the Fire damage half is dropped and the stun kept - the stun is what the rotation presses it for.",
-      "target_type": "enemy_aoe",
-      "is_stun": true,
-      "max_targets": 5
     },
     {
       "ability_id": "witch_hunter_pyro_tonic",

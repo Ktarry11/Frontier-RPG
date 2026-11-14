@@ -352,7 +352,7 @@
     {
       "talent_id": "witch_hunter_black_knight_calm_under_pressure",
       "name": "Calm Under Pressure",
-      "description": "Reduces the cooldown of Stoicism by 39% and Burrow Bolt by 24%.",
+      "description": "Reduces the cooldown of Stoicism by 39%.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -360,8 +360,7 @@
       "hex_x": 4,
       "hex_y": -2,
       "effects": {
-        "ability_witch_hunter_stoicism_cooldown_pct": 0.13,
-        "ability_witch_hunter_burrow_bolt_cooldown_pct": 0.08
+        "ability_witch_hunter_stoicism_cooldown_pct": 0.13
       },
       "connected_to": [
         "witch_hunter_black_knight_dark_barrier"
