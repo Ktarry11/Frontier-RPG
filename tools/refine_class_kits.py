@@ -309,6 +309,39 @@ CLASSES = {
         "REWORD": {},
         "PASSIVE": {},
     },
+    # Cultist: 73 abilities (30 baseline, 43 from talents). Four Whispers where two do the job, a
+    # raid aura, two talents that only unlocked a second copy of a baseline ability, a ground
+    # obelisk whose point was movement speed - and a lot of real-time wording.
+    "Cultist": {
+        "CUT": {
+            "cultist_whispers_of_yshaarj": "a third Whisper; Whispers of N'Zoth and C'Thun stay",
+            "cultist_greater_whispers_of_cthun": "the raid-wide copy of Whispers of C'Thun",
+            "cultist_void_resilience": "a raid Shadow Resistance aura",
+            "cultist_tentacle_of_yoggsaron": "a tentacle whose whole effect is +6% healing received",
+            "cultist_netherstrike_talent": "a second copy of Netherstrike",
+            "cultist_dark_infusion_talent": "a second copy of Dark Infusion",
+            "cultist_eldritch_obelisk": "a ground obelisk for tentacle damage and ally movement speed",
+        },
+        "REWORD": {
+            "cultist_sanity_tap": "Regain your sanity, reducing Insanity and restoring a portion of missing mana.",
+            "cultist_presence_of_yoggsaron": "Assume a crazed Presence: damage dealt has a chance to deal bonus Shadow damage and slow the target. Only 1 Presence active at a time.",
+            "cultist_empires_grasp": "Seize an enemy with the Empire's grasp, wrenching them off balance and slowing them.",
+            "cultist_voidborne": "Increase damage dealt and critical strike chance, grant stun immunity, and generate Insanity each turn.",
+            "cultist_shatter_void_rune": "Consume a Void Rune to deal Shadow damage to every nearby enemy.",
+            "cultist_forbidden_ritual": "Chant a forbidden ritual that shields your whole party.",
+            "cultist_summon_faceless_servant": "Summon a minion that raises your party's critical strike chance.",
+            "cultist_dreadfall": "A charging strike that deals Shadow damage to the enemies in front of you and generates extra threat.",
+            "cultist_dreadfall_tank": "A shield charge that deals Shadow damage to the enemies in front of you and generates extra threat.",
+        },
+        "PASSIVE": {
+            "cultist_godblade_netherstrike": P("Netherstrike Mastery", "Netherstrike deals 10% more damage.",
+                                               {"ability_cultist_netherstrike_damage": 0.1}),
+            "cultist_heretic_dark_infusion_talent": P("Deep Infusion", "Dark Infusion's cooldown is 1 turn shorter.",
+                                                      {"ability_cultist_dark_infusion_cooldown": 1}),
+            "cultist_godblade_eldritch_obelisk": P("Eldritch Might", "Hammer of Twilight deals 12% more damage.",
+                                                   {"ability_cultist_hammer_of_twilight_damage": 0.12}),
+        },
+    },
 }
 
 

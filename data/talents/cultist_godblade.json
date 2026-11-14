@@ -210,22 +210,23 @@
     },
     {
       "talent_id": "cultist_godblade_netherstrike",
-      "name": "Netherstrike",
-      "description": "Learn Netherstrike, a weapon strike that purges a beneficial magic effect. Usable only against targets below 35% health.",
-      "node_type": "active",
+      "name": "Netherstrike Mastery",
+      "description": "Netherstrike deals 10% more damage.",
+      "node_type": "passive",
       "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -3,
       "hex_y": -2,
       "effects": {
-        "unlock_ability": "cultist_netherstrike_talent"
+        "ability_cultist_netherstrike_damage": 0.1
       },
       "connected_to": [
         "cultist_godblade_voidforged_edge",
         "cultist_godblade_shadow_of_the_void"
       ],
-      "_source": "This talent-tree copy of Netherstrike exists so Godblade's tier gating works correctly; the class-wide version (cultist_netherstrike, confirmed Lvl 20 via screenshot) is the same real ability."
+      "_source": "This talent-tree copy of Netherstrike exists so Godblade's tier gating works correctly; the class-wide version (cultist_netherstrike, confirmed Lvl 20 via screenshot) is the same real ability.",
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "cultist_godblade_rift",
@@ -496,8 +497,7 @@
         "chance": 20,
         "icd": 0,
         "ability_filter": [
-          "cultist_netherstrike",
-          "cultist_netherstrike_talent"
+          "cultist_netherstrike"
         ],
         "apply_effect": {
           "effect_id": "cultist_who_needs_sanity",
@@ -523,8 +523,7 @@
       "hex_x": -1,
       "hex_y": 2,
       "effects": {
-        "ability_cultist_netherstrike_cooldown_pct": 0.4,
-        "ability_cultist_netherstrike_talent_cooldown_pct": 0.4
+        "ability_cultist_netherstrike_cooldown_pct": 0.4
       },
       "connected_to": [
         "cultist_godblade_empires_grasp"
@@ -560,21 +559,22 @@
     },
     {
       "talent_id": "cultist_godblade_eldritch_obelisk",
-      "name": "Eldritch Obelisk",
-      "description": "Learn Eldritch Obelisk, a ground summon that boosts nearby Tentacle damage and ally movement speed.",
-      "node_type": "active",
+      "name": "Eldritch Might",
+      "description": "Hammer of Twilight deals 12% more damage.",
+      "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 1,
       "hex_y": 4,
       "effects": {
-        "unlock_ability": "cultist_eldritch_obelisk"
+        "ability_cultist_hammer_of_twilight_damage": 0.12
       },
       "connected_to": [
         "cultist_godblade_tentacle_of_nzoth"
       ],
-      "_source": "CoA handoff doc: 'Ground summon: boosts nearby Tentacle damage + ally movement speed.' Sustained-fight support tool."
+      "_source": "CoA handoff doc: 'Ground summon: boosts nearby Tentacle damage + ally movement speed.' Sustained-fight support tool.",
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "cultist_godblade_broken_mind",

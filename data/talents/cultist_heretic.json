@@ -337,21 +337,22 @@
     },
     {
       "talent_id": "cultist_heretic_dark_infusion_talent",
-      "name": "Dark Infusion",
-      "description": "Learn Dark Infusion, pre-loading a heal on an ally's next damage taken, which then spreads to the two lowest-health nearby allies.",
-      "node_type": "active",
+      "name": "Deep Infusion",
+      "description": "Dark Infusion's cooldown is 1 turn shorter.",
+      "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 2,
       "hex_y": 2,
       "effects": {
-        "unlock_ability": "cultist_dark_infusion_talent"
+        "ability_cultist_dark_infusion_cooldown": 1
       },
       "connected_to": [
         "cultist_heretic_abyssal_covenant"
       ],
-      "_source": "Confirmed screenshot (class-wide entry, also referenced as a spec-relevant pre-shield tool): 3 charges, 30 sec recharge, pre-heal spreading to the two lowest-health allies."
+      "_source": "Confirmed screenshot (class-wide entry, also referenced as a spec-relevant pre-shield tool): 3 charges, 30 sec recharge, pre-heal spreading to the two lowest-health allies.",
+      "_refined": "14 Nov 2026 spellbook refine (tools/refine_class_kits.py)"
     },
     {
       "talent_id": "cultist_heretic_entropic_host",
