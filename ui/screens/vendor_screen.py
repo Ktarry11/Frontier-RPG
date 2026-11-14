@@ -228,13 +228,17 @@ class VendorScreen(BaseScreen):
         self.buy_qty = max(1, min(self.MAX_BUY_QTY, int(qty)))
 
     def _qty_rects(self):
-        """The quantity controls, left of the Buy button: [-] [N] [+] [+5] [+20]."""
+        """The quantity controls, left of the Buy button: [-20] [-5] [-] [N] [+] [+5] [+20].
+
+        Kyle, 14 Nov 2026: "with multiple buy option of +1 +5 +20.... there is only -1". The row
+        is narrower per button so all seven and the total still fit left of Buy."""
         buy = self._get_buy_button_rect()
         x, y, h = self.VENDOR_PANEL_X, buy.y, buy.height
-        out, widths = {}, (("minus", 36), ("count", 56), ("plus", 36), ("plus5", 50), ("plus20", 56))
+        out, widths = {}, (("minus20", 40), ("minus5", 34), ("minus", 28), ("count", 44),
+                           ("plus", 28), ("plus5", 34), ("plus20", 40))
         for key, w in widths:
             out[key] = pygame.Rect(x, y, w, h)
-            x += w + 6
+            x += w + 4
         out["total_x"] = x + 4
         return out
 
@@ -517,7 +521,8 @@ class VendorScreen(BaseScreen):
 
             if self._stackable(self.selected_vendor_item):
                 q = self._qty_rects()
-                for key, delta in (("minus", -1), ("plus", 1), ("plus5", 5), ("plus20", 20)):
+                for key, delta in (("minus20", -20), ("minus5", -5), ("minus", -1), ("plus", 1),
+                                   ("plus5", 5), ("plus20", 20)):
                     if q[key].collidepoint(pos):
                         # +5 and +20 from a fresh 1 give 5 and 20, not 6 and 21: the first
                         # press of a "stack" button means "that many".
@@ -554,8 +559,17 @@ class VendorScreen(BaseScreen):
         self.renderer.draw_text(screen, self.vendor.name, (SCREEN_WIDTH // 2 - 100, 20),
                                 size="large", color=COLOR_GOLD)
         if hasattr(self.vendor, "greeting") and self.vendor.greeting:
-            self.renderer.draw_text(screen, f'"{self.vendor.greeting}"',
-                                    (SCREEN_WIDTH // 2 - 300, 58), size="small", color=(180, 180, 160))
+            # Wrapped, and the paragraph breaks joined. It was one draw_text call, so a greeting
+            # with two paragraphs ran off the right of the screen with the newlines drawn as
+            # boxes in the middle of it (seen 14 Nov 2026 on every shop rewritten in two parts).
+            flat = " ".join(p.strip() for p in str(self.vendor.greeting).split("\n") if p.strip())
+            lines = self.renderer.wrap_text(f'"{flat}"', SCREEN_WIDTH - 100, size="small")
+            if len(lines) > 2:
+                lines = lines[:2]
+                lines[1] = lines[1].rstrip(' "') + '..."'
+            for n, line in enumerate(lines):
+                self.renderer.draw_text(screen, line, (50, 56 + n * 19), size="small",
+                                        color=(180, 180, 160))
         currency_str = self.state_manager.get_party().get_currency_string()
         self.renderer.draw_text(screen, f"Party gold: {currency_str}",
                                 (SCREEN_WIDTH // 2 - 100, 100), color=COLOR_WHITE)
@@ -597,7 +611,8 @@ class VendorScreen(BaseScreen):
         # Quantity controls - only for something that stacks. Gear is always one.
         if stackable:
             q = self._qty_rects()
-            for key, text in (("minus", "-"), ("plus", "+"), ("plus5", "+5"), ("plus20", "+20")):
+            for key, text in (("minus20", "-20"), ("minus5", "-5"), ("minus", "-"), ("plus", "+"),
+                              ("plus5", "+5"), ("plus20", "+20")):
                 r = q[key]
                 pygame.draw.rect(screen, (40, 50, 60), r)
                 pygame.draw.rect(screen, (120, 140, 160), r, 2)

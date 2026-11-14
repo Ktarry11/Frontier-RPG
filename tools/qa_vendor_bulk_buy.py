@@ -108,6 +108,16 @@ def main():
         if scr.buy_qty != 25:
             fail(f"{kind}: +20, +5, +, - gave a quantity of {scr.buy_qty}, expected 25")
             continue
+        # the minus side has the same steps (Kyle, 14 Nov: "there is only -1")
+        click(scr, q["plus20"])
+        click(scr, q["minus20"])
+        click(scr, q["minus5"])
+        click(scr, q["plus5"])
+        if scr.buy_qty != 25:
+            fail(f"{kind}: +20, -20, -5, +5 from 25 gave {scr.buy_qty}, expected 25")
+            continue
+        if q["total_x"] + 90 > scr._get_buy_button_rect().x:
+            fail("the quantity row leaves no room for the total before Buy")
         before_gold, before_have = party.copper, held(player, item)
         scr.render(surface)
         click(scr, scr._get_buy_button_rect())
