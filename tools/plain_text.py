@@ -21,8 +21,9 @@ and merges the greetings into data/npcs/greetings/ and data/npcs/vendor_greeting
 
 THE RULES every line is checked against (tools/build_tempest_quests.voice_problems plus these):
 say what's wrong, where to go and what to bring back; the turn-in thanks you and stops;
-contractions; no sentence under three words; no dashes, brackets or shouted capitals; and the
-quest says how many of each thing it wants, so the text and the objective tracker agree.
+contractions; no sentence under three words unless it's a real reaction; no dashes or shouted
+capitals; and no counts in the prose (Kyle's standing rule: the objective line carries the
+number). Bracketed pauses are fine.
 """
 import argparse
 import importlib
@@ -39,6 +40,11 @@ from tools.build_tempest_quests import voice_problems     # noqa: E402
 OUT = ROOT / "data/quests/text/zzzz_plain.json"
 WORDS = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight",
          9: "nine", 10: "ten", 11: "eleven", 12: "twelve", 15: "fifteen", 20: "twenty"}
+#: short sentences people really do say: reactions, greetings, questions, "I'm Kuraw." What
+#: stays banned is the dramatic short line Kyle named ("Stay. I'm asking.", "Shaft's quiet.")
+NATURAL = re.compile(r"^(?:.*\?|(?:oh|hi|hey|great|nice|good|right|okay|alright|yes|no|sorry|wow|"
+                     r"thanks|cheers|perfect|brilliant|bad news|that's \w+|i'm [A-Z][\w']+)\b.*)$",
+                     re.I)
 SHOUT = re.compile(r"\b(?!(?:NPC|UI|XP|HP|II|III|IV|VI|MV|OK|AM|PM)\b)[A-Z]{3,}\b")
 
 
@@ -50,9 +56,9 @@ def modules():
 
 def line_problems(text):
     # "go and kill five of them" is how people talk; the Tempest tic against it stays there
-    bad = [p for p in voice_problems(text) if not p.startswith("kill N of X")]
-    if re.search(r"\[[^\]]+\]", text):
-        bad.append("stage direction in brackets")
+    bad = [p for p in voice_problems(text) if not p.startswith("kill N of X")
+           and not (p.startswith("fragment: ") and NATURAL.match(p[11:-1]))]
+    # bracketed pauses are fine (Kyle: "[A pause.]" - keep them)
     if (m := SHOUT.search(text)):
         bad.append(f"shouting: {m.group(0)}")
     if "–" in text or "—" in text:
@@ -81,11 +87,15 @@ def main():
                     bad.append(f"{qid}: no {k}")
             for k, t in fields.items():
                 bad += [f"{qid} {k}: {p}" for p in line_problems(t)]
-            text = (fields.get("description", "") + " " + fields.get("accept_text", "")).lower()
-            for o in q.objectives:
-                n = o.count
-                if n and n > 1 and str(n) not in text and WORDS.get(n, "#") not in text:
-                    bad.append(f"{qid}: never says how many ({n} {o.target})")
+            # Kyle's standing rule: no counts in quest prose, the objective line carries the
+            # number (tools/strip_prose_counts.py). A count written twice drifts.
+            for k, t in fields.items():
+                low = f" {t.lower()} "
+                for o in q.objectives:
+                    n = o.count
+                    if n and n > 1 and (re.search(rf"\b{n}\b", t) or
+                                        re.search(rf"\b{WORDS.get(n, '#')}\b (?!years|days|weeks|months|times|of us)", low)):
+                        bad.append(f"{qid} {k}: states the count {n} ({o.target})")
             quests[qid] = fields
         for stem, rows in getattr(mod, "GREETINGS", {}).items():
             for nid, t in rows.items():

@@ -20,6 +20,7 @@ bring back, then thank them and stop. Contractions, no dashes, no one-word sente
 sums somebody up.
 """
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -48,15 +49,15 @@ QUESTS = {
     ),
     "kb_index_failing": dict(
         title="Things That Don't Fit",
-        description="Bring Archivist Nessaly 5 Worked Dalaran Fragments from the Archive Revenants "
-                    "and 5 Lattice Cores from the Lattice.",
+        description="Bring Archivist Nessaly Worked Dalaran Fragments from the Archive Revenants "
+                    "and Lattice Cores from the Lattice.",
         accept_text=(
             "Every find in this cavern gets a number and a heading in the Codex. Forty-one of them "
             "don't fit under any heading we have, and that number keeps going up.\n\n"
             "Two of them are bothering me most. The revenants in the Weeping Colonnade carry "
             "pieces of worked Dalaran stone, and nobody ever brought Dalaran stone down here. The "
             "sentries and diviners in the Lattice carry crystal cores that look cut, not grown. I "
-            "want five of each on my bench so I can compare them.\n\n"
+            "want a few of each on my bench so I can compare them.\n\n"
             "The Colonnade is south of the gate. The Lattice is north-east."),
         turn_in_text=(
             "Look at the edges on these. The fragments and the cores were both cut, and whatever "
@@ -67,7 +68,7 @@ QUESTS = {
     ),
     "kb_pages": dict(
         title="Out of Paper",
-        description="Press 8 sets of Frostpine Pages for Archivist Nessaly. Frostpine grows up on "
+        description="Press sets of Frostpine Pages for Archivist Nessaly. Frostpine grows up on "
                     "the surface, the nearest in Eastern Hillsbrad.",
         accept_text=(
             "We're running out of paper. Everything we write on had to be carried down here, and "
@@ -75,32 +76,32 @@ QUESTS = {
             "write on, I've tried.\n\n"
             "Frostpine makes good pages. It grows up on the surface, and the nearest place is "
             "Eastern Hillsbrad, back up the way you came in. Cut the wood, plane it, and press "
-            "eight sets of pages for me. Press them somewhere warm. Pages pressed in the cold "
+            "as many sets of pages as I need. Press them somewhere warm. Pages pressed in the cold "
             "crack, and we lost four months of field notes that way."),
         turn_in_text=(
-            "That's about three weeks of work for the Archive, so these eight sets help a lot. "
+            "That's about three weeks of work for the Archive, so these help a lot. "
             "I've been asking people to write smaller.\n\n"
             "Thank you for going all the way up for these."),
     ),
     "kb_reagents": dict(
         title="Better Than They Should Be",
-        description="Brew 4 Elixirs of Arcane Fury for Alchemist Terrowen, using herbs you "
+        description="Brew Elixirs of Arcane Fury for Alchemist Terrowen, using herbs you "
                     "gather in the Underdark.",
         accept_text=(
             "For three years every herb I've picked down here has tested stronger than the same "
             "herb picked on the surface. I don't know why, and nobody in the Codex believes me.\n\n"
-            "I need a fair test. Brew four Elixirs of Arcane Fury, and use herbs you pick in this "
+            "I need a fair test. Brew me some Elixirs of Arcane Fury, and use herbs you pick in this "
             "cavern yourself, not anything from my shelves. Arcane Fury is hard to get right. If "
             "it comes out at full strength from Underdark herbs, then it isn't me or my stock "
             "making the difference, it's something about this place."),
         turn_in_text=(
-            "All four came out at full strength, and this one is stronger than it should be. "
+            "Every one of them came out at full strength, and this one is stronger than it should be. "
             "That's what I've been seeing for three years.\n\n"
             "I'll take these up to the Codex-Master myself this time. Thank you."),
     ),
     "kb_naturalist_funding": dict(
         title="One Big Fungus",
-        description="Bring Naturalist Orienne 8 Live Bloom Threads from the Mycelial Husks in the "
+        description="Bring Naturalist Orienne Live Bloom Threads from the Mycelial Husks in the "
                     "Mycelial Reach.",
         accept_text=(
             "I've asked the Codex to let me survey the fungus four times now, and they've said no "
@@ -109,7 +110,7 @@ QUESTS = {
             "it, this town included. If I can show the threads from different places are the same "
             "organism, they'll have to listen.\n\n"
             "The Mycelial Husks out in the Mycelial Reach, south-west of the gate, carry live "
-            "threads. Bring me eight. If you can, take them from husks in different parts of the "
+            "threads. Bring me a good handful. If you can, take them from husks in different parts of the "
             "Reach."),
         turn_in_text=(
             "They're all the same organism, every one of them. This town is sitting on top of it.\n\n"
@@ -118,13 +119,13 @@ QUESTS = {
     ),
     "kb_enchanter_debt": dict(
         title="Where the Power Comes From",
-        description="Bring Enchanter Vaelios 4 Lattice Cores from the Shard Diviners in the "
-                    "Lattice, and put down 10 of the diviners while you're there.",
+        description="Bring Enchanter Vaelios Lattice Cores from the Shard Diviners in the "
+                    "Lattice, and thin the diviners out while you're there.",
         accept_text=(
             "The crystal down here gives off so much arcane power that I haven't had to use my "
             "own in two years. I don't know where it comes from, and that worries me.\n\n"
-            "The Shard Diviners in the Lattice draw on it the same way I do. I need ten of them "
-            "dead and four of their cores on my bench. I want to leave the cores on my bench overnight and "
+            "The Shard Diviners in the Lattice draw on it the same way I do. I need a good few of them "
+            "dead and some of their cores on my bench. I want to leave the cores on my bench overnight and "
             "see whether they keep drawing power when nobody's using them.\n\n"
             "The Lattice is north-east of the gate, past the Sporefall."),
         turn_in_text=(
@@ -134,14 +135,14 @@ QUESTS = {
     ),
     "kb_sentinel_wager": dict(
         title="The Cold Floor",
-        description="Bring Hall-Sentinel Durannis 7 Dim Residues from the Dim-Walkers in the Dim "
+        description="Bring Hall-Sentinel Durannis Dim Residues from the Dim-Walkers in the Dim "
                     "Reaches.",
         accept_text=(
             "The floor of the Codex Hall was cut from stone we quarried in the Dim Reaches. For "
             "the last month it's been cold, and only along the lines where the stones were laid. "
             "The air in the hall is fine. It's the stone that's cold.\n\n"
             "I want to know if it's still connected to where it came from. The Dim-Walkers out in "
-            "the Dim Reaches leave a residue behind. Bring me seven scrapings of it and I'll see "
+            "the Dim Reaches leave a residue behind. Bring me some scrapings of it and I'll see "
             "if it does the same thing.\n\n"
             "The Dim Reaches are the dark corner in the far south-west of the cavern. Take a light "
             "and go further in than the edge."),
@@ -152,12 +153,12 @@ QUESTS = {
     ),
     "kb_the_question": dict(
         title="The Codex-Master's Question",
-        description="Visit the Weeping Colonnade and bring Codex-Master Ilarien 4 Worked Dalaran "
+        description="Visit the Weeping Colonnade and bring Codex-Master Ilarien Worked Dalaran "
                     "Fragments from the Archive Revenants.",
         accept_text=(
             "I'd like you to go and stand in the Weeping Colonnade. It's south of the gate, and "
             "it's full of Dalaran stonework that nobody brought down here. While you're there, "
-            "bring me four worked fragments from the revenants.\n\n"
+            "bring me some worked fragments from the revenants.\n\n"
             "When you come back I want to ask you something. You came to this world three years "
             "ago, and we came down here the same year, when this cavern first opened. I want to "
             "know whether the Colonnade feels to you like something we found, or something that "
@@ -169,17 +170,17 @@ QUESTS = {
     ),
     "kb_sealed_entry": dict(
         title="Your Entry in the Codex",
-        description="Bring Codex-Master Ilarien 3 Worked Dalaran Fragments, 3 Druses With an "
-                    "Inclusion and 3 Grown Leaves, and press 2 sets of Frostpine Pages.",
+        description="Bring Codex-Master Ilarien Worked Dalaran Fragments, Druses With an "
+                    "Inclusion and Grown Leaves, and press Frostpine Pages.",
         accept_text=(
             "Everyone in the Bastion has an entry in the Codex, and we keep adding to them. I've "
             "never closed one. I'd like to close yours, and seal it, because of what you've done "
             "down here.\n\n"
-            "Bring me something from each of the places you've been. Three worked fragments from "
-            "the revenants in the Weeping Colonnade, south of the gate. Three druses from the "
-            "Druse Crawlers in the Hollow Geode, east past the Lattice. Three leaves from the "
+            "Bring me something from each of the places you've been. Worked fragments from "
+            "the revenants in the Weeping Colonnade, south of the gate. Druses from the "
+            "Druse Crawlers in the Hollow Geode, east past the Lattice. Leaves from the "
             "Shelf-Grown in the Deep Bloom, whose door is in the Dim Reaches to the south-west.\n\n"
-            "And press two sets of frostpine pages yourself for the entry. The Archive can't "
+            "And press some frostpine pages yourself for the entry. The Archive can't "
             "spare the paper."),
         turn_in_text=(
             "It's written and sealed, and it can't be changed now. I've never been sure enough of "
@@ -288,12 +289,13 @@ def main():
             continue
         text = QUESTS[qid]["accept_text"] + QUESTS[qid]["description"]
         for o in quests[qid]["objectives"]:
+            # Kyle's standing rule: no counts in quest prose, the objective line carries them
             n = o.get("count")
             words = {3: "three", 4: "four", 5: "five", 7: "seven", 8: "eight", 10: "ten", 2: "two"}
-            if n and str(n) not in QUESTS[qid]["description"]:
-                bad.append(f"{qid}: the summary never says {n}")
-            if n and words.get(n, "#") not in text.lower() and str(n) not in text:
-                bad.append(f"{qid}: never says how many ({n})")
+            if n and n > 1 and (re.search(rf"\b{n}\b", text) or
+                                re.search(rf"\b{words.get(n, '#')}\b (?!years|days|weeks|months|times)",
+                                          text.lower())):
+                bad.append(f"{qid}: states the count {n}")
     if bad:
         print("FAILED:")
         for b in bad:
