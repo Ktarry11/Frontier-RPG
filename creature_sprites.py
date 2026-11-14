@@ -246,6 +246,15 @@ _RULES = [
     (r"^smoke drake$|^calderaborn drake$", "dragon_whelp_bronze"),
     (r"^karrath the ventlord$", "elemental_fire"),
     (r"^the mountain's heart$", "elemental_earth"),
+    # THE ROYAL HIVE (14 Nov 2026), under the Black Strand. Silithid art: the workers for drones,
+    # guards and weavers, the shelled crawler for the tunnellers, the grub for larvae, the wasp
+    # for the flyers, and the brood mother for the two who rule the hive.
+    (r"^hive-mother ahn'thera$|^the brood nurse$", "matriarch_brood"),
+    (r"^royal consort zhir'ak$|^hive-warden kasz'ar$|^resin-mother vex'ith$", "silithid_worker"),
+    (r"^tunnel-king ruzzak$|^hive tunneler$", "crawler_shell"),
+    (r"^brood larva$", "maggot"),
+    (r"^venomwing wasp$", "wasp"),
+    (r"^royal hive (drone|guard)$|^resin weaver$", "silithid_worker"),
     # THE CASTOUTS (The Black Strand). Dark Iron dwarves put out of Onyxhollow's gate. First in
     # the list because every word in their names belongs to a weaker rule below: a "Digger" is a
     # human bandit, a "Slagcaller" a robed cultist and a "Foreman" an overseer.

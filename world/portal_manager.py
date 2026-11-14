@@ -417,6 +417,11 @@ class PortalManager:
             "The Black Strand": {
                 (20, 11): ("The Dry Deep", 95, 40),
                 (84, 52): ("Onyxhollow", 50, 76),
+                # the floor of the Royal Cell goes down into the hive the queen came from
+                (138, 115): ("The Royal Hive", 70, 9),
+            },
+            "The Royal Hive": {
+                (70, 6): ("The Black Strand", 138, 112),
             },
             "Onyxhollow": {
                 (50, 80): ("The Black Strand", 84, 55),

@@ -58,8 +58,11 @@ UP = (20, 11)                 # to the Dry Deep
 START = (20, 14)
 TOWN_GATE = (84, 52)          # to Onyxhollow
 TOWN_ARRIVAL = (84, 55)
-PORTALS = {UP: "The Dry Deep", TOWN_GATE: "Onyxhollow"}
-ARRIVALS = [START, TOWN_ARRIVAL]
+#: The floor at the narrow end of the Royal Cell, down into the Royal Hive (14 Nov 2026).
+HIVE_DOOR = (138, 115)
+HIVE_ARRIVAL = (138, 112)
+PORTALS = {UP: "The Dry Deep", TOWN_GATE: "Onyxhollow", HIVE_DOOR: "The Royal Hive"}
+ARRIVALS = [START, TOWN_ARRIVAL, HIVE_ARRIVAL]
 
 #: (name, cx, cy, rx, ry). West is the way in; fungi south-west, hive south-east, the dwarves'
 #: castoffs north-east, and the gate in the middle of all of it.
@@ -303,6 +306,9 @@ def dress(zone, L):
     L.prop("di_ruined_gate", 100, 24, 6, solid="base", fraction=0.3, **D)
     # THE ROYAL CELL
     L.prop("queens_throne", 138, 106, 6, solid="base", fraction=0.4, near_ok=True, **B)
+    # the way down into the Royal Hive, at the narrow end of the cell behind the throne
+    L.prop("ent_salt_sinkhole", HIVE_DOOR[0], HIVE_DOOR[1], 5, solid=False, fraction=0.3,
+           near_ok=True, where="assets/tiles/cave_entrances/")
     # the Last Water's shore
     for (x, y) in [(64, 98), (90, 100), (76, 93)]:
         L.prop("ud_glow_pool", x, y, 3, **U)

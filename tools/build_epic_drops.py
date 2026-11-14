@@ -125,6 +125,25 @@ WORLD = [
     ("Witness", "trinket", "armor", "accessory", 57, "agi_physical",
      "A brass spyglass lens with a crack across it, kept by someone who saw a thing happen and "
      "was never asked about it."),
+    # ---- 14 Nov 2026, Kyle: "We need some more lvl 50+ world drop epics and dungeon epics."
+    # Seven more for 51-59, each in a slot and for a role the 50+ world list did not cover:
+    # plate feet, cloth waist, leather feet, mail chest, a finger, a tank trinket and a staff.
+    ("Third-Year Band", "ring", "armor", "accessory", 51, "int_caster",
+     "A plain gold ring with three notches filed into the inside, one for each year since the "
+     "Integration."),
+    ("Hearthguard Sabatons", "feet", "armor", "plate", 53, "str_physical",
+     "Heavy plate boots with the soles worn smooth from years of standing guard in one place."),
+    ("Ridgerunner Boots", "feet", "armor", "leather", 54, "agi_physical",
+     "Soft boots made for running on rock. The stitching has been redone at least twice."),
+    ("Saltworn Sash", "waist", "armor", "cloth", 55, "spi_healer",
+     "A cloth belt gone stiff with dried salt water. A healer's sign is stitched on the buckle "
+     "flap."),
+    ("Stormglass Hauberk", "chest", "armor", "mail", 56, "agi_int_hybrid",
+     "Mail links with small rounds of storm-blue glass worked into the chest."),
+    ("Quietwater Staff", "main_hand", "weapon", "staff", 57, "spi_healer",
+     "A straight staff of pale wood. Water poured down it runs off without wetting the grain."),
+    ("The Long Watch", "trinket", "armor", "accessory", 58, "str_physical",
+     "A soldier's tin whistle on a leather cord, dented, and still loud."),
 ]
 
 #: Occasional drops from bosses at level 30 and up, themed to the dungeons that exist up there -
@@ -194,6 +213,15 @@ DUNGEON = [
     ("What the Oracle Saw", "ranged", "weapon", "wand", 61, "int_caster",
      "Ysmel looked into the caldera every day until it looked back, and this is the rod she was "
      "holding when it did."),
+    # ---- 14 Nov 2026: the Royal Hive (54-56), and one more for Khaz Varun.
+    ("The Queen's Regard", "trinket", "armor", "accessory", 59, "spi_healer",
+     "A drop of royal jelly sealed in amber, warm in the hand."),
+    ("Wingcase Mantle", "shoulder", "armor", "leather", 58, "agi_int_hybrid",
+     "Shoulder plates cut from the Consort's wing cases. They still have a faint green sheen."),
+    ("Zhir'ak's Second Scythe", "main_hand", "weapon", "axe_1h", 59, "agi_physical",
+     "One of the Consort's forelimb blades, fitted to a dwarven haft in Onyxhollow."),
+    ("Hrun's Last Stand", "off_hand", "weapon", "shield", 55, "str_physical",
+     "The gatewarden's shield, dented in a hundred places and never once broken."),
 ]
 
 #: Trinkets that DO something. Kyle, 10 Nov: "trinkets over 50+ WILL AND MUST start to
@@ -236,6 +264,20 @@ PROCS = {
         "describe": "Your critical strikes have a chance to grant 70 attack power for 3 turns.",
     },
     # A tank trinket: being hit sometimes heals you. heal_flat lands on the wearer.
+    "The Long Watch": {
+        "trigger": "on_damage_taken", "chance": 12, "icd": 5,
+        "apply_effect": {"effect_id": "long_watch_stand", "name": "Stand Your Ground",
+                         "effect_type": "buff", "duration": 3,
+                         "stat_mods": {"armor": 500, "block_rating": 30}, "on_target": False},
+        "describe": "When you are hit, you have a chance to gain 500 armour and 30 block rating for 3 turns.",
+    },
+    "The Queen's Regard": {
+        "trigger": "on_heal_cast", "chance": 10, "icd": 5,
+        "apply_effect": {"effect_id": "queens_regard_favour", "name": "The Queen's Favour",
+                         "effect_type": "buff", "duration": 3,
+                         "stat_mods": {"healing_power": 66, "haste": 4}, "on_target": False},
+        "describe": "Your healing spells have a chance to grant 66 healing power and 4 haste for 3 turns.",
+    },
     "Serpent's Second Skin": {
         "trigger": "on_damage_taken", "chance": 12, "icd": 4, "heal_flat": 220,
         "describe": "When you are hit, you have a chance to heal for 220.",

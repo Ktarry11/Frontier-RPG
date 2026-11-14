@@ -142,6 +142,9 @@ def get_fixed_boss_loot(boss_name):
 #: drop 3 pieces of loot at once from a pool of 10)."
 MULTI_DROP = {
     "Admiral Hedessa Crane": 3,
+    # The Royal Hive's queen and her Consort, one fight (Kyle, 14 Nov: "another 2 for 1 boss
+    # fight. Drops 3 pieces of loot").
+    "Hive-Mother Ahn'thera": 3,
 }
 
 #: Bosses whose loot IS another boss's loot. The Admiral and the
@@ -151,6 +154,7 @@ MULTI_DROP = {
 #: fight Kyle specified as three.
 SHARED_HOARD = {
     "Fleet-Captain Orin Dace": "Admiral Hedessa Crane",
+    "Royal Consort Zhir'ak": "Hive-Mother Ahn'thera",
 }
 
 

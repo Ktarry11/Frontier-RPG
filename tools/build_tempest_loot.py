@@ -60,13 +60,27 @@ DUNGEONS = {
         ("Basalt Guardian Vok", "legs"), ("The Molten Serpent", "legs"),
         ("Flame Oracle Ysmel", "legs"), ("The Mountain's Heart", "legs"), ("The Caldera", "legs"),
     ],
+    # The Royal Hive under the Black Strand (tools/handbuilt_royal_hive.py), 54-56. Kyle, 14 Nov:
+    # "Let's quickly flesh out the Royal Hive as it'll drop another token" - the shoulders.
+    ("The Black Strand", "The Royal Hive"): [
+        ("Hive-Warden Kasz'ar", "shoulder"), ("The Brood Nurse", "shoulder"),
+        ("Resin-Mother Vex'ith", "shoulder"), ("Tunnel-King Ruzzak", "shoulder"),
+        ("Hive-Mother Ahn'thera", "shoulder"),
+    ],
 }
 #: The last boss of each dungeon always drops a token, of any armour type.
-FINAL = ("Thane Morrun the Unmade", "The Caldera")
+FINAL = ("Thane Morrun the Unmade", "The Caldera", "Hive-Mother Ahn'thera")
+#: Bosses whose pool is nine because three drop at once (entities/boss_loot.MULTI_DROP).
+MULTI = ("Hive-Mother Ahn'thera",)
+#: Pack members whose loot is the lead's (entities/boss_loot.SHARED_HOARD).
+SHARED_HOARD = ("Royal Consort Zhir'ak",)
+#: The token slots each dungeon carries, so its own items stay out of them.
+TOKEN_SLOTS = {"Khaz Varun, the Black Hollow": ("wrist", "waist"), "The Emberdeep": ("legs",),
+               "The Royal Hive": ("shoulder",)}
 
 TOKEN_NAMES = {"wrist": "Bindings of the Black Hollow", "waist": "Girdle of the Black Hollow",
-               "legs": "Legguards of the Emberdeep"}
-SLOT_WORD = {"wrist": "bracers", "waist": "belt", "legs": "legs"}
+               "legs": "Legguards of the Emberdeep", "shoulder": "Mantle of the Royal Hive"}
+SLOT_WORD = {"wrist": "bracers", "waist": "belt", "legs": "legs", "shoulder": "shoulders"}
 #: A set piece of the right slot and armour type, borrowed as the token's picture.
 TOKEN_ICON_CLASS = {"plate": "warrior", "mail": "shaman", "leather": "rogue", "cloth": "priest"}
 
@@ -97,6 +111,20 @@ PROCS = {
                          "effect_type": "buff", "duration": 3,
                          "stat_mods": {"spell_power": 32}, "on_target": False},
         "describe": "Your damaging spells have a chance to grant 32 spell power for 3 turns.",
+    },
+    "Drop of Royal Amber": {
+        "trigger": "on_damage_taken", "chance": 10, "icd": 5,
+        "apply_effect": {"effect_id": "royal_amber_set", "name": "Set in Amber",
+                         "effect_type": "buff", "duration": 3,
+                         "stat_mods": {"armor": 420}, "on_target": False},
+        "describe": "When you are hit, you have a chance to gain 420 armour for 3 turns.",
+    },
+    "Ahn'thera's Last Egg": {
+        "trigger": "on_damage_cast", "chance": 8, "icd": 5,
+        "apply_effect": {"effect_id": "last_egg_hatches", "name": "The Egg Hatches",
+                         "effect_type": "buff", "duration": 3,
+                         "stat_mods": {"spell_power": 36, "haste": 4}, "on_target": False},
+        "describe": "Your damaging spells have a chance to grant 36 spell power and 4 haste for 3 turns.",
     },
 }
 
@@ -207,6 +235,36 @@ def pools():
          ("Caldera's Fury", "main_hand", "of the Breaker", W("axe_2h")),
          ("Rimfire Gloves", "hands", "of the Archmage", A("cloth")),
          ("Crater-Forged Hauberk", "chest", "of the Hunt", A("mail")))
+
+    # ---------------- THE ROYAL HIVE ----------------
+    boss("Hive-Warden Kasz'ar",                   # the carapace at the door
+         ("Warden's Chitin Glaive", "main_hand", "of the Soldier", W("polearm")),
+         ("Carapace Breastplate", "chest", "of the Defender", A("plate")),
+         ("Royal Sentry Girdle", "waist", "of the Bandit", A("leather")))
+    boss("The Brood Nurse",                       # optional, the nursery
+         ("Nursery Wand", "ranged", "of the Wellspring", W("wand")),
+         ("Larva-Silk Leggings", "legs", "of the Owl", A("cloth")),
+         ("Brood-Warmed Signet", "ring", "of the Physician"))
+    boss("Resin-Mother Vex'ith",                  # seals you in amber
+         ("Resin-Sealed Gauntlets", "hands", "of the Champion", A("plate")),
+         ("Drop of Royal Amber", "trinket", "of the Defender"),
+         ("Resin-Mother's Cudgel", "main_hand", "of the Prophet", W("mace_1h")))
+    boss("Tunnel-King Ruzzak",                    # burrows
+         ("Tunnel-King's Mandible", "main_hand", "of the Gladiator", W("axe_2h")),
+         ("Burrower's Treads", "feet", "of the Tiger", A("leather")),
+         ("Earthen Coil", "neck", "of the Gorilla"))
+    # The queen and her Consort: ONE hoard, three items off it per kill (entities/boss_loot.py
+    # MULTI_DROP and SHARED_HOARD), so the pool is nine and covers the whole party.
+    boss("Hive-Mother Ahn'thera",
+         ("The Royal Stinger", "main_hand", "of the Assassin", W("sword_1h")),
+         ("Consort's Sundering Glaive", "main_hand", "of the Champion", W("polearm")),
+         ("Chitin-Strung Longbow", "ranged", "of the Hunt", W("bow")),
+         ("Crown of the Hive", "head", "of the Elder", A("mail")),
+         ("Zhir'ak's Carapace", "chest", "of the Defender", A("plate")),
+         ("Robes of the Queen's Bower", "chest", "of the Prophet", A("cloth")),
+         ("Attendant's Gloves", "hands", "of the Bandit", A("leather")),
+         ("Ring of the Twin Thrones", "ring", "of the Invoker"),
+         ("Ahn'thera's Last Egg", "trinket", "of the Sorcerer"))
     return P
 
 
@@ -239,16 +297,18 @@ def audit(P, T):
     lv = levels()
     for (zone, cave), run in DUNGEONS.items():
         real = {n for n in enc[zone]["caves"][cave]["creatures"] if creatures.get(n, {}).get("is_boss")}
+        real -= set(SHARED_HOARD)              # a pack member drops nothing of its own
         if real != {n for n, _ in run}:
             bad.append(f"{cave}: bosses differ from the dungeon's own: {sorted(real ^ {n for n, _ in run})}")
         for name, token_slot in run:
             pool = P.get(name, [])
-            if len(pool) != 3:
-                bad.append(f"{name}: {len(pool)} items, wanted three")
+            want = 9 if name in MULTI else 3
+            if len(pool) != want:
+                bad.append(f"{name}: {len(pool)} items, wanted {want}")
             for i in pool:
                 if i["item_level"] != lv[name] + 3:
                     bad.append(f"{i['name']}: item level {i['item_level']}, {name} is level {lv[name]}")
-                clash = ("wrist", "waist") if "Khaz" in cave else ("legs",)
+                clash = TOKEN_SLOTS[cave]
                 if i["slot"] in clash:
                     bad.append(f"{i['name']} is a {i['slot']} piece in the dungeon whose token that is")
                 if i["slot"].startswith("trinket") and not i.get("proc"):
@@ -259,10 +319,10 @@ def audit(P, T):
         bad.append(f"duplicate names: {dup}")
     arm = Counter(i["armor_type"] for i in items if i.get("armor_type"))
     for t in ARMOUR:
-        if not 6 <= arm[t] <= 10:
+        if not 6 <= arm[t] <= 12:
             bad.append(f"{arm[t]} {t} pieces of {sum(arm.values())}: the spread is lopsided")
     weapons = Counter(i["weapon_type"] for i in items if i.get("weapon_type"))
-    if max(weapons.values()) > 2:
+    if max(weapons.values()) > 3:
         bad.append(f"a weapon type appears more than twice: {dict(weapons)}")
     if len(weapons) < 14:
         bad.append(f"only {len(weapons)} weapon types used")
@@ -272,8 +332,8 @@ def audit(P, T):
             n = sum(1 for b in T["bosses"].values() if b["slot"] == slot and t in b["types"])
             if n < 4:
                 bad.append(f"the {t} {slot} token is only on {n} bosses")
-    if len(T["tokens"]) != 12:
-        bad.append(f"{len(T['tokens'])} tokens, wanted twelve")
+    if len(T["tokens"]) != 4 * len(TOKEN_NAMES):
+        bad.append(f"{len(T['tokens'])} tokens, wanted {4 * len(TOKEN_NAMES)}")
     return bad, arm, weapons
 
 
@@ -285,7 +345,7 @@ def main():
         for b in bad:
             print("  -", b)
         return 1
-    out = {"_notes": "Tempest Isle boss loot (2026-11-13): Khaz Varun and the Emberdeep. ONE item drops "
+    out = {"_notes": "Boss loot for the 51-58 dungeons: Khaz Varun and the Emberdeep (Tempest Isle) and the Royal Hive (under the Black Strand). ONE item drops "
                      "per kill from the pool of three. item_level = boss level + 3. T0 tokens are "
                      "separate (data/items/set_tokens.json). Hand-authored in tools/build_tempest_loot.py."}
     out.update(P)

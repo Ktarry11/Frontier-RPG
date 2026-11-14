@@ -99,6 +99,18 @@ class _TemplateView(dict):
 MONSTER_TEMPLATES = _TemplateView()
 
 
+#: StatusEffect fields a monster's buff may set (see MonsterAbility.mechanics). Each is read by a
+#: hook in Monster.take_damage via StatusEffectMixin; anything else in a kit is ignored.
+MECHANIC_FIELDS = frozenset({
+    "death_prevent_pct", "death_prevent_hp", "death_prevent_lethal_only", "death_prevent_uses",
+    "reflect_pct", "reflect_school", "reflect_melee_only",
+    "damage_to_shield_pct", "damage_to_shield_school",
+    "damage_to_heal_pct", "damage_to_heal_school",
+    "on_low_health_pct", "on_low_health_shield_pct", "on_low_health_heal_pct", "on_low_health_uses",
+    "dot_immune",
+})
+
+
 class MonsterAbility:
     """
     One entry in a monster's moveset.
@@ -127,12 +139,20 @@ class MonsterAbility:
                  mana_cost=0, school="physical", duration=0,
                  stat_mods=None, self_only=False, is_aoe=False,
                  rider=None, hp_below=None, lifesteal=0.0,
-                 dispel_type=None, is_stun=False, absorb=0, summon=None):
+                 dispel_type=None, is_stun=False, absorb=0, summon=None, mechanics=None):
         if kind not in self.KINDS:
             raise ValueError(f"{name}: unknown ability kind '{kind}'")
         self.name = name
         self.kind = kind
         self.amount = amount
+        # BOSS MECHANICS ON A MONSTER'S OWN BUFF (14 Nov 2026). Monster.take_damage has run the
+        # same five interception hooks as the player side since 8 Nov - death prevention, reflect,
+        # damage-to-shield, damage-to-heal, the low-health trigger - but no kit could reach them:
+        # MonsterAbility built its StatusEffect from a fixed argument list, so every boss mechanic
+        # the Tempest Isle design promised ("survives his own blast once", "converts incoming magic
+        # into armour") had nowhere to live. A buff, or a buff RIDER, may now carry a `mechanics`
+        # dict of those StatusEffect fields; only the names in MECHANIC_FIELDS are honoured.
+        self.mechanics = {k: v for k, v in (mechanics or {}).items() if k in MECHANIC_FIELDS}
         self.cooldown = cooldown
         self.turns_remaining = 0
         self.mana_cost = mana_cost
@@ -236,6 +256,18 @@ class MonsterAbility:
         whatsoever - a caster could never actually run dry."""
         if self.turns_remaining > 0:
             return False
+        # A SUMMON AT ITS CAP IS NOT AVAILABLE (14 Nov 2026). choose_action calls for help before
+        # it attacks, and it only asked whether the summon was off cooldown - so once a boss had
+        # used every cast, or had a full set of adds standing, it picked the summon again every
+        # time the cooldown came round, _summon refused, and the turn was thrown away. Every
+        # summoning boss in the game lost a turn in every four or five for the rest of the fight
+        # (tools/audit_monster_combat.py, "HESITATED WITH A BUTTON UP").
+        if self.kind == "summon" and self.summon:
+            if getattr(self, "_summons_cast", 0) >= int(self.summon.get("max_casts", 2)):
+                return False
+            alive = [m for m in getattr(self, "_summoned", []) if m.is_alive()]
+            if len(alive) >= int(self.summon.get("max_alive", 3)):
+                return False
         # A monster with NO mana pool (max_mana 0) treats mana costs as flavour:
         # 23 kits (Maeve the Weeping, Lady Sarevess, Baron Ashbury, Thrumbone ...)
         # authored costs on templates that have no mana at all, which made every
@@ -282,6 +314,10 @@ class MonsterAbility:
                 # the party. Absorb only ever goes on the caster's own buff.
                 is_stun=bool(rider.get("is_stun")) and not is_buff,
                 absorb=int(rider.get("absorb", 0) or 0) if is_buff else 0)
+            if is_buff:
+                for k, v in (rider.get("mechanics") or {}).items():
+                    if k in MECHANIC_FIELDS:
+                        setattr(effect, k, v)
             out.append(r.apply_status_effect(effect))
         return out
 
@@ -341,6 +377,7 @@ class MonsterAbility:
             return False, f"{self.name} fizzles"
 
         self._summons_cast = used + 1
+        self._summoned = [m for m in getattr(self, "_summoned", []) if m.is_alive()] + made
         engine.summon_enemies(caster, made)
         who = made[0].name if len(made) == 1 else f"{len(made)} {self._plural(made[0].name)}"
         return True, f"{caster.name} uses {self.name} and calls in {who}!"
@@ -526,6 +563,9 @@ class MonsterAbility:
                 # before the boss takes damage at all.
                 is_stun=self.is_stun and not self.self_only,
                 absorb=self.absorb if self.self_only else 0)
+            if self.self_only:
+                for k, v in self.mechanics.items():
+                    setattr(effect, k, v)
             msgs.append(recipient.apply_status_effect(effect))
         # apply_status_effect() already names the recipient and describes
         # the stat_mods (e.g. "Cave Skitterer gains Skitter (+8 Agility)."),
@@ -716,6 +756,7 @@ class Monster(StatusEffectMixin):
                 is_stun=entry.get("is_stun", False),
                 absorb=entry.get("absorb", 0),
                 summon=entry.get("summon"),
+                mechanics=entry.get("mechanics"),
             ))
 
         # Combat state

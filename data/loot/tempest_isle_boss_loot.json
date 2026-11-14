@@ -1,5 +1,5 @@
 {
-  "_notes": "Tempest Isle boss loot (2026-11-13): Khaz Varun and the Emberdeep. ONE item drops per kill from the pool of three. item_level = boss level + 3. T0 tokens are separate (data/items/set_tokens.json). Hand-authored in tools/build_tempest_loot.py.",
+  "_notes": "Boss loot for the 51-58 dungeons: Khaz Varun and the Emberdeep (Tempest Isle) and the Royal Hive (under the Black Strand). ONE item drops per kill from the pool of three. item_level = boss level + 3. T0 tokens are separate (data/items/set_tokens.json). Hand-authored in tools/build_tempest_loot.py.",
   "Gatewarden Hrun": [
     {
       "name": "Gatewarden's Tower Shield",
@@ -989,6 +989,383 @@
       },
       "armor_type": "mail",
       "armor_value": 320
+    }
+  ],
+  "Hive-Warden Kasz'ar": [
+    {
+      "name": "Warden's Chitin Glaive",
+      "slot": "main_hand",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 13,
+        "stamina": 17
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 1
+      },
+      "weapon_damage_min": 134,
+      "weapon_damage_max": 182,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Carapace Breastplate",
+      "slot": "chest",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "stamina": 21
+      },
+      "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 2
+      },
+      "armor_type": "plate",
+      "armor_value": 448
+    },
+    {
+      "name": "Royal Sentry Girdle",
+      "slot": "waist",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "agility": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "attack_power": 19
+      },
+      "armor_type": "leather",
+      "armor_value": 129
+    }
+  ],
+  "The Brood Nurse": [
+    {
+      "name": "Nursery Wand",
+      "slot": "ranged",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "weapon_type": "wand",
+      "primary_stats": {
+        "spirit": 13,
+        "intellect": 6
+      },
+      "secondary_stats": {
+        "healing_power": 8
+      },
+      "weapon_damage_min": 86,
+      "weapon_damage_max": 116,
+      "attack_speed": 1.9
+    },
+    {
+      "name": "Larva-Silk Leggings",
+      "slot": "legs",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "primary_stats": {
+        "intellect": 23,
+        "spirit": 23
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 95
+    },
+    {
+      "name": "Brood-Warmed Signet",
+      "slot": "ring",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "primary_stats": {
+        "stamina": 10,
+        "intellect": 10
+      },
+      "secondary_stats": {
+        "healing_power": 7
+      }
+    }
+  ],
+  "Resin-Mother Vex'ith": [
+    {
+      "name": "Resin-Sealed Gauntlets",
+      "slot": "hands",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "primary_stats": {
+        "strength": 11,
+        "stamina": 14
+      },
+      "secondary_stats": {
+        "defense_rating": 1
+      },
+      "armor_type": "plate",
+      "armor_value": 316
+    },
+    {
+      "name": "Drop of Royal Amber",
+      "slot": "trinket",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "primary_stats": {
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "defense_rating": 1,
+        "dodge_rating": 1
+      },
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 10,
+        "icd": 5,
+        "apply_effect": {
+          "effect_id": "royal_amber_set",
+          "name": "Set in Amber",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "armor": 420
+          },
+          "on_target": false
+        },
+        "describe": "When you are hit, you have a chance to gain 420 armour for 3 turns."
+      }
+    },
+    {
+      "name": "Resin-Mother's Cudgel",
+      "slot": "main_hand",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "intellect": 12,
+        "spirit": 12
+      },
+      "secondary_stats": {
+        "healing_power": 12
+      },
+      "weapon_damage_min": 101,
+      "weapon_damage_max": 137,
+      "attack_speed": 2.6
+    }
+  ],
+  "Tunnel-King Ruzzak": [
+    {
+      "name": "Tunnel-King's Mandible",
+      "slot": "main_hand",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "weapon_type": "axe_2h",
+      "primary_stats": {
+        "strength": 16
+      },
+      "secondary_stats": {
+        "hit_rating": 1,
+        "crit_chance_physical": 1
+      },
+      "weapon_damage_min": 139,
+      "weapon_damage_max": 188,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Burrower's Treads",
+      "slot": "feet",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "strength": 16,
+        "agility": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 134
+    },
+    {
+      "name": "Earthen Coil",
+      "slot": "neck",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "strength": 14,
+        "intellect": 14
+      },
+      "secondary_stats": {}
+    }
+  ],
+  "Hive-Mother Ahn'thera": [
+    {
+      "name": "The Royal Stinger",
+      "slot": "main_hand",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "agility": 16
+      },
+      "secondary_stats": {
+        "hit_rating": 1,
+        "crit_chance_physical": 1
+      },
+      "weapon_damage_min": 103,
+      "weapon_damage_max": 139,
+      "attack_speed": 2.4
+    },
+    {
+      "name": "Consort's Sundering Glaive",
+      "slot": "main_hand",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 14,
+        "stamina": 18
+      },
+      "secondary_stats": {
+        "defense_rating": 1
+      },
+      "weapon_damage_min": 139,
+      "weapon_damage_max": 188,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Chitin-Strung Longbow",
+      "slot": "ranged",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "weapon_type": "bow",
+      "primary_stats": {
+        "agility": 10,
+        "intellect": 10
+      },
+      "secondary_stats": {
+        "attack_power": 17
+      },
+      "weapon_damage_min": 87,
+      "weapon_damage_max": 118,
+      "attack_speed": 2.8
+    },
+    {
+      "name": "Crown of the Hive",
+      "slot": "head",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "intellect": 14,
+        "stamina": 18
+      },
+      "secondary_stats": {
+        "mp5": 3
+      },
+      "armor_type": "mail",
+      "armor_value": 262
+    },
+    {
+      "name": "Zhir'ak's Carapace",
+      "slot": "chest",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "stamina": 21
+      },
+      "secondary_stats": {
+        "defense_rating": 2,
+        "dodge_rating": 2
+      },
+      "armor_type": "plate",
+      "armor_value": 464
+    },
+    {
+      "name": "Robes of the Queen's Bower",
+      "slot": "chest",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "intellect": 14,
+        "spirit": 14
+      },
+      "secondary_stats": {
+        "healing_power": 15
+      },
+      "armor_type": "cloth",
+      "armor_value": 96
+    },
+    {
+      "name": "Attendant's Gloves",
+      "slot": "hands",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "agility": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "attack_power": 19
+      },
+      "armor_type": "leather",
+      "armor_value": 134
+    },
+    {
+      "name": "Ring of the Twin Thrones",
+      "slot": "ring",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "spell_power": 11,
+        "crit_chance_spell": 1
+      }
+    },
+    {
+      "name": "Ahn'thera's Last Egg",
+      "slot": "trinket",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "intellect": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "spell_power": 7
+      },
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 8,
+        "icd": 5,
+        "apply_effect": {
+          "effect_id": "last_egg_hatches",
+          "name": "The Egg Hatches",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "spell_power": 36,
+            "haste": 4
+          },
+          "on_target": false
+        },
+        "describe": "Your damaging spells have a chance to grant 36 spell power and 4 haste for 3 turns."
+      }
     }
   ]
 }

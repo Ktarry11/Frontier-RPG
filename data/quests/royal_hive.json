@@ -1,0 +1,473 @@
+{
+  "quests": [
+    {
+      "quest_id": "rh_under_the_cell",
+      "title": "Under the Cell",
+      "giver_npc_id": "oh_thane",
+      "zone": "the_royal_hive",
+      "level_min": 55,
+      "level_max": 56,
+      "description": "Go down through the floor of the Royal Cell and kill Hive-Mother Ahn'thera and Royal Consort Zhir'ak in the Royal Chamber.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Hive-Mother Ahn'thera",
+          "count": 1,
+          "zone": "the_royal_hive"
+        }
+      ],
+      "reward_exp": 5356,
+      "reward_gold": 21060,
+      "accept_text": "The queen you killed in the Royal Cell wasn't the only one. The digging under the wall started again three days later.\n\nVigdis put her ear to the floor of the cell and heard more hive underneath. There's a way down at the narrow end of the cell, behind the throne. Whatever raised Zil'kesh is down there, and the scouts I sent say there are two of them, a queen and the one that guards her.\n\nThe Royal Cell is in the far south-east of the cavern, through the back of the Chitin Reach. Go down and kill them both. Hive-Mother Ahn'thera is the queen.",
+      "turn_in_text": "Then the hive has nobody left to lead it.\n\nThe digging stopped this morning. I had Rurik sit by the wall all night to be sure. Thank you. Take what Aldis has put aside for you.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Consort's Circlet",
+          "slot": "head",
+          "item_level": 58,
+          "rarity": "rare",
+          "required_level": 55,
+          "flavor_text": "There's a seam of amber resin set into it.",
+          "primary_stats": {
+            "intellect": 12,
+            "spirit": 12
+          },
+          "secondary_stats": {
+            "healing_power": 12
+          },
+          "armor_type": "cloth",
+          "armor_value": 80,
+          "label": "Cloth Helm (Int/Spi/HP)"
+        },
+        {
+          "name": "Consort's Fists",
+          "slot": "hands",
+          "item_level": 58,
+          "rarity": "rare",
+          "required_level": 55,
+          "flavor_text": "There's a seam of amber resin set into it.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 1,
+            "block_rating": 2,
+            "dodge_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 316,
+          "label": "Plate Gloves (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Royal-Hive Signet",
+          "slot": "ring",
+          "item_level": 58,
+          "rarity": "rare",
+          "required_level": 55,
+          "flavor_text": "Cut from silithid chitin and riveted in Onyxhollow.",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "hit_rating": 1,
+            "spell_power": 10
+          },
+          "label": "Ring (Int/Hit/SP)"
+        },
+        {
+          "name": "Hivebane Cord",
+          "slot": "waist",
+          "item_level": 58,
+          "rarity": "rare",
+          "required_level": 55,
+          "flavor_text": "Forged in Onyxhollow from what the hive left behind.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 2,
+            "parry_rating": 2
+          },
+          "armor_type": "leather",
+          "armor_value": 131,
+          "label": "Leather Belt (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "rare",
+      "requires_quests": [
+        "bst_the_royal_cell"
+      ]
+    },
+    {
+      "quest_id": "rh_the_warden",
+      "title": "The Warden at the Door",
+      "giver_npc_id": "oh_gate_captain",
+      "zone": "the_royal_hive",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Kill Hive-Warden Kasz'ar in the Drone Galleries of the Royal Hive.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Hive-Warden Kasz'ar",
+          "count": 1,
+          "zone": "the_royal_hive"
+        }
+      ],
+      "reward_exp": 5148,
+      "reward_gold": 20280,
+      "accept_text": "Before anyone goes deeper into that hive, the thing guarding its first chamber has to go.\n\nMy scouts got as far as the Drone Galleries, the big chamber just past the way in. Something with a shell like a wall stands in the middle of it, and the drones gather round it. They call it Hive-Warden Kasz'ar.\n\nThe way in is the hole at the narrow end of the Royal Cell, in the far south-east of the cavern. Be ready for its shell to close up when it's hurt.",
+      "turn_in_text": "That means my scouts can get further in now.\n\nThank you. This is from the gate stores.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Broodward Treads",
+          "slot": "feet",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "There's a seam of amber resin set into it.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 1,
+            "block_rating": 2,
+            "dodge_rating": 1
+          },
+          "armor_type": "plate",
+          "armor_value": 305,
+          "label": "Plate Boots (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Broodward Belt",
+          "slot": "waist",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "Forged in Onyxhollow from what the hive left behind.",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 203,
+          "label": "Mail Belt (Str/Sta/Crit)"
+        },
+        {
+          "name": "Royal-Hive Ring",
+          "slot": "ring",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "Cut from silithid chitin and riveted in Onyxhollow.",
+          "primary_stats": {
+            "intellect": 10,
+            "stamina": 12
+          },
+          "secondary_stats": {
+            "mp5": 2
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        },
+        {
+          "name": "Consort's Mantle",
+          "slot": "shoulder",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "Forged in Onyxhollow from what the hive left behind.",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 15,
+            "hit_rating": 1
+          },
+          "armor_type": "cloth",
+          "armor_value": 77,
+          "label": "Cloth Shoulders (Int/SP/Hit)"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "rh_eating_the_pillars",
+      "title": "What's Under the Pillars",
+      "giver_npc_id": "oh_geomancer",
+      "zone": "the_royal_hive",
+      "level_min": 55,
+      "level_max": 55,
+      "description": "Find the Deep Burrows in the Royal Hive and kill Tunnel-King Ruzzak.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_royal_hive",
+          "target_x": 52,
+          "target_y": 112,
+          "radius": 7,
+          "label": "the Deep Burrows in the Royal Hive"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Tunnel-King Ruzzak",
+          "count": 1,
+          "zone": "the_royal_hive"
+        }
+      ],
+      "reward_exp": 5252,
+      "reward_gold": 20670,
+      "accept_text": "Three of the pillars holding up the cavern roof have been bored hollow from underneath.\n\nThe borings run down into the Royal Hive, to a chamber the scouts call the Deep Burrows. Something big is digging there, and I think it's going for the pillars on purpose. They call it Tunnel-King Ruzzak.\n\nGo down through the Royal Cell, in the far south-east of the cavern, and through the hive to the Deep Burrows. When it burrows, stop hitting it until it comes back up. It turns the blows into shell.",
+      "turn_in_text": "The pillars have stopped ringing hollow.\n\nThat's the first good news I've had about the roof since the ground shook three years ago. Thank you.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Royal-Hive Gloves",
+          "slot": "hands",
+          "item_level": 57,
+          "rarity": "rare",
+          "required_level": 55,
+          "flavor_text": "Cut from silithid chitin and riveted in Onyxhollow.",
+          "primary_stats": {
+            "agility": 11,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "attack_power": 19
+          },
+          "armor_type": "leather",
+          "armor_value": 129,
+          "label": "Leather Gloves (Agi/Int/AP)"
+        },
+        {
+          "name": "Broodward Visor",
+          "slot": "head",
+          "item_level": 57,
+          "rarity": "rare",
+          "required_level": 55,
+          "flavor_text": "There's a seam of amber resin set into it.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 1,
+            "block_rating": 3,
+            "dodge_rating": 2
+          },
+          "armor_type": "plate",
+          "armor_value": 379,
+          "label": "Plate Helm (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Royal-Hive Talisman",
+          "slot": "neck",
+          "item_level": 57,
+          "rarity": "rare",
+          "required_level": 55,
+          "flavor_text": "Forged in Onyxhollow from what the hive left behind.",
+          "primary_stats": {
+            "intellect": 8,
+            "spirit": 8
+          },
+          "secondary_stats": {
+            "healing_power": 9
+          },
+          "label": "Necklace (Int/Spi/HP)"
+        },
+        {
+          "name": "Broodward Slippers",
+          "slot": "feet",
+          "item_level": 57,
+          "rarity": "rare",
+          "required_level": 55,
+          "flavor_text": "Cut from silithid chitin and riveted in Onyxhollow.",
+          "primary_stats": {
+            "stamina": 11,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "healing_power": 8
+          },
+          "armor_type": "cloth",
+          "armor_value": 64,
+          "label": "Cloth Boots (Sta/Int/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "rh_amber_for_the_forge",
+      "title": "Resin for the Forge",
+      "giver_npc_id": "oh_forgemaster",
+      "zone": "the_royal_hive",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Collect Royal Resin from the Resin Weavers in the Royal Hive.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "rh_royal_resin",
+          "count": 6
+        }
+      ],
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "accept_text": "Hive resin sets harder than glass and doesn't crack in the heat, and I want to try it as a lining for the crucibles.\n\nThe Resin Weavers in the Royal Hive make it fresh. The ones on the edge of the Strand only carry the old stuff. Go down through the Royal Cell in the far south-east of the cavern and take the resin off the Weavers inside.\n\nBring it back soft, before it sets.",
+      "turn_in_text": "It's still soft, which is what I needed.\n\nI'll line a crucible with it tonight and see how it holds. Here, this came off my anvil last week.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Hivebane Wraps",
+          "slot": "hands",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "Forged in Onyxhollow from what the hive left behind.",
+          "primary_stats": {
+            "intellect": 8,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "spell_power": 6
+          },
+          "armor_type": "cloth",
+          "armor_value": 47,
+          "label": "Cloth Gloves (Int/Sta/SP)"
+        },
+        {
+          "name": "Resin-Sealed Bracers",
+          "slot": "wrist",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "There's a seam of amber resin set into it.",
+          "primary_stats": {
+            "strength": 8,
+            "agility": 8,
+            "stamina": 8
+          },
+          "armor_type": "leather",
+          "armor_value": 95,
+          "label": "Leather Bracers (Str/Agi/Sta)"
+        },
+        {
+          "name": "Royal-Hive Wand",
+          "slot": "main_hand",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "Cut from silithid chitin and riveted in Onyxhollow.",
+          "weapon_type": "wand",
+          "primary_stats": {
+            "intellect": 7,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "spell_power": 5
+          },
+          "weapon_damage_min": 62,
+          "weapon_damage_max": 85,
+          "attack_speed": 1.9,
+          "label": "Wand (Int/Sta/SP)"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rh_the_nursery",
+      "title": "The Nursery",
+      "giver_npc_id": "oh_shrine_keeper",
+      "zone": "the_royal_hive",
+      "level_min": 54,
+      "level_max": 55,
+      "description": "Kill The Brood Nurse in the Brood Chambers of the Royal Hive.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Brood Nurse",
+          "count": 1,
+          "zone": "the_royal_hive"
+        }
+      ],
+      "reward_exp": 5252,
+      "reward_gold": 20670,
+      "accept_text": "The scouts found the room where the hive raises its young, off to the west of the Drone Galleries.\n\nThere's a creature in there that tends the eggs and feeds the larvae. If it lives, the hive will grow back whatever we do to it. The scouts call it The Brood Nurse.\n\nGo down through the Royal Cell in the far south-east of the cavern, and take the side tunnel west from the first big chamber. Kill the larvae when she wakes them, or they'll keep her alive.",
+      "turn_in_text": "Then nothing new will hatch down there.\n\nThe hive has taken miners from this town every year since the ground shook three years ago. I'll light the shrine for them tonight. Thank you for doing this.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Consort's Wristguards",
+          "slot": "wrist",
+          "item_level": 57,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "There's a seam of amber resin set into it.",
+          "primary_stats": {
+            "agility": 11,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "attack_power": 19
+          },
+          "armor_type": "leather",
+          "armor_value": 129,
+          "label": "Leather Bracers (Agi/Int/AP)"
+        },
+        {
+          "name": "Broodward Gloves",
+          "slot": "hands",
+          "item_level": 57,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "Forged in Onyxhollow from what the hive left behind.",
+          "primary_stats": {
+            "intellect": 11,
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "mp5": 3
+          },
+          "armor_type": "cloth",
+          "armor_value": 64,
+          "label": "Cloth Gloves (Int/Sta/MP5)"
+        },
+        {
+          "name": "Resin-Sealed Charm",
+          "slot": "neck",
+          "item_level": 57,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "Cut from silithid chitin and riveted in Onyxhollow.",
+          "primary_stats": {
+            "stamina": 10,
+            "spirit": 10
+          },
+          "secondary_stats": {
+            "healing_power": 7
+          },
+          "label": "Necklace (Sta/Spi/HP)"
+        },
+        {
+          "name": "Royal-Hive Chain Belt",
+          "slot": "waist",
+          "item_level": 57,
+          "rarity": "rare",
+          "required_level": 54,
+          "flavor_text": "It came up out of the Royal Hive in someone's pack.",
+          "primary_stats": {
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "defense_rating": 1,
+            "dodge_rating": 1
+          },
+          "armor_type": "mail",
+          "armor_value": 207,
+          "label": "Mail Belt (Sta/Def/Dodge)"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "rare"
+    }
+  ]
+}

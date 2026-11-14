@@ -5652,6 +5652,7 @@ def create_all_zones():
     from tools import handbuilt_abyssal_sands as dabs
     from tools import handbuilt_dry_deep as dunder   # NOT ddry - that is handbuilt_drywhisker_deeps
     from tools import handbuilt_black_strand as dstrand
+    from tools import handbuilt_royal_hive as droyal
     from tools import handbuilt_onyxhollow as donyx
     from tools import handbuilt_glittervein as dgv
     from tools import handbuilt_mother_vein as dmv
@@ -5798,6 +5799,8 @@ def create_all_zones():
         # The layer under the Dry Deep (Kyle, 13 Nov 2026): black sand, fungi and silithid, 50-53.
         # An OPEN ZONE that happens to have a roof - subzone tables and rares, not a pinned boss.
         "The Black Strand": dstrand.generate_black_strand(),
+        # The hive the Black Strand's queen was raised in, under her cell. 54-56, five bosses.
+        "The Royal Hive": droyal.generate_royal_hive(),
         # The Dark Iron town behind the Strand's gate. An inn and no flight master (Kyle).
         "Onyxhollow": donyx.generate_onyxhollow(),
         "Glittervein": dgv.generate_glittervein(),

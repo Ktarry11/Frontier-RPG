@@ -97,6 +97,38 @@
       "tier": "T0",
       "icon_id": "t0_priest_legs",
       "description": "A token. Any Artifact Keeper will trade it for the T0 set legs of a class that wears cloth."
+    },
+    "t0_token_shoulder_plate": {
+      "name": "Mantle of the Royal Hive (Plate)",
+      "slot": "shoulder",
+      "armor_type": "plate",
+      "tier": "T0",
+      "icon_id": "t0_warrior_shoulder",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set shoulders of a class that wears plate."
+    },
+    "t0_token_shoulder_mail": {
+      "name": "Mantle of the Royal Hive (Mail)",
+      "slot": "shoulder",
+      "armor_type": "mail",
+      "tier": "T0",
+      "icon_id": "t0_shaman_shoulder",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set shoulders of a class that wears mail."
+    },
+    "t0_token_shoulder_leather": {
+      "name": "Mantle of the Royal Hive (Leather)",
+      "slot": "shoulder",
+      "armor_type": "leather",
+      "tier": "T0",
+      "icon_id": "t0_rogue_shoulder",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set shoulders of a class that wears leather."
+    },
+    "t0_token_shoulder_cloth": {
+      "name": "Mantle of the Royal Hive (Cloth)",
+      "slot": "shoulder",
+      "armor_type": "cloth",
+      "tier": "T0",
+      "icon_id": "t0_priest_shoulder",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set shoulders of a class that wears cloth."
     }
   },
   "bosses": {
@@ -265,6 +297,52 @@
     },
     "The Caldera": {
       "slot": "legs",
+      "guaranteed": true,
+      "types": [
+        "plate",
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Hive-Warden Kasz'ar": {
+      "slot": "shoulder",
+      "guaranteed": false,
+      "types": [
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "The Brood Nurse": {
+      "slot": "shoulder",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Resin-Mother Vex'ith": {
+      "slot": "shoulder",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "cloth"
+      ]
+    },
+    "Tunnel-King Ruzzak": {
+      "slot": "shoulder",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "leather"
+      ]
+    },
+    "Hive-Mother Ahn'thera": {
+      "slot": "shoulder",
       "guaranteed": true,
       "types": [
         "plate",

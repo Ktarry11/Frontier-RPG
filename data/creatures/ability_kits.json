@@ -41207,7 +41207,7 @@
       {
         "name": "Crusted Fist",
         "kind": "damage",
-        "amount": 92,
+        "amount": 222,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "fire"
@@ -41223,6 +41223,14 @@
           "armor": 500
         },
         "self_only": true
+      },
+      {
+        "name": "Lava Knuckle",
+        "kind": "damage",
+        "amount": 195,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire"
       }
     ],
     "fire_cultist": [
@@ -44111,7 +44119,7 @@
       {
         "name": "Backstab",
         "kind": "damage",
-        "amount": 62,
+        "amount": 198,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "physical"
@@ -44119,7 +44127,7 @@
       {
         "name": "Salvage Hook",
         "kind": "damage",
-        "amount": 48,
+        "amount": 174,
         "cooldown": 3,
         "mana_cost": 0,
         "school": "physical"
@@ -44129,7 +44137,7 @@
       {
         "name": "Pick Swing",
         "kind": "damage",
-        "amount": 66,
+        "amount": 202,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "physical"
@@ -44137,18 +44145,26 @@
       {
         "name": "Rusted Wound",
         "kind": "dot",
-        "amount": 14,
+        "amount": 48,
         "cooldown": 4,
         "mana_cost": 0,
         "school": "physical",
         "duration": 3
+      },
+      {
+        "name": "Wild Overhand",
+        "kind": "damage",
+        "amount": 177,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
       }
     ],
     "masked_zealot": [
       {
         "name": "Ember Bolt",
         "kind": "damage",
-        "amount": 58,
+        "amount": 202,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "fire"
@@ -44156,18 +44172,26 @@
       {
         "name": "Riveted Faith",
         "kind": "dot",
-        "amount": 16,
+        "amount": 48,
         "cooldown": 4,
         "mana_cost": 0,
         "school": "fire",
         "duration": 3
+      },
+      {
+        "name": "Hammer of Faith",
+        "kind": "damage",
+        "amount": 177,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire"
       }
     ],
     "ash_wretch": [
       {
         "name": "Clawing Grasp",
         "kind": "damage",
-        "amount": 54,
+        "amount": 202,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "physical"
@@ -44182,13 +44206,21 @@
         "stat_mods": {
           "armor": -120
         }
+      },
+      {
+        "name": "Drag Down",
+        "kind": "damage",
+        "amount": 177,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
       }
     ],
     "chained_berserker": [
       {
         "name": "Broken Shackles",
         "kind": "damage",
-        "amount": 74,
+        "amount": 206,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "physical"
@@ -44201,16 +44233,24 @@
         "mana_cost": 0,
         "duration": 3,
         "stat_mods": {
-          "damage_dealt_pct": 25
+          "attack_power": 51
         },
         "self_only": true
+      },
+      {
+        "name": "Swinging Chain",
+        "kind": "damage",
+        "amount": 181,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
       }
     ],
     "fire_worshipper": [
       {
         "name": "Offering",
         "kind": "damage",
-        "amount": 64,
+        "amount": 206,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "fire"
@@ -44218,18 +44258,26 @@
       {
         "name": "Burning Robes",
         "kind": "dot",
-        "amount": 18,
+        "amount": 49,
         "cooldown": 5,
         "mana_cost": 0,
         "school": "fire",
         "duration": 4
+      },
+      {
+        "name": "Hurled Coal",
+        "kind": "damage",
+        "amount": 181,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire"
       }
     ],
     "iron_golem": [
       {
         "name": "Riveted Fist",
         "kind": "damage",
-        "amount": 78,
+        "amount": 206,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "physical"
@@ -44245,13 +44293,21 @@
           "physical_damage_taken_pct": -15
         },
         "self_only": true
+      },
+      {
+        "name": "Hammer Arm",
+        "kind": "damage",
+        "amount": 181,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
       }
     ],
     "stone_golem": [
       {
         "name": "Slab Arm",
         "kind": "damage",
-        "amount": 80,
+        "amount": 206,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "physical"
@@ -44267,13 +44323,21 @@
           "armor": 400
         },
         "self_only": true
+      },
+      {
+        "name": "Crushing Step",
+        "kind": "damage",
+        "amount": 181,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
       }
     ],
     "clockwork_sentry": [
       {
         "name": "Lens Burst",
         "kind": "damage",
-        "amount": 60,
+        "amount": 202,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "arcane"
@@ -44281,7 +44345,7 @@
       {
         "name": "Tripod Sweep",
         "kind": "damage",
-        "amount": 50,
+        "amount": 177,
         "cooldown": 3,
         "mana_cost": 0,
         "school": "physical"
@@ -44291,7 +44355,7 @@
       {
         "name": "Scalding Vent",
         "kind": "damage",
-        "amount": 62,
+        "amount": 206,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "fire"
@@ -44299,18 +44363,26 @@
       {
         "name": "Pressure Leak",
         "kind": "dot",
-        "amount": 15,
+        "amount": 49,
         "cooldown": 4,
         "mana_cost": 0,
         "school": "fire",
         "duration": 3
+      },
+      {
+        "name": "Piston Punch",
+        "kind": "damage",
+        "amount": 181,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire"
       }
     ],
     "forge_titan": [
       {
         "name": "Molten Backhand",
         "kind": "damage",
-        "amount": 92,
+        "amount": 206,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "fire"
@@ -44318,7 +44390,7 @@
       {
         "name": "Two Heads",
         "kind": "damage",
-        "amount": 70,
+        "amount": 135,
         "cooldown": 3,
         "mana_cost": 0,
         "school": "fire",
@@ -44329,7 +44401,7 @@
       {
         "name": "Grinding Mouth",
         "kind": "damage",
-        "amount": 64,
+        "amount": 206,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "physical"
@@ -44345,13 +44417,21 @@
           "armor": 350
         },
         "self_only": true
+      },
+      {
+        "name": "Bore In",
+        "kind": "damage",
+        "amount": 181,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
       }
     ],
     "deep_spider": [
       {
         "name": "Glowing Fang",
         "kind": "damage",
-        "amount": 60,
+        "amount": 206,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "nature"
@@ -44359,18 +44439,26 @@
       {
         "name": "Deep Venom",
         "kind": "dot",
-        "amount": 17,
+        "amount": 49,
         "cooldown": 4,
         "mana_cost": 0,
         "school": "nature",
         "duration": 4
+      },
+      {
+        "name": "Leg Spike",
+        "kind": "damage",
+        "amount": 181,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature"
       }
     ],
     "iron_hound": [
       {
         "name": "Furnace Bite",
         "kind": "damage",
-        "amount": 72,
+        "amount": 206,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "fire"
@@ -44378,7 +44466,7 @@
       {
         "name": "Run Down",
         "kind": "damage",
-        "amount": 56,
+        "amount": 181,
         "cooldown": 3,
         "mana_cost": 0,
         "school": "physical"
@@ -44388,7 +44476,7 @@
       {
         "name": "Molten Splash",
         "kind": "damage",
-        "amount": 58,
+        "amount": 206,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "fire"
@@ -44396,18 +44484,26 @@
       {
         "name": "Clinging Slag",
         "kind": "dot",
-        "amount": 20,
+        "amount": 49,
         "cooldown": 4,
         "mana_cost": 0,
         "school": "fire",
         "duration": 4
+      },
+      {
+        "name": "Engulf",
+        "kind": "damage",
+        "amount": 181,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire"
       }
     ],
     "shadow_of_the_forge": [
       {
         "name": "Smoke Lash",
         "kind": "damage",
-        "amount": 70,
+        "amount": 206,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "shadow"
@@ -44422,13 +44518,21 @@
         "stat_mods": {
           "hit_rating": -8
         }
+      },
+      {
+        "name": "Cinder Grasp",
+        "kind": "damage",
+        "amount": 181,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow"
       }
     ],
     "molten_thane": [
       {
         "name": "Seeping Plate",
         "kind": "damage",
-        "amount": 84,
+        "amount": 206,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "fire"
@@ -44441,82 +44545,179 @@
         "mana_cost": 0,
         "duration": 4,
         "stat_mods": {
-          "damage_dealt_pct": 20
+          "attack_power": 41
         },
         "self_only": true
+      },
+      {
+        "name": "Slag-Fist",
+        "kind": "damage",
+        "amount": 181,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire"
       }
     ],
     "gatewarden_hrun": [
       {
         "name": "Gate Shield",
         "kind": "damage",
-        "amount": 96,
+        "amount": 320,
         "cooldown": 0,
         "mana_cost": 0,
-        "school": "physical"
-      },
-      {
-        "name": "Warden's Stance",
-        "kind": "buff",
-        "amount": 0,
-        "cooldown": 6,
-        "mana_cost": 0,
-        "duration": 5,
-        "stat_mods": {
-          "block_chance": 30,
-          "parry": 20
-        },
-        "self_only": true
+        "school": "physical",
+        "boss_rework": 1
       },
       {
         "name": "Shield Crack",
         "kind": "damage",
-        "amount": 70,
+        "amount": 281,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bar the Gate",
+        "kind": "damage",
+        "amount": 416,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shield Sweep",
+        "kind": "damage",
+        "amount": 217,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Warden's Stance",
+        "kind": "damage",
+        "amount": 192,
         "cooldown": 4,
         "mana_cost": 0,
         "school": "physical",
-        "is_stun": true
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "physical_damage_taken_pct": -40,
+            "magic_damage_taken_pct": -15
+          }
+        }
+      },
+      {
+        "name": "The Gate Holds",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 128
+        }
       }
     ],
     "the_crusher": [
       {
         "name": "Piston Fall",
         "kind": "damage",
-        "amount": 110,
+        "amount": 320,
         "cooldown": 0,
         "mana_cost": 0,
-        "school": "physical"
-      },
-      {
-        "name": "Backlash Plates",
-        "kind": "buff",
-        "amount": 0,
-        "cooldown": 6,
-        "mana_cost": 0,
-        "duration": 4,
-        "stat_mods": {
-          "physical_damage_taken_pct": -20
-        },
-        "self_only": true
+        "school": "physical",
+        "boss_rework": 1,
+        "rider": {
+          "effect": "buff",
+          "duration": 99,
+          "stat_mods": {},
+          "mechanics": {
+            "reflect_pct": 30,
+            "reflect_school": "physical",
+            "reflect_melee_only": true
+          }
+        }
       },
       {
         "name": "Walking Frame",
         "kind": "damage",
-        "amount": 78,
-        "cooldown": 3,
+        "amount": 281,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Stamp",
+        "kind": "damage",
+        "amount": 416,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shrapnel",
+        "kind": "damage",
+        "amount": 217,
+        "cooldown": 5,
         "mana_cost": 0,
         "school": "physical",
         "is_aoe": true
+      },
+      {
+        "name": "Overpressure",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 128
+        }
       }
     ],
     "smelter_master_vaud": [
       {
         "name": "Tapping Spout",
         "kind": "damage",
-        "amount": 88,
+        "amount": 330,
         "cooldown": 0,
         "mana_cost": 0,
+        "school": "fire",
+        "boss_rework": 1
+      },
+      {
+        "name": "Ladle of Slag",
+        "kind": "damage",
+        "amount": 290,
+        "cooldown": 4,
+        "mana_cost": 0,
         "school": "fire"
+      },
+      {
+        "name": "Pour",
+        "kind": "damage",
+        "amount": 429,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Spill the Crucible",
+        "kind": "damage",
+        "amount": 224,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
       },
       {
         "name": "Call the Slag",
@@ -44525,97 +44726,188 @@
         "cooldown": 4,
         "mana_cost": 0,
         "summon": {
-          "creature": "Slag Ooze",
+          "name": "Slag Ooze",
+          "template": "elemental_bruiser",
+          "kit": "slag_ooze",
           "count": 1,
+          "level_offset": -2,
           "max_alive": 3,
           "max_casts": 4
         }
       },
       {
-        "name": "Shared Heat",
+        "name": "The Crucible Cracks",
         "kind": "buff",
         "amount": 0,
-        "cooldown": 6,
+        "cooldown": 99,
         "mana_cost": 0,
-        "duration": 4,
+        "school": "fire",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
         "stat_mods": {
-          "magic_damage_taken_pct": -20
-        },
-        "self_only": true
+          "attack_power": 132
+        }
       }
     ],
     "powderkeg_nix": [
       {
         "name": "Lit Fuse",
         "kind": "damage",
-        "amount": 84,
+        "amount": 330,
         "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire",
+        "boss_rework": 1,
+        "rider": {
+          "effect": "buff",
+          "duration": 99,
+          "stat_mods": {},
+          "mechanics": {
+            "death_prevent_pct": 10,
+            "death_prevent_uses": 1
+          }
+        }
+      },
+      {
+        "name": "Thrown Charge",
+        "kind": "damage",
+        "amount": 290,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Packed in Tight",
+        "kind": "damage",
+        "amount": 429,
+        "cooldown": 4,
         "mana_cost": 0,
         "school": "fire"
       },
       {
         "name": "Detonation",
         "kind": "damage",
-        "amount": 96,
+        "amount": 224,
         "cooldown": 5,
         "mana_cost": 0,
         "school": "fire",
         "is_aoe": true
       },
       {
-        "name": "Packed in Tight",
+        "name": "Last Keg",
         "kind": "buff",
         "amount": 0,
-        "cooldown": 8,
+        "cooldown": 99,
         "mana_cost": 0,
-        "duration": 6,
+        "school": "fire",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
         "stat_mods": {
-          "max_health_pct": 0.15
-        },
-        "self_only": true
+          "attack_power": 132
+        }
       }
     ],
     "overseer_grall": [
       {
         "name": "Cane Across the Back",
         "kind": "damage",
-        "amount": 94,
+        "amount": 330,
         "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Docked Pay",
+        "kind": "damage",
+        "amount": 290,
+        "cooldown": 4,
         "mana_cost": 0,
         "school": "physical"
       },
       {
-        "name": "Docked Pay",
-        "kind": "debuff",
-        "amount": 0,
+        "name": "Make an Example",
+        "kind": "damage",
+        "amount": 429,
         "cooldown": 4,
         "mana_cost": 0,
-        "duration": 4,
-        "stat_mods": {
-          "healing_taken_pct": -30
-        }
+        "school": "physical"
       },
       {
         "name": "Reading the Ledger",
+        "kind": "dot",
+        "amount": 118,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      },
+      {
+        "name": "Same Again",
+        "kind": "damage",
+        "amount": 230,
+        "cooldown": 2,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 8,
+          "stat_mods": {
+            "attack_power": 49
+          }
+        }
+      },
+      {
+        "name": "Nobody Leaves",
         "kind": "buff",
         "amount": 0,
-        "cooldown": 6,
+        "cooldown": 99,
         "mana_cost": 0,
-        "duration": 5,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
         "stat_mods": {
-          "damage_dealt_pct": 15
-        },
-        "self_only": true
+          "attack_power": 132
+        }
       }
     ],
     "forge_lord_darrok": [
       {
         "name": "Molten Blade",
         "kind": "damage",
-        "amount": 104,
+        "amount": 340,
         "cooldown": 0,
         "mana_cost": 0,
+        "school": "fire",
+        "boss_rework": 1
+      },
+      {
+        "name": "Bellows Roar",
+        "kind": "damage",
+        "amount": 299,
+        "cooldown": 4,
+        "mana_cost": 0,
         "school": "fire"
+      },
+      {
+        "name": "Quenching Strike",
+        "kind": "damage",
+        "amount": 442,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Forge Breath",
+        "kind": "damage",
+        "amount": 231,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
       },
       {
         "name": "Quenched in Magic",
@@ -44623,76 +44915,174 @@
         "amount": 0,
         "cooldown": 6,
         "mana_cost": 0,
-        "duration": 5,
-        "stat_mods": {
-          "magic_damage_taken_pct": -35
-        },
+        "school": "physical",
+        "duration": 4,
         "self_only": true,
-        "absorb": 600
+        "stat_mods": {},
+        "absorb": 340,
+        "mechanics": {
+          "damage_to_shield_pct": 40,
+          "damage_to_shield_school": "magic"
+        }
       },
       {
-        "name": "Bellows Roar",
-        "kind": "damage",
-        "amount": 86,
-        "cooldown": 4,
+        "name": "White Heat",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
         "mana_cost": 0,
         "school": "fire",
-        "is_aoe": true,
-        "hp_below": 0.3
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 136
+        }
       }
     ],
     "the_iron_mask": [
       {
         "name": "Riveted Shut",
         "kind": "damage",
-        "amount": 98,
+        "amount": 340,
         "cooldown": 0,
         "mana_cost": 0,
-        "school": "physical"
+        "school": "physical",
+        "boss_rework": 1
       },
       {
         "name": "Masked Silence",
         "kind": "damage",
-        "amount": 76,
+        "amount": 299,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Iron Brow",
+        "kind": "damage",
+        "amount": 442,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sermon of Rivets",
+        "kind": "dot",
+        "amount": 122,
         "cooldown": 5,
         "mana_cost": 0,
-        "school": "shadow",
-        "is_stun": true
+        "school": "physical",
+        "duration": 4
       },
       {
         "name": "Nothing Gets In",
+        "kind": "damage",
+        "amount": 237,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Visor Down",
         "kind": "buff",
         "amount": 0,
-        "cooldown": 6,
+        "cooldown": 7,
         "mana_cost": 0,
-        "duration": 4,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 272,
+        "mechanics": {
+          "dot_immune": true
+        }
+      },
+      {
+        "name": "Unmasked",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
         "stat_mods": {
-          "physical_damage_taken_pct": -20
-        },
-        "self_only": true
+          "attack_power": 136
+        }
       }
     ],
     "the_ashwretch_brood": [
       {
         "name": "Swarming Claws",
         "kind": "damage",
-        "amount": 74,
+        "amount": 340,
         "cooldown": 0,
         "mana_cost": 0,
-        "school": "physical",
-        "is_aoe": true
+        "school": "shadow",
+        "boss_rework": 1
+      },
+      {
+        "name": "Dragged Down",
+        "kind": "damage",
+        "amount": 299,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Pile On",
+        "kind": "damage",
+        "amount": 442,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow"
       },
       {
         "name": "More of Them",
+        "kind": "damage",
+        "amount": 231,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Wake the Pits",
         "kind": "summon",
         "amount": 0,
-        "cooldown": 3,
+        "cooldown": 4,
         "mana_cost": 0,
         "summon": {
-          "creature": "Ash-Wretch",
-          "count": 2,
-          "max_alive": 4,
-          "max_casts": 5
+          "name": "Ash-Wretch",
+          "template": "undead_basic",
+          "kit": "ash_wretch",
+          "count": 1,
+          "level_offset": -2,
+          "max_alive": 3,
+          "max_casts": 4
+        }
+      },
+      {
+        "name": "All of Them at Once",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 136
         }
       }
     ],
@@ -44700,97 +45090,185 @@
       {
         "name": "Queen's Maw",
         "kind": "damage",
-        "amount": 102,
+        "amount": 340,
         "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Burrowing Young",
+        "kind": "damage",
+        "amount": 299,
+        "cooldown": 4,
         "mana_cost": 0,
         "school": "physical"
       },
       {
-        "name": "Carapace",
-        "kind": "buff",
-        "amount": 0,
-        "cooldown": 7,
+        "name": "Tunnel Charge",
+        "kind": "damage",
+        "amount": 442,
+        "cooldown": 4,
         "mana_cost": 0,
-        "duration": 6,
-        "stat_mods": {
-          "armor": 900
-        },
-        "self_only": true
+        "school": "physical"
       },
       {
-        "name": "Burrowing Young",
-        "kind": "dot",
-        "amount": 24,
+        "name": "Cave-In",
+        "kind": "damage",
+        "amount": 231,
         "cooldown": 5,
         "mana_cost": 0,
-        "school": "nature",
-        "duration": 4
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Carapace",
+        "kind": "damage",
+        "amount": 204,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": 900
+          }
+        }
+      },
+      {
+        "name": "The Queen Digs Deep",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 136
+        }
       }
     ],
     "flamespeaker_maud": [
       {
         "name": "Speak Fire",
         "kind": "damage",
-        "amount": 108,
+        "amount": 340,
         "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire",
+        "boss_rework": 1,
+        "rider": {
+          "effect": "buff",
+          "duration": 99,
+          "stat_mods": {},
+          "mechanics": {
+            "damage_to_heal_pct": 50,
+            "damage_to_heal_school": "fire"
+          }
+        }
+      },
+      {
+        "name": "The Flame Listens",
+        "kind": "damage",
+        "amount": 299,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Kindle",
+        "kind": "damage",
+        "amount": 442,
+        "cooldown": 4,
         "mana_cost": 0,
         "school": "fire"
       },
       {
         "name": "Wreathed",
-        "kind": "buff",
-        "amount": 0,
-        "cooldown": 7,
-        "mana_cost": 0,
-        "duration": 6,
-        "stat_mods": {
-          "fire_resistance": 60
-        },
-        "self_only": true,
-        "lifesteal": 0.5
-      },
-      {
-        "name": "The Flame Listens",
-        "kind": "dot",
-        "amount": 26,
+        "kind": "damage",
+        "amount": 231,
         "cooldown": 5,
         "mana_cost": 0,
         "school": "fire",
-        "duration": 4
+        "is_aoe": true
+      },
+      {
+        "name": "The Fire Answers",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 136
+        }
       }
     ],
     "the_shadow_of_the_forge": [
       {
         "name": "Smoke and Ember",
         "kind": "damage",
-        "amount": 106,
+        "amount": 340,
         "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow",
+        "boss_rework": 1,
+        "rider": {
+          "effect": "buff",
+          "duration": 99,
+          "stat_mods": {},
+          "mechanics": {
+            "reflect_pct": 20,
+            "reflect_school": "shadow",
+            "on_low_health_pct": 35,
+            "on_low_health_shield_pct": 20,
+            "on_low_health_uses": 1
+          }
+        }
+      },
+      {
+        "name": "Soot in the Eyes",
+        "kind": "damage",
+        "amount": 299,
+        "cooldown": 4,
         "mana_cost": 0,
         "school": "shadow"
       },
       {
         "name": "Banked Coals",
-        "kind": "buff",
-        "amount": 0,
-        "cooldown": 6,
-        "mana_cost": 0,
-        "duration": 5,
-        "stat_mods": {
-          "magic_damage_taken_pct": -25
-        },
-        "self_only": true,
-        "absorb": 800,
-        "hp_below": 0.35
-      },
-      {
-        "name": "Soot in the Eyes",
-        "kind": "debuff",
-        "amount": 0,
+        "kind": "damage",
+        "amount": 442,
         "cooldown": 4,
         "mana_cost": 0,
-        "duration": 4,
+        "school": "shadow"
+      },
+      {
+        "name": "Choking Smoke",
+        "kind": "damage",
+        "amount": 231,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "It Will Not Go Out",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
         "stat_mods": {
-          "hit_rating": -12
+          "attack_power": 136
         }
       }
     ],
@@ -44798,10 +45276,45 @@
       {
         "name": "Ancestral Hammer",
         "kind": "damage",
-        "amount": 124,
+        "amount": 340,
         "cooldown": 0,
         "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1,
+        "rider": {
+          "effect": "buff",
+          "duration": 99,
+          "stat_mods": {},
+          "mechanics": {
+            "death_prevent_hp": 1,
+            "death_prevent_uses": 1
+          }
+        }
+      },
+      {
+        "name": "Oath-Breaker",
+        "kind": "damage",
+        "amount": 299,
+        "cooldown": 4,
+        "mana_cost": 0,
         "school": "physical"
+      },
+      {
+        "name": "The Thane's Due",
+        "kind": "damage",
+        "amount": 442,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hall of Ashhold",
+        "kind": "damage",
+        "amount": 231,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
       },
       {
         "name": "Call the Garrison",
@@ -44810,8 +45323,11 @@
         "cooldown": 5,
         "mana_cost": 0,
         "summon": {
-          "creature": "Molten Thane",
+          "name": "Molten Thane",
+          "template": "humanoid_warrior",
+          "kit": "molten_thane",
           "count": 1,
+          "level_offset": -2,
           "max_alive": 2,
           "max_casts": 3
         }
@@ -44820,22 +45336,22 @@
         "name": "Half-Fused with Stone",
         "kind": "buff",
         "amount": 0,
-        "cooldown": 8,
+        "cooldown": 99,
         "mana_cost": 0,
-        "duration": 6,
-        "stat_mods": {
-          "damage_dealt_pct": 40,
-          "armor": 500
-        },
+        "school": "physical",
+        "duration": 30,
         "self_only": true,
-        "hp_below": 0.25
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 136
+        }
       }
     ],
     "fire_sprite": [
       {
         "name": "Darting Flame",
         "kind": "damage",
-        "amount": 66,
+        "amount": 214,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "fire"
@@ -44843,18 +45359,26 @@
       {
         "name": "Bright Core",
         "kind": "dot",
-        "amount": 16,
-        "cooldown": 3,
+        "amount": 51,
+        "cooldown": 4,
         "mana_cost": 0,
         "school": "fire",
         "duration": 3
+      },
+      {
+        "name": "Spark Burst",
+        "kind": "damage",
+        "amount": 188,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire"
       }
     ],
     "flame_elemental": [
       {
         "name": "Column of Fire",
         "kind": "damage",
-        "amount": 78,
+        "amount": 218,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "fire"
@@ -44862,18 +45386,26 @@
       {
         "name": "Standing Burn",
         "kind": "dot",
-        "amount": 20,
+        "amount": 52,
         "cooldown": 4,
         "mana_cost": 0,
         "school": "fire",
         "duration": 3
+      },
+      {
+        "name": "Searing Arm",
+        "kind": "damage",
+        "amount": 191,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire"
       }
     ],
     "cinder_hound": [
       {
         "name": "Burning Coals",
         "kind": "damage",
-        "amount": 76,
+        "amount": 218,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "fire"
@@ -44881,7 +45413,7 @@
       {
         "name": "Run of the Pack",
         "kind": "damage",
-        "amount": 60,
+        "amount": 191,
         "cooldown": 3,
         "mana_cost": 0,
         "school": "fire"
@@ -44891,7 +45423,7 @@
       {
         "name": "Drifting Ash",
         "kind": "damage",
-        "amount": 72,
+        "amount": 218,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "shadow"
@@ -44906,13 +45438,21 @@
         "stat_mods": {
           "healing_taken_pct": -20
         }
+      },
+      {
+        "name": "Ash Touch",
+        "kind": "damage",
+        "amount": 191,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow"
       }
     ],
     "lava_lord": [
       {
         "name": "Crown of Flame",
         "kind": "damage",
-        "amount": 108,
+        "amount": 222,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "fire"
@@ -44920,7 +45460,7 @@
       {
         "name": "Magma Sweep",
         "kind": "damage",
-        "amount": 84,
+        "amount": 146,
         "cooldown": 4,
         "mana_cost": 0,
         "school": "fire",
@@ -44931,7 +45471,7 @@
       {
         "name": "Boulder Fist",
         "kind": "damage",
-        "amount": 94,
+        "amount": 222,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "physical"
@@ -44947,13 +45487,21 @@
           "armor": 650
         },
         "self_only": true
+      },
+      {
+        "name": "Rockfall",
+        "kind": "damage",
+        "amount": 195,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
       }
     ],
     "obsidian_shardling": [
       {
         "name": "Glass Shard",
         "kind": "damage",
-        "amount": 70,
+        "amount": 218,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "physical"
@@ -44961,18 +45509,26 @@
       {
         "name": "Lodged Glass",
         "kind": "dot",
-        "amount": 18,
+        "amount": 52,
         "cooldown": 4,
         "mana_cost": 0,
         "school": "physical",
         "duration": 3
+      },
+      {
+        "name": "Splinter",
+        "kind": "damage",
+        "amount": 191,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
       }
     ],
     "basalt_guardian": [
       {
         "name": "Carved Fist",
         "kind": "damage",
-        "amount": 96,
+        "amount": 222,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "physical"
@@ -44985,17 +45541,25 @@
         "mana_cost": 0,
         "duration": 4,
         "stat_mods": {
-          "dodge": 15,
+          "physical_damage_taken_pct": -15,
           "armor": 400
         },
         "self_only": true
+      },
+      {
+        "name": "Stone Fist",
+        "kind": "damage",
+        "amount": 195,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
       }
     ],
     "steam_elemental": [
       {
         "name": "Scalding Core",
         "kind": "damage",
-        "amount": 80,
+        "amount": 218,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "fire"
@@ -45003,18 +45567,26 @@
       {
         "name": "Vapour Burn",
         "kind": "dot",
-        "amount": 22,
+        "amount": 52,
         "cooldown": 4,
         "mana_cost": 0,
         "school": "fire",
         "duration": 3
+      },
+      {
+        "name": "Scald",
+        "kind": "damage",
+        "amount": 191,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire"
       }
     ],
     "geyser_spirit": [
       {
         "name": "Column of Water",
         "kind": "damage",
-        "amount": 84,
+        "amount": 222,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "frost"
@@ -45022,7 +45594,7 @@
       {
         "name": "Burst",
         "kind": "damage",
-        "amount": 70,
+        "amount": 146,
         "cooldown": 4,
         "mana_cost": 0,
         "school": "frost",
@@ -45033,7 +45605,7 @@
       {
         "name": "Yellow Crust",
         "kind": "damage",
-        "amount": 68,
+        "amount": 218,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "nature"
@@ -45041,18 +45613,26 @@
       {
         "name": "Sulphur Burn",
         "kind": "dot",
-        "amount": 19,
+        "amount": 52,
         "cooldown": 4,
         "mana_cost": 0,
         "school": "nature",
         "duration": 3
+      },
+      {
+        "name": "Pincer Snap",
+        "kind": "damage",
+        "amount": 191,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature"
       }
     ],
     "ember_swarm": [
       {
         "name": "Cloud of Motes",
         "kind": "damage",
-        "amount": 74,
+        "amount": 222,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "fire",
@@ -45061,18 +45641,26 @@
       {
         "name": "Settling Embers",
         "kind": "dot",
-        "amount": 18,
+        "amount": 53,
         "cooldown": 4,
         "mana_cost": 0,
         "school": "fire",
         "duration": 3
+      },
+      {
+        "name": "Swarm of Sparks",
+        "kind": "damage",
+        "amount": 195,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire"
       }
     ],
     "molten_serpent": [
       {
         "name": "Lava Coil",
         "kind": "damage",
-        "amount": 98,
+        "amount": 222,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "fire"
@@ -45080,18 +45668,26 @@
       {
         "name": "Rearing Burn",
         "kind": "dot",
-        "amount": 24,
+        "amount": 53,
         "cooldown": 4,
         "mana_cost": 0,
         "school": "fire",
         "duration": 3
+      },
+      {
+        "name": "Tail Lash",
+        "kind": "damage",
+        "amount": 195,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire"
       }
     ],
     "smoke_drake": [
       {
         "name": "Black Breath",
         "kind": "damage",
-        "amount": 92,
+        "amount": 222,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "shadow"
@@ -45099,7 +45695,7 @@
       {
         "name": "Wing Beat",
         "kind": "damage",
-        "amount": 72,
+        "amount": 146,
         "cooldown": 3,
         "mana_cost": 0,
         "school": "fire",
@@ -45110,7 +45706,7 @@
       {
         "name": "Ring of Runes",
         "kind": "damage",
-        "amount": 90,
+        "amount": 222,
         "cooldown": 0,
         "mana_cost": 0,
         "school": "fire"
@@ -45125,38 +45721,79 @@
         "stat_mods": {
           "fire_resistance": -30
         }
+      },
+      {
+        "name": "Rune of Flame",
+        "kind": "damage",
+        "amount": 195,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire"
       }
     ],
     "pack_alpha_cinderhound": [
       {
         "name": "Alpha's Jaws",
         "kind": "damage",
-        "amount": 104,
+        "amount": 360,
         "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire",
+        "boss_rework": 1
+      },
+      {
+        "name": "Hamstring",
+        "kind": "damage",
+        "amount": 316,
+        "cooldown": 4,
         "mana_cost": 0,
         "school": "fire"
       },
       {
-        "name": "Blood Up",
-        "kind": "buff",
-        "amount": 0,
-        "cooldown": 2,
+        "name": "Tear Out",
+        "kind": "damage",
+        "amount": 468,
+        "cooldown": 4,
         "mana_cost": 0,
-        "duration": 8,
-        "stat_mods": {
-          "damage_dealt_pct": 12,
-          "haste": 8
-        },
-        "self_only": true
+        "school": "fire"
       },
       {
         "name": "Run Them Down",
         "kind": "damage",
-        "amount": 82,
-        "cooldown": 4,
+        "amount": 244,
+        "cooldown": 5,
         "mana_cost": 0,
         "school": "fire",
         "is_aoe": true
+      },
+      {
+        "name": "Blood Up",
+        "kind": "damage",
+        "amount": 251,
+        "cooldown": 2,
+        "mana_cost": 0,
+        "school": "fire",
+        "rider": {
+          "effect": "buff",
+          "duration": 8,
+          "stat_mods": {
+            "attack_power": 54
+          }
+        }
+      },
+      {
+        "name": "The Pack's Blood",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 144
+        }
       }
     ],
     "thrass_the_geyser_spirit": [
@@ -45194,42 +45831,102 @@
       {
         "name": "Carved Hammer",
         "kind": "damage",
-        "amount": 112,
+        "amount": 370,
         "cooldown": 0,
         "mana_cost": 0,
-        "school": "physical"
-      },
-      {
-        "name": "Columnar",
-        "kind": "buff",
-        "amount": 0,
-        "cooldown": 7,
-        "mana_cost": 0,
-        "duration": 6,
-        "stat_mods": {
-          "armor": 1100,
-          "dodge": 25
-        },
-        "self_only": true
+        "school": "physical",
+        "boss_rework": 1
       },
       {
         "name": "Rune Shock",
         "kind": "damage",
-        "amount": 86,
+        "amount": 325,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "arcane",
+        "school": "physical"
+      },
+      {
+        "name": "Hexagon Slam",
+        "kind": "damage",
+        "amount": 481,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Columnar Fall",
+        "kind": "damage",
+        "amount": 251,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
         "is_aoe": true
+      },
+      {
+        "name": "Columnar",
+        "kind": "damage",
+        "amount": 222,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": 700,
+            "physical_damage_taken_pct": -20
+          }
+        }
+      },
+      {
+        "name": "Unbroken Stone",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 148
+        }
       }
     ],
     "the_molten_serpent": [
       {
         "name": "Coil and Crush",
         "kind": "damage",
-        "amount": 116,
+        "amount": 370,
         "cooldown": 0,
         "mana_cost": 0,
+        "school": "fire",
+        "boss_rework": 1
+      },
+      {
+        "name": "Lava in the Wound",
+        "kind": "damage",
+        "amount": 325,
+        "cooldown": 4,
+        "mana_cost": 0,
         "school": "fire"
+      },
+      {
+        "name": "Strike From the Lake",
+        "kind": "damage",
+        "amount": 481,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Lava Wave",
+        "kind": "damage",
+        "amount": 251,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
       },
       {
         "name": "Submerged",
@@ -45237,99 +45934,188 @@
         "amount": 0,
         "cooldown": 6,
         "mana_cost": 0,
+        "school": "physical",
         "duration": 3,
-        "stat_mods": {
-          "magic_damage_taken_pct": -40,
-          "physical_damage_taken_pct": -40
-        },
         "self_only": true,
-        "absorb": 900
+        "stat_mods": {},
+        "absorb": 444,
+        "mechanics": {
+          "damage_to_shield_pct": 100,
+          "damage_to_shield_school": ""
+        }
       },
       {
-        "name": "Lava in the Wound",
-        "kind": "dot",
-        "amount": 30,
-        "cooldown": 5,
+        "name": "Boiling Over",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
         "mana_cost": 0,
         "school": "fire",
-        "duration": 4
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 148
+        }
       }
     ],
     "flame_oracle_ysmel": [
       {
         "name": "Prophecy of Ash",
         "kind": "damage",
-        "amount": 120,
+        "amount": 380,
         "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire",
+        "boss_rework": 1
+      },
+      {
+        "name": "Read to the Weakest",
+        "kind": "damage",
+        "amount": 334,
+        "cooldown": 4,
         "mana_cost": 0,
         "school": "fire"
       },
       {
-        "name": "Read to the Weakest",
-        "kind": "debuff",
-        "amount": 0,
+        "name": "The Ring Answers",
+        "kind": "damage",
+        "amount": 494,
         "cooldown": 4,
         "mana_cost": 0,
-        "duration": 5,
+        "school": "fire"
+      },
+      {
+        "name": "Everything Burns the Same",
+        "kind": "damage",
+        "amount": 258,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Read Every Weakness",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 4,
+        "is_aoe": true,
         "stat_mods": {
-          "fire_resistance": -40,
-          "frost_resistance": -40,
-          "nature_resistance": -40,
-          "shadow_resistance": -40
+          "magic_damage_taken_pct": 15,
+          "physical_damage_taken_pct": 15
         }
       },
       {
-        "name": "The Ring Answers",
+        "name": "The Last Prophecy",
         "kind": "buff",
         "amount": 0,
-        "cooldown": 6,
+        "cooldown": 99,
         "mana_cost": 0,
-        "duration": 5,
+        "school": "fire",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
         "stat_mods": {
-          "damage_dealt_pct": 30
-        },
-        "self_only": true
+          "attack_power": 152
+        }
       }
     ],
     "the_mountains_heart": [
       {
         "name": "Stone Through the Crack",
         "kind": "damage",
-        "amount": 118,
+        "amount": 380,
         "cooldown": 0,
         "mana_cost": 0,
-        "school": "physical"
-      },
-      {
-        "name": "Molten Core Exposed",
-        "kind": "buff",
-        "amount": 0,
-        "cooldown": 7,
-        "mana_cost": 0,
-        "duration": 6,
-        "stat_mods": {
-          "armor": 800,
-          "max_health_pct": 0.2
-        },
-        "self_only": true,
-        "hp_below": 0.4
+        "school": "fire",
+        "boss_rework": 1,
+        "rider": {
+          "effect": "buff",
+          "duration": 99,
+          "stat_mods": {},
+          "mechanics": {
+            "death_prevent_pct": 1,
+            "death_prevent_uses": 1,
+            "on_low_health_pct": 30,
+            "on_low_health_shield_pct": 20,
+            "on_low_health_uses": 1
+          }
+        }
       },
       {
         "name": "Shoulder the Floor",
         "kind": "damage",
-        "amount": 92,
+        "amount": 334,
         "cooldown": 4,
         "mana_cost": 0,
-        "school": "physical",
-        "is_aoe": true
+        "school": "fire"
+      },
+      {
+        "name": "Molten Core Exposed",
+        "kind": "damage",
+        "amount": 494,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Heat of the Deep",
+        "kind": "dot",
+        "amount": 136,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 4
+      },
+      {
+        "name": "The Heart Beats Faster",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 152
+        }
       }
     ],
     "the_caldera": [
       {
         "name": "Falling Lava",
         "kind": "damage",
-        "amount": 130,
+        "amount": 380,
         "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire",
+        "boss_rework": 1
+      },
+      {
+        "name": "Crater Wall",
+        "kind": "damage",
+        "amount": 334,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Eruption",
+        "kind": "damage",
+        "amount": 494,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Rain of Fire",
+        "kind": "damage",
+        "amount": 258,
+        "cooldown": 5,
         "mana_cost": 0,
         "school": "fire",
         "is_aoe": true
@@ -45341,24 +46127,28 @@
         "cooldown": 5,
         "mana_cost": 0,
         "summon": {
-          "creature": "Lava Lord",
+          "name": "Lava Lord",
+          "template": "elemental_bruiser",
+          "kit": "lava_lord",
           "count": 1,
+          "level_offset": -2,
           "max_alive": 2,
           "max_casts": 3
         }
       },
       {
-        "name": "Eruption",
+        "name": "The Volcano Wakes",
         "kind": "buff",
         "amount": 0,
-        "cooldown": 8,
+        "cooldown": 99,
         "mana_cost": 0,
-        "duration": 6,
-        "stat_mods": {
-          "damage_dealt_pct": 45
-        },
+        "school": "fire",
+        "duration": 30,
         "self_only": true,
-        "hp_below": 0.25
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 152
+        }
       }
     ],
     "the_weight_of_the_floor": [
@@ -47365,6 +48155,695 @@
         "hp_below": 0.35,
         "stat_mods": {
           "attack_power": 172
+        }
+      }
+    ],
+    "thrass,_the_geyser_spirit": [
+      {
+        "name": "Scalding Jet",
+        "kind": "damage",
+        "amount": 360,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost",
+        "boss_rework": 1
+      },
+      {
+        "name": "Steam Lash",
+        "kind": "damage",
+        "amount": 316,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Boiling Column",
+        "kind": "damage",
+        "amount": 468,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "The Geyser Breaks",
+        "kind": "damage",
+        "amount": 244,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Eruption Cycle",
+        "kind": "damage",
+        "amount": 324,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Full Pressure",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 144
+        }
+      }
+    ],
+    "royal_hive_drone": [
+      {
+        "name": "Mandible Snap",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Carry It Off",
+        "kind": "damage",
+        "amount": 184,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hive Spittle",
+        "kind": "dot",
+        "amount": 50,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "royal_hive_guard": [
+      {
+        "name": "Bladed Forelimb",
+        "kind": "damage",
+        "amount": 222,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shield the Way",
+        "kind": "damage",
+        "amount": 188,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "armor": 160
+          }
+        }
+      },
+      {
+        "name": "Pinned Under Chitin",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "dodge_rating": -40
+        }
+      }
+    ],
+    "resin_weaver": [
+      {
+        "name": "Resin Bolt",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Hardening Resin",
+        "kind": "dot",
+        "amount": 54,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      },
+      {
+        "name": "Gummed Joints",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "stat_mods": {
+          "haste": -12
+        }
+      }
+    ],
+    "hive_tunneler": [
+      {
+        "name": "Bore Through",
+        "kind": "damage",
+        "amount": 214,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Out of the Floor",
+        "kind": "damage",
+        "amount": 188,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hard Head",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 140
+        },
+        "self_only": true
+      }
+    ],
+    "brood_larva": [
+      {
+        "name": "Gnaw",
+        "kind": "damage",
+        "amount": 126,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Feeding",
+        "kind": "dot",
+        "amount": 37,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "venomwing_wasp": [
+      {
+        "name": "Sting",
+        "kind": "damage",
+        "amount": 214,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Venom in the Blood",
+        "kind": "dot",
+        "amount": 55,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      },
+      {
+        "name": "Swarm Dive",
+        "kind": "damage",
+        "amount": 141,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      }
+    ],
+    "hive_warden_kaszar": [
+      {
+        "name": "Warden's Scythe",
+        "kind": "damage",
+        "amount": 340,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1,
+        "rider": {
+          "effect": "buff",
+          "duration": 99,
+          "stat_mods": {},
+          "mechanics": {
+            "on_low_health_pct": 40,
+            "on_low_health_shield_pct": 25,
+            "on_low_health_uses": 1
+          }
+        }
+      },
+      {
+        "name": "Barred Way",
+        "kind": "damage",
+        "amount": 299,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sentence of the Hive",
+        "kind": "damage",
+        "amount": 442,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sweep the Threshold",
+        "kind": "damage",
+        "amount": 231,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Carapace Locks",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 680
+      },
+      {
+        "name": "The Warden Will Not Fall",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 136
+        }
+      }
+    ],
+    "the_brood_nurse": [
+      {
+        "name": "Feeding Tube",
+        "kind": "damage",
+        "amount": 340,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature",
+        "boss_rework": 1
+      },
+      {
+        "name": "Spit Royal Jelly",
+        "kind": "damage",
+        "amount": 299,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Smother",
+        "kind": "damage",
+        "amount": 442,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Brood Stench",
+        "kind": "dot",
+        "amount": 122,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      },
+      {
+        "name": "Wake the Clutch",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "summon": {
+          "name": "Brood Larva",
+          "template": "vermin_swarm",
+          "kit": "brood_larva",
+          "count": 1,
+          "level_offset": -2,
+          "max_alive": 3,
+          "max_casts": 5
+        }
+      },
+      {
+        "name": "Feed on the Clutch",
+        "kind": "heal",
+        "amount": 408,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Every Egg at Once",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 136
+        }
+      }
+    ],
+    "resin_mother_vexith": [
+      {
+        "name": "Resin Lash",
+        "kind": "damage",
+        "amount": 350,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature",
+        "boss_rework": 1
+      },
+      {
+        "name": "Pour the Cell Shut",
+        "kind": "damage",
+        "amount": 308,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Seal in Amber",
+        "kind": "damage",
+        "amount": 455,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Acid Rain",
+        "kind": "damage",
+        "amount": 238,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Encase",
+        "kind": "damage",
+        "amount": 244,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Dissolving Coat",
+        "kind": "dot",
+        "amount": 119,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "dispel_type": "poison",
+        "is_aoe": true
+      },
+      {
+        "name": "The Mother's Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 140
+        }
+      }
+    ],
+    "tunnel_king_ruzzak": [
+      {
+        "name": "Grinding Maw",
+        "kind": "damage",
+        "amount": 350,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Tunnel Collapse",
+        "kind": "damage",
+        "amount": 308,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Burst From Below",
+        "kind": "damage",
+        "amount": 455,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "The Floor Gives Way",
+        "kind": "damage",
+        "amount": 238,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Burrow",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 420,
+        "mechanics": {
+          "damage_to_shield_pct": 100,
+          "damage_to_shield_school": ""
+        }
+      },
+      {
+        "name": "King of the Deep",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 140
+        }
+      }
+    ],
+    "hive_mother_ahnthera": [
+      {
+        "name": "Royal Talon",
+        "kind": "damage",
+        "amount": 360,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature",
+        "boss_rework": 1,
+        "rider": {
+          "effect": "buff",
+          "duration": 99,
+          "stat_mods": {},
+          "mechanics": {
+            "death_prevent_pct": 10,
+            "death_prevent_uses": 1,
+            "death_prevent_lethal_only": true
+          }
+        }
+      },
+      {
+        "name": "Command the Swarm",
+        "kind": "damage",
+        "amount": 316,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "The Queen's Judgement",
+        "kind": "damage",
+        "amount": 468,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Hive Song",
+        "kind": "damage",
+        "amount": 244,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Call the Royal Guard",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "summon": {
+          "name": "Royal Hive Guard",
+          "template": "humanoid_warrior",
+          "kit": "royal_hive_guard",
+          "count": 1,
+          "level_offset": -2,
+          "max_alive": 2,
+          "max_casts": 3
+        }
+      },
+      {
+        "name": "Deafening Screech",
+        "kind": "damage",
+        "amount": 216,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "The Hive Will Not End",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 144
+        }
+      }
+    ],
+    "royal_consort_zhirak": [
+      {
+        "name": "Twin Scythes",
+        "kind": "damage",
+        "amount": 360,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1,
+        "rider": {
+          "effect": "buff",
+          "duration": 99,
+          "stat_mods": {},
+          "mechanics": {
+            "reflect_pct": 15,
+            "reflect_school": "physical",
+            "reflect_melee_only": true
+          }
+        }
+      },
+      {
+        "name": "Guard the Queen",
+        "kind": "damage",
+        "amount": 316,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Consort's Verdict",
+        "kind": "damage",
+        "amount": 468,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cleave the Court",
+        "kind": "damage",
+        "amount": 244,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Living Wall",
+        "kind": "damage",
+        "amount": 216,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": 700
+          }
+        }
+      },
+      {
+        "name": "For the Queen",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 144
         }
       }
     ]

@@ -40,29 +40,33 @@ def main():
     T = set_tokens.data()
     bad = []
     order = list(T["bosses"])
-    if len(order) != 19:
-        bad.append(f"{len(order)} bosses carry tokens, wanted 19")
+    # 19 on Tempest Isle and 5 in the Royal Hive (shoulders, 14 Nov 2026)
+    if len(order) != 24:
+        bad.append(f"{len(order)} bosses carry tokens, wanted 24")
+    MULTI = {"Hive-Mother Ahn'thera": (3, 9)}         # the queen and her Consort: 3 of a pool of 9
 
     # 1, 2
     trinkets = 0
     for name in order:
         got = get_fixed_boss_loot_all(name)
-        if len(got) != 1:
-            bad.append(f"{name} hands out {len(got)} items a kill, wanted 1")
+        per_kill, pool = MULTI.get(name, (1, 3))
+        if len(got) != per_kill:
+            bad.append(f"{name} hands out {len(got)} items a kill, wanted {per_kill}")
             continue
         seen = set()
         for _ in range(60):
-            it = get_fixed_boss_loot_all(name)[0]
-            seen.add(it.name)
-            if it.slot.startswith("trinket"):
-                if not getattr(it, "proc", None) or not it.proc.get("describe"):
-                    bad.append(f"{it.name} reached the player with no proc")
-        if len(seen) != 3:
-            bad.append(f"{name}: {len(seen)} different items seen in 60 kills, wanted 3")
+            for it in get_fixed_boss_loot_all(name):
+                seen.add(it.name)
+                if it.slot.startswith("trinket"):
+                    if not getattr(it, "proc", None) or not it.proc.get("describe"):
+                        bad.append(f"{it.name} reached the player with no proc")
+        if len(seen) != pool:
+            bad.append(f"{name}: {len(seen)} different items seen in 60 kills, wanted {pool}")
         trinkets += sum(1 for n in seen if n in {"Gatewarden's Horn", "Cinder-Prayer Beads",
-                                                 "Alpha's Dewclaw", "Shard of the Mountain's Heart"})
-    if trinkets != 4:
-        bad.append(f"{trinkets} of the four proc trinkets were seen dropping")
+                                                 "Alpha's Dewclaw", "Shard of the Mountain's Heart",
+                                                 "Drop of Royal Amber", "Ahn'thera's Last Egg"})
+    if trinkets != 6:
+        bad.append(f"{trinkets} of the six proc trinkets were seen dropping")
 
     # 3, 4
     rng = random.Random(11)
@@ -81,10 +85,11 @@ def main():
         if not kinds <= allowed or (spec["guaranteed"] and kinds != allowed):
             bad.append(f"{name} dropped {sorted(kinds - allowed) or 'too few kinds'}")
     slots = [T["bosses"][n]["slot"] for n in order]
-    if slots != ["wrist"] * 6 + ["waist"] * 6 + ["legs"] * 7:
+    if slots != ["wrist"] * 6 + ["waist"] * 6 + ["legs"] * 7 + ["shoulder"] * 5:
         bad.append(f"token slots by boss are {slots}")
-    if [n for n in order if T["bosses"][n]["guaranteed"]] != ["Thane Morrun the Unmade", "The Caldera"]:
-        bad.append("the guaranteed bosses are not the two last bosses")
+    if [n for n in order if T["bosses"][n]["guaranteed"]] != ["Thane Morrun the Unmade", "The Caldera",
+                                                                "Hive-Mother Ahn'thera"]:
+        bad.append("the guaranteed bosses are not the three last bosses")
 
     # 5, 6
     with contextlib.redirect_stdout(io.StringIO()):

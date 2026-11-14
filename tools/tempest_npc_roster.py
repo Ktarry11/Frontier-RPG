@@ -285,7 +285,7 @@ CINDERWHARF_AMBIENT = {
     "pt_cinderwharf_hide": (
         "Tanner Brog Ashpelt", "dwarf", "male", 5,
         "I work hides, leather and cloth, and I cook, because nobody else on this wharf will do "
-        "it properly.\n\nA basilisk hide off the Cinder Flats makes the best leather I've ever "
+        "it properly. I'll teach you to fish for the pot as well.\n\nA basilisk hide off the Cinder Flats makes the best leather I've ever "
         "handled. I'll teach you to skin it, cure it and stitch it, and I'll teach you what to "
         "do with the meat while you're at it."),
     "pt_cinderwharf_wood": (
@@ -314,7 +314,7 @@ EXTRA = {
     "pt_cinderwharf_forge": {"trains_profession": ["mining", "blacksmithing"]},
     "pt_cinderwharf_herbs": {"trains_profession": ["herbalism", "alchemy"]},
     "pt_cinderwharf_hide": {"trains_profession": ["skinning", "leatherworking", "tailoring",
-                                                  "cooking"]},
+                                                  "cooking", "fishing"]},
     "pt_cinderwharf_wood": {"trains_profession": ["woodcutting", "woodworking"]},
     "pt_cinderwharf_essence": {"trains_profession": ["engineering"]},
 }

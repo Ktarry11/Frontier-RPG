@@ -10415,7 +10415,8 @@
         52
       ],
       "is_boss": true,
-      "ability_kit": "gatewarden_hrun"
+      "ability_kit": "gatewarden_hrun",
+      "boss_multiplier": 2.5
     },
     "The Crusher": {
       "template": "elemental_bruiser",
@@ -10424,7 +10425,8 @@
         52
       ],
       "is_boss": true,
-      "ability_kit": "the_crusher"
+      "ability_kit": "the_crusher",
+      "boss_multiplier": 2.3
     },
     "Smelter-Master Vaud": {
       "template": "humanoid_caster",
@@ -10433,7 +10435,8 @@
         53
       ],
       "is_boss": true,
-      "ability_kit": "smelter_master_vaud"
+      "ability_kit": "smelter_master_vaud",
+      "boss_multiplier": 2.5
     },
     "Powderkeg Nix": {
       "template": "humanoid_ranged",
@@ -10442,7 +10445,8 @@
         53
       ],
       "is_boss": true,
-      "ability_kit": "powderkeg_nix"
+      "ability_kit": "powderkeg_nix",
+      "boss_multiplier": 2.3
     },
     "Overseer Grall": {
       "template": "humanoid_warrior",
@@ -10451,7 +10455,8 @@
         53
       ],
       "is_boss": true,
-      "ability_kit": "overseer_grall"
+      "ability_kit": "overseer_grall",
+      "boss_multiplier": 2.5
     },
     "Forge-Lord Darrok": {
       "template": "elemental_bruiser",
@@ -10460,7 +10465,8 @@
         54
       ],
       "is_boss": true,
-      "ability_kit": "forge_lord_darrok"
+      "ability_kit": "forge_lord_darrok",
+      "boss_multiplier": 2.5
     },
     "The Iron Mask": {
       "template": "humanoid_warrior",
@@ -10469,7 +10475,8 @@
         54
       ],
       "is_boss": true,
-      "ability_kit": "the_iron_mask"
+      "ability_kit": "the_iron_mask",
+      "boss_multiplier": 2.5
     },
     "The Ashwretch Brood": {
       "template": "undead_basic",
@@ -10478,7 +10485,8 @@
         54
       ],
       "is_boss": true,
-      "ability_kit": "the_ashwretch_brood"
+      "ability_kit": "the_ashwretch_brood",
+      "boss_multiplier": 2.3
     },
     "The Rock-Borer Queen": {
       "template": "vermin_swarm",
@@ -10487,7 +10495,8 @@
         54
       ],
       "is_boss": true,
-      "ability_kit": "the_rock_borer_queen"
+      "ability_kit": "the_rock_borer_queen",
+      "boss_multiplier": 2.3
     },
     "Flamespeaker Maud": {
       "template": "humanoid_caster",
@@ -10496,7 +10505,8 @@
         54
       ],
       "is_boss": true,
-      "ability_kit": "flamespeaker_maud"
+      "ability_kit": "flamespeaker_maud",
+      "boss_multiplier": 2.5
     },
     "The Shadow of the Forge": {
       "template": "undead_caster",
@@ -10505,7 +10515,8 @@
         54
       ],
       "is_boss": true,
-      "ability_kit": "the_shadow_of_the_forge"
+      "ability_kit": "the_shadow_of_the_forge",
+      "boss_multiplier": 2.5
     },
     "Thane Morrun the Unmade": {
       "template": "humanoid_warrior",
@@ -10514,7 +10525,8 @@
         54
       ],
       "is_boss": true,
-      "ability_kit": "thane_morrun_the_unmade"
+      "ability_kit": "thane_morrun_the_unmade",
+      "boss_multiplier": 2.8
     },
     "Fire Sprite": {
       "template": "elemental_caster",
@@ -10667,7 +10679,8 @@
         56
       ],
       "is_boss": true,
-      "ability_kit": "pack_alpha_cinderhound"
+      "ability_kit": "pack_alpha_cinderhound",
+      "boss_multiplier": 2.5
     },
     "Thrass, the Geyser Spirit": {
       "template": "elemental_caster",
@@ -10676,7 +10689,8 @@
         56
       ],
       "is_boss": true,
-      "ability_kit": "thrass_the_geyser_spirit"
+      "ability_kit": "thrass,_the_geyser_spirit",
+      "boss_multiplier": 2.5
     },
     "Basalt Guardian Vok": {
       "template": "elemental_bruiser",
@@ -10685,7 +10699,8 @@
         57
       ],
       "is_boss": true,
-      "ability_kit": "basalt_guardian_vok"
+      "ability_kit": "basalt_guardian_vok",
+      "boss_multiplier": 2.5
     },
     "The Molten Serpent": {
       "template": "beast_large",
@@ -10694,7 +10709,8 @@
         57
       ],
       "is_boss": true,
-      "ability_kit": "the_molten_serpent"
+      "ability_kit": "the_molten_serpent",
+      "boss_multiplier": 2.5
     },
     "Flame Oracle Ysmel": {
       "template": "elemental_caster",
@@ -10703,7 +10719,8 @@
         58
       ],
       "is_boss": true,
-      "ability_kit": "flame_oracle_ysmel"
+      "ability_kit": "flame_oracle_ysmel",
+      "boss_multiplier": 2.5
     },
     "The Mountain's Heart": {
       "template": "elemental_bruiser",
@@ -10712,7 +10729,8 @@
         58
       ],
       "is_boss": true,
-      "ability_kit": "the_mountains_heart"
+      "ability_kit": "the_mountains_heart",
+      "boss_multiplier": 2.3
     },
     "The Caldera": {
       "template": "elemental_bruiser",
@@ -10721,7 +10739,8 @@
         58
       ],
       "is_boss": true,
-      "ability_kit": "the_caldera"
+      "ability_kit": "the_caldera",
+      "boss_multiplier": 2.8
     },
     "The Weight of the Floor": {
       "template": "elemental_bruiser",
@@ -11187,6 +11206,120 @@
       "is_boss": true,
       "ability_kit": "karrath_the_ventlord",
       "boss_multiplier": 2.2
+    },
+    "Royal Hive Drone": {
+      "template": "vermin_sneaky",
+      "level_range": [
+        54,
+        55
+      ],
+      "is_boss": false,
+      "ability_kit": "royal_hive_drone"
+    },
+    "Royal Hive Guard": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        55,
+        56
+      ],
+      "is_boss": false,
+      "ability_kit": "royal_hive_guard"
+    },
+    "Resin Weaver": {
+      "template": "humanoid_caster",
+      "level_range": [
+        54,
+        55
+      ],
+      "is_boss": false,
+      "ability_kit": "resin_weaver"
+    },
+    "Hive Tunneler": {
+      "template": "vermin_swarm",
+      "level_range": [
+        55,
+        56
+      ],
+      "is_boss": false,
+      "ability_kit": "hive_tunneler"
+    },
+    "Brood Larva": {
+      "template": "vermin_swarm",
+      "level_range": [
+        54,
+        54
+      ],
+      "is_boss": false,
+      "ability_kit": "brood_larva"
+    },
+    "Venomwing Wasp": {
+      "template": "beast_fast",
+      "level_range": [
+        55,
+        56
+      ],
+      "is_boss": false,
+      "ability_kit": "venomwing_wasp"
+    },
+    "Hive-Warden Kasz'ar": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        54,
+        54
+      ],
+      "is_boss": true,
+      "ability_kit": "hive_warden_kaszar",
+      "boss_multiplier": 2.5
+    },
+    "The Brood Nurse": {
+      "template": "vermin_swarm",
+      "level_range": [
+        54,
+        55
+      ],
+      "is_boss": true,
+      "ability_kit": "the_brood_nurse",
+      "boss_multiplier": 2.3
+    },
+    "Resin-Mother Vex'ith": {
+      "template": "humanoid_caster",
+      "level_range": [
+        55,
+        55
+      ],
+      "is_boss": true,
+      "ability_kit": "resin_mother_vexith",
+      "boss_multiplier": 2.5
+    },
+    "Tunnel-King Ruzzak": {
+      "template": "beast_large",
+      "level_range": [
+        55,
+        56
+      ],
+      "is_boss": true,
+      "ability_kit": "tunnel_king_ruzzak",
+      "boss_multiplier": 2.5
+    },
+    "Hive-Mother Ahn'thera": {
+      "template": "beast_large",
+      "level_range": [
+        56,
+        56
+      ],
+      "is_boss": true,
+      "ability_kit": "hive_mother_ahnthera",
+      "boss_multiplier": 2.4
+    },
+    "Royal Consort Zhir'ak": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        56,
+        56
+      ],
+      "is_boss": true,
+      "ability_kit": "royal_consort_zhirak",
+      "boss_multiplier": 2.3
     }
   }
 }
