@@ -1,0 +1,47 @@
+{
+  "_about": "How hard monsters hit and how much they can take, by where they are. Kyle, 14 Nov 2026: 'I want Dungeons to NEED a group of 5 and open world should still have danger to it.....not tank and spanking Everything mindlessly.' Tuned with tools/sim_difficulty.py against real creatures and real bosses; read by world/difficulty.py.",
+  "open": {
+    "damage": 1.35,
+    "health": 1.2
+  },
+  "cave": {
+    "damage": 1.5,
+    "health": 1.25
+  },
+  "boss": {
+    "damage": 3.0,
+    "health": 4.4
+  },
+  "_measured": "tools/sim_difficulty.py, 14 Nov 2026, geared but untalented characters. BEFORE: one same-level open-world creature cost a solo player about 19% of their health on average (a warrior 4-15%), three at once were often survivable, and a party of three beat every dungeon boss tested with nobody dying. AFTER, open world at 1.35: one creature costs melee 10-30% and casters 30-50%, two at once usually kills a caster and leaves melee low, three at once almost always kills. AFTER, dungeons (boss 3.0/4.4 for older kits, tuned_boss 2.2/3.6 for the hand-tuned isle and hive bosses): a party of five beat all 25 bosses tested in Ragefire, Wailing Caverns, Shadowfang, Razorfen Kraul, the Drowning Floor, the Cistern, Khaz Varun, the Emberdeep and the Royal Hive. A party of three lost to all but a few first bosses (Oggleflint, Roogug, Gatewarden Hrun).",
+  "tuned_boss": {
+    "damage": 2.2,
+    "health": 3.6
+  },
+  "tuned_bosses": [
+    "Basalt Guardian Vok",
+    "Flame Oracle Ysmel",
+    "Flamespeaker Maud",
+    "Forge-Lord Darrok",
+    "Gatewarden Hrun",
+    "Hive-Mother Ahn'thera",
+    "Hive-Warden Kasz'ar",
+    "Overseer Grall",
+    "Pack-Alpha Cinderhound",
+    "Powderkeg Nix",
+    "Resin-Mother Vex'ith",
+    "Royal Consort Zhir'ak",
+    "Smelter-Master Vaud",
+    "Thane Morrun the Unmade",
+    "The Ashwretch Brood",
+    "The Brood Nurse",
+    "The Caldera",
+    "The Crusher",
+    "The Iron Mask",
+    "The Molten Serpent",
+    "The Mountain's Heart",
+    "The Rock-Borer Queen",
+    "The Shadow of the Forge",
+    "Thrass, the Geyser Spirit",
+    "Tunnel-King Ruzzak"
+  ]
+}

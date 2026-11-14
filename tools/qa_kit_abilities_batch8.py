@@ -65,13 +65,16 @@ def main():
     ch, ab, mobs, eng = setup("The Same Four Wars Every Spring")
     ok, msg = ab.use(ch, mobs, party=[ch], engine=eng)
     foe = mobs[0]
-    check(ok and abs(foe.damage_output_multiplier - 1.0) < 1e-9, f"Same Four Wars: softer before anything was repeated ({foe.damage_output_multiplier}, {msg!r})")
+    # world/difficulty.py scales every open-world monster's output; these abilities act on top
+    from world import difficulty
+    D = difficulty.factor(foe, "damage")
+    check(ok and abs(foe.damage_output_multiplier / D - 1.0) < 1e-9, f"Same Four Wars: softer before anything was repeated ({foe.damage_output_multiplier}, {msg!r})")
     slash = foe.abilities[0]
     outs = []
     for _ in range(4):
         slash.turns_remaining = 0
         slash.use(foe, ch, engine=eng)
-        outs.append(round(foe.damage_output_multiplier, 2))
+        outs.append(round(foe.damage_output_multiplier / D, 2))
     check(outs == [1.0, 0.75, 0.5, 0.5], f"Same Four Wars: output went {outs}, wanted 1.0, 0.75, 0.5, 0.5")
 
     # ---- Imelda: the duel ----
@@ -79,7 +82,7 @@ def main():
     basic = ch.ability_book.abilities[ch.get_basic_attack_id()]
     mine = basic._damage_multiplier(ch, "physical", mobs[0])
     ok, _ = ab.use(ch, mobs[0], party=[ch], engine=eng)
-    check(ok and abs(mobs[0].damage_output_multiplier - 1.3) < 1e-9, f"Duel: the target deals x{mobs[0].damage_output_multiplier}, wanted 1.3")
+    check(ok and abs(mobs[0].damage_output_multiplier / D - 1.3) < 1e-9, f"Duel: the target deals x{mobs[0].damage_output_multiplier / D}, wanted 1.3")
     check(basic._damage_multiplier(ch, "physical", mobs[0]) - mine >= 0.29, "Duel: Imelda deals no more to it")
     check(basic._damage_multiplier(ch, "physical", mobs[1]) - mine < 0.01, "Duel: Imelda deals more to the other enemy too")
     check(any(ev for ev in (getattr(ab, "_last_threat_events", None) or [])), "Duel: nothing holds the target on her")

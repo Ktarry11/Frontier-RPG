@@ -418,7 +418,11 @@ class CreatureManager:
             monster.attack_power = int(monster.attack_power * boss_multiplier * 0.75)
             if hasattr(monster, 'spell_power'):
                 monster.spell_power = int(monster.spell_power * boss_multiplier * 0.75)
-        
+
+        # Global difficulty (world/difficulty.py). Open world until cave_spawns says otherwise;
+        # it re-applies after tagging a cave kill, and apply_health is idempotent per kind.
+        from world.difficulty import apply_health
+        apply_health(monster)
         return monster
     
     #: Chance per encounter roll, in a subzone with a real named rare in
@@ -489,6 +493,8 @@ class CreatureManager:
                 creature = self.spawn_creature(chosen_creature, zone_name=zone_name)
                 if creature:
                     creature.location_type = location_type
+                    from world.difficulty import apply_health
+                    apply_health(creature)
                 return creature
 
         if not trash_table:
@@ -517,6 +523,8 @@ class CreatureManager:
             # location_type tag is live and does fire the bonus in actual
             # play, not just wired-but-dormant plumbing.
             creature.location_type = location_type
+            from world.difficulty import apply_health
+            apply_health(creature)
 
         return creature
     

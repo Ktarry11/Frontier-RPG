@@ -42,7 +42,7 @@ def main():
         import tools.handbuilt_royal_hive as RH
         import tools.handbuilt_khaz_varun as KV
         import tools.handbuilt_emberdeep as ED
-        from tools.build_isle_dungeon_kits import B, T
+        from tools.build_isle_dungeon_kits import B, T, BOSS_SCALE
         hive = RH.generate_royal_hive()
         zones = [KV.generate_khaz_varun(), ED.generate_emberdeep(), hive]
         from world.portal_manager import PortalManager
@@ -90,7 +90,8 @@ def main():
         if r.get("is_boss"):
             if not r.get("boss_multiplier"):
                 bad.append(f"{n}: a boss with no boss multiplier")
-            if not 0.85 * B(hi) <= basic <= 1.15 * B(hi):
+            f = BOSS_SCALE.get(n, 1.0)
+            if not 0.85 * B(hi) * f <= basic <= 1.15 * B(hi) * f:
                 bad.append(f"{n}: boss basic {basic}, band {B(hi)}")
             if len(kit) < 5:
                 bad.append(f"{n}: a boss with {len(kit)} abilities")

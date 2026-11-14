@@ -293,6 +293,14 @@ class MonsterAbility:
         rider = self.rider
         is_buff = rider.get("effect") == "buff"
         recipients = [caster] if is_buff else list(hit_targets)
+        # A MECHANIC IS ARMED ONCE A FIGHT. A rider's buff is re-applied whenever the boss swings
+        # with that ability and finds it lapsed - and a refresh is a NEW StatusEffect, so a death
+        # floor written as "once" came back full every time, and Thane Morrun could not be killed
+        # (tools/sim_difficulty.py, 14 Nov 2026: five standing, boss alive, at the time limit).
+        if is_buff and rider.get("mechanics"):
+            if getattr(self, "_mechanics_armed", False):
+                return []
+            self._mechanics_armed = True
         out = []
         for r in recipients:
             effect = StatusEffect(
@@ -989,7 +997,9 @@ class Monster(StatusEffectMixin):
         but never invert it into healing the target.
         """
         pct = self.get_status_stat_mod("damage_dealt_pct") or 0.0
-        return max(0.0, 1.0 + pct / 100.0)
+        # Global difficulty for where this monster stands (world/difficulty.py, 14 Nov 2026).
+        from world.difficulty import factor
+        return max(0.0, 1.0 + pct / 100.0) * factor(self, "damage")
 
     def is_alive(self):
         return self.current_health > 0

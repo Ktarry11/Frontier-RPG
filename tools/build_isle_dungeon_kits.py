@@ -277,6 +277,23 @@ ED_BOSSES = {
 }
 
 
+#: Per-boss damage scale, set from tools/sim_difficulty.py (14 Nov 2026). With the global boss
+#: difficulty in place, a party of three still beat these three cleanly (each is the first or a
+#: slow-swinging boss), and the Cinderhound - a fast beast whose hits stack - wiped full groups.
+BOSS_SCALE = {"Gatewarden Hrun": 1.4, "Hive-Warden Kasz'ar": 1.6, "Tunnel-King Ruzzak": 1.6,
+              "Pack-Alpha Cinderhound": 0.85}
+
+
+def scaled(name, kit):
+    f = BOSS_SCALE.get(name)
+    if not f:
+        return kit
+    for a in kit:
+        if a.get("kind") in ("damage", "dot") and a.get("amount"):
+            a["amount"] = int(a["amount"] * f)
+    return kit
+
+
 def reworked_boss(spec):
     level, school, basic, second, heavy, spread, aoe, mech, ph, mult = spec[:10]
     opener_mech = spec[10] if len(spec) > 10 else None
@@ -358,6 +375,7 @@ def main():
             return 1
         for name, spec in table.items():
             kit, mult = reworked_boss(spec)
+            kit = scaled(name, kit)
             rec = dict(creatures[name])
             rec["boss_multiplier"] = mult
             rec["ability_kit"] = kit_slug(name)
@@ -386,7 +404,7 @@ def main():
         if mult:
             rec["boss_multiplier"] = mult
         new_c[name] = rec
-        new_k[kit_slug(name)] = hk[name]
+        new_k[kit_slug(name)] = scaled(name, hk[name])
 
     merge_json(CREATURES, "creatures", new_c, "creatures.json")
     merge_json(KITS, "kits", new_k, "ability_kits.json")
@@ -400,6 +418,12 @@ def main():
                                                       in HIVE_ROSTER.items()}}
     ENCOUNTERS.write_text(json.dumps(enc, indent=indent, ensure_ascii=False)
                           + ("\n" if newline else ""), encoding="utf-8")
+    # ---- these bosses were tuned by hand against the sim, so the global boss
+    # multiplier for older kits does not stack on top of them (world/difficulty.py)
+    diff_path = ROOT / "data/balance/monster_difficulty.json"
+    diff = json.loads(diff_path.read_text(encoding="utf-8"))
+    diff["tuned_bosses"] = sorted(n for n in new_c if new_c[n].get("is_boss"))
+    diff_path.write_text(json.dumps(diff, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     nb = sum(1 for n in new_c if new_c[n].get("is_boss"))
     print(f"{len(new_c)} creatures written ({nb} bosses), {len(new_k)} kits")
     return 0
