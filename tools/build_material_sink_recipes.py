@@ -202,8 +202,8 @@ def main():
     # under data/crafting/recipes.json's "professions" map.
     bs_path = ROOT / "data/blacksmithing/recipes.json"
     cr_path = ROOT / "data/crafting/recipes.json"
-    bs = json.loads(bs_path.read_text())
-    cr = json.loads(cr_path.read_text())
+    bs = json.loads(bs_path.read_text(encoding="utf-8"))
+    cr = json.loads(cr_path.read_text(encoding="utf-8"))
 
     added = 0
     for rid, rec in new["blacksmithing"].items():
@@ -224,8 +224,8 @@ def main():
     if args.dry_run:
         print("  --dry-run, nothing written")
         return 0
-    bs_path.write_text(json.dumps(bs, indent=2, ensure_ascii=False) + "\n")
-    cr_path.write_text(json.dumps(cr, indent=2, ensure_ascii=False) + "\n")
+    bs_path.write_text(json.dumps(bs, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    cr_path.write_text(json.dumps(cr, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"  wrote {bs_path}")
     print(f"  wrote {cr_path}")
     return 0

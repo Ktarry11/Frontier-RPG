@@ -158,7 +158,7 @@ def main():
     apply = "--apply" in sys.argv
     seen, changed = set(), 0
     for path in sorted(glob.glob(os.path.join(ROOT, "data/abilities/*.json"))):
-        data = json.load(open(path))
+        data = json.load(open(path, encoding="utf-8"))
         items = data if isinstance(data, list) else data.get("abilities", data)
         seq = items if isinstance(items, list) else list(items.values())
         dirty = False
@@ -183,7 +183,7 @@ def main():
             else:
                 print(f"--- {aid}\n  OLD: {old[:110]}...\n  NEW: {new}\n")
         if apply and dirty:
-            with open(path, "w") as fh:
+            with open(path, "w", encoding="utf-8") as fh:
                 json.dump(data, fh, indent=2, ensure_ascii=False)
                 fh.write("\n")
 

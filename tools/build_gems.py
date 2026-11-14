@@ -86,7 +86,7 @@ GEMS = [
 
 def main():
     from reprice_materials import curve
-    raw = MATS.read_text()
+    raw = MATS.read_text(encoding="utf-8")
     data = json.loads(raw)
     mats = data.get("materials", data)
     assert len(GEMS) == 50 and len({g[0] for g in GEMS}) == 50, len(GEMS)
@@ -106,11 +106,11 @@ def main():
         drops.setdefault(ore, []).append([gid, chance])
     style = next(((i, asc) for i in (2, 4, 1, None) for asc in (True, False)
                   if json.dumps(json.loads(raw), indent=i, ensure_ascii=asc) == raw.rstrip("\n")), (2, True))
-    MATS.write_text(json.dumps(data, indent=style[0], ensure_ascii=style[1]) + ("\n" if raw.endswith("\n") else ""))
+    MATS.write_text(json.dumps(data, indent=style[0], ensure_ascii=style[1]) + ("\n" if raw.endswith("\n") else ""), encoding="utf-8")
     DROPS.write_text(json.dumps({
         "_doc": "ore material id -> [[gem id, chance per gather], ...]. Built by tools/build_gems.py. "
                 "Each gem rolls on its own, in order; a vein gives at most one gem per swing.",
-        "drops": drops}, indent=2) + "\n")
+        "drops": drops}, indent=2) + "\n", encoding="utf-8")
     missing = [k for k, v in mats.items() if v.get("material_type") == "ore" and k not in drops]
     print(f"{len(GEMS)} gems across {len(drops)} ores; ores with no gem: {missing}")
 

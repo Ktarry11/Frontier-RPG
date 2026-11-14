@@ -42,7 +42,7 @@ PERSISTENT_DURATION = 30
 
 
 def _abilities(path):
-    doc = json.loads(Path(path).read_text())
+    doc = json.loads(Path(path).read_text(encoding="utf-8"))
     entries = doc.get("abilities", doc)
     if isinstance(entries, dict):
         entries = list(entries.values())
@@ -79,7 +79,7 @@ def collect():
                             persistent=persistent, mods=got))
 
     elixirs = json.loads(
-        (ROOT / "data/consumables/consumable_types.json").read_text())
+        (ROOT / "data/consumables/consumable_types.json").read_text(encoding="utf-8"))
     for group in elixirs.values() if isinstance(elixirs, dict) else []:
         if not isinstance(group, list):
             continue

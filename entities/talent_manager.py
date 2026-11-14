@@ -27,7 +27,7 @@ class TalentManager:
         # Load all .json files in the talents directory
         for json_file in talents_dir.glob("*.json"):
             try:
-                with open(json_file, 'r') as f:
+                with open(json_file, 'r', encoding="utf-8") as f:
                     data = json.load(f)
                 
                 # Each JSON file contains one talent tree

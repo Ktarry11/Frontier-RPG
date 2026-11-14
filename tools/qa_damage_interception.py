@@ -58,7 +58,7 @@ def main():
     from world.recruit_manager import get_recruit_manager
 
     findings, rows = [], []
-    doc = json.loads(KITS.read_text())
+    doc = json.loads(KITS.read_text(encoding="utf-8"))
     rm = get_recruit_manager()
     recs = {getattr(r, "recruit_id", None): r
             for r in (rm.recruits.values() if isinstance(rm.recruits, dict)

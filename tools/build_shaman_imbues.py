@@ -46,7 +46,7 @@ def build_ranks(learned, proc_fn=None, scale_ev=False):
 
 
 def main():
-    data = json.loads(PATH.read_text())
+    data = json.loads(PATH.read_text(encoding="utf-8"))
     by_id = {a["ability_id"]: a for a in data["abilities"]}
 
     rock = by_id["shaman_rockbiter_weapon"]
@@ -116,7 +116,7 @@ def main():
     chances = [20, 23, 26]
     tot["ranks"] = build_ranks(30, lambda i, n: {"chance": chances[min(i, len(chances) - 1)]})
 
-    PATH.write_text(json.dumps(data, indent=2) + "\n")
+    PATH.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
     for aid in ("shaman_rockbiter_weapon", "shaman_flametongue_weapon", "shaman_frostbrand_weapon",
                 "shaman_windfury_weapon", "shaman_windfury_totem"):
         a = next(x for x in data["abilities"] if x["ability_id"] == aid)

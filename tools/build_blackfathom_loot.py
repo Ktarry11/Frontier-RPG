@@ -95,8 +95,8 @@ def pools():
 def audit(P):
     bad = []
     items = [i for v in P.values() for i in v]
-    creatures = json.loads((ROOT / "data/creatures/creatures.json").read_text())["creatures"]
-    table = json.loads((ROOT / "data/creatures/encounters.json").read_text())["zones"]["Ashenvale West"]["caves"]["Blackfathom Deeps"]["creatures"]
+    creatures = json.loads((ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"]
+    table = json.loads((ROOT / "data/creatures/encounters.json").read_text(encoding="utf-8"))["zones"]["Ashenvale West"]["caves"]["Blackfathom Deeps"]["creatures"]
     bosses = {n for n in table if creatures.get(n, {}).get("is_boss")}
     if set(P) != bosses:
         bad.append(f"pools and bosses differ: {sorted(set(P) ^ bosses)}")
@@ -134,7 +134,7 @@ def main():
     out = {"_notes": "Blackfathom Deeps boss loot (2026-11-13). ONE item drops per kill from the pool. "
                      "item_level = boss level + 3; hand-authored in tools/build_blackfathom_loot.py."}
     out.update(P)
-    OUT.write_text(json.dumps(out, indent=2) + "\n")
+    OUT.write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
     subprocess.run([sys.executable, str(ROOT / "tools/whole_number_gear.py")], check=True,
                    stdout=subprocess.DEVNULL)
     print(f"{len(P)} pools, {sum(len(v) for v in P.values())} items -> {OUT.name}")

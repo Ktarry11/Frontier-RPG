@@ -11,6 +11,6 @@ _ROOT = Path(__file__).resolve().parent.parent
 
 
 def recruit_tiles(zone_name):
-    data = json.loads((_ROOT / "data/npcs/recruits.json").read_text())["recruits"]
+    data = json.loads((_ROOT / "data/npcs/recruits.json").read_text(encoding="utf-8"))["recruits"]
     rows = data.values() if isinstance(data, dict) else data
     return [(r["x"], r["y"]) for r in rows if r.get("zone") == zone_name and "x" in r and "y" in r]

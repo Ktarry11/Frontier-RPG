@@ -96,7 +96,7 @@ def _tidy(value):
 def load():
     docs = {}
     for path in sorted(TALENTS.glob("*.json")):
-        docs[path] = json.loads(path.read_text())
+        docs[path] = json.loads(path.read_text(encoding="utf-8"))
     return docs
 
 
@@ -207,7 +207,7 @@ def main():
         print("\n(report only; pass --apply to write)")
         return 0
     for path, doc in docs.items():
-        path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
+        path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"\nwrote {len(docs)} talent files")
     return 0
 

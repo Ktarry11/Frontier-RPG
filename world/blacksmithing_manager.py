@@ -50,7 +50,7 @@ class BlacksmithingManager:
     def _load_data(self):
         recipes_file = Path(__file__).parent.parent / "data" / "blacksmithing" / "recipes.json"
         if recipes_file.exists():
-            with open(recipes_file, 'r') as f:
+            with open(recipes_file, 'r', encoding="utf-8") as f:
                 self.recipes = json.load(f).get("recipes", {})
 
     def available_recipes(self, character):

@@ -183,7 +183,7 @@ class VendorManager:
         vendors_path = Path(__file__).parent.parent / "data" / "npcs" / "vendors.json"
         
         try:
-            with open(vendors_path, 'r') as f:
+            with open(vendors_path, 'r', encoding="utf-8") as f:
                 data = json.load(f)
             
             for vendor_def in data.get("vendors", []):
@@ -217,7 +217,7 @@ class VendorManager:
             # ({vendor_id: text}) and are laid over vendors.json, which the town tools rewrite.
             for path in sorted((vendors_path.parent / "vendor_greetings").glob("*.json")):
                 try:
-                    for vendor_id, text in json.loads(path.read_text()).items():
+                    for vendor_id, text in json.loads(path.read_text(encoding="utf-8")).items():
                         if vendor_id in self.vendors and text:
                             self.vendors[vendor_id].greeting = text
                         else:

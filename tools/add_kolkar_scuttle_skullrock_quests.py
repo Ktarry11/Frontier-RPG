@@ -403,14 +403,14 @@ DUROTAR_QUESTS = [
 
 def main():
     npc_path = "data/npcs/ambient_npcs.json"
-    npc_data = json.load(open(npc_path))
+    npc_data = json.load(open(npc_path, encoding="utf-8"))
     if not any(n["npc_id"] == NEW_NPC["npc_id"] for n in npc_data["npcs"]):
         npc_data["npcs"].append(NEW_NPC)
-        json.dump(npc_data, open(npc_path, "w"), indent=2)
+        json.dump(npc_data, open(npc_path, "w", encoding="utf-8"), indent=2)
         print(f"Added questgiver NPC: {NEW_NPC['name']} ({NEW_NPC['npc_id']})")
 
     rh_path = "data/quests/razor_hill.json"
-    rh_data = json.load(open(rh_path))
+    rh_data = json.load(open(rh_path, encoding="utf-8"))
     existing = {q["quest_id"] for q in rh_data["quests"]}
     added_rh = []
     for q in RAZOR_HILL_QUESTS:
@@ -418,11 +418,11 @@ def main():
             continue
         rh_data["quests"].append(q)
         added_rh.append(q["quest_id"])
-    json.dump(rh_data, open(rh_path, "w"), indent=2)
+    json.dump(rh_data, open(rh_path, "w", encoding="utf-8"), indent=2)
     print(f"Added {len(added_rh)} quests to razor_hill.json: {added_rh}")
 
     dur_path = "data/quests/durotar.json"
-    dur_data = json.load(open(dur_path))
+    dur_data = json.load(open(dur_path, encoding="utf-8"))
     existing2 = {q["quest_id"] for q in dur_data["quests"]}
     added_dur = []
     for q in DUROTAR_QUESTS:
@@ -430,7 +430,7 @@ def main():
             continue
         dur_data["quests"].append(q)
         added_dur.append(q["quest_id"])
-    json.dump(dur_data, open(dur_path, "w"), indent=2)
+    json.dump(dur_data, open(dur_path, "w", encoding="utf-8"), indent=2)
     print(f"Added {len(added_dur)} quests to durotar.json: {added_dur}")
 
 

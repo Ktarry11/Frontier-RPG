@@ -42,7 +42,7 @@ def _load():
     global _CACHE
     if _CACHE is None:
         try:
-            _CACHE = json.loads(_PATH.read_text())
+            _CACHE = json.loads(_PATH.read_text(encoding="utf-8"))
         except Exception:
             # Fails soft to an empty table: gear then falls back to the
             # class-level itemization it used before this existed, which is

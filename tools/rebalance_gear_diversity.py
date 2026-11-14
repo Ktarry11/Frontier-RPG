@@ -59,7 +59,7 @@ def main():
     changed = []
 
     for path in QUEST_FILES:
-        d = json.load(open(path))
+        d = json.load(open(path, encoding="utf-8"))
         for q in d["quests"]:
             for item in q.get("unique_item_defs", []):
                 old_stats = item.get("primary_stats", {})
@@ -112,7 +112,7 @@ def main():
                     item["stat_template"] = template
                 changed.append((item["name"], old_stats, new_stats, f"accessory:{label}"))
 
-        json.dump(d, open(path, "w"), indent=2)
+        json.dump(d, open(path, "w", encoding="utf-8"), indent=2)
 
     print(f"Rebalanced {len(changed)} items across {len(QUEST_FILES)} files:\n")
     for name, old, new, style in changed:

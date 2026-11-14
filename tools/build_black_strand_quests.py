@@ -737,7 +737,7 @@ def audit(quests):
         import tools.handbuilt_black_strand as M
         zone, L = M.build_black_strand_baked()
     seen = L._reach()
-    enc = json.loads((ROOT / "data/creatures/encounters.json").read_text())["zones"][M.NAME]
+    enc = json.loads((ROOT / "data/creatures/encounters.json").read_text(encoding="utf-8"))["zones"][M.NAME]
     spawns = set(enc["open_zone"]["creatures"])
     for s in enc["subzones"].values():
         spawns |= set(s["creatures"])

@@ -18,14 +18,14 @@ from tools.handbuilt_orgrimmar import NPC_POSITIONS, RECRUITS, FORGE   # noqa: E
 
 
 def _patch(path, list_key, id_key, table):
-    data = json.loads(Path(path).read_text())
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
     n = 0
     for rec in data[list_key]:
         pos = table.get(rec.get(id_key))
         if pos and (rec.get("x"), rec.get("y")) != tuple(pos):
             rec["x"], rec["y"] = pos
             n += 1
-    Path(path).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    Path(path).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return n
 
 
@@ -34,7 +34,7 @@ def main():
     total += _patch("data/npcs/vendors.json", "vendors", "vendor_id", NPC_POSITIONS)
     total += _patch("data/npcs/recruits.json", "recruits", "recruit_id", RECRUITS)
     fp = Path("data/npcs/forges.json")
-    data = json.loads(fp.read_text())
+    data = json.loads(fp.read_text(encoding="utf-8"))
     rec = next((f for f in data["forges"] if f["forge_id"] == "orgrimmar_forge"), None)
     if rec is None:
         data["forges"].append({"forge_id": "orgrimmar_forge", "name": "Orgrimmar Forge",
@@ -43,7 +43,7 @@ def main():
     elif (rec["x"], rec["y"]) != tuple(FORGE):
         rec["x"], rec["y"] = FORGE
         total += 1
-    fp.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    fp.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"moved/added {total} records")
 
 

@@ -75,7 +75,7 @@ def main():
     keys = collections.Counter()
     examples = collections.defaultdict(list)
     for f in sorted(glob.glob(str(ROOT / "data/talents/*.json"))):
-        for node in json.loads(Path(f).read_text()).get("nodes", []):
+        for node in json.loads(Path(f).read_text(encoding="utf-8")).get("nodes", []):
             if not isinstance(node, dict):
                 continue
             for k, v in (node.get("effects") or {}).items():
@@ -88,7 +88,7 @@ def main():
     sources = {}
     for pat in ("entities/*.py", "combat/*.py", "world/*.py", "ui/**/*.py"):
         for f in glob.glob(str(ROOT / pat), recursive=True):
-            sources[f] = Path(f).read_text()
+            sources[f] = Path(f).read_text(encoding="utf-8")
     blob = "\n".join(sources.values())
 
     from entities.character import BONUS_KEY_ALIASES

@@ -123,8 +123,8 @@ def main():
     from world.zone_keys import zone_key
     C.LABEL.update({"agility": "Agility", "intellect": "Intellect", "strength": "Strength", "haste": "% Haste"})
     pack = Path(sys.argv[sys.argv.index("--pack") + 1]) if "--pack" in sys.argv else None
-    load = lambda p: json.loads((ROOT / p).read_text())
-    save = lambda p, d: (ROOT / p).write_text(json.dumps(d, indent=2, ensure_ascii=False) + "\n")
+    load = lambda p: json.loads((ROOT / p).read_text(encoding="utf-8"))
+    save = lambda p, d: (ROOT / p).write_text(json.dumps(d, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     # --- the profession and who teaches it
     prof = load("data/professions/professions.json")

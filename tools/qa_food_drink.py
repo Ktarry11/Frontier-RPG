@@ -49,7 +49,7 @@ def pools(level):
 
 def main():
     cm = get_consumable_manager()
-    data = json.loads((ROOT / "data/consumables/consumable_types.json").read_text())
+    data = json.loads((ROOT / "data/consumables/consumable_types.json").read_text(encoding="utf-8"))
     meals = data.get("meals", [])
     drinks = data.get("drinks", [])
     fails = []
@@ -71,7 +71,7 @@ def main():
               f"{e['vendor_price']:>8}   {note}")
 
     print("\n== every tier is actually on sale somewhere")
-    vendors = json.loads((ROOT / "data/npcs/vendors.json").read_text())["vendors"]
+    vendors = json.loads((ROOT / "data/npcs/vendors.json").read_text(encoding="utf-8"))["vendors"]
     sold = {i for v in vendors for i in v.get("sells", [])}
     missing = [e for e in meals + drinks if e["consumable_id"] not in sold]
     carriers = sum(1 for v in vendors

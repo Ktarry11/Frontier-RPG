@@ -217,17 +217,17 @@ CAVES = {
 
 
 def _creatures():
-    data = json.load(open(CREATURES), object_pairs_hook=collections.OrderedDict)
+    data = json.load(open(CREATURES, encoding="utf-8"), object_pairs_hook=collections.OrderedDict)
     block = data.get("creatures", data)
     for (name, tpl, kit, lo, hi, boss) in ROSTER:
         block[name] = collections.OrderedDict([
             ("template", tpl), ("level_range", [lo, hi]), ("is_boss", boss), ("ability_kit", kit)])
-    json.dump(data, open(CREATURES, "w"), indent=2)
+    json.dump(data, open(CREATURES, "w", encoding="utf-8"), indent=2)
     return len(ROSTER)
 
 
 def _encounters():
-    data = json.load(open(ENCOUNTERS), object_pairs_hook=collections.OrderedDict)
+    data = json.load(open(ENCOUNTERS, encoding="utf-8"), object_pairs_hook=collections.OrderedDict)
     zones = data["zones"]
     for zname, (open_z, subs) in ZONES.items():
         zones[zname] = collections.OrderedDict([
@@ -241,7 +241,7 @@ def _encounters():
         parent = zones[CAVE_PARENT[cname]]
         parent.setdefault("caves", collections.OrderedDict())[cname] = collections.OrderedDict(
             [("name", cname), ("creatures", tbl)])
-    json.dump(data, open(ENCOUNTERS, "w"), indent=2)
+    json.dump(data, open(ENCOUNTERS, "w", encoding="utf-8"), indent=2)
     return len(ZONES), len(CAVES)
 
 
@@ -250,7 +250,7 @@ def _check():
     import importlib
     errs = []
     names = {r[0] for r in ROSTER}
-    existing = set(json.load(open(CREATURES)).get("creatures", {}))
+    existing = set(json.load(open(CREATURES, encoding="utf-8")).get("creatures", {}))
     # 1. bands
     zone_of = {}
     for zname, (open_z, subs) in ZONES.items():
@@ -284,7 +284,7 @@ def _check():
     # 3. SUBZONE KEYS MUST MATCH THE MAP. A table keyed to a subzone the zone does not have is a
     # table that never rolls, and nothing anywhere reports it.
     # every cave nested under a zone that exists, and every Arathi interior covered
-    enc = json.load(open(ENCOUNTERS))["zones"]
+    enc = json.load(open(ENCOUNTERS, encoding="utf-8"))["zones"]
     for cname, parent in CAVE_PARENT.items():
         if cname not in enc.get(parent, {}).get("caves", {}):
             errs.append(f"{cname} is not nested under {parent} - its table will never roll")

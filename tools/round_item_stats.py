@@ -98,14 +98,14 @@ def main():
 
     counts, dropped, floored, touched = Counter(), [], [], 0
     for path in sorted((ROOT / "data/loot").glob("*.json")):
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         before = json.dumps(doc, sort_keys=True)
         walk(doc, counts, dropped, floored)
         after = json.dumps(doc, sort_keys=True)
         if before != after:
             touched += 1
             if args.apply:
-                path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
+                path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     print(f"{sum(counts.values())} values rounded across {touched} files\n")
     print(f"{'stat':28}{'fixed':>7}")

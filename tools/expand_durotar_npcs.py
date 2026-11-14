@@ -136,11 +136,11 @@ NEW_NPCS = [
 
 def main():
     path = "data/npcs/ambient_npcs.json"
-    d = json.load(open(path))
+    d = json.load(open(path, encoding="utf-8"))
     before = len(d["npcs"])
     d["npcs"].extend(NEW_NPCS)
     after = len(d["npcs"])
-    json.dump(d, open(path, "w"), indent=2)
+    json.dump(d, open(path, "w", encoding="utf-8"), indent=2)
     print(f"Added {after - before} ambient NPCs ({before} -> {after} total).")
 
     from collections import Counter

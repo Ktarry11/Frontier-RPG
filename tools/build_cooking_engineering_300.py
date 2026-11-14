@@ -171,12 +171,12 @@ def main():
     ap.add_argument("--apply", action="store_true")
     args = ap.parse_args()
 
-    mats_doc = json.loads(MATS.read_text())
+    mats_doc = json.loads(MATS.read_text(encoding="utf-8"))
     mats = mats_doc["materials"]
-    rec_doc = json.loads(RECIPES.read_text())
+    rec_doc = json.loads(RECIPES.read_text(encoding="utf-8"))
     cook = rec_doc["professions"]["cooking"]["recipes"]
     eng = rec_doc["professions"]["engineering"]["recipes"]
-    con_doc = json.loads(CONSUM.read_text())
+    con_doc = json.loads(CONSUM.read_text(encoding="utf-8"))
 
     # ---- new meat
     new_mats = {}
@@ -262,15 +262,15 @@ def main():
 
     if args.apply:
         mats.update(new_mats)
-        MATS.write_text(json.dumps(mats_doc, indent=2) + "\n")
+        MATS.write_text(json.dumps(mats_doc, indent=2) + "\n", encoding="utf-8")
         cook.update(new_cook)
         eng.update(new_eng)
-        RECIPES.write_text(json.dumps(rec_doc, indent=2) + "\n")
+        RECIPES.write_text(json.dumps(rec_doc, indent=2) + "\n", encoding="utf-8")
         con_doc.setdefault("cooked_meals", []).extend(new_meals)
-        CONSUM.write_text(json.dumps(con_doc, indent=2) + "\n")
+        CONSUM.write_text(json.dumps(con_doc, indent=2) + "\n", encoding="utf-8")
 
         # extend the beast tables so the new cuts can actually drop
-        src = MEAT_DROPS.read_text()
+        src = MEAT_DROPS.read_text(encoding="utf-8")
         if "meat_marbled" not in src and new_mats:
             src = src.replace(
                 '    (40, 99, {"meat_rich": 2, "meat_prime": 3}),',
@@ -278,7 +278,7 @@ def main():
             src = src.replace(
                 "FIVE TIERS, matching the five cooked-meal tiers",
                 "EIGHT TIERS now, matching the cooked-meal tiers")
-            MEAT_DROPS.write_text(src)
+            MEAT_DROPS.write_text(src, encoding="utf-8")
             print("\n  extended entities/meat_drops.py BANDS for the new cuts")
         print("  wrote materials.json, recipes.json, consumable_types.json")
     else:

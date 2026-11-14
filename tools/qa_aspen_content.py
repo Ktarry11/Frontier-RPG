@@ -50,7 +50,7 @@ CASTING = {
 #: Weapon types a caster or healer can actually use.
 CASTER_WEAPONS = {"staff", "wand", "tome", "totem", "dagger"}
 
-loot = json.loads((ROOT / "data/loot/aspen_boss_loot.json").read_text())
+loot = json.loads((ROOT / "data/loot/aspen_boss_loot.json").read_text(encoding="utf-8"))
 pools = {k: v for k, v in loot.items() if not k.startswith("_")}
 all_items = [i for v in pools.values() for i in v]
 
@@ -99,7 +99,7 @@ for i in items:
     n = i["name"]
     sufs.append(next((c for c in CASTING if n.endswith(c)), None))
 # the builder does not append the suffix to the name, so fall back to the source file
-src = (ROOT / "tools/build_aspen_content.py").read_text()
+src = (ROOT / "tools/build_aspen_content.py").read_text(encoding="utf-8")
 cast_calls = sum(src.count(f'"{c}"') for c in CASTING)
 total_calls = src.count("mk(")
 share = cast_calls / max(total_calls, 1)
@@ -113,9 +113,9 @@ slots = Counter(i["slot"] for i in items)
 check(max(slots.values()) <= 6, "no slot is over-served", str(dict(slots)))
 
 print(f"\n--- content integrity")
-cre = json.loads((ROOT / "data/creatures/creatures.json").read_text())["creatures"]
-kits = json.loads((ROOT / "data/creatures/ability_kits.json").read_text())["kits"]
-enc = json.loads((ROOT / "data/creatures/encounters.json").read_text())["zones"]["The Aspen Wilderness"]
+cre = json.loads((ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"]
+kits = json.loads((ROOT / "data/creatures/ability_kits.json").read_text(encoding="utf-8"))["kits"]
+enc = json.loads((ROOT / "data/creatures/encounters.json").read_text(encoding="utf-8"))["zones"]["The Aspen Wilderness"]
 
 tables = [("open_zone", enc["open_zone"])]
 tables += [(f"subzone/{k}", v) for k, v in enc["subzones"].items()]

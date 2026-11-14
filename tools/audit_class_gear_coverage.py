@@ -50,8 +50,8 @@ _spec.loader.exec_module(_aib)
 
 from world.spec_gear_needs import SPEC_GEAR, wanted_stats  # noqa: E402
 
-ARMOR_MAP = json.loads((ROOT / "data/items/armor_types.json").read_text())["class_armor_map"]
-WEAPON_MAP = json.loads((ROOT / "data/items/weapon_types.json").read_text()).get("class_weapon_map", {})
+ARMOR_MAP = json.loads((ROOT / "data/items/armor_types.json").read_text(encoding="utf-8"))["class_armor_map"]
+WEAPON_MAP = json.loads((ROOT / "data/items/weapon_types.json").read_text(encoding="utf-8")).get("class_weapon_map", {})
 
 #: ilvl 51-60 is deliberately absent. There are 3,546 hand-authored items at ilvl 40 and below, 96
 #: in 41-50, and ZERO above that - the game's content stops in the forties. Including the band made

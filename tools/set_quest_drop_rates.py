@@ -24,7 +24,7 @@ def wanted():
     """item_id -> the most any quest asks for."""
     most = {}
     for path in glob.glob(str(ROOT / "data/quests/*.json")):
-        data = json.loads(Path(path).read_text())
+        data = json.loads(Path(path).read_text(encoding="utf-8"))
         quests = data.get("quests", data) if isinstance(data, dict) else data
         quests = quests if isinstance(quests, list) else list(quests.values())
         for q in quests:
@@ -38,7 +38,7 @@ def wanted():
 
 def main():
     path = ROOT / "data/creatures/quest_drops.json"
-    data = json.loads(path.read_text())
+    data = json.loads(path.read_text(encoding="utf-8"))
     most = wanted()
     raised = 0
     for _creature, drops in data["drops"].items():
@@ -46,7 +46,7 @@ def main():
             if most.get(d.get("item_id"), 0) > 1 and d.get("chance", 1) < FLOOR:
                 d["chance"] = FLOOR
                 raised += 1
-    path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"{raised} quest drops raised to {FLOOR:.0%}")
 
 

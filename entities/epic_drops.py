@@ -45,7 +45,7 @@ def _pool():
     if _POOL is None:
         path = Path(__file__).parent.parent / "data" / "loot" / "epic_drops.json"
         try:
-            data = json.loads(path.read_text())
+            data = json.loads(path.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
             data = {}
         _POOL = {"world": data.get("world", []), "dungeon": data.get("dungeon", [])}

@@ -103,7 +103,7 @@ def main():
     pygame.init()
     surface = pygame.display.set_mode((1280, 720))
     from ui.tilemap_renderer import TilemapRenderer
-    src = (ROOT / "ui/tilemap_renderer.py").read_text()
+    src = (ROOT / "ui/tilemap_renderer.py").read_text(encoding="utf-8")
     order_ok = src.index("for lm in getattr(tilemap, \"landmarks\", []):") < src.index("self._portal_glow()")
     if not order_ok:
         bad.append("the renderer draws exit markers BEFORE landmarks - art will cover them again")

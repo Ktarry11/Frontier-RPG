@@ -121,7 +121,7 @@ def check_other_classes():
     for path in sorted((ROOT / "data/abilities").glob("*.json")):
         if path.stem == "warlock":
             continue
-        blob = json.loads(path.read_text())
+        blob = json.loads(path.read_text(encoding="utf-8"))
         entries = blob.get("abilities", blob) if isinstance(blob, dict) else blob
         if isinstance(entries, dict):
             entries = list(entries.values())

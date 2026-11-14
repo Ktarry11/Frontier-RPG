@@ -55,7 +55,7 @@ ALLOW = {
 def collect(pattern):
     out = []
     for f in sorted(glob.glob(pattern)):
-        doc = json.load(open(f))
+        doc = json.load(open(f, encoding="utf-8"))
 
         def walk(o):
             if isinstance(o, dict):

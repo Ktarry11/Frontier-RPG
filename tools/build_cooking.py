@@ -75,7 +75,7 @@ NEW_BOLTS = [
 def main():
     # ---------------------------------------------------------------- materials
     mp = ROOT / "data/gathering/materials.json"
-    mdata = json.loads(mp.read_text())
+    mdata = json.loads(mp.read_text(encoding="utf-8"))
     mats = mdata.get("materials", mdata)
     # FIELD SHAPE COPIED FROM A WORKING RECORD, not guessed. make_material_instance reads
     # data["profession"] directly and KeyErrors without it - the first build dropped meat that then
@@ -93,11 +93,11 @@ def main():
             "icon_id": mid,
             "description": desc,
         }
-    mp.write_text(json.dumps(mdata, indent=2, ensure_ascii=False) + "\n")
+    mp.write_text(json.dumps(mdata, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     # ---------------------------------------------------------------- profession
     pp = ROOT / "data/professions/professions.json"
-    pdata = json.loads(pp.read_text())
+    pdata = json.loads(pp.read_text(encoding="utf-8"))
     profs = pdata.get("professions", pdata)
     sibling = profs.get("alchemy", {})
     profs["cooking"] = {
@@ -105,11 +105,11 @@ def main():
         "name": "Cooking",
         "description": "Turn meat into meals that restore health and leave you well fed.",
     }
-    pp.write_text(json.dumps(pdata, indent=2, ensure_ascii=False) + "\n")
+    pp.write_text(json.dumps(pdata, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     # ---------------------------------------------------------------- consumables
     cp = ROOT / "data/consumables/consumable_types.json"
-    cdata = json.loads(cp.read_text())
+    cdata = json.loads(cp.read_text(encoding="utf-8"))
     cooked = []
     for rid, name, meat, qty, skill, total, secs, bonuses, flavour in COOKED:
         tier = next(t for m, _n, t, _d in MEATS if m == meat)
@@ -134,11 +134,11 @@ def main():
             "stat_bonuses": bonuses,
         })
     cdata["cooked_meals"] = cooked
-    cp.write_text(json.dumps(cdata, indent=2, ensure_ascii=False) + "\n")
+    cp.write_text(json.dumps(cdata, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     # ---------------------------------------------------------------- recipes
     rp = ROOT / "data/crafting/recipes.json"
-    rdata = json.loads(rp.read_text())
+    rdata = json.loads(rp.read_text(encoding="utf-8"))
     profs_r = rdata["professions"]
     cook = profs_r.setdefault("cooking", {"recipes": {}})
     cook.setdefault("recipes", {})
@@ -158,7 +158,7 @@ def main():
             "skill_required": skill,
             "output": {"kind": "material", "material_id": bolt, "count": 1},
         }
-    rp.write_text(json.dumps(rdata, indent=2, ensure_ascii=False) + "\n")
+    rp.write_text(json.dumps(rdata, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     # ---------------------------------------------------------------- the last dead crystal
     # crystal_tideglass was added to node pools with the Drowning Floor and Southern Needles this
@@ -183,8 +183,8 @@ def main():
         "icon_id": "part_tide_seal",
         "description": "Ground tideglass set in a bronze ring. Keeps water out of things that mind.",
     }
-    mp.write_text(json.dumps(mdata, indent=2, ensure_ascii=False) + "\n")
-    rp.write_text(json.dumps(rdata, indent=2, ensure_ascii=False) + "\n")
+    mp.write_text(json.dumps(mdata, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    rp.write_text(json.dumps(rdata, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     print(f"cooking: {len(MEATS)} meats, {len(COOKED)} recipes")
     print(f"tailoring: +{len(NEW_BOLTS)} bolt recipes, closing the cloth ladder to level 42")

@@ -52,7 +52,7 @@ def main():
     from entities.character import Character
     from entities.monster import Monster
 
-    creatures = json.loads((ROOT / "data/creatures/creatures.json").read_text())["creatures"]
+    creatures = json.loads((ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"]
     counts = {}
     for name, entry in creatures.items():
         t = CT.classify(name, entry.get("template", ""))
@@ -170,7 +170,7 @@ def main():
     ids = set()
     n_rules = 0
     for f in (ROOT / "data/abilities").glob("*.json"):
-        data = json.loads(f.read_text())
+        data = json.loads(f.read_text(encoding="utf-8"))
         for a in data.get("abilities", []) if isinstance(data, dict) else []:
             ids.add(a.get("ability_id"))
             for key in ("creature_types", "immune_creature_types"):

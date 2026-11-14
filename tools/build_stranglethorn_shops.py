@@ -149,11 +149,11 @@ def valid_ids():
     """Every id that resolves: consumables, plus the trade-goods ids other towns already sell."""
     cons = set()
     for _cat, rows in json.loads(
-            (ROOT / "data/consumables/consumable_types.json").read_text()).items():
+            (ROOT / "data/consumables/consumable_types.json").read_text(encoding="utf-8")).items():
         for row in rows:
             if row.get("consumable_id"):
                 cons.add(row["consumable_id"])
-    doc = json.loads(VENDORS.read_text())
+    doc = json.loads(VENDORS.read_text(encoding="utf-8"))
     supplies = {i for v in doc["vendors"] for i in v["sells"]} - cons
     return cons | supplies
 
@@ -195,7 +195,7 @@ def report(doc):
 
 
 def main():
-    doc = json.loads(VENDORS.read_text())
+    doc = json.loads(VENDORS.read_text(encoding="utf-8"))
 
     if "--check" in sys.argv:
         raise SystemExit(1 if report(doc) else 0)
@@ -227,7 +227,7 @@ def main():
         if before != (list(v["sells"]), v.get("sells_gear"), v.get("gear_level")):
             changed += 1
 
-    VENDORS.write_text(json.dumps(doc, indent=2) + "\n")
+    VENDORS.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
     print(f"rewrote {changed} of {len(SHOPS)} shelves\n")
     if report(doc):
         raise SystemExit("a shelf is still wrong after the pass")

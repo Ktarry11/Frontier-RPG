@@ -186,13 +186,13 @@ def rows(roster, vendors, M, zone_key):
 
 
 def merge(path, key, id_field, new):
-    data = json.loads(path.read_text())
+    data = json.loads(path.read_text(encoding="utf-8"))
     by_id = {e[id_field]: e for e in data[key]}
     added = sum(1 for e in new if e[id_field] not in by_id)
     for e in new:
         by_id[e[id_field]] = e
     data[key] = [by_id[k] for k in by_id]
-    path.write_text(json.dumps(data, indent=2) + "\n")
+    path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
     return added, len(new) - added
 
 
@@ -204,7 +204,7 @@ def main():
     # item registry to check against - consumables, food, trade goods and crafted gear are authored in
     # four different files - so the honest check is that nothing here is a name I made up: if another
     # vendor in the game already stocks it, it resolves.
-    existing = json.loads((ROOT / "data/npcs/vendors.json").read_text())["vendors"]
+    existing = json.loads((ROOT / "data/npcs/vendors.json").read_text(encoding="utf-8"))["vendors"]
     known = {s for v in existing for s in v.get("sells", [])}
     bad = sorted({s for v in gv + bv for s in v["sells"] if s not in known})
     if bad:

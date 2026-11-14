@@ -533,7 +533,7 @@ def main():
     # gate, which was added on 6 Nov 2026. If the ability loses it, this
     # tree's Overkill promises execute damage on targets it cannot reach.
     abilities = json.loads(
-        (ROOT / "data/abilities/barbarian.json").read_text())["abilities"]
+        (ROOT / "data/abilities/barbarian.json").read_text(encoding="utf-8"))["abilities"]
     dec = next((a for a in abilities
                 if a["ability_id"] == "barbarian_decapitate"), None)
     assert dec is not None and dec.get("execute_threshold_pct") == 35, (
@@ -568,7 +568,7 @@ def main():
           f"{pts} points")
     if check:
         return 0
-    OUT.write_text(json.dumps(TREE, indent=2) + "\n")
+    OUT.write_text(json.dumps(TREE, indent=2) + "\n", encoding="utf-8")
     print(f"wrote {OUT.relative_to(ROOT)}")
     return 0
 

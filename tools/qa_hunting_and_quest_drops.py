@@ -22,7 +22,7 @@ def main():
     bad = []
     from set_quest_drop_rates import wanted, FLOOR
     most = wanted()
-    drops = json.load(open("data/creatures/quest_drops.json"))["drops"]
+    drops = json.load(open("data/creatures/quest_drops.json", encoding="utf-8"))["drops"]
     low = [(c, d["item_id"], d["chance"]) for c, ds in drops.items() for d in ds
            if most.get(d.get("item_id"), 0) > 1 and d.get("chance", 1) < FLOOR]
     for c, item, chance in low[:10]:
@@ -82,7 +82,7 @@ def main():
     from world.zone_manager import ZoneManager
     if "Isle Coconut Crab" not in ZoneManager._carriers_of(ZoneManager.__new__(ZoneManager), "sturdy_reef_coral"):
         bad.append("needing coral does not make the game look for the crab that drops it")
-    src = open("world/zone_manager.py").read()
+    src = open("world/zone_manager.py", encoding="utf-8").read()
     if "ObjectiveType.FETCH" not in src[src.index("def active_kill_targets"):src.index("_carriers = None")]:
         bad.append("active_kill_targets ignores fetch quests")
 
@@ -136,7 +136,7 @@ def main():
         hero.update_buff_timers(200)
         if hero.beast_lure_seconds or hero.beast_lure_pct:
             bad.append("the lure never goes out")
-    vendors = json.load(open("data/npcs/vendors.json"))
+    vendors = json.load(open("data/npcs/vendors.json", encoding="utf-8"))
     vendors = vendors.get("vendors", vendors)
     vendors = vendors if isinstance(vendors, list) else list(vendors.values())
     if not any("beast_lure" in (v.get("sells") or []) for v in vendors):

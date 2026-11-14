@@ -746,23 +746,23 @@ def main():
     for q in out:
         n = q["next_quest_id"]
         assert n is None or n in ids, (q["quest_id"], n)
-    OUT.write_text(json.dumps({"quests": out}, indent=2, ensure_ascii=False) + "\n")
+    OUT.write_text(json.dumps({"quests": out}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     # drop the old wt_/et_ quests (pre-rebuild geography)
-    data = json.loads(OLD.read_text())
+    data = json.loads(OLD.read_text(encoding="utf-8"))
     before = len(data["quests"])
     data["quests"] = [q for q in data["quests"] if not q["quest_id"].startswith(("wt_", "et_"))]
-    OLD.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    OLD.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     # Deathknell's last quest points at Rennick on Brill's square
-    dk = json.loads(DK_FILE.read_text())
+    dk = json.loads(DK_FILE.read_text(encoding="utf-8"))
     for q in dk["quests"]:
         if q["quest_id"] == "dk_to_brill":
             q["objectives"] = [dict(type="explore", target="brill", target_x=46, target_y=44, radius=6)]
-    DK_FILE.write_text(json.dumps(dk, indent=2, ensure_ascii=False) + "\n")
+    DK_FILE.write_text(json.dumps(dk, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     # NPCs
-    nd = json.loads(NPCS.read_text())
+    nd = json.loads(NPCS.read_text(encoding="utf-8"))
     nd["npcs"] = [n for n in nd["npcs"] if n["npc_id"] != "et_agamand_envoy"]
     have = {n["npc_id"]: n for n in nd["npcs"]}
     for n in NEW_NPCS:
@@ -771,10 +771,10 @@ def main():
             have[n["npc_id"]].update({kk: rec[kk] for kk in ("name", "greeting", "gender", "appearance_variant", "facing", "race", "zone")})
         else:
             nd["npcs"].append(rec)
-    NPCS.write_text(json.dumps(nd, indent=2, ensure_ascii=False) + "\n")
+    NPCS.write_text(json.dumps(nd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     # quest drops
-    dd = json.loads(DROPS.read_text())
+    dd = json.loads(DROPS.read_text(encoding="utf-8"))
     drops = dd["drops"]
     for item_id, (name, desc, srcs) in QUEST_DROPS.items():
         for creature, chance in srcs:
@@ -787,7 +787,7 @@ def main():
             lst = drops.setdefault(creature, [])
             lst[:] = [d for d in lst if d["item_id"] != item_id]
             lst.append(dict(item_id=item_id, name=name, category="quest", description=desc, chance=chance, starts_quest=qid))
-    DROPS.write_text(json.dumps(dd, indent=2, ensure_ascii=False) + "\n")
+    DROPS.write_text(json.dumps(dd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"tirisfal quests: {len(out)} (removed {before - len(data['quests'])} old), "
           f"items {sum(len(q['unique_item_defs']) for q in out)}")
 

@@ -30,4 +30,4 @@ for a in d["abilities"]:
         v = round(r1 * (1 + (mm - 1) * (i / (n - 1) if n > 1 else 0)))
         r["effect_value"] = v; r["cost"] = max(1, round(v * cf))
     print(f'{a["ability_id"]:30} {[(r["effect_value"], r["cost"]) for r in a["ranks"]]}')
-json.dump(d, open(P, "w", encoding="utf-8"), indent=2, ensure_ascii=False); open(P, "a").write("\n")
+json.dump(d, open(P, "w", encoding="utf-8"), indent=2, ensure_ascii=False); open(P, "a", encoding="utf-8").write("\n")

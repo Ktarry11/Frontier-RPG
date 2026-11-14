@@ -228,7 +228,7 @@ def _equip_ranged(actor, ability):
     if not want:
         return None
     want = [want] if isinstance(want, str) else list(want)
-    data = json.loads((ROOT / "data/items/weapon_types.json").read_text())
+    data = json.loads((ROOT / "data/items/weapon_types.json").read_text(encoding="utf-8"))
     legal = data["class_weapon_map"].get(actor.char_class, [])
     choice = next((w for w in want if w in legal), None)
     if choice is None:

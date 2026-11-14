@@ -36,10 +36,10 @@ def names():
             for v in node:
                 walk(v)
     for path in list((ROOT / "data/abilities").glob("*.json")) + [ROOT / "data/npcs/personal_kits.json"]:
-        walk(json.loads(path.read_text()))
+        walk(json.loads(path.read_text(encoding="utf-8")))
     for path in (ROOT / "data").rglob("*consumable*.json"):
         try:
-            blob = json.loads(path.read_text())
+            blob = json.loads(path.read_text(encoding="utf-8"))
         except ValueError:
             continue
         stack = [blob]

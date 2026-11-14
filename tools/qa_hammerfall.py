@@ -50,7 +50,7 @@ def main():
         if have[name] < n:
             bad.append(f"{name}: {have[name]} on the map, wanted {n}")
 
-    forges = [f for f in json.load(open("data/npcs/forges.json"))["forges"] if f["zone"] == "hammerfall"]
+    forges = [f for f in json.load(open("data/npcs/forges.json", encoding="utf-8"))["forges"] if f["zone"] == "hammerfall"]
     if len(forges) != 1:
         bad.append(f"{len(forges)} forge records for Hammerfall, wanted 1")
     else:

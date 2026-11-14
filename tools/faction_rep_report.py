@@ -51,18 +51,18 @@ def tier_at(tiers, standing):
 
 
 def main():
-    d = json.loads((ROOT / "data/factions/factions.json").read_text())
+    d = json.loads((ROOT / "data/factions/factions.json").read_text(encoding="utf-8"))
     tiers, F = d["tiers"], d["factions"]
     exalted = next(t["at"] for t in tiers if t["name"] == "Exalted")
 
     quests = []
     for f in sorted((ROOT / "data/quests").glob("*.json")):
-        data = json.loads(f.read_text())
+        data = json.loads(f.read_text(encoding="utf-8"))
         qs = data.get("quests", [])
         quests += qs if isinstance(qs, list) else list(qs.values())
 
     Z = create_all_zones()
-    packs = json.loads((ROOT / "data/dungeons/trash_packs.json").read_text())
+    packs = json.loads((ROOT / "data/dungeons/trash_packs.json").read_text(encoding="utf-8"))
     boss_count, bosses_in, trash_in = {}, {}, {}
     for dn in ALL_DUNGEONS:
         z = Z.get(dn)

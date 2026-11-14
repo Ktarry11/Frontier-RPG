@@ -97,7 +97,7 @@ RESISTANCE_MIN_PLAYER_LEVEL = 45
 
 # ----------------------------------------------------------------- data
 def jload(rel):
-    return json.loads((ROOT / rel).read_text())
+    return json.loads((ROOT / rel).read_text(encoding="utf-8"))
 
 
 def creatures():
@@ -122,7 +122,7 @@ def selectable_classes():
     comment used to offer and which stopped being true.
     """
     import re
-    src = (ROOT / "ui/screens/character_screen.py").read_text()
+    src = (ROOT / "ui/screens/character_screen.py").read_text(encoding="utf-8")
     block = src.split("self.classes = [", 1)[1].split("]", 1)[0]
     return [c for c in re.findall(r'"([^"]+)"', block)]
 
@@ -135,7 +135,7 @@ def boss_loot_entries():
     """[(file, boss_name, item_def)] over every hand-authored boss pool."""
     out = []
     for path in boss_loot_files():
-        for boss, pool in json.loads(path.read_text()).items():
+        for boss, pool in json.loads(path.read_text(encoding="utf-8")).items():
             if boss.startswith("_"):
                 continue
             for item_def in pool:
@@ -153,7 +153,7 @@ def quest_reward_entries():
     """
     out = []
     for path in sorted((ROOT / "data/quests").glob("*.json")):
-        for quest in json.loads(path.read_text()).get("quests", []):
+        for quest in json.loads(path.read_text(encoding="utf-8")).get("quests", []):
             for item_def in (quest.get("unique_item_defs") or []):
                 out.append((path.name, quest.get("quest_id"), item_def))
     return out

@@ -50,7 +50,7 @@ def main():
     # Who spends what.
     spenders = defaultdict(list)
     for path in sorted((ROOT / "data/abilities").glob("*.json")):
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         block = doc.get("abilities", doc)
         rows = (list(block.values()) if isinstance(block, dict)
                 else block if isinstance(block, list) else [])
@@ -67,13 +67,13 @@ def main():
     # whole job is restoring one (restore_resource / a scale_talent_key).
     granted = set()
     for path in sorted((ROOT / "data/talents").glob("*.json")):
-        text = path.read_text()
+        text = path.read_text(encoding="utf-8")
         for res in re.findall(r'"resource"\s*:\s*"([a-z_]+)"', text):
             granted.add(res)
         for res in re.findall(r'"gain_(\w+?)"', text):
             granted.add(res)
     for path in sorted((ROOT / "data/abilities").glob("*.json")):
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         block = doc.get("abilities", doc)
         rows = (list(block.values()) if isinstance(block, dict)
                 else block if isinstance(block, list) else [])

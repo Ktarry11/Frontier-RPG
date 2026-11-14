@@ -349,9 +349,9 @@ def main():
     for q in out:
         n = q["next_quest_id"]
         assert n is None or n in ids, (q["quest_id"], n)
-    OUT.write_text(json.dumps({"quests": out}, indent=2, ensure_ascii=False) + "\n")
+    OUT.write_text(json.dumps({"quests": out}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
-    dd = json.loads(DROPS.read_text())
+    dd = json.loads(DROPS.read_text(encoding="utf-8"))
     drops = dd["drops"]
     for item_id, (name, desc, qid, srcs) in STARTER_DROPS.items():
         assert qid in ids, qid
@@ -359,7 +359,7 @@ def main():
             lst = drops.setdefault(creature, [])
             lst[:] = [d for d in lst if d["item_id"] != item_id]
             lst.append(dict(item_id=item_id, name=name, category="quest", description=desc, chance=chance, starts_quest=qid))
-    DROPS.write_text(json.dumps(dd, indent=2, ensure_ascii=False) + "\n")
+    DROPS.write_text(json.dumps(dd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"undercity quests: {len(out)} (hub {sum(1 for q in out if q['level_max'] < 30)}, "
           f"plague depths {sum(1 for q in out if q['level_max'] >= 30)}), items {sum(len(q['unique_item_defs']) for q in out)}")
 

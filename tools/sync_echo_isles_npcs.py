@@ -17,14 +17,14 @@ from tools.handbuilt_echo_isles import NPC_POSITIONS, RECRUITS   # noqa: E402
 
 
 def _patch(path, list_key, id_key, table):
-    data = json.loads(Path(path).read_text())
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
     n = 0
     for rec in data[list_key]:
         pos = table.get(rec.get(id_key))
         if pos and (rec.get("x"), rec.get("y")) != tuple(pos):
             rec["x"], rec["y"] = pos
             n += 1
-    Path(path).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    Path(path).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return n
 
 

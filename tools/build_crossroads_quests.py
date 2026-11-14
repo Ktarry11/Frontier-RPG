@@ -422,15 +422,15 @@ def main():
     quests = new_quests()
     (ROOT / "data/quests/crossroads.json").write_text(json.dumps(
         {"_note": "Built by tools/build_crossroads_quests.py - do not hand-edit.", "quests": quests},
-        indent=2, ensure_ascii=False) + "\n")
+        indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     overlay = {}
     for qid, (stem, giver, zone, text) in MOVED.items():
         path = ROOT / f"data/quests/{stem}.json"
-        data = json.loads(path.read_text())
+        data = json.loads(path.read_text(encoding="utf-8"))
         q = next(x for x in data["quests"] if x["quest_id"] == qid)
         q["giver_npc_id"], q["zone"] = giver, zone
-        path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+        path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         overlay[qid] = text
     overlay.update(RETEXT)
     for qid, fields in overlay.items():
@@ -439,21 +439,21 @@ def main():
     for q in quests:
         for k in ("description", "accept_text", "turn_in_text"):
             assert q[k].isascii() and len(q[k]) <= 760, (q["quest_id"], k, len(q[k]))
-    (ROOT / "data/quests/text/zz_overhaul_crossroads.json").write_text(json.dumps(overlay, indent=1) + "\n")
+    (ROOT / "data/quests/text/zz_overhaul_crossroads.json").write_text(json.dumps(overlay, indent=1) + "\n", encoding="utf-8")
 
     # the one new drop
     dp = ROOT / "data/creatures/quest_drops.json"
-    drops = json.loads(dp.read_text())
+    drops = json.loads(dp.read_text(encoding="utf-8"))
     rows = drops["drops"].setdefault("Greater Plainstrider", [])
     if not any(r["item_id"] == "cr_plainstrider_feather" for r in rows):
         rows.append({"item_id": "cr_plainstrider_feather", "name": "Unbroken Plainstrider Feather",
                      "description": "Long, grey, and every barb still zipped. Snix will know.", "chance": 0.75})
-    dp.write_text(json.dumps(drops, indent=2, ensure_ascii=False) + "\n")
+    dp.write_text(json.dumps(drops, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     body = ('"""Dialogue topics for the Crossroads quests. Written by tools/build_crossroads_quests.py.\n\n'
             'EVERY TOPIC A QUEST NAMES MUST BE IN HERE - see world/quest_dialogue_shimmering_flats.py.\n"""\n\n'
             "QUEST_TOPICS = " + json.dumps(TOPICS, indent=4) + "\n")
-    (ROOT / "world/quest_dialogue_crossroads.py").write_text(body)
+    (ROOT / "world/quest_dialogue_crossroads.py").write_text(body, encoding="utf-8")
     # Reward items come out of pack() with fractional stats; the files must hold whole numbers.
     import subprocess
     subprocess.run([sys.executable, str(ROOT / "tools/whole_number_gear.py")], cwd=ROOT, check=True)

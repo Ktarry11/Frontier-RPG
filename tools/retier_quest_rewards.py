@@ -143,13 +143,13 @@ def retier_item(it, rarity):
 
 
 def main():
-    boss_names = {n for n, c in json.loads((ROOT / "data/creatures/creatures.json").read_text())["creatures"].items()
+    boss_names = {n for n, c in json.loads((ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"].items()
                   if c.get("is_boss")}
     report = "--report" in sys.argv
     before, after = {}, {}
     tot_old = tot_new = n_items = 0
     for f in sorted(glob.glob(str(ROOT / "data/quests/*.json"))):
-        data = json.loads(Path(f).read_text())
+        data = json.loads(Path(f).read_text(encoding="utf-8"))
         qs = data["quests"] if isinstance(data, dict) else data
         nxt = {q.get("next_quest_id") for q in qs if q.get("next_quest_id")}
         # cross-file chains: also count predecessors from other files
@@ -178,7 +178,7 @@ def main():
                 after[q["gear_reward_rarity"]] = after.get(q["gear_reward_rarity"], 0) + 1
                 changed = True
         if changed and not report:
-            Path(f).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+            Path(f).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("authored items by rarity before:", before)
     print("by rarity after (+procedural sets):", after)
     print(f"{n_items} authored items; mean primary-stat total {tot_old / max(n_items, 1):.1f} -> {tot_new / max(n_items, 1):.1f}")
@@ -187,7 +187,7 @@ def main():
 def _all_next():
     s, prev = set(), {}
     for f in glob.glob(str(ROOT / "data/quests/*.json")):
-        d = json.loads(Path(f).read_text())
+        d = json.loads(Path(f).read_text(encoding="utf-8"))
         for q in (d["quests"] if isinstance(d, dict) else d):
             if q.get("next_quest_id"):
                 s.add(q["next_quest_id"])

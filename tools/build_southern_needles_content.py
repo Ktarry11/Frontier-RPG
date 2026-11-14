@@ -246,7 +246,7 @@ def audit(out, levels):
 
 def main():
     cp = ROOT / "data/creatures/creatures.json"
-    cdata = json.loads(cp.read_text())
+    cdata = json.loads(cp.read_text(encoding="utf-8"))
     # NAME COLLISIONS ARE SILENT DATA LOSS - dict.update() replaced an existing boss on the Drowning
     # Floor pass with no error at all. Eighteen creatures is not worth trusting to memory.
     clash = [n for n in CREATURES if n in cdata["creatures"]
@@ -256,7 +256,7 @@ def main():
     cdata["creatures"].update(CREATURES)
 
     ep = ROOT / "data/creatures/encounters.json"
-    edata = json.loads(ep.read_text())
+    edata = json.loads(ep.read_text(encoding="utf-8"))
     z = edata["zones"].setdefault("Southern Thousand Needles", {})
     z["open_zone"] = ZONE["open_zone"]
     z["subzones"] = ZONE["subzones"]            # z["caves"] is the Drowning Floor's; left untouched
@@ -268,9 +268,9 @@ def main():
     out.update(pools())
     audit(out, levels)
 
-    (ROOT / "data/loot/southern_needles_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n")
-    cp.write_text(json.dumps(cdata, indent=2) + "\n")
-    ep.write_text(json.dumps(edata, indent=2) + "\n")
+    (ROOT / "data/loot/southern_needles_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
+    cp.write_text(json.dumps(cdata, indent=2) + "\n", encoding="utf-8")
+    ep.write_text(json.dumps(edata, indent=2) + "\n", encoding="utf-8")
     print(f"Southern Thousand Needles: creatures +{len(CREATURES)}, subzones {len(ZONE['subzones'])}, "
           f"loot pools 4, items {sum(len(v) for k, v in out.items() if not k.startswith('_'))}")
 

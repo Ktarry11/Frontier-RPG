@@ -95,7 +95,7 @@ def turn_hue(img, degrees):
 
 
 def main():
-    sets = json.loads((ROOT / "data/items/gear_sets.json").read_text())["sets"]
+    sets = json.loads((ROOT / "data/items/gear_sets.json").read_text(encoding="utf-8"))["sets"]
     OUT.mkdir(parents=True, exist_ok=True)
     base = extra = 0
     problems, waiting = [], []

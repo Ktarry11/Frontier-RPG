@@ -95,7 +95,7 @@ def main():
     ap.add_argument("--show", help="print one recruit's full sections")
     args = ap.parse_args()
 
-    with open(ROSTER) as fh:
+    with open(ROSTER, encoding="utf-8") as fh:
         recruits = json.load(fh)["recruits"]
 
     if args.show:

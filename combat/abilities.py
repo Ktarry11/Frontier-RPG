@@ -5050,7 +5050,7 @@ def _load_class_ability_data(char_class):
         return []
 
     try:
-        with open(path, "r") as f:
+        with open(path, "r", encoding="utf-8") as f:
             data = json.load(f)
         abilities = data.get("abilities", [])
     except (OSError, json.JSONDecodeError) as e:
@@ -5079,7 +5079,7 @@ def _resurrection_spells():
         import json
         from pathlib import Path
         try:
-            with open(Path(__file__).parent.parent / "data" / "resurrection_spells.json") as f:
+            with open(Path(__file__).parent.parent / "data" / "resurrection_spells.json", encoding="utf-8") as f:
                 _RES_SPELLS = json.load(f).get("spells", {})
         except (OSError, json.JSONDecodeError):
             _RES_SPELLS = {}
@@ -5263,7 +5263,7 @@ def _load_universal_ability_data():
         return []
 
     try:
-        with open(path, "r") as f:
+        with open(path, "r", encoding="utf-8") as f:
             data = json.load(f)
         abilities = data.get("abilities", [])
     except (OSError, json.JSONDecodeError) as e:

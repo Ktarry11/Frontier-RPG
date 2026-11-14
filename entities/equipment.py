@@ -18,7 +18,7 @@ def _load_weapon_type_hand(weapon_type):
         from pathlib import Path
         path = Path(__file__).parent.parent / "data" / "items" / "weapon_types.json"
         try:
-            with open(path, "r") as f:
+            with open(path, "r", encoding="utf-8") as f:
                 data = json.load(f).get("weapon_types", {})
             _weapon_hand_cache = {k: v.get("hand") for k, v in data.items()}
         except Exception:

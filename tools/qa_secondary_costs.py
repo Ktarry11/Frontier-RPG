@@ -52,7 +52,7 @@ POOL_MAX = 100
 
 def class_of(path):
     """Display-name of the class whose ability file this is."""
-    data = json.loads(path.read_text())
+    data = json.loads(path.read_text(encoding="utf-8"))
     name = data.get("class")
     return name if isinstance(name, str) else None
 
@@ -67,7 +67,7 @@ def main():
         if cls is None:
             continue
         _, secondary = _lookup_class_resource(cls)
-        data = json.loads(path.read_text())
+        data = json.loads(path.read_text(encoding="utf-8"))
         for a in data.get("abilities", []):
             cost = a.get("secondary_cost") or 0
             gen = a.get("generates") or {}

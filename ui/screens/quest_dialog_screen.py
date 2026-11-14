@@ -56,7 +56,7 @@ def _quest_item_name(item_id):
         sources += sorted((root / "data/quests").glob("*.json"))
         for path in sources:
             try:
-                blob = _json.loads(path.read_text())
+                blob = _json.loads(path.read_text(encoding="utf-8"))
             except Exception:
                 continue
             stack = [blob]

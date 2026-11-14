@@ -58,7 +58,7 @@ def talent_ids():
     import json
     out = set()
     for f in (ROOT / "data/talents").glob("*.json"):
-        nodes = json.loads(f.read_text()).get("nodes") or []
+        nodes = json.loads(f.read_text(encoding="utf-8")).get("nodes") or []
         if isinstance(nodes, dict):
             nodes = list(nodes.values())
         for n in nodes:
@@ -144,13 +144,13 @@ def main(argv):
         print("\n(report only; pass --apply to rewrite the mapping)")
         return 1 if unresolved else 0
 
-    src = TOOL.read_text()
+    src = TOOL.read_text(encoding="utf-8")
     for ident, (name, hue) in changes.items():
         pat = re.compile(r'("%s":\s*)(\([^)]*\)|"[^"]*")' % re.escape(ident))
         src, n = pat.subn(lambda m: f'{m.group(1)}("{name}", {hue})', src, count=1)
         if n != 1:
             print(f"WARNING: could not rewrite {ident}")
-    TOOL.write_text(src)
+    TOOL.write_text(src, encoding="utf-8")
     print(f"\nrewrote {len(changes)} entries in {TOOL.name}")
     return 1 if unresolved else 0
 

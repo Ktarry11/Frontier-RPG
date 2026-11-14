@@ -111,7 +111,7 @@ def norm(s):
 
 def parse_meta(path):
     """slug -> {tabId: tree_suffix or "core"}, from classes-meta.js."""
-    text = path.read_text()
+    text = path.read_text(encoding="utf-8")
     out = {}
     blocks = re.findall(
         r'\{\s*name:\s*"([^"]+)",\s*slug:\s*"([^"]+)",\s*classTab:\s*(\d+)'
@@ -129,7 +129,7 @@ def parse_meta(path):
 def our_abilities(prefix):
     """ability_id -> name, for one of our class ability files."""
     path = ROOT / f"data/abilities/{prefix}.json"
-    doc = json.loads(path.read_text())
+    doc = json.loads(path.read_text(encoding="utf-8"))
     entries = doc.get("abilities", doc)
     if isinstance(entries, dict):
         entries = list(entries.values())
@@ -149,7 +149,7 @@ def main():
 
     web = args.web_dir
     meta = parse_meta(web / "data/classes-meta.js")
-    old = json.loads(OUT.read_text())
+    old = json.loads(OUT.read_text(encoding="utf-8"))
 
     result, stats, unknown, retabbed = {}, [], [], []
     for display, prefix in sorted(DISPLAY.items()):
@@ -159,7 +159,7 @@ def main():
 
         # CoA talent/ability name -> tree_id (or "core")
         coa = {}
-        for node in json.loads((web / f"data/classes/{slug}.json").read_text()):
+        for node in json.loads((web / f"data/classes/{slug}.json").read_text(encoding="utf-8")):
             if not isinstance(node, dict) or not node.get("name"):
                 continue
             suffix = tabs.get(node.get("tabId"))
@@ -233,7 +233,7 @@ def main():
     if not args.apply:
         print("\n(report only; pass --apply to write)")
         return 0
-    OUT.write_text(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True) + "\n")
+    OUT.write_text(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
     print(f"\nwrote {OUT}")
     return 0
 

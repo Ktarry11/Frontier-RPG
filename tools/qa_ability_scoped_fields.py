@@ -66,7 +66,7 @@ def load_abilities():
     """ability_id -> the ability dict, across every class file."""
     out = {}
     for path in sorted((ROOT / "data" / "abilities").glob("*.json")):
-        raw = json.loads(path.read_text())
+        raw = json.loads(path.read_text(encoding="utf-8"))
         entries = raw if isinstance(raw, list) else raw.get("abilities", raw)
         if isinstance(entries, dict):
             entries = [dict(v, ability_id=k) for k, v in entries.items()]
@@ -208,7 +208,7 @@ def main():
     total = 0
 
     for path in sorted((ROOT / "data" / "talents").glob("*.json")):
-        tree = json.loads(path.read_text())
+        tree = json.loads(path.read_text(encoding="utf-8"))
         for node in tree.get("nodes", []):
             keys = []
             walk(node, keys)

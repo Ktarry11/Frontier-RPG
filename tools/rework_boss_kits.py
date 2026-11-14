@@ -111,11 +111,11 @@ def rework(kit):
 
 
 def main(dry=False):
-    creatures = json.loads(CREAT.read_text())
-    kits_doc = json.loads(KITS.read_text())
+    creatures = json.loads(CREAT.read_text(encoding="utf-8"))
+    kits_doc = json.loads(KITS.read_text(encoding="utf-8"))
     kits = kits_doc["kits"]
-    tmpl = json.loads(TEMPL.read_text())["templates"]
-    base_store = json.loads(BASE.read_text()) if BASE.exists() else {}
+    tmpl = json.loads(TEMPL.read_text(encoding="utf-8"))["templates"]
+    base_store = json.loads(BASE.read_text(encoding="utf-8")) if BASE.exists() else {}
 
     def kit_of(c):
         return c.get("ability_kit") or tmpl[c["template"]].get("default_kit")
@@ -179,9 +179,9 @@ def main(dry=False):
             done[target] = name
             changed += 1
     if not dry:
-        KITS.write_text(json.dumps(kits_doc, indent=2))
-        CREAT.write_text(json.dumps(creatures, indent=2) + "\n")
-        BASE.write_text(json.dumps(base_store, indent=1) + "\n")
+        KITS.write_text(json.dumps(kits_doc, indent=2), encoding="utf-8")
+        CREAT.write_text(json.dumps(creatures, indent=2) + "\n", encoding="utf-8")
+        BASE.write_text(json.dumps(base_store, indent=1) + "\n", encoding="utf-8")
     print(f"reworked {changed} boss kits" + (" (dry run)" if dry else ""))
     return done
 

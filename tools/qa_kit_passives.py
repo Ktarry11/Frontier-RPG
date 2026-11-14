@@ -39,7 +39,7 @@ def main():
     from world.creature_types import ALL
     from entities.monster import Monster
 
-    doc = json.loads(KITS.read_text())
+    doc = json.loads(KITS.read_text(encoding="utf-8"))
     rm = get_recruit_manager()
     recs = {getattr(r, "recruit_id", None): r
             for r in (rm.recruits.values() if isinstance(rm.recruits, dict) else rm.recruits)}
@@ -153,7 +153,7 @@ def main():
                        ("pet_damage", "entities/pet.py"), ("pet_health", "entities/pet.py"),
                        ("crit_damage_physical", "combat/abilities.py"),
                        ("crit_damage_spell", "combat/abilities.py")):
-        if f'"{key}"' not in (ROOT / where).read_text():
+        if f'"{key}"' not in (ROOT / where).read_text(encoding="utf-8"):
             bad.append(f"engine: {where} no longer reads {key}")
 
     print(f"{lines} passive lines on {len([k for k in doc if not k.startswith('_')])} recruits")

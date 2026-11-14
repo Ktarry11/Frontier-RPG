@@ -167,7 +167,7 @@ KIT_RANGE = [
 
 
 def load(rel):
-    return json.loads((ROOT / rel).read_text())
+    return json.loads((ROOT / rel).read_text(encoding="utf-8"))
 
 
 def ability_schools():
@@ -579,13 +579,13 @@ def main():
 
     text = json.dumps(out, indent=2, ensure_ascii=False) + "\n"
     if args.check:
-        current = OUT.read_text() if OUT.exists() else ""
+        current = OUT.read_text(encoding="utf-8") if OUT.exists() else ""
         if current != text:
             print(f"  STALE: {OUT} does not match a fresh derivation")
             return 1
         print(f"  {OUT} is up to date")
         return 0
-    OUT.write_text(text)
+    OUT.write_text(text, encoding="utf-8")
     print(f"  wrote {OUT} ({len(out)} specs)")
     return 0
 

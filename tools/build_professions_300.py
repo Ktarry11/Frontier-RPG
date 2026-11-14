@@ -129,7 +129,7 @@ def main():
     ap.add_argument("professions", nargs="*")
     args = ap.parse_args()
 
-    mats_doc = json.loads(MATS.read_text())
+    mats_doc = json.loads(MATS.read_text(encoding="utf-8"))
     mats = mats_doc["materials"]
     want = set(args.professions) or set(PROFS)
     docs, summary = {}, []
@@ -138,7 +138,7 @@ def main():
         cfg = PROFS[prof]
         rel, key = cfg["file"], cfg["key"]
         if rel not in docs:
-            docs[rel] = json.loads((ROOT / rel).read_text())
+            docs[rel] = json.loads((ROOT / rel).read_text(encoding="utf-8"))
         recipes = docs[rel]["professions"][key]["recipes"] if key else docs[rel]["recipes"]
 
         # ---- tailoring first needs a bolt for every cloth
@@ -244,7 +244,7 @@ def main():
 
     if args.apply:
         for rel, doc in docs.items():
-            (ROOT / rel).write_text(json.dumps(doc, indent=2) + "\n")
+            (ROOT / rel).write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
         print(f"\n  wrote {', '.join(sorted(docs))}")
     else:
         print("\n  dry run - pass --apply to write")

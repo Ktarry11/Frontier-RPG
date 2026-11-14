@@ -308,7 +308,7 @@ def build_one(gen, name, slot, kind, atype, ilvl, template):
 def check_ranged_slots(rows):
     """A ranged weapon type authored into a melee slot - the regression I
     reintroduced after fixing it once, so the check sits on the table."""
-    wt = json.loads((ROOT / "data/items/weapon_types.json").read_text())["weapon_types"]
+    wt = json.loads((ROOT / "data/items/weapon_types.json").read_text(encoding="utf-8"))["weapon_types"]
     ranged = {k for k, v in wt.items() if v.get("hand") == "ranged"}
     return [f"{name} is a {atype} (ranged) but authored into slot '{slot}'"
             for name, slot, kind, atype, _il, _st, _f in rows
@@ -376,7 +376,7 @@ def main():
     # re-roll one, delete its entry from the JSON and run this again.
     p = ROOT / "data/loot/epic_drops.json"
     try:
-        existing = json.loads(p.read_text())
+        existing = json.loads(p.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
         existing = {}
 
@@ -412,7 +412,7 @@ def main():
         print(f"\n  {key}: {len(items)} items, item level "
               f"{min(i['item_level'] for i in items)}-{max(i['item_level'] for i in items)}")
 
-    p.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
+    p.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"\nkept {kept} existing epics unchanged, rolled {len(rows) - kept} new")
     print(f"wrote {p.relative_to(ROOT)}")
     return 0

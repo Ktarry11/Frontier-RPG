@@ -90,7 +90,7 @@ def main():
     changed, already, missing = 0, 0, []
     for tree_id, node_name, effects, why in EDITS:
         path = ROOT / f"data/talents/{tree_id}.json"
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         node = next((n for n in doc["nodes"] if n.get("name") == node_name), None)
         if node is None:
             missing.append(f"{tree_id}: no node named {node_name!r}")
@@ -108,12 +108,12 @@ def main():
         print(f"      {why}")
         if apply:
             eff.update(todo)
-            path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
+            path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         changed += 1
 
     for tree_id, node_name, proc, why in PROC_EDITS:
         path = ROOT / f"data/talents/{tree_id}.json"
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         node = next((n for n in doc["nodes"] if n.get("name") == node_name), None)
         if node is None:
             missing.append(f"{tree_id}: no node named {node_name!r}")
@@ -130,7 +130,7 @@ def main():
         print(f"      {why}")
         if apply:
             node["proc"] = proc
-            path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
+            path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         changed += 1
 
     if missing:

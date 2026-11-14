@@ -161,23 +161,23 @@ EXTRA_WOODWORKING = {
 
 def write_tailoring_pass2():
     path = REPO / "data/crafting/recipes.json"
-    with open(path) as f:
+    with open(path, encoding="utf-8") as f:
         data = json.load(f)
     tai = data["professions"]["tailoring"]["recipes"]
     before = len(tai)
     tai.update(EXTRA_TAILORING)
-    with open(path, "w") as f:
+    with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
     print(f"Tailoring: {before} → {len(tai)} (+{len(tai)-before})")
 
 def write_woodworking_pass2():
     path = REPO / "data/crafting/recipes.json"
-    with open(path) as f:
+    with open(path, encoding="utf-8") as f:
         data = json.load(f)
     ww = data["professions"]["woodworking"]["recipes"]
     before = len(ww)
     ww.update(EXTRA_WOODWORKING)
-    with open(path, "w") as f:
+    with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
     print(f"Woodworking: {before} → {len(ww)} (+{len(ww)-before})")
 

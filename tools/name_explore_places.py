@@ -31,7 +31,7 @@ def main():
     left = 0
     for stem in stems:
         path = ROOT / f"data/quests/{stem}.json"
-        data = json.loads(path.read_text())
+        data = json.loads(path.read_text(encoding="utf-8"))
         n = 0
         for q in data["quests"]:
             for o in q["objectives"]:
@@ -64,7 +64,7 @@ def main():
                     o["label"] = label
                 n += 1
         if apply and n:
-            path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+            path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print(f"{stem}: {n} places named{'' if apply else ' (dry run)'}")
     return 1 if left else 0
 

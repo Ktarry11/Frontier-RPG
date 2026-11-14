@@ -555,7 +555,7 @@ def main():
     # party-targeted. If it reverts, the cooldown talent still "works" and
     # the party crit silently vanishes.
     abilities = json.loads(
-        (ROOT / "data/abilities/felsworn.json").read_text())["abilities"]
+        (ROOT / "data/abilities/felsworn.json").read_text(encoding="utf-8"))["abilities"]
     aura = next((a for a in abilities
                  if a["ability_id"] == "felsworn_fel_infusion"), None)
     assert aura is not None and aura.get("target_type") == "party", (
@@ -583,7 +583,7 @@ def main():
           f"{pts} points")
     if check:
         return 0
-    OUT.write_text(json.dumps(TREE, indent=2) + "\n")
+    OUT.write_text(json.dumps(TREE, indent=2) + "\n", encoding="utf-8")
     print(f"wrote {OUT.relative_to(ROOT)}")
     return 0
 

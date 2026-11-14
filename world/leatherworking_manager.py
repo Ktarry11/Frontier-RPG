@@ -44,7 +44,7 @@ class LeatherworkingManager:
     def _load_data(self):
         recipes_file = Path(__file__).parent.parent / "data" / "leatherworking" / "recipes.json"
         if recipes_file.exists():
-            with open(recipes_file, 'r') as f:
+            with open(recipes_file, 'r', encoding="utf-8") as f:
                 raw = json.load(f)
                 # Strip _comment keys (documentation-only, not real recipes)
                 self.recipes = {k: v for k, v in raw.get("recipes", {}).items()

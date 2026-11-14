@@ -275,7 +275,7 @@ class IconRegistry:
         icons_file = self.data_dir / "icons.json"
         if icons_file.exists():
             try:
-                with open(icons_file, 'r') as f:
+                with open(icons_file, 'r', encoding="utf-8") as f:
                     data = json.load(f)
                     for icon_data in data.get("icons", []):
                         spec = IconSpec(**icon_data)
@@ -309,7 +309,7 @@ class IconRegistry:
             "version": "1.0",
             "icons": [asdict(icon) for icon in self.registry.values()]
         }
-        with open(output_path, 'w') as f:
+        with open(output_path, 'w', encoding="utf-8") as f:
             json.dump(data, f, indent=2)
 
     # ============ SVG GENERATORS (embedded icon definitions) ============

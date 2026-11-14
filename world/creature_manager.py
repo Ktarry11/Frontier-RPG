@@ -26,21 +26,21 @@ class CreatureManager:
         # Load creatures
         creatures_file = data_dir / "creatures.json"
         if creatures_file.exists():
-            with open(creatures_file, 'r') as f:
+            with open(creatures_file, 'r', encoding="utf-8") as f:
                 self.creatures = json.load(f).get("creatures", {})
             self._reject_dead_kit_key(creatures_file, self.creatures)
 
         # Ability kits, for the cast-affinity resistance derivation.
         kits_file = data_dir / "ability_kits.json"
         if kits_file.exists():
-            with open(kits_file, "r") as f:
+            with open(kits_file, "r", encoding="utf-8") as f:
                 blob = json.load(f)
             self.ability_kits = blob.get("kits", blob)
 
         # Load encounters
         encounters_file = data_dir / "encounters.json"
         if encounters_file.exists():
-            with open(encounters_file, 'r') as f:
+            with open(encounters_file, 'r', encoding="utf-8") as f:
                 self.encounters = json.load(f).get("zones", {})
     
     @staticmethod

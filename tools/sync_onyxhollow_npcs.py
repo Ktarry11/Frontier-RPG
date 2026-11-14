@@ -52,7 +52,7 @@ FORGE_ID = "onyxhollow_forge"
 
 
 def _load(path, key):
-    d = json.loads(Path(path).read_text())
+    d = json.loads(Path(path).read_text(encoding="utf-8"))
     return d, d[key]
 
 
@@ -125,13 +125,13 @@ def main():
     by_nid = {r["npc_id"]: r for r in npcs}
     by_nid[TRAINER]["trains_profession"] = list(TRADES)
     trp = Path("data/training/trainers.json")
-    tr = json.loads(trp.read_text())
+    tr = json.loads(trp.read_text(encoding="utf-8"))
     tr["profession_trainers"][TRAINER] = list(TRADES)
-    trp.write_text(json.dumps(tr, indent=2) + "\n")
+    trp.write_text(json.dumps(tr, indent=2) + "\n", encoding="utf-8")
 
     # THE FORGE. A smithing town with nowhere to smith would be a joke at its own expense.
     fp = Path("data/npcs/forges.json")
-    fd = json.loads(fp.read_text())
+    fd = json.loads(fp.read_text(encoding="utf-8"))
     fx, fy = OH.FORGE
     rec = next((f for f in fd["forges"] if f["forge_id"] == FORGE_ID), None)
     if rec is None:
@@ -139,16 +139,16 @@ def main():
                              "x": fx, "y": fy})
     else:
         rec["x"], rec["y"] = fx, fy
-    fp.write_text(json.dumps(fd, indent=2) + "\n")
+    fp.write_text(json.dumps(fd, indent=2) + "\n", encoding="utf-8")
 
     # ensure_ascii: this file stores its em dashes escaped, and writing them raw rewrites five
     # greetings that belong to other towns.
-    Path("data/npcs/vendors.json").write_text(json.dumps(vd, indent=2) + "\n")
-    Path("data/npcs/ambient_npcs.json").write_text(json.dumps(ad, indent=2, ensure_ascii=False) + "\n")
+    Path("data/npcs/vendors.json").write_text(json.dumps(vd, indent=2) + "\n", encoding="utf-8")
+    Path("data/npcs/ambient_npcs.json").write_text(json.dumps(ad, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     # ===== the inn, and the bird that is not here =====
     tp = Path("data/travel/travel_data.json")
-    td = json.loads(tp.read_text())
+    td = json.loads(tp.read_text(encoding="utf-8"))
     svc, nodes = td["services"], td["flight_nodes"]
 
     before = list(svc.get(INN, []))
@@ -163,7 +163,7 @@ def main():
         raise SystemExit(f"{TOWN} has a flight master and is not supposed to: "
                          f"services={flighted} flight_nodes={nodes_here}")
 
-    tp.write_text(json.dumps(td, indent=2, ensure_ascii=False) + "\n")
+    tp.write_text(json.dumps(td, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     total = sum(len(v) + len(a) for (_, _, v, a, _) in ZONES)
     print(f"Onyxhollow: {made} records created, {moved} moved ({total} people)")

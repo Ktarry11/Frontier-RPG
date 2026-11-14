@@ -2,12 +2,12 @@
 Shows id, title, giver (name/race), objectives, chain links and the CURRENT text (overlay-aware)."""
 import glob, json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-npcs = {n["npc_id"]: n for n in json.load(open("data/npcs/ambient_npcs.json"))["npcs"]}
+npcs = {n["npc_id"]: n for n in json.load(open("data/npcs/ambient_npcs.json", encoding="utf-8"))["npcs"]}
 overlay = {}
 for p in glob.glob("data/quests/text/*.json"):
-    overlay.update(json.load(open(p)))
+    overlay.update(json.load(open(p, encoding="utf-8")))
 for name in sys.argv[1:]:
-    qs = json.load(open(f"data/quests/{name}.json"))["quests"]
+    qs = json.load(open(f"data/quests/{name}.json", encoding="utf-8"))["quests"]
     by_next = {q.get("next_quest_id"): q["quest_id"] for q in qs if q.get("next_quest_id")}
     for q in qs:
         g = npcs.get(q["giver_npc_id"], {})

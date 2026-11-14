@@ -102,7 +102,7 @@ def main():
     report = "--report" in sys.argv
     rows, bad = [], []
     for path in sorted((ROOT / "data/abilities").glob("*.json")):
-        for a in json.loads(path.read_text()).get("abilities", []):
+        for a in json.loads(path.read_text(encoding="utf-8")).get("abilities", []):
             if a.get("effect_type") not in ("dot", "spell_dot", "hot"):
                 continue
             d = a.get("duration") or 0

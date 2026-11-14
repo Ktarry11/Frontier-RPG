@@ -47,7 +47,7 @@ def main():
     # 1
     if not zone.is_town or zone.is_cave:
         bad.append("not flagged as a town")
-    src = Path("world/portal_manager.py").read_text()
+    src = Path("world/portal_manager.py").read_text(encoding="utf-8")
     for needle in (f'({S.TOWN_GATE[0]}, {S.TOWN_GATE[1]}): ("Onyxhollow", {O.ARRIVAL[0]}, {O.ARRIVAL[1]})',
                    f'({O.PORTAL[0]}, {O.PORTAL[1]}): ("The Black Strand", {S.TOWN_ARRIVAL[0]}, {S.TOWN_ARRIVAL[1]})'):
         if needle not in src:
@@ -68,7 +68,7 @@ def main():
         return any((p[0] + dx, p[1] + dy) in seen for dx in (-1, 0, 1) for dy in (-1, 0, 1))
 
     # 2, 3
-    td = json.load(open("data/travel/travel_data.json"))
+    td = json.load(open("data/travel/travel_data.json", encoding="utf-8"))
     if "inn" not in td["services"].get("oh_innkeeper", []):
         bad.append("the innkeeper is not registered as an inn")
     if any("flight" in v for k, v in td["services"].items() if k.startswith("oh_")) \
@@ -76,9 +76,9 @@ def main():
         bad.append("the town has a flight master")
 
     # 4
-    vendors = {v["vendor_id"]: v for v in json.load(open("data/npcs/vendors.json"))["vendors"]
+    vendors = {v["vendor_id"]: v for v in json.load(open("data/npcs/vendors.json", encoding="utf-8"))["vendors"]
                if v["zone"] == "onyxhollow"}
-    cons = json.load(open("data/items/consumables.json")) if Path("data/items/consumables.json").exists() else None
+    cons = json.load(open("data/items/consumables.json", encoding="utf-8")) if Path("data/items/consumables.json").exists() else None
     if set(vendors) != set(R.ONYXHOLLOW_VENDORS):
         bad.append(f"vendors on file differ from the roster: {sorted(set(vendors) ^ set(R.ONYXHOLLOW_VENDORS))}")
     for vid, v in vendors.items():
@@ -91,15 +91,15 @@ def main():
     del cons
 
     # 5
-    tr = json.load(open("data/training/trainers.json"))["profession_trainers"]
+    tr = json.load(open("data/training/trainers.json", encoding="utf-8"))["profession_trainers"]
     here = {k: v for k, v in tr.items() if k.startswith("oh_")}
     if here != {"oh_forgemaster": ["mining", "blacksmithing"]}:
         bad.append(f"trainers here: {here}")
-    npcs = {n["npc_id"]: n for n in json.load(open("data/npcs/ambient_npcs.json"))["npcs"]
+    npcs = {n["npc_id"]: n for n in json.load(open("data/npcs/ambient_npcs.json", encoding="utf-8"))["npcs"]
             if n["zone"] == "onyxhollow"}
     if npcs.get("oh_forgemaster", {}).get("trains_profession") != ["mining", "blacksmithing"]:
         bad.append("the forgemaster's own record does not say what he teaches")
-    forge = [f for f in json.load(open("data/npcs/forges.json"))["forges"] if f["zone"] == "onyxhollow"]
+    forge = [f for f in json.load(open("data/npcs/forges.json", encoding="utf-8"))["forges"] if f["zone"] == "onyxhollow"]
     if len(forge) != 1 or not beside((forge[0]["x"], forge[0]["y"])):
         bad.append(f"the forge is missing or cannot be stood beside: {forge}")
     drawn = {lm["sprite_key"].split("/")[-1][:-4] for lm in zone.landmarks}
@@ -122,7 +122,7 @@ def main():
             bad.append(f"{nid} is drawn under {over}")
         if not Path(f"assets/npcs/leaders/{nid}/down.png").exists():
             bad.append(f"{nid} has no figure of their own")
-    if "assets/npcs/leaders/{getattr(vendor, 'vendor_id', '')}" not in Path("ui/tilemap_renderer.py").read_text():
+    if "assets/npcs/leaders/{getattr(vendor, 'vendor_id', '')}" not in Path("ui/tilemap_renderer.py").read_text(encoding="utf-8"):
         bad.append("the map does not draw a vendor's own figure")
 
     print(f"{len(everyone)} people ({len(vendors)} shops), {len(O.BUILDINGS)} buildings, "

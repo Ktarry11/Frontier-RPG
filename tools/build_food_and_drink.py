@@ -83,17 +83,17 @@ def entry(cid, name, req, total, seconds, price, flavour, kind):
 
 def main():
     p = ROOT / "data/consumables/consumable_types.json"
-    data = json.loads(p.read_text())
+    data = json.loads(p.read_text(encoding="utf-8"))
     data["meals"] = [entry(*m, "meal") for m in MEALS]
     data["drinks"] = [entry(*d, "drink") for d in DRINKS]
-    p.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    p.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     # ---- ON SALE EVERYWHERE. Kyle: "easily bought throughout vendors." A resting item you cannot
     # reliably buy is a resting item nobody builds a habit around, so every gear vendor and every
     # general-goods vendor stocks the tiers at or below their own gear tier. Innkeepers and cooks get
     # them too, because that is who would sell you a meal.
     vp = ROOT / "data/npcs/vendors.json"
-    vdata = json.loads(vp.read_text())
+    vdata = json.loads(vp.read_text(encoding="utf-8"))
     FOODY = ("innkeeper", "cook", "quartermaster", "trader", "vendor", "supplier", "spice",
              "market", "warehouse", "herbs", "reagent", "smith", "bowyer", "weaponsmith", "engineer")
     touched = 0
@@ -110,7 +110,7 @@ def main():
         if added:
             v["sells"] = stock + added
             touched += 1
-    vp.write_text(json.dumps(vdata, indent=2, ensure_ascii=False) + "\n")
+    vp.write_text(json.dumps(vdata, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     print(f"{len(MEALS)} meals, {len(DRINKS)} drinks; stocked on {touched} vendors")
 

@@ -69,7 +69,7 @@ def collect(pattern):
     for path in sorted(TALENTS.glob("*.json")):
         tree = path.stem
         cls = tree.split("_")[0]
-        for node in json.loads(path.read_text()).get("nodes", []):
+        for node in json.loads(path.read_text(encoding="utf-8")).get("nodes", []):
             if not isinstance(node, dict):
                 continue
             ranks = node.get("max_points") or node.get("max_rank") or 1
@@ -104,7 +104,7 @@ def audit_descriptions():
     offenders = collections.Counter()
     for path in sorted(TALENTS.glob("*.json")):
         tree = path.stem
-        for node in json.loads(path.read_text()).get("nodes", []):
+        for node in json.loads(path.read_text(encoding="utf-8")).get("nodes", []):
             if not isinstance(node, dict):
                 continue
             ranks = node.get("max_points") or 1

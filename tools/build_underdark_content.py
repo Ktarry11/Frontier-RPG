@@ -394,9 +394,9 @@ def bloom_pools():
 # ======================================================================================================================
 def main():
     cp = ROOT / "data/creatures/creatures.json"
-    cdata = json.loads(cp.read_text())
+    cdata = json.loads(cp.read_text(encoding="utf-8"))
     ep = ROOT / "data/creatures/encounters.json"
-    edata = json.loads(ep.read_text())
+    edata = json.loads(ep.read_text(encoding="utf-8"))
 
     for group in (DESCENT_CREATURES, UNDERDARK_CREATURES, GEODE_CREATURES, BLOOM_CREATURES):
         cdata["creatures"].update(group)
@@ -417,13 +417,13 @@ def main():
                      "tools/qa_underdark_content.py."}
     for f in (descent_pools, underdark_pools, geode_pools, bloom_pools):
         out.update(f())
-    (ROOT / "data/loot/underdark_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n")
+    (ROOT / "data/loot/underdark_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
 
     n_c = sum(len(g) for g in (DESCENT_CREATURES, UNDERDARK_CREATURES, GEODE_CREATURES, BLOOM_CREATURES))
     n_i = sum(len(v) for k, v in out.items() if not k.startswith("_"))
     print(f"Underdark: creatures +{n_c}, loot pools {len(out) - 1}, items {n_i}")
-    cp.write_text(json.dumps(cdata, indent=2) + "\n")
-    ep.write_text(json.dumps(edata, indent=2) + "\n")
+    cp.write_text(json.dumps(cdata, indent=2) + "\n", encoding="utf-8")
+    ep.write_text(json.dumps(edata, indent=2) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":

@@ -50,16 +50,16 @@ SERVICES = {
 
 
 def main():
-    t = json.loads(TRAVEL.read_text())
+    t = json.loads(TRAVEL.read_text(encoding="utf-8"))
     for node in t["flight_nodes"].values():
         node.setdefault("continent", "kalimdor")
     for nid, node in EK_NODES.items():
         t["flight_nodes"][nid] = {**node, "continent": "eastern_kingdoms"}
     for k, v in SERVICES.items():
         t["services"][k] = v
-    TRAVEL.write_text(json.dumps(t, indent=1) + "\n")
+    TRAVEL.write_text(json.dumps(t, indent=1) + "\n", encoding="utf-8")
 
-    a = json.loads(AMBIENT.read_text())
+    a = json.loads(AMBIENT.read_text(encoding="utf-8"))
     have = {n["npc_id"]: i for i, n in enumerate(a["npcs"])}
     for nid, (name, zone, x, y, var, gender, facing, greet) in BAT_HANDLERS.items():
         rec = {"npc_id": nid, "name": name, "zone": zone, "x": x, "y": y, "greeting": greet,
@@ -68,7 +68,7 @@ def main():
             a["npcs"][have[nid]] = rec
         else:
             a["npcs"].append(rec)
-    AMBIENT.write_text(json.dumps(a, indent=2) + "\n")
+    AMBIENT.write_text(json.dumps(a, indent=2) + "\n", encoding="utf-8")
     print("ok:", len(EK_NODES), "EK nodes,", len(BAT_HANDLERS), "bat handlers")
 
 

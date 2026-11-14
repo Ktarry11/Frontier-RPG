@@ -64,7 +64,7 @@ def _load_overrides():
         _overrides = {}
         try:
             path = Path(__file__).resolve().parent.parent / "data" / "creatures" / "creatures.json"
-            data = json.loads(path.read_text()).get("creatures", {})
+            data = json.loads(path.read_text(encoding="utf-8")).get("creatures", {})
             for name, entry in data.items():
                 if isinstance(entry, dict) and entry.get("creature_type"):
                     _overrides[name] = entry["creature_type"]

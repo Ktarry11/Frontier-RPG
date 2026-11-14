@@ -40,12 +40,12 @@ def _load_class_maps():
     global _class_maps_cache
     if _class_maps_cache is None:
         try:
-            with open(_DATA_DIR / "armor_types.json", "r") as f:
+            with open(_DATA_DIR / "armor_types.json", "r", encoding="utf-8") as f:
                 armor_map = json.load(f).get("class_armor_map", {})
         except Exception:
             armor_map = {}
         try:
-            with open(_DATA_DIR / "stat_templates.json", "r") as f:
+            with open(_DATA_DIR / "stat_templates.json", "r", encoding="utf-8") as f:
                 stat_map = json.load(f).get("class_stat_template_map", {})
         except Exception:
             stat_map = {}
@@ -137,7 +137,7 @@ def _load_weapon_types_data():
     global _weapon_types_cache
     if _weapon_types_cache is None:
         try:
-            with open(_DATA_DIR / "weapon_types.json", "r") as f:
+            with open(_DATA_DIR / "weapon_types.json", "r", encoding="utf-8") as f:
                 _weapon_types_cache = json.load(f)
         except Exception:
             _weapon_types_cache = {"weapon_types": {}, "damage_tiers": {}}

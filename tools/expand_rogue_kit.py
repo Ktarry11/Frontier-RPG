@@ -55,5 +55,5 @@ have = {a["ability_id"] for a in d["abilities"]}
 added = [a for a in NEW if a["ability_id"] not in have]
 d["abilities"].extend(added)
 json.dump(d, open(P, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
-open(P, "a").write("\n")
+open(P, "a", encoding="utf-8").write("\n")
 print(f"rogue abilities: {len(d['abilities'])} (+{len(added)})")

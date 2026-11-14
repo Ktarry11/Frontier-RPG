@@ -132,7 +132,7 @@ def main():
     # Adrián and Saoirse: silence ---------------------------------------------------------
     def kit_mob(name, boss=False):
         import json as _j
-        cr = _j.loads((ROOT / "data/creatures/creatures.json").read_text())["creatures"]
+        cr = _j.loads((ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"]
         m = Monster(name, cr[name]["template"], level=60)
         m.is_boss = boss
         return m
@@ -212,7 +212,7 @@ def main():
     import json as _j
     KNOWN = {None, "self", "ally", "party", "enemy", "enemy_aoe", "all_enemies", "pet"}
     for f in sorted(_g.glob("data/abilities/*.json")) + ["data/npcs/personal_kits.json"]:
-        blob = _j.loads(open(f).read())
+        blob = _j.loads(open(f, encoding="utf-8").read())
         entries = blob.get("abilities") if "abilities" in blob else [
             a for k in blob.values() if isinstance(k, dict) for a in (k.get("abilities") or [])]
         for a in entries:
@@ -221,7 +221,7 @@ def main():
 
     # none of the four still says it needs something
     import json
-    kits = json.loads((ROOT / "data/npcs/personal_kits.json").read_text())
+    kits = json.loads((ROOT / "data/npcs/personal_kits.json").read_text(encoding="utf-8"))
     for k in kits.values():
         for a in (k.get("abilities") or []) if isinstance(k, dict) else []:
             if a.get("ability_id") in ("personal_kiet_nobody_looks_twice", "personal_adrian_he_still_has_the_whistle", "personal_saoirse_the_sliotar", "personal_carolina_deep_in_march", "personal_rosa_stop_tracking_start_anticipating",

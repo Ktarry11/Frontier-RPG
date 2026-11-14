@@ -116,7 +116,7 @@ def copies(name):
 
 
 def main():
-    done = json.loads(RECORD.read_text()) if RECORD.exists() else {}
+    done = json.loads(RECORD.read_text(encoding="utf-8")) if RECORD.exists() else {}
     changed = 0
     for name in NAMES:
         files = copies(name)
@@ -133,7 +133,7 @@ def main():
             r, c = seam_ratio(path)
             print(f"  ok   {key}  edges now x{r:.1f} / x{c:.1f}")
             changed += 1
-    RECORD.write_text(json.dumps(done, indent=1, sort_keys=True) + "\n")
+    RECORD.write_text(json.dumps(done, indent=1, sort_keys=True) + "\n", encoding="utf-8")
     print(f"{changed} file(s) fixed, {len(done)} on record")
     return 0
 

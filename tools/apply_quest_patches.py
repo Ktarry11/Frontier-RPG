@@ -35,12 +35,12 @@ def main():
     stems = sys.argv[1:] or sorted(p.stem for p in (ROOT / "tools/quest_patches").glob("*.json"))
     bad = []
     for stem in stems:
-        patches = json.loads((ROOT / f"tools/quest_patches/{stem}.json").read_text())
+        patches = json.loads((ROOT / f"tools/quest_patches/{stem}.json").read_text(encoding="utf-8"))
         qpath = ROOT / f"data/quests/{stem}.json"
-        data = json.loads(qpath.read_text())
+        data = json.loads(qpath.read_text(encoding="utf-8"))
         by_id = {q["quest_id"]: q for q in data["quests"]}
         opath = ROOT / f"data/quests/text/zz_overhaul_{stem}.json"
-        overlay = json.loads(opath.read_text()) if opath.exists() else {}
+        overlay = json.loads(opath.read_text(encoding="utf-8")) if opath.exists() else {}
         relabelled = 0
         for qid, p in patches.items():
             if qid not in by_id:
@@ -99,9 +99,9 @@ def main():
             for k, v in entry.items():
                 if not v.isascii() or len(v) > 2400:
                     bad.append(f"{stem}: {qid}.{k} is not plain ASCII or is too long")
-        opath.write_text(json.dumps(overlay, indent=2) + "\n")
+        opath.write_text(json.dumps(overlay, indent=2) + "\n", encoding="utf-8")
         if relabelled:
-            qpath.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+            qpath.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print(f"{stem}: {len(patches)} quests patched, {relabelled} places named")
     # A patch that sets a whole field can carry an objective count back in; take it out again.
     import subprocess

@@ -45,7 +45,7 @@ def _load_all_recipes() -> dict:
     }
     for prof, path in flat_files.items():
         if path.exists():
-            data = json.loads(path.read_text())
+            data = json.loads(path.read_text(encoding="utf-8"))
             for rid, recipe in data.get("recipes", {}).items():
                 if not rid.startswith("_"):
                     _RECIPE_SOURCES[rid] = (prof, recipe)
@@ -53,7 +53,7 @@ def _load_all_recipes() -> dict:
     # Nested crafting file (multiple professions)
     crafting_path = repo / "data/crafting/recipes.json"
     if crafting_path.exists():
-        data = json.loads(crafting_path.read_text())
+        data = json.loads(crafting_path.read_text(encoding="utf-8"))
         for prof, prof_data in data.get("professions", {}).items():
             for rid, recipe in prof_data.get("recipes", {}).items():
                 if not rid.startswith("_"):

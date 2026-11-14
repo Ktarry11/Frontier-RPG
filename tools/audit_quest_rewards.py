@@ -58,7 +58,7 @@ def load():
     out = []
     for path in sorted((ROOT / "data/quests").glob("*.json")):
         try:
-            data = json.loads(path.read_text())
+            data = json.loads(path.read_text(encoding="utf-8"))
         except json.JSONDecodeError as e:
             print(f"UNPARSEABLE {path.name}: {e}")
             raise SystemExit(2)

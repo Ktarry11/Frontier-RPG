@@ -44,7 +44,7 @@ ZONES = [
 
 
 def _load(path, key):
-    d = json.loads(Path(path).read_text())
+    d = json.loads(Path(path).read_text(encoding="utf-8"))
     return d, d[key]
 
 
@@ -103,8 +103,8 @@ def main():
             print(f"{zone}: pruned {len(ghosts_v) + len(ghosts_a)} stale record(s): "
                   f"{[r.get('vendor_id') or r.get('npc_id') for r in ghosts_v + ghosts_a]}")
 
-    Path("data/npcs/vendors.json").write_text(json.dumps(vd, indent=2, ensure_ascii=False) + "\n")
-    Path("data/npcs/ambient_npcs.json").write_text(json.dumps(ad, indent=2, ensure_ascii=False) + "\n")
+    Path("data/npcs/vendors.json").write_text(json.dumps(vd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    Path("data/npcs/ambient_npcs.json").write_text(json.dumps(ad, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     total = sum(len(v) + len(a) for (_, _, v, a, _) in ZONES)
     print(f"Arathi: {made} records created, {moved} moved ({total} people)")
 

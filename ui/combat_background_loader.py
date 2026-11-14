@@ -69,7 +69,7 @@ def _assignment_map():
     if _assignments is None:
         path = os.path.join(BACKGROUNDS_ROOT, "assignments.json")
         try:
-            with open(path) as fh:
+            with open(path, encoding="utf-8") as fh:
                 _assignments = json.load(fh)
         except (OSError, ValueError):
             _assignments = {}

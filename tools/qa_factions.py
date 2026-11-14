@@ -93,7 +93,7 @@ def main():
     quests_by_faction = {fid: [] for fid in fm.factions}
     all_zones = set()
     for fn in sorted(Path("data/quests").glob("*.json")):
-        qd = json.loads(fn.read_text())
+        qd = json.loads(fn.read_text(encoding="utf-8"))
         for q in (qd["quests"] if "quests" in qd else qd):
             all_zones.add(q["zone"])
             fid, amt = fm.quest_reward(q)
@@ -162,7 +162,7 @@ def main():
     print(f"  {len(owners)} creatures pay reputation, {len(shared)} claimed twice")
     for c, who in shared.items():
         fails.append(f"'{c}' pays reputation to {who} - only the first would ever be credited")
-    cre = json.loads(Path("data/creatures/creatures.json").read_text())["creatures"]
+    cre = json.loads(Path("data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"]
     wildlife = ["Sporeback Grazer", "Hoarfrost Yeti", "Glimmerjaw", "Lumen Leech", "Barrens Giraffe",
                 "Crystalback Skitterer", "Frostward Prowler", "Elder Mottled Boar", "Barrens Hyena"]
     for fid, fac in fm.factions.items():
@@ -178,19 +178,19 @@ def main():
     print("\n== every promised reward exists")
     all_q = set()
     for p in sorted(Path("data/quests").glob("*.json")):
-        d = json.loads(p.read_text())
+        d = json.loads(p.read_text(encoding="utf-8"))
         all_q |= {q["quest_id"] for q in (d["quests"] if "quests" in d else d)}
-    recruits = {r["recruit_id"] for r in json.loads(Path("data/npcs/recruits.json").read_text())["recruits"]}
-    vendors = {v["vendor_id"] for v in json.loads(Path("data/npcs/vendors.json").read_text())["vendors"]}
+    recruits = {r["recruit_id"] for r in json.loads(Path("data/npcs/recruits.json").read_text(encoding="utf-8"))["recruits"]}
+    vendors = {v["vendor_id"] for v in json.loads(Path("data/npcs/vendors.json").read_text(encoding="utf-8"))["vendors"]}
     # A vendor's shelf is consumables AND trade materials - vial_empty and whetstone are materials, not
     # consumables, and 38 vendors sell them. Checking consumables alone would have called most of the
     # game broken. Run properly, this found exactly four ghost ids in the whole project, all four of
     # them introduced by the Underdark NPC pass: two potion tiers that do not exist (greater, where the
     # real ladder is minor/standard/superior/mega), a flux tier that does not exist, and lamp_oil, which
     # was never a thing at all. None of them crash. They are just shelves with nothing on them.
-    cd = json.loads(Path("data/consumables/consumable_types.json").read_text())
+    cd = json.loads(Path("data/consumables/consumable_types.json").read_text(encoding="utf-8"))
     cons = {r.get("consumable_id") for v in cd.values() if isinstance(v, list) for r in v}
-    mats = json.loads(Path("data/gathering/materials.json").read_text())["materials"]
+    mats = json.loads(Path("data/gathering/materials.json").read_text(encoding="utf-8"))["materials"]
     cons |= set(mats) if isinstance(mats, dict) else {m.get("material_id") for m in mats}
     # A shelf may also hold RECIPE SCROLLS, named by recipe id. 57 recipes carry source "vendor" and
     # are stocked by the vendor they were authored for, so a check that knows only about consumables
@@ -244,7 +244,7 @@ def main():
           f"stock tiers, {sum(1 for f2 in fm.factions.values() if f2.rewards.get('recruit'))} recruit gates")
 
     ghosts = {}
-    for v in json.loads(Path("data/npcs/vendors.json").read_text())["vendors"]:
+    for v in json.loads(Path("data/npcs/vendors.json").read_text(encoding="utf-8"))["vendors"]:
         for it in v["sells"]:
             if not sellable(it):
                 ghosts.setdefault(it, []).append(v["vendor_id"])
@@ -254,8 +254,8 @@ def main():
         fails.append(f"vendors sell '{it}', which does not exist: {who}")
 
     print("\n== detail panel content")
-    npcs = {r["npc_id"] for r in json.loads(Path("data/npcs/ambient_npcs.json").read_text())["npcs"]}
-    npcs |= {r["vendor_id"] for r in json.loads(Path("data/npcs/vendors.json").read_text())["vendors"]}
+    npcs = {r["npc_id"] for r in json.loads(Path("data/npcs/ambient_npcs.json").read_text(encoding="utf-8"))["npcs"]}
+    npcs |= {r["vendor_id"] for r in json.loads(Path("data/npcs/vendors.json").read_text(encoding="utf-8"))["vendors"]}
     for fid, fac in fm.factions.items():
         if not fac.lore:
             fails.append(f"{fid}: no lore - the detail panel would open on an empty page")

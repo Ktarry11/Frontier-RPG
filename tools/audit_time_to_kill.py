@@ -86,7 +86,7 @@ def _build(char_class, level, rarity="uncommon", shield=False):
 
 def _creatures_at(level, span=2):
     """Real creatures whose level band contains `level`."""
-    with open(os.path.join(ROOT, "data/creatures/creatures.json")) as fh:
+    with open(os.path.join(ROOT, "data/creatures/creatures.json"), encoding="utf-8") as fh:
         doc = json.load(fh)
     # creatures.json is a NAME -> record map, not a list. Iterating it
     # directly yields names, which is how the first run of this tool asked a

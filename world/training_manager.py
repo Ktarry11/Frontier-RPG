@@ -25,7 +25,7 @@ def trainers():
     global _TRAINERS
     if _TRAINERS is None:
         path = Path(__file__).parent.parent / "data" / "training" / "trainers.json"
-        _TRAINERS = json.loads(path.read_text()) if path.exists() else {"class_trainers": {}}
+        _TRAINERS = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"class_trainers": {}}
     return _TRAINERS
 
 

@@ -27,7 +27,7 @@ os.chdir(ROOT)
 
 def main():
     import audit_quest_directions as A
-    done = json.load(open("tools/quest_overhaul_done.json"))
+    done = json.load(open("tools/quest_overhaul_done.json", encoding="utf-8"))
     world = A.World()
     bad = []
     findings, _seen, _judged = A.audit(world, list(done))
@@ -47,7 +47,7 @@ def main():
     for n in npcs.values():
         said.setdefault((n.greeting or "").strip(), []).append(n)
     for stem, rec in done.items():
-        quests = json.load(open(f"data/quests/{stem}.json")).get("quests", [])
+        quests = json.load(open(f"data/quests/{stem}.json", encoding="utf-8")).get("quests", [])
         # The maps whose NPCs this pass covered: named in the record when a quest file reaches
         # into maps that belong to another pass (Tirisfal's file has quests set in Undercity).
         zones = ({A.slug(z) for z in rec["npc_zones"]} if rec.get("npc_zones")

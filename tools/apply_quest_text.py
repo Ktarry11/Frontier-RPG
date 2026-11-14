@@ -39,7 +39,7 @@ FIELDS = ("title", "description", "accept_text", "turn_in_text")
 
 def load_zone(zone):
     path = ROOT / "data/quests" / f"{zone}.json"
-    raw = json.loads(path.read_text())
+    raw = json.loads(path.read_text(encoding="utf-8"))
     block = raw if isinstance(raw, list) else raw.get("quests", raw)
     items = block if isinstance(block, list) else list(block.values())
     return path, raw, [it for it in items if isinstance(it, dict)]
@@ -55,11 +55,11 @@ def load_overlay(zone, quest_ids):
     tdir = ROOT / "data/quests/text"
     tdir.mkdir(parents=True, exist_ok=True)
     for cand in sorted(tdir.glob("*.json")):
-        data = json.loads(cand.read_text())
+        data = json.loads(cand.read_text(encoding="utf-8"))
         if any(qid in data for qid in quest_ids):
             return cand, data
     cand = tdir / f"{zone}.json"
-    return cand, (json.loads(cand.read_text()) if cand.exists() else {})
+    return cand, (json.loads(cand.read_text(encoding="utf-8")) if cand.exists() else {})
 
 
 def counts_for(quest):
@@ -144,7 +144,7 @@ def main():
 
     path, raw, items = load_zone(args.zone)
     by_id = {it["quest_id"]: it for it in items}
-    patch = json.loads(Path(args.patch).read_text())
+    patch = json.loads(Path(args.patch).read_text(encoding="utf-8"))
     opath, overlay = load_overlay(args.zone, set(patch))
 
     missing = [q for q in patch if q not in by_id]
@@ -197,8 +197,8 @@ def main():
     print(f"  {len(patch)} quest(s), {changed} field(s) "
           f"{'would change' if args.dry_run else 'updated'}")
     if not args.dry_run:
-        path.write_text(json.dumps(raw, indent=2, ensure_ascii=False) + "\n")
-        opath.write_text(json.dumps(overlay, indent=2, ensure_ascii=False) + "\n")
+        path.write_text(json.dumps(raw, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        opath.write_text(json.dumps(overlay, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print(f"  wrote {path}")
         print(f"  wrote {opath}  <- this is the layer the player reads")
     return 0

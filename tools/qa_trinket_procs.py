@@ -67,7 +67,7 @@ def all_trinkets():
 
     for f in glob.glob(str(ROOT / "data/**/*.json"), recursive=True):
         try:
-            walk(json.loads(Path(f).read_text()), Path(f).name)
+            walk(json.loads(Path(f).read_text(encoding="utf-8")), Path(f).name)
         except (OSError, json.JSONDecodeError):
             pass
     return out
@@ -75,7 +75,7 @@ def all_trinkets():
 
 def engine_reads():
     """Every proc key fire_proc_trigger actually reads, from its own source."""
-    src = (ROOT / "combat/status_effects.py").read_text()
+    src = (ROOT / "combat/status_effects.py").read_text(encoding="utf-8")
     return set(re.findall(r'proc\.get\("([a-z_]+)"', src))
 
 

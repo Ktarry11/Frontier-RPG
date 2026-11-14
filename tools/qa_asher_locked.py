@@ -35,7 +35,7 @@ EXPECTED = "c1c4cc4d14c96e07dce147b78b55ac46b46e9670b8836a4aa3efc5c1e9e7a7e4"
 
 
 def asher_text():
-    doc = json.load(open(ROOT / "data/npcs/recruits.json"))
+    doc = json.load(open(ROOT / "data/npcs/recruits.json", encoding="utf-8"))
     rs = doc["recruits"] if isinstance(doc, dict) and "recruits" in doc else doc
     it = rs if isinstance(rs, list) else list(rs.values())
     for r in it:

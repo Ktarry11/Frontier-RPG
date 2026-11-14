@@ -52,7 +52,7 @@ RECIPE_SOURCES = {
 
 
 def load(rel):
-    with open(REPO / rel) as f:
+    with open(REPO / rel, encoding="utf-8") as f:
         return json.load(f)
 
 

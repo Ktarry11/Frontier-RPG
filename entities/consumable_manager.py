@@ -20,7 +20,7 @@ class ConsumableManager:
         consumables_path = Path(__file__).parent.parent / "data" / "consumables" / "consumable_types.json"
         
         try:
-            with open(consumables_path, 'r') as f:
+            with open(consumables_path, 'r', encoding="utf-8") as f:
                 data = json.load(f)
             
             # Flatten all categories (health_potions, mana_potions, elixirs, food)

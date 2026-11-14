@@ -77,12 +77,12 @@ def main():
 
     zones = create_all_zones()
     cm = get_consumable_manager()
-    materials = set(json.load(open(ROOT / "data/gathering/materials.json"))["materials"])
+    materials = set(json.load(open(ROOT / "data/gathering/materials.json", encoding="utf-8"))["materials"])
 
     vpath = ROOT / "data/npcs/vendors.json"
     apath = ROOT / "data/npcs/ambient_npcs.json"
-    vdoc = json.load(open(vpath))
-    adoc = json.load(open(apath))
+    vdoc = json.load(open(vpath, encoding="utf-8"))
+    adoc = json.load(open(apath, encoding="utf-8"))
 
     existing = {v["vendor_id"] for v in vdoc["vendors"]}
     problems = []
@@ -131,8 +131,8 @@ def main():
             "appearance_variant": variant, "greeting": greet,
         })
 
-    json.dump(vdoc, open(vpath, "w"), indent=2)
-    json.dump(adoc, open(apath, "w"), indent=2)
+    json.dump(vdoc, open(vpath, "w", encoding="utf-8"), indent=2)
+    json.dump(adoc, open(apath, "w", encoding="utf-8"), indent=2)
     print(f"added {len(NEW)} vendors; removed {removed} decorative ambient shopkeepers "
           f"they replace ({', '.join(replaced)})")
     return 0

@@ -53,7 +53,7 @@ def target(mat):
 
 def main():
     check = "--check" in sys.argv
-    raw = PATH.read_text()
+    raw = PATH.read_text(encoding="utf-8")
     data = json.loads(raw)
     mats = data.get("materials", data)
     low = []
@@ -70,7 +70,7 @@ def main():
         return 1 if low else 0
     style = next(((i, asc) for i in (2, 4, 1, None) for asc in (True, False)
                   if json.dumps(json.loads(raw), indent=i, ensure_ascii=asc) == raw.rstrip("\n")), (2, True))
-    PATH.write_text(json.dumps(data, indent=style[0], ensure_ascii=style[1]) + ("\n" if raw.endswith("\n") else ""))
+    PATH.write_text(json.dumps(data, indent=style[0], ensure_ascii=style[1]) + ("\n" if raw.endswith("\n") else ""), encoding="utf-8")
     print(f"{len(low)} material(s) repriced")
     return 0
 

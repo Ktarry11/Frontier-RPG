@@ -8,11 +8,11 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-C = json.loads((ROOT / "data/creatures/creatures.json").read_text())["creatures"]
-E = json.loads((ROOT / "data/creatures/encounters.json").read_text())["zones"]
+C = json.loads((ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"]
+E = json.loads((ROOT / "data/creatures/encounters.json").read_text(encoding="utf-8"))["zones"]
 Q = {}
 for f in sorted((ROOT / "data/quests").glob("*.json")):
-    d = json.loads(f.read_text())
+    d = json.loads(f.read_text(encoding="utf-8"))
     for q in (d["quests"] if isinstance(d, dict) else d):
         Q.setdefault(q.get("zone"), []).append(q.get("level_min") or 0)
 

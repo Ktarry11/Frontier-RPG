@@ -41,7 +41,7 @@ def main():
         return []
     kinds = {"dot": EffectType.DOT, "buff": EffectType.BUFF, "debuff": EffectType.DEBUFF}
     seen = 0
-    for a in walk(json.load(open("data/creatures/ability_kits.json"))["kits"]):
+    for a in walk(json.load(open("data/creatures/ability_kits.json", encoding="utf-8"))["kits"]):
         if a["kind"] not in kinds:
             continue
         seen += 1

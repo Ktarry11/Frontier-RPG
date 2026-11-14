@@ -25,8 +25,8 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 
 def main():
-    profs = json.load(open(ROOT / "data/professions/professions.json"))["professions"]
-    trainers = json.load(open(ROOT / "data/training/trainers.json"))["profession_trainers"]
+    profs = json.load(open(ROOT / "data/professions/professions.json", encoding="utf-8"))["professions"]
+    trainers = json.load(open(ROOT / "data/training/trainers.json", encoding="utf-8"))["profession_trainers"]
 
     taught = collections.Counter()
     for npc_id, teaches in trainers.items():

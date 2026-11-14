@@ -21,7 +21,7 @@ FORGES = {"tools.handbuilt_crossroads": ("crossroads_forge", "Crossroads Forge",
 
 
 def _patch(path, list_key, id_key, positions):
-    data = json.loads(Path(path).read_text())
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
     n = 0
     for rec in data[list_key]:
         pos = positions.get(rec.get(id_key))
@@ -30,7 +30,7 @@ def _patch(path, list_key, id_key, positions):
             if "home_x" in rec and rec.get("home_town") == rec.get("zone"):
                 rec["home_x"], rec["home_y"] = pos
             n += 1
-    Path(path).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    Path(path).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return n
 
 
@@ -47,7 +47,7 @@ def main():
     total += _patch("data/npcs/vendors.json", "vendors", "vendor_id", npcs)
     total += _patch("data/npcs/recruits.json", "recruits", "recruit_id", recruits)
     fp = Path("data/npcs/forges.json")
-    data = json.loads(fp.read_text())
+    data = json.loads(fp.read_text(encoding="utf-8"))
     for (fid, fname, zone), (x, y) in forges:
         rec = next((f for f in data["forges"] if f["forge_id"] == fid), None)
         if rec is None:
@@ -56,7 +56,7 @@ def main():
         elif (rec["x"], rec["y"]) != (x, y):
             rec["x"], rec["y"] = x, y
             total += 1
-    fp.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    fp.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"moved/added {total} records")
 
 

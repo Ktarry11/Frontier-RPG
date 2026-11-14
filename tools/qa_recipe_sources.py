@@ -39,19 +39,19 @@ def main():
 
     # ---- what each route can actually deliver
     vendor_stock = set()
-    for v in json.loads((ROOT / "data/npcs/vendors.json").read_text())["vendors"]:
+    for v in json.loads((ROOT / "data/npcs/vendors.json").read_text(encoding="utf-8"))["vendors"]:
         vendor_stock |= {s for s in v.get("sells", []) if s in recipes}
 
     quest_rewards = set()
     for p in sorted((ROOT / "data/quests").glob("*.json")):
-        doc = json.loads(p.read_text())
+        doc = json.loads(p.read_text(encoding="utf-8"))
         for q in doc.get("quests") or []:
             if isinstance(q, dict) and q.get("reward_recipe"):
                 quest_rewards.add(q["reward_recipe"])
 
     # The highest level any creature in the game actually reaches - a drop pool that only opens at
     # level 70 is not a route while nothing is level 70.
-    creatures = json.loads((ROOT / "data/creatures/creatures.json").read_text())["creatures"]
+    creatures = json.loads((ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"]
     top_level = max((max(c.get("level_range") or [1]) for c in creatures.values()), default=1)
     droppable = set(eligible(top_level))
 
@@ -82,7 +82,7 @@ def main():
     from world.vendor_manager import VendorManager
     from world.zone_manager import ZoneManager
     vm, zm = VendorManager(), ZoneManager()
-    hidden = [v for v in json.loads((ROOT / "data/npcs/vendors.json").read_text())["vendors"]
+    hidden = [v for v in json.loads((ROOT / "data/npcs/vendors.json").read_text(encoding="utf-8"))["vendors"]
               if v.get("hidden")]
     for v in hidden:
         zone = next((z for z in zm.zones

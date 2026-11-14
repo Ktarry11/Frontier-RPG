@@ -79,10 +79,10 @@ NEW_NODES = {
 
 def coverage():
     """town key -> (has_inn, has_flight, node_id or None)."""
-    td = json.loads((ROOT / "data/travel/travel_data.json").read_text())
+    td = json.loads((ROOT / "data/travel/travel_data.json").read_text(encoding="utf-8"))
     svc, nodes = td["services"], td["flight_nodes"]
-    amb = json.loads((ROOT / "data/npcs/ambient_npcs.json").read_text())["npcs"]
-    ven = json.loads((ROOT / "data/npcs/vendors.json").read_text())["vendors"]
+    amb = json.loads((ROOT / "data/npcs/ambient_npcs.json").read_text(encoding="utf-8"))["npcs"]
+    ven = json.loads((ROOT / "data/npcs/vendors.json").read_text(encoding="utf-8"))["vendors"]
     # NORMALISE, do not compare raw. The first version of this audit grouped on the raw `zone`
     # string and reported Undercity as having no flight master - uc_flight_master is filed under the
     # display name "Undercity" while the rest of that roster uses the slug. An audit that disagrees
@@ -122,7 +122,7 @@ def main():
     ap = ROOT / "data/npcs/ambient_npcs.json"
     # RE-READ IMMEDIATELY BEFORE WRITING. Other passes append to this file, and a stale read here
     # silently drops whatever they added between the two.
-    adata = json.loads(ap.read_text())
+    adata = json.loads(ap.read_text(encoding="utf-8"))
     have = {e["npc_id"] for e in adata["npcs"]}
     added = 0
     for i, (nid, (name, zone, x, y, race, gender, line)) in enumerate(NEW_NPCS.items()):
@@ -132,10 +132,10 @@ def main():
                               "greeting": line, "gender": gender, "race": race,
                               "appearance_variant": (i * 7 + 2) % 24, "facing": "down"})
         added += 1
-    ap.write_text(json.dumps(adata, indent=2) + "\n")
+    ap.write_text(json.dumps(adata, indent=2) + "\n", encoding="utf-8")
 
     tp = ROOT / "data/travel/travel_data.json"
-    td = json.loads(tp.read_text())
+    td = json.loads(tp.read_text(encoding="utf-8"))
     for nid in REGISTER_INN + [k for k in NEW_NPCS if k.endswith("_innkeeper")]:
         td["services"].setdefault(nid, [])
         if "inn" not in td["services"][nid]:
@@ -147,7 +147,7 @@ def main():
     for node_id, (name, zone, master, pos, cont) in NEW_NODES.items():
         td["flight_nodes"][node_id] = {"name": name, "zone": zone, "master": master,
                                        "pos": pos, "continent": cont}
-    tp.write_text(json.dumps(td, indent=2) + "\n")
+    tp.write_text(json.dumps(td, indent=2) + "\n", encoding="utf-8")
 
     print(f"ambient NPCs +{added}, services {len(td['services'])}, flight nodes {len(td['flight_nodes'])}\n")
     if report():

@@ -620,7 +620,7 @@ def main():
     import glob
     real = set()
     for path in glob.glob(str(ROOT / "data/abilities/*.json")):
-        for a in json.loads(Path(path).read_text()).get("abilities", []):
+        for a in json.loads(Path(path).read_text(encoding="utf-8")).get("abilities", []):
             real.add(a["ability_id"])
     sys.path.insert(0, str(ROOT / "tools"))
     from probe_talent_key import split_ability_key
@@ -648,7 +648,7 @@ def main():
     points = sum(n["max_points"] for n in TREE["nodes"])
     assert points >= 56, f"only {points} points, need 56 for a level-60 pure spec"
 
-    OUT.write_text(json.dumps(TREE, indent=2) + "\n")
+    OUT.write_text(json.dumps(TREE, indent=2) + "\n", encoding="utf-8")
     print(f"  wrote {OUT.relative_to(ROOT)}")
     print(f"  {len(ids)} nodes, {points} points\n")
 

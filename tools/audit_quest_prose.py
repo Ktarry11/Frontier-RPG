@@ -61,7 +61,7 @@ def main():
     total = dict.fromkeys(kinds, 0)
     for path in sorted(glob.glob(str(ROOT / "data/quests/*.json"))):
         stem = os.path.basename(path)[:-5]
-        quests = json.load(open(path))["quests"]
+        quests = json.load(open(path, encoding="utf-8"))["quests"]
         row, dirty = dict.fromkeys(kinds, 0), 0
         for q0 in quests:
             q = qs.get(q0["quest_id"])

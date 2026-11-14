@@ -95,7 +95,7 @@ class ChestManager:
         if self._creatures_data is None:
             import json
             path = Path(__file__).parent.parent / "data" / "creatures" / "creatures.json"
-            with open(path, "r") as f:
+            with open(path, "r", encoding="utf-8") as f:
                 self._creatures_data = json.load(f).get("creatures", {})
         return self._creatures_data
 
@@ -148,7 +148,7 @@ class ChestManager:
         import json
         enc_path = Path(__file__).parent.parent / "data" / "creatures" / "encounters.json"
         try:
-            with open(enc_path, "r") as f:
+            with open(enc_path, "r", encoding="utf-8") as f:
                 enc = json.load(f).get("zones", {})
         except (OSError, json.JSONDecodeError):
             return None

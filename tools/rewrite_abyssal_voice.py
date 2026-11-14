@@ -446,7 +446,7 @@ def _walk(o):
 
 def patch_quests():
     p = ROOT / "data/quests/abyssal_sands.json"
-    doc = json.loads(p.read_text())
+    doc = json.loads(p.read_text(encoding="utf-8"))
     seen = set()
     for q in doc["quests"]:
         new = QUESTS.get(q["quest_id"])
@@ -458,7 +458,7 @@ def patch_quests():
             q["title"] = new[3]
     missing = set(QUESTS) - seen
     assert not missing, f"quests not in the file: {sorted(missing)}"
-    p.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
+    p.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return len(seen)
 
 
@@ -466,7 +466,7 @@ def patch_greetings():
     done = set()
     for name, ascii_ in (("vendors", True), ("ambient_npcs", False)):
         p = ROOT / "data/npcs" / f"{name}.json"
-        doc = json.loads(p.read_text())
+        doc = json.loads(p.read_text(encoding="utf-8"))
         for key, rec in ((k, v) for d in _walk(doc) for k, v in d.items() if isinstance(v, dict)):
             if key in GREETINGS and "greeting" in rec:
                 rec["greeting"] = GREETINGS[key]
@@ -476,7 +476,7 @@ def patch_greetings():
             if isinstance(nid, str) and nid in GREETINGS and "greeting" in rec:
                 rec["greeting"] = GREETINGS[nid]
                 done.add(nid)
-        p.write_text(json.dumps(doc, indent=2, ensure_ascii=ascii_) + "\n")
+        p.write_text(json.dumps(doc, indent=2, ensure_ascii=ascii_) + "\n", encoding="utf-8")
     missing = set(GREETINGS) - done
     assert not missing, f"greetings not placed: {sorted(missing)}"
     return len(done)
@@ -485,7 +485,7 @@ def patch_greetings():
 def patch_roster():
     """Keep tools/abyssal_npc_roster.py saying what the data says, or the next sync undoes this."""
     p = ROOT / "tools/abyssal_npc_roster.py"
-    src = p.read_text()
+    src = p.read_text(encoding="utf-8")
     tree = ast.parse(src)
     edits = []
     for node in ast.walk(tree):
@@ -499,23 +499,23 @@ def patch_roster():
     for l0, c0, l1, c1, nid in sorted(edits, reverse=True):
         lit = json.dumps(GREETINGS[nid], ensure_ascii=False)
         lines[l0 - 1:l1] = [lines[l0 - 1][:c0] + lit + lines[l1 - 1][c1:]]
-    p.write_text("\n".join(lines))
+    p.write_text("\n".join(lines), encoding="utf-8")
     assert len(edits) == len(GREETINGS), f"{len(edits)} roster greetings found"
     return len(edits)
 
 
 def patch_items():
     p = ROOT / "data/creatures/quest_drops.json"
-    doc = json.loads(p.read_text())
+    doc = json.loads(p.read_text(encoding="utf-8"))
     done = set()
     for rec in _walk(doc):
         if rec.get("item_id") in ITEM_TEXT and "description" in rec:
             rec["description"] = ITEM_TEXT[rec["item_id"]]
             done.add(rec["item_id"])
     assert done == set(ITEM_TEXT), sorted(set(ITEM_TEXT) - done)
-    raw = p.read_text()
+    raw = p.read_text(encoding="utf-8")
     ascii_ = "\\u" in raw
-    p.write_text(json.dumps(doc, indent=2, ensure_ascii=ascii_) + ("\n" if raw.endswith("\n") else ""))
+    p.write_text(json.dumps(doc, indent=2, ensure_ascii=ascii_) + ("\n" if raw.endswith("\n") else ""), encoding="utf-8")
     return len(done)
 
 

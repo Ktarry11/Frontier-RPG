@@ -618,7 +618,7 @@ def patch_razor(by_id):
 
 
 def main():
-    data = json.loads(DUROTAR_FILE.read_text())
+    data = json.loads(DUROTAR_FILE.read_text(encoding="utf-8"))
     by_id = {q["quest_id"]: q for q in data["quests"]}
     order = [q["quest_id"] for q in data["quests"]]
     patch_existing(by_id)
@@ -633,15 +633,15 @@ def main():
             order.append(q["quest_id"])
         by_id[q["quest_id"]] = q
     data["quests"] = [by_id[i] for i in order]
-    DUROTAR_FILE.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    DUROTAR_FILE.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
-    rd = json.loads(RAZOR_FILE.read_text())
+    rd = json.loads(RAZOR_FILE.read_text(encoding="utf-8"))
     rby = {q["quest_id"]: q for q in rd["quests"]}
     patch_razor(rby)
-    RAZOR_FILE.write_text(json.dumps(rd, indent=2, ensure_ascii=False) + "\n")
+    RAZOR_FILE.write_text(json.dumps(rd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     # ---- quest-item drops
-    drops = json.loads(DROPS_FILE.read_text())
+    drops = json.loads(DROPS_FILE.read_text(encoding="utf-8"))
     D = drops["drops"]
     D["Durotar Prowler"] = [{"item_id": "durotar_prowler_pelt", "name": "Prowler Pelt", "category": "quest",
                              "description": "A thick, sand-coloured pelt, still warm. Grosk says it's the best blanket money can't buy.",
@@ -652,7 +652,7 @@ def main():
     D["Razormane Quilboar"] = [{"item_id": "razormane_toll_pouch", "name": "Razormane Toll Pouch", "category": "quest",
                                 "description": "A small leather pouch, heavy with other people's coin. Bok recognises the stitching.",
                                 "chance": 0.4}]
-    DROPS_FILE.write_text(json.dumps(drops, indent=2, ensure_ascii=False) + "\n")
+    DROPS_FILE.write_text(json.dumps(drops, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("durotar quests:", len(data["quests"]))
 
 

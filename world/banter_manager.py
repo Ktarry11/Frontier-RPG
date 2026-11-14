@@ -137,7 +137,7 @@ class BanterManager:
 
     def _load(self):
         try:
-            raw = json.loads(DATA.read_text())
+            raw = json.loads(DATA.read_text(encoding="utf-8"))
         except (OSError, ValueError):
             return
         for recruit_id, blocks in (raw.get("lines") or {}).items():

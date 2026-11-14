@@ -21,10 +21,10 @@ LEVELS = {
 
 def main():
     p = ROOT / "data/creatures/creatures.json"
-    d = json.loads(p.read_text())
+    d = json.loads(p.read_text(encoding="utf-8"))
     for n, r in LEVELS.items():
         d["creatures"][n]["level_range"] = list(r)
-    p.write_text(json.dumps(d, indent=2) + "\n")
+    p.write_text(json.dumps(d, indent=2) + "\n", encoding="utf-8")
     print("Scarlet Crypt ->", LEVELS)
 
 

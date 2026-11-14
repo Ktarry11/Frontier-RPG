@@ -289,7 +289,7 @@ CONVERSIONS = {
 #: Types this pass is allowed to touch at all. sword_2h and mace_2h are Kyle's.
 ALLOWED_TYPES = {"sword_1h", "mace_1h", "axe_1h", "polearm"}
 
-_COSTS = json.loads((ROOT / "data/items/gear_suffixes.json").read_text())["stat_budget_costs"]
+_COSTS = json.loads((ROOT / "data/items/gear_suffixes.json").read_text(encoding="utf-8"))["stat_budget_costs"]
 
 
 def _spend(item):
@@ -343,7 +343,7 @@ def main():
         sorted((ROOT / "data/loot").glob("*.json"))
 
     for path in paths:
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         dirty = False
         for item in _items_in(doc):
             key = (item.get("name"), item.get("weapon_type"))
@@ -391,7 +391,7 @@ def main():
         return 1 if missing else 0
 
     for path, doc in changed_paths.items():
-        path.write_text(json.dumps(doc, indent=2) + "\n")
+        path.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
     print(f"\nwrote {len(changed_paths)} files.")
     return 1 if missing else 0
 

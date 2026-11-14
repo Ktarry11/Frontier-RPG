@@ -40,7 +40,7 @@ SHARED_PAST = re.compile(
 
 
 def main():
-    recruits = json.loads((ROOT / "data/npcs/recruits.json").read_text())["recruits"]
+    recruits = json.loads((ROOT / "data/npcs/recruits.json").read_text(encoding="utf-8"))["recruits"]
     first_names = {r["recruit_id"]: r["name"].split()[0] for r in recruits}
     all_names = set(first_names.values())
 

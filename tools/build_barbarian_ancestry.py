@@ -573,7 +573,7 @@ def main():
         f"this class at 0.35; the key SUMS across talents. Found {setters}")
 
     abilities = json.loads(
-        (ROOT / "data/abilities/barbarian.json").read_text())["abilities"]
+        (ROOT / "data/abilities/barbarian.json").read_text(encoding="utf-8"))["abilities"]
     by_id = {a["ability_id"]: a for a in abilities}
 
     # MOST OF THIS TREE MODIFIES PARTY ABILITIES rather than trying to be a
@@ -640,7 +640,7 @@ def main():
           f"{pts} points, {len(PARTY_ABILITIES)} party auras modified")
     if check:
         return 0
-    OUT.write_text(json.dumps(TREE, indent=2) + "\n")
+    OUT.write_text(json.dumps(TREE, indent=2) + "\n", encoding="utf-8")
     print(f"wrote {OUT.relative_to(ROOT)}")
     return 0
 

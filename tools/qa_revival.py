@@ -83,7 +83,7 @@ def main():
         cid = os.path.basename(path)[:-5]
         if cid.startswith("_") or cid == "asher_unique":
             continue
-        raw = json.load(open(path)).get("abilities", [])
+        raw = json.load(open(path, encoding="utf-8")).get("abilities", [])
         heals_ally = any(a.get("effect_type") in ("heal", "hot") and a.get("target_type") == "ally"
                          and not a.get("requires_talent") for a in raw)
         book = get_class_abilities(cid.replace("_", " ").title())
@@ -97,7 +97,7 @@ def main():
         elif has and not any(a.get("effect_type") == "revive" for a in raw):
             bad.append(f"{cid} was given a res spell and cannot heal an ally")
     # each res spell has art of its own, not its class's heal icon
-    for cid, entry in json.load(open("data/resurrection_spells.json"))["spells"].items():
+    for cid, entry in json.load(open("data/resurrection_spells.json", encoding="utf-8"))["spells"].items():
         if not os.path.exists(f"assets/icons/abilities/{entry['ability_id']}.png"):
             bad.append(f"{entry['name']} has no icon (assets/icons/abilities/{entry['ability_id']}.png)")
         if entry.get("icon_id"):
@@ -145,7 +145,7 @@ def main():
     # the pickers: the cast panel and the combat screen both offer the FALLEN to a res
     for mod, cls in (("ui.screens.cast_panel", None), ("ui.screens.cast_screen", None),
                      ("ui.screens.combat_screen", None)):
-        src = Path(mod.replace(".", "/") + ".py").read_text()
+        src = Path(mod.replace(".", "/") + ".py").read_text(encoding="utf-8")
         if '"revive"' not in src:
             bad.append(f"{mod} never asks whether an ability is a revive, so it can only offer "
                        f"the living as targets")
@@ -197,7 +197,7 @@ def main():
         bad.append("an innkeeper did not raise the one fallen member to full health")
     if party.revive_at_inn():
         bad.append("an innkeeper 'raised' somebody with nobody down")
-    qd = Path("ui/screens/quest_dialog_screen.py").read_text()
+    qd = Path("ui/screens/quest_dialog_screen.py").read_text(encoding="utf-8")
     if 'out.insert(out.index("inn"), "revive")' not in qd or '"revive": "Revive the Fallen"' not in qd \
             or "revive_at_inn()" not in qd:
         bad.append("the innkeeper's dialog does not offer Revive the Fallen")
@@ -273,7 +273,7 @@ def main():
         bad.append(f"{len(nowhere)} open zone(s) have no town entrance to wake at: {nowhere[:8]}")
 
     # ---- 8. the blanket revive is gone
-    cs = Path("ui/screens/combat_screen.py").read_text()
+    cs = Path("ui/screens/combat_screen.py").read_text(encoding="utf-8")
     if "member.current_health = member.health" in cs:
         bad.append("the combat screen still stands every fallen member up on the way out of a fight")
     if "resolve_wipe()" not in cs:

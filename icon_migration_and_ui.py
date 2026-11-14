@@ -114,7 +114,7 @@ class IconDataMigration:
             return
         
         for ability_file in sorted(self.ability_dir.glob("*.json")):
-            with open(ability_file, 'r') as f:
+            with open(ability_file, 'r', encoding="utf-8") as f:
                 data = json.load(f)
             
             updated_count = 0
@@ -132,7 +132,7 @@ class IconDataMigration:
                 self.stats["abilities_updated"] += updated_count
                 
                 if not dry_run:
-                    with open(ability_file, 'w') as f:
+                    with open(ability_file, 'w', encoding="utf-8") as f:
                         json.dump(data, f, indent=2)
 
     def migrate_items(self, dry_run: bool = False):
@@ -155,7 +155,7 @@ class IconDataMigration:
         
         for item_file in sorted(self.items_dir.glob("*.json")):
             try:
-                with open(item_file, 'r') as f:
+                with open(item_file, 'r', encoding="utf-8") as f:
                     data = json.load(f)
             except:
                 continue
@@ -191,7 +191,7 @@ class IconDataMigration:
                 self.stats["items_updated"] += updated_count
                 
                 if not dry_run:
-                    with open(item_file, 'w') as f:
+                    with open(item_file, 'w', encoding="utf-8") as f:
                         json.dump(data, f, indent=2)
 
     def migrate_all(self, dry_run: bool = False):

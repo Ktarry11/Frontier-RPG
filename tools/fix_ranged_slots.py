@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 def ranged_types():
     """Weapon types whose `hand` is "ranged", straight from the weapon data."""
-    wt = json.loads((ROOT / "data/items/weapon_types.json").read_text())["weapon_types"]
+    wt = json.loads((ROOT / "data/items/weapon_types.json").read_text(encoding="utf-8"))["weapon_types"]
     return {k for k, v in wt.items() if v.get("hand") == "ranged"}
 
 

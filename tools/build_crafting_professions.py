@@ -17,11 +17,11 @@ ROOT = Path(__file__).resolve().parent.parent
 
 
 def load(p):
-    return json.loads((ROOT / p).read_text())
+    return json.loads((ROOT / p).read_text(encoding="utf-8"))
 
 
 def save(p, d, indent=2, nl=True):
-    (ROOT / p).write_text(json.dumps(d, indent=indent) + ("\n" if nl else ""))
+    (ROOT / p).write_text(json.dumps(d, indent=indent) + ("\n" if nl else ""), encoding="utf-8")
 
 
 # ------------------------------------------------------------------------------------------------ materials

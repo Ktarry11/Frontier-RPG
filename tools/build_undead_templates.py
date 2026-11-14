@@ -155,9 +155,9 @@ def main():
     ap.add_argument("--apply", action="store_true")
     args = ap.parse_args()
 
-    tdoc = json.loads(TEMPLATES.read_text())
+    tdoc = json.loads(TEMPLATES.read_text(encoding="utf-8"))
     tmpl = tdoc.get("templates", tdoc)
-    cdoc = json.loads(CREATURES.read_text())
+    cdoc = json.loads(CREATURES.read_text(encoding="utf-8"))
     cre = cdoc["creatures"]
 
     d = undead_delta(tmpl)
@@ -198,8 +198,8 @@ def main():
     if not args.apply:
         print("\n(report only; pass --apply to write)")
         return 0
-    TEMPLATES.write_text(json.dumps(tdoc, indent=2, ensure_ascii=False) + "\n")
-    CREATURES.write_text(json.dumps(cdoc, indent=2, ensure_ascii=False) + "\n")
+    TEMPLATES.write_text(json.dumps(tdoc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    CREATURES.write_text(json.dumps(cdoc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"\nwrote {TEMPLATES}\nwrote {CREATURES}")
     return 0
 

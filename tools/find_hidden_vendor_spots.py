@@ -95,7 +95,7 @@ def main():
         p = ROOT / rel
         if not p.exists():
             continue
-        d = json.loads(p.read_text())
+        d = json.loads(p.read_text(encoding="utf-8"))
         for n in d.get(key, []) if isinstance(d.get(key), list) else []:
             if str(n.get("zone", "")).lower().replace(" ", "_").replace("'", "") == \
                     zone_name.lower().replace(" ", "_").replace("'", ""):

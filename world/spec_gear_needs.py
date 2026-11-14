@@ -243,7 +243,7 @@ def wanted_stats(template):
     import json
     from pathlib import Path
     path = Path(__file__).resolve().parent.parent / "data/items/stat_templates.json"
-    stats = json.loads(path.read_text())["stat_templates"][template]["primary_stats"]
+    stats = json.loads(path.read_text(encoding="utf-8"))["stat_templates"][template]["primary_stats"]
     return [s for s, _w in sorted(stats.items(), key=lambda kv: -kv[1])]
 
 

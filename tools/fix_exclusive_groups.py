@@ -15,11 +15,11 @@ GROUPS = {
 
 for cls, groups in GROUPS.items():
     path = ROOT / "data" / "abilities" / f"{cls}.json"
-    data = json.loads(path.read_text())
+    data = json.loads(path.read_text(encoding="utf-8"))
     n = 0
     for a in data["abilities"]:
         if a["ability_id"] in groups and a.get("exclusive_group") != groups[a["ability_id"]]:
             a["exclusive_group"] = groups[a["ability_id"]]
             n += 1
-    path.write_text(json.dumps(data, indent=2) + "\n")
+    path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
     print(cls, "exclusive groups set on", n)

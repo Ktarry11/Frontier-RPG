@@ -145,7 +145,7 @@ def norm(s):
 
 
 def load_repo(repo):
-    data = json.loads((Path(repo) / "Talents.json").read_text())
+    data = json.loads((Path(repo) / "Talents.json").read_text(encoding="utf-8"))
     classes = data if isinstance(data, list) else list(data.values())[0]
     out = {}
     for cls in classes:
@@ -199,7 +199,7 @@ def main():
         by_name = {norm(t["name"]): t for t in spec["talents"]}
         aliases = {norm(k): norm(v) for k, v in ALIASES.get(tree_id, {}).items()}
 
-        nodes = json.loads(tpath.read_text())["nodes"]
+        nodes = json.loads(tpath.read_text(encoding="utf-8"))["nodes"]
         for node in nodes:
             tid = node["talent_id"]
             key = norm(node.get("name"))

@@ -42,7 +42,7 @@ NEW_VENDORS = [
 
 
 def _patch(path, list_key, id_key, positions, new=()):
-    data = json.loads(Path(path).read_text())
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
     ids = {r.get(id_key) for r in data[list_key]}
     n = 0
     for rec in new:
@@ -54,7 +54,7 @@ def _patch(path, list_key, id_key, positions, new=()):
         if pos and (rec.get("x"), rec.get("y")) != tuple(pos):
             rec["x"], rec["y"] = pos
             n += 1
-    Path(path).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    Path(path).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return n
 
 
@@ -68,7 +68,7 @@ def main():
     total = _patch("data/npcs/ambient_npcs.json", "npcs", "npc_id", npcs, NEW_NPCS)
     total += _patch("data/npcs/vendors.json", "vendors", "vendor_id", npcs, NEW_VENDORS)
     fp = Path("data/npcs/forges.json")
-    data = json.loads(fp.read_text())
+    data = json.loads(fp.read_text(encoding="utf-8"))
     for (fid, fname, zone), (x, y) in forges:
         rec = next((f for f in data["forges"] if f["forge_id"] == fid), None)
         if rec is None:
@@ -77,7 +77,7 @@ def main():
         elif (rec["x"], rec["y"]) != (x, y):
             rec["x"], rec["y"] = x, y
             total += 1
-    fp.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    fp.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"moved/added {total} records")
 
 

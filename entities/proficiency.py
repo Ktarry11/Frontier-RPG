@@ -37,7 +37,7 @@ def _load_class_armor_map():
     from pathlib import Path
     path = Path(__file__).parent.parent / "data" / "items" / "armor_types.json"
     try:
-        with open(path, "r") as f:
+        with open(path, "r", encoding="utf-8") as f:
             return json.load(f).get("class_armor_map", {})
     except Exception:
         return {}
@@ -48,7 +48,7 @@ def _load_class_weapon_map():
     from pathlib import Path
     path = Path(__file__).parent.parent / "data" / "items" / "weapon_types.json"
     try:
-        with open(path, "r") as f:
+        with open(path, "r", encoding="utf-8") as f:
             return json.load(f).get("class_weapon_map", {})
     except Exception:
         return {}
@@ -59,7 +59,7 @@ def _load_weapon_types():
     from pathlib import Path
     path = Path(__file__).parent.parent / "data" / "items" / "weapon_types.json"
     try:
-        with open(path, "r") as f:
+        with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
     except Exception:
         return {}
@@ -242,7 +242,7 @@ def can_equip(character, item):
             import json
             from pathlib import Path
             path = Path(__file__).parent.parent / "data" / "items" / "weapon_types.json"
-            with open(path, "r") as f:
+            with open(path, "r", encoding="utf-8") as f:
                 wt_data = json.load(f)["weapon_types"]
             display = wt_data.get(weapon_type, {}).get("display_name", weapon_type)
         except Exception:

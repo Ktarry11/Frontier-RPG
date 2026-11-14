@@ -142,7 +142,7 @@ def _ability_ids():
         _ABILITY_IDS = set()
         for path in (ROOT / "data/abilities").glob("*.json"):
             try:
-                for a in json.loads(path.read_text()).get("abilities", []):
+                for a in json.loads(path.read_text(encoding="utf-8")).get("abilities", []):
                     _ABILITY_IDS.add(a["ability_id"])
             except Exception:
                 pass
@@ -246,7 +246,7 @@ def audit_all():
     bad = []
     keys = 0
     for path in sorted((ROOT / "data/talents").glob("*.json")):
-        tree = json.loads(path.read_text())
+        tree = json.loads(path.read_text(encoding="utf-8"))
         for node in tree["nodes"]:
             for key in (node.get("effects") or {}):
                 split = split_ability_key(key)

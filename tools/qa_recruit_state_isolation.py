@@ -93,13 +93,13 @@ print("\n== character creation resets BOTH singletons")
 # there. Driving the real screen needs a display, fonts and a full state
 # manager, none of which are the thing under test.
 creation = (Path(__file__).resolve().parent.parent
-            / "ui" / "screens" / "character_screen.py").read_text()
+            / "ui" / "screens" / "character_screen.py").read_text(encoding="utf-8")
 check("creation resets the recruit manager", "reset_recruit_manager()" in creation)
 check("creation resets the faction manager", "reset_faction_manager()" in creation)
 
 print("\n== loading a save never inherits the previous character's state")
 game_state = (Path(__file__).resolve().parent.parent
-              / "core" / "game_state.py").read_text()
+              / "core" / "game_state.py").read_text(encoding="utf-8")
 check("load_game resets before applying saved recruit state",
       "reset_recruit_manager()" in game_state)
 check("load_game repairs ghost hires",

@@ -536,16 +536,16 @@ def main():
     for q in out:
         n = q["next_quest_id"]
         assert n is None or n in ids, (q["quest_id"], n)
-    OUT.write_text(json.dumps({"quests": out}, indent=2, ensure_ascii=False) + "\n")
+    OUT.write_text(json.dumps({"quests": out}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     # drop the six broken originals
-    data = json.loads(OLD.read_text())
+    data = json.loads(OLD.read_text(encoding="utf-8"))
     before = len(data["quests"])
     data["quests"] = [q for q in data["quests"] if not q["quest_id"].startswith("dk_")]
-    OLD.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    OLD.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     # NPCs
-    nd = json.loads(NPCS.read_text())
+    nd = json.loads(NPCS.read_text(encoding="utf-8"))
     have = {n["npc_id"]: n for n in nd["npcs"]}
     for n in NEW_NPCS:
         rec = dict(n, zone="deathknell", x=0, y=0, race="forsaken")
@@ -554,17 +554,17 @@ def main():
                 have[n["npc_id"]][k] = rec[k]
         else:
             nd["npcs"].append(rec)
-    NPCS.write_text(json.dumps(nd, indent=2, ensure_ascii=False) + "\n")
+    NPCS.write_text(json.dumps(nd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     # quest-item drops
-    dd = json.loads(DROPS.read_text())
+    dd = json.loads(DROPS.read_text(encoding="utf-8"))
     drops = dd["drops"]
     for item_id, (name, desc, srcs) in QUEST_DROPS.items():
         for creature, chance in srcs:
             lst = drops.setdefault(creature, [])
             lst[:] = [d for d in lst if d["item_id"] != item_id]
             lst.append(dict(item_id=item_id, name=name, category="quest", description=desc, chance=chance))
-    DROPS.write_text(json.dumps(dd, indent=2, ensure_ascii=False) + "\n")
+    DROPS.write_text(json.dumps(dd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"deathknell quests: {len(out)} (removed {before - len(data['quests'])} old), "
           f"items {sum(len(q['unique_item_defs']) for q in out)}")
 

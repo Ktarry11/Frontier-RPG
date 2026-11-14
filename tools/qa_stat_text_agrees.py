@@ -44,8 +44,8 @@ def figure(text):
 def main():
     bad = []
     seen = {}
-    sources = [json.load(open(p)).get("abilities", []) for p in glob.glob("data/abilities/*.json")]
-    kits = json.load(open("data/npcs/personal_kits.json"))
+    sources = [json.load(open(p, encoding="utf-8")).get("abilities", []) for p in glob.glob("data/abilities/*.json")]
+    kits = json.load(open("data/npcs/personal_kits.json", encoding="utf-8"))
     sources += [v.get("abilities", []) for v in kits.values() if isinstance(v, dict)]
     for abilities in sources:
         for a in abilities:

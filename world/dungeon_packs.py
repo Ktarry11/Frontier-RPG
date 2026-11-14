@@ -14,7 +14,7 @@ PACKS_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file
 
 def load_packs():
     try:
-        with open(PACKS_PATH, "r") as f:
+        with open(PACKS_PATH, "r", encoding="utf-8") as f:
             return json.load(f)
     except (OSError, json.JSONDecodeError):
         return {}

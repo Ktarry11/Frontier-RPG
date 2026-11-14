@@ -75,7 +75,7 @@ def drop_pool():
     Elementium plans labelled `drop` that nothing alive could carry.
     """
     from entities.recipe_drops import eligible
-    creatures = json.loads((ROOT / "data/creatures/creatures.json").read_text())["creatures"]
+    creatures = json.loads((ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"]
     top = max((max(c.get("level_range") or [1]) for c in creatures.values()), default=1)
     return set(eligible(top)), top
 
@@ -111,9 +111,9 @@ def main():
     recipes = _load_all_recipes()
     droppable, top_level = drop_pool()
 
-    vdoc = json.loads((ROOT / "data/npcs/vendors.json").read_text())
+    vdoc = json.loads((ROOT / "data/npcs/vendors.json").read_text(encoding="utf-8"))
     vendors = vdoc["vendors"]
-    bands = json.loads((ROOT / "data/zones/zone_levels.json").read_text())["zones"]
+    bands = json.loads((ROOT / "data/zones/zone_levels.json").read_text(encoding="utf-8"))["zones"]
     zband = {}
     for name, b in bands.items():
         zband.setdefault(slug(name), tuple(b))
@@ -128,7 +128,7 @@ def main():
     quest_rewards, free_quests = set(), []
     for p in sorted(set(glob.glob(str(ROOT / "data/quests/**/*.json"), recursive=True))):
         try:
-            d = json.loads(Path(p).read_text())
+            d = json.loads(Path(p).read_text(encoding="utf-8"))
         except Exception:
             continue
         qs = d.get("quests", d)
@@ -249,7 +249,7 @@ def main():
         # each source file from disk with the new source fields
         for prof, (rel, key) in RECIPE_FILES.items():
             path = ROOT / rel
-            doc = json.loads(path.read_text())
+            doc = json.loads(path.read_text(encoding="utf-8"))
             rs = doc["professions"][key]["recipes"] if key else doc["recipes"]
             changed = False
             for rid, r in rs.items():
@@ -261,10 +261,10 @@ def main():
                     r.pop("vendor_location", None)
                     changed = True
             if changed:
-                path.write_text(json.dumps(doc, indent=2) + "\n")
-        (ROOT / "data/npcs/vendors.json").write_text(json.dumps(vdoc, indent=2) + "\n")
+                path.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
+        (ROOT / "data/npcs/vendors.json").write_text(json.dumps(vdoc, indent=2) + "\n", encoding="utf-8")
         for p, d in qfiles.items():
-            Path(p).write_text(json.dumps(d, indent=2) + "\n")
+            Path(p).write_text(json.dumps(d, indent=2) + "\n", encoding="utf-8")
         print("\n  wrote vendors.json, quest files, recipe files")
     else:
         print("\n  dry run - pass --apply to write")

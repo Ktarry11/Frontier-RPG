@@ -53,7 +53,7 @@ def _load_json(filename, root_key):
         raise FileNotFoundError(
             f"{path} is missing. Regenerate it with "
             f"`python3 tools/generate_creatures.py`.")
-    with open(path, "r") as f:
+    with open(path, "r", encoding="utf-8") as f:
         return json.load(f).get(root_key, {})
 
 

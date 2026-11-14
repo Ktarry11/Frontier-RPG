@@ -45,7 +45,7 @@ def main():
     undersized = []
     checked = 0
     for path in sorted((ROOT / "data/talents").glob("*.json")):
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         nodes = doc.get("nodes") or []
         gates = doc.get("tier_requirements") or {}
         if not nodes or not gates:

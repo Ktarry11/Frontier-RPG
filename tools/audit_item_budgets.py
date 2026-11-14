@@ -60,11 +60,11 @@ try:
 except Exception:  # pragma: no cover - audit must still run headless
     _SHIELD_ARMOR_K, _SHIELD_BLOCK_K = 6.0, 0.7
 
-_SLOTS = json.loads((ROOT / "data/items/slots.json").read_text())
-_RARITY = json.loads((ROOT / "data/items/rarity.json").read_text())["rarity_tiers"]
-_WEAPONS = json.loads((ROOT / "data/items/weapon_types.json").read_text())
-_ARMOR = json.loads((ROOT / "data/items/armor_types.json").read_text())["armor_types"]
-_COSTS = json.loads((ROOT / "data/items/gear_suffixes.json").read_text())["stat_budget_costs"]
+_SLOTS = json.loads((ROOT / "data/items/slots.json").read_text(encoding="utf-8"))
+_RARITY = json.loads((ROOT / "data/items/rarity.json").read_text(encoding="utf-8"))["rarity_tiers"]
+_WEAPONS = json.loads((ROOT / "data/items/weapon_types.json").read_text(encoding="utf-8"))
+_ARMOR = json.loads((ROOT / "data/items/armor_types.json").read_text(encoding="utf-8"))["armor_types"]
+_COSTS = json.loads((ROOT / "data/items/gear_suffixes.json").read_text(encoding="utf-8"))["stat_budget_costs"]
 
 
 def spend(item):
@@ -124,11 +124,11 @@ def collect():
     """(source, owner, item) for every hand-authored item in the game."""
     out = []
     for path in sorted((ROOT / "data/quests").glob("*.json")):
-        for quest in json.loads(path.read_text()).get("quests", []):
+        for quest in json.loads(path.read_text(encoding="utf-8")).get("quests", []):
             for item in (quest.get("unique_item_defs") or []) + (quest.get("rewards") or []):
                 out.append(("quests", f"{path.stem}/{quest['quest_id']}", item))
     for path in sorted((ROOT / "data/loot").glob("*.json")):
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         rows = doc.get("bosses", doc)
         if not isinstance(rows, dict):
             continue

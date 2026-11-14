@@ -108,7 +108,7 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
-    data = json.loads(PATH.read_text(), object_pairs_hook=OrderedDict)
+    data = json.loads(PATH.read_text(encoding="utf-8"), object_pairs_hook=OrderedDict)
     changed = []
 
     for a in data["abilities"]:
@@ -150,7 +150,7 @@ def main():
         print("\n  --dry-run, nothing written")
         return 0
 
-    PATH.write_text(json.dumps(data, indent=2) + "\n")
+    PATH.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
     print(f"\n  wrote {PATH.relative_to(ROOT)}")
     return 0
 

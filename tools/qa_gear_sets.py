@@ -142,7 +142,7 @@ def main():
         bad.append("an authored bonus text was not used")
     if GS.tooltip_lines(Item("x", "Plain", "head", 60, "rare"), c):
         bad.append("an item in no set shows a set block")
-    src = Path("ui/screens/inventory_screen.py").read_text()
+    src = Path("ui/screens/inventory_screen.py").read_text(encoding="utf-8")
     if "tooltip_lines(item, self._get_subject())" not in src:
         bad.append("the inventory's item card does not draw the set block")
 
@@ -219,11 +219,11 @@ def main():
         bad.append(f"the exchange should offer the 4 worn pieces and the 1 in the bags; it offers {len(offers)}")
     sh.inventory.remove(spare)
     import json
-    services = json.load(open("data/travel/travel_data.json"))["services"]
+    services = json.load(open("data/travel/travel_data.json", encoding="utf-8"))["services"]
     # ...by an Artifact Keeper - a person of their own, not the innkeeper or the banker
     keepers = {"ak_org": "Orgrimmar", "ak_uc": "Undercity", "ak_kb": "Kael's Bastion",
                "ak_freewind": "Freewind Post", "ak_bootybay": "Booty Bay"}
-    people = {n["npc_id"]: n for n in json.load(open("data/npcs/ambient_npcs.json"))["npcs"]}
+    people = {n["npc_id"]: n for n in json.load(open("data/npcs/ambient_npcs.json", encoding="utf-8"))["npcs"]}
     for npc, place in keepers.items():
         if services.get(npc) != ["set_exchange"]:
             bad.append(f"the Artifact Keeper in {place} does not offer the set exchange (and only that)")
@@ -236,10 +236,10 @@ def main():
     taken = [(n["zone"], n["x"], n["y"]) for n in people.values() if n["npc_id"] not in keepers]
     if any(s in taken for s in spots):
         bad.append("an Artifact Keeper is standing on somebody else's tile")
-    svc = Path("ui/screens/travel_service_screen.py").read_text()
+    svc = Path("ui/screens/travel_service_screen.py").read_text(encoding="utf-8")
     if 'self.kind == "set_exchange"' not in svc or "price=None, label=\"Exchange\"" not in svc:
         bad.append("the service screen has no free set-exchange list")
-    if '"set_exchange": "Exchange Set Gear"' not in Path("ui/screens/quest_dialog_screen.py").read_text():
+    if '"set_exchange": "Exchange Set Gear"' not in Path("ui/screens/quest_dialog_screen.py").read_text(encoding="utf-8"):
         bad.append("the NPC dialog has no Exchange Set Gear button")
     GS.all_sets().pop(H, None)
 

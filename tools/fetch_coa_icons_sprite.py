@@ -81,7 +81,7 @@ def wanted():
     """{css class: set of ability names} for everything the CoA data references."""
     out = {}
     for p in sorted(COA.glob("*.json")):
-        for n in json.loads(p.read_text()):
+        for n in json.loads(p.read_text(encoding="utf-8")):
             cls = icon_class(n.get("iconPath"))
             if cls:
                 out.setdefault(cls, set()).add(n.get("name") or "?")

@@ -47,7 +47,7 @@ SUMMON_FIELDS = ("summons_pet", "pet_template", "pet_type", "summon_pet",
 
 
 def ability_records(path):
-    data = json.loads(path.read_text())
+    data = json.loads(path.read_text(encoding="utf-8"))
     if isinstance(data, dict):
         data = data.get("abilities", data)
     if isinstance(data, dict):
@@ -94,7 +94,7 @@ def main():
     unmapped = []
     checked = 0
     for path in sorted((ROOT / "data/talents").glob("*.json")):
-        tree = json.loads(path.read_text())
+        tree = json.loads(path.read_text(encoding="utf-8"))
         tree_id = tree.get("tree_id") or path.stem
         stem = tree_class_key(tree_id)
         if stem is None:

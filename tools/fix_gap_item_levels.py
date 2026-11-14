@@ -87,7 +87,7 @@ def main():
 
     moved, skipped = [], []
     for path in sorted((ROOT / "data/loot").glob("*boss_loot*.json")):
-        data = json.loads(path.read_text())
+        data = json.loads(path.read_text(encoding="utf-8"))
         pools = data.get("bosses") or {k: v for k, v in data.items()
                                        if isinstance(v, list)}
         touched = False
@@ -109,7 +109,7 @@ def main():
                 moved.append((path.name, boss, i["name"], old, want))
                 touched = True
         if touched and args.apply:
-            path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+            path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     print(f"{len(moved)} gap item(s) re-levelled to their pool")
     for f, boss, name, old, new in moved:

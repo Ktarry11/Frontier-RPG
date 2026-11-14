@@ -25,14 +25,14 @@ CONTINENT_TITLES = {"kalimdor": "Kalimdor", "eastern_kingdoms": "Eastern Kingdom
 def destinations(zone_manager):
     """[{label, zone, x, y, continent}], sorted by continent then name. `zone` is the display
     name ZoneManager.transition_to_zone wants."""
-    travel = json.loads((_DATA / "travel" / "travel_data.json").read_text())
+    travel = json.loads((_DATA / "travel" / "travel_data.json").read_text(encoding="utf-8"))
     inns = {npc for npc, services in travel.get("services", {}).items() if "inn" in services}
     nodes = {zone_key(n["zone"]): n for n in travel.get("flight_nodes", {}).values()}
     display = {zone_key(name): name for name in zone_manager.zones}
 
     people = []
     for fname, id_key in (("vendors.json", "vendor_id"), ("ambient_npcs.json", "npc_id")):
-        doc = json.loads((_DATA / "npcs" / fname).read_text())
+        doc = json.loads((_DATA / "npcs" / fname).read_text(encoding="utf-8"))
         for value in doc.values():
             if isinstance(value, list):
                 people += [(r, id_key) for r in value if isinstance(r, dict)]

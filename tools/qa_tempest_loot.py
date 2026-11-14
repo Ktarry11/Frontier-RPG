@@ -125,9 +125,9 @@ def main():
         bad.append("a full bag still took the token")
 
     # 7
-    if "_set_tokens.roll(enemy.name)" not in (ROOT / "combat/combat_engine.py").read_text():
+    if "_set_tokens.roll(enemy.name)" not in (ROOT / "combat/combat_engine.py").read_text(encoding="utf-8"):
         bad.append("the combat engine does not roll set tokens")
-    sets = json.loads((ROOT / "data/items/gear_sets.json").read_text())["sets"]
+    sets = json.loads((ROOT / "data/items/gear_sets.json").read_text(encoding="utf-8"))["sets"]
     for sid, d in sets.items():
         for slot, want in (("wrist", 53), ("waist", 54), ("legs", 57)):
             f = d["slots"][slot]

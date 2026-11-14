@@ -143,7 +143,7 @@ def main():
     for path in list((ROOT / "data/quests").glob("*.json")) + list((ROOT / "data/loot").glob("*.json")):
         if path.stem not in wanted:
             continue
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         names = wanted[path.stem]
         hit = 0
 
@@ -163,7 +163,7 @@ def main():
                 if not owner_name.startswith("_") and isinstance(items, list):
                     walk(items)
         if hit:
-            path.write_text(json.dumps(doc, indent=2) + "\n")
+            path.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
             touched += 1
             print(f"  wrote {path.name} ({hit} item(s))")
 

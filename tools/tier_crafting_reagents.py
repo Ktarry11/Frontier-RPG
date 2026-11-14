@@ -116,7 +116,7 @@ def main():
     ap.add_argument("professions", nargs="*", default=None)
     args = ap.parse_args()
 
-    mats = json.loads((ROOT / "data/gathering/materials.json").read_text())["materials"]
+    mats = json.loads((ROOT / "data/gathering/materials.json").read_text(encoding="utf-8"))["materials"]
     want = set(args.professions) or set(LADDERS)
 
     # every reagent named in a ladder must exist, or we would author a recipe
@@ -132,7 +132,7 @@ def main():
     for prof in sorted(want & set(LADDERS)):
         rel, key = SOURCES[prof]
         if rel not in docs:
-            docs[rel] = json.loads((ROOT / rel).read_text())
+            docs[rel] = json.loads((ROOT / rel).read_text(encoding="utf-8"))
         doc = docs[rel]
         recipes = (doc["professions"][key]["recipes"] if key else doc["recipes"])
         slots = LADDERS[prof]
@@ -182,7 +182,7 @@ def main():
 
     if args.apply:
         for rel, doc in docs.items():
-            (ROOT / rel).write_text(json.dumps(doc, indent=2) + "\n")
+            (ROOT / rel).write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
         print(f"\n  wrote {', '.join(sorted(docs))}")
     else:
         print("\n  dry run - pass --apply to write")

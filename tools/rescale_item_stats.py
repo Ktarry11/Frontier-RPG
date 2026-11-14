@@ -118,7 +118,7 @@ def main():
                 elif isinstance(o, list):
                     stack.extend(o)
             if hits and not args.dry_run:
-                f.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+                f.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
             if hits:
                 files += 1
 

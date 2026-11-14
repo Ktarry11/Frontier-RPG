@@ -102,7 +102,7 @@ PROCS = {
 
 
 def levels():
-    creatures = json.loads((ROOT / "data/creatures/creatures.json").read_text())["creatures"]
+    creatures = json.loads((ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"]
     return {n: creatures[n]["level_range"][1] for bosses in DUNGEONS.values() for n, _ in bosses}
 
 
@@ -234,8 +234,8 @@ def tokens():
 
 def audit(P, T):
     bad = []
-    creatures = json.loads((ROOT / "data/creatures/creatures.json").read_text())["creatures"]
-    enc = json.loads((ROOT / "data/creatures/encounters.json").read_text())["zones"]
+    creatures = json.loads((ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"]
+    enc = json.loads((ROOT / "data/creatures/encounters.json").read_text(encoding="utf-8"))["zones"]
     lv = levels()
     for (zone, cave), run in DUNGEONS.items():
         real = {n for n in enc[zone]["caves"][cave]["creatures"] if creatures.get(n, {}).get("is_boss")}
@@ -289,8 +289,8 @@ def main():
                      "per kill from the pool of three. item_level = boss level + 3. T0 tokens are "
                      "separate (data/items/set_tokens.json). Hand-authored in tools/build_tempest_loot.py."}
     out.update(P)
-    OUT.write_text(json.dumps(out, indent=2) + "\n")
-    TOKENS_OUT.write_text(json.dumps(T, indent=2) + "\n")
+    OUT.write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
+    TOKENS_OUT.write_text(json.dumps(T, indent=2) + "\n", encoding="utf-8")
     subprocess.run([sys.executable, str(ROOT / "tools/whole_number_gear.py")], check=True,
                    stdout=subprocess.DEVNULL)
     n = sum(len(v) for v in P.values())

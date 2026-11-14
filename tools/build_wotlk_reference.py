@@ -176,7 +176,7 @@ def load_ours():
     for cls in CLASSIC:
         byname = {}
         for path in sorted((ROOT / "data/talents").glob(f"{cls}_*.json")):
-            tree = json.loads(path.read_text())
+            tree = json.loads(path.read_text(encoding="utf-8"))
             for n in tree["nodes"]:
                 scalar = not (n.get("proc") or n.get("effect_type")
                               or (n.get("effects") or {}).get(
@@ -189,8 +189,8 @@ def load_ours():
 
 def normalise(repo):
     """Flatten the two source files into one record per talent."""
-    talents = json.loads((repo / "Talents.json").read_text())["classes"]
-    descs = json.loads((repo / "TalentDescriptions.json").read_text())
+    talents = json.loads((repo / "Talents.json").read_text(encoding="utf-8"))["classes"]
+    descs = json.loads((repo / "TalentDescriptions.json").read_text(encoding="utf-8"))
     out = {}
     for cls in talents:
         cid = cls["id"]
@@ -300,7 +300,7 @@ def write_worksheet(cls, data, ours, out_dir):
             else:
                 lines.append("  - (no description available)")
 
-    (out_dir / f"{cls}.md").write_text("\n".join(lines) + "\n")
+    (out_dir / f"{cls}.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     return len(all_t), len(matched), len(scalar_ours), len(blocked_t)
 
 
@@ -324,7 +324,7 @@ def main():
     tot = [0, 0, 0, 0]
     for cls in CLASSIC:
         (json_dir / f"{cls}.json").write_text(
-            json.dumps(data[cls], indent=1) + "\n")
+            json.dumps(data[cls], indent=1) + "\n", encoding="utf-8")
         n, m, s, b = write_worksheet(cls, data[cls], ours, ws_dir)
         print(f"  {cls:10s} {n:>7} {m:>6} {s:>12} {b:>8}")
         for i, v in enumerate((n, m, s, b)):

@@ -53,9 +53,9 @@ def main():
                 seen.add(n)
                 q.append(n)
 
-    defs = {d["quest_id"]: d for d in json.load(open("data/quests/abyssal_sands.json"))["quests"]}
-    table = json.load(open("data/creatures/encounters.json"))["zones"]["The Abyssal Sands"]["caves"]["The Dry Deep"]["creatures"]
-    creatures = json.load(open("data/creatures/creatures.json"))
+    defs = {d["quest_id"]: d for d in json.load(open("data/quests/abyssal_sands.json", encoding="utf-8"))["quests"]}
+    table = json.load(open("data/creatures/encounters.json", encoding="utf-8"))["zones"]["The Abyssal Sands"]["caves"]["The Dry Deep"]["creatures"]
+    creatures = json.load(open("data/creatures/creatures.json", encoding="utf-8"))
     creatures = creatures.get("creatures", creatures)
 
     for i, qid in enumerate(CHAIN):

@@ -84,7 +84,7 @@ def local_build():
     build_file = ROOT / "BUILD.txt"
     try:
         if build_file.exists():
-            text = build_file.read_text().strip()
+            text = build_file.read_text(encoding="utf-8").strip()
             if "|" in text:
                 short, date = text.split("|", 1)
                 _local = (short.strip(), date.strip())

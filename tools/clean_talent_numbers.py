@@ -150,7 +150,7 @@ TEXT_FIXES = {
 
 
 def fix_file(path, write):
-    doc = json.loads(Path(path).read_text())
+    doc = json.loads(Path(path).read_text(encoding="utf-8"))
     nodes = doc["nodes"]
     changed = retold = touched = 0
     for node in (nodes if isinstance(nodes, list) else nodes.values()):
@@ -183,10 +183,10 @@ def fix_file(path, write):
         if node["description"] != before_text:
             touched += 1
     if (changed or touched) and write:
-        raw = Path(path).read_text()
+        raw = Path(path).read_text(encoding="utf-8")
         indent = 2 if raw.startswith('{\n  "') else (1 if raw.startswith('{\n "') else 4)
         Path(path).write_text(json.dumps(doc, indent=indent, ensure_ascii="\\u" in raw)
-                              + ("\n" if raw.endswith("\n") else ""))
+                              + ("\n" if raw.endswith("\n") else ""), encoding="utf-8")
     return changed, retold, touched
 
 

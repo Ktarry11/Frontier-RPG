@@ -38,7 +38,7 @@ ZONES = [
 
 
 def _load(path, key):
-    d = json.loads(Path(path).read_text())
+    d = json.loads(Path(path).read_text(encoding="utf-8"))
     return d, d[key]
 
 
@@ -84,8 +84,8 @@ def main():
                 rec["x"], rec["y"] = x, y
                 moved += 1
 
-    Path("data/npcs/vendors.json").write_text(json.dumps(vd, indent=2, ensure_ascii=False) + "\n")
-    Path("data/npcs/ambient_npcs.json").write_text(json.dumps(ad, indent=2, ensure_ascii=False) + "\n")
+    Path("data/npcs/vendors.json").write_text(json.dumps(vd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    Path("data/npcs/ambient_npcs.json").write_text(json.dumps(ad, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     total = sum(len(v) + len(a) for (_, _, v, a, _) in ZONES)
     print(f"Underdark: {made} records created, {moved} moved ({total} people across 2 maps)")
 

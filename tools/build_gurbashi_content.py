@@ -271,7 +271,7 @@ def audit(out, levels):
 
 def main():
     cp = ROOT / "data/creatures/creatures.json"
-    cdata = json.loads(cp.read_text())
+    cdata = json.loads(cp.read_text(encoding="utf-8"))
     # NAME COLLISIONS ARE SILENT DATA LOSS - dict.update() replaced an existing boss on the Drowning
     # Floor pass with no error at all.
     clash = [n for n in CREATURES if n in cdata["creatures"]
@@ -281,7 +281,7 @@ def main():
     cdata["creatures"].update(CREATURES)
 
     ep = ROOT / "data/creatures/encounters.json"
-    edata = json.loads(ep.read_text())
+    edata = json.loads(ep.read_text(encoding="utf-8"))
     # THE LOOKUP THAT ACTUALLY RUNS. world/zone_manager.py hands cave_spawns the zone's .region as the
     # parent-zone key, and the Arena's region is pinned by contract to "Eastern Kingdoms -
     # Stranglethorn", so the live table has to live under that key's `caves`.
@@ -301,9 +301,9 @@ def main():
     out.update(pools())
     audit(out, LEVELS)
 
-    (ROOT / "data/loot/gurbashi_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n")
-    cp.write_text(json.dumps(cdata, indent=2) + "\n")
-    ep.write_text(json.dumps(edata, indent=2) + "\n")
+    (ROOT / "data/loot/gurbashi_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
+    cp.write_text(json.dumps(cdata, indent=2) + "\n", encoding="utf-8")
+    ep.write_text(json.dumps(edata, indent=2) + "\n", encoding="utf-8")
     print(f"Gurbashi Arena: creatures +{len(CREATURES)} (5 bosses + 1 add), pits 5, "
           f"loot items {sum(len(v) for k, v in out.items() if not k.startswith('_'))}, trash 0")
 

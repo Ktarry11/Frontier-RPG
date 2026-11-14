@@ -45,7 +45,7 @@ def racial_ids(c):
 
 def main():
     bad = []
-    racials = {k: v for k, v in json.load(open("data/races/racials.json")).items() if not k.startswith("_")}
+    racials = {k: v for k, v in json.load(open("data/races/racials.json", encoding="utf-8")).items() if not k.startswith("_")}
 
     # ---- 1, 2. companions
     rm = get_recruit_manager()
@@ -113,7 +113,7 @@ def main():
             bad.append(f"{race}'s passive lists {gone} and the character does not get them")
         if PK.passives_for(plain):
             bad.append("a character of no race is given a racial passive")
-    src = Path("ui/screens/character_screen.py").read_text()
+    src = Path("ui/screens/character_screen.py").read_text(encoding="utf-8")
     if "grant(char)" not in src:
         bad.append("character creation never grants the race's abilities")
 

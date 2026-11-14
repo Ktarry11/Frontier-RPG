@@ -251,17 +251,17 @@ def _write_back():
         return True
 
     for path in sorted((ROOT / "data/quests").glob("*.json")):
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         dirty = False
         for quest in doc.get("quests", []):
             for item in (quest.get("unique_item_defs") or []) + (quest.get("rewards") or []):
                 dirty |= handle(item)
         if dirty:
-            path.write_text(json.dumps(doc, indent=2) + "\n")
+            path.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
             written += 1
 
     for path in sorted((ROOT / "data/loot").glob("*.json")):
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         rows = doc.get("bosses", doc)
         if not isinstance(rows, dict):
             continue
@@ -273,7 +273,7 @@ def _write_back():
                 if isinstance(item, dict) and item.get("item_level"):
                     dirty |= handle(item)
         if dirty:
-            path.write_text(json.dumps(doc, indent=2) + "\n")
+            path.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
             written += 1
 
     return written

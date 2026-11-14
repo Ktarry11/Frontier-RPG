@@ -125,7 +125,7 @@ def main():
     for prof in sorted(want & set(SOURCES)):
         rel, key = SOURCES[prof]
         if rel not in docs:
-            docs[rel] = json.loads((ROOT / rel).read_text())
+            docs[rel] = json.loads((ROOT / rel).read_text(encoding="utf-8"))
         recipes = (docs[rel]["professions"][key]["recipes"] if key
                    else docs[rel]["recipes"])
         items = [(rid, r) for rid, r in recipes.items() if isinstance(r, dict)]
@@ -290,7 +290,7 @@ def main():
 
     if args.apply:
         for rel, doc in docs.items():
-            (ROOT / rel).write_text(json.dumps(doc, indent=2) + "\n")
+            (ROOT / rel).write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
         print(f"\n  moved {len(plan)} recipes; wrote {', '.join(sorted(docs))}")
     else:
         print(f"\n  {len(plan)} recipes would move. Dry run - pass --apply to write")

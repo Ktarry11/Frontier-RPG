@@ -417,7 +417,7 @@ QUESTS = [
 
 def main():
     npc_path = "data/npcs/ambient_npcs.json"
-    npc_data = json.load(open(npc_path))
+    npc_data = json.load(open(npc_path, encoding="utf-8"))
     existing_ids = {n["npc_id"] for n in npc_data["npcs"]}
     added_npcs = []
     for n in NEW_NPCS:
@@ -425,14 +425,14 @@ def main():
             continue
         npc_data["npcs"].append(n)
         added_npcs.append(n["npc_id"])
-    json.dump(npc_data, open(npc_path, "w"), indent=2)
+    json.dump(npc_data, open(npc_path, "w", encoding="utf-8"), indent=2)
     print(f"Added {len(added_npcs)} camp NPCs: {added_npcs}")
 
     # Register the FETCH item drop (sturdy_reef_coral) - Vulture/panther/
     # raptor kills in the interior are the natural drop source, matching
     # the "gathering materials while clearing the interior" framing.
     qd_path = "data/creatures/quest_drops.json"
-    qd_data = json.load(open(qd_path))
+    qd_data = json.load(open(qd_path, encoding="utf-8"))
     if "Jungle Panther" not in qd_data["drops"]:
         qd_data["drops"]["Jungle Panther"] = []
     qd_data["drops"]["Jungle Panther"].append({
@@ -453,12 +453,12 @@ def main():
             "description": "A Darkspear fetish, twisted by Zalazane's hex but not beyond recognizing. Still warm with old magic.",
             "chance": 0.5
         })
-    json.dump(qd_data, open(qd_path, "w"), indent=2)
+    json.dump(qd_data, open(qd_path, "w", encoding="utf-8"), indent=2)
     print("Registered sturdy_reef_coral and hexed_darkspear_totem quest drops")
 
     q_path = "data/quests/echo_isles.json"
     q_data = {"quests": QUESTS}
-    json.dump(q_data, open(q_path, "w"), indent=2)
+    json.dump(q_data, open(q_path, "w", encoding="utf-8"), indent=2)
     print(f"Wrote {len(QUESTS)} quests to {q_path}")
 
 

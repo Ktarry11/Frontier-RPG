@@ -250,7 +250,7 @@ def main():
     ap.add_argument("--apply", action="store_true")
     args = ap.parse_args()
 
-    doc = json.loads(MATS.read_text())
+    doc = json.loads(MATS.read_text(encoding="utf-8"))
     mats = doc["materials"]
 
     created, pending_art = [], []
@@ -369,7 +369,7 @@ def main():
         print(f"\n  {len(parked)} already above {CEILING}, untouched")
 
     if args.apply:
-        MATS.write_text(json.dumps(doc, indent=2) + "\n")
+        MATS.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
         print(f"\n  wrote {MATS.relative_to(ROOT)}")
     else:
         print("\n  dry run - pass --apply to write")

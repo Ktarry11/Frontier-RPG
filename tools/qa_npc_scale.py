@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parent.parent
 def main():
     bad, sized, seen = [], 0, 0
     for rel in ("data/npcs/ambient_npcs.json", "data/npcs/vendors.json"):
-        stack = [json.loads((ROOT / rel).read_text())]
+        stack = [json.loads((ROOT / rel).read_text(encoding="utf-8"))]
         while stack:
             node = stack.pop()
             if isinstance(node, dict):

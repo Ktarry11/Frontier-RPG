@@ -93,7 +93,7 @@ def _vocab():
     """(classes, specs) as the game spells them - the closed vocabulary the OCR is matched to."""
     classes, specs = set(), set()
     for p in sorted((ROOT / "data/talents").glob("*.json")):
-        spec = json.loads(p.read_text()).get("spec_name") or ""
+        spec = json.loads(p.read_text(encoding="utf-8")).get("spec_name") or ""
         if not spec:
             continue
         specs.add(spec)
@@ -193,7 +193,7 @@ def stage_manifest():
     # path. There is no size marker to sort on, so both are kept and the downloader takes
     # whichever comes back larger. A thumbnail is ~8KB and OCRs to nothing.
     rows = [{"name": n, "urls": sorted(set(v))} for n, v in sorted(by_name.items())]
-    MANIFEST.write_text(json.dumps(rows, indent=1))
+    MANIFEST.write_text(json.dumps(rows, indent=1), encoding="utf-8")
     print(f"{len(rows)} images ({len(set(full))} urls, {len(urls)} refs) -> {MANIFEST}")
     return 0
 
@@ -224,10 +224,10 @@ def _fetch(row):
 # --------------------------------------------------------------------------------------- index
 def stage_index(limit=None, every=1):
     from PIL import Image
-    rows = json.loads(MANIFEST.read_text())
+    rows = json.loads(MANIFEST.read_text(encoding="utf-8"))
     classes, specs = _vocab()
     rows = rows[::every][:limit] if limit else rows[::every]
-    index = json.loads(INDEX.read_text()) if INDEX.exists() else {}
+    index = json.loads(INDEX.read_text(encoding="utf-8")) if INDEX.exists() else {}
     done = 0
     for row in rows:
         if row["name"] in index:
@@ -249,9 +249,9 @@ def stage_index(limit=None, every=1):
         index[row["name"]] = {"class": cls, "spec": spec}
         done += 1
         if done % 25 == 0:
-            INDEX.write_text(json.dumps(index, indent=1))
+            INDEX.write_text(json.dumps(index, indent=1), encoding="utf-8")
             print(f"  indexed {done}/{len(rows)}", flush=True)
-    INDEX.write_text(json.dumps(index, indent=1))
+    INDEX.write_text(json.dumps(index, indent=1), encoding="utf-8")
     hit = sum(1 for v in index.values() if v["class"])
     print(f"{len(index)} indexed, {hit} with a class ({100 * hit / max(1, len(index)):.0f}%)")
     from collections import Counter
@@ -532,8 +532,8 @@ def class_blocks(index, all_names):
 
 def stage_tips(only_class=None, limit=None):
     from PIL import Image
-    index = json.loads(INDEX.read_text())
-    rows = {r["name"]: r for r in json.loads(MANIFEST.read_text())}
+    index = json.loads(INDEX.read_text(encoding="utf-8"))
+    rows = {r["name"]: r for r in json.loads(MANIFEST.read_text(encoding="utf-8"))}
     all_names = sorted(rows)
     inferred = class_blocks(index, all_names)
     for n, c in inferred.items():
@@ -614,7 +614,7 @@ def stage_tips(only_class=None, limit=None):
            "sequence": [{"shot": r["shot"], "spec": r.get("spec"),
                          "raw_spec": r.get("raw_spec"), "name": r["name"]}
                         for r in out]}
-    OUT.write_text(json.dumps(doc, indent=1, ensure_ascii=False) + "\n")
+    OUT.write_text(json.dumps(doc, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"{len(out)} tooltips read, {missed} with no tooltip found, "
           f"{len(recs)} unique, {direct} with a spec -> {OUT.relative_to(ROOT)}")
     return 0

@@ -34,7 +34,7 @@ class QuestManager:
             return
         for path in sorted(quests_dir.glob("*.json")):
             try:
-                with open(path, "r") as f:
+                with open(path, "r", encoding="utf-8") as f:
                     data = json.load(f)
             except json.JSONDecodeError as e:
                 print(f"ERROR: Failed to parse quest file {path.name}: {e}")
@@ -50,7 +50,7 @@ class QuestManager:
         # Writing lives here (not in the generated zone files) so re-running a tools/build_*_quests.py never reverts a rewrite.
         for path in sorted((quests_dir / "text").glob("*.json")):
             try:
-                with open(path, "r") as f:
+                with open(path, "r", encoding="utf-8") as f:
                     overlay = json.load(f)
             except json.JSONDecodeError as e:
                 print(f"ERROR: Failed to parse quest text overlay {path.name}: {e}")

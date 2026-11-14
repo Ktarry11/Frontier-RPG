@@ -20,14 +20,14 @@ MODULES = {"Western Tirisfal": "tools.handbuilt_western_tirisfal", "Eastern Tiri
 
 
 def _patch(path, list_key, id_key, pos):
-    data = json.loads(Path(path).read_text())
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
     n = 0
     for rec in data[list_key]:
         p = pos.get(rec.get(id_key))
         if p and (rec.get("x"), rec.get("y")) != tuple(p):
             rec["x"], rec["y"] = p
             n += 1
-    Path(path).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    Path(path).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return n
 
 
@@ -40,7 +40,7 @@ def main():
     total += _patch("data/npcs/vendors.json", "vendors", "vendor_id", pos)
     # Brill's forge is an interaction tile (data/npcs/forges.json), kept clear via the NPC_POSITIONS key "brill_forge"
     ff = Path("data/npcs/forges.json")
-    fd = json.loads(ff.read_text())
+    fd = json.loads(ff.read_text(encoding="utf-8"))
     bx, by = pos["brill_forge"]
     rec = next((f for f in fd["forges"] if f["forge_id"] == "brill_forge"), None)
     if rec is None:
@@ -49,9 +49,9 @@ def main():
     elif (rec["x"], rec["y"]) != (bx, by):
         rec["x"], rec["y"] = bx, by
         total += 1
-    ff.write_text(json.dumps(fd, indent=2, ensure_ascii=False) + "\n")
+    ff.write_text(json.dumps(fd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     fp = Path("data/creatures/spawn_points.json")
-    data = json.loads(fp.read_text())
+    data = json.loads(fp.read_text(encoding="utf-8"))
     for zone, mod in MODULES.items():
         M = importlib.import_module(mod)
         sp = getattr(M, "SPAWNS", None)
@@ -60,7 +60,7 @@ def main():
             if data.get(zone, {}).get("spawns") != new:
                 data[zone] = {"spawns": new}
                 total += 1
-    fp.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    fp.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"moved/added {total} records")
 
 

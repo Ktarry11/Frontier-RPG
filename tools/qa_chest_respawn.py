@@ -75,7 +75,7 @@ def main():
     sm._save_system().save_dir = saves
     sm.current_save_file = "a.json"
     check(sm.save_game("a.json"), "rig: save failed")
-    saved = json.loads((saves / "a.json").read_text())
+    saved = json.loads((saves / "a.json").read_text(encoding="utf-8"))
     check([dungeon, dx, dy] in (saved.get("world", {}).get("chests", {}).get("looted") or []),
           "the opened chest is not in the save file")
     dt.set_tile(dx, dy, "chest", "interaction")           # what a fresh world build would hold
@@ -86,7 +86,7 @@ def main():
     # 2 ------------------------------------------------------------------------------------
     blank = dict(saved)
     blank["world"] = dict(saved["world"], chests={"looted": [], "wait": []})
-    (saves / "b.json").write_text(json.dumps(blank))
+    (saves / "b.json").write_text(json.dumps(blank), encoding="utf-8")
     check(sm.load_game("b.json"), "rig: load of the second save failed")
     check(tmap(dungeon).interaction_layer[dy][dx] == "chest",
           "loading a save that never opened the chest leaves it missing")

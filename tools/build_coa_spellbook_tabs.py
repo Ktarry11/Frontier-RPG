@@ -58,7 +58,7 @@ def main(handoff):
     parsed = parse(handoff)
     result = {}; report = []
     for f in sorted(glob.glob(os.path.join(ROOT, "data/abilities/*.json"))):
-        d = json.load(open(f))
+        d = json.load(open(f, encoding="utf-8"))
         if not isinstance(d, dict) or not d.get("class"): continue
         cname = d["class"]
         if cname not in parsed: continue
@@ -90,7 +90,7 @@ def main(handoff):
                 else: unmatched.append(a["name"])
         result[cname] = table
         report.append((cname, len(d["abilities"]), len(table), unmatched, sorted(set(spec_to_tree.values()) - set(table.values()))))
-    json.dump(result, open(os.path.join(ROOT, "data/spellbook_tabs_coa.json"), "w"), indent=1, sort_keys=True)
+    json.dump(result, open(os.path.join(ROOT, "data/spellbook_tabs_coa.json"), "w", encoding="utf-8"), indent=1, sort_keys=True)
     for c, n, m, u, empty in report:
         print(f"{c:12} abilities={n:3} matched={m:3} unmatched={len(u):2} {u[:12]} emptyTabs={empty}")
 

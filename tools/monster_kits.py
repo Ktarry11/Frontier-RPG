@@ -6730,6 +6730,6 @@ def build():
     from pathlib import Path
     legacy = Path(__file__).with_name("legacy_kits.json")
     if legacy.exists():
-        for k, v in json.loads(legacy.read_text()).items():
+        for k, v in json.loads(legacy.read_text(encoding="utf-8")).items():
             kits.setdefault(k, v)
     return {"kits": kits}

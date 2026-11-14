@@ -68,7 +68,7 @@ def main():
     changed = []
     for cls in OG9:
         path = f"data/abilities/{cls}.json"
-        d = json.load(open(path))
+        d = json.load(open(path, encoding="utf-8"))
         touched = False
         for a in d["abilities"]:
             if a["ability_id"] in SKIP:
@@ -88,7 +88,7 @@ def main():
             changed.append((a["ability_id"], a["cooldown"], old_vals, new_vals))
             touched = True
         if touched:
-            json.dump(d, open(path, "w"), indent=2)
+            json.dump(d, open(path, "w", encoding="utf-8"), indent=2)
 
     print(f"Rebalanced {len(changed)} heal/hot abilities:\n")
     for ability_id, cd, old, new in changed:

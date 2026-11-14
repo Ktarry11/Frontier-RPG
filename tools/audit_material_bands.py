@@ -102,7 +102,7 @@ RECIPE_FILES = ("data/blacksmithing/recipes.json", "data/crafting/recipes.json",
 
 
 def load(rel):
-    with open(ROOT / rel) as f:
+    with open(ROOT / rel, encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -305,7 +305,7 @@ def main():
                       f"{len(r)}  {','.join(r) or 'FEEDS NOTHING'}")
 
     if args.csv:
-        with open(args.csv, "w", newline="") as f:
+        with open(args.csv, "w", newline="", encoding="utf-8") as f:
             w = csv.writer(f)
             w.writerow(["material", "name", "type", "tier", "skill", "min_level",
                         "reaches_roles", "zones"])

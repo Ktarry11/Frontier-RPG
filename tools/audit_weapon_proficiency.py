@@ -71,7 +71,7 @@ STARVED_CLASS_RATIO = 0.6
 
 
 def load():
-    d = json.loads((ROOT / "data/items/weapon_types.json").read_text())
+    d = json.loads((ROOT / "data/items/weapon_types.json").read_text(encoding="utf-8"))
     return d["weapon_types"], d["class_weapon_map"]
 
 
@@ -101,7 +101,7 @@ def count_items(types):
 
     for path in sorted((ROOT / "data").rglob("*.json")):
         try:
-            walk(json.loads(path.read_text()))
+            walk(json.loads(path.read_text(encoding="utf-8")))
         except Exception:                                      # noqa: BLE001
             continue                        # not an item file; nothing to do
     return counts, names

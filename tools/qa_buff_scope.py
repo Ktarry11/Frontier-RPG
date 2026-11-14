@@ -71,7 +71,7 @@ ALLOW = {
 def main():
     findings = []
     for path in sorted((ROOT / "data/abilities").glob("*.json")):
-        for ability in json.loads(path.read_text()).get("abilities", []):
+        for ability in json.loads(path.read_text(encoding="utf-8")).get("abilities", []):
             if ability.get("effect_type") != "buff":
                 continue
             aid = ability.get("ability_id", "?")

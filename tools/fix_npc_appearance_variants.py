@@ -102,7 +102,7 @@ def main():
         return 0
     for path, _key, data in loaded:
         (ROOT / path).write_text(
-            json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+            json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print(f"\nwrote {path}")
     return 0
 

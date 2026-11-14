@@ -35,7 +35,7 @@ def main():
     if max(givers.values() or [0]) > 4:
         bad.append(f"one Crossroads NPC carries {max(givers.values())} quests - spread them")
 
-    mine = json.load(open("data/quests/crossroads.json"))["quests"]
+    mine = json.load(open("data/quests/crossroads.json", encoding="utf-8"))["quests"]
     hero = Character("Hero", "Warrior", 20)
     party = Party(hero)
 

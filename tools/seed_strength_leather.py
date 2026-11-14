@@ -96,7 +96,7 @@ def main():
         if not path.exists():
             problems.append(f"{stem}.json does not exist")
             continue
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         rows = doc.get("bosses", doc)
         if boss not in rows:
             problems.append(f"{boss!r} is not in {stem}.json")
@@ -143,7 +143,7 @@ def main():
         by_file.setdefault(stem, []).append((boss, item))
     for stem, entries in by_file.items():
         path = ROOT / f"data/loot/{stem}.json"
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         rows = doc.get("bosses", doc)
         for boss, item in entries:
             rows[boss].append(item)
@@ -159,7 +159,7 @@ def main():
                 rows["_notes"] = fixed
             else:
                 doc["_notes"] = fixed
-        path.write_text(json.dumps(doc, indent=2) + "\n")
+        path.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
         print(f"  wrote {path.name} (+{len(entries)})")
     return 0
 

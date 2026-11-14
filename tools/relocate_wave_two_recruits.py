@@ -148,7 +148,7 @@ MOVES = {
 
 def main():
     check = "--check" in sys.argv
-    doc = json.loads(RECRUITS.read_text())
+    doc = json.loads(RECRUITS.read_text(encoding="utf-8"))
     rows = doc["recruits"] if isinstance(doc, dict) and "recruits" in doc else doc
     by_id = {r["recruit_id"]: r for r in rows}
 
@@ -181,8 +181,8 @@ def main():
         print(f"\n{changes} would move")
         return 1 if changes else 0
 
-    RECRUITS.write_text(json.dumps(doc, indent=2) + "\n")
-    after_doc = json.loads(RECRUITS.read_text())
+    RECRUITS.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
+    after_doc = json.loads(RECRUITS.read_text(encoding="utf-8"))
     arows = after_doc["recruits"] if isinstance(after_doc, dict) and "recruits" in after_doc else after_doc
     a2 = next(r for r in arows if r["recruit_id"] == "asher_coleman")
     if hashlib.sha256(json.dumps(a2, sort_keys=True).encode()).hexdigest() != asher_before:
@@ -207,10 +207,10 @@ def verify():
         "Central Stranglethorn": "stranglethorn_central",
         "Southern Stranglethorn": "stranglethorn_south", "Booty Bay": "booty_bay",
     }
-    doc = json.loads(RECRUITS.read_text())
+    doc = json.loads(RECRUITS.read_text(encoding="utf-8"))
     rows = doc["recruits"] if isinstance(doc, dict) and "recruits" in doc else doc
-    amb = json.loads((ROOT / "data/npcs/ambient_npcs.json").read_text())["npcs"]
-    ven = json.loads((ROOT / "data/npcs/vendors.json").read_text())["vendors"]
+    amb = json.loads((ROOT / "data/npcs/ambient_npcs.json").read_text(encoding="utf-8"))["npcs"]
+    ven = json.loads((ROOT / "data/npcs/vendors.json").read_text(encoding="utf-8"))["vendors"]
     wave = set(MOVES) | {"junseo_reaper", "alonso_pyromancer", "fiona_witchhunter",
                          "ziad_felsworn", "pieter_guardian", "delroy_witchdoctor"}
     problems = []

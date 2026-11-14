@@ -60,7 +60,7 @@ PER_RANK = 0.2
 
 
 def caster_specs():
-    doc = json.loads(SPEC_GEAR.read_text())
+    doc = json.loads(SPEC_GEAR.read_text(encoding="utf-8"))
     specs = doc.get("specs", doc)
     return {k for k, v in specs.items()
             if isinstance(v, dict) and v.get("stat_template") in CASTER_TEMPLATES}
@@ -78,7 +78,7 @@ def main():
         tree = path.stem
         if tree not in casters:
             continue
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
 
         best = None
         for node in doc.get("nodes", []):
@@ -115,7 +115,7 @@ def main():
             "100%.'")
         upgraded.append((tree, node.get("name"), old_ranks, old_total))
         if args.apply:
-            path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
+            path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     print(f"caster specs: {len(casters)}\n")
     print(f"upgraded to {RANKS} x {PER_RANK * 100:g}% = "

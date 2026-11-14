@@ -84,7 +84,7 @@ def main():
     crashes, missing, silent = [], [], []
     checked = 0
     for path in sorted((ROOT / "data/talents").glob("*.json")):
-        tree = json.loads(path.read_text())
+        tree = json.loads(path.read_text(encoding="utf-8"))
         for node in tree["nodes"]:
             for spec in specs_of(node):
                 checked += 1

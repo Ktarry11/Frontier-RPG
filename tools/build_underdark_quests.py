@@ -949,24 +949,24 @@ DROPS = {
 
 
 def _write(path, quests, label):
-    path.write_text(json.dumps({"quests": quests}, indent=2, ensure_ascii=False) + "\n")
+    path.write_text(json.dumps({"quests": quests}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"  {label:26} {len(quests):3} quests -> {path.relative_to(ROOT)}")
 
 
 def _splice(zone_file, new_quests):
     """Drop any previous version of these quests from another zone's file, then append. Idempotent."""
     p = ROOT / f"data/quests/{zone_file}.json"
-    d = json.loads(p.read_text())
+    d = json.loads(p.read_text(encoding="utf-8"))
     rows = d["quests"] if "quests" in d else d
     ids = {q["quest_id"] for q in new_quests}
     rows[:] = [q for q in rows if q["quest_id"] not in ids] + new_quests
-    p.write_text(json.dumps(d, indent=2, ensure_ascii=False) + "\n")
+    p.write_text(json.dumps(d, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"  {zone_file:26} +{len(new_quests)} inbound (now {len(rows)})")
 
 
 def _drops():
     p = ROOT / "data/creatures/quest_drops.json"
-    d = json.loads(p.read_text())
+    d = json.loads(p.read_text(encoding="utf-8"))
     rows = d["drops"] if "drops" in d else d
     added = 0
     for creature, items in DROPS.items():
@@ -982,7 +982,7 @@ def _drops():
                 added += 1
             else:
                 existing.update(rec)
-    p.write_text(json.dumps(d, indent=2, ensure_ascii=False) + "\n")
+    p.write_text(json.dumps(d, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"  quest_drops                +{added} drop entries across {len(DROPS)} creatures")
 
 

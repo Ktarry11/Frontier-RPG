@@ -74,7 +74,7 @@ def main():
     changed = []
     for cls in OG9:
         path = f"data/abilities/{cls}.json"
-        d = json.load(open(path))
+        d = json.load(open(path, encoding="utf-8"))
         touched = False
         for a in d["abilities"]:
             if a["ability_id"] not in TARGET_ABILITIES:
@@ -85,7 +85,7 @@ def main():
             changed.append((a["ability_id"], old_summary, new_summary))
             touched = True
         if touched:
-            json.dump(d, open(path, "w"), indent=2)
+            json.dump(d, open(path, "w", encoding="utf-8"), indent=2)
 
     print(f"Expanded {len(changed)} abilities to {NUM_RANKS} ranks:\n")
     for ability_id, old, new in changed:

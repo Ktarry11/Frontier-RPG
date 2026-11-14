@@ -25,7 +25,7 @@ def main():
             for p in glob.glob(f"assets/icons/{d}/*.png")}
     total, missing = 0, []
     for path in sorted(glob.glob("data/talents/*.json")):
-        nodes = json.load(open(path))["nodes"]
+        nodes = json.load(open(path, encoding="utf-8"))["nodes"]
         for node in (nodes if isinstance(nodes, list) else nodes.values()):
             total += 1
             if node["talent_id"] not in have and (node.get("icon_id") or "") not in have:

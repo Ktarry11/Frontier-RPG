@@ -43,7 +43,7 @@ RENAMES = {"barrens_herder_1": "Herder Magra Dustwalker"}
 
 def main():
     path = ROOT / "data/npcs/ambient_npcs.json"
-    data = json.loads(path.read_text())
+    data = json.loads(path.read_text(encoding="utf-8"))
     by_id = {r["npc_id"]: r for r in data["npcs"]}
     for n in NEW_NPCS:
         rec = by_id.get(n["npc_id"])
@@ -61,7 +61,7 @@ def main():
         if (rec.get("x"), rec.get("y")) != (x, y):
             rec["x"], rec["y"] = x, y
             moved += 1
-    path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"npcs: {len(NEW_NPCS)} created/updated, {moved} positioned")
 
 

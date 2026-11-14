@@ -50,7 +50,7 @@ def main():
     if floor < FIRST_PASS_FLOOR * 1.3:
         bad.append(f"{floor} walkable tiles - less than 30% over the first pass ({FIRST_PASS_FLOOR})")
 
-    src = Path("world/portal_manager.py").read_text()
+    src = Path("world/portal_manager.py").read_text(encoding="utf-8")
     for needle in (f'({D.DOWN[0]}, {D.DOWN[1]}): ("The Black Strand", {M.START[0]}, {M.START[1]})',
                    f'({M.UP[0]}, {M.UP[1]}): ("The Dry Deep", {D.DOWN_ARRIVAL[0]}, {D.DOWN_ARRIVAL[1]})'):
         if needle not in src:
@@ -62,9 +62,9 @@ def main():
     if zone.interaction_layer[M.UP[1]][M.UP[0]] != "portal" or not zone.is_walkable(*M.START):
         bad.append("the Bottom Step has no way up, or nowhere to arrive")
 
-    enc = json.load(open("data/creatures/encounters.json"))["zones"].get(M.NAME, {})
-    creatures = json.load(open("data/creatures/creatures.json"))["creatures"]
-    kits = json.load(open("data/creatures/ability_kits.json"))["kits"]
+    enc = json.load(open("data/creatures/encounters.json", encoding="utf-8"))["zones"].get(M.NAME, {})
+    creatures = json.load(open("data/creatures/creatures.json", encoding="utf-8"))["creatures"]
+    kits = json.load(open("data/creatures/ability_kits.json", encoding="utf-8"))["kits"]
     loot = _load_boss_loot_tables()
     rares = 0
     for (name, *_r) in M.CHAMBERS:
@@ -93,7 +93,7 @@ def main():
                     bad.append(f"{c} is a rare on a weight, not on the rare roll")
                 if not loot.get(c):
                     bad.append(f"{c} drops nothing of its own")
-    band = json.load(open("data/zones/zone_levels.json"))["zones"].get(M.NAME)
+    band = json.load(open("data/zones/zone_levels.json", encoding="utf-8"))["zones"].get(M.NAME)
     if band != [50, 53]:
         bad.append(f"the zone's level band is {band}")
 

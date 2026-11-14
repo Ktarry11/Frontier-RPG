@@ -151,7 +151,7 @@ def write_tree(out_dir, tree_id, spec_name, description, talents, force=False):
 
     if path.exists() and not force:
         try:
-            existing = json.loads(path.read_text())
+            existing = json.loads(path.read_text(encoding="utf-8"))
         except (OSError, ValueError):
             existing = None
         if isinstance(existing, dict):
@@ -166,6 +166,6 @@ def write_tree(out_dir, tree_id, spec_name, description, talents, force=False):
                       f"shipped data - fix the module or pass force=True.")
                 return None, 0
 
-    with open(path, "w") as f:
+    with open(path, "w", encoding="utf-8") as f:
         json.dump(tree, f, indent=2)
     return path, len(tree["nodes"])

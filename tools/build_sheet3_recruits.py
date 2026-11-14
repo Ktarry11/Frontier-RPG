@@ -77,7 +77,7 @@ BOSS_CLEAR = 10            # never inside a boss chamber
 
 
 def arrival_points():
-    src = (ROOT / "world/portal_manager.py").read_text()
+    src = (ROOT / "world/portal_manager.py").read_text(encoding="utf-8")
     out = collections.defaultdict(list)
     for m in re.finditer(
             r'\(\s*\d+\s*,\s*\d+\s*\)\s*:\s*\(\s*"([^"]+)"\s*,\s*(\d+)\s*,\s*(\d+)\s*\)', src):
@@ -133,14 +133,14 @@ def main():
     looks = {}
     doc_looks = (ROOT / "tools/writing/sheet3_looks.json")
     if doc_looks.exists():
-        looks = json.loads(doc_looks.read_text())
+        looks = json.loads(doc_looks.read_text(encoding="utf-8"))
 
     zones = create_all_zones()
     arrive = arrival_points()
     amb = get_ambient_npc_manager()
     vm = get_vendor_manager()
 
-    rdoc = json.load(open(ROOT / "data/npcs/recruits.json"))
+    rdoc = json.load(open(ROOT / "data/npcs/recruits.json", encoding="utf-8"))
     existing = rdoc["recruits"]
     taken_ids = {r["recruit_id"] for r in existing}
 
@@ -226,7 +226,7 @@ def main():
         print(f"  PROBLEM {p}")
 
     if write and not problems:
-        json.dump(rdoc, open(ROOT / "data/npcs/recruits.json", "w"), indent=2)
+        json.dump(rdoc, open(ROOT / "data/npcs/recruits.json", "w", encoding="utf-8"), indent=2)
         print(f"\n  written: recruits.json now holds {len(existing)} companions")
     elif write:
         print("\n  REFUSING TO WRITE while there are problems")

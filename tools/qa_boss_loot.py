@@ -31,8 +31,8 @@ D = ROOT / "data"
 
 
 def load():
-    creatures = json.load(open(D / "creatures" / "creatures.json")).get("creatures", {})
-    enc = json.load(open(D / "creatures" / "encounters.json")).get("zones", {})
+    creatures = json.load(open(D / "creatures" / "creatures.json", encoding="utf-8")).get("creatures", {})
+    enc = json.load(open(D / "creatures" / "encounters.json", encoding="utf-8")).get("zones", {})
     loot = {}
     for p in sorted((D / "loot").glob("*.json")):
         # epic_drops.json is keyed by BUCKET ("dungeon", "world"), not by boss
@@ -40,7 +40,7 @@ def load():
         if p.name == "epic_drops.json":
             continue
         try:
-            data = json.load(open(p))
+            data = json.load(open(p, encoding="utf-8"))
         except (json.JSONDecodeError, OSError):
             continue
         if not isinstance(data, dict):

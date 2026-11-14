@@ -141,7 +141,7 @@ def audit(out):
 
 def main():
     cp = ROOT / "data/creatures/creatures.json"
-    cdata = json.loads(cp.read_text())
+    cdata = json.loads(cp.read_text(encoding="utf-8"))
     # NAME COLLISIONS ARE SILENT DATA LOSS. This pass originally called its east-bay rare "The Tidewrack"
     # and dict.update() quietly replaced a L26 undead boss of that name on the other side of the world -
     # same name, same kit id, no error, gone. Nine creatures is not worth trusting to memory.
@@ -152,7 +152,7 @@ def main():
     cdata["creatures"].update(CREATURES)
 
     ep = ROOT / "data/creatures/encounters.json"
-    edata = json.loads(ep.read_text())
+    edata = json.loads(ep.read_text(encoding="utf-8"))
     z = edata["zones"].setdefault("Southern Thousand Needles", {})
     z.setdefault("caves", {})["The Drowning Floor"] = CAVE
 
@@ -162,9 +162,9 @@ def main():
     out.update(pools())
     audit(out)
 
-    (ROOT / "data/loot/drowning_floor_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n")
-    cp.write_text(json.dumps(cdata, indent=2) + "\n")
-    ep.write_text(json.dumps(edata, indent=2) + "\n")
+    (ROOT / "data/loot/drowning_floor_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
+    cp.write_text(json.dumps(cdata, indent=2) + "\n", encoding="utf-8")
+    ep.write_text(json.dumps(edata, indent=2) + "\n", encoding="utf-8")
     print(f"The Drowning Floor: creatures +{len(CREATURES)}, loot pools 3, "
           f"items {sum(len(v) for k, v in out.items() if not k.startswith('_'))}")
 

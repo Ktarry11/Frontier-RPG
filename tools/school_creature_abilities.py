@@ -231,10 +231,10 @@ def main():
     ap.add_argument("--apply", action="store_true")
     args = ap.parse_args()
 
-    kdoc = json.loads(KITS.read_text())
+    kdoc = json.loads(KITS.read_text(encoding="utf-8"))
     kits = kdoc.get("kits", kdoc)
-    bdoc = json.loads(BOSS_BASE.read_text())
-    cre = json.loads(CREATURES.read_text())["creatures"]
+    bdoc = json.loads(BOSS_BASE.read_text(encoding="utf-8"))
+    cre = json.loads(CREATURES.read_text(encoding="utf-8"))["creatures"]
     owner = collections.defaultdict(list)
     for n, v in cre.items():
         if v.get("ability_kit"):
@@ -329,7 +329,7 @@ def main():
     if not args.apply:
         print("\n(report only; pass --apply to write)")
         return 0
-    KITS.write_text(json.dumps(kdoc, indent=2, ensure_ascii=False) + "\n")
+    KITS.write_text(json.dumps(kdoc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"\nwrote {KITS}")
 
     # Mirror every decision into the rework's snapshot, matched on kit id and
@@ -343,7 +343,7 @@ def main():
             if school and a.get("school") == "magic":
                 a["school"] = school
                 mirrored += 1
-    BOSS_BASE.write_text(json.dumps(bdoc, indent=2, ensure_ascii=False) + "\n")
+    BOSS_BASE.write_text(json.dumps(bdoc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"wrote {BOSS_BASE} ({mirrored} mirrored into the rework snapshot)")
     print("\nNOW RE-RUN: PYTHONPATH=. python3 tools/rework_boss_kits.py")
     return 0

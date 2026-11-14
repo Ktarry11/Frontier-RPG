@@ -36,7 +36,7 @@ def main():
     if len(pooled) < 20:
         print(f"FAIL only {len(pooled)} zones with node pools matched - the rig is off")
         return 1
-    enc = json.loads((ROOT / "data/creatures/encounters.json").read_text())["zones"]
+    enc = json.loads((ROOT / "data/creatures/encounters.json").read_text(encoding="utf-8"))["zones"]
 
     bad, empty, with_camps, total = [], [], 0, 0
     for zone in pooled:

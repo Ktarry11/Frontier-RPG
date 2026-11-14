@@ -708,58 +708,58 @@ NEW_WOODWORKING_RECIPES = {
 
 def write_bs():
     path = REPO / "data/blacksmithing/recipes.json"
-    with open(path) as f:
+    with open(path, encoding="utf-8") as f:
         data = json.load(f)
     before = len(data["recipes"])
     data["recipes"].update(NEW_BS_RECIPES)
-    with open(path, "w") as f:
+    with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
     added = len(data["recipes"]) - before
     print(f"BS: {before} → {len(data['recipes'])} recipes (+{added})")
 
 def write_lw():
     path = REPO / "data/leatherworking/recipes.json"
-    with open(path) as f:
+    with open(path, encoding="utf-8") as f:
         data = json.load(f)
     existing = {k: v for k, v in data["recipes"].items() if isinstance(v, dict)}
     before = len(existing)
     existing.update(NEW_LW_RECIPES)
     data["recipes"] = existing
-    with open(path, "w") as f:
+    with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
     added = len(existing) - before
     print(f"LW: {before} → {len(existing)} recipes (+{added})")
 
 def write_tailoring():
     path = REPO / "data/crafting/recipes.json"
-    with open(path) as f:
+    with open(path, encoding="utf-8") as f:
         data = json.load(f)
     tai = data["professions"]["tailoring"]["recipes"]
     before = len(tai)
     tai.update(NEW_TAILORING_RECIPES)
-    with open(path, "w") as f:
+    with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
     print(f"Tailoring: {before} → {len(tai)} recipes (+{len(tai)-before})")
 
 def write_alchemy():
     path = REPO / "data/crafting/recipes.json"
-    with open(path) as f:
+    with open(path, encoding="utf-8") as f:
         data = json.load(f)
     alch = data["professions"]["alchemy"]["recipes"]
     before = len(alch)
     alch.update(NEW_ALCHEMY_RECIPES)
-    with open(path, "w") as f:
+    with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
     print(f"Alchemy: {before} → {len(alch)} recipes (+{len(alch)-before})")
 
 def write_woodworking():
     path = REPO / "data/crafting/recipes.json"
-    with open(path) as f:
+    with open(path, encoding="utf-8") as f:
         data = json.load(f)
     ww = data["professions"]["woodworking"]["recipes"]
     before = len(ww)
     ww.update(NEW_WOODWORKING_RECIPES)
-    with open(path, "w") as f:
+    with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
     print(f"Woodworking: {before} → {len(ww)} recipes (+{len(ww)-before})")
 

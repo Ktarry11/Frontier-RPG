@@ -77,21 +77,21 @@ def _base(table, lv, per):
 
 def main():
     cp = ROOT / "data/creatures/creatures.json"
-    cdata = json.loads(cp.read_text())
+    cdata = json.loads(cp.read_text(encoding="utf-8"))
     miss = [n for n in BASE if n not in cdata["creatures"]]
     assert not miss, miss
     for n, rng in BASE.items():
         cdata["creatures"][n]["level_range"] = list(rng)
-    cp.write_text(json.dumps(cdata, indent=2) + "\n")
+    cp.write_text(json.dumps(cdata, indent=2) + "\n", encoding="utf-8")
 
     ep = ROOT / "data/creatures/encounters.json"
-    edata = json.loads(ep.read_text())
+    edata = json.loads(ep.read_text(encoding="utf-8"))
     for z, ov in OVERRIDES.items():
         edata["zones"][z]["level_overrides"] = {k: list(v) for k, v in ov.items()}
-    ep.write_text(json.dumps(edata, indent=2) + "\n")
+    ep.write_text(json.dumps(edata, indent=2) + "\n", encoding="utf-8")
 
     qp = ROOT / "data/quests/ashenvale.json"
-    qdata = json.loads(qp.read_text())
+    qdata = json.loads(qp.read_text(encoding="utf-8"))
     boss_names = {n for n, c in cdata["creatures"].items() if c.get("is_boss")}
     # reference level for each quest's ORIGINAL xp (first run records it so reruns stay stable)
     OLD_MIN = {"ashenvale_grizzly_problem": 10, "ashenvale_timberling_bark": 10, "ashenvale_ursal_the_mauler": 14,
@@ -119,7 +119,7 @@ def main():
             it["item_level"] = ilvl
         if q.get("gear_reward_gear_level"):
             q["gear_reward_gear_level"] = ilvl
-    qp.write_text(json.dumps(qdata, indent=2, ensure_ascii=False) + "\n")
+    qp.write_text(json.dumps(qdata, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("creatures re-levelled:", len(BASE), "| zone overrides:", {z: len(v) for z, v in OVERRIDES.items()},
           "| quests:", len(QUESTS))
 

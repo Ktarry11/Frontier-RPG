@@ -52,14 +52,14 @@ def main():
         zones = create_all_zones()
         pm = PortalManager()
 
-    enc = json.load(open("data/creatures/encounters.json"))["zones"]
-    creatures = json.load(open("data/creatures/creatures.json"))["creatures"]
-    kits = json.load(open("data/creatures/ability_kits.json"))["kits"]
-    templates = json.load(open("data/creatures/templates.json"))["templates"]
-    drops = json.load(open("data/creatures/quest_drops.json"))["drops"]
+    enc = json.load(open("data/creatures/encounters.json", encoding="utf-8"))["zones"]
+    creatures = json.load(open("data/creatures/creatures.json", encoding="utf-8"))["creatures"]
+    kits = json.load(open("data/creatures/ability_kits.json", encoding="utf-8"))["kits"]
+    templates = json.load(open("data/creatures/templates.json", encoding="utf-8"))["templates"]
+    drops = json.load(open("data/creatures/quest_drops.json", encoding="utf-8"))["drops"]
     drop_items = {r["item_id"] for rows in drops.values() for r in rows}
-    vendors = json.load(open("data/npcs/vendors.json"))["vendors"]
-    ambient = json.load(open("data/npcs/ambient_npcs.json"))["npcs"]
+    vendors = json.load(open("data/npcs/vendors.json", encoding="utf-8"))["vendors"]
+    ambient = json.load(open("data/npcs/ambient_npcs.json", encoding="utf-8"))["npcs"]
     people = {}
     for r in vendors:
         people[r["vendor_id"]] = r
@@ -72,7 +72,7 @@ def main():
             spawn_anywhere |= set((part or {}).get("creatures", {}))
     quests = []
     for f in sorted(Path("data/quests").glob("*.json")):
-        d = json.loads(f.read_text())
+        d = json.loads(f.read_text(encoding="utf-8"))
         quests += d["quests"] if isinstance(d, dict) else d
 
     total = 0

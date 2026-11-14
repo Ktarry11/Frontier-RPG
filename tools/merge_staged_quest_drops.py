@@ -44,7 +44,7 @@ CREATURES = ROOT / "data/creatures/creatures.json"
 def staged():
     out = {}
     for path in sorted(ROOT.glob("tools/staging_drops_*.json")):
-        data = json.loads(path.read_text())
+        data = json.loads(path.read_text(encoding="utf-8"))
         out[path.name] = data.get("drops", {})
     return out
 
@@ -53,7 +53,7 @@ def wanted_items():
     """Every item_id some quest's fetch/gather objective actually asks for."""
     want = set()
     for path in sorted((ROOT / "data/quests").glob("*.json")):
-        for quest in json.loads(path.read_text()).get("quests", []):
+        for quest in json.loads(path.read_text(encoding="utf-8")).get("quests", []):
             for obj in quest.get("objectives", []):
                 if obj.get("type") in ("fetch", "gather") and obj.get("target"):
                     want.add(obj["target"])
@@ -65,7 +65,7 @@ def wanted_items():
 
 
 def creature_names():
-    data = json.loads(CREATURES.read_text())
+    data = json.loads(CREATURES.read_text(encoding="utf-8"))
     rows = data.get("creatures", data)
     if isinstance(rows, dict):
         return {r.get("name") for r in rows.values()} | set(rows)
@@ -75,7 +75,7 @@ def creature_names():
 def main():
     check = "--check" in sys.argv
 
-    live_doc = json.loads(LIVE.read_text())
+    live_doc = json.loads(LIVE.read_text(encoding="utf-8"))
     live = live_doc["drops"]
     stage = staged()
     if not stage:
@@ -147,7 +147,7 @@ def main():
 
     for _fname, cname, row in adds:
         live.setdefault(cname, []).append(row)
-    LIVE.write_text(json.dumps(live_doc, indent=2) + "\n")
+    LIVE.write_text(json.dumps(live_doc, indent=2) + "\n", encoding="utf-8")
     print(f"\nmerged {len(adds)} row(s); quest_drops.json now covers {len(live)} creatures")
     return 0
 

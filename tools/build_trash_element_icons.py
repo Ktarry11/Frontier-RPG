@@ -44,7 +44,7 @@ def tint(img, hue, sat, vmul):
 
 
 def main():
-    cfg = json.loads((ROOT / "data" / "items" / "vendor_trash.json").read_text())
+    cfg = json.loads((ROOT / "data" / "items" / "vendor_trash.json").read_text(encoding="utf-8"))
     made = 0
     for fam in cfg["families"].values():
         for entry in fam:

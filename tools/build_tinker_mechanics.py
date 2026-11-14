@@ -515,7 +515,7 @@ def main():
     if check:
         print("--check: nothing written")
         return 0
-    OUT.write_text(json.dumps(TREE, indent=2) + "\n")
+    OUT.write_text(json.dumps(TREE, indent=2) + "\n", encoding="utf-8")
     print(f"wrote {OUT.relative_to(ROOT)}")
     return 0
 

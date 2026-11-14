@@ -78,7 +78,7 @@ _racials = None
 def _load(path, cache_name):
     global _kits, _racials
     try:
-        data = json.loads(path.read_text())
+        data = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
         data = {}
     return {k: v for k, v in data.items() if not k.startswith("_")}

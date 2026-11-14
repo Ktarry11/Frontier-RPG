@@ -692,7 +692,7 @@ def main():
                  if any(k.startswith("pet_") for k in (n.get("effects") or {}))]
     if pet_nodes:
         reaper = json.loads(
-            (ROOT / "data/abilities/reaper.json").read_text())["abilities"]
+            (ROOT / "data/abilities/reaper.json").read_text(encoding="utf-8"))["abilities"]
         summons = [a["ability_id"] for a in reaper
                    if a.get("effect_type") == "summon_pet"]
         assert summons, (
@@ -706,7 +706,7 @@ def main():
           f"{pts} points, {len(GATED)} load-bearing unlocks")
     if check:
         return 0
-    OUT.write_text(json.dumps(TREE, indent=2) + "\n")
+    OUT.write_text(json.dumps(TREE, indent=2) + "\n", encoding="utf-8")
     print(f"wrote {OUT.relative_to(ROOT)}")
     return 0
 

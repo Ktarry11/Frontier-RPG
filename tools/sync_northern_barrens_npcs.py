@@ -58,7 +58,7 @@ VENDOR = dict(vendor_id="nb_basecamp_vendor", name="Quartermaster Gruzk Ironhide
 
 def main():
     path = ROOT / "data/npcs/ambient_npcs.json"
-    data = json.loads(path.read_text())
+    data = json.loads(path.read_text(encoding="utf-8"))
     by_id = {r["npc_id"]: r for r in data["npcs"]}
     for n in NEW_NPCS:
         rec = by_id.get(n["npc_id"])
@@ -70,17 +70,17 @@ def main():
         rec["x"], rec["y"] = NPC_POSITIONS[n["npc_id"]]
     for nid in ("farwatch_officer", "morshan_outrider"):
         by_id[nid]["x"], by_id[nid]["y"] = NPC_POSITIONS[nid]
-    path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     vpath = ROOT / "data/npcs/vendors.json"
-    vd = json.loads(vpath.read_text())
+    vd = json.loads(vpath.read_text(encoding="utf-8"))
     rec = next((v for v in vd["vendors"] if v["vendor_id"] == VENDOR["vendor_id"]), None)
     if rec is None:
         rec = {}
         vd["vendors"].append(rec)
     rec.update(VENDOR)
     rec["x"], rec["y"] = NPC_POSITIONS["nb_basecamp_vendor"]
-    vpath.write_text(json.dumps(vd, indent=2, ensure_ascii=False) + "\n")
+    vpath.write_text(json.dumps(vd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"npcs: {len(NEW_NPCS)} placed + 2 repositioned, 1 vendor")
 
 

@@ -93,7 +93,7 @@ def main():
 
     # Refuse to run if the engine does not allow what we are about to author - an agility mace the
     # generator rejects is data that contradicts its own schema.
-    wt = json.loads((ROOT / "data/items/weapon_types.json").read_text())["weapon_types"]
+    wt = json.loads((ROOT / "data/items/weapon_types.json").read_text(encoding="utf-8"))["weapon_types"]
     for name, (wtype, _why) in CONVERT.items():
         allowed = wt[wtype].get("valid_stat_templates") or []
         if "agi_physical" not in allowed:
@@ -138,7 +138,7 @@ def main():
     names = {n for n, *_ in planned}
     touched = 0
     for path in list((ROOT / "data/quests").glob("*.json")) + list((ROOT / "data/loot").glob("*.json")):
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         hit = 0
 
         def walk(items):
@@ -158,7 +158,7 @@ def main():
                 if not owner.startswith("_") and isinstance(items, list):
                     walk(items)
         if hit:
-            path.write_text(json.dumps(doc, indent=2) + "\n")
+            path.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
             touched += 1
             print(f"  wrote {path.name} ({hit})")
 

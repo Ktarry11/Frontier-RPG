@@ -207,7 +207,7 @@ def audit(out, levels):
 
 def main():
     cp = ROOT / "data/creatures/creatures.json"
-    cdata = json.loads(cp.read_text())
+    cdata = json.loads(cp.read_text(encoding="utf-8"))
     # NAME COLLISIONS ARE SILENT DATA LOSS - dict.update() replaced an existing boss on the Drowning
     # Floor pass with no error at all. Twenty-one creatures is not worth trusting to memory.
     clash = [n for n in CREATURES if n in cdata["creatures"]
@@ -217,7 +217,7 @@ def main():
     cdata["creatures"].update(CREATURES)
 
     ep = ROOT / "data/creatures/encounters.json"
-    edata = json.loads(ep.read_text())
+    edata = json.loads(ep.read_text(encoding="utf-8"))
     for parent, (cave, roster) in CAVES.items():
         z = edata["zones"].setdefault(parent, {})
         z.setdefault("caves", {})[cave] = {"name": cave, "creatures": roster}
@@ -229,9 +229,9 @@ def main():
     out.update(pools())
     audit(out, LEVELS)
 
-    (ROOT / "data/loot/stranglethorn_cave_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n")
-    cp.write_text(json.dumps(cdata, indent=2) + "\n")
-    ep.write_text(json.dumps(edata, indent=2) + "\n")
+    (ROOT / "data/loot/stranglethorn_cave_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
+    cp.write_text(json.dumps(cdata, indent=2) + "\n", encoding="utf-8")
+    ep.write_text(json.dumps(edata, indent=2) + "\n", encoding="utf-8")
     print(f"Stranglethorn caves: creatures +{len(CREATURES)}, caves {len(CAVES)}, loot pools "
           f"{len(out) - 1}, items {sum(len(v) for k, v in out.items() if not k.startswith('_'))}")
 

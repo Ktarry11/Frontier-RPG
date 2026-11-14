@@ -24,7 +24,7 @@ def main():
     from shot_screen import build, StubSM
     from ui.screens.professions_screen import ProfessionsScreen, CRAFT_TABS
 
-    professions = json.load(open("data/professions/professions.json"))["professions"]
+    professions = json.load(open("data/professions/professions.json", encoding="utf-8"))["professions"]
     crafting = [p for p in professions if p not in GATHERING]
     player, party = build("Warrior", 40)
     bad = []

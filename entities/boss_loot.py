@@ -49,7 +49,7 @@ def _load_boss_loot_tables():
     if _LOOT_DIR.exists():
         for path in sorted(_LOOT_DIR.glob("*.json")):
             try:
-                with open(path, "r") as f:
+                with open(path, "r", encoding="utf-8") as f:
                     data = json.load(f)
             except (json.JSONDecodeError, OSError):
                 continue

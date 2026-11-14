@@ -339,7 +339,7 @@ class RecruitNPC:
 
         book = AbilityBook()
         try:
-            with open(_abilities_dir() / "asher_unique.json", "r") as f:
+            with open(_abilities_dir() / "asher_unique.json", "r", encoding="utf-8") as f:
                 data = json.load(f)
             for entry in data.get("abilities", []):
                 book.add_ability(_ability_from_data(entry))

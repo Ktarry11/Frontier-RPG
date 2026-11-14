@@ -240,11 +240,11 @@ DUNGEONS["groms"] = GROMS
 def main():
     only = [a for a in sys.argv[1:] if not a.startswith("-")]
     cp = ROOT / "data/creatures/creatures.json"
-    cdata = json.loads(cp.read_text())
+    cdata = json.loads(cp.read_text(encoding="utf-8"))
     ep = ROOT / "data/creatures/encounters.json"
-    edata = json.loads(ep.read_text())
+    edata = json.loads(ep.read_text(encoding="utf-8"))
     qp = ROOT / "data/creatures/quest_drops.json"
-    qdata = json.loads(qp.read_text())
+    qdata = json.loads(qp.read_text(encoding="utf-8"))
     for key, D in DUNGEONS.items():
         if only and key not in only:
             continue
@@ -265,12 +265,12 @@ def main():
                          "item_level = creature level + 3; real loot formulas (tools/build_durotar_content.make)."}
         out.update(D["pools"])
         fn = D["cave"].lower().replace("'", "").replace(" ", "_") + "_boss_loot.json"
-        (ROOT / "data/loot" / fn).write_text(json.dumps(out, indent=2) + "\n")
+        (ROOT / "data/loot" / fn).write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
         n = sum(len(v) for k, v in out.items() if not k.startswith("_"))
         print(f"{D['cave']}: creatures +{len(D['creatures'])}, pools {len(out) - 1}, items {n} -> {fn}")
-    cp.write_text(json.dumps(cdata, indent=2) + "\n")
-    ep.write_text(json.dumps(edata, indent=2) + "\n")
-    qp.write_text(json.dumps(qdata, indent=2, ensure_ascii=False) + "\n")
+    cp.write_text(json.dumps(cdata, indent=2) + "\n", encoding="utf-8")
+    ep.write_text(json.dumps(edata, indent=2) + "\n", encoding="utf-8")
+    qp.write_text(json.dumps(qdata, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":

@@ -46,7 +46,7 @@ def _ladder(kind):
     """[(material_id, skill)] for one material type, lowest skill first."""
     import json
     from pathlib import Path
-    mats = json.loads((Path(__file__).resolve().parent.parent / "data/gathering/materials.json").read_text())
+    mats = json.loads((Path(__file__).resolve().parent.parent / "data/gathering/materials.json").read_text(encoding="utf-8"))
     mats = mats.get("materials", mats)
     return sorted(((mid, m["skill_range"][0]) for mid, m in mats.items()
                    if m.get("material_type") == kind and m.get("skill_range")), key=lambda t: (t[1], t[0]))

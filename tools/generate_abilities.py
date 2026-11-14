@@ -138,7 +138,7 @@ def check_talent_references(all_ability_ids):
     if not talents_dir.exists():
         return problems
     for path in sorted(talents_dir.glob("*.json")):
-        data = json.loads(path.read_text())
+        data = json.loads(path.read_text(encoding="utf-8"))
         for node in data.get("nodes", []):
             for key in node.get("effects", {}):
                 if not key.startswith("ability_"):
@@ -166,7 +166,7 @@ def main():
         all_ids.update(a["ability_id"] for a in abilities)
 
         payload = {"class": class_name, "abilities": abilities}
-        (OUT_DIR / f"{prefix}.json").write_text(json.dumps(payload, indent=2))
+        (OUT_DIR / f"{prefix}.json").write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
         ranks = sum(len(a["ranks"]) for a in abilities)
         total += len(abilities)

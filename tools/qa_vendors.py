@@ -107,14 +107,14 @@ def zone_bands():
     Caves are still the reason the derived figure is kept as a fallback:
     not every zone is in zone_levels.json, and a band is better than none.
     """
-    authored = json.loads((ROOT / "data/zones/zone_levels.json").read_text())["zones"]
+    authored = json.loads((ROOT / "data/zones/zone_levels.json").read_text(encoding="utf-8"))["zones"]
     out = {}
     for zn, band in authored.items():
         if isinstance(band, (list, tuple)) and len(band) >= 2:
             out[key(zn)] = (band[0], band[1])
 
-    e = json.loads((ROOT / "data/creatures/encounters.json").read_text())["zones"]
-    c = json.loads((ROOT / "data/creatures/creatures.json").read_text())["creatures"]
+    e = json.loads((ROOT / "data/creatures/encounters.json").read_text(encoding="utf-8"))["zones"]
+    c = json.loads((ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"]
     for zn, zd in e.items():
         if key(zn) in out:
             continue        # authored wins
@@ -133,7 +133,7 @@ def zone_bands():
 
 def main():
     bands = zone_bands()
-    vendors = json.loads((ROOT / "data/npcs/vendors.json").read_text())["vendors"]
+    vendors = json.loads((ROOT / "data/npcs/vendors.json").read_text(encoding="utf-8"))["vendors"]
     gear = [v for v in vendors if v.get("sells_gear", True)]
     fails, warns = [], []
 
@@ -194,7 +194,7 @@ def main():
     # Identify bags by the CATALOG, not by looking for "Bag"/"Sack" in the name. The keyword version
     # missed Coffer, Strongbox, Case and Pack, which both undercounted bags and quietly filed rare
     # bags as rare GEAR - that is where a phantom "17% rare gear" reading came from.
-    _bags = json.loads((ROOT / "data/items/bags.json").read_text())
+    _bags = json.loads((ROOT / "data/items/bags.json").read_text(encoding="utf-8"))
     bag_names = {b["name"] for b in (_bags["bags"] if isinstance(_bags, dict) and "bags" in _bags
                                      else _bags)}
     for v in sorted(gear, key=lambda v: v["vendor_id"]):

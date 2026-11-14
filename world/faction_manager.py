@@ -150,7 +150,7 @@ class FactionManager:
     def _load(self):
         if not DATA.exists():
             return
-        d = json.loads(DATA.read_text())
+        d = json.loads(DATA.read_text(encoding="utf-8"))
         #: One ladder, shared. Sorted here so the data file can list tiers in any order.
         self.tiers = sorted(d.get("tiers", []), key=lambda t: t["at"])
         for fid, fd in d.get("factions", {}).items():

@@ -226,7 +226,7 @@ def main():
     built = build()
 
     mp = ROOT / "data/gathering/materials.json"
-    mdata = json.loads(mp.read_text())
+    mdata = json.loads(mp.read_text(encoding="utf-8"))
     mats = mdata.get("materials", mdata)
     for mid, (name, price, tier, desc, _icon) in PANTRY.items():
         mats[mid] = {"name": name, "material_type": "reagent", "profession": "cooking", "tier": tier,
@@ -235,14 +235,14 @@ def main():
     for mid, (name, _inputs, _n, _skill, desc, _icon) in PREPARED.items():
         mats[mid] = {"name": name, "material_type": "reagent", "profession": "cooking", "tier": "starter",
                      "description": desc, "stack_limit": 20, "sell_price": 0, "icon_id": mid}   # no bread-for-coin loop
-    mp.write_text(json.dumps(mdata, indent=2, ensure_ascii=False) + "\n")
+    mp.write_text(json.dumps(mdata, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     cp = ROOT / "data/consumables/consumable_types.json"
-    cdata = json.loads(cp.read_text())
+    cdata = json.loads(cp.read_text(encoding="utf-8"))
     mine = {m["consumable_id"] for _r, _rec, m, _i in built}
     # Everything an earlier run of THIS tool made goes first, so a renamed dish leaves nothing behind.
     rp0 = ROOT / "data/crafting/recipes.json"
-    r0 = json.loads(rp0.read_text())
+    r0 = json.loads(rp0.read_text(encoding="utf-8"))
     c0 = r0["professions"]["cooking"]
     c0 = c0["recipes"] if "recipes" in c0 else c0
     for rid in [r for r in c0 if r.startswith("cookx_")]:
@@ -258,13 +258,13 @@ def main():
             if rec["name"] == name:
                 rec["inputs"] = {k: q for k, q in rec["inputs"].items() if not k.startswith("cook_")}
                 rec["inputs"].update(extra)
-    rp0.write_text(json.dumps(r0, indent=2, ensure_ascii=False) + "\n")
+    rp0.write_text(json.dumps(r0, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     cdata["cooked_meals"] = [m for m in cdata["cooked_meals"] if m["consumable_id"] not in mine] \
         + [m for _r, _rec, m, _i in built]
-    cp.write_text(json.dumps(cdata, indent=2, ensure_ascii=False) + "\n")
+    cp.write_text(json.dumps(cdata, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     rp = ROOT / "data/crafting/recipes.json"
-    rdata = json.loads(rp.read_text())
+    rdata = json.loads(rp.read_text(encoding="utf-8"))
     recipes = rdata["professions"]["cooking"]["recipes"] if "recipes" in rdata["professions"]["cooking"] \
         else rdata["professions"]["cooking"]
     for rid, recipe, _m, _i in built:
@@ -272,10 +272,10 @@ def main():
     for mid, (name, inputs, makes, skill, _desc, _icon) in PREPARED.items():
         recipes[f"cookx_{mid[5:]}"] = {"name": name, "skill_required": skill, "inputs": dict(inputs), "count": makes,
                                        "output": {"kind": "material", "material_id": mid, "count": makes}}
-    rp.write_text(json.dumps(rdata, indent=2, ensure_ascii=False) + "\n")
+    rp.write_text(json.dumps(rdata, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     vp = ROOT / "data/npcs/vendors.json"
-    vdata = json.loads(vp.read_text())
+    vdata = json.loads(vp.read_text(encoding="utf-8"))
     vendors = vdata.get("vendors", vdata)
     vendors = vendors if isinstance(vendors, list) else list(vendors.values())
     stocked = 0
@@ -289,7 +289,7 @@ def main():
                 if mid not in sells:
                     sells.append(mid)
             stocked += 1
-    vp.write_text(json.dumps(vdata, indent=2, ensure_ascii=False) + "\n")
+    vp.write_text(json.dumps(vdata, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     copied = missing = 0
     if pack is not None:

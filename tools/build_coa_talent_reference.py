@@ -84,7 +84,7 @@ def main():
 
     by_class = OrderedDict()
     for path in files:
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         spec_path = doc["path"]                      # e.g. /guardian/vanguard
         cls_slug, spec_slug = spec_path.strip("/").split("/", 1)
         entry = by_class.setdefault(cls_slug, {"class_tree": OrderedDict(),
@@ -122,7 +122,7 @@ def main():
                    "class_tree": class_nodes,
                    "specs": specs}
             (OUTDIR / f"{cls_slug}.json").write_text(
-                json.dumps(doc, indent=1, ensure_ascii=False) + "\n")
+                json.dumps(doc, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
 
     print(f"\n{len(by_class)} classes, {total_class} class-tree nodes, "
           f"{total_spec} spec-tree nodes")

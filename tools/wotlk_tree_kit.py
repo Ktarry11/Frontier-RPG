@@ -76,7 +76,7 @@ def ability_ids():
     if _ABILITY_IDS is None:
         _ABILITY_IDS = set()
         for path in glob.glob(str(ROOT / "data/abilities/*.json")):
-            for a in json.loads(Path(path).read_text()).get("abilities", []):
+            for a in json.loads(Path(path).read_text(encoding="utf-8")).get("abilities", []):
                 _ABILITY_IDS.add(a["ability_id"])
     return _ABILITY_IDS
 
@@ -223,7 +223,7 @@ class Tree:
     def write(self, was=None):
         points = self.check()
         out = ROOT / f"data/talents/{self.tree_id}.json"
-        out.write_text(json.dumps(self.data, indent=2) + "\n")
+        out.write_text(json.dumps(self.data, indent=2) + "\n", encoding="utf-8")
         nodes = self.data["nodes"]
         print(f"  wrote {out.relative_to(ROOT)}")
         print(f"  {len(nodes)} nodes, {points} points\n")

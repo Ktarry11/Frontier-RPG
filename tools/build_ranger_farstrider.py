@@ -588,7 +588,7 @@ def main():
     # "work" and the party support silently vanishes - nothing else in the
     # project would report it.
     ranger = json.loads(
-        (ROOT / "data/abilities/ranger.json").read_text())["abilities"]
+        (ROOT / "data/abilities/ranger.json").read_text(encoding="utf-8"))["abilities"]
     by_id = {a["ability_id"]: a for a in ranger}
     for aid in PARTY_ABILITIES:
         a = by_id.get(aid)
@@ -622,7 +622,7 @@ def main():
           f"{pts} points, {len(PARTY_ABILITIES)} party auras modified")
     if check:
         return 0
-    OUT.write_text(json.dumps(TREE, indent=2) + "\n")
+    OUT.write_text(json.dumps(TREE, indent=2) + "\n", encoding="utf-8")
     print(f"wrote {OUT.relative_to(ROOT)}")
     return 0
 

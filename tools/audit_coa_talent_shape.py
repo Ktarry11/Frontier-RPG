@@ -76,7 +76,7 @@ def classify(text):
 def coa_rows():
     """(class, spec, name, text) for every CoA TALENT. Excludes the shared class tree (tab 87),
     which every class has identically and which would dilute all 21 the same way."""
-    meta = (COA / "_classes-meta.js").read_text()
+    meta = (COA / "_classes-meta.js").read_text(encoding="utf-8")
     tabmap = {}
     for m in re.finditer(r'name:\s*"([^"]+)",\s*slug:\s*"([a-z-]+)".*?specs:\s*\[(.*?)\]\}',
                          meta, re.S):
@@ -92,7 +92,7 @@ def coa_rows():
         # our 2,306" was wrong and implied they carry 2.4x what we do, when deduped it is
         # ~2,811 against 2,306 - roughly the same size. Dedupe on node id per file.
         seen = set()
-        for n in json.loads(p.read_text()):
+        for n in json.loads(p.read_text(encoding="utf-8")):
             if n.get("id") in seen:
                 continue
             seen.add(n.get("id"))
@@ -108,7 +108,7 @@ def our_rows():
     """(class, spec, name, text) for every talent we ship."""
     out = []
     for p in sorted(OURS.glob("*.json")):
-        d = json.loads(p.read_text())
+        d = json.loads(p.read_text(encoding="utf-8"))
         spec = d.get("spec_name") or p.stem
         cls = spec.split()[0]
         for known in ("Knight of Xoroth", "Sun Cleric", "Witch Doctor", "Witch Hunter"):

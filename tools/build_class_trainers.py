@@ -107,10 +107,10 @@ def main():
     zones = create_all_zones()
 
     amb_path = ROOT / "data" / "npcs" / "ambient_npcs.json"
-    amb = json.loads(amb_path.read_text())
+    amb = json.loads(amb_path.read_text(encoding="utf-8"))
     npcs = [n for n in amb["npcs"] if not n["npc_id"].startswith("ct_")]
-    vend = json.loads((ROOT / "data" / "npcs" / "vendors.json").read_text())["vendors"]
-    forges = json.loads((ROOT / "data" / "npcs" / "forges.json").read_text()).get("forges", [])
+    vend = json.loads((ROOT / "data" / "npcs" / "vendors.json").read_text(encoding="utf-8"))["vendors"]
+    forges = json.loads((ROOT / "data" / "npcs" / "forges.json").read_text(encoding="utf-8")).get("forges", [])
 
     def norm(s):
         return s.lower().replace(" ", "_").replace("'", "")
@@ -190,13 +190,13 @@ def main():
         print("dry run: would add", len(new_npcs), "trainer NPCs")
         return
     amb["npcs"] = npcs + new_npcs
-    amb_path.write_text(json.dumps(amb, indent=2) + "\n")
+    amb_path.write_text(json.dumps(amb, indent=2) + "\n", encoding="utf-8")
     tdir = ROOT / "data" / "training"
     tdir.mkdir(exist_ok=True)
     tpath = tdir / "trainers.json"
-    cur = json.loads(tpath.read_text()) if tpath.exists() else {}
+    cur = json.loads(tpath.read_text(encoding="utf-8")) if tpath.exists() else {}
     cur["class_trainers"] = class_trainers
-    tpath.write_text(json.dumps(cur, indent=2) + "\n")
+    tpath.write_text(json.dumps(cur, indent=2) + "\n", encoding="utf-8")
     print("wrote", len(new_npcs), "trainer NPCs")
 
 

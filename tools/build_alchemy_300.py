@@ -164,11 +164,11 @@ def main():
     ap.add_argument("--apply", action="store_true")
     args = ap.parse_args()
 
-    mats_doc = json.loads(MATS.read_text())
+    mats_doc = json.loads(MATS.read_text(encoding="utf-8"))
     mats = mats_doc["materials"]
-    rec_doc = json.loads(RECIPES.read_text())
+    rec_doc = json.loads(RECIPES.read_text(encoding="utf-8"))
     alch = rec_doc["professions"]["alchemy"]["recipes"]
-    con_doc = json.loads(CONSUM.read_text())
+    con_doc = json.loads(CONSUM.read_text(encoding="utf-8"))
 
     # every input must already exist, or the recipe is unbuildable
     missing = sorted({i for r in NEW_RECIPES.values() for i in r["inputs"]}
@@ -215,15 +215,15 @@ def main():
     if args.apply:
         for mid in made_m:
             mats[mid] = NEW_MATERIALS[mid]
-        MATS.write_text(json.dumps(mats_doc, indent=2) + "\n")
+        MATS.write_text(json.dumps(mats_doc, indent=2) + "\n", encoding="utf-8")
         for k, v in made_c.items():
             con_doc.setdefault(k, []).extend(v)
-        CONSUM.write_text(json.dumps(con_doc, indent=2) + "\n")
+        CONSUM.write_text(json.dumps(con_doc, indent=2) + "\n", encoding="utf-8")
         for rid in made_r:
             r = dict(NEW_RECIPES[rid])
             r["skill_range"] = spread(r["skill_required"])
             alch[rid] = r
-        RECIPES.write_text(json.dumps(rec_doc, indent=2) + "\n")
+        RECIPES.write_text(json.dumps(rec_doc, indent=2) + "\n", encoding="utf-8")
         print("\n  wrote materials.json, consumable_types.json, recipes.json")
     else:
         print("\n  dry run - pass --apply to write")

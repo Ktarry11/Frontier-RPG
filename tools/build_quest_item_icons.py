@@ -152,7 +152,7 @@ def main():
         raise SystemExit(f"missing icon files: {missing}")
     out = {"_notes": "quest item_id -> icon id. Built by tools/build_quest_item_icons.py. Used by entities/loot_item.py "
                      "when a quest item has no explicit icon_id.", "icons": dict(sorted(table.items()))}
-    (ROOT / "data" / "items" / "quest_item_icons.json").write_text(json.dumps(out, indent=1) + "\n")
+    (ROOT / "data" / "items" / "quest_item_icons.json").write_text(json.dumps(out, indent=1) + "\n", encoding="utf-8")
     print(len(table), "quest items mapped to", len(set(table.values())), "icons")
 
 

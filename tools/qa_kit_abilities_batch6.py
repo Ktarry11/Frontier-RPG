@@ -44,7 +44,7 @@ def main():
         c = rm.build_or_restore(rec, player_level=60)
         if c is not None:
             built[c.name] = c
-    kits = json.loads((ROOT / "data/npcs/personal_kits.json").read_text())
+    kits = json.loads((ROOT / "data/npcs/personal_kits.json").read_text(encoding="utf-8"))
     by_name = {a["name"]: a for k in kits.values() if isinstance(k, dict) for a in (k.get("abilities") or [])}
 
     def kit(who, title):

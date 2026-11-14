@@ -20,17 +20,17 @@ MEATS = ("meat_stringy", "meat_lean", "meat_thick", "meat_rich", "meat_prime", "
 
 def main():
     bad = []
-    recipes = json.load(open("data/crafting/recipes.json"))["professions"]["cooking"]
+    recipes = json.load(open("data/crafting/recipes.json", encoding="utf-8"))["professions"]["cooking"]
     recipes = recipes.get("recipes", recipes)
-    meals = {m["consumable_id"]: m for m in json.load(open("data/consumables/consumable_types.json"))["cooked_meals"]}
-    mats = json.load(open("data/gathering/materials.json"))
+    meals = {m["consumable_id"]: m for m in json.load(open("data/consumables/consumable_types.json", encoding="utf-8"))["cooked_meals"]}
+    mats = json.load(open("data/gathering/materials.json", encoding="utf-8"))
     mats = mats.get("materials", mats)
-    vendors = json.load(open("data/npcs/vendors.json"))
+    vendors = json.load(open("data/npcs/vendors.json", encoding="utf-8"))
     vendors = vendors.get("vendors", vendors)
     vendors = vendors if isinstance(vendors, list) else list(vendors.values())
     sold = {i for v in vendors for i in (v.get("sells") or [])}
 
-    caught = {f for p in json.load(open("data/gathering/node_pools.json"))["zones"].values()
+    caught = {f for p in json.load(open("data/gathering/node_pools.json", encoding="utf-8"))["zones"].values()
               for f in (p.get("fishing") or {}).get("table", {})}
     LEVELS = (1, 8, 16, 24, 32, 38, 46, 54)
     by_tier = {lv: set() for lv in LEVELS}

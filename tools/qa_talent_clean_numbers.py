@@ -42,7 +42,7 @@ def main():
     bad, unclean, decimals, untrue, total = [], [], [], [], 0
     for path in sorted(glob.glob("data/talents/*.json")):
         tree = os.path.basename(path)[:-5]
-        nodes = json.load(open(path))["nodes"]
+        nodes = json.load(open(path, encoding="utf-8"))["nodes"]
         for node in (nodes if isinstance(nodes, list) else nodes.values()):
             total += 1
             ranks = int(node.get("max_points") or 1)

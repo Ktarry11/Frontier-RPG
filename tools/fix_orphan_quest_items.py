@@ -47,18 +47,18 @@ DROPS = {
 
 
 def main():
-    data = json.loads(QP.read_text())
+    data = json.loads(QP.read_text(encoding="utf-8"))
     D = data["drops"]
     if "--check" not in sys.argv:
         for creature, drops in DROPS.items():
             D.setdefault(creature, [])
             ids = {x["item_id"] for x in drops}
             D[creature] = [d for d in D[creature] if d["item_id"] not in ids] + drops
-        QP.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+        QP.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     have = {x["item_id"] for v in D.values() for x in v}
     missing = []
     for f in sorted(glob.glob(str(ROOT / "data/quests/*.json"))):
-        d = json.load(open(f))
+        d = json.load(open(f, encoding="utf-8"))
         for q in (d["quests"] if isinstance(d, dict) else d):
             for o in q.get("objectives", []):
                 if o["type"] in ("fetch", "gather") and o["target"] not in have:

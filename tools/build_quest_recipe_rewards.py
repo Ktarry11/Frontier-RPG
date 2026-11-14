@@ -63,7 +63,7 @@ def main():
 
     taken, pairs, skipped = set(), [], []
     for path in sorted((ROOT / "data/quests").glob("*.json")):
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         quests = doc.get("quests") or []
         if not isinstance(quests, list):
             continue
@@ -107,7 +107,7 @@ def main():
         pairs.append((path.stem, quest["quest_id"], rid, "by place" if named else "by level"))
         if apply:
             quest["reward_recipe"] = rid
-            path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
+            path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     print(f"{len(pairs)} chain finales given a recipe\n")
     from world.recipe_manager import get_recipe_info

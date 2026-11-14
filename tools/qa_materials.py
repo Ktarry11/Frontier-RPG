@@ -54,14 +54,14 @@ def recipe_graph():
                 produced.add(out["material_id"])
 
     for f in sorted(ROOT.glob("data/*/recipes.json")):
-        d = json.loads(f.read_text())
+        d = json.loads(f.read_text(encoding="utf-8"))
         if "professions" in d:
             for _p, b in d["professions"].items():
                 if isinstance(b, dict):
                     scan(b.get("recipes", {}))
         else:
             scan(d.get("recipes", d))
-    sm = json.loads((ROOT / "data/gathering/smelting_recipes.json").read_text())
+    sm = json.loads((ROOT / "data/gathering/smelting_recipes.json").read_text(encoding="utf-8"))
     scan(sm.get("recipes", sm))
     return used, produced
 
@@ -69,9 +69,9 @@ def recipe_graph():
 def obtainable():
     """{material_id: lowest level it can first be obtained}."""
     first = defaultdict(lambda: 999)
-    pools = json.loads((ROOT / "data/gathering/node_pools.json").read_text())["zones"]
-    enc = json.loads((ROOT / "data/creatures/encounters.json").read_text())["zones"]
-    creatures = json.loads((ROOT / "data/creatures/creatures.json").read_text())["creatures"]
+    pools = json.loads((ROOT / "data/gathering/node_pools.json").read_text(encoding="utf-8"))["zones"]
+    enc = json.loads((ROOT / "data/creatures/encounters.json").read_text(encoding="utf-8"))["zones"]
+    creatures = json.loads((ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"]
 
     def zone_floor(zone_key):
         for zn, zd in enc.items():
@@ -94,7 +94,7 @@ def obtainable():
             first[mid] = min(first[mid], floor)
     # Drop tables carry their own bands in the source.
     for mod in ("entities/skinning_drops.py", "entities/cloth_drops.py", "entities/meat_drops.py"):
-        src = (ROOT / mod).read_text()
+        src = (ROOT / mod).read_text(encoding="utf-8")
         for lo, _hi, tbl in re.findall(r"\((\d+),\s*(\d+),\s*(\{[^}]*\})\)", src):
             for mid in re.findall(r'"([a-z_]+)"', tbl):
                 first[mid] = min(first[mid], int(lo))
@@ -125,14 +125,14 @@ def _recipe_index():
                 consumers[m].append((rid, r))
 
     for f in sorted(ROOT.glob("data/*/recipes.json")):
-        d = json.loads(f.read_text())
+        d = json.loads(f.read_text(encoding="utf-8"))
         if "professions" in d:
             for _p, b in d["professions"].items():
                 if isinstance(b, dict):
                     scan(b.get("recipes", {}), f)
         else:
             scan(d.get("recipes", d), f)
-    sm = json.loads((ROOT / "data/gathering/smelting_recipes.json").read_text())
+    sm = json.loads((ROOT / "data/gathering/smelting_recipes.json").read_text(encoding="utf-8"))
     scan(sm.get("recipes", sm), "smelting")
     return consumers
 
@@ -153,7 +153,7 @@ def _reaches_item(mat, seen=None):
     global _CONSUMERS
     if _CONSUMERS is None:
         _CONSUMERS = _recipe_index()
-    mats = json.loads((ROOT / "data/gathering/materials.json").read_text())
+    mats = json.loads((ROOT / "data/gathering/materials.json").read_text(encoding="utf-8"))
     mats = mats.get("materials", mats)
     seen = seen if seen is not None else set()
     for rid, r in _CONSUMERS.get(mat, []):
@@ -172,7 +172,7 @@ def _reaches_item(mat, seen=None):
 
 
 def main():
-    mats = json.loads((ROOT / "data/gathering/materials.json").read_text())
+    mats = json.loads((ROOT / "data/gathering/materials.json").read_text(encoding="utf-8"))
     mats = mats.get("materials", mats)
     used, produced = recipe_graph()
     first = obtainable()

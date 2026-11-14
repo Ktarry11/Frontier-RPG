@@ -45,7 +45,7 @@ def main():
             for (x, y) in spots:
                 rec["tilemap"].set_tile(x, y, None, "interaction")
         zones += 1
-    src = (ROOT / "ui" / "tilemap_renderer.py").read_text()
+    src = (ROOT / "ui" / "tilemap_renderer.py").read_text(encoding="utf-8")
     if "(0, 0, 32, 32), max(node_w, node_h)" in src:
         bad.append("ui/tilemap_renderer.py crops a fixed 32x32 out of a node icon again")
     print(f"{zones} zones, {nodes} nodes rolled")

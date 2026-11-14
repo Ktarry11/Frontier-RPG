@@ -79,7 +79,7 @@ def class_refs():
         return _class_refs
     rows = {}
     for path in sorted((ROOT / "data" / "abilities").glob("*.json")):
-        d = json.loads(path.read_text())
+        d = json.loads(path.read_text(encoding="utf-8"))
         items = d if isinstance(d, list) else d.get("abilities", d)
         items = items.values() if isinstance(items, dict) else items
         for a in items:
@@ -194,7 +194,7 @@ def ranks_for(a, doc):
 
 
 def main():
-    doc = json.loads(KITS.read_text())
+    doc = json.loads(KITS.read_text(encoding="utf-8"))
     grown = same = 0
     for kid, kit in doc.items():
         if kid.startswith("_"):
@@ -206,7 +206,7 @@ def main():
             a["ranks"] = new
     print(f"{grown} abilities with five ranks, {same} that do not grow (percentages, dispels, summons)")
     if "--apply" in sys.argv:
-        KITS.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
+        KITS.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print("written")
     return 0
 

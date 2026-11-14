@@ -213,7 +213,7 @@ def main():
     ap.add_argument("--all", action="store_true", help="also list what is left alone")
     args = ap.parse_args()
 
-    doc = json.loads(KITS.read_text())
+    doc = json.loads(KITS.read_text(encoding="utf-8"))
     fixed, left = [], []
 
     for kid, kit in doc.items():

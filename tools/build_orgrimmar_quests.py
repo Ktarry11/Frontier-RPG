@@ -284,7 +284,7 @@ def main():
             q["gear_reward_rarity"] = "rare"
         q.setdefault("next_quest_id", None)
         out.append(q)
-    OUT.write_text(json.dumps({"quests": out}, indent=2, ensure_ascii=False) + "\n")
+    OUT.write_text(json.dumps({"quests": out}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("orgrimmar quests:", len(out), "items:", sum(len(q["unique_item_defs"]) for q in out))
 
 

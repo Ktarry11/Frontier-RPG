@@ -58,7 +58,7 @@ WEIGHT_BY_SKILL = [(0, 3), (150, 2), (230, 2), (290, 1)]
 
 
 def load(rel):
-    with open(ROOT / rel) as f:
+    with open(ROOT / rel, encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -172,7 +172,7 @@ def main():
             pools[z]["table"].pop(mid, None)
         for z, mid, name, w, _ in additions:
             pools[z].setdefault("table", {})[mid] = w
-        POOLS.write_text(json.dumps(doc, indent=2) + "\n")
+        POOLS.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
         print(f"\n  wrote {POOLS.relative_to(ROOT)}")
     else:
         print("\n  dry run - pass --apply to write")

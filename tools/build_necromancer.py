@@ -1500,7 +1500,7 @@ def main():
         return 0
 
     for path, doc in targets:
-        path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
+        path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print(f"wrote {path.relative_to(ROOT)}")
     return 0
 

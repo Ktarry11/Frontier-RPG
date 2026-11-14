@@ -77,7 +77,7 @@ def class_resources():
         if slug in SKIP_FILES:
             continue
         try:
-            d = json.loads(Path(f).read_text())
+            d = json.loads(Path(f).read_text(encoding="utf-8"))
         except Exception:
             continue
         rows = d if isinstance(d, list) else list(d.values())
@@ -99,7 +99,7 @@ def main():
     from world.recruit_manager import get_recruit_manager
 
     res = class_resources()
-    doc = json.loads(KITS.read_text())
+    doc = json.loads(KITS.read_text(encoding="utf-8"))
     rm = get_recruit_manager()
     recs = {getattr(r, "recruit_id", None): r
             for r in (rm.recruits.values() if isinstance(rm.recruits, dict)
@@ -156,7 +156,7 @@ def main():
                   f"(class primary is {primary})")
 
     if args.apply:
-        KITS.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
+        KITS.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print(f"\n  wrote {KITS.relative_to(ROOT)}")
     else:
         print("\n  dry run - pass --apply to write")

@@ -11,11 +11,11 @@ the off-hand / dual-wield / shield choice pointless.  Staves (own 0.55 tier) are
 import glob, json, os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TARGET = 1.35
-rar = json.load(open(f"{ROOT}/data/items/rarity.json"))["rarity_tiers"]
+rar = json.load(open(f"{ROOT}/data/items/rarity.json", encoding="utf-8"))["rarity_tiers"]
 wp_path = f"{ROOT}/data/items/weapon_types.json"
-wp = json.load(open(wp_path))
+wp = json.load(open(wp_path, encoding="utf-8"))
 wp["damage_tiers"]["two_hand"]["dps_multiplier"] = TARGET
-json.dump(wp, open(wp_path, "w"), indent=2); open(wp_path, "a").write("\n")
+json.dump(wp, open(wp_path, "w", encoding="utf-8"), indent=2); open(wp_path, "a", encoding="utf-8").write("\n")
 W = wp["weapon_types"]
 
 

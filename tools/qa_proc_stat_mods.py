@@ -156,7 +156,7 @@ def main():
     checked = 0
 
     for path in sorted((ROOT / "data/talents").glob("*.json")):
-        for node in json.loads(path.read_text())["nodes"]:
+        for node in json.loads(path.read_text(encoding="utf-8"))["nodes"]:
             for spec in specs_of(node):
                 for key, val in (spec.get("stat_mods") or {}).items():
                     checked += 1

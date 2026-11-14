@@ -66,9 +66,9 @@ DEMAND = {
 
 
 def _load():
-    with open(os.path.join(ROOT, "data/creatures/creatures.json")) as fh:
+    with open(os.path.join(ROOT, "data/creatures/creatures.json"), encoding="utf-8") as fh:
         creatures = json.load(fh)["creatures"]
-    with open(os.path.join(ROOT, "data/creatures/ability_kits.json")) as fh:
+    with open(os.path.join(ROOT, "data/creatures/ability_kits.json"), encoding="utf-8") as fh:
         kits = json.load(fh)["kits"]
     return creatures, kits
 

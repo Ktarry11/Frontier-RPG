@@ -23,7 +23,7 @@ def data():
     global _DATA
     if _DATA is None:
         try:
-            _DATA = json.loads(_PATH.read_text())
+            _DATA = json.loads(_PATH.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
             _DATA = {"chance": 0.0, "tokens": {}, "bosses": {}}
     return _DATA

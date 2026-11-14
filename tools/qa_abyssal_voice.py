@@ -28,18 +28,18 @@ from world.quest_dialogue_abyssal import QUEST_TOPICS             # noqa: E402
 
 def main():
     texts, accepts = {}, {}
-    for q in json.loads((ROOT / "data/quests/abyssal_sands.json").read_text())["quests"]:
+    for q in json.loads((ROOT / "data/quests/abyssal_sands.json").read_text(encoding="utf-8"))["quests"]:
         if not q["quest_id"].startswith("ab_"):
             continue
         for f in ("description", "accept_text", "turn_in_text"):
             texts[f"{q['quest_id']}.{f}"] = q[f]
         accepts[q["quest_id"]] = q["accept_text"]
     for name in ("vendors", "ambient_npcs"):
-        for rec in _walk(json.loads((ROOT / "data/npcs" / f"{name}.json").read_text())):
+        for rec in _walk(json.loads((ROOT / "data/npcs" / f"{name}.json").read_text(encoding="utf-8"))):
             nid = rec.get("npc_id") or rec.get("vendor_id")
             if nid in GREETINGS:
                 texts[f"greeting {nid}"] = rec["greeting"]
-    for rec in _walk(json.loads((ROOT / "data/creatures/quest_drops.json").read_text())):
+    for rec in _walk(json.loads((ROOT / "data/creatures/quest_drops.json").read_text(encoding="utf-8"))):
         if rec.get("item_id") in ITEM_TEXT:
             texts[f"item {rec['item_id']}"] = rec["description"]
     for quest, topics in QUEST_TOPICS.items():

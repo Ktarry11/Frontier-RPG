@@ -37,7 +37,7 @@ def main():
     r = subprocess.run([sys.executable, "tools/reprice_materials.py", "--check"], capture_output=True, text=True)
     check(r.returncode == 0, "materials under the curve:\n      " + "\n      ".join(r.stdout.strip().splitlines()[-6:]))
 
-    data = json.loads((ROOT / "data/gathering/materials.json").read_text())
+    data = json.loads((ROOT / "data/gathering/materials.json").read_text(encoding="utf-8"))
     mats = data.get("materials", data)
     sys.path.insert(0, str(ROOT / "tools"))
     from reprice_materials import TYPE_WEIGHT, curve
@@ -80,7 +80,7 @@ def main():
             worth = mats.get(oid, {}).get("sell_price", 0) * (out.get("quantity", 1) or 1)
         check(worth <= cost, f"MONEY LOOP {rid}: inputs cost {cost}c at a vendor, the result sells for {worth}c")
 
-    src = (ROOT / "ui/screens/inventory_screen.py").read_text()
+    src = (ROOT / "ui/screens/inventory_screen.py").read_text(encoding="utf-8")
     i = src.index("def _draw_material_tooltip")
     body = src[i:src.index("\n    def ", i + 10)]
     check(".tier" not in body, "the material card still prints the material's tier")

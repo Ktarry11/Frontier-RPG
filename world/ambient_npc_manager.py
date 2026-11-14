@@ -67,7 +67,7 @@ class AmbientNPCManager:
     def _load_npcs(self):
         npcs_path = Path(__file__).parent.parent / "data" / "npcs" / "ambient_npcs.json"
         try:
-            with open(npcs_path, 'r') as f:
+            with open(npcs_path, 'r', encoding="utf-8") as f:
                 data = json.load(f)
 
             for npc_def in data.get("npcs", []):
@@ -85,7 +85,7 @@ class AmbientNPCManager:
             # dialogue should not be lost because somebody moved the person who says it.
             for path in sorted((npcs_path.parent / "greetings").glob("*.json")):
                 try:
-                    for npc_id, text in json.loads(path.read_text()).items():
+                    for npc_id, text in json.loads(path.read_text(encoding="utf-8")).items():
                         if npc_id in self.npcs and text:
                             self.npcs[npc_id].greeting = text
                         elif not npc_id.startswith("_"):

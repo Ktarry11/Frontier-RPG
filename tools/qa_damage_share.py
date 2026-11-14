@@ -148,7 +148,7 @@ def main():
                         "_sharing_damage guard is not holding")
 
     # ---- 2. every authored spec, on the real recruit -----------------------
-    doc = json.loads(KITS.read_text())
+    doc = json.loads(KITS.read_text(encoding="utf-8"))
     rm = get_recruit_manager()
     recs = {getattr(r, "recruit_id", None): r
             for r in (rm.recruits.values() if isinstance(rm.recruits, dict)

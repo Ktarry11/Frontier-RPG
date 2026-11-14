@@ -48,14 +48,14 @@ def main():
     check(PM.primary_count(c) == PM.max_primary(), "setup: slots should be full")
     offer = PM.offers(c, "fishing")
     check("already know" not in json.dumps(offer, default=str).lower(), f"fishing is blocked by full slots: {offer}")
-    tr = json.load(open("data/training/trainers.json"))["profession_trainers"]
+    tr = json.load(open("data/training/trainers.json", encoding="utf-8"))["profession_trainers"]
     cooks = [n for n, v in tr.items() if isinstance(v, list) and "cooking" in v]
     check(cooks and all("fishing" in tr[n] for n in cooks), "a cooking trainer does not teach fishing")
 
     # 2 + 3
-    mats = json.load(open("data/gathering/materials.json"))["materials"]
-    pools = json.load(open("data/gathering/node_pools.json"))["zones"]
-    levels = {zone_key(k): v for k, v in json.load(open("data/zones/zone_levels.json"))["zones"].items()}
+    mats = json.load(open("data/gathering/materials.json", encoding="utf-8"))["materials"]
+    pools = json.load(open("data/gathering/node_pools.json", encoding="utf-8"))["zones"]
+    levels = {zone_key(k): v for k, v in json.load(open("data/zones/zone_levels.json", encoding="utf-8"))["zones"].items()}
     fish = {k: v for k, v in mats.items() if v.get("material_type") == "fish"}
     check(len(fish) == 22, f"expected 22 fish before 60, found {len(fish)}")
     with_pool = {k: p["fishing"] for k, p in pools.items() if p.get("fishing")}
@@ -100,8 +100,8 @@ def main():
     check(c2.knows_profession("fishing") or not ok, "learning fishing did not take")
 
     # 5
-    rd = json.load(open("data/crafting/recipes.json"))["professions"]
-    cons = json.load(open("data/consumables/consumable_types.json"))
+    rd = json.load(open("data/crafting/recipes.json", encoding="utf-8"))["professions"]
+    cons = json.load(open("data/consumables/consumable_types.json", encoding="utf-8"))
     known = {x["consumable_id"] for v in cons.values() if isinstance(v, list) for x in v}
     used = set()
     for prof in ("cooking", "alchemy"):

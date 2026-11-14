@@ -43,10 +43,10 @@ NEW_NPCS = [
 
 def main():
     path = "data/npcs/ambient_npcs.json"
-    d = json.load(open(path))
+    d = json.load(open(path, encoding="utf-8"))
     before = len(d["npcs"])
     d["npcs"].extend(NEW_NPCS)
-    json.dump(d, open(path, "w"), indent=2)
+    json.dump(d, open(path, "w", encoding="utf-8"), indent=2)
     print(f"Added {len(NEW_NPCS)} troll NPCs to Echo Isles ({before} -> {len(d['npcs'])} total ambient NPCs).")
     for n in NEW_NPCS:
         print(f"  {n['name']} ({n['npc_id']}) at ({n['x']},{n['y']})")

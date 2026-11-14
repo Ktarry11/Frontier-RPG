@@ -184,7 +184,7 @@ TARGET_QUESTS = {
 
 def main():
     path = "data/quests/valley_of_trials.json"
-    d = json.load(open(path))
+    d = json.load(open(path, encoding="utf-8"))
     changed = []
     for q in d["quests"]:
         qid = q["quest_id"]
@@ -194,7 +194,7 @@ def main():
         q.pop("gear_reward_rarity", None)
         q["unique_item_defs"] = TARGET_QUESTS[qid]["unique_item_defs"]
         changed.append(qid)
-    json.dump(d, open(path, "w"), indent=2)
+    json.dump(d, open(path, "w", encoding="utf-8"), indent=2)
     print(f"Replaced procedural weapon rewards with unique hand-authored sets on {len(changed)} quests:")
     for qid in changed:
         names = [i["name"] for i in TARGET_QUESTS[qid]["unique_item_defs"]]

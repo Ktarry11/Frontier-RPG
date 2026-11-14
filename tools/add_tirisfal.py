@@ -196,8 +196,8 @@ SAFE_TOWNS = ["Ratchet", "Camp Taurajo", "Orgrimmar", "Zeppelin Tower"]
 
 
 def main():
-    creatures_doc = json.loads(CREATURES_PATH.read_text())
-    encounters_doc = json.loads(ENCOUNTERS_PATH.read_text())
+    creatures_doc = json.loads(CREATURES_PATH.read_text(encoding="utf-8"))
+    encounters_doc = json.loads(ENCOUNTERS_PATH.read_text(encoding="utf-8"))
     creatures = creatures_doc["creatures"]
     zones = encounters_doc["zones"]
 
@@ -224,8 +224,8 @@ def main():
             print("   -", p)
         return 1
 
-    CREATURES_PATH.write_text(json.dumps(creatures_doc, indent=2))
-    ENCOUNTERS_PATH.write_text(json.dumps(encounters_doc, indent=2))
+    CREATURES_PATH.write_text(json.dumps(creatures_doc, indent=2), encoding="utf-8")
+    ENCOUNTERS_PATH.write_text(json.dumps(encounters_doc, indent=2), encoding="utf-8")
     print(f"Creatures: {len(creatures)} total ({added} new)")
     print(f"Zones with tables: {len(zones)}")
     print(f"  Tirisfal Glades: {len(TIRISFAL['subzones'])} subzones, "

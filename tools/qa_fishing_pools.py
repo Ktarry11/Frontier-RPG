@@ -55,7 +55,7 @@ def main():
         if pink.sum() > 0.01 * max(1, seen.sum()):
             bad.append(f"{n}: {int(pink.sum())} bright pink pixels left")
 
-    pools = json.loads((ROOT / "data/gathering/node_pools.json").read_text())["zones"]
+    pools = json.loads((ROOT / "data/gathering/node_pools.json").read_text(encoding="utf-8"))["zones"]
     fishing = [k for k, v in pools.items() if isinstance(v, dict) and v.get("fishing")]
     for k in fishing:
         if k not in FP.ZONE_POOLS:

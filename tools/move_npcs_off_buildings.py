@@ -53,7 +53,7 @@ def main():
 
     files = {"ambient": ("data/npcs/ambient_npcs.json", "npcs"), "vendor": ("data/npcs/vendors.json", "vendors"),
              "recruit": ("data/npcs/recruits.json", "recruits")}
-    data = {k: json.load(open(p)) for k, (p, _) in files.items()}
+    data = {k: json.load(open(p, encoding="utf-8")) for k, (p, _) in files.items()}
     where = collections.defaultdict(list)
     for kind, (_p, key) in files.items():
         for row in data[kind][key]:
@@ -105,7 +105,7 @@ def main():
             moved += 1
     if apply:
         for kind, (p, _k) in files.items():
-            Path(p).write_text(json.dumps(data[kind], indent=2, ensure_ascii=False) + "\n")
+            Path(p).write_text(json.dumps(data[kind], indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"{moved} moved{'' if apply else ' (dry run)'}, {stuck} not moved")
 
 

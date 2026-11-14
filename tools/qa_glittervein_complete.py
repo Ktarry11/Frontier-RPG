@@ -68,7 +68,7 @@ def main():
         if over:
             bad.append(f"{nid} is drawn under {over}")
 
-    td = json.load(open("data/travel/travel_data.json"))
+    td = json.load(open("data/travel/travel_data.json", encoding="utf-8"))
     drawn = [lm["sprite_key"] for lm in zone.landmarks]
 
     # 1
@@ -90,7 +90,7 @@ def main():
         bad.append("the flight master is not on the map")
     else:
         clear("gv_flight_master")
-    npcs = {n["npc_id"]: n for n in json.load(open("data/npcs/ambient_npcs.json"))["npcs"]}
+    npcs = {n["npc_id"]: n for n in json.load(open("data/npcs/ambient_npcs.json", encoding="utf-8"))["npcs"]}
     rec = npcs.get("gv_flight_master")
     if not rec or (rec["x"], rec["y"]) != G.NPC_POSITIONS.get("gv_flight_master"):
         bad.append("the flight master's record is missing or filed somewhere else")

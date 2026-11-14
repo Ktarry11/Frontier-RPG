@@ -34,7 +34,7 @@ def main():
     from entities.character import Character
     bad, checked = [], 0
     for path in sorted((ROOT / "data/abilities").glob("*.json")):
-        blob = json.loads(path.read_text())
+        blob = json.loads(path.read_text(encoding="utf-8"))
         entries = blob.get("abilities", blob) if isinstance(blob, dict) else blob
         if isinstance(entries, dict):
             entries = list(entries.values())

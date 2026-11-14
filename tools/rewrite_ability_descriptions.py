@@ -207,7 +207,7 @@ def main():
     changed, kept, rows = 0, 0, []
 
     for path in sorted(glob.glob("data/abilities/*.json")):
-        doc = json.load(open(path))
+        doc = json.load(open(path, encoding="utf-8"))
         entries = doc.get("abilities")
         iterable = entries if isinstance(entries, list) else list(entries.values())
         dirty = False
@@ -230,7 +230,7 @@ def main():
                 changed += 1
                 dirty = True
         if dirty and write:
-            json.dump(doc, open(path, "w"), indent=2)
+            json.dump(doc, open(path, "w", encoding="utf-8"), indent=2)
 
     print(f"  {kept} descriptions already stated a mechanic and were LEFT ALONE")
     print(f"  {changed} rewritten{' (written)' if write else ' (dry run - pass --write)'}\n")

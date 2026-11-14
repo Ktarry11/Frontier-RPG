@@ -41,8 +41,8 @@ def key(s):
 def main():
     from world.zone_generator import create_all_zones
     Z = create_all_zones()
-    creatures = json.loads((ROOT / "data/creatures/creatures.json").read_text())["creatures"]
-    enc = json.loads((ROOT / "data/creatures/encounters.json").read_text())["zones"]
+    creatures = json.loads((ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"]
+    enc = json.loads((ROOT / "data/creatures/encounters.json").read_text(encoding="utf-8"))["zones"]
 
     def is_town(zone_name):
         """A zone with no OPEN-ZONE creatures is a town, and a town has no level.
@@ -89,9 +89,9 @@ def main():
             return min(flat) - 6, max(flat)
         return None
 
-    recruits = json.loads((ROOT / "data/npcs/recruits.json").read_text())["recruits"]
-    amb = json.loads((ROOT / "data/npcs/ambient_npcs.json").read_text())["npcs"]
-    ven = json.loads((ROOT / "data/npcs/vendors.json").read_text())["vendors"]
+    recruits = json.loads((ROOT / "data/npcs/recruits.json").read_text(encoding="utf-8"))["recruits"]
+    amb = json.loads((ROOT / "data/npcs/ambient_npcs.json").read_text(encoding="utf-8"))["npcs"]
+    ven = json.loads((ROOT / "data/npcs/vendors.json").read_text(encoding="utf-8"))["vendors"]
     occupied = {}
     for n in amb:
         occupied.setdefault(key(n["zone"]), set()).add((n["x"], n["y"]))

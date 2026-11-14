@@ -46,7 +46,7 @@ FRIENDLY = ("shaman_stoneskin_totem", "shaman_windfury_totem",
 
 def main():
     fails = []
-    data = json.loads((ROOT / "data/abilities/shaman.json").read_text())
+    data = json.loads((ROOT / "data/abilities/shaman.json").read_text(encoding="utf-8"))
     coa = _ability_from_data(next(a for a in data["abilities"]
                                   if a["ability_id"] == "shaman_call_of_ancestors"))
 

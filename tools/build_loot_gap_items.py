@@ -296,7 +296,7 @@ HOMES = {
 }
 
 def load(rel):
-    return json.loads((ROOT / rel).read_text())
+    return json.loads((ROOT / rel).read_text(encoding="utf-8"))
 
 
 def pick_file(files, ilvl, used):
@@ -395,7 +395,7 @@ def main(argv):
         print("\n(report only; pass --apply to write)")
         return 0
     for rel, data in writes.items():
-        (ROOT / rel).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+        (ROOT / rel).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"\nwrote {len(writes)} files")
     return 0
 

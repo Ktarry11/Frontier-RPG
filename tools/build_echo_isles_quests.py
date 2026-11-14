@@ -741,7 +741,7 @@ def main():
     for q in out:
         n = q["next_quest_id"]
         assert n is None or n in ids, (q["quest_id"], n)
-    OUT.write_text(json.dumps({"quests": out}, indent=2, ensure_ascii=False) + "\n")
+    OUT.write_text(json.dumps({"quests": out}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("echo quests:", len(out), "items:", sum(len(q["unique_item_defs"]) for q in out))
 
 

@@ -127,9 +127,9 @@ def main():
     ap.add_argument("--apply", action="store_true")
     args = ap.parse_args()
 
-    mats_doc = json.loads(MATS.read_text())
+    mats_doc = json.loads(MATS.read_text(encoding="utf-8"))
     mats = mats_doc["materials"]
-    rec_doc = json.loads(RECIPES.read_text())
+    rec_doc = json.loads(RECIPES.read_text(encoding="utf-8"))
     ww = rec_doc["professions"]["woodworking"]["recipes"]
 
     planks = sorted((m["skill_range"][0], mid) for mid, m in mats.items()
@@ -215,9 +215,9 @@ def main():
 
     if args.apply:
         mats.update(new_mats)
-        MATS.write_text(json.dumps(mats_doc, indent=2) + "\n")
+        MATS.write_text(json.dumps(mats_doc, indent=2) + "\n", encoding="utf-8")
         ww.update(new_recipes)
-        RECIPES.write_text(json.dumps(rec_doc, indent=2) + "\n")
+        RECIPES.write_text(json.dumps(rec_doc, indent=2) + "\n", encoding="utf-8")
         print(f"\n  wrote materials.json, recipes.json")
     else:
         print("\n  dry run - pass --apply to write")

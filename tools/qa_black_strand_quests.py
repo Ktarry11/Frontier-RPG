@@ -40,8 +40,8 @@ TICS = {
 
 def main():
     bad = []
-    quests = json.loads((ROOT / "data/quests/black_strand.json").read_text())["quests"]
-    drops = json.loads((ROOT / "data/creatures/quest_drops.json").read_text())["drops"]
+    quests = json.loads((ROOT / "data/quests/black_strand.json").read_text(encoding="utf-8"))["quests"]
+    drops = json.loads((ROOT / "data/creatures/quest_drops.json").read_text(encoding="utf-8"))["drops"]
     by_item = {r["item_id"]: r for rows in drops.values() for r in rows}
 
     if len(quests) < 30:

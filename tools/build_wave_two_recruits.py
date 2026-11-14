@@ -501,8 +501,8 @@ def verify():
         "Grom'gol": "gromgol", "Booty Bay": "booty_bay",
         "The Crystalline Underdark": "underdark", "The Sepulcher": "sepulcher",
     }
-    amb = json.loads((ROOT / "data/npcs/ambient_npcs.json").read_text())["npcs"]
-    ven = json.loads((ROOT / "data/npcs/vendors.json").read_text())["vendors"]
+    amb = json.loads((ROOT / "data/npcs/ambient_npcs.json").read_text(encoding="utf-8"))["npcs"]
+    ven = json.loads((ROOT / "data/npcs/vendors.json").read_text(encoding="utf-8"))["vendors"]
     problems = []
     for zone, mod in MODULES.items():
         mine = [r for r in NEW if r["zone"] == zone]
@@ -544,7 +544,7 @@ def verify():
 
 def main():
     check = "--check" in sys.argv
-    doc = json.loads(RECRUITS.read_text())
+    doc = json.loads(RECRUITS.read_text(encoding="utf-8"))
     rows = doc["recruits"] if isinstance(doc, dict) and "recruits" in doc else doc
     have = {r["recruit_id"] for r in rows}
 
@@ -600,9 +600,9 @@ def main():
         print("\nnothing to do - already merged")
         return 0
     rows.extend(todo)
-    RECRUITS.write_text(json.dumps(doc, indent=2) + "\n")
+    RECRUITS.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
 
-    after = json.loads(RECRUITS.read_text())
+    after = json.loads(RECRUITS.read_text(encoding="utf-8"))
     arows = after["recruits"] if isinstance(after, dict) and "recruits" in after else after
     a2 = next(r for r in arows if r["recruit_id"] == "asher_coleman")
     if hashlib.sha256(json.dumps(a2, sort_keys=True).encode()).hexdigest() != asher_before:

@@ -142,7 +142,7 @@ from world.creature_manager import CreatureManager                 # noqa: E402
 cm = CreatureManager()
 worst = []
 for name in list(__import__("json").loads(
-        (ROOT / "data/creatures/creatures.json").read_text())["creatures"]):
+        (ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"]):
     m = cm.spawn_creature(name)
     if m is None:
         continue

@@ -193,9 +193,9 @@ def pools():
 
 def main():
     cp = ROOT / "data/creatures/creatures.json"
-    cdata = json.loads(cp.read_text())
+    cdata = json.loads(cp.read_text(encoding="utf-8"))
     ep = ROOT / "data/creatures/encounters.json"
-    edata = json.loads(ep.read_text())
+    edata = json.loads(ep.read_text(encoding="utf-8"))
     cdata["creatures"].update(NEW_CREATURES)
     for name, (lvl, mult, kit) in BOSS_PATCH.items():
         c = cdata["creatures"][name]
@@ -211,9 +211,9 @@ def main():
     out = {"_notes": "Silverpine dungeon boss loot (2026-10-23): Widow's Lair, Ambermill Tower, Shadowfang Keep. ONE item drops per "
                      "kill from the pool. item_level = creature level + 3; real loot formulas (tools/build_durotar_content.make)."}
     out.update(pools())
-    (ROOT / "data/loot/silverpine_dungeon_loot.json").write_text(json.dumps(out, indent=2) + "\n")
-    cp.write_text(json.dumps(cdata, indent=2) + "\n")
-    ep.write_text(json.dumps(edata, indent=2) + "\n")
+    (ROOT / "data/loot/silverpine_dungeon_loot.json").write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
+    cp.write_text(json.dumps(cdata, indent=2) + "\n", encoding="utf-8")
+    ep.write_text(json.dumps(edata, indent=2) + "\n", encoding="utf-8")
     n = sum(len(v) for k, v in out.items() if not k.startswith("_"))
     print(f"dungeon content: +{len(NEW_CREATURES)} creatures, {len(BOSS_PATCH)} boss patches, {len(out) - 1} pools / {n} items")
 

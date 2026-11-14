@@ -30,7 +30,7 @@ def main():
     # Generate templates
     print("Generating templates.json...")
     templates_data = build_templates()
-    with open(data_dir / "templates.json", "w") as f:
+    with open(data_dir / "templates.json", "w", encoding="utf-8") as f:
         json.dump(templates_data, f, indent=2)
     print(f"  ✓ {len(templates_data['templates'])} templates")
 
@@ -61,7 +61,7 @@ def main():
             print(f"  keeping {len(outside)} kit(s) that live in the JSON rather than in "
                   f"monster_kits.py (zone content builders write these)")
         kits_data["kits"].update(outside)
-    with open(path, "w") as f:
+    with open(path, "w", encoding="utf-8") as f:
         json.dump(kits_data, f, indent=2)
     print(f"  ✓ {len(kits_data['kits'])} kits")
 

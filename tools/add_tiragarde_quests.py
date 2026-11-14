@@ -212,10 +212,10 @@ QUESTS = [
 def main():
     # Add the questgiver NPC to ambient_npcs.json
     npc_path = "data/npcs/ambient_npcs.json"
-    npc_data = json.load(open(npc_path))
+    npc_data = json.load(open(npc_path, encoding="utf-8"))
     if not any(n["npc_id"] == NEW_NPC["npc_id"] for n in npc_data["npcs"]):
         npc_data["npcs"].append(NEW_NPC)
-        json.dump(npc_data, open(npc_path, "w"), indent=2)
+        json.dump(npc_data, open(npc_path, "w", encoding="utf-8"), indent=2)
         print(f"Added questgiver NPC: {NEW_NPC['name']} ({NEW_NPC['npc_id']}) at Durotar ({NEW_NPC['x']},{NEW_NPC['y']})")
     else:
         print(f"NPC {NEW_NPC['npc_id']} already exists, skipped.")
@@ -223,7 +223,7 @@ def main():
     # Write the new Durotar quest file
     quest_path = "data/quests/durotar.json"
     quest_data = {"quests": QUESTS}
-    json.dump(quest_data, open(quest_path, "w"), indent=2)
+    json.dump(quest_data, open(quest_path, "w", encoding="utf-8"), indent=2)
     print(f"Wrote {len(QUESTS)} quests to {quest_path}:")
     for q in QUESTS:
         print(f"  {q['quest_id']} - \"{q['title']}\" (level {q['level_min']}-{q['level_max']})")

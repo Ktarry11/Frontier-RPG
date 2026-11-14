@@ -42,7 +42,7 @@ def load_talents():
         stem = f.stem
         cls = stem.split("_")[0]
         spec = stem[len(cls) + 1:] or stem
-        d = json.loads(f.read_text())
+        d = json.loads(f.read_text(encoding="utf-8"))
         for n in d.get("nodes", []):
             out[n["talent_id"]] = (cls, spec, n.get("name", "?"), n.get("description", ""))
     return out

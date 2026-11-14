@@ -122,7 +122,7 @@ def our_talents(slug):
     out = {}
     prefix = slug.replace("-", "_")
     for path in sorted((ROOT / "data/talents").glob(f"{prefix}_*.json")):
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         for node in doc.get("nodes", []):
             key = re.sub(r"[^a-z0-9]", "", (node.get("name") or "").lower())
             if key:
@@ -247,7 +247,7 @@ def main():
     print(f"{'class':<18} {'CoA':>5} {'match':>6} {'ours-scalar':>12} {'new':>5} {'turn-fix':>9}")
     for slug in slugs:
         text, stats = build(slug)
-        (OUT_DIR / f"{slug}.md").write_text(text + "\n")
+        (OUT_DIR / f"{slug}.md").write_text(text + "\n", encoding="utf-8")
         print(f"{slug:<18} {stats['total']:>5} {stats['matched']:>6} "
               f"{stats['scalar_ours']:>12} {stats['new']:>5} {stats['turn_risk']:>9}")
     print(f"\nwritten to {OUT_DIR.relative_to(ROOT)}/")

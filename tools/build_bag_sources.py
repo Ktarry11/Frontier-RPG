@@ -49,11 +49,11 @@ STARTER_BAGS = ["small_burlap_sack", "green_dyed_sack",
 
 def main():
     write = "--write" in sys.argv
-    bags = {b["item_id"]: b for b in json.load(open(ROOT / "data/items/bags.json"))["bags"]}
+    bags = {b["item_id"]: b for b in json.load(open(ROOT / "data/items/bags.json", encoding="utf-8"))["bags"]}
 
     # ---- 1. tailoring -----------------------------------------------------------------
     rpath = ROOT / "data/crafting/recipes.json"
-    rdoc = json.load(open(rpath))
+    rdoc = json.load(open(rpath, encoding="utf-8"))
     tail = rdoc["professions"]["tailoring"]
     recs = tail.get("recipes", tail)
     added = []
@@ -75,7 +75,7 @@ def main():
 
     # ---- 2. starter bags onto general-goods vendors ------------------------------------
     vpath = ROOT / "data/npcs/vendors.json"
-    vdoc = json.load(open(vpath))
+    vdoc = json.load(open(vpath, encoding="utf-8"))
     #: A general store: sells food or drink, and is not a high-tier quartermaster.
     stocked = []
     for v in vdoc["vendors"]:
@@ -100,8 +100,8 @@ def main():
         print(f"      ... and {len(stocked)-12} more")
 
     if write:
-        json.dump(rdoc, open(rpath, "w"), indent=2)
-        json.dump(vdoc, open(vpath, "w"), indent=2)
+        json.dump(rdoc, open(rpath, "w", encoding="utf-8"), indent=2)
+        json.dump(vdoc, open(vpath, "w", encoding="utf-8"), indent=2)
         print("\n  written")
     else:
         print("\n  dry run - pass --write")

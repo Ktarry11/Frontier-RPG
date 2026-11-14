@@ -56,7 +56,7 @@ def main():
             gsm.player = Character(name=f"Slot{slot}Hero", char_class="Warrior", level=slot + 9)
             gsm.save_game(save_slot_filename(slot))
 
-        before = {s: (SAVES / save_slot_filename(s)).read_text() for s in range(1, 6)}
+        before = {s: (SAVES / save_slot_filename(s)).read_text(encoding="utf-8") for s in range(1, 6)}
         for slot, text in before.items():
             if f"Slot{slot}Hero" not in text:
                 fails.append(f"slot {slot} did not contain its own character after setup")
@@ -72,7 +72,7 @@ def main():
             if not gsm2.save_game():        # <- the bug: no filename
                 fails.append("quicksave returned False")
 
-        after = {s: (SAVES / save_slot_filename(s)).read_text() for s in range(1, 6)}
+        after = {s: (SAVES / save_slot_filename(s)).read_text(encoding="utf-8") for s in range(1, 6)}
         for slot in (1, 2, 4, 5):
             if after[slot] != before[slot]:
                 who = json.loads(after[slot]).get("character", {}).get("name")
@@ -99,7 +99,7 @@ def main():
         # and assert that every slot on disk is untouched until a slot is
         # explicitly chosen.
         # ------------------------------------------------------------------
-        snapshot = {s: (SAVES / save_slot_filename(s)).read_text() for s in range(1, 6)}
+        snapshot = {s: (SAVES / save_slot_filename(s)).read_text(encoding="utf-8") for s in range(1, 6)}
 
         gsm3 = GameStateManager(screen)
         gsm3.load_game(save_slot_filename(2))
@@ -112,9 +112,9 @@ def main():
             fails.append("an unslotted new character was allowed to save")
 
         touched = [s for s in range(1, 6)
-                   if (SAVES / save_slot_filename(s)).read_text() != snapshot[s]]
+                   if (SAVES / save_slot_filename(s)).read_text(encoding="utf-8") != snapshot[s]]
         if touched:
-            who = json.loads((SAVES / save_slot_filename(touched[0])).read_text())
+            who = json.loads((SAVES / save_slot_filename(touched[0])).read_text(encoding="utf-8"))
             fails.append(f"creating a character WROTE slots {touched} "
                          f"(slot {touched[0]} now holds "
                          f"{who.get('character', {}).get('name')!r})")
@@ -123,10 +123,10 @@ def main():
         if not gsm3.save_game(save_slot_filename(5)):
             fails.append("could not save the new character to a chosen slot")
         moved = [s for s in (1, 2, 3, 4)
-                 if (SAVES / save_slot_filename(s)).read_text() != snapshot[s]]
+                 if (SAVES / save_slot_filename(s)).read_text(encoding="utf-8") != snapshot[s]]
         if moved:
             fails.append(f"saving the new character to slot 5 also wrote {moved}")
-        if "FreshShaman" not in (SAVES / save_slot_filename(5)).read_text():
+        if "FreshShaman" not in (SAVES / save_slot_filename(5)).read_text(encoding="utf-8"):
             fails.append("slot 5 did not receive the new character")
     finally:
         shutil.rmtree(SAVES)

@@ -372,7 +372,7 @@ class ZoneManager:
             from pathlib import Path
             table = {}
             try:
-                data = json.loads((Path(__file__).parent.parent / "data/creatures/quest_drops.json").read_text())
+                data = json.loads((Path(__file__).parent.parent / "data/creatures/quest_drops.json").read_text(encoding="utf-8"))
                 for creature, drops in data.get("drops", {}).items():
                     for d in drops:
                         table.setdefault(d.get("item_id"), set()).add(creature)

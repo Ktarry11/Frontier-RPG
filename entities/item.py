@@ -253,7 +253,7 @@ class Item:
         from pathlib import Path
         import json
         rarity_file = Path(__file__).parent.parent / "data" / "items" / "rarity.json"
-        with open(rarity_file, 'r') as f:
+        with open(rarity_file, 'r', encoding="utf-8") as f:
             rarity_data = json.load(f)["rarity_tiers"]
         tier = rarity_data.get(self.rarity, rarity_data["common"])
         return tuple(tier["color"])
@@ -356,6 +356,13 @@ class Item:
         if item.set_variant == "cryomancer":
             item.set_variant = "cryotherapist"      # renamed 13 Nov 2026; old saves still say the old name
         if item.set_id:
+            # A version that has since been renamed or re-sorted (Venom was "hybrid" and is now
+            # "caster") must not leave a saved piece pointing at nothing: it becomes the set's
+            # first version, and an Artifact Keeper will swap it for free.
+            from world import gear_sets as _gs
+            _kinds = list(_gs.variants(_gs.get(item.set_id)) or [])
+            if _kinds and item.set_variant not in _kinds:
+                item.set_variant = _kinds[0]
             # A set piece saved before its art existed has no icon_id. Give it one on load, so
             # nobody has to re-earn a piece to see it drawn.
             from world.gear_sets import icon_for

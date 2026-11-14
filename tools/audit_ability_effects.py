@@ -394,7 +394,7 @@ def build_fight(cls, level=60):
     import json as _json
     apath = ROOT / f"data/abilities/{cls.lower().replace(' ', '_')}.json"
     if apath.exists():
-        for entry in _json.loads(apath.read_text()).get("abilities", []):
+        for entry in _json.loads(apath.read_text(encoding="utf-8")).get("abilities", []):
             tmpl = entry.get("summon_pet_template")
             if tmpl:
                 try:

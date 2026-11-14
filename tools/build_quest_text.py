@@ -17,7 +17,7 @@ KEYS = {"Title": "title", "D": "description", "A": "accept_text", "T": "turn_in_
 def known_ids():
     ids = set()
     for p in glob.glob(os.path.join(ROOT, "data/quests/*.json")):
-        ids |= {q["quest_id"] for q in json.load(open(p))["quests"]}
+        ids |= {q["quest_id"] for q in json.load(open(p, encoding="utf-8"))["quests"]}
     return ids
 
 
@@ -56,7 +56,7 @@ def main(zones):
                 if k not in fields:
                     print(f"  MISSING {k} in {qid}"); bad += 1
         os.makedirs(os.path.join(ROOT, "data/quests/text"), exist_ok=True)
-        json.dump(data, open(os.path.join(ROOT, "data/quests/text", zone + ".json"), "w"), indent=1, ensure_ascii=True)
+        json.dump(data, open(os.path.join(ROOT, "data/quests/text", zone + ".json"), "w", encoding="utf-8"), indent=1, ensure_ascii=True)
         print(f"{zone}: {len(data)} quests")
     sys.exit(1 if bad else 0)
 

@@ -48,8 +48,8 @@ RELICS = ("libram", "idol", "totem", "tome")
 
 def main():
     bad = []
-    specs = json.load(open("data/items/spec_gear.json"))
-    weapons = json.load(open("data/items/weapon_types.json"))
+    specs = json.load(open("data/items/spec_gear.json", encoding="utf-8"))
+    weapons = json.load(open("data/items/weapon_types.json", encoding="utf-8"))
     allowed = weapons["class_weapon_map"]
     armor_of = _load_class_armor_map()
     classes = sorted({v["class"] for v in specs.values()})
@@ -125,11 +125,11 @@ def main():
                 bad.append(f"{c.name} has no {slot} armour")
 
     # ---- 6. builder and data agree
-    before = Path("data/items/spec_gear.json").read_text()
+    before = Path("data/items/spec_gear.json").read_text(encoding="utf-8")
     subprocess.run([sys.executable, "tools/build_spec_gear.py"], capture_output=True, text=True)
-    after = Path("data/items/spec_gear.json").read_text()
+    after = Path("data/items/spec_gear.json").read_text(encoding="utf-8")
     if after != before:
-        Path("data/items/spec_gear.json").write_text(before)
+        Path("data/items/spec_gear.json").write_text(before, encoding="utf-8")
         bad.append("tools/build_spec_gear.py builds something different from data/items/spec_gear.json")
 
     print(f"{len(classes)} classes start armed and dressed; {checked} companions hold what their spec plans")

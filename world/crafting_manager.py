@@ -25,7 +25,7 @@ class CraftingManager:
     def __init__(self):
         self.recipes = {}   # profession -> {recipe_id: recipe}
         if _DATA.exists():
-            doc = json.loads(_DATA.read_text())
+            doc = json.loads(_DATA.read_text(encoding="utf-8"))
             self.recipes = {p: v.get("recipes", {}) for p, v in doc.get("professions", {}).items()}
 
     # ------------------------------------------------------------------ queries

@@ -22,7 +22,7 @@ def main():
     bad, seen, were = [], 0, 0
     entries = []
     for path in sorted(glob.glob("data/abilities/*.json")) + ["data/npcs/personal_kits.json", "data/races/racials.json"]:
-        data = json.load(open(path))
+        data = json.load(open(path, encoding="utf-8"))
         stack = [data]
         while stack:
             node = stack.pop()

@@ -55,7 +55,7 @@ def _chebyshev(a, b):
 
 def _load():
     path = os.path.join(ROOT, "data/npcs/ambient_npcs.json")
-    with open(path) as fh:
+    with open(path, encoding="utf-8") as fh:
         return json.load(fh)["npcs"]
 
 

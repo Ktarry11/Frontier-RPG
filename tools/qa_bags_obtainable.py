@@ -27,9 +27,9 @@ STARTER_LEVEL = 10          # "a low-level player"
 
 
 def main():
-    bags = {b["item_id"]: b for b in json.load(open(ROOT / "data/items/bags.json"))["bags"]}
-    recipes = json.load(open(ROOT / "data/crafting/recipes.json"))["professions"]
-    vendors = json.load(open(ROOT / "data/npcs/vendors.json"))["vendors"]
+    bags = {b["item_id"]: b for b in json.load(open(ROOT / "data/items/bags.json", encoding="utf-8"))["bags"]}
+    recipes = json.load(open(ROOT / "data/crafting/recipes.json", encoding="utf-8"))["professions"]
+    vendors = json.load(open(ROOT / "data/npcs/vendors.json", encoding="utf-8"))["vendors"]
 
     craftable = {}
     for prof, pdata in recipes.items():

@@ -103,9 +103,9 @@ def main():
     ap.add_argument("--apply", action="store_true")
     args = ap.parse_args()
 
-    with open(CREATURES) as fh:
+    with open(CREATURES, encoding="utf-8") as fh:
         creatures = json.load(fh)["creatures"]
-    with open(KITS) as fh:
+    with open(KITS, encoding="utf-8") as fh:
         kitdoc = json.load(fh)
     kits = kitdoc["kits"]
 
@@ -157,7 +157,7 @@ def main():
         print(f"  ... and {len(rows) - 24} more")
 
     if args.apply:
-        with open(KITS, "w") as fh:
+        with open(KITS, "w", encoding="utf-8") as fh:
             json.dump(kitdoc, fh, indent=2, ensure_ascii=False)
             fh.write("\n")
         print(f"\n  written to {KITS}")

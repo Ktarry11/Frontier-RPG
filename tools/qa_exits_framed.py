@@ -137,7 +137,7 @@ def main():
         bad.append(f"{len(missing)} piece(s) named in the tables are not on disk: {missing}")
 
     # the renderer really does the colour match
-    src_r = Path("ui/tilemap_renderer.py").read_text()
+    src_r = Path("ui/tilemap_renderer.py").read_text(encoding="utf-8")
     if 'lm.get("match_ground")' not in src_r or "_matched_to_ground" not in src_r:
         bad.append("the renderer ignores match_ground, so dungeon exits keep their painted colours")
 

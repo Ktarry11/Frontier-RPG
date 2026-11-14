@@ -34,7 +34,7 @@ def main():
     zm = ZoneManager()
     dests = destinations(zm)
     bad = []
-    travel = json.loads((ROOT / "data/travel/travel_data.json").read_text())
+    travel = json.loads((ROOT / "data/travel/travel_data.json").read_text(encoding="utf-8"))
     inns = sum(1 for v in travel["services"].values() if "inn" in v)
     if len(dests) != inns:
         bad.append(f"{inns} innkeepers but {len(dests)} towns on the list")
@@ -51,7 +51,7 @@ def main():
             bad.append(f"{d['label']}: landed in {z.name} at {(zm.player_x, zm.player_y)}, "
                        f"{off} tiles from the inn at {(d['x'], d['y'])}")
 
-    src = (ROOT / "ui/screens/overworld_screen.py").read_text()
+    src = (ROOT / "ui/screens/overworld_screen.py").read_text(encoding="utf-8")
     if '"Teleport"' not in src or 'self.tab_rects["teleport"]' not in src:
         bad.append("no Teleport button in the tab column")
     if re.search(r'"Unstuck', src) or "K_u:" in src or "K_u)" in src:

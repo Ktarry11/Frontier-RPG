@@ -295,7 +295,7 @@ def main():
 
     def _restore():
         if not OUT.exists() and globals().get("_STASH"):
-            OUT.write_text(globals()["_STASH"])
+            OUT.write_text(globals()["_STASH"], encoding="utf-8")
     atexit.register(_restore)
 
     missing = _check_tables()
@@ -313,14 +313,14 @@ def main():
     # an increment on an unknown starting point.
     stashed = None
     if OUT.exists():
-        stashed = OUT.read_text()
+        stashed = OUT.read_text(encoding="utf-8")
         globals()["_STASH"] = stashed      # atexit puts it back if this run dies
         OUT.unlink()
     try:
         from world.zone_generator import create_all_zones
     except Exception:
         if stashed is not None:
-            OUT.write_text(stashed)
+            OUT.write_text(stashed, encoding="utf-8")
         raise
     from world.tile_textures import get_biome_for_zone
     from world.combat_backgrounds import resolve_place
@@ -366,7 +366,7 @@ def main():
                 existing = {}
         existing.update(out)
         OUT.parent.mkdir(parents=True, exist_ok=True)
-        OUT.write_text(json.dumps(existing, indent=0, sort_keys=True))
+        OUT.write_text(json.dumps(existing, indent=0, sort_keys=True), encoding="utf-8")
 
     total = sum(len(v) for v in out.values())
     print(f"  {len(out)} interiors, {total} pieces, target {TARGET_PER_1K} per 1k walkable\n")
@@ -374,7 +374,7 @@ def main():
     for name, biome, before, added, walk, after in sorted(rows, key=lambda r: r[5]):
         print(f"  {name[:31]:32}{biome[:19]:20}{before:>5}{added:>6}{after:>14.1f}")
     if not args.apply and stashed is not None:
-        OUT.write_text(stashed)        # report-only must not disarm the game
+        OUT.write_text(stashed, encoding="utf-8")        # report-only must not disarm the game
     for name, n, walk, d in skipped:
         print(f"  {name[:31]:32}{'(already furnished)':20}{n:>5}{'-':>6}{d:>14.1f}")
     print("\n  written to " + str(OUT.relative_to(ROOT)) if args.apply

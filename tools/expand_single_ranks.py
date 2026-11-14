@@ -130,7 +130,7 @@ def main(dry=False):
     for path in sorted(glob.glob(str(ROOT / "data" / "abilities" / "*.json"))):
         if path.endswith("_universal.json") or path.endswith("asher_unique.json"):
             continue
-        raw = Path(path).read_text()
+        raw = Path(path).read_text(encoding="utf-8")
         data = json.loads(raw)
         changed = 0
         for a in data["abilities"]:
@@ -139,7 +139,7 @@ def main(dry=False):
                 changed += 1
                 summary.append((data["class"], a["ability_id"], kind, [r["level_req"] for r in a["ranks"]]))
         if changed and not dry:
-            Path(path).write_text(json.dumps(data, indent=2) + ("\n" if raw.endswith("\n") else ""))
+            Path(path).write_text(json.dumps(data, indent=2) + ("\n" if raw.endswith("\n") else ""), encoding="utf-8")
     by_class = {}
     for cls, aid, kind, lv in summary:
         by_class.setdefault(cls, []).append((aid, kind, lv))

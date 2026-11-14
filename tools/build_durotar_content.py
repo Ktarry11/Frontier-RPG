@@ -305,7 +305,7 @@ ENCOUNTERS = {
 
 def main():
     p = ROOT / "data/creatures/creatures.json"
-    data = json.loads(p.read_text())
+    data = json.loads(p.read_text(encoding="utf-8"))
     cr = data["creatures"]
     for n, d in NEW_CREATURES.items():
         cr[n] = d
@@ -313,20 +313,20 @@ def main():
         cr[n]["level_range"] = [lo, hi]
     for n, lv in BOSS_LEVEL_PATCH.items():
         cr[n]["level_range"] = [lv, lv]
-    p.write_text(json.dumps(data, indent=2) + "\n")
+    p.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
 
     p = ROOT / "data/creatures/encounters.json"
-    data = json.loads(p.read_text())
+    data = json.loads(p.read_text(encoding="utf-8"))
     z = data["zones"]["Durotar"]
     z["open_zone"] = ENCOUNTERS["open_zone"]
     z["subzones"] = ENCOUNTERS["subzones"]
-    p.write_text(json.dumps(data, indent=2) + "\n")
+    p.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
 
     out = {"_notes": "Durotar open-world named-rare + boss loot (2026-10-21). One item drops per "
                      "kill from the creature's pool. Numbers from the real loot formulas "
                      "(tools/build_durotar_content.py); ilvl>=10 so secondary stats are allowed."}
     out.update(pools())
-    (ROOT / "data/loot/durotar_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n")
+    (ROOT / "data/loot/durotar_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
     n_items = sum(len(v) for k, v in out.items() if not k.startswith("_"))
     print(f"creatures +{len(NEW_CREATURES)}, level patches {len(LEVEL_PATCH)+len(BOSS_LEVEL_PATCH)}, "
           f"loot pools {len(out)-1}, items {n_items}")

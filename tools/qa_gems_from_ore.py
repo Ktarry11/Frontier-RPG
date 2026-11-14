@@ -92,7 +92,7 @@ def main():
     check(gem is not None and c.add_material(gem), "a Malachite could not be put in the bag")
     check(any(getattr(m, "material_id", None) == "gem_malachite" for m in getattr(c, "materials", []) or []),
           "the Malachite is not in the bag afterwards")
-    src = (ROOT / "ui/screens/overworld_screen.py").read_text()
+    src = (ROOT / "ui/screens/overworld_screen.py").read_text(encoding="utf-8")
     check("roll_vein_gem(material_id)" in src, "gathering a vein does not roll for a gem")
 
     # 9. every gem has its picture, where the game looks for it, and it is a real cut-out

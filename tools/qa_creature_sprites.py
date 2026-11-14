@@ -184,8 +184,8 @@ def race_mismatches():
     import re
     import creature_sprites as cs
     root = Path(__file__).resolve().parent.parent
-    creatures = json.loads((root / "data/creatures/creatures.json").read_text())["creatures"]
-    enc = json.loads((root / "data/creatures/encounters.json").read_text())
+    creatures = json.loads((root / "data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"]
+    enc = json.loads((root / "data/creatures/encounters.json").read_text(encoding="utf-8"))
     race = re.compile(r"^(ogre|kobold|troll|gnoll|murloc|naga|quilboar|harpy|centaur|furbolg|satyr|worgen|yeti|goblin)")
     generic = re.compile(r"^(bandit_human|cultist|champion|syndicate|executioner|hunter_ranger|cult_overseer|archmage|houndmaster)")
     #: Humans who belong where they are: cultists in a worgen village, a Syndicate man in a

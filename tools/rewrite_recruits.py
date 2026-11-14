@@ -141,7 +141,7 @@ def main():
     args = ap.parse_args()
 
     path = ROOT / "data/npcs/recruits.json"
-    data = json.loads(path.read_text(), object_pairs_hook=collections.OrderedDict)
+    data = json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=collections.OrderedDict)
     block = data.get("recruits", data)
     records = block if isinstance(block, list) else list(block.values())
     by_id = {r["recruit_id"]: r for r in records}
@@ -163,7 +163,7 @@ def main():
                 if key in fields:
                     sections[key] = fields[key]
             written += 1
-        path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+        path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print(f"\n{written} recruits rewritten")
 
     # ---- the measurements, over whatever is on disk now ------------------------------------

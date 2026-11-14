@@ -18,7 +18,7 @@ FORGE_ID = "hammerfall_forge"
 
 def main():
     p = Path("data/npcs/forges.json")
-    doc = json.loads(p.read_text())
+    doc = json.loads(p.read_text(encoding="utf-8"))
     x, y = HF.FORGE
     rec = next((f for f in doc["forges"] if f["forge_id"] == FORGE_ID), None)
     if rec is None:
@@ -28,8 +28,8 @@ def main():
     else:
         rec["x"], rec["y"] = x, y
         print("forge in place")
-    raw = p.read_text()
-    p.write_text(json.dumps(doc, indent=2, ensure_ascii="\\u" in raw) + ("\n" if raw.endswith("\n") else ""))
+    raw = p.read_text(encoding="utf-8")
+    p.write_text(json.dumps(doc, indent=2, ensure_ascii="\\u" in raw) + ("\n" if raw.endswith("\n") else ""), encoding="utf-8")
 
 
 if __name__ == "__main__":

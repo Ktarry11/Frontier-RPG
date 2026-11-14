@@ -66,7 +66,7 @@ class SaveSystem:
             save_data["factions"] = faction_manager.to_dict()
 
         save_path = self.save_dir / filename
-        with open(save_path, "w") as f:
+        with open(save_path, "w", encoding="utf-8") as f:
             json.dump(save_data, f, indent=2)
 
         return save_path
@@ -119,7 +119,7 @@ class SaveSystem:
         if not save_path.exists():
             return None
         try:
-            with open(save_path, "r") as f:
+            with open(save_path, "r", encoding="utf-8") as f:
                 save_data = json.load(f)
         except (json.JSONDecodeError, OSError) as exc:
             print(f"Could not read save '{filename}': {exc}")

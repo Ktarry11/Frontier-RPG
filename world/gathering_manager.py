@@ -79,12 +79,12 @@ class GatheringNodeManager:
 
         materials_file = data_dir / "materials.json"
         if materials_file.exists():
-            with open(materials_file, 'r') as f:
+            with open(materials_file, 'r', encoding="utf-8") as f:
                 self.materials = json.load(f).get("materials", {})
 
         pools_file = data_dir / "node_pools.json"
         if pools_file.exists():
-            with open(pools_file, 'r') as f:
+            with open(pools_file, 'r', encoding="utf-8") as f:
                 # NORMALISE THE KEYS AT LOAD. The lookup side goes through _zone_key, so the index
                 # side has to as well or the two disagree the moment a zone name contains an article
                 # or an apostrophe - which is exactly the asymmetry that hid three broken rosters.
@@ -292,7 +292,7 @@ class GatheringNodeManager:
         safe_keys = set()
         try:
             path = Path(__file__).parent.parent / "data" / "creatures" / "encounters.json"
-            declared = json.loads(path.read_text()).get("zones", {}).get(zone_name, {})
+            declared = json.loads(path.read_text(encoding="utf-8")).get("zones", {}).get(zone_name, {})
             safe_keys = {key for key, sz in declared.get("subzones", {}).items()
                          if isinstance(sz, dict) and sz.get("safe")}
         except (OSError, ValueError):
@@ -533,7 +533,7 @@ class GatheringNodeManager:
             import json as _json
             path = Path(__file__).parent.parent / "data" / "gathering" / "gem_drops.json"
             try:
-                raw = _json.loads(path.read_text()).get("drops", {})
+                raw = _json.loads(path.read_text(encoding="utf-8")).get("drops", {})
             except (OSError, ValueError):
                 raw = {}
             table = {ore: [(g, float(c)) for g, c in rows] for ore, rows in raw.items()}

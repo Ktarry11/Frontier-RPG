@@ -144,28 +144,28 @@ def pools():
 
 def main():
     p = ROOT / "data/creatures/creatures.json"
-    data = json.loads(p.read_text())
+    data = json.loads(p.read_text(encoding="utf-8"))
     data["creatures"].update(NEW_CREATURES)
     for n, patch in FIXES.items():
         data["creatures"][n].update(patch)
-    p.write_text(json.dumps(data, indent=2) + "\n")
+    p.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
 
     p = ROOT / "data/creatures/encounters.json"
-    data = json.loads(p.read_text())
+    data = json.loads(p.read_text(encoding="utf-8"))
     data["zones"]["Orgrimmar"]["caves"]["Ragefire Chasm"] = CAVE
-    p.write_text(json.dumps(data, indent=2) + "\n")
+    p.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
 
     p = ROOT / "data/creatures/quest_drops.json"
-    data = json.loads(p.read_text())
+    data = json.loads(p.read_text(encoding="utf-8"))
     for creature, drop in QUEST_DROPS.items():
         data["drops"][creature] = [drop]
-    p.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    p.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     out = {"_notes": "Ragefire Chasm boss + named-rare loot (2026-10-21). ONE item drops per kill from "
                      "the pool. item_level = boss level + 3; real loot formulas "
                      "(tools/build_durotar_content.make), primary + secondary stats."}
     out.update(pools())
-    (ROOT / "data/loot/ragefire_chasm_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n")
+    (ROOT / "data/loot/ragefire_chasm_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
     n = sum(len(v) for k, v in out.items() if not k.startswith("_"))
     print(f"creatures +{len(NEW_CREATURES)}, pools {len(out)-1}, items {n}")
 

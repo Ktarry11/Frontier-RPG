@@ -34,14 +34,14 @@ MAX_LEVEL = 60
 
 
 def zone_levels():
-    d = json.load(open("data/zones/zone_levels.json"))["zones"]
+    d = json.load(open("data/zones/zone_levels.json", encoding="utf-8"))["zones"]
     return {name: tuple(rng) for name, rng in d.items()}
 
 
 def quests():
     out = []
     for p in glob.glob("data/quests/*.json"):
-        d = json.load(open(p))
+        d = json.load(open(p, encoding="utf-8"))
         for q in (d.get("quests") or []):
             lo = q.get("level_min")
             hi = q.get("level_max")
@@ -52,7 +52,7 @@ def quests():
 
 
 def recruits():
-    d = json.load(open("data/npcs/recruits.json"))
+    d = json.load(open("data/npcs/recruits.json", encoding="utf-8"))
     block = d.get("recruits", d)
     recs = block if isinstance(block, list) else list(block.values())
     return [(r["recruit_id"], r.get("level") or r.get("recruit_level") or 1) for r in recs]
@@ -66,7 +66,7 @@ def dungeon_zones(zl):
     """
     names = set()
     for p in glob.glob("data/dungeons/*.json"):
-        d = json.load(open(p))
+        d = json.load(open(p, encoding="utf-8"))
         for key in ("dungeons", "packs", "trash_packs"):
             block = d.get(key)
             if isinstance(block, dict):

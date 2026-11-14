@@ -116,7 +116,7 @@ def main():
         # lines and listed in a file, which is reproducible and wrong in ways a contact sheet
         # shows immediately.
         boxes = []
-        for line in Path(rects_file.split("=", 1)[1]).read_text().splitlines():
+        for line in Path(rects_file.split("=", 1)[1]).read_text(encoding="utf-8").splitlines():
             line = line.split("#")[0].strip()
             if line:
                 boxes.append(tuple(int(v) for v in line.replace(",", " ").split()))

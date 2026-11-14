@@ -38,7 +38,7 @@ def classes():
     literal with trailing commas and unquoted keys, so json.loads will not
     take it, and pulling in a JS parser for 148 lines is not worth it.
     """
-    text = META.read_text()
+    text = META.read_text(encoding="utf-8")
     out = []
     class_re = re.compile(
         r'\{\s*name:\s*"([^"]+)",\s*slug:\s*"([^"]+)",\s*classTab:\s*(\d+)'
@@ -128,7 +128,7 @@ def nodes_for(slug):
     if not path.exists():
         return {}
     seen = {}
-    for entry in json.loads(path.read_text()):
+    for entry in json.loads(path.read_text(encoding="utf-8")):
         key = entry.get("id")
         if key in seen:
             continue

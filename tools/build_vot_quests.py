@@ -527,7 +527,7 @@ def patch_existing(by_id):
 
 
 def main():
-    data = json.loads(QUEST_FILE.read_text())
+    data = json.loads(QUEST_FILE.read_text(encoding="utf-8"))
     by_id = {q["quest_id"]: q for q in data["quests"]}
     # rewards are rebuilt from scratch on every run -> idempotent
     for k in list(by_id):
@@ -547,10 +547,10 @@ def main():
             order.append(q["quest_id"])
         by_id[q["quest_id"]] = q
     data["quests"] = [by_id[i] for i in order]
-    QUEST_FILE.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    QUEST_FILE.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     # ---- quest-item drops
-    drops = json.loads(DROPS_FILE.read_text())
+    drops = json.loads(DROPS_FILE.read_text(encoding="utf-8"))
     D = drops["drops"]
     silk = {"item_id": "den_silk", "name": "Den Silk Spool", "category": "quest",
             "description": "A tight spool of webspinner silk, strong enough to turn a scorpid sting. Rhaka wants these.",
@@ -563,7 +563,7 @@ def main():
     D["Burning Blade Acolyte"] = [shard]
     D["Coven Ritual Guard"] = [dict(shard, chance=0.35)]
     D["Burning Blade Initiate"] = [dict(shard, chance=0.2)]
-    DROPS_FILE.write_text(json.dumps(drops, indent=2, ensure_ascii=False) + "\n")
+    DROPS_FILE.write_text(json.dumps(drops, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("quests:", len(data["quests"]))
 
 

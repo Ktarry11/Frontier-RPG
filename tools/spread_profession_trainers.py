@@ -73,11 +73,11 @@ def main():
     from world.zone_manager import ZoneManager
     zm = ZoneManager()
 
-    trainers = json.loads((ROOT / "data/training/trainers.json").read_text())
+    trainers = json.loads((ROOT / "data/training/trainers.json").read_text(encoding="utf-8"))
     prof_trainers = trainers.get("profession_trainers", {})
 
     npc_path = ROOT / "data/npcs/ambient_npcs.json"
-    amb = json.loads(npc_path.read_text(), object_pairs_hook=collections.OrderedDict)
+    amb = json.loads(npc_path.read_text(encoding="utf-8"), object_pairs_hook=collections.OrderedDict)
 
     def walk(o):
         if isinstance(o, dict):
@@ -182,7 +182,7 @@ def main():
             npc["x"], npc["y"] = spot
 
     if not args.dry_run:
-        npc_path.write_text(json.dumps(amb, indent=2, ensure_ascii=False) + "\n")
+        npc_path.write_text(json.dumps(amb, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"\n{moved} trainers moved, {anchored} of them onto a prop of their own trade"
           f"{' (dry run)' if args.dry_run else ''}")
     return 0

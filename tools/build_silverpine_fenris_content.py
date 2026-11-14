@@ -117,9 +117,9 @@ def pools():
 
 def main():
     cp = ROOT / "data/creatures/creatures.json"
-    cd = json.loads(cp.read_text())
+    cd = json.loads(cp.read_text(encoding="utf-8"))
     ep = ROOT / "data/creatures/encounters.json"
-    ed = json.loads(ep.read_text())
+    ed = json.loads(ep.read_text(encoding="utf-8"))
     cd["creatures"].update(NEW)
     for n, (lo, hi, kit, mult) in PATCH.items():
         c = cd["creatures"][n]
@@ -132,9 +132,9 @@ def main():
     ed["zones"].pop("Shadowpine Altar", None)
     out = {"_notes": "Fenris Isle + Shadowpine Altar boss/rare loot (2026-10-23). ONE item per kill from the pool; ilvl = creature level + 3."}
     out.update(pools())
-    (ROOT / "data/loot/fenris_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n")
-    cp.write_text(json.dumps(cd, indent=2) + "\n")
-    ep.write_text(json.dumps(ed, indent=2) + "\n")
+    (ROOT / "data/loot/fenris_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
+    cp.write_text(json.dumps(cd, indent=2) + "\n", encoding="utf-8")
+    ep.write_text(json.dumps(ed, indent=2) + "\n", encoding="utf-8")
     print(f"fenris content: +{len(NEW)} creatures, {len(PATCH)} patches, {len(out) - 1} pools")
 
 

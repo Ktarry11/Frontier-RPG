@@ -100,11 +100,11 @@ def eu(a, b):
 
 # ----------------------------------------------------------------------------------------------- quest protection
 def load_game_data():
-    creatures = json.load(open(os.path.join(ROOT, "data/creatures/creatures.json")))["creatures"]
-    drops = json.load(open(os.path.join(ROOT, "data/creatures/quest_drops.json")))["drops"]
+    creatures = json.load(open(os.path.join(ROOT, "data/creatures/creatures.json"), encoding="utf-8"))["creatures"]
+    drops = json.load(open(os.path.join(ROOT, "data/creatures/quest_drops.json"), encoding="utf-8"))["drops"]
     quests = []
     for f in glob.glob(os.path.join(ROOT, "data/quests/*.json")):
-        d = json.load(open(f))
+        d = json.load(open(f, encoding="utf-8"))
         quests += d["quests"] if isinstance(d, dict) else d
     return creatures, drops, quests
 
@@ -515,7 +515,7 @@ def main(argv):
     creatures, drops, quests = load_game_data()
     creatures_ref.update(creatures)
     try:
-        out = json.load(open(OUT))
+        out = json.load(open(OUT, encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
         out = {}
     names = argv or list(CONFIG)
@@ -530,17 +530,17 @@ def main(argv):
             print("   (quest needs the ORIGINAL list could not meet:", rep["unsatisfiable"], ")")
         if rep["deficits"]:
             print("   QUEST DEFICITS AFTER REGROUP:", rep["deficits"])
-    with open(OUT, "w") as f:
+    with open(OUT, "w", encoding="utf-8") as f:
         json.dump(out, f, separators=(",", ":"))
     print("wrote", OUT)
     if TUNED:
         qd = os.path.join(ROOT, "data/creatures/quest_drops.json")
-        full = json.load(open(qd))
+        full = json.load(open(qd, encoding="utf-8"))
         for (_z, cname, item, _old, new) in TUNED:
             for d in full["drops"][cname]:
                 if d["item_id"] == item:
                     d["chance"] = new
-        with open(qd, "w") as f:
+        with open(qd, "w", encoding="utf-8") as f:
             json.dump(full, f, indent=2, ensure_ascii=False)
             f.write("\n")
         for t in TUNED:

@@ -540,7 +540,7 @@ def main():
     # of them out individually - and a typo there is silent dead data,
     # because the lookup is ability_<exact id>_<field>.
     abilities = {a["ability_id"] for a in json.loads(
-        (ROOT / "data/abilities/barbarian.json").read_text())["abilities"]}
+        (ROOT / "data/abilities/barbarian.json").read_text(encoding="utf-8"))["abilities"]}
     FIELDS = ("_damage", "_healing", "_crit", "_crit_damage", "_cost_pct",
               "_cooldown_pct", "_duration", "_potency")
     for n in TREE["nodes"]:
@@ -580,7 +580,7 @@ def main():
           f"{pts} points")
     if check:
         return 0
-    OUT.write_text(json.dumps(TREE, indent=2) + "\n")
+    OUT.write_text(json.dumps(TREE, indent=2) + "\n", encoding="utf-8")
     print(f"wrote {OUT.relative_to(ROOT)}")
     return 0
 

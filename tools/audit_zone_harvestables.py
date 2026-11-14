@@ -90,7 +90,7 @@ def zkey(name):
 
 
 def material_professions():
-    data = json.loads((ROOT / "data/gathering/materials.json").read_text())
+    data = json.loads((ROOT / "data/gathering/materials.json").read_text(encoding="utf-8"))
     rows = data.get("materials", data)
     out = {}
     if isinstance(rows, list):
@@ -104,7 +104,7 @@ def material_professions():
 
 def encounter_creatures():
     """zone display name -> {creature name: weight}, flattened over open_zone/subzones/caves."""
-    data = json.loads((ROOT / "data/creatures/encounters.json").read_text())
+    data = json.loads((ROOT / "data/creatures/encounters.json").read_text(encoding="utf-8"))
     zones = data.get("zones", data)
     out = {}
     for zname, body in zones.items():
@@ -127,7 +127,7 @@ def main():
     if "--zone" in sys.argv:
         only = zkey(sys.argv[sys.argv.index("--zone") + 1])
 
-    pools_doc = json.loads((ROOT / "data/gathering/node_pools.json").read_text())
+    pools_doc = json.loads((ROOT / "data/gathering/node_pools.json").read_text(encoding="utf-8"))
     pools = {zkey(k): v for k, v in pools_doc.get("zones", pools_doc).items()}
     prof = material_professions()
     enc = encounter_creatures()
@@ -135,7 +135,7 @@ def main():
     findings = []
 
     # ---- 5. mis-typed animals, game-wide. Run first: it is the one that hides. ----------------
-    creature_doc = json.loads((ROOT / "data/creatures/creatures.json").read_text())
+    creature_doc = json.loads((ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))
     crows = creature_doc.get("creatures", creature_doc)
     cnames = list(crows) if isinstance(crows, dict) else [r.get("name") for r in crows]
     for cname in cnames:

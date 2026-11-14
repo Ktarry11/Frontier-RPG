@@ -32,7 +32,7 @@ def main():
     from entities.party import Party
     from world.recruit_manager import get_recruit_manager
 
-    doc = json.loads((ROOT / "data/npcs/personal_kits.json").read_text())
+    doc = json.loads((ROOT / "data/npcs/personal_kits.json").read_text(encoding="utf-8"))
     rm = get_recruit_manager()
     recs = {getattr(r, "recruit_id", None): r
             for r in (rm.recruits.values() if isinstance(rm.recruits, dict) else rm.recruits)}

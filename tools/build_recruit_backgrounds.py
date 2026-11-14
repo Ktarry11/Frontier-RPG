@@ -600,7 +600,7 @@ B["kesten_the_catalogued"] = dict(
 
 def main():
     p = ROOT / "data/npcs/recruits.json"
-    data = json.loads(p.read_text())
+    data = json.loads(p.read_text(encoding="utf-8"))
     ids = {r["recruit_id"] for r in data["recruits"]}
 
     missing = ids - set(B)
@@ -624,7 +624,7 @@ def main():
     for r in data["recruits"]:
         if r["recruit_id"] in B:
             r["background_sections"] = B[r["recruit_id"]]
-    p.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    p.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     n = sum(len(v) for v in B.values())
     chars = sum(len(t) for v in B.values() for t in v.values())

@@ -199,10 +199,10 @@ def main():
     total = 0
     for f in FILES:
         p = ROOT / f
-        before = p.read_text()
+        before = p.read_text(encoding="utf-8")
         after, n = rewire(before)
         if after != before:
-            p.write_text(after)
+            p.write_text(after, encoding="utf-8")
         print(f"  {f}: {n} substitutions")
         total += n
     print(f"{total} substitutions across {len(FILES)} modules")

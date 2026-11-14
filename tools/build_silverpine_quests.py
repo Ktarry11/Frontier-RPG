@@ -869,23 +869,23 @@ def _finish(Z):
 
 def main():
     out_n, ids_n = _finish(north())
-    OUT_N.write_text(json.dumps({"quests": out_n}, indent=2, ensure_ascii=False) + "\n")
+    OUT_N.write_text(json.dumps({"quests": out_n}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     out_s, ids_s = _finish(south())
-    OUT_S.write_text(json.dumps({"quests": out_s}, indent=2, ensure_ascii=False) + "\n")
+    OUT_S.write_text(json.dumps({"quests": out_s}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     out_p, ids_p = _finish(sepulcher())
-    OUT_SEP.write_text(json.dumps({"quests": out_p}, indent=2, ensure_ascii=False) + "\n")
+    OUT_SEP.write_text(json.dumps({"quests": out_p}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     ids = ids_n | ids_s | ids_p
 
     # the old one-line quests are replaced by this pass
     fp = ROOT / "data/quests/forsaken_lands.json"
-    fd = json.loads(fp.read_text())
+    fd = json.loads(fp.read_text(encoding="utf-8"))
     old = {"sp_raven_hill_risen", "sp_forsaken_watchman", "sp_pyrewood_worgen", "sp_lord_godfreys_remnant",
            "sp_shadowspring_bog", "sp_muckmaw",
            "sp_forsaken_march", "sp_deathguard_captain", "sp_rotting_marshes", "sp_the_bloated_one"}
     fd["quests"] = [q for q in fd["quests"] if q["quest_id"] not in old]
-    fp.write_text(json.dumps(fd, indent=2, ensure_ascii=False) + "\n")
+    fp.write_text(json.dumps(fd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
-    dd = json.loads(DROPS.read_text())
+    dd = json.loads(DROPS.read_text(encoding="utf-8"))
     drops = dd["drops"]
     for item_id, (name, desc, srcs) in FETCH_DROPS.items():
         for creature, chance in srcs:
@@ -898,7 +898,7 @@ def main():
             lst = drops.setdefault(creature, [])
             lst[:] = [d for d in lst if d["item_id"] != item_id]
             lst.append(dict(item_id=item_id, name=name, category="quest", description=desc, chance=chance, starts_quest=qid))
-    DROPS.write_text(json.dumps(dd, indent=2, ensure_ascii=False) + "\n")
+    DROPS.write_text(json.dumps(dd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"silverpine quests: north {len(out_n)}, south {len(out_s)}, sepulcher {len(out_p)}")
 
 

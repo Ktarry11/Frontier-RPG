@@ -577,7 +577,7 @@ def check_rosters():
     An encounter table referencing a creature that is not in creatures.json is a spawn that silently
     returns None - the subzone just feels empty, which is the exact bug this whole pass exists to fix.
     """
-    known = set(CREATURES) | set(json.loads((ROOT / "data/creatures/creatures.json").read_text())["creatures"])
+    known = set(CREATURES) | set(json.loads((ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"])
     errs = []
     for zone, z in ZONES.items():
         tables = [("open_zone", z["open_zone"])] + list(z["subzones"].items())
@@ -611,7 +611,7 @@ def main():
     check_rosters()
 
     cp = ROOT / "data/creatures/creatures.json"
-    cdata = json.loads(cp.read_text())
+    cdata = json.loads(cp.read_text(encoding="utf-8"))
     # NAME COLLISIONS ARE SILENT DATA LOSS - dict.update() replaced an existing boss on the Drowning
     # Floor pass with no error at all. Two other agents wrote Stranglethorn creatures today (the three
     # caves and the arena); forty-seven names is not worth trusting to memory.
@@ -622,7 +622,7 @@ def main():
     cdata["creatures"].update(CREATURES)
 
     ep = ROOT / "data/creatures/encounters.json"
-    edata = json.loads(ep.read_text())
+    edata = json.loads(ep.read_text(encoding="utf-8"))
     for zone, z in ZONES.items():
         # setdefault, and only the two keys this script owns: all three zone entries already exist and
         # already carry a `caves` key written by tools/build_stranglethorn_cave_content.py. Assigning
@@ -632,7 +632,7 @@ def main():
         tgt["subzones"] = z["subzones"]
 
     fp = ROOT / "data/factions/factions.json"
-    fdata = json.loads(fp.read_text())
+    fdata = json.loads(fp.read_text(encoding="utf-8"))
     kr = fdata["factions"]["booty_bay_authority"]["kill_rep"]
     kr["creatures"] = dict(AUTHORITY_KILL_REP)       # the only faction this script writes to
 
@@ -644,10 +644,10 @@ def main():
     out.update(pools())
     audit(out, LEVELS)
 
-    (ROOT / "data/loot/stranglethorn_openworld_loot.json").write_text(json.dumps(out, indent=2) + "\n")
-    cp.write_text(json.dumps(cdata, indent=2) + "\n")
-    ep.write_text(json.dumps(edata, indent=2) + "\n")
-    fp.write_text(json.dumps(fdata, indent=2) + "\n")
+    (ROOT / "data/loot/stranglethorn_openworld_loot.json").write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
+    cp.write_text(json.dumps(cdata, indent=2) + "\n", encoding="utf-8")
+    ep.write_text(json.dumps(edata, indent=2) + "\n", encoding="utf-8")
+    fp.write_text(json.dumps(fdata, indent=2) + "\n", encoding="utf-8")
     print(f"Stranglethorn open world: creatures +{len(CREATURES)}, zones {len(ZONES)}, subzones "
           f"{sum(len(z['subzones']) for z in ZONES.values())}, loot pools {len(out) - 1}, items "
           f"{sum(len(v) for k, v in out.items() if not k.startswith('_'))}, "

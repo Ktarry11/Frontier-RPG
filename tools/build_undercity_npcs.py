@@ -160,8 +160,8 @@ def _upsert(data, key, id_key, rec):
 
 
 def main():
-    amb = json.loads(Path("data/npcs/ambient_npcs.json").read_text())
-    ven = json.loads(Path("data/npcs/vendors.json").read_text())
+    amb = json.loads(Path("data/npcs/ambient_npcs.json").read_text(encoding="utf-8"))
+    ven = json.loads(Path("data/npcs/vendors.json").read_text(encoding="utf-8"))
     added = 0
     for nid, (name, race, gender, var, facing, greet) in AMBIENT.items():
         x, y = NPC_POSITIONS[nid]
@@ -175,10 +175,10 @@ def main():
             greeting=greet))
     # a vendor id must not also appear as ambient
     amb["npcs"] = [n for n in amb["npcs"] if n["npc_id"] not in VENDORS]
-    Path("data/npcs/ambient_npcs.json").write_text(json.dumps(amb, indent=2, ensure_ascii=False) + "\n")
-    Path("data/npcs/vendors.json").write_text(json.dumps(ven, indent=2, ensure_ascii=False) + "\n")
+    Path("data/npcs/ambient_npcs.json").write_text(json.dumps(amb, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    Path("data/npcs/vendors.json").write_text(json.dumps(ven, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
-    rec = json.loads(Path("data/npcs/recruits.json").read_text())
+    rec = json.loads(Path("data/npcs/recruits.json").read_text(encoding="utf-8"))
     for r in rec["recruits"]:
         pos = RECRUITS.get(r["recruit_id"])
         if pos:
@@ -186,22 +186,22 @@ def main():
             r["home_x"], r["home_y"] = pos
             if r["recruit_id"] in RECRUIT_NOTES:
                 r["home_note"] = RECRUIT_NOTES[r["recruit_id"]]
-    Path("data/npcs/recruits.json").write_text(json.dumps(rec, indent=2, ensure_ascii=False) + "\n")
+    Path("data/npcs/recruits.json").write_text(json.dumps(rec, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     fp = Path("data/npcs/forges.json")
-    forges = json.loads(fp.read_text())
+    forges = json.loads(fp.read_text(encoding="utf-8"))
     f = next((q for q in forges["forges"] if q["forge_id"] == "undercity_forge"), None)
     if f is None:
         forges["forges"].append({"forge_id": "undercity_forge", "name": "Undercity Forge", "zone": "undercity",
                                  "x": FORGE[0], "y": FORGE[1]})
     else:
         f["x"], f["y"] = FORGE
-    fp.write_text(json.dumps(forges, indent=2, ensure_ascii=False) + "\n")
+    fp.write_text(json.dumps(forges, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     tp = Path("data/travel/travel_data.json")
-    t = json.loads(tp.read_text())
+    t = json.loads(tp.read_text(encoding="utf-8"))
     t["services"].update(SERVICES)
-    tp.write_text(json.dumps(t, indent=1, ensure_ascii=False) + "\n")
+    tp.write_text(json.dumps(t, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"ambient {len(AMBIENT)}, vendors {len(VENDORS)}, +{added} new records")
 
 

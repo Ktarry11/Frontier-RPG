@@ -66,7 +66,7 @@ def zone_map(zm):
 
 
 def load(name):
-    d = json.loads((ROOT / f"data/quests/{name}.json").read_text())
+    d = json.loads((ROOT / f"data/quests/{name}.json").read_text(encoding="utf-8"))
     return d["quests"] if isinstance(d, dict) and "quests" in d else d
 
 
@@ -89,8 +89,8 @@ def main():
         all_ids |= {q["quest_id"] for q in load(f.stem)}
 
     # ---- 1. givers and hand-in NPCs
-    npcs = {r["npc_id"] for r in json.loads(Path("data/npcs/ambient_npcs.json").read_text())["npcs"]}
-    npcs |= {r["vendor_id"] for r in json.loads(Path("data/npcs/vendors.json").read_text())["vendors"]}
+    npcs = {r["npc_id"] for r in json.loads(Path("data/npcs/ambient_npcs.json").read_text(encoding="utf-8"))["npcs"]}
+    npcs |= {r["vendor_id"] for r in json.loads(Path("data/npcs/vendors.json").read_text(encoding="utf-8"))["vendors"]}
     placed = set(KB.NPC_POSITIONS) | set(UD.NPC_POSITIONS)
     for q in quests:
         for role in ("giver_npc_id", "turn_in_npc_id"):
@@ -123,7 +123,7 @@ def main():
             fails.append(f"{qid}: prerequisite cycle")
 
     # ---- 3/4/5. objective sources
-    drops_raw = json.loads(Path("data/creatures/quest_drops.json").read_text())
+    drops_raw = json.loads(Path("data/creatures/quest_drops.json").read_text(encoding="utf-8"))
     drops_raw = drops_raw.get("drops", drops_raw)
     dropped, starters = set(), {}
     for creature, items in drops_raw.items():
@@ -133,14 +133,14 @@ def main():
                 starters[it["item_id"]] = (it["starts_quest"], creature)
 
     recipes = set()
-    rp = json.loads(Path("data/crafting/recipes.json").read_text())["professions"]
+    rp = json.loads(Path("data/crafting/recipes.json").read_text(encoding="utf-8"))["professions"]
     for prof, v in rp.items():
         recs = v["recipes"] if isinstance(v, dict) and "recipes" in v else v
         recipes |= set(recs) if isinstance(recs, dict) else {x.get("recipe_id") or x.get("id") for x in recs}
-    bs = json.loads(Path("data/blacksmithing/recipes.json").read_text())
+    bs = json.loads(Path("data/blacksmithing/recipes.json").read_text(encoding="utf-8"))
     bs = bs.get("recipes", bs)
     recipes |= set(bs) if isinstance(bs, dict) else {x.get("recipe_id") for x in bs}
-    sm = json.loads(Path("data/gathering/smelting_recipes.json").read_text())
+    sm = json.loads(Path("data/gathering/smelting_recipes.json").read_text(encoding="utf-8"))
     sm = sm.get("recipes", sm)
     recipes |= set(sm) if isinstance(sm, dict) else {x.get("output_id") for x in sm}
 
@@ -156,7 +156,7 @@ def main():
                 fails.append(f"{q['quest_id']}: crafts '{t}', which is not a recipe or smelting output")
 
     # ---- 6. kill targets actually spawn where the objective says
-    enc = json.loads(Path("data/creatures/encounters.json").read_text())["zones"]
+    enc = json.loads(Path("data/creatures/encounters.json").read_text(encoding="utf-8"))["zones"]
     spawns = {}
     for zname, z in enc.items():
         s = set(z.get("open_zone", {}).get("creatures", {}))
@@ -241,7 +241,7 @@ def main():
     print(f"QuestManager loaded {len(qm.quests)} quests in total")
 
     # ---- 11. no quest is built around a named rare (Kyle's standing rule)
-    cre = json.loads(Path("data/creatures/creatures.json").read_text())["creatures"]
+    cre = json.loads(Path("data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"]
     #: A rare is a boss that is ALSO weighted 0 in an open-zone/subzone table - it rolls at about 6% where
     #: it lives. A dungeon or cave boss is also is_boss and also weight 0, but it is hand-placed at a fixed
     #: point, so it is always there. The difference is the map, not the record.

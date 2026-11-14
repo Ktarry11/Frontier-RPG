@@ -27,7 +27,7 @@ def main():
     from world import gear_sets as G
     from entities.item import Item
 
-    sets = json.loads((ROOT / "data/items/gear_sets.json").read_text())["sets"]
+    sets = json.loads((ROOT / "data/items/gear_sets.json").read_text(encoding="utf-8"))["sets"]
     bad, drawn, waiting, files = [], [], [], 0
     for n, classes in T.SHEETS.items():
         have = (T.SHEET_DIR / f"t0_sets_sheet{n}.png").exists()

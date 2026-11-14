@@ -36,10 +36,10 @@ NEAR = 14
 def main():
     from world.zone_generator import create_all_zones
     Z = create_all_zones()
-    npcs = json.loads((ROOT / "data/npcs/ambient_npcs.json").read_text())["npcs"]
+    npcs = json.loads((ROOT / "data/npcs/ambient_npcs.json").read_text(encoding="utf-8"))["npcs"]
     quests = []
     for f in sorted((ROOT / "data/quests").glob("*.json")):
-        qs = json.loads(f.read_text()).get("quests", [])
+        qs = json.loads(f.read_text(encoding="utf-8")).get("quests", [])
         quests += qs if isinstance(qs, list) else list(qs.values())
 
     fails = []

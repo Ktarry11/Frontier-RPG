@@ -31,8 +31,8 @@ def window(lo, hi):
 def load():
     from world.zone_keys import zone_key
     from entities.material_tiers import HIGH_TIER
-    mats = json.load(open(ROOT / "data/gathering/materials.json"))["materials"]
-    levels = {zone_key(k): v for k, v in json.load(open(ROOT / "data/zones/zone_levels.json"))["zones"].items()}
+    mats = json.load(open(ROOT / "data/gathering/materials.json", encoding="utf-8"))["materials"]
+    levels = {zone_key(k): v for k, v in json.load(open(ROOT / "data/zones/zone_levels.json", encoding="utf-8"))["zones"].items()}
     skill = {k: v["skill_range"][0] for k, v in mats.items() if v.get("skill_range")}
     kind = {k: v.get("material_type") for k, v in mats.items()}
     return mats, levels, skill, kind, HIGH_TIER, zone_key
@@ -48,7 +48,7 @@ def quest_materials():
     import glob
     out = set()
     for path in glob.glob(str(ROOT / "data/quests/*.json")):
-        for q in json.load(open(path)).get("quests", []):
+        for q in json.load(open(path, encoding="utf-8")).get("quests", []):
             for o in q.get("objectives", []):
                 if o.get("type") == "gather":
                     out.add(o.get("target"))
@@ -81,7 +81,7 @@ def main():
     apply = "--apply" in sys.argv
     mats, levels, skill, kind, HIGH_TIER, zone_key = load()
     path = ROOT / "data/gathering/node_pools.json"
-    data = json.load(open(path))
+    data = json.load(open(path, encoding="utf-8"))
     pools = data["zones"]
     before = unfit(pools, levels, skill, kind, zone_key)
     for zone, pool in pools.items():
@@ -117,7 +117,7 @@ def main():
           f"({sum(1 for b in before if b[3] == 'low')} too low, {sum(1 for b in before if b[3] == 'high')} too high), "
           f"{len(after)} after")
     if apply:
-        path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+        path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print("written")
     return 0
 

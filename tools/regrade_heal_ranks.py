@@ -174,7 +174,7 @@ def main():
         cid = path.stem
         if cid.startswith("_") or cid == "asher_unique":
             continue
-        data = json.loads(path.read_text(), object_pairs_hook=collections.OrderedDict)
+        data = json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=collections.OrderedDict)
         dirty = False
         for ability in data.get("abilities", []):
             if ability.get("effect_type") not in HEAL_TYPES:
@@ -193,7 +193,7 @@ def main():
                 ability["ranks"] = new_ranks
                 dirty = True
         if dirty:
-            path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+            path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     print(f"{len(changed)} heal tables regraded\n")
     for c in sorted(changed):

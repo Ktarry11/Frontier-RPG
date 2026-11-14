@@ -89,7 +89,7 @@ def main():
         if want - got:
             fails.append(f"{label}: never drops before 60: {', '.join(sorted(want - got))}")
 
-    pools = json.loads((ROOT / "data/gathering/node_pools.json").read_text())["zones"]
+    pools = json.loads((ROOT / "data/gathering/node_pools.json").read_text(encoding="utf-8"))["zones"]
     for zone, v in pools.items():
         early = sorted(set(v.get("table", {})) & HIGH_TIER)
         if early:

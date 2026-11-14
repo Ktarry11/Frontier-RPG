@@ -44,8 +44,8 @@ def check(label, condition, detail=""):
         failures.append(label)
 
 
-materials = json.loads((ROOT / "data/gathering/materials.json").read_text())["materials"]
-pools = json.loads((ROOT / "data/gathering/node_pools.json").read_text())["zones"]
+materials = json.loads((ROOT / "data/gathering/materials.json").read_text(encoding="utf-8"))["materials"]
+pools = json.loads((ROOT / "data/gathering/node_pools.json").read_text(encoding="utf-8"))["zones"]
 
 print(f"== every node id in every zone pool is a real material "
       f"({len(pools)} zones)")

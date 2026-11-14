@@ -36,7 +36,7 @@ EXEMPT = {"asher_coleman"}
 
 
 def arrival_points():
-    src = (ROOT / "world/portal_manager.py").read_text()
+    src = (ROOT / "world/portal_manager.py").read_text(encoding="utf-8")
     out = collections.defaultdict(list)
     for m in re.finditer(
             r'\(\s*\d+\s*,\s*\d+\s*\)\s*:\s*\(\s*"([^"]+)"\s*,\s*(\d+)\s*,\s*(\d+)\s*\)', src):
@@ -73,7 +73,7 @@ def bfs(zone, start):
 
 def main():
     from world.zone_generator import create_all_zones
-    recs = json.load(open(ROOT / "data/npcs/recruits.json"))["recruits"]
+    recs = json.load(open(ROOT / "data/npcs/recruits.json", encoding="utf-8"))["recruits"]
     zones = create_all_zones()
     arrive = arrival_points()
 

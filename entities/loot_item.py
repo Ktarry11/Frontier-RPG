@@ -40,7 +40,7 @@ def _default_icon_id(item_id, category):
                 import json
                 from pathlib import Path
                 path = Path(__file__).resolve().parent.parent / "data" / "items" / "quest_item_icons.json"
-                _QUEST_ICON_TABLE = json.loads(path.read_text()).get("icons", {})
+                _QUEST_ICON_TABLE = json.loads(path.read_text(encoding="utf-8")).get("icons", {})
             return _QUEST_ICON_TABLE.get(item_id)
         if category == "trash":
             from entities.vendor_trash import icon_for_item_id
@@ -119,7 +119,7 @@ class LootItem:
             import json
             from pathlib import Path
             path = Path(__file__).parent.parent / "data" / "items" / "rarity.json"
-            with open(path, "r") as f:
+            with open(path, "r", encoding="utf-8") as f:
                 tiers = json.load(f)["rarity_tiers"]
             color = tiers.get(self.rarity, {}).get("color")
             if color:

@@ -91,12 +91,12 @@ def collect():
     """Return (rows, icon_id_usage). A row is (kind, cls, ident, icon_id)."""
     rows, usage = [], Counter()
     for f in sorted((ROOT / "data/abilities").glob("*.json")):
-        for a in json.loads(f.read_text()).get("abilities", []):
+        for a in json.loads(f.read_text(encoding="utf-8")).get("abilities", []):
             key = a.get("icon_id") or a["ability_id"]
             rows.append(("ability", f.stem, a["ability_id"], a.get("icon_id")))
             usage[key] += 1
     for f in sorted((ROOT / "data/talents").glob("*.json")):
-        nodes = json.loads(f.read_text()).get("nodes") or []
+        nodes = json.loads(f.read_text(encoding="utf-8")).get("nodes") or []
         if isinstance(nodes, dict):
             nodes = list(nodes.values())
         for n in nodes:

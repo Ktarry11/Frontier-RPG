@@ -27,7 +27,7 @@ def main():
     random.seed(7)
     abilities, ids = [], set()
     for f in sorted(Path(_abilities_dir()).glob("*.json")):
-        data = json.loads(f.read_text())
+        data = json.loads(f.read_text(encoding="utf-8"))
         entries = data.get("abilities", data) if isinstance(data, dict) else data
         if isinstance(entries, dict):
             entries = list(entries.values())

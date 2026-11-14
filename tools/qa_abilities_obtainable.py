@@ -46,7 +46,7 @@ def main():
     # Every ability that refuses to be learned from level alone.
     gated = {}
     for path in sorted(glob.glob(os.path.join(ROOT, "data/abilities/*.json"))):
-        doc = json.load(open(path))
+        doc = json.load(open(path, encoding="utf-8"))
         for ability in _rows(doc, "abilities"):
             aid = ability.get("ability_id")
             if aid and ability.get("requires_talent"):
@@ -55,7 +55,7 @@ def main():
     # Every ability some talent hands out, anywhere in the game.
     unlocked = defaultdict(list)
     for path in sorted(glob.glob(os.path.join(ROOT, "data/talents/*.json"))):
-        doc = json.load(open(path))
+        doc = json.load(open(path, encoding="utf-8"))
         for node in doc.get("nodes", []):
             value = (node.get("effects") or {}).get("unlock_ability")
             for aid in ([value] if isinstance(value, str) else (value or [])):
@@ -67,7 +67,7 @@ def main():
     # failure: the node looks like it teaches something and teaches nothing.
     known = set()
     for path in sorted(glob.glob(os.path.join(ROOT, "data/abilities/*.json"))):
-        for ability in _rows(json.load(open(path)), "abilities"):
+        for ability in _rows(json.load(open(path, encoding="utf-8")), "abilities"):
             if ability.get("ability_id"):
                 known.add(ability["ability_id"])
     dangling = sorted(a for a in unlocked if a not in known)

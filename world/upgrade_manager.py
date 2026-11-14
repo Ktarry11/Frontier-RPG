@@ -152,7 +152,7 @@ def _rarity_order():
     excluded - it's not a point on the upgrade ladder, real items never
     sit at quest-item rarity)."""
     rarity_file = Path(__file__).parent.parent / "data" / "items" / "rarity.json"
-    with open(rarity_file, 'r') as f:
+    with open(rarity_file, 'r', encoding="utf-8") as f:
         tiers = json.load(f)["rarity_tiers"]
     return [name for name in tiers.keys() if name != "quest"]
 

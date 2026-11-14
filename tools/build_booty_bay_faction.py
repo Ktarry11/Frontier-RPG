@@ -98,7 +98,7 @@ ENTRY = {
 
 def main():
     path = ROOT / "data/factions/factions.json"
-    data = json.loads(path.read_text())
+    data = json.loads(path.read_text(encoding="utf-8"))
     entry = dict(ENTRY)
     existing = data["factions"].get(KEY)
     if existing:
@@ -106,7 +106,7 @@ def main():
         # ladder, not the bestiary, and rerunning it must not wipe what the content builder wrote.
         entry["kill_rep"] = {**entry["kill_rep"], **{"creatures": existing["kill_rep"]["creatures"]}}
     data["factions"][KEY] = entry
-    path.write_text(json.dumps(data, indent=2) + "\n")
+    path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
     print(f"factions: {len(data['factions'])} total, "
           f"{'updated' if existing else 'added'} {KEY}")
 

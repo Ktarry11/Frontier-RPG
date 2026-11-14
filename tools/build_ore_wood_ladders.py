@@ -137,10 +137,10 @@ def main():
     mp = ROOT / "data/gathering/materials.json"
     sp = ROOT / "data/gathering/smelting_recipes.json"
     rp = ROOT / "data/crafting/recipes.json"
-    mdoc = json.loads(mp.read_text())
+    mdoc = json.loads(mp.read_text(encoding="utf-8"))
     mats = mdoc["materials"]
-    sdoc = json.loads(sp.read_text())
-    rdoc = json.loads(rp.read_text())
+    sdoc = json.loads(sp.read_text(encoding="utf-8"))
+    rdoc = json.loads(rp.read_text(encoding="utf-8"))
 
     # ---- every stem must have its art, or this is the same bug again
     art_missing = []
@@ -258,9 +258,9 @@ def main():
             added["plankrec"] += 1
 
     if apply:
-        mp.write_text(json.dumps(mdoc, indent=2, ensure_ascii=False) + "\n")
-        sp.write_text(json.dumps(sdoc, indent=2, ensure_ascii=False) + "\n")
-        rp.write_text(json.dumps(rdoc, indent=2, ensure_ascii=False) + "\n")
+        mp.write_text(json.dumps(mdoc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        sp.write_text(json.dumps(sdoc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        rp.write_text(json.dumps(rdoc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     def count(t):
         return sum(1 for v in mats.values() if v.get("material_type") == t)

@@ -55,7 +55,7 @@ def main():
 
     sets = []
     for f in sorted((ROOT / "data/quests").glob("*.json")):
-        data = json.loads(f.read_text())
+        data = json.loads(f.read_text(encoding="utf-8"))
         quests = data.get("quests", data) if isinstance(data, dict) else data
         for q in (quests.values() if isinstance(quests, dict) else quests):
             defs = [d for d in (q.get("rewards") or []) if isinstance(d, dict) and d.get("slot")] if isinstance(q, dict) else []
@@ -87,7 +87,7 @@ def main():
         check(len(full) == n_stats, f"{qid}: {choices[0].item.name} has {n_stats} stats, the card lists {len(full)}")
 
     # the turn-in card, driven through the screen's own drawing for a sample
-    src = (ROOT / "ui/screens/quest_dialog_screen.py").read_text()
+    src = (ROOT / "ui/screens/quest_dialog_screen.py").read_text(encoding="utf-8")
     check(src.count("choice.armor_type_label, (rect") == 0, "a card still draws the raw label, which repeats the name")
     check(src.count("self._stat_lines(item") >= 2, "one of the two cards does not list every stat")
 

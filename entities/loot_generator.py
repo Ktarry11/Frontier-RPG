@@ -119,19 +119,19 @@ class LootGenerator:
     def _load_data(self):
         data_dir = Path(__file__).parent.parent / "data" / "items"
 
-        with open(data_dir / "armor_types.json", 'r') as f:
+        with open(data_dir / "armor_types.json", 'r', encoding="utf-8") as f:
             self.armor_types = json.load(f)
-        with open(data_dir / "weapon_types.json", 'r') as f:
+        with open(data_dir / "weapon_types.json", 'r', encoding="utf-8") as f:
             self.weapon_types = json.load(f)
-        with open(data_dir / "stat_templates.json", 'r') as f:
+        with open(data_dir / "stat_templates.json", 'r', encoding="utf-8") as f:
             self.stat_templates = json.load(f)
-        with open(data_dir / "rarity.json", 'r') as f:
+        with open(data_dir / "rarity.json", 'r', encoding="utf-8") as f:
             self.rarity_tiers = json.load(f)["rarity_tiers"]
-        with open(data_dir / "slots.json", 'r') as f:
+        with open(data_dir / "slots.json", 'r', encoding="utf-8") as f:
             self.slots = json.load(f)
-        with open(data_dir / "bags.json", 'r') as f:
+        with open(data_dir / "bags.json", 'r', encoding="utf-8") as f:
             self.bags_catalog = json.load(f)["bags"]
-        with open(data_dir / "gear_suffixes.json", 'r') as f:
+        with open(data_dir / "gear_suffixes.json", 'r', encoding="utf-8") as f:
             _suffix_data = json.load(f)
             self.gear_suffixes = _suffix_data["suffixes"]
             self.stat_budget_costs = _suffix_data["stat_budget_costs"]

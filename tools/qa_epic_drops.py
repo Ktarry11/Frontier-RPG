@@ -35,7 +35,7 @@ class _Dummy:
 def main():
     random.seed(0)
     fails = []
-    data = json.loads((ROOT / "data/loot/epic_drops.json").read_text())
+    data = json.loads((ROOT / "data/loot/epic_drops.json").read_text(encoding="utf-8"))
     world, dungeon = data.get("world", []), data.get("dungeon", [])
 
     if not world or not dungeon:

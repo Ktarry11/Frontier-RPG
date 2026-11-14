@@ -118,7 +118,7 @@ NEW_FOOD = [
 
 def main():
     check = "--check" in sys.argv
-    doc = json.loads(CONSUMABLES.read_text())
+    doc = json.loads(CONSUMABLES.read_text(encoding="utf-8"))
     added = []
 
     for category, level, cid, name, desc in NEW_TIERS:
@@ -196,7 +196,7 @@ def main():
     if check:
         print("\n--check: nothing written")
         return 0
-    CONSUMABLES.write_text(json.dumps(doc, indent=2) + "\n")
+    CONSUMABLES.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
     print(f"\nwrote {CONSUMABLES.relative_to(ROOT)}")
     return 0
 

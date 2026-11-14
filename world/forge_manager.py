@@ -35,7 +35,7 @@ class ForgeManager:
     def _load_forges(self):
         forges_path = Path(__file__).parent.parent / "data" / "npcs" / self.DATA_FILE
         try:
-            with open(forges_path, 'r') as f:
+            with open(forges_path, 'r', encoding="utf-8") as f:
                 data = json.load(f)
             for forge_def in data.get(self.LIST_KEY, []):
                 forge = Forge(

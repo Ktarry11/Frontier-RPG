@@ -295,7 +295,7 @@ def main():
     from world.zone_generator import create_all_zones
     from world.zone_keys import zone_key
 
-    with open(ROSTER) as fh:
+    with open(ROSTER, encoding="utf-8") as fh:
         doc = json.load(fh)
 
     by_zone = collections.defaultdict(list)
@@ -331,7 +331,7 @@ def main():
     print(f"\n  {total} NPCs relocated"
           + (" and written" if args.apply else " (report only; pass --apply to write)"))
     if args.apply and total:
-        with open(ROSTER, "w") as fh:
+        with open(ROSTER, "w", encoding="utf-8") as fh:
             json.dump(doc, fh, indent=2, ensure_ascii=False)
             fh.write("\n")
     return 0

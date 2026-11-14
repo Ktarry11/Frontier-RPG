@@ -130,7 +130,7 @@ def main():
     print("\n== MerchantTusk is in every major city and nowhere else")
     from world.zone_generator import create_all_zones
     Z = {zone_key(name): zone for name, zone in create_all_zones().items()}
-    npcs = json.loads((ROOT / "data/npcs/ambient_npcs.json").read_text())["npcs"]
+    npcs = json.loads((ROOT / "data/npcs/ambient_npcs.json").read_text(encoding="utf-8"))["npcs"]
     bankers = [n for n in npcs if n.get("is_banker")]
     seen = set()
     for n in bankers:

@@ -52,10 +52,10 @@ def main():
     zones = create_all_zones()
 
     amb_path = ROOT / "data" / "npcs" / "ambient_npcs.json"
-    amb = json.loads(amb_path.read_text())
+    amb = json.loads(amb_path.read_text(encoding="utf-8"))
     npcs = [n for n in amb["npcs"] if not n["npc_id"].startswith("ak_")]
-    vend = json.loads((ROOT / "data" / "npcs" / "vendors.json").read_text())["vendors"]
-    forges = json.loads((ROOT / "data" / "npcs" / "forges.json").read_text()).get("forges", [])
+    vend = json.loads((ROOT / "data" / "npcs" / "vendors.json").read_text(encoding="utf-8"))["vendors"]
+    forges = json.loads((ROOT / "data" / "npcs" / "forges.json").read_text(encoding="utf-8")).get("forges", [])
     everyone = {n.get("npc_id", n.get("vendor_id")): n for n in npcs + vend if "x" in n}
 
     new, failed = [], []
@@ -108,9 +108,9 @@ def main():
         return 1 if failed else 0
 
     amb["npcs"] = npcs + new
-    amb_path.write_text(json.dumps(amb, indent=2) + "\n")
+    amb_path.write_text(json.dumps(amb, indent=2) + "\n", encoding="utf-8")
     tpath = ROOT / "data" / "travel" / "travel_data.json"
-    raw = tpath.read_text()
+    raw = tpath.read_text(encoding="utf-8")
     travel = json.loads(raw)
     services = travel["services"]
     for who in list(services):
@@ -119,7 +119,7 @@ def main():
             del services[who]
     for n in new:
         services[n["npc_id"]] = ["set_exchange"]
-    tpath.write_text(json.dumps(travel, indent=2 if raw.startswith('{\n  "') else 4) + "\n")
+    tpath.write_text(json.dumps(travel, indent=2 if raw.startswith('{\n  "') else 4) + "\n", encoding="utf-8")
     print("wrote", len(new), "Artifact Keepers")
     return 0
 

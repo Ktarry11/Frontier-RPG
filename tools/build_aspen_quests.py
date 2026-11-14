@@ -545,7 +545,7 @@ def main():
     for fname, qs in by_file.items():
         path = ROOT / f"data/quests/{fname}.json"
         if path.exists() and fname != "aspen":
-            data = json.loads(path.read_text())
+            data = json.loads(path.read_text(encoding="utf-8"))
             existing = data["quests"]
             if isinstance(existing, dict):
                 for q in qs:
@@ -562,11 +562,11 @@ def main():
                               "in data/quests/text/aspen.json wins, and its source is "
                               "tools/quest_text_src/aspen.txt.",
                     "quests": qs}
-        path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+        path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     # drops
     dp = ROOT / "data/creatures/quest_drops.json"
-    drops = json.loads(dp.read_text())
+    drops = json.loads(dp.read_text(encoding="utf-8"))
     # THE LOADERS READ data["drops"], NOT THE TOP LEVEL. Both combat_engine._get_loot_item_drops and
     # quest_locator.item_sources do json.load(f).get("drops", {}) - so a creature key written beside
     # "drops" instead of inside it is read by nothing and the item never drops. This file shipped that
@@ -585,7 +585,7 @@ def main():
             cur.append({"item_id": iid, "name": nm, "category": "quest", "description": desc,
                         "chance": ch, "starts_quest": qid})
         table[cre] = cur
-    dp.write_text(json.dumps(drops, indent=2, ensure_ascii=False) + "\n")
+    dp.write_text(json.dumps(drops, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     n_in = len(inbound())
     print(f"Aspen quests: {len(quests)} total ({n_in} inbound from Taurajo/Orgrimmar/Hillsbrad), "

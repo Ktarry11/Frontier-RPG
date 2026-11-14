@@ -84,7 +84,7 @@ def main():
     nb = 0
     if check(build is not None, "rig: cannot find boss_loot's item builder"):
         for f in sorted((ROOT / "data/loot").glob("*boss_loot.json")):
-            for boss, defs in json.loads(f.read_text()).items():
+            for boss, defs in json.loads(f.read_text(encoding="utf-8")).items():
                 for d in (defs.values() if isinstance(defs, dict) else defs):
                     if isinstance(d, dict) and d.get("item_level") and d.get("slot"):
                         try:
@@ -100,7 +100,7 @@ def main():
     nq = 0
     pay_by_level = {}
     for f in sorted((ROOT / "data/quests").glob("*.json")):
-        data = json.loads(f.read_text())
+        data = json.loads(f.read_text(encoding="utf-8"))
         quests = data.get("quests", data) if isinstance(data, dict) else data
         for q in (quests.values() if isinstance(quests, dict) else quests):
             if not isinstance(q, dict):
@@ -127,7 +127,7 @@ def main():
         check(it.sell_price <= 1, f"starting gear {it.name} sells for {coins(it.sell_price)}")
 
     # 4 ------------------------------------------------------------------------------------
-    bags = json.loads((ROOT / "data/items/bags.json").read_text())
+    bags = json.loads((ROOT / "data/items/bags.json").read_text(encoding="utf-8"))
     bag_defs = bags.get("bags", bags)
     bag_id = next(iter(bag_defs)) if isinstance(bag_defs, dict) else bag_defs[0].get("item_id")
     bag = gen.generate_bag(bag_id=bag_id)
@@ -136,7 +136,7 @@ def main():
         check(bag.sell_price == raw["sell_price"], f"bag {bag.name}: sell price {bag.sell_price}, data says {raw['sell_price']}")
 
     # 5 ------------------------------------------------------------------------------------
-    src = (ROOT / "ui/screens/vendor_screen.py").read_text()
+    src = (ROOT / "ui/screens/vendor_screen.py").read_text(encoding="utf-8")
     check(src.count("item.sell_price * 4") >= 3, "the vendor no longer charges 4x the sell price in all three places")
 
     # 6 ------------------------------------------------------------------------------------

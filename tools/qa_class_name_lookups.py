@@ -75,7 +75,7 @@ def main():
     check("no class silently falls back to Mana", not mana_only, str(mana_only))
 
     # ---- 2. spellbook tabs --------------------------------------------------
-    coa = json.load(open("data/spellbook_tabs_coa.json"))
+    coa = json.load(open("data/spellbook_tabs_coa.json", encoding="utf-8"))
     unresolved = [c for c in classes
                   if any(class_key(c) == class_key(k) for k in coa)
                   and lookup(coa, c) is None]

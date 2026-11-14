@@ -23,7 +23,7 @@ DRESSING_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__f
 
 def load_dressing():
     try:
-        with open(DRESSING_PATH, "r") as f:
+        with open(DRESSING_PATH, "r", encoding="utf-8") as f:
             return json.load(f)
     except (OSError, json.JSONDecodeError):
         return {}

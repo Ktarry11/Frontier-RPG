@@ -123,7 +123,7 @@ RAZORHILL_WELCOME = {
 def main():
     # Chain vot_scorpid_trouble -> vot_graduation
     vot_path = "data/quests/valley_of_trials.json"
-    vot_data = json.load(open(vot_path))
+    vot_data = json.load(open(vot_path, encoding="utf-8"))
     linked = False
     for q in vot_data["quests"]:
         if q["quest_id"] == "vot_scorpid_trouble":
@@ -131,14 +131,14 @@ def main():
             linked = True
     if not any(q["quest_id"] == "vot_graduation" for q in vot_data["quests"]):
         vot_data["quests"].append(VOT_GRADUATION)
-    json.dump(vot_data, open(vot_path, "w"), indent=2)
+    json.dump(vot_data, open(vot_path, "w", encoding="utf-8"), indent=2)
     print(f"Linked vot_scorpid_trouble -> vot_graduation: {linked}")
     print("Added vot_graduation to valley_of_trials.json")
 
     # New razor_hill.json quest file
     rh_path = "data/quests/razor_hill.json"
     rh_data = {"quests": [RAZORHILL_WELCOME]}
-    json.dump(rh_data, open(rh_path, "w"), indent=2)
+    json.dump(rh_data, open(rh_path, "w", encoding="utf-8"), indent=2)
     print("Wrote razorhill_welcome to data/quests/razor_hill.json")
 
 

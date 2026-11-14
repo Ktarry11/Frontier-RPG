@@ -102,7 +102,7 @@ def live_effect_types(literals):
     """
     authored = set()
     for path in (ROOT / "data/abilities").glob("*.json"):
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         for ability in doc.get("abilities", []):
             authored.add(ability.get("effect_type"))
     return {e for e in authored if e and e in literals}
@@ -138,7 +138,7 @@ def effect_key_conventions(exclude_slug=None):
         if exclude_slug and path.stem.startswith(exclude_slug + "_"):
             continue
         try:
-            doc = json.loads(path.read_text())
+            doc = json.loads(path.read_text(encoding="utf-8"))
         except (OSError, ValueError):
             continue
         for node in doc.get("nodes", []):
@@ -170,7 +170,7 @@ def check_magnitudes(slug, report, conventions):
     """Flag talent values an order of magnitude off the shipped convention."""
     prefix = slug.replace("-", "_")
     for path in sorted(ROOT.glob(f"data/talents/{prefix}_*.json")):
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         for node in doc.get("nodes", []):
             points = node.get("max_points", 1) or 1
             for key, value in (node.get("effects") or {}).items():
@@ -314,7 +314,7 @@ def class_display_name(slug):
 def all_ability_ids():
     ids = {}
     for path in (ROOT / "data/abilities").glob("*.json"):
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         for ability in doc.get("abilities", []):
             ids.setdefault(ability.get("ability_id"), []).append(path.name)
     return ids
@@ -328,7 +328,7 @@ def validate_abilities(slug, report, effect_types, global_ids):
     if not path.exists():
         report.error(f"no ability file at data/abilities/{slug}.json")
         return []
-    doc = json.loads(path.read_text())
+    doc = json.loads(path.read_text(encoding="utf-8"))
     abilities = doc.get("abilities", [])
     if not abilities:
         report.error(f"{path.name}: zero abilities")
@@ -633,7 +633,7 @@ def validate_talents(slug, report, live_keys, abilities, global_ids,
     granted = set()
 
     for path in trees:
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         tag = path.stem
         if doc.get("tree_id") != tag:
             report.error(f"{tag}: tree_id is {doc.get('tree_id')!r}, "
@@ -763,7 +763,7 @@ def validate_talents(slug, report, live_keys, abilities, global_ids,
     # when the data looks innocent.
     owner = {}
     for path in trees:
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         for node in doc.get("nodes") or []:
             v = (node.get("effects") or {}).get("unlock_ability")
             for target in (v if isinstance(v, list) else [v]) if v else []:
@@ -790,7 +790,7 @@ def validate_talents(slug, report, live_keys, abilities, global_ids,
         return {f for f in found if isinstance(f, str)}
 
     for path in trees:
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         tag = path.stem
         for node in doc.get("nodes") or []:
             nid = node.get("talent_id", "<missing>")
@@ -827,11 +827,11 @@ def validate_wiring(slug, report, abilities):
     if display not in CLASS_RESOURCE_MAP:
         report.error(f"{display!r} missing from CLASS_RESOURCE_MAP")
 
-    armor = json.loads((ROOT / "data/items/armor_types.json").read_text())
+    armor = json.loads((ROOT / "data/items/armor_types.json").read_text(encoding="utf-8"))
     if display not in (armor.get("class_armor_map") or {}):
         report.error(f"{display!r} missing from armor_types.json class_armor_map")
 
-    weapons = json.loads((ROOT / "data/items/weapon_types.json").read_text())
+    weapons = json.loads((ROOT / "data/items/weapon_types.json").read_text(encoding="utf-8"))
     if display not in (weapons.get("class_weapon_map") or {}):
         report.error(f"{display!r} missing from weapon_types.json class_weapon_map")
 
@@ -845,7 +845,7 @@ def validate_wiring(slug, report, abilities):
                     f"unselectable until added")
 
     tabs_path = ROOT / "data/spellbook_tabs_coa.json"
-    tabs = json.loads(tabs_path.read_text()) if tabs_path.exists() else {}
+    tabs = json.loads(tabs_path.read_text(encoding="utf-8")) if tabs_path.exists() else {}
     mapping = tabs.get(display)
     if mapping is None:
         report.warn(f"{display!r} has no spellbook tab mapping in {tabs_path.name}")

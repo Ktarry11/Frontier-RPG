@@ -251,7 +251,7 @@ def pools():
 
 def main():
     p = ROOT / "data/creatures/creatures.json"
-    data = json.loads(p.read_text())
+    data = json.loads(p.read_text(encoding="utf-8"))
     cr = data["creatures"]
     for n, d in NEW_CREATURES.items():
         cr[n] = d
@@ -261,22 +261,22 @@ def main():
         cr[n]["level_range"] = [lv, lv]
     for n, k in KIT_PATCH.items():
         cr[n]["ability_kit"] = k
-    p.write_text(json.dumps(data, indent=2) + "\n")
+    p.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
 
     p = ROOT / "data/creatures/encounters.json"
-    data = json.loads(p.read_text())
+    data = json.loads(p.read_text(encoding="utf-8"))
     z = data["zones"]["Deathknell"]
     z["open_zone"] = ENCOUNTERS["open_zone"]
     z["subzones"] = ENCOUNTERS["subzones"]
     z["caves"] = ENCOUNTERS["caves"]
     z["level_overrides"] = LEVEL_OVERRIDES
-    p.write_text(json.dumps(data, indent=2) + "\n")
+    p.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
 
     out = {"_notes": "Deathknell cluster named-rare + cave-boss loot (2026-10-22). One item drops per kill "
                      "from the creature's pool. Numbers from the real loot formulas "
                      "(tools/build_deathknell_content.py)."}
     out.update(pools())
-    (ROOT / "data/loot/deathknell_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n")
+    (ROOT / "data/loot/deathknell_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
     n_items = sum(len(v) for k, v in out.items() if not k.startswith("_"))
     print(f"creatures +{len(NEW_CREATURES)}, level patches {len(LEVEL_PATCH)+len(BOSS_LEVEL_PATCH)}, "
           f"loot pools {len(out)-1}, items {n_items}")

@@ -48,8 +48,8 @@ from tools.audit_item_budgets import budget_for, spend  # the authority, not a c
 
 OUT = ROOT / "data/loot/arathi_boss_loot.json"
 CRE = ROOT / "data/creatures/creatures.json"
-_WEAPONS = json.loads((ROOT / "data/items/weapon_types.json").read_text())["weapon_types"]
-_COSTS = json.loads((ROOT / "data/items/gear_suffixes.json").read_text())["stat_budget_costs"]
+_WEAPONS = json.loads((ROOT / "data/items/weapon_types.json").read_text(encoding="utf-8"))["weapon_types"]
+_COSTS = json.loads((ROOT / "data/items/gear_suffixes.json").read_text(encoding="utf-8"))["stat_budget_costs"]
 
 #: Stat weights per blend. Primary stats are the bulk; one secondary gives the piece its job.
 #: PRIMARY lists which of the keys go in "primary_stats" - the rest go in "secondary_stats",

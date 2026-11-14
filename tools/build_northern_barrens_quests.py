@@ -593,7 +593,7 @@ def main():
         assert n is None or n in ids, (q["quest_id"], n)
     names = [d["name"] for q in out for d in q["unique_item_defs"]]
     assert len(names) == len(set(names)), [n for n in names if names.count(n) > 1]
-    OUT.write_text(json.dumps({"quests": out}, indent=2, ensure_ascii=False) + "\n")
+    OUT.write_text(json.dumps({"quests": out}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("northern barrens hub quests:", len(out), "items:", sum(len(q["unique_item_defs"]) for q in out))
 
 

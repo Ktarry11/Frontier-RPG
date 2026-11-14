@@ -284,7 +284,7 @@ def main():
     assert len(ids) == len(set(ids)), "duplicate quest ids"
     nxt = {q.get("next_quest_id") for q in QUESTS} - {None}
     assert nxt <= set(ids), nxt - set(ids)
-    out.write_text(json.dumps({"quests": QUESTS}, indent=2, ensure_ascii=False) + "\n")
+    out.write_text(json.dumps({"quests": QUESTS}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"{len(QUESTS)} dungeon quests -> {out.name}")
 
 

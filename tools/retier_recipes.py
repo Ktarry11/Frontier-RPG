@@ -74,7 +74,7 @@ def drop_level(mid, first):
 
 def main():
     apply = "--apply" in sys.argv
-    mats = json.loads((ROOT / "data/gathering/materials.json").read_text())["materials"]
+    mats = json.loads((ROOT / "data/gathering/materials.json").read_text(encoding="utf-8"))["materials"]
 
     import importlib.util
     spec = importlib.util.spec_from_file_location("qm", ROOT / "tools/qa_materials.py")
@@ -92,7 +92,7 @@ def main():
     moves, kept = [], 0
     for rel, path, fam in TARGETS:
         p = ROOT / rel
-        doc = json.loads(p.read_text())
+        doc = json.loads(p.read_text(encoding="utf-8"))
         recipes = dig(doc, path)
         ladder = sorted(LADDERS[fam], key=lambda m: drop_level(m, first))
 
@@ -135,7 +135,7 @@ def main():
                     out["material_tier"] = pick.split("_", 1)[1]
 
         if apply:
-            p.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
+            p.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     print(f"{len(moves)} recipes re-tiered, {kept} left as authored\n")
     for rel, _path, _rid, name, ilvl, skill, old, new in sorted(moves, key=lambda m: (m[0], m[4])):

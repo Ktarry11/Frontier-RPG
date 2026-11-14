@@ -62,18 +62,18 @@ def main():
     written = 0
 
     for path in sorted((ROOT / "data/quests").glob("*.json")):
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         dirty = False
         for quest in doc.get("quests", []):
             for item in (quest.get("unique_item_defs") or []) + (quest.get("rewards") or []):
                 if isinstance(item, dict):
                     dirty |= _strip(item, stats)
         if dirty and not check:
-            path.write_text(json.dumps(doc, indent=2) + "\n")
+            path.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
             written += 1
 
     for path in sorted((ROOT / "data/loot").glob("*.json")):
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         rows = doc.get("bosses", doc)
         if not isinstance(rows, dict):
             continue
@@ -85,7 +85,7 @@ def main():
                 if isinstance(item, dict):
                     dirty |= _strip(item, stats)
         if dirty and not check:
-            path.write_text(json.dumps(doc, indent=2) + "\n")
+            path.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
             written += 1
 
     print(f"flavour text stripped: {stats['stripped']}")

@@ -54,7 +54,7 @@ def live_cap():
     audit credits a level-60 character with gear whose leather comes off creatures that do not
     exist, which is the difference between what has been authored and what can be made.
     """
-    creatures = json.loads((ROOT / "data/creatures/creatures.json").read_text())["creatures"]
+    creatures = json.loads((ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"]
     return max((max(c.get("level_range") or [1]) for c in creatures.values()), default=1)
 
 
@@ -94,7 +94,7 @@ def material_gate():
     for _pass in range(4):
         for f in [ROOT / "data/gathering/smelting_recipes.json"] + \
                  sorted(ROOT.glob("data/*/recipes.json")):
-            doc = json.loads(f.read_text())
+            doc = json.loads(f.read_text(encoding="utf-8"))
             buckets = ([b.get("recipes", {}) for b in doc.get("professions", {}).values()]
                        if "professions" in doc else [doc.get("recipes", {})])
             for recipes in buckets:
@@ -124,7 +124,7 @@ def crafted():
     gates = material_gate()
     out = []
     for f in sorted(ROOT.glob("data/*/recipes.json")):
-        doc = json.loads(f.read_text())
+        doc = json.loads(f.read_text(encoding="utf-8"))
         buckets = ([(p, b.get("recipes", {})) for p, b in doc.get("professions", {}).items()]
                    if "professions" in doc else [(f.parent.name, doc.get("recipes", {}))])
         for prof, recipes in buckets:
@@ -145,7 +145,7 @@ def dungeon_loot():
     """[(item_level, rarity, required_level, slot)] from every hand-authored boss table."""
     out = []
     for f in sorted((ROOT / "data/loot").glob("*_boss_loot.json")):
-        for boss, pool in json.loads(f.read_text()).items():
+        for boss, pool in json.loads(f.read_text(encoding="utf-8")).items():
             if boss.startswith("_") or not isinstance(pool, list):
                 continue
             for it in pool:
@@ -159,7 +159,7 @@ def quest_gear():
     """[(gear_level, level_min)] for every quest that rewards gear."""
     out = []
     for f in sorted((ROOT / "data/quests").glob("*.json")):
-        for q in json.loads(f.read_text()).get("quests") or []:
+        for q in json.loads(f.read_text(encoding="utf-8")).get("quests") or []:
             if not isinstance(q, dict):
                 continue
             gl = q.get("gear_reward_gear_level")

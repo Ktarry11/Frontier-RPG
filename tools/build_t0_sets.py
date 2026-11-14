@@ -170,6 +170,7 @@ OVERRIDES = {
     "druid_feral": "tank_druid",
     "chronomancer_artificer": "caster_spi", "chronomancer_infinite": "caster_spi",
     "runemaster_engravement": "hybrid_int", "runemaster_riftblade": "hybrid_int",
+    "venomancer_venom": "caster",            # Kyle, 13 Nov 2026: "venomancer venom is pure caster"
 }
 
 
@@ -221,7 +222,7 @@ def build():
     with contextlib.redirect_stdout(io.StringIO()):
         from entities.loot_generator import LootGenerator
     gen = LootGenerator()
-    specs = json.loads((ROOT / "data/items/spec_gear.json").read_text())
+    specs = json.loads((ROOT / "data/items/spec_gear.json").read_text(encoding="utf-8"))
     sets = {}
     for char_class, (set_name, word) in SETS.items():
         slug = char_class.lower().replace(" ", "_")
@@ -277,7 +278,7 @@ def main():
         print(f"  {s['class']:17} {s['armor_type']:8} " + "; ".join(f"{v['label']} [{v['profile']}]" for v in s["variants"].values()))
     if "--dry-run" in sys.argv:
         return 0
-    OUT.write_text(text)
+    OUT.write_text(text, encoding="utf-8")
     return 0
 
 

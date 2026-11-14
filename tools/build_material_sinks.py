@@ -50,7 +50,7 @@ SINKS = {
 
 def main():
     p = ROOT / "data/crafting/recipes.json"
-    doc = json.loads(p.read_text())
+    doc = json.loads(p.read_text(encoding="utf-8"))
     eng = doc["professions"]["engineering"]["recipes"]
 
     # The ids above are guesses at a naming convention, and a guess that silently matches nothing
@@ -88,7 +88,7 @@ def main():
             touched += 1
             print(f"  {eng[rid]['name']:<22}+ {', '.join(f'{q}x {m}' for m, q in adds.items())}")
 
-    p.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
+    p.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"\n{touched} recipes changed ({len(resolved) - touched} already had their input)")
     return 0
 

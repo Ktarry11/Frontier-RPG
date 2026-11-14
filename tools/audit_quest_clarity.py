@@ -33,7 +33,7 @@ def stems(name):
 def main():
     from world.quest_manager import QuestManager
     qs = QuestManager().quests
-    drops = json.load(open(ROOT / "data/creatures/quest_drops.json"))["drops"]
+    drops = json.load(open(ROOT / "data/creatures/quest_drops.json", encoding="utf-8"))["drops"]
     item_names, carriers = {}, {}
     for creature, rows in drops.items():
         for r in rows:
@@ -45,7 +45,7 @@ def main():
     for path in sorted(glob.glob(str(ROOT / "data/quests/*.json"))):
         stem = os.path.basename(path)[:-5]
         bad = []
-        quests = json.load(open(path))["quests"]
+        quests = json.load(open(path, encoding="utf-8"))["quests"]
         for q0 in quests:
             q = qs.get(q0["quest_id"])
             if q is None:

@@ -95,7 +95,7 @@ def main():
                          f"(default {DEFAULT_TARGET})")
     args = ap.parse_args()
 
-    doc = json.loads(TEMPLATES.read_text())
+    doc = json.loads(TEMPLATES.read_text(encoding="utf-8"))
     tmpl = doc.get("templates", doc)
 
     ref_base = tmpl[REFERENCE]["base_armor"]
@@ -135,7 +135,7 @@ def main():
     if not args.apply:
         print("\n(report only; pass --apply to write)")
         return 0
-    TEMPLATES.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
+    TEMPLATES.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"\nwrote {TEMPLATES}")
     return 0
 

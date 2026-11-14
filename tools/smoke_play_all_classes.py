@@ -106,7 +106,7 @@ def play(cls: str) -> list[str]:
         path = ROOT / f"data/abilities/{cls.lower().replace(' ', '_')}.json"
         if not path.exists():
             return
-        for entry in json.loads(path.read_text()).get("abilities", []):
+        for entry in json.loads(path.read_text(encoding="utf-8")).get("abilities", []):
             tmpl = entry.get("summon_pet_template")
             if not tmpl:
                 continue

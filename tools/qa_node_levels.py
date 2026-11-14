@@ -19,7 +19,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 def main():
     import retable_gathering_nodes as R
     mats, levels, skill, kind, _high, zone_key = R.load()
-    pools = json.load(open(ROOT / "data/gathering/node_pools.json"))["zones"]
+    pools = json.load(open(ROOT / "data/gathering/node_pools.json", encoding="utf-8"))["zones"]
     bad = R.unfit(pools, levels, skill, kind, zone_key)
     # negative control: copper in a level 40 zone must read as too low
     fake = {"the_shimmering_flats": {"table": {"ore_copper": 1}}}

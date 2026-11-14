@@ -157,7 +157,7 @@ def main():
                         f"identically")
 
     # ---- 4. every authored scaling spec in the data is well formed --------
-    doc = json.loads(KITS.read_text())
+    doc = json.loads(KITS.read_text(encoding="utf-8"))
     authored = 0
     for kid, kit in doc.items():
         if kid.startswith("_") or not isinstance(kit, dict):

@@ -42,7 +42,7 @@ def main():
     src = ""
     for d in ("combat", "entities", "world"):
         for f in (ROOT / d).rglob("*.py"):
-            src += f.read_text()
+            src += f.read_text(encoding="utf-8")
     from entities.character import STAT_CONVERSION_TARGETS
 
     def is_read(key):
@@ -55,7 +55,7 @@ def main():
 
     abilities = {}
     for f in sorted((ROOT / "data/abilities").glob("*.json")):
-        data = json.loads(f.read_text())
+        data = json.loads(f.read_text(encoding="utf-8"))
         for a in data.get("abilities", []) if isinstance(data, dict) else []:
             abilities[a["ability_id"]] = (f.stem, a)
             for key in (a.get("stat_mods") or {}):

@@ -275,26 +275,26 @@ ENCOUNTERS = {
 def main():
     # creatures
     p = ROOT / "data/creatures/creatures.json"
-    data = json.loads(p.read_text())
+    data = json.loads(p.read_text(encoding="utf-8"))
     cr = data["creatures"]
     for n, d in NEW_CREATURES.items():
         cr[n] = d
     for n, patch in CREATURE_PATCH.items():
         cr[n].update(patch)
-    p.write_text(json.dumps(data, indent=2) + "\n")
+    p.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
 
     # encounters
     p = ROOT / "data/creatures/encounters.json"
-    data = json.loads(p.read_text())
+    data = json.loads(p.read_text(encoding="utf-8"))
     data["zones"]["Valley of Trials"] = ENCOUNTERS
-    p.write_text(json.dumps(data, indent=2) + "\n")
+    p.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
 
     # loot
     out = {"_notes": "Valley of Trials cluster boss + named-rare loot (2026-10-21). One item "
                      "drops per kill from the boss's pool. Numbers from the real loot formulas "
                      "(tools/build_vot_content.py). Primary-stat only - ilvl<10 rule."}
     out.update(pools())
-    (ROOT / "data/loot/valley_of_trials_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n")
+    (ROOT / "data/loot/valley_of_trials_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
     n_items = sum(len(v) for k, v in out.items() if not k.startswith("_"))
     print(f"creatures +{len(NEW_CREATURES)}, loot pools {len(out)-1}, items {n_items}")
 

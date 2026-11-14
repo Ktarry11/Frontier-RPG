@@ -87,7 +87,7 @@ def main():
         qid = sys.argv[sys.argv.index("--quest") + 1] if "--quest" in sys.argv else None
         found = None
         for f in sorted(glob.glob("data/quests/*.json")):
-            raw = json.load(open(f))
+            raw = json.load(open(f, encoding="utf-8"))
             block = raw if isinstance(raw, list) else raw.get("quests", raw)
             items = block if isinstance(block, list) else list(block.values())
             for it in items:
@@ -105,7 +105,7 @@ def main():
         gid = found.get("giver_npc_id")
         gname = gid or "Quest Giver"
         for nf in sorted(glob.glob("data/npcs/*.json")):
-            blob = json.load(open(nf))
+            blob = json.load(open(nf, encoding="utf-8"))
             rows = blob if isinstance(blob, list) else list(blob.values())
             flat = []
             for r in rows:
@@ -131,7 +131,7 @@ def main():
         who = sys.argv[sys.argv.index("--npc") + 1] if "--npc" in sys.argv else None
         found = []
         for f in sorted(glob.glob("data/quests/*.json")):
-            raw = json.load(open(f))
+            raw = json.load(open(f, encoding="utf-8"))
             block = raw if isinstance(raw, list) else raw.get("quests", raw)
             items = block if isinstance(block, list) else list(block.values())
             for it in items:
@@ -142,7 +142,7 @@ def main():
                   for q in found]
         gname = who
         for nf in sorted(glob.glob("data/npcs/*.json")):
-            blob = json.load(open(nf))
+            blob = json.load(open(nf, encoding="utf-8"))
             rows = blob if isinstance(blob, list) else list(blob.values())
             flat = []
             for r in rows:

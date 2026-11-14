@@ -381,7 +381,7 @@ def main():
     declared = set(R.TRASH) | set(R.DECK_BOSSES) | set(R.HOLD_BOSSES)
     declared |= set(G.TRASH_LOW) | set(G.TRASH_HIGH) | set(G.ANCHORAGE_BOSSES)
     declared |= {G.DECK_BOSS, G.CABIN_LEAD, G.CABIN_SECOND} | set(G.HOLD_BOSSES)
-    existing = set(json.loads(CREATURES.read_text())["creatures"])
+    existing = set(json.loads(CREATURES.read_text(encoding="utf-8"))["creatures"])
     unknown = declared - set(ROSTER) - existing
     if unknown:
         print("FAILED: the zone modules name creatures that nothing defines:")

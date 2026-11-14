@@ -971,7 +971,7 @@ class CombatEngine:
             from pathlib import Path
             path = Path(__file__).parent.parent / "data" / "creatures" / "quest_drops.json"
             try:
-                with open(path, "r") as f:
+                with open(path, "r", encoding="utf-8") as f:
                     cls._loot_item_drop_table = json.load(f).get("drops", {})
             except (OSError, json.JSONDecodeError):
                 cls._loot_item_drop_table = {}

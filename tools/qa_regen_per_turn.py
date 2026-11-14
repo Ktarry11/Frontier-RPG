@@ -72,7 +72,7 @@ def main():
 
     granting = 0
     for path in sorted(glob.glob("data/abilities/*.json")):
-        for a in json.load(open(path)).get("abilities", []):
+        for a in json.load(open(path, encoding="utf-8")).get("abilities", []):
             if "mp5" in (a.get("stat_mods") or {}) or "hp5" in (a.get("stat_mods") or {}):
                 granting += 1
     if granting == 0:
@@ -112,7 +112,7 @@ def main():
         bad.append("30 hp5 did not give 30 extra health over five seconds out of combat")
 
     # 5. the sheet
-    src = Path("ui/screens/party_screen.py").read_text()
+    src = Path("ui/screens/party_screen.py").read_text(encoding="utf-8")
     if "mana_per_turn()" not in src or '("mp5", self._num(getattr(member, "mp5", 0)))' in src:
         bad.append("the character sheet still shows the bare mp5 stat instead of mana per turn")
 

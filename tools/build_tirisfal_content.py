@@ -358,7 +358,7 @@ def pools():
 
 def main():
     p = ROOT / "data/creatures/creatures.json"
-    data = json.loads(p.read_text())
+    data = json.loads(p.read_text(encoding="utf-8"))
     cr = data["creatures"]
     for n, d in NEW_CREATURES.items():
         cr[n] = d
@@ -366,10 +366,10 @@ def main():
         cr[n]["level_range"] = [lo, hi]
     for n, k in KIT_PATCH.items():
         cr[n]["ability_kit"] = k
-    p.write_text(json.dumps(data, indent=2) + "\n")
+    p.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
 
     p = ROOT / "data/creatures/encounters.json"
-    data = json.loads(p.read_text())
+    data = json.loads(p.read_text(encoding="utf-8"))
     z = data["zones"]
     for zone, enc in ENCOUNTERS.items():
         z[zone]["open_zone"] = enc["open_zone"]
@@ -378,12 +378,12 @@ def main():
         if "caves" in enc:
             z[zone]["caves"] = enc["caves"]
     z.pop("Brill", None)                     # Brill is a town: nothing spawns there any more (Balnir moved to Eastern)
-    p.write_text(json.dumps(data, indent=2) + "\n")
+    p.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
 
     out = {"_notes": "Tirisfal rebuild named-rare + boss loot (2026-10-22). One item drops per kill "
                      "from the creature's pool. Numbers from the real loot formulas (tools/build_tirisfal_content.py)."}
     out.update(pools())
-    (ROOT / "data/loot/tirisfal_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n")
+    (ROOT / "data/loot/tirisfal_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
     n_items = sum(len(v) for k, v in out.items() if not k.startswith("_"))
     print(f"creatures +{len(NEW_CREATURES)}, level patches {len(LEVEL_PATCH)}, loot pools {len(out)-1}, items {n_items}")
 

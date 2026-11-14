@@ -29,7 +29,7 @@ def main():
 
     ab_path = ROOT / f"data/abilities/{cls}.json"
     if ab_path.exists():
-        doc = json.loads(ab_path.read_text())
+        doc = json.loads(ab_path.read_text(encoding="utf-8"))
         abilities = doc if isinstance(doc, list) else doc.get("abilities", [])
         print(f"=== {cls.upper()} ABILITIES ({len(abilities)}) ===")
         for a in abilities:
@@ -43,7 +43,7 @@ def main():
         print(f"!! no data/abilities/{cls}.json")
 
     for p in sorted(glob.glob(str(ROOT / f"data/talents/{cls}_*.json"))):
-        d = json.loads(Path(p).read_text())
+        d = json.loads(Path(p).read_text(encoding="utf-8"))
         nodes = d["nodes"]
         flat = sum(1 for n in nodes
                    if (n.get("effects") and not n.get("proc")

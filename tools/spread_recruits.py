@@ -64,8 +64,8 @@ MIN_SPACING = 12
 
 def zone_bands():
     """zone name -> (min_level, max_level) from its own open-zone encounter table."""
-    enc = json.loads((ROOT / "data/creatures/encounters.json").read_text())
-    creatures = json.loads((ROOT / "data/creatures/creatures.json").read_text())["creatures"]
+    enc = json.loads((ROOT / "data/creatures/encounters.json").read_text(encoding="utf-8"))
+    creatures = json.loads((ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"]
     out = {}
     for zname, zdata in (enc.get("zones") or enc).items():
         if not isinstance(zdata, dict):
@@ -88,7 +88,7 @@ def main():
     rng = random.Random(args.seed)
 
     path = ROOT / "data/npcs/recruits.json"
-    data = json.loads(path.read_text(), object_pairs_hook=collections.OrderedDict)
+    data = json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=collections.OrderedDict)
     block = data.get("recruits", data)
     recruits = list(block.values()) if isinstance(block, dict) else block
 
@@ -223,7 +223,7 @@ def main():
         report.append((old, (new_zone, x, y, level), r["name"], r["char_class"]))
 
     if not args.dry_run:
-        path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+        path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     per = collections.Counter(r["zone"] for r in recruits)
     print(f"{len(recruits)} recruits over {len(per)} zones "

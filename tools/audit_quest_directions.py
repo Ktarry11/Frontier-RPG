@@ -104,8 +104,8 @@ class World:
         self.doors = set()
         #: (map, creature) pairs met all over that map as well as in a subzone of it.
         self.roams = set()
-        self.enc = json.load(open("data/creatures/encounters.json"))["zones"]
-        drops = json.load(open("data/creatures/quest_drops.json"))["drops"]
+        self.enc = json.load(open("data/creatures/encounters.json", encoding="utf-8"))["zones"]
+        drops = json.load(open("data/creatures/quest_drops.json", encoding="utf-8"))["drops"]
         self.carriers = {}
         for creature, ds in drops.items():
             for d in ds:
@@ -206,7 +206,7 @@ def audit(world, stems):
     # QuestManager lays over the quest files; judge that, not the text underneath it.
     overlay = {}
     for path in sorted(glob.glob("data/quests/text/*.json")):
-        data = json.load(open(path))
+        data = json.load(open(path, encoding="utf-8"))
         for qid, fields in (data.get("quests", data) if isinstance(data, dict) else {}).items():
             if isinstance(fields, dict):
                 overlay.setdefault(qid, {}).update(fields)
@@ -214,7 +214,7 @@ def audit(world, stems):
         stem = os.path.basename(path)[:-5]
         if stems and stem not in stems:
             continue
-        data = json.load(open(path))
+        data = json.load(open(path, encoding="utf-8"))
         quests = data.get("quests", data) if isinstance(data, dict) else data
         quests = quests if isinstance(quests, list) else list(quests.values())
         for q in quests:

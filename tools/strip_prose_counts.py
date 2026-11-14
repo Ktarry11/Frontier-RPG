@@ -104,9 +104,9 @@ def main():
         if only and stem not in only:
             continue
         opath = ROOT / f"data/quests/text/zz_overhaul_{stem}.json"
-        overlay = json.loads(opath.read_text()) if opath.exists() else {}
+        overlay = json.loads(opath.read_text(encoding="utf-8")) if opath.exists() else {}
         n = 0
-        for q0 in json.load(open(path))["quests"]:
+        for q0 in json.load(open(path, encoding="utf-8"))["quests"]:
             q = qs.get(q0["quest_id"])
             if q is None:
                 continue
@@ -124,7 +124,7 @@ def main():
                         print(f"--- {q0['quest_id']}.{k}\n  - {old[:300]!r}\n  + {new[:300]!r}")
                     overlay.setdefault(q0["quest_id"], {})[k] = new
         if n and apply:
-            opath.write_text(json.dumps(overlay, indent=2) + "\n")
+            opath.write_text(json.dumps(overlay, indent=2) + "\n", encoding="utf-8")
         changed_total += n
         print(f"{stem}: {n} fields {'rewritten' if apply else 'would change'}")
     print(f"total {changed_total}")

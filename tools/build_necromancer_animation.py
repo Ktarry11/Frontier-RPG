@@ -573,7 +573,7 @@ def main():
     # to catch after Witch Doctor Shadow Hunting shipped three. Assert the
     # summons rather than trusting the memory of them.
     abilities = json.loads(
-        (ROOT / "data/abilities/necromancer.json").read_text())["abilities"]
+        (ROOT / "data/abilities/necromancer.json").read_text(encoding="utf-8"))["abilities"]
     by_id = {a["ability_id"]: a for a in abilities}
     for aid in SUMMONS:
         a = by_id.get(aid)
@@ -612,7 +612,7 @@ def main():
           f"{pts} points, {len(SUMMONS)} summons asserted")
     if check:
         return 0
-    OUT.write_text(json.dumps(TREE, indent=2) + "\n")
+    OUT.write_text(json.dumps(TREE, indent=2) + "\n", encoding="utf-8")
     print(f"wrote {OUT.relative_to(ROOT)}")
     return 0
 

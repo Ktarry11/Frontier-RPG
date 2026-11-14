@@ -66,7 +66,7 @@ def main():
     # class -> key -> [(tree_id, talent_id, value)]
     found = defaultdict(lambda: defaultdict(list))
     for path in sorted((ROOT / "data/talents").glob("*.json")):
-        tree = json.loads(path.read_text())
+        tree = json.loads(path.read_text(encoding="utf-8"))
         tid = tree.get("tree_id", path.stem)
         cls = tree_class(tid, stems)
         for n in tree["nodes"]:

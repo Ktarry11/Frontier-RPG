@@ -200,20 +200,20 @@ def pools():
 
 def main():
     p = ROOT / "data/creatures/creatures.json"
-    data = json.loads(p.read_text())
+    data = json.loads(p.read_text(encoding="utf-8"))
     data["creatures"].update(NEW_CREATURES)
-    p.write_text(json.dumps(data, indent=2) + "\n")
+    p.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
 
     p = ROOT / "data/creatures/encounters.json"
-    data = json.loads(p.read_text())
+    data = json.loads(p.read_text(encoding="utf-8"))
     data["zones"]["Durotar"]["caves"] = CAVES
-    p.write_text(json.dumps(data, indent=2) + "\n")
+    p.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
 
     out = {"_notes": "Durotar cave boss loot (2026-10-21). One item drops per kill from the "
                      "boss's pool of 4. item_level = boss level + 3; real loot formulas "
                      "(tools/build_durotar_content.make), primary + secondary stats."}
     out.update(pools())
-    (ROOT / "data/loot/durotar_cave_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n")
+    (ROOT / "data/loot/durotar_cave_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
     # Grotto pool now lives in the cave file; drop the old ilvl-13 file so the
     # bosses aren't defined twice.
     old = ROOT / "data/loot/sunken_grotto_boss_loot.json"

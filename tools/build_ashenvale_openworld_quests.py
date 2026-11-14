@@ -381,7 +381,7 @@ DROPS = {
 
 
 def main():
-    data = json.loads(QP.read_text())
+    data = json.loads(QP.read_text(encoding="utf-8"))
     qs = {q["quest_id"]: q for q in data["quests"]}
     for qid, rw in REWRITE.items():
         qs[qid].update(rw)
@@ -391,24 +391,24 @@ def main():
         qs[qid]["next_quest_id"] = nxt
     order = [q["quest_id"] for q in data["quests"]] + [q["quest_id"] for q in NEW if q["quest_id"] not in {x["quest_id"] for x in data["quests"]}]
     data["quests"] = [qs[i] for i in dict.fromkeys(order)]
-    QP.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    QP.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     # NPCs
     NP = ROOT / "data/npcs/ambient_npcs.json"
-    nd = json.loads(NP.read_text())
+    nd = json.loads(NP.read_text(encoding="utf-8"))
     have = {n["npc_id"] for n in nd["npcs"]}
     for n in NEW_NPCS:
         if n["npc_id"] not in have:
             nd["npcs"].append(n)
-    NP.write_text(json.dumps(nd, indent=2, ensure_ascii=False) + "\n")
+    NP.write_text(json.dumps(nd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     # drops
     DP = ROOT / "data/creatures/quest_drops.json"
-    dd = json.loads(DP.read_text())
+    dd = json.loads(DP.read_text(encoding="utf-8"))
     for creature, drops in DROPS.items():
         ids = {x["item_id"] for x in drops}
         dd["drops"][creature] = [x for x in dd["drops"].get(creature, []) if x["item_id"] not in ids] + drops
-    DP.write_text(json.dumps(dd, indent=2, ensure_ascii=False) + "\n")
+    DP.write_text(json.dumps(dd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"{len(data['quests'])} Ashenvale open-world quests ({len(NEW)} new)")
 
 

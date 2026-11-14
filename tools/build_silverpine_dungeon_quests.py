@@ -487,22 +487,22 @@ def main():
     # requires_quests may point at the other Silverpine files; BQ._finish already allows the sp_/ets_/etc_ prefix, so re-check here
     existing = set()
     for f in (ROOT / "data/quests").glob("*.json"):
-        d = json.loads(f.read_text())
+        d = json.loads(f.read_text(encoding="utf-8"))
         for q in (d["quests"] if isinstance(d, dict) else d):
             existing.add(q["quest_id"])
     for out in outs.values():
         for q in out:
             for r in q.get("requires_quests", []):
                 assert r in ids or r in existing, (q["quest_id"], r)
-    OUT_D.write_text(json.dumps({"quests": outs["d"]}, indent=2, ensure_ascii=False) + "\n")
-    OUT_F.write_text(json.dumps({"quests": outs["f"]}, indent=2, ensure_ascii=False) + "\n")
+    OUT_D.write_text(json.dumps({"quests": outs["d"]}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    OUT_F.write_text(json.dumps({"quests": outs["f"]}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     fp = ROOT / "data/quests/forsaken_lands.json"
-    fd = json.loads(fp.read_text())
+    fd = json.loads(fp.read_text(encoding="utf-8"))
     fd["quests"] = [q for q in fd["quests"] if not q["quest_id"].startswith("fenris_")]
-    fp.write_text(json.dumps(fd, indent=2, ensure_ascii=False) + "\n")
+    fp.write_text(json.dumps(fd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
-    dd = json.loads(DROPS.read_text())
+    dd = json.loads(DROPS.read_text(encoding="utf-8"))
     drops = dd["drops"]
     for item_id, (name, desc, srcs) in FETCH.items():
         for creature, chance in srcs:
@@ -515,7 +515,7 @@ def main():
             lst = drops.setdefault(creature, [])
             lst[:] = [d for d in lst if d["item_id"] != item_id]
             lst.append(dict(item_id=item_id, name=name, category="quest", description=desc, chance=chance, starts_quest=qid))
-    DROPS.write_text(json.dumps(dd, indent=2, ensure_ascii=False) + "\n")
+    DROPS.write_text(json.dumps(dd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"dungeon quests {len(outs['d'])}, fenris quests {len(outs['f'])}")
 
 

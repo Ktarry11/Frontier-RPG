@@ -90,7 +90,7 @@ def main():
     placed, skipped = [], []
     for tree, name in sorted(NAMES.items()):
         path = TALENTS / f"{tree}.json"
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         nodes = doc.get("nodes", [])
 
         if any(isinstance(n, dict) and n.get("name") == name for n in nodes):
@@ -141,7 +141,7 @@ def main():
         placed.append((tree, name, hex_x,
                        parent["name"] if parent else "(no tier-3 node)"))
         if args.apply:
-            path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
+            path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     print(f"placed {len(placed)} nodes at tier {TIER} "
           f"(hex_y {row_for(TIER)}), {RANKS} x {PER_RANK * 100:g}% = "

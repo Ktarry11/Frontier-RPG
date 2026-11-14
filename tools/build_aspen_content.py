@@ -256,9 +256,9 @@ def ice_pools():
 
 def main():
     cp = ROOT / "data/creatures/creatures.json"
-    cdata = json.loads(cp.read_text())
+    cdata = json.loads(cp.read_text(encoding="utf-8"))
     ep = ROOT / "data/creatures/encounters.json"
-    edata = json.loads(ep.read_text())
+    edata = json.loads(ep.read_text(encoding="utf-8"))
 
     for group in (ASPEN_CREATURES, ICE_CREATURES):
         cdata["creatures"].update(group)
@@ -273,13 +273,13 @@ def main():
                      "(tools/build_durotar_content.make). Checked by tools/qa_aspen_content.py."}
     for f in (aspen_pools, ice_pools):
         out.update(f())
-    (ROOT / "data/loot/aspen_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n")
+    (ROOT / "data/loot/aspen_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
 
     n_c = sum(len(g) for g in (ASPEN_CREATURES, ICE_CREATURES))
     n_i = sum(len(v) for k, v in out.items() if not k.startswith("_"))
     print(f"Aspen: creatures +{n_c}, loot pools {len(out) - 1}, items {n_i}")
-    cp.write_text(json.dumps(cdata, indent=2) + "\n")
-    ep.write_text(json.dumps(edata, indent=2) + "\n")
+    cp.write_text(json.dumps(cdata, indent=2) + "\n", encoding="utf-8")
+    ep.write_text(json.dumps(edata, indent=2) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":

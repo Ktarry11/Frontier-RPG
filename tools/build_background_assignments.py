@@ -102,7 +102,7 @@ def main():
         if not os.path.exists(OUT):
             print(f"  MISSING: {os.path.relpath(OUT, ROOT)} - run this tool without --check")
             return 1
-        with open(OUT) as fh:
+        with open(OUT, encoding="utf-8") as fh:
             on_disk = json.load(fh)
         missing = set(assignments) - set(on_disk)
         stale = set(on_disk) - set(assignments)
@@ -115,7 +115,7 @@ def main():
         # it just gets a hashed one instead of a dealt one.
         return 0
 
-    with open(OUT, "w") as fh:
+    with open(OUT, "w", encoding="utf-8") as fh:
         json.dump(assignments, fh, indent=0, sort_keys=True)
     print(f"  {len(assignments)} places -> {os.path.relpath(OUT, ROOT)}\n")
     print(f"  {'pack':24}{'imgs':>5}{'places':>8}{'min':>6}{'max':>6}")

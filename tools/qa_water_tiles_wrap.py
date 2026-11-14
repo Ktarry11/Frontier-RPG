@@ -50,7 +50,7 @@ def main():
             bad.append(f"{p.relative_to(ROOT)}: edges disagree x{rows:.1f} top/bottom, "
                        f"x{cols:.1f} left/right - it will draw a line when tiled")
 
-    record = json.loads(fix.RECORD.read_text()) if fix.RECORD.exists() else {}
+    record = json.loads(fix.RECORD.read_text(encoding="utf-8")) if fix.RECORD.exists() else {}
     for name in fix.NAMES:
         for p in fix.copies(name):
             key = str(p.relative_to(ROOT))

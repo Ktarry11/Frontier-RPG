@@ -305,9 +305,9 @@ def subzone_rares():
     roll), not listed as strings - a first pass walked for string values and
     found 2 rares instead of 170.
     """
-    with open(os.path.join(ROOT, "data/creatures/encounters.json")) as fh:
+    with open(os.path.join(ROOT, "data/creatures/encounters.json"), encoding="utf-8") as fh:
         zones = json.load(fh)["zones"]
-    with open(CREATURES) as fh:
+    with open(CREATURES, encoding="utf-8") as fh:
         creatures = json.load(fh)["creatures"]
     bosses = {n for n, c in creatures.items() if c.get("is_boss")}
     out = set()
@@ -467,7 +467,7 @@ def author_trash(creatures, kits, kitdoc, args):
     if len(rows) > (args.show or 20):
         print(f"  ... and {len(rows) - (args.show or 20)} more")
     if args.apply:
-        with open(KITS, "w") as fh:
+        with open(KITS, "w", encoding="utf-8") as fh:
             json.dump(kitdoc, fh, indent=2, ensure_ascii=False)
             fh.write("\n")
         print(f"\n  written to {KITS}")
@@ -536,7 +536,7 @@ def author_summons(creatures, kits, kitdoc, args):
     if len(rows) > (args.show or 20):
         print(f"  ... and {len(rows) - (args.show or 20)} more")
     if args.apply:
-        with open(KITS, "w") as fh:
+        with open(KITS, "w", encoding="utf-8") as fh:
             json.dump(kitdoc, fh, indent=2, ensure_ascii=False)
             fh.write("\n")
         print(f"\n  written to {KITS}")
@@ -557,9 +557,9 @@ def main():
                     help="give a couple of bosses per dungeon a call-for-help")
     args = ap.parse_args()
 
-    with open(CREATURES) as fh:
+    with open(CREATURES, encoding="utf-8") as fh:
         creatures = json.load(fh)["creatures"]
-    with open(KITS) as fh:
+    with open(KITS, encoding="utf-8") as fh:
         kitdoc = json.load(fh)
     kits = kitdoc["kits"]
 
@@ -625,7 +625,7 @@ def main():
             print(f"       {name[:34]:36}{why}")
 
     if args.apply:
-        with open(KITS, "w") as fh:
+        with open(KITS, "w", encoding="utf-8") as fh:
             json.dump(kitdoc, fh, indent=2, ensure_ascii=False)
             fh.write("\n")
         print(f"\n  written to {KITS}")

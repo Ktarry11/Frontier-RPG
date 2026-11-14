@@ -88,7 +88,7 @@ def main():
                 hit = True
             touched += hit
         if not args.dry_run:
-            path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+            path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print(f"  {cls:18s} {touched:3d} abilities, {ranks:4d} ranks at level {MIN_LEVEL}+ "
               f"x{args.factor}")
     print(f"\n{'would apply' if args.dry_run else 'applied'} x{args.factor} to "

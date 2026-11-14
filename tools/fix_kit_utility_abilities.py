@@ -166,7 +166,7 @@ def main():
     ap.add_argument("--apply", action="store_true")
     args = ap.parse_args()
 
-    doc = json.loads(KITS.read_text())
+    doc = json.loads(KITS.read_text(encoding="utf-8"))
     changed, already, unseen = [], [], set(TABLE)
 
     for kid, kit in doc.items():
@@ -223,7 +223,7 @@ def main():
             print(f"  {'':17}still missing: {gap}")
 
     if args.apply:
-        KITS.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
+        KITS.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print(f"\n  wrote {KITS.relative_to(ROOT)}")
     else:
         print("\n  dry run - pass --apply to write")

@@ -88,7 +88,7 @@ VAGUE = re.compile(r"\b(a flat bonus|scale up further|increases healing done|"
 def load():
     out = {}
     for f in sorted(TALENTS.glob("*.json")):
-        doc = json.loads(f.read_text())
+        doc = json.loads(f.read_text(encoding="utf-8"))
         for n in doc.get("nodes", []):
             out[n["talent_id"]] = dict(n, _file=f.stem, _spec=doc.get("spec_name", f.stem))
     return out
@@ -311,7 +311,7 @@ def known_ability_ids():
     """
     ids = set()
     for path in sorted((ROOT / "data/abilities").glob("*.json")):
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         block = doc.get("abilities", doc)
         rows = (list(block.values()) if isinstance(block, dict)
                 else block if isinstance(block, list) else [])
@@ -330,7 +330,7 @@ def live_flavour_dot_keys():
     """
     ids = []
     for path in sorted((ROOT / "data/abilities").glob("*.json")):
-        doc = json.loads(path.read_text())
+        doc = json.loads(path.read_text(encoding="utf-8"))
         block = doc.get("abilities", doc)
         rows = (list(block.values()) if isinstance(block, dict)
                 else block if isinstance(block, list) else [])
@@ -357,7 +357,7 @@ def scale_talent_keys():
     keys = set()
     for path in (ROOT / "data/talents").glob("*.json"):
         try:
-            doc = json.loads(path.read_text())
+            doc = json.loads(path.read_text(encoding="utf-8"))
         except (OSError, ValueError):
             continue
         for node in doc.get("nodes", []):

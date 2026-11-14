@@ -136,12 +136,12 @@ TICS = {
 def load():
     overlay = {}
     for f in sorted((ROOT / "data/quests/text").glob("*.json")):
-        for qid, v in json.loads(f.read_text()).items():
+        for qid, v in json.loads(f.read_text(encoding="utf-8")).items():
             if isinstance(v, dict):
                 overlay[qid] = v
     rows = []
     for f in sorted((ROOT / "data/quests").glob("*.json")):
-        data = json.loads(f.read_text())
+        data = json.loads(f.read_text(encoding="utf-8"))
         qs = data.get("quests", [])
         for q in (qs if isinstance(qs, list) else list(qs.values())):
             o = overlay.get(q["quest_id"], {})

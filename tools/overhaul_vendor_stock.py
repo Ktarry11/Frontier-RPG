@@ -97,7 +97,7 @@ def _retier_to_zone(rows):
     not obviously a mistake. Raising a shop's tier fixes an under-levelled
     shelf; lowering one would take goods away from players who can use them.
     """
-    bands = json.loads(ZONE_LEVELS.read_text())["zones"]
+    bands = json.loads(ZONE_LEVELS.read_text(encoding="utf-8"))["zones"]
     # zone_levels keys are display names ("Arathi Central"); vendors carry
     # slugs ("arathi_central").
     norm = {k.lower().replace(" ", "_").replace("'", ""): v for k, v in bands.items()}
@@ -118,8 +118,8 @@ def _retier_to_zone(rows):
 
 
 def _load():
-    bags = json.loads(BAGS.read_text())["bags"]
-    cons = json.loads(CONSUMABLES.read_text())
+    bags = json.loads(BAGS.read_text(encoding="utf-8"))["bags"]
+    cons = json.loads(CONSUMABLES.read_text(encoding="utf-8"))
     return bags, cons
 
 
@@ -182,7 +182,7 @@ def main():
         for row in (rows if isinstance(rows, list) else []):
             cons_req[row["consumable_id"]] = row.get("required_level", 1)
 
-    doc = json.loads(VENDORS.read_text())
+    doc = json.loads(VENDORS.read_text(encoding="utf-8"))
     vendors = doc.get("vendors", doc)
     rows = list(vendors.values()) if isinstance(vendors, dict) else vendors
 
@@ -259,7 +259,7 @@ def main():
         print("\n--check: nothing written")
         return 0
 
-    VENDORS.write_text(json.dumps(doc, indent=2) + "\n")
+    VENDORS.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
     print(f"\nwrote {VENDORS.relative_to(ROOT)}")
     return 0
 

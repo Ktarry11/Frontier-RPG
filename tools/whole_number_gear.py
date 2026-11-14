@@ -62,7 +62,7 @@ def main():
     check = "--check" in sys.argv
     total = 0
     for path in files():
-        raw = path.read_text()
+        raw = path.read_text(encoding="utf-8")
         try:
             data = json.loads(raw)
         except ValueError:
@@ -81,7 +81,7 @@ def main():
                           if json.dumps(original, indent=i, ensure_ascii=asc) == raw.rstrip("\n")),
                          (2, True))
             path.write_text(json.dumps(data, indent=style[0], ensure_ascii=style[1])
-                            + ("\n" if raw.endswith("\n") else ""))
+                            + ("\n" if raw.endswith("\n") else ""), encoding="utf-8")
     print(f"{total} item(s) {'would change' if check else 'rewritten'}")
     return 1 if (check and total) else 0
 

@@ -1065,10 +1065,10 @@ def audit(quests):
     points at itself.
     """
     errs = []
-    npcs = json.loads((ROOT / "data/npcs/ambient_npcs.json").read_text())["npcs"]
-    vendors = json.loads((ROOT / "data/npcs/vendors.json").read_text())["vendors"]
+    npcs = json.loads((ROOT / "data/npcs/ambient_npcs.json").read_text(encoding="utf-8"))["npcs"]
+    vendors = json.loads((ROOT / "data/npcs/vendors.json").read_text(encoding="utf-8"))["vendors"]
     known_npcs = {n["npc_id"] for n in npcs} | {v["vendor_id"] for v in vendors}
-    creatures = json.loads((ROOT / "data/creatures/creatures.json").read_text())["creatures"]
+    creatures = json.loads((ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"]
     ids = {q["quest_id"] for q in quests}
 
     for q in quests:
@@ -1315,11 +1315,11 @@ def write_capstones():
     already in there.  The one addition the pass wants is PROPOSED_CAPSTONES, reported at the end of
     the build for whoever owns the file to add.  RE-READS IMMEDIATELY BEFORE WRITING and touches no
     other faction, for the day somebody does want the flag."""
-    data = json.loads(FACTIONS.read_text())
+    data = json.loads(FACTIONS.read_text(encoding="utf-8"))
     f = data["factions"]["booty_bay_authority"]
     before = dict(f["quest_rep"].get("capstones") or {})
     f["quest_rep"]["capstones"] = dict(CAPSTONES)
-    FACTIONS.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    FACTIONS.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return before, dict(CAPSTONES)
 
 
@@ -1346,7 +1346,7 @@ def write_staging_drops():
                    "once and quest_drops.json is a read-modify-write. Every item here is required by "
                    "a fetch or gather objective in data/quests/stranglethorn_south.json and those "
                    "quests CANNOT BE COMPLETED until these rows are live.",
-         "drops": rows}, indent=2, ensure_ascii=False) + "\n")
+         "drops": rows}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return sum(len(v) for v in rows.values())
 
 
@@ -1355,7 +1355,7 @@ def write_drops():
     my item ids only, re-read immediately before the write.  Only run this when no other Stranglethorn
     pass is in flight; the staging file above is the normal path."""
     dp = ROOT / "data/creatures/quest_drops.json"
-    drops = json.loads(dp.read_text())
+    drops = json.loads(dp.read_text(encoding="utf-8"))
     # The loaders read data["drops"], NOT the top level - combat_engine._get_loot_item_drops and
     # quest_locator.item_sources both do .get("drops", {}), so a creature key written beside "drops"
     # is read by nothing.
@@ -1363,7 +1363,7 @@ def write_drops():
     for cre, rows in _drop_rows().items():
         mine = {r["item_id"] for r in rows}
         table[cre] = [d for d in table.get(cre, []) if d["item_id"] not in mine] + rows
-    dp.write_text(json.dumps(drops, indent=2, ensure_ascii=False) + "\n")
+    dp.write_text(json.dumps(drops, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return sum(len(v) for v in STAGING_DROPS.values())
 
 
@@ -1378,8 +1378,8 @@ def main():
                    "data/quests/text/stranglethorn_south.json wins at load time. Source of truth is "
                    "tools/build_stranglethorn_south_quests.py; "
                    "tools/quest_text_src/stranglethorn_south.txt is regenerated from it.",
-         "quests": quests}, indent=2, ensure_ascii=False) + "\n")
-    TXT.write_text(_overlay_text(quests))
+         "quests": quests}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    TXT.write_text(_overlay_text(quests), encoding="utf-8")
     n_staged = write_staging_drops()
     n_drops = write_drops() if "--with-drops" in sys.argv else 0
     caps = write_capstones() if "--with-capstones" in sys.argv else None

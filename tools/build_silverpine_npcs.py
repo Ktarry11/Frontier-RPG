@@ -143,8 +143,8 @@ def _upsert(data, key, id_key, rec):
 
 
 def main():
-    amb = json.loads(Path("data/npcs/ambient_npcs.json").read_text())
-    ven = json.loads(Path("data/npcs/vendors.json").read_text())
+    amb = json.loads(Path("data/npcs/ambient_npcs.json").read_text(encoding="utf-8"))
+    ven = json.loads(Path("data/npcs/vendors.json").read_text(encoding="utf-8"))
     added = 0
     for nid, (name, zone, race, gender, var, facing, greet) in NORTH_AMBIENT.items():
         x, y = NORTH_POS[nid]
@@ -186,8 +186,8 @@ def main():
     for rec in ven["vendors"]:
         if rec.get("zone") == "sepulcher" and rec["vendor_id"] in SEP_POS:
             rec["x"], rec["y"] = SEP_POS[rec["vendor_id"]]
-    Path("data/npcs/ambient_npcs.json").write_text(json.dumps(amb, indent=2, ensure_ascii=False) + "\n")
-    Path("data/npcs/vendors.json").write_text(json.dumps(ven, indent=2, ensure_ascii=False) + "\n")
+    Path("data/npcs/ambient_npcs.json").write_text(json.dumps(amb, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    Path("data/npcs/vendors.json").write_text(json.dumps(ven, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"ambient {len(NORTH_AMBIENT) + len(SOUTH_AMBIENT) + len(SEP_AMBIENT)}, vendors {len(NORTH_VENDORS) + len(SOUTH_VENDORS)}, +{added} new records")
 
 

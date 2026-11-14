@@ -19,7 +19,7 @@ _DATA = None
 def data():
     global _DATA
     if _DATA is None:
-        _DATA = json.loads((Path(__file__).parent.parent / "data" / "professions" / "professions.json").read_text())
+        _DATA = json.loads((Path(__file__).parent.parent / "data" / "professions" / "professions.json").read_text(encoding="utf-8"))
     return _DATA
 
 

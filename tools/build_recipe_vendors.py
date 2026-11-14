@@ -104,7 +104,7 @@ def main():
     from world.recipe_manager import all_recipes_by_source
 
     p = ROOT / "data/npcs/vendors.json"
-    doc = json.loads(p.read_text())
+    doc = json.loads(p.read_text(encoding="utf-8"))
     vendors = doc["vendors"]
 
     # ---------------------------------------------------------------- hidden sellers first,
@@ -137,7 +137,7 @@ def main():
             sells.append(rid)
         counts[how] = counts.get(how, 0) + 1
 
-    p.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
+    p.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     print(f"\n{len(wanted)} vendor-source recipes attached: "
           + ", ".join(f"{n} by {how}" for how, n in sorted(counts.items())))

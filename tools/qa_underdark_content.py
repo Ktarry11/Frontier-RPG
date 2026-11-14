@@ -38,7 +38,7 @@ SLOTS = {"back", "chest", "feet", "hands", "head", "legs", "main_hand", "neck", 
 #: pool read as an "illegal weapon type". A hardcoded list of the game's own
 #: types is a list that goes stale the first time Kyle adds one.
 WEAPONS = set(json.loads(
-    (ROOT / "data/items/weapon_types.json").read_text())["weapon_types"])
+    (ROOT / "data/items/weapon_types.json").read_text(encoding="utf-8"))["weapon_types"])
 CAST = {"intellect", "spirit", "spell_power", "healing_power", "mp5", "crit_chance_spell",
         "spell_penetration"}
 PHYS = {"strength", "agility", "attack_power", "crit_chance_physical", "dodge_rating", "defense_rating",
@@ -48,10 +48,10 @@ ZONES = ("The Frostward Descent", "The Crystalline Underdark")
 
 
 def main():
-    cre = json.loads((ROOT / "data/creatures/creatures.json").read_text())["creatures"]
-    enc = json.loads((ROOT / "data/creatures/encounters.json").read_text())["zones"]
-    kits = json.loads((ROOT / "data/creatures/ability_kits.json").read_text())["kits"]
-    loot = json.loads((ROOT / "data/loot/underdark_boss_loot.json").read_text())
+    cre = json.loads((ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"]
+    enc = json.loads((ROOT / "data/creatures/encounters.json").read_text(encoding="utf-8"))["zones"]
+    kits = json.loads((ROOT / "data/creatures/ability_kits.json").read_text(encoding="utf-8"))["kits"]
+    loot = json.loads((ROOT / "data/loot/underdark_boss_loot.json").read_text(encoding="utf-8"))
     pools = {k: v for k, v in loot.items() if not k.startswith("_")}
     fails = []
 

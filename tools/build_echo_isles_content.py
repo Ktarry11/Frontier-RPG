@@ -260,36 +260,36 @@ def pools():
 
 def main():
     p = ROOT / "data/creatures/creatures.json"
-    data = json.loads(p.read_text())
+    data = json.loads(p.read_text(encoding="utf-8"))
     data["creatures"].update(NEW_CREATURES)
     for n, patch in FIXES.items():
         data["creatures"][n].update(patch)
     # the old generic "Drowned Troll" pinned rare is now a trash mob; Moj'bashi is the rare
     data["creatures"]["Drowned Troll"].update({"is_boss": False})
-    p.write_text(json.dumps(data, indent=2) + "\n")
+    p.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
 
     p = ROOT / "data/creatures/encounters.json"
-    data = json.loads(p.read_text())
+    data = json.loads(p.read_text(encoding="utf-8"))
     z = data["zones"]["Echo Isles"]
     z["open_zone"] = OPEN_ZONE
     z["subzones"] = SUBZONES
     z["caves"] = CAVES
-    p.write_text(json.dumps(data, indent=2) + "\n")
+    p.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
 
     p = ROOT / "data/creatures/quest_drops.json"
-    data = json.loads(p.read_text())
+    data = json.loads(p.read_text(encoding="utf-8"))
     D = data["drops"]
     D.pop("Jungle Panther", None)     # the old coral source; coconut crabs carry it now
     for creature, drops in QUEST_DROPS.items():
         D.setdefault(creature, [])
         keep = [d for d in D[creature] if d["item_id"] not in {x["item_id"] for x in drops}]
         D[creature] = keep + drops
-    p.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    p.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     out = {"_notes": "Echo Isles boss + named-rare loot (2026-10-21). ONE item drops per kill from the pool. "
                      "item_level = creature level + 3; real loot formulas (tools/build_durotar_content.make)."}
     out.update(pools())
-    (ROOT / "data/loot/echo_isles_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n")
+    (ROOT / "data/loot/echo_isles_boss_loot.json").write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
     n = sum(len(v) for k, v in out.items() if not k.startswith("_"))
     print(f"creatures +{len(NEW_CREATURES)}, tables {len(SUBZONES)} subzones + 2 caves, pools {len(out)-1}, items {n}")
 

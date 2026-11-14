@@ -103,7 +103,7 @@ ALLOWED_SELF = {"shaman_stoneclaw_totem", "shaman_grounding_totem"}
 def main():
     report = "--report" in sys.argv
     abilities = {a["ability_id"]: a
-                 for a in json.loads(PATH.read_text())["abilities"]}
+                 for a in json.loads(PATH.read_text(encoding="utf-8"))["abilities"]}
     totems = {k: v for k, v in abilities.items() if "totem" in k}
 
     missing, wrong_slot, wrong_target, untagged = [], [], [], []

@@ -242,7 +242,7 @@ QUESTS = [
 
 def main():
     path = "data/quests/razor_hill.json"
-    d = json.load(open(path))
+    d = json.load(open(path, encoding="utf-8"))
     existing_ids = {q["quest_id"] for q in d["quests"]}
     added = []
     for q in QUESTS:
@@ -250,7 +250,7 @@ def main():
             continue
         d["quests"].append(q)
         added.append(q["quest_id"])
-    json.dump(d, open(path, "w"), indent=2)
+    json.dump(d, open(path, "w", encoding="utf-8"), indent=2)
     print(f"Added {len(added)} quests to {path}:")
     for qid in added:
         print(f"  {qid}")

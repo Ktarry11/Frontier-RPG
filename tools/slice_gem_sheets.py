@@ -25,7 +25,7 @@ OUT = ROOT / "assets" / "gathering_nodes" / "gems"
 
 
 def cell_order():
-    mats = json.loads((ROOT / "data/gathering/materials.json").read_text())
+    mats = json.loads((ROOT / "data/gathering/materials.json").read_text(encoding="utf-8"))
     mats = mats.get("materials", mats)
     order = sorted(GEMS, key=lambda g: (mats[g[2]]["skill_range"][0], g[0]))
     return [g[0][4:] for g in order]            # icon ids: the gem id without "gem_"

@@ -28,7 +28,7 @@ def main():
     n = 0
     for fn in ("ashenvale.json", "forsaken_lands.json"):
       path = ROOT / "data/quests" / fn
-      data = json.loads(path.read_text())
+      data = json.loads(path.read_text(encoding="utf-8"))
       for q in data["quests"]:
           for o in q["objectives"]:
               if o["type"] != "explore" or o.get("target_x") is not None:
@@ -47,7 +47,7 @@ def main():
               o.update(type="explore", target=zname.lower().replace(" ", "_"), target_x=x, target_y=y, radius=radius)
               n += 1
               print(q["quest_id"], "->", o)
-      path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+      path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("fixed", n)
 
 

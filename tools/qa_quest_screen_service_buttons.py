@@ -63,7 +63,7 @@ def main():
 
     quests = []
     for f in sorted((ROOT / "data/quests").glob("*.json")):
-        raw = json.loads(f.read_text())
+        raw = json.loads(f.read_text(encoding="utf-8"))
         block = raw if isinstance(raw, list) else raw.get("quests", raw)
         for it in (block if isinstance(block, list) else list(block.values())):
             if isinstance(it, dict) and it.get("quest_id"):

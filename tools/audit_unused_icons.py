@@ -165,7 +165,7 @@ def main():
         print()
     if args.write_list:
         out = Path(args.write_list)
-        out.write_text("\n".join(p.relative_to(ROOT).as_posix() for p in unused) + "\n")
+        out.write_text("\n".join(p.relative_to(ROOT).as_posix() for p in unused) + "\n", encoding="utf-8")
         print(f"  wrote {len(unused)} paths to {out}")
         print()
 

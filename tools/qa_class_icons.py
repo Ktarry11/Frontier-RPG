@@ -43,7 +43,7 @@ def main():
             problems.append(f"display name {display!r} -> no {_icon_key(display)}.png")
 
     # 2. every spelling actually stored on a recruit
-    d = json.load(open("data/npcs/recruits.json"))
+    d = json.load(open("data/npcs/recruits.json", encoding="utf-8"))
     block = d.get("recruits", d)
     recs = block if isinstance(block, list) else list(block.values())
     for r in recs:

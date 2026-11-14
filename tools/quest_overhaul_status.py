@@ -44,15 +44,15 @@ def rows():
             dirs.setdefault(stem, [0, 0])[0 if kind == "WRONG" else 1] += 1
     greet = {}
     for path in ("data/npcs/ambient_npcs.json",):
-        data = json.load(open(path))
+        data = json.load(open(path, encoding="utf-8"))
         for n in (data.get("npcs", data) if isinstance(data, dict) else data):
             if isinstance(n, dict) and n.get("greeting"):
                 greet[A.slug(n.get("zone"))] = greet.get(A.slug(n.get("zone")), 0) + 1
-    done = json.load(open(DONE_PATH)) if os.path.isfile(DONE_PATH) else {}
+    done = json.load(open(DONE_PATH, encoding="utf-8")) if os.path.isfile(DONE_PATH) else {}
     out = []
     for path in sorted(glob.glob("data/quests/*.json")):
         stem = os.path.basename(path)[:-5]
-        quests = json.load(open(path)).get("quests", [])
+        quests = json.load(open(path, encoding="utf-8")).get("quests", [])
         quests = [q for q in quests if isinstance(q, dict) and q.get("objectives")]
         if not quests:
             continue

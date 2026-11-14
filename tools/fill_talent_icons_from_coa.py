@@ -103,7 +103,7 @@ def coa_icon_class(icon_path):
 
 def parse_sprite_css(css_path):
     """css class -> (col, row) in the sprite grid."""
-    text = css_path.read_text()
+    text = css_path.read_text(encoding="utf-8")
     step = 100.0 / (SPRITE_GRID - 1)
     cells = {}
     pattern = re.compile(
@@ -121,7 +121,7 @@ def load_coa(web_dir):
     total = 0
     for path in sorted((web_dir / "data/classes").glob("*.json")):
         slug = path.stem
-        for node in json.loads(path.read_text()):
+        for node in json.loads(path.read_text(encoding="utf-8")):
             if not isinstance(node, dict):
                 continue
             total += 1
@@ -139,7 +139,7 @@ def our_missing():
     out, total = [], 0
     for path in sorted(TALENT_DIR.glob("*.json")):
         tree = path.stem
-        for node in json.loads(path.read_text()).get("nodes", []):
+        for node in json.loads(path.read_text(encoding="utf-8")).get("nodes", []):
             if not isinstance(node, dict):
                 continue
             total += 1

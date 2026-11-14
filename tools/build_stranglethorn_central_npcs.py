@@ -166,7 +166,7 @@ def main(check_only=False):
             flag = "  <-- MOVED" if drift else ""
             print(f"  {nid:<24} anchor {str(anchor):<11} -> {str(got):<11} snapped {drift}{flag}")
         live = {e["npc_id"]: (e["x"], e["y"]) for e in
-                json.loads((ROOT / "data/npcs/ambient_npcs.json").read_text())["npcs"]}
+                json.loads((ROOT / "data/npcs/ambient_npcs.json").read_text(encoding="utf-8"))["npcs"]}
         drifted = [e["npc_id"] for e in rows if live.get(e["npc_id"]) != (e["x"], e["y"])]
         print(f"  {len(rows) - len(drifted)}/{len(rows)} agree with the shipped roster"
               + (f"; DISAGREE: {drifted}" if drifted else ""))
@@ -175,13 +175,13 @@ def main(check_only=False):
     # APPEND-ONLY, RE-READ AT WRITE TIME. Three agents are writing Stranglethorn at once and this file
     # belongs to all of them, so it is read here and not a moment earlier.
     path = ROOT / "data/npcs/ambient_npcs.json"
-    data = json.loads(path.read_text())
+    data = json.loads(path.read_text(encoding="utf-8"))
     by_id = {e["npc_id"]: e for e in data["npcs"]}
     added = sum(1 for e in rows if e["npc_id"] not in by_id)
     for e in rows:
         by_id[e["npc_id"]] = e
     data["npcs"] = list(by_id.values())
-    path.write_text(json.dumps(data, indent=2) + "\n")
+    path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
 
     print(f"Central Stranglethorn wilderness NPCs: +{added} new, {len(rows) - added} updated "
           f"({len(data['npcs'])} ambient NPCs in the game)")

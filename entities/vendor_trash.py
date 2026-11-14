@@ -25,7 +25,7 @@ _templates = None
 def _config():
     global _cfg
     if _cfg is None:
-        with open(_DATA_PATH, "r") as f:
+        with open(_DATA_PATH, "r", encoding="utf-8") as f:
             _cfg = json.load(f)
     return _cfg
 
@@ -34,7 +34,7 @@ def _template_of(name):
     global _templates
     if _templates is None:
         try:
-            with open(_CREATURES_PATH, "r") as f:
+            with open(_CREATURES_PATH, "r", encoding="utf-8") as f:
                 _templates = {n: v.get("template", "") for n, v in json.load(f)["creatures"].items()}
         except (OSError, ValueError, KeyError):
             _templates = {}

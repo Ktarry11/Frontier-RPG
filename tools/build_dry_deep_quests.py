@@ -105,7 +105,7 @@ def quests():
 
 
 def main():
-    doc = json.loads(OUT.read_text())
+    doc = json.loads(OUT.read_text(encoding="utf-8"))
     have = {q["quest_id"]: i for i, q in enumerate(doc["quests"])}
     new = quests()
     for q in new:
@@ -120,7 +120,7 @@ def main():
             doc["quests"].append(q)
     print(f"{len(new)} Dry Deep quests; the file now holds {len(doc['quests'])}")
     if "--apply" in sys.argv:
-        OUT.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
+        OUT.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print("written")
         # B.Q() budgets rewards in fractions; stored gear is whole numbers (qa_whole_number_gear).
         import subprocess

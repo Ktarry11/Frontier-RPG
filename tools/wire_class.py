@@ -63,12 +63,12 @@ def tab_map(slug):
     prefix = slug.replace("-", "_")
     ability_file = ROOT / f"data/abilities/{slug}.json"
     abilities = [a["ability_id"]
-                 for a in json.loads(ability_file.read_text())["abilities"]]
+                 for a in json.loads(ability_file.read_text(encoding="utf-8"))["abilities"]]
 
     owner = {}
     for tree_path in sorted(ROOT.glob(f"data/talents/{prefix}_*.json")):
         tree_id = tree_path.stem
-        for node in json.loads(tree_path.read_text()).get("nodes", []):
+        for node in json.loads(tree_path.read_text(encoding="utf-8")).get("nodes", []):
             target = (node.get("effects") or {}).get("unlock_ability")
             if not target:
                 continue
@@ -83,14 +83,14 @@ def tab_map(slug):
     mapping = {aid: owner.get(aid, "core") for aid in abilities}
 
     orphans = [a["ability_id"]
-               for a in json.loads(ability_file.read_text())["abilities"]
+               for a in json.loads(ability_file.read_text(encoding="utf-8"))["abilities"]
                if a.get("requires_talent") and a["ability_id"] not in owner]
     return mapping, orphans
 
 
 def wire(slugs, apply):
-    tabs = json.loads(TABS_FILE.read_text()) if TABS_FILE.exists() else {}
-    creation = CREATION_FILE.read_text()
+    tabs = json.loads(TABS_FILE.read_text(encoding="utf-8")) if TABS_FILE.exists() else {}
+    creation = CREATION_FILE.read_text(encoding="utf-8")
     failed, wired = [], []
 
     for slug in slugs:
@@ -120,8 +120,8 @@ def wire(slugs, apply):
         wired.append(name)
 
     if apply and wired:
-        TABS_FILE.write_text(json.dumps(tabs, indent=2, ensure_ascii=False) + "\n")
-        CREATION_FILE.write_text(creation)
+        TABS_FILE.write_text(json.dumps(tabs, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        CREATION_FILE.write_text(creation, encoding="utf-8")
         print(f"\nwrote {TABS_FILE.relative_to(ROOT)} and "
               f"{CREATION_FILE.relative_to(ROOT)} for {len(wired)} classes")
     elif not apply:
@@ -131,7 +131,7 @@ def wire(slugs, apply):
 
 def unwired():
     """Classes that have an ability file but are not yet selectable."""
-    creation = CREATION_FILE.read_text()
+    creation = CREATION_FILE.read_text(encoding="utf-8")
     out = []
     for path in sorted((ROOT / "data/abilities").glob("*.json")):
         slug = path.stem

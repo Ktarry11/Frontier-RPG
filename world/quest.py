@@ -631,7 +631,7 @@ def get_weapon_flavor_text(weapon_type):
         from pathlib import Path
         path = Path(__file__).parent.parent / "data" / "items" / "weapon_flavor_text.json"
         try:
-            with open(path, "r") as f:
+            with open(path, "r", encoding="utf-8") as f:
                 _weapon_flavor_text_cache = json.load(f).get("weapon_flavor_text", {})
         except (OSError, json.JSONDecodeError):
             _weapon_flavor_text_cache = {}

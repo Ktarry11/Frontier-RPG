@@ -41,9 +41,9 @@ MIN_ON_ROLE = 1
 
 
 def load():
-    wt = json.loads((ROOT / "data/items/weapon_types.json").read_text())
-    at = json.loads((ROOT / "data/items/armor_types.json").read_text())
-    epics = json.loads((ROOT / "data/loot/epic_drops.json").read_text())
+    wt = json.loads((ROOT / "data/items/weapon_types.json").read_text(encoding="utf-8"))
+    at = json.loads((ROOT / "data/items/armor_types.json").read_text(encoding="utf-8"))
+    epics = json.loads((ROOT / "data/loot/epic_drops.json").read_text(encoding="utf-8"))
     return wt, at, epics
 
 

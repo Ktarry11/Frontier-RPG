@@ -210,9 +210,9 @@ def main():
     ap.add_argument("--apply", action="store_true")
     args = ap.parse_args()
 
-    mats_doc = json.loads(MATS.read_text())
+    mats_doc = json.loads(MATS.read_text(encoding="utf-8"))
     mats = mats_doc["materials"]
-    doc = json.loads(RECIPES.read_text())
+    doc = json.loads(RECIPES.read_text(encoding="utf-8"))
     recipes = doc["recipes"]
 
     missing = [b for b in BAR_ROLES if b not in mats]
@@ -336,9 +336,9 @@ def main():
 
     if args.apply:
         recipes.update(new_recipes)
-        RECIPES.write_text(json.dumps(doc, indent=2) + "\n")
+        RECIPES.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
         mats.update(new_kits)
-        MATS.write_text(json.dumps(mats_doc, indent=2) + "\n")
+        MATS.write_text(json.dumps(mats_doc, indent=2) + "\n", encoding="utf-8")
         print(f"\n  wrote recipes.json, materials.json")
     else:
         print("\n  dry run - pass --apply to write")
