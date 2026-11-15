@@ -388,6 +388,33 @@ Kyle (10:55 local): "So once these are all done. You'll do one last absolute dee
 
 **Running:** pass-7 recalibration (task bg9gqejyi → `/tmp/claude-0/aura_dmg_p7.log`, `aura_heal_p7.log`). Then the battery and the rest of the deep-dive list.
 
+### 19:20–20:05 UTC: Kyle's calls on resistances and hit, plus both-weapon strikes
+
+Kyle (11:16–11:20 local):
+- "For resistances. Add a ramp from 50 to 60, yes. I want hit rating, yes. We need to have spell hit, physical hit. Different hit rating for spells vs skills vs 2H vs 1H."
+- "We need UI to display spell pen and also hit rating ... Main hand hit chance, off hand hit chance, ability hit chance, spell hit chance, spell pen values. Writing what cap is. So people can over cap too and it shows."
+- "Also are you accounting for proper abilities like stormstrike that hit for both weapons. Or a character with 2 weapons using attack and hitting twice ... Wildclaw with primalist is another example"
+
+- **Pass-7 auras** (4fa45e7).
+  - Damage clamps: Enhancement 20, Survival 30, Assassination 30, Fury 30 (×2.48). The Fury at 30 breakdown: Cleave 85% of its damage.
+  - Heal clamps: Vizier 10 and 20, Grovekeeper 30, Brewing 60.
+- **Resistance ramp** (2b… → commit "Resistance ceiling ramps"): the ceiling is 30 up to 50, then +3 a level, reaching 60 at 60 (`RESIST_RAMP_FROM`). `qa_resistance_scale` updated.
+- **HIT** (f2a45ca):
+  - Classic table:
+    - Same level: physical 5%, spell 4%.
+    - Target +1/+2: +1/+2.
+    - Target +3: physical 8%, spell 17%.
+    - Beyond +3: +2 physical / +11 spell a level.
+  - Dual-wield WHITE swings (both hands) +19%; abilities never.
+  - Two stats: `hit_rating` and `spell_hit_rating`. Caps: 8 (abilities/2H), 27 (dual-wield), spell 16 (1% floor).
+  - `Character.miss_chance_vs` / `hit_chance_vs`; `abilities._hit_vs` at every miss roll (the actual target's level).
+  - Talents: 17 → spell hit, 9 + 6 count for both, 22 stay physical.
+  - Items: `tools/split_spell_hit.py` moved 128 caster stat blocks; 427 kept.
+- **Both weapons:** specials are main-hand only unless `strikes_both_weapons`. 16 abilities carry it: Stormstrike, Wildclaw, Mutilate, Killing Spree, Glorious Execution, Justice, Dirge, Dusk Blade, Purifier's Edge, and Felsworn's Twin Slice, Annihilan Strike, Glaiving, Fury Unleashed, Fury of the Illidari, Felrend and Carve.
+  - A dual-wield Attack swings both hands, each rolling its own hit; the off hand lands even when the main hand misses. The combat log shows "(off hand +N)" / "(off hand misses)".
+- **Sheet:** Hit / Spell Hit against their caps, with overcap shown. Main Hand / Off Hand / Abilities / Spells / Ranged are each shown at your level and against a +3 boss. Spell Penetration against its cap, with overcap. Checked by screenshot; `qa_screen_layout` passes.
+- **Running:** the full QA suite (`/tmp/claude-0/qa7`). Then: damage auras (the hit changes move every spec's damage), the battery, and the rest of the deep dive. Kit hand-fixes are still owed: Fury, Assassination, Survival, Enhancement, Vizier, Grovekeeper and Brewing.
+
 ## Parked (Kyle said note it only; class balance comes first)
 
 - **16:41 UTC.** Hand-authored boss drops convert from percentage hit, crit, dodge, parry and so on to RATINGS (10 rating = 1%, like gems and crafted gear), cleaning out the "trash drip" stats. This is item 8 in `claude/playtest_backlog_2026_11_14.md`.
