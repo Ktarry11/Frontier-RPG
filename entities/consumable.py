@@ -88,6 +88,8 @@ class Consumable:
         """Check if character can use this consumable."""
         if character.level < self.required_level:
             return False
+        if self.consumable_type == "revive":
+            return True    # Al'ar Down is used FOR the fallen, from the bag (InventoryScreen._use_revive)
         if getattr(character, "current_health", 1) <= 0:
             return False   # no potion, bandage or meal raises the dead - only a res does
         # FOOD AND DRINK ARE NOT ON THE POTION COOLDOWN, and they do not set it. They fill different

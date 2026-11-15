@@ -76,7 +76,7 @@ TITLES = [
 TRADE_KINDS = {
     "gems": {"cut_gem", "gem", "jc_supply"},
     "enchanting": {"ench_supply", "recipe_enchanting", "recipe_runecrafting", "alch_supply"},
-    "inn": {"food", "drink", "buff_food", "cook_ingredient", "recipe_cooking"},
+    "inn": {"food", "drink", "buff_food", "cook_ingredient", "recipe_cooking", "revive_items"},
     "cook": {"food", "drink", "buff_food", "cook_ingredient", "recipe_cooking", "fish"},
     "alchemy": {"potion", "elixir", "alch_supply", "herb", "recipe_alchemy"},
     "reagent": {"alch_supply", "scribe", "elixir", "herb", "mana_potion", "recipe_enchanting", "recipe_runecrafting", "ench_supply",
@@ -222,7 +222,11 @@ def _rods(tier):
 
 def core(trade, tier, cons):
     """What a shop of this trade always has, at its tier."""
-    if trade in ("inn", "cook"):
+    if trade == "inn":
+        # Al'ar Down: an innkeeper is where a party with nobody to raise them goes (playtest, 14 Nov)
+        return best(cons, "food", tier, 2) + best(cons, "drink", tier, 2) + \
+            best(cons, "buff_food", tier, 1) + ["alar_down"]
+    if trade == "cook":
         return best(cons, "food", tier, 2) + best(cons, "drink", tier, 2) + \
             best(cons, "buff_food", tier, 1)
     if trade == "alchemy":

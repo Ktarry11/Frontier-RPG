@@ -128,7 +128,7 @@ def consumable_subtab(cons):
     ctype = getattr(cons, "consumable_type", "") or ""
     if getattr(cons, "buff_category", None) == "oil":
         return "oils"
-    if ctype in ("health_potion", "mana_potion", "status_potion"):
+    if ctype in ("health_potion", "mana_potion", "status_potion", "revive"):
         return "potions"
     if ctype == "elixir":
         return "elixirs"
@@ -443,6 +443,9 @@ class InventoryScreen(BaseScreen):
         can_use() is asked FIRST and its refusal is surfaced. use() returning
         False silently is how 'I clicked my food and nothing happened' becomes
         a bug report instead of a rule the player can learn."""
+        if consumable.consumable_type == "revive":
+            self._use_revive(subject, consumable)
+            return
         if consumable.required_level > subject.level:
             self.equip_error = f"{consumable.name} requires level {consumable.required_level}."
             self.equip_error_timer = 3.0
@@ -472,6 +475,29 @@ class InventoryScreen(BaseScreen):
                 pool.remove(consumable)
         else:
             self.equip_error = f"{consumable.name} had no effect."
+        self.equip_error_timer = 3.0
+
+    def _use_revive(self, subject, consumable):
+        """AL'AR DOWN (playtest, 14 Nov: "how to rez without a rez"; Kyle: "make Al'ar Down and make it
+        look like a phoenix feather"). Raises one fallen party member at effect_value percent of their
+        health and mana: the one whose bag it is if they're down, otherwise the first who is. Out of
+        combat, from the bag, by anyone, including a party with no healer standing."""
+        party = getattr(self.state_manager, "get_party", lambda: None)()
+        members = list(getattr(party, "members", []) or [subject]) + list(getattr(party, "bench", []) or [])
+        target = subject if not subject.is_alive() else next((m for m in members if not m.is_alive()), None)
+        if target is None:
+            self.equip_error = "Nobody's down. Keep the feather for when someone is."
+            self.equip_error_timer = 3.0
+            return
+        share = max(1, int(consumable.effect_value or 50)) / 100.0
+        target.current_health = max(1, int(target.health * share))
+        if hasattr(target, "current_mana"):
+            target.current_mana = int(getattr(target, "mana", 0) * share)
+        consumable.quantity -= 1
+        pool = self._consumable_source(subject).consumables
+        if consumable.quantity <= 0 and consumable in pool:
+            pool.remove(consumable)
+        self.equip_error = f"{target.name} is back on their feet."
         self.equip_error_timer = 3.0
 
     def handle_event(self, event):

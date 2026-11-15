@@ -4515,5 +4515,22 @@
       "stack_limit": 20,
       "vendor_price": 0
     }
+  ],
+  "revive_items": [
+    {
+      "consumable_id": "alar_down",
+      "name": "Al'ar Down",
+      "consumable_type": "revive",
+      "description": "A phoenix feather, still warm. Lay it on a fallen friend and they get back up with half their health and mana. It works anywhere you can stop to kneel, so not in the middle of a fight.",
+      "effect_value": 50,
+      "effect_duration": 0,
+      "level_multiplier": 0.0,
+      "required_level": 1,
+      "cooldown_seconds": 0,
+      "stack_limit": 5,
+      "vendor_price": 1000,
+      "sell_price": 250,
+      "buff_category": null
+    }
   ]
 }

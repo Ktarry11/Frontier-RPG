@@ -24,7 +24,7 @@ CONSUMABLE = {"food": "Food & Drink", "meals": "Food & Drink", "cooked_meals": "
               "drinks": "Food & Drink", "health_potions": "Potions", "mana_potions": "Potions",
               "elixirs": "Elixirs", "flasks": "Elixirs", "explosives": "Explosives", "gadgets": "Gadgets",
               "ammo": "Ammo", "ammos": "Ammo", "lures": "Lures", "oils": "Oils", "weapon_oils": "Oils",
-              "status_potions": "Potions"}
+              "status_potions": "Potions", "revive_items": "Potions"}
 
 MATERIAL = {"bolt": "Cloth", "cloth": "Cloth", "bar": "Bars", "ingot": "Bars", "leather": "Leather",
             "hide": "Leather", "upgrade_kit": "Upgrade Kits", "plank": "Planks", "lumber": "Planks",
