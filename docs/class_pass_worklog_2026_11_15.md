@@ -262,6 +262,21 @@ PYTHONPATH=. python3 tools/calibrate_spec_auras.py --kind healing --passes 5 --w
 - Starcaller Keen Sight (2%/rank) matches its own CoA tooltip text, so it's left alone.
 - A damage aura recalibration (pass 4b) is running, logging to `/tmp/claude-0/aura_dmg_p4b.log`. The healing iteration is at `/tmp/claude-0/aura_heal_iter.log`.
 
+## Pass 5 (Kyle 10:30 local: "Yes to primalist. After this ... relook at the classes, talents, specs ... run everything again with similar and different simulations ... each time we change stuff. So we do it again and again")
+
+- **Healing iteration** landed: all healers 0.7–1.67, only Vizier at 10 clamped. Verified at 30/50: most within ±10%; Sun Cleric 1.31 at 50, Holy 0.84 and Tinker 0.86 at 50. The pass-5 iteration continues this.
+- **Damage pass 4b:** 6 at the clamp (Enhancement 20, the three Hunter specs at 30, Survival 50, Feral 60).
+- **Primalist (approved):** Seismic Wave, Seismic Tremor, Terrasurge and Primal Rush are core spells learned by level. Their unlock nodes became Improved Seismic Tremor / Seismic Wave / Terrasurge / Primal Rush (+20%; Terrasurge also −1 cooldown). `validate_class primalist`: 0 errors.
+- **`tools/audit_ability_lines.py`:** every damage and healing ability against the line, adjusted for cooldown, AoE share, cast speed, over-time totals (1.5x a nuke) and builder/spender role. Physical strikes aren't judged "below" (weapon damage is added on top).
+  - **33 weak DoTs/HoTs** (0.1–0.4x, CoA per-tick numbers entered as totals) were lifted to 0.7x by `tools/fix_weak_over_time.py`: Rupture 169 → 414, Vampiric Touch 48 → 129, Witchbane 84 → 383.
+  - **22 strong outliers** (2.2–4.8x; mostly CoA AoEs hitting each target harder than a nuke, plus the Seismic Crash builder and a few party heals) were brought to 1.6x by `tools/fix_strong_outliers.py`: Starcall 491 → 163, Obliteration Beam 326 → 110, Forked Lightning 292 → 116, Facemelter 337 → 137.
+  - Recruit kits were re-sized (`rank_kit_abilities --apply`): trump cards are 1.6–3.1x.
+- **New sim:** `sim_dps_parity --targets N`, damage against a pack. At 50 against 1/3/5 targets: Fire 1,934/1,936/2,988, Fury 1,482/2,115/4,690.
+- Mana costs were recalibrated. **The pass-5 recalibration is running** (damage → `/tmp/claude-0/aura_dmg_p5.log`, healing iterate → `/tmp/claude-0/aura_heal_p5.log`).
+- **Next, the verification battery:**
+  - Same as before: parity on seed 3, the heal scenarios, trio, solo (geared, under-geared, no talents), content (geared), the tank matrix, mana endurance, `sim_difficulty` open world and dungeons, hidden zones.
+  - New: multi-target parity at 3 and 5 targets, short-fight (4-turn) burst parity, no-buffs, and consumables.
+
 ## Parked (Kyle said note it only; class balance comes first)
 
 - **16:41 UTC.** Hand-authored boss drops convert from percentage hit, crit, dodge, parry and so on to RATINGS (10 rating = 1%, like gems and crafted gear), cleaning out the "trash drip" stats. This is item 8 in `claude/playtest_backlog_2026_11_14.md`.
