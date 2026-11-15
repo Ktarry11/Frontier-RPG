@@ -10,10 +10,11 @@ A 6x6 sheet holds four 3x3 blocks (tl, tr, bl, br); a 3x3 sheet holds one (one).
 row 1 walking down, row 2 walking up, row 3 walking right; column 1 left foot forward, column 2
 standing, column 3 right foot forward. Left is the right side mirrored.
 
-A FOUR-WAY 6x6 sheet gives each of three characters two full rows (r1 = rows 1-2, r2 = rows 3-4,
+A FOUR-WAY sheet (6x6 for three characters, 6x4 landscape for two) gives each character two full rows (r1 = rows 1-2, r2 = rows 3-4,
 r3 = rows 5-6): first row down 1-3 then up 1-3, second row right 1-3 then left 1-3. Its left side
 is drawn, not mirrored, so whatever a character wears on one side stays there. Add --mirror-left
-to throw the drawn left away and mirror the right instead, if the model botched it.
+to throw the drawn left away and mirror the right instead, if the model botched it, or write
+folder:mirror (r2=tauren/tauren_6:mirror) to do that for one character only.
 
 Writes, into assets/npcs/<folder>/:
   walk_<down|up|right|left>_<1|2|3>.png   (left is right, mirrored)
@@ -51,9 +52,9 @@ def _cells(r0, c0, four_way):
 
 
 def _frames(rgba, grid, r0, c0, four_way=False):
-    """{(dir, n): (RGBA array cropped to the figure, its body centre x)}."""
+    """{(dir, n): (RGBA array cropped to the figure, its body centre x)}. `grid` is (cols, rows)."""
     H, W = rgba.shape[:2]
-    ch, cw = H / grid, W / grid
+    cw, ch = W / grid[0], H / grid[1]
     out = {}
     for d, j, r, c in _cells(r0, c0, four_way):
         y0, x0 = int(r * ch), int(c * cw)
@@ -102,13 +103,17 @@ def main(argv):
     mirror_left = "--mirror-left" in argv
     argv = [a for a in argv if a != "--mirror-left"]
     sheet, jobs = argv[0], dict(a.split("=", 1) for a in argv[1:])
-    grid = 3 if "one" in jobs else 6
     four_way = any(k.startswith("r") for k in jobs)
     rgba = key_magenta(np.asarray(Image.open(sheet).convert("RGB")).astype(np.float64))
+    # Square cells: a 6-wide sheet is 6 rows tall when square, 4 when it's 3:2 (two characters).
+    cols = 3 if "one" in jobs else 6
+    grid = (cols, int(round(cols * rgba.shape[0] / rgba.shape[1])))
     strips = []
     for block, folder in jobs.items():
         r0, c0 = BLOCKS[block]
-        imgs = slice_block(rgba, grid, r0, c0, four_way, mirror_left)
+        # folder:mirror throws away one character's drawn left side and mirrors its right instead
+        folder, _, opt = folder.partition(":")
+        imgs = slice_block(rgba, grid, r0, c0, four_way, mirror_left or opt == "mirror")
         if preview:
             strips.append(imgs)
             continue
