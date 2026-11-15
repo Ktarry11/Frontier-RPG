@@ -36,55 +36,55 @@
           "rank": 1,
           "level_req": 1,
           "cost": 0,
-          "effect_value": 34
+          "effect_value": 26
         },
         {
           "rank": 2,
           "level_req": 6,
           "cost": 0,
-          "effect_value": 43
+          "effect_value": 32
         },
         {
           "rank": 3,
           "level_req": 12,
           "cost": 0,
-          "effect_value": 52
+          "effect_value": 39
         },
         {
           "rank": 4,
           "level_req": 18,
           "cost": 0,
-          "effect_value": 61
+          "effect_value": 46
         },
         {
           "rank": 5,
           "level_req": 24,
           "cost": 0,
-          "effect_value": 70
+          "effect_value": 52
         },
         {
           "rank": 6,
           "level_req": 32,
           "cost": 0,
-          "effect_value": 79
+          "effect_value": 59
         },
         {
           "rank": 7,
           "level_req": 40,
           "cost": 0,
-          "effect_value": 88
+          "effect_value": 66
         },
         {
           "rank": 8,
           "level_req": 48,
           "cost": 0,
-          "effect_value": 97
+          "effect_value": 73
         },
         {
           "rank": 9,
           "level_req": 56,
           "cost": 0,
-          "effect_value": 106
+          "effect_value": 80
         }
       ],
       "icon_id": null,
@@ -94,7 +94,10 @@
       "generates": {
         "resource": "life_force",
         "amount": 20
-      }
+      },
+      "_tuning": [
+        "15 Nov 2026, class pass: x0.75. A FREE builder (0 life force, generates it) hitting at a full nuke's value with no resource gate - Mage pays mana for the same number and runs dry; Rogue's builder is energy-gated. Every Necromancer spec needed a 0.4-0.6 damage aura to sit at parity."
+      ]
     },
     {
       "ability_id": "necromancer_lichfrost",
@@ -110,55 +113,55 @@
           "rank": 1,
           "level_req": 1,
           "cost": 0,
-          "effect_value": 44
+          "effect_value": 33
         },
         {
           "rank": 2,
           "level_req": 6,
           "cost": 0,
-          "effect_value": 55
+          "effect_value": 41
         },
         {
           "rank": 3,
           "level_req": 12,
           "cost": 0,
-          "effect_value": 66
+          "effect_value": 50
         },
         {
           "rank": 4,
           "level_req": 18,
           "cost": 0,
-          "effect_value": 77
+          "effect_value": 58
         },
         {
           "rank": 5,
           "level_req": 24,
           "cost": 0,
-          "effect_value": 88
+          "effect_value": 66
         },
         {
           "rank": 6,
           "level_req": 32,
           "cost": 0,
-          "effect_value": 99
+          "effect_value": 74
         },
         {
           "rank": 7,
           "level_req": 40,
           "cost": 0,
-          "effect_value": 110
+          "effect_value": 82
         },
         {
           "rank": 8,
           "level_req": 48,
           "cost": 0,
-          "effect_value": 121
+          "effect_value": 91
         },
         {
           "rank": 9,
           "level_req": 56,
           "cost": 0,
-          "effect_value": 132
+          "effect_value": 99
         }
       ],
       "icon_id": null,
@@ -168,7 +171,10 @@
       "generates": {
         "resource": "life_force",
         "amount": 12
-      }
+      },
+      "_tuning": [
+        "15 Nov 2026, class pass: x0.75. A FREE builder (0 life force, generates it) hitting at a full nuke's value with no resource gate - Mage pays mana for the same number and runs dry; Rogue's builder is energy-gated. Every Necromancer spec needed a 0.4-0.6 damage aura to sit at parity."
+      ]
     },
     {
       "ability_id": "necromancer_flesh_to_worms",
