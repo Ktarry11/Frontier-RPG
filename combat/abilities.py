@@ -3949,6 +3949,17 @@ class Ability:
                 _oh_missed = bool(getattr(caster, "_last_offhand_missed", False)) if self.effect_type == "damage" else False
                 _oh_note = (f" (off hand +{int(_oh_part * _phys_mult)})" if _oh_part
                             else (" (off hand misses)" if _oh_missed else ""))
+                # THE OFF HAND KEEPS SWINGING (15 Nov 2026). A special is the main hand's (Classic), but in WoW the
+                # off hand auto-attacks the whole time; here a swing costs a turn, so a dual-wielder's off hand
+                # takes its own white swing beside every main-hand special - its own dual-wield miss roll, its own
+                # crit, none of the special's bonus. Without it a dual-wielder was a two-hander with a smaller
+                # weapon (Fury 734 a Cleave against Arms' 1,120 a Heroic Strike). Both-weapon strikes
+                # (Stormstrike...) carry the off hand INSIDE the strike instead: it lands and crits with it.
+                _oh_swing = None
+                if (self.effect_type == "damage" and not self.is_basic_attack(caster)
+                        and not getattr(self, "strikes_both_weapons", False)
+                        and hasattr(caster, "offhand_swing_roll")):
+                    _oh_swing = caster.offhand_swing_roll(_hit_vs(caster, recipients[0], "white", 100.0))
 
                 hit_lines = []
                 any_hit = False
@@ -4004,10 +4015,25 @@ class Ability:
                             if is_crit:
                                 self._rune_echo(caster, t, base_damage, "physical", hit_lines)
 
+                if _oh_swing is not None:
+                    t0 = recipients[0]
+                    if _oh_swing and t0.current_health > 0:
+                        is_c, c_mult = self._roll_crit(caster, t0, "physical")
+                        oh_dmg = max(1, int(_oh_swing * c_mult * (_phys_mult / max(aoe_mult, 1e-9))
+                                            / max(1.0 + self._talent(caster, f"ability_{self.ability_id}_damage"), 1e-9)))
+                        landed = t0.take_damage(oh_dmg, "physical", attacker_level=getattr(caster, "level", None),
+                                                attacker=caster)
+                        if landed:
+                            self._last_threat_events.append((t0, landed, True))
+                            _oh_note = f" (off hand swings +{landed}{', crit' if is_c else ''})"
+                        else:
+                            _oh_note = " (off hand dodged/parried)"
+                    elif _oh_swing == 0:
+                        _oh_note = " (off hand misses)"
                 if is_aoe and len(recipients) > 1:
-                    return f"{caster.name} uses {self.name} on {self._aoe_scope(recipients)} ({', '.join(hit_lines)})!"
+                    return f"{caster.name} uses {self.name} on {self._aoe_scope(recipients)} ({', '.join(hit_lines)}){_oh_note}!"
                 if not any_hit:
-                    return f"{caster.name}'s {self.name} misses {recipients[0].name}!"
+                    return f"{caster.name}'s {self.name} misses {recipients[0].name}!{_oh_note}"
                 return (f"{caster.name} uses {self.name} on {recipients[0].name} for {first_hit_amount} damage!"
                         + (" (CRIT!)" if first_hit_crit else "") + _oh_note + self._echo_text(hit_lines))
             return f"{caster.name} uses {self.name}!"

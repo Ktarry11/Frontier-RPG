@@ -1986,6 +1986,23 @@ class Character(StatusEffectMixin):
 
         return int(round(total * ws))
 
+    def offhand_swing_roll(self, chance):
+        """The off hand's own white swing beside a special (15 Nov 2026): None when not dual-wielding, 0 when it
+        misses, else its damage (half the weapon's roll, Classic's off-hand penalty, times the world curve)."""
+        import random
+        off_hand = self._offhand_weapon()
+        if not off_hand:
+            return None
+        if random.uniform(0, 100) > chance:
+            return 0
+        from combat.world_curve import world_scale as _ws
+        from combat.ability_scaling import AP_BASE
+        roll = random.randint(off_hand.weapon_damage_min, off_hand.weapon_damage_max)
+        # a white swing is weapon + attack power (the basic Attack's AP_BASE share), and the off hand does half
+        # of it (Classic's off-hand penalty)
+        swing = roll * _ws(self.level) + (getattr(self, "attack_power", 0) or 0) * AP_BASE
+        return max(1, int(round(swing * 0.5)))
+
     def _offhand_weapon(self):
         """The equipped off-hand weapon, or None. A shield or an off-hand
         held item is not a weapon and carries no dual-wield penalty, so
