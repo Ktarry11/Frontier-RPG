@@ -2297,6 +2297,43 @@ class Character(StatusEffectMixin):
                     self.trained_ranks[ability.ability_id] = max(self.trained_ranks.get(ability.ability_id, 0), best)
         self._refresh_ability_ranks()
 
+    def _trained_rank_levels(self):
+        """ability_id -> the level of the highest rank trained."""
+        out = {}
+        for aid, n in self.trained_ranks.items():
+            ab = self.ability_book.get_ability(aid)
+            if ab is not None and 1 <= n <= len(ab.ranks):
+                out[aid] = ab.ranks[n - 1].get("level_req", 1)
+        return out
+
+    def _restore_trained_ranks(self, numbers, levels):
+        """Trained rank NUMBERS from a save, re-read against today's ranks.
+
+        A save with trained_rank_levels names the level of each rank bought, so it maps onto whatever ranks the
+        ability has now. An older save only has numbers, read against the rank levels as they were before
+        15 Nov 2026 (data/abilities/rank_levels_before.json, written by tools/fix_ability_rank_levels.py)."""
+        if levels is None:
+            try:
+                import json
+                from pathlib import Path
+                old = json.loads((Path(__file__).resolve().parent.parent / "data/abilities/rank_levels_before.json")
+                                 .read_text(encoding="utf-8"))
+            except (OSError, ValueError):
+                old = {}
+            levels = {}
+            for aid, n in numbers.items():
+                if aid in old and 1 <= n <= len(old[aid]):
+                    levels[aid] = old[aid][n - 1]
+        out = dict(numbers)
+        for aid, lv in (levels or {}).items():
+            ab = self.ability_book.get_ability(aid)
+            if ab is None:
+                continue
+            n = sum(1 for r in ab.ranks if r.get("level_req", 1) <= lv)
+            if n:
+                out[aid] = n
+        return out
+
     def train_ability(self, ability_id, rank_number):
         """Record that `rank_number` of an ability was bought, then re-resolve ranks (the new spell is auto-slotted)."""
         if rank_number > self.trained_ranks.get(ability_id, 0):
@@ -4080,6 +4117,9 @@ class Character(StatusEffectMixin):
             "profession_tiers": dict(self.profession_tiers),
             "training_enabled": bool(self.training_enabled),
             "trained_ranks": dict(self.trained_ranks),
+            # the LEVEL of each trained rank too, so a rank inserted into an ability later (15 Nov 2026:
+            # the 16-level gaps were filled) can't shift what a save had bought onto a different rank
+            "trained_rank_levels": self._trained_rank_levels(),
             # SHAPESHIFT FORM AND THE GUARDIAN TOGGLE WERE NEVER SAVED.
             # Both are documented as PERSISTENT (see the comment on
             # guardian_stance_active in __init__: "PERSISTENT like
@@ -4283,7 +4323,8 @@ class Character(StatusEffectMixin):
 
         if "training_enabled" in data:
             char.training_enabled = bool(data["training_enabled"])
-            char.trained_ranks = {k: int(v) for k, v in data.get("trained_ranks", {}).items()}
+            char.trained_ranks = char._restore_trained_ranks(
+                {k: int(v) for k, v in data.get("trained_ranks", {}).items()}, data.get("trained_rank_levels"))
             char._refresh_ability_ranks()
         elif not char.recruit_id:
             char.enable_training(grandfather=True)
