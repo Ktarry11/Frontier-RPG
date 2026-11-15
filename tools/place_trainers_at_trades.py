@@ -49,9 +49,9 @@ TRADES = {
     "wood": [["carver", "bowyer", "lumber", "sawmill"], ["log_pile", "felled_tree", "winch_house", "storehouse"],
              ["supply_store", "supply_depot", "supply_cache", "quartermaster", "granary"]],
     "hide": [["tannery", "tanner"], ["hide_rack", "drying_rack", "smokehouse", "kennel", "kodo_pen", "stable"]],
-    "essence": [["workshop", "gazlowe", "siege"],
+    "essence": [["workshop", "gazlowe", "siege", "engineer_shop"],
                 ["wizard_desk", "warlock_tower", "pulley_hoist", "winch_house", "mixed_trading_post", "trading_post"]],
-    "class": [["trainers_lodge", "training_pavilion", "novice_longhouse"],
+    "class": [["trainers_lodge", "training_pavilion", "training_hall", "novice_longhouse"],
               ["barracks", "war_hall", "sentinel_outpost_hall", "great_lodge", "elder_lodge", "elders_roundhouse",
                "taurajo_lodge", "command_tent", "command_war_tent", "town_hall", "warchief_lodge", "armoury"]],
 }

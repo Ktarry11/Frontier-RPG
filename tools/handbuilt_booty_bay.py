@@ -174,7 +174,7 @@ NPC_POSITIONS = {
     "bootybay_lookout": (30, 6),               # Lookout Minzi, the cape watch
     "bootybay_toll_collector": (45, 18),       # Tollkeeper Nizzik, head of the ramp
     "bootybay_harbourmaster": (50, 22),        # Harbourmaster Sprocket, tower door
-    "bootybay_banker": (26, 26),               # MerchantTusk - the Baron's vault, on the market row
+    "bootybay_vaultkeep": (26, 26),            # Girzzik Vaultkeep (was MerchantTusk) - talks about the Baron's vault, on the market row
     "bootybay_flight_master": (41, 25),        # Wind-Rider Zekki, the roost over the north pier
     # the upper gallery - the market row, sellers along the rail
     "bootybay_trader": (30, 22),               # Trader Nixxle

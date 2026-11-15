@@ -26,6 +26,7 @@ sys.path.insert(0, str(ROOT))
 os.chdir(ROOT)
 os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 
+from tools.npc_data_guard import report_extras, safe_update  # noqa: E402
 import tools.handbuilt_tempest_shallows as TS  # noqa: E402
 import tools.handbuilt_ashen_reach as AR       # noqa: E402
 import tools.handbuilt_cinderwharf as CW       # noqa: E402
@@ -102,8 +103,7 @@ def main():
             if rec is None:
                 vendors.append({"vendor_id": vid, **want})
                 made += 1
-            elif any(rec.get(k) != v for k, v in want.items()):
-                rec.update(want)
+            elif safe_update(rec, want):         # moves only; the rest is the data's (npc_data_guard)
                 changed += 1
 
         for nid, (name, race, gender, var, greet) in AMB.items():
@@ -115,15 +115,13 @@ def main():
             if rec is None:
                 npcs.append({"npc_id": nid, **want})
                 made += 1
-            elif any(rec.get(k) != v for k, v in want.items()):
-                rec.update(want)
+            elif safe_update(rec, want):         # moves only; the rest is the data's (npc_data_guard)
                 changed += 1
 
-        # ghosts: anybody recorded in this zone that the roster no longer names
-        for r in [r for r in vendors if r.get("zone") == zone and r["vendor_id"] not in VEND]:
-            vendors.remove(r)
-        for r in [r for r in npcs if r.get("zone") == zone and r["npc_id"] not in AMB]:
-            npcs.remove(r)
+        # anybody recorded in this zone that the roster doesn't name: reported, never deleted
+        # (tools/npc_data_guard.py) - the hidden sellers here were put there by the secrets pass
+        report_extras([r["vendor_id"] for r in vendors if r.get("zone") == zone and r["vendor_id"] not in VEND]
+                      + [r["npc_id"] for r in npcs if r.get("zone") == zone and r["npc_id"] not in AMB], zone)
 
     vp.write_text(json.dumps(vd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     ap.write_text(json.dumps(ad, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

@@ -132,7 +132,7 @@ def main():
                               "greeting": line, "gender": gender, "race": race,
                               "appearance_variant": (i * 7 + 2) % 24, "facing": "down"})
         added += 1
-    ap.write_text(json.dumps(adata, indent=2) + "\n", encoding="utf-8")
+    ap.write_text(json.dumps(adata, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     tp = ROOT / "data/travel/travel_data.json"
     td = json.loads(tp.read_text(encoding="utf-8"))
@@ -147,7 +147,7 @@ def main():
     for node_id, (name, zone, master, pos, cont) in NEW_NODES.items():
         td["flight_nodes"][node_id] = {"name": name, "zone": zone, "master": master,
                                        "pos": pos, "continent": cont}
-    tp.write_text(json.dumps(td, indent=2) + "\n", encoding="utf-8")
+    tp.write_text(json.dumps(td, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     print(f"ambient NPCs +{added}, services {len(td['services'])}, flight nodes {len(td['flight_nodes'])}\n")
     if report():

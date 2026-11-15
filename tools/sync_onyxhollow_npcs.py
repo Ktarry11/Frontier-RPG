@@ -28,6 +28,7 @@ sys.path.insert(0, str(ROOT))
 os.chdir(ROOT)
 os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 
+from tools.npc_data_guard import report_extras, safe_update, may_write  # noqa: E402
 import tools.handbuilt_onyxhollow as OH  # noqa: E402
 from tools import onyxhollow_npc_roster as R  # noqa: E402
 
@@ -85,11 +86,9 @@ def main():
             elif (rec["x"], rec["y"]) != (x, y):
                 rec["x"], rec["y"] = x, y
                 moved += 1
-            if rec is not None:
-                rec["name"], rec["greeting"] = name, greet     # the roster owns the words
-                # ...and anything the roster stocks that the shelf lacks. Added at the FRONT and
-                # nothing removed, so the tiering overhaul_vendor_stock did is left alone.
-                rec["sells"] = [i for i in sells if i not in rec["sells"]] + rec["sells"]
+            # An existing seller's words and shelf belong to the data now (tools/npc_data_guard.py):
+            # overhaul_vendor_stock tiered the shelf and took items OFF it, and adding the roster's
+            # list back put them straight back on.
 
         for nid, (name, race, gender, var, greet) in AMB.items():
             x, y = pos[nid]
@@ -102,8 +101,6 @@ def main():
             elif (rec["x"], rec["y"]) != (x, y):
                 rec["x"], rec["y"] = x, y
                 moved += 1
-            if rec is not None:
-                rec["name"], rec["greeting"] = name, greet
 
     # prune ghosts: anything in our zone the roster no longer names is a person who should not be there.
     # Trainers (ct_*, pt_*) belong to build_class_trainers / build_profession_trainers, never to us.
@@ -112,13 +109,9 @@ def main():
         ghosts_v = [r for r in vendors if r.get("zone") == zone and r["vendor_id"] not in keep_v]
         ghosts_a = [r for r in npcs if r.get("zone") == zone and r["npc_id"] not in keep_a
                     and not r["npc_id"].startswith(("ct_", "pt_"))]
-        for r in ghosts_v:
-            vendors.remove(r)
-        for r in ghosts_a:
-            npcs.remove(r)
-        if ghosts_v or ghosts_a:
-            print(f"{zone}: pruned {len(ghosts_v) + len(ghosts_a)} stale record(s): "
-                  f"{[r.get('vendor_id') or r.get('npc_id') for r in ghosts_v + ghosts_a]}")
+        # Reported, never deleted (tools/npc_data_guard.py): a hidden seller, an Artifact Keeper or a
+        # quest giver moved here by a later pass is not a ghost.
+        report_extras([r.get("vendor_id") or r.get("npc_id") for r in ghosts_v + ghosts_a], zone)
 
     # THE ONE TRAINER. He is this roster's person, not a pt_* row, so the town teaches exactly its
     # two trades and tools/build_profession_trainers.py (which keeps non-pt_ entries) leaves him be.

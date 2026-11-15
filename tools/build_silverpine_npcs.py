@@ -15,6 +15,7 @@ sys.path.insert(0, str(ROOT))
 os.chdir(ROOT)
 os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 
+from tools.npc_data_guard import merge  # noqa: E402
 from tools.handbuilt_silverpine_north import NPC_POSITIONS as NORTH_POS   # noqa: E402
 from tools.handbuilt_silverpine_south import NPC_POSITIONS as SOUTH_POS   # noqa: E402
 from tools.handbuilt_sepulcher import NPC_POSITIONS as SEP_POS            # noqa: E402
@@ -149,7 +150,7 @@ def _where(nid, zone, pos):
 def _upsert(data, key, id_key, rec):
     for i, r in enumerate(data[key]):
         if r.get(id_key) == rec[id_key]:
-            data[key][i] = {**r, **rec}
+            data[key][i] = merge(r, rec)     # moves only; the rest is the data's (npc_data_guard)
             return 0
     data[key].append(rec)
     return 1

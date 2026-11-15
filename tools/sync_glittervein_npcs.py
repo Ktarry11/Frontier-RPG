@@ -31,6 +31,7 @@ sys.path.insert(0, str(ROOT))
 os.chdir(ROOT)
 os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 
+from tools.npc_data_guard import report_extras, safe_update, may_write  # noqa: E402
 import tools.handbuilt_glittervein as GV  # noqa: E402
 from tools import glittervein_npc_roster as R  # noqa: E402
 
@@ -108,17 +109,12 @@ def main():
                 for kk, vv in (("name", name), ("race", race), ("gender", gender),
                                ("appearance_variant", var), ("greeting", greet),
                                ("sells_gear", sells_gear)):
-                    if rec.get(kk) != vv:
+                    if rec.get(kk) != vv and may_write(rec, kk):
                         rec[kk] = vv
                         moved += 1
-                # STOCK IS ADDED TO, NEVER REPLACED. The shelf on file has been tiered to the
-                # vendor's level by tools/overhaul_vendor_stock.py since this roster was written;
-                # writing the roster's list back over it would put level-30 potions in a
-                # level-48 camp.
-                extra = [i for i in sells if i not in rec["sells"]]
-                if extra:
-                    rec["sells"] = extra + rec["sells"]
-                    moved += 1
+                # STOCK IS NEVER WRITTEN to an existing seller (tools/npc_data_guard.py). The shelf
+                # has been tiered by tools/overhaul_vendor_stock.py, which also took items off it;
+                # adding the roster's list back put them straight back on.
 
         for nid, (name, race, gender, var, greet) in AMB.items():
             x, y = pos[nid]
@@ -134,7 +130,7 @@ def main():
                     moved += 1
                 for kk, vv in (("name", name), ("race", race), ("gender", gender),
                                ("appearance_variant", var), ("greeting", greet)):
-                    if rec.get(kk) != vv:
+                    if rec.get(kk) != vv and may_write(rec, kk):
                         rec[kk] = vv
                         moved += 1
 
@@ -145,13 +141,9 @@ def main():
         ghosts_v = [r for r in vendors if r.get("zone") == zone and r["vendor_id"] not in keep_v]
         ghosts_a = [r for r in npcs if r.get("zone") == zone and r["npc_id"] not in keep_a
                     and not r["npc_id"].startswith(("ct_", "pt_"))]
-        for r in ghosts_v:
-            vendors.remove(r)
-        for r in ghosts_a:
-            npcs.remove(r)
-        if ghosts_v or ghosts_a:
-            print(f"{zone}: pruned {len(ghosts_v) + len(ghosts_a)} stale record(s): "
-                  f"{[r.get('vendor_id') or r.get('npc_id') for r in ghosts_v + ghosts_a]}")
+        # Reported, never deleted (tools/npc_data_guard.py): a hidden seller, an Artifact Keeper or a
+        # quest giver moved here by a later pass is not a ghost.
+        report_extras([r.get("vendor_id") or r.get("npc_id") for r in ghosts_v + ghosts_a], zone)
 
     Path("data/npcs/vendors.json").write_text(json.dumps(vd, indent=2) + "\n", encoding="utf-8")   # this file keeps its dashes escaped
     Path("data/npcs/ambient_npcs.json").write_text(json.dumps(ad, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

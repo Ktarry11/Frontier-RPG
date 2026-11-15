@@ -17,6 +17,7 @@ sys.path.insert(0, str(ROOT))
 os.chdir(ROOT)
 os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 
+from tools.npc_data_guard import merge  # noqa: E402
 from tools.handbuilt_undercity import NPC_POSITIONS, RECRUITS, FORGE   # noqa: E402
 
 F, M = "female", "male"
@@ -153,7 +154,7 @@ SERVICES = {"uc_innkeeper": ["inn"], "uc_riding_trainer": ["riding"]}
 def _upsert(data, key, id_key, rec):
     for i, r in enumerate(data[key]):
         if r.get(id_key) == rec[id_key]:
-            data[key][i] = {**r, **rec}
+            data[key][i] = merge(r, rec)     # moves only; the rest is the data's (npc_data_guard)
             return 0
     data[key].append(rec)
     return 1
@@ -163,7 +164,10 @@ def main():
     amb = json.loads(Path("data/npcs/ambient_npcs.json").read_text(encoding="utf-8"))
     ven = json.loads(Path("data/npcs/vendors.json").read_text(encoding="utf-8"))
     added = 0
+    sellers = {v["vendor_id"] for v in ven["vendors"]}
     for nid, (name, race, gender, var, facing, greet) in AMBIENT.items():
+        if nid in sellers:
+            continue        # became a shopkeeper later (Gemcutter Voss, the gem sellers pass)
         x, y = NPC_POSITIONS[nid]
         added += _upsert(amb, "npcs", "npc_id", dict(npc_id=nid, name=name, zone="Undercity", x=x, y=y, greeting=greet,
                                                       gender=gender, race=race, appearance_variant=var, facing=facing))
@@ -181,11 +185,11 @@ def main():
     rec = json.loads(Path("data/npcs/recruits.json").read_text(encoding="utf-8"))
     for r in rec["recruits"]:
         pos = RECRUITS.get(r["recruit_id"])
-        if pos:
+        if pos and r.get("x") is None:      # a recruit placed since (ryan_warlock was moved) stays put
             r["x"], r["y"] = pos
             r["home_x"], r["home_y"] = pos
-            if r["recruit_id"] in RECRUIT_NOTES:
-                r["home_note"] = RECRUIT_NOTES[r["recruit_id"]]
+        if pos and r["recruit_id"] in RECRUIT_NOTES:
+            r.setdefault("home_note", RECRUIT_NOTES[r["recruit_id"]])
     Path("data/npcs/recruits.json").write_text(json.dumps(rec, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     fp = Path("data/npcs/forges.json")
@@ -200,8 +204,9 @@ def main():
 
     tp = Path("data/travel/travel_data.json")
     t = json.loads(tp.read_text(encoding="utf-8"))
-    t["services"].update(SERVICES)
-    tp.write_text(json.dumps(t, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    for k, v in SERVICES.items():
+        t["services"][k] = sorted(set(t["services"].get(k, [])) | set(v))
+    tp.write_text(json.dumps(t, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"ambient {len(AMBIENT)}, vendors {len(VENDORS)}, +{added} new records")
 
 

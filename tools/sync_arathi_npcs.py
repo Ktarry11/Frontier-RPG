@@ -26,9 +26,11 @@ sys.path.insert(0, str(ROOT))
 os.chdir(ROOT)
 os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 
+from tools.npc_data_guard import report_extras, safe_update, may_write  # noqa: E402
 import tools.handbuilt_arathi_west as AW  # noqa: E402
 import tools.handbuilt_arathi_central as AC  # noqa: E402
 import tools.handbuilt_arathi_east as AE  # noqa: E402
+import tools.handbuilt_hammerfall as HF  # noqa: E402
 from tools import arathi_npc_roster as R  # noqa: E402
 
 #: (zone key, layout module, vendors, ambient, vendor gear_level).
@@ -36,9 +38,16 @@ from tools import arathi_npc_roster as R  # noqa: E402
 #: the Underdark's 33-40 cluster at 20-22, so 28-33 is 19, 33-37 is 21, 37-40 is 22. Saltspur is
 #: a beachhead rather than a town, but it is the only shop in its band, so its shelves are not
 #: thinned the way a logging camp's would be.
+def _split(d, hf):
+    return {k: v for k, v in d.items() if k.startswith("hammerfall_") == hf}
+
+
+#: Hammerfall stands inside Arathi Central but is its own town map (zone "hammerfall", laid out by
+#: tools/handbuilt_hammerfall.py), so its people's spots and zone come from there.
 ZONES = [
     ("arathi_west", AW, R.WEST_VENDORS, R.WEST_AMBIENT, 19),
-    ("arathi_central", AC, R.CENTRAL_VENDORS, R.CENTRAL_AMBIENT, 21),
+    ("arathi_central", AC, _split(R.CENTRAL_VENDORS, False), _split(R.CENTRAL_AMBIENT, False), 21),
+    ("hammerfall", HF, _split(R.CENTRAL_VENDORS, True), _split(R.CENTRAL_AMBIENT, True), 21),
     ("arathi_east", AE, R.EAST_VENDORS, R.EAST_AMBIENT, 22),
 ]
 
@@ -58,7 +67,7 @@ def main():
     for (zone, M, VEND, AMB, gear) in ZONES:
         pos = M.NPC_POSITIONS
         missing = [k for k in list(VEND) + list(AMB) if k not in pos]
-        spare = [k for k in pos if k not in VEND and k not in AMB]
+        spare = [k for k in pos if k not in VEND and k not in AMB and not k.startswith(("ct_", "pt_"))]
         if missing:
             raise SystemExit(f"{zone}: roster names nobody the layout has a spot for: {missing}")
         if spare:
@@ -95,13 +104,9 @@ def main():
         ghosts_v = [r for r in vendors if r.get("zone") == zone and r["vendor_id"] not in keep_v]
         ghosts_a = [r for r in npcs if r.get("zone") == zone and r["npc_id"] not in keep_a
                     and not r["npc_id"].startswith(("ct_", "pt_"))]
-        for r in ghosts_v:
-            vendors.remove(r)
-        for r in ghosts_a:
-            npcs.remove(r)
-        if ghosts_v or ghosts_a:
-            print(f"{zone}: pruned {len(ghosts_v) + len(ghosts_a)} stale record(s): "
-                  f"{[r.get('vendor_id') or r.get('npc_id') for r in ghosts_v + ghosts_a]}")
+        # Reported, never deleted (tools/npc_data_guard.py): a hidden seller, an Artifact Keeper or a
+        # quest giver moved here by a later pass is not a ghost.
+        report_extras([r.get("vendor_id") or r.get("npc_id") for r in ghosts_v + ghosts_a], zone)
 
     Path("data/npcs/vendors.json").write_text(json.dumps(vd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     Path("data/npcs/ambient_npcs.json").write_text(json.dumps(ad, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

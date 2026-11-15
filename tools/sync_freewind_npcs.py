@@ -24,6 +24,7 @@ sys.path.insert(0, str(ROOT))
 os.chdir(ROOT)
 os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 
+from tools.npc_data_guard import report_extras, safe_update, may_write  # noqa: E402
 import tools.handbuilt_freewind_post as FW  # noqa: E402
 from tools import freewind_npc_roster as R  # noqa: E402
 
@@ -98,13 +99,9 @@ def main():
         ghosts_v = [r for r in vendors if r.get("zone") == zone and r["vendor_id"] not in keep_v]
         ghosts_a = [r for r in npcs if r.get("zone") == zone and r["npc_id"] not in keep_a
                     and not r["npc_id"].startswith(("ct_", "pt_"))]
-        for r in ghosts_v:
-            vendors.remove(r)
-        for r in ghosts_a:
-            npcs.remove(r)
-        if ghosts_v or ghosts_a:
-            print(f"{zone}: pruned {len(ghosts_v) + len(ghosts_a)} stale record(s): "
-                  f"{[r.get('vendor_id') or r.get('npc_id') for r in ghosts_v + ghosts_a]}")
+        # Reported, never deleted (tools/npc_data_guard.py): a hidden seller, an Artifact Keeper or a
+        # quest giver moved here by a later pass is not a ghost.
+        report_extras([r.get("vendor_id") or r.get("npc_id") for r in ghosts_v + ghosts_a], zone)
 
     Path("data/npcs/vendors.json").write_text(json.dumps(vd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     Path("data/npcs/ambient_npcs.json").write_text(json.dumps(ad, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

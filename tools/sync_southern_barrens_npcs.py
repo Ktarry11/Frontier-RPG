@@ -13,6 +13,7 @@ sys.path.insert(0, str(ROOT))
 os.chdir(ROOT)
 os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 
+from tools.npc_data_guard import safe_update  # noqa: E402
 from tools.handbuilt_southern_barrens import NPC_POSITIONS   # noqa: E402
 
 ZONE = "southern_barrens"
@@ -53,22 +54,23 @@ def main():
     by_id = {r["npc_id"]: r for r in data["npcs"]}
     for n in NEW_NPCS:
         rec = by_id.get(n["npc_id"])
+        x, y = NPC_POSITIONS.get(n["npc_id"], (None, None))
         if rec is None:
-            rec = {}
-            data["npcs"].append(rec)
-        rec.update(n)
-        rec["zone"] = ZONE
-        rec["x"], rec["y"] = NPC_POSITIONS[n["npc_id"]]
+            data["npcs"].append({**n, "zone": ZONE, "x": x, "y": y})
+        elif rec.get("zone") != ZONE or x is None:
+            continue        # a later pass moved them to another town (the quest-hub pass): theirs now
+        else:
+            safe_update(rec, {**n, "x": x, "y": y})     # moves only (tools/npc_data_guard.py)
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     vpath = ROOT / "data/npcs/vendors.json"
     vd = json.loads(vpath.read_text(encoding="utf-8"))
     rec = next((v for v in vd["vendors"] if v["vendor_id"] == VENDOR["vendor_id"]), None)
+    x, y = NPC_POSITIONS["sb_waystation_vendor"]
     if rec is None:
-        rec = {}
-        vd["vendors"].append(rec)
-    rec.update(VENDOR)
-    rec["x"], rec["y"] = NPC_POSITIONS["sb_waystation_vendor"]
+        vd["vendors"].append({**VENDOR, "x": x, "y": y})
+    else:
+        safe_update(rec, {**VENDOR, "x": x, "y": y})
     vpath.write_text(json.dumps(vd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"npcs: {len(NEW_NPCS)} placed, 1 vendor")
 

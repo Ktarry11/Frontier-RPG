@@ -33,6 +33,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+from tools.npc_data_guard import merge as guard_merge  # noqa: E402
 from tools import handbuilt_booty_bay as BB     # noqa: E402
 from tools import handbuilt_gromgol as GG       # noqa: E402
 
@@ -113,8 +114,10 @@ BOOTY_BAY = {
     "bootybay_street_kid": ("Scrip", "goblin", "male",
                             "Carry your crate? Watch your crate? Both is cheaper."),
     # services
-    "bootybay_banker": ("MerchantTusk", "goblin", "male",
-                        "The vault is under the waterline and it has never flooded. Think about that."),
+    # Was bootybay_banker "MerchantTusk": renamed 5 Nov (MerchantTusk is the troll banker in the
+    # capitals, and only major cities have a bank). A plain local who talks about a vault.
+    "bootybay_vaultkeep": ("Girzzik Vaultkeep", "goblin", "male",
+                           "The vault is under the waterline and it has never flooded. Think about that."),
     "bootybay_flight_master": ("Wind-Rider Zekki", "troll", "female",
                                "North to the camp, and that is the whole map. Nobody flies out of this jungle."),
     # the outer harbour (backlog [51], 14 Nov 2026)
@@ -146,7 +149,7 @@ BOOTY_BAY_VENDORS = {
 
 #: Bankers are an ambient-NPC flag, not a travel service - world/ambient_npc_manager.py reads
 #: is_banker and ui/screens/bank_screen.py defaults the name to "MerchantTusk" when it has none.
-BANKERS = {"bootybay_banker"}
+BANKERS = set()          # Booty Bay has no bank (Kyle: major cities only)
 
 GENERAL = ["healing_potion_standard", "mana_potion_standard", "bread_and_cheese", "roasted_meat",
            "meal_river_fish", "meal_spiced_haunch", "drink_spring_flask", "drink_honeyed_mead"]
@@ -203,7 +206,8 @@ def merge(path, key, id_field, new):
     by_id = {e[id_field]: e for e in data[key]}
     added = sum(1 for e in new if e[id_field] not in by_id)
     for e in new:
-        by_id[e[id_field]] = e
+        old = by_id.get(e[id_field])
+        by_id[e[id_field]] = e if old is None else guard_merge(old, e)    # moves only (npc_data_guard)
     data[key] = [by_id[k] for k in by_id]
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return added, len(new) - added

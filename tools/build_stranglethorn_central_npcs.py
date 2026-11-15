@@ -36,6 +36,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+from tools.npc_data_guard import merge as guard_merge  # noqa: E402
 from tools import handbuilt_stranglethorn_central as M     # noqa: E402
 
 ZONE_KEY = "central_stranglethorn"       # world/ambient_npc_manager._zone_key("Central Stranglethorn")
@@ -179,9 +180,10 @@ def main(check_only=False):
     by_id = {e["npc_id"]: e for e in data["npcs"]}
     added = sum(1 for e in rows if e["npc_id"] not in by_id)
     for e in rows:
-        by_id[e["npc_id"]] = e
+        old = by_id.get(e["npc_id"])
+        by_id[e["npc_id"]] = e if old is None else guard_merge(old, e)    # moves only (npc_data_guard)
     data["npcs"] = list(by_id.values())
-    path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+    path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     print(f"Central Stranglethorn wilderness NPCs: +{added} new, {len(rows) - added} updated "
           f"({len(data['npcs'])} ambient NPCs in the game)")

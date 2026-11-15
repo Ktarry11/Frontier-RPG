@@ -125,9 +125,16 @@ def main():
     # ---------------------------------------------------------------- attach the recipes
     wanted = all_recipes_by_source("vendor")
     counts, unmatched = {}, []
+    # A recipe somebody already stocks has its counter. Vendor levels and rosters have moved since
+    # this first ran, so asking pick_vendor again picks a DIFFERENT counter and the recipe ends up
+    # on two (14 Nov: a re-run would have added recipes to 52 shops).
+    stocked = {i for v in vendors for i in v.get("sells", [])}
     for rid, (prof, r) in sorted(wanted.items(), key=lambda kv: kv[1][1].get("skill_required", 0)):
         if r.get("secret"):
             continue    # sold only by its hidden seller (tools/build_secrets.py), never in town
+        if rid in stocked:
+            counts["already stocked"] = counts.get("already stocked", 0) + 1
+            continue
         skill = r.get("skill_required", 0)
         level = max(1, skill // 5)
         v, how = pick_vendor(vendors, prof, r.get("name", rid), level)

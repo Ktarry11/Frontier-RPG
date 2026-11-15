@@ -13,6 +13,7 @@ sys.path.insert(0, str(ROOT))
 os.chdir(ROOT)
 os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 
+from tools.npc_data_guard import safe_update  # noqa: E402
 from tools.handbuilt_central_barrens import NPC_POSITIONS   # noqa: E402
 
 NEW_NPCS = [
@@ -48,16 +49,18 @@ def main():
     for n in NEW_NPCS:
         rec = by_id.get(n["npc_id"])
         if rec is None:
-            rec = {"zone": "central_barrens"}
+            rec = {**n, "zone": "central_barrens"}
             data["npcs"].append(rec)
             by_id[n["npc_id"]] = rec
-        rec.update(n)
-        rec["zone"] = "central_barrens"
+        else:
+            safe_update(rec, n)        # who they are is the data's once they exist (tools/npc_data_guard.py)
     for nid, name in RENAMES.items():
-        by_id[nid]["name"] = name
+        by_id[nid].setdefault("name", name)
     moved = 0
     for nid, (x, y) in NPC_POSITIONS.items():
         rec = by_id[nid]
+        if rec.get("zone") != "central_barrens":
+            continue        # moved to another town by a later pass
         if (rec.get("x"), rec.get("y")) != (x, y):
             rec["x"], rec["y"] = x, y
             moved += 1

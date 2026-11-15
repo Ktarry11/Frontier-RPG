@@ -255,6 +255,10 @@ def main():
     cur["profession_trainers"] = kept
     tpath.write_text(json.dumps(cur, indent=2) + "\n", encoding="utf-8")
     print("wrote", len(new_npcs), "profession trainers,", len(sawmills), "sawmills")
+    # This script scatters trainers near the inn; the trade pass then stands each at the building of
+    # their trade. Run it here, so a re-run of this builder can never leave them scattered.
+    import subprocess
+    subprocess.run([sys.executable, str(Path(__file__).resolve().parent / "place_trainers_at_trades.py")], check=True)
 
 
 if __name__ == "__main__":
