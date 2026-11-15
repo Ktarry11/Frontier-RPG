@@ -766,3 +766,56 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+
+
+def mana_tools(char):
+    """(restores, low_aspect, high_aspect): what this character uses when its mana runs low (15 Nov 2026).
+
+    The fight loops measured every caster without its mana tools - Life Tap, Innervate, Sanity Tap, Satiate,
+    Draconic Invocation, Time Out, Aspect of the Viper - so a class built around one ran dry like a class without.
+    restores: mana restores and mp5 cooldowns that stand alone (no exclusive group), used under LOW_MANA.
+    low_aspect/high_aspect: a regen aspect in an exclusive group (Viper) and the damage aspect it displaces (Hawk) -
+    swap to the first when low, back to the second when full."""
+    restores, low, high = [], None, None
+    learned = char.get_learned_abilities() if hasattr(char, "get_learned_abilities") else []
+    for a in learned:
+        t = getattr(a, "effect_type", "")
+        mods = getattr(a, "stat_mods", {}) or {}
+        rt = getattr(a, "restore_resource_type", None)
+        if t == "restore_resource" and (rt in (None, "mana") or getattr(rt, "value", None) == "mana"):
+            restores.append(a)
+        elif t == "buff" and mods.get("mp5") and not getattr(a, "exclusive_group", None):
+            restores.append(a)
+        elif t == "buff" and mods.get("mp5") and getattr(a, "exclusive_group", None):
+            low = low or a
+    if low is not None:
+        grp = low.exclusive_group
+        high = next((a for a in learned if getattr(a, "exclusive_group", None) == grp and a is not low
+                     and not (getattr(a, "stat_mods", {}) or {}).get("mp5")), None)
+    return restores, low, high
+
+
+LOW_MANA, FULL_MANA = 0.25, 0.90
+
+
+def mana_move(char, engine, tools, target=None):
+    """Use a mana tool if this turn calls for one. -> True if it acted."""
+    restores, low, high = tools
+    if not getattr(char, "mana", 0):
+        return False
+    frac = char.current_mana / max(1, char.mana)
+    live = {getattr(fx, "effect_id", None) for fx in char._effects()} if hasattr(char, "_effects") else set()
+    if frac < LOW_MANA:
+        for a in restores:
+            if a.ability_id in live:
+                continue
+            if engine.execute_ability(char, a.ability_id, target if target is not None else char)[0]:
+                return True
+        if low is not None and low.ability_id not in live:
+            if engine.execute_ability(char, low.ability_id, char)[0]:
+                return True
+    elif frac > FULL_MANA and low is not None and high is not None and low.ability_id in live:
+        if engine.execute_ability(char, high.ability_id, char)[0]:
+            return True
+    return False
+

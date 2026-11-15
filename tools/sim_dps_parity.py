@@ -67,6 +67,8 @@ def damage_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0, mana
         engine = CombatEngine(char, foe, party=Party(char))
         R.precast_stances(char, engine)
     _h, attacks, _s, _d = plan(char)
+    from tools.sim_class_balance import mana_tools, mana_move
+    tools = mana_tools(char)
     # A melee spec swings rather than shooting: the universal Shoot and Wand out-sort its rage builders on raw
     # value, and a rage class that shoots never builds rage (Knight of Xoroth fired Shoot 75 times in 90 turns).
     if M.real_role(spec, "dps") == "melee_dps":
@@ -132,6 +134,10 @@ def damage_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0, mana
         acted = False
         live = {getattr(fx, "effect_id", None) for fx in foe._effects()} if hasattr(foe, "_effects") else set()
         with quiet():
+            # mana tools first when low (Life Tap, Innervate, Viper...; sim_class_balance.mana_move)
+            if mana_stats is None and mana_move(char, engine, tools, foe):
+                elapsed += 1.0
+                continue
             for a in attacks:
                 # a DoT still ticking on the target is not recast (it would only refresh it)
                 if a.effect_type in ("dot", "spell_dot") and a.ability_id in live:

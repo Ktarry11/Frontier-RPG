@@ -168,6 +168,8 @@ def fight(chars, roles, enemies):
                 att = [a for a in att if in_form(a)] or att
                 h = [a for a in h if in_form(a)]
         plans[id(c)] = (h, att)
+    from tools.sim_class_balance import mana_tools
+    tools_of = {id(c): mana_tools(c) for c in chars}
     turns = 0
     for _ in range(MAX_TICKS):
         with quiet():
@@ -201,6 +203,9 @@ def fight(chars, roles, enemies):
                     if engine.execute_ability(actor, h.ability_id, hurt)[0]:
                         acted = True
                         break
+            if not acted:
+                from tools.sim_class_balance import mana_move
+                acted = mana_move(actor, engine, tools_of[id(actor)])
             if not acted:
                 foes = engine.living_enemies() if hasattr(engine, "living_enemies") else \
                     [e for e in enemies if e.is_alive()]
