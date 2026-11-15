@@ -123,9 +123,12 @@ print("\n--- the full scale is level-60 content only")
 check(Character.RESIST_MAX_PRE_60 == 30,
       "below 60, nothing carries more than 30 resistance",
       f"{Character.RESIST_MAX_PRE_60}")
-for lv, want in ((1, 30), (20, 30), (59, 30), (60, 60), (70, 60)):
+# the ramp (Kyle, 15 Nov 2026): 30 to 50, then +3 a level to 60 at 60
+for lv, want in ((1, 30), (20, 30), (50, 30), (51, 33), (55, 45), (59, 57), (60, 60), (70, 60)):
     got = Character.resist_ceiling_for_level(lv)
     check(got == want, f"level {lv} ceiling is {want}", f"{got}")
+check(Character.clamp_resistance_for_level(60, 55) == 45,
+      "a 60 authored on a level 55 creature reads as 45 (the ramp)")
 check(Character.clamp_resistance_for_level(60, 40) == 30,
       "a 60 authored on a level 40 creature reads as 30")
 check(Character.clamp_resistance_for_level(-40, 40) == -30,

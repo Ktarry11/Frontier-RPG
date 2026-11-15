@@ -3233,6 +3233,11 @@ class Character(StatusEffectMixin):
     #: rather than an impossible one.
     RESIST_MAX_PRE_60 = 30
     RESIST_FULL_SCALE_LEVEL = 60
+    #: THE RAMP (Kyle, 15 Nov 2026: "For resistances. Add a ramp from 50 to 60, yes."). The ceiling was 30 at 59
+    #: and 60 at 60 - a cliff a single level wide, and the deep dive (tools/sim_school_exposure.py) measured
+    #: one-school specs keeping 42-52% of their damage in the worst level-60 areas the moment they arrived. It
+    #: now climbs 3 a level from 50 (30) to 60 (60), so the penetration chase starts in the 50s.
+    RESIST_RAMP_FROM = 50
 
     @classmethod
     def resist_ceiling_for_level(cls, level):
@@ -3246,7 +3251,13 @@ class Character(StatusEffectMixin):
             lv = int(level or 0)
         except (TypeError, ValueError):
             lv = 0
-        return cls.RESIST_MAX if lv >= cls.RESIST_FULL_SCALE_LEVEL else cls.RESIST_MAX_PRE_60
+        if lv >= cls.RESIST_FULL_SCALE_LEVEL:
+            return cls.RESIST_MAX
+        if lv <= cls.RESIST_RAMP_FROM:
+            return cls.RESIST_MAX_PRE_60
+        span = cls.RESIST_FULL_SCALE_LEVEL - cls.RESIST_RAMP_FROM
+        return int(round(cls.RESIST_MAX_PRE_60
+                         + (cls.RESIST_MAX - cls.RESIST_MAX_PRE_60) * (lv - cls.RESIST_RAMP_FROM) / span))
 
     @classmethod
     def clamp_resistance_for_level(cls, rating, level):
