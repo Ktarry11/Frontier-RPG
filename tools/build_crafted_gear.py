@@ -687,6 +687,27 @@ def reference(rid, out):
         random.setstate(state)
 
 
+def epic_icon_id(name):
+    """Where a crafted epic's own art goes: assets/icons/gear/gear_epic_crafted_<name>.png."""
+    return "gear_epic_crafted_" + re.sub(r"[^a-z0-9]+", "_", name.lower()).strip("_")
+
+
+#: Kyle, 15 Nov: "You can shift some icons to use for crafting. Blues I don't much care about. For epics
+#: we will use proper art." Greens and blues borrow pack icons matched to their collection's colour
+#: (tools/crafted_icon_palette.py); an epic uses its own art once it's in, else the epic pool's stand-in.
+PICKER = None
+
+
+def icon_for(name, slot, armor_type, weapon_type, rarity):
+    from entities.boss_loot import resolve_icon
+    if rarity in ("epic", "legendary"):
+        return resolve_icon(slot=slot, armor_type=armor_type, weapon_type=weapon_type, rarity=rarity,
+                            seed=f"fixedboss:{name}", explicit=epic_icon_id(name))
+    got = PICKER.pick(name, slot, armor_type, weapon_type) if PICKER else None
+    return got or resolve_icon(slot=slot, armor_type=armor_type, weapon_type=weapon_type, rarity=rarity,
+                               seed=f"fixedboss:{name}", explicit=None)
+
+
 def author(rid, recipe, ident, flavour):
     out = recipe["output"]
     weights, template = IDENTITIES[ident]
@@ -702,9 +723,7 @@ def author(rid, recipe, ident, flavour):
     # ONE ICON PER CRAFT (Kyle, 15 Nov: "Ensure crafting makes ONE icon per craft. Not random"). The
     # icon is chosen once, here, seeded on the item's name exactly as boss_loot._item_from_def would,
     # and written into the recipe, so it can't drift if the icon picker ever changes.
-    from entities.boss_loot import resolve_icon
-    item["icon_id"] = resolve_icon(slot=out["slot"], armor_type=ref.armor_type, weapon_type=ref.weapon_type,
-                                   rarity=out["rarity"], seed=f"fixedboss:{recipe['name']}", explicit=None)
+    item["icon_id"] = icon_for(recipe["name"], out["slot"], ref.armor_type, ref.weapon_type, out["rarity"])
     proc = proc_for(recipe["name"]) if out["slot"] in ("trinket", "trinket1", "trinket2") else None
     if not flavour:
         flavour = ""
@@ -756,6 +775,9 @@ def audit_item(trade, rid, item):
 
 def run(write):
     docs, bad, report = {}, [], collections.defaultdict(collections.Counter)
+    global PICKER
+    from crafted_icon_palette import Picker
+    PICKER = Picker()
     for trade in TRADES:
         path = FILES[trade]
         if path not in docs:
