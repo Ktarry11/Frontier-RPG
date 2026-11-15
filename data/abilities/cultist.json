@@ -36,56 +36,59 @@
           "rank": 1,
           "level_req": 1,
           "cost": 22,
-          "effect_value": 31
+          "effect_value": 61
         },
         {
           "rank": 2,
           "level_req": 8,
           "cost": 38,
-          "effect_value": 54
+          "effect_value": 77
         },
         {
           "rank": 3,
           "level_req": 16,
           "cost": 57,
-          "effect_value": 82
+          "effect_value": 95
         },
         {
           "rank": 4,
           "level_req": 24,
           "cost": 80,
-          "effect_value": 114
+          "effect_value": 112
         },
         {
           "rank": 5,
           "level_req": 32,
           "cost": 105,
-          "effect_value": 150
+          "effect_value": 130
         },
         {
           "rank": 6,
           "level_req": 40,
           "cost": 133,
-          "effect_value": 190
+          "effect_value": 148
         },
         {
           "rank": 7,
           "level_req": 48,
           "cost": 164,
-          "effect_value": 234
+          "effect_value": 166
         },
         {
           "rank": 8,
           "level_req": 56,
           "cost": 197,
-          "effect_value": 282
+          "effect_value": 184
         }
       ],
       "generates": {
         "resource": "insanity",
         "amount": 20
       },
-      "icon_id": null
+      "icon_id": null,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 3.03x steeper than it, biggest single-rank jump 1.39x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "cultist_horrorbolt",
@@ -102,49 +105,49 @@
           "rank": 1,
           "level_req": 2,
           "cost": 15,
-          "effect_value": 22
+          "effect_value": 47
         },
         {
           "rank": 2,
           "level_req": 10,
           "cost": 28,
-          "effect_value": 40
+          "effect_value": 61
         },
         {
           "rank": 3,
           "level_req": 18,
           "cost": 43,
-          "effect_value": 62
+          "effect_value": 74
         },
         {
           "rank": 4,
           "level_req": 26,
           "cost": 62,
-          "effect_value": 88
+          "effect_value": 87
         },
         {
           "rank": 5,
           "level_req": 34,
           "cost": 83,
-          "effect_value": 118
+          "effect_value": 101
         },
         {
           "rank": 6,
           "level_req": 42,
           "cost": 106,
-          "effect_value": 152
+          "effect_value": 114
         },
         {
           "rank": 7,
           "level_req": 50,
           "cost": 133,
-          "effect_value": 190
+          "effect_value": 127
         },
         {
           "rank": 8,
           "level_req": 58,
           "cost": 162,
-          "effect_value": 232
+          "effect_value": 140
         }
       ],
       "generates": {
@@ -152,7 +155,10 @@
         "amount": 10
       },
       "icon_id": null,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 3.56x steeper than it, biggest single-rank jump 1.42x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "cultist_wrath_of_the_black_empire",
@@ -169,35 +175,38 @@
           "rank": 1,
           "level_req": 4,
           "cost": 20,
-          "effect_value": 60
+          "effect_value": 81
         },
         {
           "rank": 2,
           "level_req": 16,
           "cost": 20,
-          "effect_value": 100
+          "effect_value": 113
         },
         {
           "rank": 3,
           "level_req": 28,
           "cost": 20,
-          "effect_value": 148
+          "effect_value": 145
         },
         {
           "rank": 4,
           "level_req": 40,
           "cost": 20,
-          "effect_value": 204
+          "effect_value": 176
         },
         {
           "rank": 5,
           "level_req": 52,
           "cost": 20,
-          "effect_value": 268
+          "effect_value": 208
         }
       ],
       "icon_id": null,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.74x steeper than it, biggest single-rank jump 1.20x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "cultist_sanity_tap",
@@ -238,54 +247,57 @@
           "rank": 1,
           "level_req": 8,
           "cost": 18,
-          "effect_value": 28,
+          "effect_value": 41,
           "heal_value": 25
         },
         {
           "rank": 2,
           "level_req": 15,
           "cost": 23,
-          "effect_value": 42,
+          "effect_value": 49,
           "heal_value": 37
         },
         {
           "rank": 3,
           "level_req": 22,
           "cost": 28,
-          "effect_value": 56,
+          "effect_value": 58,
           "heal_value": 49
         },
         {
           "rank": 4,
           "level_req": 29,
           "cost": 33,
-          "effect_value": 70,
+          "effect_value": 66,
           "heal_value": 62
         },
         {
           "rank": 5,
           "level_req": 36,
           "cost": 38,
-          "effect_value": 84,
+          "effect_value": 74,
           "heal_value": 74
         },
         {
           "rank": 6,
           "level_req": 43,
           "cost": 43,
-          "effect_value": 98,
+          "effect_value": 82,
           "heal_value": 86
         },
         {
           "rank": 7,
           "level_req": 50,
           "cost": 48,
-          "effect_value": 112,
+          "effect_value": 91,
           "heal_value": 98
         }
       ],
       "icon_id": null,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.80x steeper than it, biggest single-rank jump 1.25x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "cultist_presence_of_cthun",
@@ -811,52 +823,55 @@
           "rank": 1,
           "level_req": 2,
           "cost": 20,
-          "effect_value": 45
+          "effect_value": 66
         },
         {
           "rank": 2,
           "level_req": 9,
           "cost": 27,
-          "effect_value": 69
+          "effect_value": 82
         },
         {
           "rank": 3,
           "level_req": 16,
           "cost": 34,
-          "effect_value": 93
+          "effect_value": 98
         },
         {
           "rank": 4,
           "level_req": 23,
           "cost": 41,
-          "effect_value": 117
+          "effect_value": 114
         },
         {
           "rank": 5,
           "level_req": 29,
           "cost": 47,
-          "effect_value": 140
+          "effect_value": 128
         },
         {
           "rank": 6,
           "level_req": 36,
           "cost": 54,
-          "effect_value": 164
+          "effect_value": 144
         },
         {
           "rank": 7,
           "level_req": 43,
           "cost": 61,
-          "effect_value": 188
+          "effect_value": 160
         },
         {
           "rank": 8,
           "level_req": 50,
           "cost": 68,
-          "effect_value": 212
+          "effect_value": 176
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.76x steeper than it, biggest single-rank jump 1.23x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "cultist_devour_magic",

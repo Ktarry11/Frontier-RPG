@@ -36,49 +36,49 @@
           "rank": 1,
           "level_req": 1,
           "cost": 11,
-          "effect_value": 16
+          "effect_value": 33
         },
         {
           "rank": 2,
           "level_req": 8,
           "cost": 20,
-          "effect_value": 28
+          "effect_value": 41
         },
         {
           "rank": 3,
           "level_req": 16,
           "cost": 31,
-          "effect_value": 44
+          "effect_value": 51
         },
         {
           "rank": 4,
           "level_req": 24,
           "cost": 43,
-          "effect_value": 62
+          "effect_value": 60
         },
         {
           "rank": 5,
           "level_req": 32,
           "cost": 57,
-          "effect_value": 82
+          "effect_value": 70
         },
         {
           "rank": 6,
           "level_req": 40,
           "cost": 73,
-          "effect_value": 104
+          "effect_value": 80
         },
         {
           "rank": 7,
           "level_req": 48,
           "cost": 90,
-          "effect_value": 128
+          "effect_value": 89
         },
         {
           "rank": 8,
           "level_req": 56,
           "cost": 108,
-          "effect_value": 154
+          "effect_value": 99
         }
       ],
       "generates": {
@@ -86,7 +86,10 @@
         "amount": 20
       },
       "icon_id": null,
-      "_design_note": "Fling stones at an enemy, dealing Physical damage and generating Rage. Shares a cooldown with other Seismic spells. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)"
+      "_design_note": "Fling stones at an enemy, dealing Physical damage and generating Rage. Shares a cooldown with other Seismic spells. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 3.21x steeper than it, biggest single-rank jump 1.39x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "primalist_wildclaw",
@@ -103,52 +106,55 @@
           "rank": 1,
           "level_req": 1,
           "cost": 30,
-          "effect_value": 44
+          "effect_value": 59
         },
         {
           "rank": 2,
           "level_req": 8,
           "cost": 30,
-          "effect_value": 62
+          "effect_value": 75
         },
         {
           "rank": 3,
           "level_req": 16,
           "cost": 30,
-          "effect_value": 84
+          "effect_value": 92
         },
         {
           "rank": 4,
           "level_req": 24,
           "cost": 30,
-          "effect_value": 108
+          "effect_value": 109
         },
         {
           "rank": 5,
           "level_req": 32,
           "cost": 30,
-          "effect_value": 134
+          "effect_value": 126
         },
         {
           "rank": 6,
           "level_req": 40,
           "cost": 30,
-          "effect_value": 162
+          "effect_value": 144
         },
         {
           "rank": 7,
           "level_req": 48,
           "cost": 30,
-          "effect_value": 192
+          "effect_value": 161
         },
         {
           "rank": 8,
           "level_req": 56,
           "cost": 30,
-          "effect_value": 224
+          "effect_value": 178
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.70x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "primalist_seismic_crash",
@@ -165,31 +171,31 @@
           "rank": 1,
           "level_req": 2,
           "cost": 63,
-          "effect_value": 49
+          "effect_value": 58
         },
         {
           "rank": 2,
           "level_req": 14,
           "cost": 98,
-          "effect_value": 77
+          "effect_value": 82
         },
         {
           "rank": 3,
           "level_req": 26,
           "cost": 137,
-          "effect_value": 108
+          "effect_value": 107
         },
         {
           "rank": 4,
           "level_req": 38,
           "cost": 181,
-          "effect_value": 142
+          "effect_value": 131
         },
         {
           "rank": 5,
           "level_req": 50,
           "cost": 228,
-          "effect_value": 179
+          "effect_value": 155
         }
       ],
       "generates": {
@@ -199,7 +205,8 @@
       "icon_id": null,
       "_design_note": "Create stalactites that strike your enemy 3 times, generating Rage. Real physical damage (was previously miscategorized as spell_damage, which incorrectly scaled it off Spell Power - fixed to match its own confirmed screenshot data: '90 Physical damage', and Primalist's real Strength/melee-hybrid identity per the class resource reference). Shares a cooldown with other Seismic spells.",
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x0.55 - it sat at 2.92x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+        "15 Nov 2026, class pass: every rank x0.55 - it sat at 2.92x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {
@@ -217,47 +224,50 @@
           "rank": 1,
           "level_req": 4,
           "cost": 42,
-          "effect_value": 60
+          "effect_value": 70
         },
         {
           "rank": 2,
           "level_req": 12,
           "cost": 58,
-          "effect_value": 82
+          "effect_value": 89
         },
         {
           "rank": 3,
           "level_req": 20,
           "cost": 73,
-          "effect_value": 104
+          "effect_value": 107
         },
         {
           "rank": 4,
           "level_req": 28,
           "cost": 90,
-          "effect_value": 128
+          "effect_value": 126
         },
         {
           "rank": 5,
           "level_req": 36,
           "cost": 106,
-          "effect_value": 152
+          "effect_value": 144
         },
         {
           "rank": 6,
           "level_req": 44,
           "cost": 124,
-          "effect_value": 178
+          "effect_value": 163
         },
         {
           "rank": 7,
           "level_req": 52,
           "cost": 143,
-          "effect_value": 204
+          "effect_value": 181
         }
       ],
       "icon_id": null,
-      "_design_note": "Launch a sharpened stone at an enemy. Deals additional damage per Earthshaping stack. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)"
+      "_design_note": "Launch a sharpened stone at an enemy. Deals additional damage per Earthshaping stack. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.08x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "primalist_hand_of_the_earthmother",
@@ -275,58 +285,61 @@
           "rank": 1,
           "level_req": 6,
           "cost": 25,
-          "effect_value": 66
+          "effect_value": 108
         },
         {
           "rank": 2,
           "level_req": 13,
           "cost": 25,
-          "effect_value": 103
+          "effect_value": 131
         },
         {
           "rank": 3,
           "level_req": 20,
           "cost": 25,
-          "effect_value": 140
+          "effect_value": 154
         },
         {
           "rank": 4,
           "level_req": 26,
           "cost": 25,
-          "effect_value": 176
+          "effect_value": 174
         },
         {
           "rank": 5,
           "level_req": 33,
           "cost": 25,
-          "effect_value": 213
+          "effect_value": 197
         },
         {
           "rank": 6,
           "level_req": 40,
           "cost": 25,
-          "effect_value": 250
+          "effect_value": 220
         },
         {
           "rank": 7,
           "level_req": 46,
           "cost": 25,
-          "effect_value": 286
+          "effect_value": 240
         },
         {
           "rank": 8,
           "level_req": 53,
           "cost": 25,
-          "effect_value": 323
+          "effect_value": 263
         },
         {
           "rank": 9,
           "level_req": 60,
           "cost": 25,
-          "effect_value": 360
+          "effect_value": 287
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.05x steeper than it, biggest single-rank jump 1.28x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "primalist_boon_of_the_turtle",
@@ -748,29 +761,32 @@
           "rank": 1,
           "level_req": 20,
           "cost": 30,
-          "effect_value": 60
+          "effect_value": 82
         },
         {
           "rank": 2,
           "level_req": 26,
           "cost": 30,
-          "effect_value": 95
+          "effect_value": 92
         },
         {
           "rank": 3,
           "level_req": 38,
           "cost": 40,
-          "effect_value": 127
+          "effect_value": 113
         },
         {
           "rank": 4,
           "level_req": 50,
           "cost": 50,
-          "effect_value": 159
+          "effect_value": 134
         }
       ],
       "icon_id": null,
-      "damage_school": "nature"
+      "damage_school": "nature",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.61x steeper than it, biggest single-rank jump 1.40x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "primalist_seismic_tremor",

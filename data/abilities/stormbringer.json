@@ -37,49 +37,49 @@
           "rank": 1,
           "level_req": 1,
           "cost": 31,
-          "effect_value": 44
+          "effect_value": 59
         },
         {
           "rank": 2,
           "level_req": 8,
           "cost": 43,
-          "effect_value": 62
+          "effect_value": 75
         },
         {
           "rank": 3,
           "level_req": 16,
           "cost": 59,
-          "effect_value": 84
+          "effect_value": 92
         },
         {
           "rank": 4,
           "level_req": 24,
           "cost": 76,
-          "effect_value": 108
+          "effect_value": 109
         },
         {
           "rank": 5,
           "level_req": 32,
           "cost": 94,
-          "effect_value": 134
+          "effect_value": 126
         },
         {
           "rank": 6,
           "level_req": 40,
           "cost": 113,
-          "effect_value": 162
+          "effect_value": 144
         },
         {
           "rank": 7,
           "level_req": 48,
           "cost": 134,
-          "effect_value": 192
+          "effect_value": 161
         },
         {
           "rank": 8,
           "level_req": 56,
           "cost": 157,
-          "effect_value": 224
+          "effect_value": 178
         }
       ],
       "generates": {
@@ -87,7 +87,10 @@
         "amount": 20
       },
       "icon_id": "stormbringer_shock",
-      "damage_school": "nature"
+      "damage_school": "nature",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.70x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "stormbringer_discharge",
@@ -105,61 +108,64 @@
           "rank": 1,
           "level_req": 2,
           "cost": 20,
-          "effect_value": 18,
+          "effect_value": 30,
           "mana_restore_pct": 12
         },
         {
           "rank": 2,
           "level_req": 10,
           "cost": 20,
-          "effect_value": 28,
+          "effect_value": 38,
           "mana_restore_pct": 13
         },
         {
           "rank": 3,
           "level_req": 18,
           "cost": 20,
-          "effect_value": 40,
+          "effect_value": 47,
           "mana_restore_pct": 14
         },
         {
           "rank": 4,
           "level_req": 26,
           "cost": 20,
-          "effect_value": 54,
+          "effect_value": 55,
           "mana_restore_pct": 15
         },
         {
           "rank": 5,
           "level_req": 34,
           "cost": 20,
-          "effect_value": 70,
+          "effect_value": 63,
           "mana_restore_pct": 17
         },
         {
           "rank": 6,
           "level_req": 42,
           "cost": 20,
-          "effect_value": 88,
+          "effect_value": 72,
           "mana_restore_pct": 18
         },
         {
           "rank": 7,
           "level_req": 50,
           "cost": 20,
-          "effect_value": 108,
+          "effect_value": 80,
           "mana_restore_pct": 19
         },
         {
           "rank": 8,
           "level_req": 58,
           "cost": 20,
-          "effect_value": 130,
+          "effect_value": 88,
           "mana_restore_pct": 20
         }
       ],
       "icon_id": "stormbringer_discharge",
-      "damage_school": "nature"
+      "damage_school": "nature",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.44x steeper than it, biggest single-rank jump 1.21x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "stormbringer_call_of_the_storm",
@@ -207,49 +213,49 @@
           "rank": 1,
           "level_req": 4,
           "cost": 41,
-          "effect_value": 58
+          "effect_value": 77
         },
         {
           "rank": 2,
           "level_req": 12,
           "cost": 57,
-          "effect_value": 82
+          "effect_value": 97
         },
         {
           "rank": 3,
           "level_req": 20,
           "cost": 76,
-          "effect_value": 108
+          "effect_value": 117
         },
         {
           "rank": 4,
           "level_req": 28,
           "cost": 95,
-          "effect_value": 136
+          "effect_value": 137
         },
         {
           "rank": 5,
           "level_req": 36,
           "cost": 116,
-          "effect_value": 166
+          "effect_value": 157
         },
         {
           "rank": 6,
           "level_req": 44,
           "cost": 139,
-          "effect_value": 198
+          "effect_value": 177
         },
         {
           "rank": 7,
           "level_req": 52,
           "cost": 162,
-          "effect_value": 232
+          "effect_value": 197
         },
         {
           "rank": 8,
           "level_req": 60,
           "cost": 188,
-          "effect_value": 268
+          "effect_value": 218
         }
       ],
       "generates": {
@@ -257,7 +263,10 @@
         "amount": 20
       },
       "icon_id": "stormbringer_electrocute",
-      "damage_school": "nature"
+      "damage_school": "nature",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.63x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "stormbringer_conjure_storm",
@@ -342,58 +351,61 @@
           "rank": 1,
           "level_req": 6,
           "cost": 25,
-          "effect_value": 76
+          "effect_value": 111
         },
         {
           "rank": 2,
           "level_req": 13,
           "cost": 25,
-          "effect_value": 111
+          "effect_value": 135
         },
         {
           "rank": 3,
           "level_req": 20,
           "cost": 25,
-          "effect_value": 146
+          "effect_value": 159
         },
         {
           "rank": 4,
           "level_req": 26,
           "cost": 25,
-          "effect_value": 181
+          "effect_value": 180
         },
         {
           "rank": 5,
           "level_req": 33,
           "cost": 25,
-          "effect_value": 216
+          "effect_value": 203
         },
         {
           "rank": 6,
           "level_req": 40,
           "cost": 25,
-          "effect_value": 251
+          "effect_value": 227
         },
         {
           "rank": 7,
           "level_req": 46,
           "cost": 25,
-          "effect_value": 286
+          "effect_value": 248
         },
         {
           "rank": 8,
           "level_req": 53,
           "cost": 25,
-          "effect_value": 321
+          "effect_value": 272
         },
         {
           "rank": 9,
           "level_req": 60,
           "cost": 25,
-          "effect_value": 356
+          "effect_value": 296
         }
       ],
-      "icon_id": "stormbringer_invigorating_surge"
+      "icon_id": "stormbringer_invigorating_surge",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.76x steeper than it, biggest single-rank jump 1.20x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "stormbringer_whirlwind_aegis",
@@ -772,13 +784,13 @@
           "rank": 1,
           "level_req": 46,
           "cost": 70,
-          "effect_value": 100
+          "effect_value": 115
         },
         {
           "rank": 2,
           "level_req": 56,
           "cost": 105,
-          "effect_value": 150
+          "effect_value": 131
         }
       ],
       "generates": {
@@ -787,7 +799,10 @@
       },
       "icon_id": "stormbringer_freewind",
       "damage_school": "nature",
-      "_design_note": "A line of wind and lightning tears through all enemies. Assigned Nature school matching the Lightning tree's confirmed pattern (Forked Lightning, Aeroblast, Arm of Thorim all confirmed Nature per screenshot) - this ability's own school wasn't re-confirmed in the most recent screenshot batch, so this is the best-match assignment, not a directly confirmed one like its Lightning-tree siblings."
+      "_design_note": "A line of wind and lightning tears through all enemies. Assigned Nature school matching the Lightning tree's confirmed pattern (Forked Lightning, Aeroblast, Arm of Thorim all confirmed Nature per screenshot) - this ability's own school wasn't re-confirmed in the most recent screenshot batch, so this is the best-match assignment, not a directly confirmed one like its Lightning-tree siblings.",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.32x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "stormbringer_charge",
@@ -832,36 +847,39 @@
           "rank": 1,
           "level_req": 11,
           "cost": 30,
-          "effect_value": 95
+          "effect_value": 152
         },
         {
           "rank": 2,
           "level_req": 16,
           "cost": 30,
-          "effect_value": 167
+          "effect_value": 172
         },
         {
           "rank": 3,
           "level_req": 28,
           "cost": 44,
-          "effect_value": 244
+          "effect_value": 221
         },
         {
           "rank": 4,
           "level_req": 40,
           "cost": 58,
-          "effect_value": 321
+          "effect_value": 269
         },
         {
           "rank": 5,
           "level_req": 52,
           "cost": 72,
-          "effect_value": 398
+          "effect_value": 318
         }
       ],
       "icon_id": "stormbringer_arm_of_thorim",
       "damage_school": "nature",
-      "is_stun": true
+      "is_stun": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.00x steeper than it, biggest single-rank jump 1.55x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "stormbringer_forked_lightning",
@@ -880,31 +898,31 @@
           "rank": 1,
           "level_req": 15,
           "cost": 56,
-          "effect_value": 32
+          "effect_value": 48
         },
         {
           "rank": 2,
           "level_req": 22,
           "cost": 99,
-          "effect_value": 56
+          "effect_value": 57
         },
         {
           "rank": 3,
           "level_req": 34,
           "cost": 136,
-          "effect_value": 77
+          "effect_value": 71
         },
         {
           "rank": 4,
           "level_req": 46,
           "cost": 173,
-          "effect_value": 98
+          "effect_value": 85
         },
         {
           "rank": 5,
           "level_req": 56,
           "cost": 204,
-          "effect_value": 116
+          "effect_value": 96
         }
       ],
       "generates": {
@@ -914,7 +932,8 @@
       "icon_id": "stormbringer_forked_lightning",
       "damage_school": "nature",
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x0.40 - it sat at 4.03x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+        "15 Nov 2026, class pass: every rank x0.40 - it sat at 4.03x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.82x steeper than it, biggest single-rank jump 1.50x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {

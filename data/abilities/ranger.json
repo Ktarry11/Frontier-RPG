@@ -109,42 +109,45 @@
           "rank": 1,
           "level_req": 20,
           "cost": 40,
-          "effect_value": 70
+          "effect_value": 85
         },
         {
           "rank": 2,
           "level_req": 27,
           "cost": 40,
-          "effect_value": 90
+          "effect_value": 98
         },
         {
           "rank": 3,
           "level_req": 34,
           "cost": 40,
-          "effect_value": 110
+          "effect_value": 111
         },
         {
           "rank": 4,
           "level_req": 41,
           "cost": 40,
-          "effect_value": 130
+          "effect_value": 123
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 40,
-          "effect_value": 150
+          "effect_value": 136
         },
         {
           "rank": 6,
           "level_req": 55,
           "cost": 40,
-          "effect_value": 170
+          "effect_value": 149
         }
       ],
       "icon_id": null,
       "_source": "CoA names Skullpiercer as the hardest-hitting Advantage spender in all three specs ('Spend Skullpiercer at 5 Advantage as your hardest scaling nuke'). The most expensive thing in the kit at 40, which is three builders' worth.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.39x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "ranger_toxic_dart",
@@ -397,48 +400,51 @@
           "rank": 1,
           "level_req": 14,
           "cost": 0,
-          "effect_value": 170
+          "effect_value": 249
         },
         {
           "rank": 2,
           "level_req": 21,
           "cost": 0,
-          "effect_value": 245
+          "effect_value": 293
         },
         {
           "rank": 3,
           "level_req": 27,
           "cost": 0,
-          "effect_value": 320
+          "effect_value": 330
         },
         {
           "rank": 4,
           "level_req": 34,
           "cost": 0,
-          "effect_value": 395
+          "effect_value": 373
         },
         {
           "rank": 5,
           "level_req": 41,
           "cost": 0,
-          "effect_value": 470
+          "effect_value": 416
         },
         {
           "rank": 6,
           "level_req": 47,
           "cost": 0,
-          "effect_value": 545
+          "effect_value": 453
         },
         {
           "rank": 7,
           "level_req": 54,
           "cost": 0,
-          "effect_value": 620
+          "effect_value": 496
         }
       ],
       "icon_id": null,
       "_source": "CoA class tree: the panic button, 'dispelling all poison and disease effects'. Free because it is a potion. Costed at 0 Archery Points deliberately: a Ranger who has spent the bank and is about to die should not be unable to drink.",
-      "target_type": "self"
+      "target_type": "self",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.83x steeper than it, biggest single-rank jump 1.23x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "ranger_instinct",
@@ -618,13 +624,13 @@
           "rank": 1,
           "level_req": 14,
           "cost": 25,
-          "effect_value": 141
+          "effect_value": 166
         },
         {
           "rank": 2,
           "level_req": 22,
           "cost": 25,
-          "effect_value": 186
+          "effect_value": 199
         },
         {
           "rank": 3,
@@ -636,19 +642,19 @@
           "rank": 4,
           "level_req": 38,
           "cost": 25,
-          "effect_value": 277
+          "effect_value": 265
         },
         {
           "rank": 5,
           "level_req": 46,
           "cost": 25,
-          "effect_value": 323
+          "effect_value": 298
         },
         {
           "rank": 6,
           "level_req": 54,
           "cost": 25,
-          "effect_value": 368
+          "effect_value": 331
         }
       ],
       "icon_id": null,
@@ -656,7 +662,8 @@
       "target_type": "enemy",
       "_over_time_lifted": 2.52,
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x2.52 - its total was 0.28x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+        "15 Nov 2026, class pass: every rank x2.52 - its total was 0.28x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.31x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {
@@ -673,37 +680,37 @@
           "rank": 1,
           "level_req": 22,
           "cost": 20,
-          "effect_value": 130
+          "effect_value": 161
         },
         {
           "rank": 2,
           "level_req": 29,
           "cost": 20,
-          "effect_value": 168
+          "effect_value": 184
         },
         {
           "rank": 3,
           "level_req": 36,
           "cost": 20,
-          "effect_value": 206
+          "effect_value": 207
         },
         {
           "rank": 4,
           "level_req": 43,
           "cost": 20,
-          "effect_value": 244
+          "effect_value": 230
         },
         {
           "rank": 5,
           "level_req": 50,
           "cost": 20,
-          "effect_value": 282
+          "effect_value": 254
         },
         {
           "rank": 6,
           "level_req": 57,
           "cost": 20,
-          "effect_value": 320
+          "effect_value": 277
         }
       ],
       "icon_id": null,
@@ -718,6 +725,9 @@
         "bow",
         "gun",
         "crossbow"
+      ],
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.43x steeper than it, biggest single-rank jump 1.13x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {
@@ -734,13 +744,13 @@
           "rank": 1,
           "level_req": 18,
           "cost": 25,
-          "effect_value": 60
+          "effect_value": 71
         },
         {
           "rank": 2,
           "level_req": 26,
           "cost": 25,
-          "effect_value": 78
+          "effect_value": 84
         },
         {
           "rank": 3,
@@ -752,24 +762,27 @@
           "rank": 4,
           "level_req": 42,
           "cost": 25,
-          "effect_value": 114
+          "effect_value": 109
         },
         {
           "rank": 5,
           "level_req": 50,
           "cost": 25,
-          "effect_value": 132
+          "effect_value": 122
         },
         {
           "rank": 6,
           "level_req": 58,
           "cost": 25,
-          "effect_value": 150
+          "effect_value": 134
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Openers lean on Neurotoxin Arrow's silence', 'Neurotoxin Arrow's silence into Precision Shot ... deletes a caught target'. The silence is NOT modellable: 'silenced' is set as a debuff stat_mod by seven shipped abilities and read by no engine code. Shipped as the hard opener hit without it rather than as a tooltip that lies.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "ranger_incendiary_shot",
@@ -785,37 +798,40 @@
           "rank": 1,
           "level_req": 26,
           "cost": 30,
-          "effect_value": 42
+          "effect_value": 50
         },
         {
           "rank": 2,
           "level_req": 34,
           "cost": 30,
-          "effect_value": 54
+          "effect_value": 57
         },
         {
           "rank": 3,
           "level_req": 42,
           "cost": 30,
-          "effect_value": 66
+          "effect_value": 65
         },
         {
           "rank": 4,
           "level_req": 50,
           "cost": 30,
-          "effect_value": 78
+          "effect_value": 72
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 30,
-          "effect_value": 90
+          "effect_value": 80
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'On packs, swap to Incendiary Shot/Brutal Shot', 'up to 5 enemies within 6 yds'. Physical rather than Fire: the ranged_damage branch hardcodes physical in take_damage, so damage_school on a ranged_damage ability is inert - naming a school would read as a feature and do nothing.",
       "target_type": "enemy_aoe",
-      "max_targets": 5
+      "max_targets": 5,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.33x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "ranger_poison_quiver",
@@ -1072,43 +1088,46 @@
           "rank": 1,
           "level_req": 20,
           "cost": 30,
-          "effect_value": 124
+          "effect_value": 151
         },
         {
           "rank": 2,
           "level_req": 27,
           "cost": 30,
-          "effect_value": 160
+          "effect_value": 174
         },
         {
           "rank": 3,
           "level_req": 34,
           "cost": 30,
-          "effect_value": 196
+          "effect_value": 197
         },
         {
           "rank": 4,
           "level_req": 41,
           "cost": 30,
-          "effect_value": 232
+          "effect_value": 220
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 30,
-          "effect_value": 268
+          "effect_value": 243
         },
         {
           "rank": 6,
           "level_req": 55,
           "cost": 30,
-          "effect_value": 304
+          "effect_value": 265
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Dump with Assault once a few Advantage stacks are banked, especially below 20% health where it hits hardest', 'Only usable on enemies below 20% health'.",
       "target_type": "enemy",
-      "execute_threshold_pct": 20
+      "execute_threshold_pct": 20,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.40x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "ranger_vipers_bite",
@@ -1124,31 +1143,31 @@
           "rank": 1,
           "level_req": 28,
           "cost": 35,
-          "effect_value": 84
+          "effect_value": 102
         },
         {
           "rank": 2,
           "level_req": 35,
           "cost": 35,
-          "effect_value": 108
+          "effect_value": 116
         },
         {
           "rank": 3,
           "level_req": 42,
           "cost": 35,
-          "effect_value": 132
+          "effect_value": 129
         },
         {
           "rank": 4,
           "level_req": 49,
           "cost": 35,
-          "effect_value": 156
+          "effect_value": 142
         },
         {
           "rank": 5,
           "level_req": 56,
           "cost": 35,
-          "effect_value": 180
+          "effect_value": 155
         }
       ],
       "icon_id": null,
@@ -1157,7 +1176,10 @@
       "generates": {
         "resource": "archery_points",
         "amount": 8
-      }
+      },
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.42x steeper than it, biggest single-rank jump 1.14x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "ranger_throatpunch",
@@ -1196,37 +1218,40 @@
           "rank": 1,
           "level_req": 24,
           "cost": 30,
-          "effect_value": 38
+          "effect_value": 45
         },
         {
           "rank": 2,
           "level_req": 32,
           "cost": 30,
-          "effect_value": 49
+          "effect_value": 52
         },
         {
           "rank": 3,
           "level_req": 40,
           "cost": 30,
-          "effect_value": 60
+          "effect_value": 59
         },
         {
           "rank": 4,
           "level_req": 48,
           "cost": 30,
-          "effect_value": 71
+          "effect_value": 66
         },
         {
           "rank": 5,
           "level_req": 56,
           "cost": 30,
-          "effect_value": 82
+          "effect_value": 73
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Launch darts at up to 5 nearby enemies'. The one ranged ability in an otherwise melee spec, which is why CoA calls Brigand's trash cleave 'solid' while its single-target raid damage is D.",
       "target_type": "enemy_aoe",
-      "max_targets": 5
+      "max_targets": 5,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "ranger_dirty_blades",
@@ -1267,13 +1292,13 @@
           "rank": 1,
           "level_req": 18,
           "cost": 30,
-          "effect_value": 66
+          "effect_value": 78
         },
         {
           "rank": 2,
           "level_req": 26,
           "cost": 30,
-          "effect_value": 86
+          "effect_value": 92
         },
         {
           "rank": 3,
@@ -1285,24 +1310,27 @@
           "rank": 4,
           "level_req": 42,
           "cost": 30,
-          "effect_value": 126
+          "effect_value": 120
         },
         {
           "rank": 5,
           "level_req": 50,
           "cost": 30,
-          "effect_value": 146
+          "effect_value": 134
         },
         {
           "rank": 6,
           "level_req": 58,
           "cost": 30,
-          "effect_value": 166
+          "effect_value": 148
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Dump into Skullpiercer (hits hardest at full stacks) or Emerald Arrow (Nature burst that also scales per stack) as your default finisher'. Physical for the same reason as Incendiary Shot: damage_school is inert on a ranged_damage ability.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "ranger_woodland_arrow",
@@ -1369,37 +1397,40 @@
           "rank": 1,
           "level_req": 26,
           "cost": 25,
-          "effect_value": 44
+          "effect_value": 52
         },
         {
           "rank": 2,
           "level_req": 34,
           "cost": 25,
-          "effect_value": 57
+          "effect_value": 60
         },
         {
           "rank": 3,
           "level_req": 42,
           "cost": 25,
-          "effect_value": 70
+          "effect_value": 68
         },
         {
           "rank": 4,
           "level_req": 50,
           "cost": 25,
-          "effect_value": 83
+          "effect_value": 76
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 25,
-          "effect_value": 96
+          "effect_value": 84
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Swap to Whipvine Arrow as your finisher when you need to keep moving; it also roots', 'Hits 1 additional nearby target per stack of Advantage'. The root is not modellable ('rooted' as a debuff stat_mod is read by nothing), so this keeps the per-stack extra targets as a flat 3-target cleave and drops the root.",
       "target_type": "enemy_aoe",
-      "max_targets": 3
+      "max_targets": 3,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "ranger_falconstrike",
@@ -1415,13 +1446,13 @@
           "rank": 1,
           "level_req": 20,
           "cost": 25,
-          "effect_value": 58
+          "effect_value": 71
         },
         {
           "rank": 2,
           "level_req": 27,
           "cost": 25,
-          "effect_value": 75
+          "effect_value": 82
         },
         {
           "rank": 3,
@@ -1433,24 +1464,27 @@
           "rank": 4,
           "level_req": 41,
           "cost": 25,
-          "effect_value": 109
+          "effect_value": 103
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 25,
-          "effect_value": 126
+          "effect_value": 114
         },
         {
           "rank": 6,
           "level_req": 55,
           "cost": 25,
-          "effect_value": 143
+          "effect_value": 125
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Quick Shot ... is the hook for Forest Fighter's and the Falconstrike transformation, where every 5th Quick Shot becomes Falconstrike'. Every-fifth-cast transforms have no engine hook, so it is its own button on a short cooldown.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.41x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "ranger_summon_war_falcon",
@@ -1620,25 +1654,25 @@
           "rank": 1,
           "level_req": 36,
           "cost": 30,
-          "effect_value": 288
+          "effect_value": 350
         },
         {
           "rank": 2,
           "level_req": 43,
           "cost": 30,
-          "effect_value": 375
+          "effect_value": 389
         },
         {
           "rank": 3,
           "level_req": 50,
           "cost": 30,
-          "effect_value": 461
+          "effect_value": 428
         },
         {
           "rank": 4,
           "level_req": 57,
           "cost": 30,
-          "effect_value": 548
+          "effect_value": 468
         }
       ],
       "icon_id": null,
@@ -1646,7 +1680,8 @@
       "target_type": "enemy",
       "_over_time_lifted": 4.81,
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x4.81 - its total was 0.15x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+        "15 Nov 2026, class pass: every rank x4.81 - its total was 0.15x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.42x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {

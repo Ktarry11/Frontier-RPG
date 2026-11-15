@@ -36,53 +36,56 @@
           "rank": 1,
           "level_req": 1,
           "cost": 31,
-          "effect_value": 44
+          "effect_value": 93
         },
         {
           "rank": 2,
           "level_req": 8,
           "cost": 55,
-          "effect_value": 78
+          "effect_value": 117
         },
         {
           "rank": 3,
           "level_req": 16,
           "cost": 83,
-          "effect_value": 118
+          "effect_value": 144
         },
         {
           "rank": 4,
           "level_req": 24,
           "cost": 113,
-          "effect_value": 162
+          "effect_value": 171
         },
         {
           "rank": 5,
           "level_req": 32,
           "cost": 147,
-          "effect_value": 210
+          "effect_value": 198
         },
         {
           "rank": 6,
           "level_req": 40,
           "cost": 183,
-          "effect_value": 328
+          "effect_value": 225
         },
         {
           "rank": 7,
           "level_req": 48,
           "cost": 223,
-          "effect_value": 398
+          "effect_value": 253
         },
         {
           "rank": 8,
           "level_req": 56,
           "cost": 265,
-          "effect_value": 472
+          "effect_value": 280
         }
       ],
       "icon_id": null,
-      "_implementation_note": "Applies 1 Scattered Star per the tooltip - stacking resource not fully modeled yet, see class _source_note."
+      "_implementation_note": "Applies 1 Scattered Star per the tooltip - stacking resource not fully modeled yet, see class _source_note.",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 3.58x steeper than it, biggest single-rank jump 1.41x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "starcaller_lunar_lance",
@@ -99,35 +102,38 @@
           "rank": 1,
           "level_req": 2,
           "cost": 28,
-          "effect_value": 40
+          "effect_value": 58
         },
         {
           "rank": 2,
           "level_req": 14,
           "cost": 48,
-          "effect_value": 68
+          "effect_value": 82
         },
         {
           "rank": 3,
           "level_req": 26,
           "cost": 70,
-          "effect_value": 100
+          "effect_value": 106
         },
         {
           "rank": 4,
           "level_req": 38,
           "cost": 95,
-          "effect_value": 170
+          "effect_value": 131
         },
         {
           "rank": 5,
           "level_req": 50,
           "cost": 123,
-          "effect_value": 220
+          "effect_value": 155
         }
       ],
       "icon_id": null,
-      "damage_school": "arcane"
+      "damage_school": "arcane",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.05x steeper than it, biggest single-rank jump 1.38x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "starcaller_celestial_strike",
@@ -144,58 +150,61 @@
           "rank": 1,
           "level_req": 4,
           "cost": 40,
-          "effect_value": 50
+          "effect_value": 58
         },
         {
           "rank": 2,
           "level_req": 10,
           "cost": 40,
-          "effect_value": 61
+          "effect_value": 69
         },
         {
           "rank": 3,
           "level_req": 16,
           "cost": 40,
-          "effect_value": 72
+          "effect_value": 81
         },
         {
           "rank": 4,
           "level_req": 22,
           "cost": 40,
-          "effect_value": 83
+          "effect_value": 92
         },
         {
           "rank": 5,
           "level_req": 28,
           "cost": 40,
-          "effect_value": 94
+          "effect_value": 104
         },
         {
           "rank": 6,
           "level_req": 36,
           "cost": 40,
-          "effect_value": 136
+          "effect_value": 119
         },
         {
           "rank": 7,
           "level_req": 44,
           "cost": 40,
-          "effect_value": 155
+          "effect_value": 134
         },
         {
           "rank": 8,
           "level_req": 52,
           "cost": 40,
-          "effect_value": 174
+          "effect_value": 149
         },
         {
           "rank": 9,
           "level_req": 60,
           "cost": 40,
-          "effect_value": 192
+          "effect_value": 164
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.35x steeper than it, biggest single-rank jump 1.26x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "starcaller_celestial_cleave",
@@ -213,41 +222,44 @@
           "rank": 1,
           "level_req": 12,
           "cost": 42,
-          "effect_value": 60
+          "effect_value": 80
         },
         {
           "rank": 2,
           "level_req": 20,
           "cost": 56,
-          "effect_value": 80
+          "effect_value": 97
         },
         {
           "rank": 3,
           "level_req": 28,
           "cost": 70,
-          "effect_value": 100
+          "effect_value": 113
         },
         {
           "rank": 4,
           "level_req": 36,
           "cost": 87,
-          "effect_value": 142
+          "effect_value": 130
         },
         {
           "rank": 5,
           "level_req": 44,
           "cost": 104,
-          "effect_value": 185
+          "effect_value": 146
         },
         {
           "rank": 6,
           "level_req": 56,
           "cost": 127,
-          "effect_value": 226
+          "effect_value": 171
         }
       ],
       "icon_id": null,
-      "damage_school": "arcane"
+      "damage_school": "arcane",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.76x steeper than it, biggest single-rank jump 1.24x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "starcaller_command",
@@ -371,37 +383,40 @@
           "rank": 1,
           "level_req": 20,
           "cost": 40,
-          "effect_value": 57
+          "effect_value": 83
         },
         {
           "rank": 2,
           "level_req": 28,
           "cost": 54,
-          "effect_value": 88
+          "effect_value": 97
         },
         {
           "rank": 3,
           "level_req": 36,
           "cost": 67,
-          "effect_value": 120
+          "effect_value": 112
         },
         {
           "rank": 4,
           "level_req": 44,
           "cost": 83,
-          "effect_value": 149
+          "effect_value": 126
         },
         {
           "rank": 5,
           "level_req": 52,
           "cost": 99,
-          "effect_value": 178
+          "effect_value": 140
         }
       ],
       "icon_id": null,
       "damage_school": "arcane",
       "consumes_target_stacks_of": "starcaller_scattered_stars",
-      "cooldown_per_stack": 0.6
+      "cooldown_per_stack": 0.6,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.85x steeper than it, biggest single-rank jump 1.32x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "starcaller_celestial_aegis",
@@ -493,52 +508,55 @@
           "rank": 1,
           "level_req": 2,
           "cost": 31,
-          "effect_value": 44
+          "effect_value": 93
         },
         {
           "rank": 2,
           "level_req": 10,
           "cost": 55,
-          "effect_value": 78
+          "effect_value": 119
         },
         {
           "rank": 3,
           "level_req": 18,
           "cost": 83,
-          "effect_value": 118
+          "effect_value": 145
         },
         {
           "rank": 4,
           "level_req": 26,
           "cost": 113,
-          "effect_value": 162
+          "effect_value": 172
         },
         {
           "rank": 5,
           "level_req": 34,
           "cost": 147,
-          "effect_value": 210
+          "effect_value": 198
         },
         {
           "rank": 6,
           "level_req": 42,
           "cost": 183,
-          "effect_value": 328
+          "effect_value": 224
         },
         {
           "rank": 7,
           "level_req": 50,
           "cost": 223,
-          "effect_value": 398
+          "effect_value": 250
         },
         {
           "rank": 8,
           "level_req": 58,
           "cost": 265,
-          "effect_value": 472
+          "effect_value": 276
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 3.62x steeper than it, biggest single-rank jump 1.38x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "starcaller_moon_arrow",
@@ -555,58 +573,61 @@
           "rank": 1,
           "level_req": 2,
           "cost": 25,
-          "effect_value": 22
+          "effect_value": 25
         },
         {
           "rank": 2,
           "level_req": 8,
           "cost": 25,
-          "effect_value": 27
+          "effect_value": 30
         },
         {
           "rank": 3,
           "level_req": 14,
           "cost": 25,
-          "effect_value": 33
+          "effect_value": 36
         },
         {
           "rank": 4,
           "level_req": 20,
           "cost": 25,
-          "effect_value": 38
+          "effect_value": 41
         },
         {
           "rank": 5,
           "level_req": 26,
           "cost": 25,
-          "effect_value": 43
+          "effect_value": 46
         },
         {
           "rank": 6,
           "level_req": 34,
           "cost": 25,
-          "effect_value": 50
+          "effect_value": 53
         },
         {
           "rank": 7,
           "level_req": 42,
           "cost": 25,
-          "effect_value": 71
+          "effect_value": 60
         },
         {
           "rank": 8,
           "level_req": 50,
           "cost": 25,
-          "effect_value": 80
+          "effect_value": 67
         },
         {
           "rank": 9,
           "level_req": 58,
           "cost": 25,
-          "effect_value": 89
+          "effect_value": 74
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.25x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "starcaller_moonwell_splash",
@@ -624,52 +645,55 @@
           "rank": 1,
           "level_req": 8,
           "cost": 61,
-          "effect_value": 76
+          "effect_value": 111
         },
         {
           "rank": 2,
           "level_req": 15,
           "cost": 89,
-          "effect_value": 111
+          "effect_value": 133
         },
         {
           "rank": 3,
           "level_req": 22,
           "cost": 117,
-          "effect_value": 146
+          "effect_value": 155
         },
         {
           "rank": 4,
           "level_req": 29,
           "cost": 145,
-          "effect_value": 181
+          "effect_value": 178
         },
         {
           "rank": 5,
           "level_req": 35,
           "cost": 174,
-          "effect_value": 217
+          "effect_value": 197
         },
         {
           "rank": 6,
           "level_req": 42,
           "cost": 202,
-          "effect_value": 252
+          "effect_value": 220
         },
         {
           "rank": 7,
           "level_req": 49,
           "cost": 230,
-          "effect_value": 287
+          "effect_value": 242
         },
         {
           "rank": 8,
           "level_req": 56,
           "cost": 258,
-          "effect_value": 322
+          "effect_value": 264
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.77x steeper than it, biggest single-rank jump 1.21x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "starcaller_elunes_purification",
@@ -769,42 +793,43 @@
           "rank": 1,
           "level_req": 22,
           "cost": 112,
-          "effect_value": 89
+          "effect_value": 108
         },
         {
           "rank": 2,
           "level_req": 29,
           "cost": 143,
-          "effect_value": 113
+          "effect_value": 124
         },
         {
           "rank": 3,
           "level_req": 36,
           "cost": 173,
-          "effect_value": 137
+          "effect_value": 139
         },
         {
           "rank": 4,
           "level_req": 42,
           "cost": 204,
-          "effect_value": 162
+          "effect_value": 152
         },
         {
           "rank": 5,
           "level_req": 49,
           "cost": 234,
-          "effect_value": 186
+          "effect_value": 168
         },
         {
           "rank": 6,
           "level_req": 56,
           "cost": 265,
-          "effect_value": 210
+          "effect_value": 184
         }
       ],
       "icon_id": null,
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x0.63 - it sat at 2.52x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+        "15 Nov 2026, class pass: every rank x0.63 - it sat at 2.52x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.39x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {
@@ -822,35 +847,38 @@
           "rank": 1,
           "level_req": 18,
           "cost": 70,
-          "effect_value": 100
+          "effect_value": 122
         },
         {
           "rank": 2,
           "level_req": 26,
           "cost": 90,
-          "effect_value": 128
+          "effect_value": 144
         },
         {
           "rank": 3,
           "level_req": 34,
           "cost": 109,
-          "effect_value": 156
+          "effect_value": 166
         },
         {
           "rank": 4,
           "level_req": 42,
           "cost": 131,
-          "effect_value": 214
+          "effect_value": 188
         },
         {
           "rank": 5,
           "level_req": 50,
           "cost": 153,
-          "effect_value": 272
+          "effect_value": 210
         }
       ],
       "icon_id": null,
-      "damage_school": "arcane"
+      "damage_school": "arcane",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.58x steeper than it, biggest single-rank jump 1.21x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "starcaller_aspect_of_the_huntress",
@@ -892,31 +920,32 @@
           "rank": 1,
           "level_req": 26,
           "cost": 162,
-          "effect_value": 77
+          "effect_value": 93
         },
         {
           "rank": 2,
           "level_req": 36,
           "cost": 195,
-          "effect_value": 115
+          "effect_value": 110
         },
         {
           "rank": 3,
           "level_req": 48,
           "cost": 235,
-          "effect_value": 139
+          "effect_value": 132
         },
         {
           "rank": 4,
           "level_req": 58,
           "cost": 276,
-          "effect_value": 163
+          "effect_value": 149
         }
       ],
       "icon_id": null,
       "damage_school": "arcane",
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x0.33 - it sat at 4.82x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+        "15 Nov 2026, class pass: every rank x0.33 - it sat at 4.82x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.25x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {
@@ -1034,29 +1063,32 @@
           "rank": 1,
           "level_req": 22,
           "cost": 18,
-          "effect_value": 25
+          "effect_value": 29
         },
         {
           "rank": 2,
           "level_req": 32,
           "cost": 22,
-          "effect_value": 31
+          "effect_value": 35
         },
         {
           "rank": 3,
           "level_req": 44,
           "cost": 27,
-          "effect_value": 48
+          "effect_value": 42
         },
         {
           "rank": 4,
           "level_req": 58,
           "cost": 33,
-          "effect_value": 58
+          "effect_value": 51
         }
       ],
       "icon_id": null,
-      "damage_school": "arcane"
+      "damage_school": "arcane",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.33x steeper than it, biggest single-rank jump 1.28x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "starcaller_umbral_blade",
@@ -1074,31 +1106,32 @@
           "rank": 1,
           "level_req": 26,
           "cost": 125,
-          "effect_value": 65
+          "effect_value": 80
         },
         {
           "rank": 2,
           "level_req": 36,
           "cost": 154,
-          "effect_value": 100
+          "effect_value": 95
         },
         {
           "rank": 3,
           "level_req": 48,
           "cost": 185,
-          "effect_value": 120
+          "effect_value": 113
         },
         {
           "rank": 4,
           "level_req": 58,
           "cost": 217,
-          "effect_value": 140
+          "effect_value": 128
         }
       ],
       "icon_id": null,
       "damage_school": "arcane",
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x0.36 - it sat at 4.40x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+        "15 Nov 2026, class pass: every rank x0.36 - it sat at 4.40x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.34x steeper than it, biggest single-rank jump 1.29x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {
@@ -1117,29 +1150,32 @@
           "rank": 1,
           "level_req": 20,
           "cost": 112,
-          "effect_value": 160
+          "effect_value": 182
         },
         {
           "rank": 2,
           "level_req": 30,
           "cost": 138,
-          "effect_value": 197
+          "effect_value": 221
         },
         {
           "rank": 3,
           "level_req": 42,
           "cost": 169,
-          "effect_value": 302
+          "effect_value": 268
         },
         {
           "rank": 4,
           "level_req": 56,
           "cost": 206,
-          "effect_value": 368
+          "effect_value": 323
         }
       ],
       "icon_id": null,
-      "_implementation_note": "The per-Aspect unique effect isn't dynamically modeled yet (this ability's effect always resolves as flat weapon damage regardless of which Aspect is active) - real per-Aspect branching needs a proper conditional-effect dispatch, same class of gap as the Weapon Engraving procs on Runemaster."
+      "_implementation_note": "The per-Aspect unique effect isn't dynamically modeled yet (this ability's effect always resolves as flat weapon damage regardless of which Aspect is active) - real per-Aspect branching needs a proper conditional-effect dispatch, same class of gap as the Weapon Engraving procs on Runemaster.",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.30x steeper than it, biggest single-rank jump 1.26x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "starcaller_starburst",
@@ -1157,47 +1193,50 @@
           "rank": 1,
           "level_req": 16,
           "cost": 49,
-          "effect_value": 70
+          "effect_value": 82
         },
         {
           "rank": 2,
           "level_req": 22,
           "cost": 57,
-          "effect_value": 81
+          "effect_value": 93
         },
         {
           "rank": 3,
           "level_req": 28,
           "cost": 64,
-          "effect_value": 92
+          "effect_value": 105
         },
         {
           "rank": 4,
           "level_req": 36,
           "cost": 74,
-          "effect_value": 132
+          "effect_value": 120
         },
         {
           "rank": 5,
           "level_req": 44,
           "cost": 84,
-          "effect_value": 150
+          "effect_value": 135
         },
         {
           "rank": 6,
           "level_req": 52,
           "cost": 94,
-          "effect_value": 169
+          "effect_value": 151
         },
         {
           "rank": 7,
           "level_req": 60,
           "cost": 104,
-          "effect_value": 186
+          "effect_value": 166
         }
       ],
       "icon_id": null,
-      "damage_school": "arcane"
+      "damage_school": "arcane",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.31x steeper than it, biggest single-rank jump 1.25x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "starcaller_chosen_of_the_moon",
@@ -1382,23 +1421,26 @@
           "rank": 1,
           "level_req": 30,
           "cost": 32,
-          "effect_value": 50
+          "effect_value": 59
         },
         {
           "rank": 2,
           "level_req": 40,
           "cost": 38,
-          "effect_value": 74
+          "effect_value": 69
         },
         {
           "rank": 3,
           "level_req": 52,
           "cost": 45,
-          "effect_value": 89
+          "effect_value": 81
         }
       ],
       "icon_id": null,
-      "damage_school": "arcane"
+      "damage_school": "arcane",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.28x steeper than it, biggest single-rank jump 1.26x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "starcaller_rain_of_comets",
@@ -1699,29 +1741,32 @@
           "rank": 1,
           "level_req": 22,
           "cost": 46,
-          "effect_value": 65
+          "effect_value": 74
         },
         {
           "rank": 2,
           "level_req": 32,
           "cost": 56,
-          "effect_value": 79
+          "effect_value": 89
         },
         {
           "rank": 3,
           "level_req": 44,
           "cost": 68,
-          "effect_value": 121
+          "effect_value": 107
         },
         {
           "rank": 4,
           "level_req": 58,
           "cost": 83,
-          "effect_value": 146
+          "effect_value": 129
         }
       ],
       "icon_id": null,
-      "damage_school": "arcane"
+      "damage_school": "arcane",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.29x steeper than it, biggest single-rank jump 1.27x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "starcaller_astral_blade",
@@ -1738,29 +1783,32 @@
           "rank": 1,
           "level_req": 24,
           "cost": 105,
-          "effect_value": 150
+          "effect_value": 170
         },
         {
           "rank": 2,
           "level_req": 34,
           "cost": 127,
-          "effect_value": 182
+          "effect_value": 204
         },
         {
           "rank": 3,
           "level_req": 46,
           "cost": 154,
-          "effect_value": 275
+          "effect_value": 245
         },
         {
           "rank": 4,
           "level_req": 60,
           "cost": 185,
-          "effect_value": 331
+          "effect_value": 292
         }
       ],
       "icon_id": null,
-      "damage_school": "arcane"
+      "damage_school": "arcane",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.29x steeper than it, biggest single-rank jump 1.26x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "starcaller_halt",

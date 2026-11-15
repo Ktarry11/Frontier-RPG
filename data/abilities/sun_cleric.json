@@ -37,60 +37,61 @@
           "rank": 1,
           "level_req": 1,
           "cost": 31,
-          "effect_value": 39
+          "effect_value": 50
         },
         {
           "rank": 2,
           "level_req": 8,
           "cost": 38,
-          "effect_value": 64
+          "effect_value": 62
         },
         {
           "rank": 3,
           "level_req": 15,
           "cost": 45,
-          "effect_value": 77
+          "effect_value": 75
         },
         {
           "rank": 4,
           "level_req": 22,
           "cost": 52,
-          "effect_value": 90
+          "effect_value": 88
         },
         {
           "rank": 5,
           "level_req": 28,
           "cost": 60,
-          "effect_value": 102
+          "effect_value": 99
         },
         {
           "rank": 6,
           "level_req": 35,
           "cost": 67,
-          "effect_value": 115
+          "effect_value": 111
         },
         {
           "rank": 7,
           "level_req": 42,
           "cost": 74,
-          "effect_value": 128
+          "effect_value": 124
         },
         {
           "rank": 8,
           "level_req": 49,
           "cost": 81,
-          "effect_value": 141
+          "effect_value": 137
         },
         {
           "rank": 9,
           "level_req": 56,
           "cost": 88,
-          "effect_value": 154
+          "effect_value": 149
         }
       ],
       "icon_id": null,
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the healer line (x0.95 of Priest's Heal, no cooldown). Authored +65 a rank to 558 at 56 - about 3x Heal's line on a spammable heal; Blessings healed 1.8x the median healer."
+        "15 Nov 2026, class pass: ranks put on the healer line (x0.95 of Priest's Heal, no cooldown). Authored +65 a rank to 558 at 56 - about 3x Heal's line on a spammable heal; Blessings healed 1.8x the median healer.",
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.31x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {
@@ -108,53 +109,56 @@
           "rank": 1,
           "level_req": 1,
           "cost": 20,
-          "effect_value": 29
+          "effect_value": 60
         },
         {
           "rank": 2,
           "level_req": 8,
           "cost": 36,
-          "effect_value": 52
+          "effect_value": 75
         },
         {
           "rank": 3,
           "level_req": 16,
           "cost": 56,
-          "effect_value": 80
+          "effect_value": 92
         },
         {
           "rank": 4,
           "level_req": 24,
           "cost": 78,
-          "effect_value": 112
+          "effect_value": 110
         },
         {
           "rank": 5,
           "level_req": 32,
           "cost": 104,
-          "effect_value": 148
+          "effect_value": 127
         },
         {
           "rank": 6,
           "level_req": 40,
           "cost": 132,
-          "effect_value": 188
+          "effect_value": 145
         },
         {
           "rank": 7,
           "level_req": 48,
           "cost": 162,
-          "effect_value": 232
+          "effect_value": 162
         },
         {
           "rank": 8,
           "level_req": 56,
           "cost": 196,
-          "effect_value": 280
+          "effect_value": 179
         }
       ],
       "icon_id": null,
-      "damage_school": "holy"
+      "damage_school": "holy",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 3.22x steeper than it, biggest single-rank jump 1.43x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "sun_cleric_devotion_of_grace",
@@ -296,40 +300,43 @@
           "rank": 1,
           "level_req": 16,
           "cost": 109,
-          "effect_value": 136
+          "effect_value": 157
         },
         {
           "rank": 2,
           "level_req": 23,
           "cost": 138,
-          "effect_value": 173
+          "effect_value": 183
         },
         {
           "rank": 3,
           "level_req": 30,
           "cost": 168,
-          "effect_value": 210
+          "effect_value": 209
         },
         {
           "rank": 4,
           "level_req": 38,
           "cost": 197,
-          "effect_value": 246
+          "effect_value": 239
         },
         {
           "rank": 5,
           "level_req": 45,
           "cost": 227,
-          "effect_value": 283
+          "effect_value": 264
         },
         {
           "rank": 6,
           "level_req": 52,
           "cost": 256,
-          "effect_value": 320
+          "effect_value": 290
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.27x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "sun_cleric_dawn",

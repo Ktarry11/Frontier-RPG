@@ -379,38 +379,39 @@
           "rank": 1,
           "level_req": 20,
           "cost": 57,
-          "effect_value": 81
+          "effect_value": 95
         },
         {
           "rank": 2,
           "level_req": 32,
           "cost": 87,
-          "effect_value": 120
+          "effect_value": 119
         },
         {
           "rank": 3,
           "level_req": 40,
           "cost": 102,
-          "effect_value": 140
+          "effect_value": 136
         },
         {
           "rank": 4,
           "level_req": 48,
           "cost": 117,
-          "effect_value": 159
+          "effect_value": 152
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 138,
-          "effect_value": 186
+          "effect_value": 172
         }
       ],
       "icon_id": null,
       "damage_school": "arcane",
       "cast_speed": "slow",
       "_tuning": [
-        "15 Nov 2026: a slow cast (Kyle: \"Speed sets next turn\"), sized 1.5x for 1.15x the cost (tools/apply_cast_speeds.py)"
+        "15 Nov 2026: a slow cast (Kyle: \"Speed sets next turn\"), sized 1.5x for 1.15x the cost (tools/apply_cast_speeds.py)",
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.26x steeper than it, biggest single-rank jump 1.18x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {
@@ -911,25 +912,25 @@
           "rank": 1,
           "level_req": 24,
           "cost": 60,
-          "effect_value": 95
+          "effect_value": 109
         },
         {
           "rank": 2,
           "level_req": 34,
           "cost": 60,
-          "effect_value": 130
+          "effect_value": 131
         },
         {
           "rank": 3,
           "level_req": 46,
           "cost": 60,
-          "effect_value": 165
+          "effect_value": 157
         },
         {
           "rank": 4,
           "level_req": 60,
           "cost": 60,
-          "effect_value": 205
+          "effect_value": 187
         }
       ],
       "requires_form": [
@@ -942,7 +943,10 @@
         "resource": "combo",
         "amount": 20
       },
-      "_feral_rework": "15 Nov 2026: Cat Form had no combo points and hit ~40% as hard as a Rogue (Claw 73 vs Sinister Strike 125 at 56); the parity sim put Feral at 0.3x the median spec. Rebuilt on the Rogue's builder/finisher shape and numbers. Was ranks [(24, 60, 54), (34, 60, 65), (46, 60, 79), (60, 60, 95)], cooldown as before."
+      "_feral_rework": "15 Nov 2026: Cat Form had no combo points and hit ~40% as hard as a Rogue (Claw 73 vs Sinister Strike 125 at 56); the parity sim put Feral at 0.3x the median spec. Rebuilt on the Rogue's builder/finisher shape and numbers. Was ranks [(24, 60, 54), (34, 60, 65), (46, 60, 79), (60, 60, 95)], cooldown as before.",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.26x steeper than it, biggest single-rank jump 1.14x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "druid_swipe_cat",

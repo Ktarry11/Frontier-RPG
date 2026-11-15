@@ -36,55 +36,55 @@
           "rank": 1,
           "level_req": 1,
           "cost": 20,
-          "effect_value": 42
+          "effect_value": 48
         },
         {
           "rank": 2,
           "level_req": 6,
           "cost": 20,
-          "effect_value": 53
+          "effect_value": 57
         },
         {
           "rank": 3,
           "level_req": 12,
           "cost": 20,
-          "effect_value": 64
+          "effect_value": 68
         },
         {
           "rank": 4,
           "level_req": 18,
           "cost": 20,
-          "effect_value": 75
+          "effect_value": 78
         },
         {
           "rank": 5,
           "level_req": 24,
           "cost": 20,
-          "effect_value": 86
+          "effect_value": 89
         },
         {
           "rank": 6,
           "level_req": 32,
           "cost": 20,
-          "effect_value": 97
+          "effect_value": 103
         },
         {
           "rank": 7,
           "level_req": 40,
           "cost": 20,
-          "effect_value": 135
+          "effect_value": 117
         },
         {
           "rank": 8,
           "level_req": 48,
           "cost": 20,
-          "effect_value": 149
+          "effect_value": 131
         },
         {
           "rank": 9,
           "level_req": 56,
           "cost": 20,
-          "effect_value": 162
+          "effect_value": 145
         }
       ],
       "icon_id": null,
@@ -93,7 +93,10 @@
       "generates": {
         "resource": "deathfire",
         "amount": 20
-      }
+      },
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.29x steeper than it, biggest single-rank jump 1.22x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "knight_of_xoroth_sever",
@@ -109,49 +112,49 @@
           "rank": 1,
           "level_req": 6,
           "cost": 10,
-          "effect_value": 32
+          "effect_value": 39
         },
         {
           "rank": 2,
           "level_req": 13,
           "cost": 10,
-          "effect_value": 41
+          "effect_value": 47
         },
         {
           "rank": 3,
           "level_req": 20,
           "cost": 10,
-          "effect_value": 50
+          "effect_value": 55
         },
         {
           "rank": 4,
           "level_req": 27,
           "cost": 10,
-          "effect_value": 59
+          "effect_value": 64
         },
         {
           "rank": 5,
           "level_req": 34,
           "cost": 10,
-          "effect_value": 68
+          "effect_value": 72
         },
         {
           "rank": 6,
           "level_req": 41,
           "cost": 10,
-          "effect_value": 96
+          "effect_value": 81
         },
         {
           "rank": 7,
           "level_req": 48,
           "cost": 10,
-          "effect_value": 108
+          "effect_value": 89
         },
         {
           "rank": 8,
           "level_req": 55,
           "cost": 10,
-          "effect_value": 119
+          "effect_value": 97
         }
       ],
       "icon_id": null,
@@ -160,7 +163,10 @@
       "generates": {
         "resource": "deathfire",
         "amount": 10
-      }
+      },
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.48x steeper than it, biggest single-rank jump 1.27x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "knight_of_xoroth_meatsaw",
@@ -176,49 +182,52 @@
           "rank": 1,
           "level_req": 10,
           "cost": 25,
-          "effect_value": 34
+          "effect_value": 42
         },
         {
           "rank": 2,
           "level_req": 18,
           "cost": 25,
-          "effect_value": 44
+          "effect_value": 51
         },
         {
           "rank": 3,
           "level_req": 26,
           "cost": 25,
-          "effect_value": 54
+          "effect_value": 60
         },
         {
           "rank": 4,
           "level_req": 34,
           "cost": 25,
-          "effect_value": 64
+          "effect_value": 69
         },
         {
           "rank": 5,
           "level_req": 42,
           "cost": 25,
-          "effect_value": 92
+          "effect_value": 78
         },
         {
           "rank": 6,
           "level_req": 50,
           "cost": 25,
-          "effect_value": 105
+          "effect_value": 88
         },
         {
           "rank": 7,
           "level_req": 58,
           "cost": 25,
-          "effect_value": 118
+          "effect_value": 97
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Meatsaw (hits nearby enemies)'. target_type enemy_aoe + max_targets is what the engine actually reads for a limited cleave; the is_aoe flag is never read at load time.",
       "target_type": "enemy_aoe",
-      "max_targets": 3
+      "max_targets": 3,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.50x steeper than it, biggest single-rank jump 1.27x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "knight_of_xoroth_skulltaker",
@@ -234,48 +243,51 @@
           "rank": 1,
           "level_req": 12,
           "cost": 40,
-          "effect_value": 76
+          "effect_value": 99
         },
         {
           "rank": 2,
           "level_req": 19,
           "cost": 40,
-          "effect_value": 98
+          "effect_value": 117
         },
         {
           "rank": 3,
           "level_req": 26,
           "cost": 40,
-          "effect_value": 120
+          "effect_value": 135
         },
         {
           "rank": 4,
           "level_req": 33,
           "cost": 40,
-          "effect_value": 142
+          "effect_value": 153
         },
         {
           "rank": 5,
           "level_req": 40,
           "cost": 40,
-          "effect_value": 205
+          "effect_value": 171
         },
         {
           "rank": 6,
           "level_req": 47,
           "cost": 40,
-          "effect_value": 232
+          "effect_value": 188
         },
         {
           "rank": 7,
           "level_req": 54,
           "cost": 40,
-          "effect_value": 260
+          "effect_value": 206
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'dump stacked Demonfire into Skulltaker for its scaling finisher: more damage per stack'. The class's single-target Deathfire spender, shared by all three specs. 40 Deathfire is CoA's 4-stack spend.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.64x steeper than it, biggest single-rank jump 1.29x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "knight_of_xoroth_melt",
@@ -291,37 +303,37 @@
           "rank": 1,
           "level_req": 14,
           "cost": 20,
-          "effect_value": 131
+          "effect_value": 166
         },
         {
           "rank": 2,
           "level_req": 22,
           "cost": 20,
-          "effect_value": 169
+          "effect_value": 199
         },
         {
           "rank": 3,
           "level_req": 30,
           "cost": 20,
-          "effect_value": 207
+          "effect_value": 232
         },
         {
           "rank": 4,
           "level_req": 38,
           "cost": 20,
-          "effect_value": 305
+          "effect_value": 265
         },
         {
           "rank": 5,
           "level_req": 46,
           "cost": 20,
-          "effect_value": 354
+          "effect_value": 297
         },
         {
           "rank": 6,
           "level_req": 54,
           "cost": 20,
-          "effect_value": 403
+          "effect_value": 330
         }
       ],
       "icon_id": null,
@@ -330,7 +342,8 @@
       "damage_school": "fire",
       "_over_time_lifted": 2.73,
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x2.73 - its total was 0.26x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+        "15 Nov 2026, class pass: every rank x2.73 - its total was 0.26x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.55x steeper than it, biggest single-rank jump 1.29x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {
@@ -347,44 +360,47 @@
           "rank": 1,
           "level_req": 16,
           "cost": 30,
-          "effect_value": 42
+          "effect_value": 55
         },
         {
           "rank": 2,
           "level_req": 24,
           "cost": 30,
-          "effect_value": 55
+          "effect_value": 66
         },
         {
           "rank": 3,
           "level_req": 32,
           "cost": 30,
-          "effect_value": 68
+          "effect_value": 76
         },
         {
           "rank": 4,
           "level_req": 40,
           "cost": 30,
-          "effect_value": 101
+          "effect_value": 87
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 30,
-          "effect_value": 118
+          "effect_value": 97
         },
         {
           "rank": 6,
           "level_req": 56,
           "cost": 30,
-          "effect_value": 134
+          "effect_value": 107
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Your AoE comes from Flames of Xoroth'. Present in all three specs (War transforms it into Warbringer, Defiance into Hellfire Bellows).",
       "target_type": "enemy_aoe",
       "max_targets": 4,
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.64x steeper than it, biggest single-rank jump 1.31x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "knight_of_xoroth_chains_of_malice",
@@ -400,37 +416,40 @@
           "rank": 1,
           "level_req": 18,
           "cost": 20,
-          "effect_value": 46
+          "effect_value": 58
         },
         {
           "rank": 2,
           "level_req": 28,
           "cost": 20,
-          "effect_value": 60
+          "effect_value": 71
         },
         {
           "rank": 3,
           "level_req": 38,
           "cost": 20,
-          "effect_value": 92
+          "effect_value": 83
         },
         {
           "rank": 4,
           "level_req": 48,
           "cost": 20,
-          "effect_value": 110
+          "effect_value": 96
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 20,
-          "effect_value": 128
+          "effect_value": 109
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Lock an enemy down with magical chains, stunning them and dragging them with you for 5 seconds.' The stun is real; the drag is not modellable.",
       "target_type": "enemy",
-      "is_stun": true
+      "is_stun": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.47x steeper than it, biggest single-rank jump 1.30x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "knight_of_xoroth_dread",
@@ -565,37 +584,40 @@
           "rank": 1,
           "level_req": 28,
           "cost": 30,
-          "effect_value": 54
+          "effect_value": 76
         },
         {
           "rank": 2,
           "level_req": 35,
           "cost": 30,
-          "effect_value": 70
+          "effect_value": 86
         },
         {
           "rank": 3,
           "level_req": 42,
           "cost": 30,
-          "effect_value": 108
+          "effect_value": 96
         },
         {
           "rank": 4,
           "level_req": 49,
           "cost": 30,
-          "effect_value": 128
+          "effect_value": 106
         },
         {
           "rank": 5,
           "level_req": 56,
           "cost": 30,
-          "effect_value": 148
+          "effect_value": 116
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Unleashes your active Pestilence to trigger a powerful effect.' Which Pestilence is up changes what it does in CoA; the engine has no such branch, so it is one AoE burst regardless.",
       "target_type": "enemy_aoe",
-      "max_targets": 5
+      "max_targets": 5,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.81x steeper than it, biggest single-rank jump 1.39x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "knight_of_xoroth_pestilence_of_death",
@@ -660,43 +682,43 @@
           "rank": 1,
           "level_req": 10,
           "cost": 20,
-          "effect_value": 46
+          "effect_value": 56
         },
         {
           "rank": 2,
           "level_req": 18,
           "cost": 20,
-          "effect_value": 59
+          "effect_value": 68
         },
         {
           "rank": 3,
           "level_req": 26,
           "cost": 20,
-          "effect_value": 72
+          "effect_value": 80
         },
         {
           "rank": 4,
           "level_req": 34,
           "cost": 20,
-          "effect_value": 85
+          "effect_value": 92
         },
         {
           "rank": 5,
           "level_req": 42,
           "cost": 20,
-          "effect_value": 122
+          "effect_value": 104
         },
         {
           "rank": 6,
           "level_req": 50,
           "cost": 20,
-          "effect_value": 139
+          "effect_value": 117
         },
         {
           "rank": 7,
           "level_req": 58,
           "cost": 20,
-          "effect_value": 155
+          "effect_value": 129
         }
       ],
       "icon_id": null,
@@ -707,7 +729,10 @@
         "resource": "deathfire",
         "amount": 20
       },
-      "requires_talent": true
+      "requires_talent": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.46x steeper than it, biggest single-rank jump 1.27x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "knight_of_xoroth_call_hellfire_imp",
@@ -772,31 +797,31 @@
           "rank": 1,
           "level_req": 24,
           "cost": 40,
-          "effect_value": 43
+          "effect_value": 58
         },
         {
           "rank": 2,
           "level_req": 32,
           "cost": 40,
-          "effect_value": 55
+          "effect_value": 67
         },
         {
           "rank": 3,
           "level_req": 40,
           "cost": 40,
-          "effect_value": 85
+          "effect_value": 76
         },
         {
           "rank": 4,
           "level_req": 48,
           "cost": 40,
-          "effect_value": 101
+          "effect_value": 85
         },
         {
           "rank": 5,
           "level_req": 56,
           "cost": 40,
-          "effect_value": 117
+          "effect_value": 94
         }
       ],
       "icon_id": null,
@@ -809,7 +834,8 @@
         "amount": 30
       },
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x0.71 - it sat at 2.26x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+        "15 Nov 2026, class pass: every rank x0.71 - it sat at 2.26x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.67x steeper than it, biggest single-rank jump 1.36x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {
@@ -826,36 +852,39 @@
           "rank": 1,
           "level_req": 28,
           "cost": 20,
-          "effect_value": 260
+          "effect_value": 304
         },
         {
           "rank": 2,
           "level_req": 36,
           "cost": 20,
-          "effect_value": 328
+          "effect_value": 348
         },
         {
           "rank": 3,
           "level_req": 43,
           "cost": 20,
-          "effect_value": 395
+          "effect_value": 388
         },
         {
           "rank": 4,
           "level_req": 50,
           "cost": 20,
-          "effect_value": 462
+          "effect_value": 427
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 20,
-          "effect_value": 530
+          "effect_value": 471
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Sacrifice your Hellfire Imps within 15 yds, healing you 15% of your maximum health, plus an additional amount equal to 25% of each of your Hellfire Imp's maximum health.' The engine cannot consume your own pets as a cost, so it is a flat emergency heal on a long cooldown. The Soul Furnace absorb that CoA leaves behind is the Defiance node of that name.",
-      "target_type": "self"
+      "target_type": "self",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.31x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "knight_of_xoroth_curse_of_xoroth",
@@ -871,25 +900,25 @@
           "rank": 1,
           "level_req": 30,
           "cost": 25,
-          "effect_value": 165
+          "effect_value": 221
         },
         {
           "rank": 2,
           "level_req": 39,
           "cost": 25,
-          "effect_value": 264
+          "effect_value": 256
         },
         {
           "rank": 3,
           "level_req": 48,
           "cost": 25,
-          "effect_value": 325
+          "effect_value": 292
         },
         {
           "rank": 4,
           "level_req": 57,
           "cost": 25,
-          "effect_value": 382
+          "effect_value": 327
         }
       ],
       "icon_id": null,
@@ -901,7 +930,8 @@
       ],
       "_over_time_lifted": 2.36,
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x2.36 - its total was 0.30x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+        "15 Nov 2026, class pass: every rank x2.36 - its total was 0.30x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.57x steeper than it, biggest single-rank jump 1.38x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {
@@ -942,43 +972,43 @@
           "rank": 1,
           "level_req": 10,
           "cost": 15,
-          "effect_value": 40
+          "effect_value": 50
         },
         {
           "rank": 2,
           "level_req": 18,
           "cost": 15,
-          "effect_value": 52
+          "effect_value": 60
         },
         {
           "rank": 3,
           "level_req": 26,
           "cost": 15,
-          "effect_value": 64
+          "effect_value": 71
         },
         {
           "rank": 4,
           "level_req": 34,
           "cost": 15,
-          "effect_value": 76
+          "effect_value": 82
         },
         {
           "rank": 5,
           "level_req": 42,
           "cost": 15,
-          "effect_value": 110
+          "effect_value": 93
         },
         {
           "rank": 6,
           "level_req": 50,
           "cost": 15,
-          "effect_value": 125
+          "effect_value": 104
         },
         {
           "rank": 7,
           "level_req": 58,
           "cost": 15,
-          "effect_value": 140
+          "effect_value": 115
         }
       ],
       "icon_id": null,
@@ -988,7 +1018,10 @@
         "resource": "deathfire",
         "amount": 10
       },
-      "requires_talent": true
+      "requires_talent": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.51x steeper than it, biggest single-rank jump 1.28x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "knight_of_xoroth_warbringer",
@@ -1004,37 +1037,40 @@
           "rank": 1,
           "level_req": 22,
           "cost": 25,
-          "effect_value": 52
+          "effect_value": 69
         },
         {
           "rank": 2,
           "level_req": 31,
           "cost": 25,
-          "effect_value": 68
+          "effect_value": 81
         },
         {
           "rank": 3,
           "level_req": 40,
           "cost": 25,
-          "effect_value": 105
+          "effect_value": 94
         },
         {
           "rank": 4,
           "level_req": 49,
           "cost": 25,
-          "effect_value": 125
+          "effect_value": 107
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 25,
-          "effect_value": 145
+          "effect_value": 120
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Transforms your Flames of Xoroth into Warbringer. Slam the ground, dealing Weapon Damage to nearby enemies, reducing the effectiveness of any healing by -50% for 10 seconds.' A damage ability cannot also apply a debuff, so the anti-heal is lost here; healing_taken_pct exists but only on a debuff ability, and War's own page calls the cleave the point.",
       "target_type": "enemy_aoe",
-      "max_targets": 4
+      "max_targets": 4,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.60x steeper than it, biggest single-rank jump 1.34x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "knight_of_xoroth_brimstone_bludgeon",
@@ -1050,32 +1086,35 @@
           "rank": 1,
           "level_req": 40,
           "cost": 30,
-          "effect_value": 120
+          "effect_value": 148
         },
         {
           "rank": 2,
           "level_req": 46,
           "cost": 30,
-          "effect_value": 155
+          "effect_value": 162
         },
         {
           "rank": 3,
           "level_req": 52,
           "cost": 30,
-          "effect_value": 190
+          "effect_value": 175
         },
         {
           "rank": 4,
           "level_req": 58,
           "cost": 30,
-          "effect_value": 225
+          "effect_value": 189
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Walking in and popping Brimstone Bludgeon is the opener: heavy weapon damage to the pack that also unleashes Pestilence of Death'. The spec's keystone and its tier-6 pick, so it is unlocked by the capstone node. The Pestilence unleash is a separate button here.",
       "target_type": "enemy_aoe",
       "max_targets": 4,
-      "requires_talent": true
+      "requires_talent": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.48x steeper than it, biggest single-rank jump 1.18x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "knight_of_xoroth_burning_blade",
@@ -1116,37 +1155,40 @@
           "rank": 1,
           "level_req": 26,
           "cost": 20,
-          "effect_value": 60
+          "effect_value": 82
         },
         {
           "rank": 2,
           "level_req": 34,
           "cost": 20,
-          "effect_value": 78
+          "effect_value": 95
         },
         {
           "rank": 3,
           "level_req": 42,
           "cost": 20,
-          "effect_value": 120
+          "effect_value": 107
         },
         {
           "rank": 4,
           "level_req": 50,
           "cost": 20,
-          "effect_value": 142
+          "effect_value": 120
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 20,
-          "effect_value": 165
+          "effect_value": 132
         }
       ],
       "icon_id": null,
       "_source": "CoA names Searing Blade in War's Domination ('Melee critical strikes now reduce the cooldown of Searing Blade'), which is all the reference says about it, so it is authored as the spec's mid-cooldown Fire strike.",
       "target_type": "enemy",
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.71x steeper than it, biggest single-rank jump 1.36x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "knight_of_xoroth_seeking_flame",
@@ -1162,43 +1204,43 @@
           "rank": 1,
           "level_req": 12,
           "cost": 15,
-          "effect_value": 40
+          "effect_value": 53
         },
         {
           "rank": 2,
           "level_req": 19,
           "cost": 15,
-          "effect_value": 52
+          "effect_value": 62
         },
         {
           "rank": 3,
           "level_req": 26,
           "cost": 15,
-          "effect_value": 64
+          "effect_value": 72
         },
         {
           "rank": 4,
           "level_req": 33,
           "cost": 15,
-          "effect_value": 76
+          "effect_value": 81
         },
         {
           "rank": 5,
           "level_req": 40,
           "cost": 15,
-          "effect_value": 110
+          "effect_value": 91
         },
         {
           "rank": 6,
           "level_req": 47,
           "cost": 15,
-          "effect_value": 125
+          "effect_value": 101
         },
         {
           "rank": 7,
           "level_req": 54,
           "cost": 15,
-          "effect_value": 140
+          "effect_value": 110
         }
       ],
       "icon_id": null,
@@ -1208,7 +1250,10 @@
       "generates": {
         "resource": "deathfire",
         "amount": 10
-      }
+      },
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.67x steeper than it, biggest single-rank jump 1.30x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "knight_of_xoroth_hellmaw",
@@ -1224,37 +1269,37 @@
           "rank": 1,
           "level_req": 16,
           "cost": 40,
-          "effect_value": 90
+          "effect_value": 116
         },
         {
           "rank": 2,
           "level_req": 24,
           "cost": 40,
-          "effect_value": 116
+          "effect_value": 137
         },
         {
           "rank": 3,
           "level_req": 32,
           "cost": 40,
-          "effect_value": 142
+          "effect_value": 159
         },
         {
           "rank": 4,
           "level_req": 40,
           "cost": 40,
-          "effect_value": 210
+          "effect_value": 181
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 40,
-          "effect_value": 242
+          "effect_value": 203
         },
         {
           "rank": 6,
           "level_req": 56,
           "cost": 40,
-          "effect_value": 275
+          "effect_value": 224
         }
       ],
       "icon_id": null,
@@ -1264,7 +1309,10 @@
         "fire",
         "shadow"
       ],
-      "requires_talent": true
+      "requires_talent": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.57x steeper than it, biggest single-rank jump 1.30x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "knight_of_xoroth_hellfire_form",
@@ -1305,32 +1353,35 @@
           "rank": 1,
           "level_req": 38,
           "cost": 50,
-          "effect_value": 100
+          "effect_value": 124
         },
         {
           "rank": 2,
           "level_req": 44,
           "cost": 50,
-          "effect_value": 130
+          "effect_value": 136
         },
         {
           "rank": 3,
           "level_req": 50,
           "cost": 50,
-          "effect_value": 160
+          "effect_value": 147
         },
         {
           "rank": 4,
           "level_req": 56,
           "cost": 50,
-          "effect_value": 190
+          "effect_value": 159
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Create a hellstorm, dealing Fire damage to up to 8 nearby enemies. Embers then flare every 1 sec ... Duration is increased by 100% for each stack of Demonfire consumed.' The ember ticks would need a damage ability that also lays a DoT, which the engine does not have, so it is one large capped AoE hit.",
       "target_type": "enemy_aoe",
       "max_targets": 6,
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.49x steeper than it, biggest single-rank jump 1.19x); overall size kept. tools/fix_rank_lines.py"
+      ]
     }
   ]
 }

@@ -432,25 +432,25 @@
           "rank": 1,
           "level_req": 36,
           "cost": 69,
-          "effect_value": 93
+          "effect_value": 106
         },
         {
           "rank": 2,
           "level_req": 44,
           "cost": 87,
-          "effect_value": 114
+          "effect_value": 120
         },
         {
           "rank": 3,
           "level_req": 52,
           "cost": 106,
-          "effect_value": 135
+          "effect_value": 134
         },
         {
           "rank": 4,
           "level_req": 60,
           "cost": 143,
-          "effect_value": 176
+          "effect_value": 147
         }
       ],
       "icon_id": null,
@@ -459,7 +459,8 @@
       "_design_note": "Not learned from level alone - granted by the Pyroblast talent in the Fire tree, matching real WOTLK where this is talent-exclusive to Fire, not a baseline ability. A massive fiery boulder that deals devastating damage.",
       "cast_speed": "slow",
       "_tuning": [
-        "15 Nov 2026: a slow cast (Kyle: \"Speed sets next turn\"), sized 1.5x for 1.15x the cost (tools/apply_cast_speeds.py)"
+        "15 Nov 2026: a slow cast (Kyle: \"Speed sets next turn\"), sized 1.5x for 1.15x the cost (tools/apply_cast_speeds.py)",
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.37x steeper than it, biggest single-rank jump 1.18x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {
@@ -819,7 +820,7 @@
           "rank": 1,
           "level_req": 20,
           "cost": 17,
-          "effect_value": 26,
+          "effect_value": 31,
           "heal_value": 14
         },
         {
@@ -833,21 +834,21 @@
           "rank": 3,
           "level_req": 40,
           "cost": 30,
-          "effect_value": 46,
+          "effect_value": 45,
           "heal_value": 24
         },
         {
           "rank": 4,
           "level_req": 48,
           "cost": 34,
-          "effect_value": 53,
+          "effect_value": 50,
           "heal_value": 28
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 40,
-          "effect_value": 62,
+          "effect_value": 57,
           "heal_value": 33
         }
       ],
@@ -856,7 +857,8 @@
       "damage_school": "frost",
       "cast_speed": "quick",
       "_tuning": [
-        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)"
+        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)",
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.31x steeper than it, biggest single-rank jump 1.19x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {

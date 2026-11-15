@@ -243,25 +243,25 @@
           "rank": 1,
           "level_req": 1,
           "cost": 15,
-          "effect_value": 30
+          "effect_value": 38
         },
         {
           "rank": 2,
           "level_req": 6,
           "cost": 15,
-          "effect_value": 40
+          "effect_value": 45
         },
         {
           "rank": 3,
           "level_req": 12,
           "cost": 15,
-          "effect_value": 50
+          "effect_value": 53
         },
         {
           "rank": 4,
           "level_req": 18,
           "cost": 15,
-          "effect_value": 60
+          "effect_value": 62
         },
         {
           "rank": 5,
@@ -273,25 +273,28 @@
           "rank": 6,
           "level_req": 36,
           "cost": 20,
-          "effect_value": 95
+          "effect_value": 86
         },
         {
           "rank": 7,
           "level_req": 48,
           "cost": 25,
-          "effect_value": 120
+          "effect_value": 103
         },
         {
           "rank": 8,
           "level_req": 58,
           "cost": 29,
-          "effect_value": 141
+          "effect_value": 117
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Advance is Charge', 'a forced 100%-speed gap-close'. Charge stuns, so is_stun.",
       "target_type": "enemy",
-      "is_stun": true
+      "is_stun": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.53x steeper than it, biggest single-rank jump 1.13x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "guardian_brace",
@@ -454,36 +457,39 @@
           "rank": 1,
           "level_req": 28,
           "cost": 30,
-          "effect_value": 52
+          "effect_value": 64
         },
         {
           "rank": 2,
           "level_req": 35,
           "cost": 30,
-          "effect_value": 67
+          "effect_value": 72
         },
         {
           "rank": 3,
           "level_req": 42,
           "cost": 30,
-          "effect_value": 82
+          "effect_value": 80
         },
         {
           "rank": 4,
           "level_req": 49,
           "cost": 30,
-          "effect_value": 97
+          "effect_value": 88
         },
         {
           "rank": 5,
           "level_req": 56,
           "cost": 30,
-          "effect_value": 112
+          "effect_value": 96
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Hammer of the Law is a line hit that silences, not a Shockwave stun' - explicitly NOT a stun, so no is_stun here even though the AoE opener tempts it.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.42x steeper than it, biggest single-rank jump 1.14x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "guardian_lionheart",
@@ -499,36 +505,39 @@
           "rank": 1,
           "level_req": 30,
           "cost": 25,
-          "effect_value": 180
+          "effect_value": 278
         },
         {
           "rank": 2,
           "level_req": 37,
           "cost": 25,
-          "effect_value": 275
+          "effect_value": 312
         },
         {
           "rank": 3,
           "level_req": 44,
           "cost": 25,
-          "effect_value": 370
+          "effect_value": 347
         },
         {
           "rank": 4,
           "level_req": 51,
           "cost": 25,
-          "effect_value": 465
+          "effect_value": 381
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 25,
-          "effect_value": 560
+          "effect_value": 416
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Lionheart's emergency heal when you're dropped low'. One of only three heals in the whole class.",
-      "target_type": "self"
+      "target_type": "self",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.08x steeper than it, biggest single-rank jump 1.36x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "guardian_final_verdict",
@@ -544,43 +553,46 @@
           "rank": 1,
           "level_req": 26,
           "cost": 25,
-          "effect_value": 120
+          "effect_value": 155
         },
         {
           "rank": 2,
           "level_req": 32,
           "cost": 25,
-          "effect_value": 154
+          "effect_value": 172
         },
         {
           "rank": 3,
           "level_req": 38,
           "cost": 25,
-          "effect_value": 188
+          "effect_value": 190
         },
         {
           "rank": 4,
           "level_req": 44,
           "cost": 25,
-          "effect_value": 222
+          "effect_value": 207
         },
         {
           "rank": 5,
           "level_req": 50,
           "cost": 25,
-          "effect_value": 256
+          "effect_value": 225
         },
         {
           "rank": 6,
           "level_req": 56,
           "cost": 25,
-          "effect_value": 290
+          "effect_value": 243
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Save Final Verdict to finish an enemy below the execute threshold for the self-heal'. Shared by Vanguard and Gladiator.",
       "target_type": "enemy",
-      "execute_threshold_pct": 25
+      "execute_threshold_pct": 25,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.54x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "guardian_knights_calling",
@@ -642,19 +654,19 @@
           "rank": 1,
           "level_req": 10,
           "cost": 20,
-          "effect_value": 30
+          "effect_value": 36
         },
         {
           "rank": 2,
           "level_req": 16,
           "cost": 20,
-          "effect_value": 38
+          "effect_value": 42
         },
         {
           "rank": 3,
           "level_req": 22,
           "cost": 20,
-          "effect_value": 46
+          "effect_value": 48
         },
         {
           "rank": 4,
@@ -666,31 +678,34 @@
           "rank": 5,
           "level_req": 34,
           "cost": 20,
-          "effect_value": 62
+          "effect_value": 60
         },
         {
           "rank": 6,
           "level_req": 40,
           "cost": 20,
-          "effect_value": 70
+          "effect_value": 65
         },
         {
           "rank": 7,
           "level_req": 46,
           "cost": 20,
-          "effect_value": 78
+          "effect_value": 71
         },
         {
           "rank": 8,
           "level_req": 52,
           "cost": 20,
-          "effect_value": 86
+          "effect_value": 77
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Broad Sweep as your energy-dump filler and cleave'.",
       "target_type": "enemy_aoe",
-      "max_targets": 3
+      "max_targets": 3,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.33x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "guardian_ballad_of_steel",
@@ -706,48 +721,51 @@
           "rank": 1,
           "level_req": 14,
           "cost": 25,
-          "effect_value": 46
+          "effect_value": 55
         },
         {
           "rank": 2,
           "level_req": 21,
           "cost": 25,
-          "effect_value": 59
+          "effect_value": 64
         },
         {
           "rank": 3,
           "level_req": 28,
           "cost": 25,
-          "effect_value": 72
+          "effect_value": 74
         },
         {
           "rank": 4,
           "level_req": 35,
           "cost": 25,
-          "effect_value": 85
+          "effect_value": 83
         },
         {
           "rank": 5,
           "level_req": 42,
           "cost": 25,
-          "effect_value": 98
+          "effect_value": 92
         },
         {
           "rank": 6,
           "level_req": 49,
           "cost": 25,
-          "effect_value": 111
+          "effect_value": 102
         },
         {
           "rank": 7,
           "level_req": 56,
           "cost": 25,
-          "effect_value": 124
+          "effect_value": 111
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'cast Ballads on cooldown (instant damage + builds Tempo toward a free Sound of War)'. Physical, not magical - the class blurb calls the Guardian 'non-magical'.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "guardian_song_of_steel",
@@ -787,31 +805,31 @@
           "rank": 1,
           "level_req": 30,
           "cost": 30,
-          "effect_value": 53
+          "effect_value": 67
         },
         {
           "rank": 2,
           "level_req": 37,
           "cost": 30,
-          "effect_value": 70
+          "effect_value": 75
         },
         {
           "rank": 3,
           "level_req": 44,
           "cost": 30,
-          "effect_value": 86
+          "effect_value": 84
         },
         {
           "rank": 4,
           "level_req": 51,
           "cost": 30,
-          "effect_value": 102
+          "effect_value": 92
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 30,
-          "effect_value": 119
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -821,7 +839,8 @@
       "is_stun": true,
       "_over_time_lifted": 2.04,
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x2.04 - its total was 0.34x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+        "15 Nov 2026, class pass: every rank x2.04 - its total was 0.34x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.50x steeper than it, biggest single-rank jump 1.18x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {
@@ -1033,13 +1052,13 @@
           "rank": 1,
           "level_req": 18,
           "cost": 25,
-          "effect_value": 30
+          "effect_value": 35
         },
         {
           "rank": 2,
           "level_req": 26,
           "cost": 25,
-          "effect_value": 39
+          "effect_value": 42
         },
         {
           "rank": 3,
@@ -1051,25 +1070,28 @@
           "rank": 4,
           "level_req": 42,
           "cost": 25,
-          "effect_value": 57
+          "effect_value": 54
         },
         {
           "rank": 5,
           "level_req": 50,
           "cost": 25,
-          "effect_value": 66
+          "effect_value": 61
         },
         {
           "rank": 6,
           "level_req": 58,
           "cost": 25,
-          "effect_value": 75
+          "effect_value": 67
         }
       ],
       "icon_id": null,
       "_source": "CoA's Inspiration tree is built around this: Ballads build Tempo toward a free Sound of War, and four talents (Soundwave, Into The Fray, Pied Piper, Frontliner) key off triggering one. It was missing from the first pass entirely, which left Soundwave scaling nothing.",
       "target_type": "enemy_aoe",
-      "max_targets": 3
+      "max_targets": 3,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "guardian_battle_rush",
@@ -1085,13 +1107,13 @@
           "rank": 1,
           "level_req": 22,
           "cost": 20,
-          "effect_value": 44
+          "effect_value": 55
         },
         {
           "rank": 2,
           "level_req": 29,
           "cost": 20,
-          "effect_value": 57
+          "effect_value": 63
         },
         {
           "rank": 3,
@@ -1103,25 +1125,28 @@
           "rank": 4,
           "level_req": 43,
           "cost": 20,
-          "effect_value": 83
+          "effect_value": 78
         },
         {
           "rank": 5,
           "level_req": 50,
           "cost": 20,
-          "effect_value": 96
+          "effect_value": 86
         },
         {
           "rank": 6,
           "level_req": 57,
           "cost": 20,
-          "effect_value": 109
+          "effect_value": 94
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Open with Battle Rush (charge + stun)'.",
       "target_type": "enemy",
-      "is_stun": true
+      "is_stun": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.44x steeper than it, biggest single-rank jump 1.13x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "guardian_spear_throw",
@@ -1137,42 +1162,45 @@
           "rank": 1,
           "level_req": 24,
           "cost": 25,
-          "effect_value": 48
+          "effect_value": 62
         },
         {
           "rank": 2,
           "level_req": 30,
           "cost": 25,
-          "effect_value": 62
+          "effect_value": 69
         },
         {
           "rank": 3,
           "level_req": 36,
           "cost": 25,
-          "effect_value": 76
+          "effect_value": 77
         },
         {
           "rank": 4,
           "level_req": 42,
           "cost": 25,
-          "effect_value": 90
+          "effect_value": 84
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 25,
-          "effect_value": 104
+          "effect_value": 91
         },
         {
           "rank": 6,
           "level_req": 54,
           "cost": 25,
-          "effect_value": 118
+          "effect_value": 99
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Spear Throw's healing-reduction debuff lets it punch through an enemy healer's output', 'Mortal Strike's anti-heal identity transplanted onto a shield-tank frame'. ranged_damage - it is thrown.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.54x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "guardian_reprisal",
@@ -1188,42 +1216,45 @@
           "rank": 1,
           "level_req": 26,
           "cost": 25,
-          "effect_value": 54
+          "effect_value": 69
         },
         {
           "rank": 2,
           "level_req": 32,
           "cost": 25,
-          "effect_value": 69
+          "effect_value": 77
         },
         {
           "rank": 3,
           "level_req": 38,
           "cost": 25,
-          "effect_value": 84
+          "effect_value": 85
         },
         {
           "rank": 4,
           "level_req": 44,
           "cost": 25,
-          "effect_value": 99
+          "effect_value": 93
         },
         {
           "rank": 5,
           "level_req": 50,
           "cost": 25,
-          "effect_value": 114
+          "effect_value": 101
         },
         {
           "rank": 6,
           "level_req": 56,
           "cost": 25,
-          "effect_value": 129
+          "effect_value": 108
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Fill remaining energy with Reprisal (spend charges after a block)'. Revenge-flavoured.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.52x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "guardian_centurion_strike",
@@ -1239,36 +1270,39 @@
           "rank": 1,
           "level_req": 32,
           "cost": 35,
-          "effect_value": 62
+          "effect_value": 79
         },
         {
           "rank": 2,
           "level_req": 38,
           "cost": 35,
-          "effect_value": 80
+          "effect_value": 87
         },
         {
           "rank": 3,
           "level_req": 44,
           "cost": 35,
-          "effect_value": 98
+          "effect_value": 95
         },
         {
           "rank": 4,
           "level_req": 50,
           "cost": 35,
-          "effect_value": 116
+          "effect_value": 103
         },
         {
           "rank": 5,
           "level_req": 56,
           "cost": 35,
-          "effect_value": 134
+          "effect_value": 111
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Centurion Strike (bigger hit, weapon-dependent bonus, extends Raise Shield)'.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.53x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "guardian_heroism",

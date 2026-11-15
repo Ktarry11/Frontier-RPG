@@ -494,30 +494,33 @@
           "rank": 1,
           "level_req": 32,
           "cost": 55,
-          "effect_value": 58
+          "effect_value": 70
         },
         {
           "rank": 2,
           "level_req": 44,
           "cost": 83,
-          "effect_value": 86
+          "effect_value": 84
         },
         {
           "rank": 3,
           "level_req": 52,
           "cost": 97,
-          "effect_value": 100
+          "effect_value": 94
         },
         {
           "rank": 4,
           "level_req": 60,
           "cost": 111,
-          "effect_value": 113
+          "effect_value": 103
         }
       ],
       "icon_id": null,
       "target_type": "enemy_aoe",
-      "damage_school": "nature"
+      "damage_school": "nature",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.23x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "shaman_stormstrike",

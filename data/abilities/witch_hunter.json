@@ -109,49 +109,49 @@
           "rank": 1,
           "level_req": 10,
           "cost": 30,
-          "effect_value": 56
+          "effect_value": 69
         },
         {
           "rank": 2,
           "level_req": 16,
           "cost": 30,
-          "effect_value": 72
+          "effect_value": 80
         },
         {
           "rank": 3,
           "level_req": 22,
           "cost": 30,
-          "effect_value": 88
+          "effect_value": 92
         },
         {
           "rank": 4,
           "level_req": 28,
           "cost": 30,
-          "effect_value": 104
+          "effect_value": 103
         },
         {
           "rank": 5,
           "level_req": 34,
           "cost": 30,
-          "effect_value": 120
+          "effect_value": 114
         },
         {
           "rank": 6,
           "level_req": 40,
           "cost": 30,
-          "effect_value": 136
+          "effect_value": 126
         },
         {
           "rank": 7,
           "level_req": 46,
           "cost": 30,
-          "effect_value": 152
+          "effect_value": 137
         },
         {
           "rank": 8,
           "level_req": 52,
           "cost": 30,
-          "effect_value": 168
+          "effect_value": 148
         }
       ],
       "icon_id": null,
@@ -161,6 +161,9 @@
         "crossbow",
         "gun",
         "thrown"
+      ],
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.39x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {
@@ -571,13 +574,13 @@
           "rank": 1,
           "level_req": 20,
           "cost": 20,
-          "effect_value": 50
+          "effect_value": 60
         },
         {
           "rank": 2,
           "level_req": 27,
           "cost": 20,
-          "effect_value": 64
+          "effect_value": 69
         },
         {
           "rank": 3,
@@ -589,24 +592,27 @@
           "rank": 4,
           "level_req": 41,
           "cost": 20,
-          "effect_value": 92
+          "effect_value": 87
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 20,
-          "effect_value": 106
+          "effect_value": 97
         },
         {
           "rank": 6,
           "level_req": 55,
           "cost": 20,
-          "effect_value": 120
+          "effect_value": 106
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Bash an enemy with your weapon's hilt, interrupting them and preventing any spell from that school of magic from being cast for 3 seconds', and the spec blurb calls this 'the kit's only caster answer'. There is no interrupt and no school lockout in this engine, so the whole anti-caster half is gone and what remains is a cheap mid-cooldown strike. This is the single biggest gap between CoA's Black Knight and Frontier's.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.37x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "witch_hunter_desecrate",
@@ -798,32 +804,35 @@
           "rank": 1,
           "level_req": 40,
           "cost": 40,
-          "effect_value": 60
+          "effect_value": 75
         },
         {
           "rank": 2,
           "level_req": 46,
           "cost": 40,
-          "effect_value": 78
+          "effect_value": 82
         },
         {
           "rank": 3,
           "level_req": 52,
           "cost": 40,
-          "effect_value": 96
+          "effect_value": 88
         },
         {
           "rank": 4,
           "level_req": 58,
           "cost": 40,
-          "effect_value": 114
+          "effect_value": 95
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Explode with dark energy, dealing shadow AP Shadow damage to up to 10 enemies within 8 yds and healing you for 20% of your maximum health. Each target struck is guaranteed to miss their next instance of damage.' damage_and_heal carries the damage and the self-heal; the guaranteed-miss rider has no hook.",
       "target_type": "enemy_aoe",
       "damage_school": "shadow",
-      "max_targets": 5
+      "max_targets": 5,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.50x steeper than it, biggest single-rank jump 1.19x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "witch_hunter_gaze_of_the_black_knight",
@@ -928,37 +937,37 @@
           "rank": 1,
           "level_req": 20,
           "cost": 35,
-          "effect_value": 155
+          "effect_value": 190
         },
         {
           "rank": 2,
           "level_req": 27,
           "cost": 35,
-          "effect_value": 201
+          "effect_value": 219
         },
         {
           "rank": 3,
           "level_req": 34,
           "cost": 35,
-          "effect_value": 246
+          "effect_value": 248
         },
         {
           "rank": 4,
           "level_req": 41,
           "cost": 35,
-          "effect_value": 292
+          "effect_value": 276
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 35,
-          "effect_value": 338
+          "effect_value": 305
         },
         {
           "rank": 6,
           "level_req": 55,
           "cost": 35,
-          "effect_value": 383
+          "effect_value": 334
         }
       ],
       "icon_id": null,
@@ -972,7 +981,8 @@
       ],
       "_over_time_lifted": 4.56,
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x4.56 - its total was 0.15x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+        "15 Nov 2026, class pass: every rank x4.56 - its total was 0.15x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.41x steeper than it, biggest single-rank jump 1.13x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {
@@ -989,37 +999,37 @@
           "rank": 1,
           "level_req": 24,
           "cost": 40,
-          "effect_value": 70
+          "effect_value": 90
         },
         {
           "rank": 2,
           "level_req": 30,
           "cost": 40,
-          "effect_value": 90
+          "effect_value": 100
         },
         {
           "rank": 3,
           "level_req": 36,
           "cost": 40,
-          "effect_value": 110
+          "effect_value": 111
         },
         {
           "rank": 4,
           "level_req": 42,
           "cost": 40,
-          "effect_value": 130
+          "effect_value": 122
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 40,
-          "effect_value": 150
+          "effect_value": 132
         },
         {
           "rank": 6,
           "level_req": 54,
           "cost": 40,
-          "effect_value": 170
+          "effect_value": 143
         }
       ],
       "icon_id": null,
@@ -1029,6 +1039,9 @@
         "crossbow",
         "gun",
         "thrown"
+      ],
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.52x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {
@@ -1045,31 +1058,31 @@
           "rank": 1,
           "level_req": 30,
           "cost": 35,
-          "effect_value": 38
+          "effect_value": 47
         },
         {
           "rank": 2,
           "level_req": 37,
           "cost": 35,
-          "effect_value": 49
+          "effect_value": 53
         },
         {
           "rank": 3,
           "level_req": 44,
           "cost": 35,
-          "effect_value": 60
+          "effect_value": 58
         },
         {
           "rank": 4,
           "level_req": 51,
           "cost": 35,
-          "effect_value": 71
+          "effect_value": 64
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 35,
-          "effect_value": 82
+          "effect_value": 70
         }
       ],
       "icon_id": null,
@@ -1084,6 +1097,9 @@
         "crossbow",
         "gun",
         "thrown"
+      ],
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.44x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {
@@ -1100,25 +1116,25 @@
           "rank": 1,
           "level_req": 40,
           "cost": 45,
-          "effect_value": 96
+          "effect_value": 117
         },
         {
           "rank": 2,
           "level_req": 46,
           "cost": 45,
-          "effect_value": 122
+          "effect_value": 127
         },
         {
           "rank": 3,
           "level_req": 52,
           "cost": 45,
-          "effect_value": 148
+          "effect_value": 138
         },
         {
           "rank": 4,
           "level_req": 58,
           "cost": 45,
-          "effect_value": 174
+          "effect_value": 148
         }
       ],
       "icon_id": null,
@@ -1129,6 +1145,9 @@
         "crossbow",
         "gun",
         "thrown"
+      ],
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.43x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {
@@ -1294,13 +1313,13 @@
           "rank": 1,
           "level_req": 18,
           "cost": 30,
-          "effect_value": 52
+          "effect_value": 60
         },
         {
           "rank": 2,
           "level_req": 26,
           "cost": 30,
-          "effect_value": 67
+          "effect_value": 71
         },
         {
           "rank": 3,
@@ -1312,25 +1331,28 @@
           "rank": 4,
           "level_req": 42,
           "cost": 30,
-          "effect_value": 97
+          "effect_value": 93
         },
         {
           "rank": 5,
           "level_req": 50,
           "cost": 30,
-          "effect_value": 112
+          "effect_value": 104
         },
         {
           "rank": 6,
           "level_req": 58,
           "cost": 30,
-          "effect_value": 127
+          "effect_value": 115
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Command your Shadow Hounds to leap upon an enemy target, dealing two strikes for ranged AP Shadow damage.' A pet cannot be ordered to strike from the owner's cast in this engine, so the hounds' damage resolves as the owner's Shadow strike. Expulsion of Evil in the tree resets it.",
       "target_type": "enemy",
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.29x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "witch_hunter_darkflock",
@@ -1346,31 +1368,31 @@
           "rank": 1,
           "level_req": 26,
           "cost": 35,
-          "effect_value": 107
+          "effect_value": 125
         },
         {
           "rank": 2,
           "level_req": 34,
           "cost": 35,
-          "effect_value": 137
+          "effect_value": 145
         },
         {
           "rank": 3,
           "level_req": 42,
           "cost": 35,
-          "effect_value": 167
+          "effect_value": 164
         },
         {
           "rank": 4,
           "level_req": 50,
           "cost": 35,
-          "effect_value": 197
+          "effect_value": 183
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 35,
-          "effect_value": 227
+          "effect_value": 202
         }
       ],
       "icon_id": null,
@@ -1380,7 +1402,8 @@
       "max_targets": 5,
       "_over_time_lifted": 3.34,
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x3.34 - its total was 0.21x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+        "15 Nov 2026, class pass: every rank x3.34 - its total was 0.21x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {
@@ -1469,36 +1492,39 @@
           "rank": 1,
           "level_req": 30,
           "cost": 30,
-          "effect_value": 170
+          "effect_value": 263
         },
         {
           "rank": 2,
           "level_req": 37,
           "cost": 30,
-          "effect_value": 260
+          "effect_value": 295
         },
         {
           "rank": 3,
           "level_req": 44,
           "cost": 30,
-          "effect_value": 350
+          "effect_value": 328
         },
         {
           "rank": 4,
           "level_req": 51,
           "cost": 30,
-          "effect_value": 440
+          "effect_value": 361
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 30,
-          "effect_value": 530
+          "effect_value": 393
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Darkfeast is your on-demand heal.' The spec's weaknesses are blunt about it being nearly all the healing there is, so it is a real heal on a long cooldown rather than a trickle. Hunter's Revive Pet curve, scaled down.",
-      "target_type": "self"
+      "target_type": "self",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.08x steeper than it, biggest single-rank jump 1.36x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "witch_hunter_rearmament",
@@ -1600,49 +1626,52 @@
           "rank": 1,
           "level_req": 12,
           "cost": 30,
-          "effect_value": 54
+          "effect_value": 63
         },
         {
           "rank": 2,
           "level_req": 19,
           "cost": 30,
-          "effect_value": 69
+          "effect_value": 74
         },
         {
           "rank": 3,
           "level_req": 26,
           "cost": 30,
-          "effect_value": 84
+          "effect_value": 86
         },
         {
           "rank": 4,
           "level_req": 33,
           "cost": 30,
-          "effect_value": 99
+          "effect_value": 97
         },
         {
           "rank": 5,
           "level_req": 40,
           "cost": 30,
-          "effect_value": 114
+          "effect_value": 108
         },
         {
           "rank": 6,
           "level_req": 47,
           "cost": 30,
-          "effect_value": 129
+          "effect_value": 120
         },
         {
           "rank": 7,
           "level_req": 54,
           "cost": 30,
-          "effect_value": 144
+          "effect_value": 131
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Strike an enemy with both weapons, dealing Weapon Damage plus shadow SP Shadow damage, piercing resistances. Heals for 25% of damage dealt.' The spec's sustain - 'Dusk Blade is your health siphon' and 'the payoff is... grinding a fight out with Dusk Blade's siphon'.",
       "target_type": "enemy",
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.28x steeper than it, biggest single-rank jump 1.08x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "witch_hunter_purifiers_edge",
@@ -1658,49 +1687,52 @@
           "rank": 1,
           "level_req": 16,
           "cost": 30,
-          "effect_value": 56
+          "effect_value": 68
         },
         {
           "rank": 2,
           "level_req": 23,
           "cost": 30,
-          "effect_value": 72
+          "effect_value": 79
         },
         {
           "rank": 3,
           "level_req": 30,
           "cost": 30,
-          "effect_value": 88
+          "effect_value": 90
         },
         {
           "rank": 4,
           "level_req": 37,
           "cost": 30,
-          "effect_value": 104
+          "effect_value": 101
         },
         {
           "rank": 5,
           "level_req": 44,
           "cost": 30,
-          "effect_value": 120
+          "effect_value": 112
         },
         {
           "rank": 6,
           "level_req": 51,
           "cost": 30,
-          "effect_value": 136
+          "effect_value": 124
         },
         {
           "rank": 7,
           "level_req": 58,
           "cost": 30,
-          "effect_value": 152
+          "effect_value": 135
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Strike an enemy with searing blades, dealing Weapon Damage plus 20 with both weapons as Fire damage. Grants Flames of Sin or increases the duration by 3 sec.' Flames of Sin is a stacking auto-attack rider with no engine shape; the tree's Searing Hilt carries the attack-speed half instead.",
       "target_type": "enemy",
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.37x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "witch_hunter_torchlight",
@@ -1716,13 +1748,13 @@
           "rank": 1,
           "level_req": 20,
           "cost": 25,
-          "effect_value": 44
+          "effect_value": 54
         },
         {
           "rank": 2,
           "level_req": 27,
           "cost": 25,
-          "effect_value": 57
+          "effect_value": 62
         },
         {
           "rank": 3,
@@ -1734,25 +1766,28 @@
           "rank": 4,
           "level_req": 41,
           "cost": 25,
-          "effect_value": 83
+          "effect_value": 78
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 25,
-          "effect_value": 96
+          "effect_value": 87
         },
         {
           "rank": 6,
           "level_req": 55,
           "cost": 25,
-          "effect_value": 109
+          "effect_value": 95
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Throw a torch at an enemy, dealing fire SP Fire damage, and causing up to 5 of the next attacks you make against them to grant you Flames of Sin.' spell_damage because CoA gives it an SP coefficient and the spec's stat priority puts Spell Power above Agility for exactly this group of casts. Sinner and Dawn in the tree are its payoff nodes.",
       "target_type": "enemy",
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.41x steeper than it, biggest single-rank jump 1.13x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "witch_hunter_fiery_judgement",
@@ -1768,38 +1803,41 @@
           "rank": 1,
           "level_req": 26,
           "cost": 30,
-          "effect_value": 40
+          "effect_value": 48
         },
         {
           "rank": 2,
           "level_req": 34,
           "cost": 30,
-          "effect_value": 52
+          "effect_value": 55
         },
         {
           "rank": 3,
           "level_req": 42,
           "cost": 30,
-          "effect_value": 64
+          "effect_value": 63
         },
         {
           "rank": 4,
           "level_req": 50,
           "cost": 30,
-          "effect_value": 76
+          "effect_value": 70
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 30,
-          "effect_value": 88
+          "effect_value": 77
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Judge an enemy, dealing fire SP Fire damage to them and nearby enemies.' The spell-power-scaled AoE half of the fire kit; Cinder and Ashes raises its SP scaling.",
       "target_type": "enemy_aoe",
       "damage_school": "fire",
-      "max_targets": 4
+      "max_targets": 4,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.37x steeper than it, biggest single-rank jump 1.13x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "witch_hunter_flourish",
@@ -1815,38 +1853,41 @@
           "rank": 1,
           "level_req": 32,
           "cost": 35,
-          "effect_value": 42
+          "effect_value": 53
         },
         {
           "rank": 2,
           "level_req": 38,
           "cost": 35,
-          "effect_value": 54
+          "effect_value": 59
         },
         {
           "rank": 3,
           "level_req": 44,
           "cost": 35,
-          "effect_value": 66
+          "effect_value": 64
         },
         {
           "rank": 4,
           "level_req": 50,
           "cost": 35,
-          "effect_value": 78
+          "effect_value": 70
         },
         {
           "rank": 5,
           "level_req": 56,
           "cost": 35,
-          "effect_value": 90
+          "effect_value": 75
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Perform an advanced flourish, dealing AP Fire damage to nearby enemies, repeating every 4 sec, and causing your Flames of Sin to cleave up to 3 additional enemies for 20 seconds.' The repeat and the Flames cleave have no hook; the AoE strike does.",
       "target_type": "enemy_aoe",
       "damage_school": "fire",
-      "max_targets": 4
+      "max_targets": 4,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.52x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "witch_hunter_stake",
@@ -1862,31 +1903,34 @@
           "rank": 1,
           "level_req": 36,
           "cost": 30,
-          "effect_value": 92
+          "effect_value": 109
         },
         {
           "rank": 2,
           "level_req": 43,
           "cost": 30,
-          "effect_value": 117
+          "effect_value": 121
         },
         {
           "rank": 3,
           "level_req": 50,
           "cost": 30,
-          "effect_value": 142
+          "effect_value": 133
         },
         {
           "rank": 4,
           "level_req": 57,
           "cost": 30,
-          "effect_value": 167
+          "effect_value": 145
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Drive your concealed stake into the chest of an injured enemy, dealing AP Physical damage... Only usable on enemies at or below 35% health.' The spec's execute, at CoA's own 35.",
       "target_type": "enemy",
-      "execute_threshold_pct": 35
+      "execute_threshold_pct": 35,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.14x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "witch_hunter_pyro_tonic",

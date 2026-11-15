@@ -288,55 +288,58 @@
           "rank": 1,
           "level_req": 8,
           "cost": 38,
-          "effect_value": 52
+          "effect_value": 70
         },
         {
           "rank": 2,
           "level_req": 15,
           "cost": 51,
-          "effect_value": 73
+          "effect_value": 84
         },
         {
           "rank": 3,
           "level_req": 22,
           "cost": 64,
-          "effect_value": 93
+          "effect_value": 98
         },
         {
           "rank": 4,
           "level_req": 29,
           "cost": 77,
-          "effect_value": 114
+          "effect_value": 112
         },
         {
           "rank": 5,
           "level_req": 35,
           "cost": 89,
-          "effect_value": 134
+          "effect_value": 125
         },
         {
           "rank": 6,
           "level_req": 42,
           "cost": 102,
-          "effect_value": 155
+          "effect_value": 139
         },
         {
           "rank": 7,
           "level_req": 49,
           "cost": 115,
-          "effect_value": 175
+          "effect_value": 153
         },
         {
           "rank": 8,
           "level_req": 56,
           "cost": 128,
-          "effect_value": 196
+          "effect_value": 167
         }
       ],
       "icon_id": null,
       "_source": "CoA class kit: 'Consumes 1 Ember. Warm an ally with everliving flames, healing them... additionally scaling with your Spirit.' Called out by all three specs as the one instant heal that 'keeps flowing through a kick', so is_instant. The Ember cost becomes nothing - no second pool exists.",
       "target_type": "ally",
-      "is_instant": true
+      "is_instant": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.58x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "pyromancer_meteor",
@@ -352,13 +355,13 @@
           "rank": 1,
           "level_req": 18,
           "cost": 58,
-          "effect_value": 60
+          "effect_value": 69
         },
         {
           "rank": 2,
           "level_req": 26,
           "cost": 72,
-          "effect_value": 77
+          "effect_value": 82
         },
         {
           "rank": 3,
@@ -370,19 +373,19 @@
           "rank": 4,
           "level_req": 42,
           "cost": 100,
-          "effect_value": 111
+          "effect_value": 107
         },
         {
           "rank": 5,
           "level_req": 50,
           "cost": 114,
-          "effect_value": 128
+          "effect_value": 119
         },
         {
           "rank": 6,
           "level_req": 58,
           "cost": 128,
-          "effect_value": 145
+          "effect_value": 132
         }
       ],
       "icon_id": null,
@@ -390,7 +393,10 @@
       "target_type": "enemy_aoe",
       "max_targets": 8,
       "damage_school": "fire",
-      "is_stun": true
+      "is_stun": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.27x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "pyromancer_cindergrip",
@@ -465,13 +471,13 @@
           "rank": 1,
           "level_req": 16,
           "cost": 50,
-          "effect_value": 48
+          "effect_value": 55
         },
         {
           "rank": 2,
           "level_req": 24,
           "cost": 63,
-          "effect_value": 62
+          "effect_value": 66
         },
         {
           "rank": 3,
@@ -483,19 +489,19 @@
           "rank": 4,
           "level_req": 40,
           "cost": 89,
-          "effect_value": 90
+          "effect_value": 87
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 102,
-          "effect_value": 104
+          "effect_value": 97
         },
         {
           "rank": 6,
           "level_req": 56,
           "cost": 115,
-          "effect_value": 118
+          "effect_value": 107
         }
       ],
       "icon_id": null,
@@ -503,7 +509,10 @@
       "target_type": "enemy_aoe",
       "max_targets": 10,
       "damage_school": "fire",
-      "is_instant": true
+      "is_instant": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.27x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "pyromancer_firestorm",
@@ -519,37 +528,40 @@
           "rank": 1,
           "level_req": 26,
           "cost": 62,
-          "effect_value": 46
+          "effect_value": 54
         },
         {
           "rank": 2,
           "level_req": 34,
           "cost": 78,
-          "effect_value": 59
+          "effect_value": 62
         },
         {
           "rank": 3,
           "level_req": 42,
           "cost": 94,
-          "effect_value": 72
+          "effect_value": 71
         },
         {
           "rank": 4,
           "level_req": 50,
           "cost": 110,
-          "effect_value": 85
+          "effect_value": 79
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 126,
-          "effect_value": 98
+          "effect_value": 87
         }
       ],
       "icon_id": null,
       "_source": "CoA class kit: 'Create a fiery tornado at a location for 10 seconds. Enemies who enter its radius suffer Fire damage and are knocked back slightly.' A persistent zone is a ground effect the engine has no concept of, so it is an AoE DoT on the pack instead.",
       "target_type": "enemy_aoe",
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "pyromancer_volcanic_shell",
@@ -765,31 +777,31 @@
           "rank": 1,
           "level_req": 24,
           "cost": 70,
-          "effect_value": 72
+          "effect_value": 83
         },
         {
           "rank": 2,
           "level_req": 32,
           "cost": 88,
-          "effect_value": 92
+          "effect_value": 97
         },
         {
           "rank": 3,
           "level_req": 40,
           "cost": 106,
-          "effect_value": 112
+          "effect_value": 110
         },
         {
           "rank": 4,
           "level_req": 48,
           "cost": 124,
-          "effect_value": 132
+          "effect_value": 123
         },
         {
           "rank": 5,
           "level_req": 56,
           "cost": 142,
-          "effect_value": 152
+          "effect_value": 136
         }
       ],
       "icon_id": null,
@@ -797,7 +809,10 @@
       "target_type": "enemy_aoe",
       "max_targets": 3,
       "damage_school": "fire",
-      "requires_talent": true
+      "requires_talent": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.29x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "pyromancer_pyroclasm",
@@ -813,26 +828,29 @@
           "rank": 1,
           "level_req": 42,
           "cost": 120,
-          "effect_value": 190
+          "effect_value": 214
         },
         {
           "rank": 2,
           "level_req": 50,
           "cost": 150,
-          "effect_value": 242
+          "effect_value": 239
         },
         {
           "rank": 3,
           "level_req": 58,
           "cost": 180,
-          "effect_value": 294
+          "effect_value": 264
         }
       ],
       "icon_id": null,
       "_source": "CoA Incineration tier 6: 'Create a pyroclasm instantly consuming your Burning effects on a target to deal the two times total periodic damage plus an additional 2100 to 2220 over 10 seconds, piercing absorption effects and resistances.' Consuming live DoTs for a damage total has no hook, so this is a single very large hit on a cooldown - the payoff without the bookkeeping.",
       "target_type": "enemy",
       "damage_school": "fire",
-      "requires_talent": true
+      "requires_talent": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.25x steeper than it, biggest single-rank jump 1.14x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "pyromancer_fired_up",
@@ -871,54 +889,57 @@
           "rank": 1,
           "level_req": 6,
           "cost": 34,
-          "effect_value": 48
+          "effect_value": 63
         },
         {
           "rank": 2,
           "level_req": 13,
           "cost": 46,
-          "effect_value": 67
+          "effect_value": 76
         },
         {
           "rank": 3,
           "level_req": 20,
           "cost": 58,
-          "effect_value": 86
+          "effect_value": 90
         },
         {
           "rank": 4,
           "level_req": 27,
           "cost": 70,
-          "effect_value": 105
+          "effect_value": 104
         },
         {
           "rank": 5,
           "level_req": 33,
           "cost": 82,
-          "effect_value": 123
+          "effect_value": 115
         },
         {
           "rank": 6,
           "level_req": 40,
           "cost": 94,
-          "effect_value": 142
+          "effect_value": 129
         },
         {
           "rank": 7,
           "level_req": 47,
           "cost": 106,
-          "effect_value": 161
+          "effect_value": 142
         },
         {
           "rank": 8,
           "level_req": 54,
           "cost": 118,
-          "effect_value": 180
+          "effect_value": 156
         }
       ],
       "icon_id": null,
       "_source": "CoA Flameweaving: 'Sustain the tank with Kindle/Cinderheart as your mana-efficient heals'. The cheap cast-time heal.",
-      "target_type": "ally"
+      "target_type": "ally",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.51x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "pyromancer_cinderheart",
@@ -934,48 +955,51 @@
           "rank": 1,
           "level_req": 16,
           "cost": 62,
-          "effect_value": 86
+          "effect_value": 106
         },
         {
           "rank": 2,
           "level_req": 23,
           "cost": 79,
-          "effect_value": 111
+          "effect_value": 124
         },
         {
           "rank": 3,
           "level_req": 29,
           "cost": 95,
-          "effect_value": 136
+          "effect_value": 139
         },
         {
           "rank": 4,
           "level_req": 36,
           "cost": 112,
-          "effect_value": 161
+          "effect_value": 156
         },
         {
           "rank": 5,
           "level_req": 43,
           "cost": 129,
-          "effect_value": 186
+          "effect_value": 174
         },
         {
           "rank": 6,
           "level_req": 49,
           "cost": 145,
-          "effect_value": 211
+          "effect_value": 189
         },
         {
           "rank": 7,
           "level_req": 56,
           "cost": 162,
-          "effect_value": 236
+          "effect_value": 206
         }
       ],
       "icon_id": null,
       "_source": "CoA Flameweaving: the bigger of the two cast-time heals, and the target of Sageweaving, Ember Charm, Touched by Fire and Soothing Flames.",
-      "target_type": "ally"
+      "target_type": "ally",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.41x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "pyromancer_cleansing_flames",
@@ -991,13 +1015,13 @@
           "rank": 1,
           "level_req": 20,
           "cost": 76,
-          "effect_value": 70
+          "effect_value": 81
         },
         {
           "rank": 2,
           "level_req": 27,
           "cost": 92,
-          "effect_value": 88
+          "effect_value": 93
         },
         {
           "rank": 3,
@@ -1009,26 +1033,29 @@
           "rank": 4,
           "level_req": 42,
           "cost": 124,
-          "effect_value": 123
+          "effect_value": 119
         },
         {
           "rank": 5,
           "level_req": 49,
           "cost": 140,
-          "effect_value": 140
+          "effect_value": 131
         },
         {
           "rank": 6,
           "level_req": 56,
           "cost": 156,
-          "effect_value": 158
+          "effect_value": 143
         }
       ],
       "icon_id": null,
       "_source": "CoA Flameweaving: 'Spread cleansing flames on 5 allies and enemies in front of you, damaging or healing for SP over 3 seconds', and the spec's headline - 'One cast heals your side and hits theirs'. The frontal cone becomes enemy_aoe plus heal_scope party, the two halves the engine can express.",
       "target_type": "enemy_aoe",
       "heal_scope": "party",
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.27x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "pyromancer_phoenix_egg",
@@ -1044,36 +1071,39 @@
           "rank": 1,
           "level_req": 28,
           "cost": 80,
-          "effect_value": 46
+          "effect_value": 56
         },
         {
           "rank": 2,
           "level_req": 35,
           "cost": 100,
-          "effect_value": 59
+          "effect_value": 63
         },
         {
           "rank": 3,
           "level_req": 42,
           "cost": 120,
-          "effect_value": 72
+          "effect_value": 70
         },
         {
           "rank": 4,
           "level_req": 49,
           "cost": 140,
-          "effect_value": 85
+          "effect_value": 77
         },
         {
           "rank": 5,
           "level_req": 56,
           "cost": 160,
-          "effect_value": 98
+          "effect_value": 85
         }
       ],
       "icon_id": null,
       "_source": "CoA Flameweaving: 'Summon a Phoenix for 1 minute at the target location that heals nearby party members every 5 sec.' NOT a summon_pet: combat/pet_templates.py has no fire or phoenix template and the templates file is off limits here, so the Phoenix is authored as the party HoT its zone actually is. The reference calls it 'the exception, with no cooldown beyond the one-active-Phoenix cap', hence the shortest cooldown of the three zones.",
-      "target_type": "party"
+      "target_type": "party",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.41x steeper than it, biggest single-rank jump 1.14x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "pyromancer_kaels_command",
@@ -1129,25 +1159,28 @@
           "rank": 1,
           "level_req": 42,
           "cost": 120,
-          "effect_value": 72
+          "effect_value": 81
         },
         {
           "rank": 2,
           "level_req": 50,
           "cost": 150,
-          "effect_value": 92
+          "effect_value": 91
         },
         {
           "rank": 3,
           "level_req": 58,
           "cost": 180,
-          "effect_value": 112
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA Flameweaving tier 6: 'Conjure a Roaring Pyre at the target location for 20 seconds. Allies within 30 yds are healed... every 2 sec and their Spirit is increased by 10%.' A hot carries no stat_mods, so the Spirit buff is dropped and the healing kept.",
       "target_type": "party",
-      "requires_talent": true
+      "requires_talent": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.26x steeper than it, biggest single-rank jump 1.14x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "pyromancer_phoenix_dive",
@@ -1242,49 +1275,52 @@
           "rank": 1,
           "level_req": 16,
           "cost": 68,
-          "effect_value": 92
+          "effect_value": 109
         },
         {
           "rank": 2,
           "level_req": 23,
           "cost": 86,
-          "effect_value": 117
+          "effect_value": 127
         },
         {
           "rank": 3,
           "level_req": 30,
           "cost": 104,
-          "effect_value": 142
+          "effect_value": 145
         },
         {
           "rank": 4,
           "level_req": 37,
           "cost": 122,
-          "effect_value": 167
+          "effect_value": 163
         },
         {
           "rank": 5,
           "level_req": 44,
           "cost": 140,
-          "effect_value": 192
+          "effect_value": 181
         },
         {
           "rank": 6,
           "level_req": 51,
           "cost": 158,
-          "effect_value": 217
+          "effect_value": 199
         },
         {
           "rank": 7,
           "level_req": 58,
           "cost": 176,
-          "effect_value": 242
+          "effect_value": 217
         }
       ],
       "icon_id": null,
       "_source": "CoA Draconic: 'Unleash a vicious draconic maw on an enemy, dealing Fire damage that cannot be resisted', and 'on a single target, keep Destroyer's Maw and Firefall on cooldown to fish for Legacy of Deathwing resets'. The unresistable clause has no hook - there is no ignore-resistance flag on an ability.",
       "target_type": "enemy",
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "pyromancer_firefall",
@@ -1300,44 +1336,47 @@
           "rank": 1,
           "level_req": 22,
           "cost": 72,
-          "effect_value": 62
+          "effect_value": 76
         },
         {
           "rank": 2,
           "level_req": 29,
           "cost": 90,
-          "effect_value": 80
+          "effect_value": 88
         },
         {
           "rank": 3,
           "level_req": 36,
           "cost": 108,
-          "effect_value": 98
+          "effect_value": 99
         },
         {
           "rank": 4,
           "level_req": 43,
           "cost": 126,
-          "effect_value": 116
+          "effect_value": 110
         },
         {
           "rank": 5,
           "level_req": 50,
           "cost": 144,
-          "effect_value": 134
+          "effect_value": 121
         },
         {
           "rank": 6,
           "level_req": 57,
           "cost": 162,
-          "effect_value": 152
+          "effect_value": 132
         }
       ],
       "icon_id": null,
       "_source": "CoA Draconic: 'Call down streaks of fire upon an enemy and up to 8 enemies within 15 yds of them.' 'Firefall for cleave on 2-3 packs'.",
       "target_type": "enemy_aoe",
       "max_targets": 8,
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.42x steeper than it, biggest single-rank jump 1.13x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "pyromancer_flames_of_neltharion",
@@ -1353,37 +1392,40 @@
           "rank": 1,
           "level_req": 26,
           "cost": 74,
-          "effect_value": 58
+          "effect_value": 69
         },
         {
           "rank": 2,
           "level_req": 34,
           "cost": 93,
-          "effect_value": 75
+          "effect_value": 79
         },
         {
           "rank": 3,
           "level_req": 42,
           "cost": 112,
-          "effect_value": 92
+          "effect_value": 90
         },
         {
           "rank": 4,
           "level_req": 50,
           "cost": 131,
-          "effect_value": 109
+          "effect_value": 100
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 150,
-          "effect_value": 126
+          "effect_value": 111
         }
       ],
       "icon_id": null,
       "_source": "CoA Draconic: 'The two spenders are Flames of Neltharion for AoE, which splashes several nearby enemies, and Echo of Nozdormu for single target.'",
       "target_type": "enemy_aoe",
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.35x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "pyromancer_echo_of_nozdormu",
@@ -1399,25 +1441,25 @@
           "rank": 1,
           "level_req": 34,
           "cost": 110,
-          "effect_value": 150
+          "effect_value": 175
         },
         {
           "rank": 2,
           "level_req": 42,
           "cost": 138,
-          "effect_value": 192
+          "effect_value": 198
         },
         {
           "rank": 3,
           "level_req": 50,
           "cost": 166,
-          "effect_value": 234
+          "effect_value": 221
         },
         {
           "rank": 4,
           "level_req": 58,
           "cost": 194,
-          "effect_value": 276
+          "effect_value": 244
         }
       ],
       "icon_id": null,
@@ -1427,7 +1469,10 @@
         "fire",
         "arcane"
       ],
-      "requires_talent": true
+      "requires_talent": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.13x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "pyromancer_death_from_above",
@@ -1443,26 +1488,29 @@
           "rank": 1,
           "level_req": 44,
           "cost": 110,
-          "effect_value": 64
+          "effect_value": 74
         },
         {
           "rank": 2,
           "level_req": 51,
           "cost": 138,
-          "effect_value": 82
+          "effect_value": 81
         },
         {
           "rank": 3,
           "level_req": 58,
           "cost": 166,
-          "effect_value": 100
+          "effect_value": 88
         }
       ],
       "icon_id": null,
       "_source": "CoA Draconic tier 6: 'Root enemies in a 40 yd line for 3 seconds and then soar forward in a blaze of glory, dealing Fire damage every 1 sec to enemies beneath you for 10 seconds.' The root is dropped (no root mechanic); the repeating damage is the spell_dot.",
       "target_type": "enemy_aoe",
       "damage_school": "fire",
-      "requires_talent": true
+      "requires_talent": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.30x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "pyromancer_breath_of_neltharion",

@@ -175,54 +175,57 @@
           "rank": 1,
           "level_req": 4,
           "cost": 40,
-          "effect_value": 52
+          "effect_value": 64
         },
         {
           "rank": 2,
           "level_req": 11,
           "cost": 57,
-          "effect_value": 71
+          "effect_value": 78
         },
         {
           "rank": 3,
           "level_req": 18,
           "cost": 74,
-          "effect_value": 91
+          "effect_value": 93
         },
         {
           "rank": 4,
           "level_req": 25,
           "cost": 91,
-          "effect_value": 110
+          "effect_value": 108
         },
         {
           "rank": 5,
           "level_req": 33,
           "cost": 108,
-          "effect_value": 129
+          "effect_value": 124
         },
         {
           "rank": 6,
           "level_req": 40,
           "cost": 125,
-          "effect_value": 148
+          "effect_value": 139
         },
         {
           "rank": 7,
           "level_req": 47,
           "cost": 142,
-          "effect_value": 168
+          "effect_value": 153
         },
         {
           "rank": 8,
           "level_req": 54,
           "cost": 159,
-          "effect_value": 187
+          "effect_value": 168
         }
       ],
       "icon_id": null,
       "_source": "CoA says in all three spec pages that Reverse Wound is 'your only real self-heal'. Priest's Heal curve.",
-      "target_type": "ally"
+      "target_type": "ally",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "chronomancer_decomposition",
@@ -238,43 +241,46 @@
           "rank": 1,
           "level_req": 8,
           "cost": 26,
-          "effect_value": 110
+          "effect_value": 128
         },
         {
           "rank": 2,
           "level_req": 18,
           "cost": 39,
-          "effect_value": 157
+          "effect_value": 166
         },
         {
           "rank": 3,
           "level_req": 28,
           "cost": 51,
-          "effect_value": 204
+          "effect_value": 203
         },
         {
           "rank": 4,
           "level_req": 38,
           "cost": 64,
-          "effect_value": 251
+          "effect_value": 240
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 77,
-          "effect_value": 298
+          "effect_value": 277
         },
         {
           "rank": 6,
           "level_req": 58,
           "cost": 89,
-          "effect_value": 344
+          "effect_value": 315
         }
       ],
       "icon_id": null,
       "_source": "CoA class tree: 'Eternal increases the duration of your Accelerated Recovery and Decomposition'. Infinite seeds it for proc uptime, Artificer turns it into a Distortion spell. || Duration 3 -> 8 turns, 5 Nov 2026. Kyle: 'Chronomancer is a lot of DoTs. So we need to have longer dots to represent it properly.' effect_value is the TOTAL across the whole duration (abilities.py:2695) and per-turn potency is total/duration - so lengthening ALONE would have spread the same damage thinner and made the dot strictly worse. Totals raised by 1.73x alongside (3->8 is 2.67x duration, scaled by 0.65), so per-tick falls ~35% while total damage rises ~73%: a long patient dot that out-damages over a full fight without becoming burst. Part of a wider pass Kyle wants on dot AND hot durations - 82 ability dots across the game sit at exactly 3 turns. || Duration corrected to 5 turns, 6 Nov 2026, REVERSING the 8-10 turn lengthening I applied earlier the same day. Fight length was then measured through the real engine rather than assumed from CoA's 18-24 second windows: trash fights run 2-3 turns (p90 4-5) and boss fights 5-6 (p90 8-10). A 10-turn dot therefore delivers only 35% of its damage on trash and 63% on a boss, where a 3-turn dot delivers 91%/100% - so my 'longer dots to represent the class properly' had made Chronomancer WORSE than before I touched it. Kyle's call once measured: fit the dots to the fights. This ability now sits in the sustained bucket of a five-bucket taxonomy capped at 6 turns (2 burst, 3 standard, 4 tail, 5 sustained, 6 boss finisher). Per-tick is held at 22.0, the value the game originally shipped with, and the total scales with duration - so length adds damage at unchanged tick strength instead of thinning a fixed total.",
       "target_type": "enemy",
-      "damage_school": "arcane"
+      "damage_school": "arcane",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.28x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "chronomancer_accelerated_recovery",
@@ -290,48 +296,51 @@
           "rank": 1,
           "level_req": 10,
           "cost": 35,
-          "effect_value": 62
+          "effect_value": 81
         },
         {
           "rank": 2,
           "level_req": 18,
           "cost": 51,
-          "effect_value": 88
+          "effect_value": 99
         },
         {
           "rank": 3,
           "level_req": 25,
           "cost": 67,
-          "effect_value": 112
+          "effect_value": 115
         },
         {
           "rank": 4,
           "level_req": 32,
           "cost": 84,
-          "effect_value": 137
+          "effect_value": 130
         },
         {
           "rank": 5,
           "level_req": 40,
           "cost": 100,
-          "effect_value": 162
+          "effect_value": 148
         },
         {
           "rank": 6,
           "level_req": 48,
           "cost": 116,
-          "effect_value": 188
+          "effect_value": 166
         },
         {
           "rank": 7,
           "level_req": 55,
           "cost": 132,
-          "effect_value": 212
+          "effect_value": 182
         }
       ],
       "icon_id": null,
       "_source": "CoA class tree ability, and half of Time's core loop. || Duration 4 -> 7 turns, 5 Nov 2026. Kyle: 'Chronomancer is a lot of DoTs. So we need to have longer dots to represent it properly.' effect_value is the TOTAL across the whole duration (abilities.py:2695) and per-turn potency is total/duration - so lengthening ALONE would have spread the same damage thinner and made the dot strictly worse. Totals raised by 1.14x alongside (4->7 is 1.75x duration, scaled by 0.65), so per-tick falls ~35% while total damage rises ~14%: a long patient dot that out-damages over a full fight without becoming burst. Part of a wider pass Kyle wants on dot AND hot durations - 82 ability dots across the game sit at exactly 3 turns. || Duration corrected to 5 turns, 6 Nov 2026, REVERSING the 8-10 turn lengthening I applied earlier the same day. Fight length was then measured through the real engine rather than assumed from CoA's 18-24 second windows: trash fights run 2-3 turns (p90 4-5) and boss fights 5-6 (p90 8-10). A 10-turn dot therefore delivers only 35% of its damage on trash and 63% on a boss, where a 3-turn dot delivers 91%/100% - so my 'longer dots to represent the class properly' had made Chronomancer WORSE than before I touched it. Kyle's call once measured: fit the dots to the fights. This ability now sits in the sustained bucket of a five-bucket taxonomy capped at 6 turns (2 burst, 3 standard, 4 tail, 5 sustained, 6 boss finisher). Per-tick is held at 12.5, the value the game originally shipped with, and the total scales with duration - so length adds damage at unchanged tick strength instead of thinning a fixed total.",
-      "target_type": "ally"
+      "target_type": "ally",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.53x steeper than it, biggest single-rank jump 1.16x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "chronomancer_roll_back",
@@ -373,13 +382,13 @@
           "rank": 1,
           "level_req": 16,
           "cost": 45,
-          "effect_value": 48
+          "effect_value": 57
         },
         {
           "rank": 2,
           "level_req": 24,
           "cost": 61,
-          "effect_value": 63
+          "effect_value": 67
         },
         {
           "rank": 3,
@@ -391,26 +400,29 @@
           "rank": 4,
           "level_req": 40,
           "cost": 94,
-          "effect_value": 93
+          "effect_value": 89
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 110,
-          "effect_value": 108
+          "effect_value": 100
         },
         {
           "rank": 6,
           "level_req": 56,
           "cost": 126,
-          "effect_value": 123
+          "effect_value": 110
         }
       ],
       "icon_id": null,
       "_source": "CoA: Discordance is the shared cleave - Infinite's Timelost Power widens it, Artificer's Clocked In and Caverns of Time bank fragments off it.",
       "target_type": "enemy_aoe",
       "max_targets": 3,
-      "damage_school": "arcane"
+      "damage_school": "arcane",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "chronomancer_time_out",
@@ -503,42 +515,45 @@
           "rank": 1,
           "level_req": 26,
           "cost": 75,
-          "effect_value": 60
+          "effect_value": 75
         },
         {
           "rank": 2,
           "level_req": 32,
           "cost": 98,
-          "effect_value": 76
+          "effect_value": 83
         },
         {
           "rank": 3,
           "level_req": 39,
           "cost": 121,
-          "effect_value": 92
+          "effect_value": 93
         },
         {
           "rank": 4,
           "level_req": 45,
           "cost": 144,
-          "effect_value": 108
+          "effect_value": 102
         },
         {
           "rank": 5,
           "level_req": 52,
           "cost": 167,
-          "effect_value": 124
+          "effect_value": 112
         },
         {
           "rank": 6,
           "level_req": 58,
           "cost": 190,
-          "effect_value": 140
+          "effect_value": 120
         }
       ],
       "icon_id": null,
       "_source": "CoA class tree: 'Fortify the current timeline, instantly healing all allies and extending the duration of Accelerated Recovery on them by 5 sec.' The extension half needs a cast to reach into an existing status effect's clock, which nothing supports, so this is the instant group heal only.",
-      "target_type": "party"
+      "target_type": "party",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.45x steeper than it, biggest single-rank jump 1.14x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "chronomancer_timeguard",
@@ -603,32 +618,35 @@
           "rank": 1,
           "level_req": 44,
           "cost": 55,
-          "effect_value": 70
+          "effect_value": 95
         },
         {
           "rank": 2,
           "level_req": 48,
           "cost": 77,
-          "effect_value": 94
+          "effect_value": 100
         },
         {
           "rank": 3,
           "level_req": 52,
           "cost": 98,
-          "effect_value": 119
+          "effect_value": 106
         },
         {
           "rank": 4,
           "level_req": 56,
           "cost": 120,
-          "effect_value": 143
+          "effect_value": 111
         }
       ],
       "icon_id": null,
       "_source": "CoA class tree tier 2: 'After 6 seconds they explode for Chromatic Damage in a 10 yds radius. Directly before the explosion occurs, all enemies within 15 yds are teleported to the initial target.' The delay and the teleport-in have no hooks; a two-turn AoE DoT is the detonation. || Duration 2 -> 5 turns, 5 Nov 2026. Kyle: 'Chronomancer is a lot of DoTs. So we need to have longer dots to represent it properly.' effect_value is the TOTAL across the whole duration (abilities.py:2695) and per-turn potency is total/duration - so lengthening ALONE would have spread the same damage thinner and made the dot strictly worse. Totals raised by 1.62x alongside (2->5 is 2.50x duration, scaled by 0.65), so per-tick falls ~35% while total damage rises ~62%: a long patient dot that out-damages over a full fight without becoming burst. Part of a wider pass Kyle wants on dot AND hot durations - 82 ability dots across the game sit at exactly 3 turns. || Duration corrected to 2 turns, 6 Nov 2026, REVERSING the 8-10 turn lengthening I applied earlier the same day. Fight length was then measured through the real engine rather than assumed from CoA's 18-24 second windows: trash fights run 2-3 turns (p90 4-5) and boss fights 5-6 (p90 8-10). A 10-turn dot therefore delivers only 35% of its damage on trash and 63% on a boss, where a 3-turn dot delivers 91%/100% - so my 'longer dots to represent the class properly' had made Chronomancer WORSE than before I touched it. Kyle's call once measured: fit the dots to the fights. This ability now sits in the burst bucket of a five-bucket taxonomy capped at 6 turns (2 burst, 3 standard, 4 tail, 5 sustained, 6 boss finisher). Per-tick is held at 35.2, the value the game originally shipped with, and the total scales with duration - so length adds damage at unchanged tick strength instead of thinning a fixed total.",
       "target_type": "enemy_aoe",
       "max_targets": 5,
-      "damage_school": "arcane"
+      "damage_school": "arcane",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.75x steeper than it, biggest single-rank jump 1.27x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "chronomancer_chromatic_shard",
@@ -644,19 +662,19 @@
           "rank": 1,
           "level_req": 6,
           "cost": 46,
-          "effect_value": 66
+          "effect_value": 75
         },
         {
           "rank": 2,
           "level_req": 16,
           "cost": 62,
-          "effect_value": 86
+          "effect_value": 99
         },
         {
           "rank": 3,
           "level_req": 22,
           "cost": 78,
-          "effect_value": 106
+          "effect_value": 113
         },
         {
           "rank": 4,
@@ -668,32 +686,35 @@
           "rank": 5,
           "level_req": 34,
           "cost": 110,
-          "effect_value": 146
+          "effect_value": 140
         },
         {
           "rank": 6,
           "level_req": 40,
           "cost": 126,
-          "effect_value": 166
+          "effect_value": 154
         },
         {
           "rank": 7,
           "level_req": 46,
           "cost": 142,
-          "effect_value": 186
+          "effect_value": 168
         },
         {
           "rank": 8,
           "level_req": 52,
           "cost": 158,
-          "effect_value": 206
+          "effect_value": 182
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Your core spender is Chromatic Shard, a chaos bolt that pierces immunities and resistances.' No ability flag bypasses resistance - Monster.take_damage reduces by school resistance unconditionally - but the ATTACKER's spell_penetration is subtracted there, which is why the Time Means Nothing talent grants it instead of a vulnerability debuff. No cooldown: CoA has it getting FASTER as Anomaly Spikes land ('reduces the cast time of this ability by 10%, stacking 10 times') and the rotation says to 'dump Chromatic Shard' through the burst window, so Mana is what rations it, not a timer. It is the class's second spammable nuke - the shared kit otherwise has only Unmake, and a cloth caster with one filler loses fights a Mage with Fireball and Frostbolt wins.",
       "target_type": "enemy",
       "damage_school": "arcane",
-      "_level_note": "Rank 1 moved from level 10 to 6, 29 Oct 2026. Kyle's call on the early-game finding: the class was soft at levels 5-20 and fine from 30, and the cause was how FEW damage buttons it had early rather than how hard they hit. Values unchanged at every rank, so nothing moves at 60."
+      "_level_note": "Rank 1 moved from level 10 to 6, 29 Oct 2026. Kyle's call on the early-game finding: the class was soft at levels 5-20 and fine from 30, and the cause was how FEW damage buttons it had early rather than how hard they hit. Values unchanged at every rank, so nothing moves at 60.",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.29x steeper than it, biggest single-rank jump 1.08x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "chronomancer_melt_reality",
@@ -709,49 +730,52 @@
           "rank": 1,
           "level_req": 12,
           "cost": 45,
-          "effect_value": 168
+          "effect_value": 217
         },
         {
           "rank": 2,
           "level_req": 19,
           "cost": 63,
-          "effect_value": 228
+          "effect_value": 256
         },
         {
           "rank": 3,
           "level_req": 26,
           "cost": 82,
-          "effect_value": 288
+          "effect_value": 296
         },
         {
           "rank": 4,
           "level_req": 33,
           "cost": 100,
-          "effect_value": 348
+          "effect_value": 335
         },
         {
           "rank": 5,
           "level_req": 40,
           "cost": 119,
-          "effect_value": 408
+          "effect_value": 375
         },
         {
           "rank": 6,
           "level_req": 47,
           "cost": 137,
-          "effect_value": 468
+          "effect_value": 414
         },
         {
           "rank": 7,
           "level_req": 54,
           "cost": 156,
-          "effect_value": 528
+          "effect_value": 453
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Melt the target's reality, dealing Chromatic Damage every 3 sec for 30 seconds. While active, periodic damage dealt to the target is replicated for 20% of the value to all enemies near them.' The replication lives on the Shifting Chaos and Infinite Keeper talents, which use the engine's splash_damage proc payload. || Duration 4 -> 9 turns, 5 Nov 2026. Kyle: 'Chronomancer is a lot of DoTs. So we need to have longer dots to represent it properly.' effect_value is the TOTAL across the whole duration (abilities.py:2695) and per-turn potency is total/duration - so lengthening ALONE would have spread the same damage thinner and made the dot strictly worse. Totals raised by 1.46x alongside (4->9 is 2.25x duration, scaled by 0.65), so per-tick falls ~35% while total damage rises ~46%: a long patient dot that out-damages over a full fight without becoming burst. Part of a wider pass Kyle wants on dot AND hot durations - 82 ability dots across the game sit at exactly 3 turns. || Corrected to 10 turns, matching CoA exactly: 'Chromatic Damage every 3 sec for 30 sec' is 10 ticks at this engine's ~3 sec per turn. 9 was my own rounding; CoA's own number was better. Total scaled by 1.11 so per-tick is unchanged from the 9-turn version. || Duration corrected to 6 turns, 6 Nov 2026, REVERSING the 8-10 turn lengthening I applied earlier the same day. Fight length was then measured through the real engine rather than assumed from CoA's 18-24 second windows: trash fights run 2-3 turns (p90 4-5) and boss fights 5-6 (p90 8-10). A 10-turn dot therefore delivers only 35% of its damage on trash and 63% on a boss, where a 3-turn dot delivers 91%/100% - so my 'longer dots to represent the class properly' had made Chronomancer WORSE than before I touched it. Kyle's call once measured: fit the dots to the fights. This ability now sits in the boss-finisher bucket of a five-bucket taxonomy capped at 6 turns (2 burst, 3 standard, 4 tail, 5 sustained, 6 boss finisher). Per-tick is held at 28.0, the value the game originally shipped with, and the total scales with duration - so length adds damage at unchanged tick strength instead of thinning a fixed total.",
       "target_type": "enemy",
-      "damage_school": "arcane"
+      "damage_school": "arcane",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.50x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "chronomancer_anomaly_spike",
@@ -767,13 +791,13 @@
           "rank": 1,
           "level_req": 16,
           "cost": 20,
-          "effect_value": 34
+          "effect_value": 39
         },
         {
           "rank": 2,
           "level_req": 24,
           "cost": 27,
-          "effect_value": 44
+          "effect_value": 47
         },
         {
           "rank": 3,
@@ -785,26 +809,29 @@
           "rank": 4,
           "level_req": 40,
           "cost": 40,
-          "effect_value": 64
+          "effect_value": 62
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 47,
-          "effect_value": 74
+          "effect_value": 69
         },
         {
           "rank": 6,
           "level_req": 56,
           "cost": 54,
-          "effect_value": 84
+          "effect_value": 76
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Periodic damage dealt now has a chance to launch an Anomaly Spike at your target.' A real second spell, fired free by the Anomaly Spikes talent's cast_ability proc, which is why it exists as an ability at all.",
       "target_type": "enemy",
       "damage_school": "arcane",
-      "requires_talent": true
+      "requires_talent": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.27x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "chronomancer_destabilize_time",
@@ -896,54 +923,57 @@
           "rank": 1,
           "level_req": 10,
           "cost": 45,
-          "effect_value": 64
+          "effect_value": 88
         },
         {
           "rank": 2,
           "level_req": 17,
           "cost": 66,
-          "effect_value": 90
+          "effect_value": 105
         },
         {
           "rank": 3,
           "level_req": 24,
           "cost": 87,
-          "effect_value": 115
+          "effect_value": 122
         },
         {
           "rank": 4,
           "level_req": 31,
           "cost": 108,
-          "effect_value": 141
+          "effect_value": 139
         },
         {
           "rank": 5,
           "level_req": 37,
           "cost": 128,
-          "effect_value": 167
+          "effect_value": 154
         },
         {
           "rank": 6,
           "level_req": 44,
           "cost": 149,
-          "effect_value": 193
+          "effect_value": 171
         },
         {
           "rank": 7,
           "level_req": 51,
           "cost": 170,
-          "effect_value": 218
+          "effect_value": 188
         },
         {
           "rank": 8,
           "level_req": 58,
           "cost": 191,
-          "effect_value": 244
+          "effect_value": 205
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Core loop is Epoch (a heal that builds Sands of Time stacks) and Accelerated Recovery (a HoT).' Sands of Time cannot be a resource (see module docstring), so the stack payoff is the Carbon Dating and Epic Recovery talents raising Epoch's own healing.",
-      "target_type": "ally"
+      "target_type": "ally",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.65x steeper than it, biggest single-rank jump 1.18x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "chronomancer_correct_the_mistake",
@@ -959,13 +989,13 @@
           "rank": 1,
           "level_req": 22,
           "cost": 100,
-          "effect_value": 76
+          "effect_value": 91
         },
         {
           "rank": 2,
           "level_req": 29,
           "cost": 131,
-          "effect_value": 97
+          "effect_value": 104
         },
         {
           "rank": 3,
@@ -977,24 +1007,27 @@
           "rank": 4,
           "level_req": 44,
           "cost": 194,
-          "effect_value": 138
+          "effect_value": 133
         },
         {
           "rank": 5,
           "level_req": 51,
           "cost": 226,
-          "effect_value": 159
+          "effect_value": 146
         },
         {
           "rank": 6,
           "level_req": 58,
           "cost": 257,
-          "effect_value": 180
+          "effect_value": 159
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Retell the fate of party members within 30 yds, healing them.' One of Time's two party-wide tools.",
-      "target_type": "party"
+      "target_type": "party",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "chronomancer_ripple",
@@ -1010,36 +1043,39 @@
           "rank": 1,
           "level_req": 30,
           "cost": 120,
-          "effect_value": 96
+          "effect_value": 114
         },
         {
           "rank": 2,
           "level_req": 37,
           "cost": 154,
-          "effect_value": 120
+          "effect_value": 128
         },
         {
           "rank": 3,
           "level_req": 44,
           "cost": 189,
-          "effect_value": 144
+          "effect_value": 142
         },
         {
           "rank": 4,
           "level_req": 50,
           "cost": 224,
-          "effect_value": 168
+          "effect_value": 154
         },
         {
           "rank": 5,
           "level_req": 57,
           "cost": 258,
-          "effect_value": 192
+          "effect_value": 168
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Channel for up to 5 seconds ... allies within 40 yds are healed based on the duration of the channel. While channeling, you are immune to stun effects.' There is no channel, so it resolves in one turn at full value and the stun immunity is dropped - Temporal Focus is where the class keeps that.",
-      "target_type": "party"
+      "target_type": "party",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.35x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "chronomancer_aeon_of_resilience",
@@ -1162,31 +1198,34 @@
           "rank": 1,
           "level_req": 34,
           "cost": 70,
-          "effect_value": 86
+          "effect_value": 106
         },
         {
           "rank": 2,
           "level_req": 42,
           "cost": 98,
-          "effect_value": 116
+          "effect_value": 120
         },
         {
           "rank": 3,
           "level_req": 50,
           "cost": 126,
-          "effect_value": 146
+          "effect_value": 135
         },
         {
           "rank": 4,
           "level_req": 58,
           "cost": 154,
-          "effect_value": 176
+          "effect_value": 149
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Alter the fabric of time, healing an ally. Your next Aeon used within 8 seconds will trigger with no cooldown or cost.' The free-Aeon rider is not expressible from a heal; the Orderly Protector talent carries the rest of this node's identity.",
       "target_type": "ally",
-      "requires_talent": true
+      "requires_talent": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.47x steeper than it, biggest single-rank jump 1.19x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "chronomancer_buy_time",
@@ -1226,55 +1265,58 @@
           "rank": 1,
           "level_req": 12,
           "cost": 34,
-          "effect_value": 70
+          "effect_value": 88
         },
         {
           "rank": 2,
           "level_req": 18,
           "cost": 44,
-          "effect_value": 90
+          "effect_value": 101
         },
         {
           "rank": 3,
           "level_req": 24,
           "cost": 54,
-          "effect_value": 110
+          "effect_value": 115
         },
         {
           "rank": 4,
           "level_req": 30,
           "cost": 64,
-          "effect_value": 130
+          "effect_value": 129
         },
         {
           "rank": 5,
           "level_req": 36,
           "cost": 74,
-          "effect_value": 150
+          "effect_value": 143
         },
         {
           "rank": 6,
           "level_req": 42,
           "cost": 84,
-          "effect_value": 170
+          "effect_value": 156
         },
         {
           "rank": 7,
           "level_req": 48,
           "cost": 94,
-          "effect_value": 190
+          "effect_value": 170
         },
         {
           "rank": 8,
           "level_req": 54,
           "cost": 104,
-          "effect_value": 210
+          "effect_value": 184
         }
       ],
       "icon_id": null,
       "_source": "29 Oct 2026, Kyle: \"Fix up chrono.\" Artificer's Wand is the spec's FILLER and main Echo Fragment generator per reference/coa_sidekick/SPEC_chronomancer__artificer.txt (\"Fill with Artificer's Wand to bank Echo Fragments\", \"Artificer's Wand and auto-wand attacks keep damage flowing while you kite\") - and it was never the best button at ANY level. It peaked at 115 a turn at 54 while Chromatic Shard reached 206 and Shatter Echo 230, so it sat fourth in its own kit from level 12 to 60 and no sane rotation ever pressed it.\n\nThat is what made the whole spec read as broken. Artificer's talents amplify artificers_wand, wand_of_time, discordance and shatter_echo; Wand Expert converts Spirit into ranged attack power and Artificer's Empowerment raises that Spirit, so the sidekick's \"almost the entire kit scales off one stat\" is real and implemented. But the rotation cast Chromatic Shard instead - a GENERIC Chronomancer spell all three specs share and no Artificer talent touches - so 56 talent points amplified abilities the spec never used. Measured, Chromatic Shard landed 1.22x its listed value where Mage's Fireball lands 2.04x, and chronomancer_artificer won 50% at level 20 against chronomancer_infinite's 81% on the same gear.\n\nSo the fix is the wand, not the tree: the tree was right and the numbers made its intended playstyle unplayable. Raised to parity with Chromatic Shard's curve, with costs kept well below it (210 for 104 against 206 for 158, so ~1.55x the damage per mana) because a no-cooldown filler should be the efficient button. Artificer's own talents, Singularity Core's +10% damage and the Spirit-to-ranged-AP conversion then push it clearly ahead, which is the design.\n\nSafe to buff in isolation: artificers_wand, crystal_cannon and shatter_echo all carry requires_talent, so they exist only for Artificer. Chromatic Shard is untouched, so Infinite and Time are unaffected.",
       "target_type": "enemy",
-      "requires_talent": true
+      "requires_talent": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.43x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "chronomancer_crystal_cannon",
@@ -1290,37 +1332,40 @@
           "rank": 1,
           "level_req": 30,
           "cost": 15,
-          "effect_value": 30
+          "effect_value": 37
         },
         {
           "rank": 2,
           "level_req": 37,
           "cost": 20,
-          "effect_value": 39
+          "effect_value": 42
         },
         {
           "rank": 3,
           "level_req": 44,
           "cost": 25,
-          "effect_value": 48
+          "effect_value": 47
         },
         {
           "rank": 4,
           "level_req": 51,
           "cost": 31,
-          "effect_value": 57
+          "effect_value": 51
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 36,
-          "effect_value": 66
+          "effect_value": 56
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Casting Discordance now unleashes the Crystal Cannon, launching 2 quick lesser Wand attacks at the enemy over 1 seconds, scaling with Spirit.' Fired free by the Crystal Cannon talent's cast_ability proc.",
       "target_type": "enemy",
-      "requires_talent": true
+      "requires_talent": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.47x steeper than it, biggest single-rank jump 1.16x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "chronomancer_shatter_echo",
@@ -1336,44 +1381,47 @@
           "rank": 1,
           "level_req": 22,
           "cost": 75,
-          "effect_value": 90
+          "effect_value": 114
         },
         {
           "rank": 2,
           "level_req": 29,
           "cost": 102,
-          "effect_value": 118
+          "effect_value": 130
         },
         {
           "rank": 3,
           "level_req": 36,
           "cost": 129,
-          "effect_value": 146
+          "effect_value": 147
         },
         {
           "rank": 4,
           "level_req": 43,
           "cost": 156,
-          "effect_value": 174
+          "effect_value": 163
         },
         {
           "rank": 5,
           "level_req": 50,
           "cost": 182,
-          "effect_value": 202
+          "effect_value": 180
         },
         {
           "rank": 6,
           "level_req": 57,
           "cost": 209,
-          "effect_value": 230
+          "effect_value": 196
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Distortion Spell. Launch a distorted echo from your wand at an enemy ... Damage increased by 40% for each Echo Fragment consumed.' Fragments are not a resource, so the spend is a cooldown and the Hyperwand and Pulse Driver talents are the fragment scaling.",
       "target_type": "enemy",
       "damage_school": "arcane",
-      "requires_talent": true
+      "requires_talent": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.48x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "chronomancer_singularity_core",
@@ -1489,32 +1537,35 @@
           "rank": 1,
           "level_req": 48,
           "cost": 48,
-          "effect_value": 62
+          "effect_value": 87
         },
         {
           "rank": 2,
           "level_req": 51,
           "cost": 68,
-          "effect_value": 84
+          "effect_value": 90
         },
         {
           "rank": 3,
           "level_req": 54,
           "cost": 87,
-          "effect_value": 106
+          "effect_value": 94
         },
         {
           "rank": 4,
           "level_req": 57,
           "cost": 107,
-          "effect_value": 128
+          "effect_value": 97
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Distortion Spell. Create a timestorm around an enemy that causes them and up to 2 nearby enemies to take Arcane damage, repeating over 4 seconds.' CoA is blunt that it is 'a capped, undertuned timestorm rather than a pack nuke - don't build around it', so it is capped at 3 and carries no talent support. || Duration 3 -> 6 turns, 5 Nov 2026. Kyle: 'Chronomancer is a lot of DoTs. So we need to have longer dots to represent it properly.' effect_value is the TOTAL across the whole duration (abilities.py:2695) and per-turn potency is total/duration - so lengthening ALONE would have spread the same damage thinner and made the dot strictly worse. Totals raised by 1.30x alongside (3->6 is 2.00x duration, scaled by 0.65), so per-tick falls ~35% while total damage rises ~30%: a long patient dot that out-damages over a full fight without becoming burst. Part of a wider pass Kyle wants on dot AND hot durations - 82 ability dots across the game sit at exactly 3 turns. || Duration corrected to 3 turns, 6 Nov 2026, REVERSING the 8-10 turn lengthening I applied earlier the same day. Fight length was then measured through the real engine rather than assumed from CoA's 18-24 second windows: trash fights run 2-3 turns (p90 4-5) and boss fights 5-6 (p90 8-10). A 10-turn dot therefore delivers only 35% of its damage on trash and 63% on a boss, where a 3-turn dot delivers 91%/100% - so my 'longer dots to represent the class properly' had made Chronomancer WORSE than before I touched it. Kyle's call once measured: fit the dots to the fights. This ability now sits in the standard bucket of a five-bucket taxonomy capped at 6 turns (2 burst, 3 standard, 4 tail, 5 sustained, 6 boss finisher). Per-tick is held at 20.8, the value the game originally shipped with, and the total scales with duration - so length adds damage at unchanged tick strength instead of thinning a fixed total.",
       "target_type": "enemy_aoe",
       "max_targets": 3,
-      "damage_school": "arcane"
+      "damage_school": "arcane",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.84x steeper than it, biggest single-rank jump 1.30x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "chronomancer_unstable_chronoglass",

@@ -105,49 +105,52 @@
           "rank": 1,
           "level_req": 14,
           "cost": 30,
-          "effect_value": 34
+          "effect_value": 39
         },
         {
           "rank": 2,
           "level_req": 21,
           "cost": 30,
-          "effect_value": 43
+          "effect_value": 46
         },
         {
           "rank": 3,
           "level_req": 28,
           "cost": 30,
-          "effect_value": 52
+          "effect_value": 53
         },
         {
           "rank": 4,
           "level_req": 35,
           "cost": 30,
-          "effect_value": 61
+          "effect_value": 60
         },
         {
           "rank": 5,
           "level_req": 42,
           "cost": 30,
-          "effect_value": 70
+          "effect_value": 67
         },
         {
           "rank": 6,
           "level_req": 49,
           "cost": 30,
-          "effect_value": 79
+          "effect_value": 73
         },
         {
           "rank": 7,
           "level_req": 56,
           "cost": 30,
-          "effect_value": 88
+          "effect_value": 80
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Barbaric Whirl on any pull of 3+ mobs'. The shared cleave. enemy_aoe rather than the is_aoe flag - is_aoe is not read by _ability_from_data, so target_type is what actually makes an ability hit a pack.",
       "target_type": "enemy_aoe",
-      "max_targets": 5
+      "max_targets": 5,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.27x steeper than it, biggest single-rank jump 1.08x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "barbarian_unbridled_rage",
@@ -234,13 +237,13 @@
           "rank": 1,
           "level_req": 16,
           "cost": 20,
-          "effect_value": 44
+          "effect_value": 51
         },
         {
           "rank": 2,
           "level_req": 24,
           "cost": 20,
-          "effect_value": 57
+          "effect_value": 61
         },
         {
           "rank": 3,
@@ -252,19 +255,19 @@
           "rank": 4,
           "level_req": 40,
           "cost": 20,
-          "effect_value": 83
+          "effect_value": 80
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 20,
-          "effect_value": 96
+          "effect_value": 89
         },
         {
           "rank": 6,
           "level_req": 56,
           "cost": 20,
-          "effect_value": 109
+          "effect_value": 99
         }
       ],
       "icon_id": null,
@@ -273,7 +276,10 @@
       "generates": {
         "resource": "energy",
         "amount": 25
-      }
+      },
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.28x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "barbarian_maiming_spear",
@@ -312,42 +318,45 @@
           "rank": 1,
           "level_req": 26,
           "cost": 25,
-          "effect_value": 170
+          "effect_value": 254
         },
         {
           "rank": 2,
           "level_req": 32,
           "cost": 25,
-          "effect_value": 242
+          "effect_value": 283
         },
         {
           "rank": 3,
           "level_req": 39,
           "cost": 25,
-          "effect_value": 314
+          "effect_value": 316
         },
         {
           "rank": 4,
           "level_req": 45,
           "cost": 25,
-          "effect_value": 386
+          "effect_value": 345
         },
         {
           "rank": 5,
           "level_req": 52,
           "cost": 25,
-          "effect_value": 458
+          "effect_value": 379
         },
         {
           "rank": 6,
           "level_req": 58,
           "cost": 25,
-          "effect_value": 530
+          "effect_value": 408
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Ancestral Roar - Requires Enraged. Roar with ancestral fervor, healing you for AP'. Enrage gate dropped (no enrage state); the AP scaling is covered by the engine's own healing_power contribution rather than a literal AP coefficient.",
-      "target_type": "self"
+      "target_type": "self",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.94x steeper than it, biggest single-rank jump 1.28x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "barbarian_warband",
@@ -363,36 +372,39 @@
           "rank": 1,
           "level_req": 30,
           "cost": 30,
-          "effect_value": 220
+          "effect_value": 280
         },
         {
           "rank": 2,
           "level_req": 37,
           "cost": 30,
-          "effect_value": 290
+          "effect_value": 315
         },
         {
           "rank": 3,
           "level_req": 44,
           "cost": 30,
-          "effect_value": 360
+          "effect_value": 349
         },
         {
           "rank": 4,
           "level_req": 51,
           "cost": 30,
-          "effect_value": 430
+          "effect_value": 384
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 30,
-          "effect_value": 500
+          "effect_value": 419
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Bring all nearby allies into the warband for 12 seconds, granting them Born in Blood, repeating every 3 sec' - and the spec pages are blunt that this 'is a regen buff, not triage. It cannot heal a dungeon.' A party HoT needs target_type='party'; buff_scope only chooses between turn-based and wall-clock duration and would have left this self-only.",
-      "target_type": "party"
+      "target_type": "party",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.52x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "barbarian_thick_skull",
@@ -432,25 +444,25 @@
           "rank": 1,
           "level_req": 36,
           "cost": 30,
-          "effect_value": 50
+          "effect_value": 61
         },
         {
           "rank": 2,
           "level_req": 43,
           "cost": 30,
-          "effect_value": 65
+          "effect_value": 68
         },
         {
           "rank": 3,
           "level_req": 50,
           "cost": 30,
-          "effect_value": 80
+          "effect_value": 74
         },
         {
           "rank": 4,
           "level_req": 57,
           "cost": 30,
-          "effect_value": 95
+          "effect_value": 81
         }
       ],
       "icon_id": null,
@@ -461,7 +473,10 @@
       "generates": {
         "resource": "energy",
         "amount": 40
-      }
+      },
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.42x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "barbarian_smash",
@@ -477,48 +492,51 @@
           "rank": 1,
           "level_req": 18,
           "cost": 30,
-          "effect_value": 58
+          "effect_value": 73
         },
         {
           "rank": 2,
           "level_req": 24,
           "cost": 30,
-          "effect_value": 74
+          "effect_value": 83
         },
         {
           "rank": 3,
           "level_req": 30,
           "cost": 30,
-          "effect_value": 90
+          "effect_value": 93
         },
         {
           "rank": 4,
           "level_req": 36,
           "cost": 30,
-          "effect_value": 106
+          "effect_value": 103
         },
         {
           "rank": 5,
           "level_req": 42,
           "cost": 30,
-          "effect_value": 122
+          "effect_value": 113
         },
         {
           "rank": 6,
           "level_req": 48,
           "cost": 30,
-          "effect_value": 138
+          "effect_value": 123
         },
         {
           "rank": 7,
           "level_req": 54,
           "cost": 30,
-          "effect_value": 154
+          "effect_value": 132
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Smash, your biggest no-cooldown Energy dump, requires an active [enrage]'. No cooldown, so no cooldown here either; the enrage requirement is dropped with the rest of the enrage state.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.47x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "barbarian_brutal_swing",
@@ -534,50 +552,53 @@
           "rank": 1,
           "level_req": 12,
           "cost": 20,
-          "effect_value": 36
+          "effect_value": 42
         },
         {
           "rank": 2,
           "level_req": 19,
           "cost": 20,
-          "effect_value": 46
+          "effect_value": 49
         },
         {
           "rank": 3,
           "level_req": 26,
           "cost": 20,
-          "effect_value": 56
+          "effect_value": 57
         },
         {
           "rank": 4,
           "level_req": 33,
           "cost": 20,
-          "effect_value": 66
+          "effect_value": 65
         },
         {
           "rank": 5,
           "level_req": 40,
           "cost": 20,
-          "effect_value": 76
+          "effect_value": 72
         },
         {
           "rank": 6,
           "level_req": 47,
           "cost": 20,
-          "effect_value": 86
+          "effect_value": 80
         },
         {
           "rank": 7,
           "level_req": 54,
           "cost": 20,
-          "effect_value": 96
+          "effect_value": 87
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Brutal Swing is your off-global cleave dump between specials', 'swing violently at an enemy and up to 2 nearby enemies'. off-global = is_instant, the engine's turn-based translation of a free action, same as Warrior's Cleave.",
       "target_type": "enemy_aoe",
       "max_targets": 3,
-      "is_instant": true
+      "is_instant": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.28x steeper than it, biggest single-rank jump 1.08x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "barbarian_decapitate",
@@ -593,43 +614,46 @@
           "rank": 1,
           "level_req": 24,
           "cost": 30,
-          "effect_value": 100
+          "effect_value": 127
         },
         {
           "rank": 2,
           "level_req": 30,
           "cost": 30,
-          "effect_value": 128
+          "effect_value": 142
         },
         {
           "rank": 3,
           "level_req": 36,
           "cost": 30,
-          "effect_value": 156
+          "effect_value": 157
         },
         {
           "rank": 4,
           "level_req": 42,
           "cost": 30,
-          "effect_value": 184
+          "effect_value": 173
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 30,
-          "effect_value": 212
+          "effect_value": 188
         },
         {
           "rank": 6,
           "level_req": 54,
           "cost": 30,
-          "effect_value": 240
+          "effect_value": 203
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Decapitate to execute once the target is below 35% HP (each point of spare Energy adds damage)'. THE GATE IS DELIBERATELY ABSENT. execute_threshold_pct exists and is PERCENT POINTS (warrior_execute 20, cultist_netherstrike 35), but its check in Ability.use reads `target.current_health / target.health` and Monster has no `health` - it uses `max_health`, while only Character has `health`. getattr(target, 'health', 0) is therefore 0 against every creature in the game, the percentage defaults to 100, and the cast is refused. Every execute-gated ability shipped today (Warrior's Execute, Cultist's Netherstrike, Primalist's Raptor Talons and Bring Me Their Bones, Stormbringer's Electrocute) is uncastable against a monster for that reason. Authoring the gate here would have bought a dead signature ability, so Decapitate is an ungated finisher instead - a longer cooldown and lower damage than a gated execute would carry, since it can be pressed at any health. The spend-spare-Energy scaling has no hook either. Worth fixing in the engine: one getattr. || execute_threshold_pct 35 added, 6 Nov 2026. CoA: 'Attempt to decapitate an injured enemy... Only usable on enemies below 35% health.' Ours had no gate at all, which made it a plain 3-turn-cooldown nuke and left Brutality's whole execute theme - Overkill, Steelslinger, Beheader - with nothing to key off. execute_threshold_pct is a real ability-level mechanic enforced at abilities.py:1691, and Reaper's Slaughter (35), Ranger's Deadshot (20) and Felsworn's Tyrant's Gaze (35) all already carry CoA's own number. THIS IS A RESTRICTION ON AN ABILITY PLAYERS COULD PREVIOUSLY USE ANY TIME, so it is a real nerf, taken deliberately for CoA authenticity and because Barbarian Brutality now sets the class's low_health_threshold_pct to 0.35 to match it. The bypass exists if wanted later: bypass_execute_threshold is a consumed proc flag, which is how Reaper's Extinction and Ranger's Silent, But Deadly work.",
       "target_type": "enemy",
-      "execute_threshold_pct": 35
+      "execute_threshold_pct": 35,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.51x steeper than it, biggest single-rank jump 1.14x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "barbarian_crush",
@@ -645,38 +669,41 @@
           "rank": 1,
           "level_req": 22,
           "cost": 30,
-          "effect_value": 60
+          "effect_value": 69
         },
         {
           "rank": 2,
           "level_req": 31,
           "cost": 30,
-          "effect_value": 78
+          "effect_value": 81
         },
         {
           "rank": 3,
           "level_req": 40,
           "cost": 30,
-          "effect_value": 96
+          "effect_value": 94
         },
         {
           "rank": 4,
           "level_req": 49,
           "cost": 30,
-          "effect_value": 114
+          "effect_value": 107
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 30,
-          "effect_value": 132
+          "effect_value": 120
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Crush is a frontal-cone knockdown and stun', 'Landing Crush on a full clump as the tank gathers - that is the biggest AoE payoff the spec has'.",
       "target_type": "enemy_aoe",
       "max_targets": 4,
-      "is_stun": true
+      "is_stun": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.26x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "barbarian_onslaught",
@@ -715,30 +742,33 @@
           "rank": 1,
           "level_req": 40,
           "cost": 25,
-          "effect_value": 140
+          "effect_value": 172
         },
         {
           "rank": 2,
           "level_req": 46,
           "cost": 25,
-          "effect_value": 180
+          "effect_value": 188
         },
         {
           "rank": 3,
           "level_req": 52,
           "cost": 25,
-          "effect_value": 220
+          "effect_value": 203
         },
         {
           "rank": 4,
           "level_req": 58,
           "cost": 25,
-          "effect_value": 260
+          "effect_value": 219
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Killing Spree to charge back in after a kill blow', 'Can only be used within 6 seconds of scoring a killing blow or applying Born in Blood'. There is no recent-kill window to gate a cast on, so it is a plain cooldown and the gate is dropped.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.46x steeper than it, biggest single-rank jump 1.18x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "barbarian_storm_of_steel",
@@ -754,30 +784,33 @@
           "rank": 1,
           "level_req": 44,
           "cost": 35,
-          "effect_value": 100
+          "effect_value": 128
         },
         {
           "rank": 2,
           "level_req": 48,
           "cost": 35,
-          "effect_value": 128
+          "effect_value": 135
         },
         {
           "rank": 3,
           "level_req": 52,
           "cost": 35,
-          "effect_value": 156
+          "effect_value": 142
         },
         {
           "rank": 4,
           "level_req": 56,
           "cost": 35,
-          "effect_value": 184
+          "effect_value": 150
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Storm of Steel on a tough single target for sustained ramp', 'striking your target every 1 sec for 80% Weapon Damage for 3 seconds'. A repeating strike over three turns is a dot; effect_value is the TOTAL across the duration, which is how every shipped dot authors it.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.57x steeper than it, biggest single-rank jump 1.21x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "barbarian_throw_weapon",
@@ -793,19 +826,19 @@
           "rank": 1,
           "level_req": 10,
           "cost": 15,
-          "effect_value": 34
+          "effect_value": 41
         },
         {
           "rank": 2,
           "level_req": 16,
           "cost": 15,
-          "effect_value": 43
+          "effect_value": 47
         },
         {
           "rank": 3,
           "level_req": 22,
           "cost": 15,
-          "effect_value": 52
+          "effect_value": 54
         },
         {
           "rank": 4,
@@ -817,30 +850,33 @@
           "rank": 5,
           "level_req": 34,
           "cost": 15,
-          "effect_value": 70
+          "effect_value": 67
         },
         {
           "rank": 6,
           "level_req": 40,
           "cost": 15,
-          "effect_value": 79
+          "effect_value": 74
         },
         {
           "rank": 7,
           "level_req": 46,
           "cost": 15,
-          "effect_value": 88
+          "effect_value": 81
         },
         {
           "rank": 8,
           "level_req": 52,
           "cost": 15,
-          "effect_value": 97
+          "effect_value": 87
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'filler Throw Weapon/Berserker Axe'. The spec's cheap ranged filler and the hub of its whole kit - Spear Thrower resets Spears off it, Gurubashi Technique transforms it, Sen'jin's Guidance replaces it.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.33x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "barbarian_gutspiller",
@@ -946,42 +982,45 @@
           "rank": 1,
           "level_req": 24,
           "cost": 20,
-          "effect_value": 48
+          "effect_value": 62
         },
         {
           "rank": 2,
           "level_req": 30,
           "cost": 20,
-          "effect_value": 62
+          "effect_value": 69
         },
         {
           "rank": 3,
           "level_req": 36,
           "cost": 20,
-          "effect_value": 76
+          "effect_value": 77
         },
         {
           "rank": 4,
           "level_req": 42,
           "cost": 20,
-          "effect_value": 90
+          "effect_value": 84
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 20,
-          "effect_value": 104
+          "effect_value": 91
         },
         {
           "rank": 6,
           "level_req": 54,
           "cost": 20,
-          "effect_value": 118
+          "effect_value": 99
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'weave Berserker Axe while Enraged', 'Hurl two axes at an enemy ... reducing enemy armor by 80'. Enrage gate and the 3-charge recharge model both dropped; a short cooldown is the engine's version of charges. The armour shred is carried by the tree's To The Bone instead, where it can be a real debuff.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.54x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "barbarian_impaling_spear",
@@ -1037,37 +1076,37 @@
           "rank": 1,
           "level_req": 26,
           "cost": 0,
-          "effect_value": 190
+          "effect_value": 283
         },
         {
           "rank": 2,
           "level_req": 32,
           "cost": 0,
-          "effect_value": 270
+          "effect_value": 315
         },
         {
           "rank": 3,
           "level_req": 39,
           "cost": 0,
-          "effect_value": 350
+          "effect_value": 353
         },
         {
           "rank": 4,
           "level_req": 45,
           "cost": 0,
-          "effect_value": 430
+          "effect_value": 385
         },
         {
           "rank": 5,
           "level_req": 52,
           "cost": 0,
-          "effect_value": 510
+          "effect_value": 423
         },
         {
           "rank": 6,
           "level_req": 58,
           "cost": 0,
-          "effect_value": 590
+          "effect_value": 455
         }
       ],
       "icon_id": null,
@@ -1076,7 +1115,10 @@
       "generates": {
         "resource": "energy",
         "amount": 20
-      }
+      },
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.93x steeper than it, biggest single-rank jump 1.28x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "barbarian_axe_twirling",
@@ -1117,30 +1159,33 @@
           "rank": 1,
           "level_req": 38,
           "cost": 30,
-          "effect_value": 120
+          "effect_value": 147
         },
         {
           "rank": 2,
           "level_req": 44,
           "cost": 30,
-          "effect_value": 154
+          "effect_value": 161
         },
         {
           "rank": 3,
           "level_req": 50,
           "cost": 30,
-          "effect_value": 188
+          "effect_value": 174
         },
         {
           "rank": 4,
           "level_req": 56,
           "cost": 30,
-          "effect_value": 222
+          "effect_value": 188
         }
       ],
       "icon_id": null,
       "_source": "CoA: \"Open at range with Javelin Toss/Throw Weapon\", and Sen'jin's Guidance 'Transforms your Throw Weapon into Javelin Toss'. A transform has no hook, so it is its own later, bigger thrown attack and the talent buffs it.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.45x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "barbarian_keg_smash",
@@ -1156,19 +1201,19 @@
           "rank": 1,
           "level_req": 12,
           "cost": 25,
-          "effect_value": 38
+          "effect_value": 46
         },
         {
           "rank": 2,
           "level_req": 18,
           "cost": 25,
-          "effect_value": 48
+          "effect_value": 53
         },
         {
           "rank": 3,
           "level_req": 24,
           "cost": 25,
-          "effect_value": 58
+          "effect_value": 60
         },
         {
           "rank": 4,
@@ -1180,31 +1225,34 @@
           "rank": 5,
           "level_req": 36,
           "cost": 25,
-          "effect_value": 78
+          "effect_value": 75
         },
         {
           "rank": 6,
           "level_req": 42,
           "cost": 25,
-          "effect_value": 88
+          "effect_value": 82
         },
         {
           "rank": 7,
           "level_req": 48,
           "cost": 25,
-          "effect_value": 98
+          "effect_value": 89
         },
         {
           "rank": 8,
           "level_req": 54,
           "cost": 25,
-          "effect_value": 108
+          "effect_value": 96
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Keg Smash on cooldown (boosted by Trip to the Alehouse) as your core AoE/ST frost+physical hit'. Kept physical (effect_type='damage') because it is the one ability this spec presses every turn and should not depend on the Frozen Warlord conversion to function; the Frost half of the kit is Breath of the North and Frozen Tankard.",
       "target_type": "enemy_aoe",
-      "max_targets": 5
+      "max_targets": 5,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "barbarian_ancestral_fury",
@@ -1357,36 +1405,39 @@
           "rank": 1,
           "level_req": 28,
           "cost": 30,
-          "effect_value": 240
+          "effect_value": 308
         },
         {
           "rank": 2,
           "level_req": 35,
           "cost": 30,
-          "effect_value": 320
+          "effect_value": 348
         },
         {
           "rank": 3,
           "level_req": 42,
           "cost": 30,
-          "effect_value": 400
+          "effect_value": 387
         },
         {
           "rank": 4,
           "level_req": 49,
           "cost": 30,
-          "effect_value": 480
+          "effect_value": 427
         },
         {
           "rank": 5,
           "level_req": 56,
           "cost": 30,
-          "effect_value": 560
+          "effect_value": 466
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Ramhorn Rage at the start of a hard pull ... Its max-HP regen (extended by your own autoattacks) is the closest thing you have to a group heal'. Max-HP-proportional ticks and autoattack extension both have no hook, so it is a flat party HoT.",
-      "target_type": "party"
+      "target_type": "party",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.54x steeper than it, biggest single-rank jump 1.18x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "barbarian_ancestors_call",

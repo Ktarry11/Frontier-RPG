@@ -282,50 +282,53 @@
           "rank": 1,
           "level_req": 16,
           "cost": 25,
-          "effect_value": 46
+          "effect_value": 55
         },
         {
           "rank": 2,
           "level_req": 23,
           "cost": 25,
-          "effect_value": 59
+          "effect_value": 65
         },
         {
           "rank": 3,
           "level_req": 30,
           "cost": 25,
-          "effect_value": 72
+          "effect_value": 74
         },
         {
           "rank": 4,
           "level_req": 37,
           "cost": 25,
-          "effect_value": 85
+          "effect_value": 83
         },
         {
           "rank": 5,
           "level_req": 44,
           "cost": 25,
-          "effect_value": 98
+          "effect_value": 92
         },
         {
           "rank": 6,
           "level_req": 51,
           "cost": 25,
-          "effect_value": 111
+          "effect_value": 101
         },
         {
           "rank": 7,
           "level_req": 58,
           "cost": 25,
-          "effect_value": 124
+          "effect_value": 110
         }
       ],
       "icon_id": null,
       "_source": "CoA class tree spends a point on it (Corpse Commander: 'Reduces the Runic Power cost of Corpse Explosion by -20'), so it is baseline kit. enemy_aoe, not is_aoe: target_type is the only field the engine's AoE branch reads, and max_targets caps the cleave at 4.",
       "target_type": "enemy_aoe",
       "max_targets": 4,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "necromancer_deaths_due",
@@ -509,55 +512,58 @@
           "rank": 1,
           "level_req": 8,
           "cost": 20,
-          "effect_value": 72
+          "effect_value": 85
         },
         {
           "rank": 2,
           "level_req": 15,
           "cost": 20,
-          "effect_value": 94
+          "effect_value": 102
         },
         {
           "rank": 3,
           "level_req": 22,
           "cost": 20,
-          "effect_value": 116
+          "effect_value": 120
         },
         {
           "rank": 4,
           "level_req": 29,
           "cost": 20,
-          "effect_value": 138
+          "effect_value": 137
         },
         {
           "rank": 5,
           "level_req": 36,
           "cost": 20,
-          "effect_value": 160
+          "effect_value": 154
         },
         {
           "rank": 6,
           "level_req": 43,
           "cost": 20,
-          "effect_value": 182
+          "effect_value": 171
         },
         {
           "rank": 7,
           "level_req": 50,
           "cost": 20,
-          "effect_value": 204
+          "effect_value": 189
         },
         {
           "rank": 8,
           "level_req": 57,
           "cost": 20,
-          "effect_value": 226
+          "effect_value": 206
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Open by applying Plague of Undeath (Plague DoT + reduced enemy Holy healing)'. The Holy-healing debuff is the closest thing the spec has to support and has no engine hook - there is no healing-received modifier a monster reads.",
       "target_type": "enemy",
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.30x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "necromancer_lichplague",
@@ -573,43 +579,46 @@
           "rank": 1,
           "level_req": 24,
           "cost": 25,
-          "effect_value": 96
+          "effect_value": 127
         },
         {
           "rank": 2,
           "level_req": 30,
           "cost": 25,
-          "effect_value": 126
+          "effect_value": 142
         },
         {
           "rank": 3,
           "level_req": 36,
           "cost": 25,
-          "effect_value": 156
+          "effect_value": 157
         },
         {
           "rank": 4,
           "level_req": 42,
           "cost": 25,
-          "effect_value": 186
+          "effect_value": 172
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 25,
-          "effect_value": 216
+          "effect_value": 188
         },
         {
           "rank": 6,
           "level_req": 54,
           "cost": 25,
-          "effect_value": 246
+          "effect_value": 203
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Lichplague on top so it scales up per disease already on the target' - 'Damage increased by 4% for each Necromancer disease on the enemy'. Nothing counts the DoTs on a target, so it is simply the largest disease and the latest one learned.",
       "target_type": "enemy",
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.61x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "necromancer_virulency",
@@ -625,38 +634,41 @@
           "rank": 1,
           "level_req": 28,
           "cost": 30,
-          "effect_value": 60
+          "effect_value": 74
         },
         {
           "rank": 2,
           "level_req": 35,
           "cost": 30,
-          "effect_value": 78
+          "effect_value": 84
         },
         {
           "rank": 3,
           "level_req": 42,
           "cost": 30,
-          "effect_value": 96
+          "effect_value": 93
         },
         {
           "rank": 4,
           "level_req": 49,
           "cost": 30,
-          "effect_value": 114
+          "effect_value": 103
         },
         {
           "rank": 5,
           "level_req": 56,
           "cost": 30,
-          "effect_value": 132
+          "effect_value": 113
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Reinvigorate your diseases, refreshing all diseases on the target enemy and copying them ... You may use this ability again within 10 sec to Infest another target'. Copying a live DoT package has no hook, so the spread is expressed directly: one cast puts the disease on up to four enemies itself.",
       "target_type": "enemy_aoe",
       "max_targets": 4,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.45x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "necromancer_harvest_plague",
@@ -672,43 +684,46 @@
           "rank": 1,
           "level_req": 22,
           "cost": 25,
-          "effect_value": 100
+          "effect_value": 125
         },
         {
           "rank": 2,
           "level_req": 29,
           "cost": 25,
-          "effect_value": 130
+          "effect_value": 143
         },
         {
           "rank": 3,
           "level_req": 36,
           "cost": 25,
-          "effect_value": 160
+          "effect_value": 161
         },
         {
           "rank": 4,
           "level_req": 43,
           "cost": 25,
-          "effect_value": 190
+          "effect_value": 179
         },
         {
           "rank": 5,
           "level_req": 50,
           "cost": 25,
-          "effect_value": 220
+          "effect_value": 197
         },
         {
           "rank": 6,
           "level_req": 57,
           "cost": 25,
-          "effect_value": 250
+          "effect_value": 215
         }
       ],
       "icon_id": null,
       "_source": "CoA: \"Harvest Plague's siphon, Plague Doctor and Plague Drinker only ever feed your own health bar\" - one of only two real sustain buttons in the Death kit.",
       "target_type": "enemy",
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.45x steeper than it, biggest single-rank jump 1.14x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "necromancer_apothecarys_cauldron",
@@ -749,43 +764,43 @@
           "rank": 1,
           "level_req": 18,
           "cost": 25,
-          "effect_value": 137
+          "effect_value": 180
         },
         {
           "rank": 2,
           "level_req": 24,
           "cost": 25,
-          "effect_value": 179
+          "effect_value": 204
         },
         {
           "rank": 3,
           "level_req": 30,
           "cost": 25,
-          "effect_value": 221
+          "effect_value": 229
         },
         {
           "rank": 4,
           "level_req": 36,
           "cost": 25,
-          "effect_value": 262
+          "effect_value": 253
         },
         {
           "rank": 5,
           "level_req": 42,
           "cost": 25,
-          "effect_value": 304
+          "effect_value": 277
         },
         {
           "rank": 6,
           "level_req": 48,
           "cost": 25,
-          "effect_value": 346
+          "effect_value": 301
         },
         {
           "rank": 7,
           "level_req": 54,
           "cost": 25,
-          "effect_value": 387
+          "effect_value": 326
         }
       ],
       "icon_id": null,
@@ -795,7 +810,8 @@
       "is_stun": true,
       "_over_time_lifted": 2.08,
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x2.08 - its total was 0.34x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+        "15 Nov 2026, class pass: every rank x2.08 - its total was 0.34x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.56x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {
@@ -812,43 +828,46 @@
           "rank": 1,
           "level_req": 22,
           "cost": 30,
-          "effect_value": 80
+          "effect_value": 100
         },
         {
           "rank": 2,
           "level_req": 29,
           "cost": 30,
-          "effect_value": 104
+          "effect_value": 114
         },
         {
           "rank": 3,
           "level_req": 36,
           "cost": 30,
-          "effect_value": 128
+          "effect_value": 129
         },
         {
           "rank": 4,
           "level_req": 43,
           "cost": 30,
-          "effect_value": 152
+          "effect_value": 143
         },
         {
           "rank": 5,
           "level_req": 50,
           "cost": 30,
-          "effect_value": 176
+          "effect_value": 158
         },
         {
           "rank": 6,
           "level_req": 57,
           "cost": 30,
-          "effect_value": 200
+          "effect_value": 172
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Use Glacial Impact on any Frozen target for its guaranteed crit (Glacier Lord)'. The Frozen requirement has no engine state to check - there is no Frozen flag - so it is castable always and the Frozen-only payoffs (Glacier Lord, Frigidness) are unconditional crit talents instead. The spec's biggest single hit.",
       "target_type": "enemy",
-      "damage_school": "frost"
+      "damage_school": "frost",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.45x steeper than it, biggest single-rank jump 1.14x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "necromancer_command_bonefreeze",
@@ -939,32 +958,35 @@
           "rank": 1,
           "level_req": 40,
           "cost": 35,
-          "effect_value": 58
+          "effect_value": 72
         },
         {
           "rank": 2,
           "level_req": 46,
           "cost": 35,
-          "effect_value": 75
+          "effect_value": 78
         },
         {
           "rank": 3,
           "level_req": 52,
           "cost": 35,
-          "effect_value": 92
+          "effect_value": 85
         },
         {
           "rank": 4,
           "level_req": 58,
           "cost": 35,
-          "effect_value": 109
+          "effect_value": 91
         }
       ],
       "icon_id": null,
       "_source": "CoA class tree: 'Animate a Frost Wyrm that flies behind the Necromancer that blasts nearby enemies every 2 sec for 30 seconds'. NOT a summon_pet: effect_type 'summon' does nothing, the engine only handles 'summon_pet' with a summon_pet_template that already exists in combat/pet_templates.py, and there is no frost-wyrm template (nor may one be added). A pet whose only job is to tick AoE damage on a timer IS a persistent AoE DoT, so that is what it is - the honest version, rather than the four Tinker abilities that shipped as 'summon' and summoned nothing for months.",
       "target_type": "enemy_aoe",
       "max_targets": 5,
-      "damage_school": "frost"
+      "damage_school": "frost",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.48x steeper than it, biggest single-rank jump 1.19x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "necromancer_raise_ghoul",
@@ -1076,56 +1098,59 @@
           "rank": 1,
           "level_req": 12,
           "cost": 25,
-          "effect_value": 40
+          "effect_value": 51
         },
         {
           "rank": 2,
           "level_req": 18,
           "cost": 25,
-          "effect_value": 52
+          "effect_value": 59
         },
         {
           "rank": 3,
           "level_req": 24,
           "cost": 25,
-          "effect_value": 64
+          "effect_value": 67
         },
         {
           "rank": 4,
           "level_req": 30,
           "cost": 25,
-          "effect_value": 76
+          "effect_value": 75
         },
         {
           "rank": 5,
           "level_req": 36,
           "cost": 25,
-          "effect_value": 88
+          "effect_value": 83
         },
         {
           "rank": 6,
           "level_req": 42,
           "cost": 25,
-          "effect_value": 100
+          "effect_value": 91
         },
         {
           "rank": 7,
           "level_req": 48,
           "cost": 25,
-          "effect_value": 112
+          "effect_value": 99
         },
         {
           "rank": 8,
           "level_req": 54,
           "cost": 25,
-          "effect_value": 124
+          "effect_value": 107
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Dump generated RP into Animate: Skeletal Archers for instant ranged bodies' - 'Animate 3 Skeletal Archers to aid you in combat for 15 seconds'. Three bodies at once cannot be pets: active_pet holds exactly one, and there is no archer template. A 15-second volley of ranged undead is AoE damage, so that is what it is.",
       "target_type": "enemy_aoe",
       "max_targets": 4,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.48x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "necromancer_animate_plaguefather",
@@ -1141,37 +1166,37 @@
           "rank": 1,
           "level_req": 24,
           "cost": 30,
-          "effect_value": 92
+          "effect_value": 119
         },
         {
           "rank": 2,
           "level_req": 30,
           "cost": 30,
-          "effect_value": 119
+          "effect_value": 133
         },
         {
           "rank": 3,
           "level_req": 36,
           "cost": 30,
-          "effect_value": 146
+          "effect_value": 148
         },
         {
           "rank": 4,
           "level_req": 42,
           "cost": 30,
-          "effect_value": 173
+          "effect_value": 162
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 30,
-          "effect_value": 201
+          "effect_value": 176
         },
         {
           "rank": 6,
           "level_req": 54,
           "cost": 30,
-          "effect_value": 228
+          "effect_value": 190
         }
       ],
       "icon_id": null,
@@ -1181,7 +1206,8 @@
       "damage_school": "shadow",
       "_over_time_lifted": 2.09,
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x2.09 - its total was 0.34x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+        "15 Nov 2026, class pass: every rank x2.09 - its total was 0.34x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.55x steeper than it, biggest single-rank jump 1.16x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {
@@ -1198,31 +1224,31 @@
           "rank": 1,
           "level_req": 30,
           "cost": 30,
-          "effect_value": 107
+          "effect_value": 134
         },
         {
           "rank": 2,
           "level_req": 37,
           "cost": 30,
-          "effect_value": 139
+          "effect_value": 150
         },
         {
           "rank": 3,
           "level_req": 44,
           "cost": 30,
-          "effect_value": 172
+          "effect_value": 167
         },
         {
           "rank": 4,
           "level_req": 51,
           "cost": 30,
-          "effect_value": 204
+          "effect_value": 184
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 30,
-          "effect_value": 237
+          "effect_value": 200
         }
       ],
       "icon_id": null,
@@ -1231,7 +1257,8 @@
       "max_targets": 5,
       "_over_time_lifted": 2.96,
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x2.96 - its total was 0.24x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+        "15 Nov 2026, class pass: every rank x2.96 - its total was 0.24x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.48x steeper than it, biggest single-rank jump 1.16x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {
@@ -1274,43 +1301,46 @@
           "rank": 1,
           "level_req": 20,
           "cost": 15,
-          "effect_value": 200
+          "effect_value": 247
         },
         {
           "rank": 2,
           "level_req": 27,
           "cost": 15,
-          "effect_value": 260
+          "effect_value": 284
         },
         {
           "rank": 3,
           "level_req": 34,
           "cost": 15,
-          "effect_value": 320
+          "effect_value": 322
         },
         {
           "rank": 4,
           "level_req": 41,
           "cost": 15,
-          "effect_value": 380
+          "effect_value": 359
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 15,
-          "effect_value": 440
+          "effect_value": 396
         },
         {
           "rank": 6,
           "level_req": 55,
           "cost": 15,
-          "effect_value": 500
+          "effect_value": 433
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Sacrifice Undead converts a destroyed pet into a max-HP heal' - one of the three things that keep Animation alive. The pet is not actually consumed: there is no ability-level hook to destroy active_pet, so this is a plain self-heal and the cost is Life Force rather than a minion.",
       "target_type": "self",
-      "is_instant": true
+      "is_instant": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.43x steeper than it, biggest single-rank jump 1.13x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "necromancer_corpse_wagon",

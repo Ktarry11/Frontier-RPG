@@ -316,19 +316,19 @@
           "rank": 1,
           "level_req": 8,
           "cost": 0,
-          "effect_value": 50
+          "effect_value": 58
         },
         {
           "rank": 2,
           "level_req": 15,
           "cost": 0,
-          "effect_value": 65
+          "effect_value": 70
         },
         {
           "rank": 3,
           "level_req": 22,
           "cost": 0,
-          "effect_value": 79
+          "effect_value": 82
         },
         {
           "rank": 4,
@@ -340,30 +340,33 @@
           "rank": 5,
           "level_req": 35,
           "cost": 0,
-          "effect_value": 108
+          "effect_value": 104
         },
         {
           "rank": 6,
           "level_req": 42,
           "cost": 0,
-          "effect_value": 123
+          "effect_value": 116
         },
         {
           "rank": 7,
           "level_req": 49,
           "cost": 0,
-          "effect_value": 137
+          "effect_value": 127
         },
         {
           "rank": 8,
           "level_req": 56,
           "cost": 0,
-          "effect_value": 152
+          "effect_value": 139
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Temple Guardian is your gap-closer and opener. It charges to an ally, healing you both, 3 charges on a 35 sec recharge'. There is no two-target heal and no charge system, so it heals the party on a short cooldown.",
-      "target_type": "party"
+      "target_type": "party",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.27x steeper than it, biggest single-rank jump 1.08x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "templar_benediction",
@@ -379,19 +382,19 @@
           "rank": 1,
           "level_req": 10,
           "cost": 40,
-          "effect_value": 96
+          "effect_value": 116
         },
         {
           "rank": 2,
           "level_req": 17,
           "cost": 40,
-          "effect_value": 125
+          "effect_value": 138
         },
         {
           "rank": 3,
           "level_req": 24,
           "cost": 40,
-          "effect_value": 154
+          "effect_value": 161
         },
         {
           "rank": 4,
@@ -403,30 +406,33 @@
           "rank": 5,
           "level_req": 37,
           "cost": 40,
-          "effect_value": 213
+          "effect_value": 202
         },
         {
           "rank": 6,
           "level_req": 44,
           "cost": 40,
-          "effect_value": 242
+          "effect_value": 224
         },
         {
           "rank": 7,
           "level_req": 51,
           "cost": 40,
-          "effect_value": 271
+          "effect_value": 247
         },
         {
           "rank": 8,
           "level_req": 58,
           "cost": 40,
-          "effect_value": 300
+          "effect_value": 269
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Benediction is your baseline reactive heal. It scales with Stamina and consumes banked Oaths for extra healing'. The Stamina scaling is a real conversion key - see Oathkeeper's Fortified Body.",
-      "target_type": "ally"
+      "target_type": "ally",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.35x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "templar_blade_of_faith",
@@ -626,36 +632,39 @@
           "rank": 1,
           "level_req": 30,
           "cost": 0,
-          "effect_value": 150
+          "effect_value": 187
         },
         {
           "rank": 2,
           "level_req": 37,
           "cost": 0,
-          "effect_value": 195
+          "effect_value": 210
         },
         {
           "rank": 3,
           "level_req": 44,
           "cost": 0,
-          "effect_value": 240
+          "effect_value": 234
         },
         {
           "rank": 4,
           "level_req": 51,
           "cost": 0,
-          "effect_value": 285
+          "effect_value": 257
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 0,
-          "effect_value": 330
+          "effect_value": 280
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Libram of Grace makes each of them restore health to you and nearby allies, which on a large pull is party throughput'. The one Libram that is NOT in the exclusive group: the hot branch of _apply_effect does not pass exclusive_group to the StatusEffect it builds, so the one-Libram-at-a-time rule cannot bind a heal-over-time.",
-      "target_type": "party"
+      "target_type": "party",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.47x steeper than it, biggest single-rank jump 1.16x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "templar_testament_of_fortitude",
@@ -671,42 +680,45 @@
           "rank": 1,
           "level_req": 24,
           "cost": 0,
-          "effect_value": 260
+          "effect_value": 312
         },
         {
           "rank": 2,
           "level_req": 30,
           "cost": 0,
-          "effect_value": 324
+          "effect_value": 349
         },
         {
           "rank": 3,
           "level_req": 37,
           "cost": 0,
-          "effect_value": 388
+          "effect_value": 392
         },
         {
           "rank": 4,
           "level_req": 43,
           "cost": 0,
-          "effect_value": 452
+          "effect_value": 429
         },
         {
           "rank": 5,
           "level_req": 50,
           "cost": 0,
-          "effect_value": 516
+          "effect_value": 473
         },
         {
           "rank": 6,
           "level_req": 56,
           "cost": 0,
-          "effect_value": 580
+          "effect_value": 510
         }
       ],
       "icon_id": null,
       "_source": "CoA class tree: 'Meditate for 15 seconds, restoring 5% of your maximum health every 1 sec and reducing damage taken by -50%'. The mitigation half is dropped: a HOT's stat_mods never reach get_status_stat_mod, which is where damage_taken_pct is read, so it would have been silently inert. The heal is the half worth keeping.",
-      "target_type": "self"
+      "target_type": "self",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.37x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "templar_testament_of_will",
@@ -746,36 +758,39 @@
           "rank": 1,
           "level_req": 34,
           "cost": 0,
-          "effect_value": 300
+          "effect_value": 395
         },
         {
           "rank": 2,
           "level_req": 40,
           "cost": 0,
-          "effect_value": 395
+          "effect_value": 435
         },
         {
           "rank": 3,
           "level_req": 46,
           "cost": 0,
-          "effect_value": 490
+          "effect_value": 474
         },
         {
           "rank": 4,
           "level_req": 52,
           "cost": 0,
-          "effect_value": 585
+          "effect_value": 513
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 0,
-          "effect_value": 680
+          "effect_value": 552
         }
       ],
       "icon_id": null,
       "_source": "CoA Oathkeeper weaknesses: 'Testament of Faith and the class kit's Libram of Tenacity each live on their own cooldown'. Its own class-tree node Final Prayer 'doubles the healing done to you by Testament of Fortitude and Testament of Faith', so it is a burst heal. Sacred Restraint cannot bind it - an instant heal leaves no StatusEffect for exclusive_group to sit on.",
-      "target_type": "ally"
+      "target_type": "ally",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.62x steeper than it, biggest single-rank jump 1.20x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "templar_testament_of_hope",
@@ -877,42 +892,45 @@
           "rank": 1,
           "level_req": 20,
           "cost": 60,
-          "effect_value": 96
+          "effect_value": 116
         },
         {
           "rank": 2,
           "level_req": 27,
           "cost": 60,
-          "effect_value": 123
+          "effect_value": 133
         },
         {
           "rank": 3,
           "level_req": 34,
           "cost": 60,
-          "effect_value": 150
+          "effect_value": 151
         },
         {
           "rank": 4,
           "level_req": 41,
           "cost": 60,
-          "effect_value": 177
+          "effect_value": 168
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 60,
-          "effect_value": 204
+          "effect_value": 186
         },
         {
           "rank": 6,
           "level_req": 55,
           "cost": 60,
-          "effect_value": 231
+          "effect_value": 203
         }
       ],
       "icon_id": null,
       "_source": "CoA Zealot: 'Unleash a dominating Oath Breaker, dealing SP Physical damage, increased by 3% for each time you triggered Zealotry during your Oath Chain'. Physical, not Holy, which is why it is the one Zealot finisher that does not want Holy scaling.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.37x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "templar_force_of_golganneth",
@@ -928,32 +946,35 @@
           "rank": 1,
           "level_req": 36,
           "cost": 20,
-          "effect_value": 165
+          "effect_value": 197
         },
         {
           "rank": 2,
           "level_req": 43,
           "cost": 20,
-          "effect_value": 211
+          "effect_value": 219
         },
         {
           "rank": 3,
           "level_req": 50,
           "cost": 20,
-          "effect_value": 257
+          "effect_value": 241
         },
         {
           "rank": 4,
           "level_req": 57,
           "cost": 20,
-          "effect_value": 303
+          "effect_value": 263
         }
       ],
       "icon_id": null,
       "_source": "CoA Zealot: 'Force of Golganneth is a two-minute cooldown that explodes for holy damage and triggers Zealotry on every nearby enemy for several seconds' and 'Force of Golganneth is your best AoE button'. A repeating explosion over several seconds is a DoT here.",
       "target_type": "enemy_aoe",
       "max_targets": 5,
-      "damage_school": "holy"
+      "damage_school": "holy",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.37x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "templar_norgannons_wrath",
@@ -969,19 +990,19 @@
           "rank": 1,
           "level_req": 46,
           "cost": 40,
-          "effect_value": 200
+          "effect_value": 236
         },
         {
           "rank": 2,
           "level_req": 52,
           "cost": 40,
-          "effect_value": 260
+          "effect_value": 256
         },
         {
           "rank": 3,
           "level_req": 58,
           "cost": 40,
-          "effect_value": 320
+          "effect_value": 275
         }
       ],
       "icon_id": null,
@@ -989,7 +1010,10 @@
       "target_type": "enemy_aoe",
       "max_targets": 5,
       "damage_school": "holy",
-      "requires_talent": true
+      "requires_talent": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.37x steeper than it, biggest single-rank jump 1.20x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "templar_sacred_swing",
@@ -1192,49 +1216,49 @@
           "rank": 1,
           "level_req": 12,
           "cost": 0,
-          "effect_value": 84,
+          "effect_value": 99,
           "heal_value": 40
         },
         {
           "rank": 2,
           "level_req": 19,
           "cost": 0,
-          "effect_value": 108,
+          "effect_value": 117,
           "heal_value": 52
         },
         {
           "rank": 3,
           "level_req": 26,
           "cost": 0,
-          "effect_value": 132,
+          "effect_value": 135,
           "heal_value": 64
         },
         {
           "rank": 4,
           "level_req": 33,
           "cost": 0,
-          "effect_value": 156,
+          "effect_value": 152,
           "heal_value": 76
         },
         {
           "rank": 5,
           "level_req": 40,
           "cost": 0,
-          "effect_value": 180,
+          "effect_value": 170,
           "heal_value": 88
         },
         {
           "rank": 6,
           "level_req": 47,
           "cost": 0,
-          "effect_value": 204,
+          "effect_value": 188,
           "heal_value": 100
         },
         {
           "rank": 7,
           "level_req": 54,
           "cost": 0,
-          "effect_value": 228,
+          "effect_value": 206,
           "heal_value": 112
         }
       ],
@@ -1244,7 +1268,10 @@
         "amount": 20
       },
       "_source": "CoA Crusader: 'Crush an enemy with argent fervor ... healing you equal to the damage dealt, and extending the duration of your Oath Chain by 3 sec', 'keep Argent Blade flowing to extend the Oath Chain'. There is no Oath Chain timer, so extending it becomes generating an Oath, which is the same thing: the Combo bank IS the Chain. The heal goes through heal_scope lowest_ally, so solo it lands on the Templar as written, and in a party it finds whoever needs it more.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.30x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "templar_titanstrike",
@@ -1260,49 +1287,52 @@
           "rank": 1,
           "level_req": 22,
           "cost": 40,
-          "effect_value": 190,
+          "effect_value": 233,
           "heal_value": 70
         },
         {
           "rank": 2,
           "level_req": 29,
           "cost": 40,
-          "effect_value": 244,
+          "effect_value": 266,
           "heal_value": 92
         },
         {
           "rank": 3,
           "level_req": 36,
           "cost": 40,
-          "effect_value": 298,
+          "effect_value": 300,
           "heal_value": 114
         },
         {
           "rank": 4,
           "level_req": 43,
           "cost": 40,
-          "effect_value": 352,
+          "effect_value": 333,
           "heal_value": 136
         },
         {
           "rank": 5,
           "level_req": 50,
           "cost": 40,
-          "effect_value": 406,
+          "effect_value": 367,
           "heal_value": 158
         },
         {
           "rank": 6,
           "level_req": 57,
           "cost": 40,
-          "effect_value": 460,
+          "effect_value": 400,
           "heal_value": 180
         }
       ],
       "icon_id": null,
       "_source": "CoA Crusader: 'Titanstrike is your execute below 35% health and heals you for the damage dealt, twice that with Titanfall talented'. execute_threshold_pct is a PERCENT here, not a fraction - the engine compares it against target health on a 0-100 scale, and every shipped execute (Warrior 20, Cultist 35, Primalist 25/50) is written that way.",
       "target_type": "enemy",
-      "execute_threshold_pct": 35
+      "execute_threshold_pct": 35,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.41x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "templar_righteous_tempest",
@@ -1318,31 +1348,31 @@
           "rank": 1,
           "level_req": 28,
           "cost": 80,
-          "effect_value": 210
+          "effect_value": 254
         },
         {
           "rank": 2,
           "level_req": 35,
           "cost": 80,
-          "effect_value": 268
+          "effect_value": 286
         },
         {
           "rank": 3,
           "level_req": 42,
           "cost": 80,
-          "effect_value": 326
+          "effect_value": 319
         },
         {
           "rank": 4,
           "level_req": 49,
           "cost": 80,
-          "effect_value": 384
+          "effect_value": 351
         },
         {
           "rank": 5,
           "level_req": 56,
           "cost": 80,
-          "effect_value": 442
+          "effect_value": 384
         }
       ],
       "icon_id": null,
@@ -1350,7 +1380,10 @@
       "target_type": "enemy_aoe",
       "max_targets": 5,
       "requires_talent": true,
-      "damage_school": "physical"
+      "damage_school": "physical",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.39x steeper than it, biggest single-rank jump 1.13x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "templar_scarlet_hammer",
@@ -1366,37 +1399,40 @@
           "rank": 1,
           "level_req": 30,
           "cost": 40,
-          "effect_value": 110
+          "effect_value": 135
         },
         {
           "rank": 2,
           "level_req": 37,
           "cost": 40,
-          "effect_value": 141
+          "effect_value": 151
         },
         {
           "rank": 3,
           "level_req": 44,
           "cost": 40,
-          "effect_value": 172
+          "effect_value": 168
         },
         {
           "rank": 4,
           "level_req": 51,
           "cost": 40,
-          "effect_value": 203
+          "effect_value": 185
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 40,
-          "effect_value": 234
+          "effect_value": 201
         }
       ],
       "icon_id": null,
       "_source": "CoA Crusader: 'Drop a scarlet hammer on an enemy for 155% Weapon Damage plus 35 as Holy Damage and reduce their Armor by 555 for 10 seconds'. Reached in CoA by casting Argent Blade under Warrior of Dawn, which no ability-transform mechanic can express, so it is its own button. The armour reduction is dropped for the same reason as Divine Fury's.",
       "target_type": "enemy",
-      "damage_school": "holy"
+      "damage_school": "holy",
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.42x steeper than it, biggest single-rank jump 1.14x); overall size kept. tools/fix_rank_lines.py"
+      ]
     },
     {
       "ability_id": "templar_crusaders_brand",

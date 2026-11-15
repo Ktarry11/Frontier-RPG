@@ -196,37 +196,38 @@
           "rank": 1,
           "level_req": 16,
           "cost": 46,
-          "effect_value": 87
+          "effect_value": 107
         },
         {
           "rank": 2,
           "level_req": 26,
           "cost": 71,
-          "effect_value": 126
+          "effect_value": 132
         },
         {
           "rank": 3,
           "level_req": 38,
           "cost": 97,
-          "effect_value": 165
+          "effect_value": 162
         },
         {
           "rank": 4,
           "level_req": 48,
           "cost": 122,
-          "effect_value": 204
+          "effect_value": 187
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 147,
-          "effect_value": 243
+          "effect_value": 212
         }
       ],
       "icon_id": null,
       "cast_speed": "slow",
       "_tuning": [
-        "15 Nov 2026: a slow cast (Kyle: \"Speed sets next turn\"), sized 1.5x for 1.15x the cost (tools/apply_cast_speeds.py)"
+        "15 Nov 2026: a slow cast (Kyle: \"Speed sets next turn\"), sized 1.5x for 1.15x the cost (tools/apply_cast_speeds.py)",
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.40x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py"
       ]
     },
     {
