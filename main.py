@@ -164,6 +164,12 @@ def main():
                 else:
                     display_screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
                 continue
+            # THE WHEEL IS NEVER A CLICK. pygame sends a wheel turn twice: as MOUSEWHEEL and as
+            # MOUSEBUTTONDOWN/UP with button 4-7. Most screens treat any MOUSEBUTTONDOWN as a click,
+            # so scrolling the recipe list crafted whatever was under the cursor (Kyle, 14 Nov:
+            # "using the mousewheel to scroll CRAFTS the item....bad"). Screens scroll on MOUSEWHEEL.
+            if event.type in (pygame.MOUSEBUTTONDOWN, pygame.MOUSEBUTTONUP) and getattr(event, "button", 1) in (4, 5, 6, 7):
+                continue
             if hasattr(event, "pos"):
                 raw_x, raw_y = event.pos
                 logical_x = int((raw_x - offset_x) * scale_x)

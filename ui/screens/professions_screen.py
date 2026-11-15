@@ -182,7 +182,8 @@ class ProfessionsScreen(BaseScreen):
                 self.craft_scroll += 1
             elif event.key == pygame.K_UP:
                 self.craft_scroll = max(0, self.craft_scroll - 1)
-        if event.type == pygame.MOUSEBUTTONDOWN:
+        # left button only: the wheel's button-4/5 events must never craft (main.py drops them too)
+        if event.type == pygame.MOUSEBUTTONDOWN and getattr(event, "button", 1) == 1:
             if self.close_button.collidepoint(event.pos):
                 self._close()
                 return

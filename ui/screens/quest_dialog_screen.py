@@ -263,24 +263,20 @@ class QuestDialogScreen(BaseScreen):
             self.state_manager.transition_to(GameState.OVERWORLD)
             return
 
-        # Wheel scrolling for the pick list. pygame sends the wheel as
-        # MOUSEBUTTONDOWN buttons 4/5, so this has to run before the
-        # button-4/5 events fall through to the click handlers below
-        # and get treated as a click on whatever is under the cursor.
-        if self.mode == "menu" and event.type == pygame.MOUSEBUTTONDOWN \
-                and event.button in (4, 5):
+        # Wheel scrolling for the pick list (main.py drops the wheel's button-4/5 clicks, so the
+        # wheel arrives only as MOUSEWHEEL).
+        if self.mode == "menu" and event.type == pygame.MOUSEWHEEL:
             self.menu_scroll = max(
                 0, min(self.menu_max_scroll,
-                       self.menu_scroll + (-1 if event.button == 4 else 1)))
+                       self.menu_scroll + (-1 if event.y > 0 else 1)))
             return
 
         # Same for the offer panel's prose, which scrolls independently of
         # the pinned reward block below it.
-        if self.mode == "offer" and event.type == pygame.MOUSEBUTTONDOWN \
-                and event.button in (4, 5):
+        if self.mode == "offer" and event.type == pygame.MOUSEWHEEL:
             self.offer_scroll = max(
                 0, min(self.offer_max_scroll,
-                       self.offer_scroll + (-40 if event.button == 4 else 40)))
+                       self.offer_scroll + (-40 if event.y > 0 else 40)))
             return
 
         if event.type != pygame.MOUSEBUTTONDOWN:
