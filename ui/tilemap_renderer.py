@@ -393,7 +393,7 @@ class TilemapRenderer:
     def render_tilemap(self, screen, tilemap, player_pos=None, camera=None, viewport_rect=None,
                         vendors=None, recruits=None, ambient_npcs=None, cave_spawns=None,
                         gathering_nodes=None,
-                        player=None, player_facing="down", quest_indicators=None,
+                        player=None, player_facing="down", quest_indicators=None, player_draw_pos=None,
                         creature_manager=None):
         """Render tilemap using camera viewport.
         
@@ -821,8 +821,11 @@ class TilemapRenderer:
 
         # Draw player position
         if player_pos:
-            player_x, player_y = player_pos
+            # player_draw_pos: where the player is DRAWN, part way between two tiles while a step
+            # slides (OverworldScreen._slide_pos). Everything else goes by the tile they stand on.
+            player_x, player_y = player_draw_pos or player_pos
             screen_x, screen_y = camera.world_to_screen(player_x, player_y, self.tile_size)
+            screen_x, screen_y = int(round(screen_x)), int(round(screen_y))
             
             # Offset by viewport position on screen
             screen_x += viewport_rect.x

@@ -969,8 +969,10 @@ class OverworldScreen(BaseScreen):
         # simply doesn't run at all while it's open, the same way it
         # doesn't run while Inventory/Party/Map are open.
         self.movement_cooldown -= dt
+        self._slide_elapsed = getattr(self, "_slide_elapsed", 0.0) + dt
         if self.movement_cooldown <= 0:
             moved = False
+            _step_from = self.zone_manager.get_player_pos()
             if self.keys_pressed['W']:
                 if self.zone_manager.move_player(0, -1):
                     moved = True
@@ -987,6 +989,11 @@ class OverworldScreen(BaseScreen):
             if moved:
                 from world.travel_manager import get_travel_manager
                 self.movement_cooldown = 0.1 / get_travel_manager().speed_mult()  # 100ms/tile on foot, faster mounted
+                # The step is drawn as a slide over the same time the next step waits, so a held
+                # key reads as walking rather than hopping.
+                self._slide_from = _step_from
+                self._slide_elapsed = 0.0
+                self._slide_dur = self.movement_cooldown
                 found = getattr(self.zone_manager, "last_secret_found", None)
                 if found:
                     self.zone_manager.last_secret_found = None
@@ -1033,9 +1040,21 @@ class OverworldScreen(BaseScreen):
                         self.state_manager.current_enemies = enemies
                         self.state_manager.transition_to(GameState.COMBAT)
         
-        # Update camera to follow player
-        player_pos = self.zone_manager.get_player_pos()
-        self.camera.update(player_pos[0], player_pos[1], zone.width, zone.height, self.tilemap_renderer.tile_size)
+        # Update camera to follow player (where the player is drawn, so a slide carries the view)
+        dx, dy = self._slide_pos()
+        self.camera.update(dx, dy, zone.width, zone.height, self.tilemap_renderer.tile_size)
+
+    def _slide_pos(self):
+        """Where the player is DRAWN: part way from the last tile to this one while a step slides
+        (motion step 1, claude/walk_cycle_prompts.md). Anything but a one-tile step - a portal, a
+        hearth, a zone change, a teleport - snaps."""
+        px, py = self.zone_manager.get_player_pos()
+        src = getattr(self, "_slide_from", None)
+        dur = getattr(self, "_slide_dur", 0.0)
+        if not src or dur <= 0 or abs(src[0] - px) + abs(src[1] - py) != 1:
+            return float(px), float(py)
+        t = min(1.0, getattr(self, "_slide_elapsed", 0.0) / dur)
+        return src[0] + (px - src[0]) * t, src[1] + (py - src[1]) * t
     
     def _render_banter(self, screen):
         from world.banter_manager import get_banter_manager
@@ -1092,7 +1111,7 @@ class OverworldScreen(BaseScreen):
         _old_clip = screen.get_clip()
         screen.set_clip(self.viewport_rect)
         try:
-                    self.tilemap_renderer.render_tilemap(screen, zone, player_pos, camera=self.camera, viewport_rect=self.viewport_rect, vendors=vendors_in_zone, recruits=recruits_in_zone, ambient_npcs=ambient_npcs_in_zone, cave_spawns=cave_spawn_positions, gathering_nodes=gathering_node_positions, creature_manager=self.zone_manager.creature_manager, player=player, player_facing=self.zone_manager.player_facing, quest_indicators=quest_indicators)
+                    self.tilemap_renderer.render_tilemap(screen, zone, player_pos, camera=self.camera, viewport_rect=self.viewport_rect, vendors=vendors_in_zone, recruits=recruits_in_zone, ambient_npcs=ambient_npcs_in_zone, cave_spawns=cave_spawn_positions, gathering_nodes=gathering_node_positions, creature_manager=self.zone_manager.creature_manager, player=player, player_facing=self.zone_manager.player_facing, quest_indicators=quest_indicators, player_draw_pos=self._slide_pos())
                     self._render_tracking(screen)
                     self._render_cast(screen)
         finally:
