@@ -493,7 +493,7 @@ CLASSES = {
             "tinker_build_clockwork_assistant": "a sixth pet",
         },
         "REWORD": {
-            "tinker_zap": "Fires a zap of electricity that heals an ally for 332. Scales with modifiers to Repair Shot.",
+            "tinker_zap": "Fires a zap of electricity that heals an ally. Scales with modifiers to Repair Shot.",
         },
         "PASSIVE": {},
     },

@@ -247,7 +247,7 @@
     {
       "talent_id": "starcaller_moon_guard_astral_reconstitution",
       "name": "Astral Reconstitution",
-      "description": "Taking damage has a 25% chance per rank to reconstitute 1.5% of your maximum mana.",
+      "description": "Taking damage has a 25% chance per rank to reconstitute 2% of your maximum mana.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 4,
@@ -265,10 +265,13 @@
         "icd": 0,
         "grant_resource": {
           "resource": "mana",
-          "pct_max": 0.015,
+          "pct_max": 0.02,
           "_was": "a flat 39 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
-      }
+      },
+      "_tuning": [
+        "15 Nov 2026: mana refund rounded to a whole 2% of the bar (Kyle: no decimal percents)"
+      ]
     },
     {
       "talent_id": "starcaller_moon_guard_guarded_by_the_moon",

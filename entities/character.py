@@ -1279,6 +1279,68 @@ class Character(StatusEffectMixin):
         self.spirit = int(self.spirit)
         self.agility = int(self.agility)
     
+    #: "<target>_from_<source>_pct" conversion talents: target name -> [(bonus key, kind)]. kind "flat" adds the
+    #: amount, "sp"/"heal" lift it onto the item scale the sheet shows (entities/power_scale.py), "rating" adds it as
+    #: rating points (10 to the percent).
+    CONVERSION_TARGETS = {
+        "attack_power": [("attack_power", "flat")], "ap": [("attack_power", "flat")],
+        "ranged_ap": [("ranged_attack_power", "flat")],
+        "spell_power": [("spell_power", "sp")], "spell_damage": [("spell_power", "sp")],
+        "healing_power": [("healing_power", "heal")],
+        "armor": [("armor", "flat")], "block_value": [("block_value", "flat")],
+        "crit_chance_spell": [("crit_chance_spell", "rating")],
+        "crit_chance": [("crit_chance_physical", "rating")],
+        "crit": [("crit_chance_physical", "rating"), ("crit_chance_spell", "rating")],
+        "dodge": [("dodge", "rating")], "parry": [("parry", "rating")], "block": [("block", "rating")],
+        "haste": [("haste", "rating")], "hit": [("hit_rating", "rating")],
+    }
+
+    def _main_hand_average(self):
+        try:
+            w = self.equipment.get_main_hand_weapon()
+            return ((w.weapon_damage_min + w.weapon_damage_max) / 2.0) if w and w.weapon_damage_max else 0.0
+        except Exception:                                       # noqa: BLE001
+            return 0.0
+
+    def _add_conversion(self, bonuses, target, amount):
+        from entities import power_scale as _PSm
+        for key, kind in self.CONVERSION_TARGETS.get(target, ()):
+            if kind == "sp":
+                v = amount * _PSm.SPELL
+            elif kind == "heal":
+                v = amount * _PSm.HEALING
+            elif kind == "rating":
+                v = amount / _PSm.RATING_PER_PCT
+            else:                       # flat, and hit (bonuses carry hit as rating points already)
+                v = amount
+            bonuses[key] = bonuses.get(key, 0) + v
+
+    def _apply_stat_conversions(self, bonuses, sources):
+        """Fold every "<target>_from_<source>_pct" talent into bonuses. Returns the attack-power-sourced ones
+        [(target, pct)] for the caller to apply once attack power is known."""
+        import re as _re
+        later = []
+        effects = self.get_talent_effects() if getattr(self, "talent_trees", None) else {}
+        for key, pct in effects.items():
+            m = _re.match(r"^([a-z_]+?)_from_([a-z_]+)_pct$", key)
+            if not m or not isinstance(pct, (int, float)) or not pct:
+                continue
+            target, source = m.group(1), m.group(2)
+            if target not in self.CONVERSION_TARGETS:
+                continue
+            if source in ("ap", "attack_power"):
+                later.append((target, pct))
+                continue
+            if source in sources:
+                self._add_conversion(bonuses, target, pct * (sources[source] or 0))
+        return later
+
+    #: Melee attack power per point of Agility (Strength gives 2). 0.5 until 15 Nov 2026: Classic gave agility melee
+    #: 1 AP an Agility (Rogues, Cat Form), and at 0.5 the sixteen agility-geared melee specs got a quarter of what a
+    #: Strength user gets from its main stat - a level-40 Arms Warrior had 547 AP, a Combat Rogue 392 and a Cat
+    #: Form Druid 280, and Feral, Assassination and Enhancement sat at the damage aura's clamp (the class pass).
+    AGI_MELEE_AP = 1.0
+
     def _recalculate_derived_stats(self):
         """Recalculate all derived stats from base stats + equipped gear bonuses."""
         # Gear that DOES something rides along with gear that adds stats. Here rather than in
@@ -1413,6 +1475,19 @@ class Character(StatusEffectMixin):
         self.effective_spirit = eff_spirit
         self.effective_agility = eff_agility
 
+        # STAT CONVERSION TALENTS ("<target>_from_<source>_pct"). 99 talents across the game - Mental Quickness
+        # ("spell power equal to 10% of your attack power"), Spiritual Guidance, Ice Mastery, Lunar Guidance,
+        # Nurturing Instinct, Careful Aim, Arcane Fortitude... - were authored with these keys and NOTHING read
+        # them, so a point in any of them did nothing (tools/audit_dead_talent_keys.py, class pass 15 Nov 2026).
+        # The target gains pct x the source. Power stats (attack, ranged and spell power, healing, armour, block
+        # value) gain that much; chance stats (crit, dodge, parry, block, haste, hit) gain it as RATING, 10 to the
+        # percent like the items' ratings (entities/power_scale.RATING_PER_PCT) - "21% of your Intellect as spell
+        # crit" read as raw percent would be 60%+ crit.
+        _conv_ap = self._apply_stat_conversions(bonuses, {
+            "strength": eff_strength, "agility": eff_agility, "intellect": eff_intellect,
+            "spirit": eff_spirit, "stamina": eff_stamina, "str_int": eff_strength + eff_intellect,
+            "weapon": self._main_hand_average()})
+
         # Attack Power
         # attack_power_pct (CoA's Boon of the Bear: "+10% Attack Power") is
         # a straight multiplier on the final value, same two-layer pattern
@@ -1424,7 +1499,7 @@ class Character(StatusEffectMixin):
         # so gear keeps its share of your damage and a monster's hit keeps its share of your health.
         from combat.world_curve import world_scale as _world_scale
         _ws = _world_scale(self.level)
-        self.attack_power = int((int(eff_strength * 2 + eff_agility * 0.5) + int(bonuses.get("attack_power", 0)))
+        self.attack_power = int((int(eff_strength * 2 + eff_agility * self.AGI_MELEE_AP) + int(bonuses.get("attack_power", 0)))
                                  * (1.0 + bonuses.get("attack_power_pct", 0) / 100.0) * _ws)
         # RANGED attack power takes +Attack Power from gear too, as in WoW, plus anything that
         # is ranged-only. It used to be Agility and Strength and nothing else, so every point
@@ -1450,6 +1525,9 @@ class Character(StatusEffectMixin):
         # WoW and could only have done half the job.
         # Intellect's share is on the item scale too (Kyle, 14 Nov: "1 int = 1.5 sp =2 Healing";
         # entities/power_scale.py), so the sheet adds up. Combat divides the lift back out.
+        # the conversions FROM attack power, now that it exists (on the old scale: combat applies the world curve)
+        for _target, _pct in _conv_ap:
+            self._add_conversion(bonuses, _target, _pct * (self.attack_power / max(1e-9, _ws)))
         self.spell_power = int((int(eff_intellect * 0.2 * _PS.SPELL) + int(bonuses.get("spell_power", 0)))
                                * (1.0 + bonuses.get("spell_power_pct", 0) / 100.0))
         # healing_power_pct (Starcaller's Aspect of the Goddess: "+15%
@@ -2715,17 +2793,25 @@ class Character(StatusEffectMixin):
             return 1.0 / self._stat_per_percent(pair, max(1, self.level))
         from combat.abilities import get_class_resource, ResourceType
         is_mana = get_class_resource(self.char_class, self) == ResourceType.MANA
+        # health, mana, attack power and regen are sized by the world curve at this level (combat/world_curve.py),
+        # so a point is worth more as you level: the per-point lines say what a point is worth NOW
+        from combat.world_curve import world_scale
+        ws = world_scale(self.level)
+
+        def n(v):
+            v = v * ws
+            return f"{v:.0f}" if v >= 10 else f"{v:.1f}".rstrip("0").rstrip(".")
 
         stat_name = stat_name.lower()
         if stat_name == "strength":
             return [
-                "+2 Attack Power per point",
+                f"+{n(2)} Attack Power per point",
                 f"+{_pct_per_point(self.STR_PER_BLOCK):.2f}% Block per point",
                 f"+{_pct_per_point(self.STR_PER_PARRY):.2f}% Parry per point",
             ]
         if stat_name == "stamina":
             return [
-                "+8 Max Health per point",
+                f"+{n(8)} Max Health per point",
                 "+2 Armor per point",
                 f"Armor {self.armor} = {self.get_physical_reduction_percent():.1f}% phys reduction",
             ]
@@ -2737,7 +2823,7 @@ class Character(StatusEffectMixin):
                 f"+{_pct_per_point(self.STAT_PER_HASTE):.2f}% Haste per point",
             ]
             if is_mana:
-                lines.insert(0, "+15 Max Mana per point")
+                lines.insert(0, f"+{n(15)} Max Mana per point")
             return lines
         if stat_name == "spirit":
             lines = [
@@ -2746,13 +2832,13 @@ class Character(StatusEffectMixin):
                 f"MR {self.magic_resistance} = {self.get_magic_reduction_percent():.1f}% magic reduction",
             ]
             if is_mana:
-                lines.insert(0, "+0.5 Mana regen per turn/step")
-                lines.insert(1, "+5 Max Mana per point")
+                lines.insert(0, f"+{n(self.MANA_PER_SPIRIT_PER_TURN)} Mana regen per turn (out of the five-second rule)")
+                lines.insert(1, f"+{n(5)} Max Mana per point")
             return lines
         if stat_name == "agility":
             return [
-                "+0.5 Attack Power per point",
-                "+2 Ranged Attack Power per point",
+                f"+{n(self.AGI_MELEE_AP)} Attack Power per point",
+                f"+{n(2)} Ranged Attack Power per point",
                 f"+{_pct_per_point(self.AGI_PER_CRIT):.2f}% Physical Crit per point",
                 f"+{_pct_per_point(self.AGI_PER_DODGE):.2f}% Dodge per point",
                 f"+{_pct_per_point(self.STAT_PER_HASTE):.2f}% Haste per point",
@@ -3918,6 +4004,9 @@ class Character(StatusEffectMixin):
         # Update ability cooldowns (NOW DONE AT END OF TURN VIA decrement_all_cooldowns)
         pass
     
+    #: Energy back at the end of each of an energy user's turns (Rogue, Druid in Cat Form). Specials cost 35-60.
+    ENERGY_PER_TURN = 25
+
     def restore_resources_between_turns(self):
         """Restore resources when turn ends (for next turn)."""
         from combat.abilities import get_class_resource, ResourceType
@@ -3929,7 +4018,7 @@ class Character(StatusEffectMixin):
         # could ever spend it - harmless in practice but pointless busywork
         # and confusing if surfaced in UI/debugging later.
         if resource == ResourceType.ENERGY:
-            self.current_energy = min(self.max_energy, self.current_energy + 25)
+            self.current_energy = min(self.max_energy, self.current_energy + self.ENERGY_PER_TURN)
 
         # Mana regen tied to Spirit (0.5 mana per point of effective Spirit,
         # so 10 Spirit = 5 mana/turn). Only Mana-resource classes have a

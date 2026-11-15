@@ -122,7 +122,7 @@
     {
       "talent_id": "druid_restoration_intensity",
       "name": "Intensity",
-      "description": "Lets 17% of your Spirit mana regeneration continue while casting, per rank (50% at 3 ranks).",
+      "description": "Lets 17% of your Spirit mana regeneration continue while casting, per rank (51% at 3 ranks).",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -130,7 +130,7 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "mana_regen_while_casting": 0.1667
+        "mana_regen_while_casting": 0.17
       },
       "_source": "WotLK row 2: 'Allows 17%-50% of your Mana regeneration to continue while casting.' DEPARTURE - there is no casting/not-casting distinction without cast times, so regen-while-casting becomes plain regen. mp5 is FLAT and measured LIVE (mp5=5 moved the attribute +5); there is no mp5-from-Spirit conversion, because STAT_CONVERSION_TARGETS has no mana or regen target at all.",
       "connected_to": [

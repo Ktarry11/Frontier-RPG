@@ -252,9 +252,11 @@ def check_fire(items):
         blaze = [e for e in c.active_effects if e.effect_id == "unbanked_fire_blaze"]
         if not blaze:
             fail("The Unbanked Fire: a damaging spell landed and Uninsured Blaze never appeared")
-        elif abs((c.combat_spell_power - before) - 40) > 0.6:
-            # The sheet shows the item scale since 15 Nov (40 reads as 75); combat sees exactly 40.
-            fail(f"The Unbanked Fire: spell power moved by {c.combat_spell_power - before:.1f} in combat, expected 40")
+        elif abs((c.combat_spell_power - before) - 40 * __import__("combat.world_curve", fromlist=["x"]).world_scale(c.level)) > 0.6 * __import__("combat.world_curve", fromlist=["x"]).world_scale(c.level):
+            # The sheet shows the item scale since 15 Nov (40 reads as 75); combat sees 40 x the world curve at the
+            # wearer's level (combat/world_curve.py, the same day), like every other source of spell power.
+            fail(f"The Unbanked Fire: spell power moved by {c.combat_spell_power - before:.1f} in combat, expected "
+                 f"40 x the world curve")
         else:
             ok(f"The Unbanked Fire: Frostbolt lands, Uninsured Blaze adds 40 spell power "
                f"({before} -> {c.spell_power})")

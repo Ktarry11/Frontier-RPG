@@ -514,7 +514,7 @@
     {
       "talent_id": "chronomancer_artificer_reverse_engineering",
       "name": "Reverse Engineering",
-      "description": "Increases your ranged attack power by 10% of your Spirit. Your damaging spells have a 25% chance to grant 20% haste for 3 turns and restore 2.5% of your maximum mana.",
+      "description": "Increases your ranged attack power by 10% of your Spirit. Your damaging spells have a 25% chance to grant 20% haste for 3 turns and restore 2% of your maximum mana.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -531,7 +531,7 @@
         "icd": 1,
         "grant_resource": {
           "resource": "mana",
-          "pct_max": 0.025,
+          "pct_max": 0.02,
           "_was": "a flat 60 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         },
         "apply_effect": {
@@ -546,7 +546,10 @@
           "on_target": false
         }
       },
-      "_source": "CoA: 'Periodic damage and healing now has a 15% chance to increase your haste by 15% for 6 seconds and grant allies Replenishment. Replenishment replenishes 5% of maximum mana per 5 sec for 15 seconds.' CoA hangs it off PERIODIC TICKS, which are not a trigger - status_effects.py:914 ticks a dot by calling the recipient's own take_damage with no caster reference, so there is nobody to fire a proc on. Re-pointed to on_damage_cast, the eighth and last talent in this class to take that loss. The ally Replenishment becomes mana for the caster: a proc cannot grant a resource to an ally. 6 sec -> 3 turns, 15% -> 25% because a per-cast roll is far rarer than a per-tick one. The Spirit conversion is added so the capstone closes the loop the tree opened with Wand Expert and Artificer's Empowerment - Spirit into ranged damage - rather than being a proc alone. haste is PERCENTAGE POINTS; the conversion key is a FRACTION."
+      "_source": "CoA: 'Periodic damage and healing now has a 15% chance to increase your haste by 15% for 6 seconds and grant allies Replenishment. Replenishment replenishes 5% of maximum mana per 5 sec for 15 seconds.' CoA hangs it off PERIODIC TICKS, which are not a trigger - status_effects.py:914 ticks a dot by calling the recipient's own take_damage with no caster reference, so there is nobody to fire a proc on. Re-pointed to on_damage_cast, the eighth and last talent in this class to take that loss. The ally Replenishment becomes mana for the caster: a proc cannot grant a resource to an ally. 6 sec -> 3 turns, 15% -> 25% because a per-cast roll is far rarer than a per-tick one. The Spirit conversion is added so the capstone closes the loop the tree opened with Wand Expert and Artificer's Empowerment - Spirit into ranged damage - rather than being a proc alone. haste is PERCENTAGE POINTS; the conversion key is a FRACTION.",
+      "_tuning": [
+        "15 Nov 2026: mana refund rounded to a whole 2% of the bar (Kyle: no decimal percents)"
+      ]
     }
   ]
 }

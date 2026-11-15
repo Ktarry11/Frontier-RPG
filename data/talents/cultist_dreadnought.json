@@ -196,11 +196,14 @@
       "hex_x": 5,
       "hex_y": -4,
       "effects": {
-        "shadow_resist_pct": 0.02
+        "shadow_damage_taken_pct": -0.02
       },
       "connected_to": [
         "cultist_dreadnought_voidwarding",
         "cultist_dreadnought_entropic_retaliation"
+      ],
+      "_tuning": [
+        "15 Nov 2026: shadow_resist_pct (read by nothing) -> shadow_damage_taken_pct, negative fraction per rank, as the description says (tools/audit_dead_talent_keys.py)"
       ]
     },
     {
@@ -269,7 +272,7 @@
     {
       "talent_id": "cultist_dreadnought_deep_secrets",
       "name": "Deep Secrets",
-      "description": "The secrets you hold pay for themselves: spending Insanity on Wrath of the Black Empire, Hammer of Twilight, Entropic Slam, Eldritch Shock, Void Strikes or Dreadnought restores 2.5% of your maximum mana.",
+      "description": "The secrets you hold pay for themselves: spending Insanity on Wrath of the Black Empire, Hammer of Twilight, Entropic Slam, Eldritch Shock, Void Strikes or Dreadnought restores 2% of your maximum mana.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
@@ -296,10 +299,13 @@
         ],
         "grant_resource": {
           "resource": "mana",
-          "pct_max": 0.025,
+          "pct_max": 0.02,
           "_was": "a flat 60 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
-      }
+      },
+      "_tuning": [
+        "15 Nov 2026: mana refund rounded to a whole 2% of the bar (Kyle: no decimal percents)"
+      ]
     },
     {
       "talent_id": "cultist_dreadnought_void_enhanced_shield",

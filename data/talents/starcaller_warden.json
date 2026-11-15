@@ -272,7 +272,7 @@
     {
       "talent_id": "starcaller_warden_rally_the_sentinels",
       "name": "Rally The Sentinels",
-      "description": "Sentinel Glaive has a 20% chance per rank to rally the Watchers, restoring 2.5% of your maximum mana.",
+      "description": "Sentinel Glaive has a 20% chance per rank to rally the Watchers, restoring 2% of your maximum mana.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -294,10 +294,13 @@
         ],
         "grant_resource": {
           "resource": "mana",
-          "pct_max": 0.025,
+          "pct_max": 0.02,
           "_was": "a flat 60 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
-      }
+      },
+      "_tuning": [
+        "15 Nov 2026: mana refund rounded to a whole 2% of the bar (Kyle: no decimal percents)"
+      ]
     },
     {
       "talent_id": "starcaller_warden_bonds_of_justice",

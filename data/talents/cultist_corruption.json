@@ -76,10 +76,13 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "shadow_resist_pct": 0.02
+        "shadow_damage_taken_pct": -0.02
       },
       "connected_to": [
         "cultist_corruption_voidborn_affliction"
+      ],
+      "_tuning": [
+        "15 Nov 2026: shadow_resist_pct (read by nothing) -> shadow_damage_taken_pct, negative fraction per rank, as the description says (tools/audit_dead_talent_keys.py)"
       ]
     },
     {

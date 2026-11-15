@@ -568,7 +568,7 @@
     {
       "talent_id": "mage_cryotherapist_spirit_frost",
       "name": "Spirit Frost",
-      "description": "Every heal you cast returns 1.5% of your maximum mana.",
+      "description": "Every heal you cast returns 1% of your maximum mana.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
@@ -586,11 +586,14 @@
         "icd": 0,
         "grant_resource": {
           "resource": "mana",
-          "pct_max": 0.015,
+          "pct_max": 0.01,
           "_was": "a flat 39 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       },
-      "icon_id": "mage_cryotherapist_spirit_frost"
+      "icon_id": "mage_cryotherapist_spirit_frost",
+      "_tuning": [
+        "15 Nov 2026: mana refund rounded to a whole 1% of the bar (Kyle: no decimal percents)"
+      ]
     },
     {
       "talent_id": "mage_cryotherapist_cryotherapy",

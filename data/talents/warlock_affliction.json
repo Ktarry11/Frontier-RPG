@@ -178,7 +178,7 @@
     {
       "talent_id": "warlock_affliction_soul_harvest",
       "name": "Soul Harvest",
-      "description": "When you kill an enemy you recover 2.5% of your maximum mana per rank.",
+      "description": "When you kill an enemy you recover 2% of your maximum mana per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 2,
@@ -196,10 +196,13 @@
         "icd": 0,
         "grant_resource": {
           "resource": "mana",
-          "pct_max": 0.025,
+          "pct_max": 0.02,
           "_was": "a flat 60 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
-      }
+      },
+      "_tuning": [
+        "15 Nov 2026: mana refund rounded to a whole 2% of the bar (Kyle: no decimal percents)"
+      ]
     },
     {
       "talent_id": "warlock_affliction_shadow_embrace",
