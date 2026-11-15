@@ -533,7 +533,7 @@ class CombatScreen(BaseScreen):
             if not consumable.can_use(actor):
                 self.message_log.append("Can't use that consumable now!")
                 return
-            success = consumable.use(actor, self.message_log)
+            success = self._use_consumable(actor, consumable)
             if success:
                 if consumable.quantity <= 0:
                     actor.hotbar[hotbar_slot] = None
@@ -547,6 +547,20 @@ class CombatScreen(BaseScreen):
             self.message_log.append("Ability not found!")
             return
         self._enter_targeting_mode(ability_id, hotbar_slot, ability, actor)
+
+    def _use_consumable(self, actor, consumable):
+        """Use a consumable from a slot. An Engineering EXPLOSIVE is thrown at every living enemy and spends the
+        turn, like an attack; everything else is used as before (a potion does not spend the turn)."""
+        engine = self.combat_engine
+        if getattr(consumable, "consumable_type", None) == "explosive":
+            enemies = engine.living_enemies() if engine is not None else []
+            ok = consumable.use(actor, self.message_log, enemies=enemies)
+            if ok and engine is not None and engine.current_actor is actor:
+                engine._end_turn(actor)
+            elif not ok:
+                self.message_log.append(f"{consumable.name} needs an enemy to throw it at.")
+            return ok
+        return consumable.use(actor, self.message_log)
 
     def _use_extra_slot(self, extra_slot):
         """Attempt to use a click-only extra slot. Mirrors _use_hotbar_slot
@@ -572,7 +586,7 @@ class CombatScreen(BaseScreen):
             if not consumable.can_use(actor):
                 self.message_log.append("Can't use that consumable now!")
                 return
-            success = consumable.use(actor, self.message_log)
+            success = self._use_consumable(actor, consumable)
             if success:
                 if consumable.quantity <= 0:
                     actor.extra_slots[extra_slot] = None

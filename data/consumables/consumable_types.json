@@ -1802,155 +1802,266 @@
       "consumable_id": "bomb_rough",
       "name": "Rough Blasting Charge",
       "consumable_type": "explosive",
-      "description": "A clay pot of powder and scrap. Throw it, then look away.",
+      "description": "A clay pot of powder and scrap. Throw it, then look away. Hits every enemy for 40 fire damage (more as you level). Uses your turn.",
       "effect_value": 40,
       "effect_duration": 0,
       "level_multiplier": 0.0,
       "required_level": 5,
-      "cooldown_seconds": 10,
+      "cooldown_seconds": 30,
       "stack_limit": 20,
       "vendor_price": 120,
-      "sell_price": 30
+      "sell_price": 30,
+      "damage_school": "fire"
     },
     {
       "consumable_id": "bomb_iron",
       "name": "Iron Grenade",
       "consumable_type": "explosive",
-      "description": "Cast iron, scored to fragment. Noticeably heavier than it looks.",
+      "description": "Cast iron, scored to fragment. Noticeably heavier than it looks. Hits every enemy for 110 fire damage (more as you level) and staggers them for 1 turn. Uses your turn.",
       "effect_value": 110,
       "effect_duration": 0,
       "level_multiplier": 0.0,
       "required_level": 18,
-      "cooldown_seconds": 10,
+      "cooldown_seconds": 30,
       "stack_limit": 20,
       "vendor_price": 500,
-      "sell_price": 125
+      "sell_price": 125,
+      "damage_school": "fire",
+      "apply_effect_targets": {
+        "effect_id": "bomb_iron_stagger",
+        "name": "Staggered",
+        "effect_type": "debuff",
+        "duration": 1,
+        "is_stun": true
+      }
     },
     {
       "consumable_id": "bomb_emberglass",
       "name": "Emberglass Charge",
       "consumable_type": "explosive",
-      "description": "Emberglass shards packed around an ember heart. Burns what it breaks.",
+      "description": "Emberglass shards packed around an ember heart. Burns what it breaks. Hits every enemy for 240 fire damage (more as you level). Uses your turn.",
       "effect_value": 240,
       "effect_duration": 0,
       "level_multiplier": 0.0,
       "required_level": 28,
-      "cooldown_seconds": 10,
+      "cooldown_seconds": 30,
       "stack_limit": 20,
       "vendor_price": 1400,
-      "sell_price": 350
+      "sell_price": 350,
+      "damage_school": "fire"
     },
     {
       "consumable_id": "bomb_shrapnel",
       "name": "Shrapnel Charge",
       "consumable_type": "explosive",
-      "description": "Packed with bent nails. Indiscriminate.",
+      "description": "Packed with bent nails. Indiscriminate. Hits every enemy for 70 physical damage (more as you level). Uses your turn.",
       "effect_value": 70,
       "effect_duration": 0,
       "level_multiplier": 0.0,
       "required_level": 10,
-      "cooldown_seconds": 10,
+      "cooldown_seconds": 30,
       "stack_limit": 20,
       "vendor_price": 260,
-      "sell_price": 65
+      "sell_price": 65,
+      "damage_school": "physical"
     },
     {
       "consumable_id": "bomb_concussion",
       "name": "Concussion Charge",
       "consumable_type": "explosive",
-      "description": "More noise and shove than fire. Useful for breaking a line.",
+      "description": "More noise and shove than fire. Useful for breaking a line. Hits every enemy for 150 physical damage (more as you level) and staggers them for 2 turns. Uses your turn.",
       "effect_value": 150,
       "effect_duration": 0,
       "level_multiplier": 0.0,
       "required_level": 22,
-      "cooldown_seconds": 10,
+      "cooldown_seconds": 30,
       "stack_limit": 20,
       "vendor_price": 700,
-      "sell_price": 175
+      "sell_price": 175,
+      "damage_school": "physical",
+      "apply_effect_targets": {
+        "effect_id": "bomb_concussion_stagger",
+        "name": "Staggered",
+        "effect_type": "debuff",
+        "duration": 2,
+        "is_stun": true
+      }
     },
     {
       "consumable_id": "bomb_static",
       "name": "Static Charge",
       "consumable_type": "explosive",
-      "description": "A static mote in a copper cage. Discharges on impact.",
+      "description": "A static mote in a copper cage. Discharges on impact. Hits every enemy for 120 nature damage (more as you level). Uses your turn.",
       "effect_value": 120,
       "effect_duration": 0,
       "level_multiplier": 0.0,
       "required_level": 16,
-      "cooldown_seconds": 10,
+      "cooldown_seconds": 30,
       "stack_limit": 20,
       "vendor_price": 520,
-      "sell_price": 130
+      "sell_price": 130,
+      "damage_school": "nature"
     },
     {
       "consumable_id": "bomb_brine",
       "name": "Brine Flask",
       "consumable_type": "explosive",
-      "description": "Seawater under pressure. Bursts cold and heavy.",
+      "description": "Seawater under pressure. Bursts cold and heavy. Hits every enemy for 170 frost damage (more as you level). Uses your turn.",
       "effect_value": 170,
       "effect_duration": 0,
       "level_multiplier": 0.0,
       "required_level": 24,
-      "cooldown_seconds": 10,
+      "cooldown_seconds": 30,
       "stack_limit": 20,
       "vendor_price": 780,
-      "sell_price": 195
+      "sell_price": 195,
+      "damage_school": "frost"
     },
     {
       "consumable_id": "bomb_voidsplit",
       "name": "Voidsplit Charge",
       "consumable_type": "explosive",
-      "description": "Voidglass and umbral essence. Engineers do not test these indoors.",
+      "description": "Voidglass and umbral essence. Engineers do not test these indoors. Hits every enemy for 300 shadow damage (more as you level). Uses your turn.",
       "effect_value": 300,
       "effect_duration": 0,
       "level_multiplier": 0.0,
       "required_level": 29,
-      "cooldown_seconds": 10,
+      "cooldown_seconds": 30,
       "stack_limit": 20,
       "vendor_price": 1800,
-      "sell_price": 450
+      "sell_price": 450,
+      "damage_school": "shadow"
     },
     {
       "consumable_id": "bomb_dynamite",
       "name": "Stick of Dynamite",
       "consumable_type": "explosive",
-      "description": "A waxed stick and a short fuse. Shorter than you would like.",
+      "description": "A waxed stick and a short fuse. Shorter than you would like. Hits every enemy for 55 fire damage (more as you level). Uses your turn.",
       "effect_value": 55,
       "effect_duration": 0,
       "level_multiplier": 0.0,
       "required_level": 8,
-      "cooldown_seconds": 10,
+      "cooldown_seconds": 30,
       "stack_limit": 20,
       "vendor_price": 180,
-      "sell_price": 45
+      "sell_price": 45,
+      "damage_school": "fire"
     },
     {
       "consumable_id": "bomb_sapper",
       "name": "Sapper Charge",
       "consumable_type": "explosive",
-      "description": "Strapped on, not thrown. Engineers argue about this one.",
+      "description": "Strapped on, not thrown. Engineers argue about this one. Hits every enemy for 260 fire damage (more as you level). Uses your turn.",
       "effect_value": 260,
       "effect_duration": 0,
       "level_multiplier": 0.0,
       "required_level": 26,
-      "cooldown_seconds": 10,
+      "cooldown_seconds": 30,
       "stack_limit": 20,
       "vendor_price": 1300,
-      "sell_price": 325
+      "sell_price": 325,
+      "damage_school": "fire"
     },
     {
       "consumable_id": "bomb_ember_cluster",
       "name": "Ember Cluster",
       "consumable_type": "explosive",
-      "description": "Three charges on one fuse. Scatters burning glass.",
+      "description": "Three charges on one fuse. Scatters burning glass. Hits every enemy for 280 fire damage (more as you level). Uses your turn.",
       "effect_value": 280,
       "effect_duration": 0,
       "level_multiplier": 0.0,
       "required_level": 27,
-      "cooldown_seconds": 10,
+      "cooldown_seconds": 30,
       "stack_limit": 20,
       "vendor_price": 1500,
-      "sell_price": 375
+      "sell_price": 375,
+      "damage_school": "fire"
+    },
+    {
+      "consumable_id": "bomb_mithril",
+      "name": "Mithril Frag Bomb",
+      "consumable_type": "explosive",
+      "description": "Mithril casing scored to burst into a hundred bright pieces. Hits every enemy for 360 fire damage (more as you level) and staggers them for 1 turn. Uses your turn.",
+      "effect_value": 360,
+      "effect_duration": 0,
+      "level_multiplier": 0.0,
+      "required_level": 38,
+      "cooldown_seconds": 30,
+      "stack_limit": 20,
+      "vendor_price": 2400,
+      "sell_price": 600,
+      "damage_school": "fire",
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'full on fix and audit engineering'): engineering's bombs and shot stopped at level 29 / skill 150; this tier carries them to 60."
+      ],
+      "apply_effect_targets": {
+        "effect_id": "bomb_mithril_stagger",
+        "name": "Staggered",
+        "effect_type": "debuff",
+        "duration": 1,
+        "is_stun": true
+      }
+    },
+    {
+      "consumable_id": "bomb_truesilver",
+      "name": "Truesilver Shock Charge",
+      "consumable_type": "explosive",
+      "description": "A truesilver coil wound tight around a charge. It arcs before it lands. Hits every enemy for 410 nature damage (more as you level). Uses your turn.",
+      "effect_value": 410,
+      "effect_duration": 0,
+      "level_multiplier": 0.0,
+      "required_level": 46,
+      "cooldown_seconds": 30,
+      "stack_limit": 20,
+      "vendor_price": 3000,
+      "sell_price": 750,
+      "damage_school": "nature",
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'full on fix and audit engineering'): engineering's bombs and shot stopped at level 29 / skill 150; this tier carries them to 60."
+      ]
+    },
+    {
+      "consumable_id": "bomb_dark_iron",
+      "name": "Dark Iron Bomb",
+      "consumable_type": "explosive",
+      "description": "Dark Iron poured hot around a slow fuse. Heavy enough to knock a giant flat. Hits every enemy for 450 fire damage (more as you level) and staggers them for 1 turn. Uses your turn.",
+      "effect_value": 450,
+      "effect_duration": 0,
+      "level_multiplier": 0.0,
+      "required_level": 50,
+      "cooldown_seconds": 30,
+      "stack_limit": 20,
+      "vendor_price": 3600,
+      "sell_price": 900,
+      "damage_school": "fire",
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'full on fix and audit engineering'): engineering's bombs and shot stopped at level 29 / skill 150; this tier carries them to 60."
+      ],
+      "apply_effect_targets": {
+        "effect_id": "bomb_dark_iron_stagger",
+        "name": "Staggered",
+        "effect_type": "debuff",
+        "duration": 1,
+        "is_stun": true
+      }
+    },
+    {
+      "consumable_id": "bomb_arcanite",
+      "name": "Arcanite Blast Charge",
+      "consumable_type": "explosive",
+      "description": "Arcanite does not burn. It comes apart, and takes the room with it. Hits every enemy for 500 arcane damage (more as you level). Uses your turn.",
+      "effect_value": 500,
+      "effect_duration": 0,
+      "level_multiplier": 0.0,
+      "required_level": 57,
+      "cooldown_seconds": 30,
+      "stack_limit": 20,
+      "vendor_price": 4500,
+      "sell_price": 1125,
+      "damage_school": "arcane",
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'full on fix and audit engineering'): engineering's bombs and shot stopped at level 29 / skill 150; this tier carries them to 60."
+      ]
     }
   ],
   "gadgets": [
@@ -1958,35 +2069,44 @@
       "consumable_id": "kit_field_repair",
       "name": "Field Repair Kit",
       "consumable_type": "gadget",
-      "description": "Wire, solder and a small hammer. Enough to get a day more out of failing gear.",
+      "description": "Wire, solder and a small hammer. Enough to get a day more out of failing gear. Patches your gear: +40 Armor for 30 minutes. Gadget (one at a time).",
       "effect_value": 0,
-      "effect_duration": 0,
+      "effect_duration": 1800,
       "level_multiplier": 0.0,
       "required_level": 5,
       "cooldown_seconds": 0,
       "stack_limit": 20,
       "vendor_price": 150,
-      "sell_price": 37
+      "sell_price": 37,
+      "buff_category": "gadget",
+      "stat_bonuses": {
+        "armor": 40
+      }
     },
     {
       "consumable_id": "goggle_lens_spare",
       "name": "Spare Lens",
       "consumable_type": "gadget",
-      "description": "A ground crystal lens. Engineers break a lot of these.",
+      "description": "A ground crystal lens. Engineers break a lot of these. Snapped into your goggles: +5 Crit Rating and +5 Spell Crit Rating for 15 minutes. Gadget (one at a time).",
       "effect_value": 0,
-      "effect_duration": 0,
+      "effect_duration": 900,
       "level_multiplier": 0.0,
       "required_level": 12,
       "cooldown_seconds": 0,
       "stack_limit": 20,
       "vendor_price": 300,
-      "sell_price": 75
+      "sell_price": 75,
+      "buff_category": "gadget",
+      "stat_bonuses": {
+        "crit_chance_physical": 5,
+        "crit_chance_spell": 5
+      }
     },
     {
       "consumable_id": "device_recall",
       "name": "Recall Beacon",
       "consumable_type": "gadget",
-      "description": "A brass device that hums when pointed toward somewhere you have been.",
+      "description": "A brass device that hums when pointed toward somewhere you have been. Makes your hearthstone ready to use again.",
       "effect_value": 0,
       "effect_duration": 0,
       "level_multiplier": 0.0,
@@ -1994,55 +2114,70 @@
       "cooldown_seconds": 0,
       "stack_limit": 20,
       "vendor_price": 900,
-      "sell_price": 225
+      "sell_price": 225,
+      "resets_hearth": true
     },
     {
       "consumable_id": "kit_reinforce",
       "name": "Reinforcement Kit",
       "consumable_type": "gadget",
-      "description": "Brackets and rivets. Stiffens a failing joint for a while.",
+      "description": "Brackets and rivets. Stiffens a failing joint for a while. Braces your gear: +80 Armor for 30 minutes. Gadget (one at a time).",
       "effect_value": 0,
-      "effect_duration": 0,
+      "effect_duration": 1800,
       "level_multiplier": 0.0,
       "required_level": 10,
       "cooldown_seconds": 0,
       "stack_limit": 20,
       "vendor_price": 240,
-      "sell_price": 60
+      "sell_price": 60,
+      "buff_category": "gadget",
+      "stat_bonuses": {
+        "armor": 80
+      }
     },
     {
       "consumable_id": "device_lantern",
       "name": "Clockwork Lantern",
       "consumable_type": "gadget",
-      "description": "Winds for an hour of steady light. No flame, no smoke.",
+      "description": "Winds for an hour of steady light. No flame, no smoke. Steady light to aim by: +10 Hit Rating and +10 Spell Hit Rating (1%) for 60 minutes. Gadget (one at a time).",
       "effect_value": 0,
-      "effect_duration": 0,
+      "effect_duration": 3600,
       "level_multiplier": 0.0,
       "required_level": 14,
       "cooldown_seconds": 0,
       "stack_limit": 20,
       "vendor_price": 420,
-      "sell_price": 105
+      "sell_price": 105,
+      "buff_category": "gadget",
+      "stat_bonuses": {
+        "hit_rating": 10,
+        "spell_hit_rating": 10
+      }
     },
     {
       "consumable_id": "device_compass",
       "name": "Resonant Compass",
       "consumable_type": "gadget",
-      "description": "Points toward the nearest crystal seam rather than north.",
+      "description": "Points toward the nearest crystal seam rather than north. Finds the seam in anything: +10 Spell Penetration and +10 Armor Penetration Rating for 30 minutes. Gadget (one at a time).",
       "effect_value": 0,
-      "effect_duration": 0,
+      "effect_duration": 1800,
       "level_multiplier": 0.0,
       "required_level": 18,
       "cooldown_seconds": 0,
       "stack_limit": 20,
       "vendor_price": 600,
-      "sell_price": 150
+      "sell_price": 150,
+      "buff_category": "gadget",
+      "stat_bonuses": {
+        "spell_penetration": 10,
+        "armor_penetration_pct": 10
+      }
     },
     {
       "consumable_id": "device_decoy",
       "name": "Clockwork Decoy",
       "consumable_type": "gadget",
-      "description": "Clatters and lurches convincingly for about thirty seconds.",
+      "description": "Clatters and lurches convincingly for about thirty seconds. Draws the blows: you take 50% less damage for 3 turns.",
       "effect_value": 0,
       "effect_duration": 0,
       "level_multiplier": 0.0,
@@ -2050,13 +2185,22 @@
       "cooldown_seconds": 0,
       "stack_limit": 20,
       "vendor_price": 760,
-      "sell_price": 190
+      "sell_price": 190,
+      "apply_effect": {
+        "effect_id": "clockwork_decoy",
+        "name": "Clockwork Decoy",
+        "effect_type": "buff",
+        "duration": 3,
+        "stat_mods": {
+          "damage_taken_pct": -0.5
+        }
+      }
     },
     {
       "consumable_id": "device_grapple",
       "name": "Grapple Launcher",
       "consumable_type": "gadget",
-      "description": "Brass and cable. Rated for one person, optimistically.",
+      "description": "Brass and cable. Rated for one person, optimistically. Swing clear of anything holding you: you can't be stunned or held for 3 turns.",
       "effect_value": 0,
       "effect_duration": 0,
       "level_multiplier": 0.0,
@@ -2064,41 +2208,60 @@
       "cooldown_seconds": 0,
       "stack_limit": 20,
       "vendor_price": 1100,
-      "sell_price": 275
+      "sell_price": 275,
+      "apply_effect": {
+        "effect_id": "grapple_line",
+        "name": "Grappling Line",
+        "effect_type": "buff",
+        "duration": 3,
+        "stat_mods": {
+          "cc_immune": 1
+        }
+      }
     },
     {
       "consumable_id": "device_goggleset",
       "name": "Lens Fitting Set",
       "consumable_type": "gadget",
-      "description": "Spare lenses, shims and a tiny screwdriver.",
+      "description": "Spare lenses, shims and a tiny screwdriver. Re-seated lenses: +10 Crit Rating and +10 Spell Crit Rating (1%) for 30 minutes. Gadget (one at a time).",
       "effect_value": 0,
-      "effect_duration": 0,
+      "effect_duration": 1800,
       "level_multiplier": 0.0,
       "required_level": 16,
       "cooldown_seconds": 0,
       "stack_limit": 20,
       "vendor_price": 480,
-      "sell_price": 120
+      "sell_price": 120,
+      "buff_category": "gadget",
+      "stat_bonuses": {
+        "crit_chance_physical": 10,
+        "crit_chance_spell": 10
+      }
     },
     {
       "consumable_id": "device_repair_hv",
       "name": "Heavy Repair Kit",
       "consumable_type": "gadget",
-      "description": "A full roll: files, solder, spare plate, and the patience to use them.",
+      "description": "A full roll: files, solder, spare plate, and the patience to use them. Rebuilds your gear: +160 Armor and +6 Stamina for 30 minutes. Gadget (one at a time).",
       "effect_value": 0,
-      "effect_duration": 0,
+      "effect_duration": 1800,
       "level_multiplier": 0.0,
       "required_level": 24,
       "cooldown_seconds": 0,
       "stack_limit": 20,
       "vendor_price": 950,
-      "sell_price": 237
+      "sell_price": 237,
+      "buff_category": "gadget",
+      "stat_bonuses": {
+        "armor": 160,
+        "stamina": 6
+      }
     },
     {
       "consumable_id": "device_target_dummy",
       "name": "Clockwork Target Dummy",
       "consumable_type": "gadget",
-      "description": "Clatters, waves, and is convincingly annoying for half a minute.",
+      "description": "Clatters, waves, and is convincingly annoying for half a minute. Enemies split their attention: you take 50% less damage for 2 turns.",
       "effect_value": 0,
       "effect_duration": 0,
       "level_multiplier": 0.0,
@@ -2106,14 +2269,23 @@
       "cooldown_seconds": 0,
       "stack_limit": 20,
       "vendor_price": 620,
-      "sell_price": 155
+      "sell_price": 155,
+      "apply_effect": {
+        "effect_id": "target_dummy",
+        "name": "Target Dummy",
+        "effect_type": "buff",
+        "duration": 2,
+        "stat_mods": {
+          "damage_taken_pct": -0.5
+        }
+      }
     },
     {
       "consumable_id": "device_jumper_cables",
       "name": "Jumper Cables",
-      "consumable_type": "gadget",
-      "description": "Two leads and a crank. Results vary, loudly.",
-      "effect_value": 0,
+      "consumable_type": "revive",
+      "description": "Two leads and a crank. Results vary, loudly. Use it on a fallen ally: they get back up with 30% of their health.",
+      "effect_value": 30,
       "effect_duration": 0,
       "level_multiplier": 0.0,
       "required_level": 23,
@@ -2126,7 +2298,7 @@
       "consumable_id": "device_repair_bot",
       "name": "Repair Bot",
       "consumable_type": "gadget",
-      "description": "Trundles out, fixes what it can reach, falls over.",
+      "description": "Trundles out, fixes what it can reach, falls over. Patches you up for 25% of your health.",
       "effect_value": 0,
       "effect_duration": 0,
       "level_multiplier": 0.0,
@@ -2134,7 +2306,8 @@
       "cooldown_seconds": 0,
       "stack_limit": 20,
       "vendor_price": 1700,
-      "sell_price": 425
+      "sell_price": 425,
+      "heal_pct": 25
     }
   ],
   "ammos": [
@@ -2142,85 +2315,172 @@
       "consumable_id": "shot_rough",
       "name": "Rough Shot",
       "consumable_type": "ammo",
-      "description": "Hand-cast lead balls, more or less round.",
+      "description": "Hand-cast lead balls, more or less round. Grants +4 Attack Power for 30 minutes. Ammo buff (one pouch at a time).",
       "effect_value": 0,
-      "effect_duration": 0,
+      "effect_duration": 1800,
       "level_multiplier": 0.0,
       "required_level": 1,
       "cooldown_seconds": 0,
       "stack_limit": 200,
       "vendor_price": 40,
-      "sell_price": 10
+      "sell_price": 10,
+      "buff_category": "ammo",
+      "stat_bonuses": {
+        "attack_power": 4
+      }
     },
     {
       "consumable_id": "shot_iron",
       "name": "Iron Shot",
       "consumable_type": "ammo",
-      "description": "Milled iron shot, consistent enough to aim with.",
+      "description": "Milled iron shot, consistent enough to aim with. Grants +8 Attack Power for 30 minutes. Ammo buff (one pouch at a time).",
       "effect_value": 0,
-      "effect_duration": 0,
+      "effect_duration": 1800,
       "level_multiplier": 0.0,
       "required_level": 14,
       "cooldown_seconds": 0,
       "stack_limit": 200,
       "vendor_price": 200,
-      "sell_price": 50
+      "sell_price": 50,
+      "buff_category": "ammo",
+      "stat_bonuses": {
+        "attack_power": 8
+      }
     },
     {
       "consumable_id": "shot_charged",
       "name": "Charged Shot",
       "consumable_type": "ammo",
-      "description": "Iron shot with a static mote set in the core. Cracks on impact.",
+      "description": "Iron shot with a static mote set in the core. Cracks on impact. Grants +13 Attack Power for 30 minutes. Ammo buff (one pouch at a time).",
       "effect_value": 0,
-      "effect_duration": 0,
+      "effect_duration": 1800,
       "level_multiplier": 0.0,
       "required_level": 26,
       "cooldown_seconds": 0,
       "stack_limit": 200,
       "vendor_price": 800,
-      "sell_price": 200
+      "sell_price": 200,
+      "buff_category": "ammo",
+      "stat_bonuses": {
+        "attack_power": 13
+      }
     },
     {
       "consumable_id": "shot_emberglass",
       "name": "Emberglass Shot",
       "consumable_type": "ammo",
-      "description": "Shot cored with emberglass. Fractures hot on impact.",
+      "description": "Shot cored with emberglass. Fractures hot on impact. Grants +11 Attack Power for 30 minutes. Ammo buff (one pouch at a time).",
       "effect_value": 0,
-      "effect_duration": 0,
+      "effect_duration": 1800,
       "level_multiplier": 0.0,
       "required_level": 22,
       "cooldown_seconds": 0,
       "stack_limit": 200,
       "vendor_price": 560,
-      "sell_price": 140
+      "sell_price": 140,
+      "buff_category": "ammo",
+      "stat_bonuses": {
+        "attack_power": 11
+      }
     },
     {
       "consumable_id": "shot_void",
       "name": "Voidglass Shot",
       "consumable_type": "ammo",
-      "description": "Dense black shot that seems to fall faster than it should.",
+      "description": "Dense black shot that seems to fall faster than it should. Grants +15 Attack Power for 30 minutes. Ammo buff (one pouch at a time).",
       "effect_value": 0,
-      "effect_duration": 0,
+      "effect_duration": 1800,
       "level_multiplier": 0.0,
       "required_level": 29,
       "cooldown_seconds": 0,
       "stack_limit": 200,
       "vendor_price": 1500,
-      "sell_price": 375
+      "sell_price": 375,
+      "buff_category": "ammo",
+      "stat_bonuses": {
+        "attack_power": 15
+      }
     },
     {
       "consumable_id": "shot_brine",
       "name": "Brine Shot",
       "consumable_type": "ammo",
-      "description": "Salt-cast shot, cheap to make and hard on armor.",
+      "description": "Salt-cast shot, cheap to make and hard on armor. Grants +10 Attack Power for 30 minutes. Ammo buff (one pouch at a time).",
       "effect_value": 0,
-      "effect_duration": 0,
+      "effect_duration": 1800,
       "level_multiplier": 0.0,
       "required_level": 19,
       "cooldown_seconds": 0,
       "stack_limit": 200,
       "vendor_price": 380,
-      "sell_price": 95
+      "sell_price": 95,
+      "buff_category": "ammo",
+      "stat_bonuses": {
+        "attack_power": 10
+      }
+    },
+    {
+      "consumable_id": "shot_mithril",
+      "name": "Mithril Slug",
+      "consumable_type": "ammo",
+      "description": "Heavy mithril slugs that keep their line a long way out. Grants +18 Attack Power for 30 minutes. Ammo buff (one pouch at a time).",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 38,
+      "cooldown_seconds": 0,
+      "stack_limit": 200,
+      "vendor_price": 2000,
+      "sell_price": 500,
+      "buff_category": "ammo",
+      "stat_bonuses": {
+        "attack_power": 18
+      },
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'full on fix and audit engineering'): engineering's bombs and shot stopped at level 29 / skill 150; this tier carries them to 60."
+      ]
+    },
+    {
+      "consumable_id": "shot_thorium",
+      "name": "Thorium Shell",
+      "consumable_type": "ammo",
+      "description": "Thorium shells, dense enough to punch through plate. Grants +22 Attack Power for 30 minutes. Ammo buff (one pouch at a time).",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 52,
+      "cooldown_seconds": 0,
+      "stack_limit": 200,
+      "vendor_price": 2800,
+      "sell_price": 700,
+      "buff_category": "ammo",
+      "stat_bonuses": {
+        "attack_power": 22
+      },
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'full on fix and audit engineering'): engineering's bombs and shot stopped at level 29 / skill 150; this tier carries them to 60."
+      ]
+    },
+    {
+      "consumable_id": "shot_arcanite",
+      "name": "Arcanite Round",
+      "consumable_type": "ammo",
+      "description": "Arcanite-tipped rounds that hum in the barrel. Grants +26 Attack Power for 30 minutes. Ammo buff (one pouch at a time).",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 57,
+      "cooldown_seconds": 0,
+      "stack_limit": 200,
+      "vendor_price": 3600,
+      "sell_price": 900,
+      "buff_category": "ammo",
+      "stat_bonuses": {
+        "attack_power": 26
+      },
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'full on fix and audit engineering'): engineering's bombs and shot stopped at level 29 / skill 150; this tier carries them to 60."
+      ]
     }
   ],
   "meals": [

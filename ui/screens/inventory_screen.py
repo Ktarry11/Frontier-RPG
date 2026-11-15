@@ -1103,7 +1103,8 @@ class InventoryScreen(BaseScreen):
         # profession line - these four slots are what can_use() checks against.
         active = []
         for label, slot in (("Guardian", "guardian_buff"), ("Battle", "battle_buff"),
-                            ("Food", "food_buff"), ("Ammo", "ammo_buff"), ("Oil", "oil_buff")):
+                            ("Food", "food_buff"), ("Ammo", "ammo_buff"), ("Oil", "oil_buff"),
+                            ("Gadget", "gadget_buff")):
             entry = getattr(subject, slot, None)
             if entry:
                 cons = entry[0] if isinstance(entry, (tuple, list)) else entry
@@ -1657,7 +1658,10 @@ class InventoryScreen(BaseScreen):
                 lines.append(wrapped)
         proc = getattr(item, "proc", None)
         if proc and proc.get("describe"):
-            for wrapped in self.renderer.wrap_text(f"Equip: {proc['describe']}", 300 - 20):
+            from combat.proc_text import describe as _proc_text
+            _subj = self._get_subject()
+            for wrapped in self.renderer.wrap_text(
+                    f"Equip: {_proc_text(proc, getattr(_subj, 'level', None))}", 300 - 20):
                 green_lines.add(len(lines))
                 lines.append(wrapped)
         # THE SET IT BELONGS TO: every piece (the ones worn lit), then each bonus (the ones

@@ -110,6 +110,12 @@ class Consumable:
         if self.buff_category == "ammo" and character.ammo_buff is not None:
             return False  # One quiver at a time
         return True
+
+    def bomb_damage(self, level=None):
+        """What an Engineering explosive does to each enemy, thrown by a character of this level: its authored
+        number on the world curve at the thrower's level, like a potion (combat/world_curve.py)."""
+        from combat.world_curve import world_scale
+        return int(round((self.effect_value or 0) * world_scale(level or self.required_level or 1)))
     
     def restore_amount(self, level=None):
         """Health or mana this restores, for a drinker of this level (None: the item's own level).
@@ -125,7 +131,7 @@ class Consumable:
             return int(round(self.effect_value * world_scale(self.required_level or 1)))
         return int(self.effect_value or 0)
 
-    def use(self, character, combat_log=None):
+    def use(self, character, combat_log=None, enemies=None):
         """
         Apply consumable effect to character. Returns True if successful.
         This is called from combat engine or inventory screen.
@@ -198,6 +204,67 @@ class Consumable:
             character.apply_consumable_buff("ammo", self)
             bonus_str = bonus_text(self.stat_bonuses)
             log_msg = f"Nocked {self.name}: {bonus_str} for {int(self.effect_duration)}s"
+
+        elif self.consumable_type == "explosive":
+            # ENGINEERING EXPLOSIVES (15 Nov 2026, Kyle: "full on fix and audit engineering"). They were in the
+            # data with damage numbers and no code read them: use() fell through to False, so every bomb in the
+            # game was a brick. A bomb hits EVERY living enemy, in its own school, and some (a concussion charge)
+            # also stagger them. Only in a fight - the combat screen passes the enemies and ends the turn.
+            foes = [e for e in (enemies or []) if getattr(e, "is_alive", lambda: False)()]
+            if not foes:
+                return False
+            from entities.consumable_manager import get_consumable_manager
+            entry = get_consumable_manager().consumables_db.get(self.consumable_id) or {}
+            school = entry.get("damage_school", "fire")
+            dmg = self.bomb_damage(getattr(character, "level", 1))
+            hits = []
+            for foe in foes:
+                landed = foe.take_damage(dmg, school, attacker_level=getattr(character, "level", None),
+                                         attacker=character)
+                hits.append(f"{foe.name} {landed}")
+                spec = dict(entry.get("apply_effect_targets") or {})
+                if spec and foe.is_alive() and hasattr(foe, "apply_status_effect"):
+                    from combat.status_effects import StatusEffect
+                    spec.setdefault("real_time_seconds", None)
+                    spec.setdefault("source_name", self.name)
+                    foe.apply_status_effect(StatusEffect(**spec))
+            log_msg = f"Threw {self.name}: {', '.join(hits)} {school} damage"
+
+        elif self.consumable_type == "gadget":
+            # ENGINEERING GADGETS (15 Nov 2026): every one had effect 0 and no handler. What each does is in its
+            # data: stat_bonuses run in the gadget slot for effect_duration seconds (a lantern, a goggle set, the
+            # repair kits); apply_effect puts a turn-based status on the user (a target dummy, a decoy); heal_pct
+            # restores a share of health at once (a repair bot).
+            from entities.consumable_manager import get_consumable_manager
+            entry = get_consumable_manager().consumables_db.get(self.consumable_id) or {}
+            parts = []
+            if self.stat_bonuses:
+                character.apply_consumable_buff("gadget", self)
+                parts.append(f"{bonus_text(self.stat_bonuses)} for {int(self.effect_duration // 60)} minutes")
+            spec = dict(entry.get("apply_effect") or {})
+            if spec and hasattr(character, "apply_status_effect"):
+                from combat.status_effects import StatusEffect
+                spec.pop("on_target", None)
+                spec.setdefault("real_time_seconds", None)
+                spec.setdefault("source_name", self.name)
+                character.apply_status_effect(StatusEffect(**spec))
+                parts.append(f"{spec.get('name', self.name)} for {spec.get('duration', 1)} turns")
+            if entry.get("resets_hearth"):
+                # the Recall Device: the hearthstone is ready again (world/travel_manager.py)
+                from world.travel_manager import get_travel_manager
+                tm = get_travel_manager()
+                if tm.hearth_ready():
+                    return False
+                tm.hearth_steps_left = 0
+                parts.append("your hearthstone is ready")
+            pct = float(entry.get("heal_pct") or 0)
+            if pct > 0:
+                amount = max(1, int(character.health * pct / 100.0))
+                character.heal(amount)
+                parts.append(f"+{amount} health")
+            if not parts:
+                return False
+            log_msg = f"Used {self.name}: {'; '.join(parts)}"
 
         elif self.consumable_type == "status_potion":
             # A potion that puts a status effect on the drinker for a few turns: Free Action (can't be

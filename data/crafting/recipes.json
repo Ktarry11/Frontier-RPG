@@ -21414,7 +21414,14 @@
             "kind": "material",
             "material_id": "part_tide_seal",
             "count": 1
-          }
+          },
+          "source": "trainer",
+          "skill_range": [
+            77,
+            87,
+            97,
+            107
+          ]
         },
         "eng_gold_power_core": {
           "name": "Gold Power Core",
@@ -22850,6 +22857,147 @@
           "sold_by": [
             "secret_fn_kowalczyk"
           ]
+        },
+        "eng_bomb_mithril": {
+          "name": "Mithril Frag Bomb",
+          "skill_required": 195,
+          "skill_range": [
+            200,
+            210,
+            220,
+            230
+          ],
+          "count": 2,
+          "source": "trainer",
+          "inputs": {
+            "bar_mithril": 1,
+            "part_unstable_trigger": 1,
+            "crystal_voidglass": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "bomb_mithril"
+          }
+        },
+        "eng_bomb_truesilver": {
+          "name": "Truesilver Shock Charge",
+          "skill_required": 235,
+          "skill_range": [
+            240,
+            250,
+            260,
+            270
+          ],
+          "count": 2,
+          "source": "trainer",
+          "inputs": {
+            "bar_truesilver": 1,
+            "part_unstable_trigger": 1,
+            "crystal_voidglass": 2
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "bomb_truesilver"
+          }
+        },
+        "eng_bomb_dark_iron": {
+          "name": "Dark Iron Bomb",
+          "skill_required": 255,
+          "skill_range": [
+            260,
+            270,
+            280,
+            290
+          ],
+          "count": 2,
+          "source": "trainer",
+          "inputs": {
+            "bar_dark_iron": 1,
+            "part_unstable_trigger": 1,
+            "part_iron_casing": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "bomb_dark_iron"
+          }
+        },
+        "eng_bomb_arcanite": {
+          "name": "Arcanite Blast Charge",
+          "skill_required": 290,
+          "skill_range": [
+            295,
+            305,
+            315,
+            325
+          ],
+          "count": 2,
+          "source": "trainer",
+          "inputs": {
+            "bar_arcanite": 1,
+            "crystal_arcane": 1,
+            "part_unstable_trigger": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "bomb_arcanite"
+          }
+        },
+        "eng_shot_mithril": {
+          "name": "Mithril Slug",
+          "skill_required": 195,
+          "skill_range": [
+            200,
+            210,
+            220,
+            230
+          ],
+          "count": 20,
+          "source": "trainer",
+          "inputs": {
+            "bar_mithril": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "shot_mithril"
+          }
+        },
+        "eng_shot_thorium": {
+          "name": "Thorium Shell",
+          "skill_required": 260,
+          "skill_range": [
+            265,
+            275,
+            285,
+            295
+          ],
+          "count": 20,
+          "source": "trainer",
+          "inputs": {
+            "bar_thorium": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "shot_thorium"
+          }
+        },
+        "eng_shot_arcanite": {
+          "name": "Arcanite Round",
+          "skill_required": 290,
+          "skill_range": [
+            295,
+            305,
+            315,
+            325
+          ],
+          "count": 20,
+          "source": "trainer",
+          "inputs": {
+            "bar_arcanite": 1
+          },
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "shot_arcanite"
+          }
         }
       }
     },

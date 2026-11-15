@@ -393,6 +393,7 @@ class Character(StatusEffectMixin):
         self.food_buff = None      # (consumable, remaining_duration)
         self.ammo_buff = None      # (consumable, remaining_duration) - crafted arrows/bolts (Woodworking)
         self.oil_buff = None       # (consumable, remaining_duration) - weapon oils (Enchanting)
+        self.gadget_buff = None    # (consumable, remaining_duration) - an Engineering gadget (15 Nov 2026)
         self.soul_runes = [None, None, None, None]   # Runecrafting: three runes and a Capstone
         #: Seconds of Beast Lure left. While anyone in the party has it, beasts turn up half
         #: again as often (world/creature_manager.BEAST_LURE_BOOST) - the skinner's consumable.
@@ -4412,6 +4413,7 @@ class Character(StatusEffectMixin):
             "food_buff": _buff_to_data(self.food_buff),
             "ammo_buff": _buff_to_data(self.ammo_buff),
             "oil_buff": _buff_to_data(getattr(self, "oil_buff", None)),
+            "gadget_buff": _buff_to_data(getattr(self, "gadget_buff", None)),
             "beast_lure_seconds": self.beast_lure_seconds,
             "beast_lure_pct": self.beast_lure_pct,
             "class_base_stats": self.class_base_stats,
@@ -4548,6 +4550,7 @@ class Character(StatusEffectMixin):
         char.food_buff = _buff_from_data(data.get("food_buff"))
         char.ammo_buff = _buff_from_data(data.get("ammo_buff"))
         char.oil_buff = _buff_from_data(data.get("oil_buff"))
+        char.gadget_buff = _buff_from_data(data.get("gadget_buff"))
         char.beast_lure_seconds = float(data.get("beast_lure_seconds", 0) or 0)
         char.beast_lure_pct = int(data.get("beast_lure_pct", 50 if char.beast_lure_seconds else 0) or 0)
 
@@ -5077,6 +5080,9 @@ class Character(StatusEffectMixin):
         elif buff_category == "oil":
             # a weapon oil (Enchanting): a new one wipes the old one off the blade
             self.oil_buff = buff_tuple
+        elif buff_category == "gadget":
+            # an Engineering gadget (lantern, goggle set, repair kits): one running at a time
+            self.gadget_buff = buff_tuple
         # The stats change NOW. Kyle, 14 Nov 2026: "Foodbuffs not working" - the buff was stored
         # but the effective stats were only recomputed the next time gear or talents changed, so a
         # meal or elixir did nothing until then.
@@ -5096,7 +5102,7 @@ class Character(StatusEffectMixin):
         buff_stats = {}
 
         for buff in (self.guardian_buff, self.battle_buff, self.food_buff, self.ammo_buff,
-                     getattr(self, "oil_buff", None)):
+                     getattr(self, "oil_buff", None), getattr(self, "gadget_buff", None)):
             if buff is None:
                 continue
             consumable, _ = buff
@@ -5111,10 +5117,12 @@ class Character(StatusEffectMixin):
         dt: delta time in seconds
         """
         before = (self.guardian_buff is None, self.battle_buff is None, self.food_buff is None,
-                  self.ammo_buff is None, getattr(self, "oil_buff", None) is None)
+                  self.ammo_buff is None, getattr(self, "oil_buff", None) is None,
+                  getattr(self, "gadget_buff", None) is None)
         self._tick_buff_timers(dt)
         after = (self.guardian_buff is None, self.battle_buff is None, self.food_buff is None,
-                 self.ammo_buff is None, getattr(self, "oil_buff", None) is None)
+                 self.ammo_buff is None, getattr(self, "oil_buff", None) is None,
+                 getattr(self, "gadget_buff", None) is None)
         if before != after:
             self._recalculate_derived_stats()     # a buff ran out: its stats go with it
 
@@ -5160,6 +5168,11 @@ class Character(StatusEffectMixin):
             consumable, duration = self.oil_buff
             new_duration = duration - dt
             self.oil_buff = None if new_duration <= 0 else (consumable, new_duration)
+
+        if getattr(self, "gadget_buff", None) is not None:
+            consumable, duration = self.gadget_buff
+            new_duration = duration - dt
+            self.gadget_buff = None if new_duration <= 0 else (consumable, new_duration)
 
 
 _RETIRED_IDS = None
