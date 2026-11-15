@@ -1021,10 +1021,17 @@ class Character(StatusEffectMixin):
     def clear_totem(self, element):
         self.totem_loadout.pop(element, None)
 
+    #: Classes that build Rage by hitting and being hit. KNIGHT OF XOROTH WAS MISSING, found 15 Nov 2026 by the
+    #: damage parity sim: every one of its abilities costs Rage, Infernal Strike and Sever build Deathfire, and
+    #: neither swinging nor being struck gave Rage - so a Knight spent the 100 it walked in with and then could
+    #: only auto-attack for the rest of the fight (70 swings to 6 Infernal Strikes in 90 turns). CoA's Knights
+    #: build Rage the way Warriors do. Bloodmage is not here: it builds Rage from its own blood spells.
+    RAGE_FROM_COMBAT = frozenset({"Warrior", "Knight of Xoroth"})
+
     def generates_rage_from_combat(self):
         """True for Warriors and for anyone in a Rage shapeshift form (Druid Bear /
         Dire Bear, Venomancer Beetle) - they build Rage from hitting and being hit."""
-        if self.char_class == "Warrior":
+        if self.char_class in self.RAGE_FROM_COMBAT:
             return True
         form = getattr(self, "current_form", None)
         if form:

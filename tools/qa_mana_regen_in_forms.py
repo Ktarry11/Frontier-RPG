@@ -19,6 +19,9 @@ sys.path.insert(0, str(ROOT))
 
 
 def gains(c):
+    # a turn on which nothing was cast: shifting in costs mana, and the five-second rule (Character.
+    # CASTING_SPIRIT_REGEN) rightly cuts THAT turn's spirit regen, which is not what this measures
+    c._spent_mana_this_turn = False
     c.current_mana = c.mana * 0.25
     before = c.current_mana
     c.restore_resources_between_turns()

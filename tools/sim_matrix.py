@@ -116,9 +116,19 @@ def make_dress(tier):
     return dress
 
 
+def real_role(spec, role):
+    """"dps" -> this spec's own damage role (melee_dps / ranged_dps), which is what sim_role_balance keys its forms
+    (Cat for a Feral) and talent preferences on. Passing "dps" built a Feral that never shifted and cast Wrath."""
+    if role != "dps":
+        return role
+    import sim_role_balance as R
+    return next((r for r in R.roles_of(spec) if r in ("melee_dps", "ranged_dps")), "melee_dps")
+
+
 def build(spec, role, level, tier, gen):
     import sim_role_balance as R
     from entities.character import Character
+    role = real_role(spec, role)
     # the spec is needed by dress before build() knows it; build() creates the character, so the
     # dress reads it off a class attribute set for the duration of the call
     Character._matrix_spec = spec
