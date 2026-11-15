@@ -66,9 +66,16 @@ CRAFT_TABS = {
     "runecrafting": ("runecrafting", "Runecrafting", None),
 }
 
-PANEL_X = 20
+#: THE TRADES RUN DOWN THE LEFT. They were a row of tabs right-aligned beside Close, and with all 15
+#: known the row ran off the left edge (Kyle, 14 Nov: "when eventhing is taught this needs better
+#: layout"). A column holds every trade at once, with its skill beside it.
+TAB_X = 20
+TAB_W = 176
+TAB_H = 30
+TAB_GAP = 4
+PANEL_X = TAB_X + TAB_W + 16
 PANEL_Y = 70
-PANEL_WIDTH = SCREEN_WIDTH - 260  # leaves room for the tab column on the right, same margin style as overworld screens
+PANEL_WIDTH = SCREEN_WIDTH - PANEL_X - 30
 BAR_HEIGHT = 28
 BAR_GAP = 70
 
@@ -86,6 +93,9 @@ class ProfessionsScreen(BaseScreen):
         super().__init__(state_manager)
         self.close_button = pygame.Rect(SCREEN_WIDTH - 120, 20, 100, 50)
         self.icon_ui_helper = None      # set by main.py, as on every screen that draws gear icons
+        self.craft_filter = {}          # trade tab -> the sub-tab picked in it ("All" when absent)
+        self.only_craftable = False     # the "Can craft" toggle
+        self.subtab_rects = []
         self.subject = None
         self.return_state = GameState.OVERWORLD
 
@@ -195,6 +205,15 @@ class ProfessionsScreen(BaseScreen):
                     if key == "upgrade":
                         self.selected_upgrade_item = None
                     return
+            if self.active_tab in CRAFT_TABS:
+                for cat, rect in getattr(self, "subtab_rects", []):
+                    if rect.collidepoint(event.pos):
+                        if cat == "__craftable__":
+                            self.only_craftable = not getattr(self, "only_craftable", False)
+                        else:
+                            self.craft_filter[self.active_tab] = cat
+                        self.craft_scroll = 0
+                        return
             if self.active_tab == "smelting":
                 for i, rect in enumerate(self.recipe_rects):
                     if rect.collidepoint(event.pos):
@@ -388,19 +407,25 @@ class ProfessionsScreen(BaseScreen):
             title = f"{subject.name.upper()}'S {base_title}"
         self.renderer.draw_text(screen, title, (20, 20), size="large", color=COLOR_GOLD)
 
-        # ---- Sub-tab buttons - right-aligned left of the Close button, sized to their label ----
+        # ---- The trades, down the left, each with its skill ----
         self.tab_rects = {}
-        x = SCREEN_WIDTH - 140
-        for key, label in reversed(tabs):
-            w = max(80, 22 + 9 * len(label))
-            x -= w + 6
-            self.tab_rects[key] = pygame.Rect(x, 20, w, 36)
+        y = PANEL_Y
         for key, label in tabs:
-            rect = self.tab_rects[key]
-            color = COLOR_GOLD if self.active_tab == key else (90, 90, 95)
-            self.renderer.draw_rect(screen, rect, (35, 35, 40))
-            self.renderer.draw_rect(screen, rect, color, fill=False)
-            self.renderer.draw_text(screen, label, (rect.x + 11, rect.y + 9), color=color)
+            rect = pygame.Rect(TAB_X, y, TAB_W, TAB_H)
+            self.tab_rects[key] = rect
+            active = self.active_tab == key
+            color = COLOR_GOLD if active else (150, 150, 155)
+            self.renderer.draw_rect(screen, rect, (48, 42, 30) if active else (32, 32, 37))
+            self.renderer.draw_rect(screen, rect, COLOR_GOLD if active else (70, 70, 76), fill=False)
+            self.renderer.draw_text(screen, label, (rect.x + 9, rect.y + 6), color=color)
+            prof = CRAFT_TABS.get(key, (None,))[0] if key in CRAFT_TABS else (
+                "mining" if key == "smelting" else None)
+            if prof and player.knows_profession(prof):
+                skill_txt = str(player.profession_skills.get(prof, 0))
+                tw = self.renderer._get_font("small").size(skill_txt)[0]
+                self.renderer.draw_text(screen, skill_txt, (rect.right - tw - 8, rect.y + 8), size="small",
+                                        color=(190, 170, 110) if active else (120, 120, 125))
+            y += TAB_H + TAB_GAP
 
         if self.active_tab == "smelting":
             self._render_smelting_tab(screen)
@@ -431,7 +456,7 @@ class ProfessionsScreen(BaseScreen):
             self._render_profession_bar(screen, prof_key, label, skills.get(prof_key, 0), y, subject)
             y += BAR_GAP
         y += 10
-        self.renderer.draw_text(screen, "Recipes are in the tabs above. Smelting needs a Forge, Sawmill recipes need a Sawmill.",
+        self.renderer.draw_text(screen, "Recipes are in the tabs on the left. Smelting needs a Forge, Sawmill recipes need a Sawmill.",
                                 (PANEL_X, y), size="small", color=(150, 150, 150))
 
     def _render_smelting_tab(self, screen):
@@ -602,6 +627,43 @@ class ProfessionsScreen(BaseScreen):
             y += 30
 
         recipes = self._craft_recipes(profession)
+
+        # ---- SUB-TABS (Kyle, 14 Nov: "rather than going through ALL tailoring, i might just want
+        # bags"): one per kind of thing this trade makes, from what each recipe makes, with "All"
+        # first and a "Can craft" toggle on the end.
+        from world.recipe_categories import category, ordered
+        cats = {rid: category(r) for rid, r in recipes}
+        labels = ["All"] + ordered(cats.values())
+        chosen = self.craft_filter.get(self.active_tab, "All")
+        if chosen not in labels:
+            chosen = "All"
+        self.subtab_rects = []
+        font = self.renderer._get_font("small")
+        sx, sy = PANEL_X, y
+        for lab in labels + ["__craftable__"]:
+            text = "Can craft" if lab == "__craftable__" else lab
+            w = font.size(text)[0] + 18
+            if sx + w > PANEL_X + PANEL_WIDTH:
+                sx, sy = PANEL_X, sy + 28
+            rect = pygame.Rect(sx, sy, w, 24)
+            on = (lab == chosen) or (lab == "__craftable__" and self.only_craftable)
+            self.renderer.draw_rect(screen, rect, (52, 46, 30) if on else (30, 30, 35))
+            self.renderer.draw_rect(screen, rect, COLOR_GOLD if on else (75, 75, 80), fill=False)
+            self.renderer.draw_text(screen, text, (rect.x + 9, rect.y + 4), size="small",
+                                    color=COLOR_GOLD if on else (170, 170, 175))
+            self.subtab_rects.append((lab, rect))
+            sx += w + 6
+        y = sy + 32
+        if chosen != "All":
+            recipes = [(rid, r) for rid, r in recipes if cats[rid] == chosen]
+        if self.only_craftable:
+            if profession in self.own_managers:
+                recipes = [(rid, r) for rid, r in recipes if self.own_managers[profession].can_craft(player, rid)]
+            else:
+                recipes = [(rid, r) for rid, r in recipes if self.crafting_manager.can_craft(player, profession, rid)]
+        if not recipes:
+            self.renderer.draw_text(screen, "Nothing here you can make right now." if self.only_craftable
+                                    else "Nothing in this tab.", (PANEL_X, y + 6), color=(150, 150, 155))
         row_h = 52
         visible = max(1, (SCREEN_HEIGHT - 80 - y) // row_h)
         self.craft_scroll = max(0, min(self.craft_scroll, max(0, len(recipes) - visible)))
@@ -686,18 +748,27 @@ class ProfessionsScreen(BaseScreen):
                 self.renderer.draw_text(screen, effect, (effect_x, rect.y + 6), size="small",
                                         color=(140, 220, 160) if unlocked else (90, 120, 100))
 
-            parts = []
+            parts = []          # (text, colour): enough is green, some is amber, none is red (B5)
             for input_id, qty in recipe["inputs"].items():
                 mat_def = self.gathering_manager.get_material_def(input_id)
-                parts.append(f"{mat_def['name'] if mat_def else input_id} {player.get_material_quantity(input_id)}/{qty}")
+                have = player.get_material_quantity(input_id)
+                colour = ((140, 210, 140) if have >= qty else (230, 180, 90) if have else (220, 120, 110)) \
+                    if unlocked else (100, 100, 105)
+                parts.append((f"{mat_def['name'] if mat_def else input_id} {have}/{qty}", colour))
             tools = recipe.get("tool")
             if isinstance(tools, list) and tools:
                 # a runed rod of this tier or better, needed in the bags and never used up
                 have = any(player.get_material_quantity(t) for t in tools)
                 tdef = self.gathering_manager.get_material_def(tools[0]) or {}
-                parts.append(f"{tdef.get('name', tools[0])}{'+' if len(tools) > 1 else ''} ({'have' if have else 'needed'})")
+                parts.append((f"{tdef.get('name', tools[0])}{'+' if len(tools) > 1 else ''} "
+                              f"({'have' if have else 'needed'})",
+                              ((140, 210, 140) if have else (220, 120, 110)) if unlocked else (100, 100, 105)))
             self.renderer.draw_text(screen, name, (text_x, rect.y + 4), color=COLOR_WHITE if unlocked else (120, 120, 125))
-            self.renderer.draw_text(screen, "   ".join(parts), (text_x, rect.y + 25), size="small", color=COLOR_LIGHT_GRAY if unlocked else (100, 100, 105))
+            px = text_x
+            small = self.renderer._get_font("small")
+            for text, colour in parts:
+                self.renderer.draw_text(screen, text, (px, rect.y + 25), size="small", color=colour)
+                px += small.size(text)[0] + 16
             if unlocked:
                 self.renderer.draw_text(screen, f"Skill {req}", (rect.right - 110, rect.y + 12), color=self._difficulty_color(skill, recipe))
             else:

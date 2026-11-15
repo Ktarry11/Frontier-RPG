@@ -177,6 +177,23 @@ class Consumable:
             bonus_str = bonus_text(self.stat_bonuses)
             log_msg = f"Nocked {self.name}: {bonus_str} for {int(self.effect_duration)}s"
 
+        elif self.consumable_type == "status_potion":
+            # A potion that puts a status effect on the drinker for a few turns: Free Action (can't be
+            # stunned), Invulnerability (90% less physical damage). The effect lives in the data file
+            # (apply_effect), read when it's drunk, so saves carry nothing new. Turn-based, like every
+            # proc-applied effect: without real_time_seconds=None it would last 30 real minutes.
+            from entities.consumable_manager import get_consumable_manager
+            from combat.status_effects import StatusEffect
+            spec = dict((get_consumable_manager().consumables_db.get(self.consumable_id) or {})
+                        .get("apply_effect") or {})
+            if not spec or not hasattr(character, "apply_status_effect"):
+                return False
+            spec.pop("on_target", None)
+            spec.setdefault("real_time_seconds", None)
+            spec.setdefault("source_name", self.name)
+            character.apply_status_effect(StatusEffect(**spec))
+            log_msg = f"Drank {self.name}: {spec.get('name', self.name)} for {spec.get('duration', 1)} turns"
+
         else:
             return False
         

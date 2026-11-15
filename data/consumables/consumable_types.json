@@ -1495,6 +1495,42 @@
       "stat_bonuses": {
         "armor": 100
       }
+    },
+    {
+      "consumable_id": "elixir_shadow_power",
+      "name": "Elixir of Shadow Power",
+      "consumable_type": "elixir",
+      "description": "Dark and thick, and it tastes of ash. Grants +30 Shadow Power for 30 minutes. Battle buff.",
+      "effect_duration": 1800,
+      "required_level": 32,
+      "sell_price": 60,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "shadow_spell_power": 30
+      },
+      "effect_value": 0,
+      "level_multiplier": 0.0,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 0
+    },
+    {
+      "consumable_id": "flask_mending",
+      "name": "Flask of Mending",
+      "consumable_type": "elixir",
+      "description": "A healer's flask, sealed with green wax. Grants +80 Healing for 30 minutes. A flask takes your guardian slot.",
+      "effect_duration": 1800,
+      "required_level": 40,
+      "sell_price": 150,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "healing_power": 80
+      },
+      "effect_value": 0,
+      "level_multiplier": 0.0,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 0
     }
   ],
   "food": [
@@ -4428,6 +4464,56 @@
         "strength": 8,
         "healing_power": 17
       }
+    }
+  ],
+  "status_potions": [
+    {
+      "consumable_id": "potion_free_action",
+      "name": "Free Action Potion",
+      "consumable_type": "status_potion",
+      "description": "Drink it and nothing can hold you. For 3 turns you can't be stunned or held.",
+      "effect_duration": 0,
+      "required_level": 26,
+      "sell_price": 75,
+      "buff_category": null,
+      "apply_effect": {
+        "effect_id": "free_action",
+        "name": "Free Action",
+        "effect_type": "buff",
+        "duration": 3,
+        "stat_mods": {
+          "cc_immune": 1
+        }
+      },
+      "effect_value": 0,
+      "level_multiplier": 0.0,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 0
+    },
+    {
+      "consumable_id": "potion_invulnerability",
+      "name": "Potion of Invulnerability",
+      "consumable_type": "status_potion",
+      "description": "It burns going down. For 2 turns you take 90% less physical damage.",
+      "effect_duration": 0,
+      "required_level": 39,
+      "sell_price": 120,
+      "buff_category": null,
+      "apply_effect": {
+        "effect_id": "limited_invulnerability",
+        "name": "Invulnerable",
+        "effect_type": "buff",
+        "duration": 2,
+        "stat_mods": {
+          "physical_damage_taken_pct": -90
+        }
+      },
+      "effect_value": 0,
+      "level_multiplier": 0.0,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 0
     }
   ]
 }

@@ -621,16 +621,19 @@ def alch_recipe(name, req, consumable_id, source, count=1,
 
 NEW_ALCHEMY_RECIPES = {
     # World drop rare potions (named bosses drop the recipe, not the potion)
-    "alch_elixir_fortitude_drop":       alch_recipe("Elixir of Fortitude",        95,  "elixir_fortitude",      "drop",   inputs={"herb_kingsblood": 2, "vial_empty": 1}, drop_zone="Wailing Caverns"),
+    "alch_elixir_fortitude_drop":       alch_recipe("Elixir of Fortitude",        95,  "elixir_of_fortitude",      "drop",   inputs={"herb_kingsblood": 2, "vial_empty": 1}, drop_zone="Wailing Caverns"),
     "alch_potion_free_action_drop":     alch_recipe("Free Action Potion",        130,  "potion_free_action",    "drop",   inputs={"herb_stranglekelp": 2, "herb_liferoot": 1, "vial_empty": 1}, drop_zone="Shadowfang Keep"),
     "alch_elixir_shadow_power_drop":    alch_recipe("Elixir of Shadow Power",    160,  "elixir_shadow_power",   "drop",   inputs={"herb_fadeleaf": 2, "vial_empty": 1}, drop_zone="Plague Depths"),
     "alch_flask_mending_drop":          alch_recipe("Flask of Mending",          200,  "flask_mending",         "drop",   inputs={"herb_goldthorn": 3, "herb_blindweed": 1, "vial_empty": 1}, drop_zone="Blackfathom Deeps"),
-    "alch_elixir_agility_drop":         alch_recipe("Elixir of Greater Agility", 175,  "elixir_greater_agility","drop",   inputs={"herb_sungrass": 2, "vial_empty": 1}, drop_zone="Razorfen Kraul"),
+    "alch_elixir_agility_drop":         alch_recipe("Elixir of Greater Agility", 175,  "elixir_of_greater_agility","drop",   inputs={"herb_sungrass": 2, "vial_empty": 1}, drop_zone="Razorfen Kraul"),
 
     # Vendor recipes
     "alch_transmute_iron_gold_vendor":  alch_recipe("Transmute: Iron to Gold",   225,  "transmute_iron_gold",   "vendor", inputs={"bar_iron": 4, "herb_goldthorn": 2}, vendor_location="Undercity"),
     "alch_potion_invulnerability_vendor":alch_recipe("Potion of Invulnerability",195,  "potion_invulnerability","vendor", inputs={"herb_blindweed": 3, "herb_firebloom": 1, "vial_empty": 1}, vendor_location="Ratchet"),
 }
+# A transmute makes a bar, not a potion: four iron and the goldthorn come out as one gold bar. It named a
+# consumable that never existed, so crafting it gave you nothing (found 15 Nov by qa_profession_subtabs).
+NEW_ALCHEMY_RECIPES["alch_transmute_iron_gold_vendor"]["output"] = {"kind": "material", "material_id": "bar_gold"}
 
 
 # ════════════════════════════════════════════════════════════════════════════
