@@ -786,37 +786,37 @@
           "rank": 1,
           "level_req": 20,
           "cost": 36,
-          "effect_value": 120
+          "effect_value": 85
         },
         {
           "rank": 2,
           "level_req": 27,
           "cost": 41,
-          "effect_value": 154
+          "effect_value": 108
         },
         {
           "rank": 3,
           "level_req": 34,
           "cost": 47,
-          "effect_value": 188
+          "effect_value": 132
         },
         {
           "rank": 4,
           "level_req": 41,
           "cost": 53,
-          "effect_value": 222
+          "effect_value": 156
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 61,
-          "effect_value": 256
+          "effect_value": 180
         },
         {
           "rank": 6,
           "level_req": 55,
           "cost": 69,
-          "effect_value": 290
+          "effect_value": 204
         }
       ],
       "icon_id": null,
@@ -826,7 +826,10 @@
       "generates": {
         "resource": "souls",
         "amount": 20
-      }
+      },
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x0.70 - it sat at 2.27x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+      ]
     },
     {
       "ability_id": "reaper_harvesting_grounds",

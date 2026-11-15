@@ -1340,23 +1340,26 @@
           "rank": 1,
           "level_req": 34,
           "cost": 30,
-          "effect_value": 236
+          "effect_value": 96
         },
         {
           "rank": 2,
           "level_req": 46,
           "cost": 30,
-          "effect_value": 286
+          "effect_value": 116
         },
         {
           "rank": 3,
           "level_req": 56,
           "cost": 35,
-          "effect_value": 337
+          "effect_value": 137
         }
       ],
       "icon_id": null,
-      "damage_school": "nature"
+      "damage_school": "nature",
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x0.41 - it sat at 3.95x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+      ]
     },
     {
       "ability_id": "venomancer_rotfang",

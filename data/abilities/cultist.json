@@ -702,41 +702,44 @@
           "rank": 1,
           "level_req": 18,
           "cost": 90,
-          "effect_value": 129
+          "effect_value": 70
         },
         {
           "rank": 2,
           "level_req": 24,
           "cost": 103,
-          "effect_value": 148
+          "effect_value": 80
         },
         {
           "rank": 3,
           "level_req": 30,
           "cost": 116,
-          "effect_value": 167
+          "effect_value": 90
         },
         {
           "rank": 4,
           "level_req": 38,
           "cost": 134,
-          "effect_value": 192
+          "effect_value": 104
         },
         {
           "rank": 5,
           "level_req": 46,
           "cost": 151,
-          "effect_value": 217
+          "effect_value": 117
         },
         {
           "rank": 6,
           "level_req": 54,
           "cost": 169,
-          "effect_value": 242
+          "effect_value": 131
         }
       ],
       "icon_id": null,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x0.54 - it sat at 2.97x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+      ]
     },
     {
       "ability_id": "cultist_presence_of_nzoth",
@@ -1388,25 +1391,25 @@
           "rank": 1,
           "level_req": 22,
           "cost": 127,
-          "effect_value": 181
+          "effect_value": 61
         },
         {
           "rank": 2,
           "level_req": 32,
           "cost": 155,
-          "effect_value": 221
+          "effect_value": 75
         },
         {
           "rank": 3,
           "level_req": 44,
           "cost": 189,
-          "effect_value": 269
+          "effect_value": 91
         },
         {
           "rank": 4,
           "level_req": 58,
           "cost": 229,
-          "effect_value": 326
+          "effect_value": 110
         }
       ],
       "generates": {
@@ -1414,7 +1417,10 @@
         "amount": 10
       },
       "icon_id": null,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x0.34 - it sat at 4.75x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+      ]
     },
     {
       "ability_id": "cultist_eldritch_devastation",

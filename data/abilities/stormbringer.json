@@ -275,53 +275,56 @@
           "rank": 1,
           "level_req": 8,
           "cost": 0,
-          "effect_value": 100
+          "effect_value": 62
         },
         {
           "rank": 2,
           "level_req": 14,
           "cost": 0,
-          "effect_value": 119
+          "effect_value": 73
         },
         {
           "rank": 3,
           "level_req": 20,
           "cost": 0,
-          "effect_value": 139
+          "effect_value": 85
         },
         {
           "rank": 4,
           "level_req": 26,
           "cost": 0,
-          "effect_value": 158
+          "effect_value": 97
         },
         {
           "rank": 5,
           "level_req": 32,
           "cost": 0,
-          "effect_value": 177
+          "effect_value": 109
         },
         {
           "rank": 6,
           "level_req": 40,
           "cost": 0,
-          "effect_value": 203
+          "effect_value": 125
         },
         {
           "rank": 7,
           "level_req": 48,
           "cost": 0,
-          "effect_value": 229
+          "effect_value": 141
         },
         {
           "rank": 8,
           "level_req": 56,
           "cost": 0,
-          "effect_value": 255
+          "effect_value": 157
         }
       ],
       "icon_id": "stormbringer_conjure_storm",
-      "damage_school": "nature"
+      "damage_school": "nature",
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x0.62 - it sat at 2.60x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+      ]
     },
     {
       "ability_id": "stormbringer_invigorating_surge",
@@ -877,31 +880,31 @@
           "rank": 1,
           "level_req": 15,
           "cost": 56,
-          "effect_value": 80
+          "effect_value": 32
         },
         {
           "rank": 2,
           "level_req": 22,
           "cost": 99,
-          "effect_value": 142
+          "effect_value": 56
         },
         {
           "rank": 3,
           "level_req": 34,
           "cost": 136,
-          "effect_value": 195
+          "effect_value": 77
         },
         {
           "rank": 4,
           "level_req": 46,
           "cost": 173,
-          "effect_value": 248
+          "effect_value": 98
         },
         {
           "rank": 5,
           "level_req": 56,
           "cost": 204,
-          "effect_value": 292
+          "effect_value": 116
         }
       ],
       "generates": {
@@ -909,7 +912,10 @@
         "amount": 5
       },
       "icon_id": "stormbringer_forked_lightning",
-      "damage_school": "nature"
+      "damage_school": "nature",
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x0.40 - it sat at 4.03x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+      ]
     },
     {
       "ability_id": "stormbringer_volt",

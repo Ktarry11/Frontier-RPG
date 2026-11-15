@@ -810,29 +810,32 @@
           "rank": 1,
           "level_req": 22,
           "cost": 101,
-          "effect_value": 144
+          "effect_value": 88
         },
         {
           "rank": 2,
           "level_req": 32,
           "cost": 123,
-          "effect_value": 176
+          "effect_value": 108
         },
         {
           "rank": 3,
           "level_req": 44,
           "cost": 150,
-          "effect_value": 214
+          "effect_value": 131
         },
         {
           "rank": 4,
           "level_req": 58,
           "cost": 182,
-          "effect_value": 259
+          "effect_value": 159
         }
       ],
       "icon_id": null,
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x0.61 - it sat at 2.61x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+      ]
     },
     {
       "ability_id": "sun_cleric_radiant_flame",

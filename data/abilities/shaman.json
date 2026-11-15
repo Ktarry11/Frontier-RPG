@@ -666,25 +666,28 @@
           "rank": 1,
           "level_req": 40,
           "cost": 90,
-          "effect_value": 480
+          "effect_value": 343
         },
         {
           "rank": 2,
           "level_req": 46,
           "cost": 98,
-          "effect_value": 526
+          "effect_value": 376
         },
         {
           "rank": 3,
           "level_req": 52,
           "cost": 107,
-          "effect_value": 571
+          "effect_value": 408
         }
       ],
       "target_type": "ally",
       "requires_talent": true,
       "icon_id": null,
-      "_design_note": "Not learned from level alone - granted by the Riptide talent in the Restoration tree. Heals the target immediately and again over time."
+      "_design_note": "Not learned from level alone - granted by the Riptide talent in the Restoration tree. Heals the target immediately and again over time.",
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x0.71 - it sat at 2.24x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+      ]
     },
     {
       "ability_id": "shaman_mana_tide_totem",

@@ -772,31 +772,31 @@
           "rank": 1,
           "level_req": 24,
           "cost": 40,
-          "effect_value": 60
+          "effect_value": 43
         },
         {
           "rank": 2,
           "level_req": 32,
           "cost": 40,
-          "effect_value": 78
+          "effect_value": 55
         },
         {
           "rank": 3,
           "level_req": 40,
           "cost": 40,
-          "effect_value": 120
+          "effect_value": 85
         },
         {
           "rank": 4,
           "level_req": 48,
           "cost": 40,
-          "effect_value": 142
+          "effect_value": 101
         },
         {
           "rank": 5,
           "level_req": 56,
           "cost": 40,
-          "effect_value": 165
+          "effect_value": 117
         }
       ],
       "icon_id": null,
@@ -807,7 +807,10 @@
       "generates": {
         "resource": "rage",
         "amount": 30
-      }
+      },
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x0.71 - it sat at 2.26x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+      ]
     },
     {
       "ability_id": "knight_of_xoroth_sacrificial_circle",

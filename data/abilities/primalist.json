@@ -165,31 +165,31 @@
           "rank": 1,
           "level_req": 2,
           "cost": 63,
-          "effect_value": 90
+          "effect_value": 49
         },
         {
           "rank": 2,
           "level_req": 14,
           "cost": 98,
-          "effect_value": 140
+          "effect_value": 77
         },
         {
           "rank": 3,
           "level_req": 26,
           "cost": 137,
-          "effect_value": 196
+          "effect_value": 108
         },
         {
           "rank": 4,
           "level_req": 38,
           "cost": 181,
-          "effect_value": 258
+          "effect_value": 142
         },
         {
           "rank": 5,
           "level_req": 50,
           "cost": 228,
-          "effect_value": 326
+          "effect_value": 179
         }
       ],
       "generates": {
@@ -197,7 +197,10 @@
         "amount": 20
       },
       "icon_id": null,
-      "_design_note": "Create stalactites that strike your enemy 3 times, generating Rage. Real physical damage (was previously miscategorized as spell_damage, which incorrectly scaled it off Spell Power - fixed to match its own confirmed screenshot data: '90 Physical damage', and Primalist's real Strength/melee-hybrid identity per the class resource reference). Shares a cooldown with other Seismic spells."
+      "_design_note": "Create stalactites that strike your enemy 3 times, generating Rage. Real physical damage (was previously miscategorized as spell_damage, which incorrectly scaled it off Spell Power - fixed to match its own confirmed screenshot data: '90 Physical damage', and Primalist's real Strength/melee-hybrid identity per the class resource reference). Shares a cooldown with other Seismic spells.",
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x0.55 - it sat at 2.92x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+      ]
     },
     {
       "ability_id": "primalist_stoneshard",
@@ -784,25 +787,25 @@
           "rank": 1,
           "level_req": 26,
           "cost": 30,
-          "effect_value": 270
+          "effect_value": 159
         },
         {
           "rank": 2,
           "level_req": 36,
           "cost": 36,
-          "effect_value": 325
+          "effect_value": 191
         },
         {
           "rank": 3,
           "level_req": 48,
           "cost": 43,
-          "effect_value": 391
+          "effect_value": 230
         },
         {
           "rank": 4,
           "level_req": 58,
           "cost": 50,
-          "effect_value": 458
+          "effect_value": 269
         }
       ],
       "generates": {
@@ -812,7 +815,8 @@
       "icon_id": null,
       "_design_note": "Send an escalating tremor through the earth at an enemy. Shares a cooldown with other Seismic spells. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)",
       "_tuning": [
-        "15 Nov 2026, Kyle approved: this ability is a Primalist core spell now (learned by level), because every one of the four trees has talents that boost it - as a single tree's unlock, those talents were dead for the other three (tools/validate_class.py: 18 dead references). This node, which used to teach it, improves it instead."
+        "15 Nov 2026, Kyle approved: this ability is a Primalist core spell now (learned by level), because every one of the four trees has talents that boost it - as a single tree's unlock, those talents were dead for the other three (tools/validate_class.py: 18 dead references). This node, which used to teach it, improves it instead.",
+        "15 Nov 2026, class pass: every rank x0.59 - it sat at 2.72x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
       ]
     },
     {
@@ -936,37 +940,37 @@
           "rank": 1,
           "level_req": 18,
           "cost": 71,
-          "effect_value": 102
+          "effect_value": 56
         },
         {
           "rank": 2,
           "level_req": 24,
           "cost": 81,
-          "effect_value": 117
+          "effect_value": 64
         },
         {
           "rank": 3,
           "level_req": 30,
           "cost": 92,
-          "effect_value": 132
+          "effect_value": 72
         },
         {
           "rank": 4,
           "level_req": 38,
           "cost": 106,
-          "effect_value": 152
+          "effect_value": 83
         },
         {
           "rank": 5,
           "level_req": 46,
           "cost": 119,
-          "effect_value": 172
+          "effect_value": 94
         },
         {
           "rank": 6,
           "level_req": 54,
           "cost": 133,
-          "effect_value": 192
+          "effect_value": 105
         }
       ],
       "generates": {
@@ -976,7 +980,8 @@
       "icon_id": null,
       "damage_school": "nature",
       "_tuning": [
-        "15 Nov 2026, Kyle approved: this ability is a Primalist core spell now (learned by level), because every one of the four trees has talents that boost it - as a single tree's unlock, those talents were dead for the other three (tools/validate_class.py: 18 dead references). This node, which used to teach it, improves it instead."
+        "15 Nov 2026, Kyle approved: this ability is a Primalist core spell now (learned by level), because every one of the four trees has talents that boost it - as a single tree's unlock, those talents were dead for the other three (tools/validate_class.py: 18 dead references). This node, which used to teach it, improves it instead.",
+        "15 Nov 2026, class pass: every rank x0.55 - it sat at 2.93x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
       ]
     },
     {
@@ -1225,25 +1230,26 @@
           "rank": 1,
           "level_req": 30,
           "cost": 385,
-          "effect_value": 180
+          "effect_value": 90
         },
         {
           "rank": 2,
           "level_req": 40,
           "cost": 615,
-          "effect_value": 210
+          "effect_value": 105
         },
         {
           "rank": 3,
           "level_req": 52,
           "cost": 763,
-          "effect_value": 254
+          "effect_value": 128
         }
       ],
       "icon_id": null,
       "damage_school": "fire",
       "_tuning": [
-        "15 Nov 2026: 550/878/1089 -> 180/210/254. Authored at 6x a Fireball rank PER TARGET on a 4-turn AoE (13x its line); the world curve multiplied it to 5,283 at 40 and Geomancy one-shot everything. Now ~2x the line per target, the top of the strong AoEs."
+        "15 Nov 2026: 550/878/1089 -> 180/210/254. Authored at 6x a Fireball rank PER TARGET on a 4-turn AoE (13x its line); the world curve multiplied it to 5,283 at 40 and Geomancy one-shot everything. Now ~2x the line per target, the top of the strong AoEs.",
+        "15 Nov 2026, class pass: every rank x0.50 - it sat at 3.19x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
       ]
     },
     {
@@ -1370,40 +1376,43 @@
           "rank": 1,
           "level_req": 24,
           "cost": 144,
-          "effect_value": 180
+          "effect_value": 117
         },
         {
           "rank": 2,
           "level_req": 31,
           "cost": 166,
-          "effect_value": 208
+          "effect_value": 135
         },
         {
           "rank": 3,
           "level_req": 38,
           "cost": 188,
-          "effect_value": 235
+          "effect_value": 152
         },
         {
           "rank": 4,
           "level_req": 46,
           "cost": 210,
-          "effect_value": 263
+          "effect_value": 170
         },
         {
           "rank": 5,
           "level_req": 53,
           "cost": 232,
-          "effect_value": 290
+          "effect_value": 188
         },
         {
           "rank": 6,
           "level_req": 60,
           "cost": 254,
-          "effect_value": 318
+          "effect_value": 206
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x0.65 - it sat at 2.47x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+      ]
     },
     {
       "ability_id": "primalist_judgement_of_the_three_hammers",

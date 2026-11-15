@@ -251,35 +251,38 @@
           "rank": 1,
           "level_req": 4,
           "cost": 30,
-          "effect_value": 108
+          "effect_value": 69
         },
         {
           "rank": 2,
           "level_req": 14,
           "cost": 42,
-          "effect_value": 152
+          "effect_value": 97
         },
         {
           "rank": 3,
           "level_req": 26,
           "cost": 53,
-          "effect_value": 194
+          "effect_value": 124
         },
         {
           "rank": 4,
           "level_req": 40,
           "cost": 65,
-          "effect_value": 298
+          "effect_value": 191
         },
         {
           "rank": 5,
           "level_req": 54,
           "cost": 77,
-          "effect_value": 350
+          "effect_value": 224
         }
       ],
       "icon_id": null,
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x0.64 - it sat at 2.50x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+      ]
     },
     {
       "ability_id": "tinker_defibrillate",
@@ -1480,24 +1483,27 @@
           "rank": 1,
           "level_req": 40,
           "cost": 120,
-          "effect_value": 188
+          "effect_value": 132
         },
         {
           "rank": 2,
           "level_req": 52,
           "cost": 150,
-          "effect_value": 244
+          "effect_value": 171
         },
         {
           "rank": 3,
           "level_req": 60,
           "cost": 175,
-          "effect_value": 300
+          "effect_value": 210
         }
       ],
       "icon_id": null,
       "damage_school": "fire",
-      "is_aoe": true
+      "is_aoe": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x0.70 - it sat at 2.29x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+      ]
     }
   ]
 }

@@ -769,40 +769,43 @@
           "rank": 1,
           "level_req": 22,
           "cost": 112,
-          "effect_value": 140
+          "effect_value": 89
         },
         {
           "rank": 2,
           "level_req": 29,
           "cost": 143,
-          "effect_value": 178
+          "effect_value": 113
         },
         {
           "rank": 3,
           "level_req": 36,
           "cost": 173,
-          "effect_value": 216
+          "effect_value": 137
         },
         {
           "rank": 4,
           "level_req": 42,
           "cost": 204,
-          "effect_value": 255
+          "effect_value": 162
         },
         {
           "rank": 5,
           "level_req": 49,
           "cost": 234,
-          "effect_value": 293
+          "effect_value": 186
         },
         {
           "rank": 6,
           "level_req": 56,
           "cost": 265,
-          "effect_value": 331
+          "effect_value": 210
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x0.63 - it sat at 2.52x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+      ]
     },
     {
       "ability_id": "starcaller_starfire_shot",
@@ -889,29 +892,32 @@
           "rank": 1,
           "level_req": 26,
           "cost": 162,
-          "effect_value": 231
+          "effect_value": 77
         },
         {
           "rank": 2,
           "level_req": 36,
           "cost": 195,
-          "effect_value": 348
+          "effect_value": 115
         },
         {
           "rank": 3,
           "level_req": 48,
           "cost": 235,
-          "effect_value": 419
+          "effect_value": 139
         },
         {
           "rank": 4,
           "level_req": 58,
           "cost": 276,
-          "effect_value": 491
+          "effect_value": 163
         }
       ],
       "icon_id": null,
-      "damage_school": "arcane"
+      "damage_school": "arcane",
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x0.33 - it sat at 4.82x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+      ]
     },
     {
       "ability_id": "starcaller_trueshot",
@@ -1068,29 +1074,32 @@
           "rank": 1,
           "level_req": 26,
           "cost": 125,
-          "effect_value": 178
+          "effect_value": 65
         },
         {
           "rank": 2,
           "level_req": 36,
           "cost": 154,
-          "effect_value": 274
+          "effect_value": 100
         },
         {
           "rank": 3,
           "level_req": 48,
           "cost": 185,
-          "effect_value": 329
+          "effect_value": 120
         },
         {
           "rank": 4,
           "level_req": 58,
           "cost": 217,
-          "effect_value": 386
+          "effect_value": 140
         }
       ],
       "icon_id": null,
-      "damage_school": "arcane"
+      "damage_school": "arcane",
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x0.36 - it sat at 4.40x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+      ]
     },
     {
       "ability_id": "starcaller_wardens_blade",
@@ -1254,17 +1263,20 @@
           "rank": 1,
           "level_req": 40,
           "cost": 0,
-          "effect_value": 150
+          "effect_value": 85
         },
         {
           "rank": 2,
           "level_req": 52,
           "cost": 0,
-          "effect_value": 179
+          "effect_value": 101
         }
       ],
       "icon_id": null,
-      "damage_school": "arcane"
+      "damage_school": "arcane",
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x0.56 - it sat at 2.84x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+      ]
     },
     {
       "ability_id": "starcaller_celestial_impact",
