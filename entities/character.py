@@ -3207,6 +3207,10 @@ class Character(StatusEffectMixin):
             tl = getattr(target, "level", None) if target is not None else None
             gap = (int(tl) - int(self.level or 1)) if tl is not None else 0
         extra = self.level_miss_extra("spell" if kind == "spell" else "physical", gap)
+        # A CERTAIN HIT IS CERTAIN: an effect that grants +100 (a "WILL crit" cast, a sure strike) lands whatever
+        # the level gap and past every cap - the caps bound what gear and talents can stack, not a guarantee.
+        if (self.spell_hit_rating_total if kind == "spell" else self.hit_rating_total) >= 100:
+            return 0.0
         if kind == "spell":
             return max(self.MIN_SPELL_MISS, self.BASE_MISS_SPELL + extra - self.spell_hit_rating)
         dw = self.DUAL_WIELD_MISS_PENALTY if (kind == "white" and self.is_dual_wielding) else 0.0

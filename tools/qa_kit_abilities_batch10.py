@@ -386,7 +386,7 @@ def main():
     if spell is None:
         check(False, "Never Been Refused Twice: Orlando has no damaging spell to test with")
     else:
-        ch.apply_status_effect(StatusEffect("t_blind", "Blind", EffectType.DEBUFF, 9, stat_mods={"hit_rating": -100},
+        ch.apply_status_effect(StatusEffect("t_blind", "Blind", EffectType.DEBUFF, 9, stat_mods={"hit_rating": -100, "spell_hit_rating": -100},
                                             real_time_seconds=None))
         hp = mobs[0].current_health
         m1 = cast(ch, spell, mobs[0], eng)

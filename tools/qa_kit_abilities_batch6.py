@@ -92,6 +92,9 @@ def main():
     c, ab = kit("Freja Lindqvist", "She Taught Four Women")
     if ab:
         m = mob()
+        # at the attacker's level: since 15 Nov 2026 a miss depends on the level gap (Classic's table), and a swing
+        # at a creature dozens of levels up all but always misses - this check is about the heal, not the hit
+        m.level = ally.level
         eng = engine_for(c, ally, m)
         ab.use(c, ally, party=[c, ally], free=True)
         ally.current_health = ally.health

@@ -206,7 +206,9 @@ def main():
     if ab:
         ok, msg = ab.use(c, c, free=True)
         c._recalculate_derived_stats()
-        check(ok and c.hit_rating >= c.HIT_RATING_CAP, f"Control, Not Power: hit rating {c.hit_rating}")
+        # spell hit since 15 Nov 2026 (hit and spell hit split): "his spells cannot miss" - a certain hit
+        check(ok and c.miss_chance_vs("spell", gap=10) == 0.0,
+              f"Control, Not Power: spell hit {c.spell_hit_rating_total}, miss vs +10 {c.miss_chance_vs('spell', gap=10)}")
         check(c.spell_penetration >= c.SPELL_PEN_USEFUL_MAX, f"Control, Not Power: spell penetration {c.spell_penetration}")
         check(c.get_status_stat_mod("damage_dealt_pct") == -20, "Control, Not Power: the 20% damage cost is missing")
 
