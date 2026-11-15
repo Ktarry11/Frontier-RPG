@@ -1680,6 +1680,15 @@ class InventoryScreen(BaseScreen):
                     lines.append(wrapped)
         if item.required_level > 1:
             lines.append(f"Requires Level {item.required_level}")
+        # THE FLAVOUR LINE, in quotes and WoW's gold, as the last thing about the item itself (Kyle, 15 Nov
+        # 2026: "I want NICE flavor text on each epic sold"). Every authored item carries one and the gear card
+        # never drew it. Rare and better only: a green's line is a name tag, an epic's is the point.
+        flavour_lines = set()
+        _flav = (getattr(item, "flavor_text", "") or "").strip()
+        if _flav and item.rarity in ("rare", "epic", "legendary"):
+            for wrapped in self.renderer.wrap_text(f'"{_flav}"', 300 - 20):
+                flavour_lines.add(len(lines))
+                lines.append(wrapped)
 
         # Equip eligibility. Without this an item a class can't wear looked
         # completely normal in the tooltip and clicking it simply did nothing,
@@ -1729,6 +1738,8 @@ class InventoryScreen(BaseScreen):
                 color = set_colors[i]
             elif i in socket_colors:
                 color = socket_colors[i]
+            elif i in flavour_lines:
+                color = (255, 209, 0)
             elif i >= first_warning:
                 kind = warning_lines[i - first_warning][0]
                 color = (220, 70, 70) if kind == "blocked" else (220, 180, 70)

@@ -93,7 +93,7 @@
           "required_level": 2,
           "sell_price": 23,
           "flavor_text": "Scraps of leather, stitched together by someone still learning how.",
-          "identity": "agi_starter",
+          "identity": "agility",
           "icon_id": "gear_inv_belt_31"
         }
       },
@@ -170,7 +170,7 @@
           "rarity": "uncommon",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "agi_int_hybrid",
           "primary_stats": {
             "agility": 3
           },
@@ -179,7 +179,7 @@
           "required_level": 4,
           "sell_price": 64,
           "flavor_text": "Light leather, soft and quiet, for anyone who'd rather not be heard.",
-          "identity": "agility",
+          "identity": "wildheart",
           "icon_id": "gear_inv_gauntlets_15"
         }
       },
@@ -257,16 +257,16 @@
           "rarity": "uncommon",
           "armor_type": "cloth",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "spi_healer",
           "primary_stats": {
-            "agility": 3
+            "spirit": 3
           },
           "secondary_stats": {},
           "armor_value": 6,
           "required_level": 6,
           "sell_price": 100,
           "flavor_text": "Light leather, soft and quiet, for anyone who'd rather not be heard.",
-          "identity": "agility",
+          "identity": "healer",
           "icon_id": "gear_inv_misc_cape_10"
         }
       },
@@ -309,7 +309,7 @@
           "required_level": 7,
           "sell_price": 128,
           "flavor_text": "Light leather, soft and quiet, for anyone who'd rather not be heard.",
-          "identity": "agility",
+          "identity": "rogue_crit",
           "icon_id": "gear_inv_belt_01"
         }
       },
@@ -396,7 +396,7 @@
           "required_level": 9,
           "sell_price": 354,
           "flavor_text": "Light leather, soft and quiet, for anyone who'd rather not be heard.",
-          "identity": "agility",
+          "identity": "feral",
           "icon_id": "gear_inv_pants_12"
         }
       },
@@ -432,17 +432,16 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 3,
-            "stamina": 2
+            "agility": 2
           },
           "secondary_stats": {
-            "attack_power": 7
+            "attack_power": 13
           },
           "armor_value": 30,
           "required_level": 10,
           "sell_price": 425,
           "flavor_text": "Light leather, soft and quiet, for anyone who'd rather not be heard.",
-          "identity": "agility",
+          "identity": "assassin",
           "icon_id": "gear_inv_chest_leather_02"
         }
       },
@@ -576,19 +575,18 @@
           "rarity": "uncommon",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "int_caster",
           "primary_stats": {
-            "agility": 3,
-            "stamina": 2
+            "intellect": 3
           },
           "secondary_stats": {
-            "attack_power": 8
+            "spell_power": 8
           },
           "armor_value": 31,
           "required_level": 16,
           "sell_price": 647,
           "flavor_text": "Medium leather, oiled and supple, made for moving fast and hitting hard.",
-          "identity": "feral",
+          "identity": "caster",
           "icon_id": "gear_inv_boots_09"
         }
       },
@@ -679,7 +677,7 @@
           "required_level": 18,
           "sell_price": 807,
           "flavor_text": "Medium leather, oiled and supple, made for moving fast and hitting hard.",
-          "identity": "feral",
+          "identity": "agility",
           "icon_id": "gear_inv_gauntlets_08"
         }
       },
@@ -713,19 +711,18 @@
           "rarity": "uncommon",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "spi_healer",
           "primary_stats": {
-            "agility": 3,
-            "stamina": 3
+            "spirit": 3
           },
           "secondary_stats": {
-            "attack_power": 9
+            "healing_power": 14
           },
           "armor_value": 36,
           "required_level": 19,
           "sell_price": 688,
           "flavor_text": "Medium leather, oiled and supple, made for moving fast and hitting hard.",
-          "identity": "feral",
+          "identity": "healer",
           "icon_id": "gear_inv_bracer_18"
         }
       },
@@ -807,17 +804,17 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 5,
-            "stamina": 4
+            "agility": 5
           },
           "secondary_stats": {
-            "attack_power": 14
+            "attack_power": 12,
+            "crit_chance_physical": 5
           },
           "armor_value": 57,
           "required_level": 21,
           "sell_price": 1665,
           "flavor_text": "Medium leather, oiled and supple, made for moving fast and hitting hard.",
-          "identity": "feral",
+          "identity": "rogue_crit",
           "icon_id": "gear_inv_chest_leather_09"
         }
       },
@@ -853,17 +850,17 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 4,
-            "stamina": 4
+            "agility": 4
           },
           "secondary_stats": {
-            "attack_power": 13
+            "attack_power": 11,
+            "hit_rating": 5
           },
           "armor_value": 50,
           "required_level": 22,
           "sell_price": 1456,
           "flavor_text": "Medium leather, oiled and supple, made for moving fast and hitting hard.",
-          "identity": "feral",
+          "identity": "assassin",
           "icon_id": "gear_inv_helmet_31"
         }
       },
@@ -943,19 +940,19 @@
           "rarity": "uncommon",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "agi_int_hybrid",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 4,
-            "intellect": 3
+            "agility": 4
           },
           "secondary_stats": {
-            "attack_power": 12
+            "attack_power": 9,
+            "hit_rating": 5
           },
           "armor_value": 48,
           "required_level": 26,
           "sell_price": 1636,
           "flavor_text": "Heavy hide boiled hard and laced with rings, the way hunters like it.",
-          "identity": "hunter",
+          "identity": "assassin",
           "icon_id": "gear_inv_boots_08"
         }
       },
@@ -989,19 +986,19 @@
           "rarity": "uncommon",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "agi_int_hybrid",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 4,
-            "intellect": 3
+            "stamina": 4,
+            "agility": 4
           },
           "secondary_stats": {
-            "attack_power": 13
+            "dodge_rating": 5
           },
           "armor_value": 50,
           "required_level": 27,
           "sell_price": 1490,
           "flavor_text": "Heavy hide boiled hard and laced with rings, the way hunters like it.",
-          "identity": "hunter",
+          "identity": "bear",
           "icon_id": "gear_inv_belt_06"
         }
       },
@@ -1085,17 +1082,17 @@
           "weapon_type": null,
           "stat_template": "agi_int_hybrid",
           "primary_stats": {
-            "agility": 6,
-            "intellect": 5
+            "agility": 8,
+            "intellect": 6
           },
           "secondary_stats": {
-            "attack_power": 21
+            "attack_power": 15
           },
           "armor_value": 77,
           "required_level": 29,
           "sell_price": 3116,
           "flavor_text": "Heavy hide boiled hard and laced with rings, the way hunters like it.",
-          "identity": "hunter",
+          "identity": "wildheart",
           "icon_id": "gear_inv_pants_12"
         }
       },
@@ -1129,19 +1126,18 @@
           "rarity": "uncommon",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "agi_int_hybrid",
+          "stat_template": "int_caster",
           "primary_stats": {
-            "agility": 7,
-            "intellect": 6
+            "intellect": 9
           },
           "secondary_stats": {
-            "attack_power": 18
+            "spell_power": 20
           },
           "armor_value": 80,
           "required_level": 30,
           "sell_price": 3331,
           "flavor_text": "Heavy hide boiled hard and laced with rings, the way hunters like it.",
-          "identity": "hunter",
+          "identity": "caster",
           "icon_id": "gear_inv_chest_leather_02"
         }
       },
@@ -1259,17 +1255,17 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 6
+            "agility": 6,
+            "stamina": 5
           },
           "secondary_stats": {
-            "attack_power": 16,
-            "crit_chance_physical": 6
+            "attack_power": 18
           },
           "armor_value": 72,
           "required_level": 30,
           "sell_price": 2748,
           "flavor_text": "Thick leather, tanned for days. A blade has to want it to get through.",
-          "identity": "rogue_crit",
+          "identity": "feral",
           "icon_id": "gear_inv_belt_01"
         }
       },
@@ -1310,13 +1306,13 @@
           },
           "secondary_stats": {
             "attack_power": 17,
-            "crit_chance_physical": 6
+            "hit_rating": 6
           },
           "armor_value": 74,
           "required_level": 31,
           "sell_price": 3464,
           "flavor_text": "Thick leather, tanned for days. A blade has to want it to get through.",
-          "identity": "rogue_crit",
+          "identity": "assassin",
           "icon_id": "gear_inv_gauntlets_21"
         }
       },
@@ -1446,19 +1442,19 @@
           "rarity": "rare",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "int_caster",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "intellect": 8
+            "agility": 10
           },
           "secondary_stats": {
-            "nature_spell_power": 29,
-            "haste": 8
+            "attack_power": 27,
+            "crit_chance_physical": 10
           },
           "armor_value": 194,
           "required_level": 35,
           "sell_price": 6777,
           "flavor_text": "Stormscale crackles a little when it's dry.",
-          "identity": "storm",
+          "identity": "hunter_crit",
           "icon_id": "gear_inv_chest_chain_10"
         }
       },
@@ -1494,17 +1490,17 @@
           "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 7
+            "intellect": 9
           },
           "secondary_stats": {
-            "nature_spell_power": 25,
-            "haste": 7
+            "spell_power": 23,
+            "crit_chance_spell": 5
           },
           "armor_value": 177,
           "required_level": 36,
           "sell_price": 5734,
           "flavor_text": "Stormscale crackles a little when it's dry.",
-          "identity": "storm",
+          "identity": "mail_caster",
           "icon_id": "gear_inv_helmet_29"
         }
       },
@@ -1586,19 +1582,19 @@
           "rarity": "rare",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "spirit": 6,
-            "intellect": 5
+            "agility": 8
           },
           "secondary_stats": {
-            "healing_power": 28
+            "attack_power": 18,
+            "crit_chance_physical": 8
           },
           "armor_value": 90,
           "required_level": 38,
           "sell_price": 5189,
           "flavor_text": "Rugged leather, the kind druids trust out in the wilds.",
-          "identity": "healer",
+          "identity": "rogue_crit",
           "icon_id": "gear_inv_gauntlets_24"
         }
       },
@@ -1634,19 +1630,19 @@
           "rarity": "rare",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "spirit": 10,
-            "intellect": 8
+            "agility": 11,
+            "stamina": 10
           },
           "secondary_stats": {
-            "healing_power": 40
+            "attack_power": 34
           },
           "armor_value": 149,
           "required_level": 40,
           "sell_price": 8844,
           "flavor_text": "Rugged leather, the kind druids trust out in the wilds.",
-          "identity": "healer",
+          "identity": "feral",
           "icon_id": "gear_inv_pants_09"
         }
       },
@@ -1683,17 +1679,17 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "stamina": 18,
-            "agility": 12
+            "agility": 14,
+            "stamina": 8
           },
           "secondary_stats": {
-            "dodge_rating": 9
+            "attack_power": 36
           },
           "armor_value": 144,
           "required_level": 42,
           "sell_price": 9751,
           "flavor_text": "Stonebound hide, stiff as bark and made for standing in front.",
-          "identity": "bear",
+          "identity": "agility",
           "icon_id": "gear_inv_chest_leather_06"
         }
       },
@@ -1766,16 +1762,17 @@
           "weapon_type": null,
           "stat_template": "spi_healer",
           "primary_stats": {
-            "intellect": 11
+            "spirit": 9,
+            "intellect": 7
           },
           "secondary_stats": {
-            "healing_power": 49
+            "healing_power": 39
           },
           "armor_value": 127,
           "required_level": 44,
           "sell_price": 8564,
           "flavor_text": "Dredged up from the deep and cured in salt. Shaman say the sea's still in it.",
-          "identity": "tide_healer",
+          "identity": "healer",
           "icon_id": "gear_inv_shoulder_31"
         }
       },
@@ -1811,17 +1808,17 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
+            "stamina": 13,
             "agility": 9
           },
           "secondary_stats": {
-            "attack_power": 23,
-            "hit_rating": 9
+            "dodge_rating": 7
           },
           "armor_value": 106,
           "required_level": 45,
           "sell_price": 7280,
           "flavor_text": "Fiendish hide. It's warm, and it shouldn't be.",
-          "identity": "assassin",
+          "identity": "bear",
           "icon_id": "gear_inv_gauntlets_09"
         }
       },
@@ -1855,19 +1852,19 @@
           "rarity": "rare",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "agi_int_hybrid",
           "primary_stats": {
-            "agility": 9
+            "agility": 11,
+            "intellect": 9
           },
           "secondary_stats": {
-            "attack_power": 24,
-            "hit_rating": 9
+            "attack_power": 21
           },
           "armor_value": 109,
           "required_level": 46,
           "sell_price": 7609,
           "flavor_text": "Fiendish hide. It's warm, and it shouldn't be.",
-          "identity": "assassin",
+          "identity": "wildheart",
           "icon_id": "gear_inv_boots_05"
         }
       },
@@ -1904,17 +1901,17 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 11,
-            "stamina": 6
+            "agility": 9
           },
           "secondary_stats": {
-            "attack_power": 28
+            "attack_power": 25,
+            "hit_rating": 9
           },
           "armor_value": 111,
           "required_level": 47,
           "sell_price": 6112,
           "flavor_text": "Pristine leather without a single flaw. Somebody was very patient.",
-          "identity": "agility",
+          "identity": "assassin",
           "icon_id": "gear_inv_bracer_15"
         }
       },
@@ -1951,17 +1948,17 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 18,
-            "stamina": 15
+            "agility": 18
           },
           "secondary_stats": {
-            "attack_power": 54
+            "attack_power": 48,
+            "crit_chance_physical": 18
           },
           "armor_value": 229,
           "required_level": 49,
           "sell_price": 23046,
           "flavor_text": "Savage hide, still rough at the edges, like whoever wears it.",
-          "identity": "feral",
+          "identity": "rogue_crit",
           "icon_id": "gear_epic_legs_leather_1"
         }
       },
@@ -2232,8 +2229,8 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 18,
-            "stamina": 15
+            "agility": 21,
+            "stamina": 12
           },
           "secondary_stats": {
             "attack_power": 54
@@ -2242,7 +2239,7 @@
           "required_level": 58,
           "sell_price": 25936,
           "flavor_text": "Bloodtanned, the best hide a leatherworker can get, and it was paid for.",
-          "identity": "feral",
+          "identity": "agility",
           "icon_id": "gear_epic_head_leather_1"
         }
       },
@@ -2543,16 +2540,16 @@
           "rarity": "uncommon",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "int_caster",
           "primary_stats": {
-            "agility": 2
+            "intellect": 2
           },
           "secondary_stats": {},
           "armor_value": 8,
           "required_level": 3,
           "sell_price": 44,
           "flavor_text": "Light leather, soft and quiet, for anyone who'd rather not be heard.",
-          "identity": "agility",
+          "identity": "caster",
           "icon_id": "gear_inv_gauntlets_03"
         }
       }
@@ -4813,14 +4810,14 @@
             "intellect": 8
           },
           "secondary_stats": {
-            "nature_spell_power": 26,
-            "haste": 8
+            "spell_power": 23,
+            "haste": 7
           },
           "armor_value": 193,
           "required_level": 33,
           "sell_price": 6031,
           "flavor_text": "The rings chime faintly whenever a storm's coming.",
-          "identity": "storm",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_chest_chain_10"
         }
       }
@@ -4998,14 +4995,14 @@
             "intellect": 11
           },
           "secondary_stats": {
-            "nature_spell_power": 33,
-            "haste": 11
+            "spell_power": 31,
+            "haste": 9
           },
           "armor_value": 260,
           "required_level": 45,
           "sell_price": 11200,
           "flavor_text": "The rings chime faintly whenever a storm's coming.",
-          "identity": "storm",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_chest_chain_10"
         }
       }
@@ -5138,13 +5135,13 @@
             "intellect": 3
           },
           "secondary_stats": {
-            "nature_spell_power": 16
+            "spell_power": 13
           },
           "armor_value": 67,
           "required_level": 18,
           "sell_price": 993,
           "flavor_text": "The rings chime faintly whenever a storm's coming.",
-          "identity": "storm",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_helmet_06"
         }
       },
@@ -5605,17 +5602,17 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
+            "stamina": 15,
             "agility": 10
           },
           "secondary_stats": {
-            "attack_power": 26,
-            "crit_chance_physical": 10
+            "dodge_rating": 7
           },
           "armor_value": 129,
           "required_level": 34,
           "sell_price": 6398,
           "flavor_text": "Thick leather, tanned for days. A blade has to want it to get through.",
-          "identity": "rogue_crit",
+          "identity": "bear",
           "icon_id": "gear_inv_chest_leather_02"
         }
       },
@@ -5702,14 +5699,14 @@
             "intellect": 5
           },
           "secondary_stats": {
-            "nature_spell_power": 16,
+            "spell_power": 14,
             "haste": 5
           },
           "armor_value": 123,
           "required_level": 30,
           "sell_price": 3247,
           "flavor_text": "The rings chime faintly whenever a storm's coming.",
-          "identity": "storm",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_gauntlets_30"
         }
       },
@@ -6069,17 +6066,17 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 5,
-            "stamina": 4
+            "stamina": 5,
+            "agility": 5
           },
           "secondary_stats": {
-            "attack_power": 14
+            "dodge_rating": 5
           },
           "armor_value": 56,
           "required_level": 23,
           "sell_price": 1488,
           "flavor_text": "Medium leather, oiled and supple, made for moving fast and hitting hard.",
-          "identity": "feral",
+          "identity": "bear",
           "icon_id": "gear_inv_bracer_17"
         }
       },
@@ -6302,19 +6299,19 @@
           "rarity": "uncommon",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "agi_int_hybrid",
           "primary_stats": {
-            "agility": 3,
-            "stamina": 3
+            "agility": 4,
+            "intellect": 3
           },
           "secondary_stats": {
-            "attack_power": 10
+            "attack_power": 8
           },
           "armor_value": 40,
           "required_level": 14,
           "sell_price": 777,
           "flavor_text": "Medium leather, oiled and supple, made for moving fast and hitting hard.",
-          "identity": "feral",
+          "identity": "wildheart",
           "icon_id": "gear_inv_chest_leather_05"
         }
       },
@@ -6354,14 +6351,14 @@
             "intellect": 6
           },
           "secondary_stats": {
-            "nature_spell_power": 19,
-            "haste": 6
+            "spell_power": 18,
+            "haste": 5
           },
           "armor_value": 137,
           "required_level": 29,
           "sell_price": 3739,
           "flavor_text": "The rings chime faintly whenever a storm's coming.",
-          "identity": "storm",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_helmet_29"
         }
       },
@@ -6731,19 +6728,19 @@
           "rarity": "rare",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "agi_int_hybrid",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 7,
-            "intellect": 6
+            "agility": 7
           },
           "secondary_stats": {
-            "attack_power": 23
+            "attack_power": 21,
+            "crit_chance_physical": 7
           },
           "armor_value": 150,
           "required_level": 30,
           "sell_price": 3997,
           "flavor_text": "Heavy hide boiled hard and laced with rings, the way hunters like it.",
-          "identity": "hunter",
+          "identity": "hunter_crit",
           "icon_id": "gear_inv_shoulder_25"
         }
       }
@@ -6777,19 +6774,19 @@
           "rarity": "rare",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "agi_int_hybrid",
+          "stat_template": "int_caster",
           "primary_stats": {
-            "agility": 9,
-            "intellect": 7
+            "intellect": 9
           },
           "secondary_stats": {
-            "attack_power": 27
+            "spell_power": 24,
+            "crit_chance_spell": 5
           },
           "armor_value": 173,
           "required_level": 31,
           "sell_price": 5330,
           "flavor_text": "Heavy hide boiled hard and laced with rings, the way hunters like it.",
-          "identity": "hunter",
+          "identity": "mail_caster",
           "icon_id": "gear_inv_chest_chain_04"
         }
       }
@@ -6914,18 +6911,19 @@
           "rarity": "rare",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "intellect": 7
+            "agility": 7
           },
           "secondary_stats": {
-            "healing_power": 30
+            "attack_power": 16,
+            "hit_rating": 7
           },
           "armor_value": 134,
           "required_level": 33,
           "sell_price": 3317,
           "flavor_text": "Dredged up from the deep and cured in salt. Shaman say the sea's still in it.",
-          "identity": "tide_healer",
+          "identity": "hunter_precise",
           "icon_id": "gear_inv_belt_20"
         }
       }
@@ -6959,18 +6957,19 @@
           "rarity": "rare",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "str_int_hybrid",
           "primary_stats": {
+            "strength": 10,
             "intellect": 10
           },
           "secondary_stats": {
-            "healing_power": 45
+            "attack_power": 26
           },
           "armor_value": 200,
           "required_level": 34,
           "sell_price": 6398,
           "flavor_text": "Dredged up from the deep and cured in salt. Shaman say the sea's still in it.",
-          "identity": "tide_healer",
+          "identity": "earthen",
           "icon_id": "gear_inv_pants_04"
         }
       }
@@ -7101,13 +7100,13 @@
           },
           "secondary_stats": {
             "attack_power": 23,
-            "hit_rating": 9
+            "crit_chance_physical": 9
           },
           "armor_value": 114,
           "required_level": 36,
           "sell_price": 5734,
           "flavor_text": "Fiendish hide. It's warm, and it shouldn't be.",
-          "identity": "assassin",
+          "identity": "rogue_crit",
           "icon_id": "gear_inv_helmet_27"
         }
       }
@@ -7143,17 +7142,17 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 9
+            "agility": 9,
+            "stamina": 7
           },
           "secondary_stats": {
-            "attack_power": 24,
-            "hit_rating": 9
+            "attack_power": 27
           },
           "armor_value": 118,
           "required_level": 37,
           "sell_price": 6055,
           "flavor_text": "Fiendish hide. It's warm, and it shouldn't be.",
-          "identity": "assassin",
+          "identity": "feral",
           "icon_id": "gear_inv_shoulder_05"
         }
       }
@@ -7233,19 +7232,19 @@
           "rarity": "rare",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "agi_int_hybrid",
           "primary_stats": {
-            "agility": 8
+            "agility": 9,
+            "intellect": 8
           },
           "secondary_stats": {
-            "attack_power": 19,
-            "crit_chance_physical": 8
+            "attack_power": 18
           },
           "armor_value": 93,
           "required_level": 39,
           "sell_price": 4204,
           "flavor_text": "Thick leather, tanned for days. A blade has to want it to get through.",
-          "identity": "rogue_crit",
+          "identity": "wildheart",
           "icon_id": "gear_inv_bracer_13"
         }
       }
@@ -7325,19 +7324,18 @@
           "rarity": "rare",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "int_caster",
           "primary_stats": {
-            "agility": 8
+            "intellect": 11
           },
           "secondary_stats": {
-            "attack_power": 22,
-            "crit_chance_physical": 8
+            "spell_power": 24
           },
           "armor_value": 97,
           "required_level": 41,
           "sell_price": 5111,
           "flavor_text": "Thick leather, tanned for days. A blade has to want it to get through.",
-          "identity": "rogue_crit",
+          "identity": "caster",
           "icon_id": "gear_inv_belt_05"
         }
       }
@@ -7463,19 +7461,19 @@
           "rarity": "rare",
           "armor_type": "cloth",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "int_caster",
           "primary_stats": {
-            "agility": 8
+            "intellect": 8
           },
           "secondary_stats": {
-            "attack_power": 18,
-            "hit_rating": 8
+            "spell_power": 18,
+            "crit_chance_spell": 5
           },
           "armor_value": 53,
           "required_level": 43,
           "sell_price": 5622,
           "flavor_text": "Hydra scale. Every plate's a little different, and every one is tough.",
-          "identity": "hunter_precise",
+          "identity": "mail_caster",
           "icon_id": "gear_inv_misc_cape_16"
         }
       }
@@ -7509,19 +7507,19 @@
           "rarity": "rare",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "str_int_hybrid",
           "primary_stats": {
-            "agility": 11
+            "strength": 11,
+            "intellect": 11
           },
           "secondary_stats": {
-            "attack_power": 27,
-            "hit_rating": 11
+            "attack_power": 27
           },
           "armor_value": 204,
           "required_level": 44,
           "sell_price": 8564,
           "flavor_text": "Hydra scale. Every plate's a little different, and every one is tough.",
-          "identity": "hunter_precise",
+          "identity": "earthen",
           "icon_id": "gear_inv_helmet_61"
         }
       }
@@ -7649,8 +7647,8 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 11,
-            "stamina": 6
+            "agility": 9,
+            "stamina": 8
           },
           "secondary_stats": {
             "attack_power": 27
@@ -7659,7 +7657,7 @@
           "required_level": 46,
           "sell_price": 5853,
           "flavor_text": "Pristine leather without a single flaw. Somebody was very patient.",
-          "identity": "agility",
+          "identity": "feral",
           "icon_id": "gear_inv_bracer_02"
         }
       }
@@ -7741,17 +7739,17 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 11,
-            "stamina": 6
+            "stamina": 15,
+            "agility": 9
           },
           "secondary_stats": {
-            "attack_power": 28
+            "dodge_rating": 7
           },
           "armor_value": 113,
           "required_level": 48,
           "sell_price": 7015,
           "flavor_text": "Pristine leather without a single flaw. Somebody was very patient.",
-          "identity": "agility",
+          "identity": "bear",
           "icon_id": "gear_inv_belt_03"
         }
       }
@@ -7833,17 +7831,17 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 10,
-            "stamina": 8
+            "agility": 10
           },
           "secondary_stats": {
-            "attack_power": 28
+            "attack_power": 24,
+            "hit_rating": 10
           },
           "armor_value": 115,
           "required_level": 49,
           "sell_price": 8642,
           "flavor_text": "Savage hide, still rough at the edges, like whoever wears it.",
-          "identity": "feral",
+          "identity": "assassin",
           "icon_id": "gear_inv_boots_08"
         }
       }
@@ -7925,17 +7923,17 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 12,
-            "stamina": 10
+            "stamina": 19,
+            "agility": 12
           },
           "secondary_stats": {
-            "attack_power": 37
+            "dodge_rating": 9
           },
           "armor_value": 147,
           "required_level": 51,
           "sell_price": 11532,
           "flavor_text": "Savage hide, still rough at the edges, like whoever wears it.",
-          "identity": "feral",
+          "identity": "bear",
           "icon_id": "gear_inv_helmet_36"
         }
       },
@@ -8016,19 +8014,19 @@
           "rarity": "epic",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "spirit": 16,
-            "intellect": 13
+            "agility": 19
           },
           "secondary_stats": {
-            "healing_power": 69
+            "attack_power": 51,
+            "hit_rating": 19
           },
           "armor_value": 243,
           "required_level": 52,
           "sell_price": 25985,
           "flavor_text": "Rugged leather, the kind druids trust out in the wilds.",
-          "identity": "healer",
+          "identity": "assassin",
           "icon_id": "gear_epic_chest_leather_1"
         }
       }
@@ -8062,19 +8060,19 @@
           "rarity": "epic",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "spirit": 11,
-            "intellect": 9
+            "stamina": 21,
+            "agility": 13
           },
           "secondary_stats": {
-            "healing_power": 49
+            "dodge_rating": 10
           },
           "armor_value": 161,
           "required_level": 53,
           "sell_price": 13503,
           "flavor_text": "Rugged leather, the kind druids trust out in the wilds.",
-          "identity": "healer",
+          "identity": "bear",
           "icon_id": "gear_epic_wrist_leather_1"
         }
       }
@@ -8200,19 +8198,19 @@
           "rarity": "epic",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "str_int_hybrid",
+          "stat_template": "int_caster",
           "primary_stats": {
-            "strength": 20,
             "intellect": 20
           },
           "secondary_stats": {
-            "attack_power": 53
+            "spell_power": 55,
+            "crit_chance_spell": 10
           },
           "armor_value": 387,
           "required_level": 55,
           "sell_price": 29110,
           "flavor_text": "Netherdrake scale. It shifts colour when you aren't looking at it.",
-          "identity": "earthen",
+          "identity": "mail_caster",
           "icon_id": "gear_epic_legs_mail_1"
         }
       }
@@ -8246,19 +8244,19 @@
           "rarity": "epic",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "str_int_hybrid",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "strength": 14,
-            "intellect": 14
+            "agility": 14
           },
           "secondary_stats": {
-            "attack_power": 38
+            "attack_power": 38,
+            "hit_rating": 14
           },
           "armor_value": 282,
           "required_level": 56,
           "sell_price": 19625,
           "flavor_text": "Netherdrake scale. It shifts colour when you aren't looking at it.",
-          "identity": "earthen",
+          "identity": "hunter_precise",
           "icon_id": "gear_epic_feet_mail_1"
         }
       }
@@ -8344,13 +8342,13 @@
           },
           "secondary_stats": {
             "attack_power": 47,
-            "crit_chance_physical": 17
+            "hit_rating": 17
           },
           "armor_value": 346,
           "required_level": 56,
           "sell_price": 24154,
           "flavor_text": "Emberscale, off something that breathed fire. It's never quite cool.",
-          "identity": "hunter_crit",
+          "identity": "hunter_precise",
           "icon_id": "gear_epic_head_mail_1"
         }
       }
@@ -8384,19 +8382,19 @@
           "rarity": "epic",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "str_int_hybrid",
           "primary_stats": {
-            "agility": 18
+            "strength": 18,
+            "intellect": 18
           },
           "secondary_stats": {
-            "attack_power": 45,
-            "crit_chance_physical": 18
+            "attack_power": 45
           },
           "armor_value": 339,
           "required_level": 57,
           "sell_price": 25037,
           "flavor_text": "Emberscale, off something that breathed fire. It's never quite cool.",
-          "identity": "hunter_crit",
+          "identity": "earthen",
           "icon_id": "gear_epic_shoulder_mail_1"
         }
       }
@@ -8476,19 +8474,19 @@
           "rarity": "epic",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "int_caster",
           "primary_stats": {
-            "agility": 15
+            "intellect": 12
           },
           "secondary_stats": {
-            "attack_power": 40,
-            "crit_chance_physical": 15
+            "spell_power": 38,
+            "haste": 10
           },
           "armor_value": 286,
           "required_level": 59,
           "sell_price": 16783,
           "flavor_text": "Emberscale, off something that breathed fire. It's never quite cool.",
-          "identity": "hunter_crit",
+          "identity": "haste_caster",
           "icon_id": "gear_epic_wrist_mail_1"
         }
       }
@@ -8522,18 +8520,19 @@
           "rarity": "epic",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "intellect": 15
+            "agility": 15
           },
           "secondary_stats": {
-            "healing_power": 67
+            "attack_power": 37,
+            "crit_chance_physical": 15
           },
           "armor_value": 293,
           "required_level": 58,
           "sell_price": 21073,
           "flavor_text": "Mossback shell, with something green still growing in the cracks.",
-          "identity": "tide_healer",
+          "identity": "hunter_crit",
           "icon_id": "gear_epic_hands_mail_1"
         }
       }
@@ -8567,18 +8566,19 @@
           "rarity": "epic",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "intellect": 15
+            "agility": 15
           },
           "secondary_stats": {
-            "healing_power": 69
+            "attack_power": 40,
+            "hit_rating": 15
           },
           "armor_value": 297,
           "required_level": 59,
           "sell_price": 18461,
           "flavor_text": "Mossback shell, with something green still growing in the cracks.",
-          "identity": "tide_healer",
+          "identity": "hunter_precise",
           "icon_id": "gear_epic_waist_mail_1"
         }
       }
@@ -8657,18 +8657,19 @@
           "rarity": "epic",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "int_caster",
           "primary_stats": {
             "intellect": 15
           },
           "secondary_stats": {
-            "healing_power": 69
+            "spell_power": 41,
+            "crit_chance_spell": 7
           },
           "armor_value": 297,
           "required_level": 59,
           "sell_price": 21818,
           "flavor_text": "Mossback shell, with something green still growing in the cracks.",
-          "identity": "tide_healer",
+          "identity": "mail_caster",
           "icon_id": "gear_epic_feet_mail_1"
         }
       }
@@ -8702,19 +8703,19 @@
           "rarity": "epic",
           "armor_type": "cloth",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "spi_healer",
           "primary_stats": {
-            "agility": 13,
-            "stamina": 11
+            "spirit": 11,
+            "intellect": 9
           },
           "secondary_stats": {
-            "attack_power": 40
+            "healing_power": 48
           },
           "armor_value": 79,
           "required_level": 59,
           "sell_price": 18461,
           "flavor_text": "Bloodtanned, the best hide a leatherworker can get, and it was paid for.",
-          "identity": "feral",
+          "identity": "healer",
           "icon_id": "gear_epic_back_cloth_1"
         }
       }
@@ -8750,17 +8751,17 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 18,
-            "stamina": 15
+            "agility": 18
           },
           "secondary_stats": {
-            "attack_power": 55
+            "attack_power": 49,
+            "crit_chance_physical": 18
           },
           "armor_value": 219,
           "required_level": 59,
           "sell_price": 26852,
           "flavor_text": "Bloodtanned, the best hide a leatherworker can get, and it was paid for.",
-          "identity": "feral",
+          "identity": "rogue_crit",
           "icon_id": "gear_epic_head_leather_1"
         }
       }
@@ -8796,17 +8797,17 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 18,
-            "stamina": 15
+            "agility": 18
           },
           "secondary_stats": {
-            "attack_power": 55
+            "attack_power": 49,
+            "hit_rating": 18
           },
           "armor_value": 232,
           "required_level": 59,
           "sell_price": 26852,
           "flavor_text": "Bloodtanned, the best hide a leatherworker can get, and it was paid for.",
-          "identity": "feral",
+          "identity": "assassin",
           "icon_id": "gear_epic_shoulder_leather_1"
         }
       }
@@ -8888,17 +8889,17 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 15
+            "agility": 15,
+            "stamina": 12
           },
           "secondary_stats": {
-            "attack_power": 40,
-            "crit_chance_physical": 15
+            "attack_power": 45
           },
           "armor_value": 190,
           "required_level": 59,
           "sell_price": 16783,
           "flavor_text": "Duskfang leather drinks the light, and whoever wears it goes unnoticed.",
-          "identity": "rogue_crit",
+          "identity": "feral",
           "icon_id": "gear_epic_wrist_leather_1"
         }
       }
@@ -8934,17 +8935,17 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 15
+            "agility": 17,
+            "stamina": 10
           },
           "secondary_stats": {
-            "attack_power": 40,
-            "crit_chance_physical": 15
+            "attack_power": 45
           },
           "armor_value": 179,
           "required_level": 59,
           "sell_price": 21818,
           "flavor_text": "Duskfang leather drinks the light, and whoever wears it goes unnoticed.",
-          "identity": "rogue_crit",
+          "identity": "agility",
           "icon_id": "gear_epic_hands_leather_1"
         }
       }
@@ -9024,19 +9025,19 @@
           "rarity": "epic",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "spi_healer",
           "primary_stats": {
-            "agility": 21
+            "spirit": 18,
+            "intellect": 14
           },
           "secondary_stats": {
-            "attack_power": 59,
-            "crit_chance_physical": 21
+            "healing_power": 79
           },
           "armor_value": 275,
           "required_level": 59,
           "sell_price": 33566,
           "flavor_text": "Duskfang leather drinks the light, and whoever wears it goes unnoticed.",
-          "identity": "rogue_crit",
+          "identity": "healer",
           "icon_id": "gear_epic_legs_leather_1"
         }
       }
@@ -9070,19 +9071,19 @@
           "rarity": "epic",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "int_caster",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "intellect": 15
+            "agility": 15
           },
           "secondary_stats": {
-            "spell_power": 41,
-            "crit_chance_spell": 7
+            "attack_power": 40,
+            "crit_chance_physical": 15
           },
           "armor_value": 297,
           "required_level": 59,
           "sell_price": 21818,
           "flavor_text": "Frostscale's cold to the touch, and so are the spells cast through it.",
-          "identity": "mail_caster",
+          "identity": "hunter_crit",
           "icon_id": "gear_epic_feet_mail_1"
         }
       }
@@ -9116,19 +9117,18 @@
           "rarity": "epic",
           "armor_type": "cloth",
           "weapon_type": null,
-          "stat_template": "int_caster",
+          "stat_template": "spi_healer",
           "primary_stats": {
             "intellect": 13
           },
           "secondary_stats": {
-            "spell_power": 36,
-            "crit_chance_spell": 7
+            "healing_power": 62
           },
           "armor_value": 89,
           "required_level": 59,
           "sell_price": 18461,
           "flavor_text": "Frostscale's cold to the touch, and so are the spells cast through it.",
-          "identity": "mail_caster",
+          "identity": "tide_healer",
           "icon_id": "gear_epic_back_cloth_1"
         }
       }
@@ -9208,19 +9208,19 @@
           "rarity": "epic",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "int_caster",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "intellect": 18
+            "agility": 18
           },
           "secondary_stats": {
-            "spell_power": 50,
-            "crit_chance_spell": 9
+            "attack_power": 49,
+            "hit_rating": 18
           },
           "armor_value": 350,
           "required_level": 59,
           "sell_price": 26852,
           "flavor_text": "Frostscale's cold to the touch, and so are the spells cast through it.",
-          "identity": "mail_caster",
+          "identity": "hunter_precise",
           "icon_id": "gear_epic_shoulder_mail_1"
         }
       }
@@ -9351,17 +9351,17 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 4,
-            "stamina": 3
+            "agility": 4
           },
           "secondary_stats": {
-            "attack_power": 11
+            "attack_power": 7,
+            "hit_rating": 5
           },
           "armor_value": 49,
           "required_level": 12,
           "sell_price": 880,
           "flavor_text": "Light leather, soft and quiet, for anyone who'd rather not be heard.",
-          "identity": "agility",
+          "identity": "assassin",
           "icon_id": "gear_inv_chest_leather_10"
         }
       },
@@ -9564,13 +9564,13 @@
           },
           "secondary_stats": {
             "attack_power": 25,
-            "hit_rating": 9
+            "crit_chance_physical": 9
           },
           "armor_value": 111,
           "required_level": 38,
           "sell_price": 6386,
           "flavor_text": "Fiendish hide. It's warm, and it shouldn't be.",
-          "identity": "assassin",
+          "identity": "rogue_crit",
           "icon_id": "gear_inv_helmet_13"
         }
       },
@@ -9608,18 +9608,19 @@
           "rarity": "rare",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "intellect": 7
+            "agility": 7
           },
           "secondary_stats": {
-            "healing_power": 32
+            "attack_power": 19,
+            "hit_rating": 7
           },
           "armor_value": 134,
           "required_level": 35,
           "sell_price": 3727,
           "flavor_text": "Dredged up from the deep and cured in salt. Shaman say the sea's still in it.",
-          "identity": "tide_healer",
+          "identity": "hunter_precise",
           "icon_id": "gear_inv_belt_18"
         }
       },
@@ -9657,18 +9658,19 @@
           "rarity": "rare",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "intellect": 7
+            "agility": 7
           },
           "secondary_stats": {
-            "healing_power": 32
+            "attack_power": 19,
+            "hit_rating": 7
           },
           "armor_value": 134,
           "required_level": 35,
           "sell_price": 3727,
           "flavor_text": "Dredged up from the deep and cured in salt. Shaman say the sea's still in it.",
-          "identity": "tide_healer",
+          "identity": "hunter_precise",
           "icon_id": "gear_inv_belt_22"
         }
       },
@@ -9802,17 +9804,17 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 7,
-            "stamina": 6
+            "agility": 7
           },
           "secondary_stats": {
-            "attack_power": 20
+            "attack_power": 18,
+            "crit_chance_physical": 7
           },
           "armor_value": 82,
           "required_level": 23,
           "sell_price": 2975,
           "flavor_text": "Medium leather, oiled and supple, made for moving fast and hitting hard.",
-          "identity": "feral",
+          "identity": "rogue_crit",
           "icon_id": "gear_inv_chest_leather_09"
         }
       },
@@ -9857,18 +9859,19 @@
           "rarity": "rare",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "intellect": 7
+            "agility": 7
           },
           "secondary_stats": {
-            "healing_power": 32
+            "attack_power": 19,
+            "hit_rating": 7
           },
           "armor_value": 134,
           "required_level": 35,
           "sell_price": 3727,
           "flavor_text": "Dredged up from the deep and cured in salt. Shaman say the sea's still in it.",
-          "identity": "tide_healer",
+          "identity": "hunter_precise",
           "icon_id": "gear_inv_belt_33"
         }
       },
@@ -9906,19 +9909,19 @@
           "rarity": "rare",
           "armor_type": "cloth",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "int_caster",
           "primary_stats": {
-            "agility": 8
+            "intellect": 8
           },
           "secondary_stats": {
-            "attack_power": 21,
-            "hit_rating": 8
+            "spell_power": 20,
+            "crit_chance_spell": 5
           },
           "armor_value": 47,
           "required_level": 45,
           "sell_price": 6160,
           "flavor_text": "Hydra scale. Every plate's a little different, and every one is tough.",
-          "identity": "hunter_precise",
+          "identity": "mail_caster",
           "icon_id": "gear_inv_misc_cape_13"
         }
       },
@@ -9962,13 +9965,13 @@
           },
           "secondary_stats": {
             "attack_power": 25,
-            "hit_rating": 9
+            "crit_chance_physical": 9
           },
           "armor_value": 111,
           "required_level": 38,
           "sell_price": 6386,
           "flavor_text": "Fiendish hide. It's warm, and it shouldn't be.",
-          "identity": "assassin",
+          "identity": "rogue_crit",
           "icon_id": "gear_inv_helmet_11"
         }
       },
@@ -10056,19 +10059,19 @@
           "rarity": "rare",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "agi_int_hybrid",
           "primary_stats": {
-            "agility": 8
+            "agility": 9,
+            "intellect": 8
           },
           "secondary_stats": {
-            "attack_power": 22,
-            "crit_chance_physical": 8
+            "attack_power": 19
           },
           "armor_value": 106,
           "required_level": 41,
           "sell_price": 4646,
           "flavor_text": "Thick leather, tanned for days. A blade has to want it to get through.",
-          "identity": "rogue_crit",
+          "identity": "wildheart",
           "icon_id": "gear_inv_bracer_06"
         }
       },
@@ -10200,16 +10203,16 @@
           "rarity": "rare",
           "armor_type": "cloth",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "spi_healer",
           "primary_stats": {
-            "agility": 6
+            "spirit": 6
           },
           "secondary_stats": {},
           "armor_value": 10,
           "required_level": 8,
           "sell_price": 239,
           "flavor_text": "Light leather, soft and quiet, for anyone who'd rather not be heard.",
-          "identity": "agility",
+          "identity": "healer",
           "icon_id": "gear_inv_misc_cape_10"
         }
       },
@@ -10304,19 +10307,19 @@
           "rarity": "rare",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "agi_int_hybrid",
           "primary_stats": {
-            "agility": 8
+            "agility": 9,
+            "intellect": 8
           },
           "secondary_stats": {
-            "attack_power": 22,
-            "crit_chance_physical": 8
+            "attack_power": 19
           },
           "armor_value": 106,
           "required_level": 41,
           "sell_price": 4646,
           "flavor_text": "Thick leather, tanned for days. A blade has to want it to get through.",
-          "identity": "rogue_crit",
+          "identity": "wildheart",
           "icon_id": "gear_inv_bracer_18"
         }
       },

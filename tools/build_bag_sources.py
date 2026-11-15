@@ -33,12 +33,10 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 #: (recipe_id, bag_id, bolt, count, skill_required, skill_range)
 #: Skills placed against the tiers tailoring already uses for that bolt, so a
 #: bag sits with the rest of its cloth rather than inventing a new rung.
+# Cotton, hempen, spidersilk and gossamer bags were dropped by tools/cap_bags.py (Kyle, 15 Nov 2026:
+# "not ever cloth needs a bag"), so they aren't re-added here.
 NEW_RECIPES = [
-    ("tail_cotton_bag",    "rose_clasped_bag",      "bolt_cotton",      4,  45, [50, 60, 70, 80]),
-    ("tail_hempen_bag",    "violet_clasped_bag",    "bolt_hempen",      4,  75, [80, 90, 100, 110]),
     ("tail_mageweave_bag", "frostward_pack",        "bolt_mageweave",   5, 140, [145, 155, 165, 175]),
-    ("tail_spidersilk_bag","runeforged_strongbox",  "bolt_spidersilk",  5, 175, [180, 190, 200, 210]),
-    ("tail_gossamer_bag",  "flameward_coffer",      "bolt_gossamer",    6, 205, [210, 220, 230, 240]),
     ("tail_runecloth_bag", "verdant_reagent_case",  "bolt_runecloth",   8, 255, [260, 270, 280, 290]),
 ]
 

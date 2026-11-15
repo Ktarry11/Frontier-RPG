@@ -2,7 +2,8 @@
 """Reputation rewards, the way TBC did them: every faction's quartermaster sells by standing.
 
     PYTHONPATH=. python3 tools/build_faction_rewards.py         # write
-    PYTHONPATH=. python3 tools/build_crafted_gear.py             # then author the exalted recipes' epics
+    PYTHONPATH=. python3 tools/build_crafted_gear.py             # THEN author the exalted recipes' epics (it must
+                                                                 # run after: this writes those recipes bare)
     PYTHONPATH=. python3 tools/build_recipe_vendors.py           # then keep town shelves honest
 
 Kyle, 15 Nov 2026: "Each exalted rep will give epic ilvl73 items... friendly and honored can give some stuff.
@@ -225,8 +226,8 @@ EXALTED = {
                              "climbed up to check."),
         ("cc_crimson_spellblade", "Crimson Spellblade", "main_hand", "weapon", "sword_1h", "rogue_crit", 295,
          "A Sunstrider spellblade, red to the hilt. It cuts spells as well as it cuts anything else."),
-        ("cc_cloak_of_the_long_descent", "Cloak of the Long Descent", "back", "armor", "cloth", "tank",
-         255, "Lined with the dark of the fissure. It's still warm from the lamps that went down with it."),
+        ("cc_bastion_wardens_blade", "Bastion Warden's Blade", "main_hand", "weapon", "sword_1h", "tank_weapon",
+         280, "The Bastion stair is three hundred steps down. No one has ever made it past the warden at the top."),
     ],
     "orgrimmar": [
         ("og_warchiefs_due", "Warchief's Due", "main_hand", "weapon", "axe_2h", "strength_crit", 345,
@@ -262,7 +263,7 @@ EXALTED = {
     ],
     "thunder_bluff": [
         ("tb_spire_wardens_staff", "Spire-Warden's Staff", "main_hand", "weapon", "staff", "bear", 340,
-         "The staff of the druid who held the last spire's stair. A bear fights with it as well as a tauren."),
+         "If you can hold them, I can heal you - R"),
         ("tb_mulgore_greatbow", "Mulgore Greatbow", "ranged", "weapon", "bow", "hunter_precise", 295,
          "Strung for the plains as they were. The hunters who carry it mean to see them again."),
         ("tb_cloak_of_the_fallen_spires", "Cloak of the Fallen Spires", "back", "armor", "cloth", "high_healer",
@@ -402,6 +403,38 @@ SUPPLIES = {
 }
 
 
+#: EVERY EPIC'S LINE (Kyle, 15 Nov 2026: "I want NICE flavor text on each epic sold"). The Spire-Warden's is his own.
+EPIC_FLAVOUR = {
+    'cc_staff_of_the_hanging_light': "Nobody's reached the light at the bottom of the Underdark. This is the closest anyone's come.",
+    'cc_crimson_spellblade': "Sunstrider steel. It was made to cut spells, and it hasn't forgotten how.",
+    'cc_bastion_wardens_blade': 'Three hundred steps down, and nothing has ever got past the top one.',
+    'og_warchiefs_due': 'Every Horde forge owes the Warchief one blade. This is the one he kept.',
+    'og_bulwark_of_the_valley': 'Every orc learns to stand in the Valley of Trials. Some never stop.',
+    'og_farseers_ancestral_mace': "Carved with every farseer's name back to Draenor. There's room for yours.",
+    'ds_spear_of_the_last_island': 'Cut from the last island the Darkspear held. They want the rest back.',
+    'ds_kangaris_hexing_staff': "The spirits don't take orders. They do take requests, if you ask politely.",
+    'ds_senjin_throwing_axes': 'They always come back. The trick is being there to catch them.',
+    'fs_banshees_lament': 'The string sighs when you draw it. The target never hears it.',
+    'fs_blade_of_the_wakened': 'Taken from the Scourge by the first of the dead to wake. It never went back.',
+    'fs_plaguebearers_staff': "A sealed vial from the Apothecarium rides at the tip. Please don't drop it.",
+    'sc_profit_margin': 'Thin, sharp and easy to miss, like every good goblin deal.',
+    'sc_the_neutrality_clause': "The Cartel's terms are painted on the front. Breaking them costs extra.",
+    'sc_arbiters_cloak': 'Disputes on the quay are settled once. Nobody appeals.',
+    'tb_spire_wardens_staff': 'If you can hold them, I can heal you - R',
+    'tb_mulgore_greatbow': 'Strung for the plains the way they were. Its hunters mean to see them again.',
+    'tb_cloak_of_the_fallen_spires': 'Four spires woven into the border, and nothing beneath them.',
+    'bb_revilgaz_cutlass': "The Baron keeps a lot of spares. He's very particular about who gets one.",
+    'bb_port_authority_blunderbuss': 'Licensed, stamped and loaded with whatever was cheapest that week.',
+    'bb_cloak_of_the_deep_harbour': 'The last deep-water harbour in the world, worn on your shoulders.',
+    'ac_thanes_claim': 'The deed to Khaz Varun is engraved down the haft. Nobody contests it.',
+    'ac_firebrand_scepter': "Warm in the hand, hot at the head, and furious when it's swung.",
+    'ac_khaz_varun_deedstone': 'A chip of the gate. Whoever holds the gate holds the hall.',
+    'er_moonboughs_gift': "Grown, not made, around a moonstone, by the Arch Druid's own hand.",
+    'er_glaive_of_the_fel_line': 'The Fel Line moves north a little every week. This is why.',
+    'er_windcallers_bough': "Every spring, leaves grow out of the spine. The Timbermaw say it's listening.",
+}
+
+
 def author_unique(rid, name, slot, kind, typ, ident, ilvl, rarity, flavour, price_g):
     import build_crafted_gear as C
     out = {"kind": kind, "slot": slot, "item_level": ilvl, "rarity": rarity, "required_level": WORN_AT,
@@ -434,7 +467,8 @@ def main():
     for fid, rows in EXALTED.items():
         for row in rows:
             iid, name, slot, kind, typ, ident, price, flav = row
-            items[iid], b = author_unique(iid, name, slot, kind, typ, ident, EPIC_ILVL, "epic", flav, price)
+            items[iid], b = author_unique(iid, name, slot, kind, typ, ident, EPIC_ILVL, "epic",
+                                          EPIC_FLAVOUR.get(iid, flav), price)
             items[iid]["faction"] = fid
             bad += b
     if bad:
@@ -458,11 +492,13 @@ def main():
                 out["weapon_type"] = typ
             else:
                 out["armor_type"] = typ
+            extra = {}
             if trade == "jewelcrafting":
                 out["armor_type"] = None
+                extra["tool"] = "jewelers_kit"
             book[rid] = {"name": name, "inputs": dict(inputs), "skill_required": 300,
                          "output": out, "skill_range": [300, 305, 310, 315], "source": "vendor",
-                         "faction": fid, "_rare_ingredients_todo": True}
+                         "faction": fid, "_rare_ingredients_todo": True, **extra}
     for path, d in docs.items():
         path.write_text(json.dumps(d, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
@@ -498,7 +534,8 @@ def main():
         mine = {f"unique:{i}" for i in items} | moved | {r[0] for rows in EXALTED_RECIPES.values() for r in rows}
         for s in (shelf, pshelf):           # clear what this script wrote last time, keep the rest
             for tier in list(s):
-                s[tier] = [x for x in s[tier] if x not in mine]
+                # every unique on a quartermaster's shelf is this script's, including one it has since retired
+                s[tier] = [x for x in s[tier] if x not in mine and not x.startswith("unique:")]
         for tier, ids in SUPPLIES.get(fid, {}).items():
             shelf.setdefault(tier, [])
             shelf[tier] += [i for i in ids if i not in shelf[tier]]

@@ -99,6 +99,9 @@ def main():
     check(0.45 <= share <= 0.60, f"{share:.0%} of recipes are trainer-taught")
     vendors = json.loads((ROOT / "data/npcs/vendors.json").read_text(encoding="utf-8"))["vendors"]
     shelves = {i for v in vendors for i in v["sells"]}
+    # a design a faction sells for standing is on a shelf too (world/faction_manager.reward_stock)
+    from world.faction_manager import reward_stock
+    shelves |= set(reward_stock())
     for rid, r in recipes.items():
         if r["source"] == "vendor":
             check(rid in shelves, f"{rid} is a vendor design and no shop sells it")

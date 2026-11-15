@@ -138,7 +138,7 @@ def main():
     # A DIRECTION, NOT A CAGE (Kyle, 15 Nov 2026: "DONT tunnel people... Don't pigeon hole!!!"): every faction
     # serves tanks, healers, casters and fighters, and single-school spell power is a rare exception
     import build_crafted_gear as C
-    ROLE = {"tank": "tank", "shield_tank": "tank", "bear": "tank", "healer": "healer", "high_healer": "healer",
+    ROLE = {"tank": "tank", "shield_tank": "tank", "bear": "tank", "bear_weapon": "tank", "tank_weapon": "tank", "healer": "healer", "high_healer": "healer",
             "tide_healer": "healer", "spirit_healer": "healer", "plate_healer": "healer"}
     SCHOOL = {"fire", "frost", "nature", "shadow", "arcane", "holy"}
     one_school = []

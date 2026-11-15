@@ -87,6 +87,7 @@ IDENTITIES = {
     "arcane_crit": ({"arcane_spell_power": 0.5, "intellect": 0.2, "crit_chance_spell": 0.3}, "int_caster"),
     # spell power and spell crit, any school (Kyle, 15 Nov 2026: "rarely is a single spell type a good idea")
     "caster_crit": ({"spell_power": 0.5, "intellect": 0.2, "crit_chance_spell": 0.3}, "int_caster"),
+    "haste_caster": ({"spell_power": 0.5, "intellect": 0.25, "haste": 0.25}, "int_caster"),
     # SPELL hit (15 Nov 2026: hit and spell hit are separate stats - Kyle, "We need to have spell hit, physical hit")
     "precise_caster": ({"spell_power": 0.5, "intellect": 0.2, "spell_hit_rating": 0.3}, "int_caster"),
     "shadow_sturdy": ({"shadow_spell_power": 0.55, "stamina": 0.45}, "int_caster"),
@@ -123,6 +124,14 @@ IDENTITIES = {
     "earthen": ({"attack_power": 0.4, "strength": 0.3, "intellect": 0.3}, "str_int_hybrid"),
     "wildheart": ({"attack_power": 0.35, "agility": 0.35, "intellect": 0.3}, "agi_int_hybrid"),
     "bear": ({"stamina": 0.45, "agility": 0.3, "dodge_rating": 0.25}, "agi_physical"),
+    # A TANK'S WEAPON CARRIES ARMOUR (Kyle, 15 Nov 2026: "Armor can be on tank weapons. We see this in wow."):
+    # a bear or beetle staff is Stamina and Agility in equal parts, dodge, and bonus armour, like WoW's
+    # Earthwarden. Armour costs 0.2 a point, so its share buys a real chunk of it.
+    "bear_weapon": ({"stamina": 0.35, "agility": 0.35, "dodge_rating": 0.18, "armor": 0.12}, "agi_physical"),
+    # ...and a one-handed tank's sword, mace or axe, shaped like WoW's King's Defender (Stamina, a lot of
+    # armour, defense and hit). ONLY these two carry armour: Kyle, "DONT GO THROWING ARMOR ON EVERY SINGLE
+    # WEAPON PLEASE".
+    "tank_weapon": ({"stamina": 0.35, "armor": 0.35, "defense_rating": 0.12, "hit_rating": 0.18}, "str_physical"),
     "tide_healer": ({"healing_power": 0.55, "intellect": 0.3, "mp5": 0.15}, "spi_healer"),
     "mail_caster": ({"spell_power": 0.55, "intellect": 0.3, "crit_chance_spell": 0.15}, "int_caster"),
 
@@ -569,7 +578,7 @@ def jewel_identity(recipe):
 
 
 TWO_HANDED = {"sword_2h", "axe_2h", "mace_2h", "polearm", "staff"}
-CASTING = {"tide_healer", "plate_healer", "storm", "healer", "mail_caster"}
+CASTING = {"tide_healer", "plate_healer", "storm", "healer", "mail_caster", "haste_caster"}   # haste_caster: storm, general
 
 
 #: A mail piece from a plate metal takes the mail role nearest its metal's: hunters and shaman don't tank.
@@ -585,8 +594,10 @@ def weapon_identity(weapon_type, ident):
     if weapon_type == "shield" and ident not in CASTING:
         return "shield_tank"
     # ...except a staff: a bear druid or a Venomancer beetle really does tank with one (Kyle, 15 Nov 2026)
-    if weapon_type == "staff" and ident == "bear":
-        return ident
+    if weapon_type == "staff" and ident in ("bear", "bear_weapon"):
+        return "bear_weapon"
+    if weapon_type in ("sword_1h", "mace_1h", "axe_1h") and ident in ("tank", "tank_weapon"):
+        return "tank_weapon"
     if weapon_type in TWO_HANDED and ident in ("tank", "shield_tank", "bear"):
         return "strength"
     return ident
@@ -659,6 +670,23 @@ def identity_for(trade, recipe):
     if base is not None:
         return base
     return None, None, None
+
+
+def named_piece(trade, recipe, ident, pinned):
+    """True when a named line, not the material, gave this piece its role: a deliberate set that keeps it."""
+    if pinned:
+        return True
+    t = TRADES[trade]
+    name = recipe["name"]
+    out = recipe["output"]
+    if t.get("resolver") == "wood":
+        wt = out.get("weapon_type")
+        if out["kind"] == "armor" or wt in RELICS or wt in ("polearm", "shield"):
+            return True
+        return any(re.search(p, name) for p, _a, _i, _f in WOOD_LINES)
+    if t.get("resolver") == "jewel":
+        return True
+    return any(re.search(p, name) for p, _a, _i, _f in t["lines"])
 
 
 def budget(out):
@@ -793,7 +821,7 @@ def icon_for(name, slot, armor_type, weapon_type, rarity):
 #: beetle, a cat or a ret paladin that's a trap: they swing it, so it gave up most of a two-hander's damage
 #: for stats they'd have had anyway. These identities' staves are built as two-handers - a two-hander's
 #: damage, speed and budget - and stay staves (Kyle, 15 Nov 2026: "agi staves and tank staves are real").
-FIGHTING_STAFF = {"feral", "bear", "crusader", "strength", "agility"}
+FIGHTING_STAFF = {"feral", "bear", "bear_weapon", "crusader", "strength", "agility"}
 
 
 def as_built(out, ident):
@@ -808,6 +836,8 @@ def author(rid, recipe, ident, flavour):
     weights, template = IDENTITIES[ident]
     built = as_built(out, ident)
     prim, sec = split(weights, budget(built), out["item_level"])
+    # armour bought as a stat (a tank's weapon) is armour, never a stat line (entities/item.whole_stats)
+    bonus_armour = sec.pop("armor", 0)
     ref = reference(rid, built)
     # NO STRAY ARMOUR. The reference item's random rolls can include "+armor", which Item folds into its
     # armour value: a wand with 138 armour, a caster's trinket with 185. That's a drip stat (Kyle, 15 Nov 2026:
@@ -820,7 +850,7 @@ def author(rid, recipe, ident, flavour):
         "name": recipe["name"], "slot": out["slot"], "item_level": out["item_level"],
         "rarity": out["rarity"], "armor_type": ref.armor_type, "weapon_type": out.get("weapon_type") or ref.weapon_type,
         "stat_template": template, "primary_stats": prim, "secondary_stats": sec,
-        "armor_value": ref.armor_value if keeps_armour else 0,
+        "armor_value": (ref.armor_value if keeps_armour else 0) + bonus_armour,
         # a reputation epic is ilvl 73 worn at 60 (Kyle, 15 Nov 2026), so its output can pin the level
         "required_level": out.get("required_level") or ref.required_level,
         "sell_price": ref.sell_price, "flavor_text": flavour, "identity": ident,
@@ -828,7 +858,10 @@ def author(rid, recipe, ident, flavour):
     # ONE ICON PER CRAFT (Kyle, 15 Nov: "Ensure crafting makes ONE icon per craft. Not random"). The
     # icon is chosen once, here, seeded on the item's name exactly as boss_loot._item_from_def would,
     # and written into the recipe, so it can't drift if the icon picker ever changes.
-    item["icon_id"] = icon_for(recipe["name"], out["slot"], ref.armor_type, ref.weapon_type, out["rarity"])
+    # the icon is the item's own type: a fighter's staff is PRICED as a two-hander but it's still a staff,
+    # and it drew a maul's icon until 15 Nov 2026
+    item["icon_id"] = icon_for(recipe["name"], out["slot"], ref.armor_type, out.get("weapon_type") or ref.weapon_type,
+                               out["rarity"])
     proc = proc_for(recipe["name"]) if out["slot"] in ("trinket", "trinket1", "trinket2") else None
     if not flavour:
         flavour = ""
@@ -878,11 +911,90 @@ def audit_item(trade, rid, item):
     return bad
 
 
+# ---------------------------------------------------------------------------------------------
+# DRIFT, NOT DOMINATE. Kyle, 15 Nov 2026: "classes miss out in entire tiers of gear. This will be crippling
+# at frontier level crafting. The vision is that specific materials can DRIFT slightly towards styles, but
+# not dominate. Take mooncloth, it makes Healer gear (mooncloth set in wow) BUT used for lots of other
+# things." And: "rarely is a single spell type a good idea bro unless it's an exception, not a rule."
+#
+# Until then every piece of a material took the material's identity, so 44 materials made one kind of gear
+# only (all four Thorium plate pieces were a tank's, all four Moonsilk pieces a healer's) and a whole skill
+# band served one role. Now, within each material and armour type (or weapon family), the pieces are taken
+# in skill order and the material's LEAN takes every third one, starting with the first; the others walk
+# that armour type's pool of roles, starting at a point set by the material, so neighbouring materials
+# don't repeat each other. A named line ("Moonrobe", "Prowler's", "Earthbound") is a deliberate set and keeps
+# its role. School spell power is general (SCHOOL_GENERIC), except on each school material's SIGNATURE piece
+# (its chest or staff, else its first piece): the one exception that says what the material is.
+# ---------------------------------------------------------------------------------------------
+SCHOOL_GENERIC = {"arcane": "caster", "fire": "caster", "frost": "caster", "shadow": "caster", "nature": "caster",
+                  "holy": "caster", "hex": "caster", "arcane_crit": "caster_crit", "storm": "haste_caster",
+                  "dark_haste": "haste_caster", "void": "sturdy_caster", "fel": "sturdy_caster",
+                  "shadow_sturdy": "sturdy_caster"}
+POOLS = {
+    "cloth": ["caster", "healer", "caster_crit", "precise_caster", "high_healer", "haste_caster", "spirit_caster",
+              "battlemage", "spirit_healer", "sturdy_caster"],
+    "leather": ["agility", "healer", "rogue_crit", "feral", "assassin", "bear", "wildheart", "caster"],
+    "mail": ["hunter", "tide_healer", "hunter_crit", "mail_caster", "hunter_precise", "earthen", "haste_caster", "tank"],
+    "plate": ["strength", "tank", "plate_healer", "strength_crit", "crusader", "strength_hit"],
+    "casting": ["caster", "healer", "caster_crit", "high_healer", "precise_caster", "haste_caster", "spirit_caster",
+                "death"],
+    "shooting": ["hunter", "hunter_crit", "hunter_precise"],
+}
+LEAN_EVERY = 3
+
+
+def drift_family(out):
+    """The pool a piece drifts within, or None for pieces that keep their role (jewellery, shields, relics,
+    melee weapons: a metal's sword is its metal's)."""
+    if out["kind"] == "armor":
+        return out.get("armor_type") if out.get("armor_type") in POOLS else None
+    wt = out.get("weapon_type")
+    if wt in ("staff", "wand", "tome", "orb"):
+        return "casting"
+    if wt in ("bow", "crossbow", "gun"):
+        return "shooting"
+    return None
+
+
+def plan_drift(entries):
+    """entries: [dict(trade, rid, r, out, ident, named)] -> {rid: identity}. Deterministic: the same data always
+    drifts the same way."""
+    groups = collections.defaultdict(list)
+    for e in entries:
+        fam = drift_family(e["out"])
+        if e["named"] or e.get("pinned") or fam is None or e["rid"].startswith("secret_"):
+            continue
+        groups[(e["trade"], e["out"].get("material_tier"), fam)].append(e)
+    plan = {}
+    for (trade, tier, fam), es in groups.items():
+        es.sort(key=lambda e: (e["r"].get("skill_required", 0), e["rid"]))
+        base = es[0]["ident"]
+        lean = SCHOOL_GENERIC.get(base, base)
+        pool = POOLS[fam]
+        alts = [i for i in pool if i != lean]
+        start = zlib.crc32(f"{trade}:{tier}".encode()) % len(alts)
+        sig = None
+        if base in SCHOOL_GENERIC:          # the one piece that keeps the school
+            sig = next((e["rid"] for e in es if e["out"].get("slot") == "chest"
+                        or e["out"].get("weapon_type") == "staff"), es[0]["rid"])
+        k = 0
+        for n, e in enumerate(es):
+            if e["rid"] == sig:
+                plan[e["rid"]] = base
+            elif n % LEAN_EVERY == 0:
+                plan[e["rid"]] = lean
+            else:
+                plan[e["rid"]] = alts[(start + k) % len(alts)]
+                k += 1
+    return plan
+
+
 def run(write):
     docs, bad, report = {}, [], collections.defaultdict(collections.Counter)
     global PICKER
     from crafted_icon_palette import Picker
     PICKER = Picker()
+    entries = []
     for trade in TRADES:
         path = FILES[trade]
         if path not in docs:
@@ -927,10 +1039,37 @@ def run(write):
             if ident is None:
                 bad.append(f"{trade} {rid} ({r['name']}): no identity for material {out.get('material_tier')}")
                 continue
-            item = author(rid, r, ident, flav)
-            bad += audit_item(trade, rid, item)
-            out["item"] = item
-            report[trade][ident] += 1
+            entries.append(dict(trade=trade, rid=rid, r=r, out=out, ident=ident, flav=flav, pinned=pinned,
+                                named=named_piece(trade, r, ident, pinned)))
+    plan = plan_drift(entries)
+    # secret variants ("Hushfang's Lifebark Staff") take their base piece's role
+    by_name = {e["r"]["name"]: plan.get(e["rid"], e["ident"]) for e in entries if not e["rid"].startswith("secret_")}
+    for e in entries:
+        trade, rid, r, out = e["trade"], e["rid"], e["r"], e["out"]
+        ident = plan.get(rid)
+        if ident is None and rid.startswith("secret_"):
+            ident = next((v for nm, v in by_name.items() if r["name"].endswith(nm)), None)
+        if ident is None:
+            ident = e["ident"] if e["pinned"] else SCHOOL_GENERIC.get(e["ident"], e["ident"])
+        if out["kind"] == "weapon":
+            ident = weapon_identity(out["weapon_type"], ident)
+        if out["kind"] == "armor" and out.get("armor_type") == "mail" and trade == "blacksmithing":
+            ident = MAIL_FALLBACK.get(ident, ident)
+        item = author(rid, r, ident, e["flav"])
+        problems = audit_item(trade, rid, item)
+        if problems and rid in plan:
+            # a drifted role the piece is too low to carry (a level 20 belt can't hold a spell crit rating
+            # under its power): it keeps its material's lean instead
+            lean = SCHOOL_GENERIC.get(e["ident"], e["ident"])
+            if out["kind"] == "weapon":
+                lean = weapon_identity(out["weapon_type"], lean)
+            if lean != ident:
+                ident = lean
+                item = author(rid, r, ident, e["flav"])
+                problems = audit_item(trade, rid, item)
+        bad += problems
+        out["item"] = item
+        report[trade][ident] += 1
     for trade, c in report.items():
         print(f"{trade}: {sum(c.values())} pieces authored; identities {dict(c.most_common())}")
     if bad:

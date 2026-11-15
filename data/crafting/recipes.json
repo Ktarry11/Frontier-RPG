@@ -2429,7 +2429,7 @@
               "required_level": 3,
               "sell_price": 37,
               "flavor_text": "Plain linen, stitched tight. Every tailor starts here.",
-              "identity": "starter_caster",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_misc_cape_11"
             }
           },
@@ -2508,14 +2508,14 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 3
+                "stamina": 3
               },
               "secondary_stats": {},
               "armor_value": 6,
               "required_level": 5,
               "sell_price": 68,
               "flavor_text": "Plain linen, stitched tight. Every tailor starts here.",
-              "identity": "starter_caster",
+              "identity": "battlemage",
               "icon_id": "gear_inv_bracer_15"
             }
           },
@@ -2567,16 +2567,16 @@
               "rarity": "uncommon",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "int_caster",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "intellect": 4
+                "spirit": 4
               },
               "secondary_stats": {},
               "armor_value": 6,
               "required_level": 6,
               "sell_price": 118,
               "flavor_text": "Plain linen, stitched tight. Every tailor starts here.",
-              "identity": "starter_caster",
+              "identity": "spirit_healer",
               "icon_id": "gear_inv_gauntlets_11"
             }
           },
@@ -2656,15 +2656,14 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 4,
-                "stamina": 2
+                "intellect": 6
               },
               "secondary_stats": {},
               "armor_value": 10,
               "required_level": 8,
               "sell_price": 232,
               "flavor_text": "Plain linen, stitched tight. Every tailor starts here.",
-              "identity": "starter_caster",
+              "identity": "caster",
               "icon_id": "gear_inv_helmet_02"
             }
           },
@@ -2734,19 +2733,18 @@
               "rarity": "uncommon",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "int_caster",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "intellect": 2,
-                "stamina": 2
+                "intellect": 2
               },
               "secondary_stats": {
-                "spell_power": 4
+                "healing_power": 8
               },
               "armor_value": 11,
               "required_level": 11,
               "sell_price": 327,
               "flavor_text": "Heavy wool that keeps the cold out and the caster on their feet.",
-              "identity": "sturdy_caster",
+              "identity": "high_healer",
               "icon_id": "gear_inv_boots_plate_06"
             }
           },
@@ -2782,18 +2780,15 @@
               "armor_type": "cloth",
               "weapon_type": null,
               "stat_template": "int_caster",
-              "primary_stats": {
-                "intellect": 2,
-                "stamina": 2
-              },
+              "primary_stats": {},
               "secondary_stats": {
-                "spell_power": 3
+                "spell_power": 9
               },
               "armor_value": 10,
               "required_level": 12,
               "sell_price": 323,
               "flavor_text": "Heavy wool that keeps the cold out and the caster on their feet.",
-              "identity": "sturdy_caster",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_misc_cape_01"
             }
           },
@@ -2875,17 +2870,16 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 2,
-                "stamina": 2
+                "spirit": 3
               },
               "secondary_stats": {
-                "spell_power": 5
+                "spell_power": 7
               },
               "armor_value": 18,
               "required_level": 14,
               "sell_price": 388,
               "flavor_text": "Heavy wool that keeps the cold out and the caster on their feet.",
-              "identity": "sturdy_caster",
+              "identity": "spirit_caster",
               "icon_id": "gear_inv_bracer_16"
             }
           },
@@ -2921,17 +2915,16 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 2,
                 "stamina": 2
               },
               "secondary_stats": {
-                "spell_power": 6
+                "spell_power": 9
               },
               "armor_value": 14,
               "required_level": 15,
               "sell_price": 574,
               "flavor_text": "Heavy wool that keeps the cold out and the caster on their feet.",
-              "identity": "sturdy_caster",
+              "identity": "battlemage",
               "icon_id": "gear_inv_gauntlets_20"
             }
           },
@@ -3029,19 +3022,19 @@
               "rarity": "uncommon",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "int_caster",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "intellect": 3,
-                "stamina": 3
+                "spirit": 3,
+                "intellect": 3
               },
               "secondary_stats": {
-                "spell_power": 7
+                "healing_power": 10
               },
               "armor_value": 20,
               "required_level": 17,
               "sell_price": 892,
               "flavor_text": "Heavy wool that keeps the cold out and the caster on their feet.",
-              "identity": "sturdy_caster",
+              "identity": "spirit_healer",
               "icon_id": "gear_inv_helmet_15"
             }
           },
@@ -3160,16 +3153,16 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 4
+                "spirit": 5
               },
               "secondary_stats": {
-                "spell_power": 9
+                "spell_power": 8
               },
               "armor_value": 18,
               "required_level": 22,
               "sell_price": 1001,
               "flavor_text": "Good silk. It takes a spell better than anything cheaper.",
-              "identity": "caster",
+              "identity": "spirit_caster",
               "icon_id": "gear_inv_misc_cape_06"
             }
           },
@@ -3216,7 +3209,7 @@
               "sell_price": 1091,
               "flavor_text": "Good silk. It takes a spell better than anything cheaper.",
               "identity": "caster",
-              "icon_id": "gear_inv_belt_13"
+              "icon_id": "gear_inv_belt_27"
             }
           },
           "skill_range": [
@@ -3313,18 +3306,19 @@
               "rarity": "uncommon",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "int_caster",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "intellect": 5
+                "spirit": 4,
+                "intellect": 4
               },
               "secondary_stats": {
-                "spell_power": 12
+                "healing_power": 10
               },
               "armor_value": 31,
               "required_level": 25,
               "sell_price": 1515,
               "flavor_text": "Good silk. It takes a spell better than anything cheaper.",
-              "identity": "caster",
+              "identity": "spirit_healer",
               "icon_id": "gear_inv_gauntlets_29"
             }
           },
@@ -3379,16 +3373,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 8
+                "intellect": 6,
+                "stamina": 6
               },
               "secondary_stats": {
-                "spell_power": 17
+                "spell_power": 11
               },
               "armor_value": 35,
               "required_level": 26,
               "sell_price": 2516,
               "flavor_text": "Good silk. It takes a spell better than anything cheaper.",
-              "identity": "caster",
+              "identity": "sturdy_caster",
               "icon_id": "gear_inv_shirt_11"
             }
           },
@@ -3529,17 +3524,17 @@
               "rarity": "uncommon",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "spi_healer",
+              "stat_template": "int_caster",
               "primary_stats": {
-                "spirit": 3
+                "stamina": 3
               },
               "secondary_stats": {},
               "armor_value": 5,
               "required_level": 4,
               "sell_price": 54,
               "flavor_text": "Soft cotton. Healers like it because it breathes.",
-              "identity": "spirit_healer",
-              "icon_id": "gear_inv_belt_27"
+              "identity": "battlemage",
+              "icon_id": "gear_inv_belt_12"
             }
           },
           "skill_range": [
@@ -3572,16 +3567,16 @@
               "rarity": "uncommon",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "spi_healer",
+              "stat_template": "int_caster",
               "primary_stats": {
-                "spirit": 3
+                "intellect": 3
               },
               "secondary_stats": {},
               "armor_value": 6,
               "required_level": 5,
               "sell_price": 68,
               "flavor_text": "Soft cotton. Healers like it because it breathes.",
-              "identity": "spirit_healer",
+              "identity": "sturdy_caster",
               "icon_id": "gear_inv_bracer_17"
             }
           },
@@ -3659,16 +3654,16 @@
               "rarity": "uncommon",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "spi_healer",
+              "stat_template": "int_caster",
               "primary_stats": {
-                "spirit": 4
+                "intellect": 4
               },
               "secondary_stats": {},
               "armor_value": 7,
               "required_level": 7,
               "sell_price": 151,
               "flavor_text": "Soft cotton. Healers like it because it breathes.",
-              "identity": "spirit_healer",
+              "identity": "caster",
               "icon_id": "gear_inv_gauntlets_12"
             }
           },
@@ -3704,15 +3699,14 @@
               "weapon_type": null,
               "stat_template": "spi_healer",
               "primary_stats": {
-                "spirit": 5,
-                "intellect": 2
+                "spirit": 7
               },
               "secondary_stats": {},
               "armor_value": 12,
               "required_level": 8,
               "sell_price": 290,
               "flavor_text": "Soft cotton. Healers like it because it breathes.",
-              "identity": "spirit_healer",
+              "identity": "healer",
               "icon_id": "gear_inv_pants_01"
             }
           },
@@ -3790,19 +3784,16 @@
               "rarity": "uncommon",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "spi_healer",
-              "primary_stats": {
-                "spirit": 2,
-                "intellect": 2
-              },
+              "stat_template": "int_caster",
+              "primary_stats": {},
               "secondary_stats": {
-                "healing_power": 6
+                "spell_power": 11
               },
               "armor_value": 12,
               "required_level": 10,
               "sell_price": 340,
               "flavor_text": "Soft cotton. Healers like it because it breathes.",
-              "identity": "spirit_healer",
+              "identity": "caster_crit",
               "icon_id": "gear_inv_helmet_37"
             }
           },
@@ -3865,7 +3856,7 @@
               "required_level": 9,
               "sell_price": 354,
               "flavor_text": "Plain linen, stitched tight. Every tailor starts here.",
-              "identity": "starter_caster",
+              "identity": "sturdy_caster",
               "icon_id": "gear_inv_shirt_guildtabard_01"
             }
           },
@@ -3965,18 +3956,18 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "stamina": 3,
-                "spirit": 2
+                "intellect": 2,
+                "stamina": 2
               },
               "secondary_stats": {
-                "spell_power": 4
+                "spell_power": 5
               },
               "armor_value": 13,
               "required_level": 13,
               "sell_price": 373,
               "flavor_text": "Rough hempen weave, made for the road and not for looking at.",
-              "identity": "traveller",
-              "icon_id": "gear_inv_belt_12"
+              "identity": "sturdy_caster",
+              "icon_id": "gear_inv_belt_35"
             }
           },
           "skill_range": [
@@ -4058,17 +4049,16 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "stamina": 3,
-                "spirit": 2
+                "intellect": 3
               },
               "secondary_stats": {
-                "spell_power": 4
+                "spell_power": 7
               },
               "armor_value": 18,
               "required_level": 15,
               "sell_price": 485,
               "flavor_text": "Rough hempen weave, made for the road and not for looking at.",
-              "identity": "traveller",
+              "identity": "caster",
               "icon_id": "gear_inv_misc_cape_01"
             }
           },
@@ -4102,19 +4092,19 @@
               "rarity": "uncommon",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "int_caster",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "stamina": 3,
-                "spirit": 2
+                "spirit": 2,
+                "intellect": 2
               },
               "secondary_stats": {
-                "spell_power": 5
+                "healing_power": 9
               },
               "armor_value": 15,
               "required_level": 16,
               "sell_price": 647,
               "flavor_text": "Rough hempen weave, made for the road and not for looking at.",
-              "identity": "traveller",
+              "identity": "healer",
               "icon_id": "gear_inv_gauntlets_18"
             }
           },
@@ -4196,17 +4186,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "stamina": 6,
-                "spirit": 3
+                "intellect": 3
               },
               "secondary_stats": {
-                "spell_power": 7
+                "spell_power": 9,
+                "crit_chance_spell": 5
               },
               "armor_value": 25,
               "required_level": 18,
               "sell_price": 1241,
               "flavor_text": "Rough hempen weave, made for the road and not for looking at.",
-              "identity": "traveller",
+              "identity": "caster_crit",
               "icon_id": "gear_inv_shirt_11"
             }
           },
@@ -4241,18 +4231,16 @@
               "armor_type": "cloth",
               "weapon_type": null,
               "stat_template": "int_caster",
-              "primary_stats": {
-                "stamina": 5,
-                "spirit": 3
-              },
+              "primary_stats": {},
               "secondary_stats": {
-                "spell_power": 6
+                "spell_power": 11,
+                "spell_hit_rating": 5
               },
               "armor_value": 22,
               "required_level": 19,
               "sell_price": 1100,
               "flavor_text": "Rough hempen weave, made for the road and not for looking at.",
-              "identity": "traveller",
+              "identity": "precise_caster",
               "icon_id": "gear_inv_helmet_24"
             }
           },
@@ -4536,16 +4524,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
+                "intellect": 2,
                 "stamina": 2
               },
               "secondary_stats": {
-                "shadow_spell_power": 6
+                "spell_power": 3
               },
               "armor_value": 10,
               "required_level": 10,
               "sell_price": 276,
               "flavor_text": "Fel-stitched. The thread glows green in the dark.",
-              "identity": "fel",
+              "identity": "sturdy_caster",
               "icon_id": "gear_inv_boots_plate_01"
             }
           }
@@ -4581,16 +4570,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
+                "intellect": 2,
                 "stamina": 2
               },
               "secondary_stats": {
-                "shadow_spell_power": 11
+                "spell_power": 6
               },
               "armor_value": 14,
               "required_level": 12,
               "sell_price": 470,
               "flavor_text": "Fel-stitched. The thread glows green in the dark.",
-              "identity": "fel",
+              "identity": "sturdy_caster",
               "icon_id": "gear_inv_helmet_44"
             }
           }
@@ -4626,17 +4616,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "stamina": 3,
-                "intellect": 2
+                "intellect": 3,
+                "stamina": 3
               },
               "secondary_stats": {
-                "shadow_spell_power": 10
+                "spell_power": 6
               },
               "armor_value": 18,
               "required_level": 13,
               "sell_price": 678,
               "flavor_text": "Fel-stitched. The thread glows green in the dark.",
-              "identity": "fel",
+              "identity": "sturdy_caster",
               "icon_id": "gear_inv_pants_05"
             }
           }
@@ -4672,17 +4662,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "stamina": 3,
-                "intellect": 2
+                "intellect": 3,
+                "stamina": 3
               },
               "secondary_stats": {
-                "shadow_spell_power": 11
+                "spell_power": 7
               },
               "armor_value": 20,
               "required_level": 14,
               "sell_price": 777,
               "flavor_text": "Fel-stitched. The thread glows green in the dark.",
-              "identity": "fel",
+              "identity": "sturdy_caster",
               "icon_id": "gear_inv_chest_cloth_10"
             }
           }
@@ -4721,13 +4711,13 @@
                 "intellect": 5
               },
               "secondary_stats": {
-                "shadow_spell_power": 14
+                "spell_power": 12
               },
               "armor_value": 23,
               "required_level": 20,
               "sell_price": 1213,
               "flavor_text": "Dark cloth for dark work.",
-              "identity": "shadow",
+              "identity": "caster",
               "icon_id": "gear_inv_shoulder_14"
             }
           }
@@ -4766,13 +4756,13 @@
                 "intellect": 5
               },
               "secondary_stats": {
-                "shadow_spell_power": 15
+                "spell_power": 12
               },
               "armor_value": 24,
               "required_level": 21,
               "sell_price": 1332,
               "flavor_text": "Dark cloth for dark work.",
-              "identity": "shadow",
+              "identity": "caster",
               "icon_id": "gear_inv_helmet_13"
             }
           },
@@ -4812,13 +4802,13 @@
                 "intellect": 7
               },
               "secondary_stats": {
-                "shadow_spell_power": 18
+                "spell_power": 15
               },
               "armor_value": 30,
               "required_level": 22,
               "sell_price": 1820,
               "flavor_text": "Dark cloth for dark work.",
-              "identity": "shadow",
+              "identity": "caster",
               "icon_id": "gear_inv_chest_cloth_49"
             }
           },
@@ -4853,18 +4843,19 @@
               "rarity": "rare",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "int_caster",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "spirit": 13
+                "spirit": 9,
+                "intellect": 9
               },
               "secondary_stats": {
-                "spell_power": 23
+                "healing_power": 21
               },
               "armor_value": 51,
               "required_level": 35,
               "sell_price": 5422,
               "flavor_text": "Dusk velvet, dyed the colour of the sky an hour after sunset.",
-              "identity": "spirit_caster",
+              "identity": "spirit_healer",
               "icon_id": "gear_inv_shoulder_14"
             }
           }
@@ -4903,14 +4894,14 @@
                 "intellect": 7
               },
               "secondary_stats": {
-                "shadow_spell_power": 25,
-                "haste": 7
+                "spell_power": 22,
+                "haste": 6
               },
               "armor_value": 52,
               "required_level": 36,
               "sell_price": 5734,
               "flavor_text": "Gossamer so thin you'd swear it couldn't hold a stitch.",
-              "identity": "dark_haste",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_helmet_13"
             }
           }
@@ -5129,16 +5120,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "spirit": 15
+                "stamina": 10
               },
               "secondary_stats": {
-                "spell_power": 27
+                "spell_power": 19,
+                "crit_chance_spell": 10
               },
               "armor_value": 59,
               "required_level": 34,
               "sell_price": 6398,
               "flavor_text": "Dusk velvet, dyed the colour of the sky an hour after sunset.",
-              "identity": "spirit_caster",
+              "identity": "battlemage",
               "icon_id": "gear_inv_shirt_02"
             }
           }
@@ -5174,17 +5166,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 5
+                "intellect": 7
               },
               "secondary_stats": {
-                "spell_power": 21,
-                "spell_hit_rating": 8
+                "spell_power": 20,
+                "haste": 6
               },
               "armor_value": 58,
               "required_level": 28,
               "sell_price": 4363,
               "flavor_text": "Spidersilk's light and tough, and it doesn't snag.",
-              "identity": "precise_caster",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_chest_cloth_41"
             }
           },
@@ -5224,13 +5216,13 @@
                 "intellect": 9
               },
               "secondary_stats": {
-                "shadow_spell_power": 24
+                "spell_power": 20
               },
               "armor_value": 40,
               "required_level": 27,
               "sell_price": 3250,
               "flavor_text": "Dark cloth for dark work.",
-              "identity": "shadow",
+              "identity": "caster",
               "icon_id": "gear_inv_helmet_27"
             }
           },
@@ -5270,13 +5262,13 @@
                 "intellect": 15
               },
               "secondary_stats": {
-                "shadow_spell_power": 42
+                "spell_power": 34
               },
               "armor_value": 80,
               "required_level": 40,
               "sell_price": 8844,
               "flavor_text": "Dark cloth for dark work.",
-              "identity": "shadow",
+              "identity": "caster",
               "icon_id": "gear_inv_chest_cloth_06"
             }
           },
@@ -5313,16 +5305,16 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "spirit": 11
+                "intellect": 11
               },
               "secondary_stats": {
-                "nature_spell_power": 28
+                "spell_power": 23
               },
               "armor_value": 47,
               "required_level": 40,
               "sell_price": 5749,
               "flavor_text": "Thistledown cloth, as light as the seed heads it's spun from.",
-              "identity": "nature",
+              "identity": "caster",
               "icon_id": "gear_inv_gauntlets_04"
             }
           },
@@ -5357,19 +5349,19 @@
               "rarity": "rare",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "int_caster",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "intellect": 7,
-                "stamina": 7
+                "spirit": 6,
+                "intellect": 5
               },
               "secondary_stats": {
-                "spell_power": 14
+                "healing_power": 24
               },
               "armor_value": 41,
               "required_level": 28,
               "sell_price": 3490,
               "flavor_text": "Heavy wool that keeps the cold out and the caster on their feet.",
-              "identity": "sturdy_caster",
+              "identity": "healer",
               "icon_id": "gear_inv_shoulder_10"
             }
           },
@@ -5406,17 +5398,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 9,
-                "stamina": 9
+                "intellect": 6
               },
               "secondary_stats": {
-                "spell_power": 18
+                "spell_power": 22,
+                "crit_chance_spell": 9
               },
               "armor_value": 64,
               "required_level": 31,
               "sell_price": 5330,
               "flavor_text": "Heavy wool that keeps the cold out and the caster on their feet.",
-              "identity": "sturdy_caster",
+              "identity": "caster_crit",
               "icon_id": "gear_inv_chest_cloth_11"
             }
           },
@@ -5456,14 +5448,14 @@
                 "intellect": 9
               },
               "secondary_stats": {
-                "shadow_spell_power": 29,
-                "haste": 9
+                "spell_power": 27,
+                "haste": 7
               },
               "armor_value": 63,
               "required_level": 37,
               "sell_price": 7569,
               "flavor_text": "Gossamer so thin you'd swear it couldn't hold a stitch.",
-              "identity": "dark_haste",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_pants_08"
             }
           },
@@ -5550,14 +5542,14 @@
                 "intellect": 9
               },
               "secondary_stats": {
-                "shadow_spell_power": 30,
-                "haste": 9
+                "spell_power": 27,
+                "haste": 8
               },
               "armor_value": 77,
               "required_level": 38,
               "sell_price": 7983,
               "flavor_text": "Gossamer so thin you'd swear it couldn't hold a stitch.",
-              "identity": "dark_haste",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_chest_cloth_49"
             }
           },
@@ -5688,17 +5680,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "stamina": 4,
-                "intellect": 2
+                "intellect": 4,
+                "stamina": 4
               },
               "secondary_stats": {
-                "shadow_spell_power": 11
+                "spell_power": 6
               },
               "armor_value": 34,
               "required_level": 15,
               "sell_price": 882,
               "flavor_text": "Fel-stitched. The thread glows green in the dark.",
-              "identity": "fel",
+              "identity": "sturdy_caster",
               "icon_id": "gear_inv_chest_cloth_42"
             }
           },
@@ -5738,13 +5730,13 @@
                 "intellect": 4
               },
               "secondary_stats": {
-                "fire_spell_power": 12
+                "spell_power": 10
               },
               "armor_value": 26,
               "required_level": 16,
               "sell_price": 796,
               "flavor_text": "Every stitch of it is a little too warm.",
-              "identity": "fire",
+              "identity": "caster",
               "icon_id": "gear_inv_helmet_08"
             }
           },
@@ -5784,13 +5776,13 @@
                 "intellect": 5
               },
               "secondary_stats": {
-                "fire_spell_power": 14
+                "spell_power": 12
               },
               "armor_value": 32,
               "required_level": 17,
               "sell_price": 1115,
               "flavor_text": "Every stitch of it is a little too warm.",
-              "identity": "fire",
+              "identity": "caster",
               "icon_id": "gear_inv_pants_06"
             }
           },
@@ -5830,13 +5822,13 @@
                 "intellect": 6
               },
               "secondary_stats": {
-                "fire_spell_power": 15
+                "spell_power": 12
               },
               "armor_value": 25,
               "required_level": 18,
               "sell_price": 1241,
               "flavor_text": "Every stitch of it is a little too warm.",
-              "identity": "fire",
+              "identity": "caster",
               "icon_id": "gear_inv_chest_cloth_02"
             }
           },
@@ -5880,7 +5872,7 @@
               "required_level": 2,
               "sell_price": 27,
               "flavor_text": "Troll hexwork, with little charms sewn into the hem.",
-              "identity": "hex",
+              "identity": "caster",
               "icon_id": "gear_inv_gauntlets_09"
             }
           },
@@ -5924,7 +5916,7 @@
               "required_level": 3,
               "sell_price": 37,
               "flavor_text": "Troll hexwork, with little charms sewn into the hem.",
-              "identity": "hex",
+              "identity": "caster",
               "icon_id": "gear_inv_belt_30"
             }
           },
@@ -5968,7 +5960,7 @@
               "required_level": 4,
               "sell_price": 50,
               "flavor_text": "Troll hexwork, with little charms sewn into the hem.",
-              "identity": "hex",
+              "identity": "caster",
               "icon_id": "gear_inv_bracer_07"
             }
           },
@@ -6052,17 +6044,16 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 5,
-                "stamina": 5
+                "intellect": 7
               },
               "secondary_stats": {
-                "spell_power": 10
+                "spell_power": 15
               },
               "armor_value": 30,
               "required_level": 20,
               "sell_price": 1820,
               "flavor_text": "Heavy wool that keeps the cold out and the caster on their feet.",
-              "identity": "sturdy_caster",
+              "identity": "caster",
               "icon_id": "gear_inv_shoulder_28"
             }
           },
@@ -6099,16 +6090,16 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "spirit": 5
+                "intellect": 5
               },
               "secondary_stats": {
-                "nature_spell_power": 14
+                "spell_power": 12
               },
               "armor_value": 23,
               "required_level": 19,
               "sell_price": 1135,
               "flavor_text": "There's something green and growing woven through it.",
-              "identity": "nature",
+              "identity": "caster",
               "icon_id": "gear_inv_belt_14"
             }
           },
@@ -6194,13 +6185,13 @@
                 "intellect": 7
               },
               "secondary_stats": {
-                "arcane_spell_power": 20
+                "spell_power": 17
               },
               "armor_value": 39,
               "required_level": 22,
               "sell_price": 2185,
               "flavor_text": "Mageweave hums a little when you hold it near a ley line.",
-              "identity": "arcane",
+              "identity": "caster",
               "icon_id": "gear_inv_shoulder_20"
             }
           },
@@ -6284,16 +6275,16 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "spirit": 6
+                "intellect": 6
               },
               "secondary_stats": {
-                "nature_spell_power": 15
+                "spell_power": 12
               },
               "armor_value": 25,
               "required_level": 18,
               "sell_price": 1241,
               "flavor_text": "There's something green and growing woven through it.",
-              "identity": "nature",
+              "identity": "caster",
               "icon_id": "gear_inv_pants_14"
             }
           },
@@ -6330,16 +6321,16 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "spirit": 13
+                "intellect": 13
               },
               "secondary_stats": {
-                "nature_spell_power": 34
+                "spell_power": 28
               },
               "armor_value": 57,
               "required_level": 33,
               "sell_price": 6031,
               "flavor_text": "There's something green and growing woven through it.",
-              "identity": "nature",
+              "identity": "caster",
               "icon_id": "gear_inv_shirt_green_01"
             }
           },
@@ -6514,17 +6505,16 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 6
+                "spirit": 13
               },
               "secondary_stats": {
-                "spell_power": 21,
-                "spell_hit_rating": 8
+                "spell_power": 23
               },
               "armor_value": 50,
               "required_level": 29,
               "sell_price": 4674,
               "flavor_text": "Spidersilk's light and tough, and it doesn't snag.",
-              "identity": "precise_caster",
+              "identity": "spirit_caster",
               "icon_id": "gear_inv_shirt_white_01"
             }
           },
@@ -6611,13 +6601,13 @@
                 "intellect": 14
               },
               "secondary_stats": {
-                "fire_spell_power": 40
+                "spell_power": 33
               },
               "armor_value": 65,
               "required_level": 38,
               "sell_price": 7983,
               "flavor_text": "Every stitch of it is a little too warm.",
-              "identity": "fire",
+              "identity": "caster",
               "icon_id": "gear_inv_chest_cloth_02"
             }
           },
@@ -6657,14 +6647,14 @@
                 "intellect": 9
               },
               "secondary_stats": {
-                "shadow_spell_power": 29,
-                "haste": 9
+                "spell_power": 27,
+                "haste": 7
               },
               "armor_value": 63,
               "required_level": 37,
               "sell_price": 7569,
               "flavor_text": "Gossamer so thin you'd swear it couldn't hold a stitch.",
-              "identity": "dark_haste",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_pants_08"
             }
           },
@@ -6704,14 +6694,14 @@
                 "intellect": 7
               },
               "secondary_stats": {
-                "shadow_spell_power": 26,
-                "haste": 7
+                "spell_power": 24,
+                "haste": 6
               },
               "armor_value": 64,
               "required_level": 37,
               "sell_price": 6055,
               "flavor_text": "Gossamer so thin you'd swear it couldn't hold a stitch.",
-              "identity": "dark_haste",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_helmet_08"
             }
           },
@@ -6746,19 +6736,19 @@
               "rarity": "uncommon",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "int_caster",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "intellect": 4
+                "intellect": 5,
+                "spirit": 4
               },
               "secondary_stats": {
-                "spell_power": 14,
-                "spell_hit_rating": 6
+                "healing_power": 21
               },
               "armor_value": 35,
               "required_level": 26,
               "sell_price": 2516,
               "flavor_text": "Spidersilk's light and tough, and it doesn't snag.",
-              "identity": "precise_caster",
+              "identity": "high_healer",
               "icon_id": "gear_inv_chest_cloth_31"
             }
           },
@@ -6838,19 +6828,19 @@
               "rarity": "uncommon",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "int_caster",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "stamina": 4,
-                "spirit": 2
+                "spirit": 2,
+                "intellect": 2
               },
               "secondary_stats": {
-                "spell_power": 4
+                "healing_power": 9
               },
               "armor_value": 15,
               "required_level": 10,
               "sell_price": 425,
               "flavor_text": "Rough hempen weave, made for the road and not for looking at.",
-              "identity": "traveller",
+              "identity": "spirit_healer",
               "icon_id": "gear_inv_shirt_01"
             }
           },
@@ -6887,17 +6877,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "stamina": 5,
-                "intellect": 3
+                "intellect": 5,
+                "stamina": 5
               },
               "secondary_stats": {
-                "shadow_spell_power": 18
+                "spell_power": 12
               },
               "armor_value": 32,
               "required_level": 24,
               "sell_price": 2154,
               "flavor_text": "Fel-stitched. The thread glows green in the dark.",
-              "identity": "fel",
+              "identity": "sturdy_caster",
               "icon_id": "gear_inv_chest_cloth_22"
             }
           },
@@ -6934,14 +6924,14 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 2
+                "spirit": 2
               },
               "secondary_stats": {},
               "armor_value": 3,
               "required_level": 1,
               "sell_price": 23,
               "flavor_text": "Plain linen, stitched tight. Every tailor starts here.",
-              "identity": "starter_caster",
+              "identity": "spirit_caster",
               "icon_id": "gear_inv_chest_cloth_35"
             }
           },
@@ -7143,42 +7133,6 @@
           ],
           "source": "drop"
         },
-        "tail_cotton_bag": {
-          "name": "Rose-Clasped Bag",
-          "inputs": {
-            "bolt_cotton": 4
-          },
-          "skill_required": 45,
-          "output": {
-            "kind": "bag",
-            "bag_id": "rose_clasped_bag"
-          },
-          "skill_range": [
-            50,
-            60,
-            70,
-            80
-          ],
-          "source": "trainer"
-        },
-        "tail_hempen_bag": {
-          "name": "Violet-Clasped Bag",
-          "inputs": {
-            "bolt_hempen": 4
-          },
-          "skill_required": 75,
-          "output": {
-            "kind": "bag",
-            "bag_id": "violet_clasped_bag"
-          },
-          "skill_range": [
-            80,
-            90,
-            100,
-            110
-          ],
-          "source": "trainer"
-        },
         "tail_mageweave_bag": {
           "name": "Frostward Pack",
           "inputs": {
@@ -7194,42 +7148,6 @@
             155,
             165,
             175
-          ],
-          "source": "trainer"
-        },
-        "tail_spidersilk_bag": {
-          "name": "Runeforged Strongbox",
-          "inputs": {
-            "bolt_spidersilk": 5
-          },
-          "skill_required": 175,
-          "output": {
-            "kind": "bag",
-            "bag_id": "runeforged_strongbox"
-          },
-          "skill_range": [
-            180,
-            190,
-            200,
-            210
-          ],
-          "source": "drop"
-        },
-        "tail_gossamer_bag": {
-          "name": "Flameward Coffer",
-          "inputs": {
-            "bolt_gossamer": 6
-          },
-          "skill_required": 205,
-          "output": {
-            "kind": "bag",
-            "bag_id": "flameward_coffer"
-          },
-          "skill_range": [
-            210,
-            220,
-            230,
-            240
           ],
           "source": "trainer"
         },
@@ -7251,24 +7169,6 @@
           ],
           "source": "quest"
         },
-        "tail_shadowsilk_bag": {
-          "name": "Tideworn Bosun's Chest",
-          "inputs": {
-            "bolt_shadowsilk": 6
-          },
-          "skill_required": 265,
-          "output": {
-            "kind": "bag",
-            "bag_id": "tideworn_bosun_chest"
-          },
-          "skill_range": [
-            270,
-            280,
-            290,
-            300
-          ],
-          "source": "drop"
-        },
         "tail_shadowsilk_case": {
           "name": "Ironbound Prospector's Case",
           "inputs": {
@@ -7287,80 +7187,6 @@
           ],
           "source": "vendor",
           "vendor_location": "Any pattern vendor"
-        },
-        "tail_starweave_bag": {
-          "name": "Duskwoven Carryall",
-          "inputs": {
-            "bolt_starweave": 7
-          },
-          "skill_required": 275,
-          "output": {
-            "kind": "bag",
-            "bag_id": "duskwoven_carryall"
-          },
-          "skill_range": [
-            280,
-            290,
-            300,
-            310
-          ],
-          "source": "drop"
-        },
-        "tail_starweave_pack": {
-          "name": "Brass-Fitted Haversack",
-          "inputs": {
-            "bolt_starweave": 7
-          },
-          "skill_required": 280,
-          "output": {
-            "kind": "bag",
-            "bag_id": "brass_fitted_haversack"
-          },
-          "skill_range": [
-            285,
-            295,
-            305,
-            315
-          ],
-          "source": "vendor",
-          "vendor_location": "Any pattern vendor"
-        },
-        "tail_bloodsilk_bag": {
-          "name": "Warden's Reliquary",
-          "inputs": {
-            "bolt_bloodsilk": 8
-          },
-          "skill_required": 285,
-          "output": {
-            "kind": "bag",
-            "bag_id": "warden_reliquary"
-          },
-          "skill_range": [
-            290,
-            300,
-            310,
-            320
-          ],
-          "source": "vendor",
-          "vendor_location": "Any pattern vendor"
-        },
-        "tail_bloodsilk_box": {
-          "name": "Stormglass Strongbox",
-          "inputs": {
-            "bolt_bloodsilk": 8
-          },
-          "skill_required": 290,
-          "output": {
-            "kind": "bag",
-            "bag_id": "stormglass_strongbox"
-          },
-          "skill_range": [
-            295,
-            305,
-            315,
-            325
-          ],
-          "source": "trainer"
         },
         "tail_bloodsilk_bearer": {
           "name": "Deepdelve Bearer",
@@ -7631,16 +7457,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "stamina": 11
+                "intellect": 7,
+                "stamina": 7
               },
               "secondary_stats": {
-                "shadow_spell_power": 24
+                "spell_power": 14
               },
               "armor_value": 43,
               "required_level": 29,
               "sell_price": 3739,
               "flavor_text": "Netherweave is cold to the touch, and it stays that way.",
-              "identity": "shadow_sturdy",
+              "identity": "sturdy_caster",
               "icon_id": "gear_inv_helmet_13"
             }
           }
@@ -7674,18 +7501,19 @@
               "rarity": "rare",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "int_caster",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "stamina": 11
+                "spirit": 6,
+                "intellect": 5
               },
               "secondary_stats": {
-                "shadow_spell_power": 25
+                "healing_power": 27
               },
               "armor_value": 52,
               "required_level": 30,
               "sell_price": 3997,
               "flavor_text": "Netherweave is cold to the touch, and it stays that way.",
-              "identity": "shadow_sturdy",
+              "identity": "healer",
               "icon_id": "gear_inv_shoulder_12"
             }
           }
@@ -7766,16 +7594,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "stamina": 10
+                "intellect": 6,
+                "stamina": 6
               },
               "secondary_stats": {
-                "shadow_spell_power": 21
+                "spell_power": 14
               },
               "armor_value": 38,
               "required_level": 32,
               "sell_price": 2837,
               "flavor_text": "Netherweave is cold to the touch, and it stays that way.",
-              "identity": "shadow_sturdy",
+              "identity": "sturdy_caster",
               "icon_id": "gear_inv_bracer_07"
             }
           }
@@ -7856,16 +7685,16 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 9
+                "spirit": 10
               },
               "secondary_stats": {
-                "frost_spell_power": 24
+                "spell_power": 18
               },
               "armor_value": 46,
               "required_level": 33,
               "sell_price": 3317,
               "flavor_text": "Frostweave. There's always a little rime in the folds.",
-              "identity": "frost",
+              "identity": "spirit_caster",
               "icon_id": "gear_inv_belt_31"
             }
           }
@@ -7901,16 +7730,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 13
+                "stamina": 10
               },
               "secondary_stats": {
-                "frost_spell_power": 36
+                "spell_power": 19,
+                "crit_chance_spell": 10
               },
               "armor_value": 201,
               "required_level": 34,
               "sell_price": 6398,
               "flavor_text": "Frostweave. There's always a little rime in the folds.",
-              "identity": "frost",
+              "identity": "battlemage",
               "icon_id": "gear_inv_pants_13"
             }
           }
@@ -7949,13 +7779,13 @@
                 "intellect": 9
               },
               "secondary_stats": {
-                "frost_spell_power": 25
+                "spell_power": 21
               },
               "armor_value": 50,
               "required_level": 35,
               "sell_price": 4405,
               "flavor_text": "Frostweave. There's always a little rime in the folds.",
-              "identity": "frost",
+              "identity": "caster",
               "icon_id": "gear_inv_boots_plate_05"
             }
           }
@@ -7994,13 +7824,13 @@
                 "intellect": 8
               },
               "secondary_stats": {
-                "fire_spell_power": 23
+                "spell_power": 19
               },
               "armor_value": 37,
               "required_level": 35,
               "sell_price": 3727,
               "flavor_text": "Emberweave stays warm in the snow, and it smells of smoke.",
-              "identity": "fire",
+              "identity": "caster",
               "icon_id": "gear_inv_misc_cape_18"
             }
           }
@@ -8036,16 +7866,16 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 12
+                "spirit": 13
               },
               "secondary_stats": {
-                "fire_spell_power": 32
+                "spell_power": 24
               },
               "armor_value": 52,
               "required_level": 36,
               "sell_price": 5734,
               "flavor_text": "Emberweave stays warm in the snow, and it smells of smoke.",
-              "identity": "fire",
+              "identity": "spirit_caster",
               "icon_id": "gear_inv_helmet_08"
             }
           }
@@ -8081,16 +7911,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 12
+                "stamina": 9
               },
               "secondary_stats": {
-                "fire_spell_power": 33
+                "spell_power": 18,
+                "crit_chance_spell": 9
               },
               "armor_value": 54,
               "required_level": 37,
               "sell_price": 6055,
               "flavor_text": "Emberweave stays warm in the snow, and it smells of smoke.",
-              "identity": "fire",
+              "identity": "battlemage",
               "icon_id": "gear_inv_shoulder_23"
             }
           }
@@ -8217,8 +8048,8 @@
               "weapon_type": null,
               "stat_template": "spi_healer",
               "primary_stats": {
-                "spirit": 6,
-                "intellect": 5
+                "intellect": 6,
+                "spirit": 5
               },
               "secondary_stats": {
                 "healing_power": 29
@@ -8227,7 +8058,7 @@
               "required_level": 39,
               "sell_price": 5465,
               "flavor_text": "Moonsilk's spun at night, and healers swear by it.",
-              "identity": "healer",
+              "identity": "high_healer",
               "icon_id": "gear_inv_gauntlets_02"
             }
           }
@@ -8261,19 +8092,19 @@
               "rarity": "rare",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "spi_healer",
+              "stat_template": "int_caster",
               "primary_stats": {
-                "spirit": 7,
-                "intellect": 5
+                "intellect": 7
               },
               "secondary_stats": {
-                "healing_power": 29
+                "spell_power": 20,
+                "haste": 5
               },
               "armor_value": 56,
               "required_level": 40,
               "sell_price": 4864,
               "flavor_text": "Moonsilk's spun at night, and healers swear by it.",
-              "identity": "healer",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_belt_22"
             }
           }
@@ -8400,16 +8231,16 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 10
+                "spirit": 11
               },
               "secondary_stats": {
-                "shadow_spell_power": 27
+                "spell_power": 20
               },
               "armor_value": 52,
               "required_level": 42,
               "sell_price": 5363,
               "flavor_text": "Shadowsilk drinks the light around it.",
-              "identity": "shadow",
+              "identity": "spirit_caster",
               "icon_id": "gear_inv_misc_cape_19"
             }
           }
@@ -8445,16 +8276,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 14
+                "stamina": 10
               },
               "secondary_stats": {
-                "shadow_spell_power": 38
+                "spell_power": 21,
+                "crit_chance_spell": 10
               },
               "armor_value": 62,
               "required_level": 43,
               "sell_price": 8178,
               "flavor_text": "Shadowsilk drinks the light around it.",
-              "identity": "shadow",
+              "identity": "battlemage",
               "icon_id": "gear_inv_helmet_27"
             }
           }
@@ -8493,13 +8325,13 @@
                 "intellect": 14
               },
               "secondary_stats": {
-                "shadow_spell_power": 38
+                "spell_power": 32
               },
               "armor_value": 63,
               "required_level": 44,
               "sell_price": 8564,
               "flavor_text": "Shadowsilk drinks the light around it.",
-              "identity": "shadow",
+              "identity": "caster",
               "icon_id": "gear_inv_shoulder_05"
             }
           }
@@ -8579,19 +8411,19 @@
               "rarity": "rare",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "int_caster",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "intellect": 6
+                "intellect": 7,
+                "spirit": 6
               },
               "secondary_stats": {
-                "arcane_spell_power": 27,
-                "crit_chance_spell": 9
+                "healing_power": 32
               },
               "armor_value": 63,
               "required_level": 45,
               "sell_price": 5600,
               "flavor_text": "Starweave. There are tiny points of light caught in the weave.",
-              "identity": "arcane_crit",
+              "identity": "high_healer",
               "icon_id": "gear_inv_bracer_07"
             }
           }
@@ -8627,17 +8459,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 6
+                "intellect": 8
               },
               "secondary_stats": {
-                "arcane_spell_power": 27,
-                "crit_chance_spell": 9
+                "spell_power": 23,
+                "haste": 6
               },
               "armor_value": 54,
               "required_level": 46,
               "sell_price": 7609,
               "flavor_text": "Starweave. There are tiny points of light caught in the weave.",
-              "identity": "arcane_crit",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_gauntlets_02"
             }
           }
@@ -8676,14 +8508,14 @@
                 "intellect": 6
               },
               "secondary_stats": {
-                "arcane_spell_power": 28,
+                "spell_power": 23,
                 "crit_chance_spell": 9
               },
               "armor_value": 55,
               "required_level": 47,
               "sell_price": 6723,
               "flavor_text": "Starweave. There are tiny points of light caught in the weave.",
-              "identity": "arcane_crit",
+              "identity": "caster_crit",
               "icon_id": "gear_inv_belt_33"
             }
           }
@@ -8762,18 +8594,19 @@
               "rarity": "rare",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "int_caster",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "stamina": 13
+                "spirit": 9,
+                "intellect": 9
               },
               "secondary_stats": {
-                "spell_power": 28
+                "healing_power": 27
               },
               "armor_value": 66,
               "required_level": 48,
               "sell_price": 8290,
               "flavor_text": "Bloodsilk's dyed in something the tailor won't name.",
-              "identity": "blood",
+              "identity": "spirit_healer",
               "icon_id": "gear_inv_boots_fabric_01"
             }
           }
@@ -8809,16 +8642,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "stamina": 11
+                "intellect": 9,
+                "stamina": 9
               },
               "secondary_stats": {
-                "spell_power": 26
+                "spell_power": 16
               },
               "armor_value": 60,
               "required_level": 49,
               "sell_price": 7313,
               "flavor_text": "Bloodsilk's dyed in something the tailor won't name.",
-              "identity": "blood",
+              "identity": "sturdy_caster",
               "icon_id": "gear_inv_misc_cape_18"
             }
           }
@@ -8899,17 +8733,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "stamina": 12,
-                "intellect": 6
+                "intellect": 12,
+                "stamina": 12
               },
               "secondary_stats": {
-                "shadow_spell_power": 41
+                "spell_power": 25
               },
               "armor_value": 73,
               "required_level": 51,
               "sell_price": 11532,
               "flavor_text": "Felcloth. Warlocks pay well for it and don't ask where it came from.",
-              "identity": "fel",
+              "identity": "sturdy_caster",
               "icon_id": "gear_inv_shoulder_18"
             }
           }
@@ -8991,17 +8825,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "stamina": 13,
-                "intellect": 7
+                "intellect": 9
               },
               "secondary_stats": {
-                "shadow_spell_power": 45
+                "spell_power": 34,
+                "crit_chance_spell": 13
               },
               "armor_value": 90,
               "required_level": 53,
               "sell_price": 13503,
               "flavor_text": "Felcloth. Warlocks pay well for it and don't ask where it came from.",
-              "identity": "fel",
+              "identity": "caster_crit",
               "icon_id": "gear_epic_wrist_cloth_1"
             }
           }
@@ -9037,17 +8871,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "stamina": 14,
-                "intellect": 7
+                "intellect": 14,
+                "stamina": 14
               },
               "secondary_stats": {
-                "shadow_spell_power": 45
+                "spell_power": 26
               },
               "armor_value": 82,
               "required_level": 54,
               "sell_price": 18231,
               "flavor_text": "Felcloth. Warlocks pay well for it and don't ask where it came from.",
-              "identity": "fel",
+              "identity": "sturdy_caster",
               "icon_id": "gear_epic_hands_cloth_1"
             }
           }
@@ -9129,17 +8963,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 13
+                "stamina": 20
               },
               "secondary_stats": {
-                "spell_power": 49,
-                "spell_penetration": 20
+                "spell_power": 39,
+                "crit_chance_spell": 20
               },
               "armor_value": 132,
               "required_level": 54,
               "sell_price": 28048,
               "flavor_text": "Soulcloth is cold, and on quiet nights it whispers.",
-              "identity": "death",
+              "identity": "battlemage",
               "icon_id": "gear_epic_legs_cloth_1"
             }
           }
@@ -9173,19 +9007,19 @@
               "rarity": "epic",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "int_caster",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "intellect": 9
+                "spirit": 14,
+                "intellect": 14
               },
               "secondary_stats": {
-                "spell_power": 35,
-                "spell_penetration": 14
+                "healing_power": 37
               },
               "armor_value": 93,
               "required_level": 55,
               "sell_price": 18921,
               "flavor_text": "Soulcloth is cold, and on quiet nights it whispers.",
-              "identity": "death",
+              "identity": "spirit_healer",
               "icon_id": "gear_epic_feet_cloth_1"
             }
           }
@@ -9270,14 +9104,14 @@
                 "intellect": 14
               },
               "secondary_stats": {
-                "nature_spell_power": 46,
-                "haste": 14
+                "spell_power": 42,
+                "haste": 12
               },
               "armor_value": 114,
               "required_level": 55,
               "sell_price": 23288,
               "flavor_text": "Windwool never quite hangs still.",
-              "identity": "storm",
+              "identity": "haste_caster",
               "icon_id": "gear_epic_head_cloth_1"
             }
           }
@@ -9313,17 +9147,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 14
+                "intellect": 12
               },
               "secondary_stats": {
-                "nature_spell_power": 49,
-                "haste": 14
+                "spell_power": 43,
+                "spell_hit_rating": 17
               },
               "armor_value": 117,
               "required_level": 56,
               "sell_price": 24154,
               "flavor_text": "Windwool never quite hangs still.",
-              "identity": "storm",
+              "identity": "precise_caster",
               "icon_id": "gear_epic_shoulder_cloth_1"
             }
           }
@@ -9408,14 +9242,14 @@
                 "intellect": 12
               },
               "secondary_stats": {
-                "nature_spell_power": 40,
-                "haste": 12
+                "spell_power": 37,
+                "haste": 10
               },
               "armor_value": 88,
               "required_level": 58,
               "sell_price": 16210,
               "flavor_text": "Windwool never quite hangs still.",
-              "identity": "storm",
+              "identity": "haste_caster",
               "icon_id": "gear_epic_wrist_cloth_1"
             }
           }
@@ -9495,19 +9329,18 @@
               "rarity": "epic",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "spi_healer",
+              "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 12,
-                "spirit": 10
+                "spirit": 22
               },
               "secondary_stats": {
-                "healing_power": 54
+                "spell_power": 40
               },
               "armor_value": 88,
               "required_level": 58,
               "sell_price": 17831,
               "flavor_text": "Imperial silk, the best a healer can wear that a tailor can make.",
-              "identity": "high_healer",
+              "identity": "spirit_caster",
               "icon_id": "gear_epic_waist_cloth_1"
             }
           }
@@ -9587,19 +9420,19 @@
               "rarity": "epic",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "spi_healer",
+              "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 12,
-                "spirit": 10
+                "stamina": 15
               },
               "secondary_stats": {
-                "healing_power": 55
+                "spell_power": 30,
+                "crit_chance_spell": 15
               },
               "armor_value": 89,
               "required_level": 59,
               "sell_price": 21818,
               "flavor_text": "Imperial silk, the best a healer can wear that a tailor can make.",
-              "identity": "high_healer",
+              "identity": "battlemage",
               "icon_id": "gear_epic_feet_cloth_1"
             }
           }
@@ -9636,16 +9469,16 @@
               "stat_template": "int_caster",
               "primary_stats": {
                 "intellect": 13,
-                "stamina": 9
+                "stamina": 13
               },
               "secondary_stats": {
-                "shadow_spell_power": 40
+                "spell_power": 27
               },
               "armor_value": 79,
               "required_level": 59,
               "sell_price": 18461,
               "flavor_text": "Voidweave. Look at it too long and it looks back.",
-              "identity": "void",
+              "identity": "sturdy_caster",
               "icon_id": "gear_epic_back_cloth_1"
             }
           }
@@ -9681,17 +9514,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 18,
-                "stamina": 12
+                "intellect": 12
               },
               "secondary_stats": {
-                "shadow_spell_power": 55
+                "spell_power": 46,
+                "spell_hit_rating": 18
               },
               "armor_value": 122,
               "required_level": 59,
               "sell_price": 26852,
               "flavor_text": "Voidweave. Look at it too long and it looks back.",
-              "identity": "void",
+              "identity": "precise_caster",
               "icon_id": "gear_epic_head_cloth_1"
             }
           }
@@ -9728,16 +9561,16 @@
               "stat_template": "int_caster",
               "primary_stats": {
                 "intellect": 18,
-                "stamina": 12
+                "stamina": 18
               },
               "secondary_stats": {
-                "shadow_spell_power": 55
+                "spell_power": 37
               },
               "armor_value": 109,
               "required_level": 59,
               "sell_price": 26852,
               "flavor_text": "Voidweave. Look at it too long and it looks back.",
-              "identity": "void",
+              "identity": "sturdy_caster",
               "icon_id": "gear_epic_shoulder_cloth_1"
             }
           }
@@ -9923,7 +9756,7 @@
               "sell_price": 728,
               "flavor_text": "Heavy wool that keeps the cold out and the caster on their feet.",
               "identity": "sturdy_caster",
-              "icon_id": "gear_inv_belt_35"
+              "icon_id": "gear_inv_belt_13"
             }
           },
           "skill_range": [
@@ -10010,19 +9843,19 @@
               "rarity": "rare",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "int_caster",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "intellect": 5,
-                "stamina": 5
+                "spirit": 5,
+                "intellect": 5
               },
               "secondary_stats": {
-                "spell_power": 9
+                "healing_power": 13
               },
               "armor_value": 34,
               "required_level": 19,
               "sell_price": 1650,
               "flavor_text": "Heavy wool that keeps the cold out and the caster on their feet.",
-              "identity": "sturdy_caster",
+              "identity": "spirit_healer",
               "icon_id": "gear_inv_helmet_20"
             }
           },
@@ -10067,19 +9900,19 @@
               "rarity": "rare",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "int_caster",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "intellect": 5
+                "intellect": 7,
+                "spirit": 5
               },
               "secondary_stats": {
-                "spell_power": 21,
-                "spell_hit_rating": 8
+                "healing_power": 30
               },
               "armor_value": 49,
               "required_level": 28,
               "sell_price": 4363,
               "flavor_text": "Spidersilk's light and tough, and it doesn't snag.",
-              "identity": "precise_caster",
+              "identity": "high_healer",
               "icon_id": "gear_inv_shirt_08"
             }
           },
@@ -10113,17 +9946,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 4,
                 "stamina": 4
               },
               "secondary_stats": {
-                "spell_power": 6
+                "spell_power": 4,
+                "crit_chance_spell": 5
               },
               "armor_value": 21,
               "required_level": 17,
               "sell_price": 1087,
               "flavor_text": "Heavy wool that keeps the cold out and the caster on their feet.",
-              "identity": "sturdy_caster",
+              "identity": "battlemage",
               "icon_id": "gear_inv_gauntlets_05"
             }
           },
@@ -10170,16 +10003,16 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 12
+                "spirit": 14
               },
               "secondary_stats": {
-                "fire_spell_power": 34
+                "spell_power": 25
               },
               "armor_value": 65,
               "required_level": 38,
               "sell_price": 6386,
               "flavor_text": "Emberweave stays warm in the snow, and it smells of smoke.",
-              "identity": "fire",
+              "identity": "spirit_caster",
               "icon_id": "gear_inv_helmet_01"
             }
           },
@@ -10212,16 +10045,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 11
+                "intellect": 8,
+                "stamina": 8
               },
               "secondary_stats": {
-                "spell_power": 24
+                "spell_power": 17
               },
               "armor_value": 58,
               "required_level": 28,
               "sell_price": 4363,
               "flavor_text": "Good silk. It takes a spell better than anything cheaper.",
-              "identity": "caster",
+              "identity": "sturdy_caster",
               "icon_id": "gear_inv_chest_cloth_41"
             }
           },
@@ -10268,8 +10102,8 @@
               "weapon_type": null,
               "stat_template": "spi_healer",
               "primary_stats": {
-                "spirit": 7,
-                "intellect": 5
+                "intellect": 7,
+                "spirit": 5
               },
               "secondary_stats": {
                 "healing_power": 30
@@ -10278,7 +10112,7 @@
               "required_level": 41,
               "sell_price": 6040,
               "flavor_text": "Moonsilk's spun at night, and healers swear by it.",
-              "identity": "healer",
+              "identity": "high_healer",
               "icon_id": "gear_inv_gauntlets_02"
             }
           },
@@ -10318,16 +10152,16 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 12
+                "spirit": 14
               },
               "secondary_stats": {
-                "fire_spell_power": 34
+                "spell_power": 25
               },
               "armor_value": 65,
               "required_level": 38,
               "sell_price": 6386,
               "flavor_text": "Emberweave stays warm in the snow, and it smells of smoke.",
-              "identity": "fire",
+              "identity": "spirit_caster",
               "icon_id": "gear_inv_helmet_12"
             }
           },
@@ -10358,19 +10192,19 @@
               "rarity": "rare",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "int_caster",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "intellect": 5,
-                "stamina": 5
+                "spirit": 5,
+                "intellect": 5
               },
               "secondary_stats": {
-                "spell_power": 9
+                "healing_power": 13
               },
               "armor_value": 29,
               "required_level": 19,
               "sell_price": 1650,
               "flavor_text": "Heavy wool that keeps the cold out and the caster on their feet.",
-              "identity": "sturdy_caster",
+              "identity": "spirit_healer",
               "icon_id": "gear_inv_helmet_02"
             }
           },
@@ -10411,16 +10245,16 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 6
+                "spirit": 7
               },
               "secondary_stats": {
-                "spell_power": 13
+                "spell_power": 11
               },
               "armor_value": 31,
               "required_level": 24,
               "sell_price": 1777,
               "flavor_text": "Good silk. It takes a spell better than anything cheaper.",
-              "identity": "caster",
+              "identity": "spirit_caster",
               "icon_id": "gear_inv_misc_cape_07"
             }
           },
@@ -10466,19 +10300,19 @@
               "rarity": "rare",
               "armor_type": "cloth",
               "weapon_type": null,
-              "stat_template": "int_caster",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "intellect": 5
+                "intellect": 7,
+                "spirit": 5
               },
               "secondary_stats": {
-                "spell_power": 21,
-                "spell_hit_rating": 8
+                "healing_power": 30
               },
               "armor_value": 49,
               "required_level": 28,
               "sell_price": 4363,
               "flavor_text": "Spidersilk's light and tough, and it doesn't snag.",
-              "identity": "precise_caster",
+              "identity": "high_healer",
               "icon_id": "gear_inv_shirt_white_01"
             }
           },
@@ -10519,8 +10353,8 @@
               "weapon_type": null,
               "stat_template": "spi_healer",
               "primary_stats": {
-                "spirit": 7,
-                "intellect": 5
+                "intellect": 7,
+                "spirit": 5
               },
               "secondary_stats": {
                 "healing_power": 30
@@ -10529,7 +10363,7 @@
               "required_level": 41,
               "sell_price": 6040,
               "flavor_text": "Moonsilk's spun at night, and healers swear by it.",
-              "identity": "healer",
+              "identity": "high_healer",
               "icon_id": "gear_inv_gauntlets_02"
             }
           },
@@ -11050,7 +10884,7 @@
               "required_level": 3,
               "sell_price": 41,
               "flavor_text": "Ashwood, light and straight-grained. Every woodworker learns on it.",
-              "identity": "starter_caster",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_tome_4",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -11179,7 +11013,7 @@
               "rarity": "uncommon",
               "armor_type": null,
               "weapon_type": "crossbow",
-              "stat_template": "agi_int_hybrid",
+              "stat_template": "agi_physical",
               "primary_stats": {
                 "agility": 3
               },
@@ -11188,7 +11022,7 @@
               "required_level": 5,
               "sell_price": 110,
               "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
-              "identity": "hunter",
+              "identity": "hunter_crit",
               "icon_id": "gear_inv_weapon_crossbow_01",
               "weapon_damage_min": 13,
               "weapon_damage_max": 17,
@@ -11298,7 +11132,7 @@
               "rarity": "uncommon",
               "armor_type": null,
               "weapon_type": "bow",
-              "stat_template": "agi_int_hybrid",
+              "stat_template": "agi_physical",
               "primary_stats": {
                 "agility": 3
               },
@@ -11307,7 +11141,7 @@
               "required_level": 6,
               "sell_price": 145,
               "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
-              "identity": "hunter",
+              "identity": "hunter_precise",
               "icon_id": "gear_inv_weapon_bow_01",
               "weapon_damage_min": 14,
               "weapon_damage_max": 19,
@@ -11369,14 +11203,14 @@
               "weapon_type": "tome",
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 5
+                "spirit": 5
               },
               "secondary_stats": {},
               "armor_value": 0,
               "required_level": 7,
               "sell_price": 139,
               "flavor_text": "Ashwood, light and straight-grained. Every woodworker learns on it.",
-              "identity": "starter_caster",
+              "identity": "spirit_caster",
               "icon_id": "gear_inv_tome_4",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -11446,7 +11280,7 @@
               "sell_price": 442,
               "flavor_text": "Heavy enough to fight with, and blessed besides.",
               "identity": "crusader",
-              "icon_id": "gear_inv_hammer_25",
+              "icon_id": "gear_inv_staff_18",
               "weapon_damage_min": 27,
               "weapon_damage_max": 37,
               "attack_speed": 3.6,
@@ -11557,7 +11391,7 @@
               "rarity": "uncommon",
               "armor_type": null,
               "weapon_type": "bow",
-              "stat_template": "agi_int_hybrid",
+              "stat_template": "agi_physical",
               "primary_stats": {
                 "agility": 2
               },
@@ -11568,7 +11402,7 @@
               "required_level": 10,
               "sell_price": 340,
               "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
-              "identity": "hunter",
+              "identity": "hunter_crit",
               "icon_id": "gear_inv_weapon_bow_09",
               "weapon_damage_min": 18,
               "weapon_damage_max": 24,
@@ -11873,17 +11707,15 @@
               "armor_type": null,
               "weapon_type": "tome",
               "stat_template": "int_caster",
-              "primary_stats": {
-                "intellect": 3
-              },
+              "primary_stats": {},
               "secondary_stats": {
-                "spell_power": 7
+                "spell_power": 11
               },
               "armor_value": 0,
               "required_level": 12,
               "sell_price": 352,
               "flavor_text": "Ironbark's as hard as its name, and it holds a spell well.",
-              "identity": "caster",
+              "identity": "precise_caster",
               "icon_id": "gear_inv_tome_1",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -12056,16 +11888,17 @@
               "weapon_type": "staff",
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 8
+                "intellect": 5
               },
               "secondary_stats": {
-                "spell_power": 18
+                "spell_power": 14,
+                "haste": 5
               },
               "armor_value": 0,
               "required_level": 17,
               "sell_price": 1393,
               "flavor_text": "Ironbark's as hard as its name, and it holds a spell well.",
-              "identity": "caster",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_staff_21",
               "weapon_damage_min": 16,
               "weapon_damage_max": 22,
@@ -12158,7 +11991,7 @@
               "rarity": "uncommon",
               "armor_type": null,
               "weapon_type": "bow",
-              "stat_template": "agi_int_hybrid",
+              "stat_template": "agi_physical",
               "primary_stats": {
                 "agility": 3
               },
@@ -12169,7 +12002,7 @@
               "required_level": 18,
               "sell_price": 993,
               "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
-              "identity": "hunter",
+              "identity": "hunter_crit",
               "icon_id": "gear_inv_weapon_bow_11",
               "weapon_damage_min": 26,
               "weapon_damage_max": 36,
@@ -12210,7 +12043,7 @@
               "rarity": "uncommon",
               "armor_type": null,
               "weapon_type": "crossbow",
-              "stat_template": "agi_int_hybrid",
+              "stat_template": "agi_physical",
               "primary_stats": {
                 "agility": 3
               },
@@ -12221,7 +12054,7 @@
               "required_level": 18,
               "sell_price": 993,
               "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
-              "identity": "hunter",
+              "identity": "hunter_precise",
               "icon_id": "gear_inv_weapon_crossbow_02",
               "weapon_damage_min": 26,
               "weapon_damage_max": 36,
@@ -12431,13 +12264,13 @@
                 "intellect": 10
               },
               "secondary_stats": {
-                "frost_spell_power": 26
+                "spell_power": 22
               },
               "armor_value": 0,
               "required_level": 21,
               "sell_price": 2081,
               "flavor_text": "There's frost in the grain that never melts.",
-              "identity": "frost",
+              "identity": "caster",
               "icon_id": "gear_inv_staff_05",
               "weapon_damage_min": 19,
               "weapon_damage_max": 26,
@@ -12644,13 +12477,13 @@
                 "intellect": 5
               },
               "secondary_stats": {
-                "frost_spell_power": 15
+                "spell_power": 12
               },
               "armor_value": 0,
               "required_level": 23,
               "sell_price": 1190,
               "flavor_text": "There's frost in the grain that never melts.",
-              "identity": "frost",
+              "identity": "caster",
               "icon_id": "gear_inv_tome_5",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -12692,16 +12525,16 @@
               "weapon_type": "staff",
               "stat_template": "int_caster",
               "primary_stats": {
-                "spirit": 12
+                "intellect": 12
               },
               "secondary_stats": {
-                "nature_spell_power": 32
+                "spell_power": 27
               },
               "armor_value": 0,
               "required_level": 26,
               "sell_price": 3145,
               "flavor_text": "Green wood, still alive in places.",
-              "identity": "nature",
+              "identity": "caster",
               "icon_id": "gear_inv_staff_24",
               "weapon_damage_min": 22,
               "weapon_damage_max": 30,
@@ -12899,16 +12732,16 @@
               "weapon_type": "tome",
               "stat_template": "int_caster",
               "primary_stats": {
-                "spirit": 6
+                "intellect": 6
               },
               "secondary_stats": {
-                "nature_spell_power": 17
+                "spell_power": 14
               },
               "armor_value": 0,
               "required_level": 27,
               "sell_price": 1625,
               "flavor_text": "Green wood, still alive in places.",
-              "identity": "nature",
+              "identity": "caster",
               "icon_id": "gear_inv_tome_7",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -13027,7 +12860,7 @@
               "required_level": 2,
               "sell_price": 53,
               "flavor_text": "Troll work, hung with little bone charms.",
-              "identity": "hex",
+              "identity": "caster",
               "icon_id": "gear_inv_staff_08",
               "weapon_damage_min": 6,
               "weapon_damage_max": 8,
@@ -13068,16 +12901,16 @@
               "weapon_type": "staff",
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 8
+                "intellect": 7
               },
               "secondary_stats": {
-                "shadow_spell_power": 18
+                "spell_power": 16
               },
               "armor_value": 0,
               "required_level": 15,
               "sell_price": 1103,
               "flavor_text": "Troll work, hung with little bone charms.",
-              "identity": "hex",
+              "identity": "caster",
               "icon_id": "gear_inv_staff_08",
               "weapon_damage_min": 15,
               "weapon_damage_max": 20,
@@ -13119,17 +12952,17 @@
               "weapon_type": "staff",
               "stat_template": "int_caster",
               "primary_stats": {
-                "stamina": 14,
-                "intellect": 7
+                "intellect": 14,
+                "stamina": 14
               },
               "secondary_stats": {
-                "shadow_spell_power": 45
+                "spell_power": 27
               },
               "armor_value": 0,
               "required_level": 31,
               "sell_price": 6662,
               "flavor_text": "Cut in Felwood, and it glows green at the knots.",
-              "identity": "fel",
+              "identity": "sturdy_caster",
               "icon_id": "gear_inv_staff_24",
               "weapon_damage_min": 33,
               "weapon_damage_max": 45,
@@ -13380,7 +13213,7 @@
               "sell_price": 1552,
               "flavor_text": "Heavy enough to fight with, and blessed besides.",
               "identity": "crusader",
-              "icon_id": "gear_inv_hammer_18",
+              "icon_id": "gear_inv_staff_02",
               "weapon_damage_min": 42,
               "weapon_damage_max": 57,
               "attack_speed": 3.6,
@@ -13432,7 +13265,7 @@
               "sell_price": 7998,
               "flavor_text": "Heavy enough to fight with, and blessed besides.",
               "identity": "crusader",
-              "icon_id": "gear_inv_hammer_16",
+              "icon_id": "gear_inv_staff_28",
               "weapon_damage_min": 89,
               "weapon_damage_max": 121,
               "attack_speed": 3.6,
@@ -13480,7 +13313,7 @@
               "required_level": 1,
               "sell_price": 8,
               "flavor_text": "Ashwood, light and straight-grained. Every woodworker learns on it.",
-              "identity": "starter_caster",
+              "identity": "precise_caster",
               "icon_id": "gear_inv_wand_04",
               "weapon_damage_min": 8,
               "weapon_damage_max": 10,
@@ -13524,13 +13357,13 @@
                 "intellect": 3
               },
               "secondary_stats": {
-                "arcane_spell_power": 7
+                "spell_power": 5
               },
               "armor_value": 0,
               "required_level": 13,
               "sell_price": 543,
               "flavor_text": "Runes etched in amber run down its length.",
-              "identity": "arcane",
+              "identity": "caster",
               "icon_id": "gear_inv_wand_07",
               "weapon_damage_min": 21,
               "weapon_damage_max": 29,
@@ -13676,7 +13509,7 @@
               "required_level": 1,
               "sell_price": 18,
               "flavor_text": "Troll work, hung with little bone charms.",
-              "identity": "hex",
+              "identity": "caster",
               "icon_id": "gear_inv_wand_10",
               "weapon_damage_min": 9,
               "weapon_damage_max": 12,
@@ -13924,13 +13757,13 @@
                 "intellect": 18
               },
               "secondary_stats": {
-                "frost_spell_power": 48
+                "spell_power": 39
               },
               "armor_value": 0,
               "required_level": 30,
               "sell_price": 6245,
               "flavor_text": "There's frost in the grain that never melts.",
-              "identity": "frost",
+              "identity": "caster",
               "icon_id": "gear_inv_staff_31",
               "weapon_damage_min": 33,
               "weapon_damage_max": 44,
@@ -13975,13 +13808,13 @@
                 "intellect": 23
               },
               "secondary_stats": {
-                "shadow_spell_power": 63
+                "spell_power": 52
               },
               "armor_value": 0,
               "required_level": 40,
               "sell_price": 11055,
               "flavor_text": "Burned dark, and the dark stayed in.",
-              "identity": "shadow",
+              "identity": "caster",
               "icon_id": "gear_inv_staff_17",
               "weapon_damage_min": 41,
               "weapon_damage_max": 56,
@@ -14022,19 +13855,19 @@
               "rarity": "rare",
               "armor_type": null,
               "weapon_type": "bow",
-              "stat_template": "agi_int_hybrid",
+              "stat_template": "agi_physical",
               "primary_stats": {
-                "agility": 5,
-                "intellect": 4
+                "agility": 5
               },
               "secondary_stats": {
-                "attack_power": 15
+                "attack_power": 13,
+                "hit_rating": 5
               },
               "armor_value": 0,
               "required_level": 27,
               "sell_price": 3250,
               "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
-              "identity": "hunter",
+              "identity": "hunter_precise",
               "icon_id": "gear_inv_weapon_bow_09",
               "weapon_damage_min": 47,
               "weapon_damage_max": 63,
@@ -14079,13 +13912,13 @@
                 "intellect": 9
               },
               "secondary_stats": {
-                "shadow_spell_power": 24
+                "spell_power": 19
               },
               "armor_value": 0,
               "required_level": 37,
               "sell_price": 6055,
               "flavor_text": "Burned dark, and the dark stayed in.",
-              "identity": "shadow",
+              "identity": "caster",
               "icon_id": "gear_inv_wand_10",
               "weapon_damage_min": 60,
               "weapon_damage_max": 81,
@@ -14182,14 +14015,14 @@
                 "intellect": 6
               },
               "secondary_stats": {
-                "nature_spell_power": 22,
-                "haste": 6
+                "spell_power": 20,
+                "haste": 5
               },
               "armor_value": 0,
               "required_level": 22,
               "sell_price": 2276,
               "flavor_text": "It hums before a storm.",
-              "identity": "storm",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_staff_12",
               "weapon_damage_min": 19,
               "weapon_damage_max": 26,
@@ -14287,13 +14120,13 @@
                 "intellect": 9
               },
               "secondary_stats": {
-                "shadow_spell_power": 24
+                "spell_power": 20
               },
               "armor_value": 0,
               "required_level": 38,
               "sell_price": 6386,
               "flavor_text": "Burned dark, and the dark stayed in.",
-              "identity": "shadow",
+              "identity": "caster",
               "icon_id": "gear_inv_wand_10",
               "weapon_damage_min": 61,
               "weapon_damage_max": 83,
@@ -14438,19 +14271,18 @@
               "rarity": "uncommon",
               "armor_type": null,
               "weapon_type": "bow",
-              "stat_template": "agi_int_hybrid",
+              "stat_template": "agi_physical",
               "primary_stats": {
-                "agility": 2,
-                "intellect": 2
+                "agility": 2
               },
               "secondary_stats": {
-                "attack_power": 8
+                "attack_power": 12
               },
               "armor_value": 0,
               "required_level": 17,
               "sell_price": 892,
               "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
-              "identity": "hunter",
+              "identity": "hunter_crit",
               "icon_id": "gear_inv_weapon_bow_11",
               "weapon_damage_min": 25,
               "weapon_damage_max": 34,
@@ -14495,13 +14327,13 @@
                 "intellect": 8
               },
               "secondary_stats": {
-                "fire_spell_power": 20
+                "spell_power": 17
               },
               "armor_value": 0,
               "required_level": 16,
               "sell_price": 1244,
               "flavor_text": "Emberwood's always warm, and it crackles when it casts.",
-              "identity": "fire",
+              "identity": "caster",
               "icon_id": "gear_inv_staff_13",
               "weapon_damage_min": 15,
               "weapon_damage_max": 21,
@@ -14550,8 +14382,8 @@
               "required_level": 5,
               "sell_price": 171,
               "flavor_text": "Troll work, hung with little bone charms.",
-              "identity": "hex",
-              "icon_id": "gear_inv_staff_02",
+              "identity": "caster",
+              "icon_id": "gear_inv_staff_09",
               "weapon_damage_min": 8,
               "weapon_damage_max": 11,
               "attack_speed": 3.2,
@@ -14599,7 +14431,7 @@
               "required_level": 4,
               "sell_price": 79,
               "flavor_text": "Troll work, hung with little bone charms.",
-              "identity": "hex",
+              "identity": "caster",
               "icon_id": "gear_inv_wand_07",
               "weapon_damage_min": 12,
               "weapon_damage_max": 16,
@@ -14641,16 +14473,16 @@
               "weapon_type": "staff",
               "stat_template": "int_caster",
               "primary_stats": {
-                "spirit": 14
+                "intellect": 14
               },
               "secondary_stats": {
-                "nature_spell_power": 38
+                "spell_power": 31
               },
               "armor_value": 0,
               "required_level": 23,
               "sell_price": 3719,
               "flavor_text": "Green wood, still alive in places.",
-              "identity": "nature",
+              "identity": "caster",
               "icon_id": "gear_inv_staff_17",
               "weapon_damage_min": 26,
               "weapon_damage_max": 36,
@@ -14691,19 +14523,19 @@
               "rarity": "rare",
               "armor_type": null,
               "weapon_type": "bow",
-              "stat_template": "agi_int_hybrid",
+              "stat_template": "agi_physical",
               "primary_stats": {
-                "agility": 4,
-                "intellect": 3
+                "agility": 4
               },
               "secondary_stats": {
-                "attack_power": 12
+                "attack_power": 9,
+                "crit_chance_physical": 5
               },
               "armor_value": 0,
               "required_level": 22,
               "sell_price": 2185,
               "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
-              "identity": "hunter",
+              "identity": "hunter_crit",
               "icon_id": "gear_inv_weapon_bow_02",
               "weapon_damage_min": 40,
               "weapon_damage_max": 54,
@@ -14797,16 +14629,16 @@
               "weapon_type": "wand",
               "stat_template": "int_caster",
               "primary_stats": {
-                "spirit": 5
+                "intellect": 5
               },
               "secondary_stats": {
-                "nature_spell_power": 14
+                "spell_power": 12
               },
               "armor_value": 0,
               "required_level": 21,
               "sell_price": 1998,
               "flavor_text": "Green wood, still alive in places.",
-              "identity": "nature",
+              "identity": "caster",
               "icon_id": "gear_inv_wand_02",
               "weapon_damage_min": 38,
               "weapon_damage_max": 52,
@@ -14848,16 +14680,16 @@
               "weapon_type": "staff",
               "stat_template": "int_caster",
               "primary_stats": {
-                "spirit": 8
+                "intellect": 8
               },
               "secondary_stats": {
-                "nature_spell_power": 23
+                "spell_power": 19
               },
               "armor_value": 0,
               "required_level": 18,
               "sell_price": 1552,
               "flavor_text": "Green wood, still alive in places.",
-              "identity": "nature",
+              "identity": "caster",
               "icon_id": "gear_inv_staff_07",
               "weapon_damage_min": 17,
               "weapon_damage_max": 23,
@@ -15007,13 +14839,13 @@
                 "intellect": 7
               },
               "secondary_stats": {
-                "arcane_spell_power": 18
+                "spell_power": 15
               },
               "armor_value": 0,
               "required_level": 28,
               "sell_price": 3490,
               "flavor_text": "Runes etched in amber run down its length.",
-              "identity": "arcane",
+              "identity": "caster",
               "icon_id": "gear_inv_wand_11",
               "weapon_damage_min": 48,
               "weapon_damage_max": 65,
@@ -15169,7 +15001,7 @@
               "sell_price": 971,
               "flavor_text": "Carved for a healer, smooth where the hand rests.",
               "identity": "healer",
-              "icon_id": "gear_inv_staff_28",
+              "icon_id": "gear_inv_staff_goldfeathered_01",
               "weapon_damage_min": 14,
               "weapon_damage_max": 19,
               "attack_speed": 3.2,
@@ -15263,13 +15095,13 @@
                 "intellect": 5
               },
               "secondary_stats": {
-                "shadow_spell_power": 13
+                "spell_power": 11
               },
               "armor_value": 0,
               "required_level": 26,
               "sell_price": 2013,
               "flavor_text": "Burned dark, and the dark stayed in.",
-              "identity": "shadow",
+              "identity": "caster",
               "icon_id": "gear_inv_wand_05",
               "weapon_damage_min": 34,
               "weapon_damage_max": 47,
@@ -15310,19 +15142,18 @@
               "rarity": "uncommon",
               "armor_type": null,
               "weapon_type": "bow",
-              "stat_template": "agi_int_hybrid",
+              "stat_template": "agi_physical",
               "primary_stats": {
-                "agility": 2,
-                "intellect": 2
+                "agility": 2
               },
               "secondary_stats": {
-                "attack_power": 6
+                "attack_power": 10
               },
               "armor_value": 0,
               "required_level": 14,
               "sell_price": 622,
               "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
-              "identity": "hunter",
+              "identity": "hunter_precise",
               "icon_id": "gear_inv_weapon_bow_07",
               "weapon_damage_min": 22,
               "weapon_damage_max": 30,
@@ -15419,13 +15250,13 @@
                 "intellect": 8
               },
               "secondary_stats": {
-                "shadow_spell_power": 24
+                "spell_power": 20
               },
               "armor_value": 0,
               "required_level": 36,
               "sell_price": 5734,
               "flavor_text": "Burned dark, and the dark stayed in.",
-              "identity": "shadow",
+              "identity": "caster",
               "icon_id": "gear_inv_wand_10",
               "weapon_damage_min": 59,
               "weapon_damage_max": 80,
@@ -16023,16 +15854,17 @@
               "weapon_type": "staff",
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 17
+                "intellect": 11
               },
               "secondary_stats": {
-                "shadow_spell_power": 46
+                "spell_power": 31,
+                "haste": 9
               },
               "armor_value": 0,
               "required_level": 38,
               "sell_price": 6652,
               "flavor_text": "Duskwood is black to the heart, and it's always a little cold.",
-              "identity": "shadow",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_staff_27",
               "weapon_damage_min": 30,
               "weapon_damage_max": 41,
@@ -16072,19 +15904,19 @@
               "rarity": "uncommon",
               "armor_type": null,
               "weapon_type": "bow",
-              "stat_template": "agi_physical",
+              "stat_template": "agi_int_hybrid",
               "primary_stats": {
-                "agility": 5
+                "agility": 5,
+                "intellect": 4
               },
               "secondary_stats": {
-                "attack_power": 14,
-                "hit_rating": 5
+                "attack_power": 16
               },
               "armor_value": 0,
               "required_level": 38,
               "sell_price": 4257,
               "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
-              "identity": "hunter_precise",
+              "identity": "hunter",
               "icon_id": "gear_inv_weapon_bow_09",
               "weapon_damage_min": 47,
               "weapon_damage_max": 64,
@@ -17490,13 +17322,13 @@
                 "intellect": 7
               },
               "secondary_stats": {
-                "shadow_spell_power": 19
+                "spell_power": 16
               },
               "armor_value": 0,
               "required_level": 29,
               "sell_price": 3739,
               "flavor_text": "Duskwood is black to the heart, and it's always a little cold.",
-              "identity": "shadow",
+              "identity": "caster",
               "icon_id": "gear_inv_wand_08",
               "weapon_damage_min": 49,
               "weapon_damage_max": 67,
@@ -17839,19 +17671,19 @@
               "rarity": "rare",
               "armor_type": null,
               "weapon_type": "staff",
-              "stat_template": "spi_healer",
+              "stat_template": "int_caster",
               "primary_stats": {
-                "spirit": 13,
-                "intellect": 10
+                "intellect": 13
               },
               "secondary_stats": {
-                "healing_power": 58
+                "spell_power": 39,
+                "haste": 11
               },
               "armor_value": 0,
               "required_level": 36,
               "sell_price": 8959,
               "flavor_text": "Thornveil. The thorns come off, and the healing stays in.",
-              "identity": "healer",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_staff_24",
               "weapon_damage_min": 38,
               "weapon_damage_max": 51,
@@ -18144,19 +17976,19 @@
               "rarity": "rare",
               "armor_type": null,
               "weapon_type": "staff",
-              "stat_template": "int_caster",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "intellect": 12
+                "intellect": 15,
+                "spirit": 12
               },
               "secondary_stats": {
-                "spell_power": 46,
-                "spell_penetration": 18
+                "healing_power": 67
               },
               "armor_value": 0,
               "required_level": 42,
               "sell_price": 12189,
               "flavor_text": "Bloodwood. Necromancers swear it remembers every death near its roots.",
-              "identity": "death",
+              "identity": "high_healer",
               "icon_id": "gear_inv_staff_18",
               "weapon_damage_min": 43,
               "weapon_damage_max": 58,
@@ -18350,17 +18182,16 @@
               "weapon_type": "tome",
               "stat_template": "int_caster",
               "primary_stats": {
-                "stamina": 10,
-                "intellect": 5
+                "spirit": 15
               },
               "secondary_stats": {
-                "shadow_spell_power": 33
+                "spell_power": 28
               },
               "armor_value": 0,
               "required_level": 46,
               "sell_price": 7024,
               "flavor_text": "Felbark, twisted by the fel and humming with it.",
-              "identity": "fel",
+              "identity": "spirit_caster",
               "icon_id": "gear_inv_tome_7",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -18451,19 +18282,18 @@
               "rarity": "rare",
               "armor_type": null,
               "weapon_type": "staff",
-              "stat_template": "spi_healer",
+              "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 17,
-                "spirit": 14
+                "intellect": 28
               },
               "secondary_stats": {
-                "healing_power": 76
+                "spell_power": 62
               },
               "armor_value": 0,
               "required_level": 48,
               "sell_price": 15943,
               "flavor_text": "Moonpetal wood, pale as moonlight and blessed by it.",
-              "identity": "high_healer",
+              "identity": "caster",
               "icon_id": "gear_inv_staff_15",
               "weapon_damage_min": 48,
               "weapon_damage_max": 66,
@@ -18660,14 +18490,14 @@
                 "intellect": 10
               },
               "secondary_stats": {
-                "arcane_spell_power": 45,
+                "spell_power": 37,
                 "crit_chance_spell": 15
               },
               "armor_value": 0,
               "required_level": 53,
               "sell_price": 16204,
               "flavor_text": "Starleaf glitters like a clear night sky.",
-              "identity": "arcane_crit",
+              "identity": "caster_crit",
               "icon_id": "gear_epic_tome_2",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -18711,14 +18541,14 @@
                 "intellect": 10
               },
               "secondary_stats": {
-                "nature_spell_power": 34,
-                "haste": 10
+                "spell_power": 31,
+                "haste": 9
               },
               "armor_value": 0,
               "required_level": 55,
               "sell_price": 23288,
               "flavor_text": "Stormoak grew where lightning struck, and it hasn't forgotten.",
-              "identity": "storm",
+              "identity": "haste_caster",
               "icon_id": "gear_epic_wand_1",
               "weapon_damage_min": 109,
               "weapon_damage_max": 148,
@@ -19317,16 +19147,17 @@
               "weapon_type": "wand",
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 5
+                "intellect": 3
               },
               "secondary_stats": {
-                "arcane_spell_power": 15
+                "spell_power": 8,
+                "spell_hit_rating": 5
               },
               "armor_value": 0,
               "required_level": 29,
               "sell_price": 2493,
               "flavor_text": "Silverbark gleams faintly, even in the dark.",
-              "identity": "arcane",
+              "identity": "precise_caster",
               "icon_id": "gear_inv_wand_07",
               "weapon_damage_min": 38,
               "weapon_damage_max": 51,
@@ -19367,16 +19198,17 @@
               "weapon_type": "tome",
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 7
+                "intellect": 4
               },
               "secondary_stats": {
-                "arcane_spell_power": 19
+                "spell_power": 11,
+                "haste": 5
               },
               "armor_value": 0,
               "required_level": 30,
               "sell_price": 1998,
               "flavor_text": "Silverbark gleams faintly, even in the dark.",
-              "identity": "arcane",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_tome_5",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -19415,19 +19247,18 @@
               "rarity": "uncommon",
               "armor_type": null,
               "weapon_type": "tome",
-              "stat_template": "spi_healer",
+              "stat_template": "int_caster",
               "primary_stats": {
-                "spirit": 5,
-                "intellect": 5
+                "intellect": 7
               },
               "secondary_stats": {
-                "healing_power": 16
+                "spell_power": 16
               },
               "armor_value": 0,
               "required_level": 32,
               "sell_price": 2270,
               "flavor_text": "Goldenleaf wood, warm to the hand. Healers favour it.",
-              "identity": "spirit_healer",
+              "identity": "caster",
               "icon_id": "gear_inv_tome_8",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -19466,18 +19297,19 @@
               "rarity": "uncommon",
               "armor_type": null,
               "weapon_type": "wand",
-              "stat_template": "int_caster",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "spirit": 7
+                "spirit": 4,
+                "intellect": 3
               },
               "secondary_stats": {
-                "spell_power": 13
+                "healing_power": 17
               },
               "armor_value": 0,
               "required_level": 34,
               "sell_price": 3412,
               "flavor_text": "Sapglow still weeps a little light where it was cut.",
-              "identity": "spirit_caster",
+              "identity": "healer",
               "icon_id": "gear_inv_wand_12",
               "weapon_damage_min": 43,
               "weapon_damage_max": 58,
@@ -19518,16 +19350,17 @@
               "weapon_type": "wand",
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 6
+                "intellect": 3
               },
               "secondary_stats": {
-                "fire_spell_power": 17
+                "spell_power": 12,
+                "spell_hit_rating": 5
               },
               "armor_value": 0,
               "required_level": 35,
               "sell_price": 3614,
               "flavor_text": "Redbark smoulders if you work it too fast.",
-              "identity": "fire",
+              "identity": "precise_caster",
               "icon_id": "gear_inv_wand_09",
               "weapon_damage_min": 44,
               "weapon_damage_max": 59,
@@ -19568,16 +19401,17 @@
               "weapon_type": "tome",
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 11
+                "intellect": 7
               },
               "secondary_stats": {
-                "fire_spell_power": 29
+                "spell_power": 18,
+                "haste": 6
               },
               "armor_value": 0,
               "required_level": 36,
               "sell_price": 4300,
               "flavor_text": "Redbark smoulders if you work it too fast.",
-              "identity": "fire",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_tome_2",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -19618,16 +19452,17 @@
               "weapon_type": "wand",
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 7
+                "intellect": 4
               },
               "secondary_stats": {
-                "frost_spell_power": 19
+                "spell_power": 11,
+                "haste": 5
               },
               "armor_value": 0,
               "required_level": 38,
               "sell_price": 4257,
               "flavor_text": "Marshwillow, soaked and supple, and as cold as the bog it grew in.",
-              "identity": "frost",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_wand_08",
               "weapon_damage_min": 47,
               "weapon_damage_max": 64,
@@ -19668,16 +19503,16 @@
               "weapon_type": "tome",
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 11
+                "spirit": 13
               },
               "secondary_stats": {
-                "frost_spell_power": 32
+                "spell_power": 24
               },
               "armor_value": 0,
               "required_level": 39,
               "sell_price": 5044,
               "flavor_text": "Marshwillow, soaked and supple, and as cold as the bog it grew in.",
-              "identity": "frost",
+              "identity": "spirit_caster",
               "icon_id": "gear_inv_tome_5",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -19722,13 +19557,13 @@
               },
               "secondary_stats": {
                 "spell_power": 23,
-                "spell_penetration": 9
+                "spell_hit_rating": 9
               },
               "armor_value": 0,
               "required_level": 42,
               "sell_price": 5851,
               "flavor_text": "Bloodwood. Necromancers swear it remembers every death near its roots.",
-              "identity": "death",
+              "identity": "precise_caster",
               "icon_id": "gear_inv_tome_1",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -19769,17 +19604,17 @@
               "weapon_type": "wand",
               "stat_template": "int_caster",
               "primary_stats": {
-                "stamina": 8,
-                "intellect": 4
+                "intellect": 8,
+                "stamina": 8
               },
               "secondary_stats": {
-                "shadow_spell_power": 25
+                "spell_power": 15
               },
               "armor_value": 0,
               "required_level": 44,
               "sell_price": 8564,
               "flavor_text": "Felbark, twisted by the fel and humming with it.",
-              "identity": "fel",
+              "identity": "sturdy_caster",
               "icon_id": "gear_inv_wand_04",
               "weapon_damage_min": 70,
               "weapon_damage_max": 94,
@@ -19871,8 +19706,8 @@
               "weapon_type": "tome",
               "stat_template": "spi_healer",
               "primary_stats": {
-                "intellect": 9,
-                "spirit": 7
+                "spirit": 9,
+                "intellect": 7
               },
               "secondary_stats": {
                 "healing_power": 38
@@ -19881,7 +19716,7 @@
               "required_level": 48,
               "sell_price": 7653,
               "flavor_text": "Moonpetal wood, pale as moonlight and blessed by it.",
-              "identity": "high_healer",
+              "identity": "healer",
               "icon_id": "gear_inv_tome_5",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -19925,13 +19760,13 @@
                 "intellect": 28
               },
               "secondary_stats": {
-                "fire_spell_power": 77
+                "spell_power": 63
               },
               "armor_value": 0,
               "required_level": 49,
               "sell_price": 16620,
               "flavor_text": "Emberwood's always warm, and it crackles when it casts.",
-              "identity": "fire",
+              "identity": "caster",
               "icon_id": "gear_inv_staff_18",
               "weapon_damage_min": 49,
               "weapon_damage_max": 67,
@@ -19975,13 +19810,13 @@
                 "intellect": 12
               },
               "secondary_stats": {
-                "fire_spell_power": 31
+                "spell_power": 26
               },
               "armor_value": 0,
               "required_level": 50,
               "sell_price": 11079,
               "flavor_text": "Emberwood's always warm, and it crackles when it casts.",
-              "identity": "fire",
+              "identity": "caster",
               "icon_id": "gear_inv_wand_09",
               "weapon_damage_min": 78,
               "weapon_damage_max": 105,
@@ -20025,13 +19860,13 @@
                 "intellect": 14
               },
               "secondary_stats": {
-                "fire_spell_power": 40
+                "spell_power": 33
               },
               "armor_value": 0,
               "required_level": 50,
               "sell_price": 8310,
               "flavor_text": "Emberwood's always warm, and it crackles when it casts.",
-              "identity": "fire",
+              "identity": "caster",
               "icon_id": "gear_inv_tome_2",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -20122,16 +19957,17 @@
               "weapon_type": "wand",
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 12
+                "intellect": 6
               },
               "secondary_stats": {
-                "frost_spell_power": 32
+                "spell_power": 22,
+                "spell_hit_rating": 9
               },
               "armor_value": 0,
               "required_level": 51,
               "sell_price": 11532,
               "flavor_text": "Frostheart. The core of the trunk never thaws, even in a fire.",
-              "identity": "frost",
+              "identity": "precise_caster",
               "icon_id": "gear_inv_wand_01",
               "weapon_damage_min": 79,
               "weapon_damage_max": 107,
@@ -20172,16 +20008,17 @@
               "weapon_type": "tome",
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 15
+                "intellect": 9
               },
               "secondary_stats": {
-                "frost_spell_power": 41
+                "spell_power": 28,
+                "haste": 8
               },
               "armor_value": 0,
               "required_level": 52,
               "sell_price": 8995,
               "flavor_text": "Frostheart. The core of the trunk never thaws, even in a fire.",
-              "identity": "frost",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_tome_5",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -20273,17 +20110,16 @@
               "weapon_type": "wand",
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 9,
-                "stamina": 6
+                "spirit": 14
               },
               "secondary_stats": {
-                "shadow_spell_power": 28
+                "spell_power": 25
               },
               "armor_value": 0,
               "required_level": 53,
               "sell_price": 12464,
               "flavor_text": "Ebonthorn is black all the way through, and the thorns grow back.",
-              "identity": "void",
+              "identity": "spirit_caster",
               "icon_id": "gear_inv_wand_12",
               "weapon_damage_min": 82,
               "weapon_damage_max": 111,
@@ -20324,17 +20160,17 @@
               "weapon_type": "tome",
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 12,
-                "stamina": 8
+                "intellect": 8
               },
               "secondary_stats": {
-                "shadow_spell_power": 35
+                "spell_power": 29,
+                "spell_penetration": 12
               },
               "armor_value": 0,
               "required_level": 54,
               "sell_price": 9709,
               "flavor_text": "Ebonthorn is black all the way through, and the thorns grow back.",
-              "identity": "void",
+              "identity": "death",
               "icon_id": "gear_inv_tome_4",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -20426,17 +20262,16 @@
               "weapon_type": "wand",
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 6
+                "intellect": 13
               },
               "secondary_stats": {
-                "arcane_spell_power": 29,
-                "crit_chance_spell": 10
+                "spell_power": 28
               },
               "armor_value": 0,
               "required_level": 55,
               "sell_price": 13435,
               "flavor_text": "Starleaf glitters like a clear night sky.",
-              "identity": "arcane_crit",
+              "identity": "caster",
               "icon_id": "gear_inv_wand_07",
               "weapon_damage_min": 84,
               "weapon_damage_max": 114,
@@ -20475,19 +20310,19 @@
               "rarity": "rare",
               "armor_type": null,
               "weapon_type": "tome",
-              "stat_template": "int_caster",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "intellect": 10
+                "spirit": 10,
+                "intellect": 8
               },
               "secondary_stats": {
-                "nature_spell_power": 34,
-                "haste": 10
+                "healing_power": 46
               },
               "armor_value": 0,
               "required_level": 57,
               "sell_price": 10833,
               "flavor_text": "Stormoak grew where lightning struck, and it hasn't forgotten.",
-              "identity": "storm",
+              "identity": "healer",
               "icon_id": "gear_inv_tome_5",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -20691,7 +20526,7 @@
               "sell_price": 1552,
               "flavor_text": "A fighting staff, weighted at both ends and wrapped for grip.",
               "identity": "feral",
-              "icon_id": "gear_inv_hammer_04",
+              "icon_id": "gear_inv_staff_02",
               "weapon_damage_min": 42,
               "weapon_damage_max": 57,
               "attack_speed": 3.6,
@@ -20731,16 +20566,16 @@
               "weapon_type": "staff",
               "stat_template": "agi_physical",
               "primary_stats": {
-                "stamina": 8,
+                "stamina": 7,
                 "agility": 4
               },
               "secondary_stats": {},
-              "armor_value": 0,
+              "armor_value": 7,
               "required_level": 19,
               "sell_price": 1719,
               "flavor_text": "Bark-plated and heavy. It's made to take a blow as much as give one.",
-              "identity": "bear",
-              "icon_id": "gear_inv_hammer_18",
+              "identity": "bear_weapon",
+              "icon_id": "gear_inv_staff_28",
               "weapon_damage_min": 44,
               "weapon_damage_max": 59,
               "attack_speed": 3.6,
@@ -20791,7 +20626,7 @@
               "sell_price": 3895,
               "flavor_text": "A fighting staff, weighted at both ends and wrapped for grip.",
               "identity": "feral",
-              "icon_id": "gear_inv_hammer_17",
+              "icon_id": "gear_inv_staff_11",
               "weapon_damage_min": 60,
               "weapon_damage_max": 81,
               "attack_speed": 3.6,
@@ -20831,18 +20666,18 @@
               "weapon_type": "staff",
               "stat_template": "agi_physical",
               "primary_stats": {
-                "stamina": 11,
-                "agility": 7
+                "stamina": 7,
+                "agility": 9
               },
               "secondary_stats": {
-                "dodge_rating": 6
+                "dodge_rating": 5
               },
-              "armor_value": 0,
+              "armor_value": 15,
               "required_level": 30,
               "sell_price": 6245,
               "flavor_text": "Bark-plated and heavy. It's made to take a blow as much as give one.",
-              "identity": "bear",
-              "icon_id": "gear_inv_hammer_01",
+              "identity": "bear_weapon",
+              "icon_id": "gear_inv_staff_23",
               "weapon_damage_min": 81,
               "weapon_damage_max": 109,
               "attack_speed": 3.6,
@@ -20893,7 +20728,7 @@
               "sell_price": 9978,
               "flavor_text": "A fighting staff, weighted at both ends and wrapped for grip.",
               "identity": "feral",
-              "icon_id": "gear_inv_hammer_25",
+              "icon_id": "gear_inv_staff_32",
               "weapon_damage_min": 98,
               "weapon_damage_max": 133,
               "attack_speed": 3.6,
@@ -20933,18 +20768,18 @@
               "weapon_type": "staff",
               "stat_template": "agi_physical",
               "primary_stats": {
-                "stamina": 15,
-                "agility": 9
+                "stamina": 11,
+                "agility": 11
               },
               "secondary_stats": {
-                "dodge_rating": 7
+                "dodge_rating": 5
               },
-              "armor_value": 0,
+              "armor_value": 19,
               "required_level": 39,
               "sell_price": 10509,
               "flavor_text": "Bark-plated and heavy. It's made to take a blow as much as give one.",
-              "identity": "bear",
-              "icon_id": "gear_inv_hammer_19",
+              "identity": "bear_weapon",
+              "icon_id": "gear_inv_staff_09",
               "weapon_damage_min": 100,
               "weapon_damage_max": 135,
               "attack_speed": 3.6,
@@ -20995,7 +20830,7 @@
               "sell_price": 16620,
               "flavor_text": "A fighting staff, weighted at both ends and wrapped for grip.",
               "identity": "feral",
-              "icon_id": "gear_inv_hammer_02",
+              "icon_id": "gear_inv_staff_32",
               "weapon_damage_min": 121,
               "weapon_damage_max": 164,
               "attack_speed": 3.6,
@@ -21035,18 +20870,18 @@
               "weapon_type": "staff",
               "stat_template": "agi_physical",
               "primary_stats": {
-                "stamina": 17,
-                "agility": 12
+                "stamina": 14,
+                "agility": 14
               },
               "secondary_stats": {
-                "dodge_rating": 9
+                "dodge_rating": 6
               },
-              "armor_value": 0,
+              "armor_value": 23,
               "required_level": 49,
               "sell_price": 16620,
               "flavor_text": "Bark-plated and heavy. It's made to take a blow as much as give one.",
-              "identity": "bear",
-              "icon_id": "gear_inv_hammer_19",
+              "identity": "bear_weapon",
+              "icon_id": "gear_inv_staff_02",
               "weapon_damage_min": 121,
               "weapon_damage_max": 164,
               "attack_speed": 3.6,
@@ -21097,7 +20932,7 @@
               "sell_price": 22569,
               "flavor_text": "A fighting staff, weighted at both ends and wrapped for grip.",
               "identity": "feral",
-              "icon_id": "gear_inv_hammer_01",
+              "icon_id": "gear_inv_staff_31",
               "weapon_damage_min": 139,
               "weapon_damage_max": 188,
               "attack_speed": 3.6,
@@ -21137,18 +20972,18 @@
               "weapon_type": "staff",
               "stat_template": "agi_physical",
               "primary_stats": {
-                "stamina": 26,
-                "agility": 18
+                "stamina": 20,
+                "agility": 21
               },
               "secondary_stats": {
-                "dodge_rating": 14
+                "dodge_rating": 10
               },
-              "armor_value": 0,
+              "armor_value": 36,
               "required_level": 58,
               "sell_price": 40526,
               "flavor_text": "Bark-plated and heavy. It's made to take a blow as much as give one.",
-              "identity": "bear",
-              "icon_id": "gear_epic_mace_2h_1",
+              "identity": "bear_weapon",
+              "icon_id": "gear_epic_staff_1",
               "weapon_damage_min": 182,
               "weapon_damage_max": 247,
               "attack_speed": 3.6,
@@ -21193,13 +21028,13 @@
               },
               "secondary_stats": {
                 "attack_power": 13,
-                "hit_rating": 5
+                "crit_chance_physical": 5
               },
               "armor_value": 0,
               "required_level": 36,
               "sell_price": 3823,
               "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
-              "identity": "hunter_precise",
+              "identity": "hunter_crit",
               "icon_id": "gear_inv_weapon_crossbow_09",
               "weapon_damage_min": 45,
               "weapon_damage_max": 61,
@@ -21239,19 +21074,19 @@
               "rarity": "rare",
               "armor_type": null,
               "weapon_type": "bow",
-              "stat_template": "agi_physical",
+              "stat_template": "agi_int_hybrid",
               "primary_stats": {
-                "agility": 8
+                "agility": 8,
+                "intellect": 7
               },
               "secondary_stats": {
-                "attack_power": 21,
-                "crit_chance_physical": 8
+                "attack_power": 24
               },
               "armor_value": 0,
               "required_level": 46,
               "sell_price": 9365,
               "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
-              "identity": "hunter_crit",
+              "identity": "hunter",
               "icon_id": "gear_inv_weapon_bow_08",
               "weapon_damage_min": 72,
               "weapon_damage_max": 98,
@@ -21446,19 +21281,19 @@
               "rarity": "rare",
               "armor_type": null,
               "weapon_type": "bow",
-              "stat_template": "agi_physical",
+              "stat_template": "agi_int_hybrid",
               "primary_stats": {
-                "agility": 10
+                "agility": 10,
+                "intellect": 8
               },
               "secondary_stats": {
-                "attack_power": 24,
-                "crit_chance_physical": 10
+                "attack_power": 28
               },
               "armor_value": 0,
               "required_level": 55,
               "sell_price": 13435,
               "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
-              "identity": "hunter_crit",
+              "identity": "hunter",
               "icon_id": "gear_inv_weapon_bow_04",
               "weapon_damage_min": 84,
               "weapon_damage_max": 114,
@@ -21498,19 +21333,19 @@
               "rarity": "epic",
               "armor_type": null,
               "weapon_type": "crossbow",
-              "stat_template": "agi_physical",
+              "stat_template": "agi_int_hybrid",
               "primary_stats": {
-                "agility": 13
+                "agility": 13,
+                "intellect": 11
               },
               "secondary_stats": {
-                "attack_power": 35,
-                "crit_chance_physical": 13
+                "attack_power": 39
               },
               "armor_value": 0,
               "required_level": 58,
               "sell_price": 25936,
               "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
-              "identity": "hunter_crit",
+              "identity": "hunter",
               "icon_id": "gear_inv_weapon_crossbow_07",
               "weapon_damage_min": 115,
               "weapon_damage_max": 155,
@@ -22012,14 +21847,14 @@
                 "intellect": 6
               },
               "secondary_stats": {
-                "nature_spell_power": 23,
-                "haste": 6
+                "spell_power": 21,
+                "haste": 5
               },
               "armor_value": 418,
               "required_level": 39,
               "sell_price": 6726,
               "flavor_text": "A wooden shield with a copper boss. Lightning likes it.",
-              "identity": "storm",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_shield_10",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -22113,14 +21948,14 @@
                 "intellect": 8
               },
               "secondary_stats": {
-                "nature_spell_power": 27,
-                "haste": 8
+                "spell_power": 24,
+                "haste": 7
               },
               "armor_value": 530,
               "required_level": 50,
               "sell_price": 11079,
               "flavor_text": "A wooden shield with a copper boss. Lightning likes it.",
-              "identity": "storm",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_shield_01",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -22164,14 +21999,14 @@
                 "intellect": 9
               },
               "secondary_stats": {
-                "nature_spell_power": 31,
-                "haste": 9
+                "spell_power": 28,
+                "haste": 8
               },
               "armor_value": 601,
               "required_level": 57,
               "sell_price": 14444,
               "flavor_text": "A wooden shield with a copper boss. Lightning likes it.",
-              "identity": "storm",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_shield_06",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -22313,13 +22148,13 @@
               "stat_template": "int_caster",
               "primary_stats": {},
               "secondary_stats": {
-                "nature_spell_power": 18
+                "spell_power": 15
               },
               "armor_value": 0,
               "required_level": 33,
               "sell_price": 3216,
               "flavor_text": "The wood's split along a lightning scar, and the scar still crackles.",
-              "identity": "storm",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_wand_04",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -22515,14 +22350,14 @@
                 "intellect": 5
               },
               "secondary_stats": {
-                "nature_spell_power": 20,
+                "spell_power": 16,
                 "haste": 5
               },
               "armor_value": 0,
               "required_level": 57,
               "sell_price": 14444,
               "flavor_text": "The wood's split along a lightning scar, and the scar still crackles.",
-              "identity": "storm",
+              "identity": "haste_caster",
               "icon_id": "gear_inv_wand_01",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -22611,16 +22446,16 @@
               "weapon_type": "idol",
               "stat_template": "int_caster",
               "primary_stats": {
-                "spirit": 4
+                "intellect": 4
               },
               "secondary_stats": {
-                "nature_spell_power": 11
+                "spell_power": 9
               },
               "armor_value": 0,
               "required_level": 33,
               "sell_price": 3216,
               "flavor_text": "A crescent moon cut into pale wood. It brightens at night.",
-              "identity": "nature",
+              "identity": "caster",
               "icon_id": "gear_inv_idol_3",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -22916,16 +22751,16 @@
               "weapon_type": "idol",
               "stat_template": "int_caster",
               "primary_stats": {
-                "spirit": 8
+                "intellect": 8
               },
               "secondary_stats": {
-                "nature_spell_power": 23
+                "spell_power": 19
               },
               "armor_value": 0,
               "required_level": 54,
               "sell_price": 12945,
               "flavor_text": "A crescent moon cut into pale wood. It brightens at night.",
-              "identity": "nature",
+              "identity": "caster",
               "icon_id": "gear_inv_idol_1",
               "weapon_damage_min": 0,
               "weapon_damage_max": 0,
@@ -23455,13 +23290,13 @@
                 "intellect": 11
               },
               "secondary_stats": {
-                "fire_spell_power": 31
+                "spell_power": 26
               },
               "armor_value": 0,
               "required_level": 49,
               "sell_price": 9307,
               "flavor_text": "A branding iron of emberwood. It never quite cools.",
-              "identity": "fire",
+              "identity": "caster",
               "icon_id": "gear_inv_jewelry_talisman_09",
               "proc": {
                 "trigger": "on_damage_cast",
@@ -23509,14 +23344,14 @@
                 "intellect": 11
               },
               "secondary_stats": {
-                "nature_spell_power": 33,
-                "haste": 11
+                "spell_power": 31,
+                "haste": 9
               },
               "armor_value": 0,
               "required_level": 57,
               "sell_price": 21907,
               "flavor_text": "The heart of a lightning-struck oak, still charged.",
-              "identity": "storm",
+              "identity": "haste_caster",
               "icon_id": "gear_epic_trinket_1",
               "proc": {
                 "trigger": "on_damage_cast",
@@ -24924,13 +24759,14 @@
                 "agility": 4
               },
               "secondary_stats": {
-                "attack_power": 15
+                "attack_power": 5,
+                "crit_chance_physical": 5
               },
               "armor_value": 0,
               "required_level": 19,
               "sell_price": 1650,
               "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
-              "identity": "agility",
+              "identity": "hunter_crit",
               "icon_id": "gear_inv_weapon_rifle_05",
               "weapon_damage_min": 36,
               "weapon_damage_max": 49,
@@ -25496,13 +25332,13 @@
                 "intellect": 8
               },
               "secondary_stats": {
-                "fire_spell_power": 22
+                "spell_power": 18
               },
               "armor_value": 36,
               "required_level": 24,
               "sell_price": 2584,
               "flavor_text": "Lenses of fired glass. Everything looks a little warmer through them.",
-              "identity": "fire",
+              "identity": "caster",
               "icon_id": "gear_inv_helmet_12"
             }
           },
@@ -27920,17 +27756,17 @@
               "weapon_type": "gun",
               "stat_template": "agi_physical",
               "primary_stats": {
-                "agility": 4,
-                "stamina": 3
+                "agility": 4
               },
               "secondary_stats": {
-                "attack_power": 12
+                "attack_power": 8,
+                "crit_chance_physical": 5
               },
               "armor_value": 0,
               "required_level": 21,
               "sell_price": 1998,
               "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
-              "identity": "agility",
+              "identity": "hunter_crit",
               "icon_id": "gear_inv_weapon_rifle_03",
               "weapon_damage_min": 38,
               "weapon_damage_max": 52,

@@ -67,16 +67,16 @@
           "rarity": "uncommon",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "str_physical",
+          "stat_template": "int_caster",
           "primary_stats": {
-            "strength": 4
+            "intellect": 4
           },
           "secondary_stats": {},
           "armor_value": 24,
           "required_level": 4,
           "sell_price": 99,
           "flavor_text": "Copper, hammered thin and riveted. Every smith's first set of chain.",
-          "identity": "melee_starter",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_chest_chain_07"
         }
       },
@@ -111,17 +111,16 @@
           "rarity": "uncommon",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "str_physical",
+          "stat_template": "agi_int_hybrid",
           "primary_stats": {
-            "strength": 3,
-            "stamina": 2
+            "agility": 5
           },
           "secondary_stats": {},
           "armor_value": 30,
           "required_level": 8,
           "sell_price": 159,
           "flavor_text": "Copper, hammered thin and riveted. Every smith's first set of chain.",
-          "identity": "melee_starter",
+          "identity": "hunter",
           "icon_id": "gear_inv_belt_07"
         }
       },
@@ -158,17 +157,17 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 6,
-            "stamina": 3
+            "stamina": 8,
+            "strength": 3
           },
           "secondary_stats": {
-            "attack_power": 15
+            "defense_rating": 7
           },
           "armor_value": 144,
           "required_level": 22,
           "sell_price": 1820,
           "flavor_text": "Bronze, the first plate a warrior can really trust.",
-          "identity": "strength",
+          "identity": "tank",
           "icon_id": "gear_inv_chest_plate03"
         }
       },
@@ -203,19 +202,18 @@
           "rarity": "uncommon",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "str_physical",
+          "stat_template": "spi_healer",
           "primary_stats": {
-            "strength": 6,
-            "stamina": 3
+            "intellect": 5
           },
           "secondary_stats": {
-            "attack_power": 15
+            "healing_power": 23
           },
           "armor_value": 144,
           "required_level": 22,
           "sell_price": 1820,
           "flavor_text": "Bronze, the first plate a warrior can really trust.",
-          "identity": "strength",
+          "identity": "plate_healer",
           "icon_id": "gear_inv_pants_wolf"
         }
       },
@@ -351,7 +349,7 @@
           "required_level": 5,
           "sell_price": 110,
           "flavor_text": "Mail with runes cut into the rings, for a shaman's spells.",
-          "identity": "storm",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_helmet_08"
         }
       }
@@ -432,7 +430,7 @@
           "rarity": "uncommon",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "str_physical",
+          "stat_template": "str_int_hybrid",
           "primary_stats": {
             "strength": 1
           },
@@ -441,7 +439,7 @@
           "required_level": 1,
           "sell_price": 6,
           "flavor_text": "Copper, hammered thin and riveted. Every smith's first set of chain.",
-          "identity": "melee_starter",
+          "identity": "earthen",
           "icon_id": "gear_inv_gauntlets_26"
         }
       }
@@ -518,7 +516,7 @@
           "rarity": "uncommon",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "str_physical",
+          "stat_template": "str_int_hybrid",
           "primary_stats": {
             "strength": 4
           },
@@ -527,7 +525,7 @@
           "required_level": 4,
           "sell_price": 79,
           "flavor_text": "Copper, hammered thin and riveted. Every smith's first set of chain.",
-          "identity": "melee_starter",
+          "identity": "earthen",
           "icon_id": "gear_inv_helmet_48"
         }
       }
@@ -605,19 +603,18 @@
           "rarity": "uncommon",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "str_physical",
+          "stat_template": "spi_healer",
           "primary_stats": {
-            "strength": 3,
-            "stamina": 3
+            "intellect": 2
           },
           "secondary_stats": {
-            "attack_power": 5
+            "healing_power": 13
           },
           "armor_value": 48,
           "required_level": 10,
           "sell_price": 425,
           "flavor_text": "Copper, hammered thin and riveted. Every smith's first set of chain.",
-          "identity": "melee_starter",
+          "identity": "tide_healer",
           "icon_id": "gear_inv_pants_02"
         }
       }
@@ -752,7 +749,7 @@
           "required_level": 1,
           "sell_price": 13,
           "flavor_text": "Mail with runes cut into the rings, for a shaman's spells.",
-          "identity": "storm",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_belt_02"
         }
       }
@@ -795,7 +792,7 @@
           "required_level": 3,
           "sell_price": 44,
           "flavor_text": "Mail with runes cut into the rings, for a shaman's spells.",
-          "identity": "storm",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_boots_plate_03"
         }
       }
@@ -838,7 +835,7 @@
           "required_level": 7,
           "sell_price": 116,
           "flavor_text": "Mail with runes cut into the rings, for a shaman's spells.",
-          "identity": "storm",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_bracer_03"
         }
       }
@@ -877,13 +874,13 @@
             "intellect": 2
           },
           "secondary_stats": {
-            "nature_spell_power": 10
+            "spell_power": 8
           },
           "armor_value": 44,
           "required_level": 11,
           "sell_price": 402,
           "flavor_text": "Mail with runes cut into the rings, for a shaman's spells.",
-          "identity": "storm",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_helmet_49"
         }
       }
@@ -922,13 +919,13 @@
             "intellect": 3
           },
           "secondary_stats": {
-            "nature_spell_power": 15
+            "spell_power": 12
           },
           "armor_value": 64,
           "required_level": 14,
           "sell_price": 777,
           "flavor_text": "Mail with runes cut into the rings, for a shaman's spells.",
-          "identity": "storm",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_pants_06"
         }
       }
@@ -1143,17 +1140,17 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 5,
-            "stamina": 3
+            "strength": 4
           },
           "secondary_stats": {
-            "attack_power": 11
+            "attack_power": 9,
+            "crit_chance_physical": 5
           },
           "armor_value": 117,
           "required_level": 21,
           "sell_price": 1332,
           "flavor_text": "Bronze, the first plate a warrior can really trust.",
-          "identity": "strength",
+          "identity": "strength_crit",
           "icon_id": "gear_inv_helmet_17"
         }
       }
@@ -1235,16 +1232,16 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 4
+            "stamina": 8
           },
           "secondary_stats": {
-            "attack_power": 16
+            "defense_rating": 5
           },
           "armor_value": 104,
           "required_level": 23,
           "sell_price": 1289,
           "flavor_text": "Bronze, the first plate a warrior can really trust.",
-          "identity": "strength",
+          "identity": "tank",
           "icon_id": "gear_inv_boots_plate_03"
         }
       }
@@ -1645,17 +1642,17 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 7,
-            "stamina": 4
+            "strength": 6
           },
           "secondary_stats": {
-            "attack_power": 18
+            "attack_power": 16,
+            "crit_chance_physical": 6
           },
           "armor_value": 174,
           "required_level": 30,
           "sell_price": 2748,
           "flavor_text": "Bronze, the first plate a warrior can really trust.",
-          "identity": "strength",
+          "identity": "strength_crit",
           "icon_id": "gear_inv_belt_18"
         }
       }
@@ -1737,17 +1734,17 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 7,
-            "stamina": 4
+            "strength": 6
           },
           "secondary_stats": {
-            "attack_power": 21
+            "attack_power": 19,
+            "hit_rating": 6
           },
           "armor_value": 192,
           "required_level": 32,
           "sell_price": 3688,
           "flavor_text": "Bronze, the first plate a warrior can really trust.",
-          "identity": "strength",
+          "identity": "strength_hit",
           "icon_id": "gear_inv_gauntlets_30"
         }
       }
@@ -1829,17 +1826,17 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 10,
-            "stamina": 6
+            "stamina": 13,
+            "strength": 6
           },
           "secondary_stats": {
-            "attack_power": 23
+            "defense_rating": 11
           },
           "armor_value": 248,
           "required_level": 34,
           "sell_price": 5119,
           "flavor_text": "Bronze, the first plate a warrior can really trust.",
-          "identity": "strength",
+          "identity": "tank",
           "icon_id": "gear_inv_crown_02"
         }
       }
@@ -1921,17 +1918,17 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 12,
-            "stamina": 7
+            "strength": 10
           },
           "secondary_stats": {
-            "attack_power": 31
+            "attack_power": 28,
+            "crit_chance_physical": 10
           },
           "armor_value": 299,
           "required_level": 36,
           "sell_price": 7167,
           "flavor_text": "Bronze, the first plate a warrior can really trust.",
-          "identity": "strength",
+          "identity": "strength_crit",
           "icon_id": "gear_inv_chest_plate12"
         }
       },
@@ -1966,19 +1963,19 @@
           "rarity": "rare",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "str_physical",
+          "stat_template": "str_int_hybrid",
           "primary_stats": {
-            "strength": 7,
-            "stamina": 4
+            "strength": 6,
+            "intellect": 6
           },
           "secondary_stats": {
-            "attack_power": 21
+            "attack_power": 19
           },
           "armor_value": 192,
           "required_level": 32,
           "sell_price": 2837,
           "flavor_text": "Bronze, the first plate a warrior can really trust.",
-          "identity": "strength",
+          "identity": "crusader",
           "icon_id": "gear_inv_bracer_07"
         }
       }
@@ -2478,14 +2475,14 @@
             "intellect": 7
           },
           "secondary_stats": {
-            "nature_spell_power": 24,
-            "haste": 7
+            "spell_power": 22,
+            "haste": 6
           },
           "armor_value": 177,
           "required_level": 30,
           "sell_price": 4996,
           "flavor_text": "Mail with runes cut into the rings, for a shaman's spells.",
-          "identity": "storm",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_pants_08"
         }
       }
@@ -2524,14 +2521,14 @@
             "intellect": 8
           },
           "secondary_stats": {
-            "nature_spell_power": 29,
-            "haste": 8
+            "spell_power": 25,
+            "haste": 7
           },
           "armor_value": 205,
           "required_level": 35,
           "sell_price": 6777,
           "flavor_text": "Mail with runes cut into the rings, for a shaman's spells.",
-          "identity": "storm",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_chest_chain_04"
         }
       }
@@ -3392,19 +3389,19 @@
           "rarity": "rare",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "str_physical",
+          "stat_template": "str_int_hybrid",
           "primary_stats": {
             "strength": 5,
-            "stamina": 3
+            "intellect": 5
           },
           "secondary_stats": {
-            "attack_power": 14
+            "attack_power": 10
           },
           "armor_value": 130,
           "required_level": 22,
           "sell_price": 1775,
           "flavor_text": "Bronze, the first plate a warrior can really trust.",
-          "identity": "strength",
+          "identity": "crusader",
           "icon_id": "gear_inv_gauntlets_30"
         }
       },
@@ -3441,17 +3438,17 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 6,
-            "stamina": 4
+            "strength": 6
           },
           "secondary_stats": {
-            "attack_power": 17
+            "attack_power": 13,
+            "hit_rating": 6
           },
           "armor_value": 159,
           "required_level": 22,
           "sell_price": 2185,
           "flavor_text": "Bronze, the first plate a warrior can really trust.",
-          "identity": "strength",
+          "identity": "strength_hit",
           "icon_id": "gear_inv_shoulder_31"
         }
       },
@@ -3585,14 +3582,14 @@
             "intellect": 7
           },
           "secondary_stats": {
-            "nature_spell_power": 22,
-            "haste": 7
+            "spell_power": 20,
+            "haste": 6
           },
           "armor_value": 166,
           "required_level": 28,
           "sell_price": 4363,
           "flavor_text": "Mail with runes cut into the rings, for a shaman's spells.",
-          "identity": "storm",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_chest_chain_10"
         }
       },
@@ -3773,14 +3770,14 @@
             "intellect": 10
           },
           "secondary_stats": {
-            "nature_spell_power": 29,
-            "haste": 10
+            "spell_power": 28,
+            "haste": 8
           },
           "armor_value": 220,
           "required_level": 40,
           "sell_price": 8844,
           "flavor_text": "Mail with runes cut into the rings, for a shaman's spells.",
-          "identity": "storm",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_chest_chain_06"
         }
       },
@@ -4010,19 +4007,18 @@
           "rarity": "rare",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "str_physical",
+          "stat_template": "spi_healer",
           "primary_stats": {
-            "strength": 12,
-            "stamina": 7
+            "intellect": 10
           },
           "secondary_stats": {
-            "attack_power": 30
+            "healing_power": 47
           },
           "armor_value": 327,
           "required_level": 35,
           "sell_price": 6777,
           "flavor_text": "Bronze, the first plate a warrior can really trust.",
-          "identity": "strength",
+          "identity": "plate_healer",
           "icon_id": "gear_inv_chest_plate12"
         }
       },
@@ -4161,14 +4157,14 @@
             "intellect": 8
           },
           "secondary_stats": {
-            "nature_spell_power": 24,
-            "haste": 8
+            "spell_power": 23,
+            "haste": 6
           },
           "armor_value": 178,
           "required_level": 32,
           "sell_price": 5674,
           "flavor_text": "Mail with runes cut into the rings, for a shaman's spells.",
-          "identity": "storm",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_chest_chain_10"
         }
       },
@@ -4589,19 +4585,19 @@
           "rarity": "uncommon",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "str_physical",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "strength": 4,
-            "stamina": 4
+            "agility": 3
           },
           "secondary_stats": {
-            "attack_power": 7
+            "attack_power": 6,
+            "crit_chance_physical": 5
           },
           "armor_value": 64,
           "required_level": 17,
           "sell_price": 892,
           "flavor_text": "Copper, hammered thin and riveted. Every smith's first set of chain.",
-          "identity": "melee_starter",
+          "identity": "hunter_crit",
           "icon_id": "gear_inv_helmet_19"
         }
       },
@@ -4636,19 +4632,18 @@
           "rarity": "uncommon",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "str_physical",
+          "stat_template": "spi_healer",
           "primary_stats": {
-            "strength": 5,
-            "stamina": 3
+            "intellect": 5
           },
           "secondary_stats": {
-            "attack_power": 14
+            "healing_power": 20
           },
           "armor_value": 132,
           "required_level": 24,
           "sell_price": 1723,
           "flavor_text": "Bronze, the first plate a warrior can really trust.",
-          "identity": "strength",
+          "identity": "plate_healer",
           "icon_id": "gear_inv_shoulder_27"
         }
       },
@@ -4834,14 +4829,14 @@
             "intellect": 4
           },
           "secondary_stats": {
-            "nature_spell_power": 11,
+            "spell_power": 9,
             "haste": 5
           },
           "armor_value": 91,
           "required_level": 25,
           "sell_price": 1865,
           "flavor_text": "Mail with runes cut into the rings, for a shaman's spells.",
-          "identity": "storm",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_shoulder_02"
         }
       },
@@ -4974,14 +4969,14 @@
             "intellect": 9
           },
           "secondary_stats": {
-            "nature_spell_power": 30,
-            "haste": 9
+            "spell_power": 27,
+            "haste": 8
           },
           "armor_value": 210,
           "required_level": 38,
           "sell_price": 7983,
           "flavor_text": "Mail with runes cut into the rings, for a shaman's spells.",
-          "identity": "storm",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_pants_04"
         }
       },
@@ -5120,14 +5115,14 @@
             "intellect": 7
           },
           "secondary_stats": {
-            "nature_spell_power": 26,
-            "haste": 7
+            "spell_power": 24,
+            "haste": 6
           },
           "armor_value": 183,
           "required_level": 31,
           "sell_price": 5330,
           "flavor_text": "Mail with runes cut into the rings, for a shaman's spells.",
-          "identity": "storm",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_chest_chain_10"
         }
       },
@@ -5367,19 +5362,19 @@
           "rarity": "uncommon",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "str_physical",
+          "stat_template": "str_int_hybrid",
           "primary_stats": {
-            "stamina": 11,
-            "strength": 4
+            "strength": 7,
+            "intellect": 7
           },
           "secondary_stats": {
-            "defense_rating": 9
+            "attack_power": 16
           },
           "armor_value": 191,
           "required_level": 44,
           "sell_price": 4639,
           "flavor_text": "Mithril's light for its strength, so a defender can wear more of it.",
-          "identity": "tank",
+          "identity": "crusader",
           "icon_id": "gear_inv_gauntlets_02"
         }
       },
@@ -5474,17 +5469,17 @@
           "weapon_type": "mace_1h",
           "stat_template": "str_physical",
           "primary_stats": {
-            "stamina": 19,
-            "strength": 7
+            "stamina": 12
           },
           "secondary_stats": {
-            "defense_rating": 15
+            "hit_rating": 7,
+            "defense_rating": 6
           },
-          "armor_value": 0,
+          "armor_value": 64,
           "required_level": 46,
           "sell_price": 11121,
           "flavor_text": "Mithril's light for its strength, so a defender can wear more of it.",
-          "identity": "tank",
+          "identity": "tank_weapon",
           "icon_id": "gear_inv_mace_09",
           "weapon_damage_min": 85,
           "weapon_damage_max": 115,
@@ -5525,17 +5520,17 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "stamina": 23,
-            "strength": 9
+            "strength": 14
           },
           "secondary_stats": {
-            "defense_rating": 18
+            "attack_power": 35,
+            "hit_rating": 14
           },
           "armor_value": 393,
           "required_level": 48,
           "sell_price": 12754,
           "flavor_text": "Mithril's light for its strength, so a defender can wear more of it.",
-          "identity": "tank",
+          "identity": "strength_hit",
           "icon_id": "gear_inv_pants_11"
         }
       },
@@ -5613,7 +5608,7 @@
           "rarity": "uncommon",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "agi_int_hybrid",
+          "stat_template": "agi_physical",
           "primary_stats": {
             "agility": 1
           },
@@ -5622,7 +5617,7 @@
           "required_level": 1,
           "sell_price": 8,
           "flavor_text": "Weakstone links, light enough for a hunter just starting out.",
-          "identity": "hunter",
+          "identity": "hunter_precise",
           "icon_id": "gear_inv_shoulder_31"
         }
       }
@@ -5656,16 +5651,16 @@
           "rarity": "uncommon",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "agi_int_hybrid",
+          "stat_template": "str_int_hybrid",
           "primary_stats": {
-            "agility": 2
+            "strength": 2
           },
           "secondary_stats": {},
           "armor_value": 12,
           "required_level": 1,
           "sell_price": 23,
           "flavor_text": "Weakstone links, light enough for a hunter just starting out.",
-          "identity": "hunter",
+          "identity": "earthen",
           "icon_id": "gear_inv_chest_chain_04"
         }
       }
@@ -5903,16 +5898,16 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 3
+            "strength": 2
           },
           "secondary_stats": {
-            "attack_power": 8
+            "attack_power": 10
           },
           "armor_value": 62,
           "required_level": 13,
           "sell_price": 373,
           "flavor_text": "Tin plate. It's soft as metals go, but it turns a blade well enough.",
-          "identity": "strength",
+          "identity": "strength_hit",
           "icon_id": "gear_inv_belt_33"
         }
       }
@@ -5948,17 +5943,17 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 4,
-            "stamina": 2
+            "stamina": 5,
+            "strength": 2
           },
           "secondary_stats": {
-            "attack_power": 10
+            "defense_rating": 5
           },
           "armor_value": 113,
           "required_level": 14,
           "sell_price": 777,
           "flavor_text": "Tin plate. It's soft as metals go, but it turns a blade well enough.",
-          "identity": "strength",
+          "identity": "tank",
           "icon_id": "gear_inv_pants_04"
         }
       }
@@ -6204,19 +6199,18 @@
           "rarity": "uncommon",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "agi_int_hybrid",
+          "stat_template": "int_caster",
           "primary_stats": {
-            "agility": 4,
-            "intellect": 3
+            "intellect": 4
           },
           "secondary_stats": {
-            "attack_power": 11
+            "spell_power": 12
           },
           "armor_value": 71,
           "required_level": 19,
           "sell_price": 1100,
           "flavor_text": "Bronze-veined scale, flexible and quiet in the brush.",
-          "identity": "hunter",
+          "identity": "mail_caster",
           "icon_id": "gear_inv_shoulder_11"
         }
       }
@@ -6250,19 +6244,19 @@
           "rarity": "uncommon",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "agi_int_hybrid",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 5,
-            "intellect": 4
+            "agility": 5
           },
           "secondary_stats": {
-            "attack_power": 12
+            "attack_power": 10,
+            "hit_rating": 5
           },
           "armor_value": 98,
           "required_level": 20,
           "sell_price": 1516,
           "flavor_text": "Bronze-veined scale, flexible and quiet in the brush.",
-          "identity": "hunter",
+          "identity": "hunter_precise",
           "icon_id": "gear_inv_chest_chain_03"
         }
       }
@@ -6507,18 +6501,19 @@
           "rarity": "uncommon",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "intellect": 4
+            "agility": 4
           },
           "secondary_stats": {
-            "healing_power": 16
+            "attack_power": 6,
+            "crit_chance_physical": 5
           },
           "armor_value": 69,
           "required_level": 23,
           "sell_price": 1091,
           "flavor_text": "Living copper. It's warm, and it hums when someone nearby is hurt.",
-          "identity": "tide_healer",
+          "identity": "hunter_crit",
           "icon_id": "gear_inv_belt_25"
         }
       }
@@ -6552,18 +6547,18 @@
           "rarity": "uncommon",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "int_caster",
           "primary_stats": {
             "intellect": 5
           },
           "secondary_stats": {
-            "healing_power": 26
+            "spell_power": 20
           },
           "armor_value": 104,
           "required_level": 24,
           "sell_price": 2154,
           "flavor_text": "Living copper. It's warm, and it hums when someone nearby is hurt.",
-          "identity": "tide_healer",
+          "identity": "mail_caster",
           "icon_id": "gear_inv_pants_14"
         }
       }
@@ -6805,18 +6800,19 @@
           "rarity": "uncommon",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "intellect": 5
+            "stamina": 8,
+            "strength": 4
           },
           "secondary_stats": {
-            "healing_power": 25
+            "defense_rating": 7
           },
           "armor_value": 152,
           "required_level": 28,
           "sell_price": 2327,
           "flavor_text": "Frostveined tin with a blue sheen. Paladins say it keeps a clear head.",
-          "identity": "plate_healer",
+          "identity": "tank",
           "icon_id": "gear_inv_shoulder_02"
         }
       }
@@ -6850,18 +6846,19 @@
           "rarity": "rare",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "intellect": 8
+            "strength": 8
           },
           "secondary_stats": {
-            "healing_power": 40
+            "attack_power": 24,
+            "crit_chance_physical": 8
           },
           "armor_value": 244,
           "required_level": 29,
           "sell_price": 4674,
           "flavor_text": "Frostveined tin with a blue sheen. Paladins say it keeps a clear head.",
-          "identity": "plate_healer",
+          "identity": "strength_crit",
           "icon_id": "gear_inv_chest_plate09"
         }
       }
@@ -7104,19 +7101,19 @@
           "rarity": "rare",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "int_caster",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "intellect": 5
+            "agility": 7
           },
           "secondary_stats": {
-            "nature_spell_power": 20,
-            "haste": 5
+            "attack_power": 16,
+            "hit_rating": 7
           },
           "armor_value": 134,
           "required_level": 33,
           "sell_price": 3317,
           "flavor_text": "Verdant iron, green with something that isn't rust.",
-          "identity": "storm",
+          "identity": "hunter_precise",
           "icon_id": "gear_inv_belt_25"
         }
       }
@@ -7150,19 +7147,19 @@
           "rarity": "rare",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "int_caster",
+          "stat_template": "str_int_hybrid",
           "primary_stats": {
-            "intellect": 8
+            "strength": 10,
+            "intellect": 10
           },
           "secondary_stats": {
-            "nature_spell_power": 27,
-            "haste": 8
+            "attack_power": 26
           },
           "armor_value": 189,
           "required_level": 34,
           "sell_price": 6398,
           "flavor_text": "Verdant iron, green with something that isn't rust.",
-          "identity": "storm",
+          "identity": "earthen",
           "icon_id": "gear_inv_pants_14"
         }
       }
@@ -7201,14 +7198,14 @@
             "intellect": 6
           },
           "secondary_stats": {
-            "nature_spell_power": 19,
-            "haste": 6
+            "spell_power": 17,
+            "haste": 5
           },
           "armor_value": 142,
           "required_level": 35,
           "sell_price": 4405,
           "flavor_text": "Verdant iron, green with something that isn't rust.",
-          "identity": "storm",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_boots_plate_09"
         }
       }
@@ -7248,14 +7245,14 @@
             "intellect": 6
           },
           "secondary_stats": {
-            "nature_spell_power": 21,
-            "haste": 6
+            "spell_power": 19,
+            "haste": 5
           },
           "armor_value": 0,
           "required_level": 36,
           "sell_price": 6809,
           "flavor_text": "Verdant iron, green with something that isn't rust.",
-          "identity": "storm",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_throwingknife_04",
           "weapon_damage_min": 69,
           "weapon_damage_max": 94,
@@ -7299,14 +7296,14 @@
             "intellect": 6
           },
           "secondary_stats": {
-            "nature_spell_power": 20,
-            "haste": 6
+            "spell_power": 18,
+            "haste": 5
           },
           "armor_value": 397,
           "required_level": 37,
           "sell_price": 6055,
           "flavor_text": "Verdant iron, green with something that isn't rust.",
-          "identity": "storm",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_shield_21",
           "weapon_damage_min": 0,
           "weapon_damage_max": 0,
@@ -7414,13 +7411,13 @@
           },
           "secondary_stats": {
             "attack_power": 25,
-            "crit_chance_physical": 9
+            "hit_rating": 9
           },
           "armor_value": 266,
           "required_level": 38,
           "sell_price": 6386,
           "flavor_text": "Felslag, poured from what was left after the fel fires. It bites.",
-          "identity": "strength_crit",
+          "identity": "strength_hit",
           "icon_id": "gear_inv_shoulder_22"
         }
       }
@@ -7456,17 +7453,17 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 11
+            "strength": 13,
+            "stamina": 7
           },
           "secondary_stats": {
-            "attack_power": 30,
-            "crit_chance_physical": 11
+            "attack_power": 34
           },
           "armor_value": 322,
           "required_level": 39,
           "sell_price": 8407,
           "flavor_text": "Felslag, poured from what was left after the fel fires. It bites.",
-          "identity": "strength_crit",
+          "identity": "strength",
           "icon_id": "gear_inv_chest_plate07"
         }
       }
@@ -7715,17 +7712,17 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 9,
-            "stamina": 5
+            "strength": 8
           },
           "secondary_stats": {
-            "attack_power": 26
+            "attack_power": 22,
+            "crit_chance_physical": 8
           },
           "armor_value": 275,
           "required_level": 41,
           "sell_price": 5111,
           "flavor_text": "Bloodiron. Orc smiths quench it in something they won't name.",
-          "identity": "strength",
+          "identity": "strength_crit",
           "icon_id": "gear_inv_belt_06"
         }
       }
@@ -7759,19 +7756,19 @@
           "rarity": "rare",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "str_physical",
+          "stat_template": "str_int_hybrid",
           "primary_stats": {
-            "strength": 14,
-            "stamina": 8
+            "strength": 12,
+            "intellect": 12
           },
           "secondary_stats": {
-            "attack_power": 36
+            "attack_power": 32
           },
           "armor_value": 346,
           "required_level": 42,
           "sell_price": 9751,
           "flavor_text": "Bloodiron. Orc smiths quench it in something they won't name.",
-          "identity": "strength",
+          "identity": "crusader",
           "icon_id": "gear_inv_pants_02"
         }
       },
@@ -8020,19 +8017,19 @@
           "rarity": "rare",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "agi_int_hybrid",
+          "stat_template": "str_int_hybrid",
           "primary_stats": {
-            "agility": 11,
-            "intellect": 9
+            "strength": 11,
+            "intellect": 11
           },
           "secondary_stats": {
-            "attack_power": 31
+            "attack_power": 27
           },
           "armor_value": 204,
           "required_level": 44,
           "sell_price": 8564,
           "flavor_text": "Deepearth scale, dark as a mine shaft and twice as tough.",
-          "identity": "hunter",
+          "identity": "earthen",
           "icon_id": "gear_inv_shoulder_27"
         }
       }
@@ -8066,19 +8063,19 @@
           "rarity": "rare",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "agi_int_hybrid",
+          "stat_template": "int_caster",
           "primary_stats": {
-            "agility": 13,
             "intellect": 11
           },
           "secondary_stats": {
-            "attack_power": 38
+            "spell_power": 31,
+            "haste": 9
           },
           "armor_value": 260,
           "required_level": 45,
           "sell_price": 11200,
           "flavor_text": "Deepearth scale, dark as a mine shaft and twice as tough.",
-          "identity": "hunter",
+          "identity": "haste_caster",
           "icon_id": "gear_inv_chest_chain_04"
         }
       }
@@ -8325,19 +8322,19 @@
           "rarity": "rare",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "str_physical",
+          "stat_template": "str_int_hybrid",
           "primary_stats": {
-            "strength": 9
+            "strength": 9,
+            "intellect": 9
           },
           "secondary_stats": {
-            "attack_power": 24,
-            "hit_rating": 9
+            "attack_power": 24
           },
           "armor_value": 261,
           "required_level": 46,
           "sell_price": 6439,
           "flavor_text": "Dark iron, forged hot and true. It doesn't miss what it's swung at.",
-          "identity": "strength_hit",
+          "identity": "crusader",
           "icon_id": "gear_inv_belt_29"
         }
       }
@@ -8373,17 +8370,17 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 13
+            "strength": 16,
+            "stamina": 9
           },
           "secondary_stats": {
-            "attack_power": 36,
-            "hit_rating": 13
+            "attack_power": 39
           },
           "armor_value": 399,
           "required_level": 47,
           "sell_price": 12224,
           "flavor_text": "Dark iron, forged hot and true. It doesn't miss what it's swung at.",
-          "identity": "strength_hit",
+          "identity": "strength",
           "icon_id": "gear_inv_pants_08"
         }
       }
@@ -8629,19 +8626,18 @@
           "rarity": "rare",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "str_int_hybrid",
+          "stat_template": "spi_healer",
           "primary_stats": {
-            "strength": 11,
             "intellect": 11
           },
           "secondary_stats": {
-            "attack_power": 29
+            "healing_power": 52
           },
           "armor_value": 319,
           "required_level": 46,
           "sell_price": 9365,
           "flavor_text": "Truesilver, for a paladin who heals with one hand and hits with the other.",
-          "identity": "crusader",
+          "identity": "plate_healer",
           "icon_id": "gear_inv_shoulder_25"
         }
       }
@@ -8675,19 +8671,19 @@
           "rarity": "rare",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "str_int_hybrid",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 13,
-            "intellect": 13
+            "strength": 13
           },
           "secondary_stats": {
-            "attack_power": 36
+            "attack_power": 36,
+            "crit_chance_physical": 13
           },
           "armor_value": 399,
           "required_level": 47,
           "sell_price": 12224,
           "flavor_text": "Truesilver, for a paladin who heals with one hand and hits with the other.",
-          "identity": "crusader",
+          "identity": "strength_crit",
           "icon_id": "gear_inv_chest_plate09"
         }
       }
@@ -8936,17 +8932,17 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "stamina": 16,
-            "strength": 6
+            "strength": 10
           },
           "secondary_stats": {
-            "defense_rating": 13
+            "attack_power": 24,
+            "crit_chance_physical": 10
           },
           "armor_value": 288,
           "required_level": 49,
           "sell_price": 7313,
           "flavor_text": "Thorium plate. It's heavy, and nothing gets through it easily.",
-          "identity": "tank",
+          "identity": "strength_crit",
           "icon_id": "gear_inv_belt_18"
         }
       }
@@ -8980,19 +8976,19 @@
           "rarity": "rare",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "str_physical",
+          "stat_template": "str_int_hybrid",
           "primary_stats": {
-            "stamina": 24,
-            "strength": 9
+            "strength": 14,
+            "intellect": 14
           },
           "secondary_stats": {
-            "defense_rating": 19
+            "attack_power": 38
           },
           "armor_value": 424,
           "required_level": 50,
           "sell_price": 13849,
           "flavor_text": "Thorium plate. It's heavy, and nothing gets through it easily.",
-          "identity": "tank",
+          "identity": "crusader",
           "icon_id": "gear_inv_pants_13"
         }
       }
@@ -9244,13 +9240,13 @@
           },
           "secondary_stats": {
             "attack_power": 43,
-            "crit_chance_physical": 16
+            "hit_rating": 16
           },
           "armor_value": 310,
           "required_level": 52,
           "sell_price": 20788,
           "flavor_text": "Ashen steel, grey and cold, and every link of it is sharp.",
-          "identity": "hunter_crit",
+          "identity": "hunter_precise",
           "icon_id": "gear_epic_shoulder_mail_1"
         }
       }
@@ -9284,19 +9280,19 @@
           "rarity": "epic",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "str_int_hybrid",
           "primary_stats": {
-            "agility": 19
+            "strength": 19,
+            "intellect": 19
           },
           "secondary_stats": {
-            "attack_power": 52,
-            "crit_chance_physical": 19
+            "attack_power": 52
           },
           "armor_value": 373,
           "required_level": 53,
           "sell_price": 27006,
           "flavor_text": "Ashen steel, grey and cold, and every link of it is sharp.",
-          "identity": "hunter_crit",
+          "identity": "earthen",
           "icon_id": "gear_epic_chest_mail_1"
         }
       }
@@ -9542,18 +9538,19 @@
           "rarity": "epic",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "intellect": 14
+            "stamina": 24,
+            "strength": 9
           },
           "secondary_stats": {
-            "healing_power": 66
+            "defense_rating": 19
           },
           "armor_value": 419,
           "required_level": 56,
           "sell_price": 16606,
           "flavor_text": "Arcanite, the finest a smith can work. Healers who wear it rarely fall.",
-          "identity": "plate_healer",
+          "identity": "tank",
           "icon_id": "gear_epic_waist_plate_1"
         }
       }
@@ -9587,18 +9584,19 @@
           "rarity": "epic",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "intellect": 21
+            "strength": 21
           },
           "secondary_stats": {
-            "healing_power": 96
+            "attack_power": 55,
+            "crit_chance_physical": 21
           },
           "armor_value": 616,
           "required_level": 57,
           "sell_price": 31296,
           "flavor_text": "Arcanite, the finest a smith can work. Healers who wear it rarely fall.",
-          "identity": "plate_healer",
+          "identity": "strength_crit",
           "icon_id": "gear_epic_legs_plate_1"
         }
       }
@@ -9843,17 +9841,17 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 18
+            "stamina": 30,
+            "strength": 12
           },
           "secondary_stats": {
-            "attack_power": 48,
-            "crit_chance_physical": 18
+            "defense_rating": 24
           },
           "armor_value": 530,
           "required_level": 58,
           "sell_price": 25936,
           "flavor_text": "Elementium. It's the best metal there is, and it hits like it.",
-          "identity": "strength_crit",
+          "identity": "tank",
           "icon_id": "gear_epic_shoulder_plate_1"
         }
       }
@@ -9887,19 +9885,18 @@
           "rarity": "epic",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "str_physical",
+          "stat_template": "spi_healer",
           "primary_stats": {
-            "strength": 21
+            "intellect": 21
           },
           "secondary_stats": {
-            "attack_power": 59,
-            "crit_chance_physical": 21
+            "healing_power": 101
           },
           "armor_value": 621,
           "required_level": 59,
           "sell_price": 33566,
           "flavor_text": "Elementium. It's the best metal there is, and it hits like it.",
-          "identity": "strength_crit",
+          "identity": "plate_healer",
           "icon_id": "gear_epic_chest_plate_1"
         }
       }
@@ -10760,19 +10757,19 @@
           "rarity": "rare",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "str_physical",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "strength": 5,
-            "stamina": 6
+            "agility": 5
           },
           "secondary_stats": {
-            "attack_power": 10
+            "attack_power": 13,
+            "crit_chance_physical": 5
           },
           "armor_value": 93,
           "required_level": 19,
           "sell_price": 1650,
           "flavor_text": "Copper, hammered thin and riveted. Every smith's first set of chain.",
-          "identity": "melee_starter",
+          "identity": "hunter_crit",
           "icon_id": "gear_inv_helmet_57"
         }
       },
@@ -11024,19 +11021,19 @@
           "rarity": "rare",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "str_physical",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "strength": 5,
-            "stamina": 6
+            "agility": 5
           },
           "secondary_stats": {
-            "attack_power": 10
+            "attack_power": 13,
+            "crit_chance_physical": 5
           },
           "armor_value": 98,
           "required_level": 19,
           "sell_price": 1650,
           "flavor_text": "Copper, hammered thin and riveted. Every smith's first set of chain.",
-          "identity": "melee_starter",
+          "identity": "hunter_crit",
           "icon_id": "gear_inv_helmet_51"
         }
       },
@@ -11184,17 +11181,17 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 8,
-            "stamina": 5
+            "strength": 7
           },
           "secondary_stats": {
-            "attack_power": 20
+            "attack_power": 18,
+            "hit_rating": 7
           },
           "armor_value": 203,
           "required_level": 34,
           "sell_price": 4159,
           "flavor_text": "Bronze, the first plate a warrior can really trust.",
-          "identity": "strength",
+          "identity": "strength_hit",
           "icon_id": "gear_inv_gauntlets_07"
         }
       },
