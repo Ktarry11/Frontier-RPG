@@ -141,7 +141,14 @@ SPEC = E.Spec("South Felwood", W, H, ROADS, rivers=RIVERS, lakes=LAKES, deep_shr
               rim={"north": 5, "south": 6}, rock_rim={"west": 9, "east": 11}, gaps=GAPS, fords=FORDS,
               thicket=(0.70, 10.0, 3.1))
 
-NPC_POSITIONS = {}      # quests are given in Emerald Sanctuary (its own map)
+#: Quests are given in Emerald Sanctuary (its own map). Morlos'Aren is a "safe" settlement in the encounter
+#: tables, and "The Watch at Morlos'Aren" ends with Captain Saranis saying "I'll send two of my people down
+#: there with a lantern", yet nobody stood in it (Felwood audit, 15 Nov 2026). These are those two, written
+#: by tools/sync_felwood_south_npcs.py. They don't give quests: Kyle keeps the givers in the hubs.
+NPC_POSITIONS = {
+    "fs_morlosaren_sentinel": (77, 174),      # by the tent
+    "fs_morlosaren_lookout": (84, 175),       # under the tower
+}
 
 
 def fields(gx, gy):

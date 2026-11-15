@@ -71,7 +71,17 @@ DUNGEONS = [
     # bosses on them. The Drownbell next door is deliberately NOT on this list - it is a cave, so
     # it keeps Northern Tanaris's ore, and a fleet of rotting decks has nothing to mine anyway.
     "The Lashings",
+    # Added 2026-11-15, found by the Felwood audit: these were built as dungeons (fixed packs, hand-placed
+    # bosses, a T0 token or a trash-pack table) and never listed, so they could grow ore, never fired the
+    # dungeon-clear banter, and counted a wipe at their door as an open-world one.
+    "Jaedenar",                         # Felwood: eight bosses, the T0 hands
+    "Khaz Varun, the Black Hollow",     # Tempest Isle: the T0 bracers and belt
+    "The Emberdeep",                    # Tempest Isle: the T0 legs
+    "The Royal Hive",                   # Tanaris: the T0 shoulders
+    "Stromgarde Keep",                  # Arathi: in data/dungeons/trash_packs.json
 ]
+# Drywhisker Deeps has fixed packs too, but it's the kobolds' MINE with its own ore pool, so like Azurelode
+# Mine it stays off this list and keeps its ore.
 
 
 def is_dungeon(zone_name):

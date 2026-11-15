@@ -251,6 +251,11 @@ ZONE_BACKGROUND.update({
     # Cut stone and buried stone.
     "Ruins of Lordaeron": "keep",         # Eastern Tirisfal - a city wall, not woodland
     "Twilight Barrow": "dark_dungeon",    # Ashenvale East - a burial mound is roofed
+    # FELWOOD (claude/felwood_brief.md). The South is reclaimed Ashenvale and keeps the woodland pack,
+    # but the North is the demon wastes and fought in that same glowing-motes forest until 15 Nov 2026.
+    # The Fel Line is where the North bleeds into the South: the dead country starts there.
+    "North Felwood": "blighted",
+    "The Fel Line": "blighted",
     "Deep Elem Mine": "dark_dungeon",     # Silverpine South
     "Agamand Family Crypt": "dark_dungeon",   # Western Tirisfal
     "The Crypt of Dun Garok": "dark_dungeon", # Dun Garok

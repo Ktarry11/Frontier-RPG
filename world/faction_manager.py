@@ -322,6 +322,22 @@ class FactionManager:
 _faction_manager = None
 
 
+def reward_stock():
+    """{item_id: (faction_id, vendor_id, standing)} for everything any faction's standing puts on a shelf,
+    read straight from data/factions/factions.json (no player state). A recipe sold only for standing is
+    still a vendor recipe: tools/qa_recipe_sources.py counts this as its route, and
+    tools/build_recipe_vendors.py leaves it on the faction's shelf instead of adding it to a town's."""
+    doc = json.loads((Path(__file__).resolve().parent.parent / "data/factions/factions.json")
+                     .read_text(encoding="utf-8"))
+    out = {}
+    for fid, f in (doc.get("factions") or {}).items():
+        for vid, tiers in ((f.get("rewards") or {}).get("vendor_stock") or {}).items():
+            for tier, items in tiers.items():
+                for item in items:
+                    out.setdefault(item, (fid, vid, tier))
+    return out
+
+
 def get_faction_manager():
     """Module-level singleton, same access pattern as world.quest_manager.get_quest_manager()."""
     global _faction_manager

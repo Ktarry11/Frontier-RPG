@@ -107,6 +107,8 @@ class VendorScreen(BaseScreen):
         """Called every time the screen is shown."""
         self.selected_vendor_item = None
         self.selected_player_item = None
+        # standing can change between visits, and the shelf should show it the next time it opens
+        self.vendor_inventory = self._build_vendor_stock()
         player = self.state_manager.player
         if getattr(player, "auto_sell_junk", False) and self.vendor.buys_from_player:
             self._sell_all_junk(auto=True)
@@ -125,7 +127,12 @@ class VendorScreen(BaseScreen):
         gathering_mgr = GatheringNodeManager()
 
         items = []
-        for item_id in self.vendor.sells:
+        # Faction standing adds stock (world/faction_manager.vendor_unlocks), and this read the bare sells
+        # list, so no reputation reward in the game ever reached a shelf: Codex, Ashclaim and the Emerald
+        # Reclamation's gates all worked in the manager and showed nothing (Felwood audit, 15 Nov 2026).
+        stock = (self.vendor.available_consumables() if hasattr(self.vendor, "available_consumables")
+                 else self.vendor.sells)
+        for item_id in stock:
             # ONE resolver, shared with every tool that needs the same
             # answer - see world/vendor_stock.py for why that matters. The
             # order (consumable, material/reagent, recipe scroll, bag) and

@@ -714,7 +714,41 @@
         ]
       },
       "rewards": {
-        "_comment": "Gates, not a displayed ladder. Filled in with the Sanctuary's shops and Jaedenar."
+        "_comment": [
+          "Gates, not a displayed ladder (the faction panel stays information only), like the Codex and the Ashclaim.",
+          "Filled in by the Felwood audit, 15 Nov 2026: it said 'filled in with the Sanctuary's shops' and never was.",
+          "Supplies come first; the Timbermaw sell the Sunheart patterns, the wood of the glade the druids cleansed,",
+          "at revered and exalted, the way the Timbermaw and the Cenarion Circle sold patterns in WoW."
+        ],
+        "vendor_stock": {
+          "es_quartermaster": {
+            "friendly": [
+              "healing_potion_supreme"
+            ],
+            "honored": [
+              "mana_potion_supreme"
+            ]
+          },
+          "es_timbermaw_trader": {
+            "friendly": [
+              "meal_ember_glazed_ribs",
+              "drink_starfall_wine"
+            ],
+            "honored": [
+              "high_table_feast"
+            ],
+            "revered": [
+              "wwx_blessed_sunheart_codex",
+              "wwx_sunheart_tideguard"
+            ],
+            "exalted": [
+              "wwx_sunheart_staff",
+              "wwx_blessed_sunheart_staff",
+              "wwx_sunheart_bow"
+            ]
+          }
+        },
+        "quests": {}
       }
     }
   }

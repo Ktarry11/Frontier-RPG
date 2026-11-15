@@ -41,6 +41,9 @@ def main():
     vendor_stock = set()
     for v in json.loads((ROOT / "data/npcs/vendors.json").read_text(encoding="utf-8"))["vendors"]:
         vendor_stock |= {s for s in v.get("sells", []) if s in recipes}
+    # a pattern sold for faction standing (data/factions/factions.json rewards.vendor_stock) is a vendor route
+    from world.faction_manager import reward_stock
+    vendor_stock |= {s for s in reward_stock() if s in recipes}
 
     quest_rewards = set()
     for p in sorted((ROOT / "data/quests").glob("*.json")):

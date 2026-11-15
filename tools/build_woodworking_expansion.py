@@ -69,6 +69,8 @@ TEMPLATE = {"staff": "int_caster", "wand": "int_caster", "tome": "int_caster", "
 
 # (id, name, skill, kind, wood, rarity, source)
 PIECES = [
+    # The five Sunheart patterns are sold by the Emerald Reclamation's Timbermaw trader for standing (revered and
+    # exalted: data/factions/factions.json), source "vendor" (Felwood audit, 15 Nov 2026).
     # ---- casting weapons: every wood gets the staff, wand and off-hand its school deserves
     ("silverbark_wand", "Silverbark Wand", 152, "wand", "silverbark", "uncommon", "trainer"),
     ("silverbark_codex", "Silverbark Codex", 158, "tome", "silverbark", "uncommon", "trainer"),
@@ -94,9 +96,9 @@ PIECES = [
     ("starleaf_staff", "Starleaf Staff", 280, "staff", "starleaf", "rare", "trainer"),
     ("starleaf_wand", "Starleaf Wand", 282, "wand", "starleaf", "rare", "drop"),
     ("stormoak_codex", "Stormoak Codex", 292, "tome", "stormoak", "rare", "trainer"),
-    ("sunheart_staff", "Sunheart Staff", 300, "staff", "sunheart", "epic", "drop"),
-    ("blessed_sunheart_staff", "Blessed Sunheart Staff", 300, "staff", "sunheart", "epic", "drop"),
-    ("blessed_sunheart_codex", "Blessed Sunheart Codex", 300, "tome", "sunheart", "rare", "trainer"),
+    ("sunheart_staff", "Sunheart Staff", 300, "staff", "sunheart", "epic", "vendor"),
+    ("blessed_sunheart_staff", "Blessed Sunheart Staff", 300, "staff", "sunheart", "epic", "vendor"),
+    ("blessed_sunheart_codex", "Blessed Sunheart Codex", 300, "tome", "sunheart", "rare", "vendor"),
 
     # ---- staves for fighters: Stalker's (cat druid, hunter) and Barkguard (bear druid, Venomancer beetle)
     ("ironbark_prowlers_staff", "Ironbark Prowler's Staff", 95, "staff", "ironbark", "uncommon", "trainer"),
@@ -118,7 +120,7 @@ PIECES = [
     ("ebonthorn_spear", "Ebonthorn Spear", 278, "polearm", "ebonthorn", "rare", "drop"),
     ("starleaf_bow", "Starleaf Longbow", 284, "bow", "starleaf", "rare", "vendor"),
     ("stormoak_crossbow", "Stormoak Crossbow", 295, "crossbow", "stormoak", "epic", "drop"),
-    ("sunheart_bow", "Sunheart Longbow", 300, "bow", "sunheart", "epic", "drop"),
+    ("sunheart_bow", "Sunheart Longbow", 300, "bow", "sunheart", "epic", "vendor"),
 
     # ---- strength polearms (Warpike) and a paladin's (Warden's)
     ("ironbark_warpike", "Ironbark Warpike", 120, "polearm", "ironbark", "uncommon", "trainer"),
@@ -135,7 +137,7 @@ PIECES = [
     ("moonpetal_tideguard", "Moonpetal Tideguard", 242, "shield", "moonpetal", "rare", "trainer"),
     ("emberwood_thundershield", "Emberwood Thundershield", 256, "shield", "emberwood", "rare", "drop"),
     ("stormoak_thundershield", "Stormoak Thundershield", 290, "shield", "stormoak", "rare", "trainer"),
-    ("sunheart_tideguard", "Sunheart Tideguard", 300, "shield", "sunheart", "epic", "drop"),
+    ("sunheart_tideguard", "Sunheart Tideguard", 300, "shield", "sunheart", "epic", "vendor"),
 
     # ---- relics: two of each role, mid-30s and mid-50s
     ("goldenleaf_tide_totem", "Goldenleaf Tide Totem", 165, "totem", "goldenleaf", "uncommon", "trainer"),
