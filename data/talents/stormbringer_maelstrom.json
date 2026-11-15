@@ -79,12 +79,15 @@
       "hex_x": 1,
       "hex_y": -6,
       "effects": {
-        "hit_rating": 2.0
+        "spell_hit_rating": 2.0
       },
       "connected_to": [
         "stormbringer_maelstrom_hydro_powered"
       ],
-      "_source": "CoA over 3 ranks: 'Reduces the cast time of your Torrential Wrath by 0.2 sec and increases your hit chance by 2%.' There are no cast times, so only the hit half survives. Authored at CoA's own PER-RANK 2% with CoA's 3 ranks, which reaches 6% at full investment - get_effective_effects() multiplies by points spent, so the per-rank value is what goes in the file and the description states the ceiling. Authoring 6.0 here with ranks=3 would have delivered 18%, which is the bug that shipped on Guardian Vanguard's Iron Guardian earlier today."
+      "_source": "CoA over 3 ranks: 'Reduces the cast time of your Torrential Wrath by 0.2 sec and increases your hit chance by 2%.' There are no cast times, so only the hit half survives. Authored at CoA's own PER-RANK 2% with CoA's 3 ranks, which reaches 6% at full investment - get_effective_effects() multiplies by points spent, so the per-rank value is what goes in the file and the description states the ceiling. Authoring 6.0 here with ranks=3 would have delivered 18%, which is the bug that shipped on Guardian Vanguard's Iron Guardian earlier today.",
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'We need to have spell hit, physical hit'): now spell hit (its spec deals mostly spells)"
+      ]
     },
     {
       "talent_id": "stormbringer_maelstrom_hydro_powered",

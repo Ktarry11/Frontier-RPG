@@ -18,7 +18,7 @@ LABELS = {
     "magic_resistance": "Magic Resistance", "strength": "Strength", "stamina": "Stamina",
     "intellect": "Intellect", "spirit": "Spirit", "agility": "Agility",
     "crit_chance_physical": "Physical Crit", "crit_chance_spell": "Spell Crit",
-    "crit_chance": "Crit", "hit_rating": "Hit Chance", "hit_chance_physical": "Physical Hit",
+    "crit_chance": "Crit", "hit_rating": "Hit Chance", "spell_hit_rating": "Spell Hit Chance", "hit_chance_physical": "Physical Hit",
     "hit_chance_spell": "Spell Hit", "parry": "Parry", "dodge": "Dodge", "block": "Block",
     "haste": "Haste", "max_health_pct": "Maximum health", "max_mana_pct": "Maximum mana",
     "damage_taken_pct": "Damage taken", "physical_damage_taken_pct": "Physical damage taken",
@@ -46,7 +46,7 @@ def is_percent(key):
     """True if this stat's number is a percentage."""
     if key.endswith("_pct"):
         return True
-    if key.endswith("_value") or key.endswith("_rating") and key != "hit_rating":
+    if key.endswith("_value") or key.endswith("_rating") and key not in ("hit_rating", "spell_hit_rating"):
         return False                       # block_value is points; so is defense_rating
     return key == "block" or any(word in key for word in _PERCENT_WORDS)
 

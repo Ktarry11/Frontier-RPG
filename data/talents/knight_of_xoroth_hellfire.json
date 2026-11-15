@@ -44,12 +44,16 @@
       "hex_y": -6,
       "effects": {
         "crit_chance_spell_from_intellect_pct": 0.07,
-        "hit_rating": 2
+        "hit_rating": 2,
+        "spell_hit_rating": 2
       },
       "connected_to": [
         "knight_of_xoroth_hellfire_combusting_blade"
       ],
-      "_source": "CoA's level 30 passive: 'Increases your critical strike rating by 20% of your Intellect and your spell hit chance by 6%.' The conversion PORTS EXACTLY. The hit half is a flat 6% rather than a conversion, since hit_rating is NOT in STAT_CONVERSION_TARGETS - the sixth time in this audit that has cost a node. Together with Burning Power above, Intellect buys this spec attack power AND crit, which is why a plate melee class wants a caster stat."
+      "_source": "CoA's level 30 passive: 'Increases your critical strike rating by 20% of your Intellect and your spell hit chance by 6%.' The conversion PORTS EXACTLY. The hit half is a flat 6% rather than a conversion, since hit_rating is NOT in STAT_CONVERSION_TARGETS - the sixth time in this audit that has cost a node. Together with Burning Power above, Intellect buys this spec attack power AND crit, which is why a plate melee class wants a caster stat.",
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'We need to have spell hit, physical hit'): counts for spell hit too - this tree swings and casts (its spec deals both)"
+      ]
     },
     {
       "talent_id": "knight_of_xoroth_hellfire_combusting_blade",

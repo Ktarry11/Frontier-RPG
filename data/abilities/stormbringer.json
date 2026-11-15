@@ -1301,7 +1301,8 @@
       "effect_type": "buff",
       "duration": 30,
       "stat_mods": {
-        "hit_rating": 1
+        "hit_rating": 1,
+        "spell_hit_rating": 1
       },
       "description": "Calm the air around your party so their spells and attacks land more often. Does not stack with similar effects.",
       "_source": "CoA Wind, free node at 'Requires 4 points in this tree (level 15)': \"Increases chance to hit with all spells and attacks by 1% for you and party and raid members. Does not stack with similar effects.\" CoA's is a passive aura; a Frontier talent cannot reach an ally, so this is the cast that carries it. hit_rating is the one key that lifts both spell and physical hit (Character._recalculate_derived_stats subtracts it from both base miss chances), which is what \"all spells and attacks\" needs. Ranger's Battle Prowess is the shipped precedent for a party hit_rating buff. effect_value is 100 because Ability._apply_effect's buff branch scales every stat_mod by effect_value/100 - a buff authored with effect_value 0 applies its mods as literal zeroes (verified headless; several shipped party buffs on other classes still have this).",
@@ -1317,7 +1318,10 @@
       "icon_id": null,
       "requires_talent": true,
       "is_instant": true,
-      "buff_scope": "raid"
+      "buff_scope": "raid",
+      "_tuning": [
+        "15 Nov 2026: + spell_hit_rating 1 - hit and spell hit are separate stats now, and this is 'all spells and attacks'"
+      ]
     },
     {
       "ability_id": "stormbringer_tailwind",

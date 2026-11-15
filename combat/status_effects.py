@@ -825,6 +825,7 @@ class StatusEffectMixin:
         "crit_chance_physical": "Physical Crit",
         "crit_chance_spell": "Spell Crit",
         "hit_rating": "Hit Rating",
+        "spell_hit_rating": "Spell Hit Rating",
         "hit_chance_physical": "Physical Hit",
         "hit_chance_spell": "Spell Hit",
         "parry": "Parry",

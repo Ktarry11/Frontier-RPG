@@ -335,12 +335,15 @@
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "hit_rating": 2.0,
-        "spell_damage_taken_pct": -0.03
+        "spell_damage_taken_pct": -0.03,
+        "spell_hit_rating": 2.0
       },
       "_source": "WotLK row 5, built verbatim: 'Increases your chance to hit with all spells by 2%/4% and reduces your damage taken from all spells by 3%/6%.' TWO KEYS, TWO CONVENTIONS: hit_rating is PERCENTAGE POINTS and is NOT a valid STAT_CONVERSION_TARGET, while spell_damage_taken_pct is a FRACTION AS A TALENT EFFECT and POINTS inside a status effect - Nether Protection in warlock_destruction uses the points form of this same key.",
       "connected_to": [
         "druid_balance_improved_insect_swarm"
+      ],
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'We need to have spell hit, physical hit'): now spell hit (its spec deals mostly spells)"
       ]
     },
     {

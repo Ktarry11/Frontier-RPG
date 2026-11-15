@@ -43,13 +43,17 @@
       "hex_y": -6,
       "effects": {
         "ability_reaper_deathchaser_damage": 0.03,
-        "hit_rating": 1
+        "hit_rating": 1,
+        "spell_hit_rating": 1
       },
       "connected_to": [
         "reaper_soul_ghostly_magic",
         "reaper_soul_deathwail"
       ],
-      "_source": "CoA: 'Increases the damage dealt by Deathchaser by 15% and your hit chance by 3%.' BOTH HALVES PORT EXACTLY. `hit_rating` is live and in PERCENTAGE POINTS - note it is only invalid as a CONVERSION TARGET (the 'hit rating from Spirit' half of seven nodes across six classes had to be dropped for that reason), not as a flat bonus. Was a pure scalar on our side. The ability key is a FRACTION, hit_rating is points: two conventions in one dict, which is this project's default state."
+      "_source": "CoA: 'Increases the damage dealt by Deathchaser by 15% and your hit chance by 3%.' BOTH HALVES PORT EXACTLY. `hit_rating` is live and in PERCENTAGE POINTS - note it is only invalid as a CONVERSION TARGET (the 'hit rating from Spirit' half of seven nodes across six classes had to be dropped for that reason), not as a flat bonus. Was a pure scalar on our side. The ability key is a FRACTION, hit_rating is points: two conventions in one dict, which is this project's default state.",
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'We need to have spell hit, physical hit'): counts for spell hit too - this tree swings and casts (its spec deals both)"
+      ]
     },
     {
       "talent_id": "reaper_soul_ghostly_magic",

@@ -39,10 +39,14 @@
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "hit_rating": 1.0
+        "hit_rating": 1.0,
+        "spell_hit_rating": 1.0
       },
       "_source": "WotLK row 1: 'Reduces the duration of movement impairing effects by 10%/20%/30%.' DEPARTURE - there is no movement impairment at all, and the three CoA talents authored as dispel_type 'movement' were found to remove nothing, because that is not a real DispelType. Sure footing becomes accuracy. Kept from the outgoing tree.",
-      "connected_to": []
+      "connected_to": [],
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'We need to have spell hit, physical hit'): counts for spell hit too - this tree swings and casts (its spec deals both)"
+      ]
     },
     {
       "talent_id": "hunter_survival_survivalist",

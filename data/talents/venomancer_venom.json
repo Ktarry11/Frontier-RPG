@@ -223,12 +223,16 @@
       "hex_y": -4,
       "effects": {
         "ability_venomancer_wilt_damage": 0.04,
+        "spell_hit_rating": 1,
         "hit_rating": 1
       },
       "connected_to": [
         "venomancer_venom_mycosis"
       ],
-      "_source": "CoA verbatim: 'Increases the damage of Wilt by 20% and it now increases the chance to hit the target with spells by 3% for 20 seconds.' The hit bonus is a buff applied by landing Wilt, which would need a proc; folded into the node as a flat 3% instead, since Wilt is on every target in this rotation and the condition was nearly always true. hit_rating is a PERCENT."
+      "_source": "CoA verbatim: 'Increases the damage of Wilt by 20% and it now increases the chance to hit the target with spells by 3% for 20 seconds.' The hit bonus is a buff applied by landing Wilt, which would need a proc; folded into the node as a flat 3% instead, since Wilt is on every target in this rotation and the condition was nearly always true. hit_rating is a PERCENT.",
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'We need to have spell hit, physical hit'): counts for spell hit AND weapon hit - this class attacks mostly through spell-type strikes but still swings its weapons"
+      ]
     },
     {
       "talent_id": "venomancer_venom_mycosis",

@@ -90,14 +90,18 @@
       "hex_x": -3,
       "hex_y": -4,
       "effects": {
-        "hit_rating": 3.0,
-        "attack_power_pct": 3.0
+        "attack_power_pct": 3.0,
+        "spell_hit_rating": 3.0,
+        "hit_rating": 3.0
       },
       "connected_to": [
         "sun_cleric_valkyrie_angelic",
         "sun_cleric_valkyrie_glorious_execution"
       ],
-      "_source": "CoA handoff doc confirmed, per Kyle's direction: 'Enables dual-wield or two-hand mace/sword/polearm in each hand; boosts hit chance.' Valkyrie's signature two-hander dual-wield mechanic."
+      "_source": "CoA handoff doc confirmed, per Kyle's direction: 'Enables dual-wield or two-hand mace/sword/polearm in each hand; boosts hit chance.' Valkyrie's signature two-hander dual-wield mechanic.",
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'We need to have spell hit, physical hit'): counts for spell hit AND weapon hit - this class attacks mostly through spell-type strikes but still swings its weapons"
+      ]
     },
     {
       "talent_id": "sun_cleric_valkyrie_valkyrie_15",

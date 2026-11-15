@@ -38,7 +38,7 @@ CURRENT = 3
 # untouched.
 # ---------------------------------------------------------------------------------------------
 RATING_PER_PCT = 10
-RATING_KEYS = frozenset({"crit_chance_physical", "crit_chance_spell", "hit_rating", "haste",
+RATING_KEYS = frozenset({"crit_chance_physical", "crit_chance_spell", "hit_rating", "spell_hit_rating", "haste",
                          "dodge_rating", "dodge", "parry_rating", "block_rating", "defense_rating",
                          "armor_penetration_pct", "spell_penetration"})
 
@@ -69,7 +69,7 @@ ITEM_LABELS = {
     "nature_spell_power": "Nature Spell Power", "holy_spell_power": "Holy Spell Power",
     "mp5": "Mana per 5", "hp5": "Health per 5", "block_value": "Block Value", "armor": "Armor",
     "crit_chance_physical": "Crit Rating", "crit_chance_spell": "Spell Crit Rating",
-    "hit_rating": "Hit Rating", "haste": "Haste Rating", "dodge_rating": "Dodge Rating",
+    "hit_rating": "Hit Rating", "spell_hit_rating": "Spell Hit Rating", "haste": "Haste Rating", "dodge_rating": "Dodge Rating",
     "dodge": "Dodge Rating", "parry_rating": "Parry Rating", "block_rating": "Block Rating",
     "defense_rating": "Defense Rating", "armor_penetration_pct": "Armor Penetration Rating",
     "spell_penetration": "Spell Penetration",

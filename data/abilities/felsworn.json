@@ -95,7 +95,11 @@
       "generates": {
         "resource": "felfury",
         "amount": 20
-      }
+      },
+      "strikes_both_weapons": true,
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'abilities like stormstrike that hit for both weapons ... Wildclaw'): strikes_both_weapons - the off hand lands with it when dual-wielding. Every other special is main-hand only, as in Classic."
+      ]
     },
     {
       "ability_id": "felsworn_fel_fireball",
@@ -629,7 +633,11 @@
       "generates": {
         "resource": "felfury",
         "amount": 25
-      }
+      },
+      "strikes_both_weapons": true,
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'abilities like stormstrike that hit for both weapons ... Wildclaw'): strikes_both_weapons - the off hand lands with it when dual-wielding. Every other special is main-hand only, as in Classic."
+      ]
     },
     {
       "ability_id": "felsworn_glaiving",
@@ -685,7 +693,11 @@
       "generates": {
         "resource": "felfury",
         "amount": 20
-      }
+      },
+      "strikes_both_weapons": true,
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'abilities like stormstrike that hit for both weapons ... Wildclaw'): strikes_both_weapons - the off hand lands with it when dual-wielding. Every other special is main-hand only, as in Classic."
+      ]
     },
     {
       "ability_id": "felsworn_felhoof_charge",
@@ -836,8 +848,10 @@
       "max_targets": 5,
       "damage_school": "physical",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.30x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.30x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026 (Kyle: 'abilities like stormstrike that hit for both weapons ... Wildclaw'): strikes_both_weapons - the off hand lands with it when dual-wielding. Every other special is main-hand only, as in Classic."
+      ],
+      "strikes_both_weapons": true
     },
     {
       "ability_id": "felsworn_fury_of_the_illidari",
@@ -883,8 +897,10 @@
         "amount": 20
       },
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.40x steeper than it, biggest single-rank jump 1.16x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.40x steeper than it, biggest single-rank jump 1.16x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026 (Kyle: 'abilities like stormstrike that hit for both weapons ... Wildclaw'): strikes_both_weapons - the off hand lands with it when dual-wielding. Every other special is main-hand only, as in Classic."
+      ],
+      "strikes_both_weapons": true
     },
     {
       "ability_id": "felsworn_bane_of_frailty",
@@ -1280,7 +1296,11 @@
       "generates": {
         "resource": "felfury",
         "amount": 20
-      }
+      },
+      "strikes_both_weapons": true,
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'abilities like stormstrike that hit for both weapons ... Wildclaw'): strikes_both_weapons - the off hand lands with it when dual-wielding. Every other special is main-hand only, as in Classic."
+      ]
     },
     {
       "ability_id": "felsworn_carve",
@@ -1333,7 +1353,11 @@
       "_source": "CoA: 'Consumes 2 Felfury. Charge up a powerful attack over 2.5 seconds. Upon ending the channel, slash in front of you, dealing increased Weapon Damage with both weapons based on how long you channel'. No channel exists here, so the charge-up is folded into the damage and the cooldown. The longer-channel-more-dodge rider (Battle Finesse) is lost with it.",
       "target_type": "enemy_aoe",
       "max_targets": 3,
-      "damage_school": "physical"
+      "damage_school": "physical",
+      "strikes_both_weapons": true,
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'abilities like stormstrike that hit for both weapons ... Wildclaw'): strikes_both_weapons - the off hand lands with it when dual-wielding. Every other special is main-hand only, as in Classic."
+      ]
     },
     {
       "ability_id": "felsworn_demonic_will",

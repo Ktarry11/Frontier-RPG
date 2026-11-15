@@ -39,13 +39,16 @@
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "hit_rating": 1.0,
         "ability_warlock_curse_of_agony_cost_pct": 0.02,
         "ability_warlock_curse_of_weakness_cost_pct": 0.02,
-        "ability_warlock_curse_of_recklessness_cost_pct": 0.02
+        "ability_warlock_curse_of_recklessness_cost_pct": 0.02,
+        "spell_hit_rating": 1.0
       },
       "_source": "WotLK row 0, built with both halves: 'Increases your chance to hit with spells by 1%/2%/3%, and reduces the mana cost of your Affliction spells.' Kept from the outgoing tree, which had hit_rating alone at 5 ranks. hit_rating is PERCENTAGE POINTS and is NOT a valid STAT_CONVERSION_TARGET.",
-      "connected_to": []
+      "connected_to": [],
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'We need to have spell hit, physical hit'): now spell hit (its spec deals mostly spells)"
+      ]
     },
     {
       "talent_id": "warlock_affliction_improved_corruption",

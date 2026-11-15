@@ -97,12 +97,16 @@
       "hex_y": -6,
       "effects": {
         "attack_power_pct": 3,
-        "hit_rating": 2
+        "hit_rating": 2,
+        "spell_hit_rating": 2
       },
       "connected_to": [
         "witch_hunter_inquisition_malice"
       ],
-      "_source": "CoA over 2 ranks: 'Increases your off-hand Weapon Damage by 20% and increases your chance to hit by 3%.' Off-hand damage is not a separate source in this engine - there is no off-hand key at all - so that half becomes attack power, which is what a dual-wielder gets out of it. Hit is CoA's, doubled for the 2 ranks."
+      "_source": "CoA over 2 ranks: 'Increases your off-hand Weapon Damage by 20% and increases your chance to hit by 3%.' Off-hand damage is not a separate source in this engine - there is no off-hand key at all - so that half becomes attack power, which is what a dual-wielder gets out of it. Hit is CoA's, doubled for the 2 ranks.",
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'We need to have spell hit, physical hit'): counts for spell hit too - this tree swings and casts (its spec deals both)"
+      ]
     },
     {
       "talent_id": "witch_hunter_inquisition_refined_combatant",

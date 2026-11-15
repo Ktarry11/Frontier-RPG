@@ -62,13 +62,17 @@
       "hex_x": -1,
       "hex_y": -6,
       "effects": {
-        "hit_rating": 1,
-        "ability_templar_chastise_damage": 0.02
+        "ability_templar_chastise_damage": 0.02,
+        "spell_hit_rating": 1,
+        "hit_rating": 1
       },
       "connected_to": [
         "templar_crusader_chivalric"
       ],
-      "_source": "CoA over 2 ranks: 'Increases the chance to trigger Scourgebane by 5% and your chance to hit by 2%.' FRONTIER HAS NO SCOURGEBANE ABILITY, and a 'chance to trigger' it would need the proc that does not exist either. The hit half is doubled for the two ranks and ports; the Scourgebane half is re-pointed at Chastise, which CoA's Righteousness node pairs with Scourgebane."
+      "_source": "CoA over 2 ranks: 'Increases the chance to trigger Scourgebane by 5% and your chance to hit by 2%.' FRONTIER HAS NO SCOURGEBANE ABILITY, and a 'chance to trigger' it would need the proc that does not exist either. The hit half is doubled for the two ranks and ports; the Scourgebane half is re-pointed at Chastise, which CoA's Righteousness node pairs with Scourgebane.",
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'We need to have spell hit, physical hit'): counts for spell hit AND weapon hit - this class attacks mostly through spell-type strikes but still swings its weapons"
+      ]
     },
     {
       "talent_id": "templar_crusader_chivalric",

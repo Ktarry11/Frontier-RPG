@@ -850,7 +850,8 @@ class LootGenerator:
     }
     _CASTER_SECONDARY = {
         "spell_power", "healing_power", "mp5", "crit_chance_spell",
-        "spell_penetration", "hit_rating",
+        # SPELL HIT, not weapon hit (Kyle, 15 Nov 2026: "We need to have spell hit, physical hit")
+        "spell_penetration", "spell_hit_rating",
         "fire_spell_power", "frost_spell_power", "arcane_spell_power",
         "shadow_spell_power", "nature_spell_power", "holy_spell_power",
     }

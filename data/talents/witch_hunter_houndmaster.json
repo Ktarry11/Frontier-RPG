@@ -25,12 +25,16 @@
       "hex_y": -6,
       "effects": {
         "ability_witch_hunter_shadowblast_damage": 0.04,
-        "hit_rating": 1
+        "hit_rating": 1,
+        "spell_hit_rating": 1
       },
       "connected_to": [
         "witch_hunter_houndmaster_sharpshooter"
       ],
-      "_source": "CoA verbatim, and already a scalar in CoA over 2 ranks, so it stays one. Authored as the full-investment CEILING at one rank and left to the rank policy to spread - writing CoA's rank-1 value with ranks=2 and then having the policy bump it to 3 is what left three descriptions in this tree quoting a per-rank number that no longer existed."
+      "_source": "CoA verbatim, and already a scalar in CoA over 2 ranks, so it stays one. Authored as the full-investment CEILING at one rank and left to the rank policy to spread - writing CoA's rank-1 value with ranks=2 and then having the policy bump it to 3 is what left three descriptions in this tree quoting a per-rank number that no longer existed.",
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'We need to have spell hit, physical hit'): counts for spell hit too - this tree swings and casts (its spec deals both)"
+      ]
     },
     {
       "talent_id": "witch_hunter_houndmaster_dark_mind",

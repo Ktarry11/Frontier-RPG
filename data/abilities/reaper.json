@@ -986,7 +986,11 @@
       "generates": {
         "resource": "souls",
         "amount": 20
-      }
+      },
+      "strikes_both_weapons": true,
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'abilities like stormstrike that hit for both weapons ... Wildclaw'): strikes_both_weapons - the off hand lands with it when dual-wielding. Every other special is main-hand only, as in Classic."
+      ]
     },
     {
       "ability_id": "reaper_deathchaser",

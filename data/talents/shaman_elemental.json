@@ -257,11 +257,14 @@
       "hex_x": 3,
       "hex_y": -2,
       "effects": {
-        "hit_rating": 1.0
+        "spell_hit_rating": 1.0
       },
       "_source": "WotLK row 3: 'Increases your chance to hit with Fire, Frost and Nature spells by 1%/2%/3% and reduces the threat caused by those spells.' The hit half is built verbatim; the threat half is Eye of the Storm's job here, so it is not doubled. hit_rating is PERCENTAGE POINTS and is NOT a valid STAT_CONVERSION_TARGET.",
       "connected_to": [
         "shaman_elemental_elemental_fury"
+      ],
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'We need to have spell hit, physical hit'): now spell hit (its spec deals mostly spells)"
       ]
     },
     {

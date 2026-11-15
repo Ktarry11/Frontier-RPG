@@ -54,6 +54,7 @@ STAT_MOD = {
     "haste": 0.2230,     # 2.23 a percent before ratings (15 Nov), / 10
     "healing_power": 0.690,     # 1.725 before the 15 Nov power rescale (entities/power_scale.py), / 2.5
     "hit_rating": 1.3950,     # 13.95 a percent before ratings (15 Nov), / 10
+    "spell_hit_rating": 1.3950,   # the same price: spell hit split from hit (15 Nov 2026)
     "mp5": 4.170,
     "parry_rating": 0.2140,     # 2.14 a percent before ratings (15 Nov), / 10
     "spell_power": 0.717,       # 1.345 before the 15 Nov power rescale, / 1.875

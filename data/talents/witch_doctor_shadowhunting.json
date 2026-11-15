@@ -64,12 +64,16 @@
       "hex_y": -6,
       "effects": {
         "hit_rating": 2,
-        "ability_witch_doctor_reclamation_damage": 0.03
+        "ability_witch_doctor_reclamation_damage": 0.03,
+        "spell_hit_rating": 2
       },
       "connected_to": [
         "witch_doctor_shadowhunting_improved_malefic_arrow"
       ],
-      "_source": "CoA verbatim. Both halves live and Reclamation is a real Frontier ability - the spec's Spirit-collecting shot. hit_rating is a PERCENT; note it works as a flat stat here even though it is NOT a valid conversion target, which is what killed the spell-hit half of Voodoo Power on the DPS tree."
+      "_source": "CoA verbatim. Both halves live and Reclamation is a real Frontier ability - the spec's Spirit-collecting shot. hit_rating is a PERCENT; note it works as a flat stat here even though it is NOT a valid conversion target, which is what killed the spell-hit half of Voodoo Power on the DPS tree.",
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'We need to have spell hit, physical hit'): counts for spell hit too - this tree swings and casts (its spec deals both)"
+      ]
     },
     {
       "talent_id": "witch_doctor_shadowhunting_improved_malefic_arrow",

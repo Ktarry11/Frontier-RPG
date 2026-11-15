@@ -574,7 +574,11 @@
       "icon_id": null,
       "_design_note": "Not learned from level alone - granted by the Stormstrike talent in the Enhancement tree. Instantly attacks with both weapons, weakening the target's real Nature resistance (previously wired to the generic magic_resistance stat, which didn't match the ability's own description) so your next Nature-school hits deal more damage.",
       "target_type": "enemy",
-      "_stormstrike_fix": "15 Nov 2026: was effect_type debuff, so 'Instantly attacks with both weapons' hit for nothing and Enhancement's signature button only lowered Nature resistance; Enhancement measured at ~0.5x the median damage spec. A weapon strike now (with the same debuff). Was ranks [(30, 30, 100), (40, 36, 119), (52, 42, 142)]."
+      "_stormstrike_fix": "15 Nov 2026: was effect_type debuff, so 'Instantly attacks with both weapons' hit for nothing and Enhancement's signature button only lowered Nature resistance; Enhancement measured at ~0.5x the median damage spec. A weapon strike now (with the same debuff). Was ranks [(30, 30, 100), (40, 36, 119), (52, 42, 142)].",
+      "strikes_both_weapons": true,
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'abilities like stormstrike that hit for both weapons ... Wildclaw'): strikes_both_weapons - the off hand lands with it when dual-wielding. Every other special is main-hand only, as in Classic."
+      ]
     },
     {
       "ability_id": "shaman_elemental_mastery_cast",

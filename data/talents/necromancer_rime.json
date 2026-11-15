@@ -90,13 +90,16 @@
       "hex_x": 2,
       "hex_y": -6,
       "effects": {
-        "hit_rating": 8.0,
-        "ability_necromancer_ice_barrage_duration": 2
+        "ability_necromancer_ice_barrage_duration": 2,
+        "spell_hit_rating": 8.0
       },
       "connected_to": [
         "necromancer_rime_frigid_death"
       ],
-      "_source": "CoA: 'Increases the duration of Lichfrost's movement speed slow by 4 sec and your hit chance by 4%.' The hit chance ports (doubled). Movement speed is not a mechanic here, so that half is re-pointed to Ice Barrage's duration - it is a spell_dot, so +2 TURNS IS +2 FULL-VALUE TICKS (abilities.py:2777 derives per-turn from the ability's OWN base duration), taking it 2 -> 4 and doubling its total damage. hit_rating is PERCENTAGE POINTS. SMALL INTEGER IN TURNS, so spread() refuses to rank this node. Was a pure scalar on our side."
+      "_source": "CoA: 'Increases the duration of Lichfrost's movement speed slow by 4 sec and your hit chance by 4%.' The hit chance ports (doubled). Movement speed is not a mechanic here, so that half is re-pointed to Ice Barrage's duration - it is a spell_dot, so +2 TURNS IS +2 FULL-VALUE TICKS (abilities.py:2777 derives per-turn from the ability's OWN base duration), taking it 2 -> 4 and doubling its total damage. hit_rating is PERCENTAGE POINTS. SMALL INTEGER IN TURNS, so spread() refuses to rank this node. Was a pure scalar on our side.",
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'We need to have spell hit, physical hit'): now spell hit (its spec deals mostly spells)"
+      ]
     },
     {
       "talent_id": "necromancer_rime_freeze_dry",

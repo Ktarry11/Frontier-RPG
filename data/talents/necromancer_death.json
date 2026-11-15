@@ -83,12 +83,15 @@
       "hex_y": -6,
       "effects": {
         "crit_chance_spell": 2,
-        "hit_rating": 2
+        "spell_hit_rating": 2
       },
       "connected_to": [
         "necromancer_death_plague_science"
       ],
-      "_source": "CoA: 'Increases your critical strike and hit chance by 3%.' PORTS EXACTLY, doubled. Both keys are PERCENTAGE POINTS. crit_chance_spell rather than the physical variant because this is a caster. hit_rating is live as a flat bonus - it is only invalid as a CONVERSION TARGET, which has cost eight nodes half their text across seven classes. Was a pure scalar on our side."
+      "_source": "CoA: 'Increases your critical strike and hit chance by 3%.' PORTS EXACTLY, doubled. Both keys are PERCENTAGE POINTS. crit_chance_spell rather than the physical variant because this is a caster. hit_rating is live as a flat bonus - it is only invalid as a CONVERSION TARGET, which has cost eight nodes half their text across seven classes. Was a pure scalar on our side.",
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'We need to have spell hit, physical hit'): now spell hit (its spec deals mostly spells)"
+      ]
     },
     {
       "talent_id": "necromancer_death_swarmer",

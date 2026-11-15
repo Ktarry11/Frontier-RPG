@@ -316,30 +316,22 @@ class CharacterSheetScreen(BaseScreen):
         # associated with the gun and not with the fact it has two weapons."
         # The off-hand figure is the WHITE swing's, and it is the only
         # attack in the game that pays the dual-wield penalty.
-        self.renderer.draw_text(
-            screen, f"Hit Rating: {derived['hit_rating']}", (mid_x, mid_y))
-        mid_y += 22
-        self.renderer.draw_text(
-            screen, f"Hit (Spell): {derived['hit_spell']}", (mid_x, mid_y))
-        mid_y += 22
-        self.renderer.draw_text(
-            screen, f"Hit (Main Hand): {derived['hit_main_hand']}", (mid_x, mid_y))
-        mid_y += 22
-        self.renderer.draw_text(
-            screen, f"Hit (Off Hand): {derived['hit_off_hand']}", (mid_x, mid_y))
-        mid_y += 22
-        self.renderer.draw_text(
-            screen, f"Hit (Ranged): {derived['hit_ranged']}", (mid_x, mid_y))
-        mid_y += 22
+        # 15 Nov 2026 (Kyle): two chase stats - Hit (weapons, abilities, ranged) and Spell Hit - each against its
+        # cap with any overcap shown, then every chance at your level and against a boss 3 levels up.
+        for label, key in (("Hit", "hit_rating"), ("Spell Hit", "spell_hit_rating"),
+                           ("Main Hand", "hit_main_hand"), ("Off Hand", "hit_off_hand"),
+                           ("Abilities", "hit_ability"), ("Spells", "hit_spell"), ("Ranged", "hit_ranged")):
+            self.renderer.draw_text(screen, f"{label}: {derived[key]}", (mid_x, mid_y), size="small")
+            mid_y += 19
         # Shown next to Hit Rating deliberately - the two are the same kind
         # of stat on the same kind of scale (30 against 27), one per role.
         self.renderer.draw_text(
             screen, f"Spell Penetration: {derived['spell_penetration']}",
-            (mid_x, mid_y))
-        mid_y += 22
+            (mid_x, mid_y), size="small")
+        mid_y += 19
         self.renderer.draw_text(
             screen, f"Armor Penetration: {derived['armor_penetration']}",
-            (mid_x, mid_y))
+            (mid_x, mid_y), size="small")
         # Dodge / Block / Parry used to follow here and overflowed the panel;
         # they are now in the left column's DEFENSE block. See the note there.
 

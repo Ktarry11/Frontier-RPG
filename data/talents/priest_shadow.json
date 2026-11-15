@@ -158,13 +158,16 @@
       "hex_x": 2,
       "hex_y": -4,
       "effects": {
-        "hit_rating": 1.0,
         "ability_priest_mind_blast_cost_pct": 0.02,
-        "ability_priest_mind_flay_cost_pct": 0.02
+        "ability_priest_mind_flay_cost_pct": 0.02,
+        "spell_hit_rating": 1.0
       },
       "_source": "WotLK row 1, built with both halves: 'Increases your chance to hit with your Shadow spells by 1%/2%/3%, and reduces the mana cost of your Shadow spells by 2%/4%/6%.' hit_rating is PERCENTAGE POINTS and is NOT a valid STAT_CONVERSION_TARGET. Kept from the outgoing tree, corrected from 5 ranks to the real 3.",
       "connected_to": [
         "priest_shadow_darkness"
+      ],
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'We need to have spell hit, physical hit'): now spell hit (its spec deals mostly spells)"
       ]
     },
     {
@@ -417,12 +420,15 @@
       "hex_x": 1,
       "hex_y": 2,
       "effects": {
-        "hit_rating": 1.0,
-        "spell_damage": 0.01
+        "spell_damage": 0.01,
+        "spell_hit_rating": 1.0
       },
       "_source": "WotLK row 4: 'Your Shadow Word: Pain, Mind Flay and Vampiric Touch spells also increase the chance for harmful spells to hit by 1%/2%/3%.' DEPARTURE - the real talent is a DEBUFF on the target that helps the whole raid; a talent effect can never reach an ally and nothing applies a hit-chance debuff to an enemy. Delivered as the priest's own accuracy, with a small damage rider since the raid-wide half is lost. Kept from the outgoing tree, which was per-ability damage only.",
       "connected_to": [
         "priest_shadow_improved_devouring_plague"
+      ],
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'We need to have spell hit, physical hit'): now spell hit (its spec deals mostly spells)"
       ]
     },
     {

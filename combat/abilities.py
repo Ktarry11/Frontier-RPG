@@ -61,6 +61,19 @@ def _spell_power(caster):
     v = getattr(caster, "combat_spell_power", None)
     return v if v is not None else (getattr(caster, "spell_power", 0) or 0)
 
+def _hit_vs(caster, target, kind, default):
+    """The caster's hit chance for an attack of `kind` against THIS target (Character.hit_chance_vs: Classic's
+    table by level gap, spell vs physical, dual-wield white swings). Anything without the method (a Monster, a
+    pet template) keeps the chance it carried."""
+    fn = getattr(caster, "hit_chance_vs", None)
+    if fn is None or target is None:
+        return default
+    try:
+        return fn(kind, target)
+    except Exception:                                          # noqa: BLE001
+        return default
+
+
 def level_diff_multiplier(attacker_level, defender_level):
     """Symmetric damage multiplier from attacker/defender level gap.
 
@@ -2966,7 +2979,7 @@ class Ability:
             from combat.status_effects import StatusEffect, EffectType
             caster.apply_status_effect(StatusEffect(
                 "_cast_sure", self.name, EffectType.BUFF, 1,
-                stat_mods={"hit_rating": 100, "expertise": 100}, source_name=caster.name,
+                stat_mods={"hit_rating": 100, "spell_hit_rating": 100, "expertise": 100}, source_name=caster.name,
                 real_time_seconds=None))
 
             def unsure():
@@ -2994,7 +3007,7 @@ class Ability:
                 from combat.status_effects import StatusEffect, EffectType
                 caster.apply_status_effect(StatusEffect(
                     "_cast_fumble", run.name, EffectType.BUFF, 1,
-                    stat_mods={"hit_rating": 100}, source_name=caster.name, real_time_seconds=None))
+                    stat_mods={"hit_rating": 100, "spell_hit_rating": 100}, source_name=caster.name, real_time_seconds=None))
 
                 def unsure_crit():
                     effects = caster._effects()
@@ -3007,7 +3020,7 @@ class Ability:
                 from combat.status_effects import StatusEffect, EffectType
                 caster.apply_status_effect(StatusEffect(
                     "_cast_fumble", run.name, EffectType.BUFF, 1,
-                    stat_mods={"hit_rating": -1000}, source_name=caster.name, real_time_seconds=None))
+                    stat_mods={"hit_rating": -1000, "spell_hit_rating": -1000}, source_name=caster.name, real_time_seconds=None))
 
                 def unfumble():
                     effects = caster._effects()
@@ -3911,15 +3924,31 @@ class Ability:
                     # land with it. A white swing is the basic attack and
                     # keeps the off hand's own, much worse roll - see
                     # Character.get_weapon_damage_roll.
-                    off_chance = (None if self.is_basic_attack(caster)
-                                  else getattr(caster, "hit_chance_main_hand", None))
+                    # (15 Nov 2026: a special's off hand lands whenever the attack lands - 100 - and a white swing's
+                    # off hand rolls its own dual-wield chance against this target's level)
+                    # BOTH WEAPONS ONLY WHEN THE ABILITY SAYS SO (Kyle, 15 Nov 2026: "are you accounting for proper
+                    # abilities like stormstrike that hit for both weapons. Or a character with 2 weapons using
+                    # attack and hitting twice ... Wildclaw with primalist is another example"). Every special used
+                    # to add the off hand; in Classic a special is the main hand's (Sinister Strike, Heroic Strike)
+                    # unless it strikes with both (Stormstrike, Mutilate, Wildclaw: strikes_both_weapons). The
+                    # white swing always swings both hands, each rolling its own hit.
+                    _both = self.is_basic_attack(caster) or bool(getattr(self, "strikes_both_weapons", False))
+                    # a white swing's off hand rolls its own dual-wield chance against this target; a both-weapons
+                    # special's off hand lands whenever the attack lands (one roll, Classic)
+                    off_chance = (_hit_vs(caster, target, "white", None) if self.is_basic_attack(caster)
+                                  else 100.0)
                     weapon_dmg = (caster.get_weapon_damage_roll(
-                        offhand_hit_chance=off_chance)
+                        include_offhand=_both, offhand_hit_chance=off_chance)
                         if hasattr(caster, "get_weapon_damage_roll") else 0)
                     ap = caster.attack_power
                 base_damage = int(self.effect_value + ap * _scaling_coef(self, "ap", caster)) + weapon_dmg
-                base_damage = int(base_damage * self._damage_multiplier(
-                    caster, "physical", recipient=target) * aoe_mult)
+                _phys_mult = self._damage_multiplier(caster, "physical", recipient=target) * aoe_mult
+                base_damage = int(base_damage * _phys_mult)
+                # the two hands, for the log and for a white swing whose main hand misses
+                _oh_part = (getattr(caster, "_last_offhand_part", 0) or 0) if self.effect_type == "damage" else 0
+                _oh_missed = bool(getattr(caster, "_last_offhand_missed", False)) if self.effect_type == "damage" else False
+                _oh_note = (f" (off hand +{int(_oh_part * _phys_mult)})" if _oh_part
+                            else (" (off hand misses)" if _oh_missed else ""))
 
                 hit_lines = []
                 any_hit = False
@@ -3930,7 +3959,20 @@ class Ability:
                     # Casters/monsters without hit_chance_physical (e.g. Monster
                     # class) are treated as always hitting - only Character has
                     # a hit chance stat for now.
-                    if random.uniform(0, 100) > hit_chance:
+                    if random.uniform(0, 100) > _hit_vs(caster, t, "ranged" if self.effect_type == "ranged_damage" else ("white" if self.is_basic_attack(caster) else "ability"), hit_chance):
+                        # A WHITE SWING'S HANDS ARE INDEPENDENT: the main hand missed, the off hand may still land
+                        if self.is_basic_attack(caster) and _oh_part and t is recipients[0]:
+                            oh_damage = max(1, int(_oh_part * _phys_mult))
+                            actual = t.take_damage(oh_damage, "physical", attacker_level=getattr(caster, "level", None),
+                                                   attacker=caster)
+                            if actual:
+                                any_hit = True
+                                if first_hit_amount is None:
+                                    first_hit_amount = actual
+                                self._last_threat_events.append((t, actual, True))
+                                hit_lines.append(f"{actual} to {t.name} (main hand misses, off hand lands)")
+                                _oh_note = " (main hand misses, off hand lands)"
+                                continue
                         hit_lines.append(f"misses {t.name}")
                     else:
                         is_crit, crit_mult = self._roll_crit(caster, t, "physical")
@@ -3967,7 +4009,7 @@ class Ability:
                 if not any_hit:
                     return f"{caster.name}'s {self.name} misses {recipients[0].name}!"
                 return (f"{caster.name} uses {self.name} on {recipients[0].name} for {first_hit_amount} damage!"
-                        + (" (CRIT!)" if first_hit_crit else "") + self._echo_text(hit_lines))
+                        + (" (CRIT!)" if first_hit_crit else "") + _oh_note + self._echo_text(hit_lines))
             return f"{caster.name} uses {self.name}!"
         
         elif self.effect_type == "spell_damage":
@@ -3998,7 +4040,7 @@ class Ability:
                 first_hit_amount = None
                 first_hit_crit = False
                 for t in recipients:
-                    if random.uniform(0, 100) > hit_chance:
+                    if random.uniform(0, 100) > _hit_vs(caster, t, "spell", hit_chance):
                         hit_lines.append(f"misses {t.name}")
                     else:
                         is_crit, crit_mult = self._roll_crit(caster, t, "spell")
@@ -4100,7 +4142,7 @@ class Ability:
                 first_hit_amount = None
                 first_hit_crit = False
                 for t in recipients:
-                    if random.uniform(0, 100) > hit_chance:
+                    if random.uniform(0, 100) > _hit_vs(caster, t, "spell", hit_chance):
                         hit_lines.append(f"misses {t.name}")
                     else:
                         is_crit, crit_mult = self._roll_crit(caster, t, "spell")
@@ -4153,7 +4195,7 @@ class Ability:
 
                 hit_lines = []
                 for t in recipients:
-                    if random.uniform(0, 100) > hit_chance:
+                    if random.uniform(0, 100) > _hit_vs(caster, t, "spell", hit_chance):
                         hit_lines.append(f"misses {t.name}")
                     else:
                         is_crit, crit_mult = self._roll_crit(caster, t, "spell")
@@ -4270,7 +4312,7 @@ class Ability:
                 miss_names = []
                 detonations = []
                 for t in recipients:
-                    if random.uniform(0, 100) > hit_chance:
+                    if random.uniform(0, 100) > _hit_vs(caster, t, "spell" if school_for_stats == "magic" else "ability", hit_chance):
                         miss_names.append(t.name)
                         continue
                     # DETONATION (a Capstone): the whole DoT lands now instead of over time
@@ -5456,6 +5498,9 @@ def _ability_from_data(entry):
         ability.max_recipients = int(entry["max_recipients"])
     # CAST SPEED (Kyle, 15 Nov 2026: "Speed sets next turn"): quick / normal / slow, or a number of turns
     ability.cast_speed = cast_speed_value(entry.get("cast_speed"))
+    # A SPECIAL THAT STRIKES WITH BOTH WEAPONS (Stormstrike, Mutilate, Wildclaw...); every other special is the
+    # main hand's (15 Nov 2026)
+    ability.strikes_both_weapons = bool(entry.get("strikes_both_weapons"))
     return ability
 
 

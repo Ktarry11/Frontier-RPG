@@ -514,11 +514,14 @@
       "hex_x": 3,
       "hex_y": 4,
       "effects": {
-        "hit_rating": 2.0
+        "spell_hit_rating": 2.0
       },
       "_source": "WotLK row 5: 'Increases the range of your Judgement of Light and Judgement of Wisdom spells by 10/30 yards and increases your chance to hit by 2%/4%.' The hit half is built verbatim - range does not exist. hit_rating is PERCENTAGE POINTS and is NOT a valid STAT_CONVERSION_TARGET, so it can be granted directly like this but never converted into. The outgoing version was Judgement damage, which is Judgements of the Pure's job.",
       "connected_to": [
         "paladin_holy_holy_guidance"
+      ],
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'We need to have spell hit, physical hit'): now spell hit (its spec deals mostly spells)"
       ]
     },
     {

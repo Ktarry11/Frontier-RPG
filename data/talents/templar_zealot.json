@@ -62,12 +62,16 @@
       "hex_y": -6,
       "effects": {
         "agility_pct": 3,
+        "spell_hit_rating": 2,
         "hit_rating": 2
       },
       "connected_to": [
         "templar_zealot_bursting_impact"
       ],
-      "_source": "CoA over 2 ranks: 'Increases your Agility by 5% and your chance to hit by 3%.' Doubled for the two ranks. agility_pct takes percentage POINTS and hit_rating is a PERCENT - the two happen to read the same way here. Note hit and expertise are NOT duplicates: hit beats the attacker-side roll, expertise strips the target's avoidance, and they are separate checks."
+      "_source": "CoA over 2 ranks: 'Increases your Agility by 5% and your chance to hit by 3%.' Doubled for the two ranks. agility_pct takes percentage POINTS and hit_rating is a PERCENT - the two happen to read the same way here. Note hit and expertise are NOT duplicates: hit beats the attacker-side roll, expertise strips the target's avoidance, and they are separate checks.",
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'We need to have spell hit, physical hit'): counts for spell hit AND weapon hit - this class attacks mostly through spell-type strikes but still swings its weapons"
+      ]
     },
     {
       "talent_id": "templar_zealot_bursting_impact",

@@ -192,10 +192,14 @@ class Character(StatusEffectMixin):
         # Hit chance (Phase 5c): base miss chance that Hit Rating (a gear
         # secondary stat, same family as Crit/Haste) reduces. Attacks that
         # fail this roll deal 0 damage and log as a miss.
-        self.base_miss_chance_physical = 8.0   # WoW-classic-style baseline vs a same-level target
-        self.base_miss_chance_spell = 6.0       # Spells miss slightly less often than melee by convention
+        # Classic's same-level table (see BASE_MISS_PHYSICAL); recalculated from gear and talents on every recalc.
+        self.base_miss_chance_physical = 5.0
+        self.base_miss_chance_spell = 4.0
         self.hit_chance_physical = 100.0 - self.base_miss_chance_physical
         self.hit_chance_spell = 100.0 - self.base_miss_chance_spell
+        self.hit_rating = self.spell_hit_rating = 0.0
+        self.hit_rating_total = self.spell_hit_rating_total = 0.0
+        self.is_dual_wielding = False
         
         # Defense Stats
         self.health = 0
@@ -1293,6 +1297,7 @@ class Character(StatusEffectMixin):
         "crit": [("crit_chance_physical", "rating"), ("crit_chance_spell", "rating")],
         "dodge": [("dodge", "rating")], "parry": [("parry", "rating")], "block": [("block", "rating")],
         "haste": [("haste", "rating")], "hit": [("hit_rating", "rating")],
+        "spell_hit": [("spell_hit_rating", "rating")],
     }
 
     def _main_hand_average(self):
@@ -1562,9 +1567,13 @@ class Character(StatusEffectMixin):
         # ceiling is the worst miss a character can face, which is a
         # dual-wielder's main hand, so it is derived from the two constants
         # rather than written down separately and left to drift.
-        hit_rating = min(float(bonuses.get("hit_rating", 0) or 0),
-                         self.HIT_RATING_CAP)
+        # TWO STATS (Kyle, 15 Nov 2026): hit_rating for weapons, abilities and ranged, spell_hit_rating for spells.
+        # The raw totals are kept for the sheet, so a player can see when they are OVER the cap.
+        self.hit_rating_total = float(bonuses.get("hit_rating", 0) or 0)
+        self.spell_hit_rating_total = float(bonuses.get("spell_hit_rating", 0) or 0)
+        hit_rating = min(self.hit_rating_total, self.HIT_RATING_CAP)
         self.hit_rating = hit_rating
+        self.spell_hit_rating = min(self.spell_hit_rating_total, self.SPELL_HIT_CAP)
 
         # DUAL WIELDING COSTS ACCURACY. It did not before: an off-hand
         # weapon added half its damage to every swing (get_weapon_damage_roll)
@@ -1582,18 +1591,19 @@ class Character(StatusEffectMixin):
         # also why WoW bothers to show the two numbers separately.
         self.is_dual_wielding = bool(self._offhand_weapon())
 
-        self.base_miss_chance_spell = max(0.0, self.BASE_MISS_SPELL - hit_rating)
-        self.base_miss_chance_physical = max(
-            0.0, self.BASE_MISS_PHYSICAL - hit_rating)
+        # The same-level figures (a target of your own level); combat rolls miss_chance_vs against the real target.
+        self.base_miss_chance_spell = self.miss_chance_vs("spell", gap=0)
+        self.base_miss_chance_physical = self.miss_chance_vs("ability", gap=0)
 
         self.hit_chance_spell = 100.0 - self.base_miss_chance_spell
-        self.hit_chance_main_hand = 100.0 - self.base_miss_chance_physical
+        self.hit_chance_ability = 100.0 - self.base_miss_chance_physical
+        # THE WHITE SWING: a two-hander (or one weapon) swings like an ability; dual-wielding, BOTH hands' white
+        # swings pay the penalty (Classic) - the 1H vs 2H difference Kyle asked for.
+        self.hit_chance_main_hand = self.hit_chance_vs("white", gap=0)
         # With no off-hand weapon there is nothing to miss with, so it
         # reads as a full 100 rather than as a penalty nobody is paying.
-        self.hit_chance_off_hand = (
-            100.0 - max(0.0, self.BASE_MISS_PHYSICAL
-                        + self.DUAL_WIELD_MISS_PENALTY - hit_rating)
-            if self.is_dual_wielding else 100.0)
+        self.hit_chance_off_hand = (self.hit_chance_vs("white", gap=0)
+                                    if self.is_dual_wielding else 100.0)
         #: A SHOT IS NOT A SWING. Kyle, 6 Nov: "if a hunter (for example) is
         #: using 2 weapons and shoots a gun, the gun should be impacted by
         #: hit chance associated with the gun and not with the fact it has
@@ -1604,9 +1614,9 @@ class Character(StatusEffectMixin):
         #: accuracy a player can read and a future change to the dual-wield
         #: penalty cannot leak into it.
         self.hit_chance_ranged = 100.0 - self.base_miss_chance_physical
-        #: Kept as the name every existing caller uses (combat/abilities.py's
-        #: miss roll, Monster, the sim) - it is the main hand.
-        self.hit_chance_physical = self.hit_chance_main_hand
+        #: Kept as the name every existing caller uses (Monster, the sim, buffs) - it is an ability's (a special's)
+        #: chance, which no dual-wield penalty touches. The white swing reads hit_chance_main_hand.
+        self.hit_chance_physical = self.hit_chance_ability
         
         # Avoidance
         # dodge_rating/parry_rating/block_rating (real gear suffix stats,
@@ -1951,6 +1961,11 @@ class Character(StatusEffectMixin):
         if main_hand and main_hand.weapon_damage_max > 0:
             total += random.randint(main_hand.weapon_damage_min, main_hand.weapon_damage_max)
 
+        # what the off hand added to this roll (after the world curve), and whether it swung and missed - the
+        # combat log shows the two hands separately and a white swing's off hand can land when the main hand
+        # misses (combat/abilities.py, 15 Nov 2026)
+        self._last_offhand_part = 0
+        self._last_offhand_missed = False
         if include_offhand:
             off_hand = self._offhand_weapon()
             # THE OFF HAND SWINGS ON ITS OWN ACCURACY. Its damage used to be
@@ -1965,6 +1980,9 @@ class Character(StatusEffectMixin):
             if off_hand and random.uniform(0, 100) <= chance:
                 offhand_roll = random.randint(off_hand.weapon_damage_min, off_hand.weapon_damage_max)
                 total += int(offhand_roll * 0.5)  # Dual-wield offhand penalty (WoW convention)
+                self._last_offhand_part = int(round(int(offhand_roll * 0.5) * ws))
+            elif off_hand:
+                self._last_offhand_missed = True
 
         return int(round(total * ws))
 
@@ -3109,13 +3127,68 @@ class Character(StatusEffectMixin):
     #:
     #: The numbers are WoW's shape: a caster misses less than a swinger, and
     #: holding a second weapon is a big accuracy cost paid for extra damage.
-    BASE_MISS_PHYSICAL = 8.0
-    BASE_MISS_SPELL = 6.0
+    #:
+    #: CLASSIC'S HIT TABLE (Kyle, 15 Nov 2026: "I want hit rating, yes. We need to have spell hit, physical hit.
+    #: Different hit rating for spells vs skills vs 2H vs 1H." and "Main hand hit chance, off hand hit chance,
+    #: ability hit chance, spell hit chance, spell pen values. Writing what cap is. So people can over cap too").
+    #: Until then the miss chance ignored the target's level (8% physical, 6% spell, always), so hit rating was
+    #: worth the same against a boss as against a boar, and one stat served swords and spells alike.
+    #:   same level:   abilities and weapon swings 5%, spells 4%
+    #:   target +1/+2: physical +1/+2, spells +1/+2
+    #:   target +3:    physical 8% (Classic's boss), spells 17% (Classic's boss); each level past that +2 / +11
+    #:   dual wield:   WHITE swings of either hand +19% (abilities never pay it) - the 1H vs 2H difference
+    #: Two stats: HIT (weapons, abilities, ranged) and SPELL HIT (spells), both in percentage points (items carry
+    #: them as rating, RATING_PER_PCT to the percent). Spells always keep a 1% miss, as in Classic.
+    BASE_MISS_PHYSICAL = 5.0
+    BASE_MISS_SPELL = 4.0
     DUAL_WIELD_MISS_PENALTY = 19.0
-    #: The most hit rating that can ever do anything: enough to zero the
-    #: worst miss in the game, which is a dual-wielder's. Derived rather
-    #: than written down twice.
-    HIT_RATING_CAP = BASE_MISS_PHYSICAL + DUAL_WIELD_MISS_PENALTY
+    MIN_SPELL_MISS = 1.0
+    #: the gap a boss sits at, for the caps and the sheet
+    BOSS_LEVEL_GAP = 3
+    #: The most hit that can ever do anything: enough to zero the worst miss in the game, a dual-wielder's
+    #: white swing against a boss 3 levels up (5 + 3 + 19 = 27). Abilities and two-handers stop needing it at 8.
+    HIT_RATING_CAP = BASE_MISS_PHYSICAL + 3.0 + DUAL_WIELD_MISS_PENALTY
+    ABILITY_HIT_CAP = BASE_MISS_PHYSICAL + 3.0
+    #: Spell hit against a boss 3 up: 4 + 13 = 17% miss, of which 1% can never be removed.
+    SPELL_HIT_CAP = BASE_MISS_SPELL + 13.0 - MIN_SPELL_MISS
+
+    def _hit_pair(self, kind):
+        """'96.0% (boss 83.0%)': the chance against your own level and against a boss BOSS_LEVEL_GAP above."""
+        return (f"{self.hit_chance_vs(kind, gap=0):.1f}% "
+                f"(boss {self.hit_chance_vs(kind, gap=self.BOSS_LEVEL_GAP):.1f}%)")
+
+    @staticmethod
+    def _cap_text(have, cap, unit, note=""):
+        """'6.0% / 8% cap' - or, past it, '10.0% / 8% cap (+2.0% over)', so over-capping shows."""
+        fmt = "{:.1f}" if unit == "%" else "{:.0f}"
+        out = f"{fmt.format(have)}{unit} / {cap:.0f}{unit} cap{note}"
+        if have > cap + 1e-9:
+            out += f" (+{fmt.format(have - cap)}{unit} over)"
+        return out
+
+    @classmethod
+    def level_miss_extra(cls, kind, gap):
+        """Extra miss chance (percentage points) against a target `gap` levels above the attacker."""
+        if gap <= 0:
+            return 0.0
+        if kind == "spell":
+            return float(gap) if gap <= 2 else 13.0 + 11.0 * (gap - 3)
+        return float(gap) if gap <= 3 else 3.0 + 2.0 * (gap - 3)
+
+    def miss_chance_vs(self, kind, target=None, gap=None):
+        """Miss chance (percent) for an attack of `kind` - "spell", "ability" (a special: one roll, no dual-wield
+        penalty), "white" (a basic weapon swing) or "ranged" - against `target` (or a level `gap`)."""
+        if gap is None:
+            tl = getattr(target, "level", None) if target is not None else None
+            gap = (int(tl) - int(self.level or 1)) if tl is not None else 0
+        extra = self.level_miss_extra("spell" if kind == "spell" else "physical", gap)
+        if kind == "spell":
+            return max(self.MIN_SPELL_MISS, self.BASE_MISS_SPELL + extra - self.spell_hit_rating)
+        dw = self.DUAL_WIELD_MISS_PENALTY if (kind == "white" and self.is_dual_wielding) else 0.0
+        return max(0.0, min(99.0, self.BASE_MISS_PHYSICAL + extra + dw - self.hit_rating))
+
+    def hit_chance_vs(self, kind, target=None, gap=None):
+        return 100.0 - self.miss_chance_vs(kind, target, gap)
 
     MITIGATION_BASE = 200
     MITIGATION_PER_LEVEL = 35
@@ -4167,13 +4240,21 @@ class Character(StatusEffectMixin):
                 # governed by the gun and not by what is in the hands; the
                 # off-hand figure is the WHITE swing's, which is the only
                 # attack that pays the dual-wield penalty.
-                "hit_spell": f"{self.hit_chance_spell:.1f}%",
-                "hit_main_hand": f"{self.hit_chance_main_hand:.1f}%",
-                "hit_off_hand": (f"{self.hit_chance_off_hand:.1f}%"
-                                 if self.is_dual_wielding else "-"),
-                "hit_ranged": (f"{self.hit_chance_ranged:.1f}%"
+                # WoW's way (Kyle, 15 Nov 2026: "Main hand hit chance, off hand hit chance, ability hit chance,
+                # spell hit chance, spell pen values. Writing what cap is. So people can over cap too and it
+                # shows."): each chance against a target of your level AND against a boss 3 levels up, and each
+                # chase stat against the cap that matters for what you are holding, with anything past it shown.
+                "hit_spell": self._hit_pair("spell"),
+                "hit_ability": self._hit_pair("ability"),
+                "hit_main_hand": self._hit_pair("white"),
+                "hit_off_hand": (self._hit_pair("white") if self.is_dual_wielding else "-"),
+                "hit_ranged": (self._hit_pair("ranged")
                                if self.equipment.get_ranged_weapon() else "-"),
-                "hit_rating": f"{self.hit_rating:.0f} / {self.HIT_RATING_CAP:.0f}",
+                "hit_rating": self._cap_text(self.hit_rating_total,
+                                             self.HIT_RATING_CAP if self.is_dual_wielding else self.ABILITY_HIT_CAP,
+                                             "%", note=("" if self.is_dual_wielding else
+                                                        f" ({self.HIT_RATING_CAP:.0f}% dual wielding)")),
+                "spell_hit_rating": self._cap_text(self.spell_hit_rating_total, self.SPELL_HIT_CAP, "%"),
                 # SPELL PENETRATION BELONGS BESIDE HIT RATING, which is the
                 # whole point of its scale. Kyle, 6 Nov: "I kind of want it
                 # in line with hit rating. It's unfair for a physical DPS to
@@ -4188,9 +4269,8 @@ class Character(StatusEffectMixin):
                 # armour tops out near 36%.
                 "armor_penetration": (
                     f"{(getattr(self, 'armor_penetration_pct', 0.0) or 0.0) * 100:.0f}%"),
-                "spell_penetration": (
-                    f"{getattr(self, 'spell_penetration', 0) or 0:.0f}"
-                    f" / {self.SPELL_PEN_USEFUL_MAX:.0f}"),
+                "spell_penetration": self._cap_text(getattr(self, "spell_penetration", 0) or 0,
+                                                    self.SPELL_PEN_USEFUL_MAX, ""),
             },
             "defense": {
                 # display_health rounds the real internal float (Kyle:

@@ -156,12 +156,15 @@
       "hex_x": 1,
       "hex_y": -4,
       "effects": {
-        "hit_rating": 1.0,
-        "all_ability_cost_pct": 0.02
+        "all_ability_cost_pct": 0.02,
+        "spell_hit_rating": 1.0
       },
       "_source": "WotLK row 1 ('Precision'): 'Reduces the mana cost and increases your chance to hit with spells by 1%/2%/3%.' Built with BOTH halves, where the outgoing version had hit_rating alone. The display name keeps the outgoing tree's 'Elemental Precision' so nothing referring to it by name breaks. all_ability_cost_pct is a FRACTION where POSITIVE IS A REDUCTION and FLIPS to points inside a status effect.",
       "connected_to": [
         "mage_frost_ice_floes"
+      ],
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'We need to have spell hit, physical hit'): now spell hit (its spec deals mostly spells)"
       ]
     },
     {

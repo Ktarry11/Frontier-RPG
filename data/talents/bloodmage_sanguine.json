@@ -25,12 +25,16 @@
       "hex_y": -6,
       "effects": {
         "shadow_spell_damage": 0.03,
+        "spell_hit_rating": 2,
         "hit_rating": 2
       },
       "connected_to": [
         "bloodmage_sanguine_swarm_of_flies"
       ],
-      "_source": "CoA over 2 ranks: 'Increases your Shadow damage dealt by 4% and increases your hit chance by 3%.' Authored as the full-investment ceiling at one rank and left to the rank policy."
+      "_source": "CoA over 2 ranks: 'Increases your Shadow damage dealt by 4% and increases your hit chance by 3%.' Authored as the full-investment ceiling at one rank and left to the rank policy.",
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'We need to have spell hit, physical hit'): counts for spell hit AND weapon hit - this class attacks mostly through spell-type strikes but still swings its weapons"
+      ]
     },
     {
       "talent_id": "bloodmage_sanguine_cunning_of_atherann",

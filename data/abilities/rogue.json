@@ -406,8 +406,10 @@
       },
       "_source": "Combo-point GENERATOR, wired 5 Nov 2026 when the Rogue gained combo points (Kyle's call). Grants 20 of the 0-100 combo pool - one combo point on the same scale Templar already uses. builder, Assassination's core.",
       "_tuning": [
-        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
-      ]
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py",
+        "15 Nov 2026 (Kyle: 'abilities like stormstrike that hit for both weapons ... Wildclaw'): strikes_both_weapons - the off hand lands with it when dual-wielding. Every other special is main-hand only, as in Classic."
+      ],
+      "strikes_both_weapons": true
     },
     {
       "ability_id": "rogue_cold_blood",
@@ -1121,7 +1123,11 @@
       "icon_id": null,
       "is_instant": true,
       "requires_talent": true,
-      "_source": "Gated 5 Nov 2026, same reason as Blade Flurry: a real unlock node in rogue_combat against an ungated ability. Killing Spree is the real Combat CAPSTONE in 3.3.5a (row 10)."
+      "_source": "Gated 5 Nov 2026, same reason as Blade Flurry: a real unlock node in rogue_combat against an ungated ability. Killing Spree is the real Combat CAPSTONE in 3.3.5a (row 10).",
+      "strikes_both_weapons": true,
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'abilities like stormstrike that hit for both weapons ... Wildclaw'): strikes_both_weapons - the off hand lands with it when dual-wielding. Every other special is main-hand only, as in Classic."
+      ]
     }
   ]
 }

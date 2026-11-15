@@ -53,11 +53,14 @@
       "hex_x": 0,
       "hex_y": -6,
       "effects": {
-        "hit_rating": 1.0,
-        "all_ability_cost_pct": 0.01
+        "all_ability_cost_pct": 0.01,
+        "spell_hit_rating": 1.0
       },
       "_source": "WotLK row 0, built verbatim with both halves: 'Increases your chance to hit and reduces the mana cost of your Arcane spells by 1%/2%/3%.' There is no way to scope either to one school. all_ability_cost_pct is a FRACTION where POSITIVE IS A REDUCTION.",
-      "connected_to": []
+      "connected_to": [],
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'We need to have spell hit, physical hit'): now spell hit (its spec deals mostly spells)"
+      ]
     },
     {
       "talent_id": "mage_arcane_arcane_stability",
