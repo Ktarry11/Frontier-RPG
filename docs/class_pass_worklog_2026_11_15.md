@@ -230,6 +230,18 @@ PYTHONPATH=. python3 tools/calibrate_spec_auras.py --kind healing --passes 5 --w
 
 **UI note for later** (backlog item 10): hotbar icons with hover tooltips (amount, cast speed, cost), and party buff icons.
 
+## Talents and kits, 17:25–17:40 UTC
+
+- **Dead talents: 99 → 0** (`tools/audit_dead_talent_keys.py`). Stat conversions are implemented (`Character._apply_stat_conversions`, `CONVERSION_TARGETS`). Writhing Mass and Void Resilience now read `shadow_damage_taken_pct`. The audit now knows the engine's dynamic families: per-school and combined-school keys, `ability_<id>_*`, and `scale_talent_key` read from data.
+- **Agility melee:** `Character.AGI_MELEE_AP` 0.5 → 1.0 (Classic). Stat tooltips show per-point values at your level.
+- `ENERGY_PER_TURN` (25) named but unchanged: measured from 25 to 40, it would push Combat and Subtlety past the pack without fixing Feral or Assassination.
+- **Cast speeds on classic damage spells** (`tools/apply_cast_speeds.py`): slow Pyroblast, Starfire, Aimed Shot; quick Fire Blast, Ice Lance, Searing Pain, Conflagrate, Mind Blast, the shocks, Moonfire, Arcane Shot, Holy Shock, Hammer of Wrath.
+- `sim_class_balance.plan` ranks attacks and heals per turn of time.
+- **Cross-tree talent references** (validate_class): fixed 9 classic talents (Improved Healing → Heal and Greater Heal, Searing Light, Natural Shapeshifter, Incanter's Absorption, Improved Stings, Surprise Attacks, Opportunity). `validate_class`: 0 errors on all 9 classic classes and 20 of 21 CoA classes.
+- **For Kyle:** Primalist's 4 shared core abilities (Seismic Wave, Seismic Tremor, Terrasurge, Primal Rush) are each unlocked by one tree but referenced by all four, giving 18 dead references. The recommendation is to make them baseline and turn each unlock node into "Improved X". **Not done; it needs his call.**
+- Starcaller Sentinel's Keen Sight converts 10% of Intellect to ranged AP, against 99% on the same key elsewhere. Flagged and left alone.
+- Meditation, Arcane Meditation and Intensity are 17% a rank (51%); seven mana refunds were rounded to whole percents. QA fixes: `qa_trinket_procs` (world curve), `qa_spellbook_refine` (Zap's text), `qa_talent_clean_numbers`.
+
 ## Parked (Kyle said note it only; class balance comes first)
 
 - **16:41 UTC.** Hand-authored boss drops convert from percentage hit, crit, dodge, parry and so on to RATINGS (10 rating = 1%, like gems and crafted gear), cleaning out the "trash drip" stats. This is item 8 in `claude/playtest_backlog_2026_11_14.md`.

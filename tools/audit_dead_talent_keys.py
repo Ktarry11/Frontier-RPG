@@ -93,6 +93,11 @@ def main():
     ap.add_argument("--verbose", action="store_true")
     args = ap.parse_args()
     src = source_text()
+    # keys read BY NAME from data: a proc's grant_resource.scale_talent_key (Venomancer's Exposed Flesh reads
+    # Adrenal Carapace's exposed_flesh_rage_pct this way, combat/status_effects.py)
+    for f in glob.glob("data/**/*.json", recursive=True):
+        for m in re.finditer(r'"scale_talent_key"\s*:\s*"([a-z_]+)"', Path(f).read_text(encoding="utf-8", errors="ignore")):
+            src += f'\n"{m.group(1)}"'
     ability_ids = set()
     for f in glob.glob("data/abilities/*.json"):
         d = json.load(open(f, encoding="utf-8"))
