@@ -436,7 +436,7 @@ def _dress(L):
     b("orc_earth_lodge", 50, 54, 10)
     p("vot_totem_pole", 25, 52, 7)
     p("vot_totem_pole", 43, 52, 7)
-    b("orc_stone_watch_tower", 13, 21, 12, nudge=3)
+    b("orc_watch_tower", 13, 21, 12, nudge=3)
     b("orc_watch_tower", 51, 21, 12, nudge=3)
     op("war_banner", 28, 56, 6, road_ok=True)
     op("war_banner", 40, 56, 6, road_ok=True)
@@ -474,7 +474,7 @@ def _dress(L):
     b("orc_officers_house", 189, 36, 9)
     # (a small house was drawn through the front of the hunters' longhouse)
     p("weapon_rack", 182, 38, 4)
-    b("orc_watch_tower", 182, 21, 12, nudge=3)
+    b("orc_stone_watch_tower", 182, 21, 12, nudge=3)
 
     # ================================================================ VALLEY OF STRENGTH
     b("orc_war_forge", 22, 92, 14)
