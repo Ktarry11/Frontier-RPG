@@ -412,25 +412,25 @@
           "rank": 1,
           "level_req": 34,
           "cost": 38,
-          "effect_value": 43
+          "effect_value": 84
         },
         {
           "rank": 2,
           "level_req": 42,
           "cost": 43,
-          "effect_value": 49
+          "effect_value": 96
         },
         {
           "rank": 3,
           "level_req": 50,
           "cost": 49,
-          "effect_value": 54
+          "effect_value": 106
         },
         {
           "rank": 4,
           "level_req": 58,
           "cost": 56,
-          "effect_value": 60
+          "effect_value": 118
         }
       ],
       "icon_id": null,
@@ -442,7 +442,11 @@
         "frost"
       ],
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.37x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.37x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026, class pass: every rank x1.96 - its total was 0.41x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ],
+      "_over_time_lifted": [
+        1.96
       ]
     },
     {
@@ -459,36 +463,42 @@
           "rank": 1,
           "level_req": 26,
           "cost": 32,
-          "effect_value": 120
+          "effect_value": 186
         },
         {
           "rank": 2,
           "level_req": 34,
           "cost": 36,
-          "effect_value": 147
+          "effect_value": 228
         },
         {
           "rank": 3,
           "level_req": 41,
           "cost": 40,
-          "effect_value": 174
+          "effect_value": 270
         },
         {
           "rank": 4,
           "level_req": 48,
           "cost": 43,
-          "effect_value": 201
+          "effect_value": 312
         },
         {
           "rank": 5,
           "level_req": 56,
           "cost": 47,
-          "effect_value": 228
+          "effect_value": 354
         }
       ],
       "icon_id": null,
       "_source": "CoA: Domination's 'Deathwind for sustain on a tough single target or when you've overpulled', and Harvest's Hungering Scythe extends it, so both specs want it. The real ability is a ground zone; this engine has no positional areas, so it is a self heal-over-time.",
-      "target_type": "self"
+      "target_type": "self",
+      "_over_time_lifted": [
+        1.55
+      ],
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x1.55 - its total was 0.51x what a hot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ]
     },
     {
       "ability_id": "reaper_sinister_litany",
@@ -992,37 +1002,37 @@
           "rank": 1,
           "level_req": 14,
           "cost": 28,
-          "effect_value": 34
+          "effect_value": 67
         },
         {
           "rank": 2,
           "level_req": 22,
           "cost": 32,
-          "effect_value": 44
+          "effect_value": 87
         },
         {
           "rank": 3,
           "level_req": 30,
           "cost": 36,
-          "effect_value": 54
+          "effect_value": 106
         },
         {
           "rank": 4,
           "level_req": 38,
           "cost": 41,
-          "effect_value": 64
+          "effect_value": 126
         },
         {
           "rank": 5,
           "level_req": 46,
           "cost": 47,
-          "effect_value": 74
+          "effect_value": 146
         },
         {
           "rank": 6,
           "level_req": 54,
           "cost": 54,
-          "effect_value": 84
+          "effect_value": 166
         }
       ],
       "icon_id": null,
@@ -1035,7 +1045,13 @@
       "generates": {
         "resource": "souls",
         "amount": 10
-      }
+      },
+      "_over_time_lifted": [
+        1.97
+      ],
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x1.97 - its total was 0.41x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ]
     },
     {
       "ability_id": "reaper_reliquary_of_the_lost",

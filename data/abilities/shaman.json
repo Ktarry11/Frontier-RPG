@@ -244,8 +244,10 @@
       "_level_note": "Rank 1 moved from level 10 to 6, 29 Oct 2026. Kyle's call on the early-game finding: the class was soft at levels 5-20 and fine from 30, and the cause was how FEW damage buttons it had early rather than how hard they hit. Values unchanged at every rank, so nothing moves at 60.",
       "cast_speed": "quick",
       "_tuning": [
-        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)"
-      ]
+        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)",
+        "15 Nov 2026, deep dive: damage_school fire - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it"
+      ],
+      "damage_school": "fire"
     },
     {
       "ability_id": "shaman_healing_wave",
@@ -957,7 +959,11 @@
       "_design_note": "Fire totem. PLACEHOLDER: real WOTLK Searing Totem repeatedly attacks the nearest enemy on its own for as long as it stands - no persistent-independent-actor totem system exists here, so this applies a direct Fire damage-over-time effect to the target instead.",
       "exclusive_group": "shaman_totem_fire",
       "target_type": "enemy",
-      "_source": "Element slot 'fire' added 6 Nov 2026 as exclusive_group 'shaman_totem_fire', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks. target_type was ABSENT, and abilities.py:199 reads a missing target_type as friendly (anything not in enemy/enemy_aoe). A spell_dot the engine believed was a friendly spell. Set to 'enemy' - the real Searing Totem attacks one target at a time."
+      "_source": "Element slot 'fire' added 6 Nov 2026 as exclusive_group 'shaman_totem_fire', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks. target_type was ABSENT, and abilities.py:199 reads a missing target_type as friendly (anything not in enemy/enemy_aoe). A spell_dot the engine believed was a friendly spell. Set to 'enemy' - the real Searing Totem attacks one target at a time.",
+      "damage_school": "fire",
+      "_tuning": [
+        "15 Nov 2026, deep dive: damage_school fire - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it"
+      ]
     },
     {
       "ability_id": "shaman_mana_spring_totem",
@@ -1650,7 +1656,11 @@
       "icon_id": null,
       "_design_note": "Fire totem. Deals Fire damage to all nearby enemies. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this applies instantly instead.",
       "exclusive_group": "shaman_totem_fire",
-      "_source": "Element slot 'fire' added 6 Nov 2026 as exclusive_group 'shaman_totem_fire', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks."
+      "_source": "Element slot 'fire' added 6 Nov 2026 as exclusive_group 'shaman_totem_fire', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks.",
+      "damage_school": "fire",
+      "_tuning": [
+        "15 Nov 2026, deep dive: damage_school fire - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it"
+      ]
     },
     {
       "ability_id": "shaman_grounding_totem",

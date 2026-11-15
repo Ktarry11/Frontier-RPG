@@ -1539,19 +1539,19 @@
           "rank": 1,
           "level_req": 34,
           "cost": 34,
-          "effect_value": 80
+          "effect_value": 115
         },
         {
           "rank": 2,
           "level_req": 46,
           "cost": 41,
-          "effect_value": 97
+          "effect_value": 139
         },
         {
           "rank": 3,
           "level_req": 56,
           "cost": 48,
-          "effect_value": 114
+          "effect_value": 164
         }
       ],
       "generates": {
@@ -1559,7 +1559,13 @@
         "amount": 20
       },
       "icon_id": null,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_over_time_lifted": [
+        1.43
+      ],
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x1.43 - its total was 0.56x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ]
     },
     {
       "ability_id": "cultist_psychic_suppression",

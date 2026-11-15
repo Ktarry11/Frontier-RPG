@@ -271,11 +271,17 @@ def plan(char):
         # the base number alone, Arcane Missiles (slow, 1.5x) tied Fireball per turn and lost on file order, so an
         # Arcane Mage with +15% Arcane Missiles from Arcane Stability kept casting Fireball. The ability's own
         # damage talents (ability_<id>_damage) now weigh in.
+        # The school's talents too (Shadow Weaving-style "+X% Shadow damage", through the engine's own
+        # _school_damage_bonus): a Shadow Priest ranked Smite and Holy Fire above Mind Flay without them.
         bonus = 0.0
         try:
             bonus = float(char.get_talent_effect(f"ability_{a.ability_id}_damage", 0.0) or 0.0)
         except Exception:                                      # noqa: BLE001
             bonus = 0.0
+        try:
+            bonus += float(a._school_damage_bonus(char) or 0.0)
+        except Exception:                                      # noqa: BLE001
+            pass
         # PER TURN OF TIME (cast speed, 15 Nov 2026): a slow 1.5-turn spell's number is spread over 1.5 turns, a
         # quick 0.6-turn one's over 0.6 - ranked on raw size, the planner would always reach for the slow nuke
         return per * (1.0 + bonus) / (getattr(a, "cast_speed", 1.0) or 1.0)

@@ -21,7 +21,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-FLOOR, TARGET, MAX_FACTOR = 0.40, 0.70, 6.0
+FLOOR, TARGET, MAX_FACTOR = 0.60, 0.80, 6.0
+#: SECOND ROUND (deep dive, 15 Nov 2026): the first used 0.40 -> 0.70. The deep dive found the Shadow Priest casting
+#: Smite over Mind Flay (765 total at 58 against a 1,060 Smite, 0.41x of expected) - 34 DoTs and HoTs sat at
+#: 0.4-0.6x: Mind Flay, Curse of Agony, Unstable Affliction, Insect Swarm, Renew, Deadly Poison, Hemorrhage and
+#: two dozen CoA ones. Raised to 0.60 -> 0.80. An ability lifted in the first round is lifted again only if it is
+#: still under the floor (the round marker is now a list).
 OVER_TIME = {"dot", "spell_dot", "hot"}
 BUILT = {"combo", "static", "life_force", "deathfire", "souls", "insanity", "felfury", "focus", "archery_points",
          "vitality", "rage"}
@@ -58,7 +63,7 @@ def main():
         for e in (L.values() if isinstance(L, dict) else L):
             if not isinstance(e, dict) or e.get("effect_type") not in OVER_TIME or not e.get("ranks"):
                 continue
-            if (e.get("cooldown") or 0) >= 10 or e.get("_over_time_lifted"):
+            if (e.get("cooldown") or 0) >= 10:
                 continue
             r = expected_ratio(e)
             if r is None or r >= FLOOR:
@@ -68,7 +73,8 @@ def main():
             for x in e["ranks"]:
                 if x.get("effect_value"):
                     x["effect_value"] = max(1, round(x["effect_value"] * factor))
-            e["_over_time_lifted"] = round(factor, 2)
+            prev = e.get("_over_time_lifted")
+            e["_over_time_lifted"] = ([prev] if isinstance(prev, (int, float)) else (prev or [])) + [round(factor, 2)]
             e.setdefault("_tuning", []).append(
                 f"15 Nov 2026, class pass: every rank x{factor:.2f} - its total was {r:.2f}x what a "
                 f"{e['effect_type']} of its level, cooldown and cast speed should total (a CoA per-tick number entered "

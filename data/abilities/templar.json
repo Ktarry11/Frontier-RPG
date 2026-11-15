@@ -515,44 +515,47 @@
           "rank": 1,
           "level_req": 16,
           "cost": 20,
-          "effect_value": 58
+          "effect_value": 137
         },
         {
           "rank": 2,
           "level_req": 24,
           "cost": 20,
-          "effect_value": 74
+          "effect_value": 175
         },
         {
           "rank": 3,
           "level_req": 32,
           "cost": 20,
-          "effect_value": 90
+          "effect_value": 213
         },
         {
           "rank": 4,
           "level_req": 40,
           "cost": 20,
-          "effect_value": 106
+          "effect_value": 251
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 20,
-          "effect_value": 122
+          "effect_value": 289
         },
         {
           "rank": 6,
           "level_req": 56,
           "cost": 20,
-          "effect_value": 138
+          "effect_value": 327
         }
       ],
       "icon_id": null,
       "_source": "CoA class tree: 'Leap at an enemy with divine force, stunning them for 6 seconds, dealing AP Holy damage, and interrupting non-player spellcasting'. The stun is real; the interrupt has no engine hook, and Interdict below carries the caster-shutdown half of the kit.",
       "target_type": "enemy",
       "damage_school": "holy",
-      "is_stun": true
+      "is_stun": true,
+      "_tuning": [
+        "15 Nov 2026, deep dive: every rank x2.37 - a spender at 0.34x of what a spender of its level, cooldown and cast speed should hit for (tools/audit_ability_lines.py); now 0.8x"
+      ]
     },
     {
       "ability_id": "templar_interdict",
@@ -1279,8 +1282,10 @@
       "_source": "CoA Crusader: 'Crush an enemy with argent fervor ... healing you equal to the damage dealt, and extending the duration of your Oath Chain by 3 sec', 'keep Argent Blade flowing to extend the Oath Chain'. There is no Oath Chain timer, so extending it becomes generating an Oath, which is the same thing: the Combo bank IS the Chain. The heal goes through heal_scope lowest_ally, so solo it lands on the Templar as written, and in a party it finds whoever needs it more.",
       "target_type": "enemy",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.30x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.30x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026, deep dive: damage_school holy - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it"
+      ],
+      "damage_school": "holy"
     },
     {
       "ability_id": "templar_titanstrike",
@@ -1340,8 +1345,10 @@
       "target_type": "enemy",
       "execute_threshold_pct": 35,
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.41x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.41x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026, deep dive: damage_school holy - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it"
+      ],
+      "damage_school": "holy"
     },
     {
       "ability_id": "templar_righteous_tempest",

@@ -444,7 +444,11 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Strike an enemy, dealing 100% Weapon Damage plus 26, scaling with your parry rating, and healing you for 50% of the damage dealt.' The spec's whole identity - 'Noctis Blade is your on-demand self-heal, an active strike on a short cooldown whose damage and self-heal both scale with your parry rating.' damage_and_heal is the real effect_type for that. Scaling off parry specifically is not something an ability can declare, so the TREE does it: Dusk Knight converts Agility into parry and Dark Penance raises it.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "damage_school": "shadow",
+      "_tuning": [
+        "15 Nov 2026, deep dive: damage_school shadow - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it"
+      ]
     },
     {
       "ability_id": "witch_hunter_pommel_smash",
@@ -1755,37 +1759,37 @@
           "rank": 1,
           "level_req": 20,
           "cost": 25,
-          "effect_value": 54
+          "effect_value": 131
         },
         {
           "rank": 2,
           "level_req": 27,
           "cost": 25,
-          "effect_value": 62
+          "effect_value": 150
         },
         {
           "rank": 3,
           "level_req": 34,
           "cost": 25,
-          "effect_value": 70
+          "effect_value": 170
         },
         {
           "rank": 4,
           "level_req": 41,
           "cost": 25,
-          "effect_value": 78
+          "effect_value": 189
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 25,
-          "effect_value": 87
+          "effect_value": 211
         },
         {
           "rank": 6,
           "level_req": 55,
           "cost": 25,
-          "effect_value": 95
+          "effect_value": 231
         }
       ],
       "icon_id": null,
@@ -1793,7 +1797,8 @@
       "target_type": "enemy",
       "damage_school": "fire",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.41x steeper than it, biggest single-rank jump 1.13x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.41x steeper than it, biggest single-rank jump 1.13x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026, deep dive: every rank x2.43 - a spender at 0.33x of what a spender of its level, cooldown and cast speed should hit for (tools/audit_ability_lines.py); now 0.8x"
       ]
     },
     {

@@ -668,32 +668,36 @@
           "rank": 1,
           "level_req": 26,
           "cost": 20,
-          "effect_value": 47
+          "effect_value": 90
         },
         {
           "rank": 2,
           "level_req": 38,
           "cost": 27,
-          "effect_value": 63
+          "effect_value": 121
         },
         {
           "rank": 3,
           "level_req": 50,
           "cost": 34,
-          "effect_value": 79
+          "effect_value": 151
         },
         {
           "rank": 4,
           "level_req": 58,
           "cost": 38,
-          "effect_value": 87
+          "effect_value": 167
         }
       ],
       "icon_id": null,
       "damage_school": "holy",
       "is_stun": true,
       "_tuning": [
-        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py",
+        "15 Nov 2026, class pass: every rank x1.91 - its total was 0.42x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ],
+      "_over_time_lifted": [
+        1.91
       ]
     },
     {
@@ -875,31 +879,37 @@
           "rank": 1,
           "level_req": 20,
           "cost": 26,
-          "effect_value": 44
+          "effect_value": 87
         },
         {
           "rank": 2,
           "level_req": 30,
           "cost": 32,
-          "effect_value": 54
+          "effect_value": 107
         },
         {
           "rank": 3,
           "level_req": 42,
           "cost": 39,
-          "effect_value": 67
+          "effect_value": 133
         },
         {
           "rank": 4,
           "level_req": 56,
           "cost": 48,
-          "effect_value": 81
+          "effect_value": 161
         }
       ],
       "icon_id": null,
       "damage_school": [
         "holy",
         "fire"
+      ],
+      "_over_time_lifted": [
+        1.99
+      ],
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x1.99 - its total was 0.40x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
       ]
     },
     {
@@ -1561,13 +1571,19 @@
           "rank": 1,
           "level_req": 50,
           "cost": 35,
-          "effect_value": 50
+          "effect_value": 73
         }
       ],
       "icon_id": null,
       "damage_school": [
         "holy",
         "fire"
+      ],
+      "_over_time_lifted": [
+        1.47
+      ],
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x1.47 - its total was 0.54x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
       ]
     },
     {

@@ -1269,37 +1269,37 @@
           "rank": 1,
           "level_req": 16,
           "cost": 40,
-          "effect_value": 116
+          "effect_value": 205
         },
         {
           "rank": 2,
           "level_req": 24,
           "cost": 40,
-          "effect_value": 137
+          "effect_value": 242
         },
         {
           "rank": 3,
           "level_req": 32,
           "cost": 40,
-          "effect_value": 159
+          "effect_value": 281
         },
         {
           "rank": 4,
           "level_req": 40,
           "cost": 40,
-          "effect_value": 181
+          "effect_value": 319
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 40,
-          "effect_value": 203
+          "effect_value": 358
         },
         {
           "rank": 6,
           "level_req": 56,
           "cost": 40,
-          "effect_value": 224
+          "effect_value": 395
         }
       ],
       "icon_id": null,
@@ -1311,7 +1311,11 @@
       ],
       "requires_talent": true,
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.57x steeper than it, biggest single-rank jump 1.30x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.57x steeper than it, biggest single-rank jump 1.30x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026, class pass: every rank x1.76 - its total was 0.45x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ],
+      "_over_time_lifted": [
+        1.76
       ]
     },
     {

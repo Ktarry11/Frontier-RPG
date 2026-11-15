@@ -158,8 +158,10 @@
       "cast_speed": "quick",
       "_tuning": [
         "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)",
-        "15 Nov 2026, class pass: every rank x0.65 - it sat at 2.47x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
-      ]
+        "15 Nov 2026, class pass: every rank x0.65 - it sat at 2.47x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
+        "15 Nov 2026, deep dive: damage_school arcane - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it"
+      ],
+      "damage_school": "arcane"
     },
     {
       "ability_id": "druid_rejuvenation",
@@ -630,30 +632,38 @@
           "rank": 1,
           "level_req": 20,
           "cost": 45,
-          "effect_value": 46
+          "effect_value": 87
         },
         {
           "rank": 2,
           "level_req": 30,
           "cost": 55,
-          "effect_value": 57
+          "effect_value": 108
         },
         {
           "rank": 3,
           "level_req": 42,
           "cost": 68,
-          "effect_value": 70
+          "effect_value": 132
         },
         {
           "rank": 4,
           "level_req": 56,
           "cost": 83,
-          "effect_value": 85
+          "effect_value": 161
         }
       ],
       "requires_talent": true,
       "icon_id": null,
-      "_design_note": "Not learned from level alone - granted by the Insect Swarm talent in the Balance tree. Swarms the target with insects, dealing Nature damage over time."
+      "_design_note": "Not learned from level alone - granted by the Insect Swarm talent in the Balance tree. Swarms the target with insects, dealing Nature damage over time.",
+      "damage_school": "nature",
+      "_tuning": [
+        "15 Nov 2026, deep dive: damage_school nature - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it",
+        "15 Nov 2026, class pass: every rank x1.89 - its total was 0.42x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ],
+      "_over_time_lifted": [
+        1.89
+      ]
     },
     {
       "ability_id": "druid_starfall",
@@ -689,8 +699,10 @@
       "icon_id": null,
       "_design_note": "Not learned from level alone - granted by the Starfall talent in the Balance tree. Calls down a rain of stars, dealing Arcane damage to all enemies over time.",
       "_tuning": [
-        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
-      ]
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py",
+        "15 Nov 2026, deep dive: damage_school arcane - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it"
+      ],
+      "damage_school": "arcane"
     },
     {
       "ability_id": "druid_typhoon",
