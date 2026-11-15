@@ -190,12 +190,29 @@ def _next_rarity(current_rarity):
     return order[idx + 1]
 
 
+#: NO KIT MAKES A LEGENDARY. Kyle, 15 Nov 2026: "A kit can't upgrade past epic! Hard no." Until then a
+#: crafted epic's first kit lifted it to legendary; none could in practice only because no wood or
+#: material with an epic had a kit. Now a kit on an epic keeps it epic and only does the stat bump.
+KIT_RARITY_CAP = "epic"
+
+
+def kit_rarity_for(current_rarity):
+    """The rarity a kit's first application leaves an item at: one rank up, never above epic. An epic
+    stays epic. None only for a rarity that isn't on the ladder at all."""
+    order = _rarity_order()
+    if current_rarity not in order:
+        return None
+    cap = order.index(KIT_RARITY_CAP)
+    idx = order.index(current_rarity)
+    if idx >= cap:
+        return current_rarity
+    return order[idx + 1]
+
+
 def next_rarity_for(current_rarity):
-    """Public wrapper around _next_rarity - the UI needs to display what
-    rank a kit would move an item TO before the player applies it (e.g.
-    "Common -> Uncommon"), without reaching into a private-named
-    helper."""
-    return _next_rarity(current_rarity)
+    """The rank a kit would move an item TO, for the UI ("Common -> Uncommon"; an epic shows
+    "Epic -> Epic", since a kit never makes a legendary - see KIT_RARITY_CAP)."""
+    return kit_rarity_for(current_rarity)
 
 
 #: Maximum times any kit can ever be applied to one item - exactly 2 per
@@ -328,7 +345,8 @@ def upgrade_item(character, item, kit_material_id):
     automatically sees the upgrade with no swap-out step needed anywhere
     else in the codebase).
 
-    1ST application (item.upgrade_count == 0 going in): rarity moves up exactly one rank, every stat gets +10% (at least
+    1ST application (item.upgrade_count == 0 going in): rarity moves up exactly one rank, never past epic (an epic stays
+    epic: KIT_RARITY_CAP), every stat gets +10% (at least
     +1 each), item level +2, and the item is tagged "Refined". A stat-less common piece first receives the stats its new
     rarity carries. The exact per-stat delta is recorded on item.upgrade_deltas.
 
@@ -348,7 +366,7 @@ def upgrade_item(character, item, kit_material_id):
 
     if item.upgrade_count == 0:
         from_rarity = item.rarity
-        to_rarity = _next_rarity(from_rarity)
+        to_rarity = kit_rarity_for(from_rarity)      # capped at epic (Kyle: "A kit can't upgrade past epic")
         if to_rarity is None:
             # No real crafted recipe currently outputs anything high
             # enough on the ladder to hit this - defensive only.

@@ -127,9 +127,13 @@ The new arrows and bolts were re-tiered the same way.
 
 ## For Kyle
 
-- **Kits on crafted epics.** An upgrade kit lifts any crafted piece one rarity, so a crafted EPIC becomes
-  LEGENDARY. That was already how the system worked; it just never came up, because no wood with an epic had
-  a kit until now. Cap it at epic (stats-only bump)?
+- **Kits on crafted epics: DONE.** Kyle: "No. A kit can't upgrade past epic! Hard no."
+  - `world/upgrade_manager.KIT_RARITY_CAP = "epic"`: a kit's first application on an epic leaves it epic and
+    still gives the +10% stats; the second gives the +20%.
+  - The kit panel says "stays Epic".
+  - A save holding a kit-made legendary loads back as epic (`Item.from_dict`).
+  - Guarded by `tools/qa_upgrade_kit_cap.py`, which kits 39 crafted epics, 379 rares and 376 uncommons twice
+    each. 39 crafted epics already had a kit, so this could have happened before today.
 - **New epics (7) need art.** They use the epic stand-ins until then; sheet E4 is below.
 
 ## Sheet E4: woodworking epics (7 icons)

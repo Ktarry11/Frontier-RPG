@@ -997,7 +997,10 @@ class ProfessionsScreen(BaseScreen):
         # to happen, not always claim a rarity change.
         if item.upgrade_count == 0:
             to_rarity = next_rarity_for(item.rarity)
-            effect_line = f"{item.rarity.title()} -> {to_rarity.title()}, +10% stats, Refined   (have {have_qty})"
+            if to_rarity == item.rarity:     # an epic: a kit never makes a legendary
+                effect_line = f"+10% stats, Refined, stays {item.rarity.title()}   (have {have_qty})"
+            else:
+                effect_line = f"{item.rarity.title()} -> {to_rarity.title()}, +10% stats, Refined   (have {have_qty})"
         else:
             # Read the tag from UPGRADE_TAGS rather than hardcoding the word,
             # so renaming a tier never leaves the button lying about it.

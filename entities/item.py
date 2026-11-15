@@ -340,7 +340,10 @@ class Item:
             name=data["name"],
             slot=data["slot"],
             item_level=data["item_level"],
-            rarity=data["rarity"],
+            # a kit never makes a legendary (world/upgrade_manager.KIT_RARITY_CAP, Kyle 15 Nov 2026: "A kit
+            # can't upgrade past epic! Hard no"), so a save holding a kit-made one loads it back as the epic it was
+            rarity=("epic" if data["rarity"] == "legendary" and data.get("is_crafted")
+                    and data.get("upgrade_count", 0) > 0 else data["rarity"]),
             armor_type=data.get("armor_type"),
             weapon_type=data.get("weapon_type"),
             stat_template=data.get("stat_template"),
