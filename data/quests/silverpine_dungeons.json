@@ -3,7 +3,7 @@
     {
       "quest_id": "spn_wl_brood",
       "title": "Cleaning the Comb",
-      "giver_npc_id": "sp_sd_webhunter",
+      "giver_npc_id": "sepulcher_bone_carver",
       "zone": "silverpine_north",
       "level_min": 17,
       "level_max": 17,
@@ -83,7 +83,7 @@
     {
       "quest_id": "spn_wl_silka",
       "title": "The Broodmother",
-      "giver_npc_id": "sp_sd_webhunter",
+      "giver_npc_id": "sepulcher_bone_carver",
       "zone": "silverpine_north",
       "level_min": 17,
       "level_max": 17,
@@ -177,7 +177,7 @@
     {
       "quest_id": "spn_wl_skitter",
       "title": "The Weaver in the East",
-      "giver_npc_id": "sp_sd_webhunter",
+      "giver_npc_id": "sepulcher_bone_carver",
       "zone": "silverpine_north",
       "level_min": 18,
       "level_max": 18,
@@ -516,7 +516,7 @@
     {
       "quest_id": "spn_wl_velaxis",
       "title": "The Matriarch of the Spire",
-      "giver_npc_id": "sp_sd_webhunter",
+      "giver_npc_id": "sepulcher_bone_carver",
       "zone": "silverpine_north",
       "level_min": 19,
       "level_max": 19,
@@ -609,7 +609,7 @@
     {
       "quest_id": "sps_at_vestibule",
       "title": "Through the Waygate",
-      "giver_npc_id": "sp_amber_magister",
+      "giver_npc_id": "sp_amber_scribe",
       "zone": "silverpine_south",
       "level_min": 21,
       "level_max": 21,
@@ -695,7 +695,7 @@
     {
       "quest_id": "sps_at_mages",
       "title": "Lectern Guard",
-      "giver_npc_id": "sp_amber_magister",
+      "giver_npc_id": "sp_amber_scribe",
       "zone": "silverpine_south",
       "level_min": 21,
       "level_max": 22,
@@ -1367,7 +1367,7 @@
     {
       "quest_id": "sps_at_orrery",
       "title": "The Last Lamp in the Orrery",
-      "giver_npc_id": "sp_amber_magister",
+      "giver_npc_id": "sp_amber_scribe",
       "zone": "silverpine_south",
       "level_min": 23,
       "level_max": 23,
@@ -1395,7 +1395,7 @@
       "accept_text": "The Observatory, then the Orrery east of it. Stand a minute in each.",
       "turn_in_text": "Dark. Both of them.\n\nThe waygate sleeps.\n\nI'll lock it, and I'll keep the key somewhere stupid, and I'll not tell you where because then two of us would know.",
       "next_quest_id": null,
-      "turn_in_npc_id": "sp_amber_magister",
+      "turn_in_npc_id": "sp_amber_scribe",
       "requires_quests": [
         "sps_at_atiesh"
       ],
@@ -1711,7 +1711,7 @@
     {
       "quest_id": "sps_sfk_razorclaw",
       "title": "The Butcher of the Yard",
-      "giver_npc_id": "sp_sfk_gatekeeper",
+      "giver_npc_id": "sp_sfk_nightwatch",
       "zone": "silverpine_south",
       "level_min": 22,
       "level_max": 22,
@@ -1802,7 +1802,7 @@
     {
       "quest_id": "sps_sfk_guards",
       "title": "The Unrelieved",
-      "giver_npc_id": "sp_sfk_gatekeeper",
+      "giver_npc_id": "sp_valgan_surgeon",
       "zone": "silverpine_south",
       "level_min": 22,
       "level_max": 22,
@@ -1889,7 +1889,7 @@
     {
       "quest_id": "sps_sfk_keys",
       "title": "Servants' Keys",
-      "giver_npc_id": "sp_sfk_gatekeeper",
+      "giver_npc_id": "sp_valgan_surgeon",
       "zone": "silverpine_south",
       "level_min": 22,
       "level_max": 22,
@@ -2140,7 +2140,7 @@
     {
       "quest_id": "sps_sfk_cloister",
       "title": "The Haunted Cloister",
-      "giver_npc_id": "sp_sfk_gatekeeper",
+      "giver_npc_id": "sp_valgan_surgeon",
       "zone": "silverpine_south",
       "level_min": 23,
       "level_max": 23,
@@ -2224,7 +2224,7 @@
     {
       "quest_id": "sps_sfk_fenrus",
       "title": "Fenrus the Devourer",
-      "giver_npc_id": "sp_sfk_gatekeeper",
+      "giver_npc_id": "sp_sfk_nightwatch",
       "zone": "silverpine_south",
       "level_min": 24,
       "level_max": 24,

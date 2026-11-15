@@ -186,6 +186,8 @@ NPC_POSITIONS = {
     "sp_amber_millwright": (70, 44),          # the March: Millwright Haskell, Ambermill
     "sp_amber_magister": (81, 48),            # the March: Magister Orsolo, Ambermill
     "sp_sfk_gatekeeper": (74, 45),            # the March: Gatekeeper Marl, Shadowfang Keep
+    "sp_sfk_nightwatch": (74, 48),            # the March: Deathguard Pell, Marl's night relief
+    "sp_amber_scribe": (78, 48),              # the March: Tamsin Hale, Orsolo's scribe
     "sp_south_gate_scout": (82, 12),
     "sp_south_hunter": (77, 38),
     "sp_buckle_farmer": (39, 33),

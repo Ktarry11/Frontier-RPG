@@ -63,6 +63,11 @@ NORTH_VENDORS = {
 
 
 SOUTH_AMBIENT = {
+    # Backlog [37]: Marl and Orsolo carried eight quests each. These two take some of them.
+    "sp_sfk_nightwatch": ("Deathguard Pell", "silverpine_south", "forsaken", M, 4, "down",
+                          "Marl has the days at the Shadowfang gate. I have the nights. The nights are louder."),
+    "sp_amber_scribe": ("Tamsin Hale", "silverpine_south", "forsaken", F, 12, "left",
+                        "I write down what the magister says, and then I write down what he meant."),
     "sp_south_gate_scout": ("Deathguard Lyle", "silverpine_south", "forsaken", M, 2, "down",
                             "The Rear Guard marks the north. Past here the pines belong to whatever has the most teeth."),
     "sp_south_hunter": ("Forsaken Hunter", "silverpine_south", "forsaken", M, 13, "down",
@@ -133,6 +138,14 @@ FEN_VENDORS = {
 }
 
 
+def _where(nid, zone, pos):
+    """(zone, (x, y)). The quest-hub pass (38e4ea1) moved some North and South givers into the
+    Sepulcher; their spot lives in SEP_POS now, and so does their zone."""
+    if nid not in pos and nid in SEP_POS:
+        return "sepulcher", SEP_POS[nid]
+    return zone, pos[nid]
+
+
 def _upsert(data, key, id_key, rec):
     for i, r in enumerate(data[key]):
         if r.get(id_key) == rec[id_key]:
@@ -147,20 +160,20 @@ def main():
     ven = json.loads(Path("data/npcs/vendors.json").read_text(encoding="utf-8"))
     added = 0
     for nid, (name, zone, race, gender, var, facing, greet) in NORTH_AMBIENT.items():
-        x, y = NORTH_POS[nid]
+        zone, (x, y) = _where(nid, zone, NORTH_POS)
         added += _upsert(amb, "npcs", "npc_id", dict(npc_id=nid, name=name, zone=zone, x=x, y=y, greeting=greet,
                                                       gender=gender, race=race, appearance_variant=var, facing=facing))
     for vid, (name, zone, race, gender, var, facing, greet, sells, gl, sg) in NORTH_VENDORS.items():
-        x, y = NORTH_POS[vid]
+        zone, (x, y) = _where(vid, zone, NORTH_POS)
         added += _upsert(ven, "vendors", "vendor_id", dict(
             vendor_id=vid, name=name, zone=zone, x=x, y=y, tile_sprite="npc", sells=sells, buys_from_player=True,
             faction="forsaken", gear_level=gl, sells_gear=sg, race=race, appearance_variant=var, gender=gender, greeting=greet))
     for nid, (name, zone, race, gender, var, facing, greet) in SOUTH_AMBIENT.items():
-        x, y = SOUTH_POS[nid]
+        zone, (x, y) = _where(nid, zone, SOUTH_POS)
         added += _upsert(amb, "npcs", "npc_id", dict(npc_id=nid, name=name, zone=zone, x=x, y=y, greeting=greet,
                                                       gender=gender, race=race, appearance_variant=var, facing=facing))
     for vid, (name, zone, race, gender, var, facing, greet, sells, gl, sg) in SOUTH_VENDORS.items():
-        x, y = SOUTH_POS[vid]
+        zone, (x, y) = _where(vid, zone, SOUTH_POS)
         added += _upsert(ven, "vendors", "vendor_id", dict(
             vendor_id=vid, name=name, zone=zone, x=x, y=y, tile_sprite="npc", sells=sells, buys_from_player=True,
             faction="forsaken", gear_level=gl, sells_gear=sg, race=race, appearance_variant=var, gender=gender, greeting=greet))
