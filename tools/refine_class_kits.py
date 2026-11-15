@@ -292,7 +292,7 @@ CLASSES = {
             "guardian_fearless": "-10% damage taken beside Bastion's -15%",
         },
         "REWORD": {
-            "guardian_tower_formation": "Take a braced stance that makes you far harder to bring down.",
+            "guardian_tower_formation": "Take a braced stance: more Armor and Block, at the cost of a little haste.",
             "guardian_centurion_strike": "A practised, heavy strike - the kind that buys you another turn behind the shield.",
         },
         "PASSIVE": {},
@@ -445,7 +445,7 @@ CLASSES = {
             "templar_silverhand_incantation": "an area leech nothing is built around",
         },
         "REWORD": {
-            "templar_temple_guardian": "Plant yourself at your allies' side. Everyone near you is steadier for it.",
+            "templar_temple_guardian": "Plant yourself at your allies' side and heal your whole party. Everyone near you is steadier for it.",
         },
         "PASSIVE": {},
     },
