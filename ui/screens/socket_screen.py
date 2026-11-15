@@ -35,6 +35,8 @@ class SocketScreen(BaseScreen):
         self.message_ok = True
         self.item_rects, self.socket_rects, self.gem_rects = [], [], []
         self.scroll = 0
+        self.gem_scroll = 0
+        self.gem_area = pygame.Rect(0, 0, 0, 0)
 
     def start(self, mode="socket", return_state=None):
         self.mode = mode
@@ -42,6 +44,7 @@ class SocketScreen(BaseScreen):
         self.selected_item = self.selected_gem = self.armed_socket = None
         self.message = ""
         self.scroll = 0
+        self.gem_scroll = 0
 
     # ------------------------------------------------------------ data
     def _gear(self):
@@ -82,15 +85,25 @@ class SocketScreen(BaseScreen):
         from ui.scrollbar import ScrollBar
         if not hasattr(self, "gear_bar"):
             self.gear_bar = ScrollBar()
+        if not hasattr(self, "gem_bar"):
+            self.gem_bar = ScrollBar()
         new = self.gear_bar.handle_event(event, self.scroll)
         if new is not None:
             self.scroll = new
+            return
+        new = self.gem_bar.handle_event(event, self.gem_scroll)
+        if new is not None:
+            self.gem_scroll = new
             return
         if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
             self.state_manager.transition_to(self.return_state)
             return
         if event.type == pygame.MOUSEWHEEL:
-            self.scroll = max(0, self.scroll - event.y)
+            # the wheel scrolls whichever list the pointer is over
+            if self.gem_area.collidepoint(pygame.mouse.get_pos()):
+                self.gem_scroll = max(0, self.gem_scroll - event.y)
+            else:
+                self.scroll = max(0, self.scroll - event.y)
             return
         if event.type != pygame.MOUSEBUTTONDOWN or getattr(event, "button", 1) != 1:
             return
@@ -219,23 +232,49 @@ class SocketScreen(BaseScreen):
 
         self.gem_rects = []
         if self.mode == "socket":
-            gy = max(py + 20, LIST_Y + 260)
+            gy = (py + 20) if item is not None else LIST_Y
             self.renderer.draw_text(screen, "Your gems", (PANEL_X, gy), color=COLOR_GOLD)
             gy += 26
             gems = self._gems()
             if not gems:
                 self.renderer.draw_text(screen, "You don't have any cut gems. A jewelcrafter cuts them from raw stones.",
                                         (PANEL_X, gy), color=(160, 160, 170))
-            for cid, n, g in gems[:12]:
-                rect = pygame.Rect(PANEL_X, gy, 520, 30)
+            # As many rows as fit below, with their own scrollbar (Kyle, 14 Nov: "gems run off the
+            # screen" - it drew twelve whatever the room). Gems that fit the chosen item's sockets
+            # come first.
+            if item is not None:
+                want = {s_["color"] for s_ in J.sockets(item)}
+                gems.sort(key=lambda t: (not any(c in J.FITS.get(t[2]["color"], {t[2]["color"]}) or t[2]["color"] == "prismatic"
+                                                 for c in want),))
+            from ui.scrollbar import ScrollBar, GUTTER
+            from ui.sprite_loader import get_icon_sprite
+            if not hasattr(self, "gem_bar"):
+                self.gem_bar = ScrollBar()
+            row = 34
+            vis = max(1, (SCREEN_HEIGHT - 56 - gy) // row)
+            self.gem_scroll = max(0, min(self.gem_scroll, max(0, len(gems) - vis)))
+            self.gem_area = pygame.Rect(PANEL_X, gy, 560, vis * row)
+            self.gem_bar.draw(screen, ScrollBar.track_for(pygame.Rect(PANEL_X, gy, 560, vis * row - 4)),
+                              self.gem_scroll, max(0, len(gems) - vis), vis)
+            if not hasattr(self, "_icons"):
+                import json
+                from pathlib import Path
+                self._icons = {k: v.get("icon_id") for k, v in json.loads(
+                    Path("data/gathering/materials.json").read_text(encoding="utf-8"))["materials"].items()}
+            for cid, n, g in gems[self.gem_scroll:self.gem_scroll + vis]:
+                rect = pygame.Rect(PANEL_X, gy, 560 - GUTTER, 30)
                 chosen = cid == self.selected_gem
                 colour = J.SOCKET_COLOURS.get(g["color"], (200, 200, 200))
                 self.renderer.draw_rect(screen, rect, (40, 40, 52) if chosen else (24, 24, 30))
                 self.renderer.draw_rect(screen, rect, colour if chosen else (60, 60, 70), fill=False)
                 fits = "any" if g["color"] == "prismatic" else " or ".join(sorted(J.FITS[g["color"]]))
                 stats = J.stat_text(g["stats"])
-                self.renderer.draw_text(screen, f"{g['name']} x{n}   {stats}   fits {fits}",
-                                        (rect.x + 10, rect.y + 7), color=COLOR_WHITE)
+                ic = self._icons.get(cid)
+                spr = get_icon_sprite(f"assets/gathering_nodes/gems/{ic}.png", 26) if ic else None
+                if spr:
+                    screen.blit(spr, (rect.x + 3, rect.y + 2))
+                self.renderer.draw_text(screen, self.renderer.truncate(f"{g['name']} x{n}   {stats}   fits {fits}", rect.width - 44),
+                                        (rect.x + 36, rect.y + 7), color=COLOR_WHITE)
                 self.gem_rects.append((cid, rect))
                 gy += 34
 
