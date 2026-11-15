@@ -511,21 +511,24 @@
     },
     {
       "talent_id": "primalist_geomancy_seismic_tremor",
-      "name": "Seismic Tremor",
-      "description": "Learn Seismic Tremor. Send a tremor through the ground that builds as it travels.",
-      "node_type": "active",
+      "name": "Improved Seismic Tremor",
+      "description": "Increases the damage of your Seismic Tremor by 20%.",
+      "node_type": "passive",
       "tier": 5,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "unlock_ability": "primalist_seismic_tremor"
+        "ability_primalist_seismic_tremor_damage": 0.2
       },
       "connected_to": [
         "primalist_geomancy_heavy_earth"
       ],
-      "_source": "CoA: 'Damage is dealt slowly at first, and builds up over time. Damage dealt generates 1 Rage. Generates 2 stacks of Earthshaping.' Kept from the previous tree. Three nodes here modify it (Trembling Rage, Everlasting Rage, Geomolding), which is an argument for moving it earlier - left at tier 5 because it is a capstone-adjacent ability in CoA too and the modifiers are all spread across tiers 0-3 where they can be banked first."
+      "_source": "CoA: 'Damage is dealt slowly at first, and builds up over time. Damage dealt generates 1 Rage. Generates 2 stacks of Earthshaping.' Kept from the previous tree. Three nodes here modify it (Trembling Rage, Everlasting Rage, Geomolding), which is an argument for moving it earlier - left at tier 5 because it is a capstone-adjacent ability in CoA too and the modifiers are all spread across tiers 0-3 where they can be banked first.",
+      "_tuning": [
+        "15 Nov 2026, Kyle approved: this ability is a Primalist core spell now (learned by level), because every one of the four trees has talents that boost it - as a single tree's unlock, those talents were dead for the other three (tools/validate_class.py: 18 dead references). This node, which used to teach it, improves it instead."
+      ]
     },
     {
       "talent_id": "primalist_geomancy_therazanes_blessing",

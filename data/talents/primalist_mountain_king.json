@@ -556,21 +556,25 @@
     },
     {
       "talent_id": "primalist_mountain_king_terrasurge",
-      "name": "Terrasurge",
-      "description": "Learn Terrasurge. Hurl a globule of earth that strips the target's armour.",
-      "node_type": "active",
+      "name": "Improved Terrasurge",
+      "description": "Increases the damage of your Terrasurge by 20% and reduces its cooldown by 1 turn.",
+      "node_type": "passive",
       "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": 3,
       "hex_y": 2,
       "effects": {
-        "unlock_ability": "primalist_terrasurge"
+        "ability_primalist_terrasurge_damage": 0.2,
+        "ability_primalist_terrasurge_cooldown": 1
       },
       "connected_to": [
         "primalist_mountain_king_mountain_fury"
       ],
-      "_source": "CoA: 'Unleash a massive globule of earth at an enemy, dealing Physical damage and reducing their Armor by -50% for 10 sec. Pierces through absorption, deflection, and reflection effects.' Kept from the previous tree. Worth knowing: Geomancy's capstone Heavy Earth buffs Terrasurge, and THIS is the only node in the game that unlocks it - a Geomancer taking that capstone has to reach into this tree for the ability, which is a real cross-spec dependency rather than an oversight."
+      "_source": "CoA: 'Unleash a massive globule of earth at an enemy, dealing Physical damage and reducing their Armor by -50% for 10 sec. Pierces through absorption, deflection, and reflection effects.' Kept from the previous tree. Worth knowing: Geomancy's capstone Heavy Earth buffs Terrasurge, and THIS is the only node in the game that unlocks it - a Geomancer taking that capstone has to reach into this tree for the ability, which is a real cross-spec dependency rather than an oversight.",
+      "_tuning": [
+        "15 Nov 2026, Kyle approved: this ability is a Primalist core spell now (learned by level), because every one of the four trees has talents that boost it - as a single tree's unlock, those talents were dead for the other three (tools/validate_class.py: 18 dead references). This node, which used to teach it, improves it instead."
+      ]
     },
     {
       "talent_id": "primalist_mountain_king_mountain_fury",

@@ -233,21 +233,25 @@
     },
     {
       "talent_id": "primalist_grovekeeper_seismic_wave",
-      "name": "Seismic Wave",
-      "description": "Learn Seismic Wave. A wave that heals everyone it rolls past and hurts everything else.",
-      "node_type": "active",
+      "name": "Improved Seismic Wave",
+      "description": "Increases the damage and healing of your Seismic Wave by 20%.",
+      "node_type": "passive",
       "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
       "hex_x": -5,
       "hex_y": -2,
       "effects": {
-        "unlock_ability": "primalist_seismic_wave"
+        "ability_primalist_seismic_wave_damage": 0.2,
+        "ability_primalist_seismic_wave_healing": 0.2
       },
       "connected_to": [
         "primalist_grovekeeper_earths_guidance"
       ],
-      "_source": "CoA: 'Create a seismic wave of healing water around you, healing up to 8 allies and dealing Nature damage to enemies in a 25 yd radius.' The ability is damage_and_heal, which is this spec in one cast. Kept from the previous tree."
+      "_source": "CoA: 'Create a seismic wave of healing water around you, healing up to 8 allies and dealing Nature damage to enemies in a 25 yd radius.' The ability is damage_and_heal, which is this spec in one cast. Kept from the previous tree.",
+      "_tuning": [
+        "15 Nov 2026, Kyle approved: this ability is a Primalist core spell now (learned by level), because every one of the four trees has talents that boost it - as a single tree's unlock, those talents were dead for the other three (tools/validate_class.py: 18 dead references). This node, which used to teach it, improves it instead."
+      ]
     },
     {
       "talent_id": "primalist_grovekeeper_earths_guidance",

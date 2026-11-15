@@ -810,7 +810,10 @@
         "amount": 1
       },
       "icon_id": null,
-      "_design_note": "Send an escalating tremor through the earth at an enemy. Shares a cooldown with other Seismic spells. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)"
+      "_design_note": "Send an escalating tremor through the earth at an enemy. Shares a cooldown with other Seismic spells. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)",
+      "_tuning": [
+        "15 Nov 2026, Kyle approved: this ability is a Primalist core spell now (learned by level), because every one of the four trees has talents that boost it - as a single tree's unlock, those talents were dead for the other three (tools/validate_class.py: 18 dead references). This node, which used to teach it, improves it instead."
+      ]
     },
     {
       "ability_id": "primalist_seismic_wave",
@@ -868,7 +871,10 @@
         }
       ],
       "icon_id": null,
-      "damage_school": "nature"
+      "damage_school": "nature",
+      "_tuning": [
+        "15 Nov 2026, Kyle approved: this ability is a Primalist core spell now (learned by level), because every one of the four trees has talents that boost it - as a single tree's unlock, those talents were dead for the other three (tools/validate_class.py: 18 dead references). This node, which used to teach it, improves it instead."
+      ]
     },
     {
       "ability_id": "primalist_terrasurge",
@@ -909,7 +915,10 @@
         }
       ],
       "icon_id": null,
-      "_design_note": "Unleash a globe of earth at an enemy, piercing defensive effects and reducing their Armor. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)"
+      "_design_note": "Unleash a globe of earth at an enemy, piercing defensive effects and reducing their Armor. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)",
+      "_tuning": [
+        "15 Nov 2026, Kyle approved: this ability is a Primalist core spell now (learned by level), because every one of the four trees has talents that boost it - as a single tree's unlock, those talents were dead for the other three (tools/validate_class.py: 18 dead references). This node, which used to teach it, improves it instead."
+      ]
     },
     {
       "ability_id": "primalist_primal_rush",
@@ -965,7 +974,10 @@
         "amount": 20
       },
       "icon_id": null,
-      "damage_school": "nature"
+      "damage_school": "nature",
+      "_tuning": [
+        "15 Nov 2026, Kyle approved: this ability is a Primalist core spell now (learned by level), because every one of the four trees has talents that boost it - as a single tree's unlock, those talents were dead for the other three (tools/validate_class.py: 18 dead references). This node, which used to teach it, improves it instead."
+      ]
     },
     {
       "ability_id": "primalist_rylaks_bite",
