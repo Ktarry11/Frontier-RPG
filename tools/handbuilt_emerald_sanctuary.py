@@ -81,6 +81,8 @@ NPC_POSITIONS = {
     "es_volunteer_runner":  (12, 48),    # Ana Lucia Ferreira - just inside the gate
     # treants who stand where the Sentinels stand
     "es_treant_warden":     (74, 26),
+    # Kyle, 14 Nov: "Only a herbalist and alchemy trainer in sanctuary." By the druids' herb table.
+    "pt_emerald_sanctuary_herbs": (38, 66),
 }
 FORGE = (36, 58)
 EXTRA_NPC_XY = [FORGE]

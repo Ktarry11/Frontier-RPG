@@ -61,6 +61,9 @@ AMBIENT = {
     "es_volunteer_runner": ("Ana Lúcia Ferreira", "human", F, 7, "right",
                             "First time in the Sanctuary? The inn's on your left, the roost's past it, and the "
                             "Arch Druid's at the well if you want to be useful."),
+    "pt_emerald_sanctuary_herbs": ("Druid Talenwe Rootsong", "night_elf", M, 5, "down",
+                                   "I'll teach you what grows on cleansed ground and what to make of it. Most "
+                                   "of it heals. The rest you'll want to keep away from the soup."),
     "es_treant_warden": ("Barkwarden Elm", "treant", M, 0, "down",
                          "The Sentinels stand on the line, and so do I. The difference is that they talk more."),
 }
@@ -124,6 +127,14 @@ def main():
         else:
             vd["vendors"].append(rec)
             made += 1
+    # the Sanctuary teaches one trade pair only (Kyle: herbalism and alchemy)
+    for r in ad["npcs"]:
+        if r["npc_id"] == "pt_emerald_sanctuary_herbs":
+            r.setdefault("trains_profession", ["herbalism", "alchemy"])
+    tr = ROOT / "data/training/trainers.json"
+    td_ = json.loads(tr.read_text(encoding="utf-8"))
+    td_["profession_trainers"].setdefault("pt_emerald_sanctuary_herbs", ["herbalism", "alchemy"])
+    tr.write_text(json.dumps(td_, indent=2) + "\n", encoding="utf-8")
     ap.write_text(json.dumps(ad, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     vp.write_text(json.dumps(vd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
