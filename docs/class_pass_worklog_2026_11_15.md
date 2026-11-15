@@ -309,6 +309,25 @@ Kyle (10:37 local): "We are ensuring that even coa classes have the proper ranks
 - **Running:** pass-6 recalibration (task bayx98bct): damage → `/tmp/claude-0/aura_dmg_p6.log`, heal iterate → `/tmp/claude-0/aura_heal_p6.log`.
 - **Then the full battery**, with "over" now real: parity on seed 3, multi-target 3/5, short-fight 4 turns, heal scenarios, trio, solo (geared, under, no talents, OVER), content, tanks, endurance, difficulty, hidden, no-buffs, consumables, the QA suite.
 
+### 17:55–18:15 UTC: Kyle's calls on Healing Wave and the talent stacks
+
+Kyle (10:50 local): "That is fine. As holy pally gets illumination. So they usually last longer anyways. This allows shamans to not cast as much to save mana. Healing wave should be more expensive than holy light as well. Let's edit some of them hand by hand but DONT lose the cool CoA identity by butchering them too badly"
+
+- **Healing Wave 2x Holy Light: kept** (Kyle: fine). Healing Wave is now priced dearer: `calibrate_mana_costs.HEAL_TARGET = {"shaman": 16}`, so the main heal lasts 16 casts from a full bar instead of 20, 25% dearer as a share of the bar. The shaman's other heals move with it. Before this, at 60 Healing Wave cost 4.0% of the bar and Holy Light 3.3%; at 20 it was 4.3% vs 4.7%.
+- **FOUND: 68 damage and heal abilities learned by 44 top out at 50–53** (Holy Light 50, Heal 50, Healing Wave 51, Eviscerate 51, Immolate 51, Earth Shock 53, Rejuvenation 53, Bloodthirst 52, …). They stood still for 7–10 levels while the world grows ~30%; Classic ranks its main buttons at 56–60.
+  - **Fixed** by `tools/add_top_ranks.py --apply`: one rank at 58 (or 60 when the last was 53), on the line, with mana cost grown the same way; rage, energy and built resources stay flat.
+  - This also explains Lesser Healing Wave costing as much as Healing Wave at 60: HW's top rank was at 51, so it had the cheaper cost multiplier of the lower level.
+  - `qa_trainer_offers`, `qa_kit_ranks` and `validate_class` (all 30): pass.
+- **Talent stacks trimmed by hand, capstones kept:**
+  - Jungle Booms 53% → 30%, Fresh Ingredients 5 → 4% a rank, Doctor of the Jungle 4 → 3% a rank. Jungle Shrooms goes +136% → +107%.
+  - Turbo Upgrade! 54% → 40%, and Turbo Guns 4 → 3% a rank. Combustion goes +87% → +70%, Laser Beam +69% → +55%.
+  - Rockadier 54% → 45%. Scrap Shot goes +69% → +60%, Rocket Launcher +45%.
+  - Veinburst 9 → 7% a rank. Veinburst goes +71% → +65%.
+  - Left alone: Duobombers (it's a second bomb), Widowmaker (a finisher, +66%), Voodoo Cauldron (+63%).
+  - Descriptions now match the data: Turbo Upgrade's "54% duration" is +1 turn; Mechanical Synergy is 5% a rank (it said 15%); Virulent Resonance's finishers bonus is 6% (it said 10%).
+- **Commit** 42fd93e.
+- **Running:** full mana recalibration (task b83buw2lk → `/tmp/claude-0/mana_p6.log`). Then the aura recalibration (damage + healing iterate), then the battery.
+
 ## Parked (Kyle said note it only; class balance comes first)
 
 - **16:41 UTC.** Hand-authored boss drops convert from percentage hit, crit, dodge, parry and so on to RATINGS (10 rating = 1%, like gems and crafted gear), cleaning out the "trash drip" stats. This is item 8 in `claude/playtest_backlog_2026_11_14.md`.
