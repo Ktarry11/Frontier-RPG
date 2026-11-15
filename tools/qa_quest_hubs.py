@@ -44,9 +44,13 @@ REGIONS = {
                 ["crossroads", "camp_taurajo", "ratchet"],
                 {"northern_barrens": [(145, 58, 12), (252, 124, 12)], "central_barrens": [(85, 146, 12)],
                  "southern_barrens": [(137, 116, 12)]}),
+    # Hillsbrad: Tarren Mill (its own map, and its grounds at the top of Eastern Hillsbrad) and the
+    # Southpoint Tower garrison at the top of Western Hillsbrad.
+    "Hillsbrad": (["western_hillsbrad", "eastern_hillsbrad", "tarren_mill"], ["tarren_mill"],
+                  {"eastern_hillsbrad": [(62, 32, 12)], "western_hillsbrad": [(45, 22, 10)]}),
 }
 #: the share of a region's quests that must come from town. Never lower one.
-FLOORS = {"Durotar": 0.70, "Tirisfal": 0.70, "Silverpine": 0.70, "Barrens": 0.70}
+FLOORS = {"Durotar": 0.70, "Tirisfal": 0.70, "Silverpine": 0.70, "Barrens": 0.70, "Hillsbrad": 0.70}
 
 
 def norm(s):

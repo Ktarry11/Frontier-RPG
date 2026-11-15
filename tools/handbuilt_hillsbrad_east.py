@@ -217,16 +217,14 @@ NPC_POSITIONS = {
     # the road in from Silverpine
     "hbe_west_gate_scout": (12, 88),
     # the hollow and the west road
-    "hbe_hollow_trapper": (32, 48),
+    "hbe_hollow_trapper": (59, 30),       # Gus Mirren, Tarren Mill (moved into the hub, 14 Nov)
     "hbe_west_outrider": (20, 62),
     # the Naze
-    "hbe_naze_infiltrator": (119, 33),
-    # Durnholde
-    "hbe_durnholde_watcher": (100, 75),
-    "hbe_durnholde_scholar": (104, 80),
-    # the south
+    "hbe_naze_infiltrator": (65, 35),       # Vess, Tarren Mill (moved into the hub, 14 Nov)
+    "hbe_durnholde_watcher": (62, 26),       # Odrin Falk, Tarren Mill (moved into the hub, 14 Nov)
+    "hbe_durnholde_scholar": (65, 27),       # Emeline Vask, Tarren Mill (moved into the hub, 14 Nov)
     "hbe_stead_outrider": (114, 116),
-    "hbe_garok_sapper": (86, 131),
+    "hbe_garok_sapper": (61, 39),       # Niall Crag, Tarren Mill (moved into the hub, 14 Nov)
     "hbe_strand_tidewatcher": (58, 134),
     "hbe_wall_sentry": (130, 142),
 }

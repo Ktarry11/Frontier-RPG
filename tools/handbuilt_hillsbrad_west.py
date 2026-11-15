@@ -233,9 +233,8 @@ NPC_POSITIONS = {
     # the pastures
     "hbw_pasture_herder": (90, 36),
     # the mine
-    "hbw_mine_overseer": (44, 62),
-    "hbw_mine_surveyor": (48, 68),
-    # the strand
+    "hbw_mine_overseer": (45, 20),       # Overseer Halloway, Southpoint (moved into the hub, 14 Nov)
+    "hbw_mine_surveyor": (48, 19),       # Surveyor Iversen, Southpoint (moved into the hub, 14 Nov)
     "hbw_strand_tidewatcher": (28, 94),
     # Southshore - watched from the treeline, never entered in comfort
     "hbw_southshore_spy": (82, 116),
