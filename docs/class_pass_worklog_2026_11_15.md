@@ -254,6 +254,14 @@ PYTHONPATH=. python3 tools/calibrate_spec_auras.py --kind healing --passes 5 --w
   - **Engine:** `Ability.stat_mods` is the current rank's own `stat_mods` when the rank carries them.
   - Hunter's Mark (3 ranks) is left alone.
 
+## Sim fidelity fixes, 18:30–18:50 UTC (they change what the auras are set from)
+
+- **DoTs:** the planner valued a DoT at total ÷ duration (a quarter of its worth) and the parity/viability loops refreshed ticking DoTs. Now a DoT is worth 75% of its total per cast and is never recast while it ticks. At 40 with auras off: Affliction 1,117 ≈ Fire 1,120, Shadow 969, Destruction 971, Assassination 922.
+- **Mana tools:** `sim_class_balance.mana_tools` / `mana_move`. Under 25% mana a spec uses its restores (Life Tap, Dark Pact, Innervate, Sanity Tap, Satiate, Draconic Invocation, Paradox Cannon, Time Out, Sunstrider Array...). Hunters swap to Viper when low and back to Hawk at 90%. At 50 with auras off: Survival 1,251, MM 1,369, BM 1,236 (Fire 2,043).
+- **Rogue poisons** are cast DoTs here (Deadly Poison, 4 turns, cooldown 2), not weapon coatings.
+- Starcaller Keen Sight (2%/rank) matches its own CoA tooltip text, so it's left alone.
+- A damage aura recalibration (pass 4b) is running, logging to `/tmp/claude-0/aura_dmg_p4b.log`. The healing iteration is at `/tmp/claude-0/aura_heal_iter.log`.
+
 ## Parked (Kyle said note it only; class balance comes first)
 
 - **16:41 UTC.** Hand-authored boss drops convert from percentage hit, crit, dodge, parry and so on to RATINGS (10 rating = 1%, like gems and crafted gear), cleaning out the "trash drip" stats. This is item 8 in `claude/playtest_backlog_2026_11_14.md`.
