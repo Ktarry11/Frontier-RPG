@@ -59,7 +59,11 @@ def main():
     for e in meals + drinks:
         hp, mana = pools(e["required_level"])
         bar = hp if e["consumable_type"] == "meal" else mana
-        ratio = e["effect_value"] / max(1, bar)
+        # what it really restores: meals and drinks are sized by the world curve at their own level
+        # (Consumable.restore_amount, 15 Nov 2026), the same curve the bars are on
+        from combat.world_curve import world_scale
+        restores = round(e["effect_value"] * world_scale(e["required_level"] or 1))
+        ratio = restores / max(1, bar)
         note = f"{ratio:.0%} of {round(bar)}"
         if ratio < 0.60:
             fails.append(f"{e['consumable_id']}: restores {ratio:.0%} of a bar - not worth sitting for")
@@ -67,7 +71,7 @@ def main():
         elif ratio > 2.5:
             fails.append(f"{e['consumable_id']}: restores {ratio:.0%} of a bar - trivialises healing")
             note += "  TOO MUCH"
-        print(f"{e['name']:<26}{e['required_level']:>4}{e['effect_value']:>10}{e['effect_duration']:>6}"
+        print(f"{e['name']:<26}{e['required_level']:>4}{restores:>10}{e['effect_duration']:>6}"
               f"{e['vendor_price']:>8}   {note}")
 
     print("\n== every tier is actually on sale somewhere")

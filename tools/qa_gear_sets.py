@@ -91,8 +91,13 @@ def main():
     wear(c, SLOTS[:4])
     if c.effective_strength - s0 != 20:
         bad.append("at four pieces the two-piece bonus was lost or doubled")
-    if c.attack_power - ap2 != 40:
-        bad.append(f"four pieces should add 40 attack power, added {c.attack_power - ap2}")
+    # attack power is on the world curve (combat/world_curve.py, 15 Nov 2026): +40 from gear is 40 x the
+    # level's world scale on the sheet, like every other source
+    from combat.world_curve import world_scale
+    want40 = 40 * world_scale(c.level)
+    if abs((c.attack_power - ap2) - want40) > 2:
+        bad.append(f"four pieces should add {want40:.0f} attack power (40 x the world curve), "
+                   f"added {c.attack_power - ap2}")
     if GS.active_bonuses(c) != {"strength": 20, "attack_power": 40}:
         bad.append(f"active_bonuses at four pieces is {GS.active_bonuses(c)}")
 

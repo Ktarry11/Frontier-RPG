@@ -143,10 +143,32 @@ def build(spec, role, level, tier, gen):
     finally:
         del Character._matrix_spec
     char._matrix_spec = spec
+    summon_screen_pet(char)
     char.current_health = char.health
     if getattr(char, "mana", 0):
         char.current_mana = char.mana
     return char
+
+
+def summon_screen_pet(char):
+    """Summon the newest pet the pet screen offers this class at this level, as a player would.
+
+    15 Nov 2026: thirteen classes get a pet from the pet screen (ui/screens/pet_screen.py - Hunter's is tamed,
+    not cast), and every sim fought without one, so Beast Mastery's pet talents measured as nothing and its
+    spec aura went to the cap to make up for a pet a real Hunter always has. Cast-summoned pets still come from
+    the rotation."""
+    from core.class_names import class_key
+    from combat.pet_templates import pets_for_class
+    if getattr(char, "active_pet", None) is not None:
+        return
+    try:
+        options = pets_for_class(class_key(char.char_class), char.level)
+    except Exception:                                          # noqa: BLE001
+        return
+    if not options:
+        return
+    with quiet():
+        char.summon_pet(options[-1][0])
 
 
 # ----------------------------------------------------------------------------------- dps

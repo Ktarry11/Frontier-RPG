@@ -776,6 +776,49 @@
       "buff_scope": "combat",
       "exclusive_group": "hunter_aspect",
       "_design_note": "Assumes the Wild's aspect, granting Nature resistance and increased critical strike chance - matches Aspect of the Wild's real WOTLK identity, previously missing entirely since the engine had no Nature resistance stat to grant."
+    },
+    {
+      "ability_id": "hunter_aspect_of_the_viper",
+      "name": "Aspect of the Viper",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "buff",
+      "duration": 4,
+      "stat_mods": {
+        "mp5": 32
+      },
+      "description": "Assumes the Viper's aspect, regenerating Mana every turn.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 0,
+          "effect_value": 33
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 0,
+          "effect_value": 56
+        },
+        {
+          "rank": 3,
+          "level_req": 44,
+          "cost": 0,
+          "effect_value": 78
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 0,
+          "effect_value": 100
+        }
+      ],
+      "target_type": "self",
+      "icon_id": null,
+      "buff_scope": "combat",
+      "exclusive_group": "hunter_aspect",
+      "_design_note": "15 Nov 2026, the class pass: Hunters were the only mana users with no way to get mana back (no Spirit on their gear, no Meditation, no Evocation), so they ran dry in ~20 turns and spent the rest of a long fight on Shoot - half the median damage spec. Classic's answer: an aspect that trades Hawk's attack power for regen. mp5 is read every turn and sits on the world curve like all regen, so the top rank is ~5% of a geared level-60 Hunter's bar a turn. Free to cast, like swapping aspects should be."
     }
   ]
 }

@@ -283,6 +283,10 @@ def coefficient(ability, kind, caster=None):
         return base
     if not USE_RANK_POWER:
         return base
+    # A PET's abilities are authored as one rank at level 1 and grown with the pet (entities/pet.py
+    # _scale_ability_power), so its rank is effectively learned at its own level: no low-level penalty.
+    if getattr(caster, "char_class", None) == "Pet":
+        return base
     return base * rank_power_multiplier(ability, kind, getattr(caster, "level", None))
 
 

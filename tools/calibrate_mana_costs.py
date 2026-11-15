@@ -19,6 +19,12 @@ HOW. For each class that spends mana, at levels 10-60, every spec that uses mana
   healer specs   the biggest spammable direct heal (its smaller, cheaper heals then last longer - the choice)
 The multiplier that makes that spell last TARGET turns, counting regen at the casting rate, is
     (pool / TARGET + regen while casting) / cost
+
+DAMAGE ROWS USE THE REAL ROTATION (15 Nov 2026, second pass). A Mage's rotation is mostly its main spell, so the
+main spell's cost was a fair stand-in; a Hunter's is Aimed, Arcane and Multi-Shot, all dearer than Steady Shot, and
+it ran dry in ~10 turns and spent the rest of the fight on Shoot (half the median damage spec). So a damage spec
+now runs its own rotation (tools/sim_dps_parity.damage_per_turn, the engine loop with pets) for ROTATION_TURNS with
+the bar refilled each turn, and the cost it measures is what that rotation spends per turn on average.
 and the class's value at that level is the median across its specs. Damage and heals get separate rows.
 Levels in between are interpolated by combat/ability_scaling.mana_cost_multiplier at the rank's level.
 """
@@ -39,7 +45,8 @@ os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 os.environ.setdefault("SDL_AUDIODRIVER", "dummy")
 
 TARGET = 20
-SAMPLES = 3
+SAMPLES = 6
+ROTATION_TURNS = 20
 LEVELS = [10, 20, 30, 40, 50, 60]
 OUT = ROOT / "data/balance/mana_costs.json"
 DAMAGE = {"damage", "spell_damage", "ranged_damage", "damage_and_restore_mana"}
@@ -72,6 +79,10 @@ def main():
     import sim_role_balance as R
     from entities.loot_generator import LootGenerator
     gen = LootGenerator()
+    import sim_dps_parity as P
+    from world.creature_manager import CreatureManager
+    with contextlib.redirect_stdout(io.StringIO()):
+        cm = CreatureManager()
 
     rows = {}
     detail = []
@@ -83,17 +94,38 @@ def main():
         for lv in LEVELS:
             # gear is rolled, so a spec's pool and regen are averaged over SAMPLES builds
             pools, regens, a, cost = [], [], None, 0
-            for _ in range(SAMPLES):
-                with contextlib.redirect_stdout(io.StringIO()):
-                    c = M.build(spec, role, lv, "geared", gen)
-                if not getattr(c, "mana", 0):
-                    break
-                a = main_spell(c, role)
-                if a is None:
-                    break
-                cost = a.talented_cost(c)
-                pools.append(c.mana)
-                regens.append(c.mana_per_turn(casting=True))
+            if kind == "damage":
+                costs = []
+                for i in range(SAMPLES):
+                    st = {}
+                    try:
+                        with contextlib.redirect_stdout(io.StringIO()):
+                            P.damage_per_turn(spec, lv, ROTATION_TURNS, gen, cm, fight_seed=i, gear_seed=100 + i,
+                                              mana_stats=st)
+                    except Exception as e:                          # noqa: BLE001
+                        print(f"  {spec} L{lv}: {type(e).__name__}: {e}")
+                        break
+                    if not st.get("pool") or not st.get("spent_per_turn"):
+                        break
+                    pools.append(st["pool"])
+                    regens.append(st["regen"])
+                    costs.append(st["spent_per_turn"])
+                if not pools:
+                    continue
+                cost = statistics.mean(costs)
+                a = type("Rotation", (), {"name": "rotation"})()
+            else:
+                for _ in range(SAMPLES):
+                    with contextlib.redirect_stdout(io.StringIO()):
+                        c = M.build(spec, role, lv, "geared", gen)
+                    if not getattr(c, "mana", 0):
+                        break
+                    a = main_spell(c, role)
+                    if a is None:
+                        break
+                    cost = a.talented_cost(c)
+                    pools.append(c.mana)
+                    regens.append(c.mana_per_turn(casting=True))
             if not pools or a is None or cost <= 0:
                 continue
             pool, regen = statistics.mean(pools), statistics.mean(regens)

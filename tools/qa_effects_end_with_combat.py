@@ -77,9 +77,14 @@ def check(way, finish):
     from combat.status_effects import ITEM_PROC_PREFIX
     hero, foe, engine, fx, base_ap = setup()
     during = hero.attack_power
-    if during != base_ap - 40 - 10 + 15 + 25:
+    # attack power is on the world curve (combat/world_curve.py, 15 Nov 2026), so a flat +25 buff is worth
+    # 25 x the level's world scale on the sheet, like gear; rounding lands within a couple of points
+    from combat.world_curve import world_scale
+    ws = world_scale(hero.level)
+    want_during = base_ap + (-40 - 10 + 15 + 25) * ws
+    if abs(during - want_during) > 2:
         PROBLEMS.append(f"{way}: rig - attack power in the fight is {during}, expected "
-                        f"{base_ap - 40 - 10 + 15 + 25}; the effects are not all applying")
+                        f"{want_during:.0f}; the effects are not all applying")
     finish(engine, hero, foe)
     if engine.is_active:
         PROBLEMS.append(f"{way}: rig - the fight did not end")
@@ -91,8 +96,9 @@ def check(way, finish):
     bad += [f"{k} was removed" for k in kept if fx[k].effect_id not in ids]
     if not any(str(i).startswith(ITEM_PROC_PREFIX) for i in ids):
         bad.append("the worn trinket's proc carrier was removed")
-    want_ap = base_ap + 25
-    if hero.attack_power != want_ap:
+    from combat.world_curve import world_scale
+    want_ap = round(base_ap + 25 * world_scale(hero.level))
+    if abs(hero.attack_power - want_ap) > 2:
         bad.append(f"attack power is {hero.attack_power}, expected {want_ap} "
                    f"(base {base_ap} + the raid buff only)")
     if bad:

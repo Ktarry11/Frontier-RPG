@@ -45,7 +45,10 @@ def target_name(cm, level):
     return sorted(M.pool(cm, level))[0]
 
 
-def damage_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0):
+def damage_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0, mana_stats=None):
+    """Damage per turn. With mana_stats (a dict), the bar is refilled at the start of every turn and what the
+    rotation spends is recorded instead of limiting it: mana_stats gets spent_per_turn, pool and regen (the
+    casting rate) - tools/calibrate_mana_costs.py sizes costs from the real rotation this way."""
     import sim_matrix as M
     import sim_role_balance as R
     from combat.combat_engine import CombatEngine
@@ -82,6 +85,16 @@ def damage_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0):
             return form in rf or a.ability_id.endswith("_attack")
         attacks = [a for a in attacks if in_form(a)] or attacks
     start = foe.current_health
+    spent = [0.0]
+    if mana_stats is not None:
+        _orig_spend = char.spend_resource
+
+        def counted_spend(rtype, amount):
+            ok = _orig_spend(rtype, amount)
+            if ok and amount and char._resource_key(rtype) == "mana":
+                spent[0] += amount
+            return ok
+        char.spend_resource = counted_spend
     # THE ENGINE'S OWN LOOP, so pets take their turns and DoTs tick on the target's. The target's turn is
     # ended without it acting: the number is damage dealt and nothing else.
     done = 0
@@ -111,6 +124,8 @@ def damage_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0):
         if done >= turns:
             break
         done += 1
+        if mana_stats is not None:
+            char.current_mana = char.mana
         acted = False
         with quiet():
             for a in attacks:
@@ -120,6 +135,9 @@ def damage_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0):
                     break
             if not acted:
                 engine.execute_defend(char)
+    if mana_stats is not None:
+        mana_stats.update(spent_per_turn=spent[0] / max(1, done), pool=char.mana,
+                          regen=char.mana_per_turn(casting=True))
     return (start - foe.current_health) / turns
 
 

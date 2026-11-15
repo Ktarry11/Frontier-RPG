@@ -257,8 +257,14 @@ class Pet(StatusEffectMixin):
         template dicts, which every pet built from that template reads.
         """
         from combat.pet_templates import offense_norm, ABILITY_LEVEL_RATE
+        from combat.ability_scaling import rank_multiplier
+        # ABILITY_LEVEL_RATE follows the AUTHORED player rank line; player ranks now also take the rank curve
+        # (the world curve over that line, combat/ability_scaling.rank_multiplier - 15 Nov 2026), so a pet's
+        # single rank takes it too, at the pet's level. Without it a level-60 wolf's Bite was 121 while its
+        # hunter's shots were ~900, and Beast Mastery measured half the median damage spec.
         scale = (offense_norm(self.template)
-                 * (1.0 + (self.level - 1) * ABILITY_LEVEL_RATE))
+                 * (1.0 + (self.level - 1) * ABILITY_LEVEL_RATE)
+                 * rank_multiplier(self.level))
 
         # pet_damage HAS TO REACH THE ABILITY, NOT JUST THE STAT. A pet's
         # hit is effect_value + attack_power * 0.5, and the effect_value
