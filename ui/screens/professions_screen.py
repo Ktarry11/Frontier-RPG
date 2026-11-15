@@ -714,6 +714,7 @@ class ProfessionsScreen(BaseScreen):
                             max(0, len(recipes) - visible), visible)
         hover_rows = []         # (rect, title, lines): rows whose text was cut short, shown whole on hover
         gear_rows = []          # (rect, item): gear a row makes, shown as its full item card on hover
+        input_rows = []         # (rect, recipe): the ingredients line, hovered for where each one comes from
         for recipe_id, recipe in recipes[self.craft_scroll:self.craft_scroll + visible]:
             rect = pygame.Rect(PANEL_X, y, PANEL_WIDTH - GUTTER, row_h - 6)
             req = recipe.get("skill_required", 0)
@@ -804,6 +805,7 @@ class ProfessionsScreen(BaseScreen):
             for text, colour in parts:
                 self.renderer.draw_text(screen, text, (px, rect.y + 25), size="small", color=colour)
                 px += small.size(text)[0] + 16
+            input_rows.append((pygame.Rect(text_x, rect.y + 22, max(40, px - text_x), 20), recipe))
             if unlocked:
                 self.renderer.draw_text(screen, f"Skill {req}", (rect.right - 110, rect.y + 12), color=self._difficulty_color(skill, recipe))
             else:
@@ -814,6 +816,11 @@ class ProfessionsScreen(BaseScreen):
         self._draw_craft_message(screen)
         # hover a row for the whole description (Kyle, 14 Nov: runes and enchants that run off)
         mouse = pygame.mouse.get_pos()
+        # the ingredients line first: where each one comes from (crafting backlog B8)
+        for rect, recipe in input_rows:
+            if rect.collidepoint(mouse):
+                self._draw_sources(screen, recipe, mouse)
+                return
         for rect, item in gear_rows:
             if rect.collidepoint(mouse):
                 self._draw_gear_card(screen, item, mouse)
@@ -823,6 +830,18 @@ class ProfessionsScreen(BaseScreen):
                 from ui.hover_text import draw_hover
                 draw_hover(screen, self.renderer, title, lines, mouse)
                 break
+
+    def _draw_sources(self, screen, recipe, mouse):
+        """Each ingredient of a recipe and where it comes from. Never a hidden zone or seller."""
+        from ui.hover_text import draw_hover
+        from world.material_sources import lines as source_lines
+        player = self.state_manager.player
+        rows = []
+        for mid, qty in recipe.get("inputs", {}).items():
+            mdef = self.gathering_manager.get_material_def(mid) or {}
+            rows.append(f"{mdef.get('name', mid)}: you have {player.get_material_quantity(mid)} of {qty}")
+            rows.extend(f"   {t}" for t in (source_lines(mid) or ["Nowhere obvious. Keep your eyes open."]))
+        draw_hover(screen, self.renderer, "Where the materials come from", rows, mouse)
 
     def _gear_icon(self, item, size):
         """The item's own icon, through the same helper the bags use. None if there isn't one."""

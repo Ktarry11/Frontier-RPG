@@ -1202,6 +1202,17 @@ class InventoryScreen(BaseScreen):
         ]
         if material.description:
             lines.extend(self.renderer.wrap_text(material.description, BODY_W, size="small"))
+        # WHERE IT COMES FROM (crafting backlog B8): gathered where, made by whom, sold by whom.
+        # Never a hidden zone or seller (world/material_sources.py).
+        source_rows = set()
+        try:
+            from world.material_sources import lines as _source_lines
+            for text in _source_lines(getattr(material, "material_id", None)):
+                for wrapped in self.renderer.wrap_text(text, BODY_W, size="small"):
+                    source_rows.add(len(lines))
+                    lines.append(wrapped)
+        except Exception:
+            pass
         lines.append(f"Sell price: {format_coins(material.sell_price)}")
 
         padding = 8
@@ -1216,7 +1227,7 @@ class InventoryScreen(BaseScreen):
         self.renderer.draw_rect(screen, rect, (20, 20, 24))
         self.renderer.draw_rect(screen, rect, COLOR_GOLD, fill=False)
         for i, line in enumerate(lines):
-            color = COLOR_GOLD if i == 0 else COLOR_LIGHT_GRAY
+            color = COLOR_GOLD if i == 0 else ((140, 210, 150) if i in source_rows else COLOR_LIGHT_GRAY)
             self.renderer.draw_text(screen, line, (x + padding, y + padding + i * line_height),
                                     size="small", color=color)
 
