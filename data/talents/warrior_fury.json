@@ -190,7 +190,7 @@
     {
       "talent_id": "warrior_fury_dual_wield_specialization",
       "name": "Dual Wield Specialization",
-      "description": "Your two-weapon fighting increases all your damage by 1% per rank.",
+      "description": "Increases the damage of your off-hand weapon by 5% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 5,
@@ -198,11 +198,14 @@
       "hex_x": -5,
       "hex_y": -2,
       "effects": {
-        "all_damage": 0.01
+        "offhand_damage_pct": 0.05
       },
       "_source": "WotLK row 2: 'Increases the damage done by your offhand weapon by 5%-25%.' DEPARTURE - there is no off-hand in this engine and no off-hand damage key. An off-hand carries roughly a third of a dual-wielder's damage, so +25% off-hand is on the order of +8% total; 1% per rank reaching 5% is deliberately UNDER that, because the conversion is an estimate. The outgoing version was a proc.",
       "connected_to": [
         "warrior_fury_improved_cleave"
+      ],
+      "_tuning": [
+        "15 Nov 2026: was {'all_damage': 0.01} - a stand-in from when the off hand barely mattered. Now Classic's: off-hand damage +5% a rank (the off hand swings beside every special since 15 Nov)."
       ]
     },
     {

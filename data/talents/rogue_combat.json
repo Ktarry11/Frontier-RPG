@@ -47,7 +47,7 @@
     {
       "talent_id": "rogue_combat_dual_wield_specialization",
       "name": "Dual Wield Specialization",
-      "description": "Your relentless two-weapon work increases all your damage by 2% per rank.",
+      "description": "Increases the damage of your off-hand weapon by 10% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -55,10 +55,13 @@
       "hex_x": 2,
       "hex_y": -6,
       "effects": {
-        "all_damage": 0.02
+        "offhand_damage_pct": 0.1
       },
       "_source": "WotLK row 0: 'Increases the damage done by your offhand weapon by 50%.' DEPARTURE - there is NO off-hand in this engine and no off-hand damage key. A main-and-off-hand rogue deals roughly a third of its damage with the off hand, so +50% off-hand is on the order of +15% total; 2% per rank reaches 10%, deliberately under that rather than over, because the conversion is an estimate and this is a 5-point tier-0 node. The outgoing version was a proc.",
-      "connected_to": []
+      "connected_to": [],
+      "_tuning": [
+        "15 Nov 2026: was {'all_damage': 0.02} - a stand-in from when the off hand barely mattered. Now Classic's: off-hand damage +10% a rank (the off hand swings beside every special since 15 Nov)."
+      ]
     },
     {
       "talent_id": "rogue_combat_improved_slice_and_dice",

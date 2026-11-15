@@ -1979,8 +1979,9 @@ class Character(StatusEffectMixin):
                       else getattr(self, "hit_chance_off_hand", 100.0))
             if off_hand and random.uniform(0, 100) <= chance:
                 offhand_roll = random.randint(off_hand.weapon_damage_min, off_hand.weapon_damage_max)
-                total += int(offhand_roll * 0.5)  # Dual-wield offhand penalty (WoW convention)
-                self._last_offhand_part = int(round(int(offhand_roll * 0.5) * ws))
+                oh = int(offhand_roll * 0.5 * self._offhand_bonus())  # Dual-wield offhand penalty (WoW convention)
+                total += oh
+                self._last_offhand_part = int(round(oh * ws))
             elif off_hand:
                 self._last_offhand_missed = True
 
@@ -2001,7 +2002,14 @@ class Character(StatusEffectMixin):
         # a white swing is weapon + attack power (the basic Attack's AP_BASE share), and the off hand does half
         # of it (Classic's off-hand penalty)
         swing = roll * _ws(self.level) + (getattr(self, "attack_power", 0) or 0) * AP_BASE
-        return max(1, int(round(swing * 0.5)))
+        return max(1, int(round(swing * 0.5 * self._offhand_bonus())))
+
+    def _offhand_bonus(self):
+        """1 + the off-hand damage talents (Dual Wield Specialization: Classic's +5%/+10% off-hand damage a rank)."""
+        try:
+            return 1.0 + float(self.get_talent_effect("offhand_damage_pct", 0.0) or 0.0)
+        except Exception:                                      # noqa: BLE001
+            return 1.0
 
     def _offhand_weapon(self):
         """The equipped off-hand weapon, or None. A shield or an off-hand
