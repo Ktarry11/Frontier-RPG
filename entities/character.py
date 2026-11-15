@@ -4197,6 +4197,10 @@ class Character(StatusEffectMixin):
         else:
             char.known_professions = [p for p, v in char.profession_skills.items() if v > 0]
             char.profession_tiers = {p: 1 for p in char.known_professions if char.profession_skills[p] > 75}
+        # A learned trade starts at 1 (see learn_profession); saves from before that sat at 0 and were stuck.
+        for p in char.known_professions:
+            if char.profession_skills.get(p, 0) < 1:
+                char.profession_skills[p] = 1
         # Recipe discovery (save v9). Older saves had no known_recipes — treat all trainer-source recipes at or
         # below the character's current skill as already known (graceful migration: existing characters keep access
         # to everything they could already craft).
@@ -4682,7 +4686,10 @@ class Character(StatusEffectMixin):
                 return False
         self.known_professions.append(profession)
         self.profession_tiers.setdefault(profession, 0)
-        self.profession_skills.setdefault(profession, 0)
+        # A trade starts at 1, as in WoW. Kyle, 14 Nov 2026: "leatherworking cant progress since it
+        # starts at lvl 0" - its first recipes (and engineering's, enchanting's, jewelcrafting's,
+        # runecrafting's) need skill 1, so at 0 nothing could be bought or crafted and skill never moved.
+        self.profession_skills[profession] = max(1, self.profession_skills.get(profession, 0))
         return True
 
     def unlearn_profession(self, profession):
