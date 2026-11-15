@@ -2432,11 +2432,19 @@ class Ability:
                           f"{turns} turn{'s' if turns != 1 else ''}.")
         else:
             undo = self._cast_riders(caster, target, party)
+            self._refunded = False
             try:
                 result_msg = self._apply_effect(caster, target, cost=cost, party=party,
                                                 engine=engine)
             finally:
                 undo()
+            # A CAST THAT WAS REFUNDED DID NOTHING, so it is not a success: Judgement with no Seal and Swiftmend
+            # with no HoT gave the cost back but still reported success, and the engine ended the turn - a
+            # Retribution Paladin whose Seal had dropped spent turn after turn on nothing (15 Nov 2026: the parity
+            # sim's Ret did 6 damage a turn at level 30). Refused now, so the turn is still the player's.
+            if getattr(self, "_refunded", False):
+                self._refunded = False
+                return False, result_msg
             self._tally_damage(caster)
             result_msg = self._after_cast_riders(caster, party, result_msg, target)
 
@@ -3335,6 +3343,7 @@ class Ability:
         elif self.resource_type == ResourceType.HEALTH:
             caster.current_health += cost
         self.turns_remaining = 0
+        self._refunded = True          # use() reports the cast as refused, so the turn is not spent
 
     def _generate_resource(self, caster):
         """
