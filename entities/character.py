@@ -2311,12 +2311,12 @@ class Character(StatusEffectMixin):
 
         A save with trained_rank_levels names the level of each rank bought, so it maps onto whatever ranks the
         ability has now. An older save only has numbers, read against the rank levels as they were before
-        15 Nov 2026 (data/abilities/rank_levels_before.json, written by tools/fix_ability_rank_levels.py)."""
+        15 Nov 2026 (data/migrations/rank_levels_before.json, written by tools/fix_ability_rank_levels.py)."""
         if levels is None:
             try:
                 import json
                 from pathlib import Path
-                old = json.loads((Path(__file__).resolve().parent.parent / "data/abilities/rank_levels_before.json")
+                old = json.loads((Path(__file__).resolve().parent.parent / "data/migrations/rank_levels_before.json")
                                  .read_text(encoding="utf-8"))
             except (OSError, ValueError):
                 old = {}

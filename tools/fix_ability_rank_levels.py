@@ -23,7 +23,7 @@ Rules (only abilities whose effect_value is a strength - damage, heals, DoTs, Ho
            growing with level the way the ability already does (effect and cost x (level+10)/(prev+10)).
   FILL     a gap over 14 levels gets a rank midway, its numbers halfway between.
 
-Every changed ability's OLD rank levels are written to data/abilities/rank_levels_before.json (first time
+Every changed ability's OLD rank levels are written to data/migrations/rank_levels_before.json (first time
 only), which Character._restore_trained_ranks uses to read an older save's trained rank NUMBERS correctly.
 """
 import argparse
@@ -44,7 +44,7 @@ EXTEND_TOP = 58
 CURVED = {"damage", "spell_damage", "ranged_damage", "dot", "spell_dot", "heal", "hot", "damage_and_heal",
           "damage_and_restore_mana"}
 NUMERIC = ("effect_value", "cost", "heal_value", "absorb", "mana_restore_pct", "on_damage_hot_potency")
-BEFORE = "data/abilities/rank_levels_before.json"
+BEFORE = "data/migrations/rank_levels_before.json"
 #: Shoot and Wand take their damage from the weapon; Asher's kit is fixed by design
 SKIP_FILES = {"_universal.json", "asher_unique.json"}
 

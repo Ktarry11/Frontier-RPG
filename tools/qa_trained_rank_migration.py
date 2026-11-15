@@ -6,7 +6,7 @@
 15 Nov 2026: tools/fix_ability_rank_levels.py filled the 16-level gaps in 50 abilities, so Execute went from
 ranks at [24, 40] to [24, 32, 40, 52]. Trainers record what you bought by rank NUMBER, so an old save's
 "Execute rank 2" (the level-40 rank) would have become the level-32 rank. Saves now carry the LEVEL of each
-trained rank as well, and an old save is read through data/abilities/rank_levels_before.json.
+trained rank as well, and an old save is read through data/migrations/rank_levels_before.json.
 
   1. An old save (numbers only) keeps the rank it paid for: Execute rank 2 becomes rank 3, the level-40 rank.
   2. A new save writes trained_rank_levels and loads back to the same ranks.
@@ -26,7 +26,7 @@ os.chdir(ROOT)
 def main():
     from entities.character import Character
     bad = []
-    old_levels = json.load(open("data/abilities/rank_levels_before.json", encoding="utf-8"))
+    old_levels = json.load(open("data/migrations/rank_levels_before.json", encoding="utf-8"))
     c = Character(name="Grom", char_class="Warrior", level=50)
     c.enable_training(grandfather=False)
     c.trained_ranks = {"warrior_execute": 2, "warrior_heroic_strike": 3}
