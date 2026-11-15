@@ -28,10 +28,9 @@ from apply_giver_moves import apply, load_moves  # noqa: E402
 
 CEILING = 7
 ALLOWED = {
-    "cb_waterkeeper": "Sanu's chain is about the waterworks he stands in (Kyle, 14 Nov: Sanu stays)",
+    "cb_waterkeeper": "Sanu's chain is about the oasis she stands in (Kyle, 14 Nov: Sanu stays)",
     "gv_surveyor": "Ulla's quests are her own experiments, the end of a five-zone survey; split, they lose the voice",
-    "ab_surveyor": "the Abyssal Sands are being rewritten (backlog [21]); split them then",
-    "ab_digger": "the Abyssal Sands are being rewritten (backlog [21]); split them then",
+    "ab_surveyor": "Peska's quests are her survey argument (is a road possible?), one voice on purpose",
 }
 
 
