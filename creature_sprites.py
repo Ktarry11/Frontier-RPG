@@ -37,6 +37,8 @@ SPRITE_DIR = Path(__file__).parent / "assets" / "creatures"
 #: gave one fewer syndicate rogue, boar and skeleton archer than asked, and one extra felhound
 #: and two extra spore caps. Asking for a count does not get you that count.
 SHEETS = {
+    # ---- Felwood (Kyle's sheet, 14 Nov; tools/file_felwood_art.py)
+    'felwood': ['fw_blighted_wolf', 'fw_boss_corrupted_ancient', 'fw_boss_demon_lord', 'fw_boss_doom_lord', 'fw_boss_hold_warden', 'fw_boss_master_summoner', 'fw_boss_twin_warlocks', 'fw_bound_voidwalker', 'fw_council_acolyte', 'fw_council_high_warlock', 'fw_council_summoner', 'fw_council_warlock', 'fw_deadwood_alpha', 'fw_deadwood_gardener', 'fw_deadwood_pathfinder', 'fw_deadwood_shaman', 'fw_deadwood_warrior', 'fw_deadwood_watcher', 'fw_doomguard', 'fw_entropic_horror', 'fw_eredar_warlock', 'fw_fel_bear', 'fw_felguard', 'fw_felhound', 'fw_hound_handler', 'fw_imp', 'fw_infernal', 'fw_jadefire_stag', 'fw_satyr_felsworn', 'fw_satyr_hellcaller', 'fw_satyr_lord', 'fw_satyr_rogue', 'fw_satyr_shadowstalker', 'fw_satyr_trickster', 'fw_toxic_ooze', 'fw_warpwood_treant'],
     # ---- 1. the people of the dungeons. 208 cave creatures run on humanoid_* templates,
     #    which is why this sheet is the biggest.
     'humanoids': [
@@ -211,6 +213,51 @@ ALL_SPRITES = {s for v in SHEETS.values() for s in v}
 #: FIRST MATCH WINS, so order matters - the specific sits above the general. Each entry is
 #: (compiled pattern on the creature NAME, sprite id).
 _RULES = [
+    # FELWOOD (tools/build_felwood_openworld.py): exact names, each to its picture. The South's
+    # wildlife uses the existing beast art; the Fel Line's demons and everything in the North use
+    # Kyle's Felwood sheet (the North's names are mapped ahead of its map, harmlessly).
+    (r"^greywood\ nightsaber$", "panther_1"),
+    (r"^old\-growth\ grizzly$", "bear_2"),
+    (r"^timberline\ wolf$", "worg_3"),
+    (r"^silverhorn\ stag$", "stag"),
+    (r"^iris\ snapjaw$", "turtle_snapping"),
+    (r"^lakeshore\ crocolisk$", "crocolisk_2"),
+    (r"^hollowbark\ treant$", "treant_1"),
+    (r"^restless\ wisp$", "wisp_1"),
+    (r"^thornpaw\ saber$", "saber_cat"),
+    (r"^ruin\ prowler$", "panther_3"),
+    (r"^moonlit\ wisp$", "wisp_2"),
+    (r"^ivybound\ treant$", "treant_2"),
+    (r"^moss\-tusk\ boar$", "boar_3"),
+    (r"^blighted\ wolf$", "fw_blighted_wolf"),
+    (r"^felwood\ imp$", "fw_imp"),
+    (r"^border\ felhound$", "fw_felhound"),
+    (r"^felguard\ sentry$", "fw_felguard"),
+    (r"^old\ mossback$", "turtle_snapping"),
+    (r"^grandfather\ hollowbark$", "treant_2"),
+    (r"^saberfang\ the\ elder$", "saber_cat"),
+    (r"^ursa\ mossjaw$", "bear_5"),
+    (r"^hask'zar\ the\ scarred$", "fw_doomguard"),
+    (r"^fel\-rotted\ bear$", "fw_fel_bear"),
+    (r"^jadefire\ stag$", "fw_jadefire_stag"),
+    (r"^warpwood\ treant$", "fw_warpwood_treant"),
+    (r"^jadefire\ rogue$", "fw_satyr_rogue"),
+    (r"^jadefire\ trickster$", "fw_satyr_trickster"),
+    (r"^jadefire\ shadowstalker$", "fw_satyr_shadowstalker"),
+    (r"^jadefire\ felsworn$", "fw_satyr_felsworn"),
+    (r"^jadefire\ hellcaller$", "fw_satyr_hellcaller"),
+    (r"^seepage\ ooze$", "fw_toxic_ooze"),
+    (r"^deadwood\ warrior$", "fw_deadwood_warrior"),
+    (r"^deadwood\ den\ watcher$", "fw_deadwood_watcher"),
+    (r"^deadwood\ pathfinder$", "fw_deadwood_pathfinder"),
+    (r"^deadwood\ shaman$", "fw_deadwood_shaman"),
+    (r"^deadwood\ gardener$", "fw_deadwood_gardener"),
+    (r"^scar\ infernal$", "fw_infernal"),
+    (r"^scar\ felhound$", "fw_felhound"),
+    (r"^vor'alith\ the\ turncloak$", "fw_satyr_felsworn"),
+    (r"^the\ rot\ under\ iris$", "fw_toxic_ooze"),
+    (r"^chieftain\ grimpelt$", "fw_deadwood_alpha"),
+    (r"^prince\ aelvorn\ the\ unmade$", "fw_satyr_lord"),
     # TEMPEST ISLE, the open world (tools/build_tempest_openworld.py). Named rares and the Dark
     # Iron squatters carry no word a weaker rule could read: "Mother Canopy" is a panther,
     # "Sootwing" a drake and "The Barge-Eater" a crab, and none of them says so.
@@ -592,6 +639,12 @@ SPARE = {
     "spectre_2": "second spectre; its user was the deleted Cursed Spirit draft.",
     "vine_strangler_2": "second strangler; its user was the deleted Twisted Sapling draft.",
 }
+
+# FELWOOD, parked for North Felwood and Jaedenar (claude/felwood_brief.md): the Deadwood, the Jadefire
+# satyrs, the Legion proper, the Shadow Council, the corrupted wildlife and Jaedenar's bosses. South
+# Felwood is reclaimed (Kyle, 14 Nov), so only five of the sheet's demons appear there, on the Fel Line.
+# Take a sprite off this list when the creature that uses it goes into a table.
+SPARE.update({sid: "Felwood sheet, held for North Felwood / Jaedenar" for sid in ['fw_boss_corrupted_ancient', 'fw_boss_demon_lord', 'fw_boss_doom_lord', 'fw_boss_hold_warden', 'fw_boss_master_summoner', 'fw_boss_twin_warlocks', 'fw_bound_voidwalker', 'fw_council_acolyte', 'fw_council_high_warlock', 'fw_council_summoner', 'fw_council_warlock', 'fw_deadwood_alpha', 'fw_deadwood_gardener', 'fw_deadwood_pathfinder', 'fw_deadwood_shaman', 'fw_deadwood_warrior', 'fw_deadwood_watcher', 'fw_entropic_horror', 'fw_eredar_warlock', 'fw_fel_bear', 'fw_hound_handler', 'fw_infernal', 'fw_jadefire_stag', 'fw_satyr_felsworn', 'fw_satyr_hellcaller', 'fw_satyr_lord', 'fw_satyr_rogue', 'fw_satyr_shadowstalker', 'fw_satyr_trickster', 'fw_toxic_ooze', 'fw_warpwood_treant']})
 
 DEFAULT = "bandit_human"
 

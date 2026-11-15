@@ -365,6 +365,7 @@ ZONE_BIOME = {
     # asked for, plus Resurrected RPG's sandstone ruins props.
     "Ashenvale West": "mythical_forest",
     "Ashenvale East": "mythical_forest",
+    "South Felwood": "mythical_forest",
     "Astranaar": "mythical_forest",
     "Zoram Strand": "mythical_forest",
     "Splintertree Post": "mythical_forest",

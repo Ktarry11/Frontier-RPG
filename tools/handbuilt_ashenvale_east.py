@@ -32,8 +32,8 @@ BAKED_DIR = "assets/tiles/ashenvale/baked_east"
 W, H = 220, 200
 
 PORTALS = {(4, 100): "Ashenvale West", (165, 175): "Grom's Rest", (110, 195): "Northern Barrens",
-           (200, 40): "Howling Barrows", (110, 160): "Splintertree Post"}
-ARRIVALS = [(4, 98), (165, 176), (110, 193), (200, 41), (110, 158)]
+           (200, 40): "Howling Barrows", (110, 160): "Splintertree Post", (40, 4): "South Felwood"}
+ARRIVALS = [(4, 98), (165, 176), (110, 193), (200, 41), (110, 158), (40, 6)]
 START = (30, 102)      # a seam-road tile: everything must be reachable from here
 
 # ------------------------------------------------------------------ the plan
@@ -58,6 +58,8 @@ ROADS = {
     "ember":     ([(140, 170), (146, 152), (148, 136), (152, 120), (158, 104)], 2.2),
     # the old logging trail: Lumber Camp east to the river
     "logtrail":  ([(42, 51), (54, 46), (66, 44)], 2.2),
+    # the Felwood road: north out of the Lumber Camp to the rim (claude/felwood_brief.md, 14 Nov)
+    "felwood":   ([(42, 51), (41, 38), (40, 24), (40, 12), (40, 3)], 2.8),
 }
 
 RIVERS = [   # (pts, half-width shallow, half-width deep)
@@ -134,6 +136,7 @@ CLEARINGS = [   # carved back out of the woods
     (200, 44, 12, 9),           # Howling Barrows approach
     (165, 175, 16, 11),         # Grom's Rest
     (150, 176, 14, 8),          # the Wastes road camp
+    (40, 7, 10, 7),             # the Felwood road at the rim
 ]
 # painting-only patches for the baker (cx, cy, rx, ry)
 BLUEBELL_PATCHES = [(30, 153, 12, 8), (20, 100, 12, 6), (96, 110, 8, 5)]
@@ -152,6 +155,7 @@ def satyr_field(P, wp):
 
 GAPS = [
     ("ell", 4, 100, 8, 8),
+    ("ell", 40, 4, 8, 7),
     ("ell", 110, 195, 9, 6),
     ("ell", 110, 160, 9, 6),
     ("ell", 165, 175, 8, 6),

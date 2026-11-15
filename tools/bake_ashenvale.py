@@ -3,7 +3,7 @@ Bake the Ashenvale West painting (forest floor + rivers/lakes/moon water + cliff
 patches) from seamless materials in assets/tiles/ashenvale/materials/ (the Ashenvale tile sheet, see
 claude/ashenvale_tile_prompts.md - the file names are the AV_SHEET stems below).
 
-    python3 tools/bake_ashenvale.py [west] [--preview out.png] [--scale 4]
+    python3 tools/bake_ashenvale.py [west|east|felwood_south] [--preview out.png] [--scale 4]
 
 Landforms come from tools/handbuilt_ashenvale_west.SPEC.fields() - the SAME analytic functions the tile grid is built
 from - plus the tiles that seal_unreachable() turned into canopy / deep water, so painting and collision agree.
@@ -238,6 +238,15 @@ def build_scores(P, M):
     burn = [P.blob(*b, 0.8, wp) for b in getattr(M, "BURNED_PATCHES", [])]
     cm = np.maximum.reduce(cor) if cor else np.zeros_like(n_big)
     bm = np.maximum.reduce(burn) if burn else np.zeros_like(n_big)
+    P.fields["cm"] = cm.astype(np.float32)
+    lush = getattr(M, "LUSH", 0.0)       # South Felwood: Kyle, 14 Nov: "make southern more vibrant"
+    if lush:
+        live = 1 - np.clip(cm * 1.4, 0, 1)
+        S["grass"] = S["grass"] + lush * 0.55 * live * (0.5 + 0.5 * smoothstep(0.3, 0.7, n_mid))
+        S["fern"] = S["fern"] + lush * 0.30 * live * smoothstep(0.45, 0.75, n_fine)
+        S["bell"] = S["bell"] + lush * 0.22 * live * smoothstep(0.62, 0.82, n_big2)
+        S["mulch"] = S["mulch"] - lush * 0.35 * live
+        S["root"] = S["root"] - lush * 0.20 * live
     S["corrupt"] = 0.04 + 0.95 * cm * (0.6 + 0.4 * smoothstep(0.3, 0.6, n_mid))
     S["fel"] = 0.04 + 0.95 * cm * smoothstep(0.55, 0.78, n_fine) * smoothstep(0.1, 0.5, cm)
     S["burned"] = 0.04 + 0.95 * bm
@@ -335,12 +344,25 @@ def post(rgb, X, Y, P):
     foam = foam * (1 - smoothstep(-0.05, 0.12, cf))
     rgb = rgb * (1 - foam[..., None]) + np.array([225, 240, 240], np.float32) * foam[..., None]
     rgb = rgb * np.array([0.97, 0.99, 1.04], np.float32)       # cool twilight cast
+    grade = getattr(P, "grade", None)
+    if grade:
+        # Living ground gets more colour and light; the corruption keeps its sick, dim cast.
+        sat, val = grade
+        live = 1 - np.clip(sf(f["cm"]) * 1.4, 0, 1)
+        lum = rgb.mean(axis=2, keepdims=True)
+        k_s = (1 + (sat - 1) * live)[..., None]
+        k_v = (1 + (val - 1) * live)[..., None]
+        rgb = (lum + (rgb - lum) * k_s) * k_v
     return rgb
 
 
 def bake(zone="west", preview=None, scale=4, only=None):
     if zone == "west":
         from tools import handbuilt_ashenvale_west as M
+    elif zone == "felwood_south":
+        # South Felwood is "high level Ashenvale" (Kyle, 14 Nov): the same materials and the same painter,
+        # with more of the corruption palette as it runs north.
+        from tools import handbuilt_felwood_south as M
     else:
         from tools import handbuilt_ashenvale_east as M
     mat_dir, provisional = build_material_dir()
@@ -351,6 +373,7 @@ def bake(zone="west", preview=None, scale=4, only=None):
     L = M.build_layout()
     P.sealed_land = getattr(L, "sealed_land", [])
     P.sealed_water = getattr(L, "sealed_water", [])
+    P.grade = getattr(M, "GRADE", None)
     scores = build_scores(P, M)
     out = ROOT / M.BAKED_DIR
     written = P.bake(MATERIALS, scores, out, chunk_tiles=20, post=post, only=only)
@@ -368,7 +391,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = "east" if "east" in sys.argv else "west"
+    zone = "felwood_south" if "felwood_south" in sys.argv else ("east" if "east" in sys.argv else "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))

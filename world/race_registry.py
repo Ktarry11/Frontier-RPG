@@ -84,6 +84,11 @@ _NIGHT_ELF_VARIANTS = [f"night_elf_{i}" for i in range(1, 12)]
 # Troll - 20 variants (Male/Female mix) from the AI-generated troll
 # contact sheet, replacing the old 6-variant WC2-recolor rough stand-in.
 _TROLL_VARIANTS = [f"troll_{i}" for i in range(1, 21)]
+# The Emerald Reclamation's Timbermaw furbolgs and forest treants (Felwood, 14 Nov 2026): Kyle's
+# Deadwood and corrupted-treant art with the fel taken out (tools/build_reclamation_npc_art.py).
+# NPC-only.
+_FURBOLG_VARIANTS = [f"furbolg_{i}" for i in range(1, 7)]
+_TREANT_VARIANTS = [f"treant_{i}" for i in range(1, 3)]
 
 # Forsaken - replaces Skeleton AND Zombie entirely as the Undead-flavor
 # race (Kyle's call: "forsaken are currently garbage zombies and
@@ -175,6 +180,22 @@ RACE_OPTIONS = [
         # testing/preview purposes, just not placed in any real zone or
         # offered at character creation yet.
         available=False,
+    ),
+    RaceOption(
+        race_id="furbolg",
+        label="Furbolg",
+        race_folder="furbolg",
+        genders=[GenderOption("male", "Male", "", _FURBOLG_VARIANTS),
+                 GenderOption("female", "Female", "", _FURBOLG_VARIANTS)],
+        available=False,      # NPC-only: the Timbermaw of the Emerald Reclamation
+    ),
+    RaceOption(
+        race_id="treant",
+        label="Treant",
+        race_folder="treant",
+        genders=[GenderOption("male", "Male", "", _TREANT_VARIANTS),
+                 GenderOption("female", "Female", "", _TREANT_VARIANTS)],
+        available=False,      # NPC-only: the forest's own, standing with the Reclamation
     ),
     RaceOption(
         race_id="troll",

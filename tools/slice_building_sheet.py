@@ -173,6 +173,25 @@ _set("side_gateposts", 6, 4, "assets/tiles/cave_entrances", """
     ent_side_whalerib_a ent_side_whalerib_b ent_side_sand_pylons_a ent_side_sand_pylons_b ent_side_tollgate_a ent_side_tollgate_b
     ent_side_stone_pillars_a ent_side_stone_pillars_b ent_side_charred_a ent_side_charred_b ent_side_bamboo_a ent_side_logs_a""")
 
+#: FELWOOD (claude/felwood_art_prompts.md, sheets 1 and 2). The creatures cut to a staging folder and are
+#: filed into assets/creatures/ by tools/file_felwood_art.py; the buildings and props likewise, split
+#: between assets/buildings/ and assets/tiles/felwood/props/.
+_set("felwood_creatures", 6, 6, "assets/creatures/_src/felwood", """
+    fw_deadwood_warrior fw_deadwood_watcher fw_deadwood_pathfinder fw_deadwood_shaman fw_deadwood_gardener fw_deadwood_alpha
+    fw_satyr_rogue fw_satyr_trickster fw_satyr_shadowstalker fw_satyr_felsworn fw_satyr_hellcaller fw_satyr_lord
+    fw_felguard fw_infernal fw_imp fw_felhound fw_doomguard fw_eredar_warlock
+    fw_council_acolyte fw_council_summoner fw_council_warlock fw_bound_voidwalker fw_hound_handler fw_council_high_warlock
+    fw_fel_bear fw_blighted_wolf fw_toxic_ooze fw_warpwood_treant fw_entropic_horror fw_jadefire_stag
+    fw_boss_hold_warden fw_boss_twin_warlocks fw_boss_corrupted_ancient fw_boss_doom_lord fw_boss_master_summoner fw_boss_demon_lord""")
+
+_set("felwood", 6, 6, "assets/tiles/felwood/_src", """
+    fw_moonwell_shrine fw_sentinel_hall fw_druid_treehouse fw_inn fw_hippogryph_roost fw_supply_house
+    fw_timbermaw_lodge fw_timbermaw_totem fw_purified_moonwell fw_sentinel_tower fw_stake_barricade fw_sentinel_tent
+    fw_jaedenar_gatehouse fw_taken_hall fw_summoning_dais fw_cult_tent fw_fel_obelisk fw_shard_cage
+    fw_corrupted_tree fw_dead_ironwood fw_fel_crystals fw_fel_pool fw_fel_mushrooms fw_corrupted_log
+    fw_infernal_crater fw_fel_brazier fw_demon_portal fw_deadwood_hut fw_deadwood_totem fw_demon_bones
+    fw_ashenvale_tree fw_half_cleansed_tree fw_highborne_column fw_fallen_statue fw_highborne_arch fw_moonflowers""")
+
 _set("dark_iron", 6, 5, "assets/buildings", """
     di_smeltery di_great_hall di_gatehouse di_barracks di_watchtower di_wall_section
     di_blast_furnace di_boiler_works di_mine_head di_crane_warehouse di_smithy di_vault
@@ -201,7 +220,7 @@ _set("dark_iron_dwarves", 6, 5, "assets/creatures/_src/dark_iron_dwarves", """
 #: fraction of that sprite, where a plume lives and hanging beads do not.
 #: {sprite: fraction of height treated, measured from the top}
 DESPILL_TOP = {"tau_great_lodge": 0.22, "di_smeltery": 0.30, "di_boiler_works": 0.30,
-               "di_steam_pipes": 0.30}
+               "di_steam_pipes": 0.30, "fw_infernal_crater": 0.45}
 
 
 def _despill_plume(cut, frac):

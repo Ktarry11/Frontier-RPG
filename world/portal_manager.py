@@ -516,6 +516,12 @@ class PortalManager:
                 (110, 195): ("Northern Barrens", 150, 4),
                 (200, 40): ("Howling Barrows", 47, 76),
                 (110, 160): ("Splintertree Post", 45, 66),
+                (40, 4): ("South Felwood", 74, 196),           # the Warsong camp's north road
+            },
+            # ===== FELWOOD (claude/felwood_brief.md): north out of Ashenvale East =====
+            # The Emerald Sanctuary (100,118) and North Felwood (70,4) doors go in when those maps exist.
+            "South Felwood": {
+                (74, 196): ("Ashenvale East", 40, 4),
             },
             "Splintertree Post": {
                 (45, 66): ("Ashenvale East", 110, 160),

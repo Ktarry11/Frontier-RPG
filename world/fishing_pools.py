@@ -41,6 +41,7 @@ ZONE_POOLS = {
     "arathi_central": ("pool_river", "pool_reeds"),
     "arathi_east": ("pool_coast", "pool_storm"),
     "tempest_shallows": ("pool_storm", "pool_whirlpool"),
+    "south_felwood": ("pool_moonlit", "pool_river"),     # Ashenvale's water, running out of Felwood
     "ashen_reach": ("pool_lava", "pool_bubbling"),
     "moonwell_hollow": ("pool_moonlit", "pool_glowing"),
     "aspen_wilderness": ("pool_river", "pool_reeds"),
