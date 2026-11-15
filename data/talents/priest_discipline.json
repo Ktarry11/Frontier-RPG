@@ -66,7 +66,7 @@
     {
       "talent_id": "priest_discipline_meditation",
       "name": "Meditation",
-      "description": "Restores 8 mana every 5 seconds per rank.",
+      "description": "Lets 17% of your Spirit mana regeneration continue while casting, per rank (50% at 3 ranks).",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -74,12 +74,13 @@
       "hex_x": -4,
       "hex_y": -4,
       "effects": {
-        "mp5": 8
+        "mana_regen_while_casting": 0.1667
       },
       "_source": "WotLK row 1: 'Allows 17%/33%/50% of your mana regeneration to continue while casting.' DEPARTURE - there are no cast times, so regeneration never stops and there is nothing to restore. Delivered as flat regeneration, which is the same mana by a different route. Kept from the outgoing tree, which also granted flat spirit - removed, since Enlightenment is the Spirit talent.",
       "connected_to": [
         "priest_discipline_unbreakable_will"
-      ]
+      ],
+      "_regen_note": "Kyle, 15 Nov 2026: any 'regen while casting' talent gives 17/34/50%, so a talented spirit healer keeps 80% of spirit regen while casting (30% base). Was +8 mp5 a rank."
     },
     {
       "talent_id": "priest_discipline_improved_inner_fire",

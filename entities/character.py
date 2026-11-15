@@ -3919,7 +3919,8 @@ class Character(StatusEffectMixin):
             self.heal(self.hp5_total())
 
     #: Mana back per point of Spirit at the end of each of your turns.
-    MANA_PER_SPIRIT_PER_TURN = 0.5
+    #: 0.5 until 15 Nov 2026; Kyle: "we need to improve spirit regen a bit" alongside the five-second rule
+    MANA_PER_SPIRIT_PER_TURN = 0.6
 
     def mp5_total(self):
         """mp5 from gear, talents and whatever buffs are granting right now.
@@ -3944,7 +3945,9 @@ class Character(StatusEffectMixin):
     #: was required". Spirit regen used to refund most of a spell's cost every turn (a level-60 Holy Priest got 98
     #: back against a 102-mana Heal), so nothing ever ran dry. Now, on a turn you spent mana, spirit regen runs at
     #: this fraction; on a turn you didn't (a wand, an attack, defending), it runs in full. mp5 always runs in full,
-    #: like TBC. A talent can raise the fraction with "mana_regen_while_casting" (a fraction, 0.15 = +15%).
+    #: like TBC. A talent raises the fraction with "mana_regen_while_casting" (a fraction): Kyle, 15 Nov - "ANY class
+    #: that has a improve mana regen while casting will need to do something like 17/34/50% ... (So spirit regen goes
+    #: from 30% to 80%) - allows spirit healing specs to be viable". Meditation, Arcane Meditation and Intensity.
     CASTING_SPIRIT_REGEN = 0.30
 
     def spirit_regen_fraction(self, casting):

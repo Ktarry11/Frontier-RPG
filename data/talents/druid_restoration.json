@@ -122,7 +122,7 @@
     {
       "talent_id": "druid_restoration_intensity",
       "name": "Intensity",
-      "description": "Restores 5 mana every 5 seconds per rank.",
+      "description": "Lets 17% of your Spirit mana regeneration continue while casting, per rank (50% at 3 ranks).",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -130,12 +130,13 @@
       "hex_x": 0,
       "hex_y": -4,
       "effects": {
-        "mp5": 5
+        "mana_regen_while_casting": 0.1667
       },
       "_source": "WotLK row 2: 'Allows 17%-50% of your Mana regeneration to continue while casting.' DEPARTURE - there is no casting/not-casting distinction without cast times, so regen-while-casting becomes plain regen. mp5 is FLAT and measured LIVE (mp5=5 moved the attribute +5); there is no mp5-from-Spirit conversion, because STAT_CONVERSION_TARGETS has no mana or regen target at all.",
       "connected_to": [
         "druid_restoration_natures_focus"
-      ]
+      ],
+      "_regen_note": "Kyle, 15 Nov 2026: any 'regen while casting' talent gives 17/34/50%, so a talented spirit healer keeps 80% of spirit regen while casting (30% base). Was +8 mp5 a rank."
     },
     {
       "talent_id": "druid_restoration_omen_of_clarity",

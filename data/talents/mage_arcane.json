@@ -273,7 +273,7 @@
     {
       "talent_id": "mage_arcane_arcane_meditation",
       "name": "Arcane Meditation",
-      "description": "Restores 8 mana every 5 seconds per rank.",
+      "description": "Lets 17% of your Spirit mana regeneration continue while casting, per rank (50% at 3 ranks).",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -281,12 +281,13 @@
       "hex_x": 2,
       "hex_y": -2,
       "effects": {
-        "mp5": 8
+        "mana_regen_while_casting": 0.1667
       },
       "_source": "WotLK row 2: 'Allows 17%/33%/50% of your mana regeneration to continue while casting.' DEPARTURE - there are no cast times, so regeneration never stops and there is nothing to restore. Delivered as flat regeneration. mp5 is FLAT and lands on the attribute.",
       "connected_to": [
         "mage_arcane_arcane_concentration"
-      ]
+      ],
+      "_regen_note": "Kyle, 15 Nov 2026: any 'regen while casting' talent gives 17/34/50%, so a talented spirit healer keeps 80% of spirit regen while casting (30% base). Was +8 mp5 a rank."
     },
     {
       "talent_id": "mage_arcane_torment_the_weak",
