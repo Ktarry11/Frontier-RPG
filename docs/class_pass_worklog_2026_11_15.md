@@ -328,6 +328,66 @@ Kyle (10:50 local): "That is fine. As holy pally gets illumination. So they usua
 - **Commit** 42fd93e.
 - **Running:** full mana recalibration (task b83buw2lk → `/tmp/claude-0/mana_p6.log`). Then the aura recalibration (damage + healing iterate), then the battery.
 
+### 18:15–19:20 UTC: pass 6 battery aborted twice; the deep dive starts early and finds real bugs
+
+Kyle (10:55 local): "So once these are all done. You'll do one last absolute deep dive. Aim for scenarios you didn't probe!"
+
+**Deep-dive list (new scenarios only):**
+1. School resistances by zone
+2. Every level 1–60
+3. Tail risk (death rate over many fights)
+4. Healers solo-leveling
+5. Odd groups (no tank, no healer, two healers, all ranged, a member 3 levels under)
+6. 40+ turn bosses (who goes out of mana)
+7. Chain pulls without drinking
+8. Pet classes with the pet dead
+9. Half-built talents and wrong-stat gear
+10. Bosses +3 (hit)
+11. Threat
+12. Downranking
+13. Recruits in party
+14. First 5 levels
+
+**Earlier steps in this stretch:**
+- Mana recalibrated (49e5ce9). Healing Wave vs Holy Light as a share of the bar: L20 5.3% vs 4.6%, L40 8.0% vs 6.0%, L60 5.8% vs 4.2%.
+- Auras pass 6 (dc… → 04b546a).
+
+**FOUND: the damage-parity target was not neutral.**
+- It was the alphabetically first creature of each band: Armored Scorpid (Nature 60) at 10, Corrupted Treant at 20 (Nature 60, Fire −40, every other school 10, armour 512).
+- So every damage aura at 10–20 favoured Fire and punished Nature (Enhancement clamped at 20).
+- **Fixed:** `sim_dps_parity.neutralize` (no resists; armour = the band's median), also used for the Cryotherapist heal-parity target. 8e4e263.
+- Re-run: the clamps went from 4 to 1 (only Survival L30 is left).
+
+**Deep dive #1: `tools/sim_school_exposure.py`** (8ba0664).
+- Each spec's real school mix, against every encounter table in its band, using resistances as SPAWNED (templates carry none).
+- Below 60: the worst table keeps about 62% (the 30 cap gives 37.5% off), and the median keeps 92–100%.
+- AT 60 (the 75% wall, Kyle's 6 Nov design: resist max 60, spell pen 2:1, 30 pen cancels it):
+  - Mono-school specs keep 42–52% against the worst endgame tables: Incineration 42%, Elemental 44%, Balance 48%, Fire Mage 52%, Venom 52%.
+  - 3–5 of 15 tables are below 70%. Median kept: Incineration 82%, Enhancement 82%, Fire Mage 85%.
+  - The tool counts no spell penetration. The cliff is exactly at 60 (cap 30 at 59 → 60 at 60). **For Kyle:** ramp it from 50 to 60?
+
+**FOUND: the Arcane Mage had no Arcane single-target spell** (its damage was 62% Fire; the builder's notes said "Arcane's own spells are mostly absent").
+- **ADDED** `mage_arcane_missiles`: trained at 8, ranked every 8 levels to 56, slow cast, 1.5x a Fireball rank for 1.15x its cost. Icon: Spell_Nature_StarFall (WotLK glyph set).
+- Missile Barrage re-aimed at Arcane Missiles. Arcane Stability now also gives +3% a rank to Missiles. 2b69c23.
+
+**FOUND: the planner ranked on base size and ignored talents.**
+- Missiles tied Fireball and lost on file order, and Frost cast Fireball over Frostbolt.
+- **Fixed:** `plan.per_turn` × (1 + the ability's damage talents + the school's talents via the engine's `_school_damage_bonus`).
+- Arcane leads with Missiles at 40/60; Frost leads with Frostbolt.
+
+**FOUND: 19 damage spells had no `damage_school`** and landed as generic "magic", untouched by any school talent.
+- The Shadow Priest's whole kit: Shadow Word: Pain, Mind Flay, Vampiric Touch, Mind Sear. **Shadow measured 0% Shadow.**
+- Also Corruption, Unstable Affliction, Moonfire, Insect Swarm, Starfall, Consecration, Flame Shock, Searing and Magma Totem, Ravenous Strike, Final Verdict, Argent Blade, Titanstrike, Spirit in a Bottle and Noctis Blade.
+- **Fixed**, with a new guard `tools/qa_spell_schools.py`.
+
+**FOUND: Shadow still cast Smite over Mind Flay.** Mind Flay totalled 765 at 58 against a 1,060 Smite (0.41x of expected).
+- `fix_weak_over_time` second round, floor 0.6 → 0.8: **34 DoTs/HoTs lifted.** These include Mind Flay, Curse of Agony, Unstable Affliction, Insect Swarm, Renew, Deadly Poison, Hemorrhage, Garrote, Mind Sear, plus 25 CoA.
+- Shadow now opens Shadow Word: Pain, Mind Flay, Mind Blast.
+
+**Three spenders at 0.33x lifted to 0.8x:** Venomtip Poison, Torchlight, Divine Force. Commit 8d0fcec.
+
+**Running:** pass-7 recalibration (task bg9gqejyi → `/tmp/claude-0/aura_dmg_p7.log`, `aura_heal_p7.log`). Then the battery and the rest of the deep-dive list.
+
 ## Parked (Kyle said note it only; class balance comes first)
 
 - **16:41 UTC.** Hand-authored boss drops convert from percentage hit, crit, dodge, parry and so on to RATINGS (10 rating = 1%, like gems and crafted gear), cleaning out the "trash drip" stats. This is item 8 in `claude/playtest_backlog_2026_11_14.md`.
