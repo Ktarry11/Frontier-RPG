@@ -154,7 +154,10 @@ POINTS_PCT_KEYS = frozenset({
 #: divided by 100 no matter which path reaches it. Without this entry the
 #: audit called Knight of Xoroth's Infernal Bulwark a 100x unit error when
 #: the node was right all along.
-STATUS_FRACTION_PCT_KEYS = frozenset({"damage_taken_pct", "block_value_pct"})
+#: max_health_pct and max_mana_pct too, verified 15 Nov 2026 the same way: a status effect's 5.0 took a Black
+#: Knight from 727 to 4,363 health (x6), and 0.05 from 1,139 to 1,196 (+5%). They feed the same
+#: `(1.0 + bonuses[...])` multiply. This entry said "points" for them, and two procs were authored to it.
+STATUS_FRACTION_PCT_KEYS = frozenset({"damage_taken_pct", "block_value_pct", "max_health_pct", "max_mana_pct"})
 
 #: Triggers combat/status_effects.py actually dispatches on. A proc with any
 #: other trigger never fires.
