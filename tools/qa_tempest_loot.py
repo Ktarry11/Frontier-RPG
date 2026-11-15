@@ -40,10 +40,11 @@ def main():
     T = set_tokens.data()
     bad = []
     order = list(T["bosses"])
-    # 19 on Tempest Isle and 5 in the Royal Hive (shoulders, 14 Nov 2026)
-    if len(order) != 24:
-        bad.append(f"{len(order)} bosses carry tokens, wanted 24")
-    MULTI = {"Hive-Mother Ahn'thera": (3, 9)}         # the queen and her Consort: 3 of a pool of 9
+    # 19 on Tempest Isle, 5 in the Royal Hive (shoulders) and 8 in Jaedenar (hands), 14 Nov 2026
+    if len(order) != 32:
+        bad.append(f"{len(order)} bosses carry tokens, wanted 32")
+    # the 2-for-1 fights: 3 of a pool of 9
+    MULTI = {"Hive-Mother Ahn'thera": (3, 9), "The Duskwhisper Sisters": (3, 9)}
 
     # 1, 2
     trinkets = 0
@@ -64,9 +65,11 @@ def main():
             bad.append(f"{name}: {len(seen)} different items seen in 60 kills, wanted {pool}")
         trinkets += sum(1 for n in seen if n in {"Gatewarden's Horn", "Cinder-Prayer Beads",
                                                  "Alpha's Dewclaw", "Shard of the Mountain's Heart",
-                                                 "Drop of Royal Amber", "Ahn'thera's Last Egg"})
-    if trinkets != 6:
-        bad.append(f"{trinkets} of the six proc trinkets were seen dropping")
+                                                 "Drop of Royal Amber", "Ahn'thera's Last Egg",
+                                                 "Shard of the Pact", "Eye of Entropy",
+                                                 "Zar'gothrax's Burning Heart"})
+    if trinkets != 9:
+        bad.append(f"{trinkets} of the nine proc trinkets were seen dropping")
 
     # 3, 4
     rng = random.Random(11)
@@ -85,11 +88,11 @@ def main():
         if not kinds <= allowed or (spec["guaranteed"] and kinds != allowed):
             bad.append(f"{name} dropped {sorted(kinds - allowed) or 'too few kinds'}")
     slots = [T["bosses"][n]["slot"] for n in order]
-    if slots != ["wrist"] * 6 + ["waist"] * 6 + ["legs"] * 7 + ["shoulder"] * 5:
+    if slots != ["wrist"] * 6 + ["waist"] * 6 + ["legs"] * 7 + ["shoulder"] * 5 + ["hands"] * 8:
         bad.append(f"token slots by boss are {slots}")
     if [n for n in order if T["bosses"][n]["guaranteed"]] != ["Thane Morrun the Unmade", "The Caldera",
-                                                                "Hive-Mother Ahn'thera"]:
-        bad.append("the guaranteed bosses are not the three last bosses")
+                                                                "Hive-Mother Ahn'thera", "Zar'gothrax the Unbound"]:
+        bad.append("the guaranteed bosses are not the four last bosses")
 
     # 5, 6
     with contextlib.redirect_stdout(io.StringIO()):

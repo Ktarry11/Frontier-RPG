@@ -10,6 +10,8 @@ bosses hit for 88-130 with three abilities and no boss health multiplier, and th
 raptors for 200. The dungeons were the easiest thing on the island.
 
 THE ROYAL HIVE is new (tools/handbuilt_royal_hive.py) and its creatures are written here too.
+JAEDENAR (tools/handbuilt_jaedenar.py, North Felwood, 52-55, eight bosses) is written here too, on
+the same curves, so all four 50+ dungeons are tuned by one hand.
 
 THE NUMBERS come from the finished dungeons either side of these, the Cistern and the Mother Vein
 (48-53), extended by level:
@@ -84,6 +86,8 @@ _SUMMON_SOURCES = {}
 def summon(name, creature, cooldown, max_alive, max_casts):
     if creature in HIVE_ROSTER:
         template = HIVE_ROSTER[creature][0]
+    elif creature in JAE_ROSTER:
+        template = JAE_ROSTER[creature][0]
     else:
         template = json.loads(CREATURES.read_text(encoding="utf-8"))["creatures"][creature]["template"]
     return dict(name=name, kind="summon", amount=0, cooldown=cooldown, mana_cost=0,
@@ -185,6 +189,115 @@ def hive_kits():
             rider={"effect": "buff", "duration": 4, "stat_mods": {"armor": 700}}),
         "For the Queen",
         opener_mech={"reflect_pct": 15, "reflect_school": "physical", "reflect_melee_only": True})
+    return k
+
+
+# =============================================================================== JAEDENAR
+#: name -> (template, lo, hi, boss multiplier or None). The open-world Council (Acolyte, Warlock,
+#: Hound Handler) is North Felwood's and keeps its own kits (tools/build_felwood_openworld.py).
+JAE_ROSTER = {
+    "Shadow Council High Warlock": ("humanoid_caster",   54, 55, None),
+    "Shadow Council Summoner":     ("humanoid_caster",   54, 55, None),
+    "Bound Voidwalker":            ("humanoid_warrior",  54, 55, None),
+    "Jaedenar Felguard":           ("humanoid_warrior",  53, 55, None),
+    "Jaedenar Felhound":           ("demon_hound",       53, 54, None),
+    "Jaedenar Imp":                ("demon_caster",      52, 54, None),
+    "Jaedenar Doomguard":          ("humanoid_warrior",  55, 55, None),
+    "Jaedenar Infernal":           ("elemental_bruiser", 55, 55, None),
+    "Hold-Warden Gorvash":         ("humanoid_warrior",  53, 53, 2.5),
+    "Inquisitor Xel'thas":         ("humanoid_caster",   53, 53, 2.5),
+    # THE 2-FOR-1 (Kyle, 14 Nov: three drops off a bigger pool): the Sisters and their pact demon,
+    # one encounter (zone.boss_pack), one shared hoard. Each a little lighter than a lone boss.
+    "The Duskwhisper Sisters":     ("humanoid_caster",   54, 54, 2.4),
+    "Zeth'rak the Pactbound":      ("humanoid_warrior",  54, 54, 2.3),
+    "Master Summoner Kaz'reth":    ("humanoid_caster",   54, 54, 2.5),
+    "The Entropic Horror":         ("elemental_bruiser", 54, 54, 2.3),
+    "Doomlord Kazrak":             ("humanoid_warrior",  55, 55, 2.5),
+    "Grimbark the Chained":        ("elemental_bruiser", 55, 55, 2.3),
+    "Zar'gothrax the Unbound":     ("humanoid_warrior",  55, 55, 2.8),
+}
+
+
+def jae_kits():
+    t53, t54, t55 = T(53), T(54), T(55)
+    k = {
+        "Shadow Council High Warlock": [dmg("Shadow Bolt", t55, school="shadow"),
+                                        dot("Corruption", int(t55 * 0.26), 4, 4, school="shadow",
+                                            dispel_type="magic"),
+                                        dmg("Rain of Fire", int(t55 * 0.66), cooldown=4, school="fire", is_aoe=True)],
+        "Shadow Council Summoner": [dmg("Fel Bolt", t54, school="fire"),
+                                    summon("Call an Imp", "Jaedenar Imp", 5, 1, 2),
+                                    debuff("Curse of Tongues", 5, 3, {"haste": -12}, school="shadow")],
+        "Bound Voidwalker": [dmg("Void Fist", t55, school="shadow"),
+                             dmg("Suffering", int(t55 * 0.66), cooldown=4, school="shadow", is_aoe=True),
+                             buff("Consume Shadows", 6, 3, {"armor": 180})],
+        "Jaedenar Felguard": [dmg("Fel Axe", t54 + 6), dmg("Cleave", int(t54 * 0.66), cooldown=4, is_aoe=True),
+                              debuff("Intercept", 5, 1, {"dodge_rating": -50})],
+        "Jaedenar Felhound": [dmg("Fel Bite", t53), dmg("Mana Burn", int(t53 * 0.88), cooldown=4, school="shadow"),
+                              debuff("Spell Lock", 6, 2, {"spell_power": -50})],
+        "Jaedenar Imp": [dmg("Firebolt", int(t53 * 0.8), school="fire"),
+                         dmg("Fel Spark", int(t53 * 0.7), cooldown=3, school="fire")],
+        "Jaedenar Doomguard": [dmg("Doom Blade", t55 + 10, school="fire"),
+                               dmg("War Stomp", int(t55 * 0.66), cooldown=4, is_aoe=True),
+                               stun_hit("Hammer of the Legion", int(t55 * 0.6), cooldown=6)],
+        "Jaedenar Infernal": [dmg("Burning Slam", t55 + 6, school="fire"),
+                              dmg("Immolation", int(t55 * 0.66), cooldown=4, school="fire", is_aoe=True),
+                              buff("Stone Skin", 6, 4, {"armor": 220})],
+    }
+    # 1 the gate: plants his banner, and his guards come to it
+    k["Hold-Warden Gorvash"] = boss_kit(
+        53, "physical", "Warden's Glaive", "Hold the Line", "Sentence at the Gate", "Sweep the Yard",
+        summon("Rally to the Banner", "Jaedenar Felguard", 5, 2, 3), "The Hold Does Not Fall",
+        extra=[dmg("Plant the Banner", int(B(53) * 0.6), cooldown=6,
+                   rider={"effect": "buff", "duration": 4,
+                          "stat_mods": {"physical_damage_taken_pct": -30, "magic_damage_taken_pct": -15}})])
+    # 2 the hall: spells feed his ward, and some of every blow comes back
+    k["Inquisitor Xel'thas"] = boss_kit(
+        53, "shadow", "Mind Spike", "Question the Weak", "Confession", "Whispers in the Hall",
+        shell("Ward of the Inquisitor", 6, 3, int(B(53) * 1.0), damage_to_shield_pct=60,
+              damage_to_shield_school="magic"),
+        "Nothing Left to Hide", aoe=False, opener_mech={"reflect_pct": 12, "reflect_school": "shadow"})
+    # 3 the library: the Sisters drain life to heal; their eredar stands in front and hits back
+    k["The Duskwhisper Sisters"] = boss_kit(
+        54, "shadow", "Twin Shadow Bolts", "Sister's Curse", "Soul Fire", "Rain of Shadow",
+        dict(name="Drain Life", kind="heal", amount=int(B(54) * 1.1), cooldown=4, mana_cost=0, school="shadow"),
+        "Bound by Blood",
+        extra=[dot("Curse of Agony", int(B(54) * 0.34), 5, 4, school="shadow", dispel_type="curse")])
+    k["Zeth'rak the Pactbound"] = boss_kit(
+        54, "fire", "Eredar Blade", "Felflame", "The Pact Is Kept", "Fel Nova",
+        stun_hit("Seize", int(B(54) * 0.6), cooldown=6, school="fire"), "Pact of Fury",
+        opener_mech={"reflect_pct": 15, "reflect_school": "fire", "reflect_melee_only": True})
+    # 4 the sanctum: imps keep coming until he falls
+    k["Master Summoner Kaz'reth"] = boss_kit(
+        54, "fire", "Fel Flame", "Open the Way", "Hellfire Bolt", "Summoning Fire",
+        summon("Open a Portal", "Jaedenar Imp", 3, 3, 6), "The Gate Stands Open",
+        extra=[summon("Bind a Voidwalker", "Bound Voidwalker", 6, 1, 2)])
+    # 5 the Maw (optional): every hit leaves you weaker to everything
+    k["The Entropic Horror"] = boss_kit(
+        54, "shadow", "Lashing Tendril", "Unravel", "The Eye Opens", "Entropy",
+        dict(name="Unmaking Gaze", kind="debuff", amount=0, cooldown=3, mana_cost=0, school="shadow",
+             duration=4, stat_mods={"magic_damage_taken_pct": 12, "physical_damage_taken_pct": 12}),
+        "Everything Comes Apart", aoe=False)
+    # 6 the pit: armour you have to cut through
+    k["Doomlord Kazrak"] = boss_kit(
+        55, "fire", "Doom Edge", "Burning Cleave", "Execution of the Legion", "Fel Firestorm",
+        dmg("Legion Plate", int(B(55) * 0.6), cooldown=4,
+            rider={"effect": "buff", "duration": 4, "stat_mods": {"armor": 900}}),
+        "Doom Comes")
+    # 7 the Chained Grove (optional): a corrupted ancient that heals off the fel
+    k["Grimbark the Chained"] = boss_kit(
+        55, "nature", "Rotting Bough", "Chain Lash", "Uproot", "Fel Spores",
+        dict(name="Drink the Fel", kind="heal", amount=int(B(55) * 1.3), cooldown=4, mana_cost=0,
+             school="nature"),
+        "The Chains Break", aoe=False,
+        opener_mech={"on_low_health_pct": 30, "on_low_health_heal_pct": 15, "on_low_health_uses": 1})
+    # 8 the Burning Throne: all of it at once, and holds at the brink once
+    k["Zar'gothrax the Unbound"] = boss_kit(
+        55, "fire", "Claws of the Unbound", "Fel Lash", "Ruin", "Burning Legion",
+        summon("Call the Legion", "Jaedenar Doomguard", 5, 2, 3), "Unbound",
+        opener_mech={"death_prevent_pct": 10, "death_prevent_uses": 1, "death_prevent_lethal_only": True},
+        extra=[stun_hit("Grip of the Nether", int(B(55) * 0.6), cooldown=6, school="shadow"),
+               dot("Fel Immolation", int(B(55) * 0.34), 5, 4, school="fire", is_aoe=True)])
     return k
 
 
@@ -406,6 +519,28 @@ def main():
         new_c[name] = rec
         new_k[kit_slug(name)] = scaled(name, hk[name])
 
+    # ---- Jaedenar: new
+    with contextlib.redirect_stdout(io.StringIO()):
+        import tools.handbuilt_jaedenar as JD
+        jdz, _ = JD.build_jaedenar()
+    jk = jae_kits()
+    if set(jk) != set(JAE_ROSTER):
+        print(f"FAILED: Jaedenar roster and kits differ: {sorted(set(jk) ^ set(JAE_ROSTER))}")
+        return 1
+    open_world = {"Shadow Council Acolyte", "Shadow Council Warlock", "Jaedenar Hound Handler"}
+    jplaced = ({n for *_, n in jdz.boss_positions} | {n for p in JD._trash() for *_, n, _l in p}
+               | {m[2] for v in jdz.boss_pack.values() for m in v})
+    if (jplaced - open_world) != set(JAE_ROSTER) - {"Jaedenar Imp"} and (jplaced - open_world) != set(JAE_ROSTER):
+        print(f"FAILED: Jaedenar map and roster differ: {sorted((jplaced - open_world) ^ set(JAE_ROSTER))}")
+        return 1
+    for name, (template, lo, hi, mult) in JAE_ROSTER.items():
+        rec = {"template": template, "level_range": [lo, hi], "is_boss": bool(mult),
+               "ability_kit": kit_slug(name)}
+        if mult:
+            rec["boss_multiplier"] = mult
+        new_c[name] = rec
+        new_k[kit_slug(name)] = scaled(name, jk[name])
+
     merge_json(CREATURES, "creatures", new_c, "creatures.json")
     merge_json(KITS, "kits", new_k, "ability_kits.json")
 
@@ -416,6 +551,10 @@ def main():
     caves = enc["zones"]["The Black Strand"].setdefault("caves", {})
     caves[RH.NAME] = {"name": RH.NAME, "creatures": {n: 0 if m else 4 for n, (_t, _lo, _hi, m)
                                                       in HIVE_ROSTER.items()}}
+    jcaves = enc["zones"]["North Felwood"].setdefault("caves", {})
+    jcreatures = {n: 0 if m else 4 for n, (_t, _lo, _hi, m) in JAE_ROSTER.items()}
+    jcreatures.update({"Shadow Council Acolyte": 4, "Shadow Council Warlock": 4, "Jaedenar Hound Handler": 3})
+    jcaves[JD.NAME] = {"name": JD.NAME, "creatures": jcreatures}
     ENCOUNTERS.write_text(json.dumps(enc, indent=indent, ensure_ascii=False)
                           + ("\n" if newline else ""), encoding="utf-8")
     # ---- these bosses were tuned by hand against the sim, so the global boss

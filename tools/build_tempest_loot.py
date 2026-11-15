@@ -67,20 +67,29 @@ DUNGEONS = {
         ("Resin-Mother Vex'ith", "shoulder"), ("Tunnel-King Ruzzak", "shoulder"),
         ("Hive-Mother Ahn'thera", "shoulder"),
     ],
+    # Jaedenar, the Shadow Council's hold in North Felwood (tools/handbuilt_jaedenar.py), 52-55.
+    # Kyle, 14 Nov: "a dungeon thats 52-55 to drop the hands" and "about 8 bosses".
+    ("North Felwood", "Jaedenar"): [
+        ("Hold-Warden Gorvash", "hands"), ("Inquisitor Xel'thas", "hands"),
+        ("The Duskwhisper Sisters", "hands"), ("Master Summoner Kaz'reth", "hands"),
+        ("The Entropic Horror", "hands"), ("Doomlord Kazrak", "hands"),
+        ("Grimbark the Chained", "hands"), ("Zar'gothrax the Unbound", "hands"),
+    ],
 }
 #: The last boss of each dungeon always drops a token, of any armour type.
-FINAL = ("Thane Morrun the Unmade", "The Caldera", "Hive-Mother Ahn'thera")
+FINAL = ("Thane Morrun the Unmade", "The Caldera", "Hive-Mother Ahn'thera", "Zar'gothrax the Unbound")
 #: Bosses whose pool is nine because three drop at once (entities/boss_loot.MULTI_DROP).
-MULTI = ("Hive-Mother Ahn'thera",)
+MULTI = ("Hive-Mother Ahn'thera", "The Duskwhisper Sisters")
 #: Pack members whose loot is the lead's (entities/boss_loot.SHARED_HOARD).
-SHARED_HOARD = ("Royal Consort Zhir'ak",)
+SHARED_HOARD = ("Royal Consort Zhir'ak", "Zeth'rak the Pactbound")
 #: The token slots each dungeon carries, so its own items stay out of them.
 TOKEN_SLOTS = {"Khaz Varun, the Black Hollow": ("wrist", "waist"), "The Emberdeep": ("legs",),
-               "The Royal Hive": ("shoulder",)}
+               "The Royal Hive": ("shoulder",), "Jaedenar": ("hands",)}
 
 TOKEN_NAMES = {"wrist": "Bindings of the Black Hollow", "waist": "Girdle of the Black Hollow",
-               "legs": "Legguards of the Emberdeep", "shoulder": "Mantle of the Royal Hive"}
-SLOT_WORD = {"wrist": "bracers", "waist": "belt", "legs": "legs", "shoulder": "shoulders"}
+               "legs": "Legguards of the Emberdeep", "shoulder": "Mantle of the Royal Hive",
+               "hands": "Handguards of Jaedenar"}
+SLOT_WORD = {"wrist": "bracers", "waist": "belt", "legs": "legs", "shoulder": "shoulders", "hands": "gloves"}
 #: A set piece of the right slot and armour type, borrowed as the token's picture.
 TOKEN_ICON_CLASS = {"plate": "warrior", "mail": "shaman", "leather": "rogue", "cloth": "priest"}
 
@@ -118,6 +127,27 @@ PROCS = {
                          "effect_type": "buff", "duration": 3,
                          "stat_mods": {"armor": 420}, "on_target": False},
         "describe": "When you are hit, you have a chance to gain 420 armour for 3 turns.",
+    },
+    "Shard of the Pact": {
+        "trigger": "on_damage_cast", "chance": 8, "icd": 5,
+        "apply_effect": {"effect_id": "shard_of_the_pact", "name": "The Pact Answers",
+                         "effect_type": "buff", "duration": 3,
+                         "stat_mods": {"spell_power": 34}, "on_target": False},
+        "describe": "Your damaging spells have a chance to grant 34 spell power for 3 turns.",
+    },
+    "Eye of Entropy": {
+        "trigger": "on_damage_taken", "chance": 10, "icd": 5,
+        "apply_effect": {"effect_id": "eye_of_entropy", "name": "Unmade Skin",
+                         "effect_type": "buff", "duration": 3,
+                         "stat_mods": {"dodge_rating": 6}, "on_target": False},
+        "describe": "When you are hit, you have a chance to gain 6 dodge for 3 turns.",
+    },
+    "Zar'gothrax's Burning Heart": {
+        "trigger": "on_crit", "chance": 15, "icd": 5,
+        "apply_effect": {"effect_id": "burning_heart", "name": "Burning Heart",
+                         "effect_type": "buff", "duration": 3,
+                         "stat_mods": {"attack_power": 56}, "on_target": False},
+        "describe": "Your critical strikes have a chance to grant 56 attack power for 3 turns.",
     },
     "Ahn'thera's Last Egg": {
         "trigger": "on_damage_cast", "chance": 8, "icd": 5,
@@ -265,6 +295,47 @@ def pools():
          ("Attendant's Gloves", "hands", "of the Bandit", A("leather")),
          ("Ring of the Twin Thrones", "ring", "of the Invoker"),
          ("Ahn'thera's Last Egg", "trinket", "of the Sorcerer"))
+
+    # ---------------- JAEDENAR (the hands token, so no gloves of its own) ----------------
+    boss("Hold-Warden Gorvash",                   # the banner at the gate
+         ("Gorvash's Banner Glaive", "main_hand", "of the Vanquisher", W("polearm")),
+         ("Hold-Warden's Greathelm", "head", "of the Defender", A("plate")),
+         ("Gatekeeper's Chain Girdle", "waist", "of the Hunt", A("mail")))
+    boss("Inquisitor Xel'thas",                   # spells feed his ward
+         ("Inquisitor's Mindblade", "main_hand", "of Shadow Wrath", W("dagger")),
+         ("Robes of the Whispering Hall", "chest", "of the Sorcerer", A("cloth")),
+         ("Confessor's Leggings", "legs", "of the Assassin", A("leather")))
+    # The Sisters and Zeth'rak: ONE hoard, three items per kill (MULTI and SHARED_HOARD).
+    boss("The Duskwhisper Sisters",
+         ("Duskwhisper Twinblade", "main_hand", "of the Bandit", W("sword_1h")),
+         ("Pactbound Greataxe", "main_hand", "of the Gladiator", W("axe_2h")),
+         ("Sister's Spite", "ranged", "of Shadow Wrath", W("wand")),
+         ("Duskwhisper Cowl", "head", "of the Invoker", A("cloth")),
+         ("Zeth'rak's Eredar Mantle", "shoulder", "of the Champion", A("plate")),
+         ("Pactsilk Leggings", "legs", "of the Prophet", A("cloth")),
+         ("Bloodbound Jerkin", "chest", "of the Monkey", A("leather")),
+         ("Ring of the Two Sisters", "ring", "of the Archmage"),
+         ("Shard of the Pact", "trinket", "of the Sorcerer"))
+    boss("Master Summoner Kaz'reth",              # imps until he falls
+         ("Summoner's Portal Staff", "main_hand", "of the Archmage", W("staff")),
+         ("Gatewalker's Boots", "feet", "of the Elder", A("mail")),
+         ("Kaz'reth's Binding Chain", "neck", "of the Sorcerer"))
+    boss("The Entropic Horror",                   # optional, the Maw
+         ("Eye of Entropy", "trinket", "of the Defender"),
+         ("Unravelled Shoulderpads", "shoulder", "of the Physician", A("leather")),
+         ("Tendril-Wrapped Bracers", "wrist", "of the Owl", A("cloth")))
+    boss("Doomlord Kazrak",                       # armour to cut through
+         ("Doomlord's Executioner", "main_hand", "of the Breaker", W("sword_2h")),
+         ("Legion Warplate", "chest", "of the Soldier", A("plate")),
+         ("Fel-Scorched Treads", "feet", "of the Tiger", A("leather")))
+    boss("Grimbark the Chained",                  # optional, the corrupted ancient
+         ("Chainbreaker Bough", "main_hand", "of the Wellspring", W("mace_1h")),
+         ("Barkbound Hauberk", "chest", "of the Elder", A("mail")),
+         ("Grimbark's Root Sash", "waist", "of the Physician", A("cloth")))
+    boss("Zar'gothrax the Unbound",               # the thing on the throne
+         ("Unbound Fel-Axe", "main_hand", "of the Champion", W("axe_1h")),
+         ("Crown of the Burning Throne", "head", "of the Hunt", A("mail")),
+         ("Zar'gothrax's Burning Heart", "trinket", "of the Champion"))
     return P
 
 
@@ -317,6 +388,17 @@ def audit(P, T):
     dup = [n for n, c in Counter(i["name"] for i in items).items() if c > 1]
     if dup:
         bad.append(f"duplicate names: {dup}")
+    # the spread is judged per batch: the three isle dungeons together (as built), Jaedenar alone
+    jae = {n for n, _ in DUNGEONS[("North Felwood", "Jaedenar")]}
+    j_items = [i for n, v in P.items() if n in jae for i in v]
+    j_arm = Counter(i["armor_type"] for i in j_items if i.get("armor_type"))
+    for t in ARMOUR:
+        if not 3 <= j_arm[t] <= 8:
+            bad.append(f"Jaedenar: {j_arm[t]} {t} pieces: the spread is lopsided")
+    j_wpn = Counter(i["weapon_type"] for i in j_items if i.get("weapon_type"))
+    if j_wpn and max(j_wpn.values()) > 2:
+        bad.append(f"Jaedenar: a weapon type appears more than twice: {dict(j_wpn)}")
+    items = [i for n, v in P.items() if n not in jae for i in v]
     arm = Counter(i["armor_type"] for i in items if i.get("armor_type"))
     for t in ARMOUR:
         if not 6 <= arm[t] <= 12:
@@ -345,7 +427,7 @@ def main():
         for b in bad:
             print("  -", b)
         return 1
-    out = {"_notes": "Boss loot for the 51-58 dungeons: Khaz Varun and the Emberdeep (Tempest Isle) and the Royal Hive (under the Black Strand). ONE item drops "
+    out = {"_notes": "Boss loot for the 51-58 dungeons: Khaz Varun and the Emberdeep (Tempest Isle), the Royal Hive (under the Black Strand) and Jaedenar (North Felwood). ONE item drops "
                      "per kill from the pool of three. item_level = boss level + 3. T0 tokens are "
                      "separate (data/items/set_tokens.json). Hand-authored in tools/build_tempest_loot.py."}
     out.update(P)

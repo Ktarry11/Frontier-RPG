@@ -129,6 +129,38 @@
       "tier": "T0",
       "icon_id": "t0_priest_shoulder",
       "description": "A token. Any Artifact Keeper will trade it for the T0 set shoulders of a class that wears cloth."
+    },
+    "t0_token_hands_plate": {
+      "name": "Handguards of Jaedenar (Plate)",
+      "slot": "hands",
+      "armor_type": "plate",
+      "tier": "T0",
+      "icon_id": "t0_warrior_hands",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set gloves of a class that wears plate."
+    },
+    "t0_token_hands_mail": {
+      "name": "Handguards of Jaedenar (Mail)",
+      "slot": "hands",
+      "armor_type": "mail",
+      "tier": "T0",
+      "icon_id": "t0_shaman_hands",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set gloves of a class that wears mail."
+    },
+    "t0_token_hands_leather": {
+      "name": "Handguards of Jaedenar (Leather)",
+      "slot": "hands",
+      "armor_type": "leather",
+      "tier": "T0",
+      "icon_id": "t0_rogue_hands",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set gloves of a class that wears leather."
+    },
+    "t0_token_hands_cloth": {
+      "name": "Handguards of Jaedenar (Cloth)",
+      "slot": "hands",
+      "armor_type": "cloth",
+      "tier": "T0",
+      "icon_id": "t0_priest_hands",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set gloves of a class that wears cloth."
     }
   },
   "bosses": {
@@ -343,6 +375,79 @@
     },
     "Hive-Mother Ahn'thera": {
       "slot": "shoulder",
+      "guaranteed": true,
+      "types": [
+        "plate",
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Hold-Warden Gorvash": {
+      "slot": "hands",
+      "guaranteed": false,
+      "types": [
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Inquisitor Xel'thas": {
+      "slot": "hands",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "leather",
+        "cloth"
+      ]
+    },
+    "The Duskwhisper Sisters": {
+      "slot": "hands",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "cloth"
+      ]
+    },
+    "Master Summoner Kaz'reth": {
+      "slot": "hands",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "leather"
+      ]
+    },
+    "The Entropic Horror": {
+      "slot": "hands",
+      "guaranteed": false,
+      "types": [
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Doomlord Kazrak": {
+      "slot": "hands",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Grimbark the Chained": {
+      "slot": "hands",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "cloth"
+      ]
+    },
+    "Zar'gothrax the Unbound": {
+      "slot": "hands",
       "guaranteed": true,
       "types": [
         "plate",

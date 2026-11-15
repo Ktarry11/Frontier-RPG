@@ -20,7 +20,9 @@ _ENTRANCE = re.compile(
     # a boat is the entrance art for a boat crossing
     r"boat_|ash_orc_skiff|bloodsail_galleon|"
     # doors and towers that ARE the way in
-    r"gothic_gate|gg_watchtower)"
+    r"gothic_gate|gg_watchtower|"
+    # Jaedenar's gatehouse in North Felwood's west wall: the dungeon door stands in it
+    r"fw_jaedenar_gatehouse)"
 )
 
 

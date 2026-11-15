@@ -37,9 +37,9 @@ BAKED_DIR = "assets/tiles/felwood/baked_north"
 FP = "assets/tiles/felwood/props/"      # Kyle's Felwood sheet (tools/file_felwood_art.py)
 W, H = 150, 180
 
-PORTALS = {(70, 176): "South Felwood"}
-ARRIVALS = [(70, 174)]
-LATER_PORTALS = {(19, 106): "Jaedenar", (94, 4): "Timbermaw Hold"}
+PORTALS = {(70, 176): "South Felwood", (19, 106): "Jaedenar"}
+ARRIVALS = [(70, 174), (19, 108)]
+LATER_PORTALS = {(94, 4): "Timbermaw Hold"}
 START = (70, 170)      # a road tile: everything must be reachable from here
 
 # ------------------------------------------------------------------ the plan
@@ -300,7 +300,8 @@ def dress(L):
     P("br_signpost", 82, 120, 5)
 
     # ---- Jaedenar: the Shadow Council's hold, cut into the west wall ---------------------------------------------
-    L.bld("fw_jaedenar_gatehouse", 19, 105, 11, road_ok=True, nudge=1)
+    # the gatehouse IS the way in: drawn over the dungeon door (entrance art, world/portal_art.py)
+    L.deco("fw_jaedenar_gatehouse", 19, 107, 11, path_dir="assets/buildings/")
     L.bld("fw_cult_tent", 26, 98, 6)
     L.bld("fw_cult_tent", 30, 114, 6)
     L.bld("fw_cult_tent", 22, 116, 6)

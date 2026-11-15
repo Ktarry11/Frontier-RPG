@@ -36,6 +36,7 @@ DUNGEONS = {
     "night_webs_hollow": (["undead_rusted", "chained_cursed"], "ossuary"),
     "scourge_cave": (["chained_cursed", "undead_rusted"], "ossuary"),
     "burning_blade_coven": (["steel_strongbox", "dark_oak"], "void_obsidian"),
+    "jaedenar": (["chained_cursed", "steel_strongbox"], "void_obsidian"),
     "wailing_caverns": (["stone_coffer", "dark_oak"], "royal_gold"),
     "razorfen_kraul": (["dark_oak", "steel_strongbox"], "royal_gold"),
     "the_broodspiral": (["stone_coffer", "dark_oak"], "royal_gold"),

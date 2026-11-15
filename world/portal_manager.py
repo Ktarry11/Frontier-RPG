@@ -524,9 +524,13 @@ class PortalManager:
                 (100, 118): ("Emerald Sanctuary", 3, 44),
                 (70, 4): ("North Felwood", 70, 176),
             },
-            # Jaedenar's door (19,106) and the Timbermaw tunnel (94,4) go in when those maps exist.
+            # The Timbermaw tunnel (94,4) goes in when Winterspring exists.
             "North Felwood": {
                 (70, 176): ("South Felwood", 70, 4),
+                (19, 106): ("Jaedenar", 80, 186),
+            },
+            "Jaedenar": {
+                (80, 186): ("North Felwood", 19, 106),
             },
             "Emerald Sanctuary": {
                 (3, 44): ("South Felwood", 100, 118),

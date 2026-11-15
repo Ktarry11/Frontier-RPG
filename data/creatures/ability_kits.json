@@ -54618,6 +54618,929 @@
         },
         "self_only": true
       }
+    ],
+    "shadow_council_high_warlock": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 214,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Corruption",
+        "kind": "dot",
+        "amount": 55,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "dispel_type": "magic"
+      },
+      {
+        "name": "Rain of Fire",
+        "kind": "damage",
+        "amount": 141,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      }
+    ],
+    "shadow_council_summoner": [
+      {
+        "name": "Fel Bolt",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Call an Imp",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "summon": {
+          "name": "Jaedenar Imp",
+          "template": "demon_caster",
+          "kit": "jaedenar_imp",
+          "count": 1,
+          "level_offset": -2,
+          "max_alive": 1,
+          "max_casts": 2
+        }
+      },
+      {
+        "name": "Curse of Tongues",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "haste": -12
+        }
+      }
+    ],
+    "bound_voidwalker": [
+      {
+        "name": "Void Fist",
+        "kind": "damage",
+        "amount": 214,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Suffering",
+        "kind": "damage",
+        "amount": 141,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Consume Shadows",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 180
+        },
+        "self_only": true
+      }
+    ],
+    "jaedenar_felguard": [
+      {
+        "name": "Fel Axe",
+        "kind": "damage",
+        "amount": 216,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cleave",
+        "kind": "damage",
+        "amount": 138,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Intercept",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 1,
+        "stat_mods": {
+          "dodge_rating": -50
+        }
+      }
+    ],
+    "jaedenar_felhound": [
+      {
+        "name": "Fel Bite",
+        "kind": "damage",
+        "amount": 206,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Mana Burn",
+        "kind": "damage",
+        "amount": 181,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Spell Lock",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "spell_power": -50
+        }
+      }
+    ],
+    "jaedenar_imp": [
+      {
+        "name": "Firebolt",
+        "kind": "damage",
+        "amount": 164,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Fel Spark",
+        "kind": "damage",
+        "amount": 144,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire"
+      }
+    ],
+    "jaedenar_doomguard": [
+      {
+        "name": "Doom Blade",
+        "kind": "damage",
+        "amount": 224,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "War Stomp",
+        "kind": "damage",
+        "amount": 141,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Hammer of the Legion",
+        "kind": "damage",
+        "amount": 128,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      }
+    ],
+    "jaedenar_infernal": [
+      {
+        "name": "Burning Slam",
+        "kind": "damage",
+        "amount": 220,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Immolation",
+        "kind": "damage",
+        "amount": 141,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Stone Skin",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 220
+        },
+        "self_only": true
+      }
+    ],
+    "hold_warden_gorvash": [
+      {
+        "name": "Warden's Glaive",
+        "kind": "damage",
+        "amount": 330,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Hold the Line",
+        "kind": "damage",
+        "amount": 290,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sentence at the Gate",
+        "kind": "damage",
+        "amount": 429,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sweep the Yard",
+        "kind": "damage",
+        "amount": 224,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Rally to the Banner",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "summon": {
+          "name": "Jaedenar Felguard",
+          "template": "humanoid_warrior",
+          "kit": "jaedenar_felguard",
+          "count": 1,
+          "level_offset": -2,
+          "max_alive": 2,
+          "max_casts": 3
+        }
+      },
+      {
+        "name": "Plant the Banner",
+        "kind": "damage",
+        "amount": 198,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "physical_damage_taken_pct": -30,
+            "magic_damage_taken_pct": -15
+          }
+        }
+      },
+      {
+        "name": "The Hold Does Not Fall",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 132
+        }
+      }
+    ],
+    "inquisitor_xelthas": [
+      {
+        "name": "Mind Spike",
+        "kind": "damage",
+        "amount": 330,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow",
+        "boss_rework": 1,
+        "rider": {
+          "effect": "buff",
+          "duration": 99,
+          "stat_mods": {},
+          "mechanics": {
+            "reflect_pct": 12,
+            "reflect_school": "shadow"
+          }
+        }
+      },
+      {
+        "name": "Question the Weak",
+        "kind": "damage",
+        "amount": 290,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Confession",
+        "kind": "damage",
+        "amount": 429,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Whispers in the Hall",
+        "kind": "dot",
+        "amount": 118,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Ward of the Inquisitor",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 330,
+        "mechanics": {
+          "damage_to_shield_pct": 60,
+          "damage_to_shield_school": "magic"
+        }
+      },
+      {
+        "name": "Nothing Left to Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 132
+        }
+      }
+    ],
+    "the_duskwhisper_sisters": [
+      {
+        "name": "Twin Shadow Bolts",
+        "kind": "damage",
+        "amount": 340,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow",
+        "boss_rework": 1
+      },
+      {
+        "name": "Sister's Curse",
+        "kind": "damage",
+        "amount": 299,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Soul Fire",
+        "kind": "damage",
+        "amount": 442,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Rain of Shadow",
+        "kind": "damage",
+        "amount": 231,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Drain Life",
+        "kind": "heal",
+        "amount": 374,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Curse of Agony",
+        "kind": "dot",
+        "amount": 115,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "dispel_type": "curse"
+      },
+      {
+        "name": "Bound by Blood",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 136
+        }
+      }
+    ],
+    "zethrak_the_pactbound": [
+      {
+        "name": "Eredar Blade",
+        "kind": "damage",
+        "amount": 340,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire",
+        "boss_rework": 1,
+        "rider": {
+          "effect": "buff",
+          "duration": 99,
+          "stat_mods": {},
+          "mechanics": {
+            "reflect_pct": 15,
+            "reflect_school": "fire",
+            "reflect_melee_only": true
+          }
+        }
+      },
+      {
+        "name": "Felflame",
+        "kind": "damage",
+        "amount": 299,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "The Pact Is Kept",
+        "kind": "damage",
+        "amount": 442,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Fel Nova",
+        "kind": "damage",
+        "amount": 231,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Seize",
+        "kind": "damage",
+        "amount": 204,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "fire",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Pact of Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 136
+        }
+      }
+    ],
+    "master_summoner_kazreth": [
+      {
+        "name": "Fel Flame",
+        "kind": "damage",
+        "amount": 340,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire",
+        "boss_rework": 1
+      },
+      {
+        "name": "Open the Way",
+        "kind": "damage",
+        "amount": 299,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Hellfire Bolt",
+        "kind": "damage",
+        "amount": 442,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Summoning Fire",
+        "kind": "damage",
+        "amount": 231,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Open a Portal",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "summon": {
+          "name": "Jaedenar Imp",
+          "template": "demon_caster",
+          "kit": "jaedenar_imp",
+          "count": 1,
+          "level_offset": -2,
+          "max_alive": 3,
+          "max_casts": 6
+        }
+      },
+      {
+        "name": "Bind a Voidwalker",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "summon": {
+          "name": "Bound Voidwalker",
+          "template": "humanoid_warrior",
+          "kit": "bound_voidwalker",
+          "count": 1,
+          "level_offset": -2,
+          "max_alive": 1,
+          "max_casts": 2
+        }
+      },
+      {
+        "name": "The Gate Stands Open",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 136
+        }
+      }
+    ],
+    "the_entropic_horror": [
+      {
+        "name": "Lashing Tendril",
+        "kind": "damage",
+        "amount": 340,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow",
+        "boss_rework": 1
+      },
+      {
+        "name": "Unravel",
+        "kind": "damage",
+        "amount": 299,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "The Eye Opens",
+        "kind": "damage",
+        "amount": 442,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Entropy",
+        "kind": "dot",
+        "amount": 122,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Unmaking Gaze",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "stat_mods": {
+          "magic_damage_taken_pct": 12,
+          "physical_damage_taken_pct": 12
+        }
+      },
+      {
+        "name": "Everything Comes Apart",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 136
+        }
+      }
+    ],
+    "doomlord_kazrak": [
+      {
+        "name": "Doom Edge",
+        "kind": "damage",
+        "amount": 350,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire",
+        "boss_rework": 1
+      },
+      {
+        "name": "Burning Cleave",
+        "kind": "damage",
+        "amount": 308,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Execution of the Legion",
+        "kind": "damage",
+        "amount": 455,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Fel Firestorm",
+        "kind": "damage",
+        "amount": 238,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Legion Plate",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": 900
+          }
+        }
+      },
+      {
+        "name": "Doom Comes",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 140
+        }
+      }
+    ],
+    "grimbark_the_chained": [
+      {
+        "name": "Rotting Bough",
+        "kind": "damage",
+        "amount": 350,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature",
+        "boss_rework": 1,
+        "rider": {
+          "effect": "buff",
+          "duration": 99,
+          "stat_mods": {},
+          "mechanics": {
+            "on_low_health_pct": 30,
+            "on_low_health_heal_pct": 15,
+            "on_low_health_uses": 1
+          }
+        }
+      },
+      {
+        "name": "Chain Lash",
+        "kind": "damage",
+        "amount": 308,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Uproot",
+        "kind": "damage",
+        "amount": 455,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Fel Spores",
+        "kind": "dot",
+        "amount": 126,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      },
+      {
+        "name": "Drink the Fel",
+        "kind": "heal",
+        "amount": 455,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "The Chains Break",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 140
+        }
+      }
+    ],
+    "zargothrax_the_unbound": [
+      {
+        "name": "Claws of the Unbound",
+        "kind": "damage",
+        "amount": 350,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire",
+        "boss_rework": 1,
+        "rider": {
+          "effect": "buff",
+          "duration": 99,
+          "stat_mods": {},
+          "mechanics": {
+            "death_prevent_pct": 10,
+            "death_prevent_uses": 1,
+            "death_prevent_lethal_only": true
+          }
+        }
+      },
+      {
+        "name": "Fel Lash",
+        "kind": "damage",
+        "amount": 308,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Ruin",
+        "kind": "damage",
+        "amount": 455,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Burning Legion",
+        "kind": "damage",
+        "amount": 238,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Call the Legion",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "summon": {
+          "name": "Jaedenar Doomguard",
+          "template": "humanoid_warrior",
+          "kit": "jaedenar_doomguard",
+          "count": 1,
+          "level_offset": -2,
+          "max_alive": 2,
+          "max_casts": 3
+        }
+      },
+      {
+        "name": "Grip of the Nether",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Fel Immolation",
+        "kind": "dot",
+        "amount": 119,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 4,
+        "is_aoe": true
+      },
+      {
+        "name": "Unbound",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 140
+        }
+      }
     ]
   }
 }

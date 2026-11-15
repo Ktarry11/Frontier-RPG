@@ -266,6 +266,24 @@ _RULES = [
     (r"^the\ bloodvenom\ rot$", "fw_toxic_ooze"),
     (r"^pyrrhax\ the\ fallen\ star$", "fw_infernal"),
     (r"^ironbark\ the\ blighted$", "fw_warpwood_treant"),
+    # Jaedenar (tools/handbuilt_jaedenar.py)
+    (r"^shadow\ council\ high\ warlock$", "fw_council_high_warlock"),
+    (r"^shadow\ council\ summoner$", "fw_council_summoner"),
+    (r"^bound\ voidwalker$", "fw_bound_voidwalker"),
+    (r"^jaedenar\ felguard$", "fw_felguard"),
+    (r"^jaedenar\ felhound$", "fw_felhound"),
+    (r"^jaedenar\ imp$", "fw_imp"),
+    (r"^jaedenar\ doomguard$", "fw_doomguard"),
+    (r"^jaedenar\ infernal$", "fw_infernal"),
+    (r"^hold\-warden\ gorvash$", "fw_boss_hold_warden"),
+    (r"^inquisitor\ xel'thas$", "fw_council_high_warlock"),
+    (r"^the\ duskwhisper\ sisters$", "fw_boss_twin_warlocks"),
+    (r"^zeth'rak\ the\ pactbound$", "fw_eredar_warlock"),
+    (r"^master\ summoner\ kaz'reth$", "fw_boss_master_summoner"),
+    (r"^the\ entropic\ horror$", "fw_entropic_horror"),
+    (r"^doomlord\ kazrak$", "fw_boss_doom_lord"),
+    (r"^grimbark\ the\ chained$", "fw_boss_corrupted_ancient"),
+    (r"^zar'gothrax\ the\ unbound$", "fw_boss_demon_lord"),
     (r"^chieftain\ grimpelt$", "fw_deadwood_alpha"),
     (r"^prince\ aelvorn\ the\ unmade$", "fw_satyr_lord"),
     # TEMPEST ISLE, the open world (tools/build_tempest_openworld.py). Named rares and the Dark
@@ -650,9 +668,6 @@ SPARE = {
     "vine_strangler_2": "second strangler; its user was the deleted Twisted Sapling draft.",
 }
 
-# FELWOOD, parked for Jaedenar (claude/felwood_brief.md): its bosses, its warlocks and summoners, its
-# bound demons. Take a sprite off this list when the creature that uses it goes into a table.
-SPARE.update({sid: "Felwood sheet, held for Jaedenar" for sid in ['fw_boss_corrupted_ancient', 'fw_boss_demon_lord', 'fw_boss_doom_lord', 'fw_boss_hold_warden', 'fw_boss_master_summoner', 'fw_boss_twin_warlocks', 'fw_bound_voidwalker', 'fw_council_high_warlock', 'fw_council_summoner', 'fw_entropic_horror', 'fw_eredar_warlock']})
 
 DEFAULT = "bandit_human"
 

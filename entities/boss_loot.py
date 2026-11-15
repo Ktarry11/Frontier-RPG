@@ -146,6 +146,8 @@ MULTI_DROP = {
     # The Royal Hive's queen and her Consort, one fight (Kyle, 14 Nov: "another 2 for 1 boss
     # fight. Drops 3 pieces of loot").
     "Hive-Mother Ahn'thera": 3,
+    # Jaedenar's 2-for-1: the Duskwhisper Sisters and Zeth'rak, their pact demon.
+    "The Duskwhisper Sisters": 3,
 }
 
 #: Bosses whose loot IS another boss's loot. The Admiral and the
@@ -156,6 +158,7 @@ MULTI_DROP = {
 SHARED_HOARD = {
     "Fleet-Captain Orin Dace": "Admiral Hedessa Crane",
     "Royal Consort Zhir'ak": "Hive-Mother Ahn'thera",
+    "Zeth'rak the Pactbound": "The Duskwhisper Sisters",
 }
 
 

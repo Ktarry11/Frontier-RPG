@@ -5653,6 +5653,7 @@ def create_all_zones():
     from tools import handbuilt_dry_deep as dunder   # NOT ddry - that is handbuilt_drywhisker_deeps
     from tools import handbuilt_black_strand as dstrand
     from tools import handbuilt_royal_hive as droyal
+    from tools import handbuilt_jaedenar as djae
     from tools import handbuilt_onyxhollow as donyx
     from tools import handbuilt_glittervein as dgv
     from tools import handbuilt_mother_vein as dmv
@@ -5734,6 +5735,8 @@ def create_all_zones():
         "South Felwood": generate_felwood_south(),  # hand-built (tools/handbuilt_felwood_south.py)
         "Emerald Sanctuary": generate_emerald_sanctuary(),  # the Emerald Reclamation's town (tools/handbuilt_emerald_sanctuary.py)
         "North Felwood": generate_felwood_north(),  # the demon wastes, 53-55 (tools/handbuilt_felwood_north.py)
+        # The Shadow Council's hold on North Felwood's west wall. 52-55, eight bosses, the T0 hands.
+        "Jaedenar": djae.generate_jaedenar(),
         
         # ===== SILVERPINE SPLIT (2 zones) =====
         "Silverpine North": dspn.generate_silverpine_north(),  # hand-built pine woods (tools/handbuilt_silverpine_north.py)
