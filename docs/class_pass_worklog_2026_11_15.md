@@ -242,6 +242,18 @@ PYTHONPATH=. python3 tools/calibrate_spec_auras.py --kind healing --passes 5 --w
 - Starcaller Sentinel's Keen Sight converts 10% of Intellect to ranged AP, against 99% on the same key elsewhere. Flagged and left alone.
 - Meditation, Arcane Meditation and Intensity are 17% a rank (51%); seven mana refunds were rounded to whole percents. QA fixes: `qa_trinket_procs` (world curve), `qa_spellbook_refine` (Zap's text), `qa_talent_clean_numbers`.
 
+## Pass 4, 17:45–18:30 UTC
+
+- **Damage auras, pass 4:** 10 spec-levels at the clamp (from 14). Still pinned: Feral at 10, 50 and 60; Assassination and Subtlety at 30; Survival at 30 and 60; Stalking and Enhancement at 20; Balance at 10.
+- **Cat Form** (`combat/forms.py`): +25% attack power. It gave a flat 20 Agility that never grew, while Classic's cat form *was* the Feral's attack power. A level-50 Cat: 594 → 727 AP.
+- **Healing auras from the party scenarios.** A first pass from auras-off overshot (Sun Cleric went from the bottom to the top), because party survival isn't linear in the aura. `calibrate_spec_auras --iterate` measures WITH the current auras and nudges each toward the median (damp 0.7). A run started at 18:05 UTC, logging to `/tmp/claude-0/aura_heal_iter.log`.
+- **Rank depth** (Kyle: "appropriate ranks for spells, abilities, buffs ... in line with Classic"). `tools/audit_rank_depth.py` sets per-category Classic norms (direct damage: 5 ranks, one every 9.5 levels, last at 56; heals: 7 ranks every 7.1; DoTs and HoTs similar).
+  - **Damage, DoTs, heals and HoTs: 0 thin** in every class, thanks to this morning's rank fixes.
+  - Buffs: flat attack/spell/healing power, mp5 and primary stats grow through the world curve (the job Classic's buff ranks did). Percent buffs and flags don't rank, as in Classic, and shields that absorb a share of max health grow with the bar.
+  - Armour doesn't scale, so the 5 single-rank armour buffs and debuffs now rank every 12 levels, with only the armour growing.
+  - **Engine:** `Ability.stat_mods` is the current rank's own `stat_mods` when the rank carries them.
+  - Hunter's Mark (3 ranks) is left alone.
+
 ## Parked (Kyle said note it only; class balance comes first)
 
 - **16:41 UTC.** Hand-authored boss drops convert from percentage hit, crit, dodge, parry and so on to RATINGS (10 rating = 1%, like gems and crafted gear), cleaning out the "trash drip" stats. This is item 8 in `claude/playtest_backlog_2026_11_14.md`.
