@@ -646,7 +646,7 @@
     {
       "talent_id": "runemaster_glyphic_glyphs_of_power",
       "name": "Glyphs of Power",
-      "description": "Your damaging casts have a 5% chance per rank to restore 200 Mana. Cannot occur more than once per turn.",
+      "description": "Your damaging casts have a 5% chance per rank to restore 8% of your maximum mana. Cannot occur more than once per turn.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 4,
@@ -664,7 +664,8 @@
         "icd": 1,
         "grant_resource": {
           "resource": "mana",
-          "amount": 200
+          "pct_max": 0.08,
+          "_was": "a flat 200 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       }
     },

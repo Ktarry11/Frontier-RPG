@@ -309,7 +309,8 @@
         "icd": 1,
         "grant_resource": {
           "resource": "mana",
-          "amount": 70
+          "pct_max": 0.025,
+          "_was": "a flat 70 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       },
       "_source": "CoA's level 30 passive: 'Your critical heals now grant allies Replenishment. In addition, 20% of your mana regeneration continues while in combat. Replenishment replenishes 5% of maximum mana per 5 sec for 15 seconds.' Two walls: a proc cannot grant an effect to allies, and THERE IS NO MANA REGENERATION KEY AT ALL - the same wall that took Guardian Inspiration's A Hero's Tale and the Witch Doctor's Spirits. Rebuilt as a direct mana return to the caster on a critical heal, which is what Replenishment delivered. Flat, since grant_resource has no percentage form."

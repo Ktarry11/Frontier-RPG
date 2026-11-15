@@ -27,9 +27,15 @@ sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 os.chdir(ROOT)
 
-FRACTION = {"max_health_pct", "max_mana_pct", "damage_taken_pct"}
+#: all_ability_cost_pct: Ability.talented_cost reads a status value as a fraction, clamped at 0.9 - six clearcasting
+#: procs had 20-100, so every one was a 90% discount (Elemental Shaman never ran out of mana).
+FRACTION = {"max_health_pct", "max_mana_pct", "damage_taken_pct", "all_ability_cost_pct"}
 #: -1.0 damage_taken_pct is a full immunity window, on purpose (a 20-turn cooldown, Blessed ally only)
-ALLOWED = {("sun_cleric_blessing_of_purity", "damage_taken_pct", -1.0)}
+ALLOWED = {("sun_cleric_blessing_of_purity", "damage_taken_pct", -1.0),
+           # "next spell free" / "abilities cost no mana": 1.0 is free (talented_cost clamps it to 90%)
+           ("personal_marco_a_formality_arrived_late", "all_ability_cost_pct", 1.0),
+           ("mage_frost_brain_freeze", "all_ability_cost_pct", 1.0),
+           ("necromancer_animation_bone_king", "all_ability_cost_pct", 1.0)}
 
 
 def main():

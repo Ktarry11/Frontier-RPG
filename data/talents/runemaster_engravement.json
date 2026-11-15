@@ -154,7 +154,7 @@
     {
       "talent_id": "runemaster_engravement_leystone_springs",
       "name": "Leystone Springs",
-      "description": "Your weapon swings have a 5% chance per rank to tap a leystone spring, restoring 150 Mana. Cannot occur more than once per turn.",
+      "description": "Your weapon swings have a 5% chance per rank to tap a leystone spring, restoring 6% of your maximum mana. Cannot occur more than once per turn.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -171,7 +171,8 @@
         "icd": 1,
         "grant_resource": {
           "resource": "mana",
-          "amount": 150
+          "pct_max": 0.06,
+          "_was": "a flat 151 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       }
     },
@@ -215,7 +216,7 @@
     {
       "talent_id": "runemaster_engravement_elemental_carvings",
       "name": "Elemental Carvings",
-      "description": "Your Fist of the Ancients unleashes every Elemental Carving at once: restoring 120 Mana and healing you for 150.",
+      "description": "Your Fist of the Ancients unleashes every Elemental Carving at once: restoring 5% of your maximum mana and healing you for 150.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 1,
@@ -237,7 +238,8 @@
         ],
         "grant_resource": {
           "resource": "mana",
-          "amount": 120
+          "pct_max": 0.05,
+          "_was": "a flat 120 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         },
         "heal_flat": 150
       }

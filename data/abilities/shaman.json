@@ -1664,7 +1664,8 @@
         "icd": 1,
         "grant_resource": {
           "resource": "mana",
-          "amount": 45
+          "pct_max": 0.015,
+          "_was": "a flat 44 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       },
       "buff_scope": "combat",

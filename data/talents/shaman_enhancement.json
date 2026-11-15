@@ -47,7 +47,7 @@
     {
       "talent_id": "shaman_enhancement_shield_specialization",
       "name": "Shield Specialization",
-      "description": "Increases Block by 2% per rank, and blocking has a 10% chance per rank to restore 30 Mana.",
+      "description": "Increases Block by 2% per rank, and blocking has a 10% chance per rank to restore 1% of your maximum mana.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -67,7 +67,8 @@
         "icd": 1,
         "grant_resource": {
           "resource": "mana",
-          "amount": 30
+          "pct_max": 0.01,
+          "_was": "a flat 31 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       }
     },
@@ -371,7 +372,7 @@
     {
       "talent_id": "shaman_enhancement_improved_stormstrike",
       "name": "Improved Stormstrike",
-      "description": "Your Stormstrike restores 100 mana and strikes 15% harder per rank.",
+      "description": "Your Stormstrike restores 4% of your maximum mana and strikes 15% harder per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 2,
@@ -394,7 +395,8 @@
         ],
         "grant_resource": {
           "resource": "mana",
-          "amount": 100
+          "pct_max": 0.04,
+          "_was": "a flat 99 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       }
     },

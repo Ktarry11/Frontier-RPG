@@ -90,7 +90,8 @@
         "icd": 1,
         "grant_resource": {
           "resource": "mana",
-          "amount": 40
+          "pct_max": 0.015,
+          "_was": "a flat 39 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       },
       "_source": "CoA: 'Direct harmful ability critical strikes from you or your summons now restores 4% of your maximum mana.' Replaces a pure-scalar node of the same name."

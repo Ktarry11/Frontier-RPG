@@ -273,7 +273,7 @@
     {
       "talent_id": "starcaller_sentinel_lo_sho_amplification",
       "name": "Lo'sho Amplification",
-      "description": "Starfire Shot and Trueshot burn the stars you scattered, restoring 90 Mana. No more than once per turn.",
+      "description": "Starfire Shot and Trueshot burn the stars you scattered, restoring 4% of your maximum mana. No more than once per turn.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
@@ -295,7 +295,8 @@
         ],
         "grant_resource": {
           "resource": "mana",
-          "amount": 90
+          "pct_max": 0.04,
+          "_was": "a flat 91 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       }
     },

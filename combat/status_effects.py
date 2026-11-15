@@ -2308,6 +2308,14 @@ class StatusEffectMixin:
             if grant and hasattr(self, "gain_resource"):
                 resource = grant.get("resource")
                 grant_amt = grant.get("amount", 0)
+                # pct_max: a share of that resource's maximum (0.06 = 6% of the bar), so a mana refund grows with
+                # the pool instead of being worth a whole spell at 20 and a sip at 60. Was authored on two
+                # Primalist talents and read by nothing until 15 Nov 2026; every mana grant uses it now.
+                if grant.get("pct_max") and hasattr(self, "get_resource_max"):
+                    try:
+                        grant_amt += float(grant["pct_max"]) * self.get_resource_max(resource)
+                    except Exception:                       # noqa: BLE001
+                        pass
                 # scale_talent_key (optional): a get_talent_effect key
                 # whose value is a PERCENTAGE bonus multiplier on this
                 # specific grant (Venomancer's Adrenal Carapace: "+10%/rank

@@ -462,7 +462,7 @@
     {
       "talent_id": "warlock_destruction_improved_soul_leech",
       "name": "Improved Soul Leech",
-      "description": "Your direct damage spells have a 8% chance per rank to restore 80 mana.",
+      "description": "Your direct damage spells have a 8% chance per rank to restore 3% of your maximum mana.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 2,
@@ -486,7 +486,8 @@
         ],
         "grant_resource": {
           "resource": "mana",
-          "amount": 80
+          "pct_max": 0.03,
+          "_was": "a flat 81 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       }
     },

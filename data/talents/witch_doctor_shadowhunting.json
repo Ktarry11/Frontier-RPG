@@ -131,7 +131,7 @@
     {
       "talent_id": "witch_doctor_shadowhunting_spiritual_devotee",
       "name": "Spiritual Devotee",
-      "description": "Reclamation restores 30 mana.",
+      "description": "Reclamation restores 1% of your maximum mana.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -151,7 +151,8 @@
         ],
         "grant_resource": {
           "resource": "mana",
-          "amount": 30
+          "pct_max": 0.01,
+          "_was": "a flat 31 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       },
       "_source": "CoA verbatim: 'Collecting a Spirit now instantly restores 3% of your maximum mana.' No trigger fires when an effect is applied, so it hangs off Reclamation instead - the ability whose whole purpose is collecting a Spirit, so the two fire together in practice. GRANT_RESOURCE TAKES A FLAT `amount` ONLY (status_effects.py:1337) - there is no percentage-of-maximum form, and my first draft used an invented `pct_max` field, which would have been read as amount=0 and granted NOTHING while passing every check. So CoA's 3% cannot scale with level: 30 is roughly 3% of a level-40 Witch Doctor's mana and nearer 2% at 60. Verified gain_resource('mana', n) works at runtime."

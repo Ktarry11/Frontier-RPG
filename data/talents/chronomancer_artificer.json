@@ -174,7 +174,7 @@
     {
       "talent_id": "chronomancer_artificer_discovery",
       "name": "Discovery",
-      "description": "Your ranged attacks have a 30% chance to unleash a burst of Arcane damage and restore 30 mana.",
+      "description": "Your ranged attacks have a 30% chance to unleash a burst of Arcane damage and restore 1% of your maximum mana.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -193,7 +193,8 @@
         "school": "arcane",
         "grant_resource": {
           "resource": "mana",
-          "amount": 30
+          "pct_max": 0.01,
+          "_was": "a flat 31 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       },
       "_source": "CoA: 'Casting Artificer's Wand and Wand of Time now grants Discovery for 30 sec, stacking 4 times. At 3 stacks, your next Wand of Time or Artificer's Wand causes an additional Arcane Damage, scaling with Spirit.' The at-3-stacks gate cannot be built - nothing reads a stack count - so the stacking bookkeeping collapses into a flat 30% chance for the payoff itself, which is the part the player actually sees. Folded in CoA's Archaeology ('Your Discovery now also generates 3% of your base mana and health') as the mana grant, since that talent exists only to modify this one. grant_resource takes a FLAT `amount` - there is no `pct_max` field, and inventing one on Witch Doctor's Spiritual Devotee would have granted NOTHING while passing every check. The health half is dropped; grant_resource does not do health. `school` only types the damage_flat payload; it is not a trigger-side filter."
@@ -513,7 +514,7 @@
     {
       "talent_id": "chronomancer_artificer_reverse_engineering",
       "name": "Reverse Engineering",
-      "description": "Increases your ranged attack power by 10% of your Spirit. Your damaging spells have a 25% chance to grant 20% haste for 3 turns and restore 60 mana.",
+      "description": "Increases your ranged attack power by 10% of your Spirit. Your damaging spells have a 25% chance to grant 20% haste for 3 turns and restore 2.5% of your maximum mana.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -530,7 +531,8 @@
         "icd": 1,
         "grant_resource": {
           "resource": "mana",
-          "amount": 60
+          "pct_max": 0.025,
+          "_was": "a flat 60 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         },
         "apply_effect": {
           "effect_id": "reverse_engineering",

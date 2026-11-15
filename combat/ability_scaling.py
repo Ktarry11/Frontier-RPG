@@ -60,6 +60,52 @@ def rank_multiplier(level_req):
     return 1.0 + RANK_CURVE_GAIN * min(1.0, lv / (60 - RANK_CURVE_FROM))
 
 
+# ---- 4. mana costs, normalized per class (Kyle, 15 Nov: "~20 turns", "Normalize per class")
+#: data/balance/mana_costs.json, written by tools/calibrate_mana_costs.py: per class, a cost multiplier by level for
+#: its damage spells and for its heals, chosen so the class's main spell lasts MANA_TARGET_TURNS from a full bar.
+#: Every other mana ability in the class moves by the same factor, so the class's own cost ratios survive.
+_MANA_TABLE = None
+HEAL_KINDS = frozenset({"heal", "hot", "damage_and_heal"})
+
+
+def _mana_table():
+    global _MANA_TABLE
+    if _MANA_TABLE is None:
+        try:
+            import json
+            from pathlib import Path
+            _MANA_TABLE = json.loads((Path(__file__).resolve().parent.parent / "data/balance/mana_costs.json")
+                                     .read_text(encoding="utf-8")).get("classes", {})
+        except (OSError, ValueError):
+            _MANA_TABLE = {}
+    return _MANA_TABLE
+
+
+def _class_of(ability_id):
+    best = None
+    for slug in _mana_table():
+        if ability_id.startswith(slug + "_") and (best is None or len(slug) > len(best)):
+            best = slug
+    return best
+
+
+def mana_cost_multiplier(ability_id, effect_type, level_req):
+    table = _mana_table()
+    slug = _class_of(ability_id or "")
+    if not slug:
+        return 1.0
+    points = table[slug].get("heal" if effect_type in HEAL_KINDS else "damage") or table[slug].get("damage") or []
+    if not points:
+        return 1.0
+    lv = level_req or 1
+    if lv <= points[0][0]:
+        return points[0][1]
+    for (a, fa), (b, fb) in zip(points, points[1:]):
+        if a <= lv <= b:
+            return fa + (fb - fa) * (lv - a) / max(1, b - a)
+    return points[-1][1]
+
+
 def curved_ranks(entry):
     """The entry's ranks with the curve applied (a new list; the data is never edited in place)."""
     ranks = entry.get("ranks") or []
@@ -74,9 +120,15 @@ def curved_ranks(entry):
             r["heal_value"] = int(round(r["heal_value"] * m))
         if r.get("absorb"):
             r["absorb"] = int(round(r["absorb"] * m))
+        if r.get("cost") and entry.get("resource_type", "mana") == "mana" and USE_MANA_TABLE:
+            r["cost"] = max(1, int(round(r["cost"] * mana_cost_multiplier(entry.get("ability_id"), et,
+                                                                         r.get("level_req", 1)))))
         out.append(r)
     return out
 
+
+#: the calibration tool switches this off to read the authored costs
+USE_MANA_TABLE = True
 
 #: ---- 2. power coefficients. The base is a spammable single-target cast of that kind.
 SP_BASE = 1.5            # direct spell damage, per point of spell power
@@ -167,3 +219,4 @@ if _os.environ.get("FRONTIER_ABILITY_SCALING", "").lower() == "off":
     COOLDOWN_WEIGHTS = [(0, 1.0)]
     AOE_SHARE = AOE_SMALL_SHARE = 1.0
     POWER_RANK_GAIN = AP_RANK_GAIN = 0.0
+    USE_MANA_TABLE = False

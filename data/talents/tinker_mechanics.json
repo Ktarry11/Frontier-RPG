@@ -73,7 +73,8 @@
         "icd": 0,
         "grant_resource": {
           "resource": "mana",
-          "amount": 40
+          "pct_max": 0.015,
+          "_was": "a flat 39 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       },
       "_source": "CoA: 'Increases your critical strike chance by 2% and gives ranged critical strikes a 50% chance to generate 3 Scrap.' Pays MANA, not Scrap: nothing spends Scrap yet (see the docstring), and grant_resource only takes one resource. Mana is the live, useful half; the Scrap flavour returns when a sink exists."
@@ -203,7 +204,8 @@
         "require_mechsuit": true,
         "grant_resource": {
           "resource": "mana",
-          "amount": 60
+          "pct_max": 0.025,
+          "_was": "a flat 60 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       },
       "_source": "CoA: 'While in your Mechsuit, damage dealt by your summons now has a 20% chance to grant you 5 Scrap and 2% of your maximum mana.' The mana half is ported because it is live; the Scrap half waits on a sink. require_mechsuit is an existing proc condition here."

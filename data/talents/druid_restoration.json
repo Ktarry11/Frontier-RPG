@@ -158,7 +158,8 @@
         "icd": 0,
         "grant_resource": {
           "resource": "mana",
-          "amount": 70
+          "pct_max": 0.025,
+          "_was": "a flat 70 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       }
     },
@@ -415,7 +416,8 @@
         ],
         "grant_resource": {
           "resource": "mana",
-          "amount": 80
+          "pct_max": 0.03,
+          "_was": "a flat 81 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       }
     },

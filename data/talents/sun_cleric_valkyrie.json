@@ -186,7 +186,7 @@
     {
       "talent_id": "sun_cleric_valkyrie_sun_gift",
       "name": "Sun's Gift",
-      "description": "Increases the damage of Valkyr's Calling by 14%, and its casts restore 100 Mana.",
+      "description": "Increases the damage of Valkyr's Calling by 14%, and its casts restore 4% of your maximum mana.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
@@ -209,7 +209,8 @@
         ],
         "grant_resource": {
           "resource": "mana",
-          "amount": 100
+          "pct_max": 0.04,
+          "_was": "a flat 99 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       }
     },

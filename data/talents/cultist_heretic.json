@@ -69,7 +69,7 @@
     {
       "talent_id": "cultist_heretic_as_the_prophecy_foretold",
       "name": "As The Prophecy Foretold",
-      "description": "Your critical strikes steady your mind, restoring 55 Mana. No more than once per turn.",
+      "description": "Your critical strikes steady your mind, restoring 2% of your maximum mana. No more than once per turn.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 1,
@@ -87,7 +87,8 @@
         "icd": 1,
         "grant_resource": {
           "resource": "mana",
-          "amount": 55
+          "pct_max": 0.02,
+          "_was": "a flat 55 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       }
     },

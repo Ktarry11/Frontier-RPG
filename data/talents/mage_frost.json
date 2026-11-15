@@ -473,7 +473,7 @@
           "effect_type": "buff",
           "duration": 2,
           "stat_mods": {
-            "all_ability_cost_pct": 100.0,
+            "all_ability_cost_pct": 1.0,
             "crit_chance_spell": 10
           },
           "on_target": false
@@ -568,7 +568,7 @@
     {
       "talent_id": "mage_cryotherapist_spirit_frost",
       "name": "Spirit Frost",
-      "description": "Every heal you cast returns 40 Mana.",
+      "description": "Every heal you cast returns 1.5% of your maximum mana.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 1,
@@ -586,7 +586,8 @@
         "icd": 0,
         "grant_resource": {
           "resource": "mana",
-          "amount": 40
+          "pct_max": 0.015,
+          "_was": "a flat 39 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       },
       "icon_id": "mage_cryotherapist_spirit_frost"

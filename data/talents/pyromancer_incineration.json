@@ -292,7 +292,8 @@
         "icd": 1,
         "grant_resource": {
           "resource": "mana",
-          "amount": 40
+          "pct_max": 0.015,
+          "_was": "a flat 39 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       },
       "_source": "CoA verbatim: 'Damaging critical strikes now generate 10 Heat and restore 3% of your base mana.' Heat does not exist. The mana half ports in shape, but grant_resource takes a FLAT `amount` only - no percentage-of-maximum form - so 40 stands in for 3% of a mid-level pool. 1-turn internal cooldown so a multi-hit turn does not refill the bar."

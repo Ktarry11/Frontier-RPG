@@ -2663,6 +2663,8 @@ class Character(StatusEffectMixin):
         if self.get_resource(resource_type) < amount:
             return False
         self.set_resource(resource_type, self.get_resource(resource_type) - amount)
+        if amount > 0 and self._resource_key(resource_type) == "mana":
+            self._spent_mana_this_turn = True          # the five-second rule (mana_per_turn)
         return True
 
     def get_secondary_resource_type(self):
@@ -3909,7 +3911,9 @@ class Character(StatusEffectMixin):
         # druid in Bear or Cat Form read as a rage/energy user and got no mana back at the end
         # of the turn. Kyle, 12 Nov: "mana doesnt regen while in shapeshift forms."
         if self.mana > 0:
-            self.current_mana = min(self.mana, self.current_mana + self.mana_per_turn())
+            casting = bool(getattr(self, "_spent_mana_this_turn", False))
+            self.current_mana = min(self.mana, self.current_mana + self.mana_per_turn(casting=casting))
+        self._spent_mana_this_turn = False
         # hp5: health back at the end of your own turn. The dead get nothing (heal() refuses).
         if self.hp5_total() > 0:
             self.heal(self.hp5_total())
@@ -3934,12 +3938,29 @@ class Character(StatusEffectMixin):
         """hp5 from gear and talents plus buffs - health back per turn, or per five seconds."""
         return max(0, getattr(self, "hp5", 0) or 0)
 
-    def mana_per_turn(self):
-        """What the mana bar gets back at the end of each of this character's turns. The
-        number on the character sheet is this method, so the sheet cannot disagree with it."""
+    #: THE FIVE-SECOND RULE (TBC). Kyle, 15 Nov 2026: casters shouldn't be able to "spam their abilities and
+    #: have 0 chance to run out of mana. Same with a Healer. This will force casters to think about mana regen.
+    #: Or a Healer to think about actually getting spirit to boost regen" - "more of a TBC Era game where thinking
+    #: was required". Spirit regen used to refund most of a spell's cost every turn (a level-60 Holy Priest got 98
+    #: back against a 102-mana Heal), so nothing ever ran dry. Now, on a turn you spent mana, spirit regen runs at
+    #: this fraction; on a turn you didn't (a wand, an attack, defending), it runs in full. mp5 always runs in full,
+    #: like TBC. A talent can raise the fraction with "mana_regen_while_casting" (a fraction, 0.15 = +15%).
+    CASTING_SPIRIT_REGEN = 0.30
+
+    def spirit_regen_fraction(self, casting):
+        if not casting:
+            return 1.0
+        extra = self.get_talent_effect("mana_regen_while_casting", 0.0) if hasattr(self, "get_talent_effect") else 0.0
+        return max(0.0, min(1.0, self.CASTING_SPIRIT_REGEN + (extra or 0.0)))
+
+    def mana_per_turn(self, casting=False):
+        """What the mana bar gets back at the end of one of this character's turns: spirit (cut to
+        CASTING_SPIRIT_REGEN on a turn mana was spent) plus mp5. The character sheet shows both, from here,
+        so it cannot disagree with combat."""
         if getattr(self, "mana", 0) <= 0:
             return 0
-        return self.effective_spirit * self.MANA_PER_SPIRIT_PER_TURN + self.mp5_total()
+        spirit = self.effective_spirit * self.MANA_PER_SPIRIT_PER_TURN * self.spirit_regen_fraction(casting)
+        return spirit + self.mp5_total()
 
     def restore_resources_out_of_combat_step(self):
         """

@@ -217,7 +217,8 @@
         ],
         "grant_resource": {
           "resource": "mana",
-          "amount": 60
+          "pct_max": 0.025,
+          "_was": "a flat 60 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       },
       "_source": "CoA verbatim: 'Casting Green Salve now also refunds you 20% of your base mana.' grant_resource takes a FLAT `amount` only - there is no percentage-of-maximum form - so 20% cannot scale with level. 60 is roughly 20% of a mid-level Venomancer's pool and less at 60, the same compromise made on the Witch Doctor's Spiritual Devotee."
@@ -579,7 +580,8 @@
         "icd": 2,
         "grant_resource": {
           "resource": "mana",
-          "amount": 80
+          "pct_max": 0.03,
+          "_was": "a flat 81 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         },
         "apply_effect": {
           "effect_id": "venomancer_mycelial_replenishment",

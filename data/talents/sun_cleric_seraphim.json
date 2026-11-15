@@ -296,7 +296,7 @@
     {
       "talent_id": "sun_cleric_seraphim_bastion_of_hope",
       "name": "Bastion of Hope",
-      "description": "Your critical strikes restore 150 Mana and increase all your primary stats by 5% for 3 turns.",
+      "description": "Your critical strikes restore 6% of your maximum mana and increase all your primary stats by 5% for 3 turns.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
@@ -314,7 +314,8 @@
         "icd": 2,
         "grant_resource": {
           "resource": "mana",
-          "amount": 150
+          "pct_max": 0.06,
+          "_was": "a flat 151 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         },
         "apply_effect": {
           "effect_id": "bastion_of_hope",

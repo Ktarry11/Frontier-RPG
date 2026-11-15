@@ -103,7 +103,7 @@
     {
       "talent_id": "paladin_holy_illumination",
       "name": "Illumination",
-      "description": "Your critical heals have a 20% chance per rank to restore 150 mana.",
+      "description": "Your critical heals have a 20% chance per rank to restore 6% of your maximum mana.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 5,
@@ -121,7 +121,8 @@
         "icd": 0,
         "grant_resource": {
           "resource": "mana",
-          "amount": 150
+          "pct_max": 0.06,
+          "_was": "a flat 151 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       }
     },

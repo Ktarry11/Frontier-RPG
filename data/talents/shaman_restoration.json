@@ -57,7 +57,7 @@
     {
       "talent_id": "shaman_restoration_improved_water_shield",
       "name": "Improved Water Shield",
-      "description": "Your critical heals restore 120 mana.",
+      "description": "Your critical heals restore 5% of your maximum mana.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -75,7 +75,8 @@
         "icd": 0,
         "grant_resource": {
           "resource": "mana",
-          "amount": 120
+          "pct_max": 0.05,
+          "_was": "a flat 120 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       }
     },

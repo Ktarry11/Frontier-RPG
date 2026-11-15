@@ -279,7 +279,7 @@
     {
       "talent_id": "hunter_beast_mastery_invigoration",
       "name": "Invigoration",
-      "description": "Your critical strikes restore 100 mana.",
+      "description": "Your critical strikes restore 4% of your maximum mana.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 2,
@@ -297,7 +297,8 @@
         "icd": 0,
         "grant_resource": {
           "resource": "mana",
-          "amount": 100
+          "pct_max": 0.04,
+          "_was": "a flat 99 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       }
     },

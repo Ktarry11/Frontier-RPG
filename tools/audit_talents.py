@@ -157,7 +157,10 @@ POINTS_PCT_KEYS = frozenset({
 #: max_health_pct and max_mana_pct too, verified 15 Nov 2026 the same way: a status effect's 5.0 took a Black
 #: Knight from 727 to 4,363 health (x6), and 0.05 from 1,139 to 1,196 (+5%). They feed the same
 #: `(1.0 + bonuses[...])` multiply. This entry said "points" for them, and two procs were authored to it.
-STATUS_FRACTION_PCT_KEYS = frozenset({"damage_taken_pct", "block_value_pct", "max_health_pct", "max_mana_pct"})
+#: all_ability_cost_pct too: Ability.talented_cost reads the status value as a fraction and clamps at 0.9, so
+#: Clearcasting's 40.0 was a 90% discount, not 40% - Elemental never ran dry (15 Nov 2026).
+STATUS_FRACTION_PCT_KEYS = frozenset({"damage_taken_pct", "block_value_pct", "max_health_pct", "max_mana_pct",
+                                      "all_ability_cost_pct"})
 
 #: Triggers combat/status_effects.py actually dispatches on. A proc with any
 #: other trigger never fires.

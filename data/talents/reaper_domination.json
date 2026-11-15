@@ -16,7 +16,7 @@
     {
       "talent_id": "reaper_domination_empyrean_fortitude",
       "name": "Empyrean Fortitude",
-      "description": "Increases your parry chance by 6%, and parrying an attack restores 12 mana.",
+      "description": "Increases your parry chance by 6%, and parrying an attack restores 1% of your maximum mana.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -35,7 +35,8 @@
         "icd": 0,
         "grant_resource": {
           "resource": "mana",
-          "amount": 12
+          "pct_max": 0.01,
+          "_was": "a flat 13 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       },
       "_source": "CoA: 'Increases your parry chance by 5% and parrying an attack now generates 2 Runic Power.' BOTH HALVES PORT VERBATIM, which needed two separate things to be true. on_parry is a live trigger, and parry only became worth having on 5 Nov 2026 when Kyle had creature avoidance added - before that monsters could not attack in a way parry answered, and `parry` as a stat was near-inert. CoA's Runic Power is our mana. NOTE `parry` is the live key and PERCENTAGE POINTS; `parry_chance` is dead data that several talents authored. grant_resource's `amount` is FLAT. leech_pct would be wrong here and is asserted against in main(): a parried attack deals ZERO damage, so an amount-reading payload silently yields nothing."

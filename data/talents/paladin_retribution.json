@@ -388,7 +388,7 @@
     {
       "talent_id": "paladin_retribution_judgements_of_the_wise",
       "name": "Judgements of the Wise",
-      "description": "Your Judgement restores 200 mana.",
+      "description": "Your Judgement restores 8% of your maximum mana.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -409,7 +409,8 @@
         ],
         "grant_resource": {
           "resource": "mana",
-          "amount": 200
+          "pct_max": 0.08,
+          "_was": "a flat 200 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       }
     },

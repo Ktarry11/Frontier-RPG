@@ -322,7 +322,7 @@
           "effect_type": "buff",
           "duration": 2,
           "stat_mods": {
-            "all_ability_cost_pct": 25.0
+            "all_ability_cost_pct": 0.25
           },
           "on_target": false
         }
@@ -349,7 +349,7 @@
     {
       "talent_id": "priest_holy_holy_concentration",
       "name": "Holy Concentration",
-      "description": "Your critical heals restore 180 mana.",
+      "description": "Your critical heals restore 6% of your maximum mana.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -367,7 +367,8 @@
         "icd": 0,
         "grant_resource": {
           "resource": "mana",
-          "amount": 180
+          "pct_max": 0.06,
+          "_was": "a flat 179 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       }
     },

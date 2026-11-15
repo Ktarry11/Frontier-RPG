@@ -208,7 +208,7 @@
     {
       "talent_id": "starcaller_moon_priest_rapid_cycle",
       "name": "Rapid Cycle",
-      "description": "Increases Haste by 1% per rank. Your critical strikes speed the lunar cycle, restoring 70 Mana no more than once per turn.",
+      "description": "Increases Haste by 1% per rank. Your critical strikes speed the lunar cycle, restoring 2.5% of your maximum mana no more than once per turn.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 5,
@@ -228,7 +228,8 @@
         "icd": 1,
         "grant_resource": {
           "resource": "mana",
-          "amount": 70
+          "pct_max": 0.025,
+          "_was": "a flat 70 mana until 15 Nov 2026; a share of the bar now, so it scales with level"
         }
       }
     },
