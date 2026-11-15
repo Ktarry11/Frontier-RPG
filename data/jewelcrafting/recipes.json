@@ -3410,7 +3410,7 @@
           "secondary_stats": {
             "spell_power": 9
           },
-          "armor_value": 0,
+          "armor_value": 4,
           "required_level": 12,
           "sell_price": 352,
           "flavor_text": "A plain loop of metal and one clean stone.",
@@ -3457,7 +3457,7 @@
           "secondary_stats": {
             "healing_power": 9
           },
-          "armor_value": 0,
+          "armor_value": 4,
           "required_level": 13,
           "sell_price": 407,
           "flavor_text": "Cool to the touch, and it settles a healer's hands.",
@@ -3731,7 +3731,8 @@
           "stat_template": "int_caster",
           "primary_stats": {},
           "secondary_stats": {
-            "spell_power": 17
+            "spell_power": 9,
+            "spell_hit_rating": 5
           },
           "armor_value": 7,
           "required_level": 24,
@@ -3822,9 +3823,11 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "stamina": 10
+            "stamina": 6
           },
-          "secondary_stats": {},
+          "secondary_stats": {
+            "defense_rating": 5
+          },
           "armor_value": 7,
           "required_level": 22,
           "sell_price": 1092,
@@ -4063,7 +4066,7 @@
             "spell_power": 12,
             "spell_hit_rating": 5
           },
-          "armor_value": 0,
+          "armor_value": 11,
           "required_level": 36,
           "sell_price": 2867,
           "flavor_text": "A plain loop of metal and one clean stone.",
@@ -4300,7 +4303,7 @@
             "stamina": 4
           },
           "secondary_stats": {
-            "attack_power": 17
+            "attack_power": 16
           },
           "armor_value": 0,
           "required_level": 42,
@@ -4398,7 +4401,7 @@
             "spell_power": 15,
             "spell_hit_rating": 6
           },
-          "armor_value": 13,
+          "armor_value": 0,
           "required_level": 44,
           "sell_price": 4282,
           "flavor_text": "A plain loop of metal and one clean stone.",
@@ -4541,7 +4544,7 @@
           "secondary_stats": {
             "spell_power": 17
           },
-          "armor_value": 0,
+          "armor_value": 13,
           "required_level": 43,
           "sell_price": 4089,
           "flavor_text": "The stone sits at the throat, close to where the words come from.",
@@ -4589,7 +4592,7 @@
           "secondary_stats": {
             "healing_power": 22
           },
-          "armor_value": 0,
+          "armor_value": 13,
           "required_level": 44,
           "sell_price": 4282,
           "flavor_text": "Cool to the touch, and it settles a healer's hands.",
@@ -5017,7 +5020,7 @@
             "agility": 8
           },
           "secondary_stats": {
-            "attack_power": 20,
+            "attack_power": 18,
             "crit_chance_physical": 8
           },
           "armor_value": 0,
@@ -5116,7 +5119,7 @@
           "secondary_stats": {
             "healing_power": 37
           },
-          "armor_value": 0,
+          "armor_value": 11,
           "required_level": 59,
           "sell_price": 11619,
           "flavor_text": "Cool to the touch, and it settles a healer's hands.",
@@ -5458,7 +5461,7 @@
             "stamina": 14
           },
           "secondary_stats": {
-            "defense_rating": 1
+            "defense_rating": 10
           },
           "icon_id": "gear_inv_jewelry_talisman_03",
           "proc": {
@@ -5982,7 +5985,7 @@
             "stamina": 7
           },
           "secondary_stats": {
-            "attack_power": 30
+            "attack_power": 29
           },
           "armor_value": 0,
           "required_level": 58,
@@ -6034,7 +6037,7 @@
             "intellect": 5
           },
           "secondary_stats": {
-            "healing_power": 25
+            "healing_power": 24
           },
           "armor_value": 0,
           "required_level": 39,

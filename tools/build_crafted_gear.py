@@ -52,7 +52,7 @@ FILES = {
 PRIMARY = {"strength", "agility", "intellect", "stamina", "spirit"}
 SCHOOLS = {"fire_spell_power", "frost_spell_power", "arcane_spell_power", "shadow_spell_power",
            "nature_spell_power", "holy_spell_power"}
-CASTER = SCHOOLS | {"spell_power", "healing_power", "mp5", "crit_chance_spell", "spell_penetration"}
+CASTER = SCHOOLS | {"spell_power", "healing_power", "mp5", "crit_chance_spell", "spell_penetration", "spell_hit_rating"}
 PHYSICAL = {"strength", "agility", "attack_power", "crit_chance_physical", "armor_penetration_pct"}
 TANK = {"defense_rating", "dodge_rating", "parry_rating", "block_rating", "block_value"}
 
@@ -85,7 +85,8 @@ IDENTITIES = {
     "caster": ({"spell_power": 0.6, "intellect": 0.4}, "int_caster"),
     "arcane": ({"arcane_spell_power": 0.6, "intellect": 0.4}, "int_caster"),
     "arcane_crit": ({"arcane_spell_power": 0.5, "intellect": 0.2, "crit_chance_spell": 0.3}, "int_caster"),
-    "precise_caster": ({"spell_power": 0.5, "intellect": 0.2, "hit_rating": 0.3}, "int_caster"),
+    # SPELL hit (15 Nov 2026: hit and spell hit are separate stats - Kyle, "We need to have spell hit, physical hit")
+    "precise_caster": ({"spell_power": 0.5, "intellect": 0.2, "spell_hit_rating": 0.3}, "int_caster"),
     "shadow_sturdy": ({"shadow_spell_power": 0.55, "stamina": 0.45}, "int_caster"),
     "shadow": ({"shadow_spell_power": 0.6, "intellect": 0.4}, "int_caster"),
     "frost": ({"frost_spell_power": 0.6, "intellect": 0.4}, "int_caster"),
@@ -628,7 +629,7 @@ def floor_for(stat, item_level):
     return RATING_FLOOR
 
 
-RATINGS = {"hit_rating", "crit_chance_spell", "crit_chance_physical", "haste", "spell_penetration",
+RATINGS = {"hit_rating", "spell_hit_rating", "crit_chance_spell", "crit_chance_physical", "haste", "spell_penetration",
            "dodge_rating", "parry_rating", "block_rating", "defense_rating", "armor_penetration_pct"}
 #: the smallest rating on an item: half a percent
 RATING_FLOOR = 5
@@ -653,6 +654,14 @@ def split(weights, total, item_level):
         cost = COST.get(stat, 1.0)
         raw = total * weights[stat] / cost
         v = whole(raw)
+        # RATINGS FROM THE EARLY LEVELS (Kyle, 15 Nov 2026: "slap in some ratings for easier transition from 1 to
+        # max level so not every rating is just dropped post 50"). A rating that comes out at 60% of its floor or
+        # more is rounded UP to the floor (5, half a percent) and the lead stat pays the difference, so a level
+        # 15-25 piece of a rating collection carries its rating instead of losing it to the floor.
+        if stat in RATINGS and item_level >= 10 and v < RATING_FLOOR and raw >= RATING_FLOOR * 0.6:
+            loss += (raw - RATING_FLOOR) * cost          # negative: the lead stat gives it up
+            keep[stat] = RATING_FLOOR
+            continue
         if v < floor_for(stat, item_level):
             loss += raw * cost
             continue
@@ -663,8 +672,8 @@ def split(weights, total, item_level):
         # nothing reached its floor (a level 2 item): it's all one primary
         main = next((st for st in order if st in PRIMARY), order[0])
         keep[main] = max(1, whole(total / COST.get(main, 1.0)))
-    elif loss >= 0.5:
-        keep[main] += whole(loss / COST.get(main, 1.0))
+    elif loss >= 0.5 or loss <= -0.5:
+        keep[main] = max(1, keep[main] + whole(loss / COST.get(main, 1.0)))
     prim = {st: v for st, v in keep.items() if st in PRIMARY}
     sec = {st: v for st, v in keep.items() if st not in PRIMARY}
     return prim, sec
