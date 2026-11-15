@@ -16,7 +16,7 @@
     {
       "talent_id": "starcaller_sentinel_sentinel_15",
       "name": "Keen Sight",
-      "description": "Increases ranged Attack Power and hit rating from Intellect by 2% per rank.",
+      "description": "Increases your ranged Attack Power by 10% of your Intellect per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -24,12 +24,12 @@
       "hex_x": -3,
       "hex_y": -6,
       "effects": {
-        "ranged_ap_from_intellect_pct": 0.02
+        "ranged_ap_from_intellect_pct": 0.1
       },
       "connected_to": [
         "starcaller_sentinel_explosive_moonlight"
       ],
-      "_source": "CoA tooltip confirmed: 'Sentinel - Level 15 Passive. Ranged AP + hit rating from Intellect.'"
+      "_source": "CoA tooltip confirmed: 'Sentinel - Level 15 Passive. Ranged AP + hit rating from Intellect.' 15 Nov 2026 class pass: was 0.02 a rank (10% of Intellect for 5 points) while the key is a raw multiplier - Careful Aim and Shadowhunting give 33% a rank; now 10% a rank, 50% for 5 points"
     },
     {
       "talent_id": "starcaller_sentinel_huntress_training",

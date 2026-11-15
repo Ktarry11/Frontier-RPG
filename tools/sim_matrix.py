@@ -112,6 +112,12 @@ def make_dress(tier):
                     continue
             if item is None:
                 continue
+            # OVER-GEAR MUST BE WEARABLE. Gear 5 item levels up carries required_level ilvl-2, so a level-60
+            # character could not equip any of it and the "over" tier measured a NAKED character in every sim
+            # until 15 Nov 2026. "Over-geared" means gear above your level that you are wearing (a run's boss
+            # drops, a crafted piece), so the requirement is held at the character's level here.
+            if getattr(item, "required_level", None) and item.required_level > level:
+                item.required_level = level
             char.inventory.append(item)
             if char.equip_item(item):
                 worn += 1

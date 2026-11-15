@@ -315,8 +315,21 @@ def coefficients(ability):
 
 
 def apply(ability, entry):
-    """Set an ability's coefficients from the rules, unless its data names one."""
+    """Set an ability's coefficients from the rules, unless its data names one.
+
+    CAST SPEED TAKES ITS SHARE OF POWER TOO (15 Nov 2026). Classic's coefficient is cast time / 3.5: Greater Heal
+    (3s) takes 86% of +healing, Flash Heal (1.5s) 43%. Here only the BASE values were sized by cast speed (a slow
+    cast 1.5x, a quick one 0.65x) and every cast took the same share of power, so with gear the gap closed - a
+    geared Holy Light (slow, a cooldown, more mana) healed about what a normal-speed heal shot did (Kyle's check:
+    Holy Light vs Tinker's Repair Shot). The coefficient is now multiplied by the same cast-speed value."""
     c = coefficients(ability)
+    try:
+        from combat.abilities import cast_speed_value
+        speed = cast_speed_value(entry.get("cast_speed"))
+    except Exception:                                          # noqa: BLE001
+        speed = 1.0
+    if speed != 1.0:
+        c = {k: v * speed for k, v in c.items()}
     fixed = set()
     for key, attr in KIND_ATTR.items():
         given = entry.get(attr)
