@@ -10472,7 +10472,29 @@
             "stat_template": "int_caster",
             "item_level": 4,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Softpine Quarterstaff",
+              "slot": "main_hand",
+              "item_level": 4,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 4
+              },
+              "secondary_stats": {},
+              "armor_value": 0,
+              "required_level": 2,
+              "sell_price": 53,
+              "flavor_text": "Ashwood, light and straight-grained. Every woodworker learns on it.",
+              "identity": "starter_caster",
+              "weapon_damage_min": 6,
+              "weapon_damage_max": 8,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "skill_range": [
             10,
@@ -10500,7 +10522,29 @@
             "rarity": "uncommon",
             "material_tier": "ashwood",
             "armor_value": 31,
-            "block_value": 3
+            "block_value": 3,
+            "item": {
+              "name": "Softpine Buckler",
+              "slot": "off_hand",
+              "item_level": 4,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "shield",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 2
+              },
+              "secondary_stats": {},
+              "armor_value": 31,
+              "required_level": 2,
+              "sell_price": 34,
+              "flavor_text": "A wooden shield, carved with tide runes for a shaman's arm.",
+              "identity": "tide_healer",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 3
+            }
           },
           "skill_range": [
             10,
@@ -10547,7 +10591,29 @@
             "stat_template": "agi_physical",
             "item_level": 5,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Softpine Shortbow",
+              "slot": "ranged",
+              "item_level": 5,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 2
+              },
+              "secondary_stats": {},
+              "armor_value": 0,
+              "required_level": 3,
+              "sell_price": 54,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter",
+              "weapon_damage_min": 11,
+              "weapon_damage_max": 15,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           },
           "skill_range": [
             15,
@@ -10574,7 +10640,29 @@
             "stat_template": "int_caster",
             "item_level": 5,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Softpine Primer",
+              "slot": "off_hand",
+              "item_level": 5,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "tome",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 3
+              },
+              "secondary_stats": {},
+              "armor_value": 0,
+              "required_level": 3,
+              "sell_price": 41,
+              "flavor_text": "Ashwood, light and straight-grained. Every woodworker learns on it.",
+              "identity": "starter_caster",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 0
+            }
           },
           "skill_range": [
             15,
@@ -10638,7 +10726,30 @@
             "stat_template": "int_caster",
             "item_level": 7,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Ashwood Staff",
+              "slot": "main_hand",
+              "item_level": 7,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 5,
+                "stamina": 2
+              },
+              "secondary_stats": {},
+              "armor_value": 0,
+              "required_level": 5,
+              "sell_price": 171,
+              "flavor_text": "Ashwood, light and straight-grained. Every woodworker learns on it.",
+              "identity": "starter_caster",
+              "weapon_damage_min": 8,
+              "weapon_damage_max": 11,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "skill_range": [
             25,
@@ -10665,7 +10776,29 @@
             "stat_template": "agi_physical",
             "item_level": 7,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Ashwood Crossbow",
+              "slot": "ranged",
+              "item_level": 7,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "crossbow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 3
+              },
+              "secondary_stats": {},
+              "armor_value": 0,
+              "required_level": 5,
+              "sell_price": 110,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter",
+              "weapon_damage_min": 13,
+              "weapon_damage_max": 17,
+              "attack_speed": 2.4,
+              "block_value": 0
+            }
           },
           "skill_range": [
             25,
@@ -10693,7 +10826,29 @@
             "rarity": "uncommon",
             "material_tier": "ashwood",
             "armor_value": 54,
-            "block_value": 6
+            "block_value": 6,
+            "item": {
+              "name": "Ashwood Shield",
+              "slot": "off_hand",
+              "item_level": 7,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "shield",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 3
+              },
+              "secondary_stats": {},
+              "armor_value": 54,
+              "required_level": 5,
+              "sell_price": 110,
+              "flavor_text": "A wooden shield, carved with tide runes for a shaman's arm.",
+              "identity": "tide_healer",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 6
+            }
           },
           "skill_range": [
             25,
@@ -10738,7 +10893,29 @@
             "stat_template": "agi_physical",
             "item_level": 8,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Ashwood Hunting Bow",
+              "slot": "ranged",
+              "item_level": 8,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 3
+              },
+              "secondary_stats": {},
+              "armor_value": 0,
+              "required_level": 6,
+              "sell_price": 145,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter",
+              "weapon_damage_min": 14,
+              "weapon_damage_max": 19,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           },
           "skill_range": [
             30,
@@ -10784,7 +10961,29 @@
             "stat_template": "int_caster",
             "item_level": 9,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Ashwood Tome",
+              "slot": "off_hand",
+              "item_level": 9,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "tome",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 5
+              },
+              "secondary_stats": {},
+              "armor_value": 0,
+              "required_level": 7,
+              "sell_price": 139,
+              "flavor_text": "Ashwood, light and straight-grained. Every woodworker learns on it.",
+              "identity": "starter_caster",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 0
+            }
           },
           "skill_range": [
             35,
@@ -10829,7 +11028,30 @@
             "stat_template": "str_int_hybrid",
             "item_level": 11,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Oakheart Staff",
+              "slot": "main_hand",
+              "item_level": 11,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "str_int_hybrid",
+              "primary_stats": {
+                "strength": 9,
+                "intellect": 3
+              },
+              "secondary_stats": {},
+              "armor_value": 0,
+              "required_level": 9,
+              "sell_price": 442,
+              "flavor_text": "Heavy enough to fight with, and blessed besides.",
+              "identity": "crusader",
+              "weapon_damage_min": 11,
+              "weapon_damage_max": 15,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "skill_range": [
             45,
@@ -10857,7 +11079,29 @@
             "rarity": "uncommon",
             "material_tier": "ashwood",
             "armor_value": 85,
-            "block_value": 10
+            "block_value": 10,
+            "item": {
+              "name": "Oakheart Shield",
+              "slot": "off_hand",
+              "item_level": 11,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "shield",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 5
+              },
+              "secondary_stats": {},
+              "armor_value": 85,
+              "required_level": 9,
+              "sell_price": 283,
+              "flavor_text": "A wooden shield, carved with tide runes for a shaman's arm.",
+              "identity": "tide_healer",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 10
+            }
           },
           "skill_range": [
             45,
@@ -10904,7 +11148,31 @@
             "stat_template": "agi_physical",
             "item_level": 12,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Oakheart Longbow",
+              "slot": "ranged",
+              "item_level": 12,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 2
+              },
+              "secondary_stats": {
+                "attack_power": 6
+              },
+              "armor_value": 0,
+              "required_level": 10,
+              "sell_price": 340,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter",
+              "weapon_damage_min": 18,
+              "weapon_damage_max": 24,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           },
           "skill_range": [
             50,
@@ -10971,7 +11239,31 @@
             "stat_template": "int_caster",
             "item_level": 13,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Driftwood Staff",
+              "slot": "main_hand",
+              "item_level": 13,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 5
+              },
+              "secondary_stats": {
+                "spell_power": 13
+              },
+              "armor_value": 0,
+              "required_level": 11,
+              "sell_price": 628,
+              "flavor_text": "Ironbark's as hard as its name, and it holds a spell well.",
+              "identity": "caster",
+              "weapon_damage_min": 12,
+              "weapon_damage_max": 17,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "skill_range": [
             55,
@@ -10998,7 +11290,31 @@
             "stat_template": "agi_physical",
             "item_level": 13,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Oakheart Crossbow",
+              "slot": "ranged",
+              "item_level": 13,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "crossbow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 2
+              },
+              "secondary_stats": {
+                "attack_power": 7
+              },
+              "armor_value": 0,
+              "required_level": 11,
+              "sell_price": 402,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter",
+              "weapon_damage_min": 19,
+              "weapon_damage_max": 26,
+              "attack_speed": 2.4,
+              "block_value": 0
+            }
           },
           "skill_range": [
             55,
@@ -11023,7 +11339,28 @@
             "stat_template": "agi_physical",
             "item_level": 13,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Driftwood Mask",
+              "slot": "head",
+              "item_level": 13,
+              "rarity": "uncommon",
+              "armor_type": "leather",
+              "weapon_type": null,
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 2,
+                "stamina": 2
+              },
+              "secondary_stats": {
+                "attack_power": 7
+              },
+              "armor_value": 27,
+              "required_level": 11,
+              "sell_price": 402,
+              "flavor_text": "Driftwood, carved into a beast's face.",
+              "identity": "feral"
+            }
           },
           "skill_range": [
             55,
@@ -11070,7 +11407,31 @@
             "rarity": "uncommon",
             "material_tier": "ironbark",
             "armor_value": 109,
-            "block_value": 12
+            "block_value": 12,
+            "item": {
+              "name": "Driftwood Targe",
+              "slot": "off_hand",
+              "item_level": 14,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "shield",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 2
+              },
+              "secondary_stats": {
+                "healing_power": 9
+              },
+              "armor_value": 109,
+              "required_level": 12,
+              "sell_price": 470,
+              "flavor_text": "A wooden shield, carved with tide runes for a shaman's arm.",
+              "identity": "tide_healer",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 12
+            }
           },
           "skill_range": [
             60,
@@ -11097,7 +11458,31 @@
             "stat_template": "int_caster",
             "item_level": 14,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Oakheart Grimoire",
+              "slot": "off_hand",
+              "item_level": 14,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "tome",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 3
+              },
+              "secondary_stats": {
+                "spell_power": 7
+              },
+              "armor_value": 0,
+              "required_level": 12,
+              "sell_price": 352,
+              "flavor_text": "Ironbark's as hard as its name, and it holds a spell well.",
+              "identity": "caster",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 0
+            }
           },
           "skill_range": [
             60,
@@ -11180,7 +11565,35 @@
             "stat_template": "int_caster",
             "item_level": 17,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Carved Oakheart Charm",
+              "slot": "trinket",
+              "item_level": 17,
+              "rarity": "uncommon",
+              "armor_type": "accessory",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 3
+              },
+              "secondary_stats": {
+                "spell_power": 7
+              },
+              "armor_value": 0,
+              "required_level": 15,
+              "sell_price": 618,
+              "flavor_text": "An oak heart, carved small. It's lucky, or it's angry.",
+              "identity": "caster",
+              "proc": {
+                "trigger": "on_damage_cast",
+                "chance": 10,
+                "icd": 4,
+                "damage_flat": 30,
+                "school": "nature",
+                "describe": "Your damaging spells have a chance to lash the target with thorns for 30 nature damage."
+              }
+            }
           },
           "skill_range": [
             75,
@@ -11225,7 +11638,31 @@
             "stat_template": "str_int_hybrid",
             "item_level": 19,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Ironbark Staff",
+              "slot": "main_hand",
+              "item_level": 19,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 8
+              },
+              "secondary_stats": {
+                "spell_power": 18
+              },
+              "armor_value": 0,
+              "required_level": 17,
+              "sell_price": 1393,
+              "flavor_text": "Ironbark's as hard as its name, and it holds a spell well.",
+              "identity": "caster",
+              "weapon_damage_min": 16,
+              "weapon_damage_max": 22,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "skill_range": [
             85,
@@ -11253,7 +11690,31 @@
             "rarity": "uncommon",
             "material_tier": "ironbark",
             "armor_value": 148,
-            "block_value": 17
+            "block_value": 17,
+            "item": {
+              "name": "Ironbark Shield",
+              "slot": "off_hand",
+              "item_level": 19,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "shield",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 3
+              },
+              "secondary_stats": {
+                "healing_power": 12
+              },
+              "armor_value": 148,
+              "required_level": 17,
+              "sell_price": 892,
+              "flavor_text": "A wooden shield, carved with tide runes for a shaman's arm.",
+              "identity": "tide_healer",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 17
+            }
           },
           "skill_range": [
             85,
@@ -11279,7 +11740,31 @@
             "stat_template": "agi_physical",
             "item_level": 20,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Ironbark Recurve",
+              "slot": "ranged",
+              "item_level": 20,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 3
+              },
+              "secondary_stats": {
+                "attack_power": 11
+              },
+              "armor_value": 6,
+              "required_level": 18,
+              "sell_price": 993,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter",
+              "weapon_damage_min": 26,
+              "weapon_damage_max": 36,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           },
           "skill_range": [
             90,
@@ -11306,7 +11791,31 @@
             "stat_template": "agi_physical",
             "item_level": 20,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Ironbark Crossbow",
+              "slot": "ranged",
+              "item_level": 20,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "crossbow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 3
+              },
+              "secondary_stats": {
+                "attack_power": 11
+              },
+              "armor_value": 0,
+              "required_level": 18,
+              "sell_price": 993,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter",
+              "weapon_damage_min": 26,
+              "weapon_damage_max": 36,
+              "attack_speed": 2.4,
+              "block_value": 0
+            }
           },
           "skill_range": [
             90,
@@ -11332,7 +11841,28 @@
             "stat_template": "str_physical",
             "item_level": 20,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Ironbark Helm",
+              "slot": "head",
+              "item_level": 20,
+              "rarity": "uncommon",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "str_int_hybrid",
+              "primary_stats": {
+                "strength": 4,
+                "intellect": 4
+              },
+              "secondary_stats": {
+                "attack_power": 9
+              },
+              "armor_value": 67,
+              "required_level": 18,
+              "sell_price": 993,
+              "flavor_text": "Ironbark plates laced over a leather cap.",
+              "identity": "earthen"
+            }
           },
           "skill_range": [
             90,
@@ -11380,7 +11910,31 @@
             "stat_template": "int_caster",
             "item_level": 21,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Ironbark Codex",
+              "slot": "off_hand",
+              "item_level": 21,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "tome",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 4
+              },
+              "secondary_stats": {
+                "spell_power": 11
+              },
+              "armor_value": 0,
+              "required_level": 19,
+              "sell_price": 825,
+              "flavor_text": "Ironbark's as hard as its name, and it holds a spell well.",
+              "identity": "caster",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 0
+            }
           },
           "skill_range": [
             95,
@@ -11450,7 +12004,31 @@
             "stat_template": "int_caster",
             "item_level": 23,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Frostpine Staff",
+              "slot": "main_hand",
+              "item_level": 23,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 10
+              },
+              "secondary_stats": {
+                "frost_spell_power": 26
+              },
+              "armor_value": 0,
+              "required_level": 21,
+              "sell_price": 2081,
+              "flavor_text": "There's frost in the grain that never melts.",
+              "identity": "frost",
+              "weapon_damage_min": 19,
+              "weapon_damage_max": 26,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "skill_range": [
             105,
@@ -11477,7 +12055,32 @@
             "stat_template": "agi_physical",
             "item_level": 24,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Frostpine Longbow",
+              "slot": "ranged",
+              "item_level": 24,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 3,
+                "intellect": 3
+              },
+              "secondary_stats": {
+                "attack_power": 9
+              },
+              "armor_value": 0,
+              "required_level": 22,
+              "sell_price": 1456,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter",
+              "weapon_damage_min": 30,
+              "weapon_damage_max": 41,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           },
           "skill_range": [
             110,
@@ -11506,7 +12109,31 @@
             "rarity": "uncommon",
             "material_tier": "ironbark",
             "armor_value": 187,
-            "block_value": 21
+            "block_value": 21,
+            "item": {
+              "name": "Frostpine Shield",
+              "slot": "off_hand",
+              "item_level": 24,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "shield",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 3
+              },
+              "secondary_stats": {
+                "healing_power": 17
+              },
+              "armor_value": 187,
+              "required_level": 22,
+              "sell_price": 1456,
+              "flavor_text": "A wooden shield, carved with tide runes for a shaman's arm.",
+              "identity": "tide_healer",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 21
+            }
           },
           "skill_range": [
             110,
@@ -11533,7 +12160,32 @@
             "stat_template": "agi_physical",
             "item_level": 25,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Frostpine Crossbow",
+              "slot": "ranged",
+              "item_level": 25,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "crossbow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 3,
+                "intellect": 3
+              },
+              "secondary_stats": {
+                "attack_power": 10
+              },
+              "armor_value": 0,
+              "required_level": 23,
+              "sell_price": 1587,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter",
+              "weapon_damage_min": 31,
+              "weapon_damage_max": 43,
+              "attack_speed": 2.4,
+              "block_value": 0
+            }
           },
           "skill_range": [
             115,
@@ -11561,7 +12213,31 @@
             "stat_template": "int_caster",
             "item_level": 25,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Frostpine Grimoire",
+              "slot": "off_hand",
+              "item_level": 25,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "tome",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 5
+              },
+              "secondary_stats": {
+                "frost_spell_power": 15
+              },
+              "armor_value": 9,
+              "required_level": 23,
+              "sell_price": 1190,
+              "flavor_text": "There's frost in the grain that never melts.",
+              "identity": "frost",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 0
+            }
           },
           "skill_range": [
             115,
@@ -11587,7 +12263,31 @@
             "stat_template": "int_caster",
             "item_level": 28,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Bramblewood Staff",
+              "slot": "main_hand",
+              "item_level": 28,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "spirit": 12
+              },
+              "secondary_stats": {
+                "nature_spell_power": 32
+              },
+              "armor_value": 0,
+              "required_level": 26,
+              "sell_price": 3145,
+              "flavor_text": "Green wood, still alive in places.",
+              "identity": "nature",
+              "weapon_damage_min": 22,
+              "weapon_damage_max": 30,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "skill_range": [
             130,
@@ -11613,7 +12313,32 @@
             "stat_template": "agi_physical",
             "item_level": 28,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Bramblewood War Bow",
+              "slot": "ranged",
+              "item_level": 28,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 4,
+                "intellect": 3
+              },
+              "secondary_stats": {
+                "attack_power": 11
+              },
+              "armor_value": 0,
+              "required_level": 26,
+              "sell_price": 2013,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter",
+              "weapon_damage_min": 34,
+              "weapon_damage_max": 47,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           },
           "skill_range": [
             130,
@@ -11642,7 +12367,31 @@
             "rarity": "uncommon",
             "material_tier": "ironbark",
             "armor_value": 218,
-            "block_value": 25
+            "block_value": 25,
+            "item": {
+              "name": "Bramblewood Bulwark",
+              "slot": "off_hand",
+              "item_level": 28,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "shield",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 4
+              },
+              "secondary_stats": {
+                "healing_power": 19
+              },
+              "armor_value": 218,
+              "required_level": 26,
+              "sell_price": 2013,
+              "flavor_text": "A wooden shield, carved with tide runes for a shaman's arm.",
+              "identity": "tide_healer",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 25
+            }
           },
           "skill_range": [
             130,
@@ -11668,7 +12417,28 @@
             "stat_template": "agi_int_hybrid",
             "item_level": 28,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Bramblewood Crown",
+              "slot": "head",
+              "item_level": 28,
+              "rarity": "uncommon",
+              "armor_type": "leather",
+              "weapon_type": null,
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 6,
+                "intellect": 5
+              },
+              "secondary_stats": {
+                "attack_power": 11
+              },
+              "armor_value": 70,
+              "required_level": 26,
+              "sell_price": 2013,
+              "flavor_text": "A crown of living bramble. It still flowers in spring.",
+              "identity": "wildheart"
+            }
           },
           "skill_range": [
             130,
@@ -11696,7 +12466,31 @@
             "stat_template": "int_caster",
             "item_level": 29,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Bramblewood Codex",
+              "slot": "off_hand",
+              "item_level": 29,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "tome",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "spirit": 6
+              },
+              "secondary_stats": {
+                "nature_spell_power": 17
+              },
+              "armor_value": 0,
+              "required_level": 27,
+              "sell_price": 1625,
+              "flavor_text": "Green wood, still alive in places.",
+              "identity": "nature",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 0
+            }
           },
           "skill_range": [
             135,
@@ -11722,7 +12516,43 @@
             "stat_template": "str_int_hybrid",
             "item_level": 29,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Heartwood Idol",
+              "slot": "trinket",
+              "item_level": 29,
+              "rarity": "uncommon",
+              "armor_type": "accessory",
+              "weapon_type": null,
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 3
+              },
+              "secondary_stats": {
+                "healing_power": 19
+              },
+              "armor_value": 0,
+              "required_level": 27,
+              "sell_price": 1896,
+              "flavor_text": "A druid's idol, cut from the heart of a very old tree.",
+              "identity": "healer",
+              "proc": {
+                "trigger": "on_heal_cast",
+                "chance": 10,
+                "icd": 4,
+                "apply_effect": {
+                  "effect_id": "heartwood_bloom",
+                  "name": "Heartwood Bloom",
+                  "effect_type": "buff",
+                  "duration": 3,
+                  "stat_mods": {
+                    "healing_power": 20
+                  },
+                  "on_target": false
+                },
+                "describe": "Your healing spells have a chance to grant 20 healing power for 3 turns."
+              }
+            }
           },
           "skill_range": [
             135,
@@ -11755,7 +12585,29 @@
             "stat_template": "agi_int_hybrid",
             "item_level": 4,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Shadowroot Staff",
+              "slot": "main_hand",
+              "item_level": 4,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 4
+              },
+              "secondary_stats": {},
+              "armor_value": 0,
+              "required_level": 2,
+              "sell_price": 53,
+              "flavor_text": "Troll work, hung with little bone charms.",
+              "identity": "hex",
+              "weapon_damage_min": 6,
+              "weapon_damage_max": 8,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           }
         },
         "ww_staff_agint_medium": {
@@ -11780,7 +12632,31 @@
             "stat_template": "agi_int_hybrid",
             "item_level": 17,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Darkthorn Staff",
+              "slot": "main_hand",
+              "item_level": 17,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 8
+              },
+              "secondary_stats": {
+                "shadow_spell_power": 18
+              },
+              "armor_value": 0,
+              "required_level": 15,
+              "sell_price": 1103,
+              "flavor_text": "Troll work, hung with little bone charms.",
+              "identity": "hex",
+              "weapon_damage_min": 15,
+              "weapon_damage_max": 20,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "vendor_location": "Any pattern vendor"
         },
@@ -11806,7 +12682,32 @@
             "stat_template": "agi_int_hybrid",
             "item_level": 33,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Felwood Staff",
+              "slot": "main_hand",
+              "item_level": 33,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "stamina": 14,
+                "intellect": 7
+              },
+              "secondary_stats": {
+                "shadow_spell_power": 46
+              },
+              "armor_value": 15,
+              "required_level": 31,
+              "sell_price": 6662,
+              "flavor_text": "Cut in Felwood, and it glows green at the knots.",
+              "identity": "fel",
+              "weapon_damage_min": 33,
+              "weapon_damage_max": 45,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           }
         },
         "ww_staff_spi_light": {
@@ -11831,7 +12732,29 @@
             "stat_template": "spi_healer",
             "item_level": 5,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Healer's Ashwood Staff",
+              "slot": "main_hand",
+              "item_level": 5,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 5
+              },
+              "secondary_stats": {},
+              "armor_value": 0,
+              "required_level": 3,
+              "sell_price": 84,
+              "flavor_text": "Carved for a healer, smooth where the hand rests.",
+              "identity": "healer",
+              "weapon_damage_min": 7,
+              "weapon_damage_max": 9,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           }
         },
         "ww_staff_spi_medium": {
@@ -11856,7 +12779,32 @@
             "stat_template": "spi_healer",
             "item_level": 19,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Grove-Blessed Staff",
+              "slot": "main_hand",
+              "item_level": 19,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 5,
+                "intellect": 4
+              },
+              "secondary_stats": {
+                "healing_power": 22
+              },
+              "armor_value": 0,
+              "required_level": 17,
+              "sell_price": 1393,
+              "flavor_text": "Carved for a healer, smooth where the hand rests.",
+              "identity": "healer",
+              "weapon_damage_min": 16,
+              "weapon_damage_max": 22,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           }
         },
         "ww_staff_spi_heavy": {
@@ -11881,7 +12829,32 @@
             "stat_template": "spi_healer",
             "item_level": 35,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Lifebark Staff",
+              "slot": "main_hand",
+              "item_level": 35,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 12,
+                "intellect": 10
+              },
+              "secondary_stats": {
+                "healing_power": 53
+              },
+              "armor_value": 0,
+              "required_level": 33,
+              "sell_price": 7538,
+              "flavor_text": "Carved for a healer, smooth where the hand rests.",
+              "identity": "healer",
+              "weapon_damage_min": 35,
+              "weapon_damage_max": 48,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "vendor_location": "Any pattern vendor"
         },
@@ -11907,7 +12880,29 @@
             "stat_template": "str_int_hybrid",
             "item_level": 6,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Pilgrim's Staff",
+              "slot": "main_hand",
+              "item_level": 6,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 6
+              },
+              "secondary_stats": {},
+              "armor_value": 0,
+              "required_level": 4,
+              "sell_price": 124,
+              "flavor_text": "Carved for a healer, smooth where the hand rests.",
+              "identity": "healer",
+              "weapon_damage_min": 7,
+              "weapon_damage_max": 10,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           }
         },
         "ww_staff_stint_medium": {
@@ -11932,7 +12927,32 @@
             "stat_template": "str_int_hybrid",
             "item_level": 20,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Warden's Staff",
+              "slot": "main_hand",
+              "item_level": 20,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "str_int_hybrid",
+              "primary_stats": {
+                "strength": 6,
+                "intellect": 6
+              },
+              "secondary_stats": {
+                "attack_power": 18
+              },
+              "armor_value": 0,
+              "required_level": 18,
+              "sell_price": 1552,
+              "flavor_text": "Heavy enough to fight with, and blessed besides.",
+              "identity": "crusader",
+              "weapon_damage_min": 17,
+              "weapon_damage_max": 23,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "vendor_location": "Any pattern vendor"
         },
@@ -11958,7 +12978,32 @@
             "stat_template": "str_int_hybrid",
             "item_level": 36,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Crusader's Staff",
+              "slot": "main_hand",
+              "item_level": 36,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "str_int_hybrid",
+              "primary_stats": {
+                "strength": 15,
+                "intellect": 15
+              },
+              "secondary_stats": {
+                "attack_power": 40
+              },
+              "armor_value": 16,
+              "required_level": 34,
+              "sell_price": 7998,
+              "flavor_text": "Heavy enough to fight with, and blessed besides.",
+              "identity": "crusader",
+              "weapon_damage_min": 36,
+              "weapon_damage_max": 49,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "vendor_location": "Any pattern vendor"
         },
@@ -11984,7 +13029,29 @@
             "stat_template": "int_caster",
             "item_level": 2,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Thornwood Wand",
+              "slot": "ranged",
+              "item_level": 2,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "wand",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 1
+              },
+              "secondary_stats": {},
+              "armor_value": 0,
+              "required_level": 1,
+              "sell_price": 8,
+              "flavor_text": "Ashwood, light and straight-grained. Every woodworker learns on it.",
+              "identity": "starter_caster",
+              "weapon_damage_min": 8,
+              "weapon_damage_max": 10,
+              "attack_speed": 1.9,
+              "block_value": 0
+            }
           }
         },
         "ww_wand_int_medium": {
@@ -12009,7 +13076,31 @@
             "stat_template": "int_caster",
             "item_level": 15,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Mystic Oak Wand",
+              "slot": "ranged",
+              "item_level": 15,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "wand",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 3
+              },
+              "secondary_stats": {
+                "arcane_spell_power": 7
+              },
+              "armor_value": 4,
+              "required_level": 13,
+              "sell_price": 543,
+              "flavor_text": "Runes etched in amber run down its length.",
+              "identity": "arcane",
+              "weapon_damage_min": 21,
+              "weapon_damage_max": 29,
+              "attack_speed": 1.9,
+              "block_value": 0
+            }
           }
         },
         "ww_wand_spi_light": {
@@ -12034,7 +13125,29 @@
             "stat_template": "spi_healer",
             "item_level": 3,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Healer's Wand",
+              "slot": "ranged",
+              "item_level": 3,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "wand",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 1
+              },
+              "secondary_stats": {},
+              "armor_value": 0,
+              "required_level": 1,
+              "sell_price": 18,
+              "flavor_text": "Carved for a healer, smooth where the hand rests.",
+              "identity": "healer",
+              "weapon_damage_min": 9,
+              "weapon_damage_max": 12,
+              "attack_speed": 1.9,
+              "block_value": 0
+            }
           }
         },
         "ww_wand_spi_medium": {
@@ -12059,7 +13172,31 @@
             "stat_template": "spi_healer",
             "item_level": 16,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Blessed Ashwand",
+              "slot": "ranged",
+              "item_level": 16,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "wand",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 2
+              },
+              "secondary_stats": {
+                "healing_power": 10
+              },
+              "armor_value": 4,
+              "required_level": 14,
+              "sell_price": 622,
+              "flavor_text": "Carved for a healer, smooth where the hand rests.",
+              "identity": "healer",
+              "weapon_damage_min": 22,
+              "weapon_damage_max": 30,
+              "attack_speed": 1.9,
+              "block_value": 0
+            }
           }
         },
         "ww_wand_agint_light": {
@@ -12084,7 +13221,29 @@
             "stat_template": "agi_int_hybrid",
             "item_level": 3,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Hexwood Wand",
+              "slot": "ranged",
+              "item_level": 3,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "wand",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 1
+              },
+              "secondary_stats": {},
+              "armor_value": 0,
+              "required_level": 1,
+              "sell_price": 18,
+              "flavor_text": "Troll work, hung with little bone charms.",
+              "identity": "hex",
+              "weapon_damage_min": 9,
+              "weapon_damage_max": 12,
+              "attack_speed": 1.9,
+              "block_value": 0
+            }
           }
         },
         "ww_polearm_agi_light": {
@@ -12109,7 +13268,29 @@
             "stat_template": "agi_physical",
             "item_level": 7,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Ashwood Spear",
+              "slot": "main_hand",
+              "item_level": 7,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "polearm",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 4
+              },
+              "secondary_stats": {},
+              "armor_value": 0,
+              "required_level": 5,
+              "sell_price": 171,
+              "flavor_text": "A long haft of good wood and a sharp point.",
+              "identity": "agility",
+              "weapon_damage_min": 21,
+              "weapon_damage_max": 28,
+              "attack_speed": 3.3,
+              "block_value": 0
+            }
           }
         },
         "ww_polearm_agi_medium": {
@@ -12134,7 +13315,32 @@
             "stat_template": "agi_physical",
             "item_level": 22,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Ironwood Lance",
+              "slot": "main_hand",
+              "item_level": 22,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "polearm",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 5,
+                "stamina": 3
+              },
+              "secondary_stats": {
+                "attack_power": 12
+              },
+              "armor_value": 0,
+              "required_level": 20,
+              "sell_price": 1896,
+              "flavor_text": "A long haft of good wood and a sharp point.",
+              "identity": "agility",
+              "weapon_damage_min": 45,
+              "weapon_damage_max": 61,
+              "attack_speed": 3.3,
+              "block_value": 0
+            }
           }
         },
         "ww_polearm_stint_medium": {
@@ -12159,7 +13365,32 @@
             "stat_template": "str_int_hybrid",
             "item_level": 20,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Warden's Halberd",
+              "slot": "main_hand",
+              "item_level": 20,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "polearm",
+              "stat_template": "str_int_hybrid",
+              "primary_stats": {
+                "strength": 4,
+                "intellect": 4
+              },
+              "secondary_stats": {
+                "attack_power": 9
+              },
+              "armor_value": 0,
+              "required_level": 18,
+              "sell_price": 1552,
+              "flavor_text": "Heavy enough to fight with, and blessed besides.",
+              "identity": "crusader",
+              "weapon_damage_min": 42,
+              "weapon_damage_max": 57,
+              "attack_speed": 3.3,
+              "block_value": 0
+            }
           },
           "vendor_location": "Any pattern vendor"
         },
@@ -12186,7 +13417,32 @@
             "stat_template": "agi_physical",
             "item_level": 18,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Serpentwood Bow",
+              "slot": "ranged",
+              "item_level": 18,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 2,
+                "intellect": 2
+              },
+              "secondary_stats": {
+                "attack_power": 7
+              },
+              "armor_value": 0,
+              "required_level": 16,
+              "sell_price": 796,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter",
+              "weapon_damage_min": 24,
+              "weapon_damage_max": 33,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           },
           "drop_zone": "Wailing Caverns"
         },
@@ -12212,7 +13468,31 @@
             "stat_template": "int_caster",
             "item_level": 32,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Naga Driftwood Staff",
+              "slot": "main_hand",
+              "item_level": 32,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 18
+              },
+              "secondary_stats": {
+                "frost_spell_power": 48
+              },
+              "armor_value": 14,
+              "required_level": 30,
+              "sell_price": 6245,
+              "flavor_text": "There's frost in the grain that never melts.",
+              "identity": "frost",
+              "weapon_damage_min": 33,
+              "weapon_damage_max": 44,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "drop_zone": "Blackfathom Deeps"
         },
@@ -12238,7 +13518,31 @@
             "stat_template": "agi_int_hybrid",
             "item_level": 42,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Plague-Bleached Staff",
+              "slot": "main_hand",
+              "item_level": 42,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 23
+              },
+              "secondary_stats": {
+                "shadow_spell_power": 63
+              },
+              "armor_value": 0,
+              "required_level": 40,
+              "sell_price": 11055,
+              "flavor_text": "Burned dark, and the dark stayed in.",
+              "identity": "shadow",
+              "weapon_damage_min": 41,
+              "weapon_damage_max": 56,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "drop_zone": "Plague Depths"
         },
@@ -12265,7 +13569,32 @@
             "stat_template": "agi_physical",
             "item_level": 29,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Shadowfang Longbow",
+              "slot": "ranged",
+              "item_level": 29,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 5,
+                "intellect": 4
+              },
+              "secondary_stats": {
+                "attack_power": 15
+              },
+              "armor_value": 5,
+              "required_level": 27,
+              "sell_price": 3250,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter",
+              "weapon_damage_min": 47,
+              "weapon_damage_max": 63,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           },
           "drop_zone": "Shadowfang Keep"
         },
@@ -12291,7 +13620,31 @@
             "stat_template": "agi_int_hybrid",
             "item_level": 39,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Demon-Touched Wand",
+              "slot": "ranged",
+              "item_level": 39,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "wand",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 9
+              },
+              "secondary_stats": {
+                "shadow_spell_power": 24
+              },
+              "armor_value": 0,
+              "required_level": 37,
+              "sell_price": 6055,
+              "flavor_text": "Burned dark, and the dark stayed in.",
+              "identity": "shadow",
+              "weapon_damage_min": 60,
+              "weapon_damage_max": 81,
+              "attack_speed": 1.9,
+              "block_value": 0
+            }
           },
           "drop_zone": "Grom's Rest"
         },
@@ -12317,7 +13670,32 @@
             "stat_template": "str_physical",
             "item_level": 36,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Razortusk Polearm",
+              "slot": "main_hand",
+              "item_level": 36,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "polearm",
+              "stat_template": "str_physical",
+              "primary_stats": {
+                "strength": 10,
+                "stamina": 6
+              },
+              "secondary_stats": {
+                "attack_power": 25
+              },
+              "armor_value": 0,
+              "required_level": 34,
+              "sell_price": 7998,
+              "flavor_text": "Tusks bound to a heavy haft. It's made for swinging.",
+              "identity": "strength",
+              "weapon_damage_min": 89,
+              "weapon_damage_max": 121,
+              "attack_speed": 3.3,
+              "block_value": 0
+            }
           },
           "drop_zone": "Razorfen Kraul"
         },
@@ -12343,7 +13721,31 @@
             "stat_template": "str_int_hybrid",
             "item_level": 24,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Stormcaller's Staff",
+              "slot": "main_hand",
+              "item_level": 24,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 9
+              },
+              "secondary_stats": {
+                "nature_spell_power": 30
+              },
+              "armor_value": 0,
+              "required_level": 22,
+              "sell_price": 2276,
+              "flavor_text": "It hums before a storm.",
+              "identity": "storm",
+              "weapon_damage_min": 19,
+              "weapon_damage_max": 26,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "vendor_location": "Orgrimmar"
         },
@@ -12370,7 +13772,32 @@
             "stat_template": "agi_physical",
             "item_level": 17,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Plains Longbow",
+              "slot": "ranged",
+              "item_level": 17,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 2,
+                "intellect": 2
+              },
+              "secondary_stats": {
+                "attack_power": 7
+              },
+              "armor_value": 0,
+              "required_level": 15,
+              "sell_price": 706,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter",
+              "weapon_damage_min": 23,
+              "weapon_damage_max": 31,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           },
           "vendor_location": "The Crossroads"
         },
@@ -12396,7 +13823,31 @@
             "stat_template": "int_caster",
             "item_level": 40,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Shadow-Etched Wand",
+              "slot": "ranged",
+              "item_level": 40,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "wand",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 9
+              },
+              "secondary_stats": {
+                "shadow_spell_power": 24
+              },
+              "armor_value": 0,
+              "required_level": 38,
+              "sell_price": 6386,
+              "flavor_text": "Burned dark, and the dark stayed in.",
+              "identity": "shadow",
+              "weapon_damage_min": 61,
+              "weapon_damage_max": 83,
+              "attack_speed": 1.9,
+              "block_value": 0
+            }
           },
           "vendor_location": "Undercity"
         },
@@ -12422,7 +13873,32 @@
             "stat_template": "spi_healer",
             "item_level": 32,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Grove Staff",
+              "slot": "main_hand",
+              "item_level": 32,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 11,
+                "intellect": 9
+              },
+              "secondary_stats": {
+                "healing_power": 49
+              },
+              "armor_value": 0,
+              "required_level": 30,
+              "sell_price": 6245,
+              "flavor_text": "Carved for a healer, smooth where the hand rests.",
+              "identity": "healer",
+              "weapon_damage_min": 33,
+              "weapon_damage_max": 44,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "vendor_location": "Astranaar"
         },
@@ -12448,7 +13924,32 @@
             "stat_template": "agi_physical",
             "item_level": 14,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Ratchet War-Spear",
+              "slot": "main_hand",
+              "item_level": 14,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "polearm",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 3,
+                "stamina": 2
+              },
+              "secondary_stats": {
+                "attack_power": 7
+              },
+              "armor_value": 0,
+              "required_level": 12,
+              "sell_price": 734,
+              "flavor_text": "A long haft of good wood and a sharp point.",
+              "identity": "agility",
+              "weapon_damage_min": 32,
+              "weapon_damage_max": 43,
+              "attack_speed": 3.3,
+              "block_value": 0
+            }
           },
           "vendor_location": "Ratchet"
         },
@@ -12475,7 +13976,32 @@
             "stat_template": "agi_physical",
             "item_level": 19,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Charred Oak Bow",
+              "slot": "ranged",
+              "item_level": 19,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 2,
+                "intellect": 2
+              },
+              "secondary_stats": {
+                "attack_power": 8
+              },
+              "armor_value": 0,
+              "required_level": 17,
+              "sell_price": 892,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter",
+              "weapon_damage_min": 25,
+              "weapon_damage_max": 34,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           },
           "drop_zone": "Ragefire Chasm"
         },
@@ -12501,7 +14027,31 @@
             "stat_template": "int_caster",
             "item_level": 18,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Emberwood Staff",
+              "slot": "main_hand",
+              "item_level": 18,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 8
+              },
+              "secondary_stats": {
+                "fire_spell_power": 21
+              },
+              "armor_value": 0,
+              "required_level": 16,
+              "sell_price": 1244,
+              "flavor_text": "Emberwood's always warm, and it crackles when it casts.",
+              "identity": "fire",
+              "weapon_damage_min": 15,
+              "weapon_damage_max": 21,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "drop_zone": "Ragefire Chasm"
         },
@@ -12527,7 +14077,29 @@
             "stat_template": "agi_int_hybrid",
             "item_level": 7,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Tiki Staff",
+              "slot": "main_hand",
+              "item_level": 7,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 7
+              },
+              "secondary_stats": {},
+              "armor_value": 0,
+              "required_level": 5,
+              "sell_price": 171,
+              "flavor_text": "Troll work, hung with little bone charms.",
+              "identity": "hex",
+              "weapon_damage_min": 8,
+              "weapon_damage_max": 11,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "drop_zone": "Echo Isles"
         },
@@ -12553,7 +14125,29 @@
             "stat_template": "agi_int_hybrid",
             "item_level": 6,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Bone-Tipped Wand",
+              "slot": "ranged",
+              "item_level": 6,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "wand",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 3
+              },
+              "secondary_stats": {},
+              "armor_value": 0,
+              "required_level": 4,
+              "sell_price": 79,
+              "flavor_text": "Troll work, hung with little bone charms.",
+              "identity": "hex",
+              "weapon_damage_min": 12,
+              "weapon_damage_max": 16,
+              "attack_speed": 1.9,
+              "block_value": 0
+            }
           },
           "drop_zone": "Echo Isles"
         },
@@ -12579,7 +14173,31 @@
             "stat_template": "int_caster",
             "item_level": 25,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Venomwood Staff",
+              "slot": "main_hand",
+              "item_level": 25,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "spirit": 14
+              },
+              "secondary_stats": {
+                "nature_spell_power": 38
+              },
+              "armor_value": 0,
+              "required_level": 23,
+              "sell_price": 3719,
+              "flavor_text": "Green wood, still alive in places.",
+              "identity": "nature",
+              "weapon_damage_min": 26,
+              "weapon_damage_max": 36,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "drop_zone": "Widow's Lair"
         },
@@ -12606,7 +14224,32 @@
             "stat_template": "agi_physical",
             "item_level": 24,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Silkweb Shortbow",
+              "slot": "ranged",
+              "item_level": 24,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 4,
+                "intellect": 3
+              },
+              "secondary_stats": {
+                "attack_power": 12
+              },
+              "armor_value": 4,
+              "required_level": 22,
+              "sell_price": 2185,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter",
+              "weapon_damage_min": 40,
+              "weapon_damage_max": 54,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           },
           "drop_zone": "Widow's Lair"
         },
@@ -12632,7 +14275,32 @@
             "stat_template": "agi_physical",
             "item_level": 24,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Chitin-Hafted Polearm",
+              "slot": "main_hand",
+              "item_level": 24,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "polearm",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 6,
+                "stamina": 4
+              },
+              "secondary_stats": {
+                "attack_power": 17
+              },
+              "armor_value": 0,
+              "required_level": 22,
+              "sell_price": 3413,
+              "flavor_text": "A long haft of good wood and a sharp point.",
+              "identity": "agility",
+              "weapon_damage_min": 63,
+              "weapon_damage_max": 86,
+              "attack_speed": 3.3,
+              "block_value": 0
+            }
           },
           "drop_zone": "The Broodspiral"
         },
@@ -12658,7 +14326,31 @@
             "stat_template": "agi_int_hybrid",
             "item_level": 23,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Brood-Stung Wand",
+              "slot": "ranged",
+              "item_level": 23,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "wand",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "spirit": 5
+              },
+              "secondary_stats": {
+                "nature_spell_power": 14
+              },
+              "armor_value": 4,
+              "required_level": 21,
+              "sell_price": 1998,
+              "flavor_text": "Green wood, still alive in places.",
+              "identity": "nature",
+              "weapon_damage_min": 38,
+              "weapon_damage_max": 52,
+              "attack_speed": 1.9,
+              "block_value": 0
+            }
           },
           "drop_zone": "The Broodspiral"
         },
@@ -12684,7 +14376,31 @@
             "stat_template": "int_caster",
             "item_level": 20,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Serpentwood Staff",
+              "slot": "main_hand",
+              "item_level": 20,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "spirit": 8
+              },
+              "secondary_stats": {
+                "nature_spell_power": 23
+              },
+              "armor_value": 14,
+              "required_level": 18,
+              "sell_price": 1552,
+              "flavor_text": "Green wood, still alive in places.",
+              "identity": "nature",
+              "weapon_damage_min": 17,
+              "weapon_damage_max": 23,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "drop_zone": "Wailing Caverns"
         },
@@ -12711,7 +14427,32 @@
             "stat_template": "agi_physical",
             "item_level": 19,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Venomthorn Bow",
+              "slot": "ranged",
+              "item_level": 19,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 2,
+                "intellect": 2
+              },
+              "secondary_stats": {
+                "attack_power": 8
+              },
+              "armor_value": 12,
+              "required_level": 17,
+              "sell_price": 892,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter",
+              "weapon_damage_min": 25,
+              "weapon_damage_max": 34,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           },
           "drop_zone": "Wailing Caverns"
         },
@@ -12737,7 +14478,32 @@
             "stat_template": "agi_physical",
             "item_level": 18,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Fang-Tipped Spear",
+              "slot": "main_hand",
+              "item_level": 18,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "polearm",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 4,
+                "stamina": 2
+              },
+              "secondary_stats": {
+                "attack_power": 9
+              },
+              "armor_value": 11,
+              "required_level": 16,
+              "sell_price": 1244,
+              "flavor_text": "A long haft of good wood and a sharp point.",
+              "identity": "agility",
+              "weapon_damage_min": 39,
+              "weapon_damage_max": 52,
+              "attack_speed": 3.3,
+              "block_value": 0
+            }
           },
           "drop_zone": "Wailing Caverns"
         },
@@ -12763,7 +14529,31 @@
             "stat_template": "int_caster",
             "item_level": 30,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Amber-Etched Wand",
+              "slot": "ranged",
+              "item_level": 30,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "wand",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 7
+              },
+              "secondary_stats": {
+                "arcane_spell_power": 18
+              },
+              "armor_value": 0,
+              "required_level": 28,
+              "sell_price": 3490,
+              "flavor_text": "Runes etched in amber run down its length.",
+              "identity": "arcane",
+              "weapon_damage_min": 48,
+              "weapon_damage_max": 65,
+              "attack_speed": 1.9,
+              "block_value": 0
+            }
           },
           "drop_zone": "Ambermill Tower"
         },
@@ -12789,7 +14579,32 @@
             "stat_template": "spi_healer",
             "item_level": 30,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Amberwood Staff",
+              "slot": "main_hand",
+              "item_level": 30,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 10,
+                "intellect": 8
+              },
+              "secondary_stats": {
+                "healing_power": 46
+              },
+              "armor_value": 0,
+              "required_level": 28,
+              "sell_price": 5454,
+              "flavor_text": "Carved for a healer, smooth where the hand rests.",
+              "identity": "healer",
+              "weapon_damage_min": 31,
+              "weapon_damage_max": 42,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "drop_zone": "Ambermill Tower"
         },
@@ -12815,7 +14630,31 @@
             "stat_template": "spi_healer",
             "item_level": 15,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Scarlet Ash Wand",
+              "slot": "ranged",
+              "item_level": 15,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "wand",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 2
+              },
+              "secondary_stats": {
+                "healing_power": 9
+              },
+              "armor_value": 0,
+              "required_level": 13,
+              "sell_price": 543,
+              "flavor_text": "Carved for a healer, smooth where the hand rests.",
+              "identity": "healer",
+              "weapon_damage_min": 21,
+              "weapon_damage_max": 29,
+              "attack_speed": 1.9,
+              "block_value": 0
+            }
           },
           "drop_zone": "Scarlet Crypt"
         },
@@ -12841,7 +14680,32 @@
             "stat_template": "spi_healer",
             "item_level": 16,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Staff of Piety",
+              "slot": "main_hand",
+              "item_level": 16,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 4,
+                "intellect": 3
+              },
+              "secondary_stats": {
+                "healing_power": 19
+              },
+              "armor_value": 0,
+              "required_level": 14,
+              "sell_price": 971,
+              "flavor_text": "Carved for a healer, smooth where the hand rests.",
+              "identity": "healer",
+              "weapon_damage_min": 14,
+              "weapon_damage_max": 19,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "drop_zone": "Scarlet Crypt"
         },
@@ -12868,7 +14732,29 @@
             "stat_template": "agi_physical",
             "item_level": 10,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Barrens Short Bow",
+              "slot": "ranged",
+              "item_level": 10,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 4
+              },
+              "secondary_stats": {},
+              "armor_value": 0,
+              "required_level": 8,
+              "sell_price": 232,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter",
+              "weapon_damage_min": 16,
+              "weapon_damage_max": 22,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           },
           "vendor_location": "The Crossroads"
         },
@@ -12894,7 +14780,31 @@
             "stat_template": "int_caster",
             "item_level": 28,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Shadow-Burned Wand",
+              "slot": "ranged",
+              "item_level": 28,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "wand",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 5
+              },
+              "secondary_stats": {
+                "shadow_spell_power": 13
+              },
+              "armor_value": 0,
+              "required_level": 26,
+              "sell_price": 2013,
+              "flavor_text": "Burned dark, and the dark stayed in.",
+              "identity": "shadow",
+              "weapon_damage_min": 34,
+              "weapon_damage_max": 47,
+              "attack_speed": 1.9,
+              "block_value": 0
+            }
           },
           "vendor_location": "The Sepulcher"
         },
@@ -12921,7 +14831,32 @@
             "stat_template": "agi_int_hybrid",
             "item_level": 16,
             "rarity": "uncommon",
-            "material_tier": "ashwood"
+            "material_tier": "ashwood",
+            "item": {
+              "name": "Ratchet Blunderbuss",
+              "slot": "ranged",
+              "item_level": 16,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 2,
+                "intellect": 2
+              },
+              "secondary_stats": {
+                "attack_power": 6
+              },
+              "armor_value": 0,
+              "required_level": 14,
+              "sell_price": 622,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter",
+              "weapon_damage_min": 22,
+              "weapon_damage_max": 30,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           },
           "vendor_location": "Ratchet"
         },
@@ -12947,7 +14882,32 @@
             "stat_template": "spi_healer",
             "item_level": 18,
             "rarity": "uncommon",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Taurajo Spirit Staff",
+              "slot": "main_hand",
+              "item_level": 18,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 5,
+                "intellect": 4
+              },
+              "secondary_stats": {
+                "healing_power": 21
+              },
+              "armor_value": 0,
+              "required_level": 16,
+              "sell_price": 1244,
+              "flavor_text": "Carved for a healer, smooth where the hand rests.",
+              "identity": "healer",
+              "weapon_damage_min": 15,
+              "weapon_damage_max": 21,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "vendor_location": "Camp Taurajo"
         },
@@ -12973,7 +14933,31 @@
             "stat_template": "agi_int_hybrid",
             "item_level": 38,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Undercity Cursed Wand",
+              "slot": "ranged",
+              "item_level": 38,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "wand",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 8
+              },
+              "secondary_stats": {
+                "shadow_spell_power": 24
+              },
+              "armor_value": 7,
+              "required_level": 36,
+              "sell_price": 5734,
+              "flavor_text": "Burned dark, and the dark stayed in.",
+              "identity": "shadow",
+              "weapon_damage_min": 59,
+              "weapon_damage_max": 80,
+              "attack_speed": 1.9,
+              "block_value": 0
+            }
           },
           "vendor_location": "Undercity"
         },
@@ -13000,7 +14984,32 @@
             "stat_template": "agi_physical",
             "item_level": 33,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Astranaar Elven Bow",
+              "slot": "ranged",
+              "item_level": 33,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 6,
+                "intellect": 5
+              },
+              "secondary_stats": {
+                "attack_power": 17
+              },
+              "armor_value": 0,
+              "required_level": 31,
+              "sell_price": 4264,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter",
+              "weapon_damage_min": 52,
+              "weapon_damage_max": 70,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           },
           "vendor_location": "Astranaar"
         },
@@ -13108,8 +15117,32 @@
             "weapon_type": "staff",
             "stat_template": "int_caster",
             "rarity": "uncommon",
-            "item_level": 27,
-            "material_tier": "silverbark"
+            "item_level": 31,
+            "material_tier": "silverbark",
+            "item": {
+              "name": "Silverbark Stave",
+              "slot": "main_hand",
+              "item_level": 31,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 13
+              },
+              "secondary_stats": {
+                "arcane_spell_power": 36
+              },
+              "armor_value": 0,
+              "required_level": 29,
+              "sell_price": 3895,
+              "flavor_text": "Silverbark gleams faintly, even in the dark.",
+              "identity": "arcane",
+              "weapon_damage_min": 24,
+              "weapon_damage_max": 33,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials).",
           "vendor_location": "Any pattern vendor"
@@ -13135,8 +15168,32 @@
             "weapon_type": "bow",
             "stat_template": "agi_physical",
             "rarity": "uncommon",
-            "item_level": 27,
-            "material_tier": "silverbark"
+            "item_level": 32,
+            "material_tier": "silverbark",
+            "item": {
+              "name": "Silverbark Longbow",
+              "slot": "ranged",
+              "item_level": 32,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 6
+              },
+              "secondary_stats": {
+                "attack_power": 16
+              },
+              "armor_value": 0,
+              "required_level": 30,
+              "sell_price": 2665,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter_precise",
+              "weapon_damage_min": 39,
+              "weapon_damage_max": 52,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           },
           "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
         },
@@ -13162,7 +15219,32 @@
             "stat_template": "int_caster",
             "rarity": "uncommon",
             "item_level": 32,
-            "material_tier": "goldenleaf"
+            "material_tier": "goldenleaf",
+            "item": {
+              "name": "Goldenleaf Stave",
+              "slot": "main_hand",
+              "item_level": 32,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 10,
+                "intellect": 10
+              },
+              "secondary_stats": {
+                "healing_power": 27
+              },
+              "armor_value": 0,
+              "required_level": 30,
+              "sell_price": 4163,
+              "flavor_text": "Goldenleaf wood, warm to the hand. Healers favour it.",
+              "identity": "spirit_healer",
+              "weapon_damage_min": 25,
+              "weapon_damage_max": 34,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials).",
           "vendor_location": "Any pattern vendor"
@@ -13189,7 +15271,32 @@
             "stat_template": "agi_physical",
             "rarity": "uncommon",
             "item_level": 32,
-            "material_tier": "goldenleaf"
+            "material_tier": "goldenleaf",
+            "item": {
+              "name": "Goldenleaf Hunting Bow",
+              "slot": "ranged",
+              "item_level": 32,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 4,
+                "intellect": 3
+              },
+              "secondary_stats": {
+                "attack_power": 13
+              },
+              "armor_value": 0,
+              "required_level": 30,
+              "sell_price": 2665,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter",
+              "weapon_damage_min": 39,
+              "weapon_damage_max": 52,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           },
           "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials).",
           "vendor_location": "Any pattern vendor"
@@ -13216,7 +15323,31 @@
             "stat_template": "int_caster",
             "rarity": "uncommon",
             "item_level": 34,
-            "material_tier": "sapglow"
+            "material_tier": "sapglow",
+            "item": {
+              "name": "Sapglow Stave",
+              "slot": "main_hand",
+              "item_level": 34,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "spirit": 16
+              },
+              "secondary_stats": {
+                "spell_power": 30
+              },
+              "armor_value": 0,
+              "required_level": 32,
+              "sell_price": 4729,
+              "flavor_text": "Sapglow still weeps a little light where it was cut.",
+              "identity": "spirit_caster",
+              "weapon_damage_min": 26,
+              "weapon_damage_max": 36,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials).",
           "vendor_location": "Any pattern vendor"
@@ -13243,7 +15374,32 @@
             "stat_template": "agi_physical",
             "rarity": "uncommon",
             "item_level": 34,
-            "material_tier": "sapglow"
+            "material_tier": "sapglow",
+            "item": {
+              "name": "Sapglow Shortbow",
+              "slot": "ranged",
+              "item_level": 34,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 4,
+                "intellect": 4
+              },
+              "secondary_stats": {
+                "attack_power": 13
+              },
+              "armor_value": 0,
+              "required_level": 32,
+              "sell_price": 3026,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter",
+              "weapon_damage_min": 41,
+              "weapon_damage_max": 55,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           },
           "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials).",
           "vendor_location": "Any pattern vendor"
@@ -13270,7 +15426,31 @@
             "stat_template": "int_caster",
             "rarity": "uncommon",
             "item_level": 35,
-            "material_tier": "redbark"
+            "material_tier": "redbark",
+            "item": {
+              "name": "Redbark Stave",
+              "slot": "main_hand",
+              "item_level": 35,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 15
+              },
+              "secondary_stats": {
+                "fire_spell_power": 40
+              },
+              "armor_value": 0,
+              "required_level": 33,
+              "sell_price": 5026,
+              "flavor_text": "Redbark smoulders if you work it too fast.",
+              "identity": "fire",
+              "weapon_damage_min": 27,
+              "weapon_damage_max": 36,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials).",
           "vendor_location": "Any pattern vendor"
@@ -13297,7 +15477,31 @@
             "stat_template": "agi_physical",
             "rarity": "uncommon",
             "item_level": 35,
-            "material_tier": "redbark"
+            "material_tier": "redbark",
+            "item": {
+              "name": "Redbark Warbow",
+              "slot": "ranged",
+              "item_level": 35,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 6
+              },
+              "secondary_stats": {
+                "attack_power": 17
+              },
+              "armor_value": 10,
+              "required_level": 33,
+              "sell_price": 3216,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter_crit",
+              "weapon_damage_min": 42,
+              "weapon_damage_max": 57,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           },
           "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials).",
           "vendor_location": "Any pattern vendor"
@@ -13324,12 +15528,36 @@
             "stat_template": "int_caster",
             "rarity": "uncommon",
             "item_level": 40,
-            "material_tier": "duskwood"
+            "material_tier": "duskwood",
+            "item": {
+              "name": "Duskwood Stave",
+              "slot": "main_hand",
+              "item_level": 40,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 17
+              },
+              "secondary_stats": {
+                "shadow_spell_power": 46
+              },
+              "armor_value": 0,
+              "required_level": 38,
+              "sell_price": 6652,
+              "flavor_text": "Duskwood is black to the heart, and it's always a little cold.",
+              "identity": "shadow",
+              "weapon_damage_min": 30,
+              "weapon_damage_max": 41,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
         },
         "ww_duskwood_bow": {
-          "name": "Duskwood Longbow",
+          "name": "Duskwood Recurve",
           "skill_required": 202,
           "skill_range": [
             207,
@@ -13350,7 +15578,31 @@
             "stat_template": "agi_physical",
             "rarity": "uncommon",
             "item_level": 40,
-            "material_tier": "duskwood"
+            "material_tier": "duskwood",
+            "item": {
+              "name": "Duskwood Recurve",
+              "slot": "ranged",
+              "item_level": 40,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 7
+              },
+              "secondary_stats": {
+                "attack_power": 20
+              },
+              "armor_value": 0,
+              "required_level": 38,
+              "sell_price": 4257,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter_precise",
+              "weapon_damage_min": 47,
+              "weapon_damage_max": 64,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           },
           "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials).",
           "vendor_location": "Any pattern vendor"
@@ -13377,7 +15629,31 @@
             "stat_template": "int_caster",
             "rarity": "uncommon",
             "item_level": 40,
-            "material_tier": "marshwillow"
+            "material_tier": "marshwillow",
+            "item": {
+              "name": "Marshwillow Stave",
+              "slot": "main_hand",
+              "item_level": 40,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 17
+              },
+              "secondary_stats": {
+                "frost_spell_power": 46
+              },
+              "armor_value": 0,
+              "required_level": 38,
+              "sell_price": 6652,
+              "flavor_text": "Marshwillow, soaked and supple, and as cold as the bog it grew in.",
+              "identity": "frost",
+              "weapon_damage_min": 30,
+              "weapon_damage_max": 41,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
         },
@@ -13403,7 +15679,32 @@
             "stat_template": "agi_physical",
             "rarity": "uncommon",
             "item_level": 40,
-            "material_tier": "marshwillow"
+            "material_tier": "marshwillow",
+            "item": {
+              "name": "Marshwillow Recurve",
+              "slot": "ranged",
+              "item_level": 40,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 5,
+                "intellect": 4
+              },
+              "secondary_stats": {
+                "attack_power": 16
+              },
+              "armor_value": 11,
+              "required_level": 38,
+              "sell_price": 4257,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter",
+              "weapon_damage_min": 47,
+              "weapon_damage_max": 64,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           },
           "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
         },
@@ -14681,12 +16982,36 @@
           },
           "output": {
             "kind": "weapon",
-            "slot": "main_hand",
+            "slot": "ranged",
             "weapon_type": "wand",
             "stat_template": "int_caster",
             "item_level": 31,
             "rarity": "rare",
-            "material_tier": "duskwood"
+            "material_tier": "duskwood",
+            "item": {
+              "name": "Duskwood Wand",
+              "slot": "ranged",
+              "item_level": 31,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "wand",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 7
+              },
+              "secondary_stats": {
+                "shadow_spell_power": 19
+              },
+              "armor_value": 6,
+              "required_level": 29,
+              "sell_price": 3739,
+              "flavor_text": "Duskwood is black to the heart, and it's always a little cold.",
+              "identity": "shadow",
+              "weapon_damage_min": 49,
+              "weapon_damage_max": 67,
+              "attack_speed": 1.9,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_duskwood_staff": {
@@ -14706,12 +17031,36 @@
           },
           "output": {
             "kind": "weapon",
-            "slot": "two_hand",
+            "slot": "main_hand",
             "weapon_type": "staff",
             "stat_template": "spi_healer",
             "item_level": 32,
             "rarity": "rare",
-            "material_tier": "duskwood"
+            "material_tier": "duskwood",
+            "item": {
+              "name": "Duskwood Staff",
+              "slot": "main_hand",
+              "item_level": 32,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 18
+              },
+              "secondary_stats": {
+                "shadow_spell_power": 48
+              },
+              "armor_value": 14,
+              "required_level": 30,
+              "sell_price": 6245,
+              "flavor_text": "Duskwood is black to the heart, and it's always a little cold.",
+              "identity": "shadow",
+              "weapon_damage_min": 33,
+              "weapon_damage_max": 44,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_duskwood_bow": {
@@ -14736,7 +17085,31 @@
             "stat_template": "agi_physical",
             "item_level": 33,
             "rarity": "rare",
-            "material_tier": "duskwood"
+            "material_tier": "duskwood",
+            "item": {
+              "name": "Duskwood Longbow",
+              "slot": "ranged",
+              "item_level": 33,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 8
+              },
+              "secondary_stats": {
+                "attack_power": 21
+              },
+              "armor_value": 0,
+              "required_level": 31,
+              "sell_price": 4264,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter_precise",
+              "weapon_damage_min": 52,
+              "weapon_damage_max": 70,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_nightshade_polearm": {
@@ -14756,12 +17129,36 @@
           },
           "output": {
             "kind": "weapon",
-            "slot": "two_hand",
+            "slot": "main_hand",
             "weapon_type": "polearm",
             "stat_template": "agi_physical",
             "item_level": 34,
             "rarity": "rare",
-            "material_tier": "nightshade"
+            "material_tier": "nightshade",
+            "item": {
+              "name": "Nightshade Spear",
+              "slot": "main_hand",
+              "item_level": 34,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "polearm",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 11
+              },
+              "secondary_stats": {
+                "attack_power": 30
+              },
+              "armor_value": 8,
+              "required_level": 32,
+              "sell_price": 7093,
+              "flavor_text": "A long haft of good wood and a sharp point.",
+              "identity": "assassin",
+              "weapon_damage_min": 85,
+              "weapon_damage_max": 115,
+              "attack_speed": 3.3,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_nightshade_crossbow": {
@@ -14786,7 +17183,31 @@
             "stat_template": "agi_int_hybrid",
             "item_level": 35,
             "rarity": "rare",
-            "material_tier": "nightshade"
+            "material_tier": "nightshade",
+            "item": {
+              "name": "Nightshade Crossbow",
+              "slot": "ranged",
+              "item_level": 35,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "crossbow",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 8
+              },
+              "secondary_stats": {
+                "attack_power": 23
+              },
+              "armor_value": 0,
+              "required_level": 33,
+              "sell_price": 4824,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter_precise",
+              "weapon_damage_min": 55,
+              "weapon_damage_max": 74,
+              "attack_speed": 2.4,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_nightshade_tome": {
@@ -14811,7 +17232,31 @@
             "stat_template": "int_caster",
             "item_level": 36,
             "rarity": "rare",
-            "material_tier": "nightshade"
+            "material_tier": "nightshade",
+            "item": {
+              "name": "Nightshade Codex",
+              "slot": "off_hand",
+              "item_level": 36,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "tome",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "spirit": 10
+              },
+              "secondary_stats": {
+                "nature_spell_power": 27
+              },
+              "armor_value": 8,
+              "required_level": 34,
+              "sell_price": 3839,
+              "flavor_text": "Nightshade's poisonous to carve and lovely once it's done.",
+              "identity": "nature",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_thornveil_wand": {
@@ -14831,12 +17276,37 @@
           },
           "output": {
             "kind": "weapon",
-            "slot": "main_hand",
+            "slot": "ranged",
             "weapon_type": "wand",
             "stat_template": "int_caster",
             "item_level": 37,
             "rarity": "rare",
-            "material_tier": "thornveil"
+            "material_tier": "thornveil",
+            "item": {
+              "name": "Thornveil Wand",
+              "slot": "ranged",
+              "item_level": 37,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "wand",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 5,
+                "intellect": 4
+              },
+              "secondary_stats": {
+                "healing_power": 23
+              },
+              "armor_value": 7,
+              "required_level": 35,
+              "sell_price": 5422,
+              "flavor_text": "Thornveil. The thorns come off, and the healing stays in.",
+              "identity": "healer",
+              "weapon_damage_min": 57,
+              "weapon_damage_max": 78,
+              "attack_speed": 1.9,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_thornveil_staff": {
@@ -14856,12 +17326,37 @@
           },
           "output": {
             "kind": "weapon",
-            "slot": "two_hand",
+            "slot": "main_hand",
             "weapon_type": "staff",
             "stat_template": "spi_healer",
             "item_level": 38,
             "rarity": "rare",
-            "material_tier": "thornveil"
+            "material_tier": "thornveil",
+            "item": {
+              "name": "Thornveil Staff",
+              "slot": "main_hand",
+              "item_level": 38,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 13,
+                "intellect": 10
+              },
+              "secondary_stats": {
+                "healing_power": 58
+              },
+              "armor_value": 17,
+              "required_level": 36,
+              "sell_price": 8959,
+              "flavor_text": "Thornveil. The thorns come off, and the healing stays in.",
+              "identity": "healer",
+              "weapon_damage_min": 38,
+              "weapon_damage_max": 51,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_thornveil_bow": {
@@ -14886,7 +17381,32 @@
             "stat_template": "agi_physical",
             "item_level": 39,
             "rarity": "rare",
-            "material_tier": "thornveil"
+            "material_tier": "thornveil",
+            "item": {
+              "name": "Thornveil Longbow",
+              "slot": "ranged",
+              "item_level": 39,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 7,
+                "intellect": 5
+              },
+              "secondary_stats": {
+                "attack_power": 20
+              },
+              "armor_value": 7,
+              "required_level": 37,
+              "sell_price": 6055,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter",
+              "weapon_damage_min": 60,
+              "weapon_damage_max": 81,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_bloodroot_polearm": {
@@ -14906,12 +17426,36 @@
           },
           "output": {
             "kind": "weapon",
-            "slot": "two_hand",
+            "slot": "main_hand",
             "weapon_type": "polearm",
             "stat_template": "agi_physical",
             "item_level": 40,
             "rarity": "rare",
-            "material_tier": "bloodroot"
+            "material_tier": "bloodroot",
+            "item": {
+              "name": "Bloodroot Spear",
+              "slot": "main_hand",
+              "item_level": 40,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "polearm",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 13
+              },
+              "secondary_stats": {
+                "attack_power": 35
+              },
+              "armor_value": 47,
+              "required_level": 38,
+              "sell_price": 9978,
+              "flavor_text": "A long haft of good wood and a sharp point.",
+              "identity": "rogue_crit",
+              "weapon_damage_min": 98,
+              "weapon_damage_max": 133,
+              "attack_speed": 3.3,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_bloodroot_crossbow": {
@@ -14936,7 +17480,31 @@
             "stat_template": "agi_int_hybrid",
             "item_level": 41,
             "rarity": "rare",
-            "material_tier": "bloodroot"
+            "material_tier": "bloodroot",
+            "item": {
+              "name": "Bloodroot Crossbow",
+              "slot": "ranged",
+              "item_level": 41,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "crossbow",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 10
+              },
+              "secondary_stats": {
+                "attack_power": 26
+              },
+              "armor_value": 0,
+              "required_level": 39,
+              "sell_price": 6726,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter_crit",
+              "weapon_damage_min": 63,
+              "weapon_damage_max": 85,
+              "attack_speed": 2.4,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_bloodroot_tome": {
@@ -14961,7 +17529,31 @@
             "stat_template": "int_caster",
             "item_level": 42,
             "rarity": "rare",
-            "material_tier": "bloodroot"
+            "material_tier": "bloodroot",
+            "item": {
+              "name": "Bloodroot Codex",
+              "slot": "off_hand",
+              "item_level": 42,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "tome",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "stamina": 12
+              },
+              "secondary_stats": {
+                "spell_power": 26
+              },
+              "armor_value": 10,
+              "required_level": 40,
+              "sell_price": 5306,
+              "flavor_text": "Bloodroot bleeds red sap, and it never quite dries.",
+              "identity": "blood",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_bloodwood_wand": {
@@ -14981,12 +17573,36 @@
           },
           "output": {
             "kind": "weapon",
-            "slot": "main_hand",
+            "slot": "ranged",
             "weapon_type": "wand",
             "stat_template": "int_caster",
             "item_level": 43,
             "rarity": "rare",
-            "material_tier": "bloodwood"
+            "material_tier": "bloodwood",
+            "item": {
+              "name": "Bloodwood Wand",
+              "slot": "ranged",
+              "item_level": 43,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "wand",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 7
+              },
+              "secondary_stats": {
+                "spell_power": 26
+              },
+              "armor_value": 8,
+              "required_level": 41,
+              "sell_price": 7433,
+              "flavor_text": "Bloodwood. Necromancers swear it remembers every death near its roots.",
+              "identity": "death",
+              "weapon_damage_min": 65,
+              "weapon_damage_max": 89,
+              "attack_speed": 1.9,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_bloodwood_staff": {
@@ -15006,12 +17622,37 @@
           },
           "output": {
             "kind": "weapon",
-            "slot": "two_hand",
+            "slot": "main_hand",
             "weapon_type": "staff",
             "stat_template": "spi_healer",
             "item_level": 44,
             "rarity": "rare",
-            "material_tier": "bloodwood"
+            "material_tier": "bloodwood",
+            "item": {
+              "name": "Bloodwood Staff",
+              "slot": "main_hand",
+              "item_level": 44,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 12
+              },
+              "secondary_stats": {
+                "spell_penetration": 2,
+                "spell_power": 44
+              },
+              "armor_value": 20,
+              "required_level": 42,
+              "sell_price": 12189,
+              "flavor_text": "Bloodwood. Necromancers swear it remembers every death near its roots.",
+              "identity": "death",
+              "weapon_damage_min": 43,
+              "weapon_damage_max": 58,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_bloodwood_bow": {
@@ -15036,7 +17677,31 @@
             "stat_template": "agi_physical",
             "item_level": 45,
             "rarity": "rare",
-            "material_tier": "bloodwood"
+            "material_tier": "bloodwood",
+            "item": {
+              "name": "Bloodwood Longbow",
+              "slot": "ranged",
+              "item_level": 45,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 11
+              },
+              "secondary_stats": {
+                "attack_power": 29
+              },
+              "armor_value": 0,
+              "required_level": 43,
+              "sell_price": 8178,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter_crit",
+              "weapon_damage_min": 68,
+              "weapon_damage_max": 92,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_felbark_polearm": {
@@ -15056,12 +17721,36 @@
           },
           "output": {
             "kind": "weapon",
-            "slot": "two_hand",
+            "slot": "main_hand",
             "weapon_type": "polearm",
             "stat_template": "agi_physical",
             "item_level": 46,
             "rarity": "rare",
-            "material_tier": "felbark"
+            "material_tier": "felbark",
+            "item": {
+              "name": "Felbark Spear",
+              "slot": "main_hand",
+              "item_level": 46,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "polearm",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 15
+              },
+              "secondary_stats": {
+                "attack_power": 40
+              },
+              "armor_value": 11,
+              "required_level": 44,
+              "sell_price": 13382,
+              "flavor_text": "A long haft of good wood and a sharp point.",
+              "identity": "rogue_crit",
+              "weapon_damage_min": 111,
+              "weapon_damage_max": 150,
+              "attack_speed": 3.3,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_felbark_crossbow": {
@@ -15086,7 +17775,31 @@
             "stat_template": "agi_int_hybrid",
             "item_level": 47,
             "rarity": "rare",
-            "material_tier": "felbark"
+            "material_tier": "felbark",
+            "item": {
+              "name": "Felbark Crossbow",
+              "slot": "ranged",
+              "item_level": 47,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "crossbow",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 11
+              },
+              "secondary_stats": {
+                "attack_power": 30
+              },
+              "armor_value": 0,
+              "required_level": 45,
+              "sell_price": 8960,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter_crit",
+              "weapon_damage_min": 71,
+              "weapon_damage_max": 96,
+              "attack_speed": 2.4,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_felbark_tome": {
@@ -15111,7 +17824,32 @@
             "stat_template": "int_caster",
             "item_level": 48,
             "rarity": "rare",
-            "material_tier": "felbark"
+            "material_tier": "felbark",
+            "item": {
+              "name": "Felbark Codex",
+              "slot": "off_hand",
+              "item_level": 48,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "tome",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "stamina": 10,
+                "intellect": 5
+              },
+              "secondary_stats": {
+                "shadow_spell_power": 33
+              },
+              "armor_value": 0,
+              "required_level": 46,
+              "sell_price": 7024,
+              "flavor_text": "Felbark, twisted by the fel and humming with it.",
+              "identity": "fel",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 0
+            }
           },
           "vendor_location": "Any pattern vendor"
         },
@@ -15132,12 +17870,37 @@
           },
           "output": {
             "kind": "weapon",
-            "slot": "main_hand",
+            "slot": "ranged",
             "weapon_type": "wand",
             "stat_template": "int_caster",
             "item_level": 49,
             "rarity": "rare",
-            "material_tier": "moonpetal"
+            "material_tier": "moonpetal",
+            "item": {
+              "name": "Moonpetal Wand",
+              "slot": "ranged",
+              "item_level": 49,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "wand",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 7,
+                "spirit": 5
+              },
+              "secondary_stats": {
+                "healing_power": 30
+              },
+              "armor_value": 9,
+              "required_level": 47,
+              "sell_price": 9780,
+              "flavor_text": "Moonpetal wood, pale as moonlight and blessed by it.",
+              "identity": "high_healer",
+              "weapon_damage_min": 74,
+              "weapon_damage_max": 100,
+              "attack_speed": 1.9,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_moonpetal_staff": {
@@ -15157,12 +17920,37 @@
           },
           "output": {
             "kind": "weapon",
-            "slot": "two_hand",
+            "slot": "main_hand",
             "weapon_type": "staff",
             "stat_template": "spi_healer",
             "item_level": 50,
             "rarity": "rare",
-            "material_tier": "moonpetal"
+            "material_tier": "moonpetal",
+            "item": {
+              "name": "Moonpetal Staff",
+              "slot": "main_hand",
+              "item_level": 50,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 17,
+                "spirit": 14
+              },
+              "secondary_stats": {
+                "healing_power": 76
+              },
+              "armor_value": 0,
+              "required_level": 48,
+              "sell_price": 15943,
+              "flavor_text": "Moonpetal wood, pale as moonlight and blessed by it.",
+              "identity": "high_healer",
+              "weapon_damage_min": 48,
+              "weapon_damage_max": 66,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_moonpetal_bow": {
@@ -15187,7 +17975,31 @@
             "stat_template": "agi_physical",
             "item_level": 51,
             "rarity": "rare",
-            "material_tier": "moonpetal"
+            "material_tier": "moonpetal",
+            "item": {
+              "name": "Moonpetal Longbow",
+              "slot": "ranged",
+              "item_level": 51,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 12
+              },
+              "secondary_stats": {
+                "attack_power": 32
+              },
+              "armor_value": 9,
+              "required_level": 49,
+              "sell_price": 10637,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter_precise",
+              "weapon_damage_min": 76,
+              "weapon_damage_max": 103,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_starleaf_polearm": {
@@ -15207,12 +18019,36 @@
           },
           "output": {
             "kind": "weapon",
-            "slot": "two_hand",
+            "slot": "main_hand",
             "weapon_type": "polearm",
             "stat_template": "agi_physical",
             "item_level": 53,
             "rarity": "rare",
-            "material_tier": "starleaf"
+            "material_tier": "starleaf",
+            "item": {
+              "name": "Starleaf Spear",
+              "slot": "main_hand",
+              "item_level": 53,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "polearm",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 17
+              },
+              "secondary_stats": {
+                "attack_power": 47
+              },
+              "armor_value": 13,
+              "required_level": 51,
+              "sell_price": 18018,
+              "flavor_text": "A long haft of good wood and a sharp point.",
+              "identity": "rogue_crit",
+              "weapon_damage_min": 126,
+              "weapon_damage_max": 170,
+              "attack_speed": 3.3,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_starleaf_crossbow": {
@@ -15237,7 +18073,31 @@
             "stat_template": "agi_int_hybrid",
             "item_level": 54,
             "rarity": "epic",
-            "material_tier": "starleaf"
+            "material_tier": "starleaf",
+            "item": {
+              "name": "Starleaf Crossbow",
+              "slot": "ranged",
+              "item_level": 54,
+              "rarity": "epic",
+              "armor_type": null,
+              "weapon_type": "crossbow",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 17
+              },
+              "secondary_stats": {
+                "attack_power": 45
+              },
+              "armor_value": 8,
+              "required_level": 52,
+              "sell_price": 20788,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter_crit",
+              "weapon_damage_min": 104,
+              "weapon_damage_max": 141,
+              "attack_speed": 2.4,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_starleaf_tome": {
@@ -15262,7 +18122,31 @@
             "stat_template": "int_caster",
             "item_level": 55,
             "rarity": "epic",
-            "material_tier": "starleaf"
+            "material_tier": "starleaf",
+            "item": {
+              "name": "Starleaf Codex",
+              "slot": "off_hand",
+              "item_level": 55,
+              "rarity": "epic",
+              "armor_type": null,
+              "weapon_type": "tome",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 14
+              },
+              "secondary_stats": {
+                "arcane_spell_power": 64
+              },
+              "armor_value": 0,
+              "required_level": 53,
+              "sell_price": 16204,
+              "flavor_text": "Starleaf glitters like a clear night sky.",
+              "identity": "arcane_crit",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_stormoak_wand": {
@@ -15282,12 +18166,36 @@
           },
           "output": {
             "kind": "weapon",
-            "slot": "main_hand",
+            "slot": "ranged",
             "weapon_type": "wand",
             "stat_template": "int_caster",
             "item_level": 57,
             "rarity": "epic",
-            "material_tier": "stormoak"
+            "material_tier": "stormoak",
+            "item": {
+              "name": "Stormoak Wand",
+              "slot": "ranged",
+              "item_level": 57,
+              "rarity": "epic",
+              "armor_type": null,
+              "weapon_type": "wand",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 15
+              },
+              "secondary_stats": {
+                "nature_spell_power": 48
+              },
+              "armor_value": 0,
+              "required_level": 55,
+              "sell_price": 23288,
+              "flavor_text": "Stormoak grew where lightning struck, and it hasn't forgotten.",
+              "identity": "storm",
+              "weapon_damage_min": 109,
+              "weapon_damage_max": 148,
+              "attack_speed": 1.9,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_stormoak_staff": {
@@ -15307,12 +18215,37 @@
           },
           "output": {
             "kind": "weapon",
-            "slot": "two_hand",
+            "slot": "main_hand",
             "weapon_type": "staff",
             "stat_template": "spi_healer",
             "item_level": 58,
             "rarity": "epic",
-            "material_tier": "stormoak"
+            "material_tier": "stormoak",
+            "item": {
+              "name": "Stormoak Staff",
+              "slot": "main_hand",
+              "item_level": 58,
+              "rarity": "epic",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 28
+              },
+              "secondary_stats": {
+                "haste": 2,
+                "nature_spell_power": 93
+              },
+              "armor_value": 23,
+              "required_level": 56,
+              "sell_price": 37741,
+              "flavor_text": "Stormoak grew where lightning struck, and it hasn't forgotten.",
+              "identity": "storm",
+              "weapon_damage_min": 72,
+              "weapon_damage_max": 97,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           }
         },
         "p300_wo_stormoak_bow": {
@@ -15337,7 +18270,31 @@
             "stat_template": "agi_physical",
             "item_level": 59,
             "rarity": "epic",
-            "material_tier": "stormoak"
+            "material_tier": "stormoak",
+            "item": {
+              "name": "Stormoak Longbow",
+              "slot": "ranged",
+              "item_level": 59,
+              "rarity": "epic",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 18
+              },
+              "secondary_stats": {
+                "attack_power": 49
+              },
+              "armor_value": 0,
+              "required_level": 57,
+              "sell_price": 25037,
+              "flavor_text": "Strung tight and true. It won't miss for want of a good bow.",
+              "identity": "hunter_crit",
+              "weapon_damage_min": 113,
+              "weapon_damage_max": 153,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
           }
         },
         "secret_taurajo_brannoch_ww_venom_stave": {
@@ -15362,7 +18319,31 @@
             "stat_template": "int_caster",
             "item_level": 27,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Brannoch's Venomwood Staff",
+              "slot": "main_hand",
+              "item_level": 27,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "spirit": 15
+              },
+              "secondary_stats": {
+                "nature_spell_power": 41
+              },
+              "armor_value": 0,
+              "required_level": 25,
+              "sell_price": 4371,
+              "flavor_text": "Green wood, still alive in places.",
+              "identity": "nature",
+              "weapon_damage_min": 28,
+              "weapon_damage_max": 38,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "drop_zone": "Widow's Lair",
           "secret": true,
@@ -15386,7 +18367,31 @@
             "stat_template": "int_caster",
             "item_level": 30,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Quiet's Bramblewood Staff",
+              "slot": "main_hand",
+              "item_level": 30,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "spirit": 17
+              },
+              "secondary_stats": {
+                "nature_spell_power": 45
+              },
+              "armor_value": 13,
+              "required_level": 28,
+              "sell_price": 5454,
+              "flavor_text": "Green wood, still alive in places.",
+              "identity": "nature",
+              "weapon_damage_min": 31,
+              "weapon_damage_max": 42,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "skill_range": [
             130,
@@ -15422,7 +18427,32 @@
             "stat_template": "spi_healer",
             "item_level": 37,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Hushfang's Lifebark Staff",
+              "slot": "main_hand",
+              "item_level": 37,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 13,
+                "intellect": 10
+              },
+              "secondary_stats": {
+                "healing_power": 56
+              },
+              "armor_value": 0,
+              "required_level": 35,
+              "sell_price": 8471,
+              "flavor_text": "Carved for a healer, smooth where the hand rests.",
+              "identity": "healer",
+              "weapon_damage_min": 37,
+              "weapon_damage_max": 50,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "vendor_location": "Any pattern vendor",
           "secret": true,
@@ -15452,7 +18482,32 @@
             "stat_template": "spi_healer",
             "item_level": 37,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Skyhide's Lifebark Staff",
+              "slot": "main_hand",
+              "item_level": 37,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 13,
+                "intellect": 10
+              },
+              "secondary_stats": {
+                "healing_power": 56
+              },
+              "armor_value": 0,
+              "required_level": 35,
+              "sell_price": 8471,
+              "flavor_text": "Carved for a healer, smooth where the hand rests.",
+              "identity": "healer",
+              "weapon_damage_min": 37,
+              "weapon_damage_max": 50,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "vendor_location": "Any pattern vendor",
           "secret": true,
@@ -15477,7 +18532,31 @@
             "stat_template": "int_caster",
             "item_level": 27,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Sandsong's Frostpine Grimoire",
+              "slot": "off_hand",
+              "item_level": 27,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "tome",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 8
+              },
+              "secondary_stats": {
+                "frost_spell_power": 21
+              },
+              "armor_value": 6,
+              "required_level": 25,
+              "sell_price": 2098,
+              "flavor_text": "There's frost in the grain that never melts.",
+              "identity": "frost",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 0
+            }
           },
           "skill_range": [
             115,
@@ -15513,7 +18592,32 @@
             "stat_template": "spi_healer",
             "item_level": 37,
             "rarity": "rare",
-            "material_tier": "ironbark"
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Skyfeather's Lifebark Staff",
+              "slot": "main_hand",
+              "item_level": 37,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 13,
+                "intellect": 10
+              },
+              "secondary_stats": {
+                "healing_power": 56
+              },
+              "armor_value": 0,
+              "required_level": 35,
+              "sell_price": 8471,
+              "flavor_text": "Carved for a healer, smooth where the hand rests.",
+              "identity": "healer",
+              "weapon_damage_min": 37,
+              "weapon_damage_max": 50,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
           },
           "vendor_location": "Any pattern vendor",
           "secret": true,
@@ -16041,18 +19145,17 @@
               "rarity": "uncommon",
               "armor_type": null,
               "weapon_type": "gun",
-              "stat_template": "agi_physical",
+              "stat_template": "str_physical",
               "primary_stats": {
-                "agility": 2
+                "stamina": 4,
+                "strength": 2
               },
-              "secondary_stats": {
-                "attack_power": 6
-              },
+              "secondary_stats": {},
               "armor_value": 0,
               "required_level": 10,
               "sell_price": 340,
-              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
-              "identity": "agility",
+              "flavor_text": "Short, heavy and loud, for someone at the front who wants every eye on them.",
+              "identity": "tank",
               "weapon_damage_min": 18,
               "weapon_damage_max": 24,
               "attack_speed": 2.6,
@@ -16092,18 +19195,18 @@
               "rarity": "uncommon",
               "armor_type": null,
               "weapon_type": "gun",
-              "stat_template": "agi_physical",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "agility": 2
+                "intellect": 2
               },
               "secondary_stats": {
-                "attack_power": 9
+                "healing_power": 9
               },
               "armor_value": 0,
               "required_level": 13,
               "sell_price": 543,
-              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
-              "identity": "agility",
+              "flavor_text": "Loaded with medicine rounds. Point it at a friend and pull the trigger.",
+              "identity": "tide_healer",
               "weapon_damage_min": 21,
               "weapon_damage_max": 29,
               "attack_speed": 2.6,
@@ -16244,19 +19347,18 @@
               "rarity": "rare",
               "armor_type": null,
               "weapon_type": "gun",
-              "stat_template": "agi_physical",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "agility": 5,
-                "stamina": 3
+                "intellect": 4
               },
               "secondary_stats": {
-                "attack_power": 13
+                "healing_power": 20
               },
               "armor_value": 5,
               "required_level": 23,
               "sell_price": 2380,
-              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
-              "identity": "agility",
+              "flavor_text": "Loaded with medicine rounds. Point it at a friend and pull the trigger.",
+              "identity": "tide_healer",
               "weapon_damage_min": 41,
               "weapon_damage_max": 56,
               "attack_speed": 2.6,
@@ -18139,19 +21241,17 @@
               "rarity": "rare",
               "armor_type": null,
               "weapon_type": "gun",
-              "stat_template": "agi_physical",
+              "stat_template": "str_physical",
               "primary_stats": {
-                "agility": 8,
-                "stamina": 4
+                "stamina": 15,
+                "strength": 7
               },
-              "secondary_stats": {
-                "attack_power": 20
-              },
+              "secondary_stats": {},
               "armor_value": 0,
               "required_level": 37,
               "sell_price": 6055,
-              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
-              "identity": "agility",
+              "flavor_text": "Short, heavy and loud, for someone at the front who wants every eye on them.",
+              "identity": "tank",
               "weapon_damage_min": 60,
               "weapon_damage_max": 81,
               "attack_speed": 2.6,
@@ -18188,19 +21288,19 @@
               "rarity": "rare",
               "armor_type": "mail",
               "weapon_type": null,
-              "stat_template": "agi_int_hybrid",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "agility": 10,
-                "intellect": 8
+                "intellect": 10
               },
               "secondary_stats": {
-                "attack_power": 29
+                "healing_power": 35,
+                "mp5": 2
               },
               "armor_value": 186,
               "required_level": 40,
               "sell_price": 7075,
-              "flavor_text": "Marksman's lenses with a little brass sight on the rim.",
-              "identity": "hunter"
+              "flavor_text": "A field engineer's goggles, with a lens that shows who's bleeding.",
+              "identity": "tide_healer"
             }
           }
         },
@@ -18296,19 +21396,19 @@
               "rarity": "rare",
               "armor_type": null,
               "weapon_type": "gun",
-              "stat_template": "agi_physical",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "agility": 9,
-                "stamina": 5
+                "intellect": 8
               },
               "secondary_stats": {
-                "attack_power": 25
+                "healing_power": 29,
+                "mp5": 2
               },
               "armor_value": 0,
               "required_level": 46,
               "sell_price": 9365,
-              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
-              "identity": "agility",
+              "flavor_text": "Loaded with medicine rounds. Point it at a friend and pull the trigger.",
+              "identity": "tide_healer",
               "weapon_damage_min": 72,
               "weapon_damage_max": 98,
               "attack_speed": 2.6,
@@ -18346,18 +21446,17 @@
               "rarity": "rare",
               "armor_type": null,
               "weapon_type": "gun",
-              "stat_template": "agi_physical",
+              "stat_template": "str_physical",
               "primary_stats": {
-                "agility": 12
+                "stamina": 20,
+                "strength": 9
               },
-              "secondary_stats": {
-                "attack_power": 32
-              },
+              "secondary_stats": {},
               "armor_value": 9,
               "required_level": 49,
               "sell_price": 10637,
-              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
-              "identity": "hunter_crit",
+              "flavor_text": "Short, heavy and loud, for someone at the front who wants every eye on them.",
+              "identity": "tank",
               "weapon_damage_min": 76,
               "weapon_damage_max": 103,
               "attack_speed": 2.6,
@@ -18394,19 +21493,17 @@
               "rarity": "rare",
               "armor_type": "mail",
               "weapon_type": null,
-              "stat_template": "agi_int_hybrid",
+              "stat_template": "str_physical",
               "primary_stats": {
-                "agility": 10,
-                "intellect": 8
+                "stamina": 23,
+                "strength": 10
               },
-              "secondary_stats": {
-                "attack_power": 30
-              },
+              "secondary_stats": {},
               "armor_value": 192,
               "required_level": 51,
               "sell_price": 9369,
-              "flavor_text": "Thorium plates over the knuckles, for reloading under fire.",
-              "identity": "hunter"
+              "flavor_text": "Thorium plates over the knuckles, made for a mechsuit's hands.",
+              "identity": "tank"
             }
           }
         },
@@ -18859,19 +21956,19 @@
               "rarity": "rare",
               "armor_type": "mail",
               "weapon_type": null,
-              "stat_template": "agi_int_hybrid",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "agility": 10,
-                "intellect": 8
+                "intellect": 10
               },
               "secondary_stats": {
-                "attack_power": 31
+                "healing_power": 37,
+                "mp5": 2
               },
               "armor_value": 206,
               "required_level": 42,
               "sell_price": 7801,
-              "flavor_text": "Marksman's lenses with a little brass sight on the rim.",
-              "identity": "hunter"
+              "flavor_text": "A field engineer's goggles, with a lens that shows who's bleeding.",
+              "identity": "tide_healer"
             }
           },
           "secret": true,
@@ -18976,19 +22073,18 @@
               "rarity": "rare",
               "armor_type": null,
               "weapon_type": "gun",
-              "stat_template": "agi_physical",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "agility": 5,
-                "stamina": 3
+                "intellect": 5
               },
               "secondary_stats": {
-                "attack_power": 14
+                "healing_power": 20
               },
               "armor_value": 23,
               "required_level": 25,
               "sell_price": 2798,
-              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
-              "identity": "agility",
+              "flavor_text": "Loaded with medicine rounds. Point it at a friend and pull the trigger.",
+              "identity": "tide_healer",
               "weapon_damage_min": 44,
               "weapon_damage_max": 59,
               "attack_speed": 2.6,
@@ -19031,19 +22127,17 @@
               "rarity": "rare",
               "armor_type": null,
               "weapon_type": "gun",
-              "stat_template": "agi_physical",
+              "stat_template": "str_physical",
               "primary_stats": {
-                "agility": 8,
-                "stamina": 5
+                "stamina": 16,
+                "strength": 7
               },
-              "secondary_stats": {
-                "attack_power": 21
-              },
+              "secondary_stats": {},
               "armor_value": 0,
               "required_level": 39,
               "sell_price": 6726,
-              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
-              "identity": "agility",
+              "flavor_text": "Short, heavy and loud, for someone at the front who wants every eye on them.",
+              "identity": "tank",
               "weapon_damage_min": 63,
               "weapon_damage_max": 85,
               "attack_speed": 2.6,
@@ -19236,19 +22330,17 @@
               "rarity": "rare",
               "armor_type": "mail",
               "weapon_type": null,
-              "stat_template": "agi_int_hybrid",
+              "stat_template": "str_physical",
               "primary_stats": {
-                "agility": 10,
-                "intellect": 9
+                "stamina": 24,
+                "strength": 11
               },
-              "secondary_stats": {
-                "attack_power": 31
-              },
+              "secondary_stats": {},
               "armor_value": 199,
               "required_level": 53,
               "sell_price": 10127,
-              "flavor_text": "Thorium plates over the knuckles, for reloading under fire.",
-              "identity": "hunter"
+              "flavor_text": "Thorium plates over the knuckles, made for a mechsuit's hands.",
+              "identity": "tank"
             }
           },
           "secret": true,
@@ -19286,19 +22378,19 @@
               "rarity": "rare",
               "armor_type": null,
               "weapon_type": "gun",
-              "stat_template": "agi_physical",
+              "stat_template": "spi_healer",
               "primary_stats": {
-                "agility": 10,
-                "stamina": 6
+                "intellect": 8
               },
               "secondary_stats": {
-                "attack_power": 25
+                "healing_power": 31,
+                "mp5": 2
               },
               "armor_value": 0,
               "required_level": 48,
               "sell_price": 10203,
-              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
-              "identity": "agility",
+              "flavor_text": "Loaded with medicine rounds. Point it at a friend and pull the trigger.",
+              "identity": "tide_healer",
               "weapon_damage_min": 75,
               "weapon_damage_max": 102,
               "attack_speed": 2.6,

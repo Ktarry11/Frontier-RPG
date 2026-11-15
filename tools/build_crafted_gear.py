@@ -41,6 +41,8 @@ from entities.loot_generator import LootGenerator  # noqa: E402
 from world import jewelcrafting                    # noqa: E402
 
 FILES = {
+    "woodworking": ROOT / "data/crafting/recipes.json",
+    "jewelcrafting": ROOT / "data/jewelcrafting/recipes.json",
     "tailoring": ROOT / "data/crafting/recipes.json",
     "engineering": ROOT / "data/crafting/recipes.json",
     "blacksmithing": ROOT / "data/blacksmithing/recipes.json",
@@ -59,7 +61,8 @@ ALLOWED = {
     "cloth": PRIMARY - {"strength", "agility"} | CASTER | {"hit_rating", "haste"},
     # leather and mail serve both sides (rogues and druids; hunters and shaman), but never a shield's stats
     "leather": PRIMARY | CASTER | PHYSICAL | {"hit_rating", "haste", "dodge_rating"},
-    "mail": PRIMARY | CASTER | PHYSICAL | {"hit_rating", "haste", "dodge_rating"},
+    # defense on mail: the Tinker tanks in it (Mechanics)
+    "mail": PRIMARY | CASTER | PHYSICAL | {"hit_rating", "haste", "dodge_rating", "defense_rating"},
     "plate": PRIMARY | CASTER | PHYSICAL | TANK | {"hit_rating", "haste"},
 }
 
@@ -297,13 +300,22 @@ ENGINEERING_LINES = [
     (r"Smoked Lenses", "leather", "rogue_crit", "Smoked glass, so nobody sees where you're looking."),
     (r"Welder's|Seamfinder|Sparkproof", "plate", "strength", "Heavy, scorched, and made for someone who works close to the fire."),
     (r"Rangefinder|Voidsight", "mail", "hunter_precise", "A dial on the side clicks off the range to whatever you're aiming at."),
-    (r"Gilded Marksman's|Field Goggles", "mail", "hunter", "Marksman's lenses with a little brass sight on the rim."),
+    (r"Field Goggles", "mail", "tide_healer", "A field engineer's goggles, with a lens that shows who's bleeding."),
+    (r"Gilded Marksman's", "mail", "hunter", "Marksman's lenses with a little brass sight on the rim."),
     (r"Gyro-Visor", "mail", "hunter_crit", "A spinning gyroscope keeps the lens steady, however fast you move."),
     (r"Bandolier", "mail", "hunter", "Loops for every kind of charge, and a few spares besides."),
-    (r"Shellguard", "mail", "hunter", "Thorium plates over the knuckles, for reloading under fire."),
+    (r"Shellguard", "mail", "tank", "Thorium plates over the knuckles, made for a mechsuit's hands."),
     (r"Siege Harness", "mail", "hunter_crit", "A harness built to carry a siege gun's kick. It carries a hunter's fine."),
+    # GUNS IN THREE ROLES (Kyle, 15 Nov: "we need dps guns, tank guns, Healer guns"). The gun users
+    # are hunters and the like (damage), Warrior Protection and Tinker Mechanics (tanks), and Tinker
+    # Invention, the field engineer who loads medicine rounds (healer). Blunderbusses and the bombard
+    # are short and heavy, for the front line; the scattergun and the repeaters spray healing.
+    (r"Bronze Blunderbuss|Mithril Blunderbuss|Dark Iron Bombard", None, "tank",
+     "Short, heavy and loud, for someone at the front who wants every eye on them."),
+    (r"Ratchet Scattergun|Emberglass Repeater|Truesilver Repeater", None, "tide_healer",
+     "Loaded with medicine rounds. Point it at a friend and pull the trigger."),
     (r"Voidglass Longrifle", None, "hunter_precise", "The voidglass scope sees a little further than it should."),
-    (r"Dark Iron Bombard|Arcanite Longrifle", None, "hunter_crit", "It's loud, it kicks, and it hits what it's pointed at."),
+    (r"Arcanite Longrifle", None, "hunter_crit", "It's loud, it kicks, and it hits what it's pointed at."),
     # trinkets
     (r"Spark Coil", None, "agility", "A coil of copper wire that's always looking for something to touch."),
     (r"Pocket Orrery", None, "caster", "Tiny brass planets turn inside it, and they keep better time than the sky."),
@@ -361,10 +373,130 @@ ENGINEERING_PROCS = [
 
 
 def proc_for(name):
-    for pat, proc in ENGINEERING_PROCS:
+    for pat, proc in ENGINEERING_PROCS + WOOD_PROCS:
         if re.search(pat, name):
             return json.loads(json.dumps(proc))
     return None
+
+
+# ---------------------------------------------------------------------------------------------
+# WOODWORKING. Staves, wands and off-hand tomes for casters and healers, bows and crossbows for
+# hunters, spears, shields for shaman, and two trinkets that do things. Each wood is one school for
+# its casting weapons (staff, wand, tome), and one hunter role for its bows and spears.
+# ---------------------------------------------------------------------------------------------
+WOODS = {
+    "ashwood": (None, "starter_caster", "Ashwood, light and straight-grained. Every woodworker learns on it."),
+    "ironbark": (None, "caster", "Ironbark's as hard as its name, and it holds a spell well."),
+    "silverbark": (None, "arcane", "Silverbark gleams faintly, even in the dark."),
+    "duskwood": (None, "shadow", "Duskwood is black to the heart, and it's always a little cold."),
+    "goldenleaf": (None, "spirit_healer", "Goldenleaf wood, warm to the hand. Healers favour it."),
+    "nightshade": (None, "nature", "Nightshade's poisonous to carve and lovely once it's done."),
+    "sapglow": (None, "spirit_caster", "Sapglow still weeps a little light where it was cut."),
+    "redbark": (None, "fire", "Redbark smoulders if you work it too fast."),
+    "thornveil": (None, "healer", "Thornveil. The thorns come off, and the healing stays in."),
+    "bloodroot": (None, "blood", "Bloodroot bleeds red sap, and it never quite dries."),
+    "marshwillow": (None, "frost", "Marshwillow, soaked and supple, and as cold as the bog it grew in."),
+    "bloodwood": (None, "death", "Bloodwood. Necromancers swear it remembers every death near its roots."),
+    "felbark": (None, "fel", "Felbark, twisted by the fel and humming with it."),
+    "moonpetal": (None, "high_healer", "Moonpetal wood, pale as moonlight and blessed by it."),
+    "starleaf": (None, "arcane_crit", "Starleaf glitters like a clear night sky."),
+    "stormoak": (None, "storm", "Stormoak grew where lightning struck, and it hasn't forgotten."),
+}
+
+#: a wood's bows, crossbows and spears: precise woods for steady shots, crit woods for big ones
+WOOD_RANGED = {"silverbark": "hunter_precise", "duskwood": "hunter_precise", "nightshade": "hunter_precise",
+               "moonpetal": "hunter_precise", "redbark": "hunter_crit", "bloodroot": "hunter_crit",
+               "bloodwood": "hunter_crit", "felbark": "hunter_crit", "starleaf": "hunter_crit",
+               "stormoak": "hunter_crit"}
+WOOD_SPEAR = {"hunter_precise": "assassin", "hunter_crit": "rogue_crit"}
+
+#: Named lines, for a wood's casting weapons only: a bow called Venomthorn is still a bow.
+WOOD_LINES = [
+    (r"Healer's|Scarlet|Blessed|Piety|Grove|Lifebark|Taurajo Spirit|Amberwood|Pilgrim's", None, "healer",
+     "Carved for a healer, smooth where the hand rests."),
+    (r"Hexwood|Bone-Tipped|Tiki|Shadowroot|Darkthorn", None, "hex", "Troll work, hung with little bone charms."),
+    (r"Emberwood", None, "fire", "Emberwood's always warm, and it crackles when it casts."),
+    (r"Frostpine|Naga Driftwood", None, "frost", "There's frost in the grain that never melts."),
+    (r"Serpentwood|Venomwood|Brood-Stung|Bramblewood", None, "nature", "Green wood, still alive in places."),
+    (r"Shadow-Burned|Shadow-Etched|Undercity Cursed|Demon-Touched|Plague-Bleached", None, "shadow",
+     "Burned dark, and the dark stayed in."),
+    (r"Felwood Staff", None, "fel", "Cut in Felwood, and it glows green at the knots."),
+    (r"Stormcaller's", None, "storm", "It hums before a storm."),
+    (r"Amber-Etched|Mystic Oak", None, "arcane", "Runes etched in amber run down its length."),
+    (r"Warden's|Oakheart Staff|Crusader's", None, "crusader", "Heavy enough to fight with, and blessed besides."),
+]
+
+WOOD_TRINKET_LINES = [
+    (r"Carved Oakheart Charm", None, "caster", "An oak heart, carved small. It's lucky, or it's angry."),
+    (r"Heartwood Idol", None, "healer", "A druid's idol, cut from the heart of a very old tree."),
+]
+WOOD_HEAD_LINES = [
+    (r"Driftwood Mask", "leather", "feral", "Driftwood, carved into a beast's face."),
+    (r"Ironbark Helm", "mail", "earthen", "Ironbark plates laced over a leather cap."),
+    (r"Bramblewood Crown", "leather", "wildheart", "A crown of living bramble. It still flowers in spring."),
+]
+
+WOOD_PROCS = [
+    (r"Carved Oakheart Charm", {"trigger": "on_damage_cast", "chance": 10, "icd": 4, "damage_flat": 30,
+                                "school": "nature", "describe": "Your damaging spells have a chance to lash "
+                                                                "the target with thorns for 30 nature damage."}),
+    (r"Heartwood Idol", {"trigger": "on_heal_cast", "chance": 10, "icd": 4,
+                         "apply_effect": {"effect_id": "heartwood_bloom", "name": "Heartwood Bloom",
+                                          "effect_type": "buff", "duration": 3,
+                                          "stat_mods": {"healing_power": 20}, "on_target": False},
+                         "describe": "Your healing spells have a chance to grant 20 healing power for 3 turns."}),
+]
+
+CASTING_WEAPONS = {"staff", "wand", "tome", "orb", "idol", "totem", "libram"}
+
+
+def wood_identity(recipe, base_ident):
+    """A wood's identity for this piece: casting weapons take the wood's school (or a named line's),
+    bows and crossbows its hunter role, spears the matching melee role, shields a shaman's."""
+    out = recipe["output"]
+    wt = out.get("weapon_type")
+    tier = out.get("material_tier")
+    name = recipe["name"]
+    if out["slot"] in ("trinket", "trinket1", "trinket2"):
+        return next(((a, i, f) for p, a, i, f in WOOD_TRINKET_LINES if re.search(p, name)), (None, "caster", None))
+    if out["kind"] == "armor":
+        return next(((a, i, f) for p, a, i, f in WOOD_HEAD_LINES if re.search(p, name)), (None, "feral", None))
+    if wt in ("bow", "crossbow"):
+        return None, WOOD_RANGED.get(tier, "hunter"), "Strung tight and true. It won't miss for want of a good bow."
+    if wt == "polearm":
+        if re.search(r"Warden's", name):
+            return None, "crusader", "Heavy enough to fight with, and blessed besides."
+        if re.search(r"Razortusk", name):
+            return None, "strength", "Tusks bound to a heavy haft. It's made for swinging."
+        return None, WOOD_SPEAR.get(WOOD_RANGED.get(tier), "agility"), "A long haft of good wood and a sharp point."
+    if wt == "shield":
+        return None, "tide_healer", "A wooden shield, carved with tide runes for a shaman's arm."
+    for pat, arm, ident, flav in WOOD_LINES:
+        if re.search(pat, name):
+            return arm, ident, flav
+    return None, base_ident, None
+
+
+#: Jewellery: the setting decides the role, the stone and its tier decide the rest. Signets are
+#: strength, pendants a tank's, bands agility, chokers and loops a caster's, lockets and circles a healer's.
+JEWEL_METALS = {m: (None, None, None) for m in ("copper", "silver", "gold", "mithril", "truesilver", "thorium")}
+JEWEL_SETTINGS = [
+    (r"Signet", "strength", "A heavy signet. It leaves a mark when it hits."),
+    (r"Pendant", "tank", "A solid pendant on a short chain, made to sit under armour."),
+    (r"Band", "agility", "A thin band that never catches on a grip."),
+    (r"Choker", "caster", "The stone sits at the throat, close to where the words come from."),
+    (r"Loop", "precise_caster", "A plain loop of metal and one clean stone."),
+    (r"Locket|Circle", "healer", "Cool to the touch, and it settles a healer's hands."),
+]
+
+
+def jewel_identity(recipe):
+    for pat, ident, flav in JEWEL_SETTINGS:
+        if re.search(pat, recipe["name"]):
+            if ident == "agility" and recipe["output"]["item_level"] >= 50:
+                ident = "rogue_crit"
+            return None, ident, flav
+    return None, None, None
 
 
 TWO_HANDED = {"sword_2h", "axe_2h", "mace_2h", "polearm", "staff"}
@@ -394,12 +526,15 @@ RENAMES = {
     "lw_emberscale_helm": "Emberscale Coif",
     "lw_bloodtanned_vest": "Bloodtanned Jerkin",
     "lw_bloodtanned_helm": "Bloodtanned Mask",
+    "ww_duskwood_bow": "Duskwood Recurve",
 }
 
 TRADES = {
     "tailoring": {"materials": TAILORING_CLOTH, "lines": TAILORING_LINES, "family_rule": True},
     "blacksmithing": {"materials": SMITH_METALS, "lines": SMITH_LINES, "curve": True},
     "engineering": {"materials": ENGINEERING_METALS, "lines": ENGINEERING_LINES, "curve": True},
+    "woodworking": {"materials": WOODS, "lines": [], "curve": True, "resolver": "wood"},
+    "jewelcrafting": {"materials": JEWEL_METALS, "lines": [], "resolver": "jewel"},
     "leatherworking": {"materials": LEATHER_HIDES, "lines": LEATHER_LINES, "armour_words": True,
                        "curve": True,
                        "named_materials": ("cragscale", "stormscale", "stonebound", "dredged", "fiendish",
@@ -570,6 +705,8 @@ def author(rid, recipe, ident, flavour):
         "sell_price": ref.sell_price, "flavor_text": flavour, "identity": ident,
     }
     proc = proc_for(recipe["name"]) if out["slot"] in ("trinket", "trinket1", "trinket2") else None
+    if not flavour:
+        flavour = ""
     if proc:
         item["proc"] = proc
     if out["kind"] == "weapon":
@@ -600,7 +737,8 @@ def audit_item(trade, rid, item):
                 bad.append(f"{tag}: +{v} {st} is a dribble")
     if not stats:
         bad.append(f"{tag}: no stats")
-    if item["slot"] in ("trinket", "trinket1", "trinket2") and trade == "engineering" and not item.get("proc"):
+    if item["slot"] in ("trinket", "trinket1", "trinket2") and trade in ("engineering", "woodworking") \
+            and not item.get("proc"):
         bad.append(f"{tag}: an engineering trinket that does nothing")
     weights = IDENTITIES[item["identity"]][0]
     if item["item_level"] >= POWER_LEADS_FROM:
@@ -630,7 +768,19 @@ def run(write):
             t = TRADES[trade]
             if rid in RENAMES:
                 r["name"] = RENAMES[rid]
+            # slots that don't exist: a staff or spear in "two_hand" goes in the main hand, and a wand
+            # is a ranged weapon wherever it was written (the 300 pass wrote both wrong)
+            if out.get("slot") == "two_hand":
+                out["slot"] = "main_hand"
+            if out.get("weapon_type") == "wand":
+                out["slot"] = "ranged"
             arm, ident, flav = identity_for(trade, r)
+            if t.get("resolver") == "wood":
+                base = WOODS.get(out.get("material_tier"), (None, "caster", None))
+                arm2, ident, flav2 = wood_identity(r, base[1])
+                arm, flav = arm2 or arm, flav2 or base[2]
+            elif t.get("resolver") == "jewel":
+                arm, ident, flav = jewel_identity(r)
             if t.get("armour_words") and out["kind"] == "armor":
                 arm = armour_from_name(r["name"]) or arm
             if arm and out["kind"] == "armor" and _GEN.slots["slots"][out["slot"]]["armor_slot"]:

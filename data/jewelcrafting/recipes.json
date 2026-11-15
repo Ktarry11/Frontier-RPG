@@ -2562,7 +2562,27 @@
         "stat_template": "str_physical",
         "item_level": 12,
         "rarity": "uncommon",
-        "material_tier": "copper"
+        "material_tier": "copper",
+        "item": {
+          "name": "Bloodstone Signet",
+          "slot": "ring",
+          "item_level": 12,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 2
+          },
+          "secondary_stats": {
+            "attack_power": 6
+          },
+          "armor_value": 8,
+          "required_level": 10,
+          "sell_price": 255,
+          "flavor_text": "A heavy signet. It leaves a mark when it hits.",
+          "identity": "strength"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -2588,7 +2608,27 @@
         "stat_template": "agi_physical",
         "item_level": 13,
         "rarity": "uncommon",
-        "material_tier": "copper"
+        "material_tier": "copper",
+        "item": {
+          "name": "Bloodstone Band",
+          "slot": "ring",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 2
+          },
+          "secondary_stats": {
+            "attack_power": 7
+          },
+          "armor_value": 0,
+          "required_level": 11,
+          "sell_price": 301,
+          "flavor_text": "A thin band that never catches on a grip.",
+          "identity": "agility"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -2614,7 +2654,27 @@
         "stat_template": "int_caster",
         "item_level": 14,
         "rarity": "uncommon",
-        "material_tier": "copper"
+        "material_tier": "copper",
+        "item": {
+          "name": "Tigerseye Loop",
+          "slot": "ring",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 6
+          },
+          "armor_value": 0,
+          "required_level": 12,
+          "sell_price": 352,
+          "flavor_text": "A plain loop of metal and one clean stone.",
+          "identity": "precise_caster"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -2640,7 +2700,27 @@
         "stat_template": "spi_healer",
         "item_level": 15,
         "rarity": "uncommon",
-        "material_tier": "copper"
+        "material_tier": "copper",
+        "item": {
+          "name": "Azurite Circle",
+          "slot": "ring",
+          "item_level": 15,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 2
+          },
+          "secondary_stats": {
+            "healing_power": 9
+          },
+          "armor_value": 0,
+          "required_level": 13,
+          "sell_price": 407,
+          "flavor_text": "Cool to the touch, and it settles a healer's hands.",
+          "identity": "healer"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -2666,7 +2746,26 @@
         "stat_template": "str_physical",
         "item_level": 12,
         "rarity": "uncommon",
-        "material_tier": "copper"
+        "material_tier": "copper",
+        "item": {
+          "name": "Bloodstone Pendant",
+          "slot": "neck",
+          "item_level": 12,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 4,
+            "strength": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 10,
+          "sell_price": 255,
+          "flavor_text": "A solid pendant on a short chain, made to sit under armour.",
+          "identity": "tank"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -2692,7 +2791,27 @@
         "stat_template": "int_caster",
         "item_level": 13,
         "rarity": "uncommon",
-        "material_tier": "copper"
+        "material_tier": "copper",
+        "item": {
+          "name": "Tigerseye Choker",
+          "slot": "neck",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 5
+          },
+          "armor_value": 0,
+          "required_level": 11,
+          "sell_price": 301,
+          "flavor_text": "The stone sits at the throat, close to where the words come from.",
+          "identity": "caster"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -2718,7 +2837,25 @@
         "stat_template": "spi_healer",
         "item_level": 14,
         "rarity": "uncommon",
-        "material_tier": "copper"
+        "material_tier": "copper",
+        "item": {
+          "name": "Azurite Locket",
+          "slot": "neck",
+          "item_level": 14,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {},
+          "secondary_stats": {
+            "healing_power": 12
+          },
+          "armor_value": 0,
+          "required_level": 12,
+          "sell_price": 352,
+          "flavor_text": "Cool to the touch, and it settles a healer's hands.",
+          "identity": "healer"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -2744,7 +2881,27 @@
         "stat_template": "str_physical",
         "item_level": 24,
         "rarity": "uncommon",
-        "material_tier": "silver"
+        "material_tier": "silver",
+        "item": {
+          "name": "Garnet Signet",
+          "slot": "ring",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 4
+          },
+          "secondary_stats": {
+            "attack_power": 12
+          },
+          "armor_value": 0,
+          "required_level": 22,
+          "sell_price": 1092,
+          "flavor_text": "A heavy signet. It leaves a mark when it hits.",
+          "identity": "strength"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -2770,7 +2927,27 @@
         "stat_template": "agi_physical",
         "item_level": 25,
         "rarity": "uncommon",
-        "material_tier": "silver"
+        "material_tier": "silver",
+        "item": {
+          "name": "Garnet Band",
+          "slot": "ring",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {
+            "attack_power": 13
+          },
+          "armor_value": 0,
+          "required_level": 23,
+          "sell_price": 1190,
+          "flavor_text": "A thin band that never catches on a grip.",
+          "identity": "agility"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -2796,7 +2973,27 @@
         "stat_template": "int_caster",
         "item_level": 26,
         "rarity": "uncommon",
-        "material_tier": "silver"
+        "material_tier": "silver",
+        "item": {
+          "name": "Honey Amber Loop",
+          "slot": "ring",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "spell_power": 12
+          },
+          "armor_value": 7,
+          "required_level": 24,
+          "sell_price": 1292,
+          "flavor_text": "A plain loop of metal and one clean stone.",
+          "identity": "precise_caster"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -2822,7 +3019,27 @@
         "stat_template": "spi_healer",
         "item_level": 27,
         "rarity": "uncommon",
-        "material_tier": "silver"
+        "material_tier": "silver",
+        "item": {
+          "name": "Lesser Moonstone Circle",
+          "slot": "ring",
+          "item_level": 27,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 17
+          },
+          "armor_value": 0,
+          "required_level": 25,
+          "sell_price": 1399,
+          "flavor_text": "Cool to the touch, and it settles a healer's hands.",
+          "identity": "healer"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -2848,7 +3065,26 @@
         "stat_template": "str_physical",
         "item_level": 24,
         "rarity": "uncommon",
-        "material_tier": "silver"
+        "material_tier": "silver",
+        "item": {
+          "name": "Garnet Pendant",
+          "slot": "neck",
+          "item_level": 24,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 7,
+            "strength": 3
+          },
+          "secondary_stats": {},
+          "armor_value": 7,
+          "required_level": 22,
+          "sell_price": 1092,
+          "flavor_text": "A solid pendant on a short chain, made to sit under armour.",
+          "identity": "tank"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -2874,7 +3110,27 @@
         "stat_template": "int_caster",
         "item_level": 25,
         "rarity": "uncommon",
-        "material_tier": "silver"
+        "material_tier": "silver",
+        "item": {
+          "name": "Honey Amber Choker",
+          "slot": "neck",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "spell_power": 10
+          },
+          "armor_value": 0,
+          "required_level": 23,
+          "sell_price": 1190,
+          "flavor_text": "The stone sits at the throat, close to where the words come from.",
+          "identity": "caster"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -2900,7 +3156,27 @@
         "stat_template": "spi_healer",
         "item_level": 26,
         "rarity": "uncommon",
-        "material_tier": "silver"
+        "material_tier": "silver",
+        "item": {
+          "name": "Lesser Moonstone Locket",
+          "slot": "neck",
+          "item_level": 26,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 3
+          },
+          "secondary_stats": {
+            "healing_power": 16
+          },
+          "armor_value": 0,
+          "required_level": 24,
+          "sell_price": 1292,
+          "flavor_text": "Cool to the touch, and it settles a healer's hands.",
+          "identity": "healer"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -2926,7 +3202,28 @@
         "stat_template": "str_physical",
         "item_level": 36,
         "rarity": "uncommon",
-        "material_tier": "gold"
+        "material_tier": "gold",
+        "item": {
+          "name": "Carnelian Signet",
+          "slot": "ring",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 5,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "attack_power": 14
+          },
+          "armor_value": 0,
+          "required_level": 34,
+          "sell_price": 2559,
+          "flavor_text": "A heavy signet. It leaves a mark when it hits.",
+          "identity": "strength"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -2952,7 +3249,28 @@
         "stat_template": "agi_physical",
         "item_level": 37,
         "rarity": "uncommon",
-        "material_tier": "gold"
+        "material_tier": "gold",
+        "item": {
+          "name": "Carnelian Band",
+          "slot": "ring",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 6,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "attack_power": 14
+          },
+          "armor_value": 0,
+          "required_level": 35,
+          "sell_price": 2711,
+          "flavor_text": "A thin band that never catches on a grip.",
+          "identity": "agility"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -2978,7 +3296,27 @@
         "stat_template": "int_caster",
         "item_level": 38,
         "rarity": "uncommon",
-        "material_tier": "gold"
+        "material_tier": "gold",
+        "item": {
+          "name": "Citrine Loop",
+          "slot": "ring",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "spell_power": 17
+          },
+          "armor_value": 0,
+          "required_level": 36,
+          "sell_price": 2867,
+          "flavor_text": "A plain loop of metal and one clean stone.",
+          "identity": "precise_caster"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3004,7 +3342,28 @@
         "stat_template": "spi_healer",
         "item_level": 39,
         "rarity": "uncommon",
-        "material_tier": "gold"
+        "material_tier": "gold",
+        "item": {
+          "name": "Rime Opal Circle",
+          "slot": "ring",
+          "item_level": 39,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 4,
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "healing_power": 19
+          },
+          "armor_value": 0,
+          "required_level": 37,
+          "sell_price": 3028,
+          "flavor_text": "Cool to the touch, and it settles a healer's hands.",
+          "identity": "healer"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3030,7 +3389,26 @@
         "stat_template": "str_physical",
         "item_level": 36,
         "rarity": "uncommon",
-        "material_tier": "gold"
+        "material_tier": "gold",
+        "item": {
+          "name": "Carnelian Pendant",
+          "slot": "neck",
+          "item_level": 36,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 5
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 34,
+          "sell_price": 2559,
+          "flavor_text": "A solid pendant on a short chain, made to sit under armour.",
+          "identity": "tank"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3056,7 +3434,27 @@
         "stat_template": "int_caster",
         "item_level": 37,
         "rarity": "uncommon",
-        "material_tier": "gold"
+        "material_tier": "gold",
+        "item": {
+          "name": "Citrine Choker",
+          "slot": "neck",
+          "item_level": 37,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 14
+          },
+          "armor_value": 0,
+          "required_level": 35,
+          "sell_price": 2711,
+          "flavor_text": "The stone sits at the throat, close to where the words come from.",
+          "identity": "caster"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3082,7 +3480,28 @@
         "stat_template": "spi_healer",
         "item_level": 38,
         "rarity": "uncommon",
-        "material_tier": "gold"
+        "material_tier": "gold",
+        "item": {
+          "name": "Rime Opal Locket",
+          "slot": "neck",
+          "item_level": 38,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 4,
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "healing_power": 18
+          },
+          "armor_value": 0,
+          "required_level": 36,
+          "sell_price": 2867,
+          "flavor_text": "Cool to the touch, and it settles a healer's hands.",
+          "identity": "healer"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3108,7 +3527,28 @@
         "stat_template": "str_physical",
         "item_level": 44,
         "rarity": "uncommon",
-        "material_tier": "mithril"
+        "material_tier": "mithril",
+        "item": {
+          "name": "Star Ruby Signet",
+          "slot": "ring",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 17
+          },
+          "armor_value": 0,
+          "required_level": 42,
+          "sell_price": 3901,
+          "flavor_text": "A heavy signet. It leaves a mark when it hits.",
+          "identity": "strength"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3134,7 +3574,28 @@
         "stat_template": "agi_physical",
         "item_level": 45,
         "rarity": "uncommon",
-        "material_tier": "mithril"
+        "material_tier": "mithril",
+        "item": {
+          "name": "Star Ruby Band",
+          "slot": "ring",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 17
+          },
+          "armor_value": 0,
+          "required_level": 43,
+          "sell_price": 4089,
+          "flavor_text": "A thin band that never catches on a grip.",
+          "identity": "agility"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3160,7 +3621,27 @@
         "stat_template": "int_caster",
         "item_level": 46,
         "rarity": "uncommon",
-        "material_tier": "mithril"
+        "material_tier": "mithril",
+        "item": {
+          "name": "Topaz Loop",
+          "slot": "ring",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 21
+          },
+          "armor_value": 13,
+          "required_level": 44,
+          "sell_price": 4282,
+          "flavor_text": "A plain loop of metal and one clean stone.",
+          "identity": "precise_caster"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3186,7 +3667,28 @@
         "stat_template": "spi_healer",
         "item_level": 47,
         "rarity": "uncommon",
-        "material_tier": "mithril"
+        "material_tier": "mithril",
+        "item": {
+          "name": "Aquamarine Circle",
+          "slot": "ring",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 5,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "healing_power": 22
+          },
+          "armor_value": 0,
+          "required_level": 45,
+          "sell_price": 4480,
+          "flavor_text": "Cool to the touch, and it settles a healer's hands.",
+          "identity": "healer"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3212,7 +3714,26 @@
         "stat_template": "str_physical",
         "item_level": 44,
         "rarity": "uncommon",
-        "material_tier": "mithril"
+        "material_tier": "mithril",
+        "item": {
+          "name": "Star Ruby Pendant",
+          "slot": "neck",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 13,
+            "strength": 6
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 42,
+          "sell_price": 3901,
+          "flavor_text": "A solid pendant on a short chain, made to sit under armour.",
+          "identity": "tank"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3238,7 +3759,27 @@
         "stat_template": "int_caster",
         "item_level": 45,
         "rarity": "uncommon",
-        "material_tier": "mithril"
+        "material_tier": "mithril",
+        "item": {
+          "name": "Topaz Choker",
+          "slot": "neck",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 17
+          },
+          "armor_value": 0,
+          "required_level": 43,
+          "sell_price": 4089,
+          "flavor_text": "The stone sits at the throat, close to where the words come from.",
+          "identity": "caster"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3264,7 +3805,28 @@
         "stat_template": "spi_healer",
         "item_level": 46,
         "rarity": "uncommon",
-        "material_tier": "mithril"
+        "material_tier": "mithril",
+        "item": {
+          "name": "Aquamarine Locket",
+          "slot": "neck",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 5,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "healing_power": 22
+          },
+          "armor_value": 0,
+          "required_level": 44,
+          "sell_price": 4282,
+          "flavor_text": "Cool to the touch, and it settles a healer's hands.",
+          "identity": "healer"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3290,7 +3852,28 @@
         "stat_template": "str_physical",
         "item_level": 52,
         "rarity": "rare",
-        "material_tier": "truesilver"
+        "material_tier": "truesilver",
+        "item": {
+          "name": "Black Diamond Signet",
+          "slot": "ring",
+          "item_level": 52,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 9,
+          "required_level": 50,
+          "sell_price": 8310,
+          "flavor_text": "A heavy signet. It leaves a mark when it hits.",
+          "identity": "strength"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3316,7 +3899,27 @@
         "stat_template": "agi_physical",
         "item_level": 53,
         "rarity": "uncommon",
-        "material_tier": "truesilver"
+        "material_tier": "truesilver",
+        "item": {
+          "name": "Black Diamond Band",
+          "slot": "ring",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 10
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 0,
+          "required_level": 51,
+          "sell_price": 5766,
+          "flavor_text": "A thin band that never catches on a grip.",
+          "identity": "rogue_crit"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3342,7 +3945,27 @@
         "stat_template": "int_caster",
         "item_level": 54,
         "rarity": "uncommon",
-        "material_tier": "truesilver"
+        "material_tier": "truesilver",
+        "item": {
+          "name": "Moonsilver Zircon Loop",
+          "slot": "ring",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "spell_power": 25
+          },
+          "armor_value": 0,
+          "required_level": 52,
+          "sell_price": 5997,
+          "flavor_text": "A plain loop of metal and one clean stone.",
+          "identity": "precise_caster"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3368,7 +3991,28 @@
         "stat_template": "spi_healer",
         "item_level": 55,
         "rarity": "rare",
-        "material_tier": "truesilver"
+        "material_tier": "truesilver",
+        "item": {
+          "name": "Blue Sapphire Circle",
+          "slot": "ring",
+          "item_level": 55,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 34
+          },
+          "armor_value": 10,
+          "required_level": 53,
+          "sell_price": 9348,
+          "flavor_text": "Cool to the touch, and it settles a healer's hands.",
+          "identity": "healer"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3394,7 +4038,26 @@
         "stat_template": "str_physical",
         "item_level": 52,
         "rarity": "rare",
-        "material_tier": "truesilver"
+        "material_tier": "truesilver",
+        "item": {
+          "name": "Black Diamond Pendant",
+          "slot": "neck",
+          "item_level": 52,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 20,
+            "strength": 9
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 50,
+          "sell_price": 8310,
+          "flavor_text": "A solid pendant on a short chain, made to sit under armour.",
+          "identity": "tank"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3420,7 +4083,27 @@
         "stat_template": "int_caster",
         "item_level": 53,
         "rarity": "uncommon",
-        "material_tier": "truesilver"
+        "material_tier": "truesilver",
+        "item": {
+          "name": "Moonsilver Zircon Choker",
+          "slot": "neck",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 20
+          },
+          "armor_value": 0,
+          "required_level": 51,
+          "sell_price": 5766,
+          "flavor_text": "The stone sits at the throat, close to where the words come from.",
+          "identity": "caster"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3446,7 +4129,28 @@
         "stat_template": "spi_healer",
         "item_level": 54,
         "rarity": "uncommon",
-        "material_tier": "truesilver"
+        "material_tier": "truesilver",
+        "item": {
+          "name": "Blue Sapphire Locket",
+          "slot": "neck",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 25
+          },
+          "armor_value": 0,
+          "required_level": 52,
+          "sell_price": 5997,
+          "flavor_text": "Cool to the touch, and it settles a healer's hands.",
+          "identity": "healer"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3472,7 +4176,28 @@
         "stat_template": "str_physical",
         "item_level": 58,
         "rarity": "rare",
-        "material_tier": "thorium"
+        "material_tier": "thorium",
+        "item": {
+          "name": "Heartsblood Garnet Signet",
+          "slot": "ring",
+          "item_level": 58,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 31
+          },
+          "armor_value": 49,
+          "required_level": 56,
+          "sell_price": 10451,
+          "flavor_text": "A heavy signet. It leaves a mark when it hits.",
+          "identity": "strength"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3498,7 +4223,27 @@
         "stat_template": "agi_physical",
         "item_level": 59,
         "rarity": "uncommon",
-        "material_tier": "thorium"
+        "material_tier": "thorium",
+        "item": {
+          "name": "Heartsblood Garnet Band",
+          "slot": "ring",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 11
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 7222,
+          "flavor_text": "A thin band that never catches on a grip.",
+          "identity": "rogue_crit"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3524,7 +4269,27 @@
         "stat_template": "int_caster",
         "item_level": 60,
         "rarity": "uncommon",
-        "material_tier": "thorium"
+        "material_tier": "thorium",
+        "item": {
+          "name": "Large Opal Loop",
+          "slot": "ring",
+          "item_level": 60,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "spell_power": 28
+          },
+          "armor_value": 0,
+          "required_level": 58,
+          "sell_price": 7482,
+          "flavor_text": "A plain loop of metal and one clean stone.",
+          "identity": "precise_caster"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3550,7 +4315,28 @@
         "stat_template": "spi_healer",
         "item_level": 61,
         "rarity": "rare",
-        "material_tier": "thorium"
+        "material_tier": "thorium",
+        "item": {
+          "name": "Skyglass Diamond Circle",
+          "slot": "ring",
+          "item_level": 61,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 9,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 37
+          },
+          "armor_value": 0,
+          "required_level": 59,
+          "sell_price": 11619,
+          "flavor_text": "Cool to the touch, and it settles a healer's hands.",
+          "identity": "healer"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3576,7 +4362,26 @@
         "stat_template": "str_physical",
         "item_level": 58,
         "rarity": "rare",
-        "material_tier": "thorium"
+        "material_tier": "thorium",
+        "item": {
+          "name": "Heartsblood Garnet Pendant",
+          "slot": "neck",
+          "item_level": 58,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 22,
+            "strength": 10
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 56,
+          "sell_price": 10451,
+          "flavor_text": "A solid pendant on a short chain, made to sit under armour.",
+          "identity": "tank"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3602,7 +4407,27 @@
         "stat_template": "int_caster",
         "item_level": 59,
         "rarity": "uncommon",
-        "material_tier": "thorium"
+        "material_tier": "thorium",
+        "item": {
+          "name": "Large Opal Choker",
+          "slot": "neck",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 23
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 7222,
+          "flavor_text": "The stone sits at the throat, close to where the words come from.",
+          "identity": "caster"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3628,7 +4453,28 @@
         "stat_template": "spi_healer",
         "item_level": 60,
         "rarity": "uncommon",
-        "material_tier": "thorium"
+        "material_tier": "thorium",
+        "item": {
+          "name": "Skyglass Diamond Locket",
+          "slot": "neck",
+          "item_level": 60,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 29
+          },
+          "armor_value": 0,
+          "required_level": 58,
+          "sell_price": 7482,
+          "flavor_text": "Cool to the touch, and it settles a healer's hands.",
+          "identity": "healer"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3915,7 +4761,28 @@
         "stat_template": "spi_healer",
         "item_level": 17,
         "rarity": "rare",
-        "material_tier": "copper"
+        "material_tier": "copper",
+        "item": {
+          "name": "Glassmouth's Azurite Circle",
+          "slot": "ring",
+          "item_level": 17,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 2,
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "healing_power": 10
+          },
+          "armor_value": 3,
+          "required_level": 15,
+          "sell_price": 794,
+          "flavor_text": "Cool to the touch, and it settles a healer's hands.",
+          "identity": "healer"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3945,7 +4812,28 @@
         "stat_template": "agi_physical",
         "item_level": 27,
         "rarity": "rare",
-        "material_tier": "silver"
+        "material_tier": "silver",
+        "item": {
+          "name": "Tazzle's Garnet Band",
+          "slot": "ring",
+          "item_level": 27,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 5,
+            "stamina": 3
+          },
+          "secondary_stats": {
+            "attack_power": 14
+          },
+          "armor_value": 0,
+          "required_level": 25,
+          "sell_price": 2098,
+          "flavor_text": "A thin band that never catches on a grip.",
+          "identity": "agility"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -3975,7 +4863,28 @@
         "stat_template": "spi_healer",
         "item_level": 29,
         "rarity": "rare",
-        "material_tier": "silver"
+        "material_tier": "silver",
+        "item": {
+          "name": "Moonwhisper's Lesser Moonstone Circle",
+          "slot": "ring",
+          "item_level": 29,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 4,
+            "intellect": 3
+          },
+          "secondary_stats": {
+            "healing_power": 18
+          },
+          "armor_value": 0,
+          "required_level": 27,
+          "sell_price": 2438,
+          "flavor_text": "Cool to the touch, and it settles a healer's hands.",
+          "identity": "healer"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -4005,7 +4914,28 @@
         "stat_template": "spi_healer",
         "item_level": 49,
         "rarity": "rare",
-        "material_tier": "mithril"
+        "material_tier": "mithril",
+        "item": {
+          "name": "Vell's Aquamarine Circle",
+          "slot": "ring",
+          "item_level": 49,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 0,
+          "required_level": 47,
+          "sell_price": 7335,
+          "flavor_text": "Cool to the touch, and it settles a healer's hands.",
+          "identity": "healer"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -4035,7 +4965,28 @@
         "stat_template": "spi_healer",
         "item_level": 57,
         "rarity": "rare",
-        "material_tier": "truesilver"
+        "material_tier": "truesilver",
+        "item": {
+          "name": "Coalbeard's Blue Sapphire Circle",
+          "slot": "ring",
+          "item_level": 57,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 35
+          },
+          "armor_value": 0,
+          "required_level": 55,
+          "sell_price": 10076,
+          "flavor_text": "Cool to the touch, and it settles a healer's hands.",
+          "identity": "healer"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -4065,7 +5016,28 @@
         "stat_template": "spi_healer",
         "item_level": 49,
         "rarity": "rare",
-        "material_tier": "mithril"
+        "material_tier": "mithril",
+        "item": {
+          "name": "Dustwalker's Aquamarine Circle",
+          "slot": "ring",
+          "item_level": 49,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 0,
+          "required_level": 47,
+          "sell_price": 7335,
+          "flavor_text": "Cool to the touch, and it settles a healer's hands.",
+          "identity": "healer"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -4095,7 +5067,28 @@
         "stat_template": "spi_healer",
         "item_level": 57,
         "rarity": "rare",
-        "material_tier": "truesilver"
+        "material_tier": "truesilver",
+        "item": {
+          "name": "Kezz's Blue Sapphire Circle",
+          "slot": "ring",
+          "item_level": 57,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 35
+          },
+          "armor_value": 10,
+          "required_level": 55,
+          "sell_price": 10076,
+          "flavor_text": "Cool to the touch, and it settles a healer's hands.",
+          "identity": "healer"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -4125,7 +5118,27 @@
         "stat_template": "agi_physical",
         "item_level": 55,
         "rarity": "rare",
-        "material_tier": "truesilver"
+        "material_tier": "truesilver",
+        "item": {
+          "name": "Copperbolt's Black Diamond Band",
+          "slot": "ring",
+          "item_level": 55,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 13
+          },
+          "secondary_stats": {
+            "attack_power": 35
+          },
+          "armor_value": 0,
+          "required_level": 53,
+          "sell_price": 9348,
+          "flavor_text": "A thin band that never catches on a grip.",
+          "identity": "rogue_crit"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -4155,7 +5168,28 @@
         "stat_template": "str_physical",
         "item_level": 60,
         "rarity": "rare",
-        "material_tier": "thorium"
+        "material_tier": "thorium",
+        "item": {
+          "name": "Ilse's Heartsblood Garnet Signet",
+          "slot": "ring",
+          "item_level": 60,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 30
+          },
+          "armor_value": 0,
+          "required_level": 58,
+          "sell_price": 11222,
+          "flavor_text": "A heavy signet. It leaves a mark when it hits.",
+          "identity": "strength"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
@@ -4185,7 +5219,28 @@
         "stat_template": "spi_healer",
         "item_level": 41,
         "rarity": "rare",
-        "material_tier": "gold"
+        "material_tier": "gold",
+        "item": {
+          "name": "Deepdelve's Rime Opal Circle",
+          "slot": "ring",
+          "item_level": 41,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 25
+          },
+          "armor_value": 0,
+          "required_level": 39,
+          "sell_price": 5044,
+          "flavor_text": "Cool to the touch, and it settles a healer's hands.",
+          "identity": "healer"
+        }
       },
       "tool": "jewelers_kit",
       "skill_range": [
