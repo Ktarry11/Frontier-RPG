@@ -392,7 +392,7 @@ def main():
     if set(hk) != set(HIVE_ROSTER):
         print(f"FAILED: hive roster and kits differ: {sorted(set(hk) ^ set(HIVE_ROSTER))}")
         return 1
-    placed = {n for *_, n in rhz.boss_positions} | {n for *_, n, _l in RH._snap(rhz, RH._trash())}
+    placed = {n for *_, n in rhz.boss_positions} | {n for p in RH._trash() for *_, n, _l in RH._snap(rhz, p)}
     summoned = {"Brood Larva", "Royal Hive Guard"}
     placed |= {m[2] for v in getattr(rhz, "boss_pack", {}).values() for m in v}
     if (placed | summoned) != set(HIVE_ROSTER):

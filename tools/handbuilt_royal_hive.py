@@ -159,8 +159,8 @@ def _trash():
     T = []
 
     def pack(lvl, *spots):
-        for (x, y, m) in spots:
-            T.append((x, y, m, lvl))
+        # one pull: these fight together (world/dungeon_packs.attach_packs fills it to 4-5)
+        T.append([(x, y, m, lvl) for (x, y, m) in spots])
 
     pack(54, (70, 14, "Royal Hive Drone"), (67, 22, "Royal Hive Drone"), (74, 22, "Hive Tunneler"))
     pack(54, (70, 32, "Royal Hive Drone"), (66, 38, "Resin Weaver"))
@@ -206,8 +206,12 @@ def build_royal_hive_baked():
 
 def generate_royal_hive():
     zone, _b = build_royal_hive()
-    TRASH[:] = _snap(zone, _trash())
-    zone.trash_spawns = list(TRASH)
+    # PACKS, not lone mobs (Kyle, 14 Nov: "in dungeons enemies are in packs of 4 to 5...not
+    # individual!"). Each pack(...) below is one pull, filled to four or five beside itself.
+    from world.dungeon_packs import attach_packs
+    avoid = [PORTAL] + [tuple(b[:2]) for b in zone.boss_positions]
+    packs = attach_packs(zone, [_snap(zone, p) for p in _trash()], avoid=avoid)
+    TRASH[:] = [m for p in packs for m in p]
     from tools.handbuilt_vot_caves import register_baked
     register_baked(zone, BAKED)
     return zone
