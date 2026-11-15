@@ -277,6 +277,38 @@ PYTHONPATH=. python3 tools/calibrate_spec_auras.py --kind healing --passes 5 --w
   - Same as before: parity on seed 3, the heal scenarios, trio, solo (geared, under-geared, no talents), content (geared), the tank matrix, mana endurance, `sim_difficulty` open world and dungeons, hidden zones.
   - New: multi-target parity at 3 and 5 targets, short-fight (4-turn) burst parity, no-buffs, and consumables.
 
+## Pass 5→6 (17:35–17:55 UTC): Kyle's rank-shape check and four spells
+
+Kyle (10:37 local): "We are ensuring that even coa classes have the proper ranks leveling up and follows the front loaded increases ... and lower % increases at end level with roughly a 9x increase compared to monster 10x?" Then: "I want to see max rank lightning bolt, max rank shock (stormbringer). Max rank holy light (paladin) and max rank invigorating shot (tinkerer)". Then: "Dig deep."
+
+- **The damage pass-5 recalibration finished** (clamped: Starcaller Warden 30 at 1.83, Feral 60 at 1.97). **The heal pass was stopped** before the fixes below and restarted as pass 6.
+- **Answer on 9x vs 10x:** that was the old flat world. Now a level-1 mob has 120 health and a level-60 mob 6,600 (×55). Max-rank Lightning Bolt base is ×25 over rank 1 (×43 in measured hits, ×45–60 geared). Fight length holds: ~2.5 rank-1 bolts at 1, ~3 geared bolts at 60 (2.4 with crits).
+- **FOUND: 264 abilities off the rank line** (nearly all CoA; 129 outgrew the world by >1.4x, e.g. Runeblade rank 1 at half a spell, top rank 4x). The curve multiplies by growth / authored line, so authored steepness was stacked on top. **Fixed** by `tools/fix_rank_lines.py --apply`: every rank = anchor × (1 + 3.636%·(L−1)), anchor = geometric mean of the old ratios (size kept). After (scratchpad rank_shape.py), median rank step CoA/Classic:
+  - L2–15: +92% / +89%
+  - L16–30: +62% / +66%
+  - L31–45: +32% / +36%
+  - L46–60: +31% / +32%
+  - 0 abilities grow faster or slower than the world over their span.
+- **The four spells at level 60 max rank** (engine casts ×400, non-crit range, non-resistant target; scratchpad show4.py):
+  - Lightning Bolt (R9): naked 1,449–1,654; geared 1,776–2,047; tooltip base 1,010–1,209; L1 41–47.
+  - Shock (R8): naked 1,107–1,272; geared 1,582–1,798; base 1,362–1,631; L1 55–63. Costs 806 mana = 6.5% of a 12,450 bar (15 casts); the spenders cost Static. Within the 20-turn target, so not a bug (I wrongly flagged it to Kyle at first).
+  - Holy Light (R8, slow, cd 1): geared ~1,800–2,100; base 1,631–1,954.
+  - Repair Shot (Tinker's heal shot; there is no "Invigorating Shot"; Stormbringer has Invigorating Surge): geared 1,700–2,042; base 946–1,133.
+- **FOUND: slow casts took the same share of power as normal ones.** Only the base was sized by cast speed. **Fixed:** coefficients × cast_speed_value (slow 1.5, quick 0.65), like Classic's cast time / 3.5 (`combat/ability_scaling.apply`).
+- **FOUND: the "over" gear tier was naked in every sim.** Gear at +5 ilvl needs level ilvl−2, so it was never equipped. **Fixed** in `sim_matrix.make_dress` (required_level held at the character's level). Every earlier "over" result is void.
+- **FOUND: Healing Wave ≈ 2x Holy Light per cast** with the same data and coefficient. The cause is talents:
+  - Resto stacks Improved Healing Wave 5×3% + Healing Way 3×8% = +39% on Healing Wave, plus Purification +10% and Nature's Guardian +30% below 35% health.
+  - Holy has Healing Light +12%.
+  - Spec auras level the TOTALS (Holy 0.91, Resto 0.94 at 60). Left as kit flavour; Classic Resto leaned on Healing Wave too.
+- **`tools/audit_talent_stacking.py` (report only).** 15 abilities take more than +60% from per-ability talents across all trees; 8 within one tree (Jungle Shrooms +136%, Mechsuit Combustion +87%, Veinburst +71%, Scrap Shot / Spider Bomb / Laser Beam +69%, Widowmaker +66%, Voodoo Cauldron +63%).
+  - An automatic cap was tried and REVERTED: shared-number nodes (Rockadier, Turbo Upgrade!, Master Mixologist) garbled their descriptions, and most are CoA capstones that transform the ability. Any trim is a hand edit; this is a design call for Kyle.
+- **Fixed:** Starcaller Keen Sight 0.02 → 0.1 a rank (10% of Intellect as ranged AP per rank, 50% at 5; the key is a raw multiplier; Careful Aim is 33% a rank). `validate_class`: 0 errors on all 30 classes.
+- **Fixed:** three Tinker descriptions with stale numbers (Repair Shot "for 38", Rocket Launcher "174", Emergency Heal "116").
+- Recruit kits were re-ranked against the corrected class kits; `qa_kit_ranks` passes.
+- **Commits:** ffbd305 (rank lines), 6af22c0 (cast-speed coefficients, over-gear, Keen Sight, audit).
+- **Running:** pass-6 recalibration (task bayx98bct): damage → `/tmp/claude-0/aura_dmg_p6.log`, heal iterate → `/tmp/claude-0/aura_heal_p6.log`.
+- **Then the full battery**, with "over" now real: parity on seed 3, multi-target 3/5, short-fight 4 turns, heal scenarios, trio, solo (geared, under, no talents, OVER), content, tanks, endurance, difficulty, hidden, no-buffs, consumables, the QA suite.
+
 ## Parked (Kyle said note it only; class balance comes first)
 
 - **16:41 UTC.** Hand-authored boss drops convert from percentage hit, crit, dodge, parry and so on to RATINGS (10 rating = 1%, like gems and crafted gear), cleaning out the "trash drip" stats. This is item 8 in `claude/playtest_backlog_2026_11_14.md`.
