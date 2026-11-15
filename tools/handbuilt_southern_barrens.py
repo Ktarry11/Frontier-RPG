@@ -295,11 +295,11 @@ def wash_dist(gx, gy):
 NPC_POSITIONS = {
     "sb_rift_warden": (137, 116),        # Rift-Warden Brakka, Waystation (north ramp of the Rift)
     "sb_waystation_vendor": (138, 113),  # Provisioner Hemma
-    "sb_bonehunter": (128, 172),         # Bonehunter Rurk, Field of Giants gate
-    "sb_keep_spy": (121, 41),            # Spy Zhuul, east of the Bael'dun gate
+    "sb_bonehunter": (137, 121),       # Bonehunter Rurk, Waystation (moved into the hub, 14 Nov)
+    "sb_keep_spy": (139, 119),       # Spy Zhuul, Waystation (moved into the hub, 14 Nov)
     "sb_modan_scout": (63, 57),          # Dig-Scout Tarrik, quarry rim
-    "sb_hoodoo_huntress": (195, 49),     # Huntress Alamir, the hunter's blind
-    "sb_crater_digger": (209, 222),      # Excavator Fizzwick, crater rim
+    "sb_hoodoo_huntress": (137, 111),       # Huntress Alamir, Waystation (moved into the hub, 14 Nov)
+    "sb_crater_digger": (136, 118),       # Excavator Fizzwick, Waystation (moved into the hub, 14 Nov)
 }
 
 CAVES = {   # portal tile -> (sprite, w, h)

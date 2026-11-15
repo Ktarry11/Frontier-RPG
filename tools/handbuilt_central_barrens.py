@@ -355,14 +355,14 @@ def wash_dist(gx, gy):
 # --------------------------------------------------------------- NPC spots
 # id -> (x, y).  Existing ids are kept (quests reference ids, never coordinates).
 NPC_POSITIONS = {
-    "barrens_herder_1": (142, 83),       # Herder Magra, under the Sentinel Rocks
+    "barrens_herder_1": (84, 146),       # Herder Magra, Grol'dom Farm (moved into the hub, 14 Nov)
     "barrens_scout_2": (182, 154),       # Plainswatcher Dorn, east road
     "groldom_farmer": (85, 148),         # Kranal Fiss, Grol'dom Farm
     "cb_waterkeeper": (88, 207),         # Waterkeeper Sanu, Lushwater
     "cb_pools_warden": (96, 95),         # Pilgrim-Warden Torga, Forgotten Pools
     "cb_caravan_master": (203, 218),     # Caravan-Master Dogan, Raider's Rest
     "cb_shrine_keeper": (52, 146),       # Keeper Ahnmar, Shrine of the Fallen Warrior
-    "cb_dreadmist_scout": (66, 61),      # Scout Zarla, Dreadmist road
+    "cb_dreadmist_scout": (85, 143),       # Scout Zarla, Grol'dom Farm (moved into the hub, 14 Nov)
     "cb_quilboar_ranger": (146, 234),    # Ranger Kishi, between the quilboar camps
     "cb_bridgewarden": (262, 34),        # Bridgewarden Karga, Durotar landing
 }

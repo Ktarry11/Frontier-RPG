@@ -37,11 +37,16 @@ REGIONS = {
     "Tirisfal": (["western_tirisfal", "eastern_tirisfal", "brill"], ["brill", "undercity", "deathknell"], {}),
     "Silverpine": (["silverpine_north", "silverpine_south", "sepulcher"], ["sepulcher"],
                    {"silverpine_south": [(75, 48, 16)], "silverpine_north": [(84, 15, 10)]}),
-    # The Barrens and Hillsbrad are next. They have hubs INSIDE their maps (the Barrens hub files),
-    # so they need their inner hub points measured before their numbers mean anything.
+    # The Barrens: three towns of their own (the Crossroads, Camp Taurajo, Ratchet) and four camps
+    # inside the big maps - Mor'shan Base Camp and Far Watch Post in the north, Grol'dom Farm in the
+    # middle, the Waystation in the south.
+    "Barrens": (["northern_barrens", "central_barrens", "southern_barrens", "crossroads", "camp_taurajo", "ratchet"],
+                ["crossroads", "camp_taurajo", "ratchet"],
+                {"northern_barrens": [(145, 58, 12), (252, 124, 12)], "central_barrens": [(85, 146, 12)],
+                 "southern_barrens": [(137, 116, 12)]}),
 }
 #: the share of a region's quests that must come from town. Never lower one.
-FLOORS = {"Durotar": 0.70, "Tirisfal": 0.70, "Silverpine": 0.70}
+FLOORS = {"Durotar": 0.70, "Tirisfal": 0.70, "Silverpine": 0.70, "Barrens": 0.70}
 
 
 def norm(s):

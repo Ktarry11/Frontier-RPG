@@ -299,13 +299,13 @@ NPC_POSITIONS = {
     "farwatch_officer": (258, 130),      # Far Watch Post
     "morshan_outrider": (145, 65),       # Mor'shan Base Camp
     "nb_basecamp_vendor": (150, 66),     # Quartermaster at the Base Camp
-    "nb_rampart_captain": (157, 31),     # south of the Rampart gate
+    "nb_rampart_captain": (145, 59),       # Mor'shan Base Camp (moved into the hub, 14 Nov)
     "nb_dryhills_huntress": (26, 68),    # Dry Hills trailhead
-    "nb_fen_warden": (139, 147),         # fen causeway mouth on the Gold Road
-    "nb_sludge_inspector": (222, 76),    # Sludge Fen oil rig
-    "nb_lode_surveyor": (249, 51),       # below the Boulder Lode adit
+    "nb_fen_warden": (142, 58),       # Mor'shan Base Camp (moved into the hub, 14 Nov)
+    "nb_sludge_inspector": (249, 122),       # Far Watch Post (moved into the hub, 14 Nov)
+    "nb_lode_surveyor": (252, 119),       # Far Watch Post (moved into the hub, 14 Nov)
     "nb_hollow_shaman": (66, 155),       # Serena's Hollow approach
-    "nb_oasis_scout": (194, 182),        # Stagnant Oasis shore
+    "nb_oasis_scout": (255, 122),       # Far Watch Post (moved into the hub, 14 Nov)
     "nb_coast_sergeant": (222, 236),     # Merchant Coast beach
     "nb_road_warden": (148, 206),        # Gold Road waystation
 }
