@@ -520,6 +520,13 @@
           "cost": 30,
           "effect_value": 185,
           "heal_value": 117
+        },
+        {
+          "rank": 9,
+          "level_req": 58,
+          "cost": 30,
+          "effect_value": 199,
+          "heal_value": 126
         }
       ],
       "icon_id": null,
@@ -527,7 +534,8 @@
       "target_type": "enemy",
       "damage_school": "shadow",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {
@@ -830,6 +838,12 @@
           "level_req": 53,
           "cost": 26,
           "effect_value": 194
+        },
+        {
+          "rank": 9,
+          "level_req": 60,
+          "cost": 26,
+          "effect_value": 211
         }
       ],
       "icon_id": null,
@@ -839,7 +853,10 @@
       "generates": {
         "resource": "rage",
         "amount": 16
-      }
+      },
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 60 added - its last rank came at 53, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "bloodmage_malediction",

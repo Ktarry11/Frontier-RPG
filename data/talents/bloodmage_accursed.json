@@ -641,7 +641,7 @@
     {
       "talent_id": "bloodmage_accursed_veinburst_mastery",
       "name": "Veinburst",
-      "description": "Increases the damage of Veinburst by 27% and its critical strike damage by 24%.",
+      "description": "Increases the damage of Veinburst by 21% and its critical strike damage by 24%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 3,
@@ -649,13 +649,16 @@
       "hex_x": -1,
       "hex_y": 4,
       "effects": {
-        "ability_bloodmage_veinburst_damage": 0.09,
+        "ability_bloodmage_veinburst_damage": 0.07,
         "ability_bloodmage_veinburst_crit_damage": 0.08
       },
       "connected_to": [
         "bloodmage_accursed_crimson_terror_acc"
       ],
-      "_source": "CoA's Veinburst: 'Blast an enemy, dealing Shadow damage. Deals 25% increased damage to bleeding targets.' Frontier has the ability already, so this is not an unlock. The bleeding condition has no key, so the 25% is moved into crit damage instead of being granted unconditionally on top of the base - which would have been the same number twice. ability_*_crit_damage is a FRACTION while ability_*_crit is a percent."
+      "_source": "CoA's Veinburst: 'Blast an enemy, dealing Shadow damage. Deals 25% increased damage to bleeding targets.' Frontier has the ability already, so this is not an unlock. The bleeding condition has no key, so the 25% is moved into crit damage instead of being granted unconditionally on top of the base - which would have been the same number twice. ability_*_crit_damage is a FRACTION while ability_*_crit is a percent.",
+      "_tuning": [
+        "15 Nov 2026, class pass (Kyle: 'edit some of them hand by hand but DONT lose the cool CoA identity'): 9% -> 7% a rank: the tree stacked +71% on Veinburst, now +65%"
+      ]
     },
     {
       "talent_id": "bloodmage_accursed_blood_plague",

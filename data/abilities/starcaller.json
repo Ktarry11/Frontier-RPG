@@ -127,12 +127,19 @@
           "level_req": 50,
           "cost": 123,
           "effect_value": 155
+        },
+        {
+          "rank": 6,
+          "level_req": 58,
+          "cost": 136,
+          "effect_value": 171
         }
       ],
       "icon_id": null,
       "damage_school": "arcane",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.05x steeper than it, biggest single-rank jump 1.38x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.05x steeper than it, biggest single-rank jump 1.38x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {
@@ -408,6 +415,12 @@
           "level_req": 52,
           "cost": 99,
           "effect_value": 140
+        },
+        {
+          "rank": 6,
+          "level_req": 58,
+          "cost": 107,
+          "effect_value": 151
         }
       ],
       "icon_id": null,
@@ -415,7 +428,8 @@
       "consumes_target_stacks_of": "starcaller_scattered_stars",
       "cooldown_per_stack": 0.6,
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.85x steeper than it, biggest single-rank jump 1.32x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.85x steeper than it, biggest single-rank jump 1.32x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {
@@ -872,12 +886,19 @@
           "level_req": 50,
           "cost": 153,
           "effect_value": 210
+        },
+        {
+          "rank": 6,
+          "level_req": 58,
+          "cost": 169,
+          "effect_value": 232
         }
       ],
       "icon_id": null,
       "damage_school": "arcane",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.58x steeper than it, biggest single-rank jump 1.21x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.58x steeper than it, biggest single-rank jump 1.21x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {
@@ -1309,12 +1330,19 @@
           "level_req": 52,
           "cost": 0,
           "effect_value": 101
+        },
+        {
+          "rank": 3,
+          "level_req": 58,
+          "cost": 0,
+          "effect_value": 109
         }
       ],
       "icon_id": null,
       "damage_school": "arcane",
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x0.56 - it sat at 2.84x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+        "15 Nov 2026, class pass: every rank x0.56 - it sat at 2.84x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {
@@ -1434,12 +1462,19 @@
           "level_req": 52,
           "cost": 45,
           "effect_value": 81
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 48,
+          "effect_value": 87
         }
       ],
       "icon_id": null,
       "damage_school": "arcane",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.28x steeper than it, biggest single-rank jump 1.26x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.28x steeper than it, biggest single-rank jump 1.26x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {
@@ -1523,10 +1558,19 @@
           "level_req": 52,
           "cost": 195,
           "effect_value": 245
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 210,
+          "effect_value": 264
         }
       ],
       "icon_id": null,
-      "dispel_type": "magic"
+      "dispel_type": "magic",
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "starcaller_aspect_of_the_goddess",
@@ -1674,9 +1718,18 @@
           "level_req": 50,
           "cost": 137,
           "effect_value": 172
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 151,
+          "effect_value": 190
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "starcaller_stellar_convergence",

@@ -194,10 +194,19 @@
           "level_req": 51,
           "cost": 94,
           "effect_value": 182
+        },
+        {
+          "rank": 6,
+          "level_req": 58,
+          "cost": 102,
+          "effect_value": 198
         }
       ],
       "icon_id": null,
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 51, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "warlock_summon_imp",
@@ -588,6 +597,12 @@
           "level_req": 52,
           "cost": 54,
           "effect_value": 51
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 58,
+          "effect_value": 55
         }
       ],
       "requires_talent": true,
@@ -597,7 +612,8 @@
       "_design_note": "Not learned from level alone - granted by the Conflagrate talent in the Destruction tree. Real WOTLK detonates your Immolate DoT for burst Fire damage - simplified here to a direct Fire-flavored damage hit since consuming another DoT for burst isn't a general mechanic yet.",
       "cast_speed": "quick",
       "_tuning": [
-        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)"
+        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)",
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {

@@ -147,13 +147,20 @@
           "level_req": 50,
           "cost": 171,
           "effect_value": 243
+        },
+        {
+          "rank": 9,
+          "level_req": 58,
+          "cost": 189,
+          "effect_value": 268
         }
       ],
       "target_type": "ally",
       "icon_id": null,
       "cast_speed": "slow",
       "_tuning": [
-        "15 Nov 2026, Kyle: \"long cast, lower cost, high heal vs lower heal, faster cast, higher cost... ensure that they have their places in combat. Like healing wave vs lesser healing wave\" - picked \"Speed sets next turn\" and \"Add the classic set\". Now a slow cast: 1.5x for 1.15x the cost."
+        "15 Nov 2026, Kyle: \"long cast, lower cost, high heal vs lower heal, faster cast, higher cost... ensure that they have their places in combat. Like healing wave vs lesser healing wave\" - picked \"Speed sets next turn\" and \"Add the classic set\". Now a slow cast: 1.5x for 1.15x the cost.",
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {
@@ -201,13 +208,20 @@
           "level_req": 50,
           "cost": 84,
           "effect_value": 138
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 93,
+          "effect_value": 152
         }
       ],
       "icon_id": null,
       "consumes_seal": true,
       "damage_school": "holy",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.35x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.35x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {
@@ -478,12 +492,21 @@
           "level_req": 52,
           "cost": 60,
           "effect_value": 84
+        },
+        {
+          "rank": 3,
+          "level_req": 58,
+          "cost": 65,
+          "effect_value": 90
         }
       ],
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
-      "_design_note": "Not learned from level alone - granted by the Avenger's Shield talent in the Protection tree. Hurls a holy shield at the target, dealing damage. Real WOTLK also jumps to nearby enemies - simplified to single-target since no chaining-attack mechanic exists."
+      "_design_note": "Not learned from level alone - granted by the Avenger's Shield talent in the Protection tree. Hurls a holy shield at the target, dealing damage. Real WOTLK also jumps to nearby enemies - simplified to single-target since no chaining-attack mechanic exists.",
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "paladin_divine_storm",
@@ -976,11 +999,20 @@
           "level_req": 52,
           "cost": 0,
           "effect_value": 1132
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 0,
+          "effect_value": 1219
         }
       ],
       "target_type": "ally",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "paladin_seal_of_command",

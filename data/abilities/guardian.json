@@ -697,6 +697,12 @@
           "level_req": 52,
           "cost": 20,
           "effect_value": 77
+        },
+        {
+          "rank": 9,
+          "level_req": 58,
+          "cost": 20,
+          "effect_value": 83
         }
       ],
       "icon_id": null,
@@ -704,7 +710,8 @@
       "target_type": "enemy_aoe",
       "max_targets": 3,
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.33x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.33x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {

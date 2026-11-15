@@ -233,6 +233,12 @@
           "level_req": 53,
           "cost": 0,
           "effect_value": 284
+        },
+        {
+          "rank": 9,
+          "level_req": 60,
+          "cost": 0,
+          "effect_value": 309
         }
       ],
       "icon_id": null,
@@ -242,7 +248,10 @@
       "generates": {
         "resource": "life_force",
         "amount": 15
-      }
+      },
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 60 added - its last rank came at 53, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "necromancer_glacial_tap",

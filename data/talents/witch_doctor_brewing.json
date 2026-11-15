@@ -90,7 +90,7 @@
     {
       "talent_id": "witch_doctor_brewing_fresh_ingredients",
       "name": "Fresh Ingredients",
-      "description": "Increases the healing of Jungle Shrooms by 15%.",
+      "description": "Increases the healing of Jungle Shrooms by 12%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -98,12 +98,15 @@
       "hex_x": 3,
       "hex_y": -6,
       "effects": {
-        "ability_witch_doctor_ingredient_jungle_shrooms_healing": 0.05
+        "ability_witch_doctor_ingredient_jungle_shrooms_healing": 0.04
       },
       "connected_to": [
         "witch_doctor_brewing_plentiful_potions"
       ],
-      "_source": "CoA over 2 ranks: 'Increases the healing of your Jungle Shrooms from your Cauldron by 15%.' Doubled for the two ranks. 'From your Cauldron' is the loadout distinction CoA draws between a brewed and a thrown Ingredient, and there is no loadout state here - Jungle Shrooms is simply a party ability you cast, so the bonus applies whenever you cast it."
+      "_source": "CoA over 2 ranks: 'Increases the healing of your Jungle Shrooms from your Cauldron by 15%.' Doubled for the two ranks. 'From your Cauldron' is the loadout distinction CoA draws between a brewed and a thrown Ingredient, and there is no loadout state here - Jungle Shrooms is simply a party ability you cast, so the bonus applies whenever you cast it.",
+      "_tuning": [
+        "15 Nov 2026, class pass (Kyle: 'edit some of them hand by hand but DONT lose the cool CoA identity'): 5% -> 4% a rank (Jungle Shrooms stack)"
+      ]
     },
     {
       "talent_id": "witch_doctor_brewing_mixologist",
@@ -388,7 +391,7 @@
     {
       "talent_id": "witch_doctor_brewing_doctor_of_the_jungle",
       "name": "Doctor of the Jungle",
-      "description": "Increases the healing of Jungle Shrooms by 12%.",
+      "description": "Increases the healing of Jungle Shrooms by 9%.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -396,17 +399,20 @@
       "hex_x": 2,
       "hex_y": 0,
       "effects": {
-        "ability_witch_doctor_ingredient_jungle_shrooms_healing": 0.04
+        "ability_witch_doctor_ingredient_jungle_shrooms_healing": 0.03
       },
       "connected_to": [
         "witch_doctor_brewing_mojo_wave"
       ],
-      "_source": "CoA: 'Jungle Shrooms used from your Cauldron now ticks -2 sec faster.' A faster tick has no meaning when ticks are per-turn, so it is rerouted to healing, which is what a faster tick delivers - more healing in the same window."
+      "_source": "CoA: 'Jungle Shrooms used from your Cauldron now ticks -2 sec faster.' A faster tick has no meaning when ticks are per-turn, so it is rerouted to healing, which is what a faster tick delivers - more healing in the same window.",
+      "_tuning": [
+        "15 Nov 2026, class pass (Kyle: 'edit some of them hand by hand but DONT lose the cool CoA identity'): 4% -> 3% a rank (Jungle Shrooms stack)"
+      ]
     },
     {
       "talent_id": "witch_doctor_brewing_jungle_booms",
       "name": "Jungle Booms",
-      "description": "Jungle Shrooms heal 53% more.",
+      "description": "Jungle Shrooms heal 30% more.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 1,
@@ -414,12 +420,15 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "ability_witch_doctor_ingredient_jungle_shrooms_healing": 0.53
+        "ability_witch_doctor_ingredient_jungle_shrooms_healing": 0.3
       },
       "connected_to": [
         "witch_doctor_brewing_voodoo_cauldron_mastery"
       ],
-      "_source": "CoA verbatim: 'Jungle Shrooms used from your Cauldron now heal for 100% more, but heals 3 less targets.' CoA's 100% kept and THE DOWNSIDE IS DROPPED, because no key removes targets from an ability - the same wall that stops a key from adding them. So this node is strictly stronger than CoA's, which is noted rather than hidden: a single-target trade is the whole point of CoA's version and it cannot be expressed. Priced at one rank at tier 4 to keep it honest."
+      "_source": "CoA verbatim: 'Jungle Shrooms used from your Cauldron now heal for 100% more, but heals 3 less targets.' CoA's 100% kept and THE DOWNSIDE IS DROPPED, because no key removes targets from an ability - the same wall that stops a key from adding them. So this node is strictly stronger than CoA's, which is noted rather than hidden: a single-target trade is the whole point of CoA's version and it cannot be expressed. Priced at one rank at tier 4 to keep it honest.",
+      "_tuning": [
+        "15 Nov 2026, class pass (Kyle: 'edit some of them hand by hand but DONT lose the cool CoA identity'): 53% -> 30%: the tree stacked +136% on Jungle Shrooms; now +107%, still the capstone of it"
+      ]
     },
     {
       "talent_id": "witch_doctor_brewing_mojo_wave",

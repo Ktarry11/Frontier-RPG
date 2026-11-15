@@ -127,13 +127,20 @@
           "level_req": 53,
           "cost": 85,
           "effect_value": 98
+        },
+        {
+          "rank": 6,
+          "level_req": 60,
+          "cost": 92,
+          "effect_value": 107
         }
       ],
       "icon_id": null,
       "damage_school": "nature",
       "cast_speed": "quick",
       "_tuning": [
-        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)"
+        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)",
+        "15 Nov 2026, class pass: a top rank at 60 added - its last rank came at 53, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {
@@ -297,13 +304,20 @@
           "level_req": 51,
           "cost": 156,
           "effect_value": 256
+        },
+        {
+          "rank": 9,
+          "level_req": 58,
+          "cost": 170,
+          "effect_value": 279
         }
       ],
       "target_type": "ally",
       "icon_id": null,
       "cast_speed": "slow",
       "_tuning": [
-        "15 Nov 2026, Kyle: \"long cast, lower cost, high heal vs lower heal, faster cast, higher cost... ensure that they have their places in combat. Like healing wave vs lesser healing wave\" - picked \"Speed sets next turn\" and \"Add the classic set\". Now a slow cast: 1.5x for 1.15x the cost."
+        "15 Nov 2026, Kyle: \"long cast, lower cost, high heal vs lower heal, faster cast, higher cost... ensure that they have their places in combat. Like healing wave vs lesser healing wave\" - picked \"Speed sets next turn\" and \"Add the classic set\". Now a slow cast: 1.5x for 1.15x the cost.",
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 51, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {
@@ -682,6 +696,12 @@
           "level_req": 52,
           "cost": 107,
           "effect_value": 408
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 115,
+          "effect_value": 439
         }
       ],
       "target_type": "ally",
@@ -689,7 +709,8 @@
       "icon_id": null,
       "_design_note": "Not learned from level alone - granted by the Riptide talent in the Restoration tree. Heals the target immediately and again over time.",
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x0.71 - it sat at 2.24x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+        "15 Nov 2026, class pass: every rank x0.71 - it sat at 2.24x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {

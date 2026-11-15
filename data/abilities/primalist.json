@@ -196,6 +196,12 @@
           "level_req": 50,
           "cost": 228,
           "effect_value": 155
+        },
+        {
+          "rank": 6,
+          "level_req": 58,
+          "cost": 252,
+          "effect_value": 171
         }
       ],
       "generates": {
@@ -206,7 +212,8 @@
       "_design_note": "Create stalactites that strike your enemy 3 times, generating Rage. Real physical damage (was previously miscategorized as spell_damage, which incorrectly scaled it off Spell Power - fixed to match its own confirmed screenshot data: '90 Physical damage', and Primalist's real Strength/melee-hybrid identity per the class resource reference). Shares a cooldown with other Seismic spells.",
       "_tuning": [
         "15 Nov 2026, class pass: every rank x0.55 - it sat at 2.92x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {
@@ -261,12 +268,19 @@
           "level_req": 52,
           "cost": 143,
           "effect_value": 181
+        },
+        {
+          "rank": 8,
+          "level_req": 58,
+          "cost": 154,
+          "effect_value": 195
         }
       ],
       "icon_id": null,
       "_design_note": "Launch a sharpened stone at an enemy. Deals additional damage per Earthshaping stack. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.08x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.08x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {
@@ -780,12 +794,19 @@
           "level_req": 50,
           "cost": 50,
           "effect_value": 134
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 50,
+          "effect_value": 148
         }
       ],
       "icon_id": null,
       "damage_school": "nature",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.61x steeper than it, biggest single-rank jump 1.40x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.61x steeper than it, biggest single-rank jump 1.40x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {
@@ -1225,10 +1246,19 @@
           "level_req": 52,
           "cost": 40,
           "effect_value": 262
+        },
+        {
+          "rank": 3,
+          "level_req": 58,
+          "cost": 40,
+          "effect_value": 282
         }
       ],
       "icon_id": null,
-      "_design_note": "A devastating execute against a heavily wounded enemy. Real physical damage - was previously miscategorized as spell_damage despite being Rage-costing (its own resource_type) with a real execute_threshold_pct field, both strong signals this is a physical execute like Warrior's Execute, not a spell."
+      "_design_note": "A devastating execute against a heavily wounded enemy. Real physical damage - was previously miscategorized as spell_damage despite being Rage-costing (its own resource_type) with a real execute_threshold_pct field, both strong signals this is a physical execute like Warrior's Execute, not a spell.",
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "primalist_magma_fissure",
@@ -1259,13 +1289,20 @@
           "level_req": 52,
           "cost": 763,
           "effect_value": 128
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 821,
+          "effect_value": 138
         }
       ],
       "icon_id": null,
       "damage_school": "fire",
       "_tuning": [
         "15 Nov 2026: 550/878/1089 -> 180/210/254. Authored at 6x a Fireball rank PER TARGET on a 4-turn AoE (13x its line); the world curve multiplied it to 5,283 at 40 and Geomancy one-shot everything. Now ~2x the line per target, the top of the strong AoEs.",
-        "15 Nov 2026, class pass: every rank x0.50 - it sat at 3.19x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+        "15 Nov 2026, class pass: every rank x0.50 - it sat at 3.19x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {

@@ -131,6 +131,12 @@
           "level_req": 53,
           "cost": 60,
           "effect_value": 151
+        },
+        {
+          "rank": 6,
+          "level_req": 60,
+          "cost": 60,
+          "effect_value": 164
         }
       ],
       "icon_id": null,
@@ -138,7 +144,10 @@
         "resource": "combo",
         "amount": 20
       },
-      "_source": "Combo-point GENERATOR, wired 5 Nov 2026 when the Rogue gained combo points (Kyle's call). Grants 20 of the 0-100 combo pool - one combo point on the same scale Templar already uses. builder, Subtlety's core."
+      "_source": "Combo-point GENERATOR, wired 5 Nov 2026 when the Rogue gained combo points (Kyle's call). Grants 20 of the 0-100 combo pool - one combo point on the same scale Templar already uses. builder, Subtlety's core.",
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 60 added - its last rank came at 53, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "rogue_eviscerate",
@@ -179,11 +188,20 @@
           "level_req": 51,
           "cost": 35,
           "effect_value": 153
+        },
+        {
+          "rank": 6,
+          "level_req": 58,
+          "cost": 35,
+          "effect_value": 167
         }
       ],
       "icon_id": null,
       "secondary_cost": 40,
-      "_source": "Combo-point FINISHER, wired 5 Nov 2026: secondary_cost 40 means it spends 2 combo point(s) ON TOP OF its Energy cost, via the new Ability.secondary_cost. the heavy direct finisher. Cost set from measured fight length (2-3 turns trash, 5-6 boss), not from real WoW's 5-point finishers, which would never fire here. Damage does NOT scale with points spent - no engine mechanism reads a live resource amount."
+      "_source": "Combo-point FINISHER, wired 5 Nov 2026: secondary_cost 40 means it spends 2 combo point(s) ON TOP OF its Energy cost, via the new Ability.secondary_cost. the heavy direct finisher. Cost set from measured fight length (2-3 turns trash, 5-6 boss), not from real WoW's 5-point finishers, which would never fire here. Damage does NOT scale with points spent - no engine mechanism reads a live resource amount.",
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 51, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "rogue_rupture",
@@ -370,6 +388,12 @@
           "level_req": 52,
           "cost": 40,
           "effect_value": 62
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 40,
+          "effect_value": 67
         }
       ],
       "requires_talent": true,
@@ -380,7 +404,10 @@
         "resource": "combo",
         "amount": 20
       },
-      "_source": "Combo-point GENERATOR, wired 5 Nov 2026 when the Rogue gained combo points (Kyle's call). Grants 20 of the 0-100 combo pool - one combo point on the same scale Templar already uses. builder, Assassination's core."
+      "_source": "Combo-point GENERATOR, wired 5 Nov 2026 when the Rogue gained combo points (Kyle's call). Grants 20 of the 0-100 combo pool - one combo point on the same scale Templar already uses. builder, Assassination's core.",
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "rogue_cold_blood",
@@ -872,6 +899,12 @@
           "level_req": 52,
           "cost": 30,
           "effect_value": 91
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 30,
+          "effect_value": 98
         }
       ],
       "icon_id": null,
@@ -882,7 +915,8 @@
       },
       "_source": "Combo-point GENERATOR, wired 5 Nov 2026 when the Rogue gained combo points (Kyle's call). Grants 20 of the 0-100 combo pool - one combo point on the same scale Templar already uses. awards 1 point.",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.45x steeper than it, biggest single-rank jump 1.27x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.45x steeper than it, biggest single-rank jump 1.27x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {

@@ -393,10 +393,19 @@
           "level_req": 52,
           "cost": 19,
           "effect_value": 119
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 19,
+          "effect_value": 128
         }
       ],
       "icon_id": null,
-      "execute_threshold_pct": 20
+      "execute_threshold_pct": 20,
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "warrior_bladestorm",
@@ -448,12 +457,21 @@
           "level_req": 52,
           "cost": 15,
           "effect_value": 59
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 15,
+          "effect_value": 64
         }
       ],
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
-      "_design_note": "Not learned from level alone - granted by the Devastate talent in the Protection tree. Deals damage to the target. Real WOTLK Devastate also applies a stacking Armor-reduction debuff (Sunder Armor) - not modeled here since combining a damage hit with a persistent debuff in one ability isn't supported yet, so this is damage-only."
+      "_design_note": "Not learned from level alone - granted by the Devastate talent in the Protection tree. Deals damage to the target. Real WOTLK Devastate also applies a stacking Armor-reduction debuff (Sunder Armor) - not modeled here since combining a damage hit with a persistent debuff in one ability isn't supported yet, so this is damage-only.",
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "warrior_concussion_blow",
@@ -476,13 +494,22 @@
           "level_req": 52,
           "cost": 20,
           "effect_value": 83
+        },
+        {
+          "rank": 3,
+          "level_req": 58,
+          "cost": 20,
+          "effect_value": 89
         }
       ],
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
       "_design_note": "Not learned from level alone - granted by the Concussion Blow talent in the Protection tree. Deals damage AND stuns. The note here used to read 'Real WOTLK Concussion Blow also stuns for 5 sec - no stun mechanic exists yet, so this is damage-only'. That was true when written and is not now: is_stun exists and is live. It is a damage ability with duration 0, and is_stun was only threaded in _apply_effect's debuff branch, so the flag alone did nothing on a damage ability - combat/abilities.py's use() now applies a stun rider for exactly this case, flooring at 1 turn. Matches warrior_pummel (1 turn).",
-      "is_stun": true
+      "is_stun": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "warrior_shockwave",
@@ -528,12 +555,21 @@
           "level_req": 52,
           "cost": 30,
           "effect_value": 69
+        },
+        {
+          "rank": 3,
+          "level_req": 58,
+          "cost": 30,
+          "effect_value": 74
         }
       ],
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
-      "_design_note": "Not learned from level alone - granted by the Bloodthirst talent in the Fury tree. Instantly attacks the target based on your Attack Power."
+      "_design_note": "Not learned from level alone - granted by the Bloodthirst talent in the Fury tree. Instantly attacks the target based on your Attack Power.",
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "warrior_bloodrage",
@@ -852,13 +888,22 @@
           "level_req": 52,
           "cost": 10,
           "effect_value": 93
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 10,
+          "effect_value": 100
         }
       ],
       "requires_form": [
         "berserker"
       ],
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "warrior_berserker_rage",

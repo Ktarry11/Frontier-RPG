@@ -331,11 +331,18 @@
           "level_req": 52,
           "cost": 256,
           "effect_value": 290
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 276,
+          "effect_value": 312
         }
       ],
       "icon_id": null,
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.27x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.27x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {
@@ -674,11 +681,20 @@
           "level_req": 50,
           "cost": 34,
           "effect_value": 79
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 38,
+          "effect_value": 87
         }
       ],
       "icon_id": null,
       "damage_school": "holy",
-      "is_stun": true
+      "is_stun": true,
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "sun_cleric_devotion_of_emperors",
@@ -1144,9 +1160,18 @@
           "level_req": 52,
           "cost": 235,
           "effect_value": 293
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 253,
+          "effect_value": 315
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "sun_cleric_sunshine",

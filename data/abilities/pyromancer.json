@@ -149,12 +149,21 @@
           "level_req": 53,
           "cost": 77,
           "effect_value": 141
+        },
+        {
+          "rank": 9,
+          "level_req": 60,
+          "cost": 84,
+          "effect_value": 153
         }
       ],
       "icon_id": null,
       "_source": "CoA: the long Fire DoT every spec keeps rolling - Incineration 'Open with Ignite and Blaze', Draconic 'weave Lava Shard for its Blaze application'. Eight CoA talents across the three trees extend, hasten or amplify it, which is why it unlocks early and ranks far.",
       "target_type": "enemy",
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 60 added - its last rank came at 53, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "pyromancer_lava_shard",

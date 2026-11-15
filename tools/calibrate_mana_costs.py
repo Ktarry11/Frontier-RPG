@@ -45,6 +45,11 @@ os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 os.environ.setdefault("SDL_AUDIODRIVER", "dummy")
 
 TARGET = 20
+#: PER-CLASS HEAL TARGETS (Kyle, 15 Nov 2026): "Healing wave should be more expensive than holy light ... holy
+#: pally gets illumination. So they usually last longer anyways. This allows shamans to not cast as much to save
+#: mana." Restoration's Healing Wave heals ~2x a Holy Light (its talents stack +39% on it), so it is priced for 16
+#: casts from a full bar instead of 20 - 25% dearer as a share of the bar. Its smaller heals move with it.
+HEAL_TARGET = {"shaman": 16}
 SAMPLES = 6
 ROTATION_TURNS = 20
 LEVELS = [10, 20, 30, 40, 50, 60]
@@ -72,6 +77,8 @@ def main_spell(char, role):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--write", action="store_true")
+    ap.add_argument("--heal-only", action="store_true",
+                    help="recompute only the heal rows; the damage rows are kept from the current file")
     args = ap.parse_args()
     from combat import ability_scaling as S
     S.USE_MANA_TABLE = False
@@ -88,6 +95,8 @@ def main():
     detail = []
     for spec, role in M.specs_for(["dps", "healer"]):
         kind = "heal" if role == "healer" else "damage"
+        if args.heal_only and kind == "damage":
+            continue
         slug = spec.rsplit("_", 1)[0]
         # the class slug is the spec minus its last word, except where the spec name has two words
         cls = R.class_of(spec).lower().replace(" ", "_")
@@ -129,12 +138,18 @@ def main():
             if not pools or a is None or cost <= 0:
                 continue
             pool, regen = statistics.mean(pools), statistics.mean(regens)
-            f = (pool / TARGET + regen) / cost
+            target = HEAL_TARGET.get(cls, TARGET) if kind == "heal" else TARGET
+            f = (pool / target + regen) / cost
             rows.setdefault(cls, {}).setdefault(kind, {}).setdefault(lv, []).append(f)
             detail.append((cls, kind, spec, lv, round(pool), round(regen), a.name, cost, round(f, 2)))
     table = {}
+    if args.heal_only and OUT.exists():
+        old = json.loads(OUT.read_text(encoding="utf-8")).get("classes", {})
+        for cls, kinds in old.items():
+            if "damage" in kinds:
+                table.setdefault(cls, {})["damage"] = kinds["damage"]
     for cls, kinds in sorted(rows.items()):
-        table[cls] = {}
+        table.setdefault(cls, {})
         for kind, by_lv in kinds.items():
             table[cls][kind] = [[lv, round(statistics.median(v), 3)] for lv, v in sorted(by_lv.items())]
     print(f"{'class':<18}{'kind':<7}" + "".join(f"{lv:>7}" for lv in LEVELS))
@@ -149,6 +164,7 @@ def main():
                       "tools/calibrate_mana_costs.py so each class's main spell lasts ~%d turns from a full bar "
                       "(geared, five-second rule). Read by combat/ability_scaling.mana_cost_multiplier." % TARGET,
             "target_turns": TARGET,
+            "heal_target_turns": HEAL_TARGET,
             "classes": table}, indent=1), encoding="utf-8")
         print(f"\nwrote {OUT.relative_to(ROOT)}")
     return 0

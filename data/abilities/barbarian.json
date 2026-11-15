@@ -869,13 +869,20 @@
           "level_req": 52,
           "cost": 15,
           "effect_value": 87
+        },
+        {
+          "rank": 9,
+          "level_req": 58,
+          "cost": 15,
+          "effect_value": 94
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'filler Throw Weapon/Berserker Axe'. The spec's cheap ranged filler and the hub of its whole kit - Spear Thrower resets Spears off it, Gurubashi Technique transforms it, Sen'jin's Guidance replaces it.",
       "target_type": "enemy",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.33x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.33x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {

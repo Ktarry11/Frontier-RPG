@@ -525,7 +525,7 @@
     {
       "talent_id": "tinker_demolition_rockadier",
       "name": "Rockadier",
-      "description": "Your Scrap Shot and Rocket Launcher deal 54% more damage.",
+      "description": "Your Scrap Shot and Rocket Launcher deal 45% more damage.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -533,11 +533,14 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "ability_tinker_scrap_shot_damage": 0.54,
-        "ability_tinker_rocket_launcher_damage": 0.54
+        "ability_tinker_scrap_shot_damage": 0.45,
+        "ability_tinker_rocket_launcher_damage": 0.45
       },
       "connected_to": [],
-      "_source": "CoA: 'Empowers the next 6 Scrap Shots or Rocket Launchers within 30 sec to deal additional Fire damage equal to 100% of the damage dealt to up to 10 enemies around the target.' A 3-minute cooldown window is not a talent shape this tree supports, so the capstone grants the empowerment permanently at the cost of being the last pick. Replaces a pure-scalar node of the same name. The splash half is DROPPED, not approximated: aoe_damage was on this node and did nothing for it, because neither tinker_scrap_shot nor tinker_rocket_launcher is is_aoe - aoe_damage would have buffed other abilities entirely, while the prose promised a splash that never happened. 'Nearby enemies' is also positional language in an engine with no positions."
+      "_source": "CoA: 'Empowers the next 6 Scrap Shots or Rocket Launchers within 30 sec to deal additional Fire damage equal to 100% of the damage dealt to up to 10 enemies around the target.' A 3-minute cooldown window is not a talent shape this tree supports, so the capstone grants the empowerment permanently at the cost of being the last pick. Replaces a pure-scalar node of the same name. The splash half is DROPPED, not approximated: aoe_damage was on this node and did nothing for it, because neither tinker_scrap_shot nor tinker_rocket_launcher is is_aoe - aoe_damage would have buffed other abilities entirely, while the prose promised a splash that never happened. 'Nearby enemies' is also positional language in an engine with no positions.",
+      "_tuning": [
+        "15 Nov 2026, class pass (Kyle: 'edit some of them hand by hand but DONT lose the cool CoA identity'): 54% -> 45%: Scrap Shot took +69% from this tree, now +60%"
+      ]
     },
     {
       "talent_id": "tinker_demolition_bomb_toss",

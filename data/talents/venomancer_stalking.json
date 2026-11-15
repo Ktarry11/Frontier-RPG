@@ -72,7 +72,7 @@
     {
       "talent_id": "venomancer_stalking_virulent_resonance",
       "name": "Virulent Resonance",
-      "description": "Increases your chance to hit by 6% and the damage of your finishers by 10%.",
+      "description": "Increases your chance to hit by 6% and the damage of your finishers by 6%.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 3,
@@ -88,7 +88,10 @@
       "connected_to": [
         "venomancer_stalking_venomagus"
       ],
-      "_source": "CoA verbatim: 'Increases the effectiveness of Brood Marks by 10% and your hit chance by 5%.' Brood Marks do not exist, so 'effectiveness of Brood Marks' becomes the damage of the three abilities that consumed them - which is what mark effectiveness bought. The 5% hit ports exactly and partly covers what Prowler lost."
+      "_source": "CoA verbatim: 'Increases the effectiveness of Brood Marks by 10% and your hit chance by 5%.' Brood Marks do not exist, so 'effectiveness of Brood Marks' becomes the damage of the three abilities that consumed them - which is what mark effectiveness bought. The 5% hit ports exactly and partly covers what Prowler lost.",
+      "_tuning": [
+        "15 Nov 2026, class pass (Kyle: 'edit some of them hand by hand but DONT lose the cool CoA identity'): description said 10%; the data is 2% a rank (6% at 3)"
+      ]
     },
     {
       "talent_id": "venomancer_stalking_venomagus",

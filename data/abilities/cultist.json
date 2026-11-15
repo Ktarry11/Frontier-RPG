@@ -200,12 +200,19 @@
           "level_req": 52,
           "cost": 20,
           "effect_value": 208
+        },
+        {
+          "rank": 6,
+          "level_req": 58,
+          "cost": 20,
+          "effect_value": 224
         }
       ],
       "icon_id": null,
       "damage_school": "shadow",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.74x steeper than it, biggest single-rank jump 1.20x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.74x steeper than it, biggest single-rank jump 1.20x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {
@@ -291,12 +298,20 @@
           "cost": 48,
           "effect_value": 91,
           "heal_value": 98
+        },
+        {
+          "rank": 8,
+          "level_req": 58,
+          "cost": 53,
+          "effect_value": 101,
+          "heal_value": 108
         }
       ],
       "icon_id": null,
       "damage_school": "shadow",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.80x steeper than it, biggest single-rank jump 1.25x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.80x steeper than it, biggest single-rank jump 1.25x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {
@@ -866,11 +881,18 @@
           "level_req": 50,
           "cost": 68,
           "effect_value": 176
+        },
+        {
+          "rank": 9,
+          "level_req": 58,
+          "cost": 75,
+          "effect_value": 194
         }
       ],
       "icon_id": null,
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.76x steeper than it, biggest single-rank jump 1.23x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.76x steeper than it, biggest single-rank jump 1.23x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {
@@ -2238,10 +2260,19 @@
           "level_req": 50,
           "cost": 75,
           "effect_value": 108
+        },
+        {
+          "rank": 3,
+          "level_req": 58,
+          "cost": 83,
+          "effect_value": 119
         }
       ],
       "icon_id": null,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "cultist_doomcloak",

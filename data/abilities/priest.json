@@ -145,10 +145,19 @@
           "level_req": 50,
           "cost": 136,
           "effect_value": 166
+        },
+        {
+          "rank": 9,
+          "level_req": 58,
+          "cost": 150,
+          "effect_value": 183
         }
       ],
       "target_type": "ally",
-      "icon_id": null
+      "icon_id": null,
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "priest_flash_heal",
@@ -584,12 +593,21 @@
           "level_req": 52,
           "cost": 89,
           "effect_value": 86
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 96,
+          "effect_value": 93
         }
       ],
       "target_type": "ally",
       "requires_talent": true,
       "icon_id": null,
-      "_design_note": "Not learned from level alone - granted by the Penance talent in the Discipline tree. Real WOTLK Penance channels 3 bolts over 2 sec, healing an ally or damaging an enemy - this engine has no channel mechanic, so it resolves as a single strong heal instead."
+      "_design_note": "Not learned from level alone - granted by the Penance talent in the Discipline tree. Real WOTLK Penance channels 3 bolts over 2 sec, healing an ally or damaging an enemy - this engine has no channel mechanic, so it resolves as a single strong heal instead.",
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "priest_circle_of_healing",
@@ -618,13 +636,22 @@
           "level_req": 52,
           "cost": 109,
           "effect_value": 99
+        },
+        {
+          "rank": 4,
+          "level_req": 58,
+          "cost": 117,
+          "effect_value": 107
         }
       ],
       "target_type": "party",
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
-      "_design_note": "Not learned from level alone - granted by the Circle of Healing talent in the Holy tree. Instantly heals your entire party."
+      "_design_note": "Not learned from level alone - granted by the Circle of Healing talent in the Holy tree. Instantly heals your entire party.",
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "priest_shadowform",
@@ -890,11 +917,20 @@
           "level_req": 52,
           "cost": 156,
           "effect_value": 122
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 168,
+          "effect_value": 131
         }
       ],
       "target_type": "party",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "priest_inner_fire",

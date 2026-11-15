@@ -222,6 +222,12 @@
           "level_req": 53,
           "cost": 0,
           "effect_value": 183
+        },
+        {
+          "rank": 9,
+          "level_req": 60,
+          "cost": 0,
+          "effect_value": 199
         }
       ],
       "icon_id": null,
@@ -231,7 +237,10 @@
       },
       "_source": "CoA: 'Condemn for the crit Oath and its stacking Holy damage-over-time', and 'Condemn carries a huge share of your damage per press'. Oathkeeper's Uther's Legacy and Crusader's Tyr's Blessing both key off it.",
       "target_type": "enemy",
-      "damage_school": "holy"
+      "damage_school": "holy",
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 60 added - its last rank came at 53, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "templar_holy_cleave",

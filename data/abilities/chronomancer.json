@@ -705,6 +705,12 @@
           "level_req": 52,
           "cost": 158,
           "effect_value": 182
+        },
+        {
+          "rank": 9,
+          "level_req": 58,
+          "cost": 170,
+          "effect_value": 196
         }
       ],
       "icon_id": null,
@@ -713,7 +719,8 @@
       "damage_school": "arcane",
       "_level_note": "Rank 1 moved from level 10 to 6, 29 Oct 2026. Kyle's call on the early-game finding: the class was soft at levels 5-20 and fine from 30, and the cause was how FEW damage buttons it had early rather than how hard they hit. Values unchanged at every rank, so nothing moves at 60.",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.29x steeper than it, biggest single-rank jump 1.08x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.29x steeper than it, biggest single-rank jump 1.08x); overall size kept. tools/fix_rank_lines.py",
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ]
     },
     {

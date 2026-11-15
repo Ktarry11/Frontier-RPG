@@ -334,10 +334,19 @@
           "level_req": 52,
           "cost": 78,
           "effect_value": 159
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 84,
+          "effect_value": 171
         }
       ],
       "icon_id": null,
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "mage_arcane_intellect",
@@ -898,12 +907,22 @@
           "cost": 236,
           "effect_value": 710,
           "heal_value": 198
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 254,
+          "effect_value": 764,
+          "heal_value": 213
         }
       ],
       "icon_id": "mage_icy_penance_ability",
       "requires_talent": true,
       "heal_scope": 3,
-      "damage_school": "frost"
+      "damage_school": "frost",
+      "_tuning": [
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+      ]
     },
     {
       "ability_id": "mage_frostfall",
