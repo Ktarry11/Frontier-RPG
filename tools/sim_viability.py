@@ -55,6 +55,41 @@ BOSSES = [("Ragefire Chasm", "Taragaman the Hungerer", 15), ("Ragefire Chasm", "
           ("The Royal Hive", "Tunnel-King Ruzzak", 56), ("The Emberdeep", "The Caldera", 58)]
 
 BUFFS = True
+CONSUMABLES = False
+#: what each role wants from an elixir, food or oil (--consumables: "what do professions add?")
+ROLE_STATS = {"tank": ("stamina", "armor", "defense", "dodge", "parry", "block", "strength", "agility"),
+              "healer": ("healing_power", "intellect", "spirit", "mp5", "spell_power"),
+              "melee": ("attack_power", "strength", "agility", "crit_chance_physical", "hit_rating"),
+              "caster": ("spell_power", "intellect", "crit_chance_spell", "fire_spell_power",
+                         "frost_spell_power", "shadow_spell_power", "nature_spell_power", "arcane_spell_power",
+                         "holy_spell_power")}
+
+
+def use_consumables(c, role):
+    """The best elixir in each slot, food and a weapon oil for this character's role and level."""
+    from entities.consumable_manager import get_consumable_manager
+    import sim_matrix as M
+    cm = get_consumable_manager()
+    real = M.real_role(getattr(c, "_matrix_spec", ""), role)
+    want = ROLE_STATS["tank" if real == "tank" else "healer" if real == "healer"
+                      else "melee" if real == "melee_dps" else "caster"]
+    best = {}
+    for cid in cm.get_all_consumable_ids():
+        cons = cm.get_consumable(cid)
+        cat = getattr(cons, "buff_category", None)
+        if cons is None or cons.consumable_type not in ("elixir", "food") or not cat:
+            continue
+        if (cons.required_level or 1) > c.level:
+            continue
+        score = sum(v for k, v in (cons.stat_bonuses or {}).items() if k in want and isinstance(v, (int, float)))
+        if score > best.get(cat, (0, None))[0]:
+            best[cat] = (score, cons)
+    for cat, (_sc, cons) in best.items():
+        try:
+            c.apply_consumable_buff(cat, cons)
+        except Exception:                                       # noqa: BLE001
+            pass
+    c._recalculate_derived_stats()
 
 
 def quiet():
@@ -72,6 +107,7 @@ def make(spec, role, level, tier, gen):
     import sim_matrix as M
     c = M.build(spec, role, level, tier, gen)
     c.name = spec
+    c._sim_role = role
     return c
 
 
@@ -94,6 +130,9 @@ def prepull(chars, engine):
                         if a.target_type == "party":
                             break
                     a.turns_remaining = 0
+        if CONSUMABLES:
+            for c in chars:
+                use_consumables(c, getattr(c, "_sim_role", "dps"))
         for c in chars:
             c.current_health = c.health
             if getattr(c, "mana", 0):
@@ -258,10 +297,156 @@ def group(specs, levels, fights, tier, gen, cm, rng):
     return out
 
 
+# --------------------------------------------------------------------------------------------- hidden
+def hidden(fights, tier, gen, cm, rng):
+    """Skull zones, hidden layers and frontier zones: a standard party of 5 and of 3 (tank, healer, mage - a
+    friend's group, 15 Nov 2026: "no way an at level group can take on the shoals area") against two of the
+    zone's normal creatures and against each of its bosses, at the creature's own level. Reported by KIND -
+    never by place (Kyle's standing rule: the game and the reports never say where a hidden zone is)."""
+    from world.hidden_zones import creature_kinds
+    kinds = {}
+    for name, k in creature_kinds().items():
+        info = cm.creatures.get(name)
+        if info:
+            kinds.setdefault(k, []).append((name, info))
+    party5 = [("tank", BASE_PARTY["tank"]), ("healer", BASE_PARTY["healer"])] + [("dps", s) for s in BASE_PARTY["dps"]]
+    party3 = party5[:3]
+    out = {}
+    for k in sorted(kinds):
+        trash = [(n, i) for n, i in kinds[k] if not i.get("is_boss")]
+        bosses = [(n, i) for n, i in kinds[k] if i.get("is_boss")]
+        for label, comp in (("party of 5", party5), ("party of 3", party3)):
+            for what, pool, count in (("2 trash", trash, 2), ("boss", bosses, 1)):
+                if not pool:
+                    continue
+                wins, deaths = 0, []
+                for _ in range(fights):
+                    name, info = rng.choice(pool)
+                    lv = info["level_range"][1]
+                    try:
+                        chars = [make(sp, r, lv, tier, gen) for r, sp in comp]
+                        for i, c in enumerate(chars):
+                            c.name = f"{c.name}#{i}"
+                        roles = {id(c): r for c, (r, _s) in zip(chars, comp)}
+                        with quiet():
+                            foes = [cm.spawn_creature(name if what == "boss" else rng.choice(pool)[0], level=lv)
+                                    for _ in range(count)]
+                        won, d, _t, _hp = fight(chars, roles, foes)
+                    except Exception as e:                       # noqa: BLE001
+                        print(f"  {k} {what}: {type(e).__name__}: {e}")
+                        won, d = False, len(comp)
+                    wins += won
+                    deaths.append(d)
+                out[(k, label, what)] = (wins / fights, statistics.mean(deaths), len(pool))
+    return out
+
+
+# -------------------------------------------------------------------------------------------- content
+#: Kyle, 15 Nov 2026: "We need to test in open world, Dungeons, skull zones (open and dungeon) and frontier zone
+#: (open and dungeon) as well. I want this to be exhaustive."
+CONTENT = ("dungeon", "skull_open", "skull_dungeon", "frontier_open", "frontier_deep")
+HIDDEN_KIND = {"skull_open": "skull_zone", "skull_dungeon": "hidden_layer",
+               "frontier_open": "frontier_open", "frontier_deep": "frontier_deep"}
+PULL = {"dungeon": 3, "skull_open": 2, "skull_dungeon": 3, "frontier_open": 2, "frontier_deep": 3}
+
+
+def content_pools(cm):
+    """{content: {bracket: {"trash": [...], "boss": [...]}}} from the real tables. Hidden places by kind only."""
+    from world.hidden_zones import creature_kinds
+    from world.zone_classification import DUNGEONS
+    hidden = creature_kinds()
+    enc = json.loads((ROOT / "data/creatures/encounters.json").read_text(encoding="utf-8"))
+    in_dungeon = set()
+
+    def walk(node, key):
+        if isinstance(node, dict):
+            if isinstance(node.get("creatures"), dict) and (node.get("name") or key) in set(DUNGEONS):
+                in_dungeon.update(node["creatures"])
+            for k, v in node.items():
+                walk(v, k)
+    walk(enc, None)
+    pools = {}
+
+    def add(content, name):
+        info = cm.creatures.get(name)
+        if not info or not info.get("level_range"):
+            return
+        b = bracket_of(info["level_range"][1])
+        kind = "boss" if info.get("is_boss") else "trash"
+        pools.setdefault(content, {}).setdefault(b, {"trash": [], "boss": []})[kind].append(name)
+    for name in in_dungeon:
+        if name not in hidden:
+            add("dungeon", name)
+    for name, k in hidden.items():
+        for content, hk in HIDDEN_KIND.items():
+            if k == hk:
+                add(content, name)
+    return pools
+
+
+def content(specs, fights, tier, gen, cm, rng, only=None):
+    """Every spec in its slot of the standard party, against trash pulls and bosses of every content kind in
+    every bracket that has it. -> {(spec, role, content, bracket): {"trash": [won...], "boss": [won...]}}"""
+    pools = content_pools(cm)
+    out = {}
+    for spec, role in specs:
+        slots = [("tank", BASE_PARTY["tank"]), ("healer", BASE_PARTY["healer"])] + \
+                [("dps", s) for s in BASE_PARTY["dps"]]
+        slots[{"tank": 0, "healer": 1, "dps": 4}[role]] = (role, spec)
+        for c_kind in CONTENT:
+            if only and c_kind not in only:
+                continue
+            for b, pool in sorted((pools.get(c_kind) or {}).items()):
+                cell = {"trash": [], "boss": []}
+                for what in ("trash", "boss"):
+                    names = pool[what]
+                    if not names:
+                        continue
+                    for _ in range(fights):
+                        lead = rng.choice(names)
+                        lv = cm.creatures[lead]["level_range"][1]
+                        try:
+                            chars = [make(sp, r, lv, tier, gen) for r, sp in slots]
+                            for i, c in enumerate(chars):
+                                c.name = f"{c.name}#{i}"
+                            roles = {id(c): r for c, (r, _s) in zip(chars, slots)}
+                            picks = [lead] if what == "boss" else [lead] + [rng.choice(names) for _ in range(PULL[c_kind] - 1)]
+                            with quiet():
+                                foes = [cm.spawn_creature(n, level=cm.creatures[n]["level_range"][1]) for n in picks]
+                            for f in foes:
+                                if c_kind in ("dungeon", "skull_dungeon", "frontier_deep"):
+                                    f.location_type = "cave"
+                            won, d, _t, _hp = fight(chars, roles, foes)
+                        except Exception as e:                   # noqa: BLE001
+                            print(f"  {spec} {c_kind} {what}: {type(e).__name__}: {e}")
+                            won, d = False, 5
+                        cell[what].append((won, d))
+                out[(spec, role, c_kind, b)] = cell
+    return out
+
+
+def report_content(res):
+    """Win rates per spec, and the specs well below their own role on the same content and bracket."""
+    by_cell = {}
+    for (spec, role, ck, b), cell in res.items():
+        for what in ("trash", "boss"):
+            if cell[what]:
+                w = sum(1 for x in cell[what] if x[0]) / len(cell[what])
+                by_cell.setdefault((role, ck, b, what), []).append((spec, w))
+    print("\nCONTENT - the standard party's win rate with each spec in its slot (trash pulls / bosses)")
+    for (role, ck, b, what), rows in sorted(by_cell.items()):
+        ws = [w for _s, w in rows]
+        med = statistics.median(ws)
+        low = [f"{s} {w:.0%}" for s, w in sorted(rows, key=lambda r: r[1]) if w < med - 0.34]
+        print(f"  {ck:<14}{str(BRACKETS[b]):<9}{what:<6}{role:<7} median {med:>4.0%}  range {min(ws):.0%}-{max(ws):.0%}"
+              + (f"   BEHIND: {', '.join(low)}" if low else ""))
+
+
 def main():
-    global BUFFS
+    global BUFFS, CONSUMABLES
     ap = argparse.ArgumentParser()
-    ap.add_argument("--mode", default="both", choices=("solo", "group", "both"))
+    ap.add_argument("--mode", default="both", choices=("solo", "group", "both", "hidden", "content"))
+    ap.add_argument("--content", help="comma list of: " + ",".join(CONTENT))
     ap.add_argument("--levels", default="12,25,38,52,58")
     ap.add_argument("--fights", type=int, default=4)
     ap.add_argument("--class", dest="only_class")
@@ -269,6 +454,7 @@ def main():
     ap.add_argument("--tier", default="geared")
     ap.add_argument("--no-talents", action="store_true")
     ap.add_argument("--no-buffs", action="store_true")
+    ap.add_argument("--consumables", action="store_true", help="best elixirs, food and oil for the role")
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--json")
     args = ap.parse_args()
@@ -279,6 +465,7 @@ def main():
     if args.no_talents:
         R.SPEND_TALENTS = False
     BUFFS = not args.no_buffs
+    CONSUMABLES = args.consumables
     random.seed(args.seed)
     rng = random.Random(args.seed)
     gen = LootGenerator()
@@ -290,6 +477,19 @@ def main():
     print(f"{len(specs)} spec-roles, levels {levels}, {args.fights} fights each, tier {args.tier}, "
           f"talents {'off' if args.no_talents else 'on'}, buffs {'off' if args.no_buffs else 'on'}")
     dump = {}
+    if args.mode == "content":
+        res = content(specs, args.fights, args.tier, gen, cm, rng,
+                      only=set(args.content.split(",")) if args.content else None)
+        report_content(res)
+        if args.json:
+            Path(args.json).write_text(json.dumps({"|".join(map(str, k)): v for k, v in res.items()}), encoding="utf-8")
+        return 0
+    if args.mode == "hidden":
+        res = hidden(args.fights, args.tier, gen, cm, rng)
+        print(f"\nHIDDEN ZONES - by kind (at the creature's level): wins, mean deaths")
+        for (k, label, what), (w, d, n) in sorted(res.items()):
+            print(f"  {k:<14}{label:<12}{what:<9}{w:>5.0%}  deaths {d:.1f}   ({n} creatures of this sort)")
+        return 0
     if args.mode in ("solo", "both"):
         res = solo(specs, levels, args.fights, args.tier, gen, cm, rng)
         print(f"\nSOLO - 1 mob: win% / health left     2 mobs: win% / health left")
