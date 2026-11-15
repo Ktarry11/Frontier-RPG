@@ -149,6 +149,23 @@ def main():
     if c2.consumable_cooldown:
         fails.append("eating set the shared potion cooldown - you could not then drink, or pot")
 
+    print("\n== a buff changes the stats the moment it lands, and leaves when it runs out")
+    # Kyle, 14 Nov 2026: "Foodbuffs not working" - the buff was stored but the stats waited for the
+    # next gear change to be recomputed.
+    c3 = Character("QA3", "Warrior")
+    c3.level = 30
+    c3._recalculate_derived_stats()
+    base = c3.effective_agility
+    copy.deepcopy(cm.get_consumable("meal_cooked_skewers")).use(c3, [])
+    fed = c3.effective_agility
+    c3.update_buff_timers(1801)
+    gone = c3.effective_agility
+    print(f"  agility {base} -> fed {fed} -> expired {gone}")
+    if not fed > base:
+        fails.append("a Well Fed meal did not raise the stat it names until something else recalculated")
+    if gone != base:
+        fails.append("an expired food buff left its stats behind")
+
     print()
     if fails:
         print(f"FAIL ({len(fails)})")

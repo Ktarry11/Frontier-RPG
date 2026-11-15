@@ -4743,6 +4743,10 @@ class Character(StatusEffectMixin):
         elif buff_category == "oil":
             # a weapon oil (Enchanting): a new one wipes the old one off the blade
             self.oil_buff = buff_tuple
+        # The stats change NOW. Kyle, 14 Nov 2026: "Foodbuffs not working" - the buff was stored
+        # but the effective stats were only recomputed the next time gear or talents changed, so a
+        # meal or elixir did nothing until then.
+        self._recalculate_derived_stats()
     
     def get_active_buff_stats(self):
         """
@@ -4772,6 +4776,15 @@ class Character(StatusEffectMixin):
         Update consumable buff timers (call once per frame/turn).
         dt: delta time in seconds
         """
+        before = (self.guardian_buff is None, self.battle_buff is None, self.food_buff is None,
+                  self.ammo_buff is None, getattr(self, "oil_buff", None) is None)
+        self._tick_buff_timers(dt)
+        after = (self.guardian_buff is None, self.battle_buff is None, self.food_buff is None,
+                 self.ammo_buff is None, getattr(self, "oil_buff", None) is None)
+        if before != after:
+            self._recalculate_derived_stats()     # a buff ran out: its stats go with it
+
+    def _tick_buff_timers(self, dt):
         if self.guardian_buff is not None:
             consumable, duration = self.guardian_buff
             new_duration = duration - dt
