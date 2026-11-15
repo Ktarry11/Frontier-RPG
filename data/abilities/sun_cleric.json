@@ -43,52 +43,55 @@
           "rank": 2,
           "level_req": 8,
           "cost": 38,
-          "effect_value": 104
+          "effect_value": 64
         },
         {
           "rank": 3,
           "level_req": 15,
           "cost": 45,
-          "effect_value": 169
+          "effect_value": 77
         },
         {
           "rank": 4,
           "level_req": 22,
           "cost": 52,
-          "effect_value": 234
+          "effect_value": 90
         },
         {
           "rank": 5,
           "level_req": 28,
           "cost": 60,
-          "effect_value": 298
+          "effect_value": 102
         },
         {
           "rank": 6,
           "level_req": 35,
           "cost": 67,
-          "effect_value": 363
+          "effect_value": 115
         },
         {
           "rank": 7,
           "level_req": 42,
           "cost": 74,
-          "effect_value": 428
+          "effect_value": 128
         },
         {
           "rank": 8,
           "level_req": 49,
           "cost": 81,
-          "effect_value": 493
+          "effect_value": 141
         },
         {
           "rank": 9,
           "level_req": 56,
           "cost": 88,
-          "effect_value": 558
+          "effect_value": 154
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "_tuning": [
+        "15 Nov 2026, class pass: ranks put on the healer line (x0.95 of Priest's Heal, no cooldown). Authored +65 a rank to 558 at 56 - about 3x Heal's line on a spammable heal; Blessings healed 1.8x the median healer."
+      ]
     },
     {
       "ability_id": "sun_cleric_sunflare",

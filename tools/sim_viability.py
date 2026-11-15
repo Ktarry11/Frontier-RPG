@@ -416,11 +416,11 @@ def content(specs, fights, tier, gen, cm, rng, only=None):
                             for f in foes:
                                 if c_kind in ("dungeon", "skull_dungeon", "frontier_deep"):
                                     f.location_type = "cave"
-                            won, d, _t, _hp = fight(chars, roles, foes)
+                            won, d, t, _hp = fight(chars, roles, foes)
                         except Exception as e:                   # noqa: BLE001
                             print(f"  {spec} {c_kind} {what}: {type(e).__name__}: {e}")
-                            won, d = False, 5
-                        cell[what].append((won, d))
+                            won, d, t = False, 5, 0
+                        cell[what].append((won, d, t))
                 out[(spec, role, c_kind, b)] = cell
     return out
 

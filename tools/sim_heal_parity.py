@@ -106,13 +106,25 @@ def healing_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0):
         return landed[0] / turns
     heals = [a for a in learned if a.effect_type in HEALS and getattr(a, "target_type", None) != "enemy"]
     heals.sort(key=lambda a: -((getattr(a, "heal_value", 0) or 0) or (a.effect_value or 0)))
+    # SHIELDS COUNT AS HEALING (15 Nov 2026): Discipline's Power Word: Shield and two dozen others soak a share
+    # of max health (absorb_pct_max_health) and never touch heal(), so a shield healer read as the weakest healer.
+    # A shield is cast first when none is up, and what it puts on the target is counted.
+    shields = [a for a in learned if (getattr(a, "absorb_pct_max_health", 0) or 0) > 0
+               and getattr(a, "target_type", None) in (None, "self", "ally", "party")]
+    heals = shields + heals
+
+    def absorb_pool():
+        return sum(getattr(fx, "absorb", 0) or 0 for fx in char._effects())
     for _ in range(turns):
         char.current_mana = char.mana
         char.current_health = max(1, int(char.health * 0.3))
         live = {getattr(fx, "effect_id", None) for fx in char._effects()}
+        before_shield = absorb_pool()
         with quiet():
             for a in heals:
                 if a.effect_type == "hot" and a.ability_id in live:
+                    continue
+                if a in shields and a.ability_id in live:
                     continue
                 engine.current_actor = char
                 engine.combat_phase = "action"
@@ -121,6 +133,11 @@ def healing_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0):
                     break
             if engine.current_actor is char:
                 engine._end_turn(char)
+        landed[0] += max(0, absorb_pool() - before_shield)
+        # the shield is spent by the next hit in a real fight; here nothing hits, so clear it to let it be recast
+        for fx in char._effects():
+            if getattr(fx, "absorb", 0):
+                fx.absorb = 0
     return landed[0] / turns
 
 
