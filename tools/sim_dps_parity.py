@@ -45,6 +45,32 @@ def target_name(cm, level):
     return sorted(M.pool(cm, level))[0]
 
 
+_ARMOR = {}
+
+
+def neutralize(cm, level, foe):
+    """A NEUTRAL TARGET: no school resistance or weakness, and the median armour of the level's creatures.
+
+    Found 15 Nov 2026 (pass 6): the target was the alphabetically first creature of the level's pool - an Armored
+    Scorpid (Nature 60) at 10 and a Corrupted Treant (Nature 60, Fire -40, every other school 10, armour 512) at 20.
+    So every damage aura at 10-20 was calibrated against a creature that halved Nature casters and favoured Fire:
+    Nature specs were lifted to make up for it and Fire specs cut (Enhancement clamped at 20). Parity is about the
+    classes, so the target is neutral; tools/sim_viability fights the real creature mix."""
+    import statistics
+    import sim_matrix as M
+    if level not in _ARMOR:
+        arms = []
+        for name in M.pool(cm, level):
+            with quiet():
+                arms.append(cm.spawn_creature(name, level=level).armor or 0)
+        _ARMOR[level] = int(statistics.median(arms)) if arms else foe.armor
+    for k in list(vars(foe)):
+        if k.startswith("base_") and k.endswith("_resist"):
+            setattr(foe, k, 0)
+    foe.armor = _ARMOR[level]
+    return foe
+
+
 def damage_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0, mana_stats=None, targets=1):
     """Damage per turn. With mana_stats (a dict), the bar is refilled at the start of every turn and what the
     rotation spends is recorded instead of limiting it: mana_stats gets spent_per_turn, pool and regen (the
@@ -65,6 +91,7 @@ def damage_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0, mana
     random.seed(fight_seed)
     for f in foes:
         f.max_health = f.current_health = 10 ** 8
+        neutralize(cm, level, f)
     with quiet():
         engine = CombatEngine(char, foe, party=Party(char), enemies=foes)
         R.precast_stances(char, engine)

@@ -67,6 +67,8 @@ def healing_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0):
     char = M.build(spec, "healer", level, "geared", gen)
     with quiet():
         foe = cm.spawn_creature(sorted(M.pool(cm, level))[0], level=level)
+        import sim_dps_parity as _P
+        _P.neutralize(cm, level, foe)      # neutral target (pass 6): Cryotherapist heals by hitting it
         engine = CombatEngine(char, foe, party=Party(char))
         R.precast_stances(char, engine)
     random.seed(fight_seed)
