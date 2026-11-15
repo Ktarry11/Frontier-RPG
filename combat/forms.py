@@ -77,9 +77,11 @@ FORMS = {
         "resource_type": ResourceType.ENERGY,
         "description": (
             "Shifts into a cat, trading your normal Mana pool for Energy. "
-            "Increases Agility and critical strike chance."
+            "Increases Agility, attack power and critical strike chance."
         ),
-        "stat_mods": {"agility": 20, "crit_chance_physical": 5.0},
+        # +25% attack power (15 Nov 2026, class pass): Classic's cat form WAS the Feral's attack power (full Agility plus a
+        # level-scaled bonus); here it gave a flat 20 Agility that never grew, and Feral sat at the damage aura's clamp
+        "stat_mods": {"agility": 20, "crit_chance_physical": 5.0, "attack_power_pct": 25},
     },
     "moonkin": {
         "name": "Moonkin Form",
