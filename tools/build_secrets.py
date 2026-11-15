@@ -368,6 +368,21 @@ SELLERS = [
      [("Crystal-Edged Axe", "main_hand", "of the Tiger", "weapon", "axe_1h", "The edge is a crystal that grew there. Haldur swears it."),
       ("Deepdelve's Hauberk", "chest", "of the Soldier", "armor", "mail", "Three generations of Deepdelves. One very long tunnel."),
       ("Glowcap Lantern", "off_hand", "of the Prophet", "weapon", "tome", "Lit by mushrooms. Don't eat the lamp.")]),
+    # ---- Felwood (claude/felwood_brief.md). Kyle, 14 Nov: "Dont forget secrets when building!"
+    ("secret_es_grizzlemoss", "Emerald Sanctuary", "Grizzlemoss", "furbolg", "male",
+     "You found my corner. The Elder thinks I gave all this to the Sanctuary's stores. I gave them the "
+     "honey. The rest I kept, and now I'll sell it to you.",
+     ["leatherworking", "alchemy"],
+     [("Honeyed Timbermaw Grips", "hands", "of the Bear", "armor", "leather", "Sticky for the first week. Worth it."),
+      ("Totem-Carved Cudgel", "main_hand", "of the Tiger", "weapon", "mace_1h", "Carved by a Timbermaw who didn't like being interrupted."),
+      ("Moonbough Pendant", "neck", "of the Owl", "armor", None, "A seed from the first tree the druids cleansed, set in silver.")]),
+    ("secret_fn_kowalczyk", "North Felwood", "Dana Kowalczyk", "human", "female",
+     "Don't tell the Sentinels you saw me. I was a geologist in Gdansk, and that crater is the most "
+     "interesting rock I've ever seen. I'm not leaving until I understand it. You can buy what I've dug up.",
+     ["blacksmithing", "engineering"],
+     [("Crater-Glass Lens", "head", "of the Sorcerer", "armor", "cloth", "Ground from glass the infernal left behind. Everything looks hotter through it."),
+      ("Fallen-Star Hammer", "main_hand", "of the Champion", "weapon", "mace_2h", "The head's a piece of the meteor. She says she's sure it's not still alive."),
+      ("Field Geologist's Vest", "chest", "of the Monkey", "armor", "leather", "Seventeen pockets, all of them full of rocks.")]),
 
 ]
 
@@ -860,7 +875,20 @@ def main():
         secrets.append(sec)
         taken.setdefault(sec["zone"], []).append((sec["door"]["x"], sec["door"]["y"]))
 
-    # caches everywhere else: up to three a map, one in a town
+    # caches everywhere else: up to three a map, one in a town.
+    # A CACHE KEEPS ITS ID. Saves remember found secrets by id, and the ids used to be numbered in
+    # map order, so a new map (Felwood, 15 Nov) renumbered every cache after it and a save's found
+    # caches pointed at other places. A cache already in secrets.json keeps its id; a new one takes
+    # the next free number.
+    old_ids = {}
+    try:
+        for old in json.loads(SECRETS_PATH.read_text(encoding="utf-8"))["secrets"]:
+            if old.get("cache") and old["id"].startswith("cache_"):
+                old_ids[(old["zone"], old["cache"]["x"], old["cache"]["y"])] = old["id"]
+    except (OSError, ValueError, KeyError):
+        pass
+    used = set(old_ids.values())
+    next_n = max([int(i[6:]) for i in used if i[6:].isdigit()] + [0])
     n = 0
     for zone, cs in sorted(cands.items()):
         level = _level(zone, levels)
@@ -872,13 +900,16 @@ def main():
             if placed >= limit or not use(zone, c):
                 continue
             n += 1
-            sid = f"cache_{n:03d}"
             spot = list(c["spot"])
+            sid = old_ids.get((zone, spot[0], spot[1]))
+            if sid is None:
+                next_n += 1
+                sid = f"cache_{next_n:03d}"
             secrets.append({"id": sid, "zone": zone, "kind": c["kind"], "passage": c["passage"],
                             "area": c["area"] if c["kind"] != "behind" else [spot],
                             "mask": c.get("mask"), "ground": c.get("ground"), "shallow": c.get("shallow"),
                             "cache": {"x": spot[0], "y": spot[1], "level": level}, "vendor": None,
-                            "found_text": FOUND[c["kind"]][n % len(FOUND[c["kind"]])]})
+                            "found_text": FOUND[c["kind"]][int(sid[6:]) % len(FOUND[c["kind"]])]})
             taken.setdefault(zone, []).append(tuple(spot))
             placed += 1
 

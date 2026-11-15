@@ -5628,6 +5628,34 @@
       "sold_by": [
         "secret_saltspur_hewitt"
       ]
+    },
+    "secret_es_grizzlemoss_p300_le_rugged_hands": {
+      "name": "Grizzlemoss's Rugged Gloves",
+      "skill_required": 275,
+      "skill_range": [
+        280,
+        290,
+        300,
+        310
+      ],
+      "source": "vendor",
+      "inputs": {
+        "leather_rugged": 4,
+        "thread_silken": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "mail",
+        "stat_template": "spi_healer",
+        "item_level": 58,
+        "rarity": "rare",
+        "material_tier": "rugged"
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_es_grizzlemoss"
+      ]
     }
   }
 }

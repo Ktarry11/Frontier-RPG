@@ -14801,6 +14801,35 @@
           "sold_by": [
             "secret_glitter_nim"
           ]
+        },
+        "secret_fn_kowalczyk_eng300_thorium_gyro_visor": {
+          "name": "Kowalczyk's Thorium Gyro-Visor",
+          "skill_required": 270,
+          "skill_range": [
+            275,
+            285,
+            295,
+            305
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_thorium": 5,
+            "part_glass_lens": 2,
+            "part_gear_assembly": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "mail",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 57,
+            "rarity": "rare",
+            "material_tier": "thorium"
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_fn_kowalczyk"
+          ]
         }
       }
     },

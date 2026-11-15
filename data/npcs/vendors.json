@@ -5566,6 +5566,32 @@
       "facing": "down"
     },
     {
+      "vendor_id": "fn_talonbranch_supply",
+      "name": "Supply Keeper Lyria Dawnleaf",
+      "zone": "north_felwood",
+      "x": 89,
+      "y": 31,
+      "tile_sprite": "npc",
+      "sells": [
+        "whetstone",
+        "flux_strong",
+        "kit_field_repair",
+        "healing_potion_masterwork",
+        "mana_potion_masterwork",
+        "drink_waterskin",
+        "roasted_meat"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 54,
+      "sells_gear": false,
+      "race": "night_elf",
+      "appearance_variant": 8,
+      "gender": "female",
+      "greeting": "I've got water, whetstones and potions, and not much else. If you need a proper shop, the Sanctuary's back down the road.",
+      "facing": "down"
+    },
+    {
       "vendor_id": "secret_razorhill_fence",
       "name": "Rivet Nackle",
       "zone": "razor_hill",
@@ -6678,6 +6704,53 @@
       "hidden": true
     },
     {
+      "vendor_id": "secret_es_grizzlemoss",
+      "name": "Grizzlemoss",
+      "zone": "emerald_sanctuary",
+      "x": 53,
+      "y": 66,
+      "tile_sprite": "npc",
+      "sells": [
+        "unique:es_grizzlemoss_honeyed_timbermaw_grips",
+        "unique:es_grizzlemoss_totem_carved_cudgel",
+        "unique:es_grizzlemoss_moonbough_pendant",
+        "secret_es_grizzlemoss_p300_le_rugged_hands"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 55,
+      "sells_gear": false,
+      "race": "furbolg",
+      "gender": "male",
+      "appearance_variant": 2,
+      "greeting": "You found my corner. The Elder thinks I gave all this to the Sanctuary's stores. I gave them the honey. The rest I kept, and now I'll sell it to you.",
+      "hidden": true
+    },
+    {
+      "vendor_id": "secret_fn_kowalczyk",
+      "name": "Dana Kowalczyk",
+      "zone": "north_felwood",
+      "x": 20,
+      "y": 97,
+      "tile_sprite": "npc",
+      "sells": [
+        "unique:fn_kowalczyk_crater_glass_lens",
+        "unique:fn_kowalczyk_fallen_star_hammer",
+        "unique:fn_kowalczyk_field_geologists_vest",
+        "secret_fn_kowalczyk_bs300_ashen_steel_wrist",
+        "secret_fn_kowalczyk_eng300_thorium_gyro_visor"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 55,
+      "sells_gear": false,
+      "race": "human",
+      "gender": "female",
+      "appearance_variant": 2,
+      "greeting": "Don't tell the Sentinels you saw me. I was a geologist in Gdansk, and that crater is the most interesting rock I've ever seen. I'm not leaving until I understand it. You can buy what I've dug up.",
+      "hidden": true
+    },
+    {
       "vendor_id": "secret_uc_squeak",
       "name": "Squeak",
       "zone": "undercity",
@@ -6742,32 +6815,6 @@
           "secret_formula_enchant_weapon_living_ember": 6
         }
       }
-    },
-    {
-      "vendor_id": "fn_talonbranch_supply",
-      "name": "Supply Keeper Lyria Dawnleaf",
-      "zone": "north_felwood",
-      "x": 89,
-      "y": 31,
-      "tile_sprite": "npc",
-      "sells": [
-        "whetstone",
-        "flux_strong",
-        "kit_field_repair",
-        "healing_potion_masterwork",
-        "mana_potion_masterwork",
-        "drink_waterskin",
-        "roasted_meat"
-      ],
-      "buys_from_player": true,
-      "faction": "neutral",
-      "gear_level": 54,
-      "sells_gear": false,
-      "race": "night_elf",
-      "appearance_variant": 8,
-      "gender": "female",
-      "greeting": "I've got water, whetstones and potions, and not much else. If you need a proper shop, the Sanctuary's back down the road.",
-      "facing": "down"
     }
   ]
 }

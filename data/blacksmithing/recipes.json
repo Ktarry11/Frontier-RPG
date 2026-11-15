@@ -6336,6 +6336,34 @@
       "sold_by": [
         "secret_underdark_haldur"
       ]
+    },
+    "secret_fn_kowalczyk_bs300_ashen_steel_wrist": {
+      "name": "Kowalczyk's Ashen Steel Wristguards",
+      "skill_required": 275,
+      "skill_range": [
+        280,
+        290,
+        300,
+        310
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_ashen_steel": 3,
+        "flux_strong": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 58,
+        "rarity": "rare",
+        "material_tier": "ashen_steel"
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_fn_kowalczyk"
+      ]
     }
   }
 }
