@@ -23,7 +23,7 @@ WHAT THIS DOES, per authored drop or quest reward (gear sets, crafting and recip
 3. SPREAD: an uncommon-or-better item from ilvl 8 with no rating gets one, chosen deterministically by name, until
    its level band carries roughly PRESENCE of them.
 4. SIZE: an item's ratings take SHARE(ilvl) of its stat budget (the generator's own formula,
-   tools/audit_item_budgets.budget_for) - 20% at ilvl 10 rising to 35% at 60; never under MIN_RATING (3, 0.3%), and one rating where the budget cannot make two of that size - split 60/40 between two, priced by
+   tools/audit_item_budgets.budget_for) - 20% at ilvl 10 rising to 35% at 60; never under MIN_RATING (5, 0.5% - the crafting floor), and one rating where the budget cannot make two of that size - split 60/40 between two, priced by
    data/items/gear_suffixes.json stat_budget_costs. The primary stats are scaled to pay for it, so the item's total
    spend is what it was: on its curve before, on its curve after.
 5. PRICES (stat_budget_costs): parry 1.25 and dodge 1.1 a point against crit's 1.0 (Kyle: "crit rating is cheaper
@@ -63,7 +63,7 @@ SOURCES = sorted(glob.glob("data/loot/*.json") + glob.glob("data/quests/*.json")
 PRIMARY = ("strength", "agility", "intellect", "stamina", "spirit")
 
 
-MIN_RATING = 3          # 0.3%: below this a rating is a sliver, not a stat
+MIN_RATING = 5          # 0.5%: Kyle's crafting floor (14 Nov: "No rating under 5 points") - one rule for crafted and dropped gear
 
 
 def share(ilvl):
