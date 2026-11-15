@@ -167,3 +167,8 @@ My first suggestion (30/20/40 AP/14) was over the item's budget. This keeps the 
 - **Item level 73 epics:** about 28% more stats than before.
   - The Spire-Warden's Staff keeps the shape Kyle set: Agility leads at 35:20 against Stamina, plus dodge and armour. It now comes out at +45 Agility, +26 Stamina, +15 dodge, 140 armour.
 - **Item level 67 blues:** about 7% more.
+
+**Decided (Kyle, 15 Nov):** "No, keep 10 to 1% and we will keep this slowly deviating from standard linear curve."
+
+- Ratings stay at 10 points per 1% at every level. They don't scale with level past 60.
+- The budget bend above stays as it is: a slow drift away from the straight line, not a jump.
