@@ -1184,8 +1184,10 @@ class Monster(StatusEffectMixin):
             if amount <= 0:
                 return 0
 
-        if damage_type == "physical" and (self.dodge or self.parry
-                                          or self.block_chance):
+        # A BOMB ISN'T DODGED. An explosive (entities/consumable.py) sets _unavoidable_hit for its one call: a
+        # Shrapnel Charge landed for 0 on a boar that "parried" it (qa_engineering, 15 Nov 2026).
+        if damage_type == "physical" and not getattr(self, "_unavoidable_hit", False) and (
+                self.dodge or self.parry or self.block_chance):
             import random
             expertise = 0.0
             if attacker is not None:

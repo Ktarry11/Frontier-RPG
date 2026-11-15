@@ -102,6 +102,50 @@ ATTACHMENTS = {
         "damage": 11,
         "profession": "woodworking",
     },
+    # ── Past skill 140, to 60 (tools/build_woodworking_expansion.py, 15 Nov 2026). Each part is about a
+    #    fifth of a crafted bow's average hit at its level, as Heartwood is; the scopes keep pace. ──
+    "limbs_bloodroot": {
+        "name": "Bloodroot Limbs",
+        "weapon_types": ("bow", "crossbow"),
+        "damage": 14,
+        "profession": "woodworking",
+    },
+    "pin_moonpetal": {
+        "name": "Moonpetal Sight Pin",
+        "weapon_types": ("bow", "crossbow"),
+        "damage": 17,
+        "profession": "woodworking",
+    },
+    "nock_starleaf": {
+        "name": "Starleaf Nock",
+        "weapon_types": ("bow", "crossbow"),
+        "damage": 20,
+        "profession": "woodworking",
+    },
+    "limbs_stormoak": {
+        "name": "Stormoak Limbs",
+        "weapon_types": ("bow", "crossbow"),
+        "damage": 24,
+        "profession": "woodworking",
+    },
+    "scope_mithril": {
+        "name": "Mithril Scope",
+        "weapon_types": ("gun", "crossbow"),
+        "damage": 14,
+        "profession": "engineering",
+    },
+    "scope_thorium": {
+        "name": "Thorium Scope",
+        "weapon_types": ("gun", "crossbow"),
+        "damage": 18,
+        "profession": "engineering",
+    },
+    "scope_arcanite": {
+        "name": "Arcanite Scope",
+        "weapon_types": ("gun", "crossbow"),
+        "damage": 24,
+        "profession": "engineering",
+    },
 }
 
 

@@ -116,6 +116,26 @@ MATERIAL_KITS = {
     # Woodworking — wood tiers
     "upgrade_kit_ashwood":   "ashwood",
     "upgrade_kit_ironbark":  "ironbark",
+    # the rest of woodworking's woods (tools/build_woodworking_expansion.py, 15 Nov 2026): a Felbark or
+    # Moonpetal piece had no kit, so it could never be upgraded
+    "upgrade_kit_silverbark": "silverbark",
+    "upgrade_kit_duskwood": "duskwood",
+    "upgrade_kit_goldenleaf": "goldenleaf",
+    "upgrade_kit_nightshade": "nightshade",
+    "upgrade_kit_sapglow": "sapglow",
+    "upgrade_kit_redbark": "redbark",
+    "upgrade_kit_thornveil": "thornveil",
+    "upgrade_kit_bloodroot": "bloodroot",
+    "upgrade_kit_marshwillow": "marshwillow",
+    "upgrade_kit_bloodwood": "bloodwood",
+    "upgrade_kit_felbark": "felbark",
+    "upgrade_kit_moonpetal": "moonpetal",
+    "upgrade_kit_emberwood": "emberwood",
+    "upgrade_kit_frostheart": "frostheart",
+    "upgrade_kit_starleaf": "starleaf",
+    "upgrade_kit_ebonthorn": "ebonthorn",
+    "upgrade_kit_stormoak": "stormoak",
+    "upgrade_kit_sunheart": "sunheart",
     # Engineering — its gear is tagged copper/bronze/iron/steel and reuses
     # Blacksmithing's kits for those, so the only new entry is its own
     # crystal-bound tier.

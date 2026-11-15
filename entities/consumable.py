@@ -219,8 +219,12 @@ class Consumable:
             dmg = self.bomb_damage(getattr(character, "level", 1))
             hits = []
             for foe in foes:
-                landed = foe.take_damage(dmg, school, attacker_level=getattr(character, "level", None),
-                                         attacker=character)
+                foe._unavoidable_hit = True          # a blast can't be dodged, parried or blocked
+                try:
+                    landed = foe.take_damage(dmg, school, attacker_level=getattr(character, "level", None),
+                                             attacker=character)
+                finally:
+                    foe._unavoidable_hit = False
                 hits.append(f"{foe.name} {landed}")
                 spec = dict(entry.get("apply_effect_targets") or {})
                 if spec and foe.is_alive() and hasattr(foe, "apply_status_effect"):

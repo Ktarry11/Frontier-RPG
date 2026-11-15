@@ -103,6 +103,8 @@ IDENTITIES = {
     "battlemage": ({"spell_power": 0.4, "stamina": 0.3, "crit_chance_spell": 0.3}, "int_caster"),
     "high_healer": ({"healing_power": 0.55, "intellect": 0.25, "spirit": 0.2}, "spi_healer"),
     "void": ({"shadow_spell_power": 0.5, "intellect": 0.3, "stamina": 0.2}, "int_caster"),
+    # holy damage (Sun Cleric, Templar, a smiting Priest): Sunheart, the woodworking expansion's top wood
+    "holy": ({"holy_spell_power": 0.6, "intellect": 0.4}, "int_caster"),
 
     # ---- leather and mail. Kyle, 14 Nov: "It's just so odd to see high end gear with no attack
     # power." So every physical identity leads with attack power (2 AP for a point of Strength or
@@ -402,17 +404,29 @@ WOODS = {
     "moonpetal": (None, "high_healer", "Moonpetal wood, pale as moonlight and blessed by it."),
     "starleaf": (None, "arcane_crit", "Starleaf glitters like a clear night sky."),
     "stormoak": (None, "storm", "Stormoak grew where lightning struck, and it hasn't forgotten."),
+    # woodworking expansion (15 Nov 2026): the four planks that fed nothing but sticks and fibre
+    "emberwood": (None, "fire", "Emberwood's always warm, and it crackles when it casts."),
+    "frostheart": (None, "frost", "Frostheart. The core of the trunk never thaws, even in a fire."),
+    "ebonthorn": (None, "void", "Ebonthorn is black all the way through, and the thorns grow back."),
+    "sunheart": (None, "holy", "Sunheart wood holds the light it grew in, and gives it back slowly."),
 }
 
 #: a wood's bows, crossbows and spears: precise woods for steady shots, crit woods for big ones
 WOOD_RANGED = {"silverbark": "hunter_precise", "duskwood": "hunter_precise", "nightshade": "hunter_precise",
                "moonpetal": "hunter_precise", "redbark": "hunter_crit", "bloodroot": "hunter_crit",
                "bloodwood": "hunter_crit", "felbark": "hunter_crit", "starleaf": "hunter_crit",
-               "stormoak": "hunter_crit"}
+               "stormoak": "hunter_crit", "emberwood": "hunter_crit", "frostheart": "hunter_precise",
+               "ebonthorn": "hunter_crit", "sunheart": "hunter_precise"}
 WOOD_SPEAR = {"hunter_precise": "assassin", "hunter_crit": "rogue_crit"}
 
 #: Named lines, for a wood's casting weapons only: a bow called Venomthorn is still a bow.
 WOOD_LINES = [
+    # STAVES AREN'T ONLY FOR CASTERS (Kyle, 15 Nov 2026: "Beetle tanks and bear tanks (venomancer and
+    # druids) can use staves....so agi staves and tank staves are real"). Prowler's and Stalker's staves
+    # are a cat druid's or a hunter's (attack power and Agility); Barkguard staves are a bear druid's or a
+    # Venomancer beetle's (Stamina, Agility and dodge). Both read agi_physical, as those tanks do.
+    (r"Prowler's|Stalker's", None, "feral", "A fighting staff, weighted at both ends and wrapped for grip."),
+    (r"Barkguard", None, "bear", "Bark-plated and heavy. It's made to take a blow as much as give one."),
     (r"Healer's|Scarlet|Blessed|Piety|Grove|Lifebark|Taurajo Spirit|Amberwood|Pilgrim's", None, "healer",
      "Carved for a healer, smooth where the hand rests."),
     (r"Hexwood|Bone-Tipped|Tiki|Shadowroot|Darkthorn", None, "hex", "Troll work, hung with little bone charms."),
@@ -428,6 +442,11 @@ WOOD_LINES = [
 ]
 
 WOOD_TRINKET_LINES = [
+    (r"Hawk Fetish", None, "agility", "A hawk carved from one piece of wood, feathers and all."),
+    (r"Barkguard Ward", None, "bear", "A disc of layered bark. Hit it hard and it hardens."),
+    (r"Moonpetal Blossom", None, "high_healer", "A moonpetal flower carved in wood so thin the light shows through."),
+    (r"Emberwood Brand", None, "fire", "A branding iron of emberwood. It never quite cools."),
+    (r"Stormoak Heart", None, "storm", "The heart of a lightning-struck oak, still charged."),
     (r"Carved Oakheart Charm", None, "caster", "An oak heart, carved small. It's lucky, or it's angry."),
     (r"Heartwood Idol", None, "healer", "A druid's idol, cut from the heart of a very old tree."),
 ]
@@ -435,9 +454,49 @@ WOOD_HEAD_LINES = [
     (r"Driftwood Mask", "leather", "feral", "Driftwood, carved into a beast's face."),
     (r"Ironbark Helm", "mail", "earthen", "Ironbark plates laced over a leather cap."),
     (r"Bramblewood Crown", "leather", "wildheart", "A crown of living bramble. It still flowers in spring."),
+    (r"Bloodroot Mask", "leather", "feral", "A snarling mask of bloodroot. The sap stains the wearer's face."),
+    (r"Felbark Helm", "mail", "earthen", "Felbark plates over a mail coif. The green glow is the wood, not you."),
+    (r"Starleaf Crown", "leather", "wildheart", "A circlet of starleaf twigs, and it glitters at night."),
 ]
 
+#: RELICS (totems, idols, librams: the ranged slot of a shaman, druid or paladin). The name says the
+#: role, the way a WoW relic's did. First match wins, so "Moonpetal Grove Idol" is a healer's.
+WOOD_RELIC_LINES = [
+    (r"Barkguard", "bear", "Carved for a bear's hide. It gets heavier the harder you're hit."),
+    (r"Claw", "feral", "A clawed paw, carved in the round and worn smooth by a druid's grip."),
+    (r"Grove", "healer", "A seedling carved in the grove's own wood. It still smells of rain."),
+    (r"Mercy", "plate_healer", "Psalms of mercy, bound between boards of good wood."),
+    (r"Tide", "tide_healer", "Carved with the tide's runes. Hold it to your ear and it sounds like the sea."),
+    (r"Zeal", "crusader", "Battle-prayers, bound in wood and banded for a soldier's belt."),
+    (r"Bulwark", "tank", "Oaths of the shield wall, bound in boards thick enough to stop a blade."),
+    (r"Earthshaker", "earthen", "A squat totem, heavy as a stone. It thrums when you strike."),
+    (r"Storm", "storm", "The wood's split along a lightning scar, and the scar still crackles."),
+    (r"Moon Idol", "nature", "A crescent moon cut into pale wood. It brightens at night."),
+]
+RELICS = {"totem", "idol", "libram"}
+
 WOOD_PROCS = [
+    # woodworking expansion (15 Nov 2026), sized off ENGINEERING_PROCS at the trinket's level
+    (r"Hawk Fetish", {"trigger": "on_crit", "chance": 15, "icd": 4,
+                      "apply_effect": {"effect_id": "hawk_fetish_eye", "name": "Hawk's Eye", "effect_type": "buff",
+                                       "duration": 3, "stat_mods": {"attack_power": 35}, "on_target": False},
+                      "describe": "Your critical hits have a chance to grant 35 attack power for 3 turns."}),
+    (r"Barkguard Ward", {"trigger": "on_damage_taken", "chance": 10, "icd": 5,
+                         "apply_effect": {"effect_id": "barkguard_ward", "name": "Barkguard", "effect_type": "buff",
+                                          "duration": 3, "absorb_pct_max_health": 0.05, "stat_mods": {},
+                                          "on_target": False},
+                         "describe": "When you're struck, you have a chance to harden into bark that absorbs "
+                                     "5% of your health."}),
+    (r"Moonpetal Blossom", {"trigger": "on_heal_cast", "chance": 10, "icd": 4,
+                            "grant_resource": {"resource": "mana", "amount": 70},
+                            "describe": "Your healing spells have a chance to restore 70 mana."}),
+    (r"Emberwood Brand", {"trigger": "on_damage_cast", "chance": 10, "icd": 4, "damage_flat": 110, "school": "fire",
+                          "describe": "Your damaging spells have a chance to brand the target for 110 fire damage."}),
+    (r"Stormoak Heart", {"trigger": "on_damage_cast", "chance": 8, "icd": 5,
+                         "apply_effect": {"effect_id": "stormoak_heart", "name": "Gathering Storm",
+                                          "effect_type": "buff", "duration": 3,
+                                          "stat_mods": {"spell_power": 45}, "on_target": False},
+                         "describe": "Your damaging spells have a chance to grant 45 spell power for 3 turns."}),
     (r"Carved Oakheart Charm", {"trigger": "on_damage_cast", "chance": 10, "icd": 4, "damage_flat": 30,
                                 "school": "nature", "describe": "Your damaging spells have a chance to lash "
                                                                 "the target with thorns for 30 nature damage."}),
@@ -464,13 +523,20 @@ def wood_identity(recipe, base_ident):
         return next(((a, i, f) for p, a, i, f in WOOD_HEAD_LINES if re.search(p, name)), (None, "feral", None))
     if wt in ("bow", "crossbow"):
         return None, WOOD_RANGED.get(tier, "hunter"), "Strung tight and true. It won't miss for want of a good bow."
+    if wt in RELICS:
+        return next(((None, i, f) for p, i, f in WOOD_RELIC_LINES if re.search(p, name)),
+                    (None, {"totem": "storm", "idol": "nature", "libram": "crusader"}[wt], None))
     if wt == "polearm":
+        if re.search(r"Warpike", name):
+            return None, "strength", "A long, heavy war-pike. Wood this good doesn't snap on armour."
         if re.search(r"Warden's", name):
             return None, "crusader", "Heavy enough to fight with, and blessed besides."
         if re.search(r"Razortusk", name):
             return None, "strength", "Tusks bound to a heavy haft. It's made for swinging."
         return None, WOOD_SPEAR.get(WOOD_RANGED.get(tier), "agility"), "A long haft of good wood and a sharp point."
     if wt == "shield":
+        if re.search(r"Thunder|Storm", name):
+            return None, "storm", "A wooden shield with a copper boss. Lightning likes it."
         return None, "tide_healer", "A wooden shield, carved with tide runes for a shaman's arm."
     for pat, arm, ident, flav in WOOD_LINES:
         if re.search(pat, name):
@@ -516,6 +582,9 @@ def weapon_identity(weapon_type, ident):
     one tanks with a greataxe."""
     if weapon_type == "shield" and ident not in CASTING:
         return "shield_tank"
+    # ...except a staff: a bear druid or a Venomancer beetle really does tank with one (Kyle, 15 Nov 2026)
+    if weapon_type == "staff" and ident == "bear":
+        return ident
     if weapon_type in TWO_HANDED and ident in ("tank", "shield_tank", "bear"):
         return "strength"
     return ident
@@ -717,16 +786,38 @@ def icon_for(name, slot, armor_type, weapon_type, rarity):
                                seed=f"fixedboss:{name}", explicit=None)
 
 
+#: A FIGHTER'S STAFF IS A TWO-HANDED WEAPON. A staff's damage tier is "staff" (0.55, a caster's stick)
+#: and its stat budget 1.8 to make up for it (data/items/weapon_types.json). For a bear druid, a Venomancer
+#: beetle, a cat or a ret paladin that's a trap: they swing it, so it gave up most of a two-hander's damage
+#: for stats they'd have had anyway. These identities' staves are built as two-handers - a two-hander's
+#: damage, speed and budget - and stay staves (Kyle, 15 Nov 2026: "agi staves and tank staves are real").
+FIGHTING_STAFF = {"feral", "bear", "crusader", "strength", "agility"}
+
+
+def as_built(out, ident):
+    """The recipe's output as the generator should price it: a fighter's staff priced as a two-hander."""
+    if out.get("weapon_type") == "staff" and ident in FIGHTING_STAFF:
+        return {**out, "weapon_type": "mace_2h", "stat_template": IDENTITIES[ident][1]}
+    return out
+
+
 def author(rid, recipe, ident, flavour):
     out = recipe["output"]
     weights, template = IDENTITIES[ident]
-    prim, sec = split(weights, budget(out), out["item_level"])
-    ref = reference(rid, out)
+    built = as_built(out, ident)
+    prim, sec = split(weights, budget(built), out["item_level"])
+    ref = reference(rid, built)
+    # NO STRAY ARMOUR. The reference item's random rolls can include "+armor", which Item folds into its
+    # armour value: a wand with 138 armour, a caster's trinket with 185. That's a drip stat (Kyle, 15 Nov 2026:
+    # "The crafted items need to be logical and not full of drip stats"), so only armour, shields and the
+    # slots that are armour keep it.
+    keeps_armour = out["kind"] == "armor" and out["slot"] not in ("trinket", "trinket1", "trinket2") \
+        or ref.weapon_type == "shield"
     item = {
         "name": recipe["name"], "slot": out["slot"], "item_level": out["item_level"],
-        "rarity": out["rarity"], "armor_type": ref.armor_type, "weapon_type": ref.weapon_type,
+        "rarity": out["rarity"], "armor_type": ref.armor_type, "weapon_type": out.get("weapon_type") or ref.weapon_type,
         "stat_template": template, "primary_stats": prim, "secondary_stats": sec,
-        "armor_value": ref.armor_value, "required_level": ref.required_level,
+        "armor_value": ref.armor_value if keeps_armour else 0, "required_level": ref.required_level,
         "sell_price": ref.sell_price, "flavor_text": flavour, "identity": ident,
     }
     # ONE ICON PER CRAFT (Kyle, 15 Nov: "Ensure crafting makes ONE icon per craft. Not random"). The
