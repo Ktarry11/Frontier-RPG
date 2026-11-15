@@ -431,36 +431,40 @@
         {
           "rank": 1,
           "level_req": 10,
-          "cost": 45,
-          "effect_value": 54
+          "cost": 38,
+          "effect_value": 35
         },
         {
           "rank": 2,
           "level_req": 20,
-          "cost": 69,
-          "effect_value": 78
+          "cost": 59,
+          "effect_value": 51
         },
         {
           "rank": 3,
           "level_req": 32,
-          "cost": 93,
-          "effect_value": 102
+          "cost": 79,
+          "effect_value": 66
         },
         {
           "rank": 4,
           "level_req": 46,
-          "cost": 117,
-          "effect_value": 127
+          "cost": 99,
+          "effect_value": 83
         },
         {
           "rank": 5,
           "level_req": 60,
-          "cost": 141,
-          "effect_value": 151
+          "cost": 120,
+          "effect_value": 98
         }
       ],
       "icon_id": null,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "cast_speed": "quick",
+      "_tuning": [
+        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "priest_power_word_shield",

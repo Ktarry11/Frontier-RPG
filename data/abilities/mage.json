@@ -431,32 +431,36 @@
         {
           "rank": 1,
           "level_req": 36,
-          "cost": 60,
-          "effect_value": 62
+          "cost": 69,
+          "effect_value": 93
         },
         {
           "rank": 2,
           "level_req": 44,
-          "cost": 76,
-          "effect_value": 76
+          "cost": 87,
+          "effect_value": 114
         },
         {
           "rank": 3,
           "level_req": 52,
-          "cost": 92,
-          "effect_value": 90
+          "cost": 106,
+          "effect_value": 135
         },
         {
           "rank": 4,
           "level_req": 60,
-          "cost": 124,
-          "effect_value": 117
+          "cost": 143,
+          "effect_value": 176
         }
       ],
       "icon_id": null,
       "requires_talent": true,
       "damage_school": "fire",
-      "_design_note": "Not learned from level alone - granted by the Pyroblast talent in the Fire tree, matching real WOTLK where this is talent-exclusive to Fire, not a baseline ability. A massive fiery boulder that deals devastating damage."
+      "_design_note": "Not learned from level alone - granted by the Pyroblast talent in the Fire tree, matching real WOTLK where this is talent-exclusive to Fire, not a baseline ability. A massive fiery boulder that deals devastating damage.",
+      "cast_speed": "slow",
+      "_tuning": [
+        "15 Nov 2026: a slow cast (Kyle: \"Speed sets next turn\"), sized 1.5x for 1.15x the cost (tools/apply_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "mage_ice_barrier",
@@ -640,43 +644,47 @@
         {
           "rank": 1,
           "level_req": 18,
-          "cost": 55,
-          "effect_value": 58
+          "cost": 47,
+          "effect_value": 38
         },
         {
           "rank": 2,
           "level_req": 24,
-          "cost": 63,
-          "effect_value": 66
+          "cost": 54,
+          "effect_value": 43
         },
         {
           "rank": 3,
           "level_req": 30,
-          "cost": 71,
-          "effect_value": 75
+          "cost": 60,
+          "effect_value": 49
         },
         {
           "rank": 4,
           "level_req": 38,
-          "cost": 82,
-          "effect_value": 86
+          "cost": 70,
+          "effect_value": 56
         },
         {
           "rank": 5,
           "level_req": 46,
-          "cost": 93,
-          "effect_value": 98
+          "cost": 79,
+          "effect_value": 64
         },
         {
           "rank": 6,
           "level_req": 54,
-          "cost": 103,
-          "effect_value": 109
+          "cost": 88,
+          "effect_value": 71
         }
       ],
       "is_instant": true,
       "icon_id": null,
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "cast_speed": "quick",
+      "_tuning": [
+        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "mage_mage_armor",
@@ -810,42 +818,46 @@
         {
           "rank": 1,
           "level_req": 20,
-          "cost": 20,
-          "effect_value": 40,
+          "cost": 17,
+          "effect_value": 26,
           "heal_value": 14
         },
         {
           "rank": 2,
           "level_req": 32,
-          "cost": 30,
-          "effect_value": 60,
+          "cost": 26,
+          "effect_value": 39,
           "heal_value": 21
         },
         {
           "rank": 3,
           "level_req": 40,
-          "cost": 35,
-          "effect_value": 70,
+          "cost": 30,
+          "effect_value": 46,
           "heal_value": 24
         },
         {
           "rank": 4,
           "level_req": 48,
-          "cost": 40,
-          "effect_value": 81,
+          "cost": 34,
+          "effect_value": 53,
           "heal_value": 28
         },
         {
           "rank": 5,
           "level_req": 58,
-          "cost": 47,
-          "effect_value": 95,
+          "cost": 40,
+          "effect_value": 62,
           "heal_value": 33
         }
       ],
       "is_instant": true,
       "icon_id": "mage_ice_lance",
-      "damage_school": "frost"
+      "damage_school": "frost",
+      "cast_speed": "quick",
+      "_tuning": [
+        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "mage_icy_penance",

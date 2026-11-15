@@ -373,24 +373,28 @@
         {
           "rank": 1,
           "level_req": 44,
-          "cost": 45,
-          "effect_value": 72
+          "cost": 38,
+          "effect_value": 47
         },
         {
           "rank": 2,
           "level_req": 56,
-          "cost": 69,
-          "effect_value": 106
+          "cost": 59,
+          "effect_value": 69
         },
         {
           "rank": 3,
           "level_req": 60,
-          "cost": 93,
-          "effect_value": 139
+          "cost": 79,
+          "effect_value": 90
         }
       ],
       "icon_id": null,
-      "damage_school": "holy"
+      "damage_school": "holy",
+      "cast_speed": "quick",
+      "_tuning": [
+        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "paladin_holy_shock",
@@ -405,39 +409,43 @@
         {
           "rank": 1,
           "level_req": 26,
-          "cost": 45,
-          "effect_value": 60
+          "cost": 38,
+          "effect_value": 39
         },
         {
           "rank": 2,
           "level_req": 34,
-          "cost": 52,
-          "effect_value": 70
+          "cost": 44,
+          "effect_value": 46
         },
         {
           "rank": 3,
           "level_req": 41,
-          "cost": 60,
-          "effect_value": 80
+          "cost": 51,
+          "effect_value": 52
         },
         {
           "rank": 4,
           "level_req": 48,
-          "cost": 68,
-          "effect_value": 90
+          "cost": 58,
+          "effect_value": 58
         },
         {
           "rank": 5,
           "level_req": 56,
-          "cost": 75,
-          "effect_value": 100
+          "cost": 64,
+          "effect_value": 65
         }
       ],
       "target_type": "ally",
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
-      "_design_note": "Not learned from level alone - granted by the Holy Shock talent in the Holy tree. Blasts an ally with Holy energy, healing them instantly."
+      "_design_note": "Not learned from level alone - granted by the Holy Shock talent in the Holy tree. Blasts an ally with Holy energy, healing them instantly.",
+      "cast_speed": "quick",
+      "_tuning": [
+        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "paladin_avengers_shield",

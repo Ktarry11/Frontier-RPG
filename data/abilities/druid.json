@@ -101,60 +101,64 @@
         {
           "rank": 1,
           "level_req": 1,
-          "cost": 30,
-          "effect_value": 128
+          "cost": 26,
+          "effect_value": 83
         },
         {
           "rank": 2,
           "level_req": 6,
-          "cost": 38,
-          "effect_value": 168
+          "cost": 32,
+          "effect_value": 109
         },
         {
           "rank": 3,
           "level_req": 12,
-          "cost": 46,
-          "effect_value": 208
+          "cost": 39,
+          "effect_value": 135
         },
         {
           "rank": 4,
           "level_req": 18,
-          "cost": 54,
-          "effect_value": 248
+          "cost": 46,
+          "effect_value": 161
         },
         {
           "rank": 5,
           "level_req": 24,
-          "cost": 62,
-          "effect_value": 288
+          "cost": 53,
+          "effect_value": 187
         },
         {
           "rank": 6,
           "level_req": 32,
-          "cost": 70,
-          "effect_value": 328
+          "cost": 60,
+          "effect_value": 213
         },
         {
           "rank": 7,
           "level_req": 40,
-          "cost": 78,
-          "effect_value": 368
+          "cost": 66,
+          "effect_value": 239
         },
         {
           "rank": 8,
           "level_req": 48,
-          "cost": 86,
-          "effect_value": 408
+          "cost": 73,
+          "effect_value": 265
         },
         {
           "rank": 9,
           "level_req": 56,
-          "cost": 94,
-          "effect_value": 448
+          "cost": 80,
+          "effect_value": 291
         }
       ],
       "icon_id": null,
-      "_source": " || Duration 3 -> 4 turns, 6 Nov 2026. Kyle: 'we KNOW rejuv should not be the same duration as regrowth or wild growth etc.' He was right and ours were backwards - Rejuvenation ran 4 turns while Regrowth, the long-tail spell, was tied for SHORTEST at 3, and Wild Growth, the emergency AoE, matched the blanket. Bucket: tail - the dot you open with and leave running. The window is measured, not guessed: tools/sim_class_balance.py plus a boss-multiplier run put trash fights at 2-3 turns (p90 4-5) and boss fights at 5-6 (p90 8-10), so realised damage for a dot applied on turn 1 is 2t 100%, 3t 91%, 4t 78%, 5t 66%, 6t 57% on trash. WoW's RELATIVE ordering is preserved (Wild Growth < Rejuvenation < Regrowth) rather than its absolute seconds, which belong to a game with far longer fights. PER-TICK IS HELD AT THE SHIPPED VALUE and the total scales with duration, because effect_value is the TOTAL across the duration (abilities.py:2695) - moving duration alone would thin a fixed total instead of changing the spell's strength."
+      "_source": " || Duration 3 -> 4 turns, 6 Nov 2026. Kyle: 'we KNOW rejuv should not be the same duration as regrowth or wild growth etc.' He was right and ours were backwards - Rejuvenation ran 4 turns while Regrowth, the long-tail spell, was tied for SHORTEST at 3, and Wild Growth, the emergency AoE, matched the blanket. Bucket: tail - the dot you open with and leave running. The window is measured, not guessed: tools/sim_class_balance.py plus a boss-multiplier run put trash fights at 2-3 turns (p90 4-5) and boss fights at 5-6 (p90 8-10), so realised damage for a dot applied on turn 1 is 2t 100%, 3t 91%, 4t 78%, 5t 66%, 6t 57% on trash. WoW's RELATIVE ordering is preserved (Wild Growth < Rejuvenation < Regrowth) rather than its absolute seconds, which belong to a game with far longer fights. PER-TICK IS HELD AT THE SHIPPED VALUE and the total scales with duration, because effect_value is the TOTAL across the duration (abilities.py:2695) - moving duration alone would thin a fixed total instead of changing the spell's strength.",
+      "cast_speed": "quick",
+      "_tuning": [
+        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "druid_rejuvenation",
@@ -373,36 +377,40 @@
         {
           "rank": 1,
           "level_req": 20,
-          "cost": 50,
-          "effect_value": 54
+          "cost": 57,
+          "effect_value": 81
         },
         {
           "rank": 2,
           "level_req": 32,
-          "cost": 76,
-          "effect_value": 80
+          "cost": 87,
+          "effect_value": 120
         },
         {
           "rank": 3,
           "level_req": 40,
-          "cost": 89,
-          "effect_value": 93
+          "cost": 102,
+          "effect_value": 140
         },
         {
           "rank": 4,
           "level_req": 48,
-          "cost": 102,
-          "effect_value": 106
+          "cost": 117,
+          "effect_value": 159
         },
         {
           "rank": 5,
           "level_req": 58,
-          "cost": 120,
-          "effect_value": 124
+          "cost": 138,
+          "effect_value": 186
         }
       ],
       "icon_id": null,
-      "damage_school": "arcane"
+      "damage_school": "arcane",
+      "cast_speed": "slow",
+      "_tuning": [
+        "15 Nov 2026: a slow cast (Kyle: \"Speed sets next turn\"), sized 1.5x for 1.15x the cost (tools/apply_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "druid_healing_touch",

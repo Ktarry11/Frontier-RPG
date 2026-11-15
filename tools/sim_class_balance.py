@@ -261,7 +261,10 @@ def plan(char):
         """
         ev = getattr(a, "effect_value", 0) or 0
         dur = getattr(a, "duration", 0) or 0
-        return ev / dur if dur > 1 else ev
+        per = ev / dur if dur > 1 else ev
+        # PER TURN OF TIME (cast speed, 15 Nov 2026): a slow 1.5-turn spell's number is spread over 1.5 turns, a
+        # quick 0.6-turn one's over 0.6 - ranked on raw size, the planner would always reach for the slow nuke
+        return per / (getattr(a, "cast_speed", 1.0) or 1.0)
 
     # DEFENSIVE COOLDOWNS, which this planner collected nowhere. A
     # self-targeted buff that reduces incoming damage is neither a heal nor an
@@ -301,7 +304,10 @@ def plan(char):
     ]
     defensives.sort(key=lambda a: -mitigation_weight(a))
 
-    heals.sort(key=lambda a: -(getattr(a, "heal_value", 0) or 0))
+    # biggest heal per turn of time first (heal_value is only set on damage-and-heal spells; a plain heal's amount
+    # is its effect_value - sorting on heal_value alone left plain heals in file order)
+    heals.sort(key=lambda a: -(((getattr(a, "heal_value", 0) or 0) or (getattr(a, "effect_value", 0) or 0))
+                               / (getattr(a, "cast_speed", 1.0) or 1.0)))
     attacks.sort(key=lambda a: -per_turn(a))
     return heals, attacks, setup, defensives
 

@@ -101,36 +101,40 @@
         {
           "rank": 1,
           "level_req": 10,
-          "cost": 25,
-          "effect_value": 48
+          "cost": 21,
+          "effect_value": 31
         },
         {
           "rank": 2,
           "level_req": 22,
-          "cost": 35,
-          "effect_value": 68
+          "cost": 30,
+          "effect_value": 44
         },
         {
           "rank": 3,
           "level_req": 34,
-          "cost": 45,
-          "effect_value": 88
+          "cost": 38,
+          "effect_value": 57
         },
         {
           "rank": 4,
           "level_req": 48,
-          "cost": 55,
-          "effect_value": 108
+          "cost": 47,
+          "effect_value": 70
         },
         {
           "rank": 5,
           "level_req": 58,
-          "cost": 64,
-          "effect_value": 127
+          "cost": 54,
+          "effect_value": 83
         }
       ],
       "icon_id": null,
-      "damage_school": "arcane"
+      "damage_school": "arcane",
+      "cast_speed": "quick",
+      "_tuning": [
+        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "hunter_multi_shot",
@@ -191,35 +195,39 @@
         {
           "rank": 1,
           "level_req": 16,
-          "cost": 40,
-          "effect_value": 58
+          "cost": 46,
+          "effect_value": 87
         },
         {
           "rank": 2,
           "level_req": 26,
-          "cost": 62,
-          "effect_value": 84
+          "cost": 71,
+          "effect_value": 126
         },
         {
           "rank": 3,
           "level_req": 38,
-          "cost": 84,
-          "effect_value": 110
+          "cost": 97,
+          "effect_value": 165
         },
         {
           "rank": 4,
           "level_req": 48,
-          "cost": 106,
-          "effect_value": 136
+          "cost": 122,
+          "effect_value": 204
         },
         {
           "rank": 5,
           "level_req": 58,
-          "cost": 128,
-          "effect_value": 162
+          "cost": 147,
+          "effect_value": 243
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "cast_speed": "slow",
+      "_tuning": [
+        "15 Nov 2026: a slow cast (Kyle: \"Speed sets next turn\"), sized 1.5x for 1.15x the cost (tools/apply_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "hunter_serpent_sting",

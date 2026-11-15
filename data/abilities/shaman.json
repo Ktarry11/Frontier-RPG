@@ -101,36 +101,40 @@
         {
           "rank": 1,
           "level_req": 4,
-          "cost": 32,
-          "effect_value": 52
+          "cost": 27,
+          "effect_value": 34
         },
         {
           "rank": 2,
           "level_req": 13,
-          "cost": 49,
-          "effect_value": 77
+          "cost": 42,
+          "effect_value": 50
         },
         {
           "rank": 3,
           "level_req": 25,
-          "cost": 66,
-          "effect_value": 102
+          "cost": 56,
+          "effect_value": 66
         },
         {
           "rank": 4,
           "level_req": 39,
-          "cost": 83,
-          "effect_value": 126
+          "cost": 71,
+          "effect_value": 82
         },
         {
           "rank": 5,
           "level_req": 53,
-          "cost": 100,
-          "effect_value": 151
+          "cost": 85,
+          "effect_value": 98
         }
       ],
       "icon_id": null,
-      "damage_school": "nature"
+      "damage_school": "nature",
+      "cast_speed": "quick",
+      "_tuning": [
+        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "shaman_lava_burst",
@@ -189,48 +193,52 @@
         {
           "rank": 1,
           "level_req": 6,
-          "cost": 30,
-          "effect_value": 52
+          "cost": 26,
+          "effect_value": 34
         },
         {
           "rank": 2,
           "level_req": 14,
-          "cost": 38,
-          "effect_value": 68
+          "cost": 32,
+          "effect_value": 44
         },
         {
           "rank": 3,
           "level_req": 22,
-          "cost": 46,
-          "effect_value": 84
+          "cost": 39,
+          "effect_value": 55
         },
         {
           "rank": 4,
           "level_req": 30,
-          "cost": 54,
-          "effect_value": 100
+          "cost": 46,
+          "effect_value": 65
         },
         {
           "rank": 5,
           "level_req": 38,
-          "cost": 62,
-          "effect_value": 116
+          "cost": 53,
+          "effect_value": 75
         },
         {
           "rank": 6,
           "level_req": 47,
-          "cost": 70,
-          "effect_value": 132
+          "cost": 60,
+          "effect_value": 86
         },
         {
           "rank": 7,
           "level_req": 56,
-          "cost": 78,
-          "effect_value": 149
+          "cost": 66,
+          "effect_value": 97
         }
       ],
       "icon_id": null,
-      "_level_note": "Rank 1 moved from level 10 to 6, 29 Oct 2026. Kyle's call on the early-game finding: the class was soft at levels 5-20 and fine from 30, and the cause was how FEW damage buttons it had early rather than how hard they hit. Values unchanged at every rank, so nothing moves at 60."
+      "_level_note": "Rank 1 moved from level 10 to 6, 29 Oct 2026. Kyle's call on the early-game finding: the class was soft at levels 5-20 and fine from 30, and the cause was how FEW damage buttons it had early rather than how hard they hit. Values unchanged at every rank, so nothing moves at 60.",
+      "cast_speed": "quick",
+      "_tuning": [
+        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "shaman_healing_wave",
@@ -449,24 +457,28 @@
         {
           "rank": 1,
           "level_req": 20,
-          "cost": 38,
-          "effect_value": 43
+          "cost": 32,
+          "effect_value": 28
         },
         {
           "rank": 2,
           "level_req": 36,
-          "cost": 58,
-          "effect_value": 71
+          "cost": 49,
+          "effect_value": 46
         },
         {
           "rank": 3,
           "level_req": 56,
-          "cost": 78,
-          "effect_value": 100
+          "cost": 66,
+          "effect_value": 65
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "quick",
+      "_tuning": [
+        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "shaman_chain_lightning",

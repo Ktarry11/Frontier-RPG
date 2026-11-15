@@ -571,27 +571,31 @@
         {
           "rank": 1,
           "level_req": 30,
-          "cost": 45,
-          "effect_value": 56
+          "cost": 38,
+          "effect_value": 36
         },
         {
           "rank": 2,
           "level_req": 40,
-          "cost": 53,
-          "effect_value": 67
+          "cost": 45,
+          "effect_value": 44
         },
         {
           "rank": 3,
           "level_req": 52,
-          "cost": 64,
-          "effect_value": 79
+          "cost": 54,
+          "effect_value": 51
         }
       ],
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
       "damage_school": "fire",
-      "_design_note": "Not learned from level alone - granted by the Conflagrate talent in the Destruction tree. Real WOTLK detonates your Immolate DoT for burst Fire damage - simplified here to a direct Fire-flavored damage hit since consuming another DoT for burst isn't a general mechanic yet."
+      "_design_note": "Not learned from level alone - granted by the Conflagrate talent in the Destruction tree. Real WOTLK detonates your Immolate DoT for burst Fire damage - simplified here to a direct Fire-flavored damage hit since consuming another DoT for burst isn't a general mechanic yet.",
+      "cast_speed": "quick",
+      "_tuning": [
+        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "warlock_chaos_bolt",
@@ -761,49 +765,53 @@
         {
           "rank": 1,
           "level_req": 12,
-          "cost": 35,
-          "effect_value": 42
+          "cost": 30,
+          "effect_value": 27
         },
         {
           "rank": 2,
           "level_req": 18,
-          "cost": 41,
-          "effect_value": 49
+          "cost": 35,
+          "effect_value": 32
         },
         {
           "rank": 3,
           "level_req": 24,
-          "cost": 47,
-          "effect_value": 56
+          "cost": 40,
+          "effect_value": 36
         },
         {
           "rank": 4,
           "level_req": 32,
-          "cost": 55,
-          "effect_value": 66
+          "cost": 47,
+          "effect_value": 43
         },
         {
           "rank": 5,
           "level_req": 40,
-          "cost": 63,
-          "effect_value": 76
+          "cost": 54,
+          "effect_value": 49
         },
         {
           "rank": 6,
           "level_req": 48,
-          "cost": 71,
-          "effect_value": 85
+          "cost": 60,
+          "effect_value": 55
         },
         {
           "rank": 7,
           "level_req": 56,
-          "cost": 79,
-          "effect_value": 95
+          "cost": 67,
+          "effect_value": 62
         }
       ],
       "is_instant": true,
       "icon_id": null,
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "cast_speed": "quick",
+      "_tuning": [
+        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "warlock_curse_of_agony",
