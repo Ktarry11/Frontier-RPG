@@ -51,6 +51,34 @@ class _GuildAsTab:
         return self.guild.withdraw(i)
 from ui.renderer import Renderer
 from ui.screens.base_screen import BaseScreen
+from ui.screens.inventory_screen import GEAR_SUBTABS, gear_subtab
+
+# SORTING (Kyle, 14 Nov 2026: "Lets make sorting tabs for almost everything bro"). A bank tab is 48 fixed
+# cells, so a filter that HID items would slide every cell along and a click would land on the wrong one.
+# Instead the filter dims what doesn't match, on both grids, and positions never move. "Sort" is the
+# deliberate tidy: it packs the strongbox you're looking at by kind, then slot, best first.
+FILTER_GAP = 5
+_RARITY = ["poor", "common", "uncommon", "rare", "epic", "legendary"]
+_KIND = [k for k, _ in GEAR_SUBTABS if k != "all"]
+_SLOT = ["head", "neck", "shoulder", "back", "chest", "wrist", "hands", "waist", "legs", "feet",
+         "ring", "trinket", "main_hand", "off_hand", "ranged"]
+
+
+def sort_key(item):
+    """Kind, then slot, then rarity and item level (best first), then name."""
+    kind = gear_subtab(item)
+    slot = str(getattr(item, "slot", "") or "")
+    slot_rank = next((n for n, s in enumerate(_SLOT) if slot.startswith(s)), len(_SLOT))
+    rarity = str(getattr(item, "rarity", "common") or "common").lower()
+    return (_KIND.index(kind) if kind in _KIND else len(_KIND), slot_rank,
+            -(_RARITY.index(rarity) if rarity in _RARITY else 1),
+            -int(getattr(item, "item_level", 0) or 0), str(getattr(item, "name", "")))
+
+
+def sorted_slots(slots):
+    """The same items, packed to the front in sort order, with the same number of cells."""
+    items = sorted((x for x in slots if x is not None), key=sort_key)
+    return items + [None] * (len(slots) - len(items))
 
 GRID_COLS = 8
 CELL = 56
@@ -81,6 +109,8 @@ class BankScreen(BaseScreen):
         self.active_tab = 0
         self.message = ""
         self.hover = None          # ("bank"|"player", index) for the tooltip
+        self.filter = "all"        # a GEAR_SUBTABS key: what stays lit on both grids
+        self.filter_rects = {}
         self._build_rects()
 
     # ------------------------------------------------------------------ data
@@ -122,6 +152,31 @@ class BankScreen(BaseScreen):
                           for i in range(MAX_TABS + 1)]
         self.close_rect = pygame.Rect(SCREEN_WIDTH - 150, 20, 120, 40)
         self.deposit_all_rect = pygame.Rect(PLAYER_X, PLAYER_Y - 44, 190, 34)
+        # the filter row sits under the bank grid; render measures each button to its label
+        self.filter_y = BANK_Y + rows * (CELL + GAP) + 4
+        self.sort_rect = pygame.Rect(BANK_X, self.filter_y, 60, 24)
+
+    def _lit(self, item):
+        """Whether this item matches the filter (empty cells are never dimmed - there's nothing to dim)."""
+        return item is None or self.filter == "all" or gear_subtab(item) == self.filter
+
+    def _sort_tab(self, bank):
+        """Tidy the strongbox in view. The guild bank goes through its own transact so the vault file
+        and this character are saved together, as every other guild move is."""
+        if self.active_tab == GUILD_TAB:
+            g = bank.guild
+            before = list(g.slots)
+
+            def tidy():
+                g.slots = sorted_slots(g.slots)
+                return True
+            ok = g.transact(tidy)
+            changed = ok and g.slots != before
+        else:
+            before = list(bank.tabs[self.active_tab])
+            bank.tabs[self.active_tab] = sorted_slots(before)
+            changed = bank.tabs[self.active_tab] != before
+        self.message = "Sorted." if changed else "Already tidy."
 
     # ------------------------------------------------------------------ input
     def handle_event(self, event):
@@ -173,6 +228,15 @@ class BankScreen(BaseScreen):
                 self.message = msg
                 if ok:
                     self.active_tab = i
+            return
+
+        # --- the filter row and Sort
+        for key, r in self.filter_rects.items():
+            if r.collidepoint(pos):
+                self.filter = key
+                return
+        if self.sort_rect.collidepoint(pos):
+            self._sort_tab(bank)
             return
 
         # --- deposit everything that fits, which is what the button is for
@@ -245,6 +309,35 @@ class BankScreen(BaseScreen):
             # No art for this item - the first letters of its name beat an empty box.
             self.renderer.draw_text(screen, getattr(item, "name", "?")[:6],
                                     (rect.x + 4, rect.centery - 8), color=colour, size="small")
+        if not self._lit(item):
+            shade = pygame.Surface(rect.size, pygame.SRCALPHA)
+            shade.fill((10, 10, 14, 175))
+            screen.blit(shade, rect.topleft)
+
+    def _draw_filters(self, screen, bank, player):
+        """All, Armour, Weapons... with a count of what's in this strongbox and the backpack, then Sort."""
+        here = [bank.get(self.active_tab, i) for i in range(self._slots_shown())]
+        counts = {}
+        for it in [x for x in here if x is not None] + list(player.inventory):
+            k = gear_subtab(it)
+            counts[k] = counts.get(k, 0) + 1
+        counts["all"] = sum(counts.values())
+        font = self.renderer._get_font("small")
+        x = BANK_X
+        self.filter_rects = {}
+        for key, label in GEAR_SUBTABS:
+            n = counts.get(key, 0)
+            on = key == self.filter
+            text = f"{label} {n}" if n else label
+            r = pygame.Rect(x, self.filter_y, font.size(text)[0] + 14, 24)
+            colour = COLOR_GOLD if on else ((170, 170, 180) if n else (85, 85, 92))
+            pygame.draw.rect(screen, (45, 40, 30) if on else (28, 28, 34), r)
+            pygame.draw.rect(screen, colour if on else (70, 70, 80), r, 1)
+            self.renderer.draw_text(screen, text, (r.x + 7, r.y + 4), color=colour, size="small")
+            self.filter_rects[key] = r
+            x = r.right + FILTER_GAP
+        self.sort_rect = pygame.Rect(x + 6, self.filter_y, font.size("Sort")[0] + 24, 24)
+        self.renderer.draw_button(screen, self.sort_rect, "Sort", color=(60, 80, 60))
 
     def render(self, screen):
         screen.fill((16, 16, 20))
@@ -301,6 +394,7 @@ class BankScreen(BaseScreen):
                                     color=(140, 160, 200), size="small")
         for i, r in enumerate(self.bank_rects[:shown]):
             self._cell(screen, r, bank.get(self.active_tab, i))
+        self._draw_filters(screen, bank, player)
 
         cap = getattr(player, "inventory_capacity", 16)
         self.renderer.draw_text(screen, f"Backpack  {len(player.inventory)}/{cap}",
