@@ -335,30 +335,33 @@
           "rank": 1,
           "level_req": 30,
           "cost": 30,
-          "effect_value": 60
+          "effect_value": 110
         },
         {
           "rank": 2,
           "level_req": 42,
           "cost": 30,
-          "effect_value": 86
+          "effect_value": 157
         },
         {
           "rank": 3,
           "level_req": 50,
           "cost": 30,
-          "effect_value": 99
+          "effect_value": 181
         },
         {
           "rank": 4,
           "level_req": 58,
           "cost": 30,
-          "effect_value": 112
+          "effect_value": 205
         }
       ],
       "icon_id": null,
       "requires_talent": true,
-      "_design_note": "Not learned from level alone - granted by the Mortal Strike talent in the Arms tree, matching real WOTLK where this is talent-exclusive to Arms, not a baseline ability. A vicious strike that deals heavy weapon damage and wounds the target."
+      "_design_note": "Not learned from level alone - granted by the Mortal Strike talent in the Arms tree, matching real WOTLK where this is talent-exclusive to Arms, not a baseline ability. A vicious strike that deals heavy weapon damage and wounds the target.",
+      "_tuning": [
+        "15 Nov 2026, deep dive: every rank x1.83, to 1.35x a Heroic Strike rank of the same level - it hit for LESS than the Heroic Strike beside it (Bloodthirst 1,110 vs 1,571 at 50; Mortal Strike's base 301 vs 376 at 30). In Classic the cooldown signature strike is the Warrior's biggest button."
+      ]
     },
     {
       "ability_id": "warrior_execute",
@@ -548,19 +551,19 @@
           "rank": 1,
           "level_req": 40,
           "cost": 30,
-          "effect_value": 58
+          "effect_value": 150
         },
         {
           "rank": 2,
           "level_req": 52,
           "cost": 30,
-          "effect_value": 69
+          "effect_value": 178
         },
         {
           "rank": 3,
           "level_req": 58,
           "cost": 30,
-          "effect_value": 74
+          "effect_value": 191
         }
       ],
       "requires_talent": true,
@@ -568,7 +571,8 @@
       "icon_id": null,
       "_design_note": "Not learned from level alone - granted by the Bloodthirst talent in the Fury tree. Instantly attacks the target based on your Attack Power.",
       "_tuning": [
-        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py",
+        "15 Nov 2026, deep dive: every rank x2.58, to 1.35x a Heroic Strike rank of the same level - it hit for LESS than the Heroic Strike beside it (Bloodthirst 1,110 vs 1,571 at 50; Mortal Strike's base 301 vs 376 at 30). In Classic the cooldown signature strike is the Warrior's biggest button."
       ]
     },
     {
