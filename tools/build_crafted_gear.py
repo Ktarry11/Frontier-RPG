@@ -699,6 +699,12 @@ def author(rid, recipe, ident, flavour):
         "armor_value": ref.armor_value, "required_level": ref.required_level,
         "sell_price": ref.sell_price, "flavor_text": flavour, "identity": ident,
     }
+    # ONE ICON PER CRAFT (Kyle, 15 Nov: "Ensure crafting makes ONE icon per craft. Not random"). The
+    # icon is chosen once, here, seeded on the item's name exactly as boss_loot._item_from_def would,
+    # and written into the recipe, so it can't drift if the icon picker ever changes.
+    from entities.boss_loot import resolve_icon
+    item["icon_id"] = resolve_icon(slot=out["slot"], armor_type=ref.armor_type, weapon_type=ref.weapon_type,
+                                   rarity=out["rarity"], seed=f"fixedboss:{recipe['name']}", explicit=None)
     proc = proc_for(recipe["name"]) if out["slot"] in ("trinket", "trinket1", "trinket2") else None
     if not flavour:
         flavour = ""

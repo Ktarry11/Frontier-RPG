@@ -63,7 +63,8 @@ INV_GRID_COLS = 6
 INV_SLOT_SIZE = 90
 INV_SLOT_SPACING = 8
 INV_START_X = 600
-INV_START_Y = 100  # pushed down from 60 to leave room for the bag row + capacity readout above the grid
+INV_START_Y = 130  # below the bag row + capacity readout, and the gear sub-tab row (GEAR_SUBTAB_Y)
+GEAR_SUBTAB_Y = 100
 
 # Materials tab grid (Gathering Phase 1). Separate constants from the gear
 # backpack grid above - the materials tab has the full screen to itself
@@ -94,6 +95,50 @@ MATERIAL_SUBTABS = [
 #: the subtab row sits under the skill line; the materials grid starts below it
 MATERIAL_SUBTAB_Y = 84
 MATERIALS_GRID_Y = MATERIALS_START_Y + 26
+
+
+#: GEAR SUB-TABS (Kyle, 14 Nov: "Lets make sorting tabs for almost everything bro"). A row above
+#: the backpack grid. (A column down the grid's right edge sat where its scrollbar goes.)
+GEAR_SUBTABS = [("all", "All"), ("armour", "Armour"), ("weapons", "Weapons"), ("jewellery", "Jewellery"),
+                ("bags", "Bags"), ("recipes", "Recipes"), ("other", "Other")]
+
+
+def gear_subtab(item):
+    """Which gear sub-tab a bag item sits under (never "all")."""
+    if getattr(item, "recipe_id", None) or getattr(item, "slot", None) == "recipe":
+        return "recipes"
+    if not getattr(item, "is_gear", True) or not hasattr(item, "slot"):
+        return "other"
+    if getattr(item, "bag_capacity", 0) or getattr(item, "armor_type", None) == "bag":
+        return "bags"
+    slot = str(getattr(item, "slot", ""))
+    if slot.startswith(("neck", "ring", "trinket")):
+        return "jewellery"
+    if getattr(item, "weapon_type", None) or slot in ("main_hand", "off_hand", "ranged"):
+        return "weapons"
+    return "armour"
+
+
+CONSUMABLE_SUBTABS = [("all", "All"), ("potions", "Potions"), ("elixirs", "Elixirs"), ("food", "Food & Drink"),
+                      ("oils", "Oils"), ("ammo", "Ammo"), ("gadgets", "Bombs & Gadgets"), ("other", "Other")]
+
+
+def consumable_subtab(cons):
+    """Which consumables sub-tab one sits under (never "all")."""
+    ctype = getattr(cons, "consumable_type", "") or ""
+    if getattr(cons, "buff_category", None) == "oil":
+        return "oils"
+    if ctype in ("health_potion", "mana_potion", "status_potion"):
+        return "potions"
+    if ctype == "elixir":
+        return "elixirs"
+    if ctype in ("food", "meal", "drink"):
+        return "food"
+    if ctype == "ammo":
+        return "ammo"
+    if ctype in ("explosive", "gadget"):
+        return "gadgets"
+    return "other"
 
 
 def material_subtab(material):
@@ -177,6 +222,10 @@ class InventoryScreen(BaseScreen):
         self.enchant_button = pygame.Rect(SCREEN_WIDTH - 780, 20, 100, 36)
         self.materials_rects = []  # list of pygame.Rect, index-aligned to the open subtab's materials
         self.material_subtab = "all"     # MATERIAL_SUBTABS key
+        self.gear_subtab = "all"         # GEAR_SUBTABS key
+        self.consumable_subtab = "all"   # CONSUMABLE_SUBTABS key
+        self.consumable_subtab_rects = {}
+        self.gear_subtab_rects = {}
         # CONSUMABLES HAD NO HOME IN THE BAG AT ALL. Kyle, 2026-10-31: "i have
         # tough jerky (food) in my inventory but there is no way to use it. I
         # dont see it in my actual inventory unless im trying to sell it."
@@ -347,6 +396,12 @@ class InventoryScreen(BaseScreen):
         self.inventory_rects = self._grid(count, INV_GRID_COLS, INV_SLOT_SIZE, INV_SLOT_SPACING,
                                           INV_START_X, INV_START_Y)
 
+    def _shown_inventory(self, bag):
+        """Bag positions in the open gear sub-tab, in bag order: the grid draws these, and a click or
+        a hover on grid cell i means bag.inventory[shown[i]]."""
+        key = getattr(self, "gear_subtab", "all")
+        return [i for i, it in enumerate(bag.inventory) if key == "all" or gear_subtab(it) == key]
+
     def _build_materials_rects(self, count):
         """Grid layout for the Materials tab. Uses a wider column count
         and starts near the top-left, unlike the gear tab's backpack grid
@@ -364,6 +419,12 @@ class InventoryScreen(BaseScreen):
             return mats
         return [m for m in mats if material_subtab(m) == key]
 
+    def _shown_consumables(self, subject):
+        """The consumables in the open sub-tab, in bag order."""
+        key = getattr(self, "consumable_subtab", "all")
+        pool = list(self._consumable_source(subject).consumables)
+        return pool if key == "all" else [c for c in pool if consumable_subtab(c) == key]
+
     def _build_consumables_rects(self, count):
         """Grid layout for the Consumables tab - the same geometry as the
         Materials tab, deliberately. Both are full-screen single-grid views of
@@ -371,7 +432,7 @@ class InventoryScreen(BaseScreen):
         sizes would be two layouts for one job and the tabs would jump under
         the cursor as you switched between them."""
         self.consumables_rects = self._grid(count, MATERIALS_GRID_COLS, MATERIALS_SLOT_SIZE,
-                                            MATERIALS_SLOT_SPACING, MATERIALS_START_X, MATERIALS_START_Y)
+                                            MATERIALS_SLOT_SPACING, MATERIALS_START_X, MATERIALS_GRID_Y)
 
     def _use_consumable(self, subject, consumable):
         """Click-to-use from the bag. Mirrors what the combat hotbar does with
@@ -525,8 +586,13 @@ class InventoryScreen(BaseScreen):
             # tab's look-but-don't-touch grid. That is the whole point of the
             # tab existing - see _use_consumable.
             if self.active_tab == "consumables":
+                for key, rect in getattr(self, "consumable_subtab_rects", {}).items():
+                    if rect.collidepoint(mouse_pos):
+                        self.consumable_subtab = key
+                        self.grid_scroll = 0
+                        return
                 for i, rect in enumerate(self.consumables_rects):
-                    pool = self._consumable_source(subject).consumables
+                    pool = self._shown_consumables(subject)
                     if rect.collidepoint(mouse_pos) and i < len(pool):
                         self._use_consumable(subject, pool[i])
                         return
@@ -586,10 +652,16 @@ class InventoryScreen(BaseScreen):
             # DO about an item they can't equip and (for quest items)
             # can't sell either.
             bag = self._bag_source(subject)
-            self._build_inventory_rects(len(bag.inventory))
+            for key, rect in getattr(self, "gear_subtab_rects", {}).items():
+                if rect.collidepoint(mouse_pos):
+                    self.gear_subtab = key
+                    self.grid_scroll = 0
+                    return
+            shown = self._shown_inventory(bag)
+            self._build_inventory_rects(len(shown))
             for i, rect in enumerate(self.inventory_rects):
-                if rect.collidepoint(mouse_pos) and i < len(bag.inventory):
-                    item = bag.inventory[i]
+                if rect.collidepoint(mouse_pos) and i < len(shown):
+                    item = bag.inventory[shown[i]]
 
                     # DISCARD MODE WINS, before any type-specific handling.
                     # This single line is what makes gear, recipe scrolls and
@@ -720,7 +792,7 @@ class InventoryScreen(BaseScreen):
         # on one screen the materials and consumables grids snapped back to the top on every
         # frame and could never be scrolled. It also drew the gear grid's bar on those tabs.
         if self.active_tab == "gear":
-            self._build_inventory_rects(len(bag.inventory))
+            self._build_inventory_rects(len(self._shown_inventory(bag)))
             self._draw_scroll_hint(screen, INV_START_X, INV_START_Y, INV_GRID_COLS * (INV_SLOT_SIZE + INV_SLOT_SPACING))
         else:
             self.inventory_rects = []
@@ -899,10 +971,33 @@ class InventoryScreen(BaseScreen):
         self.renderer.draw_text(screen, text, (SCREEN_WIDTH - 30 - tw, 66),
                                 font_size=16, color=COLOR_GOLD)
 
+        # the gear sub-tabs, down the right of the grid, each with how many it holds
+        counts = {"all": len(bag.inventory)}
+        for it in bag.inventory:
+            k = gear_subtab(it)
+            counts[k] = counts.get(k, 0) + 1
+        self.gear_subtab_rects = {}
+        gx = INV_START_X
+        for key, label in GEAR_SUBTABS:
+            n = counts.get(key, 0)
+            on = key == self.gear_subtab
+            text = f"{label} {n}" if n else label
+            w = self.renderer._get_font("small").size(text)[0] + 14
+            r = pygame.Rect(gx, GEAR_SUBTAB_Y, w, 22)
+            colour = COLOR_GOLD if on else ((170, 170, 180) if n else (85, 85, 92))
+            self.renderer.draw_rect(screen, r, (45, 40, 30) if on else (28, 28, 34))
+            self.renderer.draw_rect(screen, r, colour if on else (70, 70, 80), fill=False)
+            self.renderer.draw_text(screen, text, (r.x + 7, r.y + 3), size="small", color=colour)
+            self.gear_subtab_rects[key] = r
+            gx += w + 5
+        shown = self._shown_inventory(bag)
         if not bag.inventory:
             self.renderer.draw_text(screen, "No items yet - defeat creatures to find loot.", (INV_START_X, INV_START_Y), color=(150, 150, 150))
+        elif not shown:
+            self.renderer.draw_text(screen, "Nothing of this kind in your bags.", (INV_START_X, INV_START_Y),
+                                    color=(150, 150, 150))
         else:
-            for i, item in enumerate(bag.inventory):
+            for i, item in ((n, bag.inventory[j]) for n, j in enumerate(shown)):
                 rect = self.inventory_rects[i]
                 color = item.get_rarity_color()
                 self.renderer.draw_rect(screen, rect, (35, 35, 40))
@@ -975,8 +1070,8 @@ class InventoryScreen(BaseScreen):
         already have a food buff' and can_use refusing silently was how that
         read as a broken item.
         """
-        self._build_consumables_rects(len(self._consumable_source(subject).consumables))
-        self._draw_scroll_hint(screen, MATERIALS_START_X, MATERIALS_START_Y, MATERIALS_GRID_COLS * (MATERIALS_SLOT_SIZE + MATERIALS_SLOT_SPACING))
+        self._build_consumables_rects(len(self._shown_consumables(subject)))
+        self._draw_scroll_hint(screen, MATERIALS_START_X, MATERIALS_GRID_Y, MATERIALS_GRID_COLS * (MATERIALS_SLOT_SIZE + MATERIALS_SLOT_SPACING))
 
         # What is already running, in the same place the materials tab puts the
         # profession line - these four slots are what can_use() checks against.
@@ -996,11 +1091,34 @@ class InventoryScreen(BaseScreen):
                                 "   ".join(active) if active else "No consumable buffs active.",
                                 (20, 60), color=COLOR_LIGHT_GRAY)
 
-        pool = self._consumable_source(subject).consumables
-        if not pool:
+        # the sub-tabs, as on the materials tab: the open one gold, an empty kind dim
+        everything = list(self._consumable_source(subject).consumables)
+        counts = {"all": len(everything)}
+        for c in everything:
+            k = consumable_subtab(c)
+            counts[k] = counts.get(k, 0) + 1
+        self.consumable_subtab_rects = {}
+        x = MATERIALS_START_X
+        for key, label in CONSUMABLE_SUBTABS:
+            n = counts.get(key, 0)
+            text = f"{label} ({n})" if n else label
+            w = self.renderer._get_font("small").size(text)[0] + 18
+            rect = pygame.Rect(x, MATERIAL_SUBTAB_Y, w, 22)
+            on = key == self.consumable_subtab
+            colour = COLOR_GOLD if on else ((170, 170, 180) if n else (85, 85, 92))
+            self.renderer.draw_rect(screen, rect, (45, 40, 30) if on else (28, 28, 34))
+            self.renderer.draw_rect(screen, rect, colour if on else (70, 70, 80), fill=False)
+            self.renderer.draw_text(screen, text, (rect.x + 9, rect.y + 3), size="small", color=colour)
+            self.consumable_subtab_rects[key] = rect
+            x += w + 6
+        pool = self._shown_consumables(subject)
+        if not everything:
             self.renderer.draw_text(
                 screen, "No consumables - buy food, drink and potions from a vendor.",
-                (MATERIALS_START_X, MATERIALS_START_Y), color=(150, 150, 150))
+                (MATERIALS_START_X, MATERIALS_GRID_Y), color=(150, 150, 150))
+        elif not pool:
+            self.renderer.draw_text(screen, "Nothing of this kind in your bags.",
+                                    (MATERIALS_START_X, MATERIALS_GRID_Y), color=(150, 150, 150))
         else:
             for i, cons in enumerate(pool):
                 rect = self.consumables_rects[i]
@@ -1035,7 +1153,7 @@ class InventoryScreen(BaseScreen):
 
         mouse_pos = pygame.mouse.get_pos()
         for i, rect in enumerate(self.consumables_rects):
-            pool = self._consumable_source(subject).consumables
+            pool = self._shown_consumables(subject)
             if rect.collidepoint(mouse_pos) and i < len(pool):
                 self._draw_consumable_tooltip(screen, pool[i], mouse_pos, subject)
                 break
@@ -1275,9 +1393,10 @@ class InventoryScreen(BaseScreen):
         for slot_key, rect in self.slot_rects.items():
             if rect.collidepoint(mouse_pos):
                 return subject.equipment.get_equipped(slot_key)
+        shown = self._shown_inventory(bag) if self.active_tab == "gear" else list(range(len(bag.inventory)))
         for i, rect in enumerate(self.inventory_rects):
-            if rect.collidepoint(mouse_pos) and i < len(bag.inventory):
-                return bag.inventory[i]
+            if rect.collidepoint(mouse_pos) and i < len(shown):
+                return bag.inventory[shown[i]]
         return None
 
     def _armor_reduction_note(self, item):
