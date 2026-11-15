@@ -42,11 +42,19 @@ def main():
                          "AoE, mixed and spike damage (tools/sim_heal_scenarios.py) - Kyle, 15 Nov 2026: judge "
                          "healers on their roles (shields, HoTs, chain and party heals, Earth Shield)")
     ap.add_argument("--seeds", type=int, default=2)
+    ap.add_argument("--iterate", action="store_true",
+                    help="measure WITH the current auras and nudge each toward the median (damped) - for measures "
+                         "that are not linear in the aura, like party survival")
+    ap.add_argument("--damp", type=float, default=0.7)
     ap.add_argument("--kind", default="damage", choices=("damage", "healing"),
                     help="damage specs (sim_dps_parity) or healer specs (sim_heal_parity)")
     args = ap.parse_args()
     from combat import ability_scaling as S
-    S.USE_SPEC_AURAS = False
+    S.USE_SPEC_AURAS = bool(args.iterate)
+    current = {}
+    if args.iterate:
+        _old = json.loads(OUT.read_text(encoding="utf-8")) if OUT.exists() else {}
+        current = _old.get(args.kind) or {}
     import sim_matrix as M
     import sim_dps_parity as P
     import sim_heal_parity as H
@@ -112,6 +120,13 @@ def main():
             if not v:
                 continue
             raw = med * share.get(spec, 1.0) / v
+            if args.iterate:
+                # the measure already includes the aura: move it toward the median, damped
+                pts = current.get(spec) or []
+                cur = next((a for l2, a in pts if l2 == lv), None)
+                if cur is None and pts:
+                    cur = S._interp(pts, lv) if hasattr(S, "_interp") else 1.0
+                raw = (cur or 1.0) * (raw ** args.damp)
             f = max(lo, min(hi, raw))
             if f != raw:
                 clamped.append((spec, lv, round(raw, 2)))

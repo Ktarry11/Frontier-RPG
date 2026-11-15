@@ -426,7 +426,51 @@
           "rank": 1,
           "level_req": 8,
           "cost": 15,
-          "effect_value": 100
+          "effect_value": 100,
+          "stat_mods": {
+            "spell_power": 40,
+            "armor": 150
+          }
+        },
+        {
+          "rank": 2,
+          "level_req": 20,
+          "cost": 28,
+          "effect_value": 100,
+          "stat_mods": {
+            "spell_power": 40,
+            "armor": 282
+          }
+        },
+        {
+          "rank": 3,
+          "level_req": 32,
+          "cost": 41,
+          "effect_value": 100,
+          "stat_mods": {
+            "spell_power": 40,
+            "armor": 413
+          }
+        },
+        {
+          "rank": 4,
+          "level_req": 44,
+          "cost": 54,
+          "effect_value": 100,
+          "stat_mods": {
+            "spell_power": 40,
+            "armor": 545
+          }
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 66,
+          "effect_value": 100,
+          "stat_mods": {
+            "spell_power": 40,
+            "armor": 677
+          }
         }
       ],
       "icon_id": null,
@@ -444,7 +488,10 @@
           "is_stun": true,
           "on_target": true
         }
-      }
+      },
+      "_tuning": [
+        "15 Nov 2026, rank-depth pass (Kyle: \"ensure there are appropriate ranks for spells, abilities, buffs etc ... in line with Classic\"): ranks every 12 levels. Only the ARMOUR grows (along the same level line monster armour uses) - the world curve already grows attack/spell power and primary stats, and the other mods are percentages or flags. Each rank carries its own stat_mods (Ability.stat_mods), so the rest stays as written."
+      ]
     },
     {
       "ability_id": "runemaster_ley_lock",

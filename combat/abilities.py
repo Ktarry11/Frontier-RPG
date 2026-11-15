@@ -1091,6 +1091,26 @@ class Ability:
                 and self._has_resource(character, self.talented_cost(character)))
 
     @property
+    def stat_mods(self):
+        """The buff/debuff's stat mods: the CURRENT RANK's own, when a rank carries them, else the ability's.
+
+        Per-rank mods (15 Nov 2026, the rank-depth pass): a rank's effect_value scales EVERY mod at once, which is
+        right for a pure stat buff but wrong for a mixed one - ranking "+80 armour, -4% physical damage taken" by
+        effect_value would also triple the -4%. A rank that carries its own stat_mods sets exactly what changes
+        (the armour) and leaves the rest as written."""
+        try:
+            rank = self.ranks[self.current_rank_index] if self.ranks else None
+        except (AttributeError, IndexError, TypeError):
+            rank = None
+        if isinstance(rank, dict) and isinstance(rank.get("stat_mods"), dict):
+            return rank["stat_mods"]
+        return self._stat_mods
+
+    @stat_mods.setter
+    def stat_mods(self, value):
+        self._stat_mods = value or {}
+
+    @property
     def current_rank(self):
         return self.ranks[self.current_rank_index]
 

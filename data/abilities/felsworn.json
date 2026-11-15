@@ -892,12 +892,45 @@
           "rank": 1,
           "level_req": 20,
           "cost": 20,
-          "effect_value": 0
+          "effect_value": 100,
+          "stat_mods": {
+            "armor": -140
+          }
+        },
+        {
+          "rank": 2,
+          "level_req": 32,
+          "cost": 29,
+          "effect_value": 100,
+          "stat_mods": {
+            "armor": -205
+          }
+        },
+        {
+          "rank": 3,
+          "level_req": 44,
+          "cost": 38,
+          "effect_value": 100,
+          "stat_mods": {
+            "armor": -271
+          }
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 48,
+          "effect_value": 100,
+          "stat_mods": {
+            "armor": -336
+          }
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'You open with Bane of Frailty to strip a chunk of the target's armor'. Flat armor, not armor_pct: Monster resolves armour through get_status_stat_mod('armor') and reads no percentage key, so armor_pct on an enemy would do nothing.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "_tuning": [
+        "15 Nov 2026, rank-depth pass (Kyle: \"ensure there are appropriate ranks for spells, abilities, buffs etc ... in line with Classic\"): ranks every 12 levels. Only the ARMOUR grows (along the same level line monster armour uses) - the world curve already grows attack/spell power and primary stats, and the other mods are percentages or flags. Each rank carries its own stat_mods (Ability.stat_mods), so the rest stays as written."
+      ]
     },
     {
       "ability_id": "felsworn_ruin",

@@ -411,12 +411,59 @@
           "rank": 1,
           "level_req": 4,
           "cost": 20,
-          "effect_value": 100
+          "effect_value": 100,
+          "stat_mods": {
+            "armor": 60,
+            "haste": 3
+          }
+        },
+        {
+          "rank": 2,
+          "level_req": 16,
+          "cost": 44,
+          "effect_value": 100,
+          "stat_mods": {
+            "armor": 134,
+            "haste": 3
+          }
+        },
+        {
+          "rank": 3,
+          "level_req": 28,
+          "cost": 68,
+          "effect_value": 100,
+          "stat_mods": {
+            "armor": 209,
+            "haste": 3
+          }
+        },
+        {
+          "rank": 4,
+          "level_req": 40,
+          "cost": 92,
+          "effect_value": 100,
+          "stat_mods": {
+            "armor": 283,
+            "haste": 3
+          }
+        },
+        {
+          "rank": 5,
+          "level_req": 52,
+          "cost": 116,
+          "effect_value": 100,
+          "stat_mods": {
+            "armor": 358,
+            "haste": 3
+          }
         }
       ],
       "icon_id": null,
       "buff_scope": "raid",
-      "exclusive_group": "stormbringer_aegis"
+      "exclusive_group": "stormbringer_aegis",
+      "_tuning": [
+        "15 Nov 2026, rank-depth pass (Kyle: \"ensure there are appropriate ranks for spells, abilities, buffs etc ... in line with Classic\"): ranks every 12 levels. Only the ARMOUR grows (along the same level line monster armour uses) - the world curve already grows attack/spell power and primary stats, and the other mods are percentages or flags. Each rank carries its own stat_mods (Ability.stat_mods), so the rest stays as written."
+      ]
     },
     {
       "ability_id": "stormbringer_call_of_the_wind",
