@@ -154,6 +154,25 @@ _set("entrances_4b", 6, 4, "assets/tiles/cave_entrances", """
 #: Tempest Isle and first used for Onyxhollow, the Dark Iron town under the Abyssal Sands (Kyle, 13
 #: Nov 2026: "We have all the art"). Rows: the works, the heavy plant, the town and its ruins, forge
 #: gear, street furniture.
+#: ORC TOWN buildings, sheet 2 (claude/orc_building_prompts_2.md). Sheet 1 was a garrison: nobody lived
+#: anywhere, the inn/bank/auction/flight master had no orc building, and the watch tower stood in every
+#: town 26 times. Homes, services, and second versions of the most used pieces.
+_set("orc_town", 6, 5, "assets/buildings", """
+    orc_inn orc_bank orc_auction_hall orc_wyvern_roost orc_general_store orc_market_stalls
+    orc_training_hall orc_hunters_lodge orc_shadow_den orc_earth_lodge orc_herbalist_house orc_engineer_shop
+    orc_house_large orc_house_medium orc_house_small orc_townhouse orc_house_row orc_crafter_house
+    orc_house_small_b orc_house_medium_b orc_town_well orc_covered_market orc_fighting_pit orc_elder_house
+    orc_stone_watch_tower orc_wall_tower orc_town_gate orc_granary orc_trading_post orc_storehouse""")
+
+#: SIDE-ON ROAD GATES (claude/side_gate_prompts.md): single gateposts, A and B of each style. A road
+#: leaving east or west gets one post either side of it (world/exit_frames.py), because an image model
+#: draws a whole gate face-on whatever it is asked.
+_set("side_gateposts", 6, 4, "assets/tiles/cave_entrances", """
+    ent_side_standing_stones_a ent_side_standing_stones_b ent_side_wall_breach_a ent_side_wall_breach_b ent_side_lychgate_a ent_side_lychgate_b
+    ent_side_moonlit_a ent_side_moonlit_b ent_side_kodo_tusks_a ent_side_kodo_tusks_b ent_side_goblin_port_a ent_side_goblin_port_b
+    ent_side_whalerib_a ent_side_whalerib_b ent_side_sand_pylons_a ent_side_sand_pylons_b ent_side_tollgate_a ent_side_tollgate_b
+    ent_side_stone_pillars_a ent_side_stone_pillars_b ent_side_charred_a ent_side_charred_b ent_side_bamboo_a ent_side_logs_a""")
+
 _set("dark_iron", 6, 5, "assets/buildings", """
     di_smeltery di_great_hall di_gatehouse di_barracks di_watchtower di_wall_section
     di_blast_furnace di_boiler_works di_mine_head di_crane_warehouse di_smithy di_vault

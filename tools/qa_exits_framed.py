@@ -97,11 +97,21 @@ def main():
         doors = by_src.get(src, {})
         all_tiles = {t: d for d, ts in doors.items() for t in ts}
         for lm in mine:
-            frames += 1
+            if lm.get("exit_post") != "b":
+                frames += 1          # a pair of side posts is one frame
             name = os.path.basename(lm["sprite_key"])[:-4]
-            inside = [(t, d) for t, d in all_tiles.items()
-                      if lm["anchor_x"] <= t[0] < lm["anchor_x"] + lm["width_tiles"]
-                      and lm["anchor_y"] <= t[1] < lm["anchor_y"] + lm["height_tiles"]]
+            if lm.get("exit_post"):
+                # A pair of side posts stands at the two edges of the road: its door is between
+                # them, in their column.
+                pair = [o for o in mine if o.get("exit_post") and o.get("exit_link") == lm.get("exit_link")]
+                feet = sorted(o["anchor_y"] + o["height_tiles"] - 1 for o in pair)
+                inside = [(t, d) for t, d in all_tiles.items()
+                          if lm["anchor_x"] - 1 <= t[0] <= lm["anchor_x"] + lm["width_tiles"]
+                          and feet[0] <= t[1] <= feet[-1]]
+            else:
+                inside = [(t, d) for t, d in all_tiles.items()
+                          if lm["anchor_x"] <= t[0] < lm["anchor_x"] + lm["width_tiles"]
+                          and lm["anchor_y"] <= t[1] < lm["anchor_y"] + lm["height_tiles"]]
             if not inside:
                 bad.append(f"{src}: {name} at {(lm['anchor_x'], lm['anchor_y'])} has no door in it")
                 continue
@@ -110,6 +120,9 @@ def main():
             for other in tm.landmarks:
                 if other is lm or not world.portal_art.is_entrance_art(other["sprite_key"]):
                     continue
+                if lm.get("exit_post") and other.get("exit_post") and \
+                        other.get("exit_link") == lm.get("exit_link"):
+                    continue         # the two posts of one gate may touch
                 if EF._rect_hits(lm["anchor_x"], lm["anchor_y"], lm["width_tiles"], lm["height_tiles"], other):
                     bad.append(f"{src}: {name} overlaps {os.path.basename(other['sprite_key'])}")
             dest = inside[0][1]
@@ -136,7 +149,9 @@ def main():
     # ---- 5. the tables name real art
     missing = sorted({look for table in (EF.OUT_OF, EF.INTO, EF.TOWN, EF.REGION, EF.DOCK)
                       for _p, looks in table for look in looks
-                      if not os.path.exists(f"{EF.ART}{look}.png")})
+                      if not os.path.exists(f"{EF.ART}{look}.png")}
+                     | {f"ent_side_{st}_a" for st in set(EF.SIDE.values())
+                        if not os.path.exists(f"{EF.ART}ent_side_{st}_a.png")})
     if missing:
         bad.append(f"{len(missing)} piece(s) named in the tables are not on disk: {missing}")
 
@@ -147,6 +162,13 @@ def main():
 
     used = {os.path.basename(lm["sprite_key"]) for e in zm.zones.values()
             for lm in e["tilemap"].landmarks if lm.get("exit_frame")}
+    pairs = sum(1 for e in zm.zones.values() for lm in e["tilemap"].landmarks if lm.get("exit_post") == "a")
+    unpaired = sum(1 for e in zm.zones.values() for lm in e["tilemap"].landmarks
+                   if lm.get("exit_post") == "a") - sum(
+        1 for e in zm.zones.values() for lm in e["tilemap"].landmarks if lm.get("exit_post") == "b")
+    if unpaired:
+        bad.append(f"{unpaired} side post(s) stand without their partner")
+    print(f"{pairs} east/west roads framed by a pair of side posts")
     print(f"{links} links, {links - bare} framed ({frames} by the pass, {len(used)} different pieces), "
           f"{bare} left bare on purpose")
     if bad:

@@ -133,6 +133,62 @@ DOCK = [
     (r"", ["ent_dock_pier"]),
 ]
 
+#: A ROAD LEAVING EAST OR WEST (Kyle, 14 Nov: side gates). Every gate above faces the camera, which
+#: only reads right on a road leaving north or south. An image model draws a gate face-on whatever
+#: it's asked, so these are single gateposts instead: post A stands on the north side of the road
+#: and post B on the south side, and from above that is a gate across an east-west road. Keyed by
+#: the face-on look the link would otherwise get, so the country decides the style as before.
+SIDE = {
+    "ent_gate_standing_stones": "standing_stones", "ent_gate_wall_breach": "wall_breach",
+    "ent_gate_lychgate": "lychgate", "ent_gate_stone_pillars": "stone_pillars",
+    "ent_moonlit_arch": "moonlit", "ent_elven_ruin_arch": "moonlit",
+    "ent_gate_kodo_tusks": "kodo_tusks", "ent_gate_tusk_banners": "kodo_tusks",
+    "ent_orc_palisade_gate": "kodo_tusks", "ent_town_troll_gate": "kodo_tusks",
+    "ent_gate_goblin_port": "goblin_port", "ent_town_whalerib_gate": "whalerib",
+    "ent_gate_sand_pylons": "sand_pylons", "ent_gate_sandstone": "sand_pylons",
+    "ent_gate_tollgate": "tollgate", "ent_gate_logs": "logs",
+    "ent_town_charred_gate": "charred", "ent_gate_bamboo": "bamboo",
+}
+SIZES_POST = [(2, 4), (2, 3)]
+
+
+def side_posts(look):
+    """(post A, post B) sprite names for an east/west road that would otherwise get `look`, or
+    None. A style drawn only once (bamboo, logs) stands the same post on both sides."""
+    style = SIDE.get(look)
+    if not style:
+        return None
+    a, b = f"ent_side_{style}_a", f"ent_side_{style}_b"
+    if not os.path.exists(f"{ART}{a}.png"):
+        return None
+    return a, (b if os.path.exists(f"{ART}{b}.png") else a)
+
+
+def leaves_sideways(tilemap, tiles):
+    """True for a road that crosses the door east-west: the door sits near the map's east or west
+    edge and its tiles run up and down it, or (a door out in the middle of a map) the ground is
+    open to the east and west of it and closed to the north and south."""
+    xs, ys = {x for x, _ in tiles}, {y for _, y in tiles}
+    if len(xs) > len(ys):
+        return False
+    if max(xs) <= 5 or min(xs) >= tilemap.width - 6:
+        return True
+
+    def run(x, y, dx, dy):
+        n = 0
+        while n < 4:
+            x, y = x + dx, y + dy
+            if not (0 <= x < tilemap.width and 0 <= y < tilemap.height) or \
+                    not tilemap.is_walkable(x, y) or tilemap.collision_layer[y][x]:
+                break
+            n += 1
+        return n
+    x, y = sorted(tiles)[len(tiles) // 2]
+    across = min(run(x, min(ys), 0, -1), run(x, max(ys), 0, 1))
+    along = min(run(min(xs), y, -1, 0), run(max(xs), y, 1, 0))
+    return along >= 3 and across <= 1
+
+
 #: Footprints tried, biggest first: (width, height) in tiles. The art is about 220px and a tile
 #: is 32, so 7x6 is the art at its native size; the smaller ones are for tight corners.
 SIZES_OPEN = [(7, 6), (5, 5), (3, 3)]
@@ -216,8 +272,9 @@ def _framed(tilemap, tiles):
     return False
 
 
-def _place(tilemap, tiles, others, sprite, sizes):
-    """Stand `sprite` over the middle tile of `tiles`. Returns the landmark dict or None."""
+def _place(tilemap, tiles, others, sprite, sizes, partner=None):
+    """Stand `sprite` over the middle tile of `tiles`. Returns the landmark dict or None.
+    `partner`: the other post of the same pair, which this one may touch."""
     tiles = sorted(tiles)
     x, y = tiles[len(tiles) // 2]
     landmarks = tilemap.landmarks
@@ -233,7 +290,7 @@ def _place(tilemap, tiles, others, sprite, sizes):
                for ty in range(max(0, ay), min(tilemap.height, ay + h))
                for tx in range(max(0, ax), min(tilemap.width, ax + w))):
             continue                                   # the art would be drawn over somebody
-        hits = [lm for lm in landmarks if _rect_hits(ax, ay, w, h, lm)]
+        hits = [lm for lm in landmarks if _rect_hits(ax, ay, w, h, lm) and lm is not partner]
         if any(is_entrance_art(lm["sprite_key"]) for lm in hits):
             continue                                   # would overlap another frame
         big = [lm for lm in hits if not _gives_way(lm, ax, ay, w, h)]
@@ -260,6 +317,51 @@ def _place(tilemap, tiles, others, sprite, sizes):
     # timber. Out of doors a gate is its own object and keeps its own colours.
     landmarks[-1]["match_ground"] = bool(getattr(tilemap, "is_cave", False))
     return landmarks[-1]
+
+
+ROAD_IDS = ("path", "road", "cobble", "bridge")
+
+
+def _road_band(tilemap, x, top, bot):
+    """The rows the road itself covers where it meets the door, so the posts stand at its edges
+    rather than on it: the widest run of road tiles through the door's rows, in the door's column
+    and the two either side. Falls back to the door's own rows."""
+    def is_road(xx, yy):
+        t = tilemap.base_layer[yy][xx] or ""
+        return any(k in t for k in ROAD_IDS)
+    best = (top, bot)
+    for xx in range(max(0, x - 2), min(tilemap.width, x + 3)):
+        if not any(is_road(xx, yy) for yy in range(top, bot + 1)):
+            continue
+        t, b = top, bot
+        while t - 1 >= 0 and is_road(xx, t - 1) and top - t < 5:
+            t -= 1
+        while b + 1 < tilemap.height and is_road(xx, b + 1) and b - bot < 5:
+            b += 1
+        if b - t > best[1] - best[0]:
+            best = (t, b)
+    return best
+
+
+def _place_posts(tilemap, tiles, others, posts, dest):
+    """Post A just north of the road, post B just south, both standing at the road's column.
+    Both or neither: half a gate reads as a stray pillar."""
+    xs = sorted(x for x, _ in tiles)
+    x = xs[len(xs) // 2]
+    top, bot = _road_band(tilemap, x, min(y for _, y in tiles), max(y for _, y in tiles))
+    if top - 1 < 0 or bot + 1 >= tilemap.height:
+        return None
+    a = _place(tilemap, [(x, top - 1)], others, posts[0], SIZES_POST)
+    if a is None:
+        return None
+    b = _place(tilemap, [(x, bot + 1)], others, posts[1], SIZES_POST, partner=a)
+    if b is None:
+        tilemap.landmarks.remove(a)
+        return None
+    for lm, side in ((a, "a"), (b, "b")):
+        lm["exit_post"] = side
+        lm["exit_link"] = dest
+    return a
 
 
 def frame_exits(zones, portal_manager, cave_names):
@@ -310,7 +412,12 @@ def frame_exits(zones, portal_manager, cave_names):
                 skipped.append((src, dest, "no art on disk for any look"))
                 continue
             sizes = SIZES_CAVE if src_cave else SIZES_OPEN
-            got = _place(tilemap, tiles, all_tiles - set(tiles), sprite, sizes)
+            got = None
+            posts = None if (src_cave or dest in cave_names or boat) else side_posts(sprite)
+            if posts and leaves_sideways(tilemap, tiles):
+                got = _place_posts(tilemap, tiles, all_tiles - set(tiles), posts, dest)
+            if got is None:
+                got = _place(tilemap, tiles, all_tiles - set(tiles), sprite, sizes)
             if got is None and not src_cave and dest not in cave_names:
                 # The piece that belongs here does not fit - usually a guard standing where a
                 # gatepost would go. A plainer gate from the same country often does.
