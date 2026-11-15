@@ -1213,11 +1213,11 @@ class InventoryScreen(BaseScreen):
                                    if cons.required_level else ""))
         if cons.consumable_type in ("health_potion", "mana_potion"):
             bar = "health" if cons.consumable_type == "health_potion" else "mana"
-            scaled = int(cons.effect_value * (1.0 + subject.level * cons.level_multiplier))
+            scaled = cons.restore_amount(subject.level)
             lines.append(f"Restores {scaled} {bar} instantly.")
         elif cons.consumable_type in ("meal", "drink"):
             bar = "health" if cons.consumable_type == "meal" else "mana"
-            lines.append(f"Restores {cons.effect_value} {bar} over "
+            lines.append(f"Restores {cons.restore_amount()} {bar} over "
                          f"{int(cons.effect_duration)}s while you sit still.")
         if cons.stat_bonuses:
             from entities.consumable import bonus_text, WELL_FED_SECONDS

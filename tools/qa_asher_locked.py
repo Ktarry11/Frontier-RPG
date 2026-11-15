@@ -31,7 +31,9 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 #: the WORDS are what is frozen.
 TEXT_FIELDS = ("name", "greeting", "backstory")
 
-EXPECTED = "c1c4cc4d14c96e07dce147b78b55ac46b46e9670b8836a4aa3efc5c1e9e7a7e4"
+#: 15 Nov 2026: one dash in the backstory became ", and" in the [47] recruit-backstory dash pass (afc9e69).
+#: Punctuation only - the same words, nothing added or hinted.
+EXPECTED = "ddff0f98c0d856605f962064bbf9cd614d2644c32ba3ba798a1c91acda3fde30"
 
 
 def asher_text():

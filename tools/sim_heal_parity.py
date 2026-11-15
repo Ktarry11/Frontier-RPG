@@ -71,16 +71,29 @@ def healing_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0):
         R.precast_stances(char, engine)
     random.seed(fight_seed)
     learned = char.get_learned_abilities()
+    # COUNT EVERY HEAL IN FULL, overheal included. The target sits at 30%, so measuring the health bar caps a
+    # turn at 70% of it - and once the world curve (15 Nov) made heals world-sized, every healer hit that cap
+    # and read the same. heal() is where every heal, tick and smart-heal lands.
+    landed = [0.0]
+    _orig_heal = char.heal
+
+    def counted_heal(amount, *a, **k):
+        landed[0] += max(0, amount or 0)
+        return _orig_heal(amount, *a, **k)
+    char.heal = counted_heal
     if spec in HEALS_BY_FIGHTING:
         # heals by fighting: its damage rotation goes into the target, and what it heals the target-at-30% for counts
         from tools.sim_class_balance import plan
         _h, attacks, _s, _d = plan(char)
+        # it fights with what heals: the converted nukes and the damage-and-heal spells lead (a raw-value sort put
+        # Fireball, which heals nothing, ahead of Frostbolt)
+        attacks = sorted(attacks, key=lambda a: 0 if (getattr(a, "cryo_converted", False)
+                                                       or a.effect_type == "damage_and_heal") else 1)
         foe.max_health = foe.current_health = 10 ** 8
-        total = 0
+
         for _ in range(turns):
             char.current_mana = char.mana
             char.current_health = max(1, int(char.health * 0.3))
-            before = char.current_health
             with quiet():
                 for a in attacks:
                     engine.current_actor = char
@@ -90,15 +103,12 @@ def healing_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0):
                         break
                 if engine.current_actor is char:
                     engine._end_turn(char)
-            total += max(0, char.current_health - before)
-        return total / turns
+        return landed[0] / turns
     heals = [a for a in learned if a.effect_type in HEALS and getattr(a, "target_type", None) != "enemy"]
     heals.sort(key=lambda a: -((getattr(a, "heal_value", 0) or 0) or (a.effect_value or 0)))
-    total = 0
     for _ in range(turns):
         char.current_mana = char.mana
         char.current_health = max(1, int(char.health * 0.3))
-        before = char.current_health
         live = {getattr(fx, "effect_id", None) for fx in char._effects()}
         with quiet():
             for a in heals:
@@ -111,8 +121,7 @@ def healing_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0):
                     break
             if engine.current_actor is char:
                 engine._end_turn(char)
-        total += max(0, char.current_health - before)
-    return total / turns
+    return landed[0] / turns
 
 
 def main():

@@ -107,7 +107,9 @@ class Pet(StatusEffectMixin):
         and whenever the pet should re-sync to a new owner level (e.g. the
         owner leveled up between fights)."""
         t = self.template
-        level_mult = 1.0 + (self.level - 1) * 0.15  # same curve as Monster
+        level_mult = 1.0 + (self.level - 1) * 0.15  # same curve as Monster: armour and resistances
+        from combat.world_curve import growth as _growth
+        size_mult = _growth(self.level)            # health, attack and spell power: the world curve (15 Nov)
 
         # A PET IS A SHARE OF ITS OWNER, NOT A MONSTER THAT FOLLOWS YOU.
         #
@@ -162,10 +164,10 @@ class Pet(StatusEffectMixin):
                     float(_osp if _osp is not None else (getattr(owner, "spell_power", 0) or 0)))
 
         if o_hp <= 0:
-            self.max_health = int(t["base_hp"] * level_mult)
+            self.max_health = int(t["base_hp"] * size_mult)
             self.base_armor = int(t.get("base_armor", 0) * level_mult)
-            self.attack_power = int(t.get("base_attack", 0) * level_mult)
-            self.spell_power = int(t.get("base_spell_power", 0) * level_mult)
+            self.attack_power = int(t.get("base_attack", 0) * size_mult)
+            self.spell_power = int(t.get("base_spell_power", 0) * size_mult)
         else:
             self.max_health = max(1, int(o_hp * hp_share))
             self.base_armor = int(o_arm * armor_share)
@@ -218,7 +220,7 @@ class Pet(StatusEffectMixin):
         self.healing_power = 0  # no pet heals itself/others in the starting template set
 
         self.resource_type = t.get("resource_type", "mana")
-        max_resource = int(t.get("base_resource", 0) * level_mult)
+        max_resource = int(t.get("base_resource", 0) * size_mult)
         if self.resource_type == "mana":
             self.max_mana = max_resource
             self.current_mana = getattr(self, "current_mana", self.max_mana)

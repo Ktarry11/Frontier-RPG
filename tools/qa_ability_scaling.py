@@ -53,11 +53,21 @@ def main():
 
     import json
     print("1. the rank curve")
-    # the second pass (Kyle: "a Healer should not fucking heal the same 14 levels later"): ranks track monster
-    # health from level 1 - x1 at 1, about x2 at 15, about x3 at 56
+    # the third pass (Kyle, 15 Nov: "Each spell rank or ability rank should FEEL like an actual step", "Steeper
+    # world"): ranks follow the world curve (combat/world_curve.py) - x1 at 1, ~x2.8 at 15, ~x8.4 at 56
     check("rank 1 at level 1 is as authored", S.rank_multiplier(1) == 1.0)
     check(f"x{S.rank_multiplier(15):.2f} at 15 and x{S.rank_multiplier(56):.2f} at 56",
-          1.9 <= S.rank_multiplier(15) <= 2.2 and 2.9 <= S.rank_multiplier(56) <= 3.3)
+          2.4 <= S.rank_multiplier(15) <= 3.2 and 7.5 <= S.rank_multiplier(56) <= 9.5)
+    for cls, aid in (("Mage", "mage_fireball"), ("Shaman", "shaman_lightning_bolt"), ("Priest", "priest_heal"),
+                     ("Warlock", "warlock_shadow_bolt")):
+        ab = book(cls).get(aid)
+        if ab is None:
+            check(f"{aid} exists", False)
+            continue
+        vals = [r["effect_value"] for r in ab.ranks]
+        steps = [b / a - 1 for a, b in zip(vals, vals[1:]) if a]
+        check(f"{ab.name}: every rank is a real step ({', '.join(f'+{x:.0%}' for x in steps)})",
+              steps and min(steps) >= 0.20)
     for cls, aid in (("Mage", "mage_fireball"), ("Warlock", "warlock_shadow_bolt"), ("Priest", "priest_smite"),
                      ("Warrior", "warrior_heroic_strike"), ("Warlock", "warlock_searing_pain"),
                      ("Priest", "priest_heal")):
@@ -67,10 +77,10 @@ def main():
             continue
         lo = at(ab, 15).effect_value
         hi = at(ab, 60).effect_value
-        check(f"{ab.name}: {lo} at 15 -> {hi} at 60", lo and hi / lo >= 2.8, f"{hi / max(1, lo):.1f}x")
+        check(f"{ab.name}: {lo} at 15 -> {hi} at 60", lo and hi / lo >= 3.5, f"{hi / max(1, lo):.1f}x")
     fb_ = book("Mage")["mage_fireball"]
     top = at(fb_, 60).effect_value
-    check(f"Fireball's top rank is {top} (Classic Lightning Bolt's: 430-470 before spell power)", 350 <= top <= 500)
+    check(f"Fireball's top rank is {top} (~25x rank 1, like Classic's Lightning Bolt 16 -> 452)", 900 <= top <= 1300)
     import json
     raw = json.load(open("data/abilities/mage.json", encoding="utf-8"))
     raw = raw if isinstance(raw, list) else raw.get("abilities", raw)

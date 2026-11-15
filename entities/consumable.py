@@ -111,6 +111,20 @@ class Consumable:
             return False  # One quiver at a time
         return True
     
+    def restore_amount(self, level=None):
+        """Health or mana this restores, for a drinker of this level (None: the item's own level).
+
+        THE WORLD CURVE (combat/world_curve.py, 15 Nov 2026): health and mana bars grow x2.9 more by 60 than they
+        used to, so a potion is sized by it at the drinker's level and a meal or drink at its own level (a
+        level-5 loaf is still a level-5 loaf at 60). One place, so combat and every tooltip agree."""
+        from combat.world_curve import world_scale
+        if self.consumable_type in ("health_potion", "mana_potion"):
+            lv = level or self.required_level or 1
+            return int(self.effect_value * (1.0 + lv * self.level_multiplier) * world_scale(lv))
+        if self.consumable_type in ("meal", "drink"):
+            return int(round(self.effect_value * world_scale(self.required_level or 1)))
+        return int(self.effect_value or 0)
+
     def use(self, character, combat_log=None):
         """
         Apply consumable effect to character. Returns True if successful.
@@ -121,12 +135,12 @@ class Consumable:
         
         # Apply effect based on type
         if self.consumable_type == "health_potion":
-            scaled_value = int(self.effect_value * (1.0 + character.level * self.level_multiplier))
+            scaled_value = self.restore_amount(character.level)
             character.heal(scaled_value)
             log_msg = f"Used {self.name}: +{scaled_value} HP"
         
         elif self.consumable_type == "mana_potion":
-            scaled_value = int(self.effect_value * (1.0 + character.level * self.level_multiplier))
+            scaled_value = self.restore_amount(character.level)
             old_mana = character.current_mana
             character.current_mana = min(character.mana, character.current_mana + scaled_value)
             actual_restore = character.current_mana - old_mana
@@ -152,10 +166,11 @@ class Consumable:
             # is how long it takes - the slowness is the cost, and it is why this is cheap and a
             # potion is not.
             kind = "meal" if self.consumable_type == "meal" else "drink"
-            character.start_consumable_regen(kind, self.effect_value, self.effect_duration, self.name)
+            restore = self.restore_amount()
+            character.start_consumable_regen(kind, restore, self.effect_duration, self.name)
             verb = "Eating" if kind == "meal" else "Drinking"
             bar = "health" if kind == "meal" else "mana"
-            log_msg = (f"{verb} {self.name}: {self.effect_value} {bar} over "
+            log_msg = (f"{verb} {self.name}: {restore} {bar} over "
                        f"{int(self.effect_duration)}s. Stops if you take a hit.")
             # A COOKED meal carries the Well Fed buff on top of the regen, which is the entire reason
             # to cook rather than buy. Vendor meals have no stat_bonuses and skip this.

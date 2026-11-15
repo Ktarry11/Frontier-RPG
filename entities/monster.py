@@ -632,7 +632,12 @@ class Monster(StatusEffectMixin):
                 f"Known: {sorted(templates)}")
         template = templates[monster_type]
 
-        level_mult = 1.0 + (level - 1) * 0.15  # +15% per level (conservative)
+        level_mult = 1.0 + (level - 1) * 0.15  # the old straight line: armour stays on it (mitigation)
+        # THE WORLD CURVE (combat/world_curve.py, Kyle 15 Nov 2026 "Steeper world"): health, attack, spell
+        # power and mana grow like Classic's, x29 from 1 to 60 instead of x10, so ranks can be real steps.
+        from combat.world_curve import growth as _growth, world_scale as _world_scale
+        size_mult = _growth(level)
+        kit_mult = _world_scale(level)
 
         # AVOIDANCE. Monsters had none of this: Monster.take_damage rolled no
         # dodge, parry or block, so avoidance was one-directional for the
@@ -659,7 +664,7 @@ class Monster(StatusEffectMixin):
         self.block_chance = float(template.get("base_block_chance", 0) or 0)
         self.block_value = float(template.get("base_block_value", 0) or 0)
 
-        self.max_health = int(template["base_hp"] * level_mult)
+        self.max_health = int(template["base_hp"] * size_mult)
         self.current_health = self.max_health
 
         self.base_armor = int(template["base_armor"] * level_mult)
@@ -698,10 +703,10 @@ class Monster(StatusEffectMixin):
         self.base_arcane_resist = _resist("base_arcane_resist")
         self.base_holy_resist = _resist("base_holy_resist")
 
-        self.attack_power = int(template["base_attack"] * level_mult)
-        self.spell_power = int(template.get("base_spell_power", 0) * level_mult)
+        self.attack_power = int(template["base_attack"] * size_mult)
+        self.spell_power = int(template.get("base_spell_power", 0) * size_mult)
 
-        self.max_mana = int(template.get("base_mana", 0) * level_mult)
+        self.max_mana = int(template.get("base_mana", 0) * size_mult)
         self.current_mana = self.max_mana
         self.resource_type = template.get("resource_type", "rage")
 
@@ -745,7 +750,13 @@ class Monster(StatusEffectMixin):
             # At low level the extra factor is small enough to look like tuning, which is why
             # this survived: it only becomes a one-shot somewhere past 35, exactly where Kyle
             # found it. A level 42 raptor now hits for its authored 106.
+            # ...but the WORLD CURVE (15 Nov 2026) multiplies everything that hurts or heals by how much
+            # bigger the world is than the old straight line at this level (x1 at 1, x2.9 at 60), the same
+            # factor the players' health is multiplied by - so a hit is the same share of a health bar.
+            # Buffs and debuffs carry percentages and are left alone.
             scaled = entry.get("amount", 0)
+            if entry.get("kind", "damage") in ("damage", "heal", "dot") and isinstance(scaled, (int, float)):
+                scaled = int(round(scaled * kit_mult))
             self.abilities.append(MonsterAbility(
                 name=entry["name"],
                 kind=entry.get("kind", "damage"),

@@ -1418,15 +1418,21 @@ class Character(StatusEffectMixin):
         # a straight multiplier on the final value, same two-layer pattern
         # as all_stats_pct above (flat bonus first, then a % cooldown on
         # top) rather than feeding into the strength/agility formula itself.
+        # THE WORLD CURVE (combat/world_curve.py, 15 Nov 2026): attack power, health, mana, the weapon roll,
+        # regen and (where combat reads it) spell and healing power are multiplied by how much bigger the world
+        # is at this level than the old straight line - x1 at 1, x2.9 at 60 - the same factor as the monsters,
+        # so gear keeps its share of your damage and a monster's hit keeps its share of your health.
+        from combat.world_curve import world_scale as _world_scale
+        _ws = _world_scale(self.level)
         self.attack_power = int((int(eff_strength * 2 + eff_agility * 0.5) + int(bonuses.get("attack_power", 0)))
-                                 * (1.0 + bonuses.get("attack_power_pct", 0) / 100.0))
+                                 * (1.0 + bonuses.get("attack_power_pct", 0) / 100.0) * _ws)
         # RANGED attack power takes +Attack Power from gear too, as in WoW, plus anything that
         # is ranged-only. It used to be Agility and Strength and nothing else, so every point
         # of attack power on a Hunter's gear did nothing for the bow it was bought for.
         self.ranged_attack_power = int(
             (int(eff_agility * 2 + eff_strength * 0.5) + int(bonuses.get("attack_power", 0))
              + int(bonuses.get("ranged_attack_power", 0)))
-            * (1.0 + bonuses.get("attack_power_pct", 0) / 100.0))
+            * (1.0 + bonuses.get("attack_power_pct", 0) / 100.0) * _ws)
 
         # Spell Power / Healing Power: small per-point contribution from base
         # stats (0.2 per INT for Spell Power; 0.2 per INT + 0.2 per Spirit for
@@ -1641,7 +1647,7 @@ class Character(StatusEffectMixin):
 
         # Resources (conservative scaling for long-term progression)
         old_health_max = self.health
-        self.health = int((100 + eff_stamina * 8) * (1.0 + bonuses.get("max_health_pct", 0)))
+        self.health = int((100 + eff_stamina * 8) * (1.0 + bonuses.get("max_health_pct", 0)) * _ws)
         old_mana_max = self.mana
 
         # Only Mana-resource classes actually get a Mana pool. Rage/Energy
@@ -1668,7 +1674,7 @@ class Character(StatusEffectMixin):
         base_resource, _ = _lookup_class_resource(self.char_class)
         if base_resource == ResourceType.MANA:
             self.mana = int((100 + eff_intellect * 15 + eff_spirit * 5)
-                            * (1.0 + bonuses.get("max_mana_pct", 0)))
+                            * (1.0 + bonuses.get("max_mana_pct", 0)) * _ws)
         else:
             self.mana = 0
 
@@ -1852,11 +1858,15 @@ class Character(StatusEffectMixin):
         """
         import random
 
+        # the weapon's roll times the world curve at this level (combat/world_curve.py, 15 Nov 2026), like
+        # attack power: gear keeps its share of a hit as the monsters grow
+        from combat.world_curve import world_scale as _world_scale
+        ws = _world_scale(self.level)
         if use_ranged:
             weapon = self.equipment.get_ranged_weapon()
             if not weapon or weapon.weapon_damage_max <= 0:
                 return 0
-            return random.randint(weapon.weapon_damage_min, weapon.weapon_damage_max)
+            return int(round(random.randint(weapon.weapon_damage_min, weapon.weapon_damage_max) * ws))
 
         total = 0
         main_hand = self.equipment.get_main_hand_weapon()
@@ -1878,7 +1888,7 @@ class Character(StatusEffectMixin):
                 offhand_roll = random.randint(off_hand.weapon_damage_min, off_hand.weapon_damage_max)
                 total += int(offhand_roll * 0.5)  # Dual-wield offhand penalty (WoW convention)
 
-        return total
+        return int(round(total * ws))
 
     def _offhand_weapon(self):
         """The equipped off-hand weapon, or None. A shield or an off-hand
@@ -3310,24 +3320,29 @@ class Character(StatusEffectMixin):
         # COMBAT SCALE (entities/power_scale.py): the sheet shows spell power on the item scale Kyle
         # set on 14 Nov; the coefficients every spell uses were tuned on the old one, and he chose to
         # keep combat the same. So the lift is divided back out here, the one place casts read it.
+        # ...and multiplied by the world curve at this level (combat/world_curve.py), like attack power.
+        from combat.world_curve import world_scale as _world_scale
+        ws = _world_scale(self.level)
         generic = self.spell_power / _PS.SPELL
         if isinstance(school, (tuple, list)):
             if not school:
-                return generic
+                return generic * ws
             per_school_avg = sum(self._per_school_spell_power(s) for s in school) / len(school)
-            return generic + per_school_avg / _PS.SCHOOL
+            return (generic + per_school_avg / _PS.SCHOOL) * ws
 
-        return generic + self._per_school_spell_power(school) / _PS.SCHOOL
+        return (generic + self._per_school_spell_power(school) / _PS.SCHOOL) * ws
 
     @property
     def combat_spell_power(self):
-        """Generic spell power on the scale combat was tuned for (see get_effective_spell_power)."""
-        return self.spell_power / _PS.SPELL
+        """Generic spell power on the scale combat was tuned for, times the world curve (see get_effective_spell_power)."""
+        from combat.world_curve import world_scale as _world_scale
+        return self.spell_power / _PS.SPELL * _world_scale(self.level)
 
     @property
     def combat_healing_power(self):
-        """Healing power on the scale combat was tuned for (entities/power_scale.py)."""
-        return self.healing_power / _PS.HEALING
+        """Healing power on the scale combat was tuned for (entities/power_scale.py), times the world curve."""
+        from combat.world_curve import world_scale as _world_scale
+        return self.healing_power / _PS.HEALING * _world_scale(self.level)
 
     def _per_school_spell_power(self, school):
         """Just the per-school COMPONENT (not including generic
@@ -3929,7 +3944,8 @@ class Character(StatusEffectMixin):
         self._spent_mana_this_turn = False
         # hp5: health back at the end of your own turn. The dead get nothing (heal() refuses).
         if self.hp5_total() > 0:
-            self.heal(self.hp5_total())
+            from combat.world_curve import world_scale as _world_scale
+            self.heal(int(round(self.hp5_total() * _world_scale(self.level))))
 
     #: Mana back per point of Spirit at the end of each of your turns.
     #: 0.5 until 15 Nov 2026; Kyle: "we need to improve spirit regen a bit" alongside the five-second rule
@@ -3976,7 +3992,9 @@ class Character(StatusEffectMixin):
         if getattr(self, "mana", 0) <= 0:
             return 0
         spirit = self.effective_spirit * self.MANA_PER_SPIRIT_PER_TURN * self.spirit_regen_fraction(casting)
-        return spirit + self.mp5_total()
+        # the bar is world-curve sized (combat/world_curve.py), so what refills it is too
+        from combat.world_curve import world_scale as _world_scale
+        return (spirit + self.mp5_total()) * _world_scale(self.level)
 
     def restore_resources_out_of_combat_step(self):
         """

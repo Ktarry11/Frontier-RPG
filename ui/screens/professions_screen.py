@@ -586,8 +586,8 @@ class ProfessionsScreen(BaseScreen):
                 if cons.stat_bonuses:
                     text = ("Well fed: " if cons.consumable_type == "meal" else "") + bonus_text(cons.stat_bonuses)
                 elif cons.effect_value:
-                    text = {"health_potion": f"Restores {cons.effect_value} health",
-                            "mana_potion": f"Restores {cons.effect_value} mana"}.get(cons.consumable_type, "")
+                    text = {"health_potion": f"Restores {cons.restore_amount()} health",
+                            "mana_potion": f"Restores {cons.restore_amount()} mana"}.get(cons.consumable_type, "")
             stem = icon_for(consumable_id)
             path = f"assets/icons/consumables/{stem}.png" if stem else None
             if path and os.path.isfile(path):

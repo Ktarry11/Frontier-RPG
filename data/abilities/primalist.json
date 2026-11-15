@@ -1209,23 +1209,26 @@
           "rank": 1,
           "level_req": 30,
           "cost": 385,
-          "effect_value": 550
+          "effect_value": 180
         },
         {
           "rank": 2,
           "level_req": 40,
           "cost": 615,
-          "effect_value": 878
+          "effect_value": 210
         },
         {
           "rank": 3,
           "level_req": 52,
           "cost": 763,
-          "effect_value": 1089
+          "effect_value": 254
         }
       ],
       "icon_id": null,
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "_tuning": [
+        "15 Nov 2026: 550/878/1089 -> 180/210/254. Authored at 6x a Fireball rank PER TARGET on a 4-turn AoE (13x its line); the world curve multiplied it to 5,283 at 40 and Geomancy one-shot everything. Now ~2x the line per target, the top of the strong AoEs."
+      ]
     },
     {
       "ability_id": "primalist_grove_tender",

@@ -871,7 +871,7 @@
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
-      "description": "Fires a zap of electricity that heals an ally for 332. Scales with modifiers to Repair Shot.",
+      "description": "Fires a zap of electricity that heals an ally. Scales with modifiers to Repair Shot.",
       "_source": "Real screenshot: Requires Level 38, Zap! (Rank 1) - real self-rank gate, Kyle-confirmed. Granted by an Invention talent node.",
       "requires_talent": true,
       "target_type": "ally",
@@ -885,17 +885,20 @@
         {
           "rank": 2,
           "level_req": 45,
-          "cost": 178,
-          "effect_value": 222
+          "cost": 101,
+          "effect_value": 126
         },
         {
           "rank": 3,
           "level_req": 52,
-          "cost": 266,
-          "effect_value": 332
+          "cost": 113,
+          "effect_value": 141
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "_tuning": [
+        "15 Nov 2026: ranks 111/222/332 -> 111/126/141. A spammable heal that doubled and tripled in 14 levels (every other Tinker heal steps ~10% a rank); at 52 it healed 2.2x a main heal per cast and Invention measured 3.7x the median healer at 60."
+      ]
     },
     {
       "ability_id": "tinker_my_greatest_invention",
@@ -915,10 +918,13 @@
           "rank": 1,
           "level_req": 50,
           "cost": 110,
-          "effect_value": 520
+          "effect_value": 190
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "_tuning": [
+        "15 Nov 2026: 520 -> 190. A 3-turn party heal authored at 5.5x its line; with the world curve Invention healed 3x the median healer at 60. Now ~2x its line, the top of the strong party heals."
+      ]
     },
     {
       "ability_id": "tinker_power_module",

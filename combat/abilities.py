@@ -1268,9 +1268,11 @@ class Ability:
         elif self.effect_type == "hot":
             lines.append(f"Base healing: {self.effect_value} over {self.duration} turns")
         elif self.effect_type == "damage_and_heal":
-            lines.append(f"Base damage: {self.effect_value}  |  Base healing: {self.heal_value}")
+            # both halves roll (the strike in _apply_effect, the heal in _apply_smart_heal), so both show it
+            lines.append(f"Base damage: {self._range_text(self.effect_value)}  |  "
+                         f"Base healing: {self._range_text(self.heal_value or 0)}")
         elif self.effect_type == "damage_and_restore_mana":
-            lines.append(f"Base damage: {self.effect_value}  |  Restores {self.mana_restore_pct}% mana")
+            lines.append(f"Base damage: {self._range_text(self.effect_value)}  |  Restores {self.mana_restore_pct}% mana")
         elif self.effect_type in ("buff", "debuff") and self.stat_mods:
             lines.append(", ".join(self._stat_mod_text(k, v) for k, v in self.stat_mods.items()))
 
@@ -1875,6 +1877,9 @@ class Ability:
     #: gets its spread from the weapon roll, and rolling again on top would
     #: compound two ranges into one much wider than either.
     SPELL_VARIANCE = 0.09
+
+    #: Cryobolt / Cryolance: the share of a converted Frostbolt's or Ice Lance's damage that heals the neediest ally
+    CRYO_HEAL_SHARE = 0.30
 
     #: The ability types whose amount is rolled by _roll_variance. Physical "damage" rolls on
     #: the weapon's own min-max instead, and a DoT/HoT ticks for a fixed amount.
@@ -4005,8 +4010,13 @@ class Ability:
                 # cast that connects, on top of their normal damage - see
                 # Ability.cryo_converted and _apply_smart_heal. Guarded on
                 # any_hit so a miss doesn't also grant a free heal.
+                # THE HEAL IS PART OF THE DAMAGE DEALT, as both talents say ("Your Frostbolt also heals your
+                # neediest ally for part of the damage it deals"). It used to be the cast's flat heal_value, which
+                # Frostbolt never had - so a Cryotherapist's main spell healed for its healing-power share alone
+                # and the spec measured 4-13x short of Kyle's "around 75%" of a healer (15 Nov 2026).
                 if self.cryo_converted and any_hit:
-                    heal_names, heal_amt, heal_count = self._apply_smart_heal(caster, party, self.heal_value)
+                    cryo_base = (self.heal_value or 0) + int((first_hit_amount or 0) * self.CRYO_HEAL_SHARE)
+                    heal_names, heal_amt, heal_count = self._apply_smart_heal(caster, party, cryo_base)
                     if heal_count > 1:
                         summary += f" Cryotherapist heals {heal_names} for {heal_amt} each!"
                     else:

@@ -2132,7 +2132,13 @@ class StatusEffectMixin:
             # payload from bonus_pct because "flat regardless of hit size"
             # and "percentage of hit size" are genuinely different proc
             # shapes in real WoW (Earth Shield vs. e.g. a life-steal proc).
+            # FLAT proc amounts were authored on the old straight line; the world curve (combat/world_curve.py,
+            # 15 Nov 2026) sizes them at the carrier's level like everything else that hurts or heals.
+            from combat.world_curve import world_scale as _world_scale
+            _ws = _world_scale(getattr(self, "level", 1))
             heal_flat = proc.get("heal_flat")
+            if heal_flat:
+                heal_flat = int(round(heal_flat * _ws))
             if heal_flat and hasattr(self, "heal"):
                 self.heal(heal_flat)
                 messages.append(f"{effect.name} heals {self.name} for {heal_flat}!")
@@ -2159,6 +2165,8 @@ class StatusEffectMixin:
             # caller that did not pass the attacker) means no retaliation,
             # exactly like the other retaliation payloads.
             damage_flat = proc.get("damage_flat")
+            if damage_flat:
+                damage_flat = int(round(damage_flat * _ws))
             if damage_flat and target is not None and hasattr(target, "take_damage"):
                 school = proc.get("school", effect.damage_school or "physical")
                 target.take_damage(int(damage_flat), school)
@@ -2379,6 +2387,8 @@ class StatusEffectMixin:
             # engine (an out-of-combat proc, or a monster with no party
             # concept) this safely falls back to healing the carrier.
             smart_heal_amt = proc.get("smart_heal")
+            if smart_heal_amt:
+                smart_heal_amt = int(round(smart_heal_amt * _ws))     # flat: on the world curve (above)
             # smart_heal_pct: heal a PERCENTAGE OF THE TRIGGERING AMOUNT
             # rather than a flat number, for the procs whose wording is
             # proportional. Sun Cleric's Vow of Light is the case that forced
@@ -2677,6 +2687,9 @@ class StatusEffectMixin:
         # character's FORM, so a druid in Bear Form reads as a rage user and regenerated no
         # mana at all for as long as they stayed shifted. Kyle, 12 Nov: "mana doesnt regen
         # while in shapeshift forms." In WoW the blue bar keeps filling behind the form.
+        # the bars are world-curve sized (combat/world_curve.py, 15 Nov 2026), so regen is too
+        from combat.world_curve import world_scale as _world_scale
+        mult = mult * _world_scale(getattr(self, "level", 1))
         if getattr(self, "mana", 0) > 0 and hasattr(self, "current_mana"):
             gain = spirit * self.OUT_OF_COMBAT_MANA_REGEN_PER_SPIRIT * mult * dt
             # mp5 (real gear suffix stat, "Mana Per 5 Seconds" - see

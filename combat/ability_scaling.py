@@ -58,10 +58,20 @@ RANK_CURVE_FROM = 1
 
 
 def rank_multiplier(level_req):
-    """How much stronger a rank learned at this level is than its authored value: the monsters' growth over the
-    authored line's."""
-    lv = max(1, level_req or 1) - 1
-    return (1 + MONSTER_HP_SLOPE * lv) / (1 + AUTHORED_SLOPE * lv)
+    """How much stronger a rank learned at this level is than its authored value: the world's growth
+    (combat/world_curve.py) over the authored line's, at the level the rank is learned.
+
+    Third pass (Kyle, 15 Nov 2026, "Steeper world": "Each spell rank or ability rank should FEEL like an actual
+    step"): the world now compounds like Classic's, so a rank is ~+100% early and +23% late, and a top rank is
+    ~25x rank 1 (Fireball 44 -> ~1,100 at 56; Classic Lightning Bolt 16 -> 452, Healing Touch 47 -> 2,472)."""
+    if not RANK_CURVE_ON:
+        return 1.0
+    from combat.world_curve import growth
+    lv = max(1, level_req or 1)
+    return growth(lv) / (1 + AUTHORED_SLOPE * (lv - 1))
+
+
+RANK_CURVE_ON = True
 
 
 #: effect types whose effect_value is a strength, so ranks scale
@@ -309,7 +319,7 @@ def apply(ability, entry):
 # measure before against after in two processes (tools/sim_difficulty.py, tools/sim_class_balance.py).
 import os as _os
 if _os.environ.get("FRONTIER_ABILITY_SCALING", "").lower() == "off":
-    MONSTER_HP_SLOPE = AUTHORED_SLOPE
+    RANK_CURVE_ON = False
     COOLDOWN_WEIGHTS = [(0, 1.0)]
     AOE_SHARE = AOE_SMALL_SHARE = 1.0
     USE_RANK_POWER = False
