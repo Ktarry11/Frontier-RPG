@@ -143,7 +143,11 @@ def build(spec, role, level, tier, gen):
     finally:
         del Character._matrix_spec
     char._matrix_spec = spec
-    summon_screen_pet(char)
+    # not for a tank: the tank measurements hit the tank, and a pet in front of it soaks the hits and makes
+    # "turns alive" meaningless (Cultist, Felsworn, Knight of Xoroth, Mountain King, Reaper, Black Knight read
+    # 0, thousands or negative)
+    if role != "tank":
+        summon_screen_pet(char)
     char.current_health = char.health
     if getattr(char, "mana", 0):
         char.current_mana = char.mana
