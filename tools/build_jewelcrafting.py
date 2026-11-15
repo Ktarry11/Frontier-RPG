@@ -79,7 +79,10 @@ CUTS = {
     "yellow": [("Brilliant", {"intellect": 1}), ("Smooth", {"crit_chance_physical": 1}),
                ("Gleaming", {"crit_chance_spell": 1}), ("Rigid", {"hit_rating": 1}),
 
-               ("Thick", {"defense_rating": 1}), ("Quick", {"haste": 1})],
+               ("Thick", {"defense_rating": 1}), ("Quick", {"haste": 1}),
+               # SPELL HIT (Kyle, 15 Nov 2026: "add a spell hit gem and also some variations of gems that
+               # include spell hit + other"). Great is TBC's spell-hit Dawnstone cut; it's taught (SOURCE_FOR).
+               ("Great", {"spell_hit_rating": 1})],
     "blue": [("Solid", {"stamina": 1}), ("Sparkling", {"spirit": 1}), ("Lustrous", {"mp5": 1}),
              ("Stormy", {"spell_penetration": 1})],
     "orange": [("Inscribed", {"strength": .5, "crit_chance_physical": .5}),
@@ -93,7 +96,11 @@ CUTS = {
               ("Enduring", {"defense_rating": .5, "stamina": .5}),
               ("Dazzling", {"intellect": .5, "mp5": .5}),
               ("Sundered", {"crit_chance_physical": .5, "mp5": .5}),
-              ("Lambent", {"spell_hit_rating": .5, "mp5": .5})],
+              ("Lambent", {"spell_hit_rating": .5, "mp5": .5}),
+              # spell hit with the other half of a green: Stamina (TBC's Vivid), Spirit, spell penetration
+              ("Vivid", {"spell_hit_rating": .5, "stamina": .5}),
+              ("Serene", {"spell_hit_rating": .5, "spirit": .5}),
+              ("Piercing", {"spell_hit_rating": .5, "spell_penetration": .5})],
     "purple": [("Sovereign", {"strength": .5, "stamina": .5}),
                ("Shifting", {"agility": .5, "stamina": .5}),
                ("Glowing", {"spell_power": .5, "stamina": .5}),
@@ -105,6 +112,8 @@ CUTS = {
     "prismatic": [("Prismatic", {"strength": .2, "agility": .2, "intellect": .2, "stamina": .2,
                                  "spirit": .2})],
 }
+#: a cut whose source isn't left to its place in the list (see the source rule in main)
+SOURCE_FOR = {"Great": "trainer"}
 MAX_SKILL = 300          # recipes for stones above this wait with their ores
 RARE_CHANCE = 0.025      # a stone this rare in its vein cuts into a rare-quality gem
 
@@ -305,7 +314,8 @@ def main():
             # A stone's first cut is taught, and its fourth from tier 25; the rest are found, shop and drop.
             # (Only the first was taught while ratings kept crit and hit cuts off the low stones; with
             # ratings, 15 Nov, every stone carries more cuts, and one taught cut fell under 50%.)
-            source = "trainer" if n == 0 or (n == 3 and tier >= 25) else ("vendor" if n % 2 == 1 else "drop")
+            source = SOURCE_FOR.get(cut) or (
+                "trainer" if n == 0 or (n == 3 and tier >= 25) else ("vendor" if n % 2 == 1 else "drop"))
             rskill = max(1, skill) + (0 if n == 0 else 10)
             recipes[f"jc_{cid}"] = {
                 "name": name, "inputs": {gid: 1}, "skill_required": rskill,

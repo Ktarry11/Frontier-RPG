@@ -12507,7 +12507,7 @@
       "material_type": "cut_gem",
       "profession": "jewelcrafting",
       "tier": "mid",
-      "description": "A cut green gem: +2 Hit Rating, +1 Mana per 5. Fits a blue or yellow socket.",
+      "description": "A cut green gem: +1 Mana per 5, +2 Spell Hit Rating. Fits a blue or yellow socket.",
       "stack_limit": 20,
       "sell_price": 819,
       "icon_id": "cut_lambent_jade",
@@ -12843,7 +12843,7 @@
       "material_type": "cut_gem",
       "profession": "jewelcrafting",
       "tier": "late",
-      "description": "A cut green gem: +3 Hit Rating, +1 Mana per 5. Fits a blue or yellow socket.",
+      "description": "A cut green gem: +1 Mana per 5, +3 Spell Hit Rating. Fits a blue or yellow socket.",
       "stack_limit": 20,
       "sell_price": 1395,
       "icon_id": "cut_lambent_peridot",
@@ -13147,7 +13147,7 @@
       "material_type": "cut_gem",
       "profession": "jewelcrafting",
       "tier": "endgame",
-      "description": "A cut green gem: +4 Hit Rating, +2 Mana per 5. Fits a blue or yellow socket.",
+      "description": "A cut green gem: +2 Mana per 5, +4 Spell Hit Rating. Fits a blue or yellow socket.",
       "stack_limit": 20,
       "sell_price": 2664,
       "icon_id": "cut_lambent_huge_emerald",
@@ -13227,7 +13227,7 @@
       "material_type": "cut_gem",
       "profession": "jewelcrafting",
       "tier": "late",
-      "description": "A cut green gem: +4 Hit Rating, +1 Mana per 5. Fits a blue or yellow socket.",
+      "description": "A cut green gem: +1 Mana per 5, +4 Spell Hit Rating. Fits a blue or yellow socket.",
       "stack_limit": 20,
       "sell_price": 1836,
       "icon_id": "cut_lambent_felfire_shard",
@@ -13723,7 +13723,7 @@
       "material_type": "cut_gem",
       "profession": "jewelcrafting",
       "tier": "endgame",
-      "description": "A cut orange gem: +7 Spell Power, +5 Hit Rating. Fits a red or yellow socket.",
+      "description": "A cut orange gem: +7 Spell Power, +5 Spell Hit Rating. Fits a red or yellow socket.",
       "stack_limit": 20,
       "sell_price": 3393,
       "icon_id": "cut_veiled_cinder_agate",
@@ -13883,7 +13883,7 @@
       "material_type": "cut_gem",
       "profession": "jewelcrafting",
       "tier": "endgame",
-      "description": "A cut green gem: +5 Hit Rating, +2 Mana per 5. Fits a blue or yellow socket.",
+      "description": "A cut green gem: +2 Mana per 5, +5 Spell Hit Rating. Fits a blue or yellow socket.",
       "stack_limit": 20,
       "sell_price": 4806,
       "icon_id": "cut_lambent_sylvan_emerald",
@@ -14651,7 +14651,7 @@
       "material_type": "cut_gem",
       "profession": "jewelcrafting",
       "tier": "endgame",
-      "description": "A cut green gem: +6 Hit Rating, +2 Mana per 5. Fits a blue or yellow socket.",
+      "description": "A cut green gem: +2 Mana per 5, +6 Spell Hit Rating. Fits a blue or yellow socket.",
       "stack_limit": 20,
       "sell_price": 6282,
       "icon_id": "cut_lambent_sundered_tourmaline",
@@ -14939,7 +14939,7 @@
       "material_type": "cut_gem",
       "profession": "jewelcrafting",
       "tier": "endgame",
-      "description": "A cut orange gem: +10 Spell Power, +6 Hit Rating. Fits a red or yellow socket.",
+      "description": "A cut orange gem: +10 Spell Power, +6 Spell Hit Rating. Fits a red or yellow socket.",
       "stack_limit": 20,
       "sell_price": 6822,
       "icon_id": "cut_veiled_titans_eye",
@@ -15131,7 +15131,7 @@
       "material_type": "cut_gem",
       "profession": "jewelcrafting",
       "tier": "endgame",
-      "description": "A cut orange gem: +10 Spell Power, +6 Hit Rating. Fits a red or yellow socket.",
+      "description": "A cut orange gem: +10 Spell Power, +6 Spell Hit Rating. Fits a red or yellow socket.",
       "stack_limit": 20,
       "sell_price": 6966,
       "icon_id": "cut_veiled_cataclysm_opal",
@@ -15211,7 +15211,7 @@
       "material_type": "cut_gem",
       "profession": "jewelcrafting",
       "tier": "endgame",
-      "description": "A cut green gem: +7 Hit Rating, +3 Mana per 5. Fits a blue or yellow socket.",
+      "description": "A cut green gem: +3 Mana per 5, +7 Spell Hit Rating. Fits a blue or yellow socket.",
       "stack_limit": 20,
       "sell_price": 7047,
       "icon_id": "cut_lambent_dreamers_jade",
@@ -15435,7 +15435,7 @@
       "material_type": "cut_gem",
       "profession": "jewelcrafting",
       "tier": "late",
-      "description": "A cut orange gem: +8 Spell Power, +5 Hit Rating. Fits a red or yellow socket.",
+      "description": "A cut orange gem: +8 Spell Power, +5 Spell Hit Rating. Fits a red or yellow socket.",
       "stack_limit": 20,
       "sell_price": 2124,
       "icon_id": "cut_veiled_fire_opal",
@@ -15611,7 +15611,7 @@
       "material_type": "cut_gem",
       "profession": "jewelcrafting",
       "tier": "late",
-      "description": "A cut orange gem: +6 Spell Power, +4 Hit Rating. Fits a red or yellow socket.",
+      "description": "A cut orange gem: +6 Spell Power, +4 Spell Hit Rating. Fits a red or yellow socket.",
       "stack_limit": 20,
       "sell_price": 1233,
       "icon_id": "cut_veiled_pyrite_star",
@@ -16345,6 +16345,454 @@
       "sell_price": 96,
       "icon_id": "scope_arcanite",
       "skill_range": null
+    },
+    "cut_great_honey_amber": {
+      "name": "Great Honey Amber",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut yellow gem: +5 Spell Hit Rating. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 702,
+      "icon_id": "cut_great_honey_amber",
+      "skill_range": [
+        115,
+        135,
+        150,
+        165
+      ]
+    },
+    "cut_vivid_jade": {
+      "name": "Vivid Jade",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut green gem: +2 Spell Hit Rating, +2 Stamina. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 819,
+      "icon_id": "cut_vivid_jade",
+      "skill_range": [
+        125,
+        145,
+        160,
+        175
+      ]
+    },
+    "cut_serene_jade": {
+      "name": "Serene Jade",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut green gem: +2 Spell Hit Rating, +2 Spirit. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 819,
+      "icon_id": "cut_serene_jade",
+      "skill_range": [
+        125,
+        145,
+        160,
+        175
+      ]
+    },
+    "cut_piercing_jade": {
+      "name": "Piercing Jade",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut green gem: +2 Spell Hit Rating, +2 Spell Penetration. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 819,
+      "icon_id": "cut_piercing_jade",
+      "skill_range": [
+        125,
+        145,
+        160,
+        175
+      ]
+    },
+    "cut_great_citrine": {
+      "name": "Great Citrine",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "mid",
+      "description": "A cut yellow gem: +5 Spell Hit Rating. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 819,
+      "icon_id": "cut_great_citrine",
+      "skill_range": [
+        125,
+        145,
+        160,
+        175
+      ]
+    },
+    "cut_great_topaz": {
+      "name": "Great Topaz",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut yellow gem: +6 Spell Hit Rating. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 1233,
+      "icon_id": "cut_great_topaz",
+      "skill_range": [
+        155,
+        175,
+        190,
+        205
+      ]
+    },
+    "cut_vivid_peridot": {
+      "name": "Vivid Verdant Peridot",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut green gem: +3 Spell Hit Rating, +3 Stamina. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 1395,
+      "icon_id": "cut_vivid_peridot",
+      "skill_range": [
+        165,
+        185,
+        200,
+        215
+      ]
+    },
+    "cut_serene_peridot": {
+      "name": "Serene Verdant Peridot",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut green gem: +3 Spell Hit Rating, +3 Spirit. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 1395,
+      "icon_id": "cut_serene_peridot",
+      "skill_range": [
+        165,
+        185,
+        200,
+        215
+      ]
+    },
+    "cut_piercing_peridot": {
+      "name": "Piercing Verdant Peridot",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut green gem: +3 Spell Hit Rating, +3 Spell Penetration. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 1395,
+      "icon_id": "cut_piercing_peridot",
+      "skill_range": [
+        165,
+        185,
+        200,
+        215
+      ]
+    },
+    "cut_vivid_huge_emerald": {
+      "name": "Vivid Huge Emerald",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut green gem: +4 Spell Hit Rating, +4 Stamina. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "cut_vivid_huge_emerald",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "cut_serene_huge_emerald": {
+      "name": "Serene Huge Emerald",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut green gem: +4 Spell Hit Rating, +4 Spirit. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "cut_serene_huge_emerald",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "cut_piercing_huge_emerald": {
+      "name": "Piercing Huge Emerald",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut green gem: +4 Spell Hit Rating, +4 Spell Penetration. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "cut_piercing_huge_emerald",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "cut_vivid_felfire_shard": {
+      "name": "Vivid Felfire Shard",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut green gem: +4 Spell Hit Rating, +4 Stamina. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 1836,
+      "icon_id": "cut_vivid_felfire_shard",
+      "skill_range": [
+        190,
+        210,
+        225,
+        240
+      ]
+    },
+    "cut_serene_felfire_shard": {
+      "name": "Serene Felfire Shard",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut green gem: +4 Spell Hit Rating, +4 Spirit. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 1836,
+      "icon_id": "cut_serene_felfire_shard",
+      "skill_range": [
+        190,
+        210,
+        225,
+        240
+      ]
+    },
+    "cut_piercing_felfire_shard": {
+      "name": "Piercing Felfire Shard",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "late",
+      "description": "A cut green gem: +4 Spell Hit Rating, +4 Spell Penetration. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 1836,
+      "icon_id": "cut_piercing_felfire_shard",
+      "skill_range": [
+        190,
+        210,
+        225,
+        240
+      ]
+    },
+    "cut_great_truesilver_zircon": {
+      "name": "Great Moonsilver Zircon",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +11 Spell Hit Rating. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 2664,
+      "icon_id": "cut_great_truesilver_zircon",
+      "skill_range": [
+        230,
+        250,
+        265,
+        280
+      ]
+    },
+    "cut_vivid_sylvan_emerald": {
+      "name": "Vivid Sylvan Emerald",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut green gem: +5 Spell Hit Rating, +5 Stamina. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 4806,
+      "icon_id": "cut_vivid_sylvan_emerald",
+      "skill_range": [
+        310,
+        335,
+        355,
+        385
+      ]
+    },
+    "cut_serene_sylvan_emerald": {
+      "name": "Serene Sylvan Emerald",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut green gem: +5 Spell Hit Rating, +5 Spirit. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 4806,
+      "icon_id": "cut_serene_sylvan_emerald",
+      "skill_range": [
+        310,
+        335,
+        355,
+        385
+      ]
+    },
+    "cut_piercing_sylvan_emerald": {
+      "name": "Piercing Sylvan Emerald",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut green gem: +5 Spell Hit Rating, +5 Spell Penetration. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 4806,
+      "icon_id": "cut_piercing_sylvan_emerald",
+      "skill_range": [
+        310,
+        335,
+        355,
+        385
+      ]
+    },
+    "cut_great_sunstone": {
+      "name": "Great Sunstone",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +11 Spell Hit Rating. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 5112,
+      "icon_id": "cut_great_sunstone",
+      "skill_range": [
+        320,
+        340,
+        355,
+        370
+      ]
+    },
+    "cut_vivid_sundered_tourmaline": {
+      "name": "Vivid Sundered Tourmaline",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut green gem: +6 Spell Hit Rating, +6 Stamina. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 6282,
+      "icon_id": "cut_vivid_sundered_tourmaline",
+      "skill_range": [
+        355,
+        380,
+        400,
+        430
+      ]
+    },
+    "cut_serene_sundered_tourmaline": {
+      "name": "Serene Sundered Tourmaline",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut green gem: +6 Spell Hit Rating, +6 Spirit. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 6282,
+      "icon_id": "cut_serene_sundered_tourmaline",
+      "skill_range": [
+        355,
+        380,
+        400,
+        430
+      ]
+    },
+    "cut_piercing_sundered_tourmaline": {
+      "name": "Piercing Sundered Tourmaline",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut green gem: +6 Spell Hit Rating, +6 Spell Penetration. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 6282,
+      "icon_id": "cut_piercing_sundered_tourmaline",
+      "skill_range": [
+        355,
+        380,
+        400,
+        430
+      ]
+    },
+    "cut_great_hourglass_topaz": {
+      "name": "Great Hourglass Topaz",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +13 Spell Hit Rating. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 6750,
+      "icon_id": "cut_great_hourglass_topaz",
+      "skill_range": [
+        368,
+        393,
+        413,
+        443
+      ]
+    },
+    "cut_vivid_dreamers_jade": {
+      "name": "Vivid Dreamer's Jade",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut green gem: +7 Spell Hit Rating, +7 Stamina. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 7047,
+      "icon_id": "cut_vivid_dreamers_jade",
+      "skill_range": [
+        376,
+        401,
+        421,
+        451
+      ]
+    },
+    "cut_serene_dreamers_jade": {
+      "name": "Serene Dreamer's Jade",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut green gem: +7 Spell Hit Rating, +7 Spirit. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 7047,
+      "icon_id": "cut_serene_dreamers_jade",
+      "skill_range": [
+        376,
+        401,
+        421,
+        451
+      ]
+    },
+    "cut_piercing_dreamers_jade": {
+      "name": "Piercing Dreamer's Jade",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut green gem: +7 Spell Hit Rating, +7 Spell Penetration. Fits a blue or yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 7047,
+      "icon_id": "cut_piercing_dreamers_jade",
+      "skill_range": [
+        376,
+        401,
+        421,
+        451
+      ]
+    },
+    "cut_great_primordial_amber": {
+      "name": "Great Primordial Amber",
+      "material_type": "cut_gem",
+      "profession": "jewelcrafting",
+      "tier": "endgame",
+      "description": "A cut yellow gem: +13 Spell Hit Rating. Fits a yellow socket.",
+      "stack_limit": 20,
+      "sell_price": 7047,
+      "icon_id": "cut_great_primordial_amber",
+      "skill_range": [
+        376,
+        401,
+        421,
+        451
+      ]
     }
   }
 }

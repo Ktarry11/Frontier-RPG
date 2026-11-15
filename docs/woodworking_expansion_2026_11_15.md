@@ -155,3 +155,41 @@ Slice to `assets/icons/gear/gear_epic_crafted_<name>.png`:
 - stormoak_crossbow
 - stormoak_barkguard_staff
 - stormoak_heart
+
+---
+
+# Spell-hit gems (same day)
+
+Kyle: "add a spell hit gem and also some variations of gems that include spell hit + other."
+
+**Before:** two cuts carried spell hit. Veiled (orange: spell power and spell hit) and Lambent (green: spell
+hit and mp5). There was no pure spell-hit gem; Rigid is physical hit.
+
+**Added: four cuts, 38 gems.** 16 are craftable now. The rest sit on the stones above skill 300 and wait with
+their ores, as every other cut does.
+
+| Cut | Colour | Stats | Recipe source |
+|---|---|---|---|
+| Great | yellow | spell hit (+5 to +11 on today's stones) | trainer |
+| Vivid | green | spell hit and Stamina | vendor |
+| Serene | green | spell hit and Spirit | drop |
+| Piercing | green | spell hit and spell penetration | vendor |
+
+- Intellect is a yellow stat like spell hit, and no colour has a yellow two-stat cut, so there's no
+  Intellect + spell hit gem.
+- Lambent's and Veiled's descriptions still said "Hit Rating" from before the split. All 12 now say "Spell Hit
+  Rating".
+
+**How it was built.**
+- `tools/build_jewelcrafting.py` doesn't reproduce today's data when re-run. A scratch run of the full chain
+  rewrote 8 data files, losing the hand edits made since.
+- So the cuts are in its CUTS table, with a SOURCE_FOR override that teaches Great, so a rebuild keeps them.
+- `tools/add_spell_hit_gems.py` writes them in place using the builder's exact loop: same budget, rating floor,
+  source rule and skill offsets.
+- `tools/build_cut_gem_icons.py` has a look for each new cut. Re-running it changed no existing icon.
+
+**Checks:**
+- qa_jewelcrafting OK (trainer share 50%); qa_recipe_sources (jewelcrafting 52%); qa_crafted_icons and
+  qa_recipe_scroll_safe pass.
+- In game: a Great Moonsilver Zircon (+11) and a Piercing Huge Emerald (+4 / +4) socketed in a staff raise the
+  wearer's spell hit from 0% to 1.5%.

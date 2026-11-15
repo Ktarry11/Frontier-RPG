@@ -37,6 +37,9 @@ LOOK = {
     "Inscribed": (-12, 1.10, 0.92), "Potent": (16, 1.30, 1.00), "Etched": (-18, 0.90, 0.90),
     "Glinting": (12, 1.00, 1.22), "Veiled": (-22, 0.80, 0.80), "Wicked": (-24, 1.30, 0.82),
     "Fluorescent": (22, 1.35, 1.20), "Luminous": (8, 1.05, 1.28), "Prismatic": (30, 1.10, 1.12),
+    # the spell-hit cuts (15 Nov 2026)
+    "Great": (-6, 1.15, 1.30), "Vivid": (16, 1.40, 1.10), "Serene": (-8, 0.70, 1.25),
+    "Piercing": (26, 1.20, 0.90),
 }
 DEFAULT = (12, 1.1, 1.05)
 
