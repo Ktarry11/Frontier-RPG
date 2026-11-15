@@ -415,6 +415,31 @@ Kyle (11:16–11:20 local):
 - **Sheet:** Hit / Spell Hit against their caps, with overcap shown. Main Hand / Off Hand / Abilities / Spells / Ranged are each shown at your level and against a +3 boss. Spell Penetration against its cap, with overcap. Checked by screenshot; `qa_screen_layout` passes.
 - **Running:** the full QA suite (`/tmp/claude-0/qa7`). Then: damage auras (the hit changes move every spec's damage), the battery, and the rest of the deep dive. Kit hand-fixes are still owed: Fury, Assassination, Survival, Enhancement, Vizier, Grovekeeper and Brewing.
 
+### 20:05–21:10 UTC: dual wield, the Rogue dip, Vizier, Warrior signatures
+
+Kyle (11:27, 11:32 local): "Yup. Keep going bro." and "After this last round of fixes we will look at gear again. We will remove and fix up a lot of drip stats by changing stats from % to rating where 10 rating is 1%. Obviously some weigh more. Like crit rating is cheaper than parry rating etc." (This is backlog item 8; it comes NEXT, after this round.)
+
+- **Pass 8 (hit changes):** 8 clamped, mostly dual-wield melee at 30. Cause: specials went main-hand only, so a dual-wielder was a two-hander with a smaller weapon (white swings cost a turn here).
+- **FIXED, the off hand's own swing** (commit "Dual wield: the off hand takes its own white swing"):
+  - Beside every main-hand special, the off hand swings white, with its own dual-wield miss roll against the target's level and its own crit.
+  - Damage is 0.5 × (weapon × world curve + attack power × AP_BASE) × the off-hand talents.
+  - Both-weapon strikes carry the off hand inside the strike.
+  - Fury at 30: 566 → 692.
+- **FIXED:** Dual Wield Specialization is now Classic's off-hand damage (`offhand_damage_pct`): Fury +5% a rank, Rogue +10% a rank. Before, it was +1–2% to all damage.
+- **Pass 8b:** 9 clamped, the level-30 physical cluster.
+- **FOUND (a sim problem, not a kit problem): energy.** Assassination did less at 30 (742) than at 24 (777): the planner spread energy over DoTs and poison, and Sinister Strike fell from 23 casts to 7. **Fixed:** energy abilities are ranked per turn of energy (cost / 25). Assassination at 30: 884.
+- **FIXED:** HoTs can carry an up-front `heal_value`, which lands on cast and takes healing power by its share of the spell. Shadra's Prayer got CoA's direct heal (0.8× the HoT total). Before this, the Vizier had no spammable heal until 20.
+- **Pass 9:** 8 clamped, 1.8–1.99:
+  - Enhancement 20, Survival 30, Assassination 30, Subtlety 30, Fury 30, Warden 40, Feral 60, Valkyrie 60.
+- **Hit-size check at 30/50, no auras.** Physical strikes are BIGGER per hit than nukes (Sinister Strike 709 vs Shadow Bolt 541 at 30). The gap is resource-gated: Barbarian's 20-energy, 845 strike is 2.4× the Rogue's damage per energy.
+- **Residual causes:**
+  - Enhancement at 20 plays as a caster (its melee kit comes later).
+  - Fury at 30 lives on Cleave.
+  - Valkyrie spams one spell.
+  - Feral's Rake is weak.
+- **FIXED:** Bloodthirst ×2.58 and Mortal Strike ×1.83, to 1.35× a same-level Heroic Strike. Bloodthirst was authored at a quarter of one (1,110 vs 1,571 at 50).
+- **Running:** pass 10, damage then healing (task b71on7mlu). The QA suite is still in its tail (no failures in the first 52 of 197).
+
 ## Parked (Kyle said note it only; class balance comes first)
 
 - **16:41 UTC.** Hand-authored boss drops convert from percentage hit, crit, dodge, parry and so on to RATINGS (10 rating = 1%, like gems and crafted gear), cleaning out the "trash drip" stats. This is item 8 in `claude/playtest_backlog_2026_11_14.md`.
