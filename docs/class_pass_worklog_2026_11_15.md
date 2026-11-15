@@ -492,3 +492,13 @@ Kyle (11:36–12:09 local): "This will fix a lot of the partial numbers we see o
 4. Tank tails (Mountain King, Black Knight, Venomancer Fortitude) and the healer tails.
 5. Pass 4: the full matrix again (naked, under, over gear × under and over level), `--no-buffs`, `--consumables`, and a fresh seed. Then a support analysis (party kill turns with a support spec against a plain DPS).
 6. Keep this log and `claude/class_balance_2026_11_15.md` current after every step.
+
+## Crafting, later on 15 Nov (pointer)
+
+- 68f1486: arrows and bolts reach level 57 (AP 18/22/26), matching gun shot. Ammo is a 30-minute +AP buff,
+  one quiver at a time, and isn't spent per shot.
+- 5e0da72: the woodworking expansion. 86 pieces, 18 kits, 4 bow parts and 3 scopes. Fighter staves are priced
+  as two-handers, crafted weapons and trinkets no longer carry stray armour, and bombs can't be dodged.
+- 4cdae4f: the spell-hit gems (Great, Vivid, Serene, Piercing).
+- Full record: docs/woodworking_expansion_2026_11_15.md (project copy: claude/woodworking_expansion_2026_11_15.md).
+- Open questions for Kyle: should kits on crafted epics be capped at epic? And sheet E4 (7 epic icons).
