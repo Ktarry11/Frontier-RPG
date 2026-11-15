@@ -83,8 +83,12 @@ def main():
     mine = basic._damage_multiplier(ch, "physical", mobs[0])
     ok, _ = ab.use(ch, mobs[0], party=[ch], engine=eng)
     check(ok and abs(mobs[0].damage_output_multiplier / D - 1.3) < 1e-9, f"Duel: the target deals x{mobs[0].damage_output_multiplier / D}, wanted 1.3")
-    check(basic._damage_multiplier(ch, "physical", mobs[0]) - mine >= 0.29, "Duel: Imelda deals no more to it")
-    check(basic._damage_multiplier(ch, "physical", mobs[1]) - mine < 0.01, "Duel: Imelda deals more to the other enemy too")
+    # the spec aura (combat/ability_scaling.spec_aura, 15 Nov 2026) multiplies the whole multiplier, so the
+    # duel's +30% arrives as +30% x the aura: divide it back out
+    from combat.ability_scaling import spec_aura
+    aura = spec_aura(ch, "damage") or 1.0
+    check((basic._damage_multiplier(ch, "physical", mobs[0]) - mine) / aura >= 0.29, "Duel: Imelda deals no more to it")
+    check((basic._damage_multiplier(ch, "physical", mobs[1]) - mine) / aura < 0.01, "Duel: Imelda deals more to the other enemy too")
     check(any(ev for ev in (getattr(ab, "_last_threat_events", None) or [])), "Duel: nothing holds the target on her")
 
     # ---- Khalid: the trap ----

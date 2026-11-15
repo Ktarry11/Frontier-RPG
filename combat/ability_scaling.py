@@ -267,11 +267,18 @@ def downrank_penalty(ability, caster_level):
 
 
 def rank_power_multiplier(ability, kind=None, caster_level=None):
+    """The low-level penalty only bites while a HIGHER rank of the ability exists: the top rank - including any
+    single-rank ability - always takes its full share. Found the same day it went in: the basic Attack, Shoot
+    and Wand are one rank learned at level 1, so every class's white damage took 29% of its attack power at
+    every level (a level-30 Rogue's Attack hit for ~100) and the classic physical kits, which lean on white
+    damage between energy and mana, measured half the median."""
     try:
         level_req = ability.current_rank.get("level_req", 1)
+        top = ability.current_rank_index >= len(ability.ranks) - 1
     except Exception:                                          # noqa: BLE001
-        level_req = 1
-    return low_level_penalty(level_req) * downrank_penalty(ability, caster_level)
+        level_req, top = 1, True
+    low = 1.0 if top else low_level_penalty(level_req)
+    return low * downrank_penalty(ability, caster_level)
 
 
 def coefficient(ability, kind, caster=None):

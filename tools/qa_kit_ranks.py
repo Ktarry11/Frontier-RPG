@@ -79,11 +79,16 @@ def main():
                 if ab.current_rank_index != want:
                     bad.append(f"{who}: at level {level} uses rank {ab.current_rank_index + 1}, wanted {want + 1}")
             ab.refresh_rank_for_level(60)
+            # the game reads the data THROUGH THE RANK CURVE (combat/ability_scaling.curved_ranks, the world curve
+            # since 15 Nov 2026), the same curve the class abilities they are sized against go through - so a
+            # kit keeps its trump-card lead over the class kits at every level
+            from combat.ability_scaling import curved_ranks
+            cur = curved_ranks(a)[4]
             for key in what:
-                if key == "effect_value" and ab.effect_value != ranks[4]["effect_value"]:
-                    bad.append(f"{who}: at 60 the game reads effect_value {ab.effect_value}, data says {ranks[4]['effect_value']}")
-                if key == "absorb" and ab.current_rank.get("absorb") != ranks[4]["absorb"]:
-                    bad.append(f"{who}: at 60 the shield is {ab.current_rank.get('absorb')}, data says {ranks[4]['absorb']}")
+                if key == "effect_value" and ab.effect_value != cur["effect_value"]:
+                    bad.append(f"{who}: at 60 the game reads effect_value {ab.effect_value}, the curved data says {cur['effect_value']}")
+                if key == "absorb" and ab.current_rank.get("absorb") != cur.get("absorb"):
+                    bad.append(f"{who}: at 60 the shield is {ab.current_rank.get('absorb')}, the curved data says {cur.get('absorb')}")
             ab.refresh_rank_for_level(ch.level)
     print(f"{five} recruit abilities with five ranks")
     if five < 60:

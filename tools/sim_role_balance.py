@@ -315,6 +315,10 @@ def class_of(spec):
     raise KeyError(f"no class owns spec {spec!r}")
 
 
+#: False builds every character with no talent points spent (tools/sim_viability.py --no-talents)
+SPEND_TALENTS = True
+
+
 def build(spec, level, gen, dress, role=None):
     """A character of this spec with its talents spent FOR THAT ROLE, its form on, and gear."""
     from entities.character import Character
@@ -325,7 +329,7 @@ def build(spec, level, gen, dress, role=None):
     if tree is None:
         raise KeyError(f"{class_of(spec)} has no tree {spec!r}; has {list(char.talent_trees)}")
 
-    budget = char.talent_points_available
+    budget = char.talent_points_available if SPEND_TALENTS else 0
     probe = tree.nodes[list(tree.nodes)[0]]
     takes_tree = "tree" in str(inspect.signature(probe.can_spend_point))
     spent = 0
