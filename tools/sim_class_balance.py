@@ -284,7 +284,17 @@ def plan(char):
             pass
         # PER TURN OF TIME (cast speed, 15 Nov 2026): a slow 1.5-turn spell's number is spread over 1.5 turns, a
         # quick 0.6-turn one's over 0.6 - ranked on raw size, the planner would always reach for the slow nuke
-        return per * (1.0 + bonus) / (getattr(a, "cast_speed", 1.0) or 1.0)
+        turns = getattr(a, "cast_speed", 1.0) or 1.0
+        # ...AND PER TURN OF ENERGY (deep dive, 15 Nov 2026). Energy comes back at a fixed 25 a turn, so a 60-energy
+        # strike costs 2.4 turns of it whatever its cast time: an Assassination Rogue at 30 spread its energy over
+        # Garrote, Rupture, Shiv and its poison and cast Sinister Strike 7 times where it had cast it 23 at 24, and
+        # measured LESS at 30 than at 24. A real Rogue spends energy where it pays most. (Rage has no fixed income,
+        # mana is sized for ~20 turns; neither is ranked this way.)
+        res = getattr(getattr(a, "resource_type", None), "value", "")
+        if res == "energy" and (a.cost or 0) > 0:
+            regen = float(getattr(char, "ENERGY_PER_TURN", 25) or 25)
+            turns = max(turns, (a.cost or 0) / regen)
+        return per * (1.0 + bonus) / turns
 
     # DEFENSIVE COOLDOWNS, which this planner collected nowhere. A
     # self-targeted buff that reduces incoming damage is neither a heal nor an
