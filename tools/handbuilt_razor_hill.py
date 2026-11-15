@@ -226,15 +226,15 @@ def _dress(L):
     z = L.z
     # ---- the south gate: palisade across the neck, gatehouse over the road
     b("orc_great_gatehouse", 30, 49, 8, solid=False, road_ok=True, allow_overlap=True, nudge=0)
-    b("orc_watch_tower", 21, 48, 9, nudge=1)
-    b("orc_watch_tower", 39, 48, 9, nudge=1)
+    b("orc_wall_tower", 21, 48, 8, nudge=1)
+    b("orc_wall_tower", 39, 48, 8, nudge=1)
     for x in (13, 16, 18, 42, 44, 46):
         ry = L.rim_y(x)
         if ry:
             p("vot_palisade", x, ry - 1, 3, solid=True, nudge=1)
     # ---- the barracks and its parade ground (north)
     b("orc_barracks_longhouse", 30, 14, 9)
-    b("orc_watch_tower", 11, 12, 9)
+    b("orc_stone_watch_tower", 11, 12, 9)
     b("orc_watch_tower", 49, 12, 9)
     b("orc_smokehouse", 18, 11, 6)
     b("orc_brew_house", 42, 11, 6)
@@ -247,12 +247,12 @@ def _dress(L):
     p("vot_war_banner", 24, 27, 5)
     p("vot_war_banner", 36, 27, 5)
     p("vot_totem_pole", 35, 34, 6)
-    b("well_house", 26, 40, 5, nudge=1)       # (29,36) was on the road and never appeared
+    b("orc_town_well", 26, 40, 4, nudge=1)       # (29,36) was on the road and never appeared
     # ---- west: smithy, inn, elder, garden, training lodge + yard
     b("orc_war_forge", 13, 19, 7)
     p("vot_crate_stack", 18, 22, 3)
     p("bbc_weapon_rack", 8, 22, 3)
-    b("orc_mess_hall", 17, 31, 8)
+    b("orc_inn", 17, 31, 8)
     p("vot_hide_rack", 23, 28, 3)
     b("orc_spirit_lodge", 8, 29, 6)
     p("vot_sagewood_sapling", 8, 37, 3, solid=False)
@@ -263,10 +263,10 @@ def _dress(L):
     p("vot_archery_target", 18, 46, 3)
     p("vot_hide_rack", 9, 43, 3)
     # ---- east: market, engineer's workshop, shack, refugee camp
-    b("orc_supply_store", 44, 35, 7)
+    b("orc_general_store", 44, 35, 7)
     p("vot_crate_stack", 50, 33, 3)
-    b("bazaar_stall_row", 44, 40, 4)
-    b("scrapyard_workshop", 46, 23, 6)
+    b("orc_market_stalls", 44, 40, 4)
+    b("orc_engineer_shop", 46, 23, 6)
     p("vot_broken_cart", 44, 42, 3)
     b("generic_tent_b", 51, 44, 5)
     p("vot_fire_pit", 48, 43, 3)

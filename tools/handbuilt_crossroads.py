@@ -120,8 +120,8 @@ def dress(L):
     P, B, D = L.prop, L.bld, L.dp
     # ---- south gate: palisade gatehouse over the approach, tusk gate, tauren totems
     B("orc_great_gatehouse", 35, 59, 7, solid=False, road_ok=True, nudge=0)
-    B("orc_watch_tower", 27, 59, 9, nudge=1)
-    B("orc_watch_tower", 43, 59, 9, nudge=1)
+    B("orc_wall_tower", 27, 59, 8, nudge=1)
+    B("orc_wall_tower", 43, 59, 8, nudge=1)
     P("br_signpost", 38, 62, 5)
     P("br_caravan_wagon", 28, 63, 4)
     P("br_hitching_trough", 42, 63, 3)
@@ -142,8 +142,8 @@ def dress(L):
     D("vot_war_banner", 39, 34, 5)
     # ---- north: the Town Hall at the head of the avenue, towers and barracks flank it
     B("orc_war_hall", 35, 15, 11, solid="core", fraction=0.5, nudge=0, road_ok=True)
-    B("orc_watch_tower", 25, 14, 9, nudge=1)
-    B("orc_watch_tower", 45, 14, 9, nudge=1)
+    B("orc_stone_watch_tower", 25, 14, 9, nudge=1)
+    B("orc_stone_watch_tower", 45, 14, 9, nudge=1)
     B("orc_barracks_longhouse", 55, 14, 6)
     D("vot_training_dummy", 52, 19, 3)
     D("vot_archery_target", 58, 20, 3)
@@ -158,15 +158,15 @@ def dress(L):
     P("br_caravan_wagon", 22, 21, 4)
     D("vot_hide_rack", 16, 22, 3)
     # ---- NE: market and the supply depot
-    B("mixed_trading_post", 50, 31, 6)
-    B("bazaar_stall_row", 61, 31, 5)
-    B("orc_quartermaster_post", 53, 20, 5)
+    B("orc_trading_post", 50, 31, 6)
+    B("orc_market_stalls", 61, 31, 5)
+    B("orc_storehouse", 53, 20, 5)
     D("vot_crate_stack", 46, 28, 3)
     D("vot_crate_stack", 61, 28, 3)
     B("generic_tent_b", 62, 22, 5)                   # goblin peddler's pitch
     D("vot_fire_pit", 56, 31, 2, solid=False)
     # ---- SW: the inn, smithy and fletcher
-    B("orc_mess_hall", 22, 47, 9)
+    B("orc_inn", 22, 47, 9)
     B("orc_war_forge", 13, 48, 6)
     D("rf_tool_rack", 9, 49, 3)
     D("vot_crate_stack", 17, 50, 3)
@@ -176,7 +176,7 @@ def dress(L):
     P("br_hitching_trough", 26, 44, 3)
     # ---- SE: alchemist, well, the orc-and-goblin camp
     B("orc_healer_house", 56, 52, 6)
-    B("well_house", 45, 44, 5)
+    B("orc_town_well", 45, 44, 4)
     B("generic_tent_a", 50, 57, 5)
     B("orc_officers_house", 60, 60, 6)
     D("vot_broken_cart", 44, 54, 3)
