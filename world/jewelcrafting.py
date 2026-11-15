@@ -80,9 +80,12 @@ def stat_costs():
     return d["stat_budget_costs"]
 
 
-def gem_budget(level, quality="uncommon"):
-    """Stat-budget points one gem of this level is worth."""
-    level = max(1, min(60, int(level)))
+def gem_budget(level, quality="uncommon", cap=60):
+    """Stat-budget points one gem of this level is worth. cap=None for a stone's own tier: stones
+    past the level-60 ores keep climbing with mining skill (Kyle, 14 Nov 2026: "why do none of the
+    gemstone tiers have actual changes? They're all identical?" - every stone past skill 290 was
+    capped to 60 and cut to the same numbers)."""
+    level = max(1, int(level) if cap is None else min(cap, int(level)))
     return level * 0.36 * 1.3 * GEM_SHARE * (RARE_GEM if quality == "rare" else 1.0)
 
 

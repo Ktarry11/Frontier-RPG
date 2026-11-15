@@ -251,9 +251,12 @@ def main():
         ore = ore_of[gid]
         skill = mats[ore]["skill_range"][0]
         level = max(5, min(60, skill // 5 + 5))
+        # the stone's TIER keeps climbing past level 60 with its ore's skill, so the stones in the
+        # high ores cut to better gems than the ones below them (level stays the socketing level)
+        tier = max(5, skill // 5 + 5)
         quality = "rare" if chance_of[gid] <= RARE_CHANCE else "uncommon"
-        raw[gid] = {"color": colour, "quality": quality, "level": level, "ore": ore, "skill": skill}
-        budget = J.gem_budget(level, quality)
+        raw[gid] = {"color": colour, "quality": quality, "level": level, "tier": tier, "ore": ore, "skill": skill}
+        budget = J.gem_budget(tier, quality, cap=None)
         n = -1
         for cut, weights in CUTS[colour]:
             cid = f"cut_{cut.lower()}_{key}"
@@ -273,7 +276,7 @@ def main():
                 continue
             else:
                 stats = J.stats_for(weights, budget)
-            cuts[cid] = {"name": name, "color": colour, "quality": quality, "level": level,
+            cuts[cid] = {"name": name, "color": colour, "quality": quality, "level": level, "tier": tier,
                          "stats": stats, "raw": gid, "cut": cut}
             stat_text = J.stat_text(stats)
             fits = " or ".join(sorted(J.FITS[colour])) if colour != "prismatic" else "any"
@@ -282,7 +285,10 @@ def main():
                 "tier": m["tier"],
                 "description": f"A cut {colour} gem: {stat_text}. Fits a {fits} socket.",
                 "stack_limit": 20, "sell_price": int(m["sell_price"] * 1.5),
-                "icon_id": m["icon_id"], "skill_range": list(m["skill_range"]),
+                # its own polished icon once tools/build_cut_gem_icons.py has drawn it
+                "icon_id": (f"cut_{cid[4:]}" if (ROOT / "assets/gathering_nodes/gems" / f"cut_{cid[4:]}.png").exists()
+                            else m["icon_id"]),
+                "skill_range": list(m["skill_range"]),
             }
             n += 1
             if skill > MAX_SKILL:

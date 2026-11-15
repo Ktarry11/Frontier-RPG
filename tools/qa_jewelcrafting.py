@@ -78,7 +78,7 @@ def main():
     for cid, g in cuts.items():
         if g["cut"] == "Prismatic":
             continue
-        budget = J.gem_budget(g["level"], g["quality"])
+        budget = J.gem_budget(g.get("tier", g["level"]), g["quality"], cap=None)
         for st, v in g["stats"].items():
             share = 1.0 / len(g["stats"])
             want = budget * share / costs.get(st, 1.0)
