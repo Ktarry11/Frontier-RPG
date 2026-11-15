@@ -46,7 +46,10 @@ def school_mix(spec, level, gen, cm, seeds=2):
 
         def td(amount, damage_type="physical", *a, **k):
             got = real(amount, damage_type, *a, **k)
-            hits[(damage_type or "physical").lower()] += max(0, got or 0)
+            # a dual-school hit (Shadowflame, Felfire...) passes a list: its damage is split evenly between them
+            sch = damage_type if isinstance(damage_type, (list, tuple)) else [damage_type or "physical"]
+            for one in sch:
+                hits[str(one or "physical").lower()] += max(0, got or 0) / max(1, len(sch))
             return got
         foe.take_damage = td
         return foe
