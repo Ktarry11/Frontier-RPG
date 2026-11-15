@@ -11465,6 +11465,165 @@
       "sold_by": [
         "secret_fn_kowalczyk"
       ]
+    },
+    "rep_og_korkron_warplate": {
+      "name": "Kor'kron Warplate",
+      "inputs": {
+        "bar_elementium": 12,
+        "flux_strong": 2,
+        "whetstone": 2
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "stat_template": "str_physical",
+        "item_level": 73,
+        "rarity": "epic",
+        "material_tier": "elementium",
+        "identity": "strength_crit",
+        "flavor": "Black iron and red leather, the plate the Warchief's guard wears to war.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "plate",
+        "item": {
+          "name": "Kor'kron Warplate",
+          "slot": "chest",
+          "item_level": 73,
+          "rarity": "epic",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 26
+          },
+          "secondary_stats": {
+            "attack_power": 68,
+            "crit_chance_physical": 26
+          },
+          "armor_value": 763,
+          "required_level": 60,
+          "sell_price": 48942,
+          "flavor_text": "Black iron and red leather, the plate the Warchief's guard wears to war.",
+          "identity": "strength_crit",
+          "icon_id": "gear_epic_chest_plate_1"
+        }
+      },
+      "skill_range": [
+        300,
+        305,
+        310,
+        315
+      ],
+      "source": "vendor",
+      "faction": "orgrimmar",
+      "_rare_ingredients_todo": true
+    },
+    "rep_bb_harbour_guard_greathelm": {
+      "name": "Harbour Guard's Greathelm",
+      "inputs": {
+        "bar_elementium": 12,
+        "flux_strong": 2,
+        "whetstone": 2
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "stat_template": "str_physical",
+        "item_level": 73,
+        "rarity": "epic",
+        "material_tier": "elementium",
+        "identity": "tank",
+        "flavor": "The Port Authority's crest on the brow. Pirates know it on sight, and that's the point.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "plate",
+        "item": {
+          "name": "Harbour Guard's Greathelm",
+          "slot": "head",
+          "item_level": 73,
+          "rarity": "epic",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 37,
+            "strength": 14
+          },
+          "secondary_stats": {
+            "defense_rating": 29
+          },
+          "armor_value": 629,
+          "required_level": 60,
+          "sell_price": 39153,
+          "flavor_text": "The Port Authority's crest on the brow. Pirates know it on sight, and that's the point.",
+          "identity": "tank",
+          "icon_id": "gear_epic_head_plate_1"
+        }
+      },
+      "skill_range": [
+        300,
+        305,
+        310,
+        315
+      ],
+      "source": "vendor",
+      "faction": "booty_bay_authority",
+      "_rare_ingredients_todo": true
+    },
+    "rep_ac_claimants_warplate": {
+      "name": "Ashhold Claimant's Warplate",
+      "inputs": {
+        "bar_elementium": 12,
+        "flux_strong": 2,
+        "whetstone": 2
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "stat_template": "str_physical",
+        "item_level": 73,
+        "rarity": "epic",
+        "material_tier": "elementium",
+        "identity": "tank",
+        "flavor": "Forged for the thane's champion: whoever wears it walks into Khaz Varun first.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "plate",
+        "item": {
+          "name": "Ashhold Claimant's Warplate",
+          "slot": "chest",
+          "item_level": 73,
+          "rarity": "epic",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 43,
+            "strength": 17
+          },
+          "secondary_stats": {
+            "defense_rating": 34
+          },
+          "armor_value": 763,
+          "required_level": 60,
+          "sell_price": 48942,
+          "flavor_text": "Forged for the thane's champion: whoever wears it walks into Khaz Varun first.",
+          "identity": "tank",
+          "icon_id": "gear_epic_chest_plate_1"
+        }
+      },
+      "skill_range": [
+        300,
+        305,
+        310,
+        315
+      ],
+      "source": "vendor",
+      "faction": "the_ashclaim",
+      "_rare_ingredients_todo": true
     }
   }
 }

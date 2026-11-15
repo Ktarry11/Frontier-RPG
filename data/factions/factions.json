@@ -133,12 +133,8 @@
       },
       "rewards": {
         "_comment": [
-          "What standing actually buys. These are the GATES - they work, and they are not displayed on the",
-          "faction panel (Kyle, 2026-10-27: the panel is information only). Rewards will eventually span gear,",
-          "crafting recipes, recruits, quests and whole zones unlocked, so a reward ladder is not worth drawing",
-          "until it can show all of that honestly.",
-          "vendor_stock gates Quartermaster Sylvaine's shelves; quests gates the deeper Archive line and the",
-          "Kesten was gated here at revered until 2026-10-31. Kyle: \"Don't rep lock Kesten\" - he is now hireable on sight in Kael's Bastion like every other companion, and NO recruit in the game is reputation-gated."
+          "Gates, not a displayed ladder (the faction panel stays information only).",
+          "TBC-style shelves (tools/build_faction_rewards.py, Kyle 15 Nov 2026): friendly supplies, honored patterns, revered six ilvl 67 blues, exalted three ilvl 73 epics (250-350g) and two epic recipes."
         ],
         "vendor_stock": {
           "kb_quartermaster": {
@@ -147,10 +143,27 @@
               "mana_potion_superior"
             ],
             "honored": [
-              "guardian_elixir_standard"
+              "guardian_elixir_standard",
+              "ench_weapon_spellsurge",
+              "ench_gloves_superior_battlemage"
             ],
             "revered": [
-              "guardian_elixir_superior"
+              "guardian_elixir_superior",
+              "unique:cc_archivists_cowl",
+              "unique:cc_codex_bound_gloves",
+              "unique:cc_marginalia_of_the_deep",
+              "unique:cc_bastion_warden_girdle",
+              "unique:cc_lamplighter_boots",
+              "unique:cc_signet_of_the_find",
+              "ench_weapon_major_spell_power",
+              "ench_2h_major_spell_power"
+            ],
+            "exalted": [
+              "unique:cc_staff_of_the_hanging_light",
+              "unique:cc_crimson_spellblade",
+              "unique:cc_cloak_of_the_long_descent",
+              "rep_cc_duskwaking_archivist_robe",
+              "rep_cc_pendant_of_the_hanging_light"
             ]
           }
         },
@@ -219,7 +232,39 @@
         }
       },
       "rewards": {
-        "_comment": "No gates authored yet. The system supports them; the content is not written."
+        "_comment": [
+          "Gates, not a displayed ladder (the faction panel stays information only).",
+          "TBC-style shelves (tools/build_faction_rewards.py, Kyle 15 Nov 2026): friendly supplies, honored patterns, revered six ilvl 67 blues, exalted three ilvl 73 epics (250-350g) and two epic recipes."
+        ],
+        "vendor_stock": {
+          "orgrimmar_quartermaster": {
+            "friendly": [
+              "meal_ember_glazed_ribs"
+            ],
+            "honored": [
+              "elixir_icecap",
+              "bs300_bloodiron_legs",
+              "ench_weapon_superior_strength"
+            ],
+            "revered": [
+              "unique:og_grunts_warhelm",
+              "unique:og_korkron_shoulderguards",
+              "unique:og_farseers_mail_vest",
+              "unique:og_wolfrider_leggings",
+              "unique:og_spiritwalker_bracers",
+              "unique:og_band_of_the_red_stone",
+              "ench_2h_major_valor",
+              "ench_weapon_major_valor"
+            ],
+            "exalted": [
+              "unique:og_warchiefs_due",
+              "unique:og_bulwark_of_the_valley",
+              "unique:og_farseers_ancestral_mace",
+              "rep_og_korkron_warplate",
+              "rep_og_farseers_chain_hauberk"
+            ]
+          }
+        }
       },
       "dungeon_rep": {
         "_comment": "Kyle, 2026-10-28: a dungeon BOSS kill pays 75 in the dungeons linked to this faction. Trash pays nothing, so the unit of progress is a boss and the optimal play is to run the dungeon rather than farm a corridor.",
@@ -278,7 +323,39 @@
         }
       },
       "rewards": {
-        "_comment": "No gates authored yet. The system supports them; the content is not written."
+        "_comment": [
+          "Gates, not a displayed ladder (the faction panel stays information only).",
+          "TBC-style shelves (tools/build_faction_rewards.py, Kyle 15 Nov 2026): friendly supplies, honored patterns, revered six ilvl 67 blues, exalted three ilvl 73 epics (250-350g) and two epic recipes."
+        ],
+        "vendor_stock": {
+          "ds_quartermaster": {
+            "friendly": [
+              "drink_starfall_wine"
+            ],
+            "honored": [
+              "mana_potion_supreme",
+              "cookx_bloodspice_steak",
+              "ench_bracer_superior_wildheart"
+            ],
+            "revered": [
+              "unique:ds_headhunters_mask",
+              "unique:ds_hexers_robe",
+              "unique:ds_bonecharm_necklace",
+              "unique:ds_tidewalker_waders",
+              "unique:ds_shadow_hunters_bracers",
+              "unique:ds_spearguard_girdle",
+              "ench_weapon_major_wildheart",
+              "ench_2h_major_wildheart"
+            ],
+            "exalted": [
+              "unique:ds_spear_of_the_last_island",
+              "unique:ds_kangaris_hexing_staff",
+              "unique:ds_senjin_throwing_axes",
+              "rep_ds_hexweavers_robe",
+              "rep_ds_shadow_hunters_vest"
+            ]
+          }
+        }
       },
       "dungeon_rep": {
         "_comment": "Kyle, 2026-10-28: a dungeon BOSS kill pays 75 in the dungeons linked to this faction. Trash pays nothing, so the unit of progress is a boss and the optimal play is to run the dungeon rather than farm a corridor.",
@@ -357,7 +434,39 @@
         }
       },
       "rewards": {
-        "_comment": "No gates authored yet. The system supports them; the content is not written."
+        "_comment": [
+          "Gates, not a displayed ladder (the faction panel stays information only).",
+          "TBC-style shelves (tools/build_faction_rewards.py, Kyle 15 Nov 2026): friendly supplies, honored patterns, revered six ilvl 67 blues, exalted three ilvl 73 epics (250-350g) and two epic recipes."
+        ],
+        "vendor_stock": {
+          "uc_quartermaster": {
+            "friendly": [
+              "healing_potion_supreme"
+            ],
+            "honored": [
+              "elixir_icecap",
+              "lw_undercity_shade_vest",
+              "alch_transmute_iron_gold_vendor"
+            ],
+            "revered": [
+              "unique:fs_apothecarys_gloves",
+              "unique:fs_deathstalkers_hood",
+              "unique:fs_dark_ranger_spaulders",
+              "unique:fs_deathguard_legplates",
+              "unique:fs_grave_cold_band",
+              "unique:fs_shroud_of_the_wakened",
+              "alch_transmute_arcanite",
+              "ench_cloak_major_warding"
+            ],
+            "exalted": [
+              "unique:fs_banshees_lament",
+              "unique:fs_blade_of_the_wakened",
+              "unique:fs_plaguebearers_staff",
+              "rep_fs_deathwhisper_cowl",
+              "rep_fs_deathstalker_leggings"
+            ]
+          }
+        }
       },
       "dungeon_rep": {
         "_comment": "Kyle, 2026-10-28: a dungeon BOSS kill pays 75 in the dungeons linked to this faction. Trash pays nothing, so the unit of progress is a boss and the optimal play is to run the dungeon rather than farm a corridor.",
@@ -412,7 +521,39 @@
         }
       },
       "rewards": {
-        "_comment": "No gates authored yet. The system supports them; the content is not written."
+        "_comment": [
+          "Gates, not a displayed ladder (the faction panel stays information only).",
+          "TBC-style shelves (tools/build_faction_rewards.py, Kyle 15 Nov 2026): friendly supplies, honored patterns, revered six ilvl 67 blues, exalted three ilvl 73 epics (250-350g) and two epic recipes."
+        ],
+        "vendor_stock": {
+          "ratchet_cartel_quartermaster": {
+            "friendly": [
+              "shot_thorium"
+            ],
+            "honored": [
+              "bomb_dark_iron",
+              "engx_scope_thorium",
+              "cookx_keg_braised_shank"
+            ],
+            "revered": [
+              "unique:sc_bruisers_gauntlets",
+              "unique:sc_contractors_belt",
+              "unique:sc_wharf_inspectors_coat",
+              "unique:sc_neutral_ground_mantle",
+              "unique:sc_tidepaid_ring",
+              "unique:sc_harbourmasters_slippers",
+              "alch_flask_black_lotus",
+              "ench_boots_major_vigor"
+            ],
+            "exalted": [
+              "unique:sc_profit_margin",
+              "unique:sc_the_neutrality_clause",
+              "unique:sc_arbiters_cloak",
+              "rep_sc_arbitrators_goggles",
+              "rep_sc_steamwheedle_hand_cannon"
+            ]
+          }
+        }
       },
       "dungeon_rep": {
         "_comment": "Kyle, 2026-10-28: a dungeon BOSS kill pays 75 in the dungeons linked to this faction. Trash pays nothing, so the unit of progress is a boss and the optimal play is to run the dungeon rather than farm a corridor.",
@@ -480,7 +621,40 @@
         }
       },
       "rewards": {
-        "_comment": "No gates authored yet. When Mulgore is built as the level 60 zone, this is where its access and its rewards belong."
+        "_comment": [
+          "Gates, not a displayed ladder (the faction panel stays information only).",
+          "TBC-style shelves (tools/build_faction_rewards.py, Kyle 15 Nov 2026): friendly supplies, honored patterns, revered six ilvl 67 blues, exalted three ilvl 73 epics (250-350g) and two epic recipes."
+        ],
+        "vendor_stock": {
+          "taurajo_quartermaster": {
+            "friendly": [
+              "meal_ember_glazed_ribs",
+              "drink_starfall_wine"
+            ],
+            "honored": [
+              "healing_potion_supreme",
+              "lw_rugged_int_vest",
+              "ench_bracer_superior_mana_regeneration"
+            ],
+            "revered": [
+              "unique:tb_spireborn_headdress",
+              "unique:tb_plainsrunner_leggings",
+              "unique:tb_taurajo_bulwark_girdle",
+              "unique:tb_windhoof_bracers",
+              "unique:tb_earthmothers_mantle",
+              "unique:tb_totem_of_the_lost_spires",
+              "ench_weapon_major_stormcaller",
+              "ench_boots_major_stormcaller"
+            ],
+            "exalted": [
+              "unique:tb_spire_wardens_staff",
+              "unique:tb_mulgore_greatbow",
+              "unique:tb_cloak_of_the_fallen_spires",
+              "rep_tb_bloodhoof_warhide",
+              "rep_tb_totem_of_the_four_spires"
+            ]
+          }
+        }
       },
       "dungeon_rep": {
         "_comment": "Kyle, 2026-10-28: a dungeon BOSS kill pays 75 in the dungeons linked to this faction. Trash pays nothing, so the unit of progress is a boss and the optimal play is to run the dungeon rather than farm a corridor.",
@@ -541,7 +715,39 @@
         }
       },
       "rewards": {
-        "_comment": "No gates authored yet. The system supports them; the content is not written."
+        "_comment": [
+          "Gates, not a displayed ladder (the faction panel stays information only).",
+          "TBC-style shelves (tools/build_faction_rewards.py, Kyle 15 Nov 2026): friendly supplies, honored patterns, revered six ilvl 67 blues, exalted three ilvl 73 epics (250-350g) and two epic recipes."
+        ],
+        "vendor_stock": {
+          "bootybay_port_quartermaster": {
+            "friendly": [
+              "drink_starfall_wine"
+            ],
+            "honored": [
+              "high_table_feast",
+              "fishx_mightfish_steak",
+              "fishx_nightfin_soup"
+            ],
+            "revered": [
+              "unique:bb_harbour_guard_helm",
+              "unique:bb_corsair_hunter_vest",
+              "unique:bb_navigators_belt",
+              "unique:bb_barons_waistcoat",
+              "unique:bb_tide_readers_gloves",
+              "unique:bb_cannoneers_ring",
+              "jc_cut_sparkling_azure_diamond",
+              "jc_cut_delicate_black_diamond"
+            ],
+            "exalted": [
+              "unique:bb_revilgaz_cutlass",
+              "unique:bb_port_authority_blunderbuss",
+              "unique:bb_cloak_of_the_deep_harbour",
+              "rep_bb_navigators_silk_mantle",
+              "rep_bb_harbour_guard_greathelm"
+            ]
+          }
+        }
       },
       "dungeon_rep": {
         "_comment": "A dungeon BOSS kill pays 75. Trash pays nothing, so the unit of progress is a boss. The Authority takes bets on the Gurbashi and has a direct interest in who wins.",
@@ -613,9 +819,8 @@
       },
       "rewards": {
         "_comment": [
-          "Gates, not a displayed ladder - the faction panel stays information only.",
-          "The deep claim at exalted opens the Emberdeep's shortcut permanently, so later runs skip the",
-          "first two islands."
+          "Gates, not a displayed ladder (the faction panel stays information only).",
+          "TBC-style shelves (tools/build_faction_rewards.py, Kyle 15 Nov 2026): friendly supplies, honored patterns, revered six ilvl 67 blues, exalted three ilvl 73 epics (250-350g) and two epic recipes."
         ],
         "vendor_stock": {
           "cw_quartermaster": {
@@ -624,7 +829,26 @@
               "elixir_of_ironskin"
             ],
             "honored": [
-              "alch_potion_invulnerability_vendor"
+              "alch_potion_invulnerability_vendor",
+              "bs300_truesilver_wrist",
+              "bs300_kit_ashen_steel"
+            ],
+            "revered": [
+              "unique:ac_forgeguard_breastplate",
+              "unique:ac_riggers_gloves",
+              "unique:ac_scoria_pauldrons",
+              "unique:ac_pyremongers_hood",
+              "unique:ac_deed_holders_signet",
+              "unique:ac_ashpriests_bindings",
+              "bs_runed_arcanite_rod",
+              "jc_cut_etched_cinder_agate"
+            ],
+            "exalted": [
+              "unique:ac_thanes_claim",
+              "unique:ac_firebrand_scepter",
+              "unique:ac_khaz_varun_deedstone",
+              "rep_ac_claimants_warplate",
+              "rep_ac_khaz_varun_siege_rifle"
             ]
           }
         },
@@ -715,10 +939,8 @@
       },
       "rewards": {
         "_comment": [
-          "Gates, not a displayed ladder (the faction panel stays information only), like the Codex and the Ashclaim.",
-          "Filled in by the Felwood audit, 15 Nov 2026: it said 'filled in with the Sanctuary's shops' and never was.",
-          "Supplies come first; the Timbermaw sell the Sunheart patterns, the wood of the glade the druids cleansed,",
-          "at revered and exalted, the way the Timbermaw and the Cenarion Circle sold patterns in WoW."
+          "Gates, not a displayed ladder (the faction panel stays information only).",
+          "TBC-style shelves (tools/build_faction_rewards.py, Kyle 15 Nov 2026): friendly supplies, honored patterns, revered six ilvl 67 blues, exalted three ilvl 73 epics (250-350g) and two epic recipes."
         ],
         "vendor_stock": {
           "es_quartermaster": {
@@ -727,6 +949,19 @@
             ],
             "honored": [
               "mana_potion_supreme"
+            ],
+            "revered": [
+              "unique:er_sentinel_glaivebelt",
+              "unique:er_timbermaw_hide_leggings",
+              "unique:er_grovewardens_robe",
+              "unique:er_reclaimers_hauberk",
+              "unique:er_treant_bark_wristguards",
+              "unique:er_moonwell_pendant"
+            ],
+            "exalted": [
+              "unique:er_moonboughs_gift",
+              "unique:er_glaive_of_the_fel_line",
+              "unique:er_windcallers_bough"
             ]
           },
           "es_timbermaw_trader": {
@@ -735,16 +970,20 @@
               "drink_starfall_wine"
             ],
             "honored": [
-              "high_table_feast"
+              "high_table_feast",
+              "wwx_starleaf_moon_idol",
+              "ench_weapon_major_healing"
             ],
             "revered": [
               "wwx_blessed_sunheart_codex",
-              "wwx_sunheart_tideguard"
-            ],
-            "exalted": [
+              "wwx_sunheart_tideguard",
               "wwx_sunheart_staff",
               "wwx_blessed_sunheart_staff",
               "wwx_sunheart_bow"
+            ],
+            "exalted": [
+              "rep_er_reclaimers_living_staff",
+              "rep_er_timbermaw_ancestor_hide"
             ]
           }
         },

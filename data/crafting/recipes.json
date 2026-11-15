@@ -10537,6 +10537,211 @@
           "sold_by": [
             "secret_saltspur_hewitt"
           ]
+        },
+        "rep_cc_duskwaking_archivist_robe": {
+          "name": "Duskwaking Archivist's Robe",
+          "inputs": {
+            "bolt_voidweave": 16,
+            "thread_silken": 2
+          },
+          "skill_required": 300,
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "stat_template": "int_caster",
+            "item_level": 73,
+            "rarity": "epic",
+            "material_tier": "voidweave",
+            "identity": "arcane_crit",
+            "flavor": "The robe Codex-Master Duskwaking wears to the lowest shelves. Copies are permitted.",
+            "fixed_item_level": true,
+            "required_level": 60,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Duskwaking Archivist's Robe",
+              "slot": "chest",
+              "item_level": 73,
+              "rarity": "epic",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 17
+              },
+              "secondary_stats": {
+                "arcane_spell_power": 78,
+                "crit_chance_spell": 26
+              },
+              "armor_value": 174,
+              "required_level": 60,
+              "sell_price": 48942,
+              "flavor_text": "The robe Codex-Master Duskwaking wears to the lowest shelves. Copies are permitted.",
+              "identity": "arcane_crit",
+              "icon_id": "gear_epic_chest_cloth_1"
+            }
+          },
+          "skill_range": [
+            300,
+            305,
+            310,
+            315
+          ],
+          "source": "vendor",
+          "faction": "crimson_codex",
+          "_rare_ingredients_todo": true
+        },
+        "rep_ds_hexweavers_robe": {
+          "name": "Hexweaver's Robe",
+          "inputs": {
+            "bolt_voidweave": 16,
+            "thread_silken": 2
+          },
+          "skill_required": 300,
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "stat_template": "int_caster",
+            "item_level": 73,
+            "rarity": "epic",
+            "material_tier": "voidweave",
+            "identity": "hex",
+            "flavor": "Woven on Echo Isles cloth before the tribe left, finished on the mainland after.",
+            "fixed_item_level": true,
+            "required_level": 60,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Hexweaver's Robe",
+              "slot": "chest",
+              "item_level": 73,
+              "rarity": "epic",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 39
+              },
+              "secondary_stats": {
+                "shadow_spell_power": 85
+              },
+              "armor_value": 174,
+              "required_level": 60,
+              "sell_price": 48942,
+              "flavor_text": "Woven on Echo Isles cloth before the tribe left, finished on the mainland after.",
+              "identity": "hex",
+              "icon_id": "gear_epic_chest_cloth_1"
+            }
+          },
+          "skill_range": [
+            300,
+            305,
+            310,
+            315
+          ],
+          "source": "vendor",
+          "faction": "darkspear_tribe",
+          "_rare_ingredients_todo": true
+        },
+        "rep_fs_deathwhisper_cowl": {
+          "name": "Deathwhisper Cowl",
+          "inputs": {
+            "bolt_voidweave": 16,
+            "thread_silken": 2
+          },
+          "skill_required": 300,
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "stat_template": "int_caster",
+            "item_level": 73,
+            "rarity": "epic",
+            "material_tier": "voidweave",
+            "identity": "shadow",
+            "flavor": "The hood muffles every voice but the one you're listening for.",
+            "fixed_item_level": true,
+            "required_level": 60,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Deathwhisper Cowl",
+              "slot": "head",
+              "item_level": 73,
+              "rarity": "epic",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 29
+              },
+              "secondary_stats": {
+                "shadow_spell_power": 79
+              },
+              "armor_value": 147,
+              "required_level": 60,
+              "sell_price": 39153,
+              "flavor_text": "The hood muffles every voice but the one you're listening for.",
+              "identity": "shadow",
+              "icon_id": "gear_epic_head_cloth_1"
+            }
+          },
+          "skill_range": [
+            300,
+            305,
+            310,
+            315
+          ],
+          "source": "vendor",
+          "faction": "the_forsaken",
+          "_rare_ingredients_todo": true
+        },
+        "rep_bb_navigators_silk_mantle": {
+          "name": "Navigator's Silk Mantle",
+          "inputs": {
+            "bolt_voidweave": 16,
+            "thread_silken": 2
+          },
+          "skill_required": 300,
+          "output": {
+            "kind": "armor",
+            "slot": "shoulder",
+            "stat_template": "int_caster",
+            "item_level": 73,
+            "rarity": "epic",
+            "material_tier": "voidweave",
+            "identity": "frost",
+            "flavor": "Sea-silk on the shoulders, stitched with the deep-water chart of the bay.",
+            "fixed_item_level": true,
+            "required_level": 60,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Navigator's Silk Mantle",
+              "slot": "shoulder",
+              "item_level": 73,
+              "rarity": "epic",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 29
+              },
+              "secondary_stats": {
+                "frost_spell_power": 79
+              },
+              "armor_value": 147,
+              "required_level": 60,
+              "sell_price": 39153,
+              "flavor_text": "Sea-silk on the shoulders, stitched with the deep-water chart of the bay.",
+              "identity": "frost",
+              "icon_id": "gear_epic_shoulder_cloth_1"
+            }
+          },
+          "skill_range": [
+            300,
+            305,
+            310,
+            315
+          ],
+          "source": "vendor",
+          "faction": "booty_bay_authority",
+          "_rare_ingredients_todo": true
         }
       }
     },
@@ -23921,6 +24126,121 @@
           ],
           "count": 1,
           "source": "drop"
+        },
+        "rep_tb_totem_of_the_four_spires": {
+          "name": "Totem of the Four Spires",
+          "inputs": {
+            "plank_sunheart": 14,
+            "fiber_warded": 4,
+            "stick_ironbound": 2,
+            "resin": 2
+          },
+          "skill_required": 300,
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "stat_template": "spi_healer",
+            "item_level": 73,
+            "rarity": "epic",
+            "material_tier": "sunheart",
+            "identity": "tide_healer",
+            "flavor": "Four spires carved in the round, and in the base a hollow where the fourth fell in.",
+            "fixed_item_level": true,
+            "required_level": 60,
+            "weapon_type": "totem",
+            "item": {
+              "name": "Totem of the Four Spires",
+              "slot": "ranged",
+              "item_level": 73,
+              "rarity": "epic",
+              "armor_type": null,
+              "weapon_type": "totem",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 11
+              },
+              "secondary_stats": {
+                "healing_power": 48
+              },
+              "armor_value": 0,
+              "required_level": 60,
+              "sell_price": 39153,
+              "flavor_text": "Four spires carved in the round, and in the base a hollow where the fourth fell in.",
+              "identity": "tide_healer",
+              "icon_id": "gear_inv_wand_10",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 0
+            }
+          },
+          "skill_range": [
+            300,
+            305,
+            310,
+            315
+          ],
+          "source": "vendor",
+          "faction": "thunder_bluff",
+          "_rare_ingredients_todo": true
+        },
+        "rep_er_reclaimers_living_staff": {
+          "name": "Reclaimer's Living Staff",
+          "inputs": {
+            "plank_sunheart": 14,
+            "fiber_warded": 4,
+            "stick_ironbound": 2,
+            "resin": 2
+          },
+          "skill_required": 300,
+          "output": {
+            "kind": "weapon",
+            "slot": "main_hand",
+            "stat_template": "spi_healer",
+            "item_level": 73,
+            "rarity": "epic",
+            "material_tier": "sunheart",
+            "identity": "high_healer",
+            "flavor": "Still growing. The druids say it'll flower the year Felwood's clean.",
+            "fixed_item_level": true,
+            "required_level": 60,
+            "weapon_type": "staff",
+            "item": {
+              "name": "Reclaimer's Living Staff",
+              "slot": "main_hand",
+              "item_level": 73,
+              "rarity": "epic",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 33,
+                "spirit": 26
+              },
+              "secondary_stats": {
+                "healing_power": 143
+              },
+              "armor_value": 0,
+              "required_level": 60,
+              "sell_price": 61177,
+              "flavor_text": "Still growing. The druids say it'll flower the year Felwood's clean.",
+              "identity": "high_healer",
+              "icon_id": "gear_epic_staff_1",
+              "weapon_damage_min": 89,
+              "weapon_damage_max": 120,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
+          },
+          "skill_range": [
+            300,
+            305,
+            310,
+            315
+          ],
+          "source": "vendor",
+          "faction": "emerald_reclamation",
+          "_rare_ingredients_todo": true
         }
       }
     },
@@ -28026,6 +28346,173 @@
           ],
           "count": 1,
           "source": "drop"
+        },
+        "rep_sc_arbitrators_goggles": {
+          "name": "Cartel Arbitrator's Goggles",
+          "inputs": {
+            "bar_elementium": 10,
+            "bar_arcanite": 4,
+            "part_gear_assembly": 4
+          },
+          "skill_required": 300,
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "stat_template": "agi_physical",
+            "item_level": 73,
+            "rarity": "epic",
+            "material_tier": "elementium",
+            "identity": "hunter_crit",
+            "flavor": "Twelve lenses, a ledger readout and a little brass shutter for the bad news.",
+            "fixed_item_level": true,
+            "required_level": 60,
+            "armor_type": "mail",
+            "item": {
+              "name": "Cartel Arbitrator's Goggles",
+              "slot": "head",
+              "item_level": 73,
+              "rarity": "epic",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 22
+              },
+              "secondary_stats": {
+                "attack_power": 57,
+                "crit_chance_physical": 22
+              },
+              "armor_value": 419,
+              "required_level": 60,
+              "sell_price": 39153,
+              "flavor_text": "Twelve lenses, a ledger readout and a little brass shutter for the bad news.",
+              "identity": "hunter_crit",
+              "icon_id": "gear_epic_head_mail_1"
+            }
+          },
+          "skill_range": [
+            300,
+            305,
+            310,
+            315
+          ],
+          "source": "vendor",
+          "faction": "steamwheedle_cartel",
+          "_rare_ingredients_todo": true
+        },
+        "rep_sc_steamwheedle_hand_cannon": {
+          "name": "Steamwheedle Hand Cannon",
+          "inputs": {
+            "bar_elementium": 10,
+            "bar_arcanite": 4,
+            "part_gear_assembly": 4
+          },
+          "skill_required": 300,
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "stat_template": "agi_physical",
+            "item_level": 73,
+            "rarity": "epic",
+            "material_tier": "elementium",
+            "identity": "hunter_precise",
+            "flavor": "Too big for a goblin, which is exactly why the goblins sell it.",
+            "fixed_item_level": true,
+            "required_level": 60,
+            "weapon_type": "gun",
+            "item": {
+              "name": "Steamwheedle Hand Cannon",
+              "slot": "ranged",
+              "item_level": 73,
+              "rarity": "epic",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 16
+              },
+              "secondary_stats": {
+                "attack_power": 42,
+                "hit_rating": 16
+              },
+              "armor_value": 0,
+              "required_level": 60,
+              "sell_price": 39153,
+              "flavor_text": "Too big for a goblin, which is exactly why the goblins sell it.",
+              "identity": "hunter_precise",
+              "icon_id": "gear_epic_gun_1",
+              "weapon_damage_min": 137,
+              "weapon_damage_max": 186,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
+          },
+          "skill_range": [
+            300,
+            305,
+            310,
+            315
+          ],
+          "source": "vendor",
+          "faction": "steamwheedle_cartel",
+          "_rare_ingredients_todo": true
+        },
+        "rep_ac_khaz_varun_siege_rifle": {
+          "name": "Khaz Varun Siege Rifle",
+          "inputs": {
+            "bar_elementium": 10,
+            "bar_arcanite": 4,
+            "part_gear_assembly": 4
+          },
+          "skill_required": 300,
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "stat_template": "agi_physical",
+            "item_level": 73,
+            "rarity": "epic",
+            "material_tier": "elementium",
+            "identity": "hunter_crit",
+            "flavor": "Built from a Dark Iron siege piece cut down to something a person can carry. Barely.",
+            "fixed_item_level": true,
+            "required_level": 60,
+            "weapon_type": "gun",
+            "item": {
+              "name": "Khaz Varun Siege Rifle",
+              "slot": "ranged",
+              "item_level": 73,
+              "rarity": "epic",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 16
+              },
+              "secondary_stats": {
+                "attack_power": 42,
+                "crit_chance_physical": 16
+              },
+              "armor_value": 0,
+              "required_level": 60,
+              "sell_price": 39153,
+              "flavor_text": "Built from a Dark Iron siege piece cut down to something a person can carry. Barely.",
+              "identity": "hunter_crit",
+              "icon_id": "gear_epic_gun_2",
+              "weapon_damage_min": 137,
+              "weapon_damage_max": 186,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
+          },
+          "skill_range": [
+            300,
+            305,
+            310,
+            315
+          ],
+          "source": "vendor",
+          "faction": "the_ashclaim",
+          "_rare_ingredients_todo": true
         }
       }
     },

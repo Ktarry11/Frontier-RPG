@@ -811,13 +811,16 @@ def author(rid, recipe, ident, flavour):
     # armour value: a wand with 138 armour, a caster's trinket with 185. That's a drip stat (Kyle, 15 Nov 2026:
     # "The crafted items need to be logical and not full of drip stats"), so only armour, shields and the
     # slots that are armour keep it.
-    keeps_armour = out["kind"] == "armor" and out["slot"] not in ("trinket", "trinket1", "trinket2") \
+    keeps_armour = out["kind"] == "armor" and out["slot"] not in ("trinket", "trinket1", "trinket2", "ring",
+                                                                  "ring1", "ring2", "neck") \
         or ref.weapon_type == "shield"
     item = {
         "name": recipe["name"], "slot": out["slot"], "item_level": out["item_level"],
         "rarity": out["rarity"], "armor_type": ref.armor_type, "weapon_type": out.get("weapon_type") or ref.weapon_type,
         "stat_template": template, "primary_stats": prim, "secondary_stats": sec,
-        "armor_value": ref.armor_value if keeps_armour else 0, "required_level": ref.required_level,
+        "armor_value": ref.armor_value if keeps_armour else 0,
+        # a reputation epic is ilvl 73 worn at 60 (Kyle, 15 Nov 2026), so its output can pin the level
+        "required_level": out.get("required_level") or ref.required_level,
         "sell_price": ref.sell_price, "flavor_text": flavour, "identity": ident,
     }
     # ONE ICON PER CRAFT (Kyle, 15 Nov: "Ensure crafting makes ONE icon per craft. Not random"). The
@@ -898,17 +901,22 @@ def run(write):
             if out.get("weapon_type") == "wand":
                 out["slot"] = "ranged"
             arm, ident, flav = identity_for(trade, r)
-            if t.get("resolver") == "wood":
+            # A REPUTATION RECIPE SAYS WHAT IT IS (tools/build_faction_rewards.py): its output names its
+            # identity, armour and flavour outright, because its name is the faction's, not a material's.
+            pinned = out.get("identity")
+            if pinned:
+                arm, ident, flav = out.get("armor_type"), pinned, out.get("flavor")
+            elif t.get("resolver") == "wood":
                 base = WOODS.get(out.get("material_tier"), (None, "caster", None))
                 arm2, ident, flav2 = wood_identity(r, base[1])
                 arm, flav = arm2 or arm, flav2 or base[2]
             elif t.get("resolver") == "jewel":
                 arm, ident, flav = jewel_identity(r)
-            if t.get("armour_words") and out["kind"] == "armor":
+            if t.get("armour_words") and out["kind"] == "armor" and not pinned:
                 arm = armour_from_name(r["name"]) or arm
             if arm and out["kind"] == "armor" and _GEN.slots["slots"][out["slot"]]["armor_slot"]:
                 out["armor_type"] = arm
-            if t.get("curve") and abs(out["item_level"] - curve_level(r)) > 3:
+            if t.get("curve") and not out.get("fixed_item_level") and abs(out["item_level"] - curve_level(r)) > 3:
                 out["item_level"] = curve_level(r)
             if ident is not None and out["kind"] == "weapon":
                 ident = weapon_identity(out["weapon_type"], ident)

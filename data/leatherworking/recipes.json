@@ -10374,6 +10374,266 @@
       "sold_by": [
         "secret_es_grizzlemoss"
       ]
+    },
+    "rep_og_farseers_chain_hauberk": {
+      "name": "Farseer's Chain Hauberk",
+      "inputs": {
+        "leather_frostscale": 10,
+        "thread_silken": 2
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "stat_template": "int_caster",
+        "item_level": 73,
+        "rarity": "epic",
+        "material_tier": "frostscale",
+        "identity": "storm",
+        "flavor": "A farseer's hauberk, wired with copper so the storm has somewhere to go.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "mail",
+        "item": {
+          "name": "Farseer's Chain Hauberk",
+          "slot": "chest",
+          "item_level": 73,
+          "rarity": "epic",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 21
+          },
+          "secondary_stats": {
+            "nature_spell_power": 72,
+            "haste": 21
+          },
+          "armor_value": 496,
+          "required_level": 60,
+          "sell_price": 48942,
+          "flavor_text": "A farseer's hauberk, wired with copper so the storm has somewhere to go.",
+          "identity": "storm",
+          "icon_id": "gear_epic_chest_mail_1"
+        }
+      },
+      "skill_range": [
+        300,
+        305,
+        310,
+        315
+      ],
+      "source": "vendor",
+      "faction": "orgrimmar",
+      "_rare_ingredients_todo": true
+    },
+    "rep_ds_shadow_hunters_vest": {
+      "name": "Shadow Hunter's Vest",
+      "inputs": {
+        "leather_frostscale": 10,
+        "thread_silken": 2
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 73,
+        "rarity": "epic",
+        "material_tier": "frostscale",
+        "identity": "wildheart",
+        "flavor": "Painted with the shadow hunters' marks. Each one is somebody who came back.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "leather",
+        "item": {
+          "name": "Shadow Hunter's Vest",
+          "slot": "chest",
+          "item_level": 73,
+          "rarity": "epic",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 30,
+            "intellect": 26
+          },
+          "secondary_stats": {
+            "attack_power": 60
+          },
+          "armor_value": 310,
+          "required_level": 60,
+          "sell_price": 48942,
+          "flavor_text": "Painted with the shadow hunters' marks. Each one is somebody who came back.",
+          "identity": "wildheart",
+          "icon_id": "gear_epic_chest_leather_1"
+        }
+      },
+      "skill_range": [
+        300,
+        305,
+        310,
+        315
+      ],
+      "source": "vendor",
+      "faction": "darkspear_tribe",
+      "_rare_ingredients_todo": true
+    },
+    "rep_fs_deathstalker_leggings": {
+      "name": "Deathstalker's Leggings",
+      "inputs": {
+        "leather_frostscale": 10,
+        "thread_silken": 2
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "stat_template": "agi_physical",
+        "item_level": 73,
+        "rarity": "epic",
+        "material_tier": "frostscale",
+        "identity": "rogue_crit",
+        "flavor": "Grey leather that makes no sound on stone. The Deathstalkers' first rule.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "leather",
+        "item": {
+          "name": "Deathstalker's Leggings",
+          "slot": "legs",
+          "item_level": 73,
+          "rarity": "epic",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 26
+          },
+          "secondary_stats": {
+            "attack_power": 68,
+            "crit_chance_physical": 26
+          },
+          "armor_value": 329,
+          "required_level": 60,
+          "sell_price": 48942,
+          "flavor_text": "Grey leather that makes no sound on stone. The Deathstalkers' first rule.",
+          "identity": "rogue_crit",
+          "icon_id": "gear_epic_legs_leather_1"
+        }
+      },
+      "skill_range": [
+        300,
+        305,
+        310,
+        315
+      ],
+      "source": "vendor",
+      "faction": "the_forsaken",
+      "_rare_ingredients_todo": true
+    },
+    "rep_tb_bloodhoof_warhide": {
+      "name": "Bloodhoof Warhide Leggings",
+      "inputs": {
+        "leather_frostscale": 10,
+        "thread_silken": 2
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "stat_template": "agi_physical",
+        "item_level": 73,
+        "rarity": "epic",
+        "material_tier": "frostscale",
+        "identity": "bear",
+        "flavor": "Tanned the way the Bloodhoof did it, for druids who meet the charge head on.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "leather",
+        "item": {
+          "name": "Bloodhoof Warhide Leggings",
+          "slot": "legs",
+          "item_level": 73,
+          "rarity": "epic",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 39,
+            "agility": 26
+          },
+          "secondary_stats": {
+            "dodge_rating": 19
+          },
+          "armor_value": 310,
+          "required_level": 60,
+          "sell_price": 48942,
+          "flavor_text": "Tanned the way the Bloodhoof did it, for druids who meet the charge head on.",
+          "identity": "bear",
+          "icon_id": "gear_epic_legs_leather_1"
+        }
+      },
+      "skill_range": [
+        300,
+        305,
+        310,
+        315
+      ],
+      "source": "vendor",
+      "faction": "thunder_bluff",
+      "_rare_ingredients_todo": true
+    },
+    "rep_er_timbermaw_ancestor_hide": {
+      "name": "Timbermaw Ancestor Hide",
+      "inputs": {
+        "leather_frostscale": 10,
+        "thread_silken": 2
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "stat_template": "agi_physical",
+        "item_level": 73,
+        "rarity": "epic",
+        "material_tier": "frostscale",
+        "identity": "feral",
+        "flavor": "Cut from a hide the Timbermaw kept for a hundred years, for the one who'd earn it.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "leather",
+        "item": {
+          "name": "Timbermaw Ancestor Hide",
+          "slot": "chest",
+          "item_level": 73,
+          "rarity": "epic",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 26,
+            "stamina": 21
+          },
+          "secondary_stats": {
+            "attack_power": 77
+          },
+          "armor_value": 310,
+          "required_level": 60,
+          "sell_price": 48942,
+          "flavor_text": "Cut from a hide the Timbermaw kept for a hundred years, for the one who'd earn it.",
+          "identity": "feral",
+          "icon_id": "gear_epic_chest_leather_1"
+        }
+      },
+      "skill_range": [
+        300,
+        305,
+        310,
+        315
+      ],
+      "source": "vendor",
+      "faction": "emerald_reclamation",
+      "_rare_ingredients_todo": true
     }
   }
 }

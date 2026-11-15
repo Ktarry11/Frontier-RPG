@@ -3318,7 +3318,7 @@
           "secondary_stats": {
             "attack_power": 6
           },
-          "armor_value": 8,
+          "armor_value": 0,
           "required_level": 10,
           "sell_price": 255,
           "flavor_text": "A heavy signet. It leaves a mark when it hits.",
@@ -3410,7 +3410,7 @@
           "secondary_stats": {
             "spell_power": 9
           },
-          "armor_value": 4,
+          "armor_value": 0,
           "required_level": 12,
           "sell_price": 352,
           "flavor_text": "A plain loop of metal and one clean stone.",
@@ -3457,7 +3457,7 @@
           "secondary_stats": {
             "healing_power": 9
           },
-          "armor_value": 4,
+          "armor_value": 0,
           "required_level": 13,
           "sell_price": 407,
           "flavor_text": "Cool to the touch, and it settles a healer's hands.",
@@ -3734,7 +3734,7 @@
             "spell_power": 9,
             "spell_hit_rating": 5
           },
-          "armor_value": 7,
+          "armor_value": 0,
           "required_level": 24,
           "sell_price": 1292,
           "flavor_text": "A plain loop of metal and one clean stone.",
@@ -3828,7 +3828,7 @@
           "secondary_stats": {
             "defense_rating": 5
           },
-          "armor_value": 7,
+          "armor_value": 0,
           "required_level": 22,
           "sell_price": 1092,
           "flavor_text": "A solid pendant on a short chain, made to sit under armour.",
@@ -4066,7 +4066,7 @@
             "spell_power": 12,
             "spell_hit_rating": 5
           },
-          "armor_value": 11,
+          "armor_value": 0,
           "required_level": 36,
           "sell_price": 2867,
           "flavor_text": "A plain loop of metal and one clean stone.",
@@ -4544,7 +4544,7 @@
           "secondary_stats": {
             "spell_power": 17
           },
-          "armor_value": 13,
+          "armor_value": 0,
           "required_level": 43,
           "sell_price": 4089,
           "flavor_text": "The stone sits at the throat, close to where the words come from.",
@@ -4592,7 +4592,7 @@
           "secondary_stats": {
             "healing_power": 22
           },
-          "armor_value": 13,
+          "armor_value": 0,
           "required_level": 44,
           "sell_price": 4282,
           "flavor_text": "Cool to the touch, and it settles a healer's hands.",
@@ -4640,7 +4640,7 @@
           "secondary_stats": {
             "attack_power": 26
           },
-          "armor_value": 9,
+          "armor_value": 0,
           "required_level": 50,
           "sell_price": 8310,
           "flavor_text": "A heavy signet. It leaves a mark when it hits.",
@@ -4784,7 +4784,7 @@
           "secondary_stats": {
             "healing_power": 34
           },
-          "armor_value": 10,
+          "armor_value": 0,
           "required_level": 53,
           "sell_price": 9348,
           "flavor_text": "Cool to the touch, and it settles a healer's hands.",
@@ -4975,7 +4975,7 @@
           "secondary_stats": {
             "attack_power": 31
           },
-          "armor_value": 49,
+          "armor_value": 0,
           "required_level": 56,
           "sell_price": 10451,
           "flavor_text": "A heavy signet. It leaves a mark when it hits.",
@@ -5119,7 +5119,7 @@
           "secondary_stats": {
             "healing_power": 37
           },
-          "armor_value": 11,
+          "armor_value": 0,
           "required_level": 59,
           "sell_price": 11619,
           "flavor_text": "Cool to the touch, and it settles a healer's hands.",
@@ -5571,7 +5571,7 @@
           "secondary_stats": {
             "healing_power": 10
           },
-          "armor_value": 3,
+          "armor_value": 0,
           "required_level": 15,
           "sell_price": 794,
           "flavor_text": "Cool to the touch, and it settles a healer's hands.",
@@ -5883,7 +5883,7 @@
           "secondary_stats": {
             "healing_power": 35
           },
-          "armor_value": 10,
+          "armor_value": 0,
           "required_level": 55,
           "sell_price": 10076,
           "flavor_text": "Cool to the touch, and it settles a healer's hands.",
@@ -6363,6 +6363,59 @@
         270
       ],
       "source": "trainer"
+    },
+    "rep_cc_pendant_of_the_hanging_light": {
+      "name": "Pendant of the Hanging Light",
+      "inputs": {
+        "setting_necklace_thorium": 1,
+        "bar_thorium": 2,
+        "gem_azure_diamond": 4
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "armor",
+        "slot": "neck",
+        "stat_template": "int_caster",
+        "item_level": 73,
+        "rarity": "epic",
+        "material_tier": "thorium",
+        "identity": "precise_caster",
+        "flavor": "A shard of crystal that points, always, at the light in the Underdark.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": null,
+        "item": {
+          "name": "Pendant of the Hanging Light",
+          "slot": "neck",
+          "item_level": 73,
+          "rarity": "epic",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 39,
+            "spell_hit_rating": 16
+          },
+          "armor_value": 0,
+          "required_level": 60,
+          "sell_price": 29365,
+          "flavor_text": "A shard of crystal that points, always, at the light in the Underdark.",
+          "identity": "precise_caster",
+          "icon_id": "gear_epic_neck_4"
+        }
+      },
+      "skill_range": [
+        300,
+        305,
+        310,
+        315
+      ],
+      "source": "vendor",
+      "faction": "crimson_codex",
+      "_rare_ingredients_todo": true
     }
   }
 }
