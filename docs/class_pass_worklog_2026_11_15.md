@@ -165,6 +165,10 @@ PYTHONPATH=. python3 tools/calibrate_spec_auras.py --kind healing --passes 5 --w
 
 ---
 
+## Parked (Kyle said note it only; class balance comes first)
+
+- **16:41 UTC.** Hand-authored boss drops convert from percentage hit, crit, dodge, parry and so on to RATINGS (10 rating = 1%, like gems and crafted gear), cleaning out the "trash drip" stats. This is item 8 in `claude/playtest_backlog_2026_11_14.md`.
+
 ## Running right now (16:38 UTC)
 
 - `--mode content --fights 3` geared with talents writes `/tmp/claude-0/content_geared.{log,json}`.

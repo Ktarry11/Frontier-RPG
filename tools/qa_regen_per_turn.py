@@ -43,7 +43,11 @@ def make(cls="Priest", level=40):
 def main():
     bad = []
     c = make()
-    spirit_share = c.effective_spirit * c.MANA_PER_SPIRIT_PER_TURN
+    # REGEN IS ON THE WORLD CURVE (combat/world_curve.py, 15 Nov 2026): the bars are world-sized, so what
+    # refills them is too - every expected amount below is x the level's world scale
+    from combat.world_curve import world_scale
+    ws = world_scale(c.level)
+    spirit_share = c.effective_spirit * c.MANA_PER_SPIRIT_PER_TURN * ws
 
     def turn_gain(ch):
         ch.current_mana = 0
@@ -56,7 +60,7 @@ def main():
 
     # 1. gear
     c.mp5 = 12
-    if abs(turn_gain(c) - (spirit_share + 12)) > 0.01:
+    if abs(turn_gain(c) - (spirit_share + 12 * ws)) > 0.01:
         bad.append(f"12 mp5 on gear added {turn_gain(c) - base} mana a turn, not 12")
 
     # 2. a buff
@@ -64,10 +68,10 @@ def main():
                                        real_time_seconds=None))
     # (applying a buff recalculates the sheet, which is also what proves a buff's mp5 reaches
     # the same number gear's does - and that it is counted once, not twice)
-    share = c.effective_spirit * c.MANA_PER_SPIRIT_PER_TURN
-    if abs(turn_gain(c) - (share + 20)) > 0.01:
-        bad.append(f"a 20 mp5 buff gave {turn_gain(c) - share} extra mana a turn, not 20")
-    if abs(c.mana_per_turn() - (share + 20)) > 0.01:
+    share = c.effective_spirit * c.MANA_PER_SPIRIT_PER_TURN * ws
+    if abs(turn_gain(c) - (share + 20 * ws)) > 0.01:
+        bad.append(f"a 20 mp5 buff gave {turn_gain(c) - share} extra mana a turn, not {20 * ws:.1f}")
+    if abs(c.mana_per_turn() - (share + 20 * ws)) > 0.01:
         bad.append("mana_per_turn() - the number on the sheet - disagrees with what a turn restores")
 
     granting = 0
@@ -83,8 +87,8 @@ def main():
     w.hp5 = 15
     w.current_health = 100
     w.restore_resources_between_turns()
-    if abs(w.current_health - 115) > 0.01:
-        bad.append(f"15 hp5 took health from 100 to {w.current_health} in a turn, not 115")
+    if abs(w.current_health - (100 + round(15 * world_scale(w.level)))) > 0.01:
+        bad.append(f"15 hp5 took health from 100 to {w.current_health} in a turn, not {100 + round(15 * world_scale(w.level))}")
     w.current_health = 0
     w.restore_resources_between_turns()
     if w.current_health != 0:
@@ -98,7 +102,7 @@ def main():
     c2.current_mana = 0
     c2.mp5 = 50
     c2.tick_out_of_combat_regen(5.0, is_moving=True)
-    if abs((c2.current_mana - plain) - 50) > 0.5:
+    if abs((c2.current_mana - plain) - 50 * world_scale(c2.level)) > 0.5:
         bad.append(f"50 mp5 gave {c2.current_mana - plain:.1f} extra mana over five seconds out "
                    f"of combat, not 50")
     w.current_health = 100
@@ -108,7 +112,7 @@ def main():
     w.current_health = 100
     w.hp5 = 30
     w.tick_out_of_combat_regen(5.0, is_moving=True)
-    if abs((w.current_health - 100 - plain_hp) - 30) > 0.5:
+    if abs((w.current_health - 100 - plain_hp) - 30 * world_scale(w.level)) > 0.5:
         bad.append("30 hp5 did not give 30 extra health over five seconds out of combat")
 
     # 5. the sheet
