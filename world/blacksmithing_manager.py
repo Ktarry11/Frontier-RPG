@@ -211,35 +211,10 @@ class BlacksmithingManager:
             from world.gathering_manager import get_gathering_node_manager
             return get_gathering_node_manager().make_material_instance(spec["material_id"])
 
-        from entities.loot_generator import LootGenerator
-        gen = LootGenerator()
-
-        if spec["kind"] == "armor":
-            item = gen.generate_armor_piece(
-                slot=spec["slot"],
-                armor_type=spec["armor_type"],
-                stat_template=spec["stat_template"],
-                item_level=spec["item_level"],
-                rarity=spec["rarity"],
-            )
-        elif spec["kind"] == "weapon":
-            item = gen.generate_weapon(
-                slot=spec["slot"],
-                weapon_type=spec["weapon_type"],
-                stat_template=spec["stat_template"],
-                item_level=spec["item_level"],
-                rarity=spec["rarity"],
-            )
-        else:
-            return None
-
-        item.is_crafted = True
-        item.name = recipe["name"]
-        # Tags which upgrade kit this item matches (world/upgrade_manager.py's
-        # MATERIAL_KITS) - Kyle's corrected design: "copper kit only
-        # upgrades copper stuff", matched by material, not by rarity.
-        item.crafting_material = spec.get("material_tier")
-        return item
+        # Armour and weapons: the authored item, the same every time (world/crafted_items.py). It
+        # also tags which upgrade kit fits (Kyle: "copper kit only upgrades copper stuff").
+        from world import crafted_items
+        return crafted_items.build(recipe)
 
 
 _blacksmithing_manager = None

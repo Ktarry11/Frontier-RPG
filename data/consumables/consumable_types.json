@@ -476,7 +476,7 @@
       "consumable_id": "elixir_of_firepower",
       "name": "Elixir of Firepower",
       "consumable_type": "elixir",
-      "description": "Grants +6 Spell Power for 30 minutes. Battle buff - a pure secondary-stat option for casters who'd rather buff their damage directly than through Intellect.",
+      "description": "Grants +11 Spell Power for 30 minutes. Battle buff - a pure secondary-stat option for casters who'd rather buff their damage directly than through Intellect.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -487,7 +487,7 @@
       "sell_price": 50,
       "buff_category": "battle",
       "stat_bonuses": {
-        "spell_power": 6
+        "spell_power": 11
       }
     },
     {
@@ -566,7 +566,7 @@
       "consumable_id": "elixir_of_lesser_firepower",
       "name": "Elixir of Lesser Firepower",
       "consumable_type": "elixir",
-      "description": "+3 Spell Power for 30 min. Battle buff.",
+      "description": "+6 Spell Power for 30 min. Battle buff.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -577,14 +577,14 @@
       "sell_price": 22,
       "buff_category": "battle",
       "stat_bonuses": {
-        "spell_power": 3
+        "spell_power": 6
       }
     },
     {
       "consumable_id": "elixir_of_greater_firepower",
       "name": "Elixir of Greater Firepower",
       "consumable_type": "elixir",
-      "description": "+12 Spell Power for 30 min. Battle buff.",
+      "description": "+23 Spell Power for 30 min. Battle buff.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -595,7 +595,7 @@
       "sell_price": 112,
       "buff_category": "battle",
       "stat_bonuses": {
-        "spell_power": 12
+        "spell_power": 23
       }
     },
     {
@@ -1464,7 +1464,7 @@
       "consumable_id": "elixir_of_the_firefin",
       "name": "Elixir of the Firefin",
       "consumable_type": "elixir",
-      "description": "Warm going down, and warmer in the hands. +12 Spell Power for 30 min. Battle buff.",
+      "description": "Warm going down, and warmer in the hands. +23 Spell Power for 30 min. Battle buff.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -1475,7 +1475,7 @@
       "sell_price": 112,
       "buff_category": "battle",
       "stat_bonuses": {
-        "spell_power": 12
+        "spell_power": 23
       }
     },
     {
@@ -1559,7 +1559,7 @@
       "consumable_id": "honeyed_fruit",
       "name": "Honeyed Fruit",
       "consumable_type": "food",
-      "description": "Sweet fruit drizzled in honey. Grants +6 Intellect and +3 Spell Power for 30 minutes - a caster's answer to a warrior's roasted meat.",
+      "description": "Sweet fruit drizzled in honey. Grants +6 Intellect and +6 Spell Power for 30 minutes - a caster's answer to a warrior's roasted meat.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -1571,14 +1571,14 @@
       "buff_category": "food",
       "stat_bonuses": {
         "intellect": 6,
-        "spell_power": 3
+        "spell_power": 6
       }
     },
     {
       "consumable_id": "mushroom_broth",
       "name": "Mushroom Broth",
       "consumable_type": "food",
-      "description": "A warm, earthy broth. Grants +6 Spirit and +3 Healing Power for 30 minutes - a healer-flavored food buff.",
+      "description": "A warm, earthy broth. Grants +6 Spirit and +8 Healing Power for 30 minutes - a healer-flavored food buff.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -1590,7 +1590,7 @@
       "buff_category": "food",
       "stat_bonuses": {
         "spirit": 6,
-        "healing_power": 3
+        "healing_power": 8
       }
     },
     {
@@ -2632,7 +2632,7 @@
       "consumable_id": "meal_cooked_terrine",
       "name": "Spiced Terrine",
       "consumable_type": "meal",
-      "description": "Pressed, chilled, sliced thin. Someone had time and used it. Restores 690 health over 26 seconds while you rest, and leaves you well fed (+9 Intellect, +4 Spell Power) for 30 minutes.",
+      "description": "Pressed, chilled, sliced thin. Someone had time and used it. Restores 690 health over 26 seconds while you rest, and leaves you well fed (+9 Intellect, +8 Spell Power) for 30 minutes.",
       "effect_value": 690,
       "effect_duration": 26,
       "level_multiplier": 0.0,
@@ -2644,7 +2644,7 @@
       "buff_category": "food",
       "stat_bonuses": {
         "intellect": 9,
-        "spell_power": 4
+        "spell_power": 8
       }
     },
     {
@@ -2671,7 +2671,7 @@
       "consumable_id": "meal_cooked_roast_royale",
       "name": "Roast Royale",
       "consumable_type": "meal",
-      "description": "The dish you cook when you want to be remembered for it. Restores 900 health over 30 seconds while you rest, and leaves you well fed (+12 Intellect, +7 Spirit, +5 Spell Power) for 30 minutes.",
+      "description": "The dish you cook when you want to be remembered for it. Restores 900 health over 30 seconds while you rest, and leaves you well fed (+12 Intellect, +7 Spirit, +9 Spell Power) for 30 minutes.",
       "effect_value": 900,
       "effect_duration": 30,
       "level_multiplier": 0.0,
@@ -2684,7 +2684,7 @@
       "stat_bonuses": {
         "intellect": 12,
         "spirit": 7,
-        "spell_power": 5
+        "spell_power": 9
       }
     },
     {
@@ -3275,7 +3275,7 @@
       "consumable_id": "meal_cooked_fried_mushrooms",
       "name": "Fried Mushrooms",
       "consumable_type": "meal",
-      "description": "Earthy, and faintly luminous if you leave it too long. Restores 250 health over 20 seconds while you rest, and leaves you well fed (+4 Spell Power) for 30 minutes.",
+      "description": "Earthy, and faintly luminous if you leave it too long. Restores 250 health over 20 seconds while you rest, and leaves you well fed (+8 Spell Power) for 30 minutes.",
       "effect_value": 250,
       "effect_duration": 20,
       "level_multiplier": 0.0,
@@ -3286,14 +3286,14 @@
       "sell_price": 8,
       "buff_category": "food",
       "stat_bonuses": {
-        "spell_power": 4
+        "spell_power": 8
       }
     },
     {
       "consumable_id": "meal_cooked_cellar_cap_fry",
       "name": "Cellar-Cap Fry",
       "consumable_type": "meal",
-      "description": "Earthy, and faintly luminous if you leave it too long. Restores 380 health over 22 seconds while you rest, and leaves you well fed (+7 Spell Power) for 30 minutes.",
+      "description": "Earthy, and faintly luminous if you leave it too long. Restores 380 health over 22 seconds while you rest, and leaves you well fed (+13 Spell Power) for 30 minutes.",
       "effect_value": 380,
       "effect_duration": 22,
       "level_multiplier": 0.0,
@@ -3304,14 +3304,14 @@
       "sell_price": 15,
       "buff_category": "food",
       "stat_bonuses": {
-        "spell_power": 7
+        "spell_power": 13
       }
     },
     {
       "consumable_id": "meal_cooked_glowcap_ragout",
       "name": "Glowcap Ragout",
       "consumable_type": "meal",
-      "description": "Earthy, and faintly luminous if you leave it too long. Restores 520 health over 24 seconds while you rest, and leaves you well fed (+10 Spell Power) for 30 minutes.",
+      "description": "Earthy, and faintly luminous if you leave it too long. Restores 520 health over 24 seconds while you rest, and leaves you well fed (+19 Spell Power) for 30 minutes.",
       "effect_value": 520,
       "effect_duration": 24,
       "level_multiplier": 0.0,
@@ -3322,14 +3322,14 @@
       "sell_price": 22,
       "buff_category": "food",
       "stat_bonuses": {
-        "spell_power": 10
+        "spell_power": 19
       }
     },
     {
       "consumable_id": "meal_cooked_scholar_s_fricassee",
       "name": "Scholar's Fricassee",
       "consumable_type": "meal",
-      "description": "Earthy, and faintly luminous if you leave it too long. Restores 690 health over 26 seconds while you rest, and leaves you well fed (+14 Spell Power) for 30 minutes.",
+      "description": "Earthy, and faintly luminous if you leave it too long. Restores 690 health over 26 seconds while you rest, and leaves you well fed (+26 Spell Power) for 30 minutes.",
       "effect_value": 690,
       "effect_duration": 26,
       "level_multiplier": 0.0,
@@ -3340,14 +3340,14 @@
       "sell_price": 30,
       "buff_category": "food",
       "stat_bonuses": {
-        "spell_power": 14
+        "spell_power": 26
       }
     },
     {
       "consumable_id": "meal_cooked_nightcap_roast",
       "name": "Nightcap Roast",
       "consumable_type": "meal",
-      "description": "Earthy, and faintly luminous if you leave it too long. Restores 900 health over 28 seconds while you rest, and leaves you well fed (+18 Spell Power) for 30 minutes.",
+      "description": "Earthy, and faintly luminous if you leave it too long. Restores 900 health over 28 seconds while you rest, and leaves you well fed (+34 Spell Power) for 30 minutes.",
       "effect_value": 900,
       "effect_duration": 28,
       "level_multiplier": 0.0,
@@ -3358,14 +3358,14 @@
       "sell_price": 38,
       "buff_category": "food",
       "stat_bonuses": {
-        "spell_power": 18
+        "spell_power": 34
       }
     },
     {
       "consumable_id": "meal_cooked_arcanist_s_plate",
       "name": "Arcanist's Plate",
       "consumable_type": "meal",
-      "description": "Earthy, and faintly luminous if you leave it too long. Restores 1100 health over 30 seconds while you rest, and leaves you well fed (+21 Spell Power) for 30 minutes.",
+      "description": "Earthy, and faintly luminous if you leave it too long. Restores 1100 health over 30 seconds while you rest, and leaves you well fed (+39 Spell Power) for 30 minutes.",
       "effect_value": 1100,
       "effect_duration": 30,
       "level_multiplier": 0.0,
@@ -3376,14 +3376,14 @@
       "sell_price": 88,
       "buff_category": "food",
       "stat_bonuses": {
-        "spell_power": 21
+        "spell_power": 39
       }
     },
     {
       "consumable_id": "meal_cooked_duskcap_roulade",
       "name": "Duskcap Roulade",
       "consumable_type": "meal",
-      "description": "Earthy, and faintly luminous if you leave it too long. Restores 1400 health over 32 seconds while you rest, and leaves you well fed (+25 Spell Power) for 30 minutes.",
+      "description": "Earthy, and faintly luminous if you leave it too long. Restores 1400 health over 32 seconds while you rest, and leaves you well fed (+47 Spell Power) for 30 minutes.",
       "effect_value": 1400,
       "effect_duration": 32,
       "level_multiplier": 0.0,
@@ -3394,14 +3394,14 @@
       "sell_price": 98,
       "buff_category": "food",
       "stat_bonuses": {
-        "spell_power": 25
+        "spell_power": 47
       }
     },
     {
       "consumable_id": "meal_cooked_magister_s_supper",
       "name": "Magister's Supper",
       "consumable_type": "meal",
-      "description": "Earthy, and faintly luminous if you leave it too long. Restores 1800 health over 34 seconds while you rest, and leaves you well fed (+30 Spell Power) for 30 minutes.",
+      "description": "Earthy, and faintly luminous if you leave it too long. Restores 1800 health over 34 seconds while you rest, and leaves you well fed (+56 Spell Power) for 30 minutes.",
       "effect_value": 1800,
       "effect_duration": 34,
       "level_multiplier": 0.0,
@@ -3412,14 +3412,14 @@
       "sell_price": 108,
       "buff_category": "food",
       "stat_bonuses": {
-        "spell_power": 30
+        "spell_power": 56
       }
     },
     {
       "consumable_id": "meal_cooked_cheese_toastie",
       "name": "Cheese Toastie",
       "consumable_type": "meal",
-      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 250 health over 20 seconds while you rest, and leaves you well fed (+7 Healing Power) for 30 minutes.",
+      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 250 health over 20 seconds while you rest, and leaves you well fed (+18 Healing Power) for 30 minutes.",
       "effect_value": 250,
       "effect_duration": 20,
       "level_multiplier": 0.0,
@@ -3430,14 +3430,14 @@
       "sell_price": 8,
       "buff_category": "food",
       "stat_bonuses": {
-        "healing_power": 7
+        "healing_power": 18
       }
     },
     {
       "consumable_id": "meal_cooked_herder_s_melt",
       "name": "Herder's Melt",
       "consumable_type": "meal",
-      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 380 health over 22 seconds while you rest, and leaves you well fed (+12 Healing Power) for 30 minutes.",
+      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 380 health over 22 seconds while you rest, and leaves you well fed (+30 Healing Power) for 30 minutes.",
       "effect_value": 380,
       "effect_duration": 22,
       "level_multiplier": 0.0,
@@ -3448,14 +3448,14 @@
       "sell_price": 15,
       "buff_category": "food",
       "stat_bonuses": {
-        "healing_power": 12
+        "healing_power": 30
       }
     },
     {
       "consumable_id": "meal_cooked_shepherd_s_bake",
       "name": "Shepherd's Bake",
       "consumable_type": "meal",
-      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 520 health over 24 seconds while you rest, and leaves you well fed (+18 Healing Power) for 30 minutes.",
+      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 520 health over 24 seconds while you rest, and leaves you well fed (+45 Healing Power) for 30 minutes.",
       "effect_value": 520,
       "effect_duration": 24,
       "level_multiplier": 0.0,
@@ -3466,14 +3466,14 @@
       "sell_price": 22,
       "buff_category": "food",
       "stat_bonuses": {
-        "healing_power": 18
+        "healing_power": 45
       }
     },
     {
       "consumable_id": "meal_cooked_mender_s_gratin",
       "name": "Mender's Gratin",
       "consumable_type": "meal",
-      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 690 health over 26 seconds while you rest, and leaves you well fed (+25 Healing Power) for 30 minutes.",
+      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 690 health over 26 seconds while you rest, and leaves you well fed (+63 Healing Power) for 30 minutes.",
       "effect_value": 690,
       "effect_duration": 26,
       "level_multiplier": 0.0,
@@ -3484,14 +3484,14 @@
       "sell_price": 30,
       "buff_category": "food",
       "stat_bonuses": {
-        "healing_power": 25
+        "healing_power": 63
       }
     },
     {
       "consumable_id": "meal_cooked_hearthkeeper_s_pie",
       "name": "Hearthkeeper's Pie",
       "consumable_type": "meal",
-      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 900 health over 28 seconds while you rest, and leaves you well fed (+33 Healing Power) for 30 minutes.",
+      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 900 health over 28 seconds while you rest, and leaves you well fed (+83 Healing Power) for 30 minutes.",
       "effect_value": 900,
       "effect_duration": 28,
       "level_multiplier": 0.0,
@@ -3502,14 +3502,14 @@
       "sell_price": 38,
       "buff_category": "food",
       "stat_bonuses": {
-        "healing_power": 33
+        "healing_power": 83
       }
     },
     {
       "consumable_id": "meal_cooked_chaplain_s_platter",
       "name": "Chaplain's Platter",
       "consumable_type": "meal",
-      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 1100 health over 30 seconds while you rest, and leaves you well fed (+38 Healing Power) for 30 minutes.",
+      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 1100 health over 30 seconds while you rest, and leaves you well fed (+95 Healing Power) for 30 minutes.",
       "effect_value": 1100,
       "effect_duration": 30,
       "level_multiplier": 0.0,
@@ -3520,14 +3520,14 @@
       "sell_price": 88,
       "buff_category": "food",
       "stat_bonuses": {
-        "healing_power": 38
+        "healing_power": 95
       }
     },
     {
       "consumable_id": "meal_cooked_mercy_roast",
       "name": "Mercy Roast",
       "consumable_type": "meal",
-      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 1400 health over 32 seconds while you rest, and leaves you well fed (+46 Healing Power) for 30 minutes.",
+      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 1400 health over 32 seconds while you rest, and leaves you well fed (+115 Healing Power) for 30 minutes.",
       "effect_value": 1400,
       "effect_duration": 32,
       "level_multiplier": 0.0,
@@ -3538,14 +3538,14 @@
       "sell_price": 98,
       "buff_category": "food",
       "stat_bonuses": {
-        "healing_power": 46
+        "healing_power": 115
       }
     },
     {
       "consumable_id": "meal_cooked_lifewarden_s_board",
       "name": "Lifewarden's Board",
       "consumable_type": "meal",
-      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 1800 health over 34 seconds while you rest, and leaves you well fed (+55 Healing Power) for 30 minutes.",
+      "description": "Melted over everything. Nobody has ever been sad eating it. Restores 1800 health over 34 seconds while you rest, and leaves you well fed (+138 Healing Power) for 30 minutes.",
       "effect_value": 1800,
       "effect_duration": 34,
       "level_multiplier": 0.0,
@@ -3556,7 +3556,7 @@
       "sell_price": 108,
       "buff_category": "food",
       "stat_bonuses": {
-        "healing_power": 55
+        "healing_power": 138
       }
     },
     {
@@ -4248,7 +4248,7 @@
       "consumable_id": "minor_wizard_oil",
       "name": "Minor Wizard Oil",
       "consumable_type": "elixir",
-      "description": "Rub it on your weapon: +3 Spell Power for 30 minutes. One weapon oil at a time.",
+      "description": "Rub it on your weapon: +6 Spell Power for 30 minutes. One weapon oil at a time.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -4259,14 +4259,14 @@
       "sell_price": 60,
       "buff_category": "oil",
       "stat_bonuses": {
-        "spell_power": 3
+        "spell_power": 6
       }
     },
     {
       "consumable_id": "lesser_wizard_oil",
       "name": "Lesser Wizard Oil",
       "consumable_type": "elixir",
-      "description": "Rub it on your weapon: +7 Spell Power for 30 minutes. One weapon oil at a time.",
+      "description": "Rub it on your weapon: +14 Spell Power for 30 minutes. One weapon oil at a time.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -4277,14 +4277,14 @@
       "sell_price": 150,
       "buff_category": "oil",
       "stat_bonuses": {
-        "spell_power": 7
+        "spell_power": 14
       }
     },
     {
       "consumable_id": "wizard_oil",
       "name": "Wizard Oil",
       "consumable_type": "elixir",
-      "description": "Rub it on your weapon: +12 Spell Power for 30 minutes. One weapon oil at a time.",
+      "description": "Rub it on your weapon: +22 Spell Power for 30 minutes. One weapon oil at a time.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -4295,14 +4295,14 @@
       "sell_price": 240,
       "buff_category": "oil",
       "stat_bonuses": {
-        "spell_power": 12
+        "spell_power": 22
       }
     },
     {
       "consumable_id": "brilliant_wizard_oil",
       "name": "Brilliant Wizard Oil",
       "consumable_type": "elixir",
-      "description": "Rub it on your weapon: +13 Spell Power, +1 Spell Crit for 30 minutes. One weapon oil at a time.",
+      "description": "Rub it on your weapon: +25 Spell Power, +1 Spell Crit for 30 minutes. One weapon oil at a time.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -4313,7 +4313,7 @@
       "sell_price": 330,
       "buff_category": "oil",
       "stat_bonuses": {
-        "spell_power": 13,
+        "spell_power": 25,
         "crit_chance_spell": 1
       }
     },
@@ -4357,7 +4357,7 @@
       "consumable_id": "brilliant_mana_oil",
       "name": "Brilliant Mana Oil",
       "consumable_type": "elixir",
-      "description": "Rub it on your weapon: +5 Mana per 5, +7 Healing for 30 minutes. One weapon oil at a time.",
+      "description": "Rub it on your weapon: +5 Mana per 5, +16 Healing for 30 minutes. One weapon oil at a time.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -4369,14 +4369,14 @@
       "buff_category": "oil",
       "stat_bonuses": {
         "mp5": 5,
-        "healing_power": 7
+        "healing_power": 16
       }
     },
     {
       "consumable_id": "battlemage_oil",
       "name": "Battlemage's Oil",
       "consumable_type": "elixir",
-      "description": "Rub it on your weapon: +12 Attack Power, +5 Spell Power for 30 minutes. One weapon oil at a time.",
+      "description": "Rub it on your weapon: +12 Attack Power, +9 Spell Power for 30 minutes. One weapon oil at a time.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -4388,14 +4388,14 @@
       "buff_category": "oil",
       "stat_bonuses": {
         "attack_power": 12,
-        "spell_power": 5
+        "spell_power": 9
       }
     },
     {
       "consumable_id": "superior_battlemage_oil",
       "name": "Superior Battlemage's Oil",
       "consumable_type": "elixir",
-      "description": "Rub it on your weapon: +19 Attack Power, +8 Spell Power for 30 minutes. One weapon oil at a time.",
+      "description": "Rub it on your weapon: +19 Attack Power, +15 Spell Power for 30 minutes. One weapon oil at a time.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -4407,14 +4407,14 @@
       "buff_category": "oil",
       "stat_bonuses": {
         "attack_power": 19,
-        "spell_power": 8
+        "spell_power": 15
       }
     },
     {
       "consumable_id": "oil_of_devotion",
       "name": "Oil of Devotion",
       "consumable_type": "elixir",
-      "description": "Rub it on your weapon: +8 Strength, +7 Healing for 30 minutes. One weapon oil at a time.",
+      "description": "Rub it on your weapon: +8 Strength, +17 Healing for 30 minutes. One weapon oil at a time.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -4426,7 +4426,7 @@
       "buff_category": "oil",
       "stat_bonuses": {
         "strength": 8,
-        "healing_power": 7
+        "healing_power": 17
       }
     }
   ]

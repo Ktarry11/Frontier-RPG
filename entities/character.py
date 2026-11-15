@@ -54,6 +54,10 @@ STAT_CONVERSION_TARGETS = {
 #:
 #: tools/qa_talent_effects.py fails the build if a stat-shaped effect key is
 #: not read by anything, so the next one of these cannot ship silently.
+from entities import power_scale as _PS  # noqa: E402
+_lift_power = _PS.lift
+
+
 BONUS_KEY_ALIASES = {
     "crit_chance": ("crit_chance_physical", "crit_chance_spell"),
     "crit": ("crit_chance_physical", "crit_chance_spell"),
@@ -1294,7 +1298,8 @@ class Character(StatusEffectMixin):
             from world.personal_kits import passives_for
             for _key, _value in passives_for(self).items():
                 for _t in BONUS_KEY_ALIASES.get(_key, (_key,)):
-                    bonuses[_t] = bonuses.get(_t, 0) + _value
+                    # written on the old power scale: lifted onto the item scale (power_scale.py)
+                    bonuses[_t] = bonuses.get(_t, 0) + _lift_power(_t, _value)
         except Exception:
             pass  # a broken data file must not stop a character existing
 
@@ -1302,7 +1307,7 @@ class Character(StatusEffectMixin):
         for _key, _value in talent_effects.items():
             if isinstance(_value, (int, float)):
                 for _target in BONUS_KEY_ALIASES.get(_key, (_key,)):
-                    bonuses[_target] = bonuses.get(_target, 0) + _value
+                    bonuses[_target] = bonuses.get(_target, 0) + _lift_power(_target, _value)
 
         # GEAR SET BONUSES, through the same pool again - see world/gear_sets.py. Read fresh
         # each recalc from what is worn right now, so taking a piece off drops the bonus on
@@ -1335,7 +1340,8 @@ class Character(StatusEffectMixin):
             # first place; a scaled effect would have drifted the same way.
             for _key, _value in self._status_mods_for(_eff).items():
                 if isinstance(_value, (int, float)):
-                    bonuses[_key] = bonuses.get(_key, 0) + _value
+                    # buffs, forms and procs are written on the old power scale (power_scale.py)
+                    bonuses[_key] = bonuses.get(_key, 0) + _lift_power(_key, _value)
                 else:
                     bonuses[_key] = _value
 
@@ -1427,11 +1433,14 @@ class Character(StatusEffectMixin):
         # same dead-key shape as pushback_reduction_pct. Found authoring
         # Orc's Blood Fury, which boosts attack power AND spell power in
         # WoW and could only have done half the job.
-        self.spell_power = int((int(eff_intellect * 0.2) + int(bonuses.get("spell_power", 0)))
+        # Intellect's share is on the item scale too (Kyle, 14 Nov: "1 int = 1.5 sp =2 Healing";
+        # entities/power_scale.py), so the sheet adds up. Combat divides the lift back out.
+        self.spell_power = int((int(eff_intellect * 0.2 * _PS.SPELL) + int(bonuses.get("spell_power", 0)))
                                * (1.0 + bonuses.get("spell_power_pct", 0) / 100.0))
         # healing_power_pct (Starcaller's Aspect of the Goddess: "+15%
         # Healing Power") - same final-multiplier shape as attack_power_pct.
-        self.healing_power = int((int(eff_intellect * 0.2 + eff_spirit * 0.2) + int(bonuses.get("healing_power", 0)))
+        self.healing_power = int((int((eff_intellect * 0.2 + eff_spirit * 0.2) * _PS.HEALING)
+                                  + int(bonuses.get("healing_power", 0)))
                                   * (1.0 + bonuses.get("healing_power_pct", 0) / 100.0))
         
         # Crits. The stat term is level-scaled (see AGI_PER_CRIT); gear and
@@ -1744,7 +1753,8 @@ class Character(StatusEffectMixin):
             "intellect": eff_intellect, "spirit": eff_spirit,
             "stamina": eff_stamina,
             "ap": self.attack_power, "attack_power": self.attack_power,
-            "spell_power": self.spell_power,
+            # on the scale the conversions were written for (entities/power_scale.py)
+            "spell_power": self.spell_power / _PS.SPELL,
             # "weapon": average main-hand weapon damage. Equipment has no
             # get_weapon_damage method - it never did - so the old hasattr
             # guard meant this source resolved to 0 for every character and
@@ -1776,6 +1786,8 @@ class Character(StatusEffectMixin):
             # The share of the stat is the same; it now buys percentage at the rating rate.
             if attr in self.PERCENT_ATTRS:
                 gained = self._from_stat(self.RATING_PER_PERCENT, gained)
+            # a conversion INTO spell power or healing was written on the old scale too
+            gained = gained * _PS.LIFT.get(attr, 1.0)
             # Integer stats stay integers; the percentage ones (crit, haste,
             # parry, dodge) are floats and keep their precision.
             setattr(self, attr, int(current + gained)
@@ -3240,13 +3252,27 @@ class Character(StatusEffectMixin):
         schools return just the generic spell_power (no per-school
         component exists for either).
         """
+        # COMBAT SCALE (entities/power_scale.py): the sheet shows spell power on the item scale Kyle
+        # set on 14 Nov; the coefficients every spell uses were tuned on the old one, and he chose to
+        # keep combat the same. So the lift is divided back out here, the one place casts read it.
+        generic = self.spell_power / _PS.SPELL
         if isinstance(school, (tuple, list)):
             if not school:
-                return self.spell_power
+                return generic
             per_school_avg = sum(self._per_school_spell_power(s) for s in school) / len(school)
-            return self.spell_power + per_school_avg
+            return generic + per_school_avg / _PS.SCHOOL
 
-        return self.spell_power + self._per_school_spell_power(school)
+        return generic + self._per_school_spell_power(school) / _PS.SCHOOL
+
+    @property
+    def combat_spell_power(self):
+        """Generic spell power on the scale combat was tuned for (see get_effective_spell_power)."""
+        return self.spell_power / _PS.SPELL
+
+    @property
+    def combat_healing_power(self):
+        """Healing power on the scale combat was tuned for (entities/power_scale.py)."""
+        return self.healing_power / _PS.HEALING
 
     def _per_school_spell_power(self, school):
         """Just the per-school COMPONENT (not including generic

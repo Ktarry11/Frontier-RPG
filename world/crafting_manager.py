@@ -217,25 +217,15 @@ class CraftingManager:
         if kind == "consumable":
             from entities.consumable_manager import get_consumable_manager
             return get_consumable_manager().get_consumable(out["consumable_id"], count)
-        from entities.loot_generator import LootGenerator
-        gen = LootGenerator()
         if kind == "bag":
-            item = gen.generate_bag(bag_id=out["bag_id"])
+            from entities.loot_generator import LootGenerator
+            item = LootGenerator().generate_bag(bag_id=out["bag_id"])
             if item is not None:
                 item.is_crafted = True
             return item
-        if kind == "armor":
-            item = gen.generate_armor_piece(slot=out["slot"], armor_type=out["armor_type"], stat_template=out["stat_template"],
-                                            item_level=out["item_level"], rarity=out["rarity"])
-        elif kind == "weapon":
-            item = gen.generate_weapon(slot=out["slot"], weapon_type=out["weapon_type"], stat_template=out["stat_template"],
-                                       item_level=out["item_level"], rarity=out["rarity"])
-        else:
-            return None
-        item.is_crafted = True
-        item.name = recipe["name"]
-        item.crafting_material = out.get("material_tier")
-        return item
+        # armour and weapons: the authored item (world/crafted_items.py)
+        from world import crafted_items
+        return crafted_items.build(recipe)
 
 
     #: Prospecting five ore always turns up a stone, sometimes two. Each of the ore's stones is

@@ -236,7 +236,7 @@ def check_fire(items):
         wear(c, certain(items["The Unbanked Fire"]))
         foe, engine = fight(c)
         c.current_mana = c.mana
-        before = c.spell_power
+        before = c.combat_spell_power  # what casts see (entities/power_scale.py)
         spell = c.ability_book.get_ability("mage_frostbolt")
         # A spell can MISS, and a miss is no damage event, so the proc rightly does not fire.
         # Cast until one lands - the claim under test is "a landed damaging spell procs it".
@@ -252,8 +252,9 @@ def check_fire(items):
         blaze = [e for e in c.active_effects if e.effect_id == "unbanked_fire_blaze"]
         if not blaze:
             fail("The Unbanked Fire: a damaging spell landed and Uninsured Blaze never appeared")
-        elif c.spell_power - before != 40:
-            fail(f"The Unbanked Fire: spell power moved by {c.spell_power - before}, expected 40")
+        elif abs((c.combat_spell_power - before) - 40) > 0.6:
+            # The sheet shows the item scale since 15 Nov (40 reads as 75); combat sees exactly 40.
+            fail(f"The Unbanked Fire: spell power moved by {c.combat_spell_power - before:.1f} in combat, expected 40")
         else:
             ok(f"The Unbanked Fire: Frostbolt lands, Uninsured Blaze adds 40 spell power "
                f"({before} -> {c.spell_power})")

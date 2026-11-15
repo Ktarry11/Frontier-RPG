@@ -81,4 +81,5 @@ def roll_epic(enemy, player_level, in_dungeon=False, rng=random):
 
     from entities.item import Item
     from world.jewelcrafting import socket_authored
-    return socket_authored(Item.from_dict(dict(rng.choice(pool))))
+    # data is already on the current power scale (entities/power_scale.py): say so, or it is lifted twice
+    return socket_authored(Item.from_dict({**rng.choice(pool), "power_scale": 2}))

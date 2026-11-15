@@ -52,11 +52,11 @@ STAT_MOD = {
     "defense_rating": 8.420,
     "dodge_rating": 11.285,
     "haste": 2.230,
-    "healing_power": 1.725,
+    "healing_power": 0.690,     # 1.725 before the 15 Nov power rescale (entities/power_scale.py), / 2.5
     "hit_rating": 13.950,
     "mp5": 4.170,
     "parry_rating": 2.140,
-    "spell_power": 1.345,
+    "spell_power": 0.717,       # 1.345 before the 15 Nov power rescale, / 1.875
     # spell_penetration fitted to 0.0 - the items carrying it are explained entirely by their
     # other stats, so this game does not currently charge for it. Left out rather than written
     # as 0.0, so it shows up as "not priced" instead of as "free", which are different claims.

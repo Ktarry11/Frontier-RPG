@@ -85,6 +85,7 @@ class ProfessionsScreen(BaseScreen):
     def __init__(self, state_manager):
         super().__init__(state_manager)
         self.close_button = pygame.Rect(SCREEN_WIDTH - 120, 20, 100, 50)
+        self.icon_ui_helper = None      # set by main.py, as on every screen that draws gear icons
         self.subject = None
         self.return_state = GameState.OVERWORLD
 
@@ -615,6 +616,7 @@ class ProfessionsScreen(BaseScreen):
         self.craft_bar.draw(screen, ScrollBar.track_for(list_area), self.craft_scroll,
                             max(0, len(recipes) - visible), visible)
         hover_rows = []         # (rect, title, lines): rows whose text was cut short, shown whole on hover
+        gear_rows = []          # (rect, item): gear a row makes, shown as its full item card on hover
         for recipe_id, recipe in recipes[self.craft_scroll:self.craft_scroll + visible]:
             rect = pygame.Rect(PANEL_X, y, PANEL_WIDTH - GUTTER, row_h - 6)
             req = recipe.get("skill_required", 0)
@@ -659,6 +661,18 @@ class ProfessionsScreen(BaseScreen):
                 effect = "A stone or two from this ore"
             elif out.get("kind") == "fixed":
                 effect = (out["item"].get("proc") or {}).get("describe", "")[:48]
+            elif out.get("kind") in ("armor", "weapon", "bag"):
+                # WHAT IT MAKES, before you make it (Kyle, 14 Nov: "so you see it before you craft
+                # it"). Authored gear is the same every time, so this is the real item.
+                from world import crafted_items
+                made = crafted_items.preview(recipe_id, recipe)
+                if made is not None:
+                    gear_rows.append((rect, made))
+                    effect = self.renderer.truncate(crafted_items.summary(made), rect.right - 140 - (rect.x + 330),
+                                                    size="small")
+                    icon = self._gear_icon(made, 40)
+                    if icon is not None:
+                        sprite = icon
             if out.get("kind") == "consumable":
                 made, effect = self._consumable_preview(out.get("consumable_id"))
                 sprite = made or sprite
@@ -694,11 +708,52 @@ class ProfessionsScreen(BaseScreen):
         self._draw_craft_message(screen)
         # hover a row for the whole description (Kyle, 14 Nov: runes and enchants that run off)
         mouse = pygame.mouse.get_pos()
+        for rect, item in gear_rows:
+            if rect.collidepoint(mouse):
+                self._draw_gear_card(screen, item, mouse)
+                return
         for rect, title, lines in hover_rows:
             if rect.collidepoint(mouse):
                 from ui.hover_text import draw_hover
                 draw_hover(screen, self.renderer, title, lines, mouse)
                 break
+
+    def _gear_icon(self, item, size):
+        """The item's own icon, through the same helper the bags use. None if there isn't one."""
+        helper = self.icon_ui_helper or getattr(self.state_manager, "icon_ui_helper", None)
+        if not helper or not getattr(item, "icon_id", None):
+            return None
+        cache = self.__dict__.setdefault("_gear_icons", {})
+        key = (item.icon_id, item.rarity, size)
+        if key not in cache:
+            try:
+                cache[key] = helper.get_item_icon_surface(
+                    {"name": item.name, "icon_id": item.icon_id, "rarity": item.rarity}, size=size)
+            except Exception:
+                cache[key] = None
+        return cache[key]
+
+    def _draw_gear_card(self, screen, item, mouse):
+        """The full item card a recipe makes: the bag's own tooltip, so it reads exactly as the item will
+        once it's made, comparison to what you're wearing included."""
+        from ui.screens.inventory_screen import InventoryScreen
+
+        class _Card:
+            renderer = self.renderer
+            last_tooltip_rect = None
+
+            def _get_subject(_s):
+                return self._get_subject()
+
+            def _armor_reduction_note(_s, it):
+                return InventoryScreen._armor_reduction_note(_s, it)
+
+        try:
+            InventoryScreen._draw_item_tooltip(_Card(), screen, item, mouse)
+        except Exception:
+            from ui.hover_text import draw_hover
+            from world import crafted_items
+            draw_hover(screen, self.renderer, item.name, [crafted_items.summary(item)], mouse)
 
     def _draw_craft_message(self, screen):
         if self.craft_message:

@@ -41,6 +41,19 @@ LEVEL_DIFF_MIN_MULT = 0.15
 LEVEL_DIFF_MAX_MULT = 4.0
 
 
+
+def _heal_power(caster):
+    """Healing power on the scale heals were tuned for. A character's is on the item scale and says so
+    (entities/power_scale.py); a pet's or a monster's never moved."""
+    v = getattr(caster, "combat_healing_power", None)
+    return v if v is not None else (getattr(caster, "healing_power", 0) or 0)
+
+
+def _spell_power(caster):
+    """Generic spell power on the scale combat was tuned for (see _heal_power)."""
+    v = getattr(caster, "combat_spell_power", None)
+    return v if v is not None else (getattr(caster, "spell_power", 0) or 0)
+
 def level_diff_multiplier(attacker_level, defender_level):
     """Symmetric damage multiplier from attacker/defender level gap.
 
@@ -3422,7 +3435,7 @@ class Ability:
         power scaling identically instead of copies drifting apart.
         """
         heal_amt = self._roll_variance(
-            int(heal_value + caster.healing_power * 1.2), caster, heal=True)
+            int(heal_value + _heal_power(caster) * 1.2), caster, heal=True)
         # recipient stays None here: _apply_smart_heal has not chosen its
         # target yet (it picks the most wounded ally below), so a
         # recipient-conditional healing talent cannot apply to a smart heal.
@@ -3538,7 +3551,7 @@ class Ability:
         # of raw Spirit directly - same principle as spell_damage
         # above. Healing Power = Spirit*2 + INT*0.2 (base) + gear rolls.
         heal_amt = self._roll_variance(
-            int(self.effect_value + caster.healing_power * 1.2), caster, heal=True)
+            int(self.effect_value + _heal_power(caster) * 1.2), caster, heal=True)
         heal_amt = int(heal_amt * self._damage_multiplier(caster, "healing", recipient=target))
 
         # HEALS CRIT. Kyle, 5 Nov 2026: "spells should be able to crit!"
@@ -4223,7 +4236,7 @@ class Ability:
             # Heal over time. Same total-across-duration model as DoTs above.
             # Lands on the chosen friendly target, NOT unconditionally on the
             # caster - that bug made every HoT in the game a self-heal.
-            total = (self.effect_value + caster.healing_power * 0.8) * \
+            total = (self.effect_value + _heal_power(caster) * 0.8) * \
                 self._damage_multiplier(caster, "healing", recipient=target)
             duration = self.talented_duration(caster)
             # hot_duration_pct lengthens every HoT this caster applies - the
@@ -4577,7 +4590,7 @@ class Ability:
                     if self.sure_target:
                         effect.sure_hit_by = caster.name
                     if self.trap:
-                        power = max(getattr(caster, "attack_power", 0) or 0, getattr(caster, "spell_power", 0) or 0)
+                        power = max(getattr(caster, "attack_power", 0) or 0, _spell_power(caster))
                         effect.trap_damage = max(1, int((self.effect_value + power * 0.8)
                                                         * self._damage_multiplier(caster, "spell", recipient=t)))
                         effect.trap_school = self.trap.get("school", "nature")
@@ -4737,7 +4750,7 @@ class Ability:
                         recipient.heal(int((getattr(removed, "potency", 0) or 0)
                                            * max(0, getattr(removed, "duration", 0) or 0)))
             if self.damage_per_dispel and removed_names:
-                power = max(getattr(caster, "attack_power", 0) or 0, getattr(caster, "spell_power", 0) or 0)
+                power = max(getattr(caster, "attack_power", 0) or 0, _spell_power(caster))
                 each = int((self.effect_value + power * 0.5) * self._damage_multiplier(caster, "spell"))
                 for recipient in recipients:
                     if getattr(recipient, "is_monster", False) and recipient.is_alive():

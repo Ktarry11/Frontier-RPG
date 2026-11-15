@@ -152,32 +152,9 @@ class LeatherworkingManager:
             from world.gathering_manager import get_gathering_node_manager
             return get_gathering_node_manager().make_material_instance(spec["material_id"])
 
-        from entities.loot_generator import LootGenerator
-        gen = LootGenerator()
-
-        if spec["kind"] == "armor":
-            item = gen.generate_armor_piece(
-                slot=spec["slot"],
-                armor_type=spec["armor_type"],
-                stat_template=spec["stat_template"],
-                item_level=spec["item_level"],
-                rarity=spec["rarity"],
-            )
-        elif spec["kind"] == "weapon":
-            item = gen.generate_weapon(
-                slot=spec["slot"],
-                weapon_type=spec["weapon_type"],
-                stat_template=spec["stat_template"],
-                item_level=spec["item_level"],
-                rarity=spec["rarity"],
-            )
-        else:
-            return None
-
-        item.is_crafted = True
-        item.name = recipe["name"]
-        item.crafting_material = spec.get("material_tier")
-        return item
+        # armour and weapons: the authored item (world/crafted_items.py)
+        from world import crafted_items
+        return crafted_items.build(recipe)
 
 
 _leatherworking_manager = None

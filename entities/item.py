@@ -328,6 +328,8 @@ class Item:
             "recipe_id": self.recipe_id,
             "recipe_profession": self.recipe_profession,
             "proc": self.proc,
+            # which spell power and healing scale its numbers are on (entities/power_scale.py)
+            "power_scale": 2,
         }
 
     @classmethod
@@ -367,6 +369,15 @@ class Item:
             proc=data.get("proc"),
         )
         item.socket_bonus = dict(data.get("socket_bonus") or {})
+        if data.get("power_scale", 1) < 2:
+            # SAVED BEFORE 15 Nov 2026, when spell power and healing got cheaper on items (Kyle: "1 int =
+            # 1.5 sp =2 Healing"). Lift its numbers once so it matches the same item dropped today;
+            # combat divides the lift back out, so it hits exactly as hard as it did.
+            from entities import power_scale as _ps
+            item.secondary_stats = _ps.lift_all(item.secondary_stats)
+            item.socket_bonus = _ps.lift_all(item.socket_bonus)
+            if isinstance(item.upgrade_deltas, dict) and isinstance(item.upgrade_deltas.get("secondary_stats"), dict):
+                item.upgrade_deltas["secondary_stats"] = _ps.lift_all(item.upgrade_deltas["secondary_stats"])
         item.set_variant = data.get("set_variant")
         if item.set_variant == "cryomancer":
             item.set_variant = "cryotherapist"      # renamed 13 Nov 2026; old saves still say the old name

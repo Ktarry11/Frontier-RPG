@@ -155,8 +155,11 @@ class Pet(StatusEffectMixin):
         # 18 attack power and 83 spell power at 60; scaling his voidwalker
         # off attack power would have made the demon useless the moment it
         # stopped being a free-standing monster.
+        # Spell power on the scale combat was tuned for: a character's sheet shows the item scale
+        # (entities/power_scale.py), and a pet built off that would have hit 1.9x harder.
+        _osp = getattr(owner, "combat_spell_power", None)
         o_pow = max(float(getattr(owner, "attack_power", 0) or 0),
-                    float(getattr(owner, "spell_power", 0) or 0))
+                    float(_osp if _osp is not None else (getattr(owner, "spell_power", 0) or 0)))
 
         if o_hp <= 0:
             self.max_health = int(t["base_hp"] * level_mult)

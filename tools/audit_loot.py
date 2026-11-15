@@ -1196,7 +1196,7 @@ def section_coverage(rolls):
 
     for _bucket, item_def in epic_entries():
         corpus[_band_of(item_def.get("required_level", 1))].append(
-            Item.from_dict(dict(item_def)))
+            Item.from_dict({**item_def, "power_scale": 2}))
 
     # Slots a class is expected to be able to fill. ring2/trinket2 are the
     # second half of a pair the item itself never names, and the four bag
