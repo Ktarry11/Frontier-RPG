@@ -177,6 +177,10 @@ class no_sockets:
         _SUPPRESSED[0] -= 1
 
 
+from entities.power_scale import RATING_KEYS as _RATINGS  # noqa: E402
+_RATING_FLOOR = 5
+
+
 def roll_sockets(item, total_budget, rng=random):
     """Give a freshly generated item its sockets, paid for out of its own stats. Called by
     LootGenerator for every armour piece and weapon; does nothing below level 30, on white or
@@ -205,6 +209,9 @@ def roll_sockets(item, total_budget, rng=random):
         for k, v in list(group.items()):
             if isinstance(v, (int, float)) and not isinstance(v, bool):
                 group[k] = max(1, whole(v * keep))
+                if k in _RATINGS and group[k] < _RATING_FLOOR:
+                    # paying for the socket mustn't leave a sliver of a rating behind (dribble)
+                    del group[k]
     stat = TEMPLATE_BONUS.get(item.stat_template, "stamina")
     item.socket_bonus = stats_for({stat: 1.0}, gb * BONUS_SHARE)
     return item
@@ -293,6 +300,9 @@ def charge_sockets(item):
         for k, v in list(group.items()):
             if isinstance(v, (int, float)) and not isinstance(v, bool) and v > 0:
                 group[k] = max(1, whole(v * keep))
+                if k in _RATINGS and group[k] < _RATING_FLOOR:
+                    # paying for the socket mustn't leave a sliver of a rating behind (dribble)
+                    del group[k]
     item.socket_bonus = stats_for({TEMPLATE_BONUS[_template_of(item)]: 1.0}, gb * BONUS_SHARE)
     return item
 

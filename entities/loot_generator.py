@@ -86,6 +86,11 @@ WEAPON_NAME_NOUNS = {
 }
 
 
+from entities.power_scale import RATING_KEYS as _RATING_KEYS  # noqa: E402
+#: the smallest rating a rolled item carries (half a percent); the same floor crafted gear uses
+RATING_FLOOR = 5
+
+
 class LootGenerator:
     """Generates procedural Item instances from ilvl/rarity/slot inputs."""
 
@@ -1233,6 +1238,12 @@ class LootGenerator:
             # low-level "of Accuracy" piece whose 0.3% Hit rounds to nothing is a slightly
             # better strength piece, not a worse item.
             value = whole(raw_value)
+            if stat_name in _RATING_KEYS and value < RATING_FLOOR:
+                # a rating is RATING_PER_PCT points to the percent since 15 Nov, so a sliver of one
+                # ("+1 Spell Crit Rating", 0.1%) is the dribble Kyle doesn't want: its budget goes to
+                # the main stat with the rest of what rounding took
+                rounding_loss += raw_value * cost
+                continue
             if stat_name not in PRIMARY_STAT_NAMES:
                 rounding_loss += (raw_value - value) * cost
             if value > 0:
@@ -1256,6 +1267,9 @@ class LootGenerator:
                 cost = self.stat_budget_costs.get(stat_name, 1.0)
                 raw = (bonus_budget / len(chosen)) / cost
                 value = whole(raw)
+                if stat_name in _RATING_KEYS and value < RATING_FLOOR:
+                    rounding_loss += raw * cost
+                    continue
                 rounding_loss += (raw - value) * cost
                 if value > 0:
                     secondary_stats[stat_name] = secondary_stats.get(stat_name, 0) + value

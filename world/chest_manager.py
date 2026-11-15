@@ -74,6 +74,13 @@ class ChestManager:
 
     def __init__(self):
         self._looted = set()   # {(zone_name, x, y), ...}
+        # THE SAME CHEST GIVES THE SAME THING ON A RELOAD. Kyle's friend, 15 Nov: "If you save it
+        # right before opening a special areas chest you can get something different every time
+        # you load the save." Every roll was the global random at the moment of opening. Now each
+        # roll is seeded on this save's seed, the chest, and how many times it's been opened, so a
+        # reload opens to the same item, and a chest that respawns still rolls something new.
+        self._seed = random.getrandbits(32)
+        self._opens = {}       # {(zone_name, x, y): times opened}
         self._next_roll = {}   # {(zone_name, x, y): earliest time.time() it may roll again}
         self._loot_generator = None   # lazy - see _get_loot_generator
         self._creatures_data = None   # lazy - see _dungeon_level_for_zone
@@ -188,6 +195,23 @@ class ChestManager:
             return False
         return tilemap.interaction_layer[y][x] == "chest"
 
+    def _seeded(self, key):
+        """A context in which the global random rolls this chest's own fixed numbers."""
+        import contextlib
+        import zlib
+        n = self._opens.get(key, 0)
+        self._opens[key] = n + 1
+
+        @contextlib.contextmanager
+        def ctx():
+            state = random.getstate()
+            random.seed(zlib.crc32(f"{self._seed}:{key[0]}:{key[1]}:{key[2]}:{n}".encode("utf-8")))
+            try:
+                yield
+            finally:
+                random.setstate(state)
+        return ctx()
+
     def open_chest(self, tilemap, x, y, player_level, is_boss_chest=False):
         """Open the chest at (x, y), returning an Item or None (empty).
 
@@ -209,10 +233,13 @@ class ChestManager:
         self._next_roll[(tilemap.name, x, y)] = self._now() + self.RESPAWN_RETRY_SECONDS
         tilemap.set_tile(x, y, None, "interaction")
 
-        effective_level = self.chest_level(tilemap.name, player_level)
-
         loot_gen = self._get_loot_generator()
+        with self._seeded((tilemap.name, x, y)):
+            # the level is a roll too (a zone's band), so it's inside the seed with the rest
+            effective_level = self.chest_level(tilemap.name, player_level)
+            return self._roll_chest(loot_gen, effective_level, player_level, is_boss_chest)
 
+    def _roll_chest(self, loot_gen, effective_level, player_level, is_boss_chest):
         if is_boss_chest:
             return loot_gen.generate_boss_loot(
                 creature_level=effective_level,
@@ -247,7 +274,8 @@ class ChestManager:
         self._looted.add(key)
         tilemap.set_tile(x, y, None, "interaction")
         from world.secrets import get_secrets
-        return get_secrets().open_cache(tilemap.name, x, y, player_level)
+        with self._seeded(key):
+            return get_secrets().open_cache(tilemap.name, x, y, player_level)
 
     @staticmethod
     def _now():
@@ -296,7 +324,9 @@ class ChestManager:
 
     def to_dict(self):
         now = self._now()
-        return {"looted": [list(t) for t in sorted(self._looted)],
+        return {"seed": self._seed,
+                "opens": [[z, x, y, n] for (z, x, y), n in sorted(self._opens.items())],
+                "looted": [list(t) for t in sorted(self._looted)],
                 # Stored as seconds REMAINING, not a clock time, so the wait is play time across
                 # a save and load rather than something that expires while the game is closed.
                 "wait": [[z, x, y, int(max(0, t - now))] for (z, x, y), t in sorted(self._next_roll.items())
@@ -307,6 +337,16 @@ class ChestManager:
         self._looted = set(tuple(t) for t in data.get("looted", []))
         now = self._now()
         self._next_roll = {(z, x, y): now + left for z, x, y, left in data.get("wait", [])}
+        self._opens = {(z, x, y): n for z, x, y, n in data.get("opens", [])}
+        if "seed" in data:
+            self._seed = int(data["seed"])
+        else:
+            # a save from before seeds: one fixed from the save's own chest state, so reloading THIS
+            # save still opens every chest to the same thing
+            import json as _json
+            import zlib
+            self._seed = zlib.crc32(_json.dumps([data.get("looted", []), data.get("wait", [])],
+                                                sort_keys=True).encode("utf-8"))
 
 
 _chest_manager = None
