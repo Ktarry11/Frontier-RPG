@@ -718,61 +718,71 @@
           "rank": 1,
           "level_req": 2,
           "cost": 50,
-          "effect_value": 68
+          "effect_value": 68,
+          "heal_value": 54
         },
         {
           "rank": 2,
           "level_req": 9,
           "cost": 68,
-          "effect_value": 84
+          "effect_value": 84,
+          "heal_value": 67
         },
         {
           "rank": 3,
           "level_req": 16,
           "cost": 87,
-          "effect_value": 100
+          "effect_value": 100,
+          "heal_value": 80
         },
         {
           "rank": 4,
           "level_req": 23,
           "cost": 105,
-          "effect_value": 116
+          "effect_value": 116,
+          "heal_value": 93
         },
         {
           "rank": 5,
           "level_req": 30,
           "cost": 124,
-          "effect_value": 134
+          "effect_value": 134,
+          "heal_value": 107
         },
         {
           "rank": 6,
           "level_req": 37,
           "cost": 142,
-          "effect_value": 150
+          "effect_value": 150,
+          "heal_value": 120
         },
         {
           "rank": 7,
           "level_req": 44,
           "cost": 160,
-          "effect_value": 166
+          "effect_value": 166,
+          "heal_value": 133
         },
         {
           "rank": 8,
           "level_req": 51,
           "cost": 179,
-          "effect_value": 182
+          "effect_value": 182,
+          "heal_value": 146
         },
         {
           "rank": 9,
           "level_req": 58,
           "cost": 197,
-          "effect_value": 199
+          "effect_value": 199,
+          "heal_value": 159
         }
       ],
       "icon_id": null,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.34x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py",
-        "15 Nov 2026, class pass: every rank x1.78 - its total was 0.45x what a hot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+        "15 Nov 2026, class pass: every rank x1.78 - its total was 0.45x what a hot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
+        "15 Nov 2026, deep dive: the up-front heal CoA's tooltip gives it ('32 healing, plus 5 every 3 sec' at rank 1 - the direct part about 0.8x the HoT's total) as heal_value, which a HoT now lands on cast. Without it the Vizier had no spammable heal before Alkahest at 20 and sat at the healing aura's cap at 10 and 20."
       ],
       "_over_time_lifted": [
         1.78

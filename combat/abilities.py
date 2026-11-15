@@ -1306,7 +1306,10 @@ class Ability:
         elif self.effect_type == "heal":
             lines.append(f"Base healing: {self._range_text(self.effect_value)}")
         elif self.effect_type == "hot":
-            lines.append(f"Base healing: {self.effect_value} over {self.duration} turns")
+            if self.heal_value:
+                lines.append(f"Base healing: {self.heal_value} now, plus {self.effect_value} over {self.duration} turns")
+            else:
+                lines.append(f"Base healing: {self.effect_value} over {self.duration} turns")
         elif self.effect_type == "damage_and_heal":
             # both halves roll (the strike in _apply_effect, the heal in _apply_smart_heal), so both show it
             lines.append(f"Base damage: {self._range_text(self.effect_value)}  |  "
@@ -4444,6 +4447,24 @@ class Ability:
             # Condensing / Lingering runes reshape it; Surge (a Capstone) lands it all now
             from world import runes as _runes
             duration, per_turn = _runes.shape_over_time(caster, duration, per_turn)
+            # AN UP-FRONT HEAL (15 Nov 2026): heal_value on a HoT lands on cast, before the ticks - Regrowth's and
+            # Shadra's Prayer's shape ("48 healing, plus 9 every 3 sec"). It takes its share of healing power by
+            # its share of the whole spell, so the two halves never count the same power twice.
+            upfront_text = ""
+            hv = self.heal_value or 0
+            if hv > 0:
+                share = hv / max(1.0, hv + (self.effect_value or 0))
+                direct = (hv + _heal_power(caster) * _scaling_coef(self, "heal", caster) * share) * \
+                    self._damage_multiplier(caster, "healing", recipient=target)
+                if len(recipients) > 1:
+                    direct *= self.AOE_DAMAGE_MULTIPLIER
+                landed_up = []
+                for recipient in recipients:
+                    amt = max(1, int(direct))
+                    recipient.heal(amt)
+                    self._last_threat_events.append((None, amt, False))
+                    landed_up.append(amt)
+                upfront_text = f" healing {landed_up[0]} now and"
             surged = []
             for recipient in recipients:
                 burst = _runes.hot_now(caster)
@@ -4486,7 +4507,7 @@ class Ability:
             if surged and len(surged) == len(recipients):
                 return f"{caster.name}'s {self.name} surges: {', '.join(surged)} healed at once!"
             return (f"{caster.name} casts {self.name} on {who} "
-                    f"(healing {per_turn} per turn for {duration} turns)!"
+                    f"({upfront_text.strip() + ' ' if upfront_text else ''}healing {per_turn} per turn for {duration} turns)!"
                     + (f" Surged: {', '.join(surged)}." if surged else ""))
 
         elif self.effect_type == "buff":
