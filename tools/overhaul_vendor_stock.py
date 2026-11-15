@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """Tier every vendor's bags and consumables to the vendor's own level.
 
-    PYTHONPATH=. python3 tools/overhaul_vendor_stock.py [--check]
+    PYTHONPATH=. python3 tools/overhaul_vendor_stock.py [--check] [--vendors id,id,...]
+
+--vendors limits every pass to those shops, so one town's stock can be brought up to its level
+without touching anyone else's (Kyle, 14 Nov: "We can fix up the 7 vendors").
 
 Kyle, 5 Nov 2026: "We have numerous bag icons, I gave an example of 6 slot
 bag sold for 10s and you just dropped bags into almost every single vendor
@@ -185,6 +188,12 @@ def main():
     doc = json.loads(VENDORS.read_text(encoding="utf-8"))
     vendors = doc.get("vendors", doc)
     rows = list(vendors.values()) if isinstance(vendors, dict) else vendors
+    if "--vendors" in sys.argv:
+        only = set(sys.argv[sys.argv.index("--vendors") + 1].split(","))
+        missing = only - {v.get("vendor_id") for v in rows}
+        if missing:
+            raise SystemExit(f"no such vendor: {sorted(missing)}")
+        rows = [v for v in rows if v.get("vendor_id") in only]
 
     bag_changed = cons_changed = 0
     spread = {}
@@ -259,7 +268,7 @@ def main():
         print("\n--check: nothing written")
         return 0
 
-    VENDORS.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
+    VENDORS.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"\nwrote {VENDORS.relative_to(ROOT)}")
     return 0
 
