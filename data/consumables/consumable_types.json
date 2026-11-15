@@ -1795,6 +1795,132 @@
       "stat_bonuses": {
         "attack_power": 15
       }
+    },
+    {
+      "consumable_id": "broadhead_arrows",
+      "name": "Duskwood Broadhead Arrows",
+      "consumable_type": "ammo",
+      "description": "Wide duskwood broadheads that open a wound and keep it open. For a bow. Grants +18 Attack Power for 30 minutes. Ammo buff (one quiver at a time).",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 38,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 150,
+      "sell_price": 50,
+      "buff_category": "ammo",
+      "stat_bonuses": {
+        "attack_power": 18
+      },
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'Deal with the arrows and bolts'): bow and crossbow ammo stopped at Heavy (level 30); gun shot reaches 57 since the engineering pass, so these tiers match it."
+      ]
+    },
+    {
+      "consumable_id": "quarrel_bolts",
+      "name": "Duskwood Quarrels",
+      "consumable_type": "ammo",
+      "description": "Square-headed quarrels with mithril tips. For a crossbow. Grants +18 Attack Power for 30 minutes. Ammo buff (one quiver at a time).",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 38,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 150,
+      "sell_price": 50,
+      "buff_category": "ammo",
+      "stat_bonuses": {
+        "attack_power": 18
+      },
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'Deal with the arrows and bolts'): bow and crossbow ammo stopped at Heavy (level 30); gun shot reaches 57 since the engineering pass, so these tiers match it."
+      ]
+    },
+    {
+      "consumable_id": "barbed_arrows",
+      "name": "Felbark Barbed Arrows",
+      "consumable_type": "ammo",
+      "description": "Felbark shafts with a backward barb. They do not come out clean. For a bow. Grants +22 Attack Power for 30 minutes. Ammo buff (one quiver at a time).",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 52,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 220,
+      "sell_price": 73,
+      "buff_category": "ammo",
+      "stat_bonuses": {
+        "attack_power": 22
+      },
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'Deal with the arrows and bolts'): bow and crossbow ammo stopped at Heavy (level 30); gun shot reaches 57 since the engineering pass, so these tiers match it."
+      ]
+    },
+    {
+      "consumable_id": "barbed_bolts",
+      "name": "Felbark Barbed Bolts",
+      "consumable_type": "ammo",
+      "description": "Thorium-barbed bolts on felbark shafts. For a crossbow. Grants +22 Attack Power for 30 minutes. Ammo buff (one quiver at a time).",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 52,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 220,
+      "sell_price": 73,
+      "buff_category": "ammo",
+      "stat_bonuses": {
+        "attack_power": 22
+      },
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'Deal with the arrows and bolts'): bow and crossbow ammo stopped at Heavy (level 30); gun shot reaches 57 since the engineering pass, so these tiers match it."
+      ]
+    },
+    {
+      "consumable_id": "starleaf_arrows",
+      "name": "Starleaf Arrows",
+      "consumable_type": "ammo",
+      "description": "Starleaf fletching that keeps a dead-straight line in any wind. For a bow. Grants +26 Attack Power for 30 minutes. Ammo buff (one quiver at a time).",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 57,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 300,
+      "sell_price": 100,
+      "buff_category": "ammo",
+      "stat_bonuses": {
+        "attack_power": 26
+      },
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'Deal with the arrows and bolts'): bow and crossbow ammo stopped at Heavy (level 30); gun shot reaches 57 since the engineering pass, so these tiers match it."
+      ]
+    },
+    {
+      "consumable_id": "starleaf_bolts",
+      "name": "Starleaf Bolts",
+      "consumable_type": "ammo",
+      "description": "Arcanite-headed bolts on starleaf shafts. They hum in the groove. For a crossbow. Grants +26 Attack Power for 30 minutes. Ammo buff (one quiver at a time).",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 57,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 300,
+      "sell_price": 100,
+      "buff_category": "ammo",
+      "stat_bonuses": {
+        "attack_power": 26
+      },
+      "_tuning": [
+        "15 Nov 2026 (Kyle: 'Deal with the arrows and bolts'): bow and crossbow ammo stopped at Heavy (level 30); gun shot reaches 57 since the engineering pass, so these tiers match it."
+      ]
     }
   ],
   "explosives": [

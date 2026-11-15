@@ -18955,6 +18955,135 @@
           "sold_by": [
             "secret_needles_skyfeather"
           ]
+        },
+        "ww_broadhead_arrows": {
+          "name": "Duskwood Broadhead Arrows (5)",
+          "inputs": {
+            "plank_duskwood": 1,
+            "fiber_tough": 1,
+            "glue": 1
+          },
+          "skill_required": 190,
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "broadhead_arrows"
+          },
+          "count": 5,
+          "skill_range": [
+            195,
+            205,
+            215,
+            225
+          ],
+          "source": "trainer"
+        },
+        "ww_quarrel_bolts": {
+          "name": "Duskwood Quarrels (5)",
+          "inputs": {
+            "plank_duskwood": 1,
+            "fiber_tough": 1,
+            "bar_mithril": 1,
+            "glue": 1
+          },
+          "skill_required": 195,
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "quarrel_bolts"
+          },
+          "count": 5,
+          "skill_range": [
+            200,
+            210,
+            220,
+            230
+          ],
+          "source": "trainer"
+        },
+        "ww_barbed_arrows": {
+          "name": "Felbark Barbed Arrows (5)",
+          "inputs": {
+            "plank_felbark": 1,
+            "fiber_tough": 1,
+            "glue": 1
+          },
+          "skill_required": 255,
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "barbed_arrows"
+          },
+          "count": 5,
+          "skill_range": [
+            260,
+            270,
+            280,
+            290
+          ],
+          "source": "trainer"
+        },
+        "ww_barbed_bolts": {
+          "name": "Felbark Barbed Bolts (5)",
+          "inputs": {
+            "plank_felbark": 1,
+            "fiber_tough": 1,
+            "bar_thorium": 1,
+            "glue": 1
+          },
+          "skill_required": 260,
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "barbed_bolts"
+          },
+          "count": 5,
+          "skill_range": [
+            265,
+            275,
+            285,
+            295
+          ],
+          "source": "trainer"
+        },
+        "ww_starleaf_arrows": {
+          "name": "Starleaf Arrows (5)",
+          "inputs": {
+            "plank_starleaf": 1,
+            "fiber_tough": 1,
+            "glue": 1
+          },
+          "skill_required": 285,
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "starleaf_arrows"
+          },
+          "count": 5,
+          "skill_range": [
+            290,
+            300,
+            310,
+            320
+          ],
+          "source": "trainer"
+        },
+        "ww_starleaf_bolts": {
+          "name": "Starleaf Bolts (5)",
+          "inputs": {
+            "plank_starleaf": 1,
+            "fiber_tough": 1,
+            "bar_arcanite": 1,
+            "glue": 1
+          },
+          "skill_required": 290,
+          "output": {
+            "kind": "consumable",
+            "consumable_id": "starleaf_bolts"
+          },
+          "count": 5,
+          "skill_range": [
+            295,
+            305,
+            315,
+            325
+          ],
+          "source": "trainer"
         }
       }
     },
