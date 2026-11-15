@@ -45,7 +45,7 @@ def target_name(cm, level):
     return sorted(M.pool(cm, level))[0]
 
 
-def damage_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0, mana_stats=None):
+def damage_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0, mana_stats=None, targets=1):
     """Damage per turn. With mana_stats (a dict), the bar is refilled at the start of every turn and what the
     rotation spends is recorded instead of limiting it: mana_stats gets spent_per_turn, pool and regen (the
     casting rate) - tools/calibrate_mana_costs.py sizes costs from the real rotation this way."""
@@ -60,13 +60,28 @@ def damage_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0, mana
     random.seed(gear_seed)
     char = M.build(spec, "dps", level, "geared", gen)
     with quiet():
-        foe = cm.spawn_creature(target_name(cm, level), level=level)
+        foes = [cm.spawn_creature(target_name(cm, level), level=level) for _ in range(max(1, targets))]
+    foe = foes[0]
     random.seed(fight_seed)
-    foe.max_health = foe.current_health = 10 ** 8
+    for f in foes:
+        f.max_health = f.current_health = 10 ** 8
     with quiet():
-        engine = CombatEngine(char, foe, party=Party(char))
+        engine = CombatEngine(char, foe, party=Party(char), enemies=foes)
         R.precast_stances(char, engine)
     _h, attacks, _s, _d = plan(char)
+    # MULTI-TARGET (--targets, 15 Nov 2026): against a pack an AoE is worth its per-target number times the targets it
+    # reaches, so the rotation re-ranks for the pack the way a player would
+    if targets > 1:
+        from tools.sim_class_balance import plan as _p  # noqa: F401
+        def pack_value(a):
+            v = getattr(a, "effect_value", 0) or 0
+            aoe = getattr(a, "target_type", None) in ("enemy_aoe", "all_enemies")
+            reach = min(targets, getattr(a, "max_targets", None) or targets) if aoe else 1
+            dur = getattr(a, "duration", 0) or 0
+            if a.effect_type in ("dot", "spell_dot") and dur > 1:
+                v *= 0.75
+            return v * reach / (getattr(a, "cast_speed", 1.0) or 1.0)
+        attacks = sorted(attacks, key=lambda a: -pack_value(a))
     from tools.sim_class_balance import mana_tools, mana_move
     tools = mana_tools(char)
     # A melee spec swings rather than shooting: the universal Shoot and Wand out-sort its rage builders on raw
@@ -86,7 +101,7 @@ def damage_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0, mana
             rf = rf if isinstance(rf, (list, tuple)) else ([rf] if rf else [])
             return form in rf or a.ability_id.endswith("_attack")
         attacks = [a for a in attacks if in_form(a)] or attacks
-    start = foe.current_health
+    start = sum(f.current_health for f in foes)
     spent = [0.0]
     if mana_stats is not None:
         _orig_spend = char.spend_resource
@@ -109,7 +124,7 @@ def damage_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0, mana
         actor = engine.current_actor
         if actor is None:
             continue
-        if actor is foe:
+        if actor in foes:
             # THE TARGET HITS BACK, and the hit is then undone: rage builds from being struck, traps trigger,
             # "when struck" procs fire - a dummy that never acts read every trap as 0 damage - and the character
             # is put back to full, so the number is still damage dealt and nothing else.
@@ -153,7 +168,7 @@ def damage_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0, mana
     if mana_stats is not None:
         mana_stats.update(spent_per_turn=spent[0] / max(1e-9, elapsed), pool=char.mana,
                           regen=char.mana_per_turn(casting=True))
-    return (start - foe.current_health) / max(1e-9, elapsed)
+    return (start - sum(f.current_health for f in foes)) / max(1e-9, elapsed)
 
 
 def main():
@@ -164,6 +179,7 @@ def main():
     ap.add_argument("--class", dest="only_class")
     ap.add_argument("--seed", type=int, default=1, help="run again with another seed to check the result holds")
     ap.add_argument("--json", help="write {spec: {level: [mean, se]}} here")
+    ap.add_argument("--targets", type=int, default=1, help="enemies at once (AoE value against a pack)")
     args = ap.parse_args()
     import sim_matrix as M
     from entities.loot_generator import LootGenerator
@@ -180,7 +196,8 @@ def main():
                 try:
                     vals.append(damage_per_turn(spec, lv, args.turns, LootGenerator(), cm,
                                                 fight_seed=hash((args.seed, "fight", spec, lv, p)) & 0xFFFFFFFF,
-                                                gear_seed=hash((args.seed, "gear", spec, lv, p)) & 0xFFFFFFFF))
+                                                gear_seed=hash((args.seed, "gear", spec, lv, p)) & 0xFFFFFFFF,
+                                                targets=args.targets))
                 except Exception as e:                          # noqa: BLE001
                     print(f"  {spec} L{lv}: {type(e).__name__}: {e}")
                     break
