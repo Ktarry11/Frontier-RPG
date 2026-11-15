@@ -347,7 +347,9 @@ class LootGenerator:
         elif not slot_data["armor_slot"]:
             effective_armor_type = "accessory"
 
-        total_budget = item_level * self.STAT_BUDGET_BASE_MULT * rarity_data["stat_budget_multiplier"] * slot_weight
+        from entities.item_budget import budget_level   # past 60 the line bends (rares and better)
+        total_budget = budget_level(item_level, rarity) * self.STAT_BUDGET_BASE_MULT \
+            * rarity_data["stat_budget_multiplier"] * slot_weight
 
         primary_stats, secondary_stats, suffix_name = self._roll_stats(
             stat_template, total_budget, rarity_data["bonus_stat_rolls"], rarity,
@@ -423,7 +425,9 @@ class LootGenerator:
         slot_weight = self.slots["weight_tiers"][weight_tier]
         budget_mult = weapon_data["budget_multiplier"]
 
-        total_budget = item_level * self.STAT_BUDGET_BASE_MULT * rarity_data["stat_budget_multiplier"] * slot_weight * budget_mult
+        from entities.item_budget import budget_level   # past 60 the line bends (rares and better)
+        total_budget = budget_level(item_level, rarity) * self.STAT_BUDGET_BASE_MULT \
+            * rarity_data["stat_budget_multiplier"] * slot_weight * budget_mult
 
         if valid_templates:
             primary_stats, secondary_stats, suffix_name = self._roll_stats(

@@ -37,6 +37,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from entities.item import whole                    # noqa: E402
+from entities.item_budget import budget_level       # noqa: E402
 from entities.loot_generator import LootGenerator  # noqa: E402
 from world import jewelcrafting                    # noqa: E402
 
@@ -700,11 +701,11 @@ def budget(out):
     if out["kind"] == "weapon":
         wd = _GEN.weapon_types["weapon_types"][out["weapon_type"]]
         tier = "weapon_two_hand" if wd["hand"] == "two_hand" else "weapon_medium"
-        b = out["item_level"] * _GEN.STAT_BUDGET_BASE_MULT * rar["stat_budget_multiplier"] \
+        b = budget_level(out["item_level"], out["rarity"]) * _GEN.STAT_BUDGET_BASE_MULT * rar["stat_budget_multiplier"] \
             * _GEN.slots["weight_tiers"][tier] * wd["budget_multiplier"]
     else:
         tier = _GEN.slots["slots"][out["slot"]]["weight_tier"]
-        b = out["item_level"] * _GEN.STAT_BUDGET_BASE_MULT * rar["stat_budget_multiplier"] \
+        b = budget_level(out["item_level"], out["rarity"]) * _GEN.STAT_BUDGET_BASE_MULT * rar["stat_budget_multiplier"] \
             * _GEN.slots["weight_tiers"][tier]
     return b * (1.15 if rar.get("bonus_stat_rolls") else 1.0)
 

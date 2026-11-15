@@ -129,3 +129,41 @@ My first suggestion (30/20/40 AP/14) was over the item's budget. This keeps the 
 **Crafted tank weapons follow the same shapes:**
 - The Barkguard staves run from 18 armour at level 19 to 89 at level 58.
 - The Mithril Warhammer has 110.
+
+## Past level 60, the stat budget bends upward
+
+**Kyle:**
+- "Things over lvl 60 and higher ilvl will need a better way to measure stats."
+- "I want past 60, especially with rares, epics and stuff to work towards that the linear line changes."
+
+**The problem:**
+- A piece's stat budget was a straight line in its item level.
+- Past 60 the world keeps compounding: `combat/world_curve` adds 3.5% a level, so the world is 56% bigger at 73 than at 60.
+- On the straight line, an item level 73 epic was only 22% better than a 60 one.
+
+**The fix:** `entities/item_budget.budget_level(item_level, rarity)`.
+
+- Up to item level 60, nothing changes.
+- Past 60, a rare or better spends its budget as if its level were 60 × 1.035^(levels past 60 × steepness).
+- **Steepness by rarity:**
+  - Epic: 1.0 (follows the world exactly).
+  - Rare: 0.75.
+  - Legendary: 1.15.
+- Commons and greens stay on the straight line.
+
+| Item level | 61 | 66 | 73 | 80 | 92 |
+|---|---|---|---|---|---|
+| Epic budget level | 62.1 | 73.8 | 93.8 | 119.4 | 180.4 |
+| Rare budget level | 61.6 | 70.0 | 83.9 | 100.5 | 137.0 |
+
+**Where it applies.** Every budget asks this one function:
+- `LootGenerator`, for drops and shops;
+- `tools/build_crafted_gear.py`, for crafted and reputation gear;
+- `expected_budget`, for the audits.
+
+**Existing item level 61 drops** (14 Tempest Isle and secret pieces) would gain under 2%, so they're left as authored.
+
+**Where the reputation gear lands now:**
+- **Item level 73 epics:** about 28% more stats than before.
+  - The Spire-Warden's Staff keeps the shape Kyle set: Agility leads at 35:20 against Stamina, plus dodge and armour. It now comes out at +45 Agility, +26 Stamina, +15 dodge, 140 armour.
+- **Item level 67 blues:** about 7% more.

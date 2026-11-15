@@ -138,13 +138,46 @@ def stat_value(item, mods=None):
     return total ** (2.0 / 3.0) if total > 0 else 0.0
 
 
+# ---------------------------------------------------------------------------------------------------------
+# PAST LEVEL 60 THE LINE BENDS. Kyle, 15 Nov 2026: "Things over lvl 60 and higher ilvl will need a better way
+# to measure stats", and "I want past 60, especially with rares, epics and stuff to work towards that the
+# linear line changes."
+#
+# Up to item level 60 a piece's budget is a straight line in its level, as it always was. Past 60 the world
+# keeps compounding (combat/world_curve: +3.5% a level from the knee on) while the line only added 1/60th a
+# level, so an item level 73 epic was 22% better than a 60 one in a world 56% bigger. Now a rare or better
+# spends as if its level were 60 x 1.035^(levels past 60 x STEEPNESS[rarity]): an epic follows the world
+# exactly, a rare three quarters of it, a legendary a little faster. Commons and greens stay on the line.
+#
+#   item level            61     66     73     80     92
+#   epic budget level     62.1   73.8   93.8  119.4  180.4   (the line: 61 66 73 80 92)
+#   rare budget level     61.6   70.0   83.9  100.5  137.0
+#
+# Every budget in the game asks this one function: LootGenerator (drops, shops), tools/build_crafted_gear.py
+# (crafted, reputation), and expected_budget below (the audits).
+# ---------------------------------------------------------------------------------------------------------
+BEND_FROM = 60
+BEND_RATE = 1.035
+STEEPNESS = {"rare": 0.75, "epic": 1.0, "legendary": 1.15}
+
+
+def budget_level(item_level, rarity):
+    """The level an item's stat budget is computed at: its own up to 60, then bending upward for a rare or
+    better (see above)."""
+    lv = float(item_level or 0)
+    k = STEEPNESS.get(rarity)
+    if not k or lv <= BEND_FROM:
+        return lv
+    return max(lv, BEND_FROM * BEND_RATE ** ((lv - BEND_FROM) * k))
+
+
 def expected_budget(item):
     """What this item's level and rarity entitle it to spend, or None if it is off the table."""
     k = SLOT_K.get(slot_key(item))
     r = RARITY_MULT.get(item.get("rarity"))
     if k is None or r is None or not item.get("item_level"):
         return None
-    return k * r * item["item_level"]
+    return k * r * budget_level(item["item_level"], item.get("rarity"))
 
 
 def budget_ratio(item, mods=None):
