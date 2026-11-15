@@ -146,6 +146,10 @@ class OverworldScreen(BaseScreen):
             if event.key == pygame.K_p:
                 self.state_manager.transition_to(GameState.PARTY)
                 return
+            # The Soul (Runecrafting's runes go in it)
+            if event.key == pygame.K_o:
+                self._open_soul()
+                return
 
             # Quest Journal - was a dead placeholder tab ("L" advertised
             # since early on with no screen behind it, see
@@ -513,6 +517,8 @@ class OverworldScreen(BaseScreen):
                 self.state_manager.transition_to(GameState.SKILLS)
             elif action == "professions":
                 self.state_manager.transition_to(GameState.PROFESSIONS)
+            elif action == "soul":
+                self._open_soul()
             elif action == "menu":
                 self.state_manager.transition_to(GameState.MENU)
             elif action == "teleport":
@@ -541,6 +547,9 @@ class OverworldScreen(BaseScreen):
             ("quest", "Quest Journal (L)"),
             ("skills", "Skills (J)"),
             ("professions", "Professions (K)"),
+            # Kyle, 14 Nov 2026: "need some way to easily find our soul to apply runes" - it was only
+            # reachable from a party member's buttons on the Party screen.
+            ("soul", "Soul (O)"),
         ]
 
         y = menu_rect.bottom + 14
@@ -572,6 +581,14 @@ class OverworldScreen(BaseScreen):
             self.renderer.draw_button(screen, test_rect, "TEST (F10)", color=(90, 60, 130))
             self.tab_rects["test_levels"] = test_rect
     
+    def _open_soul(self):
+        """The player's Soul, where runes are set (ui/screens/soul_screen.py)."""
+        self._release_movement_keys()
+        soul = self.state_manager.states.get(GameState.SOUL)
+        if soul is not None:
+            soul.start(self.state_manager.player, return_state=GameState.OVERWORLD)
+            self.state_manager.transition_to(GameState.SOUL)
+
     def _open_testing(self):
         self._release_movement_keys()
         screen_ = self.state_manager.states.get(GameState.TESTING)
