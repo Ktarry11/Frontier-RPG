@@ -127,11 +127,14 @@ IDENTITIES = {
     # A TANK'S WEAPON CARRIES ARMOUR (Kyle, 15 Nov 2026: "Armor can be on tank weapons. We see this in wow."):
     # a bear or beetle staff is Stamina and Agility in equal parts, dodge, and bonus armour, like WoW's
     # Earthwarden. Armour costs 0.2 a point, so its share buys a real chunk of it.
-    "bear_weapon": ({"stamina": 0.35, "agility": 0.35, "dodge_rating": 0.18, "armor": 0.12}, "agi_physical"),
+    # Kyle, 15 Nov 2026, on the Spire-Warden's Staff: "change the agility from 25 to 35 and change Stam to 20",
+    # and "Reduce armor cost on weapons!" So Agility leads, Stamina follows, and the armour is bought at
+    # WEAPON_ARMOR_COST, a fifth of what a point of armour costs elsewhere.
+    "bear_weapon": ({"agility": 0.48, "stamina": 0.28, "dodge_rating": 0.18, "armor": 0.06}, "agi_physical"),
     # ...and a one-handed tank's sword, mace or axe, shaped like WoW's King's Defender (Stamina, a lot of
     # armour, defense and hit). ONLY these two carry armour: Kyle, "DONT GO THROWING ARMOR ON EVERY SINGLE
     # WEAPON PLEASE".
-    "tank_weapon": ({"stamina": 0.35, "armor": 0.35, "defense_rating": 0.12, "hit_rating": 0.18}, "str_physical"),
+    "tank_weapon": ({"stamina": 0.5, "hit_rating": 0.2, "defense_rating": 0.18, "armor": 0.12}, "str_physical"),
     "tide_healer": ({"healing_power": 0.55, "intellect": 0.3, "mp5": 0.15}, "spi_healer"),
     "mail_caster": ({"spell_power": 0.55, "intellect": 0.3, "crit_chance_spell": 0.15}, "int_caster"),
 
@@ -831,13 +834,29 @@ def as_built(out, ident):
     return out
 
 
+#: What a point of bonus armour costs on a WEAPON. Kyle, 15 Nov 2026: "Why is armor so expensive on weapons?
+#: Reduce armor cost on weapons!" Elsewhere it's 0.2 (gear_suffixes stat_budget_costs); a tank's weapon buys
+#: it at a fifth of that, so a bear staff or a King's Defender carries a real chunk of it.
+WEAPON_ARMOR_COST = 0.04
+
+
 def author(rid, recipe, ident, flavour):
     out = recipe["output"]
     weights, template = IDENTITIES[ident]
     built = as_built(out, ident)
-    prim, sec = split(weights, budget(built), out["item_level"])
-    # armour bought as a stat (a tank's weapon) is armour, never a stat line (entities/item.whole_stats)
-    bonus_armour = sec.pop("armor", 0)
+    total = budget(built)
+    bonus_armour = 0
+    if out["kind"] == "weapon" and "armor" in weights:
+        # a tank weapon's armour is bought at the weapon price, outside the stat split
+        share = weights["armor"]
+        bonus_armour = int(round(total * share / WEAPON_ARMOR_COST))
+        weights = {k: v for k, v in weights.items() if k != "armor"}
+        total *= (1 - share)
+        norm = sum(weights.values())
+        weights = {k: v / norm for k, v in weights.items()}
+    prim, sec = split(weights, total, out["item_level"])
+    # armour bought as a stat is armour, never a stat line (entities/item.whole_stats)
+    bonus_armour += sec.pop("armor", 0)
     ref = reference(rid, built)
     # NO STRAY ARMOUR. The reference item's random rolls can include "+armor", which Item folds into its
     # armour value: a wand with 138 armour, a caster's trinket with 185. That's a drip stat (Kyle, 15 Nov 2026:

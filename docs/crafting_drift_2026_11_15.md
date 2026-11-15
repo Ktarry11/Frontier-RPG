@@ -105,3 +105,27 @@ My first suggestion (30/20/40 AP/14) was over the item's budget. This keeps the 
 
 - **Flavour text never showed on gear cards.** `ui/screens/inventory_screen.py` drew every line but the flavour. Rares and epics now show it in gold quotes, the way WoW does.
 - **Fighter staves showed a maul's icon.** They're priced as two-handers, and the icon was picked from that stand-in type. It now uses the item's own type, staff.
+
+
+## Weapon armour is cheap; the Spire-Warden as Kyle wants it
+
+**Kyle:** "Why is armor so expensive on weapons? Reduce armor cost on weapons! Also change the agility from 25 to 35 and change Stam to 20."
+
+**Cheaper armour on weapons:**
+- A tank weapon's armour is bought at `WEAPON_ARMOR_COST` = 0.04 a point, a fifth of the 0.2 it costs elsewhere.
+- It's priced outside the stat split, so the stats keep their share of the budget.
+
+**The new shapes:**
+- `bear_weapon`: Agility 0.48, Stamina 0.28, dodge 0.18, armour 0.06.
+- `tank_weapon`: Stamina 0.5, hit 0.2, defense 0.18, armour 0.12.
+
+**The two exalted tank weapons now:**
+
+| Item | Stats |
+|---|---|
+| Spire-Warden's Staff | +35 Agility, +20 Stamina, +12 dodge rating, 109 armour |
+| Bastion Warden's Blade | +37 Stamina, +14 hit, +17 defense, 217 armour |
+
+**Crafted tank weapons follow the same shapes:**
+- The Barkguard staves run from 18 armour at level 19 to 89 at level 58.
+- The Mithril Warhammer has 110.
