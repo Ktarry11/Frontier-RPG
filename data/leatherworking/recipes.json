@@ -10376,7 +10376,7 @@
       ]
     },
     "rep_og_farseers_chain_hauberk": {
-      "name": "Farseer's Chain Hauberk",
+      "name": "Wolf-Rider's Chain Hauberk",
       "inputs": {
         "leather_frostscale": 10,
         "thread_silken": 2
@@ -10385,35 +10385,35 @@
       "output": {
         "kind": "armor",
         "slot": "chest",
-        "stat_template": "int_caster",
+        "stat_template": "agi_int_hybrid",
         "item_level": 73,
         "rarity": "epic",
         "material_tier": "frostscale",
-        "identity": "storm",
-        "flavor": "A farseer's hauberk, wired with copper so the storm has somewhere to go.",
+        "identity": "hunter",
+        "flavor": "Chain cut for a wolf-rider's back, with a strap where the bow rides.",
         "fixed_item_level": true,
         "required_level": 60,
         "armor_type": "mail",
         "item": {
-          "name": "Farseer's Chain Hauberk",
+          "name": "Wolf-Rider's Chain Hauberk",
           "slot": "chest",
           "item_level": 73,
           "rarity": "epic",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "int_caster",
+          "stat_template": "agi_int_hybrid",
           "primary_stats": {
+            "agility": 26,
             "intellect": 21
           },
           "secondary_stats": {
-            "nature_spell_power": 72,
-            "haste": 21
+            "attack_power": 77
           },
-          "armor_value": 496,
+          "armor_value": 515,
           "required_level": 60,
           "sell_price": 48942,
-          "flavor_text": "A farseer's hauberk, wired with copper so the storm has somewhere to go.",
-          "identity": "storm",
+          "flavor_text": "Chain cut for a wolf-rider's back, with a strap where the bow rides.",
+          "identity": "hunter",
           "icon_id": "gear_epic_chest_mail_1"
         }
       },

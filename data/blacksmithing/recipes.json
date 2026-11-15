@@ -11587,7 +11587,7 @@
         "item_level": 73,
         "rarity": "epic",
         "material_tier": "elementium",
-        "identity": "tank",
+        "identity": "strength_crit",
         "flavor": "Forged for the thane's champion: whoever wears it walks into Khaz Varun first.",
         "fixed_item_level": true,
         "required_level": 60,
@@ -11601,17 +11601,17 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "stamina": 43,
-            "strength": 17
+            "strength": 26
           },
           "secondary_stats": {
-            "defense_rating": 34
+            "attack_power": 68,
+            "crit_chance_physical": 26
           },
           "armor_value": 763,
           "required_level": 60,
           "sell_price": 48942,
           "flavor_text": "Forged for the thane's champion: whoever wears it walks into Khaz Varun first.",
-          "identity": "tank",
+          "identity": "strength_crit",
           "icon_id": "gear_epic_chest_plate_1"
         }
       },

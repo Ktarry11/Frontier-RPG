@@ -10552,7 +10552,7 @@
             "item_level": 73,
             "rarity": "epic",
             "material_tier": "voidweave",
-            "identity": "arcane_crit",
+            "identity": "caster_crit",
             "flavor": "The robe Codex-Master Duskwaking wears to the lowest shelves. Copies are permitted.",
             "fixed_item_level": true,
             "required_level": 60,
@@ -10569,14 +10569,14 @@
                 "intellect": 17
               },
               "secondary_stats": {
-                "arcane_spell_power": 78,
+                "spell_power": 64,
                 "crit_chance_spell": 26
               },
               "armor_value": 174,
               "required_level": 60,
               "sell_price": 48942,
               "flavor_text": "The robe Codex-Master Duskwaking wears to the lowest shelves. Copies are permitted.",
-              "identity": "arcane_crit",
+              "identity": "caster_crit",
               "icon_id": "gear_epic_chest_cloth_1"
             }
           },
@@ -10604,7 +10604,7 @@
             "item_level": 73,
             "rarity": "epic",
             "material_tier": "voidweave",
-            "identity": "hex",
+            "identity": "precise_caster",
             "flavor": "Woven on Echo Isles cloth before the tribe left, finished on the mainland after.",
             "fixed_item_level": true,
             "required_level": 60,
@@ -10618,16 +10618,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 39
+                "intellect": 17
               },
               "secondary_stats": {
-                "shadow_spell_power": 85
+                "spell_power": 64,
+                "spell_hit_rating": 26
               },
               "armor_value": 174,
               "required_level": 60,
               "sell_price": 48942,
               "flavor_text": "Woven on Echo Isles cloth before the tribe left, finished on the mainland after.",
-              "identity": "hex",
+              "identity": "precise_caster",
               "icon_id": "gear_epic_chest_cloth_1"
             }
           },
@@ -10655,7 +10656,7 @@
             "item_level": 73,
             "rarity": "epic",
             "material_tier": "voidweave",
-            "identity": "shadow",
+            "identity": "caster",
             "flavor": "The hood muffles every voice but the one you're listening for.",
             "fixed_item_level": true,
             "required_level": 60,
@@ -10672,13 +10673,13 @@
                 "intellect": 29
               },
               "secondary_stats": {
-                "shadow_spell_power": 79
+                "spell_power": 65
               },
               "armor_value": 147,
               "required_level": 60,
               "sell_price": 39153,
               "flavor_text": "The hood muffles every voice but the one you're listening for.",
-              "identity": "shadow",
+              "identity": "caster",
               "icon_id": "gear_epic_head_cloth_1"
             }
           },
@@ -10706,7 +10707,7 @@
             "item_level": 73,
             "rarity": "epic",
             "material_tier": "voidweave",
-            "identity": "frost",
+            "identity": "caster_crit",
             "flavor": "Sea-silk on the shoulders, stitched with the deep-water chart of the bay.",
             "fixed_item_level": true,
             "required_level": 60,
@@ -10720,16 +10721,17 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 29
+                "intellect": 14
               },
               "secondary_stats": {
-                "frost_spell_power": 79
+                "spell_power": 54,
+                "crit_chance_spell": 22
               },
               "armor_value": 147,
               "required_level": 60,
               "sell_price": 39153,
               "flavor_text": "Sea-silk on the shoulders, stitched with the deep-water chart of the bay.",
-              "identity": "frost",
+              "identity": "caster_crit",
               "icon_id": "gear_epic_shoulder_cloth_1"
             }
           },

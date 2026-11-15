@@ -85,6 +85,8 @@ IDENTITIES = {
     "caster": ({"spell_power": 0.6, "intellect": 0.4}, "int_caster"),
     "arcane": ({"arcane_spell_power": 0.6, "intellect": 0.4}, "int_caster"),
     "arcane_crit": ({"arcane_spell_power": 0.5, "intellect": 0.2, "crit_chance_spell": 0.3}, "int_caster"),
+    # spell power and spell crit, any school (Kyle, 15 Nov 2026: "rarely is a single spell type a good idea")
+    "caster_crit": ({"spell_power": 0.5, "intellect": 0.2, "crit_chance_spell": 0.3}, "int_caster"),
     # SPELL hit (15 Nov 2026: hit and spell hit are separate stats - Kyle, "We need to have spell hit, physical hit")
     "precise_caster": ({"spell_power": 0.5, "intellect": 0.2, "spell_hit_rating": 0.3}, "int_caster"),
     "shadow_sturdy": ({"shadow_spell_power": 0.55, "stamina": 0.45}, "int_caster"),

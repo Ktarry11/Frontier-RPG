@@ -6375,11 +6375,11 @@
       "output": {
         "kind": "armor",
         "slot": "neck",
-        "stat_template": "int_caster",
+        "stat_template": "spi_healer",
         "item_level": 73,
         "rarity": "epic",
         "material_tier": "thorium",
-        "identity": "precise_caster",
+        "identity": "healer",
         "flavor": "A shard of crystal that points, always, at the light in the Underdark.",
         "fixed_item_level": true,
         "required_level": 60,
@@ -6391,19 +6391,19 @@
           "rarity": "epic",
           "armor_type": "accessory",
           "weapon_type": null,
-          "stat_template": "int_caster",
+          "stat_template": "spi_healer",
           "primary_stats": {
+            "spirit": 13,
             "intellect": 11
           },
           "secondary_stats": {
-            "spell_power": 39,
-            "spell_hit_rating": 16
+            "healing_power": 58
           },
           "armor_value": 0,
           "required_level": 60,
           "sell_price": 29365,
           "flavor_text": "A shard of crystal that points, always, at the light in the Underdark.",
-          "identity": "precise_caster",
+          "identity": "healer",
           "icon_id": "gear_epic_neck_4"
         }
       },

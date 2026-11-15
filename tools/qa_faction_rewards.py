@@ -135,6 +135,32 @@ def main():
             check(not ((gated - base) & low), f"{vid}: at neutral it already shows {sorted((gated - base) & low)[:4]}")
         f.standing = before
 
+    # A DIRECTION, NOT A CAGE (Kyle, 15 Nov 2026: "DONT tunnel people... Don't pigeon hole!!!"): every faction
+    # serves tanks, healers, casters and fighters, and single-school spell power is a rare exception
+    import build_crafted_gear as C
+    ROLE = {"tank": "tank", "shield_tank": "tank", "bear": "tank", "healer": "healer", "high_healer": "healer",
+            "tide_healer": "healer", "spirit_healer": "healer", "plate_healer": "healer"}
+    SCHOOL = {"fire", "frost", "nature", "shadow", "arcane", "holy"}
+    one_school = []
+    for fid in B.QM:
+        rows = [(r[1], r[5]) for r in B.REVERED[fid] + B.EXALTED[fid]] + \
+               [(r[2], r[6]) for r in B.EXALTED_RECIPES[fid]]
+        roles = set()
+        for name, ident in rows:
+            w = C.IDENTITIES[ident][0]
+            if ident in ROLE:
+                roles.add(ROLE[ident])
+            elif any(k.endswith("spell_power") for k in w):
+                roles.add("caster")
+            else:
+                roles.add("fighter")
+            if [k for k in w if k.replace("_spell_power", "") in SCHOOL]:
+                one_school.append(name)
+        for need in ("tank", "healer", "caster", "fighter"):
+            check(need in roles, f"{fid}: nothing for a {need} - a direction, not a cage")
+    check(len(one_school) <= 3, f"{len(one_school)} single-school pieces ({', '.join(one_school)}): an exception, "
+                                f"not a rule")
+
     print(f"9 factions: {totals['blue']} revered blues, {totals['epic']} exalted epics, {totals['recipes']} patterns "
           f"and recipes")
     if bad:

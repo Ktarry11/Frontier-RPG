@@ -25,6 +25,14 @@ best recipes. Here, per faction:
     revered    6 blues, ilvl 67, worn at 60, 45-75g; two more patterns
     exalted    3 epics, ilvl 73, worn at 60, 250-350g; two recipes that craft ilvl 73 epics
 
+A DIRECTION, NOT A CAGE (Kyle, 15 Nov 2026: "DONT tunnel people. Like if the codex rep only has arcane caster
+gear....it's kind of trash for 99% of players... rarely is a single spell type a good idea bro unless it's an
+exception, not a rule... Don't pigeon hole!!!"). Every faction's eleven pieces (6 blues, 3 epics, 2 crafted)
+cover tanks, healers, casters and fighters across the armour types; the faction's flavour is in what the piece
+is and is called, not in who can use it. Spell power is general: only two pieces in the whole set are one
+school, as deliberate exceptions (the Ashclaim's fire scepter, Thunder Bluff's storm totem for a shaman).
+tools/qa_faction_rewards.py holds both rules.
+
 THE ITEMS SAY WHO SOLD THEM. Orgrimmar's are a grunt's and a farseer's, the Darkspear's a headhunter's and a
 hexer's, the Forsaken's an apothecary's and a deathstalker's. Their stats come from the crafted-gear
 identities (tools/build_crafted_gear.py IDENTITIES), so a caster's piece leads with spell power, a fighter's
@@ -83,17 +91,17 @@ NEW_QMS = [
 # ---------------------------------------------------------------------------------------------------------
 REVERED = {
     "crimson_codex": [
-        ("cc_archivists_cowl", "Archivist's Cowl", "head", "armor", "cloth", "arcane", 62,
+        ("cc_archivists_cowl", "Archivist's Cowl", "head", "armor", "cloth", "caster", 62,
          "A deep red cowl with a reading lens sewn into the brim."),
         ("cc_codex_bound_gloves", "Codex-Bound Gloves", "hands", "armor", "cloth", "precise_caster", 48,
          "Ink-stained to the knuckle. The Codex counts that as a qualification."),
-        ("cc_marginalia_of_the_deep", "Marginalia of the Deep", "off_hand", "weapon", "tome", "arcane_crit", 58,
+        ("cc_marginalia_of_the_deep", "Marginalia of the Deep", "off_hand", "weapon", "tome", "healer", 58,
          "Notes in the margins of a book nobody has finished. Some of them are answers."),
         ("cc_bastion_warden_girdle", "Bastion Warden's Girdle", "waist", "armor", "plate", "tank", 52,
          "Worn by the blood elves who hold the Bastion's stair against whatever climbs it."),
         ("cc_lamplighter_boots", "Lamplighter's Boots", "feet", "armor", "leather", "rogue_crit", 50,
          "Soft-soled, for the ones who carry the lamps out past where the light reaches."),
-        ("cc_signet_of_the_find", "Signet of the Find", "ring", "armor", None, "battlemage", 55,
+        ("cc_signet_of_the_find", "Signet of the Find", "ring", "armor", None, "strength_hit", 55,
          "A find, not a discovery. A find was already there."),
     ],
     "orgrimmar": [
@@ -101,19 +109,19 @@ REVERED = {
          "Red iron with a nose guard. Every grunt's first helm looks like it, and the good ones keep it."),
         ("og_korkron_shoulderguards", "Kor'kron Shoulderguards", "shoulder", "armor", "plate", "tank", 60,
          "Spiked pauldrons in the Warchief's colours, made for standing in a doorway."),
-        ("og_farseers_mail_vest", "Farseer's Mail Vest", "chest", "armor", "mail", "storm", 70,
+        ("og_farseers_mail_vest", "Farseer's Mail Vest", "chest", "armor", "mail", "mail_caster", 70,
          "Hung with wolf-tooth charms that rattle before the lightning comes."),
         ("og_wolfrider_leggings", "Wolfrider's Leggings", "legs", "armor", "leather", "agility", 62,
          "Worn smooth on the inside of the knee by years in a wolf's saddle."),
         ("og_spiritwalker_bracers", "Spiritwalker's Bracers", "wrist", "armor", "mail", "tide_healer", 46,
          "Bound with blue cord, the way the old shaman bound them."),
-        ("og_band_of_the_red_stone", "Band of the Red Stone", "ring", "armor", None, "strength_hit", 55,
+        ("og_band_of_the_red_stone", "Band of the Red Stone", "ring", "armor", None, "battlemage", 55,
          "Cut from the same red rock as the city's walls."),
     ],
     "darkspear_tribe": [
         ("ds_headhunters_mask", "Headhunter's Mask", "head", "armor", "leather", "agility", 60,
          "A carved wooden mask with tusks. The eye holes are smaller than you'd expect."),
-        ("ds_hexers_robe", "Hexer's Robe", "chest", "armor", "cloth", "hex", 68,
+        ("ds_hexers_robe", "Hexer's Robe", "chest", "armor", "cloth", "caster", 68,
          "Stitched with little bone charms. The Darkspear's hexers wear it to remind Zalazane who's still here."),
         ("ds_bonecharm_necklace", "Bonecharm Necklace", "neck", "armor", None, "healer", 52,
          "Fish bones and a carved shell on a cord. A witch doctor blessed every one."),
@@ -121,11 +129,11 @@ REVERED = {
          "For wading out to the isles at low tide, where the drowned ones wait."),
         ("ds_shadow_hunters_bracers", "Shadow Hunter's Bracers", "wrist", "armor", "leather", "wildheart", 46,
          "Painted with the marks of a shadow hunter who never gave his name."),
-        ("ds_spearguard_girdle", "Spearguard Girdle", "waist", "armor", "plate", "strength", 54,
+        ("ds_spearguard_girdle", "Spearguard Girdle", "waist", "armor", "plate", "tank", 54,
          "A troll warrior's belt, notched where the spear rests."),
     ],
     "the_forsaken": [
-        ("fs_apothecarys_gloves", "Apothecary's Gloves", "hands", "armor", "cloth", "shadow", 48,
+        ("fs_apothecarys_gloves", "Apothecary's Gloves", "hands", "armor", "cloth", "caster", 48,
          "Waxed gloves from the Apothecarium. The stains won't come out, and nobody asks what they are."),
         ("fs_deathstalkers_hood", "Deathstalker's Hood", "head", "armor", "leather", "rogue_crit", 60,
          "Grey and close-fitting. Deathstalkers don't want to be remembered by their faces."),
@@ -133,7 +141,7 @@ REVERED = {
          "Black mail edged in silver, after the Banshee Queen's own rangers."),
         ("fs_deathguard_legplates", "Deathguard Legplates", "legs", "armor", "plate", "tank", 72,
          "The Deathguard hold Brill's road. These hold the Deathguard up."),
-        ("fs_grave_cold_band", "Grave-Cold Band", "ring", "armor", None, "death", 55,
+        ("fs_grave_cold_band", "Grave-Cold Band", "ring", "armor", None, "strength_crit", 55,
          "Cold to the touch, and it never warms however long you wear it."),
         ("fs_shroud_of_the_wakened", "Shroud of the Wakened", "back", "armor", "cloth", "healer", 50,
          "Cut from a burial shroud by someone who woke up in it."),
@@ -161,7 +169,7 @@ REVERED = {
          "Heavy enough to anchor a tauren against a charging kodo, which is the test."),
         ("tb_windhoof_bracers", "Windhoof Bracers", "wrist", "armor", "leather", "feral", 46,
          "Kodo hide, bound with sinew. A druid's in cat form never notices them."),
-        ("tb_earthmothers_mantle", "Earthmother's Mantle", "shoulder", "armor", "mail", "tide_healer", 58,
+        ("tb_earthmothers_mantle", "Earthmother's Mantle", "shoulder", "armor", "mail", "mail_caster", 58,
          "Carved stone beads on the shoulders, one for every spire."),
         ("tb_totem_of_the_lost_spires", "Totem of the Lost Spires", "ranged", "weapon", "totem", "storm", 52,
          "Four little spires carved on a single stick. The shaman who sells it won't talk about the fourth."),
@@ -171,11 +179,11 @@ REVERED = {
          "Dented by cannonballs, polished for the Baron."),
         ("bb_corsair_hunter_vest", "Corsair-Hunter's Vest", "chest", "armor", "leather", "rogue_crit", 68,
          "Light enough to swim in, which matters more on Booty Bay's payroll than it should."),
-        ("bb_navigators_belt", "Navigator's Belt", "waist", "armor", "mail", "storm", 50,
+        ("bb_navigators_belt", "Navigator's Belt", "waist", "armor", "mail", "tide_healer", 50,
          "A sextant pouch on one hip and a lightning charm on the other."),
-        ("bb_barons_waistcoat", "Baron's Silk Waistcoat", "chest", "armor", "cloth", "fire", 70,
+        ("bb_barons_waistcoat", "Baron's Silk Waistcoat", "chest", "armor", "cloth", "caster", 70,
          "Cut for the Baron's fitting and sold when he grew out of it."),
-        ("bb_tide_readers_gloves", "Tide-Reader's Gloves", "hands", "armor", "cloth", "frost", 48,
+        ("bb_tide_readers_gloves", "Tide-Reader's Gloves", "hands", "armor", "cloth", "healer", 48,
          "Cold, and they always feel wet, and the tide tables are stitched on the palms."),
         ("bb_cannoneers_ring", "Cannoneer's Ring", "ring", "armor", None, "hunter_crit", 55,
          "A brass ring blackened by powder. It's been close to a lot of loud things."),
@@ -187,7 +195,7 @@ REVERED = {
          "Tarred palms for climbing rigging in the wind off the volcano."),
         ("ac_scoria_pauldrons", "Scoria-Plated Pauldrons", "shoulder", "armor", "mail", "earthen", 60,
          "Plates of cooled volcanic glass on a mail frame. Light, sharp and hot to the touch."),
-        ("ac_pyremongers_hood", "Pyremonger's Hood", "head", "armor", "cloth", "fire", 62,
+        ("ac_pyremongers_hood", "Pyremonger's Hood", "head", "armor", "cloth", "caster", 62,
          "A Dark Iron fire-priest's hood, singed around the eye slits."),
         ("ac_deed_holders_signet", "Deed-Holder's Signet", "ring", "armor", None, "strength", 55,
          "A copy of the Ashhold seal. The original is in a vault the goblins insured."),
@@ -205,7 +213,7 @@ REVERED = {
          "A Sentinel ranger's hauberk, cut down for a transplant who earned it."),
         ("er_treant_bark_wristguards", "Treant-Bark Wristguards", "wrist", "armor", "plate", "tank", 46,
          "Shed bark from an old treant, bound over steel. He said he didn't need it."),
-        ("er_moonwell_pendant", "Moonwell Pendant", "neck", "armor", None, "nature", 52,
+        ("er_moonwell_pendant", "Moonwell Pendant", "neck", "armor", None, "caster", 52,
          "A drop of the Sanctuary's moonwell, sealed in glass. It glows faintly at night."),
     ],
 }
@@ -213,11 +221,11 @@ REVERED = {
 EXALTED = {
     "crimson_codex": [
         ("cc_staff_of_the_hanging_light", "Staff of the Hanging Light", "main_hand", "weapon", "staff",
-         "arcane_crit", 335, "Its head is a sliver of whatever hangs at the centre of the Underdark. Nobody's "
+         "caster_crit", 335, "Its head is a sliver of whatever hangs at the centre of the Underdark. Nobody's "
                              "climbed up to check."),
-        ("cc_crimson_spellblade", "Crimson Spellblade", "main_hand", "weapon", "sword_1h", "caster", 295,
+        ("cc_crimson_spellblade", "Crimson Spellblade", "main_hand", "weapon", "sword_1h", "rogue_crit", 295,
          "A Sunstrider spellblade, red to the hilt. It cuts spells as well as it cuts anything else."),
-        ("cc_cloak_of_the_long_descent", "Cloak of the Long Descent", "back", "armor", "cloth", "precise_caster",
+        ("cc_cloak_of_the_long_descent", "Cloak of the Long Descent", "back", "armor", "cloth", "tank",
          255, "Lined with the dark of the fissure. It's still warm from the lamps that went down with it."),
     ],
     "orgrimmar": [
@@ -231,7 +239,7 @@ EXALTED = {
     "darkspear_tribe": [
         ("ds_spear_of_the_last_island", "Spear of the Last Island", "main_hand", "weapon", "polearm", "agility",
          335, "Made from driftwood off the last island the Darkspear held. They mean to take the rest back with it."),
-        ("ds_kangaris_hexing_staff", "Kang'ari's Hexing Staff", "main_hand", "weapon", "staff", "hex", 325,
+        ("ds_kangaris_hexing_staff", "Kang'ari's Spirit Staff", "main_hand", "weapon", "staff", "high_healer", 325,
          "Hung with the elder's own fetishes. It grumbles when it isn't used."),
         ("ds_senjin_throwing_axes", "Sen'jin's Throwing Axes", "ranged", "weapon", "thrown", "hunter_crit", 260,
          "A matched pair, balanced the old way. They come back to the hand if you know how to ask."),
@@ -265,7 +273,7 @@ EXALTED = {
          "The Baron's spare. He has a lot of spares, and he's particular about who gets one."),
         ("bb_port_authority_blunderbuss", "Port Authority Blunderbuss", "ranged", "weapon", "gun",
          "hunter_precise", 290, "Licensed, stamped and loaded with whatever was cheap that week."),
-        ("bb_cloak_of_the_deep_harbour", "Cloak of the Deep Harbour", "back", "armor", "cloth", "frost", 250,
+        ("bb_cloak_of_the_deep_harbour", "Cloak of the Deep Harbour", "back", "armor", "cloth", "caster", 250,
          "Sea-blue and heavy with salt. The only deep-water harbour left, on your shoulders."),
     ],
     "the_ashclaim": [
@@ -281,7 +289,7 @@ EXALTED = {
          "A ring of living wood, grown around a moonstone by the Arch Druid's own hand."),
         ("er_glaive_of_the_fel_line", "Glaive of the Fel Line", "main_hand", "weapon", "polearm", "agility",
          330, "A Sentinel's war glaive. The Fel Line moves north a little every week, and this is why."),
-        ("er_windcallers_bough", "Windcaller's Bough", "off_hand", "weapon", "tome", "nature", 270,
+        ("er_windcallers_bough", "Windcaller's Bough", "off_hand", "weapon", "tome", "caster", 270,
          "A bound book with covers of living wood. Leaves still grow out of the spine in spring."),
     ],
 }
@@ -315,24 +323,24 @@ MOVED = {
 EXALTED_RECIPES = {
     "crimson_codex": [
         ("rep_cc_duskwaking_archivist_robe", "tailoring", "Duskwaking Archivist's Robe", "chest", "armor", "cloth",
-         "arcane_crit", "The robe Codex-Master Duskwaking wears to the lowest shelves. Copies are permitted."),
+         "caster_crit", "The robe Codex-Master Duskwaking wears to the lowest shelves. Copies are permitted."),
         ("rep_cc_pendant_of_the_hanging_light", "jewelcrafting", "Pendant of the Hanging Light", "neck", "armor",
-         None, "precise_caster", "A shard of crystal that points, always, at the light in the Underdark."),
+         None, "healer", "A shard of crystal that points, always, at the light in the Underdark."),
     ],
     "orgrimmar": [
         ("rep_og_korkron_warplate", "blacksmithing", "Kor'kron Warplate", "chest", "armor", "plate",
          "strength_crit", "Black iron and red leather, the plate the Warchief's guard wears to war."),
-        ("rep_og_farseers_chain_hauberk", "leatherworking", "Farseer's Chain Hauberk", "chest", "armor", "mail",
-         "storm", "A farseer's hauberk, wired with copper so the storm has somewhere to go."),
+        ("rep_og_farseers_chain_hauberk", "leatherworking", "Wolf-Rider's Chain Hauberk", "chest", "armor", "mail",
+         "hunter", "Chain cut for a wolf-rider's back, with a strap where the bow rides."),
     ],
     "darkspear_tribe": [
-        ("rep_ds_hexweavers_robe", "tailoring", "Hexweaver's Robe", "chest", "armor", "cloth", "hex",
+        ("rep_ds_hexweavers_robe", "tailoring", "Hexweaver's Robe", "chest", "armor", "cloth", "precise_caster",
          "Woven on Echo Isles cloth before the tribe left, finished on the mainland after."),
         ("rep_ds_shadow_hunters_vest", "leatherworking", "Shadow Hunter's Vest", "chest", "armor", "leather",
          "wildheart", "Painted with the shadow hunters' marks. Each one is somebody who came back."),
     ],
     "the_forsaken": [
-        ("rep_fs_deathwhisper_cowl", "tailoring", "Deathwhisper Cowl", "head", "armor", "cloth", "shadow",
+        ("rep_fs_deathwhisper_cowl", "tailoring", "Deathwhisper Cowl", "head", "armor", "cloth", "caster",
          "The hood muffles every voice but the one you're listening for."),
         ("rep_fs_deathstalker_leggings", "leatherworking", "Deathstalker's Leggings", "legs", "armor", "leather",
          "rogue_crit", "Grey leather that makes no sound on stone. The Deathstalkers' first rule."),
@@ -351,13 +359,13 @@ EXALTED_RECIPES = {
     ],
     "booty_bay_authority": [
         ("rep_bb_navigators_silk_mantle", "tailoring", "Navigator's Silk Mantle", "shoulder", "armor", "cloth",
-         "frost", "Sea-silk on the shoulders, stitched with the deep-water chart of the bay."),
+         "caster_crit", "Sea-silk on the shoulders, stitched with the deep-water chart of the bay."),
         ("rep_bb_harbour_guard_greathelm", "blacksmithing", "Harbour Guard's Greathelm", "head", "armor", "plate",
          "tank", "The Port Authority's crest on the brow. Pirates know it on sight, and that's the point."),
     ],
     "the_ashclaim": [
         ("rep_ac_claimants_warplate", "blacksmithing", "Ashhold Claimant's Warplate", "chest", "armor", "plate",
-         "tank", "Forged for the thane's champion: whoever wears it walks into Khaz Varun first."),
+         "strength_crit", "Forged for the thane's champion: whoever wears it walks into Khaz Varun first."),
         ("rep_ac_khaz_varun_siege_rifle", "engineering", "Khaz Varun Siege Rifle", "ranged", "weapon", "gun",
          "hunter_crit", "Built from a Dark Iron siege piece cut down to something a person can carry. Barely."),
     ],

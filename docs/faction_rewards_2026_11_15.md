@@ -46,23 +46,35 @@ Rep-sold patterns were sold only by the faction.
 - The exalted recipes use each trade's top materials, doubled, as a stand-in for the rare ingredients Kyle wants.
 - Each one carries `_rare_ingredients_todo: true`, so they're easy to find later.
 
+## A direction, not a cage (Kyle, 15 Nov: "DONT tunnel people... Don't pigeon hole!!!")
+
+- **Every faction serves everyone.** Its 11 pieces (6 blues, 3 epics, 2 crafted) cover tanks, healers, casters and fighters, across the armour types.
+- **The faction shows in the name and the look, not in who can use it.** The Codex is arcanists, but it also sells a bastion warden's tank belt, a lamplighter's rogue boots, a spellbreaker's blade and a tank cloak.
+- **Spell power is general.** Only two pieces in the whole set are one school, as deliberate exceptions:
+  - the Ashclaim's Firebrand Scepter (fire), for its Dark Iron fire-priests;
+  - Thunder Bluff's Totem of the Lost Spires (nature), a shaman's relic.
+- **Renamed to match:**
+  - Kang'ari's Hexing Staff is now Kang'ari's Spirit Staff (a healer's).
+  - The Farseer's Chain Hauberk recipe is now Wolf-Rider's Chain Hauberk (a hunter's).
+- **`tools/qa_faction_rewards.py` holds both rules:** every faction serves all four roles, and single-school pieces stay exceptions.
+
 ## The items
 
 ### The Crimson Codex  (quartermaster `kb_quartermaster`)
 
 | Standing | Item | Slot | For | Price |
 |---|---|---|---|---|
-| Revered (blue) | Archivist's Cowl | cloth head | arcane caster | 62g |
+| Revered (blue) | Archivist's Cowl | cloth head | caster | 62g |
 | Revered (blue) | Codex-Bound Gloves | cloth hands | caster (spell hit) | 48g |
-| Revered (blue) | Marginalia of the Deep | tome off_hand | arcane caster (crit) | 58g |
+| Revered (blue) | Marginalia of the Deep | tome off_hand | healer | 58g |
 | Revered (blue) | Bastion Warden's Girdle | plate waist | tank | 52g |
-| Revered (blue) | Lamplighter's Boots | leather feet | rogue / agility (crit) | 50g |
-| Revered (blue) | Signet of the Find | ring | caster (crit, Stamina) | 55g |
-| Exalted (epic) | Staff of the Hanging Light | staff main_hand | arcane caster (crit) | 335g |
-| Exalted (epic) | Crimson Spellblade | sword_1h main_hand | caster | 295g |
-| Exalted (epic) | Cloak of the Long Descent | cloth back | caster (spell hit) | 255g |
-| Exalted (recipe, tailoring) | Duskwaking Archivist's Robe | cloth chest | arcane caster (crit) | crafted |
-| Exalted (recipe, jewelcrafting) | Pendant of the Hanging Light | neck | caster (spell hit) | crafted |
+| Revered (blue) | Lamplighter's Boots | leather feet | agility melee (crit) | 50g |
+| Revered (blue) | Signet of the Find |  ring | strength melee (hit) | 55g |
+| Exalted (epic) | Staff of the Hanging Light | staff main_hand | caster (crit) | 335g |
+| Exalted (epic) | Crimson Spellblade | sword_1h main_hand | agility melee (crit) | 295g |
+| Exalted (epic) | Cloak of the Long Descent | cloth back | tank | 255g |
+| Exalted (recipe, tailoring) | Duskwaking Archivist's Robe | cloth chest | caster (crit) | crafted |
+| Exalted (recipe, jewelcrafting) | Pendant of the Hanging Light |  neck | healer | crafted |
 
 Patterns moved here: honored ench_weapon_spellsurge, ench_gloves_superior_battlemage; revered ench_weapon_major_spell_power, ench_2h_major_spell_power.
 
@@ -72,15 +84,15 @@ Patterns moved here: honored ench_weapon_spellsurge, ench_gloves_superior_battle
 |---|---|---|---|---|
 | Revered (blue) | Grunt's Warhelm | plate head | strength melee | 64g |
 | Revered (blue) | Kor'kron Shoulderguards | plate shoulder | tank | 60g |
-| Revered (blue) | Farseer's Mail Vest | mail chest | elemental (nature, haste) | 70g |
+| Revered (blue) | Farseer's Mail Vest | mail chest | caster (mail) | 70g |
 | Revered (blue) | Wolfrider's Leggings | leather legs | agility melee | 62g |
 | Revered (blue) | Spiritwalker's Bracers | mail wrist | healer (mp5) | 46g |
-| Revered (blue) | Band of the Red Stone | ring | strength melee (hit) | 55g |
+| Revered (blue) | Band of the Red Stone |  ring | caster (crit, Stamina) | 55g |
 | Exalted (epic) | Warchief's Due | axe_2h main_hand | strength melee (crit) | 345g |
 | Exalted (epic) | Bulwark of the Valley | shield off_hand | shield tank | 285g |
 | Exalted (epic) | Farseer's Ancestral Mace | mace_1h main_hand | healer (mp5) | 290g |
 | Exalted (recipe, blacksmithing) | Kor'kron Warplate | plate chest | strength melee (crit) | crafted |
-| Exalted (recipe, leatherworking) | Farseer's Chain Hauberk | mail chest | elemental (nature, haste) | crafted |
+| Exalted (recipe, leatherworking) | Wolf-Rider's Chain Hauberk | mail chest | hunter | crafted |
 
 Patterns moved here: honored bs300_bloodiron_legs, ench_weapon_superior_strength; revered ench_2h_major_valor, ench_weapon_major_valor.
 
@@ -89,15 +101,15 @@ Patterns moved here: honored bs300_bloodiron_legs, ench_weapon_superior_strength
 | Standing | Item | Slot | For | Price |
 |---|---|---|---|---|
 | Revered (blue) | Headhunter's Mask | leather head | agility melee | 60g |
-| Revered (blue) | Hexer's Robe | cloth chest | shadow caster | 68g |
-| Revered (blue) | Bonecharm Necklace | neck | healer | 52g |
+| Revered (blue) | Hexer's Robe | cloth chest | caster | 68g |
+| Revered (blue) | Bonecharm Necklace |  neck | healer | 52g |
 | Revered (blue) | Tidewalker Waders | mail feet | hunter | 54g |
 | Revered (blue) | Shadow Hunter's Bracers | leather wrist | agility / Intellect hybrid | 46g |
-| Revered (blue) | Spearguard Girdle | plate waist | strength melee | 54g |
+| Revered (blue) | Spearguard Girdle | plate waist | tank | 54g |
 | Exalted (epic) | Spear of the Last Island | polearm main_hand | agility melee | 335g |
-| Exalted (epic) | Kang'ari's Hexing Staff | staff main_hand | shadow caster | 325g |
+| Exalted (epic) | Kang'ari's Spirit Staff | staff main_hand | healer | 325g |
 | Exalted (epic) | Sen'jin's Throwing Axes | thrown ranged | hunter (crit) | 260g |
-| Exalted (recipe, tailoring) | Hexweaver's Robe | cloth chest | shadow caster | crafted |
+| Exalted (recipe, tailoring) | Hexweaver's Robe | cloth chest | caster (spell hit) | crafted |
 | Exalted (recipe, leatherworking) | Shadow Hunter's Vest | leather chest | agility / Intellect hybrid | crafted |
 
 Patterns moved here: honored cookx_bloodspice_steak, ench_bracer_superior_wildheart; revered ench_weapon_major_wildheart, ench_2h_major_wildheart.
@@ -106,17 +118,17 @@ Patterns moved here: honored cookx_bloodspice_steak, ench_bracer_superior_wildhe
 
 | Standing | Item | Slot | For | Price |
 |---|---|---|---|---|
-| Revered (blue) | Apothecary's Gloves | cloth hands | shadow caster | 48g |
-| Revered (blue) | Deathstalker's Hood | leather head | rogue / agility (crit) | 60g |
+| Revered (blue) | Apothecary's Gloves | cloth hands | caster | 48g |
+| Revered (blue) | Deathstalker's Hood | leather head | agility melee (crit) | 60g |
 | Revered (blue) | Dark Ranger's Spaulders | mail shoulder | hunter (hit) | 60g |
 | Revered (blue) | Deathguard Legplates | plate legs | tank | 72g |
-| Revered (blue) | Grave-Cold Band | ring | caster (spell pen) | 55g |
+| Revered (blue) | Grave-Cold Band |  ring | strength melee (crit) | 55g |
 | Revered (blue) | Shroud of the Wakened | cloth back | healer | 50g |
 | Exalted (epic) | Banshee's Lament | bow ranged | hunter (crit) | 300g |
-| Exalted (epic) | Blade of the Wakened | dagger main_hand | rogue / agility (crit) | 290g |
+| Exalted (epic) | Blade of the Wakened | dagger main_hand | agility melee (crit) | 290g |
 | Exalted (epic) | Plaguebearer's Staff | staff main_hand | caster (spell pen) | 330g |
-| Exalted (recipe, tailoring) | Deathwhisper Cowl | cloth head | shadow caster | crafted |
-| Exalted (recipe, leatherworking) | Deathstalker's Leggings | leather legs | rogue / agility (crit) | crafted |
+| Exalted (recipe, tailoring) | Deathwhisper Cowl | cloth head | caster | crafted |
+| Exalted (recipe, leatherworking) | Deathstalker's Leggings | leather legs | agility melee (crit) | crafted |
 
 Patterns moved here: honored lw_undercity_shade_vest, alch_transmute_iron_gold_vendor; revered alch_transmute_arcanite, ench_cloak_major_warding.
 
@@ -128,9 +140,9 @@ Patterns moved here: honored lw_undercity_shade_vest, alch_transmute_iron_gold_v
 | Revered (blue) | Contractor's Belt | leather waist | agility melee | 50g |
 | Revered (blue) | Wharf Inspector's Coat | mail chest | hunter | 68g |
 | Revered (blue) | Neutral Ground Mantle | cloth shoulder | caster | 56g |
-| Revered (blue) | Tidepaid Ring | ring | healer | 55g |
+| Revered (blue) | Tidepaid Ring |  ring | healer | 55g |
 | Revered (blue) | Harbourmaster's Slippers | cloth feet | healer (Spirit) | 48g |
-| Exalted (epic) | Profit Margin | dagger main_hand | rogue / agility (crit) | 285g |
+| Exalted (epic) | Profit Margin | dagger main_hand | agility melee (crit) | 285g |
 | Exalted (epic) | The Neutrality Clause | shield off_hand | shield tank | 280g |
 | Exalted (epic) | Cartel Arbiter's Cloak | cloth back | caster | 250g |
 | Exalted (recipe, engineering) | Cartel Arbitrator's Goggles | mail head | hunter (crit) | crafted |
@@ -146,8 +158,8 @@ Patterns moved here: honored engx_scope_thorium, cookx_keg_braised_shank; revere
 | Revered (blue) | Plainsrunner's Leggings | mail legs | hunter | 70g |
 | Revered (blue) | Taurajo Bulwark Girdle | plate waist | tank | 52g |
 | Revered (blue) | Windhoof Bracers | leather wrist | feral / agility | 46g |
-| Revered (blue) | Earthmother's Mantle | mail shoulder | healer (mp5) | 58g |
-| Revered (blue) | Totem of the Lost Spires | totem ranged | elemental (nature, haste) | 52g |
+| Revered (blue) | Earthmother's Mantle | mail shoulder | caster (mail) | 58g |
+| Revered (blue) | Totem of the Lost Spires | totem ranged | shaman, nature (exception) | 52g |
 | Exalted (epic) | Spire-Warden's Staff | staff main_hand | bear / beetle tank | 340g |
 | Exalted (epic) | Mulgore Greatbow | bow ranged | hunter (hit) | 295g |
 | Exalted (epic) | Cloak of the Fallen Spires | cloth back | healer | 255g |
@@ -161,15 +173,15 @@ Patterns moved here: honored lw_rugged_int_vest, ench_bracer_superior_mana_regen
 | Standing | Item | Slot | For | Price |
 |---|---|---|---|---|
 | Revered (blue) | Harbour Guard's Helm | plate head | tank | 64g |
-| Revered (blue) | Corsair-Hunter's Vest | leather chest | rogue / agility (crit) | 68g |
-| Revered (blue) | Navigator's Belt | mail waist | elemental (nature, haste) | 50g |
-| Revered (blue) | Baron's Silk Waistcoat | cloth chest | fire caster | 70g |
-| Revered (blue) | Tide-Reader's Gloves | cloth hands | frost caster | 48g |
-| Revered (blue) | Cannoneer's Ring | ring | hunter (crit) | 55g |
-| Exalted (epic) | Revilgaz's Cutlass | sword_1h main_hand | rogue / agility (crit) | 300g |
+| Revered (blue) | Corsair-Hunter's Vest | leather chest | agility melee (crit) | 68g |
+| Revered (blue) | Navigator's Belt | mail waist | healer (mp5) | 50g |
+| Revered (blue) | Baron's Silk Waistcoat | cloth chest | caster | 70g |
+| Revered (blue) | Tide-Reader's Gloves | cloth hands | healer | 48g |
+| Revered (blue) | Cannoneer's Ring |  ring | hunter (crit) | 55g |
+| Exalted (epic) | Revilgaz's Cutlass | sword_1h main_hand | agility melee (crit) | 300g |
 | Exalted (epic) | Port Authority Blunderbuss | gun ranged | hunter (hit) | 290g |
-| Exalted (epic) | Cloak of the Deep Harbour | cloth back | frost caster | 250g |
-| Exalted (recipe, tailoring) | Navigator's Silk Mantle | cloth shoulder | frost caster | crafted |
+| Exalted (epic) | Cloak of the Deep Harbour | cloth back | caster | 250g |
+| Exalted (recipe, tailoring) | Navigator's Silk Mantle | cloth shoulder | caster (crit) | crafted |
 | Exalted (recipe, blacksmithing) | Harbour Guard's Greathelm | plate head | tank | crafted |
 
 Patterns moved here: honored fishx_mightfish_steak, fishx_nightfin_soup; revered jc_cut_sparkling_azure_diamond, jc_cut_delicate_black_diamond.
@@ -181,13 +193,13 @@ Patterns moved here: honored fishx_mightfish_steak, fishx_nightfin_soup; revered
 | Revered (blue) | Ashhold Forgeguard Breastplate | plate chest | tank | 74g |
 | Revered (blue) | Cinderwharf Rigger's Gloves | leather hands | agility melee | 48g |
 | Revered (blue) | Scoria-Plated Pauldrons | mail shoulder | strength / Intellect hybrid | 60g |
-| Revered (blue) | Pyremonger's Hood | cloth head | fire caster | 62g |
-| Revered (blue) | Deed-Holder's Signet | ring | strength melee | 55g |
+| Revered (blue) | Pyremonger's Hood | cloth head | caster | 62g |
+| Revered (blue) | Deed-Holder's Signet |  ring | strength melee | 55g |
 | Revered (blue) | Ashpriest's Bindings | cloth wrist | healer | 44g |
 | Exalted (epic) | Thane's Claim | mace_2h main_hand | strength melee | 350g |
-| Exalted (epic) | Firebrand Scepter | mace_1h main_hand | fire caster | 295g |
-| Exalted (epic) | Khaz Varun Deedstone | neck | tank | 265g |
-| Exalted (recipe, blacksmithing) | Ashhold Claimant's Warplate | plate chest | tank | crafted |
+| Exalted (epic) | Firebrand Scepter | mace_1h main_hand | fire caster (exception) | 295g |
+| Exalted (epic) | Khaz Varun Deedstone |  neck | tank | 265g |
+| Exalted (recipe, blacksmithing) | Ashhold Claimant's Warplate | plate chest | strength melee (crit) | crafted |
 | Exalted (recipe, engineering) | Khaz Varun Siege Rifle | gun ranged | hunter (crit) | crafted |
 
 Patterns moved here: honored bs300_truesilver_wrist, bs300_kit_ashen_steel; revered bs_runed_arcanite_rod, jc_cut_etched_cinder_agate.
@@ -201,10 +213,10 @@ Patterns moved here: honored bs300_truesilver_wrist, bs300_kit_ashen_steel; reve
 | Revered (blue) | Grovewarden's Robe | cloth chest | healer | 70g |
 | Revered (blue) | Reclaimer's Hauberk | mail chest | hunter (hit) | 70g |
 | Revered (blue) | Treant-Bark Wristguards | plate wrist | tank | 46g |
-| Revered (blue) | Moonwell Pendant | neck | nature caster | 52g |
-| Exalted (epic) | Moonbough's Gift | ring | healer | 255g |
+| Revered (blue) | Moonwell Pendant |  neck | caster | 52g |
+| Exalted (epic) | Moonbough's Gift |  ring | healer | 255g |
 | Exalted (epic) | Glaive of the Fel Line | polearm main_hand | agility melee | 330g |
-| Exalted (epic) | Windcaller's Bough | tome off_hand | nature caster | 270g |
+| Exalted (epic) | Windcaller's Bough | tome off_hand | caster | 270g |
 | Exalted (recipe, woodworking) | Reclaimer's Living Staff | staff main_hand | healer | crafted |
 | Exalted (recipe, leatherworking) | Timbermaw Ancestor Hide | leather chest | feral / agility | crafted |
 
@@ -244,9 +256,9 @@ Row 1 - CRIMSON CODEX (blood-elf crimson and gold, pale crystal light) and ORGRI
 
 Row 2 - ORGRIMMAR crafted, DARKSPEAR (carved wood, bone, teal voodoo glow):
 8. KOR'KRON WARPLATE: a heavy black-iron breastplate with red leather straps and tusk-shaped pauldron mounts
-9. FARSEER'S CHAIN HAUBERK: a mail hauberk wired with copper, wolf-tooth charms, faint blue lightning in the links
+9. WOLF-RIDER'S CHAIN HAUBERK: a red-iron mail hauberk with wolf-fur at the collar and a leather bow strap across it
 10. SPEAR OF THE LAST ISLAND: a long troll spear of pale driftwood with a bone-and-flint head and teal feathers
-11. KANG'ARI'S HEXING STAFF: a crooked wooden staff topped with a shrunken voodoo mask, teal smoke and hanging fetishes
+11. KANG'ARI'S SPIRIT STAFF: a crooked wooden staff topped with a carved voodoo mask, soft teal spirit-light and hanging fetishes
 12. SEN'JIN'S THROWING AXES: a matched pair of crossed troll throwing axes with bone handles and teal-painted blades
 13. HEXWEAVER'S ROBE: a troll robe of rough woven cloth hung with little bone charms, teal voodoo patterns glowing faintly
 14. SHADOW HUNTER'S VEST: a leather vest painted with tribal marks, a carved bone clasp, purple-teal shadow wisps
