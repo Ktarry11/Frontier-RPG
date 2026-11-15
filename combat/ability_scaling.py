@@ -31,6 +31,13 @@ undone the next time one ran. Data can still override either rule per ability.
      x a share for area effects (an AoE or a party heal pays per target, so each target gets less).
    A DoT or HoT's coefficient is its TOTAL across every tick, like its effect_value.
 
+CALIBRATED (15 Nov) with tools/sim_class_balance.py, all 30 classes with talents spent, against the old flat
+rules. Turns to kill a same-level enemy, median [range]:
+    old:            lv20 4.5 [3.2-7.9]   lv40 4.0 [2.2-6.2]   lv60 4.3 [2.4-7.5]
+    gains 1.0/1.5:                       lv40 3.2 [1.9-4.5]   lv60 2.7 [1.3-3.9]   too fast with talents
+    gains 0.6/1.0:                       lv40 3.5             lv60 3.0 [1.6-4.8]   chosen: "3-4 casts"
+Per-class outliers are the class pass's job, not these constants'.
+
 3. HIGHER RANKS TAKE MORE OF YOUR POWER (WoW's low-rank penalty, the other way round). Steepening the ranks alone
    doubles a spell's base at 60 while a blue-geared caster's spell power only goes 28 -> 71 from 15 to 60, so
    power would have become a SMALLER share of the hit, not the larger one Kyle asked for ("raise casters'
@@ -41,7 +48,7 @@ undone the next time one ran. Data can still override either rule per ability.
 
 #: ---- 1. the rank curve
 RANK_CURVE_FROM = 20
-RANK_CURVE_GAIN = 1.0          # x2 at level 60
+RANK_CURVE_GAIN = 0.6          # x1.6 at level 60 (calibrated, see below)
 #: effect types whose effect_value is a strength, so ranks scale
 CURVED = frozenset({"damage", "spell_damage", "ranged_damage", "dot", "spell_dot", "heal", "hot",
                     "damage_and_heal", "damage_and_restore_mana"})
@@ -101,8 +108,8 @@ def area_share(target_type, max_targets=None, heal_scope=None):
 
 
 #: ---- 3. power share by rank level
-POWER_RANK_GAIN = 1.5    # spells, heals, DoTs, HoTs: x2.5 at a rank learned at 60
-AP_RANK_GAIN = 0.4       # physical specials and bleeds: x1.4
+POWER_RANK_GAIN = 1.0    # spells, heals, DoTs, HoTs: x2 at a rank learned at 60
+AP_RANK_GAIN = 0.2       # physical specials and bleeds: x1.2
 
 
 def rank_power_multiplier(level_req, kind):
