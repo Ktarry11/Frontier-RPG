@@ -57,6 +57,10 @@ TANK = {"defense_rating", "dodge_rating", "parry_rating", "block_rating", "block
 #: What each armour type may carry. A stat outside its armour type's set fails the audit.
 ALLOWED = {
     "cloth": PRIMARY - {"strength", "agility"} | CASTER | {"hit_rating", "haste"},
+    # leather and mail serve both sides (rogues and druids; hunters and shaman), but never a shield's stats
+    "leather": PRIMARY | CASTER | PHYSICAL | {"hit_rating", "haste", "dodge_rating"},
+    "mail": PRIMARY | CASTER | PHYSICAL | {"hit_rating", "haste", "dodge_rating"},
+    "plate": PRIMARY | CASTER | PHYSICAL | TANK | {"hit_rating", "haste"},
 }
 
 # ---------------------------------------------------------------------------------------------
@@ -95,34 +99,62 @@ IDENTITIES = {
     "battlemage": ({"spell_power": 0.4, "stamina": 0.3, "crit_chance_spell": 0.3}, "int_caster"),
     "high_healer": ({"healing_power": 0.55, "intellect": 0.25, "spirit": 0.2}, "spi_healer"),
     "void": ({"shadow_spell_power": 0.5, "intellect": 0.3, "stamina": 0.2}, "int_caster"),
+
+    # ---- leather and mail. Kyle, 14 Nov: "It's just so odd to see high end gear with no attack
+    # power." So every physical identity leads with attack power (2 AP for a point of Strength or
+    # Agility), and it phases in the same way a cloth's power does.
+    "agi_starter": ({"attack_power": 0.3, "agility": 0.4, "stamina": 0.3}, "agi_physical"),
+    "agility": ({"attack_power": 0.45, "agility": 0.35, "stamina": 0.2}, "agi_physical"),
+    "feral": ({"attack_power": 0.45, "agility": 0.3, "stamina": 0.25}, "agi_physical"),
+    "rogue_crit": ({"attack_power": 0.4, "agility": 0.3, "crit_chance_physical": 0.3}, "agi_physical"),
+    "assassin": ({"attack_power": 0.4, "agility": 0.3, "hit_rating": 0.3}, "agi_physical"),
+    "hunter": ({"attack_power": 0.45, "agility": 0.3, "intellect": 0.25}, "agi_int_hybrid"),
+    "hunter_precise": ({"attack_power": 0.4, "agility": 0.3, "hit_rating": 0.3}, "agi_physical"),
+    "hunter_crit": ({"attack_power": 0.4, "agility": 0.3, "crit_chance_physical": 0.3}, "agi_physical"),
+    "bruiser": ({"attack_power": 0.45, "strength": 0.35, "stamina": 0.2}, "str_physical"),
+    "earthen": ({"attack_power": 0.4, "strength": 0.3, "intellect": 0.3}, "str_int_hybrid"),
+    "wildheart": ({"attack_power": 0.35, "agility": 0.35, "intellect": 0.3}, "agi_int_hybrid"),
+    "bear": ({"stamina": 0.45, "agility": 0.3, "dodge_rating": 0.25}, "agi_physical"),
+    "tide_healer": ({"healing_power": 0.55, "intellect": 0.3, "mp5": 0.15}, "spi_healer"),
+    "mail_caster": ({"spell_power": 0.55, "intellect": 0.3, "crit_chance_spell": 0.15}, "int_caster"),
+
+    # ---- plate (and the smith's mail and weapons)
+    "melee_starter": ({"attack_power": 0.3, "strength": 0.35, "stamina": 0.35}, "str_physical"),
+    "strength": ({"attack_power": 0.45, "strength": 0.35, "stamina": 0.2}, "str_physical"),
+    "strength_crit": ({"attack_power": 0.4, "strength": 0.3, "crit_chance_physical": 0.3}, "str_physical"),
+    "strength_hit": ({"attack_power": 0.4, "strength": 0.3, "hit_rating": 0.3}, "str_physical"),
+    "crusader": ({"attack_power": 0.4, "strength": 0.3, "intellect": 0.3}, "str_int_hybrid"),
+    "tank": ({"stamina": 0.45, "strength": 0.2, "defense_rating": 0.35}, "str_physical"),
+    "shield_tank": ({"stamina": 0.55, "strength": 0.2, "block_value": 0.25}, "str_physical"),
+    "plate_healer": ({"healing_power": 0.55, "intellect": 0.3, "mp5": 0.15}, "spi_healer"),
 }
 
 # ---------------------------------------------------------------------------------------------
 # TAILORING. Cloth, for casters and healers. Each cloth: (identity, its line of flavour).
 # ---------------------------------------------------------------------------------------------
 TAILORING_CLOTH = {
-    "linen": ("starter_caster", "Plain linen, stitched tight. Every tailor starts here."),
-    "cotton": ("spirit_healer", "Soft cotton. Healers like it because it breathes."),
-    "wool": ("sturdy_caster", "Heavy wool that keeps the cold out and the caster on their feet."),
-    "hempen": ("traveller", "Rough hempen weave, made for the road and not for looking at."),
-    "silk": ("caster", "Good silk. It takes a spell better than anything cheaper."),
-    "mageweave": ("arcane", "Mageweave hums a little when you hold it near a ley line."),
-    "spidersilk": ("precise_caster", "Spidersilk's light and tough, and it doesn't snag."),
-    "netherweave": ("shadow_sturdy", "Netherweave is cold to the touch, and it stays that way."),
-    "frostweave": ("frost", "Frostweave. There's always a little rime in the folds."),
-    "emberweave": ("fire", "Emberweave stays warm in the snow, and it smells of smoke."),
-    "dusk_velvet": ("spirit_caster", "Dusk velvet, dyed the colour of the sky an hour after sunset."),
-    "gossamer": ("dark_haste", "Gossamer so thin you'd swear it couldn't hold a stitch."),
-    "moonsilk": ("healer", "Moonsilk's spun at night, and healers swear by it."),
-    "thistledown": ("nature", "Thistledown cloth, as light as the seed heads it's spun from."),
-    "shadowsilk": ("shadow", "Shadowsilk drinks the light around it."),
-    "starweave": ("arcane_crit", "Starweave. There are tiny points of light caught in the weave."),
-    "bloodsilk": ("blood", "Bloodsilk's dyed in something the tailor won't name."),
-    "felcloth": ("fel", "Felcloth. Warlocks pay well for it and don't ask where it came from."),
-    "soulcloth": ("death", "Soulcloth is cold, and on quiet nights it whispers."),
-    "windwool": ("storm", "Windwool never quite hangs still."),
-    "imperial_silk": ("high_healer", "Imperial silk, the best a healer can wear that a tailor can make."),
-    "voidweave": ("void", "Voidweave. Look at it too long and it looks back."),
+    "linen": (None, "starter_caster", "Plain linen, stitched tight. Every tailor starts here."),
+    "cotton": (None, "spirit_healer", "Soft cotton. Healers like it because it breathes."),
+    "wool": (None, "sturdy_caster", "Heavy wool that keeps the cold out and the caster on their feet."),
+    "hempen": (None, "traveller", "Rough hempen weave, made for the road and not for looking at."),
+    "silk": (None, "caster", "Good silk. It takes a spell better than anything cheaper."),
+    "mageweave": (None, "arcane", "Mageweave hums a little when you hold it near a ley line."),
+    "spidersilk": (None, "precise_caster", "Spidersilk's light and tough, and it doesn't snag."),
+    "netherweave": (None, "shadow_sturdy", "Netherweave is cold to the touch, and it stays that way."),
+    "frostweave": (None, "frost", "Frostweave. There's always a little rime in the folds."),
+    "emberweave": (None, "fire", "Emberweave stays warm in the snow, and it smells of smoke."),
+    "dusk_velvet": (None, "spirit_caster", "Dusk velvet, dyed the colour of the sky an hour after sunset."),
+    "gossamer": (None, "dark_haste", "Gossamer so thin you'd swear it couldn't hold a stitch."),
+    "moonsilk": (None, "healer", "Moonsilk's spun at night, and healers swear by it."),
+    "thistledown": (None, "nature", "Thistledown cloth, as light as the seed heads it's spun from."),
+    "shadowsilk": (None, "shadow", "Shadowsilk drinks the light around it."),
+    "starweave": (None, "arcane_crit", "Starweave. There are tiny points of light caught in the weave."),
+    "bloodsilk": (None, "blood", "Bloodsilk's dyed in something the tailor won't name."),
+    "felcloth": (None, "fel", "Felcloth. Warlocks pay well for it and don't ask where it came from."),
+    "soulcloth": (None, "death", "Soulcloth is cold, and on quiet nights it whispers."),
+    "windwool": (None, "storm", "Windwool never quite hangs still."),
+    "imperial_silk": (None, "high_healer", "Imperial silk, the best a healer can wear that a tailor can make."),
+    "voidweave": (None, "void", "Voidweave. Look at it too long and it looks back."),
 }
 
 #: Named lines that SAY what they are. First match wins. A name that only points at a place or a
@@ -130,15 +162,15 @@ TAILORING_CLOTH = {
 #: follows its cloth. And a line only overrides its cloth when it names a different school (see
 #: FAMILY): Demonthread on gossamer is already dark cloth, so it stays gossamer's identity.
 TAILORING_LINES = [
-    (r"Bloodweave|Bloodsoaked", "blood", "A troll pattern. The red dye never fades, however often it's washed."),
-    (r"Pilgrim's", "spirit_healer", "A pilgrim's piece, plain and well blessed."),
-    (r"Hex Cloth|Fetish|Mojo", "hex", "Troll hexwork, with little charms sewn into the hem."),
-    (r"Fireweave|Ember Cloth|Blazethread|Soulscorch", "fire", "Every stitch of it is a little too warm."),
-    (r"Spiritweave|Mistweave", "spirit_healer", "A healer's robe, cut loose so it never gets in the way."),
-    (r"Moonrobe|Verdant Druid|Scarlet", "healer", "Made for someone who keeps other people standing."),
-    (r"Felweave|Felstitched|Fel-Stitched|Demonthread|Infernal", "fel", "Fel-stitched. The thread glows green in the dark."),
-    (r"Darkweave|Shadowweave|Voidthread|Dark Elegance|Plagueweave", "shadow", "Dark cloth for dark work."),
-    (r"Briarweave|Vine-Woven|Venom Cord|Virulent-Thread", "nature", "There's something green and growing woven through it."),
+    (r"Bloodweave|Bloodsoaked", None, "blood", "A troll pattern. The red dye never fades, however often it's washed."),
+    (r"Pilgrim's", None, "spirit_healer", "A pilgrim's piece, plain and well blessed."),
+    (r"Hex Cloth|Fetish|Mojo", None, "hex", "Troll hexwork, with little charms sewn into the hem."),
+    (r"Fireweave|Ember Cloth|Blazethread|Soulscorch", None, "fire", "Every stitch of it is a little too warm."),
+    (r"Spiritweave|Mistweave", None, "spirit_healer", "A healer's robe, cut loose so it never gets in the way."),
+    (r"Moonrobe|Verdant Druid|Scarlet", None, "healer", "Made for someone who keeps other people standing."),
+    (r"Felweave|Felstitched|Fel-Stitched|Demonthread|Infernal", None, "fel", "Fel-stitched. The thread glows green in the dark."),
+    (r"Darkweave|Shadowweave|Voidthread|Dark Elegance|Plagueweave", None, "shadow", "Dark cloth for dark work."),
+    (r"Briarweave|Vine-Woven|Venom Cord|Virulent-Thread", None, "nature", "There's something green and growing woven through it."),
 ]
 
 #: Identities in the same family don't override each other (see TAILORING_LINES).
@@ -153,9 +185,244 @@ def family(ident):
     return next((f for f, members in FAMILY.items() if ident in members), ident)
 
 
-TRADES = {
-    "tailoring": {"materials": TAILORING_CLOTH, "lines": TAILORING_LINES, "armour": {"cloth"}},
+# ---------------------------------------------------------------------------------------------
+# LEATHERWORKING. Leather for rogues and druids, mail for hunters and shaman. Each hide:
+# (the armour it makes, its identity, its flavour). A name that says Leather is leather and one that
+# says Mail or Scale is mail, whatever its hide (ARMOUR_WORDS), so a "Heavy Leather Vest" is never
+# chain. A named line (Moonleaf, Earthbound, Hexhide) keeps the role it announces.
+# ---------------------------------------------------------------------------------------------
+LEATHER_HIDES = {
+    "scrap": ("leather", "agi_starter", "Scraps of leather, stitched together by someone still learning how."),
+    "light": ("leather", "agility", "Light leather, soft and quiet, for anyone who'd rather not be heard."),
+    "medium": ("leather", "feral", "Medium leather, oiled and supple, made for moving fast and hitting hard."),
+    "heavy": ("mail", "hunter", "Heavy hide boiled hard and laced with rings, the way hunters like it."),
+    "cragscale": ("mail", "earthen", "Cragscale, prised off basilisks. It's heavy and it doesn't dent."),
+    "stormscale": ("mail", "storm", "Stormscale crackles a little when it's dry."),
+    "thick": ("leather", "rogue_crit", "Thick leather, tanned for days. A blade has to want it to get through."),
+    "dredged": ("mail", "tide_healer", "Dredged up from the deep and cured in salt. Shaman say the sea's still in it."),
+    "fiendish": ("leather", "assassin", "Fiendish hide. It's warm, and it shouldn't be."),
+    "stonebound": ("leather", "bear", "Stonebound hide, stiff as bark and made for standing in front."),
+    "rugged": ("leather", "healer", "Rugged leather, the kind druids trust out in the wilds."),
+    "hydra": ("mail", "hunter_precise", "Hydra scale. Every plate's a little different, and every one is tough."),
+    "pristine": ("leather", "agility", "Pristine leather without a single flaw. Somebody was very patient."),
+    "savage": ("leather", "feral", "Savage hide, still rough at the edges, like whoever wears it."),
+    "frostscale": ("mail", "mail_caster", "Frostscale's cold to the touch, and so are the spells cast through it."),
+    "emberscale": ("mail", "hunter_crit", "Emberscale, off something that breathed fire. It's never quite cool."),
+    "mossback": ("mail", "tide_healer", "Mossback shell, with something green still growing in the cracks."),
+    "netherdrake": ("mail", "earthen", "Netherdrake scale. It shifts colour when you aren't looking at it."),
+    "duskfang": ("leather", "rogue_crit", "Duskfang leather drinks the light, and whoever wears it goes unnoticed."),
+    "bloodtanned": ("leather", "feral", "Bloodtanned, the best hide a leatherworker can get, and it was paid for."),
 }
+
+LEATHER_LINES = [
+    (r"Spirithide|Spirit Gloves|Mistweave|Moonleaf|Wildwood|Archdruid|Grovewalker|Shade-Blessed|Tidal",
+     "leather", "healer", "Druid work. It smells faintly of moss and rain."),
+    (r"Roughhide|Scrapbound|Toughened|Warbear|Ironhide|Warband|Ironweald|Wolfhide|Fang Leather|Quilboar|"
+     r"Razorfen Tusk|Chitinous", "leather", "bruiser", "Thick, heavy leather cut for someone who swings big."),
+    (r"Hexhide|Hexer's|Voodoo|Hexbinder|Scaled Isle", "leather", "wildheart",
+     "Troll work, with fetishes stitched where the seams meet."),
+    (r"Ironweave Mail|Earthbound|Earthwalker", "mail", "earthen",
+     "Mail for a shaman who'd rather be in the middle of the fight."),
+    (r"Serpent Mail|Galewind|Brine Mail|Stormcaller|Mistscale", "mail", "storm",
+     "The rings chime faintly whenever a storm's coming."),
+    (r"Verdant Scale|Predator|Chitinscale|Razorboar|Rotscale|Fenris|Cursed Mail", "mail", "hunter",
+     "Hunter's mail, cut loose at the shoulder for drawing a bow."),
+    (r"Plagued|Putrescent|Cursed Leather|Broodvenom|Venom Sac|Shadowpelt|Shadowfell|Demonhide|Nightstalker",
+     "leather", "assassin", "Dark leather for work that's done quietly."),
+]
+
+# ---------------------------------------------------------------------------------------------
+# BLACKSMITHING. Plate for warriors, paladins and tanks, mail for hunters and shaman, and weapons.
+# Every role has a metal at every level band:
+#   plate damage   tin, bronze, felslag, bloodiron, dark iron, elementium
+#   plate tank     iron, mithril, thorium
+#   plate holy     frostveined tin, truesilver (a paladin's strength and Intellect), arcanite
+#   hunter mail    weakstone, bronze vein, deepearth, ashen steel
+#   shaman mail    living copper, verdant iron
+# Each metal's pieces keep the armour they were written with; the names already say plate or chain.
+# ---------------------------------------------------------------------------------------------
+SMITH_METALS = {
+    "copper": (None, "melee_starter", "Copper, hammered thin and riveted. Every smith's first set of chain."),
+    "weakstone": (None, "hunter", "Weakstone links, light enough for a hunter just starting out."),
+    "tin": (None, "strength", "Tin plate. It's soft as metals go, but it turns a blade well enough."),
+    "bronze_vein": (None, "hunter", "Bronze-veined scale, flexible and quiet in the brush."),
+    "bronze": (None, "strength", "Bronze, the first plate a warrior can really trust."),
+    "living_copper": (None, "tide_healer", "Living copper. It's warm, and it hums when someone nearby is hurt."),
+    "frostveined_tin": (None, "plate_healer", "Frostveined tin with a blue sheen. Paladins say it keeps a clear head."),
+    "verdant_iron": (None, "storm", "Verdant iron, green with something that isn't rust."),
+    "felslag": (None, "strength_crit", "Felslag, poured from what was left after the fel fires. It bites."),
+    "iron": (None, "tank", "Good, honest iron, made for standing in the line and staying there."),
+    "bloodiron": (None, "strength", "Bloodiron. Orc smiths quench it in something they won't name."),
+    "mithril": (None, "tank", "Mithril's light for its strength, so a defender can wear more of it."),
+    "deepearth": (None, "hunter", "Deepearth scale, dark as a mine shaft and twice as tough."),
+    "dark_iron": (None, "strength_hit", "Dark iron, forged hot and true. It doesn't miss what it's swung at."),
+    "truesilver": (None, "crusader", "Truesilver, for a paladin who heals with one hand and hits with the other."),
+    "thorium": (None, "tank", "Thorium plate. It's heavy, and nothing gets through it easily."),
+    "ashen_steel": (None, "hunter_crit", "Ashen steel, grey and cold, and every link of it is sharp."),
+    "arcanite": (None, "plate_healer", "Arcanite, the finest a smith can work. Healers who wear it rarely fall."),
+    "elementium": (None, "strength_crit", "Elementium. It's the best metal there is, and it hits like it."),
+}
+
+SMITH_LINES = [
+    (r"Chaplain|Shroudsteel|Arcane Plate|Tidesurge|Tideguard", None, "plate_healer",
+     "Blessed plate, made for the one keeping everyone else alive."),
+    (r"Crusader|Thunderfist|Fangplate|Silverfang|Duskplate|Earthshaker|Bronze Warhammer|Iron Warhammer|"
+     r"Iron Halberd|Felhewn|Accursed|Runeplate", None, "crusader", "Crusader's work: plate for a fighter who also prays."),
+    (r"Spellchain|Mystic|Runic|Bonegraft|Moonhowl|Naga Scale|Deepsea|Runescale|Putrid", None, "storm",
+     "Mail with runes cut into the rings, for a shaman's spells."),
+    (r"Warden|Plains Scale|Stonemace|Stonehoof|Stormblessed", None, "earthen",
+     "Mail for a shaman who fights up close."),
+    (r"Hunter's|Copper Scale|Saltcrusted|Carapace|Venomed|Thornscale|Serpentscale|Iron Scale|Blademark|"
+     r"Demonshard|Troll-Wrought", None, "hunter", "Hunter's mail, light at the shoulder so the bow draws clean."),
+    (r"Tower Shield|Plagued Iron|Rotboned", None, "tank", "Made for whoever stands at the front."),
+]
+
+# ---------------------------------------------------------------------------------------------
+# ENGINEERING. Goggles for every role (each pair says what it's for and what it's made of), the
+# hunter's guns, a few belts and gloves, and trinkets that DO things. Kyle, 10 Nov: "theyre NOT stat
+# sticks. They do stuff." Every engineering trinket carries a proc (see ENGINEERING_PROCS), not
+# just the ones over 50 that the rule requires: a gadget that does nothing isn't a gadget.
+# ---------------------------------------------------------------------------------------------
+ENGINEERING_METALS = {m: (None, "agility", "It's loud, it kicks, and it hits what it's pointed at.")
+                      for m in ("copper", "bronze", "iron", "steel", "gold", "mithril", "voidglass",
+                                "truesilver", "dark", "thorium", "arcanite", "elementium")}
+
+ENGINEERING_LINES = [
+    (r"Tinted Goggles", "cloth", "caster", "Tinted lenses, so a caster can look straight into a fireball."),
+    (r"Magnifying Goggles", "cloth", "precise_caster", "Lenses ground fine enough to read a rune at forty paces."),
+    (r"Prism Goggles", "cloth", "healer", "The prisms split the light, and somehow it's easier to see who's hurt."),
+    (r"Embersight", "cloth", "fire", "Lenses of fired glass. Everything looks a little warmer through them."),
+    (r"Tinker's Gloves", "cloth", "caster", "Fingerless, so a tinker can still feel the wires."),
+    (r"Copper Eyeshields", "leather", "agility", "Copper shields over the eyes, for sparks and for sand."),
+    (r"Smoked Lenses", "leather", "rogue_crit", "Smoked glass, so nobody sees where you're looking."),
+    (r"Welder's|Seamfinder|Sparkproof", "plate", "strength", "Heavy, scorched, and made for someone who works close to the fire."),
+    (r"Rangefinder|Voidsight", "mail", "hunter_precise", "A dial on the side clicks off the range to whatever you're aiming at."),
+    (r"Gilded Marksman's|Field Goggles", "mail", "hunter", "Marksman's lenses with a little brass sight on the rim."),
+    (r"Gyro-Visor", "mail", "hunter_crit", "A spinning gyroscope keeps the lens steady, however fast you move."),
+    (r"Bandolier", "mail", "hunter", "Loops for every kind of charge, and a few spares besides."),
+    (r"Shellguard", "mail", "hunter", "Thorium plates over the knuckles, for reloading under fire."),
+    (r"Siege Harness", "mail", "hunter_crit", "A harness built to carry a siege gun's kick. It carries a hunter's fine."),
+    (r"Voidglass Longrifle", None, "hunter_precise", "The voidglass scope sees a little further than it should."),
+    (r"Dark Iron Bombard|Arcanite Longrifle", None, "hunter_crit", "It's loud, it kicks, and it hits what it's pointed at."),
+    # trinkets
+    (r"Spark Coil", None, "agility", "A coil of copper wire that's always looking for something to touch."),
+    (r"Pocket Orrery", None, "caster", "Tiny brass planets turn inside it, and they keep better time than the sky."),
+    (r"Net-o-Matic", None, "strength", "Point it at whatever's hitting you. Most of the time it works."),
+    (r"Resonance Housing", None, "caster", "It hums along with your spells, and sometimes it sings back."),
+    (r"Mechanical Dragonling", None, "agility", "A clockwork whelp that sleeps in your pack until there's a fight."),
+    (r"Tidewright's Astrolabe", None, "healer", "It points at whoever needs healing most. It's usually right."),
+    (r"Gold Power Core", None, "tank", "A gold-wired core that flares when it's knocked."),
+    (r"Targeting Scope", None, "hunter", "A voidglass scope. It finds the weak spot before you do."),
+    (r"Arcanite Dragonling Core", None, "caster", "The heart of a clockwork dragon, still warm."),
+]
+
+#: The procs, by the trinket's name (a named variant, "Edwin's Pocket Orrery", shares its base's).
+#: Sized off the trinkets that already exist (claude/trinkets_must_do_things.md): at 55, an 8% proc
+#: with a 5-turn cooldown is +40 spell power for 3 turns, or a shield of 8% of your health, or 90
+#: mana. Every one has an internal cooldown.
+ENGINEERING_PROCS = [
+    (r"Spark Coil", {"trigger": "on_weapon_swing", "chance": 12, "icd": 3, "damage_flat": 15, "school": "nature",
+                     "describe": "Your attacks have a chance to zap the target for 15 nature damage."}),
+    (r"Pocket Orrery", {"trigger": "on_damage_cast", "chance": 10, "icd": 4,
+                        "grant_resource": {"resource": "mana", "amount": 30},
+                        "describe": "Your damaging spells have a chance to restore 30 mana."}),
+    (r"Net-o-Matic", {"trigger": "on_damage_taken", "chance": 8, "icd": 6,
+                      "apply_effect": {"effect_id": "netomatic_net", "name": "Netted", "effect_type": "debuff",
+                                       "duration": 1, "is_stun": True, "stat_mods": {}, "on_target": True},
+                      "describe": "When you're struck, you have a chance to throw a net over the attacker, "
+                                  "stopping it for a turn."}),
+    (r"Resonance Housing", {"trigger": "on_damage_cast", "chance": 8, "icd": 5,
+                            "apply_effect": {"effect_id": "resonance_hum", "name": "Resonance", "effect_type": "buff",
+                                             "duration": 3, "stat_mods": {"spell_power": 15}, "on_target": False},
+                            "describe": "Your damaging spells have a chance to grant 15 spell power for 3 turns."}),
+    (r"Mechanical Dragonling", {"trigger": "on_weapon_swing", "chance": 10, "icd": 3, "damage_flat": 55, "school": "fire",
+                                "describe": "Your attacks have a chance to wake your dragonling, which breathes "
+                                            "fire on the target for 55."}),
+    (r"Tidewright's Astrolabe", {"trigger": "on_heal_cast", "chance": 10, "icd": 4,
+                                 "apply_effect": {"effect_id": "astrolabe_tide", "name": "Turning Tide",
+                                                  "effect_type": "buff", "duration": 3,
+                                                  "stat_mods": {"healing_power": 25}, "on_target": False},
+                                 "describe": "Your healing spells have a chance to grant 25 healing power for 3 turns."}),
+    (r"Gold Power Core", {"trigger": "on_damage_taken", "chance": 10, "icd": 5,
+                          "apply_effect": {"effect_id": "power_core_flare", "name": "Core Flare", "effect_type": "buff",
+                                           "duration": 3, "absorb_pct_max_health": 0.06, "stat_mods": {},
+                                           "on_target": False},
+                          "describe": "When you're struck, the core has a chance to flare into a shield that "
+                                      "absorbs 6% of your health."}),
+    (r"Targeting Scope", {"trigger": "on_crit", "chance": 15, "icd": 4,
+                          "apply_effect": {"effect_id": "scope_lock", "name": "Target Locked", "effect_type": "buff",
+                                           "duration": 3, "stat_mods": {"attack_power": 50}, "on_target": False},
+                          "describe": "Your critical hits have a chance to grant 50 attack power for 3 turns."}),
+    (r"Arcanite Dragonling Core", {"trigger": "on_damage_cast", "chance": 10, "icd": 4, "damage_flat": 160,
+                                   "school": "fire",
+                                   "describe": "Your damaging spells have a chance to wake the core, which scorches "
+                                               "the target for 160 fire damage."}),
+]
+
+
+def proc_for(name):
+    for pat, proc in ENGINEERING_PROCS:
+        if re.search(pat, name):
+            return json.loads(json.dumps(proc))
+    return None
+
+
+TWO_HANDED = {"sword_2h", "axe_2h", "mace_2h", "polearm", "staff"}
+CASTING = {"tide_healer", "plate_healer", "storm", "healer", "mail_caster"}
+
+
+#: A mail piece from a plate metal takes the mail role nearest its metal's: hunters and shaman don't tank.
+MAIL_FALLBACK = {"tank": "earthen", "strength": "earthen", "strength_crit": "earthen",
+                 "strength_hit": "earthen", "crusader": "earthen", "plate_healer": "tide_healer",
+                 "melee_starter": "melee_starter"}
+
+
+def weapon_identity(weapon_type, ident):
+    """A weapon follows its metal, with two exceptions. A shield from a fighting metal is a tank's
+    shield (Stamina and block), and a two-hander from a tank metal hits like a strength weapon: no
+    one tanks with a greataxe."""
+    if weapon_type == "shield" and ident not in CASTING:
+        return "shield_tank"
+    if weapon_type in TWO_HANDED and ident in ("tank", "shield_tank", "bear"):
+        return "strength"
+    return ident
+
+
+#: Two recipes each, with different items (the older run sat above its skill). The older one takes
+#: a new name; the 300 pass keeps the plain one.
+RENAMES = {
+    "lw_emberscale_helm": "Emberscale Coif",
+    "lw_bloodtanned_vest": "Bloodtanned Jerkin",
+    "lw_bloodtanned_helm": "Bloodtanned Mask",
+}
+
+TRADES = {
+    "tailoring": {"materials": TAILORING_CLOTH, "lines": TAILORING_LINES, "family_rule": True},
+    "blacksmithing": {"materials": SMITH_METALS, "lines": SMITH_LINES, "curve": True},
+    "engineering": {"materials": ENGINEERING_METALS, "lines": ENGINEERING_LINES, "curve": True},
+    "leatherworking": {"materials": LEATHER_HIDES, "lines": LEATHER_LINES, "armour_words": True,
+                       "curve": True,
+                       "named_materials": ("cragscale", "stormscale", "stonebound", "dredged", "fiendish",
+                                           "hydra", "pristine", "savage", "frostscale", "emberscale",
+                                           "mossback", "netherdrake", "duskfang", "bloodtanned", "rugged")},
+}
+
+
+def armour_from_name(name):
+    """'leather' or 'mail' when the name says so, else None. Leather is checked first, so a
+    "Deepscale Leather Vest" is leather."""
+    if re.search(r"\bLeather\b", name):
+        return "leather"
+    if re.search(r"Mail|scale\b|Scale\b|Scaled|Coif", name):
+        return "mail"
+    return None
+
+
+def curve_level(recipe):
+    """The item level a recipe's skill earns: skill / 5 + 1, and 2 more for a named variant
+    ("Grisle's Wool Belt"). Tailoring already sits on it; a run of leatherworking sat 6 to 9 above."""
+    lvl = recipe.get("skill_required", 0) // 5 + 1
+    return lvl + 2 if "'s " in recipe["name"] else lvl
 
 
 # ---------------------------------------------------------------------------------------------
@@ -166,17 +433,24 @@ COST = _GEN.stat_budget_costs
 
 
 def identity_for(trade, recipe):
-    """(identity, flavour, where it came from) for one recipe. A named line wins over its material."""
+    """(armour or None, identity, flavour) for one recipe. A named line wins over its material (in
+    tailoring, only when it names a different school)."""
     t = TRADES[trade]
     tier = recipe["output"].get("material_tier")
+    # a piece named after another material is that material's piece ("Cragscale Bracers" made from
+    # thick leather is still Cragscale)
+    for other in t.get("named_materials", ()):
+        if other != tier and other.replace("_", " ").title() in recipe["name"].title():
+            tier = other
+            break
     base = t["materials"].get(tier)
-    for pat, ident, flav in t["lines"]:
+    for pat, arm, ident, flav in t["lines"]:
         if re.search(pat, recipe["name"]):
-            if base is None or family(ident) != family(base[0]):
-                return ident, flav, "line"
+            if not t.get("family_rule") or base is None or family(ident) != family(base[1]):
+                return arm, ident, flav
             break
     if base is not None:
-        return base[0], base[1], "material"
+        return base
     return None, None, None
 
 
@@ -201,13 +475,17 @@ def budget(out):
 #: worth having. Under this it's dropped and its share goes to the item's other stats.
 POWER = CASTER - {"crit_chance_spell", "spell_penetration", "mp5"} | {"attack_power"}
 POWER_FLOOR = 3
+#: the item level power starts to appear on gear
+POWER_FROM = 12
 
 
 def floor_for(stat, item_level):
     """The smallest a stat may be (Kyle: "Biggest thing is dribble on stats"). Ratings are whole
     percents, so 1 is a real stat; a +1 or +2 primary on a level 30 robe isn't."""
     if stat in POWER:
-        return POWER_FLOOR
+        # A low green is Agility and Stamina, or Intellect and Spirit, the way WoW's are. Power is
+        # cheap (2 AP a point), so at a low budget it would swallow the whole item: "+6 AP" gloves.
+        return POWER_FLOOR if item_level >= POWER_FROM else 10 ** 6
     if stat in PRIMARY:
         return 2 if item_level < 20 else 3
     # a rating is a whole percent, and a lone +1% under 70 spell power reads as a leftover (Kyle's
@@ -291,6 +569,9 @@ def author(rid, recipe, ident, flavour):
         "armor_value": ref.armor_value, "required_level": ref.required_level,
         "sell_price": ref.sell_price, "flavor_text": flavour, "identity": ident,
     }
+    proc = proc_for(recipe["name"]) if out["slot"] in ("trinket", "trinket1", "trinket2") else None
+    if proc:
+        item["proc"] = proc
     if out["kind"] == "weapon":
         item.update(weapon_damage_min=ref.weapon_damage_min, weapon_damage_max=ref.weapon_damage_max,
                     attack_speed=ref.attack_speed, block_value=ref.block_value)
@@ -305,7 +586,8 @@ POWER_LEADS_FROM = 25
 def audit_item(trade, rid, item):
     bad = []
     armour = item.get("armor_type")
-    allowed = ALLOWED.get(armour)
+    # a cloak is cloth for everyone (slots.json), so a rogue's cloak carries a rogue's stats
+    allowed = None if item["slot"] == "back" else ALLOWED.get(armour)
     stats = {**item["primary_stats"], **item["secondary_stats"]}
     tag = f"{rid} ({item['name']})"
     if allowed is not None:
@@ -318,12 +600,18 @@ def audit_item(trade, rid, item):
                 bad.append(f"{tag}: +{v} {st} is a dribble")
     if not stats:
         bad.append(f"{tag}: no stats")
-    if armour == "cloth" and item["item_level"] >= POWER_LEADS_FROM:
-        powers = {st: v for st, v in stats.items() if st in POWER}
-        if not powers:
-            bad.append(f"{tag}: high-end cloth with no spell power or healing")
-        elif max(powers.values()) < max(stats.values()):
-            bad.append(f"{tag}: its power isn't its biggest stat {stats}")
+    if item["slot"] in ("trinket", "trinket1", "trinket2") and trade == "engineering" and not item.get("proc"):
+        bad.append(f"{tag}: an engineering trinket that does nothing")
+    weights = IDENTITIES[item["identity"]][0]
+    if item["item_level"] >= POWER_LEADS_FROM:
+        wanted = [st for st in weights if st in POWER]
+        if wanted:
+            # Kyle: high-end cloth leads with spell power or healing, and physical gear with AP
+            powers = {st: v for st, v in stats.items() if st in POWER}
+            if not powers:
+                bad.append(f"{tag}: high-end gear with none of its power ({wanted[0]})")
+            elif max(powers.values()) < max(stats.values()):
+                bad.append(f"{tag}: its power isn't its biggest stat {stats}")
     return bad
 
 
@@ -339,7 +627,20 @@ def run(write):
             out = r.get("output") or {}
             if out.get("kind") not in ("armor", "weapon"):
                 continue
-            ident, flav, why = identity_for(trade, r)
+            t = TRADES[trade]
+            if rid in RENAMES:
+                r["name"] = RENAMES[rid]
+            arm, ident, flav = identity_for(trade, r)
+            if t.get("armour_words") and out["kind"] == "armor":
+                arm = armour_from_name(r["name"]) or arm
+            if arm and out["kind"] == "armor" and _GEN.slots["slots"][out["slot"]]["armor_slot"]:
+                out["armor_type"] = arm
+            if t.get("curve") and abs(out["item_level"] - curve_level(r)) > 3:
+                out["item_level"] = curve_level(r)
+            if ident is not None and out["kind"] == "weapon":
+                ident = weapon_identity(out["weapon_type"], ident)
+            if ident is not None and out["kind"] == "armor" and out.get("armor_type") == "mail" and trade == "blacksmithing":
+                ident = MAIL_FALLBACK.get(ident, ident)
             if ident is None:
                 bad.append(f"{trade} {rid} ({r['name']}): no identity for material {out.get('material_tier')}")
                 continue

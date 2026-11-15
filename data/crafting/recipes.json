@@ -2607,12 +2607,10 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 2,
+                "intellect": 4,
                 "stamina": 2
               },
-              "secondary_stats": {
-                "spell_power": 3
-              },
+              "secondary_stats": {},
               "armor_value": 11,
               "required_level": 7,
               "sell_price": 232,
@@ -2652,12 +2650,10 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 2,
+                "intellect": 4,
                 "stamina": 2
               },
-              "secondary_stats": {
-                "spell_power": 3
-              },
+              "secondary_stats": {},
               "armor_value": 14,
               "required_level": 8,
               "sell_price": 232,
@@ -3554,10 +3550,10 @@
               "armor_type": "cloth",
               "weapon_type": null,
               "stat_template": "spi_healer",
-              "primary_stats": {},
-              "secondary_stats": {
-                "healing_power": 7
+              "primary_stats": {
+                "spirit": 3
               },
+              "secondary_stats": {},
               "armor_value": 6,
               "required_level": 5,
               "sell_price": 68,
@@ -3597,10 +3593,10 @@
               "armor_type": "cloth",
               "weapon_type": null,
               "stat_template": "spi_healer",
-              "primary_stats": {},
-              "secondary_stats": {
-                "healing_power": 7
+              "primary_stats": {
+                "spirit": 3
               },
+              "secondary_stats": {},
               "armor_value": 6,
               "required_level": 6,
               "sell_price": 100,
@@ -3639,10 +3635,10 @@
               "armor_type": "cloth",
               "weapon_type": null,
               "stat_template": "spi_healer",
-              "primary_stats": {},
-              "secondary_stats": {
-                "healing_power": 9
+              "primary_stats": {
+                "spirit": 4
               },
+              "secondary_stats": {},
               "armor_value": 7,
               "required_level": 7,
               "sell_price": 151,
@@ -3682,12 +3678,10 @@
               "weapon_type": null,
               "stat_template": "spi_healer",
               "primary_stats": {
-                "spirit": 2,
+                "spirit": 5,
                 "intellect": 2
               },
-              "secondary_stats": {
-                "healing_power": 6
-              },
+              "secondary_stats": {},
               "armor_value": 12,
               "required_level": 8,
               "sell_price": 290,
@@ -3727,12 +3721,10 @@
               "weapon_type": null,
               "stat_template": "spi_healer",
               "primary_stats": {
-                "spirit": 2,
+                "spirit": 6,
                 "intellect": 2
               },
-              "secondary_stats": {
-                "healing_power": 7
-              },
+              "secondary_stats": {},
               "armor_value": 13,
               "required_level": 9,
               "sell_price": 354,
@@ -3836,12 +3828,10 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 4,
+                "intellect": 6,
                 "stamina": 2
               },
-              "secondary_stats": {
-                "spell_power": 3
-              },
+              "secondary_stats": {},
               "armor_value": 13,
               "required_level": 9,
               "sell_price": 354,
@@ -5890,10 +5880,10 @@
               "armor_type": "cloth",
               "weapon_type": null,
               "stat_template": "int_caster",
-              "primary_stats": {},
-              "secondary_stats": {
-                "shadow_spell_power": 5
+              "primary_stats": {
+                "intellect": 3
               },
+              "secondary_stats": {},
               "armor_value": 5,
               "required_level": 4,
               "sell_price": 50,
@@ -6702,12 +6692,10 @@
               "weapon_type": null,
               "stat_template": "int_caster",
               "primary_stats": {
-                "intellect": 2,
+                "intellect": 4,
                 "stamina": 2
               },
-              "secondary_stats": {
-                "spell_power": 4
-              },
+              "secondary_stats": {},
               "armor_value": 11,
               "required_level": 7,
               "sell_price": 232,
@@ -15997,7 +15985,29 @@
             "stat_template": "agi_physical",
             "item_level": 6,
             "rarity": "uncommon",
-            "material_tier": "copper"
+            "material_tier": "copper",
+            "item": {
+              "name": "Copper Flintlock",
+              "slot": "ranged",
+              "item_level": 6,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 3
+              },
+              "secondary_stats": {},
+              "armor_value": 0,
+              "required_level": 4,
+              "sell_price": 79,
+              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
+              "identity": "agility",
+              "weapon_damage_min": 12,
+              "weapon_damage_max": 16,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
           }
         },
         "eng_gun_bronze_blunderbuss": {
@@ -16023,7 +16033,31 @@
             "stat_template": "agi_physical",
             "item_level": 12,
             "rarity": "uncommon",
-            "material_tier": "bronze"
+            "material_tier": "bronze",
+            "item": {
+              "name": "Bronze Blunderbuss",
+              "slot": "ranged",
+              "item_level": 12,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 2
+              },
+              "secondary_stats": {
+                "attack_power": 6
+              },
+              "armor_value": 0,
+              "required_level": 10,
+              "sell_price": 340,
+              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
+              "identity": "agility",
+              "weapon_damage_min": 18,
+              "weapon_damage_max": 24,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
           },
           "vendor_location": "Any pattern vendor"
         },
@@ -16050,7 +16084,31 @@
             "stat_template": "agi_physical",
             "item_level": 15,
             "rarity": "uncommon",
-            "material_tier": "bronze"
+            "material_tier": "bronze",
+            "item": {
+              "name": "Ratchet Scattergun",
+              "slot": "ranged",
+              "item_level": 15,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 2
+              },
+              "secondary_stats": {
+                "attack_power": 9
+              },
+              "armor_value": 0,
+              "required_level": 13,
+              "sell_price": 543,
+              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
+              "identity": "agility",
+              "weapon_damage_min": 21,
+              "weapon_damage_max": 29,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
           },
           "vendor_location": "Ratchet"
         },
@@ -16077,7 +16135,32 @@
             "stat_template": "agi_physical",
             "item_level": 18,
             "rarity": "uncommon",
-            "material_tier": "iron"
+            "material_tier": "iron",
+            "item": {
+              "name": "Iron Rifle",
+              "slot": "ranged",
+              "item_level": 18,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 3,
+                "stamina": 2
+              },
+              "secondary_stats": {
+                "attack_power": 7
+              },
+              "armor_value": 5,
+              "required_level": 16,
+              "sell_price": 796,
+              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
+              "identity": "agility",
+              "weapon_damage_min": 24,
+              "weapon_damage_max": 33,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
           }
         },
         "eng_gun_long_barrelled_musket": {
@@ -16103,7 +16186,31 @@
             "stat_template": "agi_physical",
             "item_level": 21,
             "rarity": "rare",
-            "material_tier": "iron"
+            "material_tier": "iron",
+            "item": {
+              "name": "Long-Barrelled Musket",
+              "slot": "ranged",
+              "item_level": 21,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 4
+              },
+              "secondary_stats": {
+                "attack_power": 15
+              },
+              "armor_value": 4,
+              "required_level": 19,
+              "sell_price": 1650,
+              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
+              "identity": "agility",
+              "weapon_damage_min": 36,
+              "weapon_damage_max": 49,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
           }
         },
         "eng_gun_emberglass_repeater": {
@@ -16129,7 +16236,32 @@
             "stat_template": "agi_physical",
             "item_level": 25,
             "rarity": "rare",
-            "material_tier": "iron"
+            "material_tier": "iron",
+            "item": {
+              "name": "Emberglass Repeater",
+              "slot": "ranged",
+              "item_level": 25,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 5,
+                "stamina": 3
+              },
+              "secondary_stats": {
+                "attack_power": 13
+              },
+              "armor_value": 5,
+              "required_level": 23,
+              "sell_price": 2380,
+              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
+              "identity": "agility",
+              "weapon_damage_min": 41,
+              "weapon_damage_max": 56,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
           },
           "drop_zone": "Razorfen Kraul"
         },
@@ -16156,7 +16288,32 @@
             "stat_template": "agi_physical",
             "item_level": 27,
             "rarity": "rare",
-            "material_tier": "steel"
+            "material_tier": "steel",
+            "item": {
+              "name": "Steel Longrifle",
+              "slot": "ranged",
+              "item_level": 27,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 5,
+                "stamina": 3
+              },
+              "secondary_stats": {
+                "attack_power": 14
+              },
+              "armor_value": 0,
+              "required_level": 25,
+              "sell_price": 2798,
+              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
+              "identity": "agility",
+              "weapon_damage_min": 44,
+              "weapon_damage_max": 59,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
           }
         },
         "eng_gun_voidglass_longrifle": {
@@ -16183,7 +16340,31 @@
             "stat_template": "agi_physical",
             "item_level": 30,
             "rarity": "rare",
-            "material_tier": "steel"
+            "material_tier": "steel",
+            "item": {
+              "name": "Voidglass Longrifle",
+              "slot": "ranged",
+              "item_level": 30,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 7
+              },
+              "secondary_stats": {
+                "attack_power": 19
+              },
+              "armor_value": 0,
+              "required_level": 28,
+              "sell_price": 3490,
+              "flavor_text": "The voidglass scope sees a little further than it should.",
+              "identity": "hunter_precise",
+              "weapon_damage_min": 48,
+              "weapon_damage_max": 65,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
           },
           "drop_zone": "Shadowfang Keep"
         },
@@ -16204,11 +16385,29 @@
           "output": {
             "kind": "armor",
             "slot": "head",
-            "armor_type": "cloth",
+            "armor_type": "leather",
             "stat_template": "str_physical",
             "item_level": 2,
             "rarity": "uncommon",
-            "material_tier": "copper"
+            "material_tier": "copper",
+            "item": {
+              "name": "Copper Eyeshields",
+              "slot": "head",
+              "item_level": 2,
+              "rarity": "uncommon",
+              "armor_type": "leather",
+              "weapon_type": null,
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 1
+              },
+              "secondary_stats": {},
+              "armor_value": 4,
+              "required_level": 1,
+              "sell_price": 8,
+              "flavor_text": "Copper shields over the eyes, for sparks and for sand.",
+              "identity": "agility"
+            }
           }
         },
         "eng_goggles_tinted_goggles": {
@@ -16232,7 +16431,25 @@
             "stat_template": "int_caster",
             "item_level": 5,
             "rarity": "uncommon",
-            "material_tier": "copper"
+            "material_tier": "copper",
+            "item": {
+              "name": "Tinted Goggles",
+              "slot": "head",
+              "item_level": 5,
+              "rarity": "uncommon",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 3
+              },
+              "secondary_stats": {},
+              "armor_value": 5,
+              "required_level": 3,
+              "sell_price": 54,
+              "flavor_text": "Tinted lenses, so a caster can look straight into a fireball.",
+              "identity": "caster"
+            }
           }
         },
         "eng_goggles_welders_goggles": {
@@ -16252,11 +16469,29 @@
           "output": {
             "kind": "armor",
             "slot": "head",
-            "armor_type": "mail",
+            "armor_type": "plate",
             "stat_template": "str_physical",
             "item_level": 8,
             "rarity": "uncommon",
-            "material_tier": "copper"
+            "material_tier": "copper",
+            "item": {
+              "name": "Welder's Goggles",
+              "slot": "head",
+              "item_level": 8,
+              "rarity": "uncommon",
+              "armor_type": "plate",
+              "weapon_type": null,
+              "stat_template": "str_physical",
+              "primary_stats": {
+                "strength": 5
+              },
+              "secondary_stats": {},
+              "armor_value": 40,
+              "required_level": 6,
+              "sell_price": 145,
+              "flavor_text": "Heavy, scorched, and made for someone who works close to the fire.",
+              "identity": "strength"
+            }
           }
         },
         "eng_goggles_smoked_lenses": {
@@ -16277,11 +16512,29 @@
           "output": {
             "kind": "armor",
             "slot": "head",
-            "armor_type": "cloth",
+            "armor_type": "leather",
             "stat_template": "agi_physical",
             "item_level": 11,
             "rarity": "uncommon",
-            "material_tier": "bronze"
+            "material_tier": "bronze",
+            "item": {
+              "name": "Smoked Lenses",
+              "slot": "head",
+              "item_level": 11,
+              "rarity": "uncommon",
+              "armor_type": "leather",
+              "weapon_type": null,
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 6
+              },
+              "secondary_stats": {},
+              "armor_value": 23,
+              "required_level": 9,
+              "sell_price": 283,
+              "flavor_text": "Smoked glass, so nobody sees where you're looking.",
+              "identity": "rogue_crit"
+            }
           }
         },
         "eng_goggles_magnifying_goggles": {
@@ -16306,7 +16559,27 @@
             "stat_template": "int_caster",
             "item_level": 13,
             "rarity": "uncommon",
-            "material_tier": "bronze"
+            "material_tier": "bronze",
+            "item": {
+              "name": "Magnifying Goggles",
+              "slot": "head",
+              "item_level": 13,
+              "rarity": "uncommon",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 2
+              },
+              "secondary_stats": {
+                "spell_power": 8
+              },
+              "armor_value": 13,
+              "required_level": 11,
+              "sell_price": 402,
+              "flavor_text": "Lenses ground fine enough to read a rune at forty paces.",
+              "identity": "precise_caster"
+            }
           }
         },
         "eng_goggles_prism_goggles": {
@@ -16331,7 +16604,28 @@
             "stat_template": "spi_healer",
             "item_level": 16,
             "rarity": "uncommon",
-            "material_tier": "bronze"
+            "material_tier": "bronze",
+            "item": {
+              "name": "Prism Goggles",
+              "slot": "head",
+              "item_level": 16,
+              "rarity": "uncommon",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 2,
+                "intellect": 2
+              },
+              "secondary_stats": {
+                "healing_power": 10
+              },
+              "armor_value": 16,
+              "required_level": 14,
+              "sell_price": 622,
+              "flavor_text": "The prisms split the light, and somehow it's easier to see who's hurt.",
+              "identity": "healer"
+            }
           },
           "vendor_location": "Any pattern vendor"
         },
@@ -16357,7 +16651,27 @@
             "stat_template": "agi_physical",
             "item_level": 19,
             "rarity": "uncommon",
-            "material_tier": "iron"
+            "material_tier": "iron",
+            "item": {
+              "name": "Rangefinder Goggles",
+              "slot": "head",
+              "item_level": 19,
+              "rarity": "uncommon",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 5
+              },
+              "secondary_stats": {
+                "attack_power": 13
+              },
+              "armor_value": 64,
+              "required_level": 17,
+              "sell_price": 892,
+              "flavor_text": "A dial on the side clicks off the range to whatever you're aiming at.",
+              "identity": "hunter_precise"
+            }
           },
           "vendor_location": "Any pattern vendor"
         },
@@ -16379,11 +16693,32 @@
           "output": {
             "kind": "armor",
             "slot": "head",
-            "armor_type": "mail",
+            "armor_type": "plate",
             "stat_template": "str_physical",
             "item_level": 23,
             "rarity": "rare",
-            "material_tier": "iron"
+            "material_tier": "iron",
+            "item": {
+              "name": "Seamfinder Goggles",
+              "slot": "head",
+              "item_level": 23,
+              "rarity": "rare",
+              "armor_type": "plate",
+              "weapon_type": null,
+              "stat_template": "str_physical",
+              "primary_stats": {
+                "strength": 6,
+                "stamina": 4
+              },
+              "secondary_stats": {
+                "attack_power": 16
+              },
+              "armor_value": 159,
+              "required_level": 21,
+              "sell_price": 1998,
+              "flavor_text": "Heavy, scorched, and made for someone who works close to the fire.",
+              "identity": "strength"
+            }
           },
           "vendor_location": "Orgrimmar"
         },
@@ -16406,11 +16741,31 @@
           "output": {
             "kind": "armor",
             "slot": "head",
-            "armor_type": "mail",
+            "armor_type": "cloth",
             "stat_template": "int_caster",
             "item_level": 26,
             "rarity": "rare",
-            "material_tier": "steel"
+            "material_tier": "steel",
+            "item": {
+              "name": "Embersight Goggles",
+              "slot": "head",
+              "item_level": 26,
+              "rarity": "rare",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 8
+              },
+              "secondary_stats": {
+                "fire_spell_power": 22
+              },
+              "armor_value": 42,
+              "required_level": 24,
+              "sell_price": 2584,
+              "flavor_text": "Lenses of fired glass. Everything looks a little warmer through them.",
+              "identity": "fire"
+            }
           },
           "drop_zone": "Wailing Caverns"
         },
@@ -16438,7 +16793,27 @@
             "stat_template": "agi_physical",
             "item_level": 30,
             "rarity": "rare",
-            "material_tier": "steel"
+            "material_tier": "steel",
+            "item": {
+              "name": "Voidsight Goggles",
+              "slot": "head",
+              "item_level": 30,
+              "rarity": "rare",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 10
+              },
+              "secondary_stats": {
+                "attack_power": 26
+              },
+              "armor_value": 140,
+              "required_level": 28,
+              "sell_price": 3490,
+              "flavor_text": "A dial on the side clicks off the range to whatever you're aiming at.",
+              "identity": "hunter_precise"
+            }
           },
           "drop_zone": "Blackfathom Deeps"
         },
@@ -16464,7 +16839,33 @@
             "stat_template": "agi_physical",
             "item_level": 5,
             "rarity": "uncommon",
-            "material_tier": "copper"
+            "material_tier": "copper",
+            "item": {
+              "name": "Spark Coil",
+              "slot": "trinket",
+              "item_level": 5,
+              "rarity": "uncommon",
+              "armor_type": "accessory",
+              "weapon_type": null,
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 2
+              },
+              "secondary_stats": {},
+              "armor_value": 0,
+              "required_level": 3,
+              "sell_price": 47,
+              "flavor_text": "A coil of copper wire that's always looking for something to touch.",
+              "identity": "agility",
+              "proc": {
+                "trigger": "on_weapon_swing",
+                "chance": 12,
+                "icd": 3,
+                "damage_flat": 15,
+                "school": "nature",
+                "describe": "Your attacks have a chance to zap the target for 15 nature damage."
+              }
+            }
           }
         },
         "eng_trinket_pocket_orrery": {
@@ -16489,7 +16890,37 @@
             "stat_template": "int_caster",
             "item_level": 13,
             "rarity": "uncommon",
-            "material_tier": "bronze"
+            "material_tier": "bronze",
+            "item": {
+              "name": "Pocket Orrery",
+              "slot": "trinket",
+              "item_level": 13,
+              "rarity": "uncommon",
+              "armor_type": "accessory",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 2
+              },
+              "secondary_stats": {
+                "spell_power": 5
+              },
+              "armor_value": 0,
+              "required_level": 11,
+              "sell_price": 352,
+              "flavor_text": "Tiny brass planets turn inside it, and they keep better time than the sky.",
+              "identity": "caster",
+              "proc": {
+                "trigger": "on_damage_cast",
+                "chance": 10,
+                "icd": 4,
+                "grant_resource": {
+                  "resource": "mana",
+                  "amount": 30
+                },
+                "describe": "Your damaging spells have a chance to restore 30 mana."
+              }
+            }
           }
         },
         "eng_trinket_net_o_matic_projector": {
@@ -16514,7 +16945,43 @@
             "stat_template": "str_physical",
             "item_level": 18,
             "rarity": "uncommon",
-            "material_tier": "iron"
+            "material_tier": "iron",
+            "item": {
+              "name": "Net-o-Matic Projector",
+              "slot": "trinket",
+              "item_level": 18,
+              "rarity": "uncommon",
+              "armor_type": "accessory",
+              "weapon_type": null,
+              "stat_template": "str_physical",
+              "primary_stats": {
+                "strength": 3,
+                "stamina": 2
+              },
+              "secondary_stats": {
+                "attack_power": 7
+              },
+              "armor_value": 0,
+              "required_level": 16,
+              "sell_price": 696,
+              "flavor_text": "Point it at whatever's hitting you. Most of the time it works.",
+              "identity": "strength",
+              "proc": {
+                "trigger": "on_damage_taken",
+                "chance": 8,
+                "icd": 6,
+                "apply_effect": {
+                  "effect_id": "netomatic_net",
+                  "name": "Netted",
+                  "effect_type": "debuff",
+                  "duration": 1,
+                  "is_stun": true,
+                  "stat_mods": {},
+                  "on_target": true
+                },
+                "describe": "When you're struck, you have a chance to throw a net over the attacker, stopping it for a turn."
+              }
+            }
           },
           "drop_zone": "Ragefire Chasm"
         },
@@ -16540,7 +17007,43 @@
             "stat_template": "int_caster",
             "item_level": 22,
             "rarity": "rare",
-            "material_tier": "iron"
+            "material_tier": "iron",
+            "item": {
+              "name": "Resonance Housing",
+              "slot": "trinket",
+              "item_level": 22,
+              "rarity": "rare",
+              "armor_type": "accessory",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 5
+              },
+              "secondary_stats": {
+                "spell_power": 11
+              },
+              "armor_value": 4,
+              "required_level": 20,
+              "sell_price": 1592,
+              "flavor_text": "It hums along with your spells, and sometimes it sings back.",
+              "identity": "caster",
+              "proc": {
+                "trigger": "on_damage_cast",
+                "chance": 8,
+                "icd": 5,
+                "apply_effect": {
+                  "effect_id": "resonance_hum",
+                  "name": "Resonance",
+                  "effect_type": "buff",
+                  "duration": 3,
+                  "stat_mods": {
+                    "spell_power": 15
+                  },
+                  "on_target": false
+                },
+                "describe": "Your damaging spells have a chance to grant 15 spell power for 3 turns."
+              }
+            }
           }
         },
         "eng_trinket_mechanical_dragonling": {
@@ -16567,7 +17070,36 @@
             "stat_template": "agi_physical",
             "item_level": 27,
             "rarity": "rare",
-            "material_tier": "steel"
+            "material_tier": "steel",
+            "item": {
+              "name": "Mechanical Dragonling",
+              "slot": "trinket",
+              "item_level": 27,
+              "rarity": "rare",
+              "armor_type": "accessory",
+              "weapon_type": null,
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 5,
+                "stamina": 3
+              },
+              "secondary_stats": {
+                "attack_power": 14
+              },
+              "armor_value": 0,
+              "required_level": 25,
+              "sell_price": 2448,
+              "flavor_text": "A clockwork whelp that sleeps in your pack until there's a fight.",
+              "identity": "agility",
+              "proc": {
+                "trigger": "on_weapon_swing",
+                "chance": 10,
+                "icd": 3,
+                "damage_flat": 55,
+                "school": "fire",
+                "describe": "Your attacks have a chance to wake your dragonling, which breathes fire on the target for 55."
+              }
+            }
           },
           "drop_zone": "Grom's Rest"
         },
@@ -16594,7 +17126,44 @@
             "stat_template": "spi_healer",
             "item_level": 30,
             "rarity": "rare",
-            "material_tier": "steel"
+            "material_tier": "steel",
+            "item": {
+              "name": "Tidewright's Astrolabe",
+              "slot": "trinket",
+              "item_level": 30,
+              "rarity": "rare",
+              "armor_type": "accessory",
+              "weapon_type": null,
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 4,
+                "intellect": 3
+              },
+              "secondary_stats": {
+                "healing_power": 19
+              },
+              "armor_value": 0,
+              "required_level": 28,
+              "sell_price": 3054,
+              "flavor_text": "It points at whoever needs healing most. It's usually right.",
+              "identity": "healer",
+              "proc": {
+                "trigger": "on_heal_cast",
+                "chance": 10,
+                "icd": 4,
+                "apply_effect": {
+                  "effect_id": "astrolabe_tide",
+                  "name": "Turning Tide",
+                  "effect_type": "buff",
+                  "duration": 3,
+                  "stat_mods": {
+                    "healing_power": 25
+                  },
+                  "on_target": false
+                },
+                "describe": "Your healing spells have a chance to grant 25 healing power for 3 turns."
+              }
+            }
           },
           "vendor_location": "The Sepulcher"
         },
@@ -16620,7 +17189,25 @@
             "stat_template": "int_caster",
             "item_level": 7,
             "rarity": "uncommon",
-            "material_tier": "copper"
+            "material_tier": "copper",
+            "item": {
+              "name": "Tinker's Gloves",
+              "slot": "hands",
+              "item_level": 7,
+              "rarity": "uncommon",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 3
+              },
+              "secondary_stats": {},
+              "armor_value": 6,
+              "required_level": 5,
+              "sell_price": 89,
+              "flavor_text": "Fingerless, so a tinker can still feel the wires.",
+              "identity": "caster"
+            }
           }
         },
         "eng_bandolier_of_charges": {
@@ -16645,7 +17232,28 @@
             "stat_template": "agi_physical",
             "item_level": 16,
             "rarity": "uncommon",
-            "material_tier": "bronze"
+            "material_tier": "bronze",
+            "item": {
+              "name": "Bandolier of Charges",
+              "slot": "waist",
+              "item_level": 16,
+              "rarity": "uncommon",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 2,
+                "intellect": 2
+              },
+              "secondary_stats": {
+                "attack_power": 7
+              },
+              "armor_value": 49,
+              "required_level": 14,
+              "sell_price": 427,
+              "flavor_text": "Loops for every kind of charge, and a few spares besides.",
+              "identity": "hunter"
+            }
           }
         },
         "eng_sparkproof_gauntlets": {
@@ -16666,11 +17274,32 @@
           "output": {
             "kind": "armor",
             "slot": "hands",
-            "armor_type": "mail",
+            "armor_type": "plate",
             "stat_template": "str_physical",
             "item_level": 23,
             "rarity": "rare",
-            "material_tier": "iron"
+            "material_tier": "iron",
+            "item": {
+              "name": "Sparkproof Gauntlets",
+              "slot": "hands",
+              "item_level": 23,
+              "rarity": "rare",
+              "armor_type": "plate",
+              "weapon_type": null,
+              "stat_template": "str_physical",
+              "primary_stats": {
+                "strength": 5,
+                "stamina": 3
+              },
+              "secondary_stats": {
+                "attack_power": 13
+              },
+              "armor_value": 125,
+              "required_level": 21,
+              "sell_price": 1623,
+              "flavor_text": "Heavy, scorched, and made for someone who works close to the fire.",
+              "identity": "strength"
+            }
           },
           "drop_zone": "Plague Depths"
         },
@@ -16696,7 +17325,28 @@
             "stat_template": "agi_physical",
             "item_level": 29,
             "rarity": "rare",
-            "material_tier": "steel"
+            "material_tier": "steel",
+            "item": {
+              "name": "Voidglass Bandolier",
+              "slot": "waist",
+              "item_level": 29,
+              "rarity": "rare",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 5,
+                "intellect": 5
+              },
+              "secondary_stats": {
+                "attack_power": 16
+              },
+              "armor_value": 105,
+              "required_level": 27,
+              "sell_price": 2235,
+              "flavor_text": "Loops for every kind of charge, and a few spares besides.",
+              "identity": "hunter"
+            }
           },
           "vendor_location": "Undercity"
         },
@@ -17324,7 +17974,41 @@
             "stat_template": "agi_int_hybrid",
             "item_level": 32,
             "rarity": "uncommon",
-            "material_tier": "gold"
+            "material_tier": "gold",
+            "item": {
+              "name": "Gold Power Core",
+              "slot": "trinket",
+              "item_level": 32,
+              "rarity": "uncommon",
+              "armor_type": "accessory",
+              "weapon_type": null,
+              "stat_template": "str_physical",
+              "primary_stats": {
+                "stamina": 10,
+                "strength": 4
+              },
+              "secondary_stats": {},
+              "armor_value": 0,
+              "required_level": 30,
+              "sell_price": 2332,
+              "flavor_text": "A gold-wired core that flares when it's knocked.",
+              "identity": "tank",
+              "proc": {
+                "trigger": "on_damage_taken",
+                "chance": 10,
+                "icd": 5,
+                "apply_effect": {
+                  "effect_id": "power_core_flare",
+                  "name": "Core Flare",
+                  "effect_type": "buff",
+                  "duration": 3,
+                  "absorb_pct_max_health": 0.06,
+                  "stat_mods": {},
+                  "on_target": false
+                },
+                "describe": "When you're struck, the core has a chance to flare into a shield that absorbs 6% of your health."
+              }
+            }
           },
           "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
         },
@@ -17349,7 +18033,28 @@
             "stat_template": "agi_physical",
             "item_level": 34,
             "rarity": "uncommon",
-            "material_tier": "gold"
+            "material_tier": "gold",
+            "item": {
+              "name": "Gilded Marksman's Goggles",
+              "slot": "head",
+              "item_level": 34,
+              "rarity": "uncommon",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 6,
+                "intellect": 5
+              },
+              "secondary_stats": {
+                "attack_power": 18
+              },
+              "armor_value": 115,
+              "required_level": 32,
+              "sell_price": 3026,
+              "flavor_text": "Marksman's lenses with a little brass sight on the rim.",
+              "identity": "hunter"
+            }
           },
           "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
         },
@@ -17375,7 +18080,32 @@
             "stat_template": "agi_physical",
             "item_level": 38,
             "rarity": "rare",
-            "material_tier": "gold"
+            "material_tier": "gold",
+            "item": {
+              "name": "Gold-Wired Longrifle",
+              "slot": "ranged",
+              "item_level": 38,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 7,
+                "stamina": 4
+              },
+              "secondary_stats": {
+                "attack_power": 20
+              },
+              "armor_value": 0,
+              "required_level": 36,
+              "sell_price": 5734,
+              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
+              "identity": "agility",
+              "weapon_damage_min": 59,
+              "weapon_damage_max": 80,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
           },
           "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials)."
         },
@@ -17401,7 +18131,32 @@
             "stat_template": "agi_physical",
             "item_level": 39,
             "rarity": "rare",
-            "material_tier": "mithril"
+            "material_tier": "mithril",
+            "item": {
+              "name": "Mithril Blunderbuss",
+              "slot": "ranged",
+              "item_level": 39,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 8,
+                "stamina": 4
+              },
+              "secondary_stats": {
+                "attack_power": 20
+              },
+              "armor_value": 0,
+              "required_level": 37,
+              "sell_price": 6055,
+              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
+              "identity": "agility",
+              "weapon_damage_min": 60,
+              "weapon_damage_max": 81,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
           }
         },
         "eng300_mithril_field_goggles": {
@@ -17425,7 +18180,28 @@
             "stat_template": "agi_int_hybrid",
             "item_level": 42,
             "rarity": "rare",
-            "material_tier": "mithril"
+            "material_tier": "mithril",
+            "item": {
+              "name": "Mithril Field Goggles",
+              "slot": "head",
+              "item_level": 42,
+              "rarity": "rare",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 10,
+                "intellect": 8
+              },
+              "secondary_stats": {
+                "attack_power": 29
+              },
+              "armor_value": 186,
+              "required_level": 40,
+              "sell_price": 7075,
+              "flavor_text": "Marksman's lenses with a little brass sight on the rim.",
+              "identity": "hunter"
+            }
           }
         },
         "eng300_voidglass_targeting_scope": {
@@ -17450,7 +18226,44 @@
             "stat_template": "agi_physical",
             "item_level": 45,
             "rarity": "rare",
-            "material_tier": "voidglass"
+            "material_tier": "voidglass",
+            "item": {
+              "name": "Voidglass Targeting Scope",
+              "slot": "trinket",
+              "item_level": 45,
+              "rarity": "rare",
+              "armor_type": "accessory",
+              "weapon_type": null,
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 8,
+                "intellect": 6
+              },
+              "secondary_stats": {
+                "attack_power": 23
+              },
+              "armor_value": 0,
+              "required_level": 43,
+              "sell_price": 7156,
+              "flavor_text": "A voidglass scope. It finds the weak spot before you do.",
+              "identity": "hunter",
+              "proc": {
+                "trigger": "on_crit",
+                "chance": 15,
+                "icd": 4,
+                "apply_effect": {
+                  "effect_id": "scope_lock",
+                  "name": "Target Locked",
+                  "effect_type": "buff",
+                  "duration": 3,
+                  "stat_mods": {
+                    "attack_power": 50
+                  },
+                  "on_target": false
+                },
+                "describe": "Your critical hits have a chance to grant 50 attack power for 3 turns."
+              }
+            }
           }
         },
         "eng300_truesilver_repeater": {
@@ -17475,7 +18288,32 @@
             "stat_template": "agi_int_hybrid",
             "item_level": 48,
             "rarity": "rare",
-            "material_tier": "truesilver"
+            "material_tier": "truesilver",
+            "item": {
+              "name": "Truesilver Repeater",
+              "slot": "ranged",
+              "item_level": 48,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 9,
+                "stamina": 5
+              },
+              "secondary_stats": {
+                "attack_power": 25
+              },
+              "armor_value": 0,
+              "required_level": 46,
+              "sell_price": 9365,
+              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
+              "identity": "agility",
+              "weapon_damage_min": 72,
+              "weapon_damage_max": 98,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
           }
         },
         "eng300_dark_iron_bombard": {
@@ -17500,7 +18338,31 @@
             "stat_template": "agi_physical",
             "item_level": 51,
             "rarity": "rare",
-            "material_tier": "dark"
+            "material_tier": "dark",
+            "item": {
+              "name": "Dark Iron Bombard",
+              "slot": "ranged",
+              "item_level": 51,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 12
+              },
+              "secondary_stats": {
+                "attack_power": 32
+              },
+              "armor_value": 9,
+              "required_level": 49,
+              "sell_price": 10637,
+              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
+              "identity": "hunter_crit",
+              "weapon_damage_min": 76,
+              "weapon_damage_max": 103,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
           }
         },
         "eng300_thorium_shellguard": {
@@ -17524,7 +18386,28 @@
             "stat_template": "agi_physical",
             "item_level": 53,
             "rarity": "rare",
-            "material_tier": "thorium"
+            "material_tier": "thorium",
+            "item": {
+              "name": "Thorium Shellguard",
+              "slot": "hands",
+              "item_level": 53,
+              "rarity": "rare",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 10,
+                "intellect": 8
+              },
+              "secondary_stats": {
+                "attack_power": 30
+              },
+              "armor_value": 192,
+              "required_level": 51,
+              "sell_price": 9369,
+              "flavor_text": "Thorium plates over the knuckles, for reloading under fire.",
+              "identity": "hunter"
+            }
           }
         },
         "eng300_thorium_gyro_visor": {
@@ -17549,7 +18432,28 @@
             "stat_template": "agi_int_hybrid",
             "item_level": 55,
             "rarity": "epic",
-            "material_tier": "thorium"
+            "material_tier": "thorium",
+            "item": {
+              "name": "Thorium Gyro-Visor",
+              "slot": "head",
+              "item_level": 55,
+              "rarity": "epic",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 15
+              },
+              "secondary_stats": {
+                "crit_chance_physical": 2,
+                "attack_power": 39
+              },
+              "armor_value": 328,
+              "required_level": 53,
+              "sell_price": 21605,
+              "flavor_text": "A spinning gyroscope keeps the lens steady, however fast you move.",
+              "identity": "hunter_crit"
+            }
           }
         },
         "eng300_arcanite_dragonling_core": {
@@ -17574,7 +18478,35 @@
             "stat_template": "int_caster",
             "item_level": 58,
             "rarity": "epic",
-            "material_tier": "arcanite"
+            "material_tier": "arcanite",
+            "item": {
+              "name": "Arcanite Dragonling Core",
+              "slot": "trinket",
+              "item_level": 58,
+              "rarity": "epic",
+              "armor_type": "accessory",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 17
+              },
+              "secondary_stats": {
+                "spell_power": 38
+              },
+              "armor_value": 9,
+              "required_level": 56,
+              "sell_price": 21135,
+              "flavor_text": "The heart of a clockwork dragon, still warm.",
+              "identity": "caster",
+              "proc": {
+                "trigger": "on_damage_cast",
+                "chance": 10,
+                "icd": 4,
+                "damage_flat": 160,
+                "school": "fire",
+                "describe": "Your damaging spells have a chance to wake the core, which scorches the target for 160 fire damage."
+              }
+            }
           }
         },
         "eng300_arcanite_longrifle": {
@@ -17600,7 +18532,31 @@
             "stat_template": "agi_physical",
             "item_level": 60,
             "rarity": "epic",
-            "material_tier": "arcanite"
+            "material_tier": "arcanite",
+            "item": {
+              "name": "Arcanite Longrifle",
+              "slot": "ranged",
+              "item_level": 60,
+              "rarity": "epic",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 19
+              },
+              "secondary_stats": {
+                "attack_power": 49
+              },
+              "armor_value": 9,
+              "required_level": 58,
+              "sell_price": 25936,
+              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
+              "identity": "hunter_crit",
+              "weapon_damage_min": 115,
+              "weapon_damage_max": 155,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
           }
         },
         "eng300_elementium_siege_harness": {
@@ -17625,7 +18581,28 @@
             "stat_template": "agi_physical",
             "item_level": 61,
             "rarity": "epic",
-            "material_tier": "elementium"
+            "material_tier": "elementium",
+            "item": {
+              "name": "Elementium Siege Harness",
+              "slot": "chest",
+              "item_level": 61,
+              "rarity": "epic",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 22
+              },
+              "secondary_stats": {
+                "crit_chance_physical": 2,
+                "attack_power": 59
+              },
+              "armor_value": 430,
+              "required_level": 59,
+              "sell_price": 33566,
+              "flavor_text": "A harness built to carry a siege gun's kick. It carries a hunter's fine.",
+              "identity": "hunter_crit"
+            }
           }
         },
         "secret_hz_caravan_amun_eng300_voidglass_targeting_scope": {
@@ -17650,7 +18627,44 @@
             "stat_template": "agi_physical",
             "item_level": 47,
             "rarity": "rare",
-            "material_tier": "voidglass"
+            "material_tier": "voidglass",
+            "item": {
+              "name": "Amun-Who-Stayed's Voidglass Targeting Scope",
+              "slot": "trinket",
+              "item_level": 47,
+              "rarity": "rare",
+              "armor_type": "accessory",
+              "weapon_type": null,
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 8,
+                "intellect": 7
+              },
+              "secondary_stats": {
+                "attack_power": 24
+              },
+              "armor_value": 9,
+              "required_level": 45,
+              "sell_price": 7840,
+              "flavor_text": "A voidglass scope. It finds the weak spot before you do.",
+              "identity": "hunter",
+              "proc": {
+                "trigger": "on_crit",
+                "chance": 15,
+                "icd": 4,
+                "apply_effect": {
+                  "effect_id": "scope_lock",
+                  "name": "Target Locked",
+                  "effect_type": "buff",
+                  "duration": 3,
+                  "stat_mods": {
+                    "attack_power": 50
+                  },
+                  "on_target": false
+                },
+                "describe": "Your critical hits have a chance to grant 50 attack power for 3 turns."
+              }
+            }
           },
           "secret": true,
           "sold_by": [
@@ -17679,7 +18693,37 @@
             "stat_template": "int_caster",
             "item_level": 15,
             "rarity": "rare",
-            "material_tier": "bronze"
+            "material_tier": "bronze",
+            "item": {
+              "name": "Edwin's Pocket Orrery",
+              "slot": "trinket",
+              "item_level": 15,
+              "rarity": "rare",
+              "armor_type": "accessory",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 3
+              },
+              "secondary_stats": {
+                "spell_power": 8
+              },
+              "armor_value": 0,
+              "required_level": 13,
+              "sell_price": 712,
+              "flavor_text": "Tiny brass planets turn inside it, and they keep better time than the sky.",
+              "identity": "caster",
+              "proc": {
+                "trigger": "on_damage_cast",
+                "chance": 10,
+                "icd": 4,
+                "grant_resource": {
+                  "resource": "mana",
+                  "amount": 30
+                },
+                "describe": "Your damaging spells have a chance to restore 30 mana."
+              }
+            }
           },
           "secret": true,
           "sold_by": [
@@ -17708,7 +18752,27 @@
             "stat_template": "agi_physical",
             "item_level": 21,
             "rarity": "rare",
-            "material_tier": "iron"
+            "material_tier": "iron",
+            "item": {
+              "name": "Tazzle's Rangefinder Goggles",
+              "slot": "head",
+              "item_level": 21,
+              "rarity": "rare",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 7
+              },
+              "secondary_stats": {
+                "attack_power": 18
+              },
+              "armor_value": 98,
+              "required_level": 19,
+              "sell_price": 1650,
+              "flavor_text": "A dial on the side clicks off the range to whatever you're aiming at.",
+              "identity": "hunter_precise"
+            }
           },
           "vendor_location": "Any pattern vendor",
           "secret": true,
@@ -17738,7 +18802,27 @@
             "stat_template": "agi_physical",
             "item_level": 21,
             "rarity": "rare",
-            "material_tier": "iron"
+            "material_tier": "iron",
+            "item": {
+              "name": "Undertow's Rangefinder Goggles",
+              "slot": "head",
+              "item_level": 21,
+              "rarity": "rare",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 7
+              },
+              "secondary_stats": {
+                "attack_power": 18
+              },
+              "armor_value": 93,
+              "required_level": 19,
+              "sell_price": 1650,
+              "flavor_text": "A dial on the side clicks off the range to whatever you're aiming at.",
+              "identity": "hunter_precise"
+            }
           },
           "vendor_location": "Any pattern vendor",
           "secret": true,
@@ -17767,7 +18851,28 @@
             "stat_template": "agi_int_hybrid",
             "item_level": 44,
             "rarity": "rare",
-            "material_tier": "mithril"
+            "material_tier": "mithril",
+            "item": {
+              "name": "Vell's Mithril Field Goggles",
+              "slot": "head",
+              "item_level": 44,
+              "rarity": "rare",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 10,
+                "intellect": 8
+              },
+              "secondary_stats": {
+                "attack_power": 31
+              },
+              "armor_value": 206,
+              "required_level": 42,
+              "sell_price": 7801,
+              "flavor_text": "Marksman's lenses with a little brass sight on the rim.",
+              "identity": "hunter"
+            }
           },
           "secret": true,
           "sold_by": [
@@ -17796,7 +18901,44 @@
             "stat_template": "agi_physical",
             "item_level": 47,
             "rarity": "rare",
-            "material_tier": "voidglass"
+            "material_tier": "voidglass",
+            "item": {
+              "name": "Crankloot's Voidglass Targeting Scope",
+              "slot": "trinket",
+              "item_level": 47,
+              "rarity": "rare",
+              "armor_type": "accessory",
+              "weapon_type": null,
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 8,
+                "intellect": 7
+              },
+              "secondary_stats": {
+                "attack_power": 24
+              },
+              "armor_value": 9,
+              "required_level": 45,
+              "sell_price": 7840,
+              "flavor_text": "A voidglass scope. It finds the weak spot before you do.",
+              "identity": "hunter",
+              "proc": {
+                "trigger": "on_crit",
+                "chance": 15,
+                "icd": 4,
+                "apply_effect": {
+                  "effect_id": "scope_lock",
+                  "name": "Target Locked",
+                  "effect_type": "buff",
+                  "duration": 3,
+                  "stat_mods": {
+                    "attack_power": 50
+                  },
+                  "on_target": false
+                },
+                "describe": "Your critical hits have a chance to grant 50 attack power for 3 turns."
+              }
+            }
           },
           "secret": true,
           "sold_by": [
@@ -17826,7 +18968,32 @@
             "stat_template": "agi_physical",
             "item_level": 27,
             "rarity": "rare",
-            "material_tier": "iron"
+            "material_tier": "iron",
+            "item": {
+              "name": "Grimtooth's Emberglass Repeater",
+              "slot": "ranged",
+              "item_level": 27,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 5,
+                "stamina": 3
+              },
+              "secondary_stats": {
+                "attack_power": 14
+              },
+              "armor_value": 23,
+              "required_level": 25,
+              "sell_price": 2798,
+              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
+              "identity": "agility",
+              "weapon_damage_min": 44,
+              "weapon_damage_max": 59,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
           },
           "drop_zone": "Razorfen Kraul",
           "secret": true,
@@ -17856,7 +19023,32 @@
             "stat_template": "agi_physical",
             "item_level": 41,
             "rarity": "rare",
-            "material_tier": "mithril"
+            "material_tier": "mithril",
+            "item": {
+              "name": "Mabs's Mithril Blunderbuss",
+              "slot": "ranged",
+              "item_level": 41,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 8,
+                "stamina": 5
+              },
+              "secondary_stats": {
+                "attack_power": 21
+              },
+              "armor_value": 0,
+              "required_level": 39,
+              "sell_price": 6726,
+              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
+              "identity": "agility",
+              "weapon_damage_min": 63,
+              "weapon_damage_max": 85,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
           },
           "secret": true,
           "sold_by": [
@@ -17884,7 +19076,28 @@
             "stat_template": "agi_physical",
             "item_level": 36,
             "rarity": "rare",
-            "material_tier": "gold"
+            "material_tier": "gold",
+            "item": {
+              "name": "Blackpowder's Gilded Marksman's Goggles",
+              "slot": "head",
+              "item_level": 36,
+              "rarity": "rare",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 8,
+                "intellect": 7
+              },
+              "secondary_stats": {
+                "attack_power": 25
+              },
+              "armor_value": 159,
+              "required_level": 34,
+              "sell_price": 5119,
+              "flavor_text": "Marksman's lenses with a little brass sight on the rim.",
+              "identity": "hunter"
+            }
           },
           "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials).",
           "secret": true,
@@ -17915,7 +19128,32 @@
             "stat_template": "agi_physical",
             "item_level": 23,
             "rarity": "rare",
-            "material_tier": "iron"
+            "material_tier": "iron",
+            "item": {
+              "name": "Ferryless's Long-Barrelled Musket",
+              "slot": "ranged",
+              "item_level": 23,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 4,
+                "stamina": 3
+              },
+              "secondary_stats": {
+                "attack_power": 12
+              },
+              "armor_value": 4,
+              "required_level": 21,
+              "sell_price": 1998,
+              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
+              "identity": "agility",
+              "weapon_damage_min": 38,
+              "weapon_damage_max": 52,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
           },
           "secret": true,
           "sold_by": [
@@ -17944,7 +19182,25 @@
             "stat_template": "int_caster",
             "item_level": 9,
             "rarity": "rare",
-            "material_tier": "copper"
+            "material_tier": "copper",
+            "item": {
+              "name": "Runaway's Tinker's Gloves",
+              "slot": "hands",
+              "item_level": 9,
+              "rarity": "rare",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 6
+              },
+              "secondary_stats": {},
+              "armor_value": 10,
+              "required_level": 7,
+              "sell_price": 226,
+              "flavor_text": "Fingerless, so a tinker can still feel the wires.",
+              "identity": "caster"
+            }
           },
           "secret": true,
           "sold_by": [
@@ -17972,7 +19228,28 @@
             "stat_template": "agi_physical",
             "item_level": 55,
             "rarity": "rare",
-            "material_tier": "thorium"
+            "material_tier": "thorium",
+            "item": {
+              "name": "Kezz's Thorium Shellguard",
+              "slot": "hands",
+              "item_level": 55,
+              "rarity": "rare",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 10,
+                "intellect": 9
+              },
+              "secondary_stats": {
+                "attack_power": 31
+              },
+              "armor_value": 199,
+              "required_level": 53,
+              "sell_price": 10127,
+              "flavor_text": "Thorium plates over the knuckles, for reloading under fire.",
+              "identity": "hunter"
+            }
           },
           "secret": true,
           "sold_by": [
@@ -18001,7 +19278,32 @@
             "stat_template": "agi_int_hybrid",
             "item_level": 50,
             "rarity": "rare",
-            "material_tier": "truesilver"
+            "material_tier": "truesilver",
+            "item": {
+              "name": "Copperbolt's Truesilver Repeater",
+              "slot": "ranged",
+              "item_level": 50,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 10,
+                "stamina": 6
+              },
+              "secondary_stats": {
+                "attack_power": 25
+              },
+              "armor_value": 0,
+              "required_level": 48,
+              "sell_price": 10203,
+              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
+              "identity": "agility",
+              "weapon_damage_min": 75,
+              "weapon_damage_max": 102,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
           },
           "secret": true,
           "sold_by": [
@@ -18030,7 +19332,27 @@
             "stat_template": "agi_int_hybrid",
             "item_level": 57,
             "rarity": "rare",
-            "material_tier": "thorium"
+            "material_tier": "thorium",
+            "item": {
+              "name": "Kowalczyk's Thorium Gyro-Visor",
+              "slot": "head",
+              "item_level": 57,
+              "rarity": "rare",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 19
+              },
+              "secondary_stats": {
+                "attack_power": 50
+              },
+              "armor_value": 253,
+              "required_level": 55,
+              "sell_price": 13435,
+              "flavor_text": "A spinning gyroscope keeps the lens steady, however fast you move.",
+              "identity": "hunter_crit"
+            }
           },
           "secret": true,
           "sold_by": [
