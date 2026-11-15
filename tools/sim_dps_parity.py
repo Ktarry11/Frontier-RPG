@@ -71,7 +71,11 @@ def damage_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0):
     # A SHAPESHIFTED SPEC FIGHTS IN ITS FORM. A caster spell ranks above Shred on raw value, and casting it drops
     # Cat Form - the Feral then spent the fight as a caster casting Wrath. In a form: only what that form uses.
     form = getattr(char, "current_form", None)
-    if form:
+    from combat.forms import resource_for_form
+    from combat.abilities import ResourceType
+    # only a form that swaps the resource (Cat, Bear, Spider, Beetle): a caster form (Moonkin, Shadowform,
+    # Weaver) keeps casting its spells, and filtering those left Balance and Shadow with nothing but a swing
+    if form and resource_for_form(form) not in (None, ResourceType.MANA):
         def in_form(a):
             rf = getattr(a, "requires_form", None)
             rf = rf if isinstance(rf, (list, tuple)) else ([rf] if rf else [])

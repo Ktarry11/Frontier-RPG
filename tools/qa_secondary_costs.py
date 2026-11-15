@@ -57,6 +57,20 @@ def class_of(path):
     return name if isinstance(name, str) else None
 
 
+def form_pool(cls, forms):
+    """The secondary pool a character of this class has while in one of these forms, or None."""
+    from entities.character import Character
+    forms = forms if isinstance(forms, (list, tuple)) else [forms]
+    for form in forms:
+        c = Character(name="Q", char_class=cls, level=60)
+        if c.can_use_form(form):
+            c.shift_form(form)
+            pool = c.get_secondary_resource_type()
+            if pool is not None:
+                return pool
+    return None
+
+
 def main():
     report = "--report" in sys.argv
     no_pool, too_big, off_grid, rows = [], [], [], []
@@ -78,7 +92,12 @@ def main():
                          gen.get("amount"), secondary))
             if not cost:
                 continue
-            if secondary is None:
+            pool = secondary
+            if pool is None and a.get("requires_form"):
+                # A FORM CAN CARRY THE POOL: a Druid in Cat Form has combo points (Character.
+                # get_secondary_resource_type), so Ferocious Bite, which requires Cat Form, is paid in them.
+                pool = form_pool(cls, a["requires_form"])
+            if pool is None:
                 no_pool.append((cls, a["ability_id"], cost))
                 continue
             if cost > POOL_MAX:

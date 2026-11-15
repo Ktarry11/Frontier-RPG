@@ -2226,7 +2226,12 @@ class Ability:
         if hasattr(caster, "get_status_stat_mod"):
             buff_pct = caster.get_status_stat_mod(buff_key) or 0.0
 
-        return (1.0 + per_ability) * (1.0 + global_key) * (1.0 + buff_pct / 100.0)
+        # THE SPEC AURA (combat/ability_scaling.spec_aura): a hidden per-spec multiplier, calibrated by
+        # tools/calibrate_spec_auras.py so every spec's sustained output sits near the others' (Kyle, 15 Nov:
+        # damage specs "within ~10%" - WoW keeps its specs in line the same way).
+        from combat.ability_scaling import spec_aura
+        aura = spec_aura(caster, "healing" if school == "healing" else "damage")
+        return (1.0 + per_ability) * (1.0 + global_key) * (1.0 + buff_pct / 100.0) * aura
 
     def is_available(self):
         """Check if ability is off cooldown."""
@@ -2377,6 +2382,11 @@ class Ability:
         else:
             cost = self.talented_cost(caster)
             if not self._has_resource(caster, cost):
+                # say WHICH pool is short: a finisher with energy but no combo points said "Not enough energy"
+                if self.secondary_cost and not self._has_secondary_resource(caster):
+                    sec = self._secondary_resource_type(caster)
+                    name = getattr(sec, "value", "combo").replace("_", " ")
+                    return False, f"Not enough {'combo points' if name == 'combo' else name} (need {self.secondary_cost})"
                 return False, f"Not enough {self.resource_type.value} (need {cost})"
 
             # Consume resource

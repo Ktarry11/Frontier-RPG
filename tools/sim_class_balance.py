@@ -161,6 +161,9 @@ def dps_specs_for(slug, srb):
     return out
 
 
+TWO_HANDED_TYPES = {"sword_2h", "axe_2h", "mace_2h", "polearm", "staff"}
+
+
 def dress(char, gen, level):
     """Equip a level-appropriate set. Returns how many pieces went on."""
     worn = 0
@@ -172,8 +175,12 @@ def dress(char, gen, level):
             continue
         if item is None:
             continue
-        # equip_item requires the item to be in inventory, and enforces proficiency there - a
-        # Priest handed plate is refused, which is the behaviour we want represented.
+        # NEVER AN OFF-HAND OVER A TWO-HANDER: equipping one takes the two-hander off (Equipment.equip), and
+        # the character fought unarmed (found 15 Nov 2026 - Feral's weapon roll read 0 in the sims).
+        if slot == "off_hand":
+            mh = char.equipment.slots.get("main_hand")
+            if mh is not None and getattr(mh, "weapon_type", "") in TWO_HANDED_TYPES:
+                continue
         char.inventory.append(item)
         if char.equip_item(item):
             worn += 1

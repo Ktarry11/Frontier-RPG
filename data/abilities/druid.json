@@ -712,38 +712,43 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Requires Cat Form. Rends the target with sharp claws.",
+      "description": "Requires Cat Form. Rends the target with sharp claws. Awards 1 combo point.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 20,
           "cost": 40,
-          "effect_value": 40
+          "effect_value": 77
         },
         {
           "rank": 2,
           "level_req": 30,
           "cost": 40,
-          "effect_value": 49
+          "effect_value": 91
         },
         {
           "rank": 3,
           "level_req": 42,
           "cost": 40,
-          "effect_value": 60
+          "effect_value": 107
         },
         {
           "rank": 4,
           "level_req": 56,
           "cost": 40,
-          "effect_value": 73
+          "effect_value": 125
         }
       ],
       "requires_form": [
         "cat"
       ],
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "generates": {
+        "resource": "combo",
+        "amount": 20
+      },
+      "_feral_rework": "15 Nov 2026: Cat Form had no combo points and hit ~40% as hard as a Rogue (Claw 73 vs Sinister Strike 125 at 56); the parity sim put Feral at 0.3x the median spec. Rebuilt on the Rogue's builder/finisher shape and numbers. Was ranks [(20, 40, 40), (30, 40, 49), (42, 40, 60), (56, 40, 73)], cooldown as before."
     },
     {
       "ability_id": "druid_rake",
@@ -753,31 +758,31 @@
       "effect_type": "dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Requires Cat Form. Rakes the target, dealing damage over time.",
+      "description": "Requires Cat Form. Rakes the target, bleeding it over 3 turns. Awards 1 combo point.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 22,
           "cost": 40,
-          "effect_value": 44
+          "effect_value": 95
         },
         {
           "rank": 2,
           "level_req": 32,
           "cost": 40,
-          "effect_value": 54
+          "effect_value": 115
         },
         {
           "rank": 3,
           "level_req": 44,
           "cost": 40,
-          "effect_value": 66
+          "effect_value": 135
         },
         {
           "rank": 4,
           "level_req": 58,
           "cost": 40,
-          "effect_value": 79
+          "effect_value": 160
         }
       ],
       "requires_form": [
@@ -785,42 +790,52 @@
       ],
       "is_instant": true,
       "icon_id": null,
-      "damage_school": "physical"
+      "damage_school": "physical",
+      "generates": {
+        "resource": "combo",
+        "amount": 20
+      },
+      "_feral_rework": "15 Nov 2026: Cat Form had no combo points and hit ~40% as hard as a Rogue (Claw 73 vs Sinister Strike 125 at 56); the parity sim put Feral at 0.3x the median spec. Rebuilt on the Rogue's builder/finisher shape and numbers. Was ranks [(22, 40, 44), (32, 40, 54), (44, 40, 66), (58, 40, 79)], cooldown as before."
     },
     {
       "ability_id": "druid_shred",
       "name": "Shred",
       "resource_type": "energy",
-      "cooldown": 0,
+      "cooldown": 2,
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Requires Cat Form. A powerful attack dealing heavy damage.",
+      "description": "Requires Cat Form. Shreds the target for heavy damage. Awards 1 combo point.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 30,
           "cost": 60,
-          "effect_value": 44
+          "effect_value": 111
         },
         {
           "rank": 2,
           "level_req": 40,
           "cost": 60,
-          "effect_value": 52
+          "effect_value": 128
         },
         {
           "rank": 3,
           "level_req": 52,
           "cost": 60,
-          "effect_value": 62
+          "effect_value": 149
         }
       ],
       "requires_form": [
         "cat"
       ],
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "generates": {
+        "resource": "combo",
+        "amount": 20
+      },
+      "_feral_rework": "15 Nov 2026: Cat Form had no combo points and hit ~40% as hard as a Rogue (Claw 73 vs Sinister Strike 125 at 56); the parity sim put Feral at 0.3x the median spec. Rebuilt on the Rogue's builder/finisher shape and numbers. Was ranks [(30, 60, 44), (40, 60, 52), (52, 60, 62)], cooldown as before."
     },
     {
       "ability_id": "druid_ferocious_bite",
@@ -830,72 +845,31 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Requires Cat Form. A vicious finishing bite dealing heavy damage.",
+      "description": "Requires Cat Form. A finishing bite for heavy damage. Spends 2 combo points.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 26,
           "cost": 35,
-          "effect_value": 48
+          "effect_value": 110
         },
         {
           "rank": 2,
           "level_req": 36,
           "cost": 35,
-          "effect_value": 58
+          "effect_value": 127
         },
         {
           "rank": 3,
           "level_req": 48,
           "cost": 35,
-          "effect_value": 70
+          "effect_value": 148
         },
         {
           "rank": 4,
           "level_req": 58,
           "cost": 41,
-          "effect_value": 82
-        }
-      ],
-      "requires_form": [
-        "cat"
-      ],
-      "is_instant": true,
-      "icon_id": null
-    },
-    {
-      "ability_id": "druid_ravage",
-      "name": "Ravage",
-      "resource_type": "energy",
-      "cooldown": 2,
-      "effect_type": "damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "A savage pounce that deals heavy damage. Requires Cat Form.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 24,
-          "cost": 60,
-          "effect_value": 54
-        },
-        {
-          "rank": 2,
-          "level_req": 34,
-          "cost": 60,
-          "effect_value": 65
-        },
-        {
-          "rank": 3,
-          "level_req": 46,
-          "cost": 60,
-          "effect_value": 79
-        },
-        {
-          "rank": 4,
-          "level_req": 60,
-          "cost": 60,
-          "effect_value": 95
+          "effect_value": 165
         }
       ],
       "requires_form": [
@@ -903,7 +877,55 @@
       ],
       "is_instant": true,
       "icon_id": null,
-      "_design_note": "Requires Cat Form. PLACEHOLDER (no stealth system exists): real WOTLK Ravage requires stealth and deals massive bonus damage from behind - here it's simply a strong Cat Form attack on its own cooldown."
+      "secondary_cost": 40,
+      "_feral_rework": "15 Nov 2026: Cat Form had no combo points and hit ~40% as hard as a Rogue (Claw 73 vs Sinister Strike 125 at 56); the parity sim put Feral at 0.3x the median spec. Rebuilt on the Rogue's builder/finisher shape and numbers. Was ranks [(26, 35, 48), (36, 35, 58), (48, 35, 70), (58, 41, 82)], cooldown as before."
+    },
+    {
+      "ability_id": "druid_ravage",
+      "name": "Ravage",
+      "resource_type": "energy",
+      "cooldown": 4,
+      "effect_type": "damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Requires Cat Form. A savage pounce for heavy damage. Awards 1 combo point.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 24,
+          "cost": 60,
+          "effect_value": 95
+        },
+        {
+          "rank": 2,
+          "level_req": 34,
+          "cost": 60,
+          "effect_value": 130
+        },
+        {
+          "rank": 3,
+          "level_req": 46,
+          "cost": 60,
+          "effect_value": 165
+        },
+        {
+          "rank": 4,
+          "level_req": 60,
+          "cost": 60,
+          "effect_value": 205
+        }
+      ],
+      "requires_form": [
+        "cat"
+      ],
+      "is_instant": true,
+      "icon_id": null,
+      "_design_note": "Requires Cat Form. PLACEHOLDER (no stealth system exists): real WOTLK Ravage requires stealth and deals massive bonus damage from behind - here it's simply a strong Cat Form attack on its own cooldown.",
+      "generates": {
+        "resource": "combo",
+        "amount": 20
+      },
+      "_feral_rework": "15 Nov 2026: Cat Form had no combo points and hit ~40% as hard as a Rogue (Claw 73 vs Sinister Strike 125 at 56); the parity sim put Feral at 0.3x the median spec. Rebuilt on the Rogue's builder/finisher shape and numbers. Was ranks [(24, 60, 54), (34, 60, 65), (46, 60, 79), (60, 60, 95)], cooldown as before."
     },
     {
       "ability_id": "druid_swipe_cat",

@@ -106,6 +106,59 @@ def mana_cost_multiplier(ability_id, effect_type, level_req):
     return points[-1][1]
 
 
+# ---- 5. spec auras (Kyle, 15 Nov: "I don't want classes to be wildly different. Like a balance druid spamming wrath
+# or starfire shouldn't absolutely blow past an elemental shaman spamming lightning bolt or a stormbringer spamming
+# shock" - he picked "within ~10%", with uniqueness from utility, procs, AoE, DoTs and cooldowns).
+#: data/balance/spec_auras.json, written by tools/calibrate_spec_auras.py: {"damage": {spec: [[level, x], ...]},
+#: "healing": {...}}. A hidden multiplier on everything a character of that spec deals (or heals), by level -
+#: WoW's own tool for this ("Fire Specialization"). Clamped to AURA_RANGE when written: a spec that needs more
+#: than that is a broken kit to fix by hand, not a number to hide.
+_AURAS = None
+USE_SPEC_AURAS = True
+AURA_RANGE = (0.6, 1.6)
+
+
+def _aura_table():
+    global _AURAS
+    if _AURAS is None:
+        try:
+            import json
+            from pathlib import Path
+            _AURAS = json.loads((Path(__file__).resolve().parent.parent / "data/balance/spec_auras.json")
+                                .read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            _AURAS = {}
+    return _AURAS
+
+
+def _interp(points, lv):
+    if not points:
+        return 1.0
+    if lv <= points[0][0]:
+        return points[0][1]
+    for (a, fa), (b, fb) in zip(points, points[1:]):
+        if a <= lv <= b:
+            return fa + (fb - fa) * (lv - a) / max(1, b - a)
+    return points[-1][1]
+
+
+def spec_aura(caster, kind="damage"):
+    """The hidden spec multiplier for a character's outgoing damage or healing (1.0 for anyone without a spec)."""
+    if not USE_SPEC_AURAS or not hasattr(caster, "talent_trees"):
+        return 1.0
+    table = _aura_table().get(kind) or {}
+    if not table:
+        return 1.0
+    try:
+        from entities.proficiency import active_spec
+        spec = active_spec(caster)
+    except Exception:                                          # noqa: BLE001
+        return 1.0
+    if spec not in table:
+        return 1.0
+    return _interp(table[spec], getattr(caster, "level", 1) or 1)
+
+
 def curved_ranks(entry):
     """The entry's ranks with the curve applied (a new list; the data is never edited in place)."""
     ranks = entry.get("ranks") or []
@@ -220,3 +273,4 @@ if _os.environ.get("FRONTIER_ABILITY_SCALING", "").lower() == "off":
     AOE_SHARE = AOE_SMALL_SHARE = 1.0
     POWER_RANK_GAIN = AP_RANK_GAIN = 0.0
     USE_MANA_TABLE = False
+    USE_SPEC_AURAS = False

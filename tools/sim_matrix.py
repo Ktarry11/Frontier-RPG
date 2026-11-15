@@ -96,6 +96,11 @@ def make_dress(tier):
         worn = 0
         for slot in gear_slots():
             wtype = (prof.get("weapons") or {}).get(slot) if slot in ("main_hand", "off_hand", "ranged") else None
+            # NOTHING IN THE OFF HAND WHEN THE SPEC HOLDS A TWO-HANDER. An off-hand item equipped after a two-hander
+            # takes the two-hander OFF (Equipment.equip), so every two-hand spec - Arms, Retribution, Feral,
+            # Barbarian, Knight - was measured unarmed until 15 Nov 2026 (Feral's weapon roll read 0).
+            if slot == "off_hand" and prof.get("weapons") and not wtype:
+                continue
             try:
                 item = gen.generate_item_for_class(char.char_class, ilvl, slot=slot, rarity=rarity,
                                                    player_level=max(level, ilvl), weapon_type=wtype, **itemize)

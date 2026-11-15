@@ -2675,8 +2675,14 @@ class Character(StatusEffectMixin):
         return True
 
     def get_secondary_resource_type(self):
-        """This class's secondary ResourceType, or None."""
-        from combat.abilities import get_class_secondary_resource
+        """This class's secondary ResourceType, or None.
+
+        A DRUID IN CAT FORM HAS COMBO POINTS, like a Rogue: Claw, Shred, Rake and Ravage build them and Ferocious
+        Bite spends them (15 Nov 2026 - Cat Form had no builder/finisher at all and Feral measured at 0.3x the
+        median damage spec)."""
+        from combat.abilities import get_class_secondary_resource, ResourceType
+        if self.char_class == "Druid" and getattr(self, "current_form", None) == "cat":
+            return ResourceType.COMBO
         return get_class_secondary_resource(self.char_class)
 
     def get_stat_contributions(self, stat_name):
