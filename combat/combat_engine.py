@@ -644,6 +644,8 @@ class CombatEngine:
                 except Exception:
                     free = (ability.cooldown or 0) >= 2
             if not (free or consumed_free_cast):
+                # the spell's cast speed decides when this caster's next turn comes (abilities.CAST_SPEEDS)
+                actor._cast_speed = getattr(ability, "cast_speed", 1.0) or 1.0
                 self._end_turn(actor)
         
         return success, message
@@ -925,7 +927,9 @@ class CombatEngine:
     
     def _end_turn(self, actor):
         """Shared turn-end logic: consume turn, decrement cooldowns, restore resources."""
-        self.turn_meter.consume_turn(actor)
+        speed = getattr(actor, "_cast_speed", 1.0) or 1.0
+        actor._cast_speed = 1.0
+        self.turn_meter.consume_turn(actor, speed)
         self.current_actor = None
         self.combat_phase = "resolution"
         

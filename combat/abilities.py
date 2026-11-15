@@ -1224,6 +1224,13 @@ class Ability:
             cost_bits.append(f"Cost: {shown_cost} {resource_label}")
         if self.is_instant:
             cost_bits.append("Instant")
+        else:
+            # cast speed (CAST_SPEEDS): when your next turn comes; untagged spells take the usual one turn
+            sp = getattr(self, "cast_speed", 1.0) or 1.0
+            if sp < 0.95:
+                cost_bits.append("Quick cast")
+            elif sp > 1.05:
+                cost_bits.append("Slow cast")
         if self.cooldown:
             shown_cd = self.talented_cooldown(caster) if caster is not None else self.cooldown
             if shown_cd:
@@ -5276,6 +5283,21 @@ def _normalize_requires_form(raw):
     return raw
 
 
+#: CAST SPEED. Kyle, 15 Nov 2026: Classic's long-cast, cheap, big heal against the fast, expensive, small one
+#: (Healing Wave vs Lesser Healing Wave) must each have a place - he picked "Speed sets next turn", for every caster.
+#: A spell's speed is how long until its caster's NEXT turn comes round, in turns: a quick cast hands the turn back
+#: early, a slow one holds it. Slow spells are bigger and cheaper per point, quick ones smaller and dearer per point
+#: but they land when it matters; over a long fight they even out, so you choose by urgency and mana.
+#: Untagged abilities are "normal": exactly the one turn every action cost before.
+CAST_SPEEDS = {"quick": 0.6, "normal": 1.0, "slow": 1.5}
+
+
+def cast_speed_value(v):
+    if isinstance(v, (int, float)) and not isinstance(v, bool):
+        return max(0.3, min(2.5, float(v)))
+    return CAST_SPEEDS.get(str(v or "normal").lower(), 1.0)
+
+
 def _ability_from_data(entry):
     """Build an Ability instance from one JSON entry."""
     from combat import ability_scaling as _scaling
@@ -5412,6 +5434,8 @@ def _ability_from_data(entry):
             setattr(ability, key, True)
     if entry.get("max_recipients"):
         ability.max_recipients = int(entry["max_recipients"])
+    # CAST SPEED (Kyle, 15 Nov 2026: "Speed sets next turn"): quick / normal / slow, or a number of turns
+    ability.cast_speed = cast_speed_value(entry.get("cast_speed"))
     return ability
 
 

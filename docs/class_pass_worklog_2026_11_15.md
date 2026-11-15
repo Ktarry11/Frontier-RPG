@@ -178,6 +178,58 @@ PYTHONPATH=. python3 tools/calibrate_spec_auras.py --kind healing --passes 5 --w
 
 **Reading:** group results prove nothing is broken for any spec, but the other four members carry a weak one. Spec quality is judged by the parity sims, solo runs and tank survival, plus the new trio mode (tank, healer and one DPS).
 
+## Kyle's decisions, 09:55–09:58 local (16:55 UTC)
+
+- **The healer test must respect archetypes:** single-target, HoT, AoE and party healers, cleave/smart heals, shields (Discipline's "bubble priest"), and on-hit heals like Earth Shield. Don't call Discipline weaker because shields aren't heals. The plan: a party of 5 under several damage patterns (tank-heavy, raid AoE, mixed), each healer playing its own kit on real mana, scored on the most damage it can keep the party through for 20 turns, per pattern.
+- **Long-cast, cheap, big heals against fast, expensive, small ones** (Healing Wave vs Lesser Healing Wave) must each have their place. Kyle picked:
+  - **"Speed sets next turn"**, for ALL casters, not just heals. Each spell has a speed: quick means the next turn comes after about 0.6 of a turn, normal after 1, slow after about 1.5. Slow spells are big and cheap per point; quick ones are smaller, pricier per point, and land sooner.
+  - **"Add the classic set"**: Classic's fast/slow pairs where a class lacks them (Lesser Healing Wave, Flash Heal, Greater Heal, Regrowth/Healing Touch, Flash of Light/Holy Light), with ranks on today's curve. Icons go to the art backlog.
+
+## Cast speed and the healer kits (built 17:05–17:20 UTC)
+
+**The engine**
+- `combat/abilities.py` `CAST_SPEEDS` = {quick 0.6, normal 1.0, slow 1.5}. `cast_speed_value()` reads the ability's `cast_speed` field (a name or a number, clamped to 0.3–2.5); untagged abilities are normal.
+- `combat_engine.execute_ability` sets `actor._cast_speed` before `_end_turn`, and `_end_turn` passes it to `TurnMeter.consume_turn(char, speed)`. The meter loses THRESHOLD × speed and may go down to −THRESHOLD, so a slow cast waits longer. Speed 1 behaves exactly as before.
+- Tooltips show "Quick cast" or "Slow cast". "Instant" still means a free action.
+
+**The heal pairs** (`line(L) = 54 × (1 + 0.03636(L−1))`, the authored healer line)
+
+| Spell | Speed | Value | Cost | Notes |
+|---|---|---|---|---|
+| Priest Heal | normal | the line | baseline | unchanged |
+| **Flash Heal** (new) | quick | 0.65× | 0.85× | ranks 20–56, cd 0 |
+| **Greater Heal** (new) | slow | 1.5× | 1.15× | ranks 40–58, cd 1 |
+| Shaman Healing Wave | slow | ×1.5 | ×1.15 | retagged |
+| **Lesser Healing Wave** (new) | quick | 0.65× | 0.85× | ranks 20–58 |
+| **Chain Heal** (new) | normal | 0.6× each | 1.1× | `target_type` party, `max_recipients` 3, ranks 40–58 |
+| Paladin Holy Light | slow | ×1.5 | ×1.15 | retagged |
+| Paladin Flash of Light | quick | 0.65× line | 0.85× | retagged |
+| Druid Healing Touch | slow | 1.5× line | — | cooldown 2 → 1 |
+
+- Quick heals give about the same healing per unit of time with about 24% worse healing per mana, and they land sooner. Slow heals give about 30% better healing per mana, but late.
+- **Icons:** Flash Heal, Lesser Healing Wave and Aspect of the Viper are the real WoW icons (the WotLK glyph set already in the scratchpad, 36→56 px). Greater Heal (a brighter Heal) and Chain Heal (Chain Lightning turned green) are stand-ins on the art backlog.
+- **Kyle's icon sources:** github.com/orourkek/Wow-Icons (only 111 class and spec emblems), github.com/kodewdle/IconPacks and github.com/AcidWeb/Clean-Icons-Mechagnome-Edition. The last two ship their icons as release downloads, which this workspace can't fetch. They can be used for anything: spells, crafting, loot, vendor trash.
+- CoA healers and all damage spells stay normal for now. Kyle: "if we add these fast, normal, slow casts then we need to ensure they're worth it and they're balanced.....so we go through it all again".
+
+**The sims now count TIME, not actions:** `sim_dps_parity` and `sim_heal_parity` run to a time budget, and a cast's speed is the time it takes.
+
+**The healer test** (`tools/sim_heal_scenarios.py`, Kyle's "st, hots, aoe heals, cleave heals... bubble priest... earth shield"):
+- The healer plus a Protection Warrior, Fire Mage, Combat Rogue and Marksmanship Hunter, against four patterns: tank 20% a round, AoE 7% each, mixed (tank 12% + everyone 3.5%), and a 45% tank spike every third round.
+- Real mana and cast-speed timing. Policy: emergency heal, then party or chain heal, then shields/HoTs/Earth Shield kept up on the tank, then an efficient heal, otherwise wait.
+- The score is the highest intensity survived for 20 rounds (binary search, 2 seeds).
+- **First results** (old healing auras):
+  - Discipline 1.13 and 1.08, above Holy at 0.98 and 0.81, so shields count properly now.
+  - Resto Druid 0.84 → **0.57** (tank pattern 0.42).
+  - **Sun Cleric Blessings 0.68 → 0.49**: its heals cost about 2x per point, and its old bonus was 0.5–0.7.
+  - Grovekeeper 0.65–0.77 (its target is 0.75).
+- **Change:** `calibrate_spec_auras.py --kind healing --method scenarios` sets healing auras from this test (the geometric mean of the four patterns). The fighting hybrid (Cryotherapist) keeps its throughput aura. A run started at 17:15 UTC, with the log at `/tmp/claude-0/aura_heal_scen.log`.
+
+**Trio results** (`/tmp/claude-0/trio.log`, old auras)
+- DPS groups win 92–100% in every bracket. Tanks are fine except Dreadnought at 31–45 (75%).
+- Tinker Invention healer: 25–33% at 1–30. Its kit has Repair Shot from level 2, uses healing power (Kyle confirmed), and carries a musket in the sim, so it's probably noise plus its old aura. Recheck after the recalibration.
+
+**UI note for later** (backlog item 10): hotbar icons with hover tooltips (amount, cast speed, cost), and party buff icons.
+
 ## Parked (Kyle said note it only; class balance comes first)
 
 - **16:41 UTC.** Hand-authored boss drops convert from percentage hit, crit, dodge, parry and so on to RATINGS (10 rating = 1%, like gems and crafted gear), cleaning out the "trash drip" stats. This is item 8 in `claude/playtest_backlog_2026_11_14.md`.

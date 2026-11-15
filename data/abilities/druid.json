@@ -408,7 +408,7 @@
       "ability_id": "druid_healing_touch",
       "name": "Healing Touch",
       "resource_type": "mana",
-      "cooldown": 2,
+      "cooldown": 1,
       "effect_type": "heal",
       "duration": 0,
       "stat_mods": {},
@@ -417,60 +417,65 @@
         {
           "rank": 1,
           "level_req": 1,
-          "cost": 55,
-          "effect_value": 68
+          "cost": 63,
+          "effect_value": 81
         },
         {
           "rank": 2,
           "level_req": 8,
-          "cost": 70,
-          "effect_value": 84
+          "cost": 80,
+          "effect_value": 102
         },
         {
           "rank": 3,
           "level_req": 15,
-          "cost": 84,
-          "effect_value": 100
+          "cost": 97,
+          "effect_value": 122
         },
         {
           "rank": 4,
           "level_req": 22,
-          "cost": 99,
-          "effect_value": 117
+          "cost": 114,
+          "effect_value": 143
         },
         {
           "rank": 5,
           "level_req": 28,
-          "cost": 114,
-          "effect_value": 133
+          "cost": 131,
+          "effect_value": 161
         },
         {
           "rank": 6,
           "level_req": 35,
-          "cost": 129,
-          "effect_value": 149
+          "cost": 148,
+          "effect_value": 181
         },
         {
           "rank": 7,
           "level_req": 42,
-          "cost": 144,
-          "effect_value": 166
+          "cost": 166,
+          "effect_value": 202
         },
         {
           "rank": 8,
           "level_req": 49,
-          "cost": 158,
-          "effect_value": 182
+          "cost": 182,
+          "effect_value": 222
         },
         {
           "rank": 9,
           "level_req": 56,
-          "cost": 173,
-          "effect_value": 198
+          "cost": 199,
+          "effect_value": 243
         }
       ],
       "target_type": "ally",
-      "icon_id": null
+      "icon_id": null,
+      "cast_speed": "slow",
+      "_tuning": [
+        "15 Nov 2026, Kyle: \"long cast, lower cost, high heal vs lower heal, faster cast, higher cost... ensure that they have their places in combat. Like healing wave vs lesser healing wave\" - picked \"Speed sets next turn\" and \"Add the classic set\". Now a slow cast: 1.5x for 1.15x the cost.",
+        "15 Nov 2026: a slow cast now (cast_speed), so its 2-turn cooldown went (it compensated for authored values ~1.3x the healer line) and its ranks sit on the slow-heal line, 1.5x a normal heal - like Healing Wave, Holy Light and Greater Heal. Resto measured 0.42 of the median healer keeping a tank up (tools/sim_heal_scenarios.py)."
+      ]
     },
     {
       "ability_id": "druid_wild_growth",

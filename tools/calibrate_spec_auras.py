@@ -37,6 +37,11 @@ def main():
     ap.add_argument("--passes", type=int, default=7)
     ap.add_argument("--turns", type=int, default=30)
     ap.add_argument("--write", action="store_true")
+    ap.add_argument("--method", default="throughput", choices=("throughput", "scenarios"),
+                    help="healing only: 'scenarios' scores each healer keeping a party of five alive under tank, "
+                         "AoE, mixed and spike damage (tools/sim_heal_scenarios.py) - Kyle, 15 Nov 2026: judge "
+                         "healers on their roles (shields, HoTs, chain and party heals, Earth Shield)")
+    ap.add_argument("--seeds", type=int, default=2)
     ap.add_argument("--kind", default="damage", choices=("damage", "healing"),
                     help="damage specs (sim_dps_parity) or healer specs (sim_heal_parity)")
     args = ap.parse_args()
@@ -56,7 +61,35 @@ def main():
     share = H.HYBRID_HEALERS if args.kind == "healing" else {}
     measure = P.damage_per_turn if args.kind == "damage" else H.healing_per_turn
     dpt = {}
-    for lv in levels:
+    if args.kind == "healing" and args.method == "scenarios":
+        # each healer's score is its geometric-mean ratio to the median healer across the four party patterns; the
+        # hybrids that heal by FIGHTING (Cryotherapist) are not in this test and keep their throughput aura
+        import math
+        import sim_heal_scenarios as HS
+        specs = [s for s, _ in M.specs_for(["healer"])]
+        gen = LootGenerator()
+        caps = {}
+        for lv in levels:
+            for spec in specs:
+                for pat in HS.PATTERNS:
+                    try:
+                        caps[(spec, lv, pat)] = HS.capacity(spec, lv, pat, args.seeds, gen, cm)
+                    except Exception as e:                      # noqa: BLE001
+                        print(f"  {spec} L{lv} {pat}: {type(e).__name__}: {e}", flush=True)
+            print(f"  level {lv} measured", flush=True)
+        for lv in levels:
+            meds = {pat: statistics.median([v for (s, l, p), v in caps.items() if l == lv and p == pat
+                                            and s not in share] or [1]) for pat in HS.PATTERNS}
+            for spec in specs:
+                rs = [max(0.02, caps[(spec, lv, pat)] / meds[pat]) for pat in HS.PATTERNS
+                      if (spec, lv, pat) in caps and meds[pat]]
+                if rs:
+                    # stored as "healing per turn" relative to 1.0 so the shared median/raw maths below applies
+                    dpt[(spec, lv)] = math.exp(statistics.mean(math.log(r) for r in rs))
+        keep_old = True
+    else:
+        keep_old = False
+    for lv in (levels if not dpt else []):
         for spec in specs:
             vals = []
             for p in range(args.passes):
@@ -95,6 +128,11 @@ def main():
         old = json.loads(OUT.read_text(encoding="utf-8")) if OUT.exists() else {}
         old["_about"] = ("Hidden per-spec multipliers by level, written by tools/calibrate_spec_auras.py so damage "
                          "specs sit within ~10% of each other. Read by combat/ability_scaling.spec_aura.")
+        if keep_old:
+            # specs this method does not measure keep what they had (the fighting hybrids)
+            merged = dict(old.get(args.kind) or {})
+            merged.update(table)
+            table = merged
         old[args.kind] = table
         OUT.write_text(json.dumps(old, indent=1), encoding="utf-8")
         print(f"\nwrote {OUT.relative_to(ROOT)}")

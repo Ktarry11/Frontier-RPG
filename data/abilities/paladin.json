@@ -100,54 +100,58 @@
         {
           "rank": 1,
           "level_req": 1,
-          "cost": 45,
-          "effect_value": 52
+          "cost": 52,
+          "effect_value": 78
         },
         {
           "rank": 2,
           "level_req": 8,
-          "cost": 60,
-          "effect_value": 68
+          "cost": 69,
+          "effect_value": 102
         },
         {
           "rank": 3,
           "level_req": 15,
-          "cost": 75,
-          "effect_value": 83
+          "cost": 86,
+          "effect_value": 124
         },
         {
           "rank": 4,
           "level_req": 22,
-          "cost": 90,
-          "effect_value": 99
+          "cost": 103,
+          "effect_value": 148
         },
         {
           "rank": 5,
           "level_req": 29,
-          "cost": 104,
-          "effect_value": 115
+          "cost": 120,
+          "effect_value": 172
         },
         {
           "rank": 6,
           "level_req": 36,
-          "cost": 119,
-          "effect_value": 131
+          "cost": 137,
+          "effect_value": 196
         },
         {
           "rank": 7,
           "level_req": 43,
-          "cost": 134,
-          "effect_value": 146
+          "cost": 154,
+          "effect_value": 219
         },
         {
           "rank": 8,
           "level_req": 50,
-          "cost": 149,
-          "effect_value": 162
+          "cost": 171,
+          "effect_value": 243
         }
       ],
       "target_type": "ally",
-      "icon_id": null
+      "icon_id": null,
+      "cast_speed": "slow",
+      "_tuning": [
+        "15 Nov 2026, Kyle: \"long cast, lower cost, high heal vs lower heal, faster cast, higher cost... ensure that they have their places in combat. Like healing wave vs lesser healing wave\" - picked \"Speed sets next turn\" and \"Add the classic set\". Now a slow cast: 1.5x for 1.15x the cost."
+      ]
     },
     {
       "ability_id": "paladin_judgement",
@@ -529,43 +533,47 @@
         {
           "rank": 1,
           "level_req": 20,
-          "cost": 50,
-          "effect_value": 50
+          "cost": 66,
+          "effect_value": 59
         },
         {
           "rank": 2,
           "level_req": 27,
-          "cost": 58,
-          "effect_value": 58
+          "cost": 77,
+          "effect_value": 68
         },
         {
           "rank": 3,
           "level_req": 34,
-          "cost": 67,
-          "effect_value": 67
+          "cost": 89,
+          "effect_value": 77
         },
         {
           "rank": 4,
           "level_req": 42,
-          "cost": 75,
-          "effect_value": 75
+          "cost": 102,
+          "effect_value": 87
         },
         {
           "rank": 5,
           "level_req": 49,
-          "cost": 84,
-          "effect_value": 84
+          "cost": 114,
+          "effect_value": 96
         },
         {
           "rank": 6,
           "level_req": 56,
-          "cost": 92,
-          "effect_value": 92
+          "cost": 126,
+          "effect_value": 105
         }
       ],
       "target_type": "ally",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "cast_speed": "quick",
+      "_tuning": [
+        "15 Nov 2026, Kyle: \"long cast, lower cost, high heal vs lower heal, faster cast, higher cost... ensure that they have their places in combat. Like healing wave vs lesser healing wave\" - picked \"Speed sets next turn\" and \"Add the classic set\". Now a quick cast: 0.65x for 0.85x the cost."
+      ]
     },
     {
       "ability_id": "paladin_cleanse",

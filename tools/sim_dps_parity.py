@@ -98,6 +98,7 @@ def damage_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0, mana
     # THE ENGINE'S OWN LOOP, so pets take their turns and DoTs tick on the target's. The target's turn is
     # ended without it acting: the number is damage dealt and nothing else.
     done = 0
+    elapsed = 0.0
     for _ in range(40000):
         with quiet():
             engine.update(0.25)
@@ -121,7 +122,9 @@ def damage_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0, mana
                 else:
                     engine._end_turn(actor)
             continue
-        if done >= turns:
+        # TIME, NOT ACTIONS (cast speed, 15 Nov 2026): a slow spell takes 1.5 turns of time and a quick one 0.6,
+        # so the budget is TURNS of time and the result is damage per turn of time
+        if elapsed >= turns:
             break
         done += 1
         if mana_stats is not None:
@@ -132,13 +135,15 @@ def damage_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0, mana
                 ok, _ = engine.execute_ability(char, a.ability_id, foe)
                 if ok:
                     acted = True
+                    elapsed += getattr(a, "cast_speed", 1.0) or 1.0
                     break
             if not acted:
                 engine.execute_defend(char)
+                elapsed += 1.0
     if mana_stats is not None:
-        mana_stats.update(spent_per_turn=spent[0] / max(1, done), pool=char.mana,
+        mana_stats.update(spent_per_turn=spent[0] / max(1e-9, elapsed), pool=char.mana,
                           regen=char.mana_per_turn(casting=True))
-    return (start - foe.current_health) / turns
+    return (start - foe.current_health) / max(1e-9, elapsed)
 
 
 def main():

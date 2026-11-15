@@ -154,7 +154,7 @@ class TurnMeter:
         char.turn_meter = TURN_THRESHOLD * max(0.0, min(1.0, head_start))
         self._refresh_turn_speed(char)
 
-    def consume_turn(self, char):
+    def consume_turn(self, char, speed=1.0):
         """Character takes their turn. Reset their meter to whatever
         overflowed past the threshold, not a hard 0.
 
@@ -169,7 +169,9 @@ class TurnMeter:
         meter-based (rather than fixed-round) turn system.
         """
         if char in self.combatants:
-            char.turn_meter = max(0.0, char.turn_meter - TURN_THRESHOLD)
+            # CAST SPEED (combat/abilities.CAST_SPEEDS, 15 Nov 2026): a quick spell spends 0.6 of a turn, a slow one
+            # 1.5 - which can leave the meter below zero, so the slow caster waits longer for its next turn
+            char.turn_meter = max(-TURN_THRESHOLD, char.turn_meter - TURN_THRESHOLD * speed)
     
     def get_turn_order_preview(self):
         """Return sorted list of characters by turn meter (for UI display)."""

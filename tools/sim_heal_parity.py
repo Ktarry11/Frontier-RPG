@@ -91,19 +91,23 @@ def healing_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0):
                                                        or a.effect_type == "damage_and_heal") else 1)
         foe.max_health = foe.current_health = 10 ** 8
 
-        for _ in range(turns):
+        elapsed = 0.0
+        while elapsed < turns:
             char.current_mana = char.mana
             char.current_health = max(1, int(char.health * 0.3))
+            spent_time = 1.0
             with quiet():
                 for a in attacks:
                     engine.current_actor = char
                     engine.combat_phase = "action"
                     ok, _ = engine.execute_ability(char, a.ability_id, foe)
                     if ok:
+                        spent_time = getattr(a, "cast_speed", 1.0) or 1.0
                         break
                 if engine.current_actor is char:
                     engine._end_turn(char)
-        return landed[0] / turns
+            elapsed += spent_time
+        return landed[0] / elapsed
     heals = [a for a in learned if a.effect_type in HEALS and getattr(a, "target_type", None) != "enemy"]
     heals.sort(key=lambda a: -((getattr(a, "heal_value", 0) or 0) or (a.effect_value or 0)))
     # SHIELDS COUNT AS HEALING (15 Nov 2026): Discipline's Power Word: Shield and two dozen others soak a share
@@ -115,11 +119,14 @@ def healing_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0):
 
     def absorb_pool():
         return sum(getattr(fx, "absorb", 0) or 0 for fx in char._effects())
-    for _ in range(turns):
+    # TIME, NOT ACTIONS (cast speed): the budget is TURNS of time; a slow heal spends 1.5, a quick one 0.6
+    elapsed = 0.0
+    while elapsed < turns:
         char.current_mana = char.mana
         char.current_health = max(1, int(char.health * 0.3))
         live = {getattr(fx, "effect_id", None) for fx in char._effects()}
         before_shield = absorb_pool()
+        spent_time = 1.0
         with quiet():
             for a in heals:
                 if a.effect_type == "hot" and a.ability_id in live:
@@ -130,15 +137,17 @@ def healing_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0):
                 engine.combat_phase = "action"
                 ok, _ = engine.execute_ability(char, a.ability_id, char)
                 if ok:
+                    spent_time = getattr(a, "cast_speed", 1.0) or 1.0
                     break
             if engine.current_actor is char:
                 engine._end_turn(char)
+        elapsed += spent_time
         landed[0] += max(0, absorb_pool() - before_shield)
         # the shield is spent by the next hit in a real fight; here nothing hits, so clear it to let it be recast
         for fx in char._effects():
             if getattr(fx, "absorb", 0):
                 fx.absorb = 0
-    return landed[0] / turns
+    return landed[0] / elapsed
 
 
 def main():
