@@ -8,12 +8,10 @@
       "y": 20,
       "tile_sprite": "npc",
       "sells": [
-        "green_dyed_sack",
         "healing_potion_minor",
         "guardian_elixir_minor",
         "battle_elixir_minor",
         "vial_empty",
-        "buckled_saddlebag",
         "mana_potion_minor"
       ],
       "buys_from_player": true,
@@ -280,7 +278,9 @@
         "elixir_of_greater_precision",
         "elixir_of_greater_toughness",
         "mana_potion_superior",
-        "mana_potion_greater"
+        "mana_potion_greater",
+        "elixir_shadow_power",
+        "elixir_of_the_current"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -319,12 +319,10 @@
       "y": 41,
       "tile_sprite": "npc",
       "sells": [
-        "green_dyed_sack",
         "mana_potion_minor",
         "guardian_elixir_minor",
         "vial_empty",
         "parchment",
-        "buckled_saddlebag",
         "runed_copper_rod"
       ],
       "buys_from_player": true,
@@ -427,7 +425,10 @@
         "jc_cut_delicate_bloodstone",
         "jc_cut_teardrop_bloodstone",
         "jc_cut_purified_shadowgem",
-        "jc_cut_sparkling_azurite"
+        "jc_cut_sparkling_azurite",
+        "bs_warsong_mail_helm",
+        "bs_plains_scale_vest",
+        "jc_cut_stormy_azurite"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -908,7 +909,8 @@
         "device_lantern",
         "bomb_dynamite",
         "goggle_lens_spare",
-        "bomb_rough"
+        "bomb_rough",
+        "eng_goggles_rangefinder_goggles"
       ],
       "buys_from_player": false,
       "faction": "neutral",
@@ -1175,7 +1177,8 @@
         "tail_silk_boots",
         "tai_ratchet_felrobe",
         "dye_bright",
-        "tai_orgrimmar_felweave"
+        "tai_orgrimmar_felweave",
+        "tai_wool_stint_vest"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1232,9 +1235,7 @@
         "meal_river_fish",
         "drink_barley_beer",
         "drink_spring_flask",
-        "lw_razorfen_tusk_bracers",
         "mushroom_broth",
-        "lw_heavy_leather_gloves",
         "cook_flour",
         "cook_honey",
         "cook_spice",
@@ -1245,7 +1246,9 @@
         "cook_roots",
         "cook_water",
         "cookx_glowcap_ragout",
-        "spiced_wine"
+        "spiced_wine",
+        "lw_razorfen_tusk_bracers",
+        "lw_heavy_leather_gloves"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1318,9 +1321,7 @@
         "meal_river_fish",
         "drink_spring_flask",
         "spiced_stew",
-        "cookx_glowcap_ragout",
-        "healing_potion_superior",
-        "mana_potion_superior"
+        "cookx_glowcap_ragout"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1639,7 +1640,6 @@
         "tai_silverpine_mournerobe",
         "healing_potion_greater",
         "mana_potion_greater",
-        "alch_elixir_steelbloom",
         "alch_guardian_superior",
         "beast_lure_lesser",
         "kit_field_repair"
@@ -1661,10 +1661,7 @@
       "y": 107,
       "tile_sprite": "npc",
       "sells": [
-        "lw_fenris_mail_spaulders",
         "mushroom_broth",
-        "lw_heavy_int_mail_boots",
-        "lw_heavy_leather_belt",
         "cook_flour",
         "cook_honey",
         "cook_spice",
@@ -1678,7 +1675,8 @@
         "meal_trailbread",
         "drink_spring_flask",
         "drink_barley_beer",
-        "spiced_wine"
+        "spiced_wine",
+        "lw_fenris_mail_spaulders"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1716,9 +1714,7 @@
         "cook_water",
         "meal_river_fish",
         "drink_spring_flask",
-        "cookx_glowcap_ragout",
-        "healing_potion_greater",
-        "mana_potion_greater"
+        "cookx_glowcap_ragout"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1755,9 +1751,7 @@
         "spiced_wine",
         "meal_river_fish",
         "drink_spring_flask",
-        "cookx_glowcap_ragout",
-        "healing_potion_greater",
-        "mana_potion_greater"
+        "cookx_glowcap_ragout"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1792,7 +1786,10 @@
         "setting_ring_gold",
         "setting_necklace_gold",
         "jc_cut_teardrop_garnet",
-        "jc_cut_thick_citrine"
+        "jc_cut_thick_citrine",
+        "jc_cut_smooth_citrine",
+        "jc_cut_stormy_lesser_moonstone",
+        "jc_cut_quick_citrine"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1826,7 +1823,8 @@
         "sturdy_bolts",
         "ww_kit_ironbark",
         "ww_heartwood_idol",
-        "ww_frostpine_staff"
+        "ww_frostpine_staff",
+        "ww_bramblewood_crown"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -1849,17 +1847,12 @@
         "frostward_pack",
         "runeforged_strongbox",
         "parchment",
-        "meal_trailbread",
-        "drink_barley_beer",
-        "healing_potion_standard",
-        "mana_potion_standard",
         "beast_lure",
         "kit_field_repair",
         "healing_potion_greater",
         "mana_potion_greater",
         "meal_river_fish",
-        "drink_spring_flask",
-        "mushroom_broth"
+        "drink_spring_flask"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1890,13 +1883,12 @@
         "elixir_of_minor_fortitude",
         "elixir_of_shadow_ward",
         "healing_potion_greater",
-        "mana_potion_greater",
-        "mana_potion_standard",
         "alch_elixir_of_greater_fire_ward",
         "alch_elixir_steelbloom",
         "elixir_of_greater_swiftness",
         "elixir_of_holy_fury",
-        "mushroom_broth"
+        "mana_potion_greater",
+        "mana_potion_standard"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1926,14 +1918,13 @@
         "elixir_of_warding",
         "elixir_of_frost_ward",
         "healing_potion_greater",
-        "mana_potion_greater",
-        "mana_potion_standard",
         "alch_elixir_of_greater_frost_ward",
         "alch_elixir_of_greater_fire_ward",
         "alch_elixir_of_greater_warding",
         "elixir_of_greater_wisdom",
         "elixir_of_greater_toughness",
-        "mushroom_broth"
+        "mana_potion_greater",
+        "mana_potion_standard"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -1982,11 +1973,7 @@
         "violet_clasped_bag",
         "locked_drawstring_pack",
         "runeforged_strongbox",
-        "healing_potion_standard",
-        "mana_potion_standard",
         "parchment",
-        "meal_trailbread",
-        "drink_barley_beer",
         "tai_hillsbrad_rustic_robe",
         "tai_wool_agint_vest",
         "beast_lure_lesser",
@@ -1994,8 +1981,7 @@
         "healing_potion_greater",
         "mana_potion_greater",
         "meal_river_fish",
-        "drink_spring_flask",
-        "mushroom_broth"
+        "drink_spring_flask"
       ],
       "buys_from_player": true,
       "faction": "forsaken",
@@ -2123,7 +2109,11 @@
         "setting_ring_gold",
         "setting_necklace_gold",
         "jc_cut_sparkling_rime_opal",
-        "jc_cut_teardrop_star_ruby"
+        "jc_cut_teardrop_star_ruby",
+        "bs_thunderfist_gauntlets",
+        "jc_cut_etched_pyrite_star",
+        "jc_cut_quick_topaz",
+        "jc_cut_enduring_felfire_shard"
       ],
       "buys_from_player": true,
       "faction": "blood_elf",
@@ -2155,7 +2145,8 @@
         "rc_rune_focus_2",
         "rc_rune_bastion_2",
         "rc_rune_rupture_2",
-        "rc_rune_serenity_2"
+        "rc_rune_serenity_2",
+        "ench_greater_mystic_wand"
       ],
       "buys_from_player": true,
       "faction": "blood_elf",
@@ -2231,7 +2222,8 @@
         "elixir_of_greater_frost_ward",
         "greater_arcane_elixir",
         "mana_potion_major",
-        "mana_potion_superior"
+        "mana_potion_superior",
+        "elixir_steelbloom"
       ],
       "buys_from_player": true,
       "faction": "blood_elf",
@@ -2328,7 +2320,8 @@
         "setting_necklace_gold",
         "jc_cut_sparkling_rime_opal",
         "jc_cut_royal_jet",
-        "jc_cut_stormy_rime_opal"
+        "jc_cut_stormy_rime_opal",
+        "jc_cut_regal_jet"
       ],
       "buys_from_player": true,
       "faction": "horde",
@@ -2477,7 +2470,10 @@
         "elixir_of_greater_shadow_ward",
         "elixir_of_the_crusader",
         "mana_potion_superior",
-        "mana_potion_greater"
+        "mana_potion_greater",
+        "elixir_of_greater_fire_ward",
+        "guardian_elixir_superior",
+        "elixir_of_greater_firepower"
       ],
       "buys_from_player": true,
       "faction": "horde",
@@ -2579,7 +2575,9 @@
         "rc_rune_wild_hide_2",
         "rc_rune_overload_2",
         "rc_rune_reaping_2",
-        "rc_rune_radiance_2"
+        "rc_rune_radiance_2",
+        "ench_shield_stamina",
+        "elixir_of_greater_nature_ward"
       ],
       "buys_from_player": true,
       "faction": "horde",
@@ -2615,7 +2613,9 @@
         "setting_necklace_gold",
         "jc_cut_delicate_garnet",
         "jc_cut_shifting_jet",
-        "jc_cut_rigid_topaz"
+        "jc_cut_rigid_topaz",
+        "bs_bronze_hunter_gauntlets",
+        "jc_cut_regal_jet"
       ],
       "buys_from_player": true,
       "faction": "horde",
@@ -2646,7 +2646,8 @@
         "setting_ring_gold",
         "setting_necklace_gold",
         "jc_cut_thick_honey_amber",
-        "jc_cut_smooth_topaz"
+        "jc_cut_smooth_topaz",
+        "jc_cut_smooth_citrine"
       ],
       "buys_from_player": true,
       "faction": "horde",
@@ -2674,7 +2675,9 @@
         "ench_bracer_strength",
         "ench_bracer_spirit",
         "runed_silver_rod",
-        "rc_rune_bulwark_2"
+        "rc_rune_bulwark_2",
+        "elixir_of_greater_evasion",
+        "elixir_of_greater_precision"
       ],
       "buys_from_player": true,
       "faction": "horde",
@@ -2891,7 +2894,8 @@
         "setting_ring_gold",
         "setting_necklace_gold",
         "jc_cut_shifting_jet",
-        "jc_cut_delicate_garnet"
+        "jc_cut_delicate_garnet",
+        "jc_cut_regal_jet"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -3355,7 +3359,8 @@
         "device_repair_bot",
         "bomb_brine",
         "bomb_emberglass",
-        "device_grapple"
+        "device_grapple",
+        "eng_dev_repair_hv"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -3389,7 +3394,9 @@
         "setting_ring_gold",
         "setting_necklace_gold",
         "jc_cut_delicate_star_ruby",
-        "jc_cut_stormy_aquamarine"
+        "jc_cut_stormy_aquamarine",
+        "bs_iron_mail_cuirass",
+        "jc_cut_glinting_pyrite_star"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -3536,7 +3543,10 @@
         "plank_sylvanheart",
         "ww300_bloodwood_stick",
         "ww300_felbark_stick",
-        "p300_wo_felbark_tome"
+        "p300_wo_felbark_tome",
+        "ww_sapglow_bow",
+        "ww300_nightshade_pages",
+        "ww_goldenleaf_bow"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -3634,7 +3644,10 @@
         "jc_cut_teardrop_heartsblood_garnet",
         "jc_cut_glinting_fire_opal",
         "jc_cut_luminous_fire_opal",
-        "jc_cut_etched_fire_opal"
+        "jc_cut_etched_fire_opal",
+        "bs_runeplate_cuirass",
+        "jc_cut_smooth_topaz",
+        "jc_cut_quick_topaz"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -3914,7 +3927,9 @@
         "jc_cut_smooth_truesilver_zircon",
         "jc_cut_quick_truesilver_zircon",
         "jc_cut_shifting_amethyst",
-        "jc_cut_regal_amethyst"
+        "jc_cut_regal_amethyst",
+        "jc_cut_shifting_deepearth_geode",
+        "jc_cut_delicate_star_ruby"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -4022,7 +4037,8 @@
         "jc_cut_rigid_truesilver_zircon",
         "jc_cut_shifting_deepearth_geode",
         "jc_cut_royal_deepearth_geode",
-        "jc_cut_regal_deepearth_geode"
+        "jc_cut_regal_deepearth_geode",
+        "bs300_felslag_wrist"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -4080,7 +4096,11 @@
         "setting_ring_silver",
         "setting_necklace_silver",
         "jc_cut_royal_shadowgem",
-        "jc_cut_purified_jet"
+        "jc_cut_purified_jet",
+        "jc_cut_shifting_jet",
+        "jc_cut_fluorescent_jet",
+        "jc_cut_smooth_honey_amber",
+        "jc_cut_quick_honey_amber"
       ],
       "buys_from_player": true,
       "faction": "alliance",
@@ -4425,7 +4445,9 @@
         "setting_ring_gold",
         "setting_necklace_gold",
         "jc_cut_delicate_star_ruby",
-        "jc_cut_sparkling_rime_opal"
+        "jc_cut_sparkling_rime_opal",
+        "jc_cut_enduring_jade",
+        "jc_cut_enduring_peridot"
       ],
       "buys_from_player": true,
       "faction": "horde",
@@ -4738,7 +4760,10 @@
         "jc_cut_dazzling_huge_emerald",
         "jc_cut_royal_amethyst",
         "jc_cut_sparkling_blue_sapphire",
-        "jc_cut_sparkling_azure_diamond"
+        "jc_cut_sparkling_azure_diamond",
+        "jc_cut_delicate_black_diamond",
+        "jc_cut_regal_deepearth_geode",
+        "jc_cut_glinting_cinder_agate"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -4772,7 +4797,8 @@
         "setting_ring_gold",
         "setting_necklace_gold",
         "jc_cut_fluorescent_deepearth_geode",
-        "jc_cut_stormy_blue_sapphire"
+        "jc_cut_stormy_blue_sapphire",
+        "jc_cut_etched_fire_opal"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -4828,7 +4854,9 @@
         "flask_black_lotus",
         "elixir_of_stonescale",
         "mana_potion_masterwork",
-        "mana_potion_dreamfoil"
+        "mana_potion_dreamfoil",
+        "flask_mending",
+        "elixir_purple_lotus"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -5004,7 +5032,8 @@
         "setting_necklace_gold",
         "jc_cut_fluorescent_deepearth_geode",
         "jc_cut_stormy_azure_diamond",
-        "bs_runed_arcanite_rod"
+        "bs_runed_arcanite_rod",
+        "jc_cut_fluorescent_amethyst"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -5039,7 +5068,10 @@
         "setting_necklace_gold",
         "jc_cut_delicate_black_diamond",
         "jc_cut_fluorescent_amethyst",
-        "bs_runed_arcanite_rod"
+        "bs_runed_arcanite_rod",
+        "bs300_kit_ashen_steel",
+        "jc_cut_enduring_huge_emerald",
+        "jc_cut_etched_cinder_agate"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -5343,7 +5375,8 @@
         "rc_capstone_dancer_2",
         "rc_capstone_hunger_2",
         "rc_capstone_surge_2",
-        "rc_rune_bastion_2"
+        "rc_rune_bastion_2",
+        "ench_wizard_oil"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -5441,7 +5474,8 @@
         "rc_capstone_renewal_3",
         "rc_capstone_detonation_3",
         "rc_capstone_fire_spells_2",
-        "rc_capstone_echo_3"
+        "rc_capstone_echo_3",
+        "ench_chest_superior_spirit"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -5464,12 +5498,13 @@
       "y": 24,
       "tile_sprite": "npc",
       "sells": [
-        "whetstone",
-        "flux_strong",
         "kit_field_repair",
         "healing_potion_masterwork",
         "mana_potion_masterwork",
-        "beast_lure"
+        "beast_lure",
+        "meal_saltback_roast",
+        "drink_deepwell_cordial",
+        "beast_lure_lesser"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -5492,10 +5527,14 @@
         "parchment",
         "glue",
         "component_string",
-        "cook_honey",
         "drink_honeyed_mead",
         "meal_saltback_roast",
-        "beast_lure_lesser"
+        "beast_lure_lesser",
+        "healing_potion_masterwork",
+        "mana_potion_masterwork",
+        "drink_deepwell_cordial",
+        "kit_field_repair",
+        "beast_lure"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -5518,12 +5557,18 @@
         "vial_empty",
         "vial_leaded",
         "vial_crystal",
-        "healing_potion_masterwork",
         "mana_potion_dreamfoil",
         "elixir_of_greater_endurance",
         "guardian_elixir_superior",
         "battle_elixir_superior",
-        "mana_potion_masterwork"
+        "mana_potion_masterwork",
+        "parchment",
+        "runed_truesilver_rod",
+        "ench_superior_battlemage_oil",
+        "ench_weapon_superior_agility",
+        "rc_capstone_fire_hybrid_2",
+        "flask_mending",
+        "elixir_icecap"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -5553,7 +5598,12 @@
         "cook_spice",
         "cook_water",
         "cook_mushroom",
-        "hunters_brace_platter"
+        "hunters_brace_platter",
+        "meal_kodo_ribs",
+        "drink_birch_wine",
+        "fishx_mightfish_steak",
+        "cookx_nightcap_roast",
+        "fishx_nightfin_soup"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -5573,13 +5623,13 @@
       "y": 31,
       "tile_sprite": "npc",
       "sells": [
-        "whetstone",
-        "flux_strong",
         "kit_field_repair",
         "healing_potion_masterwork",
         "mana_potion_masterwork",
         "drink_waterskin",
-        "roasted_meat"
+        "meal_saltback_roast",
+        "drink_deepwell_cordial",
+        "beast_lure_lesser"
       ],
       "buys_from_player": true,
       "faction": "neutral",

@@ -45,17 +45,17 @@ STAT_MOD = {
     "strength": 1.0, "agility": 1.0, "stamina": 1.0, "intellect": 1.0, "spirit": 1.0,
     "armor": 0.345,
     "attack_power": 0.735,
-    "block_rating": 19.910,
+    "block_rating": 1.9910,     # 19.91 a percent before ratings (15 Nov), / 10
     "block_value": 1.615,
-    "crit_chance_physical": 15.340,
-    "crit_chance_spell": 13.440,
-    "defense_rating": 8.420,
-    "dodge_rating": 11.285,
-    "haste": 2.230,
+    "crit_chance_physical": 1.5340,     # 15.34 a percent before ratings (15 Nov), / 10
+    "crit_chance_spell": 1.3440,     # 13.44 a percent before ratings (15 Nov), / 10
+    "defense_rating": 0.8420,     # 8.42 a percent before ratings (15 Nov), / 10
+    "dodge_rating": 1.1285,     # 11.285 a percent before ratings (15 Nov), / 10
+    "haste": 0.2230,     # 2.23 a percent before ratings (15 Nov), / 10
     "healing_power": 0.690,     # 1.725 before the 15 Nov power rescale (entities/power_scale.py), / 2.5
-    "hit_rating": 13.950,
+    "hit_rating": 1.3950,     # 13.95 a percent before ratings (15 Nov), / 10
     "mp5": 4.170,
-    "parry_rating": 2.140,
+    "parry_rating": 0.2140,     # 2.14 a percent before ratings (15 Nov), / 10
     "spell_power": 0.717,       # 1.345 before the 15 Nov power rescale, / 1.875
     # spell_penetration fitted to 0.0 - the items carrying it are explained entirely by their
     # other stats, so this game does not currently charge for it. Left out rather than written

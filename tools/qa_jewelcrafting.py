@@ -304,6 +304,29 @@ def main():
             import traceback
             bad.append(f"a screen failed: {exc}\n{traceback.format_exc()[-900:]}")
 
+    # ---- THE TIERS DIFFER (Kyle, 15 Nov: "Show me differences in the spell penetration blue gems
+    # ... I thought you audited JC?"). Every Stormy gem was +1 spell penetration from tier 33 to 78,
+    # and every crit, hit, haste and dodge gem +1% at every tier; the budget check above passed them,
+    # because rounding made each one "worth what the formula says". So: for every cut, the stone at
+    # the highest tier must give more than the one at the lowest, and no rating is under +2.
+    from entities.power_scale import RATING_KEYS
+    by_cut = {}
+    for cid, c in cuts.items():
+        if c.get("cut") == "Prismatic":
+            continue
+        by_cut.setdefault(c["cut"], []).append(c)
+    for cut_name, rows in by_cut.items():
+        rows = sorted(rows, key=lambda c: c.get("tier", 0))
+        if len(rows) >= 3:
+            lo, hi = rows[0], rows[-1]
+            for st in hi["stats"]:
+                if st in lo["stats"] and hi["stats"][st] <= lo["stats"][st]:
+                    bad.append(f"{cut_name}: {st} is {lo['stats'][st]} at tier {lo.get('tier')} and still "
+                               f"{hi['stats'][st]} at tier {hi.get('tier')} - the tiers don't differ")
+        for c in rows:
+            for st, v in c["stats"].items():
+                if st in RATING_KEYS and v < 2:
+                    bad.append(f"{c['name']}: +{v} {st} is dribble")
     print(f"{len(raw)} stones, {len(cuts)} cut gems, {len(recipes)} recipes, {share:.0%} trainer-taught")
     if bad:
         print(f"\n{len(bad)} problem(s):")

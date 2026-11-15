@@ -30,6 +30,9 @@ found as drops. Rings, necklaces and Prospecting are trainer-taught. The four fi
 something when worn (trinkets over 50 must, Kyle 10 Nov) are drops.
 """
 import json
+from entities.power_scale import RATING_KEYS
+#: the smallest rating a cut gem may carry (Kyle: "Biggest thing is dribble on stats")
+RATING_GEM_FLOOR = 2
 import random
 import sys
 from pathlib import Path
@@ -269,7 +272,10 @@ def main():
                 points = max(1, int(budget + 0.5))
                 stats = {st: points // 5 + (1 if i < points % 5 else 0) for i, st in enumerate(order)}
                 stats = {k: v for k, v in stats.items() if v}
-            elif min(raw_vals.values()) < 0.5:
+            elif min(raw_vals.values()) < 0.5 or any(
+                    v < RATING_GEM_FLOOR for st, v in raw_vals.items() if st in RATING_KEYS):
+                # (and since ratings, 15 Nov: a rating under +2 is dribble, so that cut waits for a
+                # stone that can give it at least 2)
                 # ONE FORMULA: a cut whose costly stat would round up from almost nothing (a 1%
                 # crit gem at level 5) isn't offered on that stone; it would be worth ten times
                 # its level. It appears on the stones high enough to pay for it.
@@ -294,7 +300,10 @@ def main():
             if skill > MAX_SKILL:
                 continue
             # the first two cuts of every stone are taught; the rest are designs found in the world
-            source = "trainer" if n == 0 else ("vendor" if n % 2 == 1 else "drop")
+            # A stone's first cut is taught, and its fourth from tier 25; the rest are found, shop and drop.
+            # (Only the first was taught while ratings kept crit and hit cuts off the low stones; with
+            # ratings, 15 Nov, every stone carries more cuts, and one taught cut fell under 50%.)
+            source = "trainer" if n == 0 or (n == 3 and tier >= 25) else ("vendor" if n % 2 == 1 else "drop")
             rskill = max(1, skill) + (0 if n == 0 else 10)
             recipes[f"jc_{cid}"] = {
                 "name": name, "inputs": {gid: 1}, "skill_required": rskill,

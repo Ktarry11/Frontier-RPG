@@ -72,10 +72,10 @@ SHORT = {"strength": "Str", "agility": "Agi", "stamina": "Stam", "intellect": "I
          "fire_spell_power": "Fire Power", "frost_spell_power": "Frost Power",
          "arcane_spell_power": "Arcane Power", "shadow_spell_power": "Shadow Power",
          "nature_spell_power": "Nature Power", "holy_spell_power": "Holy Power",
-         "hit_rating": "% Hit", "crit_chance_spell": "% Spell Crit", "crit_chance_physical": "% Crit",
-         "haste": "% Haste", "spell_penetration": "Spell Pen", "mp5": "Mp5", "defense_rating": "Defense",
-         "dodge_rating": "% Dodge", "parry_rating": "% Parry", "block_rating": "% Block",
-         "block_value": "Block", "armor_penetration_pct": "% Armor Pen"}
+         "hit_rating": "Hit", "crit_chance_spell": "Spell Crit", "crit_chance_physical": "Crit",
+         "haste": "Haste", "spell_penetration": "Spell Pen", "mp5": "Mp5", "defense_rating": "Defense",
+         "dodge_rating": "Dodge", "parry_rating": "Parry", "block_rating": "Block",
+         "block_value": "Block", "armor_penetration_pct": "Armor Pen"}
 
 
 def summary(item):

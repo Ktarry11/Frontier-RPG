@@ -807,7 +807,8 @@ class QuestJournalScreen(BaseScreen):
         stat_names = {"strength": "Str", "agility": "Agi", "intellect": "Int", "stamina": "Sta", "spirit": "Spi"}
         stats = [f"+{v} {stat_names.get(k, k.replace('_', ' ').title())}" for k, v in item.primary_stats.items()]
         for k, v in (getattr(item, "secondary_stats", None) or {}).items():
-            stats.append(f"+{v} {k.replace('_', ' ').title()}")
+            from entities.power_scale import item_stat_label
+            stats.append(f"+{v} {item_stat_label(k)}")
         if stats:
             self._draw_wrapped_text(screen, "  ".join(stats), (rect.x + 8, y), max_width=rect.width - 16,
                                     line_height=19, font_size=15)

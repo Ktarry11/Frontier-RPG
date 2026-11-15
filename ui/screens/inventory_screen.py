@@ -1472,8 +1472,9 @@ class InventoryScreen(BaseScreen):
             lines.append(f"Block Value: {item.block_value}")
         for stat, value in item.primary_stats.items():
             lines.append(f"+{value} {stat.replace('_', ' ').title()}")
+        from entities.power_scale import item_stat_line
         for stat, value in item.secondary_stats.items():
-            lines.append(f"+{value} {stat.replace('_', ' ').title()}")
+            lines.append(item_stat_line(stat, value))
         # SOCKETS (world/jewelcrafting.py): each socket in its colour, the gem in it, and the
         # bonus, lit when every gem fits.
         # A gem's line is drawn in the gem's own colour (Kyle, 14 Nov: "a +9 str would be red").

@@ -842,7 +842,7 @@
           "secondary_stats": {
             "attack_power": 13
           },
-          "armor_value": 50,
+          "armor_value": 59,
           "required_level": 22,
           "sell_price": 1456,
           "flavor_text": "Medium leather, oiled and supple, made for moving fast and hitting hard.",
@@ -1189,10 +1189,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 9
+            "agility": 6
           },
           "secondary_stats": {
-            "attack_power": 23
+            "attack_power": 16,
+            "crit_chance_physical": 6
           },
           "armor_value": 79,
           "required_level": 30,
@@ -1233,10 +1234,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 9
+            "agility": 6
           },
           "secondary_stats": {
-            "attack_power": 23
+            "attack_power": 16,
+            "crit_chance_physical": 6
           },
           "armor_value": 72,
           "required_level": 30,
@@ -1278,10 +1280,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 9
+            "agility": 6
           },
           "secondary_stats": {
-            "attack_power": 24
+            "attack_power": 17,
+            "crit_chance_physical": 6
           },
           "armor_value": 74,
           "required_level": 31,
@@ -1369,10 +1372,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 14
+            "agility": 10
           },
           "secondary_stats": {
-            "attack_power": 36
+            "attack_power": 25,
+            "crit_chance_physical": 10
           },
           "armor_value": 114,
           "required_level": 33,
@@ -1415,10 +1419,11 @@
           "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 12
+            "intellect": 8
           },
           "secondary_stats": {
-            "nature_spell_power": 39
+            "nature_spell_power": 29,
+            "haste": 8
           },
           "armor_value": 194,
           "required_level": 35,
@@ -1459,10 +1464,11 @@
           "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 10
+            "intellect": 7
           },
           "secondary_stats": {
-            "nature_spell_power": 34
+            "nature_spell_power": 25,
+            "haste": 7
           },
           "armor_value": 177,
           "required_level": 36,
@@ -1643,11 +1649,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "stamina": 15,
-            "agility": 10
+            "stamina": 18,
+            "agility": 12
           },
           "secondary_stats": {
-            "dodge_rating": 2
+            "dodge_rating": 13
           },
           "armor_value": 144,
           "required_level": 42,
@@ -1728,8 +1734,7 @@
             "intellect": 11
           },
           "secondary_stats": {
-            "healing_power": 39,
-            "mp5": 2
+            "healing_power": 49
           },
           "armor_value": 127,
           "required_level": 44,
@@ -1770,10 +1775,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 13
+            "agility": 9
           },
           "secondary_stats": {
-            "attack_power": 34
+            "attack_power": 24,
+            "hit_rating": 9
           },
           "armor_value": 106,
           "required_level": 45,
@@ -1814,10 +1820,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 13
+            "agility": 9
           },
           "secondary_stats": {
-            "attack_power": 34
+            "attack_power": 24,
+            "hit_rating": 9
           },
           "armor_value": 109,
           "required_level": 46,
@@ -1951,11 +1958,11 @@
           "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 15
+            "intellect": 19
           },
           "secondary_stats": {
-            "crit_chance_spell": 2,
-            "spell_power": 41
+            "spell_power": 51,
+            "crit_chance_spell": 9
           },
           "armor_value": 360,
           "required_level": 51,
@@ -1997,11 +2004,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 14
+            "agility": 16
           },
           "secondary_stats": {
-            "crit_chance_physical": 2,
-            "attack_power": 39
+            "attack_power": 43,
+            "crit_chance_physical": 16
           },
           "armor_value": 310,
           "required_level": 52,
@@ -2046,8 +2053,7 @@
             "intellect": 17
           },
           "secondary_stats": {
-            "healing_power": 62,
-            "mp5": 3
+            "healing_power": 77
           },
           "armor_value": 321,
           "required_level": 54,
@@ -2089,10 +2095,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 20
+            "agility": 14
           },
           "secondary_stats": {
-            "attack_power": 53
+            "attack_power": 37,
+            "crit_chance_physical": 14
           },
           "armor_value": 167,
           "required_level": 55,
@@ -3352,7 +3359,7 @@
           "secondary_stats": {
             "attack_power": 7
           },
-          "armor_value": 29,
+          "armor_value": 34,
           "required_level": 15,
           "sell_price": 441,
           "flavor_text": "Thick, heavy leather cut for someone who swings big.",
@@ -4208,7 +4215,7 @@
           "secondary_stats": {
             "attack_power": 10
           },
-          "armor_value": 80,
+          "armor_value": 72,
           "required_level": 24,
           "sell_price": 1400,
           "flavor_text": "Mail for a shaman who'd rather be in the middle of the fight.",
@@ -4611,10 +4618,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 11
+            "agility": 8
           },
           "secondary_stats": {
-            "attack_power": 29
+            "attack_power": 20,
+            "hit_rating": 8
           },
           "armor_value": 99,
           "required_level": 31,
@@ -4655,10 +4663,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 14
+            "agility": 10
           },
           "secondary_stats": {
-            "attack_power": 36
+            "attack_power": 25,
+            "hit_rating": 10
           },
           "armor_value": 114,
           "required_level": 33,
@@ -4700,10 +4709,11 @@
           "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 11
+            "intellect": 8
           },
           "secondary_stats": {
-            "nature_spell_power": 37
+            "nature_spell_power": 26,
+            "haste": 8
           },
           "armor_value": 193,
           "required_level": 33,
@@ -4880,10 +4890,11 @@
           "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 15
+            "intellect": 11
           },
           "secondary_stats": {
-            "nature_spell_power": 50
+            "nature_spell_power": 35,
+            "haste": 11
           },
           "armor_value": 246,
           "required_level": 45,
@@ -4976,7 +4987,7 @@
           "secondary_stats": {
             "attack_power": 10
           },
-          "armor_value": 40,
+          "armor_value": 47,
           "required_level": 17,
           "sell_price": 892,
           "flavor_text": "Thick, heavy leather cut for someone who swings big.",
@@ -5016,10 +5027,10 @@
           "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 4
+            "intellect": 3
           },
           "secondary_stats": {
-            "nature_spell_power": 14
+            "nature_spell_power": 16
           },
           "armor_value": 67,
           "required_level": 18,
@@ -5108,10 +5119,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 7
+            "agility": 5
           },
           "secondary_stats": {
-            "attack_power": 18
+            "attack_power": 13,
+            "hit_rating": 5
           },
           "armor_value": 29,
           "required_level": 27,
@@ -5153,10 +5165,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 11
+            "agility": 8
           },
           "secondary_stats": {
-            "attack_power": 30
+            "attack_power": 21,
+            "hit_rating": 8
           },
           "armor_value": 95,
           "required_level": 27,
@@ -5336,12 +5349,12 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 6
+            "agility": 4
           },
           "secondary_stats": {
-            "attack_power": 16
+            "attack_power": 20
           },
-          "armor_value": 49,
+          "armor_value": 53,
           "required_level": 20,
           "sell_price": 1137,
           "flavor_text": "Dark leather for work that's done quietly.",
@@ -5473,10 +5486,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 14
+            "agility": 10
           },
           "secondary_stats": {
-            "attack_power": 37
+            "attack_power": 26,
+            "crit_chance_physical": 10
           },
           "armor_value": 129,
           "required_level": 34,
@@ -5518,10 +5532,11 @@
           "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 11
+            "intellect": 7
           },
           "secondary_stats": {
-            "nature_spell_power": 35
+            "nature_spell_power": 26,
+            "haste": 7
           },
           "armor_value": 108,
           "required_level": 31,
@@ -5563,12 +5578,13 @@
           "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 7
+            "intellect": 5
           },
           "secondary_stats": {
-            "nature_spell_power": 23
+            "nature_spell_power": 16,
+            "haste": 5
           },
-          "armor_value": 116,
+          "armor_value": 123,
           "required_level": 30,
           "sell_price": 3247,
           "flavor_text": "The rings chime faintly whenever a storm's coming.",
@@ -5608,10 +5624,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 14
+            "agility": 10
           },
           "secondary_stats": {
-            "attack_power": 38
+            "attack_power": 26,
+            "hit_rating": 10
           },
           "armor_value": 130,
           "required_level": 41,
@@ -5699,10 +5716,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 17
+            "agility": 12
           },
           "secondary_stats": {
-            "attack_power": 45
+            "attack_power": 31,
+            "hit_rating": 12
           },
           "armor_value": 141,
           "required_level": 41,
@@ -5744,10 +5762,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 15
+            "agility": 11
           },
           "secondary_stats": {
-            "attack_power": 40
+            "attack_power": 28,
+            "hit_rating": 11
           },
           "armor_value": 127,
           "required_level": 37,
@@ -5789,10 +5808,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 12
+            "agility": 9
           },
           "secondary_stats": {
-            "attack_power": 34
+            "attack_power": 23,
+            "hit_rating": 9
           },
           "armor_value": 105,
           "required_level": 36,
@@ -5926,7 +5946,7 @@
           "secondary_stats": {
             "attack_power": 14
           },
-          "armor_value": 56,
+          "armor_value": 61,
           "required_level": 23,
           "sell_price": 1488,
           "flavor_text": "Medium leather, oiled and supple, made for moving fast and hitting hard.",
@@ -5966,10 +5986,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 8
+            "agility": 6
           },
           "secondary_stats": {
-            "attack_power": 22
+            "attack_power": 15,
+            "hit_rating": 6
           },
           "armor_value": 69,
           "required_level": 23,
@@ -6109,7 +6130,7 @@
           "secondary_stats": {
             "attack_power": 6
           },
-          "armor_value": 26,
+          "armor_value": 31,
           "required_level": 13,
           "sell_price": 441,
           "flavor_text": "Medium leather, oiled and supple, made for moving fast and hitting hard.",
@@ -6195,10 +6216,11 @@
           "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 8
+            "intellect": 6
           },
           "secondary_stats": {
-            "nature_spell_power": 28
+            "nature_spell_power": 19,
+            "haste": 6
           },
           "armor_value": 137,
           "required_level": 29,
@@ -6795,8 +6817,7 @@
             "intellect": 10
           },
           "secondary_stats": {
-            "healing_power": 36,
-            "mp5": 2
+            "healing_power": 45
           },
           "armor_value": 189,
           "required_level": 34,
@@ -6881,10 +6902,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 9
+            "agility": 6
           },
           "secondary_stats": {
-            "attack_power": 24
+            "attack_power": 17,
+            "hit_rating": 6
           },
           "armor_value": 37,
           "required_level": 35,
@@ -6925,10 +6947,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 12
+            "agility": 9
           },
           "secondary_stats": {
-            "attack_power": 34
+            "attack_power": 23,
+            "hit_rating": 9
           },
           "armor_value": 114,
           "required_level": 36,
@@ -6969,10 +6992,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 13
+            "agility": 9
           },
           "secondary_stats": {
-            "attack_power": 34
+            "attack_power": 24,
+            "hit_rating": 9
           },
           "armor_value": 118,
           "required_level": 37,
@@ -7013,10 +7037,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 16
+            "agility": 11
           },
           "secondary_stats": {
-            "attack_power": 41
+            "attack_power": 29,
+            "hit_rating": 11
           },
           "armor_value": 131,
           "required_level": 38,
@@ -7057,10 +7082,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 11
+            "agility": 8
           },
           "secondary_stats": {
-            "attack_power": 29
+            "attack_power": 21,
+            "crit_chance_physical": 8
           },
           "armor_value": 93,
           "required_level": 39,
@@ -7101,10 +7127,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 11
+            "agility": 8
           },
           "secondary_stats": {
-            "attack_power": 30
+            "attack_power": 21,
+            "crit_chance_physical": 8
           },
           "armor_value": 95,
           "required_level": 40,
@@ -7145,10 +7172,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 12
+            "agility": 8
           },
           "secondary_stats": {
-            "attack_power": 31
+            "attack_power": 22,
+            "crit_chance_physical": 8
           },
           "armor_value": 97,
           "required_level": 41,
@@ -7189,10 +7217,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 17
+            "agility": 12
           },
           "secondary_stats": {
-            "attack_power": 46
+            "attack_power": 32,
+            "crit_chance_physical": 12
           },
           "armor_value": 205,
           "required_level": 42,
@@ -7233,10 +7262,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 12
+            "agility": 8
           },
           "secondary_stats": {
-            "attack_power": 32
+            "attack_power": 23,
+            "hit_rating": 8
           },
           "armor_value": 159,
           "required_level": 42,
@@ -7277,12 +7307,13 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 11
+            "agility": 8
           },
           "secondary_stats": {
-            "attack_power": 29
+            "attack_power": 20,
+            "hit_rating": 8
           },
-          "armor_value": 45,
+          "armor_value": 53,
           "required_level": 43,
           "sell_price": 5622,
           "flavor_text": "Hydra scale. Every plate's a little different, and every one is tough.",
@@ -7321,10 +7352,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 15
+            "agility": 11
           },
           "secondary_stats": {
-            "attack_power": 40
+            "attack_power": 28,
+            "hit_rating": 11
           },
           "armor_value": 204,
           "required_level": 44,
@@ -7365,10 +7397,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 15
+            "agility": 11
           },
           "secondary_stats": {
-            "attack_power": 42
+            "attack_power": 29,
+            "hit_rating": 11
           },
           "armor_value": 208,
           "required_level": 45,
@@ -8130,11 +8163,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 16
+            "agility": 17
           },
           "secondary_stats": {
-            "crit_chance_physical": 2,
-            "attack_power": 43
+            "attack_power": 47,
+            "crit_chance_physical": 17
           },
           "armor_value": 346,
           "required_level": 56,
@@ -8175,11 +8208,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 17
+            "agility": 18
           },
           "secondary_stats": {
-            "crit_chance_physical": 2,
-            "attack_power": 44
+            "attack_power": 47,
+            "crit_chance_physical": 18
           },
           "armor_value": 339,
           "required_level": 57,
@@ -8220,11 +8253,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 22
+            "agility": 21
           },
           "secondary_stats": {
-            "crit_chance_physical": 2,
-            "attack_power": 58
+            "attack_power": 56,
+            "crit_chance_physical": 21
           },
           "armor_value": 407,
           "required_level": 58,
@@ -8265,10 +8298,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 21
+            "agility": 15
           },
           "secondary_stats": {
-            "attack_power": 57
+            "attack_power": 40,
+            "crit_chance_physical": 15
           },
           "armor_value": 286,
           "required_level": 59,
@@ -8312,8 +8346,7 @@
             "intellect": 15
           },
           "secondary_stats": {
-            "healing_power": 54,
-            "mp5": 3
+            "healing_power": 67
           },
           "armor_value": 282,
           "required_level": 58,
@@ -8357,8 +8390,7 @@
             "intellect": 15
           },
           "secondary_stats": {
-            "healing_power": 54,
-            "mp5": 3
+            "healing_power": 69
           },
           "armor_value": 297,
           "required_level": 59,
@@ -8402,8 +8434,7 @@
             "intellect": 21
           },
           "secondary_stats": {
-            "healing_power": 81,
-            "mp5": 4
+            "healing_power": 101
           },
           "armor_value": 430,
           "required_level": 59,
@@ -8447,8 +8478,7 @@
             "intellect": 15
           },
           "secondary_stats": {
-            "healing_power": 54,
-            "mp5": 3
+            "healing_power": 69
           },
           "armor_value": 286,
           "required_level": 59,
@@ -8669,10 +8699,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 21
+            "agility": 15
           },
           "secondary_stats": {
-            "attack_power": 57
+            "attack_power": 40,
+            "crit_chance_physical": 15
           },
           "armor_value": 190,
           "required_level": 59,
@@ -8713,10 +8744,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 21
+            "agility": 15
           },
           "secondary_stats": {
-            "attack_power": 57
+            "attack_power": 40,
+            "crit_chance_physical": 15
           },
           "armor_value": 179,
           "required_level": 59,
@@ -8757,10 +8789,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 21
+            "agility": 15
           },
           "secondary_stats": {
-            "attack_power": 57
+            "attack_power": 40,
+            "crit_chance_physical": 15
           },
           "armor_value": 190,
           "required_level": 59,
@@ -8801,11 +8834,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 22
+            "agility": 21
           },
           "secondary_stats": {
-            "crit_chance_physical": 2,
-            "attack_power": 59
+            "attack_power": 59,
+            "crit_chance_physical": 21
           },
           "armor_value": 275,
           "required_level": 59,
@@ -8846,10 +8879,11 @@
           "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 17
+            "intellect": 15
           },
           "secondary_stats": {
-            "spell_power": 49
+            "spell_power": 41,
+            "crit_chance_spell": 7
           },
           "armor_value": 297,
           "required_level": 59,
@@ -8890,10 +8924,11 @@
           "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 16
+            "intellect": 13
           },
           "secondary_stats": {
-            "spell_power": 43
+            "spell_power": 36,
+            "crit_chance_spell": 7
           },
           "armor_value": 89,
           "required_level": 59,
@@ -8934,11 +8969,11 @@
           "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 14
+            "intellect": 18
           },
           "secondary_stats": {
-            "crit_chance_spell": 2,
-            "spell_power": 40
+            "spell_power": 50,
+            "crit_chance_spell": 9
           },
           "armor_value": 363,
           "required_level": 59,
@@ -8979,11 +9014,11 @@
           "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 14
+            "intellect": 18
           },
           "secondary_stats": {
-            "crit_chance_spell": 2,
-            "spell_power": 40
+            "spell_power": 50,
+            "crit_chance_spell": 9
           },
           "armor_value": 350,
           "required_level": 59,
@@ -9223,12 +9258,13 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 9
+            "agility": 6
           },
           "secondary_stats": {
-            "attack_power": 24
+            "attack_power": 17,
+            "hit_rating": 6
           },
-          "armor_value": 81,
+          "armor_value": 74,
           "required_level": 25,
           "sell_price": 2798,
           "flavor_text": "Dark leather for work that's done quietly.",
@@ -9321,10 +9357,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 13
+            "agility": 9
           },
           "secondary_stats": {
-            "attack_power": 35
+            "attack_power": 25,
+            "hit_rating": 9
           },
           "armor_value": 111,
           "required_level": 38,
@@ -9618,7 +9655,7 @@
           "secondary_stats": {
             "healing_power": 32
           },
-          "armor_value": 142,
+          "armor_value": 134,
           "required_level": 35,
           "sell_price": 3727,
           "flavor_text": "Dredged up from the deep and cured in salt. Shaman say the sea's still in it.",
@@ -9661,10 +9698,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 11
+            "agility": 8
           },
           "secondary_stats": {
-            "attack_power": 30
+            "attack_power": 21,
+            "hit_rating": 8
           },
           "armor_value": 56,
           "required_level": 45,
@@ -9709,10 +9747,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 13
+            "agility": 9
           },
           "secondary_stats": {
-            "attack_power": 35
+            "attack_power": 25,
+            "hit_rating": 9
           },
           "armor_value": 111,
           "required_level": 38,
@@ -9806,10 +9845,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 12
+            "agility": 8
           },
           "secondary_stats": {
-            "attack_power": 31
+            "attack_power": 22,
+            "crit_chance_physical": 8
           },
           "armor_value": 106,
           "required_level": 41,
@@ -9949,7 +9989,7 @@
             "agility": 6
           },
           "secondary_stats": {},
-          "armor_value": 10,
+          "armor_value": 12,
           "required_level": 8,
           "sell_price": 239,
           "flavor_text": "Light leather, soft and quiet, for anyone who'd rather not be heard.",
@@ -10048,10 +10088,11 @@
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 12
+            "agility": 8
           },
           "secondary_stats": {
-            "attack_power": 31
+            "attack_power": 22,
+            "crit_chance_physical": 8
           },
           "armor_value": 106,
           "required_level": 41,

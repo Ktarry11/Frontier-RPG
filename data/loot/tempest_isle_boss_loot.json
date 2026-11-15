@@ -24,8 +24,8 @@
         "stamina": 17
       },
       "secondary_stats": {
-        "defense_rating": 1,
-        "dodge_rating": 1
+        "defense_rating": 10,
+        "dodge_rating": 10
       },
       "armor_type": "plate",
       "armor_value": 366
@@ -41,7 +41,7 @@
         "stamina": 12
       },
       "secondary_stats": {
-        "defense_rating": 1
+        "defense_rating": 10
       },
       "proc": {
         "trigger": "on_damage_taken",
@@ -64,8 +64,8 @@
         "strength": 15
       },
       "secondary_stats": {
-        "hit_rating": 1,
-        "crit_chance_physical": 1
+        "hit_rating": 10,
+        "crit_chance_physical": 10
       },
       "weapon_damage_min": 130,
       "weapon_damage_max": 176,
@@ -82,7 +82,7 @@
         "stamina": 13
       },
       "secondary_stats": {
-        "crit_chance_physical": 1
+        "crit_chance_physical": 10
       },
       "armor_type": "plate",
       "armor_value": 299
@@ -117,7 +117,7 @@
       },
       "secondary_stats": {
         "spell_power": 51,
-        "crit_chance_spell": 1
+        "crit_chance_spell": 10
       },
       "weapon_damage_min": 54,
       "weapon_damage_max": 73,
@@ -167,7 +167,7 @@
       },
       "secondary_stats": {
         "attack_power": 19,
-        "hit_rating": 1
+        "hit_rating": 10
       },
       "weapon_damage_min": 83,
       "weapon_damage_max": 112,
@@ -183,8 +183,8 @@
         "agility": 15
       },
       "secondary_stats": {
-        "hit_rating": 1,
-        "crit_chance_physical": 1
+        "hit_rating": 10,
+        "crit_chance_physical": 10
       },
       "armor_type": "leather",
       "armor_value": 155
@@ -251,7 +251,7 @@
       },
       "secondary_stats": {
         "attack_power": 26,
-        "hit_rating": 1
+        "hit_rating": 10
       },
       "armor_type": "plate",
       "armor_value": 373
@@ -287,7 +287,7 @@
         "stamina": 20
       },
       "secondary_stats": {
-        "hit_rating": 1
+        "hit_rating": 10
       },
       "armor_type": "plate",
       "armor_value": 448
@@ -303,7 +303,7 @@
       },
       "secondary_stats": {
         "spell_power": 21,
-        "crit_chance_spell": 1
+        "crit_chance_spell": 10
       }
     }
   ],
@@ -336,7 +336,7 @@
         "stamina": 17
       },
       "secondary_stats": {
-        "defense_rating": 1
+        "defense_rating": 10
       },
       "weapon_damage_min": 99,
       "weapon_damage_max": 135,
@@ -352,8 +352,8 @@
         "stamina": 13
       },
       "secondary_stats": {
-        "dodge_rating": 1,
-        "parry_rating": 1
+        "dodge_rating": 10,
+        "parry_rating": 10
       },
       "armor_type": "cloth",
       "armor_value": 57
@@ -386,7 +386,7 @@
       },
       "secondary_stats": {
         "spell_power": 24,
-        "hit_rating": 1
+        "hit_rating": 10
       },
       "weapon_damage_min": 99,
       "weapon_damage_max": 135,
@@ -484,7 +484,7 @@
       },
       "secondary_stats": {
         "spell_power": 28,
-        "crit_chance_spell": 1
+        "crit_chance_spell": 10
       },
       "armor_type": "cloth",
       "armor_value": 79
@@ -533,7 +533,7 @@
         "stamina": 17
       },
       "secondary_stats": {
-        "crit_chance_physical": 1
+        "crit_chance_physical": 10
       },
       "weapon_damage_min": 134,
       "weapon_damage_max": 182,
@@ -609,7 +609,7 @@
         "stamina": 12
       },
       "secondary_stats": {
-        "defense_rating": 1
+        "defense_rating": 10
       }
     }
   ],
@@ -625,8 +625,8 @@
         "agility": 13
       },
       "secondary_stats": {
-        "hit_rating": 1,
-        "crit_chance_physical": 1
+        "hit_rating": 10,
+        "crit_chance_physical": 10
       },
       "weapon_damage_min": 103,
       "weapon_damage_max": 139,
@@ -659,7 +659,7 @@
       },
       "secondary_stats": {
         "attack_power": 20,
-        "hit_rating": 1
+        "hit_rating": 10
       },
       "proc": {
         "trigger": "on_crit",
@@ -755,8 +755,8 @@
         "stamina": 18
       },
       "secondary_stats": {
-        "dodge_rating": 1,
-        "parry_rating": 1
+        "dodge_rating": 10,
+        "parry_rating": 10
       },
       "armor_type": "plate",
       "armor_value": 399
@@ -772,7 +772,7 @@
         "stamina": 15
       },
       "secondary_stats": {
-        "hit_rating": 1
+        "hit_rating": 10
       },
       "armor_type": "mail",
       "armor_value": 218
@@ -791,7 +791,7 @@
         "stamina": 13
       },
       "secondary_stats": {
-        "hit_rating": 1
+        "hit_rating": 10
       },
       "weapon_damage_min": 88,
       "weapon_damage_max": 120,
@@ -840,7 +840,7 @@
         "intellect": 13
       },
       "secondary_stats": {
-        "spell_penetration": 2,
+        "spell_penetration": 20,
         "spell_power": 13
       }
     },
@@ -919,7 +919,7 @@
         "stamina": 15
       },
       "secondary_stats": {
-        "defense_rating": 1
+        "defense_rating": 10
       },
       "armor_type": "plate",
       "armor_value": 332
@@ -951,7 +951,7 @@
         "strength": 14
       },
       "secondary_stats": {
-        "armor_penetration_pct": 3,
+        "armor_penetration_pct": 30,
         "attack_power": 20
       },
       "weapon_damage_min": 143,
@@ -1004,7 +1004,7 @@
         "stamina": 17
       },
       "secondary_stats": {
-        "crit_chance_physical": 1
+        "crit_chance_physical": 10
       },
       "weapon_damage_min": 134,
       "weapon_damage_max": 182,
@@ -1020,8 +1020,8 @@
         "stamina": 21
       },
       "secondary_stats": {
-        "defense_rating": 2,
-        "dodge_rating": 2
+        "defense_rating": 20,
+        "dodge_rating": 20
       },
       "armor_type": "plate",
       "armor_value": 448
@@ -1103,7 +1103,7 @@
         "stamina": 14
       },
       "secondary_stats": {
-        "defense_rating": 1
+        "defense_rating": 10
       },
       "armor_type": "plate",
       "armor_value": 316
@@ -1118,8 +1118,8 @@
         "stamina": 13
       },
       "secondary_stats": {
-        "defense_rating": 1,
-        "dodge_rating": 1
+        "defense_rating": 10,
+        "dodge_rating": 10
       },
       "proc": {
         "trigger": "on_damage_taken",
@@ -1169,8 +1169,8 @@
         "strength": 16
       },
       "secondary_stats": {
-        "hit_rating": 1,
-        "crit_chance_physical": 1
+        "hit_rating": 10,
+        "crit_chance_physical": 10
       },
       "weapon_damage_min": 139,
       "weapon_damage_max": 188,
@@ -1215,8 +1215,8 @@
         "agility": 16
       },
       "secondary_stats": {
-        "hit_rating": 1,
-        "crit_chance_physical": 1
+        "hit_rating": 10,
+        "crit_chance_physical": 10
       },
       "weapon_damage_min": 103,
       "weapon_damage_max": 139,
@@ -1234,7 +1234,7 @@
         "stamina": 18
       },
       "secondary_stats": {
-        "defense_rating": 1
+        "defense_rating": 10
       },
       "weapon_damage_min": 139,
       "weapon_damage_max": 188,
@@ -1284,8 +1284,8 @@
         "stamina": 21
       },
       "secondary_stats": {
-        "defense_rating": 2,
-        "dodge_rating": 2
+        "defense_rating": 20,
+        "dodge_rating": 20
       },
       "armor_type": "plate",
       "armor_value": 464
@@ -1333,7 +1333,7 @@
       },
       "secondary_stats": {
         "spell_power": 21,
-        "crit_chance_spell": 1
+        "crit_chance_spell": 10
       }
     },
     {
@@ -1381,7 +1381,7 @@
       },
       "secondary_stats": {
         "attack_power": 26,
-        "hit_rating": 1
+        "hit_rating": 10
       },
       "weapon_damage_min": 132,
       "weapon_damage_max": 179,
@@ -1397,8 +1397,8 @@
         "stamina": 17
       },
       "secondary_stats": {
-        "defense_rating": 1,
-        "dodge_rating": 1
+        "defense_rating": 10,
+        "dodge_rating": 10
       },
       "armor_type": "plate",
       "armor_value": 373
@@ -1462,8 +1462,8 @@
         "agility": 18
       },
       "secondary_stats": {
-        "hit_rating": 1,
-        "crit_chance_physical": 1
+        "hit_rating": 10,
+        "crit_chance_physical": 10
       },
       "armor_type": "leather",
       "armor_value": 183
@@ -1499,8 +1499,8 @@
         "strength": 15
       },
       "secondary_stats": {
-        "hit_rating": 1,
-        "crit_chance_physical": 1
+        "hit_rating": 10,
+        "crit_chance_physical": 10
       },
       "weapon_damage_min": 134,
       "weapon_damage_max": 182,
@@ -1532,7 +1532,7 @@
       },
       "secondary_stats": {
         "spell_power": 28,
-        "crit_chance_spell": 1
+        "crit_chance_spell": 10
       },
       "armor_type": "cloth",
       "armor_value": 79
@@ -1548,7 +1548,7 @@
         "stamina": 17
       },
       "secondary_stats": {
-        "defense_rating": 1
+        "defense_rating": 10
       },
       "armor_type": "plate",
       "armor_value": 379
@@ -1689,8 +1689,8 @@
         "stamina": 13
       },
       "secondary_stats": {
-        "defense_rating": 1,
-        "dodge_rating": 1
+        "defense_rating": 10,
+        "dodge_rating": 10
       },
       "proc": {
         "trigger": "on_damage_taken",
@@ -1752,7 +1752,7 @@
         "strength": 14
       },
       "secondary_stats": {
-        "armor_penetration_pct": 3,
+        "armor_penetration_pct": 30,
         "attack_power": 19
       },
       "weapon_damage_min": 136,
@@ -1770,7 +1770,7 @@
         "stamina": 21
       },
       "secondary_stats": {
-        "crit_chance_physical": 1
+        "crit_chance_physical": 10
       },
       "armor_type": "plate",
       "armor_value": 456
@@ -1855,7 +1855,7 @@
         "stamina": 17
       },
       "secondary_stats": {
-        "defense_rating": 1
+        "defense_rating": 10
       },
       "weapon_damage_min": 101,
       "weapon_damage_max": 137,
@@ -1888,7 +1888,7 @@
         "stamina": 13
       },
       "secondary_stats": {
-        "defense_rating": 1
+        "defense_rating": 10
       },
       "proc": {
         "trigger": "on_crit",

@@ -127,7 +127,7 @@ IDENTITIES = {
     "strength_crit": ({"attack_power": 0.4, "strength": 0.3, "crit_chance_physical": 0.3}, "str_physical"),
     "strength_hit": ({"attack_power": 0.4, "strength": 0.3, "hit_rating": 0.3}, "str_physical"),
     "crusader": ({"attack_power": 0.4, "strength": 0.3, "intellect": 0.3}, "str_int_hybrid"),
-    "tank": ({"stamina": 0.45, "strength": 0.2, "defense_rating": 0.35}, "str_physical"),
+    "tank": ({"stamina": 0.5, "strength": 0.2, "defense_rating": 0.3}, "str_physical"),
     "shield_tank": ({"stamina": 0.55, "strength": 0.2, "block_value": 0.25}, "str_physical"),
     "plate_healer": ({"healing_power": 0.55, "intellect": 0.3, "mp5": 0.15}, "spi_healer"),
 }
@@ -623,14 +623,16 @@ def floor_for(stat, item_level):
         return POWER_FLOOR if item_level >= POWER_FROM else 10 ** 6
     if stat in PRIMARY:
         return 2 if item_level < 20 else 3
-    # a rating is a whole percent, and a lone +1% under 70 spell power reads as a leftover (Kyle's
-    # Bloodvine Vest carries 2% hit). So it's 2% or it isn't on the item.
-    return 2
+    # a rating is RATING_PER_PCT points to the percent since 15 Nov (entities/power_scale.py), so a
+    # rating under half a percent is the leftover Kyle calls dribble
+    return RATING_FLOOR
 
 
 RATINGS = {"hit_rating", "crit_chance_spell", "crit_chance_physical", "haste", "spell_penetration",
            "dodge_rating", "parry_rating", "block_rating", "defense_rating", "armor_penetration_pct"}
-#: The most of an item's budget a 2% rating may take. Ratings are dear in this game (2% crit is 20
+#: the smallest rating on an item: half a percent
+RATING_FLOOR = 5
+#: (UNUSED since ratings, 15 Nov.) The most of an item's budget a 2% rating may take. Ratings are dear in this game (2% crit is 20
 #: points, more than a level 60 pair of bracers is worth), so like WoW's Bloodvine set the rating is on
 #: the pieces big enough to carry it and the small pieces are all power.
 RATING_SHARE_MAX = 0.4
@@ -640,18 +642,11 @@ def split(weights, total, item_level):
     """Whole-number stats from a budget. A rating is 2% or it isn't there (see RATING_SHARE_MAX). Any
     other stat under its floor is dropped, and what it was worth goes, with whatever rounding took
     off, to the strongest stat that's left."""
+    # Ratings are ordinary stats since 15 Nov: 10 points to the percent and priced to match, so they
+    # split the budget like anything else and climb with item level (a gem or a robe at 30 has a
+    # little crit, at 60 a lot more), with the floor above keeping off the dribble.
     weights = dict(weights)
     keep = {}
-    for r in [st for st in weights if st in RATINGS]:
-        cost = COST.get(r, 1.0) * 2
-        w = weights.pop(r)
-        if cost <= total * RATING_SHARE_MAX:
-            keep[r] = 2
-            total -= cost
-    if not weights:
-        return {}, keep
-    norm = sum(weights.values())
-    weights = {st: w / norm for st, w in weights.items()}
     order = sorted(weights, key=weights.get, reverse=True)
     loss = 0.0
     for stat in order:

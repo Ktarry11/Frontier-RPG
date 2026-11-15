@@ -104,10 +104,12 @@ STAT_NAMES = {"crit_chance_physical": "Crit", "crit_chance_spell": "Spell Crit",
 
 
 def stat_name(stat):
-    return STAT_NAMES.get(stat, stat.replace("_", " ").title())
+    from entities.power_scale import RATING_KEYS, item_stat_label
+    return item_stat_label(stat) if stat in RATING_KEYS else STAT_NAMES.get(stat, stat.replace("_", " ").title())
 
 
 def stat_text(stats):
+    """'+13 Hit Rating, +6 Stamina': ratings say Rating, so a gem never reads as a percent."""
     return ", ".join(f"+{v} {stat_name(k)}" for k, v in stats.items())
 
 

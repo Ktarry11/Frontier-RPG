@@ -108,6 +108,8 @@ def _cons():
         if not isinstance(rows, list):
             continue
         for r in rows:
+            if r["consumable_id"].startswith("secret"):
+                continue    # a hidden seller's dish is never a shop's core stock (the secrets stay secret)
             out[r["consumable_id"]] = (group_kind.get(g, g), int(r.get("required_level") or 1))
     for k in ("kit_field_repair",):
         if k in out:
@@ -411,6 +413,29 @@ def main():
     unknown = sorted({i for s in new.values() for i in s if kind(i) == "unknown"})
     if unknown:
         print(f"{len(unknown)} ids nothing recognises (kept): {unknown[:12]}")
+    # HIDDEN SELLERS ARE NEVER TOUCHED, and their stock never leaks onto a public shelf. A hidden
+    # seller's item is sold by one shop, so the speciality rule above "moved it to the right shop in
+    # the same town" - which put a secret seller's wares on the Crossroads provisioner (found 15 Nov,
+    # rerunning this after the gem rebuild). Kyle's rule: the secrets stay secret.
+    # (only what a hidden seller has to itself: ordinary goods it also sells move as normal)
+    public_stock = {i for v in vendors if not v.get("hidden") for i in v.get("sells", [])}
+    hidden_stock = {i for v in vendors if v.get("hidden") for i in v.get("sells", [])} - public_stock
+    for v in vendors:
+        vid = v["vendor_id"]
+        if v.get("hidden"):
+            new[vid] = list(v.get("sells", []))
+        else:
+            own = set(v.get("sells", []))
+            new[vid] = [i for i in new[vid] if i not in hidden_stock or i in own]
+    # ...and nothing a public shop sold may end up sold only by a hidden seller: a hidden seller is
+    # not a route a player can count on (the Razorfen Tusk Bracers pattern vanished from the
+    # Southern Barrens waystation this way). It goes back where it was.
+    public_after = {i for v in vendors if not v.get("hidden") for i in new[v["vendor_id"]]}
+    for v in vendors:
+        if not v.get("hidden"):
+            for i in v.get("sells", []):
+                if i not in public_after and i not in new[v["vendor_id"]]:
+                    new[v["vendor_id"]].append(i)
     if args.check:
         return 0
     for v in vendors:

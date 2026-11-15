@@ -1279,7 +1279,9 @@ class Character(StatusEffectMixin):
         # worn - equip, unequip, load, creation, and the death wipe (clear_status_effects
         # recalculates), which would otherwise strip a trinket's proc until the next swap.
         self._sync_equipment_procs()
-        bonuses = self.equipment.get_total_stat_bonuses()
+        # Gear (with its gems and enchantments) carries RATINGS since 15 Nov ("+20 Crit Rating");
+        # everything below reads percent, so they're turned back here (entities/power_scale.py).
+        bonuses = _PS.ratings_to_percent(self.equipment.get_total_stat_bonuses())
 
         # Fold talent stat effects into the same bonus pool as gear, so any
         # talent granting a raw stat (+STR, +crit, +armor, ...) flows through
@@ -1314,7 +1316,7 @@ class Character(StatusEffectMixin):
         # the spot and nothing can double.
         try:
             from world.gear_sets import active_bonuses
-            for _key, _value in active_bonuses(self).items():
+            for _key, _value in _PS.ratings_to_percent(active_bonuses(self)).items():
                 for _target in BONUS_KEY_ALIASES.get(_key, (_key,)):
                     bonuses[_target] = bonuses.get(_target, 0) + _value
         except Exception:
@@ -1352,7 +1354,7 @@ class Character(StatusEffectMixin):
         # same stats would. Previously get_active_buff_stats() existed but
         # was never called from here, so consumable buffs did nothing to
         # actual character stats - this wires it in for real.
-        for _key, _value in self.get_active_buff_stats().items():
+        for _key, _value in _PS.ratings_to_percent(self.get_active_buff_stats()).items():
             bonuses[_key] = bonuses.get(_key, 0) + _value
 
         # Effective core stats = base + gear (base stats themselves are never mutated).
@@ -3149,7 +3151,8 @@ class Character(StatusEffectMixin):
         pen = (getattr(attacker, "spell_penetration", 0) or 0) if attacker else 0
         if resistance <= 0 or not pen:
             return resistance
-        return max(0, int(resistance) - int(pen) * cls.SPELL_PEN_PER_RESIST)
+        # pen can be fractional now that items carry it as a rating (entities/power_scale.py)
+        return max(0, int(resistance - pen * cls.SPELL_PEN_PER_RESIST))
 
     @classmethod
     def mitigation_from(cls, rating, attacker_level=None):

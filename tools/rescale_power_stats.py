@@ -19,7 +19,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-from entities.power_scale import LIFT, lift, CURRENT  # noqa: E402
+from entities.power_scale import LIFT, lift, CURRENT, RATING_KEYS, lift_rating  # noqa: E402
 
 MARK = ROOT / "data/items/power_scale.json"
 #: keys whose dict holds real amounts on an item, in any file
@@ -33,27 +33,49 @@ FILE_KEYS = {
 }
 
 
-def walk(o, keys, n):
+#: stage -> (the stats it touches, how one is lifted). Stage 2 was spell power and healing; stage 3
+#: is ratings (Kyle, 15 Nov: "WoW-style ratings").
+STAGES = {2: (set(LIFT), lift), 3: (set(RATING_KEYS), lift_rating)}
+
+
+def walk(o, keys, n, stage):
+    touched, fn = STAGES[stage]
     if isinstance(o, dict):
         for k, v in o.items():
             if k in keys and isinstance(v, dict):
                 for s in list(v):
-                    if s in LIFT:
-                        new = lift(s, v[s])
+                    if s in touched:
+                        new = fn(s, v[s])
                         if new != v[s]:
                             v[s] = new
                             n[0] += 1
             else:
-                walk(v, keys, n)
+                walk(v, keys, n, stage)
     elif isinstance(o, list):
         for x in o:
-            walk(x, keys, n)
+            walk(x, keys, n, stage)
 
 
 def main():
-    if MARK.exists() and json.loads(MARK.read_text(encoding="utf-8")).get("applied", 1) >= CURRENT:
+    applied = json.loads(MARK.read_text(encoding="utf-8")).get("applied", 1) if MARK.exists() else 1
+    if applied >= CURRENT:
         print("already applied")
         return 0
+    total = 0
+    for stage in range(applied + 1, CURRENT + 1):
+        total += run_stage(stage)
+    MARK.write_text(json.dumps({
+        "_comment": "tools/rescale_power_stats.py lifted every authored spell power and healing number "
+                    "(stage 2) and turned every percent stat on items into rating points (stage 3), "
+                    "15 Nov 2026 (entities/power_scale.py). Don't run it again.",
+        "applied": CURRENT}, indent=2) + "\n", encoding="utf-8")
+    print(f"{total} numbers changed")
+    return 0
+
+
+def run_stage(stage):
+    print(f"stage {stage}")
+    touched = STAGES[stage][0]
     total = 0
     for root, _dirs, files in os.walk(ROOT / "data"):
         if "saves" in Path(root).parts:
@@ -64,22 +86,17 @@ def main():
             p = Path(root) / fn
             rel = p.relative_to(ROOT).as_posix()
             raw = p.read_text(encoding="utf-8")
-            if not any(s in raw for s in LIFT):
+            if not any(s in raw for s in touched):
                 continue
             d = json.loads(raw)
             n = [0]
-            walk(d, ITEM_KEYS | FILE_KEYS.get(rel, set()), n)
+            walk(d, ITEM_KEYS | FILE_KEYS.get(rel, set()), n, stage)
             if n[0]:
                 indent = 2 if raw.startswith("{\n  ") or raw.startswith("[\n  ") else (1 if raw.startswith("{\n ") else None)
                 p.write_text(json.dumps(d, indent=indent, ensure_ascii=False) + "\n", encoding="utf-8")
                 print(f"  {rel}: {n[0]}")
                 total += n[0]
-    MARK.write_text(json.dumps({
-        "_comment": "tools/rescale_power_stats.py lifted every authored spell power and healing number "
-                    "onto the 15 Nov 2026 item scale (entities/power_scale.py). Don't run it again.",
-        "applied": CURRENT}, indent=2) + "\n", encoding="utf-8")
-    print(f"{total} numbers lifted")
-    return 0
+    return total
 
 
 if __name__ == "__main__":

@@ -949,7 +949,9 @@ class QuestDialogScreen(BaseScreen):
             for stat, value in group.items():
                 if not isinstance(value, (int, float)) or not value:
                     continue
-                name = StatusEffectMixin.STAT_LABELS.get(stat, stat.replace("_", " ").title())
+                from entities.power_scale import RATING_KEYS, item_stat_label
+                name = (item_stat_label(stat) if stat in RATING_KEYS
+                        else StatusEffectMixin.STAT_LABELS.get(stat, stat.replace("_", " ").title()))
                 if short and stat in item.primary_stats:
                     name = name[:3]
                 out.append(f"+{value} {name}")

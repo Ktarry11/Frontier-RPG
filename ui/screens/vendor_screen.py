@@ -873,8 +873,9 @@ class VendorScreen(BaseScreen):
                 lines.append(f"Armor: {item.armor_value}")
             for stat, val in item.primary_stats.items():
                 lines.append(f"+{val} {stat.replace('_', ' ').title()}")
+            from entities.power_scale import item_stat_line
             for stat, val in item.secondary_stats.items():
-                lines.append(f"+{val} {stat.replace('_', ' ').title()}")
+                lines.append(item_stat_line(stat, val))
             if item.weapon_damage_max:
                 lines.append(f"Damage: {item.weapon_damage_min}–{item.weapon_damage_max}")
             from world.jewelcrafting import tooltip_lines as _socket_lines

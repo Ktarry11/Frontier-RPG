@@ -656,7 +656,7 @@
       "consumable_id": "elixir_of_precision",
       "name": "Elixir of Precision",
       "consumable_type": "elixir",
-      "description": "+1.5 Crit Chance Physical for 30 min. Battle buff.",
+      "description": "+15 Crit Rating (1.5%) for 30 min. Battle buff.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -667,14 +667,14 @@
       "sell_price": 28,
       "buff_category": "battle",
       "stat_bonuses": {
-        "crit_chance_physical": 1.5
+        "crit_chance_physical": 15
       }
     },
     {
       "consumable_id": "elixir_of_greater_precision",
       "name": "Elixir of Greater Precision",
       "consumable_type": "elixir",
-      "description": "+3.0 Crit Chance Physical for 30 min. Battle buff.",
+      "description": "+30 Crit Rating (3%) for 30 min. Battle buff.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -685,14 +685,14 @@
       "sell_price": 52,
       "buff_category": "battle",
       "stat_bonuses": {
-        "crit_chance_physical": 3.0
+        "crit_chance_physical": 30
       }
     },
     {
       "consumable_id": "elixir_of_deadly_strikes",
       "name": "Elixir of Deadly Strikes",
       "consumable_type": "elixir",
-      "description": "+5.0 Crit Chance Physical for 30 min. Battle buff.",
+      "description": "+50 Crit Rating (5%) for 30 min. Battle buff.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -703,14 +703,14 @@
       "sell_price": 125,
       "buff_category": "battle",
       "stat_bonuses": {
-        "crit_chance_physical": 5.0
+        "crit_chance_physical": 50
       }
     },
     {
       "consumable_id": "elixir_of_insight",
       "name": "Elixir of Insight",
       "consumable_type": "elixir",
-      "description": "+1.5 Crit Chance Spell for 30 min. Battle buff.",
+      "description": "+15 Spell Crit Rating (1.5%) for 30 min. Battle buff.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -721,14 +721,14 @@
       "sell_price": 28,
       "buff_category": "battle",
       "stat_bonuses": {
-        "crit_chance_spell": 1.5
+        "crit_chance_spell": 15
       }
     },
     {
       "consumable_id": "elixir_of_greater_insight",
       "name": "Elixir of Greater Insight",
       "consumable_type": "elixir",
-      "description": "+3.0 Crit Chance Spell for 30 min. Battle buff.",
+      "description": "+30 Spell Crit Rating (3%) for 30 min. Battle buff.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -739,14 +739,14 @@
       "sell_price": 52,
       "buff_category": "battle",
       "stat_bonuses": {
-        "crit_chance_spell": 3.0
+        "crit_chance_spell": 30
       }
     },
     {
       "consumable_id": "elixir_of_arcane_fury",
       "name": "Elixir of Arcane Fury",
       "consumable_type": "elixir",
-      "description": "+5.0 Crit Chance Spell for 30 min. Battle buff.",
+      "description": "+50 Spell Crit Rating (5%) for 30 min. Battle buff.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -757,14 +757,14 @@
       "sell_price": 125,
       "buff_category": "battle",
       "stat_bonuses": {
-        "crit_chance_spell": 5.0
+        "crit_chance_spell": 50
       }
     },
     {
       "consumable_id": "elixir_of_swiftness",
       "name": "Elixir of Swiftness",
       "consumable_type": "elixir",
-      "description": "+2.0 Haste for 30 min. Battle buff.",
+      "description": "+20 Haste Rating (2%) for 30 min. Battle buff.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -775,14 +775,14 @@
       "sell_price": 32,
       "buff_category": "battle",
       "stat_bonuses": {
-        "haste": 2.0
+        "haste": 20
       }
     },
     {
       "consumable_id": "elixir_of_greater_swiftness",
       "name": "Elixir of Greater Swiftness",
       "consumable_type": "elixir",
-      "description": "+4.0 Haste for 30 min. Battle buff.",
+      "description": "+40 Haste Rating (4%) for 30 min. Battle buff.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -793,14 +793,14 @@
       "sell_price": 56,
       "buff_category": "battle",
       "stat_bonuses": {
-        "haste": 4.0
+        "haste": 40
       }
     },
     {
       "consumable_id": "elixir_of_the_wind",
       "name": "Elixir of the Wind",
       "consumable_type": "elixir",
-      "description": "+7.0 Haste for 30 min. Battle buff.",
+      "description": "+70 Haste Rating (7%) for 30 min. Battle buff.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -811,7 +811,7 @@
       "sell_price": 125,
       "buff_category": "battle",
       "stat_bonuses": {
-        "haste": 7.0
+        "haste": 70
       }
     },
     {
@@ -1114,7 +1114,7 @@
       "consumable_id": "elixir_of_evasion",
       "name": "Elixir of Evasion",
       "consumable_type": "elixir",
-      "description": "+1.5 Dodge for 30 min. Guardian buff.",
+      "description": "+15 Dodge Rating (1.5%) for 30 min. Guardian buff.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -1125,14 +1125,14 @@
       "sell_price": 28,
       "buff_category": "guardian",
       "stat_bonuses": {
-        "dodge": 1.5
+        "dodge": 15
       }
     },
     {
       "consumable_id": "elixir_of_greater_evasion",
       "name": "Elixir of Greater Evasion",
       "consumable_type": "elixir",
-      "description": "+3.0 Dodge for 30 min. Guardian buff.",
+      "description": "+30 Dodge Rating (3%) for 30 min. Guardian buff.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -1143,14 +1143,14 @@
       "sell_price": 56,
       "buff_category": "guardian",
       "stat_bonuses": {
-        "dodge": 3.0
+        "dodge": 30
       }
     },
     {
       "consumable_id": "elixir_of_the_mongoose_guard",
       "name": "Elixir of the Mongoose's Grace",
       "consumable_type": "elixir",
-      "description": "+5.0 Dodge for 30 min. Guardian buff.",
+      "description": "+50 Dodge Rating (5%) for 30 min. Guardian buff.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -1161,7 +1161,7 @@
       "sell_price": 125,
       "buff_category": "guardian",
       "stat_bonuses": {
-        "dodge": 5.0
+        "dodge": 50
       }
     },
     {
@@ -1446,7 +1446,7 @@
       "consumable_id": "elixir_of_the_current",
       "name": "Elixir of the Current",
       "consumable_type": "elixir",
-      "description": "Slick as the fish it came from. You move like water. +4.0% Haste for 30 min. Battle buff.",
+      "description": "Slick as the fish it came from. You move like water. +40 Haste Rating (4%) for 30 min. Battle buff.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -1457,7 +1457,7 @@
       "sell_price": 56,
       "buff_category": "battle",
       "stat_bonuses": {
-        "haste": 4.0
+        "haste": 40
       }
     },
     {
@@ -2649,7 +2649,7 @@
       "consumable_id": "meal_cooked_medallions",
       "name": "Seared Medallions",
       "consumable_type": "meal",
-      "description": "Dark outside, red in. A cook shows off with this one. Restores 690 health over 26 seconds while you rest, and leaves you well fed (+9 Agility, +1 Crit Chance Physical) for 30 minutes.",
+      "description": "Dark outside, red in. A cook shows off with this one. Restores 690 health over 26 seconds while you rest, and leaves you well fed (+9 Agility, +10 Crit Rating (1%)) for 30 minutes.",
       "effect_value": 690,
       "effect_duration": 26,
       "level_multiplier": 0.0,
@@ -2661,7 +2661,7 @@
       "buff_category": "food",
       "stat_bonuses": {
         "agility": 9,
-        "crit_chance_physical": 1
+        "crit_chance_physical": 10
       }
     },
     {
@@ -2687,7 +2687,7 @@
       "consumable_id": "meal_cooked_loin",
       "name": "Blackened Loin",
       "consumable_type": "meal",
-      "description": "The whole loin, crusted black, carved at the fire. Restores 900 health over 30 seconds while you rest, and leaves you well fed (+12 Agility, +7 Stamina, +1 Crit Chance Physical) for 30 minutes.",
+      "description": "The whole loin, crusted black, carved at the fire. Restores 900 health over 30 seconds while you rest, and leaves you well fed (+12 Agility, +7 Stamina, +10 Crit Rating (1%)) for 30 minutes.",
       "effect_value": 900,
       "effect_duration": 30,
       "level_multiplier": 0.0,
@@ -2700,7 +2700,7 @@
       "stat_bonuses": {
         "agility": 12,
         "stamina": 7,
-        "crit_chance_physical": 1
+        "crit_chance_physical": 10
       }
     },
     {
@@ -3653,7 +3653,7 @@
       "consumable_id": "meal_cooked_stout_stew",
       "name": "Stout Stew",
       "consumable_type": "meal",
-      "description": "Boiled in ale until it stops arguing. Restores 690 health over 26 seconds while you rest, and leaves you well fed (+100 Armor, +1% Dodge) for 30 minutes.",
+      "description": "Boiled in ale until it stops arguing. Restores 690 health over 26 seconds while you rest, and leaves you well fed (+100 Armor, +10 Dodge Rating (1%)) for 30 minutes.",
       "effect_value": 690,
       "effect_duration": 26,
       "level_multiplier": 0.0,
@@ -3665,14 +3665,14 @@
       "buff_category": "food",
       "stat_bonuses": {
         "armor": 100,
-        "dodge": 1
+        "dodge": 10
       }
     },
     {
       "consumable_id": "meal_cooked_black_ale_roast",
       "name": "Black-Ale Roast",
       "consumable_type": "meal",
-      "description": "Boiled in ale until it stops arguing. Restores 900 health over 28 seconds while you rest, and leaves you well fed (+140 Armor, +1% Dodge) for 30 minutes.",
+      "description": "Boiled in ale until it stops arguing. Restores 900 health over 28 seconds while you rest, and leaves you well fed (+140 Armor, +10 Dodge Rating (1%)) for 30 minutes.",
       "effect_value": 900,
       "effect_duration": 28,
       "level_multiplier": 0.0,
@@ -3684,14 +3684,14 @@
       "buff_category": "food",
       "stat_bonuses": {
         "armor": 140,
-        "dodge": 1
+        "dodge": 10
       }
     },
     {
       "consumable_id": "meal_cooked_shieldwall_steak",
       "name": "Shieldwall Steak",
       "consumable_type": "meal",
-      "description": "Boiled in ale until it stops arguing. Restores 1100 health over 30 seconds while you rest, and leaves you well fed (+170 Armor, +1% Dodge) for 30 minutes.",
+      "description": "Boiled in ale until it stops arguing. Restores 1100 health over 30 seconds while you rest, and leaves you well fed (+170 Armor, +10 Dodge Rating (1%)) for 30 minutes.",
       "effect_value": 1100,
       "effect_duration": 30,
       "level_multiplier": 0.0,
@@ -3703,14 +3703,14 @@
       "buff_category": "food",
       "stat_bonuses": {
         "armor": 170,
-        "dodge": 1
+        "dodge": 10
       }
     },
     {
       "consumable_id": "meal_cooked_keg_braised_shank",
       "name": "Keg-Braised Shank",
       "consumable_type": "meal",
-      "description": "Boiled in ale until it stops arguing. Restores 1400 health over 32 seconds while you rest, and leaves you well fed (+210 Armor, +2% Dodge) for 30 minutes.",
+      "description": "Boiled in ale until it stops arguing. Restores 1400 health over 32 seconds while you rest, and leaves you well fed (+210 Armor, +20 Dodge Rating (2%)) for 30 minutes.",
       "effect_value": 1400,
       "effect_duration": 32,
       "level_multiplier": 0.0,
@@ -3722,14 +3722,14 @@
       "buff_category": "food",
       "stat_bonuses": {
         "armor": 210,
-        "dodge": 2
+        "dodge": 20
       }
     },
     {
       "consumable_id": "meal_cooked_old_guard_s_feast",
       "name": "Old Guard's Feast",
       "consumable_type": "meal",
-      "description": "Boiled in ale until it stops arguing. Restores 1800 health over 34 seconds while you rest, and leaves you well fed (+260 Armor, +2% Dodge) for 30 minutes.",
+      "description": "Boiled in ale until it stops arguing. Restores 1800 health over 34 seconds while you rest, and leaves you well fed (+260 Armor, +20 Dodge Rating (2%)) for 30 minutes.",
       "effect_value": 1800,
       "effect_duration": 34,
       "level_multiplier": 0.0,
@@ -3741,7 +3741,7 @@
       "buff_category": "food",
       "stat_bonuses": {
         "armor": 260,
-        "dodge": 2
+        "dodge": 20
       }
     },
     {
@@ -4338,7 +4338,7 @@
       "consumable_id": "brilliant_wizard_oil",
       "name": "Brilliant Wizard Oil",
       "consumable_type": "elixir",
-      "description": "Rub it on your weapon: +25 Spell Power, +1 Spell Crit for 30 minutes. One weapon oil at a time.",
+      "description": "Rub it on your weapon: +25 Spell Power, +4 Spell Crit Rating (0.4%) for 30 minutes. One weapon oil at a time.",
       "effect_value": 0,
       "effect_duration": 1800,
       "level_multiplier": 0.0,
@@ -4350,7 +4350,7 @@
       "buff_category": "oil",
       "stat_bonuses": {
         "spell_power": 25,
-        "crit_chance_spell": 1
+        "crit_chance_spell": 4
       }
     },
     {

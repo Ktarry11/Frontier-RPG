@@ -15,8 +15,13 @@ BONUS_LABELS = {"hp5": "Health per turn", "mp5": "Mana per turn",
 
 def bonus_text(stat_bonuses):
     """'+3 Stamina, +2 Health per turn' - one wording for the log, the bag and the recipe list."""
+    from entities.power_scale import RATING_KEYS, item_stat_label
     parts = []
     for key, value in (stat_bonuses or {}).items():
+        if key in RATING_KEYS:
+            # an elixir's crit or dodge is a rating, like gear's (entities/power_scale.py)
+            parts.append(f"+{value:g} {item_stat_label(key)}")
+            continue
         label = BONUS_LABELS.get(key, key.replace("_", " ").title())
         parts.append(f"+{value}{label}" if label.startswith("%") else f"+{value} {label}")
     return ", ".join(parts)
