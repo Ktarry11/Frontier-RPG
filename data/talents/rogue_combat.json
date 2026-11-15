@@ -491,7 +491,7 @@
     {
       "talent_id": "rogue_combat_surprise_attacks",
       "name": "Suprise Attacks",
-      "description": "Increases the damage of your Sinister Strike, Backstab, Shiv, Hemorrhage and Gouge by 10%.",
+      "description": "Increases the damage of your Sinister Strike, Backstab, Shiv and Gouge by 10%.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 1,
@@ -502,12 +502,14 @@
         "ability_rogue_sinister_strike_damage": 0.1,
         "ability_rogue_backstab_damage": 0.1,
         "ability_rogue_shiv_damage": 0.1,
-        "ability_rogue_hemorrhage_damage": 0.1,
         "ability_rogue_gouge_duration": 1
       },
       "_source": "WotLK row 9: 'Your finishing moves can no longer be dodged, and the damage dealt by your Sinister Strike, Backstab, Shiv, Hemorrhage and Gouge abilities is increased by 10%.' The damage half is built verbatim across all five real abilities. 'Can no longer be dodged' is dropped - there is no per-ability undodgeable flag, and expertise is the only avoidance-reduction channel. The real talent requires Adrenaline Rush, which connected_to reproduces. The name keeps Blizzard's original typo, 'Suprise Attacks', because that is what the source data says. The outgoing version covered Eviscerate and Envenom, which are finishers - the opposite of this talent's list.",
       "connected_to": [
         "rogue_combat_adrenaline_rush"
+      ],
+      "_tuning": [
+        "15 Nov 2026, class pass: the part of this talent that referenced another tree's ability was dead for anyone specced into this tree (tools/validate_class.py)"
       ]
     },
     {

@@ -225,7 +225,7 @@
     {
       "talent_id": "priest_holy_improved_healing",
       "name": "Improved Healing",
-      "description": "Reduces the cost of your Heal and Penance by 5% per rank.",
+      "description": "Reduces the cost of your Heal and Greater Heal by 5% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -234,11 +234,14 @@
       "hex_y": -2,
       "effects": {
         "ability_priest_heal_cost_pct": 0.05,
-        "ability_priest_penance_cost_pct": 0.05
+        "ability_priest_greater_heal_cost_pct": 0.05
       },
       "_source": "WotLK row 2: 'Reduces the mana cost of your Lesser Heal, Heal, Greater Heal, Divine Hymn and Penance spells by 5%/10%/15%.' Built verbatim for the two that exist. Stacks with Healing Focus on priest_heal. Kept from the outgoing tree.",
       "connected_to": [
         "priest_holy_blessed_recovery"
+      ],
+      "_tuning": [
+        "15 Nov 2026, class pass: the part of this talent that referenced another tree's ability was dead for anyone specced into this tree (tools/validate_class.py)"
       ]
     },
     {
@@ -262,7 +265,7 @@
     {
       "talent_id": "priest_holy_searing_light",
       "name": "Searing Light",
-      "description": "Increases the damage of your Smite, Holy Fire and Penance by 5% per rank.",
+      "description": "Increases the damage of your Smite and Holy Fire by 5% per rank.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 2,
@@ -271,12 +274,14 @@
       "hex_y": -2,
       "effects": {
         "ability_priest_smite_damage": 0.05,
-        "ability_priest_holy_fire_damage": 0.05,
-        "ability_priest_penance_damage": 0.05
+        "ability_priest_holy_fire_damage": 0.05
       },
       "_source": "WotLK row 2, built verbatim for the three real spells that exist: 'Increases the damage of your Smite, Holy Fire, Holy Nova and Penance spells by 5%/10%.' The real talent requires Divine Fury, which connected_to reproduces. Kept from the outgoing tree, corrected from 3 ranks to the real 2.",
       "connected_to": [
         "priest_holy_divine_fury"
+      ],
+      "_tuning": [
+        "15 Nov 2026, class pass: the part of this talent that referenced another tree's ability was dead for anyone specced into this tree (tools/validate_class.py)"
       ]
     },
     {

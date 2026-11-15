@@ -399,7 +399,7 @@
     {
       "talent_id": "mage_arcane_incanters_absorption",
       "name": "Incanter's Absorption",
-      "description": "Your Mana Shield and Ice Barrier raise your spell damage by 10% for 3 turns.",
+      "description": "Your Mana Shield raises your spell damage by 10% for 3 turns.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -416,8 +416,7 @@
         "chance": 33,
         "icd": 0,
         "ability_filter": [
-          "mage_mana_shield",
-          "mage_ice_barrier"
+          "mage_mana_shield"
         ],
         "apply_effect": {
           "effect_id": "incanters_absorption",
@@ -429,7 +428,10 @@
           },
           "on_target": false
         }
-      }
+      },
+      "_tuning": [
+        "15 Nov 2026, class pass: the part of this talent that referenced another tree's ability was dead for anyone specced into this tree (tools/validate_class.py)"
+      ]
     },
     {
       "talent_id": "mage_arcane_mind_mastery",

@@ -64,7 +64,7 @@
     {
       "talent_id": "rogue_subtlety_opportunity",
       "name": "Opportunity",
-      "description": "Increases the damage dealt by your Backstab, Mutilate, Garrote and Ambush abilities by 10% per rank.",
+      "description": "Increases the damage dealt by your Backstab, Garrote and Ambush abilities by 10% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 2,
@@ -73,12 +73,14 @@
       "hex_y": -6,
       "effects": {
         "ability_rogue_backstab_damage": 0.1,
-        "ability_rogue_mutilate_damage": 0.1,
         "ability_rogue_garrote_damage": 0.1,
         "ability_rogue_ambush_damage": 0.1
       },
       "_source": "WotLK row 0, built verbatim including all four abilities and the real 10% per rank over 2 ranks. The outgoing version was 5 ranks of 8% on Backstab alone.",
-      "connected_to": []
+      "connected_to": [],
+      "_tuning": [
+        "15 Nov 2026, class pass: the part of this talent that referenced another tree's ability was dead for anyone specced into this tree (tools/validate_class.py)"
+      ]
     },
     {
       "talent_id": "rogue_subtlety_sleight_of_hand",

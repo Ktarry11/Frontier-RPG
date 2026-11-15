@@ -100,7 +100,7 @@
     {
       "talent_id": "druid_restoration_natural_shapeshifter",
       "name": "Natural Shapeshifter",
-      "description": "Reduces the cost of your shapeshifting by 10% per rank.",
+      "description": "Reduces the cost of your Bear, Cat and Tree of Life forms by 10% per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -110,13 +110,14 @@
       "effects": {
         "ability_druid_bear_form_cost_pct": 0.1,
         "ability_druid_cat_form_cost_pct": 0.1,
-        "ability_druid_moonkin_form_cost_pct": 0.1,
-        "ability_druid_tree_of_life_cost_pct": 0.1,
-        "ability_druid_dire_bear_form_cost_pct": 0.1
+        "ability_druid_tree_of_life_cost_pct": 0.1
       },
       "_source": "WotLK row 1, built verbatim: 'Reduces the mana cost of all shapeshifting by 10%/20%/30%.' ALL FIVE FORMS CARRY A REAL COST (bear 20, cat 25, moonkin 30, tree 35, dire bear 30), which was CHECKED rather than assumed - the Warlock's Master Summoner node was authored the same way and ALL FOUR of its keys were dead because summons are free.",
       "connected_to": [
         "druid_restoration_natures_focus"
+      ],
+      "_tuning": [
+        "15 Nov 2026, class pass: the part of this talent that referenced another tree's ability was dead for anyone specced into this tree (tools/validate_class.py)"
       ]
     },
     {
