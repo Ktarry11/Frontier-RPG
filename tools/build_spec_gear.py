@@ -539,6 +539,11 @@ def build():
             school = schools.most_common(1)[0][0]
         elif spread.get(class_key):
             school = spread[class_key].most_common(1)[0][0]
+        # A HEALER'S GEAR NAMES NO SCHOOL (15 Nov 2026): one school's spell power heals nothing, and a healer tree
+        # that names no school fell back to its class's damage spells - Restoration became "fire" once Flame Shock
+        # and the totems were given their school.
+        if role == "healer":
+            school = None
 
         out[spec] = {
             "class": cls,
