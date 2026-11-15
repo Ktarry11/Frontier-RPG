@@ -97,10 +97,10 @@
           "rarity": "rare",
           "primary_stats": {
             "strength": 8,
-            "stamina": 11
+            "stamina": 12
           },
           "secondary_stats": {
-            "dodge_rating": 10
+            "dodge_rating": 6
           },
           "armor_value": 140
         }
@@ -301,12 +301,13 @@
           "item_level": 22,
           "rarity": "uncommon",
           "primary_stats": {
-            "strength": 8,
-            "stamina": 3
+            "strength": 6,
+            "stamina": 2
           },
           "armor_value": 102,
           "secondary_stats": {
-            "attack_power": 3
+            "attack_power": 2,
+            "crit_chance_physical": 3
           }
         }
       ]
@@ -340,11 +341,12 @@
           "item_level": 22,
           "rarity": "rare",
           "primary_stats": {
-            "intellect": 15
+            "intellect": 14
           },
           "secondary_stats": {
-            "healing_power": 28,
-            "mp5": 3
+            "healing_power": 26,
+            "mp5": 3,
+            "crit_chance_spell": 3
           },
           "armor_value": 21
         }
@@ -532,11 +534,11 @@
           "item_level": 20,
           "rarity": "uncommon",
           "primary_stats": {
-            "agility": 6,
-            "stamina": 2
+            "agility": 11,
+            "stamina": 4
           },
           "secondary_stats": {
-            "crit_chance_physical": 10
+            "crit_chance_physical": 3
           }
         }
       ]

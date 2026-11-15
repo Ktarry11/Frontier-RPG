@@ -260,8 +260,8 @@
           "required_level": 14,
           "primary_stats": {},
           "secondary_stats": {
-            "block_rating": 10,
-            "dodge_rating": 10
+            "dodge_rating": 7,
+            "defense_rating": 7
           },
           "armor_type": "mail",
           "armor_value": 53,
@@ -277,7 +277,7 @@
           "primary_stats": {},
           "secondary_stats": {
             "dodge_rating": 10,
-            "parry_rating": 10
+            "parry_rating": 6
           },
           "weapon_damage_min": 27,
           "weapon_damage_max": 37,
@@ -482,7 +482,7 @@
           "required_level": 16,
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 10
+            "dodge_rating": 7
           },
           "armor_type": "leather",
           "armor_value": 27,
@@ -669,7 +669,7 @@
           "primary_stats": {},
           "secondary_stats": {
             "dodge_rating": 10,
-            "parry_rating": 10
+            "parry_rating": 6
           },
           "weapon_damage_min": 31,
           "weapon_damage_max": 42,
@@ -866,10 +866,12 @@
           "rarity": "uncommon",
           "required_level": 15,
           "primary_stats": {
-            "strength": 4,
-            "stamina": 5
+            "strength": 3,
+            "stamina": 3
           },
-          "secondary_stats": {},
+          "secondary_stats": {
+            "crit_chance_physical": 3
+          },
           "armor_type": "leather",
           "armor_value": 35,
           "label": "Leather Chest (Str/Sta)"
@@ -1103,9 +1105,11 @@
           "required_level": 17,
           "weapon_type": "mace_2h",
           "primary_stats": {
-            "strength": 10
+            "strength": 6
           },
-          "secondary_stats": {},
+          "secondary_stats": {
+            "haste": 3
+          },
           "weapon_damage_min": 42,
           "weapon_damage_max": 57,
           "attack_speed": 3.6,
@@ -1186,10 +1190,12 @@
           "required_level": 15,
           "weapon_type": "axe_1h",
           "primary_stats": {
-            "stamina": 5,
-            "agility": 3
+            "stamina": 3,
+            "agility": 2
           },
-          "secondary_stats": {},
+          "secondary_stats": {
+            "crit_chance_physical": 3
+          },
           "weapon_damage_min": 28,
           "weapon_damage_max": 39,
           "attack_speed": 2.6,
@@ -1473,10 +1479,12 @@
           "required_level": 17,
           "weapon_type": "mace_2h",
           "primary_stats": {
-            "strength": 5,
-            "stamina": 6
+            "strength": 4,
+            "stamina": 5
           },
-          "secondary_stats": {},
+          "secondary_stats": {
+            "armor_penetration_pct": 4
+          },
           "weapon_damage_min": 42,
           "weapon_damage_max": 57,
           "attack_speed": 3.6,
@@ -1551,7 +1559,7 @@
           "primary_stats": {},
           "secondary_stats": {
             "dodge_rating": 10,
-            "parry_rating": 10
+            "parry_rating": 6
           },
           "weapon_damage_min": 32,
           "weapon_damage_max": 44,
@@ -1622,10 +1630,12 @@
           "rarity": "uncommon",
           "required_level": 18,
           "primary_stats": {
-            "strength": 4,
-            "stamina": 5
+            "strength": 3,
+            "stamina": 3
           },
-          "secondary_stats": {},
+          "secondary_stats": {
+            "hit_rating": 3
+          },
           "armor_type": "mail",
           "armor_value": 65,
           "label": "Mail Legs (Str/Sta)"
@@ -1774,9 +1784,8 @@
           "required_level": 19,
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 10,
-            "block_rating": 10,
-            "dodge_rating": 10
+            "parry_rating": 11,
+            "dodge_rating": 8
           },
           "armor_type": "mail",
           "armor_value": 68,
@@ -1937,10 +1946,12 @@
           "required_level": 15,
           "weapon_type": "mace_1h",
           "primary_stats": {
-            "strength": 3,
-            "stamina": 5
+            "strength": 2,
+            "stamina": 4
           },
-          "secondary_stats": {},
+          "secondary_stats": {
+            "armor_penetration_pct": 3
+          },
           "weapon_damage_min": 28,
           "weapon_damage_max": 39,
           "attack_speed": 2.6,
@@ -2206,7 +2217,7 @@
           "required_level": 17,
           "primary_stats": {},
           "secondary_stats": {
-            "block_rating": 10
+            "parry_rating": 4
           },
           "armor_type": "mail",
           "armor_value": 46,
@@ -2407,7 +2418,7 @@
           "primary_stats": {},
           "secondary_stats": {
             "dodge_rating": 10,
-            "parry_rating": 10
+            "parry_rating": 6
           },
           "weapon_damage_min": 31,
           "weapon_damage_max": 42,
@@ -2466,8 +2477,8 @@
           "required_level": 17,
           "primary_stats": {},
           "secondary_stats": {
-            "block_rating": 10,
-            "dodge_rating": 10
+            "dodge_rating": 7,
+            "hit_rating": 5
           },
           "armor_type": "mail",
           "armor_value": 62,
@@ -2637,9 +2648,11 @@
           "required_level": 19,
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 5
+            "agility": 2
           },
-          "secondary_stats": {},
+          "secondary_stats": {
+            "hit_rating": 3
+          },
           "weapon_damage_min": 33,
           "weapon_damage_max": 45,
           "attack_speed": 1.7,
@@ -2683,8 +2696,8 @@
           "required_level": 20,
           "primary_stats": {},
           "secondary_stats": {
-            "block_rating": 10,
-            "dodge_rating": 10
+            "dodge_rating": 7,
+            "parry_rating": 4
           },
           "armor_type": "mail",
           "armor_value": 53,
@@ -2875,11 +2888,12 @@
           "rarity": "uncommon",
           "required_level": 20,
           "primary_stats": {
-            "intellect": 2,
-            "spirit": 2
+            "intellect": 1,
+            "spirit": 1
           },
           "secondary_stats": {
-            "healing_power": 8
+            "healing_power": 4,
+            "haste": 3
           },
           "label": "Necklace (Int/Spi)"
         }
@@ -3022,11 +3036,12 @@
           "rarity": "uncommon",
           "required_level": 20,
           "primary_stats": {
-            "intellect": 4,
-            "stamina": 4
+            "intellect": 3,
+            "stamina": 3
           },
           "secondary_stats": {
-            "spell_power": 4
+            "spell_power": 3,
+            "spell_penetration": 3
           },
           "label": "Ring (Int/Sta)"
         },
@@ -3344,9 +3359,8 @@
           "required_level": 20,
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 10,
-            "block_rating": 10,
-            "dodge_rating": 10
+            "parry_rating": 11,
+            "dodge_rating": 8
           },
           "armor_type": "mail",
           "armor_value": 71,

@@ -3554,7 +3554,7 @@
           "weapon_type": "dagger",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 10
+            "dodge_rating": 7
           },
           "weapon_damage_min": 25,
           "weapon_damage_max": 34,
@@ -4673,7 +4673,7 @@
           "required_level": 11,
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 10
+            "dodge_rating": 7
           },
           "armor_type": "leather",
           "armor_value": 22,
@@ -4687,7 +4687,7 @@
           "required_level": 11,
           "primary_stats": {},
           "secondary_stats": {
-            "block_rating": 10
+            "dodge_rating": 5
           },
           "armor_type": "plate",
           "armor_value": 73,
@@ -5856,7 +5856,7 @@
           "required_level": 12,
           "primary_stats": {},
           "secondary_stats": {
-            "block_rating": 10
+            "hit_rating": 5
           },
           "armor_type": "plate",
           "armor_value": 59,
@@ -6072,7 +6072,7 @@
           "required_level": 12,
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 10
+            "dodge_rating": 7
           },
           "armor_type": "leather",
           "armor_value": 16,
@@ -6215,8 +6215,8 @@
             "stamina": 7
           },
           "secondary_stats": {
-            "block_rating": 10,
-            "block_value": 7
+            "block_value": 7,
+            "dodge_rating": 5
           },
           "armor_type": "plate",
           "armor_value": 74,
@@ -6229,11 +6229,10 @@
           "rarity": "uncommon",
           "required_level": 32,
           "primary_stats": {
-            "stamina": 5
+            "stamina": 15
           },
           "secondary_stats": {
-            "defense_rating": 10,
-            "dodge_rating": 10
+            "defense_rating": 7
           },
           "armor_type": "mail",
           "armor_value": 49,
@@ -6247,11 +6246,12 @@
           "required_level": 32,
           "weapon_type": "bow",
           "primary_stats": {
-            "agility": 5,
-            "intellect": 5
+            "agility": 4,
+            "intellect": 4
           },
           "secondary_stats": {
-            "attack_power": 8
+            "attack_power": 6,
+            "spell_hit_rating": 3
           },
           "weapon_damage_min": 39,
           "weapon_damage_max": 52,

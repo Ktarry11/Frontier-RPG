@@ -23,11 +23,12 @@
       "required_level": 19,
       "weapon_type": "staff",
       "primary_stats": {
-        "intellect": 8,
-        "spirit": 8
+        "intellect": 6,
+        "spirit": 6
       },
       "secondary_stats": {
-        "healing_power": 20
+        "healing_power": 15,
+        "haste": 5
       },
       "weapon_damage_min": 24,
       "weapon_damage_max": 32,
@@ -69,11 +70,10 @@
       "required_level": 19,
       "weapon_type": "fist_weapon",
       "primary_stats": {
-        "agility": 6
+        "agility": 23
       },
       "secondary_stats": {
-        "hit_rating": 10,
-        "crit_chance_physical": 10
+        "hit_rating": 3
       },
       "weapon_damage_min": 42,
       "weapon_damage_max": 58,
@@ -90,11 +90,10 @@
       "required_level": 20,
       "weapon_type": "axe_1h",
       "primary_stats": {
-        "agility": 7
+        "agility": 23
       },
       "secondary_stats": {
-        "hit_rating": 10,
-        "crit_chance_physical": 10
+        "hit_rating": 4
       },
       "weapon_damage_min": 45,
       "weapon_damage_max": 61,
@@ -135,9 +134,11 @@
       "rarity": "rare",
       "required_level": 20,
       "primary_stats": {
-        "agility": 6
+        "agility": 3
       },
-      "secondary_stats": {},
+      "secondary_stats": {
+        "crit_chance_physical": 3
+      },
       "armor_type": "leather",
       "armor_value": 29
     }
@@ -150,11 +151,10 @@
       "rarity": "rare",
       "required_level": 20,
       "primary_stats": {
-        "stamina": 7
+        "stamina": 17
       },
       "secondary_stats": {
-        "defense_rating": 10,
-        "dodge_rating": 10
+        "defense_rating": 7
       },
       "armor_type": "plate",
       "armor_value": 105
@@ -242,11 +242,10 @@
       "required_level": 21,
       "weapon_type": "dagger",
       "primary_stats": {
-        "agility": 7
+        "agility": 24
       },
       "secondary_stats": {
-        "hit_rating": 10,
-        "crit_chance_physical": 10
+        "hit_rating": 3
       },
       "weapon_damage_min": 47,
       "weapon_damage_max": 64,
@@ -275,10 +274,12 @@
       "rarity": "rare",
       "required_level": 21,
       "primary_stats": {
-        "strength": 10,
-        "stamina": 10
+        "strength": 8,
+        "stamina": 8
       },
-      "secondary_stats": {},
+      "secondary_stats": {
+        "hit_rating": 5
+      },
       "armor_type": "leather",
       "armor_value": 61
     },
@@ -365,11 +366,11 @@
       "required_level": 21,
       "weapon_type": "sword_1h",
       "primary_stats": {
-        "stamina": 8,
-        "agility": 7
+        "stamina": 9,
+        "agility": 8
       },
       "secondary_stats": {
-        "defense_rating": 10
+        "defense_rating": 7
       },
       "weapon_damage_min": 47,
       "weapon_damage_max": 64,
@@ -400,9 +401,8 @@
       "required_level": 22,
       "primary_stats": {},
       "secondary_stats": {
-        "parry_rating": 10,
-        "block_rating": 10,
-        "dodge_rating": 10
+        "parry_rating": 11,
+        "dodge_rating": 8
       },
       "armor_type": "plate",
       "armor_value": 153
@@ -430,11 +430,10 @@
       "rarity": "rare",
       "required_level": 22,
       "primary_stats": {
-        "stamina": 7
+        "stamina": 18
       },
       "secondary_stats": {
-        "defense_rating": 10,
-        "dodge_rating": 10
+        "defense_rating": 6
       },
       "armor_type": "plate",
       "armor_value": 76
@@ -446,11 +445,12 @@
       "rarity": "rare",
       "required_level": 22,
       "primary_stats": {
-        "stamina": 6,
-        "intellect": 6
+        "stamina": 5,
+        "intellect": 5
       },
       "secondary_stats": {
-        "healing_power": 8
+        "healing_power": 6,
+        "crit_chance_spell": 3
       },
       "armor_type": "cloth",
       "armor_value": 15
@@ -464,11 +464,10 @@
       "rarity": "rare",
       "required_level": 24,
       "primary_stats": {
-        "strength": 7
+        "strength": 22
       },
       "secondary_stats": {
-        "hit_rating": 10,
-        "crit_chance_physical": 10
+        "hit_rating": 5
       },
       "armor_type": "plate",
       "armor_value": 123

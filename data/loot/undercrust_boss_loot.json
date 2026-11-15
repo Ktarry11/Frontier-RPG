@@ -122,8 +122,8 @@
       "stat_template": "spi_healer",
       "primary_stats": {},
       "secondary_stats": {
-        "spell_power": 38,
-        "spell_penetration": 80
+        "spell_power": 144,
+        "spell_penetration": 9
       },
       "armor_value": 0,
       "weapon_damage_min": 77,
@@ -158,11 +158,11 @@
       "weapon_type": null,
       "stat_template": "str_physical",
       "primary_stats": {
-        "strength": 10,
-        "stamina": 13
+        "strength": 11,
+        "stamina": 14
       },
       "secondary_stats": {
-        "hit_rating": 10
+        "hit_rating": 8
       },
       "armor_value": 192,
       "weapon_damage_min": 0,
@@ -195,12 +195,12 @@
       "weapon_type": "mace_2h",
       "stat_template": "str_physical",
       "primary_stats": {
-        "stamina": 5
+        "stamina": 11
       },
       "secondary_stats": {
-        "parry_rating": 10,
-        "attack_power": 2,
-        "hit_rating": 10
+        "parry_rating": 6,
+        "attack_power": 4,
+        "hit_rating": 5
       },
       "armor_value": 13,
       "weapon_damage_min": 102,
@@ -268,11 +268,11 @@
       "weapon_type": null,
       "stat_template": "int_caster",
       "primary_stats": {
-        "spirit": 8
+        "spirit": 9
       },
       "secondary_stats": {
-        "spell_power": 17,
-        "spell_hit_rating": 10
+        "spell_power": 20,
+        "spell_hit_rating": 7
       },
       "armor_value": 26,
       "weapon_damage_min": 0,
@@ -345,8 +345,8 @@
       "stat_template": "agi_physical",
       "primary_stats": {},
       "secondary_stats": {
-        "dodge_rating": 20,
-        "parry_rating": 20
+        "dodge_rating": 19,
+        "parry_rating": 11
       },
       "armor_value": 120,
       "weapon_damage_min": 0,
@@ -416,12 +416,13 @@
       "weapon_type": null,
       "stat_template": "spi_healer",
       "primary_stats": {
-        "stamina": 7,
-        "intellect": 7
+        "stamina": 5,
+        "intellect": 5
       },
       "secondary_stats": {
-        "healing_power": 13,
-        "spell_power": 2
+        "healing_power": 9,
+        "spell_power": 1,
+        "haste": 6
       },
       "armor_value": 26,
       "weapon_damage_min": 0,

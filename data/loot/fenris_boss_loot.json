@@ -8,10 +8,12 @@
       "rarity": "rare",
       "required_level": 21,
       "primary_stats": {
-        "strength": 10,
-        "stamina": 10
+        "strength": 8,
+        "stamina": 8
       },
-      "secondary_stats": {},
+      "secondary_stats": {
+        "hit_rating": 5
+      },
       "armor_type": "leather",
       "armor_value": 61
     },
@@ -50,11 +52,10 @@
       "rarity": "rare",
       "required_level": 21,
       "primary_stats": {
-        "stamina": 10
+        "stamina": 18
       },
       "secondary_stats": {
-        "defense_rating": 10,
-        "dodge_rating": 10
+        "defense_rating": 9
       },
       "armor_type": "plate",
       "armor_value": 146
@@ -85,7 +86,7 @@
       "primary_stats": {},
       "secondary_stats": {
         "dodge_rating": 10,
-        "parry_rating": 10
+        "parry_rating": 6
       },
       "weapon_damage_min": 48,
       "weapon_damage_max": 66,
@@ -98,11 +99,12 @@
       "rarity": "rare",
       "required_level": 22,
       "primary_stats": {
-        "intellect": 4,
-        "spirit": 4
+        "intellect": 3,
+        "spirit": 3
       },
       "secondary_stats": {
-        "healing_power": 10
+        "healing_power": 8,
+        "crit_chance_spell": 3
       },
       "armor_type": "cloth",
       "armor_value": 12
@@ -175,10 +177,12 @@
       "rarity": "rare",
       "required_level": 22,
       "primary_stats": {
-        "agility": 6,
-        "stamina": 6
+        "agility": 4,
+        "stamina": 4
       },
-      "secondary_stats": {},
+      "secondary_stats": {
+        "crit_chance_physical": 3
+      },
       "armor_type": "leather",
       "armor_value": 31
     }
@@ -192,11 +196,11 @@
       "required_level": 22,
       "weapon_type": "mace_1h",
       "primary_stats": {
-        "strength": 7,
-        "stamina": 8
+        "strength": 8,
+        "stamina": 9
       },
       "secondary_stats": {
-        "defense_rating": 10
+        "defense_rating": 8
       },
       "weapon_damage_min": 48,
       "weapon_damage_max": 66,
@@ -236,10 +240,10 @@
       "rarity": "rare",
       "required_level": 22,
       "primary_stats": {
-        "stamina": 7
+        "stamina": 9
       },
       "secondary_stats": {
-        "dodge_rating": 10
+        "dodge_rating": 5
       },
       "armor_type": "mail",
       "armor_value": 76
@@ -270,9 +274,8 @@
       "required_level": 21,
       "primary_stats": {},
       "secondary_stats": {
-        "parry_rating": 10,
-        "block_rating": 10,
-        "dodge_rating": 10
+        "parry_rating": 11,
+        "dodge_rating": 8
       },
       "armor_type": "plate",
       "armor_value": 110
@@ -315,11 +318,11 @@
       "required_level": 22,
       "weapon_type": "staff",
       "primary_stats": {
-        "intellect": 9
+        "intellect": 10
       },
       "secondary_stats": {
-        "spell_power": 24,
-        "crit_chance_spell": 10
+        "spell_power": 27,
+        "crit_chance_spell": 7
       },
       "weapon_damage_min": 26,
       "weapon_damage_max": 36,
@@ -349,8 +352,8 @@
       "required_level": 22,
       "primary_stats": {},
       "secondary_stats": {
-        "spell_power": 15,
-        "spell_penetration": 30
+        "spell_power": 55,
+        "spell_penetration": 3
       },
       "armor_type": "leather",
       "armor_value": 31
@@ -363,8 +366,9 @@
       "required_level": 22,
       "primary_stats": {},
       "secondary_stats": {
-        "healing_power": 18,
-        "mp5": 1
+        "healing_power": 12,
+        "mp5": 1,
+        "haste": 3
       }
     },
     {
@@ -394,11 +398,12 @@
       "required_level": 24,
       "weapon_type": "sword_1h",
       "primary_stats": {
-        "agility": 7,
-        "intellect": 7
+        "agility": 5,
+        "intellect": 5
       },
       "secondary_stats": {
-        "attack_power": 13
+        "attack_power": 10,
+        "spell_penetration": 5
       },
       "weapon_damage_min": 52,
       "weapon_damage_max": 70,
@@ -439,11 +444,12 @@
       "rarity": "rare",
       "required_level": 24,
       "primary_stats": {
-        "intellect": 4
+        "intellect": 3
       },
       "secondary_stats": {
-        "spell_power": 9,
-        "mp5": 1
+        "spell_power": 7,
+        "mp5": 1,
+        "spell_penetration": 3
       }
     }
   ]

@@ -442,11 +442,11 @@
           "rarity": "uncommon",
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 8,
-            "stamina": 2
+            "agility": 22,
+            "stamina": 5
           },
           "secondary_stats": {
-            "crit_chance_physical": 20
+            "crit_chance_physical": 3
           }
         }
       ],
@@ -484,11 +484,12 @@
           "rarity": "uncommon",
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 8,
+            "intellect": 7,
             "spirit": 2
           },
           "secondary_stats": {
-            "spell_power": 9
+            "spell_power": 7,
+            "crit_chance_spell": 3
           }
         },
         {
@@ -498,12 +499,12 @@
           "item_level": 25,
           "rarity": "uncommon",
           "primary_stats": {
-            "agility": 10,
-            "stamina": 4
+            "agility": 21,
+            "stamina": 9
           },
           "armor_value": 48,
           "secondary_stats": {
-            "crit_chance_physical": 20
+            "crit_chance_physical": 4
           }
         }
       ],
@@ -567,12 +568,13 @@
           "rarity": "rare",
           "stat_template": "str_int_hybrid",
           "primary_stats": {
-            "strength": 8,
-            "intellect": 7,
-            "stamina": 4
+            "strength": 6,
+            "intellect": 5,
+            "stamina": 3
           },
           "secondary_stats": {
-            "spell_power": 17
+            "spell_power": 13,
+            "spell_penetration": 7
           }
         }
       ],
@@ -609,11 +611,12 @@
           "rarity": "uncommon",
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 7,
-            "stamina": 3
+            "strength": 5,
+            "stamina": 2
           },
           "secondary_stats": {
-            "attack_power": 5
+            "attack_power": 4,
+            "crit_chance_physical": 3
           }
         },
         {
@@ -622,12 +625,12 @@
           "item_level": 25,
           "rarity": "uncommon",
           "primary_stats": {
-            "strength": 4,
-            "intellect": 4,
-            "stamina": 2
+            "strength": 15,
+            "intellect": 15,
+            "stamina": 7
           },
           "secondary_stats": {
-            "hit_rating": 30
+            "hit_rating": 3
           }
         }
       ],

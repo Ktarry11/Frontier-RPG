@@ -24,10 +24,12 @@
       "rarity": "rare",
       "required_level": 33,
       "primary_stats": {
-        "strength": 15,
-        "stamina": 15
+        "strength": 11,
+        "stamina": 11
       },
-      "secondary_stats": {},
+      "secondary_stats": {
+        "crit_chance_physical": 8
+      },
       "armor_type": "leather",
       "armor_value": 91
     },
@@ -66,11 +68,11 @@
       "required_level": 33,
       "weapon_type": "dagger",
       "primary_stats": {
-        "intellect": 7
+        "intellect": 9
       },
       "secondary_stats": {
-        "spell_power": 17,
-        "spell_hit_rating": 10
+        "spell_power": 21,
+        "spell_hit_rating": 6
       },
       "weapon_damage_min": 66,
       "weapon_damage_max": 89,
@@ -111,9 +113,11 @@
       "rarity": "rare",
       "required_level": 33,
       "primary_stats": {
-        "intellect": 19
+        "intellect": 14
       },
-      "secondary_stats": {},
+      "secondary_stats": {
+        "spell_penetration": 5
+      },
       "armor_type": "cloth",
       "armor_value": 22
     }
@@ -159,11 +163,11 @@
       "rarity": "rare",
       "required_level": 34,
       "primary_stats": {
-        "strength": 11,
-        "stamina": 14
+        "strength": 12,
+        "stamina": 15
       },
       "secondary_stats": {
-        "crit_chance_physical": 10
+        "crit_chance_physical": 8
       },
       "armor_type": "plate",
       "armor_value": 226
@@ -188,11 +192,11 @@
       "required_level": 34,
       "weapon_type": "tome",
       "primary_stats": {
-        "intellect": 7
+        "intellect": 9
       },
       "secondary_stats": {
-        "spell_power": 17,
-        "crit_chance_spell": 10
+        "spell_power": 21,
+        "crit_chance_spell": 6
       },
       "label": "Tome (Int)",
       "attack_speed": 0.0
@@ -266,11 +270,11 @@
       "required_level": 36,
       "weapon_type": "wand",
       "primary_stats": {
-        "intellect": 7
+        "intellect": 9
       },
       "secondary_stats": {
-        "spell_power": 15,
-        "crit_chance_spell": 10
+        "spell_power": 19,
+        "crit_chance_spell": 5
       },
       "weapon_damage_min": 60,
       "weapon_damage_max": 81,
@@ -373,11 +377,12 @@
       "rarity": "rare",
       "required_level": 36,
       "primary_stats": {
-        "intellect": 6,
-        "stamina": 8
+        "intellect": 4,
+        "stamina": 6
       },
       "secondary_stats": {
-        "mp5": 2
+        "mp5": 1,
+        "crit_chance_spell": 5
       }
     }
   ],
@@ -437,10 +442,12 @@
       "rarity": "rare",
       "required_level": 37,
       "primary_stats": {
-        "intellect": 6,
-        "stamina": 8
+        "intellect": 3,
+        "stamina": 5
       },
-      "secondary_stats": {}
+      "secondary_stats": {
+        "spell_penetration": 6
+      }
     }
   ],
   "What Walks in the Dim": [
@@ -452,11 +459,11 @@
       "required_level": 37,
       "weapon_type": "axe_2h",
       "primary_stats": {
-        "strength": 9
+        "strength": 21
       },
       "secondary_stats": {
-        "hit_rating": 10,
-        "crit_chance_physical": 10
+        "hit_rating": 5,
+        "crit_chance_physical": 3
       },
       "weapon_damage_min": 98,
       "weapon_damage_max": 133,
@@ -469,11 +476,11 @@
       "rarity": "rare",
       "required_level": 37,
       "primary_stats": {
-        "strength": 9,
-        "stamina": 12
+        "strength": 8,
+        "stamina": 10
       },
       "secondary_stats": {
-        "defense_rating": 10
+        "defense_rating": 14
       },
       "armor_type": "plate",
       "armor_value": 183
@@ -516,11 +523,11 @@
       "required_level": 37,
       "weapon_type": "sword_1h",
       "primary_stats": {
-        "intellect": 10
+        "intellect": 11
       },
       "secondary_stats": {
-        "spell_power": 23,
-        "spell_hit_rating": 10
+        "spell_power": 25,
+        "spell_hit_rating": 8
       },
       "weapon_damage_min": 72,
       "weapon_damage_max": 98,
@@ -536,8 +543,8 @@
         "intellect": 10
       },
       "secondary_stats": {
-        "spell_power": 23,
-        "spell_hit_rating": 10
+        "spell_power": 24,
+        "spell_hit_rating": 9
       },
       "armor_type": "cloth",
       "armor_value": 51
@@ -550,8 +557,8 @@
       "required_level": 37,
       "primary_stats": {},
       "secondary_stats": {
-        "spell_power": 26,
-        "spell_penetration": 60
+        "spell_power": 107,
+        "spell_penetration": 6
       },
       "armor_type": "leather",
       "armor_value": 51
@@ -579,11 +586,11 @@
       "required_level": 37,
       "weapon_type": "axe_1h",
       "primary_stats": {
-        "strength": 10,
-        "stamina": 14
+        "strength": 11,
+        "stamina": 15
       },
       "secondary_stats": {
-        "crit_chance_physical": 10
+        "crit_chance_physical": 8
       },
       "weapon_damage_min": 72,
       "weapon_damage_max": 98,
@@ -609,11 +616,11 @@
       "rarity": "rare",
       "required_level": 37,
       "primary_stats": {
-        "strength": 9,
-        "stamina": 12
+        "strength": 10,
+        "stamina": 13
       },
       "secondary_stats": {
-        "hit_rating": 10
+        "hit_rating": 8
       },
       "armor_type": "plate",
       "armor_value": 183
@@ -673,8 +680,8 @@
       "weapon_type": "crossbow",
       "primary_stats": {},
       "secondary_stats": {
-        "spell_power": 24,
-        "spell_penetration": 50
+        "spell_power": 90,
+        "spell_penetration": 6
       },
       "weapon_damage_min": 61,
       "weapon_damage_max": 83,
@@ -750,11 +757,11 @@
       "rarity": "rare",
       "required_level": 38,
       "primary_stats": {
-        "strength": 12,
-        "stamina": 15
+        "strength": 9,
+        "stamina": 12
       },
       "secondary_stats": {
-        "defense_rating": 10
+        "defense_rating": 18
       },
       "armor_type": "plate",
       "armor_value": 250
@@ -874,11 +881,11 @@
       "required_level": 38,
       "weapon_type": "bow",
       "primary_stats": {
-        "agility": 7,
-        "stamina": 9
+        "agility": 9,
+        "stamina": 11
       },
       "secondary_stats": {
-        "hit_rating": 10
+        "hit_rating": 6
       },
       "weapon_damage_min": 63,
       "weapon_damage_max": 85,
@@ -907,11 +914,11 @@
       "rarity": "rare",
       "required_level": 38,
       "primary_stats": {
-        "agility": 10,
-        "stamina": 12
+        "agility": 11,
+        "stamina": 13
       },
       "secondary_stats": {
-        "hit_rating": 10
+        "hit_rating": 8
       },
       "armor_type": "mail",
       "armor_value": 125
@@ -923,11 +930,13 @@
       "rarity": "rare",
       "required_level": 38,
       "primary_stats": {
-        "strength": 6,
-        "agility": 6,
-        "stamina": 6
+        "strength": 4,
+        "agility": 4,
+        "stamina": 4
       },
-      "secondary_stats": {}
+      "secondary_stats": {
+        "crit_chance_physical": 6
+      }
     }
   ],
   "The Scriptor": [
@@ -984,11 +993,11 @@
       "rarity": "rare",
       "required_level": 39,
       "primary_stats": {
-        "agility": 8,
-        "stamina": 11
+        "agility": 9,
+        "stamina": 13
       },
       "secondary_stats": {
-        "hit_rating": 10
+        "hit_rating": 7
       },
       "armor_type": "mail",
       "armor_value": 85
@@ -1003,11 +1012,10 @@
       "required_level": 39,
       "weapon_type": "thrown",
       "primary_stats": {
-        "agility": 9
+        "agility": 23
       },
       "secondary_stats": {
-        "hit_rating": 10,
-        "crit_chance_physical": 10
+        "hit_rating": 6
       },
       "weapon_damage_min": 64,
       "weapon_damage_max": 87,
@@ -1036,11 +1044,11 @@
       "rarity": "rare",
       "required_level": 39,
       "primary_stats": {
-        "strength": 14
+        "strength": 24
       },
       "secondary_stats": {
-        "hit_rating": 10,
-        "crit_chance_physical": 10
+        "hit_rating": 6,
+        "crit_chance_physical": 4
       },
       "armor_type": "plate",
       "armor_value": 257
@@ -1053,8 +1061,8 @@
       "required_level": 39,
       "primary_stats": {},
       "secondary_stats": {
-        "spell_power": 24,
-        "spell_penetration": 50
+        "spell_power": 90,
+        "spell_penetration": 6
       }
     }
   ],
@@ -1067,11 +1075,11 @@
       "required_level": 40,
       "weapon_type": "sword_2h",
       "primary_stats": {
-        "strength": 9,
-        "stamina": 12
+        "strength": 7,
+        "stamina": 9
       },
       "secondary_stats": {
-        "defense_rating": 10
+        "defense_rating": 16
       },
       "weapon_damage_min": 104,
       "weapon_damage_max": 141,

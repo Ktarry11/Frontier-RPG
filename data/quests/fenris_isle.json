@@ -142,7 +142,7 @@
           "required_level": 17,
           "primary_stats": {},
           "secondary_stats": {
-            "block_rating": 10
+            "defense_rating": 7
           },
           "armor_type": "plate",
           "armor_value": 39,
@@ -214,10 +214,12 @@
           "rarity": "uncommon",
           "required_level": 17,
           "primary_stats": {
-            "strength": 4,
-            "stamina": 5
+            "strength": 3,
+            "stamina": 3
           },
-          "secondary_stats": {},
+          "secondary_stats": {
+            "hit_rating": 3
+          },
           "armor_type": "plate",
           "armor_value": 79,
           "label": "Plate Chest (Str/Sta/Def)"
@@ -285,11 +287,12 @@
           "rarity": "uncommon",
           "required_level": 18,
           "primary_stats": {
-            "intellect": 3,
-            "stamina": 3
+            "intellect": 2,
+            "stamina": 2
           },
           "secondary_stats": {
-            "spell_power": 4
+            "spell_power": 2,
+            "haste": 3
           },
           "armor_type": "cloth",
           "armor_value": 13,
@@ -377,7 +380,7 @@
           "required_level": 19,
           "primary_stats": {},
           "secondary_stats": {
-            "block_rating": 10
+            "parry_rating": 4
           },
           "armor_type": "plate",
           "armor_value": 63,
@@ -722,10 +725,12 @@
           "required_level": 19,
           "weapon_type": "polearm",
           "primary_stats": {
-            "strength": 4,
-            "stamina": 6
+            "strength": 3,
+            "stamina": 4
           },
-          "secondary_stats": {},
+          "secondary_stats": {
+            "crit_chance_physical": 3
+          },
           "weapon_damage_min": 40,
           "weapon_damage_max": 55,
           "attack_speed": 3.3,
@@ -1122,8 +1127,8 @@
           "required_level": 20,
           "primary_stats": {},
           "secondary_stats": {
-            "block_rating": 10,
-            "dodge_rating": 10
+            "dodge_rating": 7,
+            "hit_rating": 5
           },
           "armor_type": "plate",
           "armor_value": 93,
@@ -1154,7 +1159,7 @@
           "primary_stats": {},
           "secondary_stats": {
             "dodge_rating": 10,
-            "parry_rating": 10
+            "parry_rating": 6
           },
           "weapon_damage_min": 45,
           "weapon_damage_max": 61,
@@ -1213,11 +1218,10 @@
           "rarity": "rare",
           "required_level": 22,
           "primary_stats": {
-            "stamina": 8
+            "stamina": 17
           },
           "secondary_stats": {
-            "defense_rating": 10,
-            "dodge_rating": 10
+            "defense_rating": 8
           },
           "armor_type": "mail",
           "armor_value": 89,
@@ -1408,7 +1412,7 @@
           "required_level": 20,
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 10
+            "dodge_rating": 7
           },
           "armor_type": "leather",
           "armor_value": 19,
@@ -1580,7 +1584,7 @@
           "primary_stats": {},
           "secondary_stats": {
             "dodge_rating": 10,
-            "parry_rating": 10
+            "parry_rating": 6
           },
           "weapon_damage_min": 31,
           "weapon_damage_max": 42,
@@ -1639,11 +1643,11 @@
           "rarity": "rare",
           "required_level": 22,
           "primary_stats": {
-            "strength": 7,
-            "stamina": 8
+            "strength": 8,
+            "stamina": 9
           },
           "secondary_stats": {
-            "defense_rating": 10
+            "defense_rating": 8
           },
           "armor_type": "plate",
           "armor_value": 134,
@@ -1657,11 +1661,11 @@
           "required_level": 22,
           "weapon_type": "sword_1h",
           "primary_stats": {
-            "stamina": 8,
-            "agility": 7
+            "stamina": 10,
+            "agility": 8
           },
           "secondary_stats": {
-            "defense_rating": 10
+            "defense_rating": 6
           },
           "weapon_damage_min": 44,
           "weapon_damage_max": 59,
@@ -1675,9 +1679,11 @@
           "rarity": "rare",
           "required_level": 22,
           "primary_stats": {
-            "agility": 5
+            "agility": 2
           },
-          "secondary_stats": {},
+          "secondary_stats": {
+            "crit_chance_physical": 3
+          },
           "armor_type": "leather",
           "armor_value": 28,
           "label": "Leather Bracers (Agi/Hit/Crit)"
@@ -2096,9 +2102,8 @@
           "required_level": 22,
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 10,
-            "block_rating": 10,
-            "dodge_rating": 10
+            "parry_rating": 11,
+            "dodge_rating": 8
           },
           "armor_type": "plate",
           "armor_value": 102,
@@ -2157,11 +2162,11 @@
           "rarity": "rare",
           "required_level": 24,
           "primary_stats": {
-            "stamina": 10
+            "stamina": 9
           },
           "secondary_stats": {
-            "block_rating": 10,
-            "block_value": 10
+            "block_value": 9,
+            "defense_rating": 9
           },
           "armor_type": "plate",
           "armor_value": 146,
@@ -2192,10 +2197,10 @@
           "required_level": 24,
           "weapon_type": "axe_1h",
           "primary_stats": {
-            "stamina": 10
+            "stamina": 15
           },
           "secondary_stats": {
-            "parry_rating": 10
+            "parry_rating": 4
           },
           "weapon_damage_min": 47,
           "weapon_damage_max": 64,
@@ -2210,10 +2215,10 @@
           "rarity": "rare",
           "required_level": 24,
           "primary_stats": {
-            "stamina": 7
+            "stamina": 9
           },
           "secondary_stats": {
-            "dodge_rating": 10
+            "dodge_rating": 5
           },
           "armor_type": "mail",
           "armor_value": 73,

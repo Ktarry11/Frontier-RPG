@@ -83,8 +83,8 @@
       "stat_template": "agi_physical",
       "primary_stats": {},
       "secondary_stats": {
-        "dodge_rating": 20,
-        "parry_rating": 20
+        "dodge_rating": 19,
+        "parry_rating": 11
       },
       "armor_value": 184,
       "weapon_damage_min": 0,
@@ -157,7 +157,7 @@
         "stamina": 13
       },
       "secondary_stats": {
-        "parry_rating": 10,
+        "parry_rating": 8,
         "attack_power": 4
       },
       "armor_value": 83,
@@ -262,12 +262,12 @@
       "weapon_type": null,
       "stat_template": "agi_int_hybrid",
       "primary_stats": {
-        "intellect": 8
+        "intellect": 9
       },
       "secondary_stats": {
-        "spell_power": 19,
-        "crit_chance_spell": 10,
-        "attack_power": 4
+        "spell_power": 22,
+        "crit_chance_spell": 7,
+        "attack_power": 5
       },
       "armor_value": 54,
       "weapon_damage_min": 0,
@@ -372,10 +372,10 @@
       "stat_template": "str_physical",
       "primary_stats": {
         "strength": 10,
-        "stamina": 13
+        "stamina": 14
       },
       "secondary_stats": {
-        "crit_chance_physical": 10,
+        "crit_chance_physical": 9,
         "attack_power": 4
       },
       "armor_value": 197,
@@ -448,8 +448,8 @@
       "stat_template": "str_physical",
       "primary_stats": {},
       "secondary_stats": {
-        "dodge_rating": 20,
-        "parry_rating": 20
+        "dodge_rating": 19,
+        "parry_rating": 11
       },
       "armor_value": 0,
       "weapon_damage_min": 79,
@@ -482,12 +482,12 @@
       "weapon_type": null,
       "stat_template": "agi_physical",
       "primary_stats": {
-        "agility": 15
+        "agility": 24
       },
       "secondary_stats": {
-        "hit_rating": 10,
-        "crit_chance_physical": 10,
-        "attack_power": 5
+        "hit_rating": 6,
+        "crit_chance_physical": 4,
+        "attack_power": 8
       },
       "armor_value": 126,
       "weapon_damage_min": 0,
@@ -555,11 +555,11 @@
       "weapon_type": "tome",
       "stat_template": "spi_healer",
       "primary_stats": {
-        "intellect": 9
+        "intellect": 10
       },
       "secondary_stats": {
-        "spell_power": 21,
-        "crit_chance_spell": 10,
+        "spell_power": 23,
+        "crit_chance_spell": 8,
         "healing_power": 5
       },
       "armor_value": 0,
@@ -595,11 +595,11 @@
       "weapon_type": "mace_2h",
       "stat_template": "str_physical",
       "primary_stats": {
-        "stamina": 14
+        "stamina": 7
       },
       "secondary_stats": {
-        "block_rating": 10,
-        "block_value": 15
+        "block_value": 8,
+        "defense_rating": 20
       },
       "armor_value": 11,
       "weapon_damage_min": 119,
@@ -632,11 +632,11 @@
       "weapon_type": null,
       "stat_template": "str_physical",
       "primary_stats": {
-        "stamina": 19
+        "stamina": 32
       },
       "secondary_stats": {
-        "defense_rating": 20,
-        "dodge_rating": 20
+        "defense_rating": 14,
+        "dodge_rating": 6
       },
       "armor_value": 322,
       "weapon_damage_min": 0,
@@ -708,8 +708,8 @@
         "intellect": 10
       },
       "secondary_stats": {
-        "spell_power": 26,
-        "spell_hit_rating": 10
+        "spell_power": 25,
+        "spell_hit_rating": 11
       },
       "armor_value": 47,
       "weapon_damage_min": 0,
@@ -744,11 +744,11 @@
       "weapon_type": "gun",
       "stat_template": "agi_physical",
       "primary_stats": {
-        "agility": 12
+        "agility": 24
       },
       "secondary_stats": {
-        "hit_rating": 10,
-        "crit_chance_physical": 10
+        "hit_rating": 5,
+        "crit_chance_physical": 3
       },
       "armor_value": 0,
       "weapon_damage_min": 75,
@@ -852,12 +852,12 @@
       "weapon_type": null,
       "stat_template": "str_physical",
       "primary_stats": {
-        "strength": 12,
-        "stamina": 15
+        "strength": 9,
+        "stamina": 11
       },
       "secondary_stats": {
-        "defense_rating": 10,
-        "attack_power": 5
+        "defense_rating": 20,
+        "attack_power": 4
       },
       "armor_value": 229,
       "weapon_damage_min": 0,
@@ -1039,11 +1039,11 @@
       "weapon_type": "staff",
       "stat_template": "int_caster",
       "primary_stats": {
-        "intellect": 27,
-        "stamina": 27
+        "intellect": 22,
+        "stamina": 22
       },
       "secondary_stats": {
-        "crit_chance_spell": 10
+        "crit_chance_spell": 20
       },
       "armor_value": 0,
       "weapon_damage_min": 50,
@@ -1113,12 +1113,12 @@
       "weapon_type": null,
       "stat_template": "str_int_hybrid",
       "primary_stats": {
-        "strength": 11,
-        "stamina": 13
+        "strength": 9,
+        "stamina": 10
       },
       "secondary_stats": {
-        "defense_rating": 10,
-        "attack_power": 5
+        "defense_rating": 17,
+        "attack_power": 4
       },
       "armor_value": 106,
       "weapon_damage_min": 0,
@@ -1188,12 +1188,12 @@
       "weapon_type": "mace_2h",
       "stat_template": "str_physical",
       "primary_stats": {
-        "strength": 13,
-        "stamina": 13
+        "strength": 9,
+        "stamina": 9
       },
       "secondary_stats": {
-        "dodge_rating": 10,
-        "attack_power": 4
+        "dodge_rating": 15,
+        "attack_power": 3
       },
       "armor_value": 0,
       "weapon_damage_min": 126,
@@ -1479,11 +1479,11 @@
       "weapon_type": "sword_1h",
       "stat_template": "str_physical",
       "primary_stats": {
-        "strength": 15,
-        "stamina": 19
+        "strength": 14,
+        "stamina": 18
       },
       "secondary_stats": {
-        "hit_rating": 10
+        "hit_rating": 12
       },
       "armor_value": 0,
       "weapon_damage_min": 95,

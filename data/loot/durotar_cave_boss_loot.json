@@ -233,8 +233,8 @@
       "required_level": 11,
       "primary_stats": {},
       "secondary_stats": {
-        "spell_power": 8,
-        "spell_penetration": 20
+        "spell_power": 33,
+        "spell_penetration": 3
       }
     },
     {
@@ -360,11 +360,11 @@
       "rarity": "rare",
       "required_level": 13,
       "primary_stats": {
-        "stamina": 7
+        "stamina": 8
       },
       "secondary_stats": {
-        "block_rating": 10,
-        "block_value": 7
+        "block_value": 8,
+        "defense_rating": 5
       },
       "armor_type": "plate",
       "armor_value": 97
@@ -446,11 +446,13 @@
       "required_level": 13,
       "weapon_type": "axe_2h",
       "primary_stats": {
-        "strength": 4,
-        "agility": 4,
-        "stamina": 4
+        "strength": 3,
+        "agility": 3,
+        "stamina": 3
       },
-      "secondary_stats": {},
+      "secondary_stats": {
+        "crit_chance_physical": 3
+      },
       "weapon_damage_min": 46,
       "weapon_damage_max": 63,
       "attack_speed": 3.6

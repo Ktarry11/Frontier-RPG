@@ -38,10 +38,12 @@
       "rarity": "rare",
       "required_level": 24,
       "primary_stats": {
-        "intellect": 6,
-        "stamina": 6
+        "intellect": 4,
+        "stamina": 4
       },
-      "secondary_stats": {}
+      "secondary_stats": {
+        "crit_chance_spell": 3
+      }
     },
     {
       "name": "Militia Drill Gauntlets",
@@ -184,11 +186,11 @@
       "required_level": 26,
       "weapon_type": "sword_1h",
       "primary_stats": {
-        "strength": 8,
-        "stamina": 10
+        "strength": 10,
+        "stamina": 13
       },
       "secondary_stats": {
-        "crit_chance_physical": 10
+        "crit_chance_physical": 5
       },
       "weapon_damage_min": 55,
       "weapon_damage_max": 74,
@@ -297,10 +299,12 @@
       "required_level": 25,
       "weapon_type": "dagger",
       "primary_stats": {
-        "agility": 8,
-        "stamina": 8
+        "agility": 6,
+        "stamina": 6
       },
-      "secondary_stats": {},
+      "secondary_stats": {
+        "haste": 3
+      },
       "weapon_damage_min": 53,
       "weapon_damage_max": 72,
       "attack_speed": 1.7
@@ -542,10 +546,12 @@
       "rarity": "rare",
       "required_level": 25,
       "primary_stats": {
-        "strength": 9,
-        "stamina": 9
+        "strength": 7,
+        "stamina": 7
       },
-      "secondary_stats": {},
+      "secondary_stats": {
+        "haste": 4
+      },
       "armor_type": "leather",
       "armor_value": 53
     },
@@ -1166,10 +1172,12 @@
       "required_level": 28,
       "weapon_type": "staff",
       "primary_stats": {
-        "intellect": 19,
-        "spirit": 19
+        "intellect": 14,
+        "spirit": 14
       },
-      "secondary_stats": {},
+      "secondary_stats": {
+        "crit_chance_spell": 10
+      },
       "weapon_damage_min": 32,
       "weapon_damage_max": 43,
       "attack_speed": 3.2
@@ -1224,9 +1232,11 @@
       "required_level": 29,
       "weapon_type": "mace_1h",
       "primary_stats": {
-        "strength": 25
+        "strength": 19
       },
-      "secondary_stats": {},
+      "secondary_stats": {
+        "haste": 5
+      },
       "weapon_damage_min": 60,
       "weapon_damage_max": 81,
       "attack_speed": 2.6
@@ -1278,11 +1288,11 @@
       "required_level": 30,
       "weapon_type": "sword_2h",
       "primary_stats": {
-        "strength": 7,
-        "stamina": 10
+        "strength": 9,
+        "stamina": 12
       },
       "secondary_stats": {
-        "crit_chance_physical": 10
+        "crit_chance_physical": 6
       },
       "weapon_damage_min": 83,
       "weapon_damage_max": 112,
@@ -1339,7 +1349,7 @@
         "stamina": 9
       },
       "secondary_stats": {
-        "defense_rating": 10
+        "defense_rating": 9
       },
       "weapon_damage_min": 63,
       "weapon_damage_max": 84,
@@ -1371,11 +1381,11 @@
       "rarity": "rare",
       "required_level": 27,
       "primary_stats": {
-        "strength": 8,
-        "stamina": 11
+        "strength": 10,
+        "stamina": 13
       },
       "secondary_stats": {
-        "crit_chance_physical": 10
+        "crit_chance_physical": 6
       },
       "armor_type": "mail",
       "armor_value": 122
@@ -1388,10 +1398,12 @@
       "required_level": 27,
       "weapon_type": "crossbow",
       "primary_stats": {
-        "agility": 7,
-        "stamina": 7
+        "agility": 5,
+        "stamina": 5
       },
-      "secondary_stats": {},
+      "secondary_stats": {
+        "hit_rating": 4
+      },
       "weapon_damage_min": 48,
       "weapon_damage_max": 65,
       "attack_speed": 2.4

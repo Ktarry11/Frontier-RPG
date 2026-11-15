@@ -457,11 +457,12 @@
       "rarity": "rare",
       "required_level": 10,
       "primary_stats": {
-        "agility": 4,
-        "intellect": 4
+        "agility": 3,
+        "intellect": 3
       },
       "secondary_stats": {
-        "attack_power": 7
+        "attack_power": 5,
+        "spell_penetration": 3
       },
       "armor_type": "leather",
       "armor_value": 33
@@ -849,7 +850,7 @@
       "primary_stats": {},
       "secondary_stats": {
         "dodge_rating": 10,
-        "parry_rating": 10
+        "parry_rating": 6
       },
       "weapon_damage_min": 31,
       "weapon_damage_max": 42,
@@ -876,7 +877,7 @@
       "required_level": 11,
       "primary_stats": {},
       "secondary_stats": {
-        "block_rating": 10
+        "defense_rating": 7
       },
       "armor_type": "plate",
       "armor_value": 64
@@ -918,11 +919,12 @@
       "rarity": "rare",
       "required_level": 12,
       "primary_stats": {
-        "intellect": 4,
-        "spirit": 4
+        "intellect": 3,
+        "spirit": 3
       },
       "secondary_stats": {
-        "healing_power": 10
+        "healing_power": 8,
+        "crit_chance_spell": 3
       },
       "armor_type": "cloth",
       "armor_value": 19
@@ -1043,11 +1045,10 @@
       "rarity": "rare",
       "required_level": 13,
       "primary_stats": {
-        "stamina": 7
+        "stamina": 18
       },
       "secondary_stats": {
-        "defense_rating": 10,
-        "dodge_rating": 10
+        "defense_rating": 5
       },
       "armor_type": "plate",
       "armor_value": 97

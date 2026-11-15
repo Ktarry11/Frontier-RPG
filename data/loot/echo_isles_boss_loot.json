@@ -69,10 +69,12 @@
       "required_level": 14,
       "weapon_type": "polearm",
       "primary_stats": {
-        "strength": 5,
-        "stamina": 6
+        "strength": 4,
+        "stamina": 5
       },
-      "secondary_stats": {},
+      "secondary_stats": {
+        "armor_penetration_pct": 4
+      },
       "weapon_damage_min": 48,
       "weapon_damage_max": 66,
       "attack_speed": 3.3
@@ -84,11 +86,13 @@
       "rarity": "rare",
       "required_level": 14,
       "primary_stats": {
-        "strength": 5,
-        "agility": 4,
-        "stamina": 4
+        "strength": 4,
+        "agility": 3,
+        "stamina": 3
       },
-      "secondary_stats": {},
+      "secondary_stats": {
+        "hit_rating": 3
+      },
       "armor_type": "mail",
       "armor_value": 69
     },
@@ -193,7 +197,8 @@
       "weapon_type": "staff",
       "primary_stats": {},
       "secondary_stats": {
-        "frost_spell_power": 40
+        "frost_spell_power": 31,
+        "haste": 4
       },
       "weapon_damage_min": 20,
       "weapon_damage_max": 28,
@@ -223,9 +228,8 @@
       "required_level": 15,
       "primary_stats": {},
       "secondary_stats": {
-        "parry_rating": 10,
-        "block_rating": 10,
-        "dodge_rating": 10
+        "parry_rating": 11,
+        "dodge_rating": 8
       },
       "armor_type": "plate",
       "armor_value": 110
@@ -479,11 +483,12 @@
       "required_level": 13,
       "weapon_type": "mace_1h",
       "primary_stats": {
-        "intellect": 3,
-        "spirit": 3
+        "intellect": 2,
+        "spirit": 2
       },
       "secondary_stats": {
-        "healing_power": 10
+        "healing_power": 7,
+        "haste": 3
       },
       "weapon_damage_min": 34,
       "weapon_damage_max": 46,

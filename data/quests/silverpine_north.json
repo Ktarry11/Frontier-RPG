@@ -207,7 +207,7 @@
           "required_level": 12,
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 10
+            "dodge_rating": 7
           },
           "armor_type": "leather",
           "armor_value": 23,
@@ -1255,7 +1255,7 @@
           "weapon_type": "dagger",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 10
+            "dodge_rating": 7
           },
           "weapon_damage_min": 24,
           "weapon_damage_max": 32,
@@ -1740,11 +1740,12 @@
           "rarity": "rare",
           "required_level": 16,
           "primary_stats": {
-            "agility": 4,
-            "intellect": 4
+            "agility": 3,
+            "intellect": 3
           },
           "secondary_stats": {
-            "attack_power": 8
+            "attack_power": 6,
+            "haste": 3
           },
           "armor_type": "leather",
           "armor_value": 40,
@@ -1928,10 +1929,10 @@
           "rarity": "rare",
           "required_level": 16,
           "primary_stats": {
-            "stamina": 7
+            "stamina": 11
           },
           "secondary_stats": {
-            "dodge_rating": 10
+            "dodge_rating": 3
           },
           "armor_type": "mail",
           "armor_value": 65,
@@ -2283,11 +2284,12 @@
           "rarity": "uncommon",
           "required_level": 17,
           "primary_stats": {
-            "intellect": 3
+            "intellect": 2
           },
           "secondary_stats": {
-            "spell_power": 8,
-            "mp5": 1
+            "spell_power": 6,
+            "mp5": 1,
+            "spell_hit_rating": 3
           },
           "armor_type": "cloth",
           "armor_value": 15,
@@ -2443,8 +2445,8 @@
           "required_level": 17,
           "primary_stats": {},
           "secondary_stats": {
-            "block_rating": 10,
-            "dodge_rating": 10
+            "dodge_rating": 7,
+            "defense_rating": 7
           },
           "armor_type": "plate",
           "armor_value": 79,

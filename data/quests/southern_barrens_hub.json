@@ -874,9 +874,8 @@
           "required_level": 22,
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 10,
-            "block_rating": 10,
-            "dodge_rating": 10
+            "parry_rating": 11,
+            "dodge_rating": 8
           },
           "armor_type": "plate",
           "armor_value": 117,
@@ -1004,11 +1003,11 @@
           "rarity": "uncommon",
           "required_level": 20,
           "primary_stats": {
-            "stamina": 6
+            "stamina": 7
           },
           "secondary_stats": {
-            "block_rating": 10,
-            "block_value": 5
+            "block_value": 6,
+            "parry_rating": 3
           },
           "armor_type": "plate",
           "armor_value": 53,
@@ -1145,8 +1144,8 @@
             "stamina": 6
           },
           "secondary_stats": {
-            "block_rating": 10,
-            "block_value": 6
+            "block_value": 6,
+            "dodge_rating": 4
           },
           "armor_type": "plate",
           "armor_value": 84,
@@ -1378,7 +1377,7 @@
           "primary_stats": {},
           "secondary_stats": {
             "dodge_rating": 10,
-            "parry_rating": 10
+            "parry_rating": 6
           },
           "armor_type": "leather",
           "armor_value": 24,
@@ -1391,11 +1390,12 @@
           "rarity": "uncommon",
           "required_level": 22,
           "primary_stats": {
-            "intellect": 4,
-            "stamina": 4
+            "intellect": 3,
+            "stamina": 3
           },
           "secondary_stats": {
-            "spell_power": 4
+            "spell_power": 3,
+            "haste": 3
           },
           "label": "Necklace (Int/Sta)"
         },
@@ -1450,11 +1450,10 @@
           "rarity": "uncommon",
           "required_level": 23,
           "primary_stats": {
-            "stamina": 8
+            "stamina": 18
           },
           "secondary_stats": {
-            "defense_rating": 10,
-            "dodge_rating": 10
+            "defense_rating": 7
           },
           "armor_type": "plate",
           "armor_value": 121,
@@ -1612,11 +1611,12 @@
           "rarity": "uncommon",
           "required_level": 21,
           "primary_stats": {
-            "intellect": 4,
-            "stamina": 5
+            "intellect": 3,
+            "stamina": 4
           },
           "secondary_stats": {
-            "mp5": 1
+            "mp5": 1,
+            "crit_chance_spell": 3
           },
           "armor_type": "cloth",
           "armor_value": 11,
@@ -1629,11 +1629,12 @@
           "rarity": "uncommon",
           "required_level": 21,
           "primary_stats": {
-            "agility": 4,
-            "intellect": 4
+            "agility": 3,
+            "intellect": 3
           },
           "secondary_stats": {
-            "attack_power": 6
+            "attack_power": 4,
+            "haste": 3
           },
           "armor_type": "leather",
           "armor_value": 18,
@@ -1680,11 +1681,12 @@
           "required_level": 22,
           "weapon_type": "wand",
           "primary_stats": {
-            "intellect": 2
+            "intellect": 1
           },
           "secondary_stats": {
-            "spell_power": 8,
-            "mp5": 1
+            "spell_power": 6,
+            "mp5": 1,
+            "crit_chance_spell": 3
           },
           "weapon_damage_min": 31,
           "weapon_damage_max": 43,
@@ -2002,10 +2004,12 @@
           "required_level": 23,
           "weapon_type": "sword_2h",
           "primary_stats": {
-            "stamina": 8,
-            "agility": 6
+            "stamina": 6,
+            "agility": 5
           },
-          "secondary_stats": {},
+          "secondary_stats": {
+            "crit_chance_physical": 3
+          },
           "weapon_damage_min": 52,
           "weapon_damage_max": 70,
           "attack_speed": 3.4,
@@ -2070,8 +2074,8 @@
           "weapon_type": "mace_1h",
           "primary_stats": {},
           "secondary_stats": {
-            "spell_power": 19,
-            "spell_penetration": 40
+            "spell_power": 74,
+            "spell_penetration": 3
           },
           "weapon_damage_min": 39,
           "weapon_damage_max": 53,
@@ -2545,7 +2549,8 @@
           "weapon_type": "wand",
           "primary_stats": {},
           "secondary_stats": {
-            "nature_spell_power": 22
+            "nature_spell_power": 17,
+            "spell_penetration": 3
           },
           "weapon_damage_min": 35,
           "weapon_damage_max": 48,
@@ -2620,11 +2625,11 @@
           "required_level": 28,
           "weapon_type": "mace_1h",
           "primary_stats": {
-            "strength": 7,
-            "stamina": 8
+            "strength": 8,
+            "stamina": 9
           },
           "secondary_stats": {
-            "defense_rating": 10
+            "defense_rating": 8
           },
           "weapon_damage_min": 44,
           "weapon_damage_max": 60,
@@ -2684,11 +2689,12 @@
           "rarity": "uncommon",
           "required_level": 30,
           "primary_stats": {
-            "intellect": 7
+            "intellect": 5
           },
           "secondary_stats": {
-            "spell_power": 15,
-            "mp5": 2
+            "spell_power": 12,
+            "mp5": 2,
+            "spell_penetration": 5
           },
           "armor_type": "cloth",
           "armor_value": 32,
@@ -2701,11 +2707,10 @@
           "rarity": "uncommon",
           "required_level": 30,
           "primary_stats": {
-            "stamina": 7
+            "stamina": 16
           },
           "secondary_stats": {
-            "defense_rating": 10,
-            "dodge_rating": 10
+            "defense_rating": 8
           },
           "armor_type": "plate",
           "armor_value": 115,
@@ -2768,8 +2773,7 @@
           "required_level": 32,
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 10,
-            "block_rating": 20,
+            "parry_rating": 13,
             "dodge_rating": 10
           },
           "armor_type": "plate",
@@ -2814,11 +2818,10 @@
           "required_level": 32,
           "weapon_type": "fist_weapon",
           "primary_stats": {
-            "agility": 8
+            "agility": 23
           },
           "secondary_stats": {
-            "hit_rating": 10,
-            "crit_chance_physical": 10
+            "hit_rating": 5
           },
           "weapon_damage_min": 64,
           "weapon_damage_max": 87,
@@ -2884,11 +2887,10 @@
           "required_level": 32,
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 7
+            "agility": 23
           },
           "secondary_stats": {
-            "hit_rating": 10,
-            "crit_chance_physical": 10
+            "hit_rating": 4
           },
           "weapon_damage_min": 49,
           "weapon_damage_max": 67,
@@ -2963,10 +2965,10 @@
           "rarity": "uncommon",
           "required_level": 34,
           "primary_stats": {
-            "stamina": 12
+            "stamina": 13
           },
           "secondary_stats": {
-            "parry_rating": 10
+            "parry_rating": 7
           },
           "armor_type": "plate",
           "armor_value": 203,
@@ -3059,11 +3061,10 @@
           "required_level": 29,
           "weapon_type": "dagger",
           "primary_stats": {
-            "agility": 7
+            "agility": 23
           },
           "secondary_stats": {
-            "hit_rating": 10,
-            "crit_chance_physical": 10
+            "hit_rating": 4
           },
           "weapon_damage_min": 45,
           "weapon_damage_max": 62,
@@ -3251,7 +3252,7 @@
           "primary_stats": {},
           "secondary_stats": {
             "dodge_rating": 10,
-            "parry_rating": 10
+            "parry_rating": 6
           },
           "weapon_damage_min": 43,
           "weapon_damage_max": 58,

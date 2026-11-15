@@ -1200,7 +1200,8 @@
           "weapon_type": "staff",
           "primary_stats": {},
           "secondary_stats": {
-            "nature_spell_power": 31
+            "nature_spell_power": 24,
+            "spell_hit_rating": 4
           },
           "weapon_damage_min": 15,
           "weapon_damage_max": 21,
@@ -1989,11 +1990,10 @@
           "rarity": "uncommon",
           "required_level": 18,
           "primary_stats": {
-            "stamina": 7
+            "stamina": 18
           },
           "secondary_stats": {
-            "defense_rating": 10,
-            "dodge_rating": 10
+            "defense_rating": 6
           },
           "armor_type": "plate",
           "armor_value": 98,
@@ -2137,8 +2137,8 @@
           "required_level": 15,
           "primary_stats": {},
           "secondary_stats": {
-            "spell_power": 8,
-            "spell_penetration": 20
+            "spell_power": 33,
+            "spell_penetration": 3
           },
           "label": "Ring (Int/Pen)"
         }
@@ -2414,9 +2414,11 @@
           "required_level": 16,
           "weapon_type": "axe_2h",
           "primary_stats": {
-            "strength": 10
+            "strength": 6
           },
-          "secondary_stats": {},
+          "secondary_stats": {
+            "haste": 3
+          },
           "weapon_damage_min": 40,
           "weapon_damage_max": 55,
           "attack_speed": 3.6,
@@ -2872,10 +2874,12 @@
           "rarity": "uncommon",
           "required_level": 18,
           "primary_stats": {
-            "strength": 4,
-            "stamina": 4
+            "strength": 3,
+            "stamina": 3
           },
-          "secondary_stats": {},
+          "secondary_stats": {
+            "armor_penetration_pct": 4
+          },
           "armor_type": "mail",
           "armor_value": 49,
           "label": "Mail Helm (Str/Sta)"
@@ -2949,11 +2953,12 @@
           "rarity": "uncommon",
           "required_level": 19,
           "primary_stats": {
-            "intellect": 4
+            "intellect": 3
           },
           "secondary_stats": {
-            "spell_power": 11,
-            "mp5": 1
+            "spell_power": 9,
+            "mp5": 1,
+            "spell_penetration": 3
           },
           "armor_type": "cloth",
           "armor_value": 21,
@@ -3202,9 +3207,8 @@
           "required_level": 22,
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 10,
-            "block_rating": 10,
-            "dodge_rating": 10
+            "parry_rating": 11,
+            "dodge_rating": 8
           },
           "armor_type": "plate",
           "armor_value": 117,
@@ -3295,11 +3299,11 @@
           "required_level": 24,
           "weapon_type": "sword_1h",
           "primary_stats": {
-            "stamina": 7,
-            "agility": 5
+            "stamina": 9,
+            "agility": 6
           },
           "secondary_stats": {
-            "defense_rating": 10
+            "defense_rating": 6
           },
           "weapon_damage_min": 39,
           "weapon_damage_max": 53,

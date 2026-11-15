@@ -24,11 +24,10 @@
       "rarity": "rare",
       "required_level": 17,
       "primary_stats": {
-        "stamina": 6
+        "stamina": 16
       },
       "secondary_stats": {
-        "defense_rating": 10,
-        "dodge_rating": 10
+        "defense_rating": 6
       },
       "armor_type": "plate",
       "armor_value": 91
@@ -40,10 +39,12 @@
       "rarity": "rare",
       "required_level": 17,
       "primary_stats": {
-        "strength": 8,
-        "stamina": 8
+        "strength": 6,
+        "stamina": 6
       },
-      "secondary_stats": {},
+      "secondary_stats": {
+        "armor_penetration_pct": 6
+      },
       "armor_type": "leather",
       "armor_value": 51
     },
@@ -115,11 +116,13 @@
       "rarity": "rare",
       "required_level": 20,
       "primary_stats": {
-        "strength": 4,
-        "agility": 4,
-        "stamina": 4
+        "strength": 3,
+        "agility": 3,
+        "stamina": 3
       },
-      "secondary_stats": {},
+      "secondary_stats": {
+        "armor_penetration_pct": 5
+      },
       "armor_type": "mail",
       "armor_value": 46
     }
@@ -133,10 +136,12 @@
       "required_level": 20,
       "weapon_type": "bow",
       "primary_stats": {
-        "agility": 5,
-        "stamina": 5
+        "agility": 3,
+        "stamina": 3
       },
-      "secondary_stats": {},
+      "secondary_stats": {
+        "haste": 3
+      },
       "weapon_damage_min": 38,
       "weapon_damage_max": 52,
       "attack_speed": 2.8
@@ -208,10 +213,12 @@
       "rarity": "rare",
       "required_level": 18,
       "primary_stats": {
-        "strength": 6,
-        "stamina": 6
+        "strength": 4,
+        "stamina": 4
       },
-      "secondary_stats": {},
+      "secondary_stats": {
+        "haste": 3
+      },
       "armor_type": "plate",
       "armor_value": 64
     },
@@ -252,11 +259,12 @@
       "rarity": "rare",
       "required_level": 19,
       "primary_stats": {
-        "intellect": 6,
-        "stamina": 7
+        "intellect": 5,
+        "stamina": 6
       },
       "secondary_stats": {
-        "mp5": 1
+        "mp5": 1,
+        "crit_chance_spell": 3
       },
       "armor_type": "leather",
       "armor_value": 42
@@ -289,7 +297,7 @@
       "primary_stats": {},
       "secondary_stats": {
         "dodge_rating": 10,
-        "parry_rating": 10
+        "parry_rating": 6
       },
       "weapon_damage_min": 44,
       "weapon_damage_max": 59,
@@ -316,10 +324,12 @@
       "rarity": "rare",
       "required_level": 19,
       "primary_stats": {
-        "stamina": 6,
-        "spirit": 6
+        "stamina": 5,
+        "spirit": 5
       },
-      "secondary_stats": {}
+      "secondary_stats": {
+        "spell_penetration": 3
+      }
     }
   ],
   "Captain Saltspray": [
@@ -465,11 +475,11 @@
       "required_level": 20,
       "weapon_type": "sword_2h",
       "primary_stats": {
-        "stamina": 4,
-        "agility": 3
+        "stamina": 5,
+        "agility": 4
       },
       "secondary_stats": {
-        "defense_rating": 10
+        "defense_rating": 7
       },
       "weapon_damage_min": 61,
       "weapon_damage_max": 83,
@@ -589,10 +599,12 @@
       "rarity": "rare",
       "required_level": 17,
       "primary_stats": {
-        "strength": 4,
-        "stamina": 4
+        "strength": 2,
+        "stamina": 2
       },
-      "secondary_stats": {}
+      "secondary_stats": {
+        "haste": 3
+      }
     }
   ],
   "Prospector Delvik": [
@@ -604,11 +616,10 @@
       "required_level": 16,
       "weapon_type": "axe_1h",
       "primary_stats": {
-        "strength": 5
+        "strength": 22
       },
       "secondary_stats": {
-        "hit_rating": 10,
-        "crit_chance_physical": 10
+        "hit_rating": 3
       },
       "weapon_damage_min": 39,
       "weapon_damage_max": 53,

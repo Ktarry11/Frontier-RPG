@@ -9,9 +9,11 @@
       "required_level": 15,
       "weapon_type": "axe_2h",
       "primary_stats": {
-        "strength": 12
+        "strength": 10
       },
-      "secondary_stats": {},
+      "secondary_stats": {
+        "armor_penetration_pct": 4
+      },
       "weapon_damage_min": 51,
       "weapon_damage_max": 69,
       "attack_speed": 3.6
@@ -139,11 +141,12 @@
       "rarity": "rare",
       "required_level": 16,
       "primary_stats": {
-        "intellect": 4,
-        "spirit": 4
+        "intellect": 3,
+        "spirit": 3
       },
       "secondary_stats": {
-        "healing_power": 13
+        "healing_power": 10,
+        "haste": 3
       },
       "armor_type": "cloth",
       "armor_value": 24
@@ -170,10 +173,11 @@
       "required_level": 16,
       "weapon_type": "dagger",
       "primary_stats": {
-        "intellect": 3
+        "intellect": 2
       },
       "secondary_stats": {
-        "spell_power": 9
+        "spell_power": 5,
+        "haste": 3
       },
       "weapon_damage_min": 39,
       "weapon_damage_max": 53,
@@ -287,11 +291,11 @@
       "rarity": "rare",
       "required_level": 14,
       "primary_stats": {
-        "stamina": 7,
-        "agility": 4
+        "stamina": 9,
+        "agility": 5
       },
       "secondary_stats": {
-        "dodge_rating": 10
+        "dodge_rating": 4
       },
       "armor_type": "leather",
       "armor_value": 43
@@ -336,10 +340,11 @@
       "required_level": 15,
       "weapon_type": "dagger",
       "primary_stats": {
-        "intellect": 3
+        "intellect": 2
       },
       "secondary_stats": {
-        "spell_power": 8
+        "spell_power": 5,
+        "spell_penetration": 3
       },
       "weapon_damage_min": 37,
       "weapon_damage_max": 51,
@@ -353,8 +358,8 @@
       "required_level": 15,
       "primary_stats": {},
       "secondary_stats": {
-        "spell_power": 11,
-        "spell_penetration": 20
+        "spell_power": 36,
+        "spell_penetration": 3
       },
       "armor_type": "cloth",
       "armor_value": 11
@@ -428,8 +433,9 @@
       "required_level": 16,
       "primary_stats": {},
       "secondary_stats": {
-        "arcane_spell_power": 9,
-        "fire_spell_power": 9
+        "arcane_spell_power": 6,
+        "fire_spell_power": 6,
+        "spell_hit_rating": 3
       }
     },
     {

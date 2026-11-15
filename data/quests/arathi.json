@@ -36,10 +36,11 @@
           "rarity": "uncommon",
           "required_level": 28,
           "primary_stats": {
-            "intellect": 4
+            "intellect": 2
           },
           "secondary_stats": {
-            "spell_power": 9
+            "spell_power": 5,
+            "crit_chance_spell": 4
           },
           "armor_type": "mail",
           "armor_value": 95,
@@ -128,11 +129,10 @@
           "rarity": "uncommon",
           "required_level": 28,
           "primary_stats": {
-            "stamina": 8
+            "stamina": 17
           },
           "secondary_stats": {
-            "defense_rating": 10,
-            "dodge_rating": 10
+            "defense_rating": 8
           },
           "armor_type": "mail",
           "armor_value": 112,
@@ -281,11 +281,12 @@
           "rarity": "uncommon",
           "required_level": 29,
           "primary_stats": {
-            "stamina": 4,
-            "spirit": 4
+            "stamina": 3,
+            "spirit": 3
           },
           "secondary_stats": {
-            "healing_power": 8
+            "healing_power": 6,
+            "crit_chance_spell": 3
           },
           "armor_type": "mail",
           "armor_value": 80,
@@ -298,11 +299,12 @@
           "rarity": "uncommon",
           "required_level": 29,
           "primary_stats": {
-            "agility": 5,
-            "intellect": 5
+            "agility": 4,
+            "intellect": 4
           },
           "secondary_stats": {
-            "attack_power": 9
+            "attack_power": 7,
+            "crit_chance_spell": 4
           },
           "armor_type": "leather",
           "armor_value": 61,
@@ -360,9 +362,8 @@
           "required_level": 30,
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 10,
-            "block_rating": 10,
-            "dodge_rating": 10
+            "parry_rating": 11,
+            "dodge_rating": 8
           },
           "armor_type": "plate",
           "armor_value": 152,
@@ -452,10 +453,12 @@
           "rarity": "uncommon",
           "required_level": 30,
           "primary_stats": {
-            "strength": 6,
-            "stamina": 8
+            "strength": 4,
+            "stamina": 5
           },
-          "secondary_stats": {},
+          "secondary_stats": {
+            "haste": 4
+          },
           "armor_type": "plate",
           "armor_value": 180,
           "label": "Plate Chest (Str/Sta/Crit)"
@@ -534,8 +537,8 @@
           "required_level": 31,
           "primary_stats": {},
           "secondary_stats": {
-            "block_rating": 10,
-            "dodge_rating": 10
+            "dodge_rating": 7,
+            "hit_rating": 5
           },
           "armor_type": "plate",
           "armor_value": 129,
@@ -551,7 +554,7 @@
           "primary_stats": {},
           "secondary_stats": {
             "dodge_rating": 10,
-            "parry_rating": 10
+            "parry_rating": 6
           },
           "weapon_damage_min": 44,
           "weapon_damage_max": 60,
@@ -705,7 +708,7 @@
           "primary_stats": {},
           "secondary_stats": {
             "dodge_rating": 10,
-            "parry_rating": 10
+            "parry_rating": 6
           },
           "armor_type": "leather",
           "armor_value": 47,
@@ -763,11 +766,10 @@
           "rarity": "uncommon",
           "required_level": 32,
           "primary_stats": {
-            "stamina": 8
+            "stamina": 17
           },
           "secondary_stats": {
-            "defense_rating": 10,
-            "dodge_rating": 10
+            "defense_rating": 8
           },
           "armor_type": "plate",
           "armor_value": 163,
@@ -851,10 +853,10 @@
           "rarity": "uncommon",
           "required_level": 31,
           "primary_stats": {
-            "stamina": 7
+            "stamina": 9
           },
           "secondary_stats": {
-            "dodge_rating": 10
+            "dodge_rating": 5
           },
           "armor_type": "mail",
           "armor_value": 105,
@@ -887,7 +889,7 @@
           "primary_stats": {},
           "secondary_stats": {
             "dodge_rating": 10,
-            "parry_rating": 10
+            "parry_rating": 6
           },
           "weapon_damage_min": 44,
           "weapon_damage_max": 60,
@@ -925,11 +927,11 @@
           "rarity": "rare",
           "required_level": 32,
           "primary_stats": {
-            "strength": 9,
-            "stamina": 12
+            "strength": 10,
+            "stamina": 14
           },
           "secondary_stats": {
-            "crit_chance_physical": 10
+            "crit_chance_physical": 7
           },
           "armor_type": "mail",
           "armor_value": 173,
@@ -942,11 +944,10 @@
           "rarity": "rare",
           "required_level": 32,
           "primary_stats": {
-            "agility": 9
+            "agility": 23
           },
           "secondary_stats": {
-            "hit_rating": 10,
-            "crit_chance_physical": 10
+            "hit_rating": 6
           },
           "armor_type": "leather",
           "armor_value": 91,
@@ -961,8 +962,8 @@
           "weapon_type": "axe_1h",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 20,
-            "parry_rating": 10
+            "dodge_rating": 14,
+            "parry_rating": 8
           },
           "weapon_damage_min": 61,
           "weapon_damage_max": 83,
@@ -1162,11 +1163,11 @@
           "rarity": "rare",
           "required_level": 31,
           "primary_stats": {
-            "stamina": 13
+            "stamina": 10
           },
           "secondary_stats": {
-            "block_rating": 10,
-            "block_value": 13
+            "block_value": 10,
+            "dodge_rating": 9
           },
           "armor_type": "plate",
           "armor_value": 252,
@@ -1227,9 +1228,8 @@
           "required_level": 32,
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 10,
-            "block_rating": 10,
-            "dodge_rating": 10
+            "parry_rating": 11,
+            "dodge_rating": 8
           },
           "armor_type": "plate",
           "armor_value": 179,
@@ -1243,11 +1243,11 @@
           "required_level": 32,
           "weapon_type": "polearm",
           "primary_stats": {
-            "strength": 7,
-            "stamina": 9
+            "strength": 9,
+            "stamina": 11
           },
           "secondary_stats": {
-            "crit_chance_physical": 10
+            "crit_chance_physical": 6
           },
           "weapon_damage_min": 83,
           "weapon_damage_max": 112,
@@ -1305,11 +1305,11 @@
           "rarity": "rare",
           "required_level": 33,
           "primary_stats": {
-            "stamina": 9
+            "stamina": 8
           },
           "secondary_stats": {
-            "block_rating": 10,
-            "block_value": 9
+            "block_value": 8,
+            "hit_rating": 7
           },
           "armor_type": "plate",
           "armor_value": 185,
@@ -1352,11 +1352,11 @@
           "rarity": "rare",
           "required_level": 33,
           "primary_stats": {
-            "strength": 8,
-            "stamina": 10
+            "strength": 10,
+            "stamina": 12
           },
           "secondary_stats": {
-            "crit_chance_physical": 10
+            "crit_chance_physical": 6
           },
           "armor_type": "mail",
           "armor_value": 151,
@@ -1418,11 +1418,10 @@
           "rarity": "rare",
           "required_level": 33,
           "primary_stats": {
-            "stamina": 9
+            "stamina": 17
           },
           "secondary_stats": {
-            "defense_rating": 10,
-            "dodge_rating": 10
+            "defense_rating": 9
           },
           "armor_type": "plate",
           "armor_value": 185,
@@ -1436,11 +1435,11 @@
           "required_level": 33,
           "weapon_type": "mace_1h",
           "primary_stats": {
-            "strength": 8,
-            "stamina": 10
+            "strength": 10,
+            "stamina": 12
           },
           "secondary_stats": {
-            "crit_chance_physical": 10
+            "crit_chance_physical": 6
           },
           "weapon_damage_min": 63,
           "weapon_damage_max": 85,
@@ -1454,11 +1453,11 @@
           "rarity": "rare",
           "required_level": 33,
           "primary_stats": {
-            "intellect": 8
+            "intellect": 9
           },
           "secondary_stats": {
-            "spell_power": 21,
-            "spell_hit_rating": 10
+            "spell_power": 24,
+            "spell_hit_rating": 7
           },
           "armor_type": "cloth",
           "armor_value": 55,
@@ -1576,11 +1575,10 @@
           "rarity": "uncommon",
           "required_level": 33,
           "primary_stats": {
-            "stamina": 8
+            "stamina": 19
           },
           "secondary_stats": {
-            "dodge_rating": 10,
-            "parry_rating": 10
+            "dodge_rating": 6
           },
           "armor_type": "mail",
           "armor_value": 112,
@@ -1672,11 +1670,10 @@
           "rarity": "uncommon",
           "required_level": 33,
           "primary_stats": {
-            "stamina": 9
+            "stamina": 16
           },
           "secondary_stats": {
-            "defense_rating": 10,
-            "dodge_rating": 10
+            "defense_rating": 10
           },
           "armor_type": "plate",
           "armor_value": 198,
@@ -1689,11 +1686,12 @@
           "rarity": "uncommon",
           "required_level": 33,
           "primary_stats": {
-            "stamina": 7,
-            "spirit": 7
+            "stamina": 5,
+            "spirit": 5
           },
           "secondary_stats": {
-            "healing_power": 13
+            "healing_power": 10,
+            "crit_chance_spell": 5
           },
           "armor_type": "mail",
           "armor_value": 132,
@@ -2051,11 +2049,10 @@
           "rarity": "uncommon",
           "required_level": 35,
           "primary_stats": {
-            "agility": 7
+            "agility": 22
           },
           "secondary_stats": {
-            "hit_rating": 10,
-            "crit_chance_physical": 10
+            "hit_rating": 5
           },
           "armor_type": "leather",
           "armor_value": 74,
@@ -2148,11 +2145,12 @@
           "rarity": "uncommon",
           "required_level": 34,
           "primary_stats": {
-            "intellect": 4,
-            "spirit": 4
+            "intellect": 3,
+            "spirit": 3
           },
           "secondary_stats": {
-            "healing_power": 10
+            "healing_power": 8,
+            "crit_chance_spell": 3
           },
           "label": "Necklace (Int/Spi/HP)"
         }
@@ -2281,11 +2279,10 @@
           "rarity": "uncommon",
           "required_level": 35,
           "primary_stats": {
-            "stamina": 7
+            "stamina": 17
           },
           "secondary_stats": {
-            "defense_rating": 10,
-            "dodge_rating": 10
+            "defense_rating": 7
           },
           "armor_type": "plate",
           "armor_value": 145,
@@ -2298,11 +2295,12 @@
           "rarity": "uncommon",
           "required_level": 35,
           "primary_stats": {
-            "intellect": 4,
-            "spirit": 4
+            "intellect": 3,
+            "spirit": 3
           },
           "secondary_stats": {
-            "healing_power": 13
+            "healing_power": 10,
+            "haste": 3
           },
           "armor_type": "cloth",
           "armor_value": 30,
@@ -2385,11 +2383,11 @@
           "rarity": "rare",
           "required_level": 36,
           "primary_stats": {
-            "strength": 10,
-            "stamina": 13
+            "strength": 8,
+            "stamina": 11
           },
           "secondary_stats": {
-            "defense_rating": 10
+            "defense_rating": 15
           },
           "armor_type": "plate",
           "armor_value": 291,
@@ -2403,11 +2401,11 @@
           "required_level": 36,
           "weapon_type": "polearm",
           "primary_stats": {
-            "strength": 9,
-            "stamina": 11
+            "strength": 10,
+            "stamina": 13
           },
           "secondary_stats": {
-            "crit_chance_physical": 10
+            "crit_chance_physical": 7
           },
           "weapon_damage_min": 91,
           "weapon_damage_max": 124,
@@ -2479,11 +2477,10 @@
           "rarity": "uncommon",
           "required_level": 36,
           "primary_stats": {
-            "agility": 7
+            "agility": 22
           },
           "secondary_stats": {
-            "hit_rating": 10,
-            "crit_chance_physical": 10
+            "hit_rating": 5
           },
           "armor_type": "leather",
           "armor_value": 76,
@@ -2496,11 +2493,11 @@
           "rarity": "uncommon",
           "required_level": 36,
           "primary_stats": {
-            "stamina": 10
+            "stamina": 16
           },
           "secondary_stats": {
-            "defense_rating": 10,
-            "dodge_rating": 10
+            "defense_rating": 7,
+            "dodge_rating": 3
           },
           "armor_type": "mail",
           "armor_value": 144,
@@ -2558,11 +2555,10 @@
           "rarity": "rare",
           "required_level": 37,
           "primary_stats": {
-            "stamina": 10
+            "stamina": 17
           },
           "secondary_stats": {
-            "defense_rating": 10,
-            "dodge_rating": 10
+            "defense_rating": 11
           },
           "armor_type": "mail",
           "armor_value": 138,
@@ -2575,11 +2571,11 @@
           "rarity": "rare",
           "required_level": 37,
           "primary_stats": {
-            "stamina": 15
+            "stamina": 14
           },
           "secondary_stats": {
-            "block_rating": 20,
-            "block_value": 15
+            "block_value": 14,
+            "dodge_rating": 11
           },
           "armor_type": "plate",
           "armor_value": 299,
@@ -2594,8 +2590,8 @@
           "weapon_type": "mace_1h",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 20,
-            "parry_rating": 10
+            "dodge_rating": 14,
+            "parry_rating": 8
           },
           "weapon_damage_min": 69,
           "weapon_damage_max": 94,
@@ -2678,10 +2674,12 @@
           "rarity": "rare",
           "required_level": 38,
           "primary_stats": {
-            "strength": 7,
-            "stamina": 10
+            "strength": 5,
+            "stamina": 6
           },
-          "secondary_stats": {},
+          "secondary_stats": {
+            "armor_penetration_pct": 10
+          },
           "armor_type": "mail",
           "armor_value": 141,
           "label": "Mail Bracers (Str/Sta/Crit)"
@@ -2712,7 +2710,7 @@
             "stamina": 10
           },
           "secondary_stats": {
-            "defense_rating": 10
+            "defense_rating": 11
           },
           "armor_type": "plate",
           "armor_value": 212,
@@ -2782,11 +2780,11 @@
           "rarity": "rare",
           "required_level": 39,
           "primary_stats": {
-            "stamina": 14
+            "stamina": 16
           },
           "secondary_stats": {
             "defense_rating": 10,
-            "dodge_rating": 10
+            "dodge_rating": 5
           },
           "armor_type": "mail",
           "armor_value": 210,
@@ -2812,11 +2810,11 @@
           "rarity": "rare",
           "required_level": 39,
           "primary_stats": {
-            "stamina": 16
+            "stamina": 14
           },
           "secondary_stats": {
-            "block_rating": 20,
-            "block_value": 16
+            "block_value": 14,
+            "parry_rating": 10
           },
           "armor_type": "plate",
           "armor_value": 315,
@@ -2915,8 +2913,7 @@
           "required_level": 40,
           "primary_stats": {},
           "secondary_stats": {
-            "parry_rating": 10,
-            "block_rating": 20,
+            "parry_rating": 13,
             "dodge_rating": 10
           },
           "armor_type": "plate",
@@ -2993,11 +2990,12 @@
           "rarity": "uncommon",
           "required_level": 37,
           "primary_stats": {
-            "intellect": 5,
-            "stamina": 6
+            "intellect": 4,
+            "stamina": 4
           },
           "secondary_stats": {
-            "mp5": 1
+            "mp5": 1,
+            "haste": 3
           },
           "label": "Ring (Int/Sta/MP5)"
         }
@@ -3090,7 +3088,7 @@
           "weapon_type": "polearm",
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 30
+            "dodge_rating": 20
           },
           "weapon_damage_min": 70,
           "weapon_damage_max": 95,
@@ -3156,11 +3154,11 @@
           "rarity": "uncommon",
           "required_level": 37,
           "primary_stats": {
-            "stamina": 10
+            "stamina": 16
           },
           "secondary_stats": {
-            "defense_rating": 10,
-            "dodge_rating": 10
+            "defense_rating": 7,
+            "dodge_rating": 3
           },
           "armor_type": "mail",
           "armor_value": 148,
@@ -3176,7 +3174,7 @@
           "primary_stats": {},
           "secondary_stats": {
             "dodge_rating": 10,
-            "parry_rating": 10
+            "parry_rating": 6
           },
           "weapon_damage_min": 52,
           "weapon_damage_max": 70,
@@ -3352,10 +3350,10 @@
           "required_level": 39,
           "weapon_type": "axe_1h",
           "primary_stats": {
-            "stamina": 10
+            "stamina": 12
           },
           "secondary_stats": {
-            "parry_rating": 10
+            "parry_rating": 6
           },
           "weapon_damage_min": 54,
           "weapon_damage_max": 73,
@@ -3408,11 +3406,10 @@
           "rarity": "uncommon",
           "required_level": 38,
           "primary_stats": {
-            "stamina": 9
+            "stamina": 16
           },
           "secondary_stats": {
-            "defense_rating": 10,
-            "dodge_rating": 10
+            "defense_rating": 10
           },
           "armor_type": "mail",
           "armor_value": 129,
@@ -3443,7 +3440,7 @@
           "primary_stats": {},
           "secondary_stats": {
             "dodge_rating": 10,
-            "parry_rating": 10
+            "parry_rating": 6
           },
           "weapon_damage_min": 53,
           "weapon_damage_max": 72,
@@ -3512,10 +3509,12 @@
           "rarity": "uncommon",
           "required_level": 38,
           "primary_stats": {
-            "strength": 6,
-            "stamina": 7
+            "strength": 4,
+            "stamina": 4
           },
-          "secondary_stats": {},
+          "secondary_stats": {
+            "hit_rating": 5
+          },
           "armor_type": "mail",
           "armor_value": 105,
           "label": "Mail Bracers (Str/Sta/Crit)"
@@ -3577,11 +3576,11 @@
           "rarity": "rare",
           "required_level": 39,
           "primary_stats": {
-            "stamina": 14
+            "stamina": 16
           },
           "secondary_stats": {
             "defense_rating": 10,
-            "dodge_rating": 10
+            "dodge_rating": 5
           },
           "armor_type": "mail",
           "armor_value": 210,
@@ -3594,11 +3593,11 @@
           "rarity": "rare",
           "required_level": 39,
           "primary_stats": {
-            "strength": 8,
-            "stamina": 10
+            "strength": 7,
+            "stamina": 9
           },
           "secondary_stats": {
-            "defense_rating": 10
+            "defense_rating": 12
           },
           "armor_type": "plate",
           "armor_value": 218,
@@ -3630,11 +3629,10 @@
           "rarity": "rare",
           "required_level": 39,
           "primary_stats": {
-            "agility": 9
+            "agility": 23
           },
           "secondary_stats": {
-            "hit_rating": 10,
-            "crit_chance_physical": 10
+            "hit_rating": 6
           },
           "armor_type": "leather",
           "armor_value": 90,
@@ -3816,11 +3814,11 @@
           "rarity": "rare",
           "required_level": 39,
           "primary_stats": {
-            "intellect": 6
+            "intellect": 8
           },
           "secondary_stats": {
-            "spell_power": 13,
-            "spell_hit_rating": 10
+            "spell_power": 17,
+            "spell_hit_rating": 6
           },
           "label": "Necklace (Int/Hit/SP)"
         },
@@ -3831,11 +3829,10 @@
           "rarity": "rare",
           "required_level": 39,
           "primary_stats": {
-            "stamina": 10
+            "stamina": 19
           },
           "secondary_stats": {
-            "dodge_rating": 10,
-            "parry_rating": 10
+            "dodge_rating": 8
           },
           "armor_type": "mail",
           "armor_value": 145,
@@ -3902,11 +3899,10 @@
           "rarity": "rare",
           "required_level": 39,
           "primary_stats": {
-            "stamina": 10
+            "stamina": 19
           },
           "secondary_stats": {
-            "dodge_rating": 10,
-            "parry_rating": 10
+            "dodge_rating": 8
           },
           "armor_type": "mail",
           "armor_value": 145,
@@ -3992,11 +3988,11 @@
           "rarity": "rare",
           "required_level": 39,
           "primary_stats": {
-            "strength": 9,
-            "stamina": 12
+            "strength": 10,
+            "stamina": 13
           },
           "secondary_stats": {
-            "crit_chance_physical": 10
+            "crit_chance_physical": 8
           },
           "armor_type": "plate",
           "armor_value": 266,
@@ -4108,11 +4104,11 @@
           "rarity": "rare",
           "required_level": 40,
           "primary_stats": {
-            "strength": 9,
-            "stamina": 12
+            "strength": 10,
+            "stamina": 13
           },
           "secondary_stats": {
-            "crit_chance_physical": 10
+            "crit_chance_physical": 8
           },
           "armor_type": "mail",
           "armor_value": 177,

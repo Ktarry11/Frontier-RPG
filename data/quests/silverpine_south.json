@@ -1081,7 +1081,7 @@
           "required_level": 16,
           "primary_stats": {},
           "secondary_stats": {
-            "block_rating": 10
+            "dodge_rating": 5
           },
           "armor_type": "plate",
           "armor_value": 74,
@@ -1525,11 +1525,10 @@
           "rarity": "rare",
           "required_level": 18,
           "primary_stats": {
-            "stamina": 7
+            "stamina": 18
           },
           "secondary_stats": {
-            "defense_rating": 10,
-            "dodge_rating": 10
+            "defense_rating": 6
           },
           "armor_type": "plate",
           "armor_value": 110,
@@ -1924,11 +1923,12 @@
           "rarity": "rare",
           "required_level": 19,
           "primary_stats": {
-            "intellect": 4
+            "intellect": 3
           },
           "secondary_stats": {
-            "spell_power": 8,
-            "mp5": 1
+            "spell_power": 6,
+            "mp5": 1,
+            "haste": 3
           },
           "armor_type": "cloth",
           "armor_value": 12,
@@ -2016,7 +2016,7 @@
           "required_level": 17,
           "primary_stats": {},
           "secondary_stats": {
-            "block_rating": 10
+            "hit_rating": 5
           },
           "armor_type": "plate",
           "armor_value": 39,
@@ -2171,11 +2171,11 @@
           "rarity": "rare",
           "required_level": 19,
           "primary_stats": {
-            "stamina": 6
+            "stamina": 7
           },
           "secondary_stats": {
-            "block_rating": 10,
-            "block_value": 6
+            "block_value": 7,
+            "defense_rating": 4
           },
           "armor_type": "plate",
           "armor_value": 58,
@@ -2432,7 +2432,7 @@
           "primary_stats": {},
           "secondary_stats": {
             "dodge_rating": 10,
-            "parry_rating": 10
+            "parry_rating": 6
           },
           "armor_type": "leather",
           "armor_value": 38,
@@ -2508,7 +2508,7 @@
           "required_level": 18,
           "primary_stats": {},
           "secondary_stats": {
-            "dodge_rating": 10
+            "dodge_rating": 7
           },
           "armor_type": "leather",
           "armor_value": 17,
@@ -2655,7 +2655,7 @@
           "required_level": 19,
           "primary_stats": {},
           "secondary_stats": {
-            "block_rating": 10
+            "dodge_rating": 5
           },
           "armor_type": "plate",
           "armor_value": 66,
@@ -2727,8 +2727,8 @@
           "required_level": 20,
           "primary_stats": {},
           "secondary_stats": {
-            "block_rating": 10,
-            "dodge_rating": 10
+            "dodge_rating": 7,
+            "defense_rating": 7
           },
           "armor_type": "plate",
           "armor_value": 91,
@@ -2775,11 +2775,10 @@
           "rarity": "rare",
           "required_level": 20,
           "primary_stats": {
-            "stamina": 8
+            "stamina": 18
           },
           "secondary_stats": {
-            "defense_rating": 10,
-            "dodge_rating": 10
+            "defense_rating": 7
           },
           "armor_type": "mail",
           "armor_value": 81,
@@ -2898,11 +2897,12 @@
           "rarity": "uncommon",
           "required_level": 19,
           "primary_stats": {
-            "agility": 3,
-            "intellect": 3
+            "agility": 2,
+            "intellect": 2
           },
           "secondary_stats": {
-            "attack_power": 6
+            "attack_power": 4,
+            "armor_penetration_pct": 4
           },
           "armor_type": "leather",
           "armor_value": 27,
@@ -3227,10 +3227,12 @@
           "rarity": "uncommon",
           "required_level": 17,
           "primary_stats": {
-            "strength": 4,
-            "stamina": 5
+            "strength": 2,
+            "stamina": 3
           },
-          "secondary_stats": {},
+          "secondary_stats": {
+            "haste": 3
+          },
           "armor_type": "plate",
           "armor_value": 79,
           "label": "Plate Legs (Str/Sta/Def)"
@@ -3316,7 +3318,7 @@
           "required_level": 16,
           "primary_stats": {},
           "secondary_stats": {
-            "block_rating": 10
+            "dodge_rating": 5
           },
           "armor_type": "plate",
           "armor_value": 39,
@@ -3388,11 +3390,12 @@
           "rarity": "rare",
           "required_level": 18,
           "primary_stats": {
-            "intellect": 4,
-            "stamina": 4
+            "intellect": 3,
+            "stamina": 3
           },
           "secondary_stats": {
-            "mp5": 1
+            "mp5": 1,
+            "haste": 3
           },
           "armor_type": "cloth",
           "armor_value": 11,
@@ -3420,11 +3423,10 @@
           "rarity": "rare",
           "required_level": 18,
           "primary_stats": {
-            "stamina": 7
+            "stamina": 18
           },
           "secondary_stats": {
-            "defense_rating": 10,
-            "dodge_rating": 10
+            "defense_rating": 6
           },
           "armor_type": "plate",
           "armor_value": 110,

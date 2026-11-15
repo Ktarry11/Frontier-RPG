@@ -85,10 +85,12 @@
       "rarity": "rare",
       "required_level": 21,
       "primary_stats": {
-        "strength": 10,
-        "agility": 10
+        "strength": 8,
+        "agility": 8
       },
-      "secondary_stats": {},
+      "secondary_stats": {
+        "crit_chance_physical": 5
+      },
       "armor_type": "leather",
       "armor_value": 61
     },
@@ -150,11 +152,10 @@
       "rarity": "rare",
       "required_level": 22,
       "primary_stats": {
-        "stamina": 7
+        "stamina": 16
       },
       "secondary_stats": {
-        "defense_rating": 10,
-        "dodge_rating": 10
+        "defense_rating": 8
       },
       "armor_type": "mail",
       "armor_value": 76
@@ -194,8 +195,7 @@
       "required_level": 24,
       "primary_stats": {},
       "secondary_stats": {
-        "parry_rating": 10,
-        "block_rating": 20,
+        "parry_rating": 13,
         "dodge_rating": 10
       },
       "armor_type": "plate",
@@ -225,11 +225,11 @@
       "required_level": 24,
       "weapon_type": "mace_1h",
       "primary_stats": {
-        "strength": 7,
-        "stamina": 10
+        "strength": 8,
+        "stamina": 11
       },
       "secondary_stats": {
-        "defense_rating": 10
+        "defense_rating": 8
       },
       "weapon_damage_min": 52,
       "weapon_damage_max": 70,
@@ -285,11 +285,10 @@
       "required_level": 20,
       "weapon_type": "dagger",
       "primary_stats": {
-        "agility": 7
+        "agility": 24
       },
       "secondary_stats": {
-        "hit_rating": 10,
-        "crit_chance_physical": 10
+        "hit_rating": 3
       },
       "weapon_damage_min": 45,
       "weapon_damage_max": 61,
@@ -305,9 +304,11 @@
       "required_level": 22,
       "weapon_type": "axe_2h",
       "primary_stats": {
-        "strength": 17
+        "strength": 13
       },
-      "secondary_stats": {},
+      "secondary_stats": {
+        "hit_rating": 4
+      },
       "weapon_damage_min": 66,
       "weapon_damage_max": 89,
       "attack_speed": 3.6
@@ -363,11 +364,10 @@
       "required_level": 22,
       "weapon_type": "thrown",
       "primary_stats": {
-        "agility": 5
+        "agility": 22
       },
       "secondary_stats": {
-        "hit_rating": 10,
-        "crit_chance_physical": 10
+        "hit_rating": 3
       },
       "weapon_damage_min": 41,
       "weapon_damage_max": 57,

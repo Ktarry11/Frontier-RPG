@@ -102,10 +102,12 @@
       "rarity": "rare",
       "required_level": 34,
       "primary_stats": {
-        "intellect": 11,
-        "stamina": 11
+        "intellect": 8,
+        "stamina": 8
       },
-      "secondary_stats": {},
+      "secondary_stats": {
+        "spell_penetration": 6
+      },
       "armor_type": "leather",
       "armor_value": 47
     },
@@ -145,11 +147,10 @@
       "required_level": 34,
       "weapon_type": "fist_weapon",
       "primary_stats": {
-        "strength": 10
+        "strength": 24
       },
       "secondary_stats": {
-        "hit_rating": 10,
-        "crit_chance_physical": 10
+        "hit_rating": 6
       },
       "weapon_damage_min": 68,
       "weapon_damage_max": 92,
