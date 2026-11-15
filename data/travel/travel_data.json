@@ -381,6 +381,16 @@
         122
       ],
       "continent": "eastern_kingdoms"
+    },
+    "emerald_sanctuary": {
+      "name": "Emerald Sanctuary",
+      "zone": "Emerald Sanctuary",
+      "master": "es_flight_master",
+      "pos": [
+        -25,
+        -95
+      ],
+      "continent": "kalimdor"
     }
   },
   "flight_cost": {
@@ -585,6 +595,12 @@
     ],
     "ak_cinderwharf": [
       "set_exchange"
+    ],
+    "es_innkeeper": [
+      "inn"
+    ],
+    "es_flight_master": [
+      "flight"
     ]
   }
 }

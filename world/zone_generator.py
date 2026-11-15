@@ -5683,6 +5683,7 @@ def create_all_zones():
     from tools.handbuilt_ashenvale_west import generate_ashenvale_west
     from tools.handbuilt_ashenvale_east import generate_ashenvale_east
     from tools.handbuilt_felwood_south import generate_felwood_south
+    from tools.handbuilt_emerald_sanctuary import generate_emerald_sanctuary
     from tools.handbuilt_astranaar import generate_astranaar as generate_astranaar_handbuilt
     from tools.handbuilt_splintertree import generate_splintertree as generate_splintertree_handbuilt
     from tools.handbuilt_zoram import generate_zoram as generate_zoram_handbuilt
@@ -5730,6 +5731,7 @@ def create_all_zones():
         "Splintertree Post": generate_splintertree_handbuilt(),  # hand-built (tools/handbuilt_splintertree.py)
         # ===== FELWOOD (51-55, claude/felwood_brief.md): north of Ashenvale East =====
         "South Felwood": generate_felwood_south(),  # hand-built (tools/handbuilt_felwood_south.py)
+        "Emerald Sanctuary": generate_emerald_sanctuary(),  # the Emerald Reclamation's town (tools/handbuilt_emerald_sanctuary.py)
         
         # ===== SILVERPINE SPLIT (2 zones) =====
         "Silverpine North": dspn.generate_silverpine_north(),  # hand-built pine woods (tools/handbuilt_silverpine_north.py)

@@ -519,9 +519,13 @@ class PortalManager:
                 (40, 4): ("South Felwood", 74, 196),           # the Warsong camp's north road
             },
             # ===== FELWOOD (claude/felwood_brief.md): north out of Ashenvale East =====
-            # The Emerald Sanctuary (100,118) and North Felwood (70,4) doors go in when those maps exist.
+            # The North Felwood door (70,4) goes in when that map exists.
             "South Felwood": {
                 (74, 196): ("Ashenvale East", 40, 4),
+                (100, 118): ("Emerald Sanctuary", 3, 44),
+            },
+            "Emerald Sanctuary": {
+                (3, 44): ("South Felwood", 100, 118),
             },
             "Splintertree Post": {
                 (45, 66): ("Ashenvale East", 110, 160),

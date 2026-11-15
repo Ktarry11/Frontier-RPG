@@ -40,11 +40,11 @@ BAKED_DIR = "assets/tiles/felwood/baked_south"
 FP = "assets/tiles/felwood/props/"      # Kyle's Felwood sheet (tools/file_felwood_art.py)
 W, H = 150, 200
 
-PORTALS = {(74, 196): "Ashenvale East"}
-ARRIVALS = [(74, 194)]
+PORTALS = {(74, 196): "Ashenvale East", (100, 118): "Emerald Sanctuary"}
+ARRIVALS = [(74, 194), (98, 119)]
 #: Laid as soon as the maps behind them exist (qa_portals fails a door that leads nowhere). The
 #: clearings, roads and gaps for both are already cut.
-LATER_PORTALS = {(100, 118): "Emerald Sanctuary", (70, 4): "North Felwood"}
+LATER_PORTALS = {(70, 4): "North Felwood"}
 START = (76, 186)      # a road tile: everything must be reachable from here
 
 # ------------------------------------------------------------------ the plan

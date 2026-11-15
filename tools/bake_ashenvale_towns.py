@@ -25,7 +25,7 @@ from tools.terrain_painter import Painter, smoothstep, TILE_PX
 
 ROOT = AV.ROOT
 TOWNS = {"astranaar": "tools.handbuilt_astranaar", "splintertree": "tools.handbuilt_splintertree",
-         "zoram": "tools.handbuilt_zoram"}
+         "zoram": "tools.handbuilt_zoram", "emerald_sanctuary": "tools.handbuilt_emerald_sanctuary"}
 
 MATS = dict(AV.MATERIALS)
 MATS.update({
@@ -76,6 +76,7 @@ def bake(key, mat_dir, preview=None, sc=8):
     P = Painter(M.W, M.H, mat_dir, seed=2300 + sum(map(ord, key)))
     P.sealed_land = getattr(L, "sealed_land", [])
     P.sealed_water = getattr(L, "sealed_water", [])
+    P.grade = getattr(M, "GRADE", None)
     scores = build_scores(P, M)
     out = ROOT / M.BAKED_DIR
     written = P.bake(MATS, scores, out, chunk_tiles=20, post=AV.post)

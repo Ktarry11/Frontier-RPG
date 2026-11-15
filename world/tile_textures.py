@@ -366,6 +366,7 @@ ZONE_BIOME = {
     "Ashenvale West": "mythical_forest",
     "Ashenvale East": "mythical_forest",
     "South Felwood": "mythical_forest",
+    "Emerald Sanctuary": "mythical_forest",
     "Astranaar": "mythical_forest",
     "Zoram Strand": "mythical_forest",
     "Splintertree Post": "mythical_forest",

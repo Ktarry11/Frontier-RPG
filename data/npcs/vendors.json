@@ -6633,6 +6633,115 @@
           "secret_formula_enchant_weapon_living_ember": 6
         }
       }
+    },
+    {
+      "vendor_id": "es_quartermaster",
+      "name": "Quartermaster Ilyssa Thornbough",
+      "zone": "emerald_sanctuary",
+      "x": 40,
+      "y": 24,
+      "tile_sprite": "npc",
+      "sells": [
+        "whetstone",
+        "flux_strong",
+        "kit_field_repair",
+        "healing_potion_masterwork",
+        "mana_potion_masterwork",
+        "beast_lure"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 52,
+      "sells_gear": true,
+      "race": "night_elf",
+      "appearance_variant": 3,
+      "gender": "female",
+      "greeting": "This is Sentinel steel, made for the north. If it's good enough for the barricade, it's good enough for you.",
+      "facing": "down"
+    },
+    {
+      "vendor_id": "es_timbermaw_trader",
+      "name": "Trader Burlrock",
+      "zone": "emerald_sanctuary",
+      "x": 88,
+      "y": 44,
+      "tile_sprite": "npc",
+      "sells": [
+        "parchment",
+        "glue",
+        "component_string",
+        "cook_honey",
+        "drink_honeyed_mead",
+        "meal_saltback_roast",
+        "beast_lure_lesser"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 52,
+      "sells_gear": false,
+      "race": "furbolg",
+      "appearance_variant": 4,
+      "gender": "male",
+      "greeting": "We sell honey, rope and good wood. The transplants say our honey's the best they've had, and I've decided to believe them.",
+      "facing": "left"
+    },
+    {
+      "vendor_id": "es_herbalist",
+      "name": "Druid Mirelle Fernsong",
+      "zone": "emerald_sanctuary",
+      "x": 44,
+      "y": 64,
+      "tile_sprite": "npc",
+      "sells": [
+        "vial_empty",
+        "vial_leaded",
+        "vial_crystal",
+        "healing_potion_masterwork",
+        "mana_potion_dreamfoil",
+        "elixir_of_greater_endurance",
+        "guardian_elixir_superior",
+        "battle_elixir_superior",
+        "mana_potion_masterwork"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 52,
+      "sells_gear": false,
+      "race": "night_elf",
+      "appearance_variant": 7,
+      "gender": "female",
+      "greeting": "Everything I sell grew on the cleansed ground. It comes up faster here than anywhere I've worked, and I'm still not sure why.",
+      "facing": "down"
+    },
+    {
+      "vendor_id": "es_camp_cook",
+      "name": "Luis Ortega",
+      "zone": "emerald_sanctuary",
+      "x": 30,
+      "y": 52,
+      "tile_sprite": "npc",
+      "sells": [
+        "bread_and_cheese",
+        "roasted_meat",
+        "spiced_stew",
+        "meal_saltback_roast",
+        "drink_waterskin",
+        "drink_deepwell_cordial",
+        "cook_flour",
+        "cook_spice",
+        "cook_water",
+        "cook_mushroom",
+        "hunters_brace_platter"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 52,
+      "sells_gear": false,
+      "race": "human",
+      "appearance_variant": 3,
+      "gender": "male",
+      "greeting": "I cooked for a hotel in Valencia for twenty years. Now I cook for elves, bears and trees, and the bears eat the most.",
+      "facing": "down"
     }
   ]
 }

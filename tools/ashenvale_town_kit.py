@@ -27,7 +27,7 @@ XP = "assets/tiles/ashenvale_corruption/props/"
 GP = "assets/tiles/goblin_shared/props/"
 
 _DIRS = [AP, XP, GP, "assets/tiles/barrens/props/", "assets/tiles/dungeon_props/", "assets/tiles/coastal_props/",
-         "assets/buildings/"]
+         "assets/buildings/", "assets/tiles/felwood/props/"]
 INDEX = {}
 for _d in _DIRS:
     if os.path.isdir(_d):

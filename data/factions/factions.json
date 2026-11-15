@@ -630,6 +630,60 @@
         },
         "quests": {}
       }
+    },
+    "emerald_reclamation": {
+      "name": "The Emerald Reclamation",
+      "description": "Night elves, Timbermaw furbolgs, the forest's own treants and a fair number of transplants, taking Felwood back from the Legion one grove at a time.",
+      "home_zone": "emerald_sanctuary",
+      "home_name": "Emerald Sanctuary, South Felwood",
+      "leader": {
+        "title": "Arch Druid",
+        "name": "Aelyra Moonbough",
+        "npc_id": "es_arch_druid",
+        "location": "The Moonwell Shrine, Emerald Sanctuary",
+        "line": "Nobody here agrees on much. The Sentinels want the Legion dead, the Timbermaw want their cousins back, the trees want to be left alone, and the transplants want somewhere that stays put. It turns out all four of those are the same job."
+      },
+      "_lore_note": "Kyle, 14 Nov 2026: 'its a group thing, whole new faction!' Four peoples who'd never have shared a fire before the Integration, and one forest they all need.",
+      "lore": [
+        "Felwood was lost long before the Integration. The Sentinels held a few watchtowers in the south, the Timbermaw held their tunnels in the north, and everything between belonged to the Legion's leftovers and the furbolgs it drove mad.",
+        "What changed was people. Three years ago the forest filled up with transplants who'd lost everything else, and a lot of them would rather plant something than wait for a rescue that wasn't coming. The druids needed hands. The Timbermaw needed somebody who didn't flinch at them.",
+        "The first glade the druids cleansed became Emerald Sanctuary. The second became a reason to try a third. The South is green again now, all the way up to the Fel Line, and the Reclamation means to keep walking north.",
+        "The treants never joined anything. They just started standing where the Sentinels stood, and nobody has been foolish enough to ask them to move."
+      ],
+      "quest_rep": {
+        "_comment": "Per quest, by shape. Matches the Crimson Codex and Ashclaim rates.",
+        "default": 225,
+        "boss": 250,
+        "capstones": {},
+        "zones": [
+          "south_felwood",
+          "north_felwood",
+          "emerald_sanctuary"
+        ]
+      },
+      "kill_rep": {
+        "_comment": [
+          "Only what the Reclamation is fighting: the Legion and what the fel has taken. The South's",
+          "wildlife and treants pay nothing - they're the forest the Reclamation is trying to give back."
+        ],
+        "creatures": {
+          "Blighted Wolf": 8,
+          "Felwood Imp": 8,
+          "Border Felhound": 10,
+          "Felguard Sentry": 12,
+          "Hask'zar the Scarred": 60
+        }
+      },
+      "dungeon_rep": {
+        "_comment": "A dungeon boss kill pays 75 in the dungeons linked to this faction.",
+        "per_boss": 75,
+        "dungeons": [
+          "Jaedenar"
+        ]
+      },
+      "rewards": {
+        "_comment": "Gates, not a displayed ladder. Filled in with the Sanctuary's shops and Jaedenar."
+      }
     }
   }
 }
