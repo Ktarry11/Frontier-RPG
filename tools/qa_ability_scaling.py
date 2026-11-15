@@ -49,6 +49,7 @@ def main():
         ab.current_rank_index = best
         return ab
 
+    import json
     print("1. the rank curve")
     check("a rank at 20 or below is as authored", S.rank_multiplier(20) == 1.0 and S.rank_multiplier(5) == 1.0)
     check(f"x{S.rank_multiplier(60):.1f} at 60", S.rank_multiplier(60) > 1.4)
@@ -69,6 +70,22 @@ def main():
     buffs = [a for a in book("Mage").values() if a.effect_type == "buff" and a.ability_id in raw]
     check(f"a buff's effect_value is not curved ({len(buffs)} Mage buffs)", buffs and all(
         a.ranks[-1]["effect_value"] == raw[a.ability_id]["ranks"][-1]["effect_value"] for a in buffs))
+
+    # playtest backlog 14 Nov, item 2: "CoA classes cap out FAST with their skills"
+    import glob
+    early = []
+    for path in sorted(glob.glob("data/abilities/*.json")):
+        if os.path.basename(path) in ("_universal.json", "asher_unique.json"):
+            continue
+        d = json.load(open(path, encoding="utf-8"))
+        L = d if isinstance(d, list) else d.get("abilities", d)
+        for e in (L.values() if isinstance(L, dict) else L):
+            if (isinstance(e, dict) and e.get("effect_type") in S.CURVED and e.get("ranks")
+                    and not e["ability_id"].endswith("_attack") and e["ranks"][0]["level_req"] <= 44
+                    and e["ranks"][-1]["level_req"] < 50):
+                early.append(f"{e['name']} {[r['level_req'] for r in e['ranks']]}")
+    check(f"every damage and healing ability learned by 44 keeps ranking up to 50+ ({len(early)} don't)",
+          not early, "; ".join(early[:5]))
 
     print("2. coefficients follow the ability")
     m = book("Mage")

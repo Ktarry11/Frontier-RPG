@@ -18,7 +18,8 @@ Rules (only abilities whose effect_value is a strength - damage, heals, DoTs, Ho
 
   CLAMP    a rank above 60 moves to 60 (keeping its numbers); if that lands on the rank before it, the two
            merge into the stronger one.
-  EXTEND   learned by 40 with a last rank before 48: add ranks every 12 levels up to 56 at most, each
+  EXTEND   learned by 44 with a last rank before 50 (playtest backlog 14 Nov, item 2: "no damage or healing
+           ability's last rank is below level 50"): add ranks every 12 levels up to 58 at most, each
            growing with level the way the ability already does (effect and cost x (level+10)/(prev+10)).
   FILL     a gap over 14 levels gets a rank midway, its numbers halfway between.
 
@@ -37,9 +38,9 @@ os.chdir(ROOT)
 
 CAP = 60
 MAX_GAP = 14
-EXTEND_UNTIL = 48
+EXTEND_UNTIL = 50
 EXTEND_STEP = 12
-EXTEND_TOP = 56
+EXTEND_TOP = 58
 CURVED = {"damage", "spell_damage", "ranged_damage", "dot", "spell_dot", "heal", "hot", "damage_and_heal",
           "damage_and_restore_mana"}
 NUMERIC = ("effect_value", "cost", "heal_value", "absorb", "mana_restore_pct", "on_damage_hot_potency")
@@ -88,12 +89,12 @@ def fix(a):
         ranks = merged
     if a.get("effect_type") in CURVED:
         # EXTEND
-        if ranks[0]["level_req"] <= 40 and ranks[-1]["level_req"] < EXTEND_UNTIL:
+        if ranks[0]["level_req"] <= 44 and ranks[-1]["level_req"] < EXTEND_UNTIL:
             before = [r["level_req"] for r in ranks]
             while ranks[-1]["level_req"] + EXTEND_STEP <= EXTEND_TOP:
                 ranks.append(beyond(ranks[-1], ranks[-1]["level_req"] + EXTEND_STEP))
             if ranks[-1]["level_req"] < EXTEND_UNTIL:
-                ranks.append(beyond(ranks[-1], min(EXTEND_TOP, ranks[-1]["level_req"] + EXTEND_STEP)))
+                ranks.append(beyond(ranks[-1], min(EXTEND_TOP, ranks[-1]["level_req"] + 10)))
             notes.append(f"extend {before} -> {[r['level_req'] for r in ranks]}")
         # FILL
         i = 0
