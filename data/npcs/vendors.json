@@ -6742,6 +6742,32 @@
           "secret_formula_enchant_weapon_living_ember": 6
         }
       }
+    },
+    {
+      "vendor_id": "fn_talonbranch_supply",
+      "name": "Supply Keeper Lyria Dawnleaf",
+      "zone": "north_felwood",
+      "x": 89,
+      "y": 31,
+      "tile_sprite": "npc",
+      "sells": [
+        "whetstone",
+        "flux_strong",
+        "kit_field_repair",
+        "healing_potion_masterwork",
+        "mana_potion_masterwork",
+        "drink_waterskin",
+        "roasted_meat"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 54,
+      "sells_gear": false,
+      "race": "night_elf",
+      "appearance_variant": 8,
+      "gender": "female",
+      "greeting": "I've got water, whetstones and potions, and not much else. If you need a proper shop, the Sanctuary's back down the road.",
+      "facing": "down"
     }
   ]
 }

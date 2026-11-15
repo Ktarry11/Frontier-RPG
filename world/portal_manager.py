@@ -519,10 +519,14 @@ class PortalManager:
                 (40, 4): ("South Felwood", 74, 196),           # the Warsong camp's north road
             },
             # ===== FELWOOD (claude/felwood_brief.md): north out of Ashenvale East =====
-            # The North Felwood door (70,4) goes in when that map exists.
             "South Felwood": {
                 (74, 196): ("Ashenvale East", 40, 4),
                 (100, 118): ("Emerald Sanctuary", 3, 44),
+                (70, 4): ("North Felwood", 70, 176),
+            },
+            # Jaedenar's door (19,106) and the Timbermaw tunnel (94,4) go in when those maps exist.
+            "North Felwood": {
+                (70, 176): ("South Felwood", 70, 4),
             },
             "Emerald Sanctuary": {
                 (3, 44): ("South Felwood", 100, 118),

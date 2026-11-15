@@ -367,6 +367,7 @@ ZONE_BIOME = {
     "Ashenvale East": "mythical_forest",
     "South Felwood": "mythical_forest",
     "Emerald Sanctuary": "mythical_forest",
+    "North Felwood": "mythical_forest",      # painted ground (baked); the biome only names the fallback
     "Astranaar": "mythical_forest",
     "Zoram Strand": "mythical_forest",
     "Splintertree Post": "mythical_forest",

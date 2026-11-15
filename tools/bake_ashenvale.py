@@ -3,7 +3,7 @@ Bake the Ashenvale West painting (forest floor + rivers/lakes/moon water + cliff
 patches) from seamless materials in assets/tiles/ashenvale/materials/ (the Ashenvale tile sheet, see
 claude/ashenvale_tile_prompts.md - the file names are the AV_SHEET stems below).
 
-    python3 tools/bake_ashenvale.py [west|east|felwood_south] [--preview out.png] [--scale 4]
+    python3 tools/bake_ashenvale.py [west|east|felwood_south|felwood_north] [--preview out.png] [--scale 4]
 
 Landforms come from tools/handbuilt_ashenvale_west.SPEC.fields() - the SAME analytic functions the tile grid is built
 from - plus the tiles that seal_unreachable() turned into canopy / deep water, so painting and collision agree.
@@ -74,6 +74,30 @@ AV_SHEET = {
     "av_plaza_stone":    (VOT / "vot_limestone.png", 0.8, (215, 0.12, 0.98), None),
 }
 
+#: North Felwood (Kyle, 14 Nov: "the north is demon wastes"). The living-forest stems are swapped for
+#: blighted ones, so the same scores paint dead ground: dark fel-flecked earth for the floor, purple-brown
+#: rot for the "grass", bone-strewn scorch where ferns would be, the Twisting Nether showing through
+#: where Ashenvale has bluebells, fel water in every lake and river, Hyjal's black rock for cliffs and
+#: twisted root-wall for the dead woods.
+NORTH_SHEET = {
+    "av_forest_floor":   (AC / "fel_pool_bank.png", 0.5, None, None),
+    "av_forest_grass":   (AV / "corrupted_ground.png", 0.5, None, None),
+    "av_fern_floor":     (AC / "scorched_floor.png", 0.5, (80, 0.10, 0.85), None),
+    "av_root_earth":     (AC / "satyr_camp_floor.png", 0.3, (25, 0.30, 0.62), None),
+    "av_needle_mulch":   (AC / "scorched_floor.png", 0.2, (30, 0.14, 0.72), None),
+    "av_bluebell":       (AC / "void_floor.png", 0.5, None, None),
+    "av_road_centre":    (VOT / "vot_road_ruts_a.png", 0.5, (28, 0.30, 0.58), None),
+    "av_road_edge":      (VOT / "vot_road_ruts_b.png", 0.5, (32, 0.26, 0.52), None),
+    "av_lake_mud":       (AC / "fel_pool_bank.png", 0.2, None, None),
+    "av_lake_shallow":   (AC / "fel_pool_water.png", 0.5, None, None),
+    "av_lake_deep":      (AC / "fel_pool_water.png", 0.2, (138, 0.80, 0.95), None),
+    "av_stream_bed":     (AC / "fel_pool_bank.png", 0.8, (95, 0.35, 0.70), None),
+    "av_cliff_a":        (AC / "demon_wastes_wall.png", 0.5, None, None),
+    "av_cliff_b":        (AC / "demon_wastes_wall.png", 0.2, (20, 0.20, 0.70), None),
+    "av_canopy":         (AC / "corrupted_root_wall.png", 0.5, None, None),
+    "av_corrupt_ground": (AV / "corrupted_ground.png", 0.2, (285, 0.30, 0.95), None),
+}
+
 
 def _recolour(a, hue, sat, val):
     """a float 0..1 HxWx3 -> luminance-preserving tint."""
@@ -94,8 +118,8 @@ def _seamless(a):
     return a * wgt + b * (1 - wgt)
 
 
-def synth(stem, seed=3):
-    path, off, rec, extra = AV_SHEET[stem]
+def synth(stem, seed=3, sheet=None):
+    path, off, rec, extra = (sheet or AV_SHEET)[stem]
     im = Image.open(path).convert("RGB")
     w, h = im.size
     s = min(w, h) - 6
@@ -124,10 +148,15 @@ def synth(stem, seed=3):
     return Image.fromarray(np.clip(a * 255, 0, 255).astype(np.uint8))
 
 
-def build_material_dir():
+def build_material_dir(overrides=None):
+    """overrides: {stem: AV_SHEET-style entry} a zone paints with instead (North Felwood's demon wastes)."""
     tmp = Path(tempfile.mkdtemp(prefix="av_mat_"))
     provisional = []
+    overrides = overrides or {}
     for stem in AV_SHEET:
+        if stem in overrides:
+            synth(stem, sheet={stem: overrides[stem]}).save(tmp / f"{stem}.png")
+            continue
         real = REAL_DIR / f"{stem}.png"
         if real.exists():
             Image.open(real).convert("RGB").resize((SIZE, SIZE), Image.LANCZOS).save(tmp / f"{stem}.png")
@@ -353,6 +382,12 @@ def post(rgb, X, Y, P):
         k_s = (1 + (sat - 1) * live)[..., None]
         k_v = (1 + (val - 1) * live)[..., None]
         rgb = (lum + (rgb - lum) * k_s) * k_v
+    lift = getattr(P, "lift", None)
+    if lift:
+        # the whole map, corruption and all (North Felwood: its blighted textures are dark at source)
+        sat, val = lift
+        lum = rgb.mean(axis=2, keepdims=True)
+        rgb = (lum + (rgb - lum) * sat) * val
     return rgb
 
 
@@ -363,9 +398,13 @@ def bake(zone="west", preview=None, scale=4, only=None):
         # South Felwood is "high level Ashenvale" (Kyle, 14 Nov): the same materials and the same painter,
         # with more of the corruption palette as it runs north.
         from tools import handbuilt_felwood_south as M
+    elif zone == "felwood_north":
+        # North Felwood is the demon wastes: the same painter and plan, painted from the corruption
+        # palette (NORTH_SHEET) so nothing in it reads as living forest.
+        from tools import handbuilt_felwood_north as M
     else:
         from tools import handbuilt_ashenvale_east as M
-    mat_dir, provisional = build_material_dir()
+    mat_dir, provisional = build_material_dir(NORTH_SHEET if zone == "felwood_north" else None)
     if provisional:
         print(f"PROVISIONAL textures for {len(provisional)} materials: {', '.join(provisional[:8])}...")
     P = Painter(M.W, M.H, mat_dir, seed=2101)
@@ -374,6 +413,7 @@ def bake(zone="west", preview=None, scale=4, only=None):
     P.sealed_land = getattr(L, "sealed_land", [])
     P.sealed_water = getattr(L, "sealed_water", [])
     P.grade = getattr(M, "GRADE", None)
+    P.lift = getattr(M, "LIFT", None)
     scores = build_scores(P, M)
     out = ROOT / M.BAKED_DIR
     written = P.bake(MATERIALS, scores, out, chunk_tiles=20, post=post, only=only)
@@ -391,7 +431,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = "felwood_south" if "felwood_south" in sys.argv else ("east" if "east" in sys.argv else "west")
+    zone = next((z for z in ("felwood_north", "felwood_south", "east") if z in sys.argv), "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))

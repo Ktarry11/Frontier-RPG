@@ -42,6 +42,7 @@ ZONE_POOLS = {
     "arathi_east": ("pool_coast", "pool_storm"),
     "tempest_shallows": ("pool_storm", "pool_whirlpool"),
     "south_felwood": ("pool_moonlit", "pool_river"),     # Ashenvale's water, running out of Felwood
+    "north_felwood": ("pool_bubbling", "pool_plagued"),  # the Bloodvenom: poisoned water
     "ashen_reach": ("pool_lava", "pool_bubbling"),
     "moonwell_hollow": ("pool_moonlit", "pool_glowing"),
     "aspen_wilderness": ("pool_river", "pool_reeds"),

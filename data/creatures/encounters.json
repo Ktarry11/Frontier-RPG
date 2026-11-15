@@ -4687,6 +4687,90 @@
           }
         }
       }
+    },
+    "North Felwood": {
+      "open_zone": {
+        "name": "North Felwood",
+        "creatures": {
+          "Plaguefang Wolf": 5,
+          "Fel-Rotted Bear": 4,
+          "Jadefire Stag": 3,
+          "Seepage Ooze": 2
+        }
+      },
+      "subzones": {
+        "Jadefire Glen": {
+          "name": "Jadefire Glen",
+          "creatures": {
+            "Jadefire Rogue": 5,
+            "Jadefire Trickster": 4,
+            "Jadefire Shadowstalker": 4,
+            "Jadefire Hellcaller": 3,
+            "Jadefire Imp": 3,
+            "Prince Aelvorn the Unmade": 0
+          }
+        },
+        "Bloodvenom Falls": {
+          "name": "Bloodvenom Falls",
+          "creatures": {
+            "Seepage Ooze": 6,
+            "Fel-Rotted Bear": 3,
+            "Plaguefang Wolf": 3,
+            "The Bloodvenom Rot": 0
+          }
+        },
+        "Jaedenar": {
+          "name": "Jaedenar",
+          "creatures": {
+            "Shadow Council Acolyte": 5,
+            "Shadow Council Warlock": 4,
+            "Jaedenar Hound Handler": 3,
+            "Jadefire Felsworn": 3,
+            "Vor'alith the Turncloak": 0
+          }
+        },
+        "Felbrand Crater": {
+          "name": "Felbrand Crater",
+          "creatures": {
+            "Felbrand Felguard": 5,
+            "Felbrand Hellhound": 4,
+            "Felbrand Infernal": 3,
+            "Crater Imp": 4,
+            "Pyrrhax the Fallen Star": 0
+          }
+        },
+        "Irontree Woods": {
+          "name": "Irontree Woods",
+          "creatures": {
+            "Warpwood Treant": 6,
+            "Fel-Rotted Bear": 3,
+            "Jadefire Stag": 3,
+            "Plaguefang Wolf": 2,
+            "Ironbark the Blighted": 0
+          }
+        },
+        "Felpaw Village": {
+          "name": "Felpaw Village",
+          "creatures": {
+            "Deadwood Warrior": 5,
+            "Deadwood Den Watcher": 4,
+            "Deadwood Pathfinder": 4,
+            "Deadwood Shaman": 3,
+            "Deadwood Gardener": 3,
+            "Chieftain Grimpelt": 0
+          }
+        },
+        "Talonbranch Glade": {
+          "name": "Talonbranch Glade",
+          "safe": true,
+          "creatures": {}
+        },
+        "Timbermaw Gate": {
+          "name": "Timbermaw Gate",
+          "safe": true,
+          "creatures": {}
+        }
+      }
     }
   }
 }

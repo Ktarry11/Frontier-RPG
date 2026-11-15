@@ -15,7 +15,7 @@ REGIONAL = {
     "crossroads": "savannah",
     "ratchet": "goblin_lockbox",
     "ashenvale_west": "moonwood", "ashenvale_east": "moonwood", "astranaar": "moonwood",
-    "south_felwood": "moonwood", "emerald_sanctuary": "moonwood",
+    "south_felwood": "moonwood", "emerald_sanctuary": "moonwood", "north_felwood": "chained_cursed",
     "zoram_strand": "sea_chest", "fenris_isle": "sea_chest",
     "deathknell": "undead_rusted", "western_tirisfal": "undead_rusted", "eastern_tirisfal": "undead_rusted",
     "brill": "undead_rusted", "undercity": "undead_rusted", "the_sepulcher": "undead_rusted", "sepulcher": "undead_rusted",

@@ -53655,6 +53655,969 @@
           "attack_power": 120
         }
       }
+    ],
+    "plaguefang_wolf": [
+      {
+        "name": "Fevered Bite",
+        "kind": "damage",
+        "amount": 208,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Pack Lunge",
+        "kind": "damage",
+        "amount": 178,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rot in the Wound",
+        "kind": "dot",
+        "amount": 56,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "fel_rotted_bear": [
+      {
+        "name": "Heavy Swipe",
+        "kind": "damage",
+        "amount": 218,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Maul",
+        "kind": "damage",
+        "amount": 188,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Reek of Rot",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -42
+        }
+      }
+    ],
+    "jadefire_stag": [
+      {
+        "name": "Burning Antlers",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Charge",
+        "kind": "damage",
+        "amount": 182,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Jadefire",
+        "kind": "dot",
+        "amount": 58,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 3
+      }
+    ],
+    "warpwood_treant": [
+      {
+        "name": "Root Lash",
+        "kind": "damage",
+        "amount": 220,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Thrashing Limbs",
+        "kind": "damage",
+        "amount": 184,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Grasping Roots",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -44
+        }
+      }
+    ],
+    "jadefire_rogue": [
+      {
+        "name": "Twin Daggers",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Behind You",
+        "kind": "damage",
+        "amount": 190,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Fel-Edged Cut",
+        "kind": "dot",
+        "amount": 56,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 3
+      }
+    ],
+    "jadefire_trickster": [
+      {
+        "name": "Jadefire Bolt",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Smouldering Hex",
+        "kind": "dot",
+        "amount": 58,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 3
+      },
+      {
+        "name": "Laughing Mischief",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "spell_power": -44
+        }
+      }
+    ],
+    "jadefire_shadowstalker": [
+      {
+        "name": "From the Shadows",
+        "kind": "damage",
+        "amount": 218,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cheap Shot",
+        "kind": "damage",
+        "amount": 182,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Fade",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": 60
+        },
+        "self_only": true
+      }
+    ],
+    "jadefire_felsworn": [
+      {
+        "name": "Glaive Sweep",
+        "kind": "damage",
+        "amount": 220,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cleave",
+        "kind": "damage",
+        "amount": 188,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Fel Oath",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "attack_power": 62
+        },
+        "self_only": true
+      }
+    ],
+    "jadefire_hellcaller": [
+      {
+        "name": "Hellfire Bolt",
+        "kind": "damage",
+        "amount": 220,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Rain of Jadefire",
+        "kind": "damage",
+        "amount": 184,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Immolate",
+        "kind": "dot",
+        "amount": 60,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 3
+      }
+    ],
+    "crater_imp": [
+      {
+        "name": "Firebolt",
+        "kind": "damage",
+        "amount": 203,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Fel Spark",
+        "kind": "damage",
+        "amount": 175,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Taunting Cackle",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "hit_rating": -10
+        }
+      }
+    ],
+    "seepage_ooze": [
+      {
+        "name": "Acid Slap",
+        "kind": "damage",
+        "amount": 208,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Corrosive Ooze",
+        "kind": "dot",
+        "amount": 58,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Dissolve Armour",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -120
+        }
+      }
+    ],
+    "deadwood_warrior": [
+      {
+        "name": "Spiked Club",
+        "kind": "damage",
+        "amount": 220,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Fel-Drunk Swing",
+        "kind": "damage",
+        "amount": 190,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Frenzy",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": 60
+        },
+        "self_only": true
+      }
+    ],
+    "deadwood_den_watcher": [
+      {
+        "name": "Spear Thrust",
+        "kind": "damage",
+        "amount": 214,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shield Bash",
+        "kind": "damage",
+        "amount": 182,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Guard the Den",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 110
+        },
+        "self_only": true
+      }
+    ],
+    "deadwood_pathfinder": [
+      {
+        "name": "Bark Arrow",
+        "kind": "damage",
+        "amount": 212,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Pinning Shot",
+        "kind": "damage",
+        "amount": 182,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rot-Tipped Arrow",
+        "kind": "dot",
+        "amount": 56,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "deadwood_shaman": [
+      {
+        "name": "Fel Lightning",
+        "kind": "damage",
+        "amount": 218,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Rotting Totem",
+        "kind": "dot",
+        "amount": 58,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Mad Chant",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "spell_power": -44,
+          "attack_power": -44
+        }
+      }
+    ],
+    "deadwood_gardener": [
+      {
+        "name": "Seed Sling",
+        "kind": "damage",
+        "amount": 203,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Fel Bloom",
+        "kind": "dot",
+        "amount": 56,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      },
+      {
+        "name": "Choking Spores",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "hit_rating": -10
+        }
+      }
+    ],
+    "felbrand_infernal": [
+      {
+        "name": "Burning Slam",
+        "kind": "damage",
+        "amount": 229,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Immolation",
+        "kind": "damage",
+        "amount": 188,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Stone Skin",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 140
+        },
+        "self_only": true
+      }
+    ],
+    "felbrand_felguard": [
+      {
+        "name": "Axe of the Legion",
+        "kind": "damage",
+        "amount": 229,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cleave",
+        "kind": "damage",
+        "amount": 195,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Intercept",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 1,
+        "stat_mods": {
+          "dodge_rating": -50
+        }
+      }
+    ],
+    "felbrand_hellhound": [
+      {
+        "name": "Fel Bite",
+        "kind": "damage",
+        "amount": 214,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Mana Burn",
+        "kind": "damage",
+        "amount": 182,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Spell Lock",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "spell_power": -50
+        }
+      }
+    ],
+    "voralith_the_turncloak": [
+      {
+        "name": "Turncloak's Glaive",
+        "kind": "damage",
+        "amount": 353,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sweep the Watch",
+        "kind": "damage",
+        "amount": 287,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Hilt to the Jaw",
+        "kind": "damage",
+        "amount": 257,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Fel Oath Kept",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 110
+        }
+      }
+    ],
+    "the_bloodvenom_rot": [
+      {
+        "name": "Engulf",
+        "kind": "damage",
+        "amount": 340,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Riverbed Rot",
+        "kind": "dot",
+        "amount": 90,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      },
+      {
+        "name": "Burst of Spores",
+        "kind": "damage",
+        "amount": 272,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Gelid Skin",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 963,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "chieftain_grimpelt": [
+      {
+        "name": "Log Maul",
+        "kind": "damage",
+        "amount": 364,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Earth-Shaking Stomp",
+        "kind": "damage",
+        "amount": 289,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Knocked Flat",
+        "kind": "damage",
+        "amount": 268,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Blood Madness",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 120
+        }
+      }
+    ],
+    "prince_aelvorn_the_unmade": [
+      {
+        "name": "Jadefire Lance",
+        "kind": "damage",
+        "amount": 353,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Ruin of the Highborne",
+        "kind": "damage",
+        "amount": 280,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Highborne Curse",
+        "kind": "dot",
+        "amount": 94,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Mantle of Thorns",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 1017,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "pyrrhax_the_fallen_star": [
+      {
+        "name": "Meteor Fist",
+        "kind": "damage",
+        "amount": 368,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Crater Shock",
+        "kind": "damage",
+        "amount": 291,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Buried in Ash",
+        "kind": "damage",
+        "amount": 268,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "fire",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Burning Core",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 120
+        }
+      }
+    ],
+    "ironbark_the_blighted": [
+      {
+        "name": "Ironwood Crush",
+        "kind": "damage",
+        "amount": 364,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Thrash of the Dead Wood",
+        "kind": "damage",
+        "amount": 287,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Rooted in Rot",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "dodge_rating": -60
+        }
+      },
+      {
+        "name": "Petrified Bark",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 1017,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "jadefire_imp": [
+      {
+        "name": "Firebolt",
+        "kind": "damage",
+        "amount": 203,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Fel Spark",
+        "kind": "damage",
+        "amount": 175,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Taunting Cackle",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "hit_rating": -10
+        }
+      }
+    ],
+    "shadow_council_acolyte": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 212,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Corruption",
+        "kind": "dot",
+        "amount": 58,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Demon Skin",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 449,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "shadow_council_warlock": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 220,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Hellfire",
+        "kind": "damage",
+        "amount": 182,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Curse of Agony",
+        "kind": "dot",
+        "amount": 60,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      }
+    ],
+    "jaedenar_hound_handler": [
+      {
+        "name": "Spiked Whip",
+        "kind": "damage",
+        "amount": 218,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sic 'Em",
+        "kind": "damage",
+        "amount": 188,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hound's Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": 60
+        },
+        "self_only": true
+      }
     ]
   }
 }

@@ -215,7 +215,7 @@ ALL_SPRITES = {s for v in SHEETS.values() for s in v}
 _RULES = [
     # FELWOOD (tools/build_felwood_openworld.py): exact names, each to its picture. The South's
     # wildlife uses the existing beast art; the Fel Line's demons and everything in the North use
-    # Kyle's Felwood sheet (the North's names are mapped ahead of its map, harmlessly).
+    # Kyle's Felwood sheet.
     (r"^greywood\ nightsaber$", "panther_1"),
     (r"^old\-growth\ grizzly$", "bear_2"),
     (r"^timberline\ wolf$", "worg_3"),
@@ -252,10 +252,20 @@ _RULES = [
     (r"^deadwood\ pathfinder$", "fw_deadwood_pathfinder"),
     (r"^deadwood\ shaman$", "fw_deadwood_shaman"),
     (r"^deadwood\ gardener$", "fw_deadwood_gardener"),
-    (r"^scar\ infernal$", "fw_infernal"),
-    (r"^scar\ felhound$", "fw_felhound"),
     (r"^vor'alith\ the\ turncloak$", "fw_satyr_felsworn"),
-    (r"^the\ rot\ under\ iris$", "fw_toxic_ooze"),
+    # North Felwood
+    (r"^plaguefang\ wolf$", "fw_blighted_wolf"),
+    (r"^jadefire\ imp$", "fw_imp"),
+    (r"^crater\ imp$", "fw_imp"),
+    (r"^felbrand\ infernal$", "fw_infernal"),
+    (r"^felbrand\ felguard$", "fw_felguard"),
+    (r"^felbrand\ hellhound$", "fw_felhound"),
+    (r"^shadow\ council\ acolyte$", "fw_council_acolyte"),
+    (r"^shadow\ council\ warlock$", "fw_council_warlock"),
+    (r"^jaedenar\ hound\ handler$", "fw_hound_handler"),
+    (r"^the\ bloodvenom\ rot$", "fw_toxic_ooze"),
+    (r"^pyrrhax\ the\ fallen\ star$", "fw_infernal"),
+    (r"^ironbark\ the\ blighted$", "fw_warpwood_treant"),
     (r"^chieftain\ grimpelt$", "fw_deadwood_alpha"),
     (r"^prince\ aelvorn\ the\ unmade$", "fw_satyr_lord"),
     # TEMPEST ISLE, the open world (tools/build_tempest_openworld.py). Named rares and the Dark
@@ -640,11 +650,9 @@ SPARE = {
     "vine_strangler_2": "second strangler; its user was the deleted Twisted Sapling draft.",
 }
 
-# FELWOOD, parked for North Felwood and Jaedenar (claude/felwood_brief.md): the Deadwood, the Jadefire
-# satyrs, the Legion proper, the Shadow Council, the corrupted wildlife and Jaedenar's bosses. South
-# Felwood is reclaimed (Kyle, 14 Nov), so only five of the sheet's demons appear there, on the Fel Line.
-# Take a sprite off this list when the creature that uses it goes into a table.
-SPARE.update({sid: "Felwood sheet, held for North Felwood / Jaedenar" for sid in ['fw_boss_corrupted_ancient', 'fw_boss_demon_lord', 'fw_boss_doom_lord', 'fw_boss_hold_warden', 'fw_boss_master_summoner', 'fw_boss_twin_warlocks', 'fw_bound_voidwalker', 'fw_council_acolyte', 'fw_council_high_warlock', 'fw_council_summoner', 'fw_council_warlock', 'fw_deadwood_alpha', 'fw_deadwood_gardener', 'fw_deadwood_pathfinder', 'fw_deadwood_shaman', 'fw_deadwood_warrior', 'fw_deadwood_watcher', 'fw_entropic_horror', 'fw_eredar_warlock', 'fw_fel_bear', 'fw_hound_handler', 'fw_infernal', 'fw_jadefire_stag', 'fw_satyr_felsworn', 'fw_satyr_hellcaller', 'fw_satyr_lord', 'fw_satyr_rogue', 'fw_satyr_shadowstalker', 'fw_satyr_trickster', 'fw_toxic_ooze', 'fw_warpwood_treant']})
+# FELWOOD, parked for Jaedenar (claude/felwood_brief.md): its bosses, its warlocks and summoners, its
+# bound demons. Take a sprite off this list when the creature that uses it goes into a table.
+SPARE.update({sid: "Felwood sheet, held for Jaedenar" for sid in ['fw_boss_corrupted_ancient', 'fw_boss_demon_lord', 'fw_boss_doom_lord', 'fw_boss_hold_warden', 'fw_boss_master_summoner', 'fw_boss_twin_warlocks', 'fw_bound_voidwalker', 'fw_council_high_warlock', 'fw_council_summoner', 'fw_entropic_horror', 'fw_eredar_warlock']})
 
 DEFAULT = "bandit_human"
 
