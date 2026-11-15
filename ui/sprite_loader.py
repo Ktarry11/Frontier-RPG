@@ -273,8 +273,25 @@ def get_npc_sprite(base_path, direction, tile_width=None, tile_height=None):
         return None
     if tile_width is None and tile_height is None:
         return None
+    return _npc_frame(f"{base_path}/{direction}.png", tile_width, tile_height)
 
-    sheet_path = f"{base_path}/{direction}.png"
+
+def get_walk_sprite(base_path, direction, frame, tile_height):
+    """One walk-cycle frame (walk_<direction>_<1|2|3>.png, cut by tools/slice_walk_sheet.py), scaled
+    like get_npc_sprite. None when this character has no walk frames, so the caller keeps the
+    standing pose."""
+    if not base_path or direction not in ("down", "left", "right", "up") or frame not in (1, 2, 3):
+        return None
+    path = f"{base_path}/walk_{direction}_{frame}.png"
+    key = ("walk_exists", path)
+    if key not in _sprite_cache:
+        _sprite_cache[key] = os.path.exists(path)
+    if not _sprite_cache[key]:
+        return None
+    return _npc_frame(path, None, tile_height)
+
+
+def _npc_frame(sheet_path, tile_width, tile_height):
     cache_key = ("npc", sheet_path, tile_width, tile_height)
     if cache_key in _sprite_cache:
         return _sprite_cache[cache_key]

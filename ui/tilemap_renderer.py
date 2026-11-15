@@ -6,7 +6,7 @@ import os
 import pygame
 from world.tiles import get_tile_color
 from world.tile_textures import TILE_SIZE, get_biome_for_zone, get_texture_entry, get_subzone_biome
-from ui.sprite_loader import (get_tile_sprite, get_tile_sprite_smooth, get_landmark_sprite,
+from ui.sprite_loader import (get_walk_sprite, get_tile_sprite, get_tile_sprite_smooth, get_landmark_sprite,
                              get_feathered_chunk_sprite, get_npc_sprite, get_mount_sprite,
                              get_creature_sprite)
 from world.race_registry import sprite_base_path
@@ -370,6 +370,25 @@ class TilemapRenderer:
                     screen_x += viewport_rect.x
                     screen_y += viewport_rect.y
                     screen.blit(oriented_sprite, (screen_x, screen_y))
+
+    # Walk cycle (claude/walk_cycle_prompts.md). The player moves a tile at a time, so each step
+    # advances the cycle one frame: left foot, standing, right foot, standing. A pause longer than a
+    # held key's repeat shows the standing frame. Characters without walk frames keep their pose.
+    WALK_CYCLE = (1, 2, 3, 2)
+    WALK_IDLE_MS = 220
+
+    def _walk_frame(self, player_pos):
+        now = pygame.time.get_ticks()
+        last = getattr(self, "_walk_pos", None)
+        if last != player_pos:
+            if last is not None and player_pos is not None and \
+                    abs(last[0] - player_pos[0]) + abs(last[1] - player_pos[1]) == 1:
+                self._walk_step = getattr(self, "_walk_step", 0) + 1
+                self._walk_t = now
+            self._walk_pos = player_pos
+        if now - getattr(self, "_walk_t", -10**9) > self.WALK_IDLE_MS:
+            return 2
+        return self.WALK_CYCLE[(self._walk_step - 1) % 4]
 
     def render_tilemap(self, screen, tilemap, player_pos=None, camera=None, viewport_rect=None,
                         vendors=None, recruits=None, ambient_npcs=None, cave_spawns=None,
@@ -817,7 +836,11 @@ class TilemapRenderer:
                     getattr(player, "race", None), getattr(player, "gender", None),
                     getattr(player, "appearance_variant", 0))
                 if base_path:
-                    sprite = get_npc_sprite(base_path, player_facing, tile_height=int(self.tile_size * self.npc_sprite_scale))
+                    th = int(self.tile_size * self.npc_sprite_scale)
+                    frame = self._walk_frame(player_pos)
+                    sprite = get_walk_sprite(base_path, player_facing, frame, th) if frame else None
+                    if sprite is None:
+                        sprite = get_npc_sprite(base_path, player_facing, tile_height=th)
             mount_art = None
             try:
                 from world.travel_manager import get_travel_manager
