@@ -62,7 +62,7 @@
     {
       "talent_id": "mage_arcane_arcane_stability",
       "name": "Arcane Stability",
-      "description": "Increases the damage of your Arcane Explosion by 3% per rank.",
+      "description": "Increases the damage of your Arcane Missiles and Arcane Explosion by 3% per rank.",
       "node_type": "passive",
       "tier": 0,
       "max_points": 5,
@@ -70,10 +70,14 @@
       "hex_x": 2,
       "hex_y": -6,
       "effects": {
-        "ability_mage_arcane_explosion_damage": 0.03
+        "ability_mage_arcane_explosion_damage": 0.03,
+        "ability_mage_arcane_missiles_damage": 0.03
       },
       "_source": "WotLK row 0: 'Reduces the pushback suffered from damaging attacks while casting Arcane Missiles and Arcane Blast by 14%-70%.' DEPARTURE - no cast times, so no pushback, and neither named spell exists. arcane_explosion is the kit's only real Arcane nuke, so the throughput lands there.",
-      "connected_to": []
+      "connected_to": [],
+      "_tuning": [
+        "15 Nov 2026: also Arcane Missiles (the WotLK talent is about Arcane Missiles; it was only on Arcane Explosion because the spell was missing)"
+      ]
     },
     {
       "talent_id": "mage_arcane_arcane_fortitude",
@@ -472,7 +476,7 @@
     {
       "talent_id": "mage_arcane_missile_barrage",
       "name": "Missile Barrage",
-      "description": "Your Fireball and Frostbolt have a 8% chance per rank to strike again.",
+      "description": "Your Arcane Missiles have an 8% chance per rank to strike again.",
       "node_type": "passive",
       "tier": 5,
       "max_points": 5,
@@ -489,12 +493,14 @@
         "chance": 8,
         "icd": 0,
         "ability_filter": [
-          "mage_fireball",
-          "mage_frostbolt"
+          "mage_arcane_missiles"
         ],
         "damage_flat": 100,
         "school": "arcane"
-      }
+      },
+      "_tuning": [
+        "15 Nov 2026: re-aimed at Arcane Missiles, which now exists (it was on Fireball and Frostbolt because the spell was missing - the WotLK talent is about Arcane Missiles)"
+      ]
     },
     {
       "talent_id": "mage_arcane_spell_power",

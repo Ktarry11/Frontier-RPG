@@ -157,6 +157,66 @@
       "damage_school": "frost"
     },
     {
+      "ability_id": "mage_arcane_missiles",
+      "name": "Arcane Missiles",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Launches a volley of arcane missiles at the target, dealing Arcane damage. A slow cast.",
+      "icon_id": null,
+      "damage_school": "arcane",
+      "cast_speed": "slow",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 8,
+          "cost": 45,
+          "effect_value": 83
+        },
+        {
+          "rank": 2,
+          "level_req": 16,
+          "cost": 57,
+          "effect_value": 102
+        },
+        {
+          "rank": 3,
+          "level_req": 24,
+          "cost": 69,
+          "effect_value": 121
+        },
+        {
+          "rank": 4,
+          "level_req": 32,
+          "cost": 81,
+          "effect_value": 140
+        },
+        {
+          "rank": 5,
+          "level_req": 40,
+          "cost": 93,
+          "effect_value": 160
+        },
+        {
+          "rank": 6,
+          "level_req": 48,
+          "cost": 105,
+          "effect_value": 179
+        },
+        {
+          "rank": 7,
+          "level_req": 56,
+          "cost": 117,
+          "effect_value": 198
+        }
+      ],
+      "_tuning": [
+        "15 Nov 2026, class pass deep dive: ADDED. The Arcane spec had no single-target Arcane spell - its rotation was Fireball and Frostbolt (62% of its damage Fire) and its talents had been re-aimed at them (tools/build_mage_arcane.py: 'Arcane's own spells are mostly absent'). Classic's Arcane Missiles: trained at 8, ranked every 8 levels to 56. Slow cast (Classic's 5-second channel): 1.5x a Fireball rank for 1.15x its cost, on the authored line."
+      ]
+    },
+    {
       "ability_id": "mage_arcane_explosion",
       "name": "Arcane Explosion",
       "resource_type": "mana",
