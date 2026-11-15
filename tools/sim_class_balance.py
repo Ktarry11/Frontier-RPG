@@ -261,7 +261,12 @@ def plan(char):
         """
         ev = getattr(a, "effect_value", 0) or 0
         dur = getattr(a, "duration", 0) or 0
-        per = ev / dur if dur > 1 else ev
+        # A DoT'S VALUE IS ITS TOTAL, PER CAST (15 Nov 2026, class pass): one turn buys every tick. Dividing it by
+        # its duration made a 4-turn DoT look a quarter of what it is, so the DoT specs (Affliction, Shadow,
+        # Assassination's poisons, the Necromancer and Cultist kits) never cast their DoTs and measured low. Counted
+        # at 75% for the fights that end before it finishes; the fight loops never recast one that is still ticking.
+        per = ev * 0.75 if dur > 1 and getattr(a, "effect_type", "") in ("dot", "spell_dot") else (
+            ev / dur if dur > 1 else ev)
         # PER TURN OF TIME (cast speed, 15 Nov 2026): a slow 1.5-turn spell's number is spread over 1.5 turns, a
         # quick 0.6-turn one's over 0.6 - ranked on raw size, the planner would always reach for the slow nuke
         return per / (getattr(a, "cast_speed", 1.0) or 1.0)

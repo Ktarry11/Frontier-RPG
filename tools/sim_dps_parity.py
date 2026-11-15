@@ -130,8 +130,12 @@ def damage_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0, mana
         if mana_stats is not None:
             char.current_mana = char.mana
         acted = False
+        live = {getattr(fx, "effect_id", None) for fx in foe._effects()} if hasattr(foe, "_effects") else set()
         with quiet():
             for a in attacks:
+                # a DoT still ticking on the target is not recast (it would only refresh it)
+                if a.effect_type in ("dot", "spell_dot") and a.ability_id in live:
+                    continue
                 ok, _ = engine.execute_ability(char, a.ability_id, foe)
                 if ok:
                     acted = True

@@ -207,7 +207,10 @@ def fight(chars, roles, enemies):
                 foes = sorted(foes, key=lambda e: not getattr(e, "is_boss", False))
                 if not foes:
                     break
+                live = {getattr(fx, "effect_id", None) for fx in foes[0]._effects()} if hasattr(foes[0], "_effects") else set()
                 for a in attacks:
+                    if a.effect_type in ("dot", "spell_dot") and a.ability_id in live:
+                        continue
                     if engine.execute_ability(actor, a.ability_id, foes[0])[0]:
                         acted = True
                         break
