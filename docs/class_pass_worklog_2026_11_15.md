@@ -165,6 +165,19 @@ PYTHONPATH=. python3 tools/calibrate_spec_auras.py --kind healing --passes 5 --w
 
 ---
 
+## Content sweeps (16:30–16:50 UTC, `--mode content --fights 3`)
+
+**Geared with talents** (`/tmp/claude-0/content_geared.{log,json}`)
+- Every spec in its slot of the standard party clears every content kind in every bracket. The median win rate is 100% everywhere.
+- The only friction is skull-dungeon (hidden layer) trash at 16–30: DPS and tank slot medians are 67%, with a range of 0–100%.
+
+**Green gear, no talents** (`/tmp/claude-0/content_under.{log,json}`)
+- Regular dungeons: the median is still 100% in every bracket (some DPS swaps dip to 33% on 46–60 bosses, but at 3 fights that's noise).
+- Hidden-layer and frontier-deep trash pulls of 3 win only 0–50%, while their **bosses win 67–100%**. That's an inverted difficulty: hidden bosses get the hidden multiplier on base boss stats, and each trash mob gets the same multiplier, three at a time. **This is a content-tuning question for Kyle** (raise hidden bosses, or make the packs smaller).
+- No frontier-open creatures exist yet (both frontier zones are deep).
+
+**Reading:** group results prove nothing is broken for any spec, but the other four members carry a weak one. Spec quality is judged by the parity sims, solo runs and tank survival, plus the new trio mode (tank, healer and one DPS).
+
 ## Parked (Kyle said note it only; class balance comes first)
 
 - **16:41 UTC.** Hand-authored boss drops convert from percentage hit, crit, dodge, parry and so on to RATINGS (10 rating = 1%, like gems and crafted gear), cleaning out the "trash drip" stats. This is item 8 in `claude/playtest_backlog_2026_11_14.md`.

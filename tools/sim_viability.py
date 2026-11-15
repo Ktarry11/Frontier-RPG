@@ -425,6 +425,54 @@ def content(specs, fights, tier, gen, cm, rng, only=None):
     return out
 
 
+def trio(specs, fights, tier, gen, cm, rng):
+    """A tank, a healer and ONE damage spec - the spec under test in its slot - against its bracket's dungeon
+    bosses. In a party of five the other four carry a weak spec; with three, its own output decides the kill.
+    -> {(spec, role, bracket): [(boss, won, deaths, turns)]}"""
+    pools = content_pools(cm)
+    base = [("tank", BASE_PARTY["tank"]), ("healer", BASE_PARTY["healer"]), ("dps", "mage_fire")]
+    out = {}
+    for spec, role in specs:
+        slots = list(base)
+        slots[{"tank": 0, "healer": 1, "dps": 2}[role]] = (role, spec)
+        for b, pool in sorted((pools.get("dungeon") or {}).items()):
+            rows = []
+            for boss in sorted(pool["boss"])[:6]:
+                lv = cm.creatures[boss]["level_range"][1]
+                for _ in range(fights):
+                    try:
+                        chars = [make(sp, r, lv, tier, gen) for r, sp in slots]
+                        for i, c in enumerate(chars):
+                            c.name = f"{c.name}#{i}"
+                        roles = {id(c): r for c, (r, _s) in zip(chars, slots)}
+                        with quiet():
+                            foe = cm.spawn_creature(boss, level=lv)
+                        foe.location_type = "cave"
+                        won, d, t, _hp = fight(chars, roles, [foe])
+                    except Exception as e:                       # noqa: BLE001
+                        print(f"  {spec} vs {boss}: {type(e).__name__}: {e}")
+                        won, d, t = False, 3, 0
+                    rows.append((boss, won, d, t))
+            out[(spec, role, b)] = rows
+    return out
+
+
+def report_trio(res):
+    print("\nTRIO - tank, healer and one damage spec (the one under test in its slot) vs its bracket's bosses")
+    by = {}
+    for (spec, role, b), rows in res.items():
+        wins = sum(1 for r in rows if r[1]) / len(rows)
+        won_t = [r[3] for r in rows if r[1]]
+        by.setdefault((role, b), []).append((spec, wins, statistics.mean(won_t) if won_t else 0))
+    for (role, b), rows in sorted(by.items()):
+        med_w = statistics.median(r[1] for r in rows)
+        med_t = statistics.median(r[2] for r in rows if r[2]) if any(r[2] for r in rows) else 0
+        print(f"\n  {role} {BRACKETS[b]}: median win {med_w:.0%}, median turns to kill {med_t:.0f}")
+        for spec, w, t in sorted(rows, key=lambda r: (r[1], -r[2])):
+            flag = "  <- behind" if (w < med_w - 0.2 or (t and med_t and t > med_t * 1.35)) else ""
+            print(f"     {spec:<30} win {w:>4.0%}  turns {t:>5.1f}{flag}")
+
+
 def report_content(res):
     """Win rates per spec, and the specs well below their own role on the same content and bracket."""
     by_cell = {}
@@ -445,7 +493,7 @@ def report_content(res):
 def main():
     global BUFFS, CONSUMABLES
     ap = argparse.ArgumentParser()
-    ap.add_argument("--mode", default="both", choices=("solo", "group", "both", "hidden", "content"))
+    ap.add_argument("--mode", default="both", choices=("solo", "group", "both", "hidden", "content", "trio"))
     ap.add_argument("--content", help="comma list of: " + ",".join(CONTENT))
     ap.add_argument("--levels", default="12,25,38,52,58")
     ap.add_argument("--fights", type=int, default=4)
@@ -477,6 +525,12 @@ def main():
     print(f"{len(specs)} spec-roles, levels {levels}, {args.fights} fights each, tier {args.tier}, "
           f"talents {'off' if args.no_talents else 'on'}, buffs {'off' if args.no_buffs else 'on'}")
     dump = {}
+    if args.mode == "trio":
+        res = trio(specs, args.fights, args.tier, gen, cm, rng)
+        report_trio(res)
+        if args.json:
+            Path(args.json).write_text(json.dumps({"|".join(map(str, k)): v for k, v in res.items()}), encoding="utf-8")
+        return 0
     if args.mode == "content":
         res = content(specs, args.fights, args.tier, gen, cm, rng,
                       only=set(args.content.split(",")) if args.content else None)
