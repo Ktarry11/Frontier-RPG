@@ -176,6 +176,15 @@ class Secrets:
             return True
         return (px, py) in self._tiles.get(s["id"], ()) or (px, py) == (x, y)
 
+    def is_secret_tile(self, zone_name, x, y):
+        """Is (x, y) part of a secret's ground (its hidden path or the place it leads to)?"""
+        return (zone_name, x, y) in self._by_tile
+
+    def is_hidden_tile(self, zone_name, x, y):
+        """Secret ground the player hasn't found yet: the map must show nothing on it."""
+        sid = self._by_tile.get((zone_name, x, y))
+        return sid is not None and sid not in self.found
+
     def is_hidden_vendor(self, vendor_id):
         return vendor_id in self._hidden_vendors
 

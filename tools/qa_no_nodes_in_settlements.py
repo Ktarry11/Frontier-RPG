@@ -11,6 +11,8 @@ every node that spawned:
   - none within NPC_CLEARANCE of an NPC
   - none within SETTLEMENT_RADIUS of a cluster of SETTLEMENT_NPCS or more
   - none inside a subzone flagged safe
+  - none on a secret's ground (Kyle, 14 Nov: "herb is spoiling where a secret area is !!!!" - Find
+    Herbs drew a diamond on a hidden island the map shows as sea)
 and that zones still GET nodes - a rule that quietly empties a zone is its own bug.
 
 Rolled against each zone's tile grid without entering it: entering loads the baked art, and
@@ -38,6 +40,8 @@ def main():
         return 1
     enc = json.loads((ROOT / "data/creatures/encounters.json").read_text(encoding="utf-8"))["zones"]
 
+    from world.secrets import get_secrets
+    secrets = get_secrets()
     bad, empty, with_camps, total = [], [], 0, 0
     for zone in pooled:
         # The tilemap straight from the manager, NOT transition_to_zone: entering a zone loads
@@ -49,6 +53,8 @@ def main():
             continue
         npcs = [(x, y) for y, row in enumerate(t.interaction_layer)
                 for x, kind in enumerate(row) if kind == "npc"]
+        portals = [(x, y) for y, row in enumerate(t.interaction_layer)
+                   for x, kind in enumerate(row) if kind == "portal"]
         safe = {k for k, sz in enc.get(zone, {}).get("subzones", {}).items()
                 if isinstance(sz, dict) and sz.get("safe")}
         clustered = any(sum(1 for (ax, ay) in npcs
@@ -65,6 +71,10 @@ def main():
                     bad.append(f"{zone}: {node.material_id} at ({node.x},{node.y}) is beside an NPC")
                 elif sum(1 for d in dists if d <= g.SETTLEMENT_RADIUS) >= g.SETTLEMENT_NPCS:
                     bad.append(f"{zone}: {node.material_id} at ({node.x},{node.y}) is inside a camp")
+                if any(max(abs(px - node.x), abs(py - node.y)) <= g.DOORWAY_CLEARANCE for (px, py) in portals):
+                    bad.append(f"{zone}: {node.material_id} at ({node.x},{node.y}) stands in a doorway")
+                if secrets.is_secret_tile(t.name, node.x, node.y):
+                    bad.append(f"{zone}: {node.material_id} at ({node.x},{node.y}) is on secret ground")
                 sz = t.get_subzone_at(node.x, node.y)
                 if sz and sz.get("table_key") in safe:
                     bad.append(f"{zone}: {node.material_id} at ({node.x},{node.y}) is in the "

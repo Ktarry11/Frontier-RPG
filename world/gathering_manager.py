@@ -203,6 +203,15 @@ class GatheringNodeManager:
             return
 
         self.zone_key = key
+        # NOTHING GROWS ON SECRET GROUND. Kyle, 14 Nov 2026: "herb is spoiling where a secret area
+        # is !!!!" - a herb rolled onto a hidden island, and Find Herbs drew its diamond on the map
+        # in the middle of what the map shows as open sea.
+        self._secret_zone = tilemap.name
+        # ...AND NOTHING STANDS IN A DOORWAY. A friend's playtest, 14 Nov: "Fishing is stopping me
+        # from entering a portal to a cave" - a spot rolled beside the cave mouth and the step into
+        # it fished instead of travelling.
+        self._doorways = [(x, y) for y, row in enumerate(tilemap.interaction_layer)
+                          for x, kind in enumerate(row) if kind == "portal"]
         self._populate_fishing(tilemap, zone_name, pool.get("fishing"))
         slots = pool.get("slots", 0)
         active_percent = pool.get("active_percent", 0.0)
@@ -236,7 +245,8 @@ class GatheringNodeManager:
             return
         avoid = self._settlement_test(tilemap, zone_name)
         spots = [t for t in shore_tiles(tilemap)
-                 if tilemap.get_tile(t[0], t[1], "interaction") is None and not (avoid and avoid(*t))]
+                 if tilemap.get_tile(t[0], t[1], "interaction") is None and not (avoid and avoid(*t))
+                 and not self._on_secret(*t)]
         random.shuffle(spots)
         want = max(1, round(fishing.get("slots", 0) * fishing.get("active_percent", 0.0)))
         ids, weights = list(fishing["table"].keys()), list(fishing["table"].values())
@@ -318,6 +328,23 @@ class GatheringNodeManager:
 
         return avoid
 
+    #: How far a node or fishing spot keeps from any portal.
+    DOORWAY_CLEARANCE = 3
+
+    def _on_secret(self, x, y):
+        """Is (x, y) secret ground, or too close to a portal, in the zone being populated?"""
+        if any(max(abs(x - px), abs(y - py)) <= self.DOORWAY_CLEARANCE
+               for (px, py) in getattr(self, "_doorways", ())):
+            return True
+        zone = getattr(self, "_secret_zone", None)
+        if not zone:
+            return False
+        try:
+            from world.secrets import get_secrets
+            return get_secrets().is_secret_tile(zone, x, y)
+        except Exception:
+            return False
+
     def _roll_candidate_tiles(self, tilemap, count, max_attempts=500, avoid=None):
         """Pick up to `count` distinct random walkable tiles. Avoids
         collision tiles (via is_walkable) and avoids the exact tile the
@@ -341,6 +368,8 @@ class GatheringNodeManager:
                 continue
             seen.add((x, y))
             if avoid is not None and avoid(x, y):
+                continue
+            if self._on_secret(x, y):
                 continue
             # NOT SHOULDER TO SHOULDER. A node is drawn a tile and a half wide, so two on
             # neighbouring tiles overlap and the one drawn second leaves a sliver of the first

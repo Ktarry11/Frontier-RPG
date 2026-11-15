@@ -413,8 +413,14 @@ class MapScreen(BaseScreen):
         known = self._tracked_professions()
         if known:
             gm = zm.gathering_manager
+            from world.secrets import get_secrets
+            secrets = get_secrets()
             for node in getattr(gm, "active_nodes", []) or []:
                 if node.gathered:
+                    continue
+                # never a marker on secret ground nobody has found (Kyle, 14 Nov: "herb is
+                # spoiling where a secret area is")
+                if secrets.is_hidden_tile(tilemap.name, node.x, node.y):
                     continue
                 data = gm.materials.get(node.material_id) or {}
                 if data.get("profession") not in known:
