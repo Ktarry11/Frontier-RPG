@@ -415,7 +415,7 @@
       "name": "Stormstrike",
       "resource_type": "mana",
       "cooldown": 3,
-      "effect_type": "debuff",
+      "effect_type": "damage",
       "duration": 3,
       "stat_mods": {
         "nature_resistance": -20
@@ -424,28 +424,29 @@
       "ranks": [
         {
           "rank": 1,
-          "level_req": 30,
-          "cost": 30,
-          "effect_value": 100
+          "level_req": 40,
+          "cost": 36,
+          "effect_value": 190
         },
         {
           "rank": 2,
-          "level_req": 40,
-          "cost": 36,
-          "effect_value": 119
+          "level_req": 52,
+          "cost": 42,
+          "effect_value": 230
         },
         {
           "rank": 3,
-          "level_req": 52,
-          "cost": 42,
-          "effect_value": 142
+          "level_req": 58,
+          "cost": 46,
+          "effect_value": 255
         }
       ],
       "requires_talent": true,
       "is_instant": true,
       "icon_id": null,
-      "buff_scope": "combat",
-      "_design_note": "Not learned from level alone - granted by the Stormstrike talent in the Enhancement tree. Instantly attacks with both weapons, weakening the target's real Nature resistance (previously wired to the generic magic_resistance stat, which didn't match the ability's own description) so your next Nature-school hits deal more damage."
+      "_design_note": "Not learned from level alone - granted by the Stormstrike talent in the Enhancement tree. Instantly attacks with both weapons, weakening the target's real Nature resistance (previously wired to the generic magic_resistance stat, which didn't match the ability's own description) so your next Nature-school hits deal more damage.",
+      "target_type": "enemy",
+      "_stormstrike_fix": "15 Nov 2026: was effect_type debuff, so 'Instantly attacks with both weapons' hit for nothing and Enhancement's signature button only lowered Nature resistance; Enhancement measured at ~0.5x the median damage spec. A weapon strike now (with the same debuff). Was ranks [(30, 30, 100), (40, 36, 119), (52, 42, 142)]."
     },
     {
       "ability_id": "shaman_elemental_mastery_cast",

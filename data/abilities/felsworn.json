@@ -380,7 +380,7 @@
       "effect_type": "buff",
       "duration": 3,
       "stat_mods": {},
-      "description": "Hatred holds together better than most armour.",
+      "description": "Hatred holds together better than most armour: a shield for 15% of your maximum health.",
       "ranks": [
         {
           "rank": 1,
@@ -391,9 +391,10 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Hateforged Barrier adds a Stamina-scaled absorb that also regenerates a slice of your max health each tick'. absorb_pct_max_health is the engine's real absorb hook and already scales off max health, which is itself Stamina-derived, so the Stamina scaling comes free. The regen-while-it-holds half has no hook and is dropped. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect - so THE `duration` FIELD WAS NEVER READ and this short cooldown was live for every fight in the next half hour. On this class that is not cosmetic: Demonic Will is -30% physical damage taken on a 10-turn cooldown and was permanently on, and Illidan's Guile states 1 turn on an 18-turn cooldown. These are Icy Veins / Evasion-family cooldowns, which is what 'combat' scope is for. Scoped to Felsworn deliberately because its Tyrant tree is being rebuilt around these buffs; 45 across 11 other classes still have the shape (tools/qa_buff_scope.py) and Kyle has parked that sweep.",
-      "absorb_pct_max_health": 0.25,
+      "absorb_pct_max_health": 0.15,
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": "15 Nov 2026: Felsworn Tyrant measured 108 turns alive at 60 against ~16-40 for every other tank - six defensives chaining into near-constant cover. Trimmed the always-on ones; the big rare buttons stay. Was a 25%-of-max-health shield."
     },
     {
       "ability_id": "felsworn_cripple",
@@ -1282,9 +1283,9 @@
       "effect_type": "buff",
       "duration": 3,
       "stat_mods": {
-        "physical_damage_taken_pct": -30
+        "physical_damage_taken_pct": -15
       },
-      "description": "Physical damage taken -30% for 3 turns. Generates 20 Felfury.",
+      "description": "Physical damage taken -15% for 3 turns. Generates 20 Felfury.",
       "ranks": [
         {
           "rank": 1,
@@ -1300,7 +1301,8 @@
         "resource": "felfury",
         "amount": 20
       },
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": "15 Nov 2026: Felsworn Tyrant measured 108 turns alive at 60 against ~16-40 for every other tank - six defensives chaining into near-constant cover. Trimmed the always-on ones; the big rare buttons stay. Was -30%."
     },
     {
       "ability_id": "felsworn_burning_hatred",
@@ -1338,11 +1340,11 @@
       "effect_type": "buff",
       "duration": 2,
       "stat_mods": {
-        "damage_taken_pct": -0.5,
+        "damage_taken_pct": -0.4,
         "taunt": 1,
         "threat_generation_pct": 200
       },
-      "description": "Damage taken -50%, Taunts the target, Threat generated +200% for 2 turns.",
+      "description": "Damage taken -40%, Taunts the target, Threat generated +200% for 2 turns.",
       "ranks": [
         {
           "rank": 1,
@@ -1354,7 +1356,8 @@
       "icon_id": null,
       "_source": "CoA: 'Taunt nearby enemies for 4 seconds and ignore -50% of all damage taken for 30 seconds', 'your emergency button against anything threatening to kill you'. stat_mods taunt is the engine's real taunt hook (Ability._apply_effect reads it directly); the Felfire burst on expiry has no hook. Note ability stat_mods threat_generation_pct is percent POINTS, unlike the talent key of the same name, which is a fraction. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect - so THE `duration` FIELD WAS NEVER READ and this short cooldown was live for every fight in the next half hour. On this class that is not cosmetic: Demonic Will is -30% physical damage taken on a 10-turn cooldown and was permanently on, and Illidan's Guile states 1 turn on an 18-turn cooldown. These are Icy Veins / Evasion-family cooldowns, which is what 'combat' scope is for. Scoped to Felsworn deliberately because its Tyrant tree is being rebuilt around these buffs; 45 across 11 other classes still have the shape (tools/qa_buff_scope.py) and Kyle has parked that sweep.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": "15 Nov 2026: Felsworn Tyrant measured 108 turns alive at 60 against ~16-40 for every other tank - six defensives chaining into near-constant cover. Trimmed the always-on ones; the big rare buttons stay. Was -50%."
     },
     {
       "ability_id": "felsworn_tyrants_gaze",

@@ -115,7 +115,10 @@ def mana_cost_multiplier(ability_id, effect_type, level_req):
 #: than that is a broken kit to fix by hand, not a number to hide.
 _AURAS = None
 USE_SPEC_AURAS = True
-AURA_RANGE = (0.6, 1.6)
+#: A spec that would need more than the top is a broken kit to fix by hand (Feral had no combo points, Enhancement's
+#: Stormstrike hit for nothing); a spec below the bottom stacks far past its peers and gets its tree looked at.
+#: Turning a strong spec down quietly is fine; propping a broken one up hides it - hence the lopsided range.
+AURA_RANGE = (0.35, 1.75)
 
 
 def _aura_table():
