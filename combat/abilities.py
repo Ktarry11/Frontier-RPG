@@ -2476,9 +2476,14 @@ class Ability:
                     continue
                 if hasattr(victim, "is_alive") and not victim.is_alive():
                     continue
+                # real_time_seconds=None: a stun counts in TURNS. Left out, StatusEffect falls back
+                # to the 30-minute real-time clock meant for long player buffs, so every one of these
+                # stuns lasted half an hour and the target never acted again (Kyle, 14 Nov 2026:
+                # "arm of thorin stun is a 30min debuff bro").
                 victim._effects().append(StatusEffect(
                     f"{self.ability_id}_stun", self.name, "debuff",
-                    max(1, self.duration), is_stun=True, source_name=self.name))
+                    max(1, self.duration), is_stun=True, source_name=self.name,
+                    real_time_seconds=None))
                 if hasattr(victim, "_on_status_effects_changed"):
                     victim._on_status_effects_changed()
 

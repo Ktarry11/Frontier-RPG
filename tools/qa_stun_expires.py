@@ -178,6 +178,34 @@ spin(engine, boss, hero, until=lambda: not boss.is_stunned)
 check("a stunned boss recovers too", not boss.is_stunned,
       "monsters are on a separate code path again")
 
+print("\n== every real ability that hits and stuns, stuns for TURNS")
+# Kyle, 14 Nov 2026: "arm of thorin stun is a 30min debuff bro". The stun rider on a damage
+# ability (combat/abilities.py) built its StatusEffect without real_time_seconds=None, so it fell
+# back to the 30-minute real-time clock: the stun never counted down in combat and the target never
+# acted again. Every ability in the game shaped like that is checked here, from the data.
+import glob as _glob
+import json as _json
+from combat.abilities import _ability_from_data
+_bad, _n = [], 0
+for _f in sorted(_glob.glob("data/abilities/*.json")):
+    _d = _json.load(open(_f, encoding="utf-8"))
+    _A = _d.get("abilities", _d)
+    for _e in (_A.values() if isinstance(_A, dict) else _A):
+        if not isinstance(_e, dict) or not _e.get("is_stun") or _e.get("effect_type") == "debuff":
+            continue
+        _n += 1
+        _ab = _ability_from_data(_e)
+        _hero, _boss, _eng = build_fight(40)
+        try:
+            _ab.use(_hero, _boss, free=True)
+        except Exception as _ex:      # an ability that needs more setup: judge what it left
+            pass
+        _st = [x for x in _boss._effects() if getattr(x, "is_stun", False)]
+        if _st and any(getattr(x, "real_time_seconds", None) is not None for x in _st):
+            _bad.append(f"{_e['name']} ({_f.split('/')[-1]})")
+check(f"{_n} hit-and-stun abilities all stun in turns, never on a real-time clock", not _bad,
+      f"real-time stuns: {_bad[:8]}")
+
 print("\n== an unstunned fight is untouched")
 hero, boss, engine = build_fight()
 turns = hero_turns(engine, hero, boss, 5)
