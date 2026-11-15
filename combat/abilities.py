@@ -213,6 +213,25 @@ OUT_OF_COMBAT_EFFECTS = frozenset({
 })
 
 
+#: What may be cast WITHOUT ending your turn. Kyle, 15 Nov 2026: "I meant only to have buffs like
+#: icy veins, or power infusion etc. Or natures swiftness." Throughput and defensive cooldowns, the
+#: "next cast is instant" effects, cooldown resets and cooldown resource bursts (Innervate, Life Tap).
+#: Attacks, crowd control, heals, dispels, summons and forms always cost the turn.
+FREE_ACTION_EFFECTS = frozenset({"buff", "enable_instant_cast", "reset_cooldowns", "restore_resource",
+                                 "totem_loadout"})
+
+#: A free action must be a real cooldown. A no-cooldown buff (a Seal, a Blessing, a weapon imbue) is
+#: set-up, and costs the turn like any other cast.
+FREE_ACTION_MIN_COOLDOWN = 3
+
+
+def is_free_action(effect_type, target_type, cooldown):
+    """True if an ability marked instant really is allowed to skip the end of the turn."""
+    return (effect_type in FREE_ACTION_EFFECTS
+            and target_type not in ("enemy", "enemy_aoe")
+            and (cooldown or 0) >= FREE_ACTION_MIN_COOLDOWN)
+
+
 def is_castable_out_of_combat(ability):
     """True if this ability is something you would cast on your own party in a field.
 
@@ -851,7 +870,15 @@ class Ability:
         # getting a turn (playtest, 12 Nov: "can chain multiple maul attacks and just keep
         # going until my rage is empty"). Something that hurts the enemy and has no real
         # cooldown always costs the turn.
-        if self.is_instant and (self.cooldown or 0) < 2 and self.effect_type in ("damage", "dot", "debuff"):
+        #
+        # THEN IT LEAKED AGAIN, because the list above named three effect types and the game has
+        # more (playtest, 15 Nov: "His searing pain is instant and I can just rapid fire him to oom").
+        # Searing Pain is "spell_damage", so it walked past; so did Polymorph, Fear, Charge, every
+        # instant heal and every pet summon. Kyle: "I meant only to have buffs like icy veins, or
+        # power infusion etc. Or natures swiftness." So it is an ALLOWLIST now, same as
+        # OUT_OF_COMBAT_EFFECTS: a free action is a cooldown you weave in before your real action,
+        # and nothing else. A new effect_type defaults to costing the turn.
+        if self.is_instant and not is_free_action(self.effect_type, self.target_type, self.cooldown):
             self.is_instant = False
 
         # max_targets: caps an "enemy_aoe" hit to N targets instead of

@@ -634,7 +634,16 @@ class CombatEngine:
             # actor are deliberately skipped here too (see _end_turn) -
             # those only make sense once per real turn, not once per
             # instant cast within it.
-            if not (ability.is_instant or consumed_free_cast):
+            # A talent can shorten a cooldown, so check the cooldown this caster actually has: a
+            # free action that comes back every turn is an attack you can chain (see
+            # abilities.is_free_action, and Kyle's 15 Nov "only buffs like icy veins").
+            free = ability.is_instant
+            if free and hasattr(ability, "talented_cooldown"):
+                try:
+                    free = (ability.talented_cooldown(actor) or 0) >= 2
+                except Exception:
+                    free = (ability.cooldown or 0) >= 2
+            if not (free or consumed_free_cast):
                 self._end_turn(actor)
         
         return success, message
