@@ -452,7 +452,7 @@
     {
       "talent_id": "necromancer_rime_ice_mastery",
       "name": "Ice Mastery",
-      "description": "Increases your spell power by 30% of your Intellect, your Frost damage by a further 8%, and your Frost critical damage by 12%.",
+      "description": "Increases your spell power by 15% of your Intellect, your Frost damage by a further 8%, and your Frost critical damage by 12%.",
       "node_type": "passive",
       "tier": 6,
       "max_points": 1,
@@ -460,14 +460,15 @@
       "hex_x": 0,
       "hex_y": 6,
       "effects": {
-        "spell_power_from_intellect_pct": 0.3,
+        "spell_power_from_intellect_pct": 0.15,
         "frost_spell_damage": 0.08,
         "frost_crit_damage_pct": 0.12
       },
       "connected_to": [],
       "_source": "CoA's shared Ice Mastery, level 20 passive: 'Increases your spell power by 30% of your Intellect.' PORTS EXACTLY as a conversion - spell_power is in STAT_CONVERSION_TARGETS and intellect in STAT_CONVERSION_SOURCES, a legal pair, unlike the stamina and hit_rating targets that have cost eight nodes half their text across seven classes. Promoted to the capstone because a flat Intellect-to-spell-power conversion is the single largest thing a caster can be given, and paired with the tree's two Frost themes so the capstone reads as the payoff for everything below it: with Runic Reservoir and Chilling Presence that is +35% Frost damage, and with Frozen Power +75% Frost crit damage. ALL THREE ARE FRACTIONS.",
       "_tuning": [
-        "15 Nov 2026: damage talents x0.5 (tree far above the other specs in tools/sim_dps_parity.py)"
+        "15 Nov 2026: damage talents x0.5 (tree far above the other specs in tools/sim_dps_parity.py)",
+        "15 Nov 2026, Kyle: 'For Rime drop it to 15%' (spell power from Intellect, was 30%)."
       ]
     }
   ]

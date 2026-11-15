@@ -50,7 +50,10 @@ def main():
     with contextlib.redirect_stdout(io.StringIO()):
         cm = CreatureManager()
     levels = [int(x) for x in args.levels.split(",")]
-    specs = [s for s, _ in M.specs_for(["dps" if args.kind == "damage" else "healer"])]
+    specs = ([s for s, _ in M.specs_for(["dps"])] if args.kind == "damage" else H.healer_specs())
+    # healing: a damage dealer that heals is held to its share of a dedicated healer (Kyle, 15 Nov: Grovekeeper and
+    # Cryotherapist at 75%), and is left out of the median it's judged against
+    share = H.HYBRID_HEALERS if args.kind == "healing" else {}
     measure = P.damage_per_turn if args.kind == "damage" else H.healing_per_turn
     dpt = {}
     for lv in levels:
@@ -70,12 +73,12 @@ def main():
     lo, hi = S.AURA_RANGE
     table, clamped = {}, []
     for lv in levels:
-        med = statistics.median([v for (s, l), v in dpt.items() if l == lv])
+        med = statistics.median([v for (s, l), v in dpt.items() if l == lv and s not in share])
         for spec in specs:
             v = dpt.get((spec, lv))
             if not v:
                 continue
-            raw = med / v
+            raw = med * share.get(spec, 1.0) / v
             f = max(lo, min(hi, raw))
             if f != raw:
                 clamped.append((spec, lv, round(raw, 2)))

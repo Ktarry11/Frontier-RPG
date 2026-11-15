@@ -106,7 +106,9 @@ def main():
     ch, ab, others, mobs, eng = setup("Too Irritated to Leave It Alone", foes=("beast_basic", "beast_basic"))
     base = basic(ch)._damage_multiplier(ch, "physical", mobs[0])
     cast(ch, ab, mobs[0], eng)
-    check(basic(ch)._damage_multiplier(ch, "physical", mobs[0]) - base >= 0.24
+    # relative: the spec aura (combat/ability_scaling.spec_aura) scales the whole multiplier, so +25% on a
+    # 0.85 base is +0.21 absolute
+    check(basic(ch)._damage_multiplier(ch, "physical", mobs[0]) / base >= 1.24
           and abs(basic(ch)._damage_multiplier(ch, "physical", mobs[1]) - base) < 0.01, "Too Irritated: Vuk's +25% is not on the taunted target alone")
 
     # the two party restores reach each ally

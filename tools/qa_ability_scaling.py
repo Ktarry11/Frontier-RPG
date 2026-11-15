@@ -13,7 +13,9 @@ See combat/ability_scaling.py.
      at their top rank than at the rank you hold at 15.
   2. Coefficients follow the ability: a big cooldown takes more power than a spammable cast; an area effect
      takes less per target; a buff's effect_value (a percentage) is never curved.
-  3. Higher ranks take more of your power; a coefficient named in the data (the Wand's 0.3) is used exactly.
+  3. Higher ranks take more of your power, Classic's way: a rank learned below 20 loses 3.75% of its coefficient
+     per level short of 20, and an outlevelled rank is downrank-penalized; a coefficient named in the data (the
+     Wand's 0.3) is used exactly.
   4. In a real cast: a level-60 Fireball with spell power on gains more from it than the same spell at 15.
 """
 import os
@@ -51,8 +53,11 @@ def main():
 
     import json
     print("1. the rank curve")
-    check("a rank at 20 or below is as authored", S.rank_multiplier(20) == 1.0 and S.rank_multiplier(5) == 1.0)
-    check(f"x{S.rank_multiplier(60):.1f} at 60", S.rank_multiplier(60) > 1.4)
+    # the second pass (Kyle: "a Healer should not fucking heal the same 14 levels later"): ranks track monster
+    # health from level 1 - x1 at 1, about x2 at 15, about x3 at 56
+    check("rank 1 at level 1 is as authored", S.rank_multiplier(1) == 1.0)
+    check(f"x{S.rank_multiplier(15):.2f} at 15 and x{S.rank_multiplier(56):.2f} at 56",
+          1.9 <= S.rank_multiplier(15) <= 2.2 and 2.9 <= S.rank_multiplier(56) <= 3.3)
     for cls, aid in (("Mage", "mage_fireball"), ("Warlock", "warlock_shadow_bolt"), ("Priest", "priest_smite"),
                      ("Warrior", "warrior_heroic_strike"), ("Warlock", "warlock_searing_pain"),
                      ("Priest", "priest_heal")):
@@ -63,6 +68,9 @@ def main():
         lo = at(ab, 15).effect_value
         hi = at(ab, 60).effect_value
         check(f"{ab.name}: {lo} at 15 -> {hi} at 60", lo and hi / lo >= 2.8, f"{hi / max(1, lo):.1f}x")
+    fb_ = book("Mage")["mage_fireball"]
+    top = at(fb_, 60).effect_value
+    check(f"Fireball's top rank is {top} (Classic Lightning Bolt's: 430-470 before spell power)", 350 <= top <= 500)
     import json
     raw = json.load(open("data/abilities/mage.json", encoding="utf-8"))
     raw = raw if isinstance(raw, list) else raw.get("abilities", raw)
@@ -106,10 +114,26 @@ def main():
               party[0].heal_coefficient < single.heal_coefficient * S.cooldown_weight(party[0].cooldown),
               f"{party[0].heal_coefficient:.2f} vs {single.heal_coefficient:.2f}")
 
-    print("3. higher ranks take more power")
-    lo = S.coefficient(at(fb, 15), "sp")
+    print("3. higher ranks take more of your power (Classic's low-level and downrank penalties)")
+    # Kyle, 15 Nov 2026: "Higher rank spells scale more from spell power, attack power, and healing power than low
+    # rank ones do. Wow also does this"
+    r1 = S.coefficient(at(fb, 1), "sp")
     hi = S.coefficient(at(fb, 60), "sp")
-    check(f"Fireball's spell power share at 60 ({hi:.2f}) is bigger than at 15 ({lo:.2f})", hi > 1.6 * lo)
+    check(f"Fireball rank 1 takes {r1 / hi:.0%} of the top rank's spell power share (Classic: ~29%)",
+          0.25 <= r1 / hi <= 0.33)
+    mid = S.coefficient(at(fb, 20), "sp")
+    check("a rank learned at 20 or later takes the full share", abs(mid - hi) < 1e-9 or at(fb, 20).current_rank[
+        "level_req"] < 20)
+
+    class _Lv:
+        def __init__(self, level):
+            self.level = level
+    right = S.coefficient(at(fb, 40), "sp", _Lv(40))
+    old = S.coefficient(at(fb, 1), "sp", _Lv(40))
+    check(f"rank 1 cast at 40 takes {old / right:.0%} of what the right rank at 40 does (downranked)",
+          old / right < 0.15)
+    check("the rank you should have at your level is never downrank-penalized",
+          all(abs(S.downrank_penalty(at(fb, lv), lv) - 1) < 1e-9 for lv in range(1, 61)))
     wand = next((e for e in _load_universal_ability_data() if e.get("sp_coefficient") is not None), None)
     if wand:
         w = _ability_from_data(wand)
@@ -133,7 +157,10 @@ def main():
         dummy.take_damage = take
 
         def avg(sp):
+            import random as _r
+            _r.seed(11)                      # the same dice for both, so the difference is the spell power alone
             c.spell_power = sp
+            c.crit_chance_spell = 0.0       # crits swing a 40-cast mean by more than the effect being measured
             out = []
             for _ in range(40):
                 ab.turns_remaining = 0
@@ -145,7 +172,8 @@ def main():
         base = c.spell_power
         return avg(base + 100) - avg(base)
     g15, g60 = gain(15), gain(60)
-    check(f"+100 spell power adds {g15:.0f} to Fireball at 15 and {g60:.0f} at 60", g60 > 1.5 * g15)
+    check(f"+100 spell power adds {g15:.0f} to Fireball at 15 and {g60:.0f} at 60 (the higher rank takes more)",
+          g60 > g15 * 1.1)
 
     if BAD:
         print(f"\nFAILED - {len(BAD)}")

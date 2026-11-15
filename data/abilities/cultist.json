@@ -2275,11 +2275,11 @@
       "ability_id": "cultist_ritual_of_awakening",
       "name": "Ritual of Awakening",
       "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "heal",
+      "cooldown": 20,
+      "effect_type": "revive",
       "duration": 0,
       "stat_mods": {},
-      "description": "Heals an ally.",
+      "description": "Revives a fallen ally in combat, restoring a portion of their health.",
       "_source": "CoA handoff doc: 'Battle-rez. Out of combat.'",
       "target_type": "ally",
       "ranks": [
@@ -2287,46 +2287,23 @@
           "rank": 1,
           "level_req": 14,
           "cost": 40,
-          "effect_value": 999
+          "effect_value": 30
         },
         {
           "rank": 2,
-          "level_req": 20,
-          "cost": 46,
-          "effect_value": 1161
+          "level_req": 30,
+          "cost": 45,
+          "effect_value": 40
         },
         {
           "rank": 3,
-          "level_req": 26,
-          "cost": 53,
-          "effect_value": 1323
-        },
-        {
-          "rank": 4,
-          "level_req": 34,
-          "cost": 62,
-          "effect_value": 1539
-        },
-        {
-          "rank": 5,
-          "level_req": 42,
-          "cost": 70,
-          "effect_value": 1755
-        },
-        {
-          "rank": 6,
-          "level_req": 50,
-          "cost": 79,
-          "effect_value": 1971
-        },
-        {
-          "rank": 7,
-          "level_req": 58,
-          "cost": 88,
-          "effect_value": 2187
+          "level_req": 46,
+          "cost": 50,
+          "effect_value": 50
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "_fix": "15 Nov 2026: the source says 'Battle-rez', but it was authored as a 999-2187 point heal on no cooldown for 40-88 mana - a full heal every turn. Found by the heal parity sim (Heretic read 2x every other healer). A battle resurrection now, on Blood Rite's shape (20-turn cooldown, 30-50% health)."
     },
     {
       "ability_id": "cultist_protection_from_light",

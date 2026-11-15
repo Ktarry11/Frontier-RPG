@@ -174,7 +174,9 @@ ROLE_FORMS = {
 ROLE_EFFECTS = {
     "tank": ("armor", "dodge", "block", "max_health", "damage_taken", "threat", "stamina",
              "parry", "shield"),
-    "healer": ("healing", "heal", "mana", "spirit", "intellect"),
+    # cryo_convert: the Cryotherapist talents that make Frostbolt and Ice Lance heal - without them a Frost
+    # healer build never healed at all (15 Nov 2026)
+    "healer": ("healing", "heal", "mana", "spirit", "intellect", "cryo_convert"),
     "melee_dps": ("damage", "crit", "attack_power", "strength", "agility", "haste"),
     "ranged_dps": ("damage", "crit", "spell_power", "intellect", "haste"),
 }

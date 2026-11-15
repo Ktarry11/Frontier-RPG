@@ -1553,8 +1553,8 @@
       "ability_id": "starcaller_celestial_awakening",
       "name": "Celestial Awakening",
       "resource_type": "mana",
-      "cooldown": 0,
-      "effect_type": "heal",
+      "cooldown": 20,
+      "effect_type": "revive",
       "duration": 0,
       "stat_mods": {},
       "description": "Battle-resurrect a fallen ally, restoring health, mana, and boosted mana regeneration. Usable out of combat.",
@@ -1565,40 +1565,23 @@
           "rank": 1,
           "level_req": 22,
           "cost": 45,
-          "effect_value": 999
+          "effect_value": 30
         },
         {
           "rank": 2,
-          "level_req": 29,
+          "level_req": 38,
           "cost": 52,
-          "effect_value": 1159
+          "effect_value": 40
         },
         {
           "rank": 3,
-          "level_req": 36,
+          "level_req": 54,
           "cost": 59,
-          "effect_value": 1319
-        },
-        {
-          "rank": 4,
-          "level_req": 44,
-          "cost": 67,
-          "effect_value": 1478
-        },
-        {
-          "rank": 5,
-          "level_req": 51,
-          "cost": 74,
-          "effect_value": 1638
-        },
-        {
-          "rank": 6,
-          "level_req": 58,
-          "cost": 81,
-          "effect_value": 1798
+          "effect_value": 50
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "_fix": "15 Nov 2026: written as a battle resurrection but authored as a 999+ point heal on no cooldown - a full heal every turn (the heal parity sim read the spec at 2x). A battle resurrection now, 20-turn cooldown, like Blood Rite and Ritual of Awakening."
     },
     {
       "ability_id": "starcaller_moonwater_blessing",

@@ -52,9 +52,12 @@ def main():
                 continue
             lo, hi = int(m.group(1)), int(m.group(2))
             rolls = [ab._roll_variance(ab.effect_value, None) for _ in range(400)]
+            # 400 rolls of a wide range can miss its last few points (Lay on Hands rolls ~375 wide since the
+            # 15 Nov rank curve): the slack grows with the range
+            slack = max(2, (hi - lo) // 40)
             if min(rolls) < lo or max(rolls) > hi:
                 bad.append(f"{ab.ability_id}: tooltip {lo}-{hi}, rolled {min(rolls)}-{max(rolls)}")
-            elif ab.effect_value >= 60 and (min(rolls) - lo > 2 or hi - max(rolls) > 2):
+            elif ab.effect_value >= 60 and (min(rolls) - lo > slack or hi - max(rolls) > slack):
                 bad.append(f"{ab.ability_id}: tooltip {lo}-{hi} is wider than the roll "
                            f"{min(rolls)}-{max(rolls)}")
         elif ab.effect_type in ("damage", "ranged_damage", "dot", "spell_dot", "hot"):

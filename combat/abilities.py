@@ -42,10 +42,11 @@ LEVEL_DIFF_MAX_MULT = 4.0
 
 
 
-def _scaling_coef(ability, kind):
-    """How much of the caster's power this ability adds per point, at its current rank (combat/ability_scaling.py)."""
+def _scaling_coef(ability, kind, caster=None):
+    """How much of the caster's power this ability adds per point, at its current rank and the caster's level
+    (combat/ability_scaling.py: low ranks and outlevelled ranks take less, as in Classic)."""
     from combat.ability_scaling import coefficient
-    return coefficient(ability, kind)
+    return coefficient(ability, kind, caster)
 
 
 def _heal_power(caster):
@@ -3322,7 +3323,7 @@ class Ability:
 
         self._generate_resource(caster)
 
-    def _refund_failed_cast(self, caster, cost=None):
+    def _refund_failed_cast(self, caster, cost=None, refuse=True):
         """Undo use()'s resource-spend and cooldown-set for a cast that
         ultimately did nothing (currently only Swiftmend-style
         consumes_hot abilities with no qualifying HoT present).
@@ -3343,7 +3344,9 @@ class Ability:
         elif self.resource_type == ResourceType.HEALTH:
             caster.current_health += cost
         self.turns_remaining = 0
-        self._refunded = True          # use() reports the cast as refused, so the turn is not spent
+        # use() reports the cast as refused, so the turn is not spent - except where the cast still carries other
+        # payloads that land (a dispel with nothing to remove can still shred armour and heal: refuse=False)
+        self._refunded = bool(refuse)
 
     def _generate_resource(self, caster):
         """
@@ -3487,7 +3490,7 @@ class Ability:
         power scaling identically instead of copies drifting apart.
         """
         heal_amt = self._roll_variance(
-            int(heal_value + _heal_power(caster) * _scaling_coef(self, "heal")), caster, heal=True)
+            int(heal_value + _heal_power(caster) * _scaling_coef(self, "heal", caster)), caster, heal=True)
         # recipient stays None here: _apply_smart_heal has not chosen its
         # target yet (it picks the most wounded ally below), so a
         # recipient-conditional healing talent cannot apply to a smart heal.
@@ -3603,7 +3606,7 @@ class Ability:
         # of raw Spirit directly - same principle as spell_damage
         # above. Healing Power = Spirit*2 + INT*0.2 (base) + gear rolls.
         heal_amt = self._roll_variance(
-            int(self.effect_value + _heal_power(caster) * _scaling_coef(self, "heal")), caster, heal=True)
+            int(self.effect_value + _heal_power(caster) * _scaling_coef(self, "heal", caster)), caster, heal=True)
         heal_amt = int(heal_amt * self._damage_multiplier(caster, "healing", recipient=target))
 
         # HEALS CRIT. Kyle, 5 Nov 2026: "spells should be able to crit!"
@@ -3882,7 +3885,7 @@ class Ability:
                         offhand_hit_chance=off_chance)
                         if hasattr(caster, "get_weapon_damage_roll") else 0)
                     ap = caster.attack_power
-                base_damage = int(self.effect_value + ap * _scaling_coef(self, "ap")) + weapon_dmg
+                base_damage = int(self.effect_value + ap * _scaling_coef(self, "ap", caster)) + weapon_dmg
                 base_damage = int(base_damage * self._damage_multiplier(
                     caster, "physical", recipient=target) * aoe_mult)
 
@@ -3951,7 +3954,7 @@ class Ability:
                 # Wand equipped in the Ranged slot.
                 wand_dmg = caster.get_weapon_damage_roll(use_ranged=True) if hasattr(caster, "get_weapon_damage_roll") else 0
                 spell_damage_school = self._resolve_damage_school(caster) or "magic"
-                sp_coef = _scaling_coef(self, "sp")
+                sp_coef = _scaling_coef(self, "sp", caster)
                 base_damage = self._roll_variance(
                     int(self.effect_value + caster.get_effective_spell_power(spell_damage_school) * sp_coef),
                     caster) + wand_dmg
@@ -4050,7 +4053,7 @@ class Ability:
                 wand_dmg = caster.get_weapon_damage_roll(use_ranged=True) if hasattr(caster, "get_weapon_damage_roll") else 0
                 cryo_school = self._resolve_damage_school(caster) or "magic"
                 base_damage = self._roll_variance(
-                    int(self.effect_value + caster.get_effective_spell_power(cryo_school) * _scaling_coef(self, "sp")),
+                    int(self.effect_value + caster.get_effective_spell_power(cryo_school) * _scaling_coef(self, "sp", caster)),
                     caster) + wand_dmg
                 base_damage = int(base_damage * self._damage_multiplier(
                     caster, "spell", recipient=target) * aoe_mult)
@@ -4106,7 +4109,7 @@ class Ability:
                 hit_chance = getattr(caster, "hit_chance_spell", 100.0)
                 discharge_school = self._resolve_damage_school(caster) or "magic"
                 base_damage = self._roll_variance(
-                    int(self.effect_value + caster.get_effective_spell_power(discharge_school) * _scaling_coef(self, "sp")),
+                    int(self.effect_value + caster.get_effective_spell_power(discharge_school) * _scaling_coef(self, "sp", caster)),
                     caster)
                 base_damage = int(base_damage * self._damage_multiplier(
                     caster, "spell", recipient=target) * aoe_mult)
@@ -4163,9 +4166,9 @@ class Ability:
                             else "hit_chance_physical")
                 hit_chance = getattr(caster, hit_stat, 100.0)
 
-                power = (caster.get_effective_spell_power(school) * _scaling_coef(self, "dot_sp")
+                power = (caster.get_effective_spell_power(school) * _scaling_coef(self, "dot_sp", caster)
                          if school_for_stats == "magic"
-                         else caster.attack_power * _scaling_coef(self, "dot_ap"))
+                         else caster.attack_power * _scaling_coef(self, "dot_ap", caster))
                 total = (self.effect_value + power) * self._damage_multiplier(
                     caster, "spell" if school_for_stats == "magic" else "physical",
                     recipient=target) * aoe_mult
@@ -4289,7 +4292,7 @@ class Ability:
             # Heal over time. Same total-across-duration model as DoTs above.
             # Lands on the chosen friendly target, NOT unconditionally on the
             # caster - that bug made every HoT in the game a self-heal.
-            total = (self.effect_value + _heal_power(caster) * _scaling_coef(self, "hot")) * \
+            total = (self.effect_value + _heal_power(caster) * _scaling_coef(self, "hot", caster)) * \
                 self._damage_multiplier(caster, "healing", recipient=target)
             duration = self.talented_duration(caster)
             # hot_duration_pct lengthens every HoT this caster applies - the
@@ -4814,7 +4817,7 @@ class Ability:
             target_label = getattr(target, "name", None) or ", ".join(
                 getattr(r, "name", "?") for r in recipients)
             if not removed_names:
-                self._refund_failed_cast(caster, cost=cost)
+                self._refund_failed_cast(caster, cost=cost, refuse=False)
                 dispel_label = (self.dispel_type or "effect")
                 if isinstance(dispel_label, (tuple, list)):
                     dispel_label = "/".join(d.capitalize() for d in dispel_label if d)

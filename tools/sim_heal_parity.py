@@ -35,6 +35,24 @@ os.environ.setdefault("SDL_AUDIODRIVER", "dummy")
 BAND = 0.10
 HEALS = {"heal", "hot", "damage_and_heal"}
 
+#: Damage dealers that heal, and the share of a dedicated healer's output they're held to. Kyle, 15 Nov 2026:
+#: "For groovekeeper since it's a dps Healer bring it to 75% of Healer (cryotherapist should be around 75% too)".
+#: Cryotherapist is the healing path inside the Frost Mage tree - its Frostbolt and Ice Lance heal the neediest ally
+#: as they hit - so it is measured FIGHTING: its damage rotation into the target, the healing it spills counted.
+HYBRID_HEALERS = {"primalist_grovekeeper": 0.75, "mage_frost": 0.75}
+HEALS_BY_FIGHTING = {"mage_frost"}
+
+
+def healer_specs(only_class=None):
+    """Every healer spec, plus the damage dealers that heal (HYBRID_HEALERS)."""
+    import sim_matrix as M
+    import sim_role_balance as R
+    specs = [s for s, _ in M.specs_for(["healer"], only_class)]
+    for s in HEALS_BY_FIGHTING:
+        if s not in specs and (not only_class or R.class_of(s).lower() == only_class.lower()):
+            specs.append(s)
+    return sorted(specs)
+
 
 def quiet():
     return contextlib.redirect_stdout(io.StringIO())
@@ -53,6 +71,27 @@ def healing_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0):
         R.precast_stances(char, engine)
     random.seed(fight_seed)
     learned = char.get_learned_abilities()
+    if spec in HEALS_BY_FIGHTING:
+        # heals by fighting: its damage rotation goes into the target, and what it heals the target-at-30% for counts
+        from tools.sim_class_balance import plan
+        _h, attacks, _s, _d = plan(char)
+        foe.max_health = foe.current_health = 10 ** 8
+        total = 0
+        for _ in range(turns):
+            char.current_mana = char.mana
+            char.current_health = max(1, int(char.health * 0.3))
+            before = char.current_health
+            with quiet():
+                for a in attacks:
+                    engine.current_actor = char
+                    engine.combat_phase = "action"
+                    ok, _ = engine.execute_ability(char, a.ability_id, foe)
+                    if ok:
+                        break
+                if engine.current_actor is char:
+                    engine._end_turn(char)
+            total += max(0, char.current_health - before)
+        return total / turns
     heals = [a for a in learned if a.effect_type in HEALS and getattr(a, "target_type", None) != "enemy"]
     heals.sort(key=lambda a: -((getattr(a, "heal_value", 0) or 0) or (a.effect_value or 0)))
     total = 0
@@ -90,7 +129,7 @@ def main():
     from world.creature_manager import CreatureManager
     with quiet():
         cm = CreatureManager()
-    specs = [s for s, _ in M.specs_for(["healer"], args.only_class)]
+    specs = healer_specs(args.only_class)
     levels = [int(x) for x in args.levels.split(",")]
     table = {}
     for lv in levels:
@@ -108,7 +147,12 @@ def main():
                 mean = statistics.mean(vals)
                 se = (statistics.stdev(vals) / len(vals) ** 0.5 / mean) if len(vals) > 1 and mean else 0
                 table[(spec, lv)] = (mean, se)
-    medians = {lv: statistics.median([v[0] for (s, l), v in table.items() if l == lv]) for lv in levels}
+    # the median of DEDICATED healers; a hybrid is judged against its own share of it (HYBRID_HEALERS)
+    medians = {}
+    for lv in levels:
+        pure = [v[0] for (s, l), v in table.items() if l == lv and s not in HYBRID_HEALERS]
+        # a one-class run may hold no dedicated healer (--class Mage): judge against its own spread then
+        medians[lv] = statistics.median(pure or [v[0] for (s, l), v in table.items() if l == lv] or [1])
     print(f"\n{'spec':<30}" + "".join(f"{'L' + str(lv):>16}" for lv in levels))
     print(f"{'(median of all healers)':<30}" + "".join(f"{medians[lv]:>16.0f}" for lv in levels))
     out = 0
@@ -119,7 +163,7 @@ def main():
                 cells.append(f"{'-':>16}")
                 continue
             m, se = table[(spec, lv)]
-            r = m / medians[lv] if medians[lv] else 0
+            r = m / (medians[lv] * HYBRID_HEALERS.get(spec, 1.0)) if medians[lv] else 0
             bad = abs(r - 1) > BAND
             out += bad
             cells.append(f"{m:>7.0f} {r:>5.2f}{'~' if se > 0.05 else ' '}{'!' if bad else ' '}")
