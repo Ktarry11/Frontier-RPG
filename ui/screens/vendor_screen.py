@@ -56,6 +56,19 @@ class VendorScreen(BaseScreen):
     ]
     TAB_HEIGHT = 24
 
+    #: Buy-side tabs (Kyle, 14 Nov: "Lets make sorting tabs for almost everything bro"), and Buyback:
+    #: the last BUYBACK_MAX things you sold, for what you got for them (playtest, 14 Nov: "no
+    #: buyback"). Kept on the party for the session, so it follows you from shop to shop like WoW's.
+    BUY_FILTERS = [
+        ("all", "All"),
+        ("gear", "Gear"),
+        ("recipes", "Recipes"),
+        ("supplies", "Supplies"),
+        ("mats", "Materials"),
+        ("buyback", "Buyback"),
+    ]
+    BUYBACK_MAX = 12
+
     def __init__(self, state_manager, vendor):
         super().__init__(state_manager)
         self.vendor = vendor
@@ -71,6 +84,7 @@ class VendorScreen(BaseScreen):
         self.scroll_player = 0
         self._bars()
         self.sell_filter = "all"
+        self.buy_filter = "all"
 
         self.message = None
         self.message_color = COLOR_WHITE
@@ -160,6 +174,93 @@ class VendorScreen(BaseScreen):
             return "gear"
         return "supplies"
 
+    def _vendor_category(self, item):
+        if getattr(item, "recipe_id", None) or getattr(item, "slot", None) == "recipe":
+            return "recipes"
+        if self._is_material(item):
+            return "mats"
+        if self._is_gear(item):
+            return "gear"
+        return "supplies"
+
+    def _buyback(self):
+        """The party's buyback list: [{"item": thing, "unit": copper each}], newest first."""
+        party = self.state_manager.get_party()
+        if not hasattr(party, "buyback"):
+            party.buyback = []
+        return party.buyback
+
+    def _vendor_list(self):
+        """What the vendor panel shows: the stock in the open tab, or the buyback list."""
+        if self.buy_filter == "buyback":
+            return [e["item"] for e in self._buyback()]
+        if self.buy_filter == "all":
+            return self.vendor_inventory
+        return [i for i in self.vendor_inventory if self._vendor_category(i) == self.buy_filter]
+
+    def _record_sale(self, item, qty=1):
+        """Put what was just sold on the buyback list. Gear goes on as itself; a stack goes on as a
+        copy, and selling more of the same thing grows that copy rather than adding a row."""
+        import copy
+        bb = self._buyback()
+        unit = getattr(item, "sell_price", 0) or 0
+        if self._is_gear(item) and not getattr(item, "quantity", None):
+            bb.insert(0, {"item": item, "unit": unit})
+        else:
+            key = (type(item).__name__, getattr(item, "material_id", None) or getattr(item, "consumable_id", None)
+                   or getattr(item, "item_id", None) or item.name)
+            for e in bb:
+                if e.get("key") == key:
+                    e["item"].quantity = getattr(e["item"], "quantity", 1) + qty
+                    bb.remove(e)
+                    bb.insert(0, e)
+                    break
+            else:
+                twin = copy.deepcopy(item)
+                twin.quantity = qty
+                bb.insert(0, {"item": twin, "unit": unit, "key": key})
+        del bb[self.BUYBACK_MAX:]
+
+    def _buy_back(self):
+        """Buy the selected buyback entry back: all of it, for what you were paid."""
+        item = self.selected_vendor_item
+        bb = self._buyback()
+        entry = next((e for e in bb if e["item"] is item), None)
+        if entry is None:
+            self._show_message("Select something to buy back first.", COLOR_RED)
+            return
+        qty = max(1, getattr(item, "quantity", 1) or 1) if not self._is_gear(item) or getattr(item, "quantity", None) else 1
+        price = entry["unit"] * qty
+        party = self.state_manager.get_party()
+        player = self.state_manager.player
+        if not party.remove_currency(price):
+            self._show_message(f"Not enough copper! Buying it back costs {format_coins(price)}.", COLOR_RED)
+            return
+        if self._is_material(item):
+            player.add_material(item)
+        elif self._is_gear(item) or isinstance(item, LootItem):
+            if not player.add_to_inventory(item):
+                party.add_currency(price)
+                self._show_message("Your bags are full - nothing bought back.", COLOR_RED)
+                return
+        else:
+            player.add_consumable(item)
+        bb.remove(entry)
+        self.selected_vendor_item = None
+        self._show_message(f"Bought back {item.name}{f' x{qty}' if qty > 1 else ''} for {format_coins(price)}.",
+                           COLOR_GOLD)
+
+    def _buy_tab_rects(self):
+        """tab key -> rect, in a row above the vendor panel, clear of its header."""
+        rects = {}
+        x = self.VENDOR_PANEL_X + 124
+        font = self.renderer._get_font("small")
+        for key, label in self.BUY_FILTERS:
+            w = font.size(label)[0] + 14
+            rects[key] = pygame.Rect(x, self.PANEL_Y - self.TAB_HEIGHT - 4, w, self.TAB_HEIGHT)
+            x += w + 4
+        return rects
+
     def _player_stock(self, filtered=True):
         """Player's consumables + materials + inventory gear, read fresh every
         call so newly bought items appear immediately.
@@ -188,7 +289,7 @@ class VendorScreen(BaseScreen):
         leave the panel showing nothing with no way to tell why.
         """
         self.scroll_vendor = max(0, min(self.scroll_vendor,
-                                        self._max_scroll(len(self.vendor_inventory))))
+                                        self._max_scroll(len(self._vendor_list()))))
         self.scroll_player = max(0, min(self.scroll_player,
                                         self._max_scroll(len(self._player_stock()))))
 
@@ -399,9 +500,11 @@ class VendorScreen(BaseScreen):
                 return
             player.inventory.remove(item)
             party.add_currency(price)
+            self._record_sale(item)
             self._show_message(f"Sold {item.name} for {format_coins(price)}.", COLOR_GREEN)
 
         elif self._is_material(item):
+            self._record_sale(item, 1)
             party.add_currency(price)
             item.quantity -= 1
             if item.quantity <= 0:
@@ -412,6 +515,7 @@ class VendorScreen(BaseScreen):
 
         else:
             # Consumable
+            self._record_sale(item, 1)
             party.add_currency(price)
             item.quantity -= 1
             if item.quantity <= 0:
@@ -446,6 +550,7 @@ class VendorScreen(BaseScreen):
         total = sum(i.sell_price * max(1, i.quantity) for i in stacks)
         for i in stacks:
             player.inventory.remove(i)
+            self._record_sale(i, max(1, i.quantity))
         party.add_currency(total)
         if self.selected_player_item in stacks:
             self.selected_player_item = None
@@ -492,6 +597,7 @@ class VendorScreen(BaseScreen):
         player = self.state_manager.player
         for i in stacks:
             player.inventory.remove(i)
+            self._record_sale(i, max(1, getattr(i, "quantity", 1) or 1))
         self.state_manager.get_party().add_currency(total)
         if self.selected_player_item in stacks:
             self.selected_player_item = None
@@ -568,7 +674,14 @@ class VendorScreen(BaseScreen):
                     return
 
             # Vendor item list
-            for i, item in enumerate(self.vendor_inventory[self.scroll_vendor:self.scroll_vendor + self.VISIBLE_ROWS]):
+            for key, rect in self._buy_tab_rects().items():
+                if rect.collidepoint(pos):
+                    self.buy_filter = key
+                    self.scroll_vendor = 0
+                    self.selected_vendor_item = None
+                    self.buy_qty = 1
+                    return
+            for i, item in enumerate(self._vendor_list()[self.scroll_vendor:self.scroll_vendor + self.VISIBLE_ROWS]):
                 if self._row_rect(self.VENDOR_PANEL_X, i).collidepoint(pos):
                     if item is not self.selected_vendor_item:
                         self.buy_qty = 1          # a new item starts at one
@@ -593,7 +706,7 @@ class VendorScreen(BaseScreen):
                     self._show_message("Auto-sell junk off.", COLOR_WHITE)
                 return
 
-            if self._stackable(self.selected_vendor_item):
+            if self._stackable(self.selected_vendor_item) and self.buy_filter != "buyback":
                 q = self._qty_rects()
                 for key, delta in (("minus20", -20), ("minus5", -5), ("minus", -1), ("plus", 1),
                                    ("plus5", 5), ("plus20", 20)):
@@ -613,7 +726,10 @@ class VendorScreen(BaseScreen):
             if self._get_junk_button_rect().collidepoint(pos):
                 self._sell_all_junk()
             elif self._get_buy_button_rect().collidepoint(pos):
-                self._buy_item()
+                if self.buy_filter == "buyback":
+                    self._buy_back()
+                else:
+                    self._buy_item()
             elif self._get_sell_button_rect().collidepoint(pos):
                 self._sell_item()
             elif self._get_close_button_rect().collidepoint(pos):
@@ -645,16 +761,24 @@ class VendorScreen(BaseScreen):
                 self.renderer.draw_text(screen, line, (50, 56 + n * 19), size="small",
                                         color=(180, 180, 160))
         currency_str = self.state_manager.get_party().get_currency_string()
+        # bottom left, beside the buttons: the middle of the header row is where the shop's tabs go
         self.renderer.draw_text(screen, f"Party gold: {currency_str}",
-                                (SCREEN_WIDTH // 2 - 100, 100), color=COLOR_WHITE)
+                                (self.VENDOR_PANEL_X, SCREEN_HEIGHT - 62), color=COLOR_WHITE)
 
         self._clamp_scrolls()
 
         self._draw_panel_header(screen, self.VENDOR_PANEL_X, "Vendor Stock")
-        for i, item in enumerate(self.vendor_inventory[self.scroll_vendor:self.scroll_vendor + self.VISIBLE_ROWS]):
+        self._draw_buy_tabs(screen)
+        shown = self._vendor_list()
+        row_mode = "buyback" if self.buy_filter == "buyback" else "buy"
+        for i, item in enumerate(shown[self.scroll_vendor:self.scroll_vendor + self.VISIBLE_ROWS]):
             self._draw_item_row(screen, self.VENDOR_PANEL_X, i, item,
-                                selected=(item is self.selected_vendor_item), mode="buy")
-        self._draw_scrollbar(screen, self.VENDOR_PANEL_X, len(self.vendor_inventory), self.scroll_vendor)
+                                selected=(item is self.selected_vendor_item), mode=row_mode)
+        if not shown:
+            self.renderer.draw_text(screen, "Nothing sold here yet this session." if row_mode == "buyback"
+                                    else "Nothing of this kind.", (self.VENDOR_PANEL_X + 14, self.PANEL_Y + 14),
+                                    size="small", color=(120, 120, 130))
+        self._draw_scrollbar(screen, self.VENDOR_PANEL_X, len(shown), self.scroll_vendor)
 
         self._draw_panel_header(screen, self.PLAYER_PANEL_X, "Your Items")
         self._draw_filter_tabs(screen)
@@ -677,8 +801,10 @@ class VendorScreen(BaseScreen):
 
         pygame.draw.rect(screen, (40, 70, 40) if buy_enabled else (30, 30, 30), buy_rect)
         pygame.draw.rect(screen, COLOR_GREEN if buy_enabled else COLOR_DARK_GRAY, buy_rect, 2)
-        stackable = self._stackable(self.selected_vendor_item)
-        buy_label = f"Buy x{self.buy_qty}" if (stackable and self.buy_qty > 1) else "Buy"
+        # buyback takes the whole stack back at once, so it has no quantity buttons
+        stackable = self._stackable(self.selected_vendor_item) and self.buy_filter != "buyback"
+        buy_label = ("Buy back" if self.buy_filter == "buyback"
+                     else f"Buy x{self.buy_qty}" if (stackable and self.buy_qty > 1) else "Buy")
         self.renderer.draw_text(screen, buy_label, (buy_rect.x + 20, buy_rect.y + 10),
                                 color=COLOR_GREEN if buy_enabled else COLOR_DARK_GRAY)
 
@@ -744,7 +870,8 @@ class VendorScreen(BaseScreen):
                                     color=self.message_color)
 
         if self.selected_vendor_item:
-            self._render_tooltip(screen, self.selected_vendor_item, "buy")
+            self._render_tooltip(screen, self.selected_vendor_item,
+                                 "buyback" if self.buy_filter == "buyback" else "buy")
         elif self.selected_player_item:
             self._render_tooltip(screen, self.selected_player_item, "sell")
 
@@ -755,6 +882,24 @@ class VendorScreen(BaseScreen):
         pygame.draw.rect(screen, (28, 28, 36), panel_rect)
         pygame.draw.rect(screen, (70, 70, 85), panel_rect, 2)
         self.renderer.draw_text(screen, label, (x, self.PANEL_Y - 26), color=COLOR_GOLD)
+
+    def _draw_buy_tabs(self, screen):
+        counts = {"all": len(self.vendor_inventory), "buyback": len(self._buyback())}
+        for item in self.vendor_inventory:
+            k = self._vendor_category(item)
+            counts[k] = counts.get(k, 0) + 1
+        for key, label in self.BUY_FILTERS:
+            rect = self._buy_tab_rects()[key]
+            n = counts.get(key, 0)
+            if key == self.buy_filter:
+                pygame.draw.rect(screen, (60, 55, 30), rect)
+                pygame.draw.rect(screen, COLOR_GOLD, rect, 2)
+                color = COLOR_GOLD
+            else:
+                pygame.draw.rect(screen, (26, 26, 33), rect)
+                pygame.draw.rect(screen, (70, 70, 85), rect, 1)
+                color = (170, 170, 180) if n else (95, 95, 105)
+            self.renderer.draw_text(screen, label, (rect.x + 7, rect.y + 4), size="small", color=color)
 
     def _draw_filter_tabs(self, screen):
         counts = {}
@@ -819,6 +964,11 @@ class VendorScreen(BaseScreen):
         if mode == "buy":
             price = self._unit_price(item)
             price_text = self._fmt(price)
+        elif mode == "buyback":
+            qty = getattr(item, "quantity", None) or 1
+            entry = next((e for e in self._buyback() if e["item"] is item), None)
+            unit = entry["unit"] if entry else getattr(item, "sell_price", 0)
+            price_text = (f"x{qty}  " if qty > 1 else "") + format_coins(unit * qty)
         elif not getattr(item, "is_sellable", True):
             qty = getattr(item, "quantity", None)
             price_text = f"x{qty}  Quest" if qty is not None else "Quest"
@@ -922,6 +1072,11 @@ class VendorScreen(BaseScreen):
         if mode == "buy":
             price = self._unit_price(item)
             lines.append(f"Price: {self._fmt(price)}")
+        elif mode == "buyback":
+            qty = getattr(item, "quantity", None) or 1
+            entry = next((e for e in self._buyback() if e["item"] is item), None)
+            unit = entry["unit"] if entry else getattr(item, "sell_price", 0)
+            lines.append(f"Buy back for {format_coins(unit * qty)}" + (f" ({qty})" if qty > 1 else ""))
         elif getattr(item, "is_sellable", True):
             lines.append(f"Sells for: {format_coins(item.sell_price)}")
 
