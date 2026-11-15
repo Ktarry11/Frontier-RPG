@@ -130,7 +130,7 @@ My first suggestion (30/20/40 AP/14) was over the item's budget. This keeps the 
 - The Barkguard staves run from 18 armour at level 19 to 89 at level 58.
 - The Mithril Warhammer has 110.
 
-## Past level 60, the stat budget bends upward
+## Past level 60, the stat budget bends upward (PRELIMINARY numbers)
 
 **Kyle:**
 - "Things over lvl 60 and higher ilvl will need a better way to measure stats."
@@ -172,3 +172,38 @@ My first suggestion (30/20/40 AP/14) was over the item's budget. This keeps the 
 
 - Ratings stay at 10 points per 1% at every level. They don't scale with level past 60.
 - The budget bend above stays as it is: a slow drift away from the straight line, not a jump.
+
+
+### Raid tiers on the bent curve (PRELIMINARY)
+
+**Kyle:**
+- "After 60 though....so we can have raid tiers etc."
+- "Save these numbers as 'preliminary' and we can expand later."
+
+How much stronger an epic is than a level 60 epic, at each item level:
+
+| Item level | 66 | 70 | 73 | 76 | 80 | 86 | 92 |
+|---|---|---|---|---|---|---|---|
+| Epic vs. a level 60 epic | ×1.23 | ×1.41 | ×1.56 | ×1.73 | ×1.99 | ×2.45 | ×3.01 |
+
+- Rares climb at three-quarters of that rate.
+- The rate (3.5% a level) and the steepness by rarity (0.75 / 1.0 / 1.15) are a first pass, to be revisited when the raid tiers are planned.
+
+### Spire-Warden's Staff icon
+
+Kyle: "Pick a druid icon for the staff. Not arcane."
+
+- It now uses `gear_inv_staff_17`, the green living-wood crook.
+- The picture is copied into the item's own epic art slot, `gear_epic_crafted_spire_warden_s_staff.png`, because an epic only takes an icon from the epic family.
+- When its real art lands, it goes in that same file.
+
+**"Make it look epic":**
+- The interim icon is the pack crook, recoloured with a verdant glow off the wood, a violet aura in the corners and a few sparkles.
+- The pack art is 60 px against the 168 px painted epics, so the real fix is its own art.
+- This prompt goes in the item's slot:
+
+```
+ONE game icon, 512x512, flat pure #FF00FF magenta background, the object centred with a wide margin. Painterly semi-realistic WoW Classic inventory-icon style for an EPIC (purple-quality) druid's staff: SPIRE-WARDEN'S STAFF - a thick tauren druid's fighting staff of dark living wood, its head curling into a great spiral crook like a fern frond, bound with red-dyed kodo leather and hung with two carved bone-and-feather charms; small green leaves sprout from the knots, a soft verdant glow along the grain and a faint bear-claw rune carved below the crook; sturdy and heavy, made to be swung, not a slender caster's wand. Rich materials, strong readable silhouette, soft dark outline, lighting from the top-left, slight 3/4 view. No hands, no text, no frame, no border. No magenta or pink inside the icon.
+```
+
+Slice to `assets/icons/gear/gear_epic_crafted_spire_warden_s_staff.png`.

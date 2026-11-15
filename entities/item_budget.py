@@ -139,6 +139,9 @@ def stat_value(item, mods=None):
 
 
 # ---------------------------------------------------------------------------------------------------------
+# PRELIMINARY (Kyle, 15 Nov 2026: "Save these numbers as 'preliminary' and we can expand later"). The rate,
+# the steepness by rarity and the raid-tier table below are a first pass, to be expanded with the raid tiers.
+#
 # PAST LEVEL 60 THE LINE BENDS. Kyle, 15 Nov 2026: "Things over lvl 60 and higher ilvl will need a better way
 # to measure stats", and "I want past 60, especially with rares, epics and stuff to work towards that the
 # linear line changes."
@@ -152,6 +155,11 @@ def stat_value(item, mods=None):
 #   item level            61     66     73     80     92
 #   epic budget level     62.1   73.8   93.8  119.4  180.4   (the line: 61 66 73 80 92)
 #   rare budget level     61.6   70.0   83.9  100.5  137.0
+#
+# What it means for raid tiers (PRELIMINARY): an epic's stats against a level 60 epic's
+#   item level   66     70     73     76     80     86     92
+#   epic         x1.23  x1.41  x1.56  x1.73  x1.99  x2.45  x3.01
+# Rares climb at three quarters of that, so a raid blue never catches the same tier's epic.
 #
 # Every budget in the game asks this one function: LootGenerator (drops, shops), tools/build_crafted_gear.py
 # (crafted, reputation), and expected_budget below (the audits).

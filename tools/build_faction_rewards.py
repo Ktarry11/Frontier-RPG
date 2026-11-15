@@ -435,6 +435,11 @@ EPIC_FLAVOUR = {
 }
 
 
+#: an epic's icon chosen by hand until its own art lands (Kyle, 15 Nov 2026, on the Spire-Warden's Staff:
+#: "Pick a druid icon for the staff. Not arcane.")
+ICON_OVERRIDE = {"tb_spire_wardens_staff": "gear_inv_staff_17"}
+
+
 def author_unique(rid, name, slot, kind, typ, ident, ilvl, rarity, flavour, price_g):
     import build_crafted_gear as C
     out = {"kind": kind, "slot": slot, "item_level": ilvl, "rarity": rarity, "required_level": WORN_AT,
@@ -469,6 +474,14 @@ def main():
             iid, name, slot, kind, typ, ident, price, flav = row
             items[iid], b = author_unique(iid, name, slot, kind, typ, ident, EPIC_ILVL, "epic",
                                           EPIC_FLAVOUR.get(iid, flav), price)
+            if iid in ICON_OVERRIDE:
+                # an epic only honours an epic-family icon id (gear_icons.resolve_icon), so the chosen picture
+                # is copied into this item's own epic art slot, where its real art will land later
+                import shutil
+                own = C.epic_icon_id(name)
+                gear = ROOT / "assets/icons/gear"
+                shutil.copyfile(gear / f"{ICON_OVERRIDE[iid]}.png", gear / f"{own}.png")
+                items[iid]["icon_id"] = own
             items[iid]["faction"] = fid
             bad += b
     if bad:
