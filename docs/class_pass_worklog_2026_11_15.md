@@ -440,6 +440,40 @@ Kyle (11:27, 11:32 local): "Yup. Keep going bro." and "After this last round of 
 - **FIXED:** Bloodthirst ×2.58 and Mortal Strike ×1.83, to 1.35× a same-level Heroic Strike. Bloodthirst was authored at a quarter of one (1,110 vs 1,571 at 50).
 - **Running:** pass 10, damage then healing (task b71on7mlu). The QA suite is still in its tail (no failures in the first 52 of 197).
 
+### 21:10–22:30 UTC: QA, gear ratings, crafting, engineering
+
+Kyle (11:36–12:09 local): "This will fix a lot of the partial numbers we see on gear and rounding stuff. Same as we did with stormy gemstones." / "If you wanted to devote a little bit of effort while the QA runs you can start to adjust some of the drip stats, fix up boss loot and quest loot to slap in some ratings for easier transition from 1 to max level so not every rating is just dropped post 50. They need to be spread out and logically done. None of this weird stuff we saw with crafting." / "Go through crafting please. We have spare credits." / "I think you should just full on fix and audit engineering when you're done too."
+
+- **Pass 10 auras** (committed): 6 damage clamps (Enhancement 20, Marksmanship 30, Survival 30, Assassination 30, Warden 50, Feral 60) and 5 heal (Vizier 10/20, Grovekeeper 30, Brewing 50/60, the last at 2.15).
+- **Full QA, 197 tests.** Only the pre-existing gathering_legality and underdark_content fail; the four kit tests were fixed later in the run.
+  - Fixes: a certain hit (+100 or more) is certain past the caps.
+  - Three kit tests were updated for the split hit table: Sondre's spell hit, Dan's boar at his level, and the blind removes spell hit too.
+- **BOSS AND QUEST LOOT RATINGS** (`tools/rating_pass.py`; 8b98e67, redone in e1a3d19 with the floor at 5).
+  - The data already held ratings; the drip was a flat "+10 (1%)" at every item level.
+  - Sizing: 20% → 35% of the budget by item level (tank gear 1.4×), floor 5, one rating when two won't fit. Primaries pay, so items stay on the curve (78% inside tolerance before and after).
+  - 210 off-role ratings swapped; 246 items gained one.
+  - Presence: 10–19 6% → 11%, 20s 18% → 30%, 30s 37%, 40s 43%, 50s+ 50%. Medians 5/6/8/9/12/14.
+  - Parry 1.25 and dodge 1.1 a point (crit 1.0).
+- **Spec gear:** healers name no school (healing reads healing power only); Balance → arcane.
+- **CRAFTING:**
+  - `build_crafted_gear`: precise_caster → spell hit; a near-floor rating rounds UP to 5 and the lead stat pays; 845 items rebuilt (counts unchanged).
+  - Crafted ratings by band: 10–19 1%, 20s 7%, 30s 28%, 40s 41%, 50s 48%. Low crafted greens stay primaries only (Kyle's 14 Nov rule).
+  - Jewelcrafting: Veiled and Lambent → spell hit; six Regal gems re-cut at the new dodge price; Black Diamond Crab defense 1 → 10 (a pre-ratings 1% the conversion missed).
+  - **build_jewelcrafting is NOT safe to rerun alone.** It rewrites blacksmithing and drops 11 recipes other tools add (10 secret rings and Regal Jet). The data was edited in place.
+  - The "Great" spell-hit gem cut was NOT added: it reshuffles cut assignments and vendor sources. Needs the full builder chain.
+- **ENGINEERING** (c4e04a2, new guard `tools/qa_engineering.py`):
+  - 24 of 27 consumables did nothing. Consumable.use had no explosive or gadget branch, and the shots granted nothing. Fixed:
+    - Bombs hit all enemies, by their own school (some stun), from the hotbar, and spend the turn.
+    - Gadgets act through a new gadget buff slot (saved, ticked, shown in the bag), turn-based effects, a heal, a revive, or the hearthstone reset.
+    - Shots give +4..+26 AP for 30 minutes.
+  - **Bombs and shot stopped at 29:** added 4 bombs (38/46/50/57) and 3 shots (38/52/57).
+  - **Tideglass Seal** had no source: now trainer-taught.
+  - **Proc tooltips** now show the world-curved number (`combat/proc_text.py`): the Dragonling Core says 470 at 60, not 160.
+  - The three shop-sold gadgets (spare lens, recall beacon, grapple) work too.
+- **Notes for Kyle:**
+  - Arrows and bolts (woodworking) still stop at level 30 (heavy, +15 AP).
+  - The "Great" spell-hit gem needs a full jewelcrafting rebuild.
+
 ## Parked (Kyle said note it only; class balance comes first)
 
 - **16:41 UTC.** Hand-authored boss drops convert from percentage hit, crit, dodge, parry and so on to RATINGS (10 rating = 1%, like gems and crafted gear), cleaning out the "trash drip" stats. This is item 8 in `claude/playtest_backlog_2026_11_14.md`.
