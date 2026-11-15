@@ -749,50 +749,54 @@
           "rank": 1,
           "level_req": 18,
           "cost": 25,
-          "effect_value": 66
+          "effect_value": 137
         },
         {
           "rank": 2,
           "level_req": 24,
           "cost": 25,
-          "effect_value": 86
+          "effect_value": 179
         },
         {
           "rank": 3,
           "level_req": 30,
           "cost": 25,
-          "effect_value": 106
+          "effect_value": 221
         },
         {
           "rank": 4,
           "level_req": 36,
           "cost": 25,
-          "effect_value": 126
+          "effect_value": 262
         },
         {
           "rank": 5,
           "level_req": 42,
           "cost": 25,
-          "effect_value": 146
+          "effect_value": 304
         },
         {
           "rank": 6,
           "level_req": 48,
           "cost": 25,
-          "effect_value": 166
+          "effect_value": 346
         },
         {
           "rank": 7,
           "level_req": 54,
           "cost": 25,
-          "effect_value": 186
+          "effect_value": 387
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Unleash a relentless volley of glacial shards ... At the end of the duration, you entomb your target in ice, freezing them for 4 seconds.' The entomb is the is_stun; the channel is a DoT.",
       "target_type": "enemy",
       "damage_school": "frost",
-      "is_stun": true
+      "is_stun": true,
+      "_over_time_lifted": 2.08,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x2.08 - its total was 0.34x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ]
     },
     {
       "ability_id": "necromancer_glacial_impact",
@@ -1137,44 +1141,48 @@
           "rank": 1,
           "level_req": 24,
           "cost": 30,
-          "effect_value": 44
+          "effect_value": 92
         },
         {
           "rank": 2,
           "level_req": 30,
           "cost": 30,
-          "effect_value": 57
+          "effect_value": 119
         },
         {
           "rank": 3,
           "level_req": 36,
           "cost": 30,
-          "effect_value": 70
+          "effect_value": 146
         },
         {
           "rank": 4,
           "level_req": 42,
           "cost": 30,
-          "effect_value": 83
+          "effect_value": 173
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 30,
-          "effect_value": 96
+          "effect_value": 201
         },
         {
           "rank": 6,
           "level_req": 54,
           "cost": 30,
-          "effect_value": 109
+          "effect_value": 228
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Plaguefather smears Zombie Plague' - 'Damage dealt by this minion will emit Zombie Plague, dealing SP Plague damage to nearby enemies, and reducing their attack power'. Same template problem as the Archers; a walking AoE plague source is an AoE DoT.",
       "target_type": "enemy_aoe",
       "max_targets": 4,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_over_time_lifted": 2.09,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x2.09 - its total was 0.34x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ]
     },
     {
       "ability_id": "necromancer_animate_bone_wraith",
@@ -1190,37 +1198,41 @@
           "rank": 1,
           "level_req": 30,
           "cost": 30,
-          "effect_value": 36
+          "effect_value": 107
         },
         {
           "rank": 2,
           "level_req": 37,
           "cost": 30,
-          "effect_value": 47
+          "effect_value": 139
         },
         {
           "rank": 3,
           "level_req": 44,
           "cost": 30,
-          "effect_value": 58
+          "effect_value": 172
         },
         {
           "rank": 4,
           "level_req": 51,
           "cost": 30,
-          "effect_value": 69
+          "effect_value": 204
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 30,
-          "effect_value": 80
+          "effect_value": 237
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'it will periodically unleash a Bonestorm, striking up to 5 nearby enemies for SP Physical damage every 1 sec for 5 seconds'. effect_type 'dot' with no damage_school, so it lands as physical - the one physical-damage ability in the whole kit, which is exactly what CoA says Bonestorm is.",
       "target_type": "enemy_aoe",
-      "max_targets": 5
+      "max_targets": 5,
+      "_over_time_lifted": 2.96,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x2.96 - its total was 0.24x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ]
     },
     {
       "ability_id": "necromancer_animate_tomb_king",

@@ -515,43 +515,47 @@
           "rank": 1,
           "level_req": 12,
           "cost": 20,
-          "effect_value": 26
+          "effect_value": 116
         },
         {
           "rank": 2,
           "level_req": 21,
           "cost": 20,
-          "effect_value": 34
+          "effect_value": 152
         },
         {
           "rank": 3,
           "level_req": 30,
           "cost": 20,
-          "effect_value": 42
+          "effect_value": 187
         },
         {
           "rank": 4,
           "level_req": 39,
           "cost": 20,
-          "effect_value": 50
+          "effect_value": 223
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 20,
-          "effect_value": 58
+          "effect_value": 259
         },
         {
           "rank": 6,
           "level_req": 57,
           "cost": 20,
-          "effect_value": 66
+          "effect_value": 294
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Marks the target for 12 seconds, dealing 36 High Threat Shadow Damage over 12 seconds.' The 'High Threat' wording is why it carries a threat_generation_pct buff - percent POINTS as an ability stat_mod, unlike the tree's fractions. CoA applies it automatically off direct ability damage; nothing hooks that, so it is cast.",
       "target_type": "enemy",
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_over_time_lifted": 4.46,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x4.46 - its total was 0.16x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ]
     },
     {
       "ability_id": "witch_hunter_guard_strike",
@@ -860,37 +864,37 @@
           "rank": 1,
           "level_req": 12,
           "cost": 25,
-          "effect_value": 30
+          "effect_value": 129
         },
         {
           "rank": 2,
           "level_req": 21,
           "cost": 25,
-          "effect_value": 39
+          "effect_value": 168
         },
         {
           "rank": 3,
           "level_req": 30,
           "cost": 25,
-          "effect_value": 48
+          "effect_value": 206
         },
         {
           "rank": 4,
           "level_req": 39,
           "cost": 25,
-          "effect_value": 57
+          "effect_value": 245
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 25,
-          "effect_value": 66
+          "effect_value": 284
         },
         {
           "rank": 6,
           "level_req": 57,
           "cost": 25,
-          "effect_value": 75
+          "effect_value": 322
         }
       ],
       "icon_id": null,
@@ -904,6 +908,10 @@
         "crossbow",
         "gun",
         "thrown"
+      ],
+      "_over_time_lifted": 4.3,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x4.30 - its total was 0.16x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
       ]
     },
     {
@@ -920,37 +928,37 @@
           "rank": 1,
           "level_req": 20,
           "cost": 35,
-          "effect_value": 34
+          "effect_value": 155
         },
         {
           "rank": 2,
           "level_req": 27,
           "cost": 35,
-          "effect_value": 44
+          "effect_value": 201
         },
         {
           "rank": 3,
           "level_req": 34,
           "cost": 35,
-          "effect_value": 54
+          "effect_value": 246
         },
         {
           "rank": 4,
           "level_req": 41,
           "cost": 35,
-          "effect_value": 64
+          "effect_value": 292
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 35,
-          "effect_value": 74
+          "effect_value": 338
         },
         {
           "rank": 6,
           "level_req": 55,
           "cost": 35,
-          "effect_value": 84
+          "effect_value": 383
         }
       ],
       "icon_id": null,
@@ -961,6 +969,10 @@
         "crossbow",
         "gun",
         "thrown"
+      ],
+      "_over_time_lifted": 4.56,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x4.56 - its total was 0.15x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
       ]
     },
     {
@@ -1334,38 +1346,42 @@
           "rank": 1,
           "level_req": 26,
           "cost": 35,
-          "effect_value": 32
+          "effect_value": 107
         },
         {
           "rank": 2,
           "level_req": 34,
           "cost": 35,
-          "effect_value": 41
+          "effect_value": 137
         },
         {
           "rank": 3,
           "level_req": 42,
           "cost": 35,
-          "effect_value": 50
+          "effect_value": 167
         },
         {
           "rank": 4,
           "level_req": 50,
           "cost": 35,
-          "effect_value": 59
+          "effect_value": 197
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 35,
-          "effect_value": 68
+          "effect_value": 227
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Channel for 8 seconds, commanding a flock of crows to deal SP Shadow damage to enemies in a wide cone every 2 sec. Can channel while moving.' spell_dot because CoA scales it off spell power, not AP - the spec's stat priority lists Spell Power for exactly this ('feeds the minor Shadow portions of Darkflock/Feast of Talons').",
       "target_type": "enemy_aoe",
       "damage_school": "shadow",
-      "max_targets": 5
+      "max_targets": 5,
+      "_over_time_lifted": 3.34,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x3.34 - its total was 0.21x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ]
     },
     {
       "ability_id": "witch_hunter_repulse",

@@ -1267,30 +1267,34 @@
           "rank": 1,
           "level_req": 22,
           "cost": 24,
-          "effect_value": 30
+          "effect_value": 99
         },
         {
           "rank": 2,
           "level_req": 32,
           "cost": 29,
-          "effect_value": 37
+          "effect_value": 122
         },
         {
           "rank": 3,
           "level_req": 44,
           "cost": 36,
-          "effect_value": 45
+          "effect_value": 149
         },
         {
           "rank": 4,
           "level_req": 58,
           "cost": 43,
-          "effect_value": 54
+          "effect_value": 178
         }
       ],
       "icon_id": null,
       "damage_school": "shadow",
-      "_design_note": "A weapon strike that applies Seething Void and generates Void Runes. Simplification note: real CoA Entropic Strike has a weapon-damage component alongside its Shadow-tagged Seething Void effect - this engine models it as pure Shadow school for now (matching the named Void effect, since there's no mechanism yet for a single ability to deal a physical hit AND apply a separately-schooled debuff in one action). Matches Cultist's real Strength/Intellect hybrid identity as a case where a future split-damage-source mechanic would be more accurate."
+      "_design_note": "A weapon strike that applies Seething Void and generates Void Runes. Simplification note: real CoA Entropic Strike has a weapon-damage component alongside its Shadow-tagged Seething Void effect - this engine models it as pure Shadow school for now (matching the named Void effect, since there's no mechanism yet for a single ability to deal a physical hit AND apply a separately-schooled debuff in one action). Matches Cultist's real Strength/Intellect hybrid identity as a case where a future split-damage-source mechanic would be more accurate.",
+      "_over_time_lifted": 3.3,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x3.30 - its total was 0.21x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ]
     },
     {
       "ability_id": "cultist_tentacle_of_nzoth",

@@ -752,38 +752,42 @@
           "rank": 1,
           "level_req": 18,
           "cost": 25,
-          "effect_value": 24
+          "effect_value": 86
         },
         {
           "rank": 2,
           "level_req": 28,
           "cost": 25,
-          "effect_value": 31
+          "effect_value": 110
         },
         {
           "rank": 3,
           "level_req": 38,
           "cost": 25,
-          "effect_value": 38
+          "effect_value": 135
         },
         {
           "rank": 4,
           "level_req": 48,
           "cost": 25,
-          "effect_value": 45
+          "effect_value": 160
         },
         {
           "rank": 5,
           "level_req": 58,
           "cost": 25,
-          "effect_value": 52
+          "effect_value": 185
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Open pulls with Immolation Aura for its recurring Fire pulse on nearby enemies' - 'dealing fire AP Fire Damage to nearby enemies every 3 sec'.",
       "target_type": "enemy_aoe",
       "max_targets": 4,
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "_over_time_lifted": 3.56,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x3.56 - its total was 0.20x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ]
     },
     {
       "ability_id": "felsworn_fury_unleashed",
@@ -1119,31 +1123,35 @@
           "rank": 1,
           "level_req": 30,
           "cost": 30,
-          "effect_value": 44
+          "effect_value": 237
         },
         {
           "rank": 2,
           "level_req": 39,
           "cost": 30,
-          "effect_value": 57
+          "effect_value": 307
         },
         {
           "rank": 3,
           "level_req": 48,
           "cost": 30,
-          "effect_value": 70
+          "effect_value": 377
         },
         {
           "rank": 4,
           "level_req": 57,
           "cost": 30,
-          "effect_value": 83
+          "effect_value": 447
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Channel a beam of fel magic upon an enemy, slowing your target's movement speed by 60% for 5.5 seconds and dealing Shadowflame Damage at the end of the duration'. Authored as a spell_dot: the engine has no channel, and a DoT is the closest thing to damage spread over a beam. The snare is lost - Cripple remains the real slow.",
       "target_type": "enemy",
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_over_time_lifted": 5.38,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x5.38 - its total was 0.13x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ]
     },
     {
       "ability_id": "felsworn_infernal",

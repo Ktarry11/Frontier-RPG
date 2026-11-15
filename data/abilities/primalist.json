@@ -1072,29 +1072,33 @@
           "rank": 1,
           "level_req": 20,
           "cost": 25,
-          "effect_value": 27
+          "effect_value": 96
         },
         {
           "rank": 2,
           "level_req": 30,
           "cost": 25,
-          "effect_value": 33
+          "effect_value": 117
         },
         {
           "rank": 3,
           "level_req": 42,
           "cost": 25,
-          "effect_value": 41
+          "effect_value": 146
         },
         {
           "rank": 4,
           "level_req": 56,
           "cost": 25,
-          "effect_value": 50
+          "effect_value": 178
         }
       ],
       "icon_id": null,
-      "_design_note": "Command your pet to shred nearby enemies, causing them to bleed. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)"
+      "_design_note": "Command your pet to shred nearby enemies, causing them to bleed. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)",
+      "_over_time_lifted": 3.55,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x3.55 - its total was 0.20x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ]
     },
     {
       "ability_id": "primalist_raptor_talons",

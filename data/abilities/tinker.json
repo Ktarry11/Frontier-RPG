@@ -624,40 +624,44 @@
           "rank": 1,
           "level_req": 16,
           "cost": 26,
-          "effect_value": 33
+          "effect_value": 90
         },
         {
           "rank": 2,
           "level_req": 23,
           "cost": 37,
-          "effect_value": 46
+          "effect_value": 125
         },
         {
           "rank": 3,
           "level_req": 30,
           "cost": 48,
-          "effect_value": 60
+          "effect_value": 164
         },
         {
           "rank": 4,
           "level_req": 38,
           "cost": 58,
-          "effect_value": 73
+          "effect_value": 199
         },
         {
           "rank": 5,
           "level_req": 45,
           "cost": 69,
-          "effect_value": 87
+          "effect_value": 237
         },
         {
           "rank": 6,
           "level_req": 52,
           "cost": 80,
-          "effect_value": 100
+          "effect_value": 273
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "_over_time_lifted": 2.73,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x2.73 - its total was 0.26x what a hot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ]
     },
     {
       "ability_id": "tinker_emergency_heal",
@@ -753,37 +757,41 @@
           "rank": 1,
           "level_req": 26,
           "cost": 49,
-          "effect_value": 70
+          "effect_value": 128
         },
         {
           "rank": 2,
           "level_req": 34,
           "cost": 62,
-          "effect_value": 90
+          "effect_value": 165
         },
         {
           "rank": 3,
           "level_req": 41,
           "cost": 76,
-          "effect_value": 110
+          "effect_value": 202
         },
         {
           "rank": 4,
           "level_req": 48,
           "cost": 90,
-          "effect_value": 129
+          "effect_value": 237
         },
         {
           "rank": 5,
           "level_req": 56,
           "cost": 103,
-          "effect_value": 149
+          "effect_value": 273
         }
       ],
       "icon_id": null,
       "dispel_type": [
         "poison",
         "disease"
+      ],
+      "_over_time_lifted": 1.83,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x1.83 - its total was 0.38x what a hot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
       ]
     },
     {

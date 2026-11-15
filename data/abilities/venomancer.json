@@ -1051,41 +1051,45 @@
           "rank": 1,
           "level_req": 18,
           "cost": 25,
-          "effect_value": 18
+          "effect_value": 106
         },
         {
           "rank": 2,
           "level_req": 24,
           "cost": 25,
-          "effect_value": 21
+          "effect_value": 123
         },
         {
           "rank": 3,
           "level_req": 30,
           "cost": 25,
-          "effect_value": 23
+          "effect_value": 135
         },
         {
           "rank": 4,
           "level_req": 38,
           "cost": 25,
-          "effect_value": 27
+          "effect_value": 159
         },
         {
           "rank": 5,
           "level_req": 46,
           "cost": 25,
-          "effect_value": 30
+          "effect_value": 176
         },
         {
           "rank": 6,
           "level_req": 54,
           "cost": 25,
-          "effect_value": 34
+          "effect_value": 200
         }
       ],
       "icon_id": null,
-      "damage_school": "nature"
+      "damage_school": "nature",
+      "_over_time_lifted": 5.87,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x5.87 - its total was 0.12x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ]
     },
     {
       "ability_id": "venomancer_venomtip_poison",
@@ -1188,29 +1192,33 @@
           "rank": 1,
           "level_req": 20,
           "cost": 20,
-          "effect_value": 22
+          "effect_value": 77
         },
         {
           "rank": 2,
           "level_req": 30,
           "cost": 20,
-          "effect_value": 27
+          "effect_value": 95
         },
         {
           "rank": 3,
           "level_req": 42,
           "cost": 20,
-          "effect_value": 33
+          "effect_value": 116
         },
         {
           "rank": 4,
           "level_req": 56,
           "cost": 20,
-          "effect_value": 40
+          "effect_value": 140
         }
       ],
       "icon_id": null,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "_over_time_lifted": 3.5,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x3.50 - its total was 0.20x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ]
     },
     {
       "ability_id": "venomancer_withering_venom",
@@ -1227,29 +1235,33 @@
           "rank": 1,
           "level_req": 20,
           "cost": 20,
-          "effect_value": 24
+          "effect_value": 76
         },
         {
           "rank": 2,
           "level_req": 30,
           "cost": 20,
-          "effect_value": 30
+          "effect_value": 95
         },
         {
           "rank": 3,
           "level_req": 42,
           "cost": 20,
-          "effect_value": 36
+          "effect_value": 114
         },
         {
           "rank": 4,
           "level_req": 56,
           "cost": 20,
-          "effect_value": 44
+          "effect_value": 140
         }
       ],
       "icon_id": null,
-      "damage_school": "nature"
+      "damage_school": "nature",
+      "_over_time_lifted": 3.18,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x3.18 - its total was 0.22x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ]
     },
     {
       "ability_id": "venomancer_widowmaker",

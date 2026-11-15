@@ -101,47 +101,51 @@
           "rank": 1,
           "level_req": 4,
           "cost": 10,
-          "effect_value": 46
+          "effect_value": 86
         },
         {
           "rank": 2,
           "level_req": 15,
           "cost": 10,
-          "effect_value": 80
+          "effect_value": 149
         },
         {
           "rank": 3,
           "level_req": 23,
           "cost": 10,
-          "effect_value": 98
+          "effect_value": 182
         },
         {
           "rank": 4,
           "level_req": 31,
           "cost": 10,
-          "effect_value": 115
+          "effect_value": 214
         },
         {
           "rank": 5,
           "level_req": 40,
           "cost": 10,
-          "effect_value": 132
+          "effect_value": 246
         },
         {
           "rank": 6,
           "level_req": 49,
           "cost": 10,
-          "effect_value": 150
+          "effect_value": 279
         },
         {
           "rank": 7,
           "level_req": 58,
           "cost": 12,
-          "effect_value": 173
+          "effect_value": 322
         }
       ],
       "icon_id": null,
-      "damage_school": "physical"
+      "damage_school": "physical",
+      "_over_time_lifted": 1.86,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x1.86 - its total was 0.38x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ]
     },
     {
       "ability_id": "warrior_thunder_clap",

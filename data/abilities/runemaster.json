@@ -866,41 +866,45 @@
           "rank": 1,
           "level_req": 18,
           "cost": 4,
-          "effect_value": 46
+          "effect_value": 82
         },
         {
           "rank": 2,
           "level_req": 24,
           "cost": 5,
-          "effect_value": 53
+          "effect_value": 94
         },
         {
           "rank": 3,
           "level_req": 30,
           "cost": 5,
-          "effect_value": 59
+          "effect_value": 105
         },
         {
           "rank": 4,
           "level_req": 38,
           "cost": 6,
-          "effect_value": 85
+          "effect_value": 151
         },
         {
           "rank": 5,
           "level_req": 46,
           "cost": 7,
-          "effect_value": 96
+          "effect_value": 170
         },
         {
           "rank": 6,
           "level_req": 54,
           "cost": 8,
-          "effect_value": 108
+          "effect_value": 192
         }
       ],
       "icon_id": null,
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "_over_time_lifted": 1.77,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x1.77 - its total was 0.39x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ]
     },
     {
       "ability_id": "runemaster_leyline_disturbance",

@@ -371,23 +371,27 @@
           "rank": 1,
           "level_req": 34,
           "cost": 45,
-          "effect_value": 62
+          "effect_value": 114
         },
         {
           "rank": 2,
           "level_req": 42,
           "cost": 57,
-          "effect_value": 78
+          "effect_value": 144
         },
         {
           "rank": 3,
           "level_req": 50,
           "cost": 69,
-          "effect_value": 93
+          "effect_value": 172
         }
       ],
       "icon_id": null,
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "_over_time_lifted": 1.84,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x1.84 - its total was 0.38x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ]
     },
     {
       "ability_id": "hunter_chimera_shot",
@@ -425,13 +429,17 @@
           "rank": 1,
           "level_req": 50,
           "cost": 55,
-          "effect_value": 60
+          "effect_value": 141
         }
       ],
       "requires_talent": true,
       "icon_id": null,
       "damage_school": "fire",
-      "_design_note": "Not learned from level alone - granted by the Explosive Shot talent in the Survival tree. Lodges an explosive charge in the target, dealing Fire damage over time."
+      "_design_note": "Not learned from level alone - granted by the Explosive Shot talent in the Survival tree. Lodges an explosive charge in the target, dealing Fire damage over time.",
+      "_over_time_lifted": 2.36,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x2.36 - its total was 0.30x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ]
     },
     {
       "ability_id": "hunter_black_arrow",
@@ -447,19 +455,23 @@
           "rank": 1,
           "level_req": 40,
           "cost": 50,
-          "effect_value": 66
+          "effect_value": 139
         },
         {
           "rank": 2,
           "level_req": 52,
           "cost": 60,
-          "effect_value": 79
+          "effect_value": 166
         }
       ],
       "requires_talent": true,
       "icon_id": null,
       "damage_school": "shadow",
-      "_design_note": "Not learned from level alone - granted by the Black Arrow talent in the Survival tree. Fires a black arrow that deals Shadow damage over time."
+      "_design_note": "Not learned from level alone - granted by the Black Arrow talent in the Survival tree. Fires a black arrow that deals Shadow damage over time.",
+      "_over_time_lifted": 2.1,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x2.10 - its total was 0.33x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ]
     },
     {
       "ability_id": "hunter_wyvern_sting",
@@ -526,54 +538,58 @@
           "rank": 1,
           "level_req": 6,
           "cost": 35,
-          "effect_value": 40
+          "effect_value": 80
         },
         {
           "rank": 2,
           "level_req": 12,
           "cost": 42,
-          "effect_value": 48
+          "effect_value": 96
         },
         {
           "rank": 3,
           "level_req": 18,
           "cost": 49,
-          "effect_value": 57
+          "effect_value": 114
         },
         {
           "rank": 4,
           "level_req": 24,
           "cost": 57,
-          "effect_value": 65
+          "effect_value": 130
         },
         {
           "rank": 5,
           "level_req": 30,
           "cost": 64,
-          "effect_value": 73
+          "effect_value": 146
         },
         {
           "rank": 6,
           "level_req": 38,
           "cost": 74,
-          "effect_value": 84
+          "effect_value": 168
         },
         {
           "rank": 7,
           "level_req": 46,
           "cost": 83,
-          "effect_value": 95
+          "effect_value": 190
         },
         {
           "rank": 8,
           "level_req": 54,
           "cost": 93,
-          "effect_value": 106
+          "effect_value": 212
         }
       ],
       "target_type": "ally",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_over_time_lifted": 2.0,
+      "_tuning": [
+        "15 Nov 2026, class pass: every rank x2.00 - its total was 0.35x what a hot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+      ]
     },
     {
       "ability_id": "hunter_revive_pet",
