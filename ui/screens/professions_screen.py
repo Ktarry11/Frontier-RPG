@@ -222,7 +222,10 @@ class ProfessionsScreen(BaseScreen):
             if self.active_tab in CRAFT_TABS:
                 for recipe_id, rect in self.craft_recipe_rects:
                     if rect.collidepoint(event.pos):
-                        self._attempt_craft(recipe_id)
+                        mods = pygame.key.get_mods()
+                        times = (self.ALL_COUNT if mods & pygame.KMOD_CTRL
+                                 else self.SHIFT_COUNT if mods & pygame.KMOD_SHIFT else 1)
+                        self._attempt_craft(recipe_id, times)
                         return
             if self.active_tab == "upgrade":
                 for item, rect in self.upgrade_item_rects:
@@ -275,9 +278,39 @@ class ProfessionsScreen(BaseScreen):
         zone_manager = getattr(self.state_manager.states.get(GameState.OVERWORLD), "zone_manager", None)
         return zone_manager is not None and zone_manager.get_sawmill_at_location() is not None
 
-    def _attempt_craft(self, recipe_id):
+    #: Shift-click crafts this many; Ctrl-click crafts as many as the bags allow (B6)
+    SHIFT_COUNT = 5
+    ALL_COUNT = 200
+
+    def _attempt_craft(self, recipe_id, times=1):
+        """Craft a recipe up to `times` times, stopping at the first one that can't be made (out of
+        materials, bags full). One message for the lot: "Crafted 5 Bolt of Silk Cloth.", or the
+        reason it stopped."""
+        made, done_msg, stop_msg = 0, "", ""
+        for _ in range(max(1, times)):
+            ok, msg = self._craft_once(recipe_id)
+            if not ok:
+                stop_msg = msg
+                break
+            made += 1
+            done_msg = msg
+        if made == 0:
+            self.craft_message, self.craft_message_color = stop_msg, (240, 140, 140)
+        elif made == 1 and times == 1:
+            self.craft_message, self.craft_message_color = done_msg, (140, 220, 160)
+        else:
+            name = done_msg[len("Crafted "):].rstrip(".") if done_msg.startswith("Crafted ") else "of them"
+            text = f"Crafted {made} x {name}."
+            # stopped short of a number asked for: say why ("Need 2 more Bolt of Silk Cloth.")
+            if stop_msg and times < self.ALL_COUNT:
+                text += " " + stop_msg
+            self.craft_message, self.craft_message_color = text, (140, 220, 160)
+        self.craft_message_timer = 3.0
+
+    def _craft_once(self, recipe_id):
         """Craft one recipe on the active generic crafting tab. Always the PLAYER's own materials and skill (same
-        reasoning as _attempt_smelt). Blacksmithing keeps its own manager; everything else goes through CraftingManager."""
+        reasoning as _attempt_smelt). Blacksmithing keeps its own manager; everything else goes through
+        CraftingManager. -> (ok, message)."""
         player = self.state_manager.player
         profession, _, station = CRAFT_TABS[self.active_tab]
         if profession in self.own_managers:
@@ -290,13 +323,13 @@ class ProfessionsScreen(BaseScreen):
                 elif len(player.inventory) >= player.inventory_capacity:
                     ok, msg = False, "Your bags are full."
                 else:
-                    ok, msg = False, "Missing materials for that recipe."
+                    from world.crafting_manager import missing_text
+                    recipe = self.own_managers[profession].recipes.get(recipe_id) or {}
+                    ok, msg = False, missing_text(player, recipe.get("inputs"))
         else:
             ok, msg, _ = self.crafting_manager.craft(player, profession, recipe_id,
                                                      at_station=(station != "sawmill" or self._at_sawmill()))
-        self.craft_message = msg
-        self.craft_message_color = (140, 220, 160) if ok else (240, 140, 140)
-        self.craft_message_timer = 3.0
+        return ok, msg
 
     def _attempt_upgrade(self, kit_material_id):
         """Apply kit_material_id to self.selected_upgrade_item. Always the
@@ -653,7 +686,9 @@ class ProfessionsScreen(BaseScreen):
                                     color=COLOR_GOLD if on else (170, 170, 175))
             self.subtab_rects.append((lab, rect))
             sx += w + 6
-        y = sy + 32
+        self.renderer.draw_text(screen, "Click to craft one. Shift-click for five. Ctrl-click for as many as you can.",
+                                (PANEL_X, sy + 28), size="small", color=(130, 130, 138))
+        y = sy + 50
         if chosen != "All":
             recipes = [(rid, r) for rid, r in recipes if cats[rid] == chosen]
         if self.only_craftable:

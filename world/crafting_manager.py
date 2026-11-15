@@ -113,7 +113,7 @@ class CraftingManager:
             better = " or a better one" if len(self.tools_of(r)) > 1 else ""
             return False, f"You need a {tool.get('name', first)}{better} in your bags.", None
         if not character.has_materials(r["inputs"]):
-            return False, "Missing materials for that recipe.", None
+            return False, missing_text(character, r["inputs"]), None
         out = r["output"]
         if out["kind"] in _GEAR_KINDS and len(character.inventory) >= character.inventory_capacity:
             return False, "Your bags are full.", None
@@ -249,6 +249,22 @@ class CraftingManager:
                 m.quantity = n
                 out.append(m)
         return out
+
+
+def missing_text(character, inputs):
+    """What a recipe is short of, by name: "Need 2 more Bolt of Silk Cloth and 1 more Silken Thread."
+    (it said only "Missing materials for that recipe", which left you to work out which)."""
+    from world.gathering_manager import get_gathering_node_manager
+    gm = get_gathering_node_manager()
+    short = []
+    for mid, qty in (inputs or {}).items():
+        have = character.get_material_quantity(mid)
+        if have < qty:
+            name = (gm.get_material_def(mid) or {}).get("name", mid)
+            short.append(f"{qty - have} more {name}")
+    if not short:
+        return "Missing materials for that recipe."
+    return "Need " + (", ".join(short[:-1]) + " and " + short[-1] if len(short) > 1 else short[0]) + "."
 
 
 _crafting_manager = None
