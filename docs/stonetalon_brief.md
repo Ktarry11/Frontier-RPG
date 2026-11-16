@@ -27,6 +27,10 @@
 > nightmare....demons, like actual torture etc....it's actually a dark redition of hell....taurens get
 > mutilated....then they stand up after theyre killed and keep hunting....think inky black hell + zombies +
 > torture + Gore.... basically hellraiser"
+>
+> Then: "I want it to be like....I guess you know the eclipse in Berserk?"
+
+That sets the bar for Mulgore itself: a sky stuck mid-eclipse, a land that became a sacrifice, demons feeding, and the ones who die getting back up to hunt. The full vision is saved for when Mulgore is built at 60.
 
 Stonetalon is a 26-32 zone, so the glimpse stays a glimpse:
 - **What you see:** the edge of the dark, a sky that doesn't light past a certain line, and figures moving in it that used to be tauren.
