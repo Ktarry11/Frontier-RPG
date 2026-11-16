@@ -438,6 +438,10 @@ ASHVENT_POOLS = {
 #:   Old Talonwing        storm dives hit everyone: spread the healing
 #:   Topper Kezzik        a plated walker that shields itself: armour pen and burst between shields
 #:   The Eldest           the tree's own spirit, everything at once, and it roots you
+#: rares that only walk while someone has the quest that sends them after it (world/creature_manager's
+#: "quest_only"). Empty on purpose: Kyle, 15 Nov 2026, "Lets keep the risen hunter farmable".
+QUEST_ONLY = set()
+
 TRUNK, CROWN = "The Eldest Sequoia", "The Eldest's Crown"
 DUNGEON_ROSTER = {
     "Venture Co. Trunk Rigger": ("humanoid_rogue",    30, 31, None, "st_venture_rigger"),
@@ -677,6 +681,8 @@ def main():
         e = {"template": template, "level_range": [lo, hi], "is_boss": bool(mult), "ability_kit": kit_slug(name)}
         if mult:
             e["boss_multiplier"] = mult
+        if name in QUEST_ONLY:
+            e["quest_only"] = True
         creatures[name] = e
     merge_json(CREATURES, "creatures", creatures, "creatures.json")
     merge_json(KITS, "kits", {kit_slug(n): k for n, k in {**KITSETS, **CAVE_KITS}.items()}, "ability_kits.json")

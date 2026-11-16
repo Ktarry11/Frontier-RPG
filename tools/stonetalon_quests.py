@@ -334,7 +334,10 @@ def build():
         "The risen walk the Mulgore Rim. The overlook is at the far end, where the ground drops away into the "
         "dark. Look, then come back and tell me what you saw. Don't stay too long.",
         "You looked, so now you know.\n\nI used to think Mulgore would come back one day. I don't think that now. "
-        "We just have to make sure the dark stays on its side of the Rim.",
+        "We just have to make sure the dark stays on its side of the Rim.\n\nThere's one more out there, the one "
+        "who leads them. I won't send anyone after him until I know Sun Rock isn't standing alone. Muhana, Garnak "
+        "and Halona have all written for help, to Taurajo, Splintertree and the Aspen. When all three answers are "
+        "back, come and see me.",
         [("main_hand", "weapon", "sword_2h", "strength_hit"), ("chest", "armor", "cloth", "holy"),
          ("waist", "armor", "leather", "agility"), ("hands", "armor", "mail", "tide_healer")],
         nxt="st_the_risen_hunter"))

@@ -485,6 +485,9 @@ class CreatureManager:
             rare_names = [
                 name for name in encounter_table
                 if self.creatures.get(name, {}).get("is_boss", False)
+                # a QUEST-ONLY rare walks only while an active quest still wants it dead (The Risen Hunter
+                # waits for Kuna's last quest), so nobody meets him by accident first
+                and (not self.creatures.get(name, {}).get("quest_only") or name in quest_targets)
             ]
             wanted_rares = [n for n in rare_names if n in quest_targets]
             rare_chance = self.QUEST_RARE_SPAWN_CHANCE if wanted_rares else self.RARE_SPAWN_CHANCE
