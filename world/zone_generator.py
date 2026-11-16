@@ -5659,6 +5659,7 @@ def create_all_zones():
     from tools import handbuilt_mother_vein as dmv
     from tools import handbuilt_cistern as dcis   # NOT dc - that is a dungeon alias
     from tools import handbuilt_wpl_south as dwpls   # the Plaguelands (docs/plaguelands_design.md)
+    from tools import handbuilt_scarlet_monastery as dsm   # the Scarlet Monastery, grounds and four wings
     from tools import handbuilt_wpl_north as dwpln
     from tools import handbuilt_epl_west as deplw
     from tools import handbuilt_epl_east as deple
@@ -5821,6 +5822,13 @@ def create_all_zones():
         "Eastern Plaguelands West": deplw.generate_epl_west(),  # (tools/handbuilt_epl_west.py)
         # Light's Hope, Crown Guard, Tyr's Hand, Darrowshire and the far north-east (56-60, NOT pure 60)
         "Eastern Plaguelands East": deple.generate_epl_east(),  # (tools/handbuilt_epl_east.py)
+        # The Scarlet Monastery off Eastern Tirisfal's gate: the grounds and the four wings, each its own dungeon
+        # (Graveyard 28-32, Library 32-36, Armory 35-39, Cathedral 38-42). tools/handbuilt_scarlet_monastery.py
+        dsm.GROUNDS: dsm.generate_grounds(),
+        dsm.GRAVEYARD: dsm.generate_wing(dsm.GRAVEYARD),
+        dsm.LIBRARY: dsm.generate_wing(dsm.LIBRARY),
+        dsm.ARMORY: dsm.generate_wing(dsm.ARMORY),
+        dsm.CATHEDRAL: dsm.generate_wing(dsm.CATHEDRAL),
         # The pirate cove. A CAVE, not a dungeon: fixed_spawns False, boss pinned.
         "The Drownbell": ddrow.generate_drownbell(),
         # The void under the Abyssal Sands, reached down six of its sinkholes (Kyle, 13 Nov 2026).

@@ -1234,14 +1234,88 @@
           "Abbot Varenne": [
             25,
             "honored"
+          ],
+          "Scarlet Abbot": [
+            10,
+            "honored"
+          ],
+          "Scarlet Adept": [
+            10,
+            "honored"
+          ],
+          "Scarlet Beastmaster": [
+            10,
+            "honored"
+          ],
+          "Scarlet Centurion": [
+            10,
+            "honored"
+          ],
+          "Scarlet Champion": [
+            10,
+            "honored"
+          ],
+          "Scarlet Defender": [
+            10,
+            "honored"
+          ],
+          "Scarlet Evoker": [
+            10,
+            "honored"
+          ],
+          "Scarlet Gallant": [
+            10,
+            "honored"
+          ],
+          "Scarlet Monk": [
+            10,
+            "honored"
+          ],
+          "Scarlet Myrmidon": [
+            10,
+            "honored"
+          ],
+          "Scarlet Scryer": [
+            10,
+            "honored"
+          ],
+          "Scarlet Soldier": [
+            10,
+            "honored"
+          ],
+          "Scarlet Sorcerer": [
+            10,
+            "honored"
+          ],
+          "Scarlet Torturer": [
+            10,
+            "honored"
+          ],
+          "Scarlet Trainee": [
+            10,
+            "honored"
+          ],
+          "Scarlet Wizard": [
+            10,
+            "honored"
           ]
         }
       },
       "dungeon_rep": {
         "_comment": "A dungeon boss kill pays 75. The Monastery's wings are capped at Honored.",
         "per_boss": 75,
-        "dungeons": [],
-        "caps": {}
+        "dungeons": [
+          "Scarlet Monastery: Graveyard",
+          "Scarlet Monastery: Library",
+          "Scarlet Monastery: Armory",
+          "Scarlet Monastery: Cathedral"
+        ],
+        "caps": {
+          "Scarlet Monastery: Graveyard": "honored",
+          "Scarlet Monastery: Library": "honored",
+          "Scarlet Monastery: Armory": "honored",
+          "Scarlet Monastery: Cathedral": "honored"
+        }
       }
     },
     "argent_dawn": {

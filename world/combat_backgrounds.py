@@ -161,6 +161,12 @@ BIOME_TO_BACKGROUND = {
 # from its name - those docstrings state the visual character outright ("A salt pan is dead
 # flat", "the whole lower half is one great SUMP of standing water").
 ZONE_BACKGROUND = {
+    # --- the Scarlet Monastery (tools/handbuilt_scarlet_monastery.py): crypts under the graveyard, then the house --
+    "Scarlet Monastery Grounds": "keep",
+    "Scarlet Monastery: Graveyard": "dark_dungeon",
+    "Scarlet Monastery: Library": "keep",
+    "Scarlet Monastery: Armory": "keep",
+    "Scarlet Monastery: Cathedral": "keep",
     # --- Stonetalon (docs/stonetalon_brief.md). Kyle drew one for each place, 15 Nov 2026 -------------------
     "Stonetalon East": "st_blowdown",             # the blast zone: grey trunks in rows, the volcano behind
     "The Blowdown": "st_blowdown",

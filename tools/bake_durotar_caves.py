@@ -10,6 +10,7 @@ painting, registered as ground+water+obstacle chunks).  Each cave is a SPEC:
 
   floors: {material: [(cx, cy, rx, ry), ...]}   regions where a floor wins
   walls : {material: [(cx, cy, rx, ry), ...]}   regions where a wall type wins
+  floor_weight: {material: w}   optional; how strongly a floor wins inside its regions (default 0.95)
   The first floor / wall material is the base everywhere else.
   pools / lava are read from the built zone (analytic pools + lava tiles).
 """
@@ -282,7 +283,10 @@ def bake_spec(key, preview=None):
             S[k] = np.full_like(n_big, -1.0)
             continue
         mod = 0.65 + 0.35 * smoothstep(0.30, 0.60, n_mid)
-        S[k] = (0.10 + 0.95 * region(P, wp, ell) * mod).astype(np.float32)
+        # floor_weight: a floor that must win where its regions overlap another's (a cobble path across a
+        # lawn) is weighted up; every other floor keeps the 0.95 every spec was baked with.
+        w = spec.get("floor_weight", {}).get(k, 0.95)
+        S[k] = (0.10 + w * region(P, wp, ell) * mod).astype(np.float32)
     S[wk[0]] = np.full_like(n_big, 0.0)
     for k in wk[1:]:
         ell = spec["walls"].get(k, [])

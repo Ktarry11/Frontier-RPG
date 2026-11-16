@@ -43,6 +43,11 @@ DUNGEONS = {
     "wailing_caverns": (["stone_coffer", "dark_oak"], "royal_gold"),
     "razorfen_kraul": (["dark_oak", "steel_strongbox"], "royal_gold"),
     "the_broodspiral": (["stone_coffer", "dark_oak"], "royal_gold"),
+    # the Scarlet Monastery's wings (tools/handbuilt_scarlet_monastery.py)
+    "scarlet_monastery:_graveyard": (["chained_cursed", "stone_coffer"], "ossuary"),
+    "scarlet_monastery:_library": (["dark_oak", "steel_strongbox"], "royal_gold"),
+    "scarlet_monastery:_armory": (["steel_strongbox", "iron_banded"], "royal_gold"),
+    "scarlet_monastery:_cathedral": (["dark_oak", "steel_strongbox"], "ornate_gold"),
 }
 DUNGEON_DEFAULT = (["dark_oak", "steel_strongbox", "dark_oak", "ornate_gold"], "royal_gold")
 

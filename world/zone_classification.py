@@ -79,6 +79,11 @@ DUNGEONS = [
     "The Emberdeep",                    # Tempest Isle: the T0 legs
     "The Royal Hive",                   # Tanaris: the T0 shoulders
     "Stromgarde Keep",                  # Arathi: in data/dungeons/trash_packs.json
+    # Added 2026-11-16: the Scarlet Monastery's four wings, each its own dungeon. The grounds are not one.
+    "Scarlet Monastery: Graveyard",
+    "Scarlet Monastery: Library",
+    "Scarlet Monastery: Armory",
+    "Scarlet Monastery: Cathedral",
 ]
 # Drywhisker Deeps has fixed packs too, but it's the kobolds' MINE with its own ore pool, so like Azurelode
 # Mine it stays off this list and keeps its ore.

@@ -22,7 +22,9 @@ _ENTRANCE = re.compile(
     # doors and towers that ARE the way in
     r"gothic_gate|gg_watchtower|"
     # Jaedenar's gatehouse in North Felwood's west wall: the dungeon door stands in it
-    r"fw_jaedenar_gatehouse)"
+    r"fw_jaedenar_gatehouse|"
+    # the Scarlet Monastery's cemetery gate in Eastern Tirisfal, and the Plaguelands' dungeon fronts
+    r"ek_cemetery_gate|sm_facade|strat_gates|scholo_entrance|hearthglen_gatehouse|hearthglen_keep_gate)"
 )
 
 

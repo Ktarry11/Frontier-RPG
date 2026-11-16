@@ -14624,6 +14624,396 @@
       ],
       "is_boss": false,
       "ability_kit": "hearthglen_inquisitor"
+    },
+    "Scarlet Torturer": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        28,
+        31
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_torturer"
+    },
+    "Scarlet Scryer": {
+      "template": "humanoid_caster",
+      "level_range": [
+        28,
+        31
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_scryer"
+    },
+    "Haunting Phantasm": {
+      "template": "undead_caster",
+      "level_range": [
+        29,
+        31
+      ],
+      "is_boss": false,
+      "ability_kit": "haunting_phantasm"
+    },
+    "Anguished Dead": {
+      "template": "undead_basic",
+      "level_range": [
+        29,
+        31
+      ],
+      "is_boss": false,
+      "ability_kit": "anguished_dead"
+    },
+    "Unfettered Spirit": {
+      "template": "undead_caster",
+      "level_range": [
+        30,
+        31
+      ],
+      "is_boss": false,
+      "ability_kit": "unfettered_spirit"
+    },
+    "Interrogator Maelis": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        30,
+        30
+      ],
+      "is_boss": true,
+      "ability_kit": "interrogator_maelis",
+      "boss_multiplier": 2.5
+    },
+    "Azshir the Sleepless": {
+      "template": "undead_caster",
+      "level_range": [
+        31,
+        31
+      ],
+      "is_boss": true,
+      "ability_kit": "azshir_the_sleepless",
+      "boss_multiplier": 2.5
+    },
+    "The Fallen Champion": {
+      "template": "undead_warrior",
+      "level_range": [
+        31,
+        31
+      ],
+      "is_boss": true,
+      "ability_kit": "the_fallen_champion",
+      "boss_multiplier": 2.3
+    },
+    "Bloodmage Thalnos": {
+      "template": "undead_caster",
+      "level_range": [
+        32,
+        32
+      ],
+      "is_boss": true,
+      "ability_kit": "bloodmage_thalnos",
+      "boss_multiplier": 2.8
+    },
+    "Scarlet Adept": {
+      "template": "humanoid_caster",
+      "level_range": [
+        32,
+        35
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_adept"
+    },
+    "Scarlet Gallant": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        32,
+        35
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_gallant"
+    },
+    "Scarlet Beastmaster": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        33,
+        35
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_beastmaster"
+    },
+    "Scarlet Tracking Hound": {
+      "template": "beast_fast",
+      "level_range": [
+        33,
+        35
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_tracking_hound"
+    },
+    "Scarlet Monk": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        33,
+        40
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_monk"
+    },
+    "Houndmaster Loksey": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        34,
+        34
+      ],
+      "is_boss": true,
+      "ability_kit": "houndmaster_loksey",
+      "boss_multiplier": 2.5
+    },
+    "Archivist Dana Mercer": {
+      "template": "humanoid_caster",
+      "level_range": [
+        35,
+        35
+      ],
+      "is_boss": true,
+      "ability_kit": "archivist_dana_mercer",
+      "boss_multiplier": 2.3
+    },
+    "Arcanist Doan": {
+      "template": "humanoid_caster",
+      "level_range": [
+        36,
+        36
+      ],
+      "is_boss": true,
+      "ability_kit": "arcanist_doan",
+      "boss_multiplier": 2.8
+    },
+    "Scarlet Trainee": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        35,
+        36
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_trainee"
+    },
+    "Scarlet Soldier": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        35,
+        37
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_soldier"
+    },
+    "Scarlet Myrmidon": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        36,
+        38
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_myrmidon"
+    },
+    "Scarlet Defender": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        36,
+        38
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_defender"
+    },
+    "Scarlet Evoker": {
+      "template": "humanoid_caster",
+      "level_range": [
+        36,
+        38
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_evoker"
+    },
+    "Sergeant Major Cole Brennan": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        36,
+        36
+      ],
+      "is_boss": true,
+      "ability_kit": "sergeant_major_cole_brennan",
+      "boss_multiplier": 2.5
+    },
+    "Quartermaster Bram Ellison": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        37,
+        37
+      ],
+      "is_boss": true,
+      "ability_kit": "quartermaster_bram_ellison",
+      "boss_multiplier": 2.5
+    },
+    "Herod": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        39,
+        39
+      ],
+      "is_boss": true,
+      "ability_kit": "herod",
+      "boss_multiplier": 2.8
+    },
+    "Scarlet Centurion": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        38,
+        40
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_centurion"
+    },
+    "Scarlet Sorcerer": {
+      "template": "humanoid_caster",
+      "level_range": [
+        38,
+        41
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_sorcerer"
+    },
+    "Scarlet Champion": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        38,
+        41
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_champion"
+    },
+    "Scarlet Wizard": {
+      "template": "humanoid_caster",
+      "level_range": [
+        38,
+        41
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_wizard"
+    },
+    "Scarlet Abbot": {
+      "template": "humanoid_caster",
+      "level_range": [
+        39,
+        41
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_abbot"
+    },
+    "High Inquisitor Aldric": {
+      "template": "undead_warrior",
+      "level_range": [
+        40,
+        40
+      ],
+      "is_boss": true,
+      "ability_kit": "high_inquisitor_aldric",
+      "boss_multiplier": 2.3
+    },
+    "Brother Corwin Ashe": {
+      "template": "humanoid_caster",
+      "level_range": [
+        41,
+        41
+      ],
+      "is_boss": true,
+      "ability_kit": "brother_corwin_ashe",
+      "boss_multiplier": 2.5
+    },
+    "High Inquisitor Whitemane": {
+      "template": "humanoid_caster",
+      "level_range": [
+        42,
+        42
+      ],
+      "is_boss": true,
+      "ability_kit": "high_inquisitor_whitemane",
+      "boss_multiplier": 2.4
+    },
+    "Scarlet Commander Mograine": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        42,
+        42
+      ],
+      "is_boss": true,
+      "ability_kit": "scarlet_commander_mograine",
+      "boss_multiplier": 2.3
+    },
+    "Ironspine": {
+      "template": "undead_warrior",
+      "level_range": [
+        31,
+        31
+      ],
+      "is_boss": true,
+      "ability_kit": "ironspine",
+      "boss_multiplier": 2.3
+    },
+    "Inquisitor Vellan Rook": {
+      "template": "humanoid_caster",
+      "level_range": [
+        33,
+        33
+      ],
+      "is_boss": true,
+      "ability_kit": "inquisitor_vellan_rook",
+      "boss_multiplier": 2.5
+    },
+    "Curator Halbrecht": {
+      "template": "humanoid_caster",
+      "level_range": [
+        35,
+        35
+      ],
+      "is_boss": true,
+      "ability_kit": "curator_halbrecht",
+      "boss_multiplier": 2.5
+    },
+    "Smithmaster Corra Bellweather": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        37,
+        37
+      ],
+      "is_boss": true,
+      "ability_kit": "smithmaster_corra_bellweather",
+      "boss_multiplier": 2.3
+    },
+    "Master-at-Arms Dorran Pike": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        38,
+        38
+      ],
+      "is_boss": true,
+      "ability_kit": "master_at_arms_dorran_pike",
+      "boss_multiplier": 2.5
+    },
+    "Brother Garrick Thorne": {
+      "template": "humanoid_caster",
+      "level_range": [
+        39,
+        39
+      ],
+      "is_boss": true,
+      "ability_kit": "brother_garrick_thorne",
+      "boss_multiplier": 2.5
+    },
+    "Captain Elric Stane": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        40,
+        40
+      ],
+      "is_boss": true,
+      "ability_kit": "captain_elric_stane",
+      "boss_multiplier": 2.5
     }
   }
 }

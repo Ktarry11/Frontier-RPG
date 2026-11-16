@@ -21,9 +21,25 @@
       "dungeon": "Gurbashi Arena",
       "chance": 0.02
     },
+    "Bloodmage Thalnos": {
+      "dungeon": "Scarlet Monastery: Graveyard",
+      "chance": 0.02
+    },
+    "Arcanist Doan": {
+      "dungeon": "Scarlet Monastery: Library",
+      "chance": 0.02
+    },
+    "Herod": {
+      "dungeon": "Scarlet Monastery: Armory",
+      "chance": 0.02
+    },
     "The Deep Bloom": {
       "dungeon": "The Deep Bloom",
       "chance": 0.02
+    },
+    "High Inquisitor Whitemane": {
+      "dungeon": "Scarlet Monastery: Cathedral",
+      "chance": 0.05
     },
     "Captain Ruel Scuttler": {
       "dungeon": "The Bloodsail Raider",
@@ -6925,6 +6941,105 @@
       "recipe_profession": null,
       "power_scale": 3,
       "boss": "Admiral Hedessa Crane"
+    },
+    {
+      "item_id": "epic_whitemanes_book_of_hours",
+      "name": "Whitemane's Book of Hours",
+      "slot": "off_hand",
+      "item_level": 45,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "tome",
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 12
+      },
+      "secondary_stats": {
+        "spell_power": 25,
+        "crit_chance_spell": 7,
+        "healing_power": 4
+      },
+      "armor_value": 9,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_wow_tome_scarlet_hours",
+      "required_level": 43,
+      "sell_price": 10632,
+      "flavor_text": "The High Inquisitor's own prayer book, with the names of everyone she has raised written in the back.",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "spirit": 4
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "power_scale": 3,
+      "boss": "High Inquisitor Whitemane"
+    },
+    {
+      "item_id": "epic_the_scarlet_commanders_breastplate",
+      "name": "The Scarlet Commander's Breastplate",
+      "slot": "chest",
+      "item_level": 45,
+      "rarity": "epic",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 25,
+        "spirit": 21
+      },
+      "secondary_stats": {},
+      "armor_value": 469,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_wow_plate_chest_crimson",
+      "required_level": 43,
+      "sell_price": 17719,
+      "flavor_text": "Mograine's breastplate, black steel edged in red, made for him when he took command of the Crusade's army.",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        },
+        {
+          "color": "blue",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "strength": 4
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "power_scale": 3,
+      "boss": "High Inquisitor Whitemane"
     },
     {
       "item_id": "epic_droughtcallers_mantle",

@@ -156,6 +156,9 @@ Argent rep). Rare drop: the Baron's deathcharger.
 **Scholomance, classic and full.** Caer Darrow, the Barovs, Kirtonos, Rattlegore, Ras Frostwhisper, Gandling.
 
 **The Scarlet Monastery, four wings** off the gate in Eastern Tirisfal: Graveyard, Library, Armory, Cathedral.
+Built 16 Nov 2026 (docs/scarlet_monastery_build_log.md). A walled grounds map inside the gate holds the four doors.
+Each wing is its own dungeon with its own last boss, and the Cathedral ends on a two-boss fight (Whitemane and
+Mograine) that drops three.
 
 **Shared rules.**
 - No keys. Every dungeon is open.

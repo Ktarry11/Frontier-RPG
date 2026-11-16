@@ -5,7 +5,7 @@ Laid out on the REAL Tirisfal map (Brill 60,55 is the pivot; 1 map unit = 2.6 ti
     W    BRILL's east gate (the road out), the BYPASS road in from Western Tirisfal north of town
     SW   the ZEPPELIN LANDING, the road down to the RUINS OF LORDAERON (the Undercity gate, 62,65) and the SILVERPINE road south
     NW   BRIGHTWATER LAKE (68,42) with Gunther's Retreat on its shore; the sea along the whole north: THE NORTH COAST (66,29)
-    N/NE the SCARLET WATCH POST (78,33), and beyond it the barred gate of the SCARLET MONASTERY (85,33) - sealed, a dungeon for later
+    N/NE the SCARLET WATCH POST (78,33), and beyond it the gate of the SCARLET MONASTERY (70,29): its grounds and four wings (tools/handbuilt_scarlet_monastery.py)
     E    the CRUSADER OUTPOST (78,51), FAOL'S REST (82,45), and VENOMWEB VALE (87,49) on the far east rim
     SE   BALNIR FARMSTEAD (73,62) with the Cult of the Damned's cellar (Scourge Cave), and the barred BULWARK road (84,70):
          the way on to the Plaguelands is closed
@@ -35,8 +35,9 @@ IS_TOWN = False
 BASE_TILE = "grass"
 
 PORTALS = {(4, 62): "Western Tirisfal", (6, 86): "Brill", (21, 97): "Undercity Zeppelin Tower", (10, 112): "Undercity",
-           (16, 136): "Silverpine North", (52, 112): "Scourge Cave", (88, 126): "Western Plaguelands South"}
-ARRIVALS = [(8, 62), (10, 88), (21, 100), (10, 108), (16, 132), (52, 116), (84, 126)]
+           (16, 136): "Silverpine North", (52, 112): "Scourge Cave", (88, 126): "Western Plaguelands South",
+           (70, 29): "Scarlet Monastery Grounds"}
+ARRIVALS = [(8, 62), (10, 88), (21, 100), (10, 108), (16, 132), (52, 116), (84, 126), (70, 32)]
 START = (28, 87)
 
 ROADS = {
@@ -225,7 +226,7 @@ def dress(L):
         p("ek_farm_fence", x, 38, 3, solid=True)
     p("ek_ruin_wall", 64, 24, 4)
     p("ek_signpost", 47, 40, 4)
-    # ---- the Scarlet Monastery's gate: barred, a dungeon for later
+    # ---- the Scarlet Monastery's gate: the way into its grounds and four wings
     p("ek_cemetery_gate", 70, 30, 7, road_ok=True, allow_overlap=True, nudge=0)
     p("ek_angel_statue", 66, 26, 6)
     p("ek_angel_statue", 75, 26, 6)

@@ -82,6 +82,9 @@ ICONS = {
     "gear_wow_trinket_aq_4": "Miscellaneous/AhnQirajTrinket_04.png",
     "gear_wow_trinket_aq_5": "Miscellaneous/AhnQirajTrinket_05.png",
     "gear_wow_trinket_aq_6": "Miscellaneous/AhnQirajTrinket_06.png",
+    # the Scarlet Monastery's last fight (High Inquisitor Whitemane and Scarlet Commander Mograine)
+    "gear_wow_tome_scarlet_hours": "Weapons/Stratholme_A_01.png",
+    "gear_wow_plate_chest_crimson": "Armour/Plate08.png",
 }
 
 

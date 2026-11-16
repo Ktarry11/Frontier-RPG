@@ -1,0 +1,1255 @@
+{
+  "_notes": "Boss loot for the Scarlet Monastery's four wings (28-42). ONE item per kill from the boss's three; the Cathedral's pair (Whitemane and Mograine) share nine and drop three. item_level = boss level + 3. Hand-authored in tools/build_scarlet_monastery_content.py.",
+  "Interrogator Maelis": [
+    {
+      "name": "Maelis's Branding Iron",
+      "slot": "main_hand",
+      "item_level": 33,
+      "rarity": "rare",
+      "required_level": 30,
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "strength": 9
+      },
+      "secondary_stats": {
+        "hit_rating": 7,
+        "crit_chance_physical": 7
+      },
+      "weapon_damage_min": 61,
+      "weapon_damage_max": 83,
+      "attack_speed": 2.6,
+      "stat_template": "str_physical",
+      "item_id": "sm_maeliss_branding_iron"
+    },
+    {
+      "name": "Questioner's Apron",
+      "slot": "chest",
+      "item_level": 33,
+      "rarity": "rare",
+      "required_level": 30,
+      "primary_stats": {
+        "agility": 10
+      },
+      "secondary_stats": {
+        "hit_rating": 8,
+        "crit_chance_physical": 8
+      },
+      "armor_type": "leather",
+      "armor_value": 108,
+      "stat_template": "agi_physical",
+      "item_id": "sm_questioners_apron"
+    },
+    {
+      "name": "Cell-Keeper's Ring",
+      "slot": "ring",
+      "item_level": 33,
+      "rarity": "rare",
+      "required_level": 30,
+      "primary_stats": {
+        "intellect": 5,
+        "spirit": 5
+      },
+      "secondary_stats": {
+        "healing_power": 13
+      },
+      "stat_template": "spi_healer",
+      "item_id": "sm_cell_keepers_ring"
+    }
+  ],
+  "Ironspine": [
+    {
+      "name": "Spine of the Restless",
+      "slot": "main_hand",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 26,
+        "stamina": 26
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 85,
+      "weapon_damage_max": 115,
+      "attack_speed": 3.6,
+      "stat_template": "str_physical",
+      "item_id": "sm_spine_of_the_restless"
+    },
+    {
+      "name": "Grave-Iron Gauntlets",
+      "slot": "hands",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "primary_stats": {
+        "strength": 6,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "defense_rating": 5
+      },
+      "armor_type": "plate",
+      "armor_value": 185,
+      "stat_template": "str_physical",
+      "item_id": "sm_grave_iron_gauntlets"
+    },
+    {
+      "name": "Bonelinked Belt",
+      "slot": "waist",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "primary_stats": {
+        "agility": 6,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "hit_rating": 4
+      },
+      "armor_type": "mail",
+      "armor_value": 123,
+      "stat_template": "agi_physical",
+      "item_id": "sm_bonelinked_belt"
+    }
+  ],
+  "Azshir the Sleepless": [
+    {
+      "name": "Sleepless Shroud",
+      "slot": "back",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "primary_stats": {
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "spell_power": 12,
+        "mp5": 1
+      },
+      "armor_type": "cloth",
+      "armor_value": 34,
+      "stat_template": "int_caster",
+      "item_id": "sm_sleepless_shroud"
+    },
+    {
+      "name": "Grave-Grasp Handwraps",
+      "slot": "hands",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "primary_stats": {},
+      "secondary_stats": {
+        "shadow_spell_power": 34
+      },
+      "armor_type": "cloth",
+      "armor_value": 38,
+      "stat_template": "int_caster",
+      "item_id": "sm_grave_grasp_handwraps"
+    },
+    {
+      "name": "Ghostweave Leggings",
+      "slot": "legs",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "primary_stats": {
+        "agility": 9,
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "attack_power": 16
+      },
+      "armor_type": "mail",
+      "armor_value": 178,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "sm_ghostweave_leggings"
+    }
+  ],
+  "The Fallen Champion": [
+    {
+      "name": "The Champion's Grave-Blade",
+      "slot": "main_hand",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "weapon_type": "sword_2h",
+      "primary_stats": {
+        "strength": 26
+      },
+      "secondary_stats": {
+        "armor_penetration_pct": 49,
+        "attack_power": 37
+      },
+      "weapon_damage_min": 85,
+      "weapon_damage_max": 115,
+      "attack_speed": 3.4,
+      "stat_template": "str_physical",
+      "item_id": "sm_the_champions_grave_blade"
+    },
+    {
+      "name": "Tomb-Rusted Pauldrons",
+      "slot": "shoulder",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "primary_stats": {
+        "strength": 8,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "defense_rating": 6
+      },
+      "armor_type": "plate",
+      "armor_value": 226,
+      "stat_template": "str_physical",
+      "item_id": "sm_tomb_rusted_pauldrons"
+    },
+    {
+      "name": "Last Vigil Bracers",
+      "slot": "wrist",
+      "item_level": 34,
+      "rarity": "rare",
+      "required_level": 31,
+      "primary_stats": {
+        "stamina": 6,
+        "intellect": 6
+      },
+      "secondary_stats": {
+        "healing_power": 11
+      },
+      "armor_type": "mail",
+      "armor_value": 123,
+      "stat_template": "spi_healer",
+      "item_id": "sm_last_vigil_bracers"
+    }
+  ],
+  "Bloodmage Thalnos": [
+    {
+      "name": "Blood-Inked Staff",
+      "slot": "main_hand",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "weapon_type": "staff",
+      "primary_stats": {},
+      "secondary_stats": {
+        "fire_spell_power": 76
+      },
+      "weapon_damage_min": 35,
+      "weapon_damage_max": 48,
+      "attack_speed": 3.2,
+      "stat_template": "int_caster",
+      "item_id": "sm_blood_inked_staff"
+    },
+    {
+      "name": "Bloodmage's Mantle",
+      "slot": "shoulder",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "primary_stats": {
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "spell_power": 18,
+        "crit_chance_spell": 5
+      },
+      "armor_type": "cloth",
+      "armor_value": 48,
+      "stat_template": "int_caster",
+      "item_id": "sm_bloodmages_mantle"
+    },
+    {
+      "name": "Chain of the Bone Chapel",
+      "slot": "neck",
+      "item_level": 35,
+      "rarity": "rare",
+      "required_level": 32,
+      "primary_stats": {
+        "intellect": 8,
+        "spirit": 8
+      },
+      "secondary_stats": {},
+      "stat_template": "spi_healer",
+      "item_id": "sm_chain_of_the_bone_chapel"
+    }
+  ],
+  "Inquisitor Vellan Rook": [
+    {
+      "name": "Vellan's Branding Rod",
+      "slot": "ranged",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "weapon_type": "wand",
+      "primary_stats": {},
+      "secondary_stats": {
+        "fire_spell_power": 32
+      },
+      "weapon_damage_min": 56,
+      "weapon_damage_max": 76,
+      "attack_speed": 1.9,
+      "stat_template": "int_caster",
+      "item_id": "sm_vellans_branding_rod"
+    },
+    {
+      "name": "Judgement-Bound Bracers",
+      "slot": "wrist",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "primary_stats": {
+        "strength": 10,
+        "intellect": 10
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 196,
+      "stat_template": "str_int_hybrid",
+      "item_id": "sm_judgement_bound_bracers"
+    },
+    {
+      "name": "Hood of the Hall of Judgement",
+      "slot": "head",
+      "item_level": 36,
+      "rarity": "rare",
+      "required_level": 33,
+      "primary_stats": {
+        "spirit": 11,
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "healing_power": 17
+      },
+      "armor_type": "leather",
+      "armor_value": 99,
+      "stat_template": "spi_healer",
+      "item_id": "sm_hood_of_the_hall_of_judgement"
+    }
+  ],
+  "Houndmaster Loksey": [
+    {
+      "name": "Houndmaster's Longbow",
+      "slot": "ranged",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "weapon_type": "bow",
+      "primary_stats": {
+        "agility": 6,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "hit_rating": 4
+      },
+      "weapon_damage_min": 57,
+      "weapon_damage_max": 78,
+      "attack_speed": 2.8,
+      "stat_template": "agi_physical",
+      "item_id": "sm_houndmasters_longbow"
+    },
+    {
+      "name": "Kennelmaster's Jerkin",
+      "slot": "chest",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "primary_stats": {
+        "agility": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "attack_power": 18
+      },
+      "armor_type": "leather",
+      "armor_value": 121,
+      "stat_template": "agi_physical",
+      "item_id": "sm_kennelmasters_jerkin"
+    },
+    {
+      "name": "Leash-Hand Gauntlets",
+      "slot": "hands",
+      "item_level": 37,
+      "rarity": "rare",
+      "required_level": 34,
+      "primary_stats": {
+        "agility": 7,
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "attack_power": 12
+      },
+      "armor_type": "mail",
+      "armor_value": 134,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "sm_leash_hand_gauntlets"
+    }
+  ],
+  "Archivist Dana Mercer": [
+    {
+      "name": "The Archivist's Ledger",
+      "slot": "off_hand",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 35,
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 7,
+        "spirit": 7
+      },
+      "secondary_stats": {
+        "healing_power": 18
+      },
+      "stat_template": "spi_healer",
+      "item_id": "sm_the_archivists_ledger"
+    },
+    {
+      "name": "Hood of the Closed Stacks",
+      "slot": "head",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 35,
+      "primary_stats": {
+        "intellect": 10
+      },
+      "secondary_stats": {
+        "crit_chance_spell": 8,
+        "spell_hit_rating": 8
+      },
+      "armor_type": "cloth",
+      "armor_value": 52,
+      "stat_template": "int_caster",
+      "item_id": "sm_hood_of_the_closed_stacks"
+    },
+    {
+      "name": "Index-Keeper's Sash",
+      "slot": "waist",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 35,
+      "primary_stats": {
+        "stamina": 7,
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "healing_power": 12
+      },
+      "armor_type": "leather",
+      "armor_value": 86,
+      "stat_template": "spi_healer",
+      "item_id": "sm_index_keepers_sash"
+    }
+  ],
+  "Curator Halbrecht": [
+    {
+      "name": "Halbrecht's Ceremonial Blade",
+      "slot": "main_hand",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 35,
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "spell_power": 19,
+        "crit_chance_spell": 5
+      },
+      "weapon_damage_min": 69,
+      "weapon_damage_max": 94,
+      "attack_speed": 2.4,
+      "stat_template": "int_caster",
+      "item_id": "sm_halbrechts_ceremonial_blade"
+    },
+    {
+      "name": "Gallery Warden's Cloak",
+      "slot": "back",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 35,
+      "primary_stats": {
+        "agility": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 38,
+      "stat_template": "agi_physical",
+      "item_id": "sm_gallery_wardens_cloak"
+    },
+    {
+      "name": "Velvet-Rope Sash",
+      "slot": "waist",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 35,
+      "primary_stats": {
+        "intellect": 10,
+        "spirit": 10
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 43,
+      "stat_template": "spi_healer",
+      "item_id": "sm_velvet_rope_sash"
+    }
+  ],
+  "Arcanist Doan": [
+    {
+      "name": "Doan's Detonator",
+      "slot": "ranged",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 6
+      },
+      "secondary_stats": {
+        "spell_power": 14,
+        "crit_chance_spell": 4
+      },
+      "weapon_damage_min": 60,
+      "weapon_damage_max": 81,
+      "attack_speed": 1.9,
+      "stat_template": "int_caster",
+      "item_id": "sm_doans_detonator"
+    },
+    {
+      "name": "Robe of the Athenaeum",
+      "slot": "chest",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "primary_stats": {
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "spell_power": 23,
+        "mp5": 3
+      },
+      "armor_type": "cloth",
+      "armor_value": 63,
+      "stat_template": "int_caster",
+      "item_id": "sm_robe_of_the_athenaeum"
+    },
+    {
+      "name": "Doan's Cracked Lens",
+      "slot": "trinket",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "primary_stats": {
+        "intellect": 6
+      },
+      "secondary_stats": {
+        "spell_power": 14,
+        "spell_hit_rating": 4
+      },
+      "stat_template": "int_caster",
+      "item_id": "sm_doans_cracked_lens",
+      "proc": {
+        "trigger": "on_damage_cast",
+        "chance": 8,
+        "icd": 5,
+        "apply_effect": {
+          "effect_id": "doans_cracked_lens",
+          "name": "Something Seen Clearly",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "spell_power": 24
+          },
+          "on_target": false
+        },
+        "describe": "Your damaging spells have a chance to grant 24 spell power for 3 turns."
+      }
+    }
+  ],
+  "Sergeant Major Cole Brennan": [
+    {
+      "name": "Drill Sergeant's Halberd",
+      "slot": "main_hand",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 21
+      },
+      "secondary_stats": {
+        "hit_rating": 16,
+        "crit_chance_physical": 16
+      },
+      "weapon_damage_min": 96,
+      "weapon_damage_max": 130,
+      "attack_speed": 3.3,
+      "stat_template": "str_physical",
+      "item_id": "sm_drill_sergeants_halberd"
+    },
+    {
+      "name": "Parade-Ground Greaves",
+      "slot": "legs",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "primary_stats": {
+        "strength": 11,
+        "stamina": 14
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 6
+      },
+      "armor_type": "plate",
+      "armor_value": 307,
+      "stat_template": "str_physical",
+      "item_id": "sm_parade_ground_greaves"
+    },
+    {
+      "name": "The Sergeant's Whistle",
+      "slot": "trinket",
+      "item_level": 39,
+      "rarity": "rare",
+      "required_level": 36,
+      "primary_stats": {
+        "strength": 7,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "defense_rating": 5
+      },
+      "stat_template": "str_physical",
+      "item_id": "sm_the_sergeants_whistle",
+      "proc": {
+        "trigger": "on_damage_taken",
+        "chance": 10,
+        "icd": 5,
+        "apply_effect": {
+          "effect_id": "sergeants_whistle",
+          "name": "Fall In",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "armor": 300
+          },
+          "on_target": false
+        },
+        "describe": "When you are hit, you have a chance to gain 300 armour for 3 turns."
+      }
+    }
+  ],
+  "Quartermaster Bram Ellison": [
+    {
+      "name": "Quartermaster's Tower Shield",
+      "slot": "off_hand",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 18
+      },
+      "armor_value": 81,
+      "block_value": 102,
+      "stat_template": "str_physical",
+      "item_id": "sm_quartermasters_tower_shield"
+    },
+    {
+      "name": "Inventory-Keeper's Gauntlets",
+      "slot": "hands",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "primary_stats": {
+        "strength": 11,
+        "intellect": 11
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 218,
+      "stat_template": "str_int_hybrid",
+      "item_id": "sm_inventory_keepers_gauntlets"
+    },
+    {
+      "name": "Armoury Chain Coif",
+      "slot": "head",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "primary_stats": {
+        "agility": 9,
+        "stamina": 12
+      },
+      "secondary_stats": {
+        "hit_rating": 5
+      },
+      "armor_type": "mail",
+      "armor_value": 177,
+      "stat_template": "agi_physical",
+      "item_id": "sm_armoury_chain_coif"
+    }
+  ],
+  "Smithmaster Corra Bellweather": [
+    {
+      "name": "Smithmaster's Hammer",
+      "slot": "main_hand",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "strength": 9,
+        "stamina": 12
+      },
+      "secondary_stats": {
+        "crit_chance_physical": 5
+      },
+      "weapon_damage_min": 72,
+      "weapon_damage_max": 98,
+      "attack_speed": 2.6,
+      "stat_template": "str_physical",
+      "item_id": "sm_smithmasters_hammer"
+    },
+    {
+      "name": "Forge-Apron Chestguard",
+      "slot": "chest",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "primary_stats": {
+        "strength": 11,
+        "stamina": 14
+      },
+      "secondary_stats": {
+        "defense_rating": 8
+      },
+      "armor_type": "plate",
+      "armor_value": 315,
+      "stat_template": "str_physical",
+      "item_id": "sm_forge_apron_chestguard"
+    },
+    {
+      "name": "Quenching Gloves",
+      "slot": "hands",
+      "item_level": 40,
+      "rarity": "rare",
+      "required_level": 37,
+      "primary_stats": {
+        "stamina": 8,
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "healing_power": 13
+      },
+      "armor_type": "leather",
+      "armor_value": 90,
+      "stat_template": "spi_healer",
+      "item_id": "sm_quenching_gloves"
+    }
+  ],
+  "Master-at-Arms Dorran Pike": [
+    {
+      "name": "Master-at-Arms' Partisan",
+      "slot": "main_hand",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 20
+      },
+      "secondary_stats": {
+        "attack_power": 39,
+        "hit_rating": 17
+      },
+      "weapon_damage_min": 100,
+      "weapon_damage_max": 135,
+      "attack_speed": 3.3,
+      "stat_template": "str_physical",
+      "item_id": "sm_master_at_arms_partisan"
+    },
+    {
+      "name": "Duellist's Leggings",
+      "slot": "legs",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "primary_stats": {
+        "agility": 13
+      },
+      "secondary_stats": {
+        "hit_rating": 10,
+        "crit_chance_physical": 10
+      },
+      "armor_type": "leather",
+      "armor_value": 134,
+      "stat_template": "agi_physical",
+      "item_id": "sm_duellists_leggings"
+    },
+    {
+      "name": "Pike's Parrying Bracers",
+      "slot": "wrist",
+      "item_level": 41,
+      "rarity": "rare",
+      "required_level": 38,
+      "primary_stats": {
+        "agility": 8,
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "attack_power": 13
+      },
+      "armor_type": "mail",
+      "armor_value": 149,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "sm_pikes_parrying_bracers"
+    }
+  ],
+  "Herod": [
+    {
+      "name": "Herod's Greataxe",
+      "slot": "main_hand",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 39,
+      "weapon_type": "axe_2h",
+      "primary_stats": {
+        "strength": 32
+      },
+      "secondary_stats": {
+        "armor_penetration_pct": 60,
+        "attack_power": 45
+      },
+      "weapon_damage_min": 102,
+      "weapon_damage_max": 138,
+      "attack_speed": 3.6,
+      "stat_template": "str_physical",
+      "item_id": "sm_herods_greataxe"
+    },
+    {
+      "name": "Hall of Champions Mantle",
+      "slot": "shoulder",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 39,
+      "primary_stats": {
+        "intellect": 10,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "mp5": 2
+      },
+      "armor_type": "mail",
+      "armor_value": 186,
+      "stat_template": "spi_healer",
+      "item_id": "sm_hall_of_champions_mantle"
+    },
+    {
+      "name": "Band of the Champions' Hall",
+      "slot": "ring",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 39,
+      "primary_stats": {
+        "agility": 8
+      },
+      "secondary_stats": {
+        "hit_rating": 6,
+        "crit_chance_physical": 6
+      },
+      "stat_template": "agi_physical",
+      "item_id": "sm_band_of_the_champions_hall"
+    }
+  ],
+  "Brother Garrick Thorne": [
+    {
+      "name": "Gardener's Pruning Hook",
+      "slot": "main_hand",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 39,
+      "weapon_type": "axe_1h",
+      "primary_stats": {
+        "agility": 14,
+        "intellect": 14
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 76,
+      "weapon_damage_max": 102,
+      "attack_speed": 2.6,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "sm_gardeners_pruning_hook"
+    },
+    {
+      "name": "Thorn-Woven Vest",
+      "slot": "chest",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 39,
+      "primary_stats": {
+        "spirit": 15,
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "healing_power": 23
+      },
+      "armor_type": "leather",
+      "armor_value": 137,
+      "stat_template": "spi_healer",
+      "item_id": "sm_thorn_woven_vest"
+    },
+    {
+      "name": "Signet of the Chapel Gardens",
+      "slot": "ring",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 39,
+      "primary_stats": {
+        "intellect": 10,
+        "spirit": 10
+      },
+      "secondary_stats": {},
+      "stat_template": "spi_healer",
+      "item_id": "sm_signet_of_the_chapel_gardens"
+    }
+  ],
+  "Captain Elric Stane": [
+    {
+      "name": "Chapel Guard's Kite Shield",
+      "slot": "off_hand",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 19
+      },
+      "armor_value": 87,
+      "block_value": 109,
+      "stat_template": "str_physical",
+      "item_id": "sm_chapel_guards_kite_shield"
+    },
+    {
+      "name": "Captain's Plate Greaves",
+      "slot": "legs",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "primary_stats": {
+        "stamina": 16
+      },
+      "secondary_stats": {
+        "defense_rating": 12,
+        "dodge_rating": 8
+      },
+      "armor_type": "plate",
+      "armor_value": 338,
+      "stat_template": "str_physical",
+      "item_id": "sm_captains_plate_greaves"
+    },
+    {
+      "name": "Doorwarden's Cloak",
+      "slot": "back",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "primary_stats": {
+        "intellect": 7,
+        "stamina": 7
+      },
+      "secondary_stats": {
+        "spell_power": 9
+      },
+      "armor_type": "cloth",
+      "armor_value": 43,
+      "stat_template": "int_caster",
+      "item_id": "sm_doorwardens_cloak"
+    }
+  ],
+  "High Inquisitor Aldric": [
+    {
+      "name": "Cell-Warden's Wristguards",
+      "slot": "wrist",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "primary_stats": {
+        "agility": 8,
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "attack_power": 14
+      },
+      "armor_type": "leather",
+      "armor_value": 97,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "sm_cell_wardens_wristguards"
+    },
+    {
+      "name": "Unburied Girdle",
+      "slot": "waist",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "primary_stats": {
+        "strength": 12,
+        "intellect": 12
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 234,
+      "stat_template": "str_int_hybrid",
+      "item_id": "sm_unburied_girdle"
+    },
+    {
+      "name": "Inquisitor's Grave-Cloak",
+      "slot": "back",
+      "item_level": 43,
+      "rarity": "rare",
+      "required_level": 40,
+      "primary_stats": {
+        "agility": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 43,
+      "stat_template": "agi_physical",
+      "item_id": "sm_inquisitors_grave_cloak"
+    }
+  ],
+  "Brother Corwin Ashe": [
+    {
+      "name": "Brother Ashe's Censer",
+      "slot": "main_hand",
+      "item_level": 44,
+      "rarity": "rare",
+      "required_level": 41,
+      "weapon_type": "mace_1h",
+      "primary_stats": {},
+      "secondary_stats": {
+        "healing_power": 41,
+        "mp5": 4
+      },
+      "weapon_damage_min": 79,
+      "weapon_damage_max": 107,
+      "attack_speed": 2.6,
+      "stat_template": "spi_healer",
+      "item_id": "sm_brother_ashes_censer"
+    },
+    {
+      "name": "Nave-Walker's Hauberk",
+      "slot": "chest",
+      "item_level": 44,
+      "rarity": "rare",
+      "required_level": 41,
+      "primary_stats": {
+        "agility": 17,
+        "intellect": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 231,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "sm_nave_walkers_hauberk"
+    },
+    {
+      "name": "Pew-Worn Boots",
+      "slot": "feet",
+      "item_level": 44,
+      "rarity": "rare",
+      "required_level": 41,
+      "primary_stats": {
+        "intellect": 7,
+        "spirit": 7
+      },
+      "secondary_stats": {
+        "healing_power": 19
+      },
+      "armor_type": "leather",
+      "armor_value": 99,
+      "stat_template": "spi_healer",
+      "item_id": "sm_pew_worn_boots"
+    }
+  ],
+  "High Inquisitor Whitemane": [
+    {
+      "name": "Scepter of the Scarlet Chancel",
+      "slot": "main_hand",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "spell_power": 23,
+        "crit_chance_spell": 6
+      },
+      "weapon_damage_min": 80,
+      "weapon_damage_max": 109,
+      "attack_speed": 2.6,
+      "stat_template": "int_caster",
+      "item_id": "sm_scepter_of_the_scarlet_chancel"
+    },
+    {
+      "name": "The Commander's Longsword",
+      "slot": "main_hand",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "weapon_type": "sword_2h",
+      "primary_stats": {
+        "strength": 25
+      },
+      "secondary_stats": {
+        "hit_rating": 19,
+        "crit_chance_physical": 19
+      },
+      "weapon_damage_min": 109,
+      "weapon_damage_max": 147,
+      "attack_speed": 3.4,
+      "stat_template": "str_physical",
+      "item_id": "sm_the_commanders_longsword"
+    },
+    {
+      "name": "Commander's Parrying Dagger",
+      "slot": "main_hand",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 10
+      },
+      "secondary_stats": {
+        "hit_rating": 8,
+        "crit_chance_physical": 8
+      },
+      "weapon_damage_min": 80,
+      "weapon_damage_max": 109,
+      "attack_speed": 1.7,
+      "stat_template": "agi_physical",
+      "item_id": "sm_commanders_parrying_dagger"
+    },
+    {
+      "name": "High Inquisitor's Mitre",
+      "slot": "head",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "primary_stats": {
+        "intellect": 9,
+        "spirit": 9
+      },
+      "secondary_stats": {
+        "healing_power": 24
+      },
+      "armor_type": "cloth",
+      "armor_value": 62,
+      "stat_template": "spi_healer",
+      "item_id": "sm_high_inquisitors_mitre"
+    },
+    {
+      "name": "Crimson Commander's Pauldrons",
+      "slot": "shoulder",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "primary_stats": {
+        "strength": 10,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "defense_rating": 8
+      },
+      "armor_type": "plate",
+      "armor_value": 299,
+      "stat_template": "str_physical",
+      "item_id": "sm_crimson_commanders_pauldrons"
+    },
+    {
+      "name": "Chancel-Guard Leggings",
+      "slot": "legs",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "primary_stats": {
+        "agility": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {
+        "attack_power": 21
+      },
+      "armor_type": "leather",
+      "armor_value": 147,
+      "stat_template": "agi_physical",
+      "item_id": "sm_chancel_guard_leggings"
+    },
+    {
+      "name": "Scarlet Chain Girdle",
+      "slot": "waist",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "primary_stats": {
+        "agility": 9,
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "attack_power": 15
+      },
+      "armor_type": "mail",
+      "armor_value": 163,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "sm_scarlet_chain_girdle"
+    },
+    {
+      "name": "Ring of the Crimson Oath",
+      "slot": "ring",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "primary_stats": {
+        "strength": 11,
+        "intellect": 11
+      },
+      "secondary_stats": {},
+      "stat_template": "str_int_hybrid",
+      "item_id": "sm_ring_of_the_crimson_oath"
+    },
+    {
+      "name": "The Chapel Reliquary",
+      "slot": "trinket",
+      "item_level": 45,
+      "rarity": "rare",
+      "required_level": 42,
+      "primary_stats": {
+        "intellect": 7,
+        "spirit": 7
+      },
+      "secondary_stats": {
+        "healing_power": 17
+      },
+      "stat_template": "spi_healer",
+      "item_id": "sm_the_chapel_reliquary",
+      "proc": {
+        "trigger": "on_heal_cast",
+        "chance": 10,
+        "icd": 5,
+        "apply_effect": {
+          "effect_id": "chapel_reliquary",
+          "name": "Answered in the Chapel",
+          "effect_type": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "healing_power": 34
+          },
+          "on_target": false
+        },
+        "describe": "Your healing spells have a chance to grant 34 healing power for 3 turns."
+      }
+    }
+  ]
+}

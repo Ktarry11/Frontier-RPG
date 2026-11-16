@@ -675,12 +675,9 @@ SCARLET_KITS = {
         ("Seal of Righteousness", "buff", 0, 5, 20, "magic",
          {"duration": 4, "self_only": True, "stat_mods": {"attack_power": 14}}),
     ],
-    "scarlet_defender": [
-        ("Shield Slam", "damage", 20, 0, 0, "physical", {}),
-        ("Devotion Aura", "buff", 0, 5, 20, "magic",
-         {"duration": 4, "self_only": True, "stat_mods": {"armor": 26}}),
-        ("Holy Smite", "damage", 26, 3, 22, "magic", {}),
-    ],
+    # "scarlet_defender" was here with no creature using it. The Scarlet Monastery's Armory has a Scarlet
+    # Defender now (tools/build_scarlet_monastery_content.py, 16 Nov 2026), and a regeneration would have put this
+    # level 8 kit back over his.
     "scarlet_chaplain": [
         ("Holy Smite", "damage", 21, 0, 20, "magic", {}),
         ("Holy Light", "heal", 46, 3, 38, "magic", {}),

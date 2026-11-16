@@ -13,7 +13,7 @@ though! that is Important! He joined during the Integration and walked away with
 
 Rep (Kyle's answers, 16 Nov):
   * Scarlet kills in the Scarlet Monastery pay, CAPPED AT HONORED ("YES" to the cap); Hearthglen and quests carry you
-    on to Exalted. (The Monastery and Hearthglen join `dungeon_rep` when their maps exist.)
+    on to Exalted. (The Monastery's four wings are in `dungeon_rep`; Hearthglen joins when its map exists.)
   * Open-world Scarlets pay "Little until honored": 5 a kill, capped at Honored, in the Plaguelands. (Tirisfal's
     Scarlets already pay the Forsaken, and a creature pays one faction.)
   * Stratholme's Scarlet half pays too (assumed, in the design doc).
@@ -32,6 +32,9 @@ sys.path.insert(0, str(ROOT))
 
 PATH = ROOT / "data/factions/factions.json"
 
+from tools import handbuilt_scarlet_monastery as SM  # noqa: E402
+from tools import build_scarlet_monastery_content as SMC  # noqa: E402
+
 #: Open-world Scarlets: a little each, until Honored
 #: Tirisfal's Scarlets already pay the Forsaken, and a creature pays one faction (qa_factions), so the Order's
 #: open-world rep starts at the Plaguelands' border.
@@ -45,6 +48,9 @@ OPEN_WORLD_SCARLETS = [
     "Tyr's Hand Crusader", "Tyr's Hand Abbot", "Tyr's Hand Marksman", "Tyr's Hand Houndmaster",
 ]
 OPEN_WORLD_RARES = ["Crusader Brennic", "Foreman Harrow", "High Inquisitor Faulk", "Abbot Varenne"]
+#: The Scarlet Monastery's Scarlets pay more a kill, and also stop at Honored (Kyle: "YES" to the cap). Its dead pay
+#: nothing: the Order wants the Crusade's people, and the Argent Dawn's Scourge are the ones in the Plaguelands.
+SM_SCARLETS = SMC.SCARLETS
 
 PALE_FLAME = {
     "name": "The Order of the Pale Flame",
@@ -90,13 +96,14 @@ PALE_FLAME = {
             "Scarlet half don't stop. [amount, cap tier] is a capped kill (world/faction_manager.py).",
         ],
         "creatures": {**{n: [5, "honored"] for n in OPEN_WORLD_SCARLETS},
-                      **{n: [25, "honored"] for n in OPEN_WORLD_RARES}},
+                      **{n: [25, "honored"] for n in OPEN_WORLD_RARES},
+                      **{n: [10, "honored"] for n in SM_SCARLETS}},
     },
     "dungeon_rep": {
         "_comment": "A dungeon boss kill pays 75. The Monastery's wings are capped at Honored.",
         "per_boss": 75,
-        "dungeons": [],
-        "caps": {},
+        "dungeons": list(SM.WINGS),
+        "caps": {w: "honored" for w in SM.WINGS},
     },
 }
 

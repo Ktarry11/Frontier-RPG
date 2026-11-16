@@ -365,8 +365,13 @@ FINAL_BOSSES = {
     "Charlga Razorflank": ("Razorfen Kraul", 0.02),
     "Lord Falconcrest": ("Stromgarde Keep", 0.02),
     "Jen'shala, the House Favourite": ("Gurbashi Arena", 0.02),
+    # the Scarlet Monastery: the Graveyard, Library and Armory's last bosses roll the shared pool too
+    "Bloodmage Thalnos": ("Scarlet Monastery: Graveyard", 0.02),
+    "Arcanist Doan": ("Scarlet Monastery: Library", 0.02),
+    "Herod": ("Scarlet Monastery: Armory", 0.02),
     "The Deep Bloom": ("The Deep Bloom", 0.02),
     # 40 and up: 5%, each with its own.
+    "High Inquisitor Whitemane": ("Scarlet Monastery: Cathedral", 0.05),
     "Captain Ruel Scuttler": ("The Bloodsail Raider", 0.05),
     "Captain Ardessa Rake": ("The Lashings", 0.05),
     "Glassmaw": ("The Mother Vein", 0.05),
@@ -440,6 +445,13 @@ DUNGEON = [
     ("Dace's Long Count", "legs", "armor", "leather", 47, "agi_int_hybrid",
      "Fleet-Captain Orin Dace's leggings, marked with a tally of every ship he took.", "gear_wow_legs_leather_tally",
      "Admiral Hedessa Crane"),
+    # ---- the Scarlet Monastery's Cathedral (High Inquisitor Whitemane and Scarlet Commander Mograine, 42)
+    ("Whitemane's Book of Hours", "off_hand", "weapon", "tome", 45, "spi_healer",
+     "The High Inquisitor's own prayer book, with the names of everyone she has raised written in the back.",
+     "gear_wow_tome_scarlet_hours", "High Inquisitor Whitemane"),
+    ("The Scarlet Commander's Breastplate", "chest", "armor", "plate", 45, "str_physical",
+     "Mograine's breastplate, black steel edged in red, made for him when he took command of the Crusade's army.",
+     "gear_wow_plate_chest_crimson", "High Inquisitor Whitemane"),
     # ---- the Cistern (The Thirst, 53)
     ("Droughtcaller's Mantle", "shoulder", "armor", "mail", 55, "int_caster",
      "A mantle of crystal-woven mail that pulls the water out of the air around it.", "gear_inv_shoulder_16",

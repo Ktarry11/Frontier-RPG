@@ -152,6 +152,8 @@ MULTI_DROP = {
     "Hive-Mother Ahn'thera": 3,
     # Jaedenar's 2-for-1: the Duskwhisper Sisters and Zeth'rak, their pact demon.
     "The Duskwhisper Sisters": 3,
+    # The Scarlet Monastery's Cathedral: High Inquisitor Whitemane and Scarlet Commander Mograine, one fight.
+    "High Inquisitor Whitemane": 3,
 }
 
 #: Bosses whose loot IS another boss's loot. The Admiral and the
@@ -163,6 +165,7 @@ SHARED_HOARD = {
     "Fleet-Captain Orin Dace": "Admiral Hedessa Crane",
     "Royal Consort Zhir'ak": "Hive-Mother Ahn'thera",
     "Zeth'rak the Pactbound": "The Duskwhisper Sisters",
+    "Scarlet Commander Mograine": "High Inquisitor Whitemane",
 }
 
 

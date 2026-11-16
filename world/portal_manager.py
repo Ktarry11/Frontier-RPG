@@ -582,6 +582,20 @@ class PortalManager:
                 (56, 96): ("The Eldest Sequoia", 50, 3),
                 (56, 3): ("Stonetalon West", 100, 72),
             },
+            # ===== THE SCARLET MONASTERY (tools/handbuilt_scarlet_monastery.py) =====
+            # The gate in Eastern Tirisfal opens on the grounds; the grounds hold the four wings' doors. Each
+            # wing is one map with one door, so it needs no fast exit (world/hidden_zones.py, qa_dungeon_fast_exits).
+            "Scarlet Monastery Grounds": {
+                (32, 50): ("Eastern Tirisfal", 70, 34),          # back out through the gate (lands south of it)
+                (12, 34): ("Scarlet Monastery: Graveyard", 50, 81),
+                (14, 13): ("Scarlet Monastery: Library", 55, 93),
+                (32, 13): ("Scarlet Monastery: Armory", 55, 87),
+                (50, 13): ("Scarlet Monastery: Cathedral", 60, 107),
+            },
+            "Scarlet Monastery: Graveyard": {(50, 81): ("Scarlet Monastery Grounds", 12, 36)},
+            "Scarlet Monastery: Library": {(55, 93): ("Scarlet Monastery Grounds", 14, 15)},
+            "Scarlet Monastery: Armory": {(55, 87): ("Scarlet Monastery Grounds", 32, 15)},
+            "Scarlet Monastery: Cathedral": {(60, 107): ("Scarlet Monastery Grounds", 50, 15)},
             "The Ashvent": {
                 (48, 80): ("Stonetalon West", 150, 40),
             },
@@ -815,6 +829,8 @@ class PortalManager:
                 (52, 112): ("Scourge Cave", 45, 68),
                 # east to the Bulwark and the Plaguelands (docs/plaguelands_design.md)
                 (88, 126): ("Western Plaguelands South", 7, 84),
+                # the Scarlet Monastery's gate, into its grounds (tools/handbuilt_scarlet_monastery.py)
+                (70, 29): ("Scarlet Monastery Grounds", 32, 50),
             },
             # ===== THE PLAGUELANDS (51-60, docs/plaguelands_design.md). The doors north, to the Alterac
             # foothills, to the Undercity sewer and to Scholomance are cut in the ground and go live with

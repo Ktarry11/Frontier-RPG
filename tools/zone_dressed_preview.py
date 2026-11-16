@@ -69,6 +69,12 @@ ZONES = {
     "wpl_north": "tools.handbuilt_wpl_north",
     "epl_west": "tools.handbuilt_epl_west",
     "epl_east": "tools.handbuilt_epl_east",
+    # the Scarlet Monastery (one module, five maps)
+    "sm_grounds": "tools.handbuilt_scarlet_monastery",
+    "sm_graveyard": "tools.handbuilt_scarlet_monastery",
+    "sm_library": "tools.handbuilt_scarlet_monastery",
+    "sm_armory": "tools.handbuilt_scarlet_monastery",
+    "sm_cathedral": "tools.handbuilt_scarlet_monastery",
 }
 
 #: A cave module's entry point is build_<slug>_baked() rather than build_layout(), and it returns
@@ -90,6 +96,11 @@ BUILDERS = {
     "cabin": "build_cabin_baked",
     "steamwheedle_port": "build_steamwheedle_baked",
     "saltwheel": "build_saltwheel_baked",
+    "sm_grounds": "build_grounds_baked",
+    "sm_graveyard": "build_graveyard_baked",
+    "sm_library": "build_library_baked",
+    "sm_armory": "build_armory_baked",
+    "sm_cathedral": "build_cathedral_baked",
 }
 
 
@@ -112,6 +123,8 @@ def compose(key, out, scale=4, props=True):
 
     # open zones call it BAKED_DIR, cave modules call it BAKED
     baked = getattr(M, "BAKED_DIR", None) or getattr(M, "BAKED", "")
+    if isinstance(baked, dict):          # a module holding several maps keys its bakes by zone name
+        baked = baked[L.z.name]
     if "{}" in baked:
         baked = baked.format(key)
     baked = ROOT / baked
