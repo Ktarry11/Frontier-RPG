@@ -816,8 +816,22 @@ def epic_icon_id(name):
 PICKER = None
 
 
+_ASSIGNED = None
+
+
 def icon_for(name, slot, armor_type, weapon_type, rarity):
+    """A piece's icon. The picks in data/items/crafted_icons.json come first (tools/assign_crafted_icons.py,
+    16 Nov 2026: every crafted piece its own icon where the art allows, every epic one nothing else has), so a
+    rebuild keeps them; a new piece falls back to the colour picker or the epic stand-in until it's assigned."""
+    global _ASSIGNED
     from entities.boss_loot import resolve_icon
+    if _ASSIGNED is None:
+        try:
+            _ASSIGNED = json.loads((ROOT / "data/items/crafted_icons.json").read_text(encoding="utf-8"))["icons"]
+        except (OSError, json.JSONDecodeError, KeyError):
+            _ASSIGNED = {}
+    if name in _ASSIGNED:
+        return _ASSIGNED[name]
     if rarity in ("epic", "legendary"):
         return resolve_icon(slot=slot, armor_type=armor_type, weapon_type=weapon_type, rarity=rarity,
                             seed=f"fixedboss:{name}", explicit=epic_icon_id(name))

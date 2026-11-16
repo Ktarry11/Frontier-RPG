@@ -57,7 +57,11 @@ def main():
 
     plain = [i for i in items if i.get("rarity") not in ("epic", "legendary")]
     sets = collections.defaultdict(list)
+    seen_names = set()
     for i in plain:
+        if i["name"] in seen_names:      # the same piece written in two recipes is one piece, one icon
+            continue
+        seen_names.add(i["name"])
         sets[i["name"].split()[0].lower()].append(i["icon_id"])
     repeats = {k: v for k, v in sets.items() if len(v) != len(set(v))}
     if repeats:
@@ -71,17 +75,36 @@ def main():
     if share < CLOSE_SHARE:
         bad.append(f"only {share:.0%} of coloured pieces match their colour (want {CLOSE_SHARE:.0%})")
 
-    def picks():
-        p = Picker()
-        return [p.pick(i["name"], i["slot"], i.get("armor_type"), i.get("weapon_type")) for i in plain]
-    a, b = picks(), picks()
-    if a != b:
-        bad.append("two builds picked different icons")
-    print("4. two builds pick the same icons" if a == b else "4. builds differ")
+    # 4. the picks are written down (tools/assign_crafted_icons.py), so a rebuild gives the same icons
+    assigned = json.loads((ROOT / "data/items/crafted_icons.json").read_text(encoding="utf-8"))["icons"]
+    from build_crafted_gear import icon_for
+    drift = [i["name"] for i in items if assigned.get(i["name"]) != i.get("icon_id")
+             or icon_for(i["name"], i["slot"], i.get("armor_type"), i.get("weapon_type"), i.get("rarity"))
+             != i.get("icon_id")]
+    if drift:
+        bad.append(f"{len(drift)} pieces would get a different icon on a rebuild, e.g. {drift[:4]}")
+    print(f"4. a rebuild keeps every icon ({len(items) - len(drift)}/{len(items)})")
 
-    epics = [i for i in items if i.get("rarity") in ("epic", "legendary")]
-    own = [i for i in epics if i.get("icon_id") == epic_icon_id(i["name"])]
-    print(f"5. epics with their own art: {len(own)}/{len(epics)} (the rest show the epic pool's stand-in)")
+    # 5. Kyle, 16 Nov: "every unique item in the game can only have ONE icon". A crafted epic's icon is its
+    # own: no other crafted piece, and no other item anywhere, draws it.
+    from assign_crafted_icons import icons_used_elsewhere
+    elsewhere = icons_used_elsewhere()
+    by_icon = collections.defaultdict(set)
+    for i in items:
+        by_icon[i.get("icon_id")].add(i["name"])
+    epics = {i["name"]: i for i in items if i.get("rarity") in ("epic", "legendary")}
+    shared = [n for n, i in epics.items() if len(by_icon[i["icon_id"]]) > 1 or elsewhere.get(i["icon_id"])]
+    if shared:
+        bad.append(f"{len(shared)} crafted epics share their icon, e.g. {shared[:4]}")
+    print(f"5. crafted epics with an icon of their own: {len(epics) - len(shared)}/{len(epics)}")
+    ep = json.loads((ROOT / "data/loot/epic_drops.json").read_text(encoding="utf-8"))
+    epic_owned = {d.get("icon_id") for k in ("world", "dungeon") for d in ep.get(k, [])}
+    on_epic = sorted({i["name"] for i in items if i.get("icon_id") in epic_owned})
+    if on_epic:
+        bad.append(f"{len(on_epic)} crafted pieces draw a named epic's icon, e.g. {on_epic[:4]}")
+    plain_names = {i["name"] for i in plain}
+    many = sum(1 for icon, names in by_icon.items() if len(names & plain_names) > 1)
+    print(f"   (greens and blues: {many} icons still on more than one piece, where a slot's art runs short)")
 
     if bad:
         print("\nFAILED:")

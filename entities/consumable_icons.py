@@ -154,9 +154,9 @@ def icon_for(consumable_id):
     None is still a normal answer for a consumable with no art at all; the UI
     falls back to text.
     """
-    mapped = CONSUMABLE_ICONS.get(consumable_id)
-    if mapped:
-        return mapped
+    # A file named after the consumable wins (16 Nov 2026, Kyle: "every unique item in the game can only have
+    # ONE icon"): the middle ranks that shared a family's bottle have their own now
+    # (tools/assign_consumable_icons.py), and the family map stays for the ids that still own its bottle.
     if consumable_id and (_ICON_DIR / f"{consumable_id}.png").is_file():
         return consumable_id
-    return None
+    return CONSUMABLE_ICONS.get(consumable_id)
