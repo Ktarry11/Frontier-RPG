@@ -865,6 +865,14 @@ class PortalManager:
                 self._links.setdefault(to, {})[(tx, ty)] = (zone, x, y)
         except Exception:
             pass
+        # FAST EXITS past a hidden level's last boss, ONE WAY: nothing outside leads back in
+        # (world/hidden_zones.fast_exits, Kyle: "a fast exit from the dungeon to outside in the open world").
+        try:
+            from world.hidden_zones import fast_exits
+            for (zone, x, y, to, tx, ty) in fast_exits():
+                self._links.setdefault(zone, {})[(x, y)] = (to, tx, ty)
+        except Exception:
+            pass
 
         # Build fast lookup
         self._lookup = {}

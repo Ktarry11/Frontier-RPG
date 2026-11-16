@@ -79,6 +79,30 @@ def parent(zone_name):
     return (registry().get(zone_name) or {}).get("parent")
 
 
+# FAST EXITS. Kyle, 16 Nov 2026: "this is true for ANY multiple-tiered dungeon. At the very end of the dungeon
+# (after the final boss) - can you please make a fast exit from the dungeon to outside in the open world. prevents
+# people from running back". A hidden level under a dungeon makes that dungeon a multi-tiered one, so past its last
+# boss there's a one-way exit to the open world outside the dungeon's front door. Written by
+# tools/build_fast_exits.py as "fast_exit": [x, y, to_zone, to_x, to_y]; the visible dungeons carry theirs in
+# world/portal_manager.py.
+def fast_exits():
+    """[(zone, x, y, to_zone, to_x, to_y)] for every hidden zone's way out past its last boss."""
+    out = []
+    for name, info in registry().items():
+        fe = info.get("fast_exit")
+        if fe:
+            out.append((name, *fe))
+    return out
+
+
+def apply_fast_exits(zones):
+    """Mark each fast exit's tile as a portal on its map."""
+    for (zone, x, y, *_rest) in fast_exits():
+        tm = zones.get(zone)
+        if tm is not None:
+            tm.set_tile(x, y, "portal", "interaction")
+
+
 @lru_cache(maxsize=1)
 def creature_kinds():
     """creature name -> difficulty kind, for every creature in a hidden zone's encounter table."""

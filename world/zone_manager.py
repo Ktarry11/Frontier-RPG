@@ -112,6 +112,9 @@ class ZoneManager:
         from world.secrets import get_secrets
         get_secrets().apply_all({name: entry["tilemap"] for name, entry in self.zones.items()})
         self.last_secret_found = None
+        # the one-way ways out past a hidden level's last boss (world/hidden_zones.fast_exits)
+        from world.hidden_zones import apply_fast_exits
+        apply_fast_exits({name: entry["tilemap"] for name, entry in self.zones.items()})
 
         # Start player in the default start zone (world/start_zones.py). ZoneManager is built once per
         # process, before any character exists, so there is nothing to ask here - the real choice is
