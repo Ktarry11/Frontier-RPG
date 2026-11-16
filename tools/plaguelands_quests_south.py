@@ -12,13 +12,16 @@ keep beside Uther's Tomb, led by Earth transplants who walked out of the Crusade
                      Vesk (the cauldron chain, which ends at Sun Rock in Stonetalon), Deathstalker Ilsa Rook (the
                      Cult's couriers and a report for the Undercity), Deathguard Captain Ludo Vance (the farms' named
                      horrors), Surgeon Halbert Grey (snapjaw shell and Old Darrowjaw).
-  SORROW HILL (20)   Flamekeeper Rory Callahan (the Order's rule, the Scarlet patrols, Hearthglen's orders, Caer
+  SORROW HILL (22)   Flamekeeper Rory Callahan (the Order's rule, the Scarlet patrols, Hearthglen's orders, Caer
                      Darrow), Drillmaster Kofi Mensah (Andorhal's dead), Chaplain Odile Marchand (Uther's rest, the
                      Haunt, the drowned of the lake), Innkeeper Priya Raman (the kitchen, and letters home by way of
                      Sun Rock), Roostkeeper Anders Holm (the sky and the hawks), Scout Agata Wrobel (eyes on
                      Andorhal), Ser Aldren Holt (his old company).
   OUT                Sun Rock in Stonetalon (Vesk's samples to Merrow Vane, Priya's letters to Dr. Lindqvist), the
                      Undercity (Rook's report to Deathstalker Rhyne), the Pale Watch in North WPL (the Crusade's orders).
+  IN                 Undercity (Marwen's reagents to Vesk), Brill (Wexley's notice to Kofi), Tarren Mill (Blackwood's
+                     letter to Odile): the way into the Plaguelands from the Forsaken's own country.
+  CAVE               The Writhing Deep, under the Haunt (Agata: the burrows, then the Broodlord and the Silken Bride).
 
 WHO KNOWS WHAT (Kyle, 16 Nov 2026): every transplant knows they came from Earth; ordinary Azerothians don't, and only
 the people at the top know more. Inside the Order people talk about home freely (Kyle: "Loud in the Order"). The
@@ -40,6 +43,7 @@ from tools.build_durotar_quests import kill, fetch  # noqa: F401
 WS = "western_plaguelands_south"
 WN = "western_plaguelands_north"
 SR, UC = "sun_rock_retreat", "undercity"
+WD = "the_writhing_deep"
 
 # ---- the people
 VENN, VESK, ROOK = "wpl_bulwark_commander", "wpl_bulwark_apothecary", "wpl_bulwark_sewer_agent"
@@ -47,6 +51,8 @@ VANCE, GREY = "wpl_bulwark_captain", "wpl_bulwark_surgeon"
 RORY, KOFI, ODILE, PRIYA, ANDERS = ("wpl_pf_flamekeeper", "wpl_pf_drillmaster", "wpl_pf_chaplain", "wpl_pf_innkeeper",
                                     "wpl_pf_bat_keeper")
 AGATA, ALDREN = "wpl_pf_scout", "wpl_pf_knight"
+#: in from outside: Undercity's apothecary, Brill's crier, Tarren Mill's chaplain (all born here)
+MARWEN, WEXLEY, EWEN = "uc_apothecary", "brill_town_crier", "tarren_mill_chaplain"
 MERROW, HANNAH, RHYNE, LENA = ("sr_forsaken_apothecary", "sr_transplant_geologist", "uc_deathstalker",
                                "wpln_pf_watch_captain")
 
@@ -56,7 +62,9 @@ HUB_GIVERS = BULWARK | SORROW
 #: who pays: the Bulwark pays the Forsaken, Sorrow Hill the Order (the zone's own faction)
 FACTION_BY_GIVER = {g: "the_forsaken" for g in BULWARK}
 #: a quest that pays someone other than its giver's faction: Venn's dispatch is handed in to Rory, and the Order pays
-FACTION_BY_QUEST = {"pls_a_dispatch_for_sorrow_hill": "pale_flame"}
+FACTION_BY_QUEST = {"pls_a_dispatch_for_sorrow_hill": "pale_flame",
+                    "pls_samples_for_the_bulwark": "the_forsaken"}     # handed in at the Bulwark
+NATIVE_GIVERS = {MARWEN, WEXLEY, EWEN}
 
 
 def k(target, n, zone=WS):
@@ -567,4 +575,76 @@ def build():
         "It doesn't feel like that at all. It feels like tidying up.",
         [("legs", "armor", "mail", "earthen"), ("waist", "armor", "leather", "feral"),
          ("main_hand", "weapon", "axe_2h", "strength")]))
+
+    # ---- the Writhing Deep, the cave under the Writhing Haunt (tools/handbuilt_plaguelands_caves.py)
+    A(Q("pls_under_the_haunt", "Under the Haunt", AGATA, 53, 54, "Scout's",
+        "Scout Agata Wrobel has been watching the Writhing Haunt for the Order, and she's found a hole behind it "
+        "that the crypt fiends keep crawling in and out of. She's been down far enough to know it doesn't stop.\n\n"
+        "She wants the Writhing Burrowers and the Brood Guardians thinned out, so the Order can see what's at the "
+        "bottom.",
+        [k("Writhing Burrower", 10, WD), k("Brood Guardian", 6, WD)],
+        "The cave mouth's behind the Writhing Haunt, out east of the road. It's a web of tunnels down there and they "
+        "all lead back to the middle. Keep your back to a wall, because the burrowers come up out of the floor.",
+        "That's the outer burrows quiet, then.\n\nI used to take tourists down caves in the Tatras, and not one of "
+        "them ever tried to eat me. There's a chamber in the middle that everything was guarding, and I think we "
+        "both know what's in it.",
+        [("legs", "armor", "leather", "feral"), ("hands", "armor", "cloth", "shadow"),
+         ("waist", "armor", "plate", "strength")], nxt="pls_the_broodlord"))
+    A(Q("pls_the_broodlord", "The Broodlord", AGATA, 54, 55, "Scout's",
+        "In the middle of the Writhing Deep, where every tunnel meets, Broodlord Szarak sits on the brood. Off the "
+        "north rim there's a pocket of web that Agata won't go near, and she says The Silken Bride lives in it.\n\n"
+        "She wants them both dead before the brood hatches.",
+        [boss("Broodlord Szarak", WD), boss("The Silken Bride", WD)],
+        "The broodlord's in the chamber in the middle, and the bride's up in the north-east, at the end of a "
+        "tunnel off the outer ring. Bring something for poison, because she bites and it doesn't wear off.",
+        "Then that's the brood finished, and the Haunt's lost its nursery.\n\nI've been in a cell and I've been in "
+        "a web now. I'm not sure which I liked less. Here, take this, you've earned it.",
+        [("chest", "armor", "mail", "hunter_crit"), ("head", "armor", "leather", "healer"),
+         ("main_hand", "weapon", "staff", "fire")]))
+
+    # ---- in from outside the Plaguelands: Undercity, Brill and Tarren Mill
+    A(Q("pls_samples_for_the_bulwark", "Samples for the Bulwark", MARWEN, 51, 52, "Apothecary's",
+        "Apothecary Marwen has read every report the Bulwark's sent back to Undercity, and she doesn't believe half "
+        "of them. Apothecary Dorian Vesk says the plague in the western fields has changed, and she wants him to "
+        "prove it.\n\nShe's packed a case of clean reagents for his tests and needs it carried to the Bulwark.",
+        [deliver("pl_q_marwens_case", "Bring Marwen's reagent case to Apothecary Dorian Vesk at the Bulwark")],
+        "Up through the Ruins and east across Tirisfal to the wall at the end of the road. That's the Bulwark. "
+        "Don't open the case, because I've counted every vial and I'll know.",
+        "Marwen's actually sent me clean reagents, and I didn't think she had any.\n\nShe thinks I'm wrong about the plague. She'll "
+        "read my next report a lot more carefully once these tell her I'm right. Stay a while, because the fields "
+        "need hands more than I need a courier.",
+        [("wrist", "armor", "cloth", "caster"), ("feet", "armor", "leather", "agility"),
+         ("back", "armor", None, "tank_any")], zone=UC, turn_in_npc_id=VESK,
+        grant_items=carry("pl_q_marwens_case", "Marwen's Reagent Case", "A small locked case of glass vials packed "
+                          "in straw, every one labelled in a precise hand.")))
+    A(Q("pls_hands_for_sorrow_hill", "Hands for Sorrow Hill", WEXLEY, 51, 52, "Crier's",
+        "Crier Wexley cries what Brill needs to hear, and lately that's a notice from the Order of the Pale Flame. "
+        "They're asking for fighters at Sorrow Hill, in the Western Plaguelands, and they don't care where anyone "
+        "was born.\n\nWexley's been asked to send the notice on with anyone who looks like they can swing a sword.",
+        [deliver("pl_q_order_notice", "Bring the Order's notice to Drillmaster Kofi Mensah at Sorrow Hill")],
+        "East through Tirisfal to the Bulwark, then south past it to the hill with the tomb on top. Sorrow Hill's "
+        "the keep beside it. The Deathguard at the wall won't stop you, but they'll want to know where you're going.",
+        "So Wexley sent you with the notice. He cries it twice a day in Brill, and nobody's told him to stop "
+        "yet.\n\nI'm glad you came. "
+        "Half my recruits walked out of the Crusade and the other half walked in off the road, so you'll fit in "
+        "whatever you are. Go and see Rory when you've found a bunk.",
+        [("shoulder", "armor", "plate", "tank"), ("hands", "armor", "mail", "earthen"),
+         ("ring", "armor", None, "spirit_caster")], zone="brill", turn_in_npc_id=KOFI,
+        grant_items=carry("pl_q_order_notice", "The Order's Notice", "A notice in a firm hand under a pale flame: "
+                          "fighters wanted at Sorrow Hill, no questions asked about where you were born.")))
+    A(Q("pls_a_chaplains_letter", "A Chaplain's Letter", EWEN, 51, 52, "Chaplain's",
+        "Chaplain Ewen Blackwood still prays in Tarren Mill, and he's heard there's another chaplain who still prays "
+        "at Uther's Tomb. Chaplain Odile Marchand keeps the tomb for the Order of the Pale Flame.\n\nHe's written her "
+        "a letter. He's never met her, and he says that's the best reason to write.",
+        [deliver("pl_q_blackwoods_letter", "Bring Chaplain Blackwood's letter to Chaplain Odile Marchand at Uther's "
+                 "Tomb")],
+        "The road north is shut, so go round through Tirisfal and east to the Bulwark. Uther's Tomb is on the hill "
+        "south of the wall, beside Sorrow Hill. I'd take it myself, but somebody's got to keep the chapel open.",
+        "A letter from Tarren Mill, from a chaplain I've never met.\n\nHe asks whether I'm afraid the Light will stop "
+        "answering. I'm not, and I'm going to write back and tell him so properly. Thank you for carrying it all "
+        "this way.",
+        [("neck", "armor", None, "holy"), ("legs", "armor", "mail", "tide_healer"),
+         ("off_hand", "weapon", "shield", "shield_tank")], zone="tarren_mill", turn_in_npc_id=ODILE,
+        grant_items=carry("pl_q_blackwoods_letter", "Chaplain Blackwood's Letter", "A letter sealed with plain "
+                          "candle wax, addressed in careful capitals to the chaplain at Uther's Tomb.")))
     return out

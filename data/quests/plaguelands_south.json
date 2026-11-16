@@ -3557,6 +3557,501 @@
       ],
       "gear_reward_gear_level": 54,
       "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pls_under_the_haunt",
+      "title": "Under the Haunt",
+      "giver_npc_id": "wpl_pf_scout",
+      "zone": "western_plaguelands_south",
+      "level_min": 53,
+      "level_max": 54,
+      "description": "Scout Agata Wrobel has been watching the Writhing Haunt for the Order, and she's found a hole behind it that the crypt fiends keep crawling in and out of. She's been down far enough to know it doesn't stop.\n\nShe wants the Writhing Burrowers and the Brood Guardians thinned out, so the Order can see what's at the bottom.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Writhing Burrower",
+          "count": 10,
+          "zone": "the_writhing_deep"
+        },
+        {
+          "type": "kill",
+          "target": "Brood Guardian",
+          "count": 6,
+          "zone": "the_writhing_deep"
+        }
+      ],
+      "accept_text": "The cave mouth's behind the Writhing Haunt, out east of the road. It's a web of tunnels down there and they all lead back to the middle. Keep your back to a wall, because the burrowers come up out of the floor.",
+      "turn_in_text": "That's the outer burrows quiet, then.\n\nI used to take tourists down caves in the Tatras, and not one of them ever tried to eat me. There's a chamber in the middle that everything was guarding, and I think we both know what's in it.",
+      "next_quest_id": "pls_the_broodlord",
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "unique_item_defs": [
+        {
+          "name": "Scout's Breeches",
+          "slot": "legs",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 11,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "attack_power": 34
+          },
+          "armor_value": 304,
+          "required_level": 53,
+          "sell_price": 10387,
+          "identity": "feral",
+          "icon_id": "gear_inv_pants_11"
+        },
+        {
+          "name": "Scout's Gloves",
+          "slot": "hands",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "shadow_spell_power": 28
+          },
+          "armor_value": 47,
+          "required_level": 53,
+          "sell_price": 6752,
+          "identity": "shadow",
+          "icon_id": "gear_inv_gauntlets_29"
+        },
+        {
+          "name": "Scout's Waistguard",
+          "slot": "waist",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 229,
+          "required_level": 53,
+          "sell_price": 5713,
+          "identity": "strength",
+          "icon_id": "gear_inv_belt_12"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pls_the_broodlord",
+      "title": "The Broodlord",
+      "giver_npc_id": "wpl_pf_scout",
+      "zone": "western_plaguelands_south",
+      "level_min": 54,
+      "level_max": 55,
+      "description": "In the middle of the Writhing Deep, where every tunnel meets, Broodlord Szarak sits on the brood. Off the north rim there's a pocket of web that Agata won't go near, and she says The Silken Bride lives in it.\n\nShe wants them both dead before the brood hatches.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Broodlord Szarak",
+          "count": 1,
+          "zone": "the_writhing_deep"
+        },
+        {
+          "type": "kill_boss",
+          "target": "The Silken Bride",
+          "count": 1,
+          "zone": "the_writhing_deep"
+        }
+      ],
+      "accept_text": "The broodlord's in the chamber in the middle, and the bride's up in the north-east, at the end of a tunnel off the outer ring. Bring something for poison, because she bites and it doesn't wear off.",
+      "turn_in_text": "Then that's the brood finished, and the Haunt's lost its nursery.\n\nI've been in a cell and I've been in a web now. I'm not sure which I liked less. Here, take this, you've earned it.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "pls_under_the_haunt"
+      ],
+      "reward_exp": 5252,
+      "reward_gold": 20670,
+      "unique_item_defs": [
+        {
+          "name": "Scout's Hauberk",
+          "slot": "chest",
+          "item_level": 57,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 15
+          },
+          "secondary_stats": {
+            "attack_power": 43,
+            "crit_chance_physical": 15
+          },
+          "armor_value": 299,
+          "required_level": 54,
+          "sell_price": 16794,
+          "identity": "hunter_crit",
+          "icon_id": "gear_inv_chest_chain"
+        },
+        {
+          "name": "Scout's Cap",
+          "slot": "head",
+          "item_level": 57,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 11,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 48
+          },
+          "armor_value": 348,
+          "required_level": 54,
+          "sell_price": 13435,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_32"
+        },
+        {
+          "name": "Scout's Staff",
+          "slot": "main_hand",
+          "item_level": 57,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 31
+          },
+          "secondary_stats": {
+            "fire_spell_power": 86
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 20993,
+          "identity": "fire",
+          "icon_id": "gear_inv_staff_25",
+          "weapon_damage_min": 54,
+          "weapon_damage_max": 74,
+          "attack_speed": 3.2,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "pls_samples_for_the_bulwark",
+      "title": "Samples for the Bulwark",
+      "giver_npc_id": "uc_apothecary",
+      "zone": "undercity",
+      "level_min": 51,
+      "level_max": 52,
+      "description": "Apothecary Marwen has read every report the Bulwark's sent back to Undercity, and she doesn't believe half of them. Apothecary Dorian Vesk says the plague in the western fields has changed, and she wants him to prove it.\n\nShe's packed a case of clean reagents for his tests and needs it carried to the Bulwark.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "pl_q_marwens_case",
+          "count": 1,
+          "label": "Bring Marwen's reagent case to Apothecary Dorian Vesk at the Bulwark"
+        }
+      ],
+      "accept_text": "Up through the Ruins and east across Tirisfal to the wall at the end of the road. That's the Bulwark. Don't open the case, because I've counted every vial and I'll know.",
+      "turn_in_text": "Marwen's actually sent me clean reagents, and I didn't think she had any.\n\nShe thinks I'm wrong about the plague. She'll read my next report a lot more carefully once these tell her I'm right. Stay a while, because the fields need hands more than I need a courier.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "wpl_bulwark_apothecary",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "pl_q_marwens_case",
+            "name": "Marwen's Reagent Case",
+            "description": "A small locked case of glass vials packed in straw, every one labelled in a precise hand.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "unique_item_defs": [
+        {
+          "name": "Apothecary's Cuffs",
+          "slot": "wrist",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 23
+          },
+          "armor_value": 46,
+          "required_level": 51,
+          "sell_price": 4805,
+          "identity": "caster",
+          "icon_id": "gear_inv_bracer_02"
+        },
+        {
+          "name": "Apothecary's Boots",
+          "slot": "feet",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 92,
+          "required_level": 51,
+          "sell_price": 6246,
+          "identity": "agility",
+          "icon_id": "gear_inv_boots_plate_03"
+        },
+        {
+          "name": "Apothecary's Cloak",
+          "slot": "back",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "defense_rating": 8,
+            "dodge_rating": 5
+          },
+          "armor_value": 40,
+          "required_level": 51,
+          "sell_price": 5285,
+          "identity": "tank_any",
+          "icon_id": "gear_inv_misc_cape_16"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pls_hands_for_sorrow_hill",
+      "title": "Hands for Sorrow Hill",
+      "giver_npc_id": "brill_town_crier",
+      "zone": "brill",
+      "level_min": 51,
+      "level_max": 52,
+      "description": "Crier Wexley cries what Brill needs to hear, and lately that's a notice from the Order of the Pale Flame. They're asking for fighters at Sorrow Hill, in the Western Plaguelands, and they don't care where anyone was born.\n\nWexley's been asked to send the notice on with anyone who looks like they can swing a sword.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "pl_q_order_notice",
+          "count": 1,
+          "label": "Bring the Order's notice to Drillmaster Kofi Mensah at Sorrow Hill"
+        }
+      ],
+      "accept_text": "East through Tirisfal to the Bulwark, then south past it to the hill with the tomb on top. Sorrow Hill's the keep beside it. The Deathguard at the wall won't stop you, but they'll want to know where you're going.",
+      "turn_in_text": "So Wexley sent you with the notice. He cries it twice a day in Brill, and nobody's told him to stop yet.\n\nI'm glad you came. Half my recruits walked out of the Crusade and the other half walked in off the road, so you'll fit in whatever you are. Go and see Rory when you've found a bunk.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "wpl_pf_drillmaster",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "pl_q_order_notice",
+            "name": "The Order's Notice",
+            "description": "A notice in a firm hand under a pale flame: fighters wanted at Sorrow Hill, no questions asked about where you were born.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "unique_item_defs": [
+        {
+          "name": "Crier's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 16,
+            "strength": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 12
+          },
+          "armor_value": 304,
+          "required_level": 51,
+          "sell_price": 7688,
+          "identity": "tank",
+          "icon_id": "gear_inv_shoulder_10"
+        },
+        {
+          "name": "Crier's Gauntlets",
+          "slot": "hands",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 8,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 19
+          },
+          "armor_value": 147,
+          "required_level": 51,
+          "sell_price": 6246,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_17"
+        },
+        {
+          "name": "Crier's Band",
+          "slot": "ring",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "spirit": 10
+          },
+          "secondary_stats": {
+            "spell_power": 19
+          },
+          "armor_value": 0,
+          "required_level": 51,
+          "sell_price": 5766,
+          "identity": "spirit_caster",
+          "icon_id": "gear_inv_jewelry_ring_08"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pls_a_chaplains_letter",
+      "title": "A Chaplain's Letter",
+      "giver_npc_id": "tarren_mill_chaplain",
+      "zone": "tarren_mill",
+      "level_min": 51,
+      "level_max": 52,
+      "description": "Chaplain Ewen Blackwood still prays in Tarren Mill, and he's heard there's another chaplain who still prays at Uther's Tomb. Chaplain Odile Marchand keeps the tomb for the Order of the Pale Flame.\n\nHe's written her a letter. He's never met her, and he says that's the best reason to write.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "pl_q_blackwoods_letter",
+          "count": 1,
+          "label": "Bring Chaplain Blackwood's letter to Chaplain Odile Marchand at Uther's Tomb"
+        }
+      ],
+      "accept_text": "The road north is shut, so go round through Tirisfal and east to the Bulwark. Uther's Tomb is on the hill south of the wall, beside Sorrow Hill. I'd take it myself, but somebody's got to keep the chapel open.",
+      "turn_in_text": "A letter from Tarren Mill, from a chaplain I've never met.\n\nHe asks whether I'm afraid the Light will stop answering. I'm not, and I'm going to write back and tell him so properly. Thank you for carrying it all this way.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "wpl_pf_chaplain",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "pl_q_blackwoods_letter",
+            "name": "Chaplain Blackwood's Letter",
+            "description": "A letter sealed with plain candle wax, addressed in careful capitals to the chaplain at Uther's Tomb.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "unique_item_defs": [
+        {
+          "name": "Chaplain's Pendant",
+          "slot": "neck",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "holy_spell_power": 25
+          },
+          "armor_value": 0,
+          "required_level": 51,
+          "sell_price": 5766,
+          "identity": "holy",
+          "icon_id": "gear_inv_jewelry_necklace_08"
+        },
+        {
+          "name": "Chaplain's Legguards",
+          "slot": "legs",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "healing_power": 51
+          },
+          "armor_value": 212,
+          "required_level": 51,
+          "sell_price": 9610,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_pants_14"
+        },
+        {
+          "name": "Chaplain's Shield",
+          "slot": "off_hand",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 14,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "block_value": 13
+          },
+          "armor_value": 413,
+          "required_level": 51,
+          "sell_price": 7688,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_10",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 48
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
     }
   ]
 }

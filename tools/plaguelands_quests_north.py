@@ -8,13 +8,15 @@ and the roads in between. The Scourge has a cauldron at Gahrron's Withering, and
 east edge. The Order of the Pale Flame keeps a camp, the Pale Watch, at the foot of the road up to Hearthglen, close
 enough to see the walls.
 
-  THE PALE WATCH (30) Watch Captain Lena Fischer (Hearthglen's gate and its soldiers, and word to Rory), Scout Mateo
+  THE PALE WATCH (33) Watch Captain Lena Fischer (Hearthglen's gate and its soldiers, and word to Rory), Scout Mateo
                       Brandt (the roads and the river), Field Medic Noah Kowal (the river's dead, the cauldron at
                       Gahrron's Withering, and a serum for Felwood), Sister Amalie Crane (the inquisitors she used to
                       serve beside), Woodwright Jonah Lind (Northridge), Oona Byrne (the river), Clerk Wendel Ashby
                       (Hearthglen's rosters and its dogs).
   OUT                 Sorrow Hill (Lena to Rory, Amalie to Odile), the Emerald Sanctuary in Felwood (Noah's serum to
                       Dr. Nkechi Adeyemi).
+  IN                  Felwood (Dr. Adeyemi's field kit to Noah).
+  CAVE                The Weeping Cave, above the river (Oona: the water; Amalie: the Weeper; Wendel: the Hermit).
 
 WHO KNOWS WHAT (Kyle, 16 Nov 2026): every transplant knows they came from Earth; ordinary Azerothians don't, and only
 the people at the top know more. Inside the Order people talk about home freely. Amalie and Wendel are Lordaeron born,
@@ -28,6 +30,7 @@ beside an objective word, every kill target named.
 from tools.build_durotar_quests import kill, fetch  # noqa: F401
 
 WN = "western_plaguelands_north"
+WC = "the_weeping_cave"
 
 # ---- the people
 LENA, MATEO, NOAH = "wpln_pf_watch_captain", "wpln_pf_scout", "wpln_pf_field_medic"
@@ -439,4 +442,55 @@ def build():
         "you. I'll write it down, because somebody should.",
         [("chest", "armor", "mail", "hunter"), ("legs", "armor", "cloth", "caster_crit"),
          ("main_hand", "weapon", "mace_1h", "strength")]))
+
+    # ---- the Weeping Cave, in the hill above the Thondroril (tools/handbuilt_plaguelands_caves.py)
+    A(Q("pln_the_water_under_the_hill", "The Water Under the Hill", OONA, 55, 56, "Angler's",
+        "Oona Byrne has fished the Thondroril every day since the Watch made camp, and she says the river's gone "
+        "wrong. There's water running out of the hill above it that tastes of the grave, and it's coming out of the "
+        "Weeping Cave.\n\nShe wants the Cave Drowned and the Seepwater Shades cleared out of the water.",
+        [k("Cave Drowned", 8, WC), k("Seepwater Shade", 8, WC)],
+        "The cave's in the hill on the east side, up above the river. You'll hear it before you see it, because the "
+        "water never stops running down the walls. Mind your feet in there, it's slick all the way down.",
+        "The fish'll come back now, give it a week.\n\nThere's a cave like that on the coast near Galway, back home. "
+        "The water ran out of it clean. I never thought I'd miss a cave.",
+        [("legs", "armor", "leather", "hunter"), ("shoulder", "armor", "cloth", "frost"),
+         ("feet", "armor", "plate", "tank_any")], nxt="pln_the_weeper"))
+    A(Q("pln_the_weeper", "The Weeper", AMALIE, 56, 56, "Sister's",
+        "Sister Amalie Crane heard Oona's account of the Weeping Cave, and she knows the story behind it. A woman "
+        "went into the pool at the end of the cave to look for her family after Hearthglen took them for "
+        "questioning, and she never came out.\n\nAmalie says The Weeper is her, and she's asking you to let her rest.",
+        [boss("The Weeper", WC)],
+        "The pool's at the far end of the cave, past both galleries. She'll know you're coming, because she's been "
+        "waiting for somebody for years. Be gentle if you can, and be quick if you can't.",
+        "Thank you. I'll write her name in the chapel book, under the ones Hearthglen never wrote down.\n\nI kept "
+        "quiet in that room for a long time. I'm trying to make up for it, one name at a time.",
+        [("head", "armor", "cloth", "spirit_healer"), ("hands", "armor", "leather", "rogue_crit"),
+         ("main_hand", "weapon", "sword_1h", "strength_hit")]))
+    A(Q("pln_the_hermits_account", "The Hermit's Account", WENDEL, 56, 56, "Clerk's",
+        "Clerk Wendel Ashby remembers every name in Hearthglen's ledgers, and one of them belonged to a hermit who "
+        "lived in the cave above the river and paid his tithe in fish. The Crusade stopped taking his fish when the "
+        "plague came, and he stopped coming down.\n\nWendel's heard that The Drowned Hermit still keeps his cell in "
+        "the roof of the Weeping Cave, and that he won't let anyone past.",
+        [boss("The Drowned Hermit", WC)],
+        "His cell's up through the roof of the upper gallery, about halfway along. He'll have his oar, I expect, "
+        "because he never went anywhere without it. Close his account for me, would you?",
+        "Tobias Fenn, paid in perch every quarter for eleven years. I'll mark him settled.\n\nIt's a small thing, "
+        "closing an account properly. Somebody ought to do it for everyone Hearthglen forgot.",
+        [("waist", "armor", "mail", "mail_caster"), ("back", "armor", None, "assassin"),
+         ("wrist", "armor", "plate", "plate_healer")]))
+
+    # ---- in from Felwood
+    A(Q("pln_supplies_from_felwood", "Supplies from Felwood", NKECHI, 52, 53, "Doctor's",
+        "Dr. Nkechi Adeyemi has heard from the Order of the Pale Flame that their field medic at the Pale Watch is "
+        "stitching people up with thread he boils in a pot. She's packed everything the Emerald Sanctuary can "
+        "spare.\n\nShe needs it carried to Field Medic Noah Kowal in the Western Plaguelands.",
+        [deliver("pl_q_nkechis_kit", "Bring Dr. Adeyemi's field kit to Field Medic Noah Kowal at the Pale Watch")],
+        "It's a long way, I know. Get yourself to the Eastern Kingdoms, through Tirisfal to the Bulwark, and keep "
+        "going north. The Pale Watch is at the foot of the road to Hearthglen. Don't let anyone ration the sutures.",
+        "Real sutures, clean dressings, and a bottle of something I haven't seen since Winnipeg.\n\nTell Dr. Adeyemi "
+        "she's saved more people today than I've managed all month. Then come back, because I've got work for you.",
+        [("chest", "armor", "cloth", "high_healer"), ("legs", "armor", "plate", "strength_crit"),
+         ("ring", "armor", None, "agility")], zone="emerald_sanctuary", turn_in_npc_id=NOAH,
+        grant_items=carry("pl_q_nkechis_kit", "Dr. Adeyemi's Field Kit", "A canvas roll of sutures, dressings and "
+                          "small brown bottles, packed tight and labelled in English.")))
     return out

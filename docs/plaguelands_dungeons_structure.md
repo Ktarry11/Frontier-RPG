@@ -52,7 +52,7 @@ Ten bosses. The layout leaves room for Hearthglen's hidden chain.
 
 | Floor | Rooms in order | Bosses |
 |---|---|---|
-| Hearthglen, the town (58-59) | the gate; the lower street round the hill to the Kennels and the Infirmary; the upper street back to the Town Square; the Chapel of the Flame; the Barbican | High Protector Tarsen, Huntsman Radley, Chirurgeon Maeve Lindqvist, High Clerist Hendrick, High Protector Lorik |
+| Hearthglen, the town (58-59) | the gate; the lower street round the hill to the Kennels and the Infirmary; the upper street back to the Town Square; the Chapel of the Flame; the Barbican | High Protector Tarsen, Huntsman Radley, Chirurgeon Maeve Ostrowski, High Clerist Hendrick, High Protector Lorik |
 | Mardenholde Keep (59-60) | the Keep Gate, the Muster Yard, the Armoury and the Barracks off it, the Great Hall, the tower stair, the Tower Top | Scarlet Commander Marjhan, Armsmaster Grell, Drillmaster Osric Pell, High General Abbendis, Grand Crusader Victor Hale |
 
 One-way fast exit on the Tower Top past Hale, out to North WPL.

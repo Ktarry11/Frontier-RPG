@@ -305,3 +305,20 @@ Held to the same formula as every enchantment (a shoulder's share is 0.5, betwee
 and no formula makes one. Code: `tools/plaguelands_inscriptions.py`, installed by
 `tools/build_plaguelands_rewards.py` (and again by `tools/build_enchanting.py` if that's ever rerun).
 No tabards.
+
+## 16 Nov 2026 (later): more quests, the caves' quests, and the way in from outside
+
+Kyle: "Then we finish up the quests and even make some from outside plaguelands move into plaguelands."
+
+- **The caves' quests (10):** each cave gets a clear-out and its bosses from the hub nearest it. The Writhing Deep
+  from Scout Agata Wrobel at Sorrow Hill, the Weeping Cave from the Pale Watch (Oona, Sister Amalie, Clerk Wendel),
+  the Marris Crypt from Edda Marris at Crown Guard (it's her husband's family down there), the Bone Mines from
+  Lightwarden Ysolde and Ranger Faelis at Light's Hope.
+- **In from outside (6), all deliveries at 51 to 56:** Apothecary Marwen in Undercity sends reagents to the Bulwark,
+  Crier Wexley in Brill sends the Order's notice to Sorrow Hill, Chaplain Blackwood in Tarren Mill writes to the
+  chaplain at Uther's Tomb, Dr. Adeyemi at the Emerald Sanctuary sends a field kit to the Pale Watch, Yuki
+  Hashimoto sends Sun Li back what grew in her jar, and Overlord Gath'rok in Hammerfall sends his answer to
+  Light's Hope.
+- **One more at Crown Guard:** Bat Handler Gwen Pike on the gargoyles over Stratholme's gates.
+- **Now:** South 42, North 34, West EPL 31, East EPL 38 (145 quests), every one inside the five-a-giver rule, 80%
+  or more given in a hub on every map, and every spec rewarded on every map.

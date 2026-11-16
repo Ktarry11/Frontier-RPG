@@ -3225,6 +3225,392 @@
       ],
       "gear_reward_gear_level": 60,
       "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ple_the_bones_of_the_east",
+      "title": "The Bones of the East",
+      "giver_npc_id": "epl_lh_lightwarden",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 58,
+      "level_max": 59,
+      "description": "Lightwarden Ysolde Carrow prays for every dead soul in the east, and she's found out where some of them went. The Scourge has dug a mine under the Pestilent Scar, and the Bone Miners in it are digging up the east's dead to build its constructs.\n\nShe wants the digging stopped, and the Scourge Pit Guards who keep the miners at it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bone Miner",
+          "count": 10,
+          "zone": "the_bone_mines"
+        },
+        {
+          "type": "kill",
+          "target": "Scourge Pit Guard",
+          "count": 6,
+          "zone": "the_bone_mines"
+        }
+      ],
+      "accept_text": "The mine's in the hill under the Pestilent Scar. Every gallery's deeper than the last, so it's a long walk down. The pit guards keep the miners at their work, and they'll keep you out if they can.",
+      "turn_in_text": "Those were people once, the bones they were digging up. Somebody's grandfather, somebody's child.\n\nI'll say the prayer for all of them at once. It's not enough, but it's what I've got. Faelis wants a word with you about whoever's running the place.",
+      "next_quest_id": "ple_the_overseer",
+      "reward_exp": 4360,
+      "reward_gold": 17100,
+      "unique_item_defs": [
+        {
+          "name": "Lightwarden's Jerkin",
+          "slot": "chest",
+          "item_level": 60,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 20,
+            "agility": 12
+          },
+          "secondary_stats": {
+            "dodge_rating": 9
+          },
+          "armor_value": 150,
+          "required_level": 58,
+          "sell_price": 12469,
+          "identity": "bear",
+          "icon_id": "gear_inv_chest_leather_10"
+        },
+        {
+          "name": "Lightwarden's Gloves",
+          "slot": "hands",
+          "item_level": 60,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "shadow_spell_power": 25
+          },
+          "armor_value": 52,
+          "required_level": 58,
+          "sell_price": 8105,
+          "identity": "void",
+          "icon_id": "gear_inv_gauntlets_06"
+        },
+        {
+          "name": "Lightwarden's Treads",
+          "slot": "feet",
+          "item_level": 60,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 9,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 166,
+          "required_level": 58,
+          "sell_price": 8105,
+          "identity": "earthen",
+          "icon_id": "gear_inv_boots_plate_01"
+        }
+      ],
+      "gear_reward_gear_level": 60,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_the_overseer",
+      "title": "The Overseer",
+      "giver_npc_id": "epl_lh_ranger",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 59,
+      "level_max": 60,
+      "description": "Ranger Faelis Dawnreach watched the Bone Mines from the ridge for three nights, and she's seen who runs them. Overseer Marrowgrim sits in the pit at the bottom with a meat hook and a cart, and nothing leaves the mine that he hasn't weighed.\n\nShe wants him dead before the Scourge has bone enough for another colossus.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Overseer Marrowgrim",
+          "count": 1,
+          "zone": "the_bone_mines"
+        }
+      ],
+      "accept_text": "He's in the marrow pit at the end of the deepest gallery. He's big and he's slow until he isn't, so don't stand where that hook can reach you. And watch out for the cart.",
+      "turn_in_text": "The Scar's quieter already, and the bats have stopped circling it.\n\nAt the lodge we used to say you don't kill the wolf, you kill whoever keeps it fed. Somebody's still keeping him fed, though.",
+      "next_quest_id": "ple_the_ossifier",
+      "requires_quests": [
+        "ple_the_bones_of_the_east"
+      ],
+      "reward_exp": 5772,
+      "reward_gold": 22620,
+      "unique_item_defs": [
+        {
+          "name": "Ranger's Legplates",
+          "slot": "legs",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 20,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 52
+          },
+          "armor_value": 488,
+          "required_level": 59,
+          "sell_price": 20037,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_14"
+        },
+        {
+          "name": "Ranger's Spaulders",
+          "slot": "shoulder",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 15,
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "attack_power": 43
+          },
+          "armor_value": 275,
+          "required_level": 59,
+          "sell_price": 16030,
+          "identity": "hunter",
+          "icon_id": "gear_inv_shoulder_22"
+        },
+        {
+          "name": "Ranger's Wand",
+          "slot": "ranged",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "wand",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "shadow_spell_power": 28,
+            "haste": 9
+          },
+          "armor_value": 0,
+          "required_level": 59,
+          "sell_price": 16030,
+          "identity": "dark_haste",
+          "icon_id": "gear_inv_wand_03",
+          "weapon_damage_min": 91,
+          "weapon_damage_max": 123,
+          "attack_speed": 1.9,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 62,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ple_the_ossifier",
+      "title": "The Ossifier",
+      "giver_npc_id": "epl_lh_ranger",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 60,
+      "level_max": 60,
+      "description": "Faelis has found a workshop off the middle of the Bone Mines, and Marrowgrim's tallies say everything the mine digs up goes there first. The Ossifier is a necromancer, and he's the one who turns the east's dead into the Scourge's constructs.\n\nShe wants the workshop closed.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Ossifier",
+          "count": 1,
+          "zone": "the_bone_mines"
+        }
+      ],
+      "accept_text": "The workshop's off the middle gallery, up a short passage. He'll be wearing bone armour, and it's thick, so be patient with it. Break that first, then break him.",
+      "turn_in_text": "That's the end of the Bone Mines, and the end of the constructs coming out of them.\n\nI couldn't save anyone at the lodge. I'm glad I could do something for the ones who were already gone.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ple_the_overseer"
+      ],
+      "reward_exp": 5772,
+      "reward_gold": 22620,
+      "unique_item_defs": [
+        {
+          "name": "Ranger's Hood",
+          "slot": "head",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "stamina": 15,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "shadow_spell_power": 48
+          },
+          "armor_value": 86,
+          "required_level": 60,
+          "sell_price": 16030,
+          "identity": "fel",
+          "icon_id": "gear_inv_helmet_60"
+        },
+        {
+          "name": "Ranger's Belt",
+          "slot": "waist",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "stamina": 16
+          },
+          "secondary_stats": {
+            "spell_power": 36
+          },
+          "armor_value": 153,
+          "required_level": 60,
+          "sell_price": 11021,
+          "identity": "blood",
+          "icon_id": "gear_inv_belt_06"
+        },
+        {
+          "name": "Ranger's Greataxe",
+          "slot": "main_hand",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "axe_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 15
+          },
+          "secondary_stats": {
+            "attack_power": 37,
+            "crit_chance_physical": 15
+          },
+          "armor_value": 0,
+          "required_level": 60,
+          "sell_price": 25047,
+          "identity": "strength_crit",
+          "icon_id": "gear_inv_axe_02",
+          "weapon_damage_min": 145,
+          "weapon_damage_max": 196,
+          "attack_speed": 3.6,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 62,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ple_hammerfalls_answer",
+      "title": "Hammerfall's Answer",
+      "giver_npc_id": "hammerfall_commander",
+      "zone": "arathi_central",
+      "level_min": 55,
+      "level_max": 56,
+      "description": "Overlord Gath'rok holds the middle of Arathi, and everything that crosses it crosses in front of him. Lately that's been the Argent Dawn's carts heading east, and the Dawn has asked Hammerfall for steel.\n\nGath'rok wants his answer carried to Commander Eligor Dawnbringer at Light's Hope Chapel.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "pl_q_gathroks_answer",
+          "count": 1,
+          "label": "Bring Gath'rok's answer to Commander Eligor Dawnbringer at Light's Hope"
+        }
+      ],
+      "accept_text": "Go north to the Plaguelands and take the road east as far as it runs. Light's Hope is at the end of it. Tell the commander Hammerfall keeps its word, and don't stop to fight anything you can walk past.",
+      "turn_in_text": "Hammerfall's answer, and it's yes. The Overlord doesn't waste words, does he?\n\nWe don't ask the newcomers where they came from here, and we don't ask anyone else either. We ask whether they'll stand on the wall tonight, so will you?",
+      "next_quest_id": null,
+      "turn_in_npc_id": "epl_lh_commander",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "pl_q_gathroks_answer",
+            "name": "Gath'rok's Answer",
+            "description": "A strip of hide branded with Hammerfall's mark and a few lines in Orcish, rolled tight and tied with sinew.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Overlord's Bracers",
+          "slot": "wrist",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 27,
+            "hit_rating": 7
+          },
+          "armor_value": 99,
+          "required_level": 55,
+          "sell_price": 5598,
+          "identity": "physical",
+          "icon_id": "gear_inv_bracer_16"
+        },
+        {
+          "name": "Overlord's Hauberk",
+          "slot": "chest",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "stamina": 12
+          },
+          "secondary_stats": {
+            "spell_power": 23,
+            "crit_chance_spell": 12
+          },
+          "armor_value": 228,
+          "required_level": 55,
+          "sell_price": 11196,
+          "identity": "battlemage",
+          "icon_id": "gear_inv_chest_chain_05"
+        },
+        {
+          "name": "Overlord's Cloak",
+          "slot": "back",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 7,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "spell_power": 15
+          },
+          "armor_value": 60,
+          "required_level": 55,
+          "sell_price": 6158,
+          "identity": "sturdy_caster",
+          "icon_id": "gear_inv_misc_cape_13"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
     }
   ]
 }

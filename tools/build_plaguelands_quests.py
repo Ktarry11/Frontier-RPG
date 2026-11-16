@@ -73,6 +73,23 @@ def _zones():
         for s in t["subzones"].values():
             spawns |= set(s["creatures"])
         out[key] = (seen, spawns)
+    # the caves (tools/handbuilt_plaguelands_caves.py): walked from the door in, spawns from the cave's own table
+    from collections import deque
+    from tools import handbuilt_plaguelands_caves as PC
+    for cave in PC.CAVES:
+        with contextlib.redirect_stdout(io.StringIO()):
+            z, _L = PC.build(cave)
+        px, py = PC.PORTAL[cave]
+        start = (px, py - 2)
+        seen, q = {start}, deque([start])
+        while q:
+            x, y = q.popleft()
+            for nx, ny in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
+                if (nx, ny) not in seen and 0 <= nx < z.width and 0 <= ny < z.height and z.is_walkable(nx, ny):
+                    seen.add((nx, ny))
+                    q.append((nx, ny))
+        spawns = set(enc[PC.PARENT[cave]]["caves"][cave]["creatures"])
+        out[cave.lower().replace(" ", "_").replace("'", "")] = (seen, spawns)
     return out
 
 

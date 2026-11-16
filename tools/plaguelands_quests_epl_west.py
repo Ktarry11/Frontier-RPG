@@ -10,13 +10,16 @@ and the dead knights at Stratholme's gates let nobody near the city.
 There's no camp on this map, so its quests are given at the two hubs next door, Crown Guard and Light's Hope, which
 is how the Argent Dawn has always fought this war: from holy ground, a long walk from the enemy.
 
-  CROWN GUARD (17)   Outrider Bram Tolliver (the road west and Corin's Crossing), Edda Marris (her family's farm),
+  CROWN GUARD (20)   Outrider Bram Tolliver (the road west and Corin's Crossing), Edda Marris (her family's farm),
                      Dr. Sun Li (the Fungal Vale, and spores for Felwood), Gravewarden Osric Vey (Terrordale, and a
                      word for Sun Rock), Innkeeper Greta Lowe (crow pie).
   LIGHT'S HOPE (10)  Ser Roland Ashcombe (Stratholme's gates), Huntress Kaia Lindgren (Plaguewood), Commander Eligor
                      Dawnbringer (a look at Stratholme).
   OUT                Sun Rock in Stonetalon (Osric's account of Terrordale to Spiritwalker Tohana, who's watching
                      the dead rise in Mulgore), the Emerald Sanctuary in Felwood (Sun Li's spores to Yuki Hashimoto).
+  IN                 Felwood (Yuki's jar back to Sun Li).
+  CAVE               The Marris Crypt, under the stead (Edda: the family's dead, then the sexton and the choir).
+  ALSO               Bat Handler Gwen Pike (Crown Guard) on the gargoyles over Stratholme's gates.
 
 WHO KNOWS WHAT (Kyle, 16 Nov 2026): every transplant knows they came from Earth; ordinary Azerothians don't, and only
 the people at the top know more. Bram, Edda, Osric, Greta, Roland and Dawnbringer were born here and say newcomers.
@@ -30,15 +33,17 @@ beside an objective word, every kill target named.
 from tools.build_durotar_quests import kill, fetch  # noqa: F401
 
 EW = "eastern_plaguelands_west"
+MC = "the_marris_crypt"
 
 # ---- the people
 BRAM, EDDA, SUNLI, OSRIC, GRETA = ("epl_cg_outrider", "epl_cg_widow", "epl_cg_mycologist", "epl_cg_gravewarden",
                                    "epl_cg_innkeeper")
 ROLAND, KAIA, DAWN = "epl_lh_knight", "epl_lh_huntress", "epl_lh_commander"
 TOHANA, YUKI = "sr_spirit_walker", "es_volunteer_botanist"
+GWEN = "epl_cg_flight"
 
-HUB_GIVERS = {BRAM, EDDA, SUNLI, OSRIC, GRETA, ROLAND, KAIA, DAWN}
-NATIVE_GIVERS = {BRAM, EDDA, OSRIC, GRETA, ROLAND, DAWN}
+HUB_GIVERS = {BRAM, EDDA, SUNLI, OSRIC, GRETA, ROLAND, KAIA, DAWN, GWEN}
+NATIVE_GIVERS = {BRAM, EDDA, OSRIC, GRETA, ROLAND, DAWN, GWEN}
 FACTION_BY_GIVER = {}
 
 
@@ -403,4 +408,58 @@ def build():
         "and empty. I wish they hadn't.",
         [("waist", "armor", "mail", "tide_healer"), ("back", "armor", None, "physical"),
          ("feet", "armor", "cloth", "spirit_caster")]))
+
+    # ---- the Marris Crypt, under the stead (tools/handbuilt_plaguelands_caves.py)
+    A(Q("plw_the_family_crypt", "The Family Crypt", EDDA, 56, 57, "Widow's",
+        "Edda Marris married into the family whose farm is still being worked by the dead. The Marris dead have a "
+        "crypt under the stead, and Edda's heard they don't stay in their niches any more.\n\nShe wants the Crypt "
+        "Shamblers put down and the Marris Ossuary Guards stopped, so the family can lie where they were put.",
+        [k("Crypt Shambler", 10, MC), k("Marris Ossuary Guard", 6, MC)],
+        "The stair down's at the stead, south of the farmhouse. It's laid out like a grid down there, so count your "
+        "turns. The guards were the family's own men once, and they'll still try to stop you.",
+        "Thank you. My husband's grandmother is down there somewhere, and I hope she's back where she belongs.\n\n"
+        "There's more, though. Something's still singing down there, and it isn't any hymn I know.",
+        [("head", "armor", "mail", "storm"), ("legs", "armor", "cloth", "arcane"),
+         ("hands", "armor", "plate", "bruiser")], nxt="plw_the_sexton"))
+    A(Q("plw_the_sexton", "The Sexton", EDDA, 57, 58, "Widow's",
+        "Edda says the family's sexton buried every Marris for forty years and wouldn't stop when the plague came. "
+        "Sexton Hollowell is still down there digging, and the dead he's buried sing for him.\n\nShe wants him put "
+        "in the ground for good, and The Bone Choir silenced.",
+        [boss("Sexton Hollowell", MC), boss("The Bone Choir", MC)],
+        "The sexton's hall is in the middle of the crypt, and the choir sings from the chapel at the head of it. "
+        "You'll hear them both. Don't listen to the words, because they'll tell you to lie down.",
+        "It's gone quiet down there. I didn't know how loud it was until it stopped.\n\nI'll go down myself next week and say their "
+        "names. Somebody in the family should, and I'm the only one of us left breathing.",
+        [("chest", "armor", "plate", "crusader"), ("feet", "armor", "cloth", "healer"),
+         ("main_hand", "weapon", "polearm", "bear_weapon")]))
+
+    # ---- Bat Handler Gwen Pike: the gargoyles over Stratholme's gates
+    A(Q("plw_gargoyles_over_the_gates", "Gargoyles Over the Gates", GWEN, 57, 58, "Bat Handler's",
+        "Bat Handler Gwen Pike flies the Argent Dawn's bats between Light's Hope and the western road, and the Gate "
+        "Gargoyles over Stratholme have started coming out to meet them. She's lost two bats this month.\n\nShe "
+        "wants the Gate Gargoyles knocked out of the sky, and the Stone-Winged Gargoyles that hunt the open ground "
+        "below them too.",
+        [k("Gate Gargoyle", 8), k("Stone-Winged Gargoyle", 8)],
+        "The gate ones roost on Stratholme's walls at the top of the western road, and the wild ones hunt the open "
+        "country under them. Bring them down where you can reach them, because they don't like to land.",
+        "My bats'll fly the western road again. They're nervous animals and so am I, but we'll manage.\n\nThe "
+        "gargoyles never used to come out this far. Something in that city's waking up.",
+        [("shoulder", "armor", "leather", "wildheart"), ("wrist", "armor", "mail", "hunter_precise"),
+         ("off_hand", "weapon", "tome", "precise_caster")]))
+
+    # ---- in from Felwood: Yuki writes back
+    A(Q("plw_what_grew_in_the_jar", "What Grew in the Jar", YUKI, 54, 55, "Botanist's",
+        "Yuki Hashimoto catalogues everything that grows back in Felwood, and she's had a jar of spores from the "
+        "Fungal Vale on her bench for a week. They've grown, and they've grown into something she's never seen.\n\n"
+        "She wants Dr. Sun Li to see what her spores turn into.",
+        [deliver("pl_q_yukis_jar", "Bring Yuki's jar to Dr. Sun Li at Crown Guard")],
+        "Dr. Sun Li's at Crown Guard, in the east of the Eastern Plaguelands. It's a long way, so wrap the jar in "
+        "something and keep it upright. It's started tapping on the glass, and I'd rather it didn't get out.",
+        "Oh, that's beautiful, and I hate it.\n\nI studied fungi in Kunming for twenty years, back home, and nothing "
+        "ever moved on its own. Tell Yuki I owe her a very long letter, and come back when you've rested. The vale's worse than I "
+        "thought.",
+        [("waist", "armor", "leather", "nature"), ("head", "armor", "plate", "shield_tank"),
+         ("neck", "armor", None, "haste_caster")], zone="emerald_sanctuary", turn_in_npc_id=SUNLI,
+        grant_items=carry("pl_q_yukis_jar", "Yuki's Jar", "A sealed specimen jar wrapped in a scarf. Something "
+                          "pale inside it presses against the glass, and taps.")))
     return out

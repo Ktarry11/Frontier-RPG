@@ -12,7 +12,7 @@ HEARTHGLEN (140x112), 58-59: the town. In at the gate at the bottom of the hill 
 lower street to the kennels and the infirmary, up to the square and the chapel, and across to the barbican.
         the Hearthglen Gate           1 High Protector Tarsen         holds the gate behind a shield wall
         the Kennels                   2 Huntsman Radley               his hounds come first, and keep coming
-        the Infirmary                 3 Chirurgeon Maeve Lindqvist    an Earth-born field surgeon; her saws bleed
+        the Infirmary                 3 Chirurgeon Maeve Ostrowski    an Earth-born field surgeon; her saws bleed
         the Chapel of the Flame       4 High Clerist Hendrick         burns the floor and heals himself through it
         the Barbican                  5 High Protector Lorik          the keep's gate: a hammer and a stun
 
@@ -59,7 +59,7 @@ FLOOR = {
         pillars=[(61, 20), (77, 20), (61, 28), (77, 28)],
         doors={"in": (70, 109), "down": (112, 12)},
         bosses=[(70, 98, "High Protector Tarsen"), (17, 78, "Huntsman Radley"),
-                (124, 76, "Chirurgeon Maeve Lindqvist"), (70, 22, "High Clerist Hendrick"),
+                (124, 76, "Chirurgeon Maeve Ostrowski"), (70, 22, "High Clerist Hendrick"),
                 (112, 18, "High Protector Lorik")],
         final="High Protector Lorik",
         chests=[(6, 82), (134, 82), (82, 18)],

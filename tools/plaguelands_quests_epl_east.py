@@ -8,7 +8,7 @@ open. Darrowshire's ghosts still fight the battle they lost, the Scarlet Crusade
 Mossflayer trolls of Zul'Mashar raid the roads, Quel'Lithien Lodge's rangers walk their posts long after they died,
 and the Scourge is building something out of bones in the Pestilent Scar.
 
-  LIGHT'S HOPE (18)  Commander Eligor Dawnbringer (Tyr's Hand, the Abbot, a word with the Order), Archmage Lysander
+  LIGHT'S HOPE (21)  Commander Eligor Dawnbringer (Tyr's Hand, the Abbot, a word with the Order), Archmage Lysander
                      Hale (the Scar's marrow and the Bone Colossus), Lightwarden Ysolde Carrow (Darrowshire's dead,
                      the Scar, the Mossflayer hexes), Sergeant Marisol Reyes (the Mossflayers and their medicine, and
                      a colleague at Talonbranch), Ranger Faelis Dawnreach (his old lodge), Innkeeper Jessa Moonfield
@@ -20,6 +20,8 @@ and the Scourge is building something out of bones in the Pestilent Scar.
   DARROWSHIRE (3)    Pamela Redpath, a little girl's ghost who's still waiting for her father.
   OUT                Felwood (Ines's filters to Tomasz Wolny at the Emerald Sanctuary, Marisol's notes to Marcus
                      Oyelaran at Talonbranch), Sorrow Hill (Dawnbringer to Rory, Greta to Priya, Pamela to Odile).
+  IN                 Arathi (Overlord Gath'rok's answer to Dawnbringer).
+  CAVE               The Bone Mines, under the Scar (Ysolde: the miners; Faelis: the Overseer, then the Ossifier).
 
 WHO KNOWS WHAT (Kyle, 16 Nov 2026): every transplant knows they came from Earth; ordinary Azerothians don't, and only
 the people at the top know more. The Argent Dawn takes anyone who'll stand on the wall and doesn't ask where they came
@@ -34,18 +36,20 @@ beside an objective word, every kill target named.
 from tools.build_durotar_quests import kill, fetch  # noqa: F401
 
 EE = "eastern_plaguelands_east"
+BM = "the_bone_mines"
 
 # ---- the people
 VARDEN, GRETA, GWEN, INES = "epl_cg_captain", "epl_cg_innkeeper", "epl_cg_flight", "epl_cg_corporal"
 DAWN, HALE, JESSA, ALDOUS = "epl_lh_commander", "epl_lh_scourgestones", "epl_lh_innkeeper", "epl_lh_flight"
 YSOLDE, MARISOL, FAELIS = "epl_lh_lightwarden", "epl_lh_volunteer", "epl_lh_ranger"
 PAMELA = "epl_ds_pamela"
+GATHROK = "hammerfall_commander"
 RORY, PRIYA, ODILE = "wpl_pf_flamekeeper", "wpl_pf_innkeeper", "wpl_pf_chaplain"
 TOMASZ, MARCUS = "es_volunteer_carpenter", "fn_talonbranch_medic"
 
 HUB_GIVERS = {VARDEN, GRETA, GWEN, INES, DAWN, HALE, JESSA, YSOLDE, MARISOL, FAELIS}
 #: the people born here, who say newcomers and never Earth
-NATIVE_GIVERS = {VARDEN, GRETA, GWEN, DAWN, HALE, JESSA, YSOLDE, FAELIS, PAMELA}
+NATIVE_GIVERS = {VARDEN, GRETA, GWEN, DAWN, HALE, JESSA, YSOLDE, FAELIS, PAMELA, GATHROK}
 FACTION_BY_GIVER = {}
 
 
@@ -523,4 +527,57 @@ def build():
         "home now.",
         [("main_hand", "weapon", "polearm", "strength"), ("head", "armor", "cloth", "high_healer"),
          ("hands", "armor", "leather", "hunter")]))
+
+    # ---- the Bone Mines, under the Pestilent Scar (tools/handbuilt_plaguelands_caves.py)
+    A(Q("ple_the_bones_of_the_east", "The Bones of the East", YSOLDE, 58, 59, "Lightwarden's",
+        "Lightwarden Ysolde Carrow prays for every dead soul in the east, and she's found out where some of them "
+        "went. The Scourge has dug a mine under the Pestilent Scar, and the Bone Miners in it are digging up the "
+        "east's dead to build its constructs.\n\nShe wants the digging stopped, and the Scourge Pit Guards who keep "
+        "the miners at it.",
+        [k("Bone Miner", 10, BM), k("Scourge Pit Guard", 6, BM)],
+        "The mine's in the hill under the Pestilent Scar. Every gallery's deeper than the last, so it's a long walk "
+        "down. The pit guards keep the miners at their work, and they'll keep you out if they can.",
+        "Those were people once, the bones they were digging up. Somebody's grandfather, somebody's child.\n\nI'll "
+        "say the prayer for all of them at once. It's not enough, but it's what I've got. Faelis wants a word with "
+        "you about whoever's running the place.",
+        [("chest", "armor", "leather", "bear"), ("hands", "armor", "cloth", "void"),
+         ("feet", "armor", "mail", "earthen")], nxt="ple_the_overseer"))
+    A(Q("ple_the_overseer", "The Overseer", FAELIS, 59, 60, "Ranger's",
+        "Ranger Faelis Dawnreach watched the Bone Mines from the ridge for three nights, and she's seen who runs "
+        "them. Overseer Marrowgrim sits in the pit at the bottom with a meat hook and a cart, and nothing leaves "
+        "the mine that he hasn't weighed.\n\nShe wants him dead before the Scourge has bone enough for another "
+        "colossus.",
+        [boss("Overseer Marrowgrim", BM)],
+        "He's in the marrow pit at the end of the deepest gallery. He's big and he's slow until he isn't, so don't "
+        "stand where that hook can reach you. And watch out for the cart.",
+        "The Scar's quieter already, and the bats have stopped circling it.\n\nAt the lodge we used to say you "
+        "don't kill the wolf, you kill whoever keeps it fed. Somebody's still keeping him fed, though.",
+        [("legs", "armor", "plate", "strength"), ("shoulder", "armor", "mail", "hunter"),
+         ("main_hand", "weapon", "wand", "dark_haste")], nxt="ple_the_ossifier"))
+    A(Q("ple_the_ossifier", "The Ossifier", FAELIS, 60, 60, "Ranger's",
+        "Faelis has found a workshop off the middle of the Bone Mines, and Marrowgrim's tallies say everything the "
+        "mine digs up goes there first. The Ossifier is a necromancer, and he's the one who turns the east's dead "
+        "into the Scourge's constructs.\n\nShe wants the workshop closed.",
+        [boss("The Ossifier", BM)],
+        "The workshop's off the middle gallery, up a short passage. He'll be wearing bone armour, and it's thick, so "
+        "be patient with it. Break that first, then break him.",
+        "That's the end of the Bone Mines, and the end of the constructs coming out of them.\n\nI couldn't save "
+        "anyone at the lodge. I'm glad I could do something for the ones who were already gone.",
+        [("head", "armor", "cloth", "fel"), ("waist", "armor", "leather", "blood"),
+         ("main_hand", "weapon", "axe_2h", "strength_crit")]))
+
+    # ---- in from Arathi: Hammerfall's answer
+    A(Q("ple_hammerfalls_answer", "Hammerfall's Answer", GATHROK, 55, 56, "Overlord's",
+        "Overlord Gath'rok holds the middle of Arathi, and everything that crosses it crosses in front of him. "
+        "Lately that's been the Argent Dawn's carts heading east, and the Dawn has asked Hammerfall for steel.\n\n"
+        "Gath'rok wants his answer carried to Commander Eligor Dawnbringer at Light's Hope Chapel.",
+        [deliver("pl_q_gathroks_answer", "Bring Gath'rok's answer to Commander Eligor Dawnbringer at Light's Hope")],
+        "Go north to the Plaguelands and take the road east as far as it runs. Light's Hope is at the end of it. "
+        "Tell the commander Hammerfall keeps its word, and don't stop to fight anything you can walk past.",
+        "Hammerfall's answer, and it's yes. The Overlord doesn't waste words, does he?\n\nWe don't ask the "
+        "newcomers where they came from here, and we don't ask anyone else either. We ask whether they'll stand on the wall tonight, so will you?",
+        [("wrist", "armor", "leather", "physical"), ("chest", "armor", "mail", "battlemage"),
+         ("back", "armor", None, "sturdy_caster")], zone="arathi_central", turn_in_npc_id=DAWN,
+        grant_items=carry("pl_q_gathroks_answer", "Gath'rok's Answer", "A strip of hide branded with Hammerfall's "
+                          "mark and a few lines in Orcish, rolled tight and tied with sinew.")))
     return out

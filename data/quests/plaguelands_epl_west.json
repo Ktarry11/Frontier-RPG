@@ -2544,6 +2544,400 @@
       ],
       "gear_reward_gear_level": 58,
       "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "plw_the_family_crypt",
+      "title": "The Family Crypt",
+      "giver_npc_id": "epl_cg_widow",
+      "zone": "eastern_plaguelands_west",
+      "level_min": 56,
+      "level_max": 57,
+      "description": "Edda Marris married into the family whose farm is still being worked by the dead. The Marris dead have a crypt under the stead, and Edda's heard they don't stay in their niches any more.\n\nShe wants the Crypt Shamblers put down and the Marris Ossuary Guards stopped, so the family can lie where they were put.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Crypt Shambler",
+          "count": 10,
+          "zone": "the_marris_crypt"
+        },
+        {
+          "type": "kill",
+          "target": "Marris Ossuary Guard",
+          "count": 6,
+          "zone": "the_marris_crypt"
+        }
+      ],
+      "accept_text": "The stair down's at the stead, south of the farmhouse. It's laid out like a grid down there, so count your turns. The guards were the family's own men once, and they'll still try to stop you.",
+      "turn_in_text": "Thank you. My husband's grandmother is down there somewhere, and I hope she's back where she belongs.\n\nThere's more, though. Something's still singing down there, and it isn't any hymn I know.",
+      "next_quest_id": "plw_the_sexton",
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Widow's Coif",
+          "slot": "head",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "nature_spell_power": 30,
+            "haste": 8
+          },
+          "armor_value": 219,
+          "required_level": 56,
+          "sell_price": 9290,
+          "identity": "storm",
+          "icon_id": "gear_inv_helmet_22"
+        },
+        {
+          "name": "Widow's Leggings",
+          "slot": "legs",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 16
+          },
+          "secondary_stats": {
+            "arcane_spell_power": 44
+          },
+          "armor_value": 72,
+          "required_level": 56,
+          "sell_price": 11613,
+          "identity": "arcane",
+          "icon_id": "gear_inv_pants_02"
+        },
+        {
+          "name": "Widow's Handguards",
+          "slot": "hands",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 271,
+          "required_level": 56,
+          "sell_price": 7548,
+          "identity": "bruiser",
+          "icon_id": "gear_inv_gauntlets_30"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "plw_the_sexton",
+      "title": "The Sexton",
+      "giver_npc_id": "epl_cg_widow",
+      "zone": "eastern_plaguelands_west",
+      "level_min": 57,
+      "level_max": 58,
+      "description": "Edda says the family's sexton buried every Marris for forty years and wouldn't stop when the plague came. Sexton Hollowell is still down there digging, and the dead he's buried sing for him.\n\nShe wants him put in the ground for good, and The Bone Choir silenced.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Sexton Hollowell",
+          "count": 1,
+          "zone": "the_marris_crypt"
+        },
+        {
+          "type": "kill_boss",
+          "target": "The Bone Choir",
+          "count": 1,
+          "zone": "the_marris_crypt"
+        }
+      ],
+      "accept_text": "The sexton's hall is in the middle of the crypt, and the choir sings from the chapel at the head of it. You'll hear them both. Don't listen to the words, because they'll tell you to lie down.",
+      "turn_in_text": "It's gone quiet down there. I didn't know how loud it was until it stopped.\n\nI'll go down myself next week and say their names. Somebody in the family should, and I'm the only one of us left breathing.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "plw_the_family_crypt"
+      ],
+      "reward_exp": 5564,
+      "reward_gold": 21840,
+      "unique_item_defs": [
+        {
+          "name": "Widow's Breastplate",
+          "slot": "chest",
+          "item_level": 60,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 16,
+            "intellect": 16
+          },
+          "secondary_stats": {
+            "attack_power": 45
+          },
+          "armor_value": 472,
+          "required_level": 57,
+          "sell_price": 18704,
+          "identity": "crusader",
+          "icon_id": "gear_inv_chest_plate09"
+        },
+        {
+          "name": "Widow's Slippers",
+          "slot": "feet",
+          "item_level": 60,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 9,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 41
+          },
+          "armor_value": 68,
+          "required_level": 57,
+          "sell_price": 12158,
+          "identity": "healer",
+          "icon_id": "gear_inv_boots_08"
+        },
+        {
+          "name": "Widow's Spear",
+          "slot": "main_hand",
+          "item_level": 60,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 21,
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "dodge_rating": 8
+          },
+          "armor_value": 69,
+          "required_level": 57,
+          "sell_price": 23380,
+          "identity": "bear_weapon",
+          "icon_id": "gear_inv_spear_01",
+          "weapon_damage_min": 141,
+          "weapon_damage_max": 191,
+          "attack_speed": 3.3,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 60,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "plw_gargoyles_over_the_gates",
+      "title": "Gargoyles Over the Gates",
+      "giver_npc_id": "epl_cg_flight",
+      "zone": "eastern_plaguelands_west",
+      "level_min": 57,
+      "level_max": 58,
+      "description": "Bat Handler Gwen Pike flies the Argent Dawn's bats between Light's Hope and the western road, and the Gate Gargoyles over Stratholme have started coming out to meet them. She's lost two bats this month.\n\nShe wants the Gate Gargoyles knocked out of the sky, and the Stone-Winged Gargoyles that hunt the open ground below them too.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Gate Gargoyle",
+          "count": 8,
+          "zone": "eastern_plaguelands_west"
+        },
+        {
+          "type": "kill",
+          "target": "Stone-Winged Gargoyle",
+          "count": 8,
+          "zone": "eastern_plaguelands_west"
+        }
+      ],
+      "accept_text": "The gate ones roost on Stratholme's walls at the top of the western road, and the wild ones hunt the open country under them. Bring them down where you can reach them, because they don't like to land.",
+      "turn_in_text": "My bats'll fly the western road again. They're nervous animals and so am I, but we'll manage.\n\nThe gargoyles never used to come out this far. Something in that city's waking up.",
+      "next_quest_id": null,
+      "reward_exp": 4280,
+      "reward_gold": 16800,
+      "unique_item_defs": [
+        {
+          "name": "Bat Handler's Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 12,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 125,
+          "required_level": 57,
+          "sell_price": 9630,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_shoulder_28"
+        },
+        {
+          "name": "Bat Handler's Wristguards",
+          "slot": "wrist",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8
+          },
+          "secondary_stats": {
+            "attack_power": 25,
+            "hit_rating": 8
+          },
+          "armor_value": 164,
+          "required_level": 57,
+          "sell_price": 6018,
+          "identity": "hunter_precise",
+          "icon_id": "gear_inv_bracer_08"
+        },
+        {
+          "name": "Bat Handler's Tome",
+          "slot": "off_hand",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 24,
+            "spell_hit_rating": 9
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 7222,
+          "identity": "precise_caster",
+          "icon_id": "gear_inv_tome_7",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "plw_what_grew_in_the_jar",
+      "title": "What Grew in the Jar",
+      "giver_npc_id": "es_volunteer_botanist",
+      "zone": "emerald_sanctuary",
+      "level_min": 54,
+      "level_max": 55,
+      "description": "Yuki Hashimoto catalogues everything that grows back in Felwood, and she's had a jar of spores from the Fungal Vale on her bench for a week. They've grown, and they've grown into something she's never seen.\n\nShe wants Dr. Sun Li to see what her spores turn into.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "pl_q_yukis_jar",
+          "count": 1,
+          "label": "Bring Yuki's jar to Dr. Sun Li at Crown Guard"
+        }
+      ],
+      "accept_text": "Dr. Sun Li's at Crown Guard, in the east of the Eastern Plaguelands. It's a long way, so wrap the jar in something and keep it upright. It's started tapping on the glass, and I'd rather it didn't get out.",
+      "turn_in_text": "Oh, that's beautiful, and I hate it.\n\nI studied fungi in Kunming for twenty years, back home, and nothing ever moved on its own. Tell Yuki I owe her a very long letter, and come back when you've rested. The vale's worse than I thought.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "epl_cg_mycologist",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "pl_q_yukis_jar",
+            "name": "Yuki's Jar",
+            "description": "A sealed specimen jar wrapped in a scarf. Something pale inside it presses against the glass, and taps.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Botanist's Strap",
+          "slot": "waist",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "spirit": 11
+          },
+          "secondary_stats": {
+            "nature_spell_power": 29
+          },
+          "armor_value": 97,
+          "required_level": 54,
+          "sell_price": 5933,
+          "identity": "nature",
+          "icon_id": "gear_inv_belt_12"
+        },
+        {
+          "name": "Botanist's Helm",
+          "slot": "head",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 18,
+            "strength": 7
+          },
+          "secondary_stats": {
+            "block_value": 16
+          },
+          "armor_value": 285,
+          "required_level": 54,
+          "sell_price": 8630,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_helmet_27"
+        },
+        {
+          "name": "Botanist's Choker",
+          "slot": "neck",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 18,
+            "haste": 5
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 6473,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_jewelry_necklace_09"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
     }
   ]
 }
