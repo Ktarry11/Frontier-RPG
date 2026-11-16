@@ -10578,891 +10578,6 @@
       "source": "trainer",
       "_source": "Jewelcrafting settings (tools/build_jewelcrafting.py). Kyle, 14 Nov 2026: vendors can sell settings for gemstones, or they can make them with blacksmith."
     },
-    "secret_hz_glass_vessa_bs_plains_scale_vest": {
-      "name": "Glassmouth's Plains Scale Vest",
-      "skill_required": 85,
-      "skill_range": [
-        90,
-        100,
-        110,
-        120
-      ],
-      "source": "vendor",
-      "inputs": {
-        "bar_copper": 12,
-        "flux_weak": 1
-      },
-      "output": {
-        "kind": "armor",
-        "slot": "chest",
-        "armor_type": "mail",
-        "stat_template": "str_int_hybrid",
-        "item_level": 20,
-        "rarity": "rare",
-        "material_tier": "copper",
-        "item": {
-          "name": "Glassmouth's Plains Scale Vest",
-          "slot": "chest",
-          "item_level": 20,
-          "rarity": "rare",
-          "armor_type": "mail",
-          "weapon_type": null,
-          "stat_template": "str_int_hybrid",
-          "primary_stats": {
-            "strength": 5,
-            "intellect": 5
-          },
-          "secondary_stats": {
-            "attack_power": 16
-          },
-          "armor_value": 105,
-          "required_level": 18,
-          "sell_price": 1862,
-          "flavor_text": "Mail for a shaman who fights up close.",
-          "identity": "earthen",
-          "icon_id": "gear_inv_chest_chain"
-        }
-      },
-      "vendor_location": "The Crossroads",
-      "secret": true,
-      "sold_by": [
-        "secret_hz_glass_vessa"
-      ]
-    },
-    "secret_hz_caravan_amun_bs300_truesilver_head": {
-      "name": "Amun-Who-Stayed's Truesilver Helm",
-      "skill_required": 230,
-      "skill_range": [
-        235,
-        245,
-        255,
-        265
-      ],
-      "source": "vendor",
-      "inputs": {
-        "bar_truesilver": 6,
-        "flux_strong": 1
-      },
-      "output": {
-        "kind": "armor",
-        "slot": "head",
-        "armor_type": "plate",
-        "stat_template": "int_caster",
-        "item_level": 49,
-        "rarity": "rare",
-        "material_tier": "truesilver",
-        "item": {
-          "name": "Amun-Who-Stayed's Truesilver Helm",
-          "slot": "head",
-          "item_level": 49,
-          "rarity": "rare",
-          "armor_type": "plate",
-          "weapon_type": null,
-          "stat_template": "str_int_hybrid",
-          "primary_stats": {
-            "strength": 11,
-            "intellect": 11
-          },
-          "secondary_stats": {
-            "attack_power": 31
-          },
-          "armor_value": 326,
-          "required_level": 47,
-          "sell_price": 9780,
-          "flavor_text": "Truesilver, for a paladin who heals with one hand and hits with the other.",
-          "identity": "crusader",
-          "icon_id": "gear_inv_helmet_55"
-        }
-      },
-      "secret": true,
-      "sold_by": [
-        "secret_hz_caravan_amun"
-      ]
-    },
-    "secret_uc_edwin_bs_copper_runic_coif": {
-      "name": "Edwin's Copper Runic Coif",
-      "skill_required": 60,
-      "skill_range": [
-        65,
-        75,
-        85,
-        95
-      ],
-      "source": "vendor",
-      "inputs": {
-        "bar_copper": 8,
-        "flux_weak": 1
-      },
-      "output": {
-        "kind": "armor",
-        "slot": "head",
-        "armor_type": "mail",
-        "stat_template": "int_caster",
-        "item_level": 15,
-        "rarity": "rare",
-        "material_tier": "copper",
-        "item": {
-          "name": "Edwin's Copper Runic Coif",
-          "slot": "head",
-          "item_level": 15,
-          "rarity": "rare",
-          "armor_type": "mail",
-          "weapon_type": null,
-          "stat_template": "int_caster",
-          "primary_stats": {
-            "intellect": 3
-          },
-          "secondary_stats": {
-            "nature_spell_power": 15
-          },
-          "armor_value": 66,
-          "required_level": 13,
-          "sell_price": 814,
-          "flavor_text": "Mail with runes cut into the rings, for a shaman's spells.",
-          "identity": "storm",
-          "icon_id": "gear_inv_helmet_08"
-        }
-      },
-      "secret": true,
-      "sold_by": [
-        "secret_uc_edwin"
-      ]
-    },
-    "secret_org_gashna_bs_warsong_mail_helm": {
-      "name": "Two-Coins's Warsong Chain Coif",
-      "skill_required": 90,
-      "skill_range": [
-        95,
-        105,
-        115,
-        125
-      ],
-      "source": "vendor",
-      "inputs": {
-        "bar_copper": 10,
-        "flux_weak": 1
-      },
-      "output": {
-        "kind": "armor",
-        "slot": "head",
-        "armor_type": "mail",
-        "stat_template": "agi_physical",
-        "item_level": 21,
-        "rarity": "rare",
-        "material_tier": "copper",
-        "item": {
-          "name": "Two-Coins's Warsong Chain Coif",
-          "slot": "head",
-          "item_level": 21,
-          "rarity": "rare",
-          "armor_type": "mail",
-          "weapon_type": null,
-          "stat_template": "agi_physical",
-          "primary_stats": {
-            "agility": 5
-          },
-          "secondary_stats": {
-            "attack_power": 13,
-            "crit_chance_physical": 5
-          },
-          "armor_value": 93,
-          "required_level": 19,
-          "sell_price": 1650,
-          "flavor_text": "Copper, hammered thin and riveted. Every smith's first set of chain.",
-          "identity": "hunter_crit",
-          "icon_id": "gear_inv_helmet_57"
-        }
-      },
-      "vendor_location": "Orgrimmar",
-      "secret": true,
-      "sold_by": [
-        "secret_org_gashna"
-      ]
-    },
-    "secret_tarrenmill_calloway_bs_thunderfist_gauntlets": {
-      "name": "Calloway's Thunderfist Gauntlets",
-      "skill_required": 135,
-      "skill_range": [
-        140,
-        150,
-        160,
-        170
-      ],
-      "source": "vendor",
-      "inputs": {
-        "bar_bronze": 10,
-        "flux_medium": 1
-      },
-      "output": {
-        "kind": "armor",
-        "slot": "hands",
-        "armor_type": "plate",
-        "stat_template": "str_int_hybrid",
-        "item_level": 30,
-        "rarity": "rare",
-        "material_tier": "bronze",
-        "item": {
-          "name": "Calloway's Thunderfist Gauntlets",
-          "slot": "hands",
-          "item_level": 30,
-          "rarity": "rare",
-          "armor_type": "plate",
-          "weapon_type": null,
-          "stat_template": "str_int_hybrid",
-          "primary_stats": {
-            "strength": 6,
-            "intellect": 6
-          },
-          "secondary_stats": {
-            "attack_power": 14
-          },
-          "armor_value": 163,
-          "required_level": 28,
-          "sell_price": 2836,
-          "flavor_text": "Crusader's work: plate for a fighter who also prays.",
-          "identity": "crusader",
-          "icon_id": "gear_inv_gauntlets_30"
-        }
-      },
-      "vendor_location": "The Crossroads",
-      "secret": true,
-      "sold_by": [
-        "secret_tarrenmill_calloway"
-      ]
-    },
-    "secret_hammerfall_mog_bs_razortusk_2h_axe": {
-      "name": "Halfear's Razortusk Cleaver",
-      "skill_required": 185,
-      "skill_range": [
-        190,
-        200,
-        210,
-        220
-      ],
-      "source": "vendor",
-      "inputs": {
-        "bar_bronze": 20,
-        "flux_medium": 1,
-        "whetstone": 1
-      },
-      "output": {
-        "kind": "weapon",
-        "slot": "main_hand",
-        "weapon_type": "axe_2h",
-        "stat_template": "str_physical",
-        "item_level": 40,
-        "rarity": "rare",
-        "material_tier": "bronze",
-        "item": {
-          "name": "Halfear's Razortusk Cleaver",
-          "slot": "main_hand",
-          "item_level": 40,
-          "rarity": "rare",
-          "armor_type": null,
-          "weapon_type": "axe_2h",
-          "stat_template": "str_physical",
-          "primary_stats": {
-            "strength": 11,
-            "stamina": 6
-          },
-          "secondary_stats": {
-            "attack_power": 28
-          },
-          "armor_value": 0,
-          "required_level": 38,
-          "sell_price": 9978,
-          "flavor_text": "Bronze, the first plate a warrior can really trust.",
-          "identity": "strength",
-          "icon_id": "gear_inv_axe_14",
-          "weapon_damage_min": 98,
-          "weapon_damage_max": 133,
-          "attack_speed": 3.6,
-          "block_value": 0
-        }
-      },
-      "drop_zone": "Razorfen Kraul",
-      "secret": true,
-      "sold_by": [
-        "secret_hammerfall_mog"
-      ]
-    },
-    "secret_stw_fizzby_bs300_deepearth_head": {
-      "name": "Crankloot's Deepearth Coif",
-      "skill_required": 220,
-      "skill_range": [
-        225,
-        235,
-        245,
-        255
-      ],
-      "source": "vendor",
-      "inputs": {
-        "bar_deepearth": 6,
-        "flux_strong": 1
-      },
-      "output": {
-        "kind": "armor",
-        "slot": "head",
-        "armor_type": "mail",
-        "stat_template": "agi_physical",
-        "item_level": 47,
-        "rarity": "rare",
-        "material_tier": "deepearth",
-        "item": {
-          "name": "Crankloot's Deepearth Coif",
-          "slot": "head",
-          "item_level": 47,
-          "rarity": "rare",
-          "armor_type": "mail",
-          "weapon_type": null,
-          "stat_template": "agi_int_hybrid",
-          "primary_stats": {
-            "agility": 11,
-            "intellect": 9
-          },
-          "secondary_stats": {
-            "attack_power": 32
-          },
-          "armor_value": 208,
-          "required_level": 45,
-          "sell_price": 8960,
-          "flavor_text": "Deepearth scale, dark as a mine shaft and twice as tough.",
-          "identity": "hunter",
-          "icon_id": "gear_inv_helmet_19"
-        }
-      },
-      "vendor_location": "Any pattern vendor",
-      "secret": true,
-      "sold_by": [
-        "secret_stw_fizzby"
-      ]
-    },
-    "secret_onyx_dagna_bs300_thorium_polearm": {
-      "name": "Coalbeard's Thorium Halberd",
-      "skill_required": 265,
-      "skill_range": [
-        270,
-        280,
-        290,
-        300
-      ],
-      "source": "vendor",
-      "inputs": {
-        "bar_thorium": 10,
-        "flux_strong": 1,
-        "whetstone": 1
-      },
-      "output": {
-        "kind": "weapon",
-        "slot": "main_hand",
-        "weapon_type": "polearm",
-        "stat_template": "str_physical",
-        "item_level": 56,
-        "rarity": "rare",
-        "material_tier": "thorium",
-        "item": {
-          "name": "Coalbeard's Thorium Halberd",
-          "slot": "main_hand",
-          "item_level": 56,
-          "rarity": "rare",
-          "armor_type": null,
-          "weapon_type": "polearm",
-          "stat_template": "str_physical",
-          "primary_stats": {
-            "strength": 15,
-            "stamina": 9
-          },
-          "secondary_stats": {
-            "attack_power": 38
-          },
-          "armor_value": 0,
-          "required_level": 54,
-          "sell_price": 20227,
-          "flavor_text": "Thorium plate. It's heavy, and nothing gets through it easily.",
-          "identity": "strength",
-          "icon_id": "gear_inv_weapon_halberd_08",
-          "weapon_damage_min": 132,
-          "weapon_damage_max": 179,
-          "attack_speed": 3.3,
-          "block_value": 0
-        }
-      },
-      "secret": true,
-      "sold_by": [
-        "secret_onyx_dagna"
-      ]
-    },
-    "secret_durotar_grallik_bs_warsong_mail_helm": {
-      "name": "Grallik's Warsong Chain Coif",
-      "skill_required": 90,
-      "skill_range": [
-        95,
-        105,
-        115,
-        125
-      ],
-      "source": "vendor",
-      "inputs": {
-        "bar_copper": 10,
-        "flux_weak": 1
-      },
-      "output": {
-        "kind": "armor",
-        "slot": "head",
-        "armor_type": "mail",
-        "stat_template": "agi_physical",
-        "item_level": 21,
-        "rarity": "rare",
-        "material_tier": "copper",
-        "item": {
-          "name": "Grallik's Warsong Chain Coif",
-          "slot": "head",
-          "item_level": 21,
-          "rarity": "rare",
-          "armor_type": "mail",
-          "weapon_type": null,
-          "stat_template": "agi_physical",
-          "primary_stats": {
-            "agility": 5
-          },
-          "secondary_stats": {
-            "attack_power": 13,
-            "crit_chance_physical": 5
-          },
-          "armor_value": 98,
-          "required_level": 19,
-          "sell_price": 1650,
-          "flavor_text": "Copper, hammered thin and riveted. Every smith's first set of chain.",
-          "identity": "hunter_crit",
-          "icon_id": "gear_inv_helmet_51"
-        }
-      },
-      "vendor_location": "Orgrimmar",
-      "secret": true,
-      "sold_by": [
-        "secret_durotar_grallik"
-      ]
-    },
-    "secret_sbarrens_snitch_bs_bronze_crusader_helm": {
-      "name": "Grimtooth's Bronze Crusader Helm",
-      "skill_required": 120,
-      "skill_range": [
-        125,
-        135,
-        145,
-        155
-      ],
-      "source": "vendor",
-      "inputs": {
-        "bar_bronze": 12,
-        "flux_medium": 1
-      },
-      "output": {
-        "kind": "armor",
-        "slot": "head",
-        "armor_type": "plate",
-        "stat_template": "str_int_hybrid",
-        "item_level": 27,
-        "rarity": "rare",
-        "material_tier": "bronze",
-        "item": {
-          "name": "Grimtooth's Bronze Crusader Helm",
-          "slot": "head",
-          "item_level": 27,
-          "rarity": "rare",
-          "armor_type": "plate",
-          "weapon_type": null,
-          "stat_template": "str_int_hybrid",
-          "primary_stats": {
-            "strength": 6,
-            "intellect": 6
-          },
-          "secondary_stats": {
-            "attack_power": 17
-          },
-          "armor_value": 179,
-          "required_level": 25,
-          "sell_price": 2798,
-          "flavor_text": "Crusader's work: plate for a fighter who also prays.",
-          "identity": "crusader",
-          "icon_id": "gear_inv_helmet_17"
-        }
-      },
-      "secret": true,
-      "sold_by": [
-        "secret_sbarrens_snitch"
-      ]
-    },
-    "secret_nstv_ezra_bs_iron_shield": {
-      "name": "Blackpowder's Iron Tower Shield",
-      "skill_required": 170,
-      "skill_range": [
-        175,
-        185,
-        195,
-        205
-      ],
-      "source": "vendor",
-      "inputs": {
-        "bar_bronze": 10,
-        "flux_medium": 1,
-        "whetstone": 1
-      },
-      "output": {
-        "kind": "weapon",
-        "slot": "off_hand",
-        "weapon_type": "shield",
-        "stat_template": "str_physical",
-        "item_level": 37,
-        "rarity": "rare",
-        "material_tier": "bronze",
-        "armor_value": 357,
-        "block_value": 41,
-        "item": {
-          "name": "Blackpowder's Iron Tower Shield",
-          "slot": "off_hand",
-          "item_level": 37,
-          "rarity": "rare",
-          "armor_type": null,
-          "weapon_type": "shield",
-          "stat_template": "str_physical",
-          "primary_stats": {
-            "stamina": 12,
-            "strength": 5
-          },
-          "secondary_stats": {
-            "block_value": 12
-          },
-          "armor_value": 377,
-          "required_level": 35,
-          "sell_price": 5422,
-          "flavor_text": "Made for whoever stands at the front.",
-          "identity": "shield_tank",
-          "icon_id": "gear_inv_shield_07",
-          "weapon_damage_min": 0,
-          "weapon_damage_max": 0,
-          "attack_speed": 0.0,
-          "block_value": 44
-        }
-      },
-      "secret": true,
-      "sold_by": [
-        "secret_nstv_ezra"
-      ]
-    },
-    "secret_arathiw_wren_bs_iron_plate_gloves": {
-      "name": "Wren's Iron Plate Gloves",
-      "skill_required": 165,
-      "skill_range": [
-        170,
-        180,
-        190,
-        200
-      ],
-      "source": "vendor",
-      "inputs": {
-        "bar_bronze": 10,
-        "flux_medium": 1
-      },
-      "output": {
-        "kind": "armor",
-        "slot": "hands",
-        "armor_type": "plate",
-        "stat_template": "str_physical",
-        "item_level": 36,
-        "rarity": "rare",
-        "material_tier": "bronze",
-        "item": {
-          "name": "Wren's Iron Plate Gloves",
-          "slot": "hands",
-          "item_level": 36,
-          "rarity": "rare",
-          "armor_type": "plate",
-          "weapon_type": null,
-          "stat_template": "str_physical",
-          "primary_stats": {
-            "strength": 7
-          },
-          "secondary_stats": {
-            "attack_power": 18,
-            "hit_rating": 7
-          },
-          "armor_value": 203,
-          "required_level": 34,
-          "sell_price": 4159,
-          "flavor_text": "Bronze, the first plate a warrior can really trust.",
-          "identity": "strength_hit",
-          "icon_id": "gear_inv_gauntlets_07"
-        }
-      },
-      "secret": true,
-      "sold_by": [
-        "secret_arathiw_wren"
-      ]
-    },
-    "secret_arathie_brakka_bs_runeplate_cuirass": {
-      "name": "Coldwater's Runeplate Cuirass",
-      "skill_required": 200,
-      "skill_range": [
-        205,
-        215,
-        225,
-        235
-      ],
-      "source": "vendor",
-      "inputs": {
-        "bar_bronze": 18,
-        "flux_strong": 1
-      },
-      "output": {
-        "kind": "armor",
-        "slot": "chest",
-        "armor_type": "plate",
-        "stat_template": "str_int_hybrid",
-        "item_level": 43,
-        "rarity": "rare",
-        "material_tier": "bronze",
-        "item": {
-          "name": "Coldwater's Runeplate Cuirass",
-          "slot": "chest",
-          "item_level": 43,
-          "rarity": "rare",
-          "armor_type": "plate",
-          "weapon_type": null,
-          "stat_template": "str_int_hybrid",
-          "primary_stats": {
-            "strength": 12,
-            "intellect": 12
-          },
-          "secondary_stats": {
-            "attack_power": 30
-          },
-          "armor_value": 338,
-          "required_level": 41,
-          "sell_price": 9292,
-          "flavor_text": "Crusader's work: plate for a fighter who also prays.",
-          "identity": "crusader",
-          "icon_id": "gear_inv_chest_plate11"
-        }
-      },
-      "vendor_location": "Undercity",
-      "secret": true,
-      "sold_by": [
-        "secret_arathie_brakka"
-      ]
-    },
-    "secret_dk_grubbs_bs_troll_bronze_axe": {
-      "name": "Digger's Troll-Wrought Axe",
-      "skill_required": 50,
-      "skill_range": [
-        55,
-        65,
-        75,
-        85
-      ],
-      "source": "vendor",
-      "inputs": {
-        "bar_copper": 6,
-        "flux_weak": 1,
-        "whetstone": 1
-      },
-      "output": {
-        "kind": "weapon",
-        "slot": "main_hand",
-        "weapon_type": "axe_1h",
-        "stat_template": "agi_physical",
-        "item_level": 13,
-        "rarity": "rare",
-        "material_tier": "copper",
-        "item": {
-          "name": "Digger's Troll-Wrought Axe",
-          "slot": "main_hand",
-          "item_level": 13,
-          "rarity": "rare",
-          "armor_type": null,
-          "weapon_type": "axe_1h",
-          "stat_template": "agi_int_hybrid",
-          "primary_stats": {
-            "agility": 3,
-            "intellect": 2
-          },
-          "secondary_stats": {
-            "attack_power": 9
-          },
-          "armor_value": 0,
-          "required_level": 11,
-          "sell_price": 716,
-          "flavor_text": "Hunter's mail, light at the shoulder so the bow draws clean.",
-          "identity": "hunter",
-          "icon_id": "gear_inv_throwingaxe_03",
-          "weapon_damage_min": 29,
-          "weapon_damage_max": 40,
-          "attack_speed": 2.6,
-          "block_value": 0
-        }
-      },
-      "drop_zone": "Echo Isles",
-      "secret": true,
-      "sold_by": [
-        "secret_dk_grubbs"
-      ]
-    },
-    "secret_cinder_varga_bs300_elementium_head": {
-      "name": "Varga's Elementium Helm",
-      "skill_required": 290,
-      "skill_range": [
-        295,
-        305,
-        315,
-        325
-      ],
-      "source": "vendor",
-      "inputs": {
-        "bar_elementium": 6,
-        "flux_strong": 1
-      },
-      "output": {
-        "kind": "armor",
-        "slot": "head",
-        "armor_type": "plate",
-        "stat_template": "str_physical",
-        "item_level": 61,
-        "rarity": "rare",
-        "material_tier": "elementium",
-        "item": {
-          "name": "Varga's Elementium Helm",
-          "slot": "head",
-          "item_level": 61,
-          "rarity": "rare",
-          "armor_type": "plate",
-          "weapon_type": null,
-          "stat_template": "str_physical",
-          "primary_stats": {
-            "strength": 14
-          },
-          "secondary_stats": {
-            "attack_power": 38,
-            "crit_chance_physical": 14
-          },
-          "armor_value": 406,
-          "required_level": 59,
-          "sell_price": 15492,
-          "flavor_text": "Elementium. It's the best metal there is, and it hits like it.",
-          "identity": "strength_crit",
-          "icon_id": "gear_inv_crown_02"
-        }
-      },
-      "secret": true,
-      "sold_by": [
-        "secret_cinder_varga"
-      ]
-    },
-    "secret_underdark_haldur_bs_razortusk_2h_axe": {
-      "name": "Deepdelve's Razortusk Cleaver",
-      "skill_required": 185,
-      "skill_range": [
-        190,
-        200,
-        210,
-        220
-      ],
-      "source": "vendor",
-      "inputs": {
-        "bar_bronze": 20,
-        "flux_medium": 1,
-        "whetstone": 1
-      },
-      "output": {
-        "kind": "weapon",
-        "slot": "main_hand",
-        "weapon_type": "axe_2h",
-        "stat_template": "str_physical",
-        "item_level": 40,
-        "rarity": "rare",
-        "material_tier": "bronze",
-        "item": {
-          "name": "Deepdelve's Razortusk Cleaver",
-          "slot": "main_hand",
-          "item_level": 40,
-          "rarity": "rare",
-          "armor_type": null,
-          "weapon_type": "axe_2h",
-          "stat_template": "str_physical",
-          "primary_stats": {
-            "strength": 11,
-            "stamina": 6
-          },
-          "secondary_stats": {
-            "attack_power": 28
-          },
-          "armor_value": 0,
-          "required_level": 38,
-          "sell_price": 9978,
-          "flavor_text": "Bronze, the first plate a warrior can really trust.",
-          "identity": "strength",
-          "icon_id": "gear_inv_axe_03",
-          "weapon_damage_min": 98,
-          "weapon_damage_max": 133,
-          "attack_speed": 3.6,
-          "block_value": 0
-        }
-      },
-      "drop_zone": "Razorfen Kraul",
-      "secret": true,
-      "sold_by": [
-        "secret_underdark_haldur"
-      ]
-    },
-    "secret_fn_kowalczyk_bs300_ashen_steel_wrist": {
-      "name": "Kowalczyk's Ashen Steel Wristguards",
-      "skill_required": 275,
-      "skill_range": [
-        280,
-        290,
-        300,
-        310
-      ],
-      "source": "vendor",
-      "inputs": {
-        "bar_ashen_steel": 3,
-        "flux_strong": 1
-      },
-      "output": {
-        "kind": "armor",
-        "slot": "wrist",
-        "armor_type": "mail",
-        "stat_template": "agi_int_hybrid",
-        "item_level": 58,
-        "rarity": "rare",
-        "material_tier": "ashen_steel",
-        "item": {
-          "name": "Kowalczyk's Ashen Steel Wristguards",
-          "slot": "wrist",
-          "item_level": 58,
-          "rarity": "rare",
-          "armor_type": "mail",
-          "weapon_type": null,
-          "stat_template": "agi_physical",
-          "primary_stats": {
-            "agility": 11
-          },
-          "secondary_stats": {
-            "attack_power": 29,
-            "crit_chance_physical": 11
-          },
-          "armor_value": 210,
-          "required_level": 56,
-          "sell_price": 8709,
-          "flavor_text": "Ashen steel, grey and cold, and every link of it is sharp.",
-          "identity": "hunter_crit",
-          "icon_id": "gear_inv_bracer_16"
-        }
-      },
-      "secret": true,
-      "sold_by": [
-        "secret_fn_kowalczyk"
-      ]
-    },
     "rep_og_korkron_warplate": {
       "name": "Kor'kron Warplate",
       "inputs": {
@@ -11621,6 +10736,889 @@
       "source": "vendor",
       "faction": "the_ashclaim",
       "_rare_ingredients_todo": true
+    },
+    "secret_hz_glass_vessa_bs_plains_scale_vest": {
+      "name": "Glassmouth's Plains Scale Vest",
+      "skill_required": 85,
+      "skill_range": [
+        90,
+        100,
+        110,
+        120
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_copper": 12,
+        "flux_weak": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "mail",
+        "stat_template": "str_int_hybrid",
+        "item_level": 20,
+        "rarity": "rare",
+        "material_tier": "copper",
+        "item": {
+          "name": "Plains Scale Vest",
+          "slot": "chest",
+          "item_level": 18,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 4,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "attack_power": 9
+          },
+          "armor_value": 80,
+          "required_level": 16,
+          "sell_price": 995,
+          "flavor_text": "Mail for a shaman who fights up close.",
+          "identity": "earthen",
+          "icon_id": "gear_inv_chest_chain_05"
+        }
+      },
+      "vendor_location": "The Crossroads",
+      "secret": true,
+      "sold_by": [
+        "secret_hz_glass_vessa"
+      ]
+    },
+    "secret_hz_caravan_amun_bs300_truesilver_head": {
+      "name": "Amun-Who-Stayed's Truesilver Helm",
+      "skill_required": 230,
+      "skill_range": [
+        235,
+        245,
+        255,
+        265
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_truesilver": 6,
+        "flux_strong": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "plate",
+        "stat_template": "int_caster",
+        "item_level": 49,
+        "rarity": "rare",
+        "material_tier": "truesilver",
+        "item": {
+          "name": "Truesilver Helm",
+          "slot": "head",
+          "item_level": 47,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 11,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 313,
+          "required_level": 45,
+          "sell_price": 8960,
+          "flavor_text": "Truesilver, for a paladin who heals with one hand and hits with the other.",
+          "identity": "crusader",
+          "icon_id": "gear_inv_crown_02"
+        }
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_hz_caravan_amun"
+      ]
+    },
+    "secret_uc_edwin_bs_copper_runic_coif": {
+      "name": "Edwin's Copper Runic Coif",
+      "skill_required": 60,
+      "skill_range": [
+        65,
+        75,
+        85,
+        95
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_copper": 8,
+        "flux_weak": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 15,
+        "rarity": "rare",
+        "material_tier": "copper",
+        "item": {
+          "name": "Copper Runic Coif",
+          "slot": "head",
+          "item_level": 13,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {
+            "spell_power": 8
+          },
+          "armor_value": 44,
+          "required_level": 11,
+          "sell_price": 402,
+          "flavor_text": "Mail with runes cut into the rings, for a shaman's spells.",
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_helmet_49"
+        }
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_uc_edwin"
+      ]
+    },
+    "secret_org_gashna_bs_warsong_mail_helm": {
+      "name": "Two-Coins's Warsong Chain Coif",
+      "skill_required": 90,
+      "skill_range": [
+        95,
+        105,
+        115,
+        125
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_copper": 10,
+        "flux_weak": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 21,
+        "rarity": "rare",
+        "material_tier": "copper",
+        "item": {
+          "name": "Warsong Chain Coif",
+          "slot": "head",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 3
+          },
+          "secondary_stats": {
+            "attack_power": 6,
+            "crit_chance_physical": 5
+          },
+          "armor_value": 64,
+          "required_level": 17,
+          "sell_price": 892,
+          "flavor_text": "Copper, hammered thin and riveted. Every smith's first set of chain.",
+          "identity": "hunter_crit",
+          "icon_id": "gear_inv_helmet_19"
+        }
+      },
+      "vendor_location": "Orgrimmar",
+      "secret": true,
+      "sold_by": [
+        "secret_org_gashna"
+      ]
+    },
+    "secret_tarrenmill_calloway_bs_thunderfist_gauntlets": {
+      "name": "Calloway's Thunderfist Gauntlets",
+      "skill_required": 135,
+      "skill_range": [
+        140,
+        150,
+        160,
+        170
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 10,
+        "flux_medium": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 30,
+        "rarity": "rare",
+        "material_tier": "bronze",
+        "item": {
+          "name": "Thunderfist Gauntlets",
+          "slot": "hands",
+          "item_level": 28,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 4,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "attack_power": 11
+          },
+          "armor_value": 116,
+          "required_level": 26,
+          "sell_price": 1636,
+          "flavor_text": "Crusader's work: plate for a fighter who also prays.",
+          "identity": "crusader",
+          "icon_id": "gear_inv_gauntlets_16"
+        }
+      },
+      "vendor_location": "The Crossroads",
+      "secret": true,
+      "sold_by": [
+        "secret_tarrenmill_calloway"
+      ]
+    },
+    "secret_hammerfall_mog_bs_razortusk_2h_axe": {
+      "name": "Halfear's Razortusk Cleaver",
+      "skill_required": 185,
+      "skill_range": [
+        190,
+        200,
+        210,
+        220
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 20,
+        "flux_medium": 1,
+        "whetstone": 1
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "axe_2h",
+        "stat_template": "str_physical",
+        "item_level": 40,
+        "rarity": "rare",
+        "material_tier": "bronze",
+        "item": {
+          "name": "Razortusk Cleaver",
+          "slot": "main_hand",
+          "item_level": 38,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "axe_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 0,
+          "required_level": 36,
+          "sell_price": 8959,
+          "flavor_text": "Bronze, the first plate a warrior can really trust.",
+          "identity": "strength",
+          "icon_id": "gear_inv_axe_10",
+          "weapon_damage_min": 94,
+          "weapon_damage_max": 127,
+          "attack_speed": 3.6,
+          "block_value": 0
+        }
+      },
+      "drop_zone": "Razorfen Kraul",
+      "secret": true,
+      "sold_by": [
+        "secret_hammerfall_mog"
+      ]
+    },
+    "secret_stw_fizzby_bs300_deepearth_head": {
+      "name": "Crankloot's Deepearth Coif",
+      "skill_required": 220,
+      "skill_range": [
+        225,
+        235,
+        245,
+        255
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_deepearth": 6,
+        "flux_strong": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 47,
+        "rarity": "rare",
+        "material_tier": "deepearth",
+        "item": {
+          "name": "Deepearth Coif",
+          "slot": "head",
+          "item_level": 45,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 10,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "attack_power": 31
+          },
+          "armor_value": 210,
+          "required_level": 43,
+          "sell_price": 8178,
+          "flavor_text": "Deepearth scale, dark as a mine shaft and twice as tough.",
+          "identity": "hunter",
+          "icon_id": "gear_inv_helmet_53"
+        }
+      },
+      "vendor_location": "Any pattern vendor",
+      "secret": true,
+      "sold_by": [
+        "secret_stw_fizzby"
+      ]
+    },
+    "secret_onyx_dagna_bs300_thorium_polearm": {
+      "name": "Coalbeard's Thorium Halberd",
+      "skill_required": 265,
+      "skill_range": [
+        270,
+        280,
+        290,
+        300
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_thorium": 10,
+        "flux_strong": 1,
+        "whetstone": 1
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "polearm",
+        "stat_template": "str_physical",
+        "item_level": 56,
+        "rarity": "rare",
+        "material_tier": "thorium",
+        "item": {
+          "name": "Thorium Halberd",
+          "slot": "main_hand",
+          "item_level": 54,
+          "rarity": "epic",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 19,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 48
+          },
+          "armor_value": 0,
+          "required_level": 52,
+          "sell_price": 32482,
+          "flavor_text": "Thorium plate. It's heavy, and nothing gets through it easily.",
+          "identity": "strength",
+          "icon_id": "gear_epic_polearm_2",
+          "weapon_damage_min": 166,
+          "weapon_damage_max": 224,
+          "attack_speed": 3.3,
+          "block_value": 0
+        }
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_onyx_dagna"
+      ]
+    },
+    "secret_durotar_grallik_bs_warsong_mail_helm": {
+      "name": "Grallik's Warsong Chain Coif",
+      "skill_required": 90,
+      "skill_range": [
+        95,
+        105,
+        115,
+        125
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_copper": 10,
+        "flux_weak": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "mail",
+        "stat_template": "agi_physical",
+        "item_level": 21,
+        "rarity": "rare",
+        "material_tier": "copper",
+        "item": {
+          "name": "Warsong Chain Coif",
+          "slot": "head",
+          "item_level": 19,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 3
+          },
+          "secondary_stats": {
+            "attack_power": 6,
+            "crit_chance_physical": 5
+          },
+          "armor_value": 64,
+          "required_level": 17,
+          "sell_price": 892,
+          "flavor_text": "Copper, hammered thin and riveted. Every smith's first set of chain.",
+          "identity": "hunter_crit",
+          "icon_id": "gear_inv_helmet_19"
+        }
+      },
+      "vendor_location": "Orgrimmar",
+      "secret": true,
+      "sold_by": [
+        "secret_durotar_grallik"
+      ]
+    },
+    "secret_sbarrens_snitch_bs_bronze_crusader_helm": {
+      "name": "Grimtooth's Bronze Crusader Helm",
+      "skill_required": 120,
+      "skill_range": [
+        125,
+        135,
+        145,
+        155
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 12,
+        "flux_medium": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 27,
+        "rarity": "rare",
+        "material_tier": "bronze",
+        "item": {
+          "name": "Bronze Crusader Helm",
+          "slot": "head",
+          "item_level": 25,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 4,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "attack_power": 13
+          },
+          "armor_value": 127,
+          "required_level": 23,
+          "sell_price": 1587,
+          "flavor_text": "Crusader's work: plate for a fighter who also prays.",
+          "identity": "crusader",
+          "icon_id": "gear_inv_helmet_05"
+        }
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_sbarrens_snitch"
+      ]
+    },
+    "secret_nstv_ezra_bs_iron_shield": {
+      "name": "Blackpowder's Iron Tower Shield",
+      "skill_required": 170,
+      "skill_range": [
+        175,
+        185,
+        195,
+        205
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 10,
+        "flux_medium": 1,
+        "whetstone": 1
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "off_hand",
+        "weapon_type": "shield",
+        "stat_template": "str_physical",
+        "item_level": 37,
+        "rarity": "rare",
+        "material_tier": "bronze",
+        "armor_value": 357,
+        "block_value": 41,
+        "item": {
+          "name": "Iron Tower Shield",
+          "slot": "off_hand",
+          "item_level": 35,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 12,
+            "strength": 4
+          },
+          "secondary_stats": {
+            "block_value": 11
+          },
+          "armor_value": 357,
+          "required_level": 33,
+          "sell_price": 4824,
+          "flavor_text": "Made for whoever stands at the front.",
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_04",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 41
+        }
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_nstv_ezra"
+      ]
+    },
+    "secret_arathiw_wren_bs_iron_plate_gloves": {
+      "name": "Wren's Iron Plate Gloves",
+      "skill_required": 165,
+      "skill_range": [
+        170,
+        180,
+        190,
+        200
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 10,
+        "flux_medium": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 36,
+        "rarity": "rare",
+        "material_tier": "bronze",
+        "item": {
+          "name": "Iron Plate Gloves",
+          "slot": "hands",
+          "item_level": 34,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 6
+          },
+          "secondary_stats": {
+            "attack_power": 19,
+            "hit_rating": 6
+          },
+          "armor_value": 192,
+          "required_level": 32,
+          "sell_price": 3688,
+          "flavor_text": "Bronze, the first plate a warrior can really trust.",
+          "identity": "strength_hit",
+          "icon_id": "gear_inv_gauntlets_30"
+        }
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_arathiw_wren"
+      ]
+    },
+    "secret_arathie_brakka_bs_runeplate_cuirass": {
+      "name": "Coldwater's Runeplate Cuirass",
+      "skill_required": 200,
+      "skill_range": [
+        205,
+        215,
+        225,
+        235
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 18,
+        "flux_strong": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "armor_type": "plate",
+        "stat_template": "str_int_hybrid",
+        "item_level": 43,
+        "rarity": "rare",
+        "material_tier": "bronze",
+        "item": {
+          "name": "Runeplate Cuirass",
+          "slot": "chest",
+          "item_level": 41,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 11,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "attack_power": 30
+          },
+          "armor_value": 322,
+          "required_level": 39,
+          "sell_price": 8407,
+          "flavor_text": "Crusader's work: plate for a fighter who also prays.",
+          "identity": "crusader",
+          "icon_id": "gear_inv_chest_plate09"
+        }
+      },
+      "vendor_location": "Undercity",
+      "secret": true,
+      "sold_by": [
+        "secret_arathie_brakka"
+      ]
+    },
+    "secret_dk_grubbs_bs_troll_bronze_axe": {
+      "name": "Digger's Troll-Wrought Axe",
+      "skill_required": 50,
+      "skill_range": [
+        55,
+        65,
+        75,
+        85
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_copper": 6,
+        "flux_weak": 1,
+        "whetstone": 1
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "axe_1h",
+        "stat_template": "agi_physical",
+        "item_level": 13,
+        "rarity": "rare",
+        "material_tier": "copper",
+        "item": {
+          "name": "Troll-Wrought Axe",
+          "slot": "main_hand",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "axe_1h",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 9,
+          "sell_price": 336,
+          "flavor_text": "Hunter's mail, light at the shoulder so the bow draws clean.",
+          "identity": "hunter",
+          "icon_id": "gear_inv_throwingaxe_06",
+          "weapon_damage_min": 20,
+          "weapon_damage_max": 27,
+          "attack_speed": 2.6,
+          "block_value": 0
+        }
+      },
+      "drop_zone": "Echo Isles",
+      "secret": true,
+      "sold_by": [
+        "secret_dk_grubbs"
+      ]
+    },
+    "secret_cinder_varga_bs300_elementium_head": {
+      "name": "Varga's Elementium Helm",
+      "skill_required": 290,
+      "skill_range": [
+        295,
+        305,
+        315,
+        325
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_elementium": 6,
+        "flux_strong": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "armor_type": "plate",
+        "stat_template": "str_physical",
+        "item_level": 61,
+        "rarity": "rare",
+        "material_tier": "elementium",
+        "item": {
+          "name": "Elementium Helm",
+          "slot": "head",
+          "item_level": 59,
+          "rarity": "epic",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 18
+          },
+          "secondary_stats": {
+            "attack_power": 45,
+            "crit_chance_physical": 18
+          },
+          "armor_value": 508,
+          "required_level": 57,
+          "sell_price": 25037,
+          "flavor_text": "Elementium. It's the best metal there is, and it hits like it.",
+          "identity": "strength_crit",
+          "icon_id": "gear_epic_head_plate_1"
+        }
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_cinder_varga"
+      ]
+    },
+    "secret_underdark_haldur_bs_razortusk_2h_axe": {
+      "name": "Deepdelve's Razortusk Cleaver",
+      "skill_required": 185,
+      "skill_range": [
+        190,
+        200,
+        210,
+        220
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_bronze": 20,
+        "flux_medium": 1,
+        "whetstone": 1
+      },
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "weapon_type": "axe_2h",
+        "stat_template": "str_physical",
+        "item_level": 40,
+        "rarity": "rare",
+        "material_tier": "bronze",
+        "item": {
+          "name": "Razortusk Cleaver",
+          "slot": "main_hand",
+          "item_level": 38,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "axe_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 0,
+          "required_level": 36,
+          "sell_price": 8959,
+          "flavor_text": "Bronze, the first plate a warrior can really trust.",
+          "identity": "strength",
+          "icon_id": "gear_inv_axe_10",
+          "weapon_damage_min": 94,
+          "weapon_damage_max": 127,
+          "attack_speed": 3.6,
+          "block_value": 0
+        }
+      },
+      "drop_zone": "Razorfen Kraul",
+      "secret": true,
+      "sold_by": [
+        "secret_underdark_haldur"
+      ]
+    },
+    "secret_fn_kowalczyk_bs300_ashen_steel_wrist": {
+      "name": "Kowalczyk's Ashen Steel Wristguards",
+      "skill_required": 275,
+      "skill_range": [
+        280,
+        290,
+        300,
+        310
+      ],
+      "source": "vendor",
+      "inputs": {
+        "bar_ashen_steel": 3,
+        "flux_strong": 1
+      },
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "armor_type": "mail",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 58,
+        "rarity": "rare",
+        "material_tier": "ashen_steel",
+        "item": {
+          "name": "Ashen Steel Wristguards",
+          "slot": "wrist",
+          "item_level": 56,
+          "rarity": "epic",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 14
+          },
+          "secondary_stats": {
+            "attack_power": 35,
+            "crit_chance_physical": 14
+          },
+          "armor_value": 263,
+          "required_level": 54,
+          "sell_price": 14024,
+          "flavor_text": "Ashen steel, grey and cold, and every link of it is sharp.",
+          "identity": "hunter_crit",
+          "icon_id": "gear_epic_wrist_mail_1"
+        }
+      },
+      "secret": true,
+      "sold_by": [
+        "secret_fn_kowalczyk"
+      ]
     }
   }
 }

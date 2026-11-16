@@ -9621,757 +9621,6 @@
             }
           }
         },
-        "secret_hz_vault_scribe_p300_ta_starweave_chest": {
-          "name": "Scribe's Starweave Robe",
-          "skill_required": 225,
-          "skill_range": [
-            230,
-            240,
-            250,
-            260
-          ],
-          "source": "vendor",
-          "inputs": {
-            "bolt_starweave": 8,
-            "thread_silken": 1
-          },
-          "output": {
-            "kind": "armor",
-            "slot": "chest",
-            "armor_type": "cloth",
-            "stat_template": "agi_int_hybrid",
-            "item_level": 48,
-            "rarity": "rare",
-            "material_tier": "starweave",
-            "item": {
-              "name": "Scribe's Starweave Robe",
-              "slot": "chest",
-              "item_level": 48,
-              "rarity": "rare",
-              "armor_type": "cloth",
-              "weapon_type": null,
-              "stat_template": "int_caster",
-              "primary_stats": {
-                "intellect": 9
-              },
-              "secondary_stats": {
-                "arcane_spell_power": 39,
-                "crit_chance_spell": 13
-              },
-              "armor_value": 78,
-              "required_level": 46,
-              "sell_price": 11706,
-              "flavor_text": "Starweave. There are tiny points of light caught in the weave.",
-              "identity": "arcane_crit",
-              "icon_id": "gear_inv_shirt_11"
-            }
-          },
-          "secret": true,
-          "sold_by": [
-            "secret_hz_vault_scribe"
-          ]
-        },
-        "secret_hz_pines_osric_tai_blazethread_robes": {
-          "name": "Unwept's Blazethread Robes",
-          "skill_required": 95,
-          "skill_range": [
-            100,
-            110,
-            120,
-            130
-          ],
-          "source": "vendor",
-          "inputs": {
-            "bolt_silk": 4,
-            "thread_coarse": 1
-          },
-          "output": {
-            "kind": "armor",
-            "slot": "chest",
-            "armor_type": "cloth",
-            "stat_template": "int_caster",
-            "item_level": 22,
-            "rarity": "rare",
-            "material_tier": "silk",
-            "item": {
-              "name": "Unwept's Blazethread Robes",
-              "slot": "chest",
-              "item_level": 22,
-              "rarity": "rare",
-              "armor_type": "cloth",
-              "weapon_type": null,
-              "stat_template": "int_caster",
-              "primary_stats": {
-                "intellect": 8
-              },
-              "secondary_stats": {
-                "fire_spell_power": 22
-              },
-              "armor_value": 36,
-              "required_level": 20,
-              "sell_price": 2275,
-              "flavor_text": "Every stitch of it is a little too warm.",
-              "identity": "fire",
-              "icon_id": "gear_inv_shirt_orange_01"
-            }
-          },
-          "drop_zone": "Ragefire Chasm",
-          "secret": true,
-          "sold_by": [
-            "secret_hz_pines_osric"
-          ]
-        },
-        "secret_brill_grisle_tail_wool_belt": {
-          "name": "Grisle's Wool Belt",
-          "inputs": {
-            "bolt_wool": 2,
-            "thread_coarse": 1
-          },
-          "skill_required": 60,
-          "output": {
-            "kind": "armor",
-            "slot": "waist",
-            "armor_type": "cloth",
-            "stat_template": "int_caster",
-            "item_level": 17,
-            "rarity": "rare",
-            "material_tier": "wool",
-            "item": {
-              "name": "Grisle's Wool Belt",
-              "slot": "waist",
-              "item_level": 17,
-              "rarity": "rare",
-              "armor_type": "cloth",
-              "weapon_type": null,
-              "stat_template": "int_caster",
-              "primary_stats": {
-                "intellect": 3,
-                "stamina": 3
-              },
-              "secondary_stats": {
-                "spell_power": 7
-              },
-              "armor_value": 19,
-              "required_level": 15,
-              "sell_price": 728,
-              "flavor_text": "Heavy wool that keeps the cold out and the caster on their feet.",
-              "identity": "sturdy_caster",
-              "icon_id": "gear_inv_belt_13"
-            }
-          },
-          "skill_range": [
-            65,
-            75,
-            85,
-            95
-          ],
-          "source": "vendor",
-          "secret": true,
-          "sold_by": [
-            "secret_brill_grisle"
-          ]
-        },
-        "secret_ratchet_lissa_tai_blazethread_robes": {
-          "name": "Undertow's Blazethread Robes",
-          "skill_required": 95,
-          "skill_range": [
-            100,
-            110,
-            120,
-            130
-          ],
-          "source": "vendor",
-          "inputs": {
-            "bolt_silk": 4,
-            "thread_coarse": 1
-          },
-          "output": {
-            "kind": "armor",
-            "slot": "chest",
-            "armor_type": "cloth",
-            "stat_template": "int_caster",
-            "item_level": 22,
-            "rarity": "rare",
-            "material_tier": "silk",
-            "item": {
-              "name": "Undertow's Blazethread Robes",
-              "slot": "chest",
-              "item_level": 22,
-              "rarity": "rare",
-              "armor_type": "cloth",
-              "weapon_type": null,
-              "stat_template": "int_caster",
-              "primary_stats": {
-                "intellect": 8
-              },
-              "secondary_stats": {
-                "fire_spell_power": 22
-              },
-              "armor_value": 36,
-              "required_level": 20,
-              "sell_price": 2275,
-              "flavor_text": "Every stitch of it is a little too warm.",
-              "identity": "fire",
-              "icon_id": "gear_inv_chest_cloth_23"
-            }
-          },
-          "drop_zone": "Ragefire Chasm",
-          "secret": true,
-          "sold_by": [
-            "secret_ratchet_lissa"
-          ]
-        },
-        "secret_sepulcher_ashmund_tail_wool_hood": {
-          "name": "Ashmund's Wool Hood",
-          "inputs": {
-            "bolt_wool": 3,
-            "thread_coarse": 1
-          },
-          "skill_required": 80,
-          "output": {
-            "kind": "armor",
-            "slot": "head",
-            "armor_type": "cloth",
-            "stat_template": "int_caster",
-            "item_level": 21,
-            "rarity": "rare",
-            "material_tier": "wool",
-            "item": {
-              "name": "Ashmund's Wool Hood",
-              "slot": "head",
-              "item_level": 21,
-              "rarity": "rare",
-              "armor_type": "cloth",
-              "weapon_type": null,
-              "stat_template": "spi_healer",
-              "primary_stats": {
-                "spirit": 5,
-                "intellect": 5
-              },
-              "secondary_stats": {
-                "healing_power": 13
-              },
-              "armor_value": 34,
-              "required_level": 19,
-              "sell_price": 1650,
-              "flavor_text": "Heavy wool that keeps the cold out and the caster on their feet.",
-              "identity": "spirit_healer",
-              "icon_id": "gear_inv_helmet_20"
-            }
-          },
-          "skill_range": [
-            85,
-            95,
-            105,
-            115
-          ],
-          "source": "vendor",
-          "secret": true,
-          "sold_by": [
-            "secret_sepulcher_ashmund"
-          ]
-        },
-        "secret_tarrenmill_calloway_tai_silverpine_mournerobe": {
-          "name": "Calloway's Silverpine Mournerobe",
-          "skill_required": 135,
-          "skill_range": [
-            140,
-            150,
-            160,
-            170
-          ],
-          "source": "vendor",
-          "inputs": {
-            "bolt_spidersilk": 6,
-            "thread_fine": 1
-          },
-          "output": {
-            "kind": "armor",
-            "slot": "chest",
-            "armor_type": "cloth",
-            "stat_template": "spi_healer",
-            "item_level": 30,
-            "rarity": "rare",
-            "material_tier": "spidersilk",
-            "item": {
-              "name": "Calloway's Silverpine Mournerobe",
-              "slot": "chest",
-              "item_level": 30,
-              "rarity": "rare",
-              "armor_type": "cloth",
-              "weapon_type": null,
-              "stat_template": "spi_healer",
-              "primary_stats": {
-                "intellect": 7,
-                "spirit": 5
-              },
-              "secondary_stats": {
-                "healing_power": 30
-              },
-              "armor_value": 49,
-              "required_level": 28,
-              "sell_price": 4363,
-              "flavor_text": "Spidersilk's light and tough, and it doesn't snag.",
-              "identity": "high_healer",
-              "icon_id": "gear_inv_shirt_08"
-            }
-          },
-          "vendor_location": "The Sepulcher",
-          "secret": true,
-          "sold_by": [
-            "secret_tarrenmill_calloway"
-          ]
-        },
-        "secret_echo_zenji_tail_wool_gloves": {
-          "name": "Zenji's Wool Gloves",
-          "inputs": {
-            "bolt_wool": 3,
-            "thread_coarse": 1
-          },
-          "skill_required": 70,
-          "output": {
-            "kind": "armor",
-            "slot": "hands",
-            "armor_type": "cloth",
-            "stat_template": "int_caster",
-            "item_level": 19,
-            "rarity": "rare",
-            "material_tier": "wool",
-            "item": {
-              "name": "Zenji's Wool Gloves",
-              "slot": "hands",
-              "item_level": 19,
-              "rarity": "rare",
-              "armor_type": "cloth",
-              "weapon_type": null,
-              "stat_template": "int_caster",
-              "primary_stats": {
-                "stamina": 4
-              },
-              "secondary_stats": {
-                "spell_power": 4,
-                "crit_chance_spell": 5
-              },
-              "armor_value": 21,
-              "required_level": 17,
-              "sell_price": 1087,
-              "flavor_text": "Heavy wool that keeps the cold out and the caster on their feet.",
-              "identity": "battlemage",
-              "icon_id": "gear_inv_gauntlets_05"
-            }
-          },
-          "skill_range": [
-            75,
-            85,
-            95,
-            105
-          ],
-          "source": "vendor",
-          "secret": true,
-          "sold_by": [
-            "secret_echo_zenji"
-          ]
-        },
-        "secret_kael_lirael_p300_ta_emberweave_head": {
-          "name": "Sunstrand's Emberweave Hood",
-          "skill_required": 185,
-          "skill_range": [
-            190,
-            200,
-            210,
-            220
-          ],
-          "source": "vendor",
-          "inputs": {
-            "bolt_emberweave": 6,
-            "thread_fine": 1
-          },
-          "output": {
-            "kind": "armor",
-            "slot": "head",
-            "armor_type": "cloth",
-            "stat_template": "int_caster",
-            "item_level": 40,
-            "rarity": "rare",
-            "material_tier": "emberweave",
-            "item": {
-              "name": "Sunstrand's Emberweave Hood",
-              "slot": "head",
-              "item_level": 40,
-              "rarity": "rare",
-              "armor_type": "cloth",
-              "weapon_type": null,
-              "stat_template": "int_caster",
-              "primary_stats": {
-                "spirit": 14
-              },
-              "secondary_stats": {
-                "spell_power": 25
-              },
-              "armor_value": 65,
-              "required_level": 38,
-              "sell_price": 6386,
-              "flavor_text": "Emberweave stays warm in the snow, and it smells of smoke.",
-              "identity": "spirit_caster",
-              "icon_id": "gear_inv_helmet_01"
-            }
-          },
-          "secret": true,
-          "sold_by": [
-            "secret_kael_lirael"
-          ]
-        },
-        "secret_ashen_kyrenne_tail_silk_robe": {
-          "name": "Shadowbark's Silk Robe",
-          "inputs": {
-            "bolt_silk": 4,
-            "thread_fine": 1
-          },
-          "skill_required": 125,
-          "output": {
-            "kind": "armor",
-            "slot": "chest",
-            "armor_type": "cloth",
-            "stat_template": "int_caster",
-            "item_level": 30,
-            "rarity": "rare",
-            "material_tier": "silk",
-            "item": {
-              "name": "Shadowbark's Silk Robe",
-              "slot": "chest",
-              "item_level": 30,
-              "rarity": "rare",
-              "armor_type": "cloth",
-              "weapon_type": null,
-              "stat_template": "int_caster",
-              "primary_stats": {
-                "intellect": 8,
-                "stamina": 8
-              },
-              "secondary_stats": {
-                "spell_power": 17
-              },
-              "armor_value": 58,
-              "required_level": 28,
-              "sell_price": 4363,
-              "flavor_text": "Good silk. It takes a spell better than anything cheaper.",
-              "identity": "sturdy_caster",
-              "icon_id": "gear_inv_chest_cloth_41"
-            }
-          },
-          "skill_range": [
-            130,
-            140,
-            150,
-            160
-          ],
-          "source": "vendor",
-          "secret": true,
-          "sold_by": [
-            "secret_ashen_kyrenne"
-          ]
-        },
-        "secret_flats_mabs_p300_ta_moonsilk_hands": {
-          "name": "Mabs's Moonsilk Gloves",
-          "skill_required": 200,
-          "skill_range": [
-            205,
-            215,
-            225,
-            235
-          ],
-          "source": "vendor",
-          "inputs": {
-            "bolt_moonsilk": 4,
-            "thread_silken": 1
-          },
-          "output": {
-            "kind": "armor",
-            "slot": "hands",
-            "armor_type": "cloth",
-            "stat_template": "spi_healer",
-            "item_level": 43,
-            "rarity": "rare",
-            "material_tier": "moonsilk",
-            "item": {
-              "name": "Mabs's Moonsilk Gloves",
-              "slot": "hands",
-              "item_level": 43,
-              "rarity": "rare",
-              "armor_type": "cloth",
-              "weapon_type": null,
-              "stat_template": "spi_healer",
-              "primary_stats": {
-                "intellect": 7,
-                "spirit": 5
-              },
-              "secondary_stats": {
-                "healing_power": 30
-              },
-              "armor_value": 48,
-              "required_level": 41,
-              "sell_price": 6040,
-              "flavor_text": "Moonsilk's spun at night, and healers swear by it.",
-              "identity": "high_healer",
-              "icon_id": "gear_inv_gauntlets_02"
-            }
-          },
-          "secret": true,
-          "sold_by": [
-            "secret_flats_mabs"
-          ]
-        },
-        "secret_cstv_jalu_p300_ta_emberweave_head": {
-          "name": "Jalu's Emberweave Hood",
-          "skill_required": 185,
-          "skill_range": [
-            190,
-            200,
-            210,
-            220
-          ],
-          "source": "vendor",
-          "inputs": {
-            "bolt_emberweave": 6,
-            "thread_fine": 1
-          },
-          "output": {
-            "kind": "armor",
-            "slot": "head",
-            "armor_type": "cloth",
-            "stat_template": "int_caster",
-            "item_level": 40,
-            "rarity": "rare",
-            "material_tier": "emberweave",
-            "item": {
-              "name": "Jalu's Emberweave Hood",
-              "slot": "head",
-              "item_level": 40,
-              "rarity": "rare",
-              "armor_type": "cloth",
-              "weapon_type": null,
-              "stat_template": "int_caster",
-              "primary_stats": {
-                "spirit": 14
-              },
-              "secondary_stats": {
-                "spell_power": 25
-              },
-              "armor_value": 65,
-              "required_level": 38,
-              "sell_price": 6386,
-              "flavor_text": "Emberweave stays warm in the snow, and it smells of smoke.",
-              "identity": "spirit_caster",
-              "icon_id": "gear_inv_helmet_12"
-            }
-          },
-          "secret": true,
-          "sold_by": [
-            "secret_cstv_jalu"
-          ]
-        },
-        "secret_spnorth_moll_tail_wool_hood": {
-          "name": "Moll's Wool Hood",
-          "inputs": {
-            "bolt_wool": 3,
-            "thread_coarse": 1
-          },
-          "skill_required": 80,
-          "output": {
-            "kind": "armor",
-            "slot": "head",
-            "armor_type": "cloth",
-            "stat_template": "int_caster",
-            "item_level": 21,
-            "rarity": "rare",
-            "material_tier": "wool",
-            "item": {
-              "name": "Moll's Wool Hood",
-              "slot": "head",
-              "item_level": 21,
-              "rarity": "rare",
-              "armor_type": "cloth",
-              "weapon_type": null,
-              "stat_template": "spi_healer",
-              "primary_stats": {
-                "spirit": 5,
-                "intellect": 5
-              },
-              "secondary_stats": {
-                "healing_power": 13
-              },
-              "armor_value": 29,
-              "required_level": 19,
-              "sell_price": 1650,
-              "flavor_text": "Heavy wool that keeps the cold out and the caster on their feet.",
-              "identity": "spirit_healer",
-              "icon_id": "gear_inv_helmet_02"
-            }
-          },
-          "skill_range": [
-            85,
-            95,
-            105,
-            115
-          ],
-          "source": "vendor",
-          "secret": true,
-          "sold_by": [
-            "secret_spnorth_moll"
-          ]
-        },
-        "secret_fenris_ferrin_tail_silk_cloak": {
-          "name": "Ferryless's Silk Cloak",
-          "inputs": {
-            "bolt_silk": 2,
-            "thread_fine": 1
-          },
-          "skill_required": 105,
-          "output": {
-            "kind": "armor",
-            "slot": "back",
-            "armor_type": "cloth",
-            "stat_template": "int_caster",
-            "item_level": 26,
-            "rarity": "rare",
-            "material_tier": "silk",
-            "armor_value": 18,
-            "item": {
-              "name": "Ferryless's Silk Cloak",
-              "slot": "back",
-              "item_level": 26,
-              "rarity": "rare",
-              "armor_type": "cloth",
-              "weapon_type": null,
-              "stat_template": "int_caster",
-              "primary_stats": {
-                "spirit": 7
-              },
-              "secondary_stats": {
-                "spell_power": 11
-              },
-              "armor_value": 31,
-              "required_level": 24,
-              "sell_price": 1777,
-              "flavor_text": "Good silk. It takes a spell better than anything cheaper.",
-              "identity": "spirit_caster",
-              "icon_id": "gear_inv_misc_cape_07"
-            }
-          },
-          "skill_range": [
-            110,
-            120,
-            130,
-            140
-          ],
-          "source": "vendor",
-          "vendor_location": "Any pattern vendor",
-          "secret": true,
-          "sold_by": [
-            "secret_fenris_ferrin"
-          ]
-        },
-        "secret_hillse_tamsin_tai_silverpine_mournerobe": {
-          "name": "Tamsin's Silverpine Mournerobe",
-          "skill_required": 135,
-          "skill_range": [
-            140,
-            150,
-            160,
-            170
-          ],
-          "source": "vendor",
-          "inputs": {
-            "bolt_spidersilk": 6,
-            "thread_fine": 1
-          },
-          "output": {
-            "kind": "armor",
-            "slot": "chest",
-            "armor_type": "cloth",
-            "stat_template": "spi_healer",
-            "item_level": 30,
-            "rarity": "rare",
-            "material_tier": "spidersilk",
-            "item": {
-              "name": "Tamsin's Silverpine Mournerobe",
-              "slot": "chest",
-              "item_level": 30,
-              "rarity": "rare",
-              "armor_type": "cloth",
-              "weapon_type": null,
-              "stat_template": "spi_healer",
-              "primary_stats": {
-                "intellect": 7,
-                "spirit": 5
-              },
-              "secondary_stats": {
-                "healing_power": 30
-              },
-              "armor_value": 49,
-              "required_level": 28,
-              "sell_price": 4363,
-              "flavor_text": "Spidersilk's light and tough, and it doesn't snag.",
-              "identity": "high_healer",
-              "icon_id": "gear_inv_shirt_white_01"
-            }
-          },
-          "vendor_location": "The Sepulcher",
-          "secret": true,
-          "sold_by": [
-            "secret_hillse_tamsin"
-          ]
-        },
-        "secret_saltspur_hewitt_p300_ta_moonsilk_hands": {
-          "name": "Hewitt's Moonsilk Gloves",
-          "skill_required": 200,
-          "skill_range": [
-            205,
-            215,
-            225,
-            235
-          ],
-          "source": "vendor",
-          "inputs": {
-            "bolt_moonsilk": 4,
-            "thread_silken": 1
-          },
-          "output": {
-            "kind": "armor",
-            "slot": "hands",
-            "armor_type": "cloth",
-            "stat_template": "spi_healer",
-            "item_level": 43,
-            "rarity": "rare",
-            "material_tier": "moonsilk",
-            "item": {
-              "name": "Hewitt's Moonsilk Gloves",
-              "slot": "hands",
-              "item_level": 43,
-              "rarity": "rare",
-              "armor_type": "cloth",
-              "weapon_type": null,
-              "stat_template": "spi_healer",
-              "primary_stats": {
-                "intellect": 7,
-                "spirit": 5
-              },
-              "secondary_stats": {
-                "healing_power": 30
-              },
-              "armor_value": 57,
-              "required_level": 41,
-              "sell_price": 6040,
-              "flavor_text": "Moonsilk's spun at night, and healers swear by it.",
-              "identity": "high_healer",
-              "icon_id": "gear_inv_gauntlets_02"
-            }
-          },
-          "secret": true,
-          "sold_by": [
-            "secret_saltspur_hewitt"
-          ]
-        },
         "rep_cc_duskwaking_archivist_robe": {
           "name": "Duskwaking Archivist's Robe",
           "inputs": {
@@ -10578,6 +9827,756 @@
           "source": "vendor",
           "faction": "booty_bay_authority",
           "_rare_ingredients_todo": true
+        },
+        "secret_hz_vault_scribe_p300_ta_starweave_chest": {
+          "name": "Scribe's Starweave Robe",
+          "skill_required": 225,
+          "skill_range": [
+            230,
+            240,
+            250,
+            260
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_starweave": 8,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 48,
+            "rarity": "rare",
+            "material_tier": "starweave",
+            "item": {
+              "name": "Starweave Robe",
+              "slot": "chest",
+              "item_level": 46,
+              "rarity": "rare",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 8
+              },
+              "secondary_stats": {
+                "arcane_spell_power": 39,
+                "crit_chance_spell": 12
+              },
+              "armor_value": 75,
+              "required_level": 44,
+              "sell_price": 10706,
+              "flavor_text": "Starweave. There are tiny points of light caught in the weave.",
+              "identity": "arcane_crit",
+              "icon_id": "gear_inv_shirt_15"
+            }
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_hz_vault_scribe"
+          ]
+        },
+        "secret_hz_pines_osric_tai_blazethread_robes": {
+          "name": "Unwept's Blazethread Robes",
+          "skill_required": 95,
+          "skill_range": [
+            100,
+            110,
+            120,
+            130
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_silk": 4,
+            "thread_coarse": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 22,
+            "rarity": "rare",
+            "material_tier": "silk",
+            "item": {
+              "name": "Blazethread Robes",
+              "slot": "chest",
+              "item_level": 20,
+              "rarity": "uncommon",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 6
+              },
+              "secondary_stats": {
+                "spell_power": 12
+              },
+              "armor_value": 25,
+              "required_level": 18,
+              "sell_price": 1241,
+              "flavor_text": "Every stitch of it is a little too warm.",
+              "identity": "caster",
+              "icon_id": "gear_inv_chest_cloth_02"
+            }
+          },
+          "drop_zone": "Ragefire Chasm",
+          "secret": true,
+          "sold_by": [
+            "secret_hz_pines_osric"
+          ]
+        },
+        "secret_brill_grisle_tail_wool_belt": {
+          "name": "Grisle's Wool Belt",
+          "inputs": {
+            "bolt_wool": 2,
+            "thread_coarse": 1
+          },
+          "skill_required": 60,
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 17,
+            "rarity": "rare",
+            "material_tier": "wool",
+            "item": {
+              "name": "Wool Belt",
+              "slot": "waist",
+              "item_level": 15,
+              "rarity": "uncommon",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 2,
+                "stamina": 2
+              },
+              "secondary_stats": {
+                "spell_power": 5
+              },
+              "armor_value": 13,
+              "required_level": 13,
+              "sell_price": 373,
+              "flavor_text": "Heavy wool that keeps the cold out and the caster on their feet.",
+              "identity": "sturdy_caster",
+              "icon_id": "gear_inv_belt_35"
+            }
+          },
+          "skill_range": [
+            65,
+            75,
+            85,
+            95
+          ],
+          "source": "vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_brill_grisle"
+          ]
+        },
+        "secret_ratchet_lissa_tai_blazethread_robes": {
+          "name": "Undertow's Blazethread Robes",
+          "skill_required": 95,
+          "skill_range": [
+            100,
+            110,
+            120,
+            130
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_silk": 4,
+            "thread_coarse": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 22,
+            "rarity": "rare",
+            "material_tier": "silk",
+            "item": {
+              "name": "Blazethread Robes",
+              "slot": "chest",
+              "item_level": 20,
+              "rarity": "uncommon",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 6
+              },
+              "secondary_stats": {
+                "spell_power": 12
+              },
+              "armor_value": 25,
+              "required_level": 18,
+              "sell_price": 1241,
+              "flavor_text": "Every stitch of it is a little too warm.",
+              "identity": "caster",
+              "icon_id": "gear_inv_chest_cloth_02"
+            }
+          },
+          "drop_zone": "Ragefire Chasm",
+          "secret": true,
+          "sold_by": [
+            "secret_ratchet_lissa"
+          ]
+        },
+        "secret_sepulcher_ashmund_tail_wool_hood": {
+          "name": "Ashmund's Wool Hood",
+          "inputs": {
+            "bolt_wool": 3,
+            "thread_coarse": 1
+          },
+          "skill_required": 80,
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 21,
+            "rarity": "rare",
+            "material_tier": "wool",
+            "item": {
+              "name": "Wool Hood",
+              "slot": "head",
+              "item_level": 19,
+              "rarity": "uncommon",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 3,
+                "intellect": 3
+              },
+              "secondary_stats": {
+                "healing_power": 10
+              },
+              "armor_value": 20,
+              "required_level": 17,
+              "sell_price": 892,
+              "flavor_text": "Heavy wool that keeps the cold out and the caster on their feet.",
+              "identity": "spirit_healer",
+              "icon_id": "gear_inv_helmet_15"
+            }
+          },
+          "skill_range": [
+            85,
+            95,
+            105,
+            115
+          ],
+          "source": "vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_sepulcher_ashmund"
+          ]
+        },
+        "secret_tarrenmill_calloway_tai_silverpine_mournerobe": {
+          "name": "Calloway's Silverpine Mournerobe",
+          "skill_required": 135,
+          "skill_range": [
+            140,
+            150,
+            160,
+            170
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_spidersilk": 6,
+            "thread_fine": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 30,
+            "rarity": "rare",
+            "material_tier": "spidersilk",
+            "item": {
+              "name": "Silverpine Mournerobe",
+              "slot": "chest",
+              "item_level": 28,
+              "rarity": "uncommon",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 5,
+                "spirit": 4
+              },
+              "secondary_stats": {
+                "healing_power": 21
+              },
+              "armor_value": 35,
+              "required_level": 26,
+              "sell_price": 2516,
+              "flavor_text": "Spidersilk's light and tough, and it doesn't snag.",
+              "identity": "high_healer",
+              "icon_id": "gear_inv_chest_cloth_31"
+            }
+          },
+          "vendor_location": "The Sepulcher",
+          "secret": true,
+          "sold_by": [
+            "secret_tarrenmill_calloway"
+          ]
+        },
+        "secret_echo_zenji_tail_wool_gloves": {
+          "name": "Zenji's Wool Gloves",
+          "inputs": {
+            "bolt_wool": 3,
+            "thread_coarse": 1
+          },
+          "skill_required": 70,
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 19,
+            "rarity": "rare",
+            "material_tier": "wool",
+            "item": {
+              "name": "Wool Gloves",
+              "slot": "hands",
+              "item_level": 17,
+              "rarity": "uncommon",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "stamina": 2
+              },
+              "secondary_stats": {
+                "spell_power": 9
+              },
+              "armor_value": 14,
+              "required_level": 15,
+              "sell_price": 574,
+              "flavor_text": "Heavy wool that keeps the cold out and the caster on their feet.",
+              "identity": "battlemage",
+              "icon_id": "gear_inv_gauntlets_20"
+            }
+          },
+          "skill_range": [
+            75,
+            85,
+            95,
+            105
+          ],
+          "source": "vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_echo_zenji"
+          ]
+        },
+        "secret_kael_lirael_p300_ta_emberweave_head": {
+          "name": "Sunstrand's Emberweave Hood",
+          "skill_required": 185,
+          "skill_range": [
+            190,
+            200,
+            210,
+            220
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_emberweave": 6,
+            "thread_fine": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 40,
+            "rarity": "rare",
+            "material_tier": "emberweave",
+            "item": {
+              "name": "Emberweave Hood",
+              "slot": "head",
+              "item_level": 38,
+              "rarity": "rare",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "spirit": 13
+              },
+              "secondary_stats": {
+                "spell_power": 24
+              },
+              "armor_value": 52,
+              "required_level": 36,
+              "sell_price": 5734,
+              "flavor_text": "Emberweave stays warm in the snow, and it smells of smoke.",
+              "identity": "spirit_caster",
+              "icon_id": "gear_inv_helmet_08"
+            }
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_kael_lirael"
+          ]
+        },
+        "secret_ashen_kyrenne_tail_silk_robe": {
+          "name": "Shadowbark's Silk Robe",
+          "inputs": {
+            "bolt_silk": 4,
+            "thread_fine": 1
+          },
+          "skill_required": 125,
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 30,
+            "rarity": "rare",
+            "material_tier": "silk",
+            "item": {
+              "name": "Silk Robe",
+              "slot": "chest",
+              "item_level": 28,
+              "rarity": "uncommon",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 6,
+                "stamina": 6
+              },
+              "secondary_stats": {
+                "spell_power": 11
+              },
+              "armor_value": 35,
+              "required_level": 26,
+              "sell_price": 2516,
+              "flavor_text": "Good silk. It takes a spell better than anything cheaper.",
+              "identity": "sturdy_caster",
+              "icon_id": "gear_inv_shirt_11"
+            }
+          },
+          "skill_range": [
+            130,
+            140,
+            150,
+            160
+          ],
+          "source": "vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_ashen_kyrenne"
+          ]
+        },
+        "secret_flats_mabs_p300_ta_moonsilk_hands": {
+          "name": "Mabs's Moonsilk Gloves",
+          "skill_required": 200,
+          "skill_range": [
+            205,
+            215,
+            225,
+            235
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_moonsilk": 4,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 43,
+            "rarity": "rare",
+            "material_tier": "moonsilk",
+            "item": {
+              "name": "Moonsilk Gloves",
+              "slot": "hands",
+              "item_level": 41,
+              "rarity": "rare",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 6,
+                "spirit": 5
+              },
+              "secondary_stats": {
+                "healing_power": 29
+              },
+              "armor_value": 46,
+              "required_level": 39,
+              "sell_price": 5465,
+              "flavor_text": "Moonsilk's spun at night, and healers swear by it.",
+              "identity": "high_healer",
+              "icon_id": "gear_inv_gauntlets_02"
+            }
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_flats_mabs"
+          ]
+        },
+        "secret_cstv_jalu_p300_ta_emberweave_head": {
+          "name": "Jalu's Emberweave Hood",
+          "skill_required": 185,
+          "skill_range": [
+            190,
+            200,
+            210,
+            220
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_emberweave": 6,
+            "thread_fine": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 40,
+            "rarity": "rare",
+            "material_tier": "emberweave",
+            "item": {
+              "name": "Emberweave Hood",
+              "slot": "head",
+              "item_level": 38,
+              "rarity": "rare",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "spirit": 13
+              },
+              "secondary_stats": {
+                "spell_power": 24
+              },
+              "armor_value": 52,
+              "required_level": 36,
+              "sell_price": 5734,
+              "flavor_text": "Emberweave stays warm in the snow, and it smells of smoke.",
+              "identity": "spirit_caster",
+              "icon_id": "gear_inv_helmet_08"
+            }
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_cstv_jalu"
+          ]
+        },
+        "secret_spnorth_moll_tail_wool_hood": {
+          "name": "Moll's Wool Hood",
+          "inputs": {
+            "bolt_wool": 3,
+            "thread_coarse": 1
+          },
+          "skill_required": 80,
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 21,
+            "rarity": "rare",
+            "material_tier": "wool",
+            "item": {
+              "name": "Wool Hood",
+              "slot": "head",
+              "item_level": 19,
+              "rarity": "uncommon",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 3,
+                "intellect": 3
+              },
+              "secondary_stats": {
+                "healing_power": 10
+              },
+              "armor_value": 20,
+              "required_level": 17,
+              "sell_price": 892,
+              "flavor_text": "Heavy wool that keeps the cold out and the caster on their feet.",
+              "identity": "spirit_healer",
+              "icon_id": "gear_inv_helmet_15"
+            }
+          },
+          "skill_range": [
+            85,
+            95,
+            105,
+            115
+          ],
+          "source": "vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_spnorth_moll"
+          ]
+        },
+        "secret_fenris_ferrin_tail_silk_cloak": {
+          "name": "Ferryless's Silk Cloak",
+          "inputs": {
+            "bolt_silk": 2,
+            "thread_fine": 1
+          },
+          "skill_required": 105,
+          "output": {
+            "kind": "armor",
+            "slot": "back",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 26,
+            "rarity": "rare",
+            "material_tier": "silk",
+            "armor_value": 18,
+            "item": {
+              "name": "Silk Cloak",
+              "slot": "back",
+              "item_level": 24,
+              "rarity": "uncommon",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "spirit": 5
+              },
+              "secondary_stats": {
+                "spell_power": 8
+              },
+              "armor_value": 18,
+              "required_level": 22,
+              "sell_price": 1001,
+              "flavor_text": "Good silk. It takes a spell better than anything cheaper.",
+              "identity": "spirit_caster",
+              "icon_id": "gear_inv_misc_cape_06"
+            }
+          },
+          "skill_range": [
+            110,
+            120,
+            130,
+            140
+          ],
+          "source": "vendor",
+          "vendor_location": "Any pattern vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_fenris_ferrin"
+          ]
+        },
+        "secret_hillse_tamsin_tai_silverpine_mournerobe": {
+          "name": "Tamsin's Silverpine Mournerobe",
+          "skill_required": 135,
+          "skill_range": [
+            140,
+            150,
+            160,
+            170
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_spidersilk": 6,
+            "thread_fine": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 30,
+            "rarity": "rare",
+            "material_tier": "spidersilk",
+            "item": {
+              "name": "Silverpine Mournerobe",
+              "slot": "chest",
+              "item_level": 28,
+              "rarity": "uncommon",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 5,
+                "spirit": 4
+              },
+              "secondary_stats": {
+                "healing_power": 21
+              },
+              "armor_value": 35,
+              "required_level": 26,
+              "sell_price": 2516,
+              "flavor_text": "Spidersilk's light and tough, and it doesn't snag.",
+              "identity": "high_healer",
+              "icon_id": "gear_inv_chest_cloth_31"
+            }
+          },
+          "vendor_location": "The Sepulcher",
+          "secret": true,
+          "sold_by": [
+            "secret_hillse_tamsin"
+          ]
+        },
+        "secret_saltspur_hewitt_p300_ta_moonsilk_hands": {
+          "name": "Hewitt's Moonsilk Gloves",
+          "skill_required": 200,
+          "skill_range": [
+            205,
+            215,
+            225,
+            235
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bolt_moonsilk": 4,
+            "thread_silken": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "cloth",
+            "stat_template": "spi_healer",
+            "item_level": 43,
+            "rarity": "rare",
+            "material_tier": "moonsilk",
+            "item": {
+              "name": "Moonsilk Gloves",
+              "slot": "hands",
+              "item_level": 41,
+              "rarity": "rare",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 6,
+                "spirit": 5
+              },
+              "secondary_stats": {
+                "healing_power": 29
+              },
+              "armor_value": 46,
+              "required_level": 39,
+              "sell_price": 5465,
+              "flavor_text": "Moonsilk's spun at night, and healers swear by it.",
+              "identity": "high_healer",
+              "icon_id": "gear_inv_gauntlets_02"
+            }
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_saltspur_hewitt"
+          ]
         }
       }
     },
@@ -18659,340 +18658,6 @@
             }
           }
         },
-        "secret_taurajo_brannoch_ww_venom_stave": {
-          "name": "Brannoch's Venomwood Staff",
-          "skill_required": 120,
-          "skill_range": [
-            125,
-            135,
-            145,
-            155
-          ],
-          "source": "vendor",
-          "inputs": {
-            "plank_ironbark": 4,
-            "glue": 1,
-            "stick_hardened": 1
-          },
-          "output": {
-            "kind": "weapon",
-            "slot": "main_hand",
-            "weapon_type": "staff",
-            "stat_template": "int_caster",
-            "item_level": 27,
-            "rarity": "rare",
-            "material_tier": "ironbark",
-            "item": {
-              "name": "Brannoch's Venomwood Staff",
-              "slot": "main_hand",
-              "item_level": 27,
-              "rarity": "rare",
-              "armor_type": null,
-              "weapon_type": "staff",
-              "stat_template": "int_caster",
-              "primary_stats": {
-                "spirit": 15
-              },
-              "secondary_stats": {
-                "nature_spell_power": 41
-              },
-              "armor_value": 0,
-              "required_level": 25,
-              "sell_price": 4371,
-              "flavor_text": "Green wood, still alive in places.",
-              "identity": "nature",
-              "icon_id": "gear_inv_staff_17",
-              "weapon_damage_min": 28,
-              "weapon_damage_max": 38,
-              "attack_speed": 3.2,
-              "block_value": 0
-            }
-          },
-          "drop_zone": "Widow's Lair",
-          "secret": true,
-          "sold_by": [
-            "secret_taurajo_brannoch"
-          ]
-        },
-        "secret_splinter_grokka_ww_bramblewood_staff": {
-          "name": "Quiet's Bramblewood Staff",
-          "inputs": {
-            "plank_bramblewood": 6,
-            "fiber_tough": 3,
-            "glue": 1,
-            "stick_hardened": 1
-          },
-          "skill_required": 125,
-          "output": {
-            "kind": "weapon",
-            "slot": "main_hand",
-            "weapon_type": "staff",
-            "stat_template": "int_caster",
-            "item_level": 30,
-            "rarity": "rare",
-            "material_tier": "ironbark",
-            "item": {
-              "name": "Quiet's Bramblewood Staff",
-              "slot": "main_hand",
-              "item_level": 30,
-              "rarity": "rare",
-              "armor_type": null,
-              "weapon_type": "staff",
-              "stat_template": "int_caster",
-              "primary_stats": {
-                "spirit": 17
-              },
-              "secondary_stats": {
-                "nature_spell_power": 45
-              },
-              "armor_value": 0,
-              "required_level": 28,
-              "sell_price": 5454,
-              "flavor_text": "Green wood, still alive in places.",
-              "identity": "nature",
-              "icon_id": "gear_inv_staff_14",
-              "weapon_damage_min": 31,
-              "weapon_damage_max": 42,
-              "attack_speed": 3.2,
-              "block_value": 0
-            }
-          },
-          "skill_range": [
-            130,
-            140,
-            150,
-            160
-          ],
-          "source": "vendor",
-          "secret": true,
-          "sold_by": [
-            "secret_splinter_grokka"
-          ]
-        },
-        "secret_gromgol_zuni_ww_staff_spi_heavy": {
-          "name": "Hushfang's Lifebark Staff",
-          "skill_required": 170,
-          "skill_range": [
-            175,
-            185,
-            195,
-            205
-          ],
-          "source": "vendor",
-          "inputs": {
-            "plank_ironbark": 5,
-            "resin": 1,
-            "stick_hardened": 1
-          },
-          "output": {
-            "kind": "weapon",
-            "slot": "main_hand",
-            "weapon_type": "staff",
-            "stat_template": "spi_healer",
-            "item_level": 37,
-            "rarity": "rare",
-            "material_tier": "ironbark",
-            "item": {
-              "name": "Hushfang's Lifebark Staff",
-              "slot": "main_hand",
-              "item_level": 37,
-              "rarity": "rare",
-              "armor_type": null,
-              "weapon_type": "staff",
-              "stat_template": "spi_healer",
-              "primary_stats": {
-                "spirit": 13,
-                "intellect": 10
-              },
-              "secondary_stats": {
-                "healing_power": 56
-              },
-              "armor_value": 0,
-              "required_level": 35,
-              "sell_price": 8471,
-              "flavor_text": "Carved for a healer, smooth where the hand rests.",
-              "identity": "healer",
-              "icon_id": "gear_inv_staff_24",
-              "weapon_damage_min": 37,
-              "weapon_damage_max": 50,
-              "attack_speed": 3.2,
-              "block_value": 0
-            }
-          },
-          "vendor_location": "Any pattern vendor",
-          "secret": true,
-          "sold_by": [
-            "secret_gromgol_zuni"
-          ]
-        },
-        "secret_freewind_talo_ww_staff_spi_heavy": {
-          "name": "Skyhide's Lifebark Staff",
-          "skill_required": 170,
-          "skill_range": [
-            175,
-            185,
-            195,
-            205
-          ],
-          "source": "vendor",
-          "inputs": {
-            "plank_ironbark": 5,
-            "resin": 1,
-            "stick_hardened": 1
-          },
-          "output": {
-            "kind": "weapon",
-            "slot": "main_hand",
-            "weapon_type": "staff",
-            "stat_template": "spi_healer",
-            "item_level": 37,
-            "rarity": "rare",
-            "material_tier": "ironbark",
-            "item": {
-              "name": "Skyhide's Lifebark Staff",
-              "slot": "main_hand",
-              "item_level": 37,
-              "rarity": "rare",
-              "armor_type": null,
-              "weapon_type": "staff",
-              "stat_template": "spi_healer",
-              "primary_stats": {
-                "spirit": 13,
-                "intellect": 10
-              },
-              "secondary_stats": {
-                "healing_power": 56
-              },
-              "armor_value": 0,
-              "required_level": 35,
-              "sell_price": 8471,
-              "flavor_text": "Carved for a healer, smooth where the hand rests.",
-              "identity": "healer",
-              "icon_id": "gear_inv_staff_15",
-              "weapon_damage_min": 37,
-              "weapon_damage_max": 50,
-              "attack_speed": 3.2,
-              "block_value": 0
-            }
-          },
-          "vendor_location": "Any pattern vendor",
-          "secret": true,
-          "sold_by": [
-            "secret_freewind_talo"
-          ]
-        },
-        "secret_nbarrens_mirela_ww_frostpine_grimoire": {
-          "name": "Sandsong's Frostpine Grimoire",
-          "inputs": {
-            "pages_fine": 8,
-            "fiber_tough": 3,
-            "plank_frostpine": 1,
-            "glue": 1,
-            "stick_seasoned": 1
-          },
-          "skill_required": 110,
-          "output": {
-            "kind": "weapon",
-            "slot": "off_hand",
-            "weapon_type": "tome",
-            "stat_template": "int_caster",
-            "item_level": 27,
-            "rarity": "rare",
-            "material_tier": "ironbark",
-            "item": {
-              "name": "Sandsong's Frostpine Grimoire",
-              "slot": "off_hand",
-              "item_level": 27,
-              "rarity": "rare",
-              "armor_type": null,
-              "weapon_type": "tome",
-              "stat_template": "int_caster",
-              "primary_stats": {
-                "intellect": 8
-              },
-              "secondary_stats": {
-                "frost_spell_power": 20
-              },
-              "armor_value": 0,
-              "required_level": 25,
-              "sell_price": 2098,
-              "flavor_text": "There's frost in the grain that never melts.",
-              "identity": "frost",
-              "icon_id": "gear_inv_tome_5",
-              "weapon_damage_min": 0,
-              "weapon_damage_max": 0,
-              "attack_speed": 0.0,
-              "block_value": 0
-            }
-          },
-          "skill_range": [
-            115,
-            125,
-            135,
-            145
-          ],
-          "source": "vendor",
-          "secret": true,
-          "sold_by": [
-            "secret_nbarrens_mirela"
-          ]
-        },
-        "secret_needles_skyfeather_ww_staff_spi_heavy": {
-          "name": "Skyfeather's Lifebark Staff",
-          "skill_required": 170,
-          "skill_range": [
-            175,
-            185,
-            195,
-            205
-          ],
-          "source": "vendor",
-          "inputs": {
-            "plank_ironbark": 5,
-            "resin": 1,
-            "stick_hardened": 1
-          },
-          "output": {
-            "kind": "weapon",
-            "slot": "main_hand",
-            "weapon_type": "staff",
-            "stat_template": "spi_healer",
-            "item_level": 37,
-            "rarity": "rare",
-            "material_tier": "ironbark",
-            "item": {
-              "name": "Skyfeather's Lifebark Staff",
-              "slot": "main_hand",
-              "item_level": 37,
-              "rarity": "rare",
-              "armor_type": null,
-              "weapon_type": "staff",
-              "stat_template": "spi_healer",
-              "primary_stats": {
-                "spirit": 13,
-                "intellect": 10
-              },
-              "secondary_stats": {
-                "healing_power": 56
-              },
-              "armor_value": 0,
-              "required_level": 35,
-              "sell_price": 8471,
-              "flavor_text": "Carved for a healer, smooth where the hand rests.",
-              "identity": "healer",
-              "icon_id": "gear_inv_staff_15",
-              "weapon_damage_min": 37,
-              "weapon_damage_max": 50,
-              "attack_speed": 3.2,
-              "block_value": 0
-            }
-          },
-          "vendor_location": "Any pattern vendor",
-          "secret": true,
-          "sold_by": [
-            "secret_needles_skyfeather"
-          ]
-        },
         "ww_broadhead_arrows": {
           "name": "Duskwood Broadhead Arrows (5)",
           "inputs": {
@@ -24078,6 +23743,334 @@
           "source": "vendor",
           "faction": "emerald_reclamation",
           "_rare_ingredients_todo": true
+        },
+        "secret_taurajo_brannoch_wwx_ironbark_warpike": {
+          "name": "Brannoch's Ironbark Warpike",
+          "inputs": {
+            "plank_ironbark": 8,
+            "stick_hardened": 1,
+            "glue": 1
+          },
+          "skill_required": 120,
+          "output": {
+            "kind": "weapon",
+            "slot": "main_hand",
+            "weapon_type": "polearm",
+            "stat_template": "agi_physical",
+            "item_level": 27,
+            "rarity": "rare",
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Ironbark Warpike",
+              "slot": "main_hand",
+              "item_level": 25,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "polearm",
+              "stat_template": "str_physical",
+              "primary_stats": {
+                "strength": 5,
+                "stamina": 3
+              },
+              "secondary_stats": {
+                "attack_power": 13
+              },
+              "armor_value": 0,
+              "required_level": 23,
+              "sell_price": 2479,
+              "flavor_text": "A long, heavy war-pike. Wood this good doesn't snap on armour.",
+              "identity": "strength",
+              "icon_id": "gear_inv_weapon_halberd_11",
+              "weapon_damage_min": 50,
+              "weapon_damage_max": 68,
+              "attack_speed": 3.3,
+              "block_value": 0
+            }
+          },
+          "skill_range": [
+            125,
+            135,
+            145,
+            155
+          ],
+          "source": "vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_taurajo_brannoch"
+          ]
+        },
+        "secret_splinter_grokka_ww_bramblewood_staff": {
+          "name": "Quiet's Bramblewood Staff",
+          "inputs": {
+            "plank_bramblewood": 6,
+            "fiber_tough": 3,
+            "glue": 1,
+            "stick_hardened": 1
+          },
+          "skill_required": 125,
+          "output": {
+            "kind": "weapon",
+            "slot": "main_hand",
+            "weapon_type": "staff",
+            "stat_template": "int_caster",
+            "item_level": 30,
+            "rarity": "rare",
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Bramblewood Staff",
+              "slot": "main_hand",
+              "item_level": 28,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 12
+              },
+              "secondary_stats": {
+                "spell_power": 27
+              },
+              "armor_value": 0,
+              "required_level": 26,
+              "sell_price": 3145,
+              "flavor_text": "Green wood, still alive in places.",
+              "identity": "caster",
+              "icon_id": "gear_inv_staff_24",
+              "weapon_damage_min": 22,
+              "weapon_damage_max": 30,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
+          },
+          "skill_range": [
+            130,
+            140,
+            150,
+            160
+          ],
+          "source": "vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_splinter_grokka"
+          ]
+        },
+        "secret_gromgol_zuni_wwx_goldenleaf_libram_of_mercy": {
+          "name": "Hushfang's Goldenleaf Libram of Mercy",
+          "inputs": {
+            "plank_goldenleaf": 3,
+            "pages_fine": 3,
+            "resin": 1
+          },
+          "skill_required": 170,
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "libram",
+            "stat_template": "int_caster",
+            "item_level": 37,
+            "rarity": "rare",
+            "material_tier": "goldenleaf",
+            "item": {
+              "name": "Goldenleaf Libram of Mercy",
+              "slot": "ranged",
+              "item_level": 35,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "libram",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 3
+              },
+              "secondary_stats": {
+                "healing_power": 14
+              },
+              "armor_value": 0,
+              "required_level": 33,
+              "sell_price": 3216,
+              "flavor_text": "Psalms of mercy, bound between boards of good wood.",
+              "identity": "plate_healer",
+              "icon_id": "gear_inv_libram_3",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 0
+            }
+          },
+          "skill_range": [
+            175,
+            185,
+            195,
+            205
+          ],
+          "source": "vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_gromgol_zuni"
+          ]
+        },
+        "secret_freewind_talo_wwx_goldenleaf_libram_of_mercy": {
+          "name": "Skyhide's Goldenleaf Libram of Mercy",
+          "inputs": {
+            "plank_goldenleaf": 3,
+            "pages_fine": 3,
+            "resin": 1
+          },
+          "skill_required": 170,
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "libram",
+            "stat_template": "int_caster",
+            "item_level": 37,
+            "rarity": "rare",
+            "material_tier": "goldenleaf",
+            "item": {
+              "name": "Goldenleaf Libram of Mercy",
+              "slot": "ranged",
+              "item_level": 35,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "libram",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 3
+              },
+              "secondary_stats": {
+                "healing_power": 14
+              },
+              "armor_value": 0,
+              "required_level": 33,
+              "sell_price": 3216,
+              "flavor_text": "Psalms of mercy, bound between boards of good wood.",
+              "identity": "plate_healer",
+              "icon_id": "gear_inv_libram_3",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 0
+            }
+          },
+          "skill_range": [
+            175,
+            185,
+            195,
+            205
+          ],
+          "source": "vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_freewind_talo"
+          ]
+        },
+        "secret_nbarrens_mirela_ww_frostpine_grimoire": {
+          "name": "Sandsong's Frostpine Grimoire",
+          "inputs": {
+            "pages_fine": 8,
+            "fiber_tough": 3,
+            "plank_frostpine": 1,
+            "glue": 1,
+            "stick_seasoned": 1
+          },
+          "skill_required": 110,
+          "output": {
+            "kind": "weapon",
+            "slot": "off_hand",
+            "weapon_type": "tome",
+            "stat_template": "int_caster",
+            "item_level": 27,
+            "rarity": "rare",
+            "material_tier": "ironbark",
+            "item": {
+              "name": "Frostpine Grimoire",
+              "slot": "off_hand",
+              "item_level": 25,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "tome",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 5
+              },
+              "secondary_stats": {
+                "spell_power": 12
+              },
+              "armor_value": 0,
+              "required_level": 23,
+              "sell_price": 1190,
+              "flavor_text": "There's frost in the grain that never melts.",
+              "identity": "caster",
+              "icon_id": "gear_inv_tome_5",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 0
+            }
+          },
+          "skill_range": [
+            115,
+            125,
+            135,
+            145
+          ],
+          "source": "vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_nbarrens_mirela"
+          ]
+        },
+        "secret_needles_skyfeather_wwx_goldenleaf_libram_of_mercy": {
+          "name": "Skyfeather's Goldenleaf Libram of Mercy",
+          "inputs": {
+            "plank_goldenleaf": 3,
+            "pages_fine": 3,
+            "resin": 1
+          },
+          "skill_required": 170,
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "libram",
+            "stat_template": "int_caster",
+            "item_level": 37,
+            "rarity": "rare",
+            "material_tier": "goldenleaf",
+            "item": {
+              "name": "Goldenleaf Libram of Mercy",
+              "slot": "ranged",
+              "item_level": 35,
+              "rarity": "uncommon",
+              "armor_type": null,
+              "weapon_type": "libram",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 3
+              },
+              "secondary_stats": {
+                "healing_power": 14
+              },
+              "armor_value": 0,
+              "required_level": 33,
+              "sell_price": 3216,
+              "flavor_text": "Psalms of mercy, bound between boards of good wood.",
+              "identity": "plate_healer",
+              "icon_id": "gear_inv_libram_3",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 0
+            }
+          },
+          "skill_range": [
+            175,
+            185,
+            195,
+            205
+          ],
+          "source": "vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_needles_skyfeather"
+          ]
         }
       }
     },
@@ -27214,774 +27207,6 @@
             }
           }
         },
-        "secret_hz_caravan_amun_eng300_voidglass_targeting_scope": {
-          "name": "Amun-Who-Stayed's Voidglass Targeting Scope",
-          "skill_required": 220,
-          "skill_range": [
-            225,
-            235,
-            245,
-            255
-          ],
-          "source": "vendor",
-          "inputs": {
-            "crystal_voidglass": 2,
-            "bar_mithril": 2,
-            "part_precision_sight": 1
-          },
-          "output": {
-            "kind": "armor",
-            "slot": "trinket",
-            "armor_type": "accessory",
-            "stat_template": "agi_physical",
-            "item_level": 47,
-            "rarity": "rare",
-            "material_tier": "voidglass",
-            "item": {
-              "name": "Amun-Who-Stayed's Voidglass Targeting Scope",
-              "slot": "trinket",
-              "item_level": 47,
-              "rarity": "rare",
-              "armor_type": "accessory",
-              "weapon_type": null,
-              "stat_template": "agi_int_hybrid",
-              "primary_stats": {
-                "agility": 8,
-                "intellect": 7
-              },
-              "secondary_stats": {
-                "attack_power": 22
-              },
-              "armor_value": 0,
-              "required_level": 45,
-              "sell_price": 7840,
-              "flavor_text": "A voidglass scope. It finds the weak spot before you do.",
-              "identity": "hunter",
-              "icon_id": "gear_inv_jewelry_talisman_05",
-              "proc": {
-                "trigger": "on_crit",
-                "chance": 15,
-                "icd": 4,
-                "apply_effect": {
-                  "effect_id": "scope_lock",
-                  "name": "Target Locked",
-                  "effect_type": "buff",
-                  "duration": 3,
-                  "stat_mods": {
-                    "attack_power": 50
-                  },
-                  "on_target": false
-                },
-                "describe": "Your critical hits have a chance to grant 50 attack power for 3 turns."
-              }
-            }
-          },
-          "secret": true,
-          "sold_by": [
-            "secret_hz_caravan_amun"
-          ]
-        },
-        "secret_uc_edwin_eng_trinket_pocket_orrery": {
-          "name": "Edwin's Pocket Orrery",
-          "skill_required": 60,
-          "skill_range": [
-            65,
-            75,
-            85,
-            95
-          ],
-          "source": "vendor",
-          "inputs": {
-            "bar_bronze": 3,
-            "part_gear_assembly": 1,
-            "crystal_azure": 2
-          },
-          "output": {
-            "kind": "armor",
-            "slot": "trinket",
-            "armor_type": "accessory",
-            "stat_template": "int_caster",
-            "item_level": 15,
-            "rarity": "rare",
-            "material_tier": "bronze",
-            "item": {
-              "name": "Edwin's Pocket Orrery",
-              "slot": "trinket",
-              "item_level": 15,
-              "rarity": "rare",
-              "armor_type": "accessory",
-              "weapon_type": null,
-              "stat_template": "int_caster",
-              "primary_stats": {
-                "intellect": 3
-              },
-              "secondary_stats": {
-                "spell_power": 8
-              },
-              "armor_value": 0,
-              "required_level": 13,
-              "sell_price": 712,
-              "flavor_text": "Tiny brass planets turn inside it, and they keep better time than the sky.",
-              "identity": "caster",
-              "icon_id": "gear_inv_jewelry_talisman_04",
-              "proc": {
-                "trigger": "on_damage_cast",
-                "chance": 10,
-                "icd": 4,
-                "grant_resource": {
-                  "resource": "mana",
-                  "amount": 30
-                },
-                "describe": "Your damaging spells have a chance to restore 30 mana."
-              }
-            }
-          },
-          "secret": true,
-          "sold_by": [
-            "secret_uc_edwin"
-          ]
-        },
-        "secret_xroads_tazzle_eng_goggles_rangefinder_goggles": {
-          "name": "Tazzle's Rangefinder Goggles",
-          "skill_required": 94,
-          "skill_range": [
-            99,
-            109,
-            119,
-            129
-          ],
-          "source": "vendor",
-          "inputs": {
-            "bar_iron": 3,
-            "part_sight_glass": 2,
-            "part_bronze_framework": 1
-          },
-          "output": {
-            "kind": "armor",
-            "slot": "head",
-            "armor_type": "mail",
-            "stat_template": "agi_physical",
-            "item_level": 21,
-            "rarity": "rare",
-            "material_tier": "iron",
-            "item": {
-              "name": "Tazzle's Rangefinder Goggles",
-              "slot": "head",
-              "item_level": 21,
-              "rarity": "rare",
-              "armor_type": "mail",
-              "weapon_type": null,
-              "stat_template": "agi_physical",
-              "primary_stats": {
-                "agility": 5
-              },
-              "secondary_stats": {
-                "attack_power": 13,
-                "hit_rating": 5
-              },
-              "armor_value": 98,
-              "required_level": 19,
-              "sell_price": 1650,
-              "flavor_text": "A dial on the side clicks off the range to whatever you're aiming at.",
-              "identity": "hunter_precise",
-              "icon_id": "gear_inv_helmet_19"
-            }
-          },
-          "vendor_location": "Any pattern vendor",
-          "secret": true,
-          "sold_by": [
-            "secret_xroads_tazzle"
-          ]
-        },
-        "secret_ratchet_lissa_eng_goggles_rangefinder_goggles": {
-          "name": "Undertow's Rangefinder Goggles",
-          "skill_required": 94,
-          "skill_range": [
-            99,
-            109,
-            119,
-            129
-          ],
-          "source": "vendor",
-          "inputs": {
-            "bar_iron": 3,
-            "part_sight_glass": 2,
-            "part_bronze_framework": 1
-          },
-          "output": {
-            "kind": "armor",
-            "slot": "head",
-            "armor_type": "mail",
-            "stat_template": "agi_physical",
-            "item_level": 21,
-            "rarity": "rare",
-            "material_tier": "iron",
-            "item": {
-              "name": "Undertow's Rangefinder Goggles",
-              "slot": "head",
-              "item_level": 21,
-              "rarity": "rare",
-              "armor_type": "mail",
-              "weapon_type": null,
-              "stat_template": "agi_physical",
-              "primary_stats": {
-                "agility": 5
-              },
-              "secondary_stats": {
-                "attack_power": 13,
-                "hit_rating": 5
-              },
-              "armor_value": 93,
-              "required_level": 19,
-              "sell_price": 1650,
-              "flavor_text": "A dial on the side clicks off the range to whatever you're aiming at.",
-              "identity": "hunter_precise",
-              "icon_id": "gear_inv_helmet_29"
-            }
-          },
-          "vendor_location": "Any pattern vendor",
-          "secret": true,
-          "sold_by": [
-            "secret_ratchet_lissa"
-          ]
-        },
-        "secret_bootybay_vell_eng300_mithril_field_goggles": {
-          "name": "Vell's Mithril Field Goggles",
-          "skill_required": 205,
-          "skill_range": [
-            210,
-            220,
-            230,
-            240
-          ],
-          "source": "vendor",
-          "inputs": {
-            "bar_mithril": 4,
-            "part_glass_lens": 2
-          },
-          "output": {
-            "kind": "armor",
-            "slot": "head",
-            "armor_type": "mail",
-            "stat_template": "agi_int_hybrid",
-            "item_level": 44,
-            "rarity": "rare",
-            "material_tier": "mithril",
-            "item": {
-              "name": "Vell's Mithril Field Goggles",
-              "slot": "head",
-              "item_level": 44,
-              "rarity": "rare",
-              "armor_type": "mail",
-              "weapon_type": null,
-              "stat_template": "spi_healer",
-              "primary_stats": {
-                "intellect": 10
-              },
-              "secondary_stats": {
-                "healing_power": 47
-              },
-              "armor_value": 206,
-              "required_level": 42,
-              "sell_price": 7801,
-              "flavor_text": "A field engineer's goggles, with a lens that shows who's bleeding.",
-              "identity": "tide_healer",
-              "icon_id": "gear_inv_helmet_51"
-            }
-          },
-          "secret": true,
-          "sold_by": [
-            "secret_bootybay_vell"
-          ]
-        },
-        "secret_stw_fizzby_eng300_voidglass_targeting_scope": {
-          "name": "Crankloot's Voidglass Targeting Scope",
-          "skill_required": 220,
-          "skill_range": [
-            225,
-            235,
-            245,
-            255
-          ],
-          "source": "vendor",
-          "inputs": {
-            "crystal_voidglass": 2,
-            "bar_mithril": 2,
-            "part_precision_sight": 1
-          },
-          "output": {
-            "kind": "armor",
-            "slot": "trinket",
-            "armor_type": "accessory",
-            "stat_template": "agi_physical",
-            "item_level": 47,
-            "rarity": "rare",
-            "material_tier": "voidglass",
-            "item": {
-              "name": "Crankloot's Voidglass Targeting Scope",
-              "slot": "trinket",
-              "item_level": 47,
-              "rarity": "rare",
-              "armor_type": "accessory",
-              "weapon_type": null,
-              "stat_template": "agi_int_hybrid",
-              "primary_stats": {
-                "agility": 8,
-                "intellect": 7
-              },
-              "secondary_stats": {
-                "attack_power": 22
-              },
-              "armor_value": 0,
-              "required_level": 45,
-              "sell_price": 7840,
-              "flavor_text": "A voidglass scope. It finds the weak spot before you do.",
-              "identity": "hunter",
-              "icon_id": "gear_inv_jewelry_talisman_05",
-              "proc": {
-                "trigger": "on_crit",
-                "chance": 15,
-                "icd": 4,
-                "apply_effect": {
-                  "effect_id": "scope_lock",
-                  "name": "Target Locked",
-                  "effect_type": "buff",
-                  "duration": 3,
-                  "stat_mods": {
-                    "attack_power": 50
-                  },
-                  "on_target": false
-                },
-                "describe": "Your critical hits have a chance to grant 50 attack power for 3 turns."
-              }
-            }
-          },
-          "secret": true,
-          "sold_by": [
-            "secret_stw_fizzby"
-          ]
-        },
-        "secret_sbarrens_snitch_eng_gun_emberglass_repeater": {
-          "name": "Grimtooth's Emberglass Repeater",
-          "skill_required": 120,
-          "skill_range": [
-            125,
-            135,
-            145,
-            155
-          ],
-          "source": "vendor",
-          "inputs": {
-            "bar_iron": 4,
-            "part_steel_barrel": 1,
-            "part_wooden_stock": 1,
-            "part_unstable_trigger": 1
-          },
-          "output": {
-            "kind": "weapon",
-            "slot": "ranged",
-            "weapon_type": "gun",
-            "stat_template": "agi_physical",
-            "item_level": 27,
-            "rarity": "rare",
-            "material_tier": "iron",
-            "item": {
-              "name": "Grimtooth's Emberglass Repeater",
-              "slot": "ranged",
-              "item_level": 27,
-              "rarity": "rare",
-              "armor_type": null,
-              "weapon_type": "gun",
-              "stat_template": "spi_healer",
-              "primary_stats": {
-                "intellect": 5
-              },
-              "secondary_stats": {
-                "healing_power": 20
-              },
-              "armor_value": 0,
-              "required_level": 25,
-              "sell_price": 2798,
-              "flavor_text": "Loaded with medicine rounds. Point it at a friend and pull the trigger.",
-              "identity": "tide_healer",
-              "icon_id": "gear_inv_weapon_rifle_02",
-              "weapon_damage_min": 44,
-              "weapon_damage_max": 59,
-              "attack_speed": 2.6,
-              "block_value": 0
-            }
-          },
-          "drop_zone": "Razorfen Kraul",
-          "secret": true,
-          "sold_by": [
-            "secret_sbarrens_snitch"
-          ]
-        },
-        "secret_flats_mabs_eng300_mithril_blunderbuss": {
-          "name": "Mabs's Mithril Blunderbuss",
-          "skill_required": 190,
-          "skill_range": [
-            195,
-            205,
-            215,
-            225
-          ],
-          "source": "vendor",
-          "inputs": {
-            "bar_mithril": 6,
-            "part_steel_barrel": 1,
-            "part_wooden_stock": 1
-          },
-          "output": {
-            "kind": "weapon",
-            "slot": "ranged",
-            "weapon_type": "gun",
-            "stat_template": "agi_physical",
-            "item_level": 41,
-            "rarity": "rare",
-            "material_tier": "mithril",
-            "item": {
-              "name": "Mabs's Mithril Blunderbuss",
-              "slot": "ranged",
-              "item_level": 41,
-              "rarity": "rare",
-              "armor_type": null,
-              "weapon_type": "gun",
-              "stat_template": "str_physical",
-              "primary_stats": {
-                "stamina": 11,
-                "strength": 5
-              },
-              "secondary_stats": {
-                "defense_rating": 9
-              },
-              "armor_value": 0,
-              "required_level": 39,
-              "sell_price": 6726,
-              "flavor_text": "Short, heavy and loud, for someone at the front who wants every eye on them.",
-              "identity": "tank",
-              "icon_id": "gear_inv_weapon_rifle_06",
-              "weapon_damage_min": 63,
-              "weapon_damage_max": 85,
-              "attack_speed": 2.6,
-              "block_value": 0
-            }
-          },
-          "secret": true,
-          "sold_by": [
-            "secret_flats_mabs"
-          ]
-        },
-        "secret_nstv_ezra_eng_gilded_goggles": {
-          "name": "Blackpowder's Gilded Marksman's Goggles",
-          "skill_required": 165,
-          "skill_range": [
-            170,
-            180,
-            190,
-            200
-          ],
-          "source": "vendor",
-          "inputs": {
-            "bar_gold": 6,
-            "bar_steel": 2
-          },
-          "output": {
-            "kind": "armor",
-            "slot": "head",
-            "armor_type": "mail",
-            "stat_template": "agi_physical",
-            "item_level": 36,
-            "rarity": "rare",
-            "material_tier": "gold",
-            "item": {
-              "name": "Blackpowder's Gilded Marksman's Goggles",
-              "slot": "head",
-              "item_level": 36,
-              "rarity": "rare",
-              "armor_type": "mail",
-              "weapon_type": null,
-              "stat_template": "agi_int_hybrid",
-              "primary_stats": {
-                "agility": 8,
-                "intellect": 7
-              },
-              "secondary_stats": {
-                "attack_power": 25
-              },
-              "armor_value": 159,
-              "required_level": 34,
-              "sell_price": 5119,
-              "flavor_text": "Marksman's lenses with a little brass sight on the rim.",
-              "identity": "hunter",
-              "icon_id": "gear_inv_helmet_13"
-            }
-          },
-          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials).",
-          "secret": true,
-          "sold_by": [
-            "secret_nstv_ezra"
-          ]
-        },
-        "secret_fenris_ferrin_eng_gun_long_barrelled_musket": {
-          "name": "Ferryless's Long-Barrelled Musket",
-          "skill_required": 104,
-          "skill_range": [
-            109,
-            119,
-            129,
-            139
-          ],
-          "source": "vendor",
-          "inputs": {
-            "bar_iron": 4,
-            "part_steel_barrel": 1,
-            "part_wooden_stock": 1,
-            "part_unstable_trigger": 1
-          },
-          "output": {
-            "kind": "weapon",
-            "slot": "ranged",
-            "weapon_type": "gun",
-            "stat_template": "agi_physical",
-            "item_level": 23,
-            "rarity": "rare",
-            "material_tier": "iron",
-            "item": {
-              "name": "Ferryless's Long-Barrelled Musket",
-              "slot": "ranged",
-              "item_level": 23,
-              "rarity": "rare",
-              "armor_type": null,
-              "weapon_type": "gun",
-              "stat_template": "agi_physical",
-              "primary_stats": {
-                "agility": 4
-              },
-              "secondary_stats": {
-                "attack_power": 8,
-                "crit_chance_physical": 5
-              },
-              "armor_value": 0,
-              "required_level": 21,
-              "sell_price": 1998,
-              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
-              "identity": "hunter_crit",
-              "icon_id": "gear_inv_weapon_rifle_03",
-              "weapon_damage_min": 38,
-              "weapon_damage_max": 52,
-              "attack_speed": 2.6,
-              "block_value": 0
-            }
-          },
-          "secret": true,
-          "sold_by": [
-            "secret_fenris_ferrin"
-          ]
-        },
-        "secret_vot_kazzik_eng_tinkers_gloves": {
-          "name": "Runaway's Tinker's Gloves",
-          "skill_required": 30,
-          "skill_range": [
-            35,
-            45,
-            55,
-            65
-          ],
-          "source": "vendor",
-          "inputs": {
-            "bar_copper": 3,
-            "part_copper_bolts": 2,
-            "crystal_quartz": 1
-          },
-          "output": {
-            "kind": "armor",
-            "slot": "hands",
-            "armor_type": "cloth",
-            "stat_template": "int_caster",
-            "item_level": 9,
-            "rarity": "rare",
-            "material_tier": "copper",
-            "item": {
-              "name": "Runaway's Tinker's Gloves",
-              "slot": "hands",
-              "item_level": 9,
-              "rarity": "rare",
-              "armor_type": "cloth",
-              "weapon_type": null,
-              "stat_template": "int_caster",
-              "primary_stats": {
-                "intellect": 6
-              },
-              "secondary_stats": {},
-              "armor_value": 10,
-              "required_level": 7,
-              "sell_price": 226,
-              "flavor_text": "Fingerless, so a tinker can still feel the wires.",
-              "identity": "caster",
-              "icon_id": "gear_inv_gauntlets_20"
-            }
-          },
-          "secret": true,
-          "sold_by": [
-            "secret_vot_kazzik"
-          ]
-        },
-        "secret_strand_kezz_eng300_thorium_shellguard": {
-          "name": "Kezz's Thorium Shellguard",
-          "skill_required": 260,
-          "skill_range": [
-            265,
-            275,
-            285,
-            295
-          ],
-          "source": "vendor",
-          "inputs": {
-            "bar_thorium": 6,
-            "part_iron_casing": 2
-          },
-          "output": {
-            "kind": "armor",
-            "slot": "hands",
-            "armor_type": "mail",
-            "stat_template": "agi_physical",
-            "item_level": 55,
-            "rarity": "rare",
-            "material_tier": "thorium",
-            "item": {
-              "name": "Kezz's Thorium Shellguard",
-              "slot": "hands",
-              "item_level": 55,
-              "rarity": "rare",
-              "armor_type": "mail",
-              "weapon_type": null,
-              "stat_template": "str_physical",
-              "primary_stats": {
-                "stamina": 17,
-                "strength": 7
-              },
-              "secondary_stats": {
-                "defense_rating": 14
-              },
-              "armor_value": 199,
-              "required_level": 53,
-              "sell_price": 10127,
-              "flavor_text": "Thorium plates over the knuckles, made for a mechsuit's hands.",
-              "identity": "tank",
-              "icon_id": "gear_inv_gauntlets_06"
-            }
-          },
-          "secret": true,
-          "sold_by": [
-            "secret_strand_kezz"
-          ]
-        },
-        "secret_glitter_nim_eng300_truesilver_repeater": {
-          "name": "Copperbolt's Truesilver Repeater",
-          "skill_required": 235,
-          "skill_range": [
-            240,
-            250,
-            260,
-            270
-          ],
-          "source": "vendor",
-          "inputs": {
-            "bar_truesilver": 6,
-            "part_steel_barrel": 1,
-            "part_precision_sight": 1
-          },
-          "output": {
-            "kind": "weapon",
-            "slot": "ranged",
-            "weapon_type": "gun",
-            "stat_template": "agi_int_hybrid",
-            "item_level": 50,
-            "rarity": "rare",
-            "material_tier": "truesilver",
-            "item": {
-              "name": "Copperbolt's Truesilver Repeater",
-              "slot": "ranged",
-              "item_level": 50,
-              "rarity": "rare",
-              "armor_type": null,
-              "weapon_type": "gun",
-              "stat_template": "spi_healer",
-              "primary_stats": {
-                "intellect": 8
-              },
-              "secondary_stats": {
-                "healing_power": 40
-              },
-              "armor_value": 0,
-              "required_level": 48,
-              "sell_price": 10203,
-              "flavor_text": "Loaded with medicine rounds. Point it at a friend and pull the trigger.",
-              "identity": "tide_healer",
-              "icon_id": "gear_inv_weapon_rifle_05",
-              "weapon_damage_min": 75,
-              "weapon_damage_max": 102,
-              "attack_speed": 2.6,
-              "block_value": 0
-            }
-          },
-          "secret": true,
-          "sold_by": [
-            "secret_glitter_nim"
-          ]
-        },
-        "secret_fn_kowalczyk_eng300_thorium_gyro_visor": {
-          "name": "Kowalczyk's Thorium Gyro-Visor",
-          "skill_required": 270,
-          "skill_range": [
-            275,
-            285,
-            295,
-            305
-          ],
-          "source": "vendor",
-          "inputs": {
-            "bar_thorium": 5,
-            "part_glass_lens": 2,
-            "part_gear_assembly": 1
-          },
-          "output": {
-            "kind": "armor",
-            "slot": "head",
-            "armor_type": "mail",
-            "stat_template": "agi_int_hybrid",
-            "item_level": 57,
-            "rarity": "rare",
-            "material_tier": "thorium",
-            "item": {
-              "name": "Kowalczyk's Thorium Gyro-Visor",
-              "slot": "head",
-              "item_level": 57,
-              "rarity": "rare",
-              "armor_type": "mail",
-              "weapon_type": null,
-              "stat_template": "agi_physical",
-              "primary_stats": {
-                "agility": 13
-              },
-              "secondary_stats": {
-                "attack_power": 35,
-                "crit_chance_physical": 13
-              },
-              "armor_value": 253,
-              "required_level": 55,
-              "sell_price": 13435,
-              "flavor_text": "A spinning gyroscope keeps the lens steady, however fast you move.",
-              "identity": "hunter_crit",
-              "icon_id": "gear_inv_helmet_57"
-            }
-          },
-          "secret": true,
-          "sold_by": [
-            "secret_fn_kowalczyk"
-          ]
-        },
         "eng_bomb_mithril": {
           "name": "Mithril Frag Bomb",
           "skill_required": 195,
@@ -28351,6 +27576,774 @@
           "source": "vendor",
           "faction": "the_ashclaim",
           "_rare_ingredients_todo": true
+        },
+        "secret_hz_caravan_amun_eng300_voidglass_targeting_scope": {
+          "name": "Amun-Who-Stayed's Voidglass Targeting Scope",
+          "skill_required": 220,
+          "skill_range": [
+            225,
+            235,
+            245,
+            255
+          ],
+          "source": "vendor",
+          "inputs": {
+            "crystal_voidglass": 2,
+            "bar_mithril": 2,
+            "part_precision_sight": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "agi_physical",
+            "item_level": 47,
+            "rarity": "rare",
+            "material_tier": "voidglass",
+            "item": {
+              "name": "Voidglass Targeting Scope",
+              "slot": "trinket",
+              "item_level": 45,
+              "rarity": "rare",
+              "armor_type": "accessory",
+              "weapon_type": null,
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 8,
+                "intellect": 6
+              },
+              "secondary_stats": {
+                "attack_power": 23
+              },
+              "armor_value": 0,
+              "required_level": 43,
+              "sell_price": 7156,
+              "flavor_text": "A voidglass scope. It finds the weak spot before you do.",
+              "identity": "hunter",
+              "icon_id": "gear_inv_jewelry_talisman_05",
+              "proc": {
+                "trigger": "on_crit",
+                "chance": 15,
+                "icd": 4,
+                "apply_effect": {
+                  "effect_id": "scope_lock",
+                  "name": "Target Locked",
+                  "effect_type": "buff",
+                  "duration": 3,
+                  "stat_mods": {
+                    "attack_power": 50
+                  },
+                  "on_target": false
+                },
+                "describe": "Your critical hits have a chance to grant 50 attack power for 3 turns."
+              }
+            }
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_hz_caravan_amun"
+          ]
+        },
+        "secret_uc_edwin_eng_trinket_pocket_orrery": {
+          "name": "Edwin's Pocket Orrery",
+          "skill_required": 60,
+          "skill_range": [
+            65,
+            75,
+            85,
+            95
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_bronze": 3,
+            "part_gear_assembly": 1,
+            "crystal_azure": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "int_caster",
+            "item_level": 15,
+            "rarity": "rare",
+            "material_tier": "bronze",
+            "item": {
+              "name": "Pocket Orrery",
+              "slot": "trinket",
+              "item_level": 13,
+              "rarity": "uncommon",
+              "armor_type": "accessory",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 2
+              },
+              "secondary_stats": {
+                "spell_power": 5
+              },
+              "armor_value": 0,
+              "required_level": 11,
+              "sell_price": 352,
+              "flavor_text": "Tiny brass planets turn inside it, and they keep better time than the sky.",
+              "identity": "caster",
+              "icon_id": "gear_inv_jewelry_talisman_03",
+              "proc": {
+                "trigger": "on_damage_cast",
+                "chance": 10,
+                "icd": 4,
+                "grant_resource": {
+                  "resource": "mana",
+                  "amount": 30
+                },
+                "describe": "Your damaging spells have a chance to restore 30 mana."
+              }
+            }
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_uc_edwin"
+          ]
+        },
+        "secret_xroads_tazzle_eng_goggles_rangefinder_goggles": {
+          "name": "Tazzle's Rangefinder Goggles",
+          "skill_required": 94,
+          "skill_range": [
+            99,
+            109,
+            119,
+            129
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_iron": 3,
+            "part_sight_glass": 2,
+            "part_bronze_framework": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "mail",
+            "stat_template": "agi_physical",
+            "item_level": 21,
+            "rarity": "rare",
+            "material_tier": "iron",
+            "item": {
+              "name": "Rangefinder Goggles",
+              "slot": "head",
+              "item_level": 19,
+              "rarity": "uncommon",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 3
+              },
+              "secondary_stats": {
+                "attack_power": 6,
+                "hit_rating": 5
+              },
+              "armor_value": 64,
+              "required_level": 17,
+              "sell_price": 892,
+              "flavor_text": "A dial on the side clicks off the range to whatever you're aiming at.",
+              "identity": "hunter_precise",
+              "icon_id": "gear_inv_helmet_57"
+            }
+          },
+          "vendor_location": "Any pattern vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_xroads_tazzle"
+          ]
+        },
+        "secret_ratchet_lissa_eng_goggles_rangefinder_goggles": {
+          "name": "Undertow's Rangefinder Goggles",
+          "skill_required": 94,
+          "skill_range": [
+            99,
+            109,
+            119,
+            129
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_iron": 3,
+            "part_sight_glass": 2,
+            "part_bronze_framework": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "mail",
+            "stat_template": "agi_physical",
+            "item_level": 21,
+            "rarity": "rare",
+            "material_tier": "iron",
+            "item": {
+              "name": "Rangefinder Goggles",
+              "slot": "head",
+              "item_level": 19,
+              "rarity": "uncommon",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 3
+              },
+              "secondary_stats": {
+                "attack_power": 6,
+                "hit_rating": 5
+              },
+              "armor_value": 64,
+              "required_level": 17,
+              "sell_price": 892,
+              "flavor_text": "A dial on the side clicks off the range to whatever you're aiming at.",
+              "identity": "hunter_precise",
+              "icon_id": "gear_inv_helmet_57"
+            }
+          },
+          "vendor_location": "Any pattern vendor",
+          "secret": true,
+          "sold_by": [
+            "secret_ratchet_lissa"
+          ]
+        },
+        "secret_bootybay_vell_eng300_mithril_field_goggles": {
+          "name": "Vell's Mithril Field Goggles",
+          "skill_required": 205,
+          "skill_range": [
+            210,
+            220,
+            230,
+            240
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_mithril": 4,
+            "part_glass_lens": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "mail",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 44,
+            "rarity": "rare",
+            "material_tier": "mithril",
+            "item": {
+              "name": "Mithril Field Goggles",
+              "slot": "head",
+              "item_level": 42,
+              "rarity": "rare",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 10
+              },
+              "secondary_stats": {
+                "healing_power": 44
+              },
+              "armor_value": 186,
+              "required_level": 40,
+              "sell_price": 7075,
+              "flavor_text": "A field engineer's goggles, with a lens that shows who's bleeding.",
+              "identity": "tide_healer",
+              "icon_id": "gear_inv_helmet_53"
+            }
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_bootybay_vell"
+          ]
+        },
+        "secret_stw_fizzby_eng300_voidglass_targeting_scope": {
+          "name": "Crankloot's Voidglass Targeting Scope",
+          "skill_required": 220,
+          "skill_range": [
+            225,
+            235,
+            245,
+            255
+          ],
+          "source": "vendor",
+          "inputs": {
+            "crystal_voidglass": 2,
+            "bar_mithril": 2,
+            "part_precision_sight": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "trinket",
+            "armor_type": "accessory",
+            "stat_template": "agi_physical",
+            "item_level": 47,
+            "rarity": "rare",
+            "material_tier": "voidglass",
+            "item": {
+              "name": "Voidglass Targeting Scope",
+              "slot": "trinket",
+              "item_level": 45,
+              "rarity": "rare",
+              "armor_type": "accessory",
+              "weapon_type": null,
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 8,
+                "intellect": 6
+              },
+              "secondary_stats": {
+                "attack_power": 23
+              },
+              "armor_value": 0,
+              "required_level": 43,
+              "sell_price": 7156,
+              "flavor_text": "A voidglass scope. It finds the weak spot before you do.",
+              "identity": "hunter",
+              "icon_id": "gear_inv_jewelry_talisman_05",
+              "proc": {
+                "trigger": "on_crit",
+                "chance": 15,
+                "icd": 4,
+                "apply_effect": {
+                  "effect_id": "scope_lock",
+                  "name": "Target Locked",
+                  "effect_type": "buff",
+                  "duration": 3,
+                  "stat_mods": {
+                    "attack_power": 50
+                  },
+                  "on_target": false
+                },
+                "describe": "Your critical hits have a chance to grant 50 attack power for 3 turns."
+              }
+            }
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_stw_fizzby"
+          ]
+        },
+        "secret_sbarrens_snitch_eng_gun_emberglass_repeater": {
+          "name": "Grimtooth's Emberglass Repeater",
+          "skill_required": 120,
+          "skill_range": [
+            125,
+            135,
+            145,
+            155
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_iron": 4,
+            "part_steel_barrel": 1,
+            "part_wooden_stock": 1,
+            "part_unstable_trigger": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "gun",
+            "stat_template": "agi_physical",
+            "item_level": 27,
+            "rarity": "rare",
+            "material_tier": "iron",
+            "item": {
+              "name": "Emberglass Repeater",
+              "slot": "ranged",
+              "item_level": 25,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 4
+              },
+              "secondary_stats": {
+                "healing_power": 20
+              },
+              "armor_value": 0,
+              "required_level": 23,
+              "sell_price": 2380,
+              "flavor_text": "Loaded with medicine rounds. Point it at a friend and pull the trigger.",
+              "identity": "tide_healer",
+              "icon_id": "gear_inv_weapon_rifle_07",
+              "weapon_damage_min": 41,
+              "weapon_damage_max": 56,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
+          },
+          "drop_zone": "Razorfen Kraul",
+          "secret": true,
+          "sold_by": [
+            "secret_sbarrens_snitch"
+          ]
+        },
+        "secret_flats_mabs_eng300_mithril_blunderbuss": {
+          "name": "Mabs's Mithril Blunderbuss",
+          "skill_required": 190,
+          "skill_range": [
+            195,
+            205,
+            215,
+            225
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_mithril": 6,
+            "part_steel_barrel": 1,
+            "part_wooden_stock": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "gun",
+            "stat_template": "agi_physical",
+            "item_level": 41,
+            "rarity": "rare",
+            "material_tier": "mithril",
+            "item": {
+              "name": "Mithril Blunderbuss",
+              "slot": "ranged",
+              "item_level": 39,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "str_physical",
+              "primary_stats": {
+                "stamina": 11,
+                "strength": 4
+              },
+              "secondary_stats": {
+                "defense_rating": 9
+              },
+              "armor_value": 0,
+              "required_level": 37,
+              "sell_price": 6055,
+              "flavor_text": "Short, heavy and loud, for someone at the front who wants every eye on them.",
+              "identity": "tank",
+              "icon_id": "gear_inv_weapon_rifle_08",
+              "weapon_damage_min": 60,
+              "weapon_damage_max": 81,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_flats_mabs"
+          ]
+        },
+        "secret_nstv_ezra_eng_gilded_goggles": {
+          "name": "Blackpowder's Gilded Marksman's Goggles",
+          "skill_required": 165,
+          "skill_range": [
+            170,
+            180,
+            190,
+            200
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_gold": 6,
+            "bar_steel": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "mail",
+            "stat_template": "agi_physical",
+            "item_level": 36,
+            "rarity": "rare",
+            "material_tier": "gold",
+            "item": {
+              "name": "Gilded Marksman's Goggles",
+              "slot": "head",
+              "item_level": 34,
+              "rarity": "uncommon",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 6,
+                "intellect": 5
+              },
+              "secondary_stats": {
+                "attack_power": 18
+              },
+              "armor_value": 115,
+              "required_level": 32,
+              "sell_price": 3026,
+              "flavor_text": "Marksman's lenses with a little brass sight on the rim.",
+              "identity": "hunter",
+              "icon_id": "gear_inv_helmet_05"
+            }
+          },
+          "_source": "tools/build_material_sink_recipes.py - the sink for a material whose smelting or milling step existed and whose finished-goods tier did not (qa_materials).",
+          "secret": true,
+          "sold_by": [
+            "secret_nstv_ezra"
+          ]
+        },
+        "secret_fenris_ferrin_eng_gun_long_barrelled_musket": {
+          "name": "Ferryless's Long-Barrelled Musket",
+          "skill_required": 104,
+          "skill_range": [
+            109,
+            119,
+            129,
+            139
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_iron": 4,
+            "part_steel_barrel": 1,
+            "part_wooden_stock": 1,
+            "part_unstable_trigger": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "gun",
+            "stat_template": "agi_physical",
+            "item_level": 23,
+            "rarity": "rare",
+            "material_tier": "iron",
+            "item": {
+              "name": "Long-Barrelled Musket",
+              "slot": "ranged",
+              "item_level": 21,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 4
+              },
+              "secondary_stats": {
+                "attack_power": 5,
+                "crit_chance_physical": 5
+              },
+              "armor_value": 0,
+              "required_level": 19,
+              "sell_price": 1650,
+              "flavor_text": "It's loud, it kicks, and it hits what it's pointed at.",
+              "identity": "hunter_crit",
+              "icon_id": "gear_inv_weapon_rifle_05",
+              "weapon_damage_min": 36,
+              "weapon_damage_max": 49,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_fenris_ferrin"
+          ]
+        },
+        "secret_vot_kazzik_eng_tinkers_gloves": {
+          "name": "Runaway's Tinker's Gloves",
+          "skill_required": 30,
+          "skill_range": [
+            35,
+            45,
+            55,
+            65
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_copper": 3,
+            "part_copper_bolts": 2,
+            "crystal_quartz": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "cloth",
+            "stat_template": "int_caster",
+            "item_level": 9,
+            "rarity": "rare",
+            "material_tier": "copper",
+            "item": {
+              "name": "Tinker's Gloves",
+              "slot": "hands",
+              "item_level": 7,
+              "rarity": "uncommon",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 3
+              },
+              "secondary_stats": {},
+              "armor_value": 6,
+              "required_level": 5,
+              "sell_price": 89,
+              "flavor_text": "Fingerless, so a tinker can still feel the wires.",
+              "identity": "caster",
+              "icon_id": "gear_inv_gauntlets_16"
+            }
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_vot_kazzik"
+          ]
+        },
+        "secret_strand_kezz_eng300_thorium_shellguard": {
+          "name": "Kezz's Thorium Shellguard",
+          "skill_required": 260,
+          "skill_range": [
+            265,
+            275,
+            285,
+            295
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_thorium": 6,
+            "part_iron_casing": 2
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "armor_type": "mail",
+            "stat_template": "agi_physical",
+            "item_level": 55,
+            "rarity": "rare",
+            "material_tier": "thorium",
+            "item": {
+              "name": "Thorium Shellguard",
+              "slot": "hands",
+              "item_level": 53,
+              "rarity": "rare",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "str_physical",
+              "primary_stats": {
+                "stamina": 16,
+                "strength": 7
+              },
+              "secondary_stats": {
+                "defense_rating": 13
+              },
+              "armor_value": 192,
+              "required_level": 51,
+              "sell_price": 9369,
+              "flavor_text": "Thorium plates over the knuckles, made for a mechsuit's hands.",
+              "identity": "tank",
+              "icon_id": "gear_inv_gauntlets_17"
+            }
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_strand_kezz"
+          ]
+        },
+        "secret_glitter_nim_eng300_truesilver_repeater": {
+          "name": "Copperbolt's Truesilver Repeater",
+          "skill_required": 235,
+          "skill_range": [
+            240,
+            250,
+            260,
+            270
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_truesilver": 6,
+            "part_steel_barrel": 1,
+            "part_precision_sight": 1
+          },
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "weapon_type": "gun",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 50,
+            "rarity": "rare",
+            "material_tier": "truesilver",
+            "item": {
+              "name": "Truesilver Repeater",
+              "slot": "ranged",
+              "item_level": 48,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 8
+              },
+              "secondary_stats": {
+                "healing_power": 37
+              },
+              "armor_value": 0,
+              "required_level": 46,
+              "sell_price": 9365,
+              "flavor_text": "Loaded with medicine rounds. Point it at a friend and pull the trigger.",
+              "identity": "tide_healer",
+              "icon_id": "gear_inv_weapon_rifle_01",
+              "weapon_damage_min": 72,
+              "weapon_damage_max": 98,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_glitter_nim"
+          ]
+        },
+        "secret_fn_kowalczyk_eng300_thorium_gyro_visor": {
+          "name": "Kowalczyk's Thorium Gyro-Visor",
+          "skill_required": 270,
+          "skill_range": [
+            275,
+            285,
+            295,
+            305
+          ],
+          "source": "vendor",
+          "inputs": {
+            "bar_thorium": 5,
+            "part_glass_lens": 2,
+            "part_gear_assembly": 1
+          },
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "armor_type": "mail",
+            "stat_template": "agi_int_hybrid",
+            "item_level": 57,
+            "rarity": "rare",
+            "material_tier": "thorium",
+            "item": {
+              "name": "Thorium Gyro-Visor",
+              "slot": "head",
+              "item_level": 55,
+              "rarity": "epic",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 16
+              },
+              "secondary_stats": {
+                "attack_power": 45,
+                "crit_chance_physical": 16
+              },
+              "armor_value": 328,
+              "required_level": 53,
+              "sell_price": 21605,
+              "flavor_text": "A spinning gyroscope keeps the lens steady, however fast you move.",
+              "identity": "hunter_crit",
+              "icon_id": "gear_epic_head_mail_1"
+            }
+          },
+          "secret": true,
+          "sold_by": [
+            "secret_fn_kowalczyk"
+          ]
         }
       }
     },

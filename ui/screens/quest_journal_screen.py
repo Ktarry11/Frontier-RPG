@@ -563,6 +563,10 @@ class QuestJournalScreen(BaseScreen):
             # a secret faction's page is its name and where you stand: no bar, no numbers, no background
             self.renderer.draw_text(screen, f"Current Status: {tier['name']}", (SCREEN_WIDTH - 420, 80),
                                     color=colour)
+            # one cryptic line and nothing else (Kyle, 15 Nov 2026: "Give a cryptic ass description too")
+            if getattr(f, "description", ""):
+                self._draw_wrapped_text(screen, f.description, (20, 200), max_width=SCREEN_WIDTH - 90,
+                                        color=(150, 140, 165), line_height=24)
             return
         into, span = f.progress()
         self.renderer.draw_text(screen, tier["name"], (SCREEN_WIDTH - 420, 80), color=colour)

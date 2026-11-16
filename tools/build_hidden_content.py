@@ -1025,6 +1025,125 @@ ZONES["The Weeping Pines"]["loot"]["Old Hollowbark"] = [
 # =============================================================================== THE PEOPLE
 # One person in each open hidden map, and three or four things they need doing; the last is an
 # elite job. Kyle: "max of like 3 or 4....they're not quest hubs but they CAN have elite quests."
+
+# ============================================================================ STONETALON (15 Nov 2026)
+# A skull zone off Stonetalon West and a frontier inside it. Kyle asked for both ("skull zone and
+# frontier zone / secrets"), said "dont forget ilvl changes for skull and frontier zones" (the
+# usual lift: level + 5 for a skull zone's bosses, + 8 for a frontier's, every frontier boss with
+# an epic), and is not to be told where either of them is.
+
+ZONES["The Painted Springs"] = dict(
+    kind="skull", parent="Stonetalon West", levels=(30, 33),
+    creatures={
+        "Caldera Bison": _creature("beast_large", 31, False, "kodo_2", DMG("Gore"), DMG("Stampede", 1.5, 3),
+                                   BUF("Shaggy Winter Coat", armor=55)),
+        "Firehole Elk": _creature("beast_basic", 30, False, "st_bull_elk", DMG("Antler Rake"),
+                                  DEB("Bugle", attack_power=-16), DMG("Trample", 1.4, 3)),
+        "Basin Wolf": _creature("beast_fast", 31, False, "worg_2", DMG("Bite"), DEB("Hamstring", agility=-16),
+                                BUF("Pack Howl", attack_power=22)),
+        "Scaldling": _creature("elemental_caster", 31, False, "st_steam_elemental", DMG("Scald", sch="magic"),
+                               DOT("Steam Burn", 0.4), DEB("Fogged", intellect=-12, agility=-8)),
+        "Mudpot Shambler": _creature("elemental_bruiser", 32, False, "elemental_earth_1", DMG("Mud Fist"),
+                                     DOT("Boiling Mud", 0.4, sch="magic"), DEB("Caked in Mud", agility=-18)),
+        "Basin Grizzly": _creature("beast_large", 32, False, "st_black_bear", DMG("Maul", 1.05),
+                                   DMG("Swipe", 1.5, 3), BUF("Thick Hide", armor=60)),
+        "Old Thunder, the Herd Bull": _creature("beast_large", 33, True, "kodo_3",
+            DMG("Horns Down"), DMG("The Whole Herd Behind Him", 1.9, 4), DEB("Ground Shakes", agility=-22, armor=-40),
+            BUF("Sulphur-Matted Hide", armor=80), DOT("Gored", 0.5, sch="physical", d=4)),
+        "The Clockwork": _creature("elemental_bruiser", 33, True, "elemental_water",
+            DMG("Boiling Spray", sch="magic"), DOT("Scalded to the Bone", 0.5, d=4),
+            BUF("Building Pressure", sch="magic", attack_power=40, magic_resistance=40),
+            DMG("Eruption", 2.1, 4, "magic"), DEB("Steam Blind", intellect=-22, agility=-16)),
+    },
+    encounters=_skull_table("The Painted Springs", {"Firehole Elk": 3, "Basin Wolf": 1}, {
+        "The Steaming Mouth": {"Scaldling": 3, "Firehole Elk": 2},
+        "The Painted Pools": {"Scaldling": 3, "Mudpot Shambler": 1, "Firehole Elk": 1},
+        "The Grazing Flats": {"Caldera Bison": 3, "Firehole Elk": 2, "Basin Wolf": 2, "Old Thunder, the Herd Bull": 0},
+        "The Mud Pots": {"Mudpot Shambler": 3, "Scaldling": 1},
+        "The Clockwork Geyser": {"Scaldling": 2, "Mudpot Shambler": 2, "The Clockwork": 0},
+        "The Burnt Lodgepoles": {"Basin Grizzly": 3, "Basin Wolf": 2}}),
+    weights={},
+    loot={
+        "Old Thunder, the Herd Bull": [
+            ("Crown of the Old Herd", "head", "of the Hunt", "Bison wool and horn, braided by someone who loved him.", "mail", None, "epic"),
+            ("Hide of the Herd Bull", "chest", "of the Defender", "Scorched at the edges. It still smells of sulphur.", "leather", None),
+            ("Thunderhoof Greaves", "legs", "of the Champion", "The ground used to shake when he walked. Now it's you.", "plate", None),
+            ("Stampede Splitter", "main_hand", "of the Tiger", "Heavy enough to turn a herd.", None, "axe_2h"),
+            ("Herd-Bell on a Thong", "neck", "of the Physician", "A cowbell, and somebody tied it round his neck once.", None, None),
+        ],
+        "The Clockwork": [
+            ("Geyserheart Staff", "main_hand", "of the Invoker", "Hot at one end, always. Nobody knows which end it'll be.", None, "staff", "epic"),
+            ("Scalding Mantle", "shoulder", "of the Sorcerer", "The steam never quite leaves the cloth.", "cloth", None),
+            ("Sinter-Crusted Bulwark", "off_hand", "of the Defender", "It came up out of the ground boiling and set like that.", None, "shield"),
+            ("Steam-Tight Gauntlets", "hands", "of the Owl", "Sealed at the cuff. You can put your hands in a spring.", "mail", None),
+            ("Boilwalker Boots", "feet", "of the Monkey", "Soled for walking on the crust where it's thinnest.", "leather", None),
+            ("Every-Hour Band", "ring", "of the Wolf", "It warms on the hour and cools on the half.", None, None),
+        ],
+    },
+)
+
+ZONES["The Coal Forest"] = dict(
+    kind="frontier", frontier_type="open", parent="The Painted Springs", region="Stonetalon West",
+    levels=(32, 34),
+    creatures={
+        "Griffinfly": _creature("beast_fast", 32, False, "wasp", DMG("Snatch"), DMG("Stoop From the Canopy", 1.5, 3),
+                                DEB("Wingbeat", agility=-16)),
+        "Black-Water Gulper": _creature("beast_large", 33, False, "crocolisk_2", DMG("Gulp", 1.05),
+                                        DOT("Drag Under", 0.4, sch="physical"), BUF("Mud-Slick Skin", armor=60)),
+        "Scale-Tree Toad": _creature("beast_basic", 32, False, "toad_giant", DMG("Tongue Lash"),
+                                     DEB("Spawn Slime", agility=-14, armor=-30), DMG("Belly Flop", 1.4, 3)),
+        "Hunched Stalker": _creature("beast_fast", 33, False, "spider_3", DMG("Fang"),
+                                     DOT("Bristle Venom", 0.4, sch="magic"), DMG("Leap From the Ferns", 1.5, 3)),
+        "Coal-Mire Crawler": _creature("vermin_swarm", 32, False, "st_bark_beetle", DMG("Mandible", 0.95),
+                                       DOT("Chewing", 0.35, sch="physical")),
+        "Peat Shambler": _creature("elemental_bruiser", 33, False, "elemental_earth_2", DMG("Peat Fist"),
+                                   DEB("Smother", intellect=-14, agility=-14), BUF("Pressed Down", armor=70)),
+        "The Thousand-Leg": _creature("beast_large", 34, True, "st_beetle_mother",
+            DMG("Coil and Crush"), DOT("Ten Thousand Feet", 0.55, sch="physical", d=4),
+            DEB("Wrapped Up", agility=-28, armor=-50), BUF("Plated Segments", armor=90), DMG("Rear Up", 2.1, 4)),
+        "Gulpmaw": _creature("beast_large", 34, True, "crocolisk_1",
+            DMG("Jaws Like a Door"), DMG("Tail Through the Water", 1.8, 3), DOT("Held Under", 0.5, sch="physical", d=5),
+            BUF("Sinks Out of Sight", armor=70, magic_resistance=30), DEB("Bog Slime", agility=-24, intellect=-16)),
+        "The Green Before": _creature("elemental_caster", 34, True, "treant_2",
+            DMG("Spore Lash", sch="magic"), DOT("Thick Air", 0.55, d=6), HEAL("Everything Grows", 2.2, 5),
+            DEB("Choked on Green", intellect=-25, attack_power=-30), BUF("The Forest Closes In", sch="magic", armor=60,
+                                                                        magic_resistance=60),
+            DMG("Three Hundred Million Years", 2.2, 4, "magic")),
+    },
+    encounters=_skull_table("The Coal Forest", {"Scale-Tree Toad": 2, "Griffinfly": 2, "Coal-Mire Crawler": 1}, {
+        "The Drowned Hummocks": {"Scale-Tree Toad": 3, "Coal-Mire Crawler": 2, "Griffinfly": 1},
+        "The Scale-Tree Stand": {"Hunched Stalker": 3, "Scale-Tree Toad": 2},
+        "The Black Water": {"Black-Water Gulper": 3, "Griffinfly": 2, "Gulpmaw": 0},
+        "The Griffinfly Reach": {"Griffinfly": 3, "Hunched Stalker": 2},
+        "The Coal Seam": {"Coal-Mire Crawler": 3, "Peat Shambler": 2, "The Thousand-Leg": 0},
+        "The First Grove": {"Peat Shambler": 3, "Hunched Stalker": 1, "The Green Before": 0}}),
+    weights={},
+    loot={
+        "The Thousand-Leg": [
+            ("Thousand-Leg Carapace", "chest", "of the Defender", "Every plate of it still wants to curl up.", "plate", None, "epic"),
+            ("Segment-Plated Leggings", "legs", "of the Monkey", "It flexes in a way leather shouldn't.", "leather", None),
+            ("Mandible Glaive", "main_hand", "of the Assassin", "One jaw, set on a haft. The other one's still out there.", None, "polearm"),
+            ("Chitin Ward", "off_hand", "of the Sorcerer", "Light enough to carry while you cast, and it's turned a sword.", None, "shield"),
+            ("Coal-Black Band", "ring", "of the Physician", "Pressed out of the seam it was guarding.", None, None),
+        ],
+        "Gulpmaw": [
+            ("Gulpmaw's Hide", "chest", "of the Monkey", "Thick as a door and never quite dry.", "leather", None, "epic"),
+            ("Black-Water Scale Coif", "head", "of the Owl", "Every scale is the size of a palm.", "mail", None),
+            ("Tooth of the First Jaw", "main_hand", "of the Tiger", "A tooth as long as your forearm, set in a grip.", None, "dagger"),
+            ("Bog-Iron Girdle", "waist", "of the Defender", "Fished out of its stomach, with a buckle still on.", "plate", None),
+            ("The Drowned Hymnal", "off_hand", "of the Prophet", "The pages fused together under the water. It still glows a little.", None, "tome"),
+        ],
+        "The Green Before": [
+            ("The First Leaf", "main_hand", "of the Prophet", "A staff grown, not cut. It puts out a new frond in the spring.", None, "staff", "epic"),
+            ("Fern-Crown of the First Forest", "head", "of the Wolf", "Older than every tree you've ever seen.", "leather", None, "epic"),
+            ("Spore-Cloud Robes", "chest", "of the Invoker", "Shake them and the air goes green.", "cloth", None),
+            ("Before-Bark Hauberk", "chest", "of the Hunt", "Scales of bark from a tree that was never a tree.", "mail", None),
+            ("Scale-Tree Longbow", "ranged", "of the Sharpshooter", "The grain runs in diamonds.", None, "bow"),
+            ("Greaves of Deep Time", "legs", "of the Champion", "Heavy. Heavier than plate should be. Older.", "plate", None),
+        ],
+    },
+)
+
 NPCS = {
     "hz_saltgrave_maud": dict(name="Maud Saltpenny", zone="The Saltgrave", race="human", gender="female",
                               greeting="You came out past the last island on purpose? Then you're either a "
@@ -1051,6 +1170,12 @@ NPCS = {
                           greeting="You found my granddaughter's tree. Good. She was always going to send someone. Sit, child. Listen to the roots."),
     "hz_vault_librarian": dict(name="The Librarian", zone="The Palimpsest Vault", race="forsaken", gender="male",
                                greeting="Shh. Not because of the books. Because of what's reading them."),
+    "hz_springs_dempsey": dict(name="Walt Dempsey", zone="The Painted Springs", race="human", gender="male",
+                               greeting="Stay on the white ground, off the colours. The colours mean the crust's thin, "
+                                        "and under the crust it's boiling."),
+    "hz_coal_vesna": dict(name="Vesna Orlova", zone="The Coal Forest", race="human", gender="female",
+                          greeting="Breathe slowly. There's more air down here than you're built for, and it goes "
+                                   "to your head before you notice."),
     "hz_pines_ilsabet": dict(name="Ilsabet Graves", zone="The Weeping Pines", race="forsaken", gender="female",
                              greeting="Keep your voice down. The water listens, and when it hears a living "
                                       "voice it starts to cry."),
@@ -1069,6 +1194,9 @@ DROPS = {
     "Kraal Thornspeaker": ("kraal_prayer_bone", "Kraal Prayer-Bone", "A carved bone covered in thorn-marks. It's a prayer, and it's still being said.", 0.75),
     "Crag Stormling": ("storm_shard", "Storm Shard", "A chip of crystal with lightning still moving inside it.", 0.75),
     "Ink-Drowned Scholar": ("unwritten_page", "Unwritten Page", "A page that was written once and scraped clean. If you hold it to the light, the old words are still there.", 0.75),
+    "Scaldling": ("spring_heart_bead", "Spring-Heart Bead", "A bead of glassy sinter set hard from the springs' water. It's too hot to hold for long.", 0.75),
+    "Mudpot Shambler": ("spring_heart_bead", "Spring-Heart Bead", "A bead of glassy sinter set hard from the springs' water. It's too hot to hold for long.", 0.75),
+    "Peat Shambler": ("living_coal", "Living Coal", "Black, light and still a little soft. Coal before it finished becoming coal.", 0.75),
     "Mere Wraith": ("vial_of_mere_water", "Vial of Mere-Water", "Black water that doesn't settle. It moves a little when you aren't holding it still.", 0.75),
 }
 
@@ -1103,6 +1231,7 @@ def quests():
     di, bc = "the_drowned_idols", "the_buried_caravan"
     kr, mg, sc, ao = "the_sunken_kraal", "the_moonless_glade", "the_stormcrag", "the_ashen_orchard"
     wr, pv = "the_world-root_hollow", "the_palimpsest_vault"
+    ps, cf = "the_painted_springs", "the_coal_forest"
     return [
         # ------------------------------------------------------------------ The Saltgrave
         Q("hz_saltgrave_coins", "Grave-Gold", "hz_saltgrave_maud", sz, 38,
@@ -1585,6 +1714,112 @@ def quests():
             ("Mere-Guard Breastplate", "chest", "of the Champion", "plate", None, "Plate Chest (Str/Sta/Def)"),
             ("Stillwater Cowl", "head", "of the Prophet", "cloth", None, "Cloth Helm (Int/Spi/Healing)")),
           elite=True),
+        # ------------------------------------------------------------------ The Painted Springs
+        Q("hz_springs_herd", "The Herd Comes First", "hz_springs_dempsey", ps, 31,
+          [{"type": "kill", "target": "Basin Wolf", "count": 8}, {"type": "kill", "target": "Basin Grizzly", "count": 4}],
+          "Walt Dempsey. I was a ranger at Yellowstone for thirty-one years, and three years ago a piece "
+          "of it came through with me. Not the whole park. This basin, the herd, the pools, and me.\n\n"
+          "The wolves and the bears came too, and that's fine, that's how it's meant to work. But "
+          "they've got nowhere to roam in here, so they're taking calves faster than the herd can "
+          "drop them. Thin out the wolves and the grizzlies in the burnt timber before there's no "
+          "herd left to protect.",
+          "The wolves run the grazing flats. The bears are up in the burnt lodgepoles, north-east.",
+          "I never thought I'd ask anybody to do that. Back home it would've cost me my badge. In "
+          "here it's the only way the herd makes it to spring.",
+          R(31, ("Ranger's Waxed Duster", "chest", "of the Monkey", "leather", None, "Leather Chest (Agi/Sta)"),
+            ("Bison-Hair Gloves", "hands", "of the Owl", "cloth", None, "Cloth Gloves (Int/Spi)"),
+            ("Back-Country Belt", "waist", "of the Champion", "plate", None, "Plate Belt (Str/Sta/Def)")),
+          nxt="hz_springs_beads"),
+        Q("hz_springs_beads", "What the Water Carries", "hz_springs_dempsey", ps, 32,
+          [{"type": "fetch", "target": "spring_heart_bead", "count": 8}],
+          "The pools are wrong. They were always hot, but these are hotter than any spring I ever "
+          "logged, and the colours have started moving outward a little every week.\n\nThe steam "
+          "things and the mud things carry beads of sinter in them, set from the same water. Bring "
+          "me eight and I'll work out how hot it is down there and how fast it's rising.",
+          "The scaldlings are round the painted pools and the steaming mouth. The mud shamblers keep to the mud pots in the north-west.",
+          "Over four hundred degrees, and rising. That's not a spring any more, that's a vent. And "
+          "it's all feeding the big geyser at the north end.",
+          R(32, ("Sinter-Bead Necklace", "neck", "of the Invoker", None, None, "Necklace (Int/SP/Crit)"),
+            ("Mudwalker Treads", "feet", "of the Defender", "mail", None, "Mail Boots (Sta/Def/Dodge)"),
+            ("Thermometer Rod", "main_hand", "of the Physician", None, "mace_1h", "Mace (Int/Healing)")),
+          nxt="hz_springs_clockwork"),
+        Q("hz_springs_clockwork", "Eruption Schedule", "hz_springs_dempsey", ps, 33,
+          [{"type": "kill", "target": "The Clockwork", "count": 1}, {"type": "kill", "target": "Scaldling", "count": 5}],
+          "Back home there was a geyser you could set your watch by. This one used to be the same, "
+          "and now it's woken up and it's thinking. It goes off whenever someone comes near it, and "
+          "every time it does, the pools get hotter.\n\nIt has to be put out. I don't know how you "
+          "put out a geyser, but I've seen what you can do. Take people with you. It doesn't go off "
+          "once, it keeps going off.",
+          "The cone at the north end of the basin. You'll hear it before you see it. Bring friends.",
+          "It's quiet. First time in three years it's quiet.\n\nThe pools will cool now, slowly. "
+          "The colours will come back in from the edges. Thank you.",
+          R(33, ("Old Faithless", "main_hand", "of the Vanquisher", None, "mace_2h", "Two-Handed Mace (Str/Crit)"),
+            ("Geyserwatch Hauberk", "chest", "of the Hunt", "mail", None, "Mail Chest (Agi/Int/AP)"),
+            ("Steamproof Spaulders", "shoulder", "of the Defender", "plate", None, "Plate Shoulders (Sta/Def/Dodge)"),
+            ("Cowl of the Quiet Basin", "head", "of the Prophet", "cloth", None, "Cloth Helm (Int/Spi/Healing)"),
+            ("Ranger's Backcountry Leggings", "legs", "of the Wolf", "leather", None, "Leather Legs (Agi/Spi)")),
+          elite=True),
+        Q("hz_springs_bull", "Old Thunder", "hz_springs_dempsey", ps, 33,
+          [{"type": "kill", "target": "Old Thunder, the Herd Bull", "count": 1}],
+          "There's one more thing, and I've been putting it off.\n\nThe herd bull. He was old when he "
+          "came through, and the heat in this place has got into him. He doesn't lead the herd any "
+          "more, he goes through it, calves and all. I've watched it for a month hoping he'd settle. "
+          "He won't.\n\nI can't do it myself. I tried, and I couldn't make my hands work. Make it quick.",
+          "He grazes the flats east of the river. You'll know him. He's the size of a wagon.",
+          "That's it, then.\n\nOne of the young bulls is already standing where he used to stand. "
+          "That's how it goes. I'll be alright. Thank you for doing it so I didn't have to.",
+          R(33, ("Horn-Hafted Glaive", "main_hand", "of the Monkey", None, "polearm", "Polearm (Agi/Sta)"),
+            ("Herd-Keeper's Bracers", "wrist", "of the Owl", "mail", None, "Mail Bracers (Int/Spi)"),
+            ("Wool-Lined Sabatons", "feet", "of the Champion", "plate", None, "Plate Boots (Str/Sta/Def)"))),
+        # ------------------------------------------------------------------ The Coal Forest
+        Q("hz_coal_air", "Thick Air", "hz_coal_vesna", cf, 32,
+          [{"type": "kill", "target": "Griffinfly", "count": 8}, {"type": "kill", "target": "Hunched Stalker", "count": 5}],
+          "Vesna Orlova. I taught palaeobotany in Perm, before. I've been down here since the ground "
+          "opened under Walt's basin, and I still don't know how this place can exist.\n\nThis is the "
+          "Carboniferous. Three hundred million years ago, before there were flowers, when the air "
+          "had so much oxygen in it that insects grew to the size of dogs. Those are griffinflies "
+          "over the water, and those things in the ferns are worse. They've found my camp. Kill eight "
+          "of the flies and five of the stalkers so I can get back to work.",
+          "The flies hunt over the open water to the east. The stalkers hide in the scale-tree stand in the west.",
+          "Thank you. Did you see the wings on those flies? I've only ever seen them pressed flat in "
+          "shale. Watching them move is a gift, even when they're trying to eat me.",
+          R(32, ("Fernwader's Boots", "feet", "of the Monkey", "leather", None, "Leather Boots (Agi/Sta)"),
+            ("Pressed-Leaf Bracers", "wrist", "of the Invoker", "cloth", None, "Cloth Bracers (Int/SP/Crit)"),
+            ("Swamp-Iron Gauntlets", "hands", "of the Defender", "plate", None, "Plate Gloves (Sta/Def/Dodge)")),
+          nxt="hz_coal_seam"),
+        Q("hz_coal_seam", "Coal Before Coal", "hz_coal_vesna", cf, 33,
+          [{"type": "fetch", "target": "living_coal", "count": 6}],
+          "Every lump of coal in the world started as a forest like this one, dead and pressed down "
+          "for longer than anyone can imagine. The peat shamblers are that halfway. They're forest "
+          "that started becoming coal and got up again.\n\nThey carry living coal in them. Bring me "
+          "six pieces. If I can date them, I'll know whether this forest is a memory or whether it's "
+          "actually still happening down here.",
+          "The shamblers are thickest round the coal seam in the north-west, and on the way up to the first grove.",
+          "It's still happening. This isn't a fossil come back to life. It's the real thing, still "
+          "growing, still dying, still pressing down into coal under our feet.\n\nAnd it has a heart. "
+          "Everything here grows toward the grove at the north end.",
+          R(33, ("Living Coal Pendant", "neck", "of the Physician", None, None, "Necklace (Int/Healing)"),
+            ("Peat-Black Cloak", "back", "of the Tiger", None, None, "Cloak (Str/Agi)"),
+            ("Scale-Bark Girdle", "waist", "of the Hunt", "mail", None, "Mail Belt (Agi/Int/AP)")),
+          nxt="hz_coal_green"),
+        Q("hz_coal_green", "The Green Before", "hz_coal_vesna", cf, 34,
+          [{"type": "kill", "target": "The Green Before", "count": 1}, {"type": "kill", "target": "The Thousand-Leg", "count": 1}],
+          "There's something at the heart of the grove. The forest grows toward it and it pulls the "
+          "forest back down into the coal. It's the whole age in one place. And there's a millipede "
+          "as long as a wagon train coiled round the seam it feeds from.\n\nI need you to end both "
+          "of them. Not because they're evil. Because the forest is pushing upward, into Walt's "
+          "basin, and if it keeps going it'll come up through Stonetalon like it was never gone. "
+          "Take people with you. A lot of them.",
+          "The thousand-leg is in the coal seam, north-west. The grove is at the very north. Go together.",
+          "The air's thinner already. Can you feel it?\n\nThe forest won't die. It'll just stop "
+          "pushing. It'll go back to being what it should be, a place that's hard to find and "
+          "harder to leave. I think I'll stay a while longer. Take something. You earned it.",
+          R(34, ("Carboniferous Cleaver", "main_hand", "of the Bear", None, "axe_2h", "Two-Handed Axe (Str/Sta)"),
+            ("Mantle of the Coal Age", "shoulder", "of the Sorcerer", "cloth", None, "Cloth Shoulders (Int/SP)"),
+            ("Swamp-Strider's Jerkin", "chest", "of the Assassin", "leather", None, "Leather Chest (Agi/Hit/Crit)"),
+            ("Deep-Time Hauberk", "chest", "of the Owl", "mail", None, "Mail Chest (Int/Spi)"),
+            ("Mireward Breastplate", "chest", "of the Defender", "plate", None, "Plate Chest (Sta/Def/Dodge)")),
+          elite=True),
     ]
 
 
@@ -1674,7 +1909,8 @@ NODE_PARENT = {"The Saltgrave": "arathi_east", "The Glasswaste": "durotar", "The
                "The Tanglewood Shoals": "echo_isles", "The Drowned Idols": "northern_stranglethorn",
                "The Buried Caravan": "northern_tanaris", "The Sunken Kraal": "central_barrens",
                "The Moonless Glade": "ashenvale_west", "The Stormcrag": "arathi_central",
-               "The Ashen Orchard": "western_tirisfal"}
+               "The Ashen Orchard": "western_tirisfal",
+               "The Painted Springs": "stonetalon_west", "The Coal Forest": "stonetalon_west"}
 
 
 def write_node_pools():

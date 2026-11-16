@@ -14,7 +14,7 @@
         "stamina": 4
       },
       "secondary_stats": {
-        "spell_power": 6
+        "spell_power": 5
       },
       "weapon_damage_min": 38,
       "weapon_damage_max": 52,
@@ -91,6 +91,9 @@
         "strength": 6,
         "stamina": 7
       },
+      "secondary_stats": {
+        "defense_rating": 4
+      },
       "armor_type": "plate",
       "armor_value": 159
     },
@@ -119,7 +122,8 @@
         "intellect": 3
       },
       "secondary_stats": {
-        "spell_power": 9
+        "spell_power": 9,
+        "crit_chance_spell": 2
       }
     },
     {
@@ -151,7 +155,7 @@
         "spirit": 11
       },
       "secondary_stats": {
-        "healing_power": 30
+        "healing_power": 29
       },
       "weapon_damage_min": 31,
       "weapon_damage_max": 42,
@@ -254,11 +258,11 @@
       "required_level": 25,
       "flavor_text": "Tooth-marks a finger deep.",
       "primary_stats": {
-        "strength": 8,
-        "stamina": 10
+        "strength": 9,
+        "stamina": 11
       },
       "secondary_stats": {
-        "defense_rating": 13
+        "defense_rating": 7
       },
       "armor_type": "plate",
       "armor_value": 252
@@ -290,7 +294,7 @@
         "stamina": 18
       },
       "secondary_stats": {
-        "haste": 9
+        "spell_hit_rating": 8
       },
       "weapon_damage_min": 33,
       "weapon_damage_max": 45,
@@ -336,7 +340,7 @@
         "stamina": 6
       },
       "secondary_stats": {
-        "spell_power": 8
+        "spell_power": 7
       }
     },
     {
@@ -351,7 +355,7 @@
         "intellect": 6
       },
       "secondary_stats": {
-        "healing_power": 10
+        "healing_power": 11
       },
       "armor_type": "leather",
       "armor_value": 74
@@ -367,8 +371,8 @@
       "flavor_text": "It closes when you sleep. Only then.",
       "primary_stats": {},
       "secondary_stats": {
-        "shadow_spell_power": 20,
-        "arcane_spell_power": 20
+        "shadow_spell_power": 21,
+        "arcane_spell_power": 21
       }
     },
     {
@@ -380,10 +384,10 @@
       "flavor_text": "Pulled from the mother's mantle, still wet.",
       "weapon_type": "polearm",
       "primary_stats": {
-        "strength": 9
+        "strength": 8
       },
       "secondary_stats": {
-        "attack_power": 20,
+        "attack_power": 17,
         "hit_rating": 7
       },
       "weapon_damage_min": 89,
@@ -398,11 +402,11 @@
       "required_level": 29,
       "flavor_text": "The drowned sang in these.",
       "primary_stats": {
-        "intellect": 10
+        "intellect": 9
       },
       "secondary_stats": {
-        "spell_power": 23,
-        "crit_chance_spell": 8
+        "spell_power": 21,
+        "crit_chance_spell": 6
       },
       "armor_type": "cloth",
       "armor_value": 59
@@ -432,10 +436,11 @@
       "required_level": 29,
       "flavor_text": "Cold, slick, and they never slip.",
       "primary_stats": {
-        "agility": 23
+        "agility": 8
       },
       "secondary_stats": {
-        "hit_rating": 5
+        "hit_rating": 6,
+        "crit_chance_physical": 6
       },
       "armor_type": "leather",
       "armor_value": 81
@@ -451,10 +456,11 @@
       "flavor_text": "He wore it for forty years and then he didn't.",
       "weapon_type": "fist_weapon",
       "primary_stats": {
-        "strength": 23
+        "strength": 13
       },
       "secondary_stats": {
-        "hit_rating": 10
+        "hit_rating": 10,
+        "crit_chance_physical": 10
       },
       "weapon_damage_min": 102,
       "weapon_damage_max": 138,
@@ -485,7 +491,7 @@
         "stamina": 12
       },
       "secondary_stats": {
-        "parry_rating": 8
+        "parry_rating": 5
       },
       "armor_type": "plate",
       "armor_value": 269
@@ -498,10 +504,10 @@
       "required_level": 37,
       "flavor_text": "You can almost hear them.",
       "primary_stats": {
-        "strength": 9
+        "strength": 7
       },
       "secondary_stats": {
-        "attack_power": 19,
+        "attack_power": 15,
         "hit_rating": 6
       }
     },
@@ -549,7 +555,7 @@
         "strength": 10
       },
       "secondary_stats": {
-        "attack_power": 22,
+        "attack_power": 21,
         "hit_rating": 9
       },
       "weapon_damage_min": 109,
@@ -564,10 +570,11 @@
       "required_level": 38,
       "flavor_text": "Plates from her back, and they turn steel.",
       "primary_stats": {
-        "stamina": 16
+        "stamina": 14
       },
       "secondary_stats": {
-        "defense_rating": 17
+        "defense_rating": 11,
+        "dodge_rating": 7
       },
       "armor_type": "mail",
       "armor_value": 199
@@ -580,10 +587,11 @@
       "required_level": 38,
       "flavor_text": "You walk softer in them. So did she.",
       "primary_stats": {
-        "agility": 23
+        "agility": 10
       },
       "secondary_stats": {
-        "hit_rating": 7
+        "hit_rating": 7,
+        "crit_chance_physical": 7
       },
       "armor_type": "leather",
       "armor_value": 102
@@ -596,11 +604,11 @@
       "required_level": 38,
       "flavor_text": "Wound tight against the heat of the blood-fires.",
       "primary_stats": {
-        "intellect": 8
+        "intellect": 7
       },
       "secondary_stats": {
-        "spell_power": 22,
-        "crit_chance_spell": 7
+        "spell_power": 18,
+        "crit_chance_spell": 5
       },
       "armor_type": "cloth",
       "armor_value": 51
@@ -620,7 +628,7 @@
         "stamina": 13
       },
       "secondary_stats": {
-        "spell_power": 17
+        "spell_power": 16
       }
     },
     {
@@ -659,10 +667,11 @@
       "required_level": 39,
       "flavor_text": "Straight lines, ruled into steel.",
       "primary_stats": {
-        "stamina": 16
+        "stamina": 12
       },
       "secondary_stats": {
-        "defense_rating": 14
+        "defense_rating": 9,
+        "dodge_rating": 6
       },
       "armor_type": "plate",
       "armor_value": 250
@@ -678,11 +687,11 @@
       "flavor_text": "A staff of pressed fungus-paper, and whatever it says, it means.",
       "weapon_type": "staff",
       "primary_stats": {
-        "intellect": 21
+        "intellect": 22
       },
       "secondary_stats": {
-        "spell_power": 51,
-        "crit_chance_spell": 23
+        "spell_power": 55,
+        "crit_chance_spell": 15
       },
       "weapon_damage_min": 59,
       "weapon_damage_max": 80,
@@ -696,11 +705,11 @@
       "required_level": 40,
       "flavor_text": "Pages hammered flat into plate. Some of them are still legible.",
       "primary_stats": {
-        "strength": 9,
-        "stamina": 12
+        "strength": 13,
+        "stamina": 17
       },
       "secondary_stats": {
-        "defense_rating": 21
+        "defense_rating": 10
       },
       "armor_type": "plate",
       "armor_value": 370
@@ -713,12 +722,11 @@
       "required_level": 40,
       "flavor_text": "Grows back if you cut it.",
       "primary_stats": {
-        "stamina": 8,
-        "intellect": 8
+        "stamina": 11,
+        "intellect": 11
       },
       "secondary_stats": {
-        "healing_power": 14,
-        "crit_chance_spell": 10
+        "healing_power": 19
       },
       "armor_type": "mail",
       "armor_value": 208
@@ -731,10 +739,11 @@
       "required_level": 40,
       "flavor_text": "Corrected. Then corrected again.",
       "primary_stats": {
-        "agility": 22
+        "agility": 9
       },
       "secondary_stats": {
-        "hit_rating": 7
+        "hit_rating": 7,
+        "crit_chance_physical": 7
       }
     },
     {
@@ -764,11 +773,11 @@
       "required_level": 39,
       "flavor_text": "Salt-crusted gold. It still fits somebody.",
       "primary_stats": {
-        "strength": 10,
-        "stamina": 13
+        "strength": 14,
+        "stamina": 18
       },
       "secondary_stats": {
-        "defense_rating": 23
+        "defense_rating": 11
       },
       "armor_type": "plate",
       "armor_value": 396
@@ -782,10 +791,10 @@
       "flavor_text": "Buried with him so nobody else could have it.",
       "weapon_type": "sword_2h",
       "primary_stats": {
-        "strength": 12
+        "strength": 11
       },
       "secondary_stats": {
-        "attack_power": 23,
+        "attack_power": 22,
         "hit_rating": 9
       },
       "weapon_damage_min": 111,
@@ -812,11 +821,11 @@
       "required_level": 39,
       "flavor_text": "Warm, which is the strangest thing about them.",
       "primary_stats": {
-        "intellect": 9
+        "intellect": 8
       },
       "secondary_stats": {
-        "spell_power": 21,
-        "crit_chance_spell": 8
+        "spell_power": 19,
+        "crit_chance_spell": 5
       },
       "armor_type": "cloth",
       "armor_value": 52
@@ -858,10 +867,11 @@
       "flavor_text": "One of her claws, fitted with a grip.",
       "weapon_type": "dagger",
       "primary_stats": {
-        "agility": 22
+        "agility": 10
       },
       "secondary_stats": {
-        "hit_rating": 8
+        "hit_rating": 8,
+        "crit_chance_physical": 8
       },
       "weapon_damage_min": 79,
       "weapon_damage_max": 107,
@@ -939,7 +949,7 @@
         "stamina": 4
       },
       "secondary_stats": {
-        "spell_power": 6
+        "spell_power": 5
       }
     },
     {
@@ -999,7 +1009,7 @@
         "stamina": 4
       },
       "secondary_stats": {
-        "spell_power": 6
+        "spell_power": 5
       },
       "armor_type": "cloth",
       "armor_value": 24
@@ -1047,12 +1057,11 @@
       "required_level": 18,
       "flavor_text": "Inside it says 'until the water's still'.",
       "primary_stats": {
-        "stamina": 2,
-        "intellect": 2
+        "stamina": 4,
+        "intellect": 4
       },
       "secondary_stats": {
-        "healing_power": 4,
-        "haste": 5
+        "healing_power": 7
       }
     },
     {
@@ -1079,6 +1088,9 @@
       "primary_stats": {
         "strength": 5,
         "stamina": 6
+      },
+      "secondary_stats": {
+        "defense_rating": 4
       },
       "armor_type": "plate",
       "armor_value": 136
@@ -1145,7 +1157,7 @@
         "spirit": 8
       },
       "secondary_stats": {
-        "healing_power": 20
+        "healing_power": 21
       },
       "weapon_damage_min": 24,
       "weapon_damage_max": 32,
@@ -1219,6 +1231,9 @@
       "primary_stats": {
         "strength": 4,
         "stamina": 5
+      },
+      "secondary_stats": {
+        "defense_rating": 3
       },
       "armor_type": "mail",
       "armor_value": 76
@@ -1294,10 +1309,11 @@
       "required_level": 18,
       "flavor_text": "A drop of amber with a flower in it that hasn't grown anywhere for ten thousand years.",
       "primary_stats": {
-        "intellect": 6
+        "intellect": 5
       },
       "secondary_stats": {
-        "spell_power": 15
+        "spell_power": 13,
+        "crit_chance_spell": 4
       }
     },
     {
@@ -1326,7 +1342,7 @@
         "stamina": 8
       },
       "secondary_stats": {
-        "spell_power": 9
+        "spell_power": 10
       },
       "armor_type": "cloth",
       "armor_value": 45
@@ -1343,7 +1359,7 @@
         "stamina": 10
       },
       "secondary_stats": {
-        "defense_rating": 10
+        "defense_rating": 6
       },
       "armor_type": "plate",
       "armor_value": 220
@@ -1356,10 +1372,11 @@
       "required_level": 18,
       "flavor_text": "Carved from the inside of the tree.",
       "primary_stats": {
-        "agility": 21
+        "agility": 6
       },
       "secondary_stats": {
-        "hit_rating": 5
+        "hit_rating": 5,
+        "crit_chance_physical": 5
       },
       "armor_type": "leather",
       "armor_value": 63
@@ -1375,11 +1392,11 @@
       "flavor_text": "A staff cut from the root of the oldest tree in the world. It cut back.",
       "weapon_type": "staff",
       "primary_stats": {
-        "intellect": 13
+        "intellect": 14
       },
       "secondary_stats": {
-        "spell_power": 32,
-        "crit_chance_spell": 12
+        "spell_power": 34,
+        "crit_chance_spell": 9
       },
       "weapon_damage_min": 39,
       "weapon_damage_max": 53,
@@ -1394,11 +1411,11 @@
       "flavor_text": "A spear of root as hard as iron and twice as patient.",
       "weapon_type": "polearm",
       "primary_stats": {
-        "strength": 11
+        "strength": 9
       },
       "secondary_stats": {
-        "attack_power": 22,
-        "hit_rating": 6
+        "attack_power": 18,
+        "hit_rating": 8
       },
       "weapon_damage_min": 96,
       "weapon_damage_max": 130,
@@ -1412,10 +1429,11 @@
       "required_level": 19,
       "flavor_text": "Armour that grows back.",
       "primary_stats": {
-        "stamina": 18
+        "stamina": 14
       },
       "secondary_stats": {
-        "defense_rating": 14
+        "defense_rating": 11,
+        "dodge_rating": 7
       },
       "armor_type": "plate",
       "armor_value": 295
@@ -1432,7 +1450,7 @@
         "spirit": 6
       },
       "secondary_stats": {
-        "healing_power": 15
+        "healing_power": 16
       },
       "armor_type": "cloth",
       "armor_value": 40
@@ -1479,8 +1497,8 @@
       "flavor_text": "A jade eye on a cord of hair. It blinks.",
       "primary_stats": {},
       "secondary_stats": {
-        "shadow_spell_power": 24,
-        "arcane_spell_power": 24
+        "shadow_spell_power": 23,
+        "arcane_spell_power": 23
       }
     },
     {
@@ -1494,6 +1512,9 @@
       "primary_stats": {
         "intellect": 7,
         "stamina": 9
+      },
+      "secondary_stats": {
+        "spell_hit_rating": 4
       },
       "weapon_damage_min": 63,
       "weapon_damage_max": 85,
@@ -1511,7 +1532,7 @@
         "spirit": 10
       },
       "secondary_stats": {
-        "healing_power": 25
+        "healing_power": 26
       },
       "armor_type": "cloth",
       "armor_value": 67
@@ -1524,11 +1545,11 @@
       "required_level": 34,
       "flavor_text": "Hammered from the bronze of a drowned god.",
       "primary_stats": {
-        "strength": 8,
-        "stamina": 10
+        "strength": 10,
+        "stamina": 12
       },
       "secondary_stats": {
-        "defense_rating": 15
+        "defense_rating": 7
       },
       "armor_type": "plate",
       "armor_value": 273
@@ -1541,10 +1562,11 @@
       "required_level": 34,
       "flavor_text": "Silent on wet stone.",
       "primary_stats": {
-        "agility": 22
+        "agility": 9
       },
       "secondary_stats": {
-        "hit_rating": 7
+        "hit_rating": 7,
+        "crit_chance_physical": 7
       },
       "armor_type": "leather",
       "armor_value": 93
@@ -1611,7 +1633,7 @@
         "stamina": 14
       },
       "secondary_stats": {
-        "spell_power": 19
+        "spell_power": 18
       }
     },
     {
@@ -1623,11 +1645,11 @@
       "flavor_text": "A wagon axle, sharpened. He wasn't picky.",
       "weapon_type": "axe_2h",
       "primary_stats": {
-        "strength": 44
+        "strength": 18
       },
       "secondary_stats": {
-        "hit_rating": 9,
-        "crit_chance_physical": 6
+        "hit_rating": 14,
+        "crit_chance_physical": 14
       },
       "weapon_damage_min": 160,
       "weapon_damage_max": 217,
@@ -1641,11 +1663,11 @@
       "required_level": 45,
       "flavor_text": "Sand pours out of it for a week.",
       "primary_stats": {
-        "stamina": 30
+        "stamina": 19
       },
       "secondary_stats": {
         "defense_rating": 15,
-        "dodge_rating": 7
+        "dodge_rating": 10
       },
       "armor_type": "plate",
       "armor_value": 409
@@ -1675,11 +1697,11 @@
       "required_level": 45,
       "flavor_text": "The finest thing the caravan carried.",
       "primary_stats": {
-        "intellect": 11
+        "intellect": 12
       },
       "secondary_stats": {
-        "spell_power": 27,
-        "crit_chance_spell": 13
+        "spell_power": 31,
+        "crit_chance_spell": 8
       },
       "armor_type": "cloth",
       "armor_value": 85
@@ -1695,10 +1717,11 @@
       "flavor_text": "Still wet at the tip. Don't lick it.",
       "weapon_type": "dagger",
       "primary_stats": {
-        "agility": 23
+        "agility": 12
       },
       "secondary_stats": {
-        "hit_rating": 9
+        "hit_rating": 9,
+        "crit_chance_physical": 9
       },
       "weapon_damage_min": 90,
       "weapon_damage_max": 122,
@@ -1712,10 +1735,10 @@
       "required_level": 44,
       "flavor_text": "Plates off the oldest scorpid in the desert.",
       "primary_stats": {
-        "stamina": 12
+        "stamina": 17
       },
       "secondary_stats": {
-        "parry_rating": 12
+        "parry_rating": 7
       },
       "armor_type": "plate",
       "armor_value": 382
@@ -1749,7 +1772,7 @@
         "spirit": 10
       },
       "secondary_stats": {
-        "healing_power": 25
+        "healing_power": 26
       },
       "weapon_damage_min": 28,
       "weapon_damage_max": 38,
@@ -1781,7 +1804,7 @@
         "stamina": 10
       },
       "secondary_stats": {
-        "defense_rating": 10
+        "defense_rating": 6
       },
       "armor_type": "plate",
       "armor_value": 212
@@ -1861,10 +1884,11 @@
       "flavor_text": "A sentinel's glaive that has never once caught the moonlight.",
       "weapon_type": "polearm",
       "primary_stats": {
-        "agility": 23
+        "agility": 9
       },
       "secondary_stats": {
-        "hit_rating": 6
+        "hit_rating": 7,
+        "crit_chance_physical": 7
       },
       "weapon_damage_min": 85,
       "weapon_damage_max": 115,
@@ -1882,7 +1906,7 @@
         "spirit": 8
       },
       "secondary_stats": {
-        "healing_power": 23
+        "healing_power": 21
       },
       "armor_type": "cloth",
       "armor_value": 55
@@ -1895,10 +1919,11 @@
       "required_level": 27,
       "flavor_text": "The eyes are blindfolded on the inside.",
       "primary_stats": {
-        "stamina": 16
+        "stamina": 10
       },
       "secondary_stats": {
-        "defense_rating": 12
+        "defense_rating": 8,
+        "dodge_rating": 6
       },
       "armor_type": "plate",
       "armor_value": 226
@@ -1957,6 +1982,9 @@
       "primary_stats": {
         "intellect": 6,
         "stamina": 7
+      },
+      "secondary_stats": {
+        "spell_hit_rating": 3
       }
     }
   ],
@@ -1969,11 +1997,11 @@
       "required_level": 37,
       "flavor_text": "It hums before every storm.",
       "primary_stats": {
-        "intellect": 9
+        "intellect": 8
       },
       "secondary_stats": {
-        "spell_power": 23,
-        "crit_chance_spell": 8
+        "spell_power": 21,
+        "crit_chance_spell": 6
       }
     },
     {
@@ -2020,10 +2048,10 @@
       "required_level": 37,
       "flavor_text": "Cut from a stone that fell over.",
       "primary_stats": {
-        "stamina": 12
+        "stamina": 15
       },
       "secondary_stats": {
-        "parry_rating": 10
+        "parry_rating": 6
       },
       "armor_type": "plate",
       "armor_value": 330
@@ -2053,10 +2081,11 @@
       "flavor_text": "Hooked and wicked.",
       "weapon_type": "fist_weapon",
       "primary_stats": {
-        "agility": 23
+        "agility": 10
       },
       "secondary_stats": {
-        "hit_rating": 7
+        "hit_rating": 7,
+        "crit_chance_physical": 7
       },
       "weapon_damage_min": 77,
       "weapon_damage_max": 104,
@@ -2228,10 +2257,10 @@
       "flavor_text": "Cut from the root the warren grew round.",
       "weapon_type": "polearm",
       "primary_stats": {
-        "strength": 10
+        "strength": 9
       },
       "secondary_stats": {
-        "attack_power": 21,
+        "attack_power": 19,
         "hit_rating": 8
       },
       "weapon_damage_min": 98,
@@ -2263,10 +2292,11 @@
       "required_level": 33,
       "flavor_text": "Bramble fibres, woven tight.",
       "primary_stats": {
-        "agility": 24
+        "agility": 13
       },
       "secondary_stats": {
-        "hit_rating": 9
+        "hit_rating": 10,
+        "crit_chance_physical": 10
       },
       "armor_type": "leather",
       "armor_value": 131
@@ -2279,11 +2309,11 @@
       "required_level": 33,
       "flavor_text": "Spiked at the knuckles.",
       "primary_stats": {
-        "strength": 7,
-        "stamina": 9
+        "strength": 8,
+        "stamina": 10
       },
       "secondary_stats": {
-        "defense_rating": 12
+        "defense_rating": 6
       },
       "armor_type": "plate",
       "armor_value": 218
@@ -2299,8 +2329,8 @@
       "flavor_text": "Whoever wore it is gone. So is their name.",
       "primary_stats": {},
       "secondary_stats": {
-        "shadow_spell_power": 31,
-        "arcane_spell_power": 31
+        "shadow_spell_power": 30,
+        "arcane_spell_power": 30
       }
     },
     {
@@ -2314,8 +2344,8 @@
         "intellect": 9
       },
       "secondary_stats": {
-        "spell_power": 23,
-        "crit_chance_spell": 10
+        "spell_power": 22,
+        "crit_chance_spell": 6
       },
       "armor_type": "cloth",
       "armor_value": 60
@@ -2328,11 +2358,11 @@
       "required_level": 43,
       "flavor_text": "You'll forget you're wearing them.",
       "primary_stats": {
-        "stamina": 30
+        "stamina": 19
       },
       "secondary_stats": {
         "defense_rating": 15,
-        "dodge_rating": 7
+        "dodge_rating": 10
       },
       "armor_type": "plate",
       "armor_value": 417
@@ -2364,11 +2394,11 @@
       "flavor_text": "For cutting what doesn't belong.",
       "weapon_type": "dagger",
       "primary_stats": {
-        "agility": 23
+        "agility": 16
       },
       "secondary_stats": {
-        "hit_rating": 8,
-        "crit_chance_physical": 5
+        "hit_rating": 12,
+        "crit_chance_physical": 12
       },
       "weapon_damage_min": 123,
       "weapon_damage_max": 166,
@@ -2386,7 +2416,7 @@
         "spirit": 13
       },
       "secondary_stats": {
-        "healing_power": 35
+        "healing_power": 34
       },
       "armor_type": "cloth",
       "armor_value": 88
@@ -2399,11 +2429,11 @@
       "required_level": 44,
       "flavor_text": "Ruled lines, hammered into steel.",
       "primary_stats": {
-        "strength": 9,
-        "stamina": 11
+        "strength": 13,
+        "stamina": 16
       },
       "secondary_stats": {
-        "defense_rating": 22
+        "defense_rating": 10
       },
       "armor_type": "plate",
       "armor_value": 359
@@ -2448,11 +2478,11 @@
       "flavor_text": "Every word it knows is a spell.",
       "weapon_type": "staff",
       "primary_stats": {
-        "intellect": 23
+        "intellect": 26
       },
       "secondary_stats": {
-        "spell_power": 56,
-        "crit_chance_spell": 29
+        "spell_power": 64,
+        "crit_chance_spell": 17
       },
       "weapon_damage_min": 68,
       "weapon_damage_max": 93,
@@ -2466,10 +2496,10 @@
       "required_level": 45,
       "flavor_text": "Iron bands that held the oldest books shut.",
       "primary_stats": {
-        "stamina": 31
+        "stamina": 34
       },
       "secondary_stats": {
-        "parry_rating": 21
+        "parry_rating": 13
       },
       "armor_type": "plate",
       "armor_value": 630
@@ -2503,7 +2533,7 @@
         "intellect": 13
       },
       "secondary_stats": {
-        "healing_power": 23
+        "healing_power": 22
       },
       "armor_type": "leather",
       "armor_value": 152
@@ -2521,6 +2551,447 @@
       },
       "armor_type": "cloth",
       "armor_value": 90
+    }
+  ],
+  "Old Thunder, the Herd Bull": [
+    {
+      "name": "Crown of the Old Herd",
+      "slot": "head",
+      "item_level": 38,
+      "rarity": "epic",
+      "required_level": 31,
+      "flavor_text": "Bison wool and horn, braided by someone who loved him.",
+      "primary_stats": {
+        "agility": 11,
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "attack_power": 20
+      },
+      "armor_type": "mail",
+      "armor_value": 218
+    },
+    {
+      "name": "Hide of the Herd Bull",
+      "slot": "chest",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "Scorched at the edges. It still smells of sulphur.",
+      "primary_stats": {
+        "stamina": 14
+      },
+      "secondary_stats": {
+        "defense_rating": 11,
+        "dodge_rating": 7
+      },
+      "armor_type": "leather",
+      "armor_value": 124
+    },
+    {
+      "name": "Thunderhoof Greaves",
+      "slot": "legs",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "The ground used to shake when he walked. Now it's you.",
+      "primary_stats": {
+        "strength": 10,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "defense_rating": 8
+      },
+      "armor_type": "plate",
+      "armor_value": 299
+    },
+    {
+      "name": "Stampede Splitter",
+      "slot": "main_hand",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "Heavy enough to turn a herd.",
+      "weapon_type": "axe_2h",
+      "primary_stats": {
+        "strength": 13,
+        "agility": 13
+      },
+      "weapon_damage_min": 94,
+      "weapon_damage_max": 127,
+      "attack_speed": 3.6
+    },
+    {
+      "name": "Herd-Bell on a Thong",
+      "slot": "neck",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "A cowbell, and somebody tied it round his neck once.",
+      "primary_stats": {
+        "stamina": 6,
+        "intellect": 6
+      },
+      "secondary_stats": {
+        "healing_power": 11
+      }
+    }
+  ],
+  "The Clockwork": [
+    {
+      "name": "Geyserheart Staff",
+      "slot": "main_hand",
+      "item_level": 38,
+      "rarity": "epic",
+      "required_level": 31,
+      "flavor_text": "Hot at one end, always. Nobody knows which end it'll be.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 18
+      },
+      "secondary_stats": {
+        "spell_power": 44,
+        "crit_chance_spell": 12
+      },
+      "weapon_damage_min": 49,
+      "weapon_damage_max": 67,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Scalding Mantle",
+      "slot": "shoulder",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "The steam never quite leaves the cloth.",
+      "primary_stats": {
+        "intellect": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "spell_power": 11
+      },
+      "armor_type": "cloth",
+      "armor_value": 52
+    },
+    {
+      "name": "Sinter-Crusted Bulwark",
+      "slot": "off_hand",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "It came up out of the ground boiling and set like that.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 10
+      },
+      "armor_value": 77,
+      "block_value": 96
+    },
+    {
+      "name": "Steam-Tight Gauntlets",
+      "slot": "hands",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "Sealed at the cuff. You can put your hands in a spring.",
+      "primary_stats": {
+        "intellect": 10,
+        "spirit": 10
+      },
+      "armor_type": "mail",
+      "armor_value": 138
+    },
+    {
+      "name": "Boilwalker Boots",
+      "slot": "feet",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "Soled for walking on the crust where it's thinnest.",
+      "primary_stats": {
+        "agility": 10,
+        "stamina": 10
+      },
+      "armor_type": "leather",
+      "armor_value": 86
+    },
+    {
+      "name": "Every-Hour Band",
+      "slot": "ring",
+      "item_level": 38,
+      "rarity": "rare",
+      "required_level": 31,
+      "flavor_text": "It warms on the hour and cools on the half.",
+      "primary_stats": {
+        "agility": 9,
+        "spirit": 9
+      }
+    }
+  ],
+  "The Thousand-Leg": [
+    {
+      "name": "Thousand-Leg Carapace",
+      "slot": "chest",
+      "item_level": 42,
+      "rarity": "epic",
+      "required_level": 32,
+      "flavor_text": "Every plate of it still wants to curl up.",
+      "primary_stats": {
+        "stamina": 20
+      },
+      "secondary_stats": {
+        "defense_rating": 15,
+        "dodge_rating": 11
+      },
+      "armor_type": "plate",
+      "armor_value": 428
+    },
+    {
+      "name": "Segment-Plated Leggings",
+      "slot": "legs",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "It flexes in a way leather shouldn't.",
+      "primary_stats": {
+        "agility": 17,
+        "stamina": 17
+      },
+      "armor_type": "leather",
+      "armor_value": 137
+    },
+    {
+      "name": "Mandible Glaive",
+      "slot": "main_hand",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "One jaw, set on a haft. The other one's still out there.",
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "agility": 11
+      },
+      "secondary_stats": {
+        "hit_rating": 8,
+        "crit_chance_physical": 8
+      },
+      "weapon_damage_min": 102,
+      "weapon_damage_max": 138,
+      "attack_speed": 3.3
+    },
+    {
+      "name": "Chitin Ward",
+      "slot": "off_hand",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "Light enough to carry while you cast, and it's turned a sword.",
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 11
+      },
+      "armor_value": 85,
+      "block_value": 107
+    },
+    {
+      "name": "Coal-Black Band",
+      "slot": "ring",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "Pressed out of the seam it was guarding.",
+      "primary_stats": {
+        "stamina": 7,
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "healing_power": 12
+      }
+    }
+  ],
+  "Gulpmaw": [
+    {
+      "name": "Gulpmaw's Hide",
+      "slot": "chest",
+      "item_level": 42,
+      "rarity": "epic",
+      "required_level": 32,
+      "flavor_text": "Thick as a door and never quite dry.",
+      "primary_stats": {
+        "agility": 21,
+        "stamina": 21
+      },
+      "armor_type": "leather",
+      "armor_value": 178
+    },
+    {
+      "name": "Black-Water Scale Coif",
+      "slot": "head",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "Every scale is the size of a palm.",
+      "primary_stats": {
+        "intellect": 14,
+        "spirit": 14
+      },
+      "armor_type": "mail",
+      "armor_value": 186
+    },
+    {
+      "name": "Tooth of the First Jaw",
+      "slot": "main_hand",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "A tooth as long as your forearm, set in a grip.",
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "strength": 12,
+        "agility": 12
+      },
+      "weapon_damage_min": 76,
+      "weapon_damage_max": 102,
+      "attack_speed": 1.7
+    },
+    {
+      "name": "Bog-Iron Girdle",
+      "slot": "waist",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "Fished out of its stomach, with a buckle still on.",
+      "primary_stats": {
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "defense_rating": 8,
+        "dodge_rating": 6
+      },
+      "armor_type": "plate",
+      "armor_value": 229
+    },
+    {
+      "name": "The Drowned Hymnal",
+      "slot": "off_hand",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "The pages fused together under the water. It still glows a little.",
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 8,
+        "spirit": 8
+      },
+      "secondary_stats": {
+        "healing_power": 20
+      }
+    }
+  ],
+  "The Green Before": [
+    {
+      "name": "The First Leaf",
+      "slot": "main_hand",
+      "item_level": 42,
+      "rarity": "epic",
+      "required_level": 32,
+      "flavor_text": "A staff grown, not cut. It puts out a new frond in the spring.",
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 20,
+        "spirit": 20
+      },
+      "secondary_stats": {
+        "healing_power": 52
+      },
+      "weapon_damage_min": 54,
+      "weapon_damage_max": 73,
+      "attack_speed": 3.2
+    },
+    {
+      "name": "Fern-Crown of the First Forest",
+      "slot": "head",
+      "item_level": 42,
+      "rarity": "epic",
+      "required_level": 32,
+      "flavor_text": "Older than every tree you've ever seen.",
+      "primary_stats": {
+        "agility": 18,
+        "spirit": 18
+      },
+      "armor_type": "leather",
+      "armor_value": 150
+    },
+    {
+      "name": "Spore-Cloud Robes",
+      "slot": "chest",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "Shake them and the air goes green.",
+      "primary_stats": {
+        "intellect": 10
+      },
+      "secondary_stats": {
+        "spell_power": 25,
+        "crit_chance_spell": 7
+      },
+      "armor_type": "cloth",
+      "armor_value": 68
+    },
+    {
+      "name": "Before-Bark Hauberk",
+      "slot": "chest",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "Scales of bark from a tree that was never a tree.",
+      "primary_stats": {
+        "agility": 12,
+        "intellect": 12
+      },
+      "secondary_stats": {
+        "attack_power": 20
+      },
+      "armor_type": "mail",
+      "armor_value": 220
+    },
+    {
+      "name": "Scale-Tree Longbow",
+      "slot": "ranged",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "The grain runs in diamonds.",
+      "weapon_type": "bow",
+      "primary_stats": {
+        "agility": 7
+      },
+      "secondary_stats": {
+        "attack_power": 14,
+        "hit_rating": 6
+      },
+      "weapon_damage_min": 64,
+      "weapon_damage_max": 87,
+      "attack_speed": 2.8
+    },
+    {
+      "name": "Greaves of Deep Time",
+      "slot": "legs",
+      "item_level": 42,
+      "rarity": "rare",
+      "required_level": 32,
+      "flavor_text": "Heavy. Heavier than plate should be. Older.",
+      "primary_stats": {
+        "strength": 12,
+        "stamina": 15
+      },
+      "secondary_stats": {
+        "defense_rating": 9
+      },
+      "armor_type": "plate",
+      "armor_value": 330
     }
   ]
 }

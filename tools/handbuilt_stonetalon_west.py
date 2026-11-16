@@ -130,7 +130,12 @@ SPEC = E.Spec("Stonetalon West", W, H, ROADS, rivers=RIVERS, lakes=LAKES, deep_s
               thicket=(0.70, 10.0, 1.3))
 
 #: Mistwalker Camp's quest givers stand here (tools/sync_stonetalon_npcs.py, with the quests).
-NPC_POSITIONS = {}
+NPC_POSITIONS = {
+    "mw_camp_leader":    (56, 138),   # Mistwalker Iyana Rainsong, by the fire
+    "mw_arborist":       (52, 141),   # Tamsin Reyes, by her climbing gear
+    "mw_ex_venture":     (64, 146),   # Nozzle Quickspan, as far from the totem as he can get
+    "mw_forsaken_chem":  (48, 144),   # Alchemist Rennick Toll, downwind
+}
 
 CAVES = {   # portal tile -> (sprite, w, h): the mouth faces the way you come
     (150, 40): ("ent_volcanic_fissure", 9, 7),

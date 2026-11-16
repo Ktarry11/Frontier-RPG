@@ -64,6 +64,8 @@ ZONE_POOLS = {
     "moonless_glade": ("pool_moonlit", "pool_glowing"),
     "stormcrag": ("pool_storm", "pool_river"),
     "ashen_orchard": ("pool_plagued", "pool_bubbling"),
+    "painted_springs": ("pool_bubbling", "pool_river"),
+    "coal_forest": ("pool_swamp", "pool_reeds"),
 }
 
 

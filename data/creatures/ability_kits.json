@@ -58295,6 +58295,647 @@
           "attack_power": 52
         }
       }
+    ],
+    "hidden_caldera_bison": [
+      {
+        "name": "Gore",
+        "kind": "damage",
+        "amount": 137,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Stampede",
+        "kind": "damage",
+        "amount": 205,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shaggy Winter Coat",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 55
+        },
+        "self_only": true
+      }
+    ],
+    "hidden_firehole_elk": [
+      {
+        "name": "Antler Rake",
+        "kind": "damage",
+        "amount": 134,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bugle",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -16
+        }
+      },
+      {
+        "name": "Trample",
+        "kind": "damage",
+        "amount": 188,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "hidden_basin_wolf": [
+      {
+        "name": "Bite",
+        "kind": "damage",
+        "amount": 137,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hamstring",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -16
+        }
+      },
+      {
+        "name": "Pack Howl",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": 22
+        },
+        "self_only": true
+      }
+    ],
+    "hidden_scaldling": [
+      {
+        "name": "Scald",
+        "kind": "damage",
+        "amount": 137,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Steam Burn",
+        "kind": "dot",
+        "amount": 55,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3
+      },
+      {
+        "name": "Fogged",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -12,
+          "agility": -8
+        }
+      }
+    ],
+    "hidden_mudpot_shambler": [
+      {
+        "name": "Mud Fist",
+        "kind": "damage",
+        "amount": 139,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Boiling Mud",
+        "kind": "dot",
+        "amount": 56,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3
+      },
+      {
+        "name": "Caked in Mud",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -18
+        }
+      }
+    ],
+    "hidden_basin_grizzly": [
+      {
+        "name": "Maul",
+        "kind": "damage",
+        "amount": 146,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Swipe",
+        "kind": "damage",
+        "amount": 209,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Thick Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 60
+        },
+        "self_only": true
+      }
+    ],
+    "hidden_old_thunder_the_herd_bull": [
+      {
+        "name": "Horns Down",
+        "kind": "damage",
+        "amount": 303,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "The Whole Herd Behind Him",
+        "kind": "damage",
+        "amount": 576,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Ground Shakes",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -22,
+          "armor": -40
+        }
+      },
+      {
+        "name": "Sulphur-Matted Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 80
+        },
+        "self_only": true
+      },
+      {
+        "name": "Gored",
+        "kind": "dot",
+        "amount": 152,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      }
+    ],
+    "hidden_the_clockwork": [
+      {
+        "name": "Boiling Spray",
+        "kind": "damage",
+        "amount": 303,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Scalded to the Bone",
+        "kind": "dot",
+        "amount": 152,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 4
+      },
+      {
+        "name": "Building Pressure",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": 40,
+          "magic_resistance": 40
+        },
+        "self_only": true
+      },
+      {
+        "name": "Eruption",
+        "kind": "damage",
+        "amount": 637,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Steam Blind",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -22,
+          "agility": -16
+        }
+      }
+    ],
+    "hidden_griffinfly": [
+      {
+        "name": "Snatch",
+        "kind": "damage",
+        "amount": 139,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Stoop From the Canopy",
+        "kind": "damage",
+        "amount": 209,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Wingbeat",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -16
+        }
+      }
+    ],
+    "hidden_blackwater_gulper": [
+      {
+        "name": "Gulp",
+        "kind": "damage",
+        "amount": 149,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Drag Under",
+        "kind": "dot",
+        "amount": 57,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      },
+      {
+        "name": "Mud-Slick Skin",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 60
+        },
+        "self_only": true
+      }
+    ],
+    "hidden_scaletree_toad": [
+      {
+        "name": "Tongue Lash",
+        "kind": "damage",
+        "amount": 139,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Spawn Slime",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -14,
+          "armor": -30
+        }
+      },
+      {
+        "name": "Belly Flop",
+        "kind": "damage",
+        "amount": 195,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "hidden_hunched_stalker": [
+      {
+        "name": "Fang",
+        "kind": "damage",
+        "amount": 142,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bristle Venom",
+        "kind": "dot",
+        "amount": 57,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3
+      },
+      {
+        "name": "Leap From the Ferns",
+        "kind": "damage",
+        "amount": 213,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "hidden_coalmire_crawler": [
+      {
+        "name": "Mandible",
+        "kind": "damage",
+        "amount": 132,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Chewing",
+        "kind": "dot",
+        "amount": 49,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "hidden_peat_shambler": [
+      {
+        "name": "Peat Fist",
+        "kind": "damage",
+        "amount": 142,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Smother",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -14,
+          "agility": -14
+        }
+      },
+      {
+        "name": "Pressed Down",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 70
+        },
+        "self_only": true
+      }
+    ],
+    "hidden_the_thousandleg": [
+      {
+        "name": "Coil and Crush",
+        "kind": "damage",
+        "amount": 309,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Ten Thousand Feet",
+        "kind": "dot",
+        "amount": 170,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      },
+      {
+        "name": "Wrapped Up",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -28,
+          "armor": -50
+        }
+      },
+      {
+        "name": "Plated Segments",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 90
+        },
+        "self_only": true
+      },
+      {
+        "name": "Rear Up",
+        "kind": "damage",
+        "amount": 648,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "hidden_the_green_before": [
+      {
+        "name": "Spore Lash",
+        "kind": "damage",
+        "amount": 309,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Thick Air",
+        "kind": "dot",
+        "amount": 170,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 6
+      },
+      {
+        "name": "Everything Grows",
+        "kind": "heal",
+        "amount": 679,
+        "cooldown": 5,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Choked on Green",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -25,
+          "attack_power": -30
+        }
+      },
+      {
+        "name": "The Forest Closes In",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 60,
+          "magic_resistance": 60
+        },
+        "self_only": true
+      },
+      {
+        "name": "Three Hundred Million Years",
+        "kind": "damage",
+        "amount": 679,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic"
+      }
+    ],
+    "hidden_gulpmaw": [
+      {
+        "name": "Jaws Like a Door",
+        "kind": "damage",
+        "amount": 309,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Tail Through the Water",
+        "kind": "damage",
+        "amount": 555,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Held Under",
+        "kind": "dot",
+        "amount": 154,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 5
+      },
+      {
+        "name": "Sinks Out of Sight",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 70,
+          "magic_resistance": 30
+        },
+        "self_only": true
+      },
+      {
+        "name": "Bog Slime",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -24,
+          "intellect": -16
+        }
+      }
     ]
   }
 }

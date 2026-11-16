@@ -13,7 +13,7 @@ Kyle, 15 Nov 2026 (tools/build_unnamed_faction.py has the full ask). This holds:
     plate casters, leather and mail tanks...); every weapon any spec carries is on sale, relics, wands, thrown,
     fist weapons and polearms included; every equipment slot; a caster's shield and a healer's shield; and
     trinkets that do something;
-  - the faction is "????" with nothing to read: no description, no lore, no leader, no home;
+  - the faction is "????" with almost nothing to read: one cryptic line, and no lore, no leader, no home;
   - a frontier BOSS pays 50, and nothing else pays anything: not trash in a frontier, not a boss elsewhere,
     not a quest;
   - a real combat victory over a frontier boss prints no reputation line and no tier-up for it;
@@ -163,8 +163,14 @@ def main():
 
     # ---- the faction says nothing
     check(rec.get("name") == "????" and rec.get("secret") is True, "the faction isn't the secret '????'")
-    for field in ("description", "lore", "leader", "home_zone", "home_name"):
+    for field in ("lore", "leader", "home_zone", "home_name"):
         check(not rec.get(field), f"the faction advertises its {field}")
+    # one cryptic line (Kyle: "Give a cryptic ass description too"), and it gives nothing away
+    desc = rec.get("description") or ""
+    check(bool(desc), "the faction has no cryptic line")
+    for word in ("frontier", "boss", "skull", "hidden", "kill", "dungeon", "50", "standing", "rep"):
+        check(word not in desc.lower().split() and f" {word}" not in f" {desc.lower()}",
+              f"the cryptic line gives away '{word}'")
     check("vendor_stock" not in (rec.get("rewards") or {}), "the seller's shelf is live, but he isn't placed")
     check(not any(v[0] == FID for v in reward_stock().values()), "a shop already sells the '????' stock")
 

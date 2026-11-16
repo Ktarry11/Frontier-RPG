@@ -78,6 +78,43 @@ def build_scores(P, spec):
     return S
 
 
+#: the rings round a hot spring, from the water's edge outward: (colour, how far out, in tiles at a
+#: middling pool's size). The mats that grow in hot water are coloured by how hot it is, so the
+#: colours go from the hottest at the edge to the coolest furthest out, then pale sinter.
+RINGS = [((228, 196, 62), 0.9), ((222, 128, 42), 1.9), ((152, 82, 40), 3.0), ((226, 222, 208), 4.4)]
+
+
+def _prismatic(spec, rgb, X, Y, P, cf):
+    """Rings of colour round each spring (Kyle's Stonetalon hidden basin). Lakes only: a river is
+    cold and gets none."""
+    gx, gy = X / TILE_PX, Y / TILE_PX
+    out = rgb
+    not_rock = (1 - smoothstep(-0.02, 0.10, cf))[..., None]
+    steam_n = P.sample_field(P.noise(3.0, "steam", octaves=3), X, Y)
+    for n, (cx, cy, rx, ry, rot) in enumerate(spec["lakes"]):
+        if abs(gx.mean() - cx) > 40 or abs(gy.mean() - cy) > 40:
+            continue
+        e = Z.ell(gx, gy, cx, cy, rx, ry, rot) + 0.7 * Z.wob(gx, gy, n * 2.1)
+        k = float(np.clip(min(rx, ry) / 2.6, 0.7, 1.7))
+        # the mats don't grow in circles: they spill where the runoff goes and stop where it doesn't
+        wob_n = P.sample_field(P.noise(2.2, f"ring{n}", octaves=3), X, Y)
+        spill = P.sample_field(P.noise(5.0, f"spill{n}", octaves=2), X, Y)
+        t = -e / k + 1.6 * (wob_n - 0.5) - 1.4 * smoothstep(0.55, 0.85, spill)
+        # inside, at the shallow edge: a thin living film over the teal
+        film = smoothstep(0.0, 0.25, e) * (1 - smoothstep(0.4, 1.1, e / k))
+        out = out * (1 - 0.30 * film[..., None]) + np.array([150, 176, 70], np.float32) * (0.30 * film[..., None])
+        lo = 0.0
+        for col, hi in RINGS:
+            band = smoothstep(lo - 0.25, lo + 0.15, t) * (1 - smoothstep(hi - 0.15, hi + 0.35, t))
+            a = (0.62 if hi < 4 else 0.26) * band[..., None] * not_rock
+            out = out * (1 - a) + np.array(col, np.float32) * a
+            lo = hi
+        # steam lifting off the water and the hot ground beside it
+        near = smoothstep(-3.5 * k, 0.5, e) * smoothstep(0.52, 0.80, steam_n)
+        out = out * (1 - 0.22 * near[..., None]) + 236.0 * (0.22 * near[..., None])
+    return out
+
+
 def make_post(spec):
     tint = np.array(spec.get("tint", (1, 1, 1)), np.float32)
     dark = float(spec.get("dark", 0.0))
@@ -97,6 +134,12 @@ def make_post(spec):
         foam = (1 - smoothstep(0.0, 0.34, d_wi)) * smoothstep(-0.05, 0.05, d_wi) * 0.30
         foam = foam * (1 - smoothstep(-0.05, 0.12, cf))
         rgb = rgb * (1 - foam[..., None]) + np.array([210, 220, 220], np.float32) * foam[..., None]
+        if spec.get("deep_tint"):
+            dk = smoothstep(0.2, 1.6, d_wi) * smoothstep(0.0, 0.3, d_wi)
+            tint_d = np.array(spec["deep_tint"], np.float32)
+            rgb = rgb * (1 - dk[..., None]) + rgb * tint_d[None, None, :] * dk[..., None]
+        if spec.get("prismatic"):
+            rgb = _prismatic(spec, rgb, X, Y, P, cf)
         # the mood: a cast over everything and a drift of murk, low and patchy, like weather
         murk = P.sample_field(P.noise(12.0, "murk", octaves=2), X, Y)
         rgb = rgb * tint[None, None, :] * (1 - dark * (0.6 + 0.8 * murk))[..., None]

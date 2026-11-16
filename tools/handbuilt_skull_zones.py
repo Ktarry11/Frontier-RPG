@@ -507,6 +507,135 @@ SPECS["The Ashen Orchard"] = dict(
 
 
 # ============================================================================== THE LANDFORMS
+ASP = "assets/tiles/aspen/props/"
+STP = "assets/tiles/stonetalon/props/"
+
+# THE PAINTED SPRINGS. A whole caldera of hot ground came through with the Integration and set
+# itself down inside Stonetalon: boiling pools coloured like a bruise healing, sinter flats, mud
+# that breathes, a geyser that keeps its own time, and a herd that grazes between them all.
+SPECS["The Painted Springs"] = dict(
+    slug="painted_springs", W=108, H=90, region="Stonetalon West", seed=941,
+    desc="A caldera of boiling springs and steaming flats that came through the Integration whole. "
+         "The pools are rings of colour round water so clear it looks like nothing's in it.",
+    materials={"land": ("aspen/materials/asp_grass_dry", "aspen/materials/asp_grass_summer"),
+               "sinter": ("stonetalon/materials/st_pumice_gravel", None),
+               "sulphur": ("stonetalon/materials/st_sulphur", None),
+               "mud": ("stonetalon/materials/st_mudflow", None),
+               "steam": ("stonetalon/materials/st_steaming_ground", None),
+               "burnt": ("aspen/materials/asp_char_ground", None),
+               "water_s": ("stonetalon/materials/st_crater_shallow", None),
+               "water_d": ("stonetalon/materials/st_crater_deep", None),
+               "rock": ("stonetalon/materials/st_granite_cliff", "stonetalon/materials/st_basalt_cliff")},
+    regions={"sinter": [(30, 40, 13, 11), (22, 25, 8, 6), (55, 17, 10, 7), (40, 54, 6, 4)],
+             "sulphur": [(46, 26, 4, 3), (18, 48, 4, 3)],
+             "mud": [(15, 19, 8, 6), (12, 58, 5, 4)],
+             "steam": [(52, 70, 11, 6)], "burnt": [(88, 16, 11, 10)]},
+    tint=(1.0, 0.98, 0.95), dark=0.06,
+    mode="canyon", shore_w=1.6,
+    # A CALDERA FLOOR, NOT A BOWL. The rim is broken and the floor runs off into bays: the boiling
+    # pools in the west, the herd's meadow in the east, the mud in the north-west corner, the
+    # burnt lodgepoles in the north-east, and the river crossing all of it on a long diagonal.
+    prismatic=True,
+    lakes=[(30, 40, 7.5, 5.8, 15), (20, 52, 2.8, 2.3, 0), (41, 50, 2.0, 1.8, 0), (24, 27, 3.0, 2.2, -20),
+           (45, 31, 2.0, 1.7, 0), (61, 21, 2.4, 2.0, 0), (34, 22, 1.6, 1.4, 0)],
+    rivers=[([(100, 22), (88, 25), (76, 33), (68, 45), (60, 54), (50, 61), (36, 63), (22, 61), (10, 57)], 3.0)],
+    flats=[],
+    open=[],
+    outline=[[(44, 88), (40, 78), (26, 74), (12, 66), (6, 52), (13, 39), (8, 24), (19, 11), (37, 7), (52, 3),
+              (71, 8), (88, 5), (101, 15), (99, 32), (90, 44), (99, 57), (93, 72), (76, 79), (62, 78), (58, 88)]],
+    passes=[([(52, 90), (52, 76)], 8)],
+    rocks=[(79, 61, 4, 3), (71, 15, 3, 4), (62, 37, 3, 2)],
+    rock_rings=[(54, 13, 5.0, 1.2, [270]), (14, 19, 4.4, 1.3, [20])],
+    roads=[],
+    portal=(52, 87),
+    giver=("hz_springs_dempsey", (48, 82)),
+    subzones=[("The Steaming Mouth", 36, 64, 34, 24), ("The Painted Pools", 10, 28, 42, 30),
+              ("The Grazing Flats", 64, 40, 36, 36), ("The Mud Pots", 4, 8, 26, 22),
+              ("The Clockwork Geyser", 40, 2, 28, 22), ("The Burnt Lodgepoles", 74, 2, 30, 26)],
+    props=[
+        ("st_steam_vents", STP, 46, 70, 3, False), ("st_fumarole", STP, 60, 72, 4, "core"),
+        ("st_steam_vents", STP, 40, 66, 3, False), ("st_pumice_pile", STP, 58, 66, 3, "core"),
+        ("asp_pine_tall", ASP, 70, 74, 8, "core"), ("asp_pine_young", ASP, 34, 74, 5, "core"),
+        ("asp_elk_skull", ASP, 18, 44, 2, False), ("st_steam_vents", STP, 38, 34, 3, False),
+        ("st_steam_vents", STP, 24, 33, 3, False), ("st_fumarole", STP, 47, 24, 4, "core"),
+        ("st_cinder_cone", STP, 54, 15, 5, "core"),
+        ("asp_pine_tall", ASP, 86, 46, 8, "core"), ("asp_pine_tall", ASP, 94, 64, 8, "core"),
+        ("asp_pine_young", ASP, 72, 52, 5, "core"), ("asp_grass_tussock", ASP, 80, 56, 2, False),
+        ("asp_boulder_lichen", ASP, 88, 58, 3, "core"), ("asp_elk_skull", ASP, 76, 66, 2, False),
+        ("asp_snag_charred", ASP, 84, 14, 7, "core"), ("asp_snag_charred", ASP, 92, 22, 6, "core"),
+        ("asp_stump_burned", ASP, 80, 22, 2, False), ("asp_snag_charred", ASP, 96, 12, 7, "core"),
+        ("asp_trunk_snapped", ASP, 88, 30, 3, False), ("asp_pine_young", ASP, 78, 10, 4, "core"),
+        ("st_steam_vents", STP, 12, 24, 3, False), ("st_pumice_pile", STP, 20, 14, 3, "core"),
+        ("asp_pine_bent", ASP, 10, 46, 6, "core"), ("asp_pine_tall", ASP, 8, 32, 8, "core"),
+    ],
+)
+
+STV_P = "assets/tiles/stranglethorn/props/"
+VEG_P = "assets/tiles/vegetation/"
+
+# THE COAL FOREST. Under the basin, through ground that shouldn't open, a forest from before
+# forests: black water, ferns as tall as houses, scale-trunked trees, and things with too many legs
+# that grew big because the air let them. The air is thick enough to drink.
+SPECS["The Coal Forest"] = dict(
+    slug="coal_forest", W=110, H=96, region="Stonetalon West", seed=942,
+    desc="A drowned forest of giant ferns and scaled trunks over black water, older than anything "
+         "that has ever been alive in Azeroth. The air is so thick it's warm in the lungs.",
+    materials={"land": ("stonetalon/materials/st_wet_moss", "stranglethorn/materials/stv_fern"),
+               "fern": ("stonetalon/materials/st_sword_ferns", None),
+               "roots": ("stranglethorn/materials/stv_root", None),
+               "rot": ("stranglethorn/materials/stv_rot", None),
+               "water_s": ("stranglethorn/materials/stv_swamp", None),
+               "water_d": ("stranglethorn/materials/stv_swamp", None),
+               "rock": ("stranglethorn/materials/stv_canopy", "stranglethorn/materials/stv_jungle")},
+    regions={"fern": [(26, 66, 11, 8), (74, 30, 10, 7), (56, 86, 8, 4), (90, 64, 7, 6)],
+             "roots": [(40, 30, 9, 6), (60, 12, 11, 5), (14, 40, 6, 7)],
+             "rot": [(80, 46, 8, 6), (22, 20, 6, 5), (64, 70, 6, 4)]},
+    tint=(0.90, 1.02, 0.86), dark=0.12, deep_tint=(0.30, 0.34, 0.26),
+    mode="canyon", shore_w=1.5,
+    # A FOREST STANDING IN WATER. The ground is what the roots hold up; black channels wind through
+    # it and open into pools too deep to wade, and the thickets between are so dense they might as
+    # well be walls, so the way through bends round them. No cliffs: the edge is forest.
+    lakes=[(56, 53, 9.5, 6.0, 10), (20, 25, 5.0, 3.6, -15), (88, 44, 4.6, 6.0, 0), (71, 18, 4.0, 3.0, 20),
+           (36, 46, 3.4, 2.6, 0), (14, 60, 3.0, 2.4, 0), (84, 78, 3.2, 2.4, 0)],
+    rivers=[([(104, 38), (90, 47), (76, 51), (62, 55), (46, 60), (30, 58), (12, 51)], 5.0, 1.1),
+            ([(56, 58), (54, 68), (47, 78), (38, 84)], 4.2, 1.0),
+            ([(20, 28), (28, 36), (36, 46)], 4.0, 0.9),
+            ([(71, 18), (80, 30), (88, 44)], 3.6, 0.9)],
+    # the fords: where the channels run shallow enough to wade, and the only places they do
+    flats=[(30, 58, 3.0, 3.5), (76, 51, 3.0, 3.5), (97, 42, 3.0, 3.0), (51, 71, 3.5, 2.6), (27, 36, 3.0, 3.0),
+           (81, 31, 3.0, 3.0), (14, 51, 2.6, 2.6)],
+    open=[],
+    outline=[[(48, 95), (30, 88), (14, 80), (6, 62), (10, 44), (5, 28), (14, 12), (32, 5), (52, 8), (70, 4),
+              (92, 8), (104, 22), (100, 40), (106, 56), (98, 74), (84, 86), (64, 88), (62, 95)]],
+    passes=[([(55, 96), (55, 86)], 8)],
+    rocks=[(32, 72, 6, 4), (76, 63, 7, 5), (50, 40, 5, 7), (24, 44, 4, 5), (80, 28, 6, 4), (42, 18, 5, 3),
+           (96, 56, 3, 6)],
+    roads=[],
+    portal=(55, 91),
+    giver=("hz_coal_vesna", (60, 87)),
+    subzones=[("The Drowned Hummocks", 30, 62, 50, 32), ("The Scale-Tree Stand", 4, 30, 30, 40),
+              ("The Black Water", 40, 42, 32, 22), ("The Griffinfly Reach", 66, 22, 40, 40),
+              ("The Coal Seam", 10, 6, 34, 24), ("The First Grove", 44, 2, 34, 18)],
+    props=[
+        ("stv_tree_fern", STV_P, 47, 88, 7, "core"), ("stv_tree_fern", STV_P, 67, 84, 8, "core"),
+        ("st_ferns_big", STP, 52, 82, 3, False), ("stv_tree_fern", STV_P, 30, 80, 8, "core"),
+        ("stv_tree_fern", STV_P, 40, 72, 6, "core"), ("st_nurse_log", STP, 68, 76, 3, False),
+        ("stv_tree_fern", STV_P, 70, 70, 9, "core"), ("stv_tree_fern", STV_P, 21, 68, 9, "core"),
+        ("stv_tree_fern", STV_P, 26, 70, 10, "core"), ("st_ferns_big", STP, 22, 74, 3, False),
+        ("stv_tree_fern", STV_P, 12, 40, 10, "core"), ("stv_tree_fern", STV_P, 16, 34, 9, "core"),
+        ("st_moss_boulder", STP, 30, 30, 3, "core"), ("stv_tree_fern", STV_P, 36, 34, 9, "core"),
+        ("stv_tree_fern", STV_P, 60, 40, 8, "core"), ("st_nurse_log", STP, 44, 50, 3, False),
+        ("stv_tree_fern", STV_P, 76, 42, 10, "core"), ("stv_tree_fern", STV_P, 92, 66, 9, "core"),
+        ("st_giant_snag", STP, 84, 58, 9, "core"), ("stv_tree_fern", STV_P, 68, 30, 9, "core"),
+        ("stv_tree_fern", STV_P, 92, 20, 10, "core"), ("st_ferns_big", STP, 74, 34, 3, False),
+        ("stv_tree_fern", STV_P, 24, 14, 9, "core"), ("st_giant_snag", STP, 32, 16, 8, "core"),
+        ("stv_tree_fern", STV_P, 50, 12, 10, "core"), ("stv_tree_fern", STV_P, 68, 11, 11, "core"),
+        ("st_redwood_burl", STP, 60, 9, 4, "core"), ("st_ferns_big", STP, 62, 15, 3, False),
+        ("stv_tree_fern", STV_P, 99, 52, 9, "core"), ("stv_tree_fern", STV_P, 9, 45, 9, "core"),
+    ],
+)
+
+
 def fields(spec, gx, gy):
     gx = np.asarray(gx, float)
     gy = np.asarray(gy, float)
@@ -552,6 +681,12 @@ def fields(spec, gx, gy):
         lake = np.full(np.shape(gx), -30.0)
         for n, (cx, cy, rx, ry, rot) in enumerate(spec["lakes"]):
             lake = np.maximum(lake, ell(gx, gy, cx, cy, rx, ry, rot) + 0.7 * wob(gx, gy, n * 2.1))
+        # RIVERS: a band of water along a line, wobbling a little so it doesn't read as ruled
+        for n, riv in enumerate(spec.get("rivers", [])):
+            pts, w = riv[0], riv[1]
+            amp = riv[2] if len(riv) > 2 else 0.35
+            lake = np.maximum(lake, w / 2 - seg_dist(gx, gy, pts) + amp * wob(gx * 0.9, gy * 0.9, 3.0 + n)
+                              + 0.5 * amp * wob(gx * 2.3, gy * 2.3, 5.0 + n))
         land = -lake
         wet = lake
         flat = np.full(np.shape(gx), -30.0)

@@ -13,7 +13,7 @@ to ... not implement him yet."
 
 WHAT THIS BUILDS (and what it doesn't)
   - the faction, "????" (data/factions/factions.json the_unnamed): "secret": true, so the journal shows only
-    "Current Status: <tier>" (no bar, no numbers, no description, no leader), and combat never prints its
+    "Current Status: <tier>" and one cryptic line (no bar, no numbers, no leader), and combat never prints its
     gains or its tier-ups. Its only source is "frontier_boss_rep": 50, paid by world/faction_manager for any
     boss killed inside a frontier zone (world/hidden_zones.kind == "frontier"). Nothing in the game names that.
   - 45 items in data/items/unnamed_rewards.json, sold as unique:<id>: 15 blues at honored (ilvl 69), 15 epics at
@@ -174,7 +174,11 @@ TIERS = (("honored", HONORED, "rare", 69), ("revered", REVERED, "epic", 78), ("e
 FACTION_RECORD = {
     "name": "????",
     "secret": True,
-    "description": "",
+    # Kyle, 15 Nov 2026: "Give a cryptic ass description too." It's the only thing the page says, and it says
+    # nothing about where standing comes from (tools/qa_unnamed_faction.py holds it to that).
+    "description": ("Somebody keeps a ledger of the places that were never on any map, and of everyone who's "
+                    "walked out of one alive. You've never met them. Your name is in it anyway, and the line "
+                    "under it gets a little longer every time."),
     "home_zone": None,
     "home_name": "",
     "lore": [],

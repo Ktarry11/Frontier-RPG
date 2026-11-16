@@ -286,6 +286,38 @@
       ],
       "multi_drop": 2,
       "epic_chance": 0.08
+    },
+    "The Painted Springs": {
+      "kind": "skull",
+      "parent": "Stonetalon West",
+      "levels": [
+        30,
+        33
+      ],
+      "region": null,
+      "bosses": [
+        "Old Thunder, the Herd Bull",
+        "The Clockwork"
+      ],
+      "multi_drop": 2,
+      "epic_chance": 0.05
+    },
+    "The Coal Forest": {
+      "kind": "frontier",
+      "parent": "The Painted Springs",
+      "levels": [
+        32,
+        34
+      ],
+      "region": "Stonetalon West",
+      "frontier_type": "open",
+      "bosses": [
+        "The Thousand-Leg",
+        "Gulpmaw",
+        "The Green Before"
+      ],
+      "multi_drop": 2,
+      "epic_chance": 0.08
     }
   }
 }
