@@ -275,6 +275,10 @@ def main():
     dd["drops"] = {k: v for k, v in dd["drops"].items() if v}
     dp.write_text(json.dumps(dd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
+    # ---- the shoulder inscriptions (Kyle: "Shoulder enchants we can add, tabards are pointless"), sold at Revered
+    from tools import plaguelands_inscriptions as INS
+    n_ins = INS.install()
+
     # ---- the shelves, the moved patterns off the town shelves, the turn-ins' pay
     fp = ROOT / "data/factions/factions.json"
     fd = json.loads(fp.read_text(encoding="utf-8"))
@@ -285,7 +289,7 @@ def main():
         rw["vendor_stock"] = {qm: {
             "friendly": list(SUPPLIES[fid]["friendly"]),
             "honored": list(SUPPLIES[fid]["honored"]) + MOVED[fid]["honored"],
-            "revered": MOVED[fid]["revered"] + [f"unique:{r[0]}" for r in REVERED[fid]],
+            "revered": MOVED[fid]["revered"] + [f"unique:{r[0]}" for r in REVERED[fid]] + INS.ids(fid),
             "exalted": [f"unique:{r[0]}" for r in EXALTED[fid]] + [r[0] for r in EXALTED_RECIPES[fid]],
         }}
         rw["_comment"] = ["Gates, not a displayed ladder (the faction panel stays information only).",
@@ -311,7 +315,7 @@ def main():
     print(f"{len(mine)} items for the Pale Flame and the Argent Dawn, "
           f"{sum(len(v) for v in EXALTED_RECIPES.values())} exalted recipes, {len(moved)} patterns moved "
           f"({len(changed)} not yet vendor recipes), {len(tq)} repeatable turn-ins, "
-          f"{len(drops())} creatures carrying stones or insignia")
+          f"{len(drops())} creatures carrying stones or insignia, {n_ins} shoulder inscriptions")
     if changed:
         print("  WARNING: these moved patterns aren't vendor recipes:", sorted(changed))
     return 0

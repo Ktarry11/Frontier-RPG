@@ -494,6 +494,9 @@ def main():
                                              "essence_count", "shard", "skill"), row)) for row in DISENCHANT],
                     "rods": ROD_IDS})
     save(OUT_RECIPES, {"_comment": "Enchanting. Written by tools/build_enchanting.py.", "recipes": recipes})
+    # the faction shoulder inscriptions live beside the crafted enchantments and nobody makes them; put them back
+    from tools import plaguelands_inscriptions
+    plaguelands_inscriptions.install()
 
     by_source = {}
     for r in recipes.values():

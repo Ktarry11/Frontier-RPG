@@ -13,7 +13,9 @@ proc on the wearer through Character._sync_equipment_procs beside the item's own
 
 WHAT GOES WHERE. Bracers, boots, gloves, cloaks and chests take their own enchantments, a shield
 takes shield enchantments, any weapon takes weapon enchantments, and a two-hander also takes 2H
-ones. Rings, trinkets, helms, legs and shoulders take none, as in classic.
+ones. Rings, trinkets, helms and legs take none, as in classic. Shoulders take only the faction
+inscriptions the Plaguelands' quartermasters sell at Revered (tools/plaguelands_inscriptions.py);
+no enchanter makes those.
 
 DISENCHANTING. A green, blue or purple item breaks down into materials by its level, from classic's
 table: greens mostly give dust (weapons mostly essence), blues give a shard, epics give shards or a
@@ -27,7 +29,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 #: equipment slot -> enchantment group
-SLOT_GROUPS = {"wrist": "bracer", "feet": "boots", "hands": "gloves", "back": "cloak", "chest": "chest"}
+SLOT_GROUPS = {"wrist": "bracer", "feet": "boots", "hands": "gloves", "back": "cloak", "chest": "chest",
+               "shoulder": "shoulder"}
 DISENCHANTABLE = ("uncommon", "rare", "epic")
 
 
@@ -145,7 +148,7 @@ def label_of(e):
 def _where(group):
     return {"bracer": "bracers", "boots": "boots", "gloves": "gloves", "cloak": "cloaks",
             "chest": "chest armour", "shield": "shields", "weapon": "weapons",
-            "2h": "two-handed weapons"}.get(group, group)
+            "2h": "two-handed weapons", "shoulder": "shoulders"}.get(group, group)
 
 
 def refresh(owner):

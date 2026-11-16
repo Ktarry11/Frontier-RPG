@@ -226,6 +226,24 @@ def main():
     give("enchant_bracer_major_valor", 1)
     E.apply(hero, bracer, "enchant_bracer_major_valor")
     check(bracer.enchant_id == "enchant_bracer_major_valor", "a new enchantment didn't replace the old one")
+    # shoulders take the Plaguelands' faction inscriptions and nothing else (tools/plaguelands_inscriptions.py)
+    from tools import plaguelands_inscriptions as INS
+    pads = gen.generate_armor_piece("shoulder", "plate", "str_physical", 58, "rare")
+    check(E.groups_for(pads) == {"shoulder"}, f"shoulders take {E.groups_for(pads)}, not the inscriptions")
+    check(not any(E.fits(pads, eid) for eid, e in enchants.items() if e["group"] != "shoulder"),
+          "an enchanter's enchantment fits shoulders")
+    for fid, rows in INS.INSCRIPTIONS.items():
+        shelf = json.loads((ROOT / "data/factions/factions.json").read_text(encoding="utf-8"))["factions"][fid]
+        revered = [i for tier in shelf["rewards"]["vendor_stock"].values() for i in tier.get("revered", [])]
+        for (iid, *_rest) in rows:
+            check(iid in revered, f"{iid} isn't on the {fid} quartermaster's Revered shelf")
+            check(not any(r["output"].get("material_id") == iid for r in recipes.values()), f"a formula makes {iid}")
+    give("inscription_argent_warding", 1)
+    ok, msg = E.apply(hero, pads, "inscription_argent_warding")
+    check(ok and E.stats(pads).get("stamina") == 9, f"the inscription didn't go on: {msg}")
+    give("inscription_argent_warding", 1)
+    ok, _m = E.apply(hero, bracer, "inscription_argent_warding")
+    check(not ok and "only goes on shoulders" in _m, "a shoulder inscription went on bracers")
     # a proc on a weapon
     sword = gen.generate_weapon("main_hand", "sword_2h", "str_physical", 55, "rare")
     check({"weapon", "2h"} <= E.groups_for(sword), "a two-hander doesn't take 2H enchantments")

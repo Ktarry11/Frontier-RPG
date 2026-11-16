@@ -32,6 +32,10 @@
     "2h": {
       "label": "2H Weapon",
       "share": 0.85
+    },
+    "shoulder": {
+      "label": "Shoulder",
+      "share": 0.5
     }
   },
   "enchants": {
@@ -2480,6 +2484,137 @@
       },
       "hybrid": false,
       "secret": true
+    },
+    "inscription_argent_vengeance": {
+      "name": "Inscription of Argent Vengeance",
+      "title": "Argent Vengeance",
+      "group": "shoulder",
+      "family": "argent_ap",
+      "tier": 4,
+      "rank": 4,
+      "level": 58,
+      "skill": 1,
+      "stats": {
+        "attack_power": 14,
+        "stamina": 7
+      },
+      "hybrid": false,
+      "faction": "argent_dawn"
+    },
+    "inscription_argent_discipline": {
+      "name": "Inscription of Argent Discipline",
+      "title": "Argent Discipline",
+      "group": "shoulder",
+      "family": "argent_sp",
+      "tier": 4,
+      "rank": 4,
+      "level": 58,
+      "skill": 1,
+      "stats": {
+        "spell_power": 12,
+        "intellect": 6
+      },
+      "hybrid": false,
+      "faction": "argent_dawn"
+    },
+    "inscription_argent_faith": {
+      "name": "Inscription of Argent Faith",
+      "title": "Argent Faith",
+      "group": "shoulder",
+      "family": "argent_heal",
+      "tier": 4,
+      "rank": 4,
+      "level": 58,
+      "skill": 1,
+      "stats": {
+        "healing_power": 18,
+        "mp5": 2
+      },
+      "hybrid": false,
+      "faction": "argent_dawn"
+    },
+    "inscription_argent_warding": {
+      "name": "Inscription of Argent Warding",
+      "title": "Argent Warding",
+      "group": "shoulder",
+      "family": "argent_tank",
+      "tier": 4,
+      "rank": 4,
+      "level": 58,
+      "skill": 1,
+      "stats": {
+        "stamina": 9,
+        "armor": 23
+      },
+      "hybrid": false,
+      "faction": "argent_dawn"
+    },
+    "inscription_pale_crusader": {
+      "name": "Inscription of the Pale Crusader",
+      "title": "the Pale Crusader",
+      "group": "shoulder",
+      "family": "pale_str_int",
+      "tier": 4,
+      "rank": 4,
+      "level": 58,
+      "skill": 1,
+      "stats": {
+        "strength": 5,
+        "intellect": 5,
+        "stamina": 4
+      },
+      "hybrid": true,
+      "faction": "pale_flame"
+    },
+    "inscription_pale_pathfinder": {
+      "name": "Inscription of the Pale Pathfinder",
+      "title": "the Pale Pathfinder",
+      "group": "shoulder",
+      "family": "pale_agi_int",
+      "tier": 4,
+      "rank": 4,
+      "level": 58,
+      "skill": 1,
+      "stats": {
+        "agility": 5,
+        "intellect": 5,
+        "stamina": 4
+      },
+      "hybrid": true,
+      "faction": "pale_flame"
+    },
+    "inscription_pale_ember": {
+      "name": "Inscription of the Pale Ember",
+      "title": "the Pale Ember",
+      "group": "shoulder",
+      "family": "pale_sp",
+      "tier": 4,
+      "rank": 4,
+      "level": 58,
+      "skill": 1,
+      "stats": {
+        "spell_power": 9,
+        "spirit": 4,
+        "intellect": 4
+      },
+      "hybrid": false,
+      "faction": "pale_flame"
+    },
+    "inscription_pale_zealot": {
+      "name": "Inscription of the Pale Zealot",
+      "title": "the Pale Zealot",
+      "group": "shoulder",
+      "family": "pale_str",
+      "tier": 4,
+      "rank": 4,
+      "level": 58,
+      "skill": 1,
+      "stats": {
+        "strength": 7,
+        "attack_power": 13
+      },
+      "hybrid": false,
+      "faction": "pale_flame"
     }
   },
   "disenchant": [

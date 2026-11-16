@@ -286,3 +286,22 @@ the cave's own table, no set packs. Each cave sits at the top of its parent map'
 - **Code:** `tools/handbuilt_plaguelands_caves.py` (maps), `tools/build_plaguelands_caves_content.py` (creatures,
   kits, loot, encounters, levels), `tools/bake_plaguelands_caves.py` (painting). Mouths in each parent map's
   `CAVES`, doors in `world/portal_manager.py`.
+
+## 16 Nov 2026 (later): shoulder inscriptions
+
+Kyle: "Shoulder enchants we can add, tabards are pointless." Shoulders take nothing from an enchanter, as in
+classic; now they take an **inscription**, bought from the two Plaguelands quartermasters at **Revered** (20 gold
+each) and read on with the Enchant button like any enchantment scroll. Nobody can make one.
+
+| Argent Dawn (Light's Hope) | | Order of the Pale Flame (Sorrow Hill) | |
+|---|---|---|---|
+| Argent Vengeance | 14 attack power, 7 stamina | the Pale Crusader | 5 strength, 5 intellect, 4 stamina |
+| Argent Discipline | 12 spell power, 6 intellect | the Pale Pathfinder | 5 agility, 5 intellect, 4 stamina |
+| Argent Faith | 18 healing, 2 mana a tick | the Pale Ember | 9 spell power, 4 spirit, 4 intellect |
+| Argent Warding | 9 stamina, 23 armour | the Pale Zealot | 7 strength, 13 attack power |
+
+Held to the same formula as every enchantment (a shoulder's share is 0.5, between a bracer's and a weapon's), so
+`tools/qa_enchanting.py` checks them with the rest, plus: shoulders take only these, each is on its Revered shelf,
+and no formula makes one. Code: `tools/plaguelands_inscriptions.py`, installed by
+`tools/build_plaguelands_rewards.py` (and again by `tools/build_enchanting.py` if that's ever rerun).
+No tabards.
