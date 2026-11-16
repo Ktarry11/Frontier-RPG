@@ -13747,6 +13747,883 @@
       "ability_kit": "hidden_gulpmaw",
       "is_boss": true,
       "boss_multiplier": 2.5
+    },
+    "Plague-Ridden Wolf": {
+      "template": "beast_fast",
+      "level_range": [
+        51,
+        52
+      ],
+      "is_boss": false,
+      "ability_kit": "plague_ridden_wolf"
+    },
+    "Diseased Black Bear": {
+      "template": "beast_large",
+      "level_range": [
+        51,
+        53
+      ],
+      "is_boss": false,
+      "ability_kit": "diseased_black_bear"
+    },
+    "Wandering Skeleton": {
+      "template": "undead_warrior",
+      "level_range": [
+        51,
+        52
+      ],
+      "is_boss": false,
+      "ability_kit": "wandering_skeleton"
+    },
+    "Felstone Cultist": {
+      "template": "humanoid_caster",
+      "level_range": [
+        51,
+        52
+      ],
+      "is_boss": false,
+      "ability_kit": "felstone_cultist"
+    },
+    "Felstone Ghoul": {
+      "template": "undead_basic",
+      "level_range": [
+        51,
+        52
+      ],
+      "is_boss": false,
+      "ability_kit": "felstone_ghoul"
+    },
+    "Felstone Cauldron Lord": {
+      "template": "undead_warrior",
+      "level_range": [
+        52,
+        52
+      ],
+      "is_boss": false,
+      "ability_kit": "felstone_cauldron_lord"
+    },
+    "Dalson's Ghoul": {
+      "template": "undead_basic",
+      "level_range": [
+        52,
+        53
+      ],
+      "is_boss": false,
+      "ability_kit": "dalsons_ghoul"
+    },
+    "Dalson's Skeleton": {
+      "template": "undead_warrior",
+      "level_range": [
+        52,
+        53
+      ],
+      "is_boss": false,
+      "ability_kit": "dalsons_skeleton"
+    },
+    "Cauldron Necrolyte": {
+      "template": "undead_caster",
+      "level_range": [
+        52,
+        53
+      ],
+      "is_boss": false,
+      "ability_kit": "cauldron_necrolyte"
+    },
+    "Haunt Banshee": {
+      "template": "undead_caster",
+      "level_range": [
+        52,
+        53
+      ],
+      "is_boss": false,
+      "ability_kit": "haunt_banshee"
+    },
+    "Writhing Crypt Fiend": {
+      "template": "undead_beast",
+      "level_range": [
+        52,
+        53
+      ],
+      "is_boss": false,
+      "ability_kit": "writhing_crypt_fiend"
+    },
+    "Haunt Cult Tender": {
+      "template": "humanoid_caster",
+      "level_range": [
+        52,
+        53
+      ],
+      "is_boss": false,
+      "ability_kit": "haunt_cult_tender"
+    },
+    "Andorhal Skeleton": {
+      "template": "undead_warrior",
+      "level_range": [
+        53,
+        54
+      ],
+      "is_boss": false,
+      "ability_kit": "andorhal_skeleton"
+    },
+    "Andorhal Abomination": {
+      "template": "undead_warrior",
+      "level_range": [
+        53,
+        54
+      ],
+      "is_boss": false,
+      "ability_kit": "andorhal_abomination"
+    },
+    "Andorhal Necromancer": {
+      "template": "undead_caster",
+      "level_range": [
+        53,
+        54
+      ],
+      "is_boss": false,
+      "ability_kit": "andorhal_necromancer"
+    },
+    "Andorhal Skeletal Archer": {
+      "template": "undead_warrior",
+      "level_range": [
+        53,
+        54
+      ],
+      "is_boss": false,
+      "ability_kit": "andorhal_skeletal_archer"
+    },
+    "Scarlet Outrider": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        53,
+        54
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_outrider"
+    },
+    "Scarlet Field Chaplain": {
+      "template": "humanoid_caster",
+      "level_range": [
+        53,
+        54
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_field_chaplain"
+    },
+    "Drowned Lakewalker": {
+      "template": "undead_basic",
+      "level_range": [
+        52,
+        53
+      ],
+      "is_boss": false,
+      "ability_kit": "drowned_lakewalker"
+    },
+    "Darrowmere Snapjaw": {
+      "template": "beast_large",
+      "level_range": [
+        52,
+        53
+      ],
+      "is_boss": false,
+      "ability_kit": "darrowmere_snapjaw"
+    },
+    "Caer Darrow Shade": {
+      "template": "undead_caster",
+      "level_range": [
+        53,
+        54
+      ],
+      "is_boss": false,
+      "ability_kit": "caer_darrow_shade"
+    },
+    "Caer Darrow Ghoul": {
+      "template": "undead_basic",
+      "level_range": [
+        53,
+        54
+      ],
+      "is_boss": false,
+      "ability_kit": "caer_darrow_ghoul"
+    },
+    "Farmer Felstone": {
+      "template": "undead_warrior",
+      "level_range": [
+        52,
+        52
+      ],
+      "is_boss": true,
+      "ability_kit": "farmer_felstone",
+      "boss_multiplier": 2.1
+    },
+    "The Dalson Ghost": {
+      "template": "undead_caster",
+      "level_range": [
+        53,
+        53
+      ],
+      "is_boss": true,
+      "ability_kit": "the_dalson_ghost",
+      "boss_multiplier": 2.0
+    },
+    "Mother of the Haunt": {
+      "template": "undead_caster",
+      "level_range": [
+        53,
+        53
+      ],
+      "is_boss": true,
+      "ability_kit": "mother_of_the_haunt",
+      "boss_multiplier": 2.1
+    },
+    "Magistrate Andor": {
+      "template": "undead_caster",
+      "level_range": [
+        54,
+        54
+      ],
+      "is_boss": true,
+      "ability_kit": "magistrate_andor",
+      "boss_multiplier": 2.3
+    },
+    "Old Darrowjaw": {
+      "template": "beast_large",
+      "level_range": [
+        53,
+        53
+      ],
+      "is_boss": true,
+      "ability_kit": "old_darrowjaw",
+      "boss_multiplier": 2.0
+    },
+    "The Groundskeeper": {
+      "template": "undead_warrior",
+      "level_range": [
+        54,
+        54
+      ],
+      "is_boss": true,
+      "ability_kit": "the_groundskeeper",
+      "boss_multiplier": 2.2
+    },
+    "Plaguewing Vulture": {
+      "template": "beast_fast",
+      "level_range": [
+        51,
+        52
+      ],
+      "is_boss": false,
+      "ability_kit": "plaguewing_vulture"
+    },
+    "Rotting Worg": {
+      "template": "beast_fast",
+      "level_range": [
+        53,
+        54
+      ],
+      "is_boss": false,
+      "ability_kit": "rotting_worg"
+    },
+    "Blighted Stag": {
+      "template": "beast_fast",
+      "level_range": [
+        53,
+        54
+      ],
+      "is_boss": false,
+      "ability_kit": "blighted_stag"
+    },
+    "Plague Bat": {
+      "template": "beast_fast",
+      "level_range": [
+        53,
+        54
+      ],
+      "is_boss": false,
+      "ability_kit": "plague_bat"
+    },
+    "Skeletal Wanderer": {
+      "template": "undead_warrior",
+      "level_range": [
+        53,
+        54
+      ],
+      "is_boss": false,
+      "ability_kit": "skeletal_wanderer"
+    },
+    "Scarlet Lumberjack": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        53,
+        54
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_lumberjack"
+    },
+    "Scarlet Sawyer": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        53,
+        54
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_sawyer"
+    },
+    "Scarlet Woodsman Archer": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        53,
+        54
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_woodsman_archer"
+    },
+    "Withering Ghoul": {
+      "template": "undead_basic",
+      "level_range": [
+        54,
+        55
+      ],
+      "is_boss": false,
+      "ability_kit": "withering_ghoul"
+    },
+    "Withering Cultist": {
+      "template": "humanoid_caster",
+      "level_range": [
+        54,
+        55
+      ],
+      "is_boss": false,
+      "ability_kit": "withering_cultist"
+    },
+    "Cauldron Sludge": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        54,
+        55
+      ],
+      "is_boss": false,
+      "ability_kit": "cauldron_sludge"
+    },
+    "Scarlet Sentry": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        55,
+        56
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_sentry"
+    },
+    "Scarlet Crossbowman": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        55,
+        56
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_crossbowman"
+    },
+    "Scarlet War Hound": {
+      "template": "beast_fast",
+      "level_range": [
+        55,
+        56
+      ],
+      "is_boss": false,
+      "ability_kit": "scarlet_war_hound"
+    },
+    "Thondroril Snapjaw": {
+      "template": "beast_large",
+      "level_range": [
+        54,
+        55
+      ],
+      "is_boss": false,
+      "ability_kit": "thondroril_snapjaw"
+    },
+    "Riverbank Ghoul": {
+      "template": "undead_basic",
+      "level_range": [
+        54,
+        55
+      ],
+      "is_boss": false,
+      "ability_kit": "riverbank_ghoul"
+    },
+    "Foreman Harrow": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        55,
+        55
+      ],
+      "is_boss": true,
+      "ability_kit": "foreman_harrow",
+      "boss_multiplier": 2.1
+    },
+    "Gahrron the Withered": {
+      "template": "undead_warrior",
+      "level_range": [
+        56,
+        56
+      ],
+      "is_boss": true,
+      "ability_kit": "gahrron_the_withered",
+      "boss_multiplier": 2.2
+    },
+    "High Inquisitor Faulk": {
+      "template": "humanoid_caster",
+      "level_range": [
+        56,
+        56
+      ],
+      "is_boss": true,
+      "ability_kit": "high_inquisitor_faulk",
+      "boss_multiplier": 2.3
+    },
+    "Old Thondroril": {
+      "template": "beast_large",
+      "level_range": [
+        55,
+        55
+      ],
+      "is_boss": true,
+      "ability_kit": "old_thondroril",
+      "boss_multiplier": 2.0
+    },
+    "Plague Hound": {
+      "template": "beast_fast",
+      "level_range": [
+        55,
+        56
+      ],
+      "is_boss": false,
+      "ability_kit": "plague_hound"
+    },
+    "Carrion Grub": {
+      "template": "vermin_swarm",
+      "level_range": [
+        55,
+        56
+      ],
+      "is_boss": false,
+      "ability_kit": "carrion_grub"
+    },
+    "Frenzied Ghoul": {
+      "template": "undead_basic",
+      "level_range": [
+        55,
+        56
+      ],
+      "is_boss": false,
+      "ability_kit": "frenzied_ghoul"
+    },
+    "Stone-Winged Gargoyle": {
+      "template": "undead_beast",
+      "level_range": [
+        56,
+        57
+      ],
+      "is_boss": false,
+      "ability_kit": "stone_winged_gargoyle"
+    },
+    "Terrordale Spirit": {
+      "template": "undead_caster",
+      "level_range": [
+        56,
+        57
+      ],
+      "is_boss": false,
+      "ability_kit": "terrordale_spirit"
+    },
+    "Terrordale Skeletal Mage": {
+      "template": "undead_caster",
+      "level_range": [
+        56,
+        57
+      ],
+      "is_boss": false,
+      "ability_kit": "terrordale_skeletal_mage"
+    },
+    "Terrordale Ghoul": {
+      "template": "undead_basic",
+      "level_range": [
+        56,
+        57
+      ],
+      "is_boss": false,
+      "ability_kit": "terrordale_ghoul"
+    },
+    "Marris Farmhand": {
+      "template": "undead_basic",
+      "level_range": [
+        55,
+        56
+      ],
+      "is_boss": false,
+      "ability_kit": "marris_farmhand"
+    },
+    "Stead Crow": {
+      "template": "beast_fast",
+      "level_range": [
+        55,
+        56
+      ],
+      "is_boss": false,
+      "ability_kit": "stead_crow"
+    },
+    "Plaguewood Spider": {
+      "template": "beast_fast",
+      "level_range": [
+        56,
+        57
+      ],
+      "is_boss": false,
+      "ability_kit": "plaguewood_spider"
+    },
+    "Plaguewood Crypt Fiend": {
+      "template": "undead_beast",
+      "level_range": [
+        57,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "plaguewood_crypt_fiend"
+    },
+    "Gate Death Knight": {
+      "template": "undead_warrior",
+      "level_range": [
+        57,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "gate_death_knight"
+    },
+    "Gate Gargoyle": {
+      "template": "undead_beast",
+      "level_range": [
+        57,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "gate_gargoyle"
+    },
+    "Vale Plague Slime": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        56,
+        57
+      ],
+      "is_boss": false,
+      "ability_kit": "vale_plague_slime"
+    },
+    "Spore-Walker": {
+      "template": "undead_basic",
+      "level_range": [
+        56,
+        57
+      ],
+      "is_boss": false,
+      "ability_kit": "spore_walker"
+    },
+    "Cult Plaguebringer": {
+      "template": "humanoid_caster",
+      "level_range": [
+        56,
+        57
+      ],
+      "is_boss": false,
+      "ability_kit": "cult_plaguebringer"
+    },
+    "Cult Cart Driver": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        56,
+        57
+      ],
+      "is_boss": false,
+      "ability_kit": "cult_cart_driver"
+    },
+    "Crossing Abomination": {
+      "template": "undead_warrior",
+      "level_range": [
+        57,
+        57
+      ],
+      "is_boss": false,
+      "ability_kit": "crossing_abomination"
+    },
+    "The Terror of the Dale": {
+      "template": "undead_caster",
+      "level_range": [
+        57,
+        57
+      ],
+      "is_boss": true,
+      "ability_kit": "the_terror_of_the_dale",
+      "boss_multiplier": 2.2
+    },
+    "Old Marris": {
+      "template": "undead_warrior",
+      "level_range": [
+        56,
+        56
+      ],
+      "is_boss": true,
+      "ability_kit": "old_marris",
+      "boss_multiplier": 2.0
+    },
+    "The Plaguewood Matriarch": {
+      "template": "undead_beast",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": true,
+      "ability_kit": "the_plaguewood_matriarch",
+      "boss_multiplier": 2.3
+    },
+    "Gatekeeper Vorthas": {
+      "template": "undead_warrior",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": true,
+      "ability_kit": "gatekeeper_vorthas",
+      "boss_multiplier": 2.3
+    },
+    "The Fungal Mass": {
+      "template": "elemental_bruiser",
+      "level_range": [
+        57,
+        57
+      ],
+      "is_boss": true,
+      "ability_kit": "the_fungal_mass",
+      "boss_multiplier": 2.1
+    },
+    "Cartmaster Corin": {
+      "template": "humanoid_caster",
+      "level_range": [
+        57,
+        57
+      ],
+      "is_boss": true,
+      "ability_kit": "cartmaster_corin",
+      "boss_multiplier": 2.2
+    },
+    "Blighted Warhorse": {
+      "template": "beast_large",
+      "level_range": [
+        56,
+        57
+      ],
+      "is_boss": false,
+      "ability_kit": "blighted_warhorse"
+    },
+    "Plague-Rotted Bear": {
+      "template": "beast_large",
+      "level_range": [
+        56,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "plague_rotted_bear"
+    },
+    "Carrion Bat": {
+      "template": "beast_fast",
+      "level_range": [
+        56,
+        57
+      ],
+      "is_boss": false,
+      "ability_kit": "carrion_bat"
+    },
+    "Darrowshire Spirit": {
+      "template": "undead_caster",
+      "level_range": [
+        57,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "darrowshire_spirit"
+    },
+    "Darrowshire Ghoul": {
+      "template": "undead_basic",
+      "level_range": [
+        57,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "darrowshire_ghoul"
+    },
+    "Blackwood Drowned": {
+      "template": "undead_basic",
+      "level_range": [
+        56,
+        57
+      ],
+      "is_boss": false,
+      "ability_kit": "blackwood_drowned"
+    },
+    "Blackwood Snapjaw": {
+      "template": "beast_large",
+      "level_range": [
+        56,
+        57
+      ],
+      "is_boss": false,
+      "ability_kit": "blackwood_snapjaw"
+    },
+    "Tyr's Hand Crusader": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "tyrs_hand_crusader"
+    },
+    "Tyr's Hand Abbot": {
+      "template": "humanoid_caster",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "tyrs_hand_abbot"
+    },
+    "Tyr's Hand Marksman": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "tyrs_hand_marksman"
+    },
+    "Tyr's Hand Houndmaster": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "tyrs_hand_houndmaster"
+    },
+    "Restless Lodge Ranger": {
+      "template": "undead_caster",
+      "level_range": [
+        57,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "restless_lodge_ranger"
+    },
+    "Mossflayer Warrior": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "mossflayer_warrior"
+    },
+    "Mossflayer Shadowhunter": {
+      "template": "humanoid_caster",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "mossflayer_shadowhunter"
+    },
+    "Mossflayer Scout": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "mossflayer_scout"
+    },
+    "Scar Bone Construct": {
+      "template": "undead_warrior",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "scar_bone_construct"
+    },
+    "Captain Redpath's Shade": {
+      "template": "undead_warrior",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": true,
+      "ability_kit": "captain_redpaths_shade",
+      "boss_multiplier": 2.2
+    },
+    "The Blackwood Drowner": {
+      "template": "undead_basic",
+      "level_range": [
+        57,
+        57
+      ],
+      "is_boss": true,
+      "ability_kit": "the_blackwood_drowner",
+      "boss_multiplier": 2.0
+    },
+    "Abbot Varenne": {
+      "template": "humanoid_caster",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": true,
+      "ability_kit": "abbot_varenne",
+      "boss_multiplier": 2.3
+    },
+    "Ranger-Lord Saelith": {
+      "template": "undead_caster",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": true,
+      "ability_kit": "ranger_lord_saelith",
+      "boss_multiplier": 2.2
+    },
+    "Zul'Mashar the Last": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": true,
+      "ability_kit": "zulmashar_the_last",
+      "boss_multiplier": 2.3
+    },
+    "The Bone Colossus": {
+      "template": "undead_warrior",
+      "level_range": [
+        60,
+        60
+      ],
+      "is_boss": true,
+      "ability_kit": "the_bone_colossus",
+      "boss_multiplier": 2.6
+    },
+    "Hearthglen Inquisitor": {
+      "template": "humanoid_caster",
+      "level_range": [
+        55,
+        56
+      ],
+      "is_boss": false,
+      "ability_kit": "hearthglen_inquisitor"
     }
   }
 }

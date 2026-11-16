@@ -27,7 +27,9 @@ def destinations(zone_manager):
     name ZoneManager.transition_to_zone wants."""
     travel = json.loads((_DATA / "travel" / "travel_data.json").read_text(encoding="utf-8"))
     inns = {npc for npc, services in travel.get("services", {}).items() if "inn" in services}
-    nodes = {zone_key(n["zone"]): n for n in travel.get("flight_nodes", {}).values()}
+    nodes_by_zone = {}
+    for n in travel.get("flight_nodes", {}).values():
+        nodes_by_zone.setdefault(zone_key(n["zone"]), []).append(n)
     display = {zone_key(name): name for name in zone_manager.zones}
 
     people = []
@@ -36,17 +38,33 @@ def destinations(zone_manager):
         for value in doc.values():
             if isinstance(value, list):
                 people += [(r, id_key) for r in value if isinstance(r, dict)]
+    where = {r.get(k): r for r, k in people if r.get("x") is not None}
+
+    def node_for(key, rec):
+        """The flight point an inn belongs to. A zone can hold two camps (the Bulwark and Sorrow Hill), so it's
+        the one whose flight master stands nearest the innkeeper."""
+        nodes = nodes_by_zone.get(key) or []
+        if len(nodes) <= 1:
+            return nodes[0] if nodes else None
+
+        def dist(n):
+            m = where.get(n.get("master"))
+            return (m["x"] - rec["x"]) ** 2 + (m["y"] - rec["y"]) ** 2 if m else 10 ** 9
+        return min(nodes, key=dist)
 
     out, seen = [], set()
     for rec, id_key in people:
         if rec.get(id_key) not in inns:
             continue
         key = zone_key(rec["zone"])
-        if key not in display or key in seen:
+        if key not in display:
             continue
-        seen.add(key)
+        node = node_for(key, rec)
+        place = (key, (node or {}).get("name"))
+        if place in seen:
+            continue
+        seen.add(place)
         tilemap = zone_manager.zones[display[key]]["tilemap"]
-        node = nodes.get(key)
         if getattr(tilemap, "is_town", False) or node is None:
             label = _NAMES.get(key, display[key])
         else:

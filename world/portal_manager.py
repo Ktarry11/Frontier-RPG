@@ -813,6 +813,26 @@ class PortalManager:
                 (10, 112): ("Undercity", 100, 17),      # arrive (100,15) at the foot of the Long Descent
                 (16, 136): ("Silverpine North", 80, 11),             # arrive (80,9)
                 (52, 112): ("Scourge Cave", 45, 68),
+                # east to the Bulwark and the Plaguelands (docs/plaguelands_design.md)
+                (88, 126): ("Western Plaguelands South", 7, 84),
+            },
+            # ===== THE PLAGUELANDS (51-60, docs/plaguelands_design.md). The doors north, to the Alterac
+            # foothills, to the Undercity sewer and to Scholomance are cut in the ground and go live with
+            # their maps (tools/handbuilt_wpl_south.LATER_PORTALS). =====
+            "Western Plaguelands South": {
+                (3, 84): ("Eastern Tirisfal", 84, 126),
+                (96, 3): ("Western Plaguelands North", 96, 133),
+            },
+            "Western Plaguelands North": {
+                (96, 137): ("Western Plaguelands South", 96, 7),
+                (176, 70): ("Eastern Plaguelands West", 7, 80),     # over the Thondroril
+            },
+            "Eastern Plaguelands West": {
+                (3, 80): ("Western Plaguelands North", 172, 70),
+                (167, 80): ("Eastern Plaguelands East", 7, 80),
+            },
+            "Eastern Plaguelands East": {
+                (3, 80): ("Eastern Plaguelands West", 163, 80),
             },
             "Scourge Cave": {
                 (45, 68): ("Eastern Tirisfal", 52, 116),

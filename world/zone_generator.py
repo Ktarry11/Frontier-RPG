@@ -5658,6 +5658,10 @@ def create_all_zones():
     from tools import handbuilt_glittervein as dgv
     from tools import handbuilt_mother_vein as dmv
     from tools import handbuilt_cistern as dcis   # NOT dc - that is a dungeon alias
+    from tools import handbuilt_wpl_south as dwpls   # the Plaguelands (docs/plaguelands_design.md)
+    from tools import handbuilt_wpl_north as dwpln
+    from tools import handbuilt_epl_west as deplw
+    from tools import handbuilt_epl_east as deple
     from tools import handbuilt_lashings as dlash
     from tools import handbuilt_return_voyage as drv
     from tools import handbuilt_bloodsail_raider as dbr
@@ -5808,6 +5812,15 @@ def create_all_zones():
         # The main town of Tanaris, and where Gadgetzan's people went. Inn AND wind rider -
         # the contrast that makes Saltwheel's missing bird mean something.
         "Steamwheedle Port": dstw.generate_steamwheedle_port(),
+        # ===== THE PLAGUELANDS (51-60, docs/plaguelands_design.md): east of Eastern Tirisfal =====
+        # The Bulwark, Felstone, Dalson's, the Writhing Haunt, Andorhal, Sorrow Hill and Darrowmere.
+        "Western Plaguelands South": dwpls.generate_wpl_south(),  # (tools/handbuilt_wpl_south.py)
+        # Northridge, Gahrron's Withering and Hearthglen's gates, the Scarlet half (53-56)
+        "Western Plaguelands North": dwpln.generate_wpl_north(),  # (tools/handbuilt_wpl_north.py)
+        # Plaguewood, Terrordale, Corin's Crossing and Stratholme's gates (55-58)
+        "Eastern Plaguelands West": deplw.generate_epl_west(),  # (tools/handbuilt_epl_west.py)
+        # Light's Hope, Crown Guard, Tyr's Hand, Darrowshire and the far north-east (56-60, NOT pure 60)
+        "Eastern Plaguelands East": deple.generate_epl_east(),  # (tools/handbuilt_epl_east.py)
         # The pirate cove. A CAVE, not a dungeon: fixed_spawns False, boss pinned.
         "The Drownbell": ddrow.generate_drownbell(),
         # The void under the Abyssal Sands, reached down six of its sinkholes (Kyle, 13 Nov 2026).

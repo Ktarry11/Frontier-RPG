@@ -72,13 +72,24 @@ class Faction:
         #: {title, name, npc_id, location, line} - who runs this faction. Shown on the detail panel.
         self.leader = d.get("leader", {})
         self.quest_rep = d.get("quest_rep", {})
-        self.kill_rep = d.get("kill_rep", {}).get("creatures", {})
+        #: creature -> amount, or [amount, cap tier]. A capped kill stops paying once the faction reaches that
+        #: tier (classic dungeon caps; Kyle, 16 Nov 2026: SM kills cap at Honored, open-world Scarlets pay "Little
+        #: until honored").
+        self.kill_rep = {}
+        self.kill_caps = {}
+        for name, v in d.get("kill_rep", {}).get("creatures", {}).items():
+            if isinstance(v, (list, tuple)):
+                self.kill_rep[name], self.kill_caps[name] = int(v[0]), v[1]
+            else:
+                self.kill_rep[name] = v
         #: {"per_boss": int, "dungeons": [...]}. Dungeon names are stored BOTH as authored and normalized,
         #: because combat passes whatever zone key it was constructed with and the data file is written in
         #: display names ("The Deep Bloom"). Matching only one spelling is a silent no-pay.
         dr = d.get("dungeon_rep", {})
         self.dungeon_per_boss = int(dr.get("per_boss", 0))
         self.dungeons = {_zkey(z) for z in dr.get("dungeons", [])}
+        #: dungeon -> cap tier: a boss there stops paying once the faction reaches it
+        self.dungeon_caps = {_zkey(z): t for z, t in dr.get("caps", {}).items()}
         self.rewards = d.get("rewards", {})
         #: A SECRET FACTION ("????", tools/build_unnamed_faction.py). The journal shows only its standing's name,
         #: combat never announces its gains, and nothing says where they come from.
@@ -279,8 +290,12 @@ class FactionManager:
         out = []
         for fid, f in self.factions.items():
             amt = f.kill_rep.get(creature_name, 0)
+            cap = f.kill_caps.get(creature_name)
             if is_boss and zk and zk in f.dungeons:
-                amt = max(amt, f.dungeon_per_boss)
+                if f.dungeon_per_boss > amt:
+                    amt, cap = f.dungeon_per_boss, f.dungeon_caps.get(zk)
+            if amt and cap and f.at_least(cap):
+                continue                     # this source has given all it gives (a capped kill)
             if frontier and f.frontier_boss_rep:
                 amt = max(amt, f.frontier_boss_rep)
             if amt:

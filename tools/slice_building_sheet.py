@@ -41,6 +41,22 @@ def _set(key, cols, rows, out, names):
     SETS[key] = (cols, rows, out, names)
 
 
+#: THE PLAGUELANDS (docs/plaguelands_art_prompts.md sheets 2 and 3, Kyle 16 Nov 2026).
+_set("plaguelands_buildings", 6, 6, "assets/buildings", """
+    pl_bulwark_gate pl_bulwark_apothecary pl_bulwark_palisade pl_bulwark_barracks pl_bulwark_bat_roost pl_bulwark_wagon_shed
+    pf_keep pf_chapel pf_training_yard pf_hall pf_gate pf_stable
+    lh_chapel lh_command_tent lh_flight_perch crown_guard_tower cg_palisade_tent lh_field_hospital
+    sc_town_house sc_chapel sc_barracks hearthglen_gatehouse mardenholde_tower sc_bell_tower
+    tyr_town_hall tyr_abbey tyr_dock_warehouse tyr_harbour_tower sc_courtyard_gate sc_stable
+    sm_facade strat_gates scholo_entrance hearthglen_keep_gate scourge_ziggurat scourge_spire""")
+_set("plaguelands_props", 6, 6, "assets/tiles/plaguelands/props", """
+    pl_cauldron_live pl_cauldron_dead pl_cauldron_platform pl_corpse_sacks pl_meat_wagon pl_runoff_pool
+    pl_farmhouse_burned pl_barn_plagued pl_pumpkin_rot pl_windmill_broken pl_fence_broken pl_wheat_stook
+    pl_ruin_wall pl_clock_stump pl_ruin_arch pl_stall_burned pl_darrowshire_doll pl_knight_statue
+    pl_scourge_banner pl_bone_barricade pl_necro_obelisk pl_ghoul_pit pl_butcher_block pl_skull_pile
+    sc_war_tent sc_pyre sc_supply_cart pf_banner pf_field_tent pf_weapon_rack
+    pl_plaguewood_tree pl_dead_oak pl_blight_pine ql_lantern_post zm_ruin_block pl_plague_mushrooms""")
+
 _set("ek_buildings", 6, 5, "assets/buildings", """
     ek_watermill ek_mill_sluice ek_granary ek_millstone_shelter ek_apothecarium ek_plague_vat_platform
     ek_forsaken_field_tent ek_forsaken_watchtower ek_cottage_small ek_cottage_medium ek_townhouse ek_village_inn

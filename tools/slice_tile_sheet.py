@@ -187,6 +187,15 @@ _set("shimmering_flats", 8, 6, "tools/tile_sheets/shimmering_flats_tiles.png",
 
 
 # ---------------------------------------------------------------------------------------------------------
+# THE PLAGUELANDS (docs/plaguelands_art_prompts.md sheet 1, Kyle 16 Nov 2026). 8x6 = 48 seamless cells.
+_set("plaguelands", 8, 6, "tools/tile_sheets/plaguelands_ground.png", "assets/tiles/plaguelands/ground", """
+    pl_wpl_grass pl_wpl_grass_trod pl_wheat_stubble pl_farm_earth pl_grass_violet pl_cart_ruts pl_dead_clover pl_grass_ash
+    pl_epl_grass pl_ash_soil pl_green_puddles pl_grey_moss pl_seep_cracks pl_bone_dirt pl_plaguewood_floor pl_terrordale_dust
+    pl_scourge_slab pl_scourge_cracked pl_ziggurat_step pl_necro_grate pl_plague_slime pl_blight_mud pl_corpse_pit pl_rune_circle
+    pl_cobble_road pl_cobble_weeds pl_dirt_road pl_andorhal_paving pl_mossy_flag pl_lightshope_stone pl_bulwark_earth pl_sorrow_gravel
+    pl_scarlet_flag pl_cathedral_runner pl_monastery_floor pl_hearthglen_cobble pl_keep_floor pl_uther_marble pl_paleflame_stone pl_scorched_stone
+    pl_lake_water pl_lake_shallow pl_plague_water pl_black_pond pl_grey_shore pl_pebble_beach pl_cold_sea pl_reed_marsh""")
+
 # STONETALON (docs/stonetalon_art_prompts.md sheet 1, Kyle 15 Nov 2026). 8x6 = 48 cells: the redwood vale,
 # the sequoia slopes, the Blowdown, the volcano, Sun Rock / the Grimtotem / the Mulgore Rim, and the inside of
 # the great sequoia. Rows MEASURED: 181/165/164/162/163/189 (the first and last run tall); columns even at 192.

@@ -35,8 +35,8 @@ IS_TOWN = False
 BASE_TILE = "grass"
 
 PORTALS = {(4, 62): "Western Tirisfal", (6, 86): "Brill", (21, 97): "Undercity Zeppelin Tower", (10, 112): "Undercity",
-           (16, 136): "Silverpine North", (52, 112): "Scourge Cave"}
-ARRIVALS = [(8, 62), (10, 88), (21, 100), (10, 108), (16, 132), (52, 116)]
+           (16, 136): "Silverpine North", (52, 112): "Scourge Cave", (88, 126): "Western Plaguelands South"}
+ARRIVALS = [(8, 62), (10, 88), (21, 100), (10, 108), (16, 132), (52, 116), (84, 126)]
 START = (28, 87)
 
 ROADS = {
@@ -52,7 +52,9 @@ ROADS = {
     "silverpine": ([(12, 104), (14, 118), (16, 130), (16, 136)], 2.8),
     "balnir":     ([(40, 82), (40, 92), (40, 100), (40, 104)], 2.6),
     "cult":       ([(40, 104), (46, 110), (52, 114)], 2.2),
-    "bulwark":    ([(46, 110), (58, 118), (66, 124)], 2.6),
+    # on east to the Bulwark and the Western Plaguelands (docs/plaguelands_design.md, 16 Nov 2026)
+    # (it bends north of the old road end)
+    "bulwark":    ([(46, 110), (58, 118), (66, 123), (74, 121), (83, 121), (88, 126)], 2.6),
     "lakeshore":  ([(22, 63), (26, 60), (30, 60)], 2.0),
 }
 

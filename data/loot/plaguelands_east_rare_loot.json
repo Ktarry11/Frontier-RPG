@@ -1,0 +1,2388 @@
+{
+  "_notes": "The Eastern Plaguelands' open-world rares. Identity hand-authored in tools/build_epl_openworld.py; stats from LootGenerator at rare budget.",
+  "The Terror of the Dale": [
+    {
+      "item_id": "pl_dale_haunt_cowl",
+      "name": "Dale-Haunt Cowl",
+      "slot": "head",
+      "item_level": 60,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 12,
+        "stamina": 19
+      },
+      "secondary_stats": {
+        "mp5": 3,
+        "healing_power": 5
+      },
+      "armor_value": 83,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_helmet_06",
+      "required_level": 58,
+      "sell_price": 14963,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "blue",
+          "gem": null
+        },
+        {
+          "color": "blue",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "intellect": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_terrordale_warboots",
+      "name": "Terrordale Warboots",
+      "slot": "feet",
+      "item_level": 60,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 15,
+        "strength": 15
+      },
+      "secondary_stats": {
+        "defense_rating": 9
+      },
+      "armor_value": 327,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_boots_05",
+      "required_level": 58,
+      "sell_price": 12158,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        },
+        {
+          "color": "blue",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "strength": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_vale_ghost_cloak",
+      "name": "Vale-Ghost Cloak",
+      "slot": "back",
+      "item_level": 60,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "strength": 17,
+        "agility": 13
+      },
+      "secondary_stats": {},
+      "armor_value": 60,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_misc_cape_13",
+      "required_level": 58,
+      "sell_price": 10287,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "agility": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_wand_of_the_dale",
+      "name": "Wand of the Dale",
+      "slot": "ranged",
+      "item_level": 60,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "wand",
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 19
+      },
+      "secondary_stats": {
+        "nature_resistance": 11,
+        "healing_power": 15
+      },
+      "armor_value": 11,
+      "weapon_damage_min": 88,
+      "weapon_damage_max": 120,
+      "attack_speed": 1.9,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_wand_03",
+      "required_level": 58,
+      "sell_price": 14963,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [],
+      "socket_bonus": {},
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    }
+  ],
+  "Old Marris": [
+    {
+      "item_id": "pl_marris_stead_overalls",
+      "name": "Marris Stead Overalls",
+      "slot": "legs",
+      "item_level": 59,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 37
+      },
+      "secondary_stats": {
+        "attack_power": 6
+      },
+      "armor_value": 193,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_pants_07",
+      "required_level": 57,
+      "sell_price": 18055,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "agility": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_farmhands_burial_shroud",
+      "name": "Farmhand's Burial Shroud",
+      "slot": "chest",
+      "item_level": 59,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 38
+      },
+      "secondary_stats": {},
+      "armor_value": 96,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_chest_cloth_05",
+      "required_level": 57,
+      "sell_price": 18055,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "blue",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "spirit": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_stead_keepers_gauntlets",
+      "name": "Stead-Keeper's Gauntlets",
+      "slot": "hands",
+      "item_level": 59,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "stamina": 2,
+        "agility": 11,
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "spell_power": 11,
+        "spell_hit_rating": 7
+      },
+      "armor_value": 214,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_gauntlets_23",
+      "required_level": 57,
+      "sell_price": 11736,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "stamina": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_marris_family_pitchfork",
+      "name": "Marris Family Pitchfork",
+      "slot": "main_hand",
+      "item_level": 59,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "polearm",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 4,
+        "strength": 54
+      },
+      "secondary_stats": {
+        "armor_penetration_pct": 54,
+        "crit_chance_physical": 22,
+        "attack_power": 9
+      },
+      "armor_value": 0,
+      "weapon_damage_min": 139,
+      "weapon_damage_max": 188,
+      "attack_speed": 3.3,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_spear_08",
+      "required_level": 57,
+      "sell_price": 22569,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "yellow",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "strength": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    }
+  ],
+  "The Plaguewood Matriarch": [
+    {
+      "item_id": "pl_silk_bound_leggings",
+      "name": "Silk-Bound Leggings",
+      "slot": "legs",
+      "item_level": 61,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 20,
+        "spirit": 13
+      },
+      "secondary_stats": {
+        "healing_power": 34
+      },
+      "armor_value": 100,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_pants_12",
+      "required_level": 59,
+      "sell_price": 19365,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "blue",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "intellect": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_matriarchs_carapace",
+      "name": "Matriarch's Carapace",
+      "slot": "chest",
+      "item_level": 61,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "stamina": 9,
+        "agility": 27
+      },
+      "secondary_stats": {
+        "fire_resistance": 18,
+        "attack_power": 27
+      },
+      "armor_value": 320,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_chest_chain_09",
+      "required_level": 59,
+      "sell_price": 19365,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "blue",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "agility": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_webstrider_boots",
+      "name": "Webstrider Boots",
+      "slot": "feet",
+      "item_level": 61,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "strength": 16,
+        "agility": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {},
+      "armor_value": 138,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_boots_plate_08",
+      "required_level": 59,
+      "sell_price": 12587,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "yellow",
+          "gem": null
+        },
+        {
+          "color": "yellow",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "agility": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_fang_of_the_plaguewood",
+      "name": "Fang of the Plaguewood",
+      "slot": "main_hand",
+      "item_level": 61,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "dagger",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "strength": 19,
+        "agility": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "armor_value": 0,
+      "weapon_damage_min": 106,
+      "weapon_damage_max": 143,
+      "attack_speed": 1.7,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_throwingknife_05",
+      "required_level": 59,
+      "sell_price": 18397,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "yellow",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "agility": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    }
+  ],
+  "Gatekeeper Vorthas": [
+    {
+      "item_id": "pl_gatekeepers_pauldrons",
+      "name": "Gatekeeper's Pauldrons",
+      "slot": "shoulder",
+      "item_level": 61,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 15,
+        "stamina": 22
+      },
+      "secondary_stats": {
+        "hit_rating": 8
+      },
+      "armor_value": 421,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_shoulder_21",
+      "required_level": 59,
+      "sell_price": 15492,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "blue",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "strength": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_stratholme_gate_girdle",
+      "name": "Stratholme Gate Girdle",
+      "slot": "waist",
+      "item_level": 61,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_int_hybrid",
+      "primary_stats": {
+        "intellect": 11,
+        "spirit": 9
+      },
+      "secondary_stats": {
+        "healing_power": 26,
+        "attack_power": 5
+      },
+      "armor_value": 332,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_belt_18",
+      "required_level": 59,
+      "sell_price": 10651,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "stamina": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_deathchargers_reins_bracers",
+      "name": "Deathcharger's Reins Bracers",
+      "slot": "wrist",
+      "item_level": 61,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "strength": 14,
+        "agility": 13,
+        "stamina": 13
+      },
+      "secondary_stats": {},
+      "armor_value": 151,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_bracer_15",
+      "required_level": 59,
+      "sell_price": 9682,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "blue",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "agility": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_vorthas_runeblade",
+      "name": "Vorthas' Runeblade",
+      "slot": "main_hand",
+      "item_level": 61,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "sword_2h",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 39,
+        "spirit": 30,
+        "strength": 39
+      },
+      "secondary_stats": {},
+      "armor_value": 0,
+      "weapon_damage_min": 143,
+      "weapon_damage_max": 193,
+      "attack_speed": 3.4,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_sword_41",
+      "required_level": 59,
+      "sell_price": 24206,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "yellow",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "strength": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    }
+  ],
+  "The Fungal Mass": [
+    {
+      "item_id": "pl_sporecap_hood",
+      "name": "Sporecap Hood",
+      "slot": "head",
+      "item_level": 60,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "stamina": 2,
+        "intellect": 21
+      },
+      "secondary_stats": {
+        "frost_spell_power": 21,
+        "fire_spell_power": 21,
+        "spell_power": 2
+      },
+      "armor_value": 166,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_helmet_55",
+      "required_level": 58,
+      "sell_price": 14963,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "blue",
+          "gem": null
+        },
+        {
+          "color": "blue",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "spirit": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_vale_rot_mantle",
+      "name": "Vale-Rot Mantle",
+      "slot": "shoulder",
+      "item_level": 60,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "spirit": 13,
+        "intellect": 20
+      },
+      "secondary_stats": {
+        "spell_power": 20,
+        "healing_power": 4
+      },
+      "armor_value": 83,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_shoulder_27",
+      "required_level": 58,
+      "sell_price": 14963,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "yellow",
+          "gem": null
+        },
+        {
+          "color": "yellow",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "intellect": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_fungal_waders",
+      "name": "Fungal Waders",
+      "slot": "feet",
+      "item_level": 60,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "intellect": 11,
+        "stamina": 17
+      },
+      "secondary_stats": {
+        "spell_hit_rating": 7,
+        "healing_power": 4
+      },
+      "armor_value": 218,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_boots_plate_09",
+      "required_level": 58,
+      "sell_price": 12158,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "blue",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "stamina": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_mycelial_staff",
+      "name": "Mycelial Staff",
+      "slot": "main_hand",
+      "item_level": 60,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "staff",
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "stamina": 1,
+        "intellect": 48
+      },
+      "secondary_stats": {
+        "nature_spell_power": 48,
+        "shadow_spell_power": 48
+      },
+      "armor_value": 27,
+      "weapon_damage_min": 57,
+      "weapon_damage_max": 77,
+      "attack_speed": 3.2,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_staff_19",
+      "required_level": 58,
+      "sell_price": 23380,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "spirit": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    }
+  ],
+  "Cartmaster Corin": [
+    {
+      "item_id": "pl_cartmasters_robes",
+      "name": "Cartmaster's Robes",
+      "slot": "chest",
+      "item_level": 60,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "spirit": 21,
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "healing_power": 34,
+        "spell_power": 5
+      },
+      "armor_value": 116,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_shirt_04",
+      "required_level": 58,
+      "sell_price": 18704,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        },
+        {
+          "color": "blue",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "intellect": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_plague_cart_driving_gloves",
+      "name": "Plague-Cart Driving Gloves",
+      "slot": "hands",
+      "item_level": 60,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 15,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "attack_power": 19
+      },
+      "armor_value": 136,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_gauntlets_20",
+      "required_level": 58,
+      "sell_price": 12158,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "agility": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_crossing_wardens_helm",
+      "name": "Crossing Warden's Helm",
+      "slot": "head",
+      "item_level": 60,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 17,
+        "strength": 17
+      },
+      "secondary_stats": {
+        "dodge_rating": 9,
+        "parry_rating": 8,
+        "attack_power": 6
+      },
+      "armor_value": 399,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_helmet_43",
+      "required_level": 58,
+      "sell_price": 14963,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "yellow",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "strength": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_corins_plague_rod",
+      "name": "Corin's Plague Rod",
+      "slot": "main_hand",
+      "item_level": 60,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "staff",
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 50
+      },
+      "secondary_stats": {
+        "spell_penetration": 57,
+        "spell_power": 52,
+        "healing_power": 20
+      },
+      "armor_value": 27,
+      "weapon_damage_min": 57,
+      "weapon_damage_max": 77,
+      "attack_speed": 3.2,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_staff_04",
+      "required_level": 58,
+      "sell_price": 23380,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "intellect": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    }
+  ],
+  "Captain Redpath's Shade": [
+    {
+      "item_id": "pl_redpaths_darrowshire_plate",
+      "name": "Redpath's Darrowshire Plate",
+      "slot": "chest",
+      "item_level": 61,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 24,
+        "agility": 17,
+        "stamina": 17
+      },
+      "secondary_stats": {},
+      "armor_value": 480,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_chest_plate03",
+      "required_level": 59,
+      "sell_price": 19365,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        },
+        {
+          "color": "blue",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "strength": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_shade_touched_treads",
+      "name": "Shade-Touched Treads",
+      "slot": "feet",
+      "item_level": 61,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "stamina": 1,
+        "agility": 12,
+        "intellect": 12
+      },
+      "secondary_stats": {
+        "dodge_rating": 12,
+        "parry_rating": 10,
+        "healing_power": 4
+      },
+      "armor_value": 151,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_boots_plate_05",
+      "required_level": 59,
+      "sell_price": 12587,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "stamina": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_darrowshire_defenders_cloak",
+      "name": "Darrowshire Defender's Cloak",
+      "slot": "back",
+      "item_level": 61,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 7,
+        "strength": 7
+      },
+      "secondary_stats": {
+        "block_rating": 7,
+        "block_value": 7
+      },
+      "armor_value": 72,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_misc_cape_02",
+      "required_level": 59,
+      "sell_price": 10651,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "strength": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_captains_last_stand",
+      "name": "Captain's Last Stand",
+      "slot": "main_hand",
+      "item_level": 61,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "sword_1h",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 9,
+        "strength": 9
+      },
+      "secondary_stats": {
+        "block_rating": 9,
+        "block_value": 9,
+        "attack_power": 3
+      },
+      "armor_value": 15,
+      "weapon_damage_min": 106,
+      "weapon_damage_max": 143,
+      "attack_speed": 2.4,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_sword_32",
+      "required_level": 59,
+      "sell_price": 18397,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "blue",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "strength": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    }
+  ],
+  "The Blackwood Drowner": [
+    {
+      "item_id": "pl_drowners_kelp_wraps",
+      "name": "Drowner's Kelp Wraps",
+      "slot": "wrist",
+      "item_level": 60,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "spell_power": 23,
+        "spell_hit_rating": 7,
+        "healing_power": 4
+      },
+      "armor_value": 68,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_bracer_03",
+      "required_level": 58,
+      "sell_price": 9352,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "spirit": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_blackwood_lakebed_boots",
+      "name": "Blackwood Lakebed Boots",
+      "slot": "feet",
+      "item_level": 60,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "stamina": 17,
+        "agility": 17
+      },
+      "secondary_stats": {},
+      "armor_value": 218,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_boots_plate_09",
+      "required_level": 58,
+      "sell_price": 12158,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "agility": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_waterlogged_leggings",
+      "name": "Waterlogged Leggings",
+      "slot": "legs",
+      "item_level": 60,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 39
+      },
+      "secondary_stats": {},
+      "armor_value": 196,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_pants_08",
+      "required_level": 58,
+      "sell_price": 18704,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "agility": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_drowners_hook",
+      "name": "Drowner's Hook",
+      "slot": "main_hand",
+      "item_level": 60,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "axe_1h",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 5,
+        "strength": 32
+      },
+      "secondary_stats": {
+        "holy_resistance": 32
+      },
+      "armor_value": 0,
+      "weapon_damage_min": 104,
+      "weapon_damage_max": 141,
+      "attack_speed": 2.6,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_axe_05",
+      "required_level": 58,
+      "sell_price": 17769,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "strength": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    }
+  ],
+  "Abbot Varenne": [
+    {
+      "item_id": "pl_abbots_crimson_vestments",
+      "name": "Abbot's Crimson Vestments",
+      "slot": "chest",
+      "item_level": 62,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "stamina": 1,
+        "intellect": 32
+      },
+      "secondary_stats": {
+        "fire_spell_power": 32,
+        "healing_power": 2
+      },
+      "armor_value": 101,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_chest_cloth_16",
+      "required_level": 60,
+      "sell_price": 20037,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "blue",
+          "gem": null
+        },
+        {
+          "color": "blue",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "spirit": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_tyrs_hand_templar_helm",
+      "name": "Tyr's Hand Templar Helm",
+      "slot": "head",
+      "item_level": 62,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_int_hybrid",
+      "primary_stats": {
+        "spirit": 19,
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "healing_power": 28,
+        "attack_power": 6,
+        "spell_power": 6
+      },
+      "armor_value": 413,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_helmet_48",
+      "required_level": 60,
+      "sell_price": 16030,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        },
+        {
+          "color": "red",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "stamina": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_abbey_bell_ringers_gloves",
+      "name": "Abbey Bell-Ringer's Gloves",
+      "slot": "hands",
+      "item_level": 62,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "stamina": 10,
+        "intellect": 24
+      },
+      "secondary_stats": {},
+      "armor_value": 397,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_gauntlets_05",
+      "required_level": 60,
+      "sell_price": 13024,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        },
+        {
+          "color": "yellow",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "intellect": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_varennes_censer",
+      "name": "Varenne's Censer",
+      "slot": "main_hand",
+      "item_level": 62,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "mace_1h",
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "stamina": 1,
+        "intellect": 23
+      },
+      "secondary_stats": {
+        "healing_power": 23,
+        "mp5": 2
+      },
+      "armor_value": 16,
+      "weapon_damage_min": 107,
+      "weapon_damage_max": 145,
+      "attack_speed": 2.6,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_mace_04",
+      "required_level": 60,
+      "sell_price": 19036,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "yellow",
+          "gem": null
+        },
+        {
+          "color": "blue",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "spirit": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    }
+  ],
+  "Ranger-Lord Saelith": [
+    {
+      "item_id": "pl_quellithien_rangers_hood",
+      "name": "Quel'Lithien Ranger's Hood",
+      "slot": "head",
+      "item_level": 62,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 19,
+        "stamina": 14
+      },
+      "secondary_stats": {
+        "attack_power": 23
+      },
+      "armor_value": 172,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_helmet_21",
+      "required_level": 60,
+      "sell_price": 16030,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        },
+        {
+          "color": "red",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "agility": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_lodge_keepers_mantle",
+      "name": "Lodge-Keeper's Mantle",
+      "slot": "shoulder",
+      "item_level": 62,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 17
+      },
+      "secondary_stats": {
+        "hit_rating": 11,
+        "crit_chance_physical": 11
+      },
+      "armor_value": 291,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_shoulder_20",
+      "required_level": 60,
+      "sell_price": 16030,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "yellow",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "agility": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_saeliths_spirit_wraps",
+      "name": "Saelith's Spirit Wraps",
+      "slot": "hands",
+      "item_level": 62,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "stamina": 2,
+        "intellect": 22
+      },
+      "secondary_stats": {
+        "fire_spell_power": 22
+      },
+      "armor_value": 70,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_gauntlets_10",
+      "required_level": 60,
+      "sell_price": 13024,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "intellect": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_bow_of_the_last_lodge",
+      "name": "Bow of the Last Lodge",
+      "slot": "ranged",
+      "item_level": 62,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "bow",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "stamina": 16,
+        "agility": 16
+      },
+      "secondary_stats": {
+        "parry_rating": 5
+      },
+      "armor_value": 38,
+      "weapon_damage_min": 91,
+      "weapon_damage_max": 123,
+      "attack_speed": 2.8,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_weapon_bow_05",
+      "required_level": 60,
+      "sell_price": 16030,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [],
+      "socket_bonus": {},
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    }
+  ],
+  "Zul'Mashar the Last": [
+    {
+      "item_id": "pl_mossflayer_warlords_belt",
+      "name": "Mossflayer Warlord's Belt",
+      "slot": "waist",
+      "item_level": 62,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 15,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "attack_power": 19
+      },
+      "armor_value": 225,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_belt_22",
+      "required_level": 60,
+      "sell_price": 11021,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "agility": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_last_chieftains_headdress",
+      "name": "Last Chieftain's Headdress",
+      "slot": "head",
+      "item_level": 62,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 34
+      },
+      "secondary_stats": {
+        "spell_power": 4
+      },
+      "armor_value": 172,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_helmet_01",
+      "required_level": 60,
+      "sell_price": 16030,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "yellow",
+          "gem": null
+        },
+        {
+          "color": "blue",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "spirit": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_zulmashar_bonecage",
+      "name": "Zul'Mashar Bonecage",
+      "slot": "chest",
+      "item_level": 62,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 21,
+        "spirit": 18,
+        "strength": 21
+      },
+      "secondary_stats": {},
+      "armor_value": 507,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_chest_plate14",
+      "required_level": 60,
+      "sell_price": 20037,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "strength": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_zulmashars_ritual_axe",
+      "name": "Zul'Mashar's Ritual Axe",
+      "slot": "main_hand",
+      "item_level": 62,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "axe_2h",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 38,
+        "stamina": 56
+      },
+      "secondary_stats": {
+        "attack_power": 14
+      },
+      "armor_value": 0,
+      "weapon_damage_min": 145,
+      "weapon_damage_max": 196,
+      "attack_speed": 3.6,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_axe_06",
+      "required_level": 60,
+      "sell_price": 25047,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        },
+        {
+          "color": "red",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "strength": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    }
+  ],
+  "The Bone Colossus": [
+    {
+      "item_id": "pl_colossus_bonecage_legplates",
+      "name": "Colossus Bonecage Legplates",
+      "slot": "legs",
+      "item_level": 63,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 21
+      },
+      "secondary_stats": {
+        "hit_rating": 13,
+        "crit_chance_physical": 13,
+        "attack_power": 7
+      },
+      "armor_value": 496,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_pants_01",
+      "required_level": 61,
+      "sell_price": 20722,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "yellow",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "strength": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_pestilent_scar_robe",
+      "name": "Pestilent Scar Robe",
+      "slot": "chest",
+      "item_level": 63,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "stamina": 26,
+        "intellect": 26
+      },
+      "secondary_stats": {
+        "shadow_resistance": 3,
+        "spell_power": 6
+      },
+      "armor_value": 122,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_shirt_white_01",
+      "required_level": 61,
+      "sell_price": 20722,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "yellow",
+          "gem": null
+        },
+        {
+          "color": "blue",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "intellect": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_ossuary_grips",
+      "name": "Ossuary Grips",
+      "slot": "hands",
+      "item_level": 63,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "stamina": 14,
+        "spirit": 12,
+        "agility": 14
+      },
+      "secondary_stats": {
+        "attack_power": 4
+      },
+      "armor_value": 143,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_gauntlets_04",
+      "required_level": 61,
+      "sell_price": 13469,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "agility": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    },
+    {
+      "item_id": "pl_marrow_splitter",
+      "name": "Marrow-Splitter",
+      "slot": "main_hand",
+      "item_level": 63,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "mace_2h",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 7,
+        "strength": 46
+      },
+      "secondary_stats": {
+        "hit_rating": 24,
+        "attack_power": 46
+      },
+      "armor_value": 0,
+      "weapon_damage_min": 147,
+      "weapon_damage_max": 199,
+      "attack_speed": 3.6,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_hammer_05",
+      "required_level": 61,
+      "sell_price": 25903,
+      "flavor_text": "",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "blue",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "strength": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "proc": null,
+      "power_scale": 3
+    }
+  ]
+}

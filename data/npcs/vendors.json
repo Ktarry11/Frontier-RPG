@@ -7010,6 +7010,84 @@
           "secret_formula_enchant_weapon_living_ember": 6
         }
       }
+    },
+    {
+      "vendor_id": "wpl_bulwark_quartermaster",
+      "name": "Quartermaster Ezra Pell",
+      "zone": "western_plaguelands_south",
+      "x": 28,
+      "y": 79,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_masterwork",
+        "mana_potion_masterwork",
+        "kit_field_repair",
+        "whetstone",
+        "flux_strong",
+        "vial_crystal",
+        "drink_waterskin",
+        "roasted_meat"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 53,
+      "sells_gear": true,
+      "race": "undead",
+      "appearance_variant": 2,
+      "gender": "male",
+      "greeting": "Deathguard issue, all of it. The potions taste like the cauldrons smell, and they work, which is more than I can say for the cauldrons.",
+      "facing": "down"
+    },
+    {
+      "vendor_id": "wpl_pf_quartermaster",
+      "name": "Quartermaster Hollis Burke",
+      "zone": "western_plaguelands_south",
+      "x": 106,
+      "y": 133,
+      "tile_sprite": "npc",
+      "sells": [
+        "bread_and_cheese",
+        "spiced_stew",
+        "drink_waterskin",
+        "healing_potion_masterwork",
+        "kit_field_repair",
+        "whetstone",
+        "beast_lure"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 53,
+      "sells_gear": true,
+      "race": "human",
+      "appearance_variant": 7,
+      "gender": "male",
+      "greeting": "The Order buys plain steel and good bread, and that's what I've got. When you've earned it, I've got better than that too.",
+      "facing": "down"
+    },
+    {
+      "vendor_id": "epl_lh_quartermaster",
+      "name": "Quartermaster Hasana Reed",
+      "zone": "eastern_plaguelands_east",
+      "x": 134,
+      "y": 82,
+      "tile_sprite": "npc",
+      "sells": [
+        "healing_potion_masterwork",
+        "mana_potion_masterwork",
+        "kit_field_repair",
+        "whetstone",
+        "bread_and_cheese",
+        "drink_waterskin"
+      ],
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 58,
+      "sells_gear": true,
+      "race": "human",
+      "appearance_variant": 5,
+      "gender": "female",
+      "greeting": "Argent steel and holy water, mostly. The good gear's for people the Dawn knows, and the Dawn's got a long memory.",
+      "facing": "down"
     }
   ]
 }

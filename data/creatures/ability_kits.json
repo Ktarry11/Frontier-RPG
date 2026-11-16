@@ -58936,6 +58936,3195 @@
           "intellect": -16
         }
       }
+    ],
+    "plague_ridden_wolf": [
+      {
+        "name": "Fevered Bite",
+        "kind": "damage",
+        "amount": 192,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Pack Lunge",
+        "kind": "damage",
+        "amount": 164,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Plague Bite",
+        "kind": "dot",
+        "amount": 50,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "diseased_black_bear": [
+      {
+        "name": "Heavy Swipe",
+        "kind": "damage",
+        "amount": 200,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Maul",
+        "kind": "damage",
+        "amount": 172,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Reek of Sickness",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -40
+        }
+      }
+    ],
+    "wandering_skeleton": [
+      {
+        "name": "Rusted Blade",
+        "kind": "damage",
+        "amount": 194,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bone Bash",
+        "kind": "damage",
+        "amount": 166,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bone Armour",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 100
+        },
+        "self_only": true
+      }
+    ],
+    "felstone_cultist": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 194,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Plague Cloud",
+        "kind": "dot",
+        "amount": 52,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      },
+      {
+        "name": "Dark Ward",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 380,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "felstone_ghoul": [
+      {
+        "name": "Ghoulish Claw",
+        "kind": "damage",
+        "amount": 194,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Gnaw",
+        "kind": "damage",
+        "amount": 166,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Ghoul Rot",
+        "kind": "dot",
+        "amount": 50,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "felstone_cauldron_lord": [
+      {
+        "name": "Hook Swing",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cauldron Slop",
+        "kind": "damage",
+        "amount": 176,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Stitched Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 130
+        },
+        "self_only": true
+      }
+    ],
+    "dalsons_ghoul": [
+      {
+        "name": "Ghoulish Claw",
+        "kind": "damage",
+        "amount": 196,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Gnaw",
+        "kind": "damage",
+        "amount": 168,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Ghoul Rot",
+        "kind": "dot",
+        "amount": 52,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "dalsons_skeleton": [
+      {
+        "name": "Rusted Blade",
+        "kind": "damage",
+        "amount": 198,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bone Bash",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bone Armour",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 104
+        },
+        "self_only": true
+      }
+    ],
+    "cauldron_necrolyte": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 200,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Wasting Curse",
+        "kind": "dot",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Enfeeble",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -44
+        }
+      }
+    ],
+    "haunt_banshee": [
+      {
+        "name": "Wail",
+        "kind": "damage",
+        "amount": 198,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Keening",
+        "kind": "damage",
+        "amount": 166,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Deafening Scream",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "spell_power": -44
+        }
+      }
+    ],
+    "writhing_crypt_fiend": [
+      {
+        "name": "Crypt Bite",
+        "kind": "damage",
+        "amount": 204,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Web Spray",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Crypt Poison",
+        "kind": "dot",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "haunt_cult_tender": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 198,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Plague Cloud",
+        "kind": "dot",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      },
+      {
+        "name": "Dark Offering",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "spell_power": 50
+        },
+        "self_only": true
+      }
+    ],
+    "andorhal_skeleton": [
+      {
+        "name": "Notched Sword",
+        "kind": "damage",
+        "amount": 204,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shield Bash",
+        "kind": "damage",
+        "amount": 172,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bone Armour",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 110
+        },
+        "self_only": true
+      }
+    ],
+    "andorhal_abomination": [
+      {
+        "name": "Cleaver",
+        "kind": "damage",
+        "amount": 214,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Poison Cloud",
+        "kind": "damage",
+        "amount": 178,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Stitched Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 140
+        },
+        "self_only": true
+      }
+    ],
+    "andorhal_necromancer": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 206,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Unholy Rot",
+        "kind": "dot",
+        "amount": 56,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Bone Shield",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 420,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "andorhal_skeletal_archer": [
+      {
+        "name": "Bone Arrow",
+        "kind": "damage",
+        "amount": 200,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Volley",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Pinned",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -44
+        }
+      }
+    ],
+    "scarlet_outrider": [
+      {
+        "name": "Crusader Strike",
+        "kind": "damage",
+        "amount": 206,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Holy Strike",
+        "kind": "damage",
+        "amount": 176,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "holy"
+      },
+      {
+        "name": "Devotion",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 120
+        },
+        "self_only": true
+      }
+    ],
+    "scarlet_field_chaplain": [
+      {
+        "name": "Smite",
+        "kind": "damage",
+        "amount": 200,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "holy"
+      },
+      {
+        "name": "Holy Fire",
+        "kind": "damage",
+        "amount": 172,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "holy"
+      },
+      {
+        "name": "Power Word: Shield",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "holy",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 420,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "drowned_lakewalker": [
+      {
+        "name": "Waterlogged Fist",
+        "kind": "damage",
+        "amount": 198,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Drag Under",
+        "kind": "damage",
+        "amount": 168,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Lakewater Rot",
+        "kind": "dot",
+        "amount": 52,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "darrowmere_snapjaw": [
+      {
+        "name": "Snap",
+        "kind": "damage",
+        "amount": 202,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shell Slam",
+        "kind": "damage",
+        "amount": 172,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Withdraw",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "armor": 160
+        },
+        "self_only": true
+      }
+    ],
+    "caer_darrow_shade": [
+      {
+        "name": "Chill of the Grave",
+        "kind": "damage",
+        "amount": 204,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Haunting",
+        "kind": "dot",
+        "amount": 56,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Fear's Touch",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "hit_rating": -10
+        }
+      }
+    ],
+    "caer_darrow_ghoul": [
+      {
+        "name": "Ghoulish Claw",
+        "kind": "damage",
+        "amount": 202,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Gnaw",
+        "kind": "damage",
+        "amount": 172,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Ghoul Rot",
+        "kind": "dot",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "farmer_felstone": [
+      {
+        "name": "Rusted Scythe",
+        "kind": "damage",
+        "amount": 316,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Reaping Sweep",
+        "kind": "damage",
+        "amount": 254,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Pitchfork Pin",
+        "kind": "damage",
+        "amount": 232,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "The Harvest Won't Wait",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 110
+        }
+      }
+    ],
+    "the_dalson_ghost": [
+      {
+        "name": "Grieving Touch",
+        "kind": "damage",
+        "amount": 322,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "A Father's Wail",
+        "kind": "damage",
+        "amount": 258,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Bound to the Barn",
+        "kind": "dot",
+        "amount": 84,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Spectral Veil",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 900,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "mother_of_the_haunt": [
+      {
+        "name": "Shriek",
+        "kind": "damage",
+        "amount": 326,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Chorus of the Dead",
+        "kind": "damage",
+        "amount": 262,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Paralysing Wail",
+        "kind": "damage",
+        "amount": 238,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Grave Mist",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 920,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "magistrate_andor": [
+      {
+        "name": "Death Bolt",
+        "kind": "damage",
+        "amount": 336,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Edict of Andorhal",
+        "kind": "damage",
+        "amount": 268,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Withering Decree",
+        "kind": "dot",
+        "amount": 88,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Bone Barrier",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 980,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "old_darrowjaw": [
+      {
+        "name": "Ancient Jaws",
+        "kind": "damage",
+        "amount": 324,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Lake-Bottom Crush",
+        "kind": "damage",
+        "amount": 258,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Dragged Under",
+        "kind": "damage",
+        "amount": 240,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Mossback Shell",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 940,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "the_groundskeeper": [
+      {
+        "name": "Spade Cleave",
+        "kind": "damage",
+        "amount": 340,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Grave-Turning Slam",
+        "kind": "damage",
+        "amount": 270,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Buried Alive",
+        "kind": "damage",
+        "amount": 248,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Keep Off the Grass",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 120
+        }
+      }
+    ],
+    "plaguewing_vulture": [
+      {
+        "name": "Tearing Beak",
+        "kind": "damage",
+        "amount": 190,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Dive",
+        "kind": "damage",
+        "amount": 164,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Carrion Rot",
+        "kind": "dot",
+        "amount": 48,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "rotting_worg": [
+      {
+        "name": "Fevered Bite",
+        "kind": "damage",
+        "amount": 206,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Pack Lunge",
+        "kind": "damage",
+        "amount": 176,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Plague Bite",
+        "kind": "dot",
+        "amount": 55,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "blighted_stag": [
+      {
+        "name": "Dead Antlers",
+        "kind": "damage",
+        "amount": 208,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Charge",
+        "kind": "damage",
+        "amount": 180,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Trampled",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "attack_power": -40
+        }
+      }
+    ],
+    "plague_bat": [
+      {
+        "name": "Bite",
+        "kind": "damage",
+        "amount": 201,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Screech",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Plague Fever",
+        "kind": "dot",
+        "amount": 53,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "skeletal_wanderer": [
+      {
+        "name": "Rusted Blade",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bone Bash",
+        "kind": "damage",
+        "amount": 180,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bone Armour",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 104
+        },
+        "self_only": true
+      }
+    ],
+    "scarlet_lumberjack": [
+      {
+        "name": "Woodsman's Axe",
+        "kind": "damage",
+        "amount": 216,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Felling Blow",
+        "kind": "damage",
+        "amount": 184,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Zeal",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": 56
+        },
+        "self_only": true
+      }
+    ],
+    "scarlet_sawyer": [
+      {
+        "name": "Bucksaw",
+        "kind": "damage",
+        "amount": 212,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Splinter",
+        "kind": "damage",
+        "amount": 180,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Ragged Cut",
+        "kind": "dot",
+        "amount": 55,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "scarlet_woodsman_archer": [
+      {
+        "name": "Longbow Shot",
+        "kind": "damage",
+        "amount": 212,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Pinning Shot",
+        "kind": "damage",
+        "amount": 180,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Pinned",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -44
+        }
+      }
+    ],
+    "withering_ghoul": [
+      {
+        "name": "Ghoulish Claw",
+        "kind": "damage",
+        "amount": 214,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Gnaw",
+        "kind": "damage",
+        "amount": 182,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Ghoul Rot",
+        "kind": "dot",
+        "amount": 57,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "withering_cultist": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 214,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Plague Cloud",
+        "kind": "dot",
+        "amount": 57,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      },
+      {
+        "name": "Dark Ward",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 424,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "cauldron_sludge": [
+      {
+        "name": "Acid Slap",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Corrosive Ooze",
+        "kind": "dot",
+        "amount": 57,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Dissolve Armour",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -120
+        }
+      }
+    ],
+    "scarlet_sentry": [
+      {
+        "name": "Crusader Strike",
+        "kind": "damage",
+        "amount": 223,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shield Bash",
+        "kind": "damage",
+        "amount": 189,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Devotion",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 124
+        },
+        "self_only": true
+      }
+    ],
+    "scarlet_crossbowman": [
+      {
+        "name": "Crossbow Bolt",
+        "kind": "damage",
+        "amount": 218,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Volley",
+        "kind": "damage",
+        "amount": 182,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Pinned",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -46
+        }
+      }
+    ],
+    "scarlet_war_hound": [
+      {
+        "name": "Savage Bite",
+        "kind": "damage",
+        "amount": 216,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hamstring Lunge",
+        "kind": "damage",
+        "amount": 182,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hamstring",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -44
+        }
+      }
+    ],
+    "thondroril_snapjaw": [
+      {
+        "name": "Snap",
+        "kind": "damage",
+        "amount": 216,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shell Slam",
+        "kind": "damage",
+        "amount": 184,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Withdraw",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "armor": 164
+        },
+        "self_only": true
+      }
+    ],
+    "riverbank_ghoul": [
+      {
+        "name": "Waterlogged Fist",
+        "kind": "damage",
+        "amount": 214,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Drag Under",
+        "kind": "damage",
+        "amount": 180,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "River Rot",
+        "kind": "dot",
+        "amount": 57,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "foreman_harrow": [
+      {
+        "name": "Foreman's Axe",
+        "kind": "damage",
+        "amount": 350,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Timber!",
+        "kind": "damage",
+        "amount": 278,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Log to the Head",
+        "kind": "damage",
+        "amount": 254,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Behind Schedule",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 110
+        }
+      }
+    ],
+    "gahrron_the_withered": [
+      {
+        "name": "Withering Hook",
+        "kind": "damage",
+        "amount": 363,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cauldron Spill",
+        "kind": "damage",
+        "amount": 288,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Withering",
+        "kind": "dot",
+        "amount": 95,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "dispel_type": "disease"
+      },
+      {
+        "name": "Stitched Bulk",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 1060,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "high_inquisitor_faulk": [
+      {
+        "name": "Searing Light",
+        "kind": "damage",
+        "amount": 358,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "holy"
+      },
+      {
+        "name": "Pyre of the Faithful",
+        "kind": "damage",
+        "amount": 284,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "holy",
+        "is_aoe": true
+      },
+      {
+        "name": "Hammer of Judgement",
+        "kind": "damage",
+        "amount": 261,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "holy",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Zealot's Ward",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "holy",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 1039,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "old_thondroril": [
+      {
+        "name": "Ancient Jaws",
+        "kind": "damage",
+        "amount": 348,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Riverbed Crush",
+        "kind": "damage",
+        "amount": 278,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Dragged Under",
+        "kind": "damage",
+        "amount": 257,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "River Shell",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 1007,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "plague_hound": [
+      {
+        "name": "Savage Bite",
+        "kind": "damage",
+        "amount": 203,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Lunge",
+        "kind": "damage",
+        "amount": 174,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Plague Bite",
+        "kind": "dot",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "carrion_grub": [
+      {
+        "name": "Ghoulish Claw",
+        "kind": "damage",
+        "amount": 203,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Gnaw",
+        "kind": "damage",
+        "amount": 174,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Grave Rot",
+        "kind": "dot",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "frenzied_ghoul": [
+      {
+        "name": "Ghoulish Claw",
+        "kind": "damage",
+        "amount": 203,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Gnaw",
+        "kind": "damage",
+        "amount": 174,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Grave Rot",
+        "kind": "dot",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "stone_winged_gargoyle": [
+      {
+        "name": "Rending Claws",
+        "kind": "damage",
+        "amount": 214,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Swoop",
+        "kind": "damage",
+        "amount": 180,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Crypt Poison",
+        "kind": "dot",
+        "amount": 56,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "terrordale_spirit": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Unholy Rot",
+        "kind": "dot",
+        "amount": 56,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Enfeeble",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -46
+        }
+      }
+    ],
+    "terrordale_skeletal_mage": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Unholy Rot",
+        "kind": "dot",
+        "amount": 56,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Enfeeble",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -46
+        }
+      }
+    ],
+    "terrordale_ghoul": [
+      {
+        "name": "Ghoulish Claw",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Gnaw",
+        "kind": "damage",
+        "amount": 180,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Grave Rot",
+        "kind": "dot",
+        "amount": 56,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "marris_farmhand": [
+      {
+        "name": "Ghoulish Claw",
+        "kind": "damage",
+        "amount": 203,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Gnaw",
+        "kind": "damage",
+        "amount": 174,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Grave Rot",
+        "kind": "dot",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "stead_crow": [
+      {
+        "name": "Savage Bite",
+        "kind": "damage",
+        "amount": 203,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Lunge",
+        "kind": "damage",
+        "amount": 174,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Plague Bite",
+        "kind": "dot",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "plaguewood_spider": [
+      {
+        "name": "Savage Bite",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Lunge",
+        "kind": "damage",
+        "amount": 180,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Plague Bite",
+        "kind": "dot",
+        "amount": 56,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "plaguewood_crypt_fiend": [
+      {
+        "name": "Rending Claws",
+        "kind": "damage",
+        "amount": 221,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Swoop",
+        "kind": "damage",
+        "amount": 186,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Crypt Poison",
+        "kind": "dot",
+        "amount": 58,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "gate_death_knight": [
+      {
+        "name": "Heavy Blow",
+        "kind": "damage",
+        "amount": 225,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cleave",
+        "kind": "damage",
+        "amount": 186,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Battle Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": 60
+        },
+        "self_only": true
+      }
+    ],
+    "gate_gargoyle": [
+      {
+        "name": "Rending Claws",
+        "kind": "damage",
+        "amount": 221,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Swoop",
+        "kind": "damage",
+        "amount": 186,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Crypt Poison",
+        "kind": "dot",
+        "amount": 58,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "vale_plague_slime": [
+      {
+        "name": "Acid Slap",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Corrosive Ooze",
+        "kind": "dot",
+        "amount": 56,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Dissolve Armour",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -124
+        }
+      }
+    ],
+    "spore_walker": [
+      {
+        "name": "Ghoulish Claw",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Gnaw",
+        "kind": "damage",
+        "amount": 180,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Grave Rot",
+        "kind": "dot",
+        "amount": 56,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "cult_plaguebringer": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Unholy Rot",
+        "kind": "dot",
+        "amount": 56,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Enfeeble",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -46
+        }
+      }
+    ],
+    "cult_cart_driver": [
+      {
+        "name": "Heavy Blow",
+        "kind": "damage",
+        "amount": 218,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cleave",
+        "kind": "damage",
+        "amount": 180,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Battle Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": 60
+        },
+        "self_only": true
+      }
+    ],
+    "crossing_abomination": [
+      {
+        "name": "Heavy Blow",
+        "kind": "damage",
+        "amount": 218,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cleave",
+        "kind": "damage",
+        "amount": 180,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Battle Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": 60
+        },
+        "self_only": true
+      }
+    ],
+    "the_terror_of_the_dale": [
+      {
+        "name": "Death Bolt",
+        "kind": "damage",
+        "amount": 340,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Wail of the Dead",
+        "kind": "damage",
+        "amount": 272,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Withering Touch",
+        "kind": "dot",
+        "amount": 91,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Grave Ward",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 986,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "old_marris": [
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 329,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sweeping Strike",
+        "kind": "damage",
+        "amount": 263,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Knocked Flat",
+        "kind": "damage",
+        "amount": 243,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Rising Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 115
+        }
+      }
+    ],
+    "the_plaguewood_matriarch": [
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 352,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sweeping Strike",
+        "kind": "damage",
+        "amount": 281,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Knocked Flat",
+        "kind": "damage",
+        "amount": 260,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Rising Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 115
+        }
+      }
+    ],
+    "gatekeeper_vorthas": [
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 352,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sweeping Strike",
+        "kind": "damage",
+        "amount": 281,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Knocked Flat",
+        "kind": "damage",
+        "amount": 260,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Rising Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 115
+        }
+      }
+    ],
+    "the_fungal_mass": [
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 340,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sweeping Strike",
+        "kind": "damage",
+        "amount": 272,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Knocked Flat",
+        "kind": "damage",
+        "amount": 251,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Rising Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 115
+        }
+      }
+    ],
+    "cartmaster_corin": [
+      {
+        "name": "Death Bolt",
+        "kind": "damage",
+        "amount": 340,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Wail of the Dead",
+        "kind": "damage",
+        "amount": 272,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Withering Touch",
+        "kind": "dot",
+        "amount": 91,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Grave Ward",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 986,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "blighted_warhorse": [
+      {
+        "name": "Savage Bite",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Lunge",
+        "kind": "damage",
+        "amount": 180,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Plague Bite",
+        "kind": "dot",
+        "amount": 56,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "plague_rotted_bear": [
+      {
+        "name": "Savage Bite",
+        "kind": "damage",
+        "amount": 217,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Lunge",
+        "kind": "damage",
+        "amount": 186,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Plague Bite",
+        "kind": "dot",
+        "amount": 58,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "carrion_bat": [
+      {
+        "name": "Savage Bite",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Lunge",
+        "kind": "damage",
+        "amount": 180,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Plague Bite",
+        "kind": "dot",
+        "amount": 56,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "darrowshire_spirit": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 217,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Unholy Rot",
+        "kind": "dot",
+        "amount": 58,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Enfeeble",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -46
+        }
+      }
+    ],
+    "darrowshire_ghoul": [
+      {
+        "name": "Ghoulish Claw",
+        "kind": "damage",
+        "amount": 217,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Gnaw",
+        "kind": "damage",
+        "amount": 186,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Grave Rot",
+        "kind": "dot",
+        "amount": 58,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "blackwood_drowned": [
+      {
+        "name": "Ghoulish Claw",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Gnaw",
+        "kind": "damage",
+        "amount": 180,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Grave Rot",
+        "kind": "dot",
+        "amount": 56,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "blackwood_snapjaw": [
+      {
+        "name": "Savage Bite",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Lunge",
+        "kind": "damage",
+        "amount": 180,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Plague Bite",
+        "kind": "dot",
+        "amount": 56,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "tyrs_hand_crusader": [
+      {
+        "name": "Crusader Strike",
+        "kind": "damage",
+        "amount": 229,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Holy Strike",
+        "kind": "damage",
+        "amount": 191,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "holy"
+      },
+      {
+        "name": "Devotion",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 126
+        },
+        "self_only": true
+      }
+    ],
+    "tyrs_hand_abbot": [
+      {
+        "name": "Smite",
+        "kind": "damage",
+        "amount": 223,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "holy"
+      },
+      {
+        "name": "Holy Fire",
+        "kind": "damage",
+        "amount": 189,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "holy"
+      },
+      {
+        "name": "Power Word: Shield",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "holy",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 468,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "tyrs_hand_marksman": [
+      {
+        "name": "Crusader Strike",
+        "kind": "damage",
+        "amount": 229,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Holy Strike",
+        "kind": "damage",
+        "amount": 191,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "holy"
+      },
+      {
+        "name": "Devotion",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 126
+        },
+        "self_only": true
+      }
+    ],
+    "tyrs_hand_houndmaster": [
+      {
+        "name": "Crusader Strike",
+        "kind": "damage",
+        "amount": 229,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Holy Strike",
+        "kind": "damage",
+        "amount": 191,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "holy"
+      },
+      {
+        "name": "Devotion",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 126
+        },
+        "self_only": true
+      }
+    ],
+    "restless_lodge_ranger": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 217,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Unholy Rot",
+        "kind": "dot",
+        "amount": 58,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Enfeeble",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -46
+        }
+      }
+    ],
+    "mossflayer_warrior": [
+      {
+        "name": "Heavy Blow",
+        "kind": "damage",
+        "amount": 231,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cleave",
+        "kind": "damage",
+        "amount": 191,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Battle Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": 60
+        },
+        "self_only": true
+      }
+    ],
+    "mossflayer_shadowhunter": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 223,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Unholy Rot",
+        "kind": "dot",
+        "amount": 60,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Enfeeble",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": -46
+        }
+      }
+    ],
+    "mossflayer_scout": [
+      {
+        "name": "Aimed Shot",
+        "kind": "damage",
+        "amount": 227,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Volley",
+        "kind": "damage",
+        "amount": 191,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Pinned",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -46
+        }
+      }
+    ],
+    "scar_bone_construct": [
+      {
+        "name": "Heavy Blow",
+        "kind": "damage",
+        "amount": 231,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cleave",
+        "kind": "damage",
+        "amount": 191,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Battle Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": 60
+        },
+        "self_only": true
+      }
+    ],
+    "captain_redpaths_shade": [
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 352,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sweeping Strike",
+        "kind": "damage",
+        "amount": 281,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Knocked Flat",
+        "kind": "damage",
+        "amount": 260,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Rising Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 115
+        }
+      }
+    ],
+    "the_blackwood_drowner": [
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 340,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sweeping Strike",
+        "kind": "damage",
+        "amount": 272,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Knocked Flat",
+        "kind": "damage",
+        "amount": 251,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Rising Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 115
+        }
+      }
+    ],
+    "abbot_varenne": [
+      {
+        "name": "Death Bolt",
+        "kind": "damage",
+        "amount": 361,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Wail of the Dead",
+        "kind": "damage",
+        "amount": 288,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Withering Touch",
+        "kind": "dot",
+        "amount": 97,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Grave Ward",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 1046,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "ranger_lord_saelith": [
+      {
+        "name": "Death Bolt",
+        "kind": "damage",
+        "amount": 361,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Wail of the Dead",
+        "kind": "damage",
+        "amount": 288,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Withering Touch",
+        "kind": "dot",
+        "amount": 97,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4
+      },
+      {
+        "name": "Grave Ward",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 1046,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "zulmashar_the_last": [
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 361,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sweeping Strike",
+        "kind": "damage",
+        "amount": 288,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Knocked Flat",
+        "kind": "damage",
+        "amount": 267,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Rising Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 115
+        }
+      }
+    ],
+    "the_bone_colossus": [
+      {
+        "name": "Crushing Blow",
+        "kind": "damage",
+        "amount": 373,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sweeping Strike",
+        "kind": "damage",
+        "amount": 298,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Knocked Flat",
+        "kind": "damage",
+        "amount": 276,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Rising Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 115
+        }
+      }
+    ],
+    "hearthglen_inquisitor": [
+      {
+        "name": "Smite",
+        "kind": "damage",
+        "amount": 218,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "holy"
+      },
+      {
+        "name": "Purifying Fire",
+        "kind": "damage",
+        "amount": 187,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "holy"
+      },
+      {
+        "name": "Interrogate",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "spell_power": -46
+        }
+      }
     ]
   }
 }

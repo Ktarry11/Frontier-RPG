@@ -46,6 +46,10 @@ GOBLIN_TOWNS = {"booty_bay", "ratchet", "steamwheedle_port", "saltwheel"}
 #: towns whose zone default race isn't the people who run the inn (the default is "human" for most new zones)
 TOWN_CULTURE = {"sepulcher": "forsaken", "freewind_post": "tauren", "sun_rock_retreat": "tauren", "gromgol": "troll",
                 "splintertree_post": "orc", "hammerfall": "orc", "zoram_strand": "orc"}
+#: Per inn, where a zone holds more than one culture. The Plaguelands' human hubs (the Pale Flame, the Argent Dawn,
+#: Crown Guard) use the Forsaken box's grey iron until Kyle draws a human mailbox.
+INN_CULTURE = {"wpl_bulwark_innkeeper": "forsaken", "wpl_pf_innkeeper": "forsaken", "epl_cg_innkeeper": "forsaken",
+               "epl_lh_innkeeper": "forsaken"}
 
 
 def main():
@@ -138,6 +142,7 @@ def main():
             missing.append(f"{inn_id} ({host['zone']}): no clear tile")
             continue
         race = "goblin" if zk in GOBLIN_TOWNS else TOWN_CULTURE.get(zk) or get_zone_default_race(host["zone"])
+        race = INN_CULTURE.get(inn_id, race)
         opts = CULTURE.get(race, ["mailbox_orc_b"])
         n = sum(1 for r in amb["npcs"] if r.get("is_mailbox") and r.get("race") == race)
         prop = f"assets/tiles/market/props/{opts[n % len(opts)]}.png"

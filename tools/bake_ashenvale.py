@@ -162,7 +162,49 @@ SUN_ROCK_SHEET.update({
     "av_elven_paving":   _st("st_camp_earth"),
     "av_rocky_ground":   _st("st_sandstone"),
 })
-ZONE_SHEETS = {"felwood_north": NORTH_SHEET, "stonetalon_east": STONETALON_SHEET,
+#: THE PLAGUELANDS (docs/plaguelands_design.md). PROVISIONAL: painted from the undead farmland and haunted
+#: forest textures already in the library until Kyle's Plaguelands ground sheet (docs/plaguelands_art_prompts.md,
+#: sheet 1) is sliced into assets/tiles/plaguelands/ground/, at which point these entries point there instead.
+#: Sick olive grass and dead crop rows for the fields, grave dirt and black mud for the blight, burned ground for
+#: Andorhal, grey crypt stone for the hubs, and cold grey-blue water for Darrowmere.
+UFM, HFM = T / "undead_farmland", T / "haunted_forest"
+#: The Plaguelands, painted from Kyle's ground sheet (tools/tile_sheets/plaguelands_ground.png, 16 Nov 2026).
+#: West is the golden, sick farmland; East is greyer and wetter, with the Plaguewood's dark floor under its woods.
+#: The cliffs stay the Valley of Trials' rock, tinted grey, because the sheet has no cliff face.
+PLG = ROOT / "assets/tiles/plaguelands/ground"
+
+
+def _plague_sheet(east):
+    G = PLG
+    return {
+        # "root" wins about two fifths of the open ground (it rings every wood), so it carries the base grass
+        "av_forest_floor":   (G / ("pl_grey_moss.png" if east else "pl_wpl_grass.png"), 0.5, None, None),
+        "av_forest_grass":   (G / ("pl_grass_ash.png" if east else "pl_dead_clover.png"), 0.5, None, None),
+        "av_fern_floor":     (G / ("pl_seep_cracks.png" if east else "pl_grass_violet.png"), 0.5, None, None),
+        "av_root_earth":     (G / ("pl_epl_grass.png" if east else "pl_wpl_grass_trod.png"), 0.5, None, None),
+        "av_needle_mulch":   (G / ("pl_bone_dirt.png" if east else "pl_farm_earth.png"), 0.5, None, None),
+        "av_bluebell":       (G / ("pl_terrordale_dust.png" if east else "pl_wheat_stubble.png"), 0.5, None, None),
+        "av_road_centre":    (G / "pl_dirt_road.png", 0.5, None, None),
+        "av_road_edge":      (G / "pl_cart_ruts.png", 0.5, None, None),
+        "av_elven_paving":   (G / ("pl_mossy_flag.png" if east else "pl_andorhal_paving.png"), 0.5, None, None),
+        "av_mossy_cobble":   (G / "pl_cobble_weeds.png", 0.5, None, None),
+        "av_plaza_stone":    (G / ("pl_lightshope_stone.png" if east else "pl_cobble_road.png"), 0.5, None, None),
+        "av_rocky_ground":   (G / "pl_sorrow_gravel.png", 0.5, None, None),
+        "av_stream_bed":     (G / "pl_pebble_beach.png", 0.5, None, None),
+        "av_lake_mud":       (G / ("pl_grey_shore.png" if east else "pl_reed_marsh.png"), 0.5, None, None),
+        "av_lake_shallow":   (G / "pl_lake_shallow.png", 0.5, None, None),
+        "av_lake_deep":      (G / "pl_lake_water.png", 0.5, None, None),
+        "av_cliff_a":        (VOT / "vot_cliff_a.png", 0.5, (36, 0.16, 1.30), None),
+        "av_cliff_b":        (VOT / "vot_cliff_b.png", 0.5, (36, 0.18, 1.15), None),
+        "av_canopy":         (G / ("pl_plaguewood_floor.png" if east else "pl_grass_ash.png"), 0.5, None, "canopy"),
+        "av_corrupt_ground": (G / ("pl_plague_slime.png" if east else "pl_green_puddles.png"), 0.5, None, None),
+        "av_burned_forest":  (G / "pl_scorched_stone.png" if east else G / "pl_ash_soil.png", 0.5, None, None),
+    }
+
+
+WPL_SHEET = _plague_sheet(east=False)
+EPL_SHEET = _plague_sheet(east=True)
+ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_SHEET, "epl_east": EPL_SHEET, "felwood_north": NORTH_SHEET, "stonetalon_east": STONETALON_SHEET,
                "stonetalon_west": STONETALON_WEST_SHEET, "sun_rock": SUN_ROCK_SHEET}
 
 def _recolour(a, hue, sat, val):
@@ -477,6 +519,15 @@ def bake(zone="west", preview=None, scale=4, only=None):
         # North Felwood is the demon wastes: the same painter and plan, painted from the corruption
         # palette (NORTH_SHEET) so nothing in it reads as living forest.
         from tools import handbuilt_felwood_north as M
+    elif zone == "wpl_south":
+        # South Western Plaguelands (docs/plaguelands_design.md)
+        from tools import handbuilt_wpl_south as M
+    elif zone == "wpl_north":
+        from tools import handbuilt_wpl_north as M
+    elif zone == "epl_west":
+        from tools import handbuilt_epl_west as M
+    elif zone == "epl_east":
+        from tools import handbuilt_epl_east as M
     elif zone == "stonetalon_west":
         from tools import handbuilt_stonetalon_west as M
     elif zone == "stonetalon_east":
@@ -511,7 +562,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = next((z for z in ("felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
+    zone = next((z for z in ("wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))

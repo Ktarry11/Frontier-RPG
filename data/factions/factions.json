@@ -1129,6 +1129,159 @@
           }
         }
       }
+    },
+    "pale_flame": {
+      "name": "The Order of the Pale Flame",
+      "description": "A holy order led by Earth transplants who walked out of the Scarlet Crusade. They hunt the mindless dead and the Crusade's fanatics, and they leave the thinking dead alone.",
+      "home_zone": "western_plaguelands_south",
+      "home_name": "Sorrow Hill, Western Plaguelands",
+      "leader": {
+        "title": "Flamekeeper",
+        "name": "Rory Callahan",
+        "npc_id": "wpl_pf_flamekeeper",
+        "location": "Sorrow Hill, beside Uther's Tomb",
+        "line": "I wore the red for a year. When I took it off, I kept the flame and scraped the colour out of it, and that's the whole of what we are."
+      },
+      "_lore_note": "Kyle, 16 Nov 2026: 'the leader and top fighters are FROM EARTH' and 'The leader WAS part of the Scarlet Crusade though! that is Important!'. A mix of the Argent Dawn and the Crusade.",
+      "lore": [
+        "In the first year of the Integration, the Scarlet Crusade was the only army in Lordaeron killing what was killing everyone. A lot of transplants joined it, because it was there and it was winning.",
+        "Rory Callahan was one of them. He was an ironworker from Boston by way of Cork, and he was good at it. He lasted a year. He left the night the Crusade burned a camp of transplants for keeping company with the Forsaken, and the best of the people around him left with him.",
+        "They kept the flame and scraped the red out of it. The Order of the Pale Flame hunts the mindless dead, the Cult of the Damned, and the Crusade's fanatics. It doesn't hunt the Forsaken, and some of its members hate that rule more than any other.",
+        "The Argent Dawn calls them Scarlets with better manners. The Order calls the Argent Dawn slow. They share what they learn about Scholomance and Stratholme anyway, because neither can afford not to."
+      ],
+      "quest_rep": {
+        "_comment": "Per quest, by shape. Matches the other factions' rates.",
+        "default": 225,
+        "boss": 250,
+        "capstones": {},
+        "_comment_zones": "A zone's quests pay one faction (qa_factions). The Order's are the West; the Argent Dawn's are the East. The Order's chains that run into the East go in `also`.",
+        "zones": [
+          "western_plaguelands_south",
+          "western_plaguelands_north"
+        ]
+      },
+      "kill_rep": {
+        "_comment": [
+          "Scarlet fanatics only. Open-world Scarlets pay a little and stop at Honored (Kyle: 'Little until",
+          "honored'). The Scarlet Monastery pays more and also stops at Honored; Hearthglen and Stratholme's",
+          "Scarlet half don't stop. [amount, cap tier] is a capped kill (world/faction_manager.py)."
+        ],
+        "creatures": {
+          "Scarlet Outrider": [
+            5,
+            "honored"
+          ],
+          "Scarlet Field Chaplain": [
+            5,
+            "honored"
+          ],
+          "Scarlet Lumberjack": [
+            5,
+            "honored"
+          ],
+          "Scarlet Sawyer": [
+            5,
+            "honored"
+          ],
+          "Scarlet Woodsman Archer": [
+            5,
+            "honored"
+          ],
+          "Scarlet Sentry": [
+            5,
+            "honored"
+          ],
+          "Hearthglen Inquisitor": [
+            5,
+            "honored"
+          ],
+          "Scarlet Crossbowman": [
+            5,
+            "honored"
+          ],
+          "Scarlet War Hound": [
+            5,
+            "honored"
+          ],
+          "Tyr's Hand Crusader": [
+            5,
+            "honored"
+          ],
+          "Tyr's Hand Abbot": [
+            5,
+            "honored"
+          ],
+          "Tyr's Hand Marksman": [
+            5,
+            "honored"
+          ],
+          "Tyr's Hand Houndmaster": [
+            5,
+            "honored"
+          ],
+          "Crusader Brennic": [
+            25,
+            "honored"
+          ],
+          "Foreman Harrow": [
+            25,
+            "honored"
+          ],
+          "High Inquisitor Faulk": [
+            25,
+            "honored"
+          ],
+          "Abbot Varenne": [
+            25,
+            "honored"
+          ]
+        }
+      },
+      "dungeon_rep": {
+        "_comment": "A dungeon boss kill pays 75. The Monastery's wings are capped at Honored.",
+        "per_boss": 75,
+        "dungeons": [],
+        "caps": {}
+      }
+    },
+    "argent_dawn": {
+      "name": "The Argent Dawn",
+      "description": "The order at Light's Hope that fights the Scourge without asking who its soldiers used to be. Natives, transplants and a few Forsaken stand its walls.",
+      "home_zone": "eastern_plaguelands_east",
+      "home_name": "Light's Hope Chapel, Eastern Plaguelands",
+      "leader": {
+        "title": "Commander",
+        "name": "Eligor Dawnbringer",
+        "npc_id": "epl_lh_commander",
+        "location": "Light's Hope Chapel",
+        "line": "We don't ask where you came from. We ask whether you'll stand on the wall tonight, and most people say yes."
+      },
+      "lore": [
+        "The Argent Dawn was holding the line against the Scourge before the Integration, and it's still holding it. It takes anyone who'll stand on the wall, which these days means a lot of transplants.",
+        "Light's Hope Chapel is the order's heart: a chapel on holy ground the dead can't cross, and the last place in the east where you can sleep without someone on watch.",
+        "It trades in Scourgestones, the shards of necromancy the dead carry, and it pays well for them. It doesn't much like the Order of the Pale Flame, and it works with them every week."
+      ],
+      "quest_rep": {
+        "_comment": "Per quest, by shape. Matches the other factions' rates.",
+        "default": 225,
+        "boss": 250,
+        "capstones": {},
+        "zones": [
+          "eastern_plaguelands_west",
+          "eastern_plaguelands_east"
+        ]
+      },
+      "kill_rep": {
+        "_comment": [
+          "Scourge kills pay only while the Argent Dawn Commission is worn (built with Light's Hope's people), so nothing is listed here."
+        ],
+        "creatures": {}
+      },
+      "dungeon_rep": {
+        "_comment": "A dungeon boss kill pays 75. Scholomance and Stratholme's undead half join when they exist.",
+        "per_boss": 75,
+        "dungeons": []
+      }
     }
   }
 }

@@ -65,6 +65,10 @@ ZONES = {
     "steamwheedle_port": "tools.handbuilt_steamwheedle_port",
     "saltwheel": "tools.handbuilt_saltwheel",
     "undercity": "tools.handbuilt_undercity",
+    "wpl_south": "tools.handbuilt_wpl_south",
+    "wpl_north": "tools.handbuilt_wpl_north",
+    "epl_west": "tools.handbuilt_epl_west",
+    "epl_east": "tools.handbuilt_epl_east",
 }
 
 #: A cave module's entry point is build_<slug>_baked() rather than build_layout(), and it returns

@@ -401,6 +401,46 @@
         10
       ],
       "continent": "kalimdor"
+    },
+    "the_bulwark": {
+      "name": "The Bulwark",
+      "zone": "Western Plaguelands South",
+      "master": "wpl_bulwark_bat_handler",
+      "pos": [
+        46,
+        -8
+      ],
+      "continent": "eastern_kingdoms"
+    },
+    "sorrow_hill": {
+      "name": "Sorrow Hill",
+      "zone": "Western Plaguelands South",
+      "master": "wpl_pf_bat_keeper",
+      "pos": [
+        78,
+        24
+      ],
+      "continent": "eastern_kingdoms"
+    },
+    "crown_guard": {
+      "name": "Crown Guard Camp",
+      "zone": "Eastern Plaguelands East",
+      "master": "epl_cg_flight",
+      "pos": [
+        128,
+        6
+      ],
+      "continent": "eastern_kingdoms"
+    },
+    "lights_hope": {
+      "name": "Light's Hope Chapel",
+      "zone": "Eastern Plaguelands East",
+      "master": "epl_lh_flight",
+      "pos": [
+        158,
+        10
+      ],
+      "continent": "eastern_kingdoms"
     }
   },
   "flight_cost": {
@@ -635,6 +675,30 @@
     ],
     "fw_auctioneer": [
       "auction"
+    ],
+    "wpl_bulwark_innkeeper": [
+      "inn"
+    ],
+    "wpl_bulwark_bat_handler": [
+      "flight"
+    ],
+    "wpl_pf_innkeeper": [
+      "inn"
+    ],
+    "wpl_pf_bat_keeper": [
+      "flight"
+    ],
+    "epl_cg_innkeeper": [
+      "inn"
+    ],
+    "epl_cg_flight": [
+      "flight"
+    ],
+    "epl_lh_innkeeper": [
+      "inn"
+    ],
+    "epl_lh_flight": [
+      "flight"
     ]
   }
 }

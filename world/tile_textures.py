@@ -371,6 +371,10 @@ ZONE_BIOME = {
     "Stonetalon West": "mythical_forest",
     "Emerald Sanctuary": "mythical_forest",
     "North Felwood": "mythical_forest",      # painted ground (baked); the biome only names the fallback
+    "Western Plaguelands South": "decayed_forest",   # painted ground (baked); the biome only names the fallback
+    "Western Plaguelands North": "decayed_forest",
+    "Eastern Plaguelands West": "decayed_forest",
+    "Eastern Plaguelands East": "decayed_forest",
     "Jaedenar": "cave_demonic",              # the Shadow Council's hold (painted, the same)
     "Astranaar": "mythical_forest",
     "Zoram Strand": "mythical_forest",

@@ -21,6 +21,9 @@ REGIONAL = {
     "brill": "undead_rusted", "undercity": "undead_rusted", "the_sepulcher": "undead_rusted", "sepulcher": "undead_rusted",
     "silverpine_north": "undead_rusted", "silverpine_south": "undead_rusted",
     "eastern_hillsbrad": "undead_rusted", "western_hillsbrad": "undead_rusted",
+    "western_plaguelands_south": "chained_cursed",       # the Plaguelands (docs/plaguelands_design.md)
+    "western_plaguelands_north": "chained_cursed", "eastern_plaguelands_west": "chained_cursed",
+    "eastern_plaguelands_east": "chained_cursed",
 }
 
 # dungeon key -> (side-room looks, boss-reward look)
