@@ -49,8 +49,10 @@ TOKEN_CHANCE = 0.20
 #: (zone, cave) -> bosses in run order, each with the slot of the token it carries
 DUNGEONS = {
     ("Tempest Shallows", "Khaz Varun, the Black Hollow"): [
-        ("Gatewarden Hrun", "wrist"), ("The Crusher", "wrist"), ("Smelter-Master Vaud", "wrist"),
-        ("Powderkeg Nix", "wrist"), ("Overseer Grall", "wrist"), ("Forge-Lord Darrok", "wrist"),
+        # Kyle, 16 Nov 2026: the bracers move to the Deadwind Pass dungeon (55-57, built later), so Khaz Varun
+        # carries the belt alone: "we will move bracers to deadwind".
+        ("Gatewarden Hrun", "waist"), ("The Crusher", "waist"), ("Smelter-Master Vaud", "waist"),
+        ("Powderkeg Nix", "waist"), ("Overseer Grall", "waist"), ("Forge-Lord Darrok", "waist"),
         ("The Iron Mask", "waist"), ("The Ashwretch Brood", "waist"), ("The Rock-Borer Queen", "waist"),
         ("Flamespeaker Maud", "waist"), ("The Shadow of the Forge", "waist"),
         ("Thane Morrun the Unmade", "waist"),
@@ -86,9 +88,12 @@ SHARED_HOARD = ("Royal Consort Zhir'ak", "Zeth'rak the Pactbound")
 TOKEN_SLOTS = {"Khaz Varun, the Black Hollow": ("wrist", "waist"), "The Emberdeep": ("legs",),
                "The Royal Hive": ("shoulder",), "Jaedenar": ("hands",)}
 
-TOKEN_NAMES = {"wrist": "Bindings of the Black Hollow", "waist": "Girdle of the Black Hollow",
-               "legs": "Legguards of the Emberdeep", "shoulder": "Mantle of the Royal Hive",
-               "hands": "Handguards of Jaedenar"}
+#: The rest of T0 (Kyle, 16 Nov 2026): the head from Scholomance, the chest from Stratholme (both halves), the feet
+#: from Hearthglen, and the bracers from the Deadwind Pass dungeon when it exists. Their bosses join DUNGEONS then.
+#: Tokens carry no names of their own (Kyle, 16 Nov 2026: "Tokens shouldn't have special names as they allow getting
+#: the T0 loot which has names"): just the tier, the slot and the armour.
+TOKEN_NAMES = {"wrist": "T0 Bracers Token", "waist": "T0 Belt Token", "legs": "T0 Legs Token",
+               "shoulder": "T0 Shoulders Token", "hands": "T0 Gloves Token"}
 SLOT_WORD = {"wrist": "bracers", "waist": "belt", "legs": "legs", "shoulder": "shoulders", "hands": "gloves"}
 #: A set piece of the right slot and armour type, borrowed as the token's picture.
 TOKEN_ICON_CLASS = {"plate": "warrior", "mail": "shaman", "leather": "rogue", "cloth": "priest"}

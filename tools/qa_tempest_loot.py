@@ -88,7 +88,7 @@ def main():
         if not kinds <= allowed or (spec["guaranteed"] and kinds != allowed):
             bad.append(f"{name} dropped {sorted(kinds - allowed) or 'too few kinds'}")
     slots = [T["bosses"][n]["slot"] for n in order]
-    if slots != ["wrist"] * 6 + ["waist"] * 6 + ["legs"] * 7 + ["shoulder"] * 5 + ["hands"] * 8:
+    if slots != ["waist"] * 12 + ["legs"] * 7 + ["shoulder"] * 5 + ["hands"] * 8:
         bad.append(f"token slots by boss are {slots}")
     if [n for n in order if T["bosses"][n]["guaranteed"]] != ["Thane Morrun the Unmade", "The Caldera",
                                                                 "Hive-Mother Ahn'thera", "Zar'gothrax the Unbound"]:

@@ -162,6 +162,13 @@ Argent rep). Rare drop: the Baron's deathcharger.
 - Packs of four to five, never lone trash.
 - Set pieces (our T0 style, with the 2, 4, 6 and 8 piece bonuses) spread across Scholomance, both Stratholme halves
   and Hearthglen, with tokens so every spec is covered.
+- **The last T0 tokens (Kyle, 16 Nov 2026):** Scholomance drops the **head**, Stratholme the **chest** (both halves),
+  Hearthglen the **feet**, the same way as the Tempest dungeons (20% a boss, the last boss always). The **bracers**
+  moved off Khaz Varun (which now drops the belt alone) to the **Deadwind Pass dungeon** (zone 49-53, dungeon 55-57),
+  which is ON HOLD: "We need to 100% finish WPL and EPL and SM and all the art passes and the new recruits." The
+  bracer tokens drop from nothing until then.
+- **Token names are plain** (Kyle: "Tokens shouldn't have special names as they allow getting the T0 loot which has
+  names"): "T0 Bracers Token (Plate)", "T0 Belt Token (Cloth)" and so on. The new head, chest and feet tokens follow.
 - Rare recipes and plans from Scholomance and Stratholme, classic style.
 - All loot checked against the 97 specs of the 30 classes.
 - Dungeon quests are given in town, not by someone parked at the door.
