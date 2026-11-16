@@ -7,7 +7,7 @@ Kyle, 15 Nov 2026: "add some bro and add some of it to crafting requirements", "
 too", "the crafting will need to state where they are dropped", and one art sheet "for upwards of 48".
 
 CLAIMS
-  1. 48 materials, levels 1-58, each a "mob_reagent" in data/gathering/materials.json with an icon on disk.
+  1. The sheet's 48 and the recolours, levels 1-58, each a "mob_reagent" in data/gathering/materials.json with an icon on disk.
   2. Every source creature exists, spawns in a zone the material names, and is in no hidden zone; no hidden
      zone is ever named as a source.
   3. A kill rolls them: a source drops its material some of the time, a boss source every time.
@@ -37,8 +37,8 @@ def main():
     from world.hidden_zones import registry, creature_kinds
     hidden, secret = set(registry()), set(creature_kinds())
     mob = {k: v for k, v in mats.items() if v.get("material_type") == "mob_reagent"}
-    if len(mob) != 48 or set(mob) != set(drops):
-        bad.append(f"{len(mob)} mob_reagent materials and {len(drops)} drop rows, not 48 of each")
+    if len(mob) < 48 or set(mob) != set(drops):
+        bad.append(f"{len(mob)} mob_reagent materials and {len(drops)} drop rows: at least the sheet's 48, the same set")
 
     # ---- 1 and 2
     for mid, d in drops.items():

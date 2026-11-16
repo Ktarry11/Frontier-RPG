@@ -218,6 +218,86 @@ M = [
      [("tailoring", 2, 1, "cloak|back|robe"), ("leatherworking", 2, 1, "")]),
 ]
 
+# ---------------------------------------------------------------- RECOLOURS (Kyle, 15 Nov 2026: "you can recolour some
+# of the more 'elemental' looking ones for additional stuff"). Same sheet, a new colour: "recolor:<base>:<hue>:<sat>:<val>"
+# (hue in degrees, saturation and value as multipliers), made by recolor() below into the same folder.
+M += [
+    ("mob_smouldering_cinder", "Smouldering Cinder", "An orange coal off a fire wisp. It's never quite out.",
+     "recolor:mob_fel_ember:22:1.0:1.0", 6, [("Valley of Trials", r"ember wisp|smolderhide"),
+                                             ("Orgrimmar", r"molten elemental")], 0.30,
+     [("enchanting", 2, 1, ""), ("blacksmithing", 2, 1, "dagger|axe|mace")]),
+    ("mob_imp_brimstone", "Imp Brimstone", "A yellow lump of brimstone that comes out of a dead imp, still "
+     "fuming.", "recolor:mob_scoria_heart:70:0.9:1.0", 8,
+     [("Valley of Trials", r"fel pup|felstalker whelp|vile familiar"), ("Durotar", r"cinder imp|felhound")], 0.30,
+     [("alchemy", 2, 1, "fire|shadow"), ("enchanting", 2, 1, "")]),
+    ("mob_stormbinder_spark", "Stormbinder Spark", "A crackling yellow spark that jumps to the nearest metal.",
+     "recolor:mob_veinlight_mote:55:0.7:1.05", 11, [("Durotar", r"stormbinder")], 0.35,
+     [("engineering", 2, 1, ""), ("enchanting", 1, 1, "")]),
+    ("mob_tidewater_core", "Tidewater Core", "The cold blue heart of a water elemental. It drips and never "
+     "runs dry.", "recolor:mob_basalt_heart:215:1.1:1.0", 14,
+     [("Echo Isles", r"tidal elemental|tidelord"), ("Central Barrens", r"water elemental")], 0.30,
+     [("alchemy", 2, 1, "water|mana"), ("jewelcrafting", 2, 1, "")]),
+    ("mob_sludge_gel", "Sludge Gel", "A wobbling handful of swamp-brown gel. Tanners love it, for some reason.",
+     "recolor:mob_sinkhole_ichor:38:110:1.9:c", 17,
+     [("Northern Barrens", r"sludge"), ("Silverpine South", r"marsh ooze"), ("Central Barrens", r"deviate ooze")],
+     0.30, [("leatherworking", 2, 1, ""), ("alchemy", 2, 1, "")]),
+    ("mob_rock_core", "Rumbling Rock Core", "The sandy core of a rock elemental. It hums in your hand.",
+     "recolor:mob_basalt_heart:35:0.5:1.25", 18,
+     [("Northern Barrens", r"cavern rock elemental"), ("Southern Barrens", r"dig-site golem")], 0.30,
+     [("blacksmithing", 2, 1, "shield|helm|mace"), ("engineering", 2, 1, "")]),
+    ("mob_wraith_essence", "Wraith Essence", "A pale wisp of whatever a wraith is made of, caught in a cold "
+     "glob.", "recolor:mob_dreadmist_ichor:185:0.45:1.15", 21,
+     [("Ashenvale West", r"wraith"), ("Ashenvale East", r"wraith"), ("Silverpine South", r"wraith"),
+      ("Fenris Isle", r"wraith|banshee"), ("Central Barrens", r"kodo wraith")], 0.30,
+     [("enchanting", 2, 1, ""), ("tailoring", 2, 1, "robe|hood|mantle")]),
+    ("mob_naiad_tear", "Naiad Tear", "A drop of lake water that holds its shape, from a naiad's cheek.",
+     "recolor:mob_saltpan_crystal:185:120:1.0:c", 24, [("Ashenvale West", r"naiad"), ("Ashenvale East", r"naiad")],
+     0.35, [("jewelcrafting", 2, 1, "ring|necklace|pendant"), ("alchemy", 2, 1, "")]),
+    ("mob_wisp_light", "Wisp Light", "A soft silver light that drifts out of a wisp when it goes out.",
+     "recolor:mob_veinlight_mote:200:0.2:1.1", 28, [("Ashenvale West", r"^wisp$"), ("Arathi Central", r"ring wisp")],
+     0.30, [("enchanting", 2, 1, ""), ("tailoring", 2, 1, "robe|vest|mantle")]),
+    ("mob_void_shard", "Void Shard", "A shard of nothing, cold and black, that light falls into.",
+     "recolor:mob_lattice_shard:265:1.1:0.6", 27,
+     [("Ashenvale East", r"void construct"), ("Silverpine South", r"voidwalker"), ("Orgrimmar", r"voidwalker")], 0.30,
+     [("enchanting", 2, 1, ""), ("tailoring", 2, 1, "robe|shadow|mantle")]),
+    ("mob_vent_vapour", "Vent Vapour", "A twist of scalding white steam that won't leave the bottle you put it "
+     "in.", "recolor:mob_whirling_grit:205:0.25:1.25", 31,
+     [("Stonetalon West", r"steamling")], 0.35, [("alchemy", 2, 1, ""), ("engineering", 2, 1, "")]),
+    ("mob_resonant_seam_crystal", "Resonant Seam Crystal", "A teal crystal that rings for a long time after "
+     "you touch it.", "recolor:mob_sunstone_shard:170:1.0:1.0", 50,
+     [("Glittervein", r"seam singer|resonance|brinewrought")], 0.30,
+     [("jewelcrafting", 2, 1, ""), ("enchanting", 2, 1, "")]),
+    ("mob_forge_slag_core", "Forge Slag Core", "A lump of grey slag with a red-hot heart, from a golem built at "
+     "a forge.", "recolor:mob_scoria_heart:15:0.45:0.9", 53,
+     [("Tempest Shallows", r"golem|slag ooze|automaton|forge titan")], 0.30,
+     [("blacksmithing", 2, 1, "plate|shield|mace"), ("engineering", 2, 1, "")]),
+    ("mob_moonwisp_essence", "Moonwisp Essence", "Silver-violet light from a Felwood wisp. It's colder than the "
+     "air around it.", "recolor:mob_veinlight_mote:250:0.35:1.1", 52,
+     [("South Felwood", r"moonlit wisp|restless wisp")], 0.30,
+     [("enchanting", 2, 1, ""), ("tailoring", 2, 1, "robe|mantle|hood")]),
+    ("mob_fel_seepage", "Fel Seepage", "Sickly green ooze from the Bloodvenom's runoff. It eats through cork.",
+     "recolor:mob_sinkhole_ichor:100:190:2.2:c", 54, [("North Felwood", r"seepage ooze|bloodvenom rot")], 0.30,
+     [("alchemy", 2, 1, ""), ("leatherworking", 2, 1, "")]),
+]
+
+
+def recolor(src, dst, hue, sat, val, colourise=False):
+    """The same icon in another colour: every coloured pixel takes the new hue, greys and blacks stay put. With
+    colourise, EVERY pixel takes the hue and sat becomes an absolute saturation (0-255): for a base that's
+    nearly colourless (the black ichor), where a hue shift would change nothing."""
+    import numpy as np
+    from PIL import Image
+    im = Image.open(src).convert("RGBA")
+    a = np.asarray(im)
+    hsv = np.asarray(im.convert("RGB").convert("HSV"), np.float32)
+    coloured = (a[..., 3] > 0) if colourise else (hsv[..., 1] > 40)
+    hsv[..., 0] = np.where(coloured, hue / 360.0 * 255.0, hsv[..., 0])
+    hsv[..., 1] = np.where(coloured, sat, 0) if colourise else np.clip(hsv[..., 1] * sat, 0, 255)
+    hsv[..., 2] = np.clip(hsv[..., 2] * val, 0, 255)
+    rgb = Image.fromarray(hsv.astype(np.uint8), "HSV").convert("RGB")
+    out = np.dstack([np.asarray(rgb), a[..., 3]])
+    Image.fromarray(out.astype(np.uint8), "RGBA").save(dst)
+
 
 def _load(p):
     return json.loads(p.read_text(encoding="utf-8"))
@@ -272,7 +352,8 @@ def main():
     secret = set(creature_kinds())
     nested, flat = _recipe_files()
     ids = [m[0] for m in M]
-    assert len(ids) == len(set(ids)) == 48, f"{len(set(ids))} materials, not 48"
+    assert len(ids) == len(set(ids)), "a material id is used twice"
+    assert sum(1 for m in M if not m[3].startswith("recolor:")) == 48, "the sheet holds 48"
 
     # take every creature material back off every recipe first, so a rerun picks afresh
     mob_ids = set(ids) | {k for k, v in mats["materials"].items() if v.get("material_type") == "mob_reagent"}
@@ -325,7 +406,15 @@ def main():
                    icon_id=mid, source="creature")
         mats["materials"][mid] = rec
         dst = ICONS / f"{mid}.png"
-        if not dst.exists() or (ICONS / f".placeholder_{mid}").exists():
+        if icon.startswith("recolor:"):
+            parts = icon.split(":")
+            _b, base, hue, sat, val = parts[:5]
+            colourise = len(parts) > 5 and parts[5] == "c"
+            if not (ICONS / f"{base}.png").exists():
+                bad.append(f"{mid}: no {base} icon to recolour")
+            else:
+                recolor(ICONS / f"{base}.png", dst, float(hue), float(sat), float(val), colourise)
+        elif not dst.exists() or (ICONS / f".placeholder_{mid}").exists():
             src = VT / f"{icon}.png"
             if not src.exists():
                 src = QI / f"{icon}.png"
