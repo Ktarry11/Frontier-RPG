@@ -79,11 +79,12 @@ _ANIMAL_HEAD = re.compile(
     r"rat|hare|ox|kodo|ram|goat|bird|hawk|owl|vulture|eel|shark|turtle)s?$", re.I)
 
 _FAMILY_RULES = [
-    (re.compile(r"brood tender|resin spitter|chitterlord|amber sentinel|hive weaver|carapace|silithid|brood|skitter|scorpid|spider|web|wasp|larva|drone|stinger|crawler|hatchling|"
+    (re.compile(r"heartrot|gnawheart|brood tender|resin spitter|chitterlord|amber sentinel|hive weaver|carapace|silithid|brood|skitter|scorpid|spider|web|wasp|larva|drone|stinger|crawler|hatchling|"
                 r"weaver|husk crawler|egg tender|amberwing|nightcrawler|skulker|tunnel-guard|nest guardian", re.I), "insect"),
     (re.compile(r"treant|timberling|sapling|tangle-vine|rotlasher|gloomcap|spore|bramble|mosshide|orchardkeeper|grave moss|"
                 r"peat shambler|deviate shambler|thornroot|scarecrow|oasis|sprite|creeper|ancient protector|corrupted ancient|"
-                r"ancient treant|elder timberling|verdan|dryad", re.I), "plant"),
+                r"ancient treant|elder timberling|verdan|dryad|redwood ancient|grandfather burl|eldest's warden|"
+                r"^the eldest$", re.I), "plant"),
     (re.compile(r"adder|python|viper|serpent|eel|toad|slug|leech|rat\b|rats\b|hissfang|lasher|ravager|raptor|croc", re.I), "beast"),
     (re.compile(r"crab|snapper|turtle|crocolisk|lurker|murky|gulpjaw|kragg|shellcrusher", re.I), "aquatic"),
     (re.compile(r"wraith|banshee|shade|ghost|ectoplasm|mourning|restless|wight|revenant|bonewalker|bone-dust|echo of|spirit|abomination|zombie|"
@@ -98,6 +99,9 @@ _TEMPLATE_FAMILY = {
     "beast_basic": "beast", "beast_fast": "beast", "beast_large": "beast",
     "vermin_sneaky": "insect", "vermin_swarm": "insect",
     "aquatic_basic": "aquatic", "undead_basic": "undead",
+    # Without these two, every undead_warrior and undead_caster with no keyword in its name fell through to
+    # "beast" and could be skinned for leather (Stonetalon's Risen Tauren, 15 Nov 2026).
+    "undead_warrior": "undead", "undead_caster": "undead",
     "elemental_bruiser": "elemental", "elemental_caster": "elemental",
     "demon_caster": "demon", "demon_hound": "demon",
 }
@@ -127,6 +131,10 @@ def classify(name, template=None):
             if fam == "elemental" and template in ("beast_basic", "beast_fast", "beast_large", "vermin_sneaky", "vermin_swarm"):
                 continue
             if fam == "beast" and template.startswith(("undead", "elemental", "demon")):
+                continue
+            # an ash or cinder "wraith" built as an elemental is an elemental, not a ghost (Stonetalon's
+            # Crater Ash Wraith and Ashvent Cinderwraith)
+            if fam == "undead" and template.startswith("elemental") and re.search(r"ash|cinder", name, re.I):
                 continue
             # A plant keyword loses to an animal head noun on a beast/vermin stat template - see
             # _ANIMAL_HEAD. Both conditions are required: the head noun says it is an animal, and
