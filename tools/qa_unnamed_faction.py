@@ -1,11 +1,18 @@
 #!/usr/bin/env python3
-"""The "????" faction: 24 items as asked, standing only from frontier bosses, and silence about all of it.
+"""The "????" faction: 45 items for every class, standing only from frontier bosses, and silence about all of it.
 
     PYTHONPATH=. python3 tools/qa_unnamed_faction.py
 
 Kyle, 15 Nov 2026 (tools/build_unnamed_faction.py has the full ask). This holds:
-  - 8 honored blues at item level 69, 8 revered epics at 78, 8 exalted epics at 85, all worn at 60, every
+  - 15 honored blues at item level 69, 15 revered epics at 78, 15 exalted epics at 85, all worn at 60, every
     one buildable, every epic with a flavour line, and each tier serving tanks, healers, casters and fighters;
+  - ALL 30 CLASSES, NOT THE CLASSIC 9 (Kyle: "wheres my tinkerer healer? My caster shield? My strength
+    leather? ... STOOOOOOP DEFAULTING TO CLASSIC 9 CLASSES"). Against every one of the 97 specs in
+    data/items/spec_gear.json: each finds at least one piece it can wear AND wants at every tier, and three
+    across the shop; every armour type is made for every role that wears it (a mail healer, strength leather,
+    plate casters, leather and mail tanks...); every weapon any spec carries is on sale, relics, wands, thrown,
+    fist weapons and polearms included; every equipment slot; a caster's shield and a healer's shield; and
+    trinkets that do something;
   - the faction is "????" with nothing to read: no description, no lore, no leader, no home;
   - a frontier BOSS pays 50, and nothing else pays anything: not trash in a frontier, not a boss elsewhere,
     not a quest;
@@ -29,7 +36,45 @@ sys.path.insert(0, str(ROOT / "tools"))
 os.chdir(ROOT)
 
 FID = "the_unnamed"
+TANKS = {"tank", "shield_tank", "bear", "bear_weapon", "tank_weapon", "tank_any"}
+SLOTS = {"head", "neck", "shoulder", "back", "chest", "wrist", "hands", "waist", "legs", "feet", "ring", "trinket",
+         "main_hand", "off_hand", "ranged"}
 bad = []
+
+
+def tags(C, ident):
+    """Who a piece is for, by its stats: tank, healer, caster, or a fighter by agility and/or strength."""
+    w = C.IDENTITIES[ident][0]
+    if ident in TANKS:
+        return {"tank"}
+    if "healing_power" in w:
+        return {"healer"}
+    if any(k.endswith("spell_power") for k in w):
+        return {"caster"}
+    out = set()
+    if "agility" in w:
+        out.add("agi")
+    if "strength" in w:
+        out.add("str")
+    if "strength" in w and "intellect" in w:
+        out.add("str_int")
+    if ident == "physical":
+        out |= {"agi", "str"}
+    return out
+
+
+def wants(spec):
+    """What a spec wants, from its role and stat template (spec_gear.json)."""
+    role, tpl = spec["role"], spec["stat_template"]
+    if role in ("tank", "healer"):
+        return {role}
+    if tpl == "int_caster":
+        return {"caster"}
+    if tpl in ("agi_physical", "agi_int_hybrid"):
+        return {"agi"}
+    if tpl == "str_physical":
+        return {"str"}
+    return {"caster", "str_int"} if role == "ranged_dps" else {"str", "str_int"}
 
 
 def check(ok, msg):
@@ -56,7 +101,7 @@ def main():
     want = {"honored": ("rare", 69), "revered": ("epic", 78), "exalted": ("epic", 85)}
     for tier, (rarity, ilvl) in want.items():
         ids = shelf.get(tier, [])
-        check(len(ids) == 8, f"{tier}: {len(ids)} items, not 8")
+        check(len(ids) == 15, f"{tier}: {len(ids)} items, not 15")
         roles = set()
         for uid in ids:
             d = items.get(uid[7:])
@@ -69,7 +114,7 @@ def main():
                 check(bool((d.get("flavor_text") or "").strip()), f"{d['name']}: an epic with no flavour line")
             check(make_unique(uid[7:]) is not None, f"{d['name']}: doesn't build")
             w = C.IDENTITIES[d["identity"]][0]
-            if d["identity"] in ("tank", "shield_tank", "bear", "bear_weapon", "tank_weapon"):
+            if d["identity"] in TANKS:
                 roles.add("tank")
             elif "healing_power" in w:
                 roles.add("healer")
@@ -78,6 +123,43 @@ def main():
             else:
                 roles.add("fighter")
         check(roles == {"tank", "healer", "caster", "fighter"}, f"{tier}: serves only {sorted(roles)}")
+
+    # ---- every class, every spec, every slot (not the classic 9)
+    from entities.character import Character
+    from entities.proficiency import can_equip
+    specs = {k: v for k, v in json.loads((ROOT / "data/items/spec_gear.json").read_text(encoding="utf-8")).items()
+             if isinstance(v, dict) and "class" in v}
+    with quiet():
+        chars = {sp["class"]: Character("QA", sp["class"], 60) for sp in specs.values()}
+        built = {k: make_unique(k) for k in items}
+    check(len(chars) == 30, f"{len(chars)} classes in spec_gear.json, not 30")
+    thin = []
+    for sid, sp in specs.items():
+        total = 0
+        for tier in want:
+            n = sum(1 for uid in shelf.get(tier, []) if built.get(uid[7:]) is not None
+                    and tags(C, items[uid[7:]]["identity"]) & wants(sp)
+                    and can_equip(chars[sp["class"]], built[uid[7:]])[0])
+            check(n >= 1, f"{sid}: nothing at {tier} it can use and wants")
+            total += n
+        thin.append(total)
+        check(total >= 3, f"{sid}: only {total} pieces across the shop")
+    for sid, sp in specs.items():
+        made = [d for d in items.values() if d["slot"] not in ("back",) and d.get("armor_type") == sp["armor_type"]
+                and tags(C, d["identity"]) & wants(sp)]
+        check(made, f"nothing in {sp['armor_type']} made for {sid} ({sp['role']}, {sp['stat_template']})")
+    sold = {d.get("weapon_type") for d in items.values()}
+    for sid, sp in specs.items():
+        for w in sp["weapons"].values():
+            check(w is None or w in sold, f"{sid} carries a {w}, and none is sold")
+    check(SLOTS <= {d["slot"] for d in items.values()}, f"no {sorted(SLOTS - {d['slot'] for d in items.values()})}")
+    shields = [tags(C, d["identity"]) for d in items.values() if d.get("weapon_type") == "shield"]
+    for need in ("tank", "healer", "caster"):
+        check(any(need in t for t in shields), f"no {need}'s shield")
+    trinkets = [d for d in items.values() if d["slot"] == "trinket"]
+    check(len(trinkets) >= 3, f"{len(trinkets)} trinkets")
+    for d in trinkets:
+        check(bool((d.get("proc") or {}).get("describe")), f"{d['name']}: a trinket that does nothing")
 
     # ---- the faction says nothing
     check(rec.get("name") == "????" and rec.get("secret") is True, "the faction isn't the secret '????'")
@@ -112,7 +194,6 @@ def main():
 
         # ---- a real victory over a frontier boss: standing moves, the log says nothing about it
         from combat.combat_engine import CombatEngine
-        from entities.character import Character
         from world.creature_manager import CreatureManager
         with quiet():
             cm = CreatureManager()
@@ -160,7 +241,8 @@ def main():
         check(any(t.startswith("Current Status: ") for t in drawn), "the journal never says 'Current Status'")
         check(not any("12345" in t or "3345" in t for t in drawn), "the journal shows '????' standing as a number")
 
-    print(f"'????': {len(items)} items, {len(frontiers)} frontier zones pay its standing, seller parked")
+    print(f"'????': {len(items)} items for {len(specs)} specs of {len(chars)} classes (fewest any spec gets: "
+          f"{min(thin)}), {len(frontiers)} frontier zones pay its standing, seller parked")
     if bad:
         print(f"FAIL: {len(bad)}")
         for b in bad:

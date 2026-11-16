@@ -7,7 +7,7 @@ Kyle, 15 Nov 2026: "I want another secret vendor. Honored will be blue ilvl 69. 
 Exalted will be ilvl 85. --- Faction is "????" - It will be INCREDIBLY WELL HIDDEN and rep will only be through
 Frontier Bosses and not advertised where rep comes from. Frontier bosses give 50 rep a kill but we don't have an
 indication of how much rep we have it's only advertised as "Current Status: Neutral / Friendly .... / Exalted"
-... He will sell 8 from each rep - so 24 in total." Then: "design everything with the items and everything and
+... He will sell 8 from each rep - so 24 in total." Then 15 a tier, 45 in all, for every CoA class and slot. Then: "design everything with the items and everything and
 have the vendor but dont place him since he MUST be at the bottom of a high-end dungeon and be a bitch to get
 to ... not implement him yet."
 
@@ -16,10 +16,10 @@ WHAT THIS BUILDS (and what it doesn't)
     "Current Status: <tier>" (no bar, no numbers, no description, no leader), and combat never prints its
     gains or its tier-ups. Its only source is "frontier_boss_rep": 50, paid by world/faction_manager for any
     boss killed inside a frontier zone (world/hidden_zones.kind == "frontier"). Nothing in the game names that.
-  - 24 items in data/items/unnamed_rewards.json, sold as unique:<id>: 8 blues at honored (ilvl 69), 8 epics at
-    revered (ilvl 78), 8 epics at exalted (ilvl 85), all worn at 60, every epic with its own flavour line.
+  - 45 items in data/items/unnamed_rewards.json, sold as unique:<id>: 15 blues at honored (ilvl 69), 15 epics at
+    revered (ilvl 78), 15 epics at exalted (ilvl 85), all worn at 60, every epic with its own flavour line.
     Stats from the crafted-gear identities on the bent budget past 60 (entities/item_budget.budget_level),
-    each tier covering tanks, healers, casters and fighters (a direction, not a cage).
+    covering all 97 specs of the 30 classes at every tier (see EVERY CLASS, EVERY SLOT below).
   - the seller, PARKED: his record is data/npcs/unplaced_vendors.json and his shelf is the faction's
     "vendor_stock_unplaced", which nothing reads. He is in no zone and no shop. Placing him is a later job,
     done without telling Kyle where (the SECRETS rule): at the bottom of a high-end dungeon, through a hidden
@@ -41,27 +41,50 @@ FACTION = "the_unnamed"
 VENDOR = "unnamed_wayless"
 G = 10000
 
+# EVERY CLASS, EVERY SLOT (Kyle, 15 Nov 2026: "lets do 15/15/15 ... Don't forget ALL the CoA classes, all the
+# equipment slots....everything. Don't be limited! Like trinkets", then "wheres my tinkerer healer? My caster
+# shield? My strength leather? ... STOOOOOOP DEFAULTING TO CLASSIC 9 CLASSES"). The shop is checked against all
+# 97 specs of the 30 classes (data/items/spec_gear.json) by tools/qa_unnamed_faction.py: every spec finds
+# something it wants at every tier; every armour type is made for every role that wears it (strength leather
+# for the Barbarian, a mail healer for the Tinker and the Vizier, plate casters for the Starcaller and the
+# Cultist); every weapon any spec carries is sold, relics, wands and thrown included; a caster's shield and a
+# healer's shield; and trinkets that do something.
+#
 # (id, name, slot, kind, armour or weapon type, identity, price in gold, flavour)
 HONORED = [   # blue, ilvl 69
     ("un_edgewalker_treads", "Edgewalker's Treads", "feet", "armor", "leather", "agility", 150,
      "Worn thin at the toe by roads that stopped being roads."),
-    ("un_mapless_mantle", "Mapless Mantle", "shoulder", "armor", "cloth", "caster", 160,
-     "Embroidered with a map, and every line on it trails off."),
+    ("un_mapless_spaulders", "Mapless Spaulders", "shoulder", "armor", "plate", "caster", 165,
+     "Engraved with a map, and every line on it trails off."),
     ("un_farwatch_gauntlets", "Farwatch Gauntlets", "hands", "armor", "plate", "tank", 150,
      "Made for holding a line that nobody else can see."),
     ("un_lantern_bearers_cord", "Lantern-Bearer's Cord", "waist", "armor", "cloth", "healer", 145,
      "A hook on the left hip for a lantern, and scorch marks where it hung."),
     ("un_trailblazers_legguards", "Trailblazer's Legguards", "legs", "armor", "mail", "hunter", 180,
      "Scratched by brush that doesn't grow anywhere you've been."),
-    ("un_band_of_the_unmarked_road", "Band of the Unmarked Road", "ring", "armor", None, "strength_crit", 155,
+    ("un_band_of_the_unmarked_road", "Band of the Unmarked Road", "ring", "armor", None, "tank_any", 155,
      "There's no stone in it, only a groove where the road should be."),
     ("un_pendant_of_no_north", "Pendant of No North", "neck", "armor", None, "caster_crit", 155,
      "A compass rose with the north point filed off."),
     ("un_wayfinders_bracers", "Wayfinder's Bracers", "wrist", "armor", "mail", "tide_healer", 140,
      "Etched with stars. Not the ones you know."),
+    ("un_flare_of_the_lost_party", "Flare of the Lost Party", "ranged", "weapon", "gun", "tide_healer", 170,
+     "Built to call for help. Turns out it can be the help."),
+    ("un_cragstriders_jerkin", "Cragstrider's Jerkin", "chest", "armor", "leather", "strength", 175,
+     "Cut loose and heavy across the shoulders, for someone who climbs with their arms."),
+    ("un_hollowridge_headguard", "Hollowridge Headguard", "head", "armor", "mail", "bear", 165,
+     "The dents all face forward."),
+    ("un_lamplighters_wand", "Lamplighter's Wand", "ranged", "weapon", "wand", "caster", 150,
+     "It was a lamp-lighting taper once. It still finds the dark."),
+    ("un_compass_of_bad_directions", "Compass of Bad Directions", "trinket", "armor", None, "physical", 160,
+     "It points at trouble. It has never once been wrong."),
+    ("un_surveyors_gloves", "Surveyor's Gloves", "hands", "armor", "leather", "caster_crit", 150,
+     "Ink-stained at the fingertips from maps nobody finished."),
+    ("un_the_last_handhold", "The Last Handhold", "main_hand", "weapon", "axe_1h", "wildheart", 170,
+     "A climber's axe, the last grip before the drop. Somebody pried it loose and kept it."),
 ]
 REVERED = [   # epic, ilvl 78
-    ("un_edge_of_the_known", "Edge of the Known", "main_hand", "weapon", "sword_1h", "rogue_crit", 560,
+    ("un_edge_of_the_known", "Edge of the Known", "main_hand", "weapon", "fist_weapon", "rogue_crit", 560,
      "Everything on this side of it has a name."),
     ("un_the_blank_atlas", "The Blank Atlas", "off_hand", "weapon", "tome", "healer", 520,
      "Every page is empty. Every page is somewhere you haven't been yet."),
@@ -77,6 +100,20 @@ REVERED = [   # epic, ilvl 78
      "Whatever lives out past the edge didn't get through this. It tried."),
     ("un_hauberk_of_the_last_signal", "Hauberk of the Last Signal", "chest", "armor", "mail", "haste_caster", 600,
      "The last word anyone heard from out there came from someone wearing this."),
+    ("un_ten_foot_pole", "Ten-Foot Pole", "main_hand", "weapon", "polearm", "agility", 580,
+     "For prodding the things you'd rather not get any closer to."),
+    ("un_where_the_road_ends", "Where the Road Ends", "main_hand", "weapon", "sword_2h", "strength_crit", 600,
+     "It isn't a figure of speech. You'll know the place when you see it."),
+    ("un_holdfast", "Holdfast", "main_hand", "weapon", "mace_2h", "bear_weapon", 580,
+     "Plant it, and nothing gets past. Not even you."),
+    ("un_cairn_totem", "Cairn Totem", "ranged", "weapon", "totem", "mail_caster", 520,
+     "Stones stacked where the trail ends. Whoever passes adds one more."),
+    ("un_last_light_aegis", "Last Light Aegis", "off_hand", "weapon", "shield", "healer", 560,
+     "Polished bright enough to signal with. Whoever held it wanted to be found."),
+    ("un_the_last_lantern", "The Last Lantern", "trinket", "armor", None, "high_healer", 560,
+     "It's never been lit. It's never gone out."),
+    ("un_lightkeepers_pauldrons", "Lightkeeper's Pauldrons", "shoulder", "armor", "plate", "plate_healer", 560,
+     "Somebody kept the light at the edge burning for years, and kept everyone near it alive."),
 ]
 EXALTED = [   # epic, ilvl 85
     ("un_here_be_monsters", "Here Be Monsters", "main_hand", "weapon", "axe_2h", "strength_crit", 1200,
@@ -85,7 +122,7 @@ EXALTED = [   # epic, ilvl 85
      "It always points the same way. Nobody knows what's there."),
     ("un_warden_of_the_edge", "Warden of the Edge", "main_hand", "weapon", "sword_1h", "tank_weapon", 1050,
      "Nothing comes back over the edge while this is drawn."),
-    ("un_farsight", "Farsight", "ranged", "weapon", "gun", "hunter_precise", 1000,
+    ("un_farsight", "Farsight", "ranged", "weapon", "crossbow", "hunter_precise", 1000,
      "You can see a long way from the edge. Further than is comfortable."),
     ("un_the_long_way_home", "The Long Way Home", "main_hand", "weapon", "mace_1h", "high_healer", 1050,
      "Everyone who made it back came the long way."),
@@ -93,9 +130,45 @@ EXALTED = [   # epic, ilvl 85
      "If it isn't on the map, it can't be found. Neither can you."),
     ("un_signet_of_the_final_mile", "Signet of the Final Mile", "ring", "armor", None, "precise_caster", 950,
      "Most turn back with a mile to go. This was made for the ones who didn't."),
-    ("un_mask_of_the_farthest_hunt", "Mask of the Farthest Hunt", "head", "armor", "leather", "bear", 980,
+    ("un_trophy_of_the_farthest_hunt", "Trophy of the Farthest Hunt", "trinket", "armor", None, "bear", 1000,
      "Out past the last trail, something bigger than a bear is still hunting. So are you."),
+    ("un_ward_of_the_last_map", "Ward of the Last Map", "off_hand", "weapon", "shield", "mail_caster", 1000,
+     "The only map of the far side is painted on the inside of this shield. Don't lose it."),
+    ("un_idol_of_the_last_grove", "Idol of the Last Grove", "ranged", "weapon", "idol", "healer", 950,
+     "Carved from the last tree before the edge. It still has roots."),
+    ("un_libram_of_the_final_entry", "Libram of the Final Entry", "ranged", "weapon", "libram", "crusader", 950,
+     "The last page was written by someone who was still walking."),
+    ("un_stone_from_the_edge", "Stone from the Edge", "ranged", "weapon", "thrown", "rogue_crit", 950,
+     "Thrown from the very last step. It came back."),
+    ("un_signal_fire_breastplate", "Signal-Fire Breastplate", "chest", "armor", "plate", "crusader", 1150,
+     "Lit at the edge, so the next ones would know how far the last ones got."),
+    ("un_lifeline_harness", "Lifeline Harness", "chest", "armor", "leather", "high_healer", 1100,
+     "Tied to the one behind you, so nobody goes over the edge alone."),
+    ("un_cloak_of_the_last_horizon", "Cloak of the Last Horizon", "back", "armor", None, "physical", 1000,
+     "Dyed the colour of the sky right where it meets the edge."),
 ]
+#: Trinkets do things (claude/trinkets_must_do_things.md). Sized up from the woodworking trinkets for item level
+#: 69 to 85; flat numbers are curved to the wearer's level at runtime (combat/proc_text).
+PROCS = {
+    "un_compass_of_bad_directions": {
+        "trigger": "on_crit", "chance": 15, "icd": 4,
+        "apply_effect": {"effect_id": "unnamed_bad_directions", "name": "Wrong Way, Right Place",
+                         "effect_type": "buff", "duration": 3, "stat_mods": {"attack_power": 60},
+                         "on_target": False},
+        "describe": "Your critical hits have a chance to grant 60 attack power for 3 turns."},
+    "un_the_last_lantern": {
+        "trigger": "on_heal_cast", "chance": 10, "icd": 4,
+        "apply_effect": {"effect_id": "unnamed_last_lantern", "name": "Lantern-Light", "effect_type": "buff",
+                         "duration": 3, "stat_mods": {"healing_power": 90}, "on_target": False},
+        "grant_resource": {"resource": "mana", "amount": 60},
+        "describe": "Your healing spells have a chance to restore 60 mana and grant 90 healing power for 3 turns."},
+    "un_trophy_of_the_farthest_hunt": {
+        "trigger": "on_damage_taken", "chance": 10, "icd": 5,
+        "apply_effect": {"effect_id": "unnamed_farthest_hunt", "name": "Bigger Than a Bear", "effect_type": "buff",
+                         "duration": 3, "absorb_pct_max_health": 0.08, "stat_mods": {}, "on_target": False},
+        "describe": "When you're struck, you have a chance to shrug it off: a shield that absorbs 8% of your "
+                    "health."},
+}
 TIERS = (("honored", HONORED, "rare", 69), ("revered", REVERED, "epic", 78), ("exalted", EXALTED, "epic", 85))
 
 FACTION_RECORD = {
@@ -136,6 +209,8 @@ def main():
         for iid, name, slot, kind, typ, ident, price, flav in rows:
             item, b = B.author_unique(iid, name, slot, kind, typ, ident, ilvl, rarity, flav, price)
             item["faction"] = FACTION
+            if iid in PROCS:
+                item["proc"] = json.loads(json.dumps(PROCS[iid]))
             items[iid] = item
             bad += b
             ids.append(f"unique:{iid}")

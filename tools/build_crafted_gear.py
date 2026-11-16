@@ -148,6 +148,12 @@ IDENTITIES = {
     "tank": ({"stamina": 0.5, "strength": 0.2, "defense_rating": 0.3}, "str_physical"),
     "shield_tank": ({"stamina": 0.55, "strength": 0.2, "block_value": 0.25}, "str_physical"),
     "plate_healer": ({"healing_power": 0.55, "intellect": 0.3, "mp5": 0.15}, "spi_healer"),
+
+    # ---- any fighter: attack power with no strength or agility in it, for the slots every fighter shares (a
+    # cloak, a trinket), so one piece serves a Barbarian, a Rogue and a Reaper alike (the "????" shop, 15 Nov 2026)
+    "physical": ({"attack_power": 0.5, "hit_rating": 0.25, "stamina": 0.25}, "agi_physical"),
+    # ...and any tank: no strength or agility either, so a ring serves a Warrior, a Bloodmage and a Reaper alike
+    "tank_any": ({"stamina": 0.5, "defense_rating": 0.25, "dodge_rating": 0.25}, "str_physical"),
 }
 
 # ---------------------------------------------------------------------------------------------
