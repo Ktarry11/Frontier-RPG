@@ -261,10 +261,10 @@ The ground follows "less is more": a map uses only a handful of these. Twelve or
 > sniper with a crossbow; a transplant drill sergeant shouting; a transplant inquisitor, cold and neat; a transplant
 > champion, a huge boxer-built man in crimson plate; a transplant cleric, young, fervent.
 > Row 4 - THE ORDER OF THE PALE FLAME: Flamekeeper Rory Callahan (a grey-bearded man in his fifties, scarred, tired
-> eyes, grey plate with a pale flame tabard, a big two-handed sword); Sione Tuilagi (a big Samoan man, shield and
-> one-handed hammer, grey plate); Mateus Correia (a lean Portuguese man in grey robes over mail, a healer's staff,
-> haunted look); Hana Kobayashi (a Japanese woman with a tall longbow, grey leather); a Pale Flame sentry with
-> a spear; a Pale Flame quartermaster with a ledger.
+> eyes, grey plate with a pale flame tabard, a big two-handed sword); a Pale Flame knight in grey
+> plate with a kite shield; a Pale Flame chaplain in grey and white robes with a plain staff; a Pale Flame scout in grey
+> leathers with a short bow; a Pale Flame sentry with a spear; a Pale Flame quartermaster with a ledger. (The three
+> recruitable Pale Flame fighters are drawn on recruit sheet 4, not here.)
 > Row 5 - HEARTHGLEN BOSSES (part 1): a gatewarden with two leashed war hounds (one sprite); a quartermaster boss
 > beside a barrel of black powder; twin pyre-sister inquisitors back to back (one native, one transplant, ONE
 > sprite); a transplant drillmaster with a whistle and a halberd; a high inquisitor holding a burning book;
@@ -282,11 +282,11 @@ The ground follows "less is more": a map uses only a handful of these. Twelve or
 | 1 | sc_monk | sc_zealot | sc_adept | sc_chaplain | sc_myrmidon | sc_centurion |
 | 2 | sc_knight | sc_inquisitor | sc_judicator | sc_arcanist | sc_war_hound | sc_cavalier |
 | 3 | sc_tp_crusader | sc_tp_sniper | sc_tp_drill_sergeant | sc_tp_inquisitor | sc_tp_champion | sc_tp_cleric |
-| 4 | pf_rory_callahan | pf_sione_tuilagi | pf_mateus_correia | pf_hana_kobayashi | pf_sentry | pf_quartermaster |
+| 4 | pf_rory_callahan | pf_knight | pf_chaplain | pf_scout | pf_sentry | pf_quartermaster |
 | 5 | hg_boss_gatewarden | hg_boss_quartermaster | hg_boss_pyre_sisters | hg_boss_drillmaster | hg_boss_high_inquisitor | hg_boss_kennelmaster |
 | 6 | hg_boss_arcanist | hg_boss_lady_marden | hg_boss_crimson_choir | hg_boss_volkov | hg_boss_victor_hale | hg_scarlet_charger |
 
-The three recruitable Pale Flame fighters also need portraits, done the way the other recruits' were.
+The three recruitable Pale Flame fighters are on recruit sheet 4 (`docs/recruit_art_prompts_sheet4.md`).
 
 ---
 

@@ -96,11 +96,13 @@ flame, which is where the name comes from. They kill the mindless dead and leave
 and old scars, born in Cork and an ironworker in Boston until the Integration. He served beside the man who now leads
 Hearthglen, and he left the night the Crusade burned a transplant camp for "consorting with the dead".
 
-**Recruitable fighters (two or three, pitch):**
-- *Sione Tuilagi*, a Samoan former rugby forward, a shield tank who followed Rory out.
-- *Mateus Correia*, from Porto, once a Scarlet interrogator who now heals; he carries what he did there.
-- *Hana Kobayashi*, from Osaka, a kyudo archer who joined the Pale Flame after it, never the Crusade.
-Each joins after a Pale Flame chain, with full character traits and bond writing like the recruit overhaul.
+**Recruitable fighters (three, from recruit sheet 4, `docs/recruit_art_prompts_sheet4.md`):**
+- *Bruno*, a heavyweight fighter from Curitiba (Templar Zealot) who walked out of the Crusade beside Rory.
+- *Joaquín*, from Rosario, once a Scarlet interrogator (Sun Cleric Valkyrie); he carries what he did there.
+- *Isla*, a deer stalker from the Highlands (Witch Hunter Boltslinger) who joined after the Crusade years, never before.
+Each joins after a Pale Flame chain, with full character traits and bond writing like the recruit overhaul. They all
+serve the Order, but the recruits-don't-know-each-other rule holds: each one's text talks about Rory and the Order,
+never about another recruit.
 
 **Earth talk:** loud inside the Order (they talk about home freely among themselves), the usual high-zone band
 everywhere else.
