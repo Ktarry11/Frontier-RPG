@@ -24,6 +24,9 @@ class OverworldScreen(BaseScreen):
     def __init__(self, state_manager):
         super().__init__(state_manager)
         self.zone_manager = ZoneManager()
+        # the market needs to see the live dungeon to know when its last boss falls (world/market/market.py)
+        from world.market.market import bind_live
+        bind_live(zone_manager=self.zone_manager)
         self.tilemap_renderer = TilemapRenderer()  # tile_size defaults to world.tile_textures.TILE_SIZE (32px) - one source of truth, see tools/tile_mapping/NOTES.md
         self.camera = CameraManager(viewport_width=VIEWPORT_WIDTH, viewport_height=VIEWPORT_HEIGHT)
         self.viewport_rect = pygame.Rect(VIEWPORT_X, VIEWPORT_Y, VIEWPORT_WIDTH, VIEWPORT_HEIGHT)
@@ -327,6 +330,9 @@ class OverworldScreen(BaseScreen):
                     self.state_manager.transition_to(GameState.QUEST_DIALOG, current_quest_npc=vendor)
                 elif recruit:
                     self.state_manager.transition_to(GameState.RECRUIT_DIALOG, current_recruit_npc=recruit)
+                elif ambient_npc and getattr(ambient_npc, "is_mailbox", False):
+                    # a mailbox doesn't talk: it opens (world/mail.py, ui/screens/mail_screen.py)
+                    self.state_manager.transition_to(GameState.MAIL)
                 elif ambient_npc:
                     self.state_manager.transition_to(GameState.QUEST_DIALOG, current_quest_npc=ambient_npc)
                 else:
@@ -384,6 +390,10 @@ class OverworldScreen(BaseScreen):
             self._notify(reason, (240, 140, 140))
             return
         bind = travel.use_hearth()
+        # eight market hours pass (world/market/market.py). The hearth, not the inn: Kyle, 15 Nov 2026, "we need
+        # to ensure the inn isn't cheeseable....+8 when we HEARTH only", and the hearth has its own cooldown.
+        from world.market.market import on_hearth
+        on_hearth(self.state_manager.get_party())
         self._release_movement_keys()
         if not self.zone_manager.transition_to_zone(bind["zone"], bind["x"], bind["y"],
                                                    via_portal=False):
@@ -1161,6 +1171,16 @@ class OverworldScreen(BaseScreen):
         encounter_status = "ON" if self.encounters_enabled else "OFF"
         status_color = (100, 200, 100) if self.encounters_enabled else (200, 100, 100)
         self.renderer.draw_text(screen, f"Encounters: {encounter_status}", (20, 10), color=status_color)
+        # NEW MAIL: the raised red flag (Kyle's icon sheet), like WoW's minimap envelope (world/mail.py)
+        try:
+            from world.market.market import market_of
+            m = market_of(self.state_manager.get_party())
+            if m.mail is not None and m.mail.unread(m.clock):
+                from ui.market_widgets import ui_icon
+                screen.blit(ui_icon("mail_flag_up", 26), (16, 32))
+                self.renderer.draw_text(screen, "New mail", (44, 36), size="small", color=(236, 196, 110))
+        except Exception:
+            pass
         self._render_travel_hud(screen)
         
         # Right-edge tab column - replaces the old flat Inventory/Character/

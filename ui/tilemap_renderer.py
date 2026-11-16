@@ -390,6 +390,19 @@ class TilemapRenderer:
             return 2
         return self.WALK_CYCLE[(self._walk_step - 1) % 4]
 
+    _PROPS = {}
+
+    def _prop_sprite(self, path, height):
+        key = (path, height)
+        if key not in self._PROPS:
+            try:
+                img = pygame.image.load(path).convert_alpha()
+                w = max(1, int(img.get_width() * height / img.get_height()))
+                self._PROPS[key] = pygame.transform.smoothscale(img, (w, height))
+            except Exception:
+                self._PROPS[key] = None
+        return self._PROPS[key]
+
     def render_tilemap(self, screen, tilemap, player_pos=None, camera=None, viewport_rect=None,
                         vendors=None, recruits=None, ambient_npcs=None, cave_spawns=None,
                         gathering_nodes=None,
@@ -991,6 +1004,15 @@ class TilemapRenderer:
                 tile_h = int(self.tile_size * self.npc_sprite_scale
                              * float(getattr(npc, "sprite_scale", 1.0) or 1.0))
                 sprite = None
+                prop = getattr(npc, "prop", None)
+                if prop:
+                    # a thing, not a person (a mailbox): its own image, about a tile and a half tall
+                    sprite = self._prop_sprite(prop, int(self.tile_size * 1.5))
+                    if sprite is not None:
+                        sx = screen_x + (self.tile_size - sprite.get_width()) // 2
+                        sy = screen_y + self.tile_size - sprite.get_height() + 2
+                        screen.blit(sprite, (sx, sy))
+                    continue
                 leader_path = f"assets/npcs/leaders/{getattr(npc, 'npc_id', '')}"
                 if os.path.exists(f"{leader_path}/down.png"):
                     sprite = get_npc_sprite(leader_path, getattr(npc, "facing", "down"),

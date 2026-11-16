@@ -150,6 +150,10 @@ class Party:
         # Shared overflow storage, for the same reason the purse is shared - see entities/bank.py.
         from entities.bank import Bank
         self.bank = Bank()
+        # The auction house and the mail (world/market/market.py, world/mail.py). Made on first use by
+        # world.market.market.market_of, so a party that never visits a mailbox carries nothing.
+        self.mail = None
+        self.market = None
 
     # ------------------------------------------------------------------
     # Roster management
@@ -360,6 +364,8 @@ class Party:
                      for m in [self.player] + self.all_recruits()},
             "copper": self.copper,
             "bank": self.bank.to_dict(),
+            "mail": self.mail.to_dict() if self.mail is not None else None,
+            "market": self.market.to_dict() if self.market is not None else None,
         }
 
     @classmethod
@@ -377,6 +383,14 @@ class Party:
         if "bank" in data:
             from entities.bank import Bank
             party.bank = Bank.from_dict(data["bank"])
+
+        # Saves from before the auction house have neither; they're made on first use.
+        if data.get("mail"):
+            from world.mail import Mailbox
+            party.mail = Mailbox.from_dict(data["mail"])
+        if data.get("market"):
+            from world.market.market import Market
+            party.market = Market.from_dict(data["market"])
 
         if "copper" in data:
             party.copper = data["copper"]

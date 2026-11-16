@@ -418,7 +418,8 @@ class QuestDialogScreen(BaseScreen):
     # ------------------------------------------------------------------ greeting action row
     SERVICE_LABELS = {"revive": "Revive the Fallen", "inn": "Bind Hearthstone", "flight": "Fly", "riding": "Train Riding", "mounts": "Buy Mounts",
                       "train_class": "Train Skills", "train_prof": "Train Profession",
-                      "set_exchange": "Exchange Set Gear", "jeweller": "Remove Gems"}
+                      "set_exchange": "Exchange Set Gear", "jeweller": "Remove Gems",
+                      "auction": "Browse Auctions"}
 
     def _offered(self):
         """The services on offer right now. An innkeeper also raises the dead - but only shows
@@ -521,6 +522,12 @@ class QuestDialogScreen(BaseScreen):
             zone = zm.current_zone
             travel.set_bind(zone.name, zm.player_x, zm.player_y, zone.name)
             self.result_message = f"Your hearthstone is now bound to {zone.name}."
+        elif action == "auction":
+            # the auction house (world/market/market.py): which book depends on who you asked
+            from world.market.market import AUCTIONEER_MARKET
+            npc_id = getattr(self.npc, "npc_id", None) or getattr(self.npc, "vendor_id", None)
+            sm.transition_to(GameState.AUCTION, current_auctioneer=self.npc,
+                             current_market=AUCTIONEER_MARKET.get(npc_id, "horde"))
         elif action == "jeweller":
             screen = sm.states.get(GameState.SOCKETING)
             screen.start("remove", return_state=GameState.OVERWORLD)

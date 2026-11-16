@@ -391,6 +391,10 @@ class QuestManager:
             get_bond_manager().on_deed("quest", party)
         except Exception as exc:
             print(f"[QuestManager] friendship update failed: {exc}")
+        # the auction house moves on an hour (world/market/market.py)
+        if party is not None:
+            from world.market.market import on_quest_turned_in
+            on_quest_turned_in(party)
 
         return True
 

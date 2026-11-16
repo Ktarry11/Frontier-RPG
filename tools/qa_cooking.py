@@ -42,6 +42,8 @@ def main():
                 bad.append(f"{r['name']}: needs {mid}, which does not exist")
             elif mid in caught:
                 continue                     # fish: caught at a fishing spot (tools/qa_fishing.py)
+            elif mats[mid].get("material_type") == "mob_reagent":
+                continue                     # a creature material: dropped by named creatures (tools/qa_mob_materials.py)
             elif not mid.startswith("meat_") and mid not in sold and mid not in made:
                 bad.append(f"{r['name']}: needs {mid}, which nobody sells and no recipe makes")
             elif not mid.startswith("meat_") and not os.path.isfile(f"assets/gathering_nodes/reagents/{mats[mid]['icon_id']}.png"):

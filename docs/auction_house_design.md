@@ -46,7 +46,7 @@ it takes three times the cut.
 | Deposit (of the vendor price, per 12h) | 15% | 25% |
 | Buyer traffic | x1.0 | x1.2 gear, x1.0 the rest |
 | Fat-finger and odd listings | x1.0 | x1.5 |
-| NPC listings kept up | about 1,800 | about 1,200 |
+| NPC listings kept up | about 2,600 | about 1,700 |
 
 ## 2. Time: the market clock
 
@@ -59,10 +59,14 @@ happened.
 | --- | --- |
 | Playing (overworld, fights, menus) | 1 per 150 s, so 12 per 30 min and a full market day per hour |
 | A quest turned in | +1 |
-| A dungeon left with its boss down | +6 |
-| Resting at an inn (binding the hearth or reviving there) | +8 |
+| The LAST boss of a dungeon killed (once per visit) | +6 |
+| Using the hearthstone | +8 |
 
-Kyle's 30-minute and hourly checks are the play-time row: every 30 minutes of play is half a market day. A long
+Kyle's 30-minute and hourly checks are the play-time row: every 30 minutes of play is half a market day. Kyle,
+later: "we need to ensure the inn isn't cheeseable....we can't just go back and forth...how about +8 when we HEARTH
+only. and +6 dungeon when LAST boss is killed." The hearth has its own cooldown, and the dungeon credit is marked on
+the cave so a wipe and retry can't double it. Until somebody first opens an auction house or a mailbox the clock
+only moves (nothing is worked out), so a new game pays nothing for the market. A long
 jump (a long session with no events) is worked in whole hours up to 72, then in 6-hour steps, so a check is never
 slow. Auctions run 12, 24 or 48 market hours, so a 24-hour auction posted before a dungeon run is usually decided
 by the time you're back in town.
@@ -93,20 +97,32 @@ Worked recursively, so an enchant scroll knows what its dusts and essences are w
 herbs. A potion a vendor also sells is capped at 1.05 × the vendor price, because nobody pays the AH more than
 the shop.
 
-**Gear** sits closer to the vendor for greens and blues and far above it for epics:
+**Gear** is where the balance lives. Kyle: "we dont want AH as just a free way to instantly gear up with no
+effort....it'll get EXPENSIVE fast to try to gear everyone with just AH". So a piece's price is set by how many
+people want it, steeply, and lifted at low levels so it costs about the same number of quests' gold at every level:
 
-    V = sell × G × Q
-    G = poor 0.6, common 0.9, uncommon 1.5, rare 2.4, epic 9.0
-    Q = 0.55 + 0.9 × want      want = share of the 97 specs whose stat template, armour and weapons fit it
+    V = sell × G × F × L
+    G = poor 0.6, common 0.9, uncommon 1.3, rare 2.2, epic 8.0
+    F = 0.5 + 3.0 × want^1.5     want = share of the 97 specs whose stat template, armour and weapons fit it (1 at 12+)
+    L = 1 + 3.5 × (1 − level/60)^1.3      x3.8 at level 10, x2.4 at 30, x1 at 60
 
-So an epic that suits a lot of specs is worth about 13x its vendor price, and a strange one (spirit and block on a
-dagger) about 6x: a good epic is a real purchase and a trash one is cheap for a purple. A green that fits many
-specs lands around 2x its vendor price, an oddly rolled green below 1x, which is exactly where Kyle wanted it:
-above or below the vendor depending on the piece. Crafted gear takes the higher of that and its materials.
+A piece almost nobody wants (spirit and block on a dagger) sells near or below the vendor and can sit forever; a
+piece a dozen specs want is the expensive one. Measured, the median WANTED piece (7 or more specs), next to what a
+quest pays at that level:
 
-At level 50 that puts a good blue chest around 3g and a good epic chest around 25 to 35g; the named world epics
-and dungeon epics land between 15g and 120g across levels 30 to 58. Journeyman riding is 50g at 30 and Master is
-200g at 40, so an epic is a real decision and never a fortune.
+| Level | A quest pays | Green | Blue | Epic |
+| --- | --- | --- | --- | --- |
+| 10 | about 42s | 33s (under a quest) | 85s (2 quests) | |
+| 20 | about 70s | 1g 18s (2 quests) | 3g (4) | |
+| 30 | about 1g | 2g 19s (2) | 5g 77s (6) | 35g (35) |
+| 40 | about 1g 29s | 3g 7s (2.4) | 8g 39s (6.5) | 52g (40) |
+| 50 | about 1g 60s | 3g 60s (2.2) | 9g 14s (5.7) | 58g (36) |
+| 58 | about 1g 90s | 3g 79s (2) | 10g 36s (5.4) | 61g (32) |
+
+So a full set of good greens at 40 is about 30 quests' gold, blues about 90, and gearing a party of five off the
+auction house is out of reach: the AH fills a gap or two, it doesn't replace playing. The same prices make selling
+a good drop worth it, which is the WoW loop. Crafted gear takes the higher of that and its materials. Journeyman
+riding is 50g at 30 and Master 200g at 40, so an epic is a real decision and never a fortune.
 
 ## 4. The price index: up and down, never to infinity, never to nothing
 
@@ -213,27 +229,27 @@ When you list a stackable thing (materials, consumables, scrolls, gems) or a nam
 piece), each hour there's a chance an undercutter in that market posts the same thing under you:
 
     chance per hour = u × (1 + 2 e^(−t/3)) × want_k     t = hours since you listed
-    u = 0.012
+    u = 0.05
     want_k = 0.5 to 1.5 by how much that key trades
 
 They only do it if your price per unit is at least 0.85 × the going price (under that they'd lose money), and they
 go under by one copper (40%), to a round number below (30%), or by 2 to 8% (30%). Their stack is about the size of
-yours. Over a 24-hour auction of a fairly priced material that's roughly a one in three chance of being
-undercut, most of it in the first few hours, which is when real undercutters pounce. Undercutters also undercut
-each other a little, so the bottom of a busy material's list is always moving.
+yours. Measured, a fairly priced stack of herbs gets jumped about a quarter of the time before it sells, most of it
+in the first few hours, which is when real undercutters pounce.
 
-Procedurally rolled gear can't be undercut by the same item (every roll is unique), but similar pieces are listed
-by casuals all the time, and buyers for that slot and level pick the cheapest one that suits them.
+Procedurally rolled gear can't be undercut by the same item (every roll is unique). Similar pieces are listed by
+casuals all the time, so the Weapons and Armor pages are always full of competition anyway.
 
 ## 9. Snipers and fat fingers
 
-**Fat fingers.** About one NPC listing in 600 (x1.5 at Steamwheedle) is a mistake: the decimal is in the wrong
+**Fat fingers.** One in 1,500 NPC listings worth 50 silver or more (x1.5 at Steamwheedle) is a mistake, about two
+a market day across both books, so you catch one on maybe one visit in eight. The decimal is in the wrong
 place, so it's listed at a tenth (60% of mistakes), a hundredth (35%) or a thousandth (5%) of what it should be.
 They show up most often on gear and stacks of good materials, because those are the listings with enough digits
 to fumble.
 
 **Snipers.** Flippers buy anything under 0.65 × the going price at 0.25 per hour (0.5 for a fat finger). So a
-fat finger usually lives about two market hours: you'll see one if you check the AH often, and you'll catch it
+fat finger usually lives about two market hours (measured: 2.5 on average, median 2): you'll see one if you check the AH often, and you'll catch it
 if you're quick. The same flippers buy your mistakes, so listing a stack of Mageroyal at 1 silver instead of
 1 gold sells it almost at once, to somebody very happy.
 
@@ -289,7 +305,61 @@ Classic's three tabs over Kyle's two painted halls (Horde, goblin), plus the mod
 
 Time Left: Short is under 2 hours, Medium 2 to 8, Long 8 to 24, Very Long over 24.
 
-## 13. What can't be broken
+## 13. The fun parts
+
+**Every level, for everyone.** Listings are spread evenly over levels 1 to 60 whoever is looking: a level 10 sees
+level 60 epics and a level 60 sees Linen Cloth. Kyle: "just because we are low level doesn't mean it only sells
+at our level". The Level Range filter is yours to narrow it.
+
+**Meme listings** (Kyle: "absolute trash for fuck all....even vendor trash or whites....Or you'll see something
+absolutely fucking unhinged like a lvl 5 grey 2H shovel with crusader for 10g", and "these are examples....go
+wild"). About 3% of NPC listings, all from casuals:
+
+| What | Share | Price |
+| --- | --- | --- |
+| A stack of vendor trash | 32% | a third of the vendor price, a few times it, or 5 to 40 times it |
+| A white or grey piece of gear | 20% | under the vendor price, or 20 to 300 times it |
+| ONE common material priced like an epic | 12% | 99g 99s 99c, 42g 42s 42c, 69g 69s 69c... |
+| A penny auction: a decent green or blue, bid only, from 1 copper | 16% | bargain hunters push the bid up while it runs |
+| The unhinged one: a grey or white weapon from levels 2 to 12 wearing a top-end enchant | 20% | 5g to 100g, now and then bid only |
+
+**Meme mail** (Kyle: "I'd pay good money for meme mail if you get a fat finger seller and scoop his item", "50 or
+so mails... 2 to 3 sentences max"). world/market/meme_mail.py, sent sometimes:
+
+| Moment | Chance | From |
+| --- | --- | --- |
+| You buy out a fat finger | 65% | the seller, begging, bargaining or seething |
+| A flipper snipes your own mistake | 40% | the flipper, thanking you |
+| You undercut the same trader twice or more | 10% | them, salty |
+| An undercutter jumps you | 6% | them, smug |
+| You win a rare or epic a collector bid on | 25% | the collector, wounded |
+| A rival outbids you | 8% | the rival, gloating |
+| You buy something your recruit listed | 75% (first time), then 30% | the recruit: "We share a purse. What are we doing." |
+| You win an auction | 6% | the seller, pleased |
+
+**Cash on delivery** (Kyle: "Ama notices you're buying healing potions at like....20s per potion and you buy
+10....She sends you mail with an additional 5 giving you the option to buy them for 10s each... I do this in WoW
+to cut out the AH cut myself"). Buy at least 5 consumables or gems, or 10 common materials, of one thing inside 8
+market hours, and once a market day per thing there's a 45% chance one of the sellers (or another farmer or
+crafter) mails you 20 to 60% as many again at 55 to 85% of what you paid, cash on delivery. Pay it to take them,
+or Return. Unpaid offers go back after three market days. Measured: about 9 bulk buyers in 20 get an offer.
+
+## 14. Measured (tools/sim_auction_market.py)
+
+Chance a listing sells in 24 market hours, by its price as a share of the going price (and the chance an
+undercutter jumped it), against three others selling the same thing:
+
+| | 0.7x | 1.0x | 1.3x | 1.6x | 2.0x | 2.6x |
+| --- | --- | --- | --- | --- | --- | --- |
+| Peacebloom x5 | 100% | 100% (28%) | 95% (25%) | 55% (38%) | 2% | 0% |
+| Silk Cloth x5 | 100% | 100% (15%) | 57% | 38% | 5% | 0% |
+| A level 40 green | 45% | 38% | 8% | 2% | 2% | 5% (by bid) |
+
+Chance a rival outbids your bid on a green over 24 hours: 42% at 0.6x, 32% at 0.8x, 15% at 1.0x, 2% at 1.2x. A
+hostile year of dumping and buying out reaches both ends of the clamp and never leaves it. A market hour costs
+about 30 to 40 ms to work out with both books full.
+
+## 15. What can't be broken
 
 QA (`tools/qa_auction_house.py`) tries to break it:
 

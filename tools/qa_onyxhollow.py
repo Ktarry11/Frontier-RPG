@@ -100,7 +100,7 @@ def main():
                 "oh_enchanter": ["enchanting", "runecrafting"]}:
         bad.append(f"trainers here: {here}")
     npcs = {n["npc_id"]: n for n in json.load(open("data/npcs/ambient_npcs.json", encoding="utf-8"))["npcs"]
-            if n["zone"] == "onyxhollow"}
+            if n["zone"] == "onyxhollow" and not n.get("is_mailbox")}   # the mailbox: tools/place_market_npcs.py
     if npcs.get("oh_forgemaster", {}).get("trains_profession") != ["mining", "blacksmithing", "jewelcrafting"]:
         bad.append("the forgemaster's own record does not say what he teaches")
     forge = [f for f in json.load(open("data/npcs/forges.json", encoding="utf-8"))["forges"] if f["zone"] == "onyxhollow"]

@@ -76,6 +76,8 @@ class GameStateManager:
         self.current_quest_npc = None  # vendor/AmbientNPC object for QuestDialogScreen
         self.current_recruit_npc = None  # RecruitNPC object for RecruitDialogScreen
         self.current_banker = None  # AmbientNPC the bank screen is titled with
+        self.current_auctioneer = None  # AmbientNPC whose auction house is open (world/market/market.py)
+        self.current_market = "horde"   # which book it opens: "horde" or "goblin"
         self.party = None           # entities.Party - built lazily via get_party()
         self.icon_ui_helper = None  # Will be set by main.py after initialization
         
@@ -488,6 +490,26 @@ class GameStateManager:
                                                      icon_ui_helper=self.icon_ui_helper)
         self._entered_state_fresh = False
 
+    def _ensure_market_screens(self):
+        """The auction house and the mailbox, built on demand like the bank. One of each, kept between visits so
+        the filters you set in the auction house are still there next time (WoW keeps them too)."""
+        if self.current_state == GameState.AUCTION and self._entered_state_fresh:
+            screen = self.states.get(GameState.AUCTION)
+            if screen is None:
+                from ui.screens.auction_screen import AuctionScreen
+                screen = AuctionScreen(self, icon_ui_helper=self.icon_ui_helper)
+                self.states[GameState.AUCTION] = screen
+            screen.open(self.current_market, self.current_auctioneer)
+            self._entered_state_fresh = False
+        elif self.current_state == GameState.MAIL and self._entered_state_fresh:
+            screen = self.states.get(GameState.MAIL)
+            if screen is None:
+                from ui.screens.mail_screen import MailScreen
+                screen = MailScreen(self, icon_ui_helper=self.icon_ui_helper)
+                self.states[GameState.MAIL] = screen
+            screen.open()
+            self._entered_state_fresh = False
+
     def _ensure_quest_dialog_screen(self):
         """
         Build the quest dialog screen on demand, same lazy pattern as
@@ -575,7 +597,20 @@ class GameStateManager:
         self._ensure_quest_dialog_screen()
         self._ensure_recruit_dialog_screen()
         self._ensure_bank_screen()
-        
+        self._ensure_market_screens()
+
+        # THE MARKET CLOCK runs on play time in every screen but the menus that pause the game
+        # (world/market/market.py: one market hour per 150 s of play).
+        if self.current_state not in (GameState.MENU, GameState.CHARACTER_CREATION, GameState.PAUSED,
+                                      GameState.QUIT) and getattr(self, "player", None) is not None:
+            try:
+                party = self.get_party()
+                if party is not None:
+                    from world.market.market import market_of
+                    market_of(party).on_play_seconds(dt)
+            except Exception as exc:
+                print(f"market clock: {exc}")
+
         if self.current_state in self.states:
             self.states[self.current_state].update(dt)
     
@@ -585,6 +620,7 @@ class GameStateManager:
         self._ensure_quest_dialog_screen()
         self._ensure_recruit_dialog_screen()
         self._ensure_bank_screen()
-        
+        self._ensure_market_screens()
+
         if self.current_state in self.states:
             self.states[self.current_state].render(screen)

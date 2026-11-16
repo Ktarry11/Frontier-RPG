@@ -114,6 +114,12 @@ def main():
     check(0.50 <= share <= 0.55, f"{share:.0%} of formulas are trainer-taught (Kyle: 50 to 55%)")
     vendors = json.loads((ROOT / "data/npcs/vendors.json").read_text(encoding="utf-8"))["vendors"]
     sold = {i for v in vendors for i in v["sells"]}
+    # TBC-style rep shelves (tools/build_faction_rewards.py, 0397e65): honored and revered patterns moved off town
+    # shelves onto faction quartermasters, sold by standing. A formula there is on a shelf.
+    for f in json.loads((ROOT / "data/factions/factions.json").read_text(encoding="utf-8")).get("factions", {}).values():
+        for tiers in ((f.get("rewards") or {}).get("vendor_stock") or {}).values():
+            for items in tiers.values():
+                sold.update(i for i in items if isinstance(i, str))
     for rid, r in recipes.items():
         if r["source"] == "vendor":
             check(rid in sold, f"vendor formula {rid} is on no shelf")
@@ -250,7 +256,8 @@ def main():
     check(hero.experience == xp, "swapping essences gave experience")
 
     # a wand and an oil
-    give("plank_duskwood", 1)
+    for mid, n in (cm.all_recipes("enchanting")["ench_greater_mystic_wand"].get("inputs") or {}).items():
+        give(mid, n)        # the recipe's own inputs: it took a creature material in the 15 Nov pass (Barrow Dust)
     ok, msg, made = cm.craft(hero, "enchanting", "ench_greater_mystic_wand")
     check(ok and made is not None and made.weapon_type == "wand", f"no wand: {msg}")
     give("vial_crystal", 1)

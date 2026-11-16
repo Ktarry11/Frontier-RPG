@@ -235,6 +235,30 @@ _set("dark_iron_dwarves", 6, 5, "assets/creatures/_src/dark_iron_dwarves", """
     did_chained did_ragged did_iron_mask did_crawler did_ash_cultist did_molten_brute
     did_thane did_warlord did_dark_seer did_gilded_engineer did_flame_lord did_elder""")
 
+#: Kyle's market sheets, 15 Nov 2026 (docs/market_town_art_prompts.md). The Forsaken had three buildings and the
+#: goblin ports fourteen; the props are the mailboxes by every inn and the market dressing.
+_set("forsaken_town", 6, 5, "assets/buildings", """
+    forsaken_inn forsaken_bank forsaken_auction_house forsaken_post_office forsaken_apothecary forsaken_general_store
+    forsaken_blacksmith forsaken_tailor forsaken_mage_tower forsaken_shadow_chapel forsaken_bat_roost forsaken_barracks
+    forsaken_house_large forsaken_house_medium_b forsaken_house_small_b forsaken_townhouse forsaken_house_row forsaken_crafter_house
+    forsaken_mausoleum forsaken_crypt_entrance forsaken_well forsaken_cauldron_yard forsaken_gallows_square forsaken_town_hall_b
+    forsaken_granary forsaken_storehouse forsaken_windmill forsaken_watch_tower forsaken_town_gate forsaken_stable""")
+
+_set("goblin_town", 6, 5, "assets/buildings", """
+    gob_auction_house gob_bank gob_post_office gob_inn gob_emporium gob_counting_house_b
+    gob_engineering_workshop gob_alchemy_lab gob_shipwright gob_tavern_shack gob_fish_market gob_zeppelin_tower
+    gob_house_large gob_house_medium gob_house_small gob_stacked_houses gob_houseboat gob_boarding_house
+    gob_warehouse_b gob_cargo_crane gob_dock_office gob_lighthouse gob_customs_house gob_barracks
+    gob_racing_garage gob_salvage_yard gob_shredder_hangar gob_water_tower gob_fireworks_shop gob_town_gate""")
+
+_set("market_props", 6, 5, "assets/tiles/market/props", """
+    mailbox_orc mailbox_orc_b mailbox_troll mailbox_forsaken mailbox_forsaken_b mailbox_tauren
+    mailbox_tauren_b mailbox_goblin mail_tube_goblin parcel_cart mail_sacks notice_board
+    podium_orc podium_goblin auction_block_forsaken trading_rock_tauren goods_table price_board
+    crate_stack barrel_group ore_bar_pile cloth_rack herb_rack hide_frame
+    strongbox merchant_scales counting_machine coin_chest auction_gong market_stall_small""")
+
+
 #: SMOKE DRAWN OVER A MAGENTA KEY COMES BACK PURPLE. A generator asked for a lodge with a smoke hole
 #: draws the plume semi-transparent, and whatever is behind it - the key - bleeds through. Keying then
 #: gives a correctly-shaped wisp in the wrong colour, which is invisible against dark ground and obvious
@@ -245,7 +269,8 @@ _set("dark_iron_dwarves", 6, 5, "assets/creatures/_src/dark_iron_dwarves", """
 #: fraction of that sprite, where a plume lives and hanging beads do not.
 #: {sprite: fraction of height treated, measured from the top}
 DESPILL_TOP = {"tau_great_lodge": 0.22, "di_smeltery": 0.30, "di_boiler_works": 0.30,
-               "di_steam_pipes": 0.30, "fw_infernal_crater": 0.45}
+               "di_steam_pipes": 0.30, "fw_infernal_crater": 0.45,
+               "gob_alchemy_lab": 0.25, "forsaken_apothecary": 0.25, "gob_auction_house": 0.12}
 
 
 def _despill_plume(cut, frac):

@@ -125,11 +125,21 @@ def _all_gear_files():
     return _file_cache
 
 
+_PREFIX_CACHE = {}
+
+
 def _icons_for_prefixes(prefixes):
-    """All icon_ids whose filename starts with any of the given prefixes."""
-    files = _all_gear_files()
-    matches = [f for f in files if any(f.startswith(p) for p in prefixes)]
-    return matches
+    """All icon_ids whose filename starts with any of the given prefixes.
+
+    Remembered per prefix set: the directory is static, and the auction house rolls hundreds of pieces of gear an
+    hour, which spent most of its time re-scanning the same few thousand file names here."""
+    key = tuple(prefixes)
+    hit = _PREFIX_CACHE.get(key)
+    if hit is None:
+        files = _all_gear_files()
+        hit = [f for f in files if any(f.startswith(p) for p in prefixes)]
+        _PREFIX_CACHE[key] = hit
+    return list(hit)
 
 
 # EPICS GET THEIR OWN ART. Kyle, 7 Nov: "for unique purples I can start to

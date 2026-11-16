@@ -14,6 +14,8 @@ class GameState(Enum):
     INVENTORY = "inventory"
     VENDOR = "vendor"
     BANK = "bank"
+    AUCTION = "auction"
+    MAIL = "mail"
     TALENTS = "talents"
     OVERWORLD = "overworld"
     PARTY = "party"

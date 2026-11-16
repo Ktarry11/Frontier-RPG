@@ -1040,6 +1040,9 @@ class CombatEngine:
         get_bond_manager().on_kills(self.enemies, self.party, zone=self.zone)
         if any(getattr(e, "is_boss", False) for e in self.enemies):
             banter.fire("boss_down", self.party, zone=self.zone)
+            # the LAST boss of a dungeon moves the auction house on six hours (world/market/market.py)
+            from world.market.market import on_boss_down
+            on_boss_down(self.party, self.enemies)
         else:
             hurt = [m for m in getattr(self.party, "members", [])
                     if getattr(m, "health", 0) and m.current_health / m.health <= 0.15]

@@ -119,6 +119,9 @@ def main():
     if ab:
         m = mob()
         crits = 0
+        # "always critically strikes" is about the crit, not the hit: a swing that misses can't crit, and whether
+        # Esteban's random starter gear rolled hit rating has nothing to do with this ability. So he always lands.
+        c.hit_chance_vs = lambda *a, **k: 100.0
         random.seed(3)
         for _ in range(30):
             ab.turns_remaining = 0
