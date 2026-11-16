@@ -1732,10 +1732,10 @@ def quests():
           nxt="hz_springs_beads"),
         Q("hz_springs_beads", "What the Water Carries", "hz_springs_dempsey", ps, 32,
           [{"type": "fetch", "target": "spring_heart_bead", "count": 8}],
-          "The pools are wrong. They were always hot, but these are hotter than any spring I ever "
-          "logged, and the colours have started moving outward a little every week.\n\nThe steam "
+          "The pools are wrong. They were always hot, but since the Integration they're hotter than "
+          "any spring I ever logged, and the colours have started moving outward a little every week.\n\nThe steam "
           "things and the mud things carry beads of sinter in them, set from the same water. Bring "
-          "me eight and I'll work out how hot it is down there and how fast it's rising.",
+          "me a handful and I'll work out how hot it is down there and how fast it's rising.",
           "The scaldlings are round the painted pools and the steaming mouth. The mud shamblers keep to the mud pots in the north-west.",
           "Over four hundred degrees, and rising. That's not a spring any more, that's a vent. And "
           "it's all feeding the big geyser at the north end.",
@@ -1752,7 +1752,7 @@ def quests():
           "once, it keeps going off.",
           "The cone at the north end of the basin. You'll hear it before you see it. Bring friends.",
           "It's quiet. First time in three years it's quiet.\n\nThe pools will cool now, slowly. "
-          "The colours will come back in from the edges. Thank you.",
+          "The colours will come back in from the edges, the way they used to.",
           R(33, ("Old Faithless", "main_hand", "of the Vanquisher", None, "mace_2h", "Two-Handed Mace (Str/Crit)"),
             ("Geyserwatch Hauberk", "chest", "of the Hunt", "mail", None, "Mail Chest (Agi/Int/AP)"),
             ("Steamproof Spaulders", "shoulder", "of the Defender", "plate", None, "Plate Shoulders (Sta/Def/Dodge)"),
@@ -1775,11 +1775,11 @@ def quests():
         Q("hz_coal_air", "Thick Air", "hz_coal_vesna", cf, 32,
           [{"type": "kill", "target": "Griffinfly", "count": 8}, {"type": "kill", "target": "Hunched Stalker", "count": 5}],
           "Vesna Orlova. I taught palaeobotany in Perm, before. I've been down here since the ground "
-          "opened under Walt's basin, and I still don't know how this place can exist.\n\nThis is the "
+          "opened under Walt's basin, a year after the Integration, and I still don't know how this place can exist.\n\nThis is the "
           "Carboniferous. Three hundred million years ago, before there were flowers, when the air "
           "had so much oxygen in it that insects grew to the size of dogs. Those are griffinflies "
-          "over the water, and those things in the ferns are worse. They've found my camp. Kill eight "
-          "of the flies and five of the stalkers so I can get back to work.",
+          "over the water, and those things in the ferns are worse. They've found my camp. Kill "
+          "enough of the flies and the stalkers that I can get back to work.",
           "The flies hunt over the open water to the east. The stalkers hide in the scale-tree stand in the west.",
           "Thank you. Did you see the wings on those flies? I've only ever seen them pressed flat in "
           "shale. Watching them move is a gift, even when they're trying to eat me.",
@@ -1789,10 +1789,10 @@ def quests():
           nxt="hz_coal_seam"),
         Q("hz_coal_seam", "Coal Before Coal", "hz_coal_vesna", cf, 33,
           [{"type": "fetch", "target": "living_coal", "count": 6}],
-          "Every lump of coal in the world started as a forest like this one, dead and pressed down "
+          "Every lump of coal on the other world started as a forest like this one, dead and pressed down "
           "for longer than anyone can imagine. The peat shamblers are that halfway. They're forest "
           "that started becoming coal and got up again.\n\nThey carry living coal in them. Bring me "
-          "six pieces. If I can date them, I'll know whether this forest is a memory or whether it's "
+          "what you can find. If I can date them, I'll know whether this forest is a memory or whether it's "
           "actually still happening down here.",
           "The shamblers are thickest round the coal seam in the north-west, and on the way up to the first grove.",
           "It's still happening. This isn't a fossil come back to life. It's the real thing, still "

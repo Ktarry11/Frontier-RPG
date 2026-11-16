@@ -135,6 +135,8 @@ The Earth trees and Stonetalon's own great trees grow side by side, which should
   - It won't look or play like either of the first two.
   - Its bosses pay "????".
 - **Small secrets in both open maps.**
+- **Built 15 Nov:** the skull zone (2 bosses, item level + 5) and the Frontier zone (3 bosses, item level + 8, every boss with an epic, trash epics at 1%), 7 quests between them (one elite each), 2 secret doors, 22 new secrets across the Stonetalon maps. None of the old secrets anywhere else moved.
+- **"????"** now has one cryptic line on its journal page (Kyle: "Give a cryptic ass description too"). Its standing still comes only from Frontier zone bosses, never skull zones (tools/qa_unnamed_faction.py).
 
 ## Art
 
@@ -178,8 +180,8 @@ The Earth trees and Stonetalon's own great trees grow side by side, which should
 4. Creatures, encounter tables and rares for both zones (a subzone is 90% its own mobs; rares only in subzones).
 5. The two caves.
 6. The sequoia dungeon: layout, bosses, loot (all 97 specs).
-7. Quests, about 60 across both zones, with chains out to Ashenvale, the Barrens and the Aspen.
-8. The hidden content (not described).
+7. The hidden content (not described). Done.
+8. Quests, about 60 across both zones, with chains out to Ashenvale, the Barrens, the Aspen and the Eastern Kingdoms. Done (66).
 
 ## Build log
 
@@ -238,4 +240,17 @@ The Earth trees and Stonetalon's own great trees grow side by side, which should
   - Coverage includes strength leather, mail healers, a caster's shield, plate healers, bear tank pieces, a healer totem, an idol, a thrown weapon, fist weapons, polearms and crossbows.
 - **Gathering and fishing**: tables for both zones, in the 25-32 band, wood-heavy. Both caves keep ore.
 
-**Next:** the hidden content (not described), then the quests (about 60, with chains out to Ashenvale, the Barrens and the Aspen).
+- **The crown, again** (Kyle, mid-build): "keep this central part trees.... rest is open or very little trees" and "have some light green around the branch, should still be a bit lush". Done as described above.
+- **Hidden content**: see Secrets (counts only).
+- **Mistwalker Camp**: four quest givers, no services (`tools/sync_stonetalon_npcs.py`): Mistwalker Iyana Rainsong, Tamsin Reyes (a transplant tree climber from Humboldt County), Nozzle Quickspan (ex-Venture Co., now Cartel) and Alchemist Rennick Toll (Forsaken).
+- **Quests: 66** (`tools/stonetalon_quests.py`, built and audited by `tools/build_stonetalon_quests.py`).
+  - 40 given in Sun Rock, 17 at Mistwalker Camp; 55 from a hub in all.
+  - Chains in from the Crossroads and Splintertree. Chains out and back to Camp Taurajo, Splintertree and the Aspen Wilderness; all three answers open the Rim's last quest, The Risen Hunter (Linken's Sword style).
+  - Eastern Kingdoms (Kyle: "Get some chains from eastern kingdom too bro. dont limit it"): the Rim samples to Hammerfall in Arathi and back; the stolen blasting caps to the Cartel's factor in Booty Bay and back, which is what opens Yard Boss Krizzle; the volcano's ash to Brill and back.
+  - 3 started by dropped items (Grimtotem orders, a Venture Co. work order, a Bloodhoof hunting charm). 37 open only after the quest before them (every "next quest" requires its parent).
+  - Objectives: 30 kill, 17 boss, 16 deliver, 11 fetch, 9 explore, 3 gather, 1 craft. 4 dungeon quests (all given in town or camp), 3 cave quests.
+  - Reputation by giver: Thunder Bluff 39, the Cartel 11, the Forsaken 9, Orgrimmar 7.
+  - 217 rewards, hand-authored from the gear identities. Every one of the 97 specs gets at least 14 it can wear and wants. Includes strength leather, mail and plate healers, a caster shield and an agility staff.
+  - Earth comes up through the transplants: Dr. Lindqvist (Mount St. Helens), Tamsin Reyes (Humboldt, Hyperion), and the goblins blaming the newcomers.
+
+**Next:** Kyle's quality audit of five random quests (four open zone, one dungeon), then the playtest fixes.
