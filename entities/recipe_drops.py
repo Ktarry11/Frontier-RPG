@@ -67,7 +67,8 @@ def roll_recipe(enemy, rng=random):
         band = "normal"
     if rng.random() > CHANCE[band]:
         return None
-    pool = eligible(max(1, int(getattr(enemy, "level", 1))))
+    from entities.material_tiers import tier_level
+    pool = eligible(tier_level(max(1, int(getattr(enemy, "level", 1)))))      # no post-60 recipes outside pure 60
     if not pool:
         return None
     # Weighted toward the top of what this mob can give, so a level 38 kill mostly hands out things

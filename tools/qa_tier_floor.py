@@ -64,12 +64,21 @@ def main():
         # And confirm the ladder actually opens up at the floor, so this is a gate and not a wall.
         # (13 Nov 2026: the line is now the material's skill, 300. The first raid tier is banded in
         # the 70s, so "opens" is checked from the floor upward rather than at exactly 60.)
+        # Since 16 Nov 2026 the gate also needs a PURE 60 zone (Kyle: "no post-game materials drop ...
+        # in zones that are NOT pure 60"). None exists yet, so a stand-in band of 60-60 is registered
+        # for this one check, and the roll is made "there".
+        import world.zone_levels as _ZL
+        from entities import material_tiers as _MT
+        _ZL._load()["Pure Sixty Test Ground"] = (60, 60)
+        _MT.set_active_zone("Pure Sixty Test Ground")
         opened = set()
         for level in range(HIGH_TIER_FLOOR, 100):
             dummy.level = level
             for _ in range(40):
                 for mid, _qty in roll(dummy):
                     opened.add(mid)
+        _MT.set_active_zone(None)
+        del _ZL._load()["Pure Sixty Test Ground"]
         if not (opened & HIGH_TIER):
             fails.append(f"{label}: nothing high-tier drops at any level from {HIGH_TIER_FLOOR} up - "
                          f"the floor is a wall")

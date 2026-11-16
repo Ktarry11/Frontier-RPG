@@ -18,7 +18,7 @@ Everything else (humanoid, undead, elemental, demon, insect, aquatic, plant) can
 """
 import random
 
-from entities.material_tiers import HIGH_TIER_FLOOR, in_reach, pre60_bands
+from entities.material_tiers import HIGH_TIER_FLOOR, in_reach, pre60_bands, tier_level
 from entities.vendor_trash import classify
 
 SKINNABLE = {"beast"}
@@ -116,7 +116,7 @@ def roll_leather(enemy, player=None, rng=random):
     if family not in SKINNABLE:
         return []
 
-    level = max(1, int(getattr(enemy, "level", 1)))
+    level = tier_level(max(1, int(getattr(enemy, "level", 1))))      # held at 59 outside pure 60 zones
 
     if getattr(enemy, "is_boss", False):
         return [(_pick_material(level, rng), rng.randint(*BOSS_QTY))]

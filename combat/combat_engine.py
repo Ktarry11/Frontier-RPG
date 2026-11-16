@@ -1097,6 +1097,9 @@ class CombatEngine:
         # SHARED_HOARD. The empty list matters: a boss who shares a hoard
         # must not fall through to the procedural roll, or he adds a fourth
         # drop to a fight specified as three. `is None` would have let him.
+        # every material roll below asks material_tiers where it is (the pure 60 rule)
+        from entities.material_tiers import set_active_zone
+        set_active_zone(self.zone)
         for enemy in self.enemies:
             # A SUMMONED ADD DROPS NOTHING. A boss that calls for help every
             # six turns would otherwise be an infinite loot faucet for anyone

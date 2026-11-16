@@ -19,7 +19,10 @@ Kyle: "this is CRITICAL that no post-game materials drop and no post-game gather
 - **Pure 60 means a zone whose band is exactly 60 to 60.** Nothing in this push is pure 60: every Plaguelands map,
   Scholomance, both halves of Stratholme, Hearthglen and the Scarlet Monastery are all held below the line.
 - The line is `entities/material_tiers.py` (above Runecloth, Rugged Leather and Thorium, and the endgame wood tier).
-- **What has to change in code:** the floor today is applied by the *creature's* level (drop bands stop at 59). A
+- **The line, in code (`material_tiers.is_postgame`):** anything whose skill starts above 300, plus the high cloth
+  and leather tiers. Frontier fillers between the WoW anchors and 300 (Ashen Steel, Starleaf) stay pre-60 under the
+  "go to skill 300" crafting canon, even though an older check (`qa_gathering_legality`) still calls them too high.
+- **What had to change in code (done 16 Nov):** the floor today is applied by the *creature's* level (drop bands stop at 59). A
   level 60 elite in a 55 to 60 zone would get past it. The gate moves to the *zone's* band: a drop or a node is
   high tier only if the zone it rolls in is pure 60. Same for chests, skinning, mob reagents, fishing, ore-vein
   crystals and dungeon boss tables.
@@ -133,6 +136,15 @@ recipes; a Revered shoulder enchant per role; a tabard.
 **Ten or more bosses.** The last is an **Earth-born Grand Crusader**, a transplant zealot Rory once served beside
 (pitch: *Grand Crusader Victor Hale*, a former private security contractor who decided the Integration was a
 judgment). Rare drop: a Scarlet charger from the last boss.
+
+**Hearthglen's hidden depths (Kyle, 16 Nov 2026, "breaking the rules"; more details to come from him).**
+Inside Hearthglen, very well hidden, a chain of three hidden places, each inside the last:
+1. a hidden skull layer with three bosses;
+2. past it, a hidden Frontier dungeon with three bosses;
+3. past that, an **Integration Zone**, a new kind of hidden place at **7.5x health and 8.5x damage**: a crypt
+   flooded with bodies, and a single boss. The ???? seller waits past that boss.
+How each is found is never written down where Kyle reads it. Hearthglen's layout leaves room for all three from
+the first build, and the Integration Zone's multipliers become a new hidden-zone tier in `world/hidden_zones.py`.
 
 **Stratholme, two halves.** The living side (the Scarlet Bastion, Pale Flame rep) and the undead side (the Baron,
 Argent rep). Rare drop: the Baron's deathcharger.

@@ -19,7 +19,7 @@ Beasts, elementals, insects, undead husks never drop cloth.
 import random
 import re
 
-from entities.material_tiers import HIGH_TIER_FLOOR, in_reach, pre60_bands
+from entities.material_tiers import HIGH_TIER_FLOOR, in_reach, pre60_bands, tier_level
 from entities.vendor_trash import classify
 
 NO_CLOTH = re.compile(r"murloc", re.I)
@@ -123,7 +123,7 @@ def roll_cloth(enemy, rng=random):
     family, _coin = classify(name)
     if family != "humanoid":
         return []
-    level = max(1, int(getattr(enemy, "level", 1)))
+    level = tier_level(max(1, int(getattr(enemy, "level", 1))))      # held at 59 outside pure 60 zones
     if getattr(enemy, "is_boss", False):
         return [(_pick_material(level, rng), rng.randint(*BOSS_QTY))]
     location_type = getattr(enemy, "location_type", "open_zone")

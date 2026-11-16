@@ -87,6 +87,65 @@ HIGH_TIER_LEATHER = {mid for mid, s in _ladder("leather") if s > PRE_60_SKILL_CE
 HIGH_TIER = HIGH_TIER_CLOTH | HIGH_TIER_LEATHER
 
 
+#: THE ZONE DECIDES, NOT THE CREATURE. Kyle, 16 Nov 2026: "this is CRITICAL that no post-game materials
+#: drop and no post-game gathering nodes in zones that are NOT pure 60. So even though these zones go to
+#: 60, they are not at pure 60." A level 60 elite in a 55-60 zone used to clear HIGH_TIER_FLOOR on its own
+#: level. Now a roll is only allowed past the floor when the zone it happens in is PURE 60: a band of
+#: exactly 60 to 60 (Kyle chose "60-60 only"). Anywhere else, and anywhere unknown, the roll is held at
+#: 59, the top of the pre-60 ladder.
+_ACTIVE_ZONE = None
+
+
+def set_active_zone(zone_name):
+    """Combat sets this before it rolls loot, so every material roll knows where it is."""
+    global _ACTIVE_ZONE
+    _ACTIVE_ZONE = zone_name
+
+
+def is_pure_60(zone_name):
+    """True only for a zone whose level band is exactly 60 to 60."""
+    if not zone_name:
+        return False
+    from world.zone_levels import band, _load
+    b = band(zone_name)
+    if not b:
+        # combat passes a key ("eastern_plaguelands"), the bands are keyed by display name
+        key = str(zone_name).lower().replace(" ", "_").replace("'", "")
+        b = next((v for k, v in _load().items() if k.lower().replace(" ", "_").replace("'", "") == key), None)
+    return bool(b) and int(b[0]) >= HIGH_TIER_FLOOR and int(b[1]) >= HIGH_TIER_FLOOR
+
+
+def tier_level(level, zone_name=None):
+    """The level a material roll is allowed to use: the creature's own level in a pure 60 zone, and
+    never more than 59 anywhere else (an unknown zone counts as anywhere else)."""
+    level = int(level)
+    if level < HIGH_TIER_FLOOR:
+        return level
+    return level if is_pure_60(zone_name if zone_name is not None else _ACTIVE_ZONE) else HIGH_TIER_FLOOR - 1
+
+
+def is_postgame(material_id, materials=None):
+    """True for anything that may only appear in a pure 60 zone.
+
+    One test for every ladder, so nodes, drops and tables all ask the same question: is it above the
+    pre-60 line? That line is skill 300 (PRE_60_SKILL_CEILING), where Kyle put the top of traditional
+    crafting ("Go to skill 300. But keep only wow terminal stuff"), plus HIGH_TIER for cloth and leather.
+    Frontier fillers between the WoW anchors and 300 (Ashen Steel, Starleaf) are pre-60 by that canon,
+    whatever their tier label says; the label "endgame" is also on Thorium and Runecloth.
+    """
+    if material_id in HIGH_TIER:
+        return True
+    if materials is None:
+        import json
+        from pathlib import Path
+        materials = json.loads((Path(__file__).resolve().parent.parent / "data/gathering/materials.json")
+                               .read_text(encoding="utf-8")).get("materials", {})
+    m = materials.get(material_id)
+    if not m:
+        return False
+    return (m.get("skill_range") or [0])[0] > PRE_60_SKILL_CEILING
+
+
 def in_reach(weights, level):
     """Drop weights with everything above level `level`'s tier ceiling removed.
 
@@ -97,6 +156,6 @@ def in_reach(weights, level):
     handed out Moonsilk. Bands that empty are normal near the boundary and the caller skips them;
     a caller left with no band at all picks its own floor material.
     """
-    if level >= HIGH_TIER_FLOOR:
+    if tier_level(level) >= HIGH_TIER_FLOOR:
         return weights
     return {m: w for m, w in weights.items() if m not in HIGH_TIER}
