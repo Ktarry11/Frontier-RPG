@@ -37,7 +37,9 @@ DATA = ROOT / "data"
 #: Median first-ability damage of the game's existing kits by level band (trash, boss), measured
 #: 14 Nov 2026 over creatures.json + ability_kits.json.
 KIT_CURVE = {5: (32, 68), 10: (44, 97), 15: (51, 124), 20: (62, 165), 25: (87, 205),
-             30: (134, 287), 35: (147, 314), 40: (162, 365), 45: (196, 385)}
+             30: (134, 287), 35: (147, 314), 40: (162, 365), 45: (196, 385),
+             # the Plaguelands (16 Nov 2026): the 52-58 dungeons' medians, held level with 45's boss
+             55: (214, 390), 60: (234, 410)}
 
 
 def base(level, boss=False):
@@ -1893,7 +1895,7 @@ def write_people():
                     "x": x, "y": y, "greeting": n["greeting"], "facing": "down", "race": n["race"],
                     "gender": n["gender"], "appearance_variant": 3})
     p.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    (DATA / "quests/hidden_zones.json").write_text(json.dumps({"quests": quests()}, indent=2, ensure_ascii=False) + "\n",
+    (DATA / "quests/hidden_zones.json").write_text(json.dumps({"quests": quests() + plaguelands_quests()}, indent=2, ensure_ascii=False) + "\n",
                                                   encoding="utf-8")
     p = DATA / "creatures/quest_drops.json"
     doc = json.loads(p.read_text(encoding="utf-8"))
@@ -1911,6 +1913,365 @@ NODE_PARENT = {"The Saltgrave": "arathi_east", "The Glasswaste": "durotar", "The
                "The Moonless Glade": "ashenvale_west", "The Stormcrag": "arathi_central",
                "The Ashen Orchard": "western_tirisfal",
                "The Painted Springs": "stonetalon_west", "The Coal Forest": "stonetalon_west"}
+
+
+
+# ============================================================================ THE PLAGUELANDS (16 Nov 2026)
+# Kyle: "make TWO skull zones somewhere in the open world for plaguelands, I don't know which one or where", and
+# "add a frontier open world on one of these skull zones... Skull zones should be fun, frontier zones should
+# represent the essence of our game". Not to be told where any of them is.
+
+ZONES["The Lanternmere"] = dict(
+    kind="skull", parent="Western Plaguelands North", levels=(55, 58),
+    creatures={
+        "Mere Wisp": _creature("elemental_caster", 56, False, "elemental_arcane", DMG("Cold Light", sch="magic"),
+                               DEB("Follow Me", intellect=-14, agility=-14), DMG("Gutter Out", 1.4, 3, "magic")),
+        "Fen Drowned": _creature("undead_basic", 56, False, "drowned_sailor_2", DMG("Waterlogged Fist"),
+                                 DOT("Fen Rot", 0.35, sch="nature"), DMG("Drag Under", 1.4, 3)),
+        "Fenwatch Owl": _creature("beast_fast", 56, False, "st_canopy_owl", DMG("Talon"),
+                                  DMG("Silent Stoop", 1.5, 3), DEB("Hoot in the Dark", agility=-16)),
+        "Bogmaw Lurker": _creature("beast_large", 57, False, "crocolisk_2", DMG("Snap", 1.05),
+                                   DOT("Held Under", 0.4, sch="physical"), BUF("Peat-Slick Hide", armor=60)),
+        "Amani Barrow-Shade": _creature("undead_caster", 57, False, "spectre_2", DMG("Old Hex", sch="magic"),
+                                        DOT("Barrow Curse", 0.4, sch="magic"), DEB("Bound to the Mound", agility=-18)),
+        "Bog Hulk": _creature("elemental_bruiser", 57, False, "bog_lord_2", DMG("Peat Fist"),
+                              DEB("Mire", agility=-18, armor=-30), BUF("Sodden", armor=70)),
+        "The Lamplighter": _creature("undead_caster", 58, True, "wraith_pale",
+            DMG("Lantern Swing", sch="magic"), DMG("Every Light on the Mere", 1.0, 5, "magic"),
+            DEB("Come Into the Water", intellect=-24, agility=-24), DOT("Cold Flame", 0.55, d=5),
+            DMG("The Lamp Goes Out", 2.1, 4, "magic")),
+        "Old Mother Sedge": _creature("elemental_bruiser", 58, True, "bog_lord_1",
+            DMG("Root and Reed"), DMG("The Whole Bank Gives Way", 1.9, 4), DOT("Peat in the Lungs", 0.5, sch="nature", d=5),
+            HEAL("Drinks the Mere", 2.0, 5), BUF("Moss Over Everything", armor=90)),
+    },
+    encounters=_skull_table("The Lanternmere", {"Fen Drowned": 2, "Mere Wisp": 2, "Fenwatch Owl": 1}, {
+        "The Wisp-Lit Shallows": {"Mere Wisp": 3, "Fen Drowned": 2},
+        "The Sunken Causeway": {"Fen Drowned": 3, "Bogmaw Lurker": 2},
+        "Sedge Hollow": {"Bog Hulk": 3, "Bogmaw Lurker": 1, "Old Mother Sedge": 0},
+        "The Barrow Isles": {"Amani Barrow-Shade": 3, "Fen Drowned": 1},
+        "The Lamplighter's Rest": {"Mere Wisp": 3, "Amani Barrow-Shade": 1, "The Lamplighter": 0}}),
+    weights={},
+    loot={
+        "The Lamplighter": [
+            ("The Last Lantern", "off_hand", "of the Sorcerer", "It's never been lit, and it's never gone out.", None, "tome", "epic"),
+            ("Lamplighter's Long Coat", "chest", "of the Hunt", "Still smells of lamp oil and the bottom of the mere.", "mail", None),
+            ("Wick-Trimmer", "main_hand", "of the Assassin", "A little hooked blade for trimming wicks. It trims other things.", None, "dagger"),
+            ("Cold-Flame Cowl", "head", "of the Invoker", "The hood glows faintly blue in the dark.", "cloth", None),
+            ("Causeway Greaves", "legs", "of the Champion", "Amani bronze under the peat stain.", "plate", None),
+        ],
+        "Old Mother Sedge": [
+            ("Sedgeheart Staff", "main_hand", "of the Prophet", "A staff of bog oak that put out reeds the winter you cut it.", None, "staff"),
+            ("Peat-Pressed Leggings", "legs", "of the Monkey", "Supple as wet leather and twice as tough.", "leather", None),
+            ("Mossback Pauldrons", "shoulder", "of the Defender", "There's still moss growing on them. It won't come off.", "plate", None),
+            ("Reed-Woven Bracers", "wrist", "of the Owl", "Woven by someone with very old fingers.", "cloth", None),
+            ("Bog-Iron Band", "ring", "of the Tiger", "Fished out of the mere with the finger still in it.", None, None),
+        ],
+    },
+)
+
+ZONES["The Long Winter"] = dict(
+    kind="frontier", frontier_type="open", parent="The Lanternmere", region="Western Plaguelands North",
+    levels=(57, 59),
+    creatures={
+        "Woolly Mammoth": _creature("beast_large", 58, False, "kodo_3", DMG("Tusk Sweep", 1.05),
+                                    DMG("Trample", 1.5, 3), BUF("Winter Coat", armor=80)),
+        "Woolly Rhinoceros": _creature("beast_large", 58, False, "kodo_1", DMG("Horn"), DMG("Charge", 1.6, 3),
+                                       DEB("Bowled Over", agility=-20)),
+        "Dire Wolf": _creature("beast_fast", 57, False, "worg_5", DMG("Bone-Cracking Bite"),
+                               DEB("Hamstring", agility=-18), BUF("Hunting Howl", attack_power=26)),
+        "Giant Elk": _creature("beast_basic", 57, False, "st_bull_elk", DMG("Antler Rake"),
+                               DMG("Trample", 1.4, 3), DEB("Rut Bellow", attack_power=-18)),
+        "Cave Bear": _creature("beast_large", 58, False, "bear_5", DMG("Maul", 1.05), DMG("Swipe", 1.5, 3),
+                               BUF("Den Rage", attack_power=30)),
+        "Steppe Bison": _creature("beast_large", 57, False, "kodo_2", DMG("Gore"), DMG("Stampede", 1.5, 3),
+                                  BUF("Shaggy Hide", armor=60)),
+        "Mother of the Herd": _creature("beast_large", 59, True, "kodo_3",
+            DMG("Tusks"), DMG("The Herd Turns", 1.0, 5), DMG("Trample the Snow", 1.3, 3),
+            BUF("Twenty Winters of Fat", armor=100), DMG("Stands Over Her Calf", 2.0, 4)),
+        "The Lion of the Painted Cave": _creature("beast_fast", 59, True, "saber_cat",
+            DMG("Rake"), DMG("Out of the Dark", 1.9, 3), DOT("Opened Up", 0.6, sch="physical", d=4),
+            DEB("Eyes in the Cave", agility=-26), DMG("Pounce", 1.3, 3)),
+        "The Advancing Ice": _creature("elemental_bruiser", 59, True, "elemental_water",
+            DMG("Grinding Weight"), DMG("Calving", 1.0, 5, "magic"), DOT("Frostbite", 0.55, d=5),
+            DMG("Crevasse", 1.3, 3), BUF("A Mile Thick", armor=110, magic_resistance=50),
+            DMG("The Ice Moves", 2.2, 4)),
+    },
+    encounters=_skull_table("The Long Winter", {"Steppe Bison": 2, "Dire Wolf": 2, "Giant Elk": 1}, {
+        "The Mammoth Road": {"Woolly Mammoth": 3, "Steppe Bison": 2, "Dire Wolf": 1},
+        "The Frozen River": {"Dire Wolf": 3, "Giant Elk": 2},
+        "The Bone-Hut Camp": {"Cave Bear": 2, "Dire Wolf": 2},
+        "The Painted Cave": {"Cave Bear": 3, "The Lion of the Painted Cave": 0},
+        "The Aurora Field": {"Woolly Mammoth": 3, "Woolly Rhinoceros": 2, "Mother of the Herd": 0},
+        "The Ice Front": {"Woolly Rhinoceros": 3, "Giant Elk": 1, "The Advancing Ice": 0}}),
+    weights={},
+    loot={
+        "Mother of the Herd": [
+            ("Tusk of the Matriarch", "main_hand", "of the Bear", "Twelve feet of ivory, worn smooth where she swept the snow.", None, "polearm", "epic"),
+            ("Mammoth-Wool Mantle", "shoulder", "of the Prophet", "Warmer than anything a loom ever made.", "cloth", None),
+            ("Herd-Mother's Hide", "chest", "of the Defender", "Thick as a door and still warm.", "leather", None),
+            ("Steppe-Strider Sabatons", "feet", "of the Champion", "Made for walking on snow that never melts.", "plate", None),
+            ("Ivory Hunting Charm", "neck", "of the Hunt", "Carved by someone twenty thousand years ago, for luck.", None, None),
+        ],
+        "The Lion of the Painted Cave": [
+            ("Cave Lion's Mane", "head", "of the Assassin", "The mane they painted on the wall, red and black.", "leather", None, "epic"),
+            ("Ochre-Handprint Gauntlets", "hands", "of the Champion", "Somebody pressed a red hand to the steel, and it won't wash off.", "plate", None),
+            ("Painted-Wall Robes", "chest", "of the Invoker", "Lion, horse and bison, chasing round the hem.", "cloth", None),
+            ("Flint-Knapped Spear", "main_hand", "of the Monkey", "Flint on ash, bound with sinew. It's sharper than steel.", None, "polearm"),
+            ("Fang of the First Hunt", "ring", "of the Wolf", "A lion's tooth, drilled and strung.", None, None),
+        ],
+        "The Advancing Ice": [
+            ("Heart of the Glacier", "main_hand", "of the Sorcerer", "A staff of blue ice that's older than anyone's gods.", None, "staff", "epic"),
+            ("Ice-Age Bulwark", "off_hand", "of the Defender", "Glacier ice that's been under so much weight it's harder than stone.", None, "shield", "epic"),
+            ("Meltwater Hauberk", "chest", "of the Owl", "Cold to the touch on the hottest day.", "mail", None),
+            ("Moraine Legplates", "legs", "of the Juggernaut", "Every stone the ice ever pushed is pressed into them.", "plate", None),
+            ("Whiteout Wraps", "wrist", "of the Physician", "You can see through a blizzard in them.", "cloth", None),
+            ("Frost-Rimed Longbow", "ranged", "of the Sharpshooter", "The string sings in the cold.", None, "bow"),
+        ],
+    },
+)
+
+ZONES["The Sunward Waystation"] = dict(
+    kind="skull", parent="Eastern Plaguelands East", levels=(58, 60),
+    creatures={
+        "Sunward Lynx": _creature("beast_fast", 58, False, "panther_4", DMG("Claw"), DMG("Pounce", 1.5, 3),
+                                  DEB("Rend", armor=-30)),
+        "Sunward Mana Wyrm": _creature("beast_fast", 58, False, "serpent_2", DMG("Arcane Nip", sch="magic"),
+                                       DOT("Mana Burn", 0.4, sch="magic"), DEB("Drain", intellect=-16)),
+        "Arcane Remnant": _creature("elemental_caster", 59, False, "elemental_arcane", DMG("Arcane Bolt", sch="magic"),
+                                    DMG("Arcane Burst", 1.4, 3, "magic"), BUF("Spell Shell", sch="magic", magic_resistance=40)),
+        "Waystation Sentinel Shade": _creature("undead_warrior", 59, False, "spectre_1", DMG("Ghostly Blade"),
+                                               DMG("Sentinel's Strike", 1.4, 3), DEB("Halt", agility=-18)),
+        "Breach Ghoul": _creature("undead_basic", 58, False, "ghoul_gaunt", DMG("Claw"),
+                                  DOT("Ghoul Rot", 0.4, sch="nature"), DMG("Frenzy", 1.4, 3)),
+        "Breach Necromancer": _creature("humanoid_caster", 59, False, "necromancer", DMG("Shadow Bolt", sch="magic"),
+                                        DOT("Corruption", 0.45, sch="magic"), DEB("Weakness", attack_power=-24)),
+        "Magister Aerith Dawnsong": _creature("undead_caster", 60, True, "bloodelf_magister",
+            DMG("Arcane Lance", sch="magic"), DMG("Ward Pulse", 1.0, 5, "magic"), DOT("Sunfire", 0.55, d=5),
+            DMG("Lance of Noon", 1.3, 3, "magic"), BUF("The Ward Holds", sch="magic", armor=60, magic_resistance=70),
+            DMG("Afternoon Ends", 2.2, 4, "magic")),
+        "The Breach-Gnawer": _creature("undead_warrior", 60, True, "abomination_2",
+            DMG("Hook and Chain"), DMG("Gnaw", 1.9, 3), DOT("Bile", 0.55, sch="nature", d=5),
+            DMG("Belly Burst", 1.0, 5, "nature"), BUF("Stitched Tight", armor=90)),
+    },
+    encounters=_skull_table("The Sunward Waystation", {"Sunward Lynx": 2, "Sunward Mana Wyrm": 2}, {
+        "The Sunward Road": {"Sunward Lynx": 3, "Sunward Mana Wyrm": 2},
+        "The Waystation": {"Arcane Remnant": 3, "Waystation Sentinel Shade": 2, "Magister Aerith Dawnsong": 0},
+        "The Ranger's Rest": {"Waystation Sentinel Shade": 3, "Sunward Lynx": 1},
+        "The Glimmering Wood": {"Sunward Mana Wyrm": 3, "Arcane Remnant": 2},
+        "The Breach": {"Breach Ghoul": 3, "Breach Necromancer": 2, "The Breach-Gnawer": 0}}),
+    weights={},
+    loot={
+        "Magister Aerith Dawnsong": [
+            ("Wardkeeper's Rod", "main_hand", "of the Prophet", "The last thing holding the afternoon in place.", None, "mace_1h", "epic"),
+            ("Robes of the Long Afternoon", "chest", "of the Invoker", "Gold thread that never fades in the sun.", "cloth", None),
+            ("Sunward Sentinel's Cuirass", "chest", "of the Champion", "Elven plate, light as mail.", "plate", None),
+            ("Wardstone Pendant", "neck", "of the Sorcerer", "A chip of wardstone, still warm with the spell.", None, None),
+            ("Ranger-Captain's Boots", "feet", "of the Monkey", "Soft-soled, for walking a road for a thousand years.", "leather", None),
+        ],
+        "The Breach-Gnawer": [
+            ("Gnawer's Hook", "main_hand", "of the Vanquisher", "It's been chewing on the ward for a year. Now it chews on other things.", None, "axe_2h"),
+            ("Stitched Hide Spaulders", "shoulder", "of the Hunt", "Don't ask whose hide.", "mail", None),
+            ("Breach-Warden Girdle", "waist", "of the Defender", "Taken off the last ranger who held the breach.", "plate", None),
+            ("Plague-Proof Wraps", "hands", "of the Physician", "Waxed linen that nothing gets through.", "cloth", None),
+            ("Sealing Band", "ring", "of the Eagle", "It closes the breach in you, a little.", None, None),
+        ],
+    },
+)
+
+NPCS["hz_lanternmere_sami"] = dict(name="Sami Halonen", zone="The Lanternmere", race="human", gender="male",
+                                   greeting="Walk where the moss is grey, not where it's green. Green moss floats. I "
+                                            "spent twenty years in the bogs outside Oulu and this one still scares me.")
+NPCS["hz_winter_ana"] = dict(name="Dr. Ana Vukovic", zone="The Long Winter", race="human", gender="female",
+                             greeting="Keep your voice down and your hands where the mammoths can see them. They're "
+                                      "not used to people. Nobody's been here for twenty thousand years.")
+NPCS["hz_sunward_lirael"] = dict(name="Lirael Brightwater", zone="The Sunward Waystation", race="blood_elf",
+                                 gender="female",
+                                 greeting="You came through the ward? Then it's weaker than I thought. Stay on the "
+                                          "road, keep out of the light at the north end, and don't go near the "
+                                          "Magister.")
+
+DROPS["Mere Wisp"] = ("wisp_light", "Captured Wisp-Light", "A cold blue light shut in a jar. It keeps trying to "
+                                                           "lead you somewhere.", 0.75)
+DROPS["Cave Bear"] = ("red_ochre", "Lump of Red Ochre", "A lump of red earth from a cave bear's den. It stains "
+                                                        "everything it touches, and it always has.", 0.75)
+DROPS["Arcane Remnant"] = ("wardstone_shard", "Wardstone Shard", "A sliver of a wardstone, humming with a spell "
+                                                                 "that's very tired.", 0.75)
+NODE_PARENT.update({"The Lanternmere": "western_plaguelands_north", "The Long Winter": "western_plaguelands_north",
+                    "The Sunward Waystation": "eastern_plaguelands_east"})
+
+
+def plaguelands_quests():
+    lm, lw, sw = "the_lanternmere", "the_long_winter", "the_sunward_waystation"
+    return [
+        # ------------------------------------------------------------------ The Lanternmere
+        Q("hz_lanternmere_lights", "Lights Over the Water", "hz_lanternmere_sami", lm, 56,
+          [{"type": "kill", "target": "Mere Wisp", "count": 8}, {"type": "kill", "target": "Fen Drowned", "count": 6}],
+          "Sami Halonen. I studied peat bogs in Finland for twenty years, back home, and I've never seen one like this. "
+          "The plague went all the way round it and never came in.\n\nBut the lights did. Every Mere Wisp out there "
+          "drifts over the water at dusk, and whoever follows one walks into the mere and comes back up a Fen "
+          "Drowned. I've lost two travellers that way this month. Put the lights out, and the drowned with them.",
+          "The wisps drift over the shallows south of the causeway. The drowned walk out of the meres after them.",
+          "That's quieter. Back home we called them will-o'-the-wisps and said they were marsh gas. These aren't "
+          "marsh gas.\n\nI'd like to know what they are, if you'll help me catch some.",
+          R(56, ("Bogwalker's Waders", "feet", "of the Monkey", "leather", None, "Leather Boots (Agi/Sta)"),
+            ("Peat-Cutter's Gloves", "hands", "of the Owl", "cloth", None, "Cloth Gloves (Int/Spi)"),
+            ("Causeway Girdle", "waist", "of the Champion", "plate", None, "Plate Belt (Str/Sta/Def)")),
+          nxt="hz_lanternmere_jars"),
+        Q("hz_lanternmere_jars", "What the Lights Are", "hz_lanternmere_sami", lm, 57,
+          [{"type": "fetch", "target": "wisp_light", "count": 6}],
+          "When a wisp goes out, it leaves a little cold light behind, and the light keeps trying to go somewhere. "
+          "Every one of them tries to go the same way, north up the causeway.\n\nCatch some for me. Put them in "
+          "jars and bring them here, and we'll see where they want to go.",
+          "Kill the wisps over the shallows and scoop up what's left. Put the lid on fast, because they're quick.",
+          "Look at that. Every jar leaning north, toward the top of the causeway.\n\nThere's something up there "
+          "calling them home, and I've a feeling it used to be a person.",
+          R(57, ("Wisp-Jar Charm", "neck", "of the Invoker", None, None, "Necklace (Int/SP/Crit)"),
+            ("Mere-Wader's Coif", "head", "of the Hunt", "mail", None, "Mail Helm (Agi/Int/AP)"),
+            ("Fen-Lantern Staff", "main_hand", "of the Physician", None, "staff", "Staff (Int/Healing)")),
+          nxt="hz_lanternmere_lamplighter"),
+        Q("hz_lanternmere_lamplighter", "The Lamplighter", "hz_lanternmere_sami", lm, 58,
+          [{"type": "kill", "target": "The Lamplighter", "count": 1},
+           {"type": "kill", "target": "Amani Barrow-Shade", "count": 5}],
+          "There used to be a man who kept the lanterns on the causeway, so travellers wouldn't wander into the "
+          "water. When he died, he kept doing it, except now he lights them to lead people in. Every wisp on the "
+          "mere is one of his lamps.\n\nThe Amani Barrow-Shades guard the top of the causeway for him. Take them "
+          "down, and then him. Take friends. He's had a long time to get good at it.",
+          "He keeps the lanterns at the top of the causeway, north of the meres. You'll see his light first.",
+          "The lanterns went dark all at once. I watched from here.\n\nIt's just a fen now, cold and wet and very "
+          "old. I think I can work with that. Kiitos, my friend. That's thank you, back home.",
+          R(58, ("Lamp-Black Greatsword", "main_hand", "of the Vanquisher", None, "sword_2h", "Two-Handed Sword (Str/Crit)"),
+            ("Wickwatch Hauberk", "chest", "of the Hunt", "mail", None, "Mail Chest (Agi/Int/AP)"),
+            ("Barrow-Guard Pauldrons", "shoulder", "of the Defender", "plate", None, "Plate Shoulders (Sta/Def/Dodge)"),
+            ("Hood of the Dark Causeway", "head", "of the Prophet", "cloth", None, "Cloth Helm (Int/Spi/Healing)"),
+            ("Mire-Runner's Leggings", "legs", "of the Wolf", "leather", None, "Leather Legs (Agi/Spi)")),
+          elite=True),
+        Q("hz_lanternmere_sedge", "Old Mother Sedge", "hz_lanternmere_sami", lm, 58,
+          [{"type": "kill", "target": "Old Mother Sedge", "count": 1}],
+          "There's one more thing, and it's in Sedge Hollow, west of the meres. Something old lives in the reeds "
+          "there, older than the Amani and their barrows. Old Mother Sedge, I've been calling her.\n\nShe's been "
+          "drinking the mere. The water's lower every week, and if it goes, everything that's buried in the peat "
+          "comes up. I'd rather it didn't.",
+          "Sedge Hollow is west of the meres, in the reeds. She looks like the bank until she stands up.",
+          "The water's coming back already. I can see it at the edges.\n\nI'll stay a while. There's a whole "
+          "world of moss down here nobody's ever written down, and somebody ought to.",
+          R(58, ("Reedcutter's Glaive", "main_hand", "of the Monkey", None, "polearm", "Polearm (Agi/Sta)"),
+            ("Sedge-Woven Bracers", "wrist", "of the Owl", "mail", None, "Mail Bracers (Int/Spi)"),
+            ("Bog-Oak Sabatons", "feet", "of the Champion", "plate", None, "Plate Boots (Str/Sta/Def)"))),
+        # ------------------------------------------------------------------ The Long Winter
+        Q("hz_winter_wolves", "Wolves on the Ice", "hz_winter_ana", lw, 57,
+          [{"type": "kill", "target": "Dire Wolf", "count": 8}, {"type": "kill", "target": "Cave Bear", "count": 4}],
+          "Dr. Ana Vukovic. I was a palaeontologist in Zagreb, back home, and I spent my life digging up the bones "
+          "of everything you can see out there. Woolly mammoths. Cave bears. Lions. They died out on Earth before "
+          "anyone learned to write, and here they are, breathing.\n\nThis is the last ice age, a piece of it, and it "
+          "came through the Integration whole. But it's a small piece, and the dire wolves and the cave bears are "
+          "eating it faster than it can feed them. Thin them out, please, before there's nothing left to study.",
+          "The wolves hunt along the frozen river. The bears den near the bone huts and the painted cave.",
+          "Thank you. I know how that sounds from someone who loves them.\n\nI've only ever seen a dire wolf as a "
+          "skull in a museum drawer. Watching one run is something I'll never get used to.",
+          R(57, ("Mammoth-Hide Boots", "feet", "of the Monkey", "leather", None, "Leather Boots (Agi/Sta)"),
+            ("Fur-Lined Bracers", "wrist", "of the Invoker", "cloth", None, "Cloth Bracers (Int/SP/Crit)"),
+            ("Ice-Crust Gauntlets", "hands", "of the Defender", "plate", None, "Plate Gloves (Sta/Def/Dodge)")),
+          nxt="hz_winter_ochre"),
+        Q("hz_winter_ochre", "Red Ochre", "hz_winter_ana", lw, 58,
+          [{"type": "fetch", "target": "red_ochre", "count": 6}],
+          "There's a cave on the west side with paintings on the walls. Lions, horses, bison, hands. Someone was "
+          "here, before it all came through, and they painted what they saw.\n\nThe paint's red ochre, and the cave "
+          "bears roll in it in their dens. Bring me some, so I can match it to the paintings. If it's the same "
+          "earth, the people who painted that wall walked this exact snow.",
+          "The bears den round the bone huts and the mouth of the painted cave. Their fur's red with it.",
+          "It's the same. It's exactly the same.\n\nSomeone stood here twenty thousand years ago and painted a "
+          "lion. The lion's still in there, by the way. I'd stay out of the cave if I were you. Or not.",
+          R(58, ("Ochre-Stained Pendant", "neck", "of the Physician", None, None, "Necklace (Int/Healing)"),
+            ("Steppe Wanderer's Cloak", "back", "of the Tiger", None, None, "Cloak (Str/Agi)"),
+            ("Bone-Hut Girdle", "waist", "of the Hunt", "mail", None, "Mail Belt (Agi/Int/AP)")),
+          nxt="hz_winter_ice"),
+        Q("hz_winter_ice", "The Advancing Ice", "hz_winter_ana", lw, 59,
+          [{"type": "kill", "target": "The Advancing Ice", "count": 1},
+           {"type": "kill", "target": "Woolly Rhinoceros", "count": 4}],
+          "The glacier is moving. Glaciers do, but this one moves like it's deciding to, and it's coming south a "
+          "few yards every night. It's already buried half the camp.\n\nIf it reaches the Lanternmere, it'll push "
+          "through into the Plaguelands, and an ice age will start in Lordaeron. The woolly rhinos at the ice front "
+          "will charge anything that comes near it. Get past them and break the thing at the heart of the ice. "
+          "Bring every friend you have.",
+          "The ice front is in the north east, past the frozen lake. The rhinos graze right up against it.",
+          "It's stopped. I put a stake in the snow at its edge this morning and it hasn't moved since.\n\nThe "
+          "winter will go on in here, the way it should. It just won't come any further. Thank you, truly.",
+          R(59, ("Glacier-Split Maul", "main_hand", "of the Bear", None, "mace_2h", "Two-Handed Mace (Str/Sta)"),
+            ("Mantle of the Last Ice", "shoulder", "of the Sorcerer", "cloth", None, "Cloth Shoulders (Int/SP)"),
+            ("Steppe-Stalker's Jerkin", "chest", "of the Assassin", "leather", None, "Leather Chest (Agi/Hit/Crit)"),
+            ("Permafrost Hauberk", "chest", "of the Owl", "mail", None, "Mail Chest (Int/Spi)"),
+            ("Ice-Front Breastplate", "chest", "of the Defender", "plate", None, "Plate Chest (Sta/Def/Dodge)")),
+          elite=True),
+        Q("hz_winter_lion", "The Lion of the Painted Cave", "hz_winter_ana", lw, 59,
+          [{"type": "kill", "target": "The Lion of the Painted Cave", "count": 1}],
+          "I've been putting this off. The lion in the painted cave is the one on the wall, I'm almost sure of "
+          "it, the same mane and the same scar. It's killed everything that's gone into that cave since I got "
+          "here, and it's started coming out at night.\n\nI'd give anything to just watch it. But it's going to "
+          "find the camp soon. Please make it quick. And please don't touch the herd mother, whatever she does. "
+          "She's the last thing holding this herd together.",
+          "The painted cave is the ring of rock on the west side. It's in the dark at the back. You won't see it "
+          "until it's on you.",
+          "It's done, then.\n\nI'll draw it tonight, the way they did. Somebody should remember it the way it "
+          "really was. Take something with you. You've earned it twice over.",
+          R(59, ("Flint-and-Ash Spear", "main_hand", "of the Monkey", None, "polearm", "Polearm (Agi/Sta)"),
+            ("Painted-Cave Bracers", "wrist", "of the Owl", "mail", None, "Mail Bracers (Int/Spi)"),
+            ("Lion-Hunter's Sabatons", "feet", "of the Champion", "plate", None, "Plate Boots (Str/Sta/Def)"))),
+        # ------------------------------------------------------------------ The Sunward Waystation
+        Q("hz_sunward_road", "The Road North", "hz_sunward_lirael", sw, 58,
+          [{"type": "kill", "target": "Sunward Lynx", "count": 8},
+           {"type": "kill", "target": "Sunward Mana Wyrm", "count": 6}],
+          "Lirael Brightwater, ranger of the waystation, the last one still breathing. When the Scourge came down "
+          "the road, the Magister sealed us all inside the wardstones, and the afternoon's never ended since.\n\n"
+          "The lynxes and the mana wyrms have gone strange in the endless light, and they hunt anything that walks "
+          "the road. Thin them out, so the road's safe to walk again.",
+          "The lynxes keep to the long grass beside the road. The wyrms drift where the light's brightest.",
+          "That's the first time in years I've walked the whole road without drawing my bow.\n\nYou came from "
+          "outside. How long has it been out there? No, don't tell me. I'm not ready.",
+          R(58, ("Sunward Ranger's Boots", "feet", "of the Monkey", "leather", None, "Leather Boots (Agi/Sta)"),
+            ("Goldthread Gloves", "hands", "of the Owl", "cloth", None, "Cloth Gloves (Int/Spi)"),
+            ("Waystation Girdle", "waist", "of the Champion", "plate", None, "Plate Belt (Str/Sta/Def)")),
+          nxt="hz_sunward_shards"),
+        Q("hz_sunward_shards", "Wardstone Shards", "hz_sunward_lirael", sw, 59,
+          [{"type": "fetch", "target": "wardstone_shard", "count": 6}],
+          "The ward's failing at the north end, and I don't know how to mend it. The Arcane Remnants carry shards "
+          "of the wardstones in them, bits of the spell that broke loose.\n\nBring me some. If I can read what's "
+          "left in them, I can tell how long the ward's got.",
+          "The remnants drift through the waystation and the glimmering wood. They'll throw the spell at you.",
+          "Weeks. Maybe less. The Magister's pouring everything he has into it, and it's eating him alive.\n\n"
+          "And something on the other side is chewing at the breach. I can hear it at night.",
+          R(59, ("Wardstone Locket", "neck", "of the Invoker", None, None, "Necklace (Int/SP/Crit)"),
+            ("Sunward Scout's Coif", "head", "of the Hunt", "mail", None, "Mail Helm (Agi/Int/AP)"),
+            ("Rod of the Waystation", "main_hand", "of the Physician", None, "mace_1h", "Mace (Int/Healing)")),
+          nxt="hz_sunward_breach"),
+        Q("hz_sunward_breach", "The Breach-Gnawer", "hz_sunward_lirael", sw, 60,
+          [{"type": "kill", "target": "The Breach-Gnawer", "count": 1},
+           {"type": "kill", "target": "Breach Ghoul", "count": 6}],
+          "The Scourge found the gap in the ward. There's an abomination at the north end that's been gnawing at "
+          "the breach for a year, and the ghouls come through behind it whenever it opens a crack.\n\nKill it, and "
+          "the ghouls with it, before it gets through. I'll be on the wall with my bow. Take every friend you've "
+          "got, because I've seen what it does to a ranger.",
+          "The breach is at the north end, where the gold grass goes grey. You'll smell it before you see it.",
+          "It's dead? The breach is quiet. I can hear birds at the north end, for the first time in years.\n\nThe "
+          "ward can heal now, if the Magister lets it. That's the next problem, and it's the one I've been dreading.",
+          R(60, ("Breachbreaker", "main_hand", "of the Vanquisher", None, "axe_2h", "Two-Handed Axe (Str/Crit)"),
+            ("Ward-Mender's Mantle", "shoulder", "of the Sorcerer", "cloth", None, "Cloth Shoulders (Int/SP)"),
+            ("Sunward Stalker's Tunic", "chest", "of the Assassin", "leather", None, "Leather Chest (Agi/Hit/Crit)"),
+            ("Gold-Scale Hauberk", "chest", "of the Owl", "mail", None, "Mail Chest (Int/Spi)"),
+            ("Breach-Holder's Breastplate", "chest", "of the Defender", "plate", None, "Plate Chest (Sta/Def/Dodge)")),
+          elite=True),
+        Q("hz_sunward_magister", "The Long Afternoon", "hz_sunward_lirael", sw, 60,
+          [{"type": "kill", "target": "Magister Aerith Dawnsong", "count": 1}],
+          "Magister Aerith Dawnsong raised me after my parents died on the road. He sealed the ward to save us, "
+          "and then he couldn't stop. He died holding it, and he's still holding it, and now he won't let anyone "
+          "leave, not even the dead.\n\nI need you to let him go. I can't do it. I've tried, and every time he "
+          "smiles at me the way he used to.",
+          "He stands at the heart of the waystation, by the wardstones. The light gets brighter the closer you go.",
+          "The sun's moving. Look at the shadows. It's actually moving.\n\nIt'll be evening soon, for the first "
+          "time in years. I think I'll sit and watch it. Thank you. Go well, and walk in the light.",
+          R(60, ("Dawnsong's Last Spell", "main_hand", "of the Prophet", None, "staff", "Staff (Int/Spi/Healing)"),
+            ("Bracers of the Setting Sun", "wrist", "of the Owl", "mail", None, "Mail Bracers (Int/Spi)"),
+            ("Waystation Sabatons", "feet", "of the Champion", "plate", None, "Plate Boots (Str/Sta/Def)"))),
+    ]
 
 
 def write_node_pools():
@@ -1975,6 +2336,13 @@ def main():
                                                     encoding="utf-8")
     (DATA / "loot/hidden_boss_loot.json").write_text(json.dumps(loot, indent=2, ensure_ascii=False) + "\n",
                                                      encoding="utf-8")
+    try:
+        old = json.loads((DATA / "world/hidden_zones.json").read_text(encoding="utf-8"))["zones"]
+    except (OSError, ValueError, KeyError):
+        old = {}
+    for zname, info in registry.items():
+        for k, v in (old.get(zname) or {}).items():
+            info.setdefault(k, v)
     doc = {"_about": ("Hidden zones (world/hidden_zones.py). Written by tools/build_hidden_content.py. "
                       "Kyle, 14 Nov 2026: 'I don't want to see as I want these to be secrets.'"),
            "zones": registry}

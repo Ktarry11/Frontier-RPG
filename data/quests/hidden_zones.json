@@ -3604,6 +3604,1001 @@
         }
       ],
       "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_lanternmere_lights",
+      "title": "Lights Over the Water",
+      "giver_npc_id": "hz_lanternmere_sami",
+      "zone": "the_lanternmere",
+      "level_min": 56,
+      "level_max": 58,
+      "elite": false,
+      "description": "Sami Halonen. I studied peat bogs in Finland for twenty years, back home, and I've never seen one like this. The plague went all the way round it and never came in.\n\nBut the lights did. Every Mere Wisp out there drifts over the water at dusk, and whoever follows one walks into the mere and comes back up a Fen Drowned. I've lost two travellers that way this month. Put the lights out, and the drowned with them.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Mere Wisp",
+          "count": 8
+        },
+        {
+          "type": "kill",
+          "target": "Fen Drowned",
+          "count": 6
+        }
+      ],
+      "reward_exp": 6117,
+      "reward_gold": 23408,
+      "accept_text": "The wisps drift over the shallows south of the causeway. The drowned walk out of the meres after them.",
+      "turn_in_text": "That's quieter. Back home we called them will-o'-the-wisps and said they were marsh gas. These aren't marsh gas.\n\nI'd like to know what they are, if you'll help me catch some.",
+      "unique_item_defs": [
+        {
+          "name": "Bogwalker's Waders",
+          "slot": "feet",
+          "item_level": 60,
+          "rarity": "rare",
+          "required_level": 56,
+          "primary_stats": {
+            "agility": 16,
+            "stamina": 16
+          },
+          "armor_type": "leather",
+          "armor_value": 136,
+          "label": "Leather Boots (Agi/Sta)"
+        },
+        {
+          "name": "Peat-Cutter's Gloves",
+          "slot": "hands",
+          "item_level": 60,
+          "rarity": "rare",
+          "required_level": 56,
+          "primary_stats": {
+            "intellect": 16,
+            "spirit": 16
+          },
+          "armor_type": "cloth",
+          "armor_value": 68,
+          "label": "Cloth Gloves (Int/Spi)"
+        },
+        {
+          "name": "Causeway Girdle",
+          "slot": "waist",
+          "item_level": 60,
+          "rarity": "rare",
+          "required_level": 56,
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 15
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_type": "plate",
+          "armor_value": 327,
+          "label": "Plate Belt (Str/Sta/Def)"
+        }
+      ],
+      "next_quest_id": "hz_lanternmere_jars"
+    },
+    {
+      "quest_id": "hz_lanternmere_jars",
+      "title": "What the Lights Are",
+      "giver_npc_id": "hz_lanternmere_sami",
+      "zone": "the_lanternmere",
+      "level_min": 57,
+      "level_max": 59,
+      "elite": false,
+      "description": "When a wisp goes out, it leaves a little cold light behind, and the light keeps trying to go somewhere. Every one of them tries to go the same way, north up the causeway.\n\nCatch some for me. Put them in jars and bring them here, and we'll see where they want to go.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "wisp_light",
+          "count": 6
+        }
+      ],
+      "reward_exp": 6227,
+      "reward_gold": 23826,
+      "accept_text": "Kill the wisps over the shallows and scoop up what's left. Put the lid on fast, because they're quick.",
+      "turn_in_text": "Look at that. Every jar leaning north, toward the top of the causeway.\n\nThere's something up there calling them home, and I've a feeling it used to be a person.",
+      "unique_item_defs": [
+        {
+          "name": "Wisp-Jar Charm",
+          "slot": "neck",
+          "item_level": 61,
+          "rarity": "rare",
+          "required_level": 57,
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 22,
+            "crit_chance_spell": 6
+          },
+          "label": "Necklace (Int/SP/Crit)"
+        },
+        {
+          "name": "Mere-Wader's Coif",
+          "slot": "head",
+          "item_level": 61,
+          "rarity": "rare",
+          "required_level": 57,
+          "primary_stats": {
+            "agility": 14,
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_type": "mail",
+          "armor_value": 271,
+          "label": "Mail Helm (Agi/Int/AP)"
+        },
+        {
+          "name": "Fen-Lantern Staff",
+          "slot": "main_hand",
+          "item_level": 61,
+          "rarity": "rare",
+          "required_level": 57,
+          "weapon_type": "staff",
+          "primary_stats": {
+            "stamina": 26,
+            "intellect": 26
+          },
+          "secondary_stats": {
+            "healing_power": 44
+          },
+          "weapon_damage_min": 58,
+          "weapon_damage_max": 79,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Healing)"
+        }
+      ],
+      "next_quest_id": "hz_lanternmere_lamplighter"
+    },
+    {
+      "quest_id": "hz_lanternmere_lamplighter",
+      "title": "The Lamplighter (Elite)",
+      "giver_npc_id": "hz_lanternmere_sami",
+      "zone": "the_lanternmere",
+      "level_min": 58,
+      "level_max": 60,
+      "elite": true,
+      "description": "There used to be a man who kept the lanterns on the causeway, so travellers wouldn't wander into the water. When he died, he kept doing it, except now he lights them to lead people in. Every wisp on the mere is one of his lamps.\n\nThe Amani Barrow-Shades guard the top of the causeway for him. Take them down, and then him. Take friends. He's had a long time to get good at it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "The Lamplighter",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Amani Barrow-Shade",
+          "count": 5
+        }
+      ],
+      "reward_exp": 11020,
+      "reward_gold": 44080,
+      "accept_text": "He keeps the lanterns at the top of the causeway, north of the meres. You'll see his light first.",
+      "turn_in_text": "The lanterns went dark all at once. I watched from here.\n\nIt's just a fen now, cold and wet and very old. I think I can work with that. Kiitos, my friend. That's thank you, back home.",
+      "unique_item_defs": [
+        {
+          "name": "Lamp-Black Greatsword",
+          "slot": "main_hand",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "weapon_type": "sword_2h",
+          "primary_stats": {
+            "strength": 14
+          },
+          "secondary_stats": {
+            "attack_power": 29,
+            "hit_rating": 12
+          },
+          "weapon_damage_min": 145,
+          "weapon_damage_max": 196,
+          "attack_speed": 3.4,
+          "label": "Two-Handed Sword (Str/Crit)"
+        },
+        {
+          "name": "Wickwatch Hauberk",
+          "slot": "chest",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "primary_stats": {
+            "agility": 17,
+            "intellect": 17
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_type": "mail",
+          "armor_value": 325,
+          "label": "Mail Chest (Agi/Int/AP)"
+        },
+        {
+          "name": "Barrow-Guard Pauldrons",
+          "slot": "shoulder",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "primary_stats": {
+            "stamina": 19
+          },
+          "secondary_stats": {
+            "defense_rating": 15,
+            "dodge_rating": 10
+          },
+          "armor_type": "plate",
+          "armor_value": 413,
+          "label": "Plate Shoulders (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Hood of the Dark Causeway",
+          "slot": "head",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "primary_stats": {
+            "intellect": 12,
+            "spirit": 12
+          },
+          "secondary_stats": {
+            "healing_power": 33
+          },
+          "armor_type": "cloth",
+          "armor_value": 86,
+          "label": "Cloth Helm (Int/Spi/Healing)"
+        },
+        {
+          "name": "Mire-Runner's Leggings",
+          "slot": "legs",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "primary_stats": {
+            "agility": 24,
+            "spirit": 24
+          },
+          "armor_type": "leather",
+          "armor_value": 203,
+          "label": "Leather Legs (Agi/Spi)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_lanternmere_sedge",
+      "title": "Old Mother Sedge",
+      "giver_npc_id": "hz_lanternmere_sami",
+      "zone": "the_lanternmere",
+      "level_min": 58,
+      "level_max": 60,
+      "elite": false,
+      "description": "There's one more thing, and it's in Sedge Hollow, west of the meres. Something old lives in the reeds there, older than the Amani and their barrows. Old Mother Sedge, I've been calling her.\n\nShe's been drinking the mere. The water's lower every week, and if it goes, everything that's buried in the peat comes up. I'd rather it didn't.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Old Mother Sedge",
+          "count": 1
+        }
+      ],
+      "reward_exp": 6336,
+      "reward_gold": 24244,
+      "accept_text": "Sedge Hollow is west of the meres, in the reeds. She looks like the bank until she stands up.",
+      "turn_in_text": "The water's coming back already. I can see it at the edges.\n\nI'll stay a while. There's a whole world of moss down here nobody's ever written down, and somebody ought to.",
+      "unique_item_defs": [
+        {
+          "name": "Reedcutter's Glaive",
+          "slot": "main_hand",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "agility": 21,
+            "stamina": 21
+          },
+          "weapon_damage_min": 145,
+          "weapon_damage_max": 196,
+          "attack_speed": 3.3,
+          "label": "Polearm (Agi/Sta)"
+        },
+        {
+          "name": "Sedge-Woven Bracers",
+          "slot": "wrist",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "primary_stats": {
+            "intellect": 17,
+            "spirit": 17
+          },
+          "armor_type": "mail",
+          "armor_value": 225,
+          "label": "Mail Bracers (Int/Spi)"
+        },
+        {
+          "name": "Bog-Oak Sabatons",
+          "slot": "feet",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 15
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_type": "plate",
+          "armor_value": 338,
+          "label": "Plate Boots (Str/Sta/Def)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_winter_wolves",
+      "title": "Wolves on the Ice",
+      "giver_npc_id": "hz_winter_ana",
+      "zone": "the_long_winter",
+      "level_min": 57,
+      "level_max": 59,
+      "elite": false,
+      "description": "Dr. Ana Vukovic. I was a palaeontologist in Zagreb, back home, and I spent my life digging up the bones of everything you can see out there. Woolly mammoths. Cave bears. Lions. They died out on Earth before anyone learned to write, and here they are, breathing.\n\nThis is the last ice age, a piece of it, and it came through the Integration whole. But it's a small piece, and the dire wolves and the cave bears are eating it faster than it can feed them. Thin them out, please, before there's nothing left to study.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Dire Wolf",
+          "count": 8
+        },
+        {
+          "type": "kill",
+          "target": "Cave Bear",
+          "count": 4
+        }
+      ],
+      "reward_exp": 6227,
+      "reward_gold": 23826,
+      "accept_text": "The wolves hunt along the frozen river. The bears den near the bone huts and the painted cave.",
+      "turn_in_text": "Thank you. I know how that sounds from someone who loves them.\n\nI've only ever seen a dire wolf as a skull in a museum drawer. Watching one run is something I'll never get used to.",
+      "unique_item_defs": [
+        {
+          "name": "Mammoth-Hide Boots",
+          "slot": "feet",
+          "item_level": 61,
+          "rarity": "rare",
+          "required_level": 57,
+          "primary_stats": {
+            "agility": 17,
+            "stamina": 17
+          },
+          "armor_type": "leather",
+          "armor_value": 138,
+          "label": "Leather Boots (Agi/Sta)"
+        },
+        {
+          "name": "Fur-Lined Bracers",
+          "slot": "wrist",
+          "item_level": 61,
+          "rarity": "rare",
+          "required_level": 57,
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 25,
+            "crit_chance_spell": 7
+          },
+          "armor_type": "cloth",
+          "armor_value": 69,
+          "label": "Cloth Bracers (Int/SP/Crit)"
+        },
+        {
+          "name": "Ice-Crust Gauntlets",
+          "slot": "hands",
+          "item_level": 61,
+          "rarity": "rare",
+          "required_level": 57,
+          "primary_stats": {
+            "stamina": 15
+          },
+          "secondary_stats": {
+            "defense_rating": 12,
+            "dodge_rating": 8
+          },
+          "armor_type": "plate",
+          "armor_value": 332,
+          "label": "Plate Gloves (Sta/Def/Dodge)"
+        }
+      ],
+      "next_quest_id": "hz_winter_ochre"
+    },
+    {
+      "quest_id": "hz_winter_ochre",
+      "title": "Red Ochre",
+      "giver_npc_id": "hz_winter_ana",
+      "zone": "the_long_winter",
+      "level_min": 58,
+      "level_max": 60,
+      "elite": false,
+      "description": "There's a cave on the west side with paintings on the walls. Lions, horses, bison, hands. Someone was here, before it all came through, and they painted what they saw.\n\nThe paint's red ochre, and the cave bears roll in it in their dens. Bring me some, so I can match it to the paintings. If it's the same earth, the people who painted that wall walked this exact snow.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "red_ochre",
+          "count": 6
+        }
+      ],
+      "reward_exp": 6336,
+      "reward_gold": 24244,
+      "accept_text": "The bears den round the bone huts and the mouth of the painted cave. Their fur's red with it.",
+      "turn_in_text": "It's the same. It's exactly the same.\n\nSomeone stood here twenty thousand years ago and painted a lion. The lion's still in there, by the way. I'd stay out of the cave if I were you. Or not.",
+      "unique_item_defs": [
+        {
+          "name": "Ochre-Stained Pendant",
+          "slot": "neck",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "primary_stats": {
+            "stamina": 11,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "healing_power": 18
+          },
+          "label": "Necklace (Int/Healing)"
+        },
+        {
+          "name": "Steppe Wanderer's Cloak",
+          "slot": "back",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "primary_stats": {
+            "strength": 15,
+            "agility": 15
+          },
+          "label": "Cloak (Str/Agi)"
+        },
+        {
+          "name": "Bone-Hut Girdle",
+          "slot": "waist",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "primary_stats": {
+            "agility": 12,
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_type": "mail",
+          "armor_value": 225,
+          "label": "Mail Belt (Agi/Int/AP)"
+        }
+      ],
+      "next_quest_id": "hz_winter_ice"
+    },
+    {
+      "quest_id": "hz_winter_ice",
+      "title": "The Advancing Ice (Elite)",
+      "giver_npc_id": "hz_winter_ana",
+      "zone": "the_long_winter",
+      "level_min": 59,
+      "level_max": 61,
+      "elite": true,
+      "description": "The glacier is moving. Glaciers do, but this one moves like it's deciding to, and it's coming south a few yards every night. It's already buried half the camp.\n\nIf it reaches the Lanternmere, it'll push through into the Plaguelands, and an ice age will start in Lordaeron. The woolly rhinos at the ice front will charge anything that comes near it. Get past them and break the thing at the heart of the ice. Bring every friend you have.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "The Advancing Ice",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Woolly Rhinoceros",
+          "count": 4
+        }
+      ],
+      "reward_exp": 11210,
+      "reward_gold": 44840,
+      "accept_text": "The ice front is in the north east, past the frozen lake. The rhinos graze right up against it.",
+      "turn_in_text": "It's stopped. I put a stake in the snow at its edge this morning and it hasn't moved since.\n\nThe winter will go on in here, the way it should. It just won't come any further. Thank you, truly.",
+      "unique_item_defs": [
+        {
+          "name": "Glacier-Split Maul",
+          "slot": "main_hand",
+          "item_level": 63,
+          "rarity": "rare",
+          "required_level": 59,
+          "weapon_type": "mace_2h",
+          "primary_stats": {
+            "strength": 21,
+            "stamina": 21
+          },
+          "weapon_damage_min": 147,
+          "weapon_damage_max": 199,
+          "attack_speed": 3.6,
+          "label": "Two-Handed Mace (Str/Sta)"
+        },
+        {
+          "name": "Mantle of the Last Ice",
+          "slot": "shoulder",
+          "item_level": 63,
+          "rarity": "rare",
+          "required_level": 59,
+          "primary_stats": {
+            "intellect": 15,
+            "stamina": 15
+          },
+          "secondary_stats": {
+            "spell_power": 19
+          },
+          "armor_type": "cloth",
+          "armor_value": 87,
+          "label": "Cloth Shoulders (Int/SP)"
+        },
+        {
+          "name": "Steppe-Stalker's Jerkin",
+          "slot": "chest",
+          "item_level": 63,
+          "rarity": "rare",
+          "required_level": 59,
+          "primary_stats": {
+            "agility": 20
+          },
+          "secondary_stats": {
+            "hit_rating": 15,
+            "crit_chance_physical": 15
+          },
+          "armor_type": "leather",
+          "armor_value": 206,
+          "label": "Leather Chest (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Permafrost Hauberk",
+          "slot": "chest",
+          "item_level": 63,
+          "rarity": "rare",
+          "required_level": 59,
+          "primary_stats": {
+            "intellect": 25,
+            "spirit": 25
+          },
+          "armor_type": "mail",
+          "armor_value": 330,
+          "label": "Mail Chest (Int/Spi)"
+        },
+        {
+          "name": "Ice-Front Breastplate",
+          "slot": "chest",
+          "item_level": 63,
+          "rarity": "rare",
+          "required_level": 59,
+          "primary_stats": {
+            "stamina": 23
+          },
+          "secondary_stats": {
+            "defense_rating": 18,
+            "dodge_rating": 12
+          },
+          "armor_type": "plate",
+          "armor_value": 496,
+          "label": "Plate Chest (Sta/Def/Dodge)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_winter_lion",
+      "title": "The Lion of the Painted Cave",
+      "giver_npc_id": "hz_winter_ana",
+      "zone": "the_long_winter",
+      "level_min": 59,
+      "level_max": 61,
+      "elite": false,
+      "description": "I've been putting this off. The lion in the painted cave is the one on the wall, I'm almost sure of it, the same mane and the same scar. It's killed everything that's gone into that cave since I got here, and it's started coming out at night.\n\nI'd give anything to just watch it. But it's going to find the camp soon. Please make it quick. And please don't touch the herd mother, whatever she does. She's the last thing holding this herd together.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "The Lion of the Painted Cave",
+          "count": 1
+        }
+      ],
+      "reward_exp": 6445,
+      "reward_gold": 24662,
+      "accept_text": "The painted cave is the ring of rock on the west side. It's in the dark at the back. You won't see it until it's on you.",
+      "turn_in_text": "It's done, then.\n\nI'll draw it tonight, the way they did. Somebody should remember it the way it really was. Take something with you. You've earned it twice over.",
+      "unique_item_defs": [
+        {
+          "name": "Flint-and-Ash Spear",
+          "slot": "main_hand",
+          "item_level": 63,
+          "rarity": "rare",
+          "required_level": 59,
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "agility": 21,
+            "stamina": 21
+          },
+          "weapon_damage_min": 147,
+          "weapon_damage_max": 199,
+          "attack_speed": 3.3,
+          "label": "Polearm (Agi/Sta)"
+        },
+        {
+          "name": "Painted-Cave Bracers",
+          "slot": "wrist",
+          "item_level": 63,
+          "rarity": "rare",
+          "required_level": 59,
+          "primary_stats": {
+            "intellect": 17,
+            "spirit": 17
+          },
+          "armor_type": "mail",
+          "armor_value": 229,
+          "label": "Mail Bracers (Int/Spi)"
+        },
+        {
+          "name": "Lion-Hunter's Sabatons",
+          "slot": "feet",
+          "item_level": 63,
+          "rarity": "rare",
+          "required_level": 59,
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 15
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_type": "plate",
+          "armor_value": 343,
+          "label": "Plate Boots (Str/Sta/Def)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_sunward_road",
+      "title": "The Road North",
+      "giver_npc_id": "hz_sunward_lirael",
+      "zone": "the_sunward_waystation",
+      "level_min": 58,
+      "level_max": 60,
+      "elite": false,
+      "description": "Lirael Brightwater, ranger of the waystation, the last one still breathing. When the Scourge came down the road, the Magister sealed us all inside the wardstones, and the afternoon's never ended since.\n\nThe lynxes and the mana wyrms have gone strange in the endless light, and they hunt anything that walks the road. Thin them out, so the road's safe to walk again.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Sunward Lynx",
+          "count": 8
+        },
+        {
+          "type": "kill",
+          "target": "Sunward Mana Wyrm",
+          "count": 6
+        }
+      ],
+      "reward_exp": 6336,
+      "reward_gold": 24244,
+      "accept_text": "The lynxes keep to the long grass beside the road. The wyrms drift where the light's brightest.",
+      "turn_in_text": "That's the first time in years I've walked the whole road without drawing my bow.\n\nYou came from outside. How long has it been out there? No, don't tell me. I'm not ready.",
+      "unique_item_defs": [
+        {
+          "name": "Sunward Ranger's Boots",
+          "slot": "feet",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "primary_stats": {
+            "agility": 17,
+            "stamina": 17
+          },
+          "armor_type": "leather",
+          "armor_value": 140,
+          "label": "Leather Boots (Agi/Sta)"
+        },
+        {
+          "name": "Goldthread Gloves",
+          "slot": "hands",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "primary_stats": {
+            "intellect": 17,
+            "spirit": 17
+          },
+          "armor_type": "cloth",
+          "armor_value": 70,
+          "label": "Cloth Gloves (Int/Spi)"
+        },
+        {
+          "name": "Waystation Girdle",
+          "slot": "waist",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 15
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_type": "plate",
+          "armor_value": 338,
+          "label": "Plate Belt (Str/Sta/Def)"
+        }
+      ],
+      "next_quest_id": "hz_sunward_shards"
+    },
+    {
+      "quest_id": "hz_sunward_shards",
+      "title": "Wardstone Shards",
+      "giver_npc_id": "hz_sunward_lirael",
+      "zone": "the_sunward_waystation",
+      "level_min": 59,
+      "level_max": 61,
+      "elite": false,
+      "description": "The ward's failing at the north end, and I don't know how to mend it. The Arcane Remnants carry shards of the wardstones in them, bits of the spell that broke loose.\n\nBring me some. If I can read what's left in them, I can tell how long the ward's got.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "wardstone_shard",
+          "count": 6
+        }
+      ],
+      "reward_exp": 6445,
+      "reward_gold": 24662,
+      "accept_text": "The remnants drift through the waystation and the glimmering wood. They'll throw the spell at you.",
+      "turn_in_text": "Weeks. Maybe less. The Magister's pouring everything he has into it, and it's eating him alive.\n\nAnd something on the other side is chewing at the breach. I can hear it at night.",
+      "unique_item_defs": [
+        {
+          "name": "Wardstone Locket",
+          "slot": "neck",
+          "item_level": 63,
+          "rarity": "rare",
+          "required_level": 59,
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 23,
+            "crit_chance_spell": 6
+          },
+          "label": "Necklace (Int/SP/Crit)"
+        },
+        {
+          "name": "Sunward Scout's Coif",
+          "slot": "head",
+          "item_level": 63,
+          "rarity": "rare",
+          "required_level": 59,
+          "primary_stats": {
+            "agility": 15,
+            "intellect": 15
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_type": "mail",
+          "armor_value": 279,
+          "label": "Mail Helm (Agi/Int/AP)"
+        },
+        {
+          "name": "Rod of the Waystation",
+          "slot": "main_hand",
+          "item_level": 63,
+          "rarity": "rare",
+          "required_level": 59,
+          "weapon_type": "mace_1h",
+          "primary_stats": {
+            "stamina": 15,
+            "intellect": 15
+          },
+          "secondary_stats": {
+            "healing_power": 25
+          },
+          "weapon_damage_min": 109,
+          "weapon_damage_max": 147,
+          "attack_speed": 2.6,
+          "label": "Mace (Int/Healing)"
+        }
+      ],
+      "next_quest_id": "hz_sunward_breach"
+    },
+    {
+      "quest_id": "hz_sunward_breach",
+      "title": "The Breach-Gnawer (Elite)",
+      "giver_npc_id": "hz_sunward_lirael",
+      "zone": "the_sunward_waystation",
+      "level_min": 60,
+      "level_max": 62,
+      "elite": true,
+      "description": "The Scourge found the gap in the ward. There's an abomination at the north end that's been gnawing at the breach for a year, and the ghouls come through behind it whenever it opens a crack.\n\nKill it, and the ghouls with it, before it gets through. I'll be on the wall with my bow. Take every friend you've got, because I've seen what it does to a ranger.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "The Breach-Gnawer",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Breach Ghoul",
+          "count": 6
+        }
+      ],
+      "reward_exp": 11400,
+      "reward_gold": 45600,
+      "accept_text": "The breach is at the north end, where the gold grass goes grey. You'll smell it before you see it.",
+      "turn_in_text": "It's dead? The breach is quiet. I can hear birds at the north end, for the first time in years.\n\nThe ward can heal now, if the Magister lets it. That's the next problem, and it's the one I've been dreading.",
+      "unique_item_defs": [
+        {
+          "name": "Breachbreaker",
+          "slot": "main_hand",
+          "item_level": 64,
+          "rarity": "rare",
+          "required_level": 60,
+          "weapon_type": "axe_2h",
+          "primary_stats": {
+            "strength": 15
+          },
+          "secondary_stats": {
+            "attack_power": 30,
+            "hit_rating": 13
+          },
+          "weapon_damage_min": 149,
+          "weapon_damage_max": 202,
+          "attack_speed": 3.6,
+          "label": "Two-Handed Axe (Str/Crit)"
+        },
+        {
+          "name": "Ward-Mender's Mantle",
+          "slot": "shoulder",
+          "item_level": 64,
+          "rarity": "rare",
+          "required_level": 60,
+          "primary_stats": {
+            "intellect": 15,
+            "stamina": 15
+          },
+          "secondary_stats": {
+            "spell_power": 19
+          },
+          "armor_type": "cloth",
+          "armor_value": 88,
+          "label": "Cloth Shoulders (Int/SP)"
+        },
+        {
+          "name": "Sunward Stalker's Tunic",
+          "slot": "chest",
+          "item_level": 64,
+          "rarity": "rare",
+          "required_level": 60,
+          "primary_stats": {
+            "agility": 20
+          },
+          "secondary_stats": {
+            "hit_rating": 15,
+            "crit_chance_physical": 15
+          },
+          "armor_type": "leather",
+          "armor_value": 210,
+          "label": "Leather Chest (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Gold-Scale Hauberk",
+          "slot": "chest",
+          "item_level": 64,
+          "rarity": "rare",
+          "required_level": 60,
+          "primary_stats": {
+            "intellect": 25,
+            "spirit": 25
+          },
+          "armor_type": "mail",
+          "armor_value": 336,
+          "label": "Mail Chest (Int/Spi)"
+        },
+        {
+          "name": "Breach-Holder's Breastplate",
+          "slot": "chest",
+          "item_level": 64,
+          "rarity": "rare",
+          "required_level": 60,
+          "primary_stats": {
+            "stamina": 23
+          },
+          "secondary_stats": {
+            "defense_rating": 18,
+            "dodge_rating": 12
+          },
+          "armor_type": "plate",
+          "armor_value": 504,
+          "label": "Plate Chest (Sta/Def/Dodge)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_sunward_magister",
+      "title": "The Long Afternoon",
+      "giver_npc_id": "hz_sunward_lirael",
+      "zone": "the_sunward_waystation",
+      "level_min": 60,
+      "level_max": 62,
+      "elite": false,
+      "description": "Magister Aerith Dawnsong raised me after my parents died on the road. He sealed the ward to save us, and then he couldn't stop. He died holding it, and he's still holding it, and now he won't let anyone leave, not even the dead.\n\nI need you to let him go. I can't do it. I've tried, and every time he smiles at me the way he used to.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Magister Aerith Dawnsong",
+          "count": 1
+        }
+      ],
+      "reward_exp": 6554,
+      "reward_gold": 25080,
+      "accept_text": "He stands at the heart of the waystation, by the wardstones. The light gets brighter the closer you go.",
+      "turn_in_text": "The sun's moving. Look at the shadows. It's actually moving.\n\nIt'll be evening soon, for the first time in years. I think I'll sit and watch it. Thank you. Go well, and walk in the light.",
+      "unique_item_defs": [
+        {
+          "name": "Dawnsong's Last Spell",
+          "slot": "main_hand",
+          "item_level": 64,
+          "rarity": "rare",
+          "required_level": 60,
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 23,
+            "spirit": 23
+          },
+          "secondary_stats": {
+            "healing_power": 61
+          },
+          "weapon_damage_min": 61,
+          "weapon_damage_max": 82,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Spi/Healing)"
+        },
+        {
+          "name": "Bracers of the Setting Sun",
+          "slot": "wrist",
+          "item_level": 64,
+          "rarity": "rare",
+          "required_level": 60,
+          "primary_stats": {
+            "intellect": 17,
+            "spirit": 17
+          },
+          "armor_type": "mail",
+          "armor_value": 232,
+          "label": "Mail Bracers (Int/Spi)"
+        },
+        {
+          "name": "Waystation Sabatons",
+          "slot": "feet",
+          "item_level": 64,
+          "rarity": "rare",
+          "required_level": 60,
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 16
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_type": "plate",
+          "armor_value": 348,
+          "label": "Plate Boots (Str/Sta/Def)"
+        }
+      ],
+      "next_quest_id": null
     }
   ]
 }

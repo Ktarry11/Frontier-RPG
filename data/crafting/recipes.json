@@ -9892,6 +9892,58 @@
           "faction": "booty_bay_authority",
           "_rare_ingredients_todo": true
         },
+        "rep_pf_mantle_of_the_walkout": {
+          "name": "Mantle of the Walkout",
+          "inputs": {
+            "bolt_voidweave": 16,
+            "thread_silken": 2
+          },
+          "skill_required": 300,
+          "output": {
+            "kind": "armor",
+            "slot": "shoulder",
+            "stat_template": "int_caster",
+            "item_level": 73,
+            "rarity": "epic",
+            "material_tier": "voidweave",
+            "identity": "caster_crit",
+            "flavor": "Grey silk with a white flame on each shoulder, for the casters who walked out with Rory.",
+            "fixed_item_level": true,
+            "required_level": 60,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Mantle of the Walkout",
+              "slot": "shoulder",
+              "item_level": 73,
+              "rarity": "epic",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 19
+              },
+              "secondary_stats": {
+                "spell_power": 69,
+                "crit_chance_spell": 28
+              },
+              "armor_value": 131,
+              "required_level": 60,
+              "sell_price": 39153,
+              "flavor_text": "Grey silk with a white flame on each shoulder, for the casters who walked out with Rory.",
+              "identity": "caster_crit",
+              "icon_id": "gear_wow_cloth_shoulder_walkout"
+            }
+          },
+          "skill_range": [
+            300,
+            305,
+            310,
+            315
+          ],
+          "source": "vendor",
+          "faction": "pale_flame",
+          "_rare_ingredients_todo": true
+        },
         "secret_hz_vault_scribe_p300_ta_starweave_chest": {
           "name": "Scribe's Starweave Robe",
           "skill_required": 225,
@@ -9904,7 +9956,8 @@
           "source": "vendor",
           "inputs": {
             "bolt_starweave": 8,
-            "thread_silken": 1
+            "thread_silken": 1,
+            "mob_veinlight_mote": 1
           },
           "output": {
             "kind": "armor",
@@ -9996,7 +10049,8 @@
           "name": "Grisle's Wool Belt",
           "inputs": {
             "bolt_wool": 2,
-            "thread_coarse": 1
+            "thread_coarse": 1,
+            "mob_ghoul_sinew": 1
           },
           "skill_required": 60,
           "output": {
@@ -10254,7 +10308,8 @@
           "source": "vendor",
           "inputs": {
             "bolt_emberweave": 6,
-            "thread_fine": 1
+            "thread_fine": 1,
+            "mob_saltscale_pearl": 1
           },
           "output": {
             "kind": "armor",
@@ -10403,7 +10458,8 @@
           "source": "vendor",
           "inputs": {
             "bolt_emberweave": 6,
-            "thread_fine": 1
+            "thread_fine": 1,
+            "mob_saltscale_pearl": 1
           },
           "output": {
             "kind": "armor",
@@ -10494,7 +10550,8 @@
           "name": "Ferryless's Silk Cloak",
           "inputs": {
             "bolt_silk": 2,
-            "thread_fine": 1
+            "thread_fine": 1,
+            "mob_thick_yeti_fur": 1
           },
           "skill_required": 105,
           "output": {
@@ -10642,8 +10699,8 @@
             "secret_saltspur_hewitt"
           ]
         },
-        "rep_pf_mantle_of_the_walkout": {
-          "name": "Mantle of the Walkout",
+        "secret_hz_sunward_velaren_rep_pf_mantle_of_the_walkout": {
+          "name": "Velaren's Mantle of the Walkout",
           "inputs": {
             "bolt_voidweave": 16,
             "thread_silken": 2
@@ -10653,8 +10710,8 @@
             "kind": "armor",
             "slot": "shoulder",
             "stat_template": "int_caster",
-            "item_level": 73,
-            "rarity": "epic",
+            "item_level": 75,
+            "rarity": "rare",
             "material_tier": "voidweave",
             "identity": "caster_crit",
             "flavor": "Grey silk with a white flame on each shoulder, for the casters who walked out with Rory.",
@@ -10692,7 +10749,11 @@
           ],
           "source": "vendor",
           "faction": "pale_flame",
-          "_rare_ingredients_todo": true
+          "_rare_ingredients_todo": true,
+          "secret": true,
+          "sold_by": [
+            "secret_hz_sunward_velaren"
+          ]
         }
       }
     },
@@ -28089,7 +28150,8 @@
             "bar_iron": 4,
             "part_steel_barrel": 1,
             "part_wooden_stock": 1,
-            "part_unstable_trigger": 1
+            "part_unstable_trigger": 1,
+            "mob_elkhorn_antler": 1
           },
           "output": {
             "kind": "weapon",
@@ -28251,7 +28313,8 @@
             "bar_iron": 4,
             "part_steel_barrel": 1,
             "part_wooden_stock": 1,
-            "part_unstable_trigger": 1
+            "part_unstable_trigger": 1,
+            "mob_kobold_candle": 1
           },
           "output": {
             "kind": "weapon",
@@ -28353,7 +28416,8 @@
           "source": "vendor",
           "inputs": {
             "bar_thorium": 6,
-            "part_iron_casing": 2
+            "part_iron_casing": 2,
+            "mob_forge_slag_core": 1
           },
           "output": {
             "kind": "armor",
@@ -28404,7 +28468,8 @@
           "inputs": {
             "bar_truesilver": 6,
             "part_steel_barrel": 1,
-            "part_precision_sight": 1
+            "part_precision_sight": 1,
+            "mob_hive_resin": 1
           },
           "output": {
             "kind": "weapon",
@@ -28458,7 +28523,8 @@
           "inputs": {
             "bar_thorium": 5,
             "part_glass_lens": 2,
-            "part_gear_assembly": 1
+            "part_gear_assembly": 1,
+            "mob_scoria_heart": 1
           },
           "output": {
             "kind": "armor",
@@ -30215,7 +30281,8 @@
           "skill_required": 55,
           "inputs": {
             "fish_bristle_whisker_catfish": 1,
-            "cook_water": 1
+            "cook_water": 1,
+            "mob_murloc_fin": 1
           },
           "source": "vendor",
           "skill_range": [

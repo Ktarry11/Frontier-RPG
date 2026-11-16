@@ -5937,7 +5937,8 @@
       "inputs": {
         "setting_ring_copper": 1,
         "bar_copper": 1,
-        "gem_azurite": 1
+        "gem_azurite": 1,
+        "mob_kolkar_war_bead": 1
       },
       "skill_required": 35,
       "output": {
@@ -5988,7 +5989,8 @@
       "inputs": {
         "setting_ring_silver": 1,
         "bar_silver": 1,
-        "gem_garnet": 1
+        "gem_garnet": 1,
+        "mob_siren_scale": 1
       },
       "skill_required": 95,
       "output": {
@@ -6039,7 +6041,8 @@
       "inputs": {
         "setting_ring_silver": 1,
         "bar_silver": 1,
-        "gem_lesser_moonstone": 1
+        "gem_lesser_moonstone": 1,
+        "mob_satyr_horn": 1
       },
       "skill_required": 105,
       "output": {
@@ -6090,7 +6093,8 @@
       "inputs": {
         "setting_ring_mithril": 1,
         "bar_mithril": 1,
-        "gem_aquamarine": 1
+        "gem_aquamarine": 1,
+        "mob_sunstone_shard": 1
       },
       "skill_required": 210,
       "output": {
@@ -6142,7 +6146,8 @@
       "inputs": {
         "setting_ring_truesilver": 1,
         "bar_truesilver": 1,
-        "gem_blue_sapphire": 2
+        "gem_blue_sapphire": 2,
+        "mob_saltscale_pearl": 1
       },
       "skill_required": 255,
       "output": {
@@ -6194,7 +6199,8 @@
       "inputs": {
         "setting_ring_mithril": 1,
         "bar_mithril": 1,
-        "gem_aquamarine": 1
+        "gem_aquamarine": 1,
+        "mob_sunstone_shard": 1
       },
       "skill_required": 210,
       "output": {
@@ -6246,7 +6252,8 @@
       "inputs": {
         "setting_ring_truesilver": 1,
         "bar_truesilver": 1,
-        "gem_blue_sapphire": 2
+        "gem_blue_sapphire": 2,
+        "mob_saltscale_pearl": 1
       },
       "skill_required": 255,
       "output": {
@@ -6298,7 +6305,8 @@
       "inputs": {
         "setting_ring_truesilver": 1,
         "bar_truesilver": 1,
-        "gem_black_diamond": 1
+        "gem_black_diamond": 1,
+        "mob_saltscale_pearl": 1
       },
       "skill_required": 245,
       "output": {
@@ -6402,7 +6410,8 @@
       "inputs": {
         "setting_ring_gold": 1,
         "bar_gold": 1,
-        "gem_rime_opal": 1
+        "gem_rime_opal": 1,
+        "mob_witherbark_hex_bead": 1
       },
       "skill_required": 175,
       "output": {
@@ -6447,6 +6456,64 @@
       "secret": true,
       "sold_by": [
         "secret_underdark_haldur"
+      ]
+    },
+    "secret_hz_sunward_velaren_rep_cc_pendant_of_the_hanging_light": {
+      "name": "Velaren's Pendant of the Hanging Light",
+      "inputs": {
+        "setting_necklace_thorium": 1,
+        "bar_thorium": 2,
+        "gem_azure_diamond": 4
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "armor",
+        "slot": "neck",
+        "stat_template": "spi_healer",
+        "item_level": 75,
+        "rarity": "rare",
+        "material_tier": "thorium",
+        "identity": "healer",
+        "flavor": "A shard of crystal that points, always, at the light in the Underdark.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": null,
+        "item": {
+          "name": "Pendant of the Hanging Light",
+          "slot": "neck",
+          "item_level": 73,
+          "rarity": "epic",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 17,
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "healing_power": 74
+          },
+          "armor_value": 0,
+          "required_level": 60,
+          "sell_price": 29365,
+          "flavor_text": "A shard of crystal that points, always, at the light in the Underdark.",
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_necklace_10"
+        }
+      },
+      "skill_range": [
+        300,
+        305,
+        310,
+        315
+      ],
+      "source": "vendor",
+      "faction": "crimson_codex",
+      "_rare_ingredients_todo": true,
+      "tool": "jewelers_kit",
+      "secret": true,
+      "sold_by": [
+        "secret_hz_sunward_velaren"
       ]
     }
   }

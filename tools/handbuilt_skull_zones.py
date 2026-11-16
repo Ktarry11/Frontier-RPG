@@ -636,6 +636,223 @@ SPECS["The Coal Forest"] = dict(
 )
 
 
+
+
+# ============================================================================ THE PLAGUELANDS (16 Nov 2026)
+# Kyle: "make TWO skull zones somewhere in the open world for plaguelands, I don't know which one or where". One off
+# each of the Plaguelands' two halves, at the top of its parent's band. Where the doors are is build_secrets.py's.
+PLG = "assets/tiles/plaguelands/props/"
+ASH = "assets/tiles/ashenvale/props/"
+
+# THE LANTERNMERE. A cold fen where a river starts, two black meres with a neck of land between them, and an old
+# Amani causeway that sank into the peat long before the plague. Lights move over the water at night, and the people
+# who followed them are still out there, under it.
+SPECS["The Lanternmere"] = dict(
+    slug="lanternmere", W=100, H=88, region="Western Plaguelands North", seed=951,
+    desc="A cold fen of black water and grey moss that the plague never found. Lights drift over the meres at "
+         "night, and everyone who ever followed one is still out here.",
+    mode="islands", shore_w=1.8,
+    # A CHAIN OF ISLANDS, NOT A BOWL (Kyle: "Don't make all the shapes the same. You default to blobs").
+    # The fen is black water, and the land is what stands out of it: a causeway of hummocks winding from the
+    # south shore up to the Lamplighter's isle, one long reed island in the west, the barrow isles strung down
+    # the east, and shallow fords you wade between them. Lose the causeway and you're swimming.
+    lakes=[],
+    rivers=[],
+    flats=[(32, 52, 7, 3), (31, 33, 6, 3), (65, 37, 12, 3), (64, 58, 13, 3), (82, 36, 4, 4), (81, 47, 4, 3), (82, 57, 4, 3),
+           (80, 66, 4, 3), (40, 18, 6, 3), (58, 14, 5, 3), (58, 79, 5, 2.5), (32, 62, 5, 2.5)],
+    open=[],
+    outline=[],
+    passes=[],
+    rocks=[],
+    roads=[([(50, 84), (46, 73), (41, 64), (45, 55), (51, 47), (56, 38), (52, 29), (49, 20), (50, 12)], 1.6)],
+    portal=(50, 85),
+    giver=("hz_lanternmere_sami", (56, 80)),
+    subzones=[("The Wisp-Lit Shallows", 36, 66, 34, 22), ("The Sunken Causeway", 36, 24, 26, 42),
+              ("Sedge Hollow", 4, 22, 32, 46), ("The Barrow Isles", 66, 22, 30, 54),
+              ("The Lamplighter's Rest", 34, 2, 34, 16)],
+    materials={"land": ("plaguelands/ground/pl_grey_moss", "plaguelands/ground/pl_dead_clover"),
+               "reed": ("plaguelands/ground/pl_reed_marsh", None),
+               "mud": ("plaguelands/ground/pl_blight_mud", None),
+               "puddle": ("plaguelands/ground/pl_green_puddles", None),
+               "road": ("plaguelands/ground/pl_mossy_flag", None),
+               "water_s": ("plaguelands/ground/pl_lake_shallow", None),
+               "water_d": ("plaguelands/ground/pl_black_pond", None),
+               "rock": ("silverpine/materials/sp_cliff_a", "silverpine/materials/sp_rock_wall")},
+    regions={"reed": [(30, 52, 12, 5), (70, 54, 10, 5), (16, 40, 6, 8)], "mud": [(14, 56, 6, 6), (84, 34, 6, 5)],
+             "puddle": [(50, 12, 12, 6), (20, 58, 6, 4)]},
+    tint=(0.82, 0.90, 0.93), dark=0.16,
+    land=[(50, 83, 8, 5, 0), (46, 73, 5, 4, 20), (41, 64, 5, 4, -10), (45, 55, 5, 4, 15), (51, 47, 5, 4, -10),
+          (56, 38, 5, 4, 10), (52, 29, 5, 4, -15), (49, 20, 5, 4, 0), (50, 10, 14, 6, 0),
+          (17, 40, 11, 16, 8), (26, 60, 5, 4, 0), (31, 22, 4, 3, 0),
+          (77, 28, 6, 5, 0), (87, 42, 5, 4, 0), (75, 52, 6, 5, 0), (88, 62, 5, 4, 0), (73, 70, 5, 4, 0),
+          (66, 16, 3, 2.5, 0), (64, 80, 3.5, 2.5, 0)],
+    # the way on: an enormous dead oak on the reed island, and a hollow in its roots that goes down into the cold
+    great_tree=("pl_dead_oak", PLG, 16, 42, 12),
+    tree_leads_to="The Long Winter",
+    scatter=[("dead_pine_cluster", HF, 6, False, 16, "land", 11, 9),
+             ("bog_reeds_cluster", HF, 3, False, 40, "shore", 12, 4),
+             ("pl_dead_oak", PLG, 6, False, 6, "land", 13, 14)],
+    props=[
+        # lanterns down the causeway, one on each hummock, and the Lamplighter's at the top
+        ("ql_lantern_post", PLG, 49, 74, 3, "core"), ("ql_lantern_post", PLG, 38, 65, 3, "core"),
+        ("ql_lantern_post", PLG, 48, 56, 3, "core"), ("ql_lantern_post", PLG, 54, 48, 3, "core"),
+        ("ql_lantern_post", PLG, 59, 39, 3, "core"), ("ql_lantern_post", PLG, 49, 30, 3, "core"),
+        ("ql_lantern_post", PLG, 52, 21, 3, "core"), ("ql_lantern_post", PLG, 43, 10, 3, "core"),
+        ("ql_lantern_post", PLG, 58, 11, 3, "core"), ("pl_ruin_arch", PLG, 55, 7, 5, "core"),
+        # the Amani barrows, one on each of the east isles
+        ("crypt_mausoleum", HF, 77, 28, 5, "core"), ("zm_ruin_block", PLG, 88, 42, 3, "core"),
+        ("pl_skull_pile", PLG, 75, 53, 2, False), ("zm_ruin_block", PLG, 89, 62, 3, "core"),
+        ("crypt_mausoleum", HF, 73, 70, 4, "core"),
+        # Sedge Hollow's roots
+        ("twisted_root_arch", HF, 22, 30, 5, "core"), ("pl_dead_oak", PLG, 12, 31, 6, "core"),
+        ("pl_plague_mushrooms", PLG, 22, 52, 2, False),
+    ],
+)
+
+# THE SUNWARD WAYSTATION. A high-elf waystation on the old road north to Quel'Thalas, sealed inside its wardstones
+# when the Scourge came through, and it's been late afternoon in there ever since. The ward is failing at the north
+# end, and something from the Plaguelands is chewing its way in.
+SPECS["The Sunward Waystation"] = dict(
+    slug="sunward_waystation", W=104, H=90, region="Eastern Plaguelands East", seed=952,
+    desc="An elven waystation on the old road north, sealed in its wardstones when the Scourge came. It's been "
+         "the same golden afternoon inside for years, and the ward is starting to fail.",
+    mode="canyon", shore_w=1.6,
+    lakes=[(52, 46, 3.5, 2.6, 0), (78, 56, 4.5, 3, 0)],
+    rivers=[([(16, 40), (22, 50), (24, 62), (30, 70)], 2.4)],
+    flats=[],
+    open=[],
+    outline=[[(52, 88), (46, 80), (34, 78), (22, 72), (14, 62), (10, 50), (12, 38), (18, 28), (28, 20), (38, 16),
+              (44, 4), (50, 2), (58, 6), (56, 14), (66, 16), (76, 20), (86, 28), (92, 38), (94, 50), (90, 62),
+              (82, 72), (70, 78), (58, 80)]],
+    passes=[([(52, 90), (52, 80)], 8)],
+    rocks=[(60, 8, 3, 2)],
+    rock_rings=[(52, 46, 11, 1.5, [90, 270, 180]),
+                (52, 46, 24, 2.0, [0, 30, 60, 90, 120, 150, 180, 210, 240, 300, 330])],
+    roads=[([(52, 86), (52, 70), (52, 58), (52, 34), (52, 20), (50, 6)], 2.4), ([(52, 64), (66, 62), (78, 62)], 2.0),
+           ([(40, 46), (28, 46), (20, 50)], 2.0)],
+    portal=(52, 87),
+    giver=("hz_sunward_lirael", (58, 82)),
+    subzones=[("The Sunward Road", 36, 64, 32, 26), ("The Waystation", 38, 32, 28, 28),
+              ("The Ranger's Rest", 66, 40, 30, 36), ("The Glimmering Wood", 8, 26, 30, 50),
+              ("The Breach", 34, 0, 34, 20)],
+    materials={"land": ("plaguelands/ground/pl_epl_grass", "plaguelands/ground/pl_wpl_grass"),
+               "gold": ("plaguelands/ground/pl_wheat_stubble", None),
+               "pave": ("plaguelands/ground/pl_uther_marble", None),
+               "violet": ("plaguelands/ground/pl_grass_violet", None),
+               "blight": ("plaguelands/ground/pl_scourge_cracked", "plaguelands/ground/pl_seep_cracks"),
+               "road": ("plaguelands/ground/pl_mossy_flag", None),
+               "water_s": ("plaguelands/ground/pl_lake_shallow", None),
+               "water_d": ("plaguelands/ground/pl_lake_water", None),
+               "rock": ("silverpine/materials/sp_cliff_a", "silverpine/materials/sp_rock_wall")},
+    regions={"gold": [(52, 72, 10, 5), (76, 62, 8, 6)], "pave": [(52, 46, 8, 7)],
+             "violet": [(22, 46, 8, 10)], "blight": [(50, 8, 8, 6), (46, 18, 10, 4)]},
+    tint=(1.05, 0.99, 0.88), dark=0.03,
+    scatter=[("medium_canopy_tree", ASH, 7, "core", 22, "rock", 31, 7),
+             ("ash_silver_saplings", ASH, 3, False, 14, "edge", 32, 6),
+             ("ash_foxglove_patch", ASH, 2, False, 14, "land", 33, 7),
+             ("ash_nightbloom_bush", ASH, 2, False, 10, (4, 28, 36, 64), 34, 5),
+             ("pl_blight_pine", PLG, 7, "core", 6, (28, 2, 80, 20), 35, 8)],
+    props=[
+        # the waystation inside its ring of wardstones
+        ("moonwell_altar", ASH, 52, 38, 4, "core"), ("ash_elf_statue_head", ASH, 44, 34, 4, "core"),
+        ("ash_elf_statue_head", ASH, 60, 34, 4, "core"), ("ash_elven_ruin_wall", ASH, 42, 48, 4, "core"),
+        ("ash_elven_ruin_wall", ASH, 62, 48, 4, "core"), ("ash_ivy_pillar", ASH, 46, 52, 5, "core"),
+        ("ash_ivy_pillar", ASH, 58, 52, 5, "core"),
+        # lanterns down the road
+        ("ash_moon_lantern", ASH, 49, 76, 3, "core"), ("ash_moon_lantern", ASH, 55, 66, 3, "core"),
+        ("ash_moon_lantern", ASH, 49, 60, 3, "core"), ("ash_moon_lantern", ASH, 55, 24, 3, "core"),
+        ("stone_archway", ASH, 52, 72, 5, "core"),
+        # the rangers' lodge
+        ("ash_watch_platform", ASH, 86, 54, 6, "core"), ("ash_archery_butts", ASH, 78, 70, 3, "core"),
+        ("ash_travel_trunks", ASH, 90, 66, 2, False),
+        # the glimmering wood
+        ("large_canopy_tree", ASH, 14, 40, 9, "core"), ("large_canopy_tree", ASH, 24, 58, 9, "core"),
+        ("medium_canopy_tree", ASH, 30, 46, 7, "core"), ("ash_silver_saplings", ASH, 18, 52, 3, False),
+        ("ash_moonstone_crystals", ASH, 10, 54, 3, "core"), ("ash_silver_saplings", ASH, 28, 38, 3, False),
+        # the breach: the ward is down at the north end, and the Plaguelands are coming through
+        ("pl_bone_barricade", PLG, 40, 10, 3, "core"), ("pl_skull_pile", PLG, 64, 12, 2, False),
+        ("pl_necro_obelisk", PLG, 76, 10, 6, "core"), ("pl_blight_pine", PLG, 32, 14, 7, "core"),
+        ("pl_blight_pine", PLG, 86, 18, 7, "core"), ("pl_plague_mushrooms", PLG, 58, 8, 2, False),
+        # the edges of the meadow
+        ("medium_canopy_tree", ASH, 22, 76, 7, "core"), ("medium_canopy_tree", ASH, 82, 76, 7, "core"),
+        ("medium_canopy_tree", ASH, 90, 36, 7, "core"), ("ash_silver_saplings", ASH, 70, 30, 3, False),
+    ],
+)
+
+# THE LONG WINTER. Under the Lanternmere, through ice that shouldn't be there: a whole stretch of Earth's last ice
+# age that came through the Integration intact and has been snowing ever since. A frozen river across a steppe, a
+# glacier wall to the north, a camp of bone huts, a painted cave, and the animals that walked all of it twenty
+# thousand years ago and were never supposed to walk again.
+UDP = "assets/tiles/underdark/props/"
+ASPP = "assets/tiles/aspen/props/"
+ASHXP = "assets/tiles/ashenvale_corruption/props/"
+SPECS["The Long Winter"] = dict(
+    slug="long_winter", W=112, H=96, region="Western Plaguelands North", seed=953,
+    desc="A steppe under snow, a frozen river and a wall of glacier, with the breath of things that died out "
+         "before anyone wrote anything down hanging in the air. It's been snowing here since the Integration.",
+    materials={"land": ("aspen/materials/asp_snow_packed", "underdark/materials/ud_snow_pack"),
+               "steppe": ("aspen/materials/asp_grass_dry", "aspen/materials/asp_grass_matted"),
+               "frost": ("aspen/materials/asp_stone_frost", None),
+               "scree": ("aspen/materials/asp_scree", None),
+               "camp": ("aspen/materials/asp_dirt_grazed", None),
+               "glacier": ("underdark/materials/ud_ice_cracked", None),
+               "water_s": ("aspen/materials/asp_pond_ice", None),
+               "water_d": ("aspen/materials/asp_pond_deep", None),
+               "rock": ("underdark/materials/ud_frost_rock", "aspen/materials/asp_granite")},
+    regions={"steppe": [(30, 72, 10, 6), (56, 82, 8, 5), (54, 34, 10, 6)], "frost": [(90, 30, 10, 5)],
+             "scree": [(24, 40, 6, 4)], "camp": [(82, 72, 9, 6)], "glacier": [(88, 18, 14, 5)]},
+    tint=(0.92, 0.97, 1.06), dark=0.05,
+    mode="canyon", shore_w=3.0,
+    # ONE WIDE PLAIN, CUT BY CREVASSES. No rooms and no tunnels: the steppe is open edge to edge, and what
+    # shapes it is long cracks in the ice you have to walk round, the frozen river across the whole width, the
+    # glacier's teeth biting down along the north edge, the painted cave a ring of rock with one way in, and the
+    # lake under the ice front with one dark hole where the water's still open. You choose your own way across.
+    lakes=[(90, 24, 6, 4, 10)],
+    rivers=[([(4, 56), (24, 52), (46, 58), (70, 50), (92, 54), (108, 48)], 5.0, 0.9)],
+    flats=[],
+    open=[],
+    outline=[[(46, 94), (26, 90), (10, 80), (5, 62), (7, 44), (4, 28), (10, 16), (24, 18), (32, 12), (42, 16),
+              (50, 9), (58, 15), (66, 8), (74, 14), (82, 6), (92, 12), (104, 10), (108, 26), (104, 42), (108, 58),
+              (102, 76), (88, 88), (66, 90), (64, 94)]],
+    passes=[([(56, 96), (56, 86)], 8)],
+    rocks=[(30, 40, 11, 1.3), (82, 42, 10, 1.3), (70, 70, 1.3, 9), (38, 76, 1.3, 7), (58, 30, 1.3, 6),
+           (94, 66, 7, 1.3), (16, 64, 6, 1.3), (60, 12, 5, 3), (78, 10, 4, 4), (44, 10, 4, 2.5)],
+    rock_rings=[(20, 30, 8.5, 1.8, [0])],
+    roads=[],
+    portal=(56, 92),
+    giver=("hz_winter_ana", (62, 88)),
+    subzones=[("The Mammoth Road", 30, 62, 40, 32), ("The Frozen River", 4, 46, 104, 16),
+              ("The Bone-Hut Camp", 72, 60, 34, 28), ("The Painted Cave", 6, 12, 26, 26),
+              ("The Aurora Field", 34, 16, 40, 28), ("The Ice Front", 70, 6, 38, 30)],
+    scatter=[("asp_pine_krummholz", ASPP, 4, "core", 26, "rock", 21, 6),
+             ("asp_boulder_lichen", ASPP, 3, "core", 9, "edge", 22, 10),
+             ("asp_grass_tussock", ASPP, 2, False, 24, "land", 23, 6),
+             ("ud_ice_stalagmites", UDP, 3, "core", 8, (70, 4, 108, 40), 24, 6),
+             ("asp_elk_skull", ASPP, 2, False, 6, "land", 25, 14)],
+    props=[
+        # the camp: hide huts, a drying rack and the fire
+        ("tau_hide_tent_small", ASPP, 84, 70, 4, "core"), ("tau_hide_tent_small", ASPP, 92, 76, 4, "core"),
+        ("tau_hide_tent_small", ASPP, 80, 78, 4, "core"), ("tau_drying_rack", ASPP, 90, 68, 3, "core"),
+        ("tau_cook_fire", ASPP, 86, 75, 2, False), ("asp_elk_skull", ASPP, 96, 72, 2, False),
+        ("pl_skull_pile", PLG, 78, 72, 2, False),
+        # the painted cave: frozen hunters at its mouth
+        ("ashx_frozen_warrior", ASHXP, 22, 30, 4, "core"), ("ud_ice_stalagmites", UDP, 14, 20, 3, "core"),
+        ("ashx_icicle_pillar", ASHXP, 22, 18, 4, "core"),
+        # the ice front and its lake
+        ("ashx_ice_stalagmites", ASHXP, 74, 16, 4, "core"), ("ud_ice_stalagmites", UDP, 98, 18, 3, "core"),
+        ("ashx_icicle_pillar", ASHXP, 80, 12, 5, "core"), ("ashx_icicle_pillar", ASHXP, 96, 40, 5, "core"),
+        # the steppe: krummholz, boulders and old bones
+        ("asp_pine_krummholz", ASPP, 30, 74, 4, "core"), ("asp_pine_krummholz", ASPP, 72, 80, 4, "core"),
+        ("asp_pine_krummholz", ASPP, 14, 66, 4, "core"), ("asp_pine_krummholz", ASPP, 100, 60, 4, "core"),
+        ("asp_boulder_lichen", ASPP, 44, 70, 3, "core"), ("asp_boulder_lichen", ASPP, 66, 72, 3, "core"),
+        ("asp_talus_pile", ASPP, 16, 40, 3, "core"), ("asp_elk_skull", ASPP, 52, 78, 2, False),
+        ("asp_pine_bent", ASPP, 40, 30, 5, "core"), ("asp_pine_bent", ASPP, 64, 36, 5, "core"),
+        ("asp_boulder", ASPP, 50, 22, 3, "core"), ("asp_pine_krummholz", ASPP, 30, 40, 4, "core"),
+        ("asp_grass_tussock", ASPP, 58, 70, 2, False), ("asp_grass_tussock", ASPP, 24, 76, 2, False),
+    ],
+)
+
+
 def fields(spec, gx, gy):
     gx = np.asarray(gx, float)
     gy = np.asarray(gy, float)
@@ -790,6 +1007,7 @@ def build_zone(name):
         for yy in range(y0, y1 + 1, dy):
             for xx in range(x0, x1 + 1, dx):
                 props.append((pname, pdir, xx + ((yy // dy) % 2), yy, h, "core"))
+    props += _scatter(spec, kind)
     for (pname, pdir, cx, by, h, solid) in props:
         path = f"{pdir}{pname}.png"
         if not os.path.exists(path):
@@ -830,6 +1048,54 @@ def build_zone(name):
     _seal_unreachable(z, (px, py - 2))
     z.props_skipped = skipped
     return z
+
+
+def _scatter(spec, kind):
+    """SCATTER: props spread by rule rather than one by one, so a map's edges and shores are dressed all the
+    way round (Kyle: "make it cool... not just a boring map"). Each entry is
+    (sprite, dir, height, solid, how many, where, seed[, spacing]) and `where` is "shore" (dry ground beside
+    water), "edge" (dry ground beside the rock), "rock" (the rock's lip, so trees frame the walls), "land", or a
+    box (x0, y0, x1, y1) of dry ground. Seeded, so the same map comes out every time. The usual guard still
+    turns away anything on water, the road, the portal or the giver."""
+    import random
+    H, W = kind.shape
+    out = []
+    for entry in spec.get("scatter", []):
+        pname, pdir, h, solid, n, where, seed = entry[:7]
+        gap = entry[7] if len(entry) > 7 else 4
+        rng = random.Random(seed)
+
+        def near(x, y, kinds, r):
+            for yy in range(max(0, y - r), min(H, y + r + 1)):
+                for xx in range(max(0, x - r), min(W, x + r + 1)):
+                    if kind[yy, xx] in kinds:
+                        return True
+            return False
+        cands = []
+        for y in range(2, H - 2):
+            for x in range(2, W - 2):
+                k = kind[y, x]
+                if isinstance(where, tuple):
+                    ok = k == 0 and where[0] <= x <= where[2] and where[1] <= y <= where[3]
+                elif where == "shore":
+                    ok = k == 0 and near(x, y, (1, 2), 1)
+                elif where == "edge":
+                    ok = k == 0 and near(x, y, (3,), 2)
+                elif where == "rock":
+                    ok = k == 3 and near(x, y, (0,), 2)
+                else:
+                    ok = k == 0
+                if ok:
+                    cands.append((x, y))
+        rng.shuffle(cands)
+        took = []
+        for (x, y) in cands:
+            if len(took) >= n:
+                break
+            if all(abs(x - tx) + abs(y - ty) >= gap for tx, ty in took):
+                took.append((x, y))
+        out += [(pname, pdir, x, y, h, solid) for (x, y) in took]
+    return out
 
 
 def _great_tree(z, spec, kind):

@@ -70,6 +70,9 @@ ZONE_POOLS = {
     "ashen_orchard": ("pool_plagued", "pool_bubbling"),
     "painted_springs": ("pool_bubbling", "pool_river"),
     "coal_forest": ("pool_swamp", "pool_reeds"),
+    "lanternmere": ("pool_swamp", "pool_reeds"),
+    "long_winter": ("pool_ice_hole", "pool_river"),
+    "sunward_waystation": ("pool_moonlit", "pool_fresh"),
 }
 
 

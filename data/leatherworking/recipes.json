@@ -9532,6 +9532,58 @@
       "faction": "emerald_reclamation",
       "_rare_ingredients_todo": true
     },
+    "rep_ad_dawnwatch_jerkin": {
+      "name": "Dawnwatch Jerkin",
+      "inputs": {
+        "leather_frostscale": 10,
+        "thread_silken": 2
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "stat_template": "agi_physical",
+        "item_level": 73,
+        "rarity": "epic",
+        "material_tier": "frostscale",
+        "identity": "agility",
+        "flavor": "Dark leather with silver at the seams, for the scouts who watch Stratholme's gate.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "leather",
+        "item": {
+          "name": "Dawnwatch Jerkin",
+          "slot": "chest",
+          "item_level": 73,
+          "rarity": "epic",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 38,
+            "stamina": 22
+          },
+          "secondary_stats": {
+            "attack_power": 99
+          },
+          "armor_value": 310,
+          "required_level": 60,
+          "sell_price": 48942,
+          "flavor_text": "Dark leather with silver at the seams, for the scouts who watch Stratholme's gate.",
+          "identity": "agility",
+          "icon_id": "gear_wow_leather_chest_dawnwatch"
+        }
+      },
+      "skill_range": [
+        300,
+        305,
+        310,
+        315
+      ],
+      "source": "vendor",
+      "faction": "argent_dawn",
+      "_rare_ingredients_todo": true
+    },
     "secret_hz_root_seedkeeper_lw_serpentkin_leather_vest": {
       "name": "Seed-Keeper's Serpentkin Leather Vest",
       "skill_required": 95,
@@ -9746,7 +9798,8 @@
       "source": "vendor",
       "inputs": {
         "leather_cragscale": 7,
-        "thread_fine": 1
+        "thread_fine": 1,
+        "mob_elkhorn_antler": 1
       },
       "output": {
         "kind": "armor",
@@ -9989,7 +10042,8 @@
       "name": "Zenji's Light Leather Helm",
       "inputs": {
         "leather_light": 6,
-        "thread_coarse": 1
+        "thread_coarse": 1,
+        "mob_harpy_plume": 1
       },
       "skill_required": 70,
       "output": {
@@ -10090,7 +10144,8 @@
       "name": "Sandsong's Medium Leather Vest",
       "inputs": {
         "leather_medium": 10,
-        "thread_fine": 1
+        "thread_fine": 1,
+        "mob_living_bark": 1
       },
       "skill_required": 110,
       "output": {
@@ -10487,7 +10542,8 @@
       "name": "Runaway's Light Leather Cloak",
       "inputs": {
         "leather_light": 5,
-        "thread_coarse": 1
+        "thread_coarse": 1,
+        "mob_duskbat_wing": 1
       },
       "skill_required": 30,
       "output": {
@@ -10643,7 +10699,8 @@
       "source": "vendor",
       "inputs": {
         "leather_rugged": 4,
-        "thread_silken": 1
+        "thread_silken": 1,
+        "mob_fel_seepage": 1
       },
       "output": {
         "kind": "armor",
@@ -10681,57 +10738,55 @@
         "secret_es_grizzlemoss"
       ]
     },
-    "rep_ad_dawnwatch_jerkin": {
-      "name": "Dawnwatch Jerkin",
+    "secret_hz_winter_knapper_p300_le_mossback_hands": {
+      "name": "Knapper's Mossback Gloves",
+      "skill_required": 295,
+      "skill_range": [
+        300,
+        310,
+        320,
+        330
+      ],
+      "source": "vendor",
       "inputs": {
-        "leather_frostscale": 10,
-        "thread_silken": 2
+        "leather_mossback": 4,
+        "thread_silken": 1
       },
-      "skill_required": 300,
       "output": {
         "kind": "armor",
-        "slot": "chest",
-        "stat_template": "agi_physical",
-        "item_level": 73,
-        "rarity": "epic",
-        "material_tier": "frostscale",
-        "identity": "agility",
-        "flavor": "Dark leather with silver at the seams, for the scouts who watch Stratholme's gate.",
-        "fixed_item_level": true,
-        "required_level": 60,
-        "armor_type": "leather",
+        "slot": "hands",
+        "armor_type": "mail",
+        "stat_template": "int_caster",
+        "item_level": 62,
+        "rarity": "rare",
+        "material_tier": "mossback",
         "item": {
-          "name": "Dawnwatch Jerkin",
-          "slot": "chest",
-          "item_level": 73,
+          "name": "Mossback Gloves",
+          "slot": "hands",
+          "item_level": 60,
           "rarity": "epic",
-          "armor_type": "leather",
+          "armor_type": "mail",
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 38,
-            "stamina": 22
+            "agility": 15
           },
           "secondary_stats": {
-            "attack_power": 99
+            "attack_power": 37,
+            "crit_chance_physical": 15
           },
-          "armor_value": 310,
-          "required_level": 60,
-          "sell_price": 48942,
-          "flavor_text": "Dark leather with silver at the seams, for the scouts who watch Stratholme's gate.",
-          "identity": "agility",
-          "icon_id": "gear_wow_leather_chest_dawnwatch"
+          "armor_value": 293,
+          "required_level": 58,
+          "sell_price": 21073,
+          "flavor_text": "Mossback shell, with something green still growing in the cracks.",
+          "identity": "hunter_crit",
+          "icon_id": "gear_wow_hands_92_2"
         }
       },
-      "skill_range": [
-        300,
-        305,
-        310,
-        315
-      ],
-      "source": "vendor",
-      "faction": "argent_dawn",
-      "_rare_ingredients_todo": true
+      "secret": true,
+      "sold_by": [
+        "secret_hz_winter_knapper"
+      ]
     }
   }
 }

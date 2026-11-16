@@ -238,3 +238,23 @@ The blow that crosses the line stops on it, however big it was, so nobody one-sh
 and rep come off whatever it is when it dies; the old names are kept on `former_names`. Code:
 `entities/monster.Monster._phase_cap` and `_enter_phase`, fed by `world/creature_manager.spawn_creature`. QA:
 `tools/qa_boss_phases.py`. Nothing in the bestiary uses it yet; Dathrohan will.
+
+## 16 Nov 2026 (later): the Plaguelands' secrets
+
+Kyle: "make TWO skull zones somewhere in the open world for plaguelands", then "add a frontier open world on one of
+these skull zones... Skull zones should be fun, frontier zones should represent the essence of our game", "Don't
+make all the shapes the same. You default to blobs", and "just make sure it's from the plaguelands". Where any of
+it is stays out of this log (the standing rule): counts only.
+
+- **Two skull zones and one frontier**, each its own painted map with its own shape (no two share a topology), its
+  own creatures, bosses (seven in all, every one holding something dangerous: `audit_boss_turns --only` passes),
+  loot pools and one person living there with four quests, the third of them elite.
+- **The frontier is entered from inside one of the skull zones**, and both skull zones are entered from the
+  Plaguelands' open maps. Doors were placed by the usual secrets pass; nothing already in the game moved.
+- **Two hidden sellers** (one-of-a-kind rares and two secret recipes each, never epics) and **12 new caches** across
+  the four open Plaguelands maps and the hidden maps.
+- **New tooling:** `scatter` in `tools/handbuilt_skull_zones.py` dresses a map's shores, rock lips and open ground
+  by rule (seeded, so it comes out the same every run); a great tree can now lead to an open hidden map as well as
+  a hidden level (`tools/build_secrets._placed_door_secrets`); `tools/build_hidden_content.py` keeps keys other
+  builders add to a zone's registry entry (the fast exits) and has kit numbers for 55 and 60.
+- **Art:** built from tiles and props on disk; the backlog sheets are `docs/plaguelands_secrets_art_prompts.md`.

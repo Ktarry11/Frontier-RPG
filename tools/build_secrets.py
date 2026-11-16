@@ -384,6 +384,22 @@ SELLERS = [
       ("Fallen-Star Hammer", "main_hand", "of the Champion", "weapon", "mace_2h", "The head's a piece of the meteor. She says she's sure it's not still alive."),
       ("Field Geologist's Vest", "chest", "of the Monkey", "armor", "leather", "Seventeen pockets, all of them full of rocks.")]),
 
+    # ---- the Plaguelands' hidden places (16 Nov 2026): a seller hidden in each of the two with rock to hide in
+    ("secret_hz_winter_knapper", "The Long Winter", "The Knapper", "human", "female",
+     "She doesn't speak, or not in any language you know. She points at what she's made, then at you, and "
+     "holds out her hand. She was here before any of it came through, and she isn't afraid of you.",
+     ["leatherworking", "blacksmithing"],
+     [("Flint-Bladed Hand Axe", "main_hand", "of the Tiger", "weapon", "axe_1h", "Knapped by a hand that's done it ten thousand times."),
+      ("Mammoth-Fur Cloak", "back", "of the Bear", "armor", None, "It smells of smoke and snow, and it's very, very warm."),
+      ("Ochre-Painted Vest", "chest", "of the Wolf", "armor", "leather", "Red handprints down the front, the same as the ones on the cave wall."),
+      ("Ivory Bead Necklace", "neck", "of the Physician", "armor", None, "Every bead was ground round by hand.")]),
+    ("secret_hz_sunward_velaren", "The Sunward Waystation", "Quartermaster Velaren", "blood_elf", "male",
+     "A customer. A real one. The Magister told us to keep the stores in good order until the road reopened, "
+     "and I have. It's been a long afternoon.",
+     ["tailoring", "jewelcrafting"],
+     [("Goldleaf Spellblade", "main_hand", "of the Sorcerer", "weapon", "sword_1h", "Elven steel with a leaf of gold in the fuller."),
+      ("Waystation Ranger's Hauberk", "chest", "of the Hunt", "armor", "mail", "Light as cloth and it's never needed mending."),
+      ("Sunward Signet", "ring", "of the Owl", "armor", None, "The seal of a road that doesn't go anywhere any more.")]),
 ]
 
 #: SELLERS WHO ARE NOT PEOPLE - and only a few. Kyle, 14 Nov: "Only some of them are monsters though.
@@ -462,10 +478,11 @@ def _placed_door_secrets():
     """Doors placed by hand in a skull zone's own layout (behind its great tree): kind "behind",
     so the renderer draws the tree back over the door's glow."""
     try:
-        from tools.handbuilt_skull_zones import placed_doors
+        from tools.handbuilt_skull_zones import placed_doors, PORTALS as SKULL_PORTALS
         from tools.handbuilt_hidden_layers import PORTALS
     except ImportError:
         return []
+    PORTALS = dict(PORTALS, **SKULL_PORTALS)      # a tree can lead to an open hidden map as well as a level
     out = []
     for to, (parent, (x, y)) in sorted(placed_doors().items()):
         if to not in PORTALS:
