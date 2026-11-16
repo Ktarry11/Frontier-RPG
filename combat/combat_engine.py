@@ -1303,6 +1303,24 @@ class CombatEngine:
         except Exception as exc:
             print(f"WARNING: meat drop failed: {exc}")
 
+        # Crafting materials particular monsters drop (entities/mob_materials.py): a Harpy Plume off a harpy,
+        # Sequoia Amber off a sap ooze. Like meat, not gated on a profession; bosses always drop theirs.
+        try:
+            from entities.mob_materials import roll_mob_materials
+            from world.gathering_manager import get_gathering_node_manager
+            gm_mob = get_gathering_node_manager()
+            for enemy in self.enemies:
+                for material_id, qty in roll_mob_materials(enemy):
+                    mat = gm_mob.make_material_instance(material_id)
+                    if mat is None:
+                        continue
+                    mat.quantity = qty
+                    self.player.add_material(mat)
+                    self.loot_gained.append(mat)
+                    self.combat_log.append(f"{enemy.name} dropped: {mat.name}{' x%d' % qty if qty > 1 else ''}.")
+        except Exception as exc:
+            print(f"WARNING: creature material drop failed: {exc}")
+
         # Leather for Leatherworking (entities/skinning_drops.py): beasts only, Skinning gated.
         try:
             from entities.skinning_drops import roll_leather

@@ -1,0 +1,1081 @@
+{
+  "_about": "Crafting materials monsters drop (tools/build_mob_materials.py, entities/mob_materials.py). Kyle, 15 Nov 2026: 'add some of it to crafting requirements' and 'the crafting will need to state where they are dropped'.",
+  "materials": {
+    "mob_scorpid_venom_gland": {
+      "name": "Scorpid Venom Gland",
+      "creatures": [
+        "Scorpid Worker",
+        "Venomtail Scorpid",
+        "Armored Scorpid",
+        "Cave Scorpid"
+      ],
+      "zones": [
+        "Valley of Trials",
+        "Durotar"
+      ],
+      "levels": [
+        1,
+        9
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_coarse_boar_bristle": {
+      "name": "Coarse Boar Bristle",
+      "creatures": [
+        "Mottled Boar",
+        "Elder Mottled Boar",
+        "Ancient Mottled Boar"
+      ],
+      "zones": [
+        "Valley of Trials",
+        "Durotar",
+        "Southern Barrens"
+      ],
+      "levels": [
+        1,
+        20
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_whirling_grit": {
+      "name": "Whirling Grit",
+      "creatures": [
+        "Dust Devil"
+      ],
+      "zones": [
+        "Valley of Trials"
+      ],
+      "levels": [
+        4,
+        6
+      ],
+      "chance": 0.35,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_kolkar_war_bead": {
+      "name": "Kolkar War-Bead",
+      "creatures": [
+        "Kolkar Outrunner",
+        "Kolkar Pack Runner",
+        "Kolkar Warrider",
+        "Kolkar Windchaser",
+        "Kolkar Wrangler",
+        "Kolkar Dervish",
+        "Kolkar Drudge",
+        "Kolkar Raider",
+        "Kolkar Scoutrider",
+        "Kolkar Stormcaller",
+        "Kolkar Warbrand"
+      ],
+      "zones": [
+        "Durotar",
+        "Northern Barrens"
+      ],
+      "levels": [
+        8,
+        20
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_raptor_tooth": {
+      "name": "Raptor Tooth",
+      "creatures": [
+        "Bloodtalon Scythemaw",
+        "Bloodtalon Raptor"
+      ],
+      "zones": [
+        "Durotar",
+        "Echo Isles"
+      ],
+      "levels": [
+        7,
+        12
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_murloc_fin": {
+      "name": "Slick Murloc Fin",
+      "creatures": [
+        "Coastal Murloc",
+        "Murloc Netcaster",
+        "Murloc Oracle",
+        "Murloc Tidehunter",
+        "Grotto Murloc",
+        "Murloc Spearfisher",
+        "Pool Murloc",
+        "Murloc Hydra"
+      ],
+      "zones": [
+        "Durotar",
+        "Echo Isles",
+        "Northern Barrens",
+        "Ashenvale West"
+      ],
+      "levels": [
+        7,
+        27
+      ],
+      "chance": 0.35,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_siren_scale": {
+      "name": "Siren Scale",
+      "creatures": [
+        "Causeway Siren",
+        "Naga Coastguard",
+        "Naga Tidecaller",
+        "Daggerspine Siren",
+        "Naga Warrior"
+      ],
+      "zones": [
+        "Echo Isles",
+        "Western Hillsbrad",
+        "Eastern Hillsbrad",
+        "Ashenvale West"
+      ],
+      "levels": [
+        12,
+        26
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_harpy_plume": {
+      "name": "Harpy Plume",
+      "creatures": [
+        "Harpy",
+        "Harpy Matriarch",
+        "Harpy Sky-Sentry",
+        "Harpy Windcaller",
+        "Witchwing Harpy",
+        "Coastal Harpy",
+        "Dustwind Harpy"
+      ],
+      "zones": [
+        "Northern Barrens",
+        "Durotar"
+      ],
+      "levels": [
+        7,
+        21
+      ],
+      "chance": 0.35,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_bristleback_tusk": {
+      "name": "Bristleback Tusk",
+      "creatures": [
+        "Bristleback Battleboar",
+        "Bristleback Briarweaver",
+        "Bristleback Raider",
+        "Bristleback Raider Shaman",
+        "Bristleback Quilboar",
+        "Bristleback Shaman",
+        "Bristleback Thornweaver",
+        "Bristleback Water Seeker"
+      ],
+      "zones": [
+        "Central Barrens",
+        "Southern Barrens"
+      ],
+      "levels": [
+        15,
+        22
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_dreadmist_ichor": {
+      "name": "Dreadmist Ichor",
+      "creatures": [
+        "Dreadmist Cultist",
+        "Dreadmist Imp",
+        "Dreadmist Warlock"
+      ],
+      "zones": [
+        "Central Barrens"
+      ],
+      "levels": [
+        13,
+        17
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_crocolisk_scale": {
+      "name": "Tough Crocolisk Scale",
+      "creatures": [
+        "Fenwater Crocolisk",
+        "Murky Crocolisk"
+      ],
+      "zones": [
+        "Northern Barrens",
+        "Silverpine North"
+      ],
+      "levels": [
+        12,
+        18
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_ghoul_sinew": {
+      "name": "Ghoul Sinew",
+      "creatures": [
+        "Feral Ghoul",
+        "Risen Husk",
+        "Barn Ghoul",
+        "Rotting Ghoul",
+        "Swamp Ghoul",
+        "Agamand Family Ghoul"
+      ],
+      "zones": [
+        "Silverpine North",
+        "Silverpine South",
+        "Western Tirisfal"
+      ],
+      "levels": [
+        8,
+        20
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_cursed_worgen_fang": {
+      "name": "Cursed Worgen Fang",
+      "creatures": [
+        "Feral Worgen",
+        "Feral Worgen Stalker",
+        "Wallbreaker Worgen",
+        "Worgen Ambusher",
+        "Worgen Warrior",
+        "Bone-Strewn Cur",
+        "Cur-Warden",
+        "Moonhowl Worgen",
+        "The Alpha Cur",
+        "Worgen Keeper"
+      ],
+      "zones": [
+        "Silverpine South",
+        "Fenris Isle"
+      ],
+      "levels": [
+        13,
+        24
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_spiders_silk": {
+      "name": "Spider's Silk Strand",
+      "creatures": [
+        "Giant Spider",
+        "Silverpine Spider",
+        "Forest Spider",
+        "Mother Venomweb",
+        "Venomweb Skitterer",
+        "Vicious Night Web Spider",
+        "Claim Spider",
+        "Night Web Spider"
+      ],
+      "zones": [
+        "Silverpine North",
+        "Western Hillsbrad",
+        "Ashenvale West",
+        "Eastern Tirisfal",
+        "Deathknell"
+      ],
+      "levels": [
+        3,
+        25
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_duskbat_wing": {
+      "name": "Duskbat Wing",
+      "creatures": [
+        "Mangy Duskbat"
+      ],
+      "zones": [
+        "Deathknell",
+        "Western Tirisfal",
+        "Eastern Tirisfal"
+      ],
+      "levels": [
+        1,
+        6
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_grave_dust": {
+      "name": "Grave Dust",
+      "creatures": [
+        "Ossric the Unburied",
+        "Rattlecage Skeleton",
+        "Restless Grave-Dweller",
+        "Shadow Grave Wight",
+        "Agamand Crypt Wight",
+        "Rotting Dead"
+      ],
+      "zones": [
+        "Deathknell",
+        "Western Tirisfal",
+        "Eastern Tirisfal"
+      ],
+      "levels": [
+        1,
+        10
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_living_bark": {
+      "name": "Living Bark",
+      "creatures": [
+        "Ancient Protector",
+        "Corrupted Treant",
+        "Elder Timberling",
+        "Timberling",
+        "Orchardkeeper Gnarl"
+      ],
+      "zones": [
+        "Ashenvale West",
+        "Ashenvale East",
+        "Silverpine North"
+      ],
+      "levels": [
+        12,
+        27
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_fel_ember": {
+      "name": "Fel Ember",
+      "creatures": [
+        "Demonspawn Grunt",
+        "Dread Imp",
+        "Fel Imp",
+        "Felstalker"
+      ],
+      "zones": [
+        "Ashenvale East"
+      ],
+      "levels": [
+        23,
+        30
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_satyr_horn": {
+      "name": "Satyr Horn",
+      "creatures": [
+        "Satyr Cultist",
+        "Satyr Ravager",
+        "Satyr Soulstealer",
+        "Satyr Trickster",
+        "Satyr Warlord"
+      ],
+      "zones": [
+        "Ashenvale East"
+      ],
+      "levels": [
+        22,
+        30
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_thick_yeti_fur": {
+      "name": "Thick Yeti Fur",
+      "creatures": [
+        "Mountain Yeti",
+        "Old Icehide"
+      ],
+      "zones": [
+        "Western Hillsbrad"
+      ],
+      "levels": [
+        22,
+        24
+      ],
+      "chance": 0.35,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_kobold_candle": {
+      "name": "Kobold Candle",
+      "creatures": [
+        "Azurelode Kobold",
+        "Kobold Tunneler"
+      ],
+      "zones": [
+        "Western Hillsbrad"
+      ],
+      "levels": [
+        21,
+        24
+      ],
+      "chance": 0.35,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_elkhorn_antler": {
+      "name": "Elkhorn Antler",
+      "creatures": [
+        "Aspen Elk",
+        "Elkhorn Stag",
+        "Goldcrown"
+      ],
+      "zones": [
+        "The Aspen Wilderness"
+      ],
+      "levels": [
+        26,
+        29
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_lynx_whisker": {
+      "name": "Lynx Whisker",
+      "creatures": [
+        "Charwood Prowler",
+        "Goldwood Lynx",
+        "Downslope Lynx"
+      ],
+      "zones": [
+        "The Aspen Wilderness",
+        "Southern Thousand Needles"
+      ],
+      "levels": [
+        26,
+        30
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_blowdown_ash": {
+      "name": "Blowdown Ash",
+      "creatures": [
+        "Ash Drifter",
+        "Crater Ash Wraith"
+      ],
+      "zones": [
+        "Stonetalon East",
+        "Stonetalon West"
+      ],
+      "levels": [
+        27,
+        32
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_sequoia_amber": {
+      "name": "Sequoia Amber",
+      "creatures": [
+        "Sap Ooze",
+        "Ambermaw",
+        "Living Sap"
+      ],
+      "zones": [
+        "Stonetalon West"
+      ],
+      "levels": [
+        30,
+        32
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_basalt_heart": {
+      "name": "Basalt Heart",
+      "creatures": [
+        "Ashvent Basalt Brute",
+        "Basalt Hulk",
+        "Magmacore",
+        "Old Pumice",
+        "Pumice Shard"
+      ],
+      "zones": [
+        "Stonetalon West",
+        "Stonetalon East"
+      ],
+      "levels": [
+        28,
+        32
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_windshear_quill": {
+      "name": "Windshear Quill",
+      "creatures": [
+        "Chimney Harpy",
+        "Matron Shrieka",
+        "Windshear Harpy",
+        "Windshear Talon",
+        "Windshear Wind Witch"
+      ],
+      "zones": [
+        "Stonetalon East"
+      ],
+      "levels": [
+        27,
+        29
+      ],
+      "chance": 0.35,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_saltpan_crystal": {
+      "name": "Saltpan Crystal",
+      "creatures": [
+        "Saltspite Elemental",
+        "The Thermal"
+      ],
+      "zones": [
+        "Southern Thousand Needles"
+      ],
+      "levels": [
+        32,
+        34
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_witherbark_hex_bead": {
+      "name": "Witherbark Hex Bead",
+      "creatures": [
+        "Witherbark Headhunter",
+        "Witherbark Shadowcaster",
+        "Witherbark Berserker",
+        "Witherbark Venomweaver"
+      ],
+      "zones": [
+        "Arathi West",
+        "Arathi Central"
+      ],
+      "levels": [
+        29,
+        37
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_moor_adder_venom": {
+      "name": "Moor Adder Venom",
+      "creatures": [
+        "Moor Adder"
+      ],
+      "zones": [
+        "Arathi West"
+      ],
+      "levels": [
+        28,
+        31
+      ],
+      "chance": 0.35,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_barrow_dust": {
+      "name": "Barrow Dust",
+      "creatures": [
+        "Arathor Revenant",
+        "Barrow Shade",
+        "Thane Aldric's Shade",
+        "The Barrow Warden"
+      ],
+      "zones": [
+        "Arathi East"
+      ],
+      "levels": [
+        37,
+        40
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_jungle_raptor_talon": {
+      "name": "Jungle Raptor Talon",
+      "creatures": [
+        "Vinecrest Raptor",
+        "Bloodvine Raptor",
+        "Capecrest Raptor",
+        "Pit-Stock Raptor"
+      ],
+      "zones": [
+        "Northern Stranglethorn",
+        "Central Stranglethorn",
+        "Southern Stranglethorn"
+      ],
+      "levels": [
+        30,
+        42
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_coilvine_scale": {
+      "name": "Coilvine Scale",
+      "creatures": [
+        "Coilvine Python",
+        "Greenwater Adder"
+      ],
+      "zones": [
+        "Northern Stranglethorn",
+        "Central Stranglethorn"
+      ],
+      "levels": [
+        31,
+        35
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_silverback_sinew": {
+      "name": "Silverback Sinew",
+      "creatures": [
+        "Thornback Ape",
+        "Drumhide",
+        "Drumhide Gorilla",
+        "Stonecourt Gorilla"
+      ],
+      "zones": [
+        "Northern Stranglethorn",
+        "Central Stranglethorn",
+        "Southern Stranglethorn"
+      ],
+      "levels": [
+        31,
+        41
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_luminous_spore": {
+      "name": "Luminous Spore",
+      "creatures": [
+        "Capgorger",
+        "Mycelial Binder",
+        "Mycelial Husk",
+        "Myconid Tender",
+        "Spore Scribe",
+        "Spore-Drifter",
+        "Sporeback Grazer"
+      ],
+      "zones": [
+        "The Crystalline Underdark"
+      ],
+      "levels": [
+        33,
+        39
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_lattice_shard": {
+      "name": "Lattice Shard",
+      "creatures": [
+        "Crystalback Skitterer",
+        "Crystalbound Husk",
+        "Lattice Sentry",
+        "Shard Diviner",
+        "Shardling",
+        "Shardmaw",
+        "The Thousandth Shard"
+      ],
+      "zones": [
+        "The Crystalline Underdark"
+      ],
+      "levels": [
+        32,
+        37
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_crustback_plate": {
+      "name": "Crustback Scorpid Plate",
+      "creatures": [
+        "Crustback Scorpid",
+        "Saltcrust Skitterer",
+        "Rimstalker Scorpid"
+      ],
+      "zones": [
+        "The Shimmering Flats",
+        "Southern Thousand Needles"
+      ],
+      "levels": [
+        30,
+        38
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_basilisk_eye": {
+      "name": "Basilisk Eye",
+      "creatures": [
+        "Mirage Basilisk",
+        "Sunbleached Basilisk",
+        "Terrace Basilisk"
+      ],
+      "zones": [
+        "The Shimmering Flats",
+        "Northern Tanaris",
+        "Glittervein"
+      ],
+      "levels": [
+        38,
+        48
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_sunstone_shard": {
+      "name": "Sunstone Shard",
+      "creatures": [
+        "Sunstone Elemental",
+        "Glasswall Elemental",
+        "Glasswall Warden"
+      ],
+      "zones": [
+        "Northern Tanaris",
+        "The Abyssal Sands"
+      ],
+      "levels": [
+        43,
+        47
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_saltscale_pearl": {
+      "name": "Saltscale Pearl",
+      "creatures": [
+        "Saltscale Reaver",
+        "Saltscale Salvager",
+        "Saltscale Siren",
+        "Stormscale Naga Raider"
+      ],
+      "zones": [
+        "Southern Stranglethorn",
+        "The Ashen Reach"
+      ],
+      "levels": [
+        38,
+        56
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_sinkhole_ichor": {
+      "name": "Sinkhole Ichor",
+      "creatures": [
+        "Deepwater Horror",
+        "Hollowing Ooze",
+        "Sinkhole Lurker"
+      ],
+      "zones": [
+        "The Abyssal Sands"
+      ],
+      "levels": [
+        45,
+        47
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_veinlight_mote": {
+      "name": "Veinlight Mote",
+      "creatures": [
+        "Lattice-Grown",
+        "Shardback Crawler",
+        "Shatterlight",
+        "Vein-Lit Wisp"
+      ],
+      "zones": [
+        "Glittervein"
+      ],
+      "levels": [
+        46,
+        49
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_ironbark_heartwood": {
+      "name": "Ironbark Heartwood",
+      "creatures": [
+        "Grandfather Hollowbark",
+        "Hollowbark Treant",
+        "Ivybound Treant",
+        "Ironbark the Blighted"
+      ],
+      "zones": [
+        "South Felwood",
+        "North Felwood"
+      ],
+      "levels": [
+        52,
+        55
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_jadefire_ember": {
+      "name": "Jadefire Ember",
+      "creatures": [
+        "Felbrand Felguard",
+        "Felbrand Hellhound",
+        "Felbrand Infernal",
+        "Jadefire Felsworn",
+        "Jadefire Hellcaller",
+        "Jadefire Imp",
+        "Jadefire Rogue",
+        "Jadefire Shadowstalker",
+        "Jadefire Stag",
+        "Jadefire Trickster"
+      ],
+      "zones": [
+        "North Felwood"
+      ],
+      "levels": [
+        53,
+        55
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_hive_resin": {
+      "name": "Hive Resin",
+      "creatures": [
+        "Hive Champion Khix'ar",
+        "Hive Queen Zil'kesh",
+        "Hive Reaver",
+        "Hive Resinspitter",
+        "Hive Sandburrower",
+        "Hive Swarmer",
+        "Hive Tunneler",
+        "Hive-Mother Ahn'thera",
+        "Hive-Warden Kasz'ar",
+        "Royal Hive Drone",
+        "Royal Hive Guard"
+      ],
+      "zones": [
+        "The Black Strand"
+      ],
+      "levels": [
+        52,
+        56
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_scoria_heart": {
+      "name": "Scoria Heart",
+      "creatures": [
+        "Crag Earth Elemental",
+        "Old Scoria",
+        "Scoria Fire Elemental",
+        "Ventborn Flame Spirit",
+        "Cinderslope Flame Spirit"
+      ],
+      "zones": [
+        "The Ashen Reach",
+        "Tempest Shallows"
+      ],
+      "levels": [
+        54,
+        58
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_drake_scale": {
+      "name": "Caldera Drake Scale",
+      "creatures": [
+        "Calderaborn Drake",
+        "Smoke Drake",
+        "Ashwing Whelp",
+        "Sootwing"
+      ],
+      "zones": [
+        "The Ashen Reach",
+        "Tempest Shallows"
+      ],
+      "levels": [
+        54,
+        58
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    },
+    "mob_gorilla_mane": {
+      "name": "Ashfur Mane",
+      "creatures": [
+        "Ashfur Gorilla",
+        "Tarfoot Gorilla"
+      ],
+      "zones": [
+        "Tempest Shallows",
+        "The Ashen Reach"
+      ],
+      "levels": [
+        53,
+        56
+      ],
+      "chance": 0.3,
+      "boss_qty": [
+        1,
+        2
+      ]
+    }
+  }
+}

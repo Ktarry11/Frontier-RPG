@@ -147,6 +147,16 @@ def lines(material_id, _depth=0):
             out.append(f"Dropped by humanoids, {t}")
     except Exception:
         pass
+    # dropped by particular creatures (entities/mob_materials.py): which, and where. Never a hidden zone.
+    try:
+        from entities.mob_materials import sources as _mob_sources
+        who, where = _mob_sources(material_id)
+        places = _places(where)
+        if who:
+            names = ", ".join(who[:3]) + (f" and {len(who) - 3} more" if len(who) > 3 else "")
+            out.append(f"Dropped by {names}" + (f" in {places}" if places else ""))
+    except Exception:
+        pass
     try:
         from entities import skinning_drops
         t = _band_text(skinning_drops.BANDS, material_id)

@@ -1,0 +1,1417 @@
+{
+  "_about": "Which recipes ask for which creature material (tools/build_mob_materials.py).",
+  "uses": {
+    "mob_scorpid_venom_gland": [
+      {
+        "trade": "alchemy",
+        "recipe": "alch_elixir_of_fire_ward",
+        "name": "Elixir of Fire Ward",
+        "count": 1,
+        "skill": 20
+      },
+      {
+        "trade": "alchemy",
+        "recipe": "alch_elixir_of_frost_ward",
+        "name": "Elixir of Frost Ward",
+        "count": 1,
+        "skill": 20
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_light_leather_gloves",
+        "name": "Light Leather Gloves",
+        "count": 1,
+        "skill": 20
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_light_int_gloves",
+        "name": "Spirithide Gloves",
+        "count": 1,
+        "skill": 24
+      }
+    ],
+    "mob_coarse_boar_bristle": [
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_light_str_boots",
+        "name": "Roughhide Boots",
+        "count": 2,
+        "skill": 32
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_light_int_belt",
+        "name": "Spirithide Belt",
+        "count": 2,
+        "skill": 26
+      },
+      {
+        "trade": "tailoring",
+        "recipe": "tail_linen_gloves",
+        "name": "Linen Gloves",
+        "count": 1,
+        "skill": 25
+      },
+      {
+        "trade": "tailoring",
+        "recipe": "tail_cotton_gloves",
+        "name": "Cotton Gloves",
+        "count": 1,
+        "skill": 20
+      }
+    ],
+    "mob_whirling_grit": [
+      {
+        "trade": "enchanting",
+        "recipe": "ench_boots_minor_agility",
+        "name": "Enchant Boots: Minor Agility",
+        "count": 1,
+        "skill": 1
+      },
+      {
+        "trade": "enchanting",
+        "recipe": "ench_minor_wizard_oil",
+        "name": "Minor Wizard Oil",
+        "count": 1,
+        "skill": 30
+      },
+      {
+        "trade": "engineering",
+        "recipe": "eng_goggles_tinted_goggles",
+        "name": "Tinted Goggles",
+        "count": 1,
+        "skill": 20
+      },
+      {
+        "trade": "engineering",
+        "recipe": "eng_trinket_spark_coil",
+        "name": "Spark Coil",
+        "count": 1,
+        "skill": 24
+      }
+    ],
+    "mob_kolkar_war_bead": [
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_ring_copper_int_caster",
+        "name": "Tigerseye Loop",
+        "count": 1,
+        "skill": 30
+      },
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_ring_copper_spi_healer",
+        "name": "Azurite Circle",
+        "count": 1,
+        "skill": 35
+      },
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_neck_copper_spi_healer",
+        "name": "Azurite Locket",
+        "count": 1,
+        "skill": 30
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_light_leather_hexer_vest",
+        "name": "Hexer's Leather Vest",
+        "count": 2,
+        "skill": 55
+      }
+    ],
+    "mob_raptor_tooth": [
+      {
+        "trade": "blacksmithing",
+        "recipe": "bs_troll_bronze_axe",
+        "name": "Troll-Wrought Axe",
+        "count": 1,
+        "skill": 50
+      },
+      {
+        "trade": "blacksmithing",
+        "recipe": "bs300_weakstone_dagger",
+        "name": "Weakstone Dirk",
+        "count": 1,
+        "skill": 26
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_light_str_helm",
+        "name": "Roughhide Helm",
+        "count": 1,
+        "skill": 45
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_light_agint_belt",
+        "name": "Hexhide Belt",
+        "count": 1,
+        "skill": 42
+      }
+    ],
+    "mob_murloc_fin": [
+      {
+        "trade": "cooking",
+        "recipe": "cook_broth",
+        "name": "Thin Broth",
+        "count": 1,
+        "skill": 35
+      },
+      {
+        "trade": "cooking",
+        "recipe": "fishx_whisker_catfish_stew",
+        "name": "Whisker Catfish Stew",
+        "count": 1,
+        "skill": 55
+      },
+      {
+        "trade": "alchemy",
+        "recipe": "alch_arcane",
+        "name": "Arcane Elixir",
+        "count": 1,
+        "skill": 45
+      }
+    ],
+    "mob_siren_scale": [
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_ring_silver_agi_physical",
+        "name": "Garnet Band",
+        "count": 1,
+        "skill": 95
+      },
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_ring_silver_int_caster",
+        "name": "Honey Amber Loop",
+        "count": 1,
+        "skill": 100
+      },
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_neck_silver_str_physical",
+        "name": "Garnet Pendant",
+        "count": 1,
+        "skill": 90
+      },
+      {
+        "trade": "tailoring",
+        "recipe": "tai_mistweave_robe_drop",
+        "name": "Mistweave Robe",
+        "count": 1,
+        "skill": 100
+      }
+    ],
+    "mob_harpy_plume": [
+      {
+        "trade": "woodworking",
+        "recipe": "ww_ratchet_blunderbuss",
+        "name": "Ratchet Blunderbuss",
+        "count": 2,
+        "skill": 78
+      },
+      {
+        "trade": "tailoring",
+        "recipe": "tail_hempen_cloak",
+        "name": "Hempen Cloak",
+        "count": 1,
+        "skill": 62
+      },
+      {
+        "trade": "tailoring",
+        "recipe": "tai_cotton_stint_helm",
+        "name": "Pilgrim's Hood",
+        "count": 1,
+        "skill": 60
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_light_leather_helm",
+        "name": "Light Leather Helm",
+        "count": 1,
+        "skill": 70
+      }
+    ],
+    "mob_bristleback_tusk": [
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_medium_agint_spaulders",
+        "name": "Voodoo Spaulders",
+        "count": 1,
+        "skill": 85
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_medium_stint_spaulders",
+        "name": "Ironweald Spaulders",
+        "count": 1,
+        "skill": 87
+      },
+      {
+        "trade": "blacksmithing",
+        "recipe": "bs_copper_scale_helm",
+        "name": "Copper Scale Helm",
+        "count": 1,
+        "skill": 80
+      },
+      {
+        "trade": "blacksmithing",
+        "recipe": "bs300_tin_axe_1h",
+        "name": "Tin Hatchet",
+        "count": 1,
+        "skill": 85
+      }
+    ],
+    "mob_dreadmist_ichor": [
+      {
+        "trade": "enchanting",
+        "recipe": "ench_2h_lesser_intellect",
+        "name": "Enchant 2H Weapon: Lesser Intellect",
+        "count": 1,
+        "skill": 60
+      },
+      {
+        "trade": "enchanting",
+        "recipe": "ench_lesser_magic_wand",
+        "name": "Lesser Magic Wand",
+        "count": 1,
+        "skill": 70
+      },
+      {
+        "trade": "alchemy",
+        "recipe": "alch_elixir_of_greater_evasion",
+        "name": "Elixir of Greater Evasion",
+        "count": 1,
+        "skill": 65
+      }
+    ],
+    "mob_crocolisk_scale": [
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_light_str_vest",
+        "name": "Roughhide Vest",
+        "count": 1,
+        "skill": 65
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_light_int_vest",
+        "name": "Spirithide Vest",
+        "count": 1,
+        "skill": 68
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_ratchet_tinker_vest",
+        "name": "Copper-Seam Leather Vest",
+        "count": 1,
+        "skill": 75
+      },
+      {
+        "trade": "blacksmithing",
+        "recipe": "bs300_tin_legs",
+        "name": "Tin Legplates",
+        "count": 1,
+        "skill": 75
+      }
+    ],
+    "mob_ghoul_sinew": [
+      {
+        "trade": "tailoring",
+        "recipe": "tail_wool_belt",
+        "name": "Wool Belt",
+        "count": 1,
+        "skill": 60
+      },
+      {
+        "trade": "tailoring",
+        "recipe": "tail_hempen_belt",
+        "name": "Hempen Sash",
+        "count": 1,
+        "skill": 55
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_light_leather_warband_belt",
+        "name": "Warband Leather Belt",
+        "count": 1,
+        "skill": 40
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_medium_int_bracers",
+        "name": "Mistweave Bracers",
+        "count": 1,
+        "skill": 80
+      }
+    ],
+    "mob_cursed_worgen_fang": [
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_ring_silver_str_physical",
+        "name": "Garnet Signet",
+        "count": 1,
+        "skill": 90
+      },
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_neck_silver_int_caster",
+        "name": "Honey Amber Choker",
+        "count": 1,
+        "skill": 95
+      },
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_neck_silver_spi_healer",
+        "name": "Lesser Moonstone Locket",
+        "count": 1,
+        "skill": 100
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_medium_str_gloves",
+        "name": "Toughened Leather Gloves",
+        "count": 2,
+        "skill": 78
+      }
+    ],
+    "mob_spiders_silk": [
+      {
+        "trade": "tailoring",
+        "recipe": "tai_cotton_agint_vest",
+        "name": "Felstitched Robe",
+        "count": 1,
+        "skill": 75
+      },
+      {
+        "trade": "tailoring",
+        "recipe": "tai_bloodsoaked_robe",
+        "name": "Bloodsoaked Robe",
+        "count": 1,
+        "skill": 75
+      },
+      {
+        "trade": "tailoring",
+        "recipe": "tai_hillsbrad_rustic_robe",
+        "name": "Hillsbrad Rustic Robe",
+        "count": 1,
+        "skill": 40
+      },
+      {
+        "trade": "engineering",
+        "recipe": "eng_gun_bronze_blunderbuss",
+        "name": "Bronze Blunderbuss",
+        "count": 2,
+        "skill": 56
+      }
+    ],
+    "mob_duskbat_wing": [
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_light_leather_cloak",
+        "name": "Light Leather Cloak",
+        "count": 1,
+        "skill": 30
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_scrap_int_gloves",
+        "name": "Scrapleather Spirit Gloves",
+        "count": 1,
+        "skill": 8
+      },
+      {
+        "trade": "alchemy",
+        "recipe": "alch_elixir_of_nature_ward",
+        "name": "Elixir of Nature Ward",
+        "count": 1,
+        "skill": 20
+      }
+    ],
+    "mob_grave_dust": [
+      {
+        "trade": "enchanting",
+        "recipe": "ench_bracer_minor_spirit",
+        "name": "Enchant Bracer: Minor Spirit",
+        "count": 1,
+        "skill": 1
+      },
+      {
+        "trade": "enchanting",
+        "recipe": "ench_boots_minor_stamina",
+        "name": "Enchant Boots: Minor Stamina",
+        "count": 1,
+        "skill": 1
+      },
+      {
+        "trade": "tailoring",
+        "recipe": "tai_mojo_bracers",
+        "name": "Mojo Bracers",
+        "count": 1,
+        "skill": 25
+      }
+    ],
+    "mob_living_bark": [
+      {
+        "trade": "woodworking",
+        "recipe": "ww_frostpine_crossbow",
+        "name": "Frostpine Crossbow",
+        "count": 1,
+        "skill": 110
+      },
+      {
+        "trade": "woodworking",
+        "recipe": "ww_venom_stave",
+        "name": "Venomwood Staff",
+        "count": 1,
+        "skill": 120
+      },
+      {
+        "trade": "woodworking",
+        "recipe": "ww_silk_bow",
+        "name": "Silkweb Shortbow",
+        "count": 1,
+        "skill": 118
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_medium_leather_vest",
+        "name": "Medium Leather Vest",
+        "count": 1,
+        "skill": 110
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_chitinscale_mail_vest",
+        "name": "Chitinscale Mail Vest",
+        "count": 1,
+        "skill": 115
+      }
+    ],
+    "mob_fel_ember": [
+      {
+        "trade": "enchanting",
+        "recipe": "ench_greater_magic_wand",
+        "name": "Greater Magic Wand",
+        "count": 1,
+        "skill": 110
+      },
+      {
+        "trade": "enchanting",
+        "recipe": "ench_lesser_wizard_oil",
+        "name": "Lesser Wizard Oil",
+        "count": 1,
+        "skill": 105
+      },
+      {
+        "trade": "blacksmithing",
+        "recipe": "bs_bronze_longsword",
+        "name": "Bronze Longsword",
+        "count": 1,
+        "skill": 103
+      },
+      {
+        "trade": "blacksmithing",
+        "recipe": "bs_stonemace",
+        "name": "Stonemace",
+        "count": 1,
+        "skill": 95
+      }
+    ],
+    "mob_satyr_horn": [
+      {
+        "trade": "blacksmithing",
+        "recipe": "bs_bronze_plate_helm",
+        "name": "Bronze Plate Helm",
+        "count": 1,
+        "skill": 112
+      },
+      {
+        "trade": "blacksmithing",
+        "recipe": "bs_bronze_battle_axe",
+        "name": "Bronze Battle Axe",
+        "count": 1,
+        "skill": 107
+      },
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_ring_silver_spi_healer",
+        "name": "Lesser Moonstone Circle",
+        "count": 1,
+        "skill": 105
+      },
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_neck_gold_str_physical",
+        "name": "Carnelian Pendant",
+        "count": 1,
+        "skill": 160
+      }
+    ],
+    "mob_thick_yeti_fur": [
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_medium_str_vest",
+        "name": "Toughened Leather Vest",
+        "count": 1,
+        "skill": 105
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_medium_agint_vest",
+        "name": "Voodoo Vest",
+        "count": 1,
+        "skill": 103
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_medium_stint_vest",
+        "name": "Ironweald Vest",
+        "count": 1,
+        "skill": 106
+      },
+      {
+        "trade": "tailoring",
+        "recipe": "tail_silk_boots",
+        "name": "Silk Boots",
+        "count": 1,
+        "skill": 100
+      },
+      {
+        "trade": "tailoring",
+        "recipe": "tail_silk_cloak",
+        "name": "Silk Cloak",
+        "count": 1,
+        "skill": 105
+      }
+    ],
+    "mob_kobold_candle": [
+      {
+        "trade": "engineering",
+        "recipe": "eng_gun_long_barrelled_musket",
+        "name": "Long-Barrelled Musket",
+        "count": 1,
+        "skill": 104
+      },
+      {
+        "trade": "engineering",
+        "recipe": "eng_trinket_resonance_housing",
+        "name": "Resonance Housing",
+        "count": 1,
+        "skill": 106
+      },
+      {
+        "trade": "alchemy",
+        "recipe": "alch_elixir_fortitude_drop",
+        "name": "Elixir of Fortitude",
+        "count": 1,
+        "skill": 95
+      }
+    ],
+    "mob_elkhorn_antler": [
+      {
+        "trade": "woodworking",
+        "recipe": "ww_bow_sfk",
+        "name": "Shadowfang Longbow",
+        "count": 1,
+        "skill": 142
+      },
+      {
+        "trade": "woodworking",
+        "recipe": "ww_staff_orgrimmar_vendor",
+        "name": "Stormcaller's Staff",
+        "count": 1,
+        "skill": 118
+      },
+      {
+        "trade": "engineering",
+        "recipe": "eng_gun_emberglass_repeater",
+        "name": "Emberglass Repeater",
+        "count": 1,
+        "skill": 120
+      },
+      {
+        "trade": "engineering",
+        "recipe": "eng_goggles_embersight_goggles",
+        "name": "Embersight Goggles",
+        "count": 1,
+        "skill": 126
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_venom_sac_spaulders",
+        "name": "Venom Sac Spaulders",
+        "count": 1,
+        "skill": 120
+      }
+    ],
+    "mob_lynx_whisker": [
+      {
+        "trade": "alchemy",
+        "recipe": "alch_battle_superior",
+        "name": "Superior Battle Elixir",
+        "count": 1,
+        "skill": 125
+      },
+      {
+        "trade": "alchemy",
+        "recipe": "alch_elixir_of_greater_strength",
+        "name": "Elixir of Greater Strength",
+        "count": 1,
+        "skill": 125
+      },
+      {
+        "trade": "tailoring",
+        "recipe": "tai_chitin_thread_vest",
+        "name": "Chitin-Thread Robe",
+        "count": 1,
+        "skill": 118
+      }
+    ],
+    "mob_blowdown_ash": [
+      {
+        "trade": "blacksmithing",
+        "recipe": "bs_bronze_crusader_plate",
+        "name": "Bronze Crusader Breastplate",
+        "count": 1,
+        "skill": 115
+      },
+      {
+        "trade": "blacksmithing",
+        "recipe": "bs_forgeborn_spaulders",
+        "name": "Forgeborn Spaulders",
+        "count": 1,
+        "skill": 118
+      },
+      {
+        "trade": "enchanting",
+        "recipe": "ench_bracer_valor",
+        "name": "Enchant Bracer: Valor",
+        "count": 1,
+        "skill": 120
+      },
+      {
+        "trade": "enchanting",
+        "recipe": "ench_boots_swiftness",
+        "name": "Enchant Boots: Swiftness",
+        "count": 1,
+        "skill": 120
+      }
+    ],
+    "mob_sequoia_amber": [
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_ring_gold_str_physical",
+        "name": "Carnelian Signet",
+        "count": 1,
+        "skill": 160
+      },
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_ring_gold_agi_physical",
+        "name": "Carnelian Band",
+        "count": 1,
+        "skill": 165
+      },
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_neck_gold_int_caster",
+        "name": "Citrine Choker",
+        "count": 1,
+        "skill": 165
+      },
+      {
+        "trade": "alchemy",
+        "recipe": "alch_elixir_of_deadly_strikes",
+        "name": "Elixir of Deadly Strikes",
+        "count": 1,
+        "skill": 140
+      },
+      {
+        "trade": "woodworking",
+        "recipe": "ww_amberwood_staff",
+        "name": "Amberwood Staff",
+        "count": 1,
+        "skill": 148
+      }
+    ],
+    "mob_basalt_heart": [
+      {
+        "trade": "blacksmithing",
+        "recipe": "bs_fangplate_gloves",
+        "name": "Fangplate Gauntlets",
+        "count": 1,
+        "skill": 145
+      },
+      {
+        "trade": "blacksmithing",
+        "recipe": "bs_arcane_plate_bracers",
+        "name": "Arcane Plate Bracers",
+        "count": 1,
+        "skill": 148
+      },
+      {
+        "trade": "engineering",
+        "recipe": "eng_goggles_voidsight_goggles",
+        "name": "Voidsight Goggles",
+        "count": 1,
+        "skill": 146
+      },
+      {
+        "trade": "engineering",
+        "recipe": "eng_voidglass_bandolier",
+        "name": "Voidglass Bandolier",
+        "count": 1,
+        "skill": 144
+      }
+    ],
+    "mob_windshear_quill": [
+      {
+        "trade": "woodworking",
+        "recipe": "ww_frostpine_bow",
+        "name": "Frostpine Longbow",
+        "count": 2,
+        "skill": 105
+      },
+      {
+        "trade": "woodworking",
+        "recipe": "ww_bramblewood_bow",
+        "name": "Bramblewood War Bow",
+        "count": 2,
+        "skill": 125
+      },
+      {
+        "trade": "tailoring",
+        "recipe": "tai_shadowweave_hood",
+        "name": "Shadowweave Hood",
+        "count": 1,
+        "skill": 143
+      },
+      {
+        "trade": "tailoring",
+        "recipe": "tai_amber_inscribed_hood",
+        "name": "Amber-Inscribed Hood",
+        "count": 1,
+        "skill": 147
+      }
+    ],
+    "mob_saltpan_crystal": [
+      {
+        "trade": "alchemy",
+        "recipe": "alch_elixir_of_greater_endurance",
+        "name": "Elixir of Greater Endurance",
+        "count": 1,
+        "skill": 138
+      },
+      {
+        "trade": "alchemy",
+        "recipe": "alch_elixir_of_ironskin",
+        "name": "Elixir of Ironskin",
+        "count": 1,
+        "skill": 140
+      },
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_ring_gold_int_caster",
+        "name": "Citrine Loop",
+        "count": 1,
+        "skill": 170
+      },
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_neck_gold_spi_healer",
+        "name": "Rime Opal Locket",
+        "count": 1,
+        "skill": 170
+      },
+      {
+        "trade": "cooking",
+        "recipe": "cookx_brewer_s_brisket",
+        "name": "Brewer's Brisket",
+        "count": 1,
+        "skill": 135
+      }
+    ],
+    "mob_witherbark_hex_bead": [
+      {
+        "trade": "enchanting",
+        "recipe": "ench_lesser_mystic_wand",
+        "name": "Lesser Mystic Wand",
+        "count": 1,
+        "skill": 155
+      },
+      {
+        "trade": "enchanting",
+        "recipe": "ench_battlemage_oil",
+        "name": "Battlemage's Oil",
+        "count": 1,
+        "skill": 140
+      },
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_ring_gold_spi_healer",
+        "name": "Rime Opal Circle",
+        "count": 1,
+        "skill": 175
+      },
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_neck_mithril_str_physical",
+        "name": "Star Ruby Pendant",
+        "count": 1,
+        "skill": 195
+      }
+    ],
+    "mob_moor_adder_venom": [
+      {
+        "trade": "alchemy",
+        "recipe": "alch_greater_agility",
+        "name": "Elixir of Greater Agility",
+        "count": 1,
+        "skill": 135
+      },
+      {
+        "trade": "alchemy",
+        "recipe": "alch_elixir_of_greater_mongoose",
+        "name": "Elixir of Greater Mongoose",
+        "count": 1,
+        "skill": 135
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_cursed_mail_bracers",
+        "name": "Cursed Mail Bracers",
+        "count": 1,
+        "skill": 138
+      }
+    ],
+    "mob_barrow_dust": [
+      {
+        "trade": "enchanting",
+        "recipe": "ench_boots_greater_vigor",
+        "name": "Enchant Boots: Greater Vigor",
+        "count": 1,
+        "skill": 175
+      },
+      {
+        "trade": "enchanting",
+        "recipe": "ench_2h_greater_valor",
+        "name": "Enchant 2H Weapon: Greater Valor",
+        "count": 1,
+        "skill": 175
+      },
+      {
+        "trade": "enchanting",
+        "recipe": "ench_greater_mystic_wand",
+        "name": "Greater Mystic Wand",
+        "count": 1,
+        "skill": 175
+      },
+      {
+        "trade": "tailoring",
+        "recipe": "p300_ta_frostweave_legs",
+        "name": "Frostweave Leggings",
+        "count": 1,
+        "skill": 175
+      }
+    ],
+    "mob_jungle_raptor_talon": [
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_thick_leather_boots",
+        "name": "Thick Leather Boots",
+        "count": 1,
+        "skill": 155
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_brine_mail_gloves",
+        "name": "Brine Mail Gloves",
+        "count": 1,
+        "skill": 155
+      },
+      {
+        "trade": "blacksmithing",
+        "recipe": "bs_iron_sword",
+        "name": "Iron Longsword",
+        "count": 1,
+        "skill": 155
+      },
+      {
+        "trade": "blacksmithing",
+        "recipe": "bs_iron_axe",
+        "name": "Iron Battle Axe",
+        "count": 1,
+        "skill": 162
+      }
+    ],
+    "mob_coilvine_scale": [
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_thick_leather_belt",
+        "name": "Thick Leather Belt",
+        "count": 1,
+        "skill": 158
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_deepscale_leather_vest",
+        "name": "Deepscale Leather Vest",
+        "count": 1,
+        "skill": 160
+      },
+      {
+        "trade": "tailoring",
+        "recipe": "p300_ta_netherweave_head",
+        "name": "Netherweave Hood",
+        "count": 1,
+        "skill": 150
+      }
+    ],
+    "mob_silverback_sinew": [
+      {
+        "trade": "woodworking",
+        "recipe": "ww_astranaar_elven_bow",
+        "name": "Astranaar Elven Bow",
+        "count": 1,
+        "skill": 162
+      },
+      {
+        "trade": "woodworking",
+        "recipe": "p300_wo_duskwood_bow",
+        "name": "Duskwood Longbow",
+        "count": 1,
+        "skill": 160
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_cragscale_bracers",
+        "name": "Cragscale Bracers",
+        "count": 1,
+        "skill": 165
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_thick_str_vest",
+        "name": "Warbear Vest",
+        "count": 1,
+        "skill": 165
+      }
+    ],
+    "mob_luminous_spore": [
+      {
+        "trade": "alchemy",
+        "recipe": "alch_elixir_of_the_wind",
+        "name": "Elixir of the Wind",
+        "count": 1,
+        "skill": 150
+      },
+      {
+        "trade": "alchemy",
+        "recipe": "alch_elixir_of_shadow_cunning",
+        "name": "Elixir of Shadow Cunning",
+        "count": 1,
+        "skill": 150
+      },
+      {
+        "trade": "tailoring",
+        "recipe": "p300_ta_netherweave_shoulder",
+        "name": "Netherweave Mantle",
+        "count": 1,
+        "skill": 155
+      },
+      {
+        "trade": "tailoring",
+        "recipe": "p300_ta_netherweave_chest",
+        "name": "Netherweave Robe",
+        "count": 1,
+        "skill": 160
+      }
+    ],
+    "mob_lattice_shard": [
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_ring_mithril_str_physical",
+        "name": "Star Ruby Signet",
+        "count": 1,
+        "skill": 195
+      },
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_neck_mithril_int_caster",
+        "name": "Topaz Choker",
+        "count": 1,
+        "skill": 200
+      },
+      {
+        "trade": "enchanting",
+        "recipe": "ench_2h_greater_intellect",
+        "name": "Enchant 2H Weapon: Greater Intellect",
+        "count": 1,
+        "skill": 170
+      },
+      {
+        "trade": "enchanting",
+        "recipe": "ench_2h_greater_spirit",
+        "name": "Enchant 2H Weapon: Greater Spirit",
+        "count": 1,
+        "skill": 170
+      }
+    ],
+    "mob_crustback_plate": [
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_thick_int_mail_vest",
+        "name": "Mistscale Mail Vest",
+        "count": 1,
+        "skill": 173
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_razorboar_mail_helm",
+        "name": "Razorboar Mail Helm",
+        "count": 1,
+        "skill": 180
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_razorfang_leather_vest",
+        "name": "Razorfang Leather Vest",
+        "count": 1,
+        "skill": 178
+      },
+      {
+        "trade": "blacksmithing",
+        "recipe": "bs300_verdant_iron_legs",
+        "name": "Verdant Iron Leggings",
+        "count": 1,
+        "skill": 175
+      }
+    ],
+    "mob_basilisk_eye": [
+      {
+        "trade": "alchemy",
+        "recipe": "alch_flask_mending_drop",
+        "name": "Flask of Mending",
+        "count": 1,
+        "skill": 200
+      },
+      {
+        "trade": "alchemy",
+        "recipe": "alch_potion_invulnerability_vendor",
+        "name": "Potion of Invulnerability",
+        "count": 1,
+        "skill": 195
+      },
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_ring_mithril_agi_physical",
+        "name": "Star Ruby Band",
+        "count": 1,
+        "skill": 200
+      },
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_neck_mithril_spi_healer",
+        "name": "Aquamarine Locket",
+        "count": 1,
+        "skill": 205
+      }
+    ],
+    "mob_sunstone_shard": [
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_ring_mithril_int_caster",
+        "name": "Topaz Loop",
+        "count": 1,
+        "skill": 205
+      },
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_ring_mithril_spi_healer",
+        "name": "Aquamarine Circle",
+        "count": 1,
+        "skill": 210
+      },
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_neck_truesilver_str_physical",
+        "name": "Black Diamond Pendant",
+        "count": 1,
+        "skill": 240
+      },
+      {
+        "trade": "enchanting",
+        "recipe": "ench_lesser_nether_wand",
+        "name": "Lesser Nether Wand",
+        "count": 1,
+        "skill": 215
+      }
+    ],
+    "mob_saltscale_pearl": [
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_ring_truesilver_str_physical",
+        "name": "Black Diamond Signet",
+        "count": 1,
+        "skill": 240
+      },
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_ring_truesilver_agi_physical",
+        "name": "Black Diamond Band",
+        "count": 1,
+        "skill": 245
+      },
+      {
+        "trade": "jewelcrafting",
+        "recipe": "jc_ring_truesilver_spi_healer",
+        "name": "Blue Sapphire Circle",
+        "count": 1,
+        "skill": 255
+      },
+      {
+        "trade": "tailoring",
+        "recipe": "p300_ta_emberweave_head",
+        "name": "Emberweave Hood",
+        "count": 1,
+        "skill": 185
+      }
+    ],
+    "mob_sinkhole_ichor": [
+      {
+        "trade": "alchemy",
+        "recipe": "alch_elixir_purple_lotus",
+        "name": "Elixir of the Purple Lotus",
+        "count": 1,
+        "skill": 215
+      },
+      {
+        "trade": "alchemy",
+        "recipe": "fishx_elixir_of_stonescale",
+        "name": "Elixir of Stonescale",
+        "count": 1,
+        "skill": 205
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_putrescent_leggings",
+        "name": "Putrescent Leggings",
+        "count": 1,
+        "skill": 210
+      }
+    ],
+    "mob_veinlight_mote": [
+      {
+        "trade": "enchanting",
+        "recipe": "ench_2h_superior_agility",
+        "name": "Enchant 2H Weapon: Superior Agility",
+        "count": 1,
+        "skill": 225
+      },
+      {
+        "trade": "enchanting",
+        "recipe": "ench_greater_nether_wand",
+        "name": "Greater Nether Wand",
+        "count": 1,
+        "skill": 240
+      },
+      {
+        "trade": "tailoring",
+        "recipe": "p300_ta_shadowsilk_shoulder",
+        "name": "Shadowsilk Mantle",
+        "count": 1,
+        "skill": 225
+      },
+      {
+        "trade": "tailoring",
+        "recipe": "p300_ta_starweave_chest",
+        "name": "Starweave Robe",
+        "count": 1,
+        "skill": 225
+      }
+    ],
+    "mob_ironbark_heartwood": [
+      {
+        "trade": "woodworking",
+        "recipe": "p300_wo_moonpetal_staff",
+        "name": "Moonpetal Staff",
+        "count": 1,
+        "skill": 245
+      },
+      {
+        "trade": "woodworking",
+        "recipe": "p300_wo_starleaf_crossbow",
+        "name": "Starleaf Crossbow",
+        "count": 1,
+        "skill": 265
+      },
+      {
+        "trade": "woodworking",
+        "recipe": "wwx_moonpetal_tideguard",
+        "name": "Moonpetal Tideguard",
+        "count": 1,
+        "skill": 242
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_savage_pants",
+        "name": "Savage Leather Pants",
+        "count": 1,
+        "skill": 250
+      }
+    ],
+    "mob_jadefire_ember": [
+      {
+        "trade": "enchanting",
+        "recipe": "ench_lesser_eternal_wand",
+        "name": "Lesser Eternal Wand",
+        "count": 1,
+        "skill": 270
+      },
+      {
+        "trade": "enchanting",
+        "recipe": "ench_brilliant_wizard_oil",
+        "name": "Brilliant Wizard Oil",
+        "count": 1,
+        "skill": 255
+      },
+      {
+        "trade": "blacksmithing",
+        "recipe": "bs300_ashen_steel_sword_1h",
+        "name": "Ashen Steel Blade",
+        "count": 1,
+        "skill": 280
+      },
+      {
+        "trade": "blacksmithing",
+        "recipe": "bs300_arcanite_hands",
+        "name": "Arcanite Gauntlets",
+        "count": 1,
+        "skill": 280
+      }
+    ],
+    "mob_hive_resin": [
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_frostscale_vest",
+        "name": "Frostscale Vest",
+        "count": 1,
+        "skill": 260
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "p300_le_rugged_chest",
+        "name": "Rugged Vest",
+        "count": 1,
+        "skill": 265
+      },
+      {
+        "trade": "engineering",
+        "recipe": "eng300_truesilver_repeater",
+        "name": "Truesilver Repeater",
+        "count": 1,
+        "skill": 235
+      },
+      {
+        "trade": "engineering",
+        "recipe": "eng300_dark_iron_bombard",
+        "name": "Dark Iron Bombard",
+        "count": 1,
+        "skill": 250
+      }
+    ],
+    "mob_scoria_heart": [
+      {
+        "trade": "blacksmithing",
+        "recipe": "bs300_arcanite_waist",
+        "name": "Arcanite Girdle",
+        "count": 1,
+        "skill": 285
+      },
+      {
+        "trade": "blacksmithing",
+        "recipe": "bs300_arcanite_legs",
+        "name": "Arcanite Legplates",
+        "count": 1,
+        "skill": 290
+      },
+      {
+        "trade": "engineering",
+        "recipe": "eng300_thorium_gyro_visor",
+        "name": "Thorium Gyro-Visor",
+        "count": 1,
+        "skill": 270
+      },
+      {
+        "trade": "engineering",
+        "recipe": "eng300_arcanite_dragonling_core",
+        "name": "Arcanite Dragonling Core",
+        "count": 1,
+        "skill": 285
+      }
+    ],
+    "mob_drake_scale": [
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_emberscale_helm",
+        "name": "Emberscale Coif",
+        "count": 1,
+        "skill": 268
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "p300_le_emberscale_head",
+        "name": "Emberscale Helm",
+        "count": 1,
+        "skill": 285
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "p300_le_emberscale_shoulder",
+        "name": "Emberscale Spaulders",
+        "count": 1,
+        "skill": 290
+      },
+      {
+        "trade": "blacksmithing",
+        "recipe": "bs300_thorium_shield",
+        "name": "Thorium Bulwark",
+        "count": 1,
+        "skill": 270
+      }
+    ],
+    "mob_gorilla_mane": [
+      {
+        "trade": "tailoring",
+        "recipe": "p300_ta_bloodsilk_back",
+        "name": "Bloodsilk Cloak",
+        "count": 1,
+        "skill": 250
+      },
+      {
+        "trade": "tailoring",
+        "recipe": "p300_ta_felcloth_chest",
+        "name": "Felcloth Robe",
+        "count": 1,
+        "skill": 265
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "lw_mossback_shoulders",
+        "name": "Mossback Spaulders",
+        "count": 1,
+        "skill": 275
+      },
+      {
+        "trade": "leatherworking",
+        "recipe": "p300_le_rugged_wrist",
+        "name": "Rugged Bracers",
+        "count": 1,
+        "skill": 270
+      }
+    ]
+  }
+}

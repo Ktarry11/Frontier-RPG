@@ -169,9 +169,10 @@ def main():
     ok, msg, _ = cm.craft(hero, "jewelcrafting", "jc_prospect_mithril")
     got = hero.get_material_quantity("gem_aquamarine") + hero.get_material_quantity("gem_star_ruby") - 2
     check(ok and got >= 1, f"prospecting found nothing: {msg}")
-    give("setting_ring_mithril", 1)
-    give("bar_mithril", 1)
-    give("gem_star_ruby", 1)
+    # every input the ring's recipe names, read from the recipe itself: a recipe can gain an input (a creature
+    # material, tools/build_mob_materials.py) and this test should still be testing the ring, not the list
+    for mid, n in recipes["jc_ring_mithril_str_physical"]["inputs"].items():
+        give(mid, n)
     ok, msg, ring = cm.craft(hero, "jewelcrafting", "jc_ring_mithril_str_physical")
     check(ok and ring is not None and ring.slot == "ring", f"ring failed: {msg}")
     give("gem_star_ruby", 2)

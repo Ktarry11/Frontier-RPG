@@ -712,6 +712,8 @@ _gathering_node_manager = None
 #: added instead of two matching guesses.
 MATERIAL_TYPE_FOLDERS = {
     "ore": "ore",
+    # crafting materials particular monsters drop (tools/build_mob_materials.py)
+    "mob_reagent": "mob_reagents",
     "herb": "herbs",
     "bar": "bars",
     # No real sprite art exists for upgrade kits yet (Oct 2026,
