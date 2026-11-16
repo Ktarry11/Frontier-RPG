@@ -333,7 +333,7 @@ def main():
                 bad.append(f"{mid}: no placeholder art {icon}")
             else:
                 shutil.copyfile(src, dst)
-                (ICONS / f".placeholder_{mid}").write_text("placeholder until Kyle's sheet is sliced\n")
+                (ICONS / f".placeholder_{mid}").write_text("placeholder until Kyle's sheet is sliced\n", encoding="utf-8")
 
         # ---- which recipes ask for it
         s_lo, s_hi = max(1, (level - 8) * 5), level * 5 + 10
