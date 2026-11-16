@@ -151,8 +151,19 @@ def summon(name, creature, cooldown, max_alive, max_casts):
                         "count": 1, "level_offset": -1, "max_alive": max_alive, "max_casts": max_casts})
 
 
-def boss_kit(level, school, basic, second, heavy, spread, mechanic, phase_name, *, aoe=True, opener_mech=None,
-             extra=(), phase_pct=40):
+def hit_with(name, amount, stat_mods, duration=3, school="physical", on="debuff", **kw):
+    """A hit that carries its buff or debuff. A boss never spends a turn on a plain debuff while it has an attack
+    ready (Monster.choose_action), so a debuff on its own is a dead slot: it has to land with damage."""
+    return dmg(name, amount, school=school,
+               rider={"effect": on, "duration": duration, "stat_mods": stat_mods}, **kw)
+
+
+def boss_kit(level, school, basic, second, heavy, spread, mechanic, phase_name, *, signature, aoe=True,
+             opener_mech=None, extra=(), phase_pct=40):
+    """SIGNATURE: every boss carries something DANGEROUS the party has to answer (Kyle, 16 Nov 2026: "make sure
+    bosses are not just debuffing. they should have something dangerous"): a hit that can kill the tank if the
+    healer is late, a blast across the whole party, a stun with a hammer behind it, a DoT that kills unless it's
+    cleansed, or a once-only nuke at low health. Required, so no boss can be written without one."""
     b = B(level)
     kit = [opener(basic, b, school, **(opener_mech or {})),
            dmg(second, int(b * 0.88), cooldown=4, school=school),
@@ -164,6 +175,7 @@ def boss_kit(level, school, basic, second, heavy, spread, mechanic, phase_name, 
     if mechanic:
         kit.append(mechanic)
     kit.extend(extra)
+    kit.extend(signature if isinstance(signature, list) else [signature])
     kit.append(phase(phase_name, level, school, pct=phase_pct))
     return kit
 
@@ -189,23 +201,29 @@ def kits():
     # ---- Graveyard bosses
     k["Interrogator Maelis"] = boss_kit(          # burns and breaks: cleanse, heal through
         30, "physical", "Interrogator's Lash", "Thumbscrew", "Break the Silence", "Searing Brand",
-        debuff("Confess", 5, 3, {"armor": -180, "attack_power": -40}), "Tell Me Everything", aoe=False,
-        extra=[dot("Branding Iron", int(B(30) * 0.4), 5, 4, school="fire", dispel_type="magic")])
+        hit_with("Confess", B(30), {"armor": -180, "attack_power": -40}), "Tell Me Everything", aoe=False,
+        extra=[dot("Branding Iron", int(B(30) * 0.4), 5, 4, school="fire", dispel_type="magic")],
+        signature=stun_hit("The Rack", int(B(30) * 1.6), cooldown=6))
     k["Ironspine"] = boss_kit(                    # a giant of bone among the graves: poison, and bone that turns blades
         31, "physical", "Bone Crush", "Trample", "Ribcage Slam", "Graveyard Poison",
-        shell("Bone Armour", 6, 3, int(B(31) * 1.4)), "Ironspine Rises", aoe=False)
-    k["Azshir the Sleepless"] = boss_kit(         # a wraith that drains: spread out
-        31, "shadow", "Grave Touch", "Call of the Grave", "Terrify", "Wail of the Sleepless",
+        shell("Bone Armour", 6, 3, int(B(31) * 1.4)), "Ironspine Rises", aoe=False,
+        signature=dmg("Bonequake", int(B(31) * 1.2), cooldown=6, is_aoe=True))
+    k["Azshir the Sleepless"] = boss_kit(         # a wraith that drains: spread out, and cleanse the curse
+        31, "shadow", "Grave Touch", "Wail of the Dead", "Terrify", "Wail of the Sleepless",
         dict(name="Siphon Soul", kind="heal", amount=int(B(31) * 0.9), cooldown=5, mana_cost=0, school="shadow"),
-        "Never Sleeps", extra=[stun_hit("Paralysing Dread", int(B(31) * 0.6), cooldown=6, school="shadow")])
+        "Never Sleeps", extra=[stun_hit("Paralysing Dread", int(B(31) * 0.6), cooldown=6, school="shadow")],
+        signature=dot("Call of the Grave", int(B(31) * 0.55), 6, 4, school="shadow", dispel_type="curse"))
     k["The Fallen Champion"] = boss_kit(          # hits harder as it falls: two steps, at two thirds and a third
         31, "physical", "Rusted Greatsword", "Grave Cleave", "Champion's Blow", "Sweep of the Tomb",
-        dict(phase("Remembers the Fight", 31, hp=0.66, pct=25), cooldown=99), "Will Not Yield", phase_pct=60,
-        extra=[buff("Tomb-Plate", 6, 3, {"armor": 260})])
+        phase("Remembers the Fight", 31, hp=0.66, pct=25), "Will Not Yield", phase_pct=60,
+        extra=[hit_with("Shield of the Tomb", int(B(31) * 0.8), {"armor": 260}, on="buff")],
+        signature=dmg("Executioner's Swing", int(B(31) * 2.0), cooldown=6))
     k["Bloodmage Thalnos"] = boss_kit(            # spells feed his ward: hit him with steel
         32, "fire", "Flame Spike", "Shadow Bolt", "Blood Fire", "Flame Nova",
         dot("Blood Curse", int(B(32) * 0.34), 5, 4, school="shadow", dispel_type="curse"), "The Blood Boils",
-        opener_mech={"damage_to_shield_pct": 40, "damage_to_shield_school": "magic"})
+        opener_mech={"damage_to_shield_pct": 40, "damage_to_shield_school": "magic"},
+        signature=[dmg("Pyroblast", int(B(32) * 2.0), cooldown=6, school="fire"),
+                   dict(dmg("Blood Pact", int(B(32) * 1.6), cooldown=99, school="fire", is_aoe=True), hp_below=0.3)])
     # ---- Library trash (32-35)
     t = T(35)
     k["Scarlet Adept"] = [dmg("Holy Smite", t, school="holy"), heal("Heal", int(t * 1.4)),
@@ -221,25 +239,32 @@ def kits():
     # ---- Library bosses
     k["Inquisitor Vellan Rook"] = boss_kit(       # marks a heretic and judges him: the healers watch the mark
         33, "holy", "Searing Light", "Brand of Heresy", "Judgement", "Consecrated Floor",
-        debuff("Marked as Heretic", 5, 3, {"armor": -220, "dodge_rating": -30}, school="holy"), "No Appeal",
-        extra=[stun_hit("Hammer of the Inquisition", int(B(33) * 0.6), cooldown=6, school="holy")])
+        hit_with("Marked as Heretic", B(33), {"armor": -220, "dodge_rating": -30}, school="holy"), "No Appeal",
+        extra=[stun_hit("Hammer of the Inquisition", int(B(33) * 0.6), cooldown=6, school="holy")],
+        signature=dmg("Burn the Heretic", int(B(33) * 2.0), cooldown=6, school="holy"))
     k["Houndmaster Loksey"] = boss_kit(           # his hounds first, or they mend him
         34, "physical", "Kennel Whip", "Bloodhound's Shot", "Set the Dogs", "Volley",
         summon("Release the Hounds", "Scarlet Tracking Hound", 4, 2, 4), "Master of the Kennels",
-        extra=[heal("The Pack Licks His Wounds", int(B(34) * 1.1), cooldown=5, school="physical")])
+        extra=[heal("The Pack Licks His Wounds", int(B(34) * 1.1), cooldown=5, school="physical")],
+        signature=dmg("Let Them Feed", int(B(34) * 1.2), cooldown=6, is_aoe=True))
     k["Archivist Dana Mercer"] = boss_kit(        # silences casters: melee carries her
         35, "arcane", "Index Bolt", "Redaction", "Burn the Margins", "Shelf Collapse",
-        debuff("Closed for Study", 5, 3, {"spell_power": -60, "intellect": -40}, school="arcane"),
+        hit_with("Closed for Study", B(35), {"spell_power": -60, "intellect": -40}, school="arcane"),
         "Every Page Accounted For",
-        extra=[debuff("Hush", 6, 2, {"haste": -20, "mp5": -10}, school="arcane")])
+        extra=[hit_with("Hush", int(B(35) * 0.8), {"haste": -20, "mp5": -10}, duration=2, school="arcane",
+                        cooldown=6)],
+        signature=dmg("The Whole Stack Comes Down", int(B(35) * 1.3), cooldown=6, school="arcane", is_aoe=True))
     k["Curator Halbrecht"] = boss_kit(            # the gallery's guards come to him: kill the monks, then the man
         35, "arcane", "Pointer Rod", "Do Not Touch", "Glass Case Shatters", "Alarm Bell",
         summon("Guards to the Gallery", "Scarlet Monk", 4, 2, 4), "Priceless",
-        extra=[shell("Under Glass", 6, 3, int(B(35) * 1.2), school="arcane")])
+        extra=[shell("Under Glass", 6, 3, int(B(35) * 1.2), school="arcane")],
+        signature=dmg("Display Case Collapse", int(B(35) * 1.2), cooldown=6, school="arcane", is_aoe=True))
     k["Arcanist Doan"] = boss_kit(                # detonates: get away from him at the brink
         36, "arcane", "Arcane Bolt", "Arcane Missiles", "Silence of the Stacks", "Arcane Explosion",
         stun_hit("Polymorph", int(B(36) * 0.5), cooldown=6, school="arcane"), "Shielded by Pages",
-        extra=[dict(dmg("Detonation", int(B(36) * 1.7), cooldown=99, school="arcane", is_aoe=True), hp_below=0.3)])
+        signature=[dmg("Arcane Barrage", int(B(36) * 2.0), cooldown=6, school="arcane"),
+                   dict(dmg("Detonation", int(B(36) * 2.0), cooldown=99, school="arcane", is_aoe=True),
+                        hp_below=0.3)])
     # ---- Armory trash (35-38)
     t = T(38)
     k["Scarlet Trainee"] = [dmg("Wooden Sword", int(t * 0.8)), dmg("Shield Bash", int(t * 0.7), cooldown=3),
@@ -257,23 +282,30 @@ def kits():
     k["Sergeant Major Cole Brennan"] = boss_kit(  # his recruits come in waves
         36, "physical", "Drill Cane", "On Your Feet", "Parade-Ground Throw", "Squad Charge",
         summon("Fall In!", "Scarlet Trainee", 4, 2, 5), "Double Time",
-        extra=[stun_hit("Knee to the Gut", int(B(36) * 0.6), cooldown=6)])
-    k["Quartermaster Bram Ellison"] = boss_kit(   # armour you have to cut through
+        extra=[stun_hit("Knee to the Gut", int(B(36) * 0.6), cooldown=6)],
+        signature=dmg("Charge the Line", int(B(36) * 1.2), cooldown=6, is_aoe=True))
+    k["Quartermaster Bram Ellison"] = boss_kit(   # armour you have to cut through, and a crate on your head
         37, "physical", "Requisitioned Maul", "Inventory Check", "Crate Drop", "Spilled Stock",
-        shell("Spare Plate", 6, 3, int(B(37) * 2.0)), "Everything Signed For",
-        extra=[buff("Polished Plate", 5, 4, {"armor": 600})])
-    k["Smithmaster Corra Bellweather"] = boss_kit(  # hot iron: burns that stack, and plate she tempers as you hit it
+        None, "Everything Signed For",
+        # the spare plate goes on by itself the first time he drops below half: a shield of a quarter of his health
+        opener_mech={"on_low_health_pct": 50, "on_low_health_shield_pct": 25, "on_low_health_uses": 1},
+        extra=[hit_with("Polish the Plate", int(B(37) * 0.8), {"armor": 600}, duration=4, on="buff")],
+        signature=stun_hit("Pinned Under the Stock", int(B(37) * 1.6), cooldown=6))
+    k["Smithmaster Corra Bellweather"] = boss_kit(  # hot iron: burns that spread, and plate she tempers as you hit it
         37, "fire", "Hot Hammer", "Sparks", "Fresh From the Anvil", "Slag Spill",
         dot("Molten Slag", int(B(37) * 0.34), 5, 4, school="fire", dispel_type="magic", is_aoe=True), "Stoke the Forge",
-        extra=[buff("Temper", 5, 4, {"armor": 500})])
+        extra=[hit_with("Temper", int(B(37) * 0.8), {"armor": 500}, duration=4, school="fire", on="buff")],
+        signature=dmg("Quench in Flame", int(B(37) * 2.0), cooldown=6, school="fire"))
     k["Master-at-Arms Dorran Pike"] = boss_kit(   # parries and sends steel back: casters carry this one
         38, "physical", "Partisan Thrust", "Riposte", "Disarming Strike", "Sweeping Strikes",
-        debuff("Disarmed", 6, 2, {"attack_power": -120}), "Every Weapon in the Hall",
-        opener_mech={"reflect_pct": 20, "reflect_school": "physical", "reflect_melee_only": True})
+        hit_with("Disarm", int(B(38) * 0.9), {"attack_power": -120}, duration=2), "Every Weapon in the Hall",
+        opener_mech={"reflect_pct": 20, "reflect_school": "physical", "reflect_melee_only": True},
+        signature=dmg("The Perfect Thrust", int(B(38) * 2.2), cooldown=6))
     k["Herod"] = boss_kit(                        # whirlwinds and enrages: the party moves
         39, "physical", "Herod's Greataxe", "Cleave", "Rushing Charge", "Whirlwind",
-        dict(dmg("Bladestorm", int(B(39) * 0.9), cooldown=4, is_aoe=True)), "Blades of Light", phase_pct=60,
-        extra=[debuff("Intimidating Shout", 6, 2, {"attack_power": -60, "spell_power": -40})])
+        hit_with("Intimidating Shout", int(B(39) * 0.6), {"attack_power": -60, "spell_power": -40}, duration=2,
+                 is_aoe=True, cooldown=6), "Blades of Light", phase_pct=60,
+        signature=dmg("Bladestorm", int(B(39) * 1.1), cooldown=4, is_aoe=True))
     # ---- Cathedral trash (38-41)
     t = T(41)
     k["Scarlet Centurion"] = [dmg("Shield Bash", t), dmg("Battle Shout", int(t * 0.86), cooldown=3),
@@ -294,28 +326,34 @@ def kits():
         39, "nature", "Pruning Hook", "Rose-Thorn Lash", "Entangling Roots", "Bramble Burst",
         dot("Thorn in the Side", int(B(39) * 0.34), 5, 4, school="nature", dispel_type="poison"), "The Garden Defends",
         opener_mech={"reflect_pct": 15, "reflect_school": "physical", "reflect_melee_only": True},
-        extra=[heal("Tend the Beds", int(B(39) * 1.1), cooldown=6, school="nature")])
+        extra=[heal("Tend the Beds", int(B(39) * 1.1), cooldown=6, school="nature")],
+        signature=dmg("Bramble Eruption", int(B(39) * 1.2), cooldown=6, school="nature", is_aoe=True))
     k["Captain Elric Stane"] = boss_kit(          # the doors of the chapel: his guard first
         40, "physical", "Longsword", "Shield Bash", "Captain's Cleave", "Hold the Line",
         summon("Guard, to Me!", "Scarlet Centurion", 4, 2, 4), "None Shall Pass",
-        extra=[shell("Shield Wall", 6, 3, int(B(40) * 1.5))])
-    k["High Inquisitor Aldric"] = boss_kit(    # a corpse that will not stay dead
+        extra=[shell("Shield Wall", 6, 3, int(B(40) * 1.5))],
+        signature=stun_hit("Shield Charge", int(B(40) * 1.6), cooldown=6))
+    k["High Inquisitor Aldric"] = boss_kit(       # a corpse that will not stay dead
         40, "shadow", "Cold Hand", "Curse of Blood", "Sleep", "Power Word: Pain",
         dot("Unburied", int(B(40) * 0.34), 5, 4, school="shadow", dispel_type="curse"), "Still Here",
-        opener_mech={"death_prevent_pct": 20, "death_prevent_uses": 1, "death_prevent_lethal_only": True})
+        opener_mech={"death_prevent_pct": 20, "death_prevent_uses": 1, "death_prevent_lethal_only": True},
+        signature=dmg("Grave Grip", int(B(40) * 2.0), cooldown=6, school="shadow", lifesteal=0.5))
     k["Brother Corwin Ashe"] = boss_kit(          # his sermon shields the faithful
         41, "holy", "Censer", "Holy Fire", "Rebuke", "Sermon of the Nave",
         shell("Shield of Faith", 5, 3, int(B(41) * 1.6), school="holy"), "Every Pew Full",
-        extra=[heal("Laying On of Hands", int(B(41) * 1.2), cooldown=6)])
+        extra=[heal("Laying On of Hands", int(B(41) * 1.2), cooldown=6)],
+        signature=dmg("Wrath of the Pulpit", int(B(41) * 1.2), cooldown=6, school="holy", is_aoe=True))
     k["High Inquisitor Whitemane"] = boss_kit(    # she mends herself and burns whoever is on him
         42, "holy", "Smite", "Holy Fire", "Dominate", "Scarlet Resurrection",
         heal("Flash Heal", int(B(42) * 1.3), cooldown=4), "Arise, My Champion",
-        extra=[stun_hit("Deep Sleep", int(B(42) * 0.5), cooldown=6, school="holy")])
+        extra=[stun_hit("Deep Sleep", int(B(42) * 0.5), cooldown=6, school="holy")],
+        signature=dmg("Scarlet Judgement", int(B(42) * 1.3), cooldown=6, school="holy", is_aoe=True))
     k["Scarlet Commander Mograine"] = boss_kit(   # he holds the front and gets back up once
         42, "physical", "Crusader Strike", "Hammer of Justice", "Commander's Blow", "Consecration",
         shell("Divine Shield", 6, 2, int(B(42) * 1.4), school="holy", damage_to_shield_pct=100,
               damage_to_shield_school=""), "For the Crusade!",
-        opener_mech={"death_prevent_pct": 30, "death_prevent_uses": 1, "death_prevent_lethal_only": True})
+        opener_mech={"death_prevent_pct": 30, "death_prevent_uses": 1, "death_prevent_lethal_only": True},
+        signature=dmg("Crusader's Hammer", int(B(42) * 2.0), cooldown=6))
     return k
 
 

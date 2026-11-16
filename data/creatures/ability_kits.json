@@ -62312,15 +62312,18 @@
       },
       {
         "name": "Confess",
-        "kind": "debuff",
-        "amount": 0,
-        "cooldown": 5,
+        "kind": "damage",
+        "amount": 260,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "duration": 3,
-        "stat_mods": {
-          "armor": -180,
-          "attack_power": -40
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "armor": -180,
+            "attack_power": -40
+          }
         }
       },
       {
@@ -62332,6 +62335,21 @@
         "school": "fire",
         "duration": 4,
         "dispel_type": "magic"
+      },
+      {
+        "name": "The Rack",
+        "kind": "damage",
+        "amount": 416,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
       },
       {
         "name": "Tell Me Everything",
@@ -62359,7 +62377,7 @@
         "boss_rework": 1
       },
       {
-        "name": "Call of the Grave",
+        "name": "Wail of the Dead",
         "kind": "damage",
         "amount": 237,
         "cooldown": 4,
@@ -62405,6 +62423,16 @@
           "is_stun": true,
           "stat_mods": {}
         }
+      },
+      {
+        "name": "Call of the Grave",
+        "kind": "dot",
+        "amount": 148,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "dispel_type": "curse"
       },
       {
         "name": "Never Sleeps",
@@ -62471,17 +62499,27 @@
         }
       },
       {
-        "name": "Tomb-Plate",
-        "kind": "buff",
-        "amount": 0,
-        "cooldown": 6,
+        "name": "Shield of the Tomb",
+        "kind": "damage",
+        "amount": 216,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "duration": 3,
-        "stat_mods": {
-          "armor": 260
-        },
-        "self_only": true
+        "rider": {
+          "effect": "buff",
+          "duration": 3,
+          "stat_mods": {
+            "armor": 260
+          }
+        }
+      },
+      {
+        "name": "Executioner's Swing",
+        "kind": "damage",
+        "amount": 540,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical"
       },
       {
         "name": "Will Not Yield",
@@ -62551,6 +62589,24 @@
         "school": "shadow",
         "duration": 4,
         "dispel_type": "curse"
+      },
+      {
+        "name": "Pyroblast",
+        "kind": "damage",
+        "amount": 560,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Blood Pact",
+        "kind": "damage",
+        "amount": 448,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true,
+        "hp_below": 0.3
       },
       {
         "name": "The Blood Boils",
@@ -62779,6 +62835,15 @@
         "school": "physical"
       },
       {
+        "name": "Let Them Feed",
+        "kind": "damage",
+        "amount": 360,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
         "name": "Master of the Kennels",
         "kind": "buff",
         "amount": 0,
@@ -62830,29 +62895,44 @@
       },
       {
         "name": "Closed for Study",
-        "kind": "debuff",
-        "amount": 0,
-        "cooldown": 5,
+        "kind": "damage",
+        "amount": 310,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "arcane",
-        "duration": 3,
-        "stat_mods": {
-          "spell_power": -60,
-          "intellect": -40
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "spell_power": -60,
+            "intellect": -40
+          }
         }
       },
       {
         "name": "Hush",
-        "kind": "debuff",
-        "amount": 0,
+        "kind": "damage",
+        "amount": 248,
         "cooldown": 6,
         "mana_cost": 0,
         "school": "arcane",
-        "duration": 2,
-        "stat_mods": {
-          "haste": -20,
-          "mp5": -10
+        "rider": {
+          "effect": "debuff",
+          "duration": 2,
+          "stat_mods": {
+            "haste": -20,
+            "mp5": -10
+          }
         }
+      },
+      {
+        "name": "The Whole Stack Comes Down",
+        "kind": "damage",
+        "amount": 403,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
       },
       {
         "name": "Every Page Accounted For",
@@ -62920,9 +63000,17 @@
         }
       },
       {
+        "name": "Arcane Barrage",
+        "kind": "damage",
+        "amount": 640,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
         "name": "Detonation",
         "kind": "damage",
-        "amount": 544,
+        "amount": 640,
         "cooldown": 99,
         "mana_cost": 0,
         "school": "arcane",
@@ -63134,6 +63222,15 @@
         }
       },
       {
+        "name": "Charge the Line",
+        "kind": "damage",
+        "amount": 384,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
         "name": "Double Time",
         "kind": "buff",
         "amount": 0,
@@ -63156,7 +63253,17 @@
         "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "boss_rework": 1
+        "boss_rework": 1,
+        "rider": {
+          "effect": "buff",
+          "duration": 99,
+          "stat_mods": {},
+          "mechanics": {
+            "on_low_health_pct": 50,
+            "on_low_health_shield_pct": 25,
+            "on_low_health_uses": 1
+          }
+        }
       },
       {
         "name": "Inventory Check",
@@ -63184,29 +63291,34 @@
         "is_aoe": true
       },
       {
-        "name": "Spare Plate",
-        "kind": "buff",
-        "amount": 0,
+        "name": "Polish the Plate",
+        "kind": "damage",
+        "amount": 264,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": 600
+          }
+        }
+      },
+      {
+        "name": "Pinned Under the Stock",
+        "kind": "damage",
+        "amount": 528,
         "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
-        "duration": 3,
-        "self_only": true,
-        "stat_mods": {},
-        "absorb": 660
-      },
-      {
-        "name": "Polished Plate",
-        "kind": "buff",
-        "amount": 0,
-        "cooldown": 5,
-        "mana_cost": 0,
-        "school": "physical",
-        "duration": 4,
-        "stat_mods": {
-          "armor": 600
-        },
-        "self_only": true
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
       },
       {
         "name": "Everything Signed For",
@@ -63259,26 +63371,30 @@
         "is_aoe": true
       },
       {
+        "name": "Intimidating Shout",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "rider": {
+          "effect": "debuff",
+          "duration": 2,
+          "stat_mods": {
+            "attack_power": -60,
+            "spell_power": -40
+          }
+        },
+        "is_aoe": true
+      },
+      {
         "name": "Bladestorm",
         "kind": "damage",
-        "amount": 315,
+        "amount": 385,
         "cooldown": 4,
         "mana_cost": 0,
         "school": "physical",
         "is_aoe": true
-      },
-      {
-        "name": "Intimidating Shout",
-        "kind": "debuff",
-        "amount": 0,
-        "cooldown": 6,
-        "mana_cost": 0,
-        "school": "physical",
-        "duration": 2,
-        "stat_mods": {
-          "attack_power": -60,
-          "spell_power": -40
-        }
       },
       {
         "name": "Blades of Light",
@@ -63507,6 +63623,15 @@
         "dispel_type": "curse"
       },
       {
+        "name": "Grave Grip",
+        "kind": "damage",
+        "amount": 720,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "lifesteal": 0.5
+      },
+      {
         "name": "Still Here",
         "kind": "buff",
         "amount": 0,
@@ -63575,6 +63700,15 @@
         "cooldown": 6,
         "mana_cost": 0,
         "school": "holy"
+      },
+      {
+        "name": "Wrath of the Pulpit",
+        "kind": "damage",
+        "amount": 444,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "holy",
+        "is_aoe": true
       },
       {
         "name": "Every Pew Full",
@@ -63648,6 +63782,15 @@
           "is_stun": true,
           "stat_mods": {}
         }
+      },
+      {
+        "name": "Scarlet Judgement",
+        "kind": "damage",
+        "amount": 494,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "holy",
+        "is_aoe": true
       },
       {
         "name": "Arise, My Champion",
@@ -63726,6 +63869,14 @@
         }
       },
       {
+        "name": "Crusader's Hammer",
+        "kind": "damage",
+        "amount": 760,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
         "name": "For the Crusade!",
         "kind": "buff",
         "amount": 0,
@@ -63788,6 +63939,15 @@
         "absorb": 378
       },
       {
+        "name": "Bonequake",
+        "kind": "damage",
+        "amount": 324,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
         "name": "Ironspine Rises",
         "kind": "buff",
         "amount": 0,
@@ -63839,15 +63999,18 @@
       },
       {
         "name": "Marked as Heretic",
-        "kind": "debuff",
-        "amount": 0,
-        "cooldown": 5,
+        "kind": "damage",
+        "amount": 290,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "holy",
-        "duration": 3,
-        "stat_mods": {
-          "armor": -220,
-          "dodge_rating": -30
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "armor": -220,
+            "dodge_rating": -30
+          }
         }
       },
       {
@@ -63864,6 +64027,14 @@
           "is_stun": true,
           "stat_mods": {}
         }
+      },
+      {
+        "name": "Burn the Heretic",
+        "kind": "damage",
+        "amount": 580,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "holy"
       },
       {
         "name": "No Appeal",
@@ -63944,6 +64115,15 @@
         "absorb": 372
       },
       {
+        "name": "Display Case Collapse",
+        "kind": "damage",
+        "amount": 372,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
         "name": "Priceless",
         "kind": "buff",
         "amount": 0,
@@ -64006,16 +64186,26 @@
       },
       {
         "name": "Temper",
-        "kind": "buff",
-        "amount": 0,
-        "cooldown": 5,
+        "kind": "damage",
+        "amount": 264,
+        "cooldown": 0,
         "mana_cost": 0,
-        "school": "physical",
-        "duration": 4,
-        "stat_mods": {
-          "armor": 500
-        },
-        "self_only": true
+        "school": "fire",
+        "rider": {
+          "effect": "buff",
+          "duration": 4,
+          "stat_mods": {
+            "armor": 500
+          }
+        }
+      },
+      {
+        "name": "Quench in Flame",
+        "kind": "damage",
+        "amount": 660,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "fire"
       },
       {
         "name": "Stoke the Forge",
@@ -64078,16 +64268,27 @@
         "is_aoe": true
       },
       {
-        "name": "Disarmed",
-        "kind": "debuff",
-        "amount": 0,
-        "cooldown": 6,
+        "name": "Disarm",
+        "kind": "damage",
+        "amount": 306,
+        "cooldown": 0,
         "mana_cost": 0,
         "school": "physical",
-        "duration": 2,
-        "stat_mods": {
-          "attack_power": -120
+        "rider": {
+          "effect": "debuff",
+          "duration": 2,
+          "stat_mods": {
+            "attack_power": -120
+          }
         }
+      },
+      {
+        "name": "The Perfect Thrust",
+        "kind": "damage",
+        "amount": 748,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical"
       },
       {
         "name": "Every Weapon in the Hall",
@@ -64168,6 +64369,15 @@
         "school": "nature"
       },
       {
+        "name": "Bramble Eruption",
+        "kind": "damage",
+        "amount": 420,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
         "name": "The Garden Defends",
         "kind": "buff",
         "amount": 0,
@@ -64244,6 +64454,21 @@
         "self_only": true,
         "stat_mods": {},
         "absorb": 540
+      },
+      {
+        "name": "Shield Charge",
+        "kind": "damage",
+        "amount": 576,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
       },
       {
         "name": "None Shall Pass",

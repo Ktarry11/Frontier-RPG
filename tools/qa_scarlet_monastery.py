@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """The Scarlet Monastery is whole: five maps joined, every boss and pack reachable, and every creature, kit, loot pool,
-level band, rep source and epic it needs in place.
+level band, rep source and epic it needs in place. Every boss acts in a real fight and throws something dangerous
+(tools/audit_boss_turns.py).
 
     PYTHONPATH=. python3 tools/qa_scarlet_monastery.py
 
@@ -163,6 +164,16 @@ def main():
             bad.append(f"{i['name']} has no icon on disk")
         elif blob.count(f'"{icon}"') != 1:
             bad.append(f"{i['name']}'s icon {icon} is used {blob.count(chr(34) + icon + chr(34))} times")
+
+    # ---- every boss acts and throws something dangerous (Kyle: "make sure bosses are not just debuffing. they
+    # should have something dangerous"), measured in a fight by tools/audit_boss_turns.py
+    import subprocess
+    names = ",".join(n for n, r in SMC.ROSTER.items() if r[3])
+    run = subprocess.run([sys.executable, str(ROOT / "tools/audit_boss_turns.py"), "--only", names],
+                         capture_output=True, text=True, cwd=str(ROOT))
+    if run.returncode != 0:
+        tail = [ln for ln in run.stdout.splitlines() if ln.strip() and "Loaded talent" not in ln][-8:]
+        bad.append("a boss is passive or toothless in a real fight: " + " | ".join(tail))
 
     if bad:
         return report(bad)
