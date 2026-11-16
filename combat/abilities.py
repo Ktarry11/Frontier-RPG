@@ -2768,6 +2768,8 @@ class Ability:
     #: Share of the damage this cast deals that is given, as healing, to the most wounded
     #: living ally (Imelda Salonga, "She Hits Things and Her People Get Better": 80).
     heals_lowest_ally_pct = 0.0
+    #: Share of the damage this cast deals that heals the CASTER, in points: a drain (Drain Life: 100).
+    drains_pct = 0.0
     #: Flat extra effect on this cast, in points: 200 is "triple damage" (Silas Vance).
     cast_bonus_pct = 0.0
     #: {"below": 50, "bonus": 30} - 30% more against a target under half health (Marisol).
@@ -3184,6 +3186,17 @@ class Ability:
             from config import TURN_THRESHOLD
             target.turn_meter = max(getattr(target, "turn_meter", 0.0), TURN_THRESHOLD)
             message = f"{message} {target.name} is ready to act."
+        if self.drains_pct:
+            # A DRAIN: the caster takes back a share of what this cast dealt (Warlock's Drain Life, 100). Kyle,
+            # 15 Nov 2026, from a friend's playtest: "Drain life doesn't take life". It was plain Shadow damage.
+            dealt = sum(amount for who, amount, is_damage in getattr(self, "_last_threat_events", [])
+                        if is_damage and who is not None and who is not caster)
+            if dealt > 0 and caster.is_alive():
+                before = caster.current_health
+                caster.heal(dealt * self.drains_pct / 100.0)
+                got = int(caster.current_health - before)
+                if got > 0:
+                    message = f"{message} {caster.name} drains {got} health."
         if self.heals_lowest_ally_pct and party:
             dealt = sum(amount for who, amount, is_damage in getattr(self, "_last_threat_events", [])
                         if is_damage and who is not None)
@@ -4375,6 +4388,12 @@ class Ability:
                         # occupying a one-at-a-time slot as a buff is.
                         exclusive_group=self.exclusive_group,
                     )
+                    # WHO CAST IT, so each tick can feed the caster's own "your damage heals you" talents
+                    # (Siphon Life on Corruption, Vampiric Embrace on Shadow Word: Pain). A tick had no way
+                    # to ask; StatusEffect.tick fires them now. Not saved: a loaded DoT just ticks plainly.
+                    effect.source_caster = caster
+                    effect.source_ability_id = self.ability_id
+                    effect.source_engine = engine
                     t.apply_status_effect(effect)
                     hit_names.append(t.name)
 
@@ -5503,7 +5522,7 @@ def _ability_from_data(entry):
     )
     # Riders that bend one cast (see Ability._cast_riders). Set here rather than threaded
     # through a constructor that already takes ninety arguments.
-    for key in ("armor_ignore_pct", "missing_health_bonus_pct", "heals_lowest_ally_pct",
+    for key in ("armor_ignore_pct", "missing_health_bonus_pct", "heals_lowest_ally_pct", "drains_pct",
                 "cast_bonus_pct", "heals_party_pct_max", "target_health_bonus_pct",
                 "struck_before_bonus_pct", "punish_attacker_bonus_pct"):
         if entry.get(key):

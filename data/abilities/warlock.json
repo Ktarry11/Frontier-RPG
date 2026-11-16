@@ -353,7 +353,7 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Siphons the target's life force into raw shadow damage.",
+      "description": "Drains the target's life: deals Shadow damage and heals you for all of it.",
       "ranks": [
         {
           "rank": 1,
@@ -393,7 +393,9 @@
         }
       ],
       "icon_id": null,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "drains_pct": 100,
+      "_drain_note": "15 Nov 2026, Kyle (a friend's playtest): \"Drain life doesn't take life.\" It was plain Shadow damage with a description saying so. drains_pct (combat/abilities.py) heals the caster for that share of the damage dealt; Classic's Drain Life returns all of it."
     },
     {
       "ability_id": "warlock_demon_armor",

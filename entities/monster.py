@@ -111,6 +111,16 @@ MECHANIC_FIELDS = frozenset({
 })
 
 
+import re as _re
+
+#: Monster abilities that are drains by name (see MonsterAbility.__init__).
+DRAIN_NAME = _re.compile(r"\b(drain life|life drain|drain soul|siphon (life|soul|vitality|essence|hope|warmth|light)"
+                         r"|sap drain|blood drain)\b", _re.I)
+MANA_DRAIN_NAME = _re.compile(r"\b(mana drain|drain mana|mana siphon|siphon mana|mana leech)\b", _re.I)
+#: Share of the target's mana pool a Mana Drain takes each time it lands.
+MANA_DRAIN_SHARE = 0.08
+
+
 class MonsterAbility:
     """
     One entry in a monster's moveset.
@@ -189,6 +199,15 @@ class MonsterAbility:
         self.hp_below = hp_below
         # Fraction of damage dealt returned to the caster as healing.
         self.lifesteal = lifesteal
+        # DRAINS TAKE WHAT THEY GIVE. Kyle, 15 Nov 2026 (a friend's playtest): "Drain life doesn't take life".
+        # The kits authored every monster Drain Life, Life Drain and Siphon Soul as kind "heal": the monster
+        # topped itself up and the player lost nothing. A heal named as a drain is now a hit that heals the
+        # caster for all of what it dealt (the same amount it used to heal, now taken from somebody).
+        if self.kind == "heal" and DRAIN_NAME.search(name or ""):
+            self.kind = "damage"
+            self.lifesteal = max(self.lifesteal, 1.0)
+        #: Mana Drain and its kin take mana from the target and give it to the caster, on top of the debuff.
+        self.mana_drain = bool(MANA_DRAIN_NAME.search(name or ""))
 
         # STUN AND ABSORB: the two mechanics StatusEffect has supported all
         # along and the monster layer could not reach.
@@ -575,6 +594,15 @@ class MonsterAbility:
                 for k, v in self.mechanics.items():
                     setattr(effect, k, v)
             msgs.append(recipient.apply_status_effect(effect))
+            if self.mana_drain and not self.self_only and recipient is not caster:
+                pool = getattr(recipient, "max_mana", None) or getattr(recipient, "mana", 0) or 0
+                have = getattr(recipient, "current_mana", 0) or 0
+                take = min(have, max(1, int(pool * MANA_DRAIN_SHARE))) if pool and have else 0
+                if take:
+                    recipient.current_mana = have - take
+                    if getattr(caster, "max_mana", 0):
+                        caster.current_mana = min(caster.max_mana, getattr(caster, "current_mana", 0) + take)
+                    msgs.append(f"{caster.name} drains {take} mana from {recipient.name}.")
         # apply_status_effect() already names the recipient and describes
         # the stat_mods (e.g. "Cave Skitterer gains Skitter (+8 Agility)."),
         # so this doesn't repeat "uses {self.name}" - that used to make

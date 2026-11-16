@@ -1909,6 +1909,18 @@ class StatusEffectMixin:
                     continue
                 dealt = self.take_damage(effect.tick_potency(), effect.damage_school)
                 messages.append(f"{self.name} suffers {dealt} damage from {effect.name}.")
+                # THE TICK FEEDS ITS CASTER'S DRAINS. A DoT used to know nobody, so Siphon Life ("Corruption
+                # heals you") and Vampiric Embrace on Shadow Word: Pain could never fire. Only procs that drain
+                # (leech_pct) or say include_ticks listen to a tick; every other "on damage" proc stays a cast
+                # thing, so a DoT can't suddenly trigger extra swings and the like.
+                src = getattr(effect, "source_caster", None)
+                if dealt > 0 and src is not None and src is not self and hasattr(src, "fire_proc_trigger") \
+                        and getattr(src, "is_alive", lambda: True)():
+                    messages.extend(src.fire_proc_trigger(
+                        ProcTrigger.ON_DAMAGE_CAST,
+                        {"amount": dealt, "target": self, "is_tick": True, "school": effect.damage_school,
+                         "ability_id": getattr(effect, "source_ability_id", None)},
+                        engine=getattr(effect, "source_engine", None)) or [])
                 effect.duration -= 1
                 if effect.is_expired():
                     self._discard_effect(effect)
@@ -2040,12 +2052,14 @@ class StatusEffectMixin:
             return messages
         self._proc_reentry_guard = True
         try:
-            return self._fire_proc_trigger_inner(trigger, amount, target, is_crit, engine, ability_id)
+            return self._fire_proc_trigger_inner(trigger, amount, target, is_crit, engine, ability_id,
+                                                 context=context)
         finally:
             self._proc_reentry_guard = False
 
-    def _fire_proc_trigger_inner(self, trigger, amount, target, is_crit, engine, ability_id=None):
+    def _fire_proc_trigger_inner(self, trigger, amount, target, is_crit, engine, ability_id=None, context=None):
         messages = []
+        context = context or {}
 
         # ON_CRIT only matters alongside a real hit; if this event wasn't
         # actually a crit, effects listening for ON_CRIT specifically have
@@ -2081,6 +2095,22 @@ class StatusEffectMixin:
             ability_filter = proc.get("ability_filter")
             if ability_filter and ability_id not in ability_filter:
                 continue
+
+            # A DoT TICK only reaches the procs that drain or ask for ticks (see _tick_status_effects).
+            if context.get("is_tick") and not (proc.get("leech_pct") or proc.get("include_ticks")):
+                continue
+
+            # school_filter: only damage of that school (Vampiric Embrace: "Your Shadow damage heals you"). The
+            # school comes with the event (a tick says what it landed as); a cast's is its ability's.
+            school_filter = proc.get("school_filter")
+            if school_filter:
+                school = context.get("school")
+                if school is None and ability_id and hasattr(self, "ability_book"):
+                    ab = self.ability_book.get_ability(ability_id)
+                    school = getattr(ab, "damage_school", None) if ab is not None else None
+                wanted = school_filter if isinstance(school_filter, (list, tuple, set)) else [school_filter]
+                if school not in wanted:
+                    continue
 
             # require_form: optional shapeshift-form id this proc only
             # works in (Venomancer's Spider Lord talent: "While in Beetle
