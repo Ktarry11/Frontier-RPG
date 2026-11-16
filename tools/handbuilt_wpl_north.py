@@ -30,8 +30,8 @@ PL = "assets/tiles/plaguelands/props/"
 W, H = 180, 140
 NAME = "Western Plaguelands North"
 
-PORTALS = {(96, 137): "Western Plaguelands South", (176, 70): "Eastern Plaguelands West"}
-ARRIVALS = [(96, 133), (172, 70)]
+PORTALS = {(96, 137): "Western Plaguelands South", (176, 70): "Eastern Plaguelands West", (146, 28): "The Weeping Cave"}
+ARRIVALS = [(96, 133), (172, 70), (146, 26)]
 LATER_PORTALS = {
     (100, 6): ("Hearthglen", None),
 }
@@ -120,7 +120,8 @@ def road_dist(gx, gy, names=None):
     return SPEC.road_dist(gx, gy, names)
 
 
-CAVES = {}
+#: the cave mouths (tools/handbuilt_plaguelands_caves.py MOUTHS): portal tile -> (sprite, w, h)
+CAVES = {(146, 28): ("ent_wailing_maw", 8, 6)}
 
 TREES = {   # Kyle's dead oaks lead; Northridge keeps its tall pines (it's a lumber camp); blight pines in the woods
     "big": [(PL + "pl_dead_oak.png", 9), (EK + "ek_pine_tall.png", 9), (EK + "ek_dead_oak.png", 9)],

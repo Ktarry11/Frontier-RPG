@@ -258,3 +258,31 @@ it is stays out of this log (the standing rule): counts only.
   a hidden level (`tools/build_secrets._placed_door_secrets`); `tools/build_hidden_content.py` keeps keys other
   builders add to a zone's registry entry (the fast exits) and has kit numbers for 55 and 60.
 - **Art:** built from tiles and props on disk; the backlog sheets are `docs/plaguelands_secrets_art_prompts.md`.
+
+## 16 Nov 2026 (later): the Plaguelands' caves
+
+Kyle: "let's add the caves, which needs boss and loot... when we do the caves we can use existing art most likely".
+One cave in each of the four open maps, entered through a cave mouth on the map (the usual cave-entrance art), out
+through the same mouth. Caves, not dungeons: two bosses each (one at the end, one off to the side), trash rolled from
+the cave's own table, no set packs. Each cave sits at the top of its parent map's band.
+
+| Cave | Map | Levels | Shape | Bosses |
+|---|---|---|---|---|
+| The Writhing Deep | South WPL | 53-55 | a web: six spokes, two rings, the brood chamber in the middle | Broodlord Szarak, the Silken Bride |
+| The Weeping Cave | North WPL | 55-57 | a ladder: two galleries joined by rungs, a pool at the end | The Weeper, the Drowned Hermit |
+| The Marris Crypt | West EPL | 56-58 | a mason's lattice of passages and niches round a hall | Sexton Hollowell, the Bone Choir |
+| The Bone Mines | East EPL | 58-60 | a switchback: five galleries, each a level deeper | Overseer Marrowgrim, the Ossifier |
+
+- **Creatures:** 24 (16 trash, 8 bosses), all on existing art (`creature_sprites.py`). Numbers off the game's 52-58
+  dungeons: a boss's basic hit 10L - 200, trash 4L - 10, boss health 2.5x (the end) and 2.3x (the side).
+- **Every boss has something dangerous** (big hits, a stun with a hammer behind it, killing DoTs, a party blast), and
+  all eight pass `tools/qa_dungeon_boss_turns.py`.
+- **Loot:** four items a boss, item level = the boss's level + 2, over every armour type and the six stat
+  templates (`data/loot/plaguelands_caves_boss_loot.json`). No trinkets.
+- **Rep:** the caves' Scourge pays the Argent Dawn like the open world's (5 a kill, 25 a boss, capped at Honored)
+  and drops Scourgestones.
+- **Art:** baked from the Tirisfal cave materials, each cave its own floor (webbed, wet, crypt stone, broken rock).
+  Combat backdrops: dark dungeon, and the flooded one for the Weeping Cave.
+- **Code:** `tools/handbuilt_plaguelands_caves.py` (maps), `tools/build_plaguelands_caves_content.py` (creatures,
+  kits, loot, encounters, levels), `tools/bake_plaguelands_caves.py` (painting). Mouths in each parent map's
+  `CAVES`, doors in `world/portal_manager.py`.

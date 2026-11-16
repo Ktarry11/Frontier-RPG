@@ -41,8 +41,8 @@ PL = "assets/tiles/plaguelands/props/"          # Kyle's Plaguelands sheet 3, wh
 W, H = 180, 160
 NAME = "Western Plaguelands South"
 
-PORTALS = {(3, 84): "Eastern Tirisfal", (96, 3): "Western Plaguelands North"}
-ARRIVALS = [(7, 84), (96, 7)]
+PORTALS = {(3, 84): "Eastern Tirisfal", (96, 3): "Western Plaguelands North", (150, 53): "The Writhing Deep"}
+ARRIVALS = [(7, 84), (96, 7), (150, 51)]
 #: Doors whose ground is cut and which go live when the map behind them exists (qa_portals fails a door that leads
 #: nowhere): (tile) -> (target map, its arrival tile)
 LATER_PORTALS = {
@@ -177,7 +177,8 @@ def road_dist(gx, gy, names=None):
     return SPEC.road_dist(gx, gy, names)
 
 
-CAVES = {}
+#: the cave mouths (tools/handbuilt_plaguelands_caves.py MOUTHS): portal tile -> (sprite, w, h)
+CAVES = {(150, 53): ("ent_spider_lair", 8, 6)}
 
 #: dead trees only: the plague killed everything that had leaves
 TREES = {   # Kyle's dead oaks lead; his purple blight pines only show up inside the woods

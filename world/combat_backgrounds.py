@@ -167,6 +167,11 @@ ZONE_BACKGROUND = {
     "Scarlet Monastery: Library": "keep",
     "Scarlet Monastery: Armory": "keep",
     "Scarlet Monastery: Cathedral": "keep",
+    # --- the Plaguelands' caves (tools/handbuilt_plaguelands_caves.py): fiend burrows, a wet cave, a crypt, a mine --
+    "The Writhing Deep": "dark_dungeon",
+    "The Weeping Cave": ("nautical", "Flooded"),
+    "The Marris Crypt": "dark_dungeon",
+    "The Bone Mines": "dark_dungeon",
     # --- Stonetalon (docs/stonetalon_brief.md). Kyle drew one for each place, 15 Nov 2026 -------------------
     "Stonetalon East": "st_blowdown",             # the blast zone: grey trunks in rows, the volcano behind
     "The Blowdown": "st_blowdown",

@@ -109,7 +109,7 @@ FLOOR = {
                    ([(44, 66), (44, 82), (32, 82)], 4), ([(80, 34), (90, 34)], 4), ([(80, 60), (88, 60)], 4),
                    ([(60, 66), (60, 76)], 4)],
         cells=[(108, 82, 116, 90), (2, 2, 10, 10), (84, 6, 92, 14)],
-        cell_links=[([(100, 70), (100, 78), (108, 86)], 2), ([(6, 22), (6, 10)], 2), ([(88, 22), (88, 14)], 2)],
+        cell_links=[([(100, 70), (100, 78), (108, 86)], 2), ([(6, 22), (6, 10)], 2), ([(94, 24), (88, 20), (88, 14)], 2)],
         pillars=[(46, 36), (74, 36), (46, 60), (74, 60), (52, 80), (68, 80)],
         bosses=[(18, 30, "Instructor Malicia", True), (18, 56, "Doctor Theolen Krastinov", True),
                 (19, 84, "Lorekeeper Polkelt", True), (102, 30, "The Ravenian", True),
@@ -177,7 +177,7 @@ def build_floor(name):
             raise AssertionError((name, "prop base not on the floor", path, x, y))
         b.prop(path + ".png", x, y, h, solid=solid, fraction=0.4)
 
-    doors = [spec["door"]] + ([STAIR_DOWN] if name == UPPER else [])
+    doors = [spec["door"]] + ([STAIR_DOWN] if name == UPPER else [FAST_EXIT])
     for (dx, dy) in doors:
         for yy in (dy - 1, dy, dy + 1):
             if 0 <= yy < H:
@@ -197,6 +197,8 @@ def build_floor(name):
     targets = list(fixed) + [(x, y, "chest") for (x, y) in chests]
     if name == UPPER:
         targets.append((STAIR_DOWN[0], STAIR_DOWN[1], "stair"))
+    else:
+        targets.append((FAST_EXIT[0], FAST_EXIT[1], "the fast exit past Gandling"))
     b.verify(start, targets)
     zone.add_subzone(name, 0, 0, W, H)
     for rname, r in spec["rooms"].items():

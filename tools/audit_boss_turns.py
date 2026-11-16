@@ -78,13 +78,23 @@ def main():
     ap.add_argument("--csv", default=None)
     a = ap.parse_args()
     import audit_monster_combat as AMC
-    from world.difficulty import kind_of
 
     cm = AMC._manager()
     if a.only:
         names = [n.strip() for n in a.only.split(",") if n.strip()]
     else:
         names = sorted(n for n, d in cm.creatures.items() if d.get("is_boss"))
+    rows, skipped = assess(names, cm)
+    return _report(rows, skipped, a)
+
+
+def assess(names, cm=None):
+    """Fight each named boss for TURNS turns. -> (rows, skipped). Each row: name, level, kind, passive (share of
+    acted turns spent on buff/debuff/heal), acted, dangers (what dangerous things it did), dead (buff/debuff slots
+    it never got to use). Shared by tools/fix_dungeon_boss_turns.py and tools/qa_dungeon_boss_turns.py."""
+    import audit_monster_combat as AMC
+    from world.difficulty import kind_of
+    cm = cm or AMC._manager()
     rows, skipped = [], []
     for name in names:
         d = cm.creatures.get(name)
@@ -109,6 +119,10 @@ def main():
         found = dangers(m, succ)
         rows.append(dict(name=name, level=level, kind=kind_of(m), passive=passive / acted, acted=r["acted"],
                          dangers=found, dead=dead))
+    return rows, skipped
+
+
+def _report(rows, skipped, a):
 
     passive = [r for r in rows if r["passive"] > PASSIVE_LIMIT]
     toothless = [r for r in rows if not r["dangers"]]

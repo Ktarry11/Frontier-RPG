@@ -838,18 +838,27 @@ class PortalManager:
             "Western Plaguelands South": {
                 (3, 84): ("Eastern Tirisfal", 84, 126),
                 (96, 3): ("Western Plaguelands North", 96, 133),
+                (150, 53): ("The Writhing Deep", 48, 84),           # the zone's cave (tools/handbuilt_plaguelands_caves.py)
             },
             "Western Plaguelands North": {
                 (96, 137): ("Western Plaguelands South", 96, 7),
                 (176, 70): ("Eastern Plaguelands West", 7, 80),     # over the Thondroril
+                (146, 28): ("The Weeping Cave", 10, 60),
             },
             "Eastern Plaguelands West": {
                 (3, 80): ("Western Plaguelands North", 172, 70),
                 (167, 80): ("Eastern Plaguelands East", 7, 80),
+                (66, 122): ("The Marris Crypt", 45, 76),
             },
             "Eastern Plaguelands East": {
                 (3, 80): ("Eastern Plaguelands West", 163, 80),
+                (106, 60): ("The Bone Mines", 10, 90),
             },
+            # the Plaguelands' caves: one door each, back out to the mouth (arrive two tiles north of it)
+            "The Writhing Deep": {(48, 84): ("Western Plaguelands South", 150, 53)},
+            "The Weeping Cave": {(10, 60): ("Western Plaguelands North", 146, 28)},
+            "The Marris Crypt": {(45, 76): ("Eastern Plaguelands West", 66, 122)},
+            "The Bone Mines": {(10, 90): ("Eastern Plaguelands East", 106, 60)},
             "Scourge Cave": {
                 (45, 68): ("Eastern Tirisfal", 52, 116),
             },

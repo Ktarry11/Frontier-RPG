@@ -32,8 +32,8 @@ PL = "assets/tiles/plaguelands/props/"
 W, H = 170, 150
 NAME = "Eastern Plaguelands East"
 
-PORTALS = {(3, 80): "Eastern Plaguelands West"}
-ARRIVALS = [(7, 80)]
+PORTALS = {(3, 80): "Eastern Plaguelands West", (106, 60): "The Bone Mines"}
+ARRIVALS = [(7, 80), (106, 58)]
 LATER_PORTALS = {}
 START = (12, 80)
 
@@ -134,7 +134,8 @@ def road_dist(gx, gy, names=None):
     return SPEC.road_dist(gx, gy, names)
 
 
-CAVES = {}
+#: the cave mouths (tools/handbuilt_plaguelands_caves.py MOUTHS): portal tile -> (sprite, w, h)
+CAVES = {(106, 60): ("ent_collapsed_mine", 8, 6)}
 
 TREES = {   # Kyle's Plaguelands trees; Quel'Lithien's pines in the north woods
     "big": [(PL + "pl_dead_oak.png", 9), (PL + "pl_blight_pine.png", 9), (EK + "ek_pine_tall.png", 9)],

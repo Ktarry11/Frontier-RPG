@@ -1,0 +1,573 @@
+{
+  "_notes": "Boss loot for the Plaguelands' four caves (53-60). ONE item per kill from the boss's four; item_level = boss level + 2. Hand-authored in tools/build_plaguelands_caves_content.py.",
+  "Broodlord Szarak": [
+    {
+      "name": "Szarak's Carapace",
+      "slot": "chest",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "strength": 16,
+        "stamina": 20
+      },
+      "secondary_stats": {
+        "defense_rating": 12
+      },
+      "armor_type": "plate",
+      "armor_value": 448,
+      "stat_template": "str_physical",
+      "item_id": "plc_szaraks_carapace"
+    },
+    {
+      "name": "Burrowlord's Grips",
+      "slot": "hands",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "agility": 16,
+        "stamina": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 129,
+      "stat_template": "agi_physical",
+      "item_id": "plc_burrowlords_grips"
+    },
+    {
+      "name": "Pincer of the Brood",
+      "slot": "main_hand",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "weapon_type": "axe_1h",
+      "primary_stats": {
+        "strength": 19,
+        "agility": 19
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 99,
+      "weapon_damage_max": 135,
+      "attack_speed": 2.6,
+      "stat_template": "agi_physical",
+      "item_id": "plc_pincer_of_the_brood"
+    },
+    {
+      "name": "Egg-Sac Shawl",
+      "slot": "back",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "intellect": 8,
+        "spirit": 8
+      },
+      "secondary_stats": {
+        "healing_power": 22
+      },
+      "stat_template": "spi_healer",
+      "item_id": "plc_egg_sac_shawl"
+    }
+  ],
+  "The Silken Bride": [
+    {
+      "name": "Bride's Silken Robes",
+      "slot": "chest",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "intellect": 16,
+        "stamina": 16
+      },
+      "secondary_stats": {
+        "spell_power": 20
+      },
+      "armor_type": "cloth",
+      "armor_value": 93,
+      "stat_template": "int_caster",
+      "item_id": "plc_brides_silken_robes"
+    },
+    {
+      "name": "Webwalker Treads",
+      "slot": "feet",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "agility": 11,
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "attack_power": 19
+      },
+      "armor_type": "mail",
+      "armor_value": 207,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "plc_webwalker_treads"
+    },
+    {
+      "name": "Venom-Sac Wand",
+      "slot": "ranged",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "spell_power": 21,
+        "crit_chance_spell": 6
+      },
+      "weapon_damage_min": 84,
+      "weapon_damage_max": 114,
+      "attack_speed": 1.9,
+      "stat_template": "int_caster",
+      "item_id": "plc_venom_sac_wand"
+    },
+    {
+      "name": "Silk-Bound Girdle",
+      "slot": "waist",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "strength": 16,
+        "intellect": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 310,
+      "stat_template": "str_int_hybrid",
+      "item_id": "plc_silk_bound_girdle"
+    }
+  ],
+  "The Weeper": [
+    {
+      "name": "Veil of the Weeper",
+      "slot": "head",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "stamina": 14,
+        "intellect": 14
+      },
+      "secondary_stats": {
+        "healing_power": 24
+      },
+      "armor_type": "cloth",
+      "armor_value": 81,
+      "stat_template": "spi_healer",
+      "item_id": "plc_veil_of_the_weeper"
+    },
+    {
+      "name": "Tearstained Leggings",
+      "slot": "legs",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "agility": 23,
+        "spirit": 23
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 193,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "plc_tearstained_leggings"
+    },
+    {
+      "name": "Sorrow's Edge",
+      "slot": "main_hand",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "intellect": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {
+        "spell_power": 15
+      },
+      "weapon_damage_min": 103,
+      "weapon_damage_max": 139,
+      "attack_speed": 1.7,
+      "stat_template": "int_caster",
+      "item_id": "plc_sorrows_edge"
+    },
+    {
+      "name": "Damp-Rusted Pauldrons",
+      "slot": "shoulder",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "stamina": 18
+      },
+      "secondary_stats": {
+        "defense_rating": 14,
+        "dodge_rating": 10
+      },
+      "armor_type": "plate",
+      "armor_value": 393,
+      "stat_template": "str_physical",
+      "item_id": "plc_damp_rusted_pauldrons"
+    }
+  ],
+  "The Drowned Hermit": [
+    {
+      "name": "Hermit's Oar",
+      "slot": "main_hand",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "weapon_type": "staff",
+      "primary_stats": {
+        "strength": 35,
+        "stamina": 35
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 56,
+      "weapon_damage_max": 76,
+      "attack_speed": 3.2,
+      "stat_template": "agi_physical",
+      "item_id": "plc_hermits_oar"
+    },
+    {
+      "name": "Netcaster's Hauberk",
+      "slot": "chest",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "agility": 16,
+        "intellect": 16
+      },
+      "secondary_stats": {
+        "attack_power": 28
+      },
+      "armor_type": "mail",
+      "armor_value": 309,
+      "stat_template": "agi_physical",
+      "item_id": "plc_netcasters_hauberk"
+    },
+    {
+      "name": "Silt-Soaked Bracers",
+      "slot": "wrist",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "intellect": 10,
+        "spirit": 10
+      },
+      "secondary_stats": {
+        "healing_power": 26
+      },
+      "armor_type": "leather",
+      "armor_value": 134,
+      "stat_template": "spi_healer",
+      "item_id": "plc_silt_soaked_bracers"
+    },
+    {
+      "name": "Drowned Man's Signet",
+      "slot": "ring",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "strength": 11
+      },
+      "secondary_stats": {
+        "hit_rating": 9,
+        "crit_chance_physical": 9
+      },
+      "stat_template": "str_physical",
+      "item_id": "plc_drowned_mans_signet"
+    }
+  ],
+  "Sexton Hollowell": [
+    {
+      "name": "Sexton's Spade",
+      "slot": "main_hand",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 47,
+        "stamina": 47
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 141,
+      "weapon_damage_max": 191,
+      "attack_speed": 3.3,
+      "stat_template": "str_physical",
+      "item_id": "plc_sextons_spade"
+    },
+    {
+      "name": "Gravedigger's Coat",
+      "slot": "chest",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "agility": 24,
+        "stamina": 24
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 196,
+      "stat_template": "agi_physical",
+      "item_id": "plc_gravediggers_coat"
+    },
+    {
+      "name": "Crypt-Key Girdle",
+      "slot": "waist",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "intellect": 16,
+        "spirit": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 218,
+      "stat_template": "spi_healer",
+      "item_id": "plc_crypt_key_girdle"
+    },
+    {
+      "name": "Marris Family Cloak",
+      "slot": "back",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "intellect": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "spell_power": 13
+      },
+      "stat_template": "int_caster",
+      "item_id": "plc_marris_family_cloak"
+    }
+  ],
+  "The Bone Choir": [
+    {
+      "name": "Choirmaster's Mantle",
+      "slot": "shoulder",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "intellect": 12
+      },
+      "secondary_stats": {
+        "spell_power": 30,
+        "crit_chance_spell": 8
+      },
+      "armor_type": "cloth",
+      "armor_value": 83,
+      "stat_template": "int_caster",
+      "item_id": "plc_choirmasters_mantle"
+    },
+    {
+      "name": "Hymnal of the Dead",
+      "slot": "off_hand",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "weapon_type": "tome",
+      "primary_stats": {
+        "stamina": 13,
+        "intellect": 13
+      },
+      "secondary_stats": {
+        "healing_power": 22
+      },
+      "stat_template": "spi_healer",
+      "item_id": "plc_hymnal_of_the_dead"
+    },
+    {
+      "name": "Dirge-Sung Gauntlets",
+      "slot": "hands",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "strength": 16,
+        "intellect": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 327,
+      "stat_template": "str_int_hybrid",
+      "item_id": "plc_dirge_sung_gauntlets"
+    },
+    {
+      "name": "Requiem Chain",
+      "slot": "neck",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "agility": 10,
+        "intellect": 10
+      },
+      "secondary_stats": {
+        "attack_power": 17
+      },
+      "stat_template": "agi_physical",
+      "item_id": "plc_requiem_chain"
+    }
+  ],
+  "Overseer Marrowgrim": [
+    {
+      "name": "Overseer's Meat Hook",
+      "slot": "main_hand",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "weapon_type": "axe_2h",
+      "primary_stats": {
+        "strength": 30
+      },
+      "secondary_stats": {
+        "attack_power": 61,
+        "hit_rating": 26
+      },
+      "weapon_damage_min": 145,
+      "weapon_damage_max": 196,
+      "attack_speed": 3.6,
+      "stat_template": "str_physical",
+      "item_id": "plc_overseers_meat_hook"
+    },
+    {
+      "name": "Bone-Plated Legguards",
+      "slot": "legs",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "stamina": 22
+      },
+      "secondary_stats": {
+        "defense_rating": 18,
+        "dodge_rating": 12
+      },
+      "armor_type": "plate",
+      "armor_value": 488,
+      "stat_template": "str_physical",
+      "item_id": "plc_bone_plated_legguards"
+    },
+    {
+      "name": "Miner's Marrow Boots",
+      "slot": "feet",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "agility": 17,
+        "stamina": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 140,
+      "stat_template": "agi_physical",
+      "item_id": "plc_miners_marrow_boots"
+    },
+    {
+      "name": "Pit Boss's Bulwark",
+      "slot": "off_hand",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 28
+      },
+      "armor_value": 126,
+      "block_value": 158,
+      "stat_template": "str_physical",
+      "item_id": "plc_pit_bosss_bulwark"
+    }
+  ],
+  "The Ossifier": [
+    {
+      "name": "Ossifier's Bone Staff",
+      "slot": "main_hand",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 26,
+        "stamina": 26
+      },
+      "secondary_stats": {
+        "spell_power": 34
+      },
+      "weapon_damage_min": 59,
+      "weapon_damage_max": 80,
+      "attack_speed": 3.2,
+      "stat_template": "int_caster",
+      "item_id": "plc_ossifiers_bone_staff"
+    },
+    {
+      "name": "Calcified Robes",
+      "slot": "chest",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "stamina": 17,
+        "intellect": 17
+      },
+      "secondary_stats": {
+        "healing_power": 29
+      },
+      "armor_type": "cloth",
+      "armor_value": 101,
+      "stat_template": "spi_healer",
+      "item_id": "plc_calcified_robes"
+    },
+    {
+      "name": "Marrow-Etched Coif",
+      "slot": "head",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "intellect": 21,
+        "spirit": 21
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 275,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "plc_marrow_etched_coif"
+    },
+    {
+      "name": "Bonecaster's Band",
+      "slot": "ring",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "spell_power": 23,
+        "crit_chance_spell": 6
+      },
+      "stat_template": "int_caster",
+      "item_id": "plc_bonecasters_band"
+    }
+  ]
+}

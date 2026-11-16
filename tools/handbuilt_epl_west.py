@@ -16,7 +16,8 @@ Structure (tile coords, y down):
     Corin's Crossing ... the crossroads in the middle (100,82), where the plague carts meet
     East gate .......... (167,80): on to East EPL and Light's Hope
 
-LATER PORTALS (their ground is cut; they go live with their maps): Stratholme (40,5), East EPL (167,80).
+LATER PORTALS (their ground is cut; they go live with their maps): Stratholme's Main Gate (40,5) and its service
+gate (88,5) (tools/handbuilt_stratholme.py).
 """
 import numpy as np
 
@@ -31,10 +32,11 @@ PL = "assets/tiles/plaguelands/props/"
 W, H = 170, 150
 NAME = "Eastern Plaguelands West"
 
-PORTALS = {(3, 80): "Western Plaguelands North", (167, 80): "Eastern Plaguelands East"}
-ARRIVALS = [(7, 80), (163, 80)]
+PORTALS = {(3, 80): "Western Plaguelands North", (167, 80): "Eastern Plaguelands East", (66, 122): "The Marris Crypt"}
+ARRIVALS = [(7, 80), (163, 80), (66, 120)]
 LATER_PORTALS = {
-    (40, 5): ("Stratholme", None),
+    (40, 5): ("Stratholme", None),                          # the Main Gate: the living side
+    (88, 5): ("Stratholme: Service Entrance", None),        # the service gate: the dead side
 }
 START = (12, 80)
 
@@ -115,7 +117,8 @@ def road_dist(gx, gy, names=None):
     return SPEC.road_dist(gx, gy, names)
 
 
-CAVES = {}
+#: the cave mouths (tools/handbuilt_plaguelands_caves.py MOUTHS): portal tile -> (sprite, w, h)
+CAVES = {(66, 122): ("ent_crypt_mausoleum", 8, 6)}
 
 TREES = {   # Kyle's dead oaks in the open; the Plaguewood's purple-crowned dead fill the woods
     "big": [(PL + "pl_dead_oak.png", 9), (CI + "cursed_dead_tree_cluster.png", 9), (PL + "pl_plaguewood_tree.png", 9)],

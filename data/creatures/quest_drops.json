@@ -4411,6 +4411,13 @@
     ],
     "Cult Cart Driver": [
       {
+        "item_id": "pl_q_cart_manifest",
+        "name": "Plague Cart Manifest",
+        "category": "quest",
+        "description": "A cart driver's manifest, listing barrels of grain by the farm they're going to. Every farm on it is still alive.",
+        "chance": 1.0
+      },
+      {
         "item_id": "pl_invaders_scourgestone",
         "name": "Invader's Scourgestone",
         "category": "material",
@@ -4419,13 +4426,6 @@
         "amount": 1,
         "icon_id": "qi_heart_stone",
         "sell_price": 25
-      },
-      {
-        "item_id": "pl_q_cart_manifest",
-        "name": "Plague Cart Manifest",
-        "category": "quest",
-        "description": "A cart driver's manifest, listing barrels of grain by the farm they're going to. Every farm on it is still alive.",
-        "chance": 1.0
       }
     ],
     "Cult Plaguebringer": [
@@ -4466,6 +4466,13 @@
     ],
     "Darrowshire Ghoul": [
       {
+        "item_id": "pl_q_pamelas_doll",
+        "name": "Pamela's Doll",
+        "category": "quest",
+        "description": "A rag doll in a blue dress, muddy and missing a button eye. Someone loved it very much.",
+        "chance": 1.0
+      },
+      {
         "item_id": "pl_invaders_scourgestone",
         "name": "Invader's Scourgestone",
         "category": "material",
@@ -4474,13 +4481,6 @@
         "amount": 1,
         "icon_id": "qi_heart_stone",
         "sell_price": 25
-      },
-      {
-        "item_id": "pl_q_pamelas_doll",
-        "name": "Pamela's Doll",
-        "category": "quest",
-        "description": "A rag doll in a blue dress, muddy and missing a button eye. Someone loved it very much.",
-        "chance": 1.0
       }
     ],
     "Darrowshire Spirit": [
@@ -4564,6 +4564,13 @@
     ],
     "Gate Death Knight": [
       {
+        "item_id": "pl_q_knight_sigil",
+        "name": "Knightly Sigil",
+        "category": "quest",
+        "description": "An enamelled sigil from a death knight's breastplate, the colours of a Lordaeron house still bright under the frost.",
+        "chance": 0.75
+      },
+      {
         "item_id": "pl_invaders_scourgestone",
         "name": "Invader's Scourgestone",
         "category": "material",
@@ -4572,13 +4579,6 @@
         "amount": 1,
         "icon_id": "qi_heart_stone",
         "sell_price": 25
-      },
-      {
-        "item_id": "pl_q_knight_sigil",
-        "name": "Knightly Sigil",
-        "category": "quest",
-        "description": "An enamelled sigil from a death knight's breastplate, the colours of a Lordaeron house still bright under the frost.",
-        "chance": 0.75
       }
     ],
     "Gate Gargoyle": [
@@ -4633,6 +4633,13 @@
     ],
     "Marris Farmhand": [
       {
+        "item_id": "pl_q_marris_locket",
+        "name": "The Marris Locket",
+        "category": "quest",
+        "description": "A small brass locket with a painting of a family inside, two parents and three children in their Sunday best.",
+        "chance": 0.5
+      },
+      {
         "item_id": "pl_invaders_scourgestone",
         "name": "Invader's Scourgestone",
         "category": "material",
@@ -4641,13 +4648,6 @@
         "amount": 1,
         "icon_id": "qi_heart_stone",
         "sell_price": 25
-      },
-      {
-        "item_id": "pl_q_marris_locket",
-        "name": "The Marris Locket",
-        "category": "quest",
-        "description": "A small brass locket with a painting of a family inside, two parents and three children in their Sunday best.",
-        "chance": 0.5
       }
     ],
     "Plaguewood Crypt Fiend": [
@@ -4664,6 +4664,13 @@
     ],
     "Restless Lodge Ranger": [
       {
+        "item_id": "pl_q_ranger_token",
+        "name": "Quel'Lithien Ranger's Token",
+        "category": "quest",
+        "description": "A silver leaf on a green cord, the token every ranger of the lodge carried. It's tarnished but whole.",
+        "chance": 0.75
+      },
+      {
         "item_id": "pl_invaders_scourgestone",
         "name": "Invader's Scourgestone",
         "category": "material",
@@ -4672,13 +4679,6 @@
         "amount": 1,
         "icon_id": "qi_heart_stone",
         "sell_price": 25
-      },
-      {
-        "item_id": "pl_q_ranger_token",
-        "name": "Quel'Lithien Ranger's Token",
-        "category": "quest",
-        "description": "A silver leaf on a green cord, the token every ranger of the lodge carried. It's tarnished but whole.",
-        "chance": 0.75
       }
     ],
     "Riverbank Ghoul": [
@@ -4695,6 +4695,13 @@
     ],
     "Scar Bone Construct": [
       {
+        "item_id": "pl_q_scar_marrow",
+        "name": "Scar Marrow",
+        "category": "quest",
+        "description": "A plug of grey marrow from a bone construct. It's cold, and it stays cold however long you hold it.",
+        "chance": 0.75
+      },
+      {
         "item_id": "pl_invaders_scourgestone",
         "name": "Invader's Scourgestone",
         "category": "material",
@@ -4703,16 +4710,16 @@
         "amount": 1,
         "icon_id": "qi_heart_stone",
         "sell_price": 25
-      },
-      {
-        "item_id": "pl_q_scar_marrow",
-        "name": "Scar Marrow",
-        "category": "quest",
-        "description": "A plug of grey marrow from a bone construct. It's cold, and it stays cold however long you hold it.",
-        "chance": 0.75
       }
     ],
     "Skeletal Wanderer": [
+      {
+        "item_id": "pl_q_keepsake",
+        "name": "Traveller's Keepsake",
+        "category": "quest",
+        "description": "Something small a traveller carried in a pocket, a pipe or a thimble or a carved horse. It's been carried a long way.",
+        "chance": 0.75
+      },
       {
         "item_id": "pl_minions_scourgestone",
         "name": "Minion's Scourgestone",
@@ -4722,16 +4729,16 @@
         "amount": 1,
         "icon_id": "qi_crystal",
         "sell_price": 25
-      },
-      {
-        "item_id": "pl_q_keepsake",
-        "name": "Traveller's Keepsake",
-        "category": "quest",
-        "description": "Something small a traveller carried in a pocket, a pipe or a thimble or a carved horse. It's been carried a long way.",
-        "chance": 0.75
       }
     ],
     "Spore-Walker": [
+      {
+        "item_id": "pl_q_spore_cap",
+        "name": "Spore-Walker Cap",
+        "category": "quest",
+        "description": "A mushroom cap the size of a dinner plate, cut from a spore-walker's shoulders. It breathes, very slowly.",
+        "chance": 0.75
+      },
       {
         "item_id": "pl_invaders_scourgestone",
         "name": "Invader's Scourgestone",
@@ -4741,13 +4748,6 @@
         "amount": 1,
         "icon_id": "qi_heart_stone",
         "sell_price": 25
-      },
-      {
-        "item_id": "pl_q_spore_cap",
-        "name": "Spore-Walker Cap",
-        "category": "quest",
-        "description": "A mushroom cap the size of a dinner plate, cut from a spore-walker's shoulders. It breathes, very slowly.",
-        "chance": 0.75
       }
     ],
     "Stone-Winged Gargoyle": [
@@ -5066,24 +5066,12 @@
     ],
     "Scarlet Lumberjack": [
       {
-        "item_id": "pl_crusaders_insignia",
-        "name": "Crusader's Insignia",
-        "category": "material",
-        "description": "A Scarlet Crusade badge, a red flame on a white field. Sorrow Hill keeps count of every one that comes back.",
-        "chance": 0.35,
-        "amount": 1,
-        "icon_id": "qi_signet",
-        "sell_price": 25
-      },
-      {
         "item_id": "pl_q_saw_blade",
         "name": "Hearthglen Saw Blade",
         "category": "quest",
         "description": "A long two-man saw blade of good Hearthglen steel, stamped with the Crusade's flame near the handle.",
         "chance": 0.75
-      }
-    ],
-    "Scarlet Sawyer": [
+      },
       {
         "item_id": "pl_crusaders_insignia",
         "name": "Crusader's Insignia",
@@ -5093,13 +5081,25 @@
         "amount": 1,
         "icon_id": "qi_signet",
         "sell_price": 25
-      },
+      }
+    ],
+    "Scarlet Sawyer": [
       {
         "item_id": "pl_q_seasoned_plank",
         "name": "Seasoned Plank",
         "category": "quest",
         "description": "A length of good seasoned oak, cut at Northridge and stamped with Hearthglen's flame.",
         "chance": 0.75
+      },
+      {
+        "item_id": "pl_crusaders_insignia",
+        "name": "Crusader's Insignia",
+        "category": "material",
+        "description": "A Scarlet Crusade badge, a red flame on a white field. Sorrow Hill keeps count of every one that comes back.",
+        "chance": 0.35,
+        "amount": 1,
+        "icon_id": "qi_signet",
+        "sell_price": 25
       }
     ],
     "Scarlet Woodsman Archer": [
@@ -5116,24 +5116,12 @@
     ],
     "Scarlet Sentry": [
       {
-        "item_id": "pl_crusaders_insignia",
-        "name": "Crusader's Insignia",
-        "category": "material",
-        "description": "A Scarlet Crusade badge, a red flame on a white field. Sorrow Hill keeps count of every one that comes back.",
-        "chance": 0.35,
-        "amount": 1,
-        "icon_id": "qi_signet",
-        "sell_price": 25
-      },
-      {
         "item_id": "pl_q_patrol_roster",
         "name": "Hearthglen Patrol Roster",
         "category": "quest",
         "description": "A week's roster of who stands where on Hearthglen's walls, in a clerk's tidy columns.",
         "chance": 1.0
-      }
-    ],
-    "Hearthglen Inquisitor": [
+      },
       {
         "item_id": "pl_crusaders_insignia",
         "name": "Crusader's Insignia",
@@ -5143,13 +5131,25 @@
         "amount": 1,
         "icon_id": "qi_signet",
         "sell_price": 25
-      },
+      }
+    ],
+    "Hearthglen Inquisitor": [
       {
         "item_id": "pl_q_confession",
         "name": "Signed Confession",
         "category": "quest",
         "description": "A confession in a clerk's hand with a shaky signature at the bottom. The name's foreign and the crime is being born somewhere else.",
         "chance": 0.75
+      },
+      {
+        "item_id": "pl_crusaders_insignia",
+        "name": "Crusader's Insignia",
+        "category": "material",
+        "description": "A Scarlet Crusade badge, a red flame on a white field. Sorrow Hill keeps count of every one that comes back.",
+        "chance": 0.35,
+        "amount": 1,
+        "icon_id": "qi_signet",
+        "sell_price": 25
       }
     ],
     "Scarlet Crossbowman": [
@@ -5414,6 +5414,210 @@
         "category": "quest",
         "description": "A sliver of a wardstone, humming with a spell that's very tired.",
         "chance": 0.75
+      }
+    ],
+    "Bone Miner": [
+      {
+        "item_id": "pl_invaders_scourgestone",
+        "name": "Invader's Scourgestone",
+        "category": "material",
+        "description": "A heavier shard, carried by the Scourge that march in the east. It's cold enough to hurt.",
+        "chance": 0.15,
+        "amount": 1,
+        "icon_id": "qi_heart_stone",
+        "sell_price": 25
+      }
+    ],
+    "Brood Guardian": [
+      {
+        "item_id": "pl_minions_scourgestone",
+        "name": "Minion's Scourgestone",
+        "category": "material",
+        "description": "A sliver of dark crystal pulled out of one of the lesser dead. Light's Hope pays for these by the handful.",
+        "chance": 0.25,
+        "amount": 1,
+        "icon_id": "qi_crystal",
+        "sell_price": 25
+      }
+    ],
+    "Cave Drowned": [
+      {
+        "item_id": "pl_invaders_scourgestone",
+        "name": "Invader's Scourgestone",
+        "category": "material",
+        "description": "A heavier shard, carried by the Scourge that march in the east. It's cold enough to hurt.",
+        "chance": 0.15,
+        "amount": 1,
+        "icon_id": "qi_heart_stone",
+        "sell_price": 25
+      }
+    ],
+    "Crypt Shambler": [
+      {
+        "item_id": "pl_invaders_scourgestone",
+        "name": "Invader's Scourgestone",
+        "category": "material",
+        "description": "A heavier shard, carried by the Scourge that march in the east. It's cold enough to hurt.",
+        "chance": 0.15,
+        "amount": 1,
+        "icon_id": "qi_heart_stone",
+        "sell_price": 25
+      }
+    ],
+    "Grave Wight": [
+      {
+        "item_id": "pl_invaders_scourgestone",
+        "name": "Invader's Scourgestone",
+        "category": "material",
+        "description": "A heavier shard, carried by the Scourge that march in the east. It's cold enough to hurt.",
+        "chance": 0.15,
+        "amount": 1,
+        "icon_id": "qi_heart_stone",
+        "sell_price": 25
+      }
+    ],
+    "Marris Ossuary Guard": [
+      {
+        "item_id": "pl_invaders_scourgestone",
+        "name": "Invader's Scourgestone",
+        "category": "material",
+        "description": "A heavier shard, carried by the Scourge that march in the east. It's cold enough to hurt.",
+        "chance": 0.15,
+        "amount": 1,
+        "icon_id": "qi_heart_stone",
+        "sell_price": 25
+      }
+    ],
+    "Marrow Construct": [
+      {
+        "item_id": "pl_invaders_scourgestone",
+        "name": "Invader's Scourgestone",
+        "category": "material",
+        "description": "A heavier shard, carried by the Scourge that march in the east. It's cold enough to hurt.",
+        "chance": 0.15,
+        "amount": 1,
+        "icon_id": "qi_heart_stone",
+        "sell_price": 25
+      }
+    ],
+    "Scourge Pit Guard": [
+      {
+        "item_id": "pl_invaders_scourgestone",
+        "name": "Invader's Scourgestone",
+        "category": "material",
+        "description": "A heavier shard, carried by the Scourge that march in the east. It's cold enough to hurt.",
+        "chance": 0.15,
+        "amount": 1,
+        "icon_id": "qi_heart_stone",
+        "sell_price": 25
+      }
+    ],
+    "Seepwater Shade": [
+      {
+        "item_id": "pl_invaders_scourgestone",
+        "name": "Invader's Scourgestone",
+        "category": "material",
+        "description": "A heavier shard, carried by the Scourge that march in the east. It's cold enough to hurt.",
+        "chance": 0.15,
+        "amount": 1,
+        "icon_id": "qi_heart_stone",
+        "sell_price": 25
+      }
+    ],
+    "Writhing Burrower": [
+      {
+        "item_id": "pl_minions_scourgestone",
+        "name": "Minion's Scourgestone",
+        "category": "material",
+        "description": "A sliver of dark crystal pulled out of one of the lesser dead. Light's Hope pays for these by the handful.",
+        "chance": 0.25,
+        "amount": 1,
+        "icon_id": "qi_crystal",
+        "sell_price": 25
+      }
+    ],
+    "Broodlord Szarak": [
+      {
+        "item_id": "pl_corruptors_scourgestone",
+        "name": "Corruptor's Scourgestone",
+        "category": "material",
+        "description": "A stone the size of a fist, taken from something the Scourge thought worth naming.",
+        "chance": 1.0,
+        "amount": 1,
+        "icon_id": "qi_gem",
+        "sell_price": 25
+      }
+    ],
+    "Overseer Marrowgrim": [
+      {
+        "item_id": "pl_corruptors_scourgestone",
+        "name": "Corruptor's Scourgestone",
+        "category": "material",
+        "description": "A stone the size of a fist, taken from something the Scourge thought worth naming.",
+        "chance": 1.0,
+        "amount": 1,
+        "icon_id": "qi_gem",
+        "sell_price": 25
+      }
+    ],
+    "Sexton Hollowell": [
+      {
+        "item_id": "pl_corruptors_scourgestone",
+        "name": "Corruptor's Scourgestone",
+        "category": "material",
+        "description": "A stone the size of a fist, taken from something the Scourge thought worth naming.",
+        "chance": 1.0,
+        "amount": 1,
+        "icon_id": "qi_gem",
+        "sell_price": 25
+      }
+    ],
+    "The Bone Choir": [
+      {
+        "item_id": "pl_corruptors_scourgestone",
+        "name": "Corruptor's Scourgestone",
+        "category": "material",
+        "description": "A stone the size of a fist, taken from something the Scourge thought worth naming.",
+        "chance": 1.0,
+        "amount": 1,
+        "icon_id": "qi_gem",
+        "sell_price": 25
+      }
+    ],
+    "The Drowned Hermit": [
+      {
+        "item_id": "pl_corruptors_scourgestone",
+        "name": "Corruptor's Scourgestone",
+        "category": "material",
+        "description": "A stone the size of a fist, taken from something the Scourge thought worth naming.",
+        "chance": 1.0,
+        "amount": 1,
+        "icon_id": "qi_gem",
+        "sell_price": 25
+      }
+    ],
+    "The Ossifier": [
+      {
+        "item_id": "pl_corruptors_scourgestone",
+        "name": "Corruptor's Scourgestone",
+        "category": "material",
+        "description": "A stone the size of a fist, taken from something the Scourge thought worth naming.",
+        "chance": 1.0,
+        "amount": 1,
+        "icon_id": "qi_gem",
+        "sell_price": 25
+      }
+    ],
+    "The Weeper": [
+      {
+        "item_id": "pl_corruptors_scourgestone",
+        "name": "Corruptor's Scourgestone",
+        "category": "material",
+        "description": "A stone the size of a fist, taken from something the Scourge thought worth naming.",
+        "chance": 1.0,
+        "amount": 1,
+        "icon_id": "qi_gem",
+        "sell_price": 25
       }
     ]
   }

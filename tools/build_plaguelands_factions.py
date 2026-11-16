@@ -164,12 +164,17 @@ def scourge():
         v = getattr(E, k)
         if k.endswith("ROSTER") and isinstance(v, dict):
             roster.update(v)
-    cult = ("Cultist", "Cult ", "Cartmaster Corin")
+    cult = ("Cultist", "Cult ", "Cartmaster Corin", "The Ossifier")
     ordinary, rares = [], []
     for name, r in roster.items():
         template, is_rare = r[0], bool(r[3])
         if template.startswith("undead") or any(c in name for c in cult):
             (rares if is_rare else ordinary).append(name)
+    # the caves' Scourge too (tools/build_plaguelands_caves_content.py): a cave boss counts as a rare
+    from tools import build_plaguelands_caves_content as PCC
+    for name, r in PCC.ROSTER.items():
+        if r[0].startswith("undead") or any(c in name for c in cult):
+            (rares if r[3] else ordinary).append(name)
     return sorted(ordinary), sorted(rares)
 
 
