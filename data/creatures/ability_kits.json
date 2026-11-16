@@ -56679,6 +56679,1622 @@
           "attack_power": 58
         }
       }
+    ],
+    "grimtotem_firecaller": [
+      {
+        "name": "Fire Totem's Lash",
+        "kind": "damage",
+        "amount": 66,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Searing Burst",
+        "kind": "damage",
+        "amount": 72,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Blood Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "spell_power": 24
+        },
+        "self_only": true
+      }
+    ],
+    "roosevelt_elk": [
+      {
+        "name": "Antler Gore",
+        "kind": "damage",
+        "amount": 76,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bellowing Charge",
+        "kind": "damage",
+        "amount": 92,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rut",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": 26
+        },
+        "self_only": true
+      }
+    ],
+    "fog_cougar": [
+      {
+        "name": "Pounce From the Fog",
+        "kind": "damage",
+        "amount": 74,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rake",
+        "kind": "damage",
+        "amount": 88,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Torn Flank",
+        "kind": "dot",
+        "amount": 20,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "greatwood_bear": [
+      {
+        "name": "Swipe",
+        "kind": "damage",
+        "amount": 78,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Maul",
+        "kind": "damage",
+        "amount": 94,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Thick Fur",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 60
+        },
+        "self_only": true
+      }
+    ],
+    "ridge_eagle": [
+      {
+        "name": "Talon Strike",
+        "kind": "damage",
+        "amount": 72,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Stoop",
+        "kind": "damage",
+        "amount": 90,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Buffeting Wings",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "hit_rating": -9
+        }
+      }
+    ],
+    "bark_beetle": [
+      {
+        "name": "Mandibles",
+        "kind": "damage",
+        "amount": 70,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bored Through",
+        "kind": "dot",
+        "amount": 20,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      },
+      {
+        "name": "Swarming",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -26
+        }
+      }
+    ],
+    "mistwood_owl": [
+      {
+        "name": "Silent Talons",
+        "kind": "damage",
+        "amount": 74,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Dive From Above",
+        "kind": "damage",
+        "amount": 90,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Screech",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "spell_power": -24
+        }
+      }
+    ],
+    "redwood_ancient": [
+      {
+        "name": "Root Slam",
+        "kind": "damage",
+        "amount": 82,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Thrashing Limbs",
+        "kind": "damage",
+        "amount": 92,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Bark Skin",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 70
+        },
+        "self_only": true
+      }
+    ],
+    "sap_ooze": [
+      {
+        "name": "Engulf",
+        "kind": "damage",
+        "amount": 74,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Sticky Sap",
+        "kind": "dot",
+        "amount": 20,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Stuck Fast",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -28
+        }
+      }
+    ],
+    "vent_steamling": [
+      {
+        "name": "Scalding Jet",
+        "kind": "damage",
+        "amount": 78,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Scald",
+        "kind": "dot",
+        "amount": 22,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 3
+      },
+      {
+        "name": "Steam Cloud",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "hit_rating": -9
+        }
+      }
+    ],
+    "basalt_hulk": [
+      {
+        "name": "Basalt Fist",
+        "kind": "damage",
+        "amount": 84,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Magma Crack",
+        "kind": "damage",
+        "amount": 94,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Cooling Crust",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 80
+        },
+        "self_only": true
+      }
+    ],
+    "crater_ash_wraith": [
+      {
+        "name": "Choking Ash",
+        "kind": "damage",
+        "amount": 76,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Hot Cinders",
+        "kind": "dot",
+        "amount": 22,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 3
+      },
+      {
+        "name": "Ash in the Eyes",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "hit_rating": -9
+        }
+      }
+    ],
+    "peak_sky_serpent": [
+      {
+        "name": "Feathered Bite",
+        "kind": "damage",
+        "amount": 78,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Coil and Strike",
+        "kind": "damage",
+        "amount": 92,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Venom",
+        "kind": "dot",
+        "amount": 22,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "venture_co_rigger": [
+      {
+        "name": "Climbing Spike",
+        "kind": "damage",
+        "amount": 74,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Drop From the Ropes",
+        "kind": "damage",
+        "amount": 90,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Spiked Boots",
+        "kind": "dot",
+        "amount": 20,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "venture_co_feller": [
+      {
+        "name": "Crosscut Saw",
+        "kind": "damage",
+        "amount": 78,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Big Swing",
+        "kind": "damage",
+        "amount": 94,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Ragged Cut",
+        "kind": "dot",
+        "amount": 20,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "venture_co_cut_foreman": [
+      {
+        "name": "Shotgun",
+        "kind": "damage",
+        "amount": 78,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cut Faster",
+        "kind": "damage",
+        "amount": 84,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Overtime",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": 28
+        },
+        "self_only": true
+      }
+    ],
+    "venture_co_shredder": [
+      {
+        "name": "Saw Arm",
+        "kind": "damage",
+        "amount": 84,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shred",
+        "kind": "damage",
+        "amount": 96,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Plating",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 90
+        },
+        "self_only": true
+      }
+    ],
+    "gnawheart": [
+      {
+        "name": "Crushing Mandibles",
+        "kind": "damage",
+        "amount": 150,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Swarm Call",
+        "kind": "damage",
+        "amount": 118,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Bored to the Core",
+        "kind": "dot",
+        "amount": 40,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      },
+      {
+        "name": "Chitin Shell",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 520,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "grandfather_burl": [
+      {
+        "name": "Burl Slam",
+        "kind": "damage",
+        "amount": 158,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "The Forest's Anger",
+        "kind": "damage",
+        "amount": 124,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Rooted",
+        "kind": "damage",
+        "amount": 112,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Thousand-Year Bark",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 540,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "skyreach": [
+      {
+        "name": "Plunging Bite",
+        "kind": "damage",
+        "amount": 156,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Storm Coil",
+        "kind": "damage",
+        "amount": 122,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Skyreach Venom",
+        "kind": "dot",
+        "amount": 42,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      },
+      {
+        "name": "Rising Storm",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 62
+        }
+      }
+    ],
+    "saw_boss_brakka": [
+      {
+        "name": "Twin Saws",
+        "kind": "damage",
+        "amount": 162,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Clear-Cut",
+        "kind": "damage",
+        "amount": 126,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Sawdust Blast",
+        "kind": "damage",
+        "amount": 114,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Reinforced Cockpit",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 560,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "ashvent_steamling": [
+      {
+        "name": "Scalding Jet",
+        "kind": "damage",
+        "amount": 76,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Scald",
+        "kind": "dot",
+        "amount": 22,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 3
+      },
+      {
+        "name": "Steam Cloud",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "hit_rating": -9
+        }
+      }
+    ],
+    "ashvent_basalt_brute": [
+      {
+        "name": "Basalt Fist",
+        "kind": "damage",
+        "amount": 84,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Crack the Crust",
+        "kind": "damage",
+        "amount": 94,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Cooling Crust",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 80
+        },
+        "self_only": true
+      }
+    ],
+    "ashvent_cinderwraith": [
+      {
+        "name": "Cinder Lash",
+        "kind": "damage",
+        "amount": 78,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Smoulder",
+        "kind": "dot",
+        "amount": 22,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 4
+      },
+      {
+        "name": "Choking Smoke",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "spell_power": -26,
+          "attack_power": -26
+        }
+      }
+    ],
+    "cinder_beetle": [
+      {
+        "name": "Hot Mandibles",
+        "kind": "damage",
+        "amount": 72,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Burrowing Burn",
+        "kind": "dot",
+        "amount": 20,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 3
+      },
+      {
+        "name": "Swarming",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -26
+        }
+      }
+    ],
+    "magmacore": [
+      {
+        "name": "Molten Fist",
+        "kind": "damage",
+        "amount": 168,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Eruption",
+        "kind": "damage",
+        "amount": 130,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Crushed Under Stone",
+        "kind": "damage",
+        "amount": 118,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Crust Shell",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 600,
+        "authored_mechanic": "shield"
+      },
+      {
+        "name": "Breaking Open",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 66
+        }
+      }
+    ],
+    "the_ash_mother": [
+      {
+        "name": "Ashfall",
+        "kind": "damage",
+        "amount": 160,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Smothering Cloud",
+        "kind": "damage",
+        "amount": 126,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Ash in the Lungs",
+        "kind": "dot",
+        "amount": 44,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 4
+      },
+      {
+        "name": "Veil of Ash",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 560,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "venture_co_trunk_rigger": [
+      {
+        "name": "Climbing Spike",
+        "kind": "damage",
+        "amount": 74,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Drop From the Ropes",
+        "kind": "damage",
+        "amount": 90,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Spiked Boots",
+        "kind": "dot",
+        "amount": 20,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "venture_co_hauler": [
+      {
+        "name": "Hatchet",
+        "kind": "damage",
+        "amount": 78,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Heave",
+        "kind": "damage",
+        "amount": 92,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hard Hat",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 70
+        },
+        "self_only": true
+      }
+    ],
+    "venture_co_sap_tapper": [
+      {
+        "name": "Tapping Spike",
+        "kind": "damage",
+        "amount": 74,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Boiling Sap",
+        "kind": "damage",
+        "amount": 84,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Sticky",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -28
+        }
+      }
+    ],
+    "heartrot_borer": [
+      {
+        "name": "Bore",
+        "kind": "damage",
+        "amount": 72,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Heartrot",
+        "kind": "dot",
+        "amount": 22,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      },
+      {
+        "name": "Chewed Armour",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -90
+        }
+      }
+    ],
+    "heartrot_drone": [
+      {
+        "name": "Diving Mandibles",
+        "kind": "damage",
+        "amount": 78,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Wing Buzz",
+        "kind": "damage",
+        "amount": 84,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Droning",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "hit_rating": -9
+        }
+      }
+    ],
+    "living_sap": [
+      {
+        "name": "Engulf",
+        "kind": "damage",
+        "amount": 80,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Sticky Sap",
+        "kind": "dot",
+        "amount": 22,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Stuck Fast",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -30
+        }
+      }
+    ],
+    "crown_owl": [
+      {
+        "name": "Silent Talons",
+        "kind": "damage",
+        "amount": 80,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Dive From Above",
+        "kind": "damage",
+        "amount": 96,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Screech",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "spell_power": -26
+        }
+      }
+    ],
+    "crown_sky_serpent": [
+      {
+        "name": "Feathered Bite",
+        "kind": "damage",
+        "amount": 82,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Coil and Strike",
+        "kind": "damage",
+        "amount": 96,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Venom",
+        "kind": "dot",
+        "amount": 24,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "venture_co_topper": [
+      {
+        "name": "Topping Saw",
+        "kind": "damage",
+        "amount": 84,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Swing From the Rope",
+        "kind": "damage",
+        "amount": 98,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Ragged Cut",
+        "kind": "dot",
+        "amount": 22,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "venture_co_crown_shredder": [
+      {
+        "name": "Saw Arm",
+        "kind": "damage",
+        "amount": 90,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shred",
+        "kind": "damage",
+        "amount": 100,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Plating",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 100
+        },
+        "self_only": true
+      }
+    ],
+    "eldests_warden": [
+      {
+        "name": "Root Slam",
+        "kind": "damage",
+        "amount": 88,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Thrashing Limbs",
+        "kind": "damage",
+        "amount": 98,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Bark Skin",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "stat_mods": {
+          "armor": 80
+        },
+        "self_only": true
+      }
+    ],
+    "rigboss_gazzle": [
+      {
+        "name": "Rig Shotgun",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Swinging Pulley",
+        "kind": "damage",
+        "amount": 214,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cut the Rope",
+        "kind": "damage",
+        "amount": 132,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Riggers, Down!",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Venture Co. Trunk Rigger",
+          "template": "humanoid_rogue",
+          "kit": "venture_co_trunk_rigger",
+          "count": 2,
+          "level_offset": -1,
+          "max_alive": 3,
+          "max_casts": 3
+        },
+        "authored_mechanic": "summon"
+      },
+      {
+        "name": "Hazard Pay",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 40
+        }
+      }
+    ],
+    "the_heartrot_queen": [
+      {
+        "name": "Queen's Mandibles",
+        "kind": "damage",
+        "amount": 180,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Heartrot",
+        "kind": "dot",
+        "amount": 40,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      },
+      {
+        "name": "Chewed Through",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -160
+        }
+      },
+      {
+        "name": "The Brood Wakes",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Heartrot Borer",
+          "template": "vermin_swarm",
+          "kit": "heartrot_borer",
+          "count": 2,
+          "level_offset": -1,
+          "max_alive": 4,
+          "max_casts": 4
+        },
+        "authored_mechanic": "summon"
+      },
+      {
+        "name": "Egg-Sac Bursts",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 44
+        }
+      }
+    ],
+    "ambermaw": [
+      {
+        "name": "Engulf",
+        "kind": "damage",
+        "amount": 176,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Sap in the Lungs",
+        "kind": "dot",
+        "amount": 42,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4
+      },
+      {
+        "name": "Stuck Fast",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "dodge_rating": -60
+        }
+      },
+      {
+        "name": "Hardening Amber",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 640,
+        "authored_mechanic": "shield"
+      },
+      {
+        "name": "The Goblin Inside Kicks",
+        "kind": "damage",
+        "amount": 120,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "old_talonwing": [
+      {
+        "name": "Talon Rake",
+        "kind": "damage",
+        "amount": 184,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Storm Dive",
+        "kind": "damage",
+        "amount": 150,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Pinned to the Branch",
+        "kind": "damage",
+        "amount": 130,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Thunder in the Feathers",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 46
+        }
+      }
+    ],
+    "topper_kezzik": [
+      {
+        "name": "Chainsaw Arm",
+        "kind": "damage",
+        "amount": 192,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Spider Legs",
+        "kind": "damage",
+        "amount": 156,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Plating Up",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 720,
+        "authored_mechanic": "shield"
+      },
+      {
+        "name": "Saw Through the Branch",
+        "kind": "damage",
+        "amount": 132,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Overdrive",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": 50
+        },
+        "self_only": true
+      }
+    ],
+    "the_eldest": [
+      {
+        "name": "The Weight of a Thousand Years",
+        "kind": "damage",
+        "amount": 200,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "The Forest Answers",
+        "kind": "damage",
+        "amount": 160,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Rooted",
+        "kind": "damage",
+        "amount": 140,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Heartwood",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 760,
+        "authored_mechanic": "shield"
+      },
+      {
+        "name": "Wardens of the Eldest",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "summon": {
+          "name": "Eldest's Warden",
+          "template": "elemental_bruiser",
+          "kit": "eldests_warden",
+          "count": 1,
+          "level_offset": -1,
+          "max_alive": 2,
+          "max_casts": 2
+        },
+        "authored_mechanic": "summon"
+      },
+      {
+        "name": "It Will Not Fall",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 52
+        }
+      }
     ]
   }
 }

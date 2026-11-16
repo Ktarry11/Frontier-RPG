@@ -191,5 +191,953 @@
       "block_value": 0,
       "item_id": "st_old_pumices_core"
     }
+  ],
+  "Magmacore": [
+    {
+      "name": "Magmacore Heart",
+      "slot": "trinket",
+      "item_level": 34,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "spell_power": 14,
+        "crit_chance_spell": 6
+      },
+      "armor_value": 0,
+      "required_level": 32,
+      "sell_price": 3972,
+      "identity": "caster_crit",
+      "icon_id": "gear_inv_jewelry_talisman_02",
+      "item_id": "st_magmacore_heart"
+    },
+    {
+      "name": "Obsidian-Edge Axe",
+      "slot": "main_hand",
+      "item_level": 34,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "axe_1h",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 9,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "attack_power": 24
+      },
+      "armor_value": 0,
+      "required_level": 32,
+      "sell_price": 5391,
+      "identity": "agility",
+      "icon_id": "gear_inv_axe_09",
+      "weapon_damage_min": 63,
+      "weapon_damage_max": 85,
+      "attack_speed": 2.6,
+      "block_value": 0,
+      "item_id": "st_obsidian_edge_axe"
+    },
+    {
+      "name": "Crust-Forged Breastplate",
+      "slot": "chest",
+      "item_level": 34,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "healing_power": 44
+      },
+      "armor_value": 267,
+      "required_level": 32,
+      "sell_price": 5674,
+      "identity": "plate_healer",
+      "icon_id": "gear_inv_chest_plate16",
+      "item_id": "st_crust_forged_breastplate"
+    },
+    {
+      "name": "Lava-Tube Treads",
+      "slot": "feet",
+      "item_level": 34,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 6,
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "attack_power": 21
+      },
+      "armor_value": 123,
+      "required_level": 32,
+      "sell_price": 3688,
+      "identity": "hunter",
+      "icon_id": "gear_inv_boots_plate_01",
+      "item_id": "st_lava_tube_treads"
+    }
+  ],
+  "The Ash Mother": [
+    {
+      "name": "Ash Mother's Shroud",
+      "slot": "chest",
+      "item_level": 34,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "spell_power": 23,
+        "haste": 6
+      },
+      "armor_value": 55,
+      "required_level": 32,
+      "sell_price": 5674,
+      "identity": "haste_caster",
+      "icon_id": "gear_inv_chest_cloth_29",
+      "item_id": "st_ash_mothers_shroud"
+    },
+    {
+      "name": "Cinder-Woven Belt",
+      "slot": "waist",
+      "item_level": 34,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 7,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "attack_power": 21
+      },
+      "armor_value": 77,
+      "required_level": 32,
+      "sell_price": 3121,
+      "identity": "strength",
+      "icon_id": "gear_inv_belt_12",
+      "item_id": "st_cinder_woven_belt"
+    },
+    {
+      "name": "Totem of the Smouldering Vent",
+      "slot": "ranged",
+      "item_level": 34,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "totem",
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "healing_power": 17
+      },
+      "armor_value": 0,
+      "required_level": 32,
+      "sell_price": 4540,
+      "identity": "tide_healer",
+      "icon_id": "gear_inv_wand_07",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "item_id": "st_totem_of_the_smouldering_vent"
+    },
+    {
+      "name": "Basalt Throwing Axes",
+      "slot": "ranged",
+      "item_level": 34,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "thrown",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 7,
+        "stamina": 4
+      },
+      "secondary_stats": {
+        "attack_power": 16
+      },
+      "armor_value": 0,
+      "required_level": 32,
+      "sell_price": 4540,
+      "identity": "agility",
+      "icon_id": "gear_inv_throwingaxe_04",
+      "weapon_damage_min": 53,
+      "weapon_damage_max": 72,
+      "attack_speed": 1.8,
+      "block_value": 0,
+      "item_id": "st_basalt_throwing_axes"
+    }
+  ],
+  "Rigboss Gazzle": [
+    {
+      "name": "Rigboss's Harness",
+      "slot": "chest",
+      "item_level": 33,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 10,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "attack_power": 27
+      },
+      "armor_value": 118,
+      "required_level": 31,
+      "sell_price": 5330,
+      "identity": "agility",
+      "icon_id": "gear_inv_chest_leather_07",
+      "item_id": "st_rigbosss_harness"
+    },
+    {
+      "name": "Pulley-Wheel Shield",
+      "slot": "off_hand",
+      "item_level": 33,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "shield",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 12,
+        "strength": 4
+      },
+      "secondary_stats": {
+        "block_value": 10
+      },
+      "armor_value": 336,
+      "required_level": 31,
+      "sell_price": 4264,
+      "identity": "shield_tank",
+      "icon_id": "gear_inv_shield_05",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 39,
+      "item_id": "st_pulley_wheel_shield"
+    },
+    {
+      "name": "Gazzle's Rig Shotgun",
+      "slot": "ranged",
+      "item_level": 33,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "gun",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 6
+      },
+      "secondary_stats": {
+        "attack_power": 13,
+        "crit_chance_physical": 6
+      },
+      "armor_value": 0,
+      "required_level": 31,
+      "sell_price": 4264,
+      "identity": "hunter_crit",
+      "icon_id": "gear_inv_weapon_rifle_07",
+      "weapon_damage_min": 52,
+      "weapon_damage_max": 70,
+      "attack_speed": 2.6,
+      "block_value": 0,
+      "item_id": "st_gazzles_rig_shotgun"
+    },
+    {
+      "name": "Rope-Burned Gloves",
+      "slot": "hands",
+      "item_level": 33,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 6
+      },
+      "secondary_stats": {
+        "healing_power": 29
+      },
+      "armor_value": 119,
+      "required_level": 31,
+      "sell_price": 3464,
+      "identity": "tide_healer",
+      "icon_id": "gear_inv_gauntlets_22",
+      "item_id": "st_rope_burned_gloves"
+    },
+    {
+      "name": "Hard Hat of the Trunk Crew",
+      "slot": "head",
+      "item_level": 33,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 9,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "attack_power": 23
+      },
+      "armor_value": 219,
+      "required_level": 31,
+      "sell_price": 4264,
+      "identity": "strength",
+      "icon_id": "gear_inv_helmet_26",
+      "item_id": "st_hard_hat_of_the_trunk_crew"
+    }
+  ],
+  "The Heartrot Queen": [
+    {
+      "name": "Chitin Pauldrons",
+      "slot": "shoulder",
+      "item_level": 34,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 14,
+        "strength": 5
+      },
+      "secondary_stats": {
+        "defense_rating": 10
+      },
+      "armor_value": 226,
+      "required_level": 32,
+      "sell_price": 4540,
+      "identity": "tank",
+      "icon_id": "gear_inv_shoulder_04",
+      "item_id": "st_chitin_pauldrons"
+    },
+    {
+      "name": "Queen's Egg-Sac Robe",
+      "slot": "chest",
+      "item_level": 34,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 8,
+        "intellect": 6
+      },
+      "secondary_stats": {
+        "healing_power": 34
+      },
+      "armor_value": 55,
+      "required_level": 32,
+      "sell_price": 5674,
+      "identity": "healer",
+      "icon_id": "gear_inv_chest_cloth_37",
+      "item_id": "st_queens_egg_sac_robe"
+    },
+    {
+      "name": "Borer's Mandible",
+      "slot": "main_hand",
+      "item_level": 34,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "fist_weapon",
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 8,
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "attack_power": 14
+      },
+      "armor_value": 0,
+      "required_level": 32,
+      "sell_price": 5391,
+      "identity": "wildheart",
+      "icon_id": "gear_inv_weapon_shortblade_18",
+      "weapon_damage_min": 63,
+      "weapon_damage_max": 85,
+      "attack_speed": 1.8,
+      "block_value": 0,
+      "item_id": "st_borers_mandible"
+    },
+    {
+      "name": "Heartrot Girdle",
+      "slot": "waist",
+      "item_level": 34,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "spell_power": 19
+      },
+      "armor_value": 77,
+      "required_level": 32,
+      "sell_price": 3121,
+      "identity": "caster",
+      "icon_id": "gear_inv_belt_33",
+      "item_id": "st_heartrot_girdle"
+    },
+    {
+      "name": "Ring of the Brood",
+      "slot": "ring",
+      "item_level": 34,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "attack_power": 18,
+        "hit_rating": 5
+      },
+      "armor_value": 0,
+      "required_level": 32,
+      "sell_price": 3405,
+      "identity": "physical",
+      "icon_id": "gear_inv_jewelry_ring_04",
+      "item_id": "st_ring_of_the_brood"
+    }
+  ],
+  "Ambermaw": [
+    {
+      "name": "Amber-Sealed Tome",
+      "slot": "off_hand",
+      "item_level": 34,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "tome",
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "spell_power": 18,
+        "crit_chance_spell": 7
+      },
+      "armor_value": 0,
+      "required_level": 32,
+      "sell_price": 3405,
+      "identity": "caster_crit",
+      "icon_id": "gear_inv_tome_7",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "item_id": "st_amber_sealed_tome"
+    },
+    {
+      "name": "Sap-Stiffened Legguards",
+      "slot": "legs",
+      "item_level": 34,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "stamina": 14,
+        "agility": 9
+      },
+      "secondary_stats": {
+        "dodge_rating": 7
+      },
+      "armor_value": 121,
+      "required_level": 32,
+      "sell_price": 5674,
+      "identity": "bear",
+      "icon_id": "gear_inv_pants_03",
+      "item_id": "st_sap_stiffened_legguards"
+    },
+    {
+      "name": "Goblin-in-Amber Trinket",
+      "slot": "trinket",
+      "item_level": 34,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 5,
+        "spirit": 4
+      },
+      "secondary_stats": {
+        "healing_power": 20
+      },
+      "armor_value": 0,
+      "required_level": 32,
+      "sell_price": 3972,
+      "identity": "high_healer",
+      "icon_id": "gear_inv_jewelry_talisman_04",
+      "item_id": "st_goblin_in_amber_trinket"
+    },
+    {
+      "name": "Amberwood Longbow",
+      "slot": "ranged",
+      "item_level": 34,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "bow",
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 6,
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "attack_power": 16
+      },
+      "armor_value": 0,
+      "required_level": 32,
+      "sell_price": 4540,
+      "identity": "hunter",
+      "icon_id": "gear_inv_weapon_bow_04",
+      "weapon_damage_min": 53,
+      "weapon_damage_max": 72,
+      "attack_speed": 2.8,
+      "block_value": 0,
+      "item_id": "st_amberwood_longbow"
+    },
+    {
+      "name": "Sticky Sabatons",
+      "slot": "feet",
+      "item_level": 34,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_int_hybrid",
+      "primary_stats": {
+        "strength": 6,
+        "intellect": 6
+      },
+      "secondary_stats": {
+        "attack_power": 19
+      },
+      "armor_value": 185,
+      "required_level": 32,
+      "sell_price": 3688,
+      "identity": "crusader",
+      "icon_id": "gear_inv_boots_02",
+      "item_id": "st_sticky_sabatons"
+    }
+  ],
+  "Old Talonwing": [
+    {
+      "name": "Stormfeather Cloak",
+      "slot": "back",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "spell_power": 18
+      },
+      "armor_value": 41,
+      "required_level": 33,
+      "sell_price": 3317,
+      "identity": "caster",
+      "icon_id": "gear_inv_misc_cape_19",
+      "item_id": "st_stormfeather_cloak"
+    },
+    {
+      "name": "Talonwing's Grasp",
+      "slot": "hands",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 7
+      },
+      "secondary_stats": {
+        "attack_power": 16,
+        "crit_chance_physical": 7
+      },
+      "armor_value": 79,
+      "required_level": 33,
+      "sell_price": 3920,
+      "identity": "rogue_crit",
+      "icon_id": "gear_inv_gauntlets_16",
+      "item_id": "st_talonwings_grasp"
+    },
+    {
+      "name": "Thunder-Roc Mantle",
+      "slot": "shoulder",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "spell_power": 19,
+        "haste": 6
+      },
+      "armor_value": 155,
+      "required_level": 33,
+      "sell_price": 4824,
+      "identity": "haste_caster",
+      "icon_id": "gear_inv_shoulder_20",
+      "item_id": "st_thunder_roc_mantle"
+    },
+    {
+      "name": "Nest-Woven Bracers",
+      "slot": "wrist",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "healing_power": 30
+      },
+      "armor_value": 190,
+      "required_level": 33,
+      "sell_price": 3015,
+      "identity": "plate_healer",
+      "icon_id": "gear_inv_bracer_14",
+      "item_id": "st_nest_woven_bracers"
+    },
+    {
+      "name": "Feather of the Storm",
+      "slot": "ranged",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "totem",
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 3,
+        "intellect": 3
+      },
+      "secondary_stats": {
+        "healing_power": 14
+      },
+      "armor_value": 0,
+      "required_level": 33,
+      "sell_price": 4824,
+      "identity": "healer",
+      "icon_id": "gear_inv_wand_01",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "item_id": "st_feather_of_the_storm"
+    }
+  ],
+  "Topper Kezzik": [
+    {
+      "name": "Topper's Chainsaw",
+      "slot": "main_hand",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "axe_2h",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 8
+      },
+      "secondary_stats": {
+        "attack_power": 21,
+        "crit_chance_physical": 8
+      },
+      "armor_value": 0,
+      "required_level": 33,
+      "sell_price": 7538,
+      "identity": "strength_crit",
+      "icon_id": "gear_inv_axe_16",
+      "weapon_damage_min": 87,
+      "weapon_damage_max": 118,
+      "attack_speed": 3.6,
+      "block_value": 0,
+      "item_id": "st_toppers_chainsaw"
+    },
+    {
+      "name": "Walker-Plate Breastplate",
+      "slot": "chest",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 16,
+        "strength": 6
+      },
+      "secondary_stats": {
+        "defense_rating": 13
+      },
+      "armor_value": 285,
+      "required_level": 33,
+      "sell_price": 6031,
+      "identity": "tank",
+      "icon_id": "gear_inv_chest_plate14",
+      "item_id": "st_walker_plate_breastplate"
+    },
+    {
+      "name": "Kezzik's Spider-Leg Spaulders",
+      "slot": "shoulder",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 9,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "attack_power": 26
+      },
+      "armor_value": 97,
+      "required_level": 33,
+      "sell_price": 4824,
+      "identity": "agility",
+      "icon_id": "gear_inv_shoulder_07",
+      "item_id": "st_kezziks_spider_leg_spaulders"
+    },
+    {
+      "name": "Overdrive Goggles",
+      "slot": "head",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 8,
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "attack_power": 24
+      },
+      "armor_value": 155,
+      "required_level": 33,
+      "sell_price": 4824,
+      "identity": "hunter",
+      "icon_id": "gear_inv_helmet_31",
+      "item_id": "st_overdrive_goggles"
+    },
+    {
+      "name": "Saw-Tooth Polearm",
+      "slot": "main_hand",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "polearm",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 9,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "attack_power": 26
+      },
+      "armor_value": 0,
+      "required_level": 33,
+      "sell_price": 7538,
+      "identity": "agility",
+      "icon_id": "gear_inv_weapon_halberd_08",
+      "weapon_damage_min": 87,
+      "weapon_damage_max": 118,
+      "attack_speed": 3.3,
+      "block_value": 0,
+      "item_id": "st_saw_tooth_polearm"
+    }
+  ],
+  "The Eldest": [
+    {
+      "name": "Heartwood of the Eldest",
+      "slot": "main_hand",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "staff",
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 10
+      },
+      "secondary_stats": {
+        "spell_power": 36,
+        "crit_chance_spell": 14
+      },
+      "armor_value": 0,
+      "required_level": 33,
+      "sell_price": 7538,
+      "identity": "caster_crit",
+      "icon_id": "gear_inv_staff_03",
+      "weapon_damage_min": 35,
+      "weapon_damage_max": 48,
+      "attack_speed": 3.2,
+      "block_value": 0,
+      "item_id": "st_heartwood_of_the_eldest"
+    },
+    {
+      "name": "Eldest's Living Bough",
+      "slot": "main_hand",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "staff",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 12,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "dodge_rating": 5
+      },
+      "armor_value": 40,
+      "required_level": 33,
+      "sell_price": 7538,
+      "identity": "bear_weapon",
+      "icon_id": "gear_inv_staff_18",
+      "weapon_damage_min": 87,
+      "weapon_damage_max": 118,
+      "attack_speed": 3.6,
+      "block_value": 0,
+      "item_id": "st_eldests_living_bough"
+    },
+    {
+      "name": "Crown of a Thousand Years",
+      "slot": "head",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 7,
+        "spirit": 5
+      },
+      "secondary_stats": {
+        "healing_power": 30
+      },
+      "armor_value": 48,
+      "required_level": 33,
+      "sell_price": 4824,
+      "identity": "high_healer",
+      "icon_id": "gear_inv_helmet_05",
+      "item_id": "st_crown_of_a_thousand_years"
+    },
+    {
+      "name": "Rootbound Warplate",
+      "slot": "legs",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 11,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "attack_power": 29
+      },
+      "armor_value": 275,
+      "required_level": 33,
+      "sell_price": 6031,
+      "identity": "strength",
+      "icon_id": "gear_inv_pants_05",
+      "item_id": "st_rootbound_warplate"
+    },
+    {
+      "name": "Bark-Grown Hauberk",
+      "slot": "chest",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 11,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "attack_power": 29
+      },
+      "armor_value": 183,
+      "required_level": 33,
+      "sell_price": 6031,
+      "identity": "agility",
+      "icon_id": "gear_inv_chest_chain_05",
+      "item_id": "st_bark_grown_hauberk"
+    },
+    {
+      "name": "Idol of the Eldest",
+      "slot": "ranged",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "idol",
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "spell_power": 12
+      },
+      "armor_value": 0,
+      "required_level": 33,
+      "sell_price": 4824,
+      "identity": "caster",
+      "icon_id": "gear_inv_idol_1",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "item_id": "st_idol_of_the_eldest"
+    },
+    {
+      "name": "Libram of the Standing Giants",
+      "slot": "ranged",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "libram",
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "healing_power": 18
+      },
+      "armor_value": 0,
+      "required_level": 33,
+      "sell_price": 4824,
+      "identity": "plate_healer",
+      "icon_id": "gear_inv_libram_1",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "item_id": "st_libram_of_the_standing_giants"
+    }
   ]
 }

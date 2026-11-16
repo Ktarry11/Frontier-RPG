@@ -37,6 +37,8 @@ SPRITE_DIR = Path(__file__).parent / "assets" / "creatures"
 #: gave one fewer syndicate rogue, boar and skeleton archer than asked, and one extra felhound
 #: and two extra spore caps. Asking for a count does not get you that count.
 SHEETS = {
+    # ---- Stonetalon (Kyle's sheet, 15 Nov; docs/stonetalon_art_prompts.md sheet 4)
+    'stonetalon': ['st_grim_warrior', 'st_grim_shaman', 'st_grim_hunter', 'st_grim_brute', 'st_grim_mystic', 'st_grim_elder', 'st_venture_logger', 'st_venture_sawyer', 'st_venture_demolitionist', 'st_venture_foreman', 'st_venture_rigger', 'st_venture_shredder', 'st_windshear_harpy', 'st_windshear_witch', 'st_cougar', 'st_bull_elk', 'st_bald_eagle', 'st_black_bear', 'st_ash_elemental', 'st_pumice_golem', 'st_steam_elemental', 'st_basalt_elemental', 'st_bark_beetle', 'st_redwood_ancient', 'st_beetle_mother', 'st_sap_ooze', 'st_canopy_owl', 'st_sky_serpent', 'st_risen_tauren', 'st_risen_stalker', 'st_boss_rigboss_gazzle', 'st_boss_heartrot_queen', 'st_boss_ambermaw', 'st_boss_old_talonwing', 'st_boss_topper_kezzik', 'st_boss_the_eldest'],
     # ---- Felwood (Kyle's sheet, 14 Nov; tools/file_felwood_art.py)
     'felwood': ['fw_blighted_wolf', 'fw_boss_corrupted_ancient', 'fw_boss_demon_lord', 'fw_boss_doom_lord', 'fw_boss_hold_warden', 'fw_boss_master_summoner', 'fw_boss_twin_warlocks', 'fw_bound_voidwalker', 'fw_council_acolyte', 'fw_council_high_warlock', 'fw_council_summoner', 'fw_council_warlock', 'fw_deadwood_alpha', 'fw_deadwood_gardener', 'fw_deadwood_pathfinder', 'fw_deadwood_shaman', 'fw_deadwood_warrior', 'fw_deadwood_watcher', 'fw_doomguard', 'fw_entropic_horror', 'fw_eredar_warlock', 'fw_fel_bear', 'fw_felguard', 'fw_felhound', 'fw_hound_handler', 'fw_imp', 'fw_infernal', 'fw_jadefire_stag', 'fw_satyr_felsworn', 'fw_satyr_hellcaller', 'fw_satyr_lord', 'fw_satyr_rogue', 'fw_satyr_shadowstalker', 'fw_satyr_trickster', 'fw_toxic_ooze', 'fw_warpwood_treant'],
     # ---- 1. the people of the dungeons. 208 cave creatures run on humanoid_* templates,
@@ -213,41 +215,86 @@ ALL_SPRITES = {s for v in SHEETS.values() for s in v}
 #: FIRST MATCH WINS, so order matters - the specific sits above the general. Each entry is
 #: (compiled pattern on the creature NAME, sprite id).
 _RULES = [
-    # STONETALON (tools/build_stonetalon_openworld.py): exact names, each to its picture. Stand-ins from the
-    # existing art until Kyle's Stonetalon creature sheet lands (docs/stonetalon_art_prompts.md sheet 4).
-    (r"^venture\ co\.\ shaft\ miner$", "goblin_sapper_2"),
-    (r"^venture\ co\.\ powder\ monkey$", "goblin_sapper_1"),
-    (r"^venture\ co\.\ shift\ boss$", "goblin_overseer"),
-    (r"^pumice\ shard$", "elemental_earth_1"),
-    (r"^chimney\ harpy$", "harpy_3"),
-    (r"^driller\ mozzik$", "goblin_overseer"),
-    (r"^old\ pumice$", "elemental_earth_2"),
-    (r"^ridge\ cougar$", "panther_2"),
-    (r"^grey\ elk$", "stag"),
-    (r"^black\ bear$", "bear_1"),
+    # STONETALON (tools/build_stonetalon_openworld.py): exact names, each to its picture. Kyle's creature sheet
+    # (15 Nov 2026), with the existing art where it fits (docs/stonetalon_art_prompts.md sheet 4).
+    (r"^ashvent\ steamling$", "st_steam_elemental"),
+    (r"^ashvent\ basalt\ brute$", "st_basalt_elemental"),
+    (r"^ashvent\ cinderwraith$", "st_ash_elemental"),
+    (r"^cinder\ beetle$", "st_bark_beetle"),
+    (r"^magmacore$", "st_basalt_elemental"),
+    (r"^the\ ash\ mother$", "st_ash_elemental"),
+    # the Eldest Sequoia (the dungeon): trunk and crown
+    (r"^venture\ co\.\ trunk\ rigger$", "st_venture_rigger"),
+    (r"^venture\ co\.\ hauler$", "st_venture_logger"),
+    (r"^venture\ co\.\ sap\ tapper$", "st_venture_foreman"),
+    (r"^heartrot\ borer$", "st_bark_beetle"),
+    (r"^heartrot\ drone$", "st_beetle_mother"),
+    (r"^living\ sap$", "st_sap_ooze"),
+    (r"^crown\ owl$", "st_canopy_owl"),
+    (r"^crown\ sky\ serpent$", "st_sky_serpent"),
+    (r"^venture\ co\.\ topper$", "st_venture_rigger"),
+    (r"^venture\ co\.\ crown\ shredder$", "st_venture_shredder"),
+    (r"^eldest's\ warden$", "st_redwood_ancient"),
+    (r"^rigboss\ gazzle$", "st_boss_rigboss_gazzle"),
+    (r"^the\ heartrot\ queen$", "st_boss_heartrot_queen"),
+    (r"^ambermaw$", "st_boss_ambermaw"),
+    (r"^old\ talonwing$", "st_boss_old_talonwing"),
+    (r"^topper\ kezzik$", "st_boss_topper_kezzik"),
+    (r"^the\ eldest$", "st_boss_the_eldest"),
+    (r"^roosevelt\ elk$", "st_bull_elk"),
+    (r"^fog\ cougar$", "st_cougar"),
+    (r"^greatwood\ bear$", "st_black_bear"),
+    (r"^ridge\ eagle$", "st_bald_eagle"),
+    (r"^bark\ beetle$", "st_bark_beetle"),
+    (r"^mistwood\ owl$", "st_canopy_owl"),
+    (r"^redwood\ ancient$", "st_redwood_ancient"),
+    (r"^sap\ ooze$", "st_sap_ooze"),
+    (r"^vent\ steamling$", "st_steam_elemental"),
+    (r"^basalt\ hulk$", "st_basalt_elemental"),
+    (r"^crater\ ash\ wraith$", "st_ash_elemental"),
+    (r"^peak\ sky\ serpent$", "st_sky_serpent"),
+    (r"^venture\ co\.\ rigger$", "st_venture_rigger"),
+    (r"^venture\ co\.\ feller$", "st_venture_sawyer"),
+    (r"^venture\ co\.\ cut\ foreman$", "st_venture_foreman"),
+    (r"^venture\ co\.\ shredder$", "st_venture_shredder"),
+    (r"^gnawheart$", "st_beetle_mother"),
+    (r"^grandfather\ burl$", "st_redwood_ancient"),
+    (r"^skyreach$", "st_sky_serpent"),
+    (r"^saw\-boss\ brakka$", "st_venture_shredder"),
+    (r"^grimtotem\ firecaller$", "st_grim_shaman"),
+    (r"^venture\ co\.\ shaft\ miner$", "st_venture_logger"),
+    (r"^venture\ co\.\ powder\ monkey$", "st_venture_demolitionist"),
+    (r"^venture\ co\.\ shift\ boss$", "st_venture_foreman"),
+    (r"^pumice\ shard$", "st_pumice_golem"),
+    (r"^chimney\ harpy$", "st_windshear_harpy"),
+    (r"^driller\ mozzik$", "st_venture_shredder"),
+    (r"^old\ pumice$", "st_basalt_elemental"),
+    (r"^ridge\ cougar$", "st_cougar"),
+    (r"^grey\ elk$", "st_bull_elk"),
+    (r"^black\ bear$", "st_black_bear"),
     (r"^ash\ vulture$", "vulture_1"),
-    (r"^ash\ drifter$", "elemental_air_3"),
-    (r"^venture\ co\.\ salvager$", "goblin_sapper_1"),
-    (r"^venture\ co\.\ bucker$", "goblin_sapper_2"),
-    (r"^venture\ co\.\ blaster$", "goblin_sapper_1"),
-    (r"^venture\ co\.\ yard\ foreman$", "goblin_overseer"),
-    (r"^windshear\ harpy$", "harpy_1"),
-    (r"^windshear\ wind\ witch$", "harpy_2"),
+    (r"^ash\ drifter$", "st_ash_elemental"),
+    (r"^venture\ co\.\ salvager$", "st_venture_logger"),
+    (r"^venture\ co\.\ bucker$", "st_venture_sawyer"),
+    (r"^venture\ co\.\ blaster$", "st_venture_demolitionist"),
+    (r"^venture\ co\.\ yard\ foreman$", "st_venture_foreman"),
+    (r"^windshear\ harpy$", "st_windshear_harpy"),
+    (r"^windshear\ wind\ witch$", "st_windshear_witch"),
     (r"^windshear\ talon$", "harpy_3"),
-    (r"^bull\ elk$", "stag"),
-    (r"^grimtotem\ raider$", "tauren_brave"),
-    (r"^grimtotem\ mystic$", "tauren_brave"),
-    (r"^grimtotem\ spearhunter$", "tauren_brave"),
-    (r"^grimtotem\ brute$", "tauren_brave"),
-    (r"^risen\ tauren$", "zombie_3"),
-    (r"^risen\ stalker$", "ghoul_gaunt"),
+    (r"^bull\ elk$", "st_bull_elk"),
+    (r"^grimtotem\ raider$", "st_grim_warrior"),
+    (r"^grimtotem\ mystic$", "st_grim_mystic"),
+    (r"^grimtotem\ spearhunter$", "st_grim_hunter"),
+    (r"^grimtotem\ brute$", "st_grim_brute"),
+    (r"^risen\ tauren$", "st_risen_tauren"),
+    (r"^risen\ stalker$", "st_risen_stalker"),
     (r"^rim\ carrion\ bird$", "vulture_3"),
-    (r"^old\ greyhide$", "stag"),
-    (r"^yard\ boss\ krizzle$", "goblin_overseer"),
+    (r"^old\ greyhide$", "st_bull_elk"),
+    (r"^yard\ boss\ krizzle$", "st_venture_foreman"),
     (r"^matron\ shrieka$", "harpy_matriarch"),
-    (r"^broadpaw$", "bear_3"),
-    (r"^hargol\ bloodhorn$", "tauren_brave"),
-    (r"^the\ risen\ hunter$", "zombie_5"),
+    (r"^broadpaw$", "st_black_bear"),
+    (r"^hargol\ bloodhorn$", "st_grim_elder"),
+    (r"^the\ risen\ hunter$", "st_risen_tauren"),
     # FELWOOD (tools/build_felwood_openworld.py): exact names, each to its picture. The South's
     # wildlife uses the existing beast art; the Fel Line's demons and everything in the North use
     # Kyle's Felwood sheet.
@@ -675,6 +722,8 @@ FAMILY_FALLBACK = {
 #: tools/qa_creature_sprites.py counts it as parked rather than as dead weight. Give one a rule
 #: the moment a creature earns it.
 SPARE = {
+    # the great sequoia's bosses (docs/stonetalon_art_prompts.md sheet 4): drawn for the Stonetalon dungeon, which
+    # isn't built yet. They come off this list when its bosses exist.
     "demon_brute_2": "second demon brute. Freed up 2026-10-31 when Fel Pup stopped resolving "
                      "here (it is a felhound, not a brute) and no other creature's name hash "
                      "reaches this variant. Kept, not deleted - the next brute-shaped demon "

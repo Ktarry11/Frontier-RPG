@@ -177,6 +177,8 @@ ZONE_BACKGROUND = {
     "The Sequoia Slopes": "st_sequoia_slopes",
     "Stonetalon Peak": "mountain",
     "The Ashvent": "st_ashvent",                  # the lava tube cave
+    "The Eldest Sequoia": "st_heartwood",         # the dungeon, inside the trunk
+    "The Eldest's Crown": "st_crown",             # the dungeon, out on the branches
 
     # --- open country ------------------------------------------------------
     "Eastern Hillsbrad": "mossy_forest",          # "the first HEALTHY country"

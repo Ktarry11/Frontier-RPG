@@ -43,6 +43,7 @@ ZONE_POOLS = {
     "tempest_shallows": ("pool_storm", "pool_whirlpool"),
     "south_felwood": ("pool_moonlit", "pool_river"),     # Ashenvale's water, running out of Felwood
     "stonetalon_east": ("pool_river", "pool_reeds"),     # Ashfall Creek, grey with silt off the volcano
+    "stonetalon_west": ("pool_river", "pool_moonlit"),   # Mistfall Creek and the crater lake
     "north_felwood": ("pool_bubbling", "pool_plagued"),  # the Bloodvenom: poisoned water
     "ashen_reach": ("pool_lava", "pool_bubbling"),
     "moonwell_hollow": ("pool_moonlit", "pool_glowing"),

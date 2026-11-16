@@ -186,6 +186,20 @@ _set("shimmering_flats", 8, 6, "tools/tile_sheets/shimmering_flats_tiles.png",
 """)
 
 
+# ---------------------------------------------------------------------------------------------------------
+# STONETALON (docs/stonetalon_art_prompts.md sheet 1, Kyle 15 Nov 2026). 8x6 = 48 cells: the redwood vale,
+# the sequoia slopes, the Blowdown, the volcano, Sun Rock / the Grimtotem / the Mulgore Rim, and the inside of
+# the great sequoia. Rows MEASURED: 181/165/164/162/163/189 (the first and last run tall); columns even at 192.
+# ---------------------------------------------------------------------------------------------------------
+_set("stonetalon", 8, 6, "tools/tile_sheets/stonetalon_tiles.png", "assets/tiles/stonetalon/materials", """
+    st_redwood_duff st_redwood_sorrel st_sword_ferns st_wet_moss st_fog_duff st_mossy_roots st_bark_litter st_creek_gravel
+    st_sequoia_litter st_needle_cones st_meadow_grass st_granite_lichen st_dry_duff st_trail st_trail_edge st_granite_cliff
+    st_ash_plain st_ash_fireweed st_ash_splinters st_pumice_gravel st_mudflow st_ash_dunes st_ash_gully st_ash_path
+    st_basalt st_scoria st_sulphur st_steaming_ground st_obsidian st_basalt_cliff st_crater_deep st_crater_shallow
+    st_sandstone st_tauren_plaza st_camp_earth st_sandstone_cliff st_grimtotem_earth st_dead_grass st_dark_seep st_void_ground
+    st_heartwood_floor st_ring_wall st_inner_bark_wall st_sap_pool st_beetle_galleries st_branch_walk st_canopy_floor st_sky_below
+""", rows_y=[0, 181, 346, 510, 672, 835, 1024])
+
 if __name__ == "__main__":
     pv = sys.argv[sys.argv.index("--preview") + 1] if "--preview" in sys.argv else None
     keys = [a for a in sys.argv[1:] if a in SETS] or list(SETS)

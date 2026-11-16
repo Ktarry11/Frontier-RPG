@@ -3,7 +3,8 @@
 > Kyle, 15 Nov 2026: "lets start to build some new zones. Maybe stonetalon but with a frontier twist?"
 > Settled in four rounds of questions the same evening (answers below, in his words where he gave words).
 
-**Status: BRIEF.** Nothing is built yet. The order of work is at the bottom.
+**Status (15 Nov, evening): the open world, the town and both caves are built and linked; the dungeon, the hidden
+zones and the quests are next.** The build log is at the bottom.
 
 ## Decisions (Kyle, 15 Nov)
 
@@ -179,3 +180,62 @@ The Earth trees and Stonetalon's own great trees grow side by side, which should
 6. The sequoia dungeon: layout, bosses, loot (all 97 specs).
 7. Quests, about 60 across both zones, with chains out to Ashenvale, the Barrens and the Aspen.
 8. The hidden content (not described).
+
+## Build log
+
+**15 Nov 2026**
+
+- **Art in.** Kyle's four sheets were sliced and filed:
+  - 48 tiles to `assets/tiles/stonetalon/materials` (rows measured: 181/165/164/162/163/189);
+  - 16 trees and 36 props to `assets/tiles/stonetalon/props` (the bunkhouse and the lookout tower also to `assets/buildings`);
+  - 36 creatures to `assets/creatures`.
+  - The magenta key left purple flecks on foliage and pink smoke. `tools/despill_magenta.py` takes off the amount red and blue both sit above green, which leaves real reds (Grimtotem paint) and oranges (lava) alone.
+  - Nine combat backgrounds, one look per place, wired in `world/combat_backgrounds.py`.
+- **Stonetalon East (26-29)**, `tools/handbuilt_stonetalon_east.py`. Painted by `tools/bake_ashenvale.py stonetalon_east` from the Stonetalon tiles.
+  - The Blowdown's grey ash, with low debris ribs lying along the blast line so it walks as lanes.
+  - The Venture Salvage Yard, Windshear Crag, the Standing Grove and the Grimtotem Compound.
+  - The Mulgore Rim's dark at the south-east, a closed border.
+  - Doors:
+    - the Barrens (a new road west out of Northern Barrens' Dry Hills);
+    - Ashenvale West (the Talondeep Path, a new road south off the coast road);
+    - Sun Rock, Windshear Mine and Stonetalon West.
+- **Sun Rock Retreat**, `tools/handbuilt_sun_rock_retreat.py` and `tools/sync_sun_rock_npcs.py`.
+  - The town kit gained `EDGE = "rock"` (a mesa top falls away as rock, not woods), and the town baker gained per-town palettes (`SHEET`), so it's red sandstone.
+  - Services: an inn, wind riders and a class trainer for every class.
+  - Trades in their themed pairs: forge with gems; hide with cloth, cooking and fishing; herbs with alchemy; wood.
+  - Three shops of its own.
+  - People: the Orgrimmar, Steamwheedle and Forsaken envoys, refugees from Mulgore, a transplant geologist, and watches over the Blowdown and the Rim.
+- **Windshear Mine (27-30)**, `tools/handbuilt_windshear_mine.py`.
+  - A ring of galleries round bad rock, broken through into a chimney.
+  - Bosses: Driller Mozzik, plus Old Pumice (optional).
+- **Stonetalon West (29-32)**, `tools/handbuilt_stonetalon_west.py`.
+  - The redwood vale, the sequoia slopes with the great sequoia (its door waits for the dungeon), and the volcano with its walkable rim round the crater lake.
+  - The Venture Cutline and Mistwalker Camp.
+- **The Ashvent (30-32)**, `tools/handbuilt_ashvent.py`.
+  - A braided lava tube, with a skylight halfway down and the glowing Crust at the bottom.
+  - Bosses: Magmacore, plus the Ash Mother (optional).
+- **The Eldest Sequoia (30-33), the dungeon**, `tools/handbuilt_eldest_sequoia.py`. Two maps.
+  - **Map 1, the trunk** (100x124): in at the foot of the tree, up the hollow heart. Heartwood floors, beetle galleries and sap pools, ring-wall bark. Painted by `tools/bake_stonetalon_caves.py trunk`.
+    - Rigboss Gazzle, at the bottom: keeps calling riggers down the ropes. Kill them or be buried.
+    - The Heartrot Queen, in the galleries: her borers keep coming and her bite strips armour. Burst her.
+    - Ambermaw (optional), in the sap well: sticky sap, a hardening amber shield, and a goblin still kicking inside.
+  - **Map 2, the crown** (112x100): the branches, over open air. Kyle: "do that super cool zepplin tower effect bro! DONT have walls...make it feel like we are walking in the sky", then "keep this central part trees.... rest is open or very little trees" and "have some light green around the branch, should still be a bit lush".
+    - Its own baker, `tools/bake_eldest_crown.py`. No walls. The loop the branches make in the middle is the tree's own foliage, darker the deeper in. Everything else is the forest floor a very long way down, under haze, with a river, drifting clouds and their shadows, and the branches' shadow thrown far below.
+    - Every branch carries a lush light-green fringe of leaf clumps (one to three tiles, lobed, rounded and darker at the rim). Leaves are not floor.
+    - The bark edge is drawn as the round side of a branch, lit from the north-west.
+    - Old Talonwing: storm dives hit everyone. Spread the healing.
+    - Topper Kezzik: a plated walker that shields itself. Burst between shields.
+    - The Eldest, at the top: the tree's own spirit. Roots you, shields itself, calls its wardens.
+  - Doors: Stonetalon West (96,70) to the trunk and back; the trunk's top to the crown and back; the crown's far end drops you at the foot of the tree, ONE WAY (nothing outside leads into the crown).
+  - 11 trash types (Venture riggers, haulers, tappers, toppers and a crown shredder; heartrot borers and drones; living sap; crown owls and sky serpents; the Eldest's wardens), packs of three placed by hand.
+  - Loot: five to seven drops per boss, item level = boss level + 2, spread across every kind of spec (bear staff, plate healer libram, caster tome, hunter gun and bow, tank shield, healer totem, idol, fist weapon).
+- **Prop clearance**: the clearance pass (`world/prop_clearance.py`) didn't know redwoods and sequoias grow, so it treated them like crates and took 361 trees off Stonetalon West. They are on its list of growing things now.
+- **Creatures**: 77, from `tools/build_stonetalon_openworld.py`.
+  - 10 open-world rares, 4 cave bosses and 6 dungeon bosses.
+  - Every creature has its own sprite from Kyle's sheet, or the existing art where it fits. The six boss sprites are in use.
+- **Loot**: 88 rare and boss drops, hand-authored from the crafted-gear identities (fixed stats, no rolls).
+  - `tools/qa_stonetalon.py` checks them against all 97 specs of the 30 classes. Every spec can equip and wants at least 3.
+  - Coverage includes strength leather, mail healers, a caster's shield, plate healers, bear tank pieces, a healer totem, an idol, a thrown weapon, fist weapons, polearms and crossbows.
+- **Gathering and fishing**: tables for both zones, in the 25-32 band, wood-heavy. Both caves keep ore.
+
+**Next:** the hidden content (not described), then the quests (about 60, with chains out to Ashenvale, the Barrens and the Aspen).

@@ -5686,6 +5686,7 @@ def create_all_zones():
     from tools.handbuilt_felwood_south import generate_felwood_south
     from tools.handbuilt_stonetalon_east import generate_stonetalon_east
     from tools.handbuilt_sun_rock_retreat import generate_sun_rock_retreat
+    from tools.handbuilt_stonetalon_west import generate_stonetalon_west
     from tools.handbuilt_emerald_sanctuary import generate_emerald_sanctuary
     from tools.handbuilt_felwood_north import generate_felwood_north
     from tools.handbuilt_astranaar import generate_astranaar as generate_astranaar_handbuilt
@@ -5738,6 +5739,7 @@ def create_all_zones():
         # ===== STONETALON (26-32, docs/stonetalon_brief.md): between Ashenvale and the Barrens =====
         "Stonetalon East": generate_stonetalon_east(),  # hand-built (tools/handbuilt_stonetalon_east.py)
         "Sun Rock Retreat": generate_sun_rock_retreat(),  # Stonetalon's town (tools/handbuilt_sun_rock_retreat.py)
+        "Stonetalon West": generate_stonetalon_west(),  # hand-built (tools/handbuilt_stonetalon_west.py)
         "Emerald Sanctuary": generate_emerald_sanctuary(),  # the Emerald Reclamation's town (tools/handbuilt_emerald_sanctuary.py)
         "North Felwood": generate_felwood_north(),  # the demon wastes, 53-55 (tools/handbuilt_felwood_north.py)
         # The Shadow Council's hold on North Felwood's west wall. 52-55, eight bosses, the T0 hands.
@@ -5934,6 +5936,11 @@ def create_all_zones():
     zones["Serena's Hollow"] = generate_serenas_hollow_handbuilt()  # hand-built (tools/handbuilt_serenas_hollow.py)
     from tools.handbuilt_windshear_mine import generate_windshear_mine
     zones["Windshear Mine"] = generate_windshear_mine()  # Stonetalon East's cave (tools/handbuilt_windshear_mine.py)
+    from tools.handbuilt_ashvent import generate_ashvent
+    zones["The Ashvent"] = generate_ashvent()  # Stonetalon West's cave (tools/handbuilt_ashvent.py)
+    from tools.handbuilt_eldest_sequoia import generate_eldest_trunk, generate_eldest_crown
+    zones["The Eldest Sequoia"] = generate_eldest_trunk()   # Stonetalon's dungeon, map 1: up the trunk
+    zones["The Eldest's Crown"] = generate_eldest_crown()   # map 2: the branches, open air (tools/bake_eldest_crown.py)
     from tools.handbuilt_moonwell_hollow import generate_moonwell_hollow
     from tools.handbuilt_howling_barrows import generate_howling_barrows
     zones["Howling Barrows"] = generate_howling_barrows()  # hand-built (tools/handbuilt_howling_barrows.py)

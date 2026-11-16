@@ -40,7 +40,7 @@ W, H = 200, 180
 DOORS = {(196, 118): ("Stonetalon East", (194, 118)), (96, 70): ("The Eldest Sequoia", (96, 72)),
          (150, 40): ("The Ashvent", (150, 42)), (4, 150): ("Desolace", (6, 150))}
 #: The doors whose maps exist; the rest are carved and framed but shut (qa_portals fails a door that leads nowhere).
-BUILT = {"Stonetalon East"}
+BUILT = {"Stonetalon East", "The Ashvent", "The Eldest Sequoia"}
 PORTALS = {xy: dest for xy, (dest, _a) in DOORS.items() if dest in BUILT}
 ARRIVALS = [a for xy, (dest, a) in DOORS.items() if dest in BUILT]
 LATER_PORTALS = {xy: dest for xy, (dest, _a) in DOORS.items() if dest not in BUILT}

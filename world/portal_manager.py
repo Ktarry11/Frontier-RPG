@@ -554,8 +554,8 @@ class PortalManager:
                 (68, 196): ("Stonetalon East", 172, 4),       # the Talondeep Path
             },
             # ===== STONETALON (docs/stonetalon_brief.md): south of Ashenvale West, west of Northern Barrens =====
-            # Stonetalon West (4,118) goes in when that map exists (tools/handbuilt_stonetalon_east.py LATER_PORTALS).
             "Stonetalon East": {
+                (4, 118): ("Stonetalon West", 196, 118),         # the Cutline
                 (188, 44): ("Windshear Mine", 45, 76),
                 (196, 96): ("Northern Barrens", 4, 92),
                 (172, 4): ("Ashenvale West", 68, 196),
@@ -563,6 +563,27 @@ class PortalManager:
             },
             "Sun Rock Retreat": {
                 (3, 46): ("Stonetalon East", 144, 93),
+            },
+            # Stonetalon West: the way to Desolace (4,150) goes in when that map exists
+            # (tools/handbuilt_stonetalon_west.py LATER_PORTALS)
+            "Stonetalon West": {
+                (196, 118): ("Stonetalon East", 4, 118),
+                (150, 40): ("The Ashvent", 48, 80),
+                (96, 70): ("The Eldest Sequoia", 50, 120),
+            },
+            # THE ELDEST SEQUOIA (tools/handbuilt_eldest_sequoia.py): in at the foot of the trunk, up through
+            # it, out onto the crown. The crown's far end (56,3) is ONE WAY back down to the foot of the tree:
+            # after the Eldest you leave, and there is no tile outside that drops you in at the top.
+            "The Eldest Sequoia": {
+                (50, 120): ("Stonetalon West", 96, 70),
+                (50, 3): ("The Eldest's Crown", 56, 96),
+            },
+            "The Eldest's Crown": {
+                (56, 96): ("The Eldest Sequoia", 50, 3),
+                (56, 3): ("Stonetalon West", 100, 72),
+            },
+            "The Ashvent": {
+                (48, 80): ("Stonetalon West", 150, 40),
             },
             "Windshear Mine": {
                 (45, 76): ("Stonetalon East", 188, 44),

@@ -192,6 +192,31 @@ _set("felwood", 6, 6, "assets/tiles/felwood/_src", """
     fw_infernal_crater fw_fel_brazier fw_demon_portal fw_deadwood_hut fw_deadwood_totem fw_demon_bones
     fw_ashenvale_tree fw_half_cleansed_tree fw_highborne_column fw_fallen_statue fw_highborne_arch fw_moonflowers""")
 
+#: STONETALON (docs/stonetalon_art_prompts.md sheets 2 and 3, Kyle 15 Nov 2026). Both cut straight to the props
+#: folder; the two buildings (the bunkhouse and the lookout tower) are copied on to assets/buildings by
+#: tools/file_stonetalon_art.py.
+_set("stonetalon_creatures", 6, 6, "assets/creatures/_src/stonetalon", """
+    st_grim_warrior st_grim_shaman st_grim_hunter st_grim_brute st_grim_mystic st_grim_elder
+    st_venture_logger st_venture_sawyer st_venture_demolitionist st_venture_foreman st_venture_rigger st_venture_shredder
+    st_windshear_harpy st_windshear_witch st_cougar st_bull_elk st_bald_eagle st_black_bear
+    st_ash_elemental st_pumice_golem st_steam_elemental st_basalt_elemental st_bark_beetle st_redwood_ancient
+    st_beetle_mother st_sap_ooze st_canopy_owl st_sky_serpent st_risen_tauren st_risen_stalker
+    st_boss_rigboss_gazzle st_boss_heartrot_queen st_boss_ambermaw st_boss_old_talonwing st_boss_topper_kezzik st_boss_the_eldest""")
+
+_set("stonetalon_trees", 4, 4, "assets/tiles/stonetalon/props", """
+    st_redwood_giant st_redwood_twin st_redwood_young st_redwood_ring
+    st_sequoia_great st_sequoia_mature st_sequoia_scarred st_sequoia_young
+    st_log_redwood st_sequoia_rootplate st_giant_snag st_logged_stump
+    st_redwood_hollow st_nurse_log st_redwood_burl st_canopy_overlay""")
+
+_set("stonetalon", 6, 6, "assets/tiles/stonetalon/props", """
+    st_log_deck st_saw_rig st_steam_winch st_venture_bunkhouse st_shredder_wreck st_sawdust_burner
+    st_log_sled st_sawdust_pile st_venture_sign st_powder_kegs st_venture_tower st_climbing_rig
+    st_fumarole st_steam_vents st_obsidian_boulder st_lava_tube_mouth st_pumice_pile st_cinder_cone
+    st_grim_war_totem st_grim_tent st_grim_drum st_grim_palisade st_grim_stone_circle st_grim_hide_rack
+    st_harpy_nest st_wind_spire st_wind_arch st_mine_entrance st_ore_cart st_scout_camp
+    st_rim_thorn_fence st_burial_platform st_rim_cairn st_ferns_big st_sorrel_patch st_moss_boulder""")
+
 _set("dark_iron", 6, 5, "assets/buildings", """
     di_smeltery di_great_hall di_gatehouse di_barracks di_watchtower di_wall_section
     di_blast_furnace di_boiler_works di_mine_head di_crane_warehouse di_smithy di_vault

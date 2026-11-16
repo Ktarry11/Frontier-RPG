@@ -53,7 +53,7 @@ DOORS = {(196, 96): ("Northern Barrens", (194, 96)), (172, 4): ("Ashenvale West"
          (4, 118): ("Stonetalon West", (6, 118))}
 #: The doors whose maps exist. The rest are carved and framed but stay shut (qa_portals fails a door that leads
 #: nowhere); each one is added here when its map is built.
-BUILT = {"Northern Barrens", "Ashenvale West", "Sun Rock Retreat", "Windshear Mine"}
+BUILT = {"Northern Barrens", "Ashenvale West", "Sun Rock Retreat", "Windshear Mine", "Stonetalon West"}
 PORTALS = {xy: dest for xy, (dest, _a) in DOORS.items() if dest in BUILT}
 ARRIVALS = [a for xy, (dest, a) in DOORS.items() if dest in BUILT]
 LATER_PORTALS = {xy: dest for xy, (dest, _a) in DOORS.items() if dest not in BUILT}

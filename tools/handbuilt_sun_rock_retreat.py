@@ -35,7 +35,7 @@ DESC = "A tauren hold on its rock above the Blowdown, bigger since Thunder Bluff
 REGION = "Kalimdor - Stonetalon"
 W, H = 100, 84
 BAKED_DIR = "assets/tiles/stonetalon/baked_sun_rock"
-SHEET = "stonetalon_east"
+SHEET = "sun_rock"
 EDGE = "rock"
 PORTALS = {(3, 46): "Stonetalon East"}
 ARRIVALS = [(5, 46)]
@@ -76,7 +76,7 @@ NPC_POSITIONS = {
     # the envoys
     "sr_orgrimmar_envoy":   (82, 52),
     "sr_steamwheedle_agent": (68, 54),
-    "sr_forsaken_apothecary": (90, 62),
+    "sr_forsaken_apothecary": (84, 62),
     # a transplant who came for the mountain
     "sr_transplant_geologist": (60, 34),
     # services
@@ -88,8 +88,8 @@ NPC_POSITIONS = {
     # trainers: one class trainer for every class, and the trades in their themed pairs
     "ct_sun_rock":          (44, 52),
     "pt_sun_rock_forge":    (32, 66),
-    "pt_sun_rock_hide":     (46, 70),
-    "pt_sun_rock_herbs":    (62, 68),
+    "pt_sun_rock_hide":     (38, 70),
+    "pt_sun_rock_herbs":    (69, 70),
     "pt_sun_rock_wood":     (76, 64),
 }
 CHESTS = [(92, 22), (10, 22)]

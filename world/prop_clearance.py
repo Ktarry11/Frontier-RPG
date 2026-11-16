@@ -34,7 +34,7 @@ SOFT = re.compile(
     r"tree|palm|pine|aspen|oak|acacia|willow|birch|bamboo|shroom|mushroom|fung|fern|grass|bush|"
     r"shrub|scrub|thorn|vine|moss|lily|cattail|reed|flower|weed|kelp|coral|cactus|saguaro|sage|"
     r"root|stump|log|deadfall|snag|sapling|canopy|frond|ivy|lichen|web|mangrove|hibiscus|banana|"
-    r"huckleberry|fireweed|thicket|tussock|krummholz|"
+    r"huckleberry|fireweed|thicket|tussock|krummholz|redwood|sequoia|sorrel|salal|"
     r"puddle|pool|crack|fissure|rug|circle|rune_floor|shadow|glow|light|ember|smoke|"
     r"streamers|banner|rope_railing|fence|wall_section|palisade|bridge|plank|deck|stair|ramp", re.I)
 #: Rock on rock is a rock pile. Only compared against something made.

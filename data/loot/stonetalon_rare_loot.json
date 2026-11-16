@@ -567,5 +567,391 @@
       "icon_id": "gear_inv_shoulder_28",
       "item_id": "st_sunless_pauldrons"
     }
+  ],
+  "Gnawheart": [
+    {
+      "name": "Chitin-Plated Vest",
+      "slot": "chest",
+      "item_level": 34,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "stamina": 14,
+        "agility": 9
+      },
+      "secondary_stats": {
+        "dodge_rating": 7
+      },
+      "armor_value": 188,
+      "required_level": 32,
+      "sell_price": 5674,
+      "identity": "bear",
+      "icon_id": "gear_inv_chest_chain_03",
+      "item_id": "st_chitin_plated_vest"
+    },
+    {
+      "name": "Gnawheart's Mandible",
+      "slot": "main_hand",
+      "item_level": 34,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "dagger",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 7
+      },
+      "secondary_stats": {
+        "attack_power": 16,
+        "crit_chance_physical": 7
+      },
+      "armor_value": 0,
+      "required_level": 32,
+      "sell_price": 5391,
+      "identity": "rogue_crit",
+      "icon_id": "gear_inv_weapon_shortblade_27",
+      "weapon_damage_min": 63,
+      "weapon_damage_max": 85,
+      "attack_speed": 1.7,
+      "block_value": 0,
+      "item_id": "st_gnawhearts_mandible"
+    },
+    {
+      "name": "Beetle-Wing Cloak",
+      "slot": "back",
+      "item_level": 34,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "attack_power": 18,
+        "hit_rating": 5
+      },
+      "armor_value": 116,
+      "required_level": 32,
+      "sell_price": 3121,
+      "identity": "physical",
+      "icon_id": "gear_inv_misc_cape_21",
+      "item_id": "st_beetle_wing_cloak"
+    },
+    {
+      "name": "Bored-Heartwood Wand",
+      "slot": "ranged",
+      "item_level": 34,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "wand",
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "spell_power": 14,
+        "spell_hit_rating": 6
+      },
+      "armor_value": 0,
+      "required_level": 32,
+      "sell_price": 4540,
+      "identity": "precise_caster",
+      "icon_id": "gear_inv_wand_07",
+      "weapon_damage_min": 53,
+      "weapon_damage_max": 72,
+      "attack_speed": 1.9,
+      "block_value": 0,
+      "item_id": "st_bored_heartwood_wand"
+    }
+  ],
+  "Grandfather Burl": [
+    {
+      "name": "Burlwood Staff",
+      "slot": "main_hand",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "staff",
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 12,
+        "spirit": 10
+      },
+      "secondary_stats": {
+        "healing_power": 53
+      },
+      "armor_value": 0,
+      "required_level": 33,
+      "sell_price": 7538,
+      "identity": "high_healer",
+      "icon_id": "gear_inv_staff_18",
+      "weapon_damage_min": 35,
+      "weapon_damage_max": 48,
+      "attack_speed": 3.2,
+      "block_value": 0,
+      "item_id": "st_burlwood_staff"
+    },
+    {
+      "name": "Grandfather's Mossy Mantle",
+      "slot": "shoulder",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 7,
+        "spirit": 5
+      },
+      "secondary_stats": {
+        "healing_power": 30
+      },
+      "armor_value": 106,
+      "required_level": 33,
+      "sell_price": 4824,
+      "identity": "high_healer",
+      "icon_id": "gear_inv_shoulder_31",
+      "item_id": "st_grandfathers_mossy_mantle"
+    },
+    {
+      "name": "Rootbound Greaves",
+      "slot": "feet",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_int_hybrid",
+      "primary_stats": {
+        "strength": 7,
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "attack_power": 16
+      },
+      "armor_value": 190,
+      "required_level": 33,
+      "sell_price": 3920,
+      "identity": "crusader",
+      "icon_id": "gear_inv_boots_plate_06",
+      "item_id": "st_rootbound_greaves"
+    },
+    {
+      "name": "Living Bark Idol",
+      "slot": "ranged",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "idol",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "stamina": 9,
+        "agility": 4
+      },
+      "secondary_stats": {},
+      "armor_value": 0,
+      "required_level": 33,
+      "sell_price": 4824,
+      "identity": "bear",
+      "icon_id": "gear_inv_idol_3",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "item_id": "st_living_bark_idol"
+    }
+  ],
+  "Skyreach": [
+    {
+      "name": "Feathered Serpent Hood",
+      "slot": "head",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 9,
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "attack_power": 19
+      },
+      "armor_value": 97,
+      "required_level": 33,
+      "sell_price": 4824,
+      "identity": "wildheart",
+      "icon_id": "gear_inv_helmet_40",
+      "item_id": "st_feathered_serpent_hood"
+    },
+    {
+      "name": "Skyreach Scale Legguards",
+      "slot": "legs",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 10
+      },
+      "secondary_stats": {
+        "spell_power": 25,
+        "crit_chance_spell": 5
+      },
+      "armor_value": 183,
+      "required_level": 33,
+      "sell_price": 6031,
+      "identity": "mail_caster",
+      "icon_id": "gear_inv_pants_14",
+      "item_id": "st_skyreach_scale_legguards"
+    },
+    {
+      "name": "Stormfang Crossbow",
+      "slot": "ranged",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "crossbow",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 6
+      },
+      "secondary_stats": {
+        "attack_power": 16,
+        "crit_chance_physical": 6
+      },
+      "armor_value": 0,
+      "required_level": 33,
+      "sell_price": 4824,
+      "identity": "hunter_crit",
+      "icon_id": "gear_inv_weapon_crossbow_05",
+      "weapon_damage_min": 55,
+      "weapon_damage_max": 74,
+      "attack_speed": 2.4,
+      "block_value": 0,
+      "item_id": "st_stormfang_crossbow"
+    },
+    {
+      "name": "Coil of the Peak",
+      "slot": "neck",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "spell_power": 15,
+        "crit_chance_spell": 6
+      },
+      "armor_value": 0,
+      "required_level": 33,
+      "sell_price": 3618,
+      "identity": "caster_crit",
+      "icon_id": "gear_inv_jewelry_necklace_05",
+      "item_id": "st_coil_of_the_peak"
+    }
+  ],
+  "Saw-Boss Brakka": [
+    {
+      "name": "Brakka's Twin-Saw",
+      "slot": "main_hand",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "sword_2h",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 8
+      },
+      "secondary_stats": {
+        "attack_power": 21,
+        "crit_chance_physical": 8
+      },
+      "armor_value": 0,
+      "required_level": 33,
+      "sell_price": 7538,
+      "identity": "strength_crit",
+      "icon_id": "gear_inv_sword_39",
+      "weapon_damage_min": 87,
+      "weapon_damage_max": 118,
+      "attack_speed": 3.4,
+      "block_value": 0,
+      "item_id": "st_brakkas_twin_saw"
+    },
+    {
+      "name": "Cockpit Plate Gauntlets",
+      "slot": "hands",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 11,
+        "strength": 4
+      },
+      "secondary_stats": {
+        "defense_rating": 9
+      },
+      "armor_value": 190,
+      "required_level": 33,
+      "sell_price": 3920,
+      "identity": "tank",
+      "icon_id": "gear_inv_gauntlets_13",
+      "item_id": "st_cockpit_plate_gauntlets"
+    },
+    {
+      "name": "Clear-Cut Shield",
+      "slot": "off_hand",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "shield",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 12,
+        "strength": 4
+      },
+      "secondary_stats": {
+        "block_value": 11
+      },
+      "armor_value": 357,
+      "required_level": 33,
+      "sell_price": 4824,
+      "identity": "shield_tank",
+      "icon_id": "gear_inv_shield_12",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 41,
+      "item_id": "st_clear_cut_shield"
+    },
+    {
+      "name": "Sawdust-Caked Bracers",
+      "slot": "wrist",
+      "item_level": 35,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 5,
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "healing_power": 26
+      },
+      "armor_value": 39,
+      "required_level": 33,
+      "sell_price": 3015,
+      "identity": "healer",
+      "icon_id": "gear_inv_bracer_03",
+      "item_id": "st_sawdust_caked_bracers"
+    }
   ]
 }
