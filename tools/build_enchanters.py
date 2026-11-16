@@ -38,7 +38,7 @@ STANDING = ["org_enchanter", "uc_enchanter", "kb_enchanter"]
 NEW = {
     "stw_enchanter": dict(
         name="Enchanter Zizzle Sparkwick", zone="steamwheedle_port", race="goblin", gender="male",
-        variant=7, xy=(73, 45), faction="neutral", gear_level=44, roster="steamwheedle",
+        variant=7, xy=(31, 52), faction="neutral", gear_level=44, roster="steamwheedle",
         sells=["runed_copper_rod", "runed_silver_rod", "runed_golden_rod", "vial_leaded"],
         greeting=("I teach enchanting, and I sell the rods for it. The good rods cost a fortune, "
                   "and that's because the bars cost a fortune. Get a blacksmith to make you one if "

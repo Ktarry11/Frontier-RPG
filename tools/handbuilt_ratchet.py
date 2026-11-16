@@ -16,6 +16,7 @@ HARD CONTRACTS (world/portal_manager.py)
 import sys
 
 import numpy as np
+from tools.tint_goblin_buildings import path_for as tint_path
 
 from tools import town_kit as K
 from tools.handbuilt_central_barrens import _wob, _smooth, _gauss
@@ -172,8 +173,12 @@ EXTRA_NPC_XY = list(RECRUITS.values()) + [FORGE]
 CHESTS = [(6, 52), (62, 10), (28, 53), (20, 8)]
 
 
+MKT = "assets/tiles/market/props/"
+
+
 def dress(L):
     P, B, D, C = L.prop, L.bld, L.dp, L.cp
+    G = lambda sprite: tint_path("ratchet", sprite)       # the goblin set, washed dusty for the Barrens
     z = L.z
     # ---- the boat (flavour interaction tile at the end of the main pier)
     z.collision_layer[BOAT[1]][BOAT[0]] = None
@@ -188,9 +193,9 @@ def dress(L):
     D("rf_tool_rack", 15, 14, 3)
     D("rf_ore_cart", 6, 16, 3)
     D("rf_supply_crates", 18, 16, 3)
-    B("generic_house_a", 20, 13, 7)
-    B("generic_shack_a", 6, 14, 5)
-    B("generic_house_b", 38, 11, 6)
+    B(G("gob_house_medium"), 20, 13, 6)
+    B(G("gob_house_small"), 6, 14, 5)
+    B(G("gob_stacked_houses"), 38, 11, 7)
     # (a shack stood half inside the house next door; Ratchet does not need both)
     P("br_signpost", 29, 20, 5)
     # ---- the headland: harbour tower and signal light
@@ -201,13 +206,14 @@ def dress(L):
     D("vot_war_drum", 31, 29, 3)
     B("bazaar_stall_row", 25, 37, 5)
     B("the_broken_keel", 15, 41, 9)
-    B("trading_post", 24, 47, 6)
-    B("generic_hut_a", 8, 41, 6)
-    B("generic_hut_b", 9, 50, 6)
-    B("plain_orc_house_b", 29, 51, 5)
+    B(G("gob_emporium"), 24, 47, 6)
+    B(G("gob_house_small"), 8, 41, 6)
+    B(G("gob_house_medium"), 9, 50, 5)
+    B(G("gob_boarding_house"), 29, 51, 6)
     B("generic_tent_a", 4, 46, 5)
-    B("supply_cache_shed", 39, 39, 5)
+    B(G("gob_warehouse_b"), 39, 39, 5)
     D("vot_fire_pit", 20, 36, 2, solid=False)
+    P("podium_goblin", 20, 39, 3, path_dir=MKT)                 # Snork's block, by the Keel
     D("rf_supply_crates", 33, 36, 3)
     # ---- the waterfront: warehouse on the north pier road, drying racks, wrecks
     B("ratchet_docks_warehouse", 39, 24, 9, nudge=1, road_ok=True)

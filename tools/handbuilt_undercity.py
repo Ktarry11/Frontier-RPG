@@ -494,16 +494,17 @@ def _dress(L):
             x, y = pol(37, d + 22.5)
             p("uc_lantern_post", x, y, 6, nudge=2)
     # the Inn
-    b("forsaken_house_medium", 131, 132, 9)
+    b("forsaken_inn", 131, 132, 10)
+    b("forsaken_post_office", 120, 130, 9, nudge=2)               # the post, beside the inn's mailbox
     p("uc_bench", 124, 140, 3)
     p("uc_lantern_post", 118, 134, 6)
     # the Bank of Undercity
-    p("uc_vault_door", 74, 71, 6, solid=True)
+    b("forsaken_bank", 74, 71, 10)
     p("uc_crate_stack", 67, 72, 3)
     p("uc_crate_stack", 81, 71, 3)
     p("uc_lantern_post", 68, 80, 6)
     # the Auction House
-    b("forsaken_town_hall", 128, 70, 11)
+    b("forsaken_auction_house", 128, 70, 11)
     p("uc_lantern_post", 118, 80, 6)
     p("uc_crate_stack", 135, 72, 3)
     # the Mortuary
@@ -562,7 +563,7 @@ def _dress(L):
     p("uc_stall_goods", 27, 92, 5)
     p("uc_lantern_post", 20, 86, 6)
     # barracks of the Royal Guard
-    b("forsaken_house_medium", 64, 47, 10)
+    b("forsaken_house_large", 64, 47, 10)
     p("uc_weapon_rack", 62, 52, 4)
     p("uc_lantern_post", 44, 66, 6)
 
@@ -577,7 +578,7 @@ def _dress(L):
         x, y = hc("magic", 7.0, d)
         p("uc_lectern", x, y, 4, nudge=1)
     # the Archive
-    b("forsaken_house_medium", 128, 30, 9)
+    b("forsaken_mage_tower", 128, 30, 13)
     dp("bbc_bookshelf", 120, 24, 5)
     dp("wizard_desk", 136, 36, 4)
     p("uc_lantern_post", 122, 40, 6)
@@ -586,7 +587,7 @@ def _dress(L):
     dp("rf_sacrificial_altar", 160, 60, 6)
     dp("bbc_fel_brazier", 172, 56, 5)
     # Enchanter, reagent and demon vendors
-    b("forsaken_house_small", 174, 72, 8)
+    b("forsaken_shadow_chapel", 174, 72, 10)
     p("uc_stall_bottles", 178, 90, 5)
     p("uc_stall_goods", 168, 63, 5, nudge=1)
     dp("broken_column", 142, 46, 5)
@@ -614,14 +615,14 @@ def _dress(L):
     p("uc_crate_stack", 38, 140, 3)
     # weaponsmith
     p("uc_weapon_rack", 46, 124, 4)
-    b("forsaken_house_medium", 58, 120, 10)               # the barracks
+    b("forsaken_barracks", 58, 120, 10)                   # the barracks
     # rogues' alley
     b("forsaken_house_small", 28, 114, 8)
     p("uc_stall_bottles", 30, 130, 5)
     p("uc_crate_stack", 17, 128, 3)
     # hunters' lodge
-    b("forsaken_house_small", 74, 160, 8)
-    b("forsaken_house_small", 72, 186, 8)
+    b("forsaken_stable", 74, 160, 7)
+    b("forsaken_house_small_b", 72, 186, 7)
     ek("ek_scarecrow", 66, 176, 5)
     p("uc_lantern_post", 62, 156, 6)
     p("uc_lantern_post", 30, 156, 6)

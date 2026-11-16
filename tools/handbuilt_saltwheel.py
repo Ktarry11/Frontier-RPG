@@ -35,6 +35,7 @@ is where the Raceway spur road meets the ring.
 """
 from world.tilemap import Tilemap
 from tools.handbuilt_vot_caves import CaveLayout, register_baked  # noqa: F401
+from tools.tint_goblin_buildings import path_for as tint_path
 
 BAKED = "assets/tiles/saltwheel/baked"
 BLD = "assets/buildings/"
@@ -85,6 +86,7 @@ NPC_POSITIONS = {
 }
 
 #: (sprite, cx, base_y, height). Salt-washed goblin buildings, two rows facing the straight.
+G = lambda sprite: tint_path("saltwheel", sprite)      # the goblin set, lightly tinted for this port
 BUILDINGS = [
     ("sw_inn", 36, 36, 16),
     ("sw_trade_shop", 56, 36, 12),
@@ -92,8 +94,8 @@ BUILDINGS = [
     ("sw_warehouse", 94, 36, 12),
     ("sw_workshop", 48, 70, 13),
     ("sw_shack", 30, 68, 9),
-    ("sw_shack_a", 66, 69, 9),
-    ("sw_shack_b", 86, 69, 9),
+    (G("gob_racing_garage"), 66, 70, 8),   # the goblin town sheet, washed salt-cool
+    (G("gob_salvage_yard"), 86, 70, 7),
 ]
 
 

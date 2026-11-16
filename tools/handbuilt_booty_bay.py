@@ -298,7 +298,7 @@ def dress(L):
 
     # ---- the upper gallery: the market row ------------------------------------------------------
     B("bb_trade_shop", 29, 28, 5)
-    B("bb_trade_shop", 37, 28, 6)
+    B("gob_alchemy_lab", 37, 28, 6)
     # A third shop stood here at (46, 26), drawn through the harbourmaster's tower. The gallery
     # has no room for it east of the tower, so it is gone until Booty Bay is rebuilt (backlog C [51]).
     D("rf_supply_crates", 33, 28, 3)
@@ -306,7 +306,7 @@ def dress(L):
 
     # ---- the back walk and the cross bridge -----------------------------------------------------
     B("bb_harbour_inn", 20, 40, 9, nudge=2)
-    B("bb_lean_shack", 19, 30, 6, nudge=2)
+    B("gob_house_small", 19, 30, 6, nudge=2)
     D("rf_tool_rack", 19, 34, 3)
     D("vot_fire_pit", 32, 36, 2, solid=False)
     D("rf_supply_crates", 37, 36, 3)
@@ -343,13 +343,13 @@ def dress(L):
     L.deco("stv_boat_wreck", 60, 50, 4, path_dir=SP)
 
     # ---- THE OUTER HARBOUR: wharf, long quay, fish market, and the ships riding off them -------------
-    B("bb_warehouse", 85, 23, 7, nudge=3)
+    B("gob_warehouse_b", 85, 23, 7, nudge=3)
     B("gg_supply_store", 80, 27, 5, nudge=2)
-    B("bb_lean_shack", 90, 27, 5, nudge=2)
-    B("bb_trade_shop", 93, 37, 6, nudge=3)
-    B("bd_dock_house", 82, 38, 6, nudge=3)
+    B("gob_house_small", 90, 27, 5, nudge=2)
+    B("gob_fish_market", 93, 37, 6, nudge=3)
+    B("gob_dock_office", 82, 38, 6, nudge=3)
     B("bb_lean_shack", 80, 50, 5, nudge=2)
-    B("bb_trade_shop", 87, 49, 5, nudge=2)
+    B("gob_shipwright", 87, 49, 6, nudge=2)
     L.prop("stv_fish_rack", 78, 45, 4, path_dir=SP)
     L.prop("stv_fish_crates", 84, 45, 3, path_dir=SP)
     L.prop("stv_lobster_pots", 90, 44, 3, path_dir=SP)

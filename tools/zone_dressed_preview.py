@@ -64,6 +64,7 @@ ZONES = {
     "ratchet": "tools.handbuilt_ratchet",
     "steamwheedle_port": "tools.handbuilt_steamwheedle_port",
     "saltwheel": "tools.handbuilt_saltwheel",
+    "undercity": "tools.handbuilt_undercity",
 }
 
 #: A cave module's entry point is build_<slug>_baked() rather than build_layout(), and it returns
@@ -83,6 +84,8 @@ BUILDERS = {
     "galleon_deck": "build_galleon_deck_baked",
     "galleon_hold": "build_galleon_hold_baked",
     "cabin": "build_cabin_baked",
+    "steamwheedle_port": "build_steamwheedle_baked",
+    "saltwheel": "build_saltwheel_baked",
 }
 
 
@@ -166,7 +169,9 @@ def compose(key, out, scale=4, props=True):
 
 if __name__ == "__main__":
     args = sys.argv[1:]
-    key = next((a for a in args if a in ZONES), "aspen")
+    key = next((a for a in args if a in ZONES), None)
+    if key is None:
+        sys.exit("unknown zone; known: " + ", ".join(sorted(ZONES)))
     out = args[args.index("--out") + 1] if "--out" in args else f"/tmp/{key}_dressed.png"
     scale = int(args[args.index("--scale") + 1]) if "--scale" in args else 4
     compose(key, out, scale, props="--no-props" not in args)

@@ -310,7 +310,7 @@ def build():
         "stopped standing at the top of the hill watching.\n\nSenna Coil has got to the bottom of "
         "her queue for the first time since the second winter and does not know what to do with the "
         "afternoon.",
-        [explore(SP, 24, 26, 8), k("Drownbell Deckhand", 10), gather("tan_bosun_whistle", 4)],
+        [explore(SP, 84, 40, 8), k("Drownbell Deckhand", 10), gather("tan_bosun_whistle", 4)],
         "Walk the new front, end to end, and tell me if it reads as one quay or as two.\n\nThen go "
         "and finish what started this. Ten more off the shore and four of the bosuns' whistles - "
         "they signal with them and I would like to know the calls, because a harbour that can read "

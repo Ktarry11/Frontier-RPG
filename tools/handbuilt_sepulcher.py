@@ -135,23 +135,24 @@ def dress(L):
     p("ek_forsaken_banner", 50, 64, 5)
     p("ek_signpost", 47, 66, 4)
     # ---- the lower court: the inn, the stalls, the well
-    b("forsaken_house_medium", 31, 52, 10, nudge=1)                       # the Hollow Cask
+    b("forsaken_inn", 33, 52, 9, nudge=1)                                 # the Hollow Cask
     p("ek_plague_cauldron", 35, 55, 3)
     p("ek_signpost", 38, 56, 4)
-    b("forsaken_house_small", 24, 52, 8, nudge=1)                         # the mortician's
+    b("forsaken_house_small_b", 24, 52, 7, nudge=1)                       # the mortician's
     p("ek_open_grave", 19, 59, 3)
     p(UC + "uc_stall_goods.png", 55, 54, 4)
     p(UC + "uc_stall_bottles.png", 61, 54, 4)
     p(UC + "uc_crate_stack.png", 64, 60, 3)
-    p("ek_farm_well", 44, 52, 4)
+    b("forsaken_house_row", 60, 64, 6, nudge=1)                          # the lower terrace lodgings
+    b("forsaken_well", 44, 52, 5, nudge=1, road_ok=True)
     b("forsaken_house_small", 70, 53, 8, nudge=1)                         # the hermit's lean-to
     for x in (28, 40, 52, 62):
         p(UC + "uc_lantern_post.png", x, 61 if x % 8 == 4 else 55, 5, solid=False)
     # ---- the middle terrace: apothecary, bone-carver's and relic hall
-    b("forsaken_house_small", 36, 35, 8, nudge=1)                         # the apothecary
+    b("forsaken_apothecary", 36, 35, 8, nudge=1)                          # the apothecary
     p(UC + "uc_alchemy_table.png", 40, 40, 3)
     p(UC + "uc_plague_vat.png", 31, 38, 4)
-    b("forsaken_house_small", 55, 33, 8, nudge=1)                         # the bone-carver's
+    b("forsaken_crafter_house", 55, 33, 8, nudge=1)                       # the bone-carver's
     p("ek_scarecrow", 57, 39, 4)
     p("ek_forsaken_banner", 41, 33, 5)
     p("ek_forsaken_banner", 48, 33, 5)
@@ -173,6 +174,7 @@ def dress(L):
     p("ek_willow", 6, 38, 7)
     # ---- the chapel yard
     b("crypt_chapel", 76, 28, 10, nudge=1)
+    b("forsaken_bat_roost", 84, 31, 8, nudge=1)                          # the bat handler's roost
     p(CI + "worn_tombstone_row.png", 70, 36, 3)
     p(CI + "worn_tombstone_row.png", 80, 36, 3)
     p("ek_cross_crows", 71, 29, 4)

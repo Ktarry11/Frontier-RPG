@@ -248,6 +248,9 @@ def dress(L):
     b("ek_forsaken_field_tent", 69, 34, 5, nudge=1)
     b("ek_forsaken_watchtower", 55, 65, 7, nudge=1)
     b("ek_forsaken_watchtower", 66, 22, 7, nudge=1)
+    b("forsaken_barracks", 58, 29, 7, nudge=2)                 # the Society's billet
+    b("forsaken_bat_roost", 79, 37, 8, nudge=2)                 # the bat handler's roost
+    b("forsaken_cauldron_yard", 66, 70, 6, nudge=2)
     p("ek_forsaken_banner", 66, 31, 5)
     p("ek_cross_crows", 75, 36, 4)
     # ---- the boarded end: the townsfolk who lived this side were moved on

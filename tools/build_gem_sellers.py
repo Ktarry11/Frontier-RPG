@@ -49,7 +49,7 @@ SELLERS = {
                   "wearing.")),
     "stw_gem_trader": dict(
         name="Gem-Trader Pixi Quartzwhistle", zone="steamwheedle_port", race="goblin",
-        gender="female", variant=5, xy=(71, 45), faction="neutral", gear_level=44,
+        gender="female", variant=5, xy=(28, 52), faction="neutral", gear_level=44,
         roster="steamwheedle",
         stones=["topaz", "peridot", "aquamarine", "felfire_shard", "heartsblood_garnet"],
         greeting=("Cut gems, ready to go, no jeweller needed. Half of these came up out of the "

@@ -373,7 +373,7 @@ class PortalManager:
             "Northern Tanaris": {
                 (92, 2): ("The Shimmering Flats", 120, 176),
                 (60, 108): ("The Abyssal Sands", 60, 2),   # the one way south, on the west
-                (216, 56): ("Steamwheedle Port", 40, 58),
+                (216, 56): ("Steamwheedle Port", 5, 47),
                 (200, 88): ("The Drownbell", 16, 12),
                 # THE SOUTHSEA COVE, up the coast from the port. Kyle asked for the Southsea's
                 # proper home in Tanaris, as against the Drownbell, which is a small sea cave
@@ -381,7 +381,7 @@ class PortalManager:
                 (222, 26): ("The Lashings", 68, 112),
             },
             "Steamwheedle Port": {
-                (40, 58): ("Northern Tanaris", 216, 56),
+                (5, 47): ("Northern Tanaris", 216, 56),
             },
             "The Drownbell": {
                 (16, 12): ("Northern Tanaris", 200, 88),

@@ -284,12 +284,12 @@ def build():
     q.append(Q("lsh_the_masts_are_gone", "You Cannot See Them From the Yard", RULLO, SP, 48, 48,
                "lashed",
                "What the port does the week after.",
-               [talk("lsh_after"), explore(SP, 80, 54, 8)],
+               [talk("lsh_after"), explore(SP, 26, 56, 8)],
                "Forty years I have priced freight on this coast and every single price had the "
                "Southsea in it. A sixth for the cove, we called it. Nobody wrote it down, it was "
                "just in the number.\n\nI have spent this morning repricing everything and I do not "
-               "mind telling you it has made me feel strange. Go and stand on the Upper Yard and "
-               "look north and come back.",
+               "mind telling you it has made me feel strange. Walk east into the Upper Yard, "
+               "look up the coast from there, and come back.",
                "You cannot see the masts. Twenty-two years of being able to see the masts from "
                "that yard and you cannot see them.\n\nI will run a cart west now. I have said for "
                "three years that there was nothing coming back worth the axle and that was true "

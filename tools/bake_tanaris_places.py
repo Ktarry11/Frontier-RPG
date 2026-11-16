@@ -39,27 +39,42 @@ SF = "shimmering_flats/materials/"
 # LESS IS MORE (13 Nov 2026): one texture per material, no cross-faded pairs - see bake_shimmering_flats.
 SPECS = {}
 
+def _stw_floors():
+    """Steamwheedle's grounds, from the layout itself so the paint and the walkable ground agree.
+    Redesigned 16 Nov 2026 with the sea on the east (Kyle: "needs water in the east")."""
+    R, Q, S = STW.ROW, STW.QUAY, STW.SQUARE
+    quay = [((Q["x0"] + STW.coast(y)) / 2, y, (STW.coast(y) - Q["x0"]) / 2 + 1, 3.2)
+            for y in range(Q["y0"], Q["y1"] + 1, 2)]
+    quay += _rect_dots(STW.TOWN["x0"], R["y0"], Q["x0"] + 4, R["y1"], 3.2)          # Gadget Row
+    quay += [((S["x0"] + S["x1"]) / 2, (S["y0"] + S["y1"]) / 2, 9, 8)]                # the square
+    # the Upper Yard is beaten hardpan, not sand: the ground itself says where Gadgetzan stopped
+    yard = [(24, 32, 15, 12), (26, 66, 16, 11), (38, 56, 7, 6)]
+    deck = []
+    for (py, x_end) in STW.PIERS:
+        deck += _dots([(STW.coast(py + 1) - 2, py + 1), (x_end, py + 1)], r=1.9, step=1.5)
+        deck += [(x_end - 1.5, py + 1, 2.6, 2.6)]
+    return {"quay": quay, "yard": yard, "deck": deck}
+
+
 SPECS["steamwheedle"] = lambda: dict(
     build="build_steamwheedle_baked", seed=771, slug="steamwheedle_port",
     materials={
         "floor":   M(SF + "tan_sand_pebble", None, 1.5),
-        "quay":    M(SF + "tan_paving_carved"),
-        "yard":    M(SF + "tan_sand_pebble", None, 1.5),
-        "tar":     M(SF + "tan_quay_tarred"),
+        "quay":    M(SF + "tan_flagstone_buried"),
+        "yard":    M(SF + "tan_hardpan_orange", None, 1.5),
+        "deck":    M(SF + "tan_plank_bleached"),
         "water_s": M(SF + "cen_water_shallow"),
         "water_d": M(SF + "cen_water_deep"),
         "wall":    M(SF + "tan_sandstone_floor", None, 2.0),
     },
-    floor_keys=["floor", "quay", "yard", "tar"],
+    floor_keys=["floor", "quay", "yard", "deck"],
     wall_keys=["wall"],
-    floors={
-        # the quay is paved and the upper yard is not, which is the two-town split in one line
-        "quay": [(34, 42, 26, 20), (20, 30, 14, 12)],
-        "yard": [(80, 54, 32, 26), (66, 44, 18, 14)],
-        "tar":  [(30, 25, 40, 5)],      # the wet strip right along the water
-    },
+    floors=_stw_floors(),
     walls={},
     pools=[],
+    # THE SEA IS PAINTED FROM THE TILES. The first bake left this out, and a port with no water in its
+    # ground art is a sand slab; that was most of why Kyle called it ugly.
+    tile_water=True,
     # A TOWN IN THE SUN. Low ao and shallow depth: the walls here are open cliffs with daylight on
     # them, and a cave's deep shading would make a seafront look like a cellar.
     cfg=dict(ao=0.22, depth=0.26, lip=14, lip_col=(1.0, 0.94, 0.78), deep_dark=0.22,
