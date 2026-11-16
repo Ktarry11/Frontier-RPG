@@ -485,6 +485,13 @@ class QuestJournalScreen(BaseScreen):
                 pygame.draw.rect(screen, (70, 70, 80), row, 1)
                 tier = f.tier
                 colour = self.TIER_COLOURS.get(tier["id"], COLOR_WHITE)
+                if getattr(f, "secret", False):
+                    # "????": only where you stand, never how far or why (Kyle, 15 Nov 2026)
+                    self.renderer.draw_text(screen, f.name, (row.x + 12, row.y + 8), color=COLOR_WHITE)
+                    self.renderer.draw_text(screen, f"Current Status: {tier['name']}", (row.x + 12, row.y + 36),
+                                            color=colour, font_size=16)
+                    y += row_h
+                    continue
                 self.renderer.draw_text(screen, f.name, (row.x + 12, row.y + 8), color=COLOR_WHITE)
                 self.renderer.draw_text(screen, tier["name"], (row.x + 12, row.y + 36),
                                         color=colour, font_size=16)
@@ -552,6 +559,11 @@ class QuestJournalScreen(BaseScreen):
                 self.renderer.draw_text(screen, f"acting for {for_who}" + (f" - {note}" if note else ""),
                                         (20, 178), color=(150, 130, 115), font_size=15)
 
+        if getattr(f, "secret", False):
+            # a secret faction's page is its name and where you stand: no bar, no numbers, no background
+            self.renderer.draw_text(screen, f"Current Status: {tier['name']}", (SCREEN_WIDTH - 420, 80),
+                                    color=colour)
+            return
         into, span = f.progress()
         self.renderer.draw_text(screen, tier["name"], (SCREEN_WIDTH - 420, 80), color=colour)
         bar = pygame.Rect(SCREEN_WIDTH - 420, 108, 300, 16)

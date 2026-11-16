@@ -257,6 +257,9 @@ def main():
     npcs = {r["npc_id"] for r in json.loads(Path("data/npcs/ambient_npcs.json").read_text(encoding="utf-8"))["npcs"]}
     npcs |= {r["vendor_id"] for r in json.loads(Path("data/npcs/vendors.json").read_text(encoding="utf-8"))["vendors"]}
     for fid, fac in fm.factions.items():
+        if getattr(fac, "secret", False):
+            # "????" says nothing on purpose: its page is its standing's name (tools/qa_unnamed_faction.py)
+            continue
         if not fac.lore:
             fails.append(f"{fid}: no lore - the detail panel would open on an empty page")
         led = fac.leader or {}

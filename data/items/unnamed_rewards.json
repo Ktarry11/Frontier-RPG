@@ -1,0 +1,618 @@
+{
+  "_doc": "The '????' faction's seller's stock (tools/build_unnamed_faction.py). Sold as unique:<id>.",
+  "items": {
+    "un_edgewalker_treads": {
+      "name": "Edgewalker's Treads",
+      "slot": "feet",
+      "item_level": 69,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 17,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "attack_power": 43
+      },
+      "armor_value": 156,
+      "required_level": 60,
+      "sell_price": 187500,
+      "flavor_text": "Worn thin at the toe by roads that stopped being roads.",
+      "identity": "agility",
+      "icon_id": "gear_inv_boots_plate_09",
+      "price": 1500000,
+      "faction": "the_unnamed"
+    },
+    "un_mapless_mantle": {
+      "name": "Mapless Mantle",
+      "slot": "shoulder",
+      "item_level": 69,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 23
+      },
+      "secondary_stats": {
+        "spell_power": 52
+      },
+      "armor_value": 95,
+      "required_level": 60,
+      "sell_price": 200000,
+      "flavor_text": "Embroidered with a map, and every line on it trails off.",
+      "identity": "caster",
+      "icon_id": "gear_inv_shoulder_19",
+      "price": 1600000,
+      "faction": "the_unnamed"
+    },
+    "un_farwatch_gauntlets": {
+      "name": "Farwatch Gauntlets",
+      "slot": "hands",
+      "item_level": 69,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 24,
+        "strength": 9
+      },
+      "secondary_stats": {
+        "defense_rating": 19
+      },
+      "armor_value": 582,
+      "required_level": 60,
+      "sell_price": 187500,
+      "flavor_text": "Made for holding a line that nobody else can see.",
+      "identity": "tank",
+      "icon_id": "gear_inv_gauntlets_24",
+      "price": 1500000,
+      "faction": "the_unnamed"
+    },
+    "un_lantern_bearers_cord": {
+      "name": "Lantern-Bearer's Cord",
+      "slot": "waist",
+      "item_level": 69,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 12,
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "healing_power": 52
+      },
+      "armor_value": 78,
+      "required_level": 60,
+      "sell_price": 181250,
+      "flavor_text": "A hook on the left hip for a lantern, and scorch marks where it hung.",
+      "identity": "healer",
+      "icon_id": "gear_inv_belt_28",
+      "price": 1450000,
+      "faction": "the_unnamed"
+    },
+    "un_trailblazers_legguards": {
+      "name": "Trailblazer's Legguards",
+      "slot": "legs",
+      "item_level": 69,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 21,
+        "intellect": 17
+      },
+      "secondary_stats": {
+        "attack_power": 62
+      },
+      "armor_value": 362,
+      "required_level": 60,
+      "sell_price": 225000,
+      "flavor_text": "Scratched by brush that doesn't grow anywhere you've been.",
+      "identity": "hunter",
+      "icon_id": "gear_inv_pants_wolf",
+      "price": 1800000,
+      "faction": "the_unnamed"
+    },
+    "un_band_of_the_unmarked_road": {
+      "name": "Band of the Unmarked Road",
+      "slot": "ring",
+      "item_level": 69,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 13
+      },
+      "secondary_stats": {
+        "attack_power": 32,
+        "crit_chance_physical": 13
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 193750,
+      "flavor_text": "There's no stone in it, only a groove where the road should be.",
+      "identity": "strength_crit",
+      "icon_id": "gear_inv_jewelry_ring_14",
+      "price": 1550000,
+      "faction": "the_unnamed"
+    },
+    "un_pendant_of_no_north": {
+      "name": "Pendant of No North",
+      "slot": "neck",
+      "item_level": 69,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "spell_power": 32,
+        "crit_chance_spell": 13
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 193750,
+      "flavor_text": "A compass rose with the north point filed off.",
+      "identity": "caster_crit",
+      "icon_id": "gear_inv_jewelry_amulet_05",
+      "price": 1550000,
+      "faction": "the_unnamed"
+    },
+    "un_wayfinders_bracers": {
+      "name": "Wayfinder's Bracers",
+      "slot": "wrist",
+      "item_level": 69,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 14
+      },
+      "secondary_stats": {
+        "healing_power": 67
+      },
+      "armor_value": 265,
+      "required_level": 60,
+      "sell_price": 175000,
+      "flavor_text": "Etched with stars. Not the ones you know.",
+      "identity": "tide_healer",
+      "icon_id": "gear_inv_bracer_05",
+      "price": 1400000,
+      "faction": "the_unnamed"
+    },
+    "un_edge_of_the_known": {
+      "name": "Edge of the Known",
+      "slot": "main_hand",
+      "item_level": 78,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "sword_1h",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 33
+      },
+      "secondary_stats": {
+        "attack_power": 89,
+        "crit_chance_physical": 33
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 700000,
+      "flavor_text": "Everything on this side of it has a name.",
+      "identity": "rogue_crit",
+      "icon_id": "gear_epic_sword_1h_2",
+      "weapon_damage_min": 172,
+      "weapon_damage_max": 233,
+      "attack_speed": 2.4,
+      "block_value": 0,
+      "price": 5600000,
+      "faction": "the_unnamed"
+    },
+    "un_the_blank_atlas": {
+      "name": "The Blank Atlas",
+      "slot": "off_hand",
+      "item_level": 78,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "tome",
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 25,
+        "intellect": 20
+      },
+      "secondary_stats": {
+        "healing_power": 111
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 650000,
+      "flavor_text": "Every page is empty. Every page is somewhere you haven't been yet.",
+      "identity": "healer",
+      "icon_id": "gear_epic_tome_3",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "price": 5200000,
+      "faction": "the_unnamed"
+    },
+    "un_farwatch_bulwark": {
+      "name": "Farwatch Bulwark",
+      "slot": "off_hand",
+      "item_level": 78,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "shield",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 50,
+        "strength": 18
+      },
+      "secondary_stats": {
+        "block_value": 45
+      },
+      "armor_value": 1029,
+      "required_level": 60,
+      "sell_price": 675000,
+      "flavor_text": "Somebody has to stand where the map runs out.",
+      "identity": "shield_tank",
+      "icon_id": "gear_epic_shield_3",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 120,
+      "price": 5400000,
+      "faction": "the_unnamed"
+    },
+    "un_pathless_greatbow": {
+      "name": "Pathless Greatbow",
+      "slot": "ranged",
+      "item_level": 78,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "bow",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 24
+      },
+      "secondary_stats": {
+        "attack_power": 64,
+        "crit_chance_physical": 24
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 750000,
+      "flavor_text": "There's no road where you're aiming. There never was.",
+      "identity": "hunter_crit",
+      "icon_id": "gear_epic_bow_2",
+      "weapon_damage_min": 146,
+      "weapon_damage_max": 198,
+      "attack_speed": 2.8,
+      "block_value": 0,
+      "price": 6000000,
+      "faction": "the_unnamed"
+    },
+    "un_ridgebreaker_legplates": {
+      "name": "Ridgebreaker Legplates",
+      "slot": "legs",
+      "item_level": 78,
+      "rarity": "epic",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 46,
+        "stamina": 26
+      },
+      "secondary_stats": {
+        "attack_power": 118
+      },
+      "armor_value": 795,
+      "required_level": 60,
+      "sell_price": 725000,
+      "flavor_text": "The ridge was in the way. Now it isn't.",
+      "identity": "strength",
+      "icon_id": "gear_epic_legs_plate_1",
+      "price": 5800000,
+      "faction": "the_unnamed"
+    },
+    "un_hood_of_the_farthest_light": {
+      "name": "Hood of the Farthest Light",
+      "slot": "head",
+      "item_level": 78,
+      "rarity": "epic",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 44
+      },
+      "secondary_stats": {
+        "spell_power": 100
+      },
+      "armor_value": 164,
+      "required_level": 60,
+      "sell_price": 700000,
+      "flavor_text": "The last lamp before the dark. Whoever wore it kept walking.",
+      "identity": "caster",
+      "icon_id": "gear_epic_head_cloth_1",
+      "price": 5600000,
+      "faction": "the_unnamed"
+    },
+    "un_hide_of_the_long_dark": {
+      "name": "Hide of the Long Dark",
+      "slot": "chest",
+      "item_level": 78,
+      "rarity": "epic",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "stamina": 59,
+        "agility": 39
+      },
+      "secondary_stats": {
+        "dodge_rating": 30
+      },
+      "armor_value": 331,
+      "required_level": 60,
+      "sell_price": 750000,
+      "flavor_text": "Whatever lives out past the edge didn't get through this. It tried.",
+      "identity": "bear",
+      "icon_id": "gear_epic_chest_leather_1",
+      "price": 6000000,
+      "faction": "the_unnamed"
+    },
+    "un_hauberk_of_the_last_signal": {
+      "name": "Hauberk of the Last Signal",
+      "slot": "chest",
+      "item_level": 78,
+      "rarity": "epic",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 33
+      },
+      "secondary_stats": {
+        "spell_power": 98,
+        "haste": 27
+      },
+      "armor_value": 558,
+      "required_level": 60,
+      "sell_price": 750000,
+      "flavor_text": "The last word anyone heard from out there came from someone wearing this.",
+      "identity": "haste_caster",
+      "icon_id": "gear_epic_chest_mail_1",
+      "price": 6000000,
+      "faction": "the_unnamed"
+    },
+    "un_here_be_monsters": {
+      "name": "Here Be Monsters",
+      "slot": "main_hand",
+      "item_level": 85,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "axe_2h",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 42
+      },
+      "secondary_stats": {
+        "attack_power": 113,
+        "crit_chance_physical": 42
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 1500000,
+      "flavor_text": "The old maps warned you. This is what the warning was for.",
+      "identity": "strength_crit",
+      "icon_id": "gear_epic_axe_2h_1",
+      "weapon_damage_min": 252,
+      "weapon_damage_max": 341,
+      "attack_speed": 3.6,
+      "block_value": 0,
+      "price": 12000000,
+      "faction": "the_unnamed"
+    },
+    "un_lodestar": {
+      "name": "Lodestar",
+      "slot": "main_hand",
+      "item_level": 85,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "staff",
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 51
+      },
+      "secondary_stats": {
+        "spell_power": 189,
+        "crit_chance_spell": 76
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 1437500,
+      "flavor_text": "It always points the same way. Nobody knows what's there.",
+      "identity": "caster_crit",
+      "icon_id": "gear_epic_staff_2",
+      "weapon_damage_min": 102,
+      "weapon_damage_max": 139,
+      "attack_speed": 3.2,
+      "block_value": 0,
+      "price": 11500000,
+      "faction": "the_unnamed"
+    },
+    "un_warden_of_the_edge": {
+      "name": "Warden of the Edge",
+      "slot": "main_hand",
+      "item_level": 85,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "sword_1h",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 70
+      },
+      "secondary_stats": {
+        "hit_rating": 28,
+        "defense_rating": 34
+      },
+      "armor_value": 422,
+      "required_level": 60,
+      "sell_price": 1312500,
+      "flavor_text": "Nothing comes back over the edge while this is drawn.",
+      "identity": "tank_weapon",
+      "icon_id": "gear_epic_sword_1h_2",
+      "weapon_damage_min": 186,
+      "weapon_damage_max": 252,
+      "attack_speed": 2.4,
+      "block_value": 0,
+      "price": 10500000,
+      "faction": "the_unnamed"
+    },
+    "un_farsight": {
+      "name": "Farsight",
+      "slot": "ranged",
+      "item_level": 85,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "gun",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 31
+      },
+      "secondary_stats": {
+        "attack_power": 80,
+        "hit_rating": 31
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 1250000,
+      "flavor_text": "You can see a long way from the edge. Further than is comfortable.",
+      "identity": "hunter_precise",
+      "icon_id": "gear_epic_gun_3",
+      "weapon_damage_min": 158,
+      "weapon_damage_max": 214,
+      "attack_speed": 2.6,
+      "block_value": 0,
+      "price": 10000000,
+      "faction": "the_unnamed"
+    },
+    "un_the_long_way_home": {
+      "name": "The Long Way Home",
+      "slot": "main_hand",
+      "item_level": 85,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "mace_1h",
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 35,
+        "spirit": 28
+      },
+      "secondary_stats": {
+        "healing_power": 155
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 1312500,
+      "flavor_text": "Everyone who made it back came the long way.",
+      "identity": "high_healer",
+      "icon_id": "gear_epic_mace_1h_1",
+      "weapon_damage_min": 186,
+      "weapon_damage_max": 252,
+      "attack_speed": 2.6,
+      "block_value": 0,
+      "price": 10500000,
+      "faction": "the_unnamed"
+    },
+    "un_unmapped": {
+      "name": "Unmapped",
+      "slot": "main_hand",
+      "item_level": 85,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "dagger",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 36
+      },
+      "secondary_stats": {
+        "attack_power": 96,
+        "crit_chance_physical": 36
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 1250000,
+      "flavor_text": "If it isn't on the map, it can't be found. Neither can you.",
+      "identity": "rogue_crit",
+      "icon_id": "gear_epic_dagger_2",
+      "weapon_damage_min": 186,
+      "weapon_damage_max": 252,
+      "attack_speed": 1.7,
+      "block_value": 0,
+      "price": 10000000,
+      "faction": "the_unnamed"
+    },
+    "un_signet_of_the_final_mile": {
+      "name": "Signet of the Final Mile",
+      "slot": "ring",
+      "item_level": 85,
+      "rarity": "epic",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 20
+      },
+      "secondary_stats": {
+        "spell_power": 77,
+        "spell_hit_rating": 31
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 1187500,
+      "flavor_text": "Most turn back with a mile to go. This was made for the ones who didn't.",
+      "identity": "precise_caster",
+      "icon_id": "gear_epic_ring_2",
+      "price": 9500000,
+      "faction": "the_unnamed"
+    },
+    "un_mask_of_the_farthest_hunt": {
+      "name": "Mask of the Farthest Hunt",
+      "slot": "head",
+      "item_level": 85,
+      "rarity": "epic",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "stamina": 63,
+        "agility": 42
+      },
+      "secondary_stats": {
+        "dodge_rating": 32
+      },
+      "armor_value": 336,
+      "required_level": 60,
+      "sell_price": 1225000,
+      "flavor_text": "Out past the last trail, something bigger than a bear is still hunting. So are you.",
+      "identity": "bear",
+      "icon_id": "gear_epic_head_leather_1",
+      "price": 9800000,
+      "faction": "the_unnamed"
+    }
+  }
+}

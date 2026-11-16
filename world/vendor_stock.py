@@ -30,13 +30,14 @@ _UNIQUES = None
 
 def make_unique(unique_id):
     """A fresh copy of one hand-made item, or None: a hidden seller's (data/items/secret_uniques.json) or a
-    reputation quartermaster's (data/items/faction_rewards.json, tools/build_faction_rewards.py)."""
+    reputation quartermaster's (data/items/faction_rewards.json, tools/build_faction_rewards.py), or the
+    "????" faction's seller's (data/items/unnamed_rewards.json, tools/build_unnamed_faction.py)."""
     global _UNIQUES
     if _UNIQUES is None:
         import json
         from pathlib import Path
         _UNIQUES = {}
-        for name in ("secret_uniques.json", "faction_rewards.json"):
+        for name in ("secret_uniques.json", "faction_rewards.json", "unnamed_rewards.json"):
             path = Path(__file__).resolve().parent.parent / "data" / "items" / name
             try:
                 _UNIQUES.update(json.loads(path.read_text(encoding="utf-8")).get("items", {}))

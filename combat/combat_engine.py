@@ -1020,6 +1020,10 @@ class CombatEngine:
             # Barrens can move both Orgrimmar and Thunder Bluff.
             for fid, gained, tier_up in faction_mgr.award_for_kill(
                     e.name, zone=self.zone, is_boss=getattr(e, "is_boss", False)):
+                # a SECRET faction's standing moves in silence: no gain line, no tier-up line, nothing that
+                # says where it came from (Kyle, 15 Nov 2026: "not advertised where rep comes from")
+                if getattr(faction_mgr.get(fid), "secret", False):
+                    continue
                 self.faction_gains[fid] = self.faction_gains.get(fid, 0) + gained
                 if tier_up:
                     self.combat_log.append(

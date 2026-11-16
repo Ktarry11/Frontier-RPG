@@ -80,6 +80,11 @@ class Faction:
         self.dungeon_per_boss = int(dr.get("per_boss", 0))
         self.dungeons = {_zkey(z) for z in dr.get("dungeons", [])}
         self.rewards = d.get("rewards", {})
+        #: A SECRET FACTION ("????", tools/build_unnamed_faction.py). The journal shows only its standing's name,
+        #: combat never announces its gains, and nothing says where they come from.
+        self.secret = bool(d.get("secret"))
+        #: Standing for ANY boss killed inside a frontier zone (world/hidden_zones.kind == "frontier").
+        self.frontier_boss_rep = int(d.get("frontier_boss_rep", 0))
         self.standing = 0
 
     # ---------------------------------------------------------------- tiers
@@ -267,11 +272,17 @@ class FactionManager:
         Returns a list of (faction_id, gained, tier_up).
         """
         zk = _zkey(zone) if zone else None
+        frontier = False
+        if is_boss and zone:
+            from world.hidden_zones import kind as hidden_kind
+            frontier = hidden_kind(zone) == "frontier"
         out = []
         for fid, f in self.factions.items():
             amt = f.kill_rep.get(creature_name, 0)
             if is_boss and zk and zk in f.dungeons:
                 amt = max(amt, f.dungeon_per_boss)
+            if frontier and f.frontier_boss_rep:
+                amt = max(amt, f.frontier_boss_rep)
             if amt:
                 gained, tier_up = self.award(fid, amt, reason="kill")
                 out.append((fid, gained, tier_up))

@@ -989,6 +989,57 @@
         },
         "quests": {}
       }
+    },
+    "the_unnamed": {
+      "name": "????",
+      "secret": true,
+      "description": "",
+      "home_zone": null,
+      "home_name": "",
+      "lore": [],
+      "leader": {},
+      "frontier_boss_rep": 50,
+      "_comment": [
+        "SECRET (tools/build_unnamed_faction.py, Kyle 15 Nov 2026). The journal shows only 'Current Status: <tier>';",
+        "combat never prints its gains; nothing in the game says where it comes from (any boss in a frontier zone,",
+        "50 a kill). Its seller is parked: vendor_stock_unplaced is read by nothing until he is placed."
+      ],
+      "rewards": {
+        "vendor_stock_unplaced": {
+          "unnamed_wayless": {
+            "honored": [
+              "unique:un_edgewalker_treads",
+              "unique:un_mapless_mantle",
+              "unique:un_farwatch_gauntlets",
+              "unique:un_lantern_bearers_cord",
+              "unique:un_trailblazers_legguards",
+              "unique:un_band_of_the_unmarked_road",
+              "unique:un_pendant_of_no_north",
+              "unique:un_wayfinders_bracers"
+            ],
+            "revered": [
+              "unique:un_edge_of_the_known",
+              "unique:un_the_blank_atlas",
+              "unique:un_farwatch_bulwark",
+              "unique:un_pathless_greatbow",
+              "unique:un_ridgebreaker_legplates",
+              "unique:un_hood_of_the_farthest_light",
+              "unique:un_hide_of_the_long_dark",
+              "unique:un_hauberk_of_the_last_signal"
+            ],
+            "exalted": [
+              "unique:un_here_be_monsters",
+              "unique:un_lodestar",
+              "unique:un_warden_of_the_edge",
+              "unique:un_farsight",
+              "unique:un_the_long_way_home",
+              "unique:un_unmapped",
+              "unique:un_signet_of_the_final_mile",
+              "unique:un_mask_of_the_farthest_hunt"
+            ]
+          }
+        }
+      }
     }
   }
 }
