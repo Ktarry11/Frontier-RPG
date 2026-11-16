@@ -31,24 +31,24 @@ talks about Rory and the Order, never about another recruit.
 
 ## Roster
 
-| # | Name | From | Age | Spec | Role | Lvl | Where |
+| # | Name (surnames never appear on the art) | From | Age | Spec | Role | Lvl | Where |
 |---|---|---|---|---|---|---|---|
-| 1 | Rhys | Wales | 30 | ranger_farstrider | ranged | 31 | Stonetalon West |
-| 2 | Gunnar | Iceland | 37 | barbarian_ancestry | melee | 35 | Hammerfall |
-| 3 | Réka | Hungary | 30 | necromancer_animation | ranged | 51 | The Black Strand |
-| 4 | Ramiro | Bolivia | 36 | primalist_geomancy | ranged | 51 | Onyxhollow |
-| 5 | Graham | England | 41 | warlock_affliction | ranged | 52 | The Bulwark (South WPL) |
-| 6 | Elie | Lebanon | 33 | bloodmage_fleshweaver | healer | 53 | Khaz Varun |
-| 7 | Bruno | Brazil | 34 | templar_zealot | melee | 53 | Sorrow Hill (Pale Flame) |
-| 8 | Joaquín | Argentina | 38 | sun_cleric_valkyrie | melee | 54 | Sorrow Hill (Pale Flame) |
-| 9 | Astrid | Sweden | 32 | starcaller_sentinel | ranged | 54 | North Felwood |
-| 10 | Luka | Croatia | 39 | stormbringer_maelstrom | ranged | 54 | Tempest Shallows |
-| 11 | Zofia | Poland | 29 | cultist_corruption | ranged | 55 | Andorhal (North WPL) |
-| 12 | Omar | Egypt | 35 | venomancer_venom | ranged | 55 | The Royal Hive |
-| 13 | Santiago | Colombia | 28 | runemaster_engravement | melee | 56 | The Ashen Reach |
-| 14 | Emiliano | Mexico | 29 | pyromancer_draconic | ranged | 56 | Cinderwharf |
-| 15 | Isla | Scotland | 31 | witch_hunter_boltslinger | ranged | 57 | Crown Guard camp (Pale Flame) |
-| 16 | Dale | North Dakota | 44 | reaper_harvest | melee | 58 | Light's Hope (EPL) |
+| 1 | Rhys Morgan | Wales | 30 | ranger_farstrider | ranged | 31 | Stonetalon West |
+| 2 | Gunnar Sigurðsson | Iceland | 37 | barbarian_ancestry | melee | 35 | Hammerfall |
+| 3 | Réka Farkas | Hungary | 30 | necromancer_animation | ranged | 51 | The Black Strand |
+| 4 | Ramiro Quispe | Bolivia | 36 | primalist_geomancy | ranged | 51 | Onyxhollow |
+| 5 | Graham Ashworth | England | 41 | warlock_affliction | ranged | 52 | The Bulwark (South WPL) |
+| 6 | Elie Khoury | Lebanon | 33 | bloodmage_fleshweaver | healer | 53 | Khaz Varun |
+| 7 | Bruno Teixeira | Brazil | 34 | templar_zealot | melee | 53 | Sorrow Hill (Pale Flame) |
+| 8 | Joaquín Duarte | Argentina | 38 | sun_cleric_valkyrie | melee | 54 | Sorrow Hill (Pale Flame) |
+| 9 | Astrid Lindqvist | Sweden | 32 | starcaller_sentinel | ranged | 54 | North Felwood |
+| 10 | Luka Perić | Croatia | 39 | stormbringer_maelstrom | ranged | 54 | Tempest Shallows |
+| 11 | Zofia Nowak | Poland | 29 | cultist_corruption | ranged | 55 | Andorhal (North WPL) |
+| 12 | Omar Saleh | Egypt | 35 | venomancer_venom | ranged | 55 | The Royal Hive |
+| 13 | Santiago Ríos | Colombia | 28 | runemaster_engravement | melee | 56 | The Ashen Reach |
+| 14 | Emiliano Vargas | Mexico | 29 | pyromancer_draconic | ranged | 56 | Cinderwharf |
+| 15 | Isla Fraser | Scotland | 31 | witch_hunter_boltslinger | ranged | 57 | Crown Guard camp (Pale Flame) |
+| 16 | Dale Brekke | North Dakota | 44 | reaper_harvest | melee | 58 | Light's Hope (EPL) |
 
 One-line hooks (full backgrounds get written with their records, in the recruit-overhaul voice):
 - **Rhys**, a falconer from the Brecon Beacons who flew birds at weddings; his hawk came through with him.
