@@ -591,7 +591,7 @@ NODES = {
     # the West: the standing forest, so more wood; the volcano's ore on the peak
     "stonetalon_west": {
         "slots": 26, "active_percent": 0.42,
-        "table": {"wood_redbark_tree": 5, "wood_frostpine": 3, "wood_silverbark_tree": 3, "wood_duskwood_stump": 2,
+        "table": {"wood_redbark_tree": 5, "wood_sapglow_stump": 3, "wood_silverbark_tree": 3, "wood_duskwood_stump": 2,
                   "herb_liferoot": 3, "herb_kingsblood": 3, "herb_wild_steelbloom": 3, "herb_briarthorn": 2,
                   "herb_bruiseweed": 2, "ore_iron": 4, "ore_coal": 2, "ore_living_copper": 1},
     },
