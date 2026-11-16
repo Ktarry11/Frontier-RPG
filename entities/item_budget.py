@@ -58,10 +58,17 @@ STAT_MOD = {
     "mp5": 4.170,
     "parry_rating": 0.2140,     # 2.14 a percent before ratings (15 Nov), / 10
     "spell_power": 0.717,       # 1.345 before the 15 Nov power rescale, / 1.875
+    # One school's power, priced 16 Nov 2026 from Kyle's own rule rather than fitted (Kyle, 14 Nov: "1 int =
+    # 1.5 sp", and a single school about 1.8 since it only helps one school; entities/power_scale.py SCHOOL).
+    # The game's cost table charges a school point 0.55 of an Intellect against generic power's 2/3, so on
+    # this curve it costs spell_power x 0.55 / (2/3). Unpriced, every school-power wand and staff read as an
+    # item worth nothing: Felwood's and the Plaguelands' casters sat at 1% to 15% of their budget.
+    **{f"{_s}_spell_power": round(0.717 * 0.55 / (2 / 3), 3)
+       for _s in ("fire", "frost", "arcane", "shadow", "nature", "holy")},
     # spell_penetration fitted to 0.0 - the items carrying it are explained entirely by their
     # other stats, so this game does not currently charge for it. Left out rather than written
     # as 0.0, so it shows up as "not priced" instead of as "free", which are different claims.
-    #   not priced: spell_penetration, the per-school spell powers, the resistances
+    #   not priced: spell_penetration, the resistances
 }
 
 #: slot -> stat budget per item level, at RARE. Fitted from Frontier's own 4,298 statted items
@@ -194,3 +201,33 @@ def budget_ratio(item, mods=None):
     if not exp:
         return None
     return stat_value(item, mods) / exp
+
+
+# ---------------------------------------------------------------------------------------------------------
+# PUTTING AN ITEM ON THE CURVE (16 Nov 2026). Kyle, on the generated rares scoring weak: "So if the item score
+# is too weak we can improve it bro. We can look at the Felwood, Tempest Isle and the plaguelands all at once."
+#
+# LootGenerator spends a rare's budget as a plain sum split by its suffix, and this curve reads it through the
+# 1.5 / 2-3 norm, so a generated rare lands anywhere from a tenth of its budget to on it depending on which
+# suffix it rolled. Budget is linear in a uniform multiply (tools/rescale_item_stats.py), so multiplying every
+# budget stat by target / ratio puts the item exactly on the line and keeps its stat mix. Weapon damage, speed
+# and armour are not budget stats and don't move.
+# ---------------------------------------------------------------------------------------------------------
+def fit_to_curve(item, target=1.0):
+    """Scale an item's budget stats in place so budget_ratio(item) is about `target`. Returns (before, after),
+    or None when the item is off the table or has no priced stat to scale."""
+    before = budget_ratio(item)
+    if not before:
+        return None
+    f = target / before
+    for group in ("primary_stats", "secondary_stats"):
+        stats = item.get(group) or {}
+        for stat, amount in list(stats.items()):
+            if amount is None or amount <= 0:
+                continue
+            v = amount * f
+            if isinstance(amount, int) or float(amount).is_integer():
+                stats[stat] = max(1, int(round(v)))
+            else:
+                stats[stat] = round(v, 1)
+    return before, budget_ratio(item)

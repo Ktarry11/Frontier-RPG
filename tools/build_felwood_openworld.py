@@ -459,6 +459,8 @@ def main():
         print(f"  encounters.json: {zone}, open zone + {len(table['subzones'])} subzones")
 
     from entities.loot_generator import LootGenerator
+    from entities.item_budget import fit_to_curve
+    from tools.fit_rares_to_curve import give_lead
     gen = LootGenerator()
     out = {"_notes": ("Felwood's open-world rares. Identity hand-authored in tools/build_felwood_openworld.py; "
                       "stats from LootGenerator at rare budget.")}
@@ -474,6 +476,8 @@ def main():
                 print(f"FAILED: the generator would not build {name}")
                 return 1
             d = it.to_dict()
+            give_lead(d)        # on the item curve (tools/fit_rares_to_curve.py, Kyle 16 Nov)
+            fit_to_curve(d)
             d["name"] = name
             d["item_id"] = "fw_" + name.lower().replace("'", "").replace(" ", "_").replace("-", "_")
             built.append(d)
