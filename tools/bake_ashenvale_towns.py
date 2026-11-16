@@ -25,7 +25,8 @@ from tools.terrain_painter import Painter, smoothstep, TILE_PX
 
 ROOT = AV.ROOT
 TOWNS = {"astranaar": "tools.handbuilt_astranaar", "splintertree": "tools.handbuilt_splintertree",
-         "zoram": "tools.handbuilt_zoram", "emerald_sanctuary": "tools.handbuilt_emerald_sanctuary"}
+         "zoram": "tools.handbuilt_zoram", "emerald_sanctuary": "tools.handbuilt_emerald_sanctuary",
+         "sun_rock_retreat": "tools.handbuilt_sun_rock_retreat"}
 
 MATS = dict(AV.MATERIALS)
 MATS.update({
@@ -99,7 +100,15 @@ def main():
         src = AV.REAL_DIR / f"{stem}.png"
         Image.open(src).convert("RGB").resize((AV.SIZE, AV.SIZE), Image.LANCZOS).save(Path(mat_dir) / f"{stem}.png")
     for k in keys:
-        bake(k, mat_dir, preview.replace(".png", f"_{k}.png") if preview else None, sc)
+        # a town with its own palette (Sun Rock Retreat paints from the Stonetalon sheet) gets its own materials
+        sheet = getattr(importlib.import_module(TOWNS[k]), "SHEET", None)
+        md = mat_dir
+        if sheet:
+            md, _p = AV.build_material_dir(AV.ZONE_SHEETS[sheet])
+            for stem in EXTRA_REAL:
+                src = AV.REAL_DIR / f"{stem}.png"
+                Image.open(src).convert("RGB").resize((AV.SIZE, AV.SIZE), Image.LANCZOS).save(Path(md) / f"{stem}.png")
+        bake(k, md, preview.replace(".png", f"_{k}.png") if preview else None, sc)
 
 
 if __name__ == "__main__":

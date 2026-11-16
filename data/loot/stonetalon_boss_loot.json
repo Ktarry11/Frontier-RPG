@@ -1,0 +1,195 @@
+{
+  "_notes": "Stonetalon's cave and dungeon bosses. Hand-authored in tools/build_stonetalon_openworld.py from the crafted-gear identities at rare budget.",
+  "Driller Mozzik": [
+    {
+      "name": "Drillbit Mace",
+      "slot": "main_hand",
+      "item_level": 32,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "mace_1h",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 7
+      },
+      "secondary_stats": {
+        "attack_power": 21,
+        "crit_chance_physical": 7
+      },
+      "armor_value": 0,
+      "required_level": 30,
+      "sell_price": 4746,
+      "identity": "strength_crit",
+      "icon_id": "gear_inv_mace_13",
+      "weapon_damage_min": 60,
+      "weapon_damage_max": 81,
+      "attack_speed": 2.6,
+      "block_value": 0,
+      "item_id": "st_drillbit_mace"
+    },
+    {
+      "name": "Overcharged Blasting Rifle",
+      "slot": "ranged",
+      "item_level": 32,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "gun",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 5
+      },
+      "secondary_stats": {
+        "attack_power": 16,
+        "hit_rating": 5
+      },
+      "armor_value": 0,
+      "required_level": 30,
+      "sell_price": 3997,
+      "identity": "hunter_precise",
+      "icon_id": "gear_inv_weapon_rifle_07",
+      "weapon_damage_min": 51,
+      "weapon_damage_max": 69,
+      "attack_speed": 2.6,
+      "block_value": 0,
+      "item_id": "st_overcharged_blasting_rifle"
+    },
+    {
+      "name": "Powder-Burned Gloves",
+      "slot": "hands",
+      "item_level": 32,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "spell_power": 15,
+        "crit_chance_spell": 6
+      },
+      "armor_value": 43,
+      "required_level": 30,
+      "sell_price": 3247,
+      "identity": "caster_crit",
+      "icon_id": "gear_inv_gauntlets_06",
+      "item_id": "st_powder_burned_gloves"
+    },
+    {
+      "name": "Rig-Hand's Belt",
+      "slot": "waist",
+      "item_level": 32,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 10,
+        "strength": 4
+      },
+      "secondary_stats": {
+        "defense_rating": 8
+      },
+      "armor_value": 181,
+      "required_level": 30,
+      "sell_price": 2748,
+      "identity": "tank",
+      "icon_id": "gear_inv_belt_32",
+      "item_id": "st_rig_hands_belt"
+    }
+  ],
+  "Old Pumice": [
+    {
+      "name": "Pumice-Stone Charm",
+      "slot": "trinket",
+      "item_level": 32,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "defense_rating": 6,
+        "dodge_rating": 5
+      },
+      "armor_value": 0,
+      "required_level": 30,
+      "sell_price": 3497,
+      "identity": "tank_any",
+      "icon_id": "gear_inv_jewelry_talisman_07",
+      "item_id": "st_pumice_stone_charm"
+    },
+    {
+      "name": "Ash-Glass Ring",
+      "slot": "ring",
+      "item_level": 32,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "spell_power": 13,
+        "spell_hit_rating": 5
+      },
+      "armor_value": 0,
+      "required_level": 30,
+      "sell_price": 2998,
+      "identity": "precise_caster",
+      "icon_id": "gear_inv_jewelry_ring_31",
+      "item_id": "st_ash_glass_ring"
+    },
+    {
+      "name": "Pumice-Grit Leggings",
+      "slot": "legs",
+      "item_level": 32,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 10,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "attack_power": 26
+      },
+      "armor_value": 105,
+      "required_level": 30,
+      "sell_price": 4996,
+      "identity": "agility",
+      "icon_id": "gear_inv_pants_06",
+      "item_id": "st_pumice_grit_leggings"
+    },
+    {
+      "name": "Old Pumice's Core",
+      "slot": "off_hand",
+      "item_level": 32,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "tome",
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 7,
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "healing_power": 17
+      },
+      "armor_value": 0,
+      "required_level": 30,
+      "sell_price": 2998,
+      "identity": "spirit_healer",
+      "icon_id": "gear_inv_tome_2",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "item_id": "st_old_pumices_core"
+    }
+  ]
+}

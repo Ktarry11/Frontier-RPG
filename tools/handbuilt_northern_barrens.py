@@ -42,8 +42,8 @@ BAKED_DIR = "assets/tiles/northern_barrens/baked"
 W, H = 280, 260
 
 PORTALS = {(150, 256): "Central Barrens", (150, 4): "Ashenvale East",
-           (255, 45): "Boulder Lode Mine", (60, 150): "Serena's Hollow"}
-ARRIVALS = [(150, 254), (150, 2), (255, 46), (60, 151)]
+           (255, 45): "Boulder Lode Mine", (60, 150): "Serena's Hollow", (4, 92): "Stonetalon East"}
+ARRIVALS = [(150, 254), (150, 2), (255, 46), (60, 151), (6, 92)]
 
 # ------------------------------------------------------------------ the plan
 ROADS = {
@@ -61,6 +61,8 @@ ROADS = {
                   (63, 147), (60, 152)], 2.4),
     "hills":    ([(146, 48), (130, 46), (108, 45), (86, 47), (64, 52), (46, 59), (32, 66), (24, 76)], 2.4),
     "hills_s":  ([(24, 76), (22, 90), (20, 106), (24, 122), (34, 136), (46, 146), (58, 152)], 2.0),
+    # west out of the Dry Hills to Stonetalon (docs/stonetalon_brief.md)
+    "stonetalon": ([(22, 90), (14, 91), (3, 92)], 2.4),
 }
 
 # west highland: rounded hill-mounds (cx, cy, rx, ry, rot)
@@ -127,6 +129,7 @@ GAPS = [
     ("ell", 210, 95, 5, 5),        # terrace pass (oil road)
     ("ell", 236, 128, 5, 5),       # terrace pass (farwatch)
     ("ell", 196, 145, 4, 5),
+    ("ell", 4, 92, 7, 6),          # the road west to Stonetalon
 ]
 
 _ROAD_TREES = {}

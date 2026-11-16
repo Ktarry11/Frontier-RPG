@@ -223,6 +223,7 @@ class PortalManager:
                 (150, 4): ("Ashenvale East", 110, 195),
                 (255, 45): ("Boulder Lode Mine", 50, 76),
                 (60, 150): ("Serena's Hollow", 30, 48),
+                (4, 92): ("Stonetalon East", 196, 96),        # west out of the Dry Hills
             },
             "Boulder Lode Mine": {
                 (50, 76): ("Northern Barrens", 255, 45),
@@ -550,6 +551,21 @@ class PortalManager:
                 (110, 82): ("Moonwell Hollow", 42, 66),
                 (110, 160): ("Astranaar", 55, 85),
                 (15, 30): ("Zoram Strand", 50, 25),
+                (68, 196): ("Stonetalon East", 172, 4),       # the Talondeep Path
+            },
+            # ===== STONETALON (docs/stonetalon_brief.md): south of Ashenvale West, west of Northern Barrens =====
+            # Stonetalon West (4,118) goes in when that map exists (tools/handbuilt_stonetalon_east.py LATER_PORTALS).
+            "Stonetalon East": {
+                (188, 44): ("Windshear Mine", 45, 76),
+                (196, 96): ("Northern Barrens", 4, 92),
+                (172, 4): ("Ashenvale West", 68, 196),
+                (144, 93): ("Sun Rock Retreat", 3, 46),
+            },
+            "Sun Rock Retreat": {
+                (3, 46): ("Stonetalon East", 144, 93),
+            },
+            "Windshear Mine": {
+                (45, 76): ("Stonetalon East", 188, 44),
             },
             "Astranaar": {
                 (55, 85): ("Ashenvale West", 110, 160),

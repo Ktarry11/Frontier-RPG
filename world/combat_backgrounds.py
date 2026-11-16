@@ -30,7 +30,10 @@ VARIANT_FOLDERS = {
 FLAT_FOLDERS = ("dark_dungeon", "fire_dungeon", "ice_dungeon", "desert", "savanna", "savanna_oasis", "coast", "jungle", "mountain",
                 "mossy_forest", "fantasy_forest", "blighted", "crystal", "fungal", "sky", "hive", "salt_flat",
                 "keep", "arena", "abyssal_sands", "glittervein", "frozen_ruins",
-                "mossy_dungeon")
+                "mossy_dungeon",
+                # Stonetalon (docs/stonetalon_background_prompts.md, Kyle's art 15 Nov 2026): one look per place
+                "st_redwoods", "st_sequoia_slopes", "st_blowdown", "st_salvage_yard", "st_windshear_crag",
+                "st_mulgore_rim", "st_ashvent", "st_heartwood", "st_crown")
 
 # Nearest-match: every ZONE_BIOME / CAVE_BIOME tag in world/tile_textures.py
 # routed to whichever of the 7 available packs reads closest. Chosen by eye
@@ -158,6 +161,23 @@ BIOME_TO_BACKGROUND = {
 # from its name - those docstrings state the visual character outright ("A salt pan is dead
 # flat", "the whole lower half is one great SUMP of standing water").
 ZONE_BACKGROUND = {
+    # --- Stonetalon (docs/stonetalon_brief.md). Kyle drew one for each place, 15 Nov 2026 -------------------
+    "Stonetalon East": "st_blowdown",             # the blast zone: grey trunks in rows, the volcano behind
+    "The Blowdown": "st_blowdown",
+    "Venture Salvage Yard": "st_salvage_yard",
+    "Windshear Crag": "st_windshear_crag",
+    "The Standing Grove": "st_redwoods",          # the forest the blast missed
+    "Grimtotem Compound": "mountain",
+    "The Mulgore Rim": "st_mulgore_rim",          # the stuck eclipse over Mulgore
+    "Sun Rock Retreat": "mountain",
+    "Stonetalon West": "st_redwoods",
+    "Greatwood Vale": "st_redwoods",
+    "Mistwalker Camp": "st_redwoods",
+    "The Venture Cutline": "st_redwoods",
+    "The Sequoia Slopes": "st_sequoia_slopes",
+    "Stonetalon Peak": "mountain",
+    "The Ashvent": "st_ashvent",                  # the lava tube cave
+
     # --- open country ------------------------------------------------------
     "Eastern Hillsbrad": "mossy_forest",          # "the first HEALTHY country"
     "Western Hillsbrad": "mossy_forest",          # worked green fields, farm country
@@ -187,6 +207,7 @@ ZONE_BACKGROUND = {
     "Serena's Hollow": "mountain",                # "THE CLIFF GORGE"
     "Thunder Ridge": "mountain",                  # canyon rooms in red-rock Durotar
     "Boulder Lode Mine": "mountain",              # switchback terraces cut into cliffs
+    "Windshear Mine": "dark_dungeon",             # Stonetalon: a goblin dig, broken through into a chimney
 
     # --- roofed stone ------------------------------------------------------
     # A stepped pit with barred gates, which is what it is. It will not actually be seen until

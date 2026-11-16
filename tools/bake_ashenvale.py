@@ -3,7 +3,7 @@ Bake the Ashenvale West painting (forest floor + rivers/lakes/moon water + cliff
 patches) from seamless materials in assets/tiles/ashenvale/materials/ (the Ashenvale tile sheet, see
 claude/ashenvale_tile_prompts.md - the file names are the AV_SHEET stems below).
 
-    python3 tools/bake_ashenvale.py [west|east|felwood_south|felwood_north] [--preview out.png] [--scale 4]
+    python3 tools/bake_ashenvale.py [west|east|felwood_south|felwood_north|stonetalon_east] [--preview out.png] [--scale 4]
 
 Landforms come from tools/handbuilt_ashenvale_west.SPEC.fields() - the SAME analytic functions the tile grid is built
 from - plus the tiles that seal_unreachable() turned into canopy / deep water, so painting and collision agree.
@@ -97,6 +97,57 @@ NORTH_SHEET = {
     "av_canopy":         (AC / "corrupted_root_wall.png", 0.5, None, None),
     "av_corrupt_ground": (AV / "corrupted_ground.png", 0.2, (285, 0.30, 0.95), None),
 }
+
+
+#: Stonetalon East (docs/stonetalon_brief.md, Kyle 15 Nov 2026): the side the volcano's blast knocked flat.
+#: Until Kyle's Stonetalon tile sheet lands, it paints from the Aspen materials, which already have the burn:
+#: brown duff and dry grass where the forest stands, grey ash where the blast went ("burned"), char in the ash
+#: ("scorch"), fireweed coming up through it ("bell"), Sun Rock's red earth ("paving"/"plaza"), the Grimtotem's
+#: trampled ground ("satyr"), and the Mulgore Rim's dead grass and black ground ("corrupt"/"fel").
+_ASM = T / "aspen" / "materials"
+STONETALON_SHEET = {
+    "av_forest_floor":   (_ASM / "asp_grass_duff.png", 0.5, None, None),
+    "av_forest_grass":   (_ASM / "asp_grass_dry.png", 0.5, None, None),
+    "av_fern_floor":     (_ASM / "asp_fern_floor.png", 0.5, None, None),
+    "av_root_earth":     (_ASM / "asp_root_cracked.png", 0.5, None, None),
+    "av_needle_mulch":   (_ASM / "asp_needle_mat.png", 0.5, None, None),
+    "av_bluebell":       (_ASM / "asp_fireweed.png", 0.5, None, None),
+    "av_road_centre":    (_ASM / "asp_dirt_path.png", 0.5, None, None),
+    "av_road_edge":      (_ASM / "asp_gravel_shoulder.png", 0.5, None, None),
+    "av_elven_paving":   (_ASM / "asp_red_dust.png", 0.5, None, None),
+    "av_mossy_cobble":   (_ASM / "asp_red_dust.png", 0.2, None, None),
+    "av_rocky_ground":   (_ASM / "asp_grey_gravel.png", 0.5, None, None),
+    "av_stream_bed":     (_ASM / "asp_creek_gravel.png", 0.5, (40, 0.10, 0.85), None),
+    "av_lake_mud":       (_ASM / "asp_mud_bank.png", 0.5, (35, 0.12, 0.70), None),
+    "av_lake_shallow":   (_ASM / "asp_pond_shallow.png", 0.5, (190, 0.25, 0.95), None),
+    "av_lake_deep":      (_ASM / "asp_pond_deep.png", 0.5, (200, 0.35, 0.70), None),
+    "av_cliff_a":        (_ASM / "asp_granite.png", 0.5, None, None),
+    "av_cliff_b":        (_ASM / "asp_talus.png", 0.5, (30, 0.10, 0.75), None),
+    "av_canopy":         (_ASM / "asp_needle_dark.png", 0.5, (120, 0.45, 0.62), "canopy"),
+    "av_scorched":       (_ASM / "asp_char_ground.png", 0.5, None, None),
+    "av_burned_forest":  (_ASM / "asp_ash_patch.png", 0.5, None, None),
+    "av_fel_earth":      (_ASM / "asp_char_ground.png", 0.2, (355, 0.35, 0.28), None),
+    "av_corrupt_ground": (_ASM / "asp_grass_dry.png", 0.5, (20, 0.12, 0.38), None),
+    "av_satyr_earth":    (_ASM / "asp_dirt_grazed.png", 0.5, (14, 0.35, 0.72), None),
+    "av_plaza_stone":    (_ASM / "asp_red_dust.png", 0.5, None, None),
+}
+#: Stonetalon West: the redwood vale and the sequoia slopes, the volcano's ash and cinder on the cone ("burned" /
+#: "scorch"), sorrel and fern carpets where Ashenvale has bluebells, and a cold blue crater lake.
+STONETALON_WEST_SHEET = dict(STONETALON_SHEET)
+STONETALON_WEST_SHEET.update({
+    "av_forest_floor":   (_ASM / "asp_fern_floor.png", 0.5, None, None),
+    "av_forest_grass":   (_ASM / "asp_needle_mat.png", 0.5, None, None),
+    "av_fern_floor":     (_ASM / "asp_fern_floor.png", 0.2, (110, 0.55, 0.80), None),
+    "av_root_earth":     (_ASM / "asp_mossy_roots.png", 0.5, None, None),
+    "av_needle_mulch":   (_ASM / "asp_duff_brown.png", 0.5, None, None),
+    "av_bluebell":       (_ASM / "asp_turf_grazed.png", 0.5, (95, 0.55, 0.95), ((235, 235, 235), 0.010, 3)),
+    "av_rocky_ground":   (_ASM / "asp_granite_lichen.png", 0.5, None, None),
+    "av_lake_shallow":   (_ASM / "asp_pond_shallow.png", 0.5, (185, 0.55, 1.05), None),
+    "av_lake_deep":      (_ASM / "asp_pond_deep.png", 0.5, (205, 0.70, 0.75), None),
+    "av_canopy":         (_ASM / "asp_needle_dark.png", 0.5, (125, 0.50, 0.85), "canopy"),
+})
+ZONE_SHEETS = {"felwood_north": NORTH_SHEET, "stonetalon_east": STONETALON_SHEET,
+               "stonetalon_west": STONETALON_WEST_SHEET}
 
 
 def _recolour(a, hue, sat, val):
@@ -276,6 +327,15 @@ def build_scores(P, M):
         S["bell"] = S["bell"] + lush * 0.22 * live * smoothstep(0.62, 0.82, n_big2)
         S["mulch"] = S["mulch"] - lush * 0.35 * live
         S["root"] = S["root"] - lush * 0.20 * live
+    # Stonetalon East: inside the blast nothing living shows through the ash (BURN_SUPPRESS on the zone module)
+    burn_k = getattr(M, "BURN_SUPPRESS", 0.0)
+    if burn_k:
+        for k in ("floor", "grass", "fern", "root", "mulch"):
+            S[k] = S[k] - burn_k * bm
+    dark_k = getattr(M, "DARK_SUPPRESS", 0.0)
+    if dark_k:
+        for k in ("floor", "grass", "fern", "root", "mulch", "bell"):
+            S[k] = S[k] - dark_k * cm
     S["corrupt"] = 0.04 + 0.95 * cm * (0.6 + 0.4 * smoothstep(0.3, 0.6, n_mid))
     S["fel"] = 0.04 + 0.95 * cm * smoothstep(0.55, 0.78, n_fine) * smoothstep(0.1, 0.5, cm)
     S["burned"] = 0.04 + 0.95 * bm
@@ -402,9 +462,14 @@ def bake(zone="west", preview=None, scale=4, only=None):
         # North Felwood is the demon wastes: the same painter and plan, painted from the corruption
         # palette (NORTH_SHEET) so nothing in it reads as living forest.
         from tools import handbuilt_felwood_north as M
+    elif zone == "stonetalon_west":
+        from tools import handbuilt_stonetalon_west as M
+    elif zone == "stonetalon_east":
+        # Stonetalon East: the blast zone, painted from the Aspen materials (STONETALON_SHEET)
+        from tools import handbuilt_stonetalon_east as M
     else:
         from tools import handbuilt_ashenvale_east as M
-    mat_dir, provisional = build_material_dir(NORTH_SHEET if zone == "felwood_north" else None)
+    mat_dir, provisional = build_material_dir(ZONE_SHEETS.get(zone))
     if provisional:
         print(f"PROVISIONAL textures for {len(provisional)} materials: {', '.join(provisional[:8])}...")
     P = Painter(M.W, M.H, mat_dir, seed=2101)
@@ -431,7 +496,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = next((z for z in ("felwood_north", "felwood_south", "east") if z in sys.argv), "west")
+    zone = next((z for z in ("felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))

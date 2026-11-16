@@ -51,6 +51,7 @@ TOWN_REGION = {
     "saltspur_landing": "Arathi East",
     "kaels_bastion": "The Crystalline Underdark",
     "freewind_post": "Southern Thousand Needles",
+    "sun_rock_retreat": "Stonetalon East",
     "undercity": "Undercity",
     "sepulcher": "Silverpine North",
     "brill": "Eastern Tirisfal",

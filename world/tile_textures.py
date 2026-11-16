@@ -366,6 +366,8 @@ ZONE_BIOME = {
     "Ashenvale West": "mythical_forest",
     "Ashenvale East": "mythical_forest",
     "South Felwood": "mythical_forest",
+    "Stonetalon East": "mountain",
+    "Sun Rock Retreat": "mountain",
     "Emerald Sanctuary": "mythical_forest",
     "North Felwood": "mythical_forest",      # painted ground (baked); the biome only names the fallback
     "Jaedenar": "cave_demonic",              # the Shadow Council's hold (painted, the same)

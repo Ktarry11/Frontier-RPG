@@ -213,6 +213,41 @@ ALL_SPRITES = {s for v in SHEETS.values() for s in v}
 #: FIRST MATCH WINS, so order matters - the specific sits above the general. Each entry is
 #: (compiled pattern on the creature NAME, sprite id).
 _RULES = [
+    # STONETALON (tools/build_stonetalon_openworld.py): exact names, each to its picture. Stand-ins from the
+    # existing art until Kyle's Stonetalon creature sheet lands (docs/stonetalon_art_prompts.md sheet 4).
+    (r"^venture\ co\.\ shaft\ miner$", "goblin_sapper_2"),
+    (r"^venture\ co\.\ powder\ monkey$", "goblin_sapper_1"),
+    (r"^venture\ co\.\ shift\ boss$", "goblin_overseer"),
+    (r"^pumice\ shard$", "elemental_earth_1"),
+    (r"^chimney\ harpy$", "harpy_3"),
+    (r"^driller\ mozzik$", "goblin_overseer"),
+    (r"^old\ pumice$", "elemental_earth_2"),
+    (r"^ridge\ cougar$", "panther_2"),
+    (r"^grey\ elk$", "stag"),
+    (r"^black\ bear$", "bear_1"),
+    (r"^ash\ vulture$", "vulture_1"),
+    (r"^ash\ drifter$", "elemental_air_3"),
+    (r"^venture\ co\.\ salvager$", "goblin_sapper_1"),
+    (r"^venture\ co\.\ bucker$", "goblin_sapper_2"),
+    (r"^venture\ co\.\ blaster$", "goblin_sapper_1"),
+    (r"^venture\ co\.\ yard\ foreman$", "goblin_overseer"),
+    (r"^windshear\ harpy$", "harpy_1"),
+    (r"^windshear\ wind\ witch$", "harpy_2"),
+    (r"^windshear\ talon$", "harpy_3"),
+    (r"^bull\ elk$", "stag"),
+    (r"^grimtotem\ raider$", "tauren_brave"),
+    (r"^grimtotem\ mystic$", "tauren_brave"),
+    (r"^grimtotem\ spearhunter$", "tauren_brave"),
+    (r"^grimtotem\ brute$", "tauren_brave"),
+    (r"^risen\ tauren$", "zombie_3"),
+    (r"^risen\ stalker$", "ghoul_gaunt"),
+    (r"^rim\ carrion\ bird$", "vulture_3"),
+    (r"^old\ greyhide$", "stag"),
+    (r"^yard\ boss\ krizzle$", "goblin_overseer"),
+    (r"^matron\ shrieka$", "harpy_matriarch"),
+    (r"^broadpaw$", "bear_3"),
+    (r"^hargol\ bloodhorn$", "tauren_brave"),
+    (r"^the\ risen\ hunter$", "zombie_5"),
     # FELWOOD (tools/build_felwood_openworld.py): exact names, each to its picture. The South's
     # wildlife uses the existing beast art; the Fel Line's demons and everything in the North use
     # Kyle's Felwood sheet.

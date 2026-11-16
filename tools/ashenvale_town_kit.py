@@ -27,7 +27,8 @@ XP = "assets/tiles/ashenvale_corruption/props/"
 GP = "assets/tiles/goblin_shared/props/"
 
 _DIRS = [AP, XP, GP, "assets/tiles/barrens/props/", "assets/tiles/dungeon_props/", "assets/tiles/coastal_props/",
-         "assets/buildings/", "assets/tiles/felwood/props/"]
+         "assets/buildings/", "assets/tiles/felwood/props/", "assets/tiles/aspen/props/",
+         "assets/tiles/stonetalon/props/"]
 INDEX = {}
 for _d in _DIRS:
     if os.path.isdir(_d):
@@ -83,6 +84,10 @@ def install(M):
         for (cx, cy, rx, ry) in getattr(M, "ROCKS", []):
             rock = np.maximum(rock, _ell(gx, gy, cx, cy, rx, ry))
         rock = np.minimum(rock + 0.8 * _wob(gx, gy), -np.maximum(M.road_dist(gx, gy) + 2.2, deck + 1.5))
+        # a town on a mesa top (Sun Rock Retreat): past the clearing the ground falls away as rock, not woods
+        if getattr(M, "EDGE", "woods") == "rock":
+            rock = np.maximum(rock, woods)
+            woods = np.full(gx.shape, -99.0)
         # ---- water: ponds, streams, sea
         sh = np.full(gx.shape, -99.0)
         dp = np.full(gx.shape, -99.0)

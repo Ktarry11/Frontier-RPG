@@ -32,8 +32,8 @@ BAKED_DIR = "assets/tiles/ashenvale/baked_west"
 W, H = 220, 200
 
 PORTALS = {(215, 100): "Ashenvale East", (30, 20): "Blackfathom Deeps", (110, 82): "Moonwell Hollow",
-           (110, 160): "Astranaar", (15, 30): "Zoram Strand"}
-ARRIVALS = [(215, 98), (30, 21), (110, 83), (110, 158), (15, 31)]
+           (110, 160): "Astranaar", (15, 30): "Zoram Strand", (68, 196): "Stonetalon East"}
+ARRIVALS = [(215, 98), (30, 21), (110, 83), (110, 158), (15, 31), (68, 194)]
 
 # ------------------------------------------------------------------ the plan
 ROADS = {
@@ -57,6 +57,8 @@ ROADS = {
     "starfall":  ([(170, 132), (182, 144), (186, 152)], 2.0),
     # Moonwell clearing spur to the pool rim
     "moonrim":   ([(102, 86), (110, 84), (118, 91)], 3.2),
+    # the Talondeep Path: south off the coast road to the tunnel into Stonetalon (docs/stonetalon_brief.md)
+    "talondeep": ([(72, 166), (70, 176), (68, 186), (68, 197)], 2.6),
 }
 
 # the sea: west coast with a cove at Zoram, a headland at Blackfathom and two bays
@@ -146,6 +148,7 @@ GAPS = [
     ("ell", 110, 84, 7, 5),
     ("ell", 110, 159, 8, 6),
     ("ell", 15, 31, 6, 5),
+    ("ell", 68, 195, 7, 6),
 ]
 
 SPEC = E.Spec("Ashenvale West", W, H, ROADS, rivers=RIVERS, lakes=LAKES, deep_shrink=DEEP_SHRINK,

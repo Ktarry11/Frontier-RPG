@@ -1,0 +1,571 @@
+{
+  "_notes": "Stonetalon's open-world rares. Hand-authored in tools/build_stonetalon_openworld.py: each piece is a crafted-gear identity at rare budget, fixed stats, no rolls.",
+  "Old Greyhide": [
+    {
+      "name": "Greyhide Mantle",
+      "slot": "shoulder",
+      "item_level": 31,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 8,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "attack_power": 21
+      },
+      "armor_value": 122,
+      "required_level": 29,
+      "sell_price": 3739,
+      "identity": "agility",
+      "icon_id": "gear_inv_shoulder_22",
+      "item_id": "st_greyhide_mantle"
+    },
+    {
+      "name": "Ash-Walker's Boots",
+      "slot": "feet",
+      "item_level": 31,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 6
+      },
+      "secondary_stats": {
+        "healing_power": 27
+      },
+      "armor_value": 118,
+      "required_level": 29,
+      "sell_price": 3038,
+      "identity": "tide_healer",
+      "icon_id": "gear_inv_boots_wolf",
+      "item_id": "st_ash_walkers_boots"
+    },
+    {
+      "name": "Antler-Bone Wand",
+      "slot": "ranged",
+      "item_level": 31,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "wand",
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 3
+      },
+      "secondary_stats": {
+        "spell_power": 14,
+        "crit_chance_spell": 5
+      },
+      "armor_value": 0,
+      "required_level": 29,
+      "sell_price": 3739,
+      "identity": "caster_crit",
+      "icon_id": "gear_inv_wand_08",
+      "weapon_damage_min": 49,
+      "weapon_damage_max": 67,
+      "attack_speed": 1.9,
+      "block_value": 0,
+      "item_id": "st_antler_bone_wand"
+    },
+    {
+      "name": "Greyhide Girdle",
+      "slot": "waist",
+      "item_level": 31,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 9,
+        "strength": 4
+      },
+      "secondary_stats": {
+        "defense_rating": 8
+      },
+      "armor_value": 254,
+      "required_level": 29,
+      "sell_price": 2571,
+      "identity": "tank",
+      "icon_id": "gear_inv_belt_34",
+      "item_id": "st_greyhide_girdle"
+    }
+  ],
+  "Yard Boss Krizzle": [
+    {
+      "name": "Salvage Boss Gauntlets",
+      "slot": "hands",
+      "item_level": 31,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 6
+      },
+      "secondary_stats": {
+        "attack_power": 15,
+        "crit_chance_physical": 6
+      },
+      "armor_value": 76,
+      "required_level": 29,
+      "sell_price": 3038,
+      "identity": "strength_crit",
+      "icon_id": "gear_inv_gauntlets_16",
+      "item_id": "st_salvage_boss_gauntlets"
+    },
+    {
+      "name": "Rigging-Chain Leggings",
+      "slot": "legs",
+      "item_level": 31,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 10,
+        "stamina": 6
+      },
+      "secondary_stats": {
+        "attack_power": 25
+      },
+      "armor_value": 162,
+      "required_level": 29,
+      "sell_price": 4674,
+      "identity": "agility",
+      "icon_id": "gear_inv_pants_14",
+      "item_id": "st_rigging_chain_leggings"
+    },
+    {
+      "name": "Krizzle's Ledger",
+      "slot": "off_hand",
+      "item_level": 31,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "tome",
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 5,
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "healing_power": 25
+      },
+      "armor_value": 0,
+      "required_level": 29,
+      "sell_price": 2804,
+      "identity": "healer",
+      "icon_id": "gear_inv_tome_5",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "item_id": "st_krizzles_ledger"
+    },
+    {
+      "name": "The Bucking Saw",
+      "slot": "main_hand",
+      "item_level": 31,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "axe_2h",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 8,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "attack_power": 21
+      },
+      "armor_value": 0,
+      "required_level": 29,
+      "sell_price": 5842,
+      "identity": "strength",
+      "icon_id": "gear_inv_axe_17",
+      "weapon_damage_min": 79,
+      "weapon_damage_max": 106,
+      "attack_speed": 3.6,
+      "block_value": 0,
+      "item_id": "st_the_bucking_saw"
+    }
+  ],
+  "Matron Shrieka": [
+    {
+      "name": "Windshear Feathered Cowl",
+      "slot": "head",
+      "item_level": 32,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 10
+      },
+      "secondary_stats": {
+        "spell_power": 22
+      },
+      "armor_value": 52,
+      "required_level": 30,
+      "sell_price": 3997,
+      "identity": "caster",
+      "icon_id": "gear_inv_helmet_44",
+      "item_id": "st_windshear_feathered_cowl"
+    },
+    {
+      "name": "Talon-Hook Bracers",
+      "slot": "wrist",
+      "item_level": 32,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 6,
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "attack_power": 18
+      },
+      "armor_value": 116,
+      "required_level": 30,
+      "sell_price": 2498,
+      "identity": "hunter",
+      "icon_id": "gear_inv_bracer_05",
+      "item_id": "st_talon_hook_bracers"
+    },
+    {
+      "name": "Shrieka's Gale Shield",
+      "slot": "off_hand",
+      "item_level": 32,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "shield",
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 5
+      },
+      "secondary_stats": {
+        "spell_power": 14,
+        "haste": 5
+      },
+      "armor_value": 326,
+      "required_level": 30,
+      "sell_price": 3997,
+      "identity": "haste_caster",
+      "icon_id": "gear_inv_shield_11",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 38,
+      "item_id": "st_shriekas_gale_shield"
+    },
+    {
+      "name": "Featherfall Slippers",
+      "slot": "feet",
+      "item_level": 32,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 5,
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "healing_power": 22
+      },
+      "armor_value": 43,
+      "required_level": 30,
+      "sell_price": 3247,
+      "identity": "healer",
+      "icon_id": "gear_inv_boots_03",
+      "item_id": "st_featherfall_slippers"
+    }
+  ],
+  "Broadpaw": [
+    {
+      "name": "Broadpaw Hide Vest",
+      "slot": "chest",
+      "item_level": 31,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "stamina": 13,
+        "agility": 8
+      },
+      "secondary_stats": {
+        "dodge_rating": 6
+      },
+      "armor_value": 101,
+      "required_level": 29,
+      "sell_price": 4674,
+      "identity": "bear",
+      "icon_id": "gear_inv_chest_leather_08",
+      "item_id": "st_broadpaw_hide_vest"
+    },
+    {
+      "name": "Grove-Runner's Coif",
+      "slot": "head",
+      "item_level": 31,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 8,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "attack_power": 21
+      },
+      "armor_value": 145,
+      "required_level": 29,
+      "sell_price": 3739,
+      "identity": "agility",
+      "icon_id": "gear_inv_helmet_13",
+      "item_id": "st_grove_runners_coif"
+    },
+    {
+      "name": "Broadpaw's Claw",
+      "slot": "main_hand",
+      "item_level": 31,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "fist_weapon",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 6
+      },
+      "secondary_stats": {
+        "attack_power": 16,
+        "crit_chance_physical": 6
+      },
+      "armor_value": 0,
+      "required_level": 29,
+      "sell_price": 4440,
+      "identity": "rogue_crit",
+      "icon_id": "gear_inv_weapon_shortblade_26",
+      "weapon_damage_min": 58,
+      "weapon_damage_max": 79,
+      "attack_speed": 1.8,
+      "block_value": 0,
+      "item_id": "st_broadpaws_claw"
+    },
+    {
+      "name": "Mossbark Robe",
+      "slot": "chest",
+      "item_level": 31,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 8,
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "healing_power": 24
+      },
+      "armor_value": 50,
+      "required_level": 29,
+      "sell_price": 4674,
+      "identity": "spirit_healer",
+      "icon_id": "gear_inv_chest_cloth_43",
+      "item_id": "st_mossbark_robe"
+    }
+  ],
+  "Hargol Bloodhorn": [
+    {
+      "name": "Bloodhorn Breastplate",
+      "slot": "chest",
+      "item_level": 32,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 9
+      },
+      "secondary_stats": {
+        "attack_power": 22,
+        "crit_chance_physical": 9
+      },
+      "armor_value": 261,
+      "required_level": 30,
+      "sell_price": 4996,
+      "identity": "strength_crit",
+      "icon_id": "gear_inv_chest_plate02",
+      "item_id": "st_bloodhorn_breastplate"
+    },
+    {
+      "name": "Grimtotem Spirit Mantle",
+      "slot": "shoulder",
+      "item_level": 32,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "spell_power": 19,
+        "crit_chance_spell": 5
+      },
+      "armor_value": 142,
+      "required_level": 30,
+      "sell_price": 3997,
+      "identity": "mail_caster",
+      "icon_id": "gear_inv_shoulder_21",
+      "item_id": "st_grimtotem_spirit_mantle"
+    },
+    {
+      "name": "Bloodhorn Totem",
+      "slot": "ranged",
+      "item_level": 32,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "totem",
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "spell_power": 12
+      },
+      "armor_value": 0,
+      "required_level": 30,
+      "sell_price": 3997,
+      "identity": "mail_caster",
+      "icon_id": "gear_inv_wand_07",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "item_id": "st_bloodhorn_totem"
+    },
+    {
+      "name": "Hargol's War Spear",
+      "slot": "main_hand",
+      "item_level": 32,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "polearm",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 9,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "attack_power": 22
+      },
+      "armor_value": 0,
+      "required_level": 30,
+      "sell_price": 6245,
+      "identity": "strength",
+      "icon_id": "gear_inv_spear_04",
+      "weapon_damage_min": 81,
+      "weapon_damage_max": 109,
+      "attack_speed": 3.3,
+      "block_value": 0,
+      "item_id": "st_hargols_war_spear"
+    }
+  ],
+  "The Risen Hunter": [
+    {
+      "name": "Rim-Walker's Legplates",
+      "slot": "legs",
+      "item_level": 32,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_int_hybrid",
+      "primary_stats": {
+        "strength": 9,
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "attack_power": 22
+      },
+      "armor_value": 252,
+      "required_level": 30,
+      "sell_price": 4996,
+      "identity": "crusader",
+      "icon_id": "gear_inv_pants_wolf",
+      "item_id": "st_rim_walkers_legplates"
+    },
+    {
+      "name": "Dead Hunter's Longbow",
+      "slot": "ranged",
+      "item_level": 32,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "bow",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 5
+      },
+      "secondary_stats": {
+        "attack_power": 16,
+        "crit_chance_physical": 5
+      },
+      "armor_value": 0,
+      "required_level": 30,
+      "sell_price": 3997,
+      "identity": "hunter_crit",
+      "icon_id": "gear_inv_weapon_bow_03",
+      "weapon_damage_min": 51,
+      "weapon_damage_max": 69,
+      "attack_speed": 2.8,
+      "block_value": 0,
+      "item_id": "st_dead_hunters_longbow"
+    },
+    {
+      "name": "Hollow-Eye Gloves",
+      "slot": "hands",
+      "item_level": 32,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 5,
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "healing_power": 22
+      },
+      "armor_value": 72,
+      "required_level": 30,
+      "sell_price": 3247,
+      "identity": "healer",
+      "icon_id": "gear_inv_gauntlets_12",
+      "item_id": "st_hollow_eye_gloves"
+    },
+    {
+      "name": "Sunless Pauldrons",
+      "slot": "shoulder",
+      "item_level": 32,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "healing_power": 35
+      },
+      "armor_value": 221,
+      "required_level": 30,
+      "sell_price": 3997,
+      "identity": "plate_healer",
+      "icon_id": "gear_inv_shoulder_28",
+      "item_id": "st_sunless_pauldrons"
+    }
+  ]
+}
