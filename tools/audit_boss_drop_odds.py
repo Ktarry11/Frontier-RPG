@@ -45,7 +45,7 @@ sys.path.insert(0, str(ROOT))
 #: loader globs along with every real boss table, so it believes there are
 #: bosses called "world" and "dungeon". audit_loot reports that as a finding
 #: of its own; this tool just must not measure them as bosses.
-NOT_BOSSES = {"world", "dungeon"}
+NOT_BOSSES = {"world", "dungeon", "final_bosses", "pending"}
 
 
 def chi_square_p(chi2, df):

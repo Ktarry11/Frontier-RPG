@@ -59,170 +59,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-#: (name, slot, kind, type, item_level, stat_template, flavour)
-#: Found anywhere in the world, off anything, at level 30 and up. These are the ones people trade
-#: stories about, so each is a thing rather than a stat line.
-WORLD = [
-    ("Hollowmade Crown", "head", "armor", "cloth", 34, "int_caster",
-     "Light as nothing. The smith who made it left no other work behind."),
-    ("The Long Patience", "legs", "armor", "plate", 38, "str_physical",
-     "Somebody stood in these for a very long time, in one place, on purpose."),
-    ("Tidewidow's Wrap", "back", "armor", "cloth", 32, "spi_healer",
-     "Still damp at the hem. It has been dry storage for three years."),
-    ("Scavenger's Honest Grip", "hands", "armor", "leather", 33, "agi_physical",
-     "Worn through at the fingertips and nowhere else, which says what the work was."),
-    ("Bluefinger", "main_hand", "weapon", "dagger", 35, "agi_physical",
-     "Named for what it does to a hand that holds it wrong."),
-    ("Oathless", "main_hand", "weapon", "sword_2h", 40, "str_physical",
-     "No maker's mark, no inscription, nothing promised to anybody. Unusual for a blade this good."),
-    ("Rimeworn Pauldrons", "shoulder", "armor", "mail", 36, "agi_physical",
-     "The frost pattern is in the metal, not on it."),
-    ("The Quiet Argument", "main_hand", "weapon", "mace_1h", 37, "spi_healer",
-     "Carried by someone who preferred to be reasonable and came prepared not to be."),
-    ("Ninefold Belt", "waist", "armor", "leather", 39, "agi_int_hybrid",
-     "Nine layers, nine different hides. Eight of them are from animals anybody can name."),
-    ("Lamplighter's Coat", "chest", "armor", "cloth", 41, "int_caster",
-     "Scorched in a ring around the cuffs, from reaching into places that were already lit."),
-    ("Stonewake Greaves", "feet", "armor", "plate", 42, "str_physical",
-     "Heavy enough that the wearer's route can be followed a week later."),
-    ("The Second Opinion", "main_hand", "weapon", "staff", 42, "int_caster",
-     "Found alongside a first opinion, which had not worked."),
-    # --- the 43-50 band, which did not exist. Kyle asked for the agility polearm, the agility
-    # two-handed sword and the agility two-handed mace by name; all three are here.
-    ("The Understudy", "shoulder", "armor", "plate", 44, "str_int_hybrid",
-     "Built to the measurements of somebody more famous, and never collected."),
-    ("The Standing Order", "main_hand", "weapon", "polearm", 45, "agi_physical",
-     "Nobody has rescinded it. Nobody remembers issuing it either."),
-    ("Threshing Day", "main_hand", "weapon", "mace_2h", 46, "agi_physical",
-     "A farm tool that got good at something else and never went back."),
-    ("Last Word on the Matter", "main_hand", "weapon", "sword_2h", 47, "agi_physical",
-     "The argument it ended is not recorded. The ending is well attested."),
-    ("Saltmother's Shawl", "back", "armor", "cloth", 48, "spi_healer",
-     "Knitted by somebody who had buried enough people to know what the living need."),
-    ("Three Winters' Boots", "feet", "armor", "mail", 49, "agi_physical",
-     "Resoled twice, by two different hands, neither of them a cobbler's."),
-    ("The Inventory", "waist", "armor", "plate", 50, "str_physical",
-     "Every pouch labelled, in a hand that expected somebody else to read it."),
-    ("Quietkeep", "off_hand", "weapon", "tome", 50, "spi_healer",
-     "Half the pages are blank. The other half are names, and the list is still going."),
-
-    # ---- the 51-58 band. Kyle, 13 Nov 2026: "make about 5 new world epics that drop at 50+",
-    # and "TRINKETS CAN DO THINGS NOW - MOVE THE 50+ TRINKETS SLOWLY FROM BEING BASIC STAT
-    # STICKS". Two of the five are trinkets with a proc (PROCS below). The other three fill
-    # weapon types no epic had used (bow, axe_1h) and the hands slot.
-    ("Long Way Round", "ranged", "weapon", "bow", 52, "agi_physical",
-     "Somebody carried it the whole length of two worlds and never found a reason to draw it "
-     "until the last mile."),
-    ("Kindling", "main_hand", "weapon", "axe_1h", 53, "str_physical",
-     "It was a wood axe for forty years, and the man who owned it would be upset to see what "
-     "it gets used for now."),
-    ("The Borrowed Hour", "trinket", "armor", "accessory", 54, "spi_healer",
-     "A pocket watch that stopped on the day of the Integration and has been right about "
-     "everything since."),
-    ("The Even Hand", "hands", "armor", "leather", 56, "agi_int_hybrid",
-     "The left glove is more worn than the right, because whoever owned them kept the right "
-     "hand free for shaking."),
-    ("Witness", "trinket", "armor", "accessory", 57, "agi_physical",
-     "A brass spyglass lens with a crack across it, kept by someone who saw a thing happen and "
-     "was never asked about it."),
-    # ---- 14 Nov 2026, Kyle: "We need some more lvl 50+ world drop epics and dungeon epics."
-    # Seven more for 51-59, each in a slot and for a role the 50+ world list did not cover:
-    # plate feet, cloth waist, leather feet, mail chest, a finger, a tank trinket and a staff.
-    ("Third-Year Band", "ring", "armor", "accessory", 51, "int_caster",
-     "A plain gold ring with three notches filed into the inside, one for each year since the "
-     "Integration."),
-    ("Hearthguard Sabatons", "feet", "armor", "plate", 53, "str_physical",
-     "Heavy plate boots with the soles worn smooth from years of standing guard in one place."),
-    ("Ridgerunner Boots", "feet", "armor", "leather", 54, "agi_physical",
-     "Soft boots made for running on rock. The stitching has been redone at least twice."),
-    ("Saltworn Sash", "waist", "armor", "cloth", 55, "spi_healer",
-     "A cloth belt gone stiff with dried salt water. A healer's sign is stitched on the buckle "
-     "flap."),
-    ("Stormglass Hauberk", "chest", "armor", "mail", 56, "agi_int_hybrid",
-     "Mail links with small rounds of storm-blue glass worked into the chest."),
-    ("Quietwater Staff", "main_hand", "weapon", "staff", 57, "spi_healer",
-     "A straight staff of pale wood. Water poured down it runs off without wetting the grain."),
-    ("The Long Watch", "trinket", "armor", "accessory", 58, "str_physical",
-     "A soldier's tin whistle on a leather cord, dented, and still loud."),
-]
-
-#: Occasional drops from bosses at level 30 and up, themed to the dungeons that exist up there -
-#: the Crystalline Underdark's archive, the Drowning Floor, the Southern Needles, and from 47 up
-#: the two Bloodsail ships of the Return Voyage.
-DUNGEON = [
-    ("Marginalia", "wrist", "armor", "cloth", 38, "int_caster",
-     "Somebody wrote on the inside of the cuff, in a hand too small to read without light."),
-    ("The Corrected Edition", "chest", "armor", "plate", 40, "str_int_hybrid",
-     "An earlier version of this exists. It is not clear what was wrong with it."),
-    ("Shardmaw's Underjaw", "main_hand", "weapon", "fist_weapon", 37, "agi_physical",
-     "Set into a grip by somebody who had to pry it loose first."),
-    ("The Unlisted Name", "head", "armor", "leather", 39, "agi_int_hybrid",
-     "Every piece down there is catalogued. This one is not, and the gap has been tidied."),
-    ("Footnote", "main_hand", "weapon", "dagger", 36, "agi_physical",
-     "Small, late in the argument, and the part people remember."),
-    ("The Deep Bloom's Root", "main_hand", "weapon", "staff", 43, "spi_healer",
-     "Cut, and still putting out pale shoots along its length."),
-    ("Yearmaw's Toothmark", "chest", "armor", "mail", 36, "agi_physical",
-     "Punched through and beaten flat again from the inside. Whoever did the repair survived."),
-    ("What the Tide Kept", "off_hand", "weapon", "shield", 35, "str_physical",
-     "Salt has got into every seam and made it heavier than it was built to be."),
-    ("Galak Tollbreaker", "main_hand", "weapon", "axe_2h", 38, "str_physical",
-     "Carried by the first person who declined to pay, and recovered from where they fell."),
-    ("Thermal-Borne Greaves", "legs", "armor", "mail", 36, "agi_int_hybrid",
-     "Updraft off a mesa top will hold a feather for an hour. These were found at the bottom."),
-    # --- the Bloodsail band, 44-50.
-    ("Scuttler's Own Hook", "main_hand", "weapon", "fist_weapon", 44, "agi_physical",
-     "He kept the hand. He just found the hook more use in a boarding action."),
-    ("The Ledger of Debts", "chest", "armor", "cloth", 46, "int_caster",
-     "Every name crossed out, and the crossings-out are in a different ink to the names."),
-    ("Dace's Long Count", "legs", "armor", "leather", 47, "agi_int_hybrid",
-     "Tally marks down both thighs, in groups of five, running out of room."),
-    ("Breakwater", "off_hand", "weapon", "shield", 48, "str_physical",
-     "Took the whole sea at Booty Bay for a season and gave none of it back."),
-    ("What Floated Back", "head", "armor", "mail", 49, "agi_physical",
-     "The ship did not. This did, three weeks later, on the same tide."),
-    ("The Admiral's Last Order", "main_hand", "weapon", "sword_1h", 50, "str_int_hybrid",
-     "Given in a cabin, to nobody who outlived the giving of it."),
-
-    # ---- TEMPEST ISLE, 51-58. Two from each dungeon, and every one of them fills a slot that
-    # had NO epic at all. Checked rather than asserted: across the 36 existing epics, the slots
-    # neck, finger, trinket and ranged were empty, and the weapon types axe_1h, bow, crossbow,
-    # gun and wand had never been used. Thirteen of the 36 are main_hand, which is exactly the
-    # lopsidedness Kyle's standing rule is about, so not one of these four is a main-hand.
-    ("Ashhold's Writ", "neck", "armor", "accessory", 54, "str_int_hybrid",
-     "The deed to a hall four hundred feet down, carried from hall to rented room to a bunk on a "
-     "goblin barge, and never once sold."),
-    ("The Unbanked Fire", "trinket", "armor", "accessory", 55, "int_caster",
-     "They walked out of Khaz Varun in a hurry and nobody damped the forge. It has been burning "
-     "ever since, on nothing."),
-    ("The Mountain's Signet", "ring", "armor", "accessory", 57, "spi_healer",
-     "Found in the crack in its chest, which is the only part of a mountain that can be reached "
-     "into."),
-    ("Ashfall", "ranged", "weapon", "gun", 58, "agi_physical",
-     "Dark Iron barrel, goblin firing mechanism, and an argument about the trigger that is still "
-     "going on in Cinderwharf."),
-    # Three more for the isle (Kyle, 13 Nov 2026: "about 3 new epic items from the boss drops.
-    # Since we want to keep a healthy amount of epics"). A two-handed mace, the first wand, and
-    # a tank trinket that does something.
-    ("The Unmaking", "main_hand", "weapon", "mace_2h", 57, "str_physical",
-     "Thane Morrun swung it at the wall of his own hall for a hundred years, and the wall still "
-     "shows where."),
-    ("Serpent's Second Skin", "trinket", "armor", "accessory", 60, "str_physical",
-     "A scale the Molten Serpent shed while it was under the lava, and it has never fully "
-     "cooled."),
-    ("What the Oracle Saw", "ranged", "weapon", "wand", 61, "int_caster",
-     "Ysmel looked into the caldera every day until it looked back, and this is the rod she was "
-     "holding when it did."),
-    # ---- 14 Nov 2026: the Royal Hive (54-56), and one more for Khaz Varun.
-    ("The Queen's Regard", "trinket", "armor", "accessory", 59, "spi_healer",
-     "A drop of royal jelly sealed in amber, warm in the hand."),
-    ("Wingcase Mantle", "shoulder", "armor", "leather", 58, "agi_int_hybrid",
-     "Shoulder plates cut from the Consort's wing cases. They still have a faint green sheen."),
-    ("Zhir'ak's Second Scythe", "main_hand", "weapon", "axe_1h", 59, "agi_physical",
-     "One of the Consort's forelimb blades, fitted to a dwarven haft in Onyxhollow."),
-    ("Hrun's Last Stand", "off_hand", "weapon", "shield", 55, "str_physical",
-     "The gatewarden's shield, dented in a hundred places and never once broken."),
-]
+#: The tables live in tools/epic_table.py (16 Nov 2026): the world pool, the dungeon epics by final boss, the
+#: class-leaning stat mixes and each epic's own icon.
+from tools.epic_table import DUNGEON, FINAL_BOSSES, MIX, NEW_PROCS, SHARED_30S, WORLD  # noqa: E402
 
 #: Trinkets that DO something. Kyle, 10 Nov: "trinkets over 50+ WILL AND MUST start to
 #: actually do stuff." The payload is a StatusEffect proc dict - the same engine talents use
@@ -283,6 +122,8 @@ PROCS = {
         "describe": "When you are hit, you have a chance to heal for 220.",
     },
 }
+
+PROCS.update(NEW_PROCS)
 
 #: An item named for a stat has to carry it. See coherent().
 LEAD_SHARE = 0.25
@@ -353,20 +194,20 @@ def check_ranged_slots(rows):
     wt = json.loads((ROOT / "data/items/weapon_types.json").read_text(encoding="utf-8"))["weapon_types"]
     ranged = {k for k, v in wt.items() if v.get("hand") == "ranged"}
     return [f"{name} is a {atype} (ranged) but authored into slot '{slot}'"
-            for name, slot, kind, atype, _il, _st, _f in rows
+            for name, slot, kind, atype, *_rest in rows
             if kind == "weapon" and atype in ranged and slot != "ranged"]
 
 
 def audit(rows):
     """Kyle's standing rule: boss and quest loot must not lean on one armour class or weapon type."""
-    armour = Counter(t for _n, _s, k, t, _il, _st, _f in rows if k == "armor")
-    weapons = Counter(t for _n, _s, k, t, _il, _st, _f in rows if k == "weapon")
-    templates = Counter(st for *_x, st, _f in rows)
+    armour = Counter(r[3] for r in rows if r[2] == "armor" and r[3] != "accessory")
+    weapons = Counter(r[3] for r in rows if r[2] == "weapon")
+    templates = Counter(r[5] for r in rows)
     problems = []
     for cls in ("cloth", "leather", "mail", "plate"):
         if armour[cls] < 2:
             problems.append(f"only {armour[cls]} {cls} pieces - the spread is lopsided")
-    cap = 3
+    cap = max(3, sum(weapons.values()) // 3)
     if max(weapons.values(), default=0) > cap:
         hog = max(weapons, key=weapons.get)
         problems.append(f"{weapons[hog]} of the weapons are {hog} (cap {cap})")
@@ -390,72 +231,133 @@ def audit(rows):
     return problems
 
 
+def apply_mix(d, mix):
+    """A class-leaning epic's stat line: the authored mix, split into primary and secondary."""
+    prim = {k: v for k, v in mix.items() if k in ("strength", "agility", "stamina", "intellect", "spirit")}
+    sec = {k: v for k, v in mix.items() if k not in prim}
+    d["primary_stats"], d["secondary_stats"] = prim, sec
+
+
+def icon_users():
+    """icon_id -> names of every OTHER item in data/ that draws it (the one-icon rule)."""
+    from collections import defaultdict
+    users = defaultdict(set)
+
+    def walk(o):
+        if isinstance(o, dict):
+            if isinstance(o.get("icon_id"), str) and o.get("name") and (o.get("item_level") or o.get("slot")):
+                users[o["icon_id"]].add(o["name"])
+            for v in o.values():
+                walk(v)
+        elif isinstance(o, list):
+            for v in o:
+                walk(v)
+    for f in sorted((ROOT / "data").rglob("*.json")):
+        if f.name == "epic_drops.json":
+            continue
+        try:
+            walk(json.loads(f.read_text(encoding="utf-8")))
+        except (OSError, json.JSONDecodeError):
+            continue
+    return users
+
+
 def main():
+    from entities.item_budget import budget_ratio, fit_to_curve
     from entities.loot_generator import LootGenerator
     gen = LootGenerator()
 
-    rows = WORLD + DUNGEON
+    rows = [r[:7] for r in WORLD] + [r[:7] for r in DUNGEON]
     print(f"spread check over {len(rows)} epics:")
     problems = audit(rows) + check_ranged_slots(rows)
+    bosses = {r[8] for r in DUNGEON} - {SHARED_30S}
+    problems += [f"{b} has epics but is not on FINAL_BOSSES" for b in sorted(bosses - set(FINAL_BOSSES))]
+    problems += [f"{b} is a 40+ final boss with no epic of its own" for b, (_d, ch) in FINAL_BOSSES.items()
+                 if ch >= 0.05 and b not in bosses]
+    # One icon per item (Kyle, 16 Nov: "every unique item in the game can only have ONE icon"). An icon an epic
+    # takes must belong to no other item anywhere in data/, and to no other epic.
+    users = icon_users()
+    seen = {}
+    for r in list(WORLD) + list(DUNGEON):
+        icon = r[7]
+        if not icon:
+            continue
+        if users.get(icon):
+            problems.append(f"{r[0]}'s icon {icon} is already {sorted(users[icon])[0]}'s")
+        if icon in seen:
+            problems.append(f"{r[0]} and {seen[icon]} share the icon {icon}")
+        seen[icon] = r[0]
+        if not (ROOT / "assets/icons/gear" / f"{icon}.png").exists():
+            problems.append(f"{r[0]}'s icon {icon} is not on disk")
     if problems:
         print("\nFAILED - fix the table, not the check:")
         for p in problems:
             print(f"  - {p}")
         return 1
 
-    out = {"_notes": ("Named epic drops. WORLD items drop from anything at level 30+ at a very "
-                      "low rate; DUNGEON items are the occasional purple off a level 30+ boss. "
-                      "Identity is hand-authored in tools/build_epic_drops.py; every stat below "
-                      "came from LootGenerator at epic budget, so these sit on the same curves "
-                      "as the rest of the game's loot, and each was rerolled until it carried "
-                      "the stat it is named for. Rolled by entities/epic_drops.py.")}
-
-    # KEEP WHAT IS ALREADY THERE. The stats come from LootGenerator, which is random, so this
-    # script used to re-roll EVERY epic in the game each time it ran. Adding four new epics on
-    # 10 Nov silently re-rolled the other 36 - stats that had been checked against the rares in
-    # 280a61e - and it went out in the push before anyone noticed. An epic is now rolled once,
-    # when it first appears in the table, and kept by item_id from then on. To deliberately
-    # re-roll one, delete its entry from the JSON and run this again.
     p = ROOT / "data/loot/epic_drops.json"
     try:
         existing = json.loads(p.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
         existing = {}
+    have = {d.get("item_id"): d for key in ("world", "dungeon", "pending") for d in existing.get(key, [])}
 
-    rerolled = 0
-    kept = 0
+    out = {"_notes": ("Named epic drops (docs/epic_drops_plan.md). WORLD: one 1-in-400 roll on any level 30+ kill, "
+                      "then one pick from the epics that fit the zone's level band. DUNGEON: a final boss's own "
+                      "epics (or the shared 30-39 pool) at the chance in final_bosses. PENDING: built, waiting on "
+                      "an icon of their own, and never dropped. Identity in tools/epic_table.py; stats from "
+                      "LootGenerator at epic budget, then put on the item curve. Rolled by entities/epic_drops.py."),
+           "final_bosses": {b: {"dungeon": d, "chance": ch} for b, (d, ch) in FINAL_BOSSES.items()},
+           "world": [], "dungeon": [], "pending": []}
+    kept = rolled = 0
     for key, table in (("world", WORLD), ("dungeon", DUNGEON)):
-        have = {d.get("item_id"): d for d in existing.get(key, [])}
-        items = []
-        for name, slot, kind, atype, ilvl, template, flavour in table:
-            item_id = "epic_" + name.lower().replace("'", "").replace(" ", "_")
+        for row in table:
+            name, slot, kind, atype, ilvl, template, flavour, icon = row[:8]
+            item_id = "epic_" + name.lower().replace("'", "").replace(" ", "_").replace(",", "")
             if item_id in have:
                 d = dict(have[item_id])
+                r = budget_ratio(d)
+                if r and not 0.65 <= r <= 1.45:      # off the curve: back onto it, mix kept
+                    fit_to_curve(d)
                 kept += 1
             else:
                 item, err = build_one(gen, name, slot, kind, atype, ilvl, template)
                 if err:
                     print(f"FAILED: {err}")
                     return 1
-                d = item.to_dict() if hasattr(item, "to_dict") else {}
-                if not coherent(item, gen, template, kind, atype):
-                    rerolled += 1
+                d = item.to_dict()
+                if name in MIX:
+                    apply_mix(d, MIX[name])
+                fit_to_curve(d)
+                rolled += 1
             d["name"] = name
             d["flavor_text"] = flavour
-            # The generated item_id carries a uuid, which would make this file churn on every run.
             d["item_id"] = item_id
-            # Procs are authored here, never rolled, so they are applied every run.
+            d["icon_id"] = icon
+            d["power_scale"] = 3
+            if name in MIX:
+                d["class_leaning"] = True
+            else:
+                d.pop("class_leaning", None)
+            if key == "dungeon":
+                d["boss"] = row[8]
+            else:
+                d.pop("boss", None)
             if name in PROCS:
                 d["proc"] = PROCS[name]
             else:
                 d.pop("proc", None)
-            items.append(d)
-        out[key] = items
-        print(f"\n  {key}: {len(items)} items, item level "
-              f"{min(i['item_level'] for i in items)}-{max(i['item_level'] for i in items)}")
+            out[key if icon else "pending"].append(d)
 
+    if not out["pending"]:
+        del out["pending"]
     p.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"\nkept {kept} existing epics unchanged, rolled {len(rows) - kept} new")
+    off = [d["name"] for k in ("world", "dungeon") for d in out[k]
+           if (budget_ratio(d) or 1) < 0.65 or (budget_ratio(d) or 1) > 1.45]
+    print(f"\n  world {len(out['world'])}, dungeon {len(out['dungeon'])}, pending an icon {len(out.get('pending', []))}")
+    print(f"  kept {kept} unchanged, rolled {rolled} new")
+    if off:
+        print(f"  off the item curve: {', '.join(off)}")
     print(f"wrote {p.relative_to(ROOT)}")
     return 0
 

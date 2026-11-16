@@ -48,6 +48,10 @@ def _load_boss_loot_tables():
     tables = {}
     if _LOOT_DIR.exists():
         for path in sorted(_LOOT_DIR.glob("*.json")):
+            # The named epics are keyed by bucket ("world", "dungeon", "final_bosses"), not by boss, and are
+            # rolled by entities/epic_drops.py. Read as boss tables they made bosses called "world" and "dungeon".
+            if path.name == "epic_drops.json":
+                continue
             try:
                 with open(path, "r", encoding="utf-8") as f:
                     data = json.load(f)

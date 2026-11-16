@@ -1154,7 +1154,8 @@ class CombatEngine:
             # back a fixed rare before rarity is ever considered, which is why there was not one
             # epic in the game. See entities/epic_drops.py for the rates and the reasoning.
             from entities.epic_drops import roll_epic
-            epic = roll_epic(enemy, self.player.level)
+            # One roll, then one pick by the ZONE's level (Kyle, 16 Nov: "picked by zone level").
+            epic = roll_epic(enemy, self.player.level, zone=self.zone)
             if epic is not None:
                 if self.player.add_to_inventory(epic):
                     self.loot_gained.append(epic)

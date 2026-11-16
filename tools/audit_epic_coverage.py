@@ -108,8 +108,11 @@ def main():
         note = "  <-- serves almost nobody" if serves <= 2 else ""
         print(f"    {atype:12} {count} item(s), usable by {serves:2} of "
               f"{len(class_weapons)} classes{note}")
-        if serves <= 2:
-            findings.append(f"{count} epic(s) are {atype}, which only {serves} "
+        # A class-leaning epic is meant for one class (Kyle, 16 Nov 2026: "not class locked, more just class
+        # leaning"), so a narrow type is fine there and only a GENERALIST epic on one is a dead slot.
+        general = sum(1 for _s, it in items if it.get("weapon_type") == atype and not it.get("class_leaning"))
+        if serves <= 2 and general:
+            findings.append(f"{general} generalist epic(s) are {atype}, which only {serves} "
                             f"class(es) can use - that is a near-dead item slot")
 
     print()
