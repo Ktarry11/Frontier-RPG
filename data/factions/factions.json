@@ -224,7 +224,9 @@
           "st_orders_in_ash",
           "st_hargol_bloodhorn",
           "st_word_to_splintertree",
-          "st_splintertree_answer"
+          "st_splintertree_answer",
+          "sm_the_master_at_arms",
+          "sm_the_hale_locket"
         ]
       },
       "kill_rep": {
@@ -435,7 +437,34 @@
           "st_for_the_society",
           "st_voss_replies",
           "st_ash_for_brill",
-          "st_grael_writes_back"
+          "st_grael_writes_back",
+          "sm_the_monasterys_dead",
+          "sm_hearts_of_zeal",
+          "sm_the_bloodmages_stone",
+          "sm_doans_codex",
+          "sm_the_champion_of_the_hall",
+          "sm_in_the_name_of_the_light",
+          "sm_the_hounds_of_the_library",
+          "sm_drilled_to_die",
+          "sm_the_preacher_in_the_nave",
+          "sm_a_letter_for_brill",
+          "sm_pages_for_sun_rock",
+          "pls_the_line_holds",
+          "pls_andorhals_gate",
+          "pls_the_necromancers",
+          "pls_the_magistrate",
+          "pls_felstone_field",
+          "pls_a_sample_from_felstone",
+          "pls_dalsons_tears",
+          "pls_the_writhing_haunt",
+          "pls_what_the_plague_is_made_of",
+          "pls_cult_couriers",
+          "pls_a_report_for_the_undercity",
+          "pls_the_mother_of_the_haunt",
+          "pls_farmer_felstone",
+          "pls_the_ghost_in_the_barn",
+          "pls_snapjaw_shell",
+          "pls_old_darrowjaw"
         ]
       },
       "kill_rep": {
@@ -672,7 +701,8 @@
           "st_sap_on_the_slopes",
           "st_skyreach",
           "st_the_road_to_desolace",
-          "st_a_name_on_the_post"
+          "st_a_name_on_the_post",
+          "sm_the_sleepless"
         ]
       },
       "kill_rep": {
@@ -1153,11 +1183,71 @@
         "_comment": "Per quest, by shape. Matches the other factions' rates.",
         "default": 225,
         "boss": 250,
-        "capstones": {},
+        "capstones": {
+          "pl_ts_crusaders_insignia": 75
+        },
         "_comment_zones": "A zone's quests pay one faction (qa_factions). The Order's are the West; the Argent Dawn's are the East. The Order's chains that run into the East go in `also`.",
         "zones": [
           "western_plaguelands_south",
           "western_plaguelands_north"
+        ],
+        "also": [
+          "sm_the_scout_in_the_cells",
+          "sm_a_book_of_names",
+          "sm_cold_steel",
+          "sm_the_captain_of_the_doors",
+          "sm_the_flamekeepers_due",
+          "pls_a_dispatch_for_sorrow_hill",
+          "pls_what_we_kill",
+          "pls_red_on_the_road",
+          "pls_hearthglens_road",
+          "pls_the_groundskeeper",
+          "pls_steel_for_sorrow_hill",
+          "pls_archers_on_the_wall",
+          "pls_the_abominations",
+          "pls_shades_of_caer_darrow",
+          "pls_uthers_rest",
+          "pls_laid_to_rest",
+          "pls_the_haunts_banshees",
+          "pls_darrowmeres_drowned",
+          "pls_bear_stew",
+          "pls_letters_home",
+          "pls_clear_skies",
+          "pls_jesses_for_the_hawks",
+          "pls_eyes_on_andorhal",
+          "pls_the_survey_map",
+          "pls_the_fallen_of_andorhal",
+          "pls_the_necrolytes",
+          "pln_the_gate_of_hearthglen",
+          "pln_sentries_on_the_road",
+          "pln_crossbows_on_the_wall",
+          "pln_word_from_the_watch",
+          "pln_a_letter_for_brill",
+          "pln_worgs_on_the_road",
+          "pln_skeletal_wanderers",
+          "pln_down_to_the_river",
+          "pln_the_blighted_herd",
+          "pln_travellers_keepsakes",
+          "pln_riverbank_ghouls",
+          "pln_sludge_samples",
+          "pln_the_withering",
+          "pln_gahrron_the_withered",
+          "pln_a_serum_for_felwood",
+          "pln_the_inquisitors",
+          "pln_the_confessions",
+          "pln_the_book_of_names",
+          "pln_high_inquisitor_faulk",
+          "pln_northridge",
+          "pln_woodsman_archers",
+          "pln_seasoned_oak",
+          "pln_foreman_harrow",
+          "pln_saw_blades",
+          "pln_snapjaws_on_the_thondroril",
+          "pln_plague_bats",
+          "pln_antler_hooks",
+          "pln_old_thondroril",
+          "pln_the_patrol_roster",
+          "pln_hearthglens_hounds"
         ]
       },
       "kill_rep": {
@@ -1316,6 +1406,41 @@
           "Scarlet Monastery: Armory": "honored",
           "Scarlet Monastery: Cathedral": "honored"
         }
+      },
+      "rewards": {
+        "vendor_stock": {
+          "wpl_pf_quartermaster": {
+            "friendly": [
+              "healing_potion_supreme"
+            ],
+            "honored": [
+              "elixir_icecap",
+              "ench_bracer_major_healing",
+              "jc_cut_smooth_truesilver_zircon"
+            ],
+            "revered": [
+              "ench_gloves_major_healing",
+              "jc_cut_quick_truesilver_zircon",
+              "unique:pf_sorrow_hill_bulwark_helm",
+              "unique:pf_flamewardens_mantle",
+              "unique:pf_defectors_brigandine",
+              "unique:pf_uthers_vigil_gauntlets",
+              "unique:pf_ironworkers_girdle",
+              "unique:pf_pale_flame_signet"
+            ],
+            "exalted": [
+              "unique:pf_callahans_rivet_maul",
+              "unique:pf_shield_of_the_walkout",
+              "unique:pf_staff_of_the_pale_flame",
+              "rep_pf_pale_warplate",
+              "rep_pf_mantle_of_the_walkout"
+            ]
+          }
+        },
+        "_comment": [
+          "Gates, not a displayed ladder (the faction panel stays information only).",
+          "TBC-style shelves (tools/build_plaguelands_rewards.py, 16 Nov 2026): friendly supplies, honored patterns, revered six ilvl 67 blues, exalted three ilvl 73 epics (250-350g) and two epic recipes."
+        ]
       }
     },
     "argent_dawn": {
@@ -1339,22 +1464,340 @@
         "_comment": "Per quest, by shape. Matches the other factions' rates.",
         "default": 225,
         "boss": 250,
-        "capstones": {},
+        "capstones": {
+          "pl_ts_minions_scourgestones": 75,
+          "pl_ts_invaders_scourgestones": 150,
+          "pl_ts_corruptors_scourgestone": 100
+        },
         "zones": [
           "eastern_plaguelands_west",
           "eastern_plaguelands_east"
+        ],
+        "also": [
+          "plw_the_road_west",
+          "plw_corins_crossing",
+          "plw_the_manifest",
+          "plw_the_crossings_abominations",
+          "plw_cartmaster_corin",
+          "plw_the_marris_stead",
+          "plw_the_marris_locket",
+          "plw_old_marris",
+          "plw_the_fungal_vale",
+          "plw_spore_caps",
+          "plw_the_fungal_mass",
+          "plw_spores_for_the_sanctuary",
+          "plw_terrordale",
+          "plw_the_skeletal_mages",
+          "plw_the_terror_of_the_dale",
+          "plw_word_for_sun_rock",
+          "plw_crow_pie",
+          "plw_gargoyles_over_the_road",
+          "plw_the_gates_of_stratholme",
+          "plw_gatekeeper_vorthas",
+          "plw_sigils_of_the_fallen",
+          "plw_plaguewood",
+          "plw_plaguewood_silk",
+          "plw_the_plaguewood_matriarch",
+          "plw_carrion_grubs",
+          "plw_hound_fangs",
+          "plw_a_look_at_stratholme",
+          "ple_the_road_between",
+          "ple_word_to_lights_hope",
+          "ple_darrowshires_ghouls",
+          "ple_the_houndmasters",
+          "ple_arrows_on_the_road",
+          "ple_the_blackwood_shore",
+          "ple_whats_in_the_water",
+          "ple_the_blackwood_drowner",
+          "ple_filters_for_felwood",
+          "ple_horse_for_the_pot",
+          "ple_a_barrel_for_sorrow_hill",
+          "ple_wild_bats",
+          "ple_a_bat_for_lights_hope",
+          "ple_tyrs_hand",
+          "ple_the_abbots",
+          "ple_abbot_varenne",
+          "ple_a_word_with_the_order",
+          "ple_marrow_of_the_scar",
+          "ple_the_bone_colossus",
+          "ple_darrowshires_dead",
+          "ple_the_pestilent_scar",
+          "ple_the_shadowhunters",
+          "ple_hex_fetishes",
+          "ple_troll_medicine",
+          "ple_mossflayer_raiders",
+          "ple_zulmashar_the_last",
+          "ple_the_medics_network",
+          "ple_the_restless_lodge",
+          "ple_the_silver_leaves",
+          "ple_ranger_lord_saelith",
+          "ple_lamp_oil",
+          "ple_pamelas_doll",
+          "ple_a_letter_for_auntie",
+          "ple_where_daddy_is"
         ]
       },
       "kill_rep": {
         "_comment": [
-          "Scourge kills pay only while the Argent Dawn Commission is worn (built with Light's Hope's people), so nothing is listed here."
+          "The Scourge (Kyle, 16 Nov 2026: 'Argent Dawn from killing Scourge'): every undead and every Cult of the Damned member in the Plaguelands pays a little, rares more, up to Honored. Past Honored it's Scourgestones at Light's Hope, quests, and Scholomance and Stratholme's undead half."
         ],
-        "creatures": {}
+        "creatures": {
+          "Andorhal Abomination": [
+            5,
+            "honored"
+          ],
+          "Andorhal Necromancer": [
+            5,
+            "honored"
+          ],
+          "Andorhal Skeletal Archer": [
+            5,
+            "honored"
+          ],
+          "Andorhal Skeleton": [
+            5,
+            "honored"
+          ],
+          "Blackwood Drowned": [
+            5,
+            "honored"
+          ],
+          "Caer Darrow Ghoul": [
+            5,
+            "honored"
+          ],
+          "Caer Darrow Shade": [
+            5,
+            "honored"
+          ],
+          "Cauldron Necrolyte": [
+            5,
+            "honored"
+          ],
+          "Crossing Abomination": [
+            5,
+            "honored"
+          ],
+          "Cult Cart Driver": [
+            5,
+            "honored"
+          ],
+          "Cult Plaguebringer": [
+            5,
+            "honored"
+          ],
+          "Dalson's Ghoul": [
+            5,
+            "honored"
+          ],
+          "Dalson's Skeleton": [
+            5,
+            "honored"
+          ],
+          "Darrowshire Ghoul": [
+            5,
+            "honored"
+          ],
+          "Darrowshire Spirit": [
+            5,
+            "honored"
+          ],
+          "Drowned Lakewalker": [
+            5,
+            "honored"
+          ],
+          "Felstone Cauldron Lord": [
+            5,
+            "honored"
+          ],
+          "Felstone Cultist": [
+            5,
+            "honored"
+          ],
+          "Felstone Ghoul": [
+            5,
+            "honored"
+          ],
+          "Frenzied Ghoul": [
+            5,
+            "honored"
+          ],
+          "Gate Death Knight": [
+            5,
+            "honored"
+          ],
+          "Gate Gargoyle": [
+            5,
+            "honored"
+          ],
+          "Haunt Banshee": [
+            5,
+            "honored"
+          ],
+          "Haunt Cult Tender": [
+            5,
+            "honored"
+          ],
+          "Marris Farmhand": [
+            5,
+            "honored"
+          ],
+          "Plaguewood Crypt Fiend": [
+            5,
+            "honored"
+          ],
+          "Restless Lodge Ranger": [
+            5,
+            "honored"
+          ],
+          "Riverbank Ghoul": [
+            5,
+            "honored"
+          ],
+          "Scar Bone Construct": [
+            5,
+            "honored"
+          ],
+          "Skeletal Wanderer": [
+            5,
+            "honored"
+          ],
+          "Spore-Walker": [
+            5,
+            "honored"
+          ],
+          "Stone-Winged Gargoyle": [
+            5,
+            "honored"
+          ],
+          "Terrordale Ghoul": [
+            5,
+            "honored"
+          ],
+          "Terrordale Skeletal Mage": [
+            5,
+            "honored"
+          ],
+          "Terrordale Spirit": [
+            5,
+            "honored"
+          ],
+          "Wandering Skeleton": [
+            5,
+            "honored"
+          ],
+          "Withering Cultist": [
+            5,
+            "honored"
+          ],
+          "Withering Ghoul": [
+            5,
+            "honored"
+          ],
+          "Writhing Crypt Fiend": [
+            5,
+            "honored"
+          ],
+          "Captain Redpath's Shade": [
+            25,
+            "honored"
+          ],
+          "Cartmaster Corin": [
+            25,
+            "honored"
+          ],
+          "Farmer Felstone": [
+            25,
+            "honored"
+          ],
+          "Gahrron the Withered": [
+            25,
+            "honored"
+          ],
+          "Gatekeeper Vorthas": [
+            25,
+            "honored"
+          ],
+          "Magistrate Andor": [
+            25,
+            "honored"
+          ],
+          "Mother of the Haunt": [
+            25,
+            "honored"
+          ],
+          "Old Marris": [
+            25,
+            "honored"
+          ],
+          "Ranger-Lord Saelith": [
+            25,
+            "honored"
+          ],
+          "The Blackwood Drowner": [
+            25,
+            "honored"
+          ],
+          "The Bone Colossus": [
+            25,
+            "honored"
+          ],
+          "The Dalson Ghost": [
+            25,
+            "honored"
+          ],
+          "The Groundskeeper": [
+            25,
+            "honored"
+          ],
+          "The Plaguewood Matriarch": [
+            25,
+            "honored"
+          ],
+          "The Terror of the Dale": [
+            25,
+            "honored"
+          ]
+        }
       },
       "dungeon_rep": {
         "_comment": "A dungeon boss kill pays 75. Scholomance and Stratholme's undead half join when they exist.",
         "per_boss": 75,
         "dungeons": []
+      },
+      "rewards": {
+        "vendor_stock": {
+          "epl_lh_quartermaster": {
+            "friendly": [
+              "mana_potion_supreme"
+            ],
+            "honored": [
+              "healing_potion_supreme",
+              "cookx_lifewarden_s_board",
+              "rc_rune_warding_3"
+            ],
+            "revered": [
+              "rc_capstone_holy_weapons_3",
+              "unique:ad_argent_vanguard_breastplate",
+              "unique:ad_lightwardens_cord",
+              "unique:ad_dawnstrider_leggings",
+              "unique:ad_chapel_ward_hauberk",
+              "unique:ad_scourgebane_wristwraps",
+              "unique:ad_argent_crusaders_sabatons"
+            ],
+            "exalted": [
+              "unique:ad_light_hope_greatbow",
+              "unique:ad_argent_avengers_blade",
+              "unique:ad_tome_of_the_last_vigil",
+              "rep_ad_lightguard_greaves",
+              "rep_ad_dawnwatch_jerkin"
+            ]
+          }
+        },
+        "_comment": [
+          "Gates, not a displayed ladder (the faction panel stays information only).",
+          "TBC-style shelves (tools/build_plaguelands_rewards.py, 16 Nov 2026): friendly supplies, honored patterns, revered six ilvl 67 blues, exalted three ilvl 73 epics (250-350g) and two epic recipes."
+        ]
       }
     }
   }

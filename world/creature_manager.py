@@ -419,6 +419,9 @@ class CreatureManager:
             if hasattr(monster, 'spell_power'):
                 monster.spell_power = int(monster.spell_power * boss_multiplier * 0.75)
 
+        # PHASES: a boss that becomes something else partway through (entities/monster.Monster._enter_phase)
+        monster.phases = [dict(p) for p in creature_def.get("phases") or []]
+
         # Global difficulty (world/difficulty.py). Open world until cave_spawns says otherwise;
         # it re-applies after tagging a cave kill, and apply_health is idempotent per kind.
         from world.difficulty import apply_health

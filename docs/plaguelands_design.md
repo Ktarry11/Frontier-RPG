@@ -153,7 +153,18 @@ the first build, and the Integration Zone's multipliers become a new hidden-zone
 **Stratholme, two halves.** The living side (the Scarlet Bastion, Pale Flame rep) and the undead side (the Baron,
 Argent rep). Rare drop: the Baron's deathcharger.
 
+**Dathrohan becomes Balnazzar (planned, 16 Nov 2026).** Kyle asked how. A new monster transform: at 40% health
+the combat log shows the reveal, and the boss takes Balnazzar's name, sprite, kit and full health pool. It's one
+kill: the loot, the chest token and the rep come off Balnazzar. Reusable for any boss with a second form
+(Hearthglen's last boss included). 40% is the tuning knob.
+
 **Scholomance, classic and full.** Caer Darrow, the Barovs, Kirtonos, Rattlegore, Ras Frostwhisper, Gandling.
+Kyle, 16 Nov 2026: "Ensure that scholomance and Stratholme live up to their wow parts. Multiple bosses." So both
+take classic's whole roster, past the four-to-six rule, like Hearthglen: Scholomance's twelve fights on two floors
+(the layout is drafted in `tools/handbuilt_scholomance.py`, not wired in), Stratholme's Scarlet half seven and its
+undead half seven. On hold until Kyle's dungeon tiles land ("The Dungeons can wait as we don't have the tiles").
+Numbers for 56-60, measured off the game's 52-58 dungeons: boss basic about 10L - 200 (360 at 56, 400 at 60),
+trash 4L - 10.
 
 **The Scarlet Monastery, four wings** off the gate in Eastern Tirisfal: Graveyard, Library, Armory, Cathedral.
 Built 16 Nov 2026 (docs/scarlet_monastery_build_log.md). A walled grounds map inside the gate holds the four doors.

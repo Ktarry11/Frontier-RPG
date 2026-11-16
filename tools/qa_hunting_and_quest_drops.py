@@ -23,8 +23,11 @@ def main():
     from set_quest_drop_rates import wanted, FLOOR
     most = wanted()
     drops = json.load(open("data/creatures/quest_drops.json", encoding="utf-8"))["drops"]
+    # a MATERIAL drop isn't held back once a quest has enough, and a repeatable turn-in (Scourgestones, Crusader's
+    # Insignia) is farmed by the stack on purpose, so the quest-item floor doesn't apply to it
     low = [(c, d["item_id"], d["chance"]) for c, ds in drops.items() for d in ds
-           if most.get(d.get("item_id"), 0) > 1 and d.get("chance", 1) < FLOOR]
+           if most.get(d.get("item_id"), 0) > 1 and d.get("chance", 1) < FLOOR
+           and d.get("category", "quest") == "quest"]
     for c, item, chance in low[:10]:
         bad.append(f"{c} drops {item} {chance:.0%} of the time and a quest wants {most[item]}")
     coral = [d["chance"] for d in drops.get("Isle Coconut Crab", []) if d["item_id"] == "sturdy_reef_coral"]

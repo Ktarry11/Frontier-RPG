@@ -34,6 +34,20 @@ M, F = "male", "female"
 
 #: id -> (name, race, gender, variant, facing, greeting)
 AMBIENT = {
+    # ---- the quest givers added with the quest pass (tools/plaguelands_quests_south.py)
+    "wpl_bulwark_captain": ("Deathguard Captain Ludo Vance", "undead", M, 5, "down",
+                            "My patrols walk the fields between here and Andorhal. Fewer of them come back every "
+                            "week, and the ones who do are tired of being the only thing out there with a mind."),
+    "wpl_bulwark_surgeon": ("Surgeon Halbert Grey", "undead", M, 2, "down",
+                            "I stitch the Deathguard back together when the fields take bits off them. It's slow "
+                            "work, and it'd be faster if anything out there were clean enough to use."),
+    "wpl_pf_scout": ("Scout Agata Wrobel", "human", F, 4, "down",
+                     "I was a mountain guide in the Tatras before the Integration. Then I spent a week in a cell under "
+                     "the Scarlet Monastery. I'm back on my feet now, and I'm not going back in a cell."),
+    "wpl_pf_knight": ("Ser Aldren Holt", "human", M, 7, "down",
+                      "I held Andorhal for the King, and then I held it for the Crusade. I walked out with Rory when "
+                      "they started burning people for being born somewhere else. I'm a Lordaeron man, and the "
+                      "people here have told me where they came from. I believe them."),
     # ---- the Bulwark
     "wpl_bulwark_commander": ("High Executor Marla Venn", "undead", F, 3, "down",
                               "This wall is the last thing between the Plaguelands and Tirisfal. Everything east "

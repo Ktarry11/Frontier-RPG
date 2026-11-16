@@ -810,7 +810,9 @@ def play_all(world, rows, deps, only=None):
             findings.append(("broken", qid, by_file.get(qid, "?"), results[qid]["why"]))
             continue
 
-        if quest.status != QuestStatus.COMPLETED:
+        # a repeatable turn-in (Scourgestones, Crusader's Insignia) goes back on offer instead of staying completed
+        done = QuestStatus.NOT_STARTED if getattr(quest, "repeatable", False) else QuestStatus.COMPLETED
+        if quest.status != done:
             results[qid] = {"ok": False,
                             "why": f"turn_in_quest returned True but status is "
                                    f"{quest.status.value}"}

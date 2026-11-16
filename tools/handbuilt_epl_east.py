@@ -97,6 +97,17 @@ NPC_POSITIONS = {
     "epl_lh_flight": (136, 90),
     "epl_lh_scourgestones": (124, 82),        # takes the Scourgestones
     "epl_lh_quartermaster": (134, 82),        # the Argent Dawn's quartermaster
+    "epl_cg_corporal": (48, 74),
+    "epl_cg_outrider": (40, 80),
+    "epl_cg_widow": (56, 86),
+    "epl_cg_mycologist": (60, 90),
+    "epl_cg_gravewarden": (44, 88),
+    "epl_lh_lightwarden": (116, 79),
+    "epl_lh_volunteer": (132, 86),
+    "epl_lh_ranger": (140, 82),
+    "epl_lh_knight": (116, 88),
+    "epl_lh_huntress": (142, 94),
+    "epl_ds_pamela": (30, 127),
 }
 
 SUBZONES = [

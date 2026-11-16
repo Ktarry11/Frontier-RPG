@@ -135,3 +135,106 @@ Kyle sent the ground, buildings and props sheets at 09:21. All three are filed, 
 - Faction reward shelves, the Commission, Scourgestones.
 - The dungeons: Hearthglen (with Kyle's hidden chain), Scholomance, both halves of Stratholme, the Monastery's wings.
 - The Alterac foothills road map.
+
+## 16 Nov 2026 (later): where the rep comes from, and what it buys
+
+Kyle: "we need the rep vendors and where the rep comes from. Pale Flame from killing Scarlet Crusade and Argent Dawn
+from killing Scourge".
+
+### Where the rep comes from
+- **The Order of the Pale Flame:** Scarlet kills in the open Plaguelands (5 a kill, up to Honored) and in the Scarlet
+  Monastery (10 a kill and 75 a boss, up to Honored); **Crusader's Insignia**, which every Plaguelands Scarlet carries
+  (rares carry three), handed to Chaplain Odile Marchand at Sorrow Hill by the stack of ten for 75, as often as you
+  like; the Order's quests (the Monastery chain from Flamewarden Novak in Brill so far); Hearthglen when it's built,
+  uncapped.
+- **The Argent Dawn:** Scourge kills in the Plaguelands, meaning every undead and every Cult of the Damned member
+  (5 a kill, rares 25, up to Honored; 39 kinds and 15 rares, read from the rosters so new ones count the day they're
+  added); **Scourgestones** to Archmage Lysander Hale at Light's Hope: Minion's from the western Scourge (a stack of
+  ten for 75), Invader's from the eastern (ten for 150), Corruptor's from the Scourge's rares (one for 100); the
+  Dawn's quests; Scholomance and Stratholme's undead half when they're built.
+- The stones and insignia are **materials**, so they drop whether or not a turn-in is open, and they stack.
+- **Repeatable quests are new** (`world/quest_manager.py`): a repeatable goes back on offer when it's turned in.
+  `tools/qa_repeatable_quests.py` takes each one, hands in a stack, checks the standing and takes it again; it also
+  holds that no repeatable is a chain's predecessor. `audit_quests` and `qa_hunting_and_quest_drops` know about them.
+
+### The quartermasters (`tools/build_plaguelands_rewards.py`)
+Quartermaster Hollis Burke at Sorrow Hill and Quartermaster Hasana Reed at Light's Hope, the TBC way:
+- **Friendly / Honored:** supplies, and patterns moved onto the shelf (only ones a vendor sold, so no trainer lost
+  anything): the Order has the major-healing bracer and glove enchants and two zircon cuts; the Dawn has the
+  Lifewarden's Board and the Greater Runes of Warding and of Dawn.
+- **Revered:** six ilvl 67 blues each, worn at 60. Pale Flame: Sorrow Hill Bulwark Helm (plate tank), Flamewarden's
+  Mantle (cloth caster), Defector's Brigandine (leather agility), Uther's Vigil Gauntlets (mail healer), Ironworker's
+  Girdle (plate strength), Pale Flame Signet (ranged ring). Argent Dawn: Argent Vanguard Breastplate (plate tank),
+  Lightwarden's Cord (cloth healer), Dawnstrider Leggings (leather feral tank), Chapel Ward Hauberk (mail hunter),
+  Scourgebane Wristwraps (cloth caster), Argent Crusader's Sabatons (plate str/int).
+- **Exalted:** three ilvl 73 epics each at 270-340g, with flavour. Pale Flame: Callahan's Rivet Maul (2H strength),
+  Shield of the Walkout (tank), Staff of the Pale Flame (healer). Argent Dawn: Light's Hope Greatbow, Argent
+  Avenger's Blade (agility 1H), Tome of the Last Vigil (caster). Plus two recipes each that craft ilvl 73 epics: Pale
+  Flame Warplate and Mantle of the Walkout; Argent Lightguard Greaves and Dawnwatch Jerkin. Their epics have icons
+  nothing else has (Kyle's pack), recorded in `data/items/crafted_icons.json`.
+- **Why a separate builder:** `tools/build_faction_rewards.py` rewrites every faction's exalted recipes bare, and only
+  `tools/build_crafted_gear.py` fills them back in, and that one must not be re-run. This one authors its two
+  factions' recipes itself with the same `author()`.
+- **One icon per epic:** quest and reputation rewards authored through the colour picker could draw an epic's icon
+  (the Monastery's first quest rewards took three). `tools/reward_icons.unclash` gives them another.
+- Not yet: the Revered shoulder enchants and the tabards from the design doc (no shoulder-enchant or tabard item
+  type exists yet).
+
+## 16 Nov 2026 (later): the Plaguelands quests
+
+Kyle: "we NEED to write the quests for EPL and WPL", "Ensure quests are well written, ensure there is lore", and the
+Order is "RUN by earth transplants". Built by `tools/build_plaguelands_quests.py` from one content module a map
+(`tools/plaguelands_quests_south.py`, `_north.py`, `_epl_west.py`, `_epl_east.py`), one quest file a map
+(`data/quests/plaguelands_<part>.json`).
+
+| Map | Levels | Quests | Given at | Pays |
+|---|---|---|---|---|
+| South WPL | 51-54 | 37 | the Bulwark, Sorrow Hill | the Forsaken (Bulwark), the Order |
+| North WPL | 53-56 | 30 | the Pale Watch | the Order |
+| West EPL | 55-58 | 27 | Crown Guard, Light's Hope (no camp on that map) | the Argent Dawn |
+| East EPL | 56-60 | 34 | Crown Guard, Light's Hope, one little ghost in Darrowshire | the Argent Dawn |
+
+**The people.** Fifteen new quest givers, placed and synced: Deathguard Captain Ludo Vance, Surgeon Halbert Grey,
+Scout Agata Wrobel and Ser Aldren Holt in the south; Sister Amalie Crane, Woodwright Jonah Lind, Oona Byrne and
+Clerk Wendel Ashby at the Pale Watch; Corporal Ines Duarte, Outrider Bram Tolliver, Edda Marris, Dr. Sun Li and
+Gravewarden Osric Vey at Crown Guard; Lightwarden Ysolde Carrow, Sergeant Marisol Reyes, Ranger Faelis Dawnreach, Ser
+Roland Ashcombe and Huntress Kaia Lindgren at Light's Hope; and Pamela Redpath in Darrowshire.
+
+**Who knows what.** Transplants talk about home by city (Boston, Hamburg, Kumasi, Lyon, Leicester, Bergen, the
+Tatras, Lisbon, Monterrey, Kunming, Tromso, Duluth, Galway, Rosario, Winnipeg). Natives say newcomers and never
+Earth; the builder fails a quest where a native giver says Earth. `tools/qa_quest_lore.py` now counts "back home" and
+"from/on Earth" as the premise, which it is.
+
+**Links.** Out to Kalimdor: Vesk's cauldron samples to Merrow Vane and Priya's letters to Dr. Lindqvist at Sun Rock,
+Osric's account of Terrordale to Spiritwalker Tohana at Sun Rock (the dead rising in Mulgore), Noah's serum to Dr.
+Nkechi Adeyemi and Sun Li's spores to Yuki Hashimoto at the Emerald Sanctuary, Ines's filter drawings to Tomasz Wolny
+there, Marisol's notes to Marcus Oyelaran at Talonbranch. Across the Eastern Kingdoms: Rook's report to the
+Undercity, Lena's letter to Novak in Brill, and the Order's letters running between Sorrow Hill, the Pale Watch and
+Light's Hope (Dawnbringer writes to Rory; the Argent Dawn and the Order start talking).
+
+**Rules held by the builder** (the Stonetalon and Monastery passes' rules): every target spawns where the quest says,
+every fetch item drops, every giver and turn-in person exists, no one gives more than five quests counting every
+quest file in the game, at least 80% from hubs, the voice rules, no counts beside the words the objectives use, every
+explore point is a walkable tile, reward names are new to the game, and each map's rewards give all 97 specs at least
+two pieces they can wear and want. Reward names are built in a fixed order from all four maps at once so they come
+out the same every run.
+
+**The Forsaken's share.** `qa_factions` wants a faction's last tiers to take at least the last 40% of its quests. The
+Forsaken own more quests than anyone, so every Forsaken quest at 51+ lands after Exalted and pushes them under the
+line. The Bulwark gives seventeen, sixteen of which pay the Forsaken (Venn's dispatch is handed to Rory, and the Order
+pays it); everything else in the Plaguelands pays the Order or the Dawn. Any new Forsaken quest above level 40 needs
+the same thought.
+
+**Other fixes on the way.** `qa_runecrafting` now counts a reputation quartermaster's shelf as a shelf (the two rune
+patterns moved to Light's Hope). Quest trinkets at 50+ became cloaks and rings, because `qa_trinket_procs` wants
+every trinket from 50 up to do something. The Scarlet Monastery's quests got the same change.
+
+### Boss phases (for Dathrohan, and raids later)
+Kyle: "if you need to build the proper transformation mechanism thats fine. A lot of raids have them... having the
+mechanism in place for phases is good." A creature's entry in `data/creatures/creatures.json` can carry `"phases"`:
+`{"at_pct": 40, "into": "<creature>", "text": "<combat log line>"}` turns the boss into another creature (its name,
+sprite, kit and full health), and `{"at_pct": 50, "kit": "<kit id>"}` keeps the creature and swaps its abilities.
+The blow that crosses the line stops on it, however big it was, so nobody one-shots a phase. Loot, quest credit
+and rep come off whatever it is when it dies; the old names are kept on `former_names`. Code:
+`entities/monster.Monster._phase_cap` and `_enter_phase`, fed by `world/creature_manager.spawn_creature`. QA:
+`tools/qa_boss_phases.py`. Nothing in the bestiary uses it yet; Dathrohan will.

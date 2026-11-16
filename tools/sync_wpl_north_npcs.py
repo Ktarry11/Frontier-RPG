@@ -23,6 +23,19 @@ ZONE = "western_plaguelands_north"
 M, F = "male", "female"
 
 AMBIENT = {
+    # ---- the quest givers added with the quest pass (tools/plaguelands_quests_north.py)
+    "wpln_pf_sister": ("Sister Amalie Crane", "human", F, 5, "down",
+                       "I was a priestess in Hearthglen. I stood in the room while they questioned the newcomers, "
+                       "and then I walked out. I think I'm still walking."),
+    "wpln_pf_woodwright": ("Woodwright Jonah Lind", "human", M, 6, "down",
+                           "I built houses in Duluth before the Integration. Now I build palisades, and I'd build "
+                           "them faster if anyone would let me near Hearthglen's timber."),
+    "wpln_pf_angler": ("Oona Byrne", "human", F, 3, "right",
+                       "I fish the river for the Watch's supper. I fished out of Galway for thirty years, and this is "
+                       "the first river that's ever tried to eat me."),
+    "wpln_pf_clerk": ("Clerk Wendel Ashby", "human", M, 2, "left",
+                      "I kept Hearthglen's books until I read what I was writing down, and then I left. I still keep "
+                      "books, because it's an old habit."),
     "wpln_pf_watch_captain": ("Watch Captain Lena Fischer", "human", F, 4, "down",
                               "Hearthglen's gate is up the road. They can see us from the walls, and we can see "
                               "them, and so far everyone's decided that's close enough."),

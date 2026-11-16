@@ -132,6 +132,35 @@ regeneration would have put it back over the Armory's Scarlet Defender.
 The Order of the Pale Flame: every boss in the four wings pays 75, and every Scarlet trash kill pays 10, all of it
 stopping at Honored. The dead in the Graveyard pay nothing.
 
+## Every boss has something dangerous
+
+Kyle: "make sure bosses are not just debuffing. they should have something dangerous". A boss never spends a turn on a
+plain debuff while it has an attack ready (`Monster.choose_action`), so a debuff on its own was a dead slot. Every
+debuff now rides on a hit, and every boss carries a SIGNATURE: a hit near twice its basic, a blast across the party, a
+stun with a hammer behind it, a curse that kills unless it's cleansed, or a once-only nuke at low health.
+`tools/audit_boss_turns.py` fights each boss turn by turn; the Monastery's QA fails if one is passive or toothless.
+
+Game-wide, the same audit found 523 bosses: 35 passive, 339 toothless (80 of them dungeon bosses). That pass is queued.
+
+## Quests (`tools/scarlet_monastery_quests.py`, `tools/build_scarlet_monastery_quests.py`)
+
+Nineteen, given in town, never at the door (Kyle: "We need quests pointing towards SM", "You can have some SM quests
+from kalimdor too", "I want more links between EK and Kalimdor"):
+- **Brill:** Flamewarden Teodor Novak (new: the Pale Flame's man watching the Monastery, a Brno firefighter before the
+  Integration). His chain runs one quest a wing (a captured scout, the archivist's ledger of names, the smith's
+  notebook, the captain who burned a transplant camp) and ends at Sorrow Hill at 50, handing Stane's signet to Rory.
+  Gravedigger Hollis wants the Monastery's dead laid down.
+- **The Undercity:** Deathstalker Rhyne (Herod, then Whitemane and Mograine), Master Apothecary Sable (Thalnos's
+  bloodstone), Loremaster Sennarath (Doan's codex), Apothecary Marwen (the Crusade's zeal).
+- **Tarren Mill:** Commander Thorne (Brennan's recruits), Scout Vask (Loksey's hounds), Chaplain Blackwood (Ashe).
+- **Kalimdor:** Merrow Vane at Sun Rock (a letter to Novak), Spirit-Walker Enu at Freewind (Azshir), the warrior
+  trainer in Orgrimmar (Pike), Corwin Hale at the Crossroads (his daughter's locket from Halbrecht's gallery).
+  Back west: Sennarath sends the codex's chapter on the walking dead to Spiritwalker Tohana at Sun Rock.
+- **Who knows what** (Kyle: every transplant knows they're from Earth; ordinary Azerothians don't, and only the people
+  at the top know more): natives call transplants newcomers and never say Earth. `qa_quest_lore` now counts
+  "newcomer" as touching the Integration.
+- 57 rewards; every one of the 97 specs gets at least five it can wear and wants.
+
 ## Not done yet
 
 - Kyle's Scarlet art: every creature here wears existing art (Whitemane borrows the red-robed magister for now).

@@ -91,7 +91,7 @@ class QuestManager:
             )
             for o in q_def["objectives"]
         ]
-        return Quest(
+        quest = Quest(
             quest_id=q_def["quest_id"],
             title=q_def["title"],
             description=q_def["description"],
@@ -134,6 +134,12 @@ class QuestManager:
             grant_items=q_def.get("grant_items"),
             reward_recipe=q_def.get("reward_recipe"),
         )
+        # REPEATABLE TURN-INS (16 Nov 2026): Scourgestones at Light's Hope and Crusader's Insignia at Sorrow Hill,
+        # handed in by the stack as often as you have them (Kyle: the Argent Dawn's rep comes from killing the
+        # Scourge, the Pale Flame's from killing the Crusade). A repeatable quest goes back to NOT_STARTED when it's
+        # turned in, so it is never a chain's predecessor (tools/qa_repeatable_quests.py holds that).
+        quest.repeatable = bool(q_def.get("repeatable"))
+        return quest
 
     # ---------- Giver-facing queries (what does this NPC have to offer right now) ----------
 
@@ -356,6 +362,10 @@ class QuestManager:
         self.faction_gain = get_faction_manager().award_for_quest(quest)
 
         quest.status = QuestStatus.COMPLETED
+        if getattr(quest, "repeatable", False):
+            quest.status = QuestStatus.NOT_STARTED
+            for objective in quest.objectives:
+                objective.progress = 0
 
         # Asher Coleman leaves the party permanently the moment this
         # specific quest is turned in (Kyle, 2026-09-07: "after the

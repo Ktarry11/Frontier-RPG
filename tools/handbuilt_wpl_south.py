@@ -139,6 +139,8 @@ NPC_POSITIONS = {
     "wpl_bulwark_bat_handler": (14, 78),
     "wpl_bulwark_quartermaster": (28, 79),
     "wpl_bulwark_sewer_agent": (12, 92),      # the Undercity door chain
+    "wpl_bulwark_captain": (20, 85),          # Deathguard Captain Ludo Vance (the field patrols)
+    "wpl_bulwark_surgeon": (32, 82),          # Surgeon Halbert Grey
     # ---- Sorrow Hill (the Order of the Pale Flame)
     "wpl_pf_flamekeeper": (100, 125),         # Flamekeeper Rory Callahan
     "wpl_pf_quartermaster": (106, 133),
@@ -146,6 +148,8 @@ NPC_POSITIONS = {
     "wpl_pf_bat_keeper": (110, 126),          # the Order keeps a hawk roost; a flight master all the same
     "wpl_pf_drillmaster": (82, 128),
     "wpl_pf_chaplain": (118, 140),            # by Uther's Tomb
+    "wpl_pf_scout": (92, 122),                # Scout Agata Wrobel, out of the Monastery's cells
+    "wpl_pf_knight": (102, 131),              # Ser Aldren Holt, who walked out of the Crusade with Rory
 }
 
 SUBZONES = [   # (table_key, x, y, w, h, display_name) - later registrations win on overlap

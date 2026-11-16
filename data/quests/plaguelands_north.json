@@ -1,0 +1,2827 @@
+{
+  "quests": [
+    {
+      "quest_id": "pln_the_gate_of_hearthglen",
+      "title": "The Gate of Hearthglen",
+      "giver_npc_id": "wpln_pf_watch_captain",
+      "zone": "western_plaguelands_north",
+      "level_min": 53,
+      "level_max": 53,
+      "description": "Watch Captain Lena Fischer runs the Pale Watch, the Order's camp at the foot of the road to Hearthglen. Before she sends anyone up that road, she wants them to see it.\n\nShe asks you to walk up to Hearthglen's gate and look at the walls, and then come back down without starting anything.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "western_plaguelands_north",
+          "target_x": 100,
+          "target_y": 22,
+          "radius": 7,
+          "label": "Look at Hearthglen's gate"
+        }
+      ],
+      "accept_text": "Straight up the road north of the camp. You'll see the gate long before you reach it. Don't draw steel, and don't let them get a good look at your face.",
+      "turn_in_text": "So now you've seen it. Walls, towers, and a lot of people who'd like to burn you.\n\nI was a police officer in Hamburg, back home. I've raided worse places, but never with a sword.",
+      "next_quest_id": "pln_sentries_on_the_road",
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "unique_item_defs": [
+        {
+          "name": "Pale Watch Greaves",
+          "slot": "feet",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 150,
+          "required_level": 53,
+          "sell_price": 6496,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_plate_06"
+        },
+        {
+          "name": "Pale Watch Vambraces",
+          "slot": "wrist",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 225,
+          "required_level": 53,
+          "sell_price": 4997,
+          "identity": "strength",
+          "icon_id": "gear_inv_bracer_14"
+        },
+        {
+          "name": "Pale Watch Band",
+          "slot": "ring",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 53,
+          "sell_price": 5997,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_ring_21"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_sentries_on_the_road",
+      "title": "Sentries on the Road",
+      "giver_npc_id": "wpln_pf_watch_captain",
+      "zone": "western_plaguelands_north",
+      "level_min": 54,
+      "level_max": 55,
+      "description": "Every Scarlet Sentry on the road below Hearthglen's walls turns back anyone who isn't wearing red. Lately they've started coming down toward the Pale Watch at night.\n\nLena wants them pushed back up the hill.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Scarlet Sentry",
+          "count": 10,
+          "zone": "western_plaguelands_north"
+        }
+      ],
+      "accept_text": "They stand in pairs along the road and in the fields below the gate. They'll call for help, so don't let one run. Keep it quick and quiet.",
+      "turn_in_text": "That'll keep them on their own side of the hill for a while.\n\nHale used to be a security contractor, back on Earth. He knows what an open flank looks like, and so do I.",
+      "next_quest_id": "pln_crossbows_on_the_wall",
+      "requires_quests": [
+        "pln_the_gate_of_hearthglen"
+      ],
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Pale Watch Hood",
+          "slot": "head",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "shadow_spell_power": 36
+          },
+          "armor_value": 59,
+          "required_level": 54,
+          "sell_price": 8630,
+          "identity": "shadow",
+          "icon_id": "gear_inv_helmet_49"
+        },
+        {
+          "name": "Pale Watch Spaulders",
+          "slot": "shoulder",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 10,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 190,
+          "required_level": 54,
+          "sell_price": 8630,
+          "identity": "earthen",
+          "icon_id": "gear_inv_shoulder_06"
+        },
+        {
+          "name": "Pale Watch Knife",
+          "slot": "main_hand",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8
+          },
+          "secondary_stats": {
+            "attack_power": 24,
+            "crit_chance_physical": 8
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 10248,
+          "identity": "rogue_crit",
+          "icon_id": "gear_inv_weapon_shortblade_08",
+          "weapon_damage_min": 75,
+          "weapon_damage_max": 101,
+          "attack_speed": 1.7,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_crossbows_on_the_wall",
+      "title": "Crossbows on the Wall",
+      "giver_npc_id": "wpln_pf_watch_captain",
+      "zone": "western_plaguelands_north",
+      "level_min": 55,
+      "level_max": 56,
+      "description": "With the sentries gone, Hearthglen's put a Scarlet Crossbowman in every hedge to cover the road. They shot one of Mateo's scouts yesterday from a hedgerow.\n\nLena wants them cleared out of the fields.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Scarlet Crossbowman",
+          "count": 8,
+          "zone": "western_plaguelands_north"
+        }
+      ],
+      "accept_text": "They hide in the hedges and the ditches below the walls. Close the distance fast, because a crossbow takes a while to wind and they'll know it. Don't stand still in the open.",
+      "turn_in_text": "Mateo's scout is going to live, and the fields are ours to walk again.\n\nI've got something for Rory, if you're heading south.",
+      "next_quest_id": "pln_word_from_the_watch",
+      "requires_quests": [
+        "pln_sentries_on_the_road"
+      ],
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Pale Watch Legplates",
+          "slot": "legs",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 20
+          },
+          "secondary_stats": {
+            "defense_rating": 13,
+            "dodge_rating": 9
+          },
+          "armor_value": 343,
+          "required_level": 55,
+          "sell_price": 11196,
+          "identity": "tank_any",
+          "icon_id": "gear_inv_pants_13"
+        },
+        {
+          "name": "Pale Watch Jerkin",
+          "slot": "chest",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 10,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 43
+          },
+          "armor_value": 143,
+          "required_level": 55,
+          "sell_price": 11196,
+          "identity": "healer",
+          "icon_id": "gear_inv_chest_leather_06"
+        },
+        {
+          "name": "Pale Watch Maul",
+          "slot": "main_hand",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 0,
+          "required_level": 55,
+          "sell_price": 13995,
+          "identity": "strength",
+          "icon_id": "gear_inv_hammer_06",
+          "weapon_damage_min": 103,
+          "weapon_damage_max": 139,
+          "attack_speed": 3.6,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_word_from_the_watch",
+      "title": "Word from the Watch",
+      "giver_npc_id": "wpln_pf_watch_captain",
+      "zone": "western_plaguelands_north",
+      "level_min": 55,
+      "level_max": 55,
+      "description": "Lena has watched Hearthglen's gates for a month, and she's written down everything she's seen. Hale is gathering his people inside the walls, and Lena doesn't think he's planning to defend them.\n\nShe wants her report in Rory Callahan's hands at Sorrow Hill.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "pl_q_lena_report",
+          "count": 1,
+          "label": "Bring Lena's report to Flamekeeper Rory Callahan at Sorrow Hill"
+        }
+      ],
+      "accept_text": "South down the King's Road to Sorrow Hill, by Uther's Tomb. Fly if you can. Give it to Rory and wait while he reads it, because he'll have an answer.",
+      "turn_in_text": "Lena's report, in her lovely tidy hand. She writes like she's filling out a form.\n\nHale's getting ready to march. I knew he would. Tell Lena to hold the Watch, and that I'm coming north.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "wpl_pf_flamekeeper",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "pl_q_lena_report",
+            "name": "Lena's Report",
+            "description": "A thick report in a neat hand, with a sketch of Hearthglen's gate on the back of the last page.",
+            "count": 1
+          }
+        ]
+      },
+      "requires_quests": [
+        "pln_crossbows_on_the_wall"
+      ],
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Pale Watch Girdle",
+          "slot": "waist",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 38
+          },
+          "armor_value": 173,
+          "required_level": 55,
+          "sell_price": 5933,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_belt_10"
+        },
+        {
+          "name": "Pale Watch Cloak",
+          "slot": "back",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 24,
+            "hit_rating": 6
+          },
+          "armor_value": 59,
+          "required_level": 55,
+          "sell_price": 5933,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_04"
+        },
+        {
+          "name": "Pale Watch Slippers",
+          "slot": "feet",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "spirit": 12
+          },
+          "secondary_stats": {
+            "spell_power": 22
+          },
+          "armor_value": 48,
+          "required_level": 55,
+          "sell_price": 7012,
+          "identity": "spirit_caster",
+          "icon_id": "gear_inv_boots_fabric_01"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_a_letter_for_brill",
+      "title": "A Letter for Brill",
+      "giver_npc_id": "wpln_pf_watch_captain",
+      "zone": "western_plaguelands_north",
+      "level_min": 55,
+      "level_max": 56,
+      "description": "The Order keeps a man in Brill, Flamewarden Teodor Novak, who watches the Scarlet Monastery from a window over the inn. Lena wants him to know what Hale is doing in Hearthglen, because if Hale marches, the Monastery will march with him.\n\nShe wants her letter carried to Brill.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "pl_q_letter_for_novak",
+          "count": 1,
+          "label": "Bring Lena's letter to Flamewarden Teodor Novak in Brill"
+        }
+      ],
+      "accept_text": "South to the Bulwark, west through the gate into Tirisfal, and on to Brill. Teodor lodges over the inn. He'll offer you a drink, and you should take it.",
+      "turn_in_text": "Lena's writing to me? Then it's bad.\n\nI was a firefighter in Brno, back home, and I know what it looks like when two fires are about to join up. Tell her I'll keep my eyes on the Monastery.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "brill_pf_flamewarden",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "pl_q_letter_for_novak",
+            "name": "Lena's Letter",
+            "description": "A short letter sealed with the Pale Flame, addressed to Brill in a tidy hand.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Pale Watch Tunic",
+          "slot": "chest",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 14,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 35
+          },
+          "armor_value": 143,
+          "required_level": 55,
+          "sell_price": 11196,
+          "identity": "bruiser",
+          "icon_id": "gear_inv_chest_leather_05"
+        },
+        {
+          "name": "Pale Watch Treads",
+          "slot": "feet",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 39
+          },
+          "armor_value": 158,
+          "required_level": 55,
+          "sell_price": 7277,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_boots_01"
+        },
+        {
+          "name": "Pale Watch Pendant",
+          "slot": "neck",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "spirit": 11
+          },
+          "secondary_stats": {
+            "spell_power": 20
+          },
+          "armor_value": 0,
+          "required_level": 55,
+          "sell_price": 6718,
+          "identity": "spirit_caster",
+          "icon_id": "gear_inv_jewelry_amulet_04"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_worgs_on_the_road",
+      "title": "Worgs on the Road",
+      "giver_npc_id": "wpln_pf_scout",
+      "zone": "western_plaguelands_north",
+      "level_min": 53,
+      "level_max": 53,
+      "description": "Scout Mateo Brandt keeps the Pale Watch's roads open, and the Rotting Worgs have learned that the road is where the food walks. They run in packs and they don't let go.\n\nHe wants the packs broken up.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Rotting Worg",
+          "count": 10,
+          "zone": "western_plaguelands_north"
+        }
+      ],
+      "accept_text": "They run the roads south and west of the camp, mostly at dusk. Don't fight more than two at once. They'll go for your legs, so keep moving.",
+      "turn_in_text": "That's a road I can walk at dusk again.\n\nI taught kids to ride horses outside Rosario, back home. Out here the horses are dead and the dogs want to eat me.",
+      "next_quest_id": "pln_skeletal_wanderers",
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "unique_item_defs": [
+        {
+          "name": "Watchman's Hauberk",
+          "slot": "chest",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 31,
+            "crit_chance_spell": 6
+          },
+          "armor_value": 240,
+          "required_level": 53,
+          "sell_price": 9994,
+          "identity": "mail_caster",
+          "icon_id": "gear_inv_chest_chain_03"
+        },
+        {
+          "name": "Watchman's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9
+          },
+          "secondary_stats": {
+            "attack_power": 27,
+            "crit_chance_physical": 9
+          },
+          "armor_value": 275,
+          "required_level": 53,
+          "sell_price": 7995,
+          "identity": "strength_crit",
+          "icon_id": "gear_inv_shoulder_25"
+        },
+        {
+          "name": "Watchman's Staff",
+          "slot": "main_hand",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 14,
+            "spirit": 11
+          },
+          "secondary_stats": {
+            "healing_power": 63
+          },
+          "armor_value": 0,
+          "required_level": 53,
+          "sell_price": 12493,
+          "identity": "high_healer",
+          "icon_id": "gear_inv_staff_11",
+          "weapon_damage_min": 39,
+          "weapon_damage_max": 54,
+          "attack_speed": 3.2,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_skeletal_wanderers",
+      "title": "Skeletal Wanderers",
+      "giver_npc_id": "wpln_pf_scout",
+      "zone": "western_plaguelands_north",
+      "level_min": 53,
+      "level_max": 54,
+      "description": "The Skeletal Wanderers walk the roads with nowhere to go. Mateo thinks they were travellers once, caught on the road when the plague came. They're slow, but there are a lot of them, and they never stop walking.\n\nHe wants the roads cleared of them.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Skeletal Wanderer",
+          "count": 10,
+          "zone": "western_plaguelands_north"
+        }
+      ],
+      "accept_text": "They wander everywhere, but the roads are where they gather. They'll turn and follow you once they've seen you. Don't let them pin you against a wall.",
+      "turn_in_text": "Thank you. I hated watching them walk.\n\nThey were going somewhere, once. I suppose we all were.",
+      "next_quest_id": "pln_down_to_the_river",
+      "requires_quests": [
+        "pln_worgs_on_the_road"
+      ],
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "unique_item_defs": [
+        {
+          "name": "Watchman's Cap",
+          "slot": "head",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 10,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 116,
+          "required_level": 53,
+          "sell_price": 8310,
+          "identity": "hunter",
+          "icon_id": "gear_inv_helmet_47"
+        },
+        {
+          "name": "Watchman's Cuffs",
+          "slot": "wrist",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 23
+          },
+          "armor_value": 47,
+          "required_level": 53,
+          "sell_price": 5193,
+          "identity": "caster",
+          "icon_id": "gear_inv_bracer_08"
+        },
+        {
+          "name": "Watchman's Shield",
+          "slot": "off_hand",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 15,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "block_value": 13
+          },
+          "armor_value": 429,
+          "required_level": 53,
+          "sell_price": 8310,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_20",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 50
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_down_to_the_river",
+      "title": "Down to the River",
+      "giver_npc_id": "wpln_pf_scout",
+      "zone": "western_plaguelands_north",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Mateo wants a way down to the Thondroril, the river along the east edge of the Plaguelands, so the Watch can fill its barrels without a long walk. He wants someone to find a safe path down to the bank and stand on it.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "western_plaguelands_north",
+          "target_x": 160,
+          "target_y": 60,
+          "radius": 7,
+          "label": "Find a way down to the Thondroril's bank"
+        }
+      ],
+      "accept_text": "East from the camp, through the fields and down to the river. Find somewhere on the bank the dead don't use. You'll know it when you see it.",
+      "turn_in_text": "That's a good path. We'll put a marker on it and a barrel at the bottom.\n\nOona's down there most days, fishing. Say hello if you see her.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "pln_skeletal_wanderers"
+      ],
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "unique_item_defs": [
+        {
+          "name": "Watchman's Sabatons",
+          "slot": "feet",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 37
+          },
+          "armor_value": 229,
+          "required_level": 54,
+          "sell_price": 6752,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_boots_plate_06"
+        },
+        {
+          "name": "Watchman's Legguards",
+          "slot": "legs",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 11,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 34
+          },
+          "armor_value": 220,
+          "required_level": 54,
+          "sell_price": 10387,
+          "identity": "hunter",
+          "icon_id": "gear_inv_pants_14"
+        },
+        {
+          "name": "Watchman's Pendant",
+          "slot": "neck",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 6232,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_amulet_05"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_the_blighted_herd",
+      "title": "The Blighted Herd",
+      "giver_npc_id": "wpln_pf_scout",
+      "zone": "western_plaguelands_north",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "The Blighted Stags run in a herd across the fields north of the camp, and when something spooks them they stampede straight through the Pale Watch. They've flattened the tents twice.\n\nMateo wants the herd thinned before the third time.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Blighted Stag",
+          "count": 8,
+          "zone": "western_plaguelands_north"
+        }
+      ],
+      "accept_text": "They graze in the fields north and east of the camp. Don't stand in front of them when they run. Pick off the ones on the edge of the herd.",
+      "turn_in_text": "Our tents are still standing this morning. That's a first this week.\n\nTake one of these. It's the least I can do.",
+      "next_quest_id": null,
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "unique_item_defs": [
+        {
+          "name": "Watchman's Gloves",
+          "slot": "hands",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 29
+          },
+          "armor_value": 64,
+          "required_level": 54,
+          "sell_price": 6752,
+          "identity": "healer",
+          "icon_id": "gear_inv_gauntlets_22"
+        },
+        {
+          "name": "Watchman's Breeches",
+          "slot": "legs",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 17,
+            "agility": 11
+          },
+          "secondary_stats": {
+            "dodge_rating": 9
+          },
+          "armor_value": 138,
+          "required_level": 54,
+          "sell_price": 10387,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_08"
+        },
+        {
+          "name": "Watchman's Band",
+          "slot": "ring",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 6232,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_02"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_travellers_keepsakes",
+      "title": "Travellers' Keepsakes",
+      "giver_npc_id": "wpln_pf_scout",
+      "zone": "western_plaguelands_north",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Mateo thinks the Skeletal Wanderers were travellers caught on the road, and some of them still carry what they had in their pockets. He wants their keepsakes, so the Order can write down what they were and maybe find someone who's still waiting for them.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pl_q_keepsake",
+          "count": 6
+        }
+      ],
+      "accept_text": "The wanderers walk the roads all around the camp. Some of them still carry something small, a ring or a letter or a toy. Bring me whatever you find, and I'll write it all down.",
+      "turn_in_text": "A pipe, a thimble, a child's wooden horse. Every one of these belonged to somebody.\n\nOdile at Sorrow Hill will want these for her book. I'll send them south.",
+      "next_quest_id": null,
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "unique_item_defs": [
+        {
+          "name": "Watchman's Handguards",
+          "slot": "hands",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 37
+          },
+          "armor_value": 229,
+          "required_level": 54,
+          "sell_price": 6752,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_gauntlets_06"
+        },
+        {
+          "name": "Watchman's Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 10,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 116,
+          "required_level": 54,
+          "sell_price": 8310,
+          "identity": "hunter",
+          "icon_id": "gear_inv_shoulder_23"
+        },
+        {
+          "name": "Watchman's Cloak",
+          "slot": "back",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 21
+          },
+          "armor_value": 42,
+          "required_level": 54,
+          "sell_price": 5713,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_11"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_riverbank_ghouls",
+      "title": "Riverbank Ghouls",
+      "giver_npc_id": "wpln_pf_field_medic",
+      "zone": "western_plaguelands_north",
+      "level_min": 54,
+      "level_max": 55,
+      "description": "Field Medic Noah Kowal patches up whoever makes it back to the Pale Watch, and lately that's been people attacked at the river. The Riverbank Ghouls hide in the reeds along the Thondroril and drag people into the water.\n\nNoah wants them cleared out.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Riverbank Ghoul",
+          "count": 10,
+          "zone": "western_plaguelands_north"
+        }
+      ],
+      "accept_text": "They lie in the reeds on the Thondroril's banks, east of the camp. They'll come at you from the water. Stay on the high ground and let them come to you.",
+      "turn_in_text": "Nobody came in from the river with bites today. That's a good day.\n\nI was a nurse in Winnipeg, back home, and I've never been happier to have nothing to do.",
+      "next_quest_id": "pln_sludge_samples",
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Medic's Robe",
+          "slot": "chest",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 10,
+            "spirit": 8
+          },
+          "secondary_stats": {
+            "healing_power": 42
+          },
+          "armor_value": 70,
+          "required_level": 54,
+          "sell_price": 10788,
+          "identity": "high_healer",
+          "icon_id": "gear_inv_shirt_07"
+        },
+        {
+          "name": "Medic's Handguards",
+          "slot": "hands",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 8,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 233,
+          "required_level": 54,
+          "sell_price": 7012,
+          "identity": "crusader",
+          "icon_id": "gear_inv_gauntlets_10"
+        },
+        {
+          "name": "Medic's Rifle",
+          "slot": "ranged",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "gun",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 7
+          },
+          "secondary_stats": {
+            "attack_power": 19,
+            "crit_chance_physical": 7
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 8630,
+          "identity": "hunter_crit",
+          "icon_id": "gear_inv_weapon_rifle_07",
+          "weapon_damage_min": 63,
+          "weapon_damage_max": 86,
+          "attack_speed": 2.6,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_sludge_samples",
+      "title": "Sludge Samples",
+      "giver_npc_id": "wpln_pf_field_medic",
+      "zone": "western_plaguelands_north",
+      "level_min": 55,
+      "level_max": 55,
+      "description": "There's a cauldron at Gahrron's Withering, east of the camp, and Noah says the Cauldron Sludge that crawls out of the cauldron is the plague in its purest form. Noah wants to make a serum, and he needs to start with the real thing.\n\nHe wants samples, sealed.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pl_q_sludge_sample",
+          "count": 5
+        }
+      ],
+      "accept_text": "The sludges crawl around the cauldron at the Withering. Kill one and scoop what's left into a jar. Keep the lid on tight, and don't breathe it in.",
+      "turn_in_text": "This is horrible. Thank you.\n\nIf I can make something from this that stops the sickness, every medic on both sides of the sea will want it.",
+      "next_quest_id": "pln_the_withering",
+      "requires_quests": [
+        "pln_riverbank_ghouls"
+      ],
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Medic's Breeches",
+          "slot": "legs",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 12
+          },
+          "secondary_stats": {
+            "attack_power": 30,
+            "hit_rating": 12
+          },
+          "armor_value": 140,
+          "required_level": 55,
+          "sell_price": 10788,
+          "identity": "assassin",
+          "icon_id": "gear_inv_pants_04"
+        },
+        {
+          "name": "Medic's Gauntlets",
+          "slot": "hands",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 38
+          },
+          "armor_value": 155,
+          "required_level": 55,
+          "sell_price": 7012,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_gauntlets_11"
+        },
+        {
+          "name": "Medic's Blade",
+          "slot": "main_hand",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "sword_1h",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 30
+          },
+          "armor_value": 0,
+          "required_level": 55,
+          "sell_price": 10248,
+          "identity": "caster",
+          "icon_id": "gear_inv_sword_34",
+          "weapon_damage_min": 75,
+          "weapon_damage_max": 101,
+          "attack_speed": 2.4,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_the_withering",
+      "title": "The Withering",
+      "giver_npc_id": "wpln_pf_field_medic",
+      "zone": "western_plaguelands_north",
+      "level_min": 55,
+      "level_max": 55,
+      "description": "The cauldron at Gahrron's Withering is kept by the Cult. The Withering Cultists stir it and the Withering Ghouls carry the plague out to the fields. Noah wants the cauldron left untended.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Withering Ghoul",
+          "count": 8,
+          "zone": "western_plaguelands_north"
+        },
+        {
+          "type": "kill",
+          "target": "Withering Cultist",
+          "count": 6,
+          "zone": "western_plaguelands_north"
+        }
+      ],
+      "accept_text": "East of the camp, past the dead orchard. The cultists stand at the cauldron and the ghouls work around it. Kill the cultists first, because they'll heal the rest.",
+      "turn_in_text": "The cauldron's cold. That's one less in the Plaguelands.\n\nThere's someone in charge out there, though, and he isn't going to stay dead on his own.",
+      "next_quest_id": "pln_gahrron_the_withered",
+      "requires_quests": [
+        "pln_sludge_samples"
+      ],
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Medic's Mantle",
+          "slot": "shoulder",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "spell_power": 24,
+            "crit_chance_spell": 10
+          },
+          "armor_value": 59,
+          "required_level": 55,
+          "sell_price": 8630,
+          "identity": "caster_crit",
+          "icon_id": "gear_inv_shoulder_08"
+        },
+        {
+          "name": "Medic's Boots",
+          "slot": "feet",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 97,
+          "required_level": 55,
+          "sell_price": 7012,
+          "identity": "feral",
+          "icon_id": "gear_inv_boots_04"
+        },
+        {
+          "name": "Medic's Band",
+          "slot": "ring",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 26
+          },
+          "armor_value": 0,
+          "required_level": 55,
+          "sell_price": 6473,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_07"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_gahrron_the_withered",
+      "title": "Gahrron the Withered",
+      "giver_npc_id": "wpln_pf_field_medic",
+      "zone": "western_plaguelands_north",
+      "level_min": 56,
+      "level_max": 56,
+      "description": "Gahrron owned the farm that the Withering is named for. He died there and the Cult raised him to guard their cauldron, and Gahrron the Withered still walks his land, still thinking it's his.\n\nNoah wants him put to rest, so the farm can be burned clean.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Gahrron the Withered",
+          "count": 1,
+          "zone": "western_plaguelands_north"
+        }
+      ],
+      "accept_text": "He walks the Withering, near the cauldron. He's slow, but he's strong, and the sickness comes off him in waves. Take friends, and take something for the nausea.",
+      "turn_in_text": "Then the Withering's done. We'll burn it in the morning.\n\nHe was a farmer. I keep thinking about that. He just wanted to keep his farm.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "pln_the_withering"
+      ],
+      "reward_exp": 5356,
+      "reward_gold": 21060,
+      "unique_item_defs": [
+        {
+          "name": "Medic's Coif",
+          "slot": "head",
+          "item_level": 58,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 13
+          },
+          "secondary_stats": {
+            "attack_power": 36,
+            "hit_rating": 13
+          },
+          "armor_value": 271,
+          "required_level": 56,
+          "sell_price": 13935,
+          "identity": "hunter_precise",
+          "icon_id": "gear_inv_helmet_40"
+        },
+        {
+          "name": "Medic's Breastplate",
+          "slot": "chest",
+          "item_level": 58,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 26,
+            "strength": 11
+          },
+          "secondary_stats": {
+            "defense_rating": 21
+          },
+          "armor_value": 456,
+          "required_level": 56,
+          "sell_price": 17419,
+          "identity": "tank",
+          "icon_id": "gear_inv_chest_plate10"
+        },
+        {
+          "name": "Medic's Tome",
+          "slot": "off_hand",
+          "item_level": 58,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 16
+          },
+          "secondary_stats": {
+            "spell_power": 36
+          },
+          "armor_value": 0,
+          "required_level": 56,
+          "sell_price": 10451,
+          "identity": "caster",
+          "icon_id": "gear_inv_tome_8",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "pln_a_serum_for_felwood",
+      "title": "A Serum for Felwood",
+      "giver_npc_id": "wpln_pf_field_medic",
+      "zone": "western_plaguelands_north",
+      "level_min": 55,
+      "level_max": 56,
+      "description": "Noah's made a serum from the sludge. It doesn't cure anything, but it slows the plague down long enough to get someone to a priest. There's a doctor at the Emerald Sanctuary in Felwood, Dr. Nkechi Adeyemi, who's treating a sickness that sounds a lot like this one.\n\nNoah wants a vial of it in her hands.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "pl_q_serum_vial",
+          "count": 1,
+          "label": "Bring Noah's serum to Dr. Nkechi Adeyemi at the Emerald Sanctuary"
+        }
+      ],
+      "accept_text": "Zeppelin from Tirisfal to Orgrimmar, and then north through Ashenvale to Felwood. The Sanctuary's the clean glade in the middle of it. Keep it out of the sun.",
+      "turn_in_text": "A serum, from the Plaguelands? Let me see.\n\nThis is clever work. I was an emergency doctor in Lagos, back home, and I'd have been glad of this then. Tell him I'll try it on the felblight, and I'll write.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "es_volunteer_medic",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "pl_q_serum_vial",
+            "name": "Noah's Serum",
+            "description": "A small vial of pale green serum, wrapped in a bandage and labelled in careful capitals.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Medic's Legguards",
+          "slot": "legs",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 12,
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "attack_power": 31
+          },
+          "armor_value": 228,
+          "required_level": 55,
+          "sell_price": 11196,
+          "identity": "earthen",
+          "icon_id": "gear_inv_pants_13"
+        },
+        {
+          "name": "Medic's Belt",
+          "slot": "waist",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 10,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 117,
+          "required_level": 55,
+          "sell_price": 6158,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_12"
+        },
+        {
+          "name": "Medic's Field Journal",
+          "slot": "off_hand",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8,
+            "spirit": 6
+          },
+          "secondary_stats": {
+            "healing_power": 33
+          },
+          "armor_value": 0,
+          "required_level": 55,
+          "sell_price": 6718,
+          "identity": "high_healer",
+          "icon_id": "gear_inv_tome_4",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_the_inquisitors",
+      "title": "The Inquisitors",
+      "giver_npc_id": "wpln_pf_sister",
+      "zone": "western_plaguelands_north",
+      "level_min": 55,
+      "level_max": 56,
+      "description": "Sister Amalie Crane was a priestess in Hearthglen until the Hearthglen Inquisitors started questioning the newcomers. She stood in the room while they did it, and then she walked out and kept walking until she reached the Pale Watch.\n\nShe wants the inquisitors stopped.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Hearthglen Inquisitor",
+          "count": 8,
+          "zone": "western_plaguelands_north"
+        }
+      ],
+      "accept_text": "They walk the fields below the walls in pairs, looking for anyone to question. They'll burn you if they can, so don't let them finish a prayer.",
+      "turn_in_text": "I knew some of them. I prayed beside some of them.\n\nI won't pretend I'm not glad they're gone. That's something I'll have to make peace with.",
+      "next_quest_id": "pln_the_confessions",
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Sister's Jerkin",
+          "slot": "chest",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 14,
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "attack_power": 27
+          },
+          "armor_value": 143,
+          "required_level": 55,
+          "sell_price": 11196,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_10"
+        },
+        {
+          "name": "Sister's Legplates",
+          "slot": "legs",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "healing_power": 55
+          },
+          "armor_value": 343,
+          "required_level": 55,
+          "sell_price": 11196,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_pants_wolf"
+        },
+        {
+          "name": "Sister's Pendant",
+          "slot": "neck",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 55,
+          "sell_price": 6718,
+          "identity": "agility",
+          "icon_id": "gear_inv_jewelry_necklace_07"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_the_confessions",
+      "title": "The Confessions",
+      "giver_npc_id": "wpln_pf_sister",
+      "zone": "western_plaguelands_north",
+      "level_min": 55,
+      "level_max": 56,
+      "description": "The Hearthglen Inquisitors carry the confessions they've forced out of people, signed and sealed, so they can be read out before a burning. Amalie wants them.\n\nEvery one has a name on it, and she wants those names remembered by someone who isn't going to burn them.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pl_q_confession",
+          "count": 5
+        }
+      ],
+      "accept_text": "The inquisitors keep the confessions in their satchels. Not all of them will have one. Bring me whatever you find, and don't read them, please.",
+      "turn_in_text": "Here's Agnieszka Nowak, and Tunde Bello, and Hyun-woo Park, and they didn't even spell them properly.\n\nThese people came here from nowhere and we burned them for it. I'll make sure they're remembered.",
+      "next_quest_id": "pln_the_book_of_names",
+      "requires_quests": [
+        "pln_the_inquisitors"
+      ],
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Sister's Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 121,
+          "required_level": 55,
+          "sell_price": 8957,
+          "identity": "bruiser",
+          "icon_id": "gear_inv_shoulder_09"
+        },
+        {
+          "name": "Sister's Slippers",
+          "slot": "feet",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 25
+          },
+          "armor_value": 67,
+          "required_level": 55,
+          "sell_price": 7277,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_plate_06"
+        },
+        {
+          "name": "Sister's Hatchet",
+          "slot": "main_hand",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "axe_1h",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 12,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 0,
+          "required_level": 55,
+          "sell_price": 10636,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_axe_15",
+          "weapon_damage_min": 76,
+          "weapon_damage_max": 103,
+          "attack_speed": 2.6,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_the_book_of_names",
+      "title": "The Book of Names",
+      "giver_npc_id": "wpln_pf_sister",
+      "zone": "western_plaguelands_north",
+      "level_min": 56,
+      "level_max": 56,
+      "description": "Chaplain Odile Marchand at Sorrow Hill keeps a book of names, everyone the Order knows who died in the Plaguelands. Amalie wants the confessions taken to her, so the people in them go into the book.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "pl_q_confession_bundle",
+          "count": 1,
+          "label": "Bring the confessions to Chaplain Odile Marchand at Sorrow Hill"
+        }
+      ],
+      "accept_text": "South to Sorrow Hill, by Uther's Tomb. Odile keeps the chapel there. Tell her they're from me, and that I'm sorry there are so many.",
+      "turn_in_text": "These are from Amalie? She was in Hearthglen when these were taken.\n\nI'll write every name in the book tonight. Some of them were from Lyon, you know. I knew one of these streets.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "wpl_pf_chaplain",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "pl_q_confession_bundle",
+            "name": "Bundle of Confessions",
+            "description": "The inquisitors' confessions, tied with a ribbon Amalie took from her own habit.",
+            "count": 1
+          }
+        ]
+      },
+      "requires_quests": [
+        "pln_the_confessions"
+      ],
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Sister's Handguards",
+          "slot": "hands",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 14,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 11
+          },
+          "armor_value": 237,
+          "required_level": 56,
+          "sell_price": 7277,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_02"
+        },
+        {
+          "name": "Sister's Robe",
+          "slot": "chest",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "spirit": 18
+          },
+          "secondary_stats": {
+            "spell_power": 32
+          },
+          "armor_value": 71,
+          "required_level": 56,
+          "sell_price": 11196,
+          "identity": "spirit_caster",
+          "icon_id": "gear_inv_chest_cloth_27"
+        },
+        {
+          "name": "Sister's Belt",
+          "slot": "waist",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 10,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 99,
+          "required_level": 56,
+          "sell_price": 6158,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_31"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_high_inquisitor_faulk",
+      "title": "High Inquisitor Faulk",
+      "giver_npc_id": "wpln_pf_sister",
+      "zone": "western_plaguelands_north",
+      "level_min": 56,
+      "level_max": 56,
+      "description": "High Inquisitor Faulk runs the inquisition at Hearthglen. Amalie served under him, and she says he's the one who decided the newcomers were the Scourge's agents. He walks the fields himself on feast days, with the Hearthglen Inquisitors at his back.\n\nAmalie wants him gone.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "High Inquisitor Faulk",
+          "count": 1,
+          "zone": "western_plaguelands_north"
+        },
+        {
+          "type": "kill",
+          "target": "Hearthglen Inquisitor",
+          "count": 4,
+          "zone": "western_plaguelands_north"
+        }
+      ],
+      "accept_text": "He walks the fields below the walls, close to the gate. He's got a temper and a lot of fire, and he heals himself when he's hurt. Bring friends, and bring someone to stop his prayers.",
+      "turn_in_text": "Then it's done, and the inquisition's got nobody to lead it.\n\nI keep waiting to feel something. I think maybe I feel lighter.",
+      "next_quest_id": null,
+      "reward_exp": 5356,
+      "reward_gold": 21060,
+      "unique_item_defs": [
+        {
+          "name": "Sister's Legguards",
+          "slot": "legs",
+          "item_level": 58,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 16
+          },
+          "secondary_stats": {
+            "healing_power": 73
+          },
+          "armor_value": 304,
+          "required_level": 56,
+          "sell_price": 17419,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_pants_03"
+        },
+        {
+          "name": "Sister's Helm",
+          "slot": "head",
+          "item_level": 58,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 16,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "attack_power": 39
+          },
+          "armor_value": 386,
+          "required_level": 56,
+          "sell_price": 13935,
+          "identity": "strength",
+          "icon_id": "gear_inv_helmet_46"
+        },
+        {
+          "name": "Sister's Shield",
+          "slot": "off_hand",
+          "item_level": 58,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 30,
+            "crit_chance_spell": 5
+          },
+          "armor_value": 591,
+          "required_level": 56,
+          "sell_price": 13935,
+          "identity": "mail_caster",
+          "icon_id": "gear_inv_shield_16",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 69
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "pln_northridge",
+      "title": "Northridge",
+      "giver_npc_id": "wpln_pf_woodwright",
+      "zone": "western_plaguelands_north",
+      "level_min": 53,
+      "level_max": 54,
+      "description": "Woodwright Jonah Lind builds everything at the Pale Watch, and he'd like to build it out of Hearthglen's timber. The Crusade runs the lumber camp at Northridge in the west, and the Scarlet Lumberjacks and Scarlet Sawyers there cut the best oak in the north.\n\nJonah wants the camp emptied.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Scarlet Lumberjack",
+          "count": 8,
+          "zone": "western_plaguelands_north"
+        },
+        {
+          "type": "kill",
+          "target": "Scarlet Sawyer",
+          "count": 6,
+          "zone": "western_plaguelands_north"
+        }
+      ],
+      "accept_text": "Northridge is west of the camp, in the trees. The lumberjacks are in the woods and the sawyers are at the mill. They're working men with axes, so don't underestimate them.",
+      "turn_in_text": "That's the camp quiet, then. Now we can see about the wood.\n\nI built houses in Duluth, back home. Long winters, good timber. This place reminds me of it, except for the dead.",
+      "next_quest_id": "pln_woodsman_archers",
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "unique_item_defs": [
+        {
+          "name": "Woodwright's Hauberk",
+          "slot": "chest",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 11,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "attack_power": 32
+          },
+          "armor_value": 220,
+          "required_level": 53,
+          "sell_price": 10387,
+          "identity": "earthen",
+          "icon_id": "gear_inv_chest_chain"
+        },
+        {
+          "name": "Woodwright's Vambraces",
+          "slot": "wrist",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "defense_rating": 9,
+            "dodge_rating": 6
+          },
+          "armor_value": 229,
+          "required_level": 53,
+          "sell_price": 5193,
+          "identity": "tank_any",
+          "icon_id": "gear_inv_bracer_04"
+        },
+        {
+          "name": "Woodwright's Mace",
+          "slot": "main_hand",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8,
+            "spirit": 6
+          },
+          "secondary_stats": {
+            "healing_power": 36
+          },
+          "armor_value": 0,
+          "required_level": 53,
+          "sell_price": 9868,
+          "identity": "high_healer",
+          "icon_id": "gear_inv_mace_07",
+          "weapon_damage_min": 73,
+          "weapon_damage_max": 100,
+          "attack_speed": 2.6,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_woodsman_archers",
+      "title": "Woodsman Archers",
+      "giver_npc_id": "wpln_pf_woodwright",
+      "zone": "western_plaguelands_north",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "With the lumberjacks gone, the Crusade's sent the Scarlet Woodsman Archers into Northridge's trees to guard the timber. They're good shots, and they know the woods.\n\nJonah wants them gone before he sends wagons in.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Scarlet Woodsman Archer",
+          "count": 8,
+          "zone": "western_plaguelands_north"
+        }
+      ],
+      "accept_text": "They hide in the trees around the lumber camp. Look up, because they like the high branches. Don't let them pin you down.",
+      "turn_in_text": "The woods are clear. My wagons go in tomorrow.\n\nI'll need someone to pick out the good planks before the rest of them burn the lot.",
+      "next_quest_id": "pln_seasoned_oak",
+      "requires_quests": [
+        "pln_northridge"
+      ],
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "unique_item_defs": [
+        {
+          "name": "Woodwright's Breastplate",
+          "slot": "chest",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 11,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "attack_power": 32
+          },
+          "armor_value": 331,
+          "required_level": 54,
+          "sell_price": 10387,
+          "identity": "crusader",
+          "icon_id": "gear_inv_chest_plate08"
+        },
+        {
+          "name": "Woodwright's Gloves",
+          "slot": "hands",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "spell_power": 20,
+            "crit_chance_spell": 8
+          },
+          "armor_value": 47,
+          "required_level": 54,
+          "sell_price": 6752,
+          "identity": "caster_crit",
+          "icon_id": "gear_inv_gauntlets_18"
+        },
+        {
+          "name": "Woodwright's Breeches",
+          "slot": "legs",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 11,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 34
+          },
+          "armor_value": 138,
+          "required_level": 54,
+          "sell_price": 10387,
+          "identity": "hunter",
+          "icon_id": "gear_inv_pants_11"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_seasoned_oak",
+      "title": "Seasoned Oak",
+      "giver_npc_id": "wpln_pf_woodwright",
+      "zone": "western_plaguelands_north",
+      "level_min": 54,
+      "level_max": 55,
+      "description": "The Scarlet Sawyers at Northridge carry the camp's best seasoned planks to the carts, and Jonah wants them. The Pale Watch's palisade is green wood that's started to warp, and seasoned oak won't.\n\nHe wants enough to rebuild the gate.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pl_q_seasoned_plank",
+          "count": 6
+        }
+      ],
+      "accept_text": "The sawyers at the mill carry the planks. Take them off the sawyers before they reach the carts. Look for Hearthglen's stamp, because that's the good stuff.",
+      "turn_in_text": "Feel the weight of that. That's proper oak.\n\nThe gate will be up by the end of the week. I'd like to meet the man who's been running that camp, though.",
+      "next_quest_id": "pln_foreman_harrow",
+      "requires_quests": [
+        "pln_woodsman_archers"
+      ],
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Woodwright's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 16,
+            "strength": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 13
+          },
+          "armor_value": 306,
+          "required_level": 54,
+          "sell_price": 8630,
+          "identity": "tank",
+          "icon_id": "gear_inv_shoulder_04"
+        },
+        {
+          "name": "Woodwright's Boots",
+          "slot": "feet",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 97,
+          "required_level": 54,
+          "sell_price": 7012,
+          "identity": "healer",
+          "icon_id": "gear_inv_boots_04"
+        },
+        {
+          "name": "Woodwright's Greatsword",
+          "slot": "main_hand",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10
+          },
+          "secondary_stats": {
+            "attack_power": 26,
+            "crit_chance_physical": 10
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 13484,
+          "identity": "strength_crit",
+          "icon_id": "gear_inv_sword_36",
+          "weapon_damage_min": 101,
+          "weapon_damage_max": 137,
+          "attack_speed": 3.4,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_foreman_harrow",
+      "title": "Foreman Harrow",
+      "giver_npc_id": "wpln_pf_woodwright",
+      "zone": "western_plaguelands_north",
+      "level_min": 55,
+      "level_max": 55,
+      "description": "Foreman Harrow runs Northridge for the Crusade, and he's the one who's been sending the archers out. He came back to the camp yesterday with a fresh crew. Jonah wants him gone, so the camp stays empty.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Foreman Harrow",
+          "count": 1,
+          "zone": "western_plaguelands_north"
+        }
+      ],
+      "accept_text": "He's at the mill in the middle of Northridge. He's a big man with a big axe, and he doesn't like visitors. Take friends with you.",
+      "turn_in_text": "That's the end of Northridge for the Crusade.\n\nThe camp's ours now. I'll put a crew in there next month and we'll cut our own timber.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "pln_seasoned_oak"
+      ],
+      "reward_exp": 5252,
+      "reward_gold": 20670,
+      "unique_item_defs": [
+        {
+          "name": "Woodwright's Legguards",
+          "slot": "legs",
+          "item_level": 57,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 15,
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "attack_power": 47
+          },
+          "armor_value": 299,
+          "required_level": 55,
+          "sell_price": 16794,
+          "identity": "hunter",
+          "icon_id": "gear_inv_pants_03"
+        },
+        {
+          "name": "Woodwright's Cap",
+          "slot": "head",
+          "item_level": 57,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 20,
+            "agility": 13
+          },
+          "secondary_stats": {
+            "dodge_rating": 10
+          },
+          "armor_value": 172,
+          "required_level": 55,
+          "sell_price": 13435,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_30"
+        },
+        {
+          "name": "Woodwright's Cloak",
+          "slot": "back",
+          "item_level": 57,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 57,
+          "required_level": 55,
+          "sell_price": 9237,
+          "identity": "strength",
+          "icon_id": "gear_inv_misc_cape_04"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "pln_saw_blades",
+      "title": "Saw Blades",
+      "giver_npc_id": "wpln_pf_woodwright",
+      "zone": "western_plaguelands_north",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Jonah can't cut timber without saws, and the Crusade took every saw in the Plaguelands to Northridge. The Scarlet Lumberjacks carry good steel blades, Hearthglen forged, and Jonah wants them.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pl_q_saw_blade",
+          "count": 5
+        }
+      ],
+      "accept_text": "The lumberjacks in the woods at Northridge carry their saws on their backs. Bring me the blades and leave the handles. I'll make my own.",
+      "turn_in_text": "These are beautiful blades. Hearthglen's smiths know their business, I'll give them that.\n\nWe'll have a proper sawpit at the Watch by the end of the week.",
+      "next_quest_id": null,
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "unique_item_defs": [
+        {
+          "name": "Woodwright's Legplates",
+          "slot": "legs",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 13,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 34
+          },
+          "armor_value": 331,
+          "required_level": 54,
+          "sell_price": 10387,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_01"
+        },
+        {
+          "name": "Woodwright's Hood",
+          "slot": "head",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 29
+          },
+          "armor_value": 79,
+          "required_level": 54,
+          "sell_price": 8310,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_60"
+        },
+        {
+          "name": "Woodwright's Greataxe",
+          "slot": "main_hand",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "axe_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 30
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 12984,
+          "identity": "strength",
+          "icon_id": "gear_inv_axe_17",
+          "weapon_damage_min": 99,
+          "weapon_damage_max": 135,
+          "attack_speed": 3.6,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_snapjaws_on_the_thondroril",
+      "title": "Snapjaws on the Thondroril",
+      "giver_npc_id": "wpln_pf_angler",
+      "zone": "western_plaguelands_north",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Oona Byrne fishes the Thondroril for the Pale Watch's supper, and the Thondroril Snapjaws keep taking her catch and her lines. They're big and they're mean and they've got nothing to fear in the river.\n\nShe wants them thinned.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Thondroril Snapjaw",
+          "count": 8,
+          "zone": "western_plaguelands_north"
+        }
+      ],
+      "accept_text": "They sun themselves on the banks of the Thondroril, east of the camp. Watch out for the bite, because they don't let go. Stay out of the water.",
+      "turn_in_text": "My lines will last the day now.\n\nI fished out of Galway, back home. The fish here are different, but the patience is the same.",
+      "next_quest_id": "pln_old_thondroril",
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "unique_item_defs": [
+        {
+          "name": "Angler's Gauntlets",
+          "slot": "hands",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 20,
+            "crit_chance_spell": 5
+          },
+          "armor_value": 152,
+          "required_level": 54,
+          "sell_price": 6752,
+          "identity": "mail_caster",
+          "icon_id": "gear_inv_gauntlets_12"
+        },
+        {
+          "name": "Angler's Sabatons",
+          "slot": "feet",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 229,
+          "required_level": 54,
+          "sell_price": 6752,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_09"
+        },
+        {
+          "name": "Angler's Cloak",
+          "slot": "back",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 42,
+          "required_level": 54,
+          "sell_price": 5713,
+          "identity": "agility",
+          "icon_id": "gear_inv_misc_cape_19"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_plague_bats",
+      "title": "Plague Bats",
+      "giver_npc_id": "wpln_pf_angler",
+      "zone": "western_plaguelands_north",
+      "level_min": 53,
+      "level_max": 54,
+      "description": "The Plague Bats come out over the Thondroril at dusk and dive at the water, and at Oona. She's sure they carry the plague, and she's tired of fighting them off with a fishing rod.\n\nShe wants them gone.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Plague Bat",
+          "count": 10,
+          "zone": "western_plaguelands_north"
+        }
+      ],
+      "accept_text": "They roost in the trees along the river and come out at dusk. They're fast, so don't chase them. Let them come to you.",
+      "turn_in_text": "I can fish at dusk again. That's the best time for it.\n\nThank you. Take one of these, and I'll keep a fish back for you at supper.",
+      "next_quest_id": null,
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "unique_item_defs": [
+        {
+          "name": "Angler's Coif",
+          "slot": "head",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 10,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 186,
+          "required_level": 53,
+          "sell_price": 8310,
+          "identity": "hunter",
+          "icon_id": "gear_inv_helmet_56"
+        },
+        {
+          "name": "Angler's Leggings",
+          "slot": "legs",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 15
+          },
+          "secondary_stats": {
+            "shadow_spell_power": 42
+          },
+          "armor_value": 69,
+          "required_level": 53,
+          "sell_price": 10387,
+          "identity": "shadow",
+          "icon_id": "gear_inv_pants_03"
+        },
+        {
+          "name": "Angler's Staff",
+          "slot": "main_hand",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 16,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "dodge_rating": 5
+          },
+          "armor_value": 48,
+          "required_level": 53,
+          "sell_price": 12984,
+          "identity": "bear_weapon",
+          "icon_id": "gear_inv_staff_25",
+          "weapon_damage_min": 99,
+          "weapon_damage_max": 135,
+          "attack_speed": 3.6,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_antler_hooks",
+      "title": "Antler Hooks",
+      "giver_npc_id": "wpln_pf_angler",
+      "zone": "western_plaguelands_north",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Oona's run out of fishhooks, and there's nowhere to buy them out here. She carves her own from antler, and the Blighted Stags in the fields have antlers that are sound under the grime.\n\nShe wants the antlers.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pl_q_stag_antler",
+          "count": 6
+        }
+      ],
+      "accept_text": "The stags graze in the fields north and east of the camp. Bring me the tines, not the whole rack. I'll carve them tonight.",
+      "turn_in_text": "These will carve beautifully.\n\nMy grandfather taught me this, back home, on the beach at Salthill. I never thought I'd need it.",
+      "next_quest_id": null,
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "unique_item_defs": [
+        {
+          "name": "Angler's Jerkin",
+          "slot": "chest",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 11,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "attack_power": 34
+          },
+          "armor_value": 138,
+          "required_level": 54,
+          "sell_price": 10387,
+          "identity": "feral",
+          "icon_id": "gear_inv_chest_leather_02"
+        },
+        {
+          "name": "Angler's Mantle",
+          "slot": "shoulder",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 36
+          },
+          "armor_value": 79,
+          "required_level": 54,
+          "sell_price": 8310,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_03"
+        },
+        {
+          "name": "Angler's Greatsword",
+          "slot": "main_hand",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 16
+          },
+          "secondary_stats": {
+            "hit_rating": 6,
+            "defense_rating": 8
+          },
+          "armor_value": 97,
+          "required_level": 54,
+          "sell_price": 12984,
+          "identity": "tank_weapon",
+          "icon_id": "gear_inv_sword_16",
+          "weapon_damage_min": 99,
+          "weapon_damage_max": 135,
+          "attack_speed": 3.4,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_old_thondroril",
+      "title": "Old Thondroril",
+      "giver_npc_id": "wpln_pf_angler",
+      "zone": "western_plaguelands_north",
+      "level_min": 55,
+      "level_max": 55,
+      "description": "There's one snapjaw in the Thondroril that Oona's never been able to drive off. Old Thondroril is older than the plague and bigger than a cart, and the Thondroril Snapjaws follow him like he's their king.\n\nOona wants him gone, so she can fish the deep pools.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Old Thondroril",
+          "count": 1,
+          "zone": "western_plaguelands_north"
+        },
+        {
+          "type": "kill",
+          "target": "Thondroril Snapjaw",
+          "count": 4,
+          "zone": "western_plaguelands_north"
+        }
+      ],
+      "accept_text": "He keeps to the deepest pool on the Thondroril, and he comes up when he's hungry. Kill the young ones while you wait. Stay on the bank, because he's stronger in the water.",
+      "turn_in_text": "The deep pools are mine now. Look at the size of the fish down there.\n\nYou'll eat well at the Pale Watch tonight, and every night after.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "pln_snapjaws_on_the_thondroril"
+      ],
+      "reward_exp": 5252,
+      "reward_gold": 20670,
+      "unique_item_defs": [
+        {
+          "name": "Angler's Wristguards",
+          "slot": "wrist",
+          "item_level": 57,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "healing_power": 49
+          },
+          "armor_value": 207,
+          "required_level": 55,
+          "sell_price": 8397,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_bracer_09"
+        },
+        {
+          "name": "Angler's Handguards",
+          "slot": "hands",
+          "item_level": 57,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 18,
+            "strength": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 14
+          },
+          "armor_value": 310,
+          "required_level": 55,
+          "sell_price": 10916,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_15"
+        },
+        {
+          "name": "Angler's Band",
+          "slot": "ring",
+          "item_level": 57,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 10
+          },
+          "secondary_stats": {
+            "attack_power": 24,
+            "crit_chance_physical": 10
+          },
+          "armor_value": 0,
+          "required_level": 55,
+          "sell_price": 10076,
+          "identity": "hunter_crit",
+          "icon_id": "gear_inv_jewelry_ring_32"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "pln_the_patrol_roster",
+      "title": "The Patrol Roster",
+      "giver_npc_id": "wpln_pf_clerk",
+      "zone": "western_plaguelands_north",
+      "level_min": 55,
+      "level_max": 55,
+      "description": "Clerk Wendel Ashby kept Hearthglen's books until he saw what was being written in them. He knows the Scarlet Sentries carry the week's roster, which tells everyone where to stand on the walls.\n\nHe wants a copy, so the Watch knows the walls as well as he used to.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pl_q_patrol_roster",
+          "count": 1
+        }
+      ],
+      "accept_text": "The sentries on the road below the gate carry the roster. It's in a leather case at the belt. Bring it back dry, please, because the ink runs.",
+      "turn_in_text": "This is in Brother Jessup's hand. I'd know his capitals anywhere.\n\nThe newcomers here always ask how I can read the walls from a page. It's just bookkeeping, really.",
+      "next_quest_id": "pln_hearthglens_hounds",
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Clerk's Boots",
+          "slot": "feet",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8
+          },
+          "secondary_stats": {
+            "attack_power": 21,
+            "hit_rating": 8
+          },
+          "armor_value": 97,
+          "required_level": 55,
+          "sell_price": 7012,
+          "identity": "assassin",
+          "icon_id": "gear_inv_boots_plate_08"
+        },
+        {
+          "name": "Clerk's Helm",
+          "slot": "head",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 10,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 285,
+          "required_level": 55,
+          "sell_price": 8630,
+          "identity": "crusader",
+          "icon_id": "gear_inv_helmet_46"
+        },
+        {
+          "name": "Clerk's Cuffs",
+          "slot": "wrist",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 48,
+          "required_level": 55,
+          "sell_price": 5394,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_07"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_hearthglens_hounds",
+      "title": "Hearthglen's Hounds",
+      "giver_npc_id": "wpln_pf_clerk",
+      "zone": "western_plaguelands_north",
+      "level_min": 55,
+      "level_max": 56,
+      "description": "The roster says Hearthglen sends its Scarlet War Hounds out at night to hunt anyone near the walls. Wendel used to feed them. He says they were good dogs once.\n\nHe wants them stopped.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Scarlet War Hound",
+          "count": 10,
+          "zone": "western_plaguelands_north"
+        }
+      ],
+      "accept_text": "They hunt the fields below the walls at night, and they hunt in packs. Don't let them circle you. Back up against something and let them come.",
+      "turn_in_text": "They were good dogs once. I used to give them the scraps from the kitchen.\n\nThat's done, then. Thank you. I'll write it down, because somebody should.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "pln_the_patrol_roster"
+      ],
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Clerk's Hauberk",
+          "slot": "chest",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 12,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 35
+          },
+          "armor_value": 228,
+          "required_level": 55,
+          "sell_price": 11196,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_04"
+        },
+        {
+          "name": "Clerk's Leggings",
+          "slot": "legs",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 29,
+            "crit_chance_spell": 12
+          },
+          "armor_value": 71,
+          "required_level": 55,
+          "sell_price": 11196,
+          "identity": "caster_crit",
+          "icon_id": "gear_inv_pants_02"
+        },
+        {
+          "name": "Clerk's Mace",
+          "slot": "main_hand",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 0,
+          "required_level": 55,
+          "sell_price": 10636,
+          "identity": "strength",
+          "icon_id": "gear_inv_mace_09",
+          "weapon_damage_min": 76,
+          "weapon_damage_max": 103,
+          "attack_speed": 2.6,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    }
+  ]
+}

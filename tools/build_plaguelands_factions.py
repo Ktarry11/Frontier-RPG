@@ -137,9 +137,10 @@ ARGENT_DAWN = {
         "zones": ["eastern_plaguelands_west", "eastern_plaguelands_east"],
     },
     "kill_rep": {
-        "_comment": ["Scourge kills pay only while the Argent Dawn Commission is worn (built with Light's Hope's "
-                     "people), so nothing is listed here."],
-        "creatures": {},
+        "_comment": ["The Scourge (Kyle, 16 Nov 2026: 'Argent Dawn from killing Scourge'): every undead and every Cult "
+                     "of the Damned member in the Plaguelands pays a little, rares more, up to Honored. Past Honored "
+                     "it's Scourgestones at Light's Hope, quests, and Scholomance and Stratholme's undead half."],
+        "creatures": {},            # filled from the rosters in main()
     },
     "dungeon_rep": {
         "_comment": "A dungeon boss kill pays 75. Scholomance and Stratholme's undead half join when they exist.",
@@ -149,18 +150,49 @@ ARGENT_DAWN = {
 }
 
 
+def scourge():
+    """-> (ordinary, rares): the Plaguelands' Scourge, read from the open-world rosters so a new creature is counted
+    the day it's added. The Scourge is the walking dead and the Cult of the Damned that serves them; plagued beasts,
+    slimes, Scarlets and trolls aren't."""
+    import contextlib
+    import io
+    with contextlib.redirect_stdout(io.StringIO()):
+        from tools import build_wpl_openworld as W
+        from tools import build_epl_openworld as E
+    roster = {**W.ROSTER, **W.NORTH_ROSTER}
+    for k in dir(E):
+        v = getattr(E, k)
+        if k.endswith("ROSTER") and isinstance(v, dict):
+            roster.update(v)
+    cult = ("Cultist", "Cult ", "Cartmaster Corin")
+    ordinary, rares = [], []
+    for name, r in roster.items():
+        template, is_rare = r[0], bool(r[3])
+        if template.startswith("undead") or any(c in name for c in cult):
+            (rares if is_rare else ordinary).append(name)
+    return sorted(ordinary), sorted(rares)
+
+
 def main():
+    ordinary, rares = scourge()
+    ARGENT_DAWN["kill_rep"]["creatures"] = {**{n: [5, "honored"] for n in ordinary},
+                                            **{n: [25, "honored"] for n in rares}}
     raw = PATH.read_text(encoding="utf-8")
     d = json.loads(raw)
     fs = d["factions"]
     for fid, rec in (("pale_flame", PALE_FLAME), ("argent_dawn", ARGENT_DAWN)):
         old = fs.get(fid, {})
-        merged = dict(rec)
+        merged = json.loads(json.dumps(rec))
         if "rewards" in old:
             merged["rewards"] = old["rewards"]
+        # what the quest passes attach (tools/build_scarlet_monastery_quests.py and the Plaguelands' own) stays
+        for key in ("also", "capstones"):
+            if (old.get("quest_rep") or {}).get(key):
+                merged["quest_rep"][key] = old["quest_rep"][key]
         fs[fid] = merged
     PATH.write_text(json.dumps(d, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"factions.json: The Order of the Pale Flame and the Argent Dawn ({len(fs)} factions)")
+    print(f"factions.json: The Order of the Pale Flame and the Argent Dawn ({len(fs)} factions); the Argent Dawn pays "
+          f"for {len(ordinary)} Scourge and {len(rares)} Scourge rares")
     return 0
 
 

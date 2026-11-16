@@ -10641,6 +10641,58 @@
           "sold_by": [
             "secret_saltspur_hewitt"
           ]
+        },
+        "rep_pf_mantle_of_the_walkout": {
+          "name": "Mantle of the Walkout",
+          "inputs": {
+            "bolt_voidweave": 16,
+            "thread_silken": 2
+          },
+          "skill_required": 300,
+          "output": {
+            "kind": "armor",
+            "slot": "shoulder",
+            "stat_template": "int_caster",
+            "item_level": 73,
+            "rarity": "epic",
+            "material_tier": "voidweave",
+            "identity": "caster_crit",
+            "flavor": "Grey silk with a white flame on each shoulder, for the casters who walked out with Rory.",
+            "fixed_item_level": true,
+            "required_level": 60,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Mantle of the Walkout",
+              "slot": "shoulder",
+              "item_level": 73,
+              "rarity": "epic",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 19
+              },
+              "secondary_stats": {
+                "spell_power": 69,
+                "crit_chance_spell": 28
+              },
+              "armor_value": 131,
+              "required_level": 60,
+              "sell_price": 39153,
+              "flavor_text": "Grey silk with a white flame on each shoulder, for the casters who walked out with Rory.",
+              "identity": "caster_crit",
+              "icon_id": "gear_wow_cloth_shoulder_walkout"
+            }
+          },
+          "skill_range": [
+            300,
+            305,
+            310,
+            315
+          ],
+          "source": "vendor",
+          "faction": "pale_flame",
+          "_rare_ingredients_todo": true
         }
       }
     },

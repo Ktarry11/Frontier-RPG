@@ -93,6 +93,10 @@ NPC_POSITIONS = {
     "wpln_pf_watch_captain": (90, 108),
     "wpln_pf_scout": (98, 110),
     "wpln_pf_field_medic": (88, 116),
+    "wpln_pf_sister": (84, 104),
+    "wpln_pf_woodwright": (94, 100),
+    "wpln_pf_angler": (98, 116),
+    "wpln_pf_clerk": (82, 112),
 }
 
 SUBZONES = [

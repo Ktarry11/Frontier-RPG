@@ -118,12 +118,16 @@ INTEGRATION_ZONES = {"aspen", "southern_needles", "underdark", "underdark_dungeo
 #: written lines scored zero and the tool reported no change. The phrasings below are the ones the
 #: writing actually uses. "three years" is safe on its own: per claude/integration_timeline.md that
 #: exact span is the Integration's, while a native's tenure is written as any other number.
+#: "NEWCOMER" (16 Nov 2026). Kyle: every transplant knows they came from Earth, but ordinary Azerothians don't, and
+#: only the people at the top know more. So a native's word for a transplant is "newcomer", and it counts.
 LORE = re.compile(
-    r"integration|came (across|through)|crossed over|the day the (ground|world) changed|"
+    r"integration|newcomers?|came (across|through)|crossed over|the day the (ground|world) changed|"
     r"since it happened|three years|that blue planet|other world|transplant|"
     r"(newly )?woken|the ones who (came|arrived)|you lot|not from (here|the plain|these)|"
     r"wasn'?t here|was not here|before the change|after the change|"
-    r"somewhere flatter|out of nowhere|off nowhere|where you'?re from", re.I)
+    r"somewhere flatter|out of nowhere|off nowhere|where you'?re from|"
+    # Kyle, 16 Nov 2026: every transplant knows they came from Earth and the Order says so out loud
+    r"\bon Earth\b|\bfrom Earth\b|back home on|back home,? I|, back home\b", re.I)
 
 #: Named by claude/quest_writing_guide.md as the tics that make quest text read as filler.
 TICS = {

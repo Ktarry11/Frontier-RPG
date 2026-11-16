@@ -806,6 +806,13 @@ class Monster(StatusEffectMixin):
                 mechanics=entry.get("mechanics"),
             ))
 
+        # PHASES (Kyle, 16 Nov 2026: "having the mechanism in place for phases is good"). A list of
+        # {"at_pct": 40, "into": "<creature>" and/or "kit": "<kit id>", "text": "<combat log line>"}, read off
+        # the creature's entry by CreatureManager.spawn_creature. Empty for everything else, so nothing changes.
+        self.phases = []
+        self.phase_index = 0
+        self.former_names = []
+
         # Combat state
         self.turn_meter = 0.0
         self.turn_speed = self.speed
@@ -1298,11 +1305,77 @@ class Monster(StatusEffectMixin):
         self._convert_damage_to_heal(actual, damage_type)
         self._arm_damage_hot(actual)
 
+        actual = self._phase_cap(actual)
         self.current_health = max(0, self.current_health - actual)
+        if getattr(self, "_phase_due", False):
+            self._enter_phase()
 
         self._reflect_damage(actual, damage_type, attacker)
         self._check_low_health_trigger()
         return actual
+
+    # ------------------------------------------------------------------ phases
+    #: what a new form brings with it (everything that makes it that creature and nothing the fight tracks)
+    _FORM_ATTRS = ("name", "monster_type", "kit_id", "abilities", "max_health", "current_health", "base_armor",
+                   "base_magic_resist", "base_fire_resist", "base_frost_resist", "base_nature_resist",
+                   "base_shadow_resist", "base_arcane_resist", "base_holy_resist", "attack_power", "spell_power",
+                   "max_mana", "current_mana", "resource_type", "speed", "turn_speed", "crit_chance",
+                   "exp_reward_base", "dodge", "parry", "block_chance", "block_value", "is_boss", "row",
+                   "_difficulty_health", "_difficulty_kind", "loot_ilvl_bonus", "loot_epic_chance")
+    _creature_manager = None
+
+    def _phase_cap(self, actual):
+        """A blow that crosses the next phase's line stops on it, however big it was: Dathrohan doesn't die
+        to the hit that tears his disguise off. The phase itself starts once the health is set."""
+        phases = getattr(self, "phases", None) or []
+        i = getattr(self, "phase_index", 0)
+        if i >= len(phases) or actual <= 0 or self.max_health <= 0:
+            return actual
+        line = max(1, int(self.max_health * float(phases[i].get("at_pct", 0)) / 100.0))
+        if self.current_health > line and self.current_health - actual <= line:
+            self._phase_due = True
+            return self.current_health - line
+        return actual
+
+    def _enter_phase(self):
+        """Become the next phase: another creature ("into": name, level, kit, health and all, at its full
+        health unless "keep_health" is set) or the same one fighting with another kit ("kit"). The combat log
+        gets the phase's "text"."""
+        self._phase_due = False
+        ph = self.phases[self.phase_index]
+        self.phase_index += 1
+        if ph.get("into"):
+            if Monster._creature_manager is None:
+                from world.creature_manager import CreatureManager
+                Monster._creature_manager = CreatureManager()
+            new = Monster._creature_manager.spawn_creature(ph["into"], level=ph.get("level") or self.level)
+            if new is None:
+                raise KeyError(f"phase of '{self.name}' turns into '{ph['into']}', which isn't a creature")
+            if getattr(self, "location_type", None):
+                new.location_type = self.location_type
+                from world.difficulty import apply_health
+                apply_health(new)
+            pct = self.current_health / max(1, self.max_health)
+            self.former_names.append(self.name)
+            for k in self._FORM_ATTRS:
+                if hasattr(new, k):
+                    setattr(self, k, getattr(new, k))
+            if ph.get("keep_health"):
+                self.current_health = max(1, int(self.max_health * pct))
+            # a new body sheds what was on the old one
+            self.active_effects = []
+            self.status_effects = []
+            # the new creature's own phases (if any) are what's left; its lines are shares of its own health
+            self.phases = [dict(p) for p in getattr(new, "phases", None) or []]
+            self.phase_index = 0
+        if ph.get("kit"):
+            kits = get_kits()
+            if ph["kit"] not in kits:
+                raise KeyError(f"phase kit '{ph['kit']}' for '{self.name}' isn't in ability_kits.json")
+            tmp = Monster(self.name, self.monster_type, self.level, kit=ph["kit"])
+            self.kit_id, self.abilities = tmp.kit_id, tmp.abilities
+        if ph.get("text"):
+            self._note_proc(ph["text"])
 
     def heal(self, amount):
         # healing_taken_pct, same as Character.heal - recipient-side, percent

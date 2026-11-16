@@ -113,6 +113,7 @@ NPC_POSITIONS = {
     "brill_town_crier": (52, 43),
     "brill_guard": (10, 46),                 # west gate
     "brill_innkeeper": (39, 46),             # Gallows' End Tavern
+    "brill_pf_flamewarden": (42, 49),        # Flamewarden Novak of the Pale Flame, outside the tavern he lodges over
     "brill_general_goods": (71, 47),         # east market
     "brill_beltelf_trader": (75, 47),
     "brill_butcher": (74, 54),

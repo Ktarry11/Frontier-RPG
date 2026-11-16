@@ -1,0 +1,3230 @@
+{
+  "quests": [
+    {
+      "quest_id": "ple_the_road_between",
+      "title": "The Road Between",
+      "giver_npc_id": "epl_cg_captain",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 56,
+      "level_max": 57,
+      "description": "Captain Joss Varden holds the camp at Crown Guard, and the camp holds the road between Light's Hope and Stratholme. The road's only open while somebody keeps it open.\n\nThe Blighted Warhorses that used to pull the Crusade's wagons run wild along it now, and the Plague-Rotted Bears come down to the road to eat whatever the horses leave. He wants both of them thinned.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Blighted Warhorse",
+          "count": 8,
+          "zone": "eastern_plaguelands_east"
+        },
+        {
+          "type": "kill",
+          "target": "Plague-Rotted Bear",
+          "count": 6,
+          "zone": "eastern_plaguelands_east"
+        }
+      ],
+      "accept_text": "The horses run the road east and west of the camp. The bears keep to the trees beside it. Don't let a horse get behind you, because they kick like they mean it.",
+      "turn_in_text": "The road's open again, for a few days anyway.\n\nI'll take a few days. Out here a few days is a long time.",
+      "next_quest_id": "ple_darrowshires_ghouls",
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Crown Guard Breastplate",
+          "slot": "chest",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 20,
+            "strength": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 16
+          },
+          "armor_value": 349,
+          "required_level": 56,
+          "sell_price": 11613,
+          "identity": "tank",
+          "icon_id": "gear_inv_chest_plate01"
+        },
+        {
+          "name": "Crown Guard Leggings",
+          "slot": "legs",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 16
+          },
+          "secondary_stats": {
+            "spell_power": 36
+          },
+          "armor_value": 72,
+          "required_level": 56,
+          "sell_price": 11613,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_05"
+        },
+        {
+          "name": "Crown Guard Grips",
+          "slot": "hands",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 100,
+          "required_level": 56,
+          "sell_price": 7548,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_16"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_word_to_lights_hope",
+      "title": "Word to Light's Hope",
+      "giver_npc_id": "epl_cg_captain",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 56,
+      "level_max": 56,
+      "description": "Varden sends a report up the road to Light's Hope every week, and every week he wonders whether it'll get there. This week's says the Crusade at Tyr's Hand is moving.\n\nHe wants it in Commander Eligor Dawnbringer's hand.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "pl_q_varden_report",
+          "count": 1,
+          "label": "Bring Varden's report to Commander Eligor Dawnbringer at Light's Hope"
+        }
+      ],
+      "accept_text": "East along the road to the chapel. It's the white building on the hill. You can't miss it, and the dead won't follow you onto its ground.",
+      "turn_in_text": "Joss writes the way he fights, short and to the point.\n\nTyr's Hand is moving, then. I'll need people who can walk into it and walk back out. I think you'll do nicely.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "epl_lh_commander",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "pl_q_varden_report",
+            "name": "Varden's Report",
+            "description": "A folded report in a soldier's square hand, sealed with Crown Guard's tower.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Crown Guard Greaves",
+          "slot": "feet",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 158,
+          "required_level": 56,
+          "sell_price": 7277,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_07"
+        },
+        {
+          "name": "Crown Guard Vambraces",
+          "slot": "wrist",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 267,
+          "required_level": 56,
+          "sell_price": 5598,
+          "identity": "strength",
+          "icon_id": "gear_inv_bracer_05"
+        },
+        {
+          "name": "Crown Guard Band",
+          "slot": "ring",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 22
+          },
+          "armor_value": 0,
+          "required_level": 56,
+          "sell_price": 6718,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_ring_27"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_darrowshires_ghouls",
+      "title": "Darrowshire's Ghouls",
+      "giver_npc_id": "epl_cg_captain",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "Darrowshire was a town south of the camp until the Scourge came for it, and the town fought and lost. The Darrowshire Ghouls that came out of that fight still walk its streets, and on bad nights they walk up the road to Crown Guard.\n\nVarden wants them put down before the next bad night.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Darrowshire Ghoul",
+          "count": 10,
+          "zone": "eastern_plaguelands_east"
+        }
+      ],
+      "accept_text": "Darrowshire's south and west of the camp, down the old road. The ghouls are in the streets and the yards. Mind the ghosts, because they're still fighting a battle that ended years ago.",
+      "turn_in_text": "That'll keep them off my road for a while.\n\nThere's a ghost of a little girl in that town who talks to travellers. If you met her, I hope you were kind.",
+      "next_quest_id": "ple_the_houndmasters",
+      "requires_quests": [
+        "ple_the_road_between"
+      ],
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Crown Guard Hood",
+          "slot": "head",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "shadow_spell_power": 37
+          },
+          "armor_value": 61,
+          "required_level": 57,
+          "sell_price": 9290,
+          "identity": "shadow",
+          "icon_id": "gear_inv_helmet_15"
+        },
+        {
+          "name": "Crown Guard Spaulders",
+          "slot": "shoulder",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 10,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 27
+          },
+          "armor_value": 197,
+          "required_level": 57,
+          "sell_price": 9290,
+          "identity": "earthen",
+          "icon_id": "gear_inv_shoulder_06"
+        },
+        {
+          "name": "Crown Guard Knife",
+          "slot": "main_hand",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9
+          },
+          "secondary_stats": {
+            "attack_power": 22,
+            "crit_chance_physical": 9
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 11032,
+          "identity": "rogue_crit",
+          "icon_id": "gear_inv_weapon_shortblade_19",
+          "weapon_damage_min": 77,
+          "weapon_damage_max": 104,
+          "attack_speed": 1.7,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_the_houndmasters",
+      "title": "The Houndmasters",
+      "giver_npc_id": "epl_cg_captain",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 58,
+      "level_max": 58,
+      "description": "The Crusade at Tyr's Hand sends its hounds up the road at night, and the Tyr's Hand Houndmasters who run them know exactly where Crown Guard's sentries stand. Varden lost two of his people last week.\n\nHe wants the houndmasters dead, and he'd like their dogs to have nobody to come home to.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Tyr's Hand Houndmaster",
+          "count": 8,
+          "zone": "eastern_plaguelands_east"
+        }
+      ],
+      "accept_text": "Tyr's Hand is on the coast, south and east of Light's Hope. The houndmasters keep to the kennels at the north end. Kill the handlers and the hounds won't know what to do.",
+      "turn_in_text": "Then nobody's sending dogs up my road tonight.\n\nThe Crusade calls you lot heretics, you know. I've heard worse said about better people.",
+      "next_quest_id": "ple_arrows_on_the_road",
+      "requires_quests": [
+        "ple_darrowshires_ghouls"
+      ],
+      "reward_exp": 4280,
+      "reward_gold": 16800,
+      "unique_item_defs": [
+        {
+          "name": "Crown Guard Legplates",
+          "slot": "legs",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 20
+          },
+          "secondary_stats": {
+            "defense_rating": 14,
+            "dodge_rating": 9
+          },
+          "armor_value": 355,
+          "required_level": 58,
+          "sell_price": 12037,
+          "identity": "tank_any",
+          "icon_id": "gear_inv_pants_04"
+        },
+        {
+          "name": "Crown Guard Jerkin",
+          "slot": "chest",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 10,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 45
+          },
+          "armor_value": 148,
+          "required_level": 58,
+          "sell_price": 12037,
+          "identity": "healer",
+          "icon_id": "gear_inv_chest_leather_06"
+        },
+        {
+          "name": "Crown Guard Maul",
+          "slot": "main_hand",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 31
+          },
+          "armor_value": 0,
+          "required_level": 58,
+          "sell_price": 15046,
+          "identity": "strength",
+          "icon_id": "gear_inv_hammer_07",
+          "weapon_damage_min": 106,
+          "weapon_damage_max": 143,
+          "attack_speed": 3.6,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_arrows_on_the_road",
+      "title": "Arrows on the Road",
+      "giver_npc_id": "epl_cg_captain",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 58,
+      "level_max": 59,
+      "description": "With the hounds gone, the Crusade's sent its archers instead. Every Tyr's Hand Marksman on the walls shoots at anything on the coast road, and Varden's wagons can't reach Light's Hope that way.\n\nHe wants the walls cleared.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Tyr's Hand Marksman",
+          "count": 8,
+          "zone": "eastern_plaguelands_east"
+        }
+      ],
+      "accept_text": "The marksmen stand on Tyr's Hand's walls and in its towers. Get close fast, because they won't come down to you. Don't stop in the open.",
+      "turn_in_text": "My wagons got through this morning. The chapel's eating well tonight.\n\nYou've done more for this road than half my own people, and I'll say so to anyone.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ple_the_houndmasters"
+      ],
+      "reward_exp": 4360,
+      "reward_gold": 17100,
+      "unique_item_defs": [
+        {
+          "name": "Crown Guard Coif",
+          "slot": "head",
+          "item_level": 60,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 11
+          },
+          "secondary_stats": {
+            "attack_power": 26,
+            "hit_rating": 11
+          },
+          "armor_value": 203,
+          "required_level": 58,
+          "sell_price": 9976,
+          "identity": "hunter_precise",
+          "icon_id": "gear_inv_helmet_45"
+        },
+        {
+          "name": "Crown Guard Waistguard",
+          "slot": "waist",
+          "item_level": 60,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 9,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 250,
+          "required_level": 58,
+          "sell_price": 6858,
+          "identity": "crusader",
+          "icon_id": "gear_inv_belt_04"
+        },
+        {
+          "name": "Crown Guard Cloak",
+          "slot": "back",
+          "item_level": 60,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 27,
+            "hit_rating": 6
+          },
+          "armor_value": 46,
+          "required_level": 58,
+          "sell_price": 6858,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_07"
+        }
+      ],
+      "gear_reward_gear_level": 60,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_the_blackwood_shore",
+      "title": "The Blackwood Shore",
+      "giver_npc_id": "epl_cg_corporal",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 56,
+      "level_max": 57,
+      "description": "Corporal Ines Duarte keeps Crown Guard's water, and Crown Guard's water comes from Blackwood Lake, north of the camp. The Blackwood Drowned walk out of it every night and foul the shore where she fills the barrels.\n\nShe wants the shore cleared so she can work.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Blackwood Drowned",
+          "count": 10,
+          "zone": "eastern_plaguelands_east"
+        }
+      ],
+      "accept_text": "North from the camp to the lake. The drowned come up out of the shallows. Stay on the dry ground if you can, because they're stronger in the water, and they'll try to pull you in.",
+      "turn_in_text": "That's a clean shore, for now.\n\nI ran water treatment for the city of Lisbon, back home. I never thought I'd be doing it with a sword.",
+      "next_quest_id": "ple_whats_in_the_water",
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Duarte's Sabatons",
+          "slot": "feet",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 40
+          },
+          "armor_value": 241,
+          "required_level": 56,
+          "sell_price": 7548,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_boots_09"
+        },
+        {
+          "name": "Duarte's Legguards",
+          "slot": "legs",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 12,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 36
+          },
+          "armor_value": 232,
+          "required_level": 56,
+          "sell_price": 11613,
+          "identity": "hunter",
+          "icon_id": "gear_inv_pants_05"
+        },
+        {
+          "name": "Duarte's Pendant",
+          "slot": "neck",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 22
+          },
+          "armor_value": 0,
+          "required_level": 56,
+          "sell_price": 6968,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_amulet_04"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_whats_in_the_water",
+      "title": "What's in the Water",
+      "giver_npc_id": "epl_cg_corporal",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 56,
+      "level_max": 57,
+      "description": "Ines wants to know how the plague gets into Blackwood Lake, and she thinks the Blackwood Snapjaws can tell her. They swallow stones to grind their food, and the stones soak up whatever's in the water.\n\nShe wants their gizzard stones.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pl_q_gizzard_stone",
+          "count": 6
+        }
+      ],
+      "accept_text": "The snapjaws sun themselves on the lake shore. The stones are in the gizzard, which is exactly where it sounds like. I'm sorry, and thank you.",
+      "turn_in_text": "Look at the green on these. It's in the silt, not the water.\n\nSo it's coming from something on the bottom, and I think I know what.",
+      "next_quest_id": "ple_the_blackwood_drowner",
+      "requires_quests": [
+        "ple_the_blackwood_shore"
+      ],
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Duarte's Hauberk",
+          "slot": "chest",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "spell_power": 33,
+            "crit_chance_spell": 6
+          },
+          "armor_value": 232,
+          "required_level": 56,
+          "sell_price": 11613,
+          "identity": "mail_caster",
+          "icon_id": "gear_inv_chest_chain_15"
+        },
+        {
+          "name": "Duarte's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10
+          },
+          "secondary_stats": {
+            "attack_power": 27,
+            "crit_chance_physical": 10
+          },
+          "armor_value": 295,
+          "required_level": 56,
+          "sell_price": 9290,
+          "identity": "strength_crit",
+          "icon_id": "gear_inv_shoulder_10"
+        },
+        {
+          "name": "Duarte's Staff",
+          "slot": "main_hand",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 15,
+            "spirit": 12
+          },
+          "secondary_stats": {
+            "healing_power": 68
+          },
+          "armor_value": 0,
+          "required_level": 56,
+          "sell_price": 14516,
+          "identity": "high_healer",
+          "icon_id": "gear_inv_staff_11",
+          "weapon_damage_min": 42,
+          "weapon_damage_max": 57,
+          "attack_speed": 3.2,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_the_blackwood_drowner",
+      "title": "The Blackwood Drowner",
+      "giver_npc_id": "epl_cg_corporal",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "Something sits on the bottom of Blackwood Lake and bleeds plague into the silt. The Drowned call it the Blackwood Drowner, and the Blackwood Snapjaws won't go near the deep water where it lies.\n\nInes wants it dragged out and ended.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Blackwood Drowner",
+          "count": 1,
+          "zone": "eastern_plaguelands_east"
+        },
+        {
+          "type": "kill",
+          "target": "Blackwood Snapjaw",
+          "count": 6,
+          "zone": "eastern_plaguelands_east"
+        }
+      ],
+      "accept_text": "It comes up from the deep end of the lake when it's hungry. Thin the snapjaws on the shore while you wait. When it pulls you under, don't panic, and fight your way back to the shallows.",
+      "turn_in_text": "The silt's clearing already. You can see the bottom by the reeds.\n\nI've got an idea, and it's bigger than one lake.",
+      "next_quest_id": "ple_filters_for_felwood",
+      "requires_quests": [
+        "ple_whats_in_the_water"
+      ],
+      "reward_exp": 5460,
+      "reward_gold": 21450,
+      "unique_item_defs": [
+        {
+          "name": "Duarte's Cap",
+          "slot": "head",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 14,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "attack_power": 41
+          },
+          "armor_value": 178,
+          "required_level": 57,
+          "sell_price": 14444,
+          "identity": "hunter",
+          "icon_id": "gear_inv_helmet_47"
+        },
+        {
+          "name": "Duarte's Cuffs",
+          "slot": "wrist",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 15
+          },
+          "secondary_stats": {
+            "spell_power": 33
+          },
+          "armor_value": 79,
+          "required_level": 57,
+          "sell_price": 9028,
+          "identity": "caster",
+          "icon_id": "gear_inv_bracer_09"
+        },
+        {
+          "name": "Duarte's Shield",
+          "slot": "off_hand",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 21,
+            "strength": 7
+          },
+          "secondary_stats": {
+            "block_value": 18
+          },
+          "armor_value": 601,
+          "required_level": 57,
+          "sell_price": 14444,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_06",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 70
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ple_filters_for_felwood",
+      "title": "Filters for Felwood",
+      "giver_npc_id": "epl_cg_corporal",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "Ines has drawn up a sand and charcoal filter that takes the plague out of Blackwood's water, and she's heard there's a forest across the sea, Felwood, where the water's poisoned with something worse. The Emerald Sanctuary there has a carpenter, Tomasz Wolny, who builds whatever the druids need.\n\nShe wants her drawings in his hands.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "pl_q_filter_drawings",
+          "count": 1,
+          "label": "Bring Ines's filter drawings to Tomasz Wolny at the Emerald Sanctuary"
+        }
+      ],
+      "accept_text": "Zeppelin from Tirisfal to Orgrimmar, and then north through Ashenvale to Felwood. The Sanctuary's the clean glade in the middle of it. Tomasz will be the one hammering something.",
+      "turn_in_text": "These are good drawings. She's a proper engineer, this one.\n\nI built houses outside Krakow, back home. I can build these by the end of the week, and the Sentinels can drink from the stream again.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "es_volunteer_carpenter",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "pl_q_filter_drawings",
+            "name": "Ines's Filter Drawings",
+            "description": "A roll of careful drawings in pencil, labelled in Portuguese and then again in Common.",
+            "count": 1
+          }
+        ]
+      },
+      "requires_quests": [
+        "ple_the_blackwood_drowner"
+      ],
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Duarte's Breeches",
+          "slot": "legs",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 14,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 36
+          },
+          "armor_value": 171,
+          "required_level": 57,
+          "sell_price": 11613,
+          "identity": "bruiser",
+          "icon_id": "gear_inv_pants_07"
+        },
+        {
+          "name": "Duarte's Gauntlets",
+          "slot": "hands",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 40
+          },
+          "armor_value": 161,
+          "required_level": 57,
+          "sell_price": 7548,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_gauntlets_07"
+        },
+        {
+          "name": "Duarte's Rifle",
+          "slot": "ranged",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "gun",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 7
+          },
+          "secondary_stats": {
+            "attack_power": 21,
+            "crit_chance_physical": 7
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 9290,
+          "identity": "hunter_crit",
+          "icon_id": "gear_inv_weapon_rifle_07",
+          "weapon_damage_min": 65,
+          "weapon_damage_max": 89,
+          "attack_speed": 2.6,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_horse_for_the_pot",
+      "title": "Horse for the Pot",
+      "giver_npc_id": "epl_cg_innkeeper",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 56,
+      "level_max": 56,
+      "description": "Innkeeper Greta Lowe feeds Crown Guard, and the wagons from Light's Hope come when they come. She's found that the Blighted Warhorses on the road are sick on the outside and mostly fine on the inside.\n\nShe wants the meat, and she doesn't want to hear about it.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pl_q_warhorse_flank",
+          "count": 6
+        }
+      ],
+      "accept_text": "The horses run the road on either side of the camp. Cut from the flank, where the meat's thickest. Don't tell anyone what's in the stew, and I won't either.",
+      "turn_in_text": "That's a week of stew, and nobody needs to know where it came from.\n\nThe newcomers eat anything, have you noticed? I like cooking for them.",
+      "next_quest_id": null,
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Hearthside Mantle",
+          "slot": "shoulder",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "spell_power": 25,
+            "crit_chance_spell": 10
+          },
+          "armor_value": 60,
+          "required_level": 56,
+          "sell_price": 8957,
+          "identity": "caster_crit",
+          "icon_id": "gear_inv_shoulder_02"
+        },
+        {
+          "name": "Hearthside Boots",
+          "slot": "feet",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 99,
+          "required_level": 56,
+          "sell_price": 7277,
+          "identity": "feral",
+          "icon_id": "gear_inv_boots_plate_08"
+        },
+        {
+          "name": "Hearthside Band",
+          "slot": "ring",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 27
+          },
+          "armor_value": 0,
+          "required_level": 56,
+          "sell_price": 6718,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_18"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_a_barrel_for_sorrow_hill",
+      "title": "A Barrel for Sorrow Hill",
+      "giver_npc_id": "epl_cg_innkeeper",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 56,
+      "level_max": 57,
+      "description": "Greta brews a dark ale out of whatever the wagons bring, and the innkeeper at Sorrow Hill, Priya Raman, wrote to say she'd trade a recipe for a barrel. Greta has never been offered a recipe for ale before.\n\nShe wants the barrel taken west, and the recipe brought back in Priya's head.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "pl_q_ale_barrel",
+          "count": 1,
+          "label": "Bring Greta's barrel of ale to Innkeeper Priya Raman at Sorrow Hill"
+        }
+      ],
+      "accept_text": "West across the Plaguelands to Sorrow Hill, by Uther's Tomb. It's a long way, so fly if you can. Don't drink it on the way, because I'll know.",
+      "turn_in_text": "Is this Greta's ale? Oh, she actually sent it.\n\nTell her the recipe's my mother's dal, and that it goes with dark beer better than anything I've ever tasted. I'll write it out for her.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "wpl_pf_innkeeper",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "pl_q_ale_barrel",
+            "name": "Barrel of Crown Guard Ale",
+            "description": "A small barrel of dark ale, stamped with Greta's mark and heavier than it looks.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Hearthside Robe",
+          "slot": "chest",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 10,
+            "spirit": 8
+          },
+          "secondary_stats": {
+            "healing_power": 44
+          },
+          "armor_value": 72,
+          "required_level": 56,
+          "sell_price": 11613,
+          "identity": "high_healer",
+          "icon_id": "gear_inv_shirt_16"
+        },
+        {
+          "name": "Hearthside Handguards",
+          "slot": "hands",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 14,
+            "strength": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 11
+          },
+          "armor_value": 241,
+          "required_level": 56,
+          "sell_price": 7548,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_22"
+        },
+        {
+          "name": "Hearthside Blade",
+          "slot": "main_hand",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "sword_1h",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "spell_power": 30
+          },
+          "armor_value": 0,
+          "required_level": 56,
+          "sell_price": 11032,
+          "identity": "caster",
+          "icon_id": "gear_inv_sword_18",
+          "weapon_damage_min": 77,
+          "weapon_damage_max": 104,
+          "attack_speed": 2.4,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_wild_bats",
+      "title": "Wild Bats",
+      "giver_npc_id": "epl_cg_flight",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 56,
+      "level_max": 57,
+      "description": "Bat Handler Gwen Pike's riding bats are healthy, and she means to keep them that way. The Carrion Bats that roost in the trees around the camp carry the plague, and they've started fighting her bats for the roost.\n\nShe wants the wild ones gone.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Carrion Bat",
+          "count": 10,
+          "zone": "eastern_plaguelands_east"
+        }
+      ],
+      "accept_text": "They roost in the dead trees all around the camp, and they're out every evening. Mine have blue tags on their legs, so please don't hit those.",
+      "turn_in_text": "My bats slept through the night for the first time in a month.\n\nI've got a young one who's ready for her own roost, if you're going east.",
+      "next_quest_id": "ple_a_bat_for_lights_hope",
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Nightwing Legguards",
+          "slot": "legs",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 12,
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "attack_power": 32
+          },
+          "armor_value": 258,
+          "required_level": 56,
+          "sell_price": 11613,
+          "identity": "earthen",
+          "icon_id": "gear_inv_pants_08"
+        },
+        {
+          "name": "Nightwing Belt",
+          "slot": "waist",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 100,
+          "required_level": 56,
+          "sell_price": 6387,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_27"
+        },
+        {
+          "name": "Nightwing Tome",
+          "slot": "off_hand",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8,
+            "spirit": 6
+          },
+          "secondary_stats": {
+            "healing_power": 34
+          },
+          "armor_value": 0,
+          "required_level": 56,
+          "sell_price": 6968,
+          "identity": "high_healer",
+          "icon_id": "gear_inv_tome_2",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_a_bat_for_lights_hope",
+      "title": "A Bat for Light's Hope",
+      "giver_npc_id": "epl_cg_flight",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "Light's Hope's flight master, Aldous Grey, lost two bats to the Mossflayers this month, and Gwen has a young female ready to fly. She's packed her into a covered basket.\n\nShe wants her taken up the road to Aldous, gently.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "pl_q_young_bat",
+          "count": 1,
+          "label": "Bring the young bat to Flight Master Aldous Grey at Light's Hope"
+        }
+      ],
+      "accept_text": "East up the road to the chapel. Keep the cover on the basket, because she'll try to fly home if she sees the sky. Aldous will be at the roost beside the inn.",
+      "turn_in_text": "Oh, she's a lovely one. Look at her ears.\n\nTell Gwen I'll name her after her, and that she'll hate that.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "epl_lh_flight",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "pl_q_young_bat",
+            "name": "Covered Basket",
+            "description": "A wicker basket under a heavy cloth. Something inside chirps whenever you stop walking.",
+            "count": 1
+          }
+        ]
+      },
+      "requires_quests": [
+        "ple_wild_bats"
+      ],
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Nightwing Jerkin",
+          "slot": "chest",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 14,
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 145,
+          "required_level": 57,
+          "sell_price": 11613,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_04"
+        },
+        {
+          "name": "Nightwing Legplates",
+          "slot": "legs",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "healing_power": 56
+          },
+          "armor_value": 349,
+          "required_level": 57,
+          "sell_price": 11613,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_pants_wolf"
+        },
+        {
+          "name": "Nightwing Pendant",
+          "slot": "neck",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 6968,
+          "identity": "agility",
+          "icon_id": "gear_inv_jewelry_amulet_05"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_tyrs_hand",
+      "title": "Tyr's Hand",
+      "giver_npc_id": "epl_lh_commander",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 58,
+      "level_max": 58,
+      "description": "Commander Eligor Dawnbringer holds Light's Hope for the Argent Dawn, and the Scarlet Crusade holds Tyr's Hand, a walled town on the coast to the south. The Crusade thinks the Dawn are traitors for taking in anyone who'll fight.\n\nDawnbringer wants the Tyr's Hand Crusaders on its walls thinned before they come north.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Tyr's Hand Crusader",
+          "count": 10,
+          "zone": "eastern_plaguelands_east"
+        }
+      ],
+      "accept_text": "Tyr's Hand is south and east of the chapel, on the coast. The crusaders walk its streets and its walls. They'll fight to the last, so don't expect any of them to run.",
+      "turn_in_text": "Good work, and grim work. I take no joy in killing the living.\n\nBut they'd burn half the people on this hill for the crime of being newcomers, and I won't allow that.",
+      "next_quest_id": "ple_the_abbots",
+      "reward_exp": 4280,
+      "reward_gold": 16800,
+      "unique_item_defs": [
+        {
+          "name": "Dawnbringer's Breastplate",
+          "slot": "chest",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 12,
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "attack_power": 33
+          },
+          "armor_value": 355,
+          "required_level": 58,
+          "sell_price": 12037,
+          "identity": "crusader",
+          "icon_id": "gear_inv_chest_plate01"
+        },
+        {
+          "name": "Dawnbringer's Gloves",
+          "slot": "hands",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 21,
+            "crit_chance_spell": 8
+          },
+          "armor_value": 69,
+          "required_level": 58,
+          "sell_price": 7824,
+          "identity": "caster_crit",
+          "icon_id": "gear_inv_gauntlets_24"
+        },
+        {
+          "name": "Dawnbringer's Breeches",
+          "slot": "legs",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 12,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 37
+          },
+          "armor_value": 148,
+          "required_level": 58,
+          "sell_price": 12037,
+          "identity": "hunter",
+          "icon_id": "gear_inv_pants_04"
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_the_abbots",
+      "title": "The Abbots of Tyr's Hand",
+      "giver_npc_id": "epl_lh_commander",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 58,
+      "level_max": 59,
+      "description": "Tyr's Hand's crusaders fight because the Tyr's Hand Abbots tell them to. The abbots preach in the town's chapels every morning, and every morning the crusaders come out of those chapels ready to die.\n\nDawnbringer wants the preaching stopped.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Tyr's Hand Abbot",
+          "count": 8,
+          "zone": "eastern_plaguelands_east"
+        }
+      ],
+      "accept_text": "The abbots keep to the chapels and the cloister in the middle of Tyr's Hand. They heal each other, so kill them one at a time and don't let them gather.",
+      "turn_in_text": "The bells didn't ring at Tyr's Hand this morning. I heard the silence from here.\n\nThere's one left who matters, and he's the worst of them.",
+      "next_quest_id": "ple_abbot_varenne",
+      "requires_quests": [
+        "ple_tyrs_hand"
+      ],
+      "reward_exp": 4360,
+      "reward_gold": 17100,
+      "unique_item_defs": [
+        {
+          "name": "Dawnbringer's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 60,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 18,
+            "strength": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 14
+          },
+          "armor_value": 305,
+          "required_level": 58,
+          "sell_price": 9976,
+          "identity": "tank",
+          "icon_id": "gear_inv_shoulder_21"
+        },
+        {
+          "name": "Dawnbringer's Boots",
+          "slot": "feet",
+          "item_level": 60,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 104,
+          "required_level": 58,
+          "sell_price": 8105,
+          "identity": "healer",
+          "icon_id": "gear_inv_boots_plate_08"
+        },
+        {
+          "name": "Dawnbringer's Greatsword",
+          "slot": "main_hand",
+          "item_level": 60,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 11
+          },
+          "secondary_stats": {
+            "attack_power": 26,
+            "crit_chance_physical": 11
+          },
+          "armor_value": 0,
+          "required_level": 58,
+          "sell_price": 15587,
+          "identity": "strength_crit",
+          "icon_id": "gear_inv_sword_15",
+          "weapon_damage_min": 108,
+          "weapon_damage_max": 146,
+          "attack_speed": 3.4,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 60,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_abbot_varenne",
+      "title": "Abbot Varenne",
+      "giver_npc_id": "epl_lh_commander",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 59,
+      "level_max": 59,
+      "description": "Abbot Varenne rules Tyr's Hand. He was a priest of the Light in Lordaeron before the plague, and he's the one who decided that anyone who came from somewhere else was a servant of the dead.\n\nDawnbringer knew him once. He wants it finished.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Abbot Varenne",
+          "count": 1,
+          "zone": "eastern_plaguelands_east"
+        }
+      ],
+      "accept_text": "He holds the great chapel at the heart of Tyr's Hand, and he doesn't fight alone. Go in with friends, and watch for the fire when he calls it down.",
+      "turn_in_text": "Then Varenne's gone, and Tyr's Hand will be quieter for a while.\n\nWe studied together at Northshire, a long time ago. He was kinder then. I'll pray for the man he was.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ple_the_abbots"
+      ],
+      "reward_exp": 5668,
+      "reward_gold": 22230,
+      "unique_item_defs": [
+        {
+          "name": "Dawnbringer's Legguards",
+          "slot": "legs",
+          "item_level": 61,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 17,
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "attack_power": 50
+          },
+          "armor_value": 320,
+          "required_level": 59,
+          "sell_price": 19365,
+          "identity": "hunter",
+          "icon_id": "gear_inv_pants_07"
+        },
+        {
+          "name": "Dawnbringer's Cap",
+          "slot": "head",
+          "item_level": 61,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 21,
+            "agility": 14
+          },
+          "secondary_stats": {
+            "dodge_rating": 11
+          },
+          "armor_value": 169,
+          "required_level": 59,
+          "sell_price": 15492,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_21"
+        },
+        {
+          "name": "Dawnbringer's Cape",
+          "slot": "back",
+          "item_level": 61,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 31
+          },
+          "armor_value": 61,
+          "required_level": 59,
+          "sell_price": 10651,
+          "identity": "strength",
+          "icon_id": "gear_inv_misc_cape_13"
+        }
+      ],
+      "gear_reward_gear_level": 61,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ple_a_word_with_the_order",
+      "title": "A Word with the Order",
+      "giver_npc_id": "epl_lh_commander",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 58,
+      "level_max": 58,
+      "description": "Dawnbringer has heard about the Order of the Pale Flame at Sorrow Hill, Scarlets who walked out and kill only the mindless dead. Some of the Dawn don't trust them. Dawnbringer would like to, and he'd like to talk to their Flamekeeper, Rory Callahan, about the Crusade.\n\nHe wants his letter carried west.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "pl_q_dawnbringer_letter",
+          "count": 1,
+          "label": "Bring Dawnbringer's letter to Flamekeeper Rory Callahan at Sorrow Hill"
+        }
+      ],
+      "accept_text": "West across the Plaguelands to Sorrow Hill, by Uther's Tomb. It's a long way, so fly. Give it to Rory and tell him I'd like an answer, not a sermon.",
+      "turn_in_text": "The Argent Dawn wants to talk. Now there's something I didn't think I'd live to see.\n\nTell him yes. Tell him I'll ride to Light's Hope myself, and that I'm sorry it took the end of the world to get us in one room.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "wpl_pf_flamekeeper",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "pl_q_dawnbringer_letter",
+            "name": "Dawnbringer's Letter",
+            "description": "A letter sealed with the Argent Dawn's sunburst, addressed in a careful hand to the Flamekeeper.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 4280,
+      "reward_gold": 16800,
+      "unique_item_defs": [
+        {
+          "name": "Dawnbringer's Gauntlets",
+          "slot": "hands",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 23,
+            "crit_chance_spell": 5
+          },
+          "armor_value": 182,
+          "required_level": 58,
+          "sell_price": 7824,
+          "identity": "mail_caster",
+          "icon_id": "gear_inv_gauntlets_24"
+        },
+        {
+          "name": "Dawnbringer's Sabatons",
+          "slot": "feet",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 246,
+          "required_level": 58,
+          "sell_price": 7824,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_plate_09"
+        },
+        {
+          "name": "Dawnbringer's Shawl",
+          "slot": "back",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 61,
+          "required_level": 58,
+          "sell_price": 6620,
+          "identity": "agility",
+          "icon_id": "gear_inv_misc_cape_18"
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_marrow_of_the_scar",
+      "title": "Marrow of the Scar",
+      "giver_npc_id": "epl_lh_scourgestones",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 58,
+      "level_max": 58,
+      "description": "Archmage Lysander Hale breaks down the Scourgestones that come to Light's Hope, and he's noticed something new in them. It's coming from the Pestilent Scar, where the Scourge is building with bone. The Scar Bone Constructs that walk there are full of a cold grey marrow.\n\nHe wants some of it, carefully.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pl_q_scar_marrow",
+          "count": 6
+        }
+      ],
+      "accept_text": "The Scar's north and west of the chapel, a long gash in the ground full of bones. The constructs walk it. Cut the marrow from the big bones in their legs, and don't hold it any longer than you have to.",
+      "turn_in_text": "It's cold, isn't it? It's colder than ice and it doesn't melt.\n\nSomething in the Scar is drinking the warmth out of everything, and now I know what's doing it.",
+      "next_quest_id": "ple_the_bone_colossus",
+      "reward_exp": 4280,
+      "reward_gold": 16800,
+      "unique_item_defs": [
+        {
+          "name": "Hale's Coif",
+          "slot": "head",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 10,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "attack_power": 31
+          },
+          "armor_value": 200,
+          "required_level": 58,
+          "sell_price": 9630,
+          "identity": "hunter",
+          "icon_id": "gear_inv_helmet_34"
+        },
+        {
+          "name": "Hale's Leggings",
+          "slot": "legs",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 16
+          },
+          "secondary_stats": {
+            "shadow_spell_power": 45
+          },
+          "armor_value": 74,
+          "required_level": 58,
+          "sell_price": 12037,
+          "identity": "shadow",
+          "icon_id": "gear_inv_pants_02"
+        },
+        {
+          "name": "Hale's Staff",
+          "slot": "main_hand",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 16,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "dodge_rating": 6
+          },
+          "armor_value": 52,
+          "required_level": 58,
+          "sell_price": 15046,
+          "identity": "bear_weapon",
+          "icon_id": "gear_inv_staff_30",
+          "weapon_damage_min": 106,
+          "weapon_damage_max": 143,
+          "attack_speed": 3.6,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_the_bone_colossus",
+      "title": "The Bone Colossus",
+      "giver_npc_id": "epl_lh_scourgestones",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 60,
+      "level_max": 60,
+      "description": "At the bottom of the Pestilent Scar the Scourge has built a giant out of the bones of everyone who died in the east. Hale calls it the Bone Colossus, and it's what the marrow was for. The Scar Bone Constructs guard it while it grows.\n\nHale wants it pulled down before it's finished.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Bone Colossus",
+          "count": 1,
+          "zone": "eastern_plaguelands_east"
+        },
+        {
+          "type": "kill",
+          "target": "Scar Bone Construct",
+          "count": 6,
+          "zone": "eastern_plaguelands_east"
+        }
+      ],
+      "accept_text": "It stands in the deepest part of the Scar. It's slow, and it's very, very strong. Kill the constructs first, then take it with every friend you can find.",
+      "turn_in_text": "It's really down? Then the Scar is just a hole in the ground again.\n\nThe Dawn owes you, and so does everyone who'd have been built into it.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ple_marrow_of_the_scar"
+      ],
+      "reward_exp": 5772,
+      "reward_gold": 22620,
+      "unique_item_defs": [
+        {
+          "name": "Hale's Jerkin",
+          "slot": "chest",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 17,
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "attack_power": 52
+          },
+          "armor_value": 203,
+          "required_level": 60,
+          "sell_price": 20037,
+          "identity": "feral",
+          "icon_id": "gear_inv_chest_leather_02"
+        },
+        {
+          "name": "Hale's Mantle",
+          "slot": "shoulder",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 12,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "healing_power": 53
+          },
+          "armor_value": 86,
+          "required_level": 60,
+          "sell_price": 16030,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_13"
+        },
+        {
+          "name": "Hale's Greatsword",
+          "slot": "main_hand",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 24
+          },
+          "secondary_stats": {
+            "hit_rating": 10,
+            "defense_rating": 12
+          },
+          "armor_value": 145,
+          "required_level": 60,
+          "sell_price": 25047,
+          "identity": "tank_weapon",
+          "icon_id": "gear_inv_sword_21",
+          "weapon_damage_min": 145,
+          "weapon_damage_max": 196,
+          "attack_speed": 3.4,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 62,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ple_darrowshires_dead",
+      "title": "Darrowshire's Dead",
+      "giver_npc_id": "epl_lh_lightwarden",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 57,
+      "level_max": 58,
+      "description": "Lightwarden Ysolde Carrow keeps the chapel's prayers for the dead, and Darrowshire's dead never got any. The Darrowshire Spirits are still fighting the battle that killed them, every night, over and over.\n\nShe asks you to set them free.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Darrowshire Spirit",
+          "count": 10,
+          "zone": "eastern_plaguelands_east"
+        }
+      ],
+      "accept_text": "Darrowshire's in the south west, past Crown Guard. The spirits fight in the town square and on the road in. They won't know the battle's over, so they'll take you for the enemy.",
+      "turn_in_text": "I felt them go. It's quieter in the chapel tonight.\n\nThe newcomers ask me why we pray for the dead here. I tell them it's because nobody else will.",
+      "next_quest_id": null,
+      "reward_exp": 4280,
+      "reward_gold": 16800,
+      "unique_item_defs": [
+        {
+          "name": "Lightwarden's Wristguards",
+          "slot": "wrist",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 41
+          },
+          "armor_value": 164,
+          "required_level": 57,
+          "sell_price": 6018,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_bracer_18"
+        },
+        {
+          "name": "Lightwarden's Handguards",
+          "slot": "hands",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 14,
+            "strength": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 11
+          },
+          "armor_value": 246,
+          "required_level": 57,
+          "sell_price": 7824,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_28"
+        },
+        {
+          "name": "Lightwarden's Band",
+          "slot": "ring",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8
+          },
+          "secondary_stats": {
+            "attack_power": 18,
+            "crit_chance_physical": 8
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 7222,
+          "identity": "hunter_crit",
+          "icon_id": "gear_inv_jewelry_ring_26"
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_the_pestilent_scar",
+      "title": "The Pestilent Scar",
+      "giver_npc_id": "epl_lh_lightwarden",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "Ysolde won't send anyone into a place she hasn't seen described, and nobody's come back from the Pestilent Scar with a straight story. She wants you to walk to its edge and look.\n\nJust look, she says. Don't go down.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "eastern_plaguelands_east",
+          "target_x": 110,
+          "target_y": 56,
+          "radius": 7,
+          "label": "Look into the Pestilent Scar"
+        }
+      ],
+      "accept_text": "North and west of the chapel, past the lake. You'll smell it before you see it. Stand at the edge and look, and then come straight back here.",
+      "turn_in_text": "Bones, all the way down? Light have mercy on them.\n\nI'll tell the Archmage. He's been waiting for someone to say it out loud.",
+      "next_quest_id": null,
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Lightwarden's Ring",
+          "slot": "ring",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "spirit": 11
+          },
+          "secondary_stats": {
+            "spell_power": 20
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 6968,
+          "identity": "spirit_caster",
+          "icon_id": "gear_inv_jewelry_ring_08"
+        },
+        {
+          "name": "Lightwarden's Greaves",
+          "slot": "feet",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8
+          },
+          "secondary_stats": {
+            "attack_power": 24,
+            "hit_rating": 8
+          },
+          "armor_value": 161,
+          "required_level": 57,
+          "sell_price": 7548,
+          "identity": "hunter_precise",
+          "icon_id": "gear_inv_boots_08"
+        },
+        {
+          "name": "Lightwarden's Vambraces",
+          "slot": "wrist",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 40
+          },
+          "armor_value": 241,
+          "required_level": 57,
+          "sell_price": 5806,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_bracer_14"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_the_shadowhunters",
+      "title": "The Shadowhunters",
+      "giver_npc_id": "epl_lh_lightwarden",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 58,
+      "level_max": 58,
+      "description": "Somebody's been hexing the chapel. Ysolde has found little bundles of feathers and teeth under the pews, and the Mossflayer Shadowhunters of Zul'Mashar are the only ones who'd do that.\n\nShe wants the shadowhunters dead before they get bolder.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Mossflayer Shadowhunter",
+          "count": 8,
+          "zone": "eastern_plaguelands_east"
+        }
+      ],
+      "accept_text": "Zul'Mashar's in the far north east, past the lodge. The shadowhunters keep to the temple steps. Their hexes are nasty, so get a priest to look at you when you're back.",
+      "turn_in_text": "There was nothing under the pews this morning. Thank the Light.\n\nI found something odd on one of the bundles, and I'd like a closer look.",
+      "next_quest_id": "ple_hex_fetishes",
+      "reward_exp": 4280,
+      "reward_gold": 16800,
+      "unique_item_defs": [
+        {
+          "name": "Lightwarden's Robe",
+          "slot": "chest",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 16
+          },
+          "secondary_stats": {
+            "spell_power": 37
+          },
+          "armor_value": 101,
+          "required_level": 58,
+          "sell_price": 12037,
+          "identity": "caster",
+          "icon_id": "gear_inv_chest_cloth_13"
+        },
+        {
+          "name": "Lightwarden's Legplates",
+          "slot": "legs",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 14,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 37
+          },
+          "armor_value": 355,
+          "required_level": 58,
+          "sell_price": 12037,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_11"
+        },
+        {
+          "name": "Lightwarden's Grips",
+          "slot": "hands",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 10,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 102,
+          "required_level": 58,
+          "sell_price": 7824,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_gauntlets_13"
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_hex_fetishes",
+      "title": "Hex Fetishes",
+      "giver_npc_id": "epl_lh_lightwarden",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 58,
+      "level_max": 59,
+      "description": "The hex bundles under the pews were tied around scraps of the chapel's own laundry. Somebody's been stealing from the chapel for the Mossflayers. Ysolde wants the fetishes the Mossflayer Shadowhunters still carry, so she can see whose cloth is in them.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pl_q_hex_fetish",
+          "count": 5
+        }
+      ],
+      "accept_text": "The shadowhunters at Zul'Mashar carry their fetishes on their belts. Bring them back unopened. I'll know the cloth when I see it.",
+      "turn_in_text": "That's the infirmary's linen, every scrap.\n\nSomebody's been selling them our sheets. I'll find out who, and then we'll have a long talk.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ple_the_shadowhunters"
+      ],
+      "reward_exp": 4360,
+      "reward_gold": 17100,
+      "unique_item_defs": [
+        {
+          "name": "Lightwarden's Spaulders",
+          "slot": "shoulder",
+          "item_level": 60,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 11,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 203,
+          "required_level": 58,
+          "sell_price": 9976,
+          "identity": "earthen",
+          "icon_id": "gear_inv_shoulder_26"
+        },
+        {
+          "name": "Lightwarden's Hood",
+          "slot": "head",
+          "item_level": 60,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "spell_power": 26,
+            "crit_chance_spell": 11
+          },
+          "armor_value": 63,
+          "required_level": 58,
+          "sell_price": 9976,
+          "identity": "caster_crit",
+          "icon_id": "gear_inv_helmet_61"
+        },
+        {
+          "name": "Lightwarden's Shield",
+          "slot": "off_hand",
+          "item_level": 60,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 22,
+            "crit_chance_spell": 5
+          },
+          "armor_value": 468,
+          "required_level": 58,
+          "sell_price": 9976,
+          "identity": "mail_caster",
+          "icon_id": "gear_inv_shield_06",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 54
+        }
+      ],
+      "gear_reward_gear_level": 60,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_troll_medicine",
+      "title": "Troll Medicine",
+      "giver_npc_id": "epl_lh_volunteer",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 57,
+      "level_max": 58,
+      "description": "Sergeant Marisol Reyes runs Light's Hope's infirmary, and she's noticed that the Mossflayer trolls heal faster than anybody else in the Plaguelands. The Mossflayer Scouts carry herb pouches, and she wants to know what's in them.\n\nShe isn't too proud to learn from a troll.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pl_q_herb_pouch",
+          "count": 5
+        }
+      ],
+      "accept_text": "Zul'Mashar's in the far north east. The scouts range out from the temple in pairs. Bring me the pouches closed, because I want to see how they pack them.",
+      "turn_in_text": "Kingsblood, and something I don't know, and a lot of salt.\n\nI was a paramedic in Monterrey, back home. Half of what I know I learned from grandmothers, so I'm not surprised the trolls know a thing or two.",
+      "next_quest_id": "ple_mossflayer_raiders",
+      "reward_exp": 4280,
+      "reward_gold": 16800,
+      "unique_item_defs": [
+        {
+          "name": "Reyes's Hauberk",
+          "slot": "chest",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 12,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 37
+          },
+          "armor_value": 236,
+          "required_level": 57,
+          "sell_price": 12037,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_15"
+        },
+        {
+          "name": "Reyes's Leggings",
+          "slot": "legs",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 31,
+            "crit_chance_spell": 12
+          },
+          "armor_value": 74,
+          "required_level": 57,
+          "sell_price": 12037,
+          "identity": "caster_crit",
+          "icon_id": "gear_inv_pants_04"
+        },
+        {
+          "name": "Reyes's Mace",
+          "slot": "main_hand",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 31
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 11435,
+          "identity": "strength",
+          "icon_id": "gear_inv_mace_09",
+          "weapon_damage_min": 78,
+          "weapon_damage_max": 106,
+          "attack_speed": 2.6,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_mossflayer_raiders",
+      "title": "Mossflayer Raiders",
+      "giver_npc_id": "epl_lh_volunteer",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 58,
+      "level_max": 58,
+      "description": "Marisol's wagons bring the wounded up from Crown Guard, and the Mossflayers have started raiding them. The Mossflayer Warriors hit the wagons from the trees and the Mossflayer Scouts pick off whoever runs.\n\nShe wants the road safe for the wounded.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Mossflayer Warrior",
+          "count": 8,
+          "zone": "eastern_plaguelands_east"
+        },
+        {
+          "type": "kill",
+          "target": "Mossflayer Scout",
+          "count": 6,
+          "zone": "eastern_plaguelands_east"
+        }
+      ],
+      "accept_text": "They come down from Zul'Mashar to the north road. Go up there and hit them at home. They're fast and they're angry, so don't fight more than you can handle.",
+      "turn_in_text": "No raids yesterday, and none today. My wounded came in alive.\n\nThere's one more of them I'd like to see gone, and he's the one giving the orders.",
+      "next_quest_id": "ple_zulmashar_the_last",
+      "requires_quests": [
+        "ple_troll_medicine"
+      ],
+      "reward_exp": 4280,
+      "reward_gold": 16800,
+      "unique_item_defs": [
+        {
+          "name": "Reyes's Boots",
+          "slot": "feet",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8
+          },
+          "secondary_stats": {
+            "attack_power": 25,
+            "hit_rating": 8
+          },
+          "armor_value": 102,
+          "required_level": 58,
+          "sell_price": 7824,
+          "identity": "assassin",
+          "icon_id": "gear_inv_boots_wolf"
+        },
+        {
+          "name": "Reyes's Helm",
+          "slot": "head",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 10,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 338,
+          "required_level": 58,
+          "sell_price": 9630,
+          "identity": "crusader",
+          "icon_id": "gear_inv_helmet_29"
+        },
+        {
+          "name": "Reyes's Cuffs",
+          "slot": "wrist",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 31
+          },
+          "armor_value": 69,
+          "required_level": 58,
+          "sell_price": 6018,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_19"
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_zulmashar_the_last",
+      "title": "Zul'Mashar the Last",
+      "giver_npc_id": "epl_lh_volunteer",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 59,
+      "level_max": 59,
+      "description": "The Mossflayers follow a warlord who named himself after their city. Zul'Mashar the Last says he's the last of the old Amani blood, and he's sworn to drive everyone out of the east who isn't a troll.\n\nMarisol wants the raids to stop for good.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Zul'Mashar the Last",
+          "count": 1,
+          "zone": "eastern_plaguelands_east"
+        }
+      ],
+      "accept_text": "He holds the top of the temple at Zul'Mashar. He's big, and he hits like a falling tree. Take friends, and bring bandages, because you'll need them.",
+      "turn_in_text": "Then it's over. My wagons can run every day now.\n\nI took an oath to look after the sick and the hurt. I never thought I'd be sending people to kill a warlord to do it.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ple_mossflayer_raiders"
+      ],
+      "reward_exp": 5668,
+      "reward_gold": 22230,
+      "unique_item_defs": [
+        {
+          "name": "Reyes's Handguards",
+          "slot": "hands",
+          "item_level": 61,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12
+          },
+          "secondary_stats": {
+            "attack_power": 29,
+            "crit_chance_physical": 12
+          },
+          "armor_value": 332,
+          "required_level": 59,
+          "sell_price": 12587,
+          "identity": "strength_crit",
+          "icon_id": "gear_inv_gauntlets_03"
+        },
+        {
+          "name": "Reyes's Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 61,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 17,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "attack_power": 42
+          },
+          "armor_value": 169,
+          "required_level": 59,
+          "sell_price": 15492,
+          "identity": "agility",
+          "icon_id": "gear_inv_shoulder_04"
+        },
+        {
+          "name": "Reyes's Tome",
+          "slot": "off_hand",
+          "item_level": 61,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 17
+          },
+          "secondary_stats": {
+            "spell_power": 39
+          },
+          "armor_value": 0,
+          "required_level": 59,
+          "sell_price": 11619,
+          "identity": "caster",
+          "icon_id": "gear_inv_tome_3",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 61,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ple_the_medics_network",
+      "title": "The Medics' Network",
+      "giver_npc_id": "epl_lh_volunteer",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 58,
+      "level_max": 58,
+      "description": "The transplant medics keep in touch across the sea as best they can. Marisol has written up what the Mossflayer herbs do, and she wants her notes in the hands of Marcus Oyelaran, a paramedic at Talonbranch Glade in Felwood.\n\nThe burns up there are the same kind she's treating here.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "pl_q_medic_notes",
+          "count": 1,
+          "label": "Bring Marisol's notes to Marcus Oyelaran at Talonbranch Glade"
+        }
+      ],
+      "accept_text": "Zeppelin from Tirisfal to Orgrimmar, then north through Ashenvale to Felwood, and up to Talonbranch at the top. Marcus will be the one with his sleeves rolled up. Don't let the notes get wet.",
+      "turn_in_text": "Marisol from Monterrey? We trained on the same course, years ago, back home in a hotel conference room in Houston.\n\nThis is going to save people up here. Tell her I owe her a coffee, if anyone ever finds coffee again.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "fn_talonbranch_medic",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "pl_q_medic_notes",
+            "name": "Marisol's Notes",
+            "description": "A bundle of notes in a quick, slanted hand, with pressed leaves taped beside every recipe.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 4280,
+      "reward_gold": 16800,
+      "unique_item_defs": [
+        {
+          "name": "Reyes's Breastplate",
+          "slot": "chest",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 14,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 37
+          },
+          "armor_value": 355,
+          "required_level": 58,
+          "sell_price": 12037,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_plate07"
+        },
+        {
+          "name": "Reyes's Sash",
+          "slot": "waist",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 7,
+            "spirit": 6
+          },
+          "secondary_stats": {
+            "healing_power": 31
+          },
+          "armor_value": 51,
+          "required_level": 58,
+          "sell_price": 6620,
+          "identity": "high_healer",
+          "icon_id": "gear_inv_belt_34"
+        },
+        {
+          "name": "Reyes's Longbow",
+          "slot": "ranged",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 0,
+          "required_level": 58,
+          "sell_price": 9630,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_05",
+          "weapon_damage_min": 66,
+          "weapon_damage_max": 90,
+          "attack_speed": 2.8,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_the_restless_lodge",
+      "title": "The Restless Lodge",
+      "giver_npc_id": "epl_lh_ranger",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "Ranger Faelis Dawnreach served at Quel'Lithien Lodge in the north, where the high elves kept watch on Lordaeron's border. The lodge fell with everything else, and the Restless Lodge Rangers still walk their posts. He served beside every one of them.\n\nHe asks you to let them rest.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Restless Lodge Ranger",
+          "count": 8,
+          "zone": "eastern_plaguelands_east"
+        }
+      ],
+      "accept_text": "Quel'Lithien Lodge is in the north, past the lake. They'll be on the walls and in the trees, where they always stood. They still shoot straight, so keep moving.",
+      "turn_in_text": "They're resting now, all of them. I could hear them stop.\n\nThey each carried a token, a silver leaf. I'd like them back, if you'd go once more.",
+      "next_quest_id": "ple_the_silver_leaves",
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Dawnreach's Hauberk",
+          "slot": "chest",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "spell_power": 33,
+            "crit_chance_spell": 6
+          },
+          "armor_value": 232,
+          "required_level": 57,
+          "sell_price": 11613,
+          "identity": "mail_caster",
+          "icon_id": "gear_inv_chest_chain_05"
+        },
+        {
+          "name": "Dawnreach's Sabatons",
+          "slot": "feet",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 14,
+            "strength": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 11
+          },
+          "armor_value": 241,
+          "required_level": 57,
+          "sell_price": 7548,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_09"
+        },
+        {
+          "name": "Dawnreach's Cloak",
+          "slot": "back",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 22
+          },
+          "armor_value": 44,
+          "required_level": 57,
+          "sell_price": 6387,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_16"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_the_silver_leaves",
+      "title": "The Silver Leaves",
+      "giver_npc_id": "epl_lh_ranger",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 57,
+      "level_max": 58,
+      "description": "Every ranger of Quel'Lithien carried a silver leaf on a green cord, a token from Quel'Thalas. Faelis wants to send them home, so that somebody there knows their names. The Restless Lodge Rangers still wear them.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pl_q_ranger_token",
+          "count": 6
+        }
+      ],
+      "accept_text": "The rangers at the lodge still wear their tokens around their necks. Bring back what you find. Not every one of them will still have theirs, and I'm sorry for that.",
+      "turn_in_text": "That's Seren's, and Calanor's, and this one was Ilyeth's, who always sang off key.\n\nI'll send these north. The lodge's lord is still out there, though, and he won't rest until someone makes him.",
+      "next_quest_id": "ple_ranger_lord_saelith",
+      "requires_quests": [
+        "ple_the_restless_lodge"
+      ],
+      "reward_exp": 4280,
+      "reward_gold": 16800,
+      "unique_item_defs": [
+        {
+          "name": "Dawnreach's Breeches",
+          "slot": "legs",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 14,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 37
+          },
+          "armor_value": 148,
+          "required_level": 57,
+          "sell_price": 12037,
+          "identity": "bruiser",
+          "icon_id": "gear_inv_pants_07"
+        },
+        {
+          "name": "Dawnreach's Helm",
+          "slot": "head",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 31
+          },
+          "armor_value": 323,
+          "required_level": 57,
+          "sell_price": 9630,
+          "identity": "strength",
+          "icon_id": "gear_inv_helmet_50"
+        },
+        {
+          "name": "Dawnreach's Wand",
+          "slot": "ranged",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "wand",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 23
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 9630,
+          "identity": "caster",
+          "icon_id": "gear_inv_wand_06",
+          "weapon_damage_min": 66,
+          "weapon_damage_max": 90,
+          "attack_speed": 1.9,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_ranger_lord_saelith",
+      "title": "Ranger-Lord Saelith",
+      "giver_npc_id": "epl_lh_ranger",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 59,
+      "level_max": 59,
+      "description": "Ranger-Lord Saelith commanded Quel'Lithien Lodge. He was Faelis's captain and his friend, and he died holding the gate. He still holds it, and he still kills anyone who comes through.\n\nFaelis can't do it himself. He's asking you.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Ranger-Lord Saelith",
+          "count": 1,
+          "zone": "eastern_plaguelands_east"
+        }
+      ],
+      "accept_text": "He stands at the lodge's inner gate, where he fell. He's fast and he doesn't miss. Go with friends, and close the distance quickly.",
+      "turn_in_text": "Then the lodge is quiet, and he's free.\n\nHe taught me to shoot. He taught half the lodge. Thank you for doing what I couldn't.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ple_the_silver_leaves"
+      ],
+      "reward_exp": 5668,
+      "reward_gold": 22230,
+      "unique_item_defs": [
+        {
+          "name": "Dawnreach's Chainshirt",
+          "slot": "chest",
+          "item_level": 61,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 17,
+            "intellect": 17
+          },
+          "secondary_stats": {
+            "attack_power": 44
+          },
+          "armor_value": 320,
+          "required_level": 59,
+          "sell_price": 19365,
+          "identity": "earthen",
+          "icon_id": "gear_inv_chest_chain_05"
+        },
+        {
+          "name": "Dawnreach's Vambraces",
+          "slot": "wrist",
+          "item_level": 61,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 19
+          },
+          "secondary_stats": {
+            "defense_rating": 13,
+            "dodge_rating": 9
+          },
+          "armor_value": 374,
+          "required_level": 59,
+          "sell_price": 9682,
+          "identity": "tank_any",
+          "icon_id": "gear_inv_bracer_06"
+        },
+        {
+          "name": "Dawnreach's Mace",
+          "slot": "main_hand",
+          "item_level": 61,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 12,
+            "spirit": 9
+          },
+          "secondary_stats": {
+            "healing_power": 52
+          },
+          "armor_value": 0,
+          "required_level": 59,
+          "sell_price": 18397,
+          "identity": "high_healer",
+          "icon_id": "gear_inv_mace_08",
+          "weapon_damage_min": 106,
+          "weapon_damage_max": 143,
+          "attack_speed": 2.6,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 61,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ple_lamp_oil",
+      "title": "Lamp Oil",
+      "giver_npc_id": "epl_lh_innkeeper",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 56,
+      "level_max": 57,
+      "description": "Innkeeper Jessa Moonfield keeps the chapel's lamps lit all night, because the dead don't like the light, and she's running out of oil. The Plague-Rotted Bears carry fat under the rot that renders down clean.\n\nShe wants enough to keep the lamps lit until the wagons come.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pl_q_bear_fat",
+          "count": 6
+        }
+      ],
+      "accept_text": "The bears wander the woods all around the chapel. Cut the fat from the back, where the rot's thinnest. It won't smell nice, and I'm sorry about that.",
+      "turn_in_text": "That'll keep the lamps burning for a fortnight.\n\nThe newcomers say they're used to lights that never go out. I'd love to see that, one day.",
+      "next_quest_id": null,
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Lightwarden's Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 10
+          },
+          "secondary_stats": {
+            "attack_power": 27,
+            "crit_chance_physical": 10
+          },
+          "armor_value": 123,
+          "required_level": 56,
+          "sell_price": 9290,
+          "identity": "hunter_crit",
+          "icon_id": "gear_inv_shoulder_23"
+        },
+        {
+          "name": "Lightwarden's Waistguard",
+          "slot": "waist",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 14,
+            "strength": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 11
+          },
+          "armor_value": 241,
+          "required_level": 56,
+          "sell_price": 6387,
+          "identity": "tank",
+          "icon_id": "gear_inv_belt_33"
+        },
+        {
+          "name": "Lightwarden's Spear",
+          "slot": "main_hand",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 30
+          },
+          "armor_value": 0,
+          "required_level": 56,
+          "sell_price": 14516,
+          "identity": "agility",
+          "icon_id": "gear_inv_weapon_halberd_03",
+          "weapon_damage_min": 104,
+          "weapon_damage_max": 141,
+          "attack_speed": 3.3,
+          "block_value": 0
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_pamelas_doll",
+      "title": "Pamela's Doll",
+      "giver_npc_id": "epl_ds_pamela",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "A little girl's ghost waits in the ruins of Darrowshire. Her name's Pamela Redpath, and she doesn't seem to know she's dead. She's lost her doll, and she says the Darrowshire Ghouls took it.\n\nShe'd very much like it back.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pl_q_pamelas_doll",
+          "count": 1
+        }
+      ],
+      "accept_text": "The ghouls took her, they did! They're all over the town. She's got a blue dress and one button eye, and her name's Dolly.",
+      "turn_in_text": "That's Dolly, you found her! She's all muddy, but that's all right.\n\nDaddy's going to be so happy when he gets home. He's been gone ever so long.",
+      "next_quest_id": "ple_a_letter_for_auntie",
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Darrowshire Gloves",
+          "slot": "hands",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 68,
+          "required_level": 57,
+          "sell_price": 7548,
+          "identity": "healer",
+          "icon_id": "gear_inv_gauntlets_03"
+        },
+        {
+          "name": "Darrowshire Breeches",
+          "slot": "legs",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 18,
+            "agility": 12
+          },
+          "secondary_stats": {
+            "dodge_rating": 9
+          },
+          "armor_value": 145,
+          "required_level": 57,
+          "sell_price": 11613,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_13"
+        },
+        {
+          "name": "Darrowshire Band",
+          "slot": "ring",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 6968,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_31"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_a_letter_for_auntie",
+      "title": "A Letter for Auntie",
+      "giver_npc_id": "epl_ds_pamela",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "Pamela has written a letter to her Auntie Marlene, who lived out west near Andorhal. She wants it carried to the people at Sorrow Hill, who she's heard are kind and keep a book of names.\n\nShe doesn't know that Andorhal is gone.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "pl_q_pamelas_letter",
+          "count": 1,
+          "label": "Bring Pamela's letter to Chaplain Odile Marchand at Sorrow Hill"
+        }
+      ],
+      "accept_text": "Auntie lives near the big town in the west. The lady at the hill will know where. You'll be ever so careful with it, won't you?",
+      "turn_in_text": "Oh, this is from a child. Darrowshire, she says.\n\nMarlene Redpath's in my book. She died in Andorhal, with everyone else. I'll write back to Pamela, and I'll tell her that her auntie loved her. That part's true.",
+      "next_quest_id": "ple_where_daddy_is",
+      "turn_in_npc_id": "wpl_pf_chaplain",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "pl_q_pamelas_letter",
+            "name": "Pamela's Letter",
+            "description": "A letter in a child's big round letters, with a drawing of a house and a doll on the back.",
+            "count": 1
+          }
+        ]
+      },
+      "requires_quests": [
+        "ple_pamelas_doll"
+      ],
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Darrowshire Greaves",
+          "slot": "feet",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 8,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 179,
+          "required_level": 57,
+          "sell_price": 7548,
+          "identity": "earthen",
+          "icon_id": "gear_inv_boots_plate_03"
+        },
+        {
+          "name": "Darrowshire Bracers",
+          "slot": "wrist",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 118,
+          "required_level": 57,
+          "sell_price": 5806,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_06"
+        },
+        {
+          "name": "Darrowshire Cloak",
+          "slot": "back",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 22
+          },
+          "armor_value": 44,
+          "required_level": 57,
+          "sell_price": 6387,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_09"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ple_where_daddy_is",
+      "title": "Where Daddy Is",
+      "giver_npc_id": "epl_ds_pamela",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 58,
+      "level_max": 58,
+      "description": "Pamela's father, Captain Joseph Redpath, led Darrowshire's defence and fell in it, and then he got up again. Captain Redpath's Shade still walks the battlefield south of the town, still fighting, and Pamela is still waiting for him to come home.\n\nThe only way he'll come home is if someone sets him free.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Captain Redpath's Shade",
+          "count": 1,
+          "zone": "eastern_plaguelands_east"
+        }
+      ],
+      "accept_text": "Daddy's at the big fight, south of the houses. He's very brave. Tell him I've been good, and that I've got Dolly back.",
+      "turn_in_text": "You saw him? Is he coming?\n\nHe's here, I can see him, and he's smiling. Thank you, thank you. We're going home now.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ple_a_letter_for_auntie"
+      ],
+      "reward_exp": 5564,
+      "reward_gold": 21840,
+      "unique_item_defs": [
+        {
+          "name": "Darrowshire Spear",
+          "slot": "main_hand",
+          "item_level": 60,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 16,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "attack_power": 41
+          },
+          "armor_value": 0,
+          "required_level": 58,
+          "sell_price": 23380,
+          "identity": "strength",
+          "icon_id": "gear_inv_weapon_halberd_11",
+          "weapon_damage_min": 141,
+          "weapon_damage_max": 191,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Darrowshire Hood",
+          "slot": "head",
+          "item_level": 60,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 11,
+            "spirit": 9
+          },
+          "secondary_stats": {
+            "healing_power": 51
+          },
+          "armor_value": 83,
+          "required_level": 58,
+          "sell_price": 14963,
+          "identity": "high_healer",
+          "icon_id": "gear_inv_helmet_34"
+        },
+        {
+          "name": "Darrowshire Grips",
+          "slot": "hands",
+          "item_level": 60,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 11,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "attack_power": 35
+          },
+          "armor_value": 148,
+          "required_level": 58,
+          "sell_price": 12158,
+          "identity": "hunter",
+          "icon_id": "gear_inv_gauntlets_20"
+        }
+      ],
+      "gear_reward_gear_level": 60,
+      "gear_reward_rarity": "rare"
+    }
+  ]
+}

@@ -30,6 +30,40 @@ M, F = "male", "female"
 
 #: id -> (name, race, gender, variant, facing, greeting)
 AMBIENT = {
+    # ---- the quest givers added with the quest pass (tools/plaguelands_quests_epl_east.py, _epl_west.py)
+    "epl_cg_corporal": ("Corporal Ines Duarte", "human", F, 4, "down",
+                        "I keep the camp's water clean, which out here means I keep the camp alive. I ran water "
+                        "treatment in Lisbon before the Integration. It's the same job, it's just missing the pipes."),
+    "epl_cg_outrider": ("Outrider Bram Tolliver", "human", M, 6, "right",
+                        "I ride the road west to the river and back, every day. Somebody has to, and the horse "
+                        "doesn't seem to mind."),
+    "epl_cg_widow": ("Edda Marris", "human", F, 2, "down",
+                     "My husband's family farm is out west, at the stead. They're all still there. I come up here so "
+                     "I don't have to watch them."),
+    "epl_cg_mycologist": ("Dr. Sun Li", "human", F, 5, "left",
+                          "I studied fungi in Kunming for twenty years, and I thought I'd seen everything a mushroom "
+                          "could do. The vale out west has taught me otherwise."),
+    "epl_cg_gravewarden": ("Gravewarden Osric Vey", "human", M, 3, "down",
+                           "The Dawn buries its own, and anyone else who needs it. Terrordale's full of people "
+                           "nobody buried, and I mean to change that."),
+    "epl_lh_lightwarden": ("Lightwarden Ysolde Carrow", "human", F, 6, "down",
+                           "We pray for the dead here, all of them, because nobody else in the east will. Sit a "
+                           "while, if you need to."),
+    "epl_lh_volunteer": ("Sergeant Marisol Reyes", "human", F, 3, "down",
+                         "I was a paramedic in Monterrey. Now I run the chapel's infirmary, and I've got more "
+                         "patients than beds. If you're bleeding, sit down. If you're not, can you carry something?"),
+    "epl_lh_ranger": ("Ranger Faelis Dawnreach", "blood_elf", M, 4, "right",
+                      "I served at Quel'Lithien Lodge, in the north. Everyone I served with is still there, and none "
+                      "of them are resting."),
+    "epl_lh_knight": ("Ser Roland Ashcombe", "human", M, 5, "left",
+                      "I was a knight of Lordaeron before Stratholme fell. Now I watch the city for the Dawn, and I "
+                      "try not to recognise the faces at the gate."),
+    "epl_lh_huntress": ("Huntress Kaia Lindgren", "human", F, 4, "down",
+                        "I herded reindeer outside Tromso before all this. The hunting's worse here, and so's the "
+                        "weather, oddly enough."),
+    "epl_ds_pamela": ("Pamela Redpath", "human", F, 1, "down",
+                      "Have you seen my daddy? He went to fight the bad men and he hasn't come home yet. I'm being "
+                      "ever so good while he's gone."),
     "epl_cg_captain": ("Captain Joss Varden", "human", M, 5, "down",
                        "Crown Guard's been knocked down twice and put back up twice. Stratholme's that way and "
                        "Light's Hope's the other, and we're the reason the road between them stays open."),

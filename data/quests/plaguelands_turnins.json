@@ -1,0 +1,97 @@
+{
+  "_doc": "Repeatable turn-ins for the Argent Dawn (Scourgestones) and the Order of the Pale Flame (Crusader's Insignia). Written by tools/build_plaguelands_rewards.py.",
+  "quests": [
+    {
+      "quest_id": "pl_ts_minions_scourgestones",
+      "title": "Minion's Scourgestones",
+      "giver_npc_id": "epl_lh_scourgestones",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "Archmage Lysander Hale buys Minion's Scourgestones, the small dark shards the lesser dead of the western Plaguelands carry, and the Argent Dawn remembers who brings them.\n\nHe'll take them by the handful, as often as you've got them.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pl_minions_scourgestone",
+          "count": 10,
+          "label": "Minion's Scourgestone"
+        }
+      ],
+      "accept_text": "Bring me a handful of Minion's Scourgestones whenever you have them. The ghouls and skeletons in the west carry most of them. I'll break them down here, where it's safe to.",
+      "turn_in_text": "That's a handful. The Dawn's grateful, and so am I.\n\nBring me more when you've got them.",
+      "next_quest_id": null,
+      "repeatable": true,
+      "reward_exp": 0,
+      "reward_gold": 0
+    },
+    {
+      "quest_id": "pl_ts_invaders_scourgestones",
+      "title": "Invader's Scourgestones",
+      "giver_npc_id": "epl_lh_scourgestones",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 55,
+      "level_max": 55,
+      "description": "The Scourge that march in the eastern Plaguelands carry heavier shards, Invader's Scourgestones, and Archmage Hale pays the Dawn's thanks twice over for them.\n\nHe'll take them by the handful, as often as you've got them.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pl_invaders_scourgestone",
+          "count": 10,
+          "label": "Invader's Scourgestone"
+        }
+      ],
+      "accept_text": "The dead around Stratholme and Terrordale carry Invader's Scourgestones. Bring me a handful whenever you can. Wear gloves, because they bite.",
+      "turn_in_text": "These are heavy ones. Every shard here is one less thing walking toward the wall.\n\nCome back when you've got more.",
+      "next_quest_id": null,
+      "repeatable": true,
+      "reward_exp": 0,
+      "reward_gold": 0
+    },
+    {
+      "quest_id": "pl_ts_corruptors_scourgestone",
+      "title": "A Corruptor's Scourgestone",
+      "giver_npc_id": "epl_lh_scourgestones",
+      "zone": "eastern_plaguelands_east",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "The Scourge's named horrors carry Corruptor's Scourgestones, a fist of crystal that feels like it's watching you. Archmage Hale wants every one of them destroyed, and the Dawn pays well for each.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pl_corruptors_scourgestone",
+          "count": 1,
+          "label": "Corruptor's Scourgestone"
+        }
+      ],
+      "accept_text": "The worst of them carry a Corruptor's Scourgestone. If you've killed one of the Scourge's named horrors and you've got its stone, bring it to me and nobody else.",
+      "turn_in_text": "I'll see it broken tonight. That one was watching you, I promise.\n\nThe Dawn won't forget it, and neither will the newcomers who hold the wall beside us.",
+      "next_quest_id": null,
+      "repeatable": true,
+      "reward_exp": 0,
+      "reward_gold": 0
+    },
+    {
+      "quest_id": "pl_ts_crusaders_insignia",
+      "title": "Crusader's Insignia",
+      "giver_npc_id": "wpl_pf_chaplain",
+      "zone": "western_plaguelands_south",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "Chaplain Odile Marchand keeps count of the Scarlet Crusade's insignia that come back to Sorrow Hill. Every badge is one fewer fanatic burning someone's farm, and the Order of the Pale Flame pays its thanks for them.\n\nShe'll take them by the handful, as often as you've got them.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pl_crusaders_insignia",
+          "count": 10,
+          "label": "Crusader's Insignia"
+        }
+      ],
+      "accept_text": "Every Scarlet in the Plaguelands carries a Crusader's Insignia. Bring me a handful whenever you have them. I'll write each one down, and then I'll melt them.",
+      "turn_in_text": "That's a handful of fanatics who won't be lighting anything tonight.\n\nI used to mark exams, back home. I never thought I'd be counting badges instead. Bring me more when you've got them.",
+      "next_quest_id": null,
+      "repeatable": true,
+      "reward_exp": 0,
+      "reward_gold": 0
+    }
+  ]
+}

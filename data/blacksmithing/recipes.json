@@ -11646,6 +11646,112 @@
       "sold_by": [
         "secret_fn_kowalczyk"
       ]
+    },
+    "rep_pf_pale_warplate": {
+      "name": "Pale Flame Warplate",
+      "inputs": {
+        "bar_elementium": 12,
+        "flux_strong": 2,
+        "whetstone": 2
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "stat_template": "str_physical",
+        "item_level": 73,
+        "rarity": "epic",
+        "material_tier": "elementium",
+        "identity": "tank",
+        "flavor": "The Order's own warplate, grey steel with the flame left white.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "plate",
+        "item": {
+          "name": "Pale Flame Warplate",
+          "slot": "chest",
+          "item_level": 73,
+          "rarity": "epic",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 55,
+            "strength": 22
+          },
+          "secondary_stats": {
+            "defense_rating": 44
+          },
+          "armor_value": 768,
+          "required_level": 60,
+          "sell_price": 48942,
+          "flavor_text": "The Order's own warplate, grey steel with the flame left white.",
+          "identity": "tank",
+          "icon_id": "gear_wow_plate_chest_pale"
+        }
+      },
+      "skill_range": [
+        300,
+        305,
+        310,
+        315
+      ],
+      "source": "vendor",
+      "faction": "pale_flame",
+      "_rare_ingredients_todo": true
+    },
+    "rep_ad_lightguard_greaves": {
+      "name": "Argent Lightguard Greaves",
+      "inputs": {
+        "bar_elementium": 12,
+        "flux_strong": 2,
+        "whetstone": 2
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "stat_template": "spi_healer",
+        "item_level": 73,
+        "rarity": "epic",
+        "material_tier": "elementium",
+        "identity": "plate_healer",
+        "flavor": "Silvered greaves for the Dawn's paladins, who heal from the front of the wall.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "plate",
+        "item": {
+          "name": "Argent Lightguard Greaves",
+          "slot": "legs",
+          "item_level": 73,
+          "rarity": "epic",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 33
+          },
+          "secondary_stats": {
+            "healing_power": 119,
+            "mp5": 7
+          },
+          "armor_value": 768,
+          "required_level": 60,
+          "sell_price": 48942,
+          "flavor_text": "Silvered greaves for the Dawn's paladins, who heal from the front of the wall.",
+          "identity": "plate_healer",
+          "icon_id": "gear_wow_plate_legs_argent"
+        }
+      },
+      "skill_range": [
+        300,
+        305,
+        310,
+        315
+      ],
+      "source": "vendor",
+      "faction": "argent_dawn",
+      "_rare_ingredients_todo": true
     }
   }
 }

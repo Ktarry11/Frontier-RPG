@@ -85,6 +85,11 @@ ICONS = {
     # the Scarlet Monastery's last fight (High Inquisitor Whitemane and Scarlet Commander Mograine)
     "gear_wow_tome_scarlet_hours": "Weapons/Stratholme_A_01.png",
     "gear_wow_plate_chest_crimson": "Armour/Plate08.png",
+    # the Pale Flame's and the Argent Dawn's exalted recipes (tools/build_plaguelands_rewards.py)
+    "gear_wow_plate_chest_pale": "Armour/Plate15.png",
+    "gear_wow_plate_legs_argent": "Armour/Plate_16.png",
+    "gear_wow_cloth_shoulder_walkout": "Armour/Cloth_08_1.png",
+    "gear_wow_leather_chest_dawnwatch": "Armour/Cloth_20_2.png",
 }
 
 

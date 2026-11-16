@@ -10680,6 +10680,58 @@
       "sold_by": [
         "secret_es_grizzlemoss"
       ]
+    },
+    "rep_ad_dawnwatch_jerkin": {
+      "name": "Dawnwatch Jerkin",
+      "inputs": {
+        "leather_frostscale": 10,
+        "thread_silken": 2
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "stat_template": "agi_physical",
+        "item_level": 73,
+        "rarity": "epic",
+        "material_tier": "frostscale",
+        "identity": "agility",
+        "flavor": "Dark leather with silver at the seams, for the scouts who watch Stratholme's gate.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "leather",
+        "item": {
+          "name": "Dawnwatch Jerkin",
+          "slot": "chest",
+          "item_level": 73,
+          "rarity": "epic",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 38,
+            "stamina": 22
+          },
+          "secondary_stats": {
+            "attack_power": 99
+          },
+          "armor_value": 310,
+          "required_level": 60,
+          "sell_price": 48942,
+          "flavor_text": "Dark leather with silver at the seams, for the scouts who watch Stratholme's gate.",
+          "identity": "agility",
+          "icon_id": "gear_wow_leather_chest_dawnwatch"
+        }
+      },
+      "skill_range": [
+        300,
+        305,
+        310,
+        315
+      ],
+      "source": "vendor",
+      "faction": "argent_dawn",
+      "_rare_ingredients_todo": true
     }
   }
 }

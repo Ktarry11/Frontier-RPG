@@ -101,6 +101,11 @@ def main():
     check(0.50 <= share <= 0.55, f"{share:.0%} of rune recipes are taught (Kyle: 50 to 55%)")
     vendors = json.loads((ROOT / "data/npcs/vendors.json").read_text(encoding="utf-8"))["vendors"]
     sold = {i for v in vendors for i in v["sells"]}
+    # a reputation quartermaster's shelf counts too (data/factions/factions.json rewards.vendor_stock)
+    for f in json.loads((ROOT / "data/factions/factions.json").read_text(encoding="utf-8"))["factions"].values():
+        for tiers in ((f.get("rewards") or {}).get("vendor_stock") or {}).values():
+            for items in tiers.values():
+                sold |= set(items)
     for rid, r in recipes.items():
         if r["source"] == "vendor":
             check(rid in sold, f"vendor script {rid} is on no shelf")
