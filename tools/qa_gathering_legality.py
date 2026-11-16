@@ -65,32 +65,26 @@ for zone, spec in pools.items():
 check(f"nothing from HIGH_TIER (floor {HIGH_TIER_FLOOR}) is placed", not gated,
       f"{gated[:6]}")
 
-print("\n== the ore ceiling is Thorium")
-# Ore is NOT in HIGH_TIER (material_tiers only gates cloth and leather,
-# because ore is never rolled as a drop - it is placed by hand in these
-# pools). So the ore ceiling has to be enforced HERE or nowhere.
-THORIUM_SKILL = (materials["ore_thorium"].get("skill_range") or [245])[0]
+print("\n== the pre-60 line is skill 300 for ore and wood too")
+# Kyle, 16 Nov 2026, on Ashen Steel and Starleaf (skill 260, placed in Felwood): "No we keep it as it
+# is. We want a backlog of around 16-18 materials as end game only so crafting can get tiers (like raid
+# tiers)." The old ceilings here (ore at Thorium, wood never on the "endgame" tier label) predate the
+# "go to skill 300" crafting canon and were failing on exactly those two. The line is now the same one
+# the game uses, material_tiers.is_postgame, and qa_no_postgame_below_pure_60 holds it per zone band.
+from entities.material_tiers import is_postgame
 over = []
 for zone, spec in pools.items():
     for mid in (spec.get("table") or {}):
         mat = materials.get(mid)
-        if not mat or mat.get("material_type") not in ("ore", "bar"):
-            continue
-        skill = (mat.get("skill_range") or [0])[0]
-        if skill > THORIUM_SKILL:
-            over.append(f"{zone}:{mid}({skill})")
-check(f"no placed ore above Thorium (skill {THORIUM_SKILL})", not over, f"{over[:6]}")
+        if mat and mat.get("material_type") in ("ore", "bar", "wood", "plank") and is_postgame(mid, materials):
+            over.append(f"{zone}:{mid}")
+check("no placed ore or wood above the pre-60 line", not over, f"{over[:6]}")
 
-print("\n== the wood ceiling is the late tier (the endgame ladder waits for 60+)")
-over_wood = []
-for zone, spec in pools.items():
-    for mid in (spec.get("table") or {}):
-        mat = materials.get(mid)
-        if not mat or mat.get("material_type") not in ("wood", "plank"):
-            continue
-        if mat.get("tier") == "endgame":
-            over_wood.append(f"{zone}:{mid}")
-check("no endgame-tier wood is placed", not over_wood, f"{over_wood[:6]}")
+print("\n== each ladder keeps its end-game backlog (about 16-18 tiers held for raid-tier crafting)")
+from collections import Counter
+held = Counter(m.get("material_type") for mid, m in materials.items() if is_postgame(mid, materials))
+thin = [f"{kind}:{held[kind]}" for kind in ("ore", "wood", "cloth", "leather", "gem") if held[kind] < 16]
+check("ore, wood, cloth, leather and gems each hold 16+ end-game-only tiers", not thin, f"{thin}")
 
 print("\n== Tempest Isle specifically")
 for zone in ("tempest_shallows", "ashen_reach"):

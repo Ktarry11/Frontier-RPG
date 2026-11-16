@@ -21,7 +21,9 @@ Kyle: "this is CRITICAL that no post-game materials drop and no post-game gather
 - The line is `entities/material_tiers.py` (above Runecloth, Rugged Leather and Thorium, and the endgame wood tier).
 - **The line, in code (`material_tiers.is_postgame`):** anything whose skill starts above 300, plus the high cloth
   and leather tiers. Frontier fillers between the WoW anchors and 300 (Ashen Steel, Starleaf) stay pre-60 under the
-  "go to skill 300" crafting canon, even though an older check (`qa_gathering_legality`) still calls them too high.
+  "go to skill 300" crafting canon. Kyle confirmed it 16 Nov ("No we keep it as it is"): about 16 to 18 tiers of
+  each ladder stay end-game only, as the crafting raid tiers. `qa_gathering_legality` now uses the same line and
+  checks each ladder keeps that backlog.
 - **What had to change in code (done 16 Nov):** the floor today is applied by the *creature's* level (drop bands stop at 59). A
   level 60 elite in a 55 to 60 zone would get past it. The gate moves to the *zone's* band: a drop or a node is
   high tier only if the zone it rolls in is pure 60. Same for chests, skinning, mob reagents, fishing, ore-vein
