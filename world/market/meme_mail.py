@@ -15,7 +15,7 @@ that sends them. Each pool is picked from at random. Placeholders:
 FAT_FINGER = [
     "Bro wtf! I didn't mean to sell {item} for {paid}. I meant {meant}. Please.",
     "You absolute vulture. That was supposed to be {meant}. I hope it gives you a rash.",
-    "Hi. Small thing. I may have left out a couple of zeroes on {item}. Any chance you'd sell it back for what you paid? No? Cool. Cool cool cool.",
+    "Small thing, I may have left a couple of zeroes off {item}. Any chance you'd sell it back for what you paid? No? Cool, cool cool cool.",
     "I've been staring at the decimal point for an hour. It's still in the wrong place. You're a monster and I respect it.",
     "{paid}. For {item}. I'm going to go lie face down in the Barrens for a while.",
     "My cat walked across the counting machine. That's my story and nobody can prove otherwise. Enjoy your {item}.",
@@ -25,7 +25,7 @@ FAT_FINGER = [
     "That listing was a test. You passed. Please return the {item} to collect your prize, which is my gratitude.",
     "Bro. Bro. {paid}?? You couldn't have left it up for one minute so I could fix it?",
     "I clicked post and felt my soul leave my body. Then I watched it sell. Then my soul left again.",
-    "Not mad. Just wanted you to know I'm thinking about you. Every day. Forever. Enjoy the {item}.",
+    "I'm not mad, I just wanted you to know I'm thinking about you, every day, forever. Enjoy the {item}.",
     "My accountant says I'm not allowed to use the auction house anymore. I hope you're happy.",
     "Fine. Keep it. But if you ever list anything I want, I'm buying it out of spite at full price, and you'll never know it was me.",
     "I was going to retire on what {item} sold for. Now I'm going to retire on {paid}. That's about one sandwich.",

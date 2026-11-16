@@ -159,19 +159,20 @@ def dress(L):
     p("ek_cross_crows", 41, 22, 4)
     p("ek_gibbet", 58, 22, 6)
     # ---- Gallows' End Tavern: the inn, its gallows, the barrel yard
-    b("forsaken_house_medium", 34, 49, 10, nudge=1)
+    # Kyle's Forsaken town sheet (15 Nov 2026): Brill gets its own buildings instead of borrowed houses
+    b("forsaken_house_medium", 34, 49, 10, nudge=1)                              # Gallows' End Tavern (the inn sprite is too wide for its square)
     b("gallows_post", 37, 53, 6, nudge=1)
     p("ek_plague_cauldron", 36, 52, 3)
     p("ek_signpost", 31, 44, 4)
     # ---- the tailor's and the back lane
-    b("forsaken_house_small", 24, 56, 8, nudge=1)
-    b("forsaken_house_small", 16, 52, 8, nudge=1)
+    b("forsaken_house_small_b", 24, 56, 8, nudge=1)
+    b("forsaken_townhouse", 16, 52, 9, nudge=1)
     p("ek_haystack", 29, 54, 4)
     # ---- the graveyard terrace: gate, fence, rows of stones, a mausoleum
     p("ek_cemetery_gate", 24, 31, 5, road_ok=True, allow_overlap=True, nudge=0)
     for x in (18, 30):
         p("ek_cemetery_fence", x, 32, 3, solid=True)
-    p(HF + "crypt_mausoleum.png", 24, 15, 9, fraction=0.5)
+    b("forsaken_mausoleum", 24, 15, 9, fraction=0.5, nudge=1)
     for (x, y) in [(15, 20), (20, 24), (30, 20), (33, 25), (16, 27), (28, 28)]:
         p(CI + "worn_tombstone_row.png", x, y, 3)
     p("ek_open_grave", 21, 28, 3)
@@ -180,7 +181,7 @@ def dress(L):
     p("ek_cross_crows", 18, 17, 4)
     p("ek_willow", 12, 24, 7)
     # ---- the east lane: apothecary and chapel
-    b("forsaken_house_small", 62, 29, 8, nudge=1)
+    b("forsaken_apothecary", 62, 29, 9, nudge=1)
     p(UC + "uc_alchemy_table.png", 59, 34, 3)
     p(UC + "uc_plague_vat.png", 66, 29, 4)
     b("crypt_chapel", 71, 31, 10, nudge=1)
@@ -189,12 +190,12 @@ def dress(L):
     # ---- the east market yard
     p(UC + "uc_stall_goods.png", 70, 51, 4)
     p(UC + "uc_stall_bottles.png", 76, 50, 4)
-    b("forsaken_house_small", 78, 54, 8, nudge=1)
-    b("forsaken_house_medium", 62, 54, 9, nudge=1)
+    b("forsaken_tailor", 78, 54, 8, nudge=1)
+    b("forsaken_general_store", 62, 54, 9, nudge=1)
     # The smithy was authored at (67,57) with a one-tile nudge, on top of the crates and the
     # medium house, so it was refused and BRILL HAD NO FORGE BUILDING - only the forge tile.
     # It goes in first now, south of the houses and over its tile; the cart moved along.
-    b("ek_smithy_forge", 69, 60, 7, nudge=2)                                       # Brill's forge (tile at 67,60)
+    b("forsaken_blacksmith", 69, 60, 8, nudge=2)                                   # Brill's forge (tile at 67,60)
     p("ek_plague_cart", 76, 59, 4)
     p("ek_signpost", 72, 46, 4)
     # ---- the south plots
@@ -208,6 +209,11 @@ def dress(L):
     p("ek_farm_cart", 48, 58, 4)
     p(HF + "burned_house_ruin.png", 33, 58, 7)
     p("ek_signpost", 43, 52, 4)
+    # ---- grown with the Forsaken sheet: a stable by the west road, the mill on the east rise, a granary for the
+    # south plots
+    b("forsaken_stable", 20, 38, 7, nudge=2)
+    b("forsaken_windmill", 83, 31, 11, nudge=2)
+    b("forsaken_granary", 54, 64, 8, nudge=2)
 
 
 def build_layout():

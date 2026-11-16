@@ -84,12 +84,13 @@ RECRUIT_LIST_CHANCE = 0.15
 NPC_TURNOVER = 0.5
 #: cash on delivery (Kyle's): buy at least 5 (consumables, gems) or 10 (common materials) of one thing inside
 #: COD_WINDOW market hours and a seller may offer more, at most once a market day per thing
-COD_WINDOW = 8.0
-COD_CHANCE = 0.45
+COD_WINDOW = 12.0
+COD_CHANCE = 0.7
 
 # ------------------------------------------------------------------ the letters (meme_mail.py)
-MEME_CHANCE = {"fat_finger": 0.65, "sniped_you": 0.4, "undercut_smug": 0.06, "undercut_salt": 0.1,
-               "outbid_them": 0.25, "outbid_you": 0.08, "recruit_sold": 0.75, "won_thanks": 0.06}
+#: How often each moment gets a letter. Kyle, 15 Nov 2026: "cod more often. Fat fingers often. Rest infrequently".
+MEME_CHANCE = {"fat_finger": 0.85, "sniped_you": 0.2, "undercut_smug": 0.03, "undercut_salt": 0.05,
+               "outbid_them": 0.1, "outbid_you": 0.04, "recruit_sold": 0.5, "won_thanks": 0.03}
 
 #: listing mix for a fresh NPC listing: (share, what)
 MIX = [(0.44, "material"), (0.12, "consumable"), (0.08, "crafted"), (0.20, "proc"), (0.06, "dungeon"),
@@ -209,10 +210,10 @@ class Auction:
 
 # ================================================================== traders
 class Trader:
-    __slots__ = ("name", "habit", "home")
+    __slots__ = ("name", "habit", "home", "personality")
 
-    def __init__(self, name, habit, home):
-        self.name, self.habit, self.home = name, habit, home
+    def __init__(self, name, habit, home, personality="bro"):
+        self.name, self.habit, self.home, self.personality = name, habit, home, personality
 
 
 _ROSTER = {}
@@ -236,6 +237,7 @@ def roster(market):
     import zlib
     hidden = C._hidden_zone_slugs()
     names = {}
+    races = {}
 
     def ok_name(n):
         low = str(n).lower()
@@ -251,6 +253,7 @@ def roster(market):
             if z in hidden or str(n.get("npc_id", "")).startswith("hz_") or not ok_name(n.get("name", "")):
                 continue
             names.setdefault(n["name"], z)
+            races.setdefault(n["name"], n.get("race"))
     except Exception:
         pass
     try:
@@ -260,6 +263,7 @@ def roster(market):
             if v.get("hidden") or z in hidden or not ok_name(v.get("name", "")):
                 continue
             names.setdefault(v["name"], z)
+            races.setdefault(v["name"], v.get("race"))
     except Exception:
         pass
     recruits = {}
@@ -292,7 +296,9 @@ def roster(market):
             if x < acc:
                 habit = hb
                 break
-        out.append(Trader(n, habit, _zone_title(z) if z else ""))
+        from world.market.personalities import personality_for
+        race = races.get(n) or ("goblin" if z in goblin_zones else None)
+        out.append(Trader(n, habit, _zone_title(z) if z else "", personality_for(n, race)))
     _ROSTER[market] = out
     _ROSTER[market + ":by_habit"] = {}
     for t in out:
@@ -1074,8 +1080,16 @@ class Market:
 
     def _meme(self, pool, sender, a, paid=0, meant=0):
         you = getattr(getattr(self.party, "player", None), "name", "friend") if self.party else "friend"
-        subj, body = meme_mail.write(pool, self.rng, item=a.name, paid=_c(paid), meant=_c(meant or a.meant or 0),
-                                     you=you, name=str(sender).split()[0])
+        fields = dict(item=a.name, paid=_c(paid), meant=_c(meant or a.meant or 0), you=you,
+                      name=str(sender).split()[0])
+        # in the sender's own voice when they have one (world/market/personalities.py); two times in three, so
+        # the shared pool still turns up now and then
+        t = trader_named(a.market, sender)
+        made = None
+        if t is not None and self.rng.random() < 0.67:
+            from world.market.personalities import write as _pwrite
+            made = _pwrite(pool, t.personality, self.rng, **fields)
+        subj, body = made or meme_mail.write(pool, self.rng, **fields)
         self._letter(sender, subj, body, kind="meme", delay=self.rng.uniform(0.5, 5.0), sender_kind="npc")
 
     # ================================================================== the player's side
@@ -1198,7 +1212,7 @@ class Market:
         rows.append([self.clock, a.qty, a.buyout, a.seller])
         self.bulk[a.mkey] = rows
         bought = sum(r[1] for r in rows)
-        need = 5 if a.kind == G.CONSUMABLE or a.rarity != "common" else 10
+        need = 4 if a.kind == G.CONSUMABLE or a.rarity != "common" else 8
         if bought < need or self.clock - self.cod_sent.get(a.mkey, -1e9) < 24:
             return
         self.cod_sent[a.mkey] = self.clock          # one roll per thing per market day, offer or not
@@ -1213,7 +1227,12 @@ class Market:
         sellers = [r[3] for r in rows if r[3] and not str(r[3]).startswith("recruit")]
         who = rng.choice(sellers) if sellers and rng.random() < 0.6 else pick_trader(
             a.market, "farmer" if a.kind == G.MATERIAL else "crafter", rng).name
-        subj, body = meme_mail.write("cod", rng, item=a.name, n=n, each=_c(each))
+        t = trader_named(a.market, who)
+        made = None
+        if t is not None:
+            from world.market.personalities import write as _pwrite
+            made = _pwrite("cod", t.personality, rng, item=a.name, n=n, each=_c(each))
+        subj, body = made or meme_mail.write("cod", rng, item=a.name, n=n, each=_c(each))
         from world.mail import Letter
         extra = G.with_quantity(good, n)
         if self.mail is not None:
@@ -1321,7 +1340,8 @@ class Market:
         if t is None:
             return a.seller, ""
         where = f"From {t.home}. " if t.home else ""
-        return a.seller, where + HABIT_TEXT.get(t.habit, "")
+        from world.market.personalities import BLURB
+        return a.seller, where + HABIT_TEXT.get(t.habit, "") + " " + BLURB.get(t.personality, "")
 
     def time_left(self, a):
         return time_left_band(max(0.0, a.ends_at - self.clock))

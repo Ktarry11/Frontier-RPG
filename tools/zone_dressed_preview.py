@@ -55,6 +55,15 @@ ZONES = {
     "arathi_central": "tools.handbuilt_arathi_central",
     "arathi_east": "tools.handbuilt_arathi_east",
     "arathi_west": "tools.handbuilt_arathi_west",
+    # the Forsaken and goblin towns (Kyle's town sheets, 15 Nov 2026)
+    "brill": "tools.handbuilt_brill",
+    "sepulcher": "tools.handbuilt_sepulcher",
+    "deathknell": "tools.handbuilt_deathknell",
+    "tarren_mill": "tools.handbuilt_tarren_mill",
+    "booty_bay": "tools.handbuilt_booty_bay",
+    "ratchet": "tools.handbuilt_ratchet",
+    "steamwheedle_port": "tools.handbuilt_steamwheedle_port",
+    "saltwheel": "tools.handbuilt_saltwheel",
 }
 
 #: A cave module's entry point is build_<slug>_baked() rather than build_layout(), and it returns

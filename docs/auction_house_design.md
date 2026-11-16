@@ -324,23 +324,27 @@ wild"). About 3% of NPC listings, all from casuals:
 | The unhinged one: a grey or white weapon from levels 2 to 12 wearing a top-end enchant | 20% | 5g to 100g, now and then bid only |
 
 **Meme mail** (Kyle: "I'd pay good money for meme mail if you get a fat finger seller and scoop his item", "50 or
-so mails... 2 to 3 sentences max"). world/market/meme_mail.py, sent sometimes:
+so mails... 2 to 3 sentences max", "Give MULTIPLE people with MULTIPLE personalities", then "cod more often. Fat
+fingers often. Rest infrequently"). Every trader has one of eight personalities for good (world/market/
+personalities.py: the Wailer, the Grump, the Gentle One, the Hustler, the Deadpan, Sunshine, the Lawyer, the Bro),
+leaning on their race, and writes in that voice two times in three (152 personality letters, plus the 62 shared
+ones in world/market/meme_mail.py). The seller tooltip says which one you're dealing with.
 
 | Moment | Chance | From |
 | --- | --- | --- |
-| You buy out a fat finger | 65% | the seller, begging, bargaining or seething |
-| A flipper snipes your own mistake | 40% | the flipper, thanking you |
-| You undercut the same trader twice or more | 10% | them, salty |
-| An undercutter jumps you | 6% | them, smug |
-| You win a rare or epic a collector bid on | 25% | the collector, wounded |
-| A rival outbids you | 8% | the rival, gloating |
-| You buy something your recruit listed | 75% (first time), then 30% | the recruit: "We share a purse. What are we doing." |
-| You win an auction | 6% | the seller, pleased |
+| You buy out a fat finger | 85% | the seller, begging, bargaining or seething |
+| A flipper snipes your own mistake | 20% | the flipper, thanking you |
+| You undercut the same trader twice or more | 5% | them, salty |
+| An undercutter jumps you | 3% | them, smug |
+| You win a rare or epic a collector bid on | 10% | the collector, wounded |
+| A rival outbids you | 4% | the rival, gloating |
+| You buy something your recruit listed | 50% (first time), then 30% | the recruit: "We share a purse. What are we doing." |
+| You win an auction | 3% | the seller, pleased |
 
 **Cash on delivery** (Kyle: "Ama notices you're buying healing potions at like....20s per potion and you buy
 10....She sends you mail with an additional 5 giving you the option to buy them for 10s each... I do this in WoW
-to cut out the AH cut myself"). Buy at least 5 consumables or gems, or 10 common materials, of one thing inside 8
-market hours, and once a market day per thing there's a 45% chance one of the sellers (or another farmer or
+to cut out the AH cut myself"). Buy at least 4 consumables or gems, or 8 common materials, of one thing inside 12
+market hours, and once a market day per thing there's a 70% chance one of the sellers (or another farmer or
 crafter) mails you 20 to 60% as many again at 55 to 85% of what you paid, cash on delivery. Pay it to take them,
 or Return. Unpaid offers go back after three market days. Measured: about 9 bulk buyers in 20 get an offer.
 

@@ -16,6 +16,7 @@ CLAIMS
   9. Mail works: take money, take items, full bags, delete only when empty, cash on delivery, sending to a recruit.
  10. Fat fingers happen, are rare, and die young; cash-on-delivery offers come after bulk buying.
  11. The world has it: a mailbox by every inn, auctioneers with the service, every screen tab renders.
+ 12. The letters: eight personalities, each with lines for every moment, short and plainly written.
 """
 import copy
 import math
@@ -94,7 +95,10 @@ def main():
             if key not in C.entries():
                 continue
             good = C.entries()[key].make(5)
-            a = lm._new_auction("horde", good, {"good": good}, "Tester", PLAYER, lm.going(good) * 2.6, 48)
+            ask = lm.going(good) * 2.6
+            # starting bid = buyout, so nothing can sneak in under the greedy price by bidding
+            a = lm._new_auction("horde", good, {"good": good}, "Tester", PLAYER, ask, 48,
+                                min_bid_total=int(ask * 5))
         lm.advance(48)
         sold += sum(1 for x in lm.mail.letters if x.kind == "auction_sold")
     check(sold == 0, f"{sold} greedy listings (2.6x going) sold")
@@ -293,7 +297,28 @@ def main():
         cods += sum(1 for x in cm.mail.letters if x.kind == "cod")
     for k, v in saved.items():
         MM.MARKETS[k].update(v)
-    check(3 <= cods <= 17, f"{cods} of 20 bulk buyers got a cash-on-delivery offer (want sometimes)")
+    check(8 <= cods <= 19, f"{cods} of 20 bulk buyers got a cash-on-delivery offer (want often, not always)")
+
+    # ---- 12. the letters: every personality has a voice for every moment, two or three sentences, plain writing
+    import re as _re
+    from world.market import personalities as P
+    from world.market import meme_mail as MM2
+    for pool, by in P.LINES.items():
+        for pers in P.PERSONALITIES:
+            check(len(by.get(pers) or []) >= 2, f"{pers} has {len(by.get(pers) or [])} {pool} letters")
+    every = [x for by in P.LINES.values() for v in by.values() for x in v] + \
+            [x for v in MM2.ALL.values() for x in v]
+    for text in every:
+        n = len([t for t in _re.split(r"(?<=[.!?])\s+", text.strip()) if t])
+        check(n <= 4, f"too long ({n} sentences): {text[:60]}")
+        check("\u2014" not in text and " - " not in text, f"a dash in a letter: {text[:60]}")
+        try:
+            text.format(item="x", paid="1c", meant="2c", n=3, each="1c", you="Y", name="N")
+        except (KeyError, IndexError) as exc:
+            check(False, f"bad placeholder {exc}: {text[:60]}")
+    for mk in MM.MARKETS:
+        moods = {t.personality for t in MM.roster(mk)}
+        check(moods == set(P.PERSONALITIES), f"{mk} traders cover {sorted(moods)}")
 
     # ---- 11. the world and the screens
     from world.travel_manager import travel_data
