@@ -146,7 +146,9 @@ def learn_all_professions(character):
         if p not in character.known_professions:
             character.known_professions.append(p)
             character.profession_tiers.setdefault(p, 0)
-            character.profession_skills.setdefault(p, 0)
+            # A learned trade starts at 1, the same as Character.learn_profession (Kyle, 16 Nov 2026: "WE START
+            # PROFESSIONS AT LVL 1 AND NOT LVL 0"). This button skipped that rule and left every trade at 0.
+            character.profession_skills[p] = max(1, character.profession_skills.get(p, 0))
             new += 1
     return f"Learned {new} professions; you know all {len(character.known_professions)}."
 
