@@ -278,10 +278,44 @@ class CaveSpawnManager:
         for sp in self.spawns:
             if sp.defeated:
                 continue
-            for (mx, my, _n, _l) in sp.members:
-                if abs(mx - x) <= self.TRIGGER_RADIUS and abs(my - y) <= self.TRIGGER_RADIUS:
-                    return sp
+            near = any(abs(mx - x) <= self.TRIGGER_RADIUS and abs(my - y) <= self.TRIGGER_RADIUS
+                       for (mx, my, _n, _l) in sp.members)
+            if getattr(sp, "lurking", False):
+                # a pack the party just fled or died to stays put, but it doesn't jump them again until they've
+                # stepped out of its reach (restore() in this file)
+                if not near:
+                    sp.lurking = False
+                continue
+            if near:
+                return sp
         return None
+
+    def restore(self, spawn_point, survivors):
+        """A fight that wasn't won leaves its living enemies where they stood (Kyle, 16 Nov 2026: "when you die
+        in a dungeon and reset, the boss should not vanish.....same with trash. if you die you STILL need to kill
+        it....right now fleeing or dying causes the enemy to vanish").
+
+        `survivors` are the names of the enemies still standing. The ones the party did kill stay dead; the rest
+        come back at full health the next time they're pulled (a pull builds them fresh). A pack with nobody left
+        stays defeated.
+        """
+        if spawn_point is None:
+            return False
+        left = list(survivors)
+        kept = []
+        for m in spawn_point.members:
+            if m[2] in left:
+                left.remove(m[2])
+                kept.append(m)
+        if not kept:
+            return False
+        spawn_point.members = kept
+        if spawn_point.creature_name not in [m[2] for m in kept]:
+            spawn_point.is_boss = False                 # the boss died; its adds held on
+            spawn_point.creature_name = kept[0][2]
+        spawn_point.defeated = False
+        spawn_point.lurking = True
+        return True
 
     def consume(self, spawn_point):
         """Mark a spawn as defeated so it never fires again this visit."""

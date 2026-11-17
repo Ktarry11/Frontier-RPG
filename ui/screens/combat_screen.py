@@ -388,6 +388,18 @@ class CombatScreen(BaseScreen):
                 # to the start of the dungeon or the nearest town entrance.
                 engine = self.combat_engine
                 party = self.state_manager.get_party()
+                if not engine.victory:
+                    # A FIGHT NOT WON LEAVES ITS ENEMIES THERE. A dungeon pack was spent the moment it was pulled,
+                    # so fleeing or wiping made it vanish, boss and all. The ones still standing go back to their
+                    # spot (world/cave_spawns.restore), before the wipe moves the party.
+                    try:
+                        zm = self.state_manager._live_zone_manager()
+                        alive = [e.name for e in (getattr(engine, "enemies", None) or []) if e.is_alive()]
+                        if zm is not None and getattr(zm, "pending_spawn", None) is not None:
+                            zm.cave_spawns.restore(zm.pending_spawn, alive)
+                            zm.pending_spawn = None
+                    except Exception:
+                        pass
                 if not engine.victory and not getattr(engine, "fled", False) and party.is_wiped():
                     self.state_manager.resolve_wipe()
                 # Clear combat engine so next combat reinitializes
