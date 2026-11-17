@@ -1317,7 +1317,10 @@ class Ability:
         elif self.effect_type == "damage_and_restore_mana":
             lines.append(f"Base damage: {self._range_text(self.effect_value)}  |  Restores {self.mana_restore_pct}% mana")
         elif self.effect_type in ("buff", "debuff") and self.stat_mods:
-            lines.append(", ".join(self._stat_mod_text(k, v) for k, v in self.stat_mods.items()))
+            # WHAT THIS RANK GIVES, not what was written down. The authored mods are scaled by the rank
+            # (effect_value) and by potency talents when cast, so Flametongue Rank 8 printed "+12 Spell Power"
+            # and gave 29 (Kyle, 16 Nov 2026: "It says 12 but it gives 29 spell power").
+            lines.append(", ".join(self._stat_mod_text(k, v) for k, v in self.scaled_stat_mods(caster).items()))
 
         # WHAT IT DOES, generated from the ability's own data.
         #
@@ -1424,7 +1427,12 @@ class Ability:
             line += " and restores your mana"
 
         extras = []
-        if self.duration and self.effect_type in ("buff", "debuff", "dot", "spell_dot", "hot"):
+        if self.effect_type == "buff" and self.buff_scope == "raid":
+            # a long buff lasts thirty minutes and carries between fights (see buff_scope in __init__); its
+            # `duration` is never counted, so "lasts 5 turns" on Flametongue was simply wrong
+            from combat.status_effects import BUFF_DURATION_SECONDS
+            extras.append(f"lasts {BUFF_DURATION_SECONDS // 60} minutes")
+        elif self.duration and self.effect_type in ("buff", "debuff", "dot", "spell_dot", "hot"):
             extras.append(f"lasts {self.duration} turn{'s' if self.duration != 1 else ''}")
         if self.is_stun:
             extras.append("stuns")
@@ -1445,6 +1453,18 @@ class Ability:
         if extras:
             line = (line + "; " if line else "") + ", ".join(extras)
         return line[0].upper() + line[1:] if line else ""
+
+    def scaled_stat_mods(self, caster=None):
+        """The stat mods this rank actually applies: the authored mods times the rank's scalar and, with a
+        caster, their potency talents. The same arithmetic the buff branch of use() does, so the tooltip and
+        the buff can't disagree."""
+        potency = self._talent(caster, f"ability_{self.ability_id}_potency") if caster is not None else 0.0
+        scalar = self._stat_mod_scalar()
+        out = {}
+        for k, v in (self.stat_mods or {}).items():
+            scaled = v * scalar * (1.0 + potency)
+            out[k] = scaled if k.endswith("_pct") else int(scaled)
+        return out
 
     @staticmethod
     def _stat_mod_text(key, value):

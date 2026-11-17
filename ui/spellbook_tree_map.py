@@ -328,6 +328,11 @@ CLASS_ABILITY_TREE_OVERRIDES = {
 _COA_TABS = None
 
 
+#: the classic classes' healing spec, where every heal and revive no table names belongs
+HEALING_TREE = {"Priest": "priest_holy", "Shaman": "shaman_restoration", "Paladin": "paladin_holy",
+                "Druid": "druid_restoration"}
+
+
 def _coa_tabs():
     """Lazy-load {class: {ability_id: tree_id|"core"}} for the CoA classes."""
     global _COA_TABS
@@ -397,6 +402,15 @@ def get_owning_tree(char_class, ability):
     class_override = CLASS_ABILITY_TREE_OVERRIDES.get(ability.ability_id)
     if class_override:
         return class_override
+
+    # HEALS GO TO THE HEALING SPEC (Kyle, 16 Nov 2026: "shaman healing spells in wrong tab"). A heal, a heal over
+    # time or a revive that no table names went to Class: Lesser Healing Wave, Chain Heal, Ancestral Spirit,
+    # Flash Heal, Greater Heal. A heal carries a holy or nature school more often than not, which would send a
+    # Shaman's heals to Elemental, so this comes before the school lookup.
+    if getattr(ability, "effect_type", None) in ("heal", "hot", "revive"):
+        healer = _class_lookup(HEALING_TREE, char_class)
+        if healer:
+            return healer
 
     school = getattr(ability, "damage_school", None)
     if isinstance(school, str):

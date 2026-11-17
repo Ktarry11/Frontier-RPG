@@ -76,3 +76,19 @@ Lashings and Jaedenar.
 - Give the Scarlet Monastery Grounds, The Lashings and Jaedenar their own; maybe one cache per dungeon.
 - Kyle: "dont be afraid to have LONGER secrets....like walking into a hidden thing in the bottom left of a map and
   ending up in top right". Some secrets should be long hidden runs across a whole map, not a pocket beside the road.
+
+## Class buffs (overview measured 16 Nov 2026)
+Kyle: "a lot of buffs look like this? It says 12 but it gives 29 spell power. Also we need to revamp ALL classes now
+that we fixed up spells and have actual mp5 elements in the game... ensure that some things are put properly like
+shaman healing spells in wrong tab... the damage and healing is fine, now we need to look at buffs."
+- 312 buffs across 30 classes. 118 are long buffs (30 minutes, kept between fights); 95 of those tooltips still say
+  "lasts N turns".
+- 16 tooltips show the written number, not what the rank gives (Flametongue Rank 8 says +12, gives 29).
+- Only 21 buffs touch mana regeneration (mp5 or Spirit). Water Shield is "+4% maximum mana".
+- Eight classes have no long buff at all: Felsworn, Hunter, Rogue, Templar, Warlock, Warrior, Witch Doctor, Witch
+  Hunter. Only 43 long buffs reach the party.
+- Heals with no spec tab: Priest Flash Heal and Greater Heal, Shaman Lesser Healing Wave and Chain Heal (and the
+  revives) sit in "Class" instead of their healing spec.
+- Magnitudes are off both ways: Strength of Earth Totem Rank 9 gives +3 Strength and Agility at 60 ("lvl 60 and it
+  gives 9 agi and 9 str?"), while Grounding Totem Rank 3 gives +500 Magic Resistance ("lmao over 700 magic
+  resistance"). The revamp sizes every buff against the level it's learned at, as the damage and healing pass did.
