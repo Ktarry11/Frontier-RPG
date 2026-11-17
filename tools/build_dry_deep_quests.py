@@ -130,8 +130,8 @@ def quests():
         "bones, things that swam, set in the wall where the sea floor stood up on its edge.\n\nI put it to my "
         "file and the file lost. I've shod kodo for nine years and nothing has ever beaten that file.\n\nThe tooth "
         "wasn't old, though. Hask says the thing it came from is still down there on the Fossil Shelf, alive, and "
-        "the crew call it the Coil of the Old Sea. Go down Nineteen Mile Pit and take the north-east passage at "
-        "the bottom. It goes nowhere else. Kill it and bring me its teeth. I'll have a file out of them that "
+        "the crew call it the Coil of the Old Sea. Go down Nineteen Mile Pit, south-west of town, and at the "
+        "bottom take the passage that climbs away east. It goes nowhere else. Kill it and bring me its teeth. I'll have a file out of them that "
         "doesn't lose.",
         "Every one of them is sharper than my best edge. You couldn't buy these anywhere.\n\nThe first file goes on "
         "the Fourth Peg forge. Take this. I made it the old way, because the new file isn't cut yet."))

@@ -1,0 +1,691 @@
+"""
+What every Arathi quest says, in the voice of the person giving it. tools/build_arathi_voice.py writes this into
+data/quests/text/zz_overhaul_arathi.json (the overlay the game reads over data/quests/arathi.json) and checks it.
+
+Kyle, 16 Nov 2026: "why does hammerfall have like 3 quests only? ... Theyre also written in weird AI tics." The first
+overhaul (zz_overhaul_arathi.json, 35 of 46) had the lore and lost the people: descriptions written about the giver
+in the third person, no contractions anywhere, and a closing aphorism on nearly every turn-in ("That is not
+cynicism, that is a supply schedule"). This is the Emerald Sanctuary shape the Plaguelands pass used
+(tools/plaguelands_quest_voice.py):
+
+    desc    one plain line: what to do and where
+    accept  the giver talking to you, in the first person, with contractions: who they are, why it matters to them,
+            where to go and what to watch for
+    done    the giver again, when you come back
+
+The lore is the old pass's, and it is good: everyone on this moor is holding ground that isn't theirs, and the ground
+is older than all of them. It moved into the givers' mouths.
+
+VOICES (tools/arathi_npc_roster.py). The orcs are a garrison, dry and tired of the moor. The Forsaken are
+bureaucratic about horrifying things. The tauren are patient and not being listened to. The goblins are in it for the
+money and say so. Yelza speaks as a troll. The Bothy Hermit is the one Earth transplant here, off a ferry out of
+Oban; nobody native says Earth. The Integration is "three years ago" and "when the water came up", never named.
+"""
+
+
+def V(desc, accept, done, title=None):
+    return dict(desc=desc, accept=accept, done=done, title=title)
+
+
+VOICE = {}
+
+# =========================================================================================== ARATHI WEST (28-33)
+VOICE.update({
+    # ---------------------------------------------------------------- Commander Zel Raskal, Refuge Pointe
+    "arw_hold_the_road": V(
+        "Kill Syndicate Footpads and Moor Adders along the road past Refuge Pointe.",
+        "I'm Commander Zel Raskal, and Refuge Pointe is a road with some tents beside it. Orgrimmar calls it a "
+        "forward camp. I call it the only dry ground between the wall and Hammerfall.\n\nThe Syndicate Footpads work "
+        "that road. They don't raid us. They come down off the high grass, take whatever's loose on a cart, and "
+        "they're back up the slope before anyone can follow.\n\nWalk the road and make every one of them sorry they "
+        "came down. The Moor Adders lie out on the warm stones at dusk and bite whoever's walking, so kill those "
+        "too.",
+        "That should keep the road quiet for a week or so, until the next lot comes down to find out why the last "
+        "lot stopped reporting back.\n\nI'll take a week. Out here, weeks are how I measure things."),
+    "arw_the_crags": V(
+        "Cross the High Moor to Boulder'gor Crags, north of Refuge Pointe, and kill Boulderfist Ogres and "
+        "Boulderfist Brutes.",
+        "Boulder'gor sits in the crags north of the camp. It's the near end of an ogre problem that gets worse the "
+        "further east you go, and I don't have the soldiers to deal with it, so I need to know how big it is.\n\n"
+        "Go up over the High Moor into the crags and come back with a number I can trust. Kill the Boulderfist "
+        "Ogres and Boulderfist Brutes that come at you on the way. You'll get plenty of practice counting.",
+        "More than I hoped and fewer than I feared. That's the answer to every question on this moor.\n\nThere's no "
+        "war band forming up there, just ogres living their lives badly. I can leave that alone for another "
+        "season, and I mean to."),
+    "arw_the_pit_chief": V(
+        "Kill Gor'mok the Pit Chief at the bottom of the Boulder'gor cave.",
+        "There's a pit in the floor of the Boulder'gor cave with a lip built round it, and the ogres fight in it. "
+        "The one who's never lost calls himself the Pit Chief. Gor'mok the Pit Chief, if you want it in full.\n\n"
+        "I'd leave the crags alone for a season if I could. I can't leave him alone. Two of the bodies the kites "
+        "found on the road last month had been in that pit first.\n\nHe counts out loud when he wins. My scouts "
+        "have heard him from the cave mouth, and the number's far higher than the ogres in that hold. The "
+        "difference is people off my road. Go down there and stop the counting.",
+        "Then that's done.\n\nI won't pretend it was strategy. There are worse things on this moor than one ogre "
+        "in a hole. I sent you after the one that had our people's names in his mouth, and I'd do it again."),
+    "arw_stro_the_gate": V(
+        "Fight through the outer yard of Stromgarde Keep and kill Grevan the Gatekeeper.",
+        "The outer gate of Stromgarde Keep hasn't opened in three years. There's a man behind it whose whole job "
+        "is keeping it shut, Grevan the Gatekeeper, and somebody's still paying him.\n\nThe Antiquarian wants the "
+        "keep for its history. I want it because it looks down on my road. My scouts have looked at that wall "
+        "twice and come back both times with the same word, and the word was no.\n\nSo go through the gate. Every "
+        "Syndicate Watchman and Syndicate Footpad in the outer yard will come for you, and once they know you can get in you "
+        "won't get a second try. Clear the yard and put Grevan down.",
+        "Open, after three years, and the hinges barely complained.\n\nHe had eleven keys on his belt, and four of "
+        "them open doors that aren't standing any more. He was guarding a building that's mostly fallen down. I "
+        "honestly don't know what to make of that."),
+    "arw_stro_the_claimant": V(
+        "Kill Lord Falconcrest in the hall of Stromgarde Keep, south-west of Refuge Pointe.",
+        "The man sitting in Stromgarde's hall calls himself Lord Falconcrest. He had the keep's arms carved over "
+        "with his own, badly, and did the carving himself. Two others claimed that hall before him, and nobody "
+        "says their names any more.\n\nHe's the one giving the orders that leave bodies on my road. Everything "
+        "else in that keep is furniture.\n\nStromgarde is south-west of the Pointe, and you can see its towers "
+        "from the road. Go and finish it.",
+        "That's the third claimant, and the third ending. Somebody will be the fourth within a month, because "
+        "that keep makes the same offer to whoever walks in.\n\nBut the writs stop, the road goes quiet, and I get "
+        "to stop writing letters about it. I'll take the month."),
+    # ---------------------------------------------------------------- Scout Grim Hollowfoot, Refuge Pointe
+    "arw_wide_country": V(
+        "Walk the High Moor, the low country south-east of Refuge Pointe and the gap in Thoradin's Wall.",
+        "People will tell you this moor's empty. It isn't, it's just wide, and everything out there's further away "
+        "than it looks. I've lost good scouts to that, people who thought they'd be back before dark.\n\nSo walk "
+        "it before I send you anywhere that matters. Go up onto the High Moor to the north, then down into the "
+        "low country south-east of the Pointe, then out to the gap in Thoradin's Wall in the south-west. Do it on "
+        "foot. I want you to feel how long it takes.",
+        "Your legs know the moor now, and that's worth more than any map I could hand you.\n\nThe oaks are further "
+        "than they look, and the wall is further than that. Remember it when the light starts going."),
+    "arw_witherbark_hollow": V(
+        "Kill Witherbark Headhunters and Witherbark Shadowcasters in Witherbark Hollow, in the far north-east.",
+        "There are Witherbark trolls in a fold of ground in the north-east corner, past the High Moor. They were "
+        "here before any of us, and they kept to themselves for a year and a half. Now they've started coming "
+        "out.\n\nA village doesn't change its habits for nothing. I'd ask them what happened, but the last two "
+        "people who tried are why I'm asking you.\n\nGo into Witherbark Hollow far enough that they have to fight "
+        "for it. Kill the Witherbark Headhunters and Witherbark Shadowcasters, and pay attention to what they "
+        "defend hardest. That'll tell me what they're afraid of.",
+        "So they gave up the huts and fought you for the hollow itself, for that one patch of ground.\n\nWhatever "
+        "matters to them is down in that fold, and now I know where to look."),
+    "arw_what_veska_hears": V(
+        "Take Turned Listening Charms from the Witherbark Shadowcasters in Witherbark Hollow, and look over the "
+        "deepest part of the hollow.",
+        "Trolls bury listening charms at the edge of a camp, facing out, so they hear what's coming. Every charm "
+        "in Witherbark Hollow faces in.\n\nI want them, lifted where they lie so I can see which way each one "
+        "pointed. The Witherbark Shadowcasters carry the ones that aren't buried. While you're there, get a look at "
+        "the deepest part of the hollow.\n\nLeave Harbinger Veska alone if you see her. She isn't my question. My "
+        "question is why a village would spend a year listening to itself.",
+        "Every one of them faces in.\n\nThey're watching something that's already in the hollow with them, and "
+        "they started about when the Horde arrived on this moor. I need to think hard about whether those two "
+        "things are connected."),
+    # ---------------------------------------------------------------- Warden Ada Rook, the gap in the wall
+    "arw_the_gap": V(
+        "Kill Syndicate Footpads at the gap in Thoradin's Wall and take the Syndicate Wall Tallies they carry.",
+        "I've kept this gap for a year and a half. For most of that time nothing came through it at all, and I "
+        "kept a book anyway, because that was the job.\n\nNow the Syndicate Footpads cross at night, a few at a "
+        "time, and each of them carries a slip with a tally on it. Somebody on the other side of the wall is "
+        "counting them across.\n\nBring me those slips. I've been counting on my own for eighteen months, and I'd "
+        "like to see how my numbers hold up against theirs.",
+        "Their tallies match my book, every one of them.\n\nI didn't think it would matter to me that I'd been "
+        "getting it right all this time. It does, though. Thank you."),
+    # ---------------------------------------------------------------- Shepherd Ogrin, the moor
+    "arw_what_the_kites_find": V(
+        "Kill Carrion Kites and Highland Fleshrippers on the moor around Refuge Pointe.",
+        "I threw axes for the Horde for eleven years, and now I keep a herd of highland stags off the road. Don't "
+        "laugh at that. It's harder than it sounds.\n\nThe Carrion Kites are my trouble. A carrion bird ought to "
+        "turn up after something dies. These ones have learned that the road makes bodies, so they turn up first "
+        "and wait, and the stags won't graze with kites overhead.\n\nThin out the Carrion Kites, and the Highland "
+        "Fleshrippers while you're at it. The rippers taught the kites that trick.",
+        "The herd came down to the low grass by itself this morning, the first time since spring.\n\nPeople think a "
+        "stag is stupid. Mine noticed the sky was clear before I did."),
+    # ---------------------------------------------------------------- Quartermaster Horg, Refuge Pointe
+    "arw_adder_season": V(
+        "Collect Moor Adder Glands from the Moor Adders on the moor, and gather Bruiseweed, for Quartermaster "
+        "Horg's antivenin.",
+        "I supply this camp. Orgrimmar sends me about a third of what forty soldiers need, so I make the rest "
+        "myself, and antivenin comes first. The Moor Adders crawl out onto the warm road stone at dusk, and we've "
+        "had four bites this month.\n\nBring me their glands. Pull some bruiseweed while you're out, too. It grows "
+        "in the road cuttings, and you'll walk past it whether you mean to or not.\n\nKeep the bruiseweed. I only "
+        "need to see you've got it, so I know the patches are still there.",
+        "That covers the camp until the weather turns.\n\nNobody's died of a bite yet, because every time someone's "
+        "been bitten there's been antivenin on the shelf. Keeping that shelf full is my whole job, and you've just "
+        "done a week of it for me."),
+    # ---------------------------------------------------------------- Nalla Deeps, watching Go'Shek
+    "arw_goshek_harvest": V(
+        "Kill Syndicate Watchmen at Go'Shek Farm, south-east of Refuge Pointe, and take their Go'Shek Field "
+        "Tallies.",
+        "Name's Nalla Deeps. I came up here to watch the Syndicate for some people in Booty Bay, and the thing I "
+        "keep watching is a farm.\n\nThe Syndicate took Go'Shek Farm, south-east of here, but the fields still get "
+        "cut on time and the barns are still full. Somebody's farming it, and somebody's buying the grain. "
+        "Bandits don't do either.\n\nEvery Syndicate Watchman guarding the harvest carries a field tally, so they "
+        "know how much they're guarding. Get me some. The yield tells me the acreage, the acreage tells me how many "
+        "hands it takes, and that tells me who's really working that ground.",
+        "That much grain off ground that size takes far more hands than the Syndicate's got on that farm.\n\nSo "
+        "the farmers never left. They're working for whoever sits in the farmhouse, same as farmers always have. "
+        "I came here with the wrong question, and I'm glad I found out before I sold anyone the answer."),
+    "arw_who_buys_the_grain": V(
+        "Kill Syndicate Prowlers and Syndicate Shadowmages at Go'Shek Farm until you find a Go'Shek Grain "
+        "Contract.",
+        "The farm works, and the farmers stayed. That leaves the part I'm actually paid for, which is the money. A "
+        "handful of bandits can't eat a season's grain, so it's going somewhere, and somebody's paying for it on "
+        "paper.\n\nThe Syndicate Prowlers run the roads off the farm, and the Syndicate Shadowmages keep the house. "
+        "The paperwork will be on one or the other, and my money's on the house.\n\nBring me one contract. I don't "
+        "need the whole ledger, just the name at the bottom of a page.",
+        "Signed and countersigned, and the buyer's mark belongs to a Hillsbrad merchant house older than the "
+        "Syndicate itself.\n\nThey're buying grain at a fair price from whoever holds the farm, because grain is "
+        "grain. I've been chasing a crime and found a supply chain. My clients are going to hate this report."),
+    "arw_the_overseer": V(
+        "Get into the farmhouse at Go'Shek Farm, kill Syndicate Shadowmages and take Overseer's Ledger Leaves.",
+        "One more job on that farm. The overseer keeps his real books in the main house, and those are the ones "
+        "that matter.\n\nYou don't need to kill him. You just need to be in that house long enough that they decide "
+        "to move the paper, because a ledger in a cart is a ledger that loses pages.\n\nThe Syndicate Shadowmages "
+        "keep the house. Get past them, tear some leaves out of whatever's on the desk, and leave the rest on the "
+        "floor. They'll pack up within the week, and I can wait a week for the rest to fall off the back of a "
+        "cart.",
+        "Pages, and the whole house in an uproar behind you. That's lovely work.\n\nThe farmers keep farming either way. But "
+        "somebody up in Alterac now has to explain a hole in the accounts, and I'm going to enjoy watching them "
+        "try."),
+    # ---------------------------------------------------------------- Antiquarian Vesh, Stromgarde
+    "arw_stro_the_claim": V(
+        "Pass through the Lowland Oaks to Stromgarde Keep and take Forged Stromgarde Writs from the Syndicate "
+        "Prowlers.",
+        "Before you go anywhere near Stromgarde, understand what the Syndicate's claim to it is. They made it up. "
+        "They were nobles of Alterac until they lost Alterac, and Stromgarde was never theirs. They walked into an "
+        "empty ruin three years ago and started writing writs about it.\n\nThe writs are beautiful, and I want "
+        "them. The Syndicate Prowlers carry them out to post on the walls, coming and going through the Lowland "
+        "Oaks south-west of here.\n\nA forgery that good is history in its own right. In two hundred years "
+        "somebody's going to believe it, and I'd like the archive to have the originals when they do.",
+        "Look at the seal work. Look at the hand! Whoever wrote these trained in a royal chancery, and that "
+        "chancery doesn't exist any more.\n\nThat might be the saddest thing on this whole moor, and I'm counting "
+        "the barrow."),
+    "arw_stro_the_chapel": V(
+        "Find Sister Mollis in the roofless chapel of Stromgarde Keep and bring back The Evening Office.",
+        "There's a chapel in Stromgarde with no roof, and someone has read the evening office in it every night for "
+        "three years. The Syndicate call her Sister Mollis.\n\nTwo different scouts told me this, and I still don't "
+        "know what to do with it. The Syndicate is a protection racket with good handwriting. They don't keep "
+        "vigils.\n\nI want her book. I'd take it without her if there were a way, and there won't be. Whatever she "
+        "is, she's the only honest thing left in that building, and I'm sorry to be sending you.",
+        "Every evening, for three years, and the last entry is from this week.\n\nShe was keeping it for "
+        "Stromgarde, and Stromgarde was dead before she was born. It'll go on the shelf beside the forgeries. They "
+        "belong together."),
+    "arw_stro_the_undercroft": V(
+        "Find the stair behind Stromgarde's throne, kill the thing in the undercroft and bring back the Arathor "
+        "Coffer-Seal.",
+        "This is what I came to Arathi for. Stromgarde is a ruin with an older ruin under it. Below the throne "
+        "apse there's an undercroft of marble, where everything above is plain dressed stone, and the Syndicate "
+        "have lived on top of it for three years without finding the stair.\n\nYou won't find it from the hall. Go "
+        "round behind the throne into the apse and listen to the floor. It sounds wrong in one place.\n\nThe "
+        "Vault-Thing is what the crews call whatever waits down there. I want the coffer seal, and I want to know "
+        "what Arathor thought was worth sealing. I know I'll only get one of those answers.",
+        "Arathor's own seal, and no record anywhere of what went into the coffer.\n\nThey sealed it and chose not "
+        "to write down why. Somebody three thousand years ago decided the safest record was none at all.\n\nSo I've "
+        "got the seal, and I'm going to stop there. Please note that I said that. Stopping isn't something I "
+        "usually do."),
+})
+
+# ======================================================================================== ARATHI CENTRAL (33-37)
+VOICE.update({
+    # ---------------------------------------------------------------- Runner Keska, the Refuge Road
+    "arc_the_refuge_road": V(
+        "Kill Boulderfist Maulers and Bound Sentinels along the Refuge Road, south-west of Hammerfall.",
+        "I'm Keska, and I run this road. Refuge Pointe to Hammerfall and back, twice a week, on foot, because the "
+        "wind riders are for officers. Nobody else has walked the whole of it this month.\n\nIt's got worse. The "
+        "Boulderfist Maulers have come down off the north shelf onto the road itself, which they never did in "
+        "spring. And the Bound Sentinels, the stone things that used to stand in the circles, are standing on the "
+        "verges now.\n\nI've reported it twice and been told I'm tired. Clear the road with me in mind, and then "
+        "they can tell you you're tired instead.",
+        "Maulers and stone ones both, and the road's a road again for a fortnight or so.\n\nI'm writing all of it "
+        "down. This time it's going in front of someone who has to read it."),
+    "arc_road_report": V(
+        "Take Keska's Road Report west to Commander Raskal at Refuge Pointe.",
+        "There, it's written. Everything on that road, where it sits and what time of day it moves, two years of "
+        "it on one page, because one page is what a commander actually reads.\n\nI can't carry it myself. That's "
+        "two days I haven't got, and the next supply run leaves in the morning.\n\nTake it to Commander Raskal at "
+        "Refuge Pointe, west along the road, and put it in her hand. Don't give it to the quartermaster. He'll "
+        "file it, and it's been filed enough.",
+        "Hour by hour. Two years of a runner walking the same road and paying attention.\n\nI've had staff officers "
+        "hand me less than this. Tell Keska the Pointe owes her a seat on a wind rider, and that I'll be the one "
+        "arguing for it."),
+    # ---------------------------------------------------------------- Herbalist Nahto Greenhoof, Hammerfall
+    "arc_good_growing": V(
+        "Gather Liferoot and Kingsblood in the basin below Hammerfall, and drive off the Highland Elk eating the "
+        "liferoot.",
+        "Everyone in Hammerfall is looking at the ogres. The ogres will still be there next season. So will this "
+        "basin, and it has the best growing ground I've seen since we left Mulgore, running right down the middle "
+        "of it. Nobody's surveyed it, because it isn't a threat.\n\nLiferoot grows in the wet ground along the "
+        "bottom, and kingsblood up where it's dry. Pull some of each and keep them. I only want to see what the "
+        "basin gives.\n\nI'm sorry about the Highland Elk. They've found the liferoot too, and there isn't enough "
+        "of it this year for both of us.",
+        "Liferoot that size, this far north, in this soil.\n\nThis basin is better ground than Hillsbrad, and nobody "
+        "in this hold knows it. I'm going to tell them. They'll be looking at the ogres while I do, but I'll tell "
+        "them."),
+    # ---------------------------------------------------------------- Scholar Innik Barrowmouth, the second ring
+    "arc_four_circles": V(
+        "Stand inside each of the four stone circles along the Ring Road, from west to east.",
+        "Look at this map. Four stone circles in the basin, and a line through all four. The line is the trunk "
+        "road.\n\nEither somebody built a road through four ancient monuments by chance, or the road is older than "
+        "anyone who's ever walked it. I've been out here a year, and I'm the only one who finds that "
+        "interesting.\n\nStand in each circle along the Ring Road, west to east, and in each one look back the way "
+        "you came. You'll see it at the third. By the fourth you won't be able to stop seeing it.",
+        "You saw it. Everyone sees it at the third.\n\nFour circles on one sightline, and the sightline's a road "
+        "Arathor paved but never laid out. They inherited it. The first human empire built its highway on someone "
+        "else's survey, and there's no record anywhere of whose."),
+    "arc_the_bound": V(
+        "Kill Bound Sentinels for their Sentinel Core Fragments, then stand in the easternmost stone circle, below "
+        "Hammerfall.",
+        "The stone figures round the circles never move while you watch them, and they're never in the same place "
+        "twice. The Arathor inscription calls them Bound Sentinels, and it's the only thing written by someone who "
+        "knew what they were.\n\nEach one has a core, and the core isn't the same stone as the rest of it. It's "
+        "ring stone, taken from the circles. Bring me several, so I know it's no accident.\n\nThen take the cores "
+        "to the easternmost circle, below Hammerfall. The other three are quiet. That one isn't, and I want you "
+        "standing in it with the cores in your hand.",
+        "Ring stone, every one. Somebody took the monuments apart to build the guards that stand round the "
+        "monuments.\n\nThat's a closed loop, and I don't like it. I thought they were made to protect the rings. Now "
+        "I think they were made to feed them."),
+    # ---------------------------------------------------------------- High Envoy Tamka Stillwater, Hammerfall
+    "arc_ask_them": V(
+        "Carry High Envoy Stillwater's parley stone to the mouth of Boulderfist Hall, far to the west, and leave "
+        "it there.",
+        "I'm Tamka Stillwater. My people came north with the supply caravans after Thunder Bluff fell, and the "
+        "Horde made me an envoy because someone had to be.\n\nThe Boulderfist are pulling down the old stone rings "
+        "for wall stone. I've asked them twice to stop. If I ask a third time and they still refuse, nobody can "
+        "say we didn't try, and whatever happens next will be honest.\n\nTake this carved stone to the mouth of "
+        "Boulderfist Hall, west across the basin. They won't read a letter, but anyone understands a thing with "
+        "work in it. Set it down where they'll see it and walk away. Don't go in, and don't start anything.",
+        "Then it's asked, properly, three times. Anyone who says we didn't try can be shown the record.\n\nI don't "
+        "expect an answer, but I'll be watching the gate all the same."),
+    "arc_the_answer": V(
+        "Count what's left of the westernmost stone circle on the Ring Road, and kill the Boulderfist Maulers and "
+        "Boulderfist Shamans around it.",
+        "My parley stone came back. Someone brought it to Hammerfall's gate in the night, in pieces, and left "
+        "it there.\n\nI've asked for the pieces to be kept. Before anyone does anything else, I need one thing "
+        "confirmed. Go to the westernmost circle on the Ring Road, south-west of here and nearest their hall, and count how many "
+        "of its stones are still standing.\n\nIf enough of it's left, this is still a conversation. If not, it "
+        "stopped being one before I ever arrived. The Boulderfist Maulers and Boulderfist Shamans hold the ground "
+        "round it, so you'll have to go through them to count.",
+        "So most of it's gone, and the stones that are left are the ones too big to carry.\n\nThen there was never "
+        "a conversation. I've spent a year asking politely of people who'd finished answering before I came. "
+        "Thank you for counting. Go and tell the Overlord the Envoy withdraws her objection. He'll know which plan "
+        "I mean."),
+    # ---------------------------------------------------------------- Apothecary Dellwyn Voss, Hammerfall
+    "arc_the_mere": V(
+        "Kill Mere Crawlers in the Sunken Mere, south-west of Hammerfall, and bring back intact Mere Crawler "
+        "Bladders.",
+        "Apothecary Dellwyn Voss, of the Royal Apothecary Society, posted here to study the Sunken Mere. I've sent "
+        "Undercity four reports on it. They've acknowledged receiving three.\n\nThe mere is shallow, warm and "
+        "still, which is ordinary. It's also full, in a basin with almost nothing flowing into it, and the Mere "
+        "Crawlers coming out of it get larger every month. That isn't ordinary at all.\n\nBring me their bladders, "
+        "intact. They burst if you're careless, and what's inside is the whole sample. Be slow rather than brave. "
+        "Bravery has cost me two couriers so far and given me no data.",
+        "Freshwater creatures with a salt gland, in a basin a long way from any sea.\n\nAnimals don't do that to "
+        "themselves. Something put them in water they were never meant for, and only one thing in the last three "
+        "years has moved creatures around like that. I'll be writing a fifth report."),
+    "arc_the_silt_mother": V(
+        "Wade into the middle of the Sunken Mere, kill Mere Crawlers and collect Freshwater Mere Pearls from the "
+        "bed.",
+        "The fifth report needs the middle of the mere, and that's where whatever is doing the breeding sits. My "
+        "notes call her the Silt-Mother.\n\nI don't want her killed. I want her looked at from close enough to "
+        "count, which I know is a harder thing to ask of you than killing her.\n\nWhile you're there, bring up "
+        "pearls from the bed. Freshwater pearls, in a mere, laid out in rows. I'd like to know whether the rows "
+        "mean something, or whether I've simply been alone with a pond for too long. The Mere Crawlers will "
+        "object to all of this.",
+        "Rows, all the way across, over a patch the size of this longhouse.\n\nI won't speculate in writing. I'll "
+        "send Undercity the pearls and the measurements, and let someone senior to me be the one who says it out "
+        "loud."),
+    "arc_dry_the_brood": V(
+        "Go down to the warm gallery of Drywhisker Deeps, kill The Pick-Mother, take her Brood Shells and look "
+        "over the Sump.",
+        "I've been through the Deathguard's notes, and one line stopped me cold. The deepest gallery in Drywhisker "
+        "Deeps is the warm one.\n\nA mine gets colder as you go down. That one doesn't. Something at the bottom is "
+        "giving off heat, and the kobolds have put their nursery right beside it.\n\nBring me shells from the "
+        "brood, and take a look at the sump. A shell tells you how warm it was when it was laid, and the sump is "
+        "where the heat comes from. The Pick-Mother will be between you and both. I'm sorry about that, and I'm "
+        "asking anyway.",
+        "Laid at blood heat, much warmer than the rock around them.\n\nThey nested down there because it was warm, "
+        "and something has kept it warm since long before there were kobolds in that mine."),
+    # ---------------------------------------------------------------- Deathguard Olen, Hammerfall
+    "arc_witherbark_village": V(
+        "Kill Witherbark Berserkers and Witherbark Venomweavers in Witherbark Village, south-west of Hammerfall.",
+        "I'm Deathguard Olen, and I watch the gate. In two years, everything that's come through it has been a kobold, an "
+        "ogre, or a man with a very good reason.\n\nSince spring it's also been Witherbark trolls, plenty of them, "
+        "from the village down the basin. They kept to themselves for years. Now they don't, and nobody here can "
+        "tell me what changed.\n\nI don't need the why today. Today I want fewer of them at my gate at four in the "
+        "morning. Go to Witherbark Village, south-west across the Ring Road, and kill the Witherbark Berserkers and "
+        "Witherbark Venomweavers. We can both be curious later, at a reasonable hour.",
+        "It's quieter, if not quiet.\n\nThe same thing's happening to the Witherbark in a hollow on the far side of "
+        "Arathi. Sooner or later somebody will put the two reports side by side. It won't be me. I watch a gate."),
+    "arc_dry_the_shift": V(
+        "Kill Overseer Ratch and the Brine-Choked Diggers in Drywhisker Deeps, and bring back Ratch's Shift "
+        "Whistle.",
+        "I read Thugg's report and found the part he skipped. The kobold shift in Drywhisker Deeps is still being "
+        "worked. There's an overseer down there, Overseer Ratch, blowing a whistle, and the diggers still come when "
+        "it blows, three years into a mine that hasn't produced anything anyone wants.\n\nI've watched a gate for "
+        "two years. People don't keep at a job for no reason. They keep at it because stopping would be worse.\n\n"
+        "Bring me the whistle, and kill the Brine-Choked Diggers who answer it. I want to hold the thing they've "
+        "all obeyed since before we got here. The mine is in the gorge south-east of Hammerfall.",
+        "Bone, drilled through, and the mouthpiece worn a different colour.\n\nThey still came when it blew. I had "
+        "your account of it before you handed me this, and I didn't believe it. They still came."),
+    # ---------------------------------------------------------------- Overlord Gath'rok, Hammerfall
+    "arc_the_hall": V(
+        "Go into Boulderfist Hall, far to the west, and kill Mauler Krakk, Boulderfist Hal'dun and the Boulderfist "
+        "Shamans with them.",
+        "The Envoy has withdrawn her objection. She asked them three times, and the third answer came back to my "
+        "gate in pieces.\n\nThe Boulderfist use one of the old stone circles as their outer wall, and they've been "
+        "pulling the others down to thicken it. I've waited a year to deal with that properly.\n\nI won't send the "
+        "garrison. A garrison takes a hold and then has to keep holding it. You go in. Mauler Krakk first, in the "
+        "long hall, because the rest of them watch him. Then Boulderfist Hal'dun, the hold chief, who won't come "
+        "out from behind the ring wall for anything. Kill the Boulderfist Shamans who get in your way. The hall is "
+        "west of here, at the far end of the basin.",
+        "Both of them, and well done.\n\nThe Envoy wants the stones put back now. I told her that's forty soldiers "
+        "for a season, and she said she'll take forty soldiers for a season. I found I didn't have an argument. "
+        "She asked three times, so I'm going to say yes."),
+    "arc_dry_below": V(
+        "Go to the very bottom of Drywhisker Deeps, kill What They Dug Into and the Deep Seeps, and bring up the "
+        "Sump-Floor Offerings.",
+        "I've got the prospector's seam report, the Deathguard's whistle and the apothecary's shells on one table, "
+        "and all of them say the same thing. The kobolds walked past ten years of iron every day to keep digging "
+        "toward something under the sump. They found it, and nothing that's come out of that mine since has "
+        "behaved like a kobold.\n\nI sent people down to the sump. One came back, and he said the water isn't the "
+        "bottom.\n\nGo all the way down. Kill What They Dug Into, and the Deep Seeps that come with it. Bring up "
+        "what the kobolds were leaving on the floor down there. A creature that leaves things on a floor has "
+        "stopped mining.",
+        "Offerings, laid out in order. I've been avoiding that word since the Envoy used it about the pearls in the "
+        "mere.\n\nThat's Drywhisker finished, but Arathi isn't. Rest and eat something. Then head east to the "
+        "coast, find a bosun called Tidewright at Saltspur Landing, and tell him Hammerfall sent you."),
+    # ---------------------------------------------------------------- Prospector Thugg, above the gorge
+    "arc_the_gorge": V(
+        "Mine Iron from the seam in Drywhisker Gorge, south-east of Hammerfall, and kill the Drywhisker Diggers "
+        "working it.",
+        "I'm Prospector Thugg. Drywhisker was a mine before the kobolds took it, and it's still a mine. The only "
+        "difference is the kobolds dug right past the ore.\n\nI want it reopened, and nobody will listen until I "
+        "show them the seam's still there. That means samples, and samples mean the gorge.\n\nCut some iron off the "
+        "gorge face and keep it, I only need to see the grade. The Drywhisker Diggers work the open cut and "
+        "they'll come at you in a crowd. They're miners, though, not soldiers, and we're about to argue with them "
+        "over a hole. I wanted that said before you go.",
+        "That's good iron, plenty of it, and barely a spade's depth under the surface.\n\nThey walked straight past "
+        "it. Every day for three years they carried spoil over a seam that would keep Hammerfall in nails for a "
+        "decade, just to dig deeper. I want to know what they were digging for."),
+    "arc_dry_the_candles": V(
+        "Go into Drywhisker Deeps and kill Grubbis Tallow and the Drywhisker Tunnelers in the upper gallery.",
+        "There's a kobold in the first gallery of Drywhisker Deeps who's never once let his candle go out, and "
+        "won't let anyone else carry it. His name's Grubbis Tallow. Two different scouts told me about him, and "
+        "it's the most useful thing I know about that place.\n\nA mine run by someone that frightened of the dark "
+        "is a mine with a reason. Every lamp hook and candle stub in that level goes back to him.\n\nTake the "
+        "gallery, Drywhisker Tunnelers and all, and take him. He's no danger on his own, but while he keeps that "
+        "level lit, nobody below him has to explain why they won't come up.",
+        "Dipped wax, every candle. He'd been dipping them his whole life.\n\nThe upper gallery was lit by his wax "
+        "and nothing else. When those candles burn down, we'll find out what the second gallery's been doing in "
+        "the dark."),
+})
+
+# =========================================================================================== ARATHI EAST (37-40)
+VOICE.update({
+    # ---------------------------------------------------------------- Bosun Kaz Tidewright, Saltspur Landing
+    "are_the_beachhead": V(
+        "Kill Wrackline Cutters and Tidecrawlers on the shore east of Saltspur Landing at low tide.",
+        "Bosun Kaz Tidewright. I'm a bosun running a shore camp, which isn't a real job. Orgrimmar sent four boats "
+        "and no officer, so I took the beach and held it, and one day somebody's going to turn up and either "
+        "promote me or arrest me.\n\nUntil then, the Bloodsail are on my shore. The Wrackline Cutters come along "
+        "the tideline at low water, the only time the flats are ground at all, and the Tidecrawlers come up with "
+        "them.\n\nBe on the shore when they are and put them down. That way we get to keep calling this a landing "
+        "and not a mistake.",
+        "Then we hold the beach for another week.\n\nI've written that same sentence in the log every week for two "
+        "years. One of these days I'm going to get to write a different one."),
+    "are_the_ledger_keeper": V(
+        "Go into Wrackline Hold, kill Ledger-Keeper Ashkin and the Wrackline Gunners, and bring out Ashkin's "
+        "Consignment Book.",
+        "The Bloodsail in Wrackline Hold keep books. There's a man on a dry shelf above the tideline who writes "
+        "down every bolt they spend and what they spent it on, and that's the thread I want to pull.\n\nA crew "
+        "with a purser has an owner. Find the purser and you find out who owns them. The crew call him "
+        "Ledger-Keeper Ashkin.\n\nEverything they took off those wrecks went across his shelf and into his book. "
+        "I want the book more than I want him, and I know I'll get both. Bring it out dry, and mind the Wrackline "
+        "Gunners on the way in.",
+        "Three years of consignments, and every one goes to the same mark.\n\nThe Bloodsail aren't freelancing out "
+        "here. Somebody's paying them to close this archipelago. When I send this to Orgrimmar they'll have to "
+        "send an officer, so I'm about to be promoted or arrested. We'll see which."),
+    "are_mory_vane": V(
+        "Kill Captain Mory Vane and the Wrackline Bosuns holding Wrackline Hold.",
+        "Captain Mory Vane took Wrackline Hold from the sea side, and nobody thought it had a sea side.\n\nThe "
+        "Bloodsail gave her a cave instead of a ship. She fortified it and has held the best anchorage on this "
+        "archipelago for three years, with a crew nobody gave anything either. I've no quarrel with how she got "
+        "there. My quarrel is the hulls lying on these flats because a lamp crew took her orders.\n\nGo in off the "
+        "shelf, not the water. She'll expect the water, she's had three years to think about it. Her Wrackline "
+        "Bosuns will be with her.",
+        "Then the hold is ours, the lamps are out, and the lane is open for the first time since any of us "
+        "arrived.\n\nI've finally written a different sentence in the log. It took two years. I'm going to leave "
+        "the page open on the table for a while."),
+    # ---------------------------------------------------------------- Salvager Pik Bronzewhistle, the shore
+    "are_six_wrecks": V(
+        "Look over the wrecks on the flats at low tide, and take Wreck Manifest Tins from the Wrackline Cutters "
+        "picking them over.",
+        "Pik Bronzewhistle, salvage and recovery. I can see wreck after wreck from here, and the tide only lets you "
+        "reach them twice a day. Knowing which ones are worth the walk is my whole business, and I'd keep it to "
+        "myself if I hadn't run out of days to do it in.\n\nEvery hull has a manifest tin bolted inside the stern "
+        "post. The Wrackline Cutters have been prising them loose, so take them back off the Cutters, and look over "
+        "the hulls while you're out there. There's one here on the shore, more out east at Bothy Rock, and one back "
+        "toward Saltspur Landing.\n\nDon't get clever with the timing. The water comes back across the Spindrift "
+        "faster than you can walk.",
+        "Tins, manifests, and most of them list the same cargo for the same buyer.\n\nThese ships were coming here "
+        "on purpose. Somebody was running a route into this archipelago, and the route ate them. Before you "
+        "newcomers turned up I'd have called that bad luck. Now I'm calling it a business opportunity."),
+    # ---------------------------------------------------------------- The Bothy Hermit, Bothy Rock
+    "are_the_hermit": V(
+        "Clear the Storm Petrel Swarms and the Reefmaw off Bothy Rock, and bring the hermit Petrel Down Bundles.",
+        "I was on a ferry out of Oban. Then the sea was a different sea, the ferry was on this rock, and that was "
+        "three years ago. This is my rock now.\n\nI haven't asked anyone for anything in three years, so bear with "
+        "me. The Storm Petrel Swarms have taken the lee side, which was my side. I held it for two years, and then "
+        "there were more of them than me.\n\nBring me their down, in bundles. It's for a mattress. I'm fifty-eight "
+        "and I've slept on a folded sail since before any of you arrived. There's a Reefmaw in the shallows under "
+        "the rock, too. I'd sleep better without it.",
+        "That's a mattress. That's an actual mattress.\n\nLet's be clear, though. I'm not coming to your camp and "
+        "I'm not being rescued. This is my rock, and I simply intend to sleep on it properly."),
+    # ---------------------------------------------------------------- Scout Vel Ashgrave, Saltspur Landing
+    "are_they_are_holding": V(
+        "Kill Wrackline Gunners and Wrackline Bosuns on the islands east of Saltspur Landing, and bring back their "
+        "Wrackline Watch Orders.",
+        "Scout Vel Ashgrave. My report to the Bosun was one sentence long, and he's read it four times. The "
+        "Bloodsail on this archipelago are holding ground, and that's worse than raiding.\n\nRaiders take what "
+        "they want and leave. These ones fortified a sea cave, posted watches on the islands, and put a purser in "
+        "charge of the cargo. You only do that when you want something that's already here.\n\nThe Wrackline "
+        "Bosuns carry their watch orders, and the Wrackline Gunners keep close to them. Start on Gallowmast Isle, "
+        "east across the flats. I want orders from different islands, so I can see whether one hand wrote them "
+        "all. If it's captains making it up as they go, we wait them out. If it's one hand, there's a plan.",
+        "One hand wrote all of them.\n\nSo there's a plan, somebody's running it from inside that cave, and "
+        "whatever they want is on this archipelago. We weren't the first to turn up uninvited, it turns out. We "
+        "were second."),
+    "are_gallowmast": V(
+        "Go out to Gallowmast Isle, kill the Wrackline Wrecklamps and Wrackline Cutters, and see what they've been "
+        "lighting.",
+        "Gallowmast Isle is the furthest out, and the only one where they keep a watch on open ground instead of "
+        "inside a hull. I want eyes on it before anyone goes into the Wrackline cave. Walking into a held position "
+        "without knowing what's behind you is how four boats become three.\n\nThe Wrackline Wrecklamps are the "
+        "part I don't like. A lamp crew on a rock in a shipping lane is there to bring ships in, and we've got "
+        "wrecks all over the flats to show it works.\n\nGet out to Gallowmast, kill the Wrecklamps and the "
+        "Wrackline Cutters with them, and see what they've been lighting.",
+        "A lure, then. They've been wrecking ships onto this archipelago on purpose for three years and "
+        "salvaging them at their leisure.\n\nThat answers the Bosun's question and raises a worse one. Nobody runs "
+        "a wrecking operation this patient for cargo. They run it to stop anyone leaving."),
+    # ---------------------------------------------------------------- Shipwright Oona Keelsplice, Saltspur Landing
+    "are_a_hull_that_floats": V(
+        "Cut sound Driftwood off the wrecks, kill Tidecrawlers, and take Bronze Wreck Fittings back off the "
+        "Wrackline Cutters stripping the hulls.",
+        "Oona Keelsplice, shipwright. I've spent two years looking at a beach full of broken hulls with nothing to "
+        "fix them with. Hammerfall has timber and no reason to send it. We have reasons and no timber.\n\nWhat I "
+        "can get is what's already out there, if someone will cut it off a hull at low water without drowning. "
+        "Sound driftwood, and bronze fittings off the rails and cleats. Bronze, because three years of salt "
+        "hasn't touched it, and the iron's all brown stain. The Wrackline Cutters have been stripping the "
+        "fittings, so take them back.\n\nThe Tidecrawlers nest in the wrecks, so clear them first. Keep the timber. "
+        "I just need to see the grade before I plan a keel around it.",
+        "Not a scrap of rot. Two hulls' worth of good timber, lying on the flats where I could see it from the "
+        "jetty the whole time.\n\nGive me a crew and a tide and I'll give you a boat. A small one, but a boat that "
+        "goes where you point it, which is more than this landing has had since it was a landing."),
+    "are_the_tidewrack": V(
+        "Clear the Reefmaws out of the Tidewrack, in the south-east of the flats, kill Brinemaw and bring back "
+        "Barbed Teeth.",
+        "The Tidewrack is the only place on this coast with nothing built in it. No shelf, no planking, no lamps, "
+        "just sand, a pearl floor and an open sump that goes down further than the cave does. It's also the only "
+        "sheltered water on the whole coast, and I can't build a boat on a beach the tide takes twice a day.\n\n"
+        "Clear the Reefmaws out of it, and then Brinemaw. Everyone thinks the teeth on the tideline mean something "
+        "died in there. They're wrong about that. Brinemaw grows them back.\n\nBring me some of the barbed ones. I "
+        "need that sump clear before the weather turns, and I'm not going to be fussy about how.",
+        "Barbed, every one, and nothing grows a barbed tooth just to eat with.\n\nI'm going to build a boat in "
+        "there, and I'm going to try very hard not to think about what that means. Shipwrights are good at not "
+        "thinking about the bottom."),
+    # ---------------------------------------------------------------- Barrow-Watcher Yelza, the Drowned Barrow
+    "are_the_barrow_door": V(
+        "Go to the door of the Drowned Barrow, north of Saltspur Landing, and put down the Barrow Shades and "
+        "Arathor Revenants that come out.",
+        "I be Yelza. I watch dis barrow, an' I don't go in.\n\nArathor buried its eastern march in dere t'ree "
+        "t'ousand years ago, an' de march still standin' its watch. Dey not cursed, dey not raised, an' far as I "
+        "can tell dey not even angry. Nobody ever came to relieve dem, so dey still on duty.\n\nDe Barrow Shades "
+        "an' Arathor Revenants not huntin'. Dey come out because you on de road, an' de road is deir post. Go up "
+        "to de door an' stand where dey can see you, an' put down de ones dat come. Dat way I learn how far out "
+        "de post reaches.",
+        "Two hundred paces from de door, an' not one step farther.\n\nDey holdin' a line, still. T'ree t'ousand "
+        "years after de last person who could tell dem to stop was buried behind dem."),
+    "are_the_barrow_warden": V(
+        "Go into the Drowned Barrow, kill The Barrow Warden at the top of the stair, and put down the Arathor "
+        "Revenants and Barrow Shades below it.",
+        "You goin' in now. I already told you what dey are, an' I won't pretend dis be somet'ing else.\n\nThe "
+        "Barrow Warden stand at de top of de stair, carryin' a shield dat was a door before it was a shield. It "
+        "not let anybody past in t'ree t'ousand years. I stopped callin' it a hauntin'. It's a post.\n\nDe warden "
+        "first. Everyt'ing below is holdin' de line de warden holds de top of, an' until dat shield come down, de "
+        "Arathor Revenants an' Barrow Shades won't even see you proper. Put dem down after.",
+        "De stair is open.\n\nMarble up top, an' limestone an' standin' water below. De empire put its best people "
+        "in de dry part, an' de water come up anyway, one winter at a time for t'ree t'ousand years. Nobody plan "
+        "for dat. Nobody could have."),
+    "are_thane_aldric": V(
+        "Go to the bottom of the Drowned Barrow, end the watch of Thane Aldric's Shade and bring back the "
+        "March-Lord's Signet.",
+        "At de bottom of dat barrow, under water to de waist, facin' de door, stand de Thane of Arathor's eastern "
+        "march.\n\nHe swore to hold it. De march is a drowned field wit' ogres walkin' over it now, an' de empire "
+        "dat took his oath been gone t'ree t'ousand years. He still at his post because nobody wit' de right to "
+        "relieve him has lived since before dere was a Horde.\n\nDere's no trick to dis. He won't listen to a "
+        "troll who show up t'ree t'ousand years late wit' no standin'. So you go down an' end Thane Aldric's "
+        "Shade's watch de only way it can be ended. Bring me his signet, so somebody, somewhere, has his name.",
+        "His name was Aldric. Dat's his name, an' his office, an' de march it was de office of.\n\nEverybody in "
+        "dis country holdin' ground dat ain't deirs. De ogres, de Syndicate, your Horde, me. He de only one who "
+        "was really from here, an' he de one dey forgot to tell. Go tell your Overlord de east is quiet. It ain't "
+        "true, but it's de closest it been in t'ree t'ousand years."),
+    "are_wrack_drowned": V(
+        "Kill The Wrack-Drowned in the Tidewrack's sump, take Drowned Keepsakes from the Barrow Shades, and visit "
+        "the cairn west of the Middenstone.",
+        "Dere be somet'ing standin' in de Tidewrack's sump holdin' a lantern pole. Dey call it The Wrack-Drowned.\n\n"
+        "T'ree years ago, when de water come up in de night an' de first hulls went onto de flats, people went "
+        "down to de tideline wit' poles an' lamps to look for survivors. Some of dem never come back. De poles "
+        "did.\n\nEverybody who drown out dere was carryin' somet'ing, a ring, a coin, a lock of hair. De Barrow "
+        "Shades pick dem up now. Bring me some, an' put dat poor t'ing in de sump to rest. Den go to de cairn west "
+        "of de Middenstone. I'm goin' to put a keepsake on it for every name I can find.",
+        "Keepsakes, an' t'ree of dem I can put a name to.\n\nDey went out to look for people. Dat's all dey did "
+        "wrong. Go an' rest now. Dere be one more watch on dis coast dat nobody relieved, an' it's older dan dis "
+        "one by a long way."),
+})
+
+# ============================================================================== HAMMERFALL'S NEW PEOPLE (33-35)
+# Kyle: "why does hammerfall have like 3 quests only?" Ten more from the hold's own people, eight of whom had none.
+VOICE.update({
+    "hf_orders_for_the_yard": V(
+        "Take Overlord Gath'rok's orders to Sergeant Mok Blackstone on the muster yard.",
+        "So you're the one who walked in off the Ring Road without anyone stopping you. I'm Overlord Gath'rok, and "
+        "this is Hammerfall. Everything that crosses Arathi crosses in front of me, and I'd like to keep it that "
+        "way.\n\nThe Boulderfist come down off the North Shelf every few weeks, find us standing in the same "
+        "place, and go back up. That works because Sergeant Mok drills the garrison every day until it's boring. "
+        "She's short of hands this month.\n\nTake her these orders. She's on the muster yard, south of here. Tell "
+        "her I said you'll do.",
+        "The Overlord says you'll do, does he? He says that about everyone he hasn't watched fight yet.\n\nWell, "
+        "I'm Sergeant Mok Blackstone, and you're on my yard now. Let's find out."),
+    "hf_the_north_shelf": V(
+        "Climb onto the North Shelf, west of Hammerfall, and kill the Boulderfist Maulers coming down from it.",
+        "Drill at dawn, the wall at noon, drill again. The Boulderfist Maulers come off the North Shelf every few "
+        "weeks, and the whole idea is that they always find us standing in the same place.\n\nThis month they've "
+        "been coming down more often, and in bigger groups. I want to know why before they find out we're short "
+        "of soldiers.\n\nGo up onto the North Shelf, west of the hold along the ridge, and get a look at the lip "
+        "where they come down. Kill every Boulderfist Mauler you meet up there, so they "
+        "know we've been.",
+        "You've got blood on your boots and ogre on your axe. Good, that's the right way round.\n\nThey'll think "
+        "twice before coming down that lip again. Ogres don't think twice about much, so that's something."),
+    "hf_horns_on_the_shelf": V(
+        "Take Boulderfist Signal Horns from the Boulderfist Shamans on the North Shelf and around Boulderfist "
+        "Hall.",
+        "I've been listening at the wall at night. Before every raid there's a horn up on the shelf, a long low "
+        "one, and then another answers from the west, from their hall.\n\nThe Boulderfist Shamans carry those "
+        "horns. If they're signalling each other, then the raids are planned, and a planned raid has someone "
+        "planning it.\n\nBring me their horns. I want to blow one myself, at the wrong time, and see who comes.",
+        "That's an ugly thing to put your mouth on.\n\nI blew one off the wall last night, an hour before dawn. Half "
+        "the shelf came down to the lip looking for a raid that wasn't there, and my archers were waiting. I could "
+        "get used to this."),
+    "hf_the_kodo_wont_settle": V(
+        "Kill the Ring Wisps drifting along the Ring Road below Hammerfall.",
+        "I'm Stablemaster Rukka. Kodo on the left, wolves on the right, and never the other way round. I learned that "
+        "the hard way, and the kodo learned it harder.\n\nNow my kodo won't settle at night. It's the Ring Wisps, "
+        "the little lights that drift up off the stone circles along the Ring Road. They come up the bluff after "
+        "dark and hang over the stables, and a kodo that's been stared at all night won't pull a cart in the "
+        "morning.\n\nGo down to the Ring Road and put out as many of those Ring Wisps as you can find. Mind the "
+        "circles. The wisps are thickest there.",
+        "Every one of them slept, the whole night through, and the big bull hasn't slept a full night since "
+        "spring.\n\nI'll have him pull your cart for free next time you're in the hold. Mind you, he won't know "
+        "it's a favour."),
+    "hf_meat_for_the_fire": V(
+        "Hunt Highland Elk in the basin around Hammerfall and bring Innkeeper Grettha Highland Elk Haunches.",
+        "We built this inn before the second watchtower, and I'll tell anyone from Orgrimmar who asks that we "
+        "were right to. A garrison that eats well holds a wall well.\n\nI'm short of meat. The Highland Elk graze "
+        "the basin floor all round the hold, and a haunch off one of those does a whole table. The orcs keep "
+        "telling me they'll hunt when they've got a free afternoon, and there aren't any free afternoons in "
+        "Hammerfall.\n\nBring me haunches, as many as you can carry. I don't eat any more, but I still know a good "
+        "cut, and I won't have the newcomers going hungry under my roof.",
+        "Lovely cuts, those. You've done this before.\n\nThe fire will be going all night now. Sit near it when "
+        "you're back from wherever they send you next. That's the best thing I've got to offer, and it's a good "
+        "thing."),
+    "hf_the_supply_road": V(
+        "Kill Witherbark Berserkers on the Refuge Road and recover the Hammerfall Supply Bundles they've taken off "
+        "the carts.",
+        "Quartermaster Urga Ironhand. These stores are good, because we've been here long enough to build shelves. "
+        "But everything on them comes up the Refuge Road, and lately not all of it arrives.\n\nThe Witherbark "
+        "Berserkers have started hitting the carts where the road dips past the woods. They don't take the "
+        "carts, they cut the bundles loose and run, and I don't know what trolls want with salted pork and boot "
+        "nails.\n\nGo down the Refuge Road, south-west of the hold, and get my bundles back. Kill the Witherbark "
+        "Berserkers carrying them. Bring me what you can, opened or not.",
+        "Pork, nails, lamp oil. They didn't eat any of it, they just carried it off.\n\nTrolls don't steal what "
+        "they can't use, so they're stockpiling. Olen will want to hear that. I'm putting extra guards on the "
+        "next cart."),
+    "hf_ogre_iron": V(
+        "Take Boulderfist Iron Bands off the Boulderfist Maulers in the basin and bring them to Weaponsmith Krol.",
+        "This is a war forge. Not a fire with a rock next to it, a forge, with a chimney, built by someone who knew "
+        "what he was doing, which was me.\n\nWhat it hasn't got is iron. Thugg's still arguing about his mine, and Orgrimmar "
+        "sends me scrap. But every Boulderfist Mauler on this basin wears iron bands round his arms, thick as my "
+        "wrist and better forged than you'd think. The ogres took them off something, once.\n\nBring me those bands. "
+        "I'll melt them down and turn them into something that deserves the metal.",
+        "That's old iron, older than the ogres wearing it, I'd say, by the look of the hammer marks.\n\nIt'll draw well. "
+        "Come back in a few days and there'll be a blade on that rack with your name nowhere near it, but you'll "
+        "know."),
+    "hf_the_downed_rider": V(
+        "Find where the wind rider came down on the North Shelf and take the Wind Rider Harness back from the "
+        "Boulderfist Maulers.",
+        "Wind Rider Master Dreka. The roost is full and the routes are flown, and three nights ago I lost one. A "
+        "young rider, Kesh, on the run to Saltspur. Her wyvern came back alone at dawn with a cut on its flank and "
+        "an empty saddle.\n\nIt came in from the west, over the North Shelf. If she went down anywhere, it's up "
+        "there, and the Boulderfist Maulers on the shelf will have got to her first.\n\nFind where she fell. And "
+        "the harness, if they've taken it. It's my harness. I stitched it, and I want it back on a rider.",
+        "That's her harness. The buckle's bent, and the strap's been cut, not torn.\n\nSo she got free of it. She "
+        "cut herself loose before they got there. That's not much, but I'm going to hold on to it, and I'm going "
+        "to send a wyvern over that shelf every morning until I know."),
+    "hf_a_parcel_for_keska": V(
+        "Take Trader Molg's parcel to Runner Keska on the Refuge Road, south-west of Hammerfall.",
+        "I'm Trader Molg, and I sell everything a soldier forgets to pack and then needs on the moor at four in the "
+        "afternoon. I've made a study of it.\n\nThere's one customer who never comes in, because she never stops "
+        "running. Keska carries the post between here and Refuge Pointe, on foot, and she wears through a pair of "
+        "boots a month. I've had a new pair waiting for her since the last rain.\n\nTake them down the Refuge Road "
+        "to her. She'll be somewhere on the southern track, going one way or the other. Tell her they're paid "
+        "for, and she can argue with me about that next time she's in.",
+        "New boots, and from Molg? He knows I can't pay for these.\n\nPaid for, is it. I'll be arguing with him "
+        "about that, see if I don't. Thank you for bringing them. I'll be faster in these, which means I'll be back in "
+        "Hammerfall sooner to argue."),
+    "hf_by_the_measure": V(
+        "Take Venomweaver Venom Sacs from the Witherbark Venomweavers in Witherbark Village, south-west of "
+        "Hammerfall.",
+        "I'm Reagent-Keeper Shelna. I keep components measured, labelled and dated, because the alternative is Apothecary "
+        "Voss guessing, and he has guessed before.\n\nThe Deathguard's patrols keep coming back poisoned from "
+        "Witherbark Village. The Witherbark Venomweavers coat their blades with something I haven't got a label "
+        "for, and I can't make an antidote for a poison I can't name.\n\nBring me their venom sacs, whole, not "
+        "squeezed and not punctured, or they're no use to me. I'll measure them, label them and date "
+        "them, and then I'll know.",
+        "Six kinds of toxin, if my scales are right, and they are. The trolls blend it, which is clever of them.\n\nI'll have "
+        "an antidote on the shelf by the end of the week, labelled, dated and measured. You'll find the first "
+        "one costs you nothing."),
+})

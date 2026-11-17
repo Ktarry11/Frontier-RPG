@@ -4,6 +4,10 @@ Arathi Highlands quest pass - three zones, two dungeons, five caves. Idempotent.
 
     PYTHONPATH=. python3 tools/build_arathi_quests.py
 
+DO NOT RE-RUN (17 Nov 2026). It writes data/quests/arathi.json from scratch, and that file has since been patched by
+later passes: whole-number rewards, Hammerfall's ten new quests and the objective fixes (tools/build_arathi_voice.py,
+which is the tool to run now). The text here is superseded by tools/arathi_quest_voice.py.
+
 Writes data/quests/arathi.json, adds fetch and starter drops to data/creatures/quest_drops.json,
 and splices three inbound quests into their own zones' files (Tarren Mill, Eastern Hillsbrad,
 Orgrimmar).

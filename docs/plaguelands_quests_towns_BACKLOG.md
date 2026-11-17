@@ -5,6 +5,7 @@ as total disconnected third character... All the plaguelands quests are like thi
 quests in Plaguelands." Stonetalon Peak has the same problem.
 
 ## Quest writing
+**Done** in 29fd4a4 for the Plaguelands. Stonetalon's pass is still open.
 - Every Plaguelands quest is written about the giver ("Clerk Wendel Ashby kept Hearthglen's books... He wants a
   copy"), not by them. Rewrite every one in the giver's own voice, the way Emerald Sanctuary and Onyxhollow are
   written: who they are and why it matters to them, in their words; what they need; where to go and what you'll
@@ -15,6 +16,7 @@ quests in Plaguelands." Stonetalon Peak has the same problem.
 - Audit every Plaguelands quest, including the cave and dungeon quests added on 16 Nov, plus their turn-in text.
 
 ## Towns
+**Done** in 29fd4a4.
 - The Bulwark and The Pale Watch become their own town maps, stand-alone, like every other town in the game.
 - Remove Sorrow Hill; its people move into the Bulwark. One flight path in the zone, not two.
 - Crown Guard moves into Light's Hope Chapel, which becomes its own town map.
@@ -47,6 +49,7 @@ card or the consumable's effect) and "Requires Jewelcrafting (200)".
 **Done** in b5e7da3 (`ui/recipe_tooltip.py`, shared by the bags and the vendor).
 
 ## Booty Bay (small)
+**Done** in b5e7da3.
 - The top-left way in and out to Stranglethorn is blocked.
 - Only a tiny path north of the flight master.
 - The top (north) of the three docks is blocked by a building where it meets the outer wharf.
@@ -57,6 +60,28 @@ and all the NPCs died?" The data has 11 quests given in Hammerfall, 16 in West A
 either most aren't reaching the player (chain gates, levels, missing NPCs) or Kyle is seeing a different set. Find
 out which, give Arathi a proper quest count from its town, and rewrite the text in people's own voices (the
 Emerald Sanctuary model).
+
+**Done, 17 Nov 2026** (`tools/build_arathi_voice.py`, text in `tools/arathi_quest_voice.py`). Why Kyle saw about
+three:
+- Hammerfall had 5 givers and 10 quests. Two of those were deep in the Drywhisker chain and the rest were at 34-36.
+- 13 of the hold's 18 people gave nothing.
+
+Now:
+- Hammerfall gives 20. Ten are new, from 8 people who had none: the Overlord, Sergeant Mok, Stablemaster Rukka,
+  Innkeeper Grettha, Quartermaster Urga, Weaponsmith Krol, Wind Rider Master Dreka, Trader Molg and Reagent-Keeper
+  Shelna. Most are at 33.
+- 13 quests are open the moment you walk in.
+- Central Arathi is 22 of 26 from a town.
+- All 56 Arathi quests are rewritten in their givers' voices: first person, contractions, no "it is not X, it is Y",
+  no fragments. Every kill is named and every place has a direction.
+- Six objectives that didn't match their own text are fixed:
+  - Four Circles stands you in the circles.
+  - The Answer counts the west circle and leads on to Boulderfist Hall.
+  - Ask Them First sends you to the hall's mouth; it used to complete on accept.
+  - Gallowmast goes to Gallowmast.
+  - The Harbinger's charms are in Witherbark Hollow.
+  - One wreck was on a rock tile.
+- `build_arathi_quests.py` must not be re-run (it would drop all of this); its docstring says so.
 
 ## NPCs into towns
 Kyle: "move everyone from outside tarren mill inside....oh fuck, did we not do that great movement of NPCs out of
