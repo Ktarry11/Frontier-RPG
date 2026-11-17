@@ -7450,5 +7450,1979 @@
         "variance_mode": "max"
       }
     ]
+  },
+  "rhys_ranger": {
+    "name": "Rhys Morgan",
+    "passives": {
+      "_name": "She Came Through With Him",
+      "_from": "'his hawk came through with him'",
+      "pet_damage": 15,
+      "pet_health": 15
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_rhys_flown_at_weddings",
+        "name": "Flown at Weddings",
+        "from": "'Rhys flew hawks at weddings in the Brecon Beacons'",
+        "engine": "live: summon_pet",
+        "effect_type": "summon_pet",
+        "target_type": "self",
+        "resource_type": "archery_points",
+        "cooldown": 12,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Calls Tegan, his hawk, to fight beside him.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 40
+          }
+        ],
+        "is_instant": true,
+        "summon_pet_template": "war_falcon"
+      },
+      {
+        "ability_id": "personal_rhys_weather_off_the_beacons",
+        "name": "Weather Off the Beacons",
+        "from": "'He still checks the sky for weather the way he did at home'",
+        "engine": "live: high_health_bonus",
+        "effect_type": "ranged_damage",
+        "target_type": "enemy",
+        "resource_type": "archery_points",
+        "cooldown": 10,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "A heavy shot. Deals 40% more damage to a target above full health's worth of its own pool (above 100%).",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 80
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 25,
+            "effect_value": 166
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 25,
+            "effect_value": 252
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 25,
+            "effect_value": 338
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 25,
+            "effect_value": 424
+          }
+        ],
+        "is_instant": true,
+        "high_health_bonus": {
+          "above": 100,
+          "bonus": 40
+        }
+      },
+      {
+        "ability_id": "personal_rhys_the_hawk_s_opinion",
+        "name": "The Hawk's Opinion",
+        "from": "'he trusts the hawk's opinion of a stranger more than his own'",
+        "engine": "live: reveals_intent and sure_target",
+        "effect_type": "debuff",
+        "target_type": "enemy",
+        "resource_type": "archery_points",
+        "cooldown": 12,
+        "duration": 3,
+        "stat_mods": {},
+        "description": "For 3 turns, shows what the target will do next, and the party's attacks on it cannot miss.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 0
+          }
+        ],
+        "is_instant": true,
+        "reveals_intent": "all",
+        "sure_target": true
+      }
+    ]
+  },
+  "gunnar_barbarian": {
+    "name": "Gunnar Sigurðsson",
+    "passives": {
+      "_name": "Akureyri Winters",
+      "_from": "'He landed in snow, which helped.'",
+      "max_health_pct": 10,
+      "frost_resistance": 10
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_gunnar_second_row",
+        "name": "Second Row",
+        "from": "'He played second row for a rugby club'",
+        "engine": "live: high_health_bonus",
+        "effect_type": "damage",
+        "target_type": "enemy",
+        "resource_type": "energy",
+        "cooldown": 12,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "A huge opening hit. Deals 100% more damage to a target above 60% health.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 110
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 25,
+            "effect_value": 228
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 25,
+            "effect_value": 346
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 25,
+            "effect_value": 465
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 25,
+            "effect_value": 583
+          }
+        ],
+        "is_instant": true,
+        "high_health_bonus": {
+          "above": 60,
+          "bonus": 100
+        }
+      },
+      {
+        "ability_id": "personal_gunnar_something_you_should_try",
+        "name": "Something You Should Try",
+        "from": "'Sit down, I've got something you should try.'",
+        "engine": "live: heals_party_pct_max and party_resource_pct",
+        "effect_type": "heal",
+        "target_type": "party",
+        "resource_type": "energy",
+        "cooldown": 15,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Passes the keg round. Heals the party for 30% of their maximum health and gives back 20% of their resource.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 40
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 25,
+            "effect_value": 106
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 25,
+            "effect_value": 172
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 25,
+            "effect_value": 238
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 25,
+            "effect_value": 304
+          }
+        ],
+        "is_instant": true,
+        "heals_party_pct_max": 30,
+        "party_resource_pct": 20
+      },
+      {
+        "ability_id": "personal_gunnar_before_a_fight",
+        "name": "Before a Fight",
+        "from": "'anyone who toasts their ancestors before a fight has the right idea'",
+        "engine": "live: per_use_bonus any",
+        "effect_type": "damage",
+        "target_type": "enemy",
+        "resource_type": "energy",
+        "cooldown": 10,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Each time Gunnar uses it in a fight it deals 12% more, up to 60% more.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 65
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 25,
+            "effect_value": 135
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 25,
+            "effect_value": 204
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 25,
+            "effect_value": 274
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 25,
+            "effect_value": 344
+          }
+        ],
+        "is_instant": true,
+        "per_use_bonus": {
+          "pct": 12,
+          "cap": 60,
+          "any": true
+        }
+      }
+    ]
+  },
+  "reka_necromancer": {
+    "name": "Réka Farkas",
+    "passives": {
+      "_name": "Twelve Years of Small Adjustments",
+      "_from": "'with patience and a lot of small adjustments'",
+      "crit_chance_spell": 5,
+      "shadow_resistance": 10
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_reka_one_frame_at_a_time",
+        "name": "One Frame at a Time",
+        "from": "'moving puppets one frame at a time until they looked alive'",
+        "engine": "live: per_use_bonus any",
+        "effect_type": "spell_damage",
+        "target_type": "enemy",
+        "resource_type": "life_force",
+        "cooldown": 10,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Shadow damage. Each use in a fight deals 15% more, up to 75% more.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 40,
+            "effect_value": 70
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 40,
+            "effect_value": 162
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 40,
+            "effect_value": 254
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 40,
+            "effect_value": 346
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 40,
+            "effect_value": 438
+          }
+        ],
+        "is_instant": true,
+        "damage_school": "shadow",
+        "per_use_bonus": {
+          "pct": 15,
+          "cap": 75,
+          "any": true
+        }
+      },
+      {
+        "ability_id": "personal_reka_where_she_d_gone_wrong_with_the_elbow",
+        "name": "Where She'd Gone Wrong With the Elbow",
+        "from": "'she said she knew exactly where she'd gone wrong with the elbow'",
+        "engine": "live: immediate repeat_last",
+        "effect_type": "buff",
+        "target_type": "self",
+        "resource_type": "life_force",
+        "cooldown": 12,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Casts her last ability again at once.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 40,
+            "effect_value": 100
+          }
+        ],
+        "is_instant": true,
+        "immediate": {
+          "action": "repeat_last"
+        }
+      },
+      {
+        "ability_id": "personal_reka_everything_holds_still",
+        "name": "Everything Holds Still",
+        "from": "'until they looked alive'",
+        "engine": "existing (debuff on an enemy row)",
+        "effect_type": "debuff",
+        "target_type": "enemy_aoe",
+        "resource_type": "life_force",
+        "cooldown": 12,
+        "duration": 3,
+        "stat_mods": {
+          "damage_dealt_pct": -30
+        },
+        "description": "For 3 turns, the enemies in one row deal 30% less damage.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 40,
+            "effect_value": 100
+          }
+        ],
+        "is_instant": true
+      }
+    ]
+  },
+  "ramiro_primalist": {
+    "name": "Ramiro Quispe",
+    "passives": {
+      "_name": "The Mountain Talks Before It Moves",
+      "_from": "'the mountain talks before it moves'",
+      "armor_pct": 10,
+      "nature_resistance": 10
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_ramiro_the_rock_settling",
+        "name": "The Rock Settling",
+        "from": "'You can hear the rock settling.'",
+        "engine": "live: delayed",
+        "effect_type": "damage",
+        "target_type": "enemy_aoe",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 2,
+        "stat_mods": {},
+        "description": "Brings the rock down on one enemy row two turns from now.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 100
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 42,
+            "effect_value": 150
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 54,
+            "effect_value": 200
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 66,
+            "effect_value": 250
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 78,
+            "effect_value": 300
+          }
+        ],
+        "is_instant": true,
+        "delayed": {
+          "turns": 2,
+          "mult": 1.0
+        }
+      },
+      {
+        "ability_id": "personal_ramiro_timbered_the_old_way",
+        "name": "Timbered the Old Way",
+        "from": "'to timber a drift the way his father did'",
+        "engine": "live: absorb and absorb_refreshes",
+        "effect_type": "buff",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 15,
+        "duration": 5,
+        "stat_mods": {},
+        "description": "For 5 turns, shields every ally for 70 damage, and the shield refills each turn.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 100,
+            "absorb": 70
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 42,
+            "effect_value": 100,
+            "absorb": 128
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 54,
+            "effect_value": 100,
+            "absorb": 187
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 66,
+            "effect_value": 100,
+            "absorb": 246
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 78,
+            "effect_value": 100,
+            "absorb": 304
+          }
+        ],
+        "is_instant": true,
+        "absorb": 70,
+        "absorb_refreshes": true
+      },
+      {
+        "ability_id": "personal_ramiro_where_the_vein_runs",
+        "name": "Where the Vein Runs",
+        "from": "'he hears the rock the way they do'",
+        "engine": "live: armor_ignore_pct",
+        "effect_type": "damage",
+        "target_type": "enemy",
+        "resource_type": "mana",
+        "cooldown": 10,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "A blow along the grain. Ignores 60% of the target's armour.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 95
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 42,
+            "effect_value": 197
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 54,
+            "effect_value": 300
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 66,
+            "effect_value": 402
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 78,
+            "effect_value": 504
+          }
+        ],
+        "is_instant": true,
+        "armor_ignore_pct": 60
+      }
+    ]
+  },
+  "graham_warlock": {
+    "name": "Graham Ashworth",
+    "passives": {
+      "_name": "Nineteen Years of Night Shifts",
+      "_from": "'a hospice nurse in Lancashire for nineteen years'",
+      "mp5": 6,
+      "shadow_resistance": 10
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_graham_a_slow_ending",
+        "name": "A Slow Ending",
+        "from": "'a slow ending can be a kind one if somebody pays attention'",
+        "engine": "existing (spell_dot on an enemy row)",
+        "effect_type": "spell_dot",
+        "target_type": "enemy_aoe",
+        "resource_type": "mana",
+        "cooldown": 10,
+        "duration": 4,
+        "stat_mods": {},
+        "description": "Shadow damage over 4 turns to every enemy in one row.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 45
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 42,
+            "effect_value": 146
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 54,
+            "effect_value": 246
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 66,
+            "effect_value": 347
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 78,
+            "effect_value": 448
+          }
+        ],
+        "is_instant": true,
+        "damage_school": "shadow"
+      },
+      {
+        "ability_id": "personal_graham_sit_down_a_minute",
+        "name": "Sit Down a Minute",
+        "from": "'Sit down a minute if you need to.'",
+        "engine": "live: wounded_allies_bonus_pct",
+        "effect_type": "heal",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Heals the party, 25% more for each wounded ally.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 60
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 42,
+            "effect_value": 149
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 54,
+            "effect_value": 238
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 66,
+            "effect_value": 326
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 78,
+            "effect_value": 415
+          }
+        ],
+        "is_instant": true,
+        "wounded_allies_bonus_pct": 25
+      },
+      {
+        "ability_id": "personal_graham_he_knows_the_signs",
+        "name": "He Knows the Signs",
+        "from": "'learned that a slow ending can be a kind one if somebody pays attention'",
+        "engine": "live: reveals_intent",
+        "effect_type": "debuff",
+        "target_type": "enemy",
+        "resource_type": "mana",
+        "cooldown": 10,
+        "duration": 5,
+        "stat_mods": {
+          "fire_resistance": -20,
+          "frost_resistance": -20,
+          "nature_resistance": -20,
+          "shadow_resistance": -20,
+          "arcane_resistance": -20,
+          "holy_resistance": -20
+        },
+        "description": "For 5 turns, shows what the target will do next and lowers every resistance it has by 20.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 100
+          }
+        ],
+        "is_instant": true,
+        "reveals_intent": "all"
+      }
+    ]
+  },
+  "elie_bloodmage": {
+    "name": "Elie Khoury",
+    "passives": {
+      "_name": "The One the Nervous Patients Asked For",
+      "_from": "'he was the one the nervous patients asked for'",
+      "healing_done": 10,
+      "max_health_pct": 5
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_elie_find_the_vein",
+        "name": "Find the Vein",
+        "from": "'blood listens to him now'",
+        "engine": "live: heals_pct_max and requires_target_below_pct",
+        "effect_type": "heal",
+        "target_type": "ally",
+        "resource_type": "rage",
+        "cooldown": 12,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Heals an ally below 25% health for 50% of their maximum health.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 20,
+            "effect_value": 50
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 20,
+            "effect_value": 234
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 20,
+            "effect_value": 418
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 20,
+            "effect_value": 601
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 20,
+            "effect_value": 785
+          }
+        ],
+        "is_instant": true,
+        "heals_pct_max": 50,
+        "requires_target_below_pct": 25
+      },
+      {
+        "ability_id": "personal_elie_a_clean_draw",
+        "name": "A Clean Draw",
+        "from": "'He heals with it'",
+        "engine": "live: dispel and returns_dispelled_damage",
+        "effect_type": "dispel",
+        "target_type": "ally",
+        "resource_type": "rage",
+        "cooldown": 12,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Draws one harmful effect out of an ally and turns the damage it would have done back on its caster.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 20,
+            "effect_value": 0
+          }
+        ],
+        "is_instant": true,
+        "dispel_count": 1,
+        "dispel_type": [
+          "magic",
+          "curse",
+          "poison",
+          "disease"
+        ],
+        "returns_dispelled_damage": true
+      },
+      {
+        "ability_id": "personal_elie_tourniquet",
+        "name": "Tourniquet",
+        "from": "'He came through with a tourniquet in his pocket'",
+        "engine": "live: on_low_health",
+        "effect_type": "buff",
+        "target_type": "ally",
+        "resource_type": "rage",
+        "cooldown": 12,
+        "duration": 4,
+        "stat_mods": {},
+        "description": "For 4 turns, the first time the ally drops below 35% health they are healed for 30% of their maximum.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 20,
+            "effect_value": 100
+          }
+        ],
+        "is_instant": true,
+        "on_low_health": {
+          "pct": 35,
+          "heal_pct": 30
+        }
+      }
+    ]
+  },
+  "bruno_templar": {
+    "name": "Bruno Teixeira",
+    "passives": {
+      "_name": "Twenty-Three Fights",
+      "_from": "'twenty-three fights with eighteen wins'",
+      "max_health_pct": 10,
+      "crit_damage_physical": 20
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_bruno_ground_and_pound",
+        "name": "Ground and Pound",
+        "from": "'he fights like the bell's about to go'",
+        "engine": "live: consecutive_target_bonus",
+        "effect_type": "damage",
+        "target_type": "enemy",
+        "resource_type": "combo",
+        "cooldown": 10,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Each hit on the same target in a row deals 25% more, up to 100% more.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 28,
+            "effect_value": 70
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 28,
+            "effect_value": 145
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 28,
+            "effect_value": 220
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 28,
+            "effect_value": 296
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 28,
+            "effect_value": 371
+          }
+        ],
+        "is_instant": true,
+        "consecutive_target_bonus": {
+          "pct": 25,
+          "cap": 100
+        }
+      },
+      {
+        "ability_id": "personal_bruno_walked_out_beside_him",
+        "name": "Walked Out Beside Him",
+        "from": "'he walked out of it beside Rory Callahan'",
+        "engine": "live: damage_share",
+        "effect_type": "buff",
+        "target_type": "party",
+        "resource_type": "combo",
+        "cooldown": 12,
+        "duration": 2,
+        "stat_mods": {},
+        "description": "For 2 turns, Bruno takes the next hit meant for any ally, at 50% less damage.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 28,
+            "effect_value": 100
+          }
+        ],
+        "is_instant": true,
+        "damage_share": {
+          "pct": 100,
+          "reduction_pct": 50,
+          "uses": 1
+        }
+      },
+      {
+        "ability_id": "personal_bruno_very_hard_to_knock_down",
+        "name": "Very Hard to Knock Down",
+        "from": "'very hard to knock down'",
+        "engine": "live: death_prevent",
+        "effect_type": "buff",
+        "target_type": "self",
+        "resource_type": "combo",
+        "cooldown": 15,
+        "duration": 4,
+        "stat_mods": {},
+        "description": "For 4 turns, a blow that would kill Bruno leaves him at 20% health instead.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 28,
+            "effect_value": 100
+          }
+        ],
+        "is_instant": true,
+        "death_prevent": {
+          "pct": 20,
+          "lethal_only": false
+        }
+      }
+    ]
+  },
+  "joaquin_suncleric": {
+    "name": "Joaquín Duarte",
+    "passives": {
+      "_name": "He Listened",
+      "_from": "'he was patient and he listened'",
+      "healing_done": 10,
+      "shadow_resistance": 10
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_joaquin_the_same_hands",
+        "name": "The Same Hands",
+        "from": "'Now he heals with the same hands, and he fights with them too'",
+        "engine": "live: heals_lowest_ally_pct",
+        "effect_type": "damage",
+        "target_type": "enemy",
+        "resource_type": "mana",
+        "cooldown": 10,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "A sunlit blow. Heals the most wounded ally for 80% of the damage dealt.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 75
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 42,
+            "effect_value": 156
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 54,
+            "effect_value": 236
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 66,
+            "effect_value": 317
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 78,
+            "effect_value": 398
+          }
+        ],
+        "is_instant": true,
+        "heals_lowest_ally_pct": 80
+      },
+      {
+        "ability_id": "personal_joaquin_a_prisoner_he_d_been_told_to_break",
+        "name": "A Prisoner He'd Been Told to Break",
+        "from": "'sitting with a prisoner he'd been told to break'",
+        "engine": "existing (harmless_to_source)",
+        "effect_type": "debuff",
+        "target_type": "enemy",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 3,
+        "stat_mods": {
+          "harmless_to_source": 1
+        },
+        "description": "For 3 turns, the target cannot harm Joaquín.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 0
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_joaquin_what_he_carries",
+        "name": "What He Carries",
+        "from": "'he carries what he did there without asking anyone to carry it'",
+        "engine": "live: fallen_allies_bonus_pct",
+        "effect_type": "heal",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 15,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Heals the party, 40% more for each fallen ally.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 55
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 42,
+            "effect_value": 136
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 54,
+            "effect_value": 218
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 66,
+            "effect_value": 299
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 78,
+            "effect_value": 380
+          }
+        ],
+        "is_instant": true,
+        "fallen_allies_bonus_pct": 40
+      }
+    ]
+  },
+  "astrid_starcaller": {
+    "name": "Astrid Lindqvist",
+    "passives": {
+      "_name": "Lying in Snow Waiting",
+      "_from": "'lying in snow waiting for the sky to do something'",
+      "crit_chance_spell": 5,
+      "arcane_damage_pct": 10
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_astrid_long_exposure",
+        "name": "Long Exposure",
+        "from": "'very good at waiting for the right moment'",
+        "engine": "live: idle_charge",
+        "effect_type": "buff",
+        "target_type": "self",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 4,
+        "stat_mods": {},
+        "description": "For 4 turns, each turn Astrid does not attack adds 30% to her next shot, up to 120%.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 30
+          }
+        ],
+        "is_instant": true,
+        "idle_charge": {
+          "pct": 30,
+          "cap": 120
+        }
+      },
+      {
+        "ability_id": "personal_astrid_a_clear_night",
+        "name": "A Clear Night",
+        "from": "'She came through on a clear night'",
+        "engine": "live: always_crits and cannot_miss",
+        "effect_type": "damage",
+        "target_type": "enemy",
+        "resource_type": "mana",
+        "cooldown": 15,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "A starlit arrow that cannot miss and always lands a critical hit.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 130
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 42,
+            "effect_value": 256
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 54,
+            "effect_value": 383
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 66,
+            "effect_value": 510
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 78,
+            "effect_value": 636
+          }
+        ],
+        "is_instant": true,
+        "always_crits": true,
+        "cannot_miss": true
+      },
+      {
+        "ability_id": "personal_astrid_the_stars_are_wrong",
+        "name": "The Stars Are Wrong",
+        "from": "'The stars are wrong, but they're very bright.'",
+        "engine": "existing (miss_chance_pct on every enemy)",
+        "effect_type": "debuff",
+        "target_type": "all_enemies",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 2,
+        "stat_mods": {
+          "miss_chance_pct": 25
+        },
+        "description": "For 2 turns, every enemy misses 25% more often.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 0
+          }
+        ],
+        "is_instant": true
+      }
+    ]
+  },
+  "luka_stormbringer": {
+    "name": "Luka Perić",
+    "passives": {
+      "_name": "Fifteen Years on the Crossing",
+      "_from": "'captained a car ferry between Split and the islands for fifteen years'",
+      "frost_damage_pct": 10,
+      "nature_damage_pct": 10
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_luka_the_squall_comes_in",
+        "name": "The Squall Comes In",
+        "from": "'Ever seen a squall come in over open water?'",
+        "engine": "live: self_stun_turns",
+        "effect_type": "spell_damage",
+        "target_type": "enemy_aoe",
+        "resource_type": "mana",
+        "cooldown": 15,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Brings a squall down on one enemy row for huge nature damage. Luka loses his next turn.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 160
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 42,
+            "effect_value": 240
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 54,
+            "effect_value": 320
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 66,
+            "effect_value": 400
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 78,
+            "effect_value": 480
+          }
+        ],
+        "is_instant": true,
+        "damage_school": "nature",
+        "self_stun_turns": 1
+      },
+      {
+        "ability_id": "personal_luka_stand_behind_me",
+        "name": "Stand Behind Me",
+        "from": "'Stand behind me and you'll be fine.'",
+        "engine": "existing (party damage_taken_pct)",
+        "effect_type": "buff",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 10,
+        "duration": 2,
+        "stat_mods": {
+          "damage_taken_pct": -0.25
+        },
+        "description": "For 2 turns, the party takes 25% less damage.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 100
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_luka_the_last_ferry",
+        "name": "The Last Ferry",
+        "from": "'he blows it once every evening at the time the last ferry used to leave'",
+        "engine": "live: mana_restore_pct",
+        "effect_type": "restore_resource",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Gives every ally back 20% of their mana.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 20
+          }
+        ],
+        "is_instant": true,
+        "mana_restore_pct": 20
+      }
+    ]
+  },
+  "zofia_cultist": {
+    "name": "Zofia Nowak",
+    "passives": {
+      "_name": "Nobody Talks Down to Her Twice",
+      "_from": "'nobody talks down to her twice'",
+      "crit_chance_spell": 5,
+      "shadow_resistance": 10
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_zofia_eight_hours_of_shouting",
+        "name": "Eight Hours of Shouting",
+        "from": "'eight hours a day of people shouting at her'",
+        "engine": "live: target_health_bonus_pct",
+        "effect_type": "spell_damage",
+        "target_type": "enemy",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Shadow damage, up to 50% more against a target with more health.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 100
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 42,
+            "effect_value": 212
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 54,
+            "effect_value": 324
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 66,
+            "effect_value": 436
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 78,
+            "effect_value": 548
+          }
+        ],
+        "is_instant": true,
+        "damage_school": "shadow",
+        "target_health_bonus_pct": 50
+      },
+      {
+        "ability_id": "personal_zofia_she_walked_out",
+        "name": "She Walked Out",
+        "from": "'she walked out of Andorhal with what they'd taught her'",
+        "engine": "live: damage_to_shield",
+        "effect_type": "buff",
+        "target_type": "self",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 3,
+        "stat_mods": {},
+        "description": "For 3 turns, 40% of the magic damage Zofia takes becomes a shield on her.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 100
+          }
+        ],
+        "is_instant": true,
+        "damage_to_shield": {
+          "pct": 40,
+          "school": "magic"
+        }
+      },
+      {
+        "ability_id": "personal_zofia_three_of_their_books",
+        "name": "Three of Their Books",
+        "from": "'she took three of the Cult's books with her'",
+        "engine": "existing (debuff on an enemy row)",
+        "effect_type": "debuff",
+        "target_type": "enemy_aoe",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 3,
+        "stat_mods": {
+          "damage_dealt_pct": -30
+        },
+        "description": "For 3 turns, the enemies in one row deal 30% less damage.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 100
+          }
+        ],
+        "is_instant": true
+      }
+    ]
+  },
+  "omar_venomancer": {
+    "name": "Omar Saleh",
+    "passives": {
+      "_name": "Very Calm Around Things That Sting",
+      "_from": "'very calm around things that sting'",
+      "nature_damage_pct": 10,
+      "nature_resistance": 10
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_omar_fogging_the_block",
+        "name": "Fogging the Block",
+        "from": "'fumigating apartment blocks and restaurants'",
+        "engine": "existing (spell_dot on an enemy row)",
+        "effect_type": "spell_dot",
+        "target_type": "enemy_aoe",
+        "resource_type": "mana",
+        "cooldown": 10,
+        "duration": 4,
+        "stat_mods": {},
+        "description": "Nature damage over 4 turns to every enemy in one row.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 45
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 42,
+            "effect_value": 146
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 54,
+            "effect_value": 246
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 66,
+            "effect_value": 347
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 78,
+            "effect_value": 448
+          }
+        ],
+        "is_instant": true,
+        "damage_school": "nature"
+      },
+      {
+        "ability_id": "personal_omar_half_an_antidote",
+        "name": "Half an Antidote",
+        "from": "'a poison you understand is half an antidote'",
+        "engine": "live: dispel and heals_dispelled_damage",
+        "effect_type": "dispel",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 10,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Takes one poison or disease off every ally and heals them for the damage it would have done.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 0
+          }
+        ],
+        "is_instant": true,
+        "dispel_count": 1,
+        "dispel_type": [
+          "poison",
+          "disease"
+        ],
+        "heals_dispelled_damage": true
+      },
+      {
+        "ability_id": "personal_omar_the_second_treatment",
+        "name": "The Second Treatment",
+        "from": "'the same job'",
+        "engine": "live: max_stacks and stack_on repeat",
+        "effect_type": "debuff",
+        "target_type": "enemy",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 5,
+        "stat_mods": {
+          "physical_damage_taken_pct": 15,
+          "magic_damage_taken_pct": 15
+        },
+        "description": "For 5 turns the target takes 15% more damage. Using it again stacks it, up to three times.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 100
+          }
+        ],
+        "is_instant": true,
+        "max_stacks": 3,
+        "stack_on": "repeat"
+      }
+    ]
+  },
+  "santiago_runemaster": {
+    "name": "Santiago Ríos",
+    "passives": {
+      "_name": "A Waiting List That Ran for Months",
+      "_from": "'a perfectionist about line work'",
+      "crit_chance_physical": 5,
+      "arcane_damage_pct": 10
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_santiago_a_line_you_can_t_take_back",
+        "name": "A Line You Can't Take Back",
+        "from": "'Every rune's a line you can't take back.'",
+        "engine": "live: cannot_miss",
+        "effect_type": "damage",
+        "target_type": "enemy",
+        "resource_type": "mana",
+        "cooldown": 10,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "A runed cut that cannot miss.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 75
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 42,
+            "effect_value": 156
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 54,
+            "effect_value": 236
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 66,
+            "effect_value": 317
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 78,
+            "effect_value": 398
+          }
+        ],
+        "is_instant": true,
+        "cannot_miss": true
+      },
+      {
+        "ability_id": "personal_santiago_session_by_session",
+        "name": "Session by Session",
+        "from": "'runes started showing up in his work'",
+        "engine": "live: max_stacks and stack_on attack",
+        "effect_type": "buff",
+        "target_type": "self",
+        "resource_type": "mana",
+        "cooldown": 10,
+        "duration": 5,
+        "stat_mods": {
+          "damage_dealt_pct": 8
+        },
+        "description": "For 5 turns, each attack Santiago lands raises his damage by 8%, up to five times.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 100
+          }
+        ],
+        "is_instant": true,
+        "max_stacks": 5,
+        "stack_on": "attack"
+      },
+      {
+        "ability_id": "personal_santiago_the_stencil",
+        "name": "The Stencil",
+        "from": "'he engraves them into his blades now'",
+        "engine": "live: mark",
+        "effect_type": "debuff",
+        "target_type": "enemy_aoe",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 5,
+        "stat_mods": {},
+        "description": "Marks one enemy row for 5 turns. The party deals 30% more damage to marked enemies.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 30
+          }
+        ],
+        "is_instant": true,
+        "mark": {
+          "pct": 30
+        }
+      }
+    ]
+  },
+  "emiliano_pyromancer": {
+    "name": "Emiliano Vargas",
+    "passives": {
+      "_name": "Never Once Burned Himself",
+      "_from": "'He never once burned himself'",
+      "fire_damage_pct": 10,
+      "fire_resistance": 10
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_emiliano_two_minutes_a_red_light",
+        "name": "Two Minutes a Red Light",
+        "from": "'two minutes a red light, for coins from the windows'",
+        "engine": "live: on_kill_repeat_pct",
+        "effect_type": "spell_damage",
+        "target_type": "enemy_aoe",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Fire on one enemy row. If it kills anything, it goes off again at 50%.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 120
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 42,
+            "effect_value": 180
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 54,
+            "effect_value": 240
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 66,
+            "effect_value": 300
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 78,
+            "effect_value": 360
+          }
+        ],
+        "is_instant": true,
+        "damage_school": "fire",
+        "on_kill_repeat_pct": 50
+      },
+      {
+        "ability_id": "personal_emiliano_the_whole_breath",
+        "name": "The Whole Breath",
+        "from": "'Now it comes out of him the colour of a dragon's breath'",
+        "engine": "live: self_stun_turns",
+        "effect_type": "spell_damage",
+        "target_type": "enemy",
+        "resource_type": "mana",
+        "cooldown": 15,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Breathes out everything he has for huge fire damage. Emiliano loses his next turn.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 210
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 42,
+            "effect_value": 363
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 54,
+            "effect_value": 516
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 66,
+            "effect_value": 669
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 78,
+            "effect_value": 822
+          }
+        ],
+        "is_instant": true,
+        "damage_school": "fire",
+        "self_stun_turns": 1
+      },
+      {
+        "ability_id": "personal_emiliano_lit_it_from_across_the_yard",
+        "name": "Lit It From Across the Yard",
+        "from": "'he lit their forge from across the yard'",
+        "engine": "live: damage_to_heal",
+        "effect_type": "buff",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 4,
+        "stat_mods": {},
+        "description": "For 4 turns, 30% of the fire damage the party takes heals them instead.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 100
+          }
+        ],
+        "is_instant": true,
+        "damage_to_heal": {
+          "pct": 30,
+          "school": "fire"
+        }
+      }
+    ]
+  },
+  "isla_witchhunter": {
+    "name": "Isla Fraser",
+    "passives": {
+      "_name": "The Stillest Person You'll Ever Meet",
+      "_from": "'the stillest person you'll ever meet with a weapon in her hands'",
+      "crit_chance_physical": 5,
+      "dodge": 5
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_isla_between_two_heartbeats",
+        "name": "Between Two Heartbeats",
+        "from": "'shot biathlon for Scotland'",
+        "engine": "live: turn_meter_boost",
+        "effect_type": "buff",
+        "target_type": "self",
+        "resource_type": "focus",
+        "cooldown": 10,
+        "duration": 1,
+        "stat_mods": {},
+        "description": "Isla takes another turn straight away.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 100
+          }
+        ],
+        "is_instant": true,
+        "turn_meter_boost": 1.0
+      },
+      {
+        "ability_id": "personal_isla_she_doesn_t_miss",
+        "name": "She Doesn't Miss",
+        "from": "'I don't miss, and I'd rather not have to prove it today.'",
+        "engine": "live: missing_health_bonus_pct",
+        "effect_type": "damage",
+        "target_type": "enemy",
+        "resource_type": "focus",
+        "cooldown": 10,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "A bolt that deals up to 80% more the more health the target is missing.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 80
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 25,
+            "effect_value": 166
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 25,
+            "effect_value": 252
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 25,
+            "effect_value": 338
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 25,
+            "effect_value": 424
+          }
+        ],
+        "is_instant": true,
+        "missing_health_bonus_pct": 80,
+        "reach": "ranged"
+      },
+      {
+        "ability_id": "personal_isla_stalking_the_glen",
+        "name": "Stalking the Glen",
+        "from": "'stalked deer in the Highlands for the estates'",
+        "engine": "live: reveals_intent and sure_target",
+        "effect_type": "debuff",
+        "target_type": "enemy",
+        "resource_type": "focus",
+        "cooldown": 12,
+        "duration": 3,
+        "stat_mods": {},
+        "description": "For 3 turns, shows what the target will do next, and the party's attacks on it cannot miss.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 25,
+            "effect_value": 0
+          }
+        ],
+        "is_instant": true,
+        "reveals_intent": "all",
+        "sure_target": true
+      }
+    ]
+  },
+  "dale_reaper": {
+    "name": "Dale Brekke",
+    "passives": {
+      "_name": "Four Generations on the Same Ground",
+      "_from": "'land his family had worked for four generations'",
+      "max_health_pct": 10,
+      "armor_pct": 10
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_dale_bring_it_in_before_the_weather",
+        "name": "Bring It In Before the Weather",
+        "from": "'he knows how to bring a harvest in before the weather turns'",
+        "engine": "existing (damage on an enemy row)",
+        "effect_type": "damage",
+        "target_type": "enemy_aoe",
+        "resource_type": "mana",
+        "cooldown": 10,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "A long sweep of the scythe through one enemy row.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 65
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 42,
+            "effect_value": 106
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 54,
+            "effect_value": 146
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 66,
+            "effect_value": 186
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 78,
+            "effect_value": 227
+          }
+        ],
+        "is_instant": true
+      },
+      {
+        "ability_id": "personal_dale_the_last_pass",
+        "name": "The Last Pass",
+        "from": "'it felt like the last pass of a long harvest'",
+        "engine": "live: delayed",
+        "effect_type": "damage",
+        "target_type": "enemy_aoe",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 2,
+        "stat_mods": {},
+        "description": "A great swing that lands on one enemy row two turns from now.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 100
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 42,
+            "effect_value": 150
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 54,
+            "effect_value": 200
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 66,
+            "effect_value": 250
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 78,
+            "effect_value": 300
+          }
+        ],
+        "is_instant": true,
+        "delayed": {
+          "turns": 2,
+          "mult": 1.0
+        }
+      },
+      {
+        "ability_id": "personal_dale_after_church_on_sunday",
+        "name": "After Church on Sunday",
+        "from": "'they called every Sunday after church'",
+        "engine": "live: heals_party_pct_max and party_resource_pct",
+        "effect_type": "heal",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 15,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Heals the party for 30% of their maximum health and gives back 20% of their resource.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 40
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 42,
+            "effect_value": 106
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 54,
+            "effect_value": 172
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 66,
+            "effect_value": 238
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 78,
+            "effect_value": 304
+          }
+        ],
+        "is_instant": true,
+        "heals_party_pct_max": 30,
+        "party_resource_pct": 20
+      }
+    ]
   }
 }

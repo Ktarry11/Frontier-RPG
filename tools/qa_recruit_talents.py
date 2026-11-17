@@ -35,6 +35,9 @@ os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 
 from world.recruit_manager import RecruitManager, CATCHUP  # noqa: E402
 
+#: the top of the game: talents, ranks and spellbooks are all built for levels 1-60
+LEVEL_CAP = 60
+
 
 def snapshot(char):
     """Everything about Asher that must not move.
@@ -71,7 +74,9 @@ def main():
     for rec in recruits:
         if rec.recruit_id == "asher_coleman":
             continue
-        for player_level in (None, rec.level + 20):
+        # Caught up as far as a level-60 player can drag them. 17 Nov 2026: sheet 4 put companions at 51-58, and
+        # "+20" asked a level-58 reaper to hold 74 levels of points in a tree built for 60.
+        for player_level in (None, min(rec.level + 20, LEVEL_CAP)):
             char = rec.build_character(player_level)
             if char.level < 5:
                 continue        # no points exist below 5; nothing to spend

@@ -135,6 +135,21 @@ bosses. They replace the borrowed art on the zone's creatures and on its people 
 Bulwark's Forsaken, the Argent Dawn), and they are what Scholomance, Stratholme and Hearthglen were waiting on to be
 wired (rosters, kits, loot, floors, doors, one-way exits). Crown Guard Camp folds into Light's Hope.
 
+## Sheet 4 recruits: sixteen more companions (art landed 17 Nov 2026)
+- **Done, 17 Nov 2026.** Kyle: "They can be spread out as per our previous discussions." The roster in
+  docs/recruit_art_prompts_sheet4.md, with the Plaguelands moves since it was written: Sorrow Hill is gone, so Bruno
+  and Joaquín stand in the Bulwark; Crown Guard folded into Light's Hope, so Isla is there; Graham went to the Pale
+  Watch and Dale to the Eastern Plaguelands so no town holds three.
+- Art: tools/asset_pipeline/slice_recruit_sheet4.py cut both 4x4 sheets into a sprite and a portrait each.
+- Who they are: tools/writing/sheet4_recruits.py. Records, kits and placement: tools/build_sheet4_recruits.py.
+- Each one has one named passive and three abilities quoting their own story, built only from mechanics the engine
+  already runs. Twenty-five of them rank to 60 by tools/rank_kit_abilities.py's rule. Five rank-1 sizes were held so
+  the kit medians did not move, which leaves every older recruit's ranks exactly where they were.
+- QA changes: qa_recruit_placement's ceiling is now 58, and qa_recruit_talents catches a recruit up only as far as
+  level 60 (it was asking a level-58 reaper to hold 74 levels of points).
+- Open: audit_recruit_combat still exits 1 on Ryan's Health Funnel healing his Felhunter. That was there before
+  this work, and none of the sixteen fail it.
+
 ## Secrets (counts only; never where)
 Kyle asked how many secrets are "just vendors behind buildings". 390 secrets on 147 maps; 55 are "behind a
 building", and 38 of the 52 hidden sellers are exactly that and nothing else. Every open-world zone from the Valley of

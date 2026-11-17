@@ -28,7 +28,7 @@ import sys, os, json, re, collections, pathlib
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-MAX_LEVEL = 48
+MAX_LEVEL = 58   # 17 Nov 2026: sheet 4 put companions at 51-58 for the top of the game (Felwood, Tempest, Plaguelands)
 
 #: Asher is camped at the Burning Blade Coven by design, is leashed there, and
 #: his text is hash-locked. He is the one deliberate exception.
