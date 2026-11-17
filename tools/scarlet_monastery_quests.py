@@ -1,6 +1,6 @@
 """
 The Scarlet Monastery's quests, given in town (Brill, the Undercity and Tarren Mill), never at the door. Levels 28-42,
-with one last step at 50 that carries the Order of the Pale Flame's thread on to Sorrow Hill. Read by
+with one last step at 50 that carries the Order of the Pale Flame's thread on to the Bulwark. Read by
 tools/build_scarlet_monastery_quests.py, which holds them to the Stonetalon pass's rules before anything is written.
 
 WHAT THE MONASTERY IS ABOUT. The Scarlet Crusade's oldest house, a day's ride from Brill. Since the Integration the
@@ -10,7 +10,7 @@ fodder, a preacher filling the nave. The Order of the Pale Flame walked out of t
 watching the Monastery, and he wants three things out of it: a scout of theirs, a book of names, and the captain who
 burned a transplant camp the night Rory Callahan left.
 
-  BRILL (5)          Flamewarden Teodor Novak (the Order's chain, one quest a wing and the last at Sorrow Hill),
+  BRILL (5)          Flamewarden Teodor Novak (the Order's chain, one quest a wing and the last at the Bulwark),
                      Gravedigger Hollis (the Monastery's dead).
   THE UNDERCITY (5)  Deathstalker Rhyne (the Crusade's leaders and its champion), Master Apothecary Sable
                      (Thalnos's blood), Loremaster Sennarath (Doan's codex), Apothecary Marwen (the Crusade's zeal).
@@ -167,13 +167,13 @@ def build():
           ("off_hand", "weapon", "shield", "mail_caster")],
          nxt="sm_the_flamekeepers_due"))
     A_(Q("sm_the_flamekeepers_due", "The Flamekeeper's Due", NOVAK, 50, 51, "Pale Flame",
-         "Novak wants Stane's signet put into Flamekeeper Rory Callahan's hand at Sorrow Hill, in the Western "
-         "Plaguelands, where the Order keeps its hall by Uther's Tomb.\n\nThe road there runs past the Bulwark "
+         "Novak wants Stane's signet put into Flamekeeper Rory Callahan's hand at the Bulwark, the Forsaken's "
+         "wall at the end of Tirisfal's east road, where the Order keeps its quarter.\n\nThe road there runs past the Bulwark "
          "and into country that kills people who aren't ready for it. Novak says to wait until you are, and "
          "then to go.",
-         [deliver("sm_q_stanes_signet_carried", "Bring Stane's signet to Flamekeeper Rory Callahan at Sorrow Hill")],
-         "Out the east gate of Tirisfal, past the Bulwark, and keep to the King's Road until you see the hill "
-         "with the chapel on it. Don't go before you're ready. I mean that.",
+         [deliver("sm_q_stanes_signet_carried", "Bring Stane's signet to Flamekeeper Rory Callahan at the Bulwark")],
+         "Take the east road out of Tirisfal to the Bulwark. The Order's banners are on the south side of the "
+         "street, and Rory stands at the keep's door. Don't go before you're ready. I mean that.",
          "That's Elric Stane's ring.\n\nI stood next to him for a year, God help me, and I never once stopped him. "
          "Sit yourself down, because there's a lot of work out here, and the Order could use someone who finishes things.",
          [("back", "armor", None, "caster"), ("neck", "armor", None, "physical"),

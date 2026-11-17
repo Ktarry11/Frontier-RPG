@@ -12,13 +12,16 @@ North WPL (Gahrron's Withering, Northridge, the Thondroril and Hearthglen's gate
 
 Structure (tile coords, y down):
 
-    West gate .......... (3,84): the road from Eastern Tirisfal, straight into the Bulwark
-    The Bulwark ........ the Forsaken front line (20,84): apothecaries, an inn, the bats, the cauldron quests
+    West gate .......... (3,84): the Bulwark's east gate (the Bulwark is its own town map, tools/handbuilt_bulwark.py;
+                         the road from Eastern Tirisfal runs through it)
+    Bulwark Gate ....... the wall's outer works on this side (12,84): the gate, the palisade, the sewer track
     Felstone Field ..... a farm and its cauldron in the north-west (38,40)
     Dalson's Tears ..... a farm, a barn and a cauldron, north of the crossroads (90,36)
     The Writhing Haunt . a haunted homestead and its cauldron in the east (146,62), over the creek
     Andorhal ........... the ruined city in the south-west (56,116): Scourge and Forsaken fighting through it
-    Sorrow Hill ........ the Order of the Pale Flame's keep (100,128) and Uther's Tomb (114,142)
+    Sorrow Hill ........ graves on the old road (100,128), and Uther's Tomb (114,142). The Order of the Pale Flame's
+                         keep stood here until they moved into the Bulwark (Kyle, 16 Nov 2026: "Remove Sorrow
+                         Hill and Move these people into the Bulwark"); the dead came back up the hill.
     Darrowmere Lake .... the south-east (150,128); Caer Darrow is the island, reached by a causeway
     North gate ......... (96,3): on into North WPL
 
@@ -41,7 +44,7 @@ PL = "assets/tiles/plaguelands/props/"          # Kyle's Plaguelands sheet 3, wh
 W, H = 180, 160
 NAME = "Western Plaguelands South"
 
-PORTALS = {(3, 84): "Eastern Tirisfal", (96, 3): "Western Plaguelands North", (150, 53): "The Writhing Deep"}
+PORTALS = {(3, 84): "The Bulwark", (96, 3): "Western Plaguelands North", (150, 53): "The Writhing Deep"}
 ARRIVALS = [(7, 84), (96, 7), (150, 51)]
 #: Doors whose ground is cut and which go live when the map behind them exists (qa_portals fails a door that leads
 #: nowhere): (tile) -> (target map, its arrival tile)
@@ -129,28 +132,9 @@ SPEC = E.Spec(NAME, W, H, ROADS, rivers=RIVERS, lakes=LAKES, deep_shrink=DEEP_SH
               rim={"north": 4, "south": 4}, rock_rim={"west": 7, "east": 6}, gaps=GAPS, decks=DECKS, fords=FORDS,
               thicket=(0.78, 9.0, 1.7))
 
-#: The Bulwark and Sorrow Hill are this map's two hubs (each with an inn and a flight master); everyone else stands
-#: where their trade is. Written into data/npcs by tools/sync_wpl_south_npcs.py when the roster lands.
-NPC_POSITIONS = {
-    # ---- the Bulwark (Forsaken)
-    "wpl_bulwark_commander": (24, 80),
-    "wpl_bulwark_apothecary": (30, 88),       # the cauldron quests
-    "wpl_bulwark_innkeeper": (16, 88),
-    "wpl_bulwark_bat_handler": (14, 78),
-    "wpl_bulwark_quartermaster": (28, 79),
-    "wpl_bulwark_sewer_agent": (12, 92),      # the Undercity door chain
-    "wpl_bulwark_captain": (20, 85),          # Deathguard Captain Ludo Vance (the field patrols)
-    "wpl_bulwark_surgeon": (32, 82),          # Surgeon Halbert Grey
-    # ---- Sorrow Hill (the Order of the Pale Flame)
-    "wpl_pf_flamekeeper": (100, 125),         # Flamekeeper Rory Callahan
-    "wpl_pf_quartermaster": (106, 133),
-    "wpl_pf_innkeeper": (94, 133),
-    "wpl_pf_bat_keeper": (110, 126),          # the Order keeps a hawk roost; a flight master all the same
-    "wpl_pf_drillmaster": (82, 128),
-    "wpl_pf_chaplain": (118, 140),            # by Uther's Tomb
-    "wpl_pf_scout": (92, 122),                # Scout Agata Wrobel, out of the Monastery's cells
-    "wpl_pf_knight": (102, 131),              # Ser Aldren Holt, who walked out of the Crusade with Rory
-}
+#: Nobody lives out here now. The Bulwark's people and the Order (down from Sorrow Hill) are in the Bulwark's own map
+#: (tools/handbuilt_bulwark.py); the Order's innkeeper and roostkeeper went to the Pale Watch.
+NPC_POSITIONS = {}
 
 SUBZONES = [   # (table_key, x, y, w, h, display_name) - later registrations win on overlap
     ("Felstone Field", 22, 28, 34, 28, None),
@@ -161,7 +145,7 @@ SUBZONES = [   # (table_key, x, y, w, h, display_name) - later registrations win
     ("Caer Darrow", 145, 120, 22, 16, None),
     ("Sorrow Hill", 84, 114, 36, 30, None),
     ("Uther's Tomb", 106, 136, 18, 14, None),
-    ("The Bulwark", 8, 72, 32, 24, None),
+    ("Bulwark Gate", 4, 76, 16, 16, None),
 ]
 
 
@@ -193,15 +177,15 @@ TREES = {   # Kyle's dead oaks lead; his purple blight pines only show up inside
 BLUEBELL_PATCHES = [(38, 42, 12, 8), (88, 36, 13, 8), (146, 62, 10, 7), (24, 60, 8, 5), (110, 80, 9, 6)]
 CORRUPT_PATCHES = [(38, 44, 6, 4), (88, 38, 6, 4), (148, 64, 6, 4), (56, 116, 9, 7)]
 BURNED_PATCHES = [(56, 116, 18, 14), (140, 56, 6, 4)]
-PAVED_PATCHES = [(22, 84, 9, 6), (100, 128, 9, 7), (114, 144, 5, 3), (158, 126, 5, 4)]
+PAVED_PATCHES = [(14, 84, 5, 4), (114, 144, 5, 3), (158, 126, 5, 4)]
 GRADE = (1.0, 1.05)        # (saturation, value): Kyle's ground sheet is lit already; a touch of lift
 
 
 def build_layout():
     AL = E.make_layout_class(SPEC, NAME,
-                             "Lordaeron's old farmland, plague-killed and still fought over. The Forsaken hold the "
-                             "Bulwark, the Order of the Pale Flame holds Sorrow Hill, and the Scourge's cauldrons "
-                             "keep the fields sick.",
+                             "Lordaeron's old farmland, plague-killed and still fought over. The Forsaken's Bulwark "
+                             "holds the west road, the Scarlet Crusade pushes down from the north, and the "
+                             "Scourge's cauldrons keep the fields sick.",
                              "Eastern Kingdoms - Lordaeron", PORTALS, ARRIVALS, NPC_POSITIONS)
     L = AL()
     E.terrain(L)
@@ -262,18 +246,14 @@ def dress(L):
     B = L.bld
     BQ = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=PL, fraction=0.5, **kw)   # prop-sheet buildings
 
-    # ---- the west gate and the Bulwark: the Forsaken's front line -------------------------------------------------
+    # ---- Bulwark Gate: the wall's outer works. The town is behind the gate (tools/handbuilt_bulwark.py)
     B("pl_bulwark_gate", 9, 82, 8)
     B("pl_bulwark_palisade", 10, 72, 8)
-    B("pl_bulwark_bat_roost", 14, 74, 10)
-    B("pl_bulwark_barracks", 26, 76, 7)
-    B("pl_bulwark_apothecary", 34, 90, 7)
-    B("forsaken_inn", 16, 94, 8)
-    B("pl_bulwark_wagon_shed", 38, 80, 6)
-    Q("pl_cauldron_live", 30, 84, 4)
     P("ek_forsaken_banner", 18, 80, 5)
-    P("ek_forsaken_banner", 28, 86, 5)
+    P("ek_forsaken_banner", 18, 88, 5)
+    Q("pl_bone_barricade", 26, 78, 3, solid=False)
     Q("pl_corpse_sacks", 22, 90, 3)
+    P("ek_gibbet", 30, 90, 5)
     P("ek_signpost", 40, 86, 4)
 
     # ---- Felstone Field: a farm and its cauldron --------------------------------------------------------------------
@@ -324,15 +304,16 @@ def dress(L):
     P("ek_signpost", 76, 82, 4)
     P("ek_gibbet", 66, 76, 5)
 
-    # ---- Sorrow Hill: the Order of the Pale Flame's keep, and Uther's Tomb ---------------------------------------------
-    B("pf_keep", 100, 121, 9, nudge=5)
-    B("pf_chapel", 116, 124, 9, nudge=2)
-    B("pf_training_yard", 84, 124, 6)
-    B("pf_hall", 92, 141, 7)
-    B("pf_stable", 110, 134, 6)
-    Q("pf_banner", 96, 128, 5)
-    Q("pf_banner", 106, 128, 5)
-    Q("pf_weapon_rack", 88, 132, 3)
+    # ---- Sorrow Hill: graves on the old road, and Uther's Tomb. The Order's keep came down when they moved into
+    # the Bulwark; what's left is the hill as it was, and the dead who've come back up it
+    BQ("pl_ruin_wall", 98, 122, 6)                  # the keep's footing, all that's left of it
+    Q("pl_ruin_arch", 106, 124, 5)
+    for (x, y) in [(88, 126), (94, 132), (104, 134), (90, 138), (110, 128), (84, 134)]:
+        U("gravestone_cluster", x, y, 3, solid=False)
+    P("ek_open_grave", 98, 130, 2, solid=False)
+    P("ek_open_grave", 108, 132, 2, solid=False)
+    P("ek_grave_hand", 92, 128, 2, solid=False)
+    P("ek_cemetery_gate", 102, 140, 4, solid=False)
     Q("pl_knight_statue", 114, 142, 6)              # Uther's Tomb
     P("ek_cemetery_fence", 106, 146, 3, solid=False)
     P("ek_cemetery_fence", 122, 146, 3, solid=False)

@@ -5663,6 +5663,9 @@ def create_all_zones():
     from tools import handbuilt_wpl_north as dwpln
     from tools import handbuilt_epl_west as deplw
     from tools import handbuilt_epl_east as deple
+    from tools import handbuilt_bulwark as dbulwark
+    from tools import handbuilt_pale_watch as dpalewatch
+    from tools import handbuilt_lights_hope as dlightshope
     from tools import handbuilt_lashings as dlash
     from tools import handbuilt_return_voyage as drv
     from tools import handbuilt_bloodsail_raider as dbr
@@ -5814,14 +5817,18 @@ def create_all_zones():
         # the contrast that makes Saltwheel's missing bird mean something.
         "Steamwheedle Port": dstw.generate_steamwheedle_port(),
         # ===== THE PLAGUELANDS (51-60, docs/plaguelands_design.md): east of Eastern Tirisfal =====
-        # The Bulwark, Felstone, Dalson's, the Writhing Haunt, Andorhal, Sorrow Hill and Darrowmere.
+        # Bulwark Gate, Felstone, Dalson's, the Writhing Haunt, Andorhal, Sorrow Hill and Darrowmere.
         "Western Plaguelands South": dwpls.generate_wpl_south(),  # (tools/handbuilt_wpl_south.py)
         # Northridge, Gahrron's Withering and Hearthglen's gates, the Scarlet half (53-56)
         "Western Plaguelands North": dwpln.generate_wpl_north(),  # (tools/handbuilt_wpl_north.py)
         # Plaguewood, Terrordale, Corin's Crossing and Stratholme's gates (55-58)
         "Eastern Plaguelands West": deplw.generate_epl_west(),  # (tools/handbuilt_epl_west.py)
-        # Light's Hope, Crown Guard, Tyr's Hand, Darrowshire and the far north-east (56-60, NOT pure 60)
+        # Light's Hope's gate, Crown Guard Tower, Tyr's Hand, Darrowshire and the far north-east (56-60, NOT pure 60)
         "Eastern Plaguelands East": deple.generate_epl_east(),  # (tools/handbuilt_epl_east.py)
+        # the Plaguelands' towns, each its own map (docs/plaguelands_towns_plan.md)
+        "The Bulwark": dbulwark.generate_bulwark(),              # (tools/handbuilt_bulwark.py)
+        "The Pale Watch": dpalewatch.generate_pale_watch(),      # (tools/handbuilt_pale_watch.py)
+        "Light's Hope Chapel": dlightshope.generate_lights_hope(),  # (tools/handbuilt_lights_hope.py)
         # The Scarlet Monastery off Eastern Tirisfal's gate: the grounds and the four wings, each its own dungeon
         # (Graveyard 28-32, Library 32-36, Armory 35-39, Cathedral 38-42). tools/handbuilt_scarlet_monastery.py
         dsm.GROUNDS: dsm.generate_grounds(),

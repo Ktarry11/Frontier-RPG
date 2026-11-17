@@ -126,42 +126,47 @@ INVADER = ("pl_invaders_scourgestone", "Invader's Scourgestone", "A heavier shar
 CORRUPTOR = ("pl_corruptors_scourgestone", "Corruptor's Scourgestone", "A stone the size of a fist, taken from "
              "something the Scourge thought worth naming.", "qi_gem")
 INSIGNIA = ("pl_crusaders_insignia", "Crusader's Insignia", "A Scarlet Crusade badge, a red flame on a white "
-            "field. Sorrow Hill keeps count of every one that comes back.", "qi_signet")
+            "field. The Order of the Pale Flame keeps count of every one that comes back.", "qi_signet")
 #: quest id, giver, zone, title, item, how many, rep, level, description, accept, done
 TURN_INS = [
+    # each in the giver's own voice (Kyle, 16 Nov 2026; tools/plaguelands_quest_voice.py has the rest)
     ("pl_ts_minions_scourgestones", "epl_lh_scourgestones", "eastern_plaguelands_east", "Minion's Scourgestones",
      MINION, 10, 75, 51,
-     "Archmage Lysander Hale buys Minion's Scourgestones, the small dark shards the lesser dead of the western "
-     "Plaguelands carry, and the Argent Dawn remembers who brings them.\n\nHe'll take them by the handful, as often "
-     "as you've got them.",
-     "Bring me a handful of Minion's Scourgestones whenever you have them. The ghouls and skeletons in the west "
-     "carry most of them. I'll break them down here, where it's safe to.",
+     "Bring Archmage Hale a handful of Minion's Scourgestones from the lesser dead of the western "
+     "Plaguelands.",
+     "The lesser dead carry Minion's Scourgestones, little slivers of the necromancy that keeps them "
+     "walking. The ghouls and skeletons in the west have most of them.\n\nI break them down here, on holy "
+     "ground, where it's safe to. The Dawn remembers who brings them, and so do I.\n\nBring me a handful "
+     "whenever you have them. I'll take them as often as you've got them.",
      "That's a handful. The Dawn's grateful, and so am I.\n\nBring me more when you've got them."),
     ("pl_ts_invaders_scourgestones", "epl_lh_scourgestones", "eastern_plaguelands_east", "Invader's Scourgestones",
      INVADER, 10, 150, 55,
-     "The Scourge that march in the eastern Plaguelands carry heavier shards, Invader's Scourgestones, and Archmage "
-     "Hale pays the Dawn's thanks twice over for them.\n\nHe'll take them by the handful, as often as you've got them.",
-     "The dead around Stratholme and Terrordale carry Invader's Scourgestones. Bring me a handful whenever you can. "
-     "Wear gloves, because they bite.",
-     "These are heavy ones. Every shard here is one less thing walking toward the wall.\n\nCome back when you've "
-     "got more."),
+     "Bring Archmage Hale a handful of Invader's Scourgestones from the Scourge in the eastern "
+     "Plaguelands.",
+     "The Scourge that march in the east carry heavier shards. Invader's Scourgestones, we call them, and "
+     "they're cold enough to hurt. The dead round Stratholme and Terrordale carry most of them.\n\nThe Dawn "
+     "pays twice over for these. Every one is a little less of whatever moves the Scourge.\n\nBring me a "
+     "handful whenever you can. Wear gloves, because they bite.",
+     "These are heavy ones. Every shard here is one less thing walking toward the wall.\n\nCome back when "
+     "you've got more."),
     ("pl_ts_corruptors_scourgestone", "epl_lh_scourgestones", "eastern_plaguelands_east", "A Corruptor's Scourgestone",
      CORRUPTOR, 1, 100, 51,
-     "The Scourge's named horrors carry Corruptor's Scourgestones, a fist of crystal that feels like it's watching "
-     "you. Archmage Hale wants every one of them destroyed, and the Dawn pays well for each.",
-     "The worst of them carry a Corruptor's Scourgestone. If you've killed one of the Scourge's named horrors and "
-     "you've got its stone, bring it to me and nobody else.",
+     "Bring Archmage Hale a Corruptor's Scourgestone from one of the Scourge's named horrors.",
+     "The Scourge's named horrors carry Corruptor's Scourgestones, a fist of crystal that feels like it's "
+     "watching you. I want every one of them destroyed, and the Dawn pays well for each.\n\nIf you've "
+     "killed one of the Scourge's named horrors and you've got its stone, bring it to me and nobody else. "
+     "Don't keep it in your pack overnight.",
      "I'll see it broken tonight. That one was watching you, I promise.\n\nThe Dawn won't forget it, and "
      "neither will the newcomers who hold the wall beside us."),
     ("pl_ts_crusaders_insignia", "wpl_pf_chaplain", "western_plaguelands_south", "Crusader's Insignia",
      INSIGNIA, 10, 75, 51,
-     "Chaplain Odile Marchand keeps count of the Scarlet Crusade's insignia that come back to Sorrow Hill. Every "
-     "badge is one fewer fanatic burning someone's farm, and the Order of the Pale Flame pays its thanks for them.\n\n"
-     "She'll take them by the handful, as often as you've got them.",
-     "Every Scarlet in the Plaguelands carries a Crusader's Insignia. Bring me a handful whenever you have them. "
-     "I'll write each one down, and then I'll melt them.",
-     "That's a handful of fanatics who won't be lighting anything tonight.\n\nI used to mark exams, back home. I "
-     "never thought I'd be counting badges instead. Bring me more when you've got them."),
+     "Bring Chaplain Odile Marchand a handful of Crusader's Insignia from the Scarlets of the Plaguelands.",
+     "Every Scarlet in the Plaguelands carries a Crusader's Insignia, a red flame on a white field. I "
+     "keep count of the ones that come back to the Order, because every badge is one fewer fanatic "
+     "burning somebody's farm.\n\nBring me a handful whenever you have them. I'll write each one down, and "
+     "then I'll melt them. The Order pays its thanks for every handful.",
+     "That's a handful of fanatics who won't be lighting anything tonight.\n\nI used to mark exams, back "
+     "home. I never thought I'd be counting badges instead. Bring me more when you've got them."),
 ]
 
 

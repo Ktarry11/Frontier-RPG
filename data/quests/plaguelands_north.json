@@ -7,7 +7,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 53,
       "level_max": 53,
-      "description": "Watch Captain Lena Fischer runs the Pale Watch, the Order's camp at the foot of the road to Hearthglen. Before she sends anyone up that road, she wants them to see it.\n\nShe asks you to walk up to Hearthglen's gate and look at the walls, and then come back down without starting anything.",
+      "description": "Walk up the King's Road and look at Hearthglen's gate, without starting a fight.",
       "objectives": [
         {
           "type": "explore",
@@ -18,7 +18,7 @@
           "label": "Look at Hearthglen's gate"
         }
       ],
-      "accept_text": "Straight up the road north of the camp. You'll see the gate long before you reach it. Don't draw steel, and don't let them get a good look at your face.",
+      "accept_text": "I'm Lena Fischer, and I keep the Pale Watch. Welcome to the last town before Hearthglen.\n\nBefore I send anybody up that road, I want them to have seen it with their own eyes. People hear 'the Crusade' and think of a few zealots with torches. Go and look at the walls, and the towers, and the people on them.\n\nOut the gate and straight up the King's Road. You'll see the gate long before you reach it. Don't draw steel, and don't let them get a good look at your face. Then come back down and tell me what you saw.",
       "turn_in_text": "So now you've seen it. Walls, towers, and a lot of people who'd like to burn you.\n\nI was a police officer in Hamburg, back home. I've raided worse places, but never with a sword.",
       "next_quest_id": "pln_sentries_on_the_road",
       "reward_exp": 3880,
@@ -97,7 +97,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 54,
       "level_max": 55,
-      "description": "Every Scarlet Sentry on the road below Hearthglen's walls turns back anyone who isn't wearing red. Lately they've started coming down toward the Pale Watch at night.\n\nLena wants them pushed back up the hill.",
+      "description": "Kill Scarlet Sentries on the road and in the fields below Hearthglen.",
       "objectives": [
         {
           "type": "kill",
@@ -106,7 +106,7 @@
           "zone": "western_plaguelands_north"
         }
       ],
-      "accept_text": "They stand in pairs along the road and in the fields below the gate. They'll call for help, so don't let one run. Keep it quick and quiet.",
+      "accept_text": "Every Scarlet Sentry on the road below Hearthglen turns back anyone who isn't wearing red. That was fine while they stayed up there. Lately they've been coming down at night, closer every time, and last night one of them was close enough to read our gate.\n\nPush them back up the hill. They stand in pairs on the road and in the fields under the gate. They'll call for help if they can, so don't let one run. Keep it quick and keep it quiet.",
       "turn_in_text": "That'll keep them on their own side of the hill for a while.\n\nHale used to be a security contractor, back on Earth. He knows what an open flank looks like, and so do I.",
       "next_quest_id": "pln_crossbows_on_the_wall",
       "requires_quests": [
@@ -192,7 +192,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 55,
       "level_max": 56,
-      "description": "With the sentries gone, Hearthglen's put a Scarlet Crossbowman in every hedge to cover the road. They shot one of Mateo's scouts yesterday from a hedgerow.\n\nLena wants them cleared out of the fields.",
+      "description": "Kill the Scarlet Crossbowmen hiding in the hedges and ditches below Hearthglen.",
       "objectives": [
         {
           "type": "kill",
@@ -201,7 +201,7 @@
           "zone": "western_plaguelands_north"
         }
       ],
-      "accept_text": "They hide in the hedges and the ditches below the walls. Close the distance fast, because a crossbow takes a while to wind and they'll know it. Don't stand still in the open.",
+      "accept_text": "Hearthglen's answered us. With the sentries gone, they've put a Scarlet Crossbowman in every hedge along the road. One of Mateo's scouts took a bolt yesterday from a hedgerow he'd walked past a hundred times.\n\nI want them out of the fields. They hide in the hedges and the ditches below the walls. A crossbow takes a while to wind and they know you know it, so close the distance fast and don't stand still in the open.",
       "turn_in_text": "Mateo's scout is going to live, and the fields are ours to walk again.\n\nI've got something for Rory, if you're heading south.",
       "next_quest_id": "pln_word_from_the_watch",
       "requires_quests": [
@@ -288,16 +288,16 @@
       "zone": "western_plaguelands_north",
       "level_min": 55,
       "level_max": 55,
-      "description": "Lena has watched Hearthglen's gates for a month, and she's written down everything she's seen. Hale is gathering his people inside the walls, and Lena doesn't think he's planning to defend them.\n\nShe wants her report in Rory Callahan's hands at Sorrow Hill.",
+      "description": "Carry Lena's report to Flamekeeper Rory Callahan in the Order's quarter of the Bulwark.",
       "objectives": [
         {
           "type": "deliver",
           "target": "pl_q_lena_report",
           "count": 1,
-          "label": "Bring Lena's report to Flamekeeper Rory Callahan at Sorrow Hill"
+          "label": "Bring Lena's report to Flamekeeper Rory Callahan at the Bulwark"
         }
       ],
-      "accept_text": "South down the King's Road to Sorrow Hill, by Uther's Tomb. Fly if you can. Give it to Rory and wait while he reads it, because he'll have an answer.",
+      "accept_text": "I've watched Hearthglen's gate for a month, and I've written down everything I've seen. Hale is pulling his people in behind the walls. Patrols, wagons, the lumber crews from Northridge. I don't think he's planning to sit behind those walls. I think he's getting ready to come out of them.\n\nRory needs this. He's at the Bulwark now, at the keep in the Order's quarter on the south side of the street. Fly if you can, the roostkeeper's by the south wall. Give it to Rory and wait while he reads it, because he'll have an answer.",
       "turn_in_text": "Lena's report, in her lovely tidy hand. She writes like she's filling out a form.\n\nHale's getting ready to march. I knew he would. Tell Lena to hold the Watch, and that I'm coming north.",
       "next_quest_id": null,
       "turn_in_npc_id": "wpl_pf_flamekeeper",
@@ -389,7 +389,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 55,
       "level_max": 56,
-      "description": "The Order keeps a man in Brill, Flamewarden Teodor Novak, who watches the Scarlet Monastery from a window over the inn. Lena wants him to know what Hale is doing in Hearthglen, because if Hale marches, the Monastery will march with him.\n\nShe wants her letter carried to Brill.",
+      "description": "Carry Lena's letter to Flamewarden Teodor Novak in Brill.",
       "objectives": [
         {
           "type": "deliver",
@@ -398,7 +398,7 @@
           "label": "Bring Lena's letter to Flamewarden Teodor Novak in Brill"
         }
       ],
-      "accept_text": "South to the Bulwark, west through the gate into Tirisfal, and on to Brill. Teodor lodges over the inn. He'll offer you a drink, and you should take it.",
+      "accept_text": "The Order keeps a man in Brill. Flamewarden Teodor Novak watches the Scarlet Monastery from a window over the inn, and he's very good at it.\n\nIf Hale marches out of Hearthglen, the Monastery marches with him. Teodor needs to know what I know, and he needs to know it from me.\n\nGo south to the Bulwark and out its west gate into Tirisfal, then on to Brill. Teodor lodges over the inn. He'll offer you a drink, and you should take it. It's the only good beer in Tirisfal.",
       "turn_in_text": "Lena's writing to me? Then it's bad.\n\nI was a firefighter in Brno, back home, and I know what it looks like when two fires are about to join up. Tell her I'll keep my eyes on the Monastery.",
       "next_quest_id": null,
       "turn_in_npc_id": "brill_pf_flamewarden",
@@ -487,7 +487,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 53,
       "level_max": 53,
-      "description": "Scout Mateo Brandt keeps the Pale Watch's roads open, and the Rotting Worgs have learned that the road is where the food walks. They run in packs and they don't let go.\n\nHe wants the packs broken up.",
+      "description": "Kill Rotting Worgs on the roads round the Pale Watch.",
       "objectives": [
         {
           "type": "kill",
@@ -496,7 +496,7 @@
           "zone": "western_plaguelands_north"
         }
       ],
-      "accept_text": "They run the roads south and west of the camp, mostly at dusk. Don't fight more than two at once. They'll go for your legs, so keep moving.",
+      "accept_text": "I'm Mateo, and I keep the Watch's roads open, and the Rotting Worgs have worked out that the road is where the food walks.\n\nThey run in packs and they don't let go once they've got you. I've had two runners come in with half a leg each this week.\n\nThey work the roads south and west of the gate, mostly at dusk. Break the packs up. Don't fight more than two at once, and keep moving, because they go for your legs.",
       "turn_in_text": "That's a road I can walk at dusk again.\n\nI taught kids to ride horses outside Rosario, back home. Out here the horses are dead and the dogs want to eat me.",
       "next_quest_id": "pln_skeletal_wanderers",
       "reward_exp": 3880,
@@ -580,7 +580,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 53,
       "level_max": 54,
-      "description": "The Skeletal Wanderers walk the roads with nowhere to go. Mateo thinks they were travellers once, caught on the road when the plague came. They're slow, but there are a lot of them, and they never stop walking.\n\nHe wants the roads cleared of them.",
+      "description": "Kill Skeletal Wanderers on the roads of North WPL.",
       "objectives": [
         {
           "type": "kill",
@@ -589,7 +589,7 @@
           "zone": "western_plaguelands_north"
         }
       ],
-      "accept_text": "They wander everywhere, but the roads are where they gather. They'll turn and follow you once they've seen you. Don't let them pin you against a wall.",
+      "accept_text": "The Skeletal Wanderers walk the roads with nowhere to go. I think they were travellers once, caught on the road when the plague came, and they've just kept walking ever since.\n\nThey're slow, but there are a lot of them, and they never stop. When they see you they turn round and follow, all of them, until you're backed against something.\n\nThey gather on the roads. Clear them off, and don't let them pin you against a wall.",
       "turn_in_text": "Thank you. I hated watching them walk.\n\nThey were going somewhere, once. I suppose we all were.",
       "next_quest_id": "pln_down_to_the_river",
       "requires_quests": [
@@ -675,7 +675,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 54,
       "level_max": 54,
-      "description": "Mateo wants a way down to the Thondroril, the river along the east edge of the Plaguelands, so the Watch can fill its barrels without a long walk. He wants someone to find a safe path down to the bank and stand on it.",
+      "description": "Find a safe way down to the Thondroril's bank, east of the Pale Watch.",
       "objectives": [
         {
           "type": "explore",
@@ -686,7 +686,7 @@
           "label": "Find a way down to the Thondroril's bank"
         }
       ],
-      "accept_text": "East from the camp, through the fields and down to the river. Find somewhere on the bank the dead don't use. You'll know it when you see it.",
+      "accept_text": "We haul every barrel of water up from the Thondroril, the river on the east side of the fields, and it's a long way round to the only path we trust.\n\nI'd like a shorter one. Somewhere on the bank the dead don't use, where we can put a barrel at the bottom and a marker at the top.\n\nGo east from the gate, through the fields and down to the river. Find somewhere quiet and stand on it. You'll know it when you see it, because nothing will be trying to eat you.",
       "turn_in_text": "That's a good path. We'll put a marker on it and a barrel at the bottom.\n\nOona's down there most days, fishing. Say hello if you see her.",
       "next_quest_id": null,
       "requires_quests": [
@@ -767,7 +767,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 54,
       "level_max": 54,
-      "description": "The Blighted Stags run in a herd across the fields north of the camp, and when something spooks them they stampede straight through the Pale Watch. They've flattened the tents twice.\n\nMateo wants the herd thinned before the third time.",
+      "description": "Kill Blighted Stags in the fields north and east of the Pale Watch.",
       "objectives": [
         {
           "type": "kill",
@@ -776,8 +776,8 @@
           "zone": "western_plaguelands_north"
         }
       ],
-      "accept_text": "They graze in the fields north and east of the camp. Don't stand in front of them when they run. Pick off the ones on the edge of the herd.",
-      "turn_in_text": "Our tents are still standing this morning. That's a first this week.\n\nTake one of these. It's the least I can do.",
+      "accept_text": "There's a herd of Blighted Stags in the fields north of the Watch. Most days they graze. When something spooks them they run, and they run straight at our walls, and twice now they've come through the gate before we could shut it.\n\nI'd like the herd thinned before the third time. They graze in the fields north and east of the town. Don't stand in front of them when they bolt. Pick off the ones on the edge of the herd and let the rest run.",
+      "turn_in_text": "Our gate's still on its hinges this morning, which is a first this week.\n\nTake one of these. It's the least I can do.",
       "next_quest_id": null,
       "reward_exp": 3960,
       "reward_gold": 15600,
@@ -856,7 +856,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 54,
       "level_max": 54,
-      "description": "Mateo thinks the Skeletal Wanderers were travellers caught on the road, and some of them still carry what they had in their pockets. He wants their keepsakes, so the Order can write down what they were and maybe find someone who's still waiting for them.",
+      "description": "Take Traveller's Keepsakes from the Skeletal Wanderers on the roads.",
       "objectives": [
         {
           "type": "fetch",
@@ -864,8 +864,8 @@
           "count": 6
         }
       ],
-      "accept_text": "The wanderers walk the roads all around the camp. Some of them still carry something small, a ring or a letter or a toy. Bring me whatever you find, and I'll write it all down.",
-      "turn_in_text": "A pipe, a thimble, a child's wooden horse. Every one of these belonged to somebody.\n\nOdile at Sorrow Hill will want these for her book. I'll send them south.",
+      "accept_text": "I can't stop thinking about the Skeletal Wanderers. If they were travellers, they had pockets, and some of them still have whatever was in them. A ring, a letter, a toy for somebody waiting at home.\n\nI'd like to write down what they were. Somebody might still be waiting for one of them, and the Order keeps a book of names at the Bulwark.\n\nThey walk the roads all round the Watch. Not every one of them has anything left. Bring me what you find and I'll write it all down.",
+      "turn_in_text": "A pipe, a thimble, a child's wooden horse. Every one of these belonged to somebody.\n\nOdile at the Bulwark will want these for her book. I'll send them south.",
       "next_quest_id": null,
       "reward_exp": 3960,
       "reward_gold": 15600,
@@ -942,7 +942,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 54,
       "level_max": 55,
-      "description": "Field Medic Noah Kowal patches up whoever makes it back to the Pale Watch, and lately that's been people attacked at the river. The Riverbank Ghouls hide in the reeds along the Thondroril and drag people into the water.\n\nNoah wants them cleared out.",
+      "description": "Kill Riverbank Ghouls in the reeds along the Thondroril.",
       "objectives": [
         {
           "type": "kill",
@@ -951,7 +951,7 @@
           "zone": "western_plaguelands_north"
         }
       ],
-      "accept_text": "They lie in the reeds on the Thondroril's banks, east of the camp. They'll come at you from the water. Stay on the high ground and let them come to you.",
+      "accept_text": "I'm Noah, and I patch up whoever makes it back through the gate. Lately that's been people who went down to the river.\n\nThe Riverbank Ghouls hide in the reeds along the Thondroril and drag people into the water. The ones who come back have bites I can't keep clean.\n\nThey lie on the banks east of the town and come at you out of the water. Stay on the high ground and let them climb to you.",
       "turn_in_text": "Nobody came in from the river with bites today. That's a good day.\n\nI was a nurse in Winnipeg, back home, and I've never been happier to have nothing to do.",
       "next_quest_id": "pln_sludge_samples",
       "reward_exp": 4040,
@@ -1035,7 +1035,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 55,
       "level_max": 55,
-      "description": "There's a cauldron at Gahrron's Withering, east of the camp, and Noah says the Cauldron Sludge that crawls out of the cauldron is the plague in its purest form. Noah wants to make a serum, and he needs to start with the real thing.\n\nHe wants samples, sealed.",
+      "description": "Collect Cauldron Sludge Samples from the Cauldron Sludges at Gahrron's Withering.",
       "objectives": [
         {
           "type": "fetch",
@@ -1043,7 +1043,7 @@
           "count": 5
         }
       ],
-      "accept_text": "The sludges crawl around the cauldron at the Withering. Kill one and scoop what's left into a jar. Keep the lid on tight, and don't breathe it in.",
+      "accept_text": "There's a cauldron at Gahrron's Withering, east of here. The Cauldron Sludge that crawls out of that cauldron is the plague at its purest, near enough, and that's exactly what I want.\n\nI think I can make a serum. Not a cure, nothing that good, but something that slows the sickness long enough to get somebody to a priest. I need to start with the real thing.\n\nThe sludges crawl round the cauldron at the Withering. Kill one and scoop what's left into a jar. Keep the lid on tight and don't breathe it in.",
       "turn_in_text": "This is horrible. Thank you.\n\nIf I can make something from this that stops the sickness, every medic on both sides of the sea will want it.",
       "next_quest_id": "pln_the_withering",
       "requires_quests": [
@@ -1128,7 +1128,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 55,
       "level_max": 55,
-      "description": "The cauldron at Gahrron's Withering is kept by the Cult. The Withering Cultists stir it and the Withering Ghouls carry the plague out to the fields. Noah wants the cauldron left untended.",
+      "description": "Kill Withering Ghouls and Withering Cultists at the cauldron in Gahrron's Withering.",
       "objectives": [
         {
           "type": "kill",
@@ -1143,7 +1143,7 @@
           "zone": "western_plaguelands_north"
         }
       ],
-      "accept_text": "East of the camp, past the dead orchard. The cultists stand at the cauldron and the ghouls work around it. Kill the cultists first, because they'll heal the rest.",
+      "accept_text": "The cauldron at Gahrron's Withering is the Cult's. The Withering Cultists stir it, and the Withering Ghouls carry the plague out to the fields in buckets, like they're watering a crop.\n\nI want that cauldron left with nobody to stir it.\n\nIt's east of the Watch, past the dead orchard. The cultists stand at the cauldron and the ghouls work round it. Kill the cultists first. They'll heal the rest, and I'd rather not be patching you up afterward.",
       "turn_in_text": "The cauldron's cold. That's one less in the Plaguelands.\n\nThere's someone in charge out there, though, and he isn't going to stay dead on his own.",
       "next_quest_id": "pln_gahrron_the_withered",
       "requires_quests": [
@@ -1226,7 +1226,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 56,
       "level_max": 56,
-      "description": "Gahrron owned the farm that the Withering is named for. He died there and the Cult raised him to guard their cauldron, and Gahrron the Withered still walks his land, still thinking it's his.\n\nNoah wants him put to rest, so the farm can be burned clean.",
+      "description": "Kill Gahrron the Withered at his farm.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -1235,7 +1235,7 @@
           "zone": "western_plaguelands_north"
         }
       ],
-      "accept_text": "He walks the Withering, near the cauldron. He's slow, but he's strong, and the sickness comes off him in waves. Take friends, and take something for the nausea.",
+      "accept_text": "Gahrron owned the farm the Withering is named for. He died there, and the Cult raised him to guard their cauldron, and now Gahrron the Withered walks his own fields thinking they're still his.\n\nI'd like him put to rest, so we can burn the place clean. It won't heal while he's walking it.\n\nHe's near the cauldron. He's slow, but he's strong, and the sickness comes off him in waves. Take friends, and take something for the nausea. I'll have more of it here when you get back.",
       "turn_in_text": "Then the Withering's done. We'll burn it in the morning.\n\nHe was a farmer. I keep thinking about that. He just wanted to keep his farm.",
       "next_quest_id": null,
       "requires_quests": [
@@ -1321,7 +1321,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 55,
       "level_max": 56,
-      "description": "Noah's made a serum from the sludge. It doesn't cure anything, but it slows the plague down long enough to get someone to a priest. There's a doctor at the Emerald Sanctuary in Felwood, Dr. Nkechi Adeyemi, who's treating a sickness that sounds a lot like this one.\n\nNoah wants a vial of it in her hands.",
+      "description": "Carry Noah's Serum to Dr. Nkechi Adeyemi at the Emerald Sanctuary in Felwood.",
       "objectives": [
         {
           "type": "deliver",
@@ -1330,7 +1330,7 @@
           "label": "Bring Noah's serum to Dr. Nkechi Adeyemi at the Emerald Sanctuary"
         }
       ],
-      "accept_text": "Zeppelin from Tirisfal to Orgrimmar, and then north through Ashenvale to Felwood. The Sanctuary's the clean glade in the middle of it. Keep it out of the sun.",
+      "accept_text": "I made it. It doesn't cure anything, I want to be honest about that, but it slows the plague down long enough to matter.\n\nThere's a doctor at the Emerald Sanctuary in Felwood, Dr. Nkechi Adeyemi, who's treating a sickness that sounds a lot like this one. She sent me the kit I've been using all month. I'd like to send her something back.\n\nTake the zeppelin from Tirisfal to Orgrimmar, then go north through Ashenvale to Felwood. The Sanctuary's the clean glade in the middle of it. Keep the vial out of the sun.",
       "turn_in_text": "A serum, from the Plaguelands? Let me see.\n\nThis is clever work. I was an emergency doctor in Lagos, back home, and I'd have been glad of this then. Tell him I'll try it on the felblight, and I'll write.",
       "next_quest_id": null,
       "turn_in_npc_id": "es_volunteer_medic",
@@ -1425,7 +1425,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 55,
       "level_max": 56,
-      "description": "Sister Amalie Crane was a priestess in Hearthglen until the Hearthglen Inquisitors started questioning the newcomers. She stood in the room while they did it, and then she walked out and kept walking until she reached the Pale Watch.\n\nShe wants the inquisitors stopped.",
+      "description": "Kill Hearthglen Inquisitors in the fields below Hearthglen.",
       "objectives": [
         {
           "type": "kill",
@@ -1434,7 +1434,7 @@
           "zone": "western_plaguelands_north"
         }
       ],
-      "accept_text": "They walk the fields below the walls in pairs, looking for anyone to question. They'll burn you if they can, so don't let them finish a prayer.",
+      "accept_text": "I was a priestess in Hearthglen. When the Hearthglen Inquisitors started questioning the newcomers, I stood in the room while they did it. I held the candle. I didn't say a word.\n\nThen one day I walked out, and I kept walking until I reached this town. I think I'm still walking.\n\nThe inquisitors go down into the fields in pairs, looking for anyone to question. I want them stopped. They'll burn you if they can, so don't let them finish a prayer.",
       "turn_in_text": "I knew some of them. I prayed beside some of them.\n\nI won't pretend I'm not glad they're gone. That's something I'll have to make peace with.",
       "next_quest_id": "pln_the_confessions",
       "reward_exp": 4120,
@@ -1513,7 +1513,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 55,
       "level_max": 56,
-      "description": "The Hearthglen Inquisitors carry the confessions they've forced out of people, signed and sealed, so they can be read out before a burning. Amalie wants them.\n\nEvery one has a name on it, and she wants those names remembered by someone who isn't going to burn them.",
+      "description": "Take Signed Confessions from the Hearthglen Inquisitors.",
       "objectives": [
         {
           "type": "fetch",
@@ -1521,7 +1521,7 @@
           "count": 5
         }
       ],
-      "accept_text": "The inquisitors keep the confessions in their satchels. Not all of them will have one. Bring me whatever you find, and don't read them, please.",
+      "accept_text": "The inquisitors carry the confessions they've forced out of people, signed and sealed, so they can be read out before a burning. Every one of them has a name on it.\n\nI'd like those names remembered by somebody who isn't going to burn them.\n\nThe Hearthglen Inquisitors keep the confessions in their satchels. Not all of them will have one. Bring me whatever you find, and please don't read them. They aren't true, and the people who signed them knew it.",
       "turn_in_text": "Here's Agnieszka Nowak, and Tunde Bello, and Hyun-woo Park, and they didn't even spell them properly.\n\nThese people came here from nowhere and we burned them for it. I'll make sure they're remembered.",
       "next_quest_id": "pln_the_book_of_names",
       "requires_quests": [
@@ -1607,16 +1607,16 @@
       "zone": "western_plaguelands_north",
       "level_min": 56,
       "level_max": 56,
-      "description": "Chaplain Odile Marchand at Sorrow Hill keeps a book of names, everyone the Order knows who died in the Plaguelands. Amalie wants the confessions taken to her, so the people in them go into the book.",
+      "description": "Carry the Bundle of Confessions to Chaplain Odile Marchand at the Order's chapel in the Bulwark.",
       "objectives": [
         {
           "type": "deliver",
           "target": "pl_q_confession_bundle",
           "count": 1,
-          "label": "Bring the confessions to Chaplain Odile Marchand at Sorrow Hill"
+          "label": "Bring the confessions to Chaplain Odile Marchand at the Bulwark"
         }
       ],
-      "accept_text": "South to Sorrow Hill, by Uther's Tomb. Odile keeps the chapel there. Tell her they're from me, and that I'm sorry there are so many.",
+      "accept_text": "Chaplain Odile Marchand keeps a book of names, everyone the Order knows of who died in the Plaguelands. She brought it down from Sorrow Hill when the Order moved into the Bulwark, and it's the only thing she carried herself.\n\nI'd like the people in these confessions to go into her book. Their names should be somewhere other than Hearthglen's ledgers.\n\nGo south to the Bulwark. The Order's chapel is on the south side of the street. Tell her they're from me, and that I'm sorry there are so many.",
       "turn_in_text": "These are from Amalie? She was in Hearthglen when these were taken.\n\nI'll write every name in the book tonight. Some of them were from Lyon, you know. I knew one of these streets.",
       "next_quest_id": null,
       "turn_in_npc_id": "wpl_pf_chaplain",
@@ -1709,7 +1709,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 56,
       "level_max": 56,
-      "description": "High Inquisitor Faulk runs the inquisition at Hearthglen. Amalie served under him, and she says he's the one who decided the newcomers were the Scourge's agents. He walks the fields himself on feast days, with the Hearthglen Inquisitors at his back.\n\nAmalie wants him gone.",
+      "description": "Kill High Inquisitor Faulk and the Hearthglen Inquisitors who walk with him.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -1724,7 +1724,7 @@
           "zone": "western_plaguelands_north"
         }
       ],
-      "accept_text": "He walks the fields below the walls, close to the gate. He's got a temper and a lot of fire, and he heals himself when he's hurt. Bring friends, and bring someone to stop his prayers.",
+      "accept_text": "High Inquisitor Faulk runs the inquisition at Hearthglen. I served under him. He's the one who decided the newcomers were the Scourge's agents, and he decided it on a Tuesday, between breakfast and prayers.\n\nOn feast days he walks the fields himself, with the Hearthglen Inquisitors at his back. Today's a feast day.\n\nHe'll be below the walls, close to the gate. He's got a temper and a lot of fire, and he heals himself when he's hurt. Bring friends, and bring someone who can stop his prayers.",
       "turn_in_text": "Then it's done, and the inquisition's got nobody to lead it.\n\nI keep waiting to feel something. I think maybe I feel lighter.",
       "next_quest_id": null,
       "reward_exp": 5356,
@@ -1807,7 +1807,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 53,
       "level_max": 54,
-      "description": "Woodwright Jonah Lind builds everything at the Pale Watch, and he'd like to build it out of Hearthglen's timber. The Crusade runs the lumber camp at Northridge in the west, and the Scarlet Lumberjacks and Scarlet Sawyers there cut the best oak in the north.\n\nJonah wants the camp emptied.",
+      "description": "Kill Scarlet Lumberjacks and Scarlet Sawyers at Northridge Lumber Camp.",
       "objectives": [
         {
           "type": "kill",
@@ -1822,7 +1822,7 @@
           "zone": "western_plaguelands_north"
         }
       ],
-      "accept_text": "Northridge is west of the camp, in the trees. The lumberjacks are in the woods and the sawyers are at the mill. They're working men with axes, so don't underestimate them.",
+      "accept_text": "I'm Jonah, and I built every wall in this town, and I built them out of green wood because it's all I could get.\n\nThe Crusade runs a lumber camp at Northridge, in the west, and the Scarlet Lumberjacks and Scarlet Sawyers up there cut the best oak in the north. All of it goes up the hill to Hearthglen.\n\nI'd like the camp emptied. The lumberjacks are in the woods and the sawyers are at the mill. They're working men with axes, so don't underestimate them.",
       "turn_in_text": "That's the camp quiet, then. Now we can see about the wood.\n\nI built houses in Duluth, back home. Long winters, good timber. This place reminds me of it, except for the dead.",
       "next_quest_id": "pln_woodsman_archers",
       "reward_exp": 3960,
@@ -1906,7 +1906,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 54,
       "level_max": 54,
-      "description": "With the lumberjacks gone, the Crusade's sent the Scarlet Woodsman Archers into Northridge's trees to guard the timber. They're good shots, and they know the woods.\n\nJonah wants them gone before he sends wagons in.",
+      "description": "Kill Scarlet Woodsman Archers in the trees round Northridge.",
       "objectives": [
         {
           "type": "kill",
@@ -1915,7 +1915,7 @@
           "zone": "western_plaguelands_north"
         }
       ],
-      "accept_text": "They hide in the trees around the lumber camp. Look up, because they like the high branches. Don't let them pin you down.",
+      "accept_text": "With the lumberjacks gone, the Crusade's sent Scarlet Woodsman Archers into Northridge's trees to guard the timber. They're good shots, and they know those woods better than I do.\n\nI can't send wagons in while they're up there. They hide in the trees round the camp. Look up, because they like the high branches, and don't let them pin you down in the open.",
       "turn_in_text": "The woods are clear. My wagons go in tomorrow.\n\nI'll need someone to pick out the good planks before the rest of them burn the lot.",
       "next_quest_id": "pln_seasoned_oak",
       "requires_quests": [
@@ -1998,7 +1998,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 54,
       "level_max": 55,
-      "description": "The Scarlet Sawyers at Northridge carry the camp's best seasoned planks to the carts, and Jonah wants them. The Pale Watch's palisade is green wood that's started to warp, and seasoned oak won't.\n\nHe wants enough to rebuild the gate.",
+      "description": "Take Seasoned Planks from the Scarlet Sawyers at the Northridge mill.",
       "objectives": [
         {
           "type": "fetch",
@@ -2006,7 +2006,7 @@
           "count": 6
         }
       ],
-      "accept_text": "The sawyers at the mill carry the planks. Take them off the sawyers before they reach the carts. Look for Hearthglen's stamp, because that's the good stuff.",
+      "accept_text": "The wall round the Watch is green wood, and it's started to warp. Another winter and I'll be able to post letters through the gaps.\n\nThe Scarlet Sawyers at Northridge carry the camp's best seasoned planks to the carts. Seasoned oak won't warp. I want enough to rebuild the gate, at least.\n\nTake the planks off the sawyers before they reach the carts. Look for Hearthglen's stamp, because that's the good stuff.",
       "turn_in_text": "Feel the weight of that. That's proper oak.\n\nThe gate will be up by the end of the week. I'd like to meet the man who's been running that camp, though.",
       "next_quest_id": "pln_foreman_harrow",
       "requires_quests": [
@@ -2093,7 +2093,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 55,
       "level_max": 55,
-      "description": "Foreman Harrow runs Northridge for the Crusade, and he's the one who's been sending the archers out. He came back to the camp yesterday with a fresh crew. Jonah wants him gone, so the camp stays empty.",
+      "description": "Kill Foreman Harrow at the mill in Northridge.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -2102,7 +2102,7 @@
           "zone": "western_plaguelands_north"
         }
       ],
-      "accept_text": "He's at the mill in the middle of Northridge. He's a big man with a big axe, and he doesn't like visitors. Take friends with you.",
+      "accept_text": "Foreman Harrow runs Northridge for the Crusade. He's the one who sent the archers out, and he came back to the camp yesterday with a fresh crew.\n\nAs long as he's there, the camp fills up again every time we empty it.\n\nHe's at the mill in the middle of Northridge. He's a big man with a big axe, and he doesn't like visitors. Take friends with you.",
       "turn_in_text": "That's the end of Northridge for the Crusade.\n\nThe camp's ours now. I'll put a crew in there next month and we'll cut our own timber.",
       "next_quest_id": null,
       "requires_quests": [
@@ -2185,7 +2185,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 54,
       "level_max": 54,
-      "description": "Jonah can't cut timber without saws, and the Crusade took every saw in the Plaguelands to Northridge. The Scarlet Lumberjacks carry good steel blades, Hearthglen forged, and Jonah wants them.",
+      "description": "Take Hearthglen Saw Blades from the Scarlet Lumberjacks at Northridge.",
       "objectives": [
         {
           "type": "fetch",
@@ -2193,7 +2193,7 @@
           "count": 5
         }
       ],
-      "accept_text": "The lumberjacks in the woods at Northridge carry their saws on their backs. Bring me the blades and leave the handles. I'll make my own.",
+      "accept_text": "I can't cut timber without saws, and the Crusade took every saw in the Plaguelands up to Northridge. I've been shaping planks with a hatchet, and it shows.\n\nThe Scarlet Lumberjacks carry good steel blades, forged in Hearthglen. They carry them on their backs in the woods.\n\nBring me the blades and leave the handles. I'll make my own handles. I'm a carpenter, not a smith.",
       "turn_in_text": "These are beautiful blades. Hearthglen's smiths know their business, I'll give them that.\n\nWe'll have a proper sawpit at the Watch by the end of the week.",
       "next_quest_id": null,
       "reward_exp": 3960,
@@ -2276,7 +2276,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 54,
       "level_max": 54,
-      "description": "Oona Byrne fishes the Thondroril for the Pale Watch's supper, and the Thondroril Snapjaws keep taking her catch and her lines. They're big and they're mean and they've got nothing to fear in the river.\n\nShe wants them thinned.",
+      "description": "Kill Thondroril Snapjaws on the banks of the Thondroril.",
       "objectives": [
         {
           "type": "kill",
@@ -2285,7 +2285,7 @@
           "zone": "western_plaguelands_north"
         }
       ],
-      "accept_text": "They sun themselves on the banks of the Thondroril, east of the camp. Watch out for the bite, because they don't let go. Stay out of the water.",
+      "accept_text": "I'm Oona, and I catch the Watch's supper. I fish the Thondroril, mostly, and the Thondroril Snapjaws keep taking my catch, and my lines, and once my boot.\n\nThey're big and they're mean, and nothing in that river has ever told them no.\n\nThey sun themselves on the banks east of the town. Watch out for the bite, because they don't let go. Stay out of the water.",
       "turn_in_text": "My lines will last the day now.\n\nI fished out of Galway, back home. The fish here are different, but the patience is the same.",
       "next_quest_id": "pln_old_thondroril",
       "reward_exp": 3960,
@@ -2365,7 +2365,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 53,
       "level_max": 54,
-      "description": "The Plague Bats come out over the Thondroril at dusk and dive at the water, and at Oona. She's sure they carry the plague, and she's tired of fighting them off with a fishing rod.\n\nShe wants them gone.",
+      "description": "Kill Plague Bats along the Thondroril.",
       "objectives": [
         {
           "type": "kill",
@@ -2374,7 +2374,7 @@
           "zone": "western_plaguelands_north"
         }
       ],
-      "accept_text": "They roost in the trees along the river and come out at dusk. They're fast, so don't chase them. Let them come to you.",
+      "accept_text": "The Plague Bats come out over the Thondroril at dusk and dive at the water, and at me. I'm sure they carry the plague, and I'm tired of fighting them off with a fishing rod.\n\nThey roost in the trees along the river. They're fast, so don't chase them. Stand still on the bank and let them come to you, because they will.",
       "turn_in_text": "I can fish at dusk again. That's the best time for it.\n\nThank you. Take one of these, and I'll keep a fish back for you at supper.",
       "next_quest_id": null,
       "reward_exp": 3960,
@@ -2457,7 +2457,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 54,
       "level_max": 54,
-      "description": "Oona's run out of fishhooks, and there's nowhere to buy them out here. She carves her own from antler, and the Blighted Stags in the fields have antlers that are sound under the grime.\n\nShe wants the antlers.",
+      "description": "Take Blighted Stag Antlers from the Blighted Stags in the fields.",
       "objectives": [
         {
           "type": "fetch",
@@ -2465,8 +2465,8 @@
           "count": 6
         }
       ],
-      "accept_text": "The stags graze in the fields north and east of the camp. Bring me the tines, not the whole rack. I'll carve them tonight.",
-      "turn_in_text": "These will carve beautifully.\n\nMy grandfather taught me this, back home, on the beach at Salthill. I never thought I'd need it.",
+      "accept_text": "I've run out of hooks, and there's nowhere out here to buy them. I carve my own from antler, the way my grandfather taught me.\n\nThe Blighted Stags in the fields have antlers that are still sound under the grime, because I've checked.\n\nThey graze north and east of the town. Bring me the tines, not the whole rack. I don't need a rack, I need hooks.",
+      "turn_in_text": "These will carve beautifully.\n\nMy grandfather taught me this on the beach at Salthill, back home. I never thought I'd need it.",
       "next_quest_id": null,
       "reward_exp": 3960,
       "reward_gold": 15600,
@@ -2549,7 +2549,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 55,
       "level_max": 55,
-      "description": "There's one snapjaw in the Thondroril that Oona's never been able to drive off. Old Thondroril is older than the plague and bigger than a cart, and the Thondroril Snapjaws follow him like he's their king.\n\nOona wants him gone, so she can fish the deep pools.",
+      "description": "Kill Old Thondroril and the Thondroril Snapjaws round his pool.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -2564,7 +2564,7 @@
           "zone": "western_plaguelands_north"
         }
       ],
-      "accept_text": "He keeps to the deepest pool on the Thondroril, and he comes up when he's hungry. Kill the young ones while you wait. Stay on the bank, because he's stronger in the water.",
+      "accept_text": "There's one snapjaw in the Thondroril I've never been able to move. Old Thondroril is older than the plague and bigger than a cart, and the Thondroril Snapjaws follow him round like he's their king.\n\nHe sits on the deep pools, where the big fish are. I've been looking at those fish for months.\n\nHe keeps to the deepest pool and comes up when he's hungry. Kill the young ones while you wait. Stay on the bank, because he's stronger in the water.",
       "turn_in_text": "The deep pools are mine now. Look at the size of the fish down there.\n\nYou'll eat well at the Pale Watch tonight, and every night after.",
       "next_quest_id": null,
       "requires_quests": [
@@ -2646,7 +2646,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 55,
       "level_max": 55,
-      "description": "Clerk Wendel Ashby kept Hearthglen's books until he saw what was being written in them. He knows the Scarlet Sentries carry the week's roster, which tells everyone where to stand on the walls.\n\nHe wants a copy, so the Watch knows the walls as well as he used to.",
+      "description": "Take the Hearthglen Patrol Roster from a Scarlet Sentry below Hearthglen.",
       "objectives": [
         {
           "type": "fetch",
@@ -2654,7 +2654,7 @@
           "count": 1
         }
       ],
-      "accept_text": "The sentries on the road below the gate carry the roster. It's in a leather case at the belt. Bring it back dry, please, because the ink runs.",
+      "accept_text": "I'm Wendel, and I kept Hearthglen's books until I read what I was writing down, and then I left. I still keep books. It's an old habit.\n\nThe Scarlet Sentries carry the week's roster, which tells everyone where to stand on the walls. If I had a copy, the Watch would know those walls as well as I used to.\n\nThe sentries on the road below the gate carry it in a leather case at the belt. Bring it back dry, please. The ink runs.",
       "turn_in_text": "This is in Brother Jessup's hand. I'd know his capitals anywhere.\n\nThe newcomers here always ask how I can read the walls from a page. It's just bookkeeping, really.",
       "next_quest_id": "pln_hearthglens_hounds",
       "reward_exp": 4040,
@@ -2734,7 +2734,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 55,
       "level_max": 56,
-      "description": "The roster says Hearthglen sends its Scarlet War Hounds out at night to hunt anyone near the walls. Wendel used to feed them. He says they were good dogs once.\n\nHe wants them stopped.",
+      "description": "Kill Scarlet War Hounds in the fields below Hearthglen.",
       "objectives": [
         {
           "type": "kill",
@@ -2743,7 +2743,7 @@
           "zone": "western_plaguelands_north"
         }
       ],
-      "accept_text": "They hunt the fields below the walls at night, and they hunt in packs. Don't let them circle you. Back up against something and let them come.",
+      "accept_text": "The roster says Hearthglen sends its Scarlet War Hounds out at night, to hunt anyone near the walls. I used to feed those dogs. They were good dogs, once. They'd sit for a crust.\n\nThey aren't good dogs any more. They're what Hearthglen made them.\n\nThey hunt the fields below the walls at night, in packs. Don't let them circle you. Back up against something and let them come.",
       "turn_in_text": "They were good dogs once. I used to give them the scraps from the kitchen.\n\nThat's done, then. Thank you. I'll write it down, because somebody should.",
       "next_quest_id": null,
       "requires_quests": [
@@ -2830,7 +2830,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 55,
       "level_max": 56,
-      "description": "Oona Byrne has fished the Thondroril every day since the Watch made camp, and she says the river's gone wrong. There's water running out of the hill above it that tastes of the grave, and it's coming out of the Weeping Cave.\n\nShe wants the Cave Drowned and the Seepwater Shades cleared out of the water.",
+      "description": "Kill Cave Drowned and Seepwater Shades in the Weeping Cave, in the hill above the Thondroril.",
       "objectives": [
         {
           "type": "kill",
@@ -2845,7 +2845,7 @@
           "zone": "the_weeping_cave"
         }
       ],
-      "accept_text": "The cave's in the hill on the east side, up above the river. You'll hear it before you see it, because the water never stops running down the walls. Mind your feet in there, it's slick all the way down.",
+      "accept_text": "I've fished the Thondroril every day since the Watch went up, and the river's gone wrong. There's water running into it out of the hill, and it tastes of the grave. The fish won't go near it.\n\nIt's coming out of the Weeping Cave. Something in there keeps the water moving, the Cave Drowned and the Seepwater Shades, I'm told.\n\nThe cave's in the hill on the east side, up above the river. You'll hear it before you see it, because the water never stops running down the walls. Mind your feet in there. It's slick all the way down.",
       "turn_in_text": "The fish'll come back now, give it a week.\n\nThere's a cave like that on the coast near Galway, back home. The water ran out of it clean. I never thought I'd miss a cave.",
       "next_quest_id": "pln_the_weeper",
       "reward_exp": 4120,
@@ -2924,7 +2924,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 56,
       "level_max": 56,
-      "description": "Sister Amalie Crane heard Oona's account of the Weeping Cave, and she knows the story behind it. A woman went into the pool at the end of the cave to look for her family after Hearthglen took them for questioning, and she never came out.\n\nAmalie says The Weeper is her, and she's asking you to let her rest.",
+      "description": "Put the Weeper to rest at the pool at the end of the Weeping Cave.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -2933,7 +2933,7 @@
           "zone": "the_weeping_cave"
         }
       ],
-      "accept_text": "The pool's at the far end of the cave, past both galleries. She'll know you're coming, because she's been waiting for somebody for years. Be gentle if you can, and be quick if you can't.",
+      "accept_text": "Oona told me about the water out of the Weeping Cave, and I know the story behind it. I wish I didn't.\n\nWhen Hearthglen took a family for questioning, the mother went looking for them. She went into the cave because somebody told her they'd been taken out that way. She went into the pool at the end of it, and she never came out. The Weeper is her. I'm nearly sure of it.\n\nThe pool's at the far end of the cave, past both galleries. She'll know you're coming, because she's been waiting for somebody for years. Be gentle if you can, and be quick if you can't.",
       "turn_in_text": "Thank you. I'll write her name in the chapel book, under the ones Hearthglen never wrote down.\n\nI kept quiet in that room for a long time. I'm trying to make up for it, one name at a time.",
       "next_quest_id": null,
       "requires_quests": [
@@ -3020,7 +3020,7 @@
       "zone": "western_plaguelands_north",
       "level_min": 56,
       "level_max": 56,
-      "description": "Clerk Wendel Ashby remembers every name in Hearthglen's ledgers, and one of them belonged to a hermit who lived in the cave above the river and paid his tithe in fish. The Crusade stopped taking his fish when the plague came, and he stopped coming down.\n\nWendel's heard that The Drowned Hermit still keeps his cell in the roof of the Weeping Cave, and that he won't let anyone past.",
+      "description": "Kill the Drowned Hermit in his cell in the roof of the Weeping Cave.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -3029,7 +3029,7 @@
           "zone": "the_weeping_cave"
         }
       ],
-      "accept_text": "His cell's up through the roof of the upper gallery, about halfway along. He'll have his oar, I expect, because he never went anywhere without it. Close his account for me, would you?",
+      "accept_text": "I remember every name in Hearthglen's ledgers, and one of them belonged to a hermit who lived in the cave above the river. He paid his tithe in fish, every quarter, for eleven years.\n\nWhen the plague came, the Crusade stopped taking his fish, and he stopped coming down. I'm told The Drowned Hermit still keeps his cell in the roof of the Weeping Cave, and that he won't let anyone past.\n\nHis cell's up through the roof of the upper gallery, about halfway along. He'll have his oar, I expect. He never went anywhere without it. Close his account for me, would you?",
       "turn_in_text": "Tobias Fenn, paid in perch every quarter for eleven years. I'll mark him settled.\n\nIt's a small thing, closing an account properly. Somebody ought to do it for everyone Hearthglen forgot.",
       "next_quest_id": null,
       "reward_exp": 5356,
@@ -3108,7 +3108,7 @@
       "zone": "emerald_sanctuary",
       "level_min": 52,
       "level_max": 53,
-      "description": "Dr. Nkechi Adeyemi has heard from the Order of the Pale Flame that their field medic at the Pale Watch is stitching people up with thread he boils in a pot. She's packed everything the Emerald Sanctuary can spare.\n\nShe needs it carried to Field Medic Noah Kowal in the Western Plaguelands.",
+      "description": "Carry Dr. Adeyemi's Field Kit to Field Medic Noah Kowal at the Pale Watch in North WPL.",
       "objectives": [
         {
           "type": "deliver",
@@ -3117,7 +3117,7 @@
           "label": "Bring Dr. Adeyemi's field kit to Field Medic Noah Kowal at the Pale Watch"
         }
       ],
-      "accept_text": "It's a long way, I know. Get yourself to the Eastern Kingdoms, through Tirisfal to the Bulwark, and keep going north. The Pale Watch is at the foot of the road to Hearthglen. Don't let anyone ration the sutures.",
+      "accept_text": "I've heard from the Order of the Pale Flame that their field medic at the Pale Watch is stitching people up with thread he boils in a pot. I was an emergency doctor in Lagos. I know exactly what that means.\n\nSo I've packed everything the Sanctuary can spare. Sutures, dressings, a bottle of something strong.\n\nIt's a long way, I know. Get yourself to the Eastern Kingdoms, through Tirisfal to the Bulwark, and keep going north up the King's Road. The Pale Watch's gate is off the road where it starts to climb toward Hearthglen. Don't let anyone ration the sutures.",
       "turn_in_text": "Real sutures, clean dressings, and a bottle of something I haven't seen since Winnipeg.\n\nTell Dr. Adeyemi she's saved more people today than I've managed all month. Then come back, because I've got work for you.",
       "next_quest_id": null,
       "turn_in_npc_id": "wpln_pf_field_medic",

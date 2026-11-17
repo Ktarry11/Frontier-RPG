@@ -4,16 +4,18 @@ tools/npc_data_guard.py (creates who it names, moves people to the layout's spot
 
     PYTHONPATH=. python3 tools/sync_wpl_south_npcs.py
 
-Two hubs, each with an inn and a flight master:
+THE BULWARK is its own town map now (tools/handbuilt_bulwark.py, docs/plaguelands_towns_plan.md): the Forsaken's wall on
+the Tirisfal border, with the Order of the Pale Flame camped inside it. The Order came down from SORROW HILL, which is
+graves again (Kyle, 16 Nov 2026: "Remove Sorrow Hill and Move these people into the Bulwark. We don't need 2 flight
+paths in one zone wtf"). One inn and one flight master in the Bulwark: the Forsaken's. The Order brought its cook and
+its hawks, but the beds and the flights are the Forsaken's, so Priya and Anders offer neither now.
 
-THE BULWARK, the Forsaken's front line on the Tirisfal border. The apothecaries here give the cauldron quests
-(Kyle: "Keep the similar cauldron quests"), and they want samples, not ashes.
-
-SORROW HILL, the Order of the Pale Flame's keep beside Uther's Tomb, under Hearthglen's nose. Kyle: "the leader and
-top fighters are FROM EARTH ... they recruited defects from The Scarlet Crusade and they're more selective in who
-they kill, they don't go after all undead, only mindless ones." The Order talks about Earth freely among itself
-(Kyle chose "Loud in the Order, normal elsewhere"). Flamekeeper Rory Callahan joined the Crusade during the
-Integration and walked out of it (Kyle: "The leader WAS part of the Scarlet Crusade though! that is Important!").
+The apothecaries give the cauldron quests (Kyle: "Keep the similar cauldron quests"), and they want samples, not ashes.
+Kyle on the Order: "the leader and top fighters are FROM EARTH ... they recruited defects from The Scarlet Crusade and
+they're more selective in who they kill, they don't go after all undead, only mindless ones." The Order talks about
+Earth freely among itself (Kyle chose "Loud in the Order, normal elsewhere"). Flamekeeper Rory Callahan joined the
+Crusade during the Integration and walked out of it (Kyle: "The leader WAS part of the Scarlet Crusade though! that is
+Important!").
 
 Every line is plain speech: whole sentences, contractions, the useful thing first.
 """
@@ -26,10 +28,14 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 os.chdir(ROOT)
 
-from tools.handbuilt_wpl_south import NPC_POSITIONS  # noqa: E402
+from tools.handbuilt_bulwark import NAME as BULWARK, NPC_POSITIONS as BULWARK_AT  # noqa: E402
 from tools.npc_data_guard import safe_update  # noqa: E402
+from world.zone_keys import zone_key  # noqa: E402
 
-ZONE = "western_plaguelands_south"
+#: id -> (zone key, (x, y)): everyone here lives in the Bulwark
+NPC_POSITIONS = {nid: (zone_key(BULWARK), xy) for nid, xy in BULWARK_AT.items()}
+#: the people whose job changed with the move: their greeting is rewritten, not kept
+REWRITE_GREETING = {"wpl_pf_innkeeper", "wpl_pf_bat_keeper", "wpl_pf_chaplain"}
 M, F = "male", "female"
 
 #: id -> (name, race, gender, variant, facing, greeting)
@@ -70,18 +76,18 @@ AMBIENT = {
                            "world ended the Crusade were the only ones killing what was killing us. Then I saw what "
                            "else they were killing, so I scraped the red off and walked out. We hunt the mindless "
                            "dead here, and nobody else."),
-    "wpl_pf_innkeeper": ("Innkeeper Priya Raman", "human", F, 4, "down",
-                         "I ran a guesthouse in Kochi before all this. The guests here are heavier armed and they "
-                         "tip worse, but they always say thank you."),
-    "wpl_pf_bat_keeper": ("Roostkeeper Anders Holm", "human", M, 3, "right",
-                          "We fly hawks, not bats. The Forsaken think that's a statement. It isn't, I just don't "
-                          "like bats."),
+    "wpl_pf_innkeeper": ("Priya Raman", "human", F, 4, "down",
+                         "I ran a guesthouse in Kochi before all this, and I kept the inn on Sorrow Hill. The "
+                         "Forsaken have the beds here, so I've got the Order's kitchen, and nobody goes hungry."),
+    "wpl_pf_bat_keeper": ("Anders Holm", "human", M, 3, "right",
+                          "The hawks came down off Sorrow Hill with me. They carry the Order's letters now, not "
+                          "passengers. If you want to fly, the Forsaken's bats are by the west gate."),
     "wpl_pf_drillmaster": ("Drillmaster Kofi Mensah", "human", M, 6, "down",
                            "Half my recruits came out of the Crusade and the other half came off the road. The first "
                            "half can fight, and the second half can think, and I'm trying to get both out of everyone."),
     "wpl_pf_chaplain": ("Chaplain Odile Marchand", "human", F, 5, "left",
-                        "Uther's Tomb is the one place on this hill that everyone agrees is holy. I keep it that way "
-                        "by not letting anyone argue about it."),
+                        "I kept Uther's Tomb while we were on Sorrow Hill. Now I keep a chapel behind a Forsaken "
+                        "wall, and the book of names, and I still walk out to the tomb when I can."),
 }
 
 #: id -> (name, race, gender, variant, facing, greeting, sells, sells_gear)
@@ -99,14 +105,15 @@ VENDORS = {
                               "kit_field_repair", "whetstone", "beast_lure"], True),
 }
 
-SERVICES = {"wpl_bulwark_innkeeper": ["inn"], "wpl_bulwark_bat_handler": ["flight"],
-            "wpl_pf_innkeeper": ["inn"], "wpl_pf_bat_keeper": ["flight"]}
+SERVICES = {"wpl_bulwark_innkeeper": ["inn"], "wpl_bulwark_bat_handler": ["flight"]}
+#: the Order's inn and roost closed when it came down off the hill: those two offer nothing now
+RETIRED_SERVICES = {"wpl_pf_innkeeper": "inn", "wpl_pf_bat_keeper": "flight"}
 FLIGHT_NODES = [
-    ("the_bulwark", {"name": "The Bulwark", "zone": "Western Plaguelands South", "master": "wpl_bulwark_bat_handler",
+    ("the_bulwark", {"name": "The Bulwark", "zone": BULWARK, "master": "wpl_bulwark_bat_handler",
                      "pos": [46, -8], "continent": "eastern_kingdoms"}),
-    ("sorrow_hill", {"name": "Sorrow Hill", "zone": "Western Plaguelands South", "master": "wpl_pf_bat_keeper",
-                     "pos": [78, 24], "continent": "eastern_kingdoms"}),
 ]
+#: flight points that no longer exist (Sorrow Hill went back to the dead); a save that knew one simply forgets it
+RETIRED_NODES = ["sorrow_hill"]
 GEAR_LEVEL = 53
 
 
@@ -123,11 +130,15 @@ def main():
     mats = json.loads((ROOT / "data/gathering/materials.json").read_text(encoding="utf-8"))["materials"]
     made = moved = 0
     for nid, (name, race, gender, var, facing, greet) in AMBIENT.items():
-        x, y = NPC_POSITIONS[nid]
-        rec = dict(npc_id=nid, name=name, zone=ZONE, x=x, y=y, greeting=greet, gender=gender, race=race,
+        zone, (x, y) = NPC_POSITIONS[nid]
+        rec = dict(npc_id=nid, name=name, zone=zone, x=x, y=y, greeting=greet, gender=gender, race=race,
                    appearance_variant=var, facing=facing)
         if nid in by_n:
             moved += bool(safe_update(by_n[nid], rec))
+            by_n[nid]["zone"] = zone                 # a move to another map is the layout's to make
+            if nid in REWRITE_GREETING:
+                by_n[nid]["greeting"] = greet
+                by_n[nid]["name"] = name             # the title went with the job
         else:
             ad["npcs"].append(rec)
             made += 1
@@ -135,12 +146,13 @@ def main():
         missing = [s for s in sells if not cm.has_consumable(s) and s not in mats]
         if missing:
             raise SystemExit(f"{vid} sells things that don't exist: {missing}")
-        x, y = NPC_POSITIONS[vid]
-        rec = dict(vendor_id=vid, name=name, zone=ZONE, x=x, y=y, tile_sprite="npc", sells=sells,
+        zone, (x, y) = NPC_POSITIONS[vid]
+        rec = dict(vendor_id=vid, name=name, zone=zone, x=x, y=y, tile_sprite="npc", sells=sells,
                    buys_from_player=True, faction="neutral", gear_level=GEAR_LEVEL, sells_gear=sg, race=race,
                    appearance_variant=var, gender=gender, greeting=greet, facing=facing)
         if vid in by_v:
             moved += bool(safe_update(by_v[vid], rec))
+            by_v[vid]["zone"] = zone
         else:
             vd["vendors"].append(rec)
             made += 1
@@ -151,10 +163,18 @@ def main():
     td = json.loads(tp.read_text(encoding="utf-8"))
     for k, v in SERVICES.items():
         td["services"][k] = sorted(set(td["services"].get(k, [])) | set(v))
+    for nid, svc in RETIRED_SERVICES.items():
+        left = [x for x in td["services"].get(nid, []) if x != svc]
+        if left:
+            td["services"][nid] = left
+        else:
+            td["services"].pop(nid, None)
     for key, node in FLIGHT_NODES:
-        td["flight_nodes"].setdefault(key, node)
+        td["flight_nodes"][key] = node
+    for key in RETIRED_NODES:
+        td["flight_nodes"].pop(key, None)
     tp.write_text(json.dumps(td, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"South WPL: {made} created, {moved} moved ({len(names)} people); two inns and two flight points")
+    print(f"The Bulwark: {made} created, {moved} moved ({len(names)} people); one inn and one flight point")
 
 
 if __name__ == "__main__":

@@ -827,16 +827,24 @@ class PortalManager:
                 (10, 112): ("Undercity", 100, 17),      # arrive (100,15) at the foot of the Long Descent
                 (16, 136): ("Silverpine North", 80, 11),             # arrive (80,9)
                 (52, 112): ("Scourge Cave", 45, 68),
-                # east to the Bulwark and the Plaguelands (docs/plaguelands_design.md)
-                (88, 126): ("Western Plaguelands South", 7, 84),
+                # east to the Bulwark's west gate, and through it to the Plaguelands (docs/plaguelands_towns_plan.md)
+                (88, 126): ("The Bulwark", 6, 40),
                 # the Scarlet Monastery's gate, into its grounds (tools/handbuilt_scarlet_monastery.py)
                 (70, 29): ("Scarlet Monastery Grounds", 32, 50),
             },
             # ===== THE PLAGUELANDS (51-60, docs/plaguelands_design.md). The doors north, to the Alterac
             # foothills, to the Undercity sewer and to Scholomance are cut in the ground and go live with
             # their maps (tools/handbuilt_wpl_south.LATER_PORTALS). =====
+            # The Plaguelands' towns are their own maps (docs/plaguelands_towns_plan.md, Kyle 16 Nov 2026: "when a town
+            # is made it's always a seperate map"). The road from Tirisfal runs through the Bulwark.
+            "The Bulwark": {
+                (3, 40): ("Eastern Tirisfal", 84, 126),
+                (100, 40): ("Western Plaguelands South", 7, 84),
+            },
+            "The Pale Watch": {(85, 36): ("Western Plaguelands North", 83, 112)},
+            "Light's Hope Chapel": {(48, 77): ("Eastern Plaguelands East", 128, 75)},
             "Western Plaguelands South": {
-                (3, 84): ("Eastern Tirisfal", 84, 126),
+                (3, 84): ("The Bulwark", 97, 40),
                 (96, 3): ("Western Plaguelands North", 96, 133),
                 (150, 53): ("The Writhing Deep", 48, 84),           # the zone's cave (tools/handbuilt_plaguelands_caves.py)
             },
@@ -844,6 +852,7 @@ class PortalManager:
                 (96, 137): ("Western Plaguelands South", 96, 7),
                 (176, 70): ("Eastern Plaguelands West", 7, 80),     # over the Thondroril
                 (146, 28): ("The Weeping Cave", 10, 60),
+                (80, 112): ("The Pale Watch", 82, 36),
             },
             "Eastern Plaguelands West": {
                 (3, 80): ("Western Plaguelands North", 172, 70),
@@ -853,6 +862,7 @@ class PortalManager:
             "Eastern Plaguelands East": {
                 (3, 80): ("Eastern Plaguelands West", 163, 80),
                 (106, 60): ("The Bone Mines", 10, 90),
+                (128, 72): ("Light's Hope Chapel", 48, 74),
             },
             # the Plaguelands' caves: one door each, back out to the mouth (arrive two tiles north of it)
             "The Writhing Deep": {(48, 84): ("Western Plaguelands South", 150, 53)},

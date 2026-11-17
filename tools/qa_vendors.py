@@ -52,6 +52,11 @@ TOWN_REGION = {
     "kaels_bastion": "The Crystalline Underdark",
     "freewind_post": "Southern Thousand Needles",
     "sun_rock_retreat": "Stonetalon East",
+    # The Plaguelands' towns, their own maps since 16 Nov 2026 (docs/plaguelands_towns_plan.md): each outfits the
+    # country its gate opens onto.
+    "bulwark": "Western Plaguelands South",
+    "pale_watch": "Western Plaguelands North",
+    "lights_hope_chapel": "Eastern Plaguelands East",
     "undercity": "Undercity",
     "sepulcher": "Silverpine North",
     "brill": "Eastern Tirisfal",

@@ -7,7 +7,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 56,
       "level_max": 57,
-      "description": "Captain Joss Varden holds the camp at Crown Guard, and the camp holds the road between Light's Hope and Stratholme. The road's only open while somebody keeps it open.\n\nThe Blighted Warhorses that used to pull the Crusade's wagons run wild along it now, and the Plague-Rotted Bears come down to the road to eat whatever the horses leave. He wants both of them thinned.",
+      "description": "Kill Blighted Warhorses and Plague-Rotted Bears along the road between Light's Hope and the old tower.",
       "objectives": [
         {
           "type": "kill",
@@ -22,7 +22,7 @@
           "zone": "eastern_plaguelands_east"
         }
       ],
-      "accept_text": "The horses run the road east and west of the camp. The bears keep to the trees beside it. Don't let a horse get behind you, because they kick like they mean it.",
+      "accept_text": "I'm Joss Varden. I held Crown Guard's camp until the Dawn talked me into bringing everyone inside these walls, and I'll admit the beds are better. The road between here and Stratholme still needs holding, and it's only open while somebody keeps it open.\n\nThe Blighted Warhorses that used to pull the Crusade's wagons run wild along it now, and the Plague-Rotted Bears come down to the road to eat whatever the horses leave. Thin them both.\n\nOut the gate and west along the road toward the old tower. The horses run the road and the bears keep to the trees beside it. Don't let a horse get behind you, because they kick like they mean it.",
       "turn_in_text": "The road's open again, for a few days anyway.\n\nI'll take a few days. Out here a few days is a long time.",
       "next_quest_id": "ple_darrowshires_ghouls",
       "reward_exp": 4200,
@@ -96,12 +96,12 @@
     },
     {
       "quest_id": "ple_word_to_lights_hope",
-      "title": "Word to Light's Hope",
+      "title": "Word to the Commander",
       "giver_npc_id": "epl_cg_captain",
       "zone": "eastern_plaguelands_east",
       "level_min": 56,
       "level_max": 56,
-      "description": "Varden sends a report up the road to Light's Hope every week, and every week he wonders whether it'll get there. This week's says the Crusade at Tyr's Hand is moving.\n\nHe wants it in Commander Eligor Dawnbringer's hand.",
+      "description": "Carry Varden's Report to Commander Eligor Dawnbringer on the chapel steps.",
       "objectives": [
         {
           "type": "deliver",
@@ -110,7 +110,7 @@
           "label": "Bring Varden's report to Commander Eligor Dawnbringer at Light's Hope"
         }
       ],
-      "accept_text": "East along the road to the chapel. It's the white building on the hill. You can't miss it, and the dead won't follow you onto its ground.",
+      "accept_text": "I used to send this report up the road every week, and every week I wondered whether it would get there. Now it's a walk across the square, and I still can't make myself hand it over in person. Dawnbringer will want to ask questions, and I've got a road to watch.\n\nIt says the Crusade at Tyr's Hand is moving.\n\nTake it to Commander Eligor Dawnbringer. He stands on the chapel steps at the top of the town. Wait while he reads it, because he'll have something for you.",
       "turn_in_text": "Joss writes the way he fights, short and to the point.\n\nTyr's Hand is moving, then. I'll need people who can walk into it and walk back out. I think you'll do nicely.",
       "next_quest_id": null,
       "turn_in_npc_id": "epl_lh_commander",
@@ -200,7 +200,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 57,
       "level_max": 57,
-      "description": "Darrowshire was a town south of the camp until the Scourge came for it, and the town fought and lost. The Darrowshire Ghouls that came out of that fight still walk its streets, and on bad nights they walk up the road to Crown Guard.\n\nVarden wants them put down before the next bad night.",
+      "description": "Kill Darrowshire Ghouls in the streets of Darrowshire.",
       "objectives": [
         {
           "type": "kill",
@@ -209,7 +209,7 @@
           "zone": "eastern_plaguelands_east"
         }
       ],
-      "accept_text": "Darrowshire's south and west of the camp, down the old road. The ghouls are in the streets and the yards. Mind the ghosts, because they're still fighting a battle that ended years ago.",
+      "accept_text": "Darrowshire was a town in the south-west until the Scourge came for it. The town fought, and lost. The Darrowshire Ghouls that came out of that fight still walk its streets, and on bad nights they walk up the road toward the old tower.\n\nPut them down before the next bad night.\n\nDarrowshire's a long way west of here, south of the old tower, down the old road. The ghouls are in the streets and the yards. Mind the ghosts, because they're still fighting a battle that ended years ago.",
       "turn_in_text": "That'll keep them off my road for a while.\n\nThere's a ghost of a little girl in that town who talks to travellers. If you met her, I hope you were kind.",
       "next_quest_id": "ple_the_houndmasters",
       "requires_quests": [
@@ -295,7 +295,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 58,
       "level_max": 58,
-      "description": "The Crusade at Tyr's Hand sends its hounds up the road at night, and the Tyr's Hand Houndmasters who run them know exactly where Crown Guard's sentries stand. Varden lost two of his people last week.\n\nHe wants the houndmasters dead, and he'd like their dogs to have nobody to come home to.",
+      "description": "Kill Tyr's Hand Houndmasters at the kennels in Tyr's Hand.",
       "objectives": [
         {
           "type": "kill",
@@ -304,7 +304,7 @@
           "zone": "eastern_plaguelands_east"
         }
       ],
-      "accept_text": "Tyr's Hand is on the coast, south and east of Light's Hope. The houndmasters keep to the kennels at the north end. Kill the handlers and the hounds won't know what to do.",
+      "accept_text": "The Crusade at Tyr's Hand sends its hounds up the road at night, and the Tyr's Hand Houndmasters who run them know exactly where my sentries stand. I lost two good people last week.\n\nI want the houndmasters dead, and I'd like their dogs to have nobody to come home to.\n\nTyr's Hand is on the coast, south of the chapel down the road. The houndmasters keep to the kennels at the north end. Kill the handlers and the hounds won't know what to do.",
       "turn_in_text": "Then nobody's sending dogs up my road tonight.\n\nThe Crusade calls you lot heretics, you know. I've heard worse said about better people.",
       "next_quest_id": "ple_arrows_on_the_road",
       "requires_quests": [
@@ -391,7 +391,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 58,
       "level_max": 59,
-      "description": "With the hounds gone, the Crusade's sent its archers instead. Every Tyr's Hand Marksman on the walls shoots at anything on the coast road, and Varden's wagons can't reach Light's Hope that way.\n\nHe wants the walls cleared.",
+      "description": "Kill Tyr's Hand Marksmen on the walls of Tyr's Hand.",
       "objectives": [
         {
           "type": "kill",
@@ -400,7 +400,7 @@
           "zone": "eastern_plaguelands_east"
         }
       ],
-      "accept_text": "The marksmen stand on Tyr's Hand's walls and in its towers. Get close fast, because they won't come down to you. Don't stop in the open.",
+      "accept_text": "With the hounds gone, the Crusade's sent its archers instead. Every Tyr's Hand Marksman on the walls shoots at anything on the coast road, and my wagons can't get through that way.\n\nClear the walls. The marksmen stand on Tyr's Hand's walls and in its towers. Get close fast, because they won't come down to you, and don't stop in the open.",
       "turn_in_text": "My wagons got through this morning. The chapel's eating well tonight.\n\nYou've done more for this road than half my own people, and I'll say so to anyone.",
       "next_quest_id": null,
       "requires_quests": [
@@ -483,7 +483,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 56,
       "level_max": 57,
-      "description": "Corporal Ines Duarte keeps Crown Guard's water, and Crown Guard's water comes from Blackwood Lake, north of the camp. The Blackwood Drowned walk out of it every night and foul the shore where she fills the barrels.\n\nShe wants the shore cleared so she can work.",
+      "description": "Kill Blackwood Drowned on the shore of Blackwood Lake.",
       "objectives": [
         {
           "type": "kill",
@@ -492,7 +492,7 @@
           "zone": "eastern_plaguelands_east"
         }
       ],
-      "accept_text": "North from the camp to the lake. The drowned come up out of the shallows. Stay on the dry ground if you can, because they're stronger in the water, and they'll try to pull you in.",
+      "accept_text": "I'm Ines, and I keep the water clean, which out here means I keep everyone alive. The chapel's well is good, but it isn't enough for everyone Crown Guard brought with it, so we haul the rest from Blackwood Lake.\n\nThe Blackwood Drowned walk out of that lake every night and foul the shore where I fill the barrels. I'd like to do my job without a sword in my other hand.\n\nThe lake's north-west of here, in the middle of the country. The drowned come up out of the shallows. Stay on the dry ground if you can, because they're stronger in the water and they'll try to pull you in.",
       "turn_in_text": "That's a clean shore, for now.\n\nI ran water treatment for the city of Lisbon, back home. I never thought I'd be doing it with a sword.",
       "next_quest_id": "ple_whats_in_the_water",
       "reward_exp": 4200,
@@ -570,7 +570,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 56,
       "level_max": 57,
-      "description": "Ines wants to know how the plague gets into Blackwood Lake, and she thinks the Blackwood Snapjaws can tell her. They swallow stones to grind their food, and the stones soak up whatever's in the water.\n\nShe wants their gizzard stones.",
+      "description": "Take Snapjaw Gizzard Stones from the Blackwood Snapjaws at Blackwood Lake.",
       "objectives": [
         {
           "type": "fetch",
@@ -578,7 +578,7 @@
           "count": 6
         }
       ],
-      "accept_text": "The snapjaws sun themselves on the lake shore. The stones are in the gizzard, which is exactly where it sounds like. I'm sorry, and thank you.",
+      "accept_text": "I want to know how the plague gets into Blackwood Lake, and I think the Blackwood Snapjaws can tell me. They swallow stones to grind their food, and the stones soak up whatever's in the water. They're a record, if you know how to read them.\n\nThe snapjaws sun themselves on the shore. The stones are in the gizzard, which is exactly where it sounds like. I'm sorry, and thank you.",
       "turn_in_text": "Look at the green on these. It's in the silt, not the water.\n\nSo it's coming from something on the bottom, and I think I know what.",
       "next_quest_id": "ple_the_blackwood_drowner",
       "requires_quests": [
@@ -665,7 +665,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 57,
       "level_max": 57,
-      "description": "Something sits on the bottom of Blackwood Lake and bleeds plague into the silt. The Drowned call it the Blackwood Drowner, and the Blackwood Snapjaws won't go near the deep water where it lies.\n\nInes wants it dragged out and ended.",
+      "description": "Kill the Blackwood Drowner and the Blackwood Snapjaws round its pool.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -680,7 +680,7 @@
           "zone": "eastern_plaguelands_east"
         }
       ],
-      "accept_text": "It comes up from the deep end of the lake when it's hungry. Thin the snapjaws on the shore while you wait. When it pulls you under, don't panic, and fight your way back to the shallows.",
+      "accept_text": "Something sits on the bottom of Blackwood Lake and bleeds plague into the silt. The Drowned call it the Blackwood Drowner, and the Blackwood Snapjaws won't go near the deep water where it lies.\n\nDrag it out and end it, and the lake will start to clear on its own.\n\nIt comes up from the deep end when it's hungry. Thin the snapjaws on the shore while you wait. When it pulls you under, don't panic. Fight your way back to the shallows.",
       "turn_in_text": "The silt's clearing already. You can see the bottom by the reeds.\n\nI've got an idea, and it's bigger than one lake.",
       "next_quest_id": "ple_filters_for_felwood",
       "requires_quests": [
@@ -766,7 +766,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 57,
       "level_max": 57,
-      "description": "Ines has drawn up a sand and charcoal filter that takes the plague out of Blackwood's water, and she's heard there's a forest across the sea, Felwood, where the water's poisoned with something worse. The Emerald Sanctuary there has a carpenter, Tomasz Wolny, who builds whatever the druids need.\n\nShe wants her drawings in his hands.",
+      "description": "Carry Ines's Filter Drawings to Tomasz Wolny at the Emerald Sanctuary in Felwood.",
       "objectives": [
         {
           "type": "deliver",
@@ -775,7 +775,7 @@
           "label": "Bring Ines's filter drawings to Tomasz Wolny at the Emerald Sanctuary"
         }
       ],
-      "accept_text": "Zeppelin from Tirisfal to Orgrimmar, and then north through Ashenvale to Felwood. The Sanctuary's the clean glade in the middle of it. Tomasz will be the one hammering something.",
+      "accept_text": "I've drawn up a filter, sand and charcoal and a bit of cleverness, that takes the plague out of Blackwood's water. I've heard there's a forest across the sea, Felwood, where the water's poisoned with something worse. They've got a carpenter at the Emerald Sanctuary, Tomasz Wolny, who builds whatever the druids need.\n\nI'd like him to build this.\n\nTake the zeppelin from Tirisfal to Orgrimmar, then north through Ashenvale to Felwood. The Sanctuary's the clean glade in the middle of it. Tomasz will be the one hammering something.",
       "turn_in_text": "These are good drawings. She's a proper engineer, this one.\n\nI built houses outside Krakow, back home. I can build these by the end of the week, and the Sentinels can drink from the stream again.",
       "next_quest_id": null,
       "turn_in_npc_id": "es_volunteer_carpenter",
@@ -872,7 +872,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 56,
       "level_max": 56,
-      "description": "Innkeeper Greta Lowe feeds Crown Guard, and the wagons from Light's Hope come when they come. She's found that the Blighted Warhorses on the road are sick on the outside and mostly fine on the inside.\n\nShe wants the meat, and she doesn't want to hear about it.",
+      "description": "Take Warhorse Flanks from the Blighted Warhorses on the road.",
       "objectives": [
         {
           "type": "fetch",
@@ -880,7 +880,7 @@
           "count": 6
         }
       ],
-      "accept_text": "The horses run the road on either side of the camp. Cut from the flank, where the meat's thickest. Don't tell anyone what's in the stew, and I won't either.",
+      "accept_text": "The wagons come when they come, and the chapel's got a lot more mouths since Crown Guard moved in. I've found that the Blighted Warhorses on the road are sick on the outside and mostly fine on the inside, if you're careful.\n\nI want the meat, and I don't want to hear about it.\n\nThe horses run the road west of the gate. Cut from the flank, where the meat's thickest. Don't tell anyone what's in the stew, and I won't either.",
       "turn_in_text": "That's a week of stew, and nobody needs to know where it came from.\n\nThe newcomers eat anything, have you noticed? I like cooking for them.",
       "next_quest_id": null,
       "reward_exp": 4120,
@@ -955,21 +955,21 @@
     },
     {
       "quest_id": "ple_a_barrel_for_sorrow_hill",
-      "title": "A Barrel for Sorrow Hill",
+      "title": "A Barrel for the Order",
       "giver_npc_id": "epl_cg_innkeeper",
       "zone": "eastern_plaguelands_east",
       "level_min": 56,
       "level_max": 57,
-      "description": "Greta brews a dark ale out of whatever the wagons bring, and the innkeeper at Sorrow Hill, Priya Raman, wrote to say she'd trade a recipe for a barrel. Greta has never been offered a recipe for ale before.\n\nShe wants the barrel taken west, and the recipe brought back in Priya's head.",
+      "description": "Carry the Barrel of Crown Guard Ale to Priya Raman in the Order's quarter of the Bulwark.",
       "objectives": [
         {
           "type": "deliver",
           "target": "pl_q_ale_barrel",
           "count": 1,
-          "label": "Bring Greta's barrel of ale to Innkeeper Priya Raman at Sorrow Hill"
+          "label": "Bring Greta's barrel of ale to Priya Raman at the Bulwark"
         }
       ],
-      "accept_text": "West across the Plaguelands to Sorrow Hill, by Uther's Tomb. It's a long way, so fly if you can. Don't drink it on the way, because I'll know.",
+      "accept_text": "I brew a dark ale out of whatever the wagons bring, and the woman who cooks for the Order of the Pale Flame, Priya Raman, wrote to say she'd trade me a recipe for a barrel. Nobody's ever offered me a recipe for ale before.\n\nI'd like the barrel taken west, and the recipe brought back in your head. Don't write it down. Recipes get stolen.\n\nThe Order's camped inside the Bulwark now, at the far west of the Plaguelands where the road comes in from Tirisfal. It's a long way, so fly if you can. And don't drink it on the way, because I'll know.",
       "turn_in_text": "Is this Greta's ale? Oh, she actually sent it.\n\nTell her the recipe's my mother's dal, and that it goes with dark beer better than anything I've ever tasted. I'll write it out for her.",
       "next_quest_id": null,
       "turn_in_npc_id": "wpl_pf_innkeeper",
@@ -1063,7 +1063,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 56,
       "level_max": 57,
-      "description": "Bat Handler Gwen Pike's riding bats are healthy, and she means to keep them that way. The Carrion Bats that roost in the trees around the camp carry the plague, and they've started fighting her bats for the roost.\n\nShe wants the wild ones gone.",
+      "description": "Kill Carrion Bats in the dead trees round Light's Hope.",
       "objectives": [
         {
           "type": "kill",
@@ -1072,8 +1072,8 @@
           "zone": "eastern_plaguelands_east"
         }
       ],
-      "accept_text": "They roost in the dead trees all around the camp, and they're out every evening. Mine have blue tags on their legs, so please don't hit those.",
-      "turn_in_text": "My bats slept through the night for the first time in a month.\n\nI've got a young one who's ready for her own roost, if you're going east.",
+      "accept_text": "The Dawn's riding bats are healthy, and Aldous and I mean to keep them that way. The Carrion Bats that roost in the dead trees round the chapel carry the plague, and they've started fighting ours for the perch.\n\nI want the wild ones gone.\n\nThey roost all round the chapel and they're out every evening. Ours have blue tags on their legs, so please don't hit those.",
+      "turn_in_text": "My bats slept through the night for the first time in a month.\n\nI've got a young one who's ready for her own roost, if you'll carry her a very short way.",
       "next_quest_id": "ple_a_bat_for_lights_hope",
       "reward_exp": 4200,
       "reward_gold": 16500,
@@ -1151,12 +1151,12 @@
     },
     {
       "quest_id": "ple_a_bat_for_lights_hope",
-      "title": "A Bat for Light's Hope",
+      "title": "A Bat for the Perch",
       "giver_npc_id": "epl_cg_flight",
       "zone": "eastern_plaguelands_east",
       "level_min": 57,
       "level_max": 57,
-      "description": "Light's Hope's flight master, Aldous Grey, lost two bats to the Mossflayers this month, and Gwen has a young female ready to fly. She's packed her into a covered basket.\n\nShe wants her taken up the road to Aldous, gently.",
+      "description": "Carry the Covered Basket to Flight Master Aldous Grey at the chapel's perch.",
       "objectives": [
         {
           "type": "deliver",
@@ -1165,7 +1165,7 @@
           "label": "Bring the young bat to Flight Master Aldous Grey at Light's Hope"
         }
       ],
-      "accept_text": "East up the road to the chapel. Keep the cover on the basket, because she'll try to fly home if she sees the sky. Aldous will be at the roost beside the inn.",
+      "accept_text": "Aldous lost two bats to the Mossflayers this month, and I've got a young female who's ready to fly. I raised her at Crown Guard. She's the best one I've got.\n\nShe's in the covered basket. Take her across to Aldous at the perch on the east side of town, gently. It's not far, and I'd do it myself, but if she sees me hand her over she'll follow me home.\n\nKeep the cover on, because she'll try to fly back if she sees the sky.",
       "turn_in_text": "Oh, she's a lovely one. Look at her ears.\n\nTell Gwen I'll name her after her, and that she'll hate that.",
       "next_quest_id": null,
       "turn_in_npc_id": "epl_lh_flight",
@@ -1258,7 +1258,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 58,
       "level_max": 58,
-      "description": "Commander Eligor Dawnbringer holds Light's Hope for the Argent Dawn, and the Scarlet Crusade holds Tyr's Hand, a walled town on the coast to the south. The Crusade thinks the Dawn are traitors for taking in anyone who'll fight.\n\nDawnbringer wants the Tyr's Hand Crusaders on its walls thinned before they come north.",
+      "description": "Kill Tyr's Hand Crusaders in the streets and on the walls of Tyr's Hand.",
       "objectives": [
         {
           "type": "kill",
@@ -1267,8 +1267,8 @@
           "zone": "eastern_plaguelands_east"
         }
       ],
-      "accept_text": "Tyr's Hand is south and east of the chapel, on the coast. The crusaders walk its streets and its walls. They'll fight to the last, so don't expect any of them to run.",
-      "turn_in_text": "Good work, and grim work. I take no joy in killing the living.\n\nBut they'd burn half the people on this hill for the crime of being newcomers, and I won't allow that.",
+      "accept_text": "The Scarlet Crusade holds Tyr's Hand, a walled town on the coast south of here. They think the Dawn are traitors for taking in anyone who'll fight, and they've said so, loudly, from the walls.\n\nI'd rather talk, and they won't, so I want the Tyr's Hand Crusaders on those walls thinned before they come north.\n\nGo out the gate and south down the road to the coast. The crusaders walk the streets and the walls. They'll fight to the last, so don't expect any of them to run.",
+      "turn_in_text": "Good work, and grim work. I take no joy in killing the living.\n\nBut they'd burn half the people in this town for the crime of being newcomers, and I won't allow that.",
       "next_quest_id": "ple_the_abbots",
       "reward_exp": 4280,
       "reward_gold": 16800,
@@ -1347,7 +1347,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 58,
       "level_max": 59,
-      "description": "Tyr's Hand's crusaders fight because the Tyr's Hand Abbots tell them to. The abbots preach in the town's chapels every morning, and every morning the crusaders come out of those chapels ready to die.\n\nDawnbringer wants the preaching stopped.",
+      "description": "Kill Tyr's Hand Abbots in the chapels and cloister of Tyr's Hand.",
       "objectives": [
         {
           "type": "kill",
@@ -1356,7 +1356,7 @@
           "zone": "eastern_plaguelands_east"
         }
       ],
-      "accept_text": "The abbots keep to the chapels and the cloister in the middle of Tyr's Hand. They heal each other, so kill them one at a time and don't let them gather.",
+      "accept_text": "Tyr's Hand's crusaders fight because the Tyr's Hand Abbots tell them to. The abbots preach in the town's chapels every morning, and every morning the crusaders come out ready to die.\n\nStop the preaching, and the fighting will lose its heart.\n\nThe abbots keep to the chapels and the cloister in the middle of the town. They heal each other, so take them one at a time and don't let them gather.",
       "turn_in_text": "The bells didn't ring at Tyr's Hand this morning. I heard the silence from here.\n\nThere's one left who matters, and he's the worst of them.",
       "next_quest_id": "ple_abbot_varenne",
       "requires_quests": [
@@ -1443,7 +1443,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 59,
       "level_max": 59,
-      "description": "Abbot Varenne rules Tyr's Hand. He was a priest of the Light in Lordaeron before the plague, and he's the one who decided that anyone who came from somewhere else was a servant of the dead.\n\nDawnbringer knew him once. He wants it finished.",
+      "description": "Kill Abbot Varenne in the great chapel of Tyr's Hand.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -1452,8 +1452,8 @@
           "zone": "eastern_plaguelands_east"
         }
       ],
-      "accept_text": "He holds the great chapel at the heart of Tyr's Hand, and he doesn't fight alone. Go in with friends, and watch for the fire when he calls it down.",
-      "turn_in_text": "Then Varenne's gone, and Tyr's Hand will be quieter for a while.\n\nWe studied together at Northshire, a long time ago. He was kinder then. I'll pray for the man he was.",
+      "accept_text": "Abbot Varenne rules Tyr's Hand. He was a priest of the Light in Lordaeron before the plague, and he's the one who decided that anyone who came from somewhere else was a servant of the dead.\n\nWe studied together at Northshire, a long time ago. He was kinder then. I'd like it finished, and I'd like it to be somebody who doesn't remember that.\n\nHe holds the great chapel at the heart of Tyr's Hand, and he doesn't fight alone. Go in with friends, and watch for the fire when he calls it down.",
+      "turn_in_text": "Then Varenne's gone, and Tyr's Hand will be quieter for a while.\n\nI'll pray for the man he was.",
       "next_quest_id": null,
       "requires_quests": [
         "ple_the_abbots"
@@ -1535,16 +1535,16 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 58,
       "level_max": 58,
-      "description": "Dawnbringer has heard about the Order of the Pale Flame at Sorrow Hill, Scarlets who walked out and kill only the mindless dead. Some of the Dawn don't trust them. Dawnbringer would like to, and he'd like to talk to their Flamekeeper, Rory Callahan, about the Crusade.\n\nHe wants his letter carried west.",
+      "description": "Carry Dawnbringer's Letter to Flamekeeper Rory Callahan in the Order's quarter of the Bulwark.",
       "objectives": [
         {
           "type": "deliver",
           "target": "pl_q_dawnbringer_letter",
           "count": 1,
-          "label": "Bring Dawnbringer's letter to Flamekeeper Rory Callahan at Sorrow Hill"
+          "label": "Bring Dawnbringer's letter to Flamekeeper Rory Callahan at the Bulwark"
         }
       ],
-      "accept_text": "West across the Plaguelands to Sorrow Hill, by Uther's Tomb. It's a long way, so fly. Give it to Rory and tell him I'd like an answer, not a sermon.",
+      "accept_text": "I've heard about the Order of the Pale Flame. Scarlets who walked out of the Crusade, and kill only the mindless dead. Some of the Dawn don't trust them. I would like to.\n\nTheir Flamekeeper, Rory Callahan, knows the Crusade from the inside. I'd like to talk to him about Tyr's Hand, and about Hearthglen.\n\nThey're camped inside the Bulwark now, at the far west of the Plaguelands. It's a long way, so fly. Give it to Rory and tell him I'd like an answer, not a sermon.",
       "turn_in_text": "The Argent Dawn wants to talk. Now there's something I didn't think I'd live to see.\n\nTell him yes. Tell him I'll ride to Light's Hope myself, and that I'm sorry it took the end of the world to get us in one room.",
       "next_quest_id": null,
       "turn_in_npc_id": "wpl_pf_flamekeeper",
@@ -1635,7 +1635,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 58,
       "level_max": 58,
-      "description": "Archmage Lysander Hale breaks down the Scourgestones that come to Light's Hope, and he's noticed something new in them. It's coming from the Pestilent Scar, where the Scourge is building with bone. The Scar Bone Constructs that walk there are full of a cold grey marrow.\n\nHe wants some of it, carefully.",
+      "description": "Take Scar Marrow from the Scar Bone Constructs in the Pestilent Scar.",
       "objectives": [
         {
           "type": "fetch",
@@ -1643,7 +1643,7 @@
           "count": 6
         }
       ],
-      "accept_text": "The Scar's north and west of the chapel, a long gash in the ground full of bones. The constructs walk it. Cut the marrow from the big bones in their legs, and don't hold it any longer than you have to.",
+      "accept_text": "I break down the Scourgestones that come to the chapel, and lately I've found something new in them. It's coming from the Pestilent Scar, where the Scourge is building with bone.\n\nThe Scar Bone Constructs that walk there are full of a cold grey marrow. I'd like some of it, carefully.\n\nThe Scar's north-west of the chapel, a long gash in the ground full of bones. Cut the marrow from the big bones in their legs, and don't hold it any longer than you have to.",
       "turn_in_text": "It's cold, isn't it? It's colder than ice and it doesn't melt.\n\nSomething in the Scar is drinking the warmth out of everything, and now I know what's doing it.",
       "next_quest_id": "ple_the_bone_colossus",
       "reward_exp": 4280,
@@ -1726,7 +1726,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 60,
       "level_max": 60,
-      "description": "At the bottom of the Pestilent Scar the Scourge has built a giant out of the bones of everyone who died in the east. Hale calls it the Bone Colossus, and it's what the marrow was for. The Scar Bone Constructs guard it while it grows.\n\nHale wants it pulled down before it's finished.",
+      "description": "Kill the Bone Colossus and the Scar Bone Constructs that guard it in the Pestilent Scar.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -1741,7 +1741,7 @@
           "zone": "eastern_plaguelands_east"
         }
       ],
-      "accept_text": "It stands in the deepest part of the Scar. It's slow, and it's very, very strong. Kill the constructs first, then take it with every friend you can find.",
+      "accept_text": "At the bottom of the Pestilent Scar the Scourge is building a giant out of the bones of everyone who died in the east. I call it the Bone Colossus. That's what the marrow was for.\n\nThe Scar Bone Constructs guard it while it grows. I want it pulled down before it's finished.\n\nIt stands in the deepest part of the Scar. It's slow, and it's very, very strong. Kill the constructs first, then take it with every friend you can find.",
       "turn_in_text": "It's really down? Then the Scar is just a hole in the ground again.\n\nThe Dawn owes you, and so does everyone who'd have been built into it.",
       "next_quest_id": null,
       "requires_quests": [
@@ -1828,7 +1828,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 57,
       "level_max": 58,
-      "description": "Lightwarden Ysolde Carrow keeps the chapel's prayers for the dead, and Darrowshire's dead never got any. The Darrowshire Spirits are still fighting the battle that killed them, every night, over and over.\n\nShe asks you to set them free.",
+      "description": "Set the Darrowshire Spirits free in Darrowshire.",
       "objectives": [
         {
           "type": "kill",
@@ -1837,7 +1837,7 @@
           "zone": "eastern_plaguelands_east"
         }
       ],
-      "accept_text": "Darrowshire's in the south west, past Crown Guard. The spirits fight in the town square and on the road in. They won't know the battle's over, so they'll take you for the enemy.",
+      "accept_text": "I'm Ysolde, and I keep the chapel's prayers for the dead, all of them, because nobody else in the east will.\n\nDarrowshire's dead never got any prayers. The Darrowshire Spirits are still fighting the battle that killed them, every night, over and over, and they don't know it's over.\n\nDarrowshire's far to the west, south of the old tower. The spirits fight in the town square and on the road in. They'll take you for the enemy, so be ready. Set them free.",
       "turn_in_text": "I felt them go. It's quieter in the chapel tonight.\n\nThe newcomers ask me why we pray for the dead here. I tell them it's because nobody else will.",
       "next_quest_id": null,
       "reward_exp": 4280,
@@ -1916,7 +1916,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 57,
       "level_max": 57,
-      "description": "Ysolde won't send anyone into a place she hasn't seen described, and nobody's come back from the Pestilent Scar with a straight story. She wants you to walk to its edge and look.\n\nJust look, she says. Don't go down.",
+      "description": "Look into the Pestilent Scar from its edge, and come straight back.",
       "objectives": [
         {
           "type": "explore",
@@ -1927,7 +1927,7 @@
           "label": "Look into the Pestilent Scar"
         }
       ],
-      "accept_text": "North and west of the chapel, past the lake. You'll smell it before you see it. Stand at the edge and look, and then come straight back here.",
+      "accept_text": "I won't send anyone into a place I haven't heard described, and nobody's come back from the Pestilent Scar with a straight story. One man said fire, one said ice, one wouldn't say anything.\n\nWalk to its edge and look. Don't go down.\n\nIt's north-west of the chapel, past the lake. You'll smell it before you see it. Stand at the edge and look, and then come straight back here.",
       "turn_in_text": "Bones, all the way down? Light have mercy on them.\n\nI'll tell the Archmage. He's been waiting for someone to say it out loud.",
       "next_quest_id": null,
       "reward_exp": 4200,
@@ -2005,7 +2005,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 58,
       "level_max": 58,
-      "description": "Somebody's been hexing the chapel. Ysolde has found little bundles of feathers and teeth under the pews, and the Mossflayer Shadowhunters of Zul'Mashar are the only ones who'd do that.\n\nShe wants the shadowhunters dead before they get bolder.",
+      "description": "Kill Mossflayer Shadowhunters at Zul'Mashar.",
       "objectives": [
         {
           "type": "kill",
@@ -2014,7 +2014,7 @@
           "zone": "eastern_plaguelands_east"
         }
       ],
-      "accept_text": "Zul'Mashar's in the far north east, past the lodge. The shadowhunters keep to the temple steps. Their hexes are nasty, so get a priest to look at you when you're back.",
+      "accept_text": "Somebody's been hexing the chapel. I've found little bundles of feathers and teeth under the pews. The only ones in the east who'd do that are the Mossflayer Shadowhunters of Zul'Mashar.\n\nI'd like them dead before they get bolder. The dead don't cross this ground, but the living do.\n\nZul'Mashar's in the far north-east, past Quel'Lithien Lodge. The shadowhunters keep to the temple steps. Their hexes are nasty, so get a priest to look at you when you're back.",
       "turn_in_text": "There was nothing under the pews this morning. Thank the Light.\n\nI found something odd on one of the bundles, and I'd like a closer look.",
       "next_quest_id": "ple_hex_fetishes",
       "reward_exp": 4280,
@@ -2093,7 +2093,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 58,
       "level_max": 59,
-      "description": "The hex bundles under the pews were tied around scraps of the chapel's own laundry. Somebody's been stealing from the chapel for the Mossflayers. Ysolde wants the fetishes the Mossflayer Shadowhunters still carry, so she can see whose cloth is in them.",
+      "description": "Take Mossflayer Hex Fetishes from the Mossflayer Shadowhunters at Zul'Mashar.",
       "objectives": [
         {
           "type": "fetch",
@@ -2101,7 +2101,7 @@
           "count": 5
         }
       ],
-      "accept_text": "The shadowhunters at Zul'Mashar carry their fetishes on their belts. Bring them back unopened. I'll know the cloth when I see it.",
+      "accept_text": "The hex bundles under the pews were tied round scraps of the chapel's own laundry. Somebody inside these walls has been stealing from us for the Mossflayers.\n\nThe Mossflayer Shadowhunters still carry their fetishes. I want to see whose cloth is in them.\n\nThey carry them on their belts at Zul'Mashar. Bring them back unopened. I'll know the cloth when I see it.",
       "turn_in_text": "That's the infirmary's linen, every scrap.\n\nSomebody's been selling them our sheets. I'll find out who, and then we'll have a long talk.",
       "next_quest_id": null,
       "requires_quests": [
@@ -2188,7 +2188,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 57,
       "level_max": 58,
-      "description": "Sergeant Marisol Reyes runs Light's Hope's infirmary, and she's noticed that the Mossflayer trolls heal faster than anybody else in the Plaguelands. The Mossflayer Scouts carry herb pouches, and she wants to know what's in them.\n\nShe isn't too proud to learn from a troll.",
+      "description": "Take Mossflayer Herb Pouches from the Mossflayer Scouts round Zul'Mashar.",
       "objectives": [
         {
           "type": "fetch",
@@ -2196,7 +2196,7 @@
           "count": 5
         }
       ],
-      "accept_text": "Zul'Mashar's in the far north east. The scouts range out from the temple in pairs. Bring me the pouches closed, because I want to see how they pack them.",
+      "accept_text": "I'm Marisol, and I run the infirmary. I've got more patients than beds. If you're bleeding, sit down. If you're not, listen.\n\nThe Mossflayer trolls heal faster than anybody else in the Plaguelands. Their scouts carry herb pouches, and I want to know what's in them. I'm not too proud to learn from a troll.\n\nZul'Mashar's in the far north-east. The Mossflayer Scouts range out from the temple in pairs. Bring me the pouches closed, because I want to see how they pack them.",
       "turn_in_text": "Kingsblood, and something I don't know, and a lot of salt.\n\nI was a paramedic in Monterrey, back home. Half of what I know I learned from grandmothers, so I'm not surprised the trolls know a thing or two.",
       "next_quest_id": "ple_mossflayer_raiders",
       "reward_exp": 4280,
@@ -2280,7 +2280,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 58,
       "level_max": 58,
-      "description": "Marisol's wagons bring the wounded up from Crown Guard, and the Mossflayers have started raiding them. The Mossflayer Warriors hit the wagons from the trees and the Mossflayer Scouts pick off whoever runs.\n\nShe wants the road safe for the wounded.",
+      "description": "Kill Mossflayer Warriors and Mossflayer Scouts round Zul'Mashar.",
       "objectives": [
         {
           "type": "kill",
@@ -2295,7 +2295,7 @@
           "zone": "eastern_plaguelands_east"
         }
       ],
-      "accept_text": "They come down from Zul'Mashar to the north road. Go up there and hit them at home. They're fast and they're angry, so don't fight more than you can handle.",
+      "accept_text": "My wagons bring the wounded in from the road, and the Mossflayers have started raiding them. The Mossflayer Warriors hit the wagons from the trees, and the Mossflayer Scouts pick off whoever runs.\n\nI want the road safe for people who are already hurt.\n\nThey come down from Zul'Mashar to the north road. Go up there and hit them at home. They're fast and they're angry, so don't fight more than you can handle.",
       "turn_in_text": "No raids yesterday, and none today. My wounded came in alive.\n\nThere's one more of them I'd like to see gone, and he's the one giving the orders.",
       "next_quest_id": "ple_zulmashar_the_last",
       "requires_quests": [
@@ -2378,7 +2378,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 59,
       "level_max": 59,
-      "description": "The Mossflayers follow a warlord who named himself after their city. Zul'Mashar the Last says he's the last of the old Amani blood, and he's sworn to drive everyone out of the east who isn't a troll.\n\nMarisol wants the raids to stop for good.",
+      "description": "Kill Zul'Mashar the Last at the top of the temple at Zul'Mashar.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -2387,7 +2387,7 @@
           "zone": "eastern_plaguelands_east"
         }
       ],
-      "accept_text": "He holds the top of the temple at Zul'Mashar. He's big, and he hits like a falling tree. Take friends, and bring bandages, because you'll need them.",
+      "accept_text": "The Mossflayers follow a warlord who named himself after their city. Zul'Mashar the Last says he's the last of the old Amani blood, and he's sworn to drive everyone out of the east who isn't a troll.\n\nThe raids won't stop while he's giving the orders.\n\nHe holds the top of the temple at Zul'Mashar. He's big, and he hits like a falling tree. Take friends, and bring bandages, because you'll need them.",
       "turn_in_text": "Then it's over. My wagons can run every day now.\n\nI took an oath to look after the sick and the hurt. I never thought I'd be sending people to kill a warlord to do it.",
       "next_quest_id": null,
       "requires_quests": [
@@ -2473,7 +2473,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 58,
       "level_max": 58,
-      "description": "The transplant medics keep in touch across the sea as best they can. Marisol has written up what the Mossflayer herbs do, and she wants her notes in the hands of Marcus Oyelaran, a paramedic at Talonbranch Glade in Felwood.\n\nThe burns up there are the same kind she's treating here.",
+      "description": "Carry Marisol's Notes to Marcus Oyelaran at Talonbranch Glade in North Felwood.",
       "objectives": [
         {
           "type": "deliver",
@@ -2482,7 +2482,7 @@
           "label": "Bring Marisol's notes to Marcus Oyelaran at Talonbranch Glade"
         }
       ],
-      "accept_text": "Zeppelin from Tirisfal to Orgrimmar, then north through Ashenvale to Felwood, and up to Talonbranch at the top. Marcus will be the one with his sleeves rolled up. Don't let the notes get wet.",
+      "accept_text": "The medics who came through keep in touch across the sea as best we can. Letters, mostly, carried by whoever's going that way.\n\nI've written up what the Mossflayer herbs do. There's a paramedic at Talonbranch Glade in Felwood, Marcus Oyelaran, treating burns up there that sound exactly like the ones I'm treating here.\n\nTake the zeppelin from Tirisfal to Orgrimmar, then go north through Ashenvale to Felwood and up to Talonbranch at the top. Marcus will be the one with his sleeves rolled up. Don't let the notes get wet.",
       "turn_in_text": "Marisol from Monterrey? We trained on the same course, years ago, back home in a hotel conference room in Houston.\n\nThis is going to save people up here. Tell her I owe her a coffee, if anyone ever finds coffee again.",
       "next_quest_id": null,
       "turn_in_npc_id": "fn_talonbranch_medic",
@@ -2577,7 +2577,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 57,
       "level_max": 57,
-      "description": "Ranger Faelis Dawnreach served at Quel'Lithien Lodge in the north, where the high elves kept watch on Lordaeron's border. The lodge fell with everything else, and the Restless Lodge Rangers still walk their posts. He served beside every one of them.\n\nHe asks you to let them rest.",
+      "description": "Lay the Restless Lodge Rangers to rest at Quel'Lithien Lodge.",
       "objectives": [
         {
           "type": "kill",
@@ -2586,7 +2586,7 @@
           "zone": "eastern_plaguelands_east"
         }
       ],
-      "accept_text": "Quel'Lithien Lodge is in the north, past the lake. They'll be on the walls and in the trees, where they always stood. They still shoot straight, so keep moving.",
+      "accept_text": "I'm Faelis, and I served at Quel'Lithien Lodge, in the north, where my people kept watch on Lordaeron's border. The lodge fell with everything else. Everyone I served with is still there, and none of them are resting.\n\nThe Restless Lodge Rangers still walk their posts. I knew every one of them. I'm asking you to let them rest.\n\nThe lodge is in the north, past the lake. They'll be on the walls and in the trees, where they always stood. They still shoot straight, so keep moving.",
       "turn_in_text": "They're resting now, all of them. I could hear them stop.\n\nThey each carried a token, a silver leaf. I'd like them back, if you'd go once more.",
       "next_quest_id": "ple_the_silver_leaves",
       "reward_exp": 4200,
@@ -2665,7 +2665,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 57,
       "level_max": 58,
-      "description": "Every ranger of Quel'Lithien carried a silver leaf on a green cord, a token from Quel'Thalas. Faelis wants to send them home, so that somebody there knows their names. The Restless Lodge Rangers still wear them.",
+      "description": "Take Quel'Lithien Ranger's Tokens from the Restless Lodge Rangers.",
       "objectives": [
         {
           "type": "fetch",
@@ -2673,7 +2673,7 @@
           "count": 6
         }
       ],
-      "accept_text": "The rangers at the lodge still wear their tokens around their necks. Bring back what you find. Not every one of them will still have theirs, and I'm sorry for that.",
+      "accept_text": "Every ranger of Quel'Lithien carried a silver leaf on a green cord, a token from Quel'Thalas. I'd like to send them home, so that somebody there knows their names.\n\nThe Restless Lodge Rangers still wear them round their necks. Bring back what you find. Not every one of them will still have theirs, and I'm sorry for that.",
       "turn_in_text": "That's Seren's, and Calanor's, and this one was Ilyeth's, who always sang off key.\n\nI'll send these north. The lodge's lord is still out there, though, and he won't rest until someone makes him.",
       "next_quest_id": "ple_ranger_lord_saelith",
       "requires_quests": [
@@ -2759,7 +2759,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 59,
       "level_max": 59,
-      "description": "Ranger-Lord Saelith commanded Quel'Lithien Lodge. He was Faelis's captain and his friend, and he died holding the gate. He still holds it, and he still kills anyone who comes through.\n\nFaelis can't do it himself. He's asking you.",
+      "description": "Kill Ranger-Lord Saelith at the inner gate of Quel'Lithien Lodge.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -2768,7 +2768,7 @@
           "zone": "eastern_plaguelands_east"
         }
       ],
-      "accept_text": "He stands at the lodge's inner gate, where he fell. He's fast and he doesn't miss. Go with friends, and close the distance quickly.",
+      "accept_text": "Ranger-Lord Saelith commanded Quel'Lithien Lodge. He was my captain and my friend, and he died holding the gate. He still holds it, and he still kills anyone who comes through.\n\nI can't do it myself. I've stood at that gate with an arrow on the string and I couldn't loose it. I'm asking you.\n\nHe stands at the lodge's inner gate, where he fell. He's fast and he doesn't miss. Go with friends, and close the distance quickly.",
       "turn_in_text": "Then the lodge is quiet, and he's free.\n\nHe taught me to shoot. He taught half the lodge. Thank you for doing what I couldn't.",
       "next_quest_id": null,
       "requires_quests": [
@@ -2855,7 +2855,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 56,
       "level_max": 57,
-      "description": "Innkeeper Jessa Moonfield keeps the chapel's lamps lit all night, because the dead don't like the light, and she's running out of oil. The Plague-Rotted Bears carry fat under the rot that renders down clean.\n\nShe wants enough to keep the lamps lit until the wagons come.",
+      "description": "Take Rendered Bear Fat from the Plague-Rotted Bears in the woods round Light's Hope.",
       "objectives": [
         {
           "type": "fetch",
@@ -2863,7 +2863,7 @@
           "count": 6
         }
       ],
-      "accept_text": "The bears wander the woods all around the chapel. Cut the fat from the back, where the rot's thinnest. It won't smell nice, and I'm sorry about that.",
+      "accept_text": "I'm Jessa, and I keep the beds and the lamps. The lamps stay lit all night, because the dead don't like the light, and since Crown Guard moved in I've twice as many lamps and the same amount of oil.\n\nThe Plague-Rotted Bears carry fat under the rot that renders down clean. I've tried it.\n\nThey wander the woods all round the chapel. Cut the fat from the back, where the rot's thinnest. It won't smell nice, and I'm sorry about that.",
       "turn_in_text": "That'll keep the lamps burning for a fortnight.\n\nThe newcomers say they're used to lights that never go out. I'd love to see that, one day.",
       "next_quest_id": null,
       "reward_exp": 4200,
@@ -2947,7 +2947,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 57,
       "level_max": 57,
-      "description": "A little girl's ghost waits in the ruins of Darrowshire. Her name's Pamela Redpath, and she doesn't seem to know she's dead. She's lost her doll, and she says the Darrowshire Ghouls took it.\n\nShe'd very much like it back.",
+      "description": "Find Pamela's Doll on the Darrowshire Ghouls in Darrowshire.",
       "objectives": [
         {
           "type": "fetch",
@@ -2955,7 +2955,7 @@
           "count": 1
         }
       ],
-      "accept_text": "The ghouls took her, they did! They're all over the town. She's got a blue dress and one button eye, and her name's Dolly.",
+      "accept_text": "Hello, are you here to see Daddy? He's out at the fight, but he'll be back soon.\n\nI'm Pamela, and I've lost Dolly, and I've looked everywhere. The Darrowshire Ghouls took her, they did! I saw one carry her off. They're all over the town and they won't give her back.\n\nShe's got a blue dress and one button eye. Will you find her for me, please?",
       "turn_in_text": "That's Dolly, you found her! She's all muddy, but that's all right.\n\nDaddy's going to be so happy when he gets home. He's been gone ever so long.",
       "next_quest_id": "ple_a_letter_for_auntie",
       "reward_exp": 4200,
@@ -3035,16 +3035,16 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 57,
       "level_max": 57,
-      "description": "Pamela has written a letter to her Auntie Marlene, who lived out west near Andorhal. She wants it carried to the people at Sorrow Hill, who she's heard are kind and keep a book of names.\n\nShe doesn't know that Andorhal is gone.",
+      "description": "Carry Pamela's Letter to Chaplain Odile Marchand at the Order's chapel in the Bulwark.",
       "objectives": [
         {
           "type": "deliver",
           "target": "pl_q_pamelas_letter",
           "count": 1,
-          "label": "Bring Pamela's letter to Chaplain Odile Marchand at Sorrow Hill"
+          "label": "Bring Pamela's letter to Chaplain Odile Marchand at the Bulwark"
         }
       ],
-      "accept_text": "Auntie lives near the big town in the west. The lady at the hill will know where. You'll be ever so careful with it, won't you?",
+      "accept_text": "I wrote a letter to Auntie Marlene! She lives out west, near the big town. I haven't heard from her in ever so long.\n\nA man came through and said there are kind people in the west who keep a book with everybody's names in it. If anyone knows where Auntie is, it's them.\n\nThe lady with the book is in the big wall at the end of the road, where the road goes out of the Plaguelands. You'll be ever so careful with it, won't you?",
       "turn_in_text": "Oh, this is from a child. Darrowshire, she says.\n\nMarlene Redpath's in my book. She died in Andorhal, with everyone else. I'll write back to Pamela, and I'll tell her that her auntie loved her. That part's true.",
       "next_quest_id": "ple_where_daddy_is",
       "turn_in_npc_id": "wpl_pf_chaplain",
@@ -3137,7 +3137,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 58,
       "level_max": 58,
-      "description": "Pamela's father, Captain Joseph Redpath, led Darrowshire's defence and fell in it, and then he got up again. Captain Redpath's Shade still walks the battlefield south of the town, still fighting, and Pamela is still waiting for him to come home.\n\nThe only way he'll come home is if someone sets him free.",
+      "description": "Set Captain Redpath's Shade free on the battlefield south of Darrowshire.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -3146,7 +3146,7 @@
           "zone": "eastern_plaguelands_east"
         }
       ],
-      "accept_text": "Daddy's at the big fight, south of the houses. He's very brave. Tell him I've been good, and that I've got Dolly back.",
+      "accept_text": "Daddy's at the big fight, south of the houses. He's been there ever so long. I can see the flags from the end of the road, but I'm not allowed to go.\n\nHe's Captain Joseph Redpath, and he's very brave. Everybody says so.\n\nWill you go and find him? Tell him I've been good, and that I've got Dolly back, and that I'm waiting. Tell him he can come home now.",
       "turn_in_text": "You saw him? Is he coming?\n\nHe's here, I can see him, and he's smiling. Thank you, thank you. We're going home now.",
       "next_quest_id": null,
       "requires_quests": [
@@ -3233,7 +3233,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 58,
       "level_max": 59,
-      "description": "Lightwarden Ysolde Carrow prays for every dead soul in the east, and she's found out where some of them went. The Scourge has dug a mine under the Pestilent Scar, and the Bone Miners in it are digging up the east's dead to build its constructs.\n\nShe wants the digging stopped, and the Scourge Pit Guards who keep the miners at it.",
+      "description": "Kill Bone Miners and Scourge Pit Guards in the Bone Mines, under the Pestilent Scar.",
       "objectives": [
         {
           "type": "kill",
@@ -3248,7 +3248,7 @@
           "zone": "the_bone_mines"
         }
       ],
-      "accept_text": "The mine's in the hill under the Pestilent Scar. Every gallery's deeper than the last, so it's a long walk down. The pit guards keep the miners at their work, and they'll keep you out if they can.",
+      "accept_text": "I pray for every dead soul in the east, and I've found out where some of them went. The Scourge has dug a mine under the Pestilent Scar. The Bone Miners in it are digging up the east's dead to build its constructs, and the Scourge Pit Guards keep them at it.\n\nI want the digging stopped.\n\nThe mine's in the hill under the Scar. Every gallery's deeper than the last, so it's a long walk down. The pit guards will keep you out if they can.",
       "turn_in_text": "Those were people once, the bones they were digging up. Somebody's grandfather, somebody's child.\n\nI'll say the prayer for all of them at once. It's not enough, but it's what I've got. Faelis wants a word with you about whoever's running the place.",
       "next_quest_id": "ple_the_overseer",
       "reward_exp": 4360,
@@ -3328,7 +3328,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 59,
       "level_max": 60,
-      "description": "Ranger Faelis Dawnreach watched the Bone Mines from the ridge for three nights, and she's seen who runs them. Overseer Marrowgrim sits in the pit at the bottom with a meat hook and a cart, and nothing leaves the mine that he hasn't weighed.\n\nShe wants him dead before the Scourge has bone enough for another colossus.",
+      "description": "Kill Overseer Marrowgrim in the marrow pit at the bottom of the Bone Mines.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -3337,7 +3337,7 @@
           "zone": "the_bone_mines"
         }
       ],
-      "accept_text": "He's in the marrow pit at the end of the deepest gallery. He's big and he's slow until he isn't, so don't stand where that hook can reach you. And watch out for the cart.",
+      "accept_text": "I watched the Bone Mines from the ridge for three nights, and I've seen who runs them. Overseer Marrowgrim sits in the pit at the bottom with a meat hook and a cart, and nothing leaves that mine that he hasn't weighed.\n\nI want him dead before the Scourge has bone enough for another colossus.\n\nHe's in the marrow pit at the end of the deepest gallery. He's big and he's slow until he isn't, so don't stand where that hook can reach you. And watch out for the cart.",
       "turn_in_text": "The Scar's quieter already, and the bats have stopped circling it.\n\nAt the lodge we used to say you don't kill the wolf, you kill whoever keeps it fed. Somebody's still keeping him fed, though.",
       "next_quest_id": "ple_the_ossifier",
       "requires_quests": [
@@ -3424,7 +3424,7 @@
       "zone": "eastern_plaguelands_east",
       "level_min": 60,
       "level_max": 60,
-      "description": "Faelis has found a workshop off the middle of the Bone Mines, and Marrowgrim's tallies say everything the mine digs up goes there first. The Ossifier is a necromancer, and he's the one who turns the east's dead into the Scourge's constructs.\n\nShe wants the workshop closed.",
+      "description": "Kill the Ossifier in his workshop off the middle gallery of the Bone Mines.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -3433,7 +3433,7 @@
           "zone": "the_bone_mines"
         }
       ],
-      "accept_text": "The workshop's off the middle gallery, up a short passage. He'll be wearing bone armour, and it's thick, so be patient with it. Break that first, then break him.",
+      "accept_text": "I've found a workshop off the middle of the Bone Mines, and Marrowgrim's tallies say everything the mine digs up goes there first. The Ossifier is a necromancer, and he's the one who turns the east's dead into the Scourge's constructs.\n\nClose his workshop.\n\nIt's off the middle gallery, up a short passage. He'll be wearing bone armour, and it's thick, so be patient with it. Break that first, then break him.",
       "turn_in_text": "That's the end of the Bone Mines, and the end of the constructs coming out of them.\n\nI couldn't save anyone at the lodge. I'm glad I could do something for the ones who were already gone.",
       "next_quest_id": null,
       "requires_quests": [
@@ -3519,7 +3519,7 @@
       "zone": "arathi_central",
       "level_min": 55,
       "level_max": 56,
-      "description": "Overlord Gath'rok holds the middle of Arathi, and everything that crosses it crosses in front of him. Lately that's been the Argent Dawn's carts heading east, and the Dawn has asked Hammerfall for steel.\n\nGath'rok wants his answer carried to Commander Eligor Dawnbringer at Light's Hope Chapel.",
+      "description": "Carry Gath'rok's Answer to Commander Eligor Dawnbringer at Light's Hope Chapel.",
       "objectives": [
         {
           "type": "deliver",
@@ -3528,7 +3528,7 @@
           "label": "Bring Gath'rok's answer to Commander Eligor Dawnbringer at Light's Hope"
         }
       ],
-      "accept_text": "Go north to the Plaguelands and take the road east as far as it runs. Light's Hope is at the end of it. Tell the commander Hammerfall keeps its word, and don't stop to fight anything you can walk past.",
+      "accept_text": "Everything that crosses Arathi crosses in front of me. Lately that's been the Argent Dawn's carts heading east, and the Dawn has asked Hammerfall for steel.\n\nI've written my answer. I want it carried by somebody who'll fight their way there, because a messenger who can't won't arrive.\n\nGo north to the Plaguelands and take the road east as far as it runs. Light's Hope is at the end of it, behind its own gate. Tell the commander Hammerfall keeps its word, and don't stop to fight anything you can walk past.",
       "turn_in_text": "Hammerfall's answer, and it's yes. The Overlord doesn't waste words, does he?\n\nWe don't ask the newcomers where they came from here, and we don't ask anyone else either. We ask whether they'll stand on the wall tonight, so will you?",
       "next_quest_id": null,
       "turn_in_npc_id": "epl_lh_commander",

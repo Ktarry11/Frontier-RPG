@@ -7,7 +7,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 51,
       "level_max": 52,
-      "description": "High Executor Marla Venn holds the Bulwark, the Forsaken's wall where Tirisfal ends and the Plaguelands begin. Everything east of it wants to come west.\n\nThe fields beyond the gate are full of Wandering Skeletons, and every Plague-Ridden Wolf in the south hunts the grass beside them. She wants them thinned before the next night comes.",
+      "description": "Kill Wandering Skeletons, and every Plague-Ridden Wolf you can find, in the fields east of the Bulwark.",
       "objectives": [
         {
           "type": "kill",
@@ -22,8 +22,8 @@
           "zone": "western_plaguelands_south"
         }
       ],
-      "accept_text": "Out the east gate and into the fields. The skeletons walk the King's Road and the wolves run the grass either side of it. Don't chase anything past the crossroads.",
-      "turn_in_text": "The wall will sleep a little easier tonight.\n\nI've held this gate since the Dark Lady gave it to me, and I'll hold it after you've gone. That's what a wall is for.",
+      "accept_text": "So you're the one who walked through my gate without being asked twice, which I like. I'm High Executor Marla Venn, and this wall is mine.\n\nThe Dark Lady gave me the Bulwark when there was nothing here but a ditch and a rumour. Everything east of it wants to come west, and none of it has. The Wandering Skeletons walk the King's Road at night as if they still had somewhere to be, and the Plague-Ridden Wolves run the grass on either side of them.\n\nGo out the east gate and thin them. Stay this side of the crossroads. I don't send people past it until I know they'll come back.",
+      "turn_in_text": "The wall will sleep a little easier tonight, and so will I, if I slept.\n\nYou came back, which puts you ahead of most. I've got harder work further out, if you want it.",
       "next_quest_id": "pls_andorhals_gate",
       "giver_zone": true,
       "reward_exp": 3800,
@@ -102,7 +102,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 52,
       "level_max": 52,
-      "description": "Andorhal was a city once. Now it's the Scourge's in the middle of the south, and its dead march north to the crossroads and west to the Bulwark.\n\nVenn wants the Andorhal Skeletons that hold its gate cut down, and the Andorhal Skeletal Archers on its walls with them, so her patrols can see inside.",
+      "description": "Kill Andorhal Skeletons and Andorhal Skeletal Archers at the edge of Andorhal.",
       "objectives": [
         {
           "type": "kill",
@@ -117,7 +117,7 @@
           "zone": "western_plaguelands_south"
         }
       ],
-      "accept_text": "Andorhal's south of the crossroads, down the road toward the lake. You'll know it by the smoke. The archers keep to the broken walls, so come at them from the side.",
+      "accept_text": "Andorhal was a city when I was alive. I bought bread there. Now it's the Scourge's, right in the middle of the south, and its dead march out to the crossroads every night and come looking for my wall.\n\nThe Andorhal Skeletons hold what's left of its gate, and the Andorhal Skeletal Archers stand on the broken walls and shoot anything that comes close. My patrols can't see past them.\n\nTake the road south from the crossroads toward the lake. You'll know Andorhal by the smoke. Come at the archers from the side, because they're watching the road.",
       "turn_in_text": "My patrols can see into the city now, and what they see isn't pretty.\n\nI've got a harder job for you, if you've the stomach for it.",
       "next_quest_id": "pls_the_necromancers",
       "requires_quests": [
@@ -199,7 +199,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 53,
       "level_max": 53,
-      "description": "The skeletons don't raise themselves. Andorhal Necromancers stand in the ruins and keep the dead on their feet, and every one of them carries a focus, a bone rod that does the work.\n\nVenn wants the necromancers dead and their foci on her desk, so the Royal Apothecary Society can learn how to break them.",
+      "description": "Kill Andorhal Necromancers in the ruins of Andorhal and bring back their Necromantic Foci.",
       "objectives": [
         {
           "type": "kill",
@@ -213,7 +213,7 @@
           "count": 5
         }
       ],
-      "accept_text": "The necromancers keep to the middle of Andorhal, among the burned houses. Most of them carry a focus. Bring me the rods and don't hold them any longer than you have to.",
+      "accept_text": "The skeletons don't get up on their own. Somebody stands in the ruins and keeps them on their feet, and that somebody is the Andorhal Necromancers.\n\nEach of them carries a focus, a bone rod wound with black wire, and the rod does most of the work. The Royal Apothecary Society would very much like to know how. I would very much like them to stop.\n\nThey keep to the middle of Andorhal, among the burned houses. Kill them and bring me the rods. Don't hold one any longer than you have to. You'll see why.",
       "turn_in_text": "They hum, don't they? I hate that.\n\nThe Society will take them apart. One more job and Andorhal's ours to watch.",
       "next_quest_id": "pls_the_magistrate",
       "requires_quests": [
@@ -299,7 +299,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 54,
       "level_max": 54,
-      "description": "Andorhal's magistrate died with his city and got up again. Magistrate Andor still sits in the ruins and gives orders, and the Andorhal Abominations stand guard over him.\n\nVenn served in Lordaeron's army before she died. She knew the man. She'd like him put down by somebody who isn't her.",
+      "description": "Kill Magistrate Andor and the Andorhal Abominations that guard him in Andorhal.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -314,7 +314,7 @@
           "zone": "western_plaguelands_south"
         }
       ],
-      "accept_text": "He keeps to what's left of the town hall in the middle of Andorhal, and he isn't always there. Kill the abominations while you wait for him. He's stronger than he looks, so bring friends.",
+      "accept_text": "I served in Lordaeron's army before I died. The man who signed my commission was Andorhal's magistrate, and he's still there. He died with his city and got up again, and he sits in what's left of the town hall giving orders as if he'd never stopped.\n\nMagistrate Andor, they call him now. The Andorhal Abominations stand guard over him.\n\nHe isn't always in the hall, so kill the abominations while you wait. He's stronger than he looks, so bring friends. And I'd rather it was you than me, which is the closest I'll come to admitting anything today.",
       "turn_in_text": "Then he's at rest, and so is Andorhal, for a little while.\n\nHe signed my commission once. I'd rather not have watched him do it again.",
       "next_quest_id": null,
       "requires_quests": [
@@ -396,21 +396,21 @@
     },
     {
       "quest_id": "pls_a_dispatch_for_sorrow_hill",
-      "title": "A Dispatch for Sorrow Hill",
+      "title": "A Dispatch for the Flamekeeper",
       "giver_npc_id": "wpl_bulwark_commander",
       "zone": "western_plaguelands_south",
       "level_min": 51,
       "level_max": 51,
-      "description": "Venn doesn't like the Order of the Pale Flame. They wear what used to be Scarlet armour, they're led by newcomers, and they've a keep at Sorrow Hill under the Crusade's nose. They also kill the mindless dead and leave the Forsaken alone, and the wall needs every friend it can get.\n\nShe has a dispatch for their Flamekeeper, Rory Callahan.",
+      "description": "Carry Venn's dispatch across the street to Flamekeeper Rory Callahan, in the Order's quarter of the Bulwark.",
       "objectives": [
         {
           "type": "deliver",
           "target": "pl_q_venn_dispatch",
           "count": 1,
-          "label": "Bring Venn's dispatch to Flamekeeper Rory Callahan at Sorrow Hill"
+          "label": "Bring Venn's dispatch to Flamekeeper Rory Callahan across the street"
         }
       ],
-      "accept_text": "South from the crossroads on the road to the lake. Sorrow Hill's the keep by Uther's Tomb. Don't let them keep you there too long.",
+      "accept_text": "Look across my street. Those banners are the Order of the Pale Flame. They used to keep a fort on Sorrow Hill, under the Crusade's nose, until the hill got too dead even for them. Now they're inside my wall.\n\nThey wear what used to be Scarlet armour and they're led by newcomers. I don't like them. They also kill the mindless dead and leave my people alone, and a wall needs every friend it can get.\n\nTake this to their Flamekeeper, Rory Callahan. He stands at the keep's door on the south side. It's a short walk, so don't let him keep you talking.",
       "turn_in_text": "Marla Venn's seal. She writes like she's sharpening a knife.\n\nShe wants to know if we'll hold the road south of Andorhal. Tell her we will, and that the Order sends its regards, which she'll hate.",
       "next_quest_id": null,
       "turn_in_npc_id": "wpl_pf_flamekeeper",
@@ -499,7 +499,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 51,
       "level_max": 52,
-      "description": "Apothecary Dorian Vesk wants to know what the Scourge is brewing in its cauldrons, and the nearest one is on the Felstone farm, north of the King's Road. It's guarded by the Felstone Cultists who tend it and the Felstone Ghouls who used to work the field.\n\nHe wants a way in.",
+      "description": "Kill Felstone Ghouls and Felstone Cultists round the cauldron on the Felstone farm.",
       "objectives": [
         {
           "type": "kill",
@@ -514,7 +514,7 @@
           "zone": "western_plaguelands_south"
         }
       ],
-      "accept_text": "North from the road at the crossroads, past the dead orchard. The cauldron's in the middle of the field. Clear the ghouls and the cultists around it and come back. Don't touch the cauldron yet.",
+      "accept_text": "Apothecary Dorian Vesk. Don't touch anything on the bench.\n\nThe Scourge brews its plague in cauldrons out in the fields, and I want to know what's in them. The nearest is on the Felstone farm, north of the King's Road. The Felstone Cultists tend it, and the Felstone Ghouls who used to work that field stand round it like they're still waiting for the harvest.\n\nTurn north at the crossroads and go past the dead orchard. The cauldron's in the middle of the field. Clear the ghouls and the cultists, and leave the cauldron alone. I want it whole.",
       "turn_in_text": "That'll do nicely. The way in's open now.\n\nNow for the part I actually care about.",
       "next_quest_id": "pls_a_sample_from_felstone",
       "reward_exp": 3800,
@@ -594,7 +594,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 52,
       "level_max": 52,
-      "description": "The Felstone cauldron is kept by a Felstone Cauldron Lord, one of the Scourge's stitched brutes, and the only clean sample is the one in the flask it keeps at its belt.\n\nVesk wants that flask.",
+      "description": "Kill the Felstone Cauldron Lord and take the Felstone Cauldron Sample it carries.",
       "objectives": [
         {
           "type": "kill",
@@ -608,8 +608,8 @@
           "count": 1
         }
       ],
-      "accept_text": "It stands at the cauldron. It's big and it's slow and it hits like a falling barn. The flask will be on it.",
-      "turn_in_text": "It's still warm, and that's wonderful.\n\nThere are three more cauldrons in the south. I'd like them all.",
+      "accept_text": "A sample out of the cauldron itself is no good to me. The cultists add whatever's lying around. The clean stuff, the batch they started from, is in a flask on the belt of the thing that keeps the cauldron.\n\nIt's a Felstone Cauldron Lord, one of the Scourge's stitched brutes. It's big and slow and it hits like a falling barn.\n\nIt stands at the Felstone cauldron. Put it down and bring me the flask. Keep it upright and keep it out of the sun.",
+      "turn_in_text": "It's still warm, and that's wonderful.\n\nThere are more cauldrons in the south. I'd like them all.",
       "next_quest_id": "pls_dalsons_tears",
       "requires_quests": [
         "pls_felstone_field"
@@ -695,7 +695,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 52,
       "level_max": 53,
-      "description": "The Dalson farm north of the road has its own cauldron, and the Cauldron Necrolytes who stir it carry flasks of the brew. Dalson's Ghouls work the yard around them.\n\nVesk wants a sample from the Dalson cauldron to set beside the Felstone one.",
+      "description": "Kill Dalson's Ghouls at the Dalson farm and bring back a Dalson's Cauldron Sample from its Cauldron Necrolytes.",
       "objectives": [
         {
           "type": "fetch",
@@ -709,7 +709,7 @@
           "zone": "western_plaguelands_south"
         }
       ],
-      "accept_text": "North and a little east of Felstone, the farm with the big red barn. The necrolytes keep to the cauldron in the yard. Leave the barn alone, I mean it, and don't let them tip the cauldron.",
+      "accept_text": "The Dalson farm has its own cauldron, and I want to set its brew beside the Felstone one. If they're the same, the Scourge has a recipe. If they're not, it's experimenting, and that's worse.\n\nThe Cauldron Necrolytes who stir it carry flasks of the brew. Dalson's Ghouls work the yard round them.\n\nIt's north and a little east of Felstone, the farm with the big red barn. Leave the barn alone. I mean that. People go in there and don't come out, and I've only got one of you.",
       "turn_in_text": "Thicker than Felstone's. They're changing the recipe from farm to farm.\n\nThat's either very bad or very interesting. I'd like one more before I decide.",
       "next_quest_id": "pls_the_writhing_haunt",
       "requires_quests": [
@@ -795,7 +795,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 53,
       "level_max": 53,
-      "description": "The last cauldron in the south is at the Writhing Haunt, east of Dalson's, where the Haunt Cult Tenders keep the brew stirred and the banshees keep everyone else away.\n\nVesk wants a sample, and he wants the tenders thinned so the next apothecary who goes there comes back.",
+      "description": "Kill Haunt Cult Tenders at the Writhing Haunt and bring back a Writhing Haunt Sample.",
       "objectives": [
         {
           "type": "kill",
@@ -809,7 +809,7 @@
           "count": 1
         }
       ],
-      "accept_text": "East along the north road, where the ground goes soft and the trees die. The tenders carry flasks. The banshees will come when you start fighting, so pick your ground and don't stand in the open.",
+      "accept_text": "The last cauldron in the south is at the Writhing Haunt, east of Dalson's. The Haunt Cult Tenders keep it stirred, and the banshees keep everyone else away. I sent an apothecary there last month. He came back without his voice.\n\nI want a sample, and I want the tenders thinned so the next one of us who goes comes back talking.\n\nGo east along the north road until the ground goes soft and the trees die. The tenders carry flasks. The banshees will come when you start fighting, so pick your ground and don't stand in the open.",
       "turn_in_text": "Something's moving in this one. Look at that.\n\nI need someone who knows more about the walking dead than I do, and the only one I trust is on the other side of the sea.",
       "next_quest_id": "pls_what_the_plague_is_made_of",
       "requires_quests": [
@@ -890,7 +890,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 53,
       "level_max": 54,
-      "description": "Vesk studied under Apothecary Merrow Vane, who's at Sun Rock Retreat in Stonetalon now, watching the dead get up on the Mulgore side of the mountain with nobody calling them. Vesk thinks the cauldrons and Mulgore might be the same sickness.\n\nHe's packed his samples, and he wants them in Merrow's hands.",
+      "description": "Carry Vesk's sample case to Apothecary Merrow Vane at Sun Rock Retreat in Stonetalon.",
       "objectives": [
         {
           "type": "deliver",
@@ -899,7 +899,7 @@
           "label": "Bring the sample case to Apothecary Merrow Vane at Sun Rock Retreat"
         }
       ],
-      "accept_text": "Zeppelin from Tirisfal to Orgrimmar, and a wind rider to Sun Rock. Merrow will be the only Forsaken there. Keep the case upright and don't let the tauren open it.",
+      "accept_text": "I studied under Apothecary Merrow Vane. She's at Sun Rock Retreat in Stonetalon now, watching the dead get up on the Mulgore side of the mountain with nobody calling them. Nobody stirring a cauldron, nobody chanting, they just get up.\n\nI think it's the same sickness as the cauldrons. I'd like to be wrong. Merrow will know.\n\nTake the zeppelin from Tirisfal to Orgrimmar and a wind rider to Sun Rock. She'll be the only Forsaken there. Keep the case upright, and don't let the tauren open it, however politely they ask.",
       "turn_in_text": "These are Dorian's samples, all right. He always did label everything twice.\n\nThis one, from the Haunt, moves the way the dead on the Rim move. I'll write to him tonight, and I'm afraid of what I'll be writing.",
       "next_quest_id": null,
       "turn_in_npc_id": "sr_forsaken_apothecary",
@@ -997,7 +997,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 52,
       "level_max": 53,
-      "description": "Deathstalker Ilsa Rook watches the Cult of the Damned, and the Cult writes letters. The Haunt Cult Tenders at the Writhing Haunt carry them to somebody, and Rook would very much like to know who.\n\nShe wants the letters, in their cipher, before they're delivered.",
+      "description": "Take Cult Courier's Letters from the Haunt Cult Tenders at the Writhing Haunt.",
       "objectives": [
         {
           "type": "fetch",
@@ -1005,7 +1005,7 @@
           "count": 4
         }
       ],
-      "accept_text": "The tenders at the Writhing Haunt carry the letters. Only some of them have one. Bring me what you find, and don't try to read them. The cipher's a nasty one.",
+      "accept_text": "Keep your voice down. I'm Rook, and I watch the Cult of the Damned for the Undercity.\n\nThe Cult writes letters. The Haunt Cult Tenders out at the Writhing Haunt carry them off to somebody, folded small enough to hide in a boot, and I'd very much like to know who's reading them.\n\nOnly some of the tenders carry one. Bring me what you find, and don't try to read them. The cipher's a nasty one, and the last person who puzzled over it too long started dreaming in it.",
       "turn_in_text": "Every letter's in a different hand, and the same name's in all of them.\n\nI'll need the Undercity to hear this.",
       "next_quest_id": "pls_a_report_for_the_undercity",
       "reward_exp": 3880,
@@ -1087,7 +1087,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 53,
       "level_max": 53,
-      "description": "The Cult's letters name somebody in the Undercity who's been passing them the city's patrol routes. Rook won't trust the bats with this, and she won't trust a courier she hasn't met.\n\nShe wants her report put into Deathstalker Rhyne's hand in the Undercity.",
+      "description": "Carry Rook's report to Deathstalker Rhyne in the Undercity.",
       "objectives": [
         {
           "type": "deliver",
@@ -1096,7 +1096,7 @@
           "label": "Bring Rook's report to Deathstalker Rhyne in the Undercity"
         }
       ],
-      "accept_text": "West through the Bulwark gate and into Tirisfal, then down into the Undercity. Rhyne's in the Royal Quarter. Give it to him and nobody else, and don't stop for a drink on the way.",
+      "accept_text": "The letters name somebody in the Undercity. Somebody who's been passing the Cult our patrol routes, the Bulwark's included.\n\nI won't trust the bats with this, and I won't trust a courier I haven't met. I've met you.\n\nGo out the west gate, back through Tirisfal and down into the Undercity. Deathstalker Rhyne is in the Royal Quarter. Put it in his hand and nobody else's, and don't stop for a drink on the way. Whoever that name belongs to drinks in the same places you would.",
       "turn_in_text": "So this is Rook's report. She writes like she's afraid of running out of ink.\n\nThis name's going to make some people very unhappy. Thank you. I'll handle it from here.",
       "next_quest_id": null,
       "turn_in_npc_id": "uc_deathstalker",
@@ -1190,7 +1190,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 53,
       "level_max": 54,
-      "description": "The banshees at the Writhing Haunt answer to something Rook calls the Mother of the Haunt, a banshee old enough to remember the farm before the plague. The Haunt Banshees keep the Cult's tenders safe, and the Mother keeps the banshees.\n\nRook wants her silenced.",
+      "description": "Kill the Mother of the Haunt and the Haunt Banshees at the Writhing Haunt.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -1205,7 +1205,7 @@
           "zone": "western_plaguelands_south"
         }
       ],
-      "accept_text": "She drifts through the Writhing Haunt, and she isn't always there. Thin the banshees while you wait for her. When she wails, back off and let it pass.",
+      "accept_text": "The banshees at the Writhing Haunt answer to something. I call her the Mother of the Haunt. She's old enough to remember the farm before the plague, and she keeps the Haunt Banshees, and the banshees keep the Cult's tenders safe.\n\nWhile she's there, nobody gets near that cauldron without losing their voice. I want her silenced.\n\nShe drifts through the Haunt and she isn't always there. Thin the banshees while you wait for her. When she wails, back off and let it pass. You'll know it when you hear it.",
       "turn_in_text": "That's one less voice in the Haunt.\n\nI can hear the wind out there now, and I'd forgotten what it sounded like.",
       "next_quest_id": null,
       "reward_exp": 5148,
@@ -1288,7 +1288,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 51,
       "level_max": 52,
-      "description": "The man who owned Felstone Field still walks it. Farmer Felstone was a stubborn man alive, Vance says, and he's a worse one dead, and he's been killing the patrols that cut across his field with a rusted scythe.\n\nVance wants him put in the ground he wouldn't leave, and the Felstone Ghouls who work for him with him.",
+      "description": "Kill Farmer Felstone and the Felstone Ghouls who work his field.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -1303,8 +1303,8 @@
           "zone": "western_plaguelands_south"
         }
       ],
-      "accept_text": "Felstone Field's north of the crossroads. He wanders it, so look for the one with the scythe. He's tougher than his ghouls, so bring somebody.",
-      "turn_in_text": "Then the field's quiet, for once.\n\nI'd have liked to buy grain off him, once. I suppose that's the Plaguelands for you.",
+      "accept_text": "I'm Captain Vance, and I run the patrols between here and Andorhal, for what that's worth these days.\n\nThe man who owned Felstone Field still walks it. He was stubborn alive, they tell me, and he's worse dead. My patrols cut across his field to save an hour, and he's had three of them with a rusted scythe.\n\nThey call him Farmer Felstone. Put him in the ground he wouldn't leave, and his Felstone Ghouls with him. Felstone Field's north of the crossroads. Look for the one with the scythe, and bring somebody, because he's tougher than his hands.",
+      "turn_in_text": "Then the field's quiet, for once.\n\nI'd have bought grain off him, once. I suppose that's the Plaguelands for you.",
       "next_quest_id": "pls_the_ghost_in_the_barn",
       "reward_exp": 4940,
       "reward_gold": 19500,
@@ -1387,7 +1387,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 53,
       "level_max": 53,
-      "description": "Nobody goes into the Dalson barn. Vance lost a patrol there, and the one who came out said it was the father, Joseph Dalson, still looking for his family. The Dalson Ghost keeps the barn, and Dalson's Skeletons keep the yard.\n\nVance wants it ended, gently if you can.",
+      "description": "Kill the Dalson Ghost in the Dalson barn and the Dalson's Skeletons in its yard.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -1402,7 +1402,7 @@
           "zone": "western_plaguelands_south"
         }
       ],
-      "accept_text": "The red barn on the Dalson farm. The skeletons walk the yard, and the ghost won't come out of the barn. It's grieving, not hungry, but it'll kill you just the same.",
+      "accept_text": "Nobody goes into the Dalson barn. I lost a patrol in there. The one who came out said it was the father, Joseph Dalson, still looking for his family. He said it wasn't angry, it was looking, and it killed them anyway.\n\nThe Dalson Ghost keeps the barn and Dalson's Skeletons keep the yard. I want it ended, and I'd like it ended gently, if there's a gentle way.\n\nIt's the red barn on the Dalson farm. The skeletons walk the yard. The ghost won't come out, so you'll have to go in.",
       "turn_in_text": "He's at rest, then. I hope he found them.\n\nSome things out here make you remember you were alive once. That was one of them.",
       "next_quest_id": null,
       "requires_quests": [
@@ -1484,7 +1484,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 52,
       "level_max": 52,
-      "description": "Grey braces broken limbs with plates of turtle shell, and the best shell in the Plaguelands is on the Darrowmere Snapjaws at the lake. It's hard as iron and it doesn't rot.\n\nHe wants shell plates, the bigger the better.",
+      "description": "Take Snapjaw Shell Plates from the Darrowmere Snapjaws at Darrowmere Lake.",
       "objectives": [
         {
           "type": "fetch",
@@ -1492,7 +1492,7 @@
           "count": 6
         }
       ],
-      "accept_text": "The snapjaws sun themselves on the lake shore south of Sorrow Hill. Go for the legs. The shell's too hard to cut through, which is the whole point.",
+      "accept_text": "I'm Surgeon Grey. Mind the bucket.\n\nWhen the fields take a leg off one of the Deathguard, I put it back, and I brace the break with turtle shell. It's hard as iron and it doesn't rot, which is more than I can say for anything else out here. The best shell in the Plaguelands is on the Darrowmere Snapjaws at the lake.\n\nThey sun themselves on the shore south of the old Sorrow Hill road. Go for the legs, because you won't cut through the shell. That's the whole point of it. Bring me plates, and the bigger the better.",
       "turn_in_text": "Look at the grain on that. That'll hold a femur together for a hundred years.\n\nThere's an old one at the lake I've wanted for a long time.",
       "next_quest_id": "pls_old_darrowjaw",
       "reward_exp": 3800,
@@ -1574,7 +1574,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 53,
       "level_max": 54,
-      "description": "The oldest snapjaw in Darrowmere Lake has a name. Old Darrowjaw has been in the water since before the plague, and Grey wants his shell, which he says would brace a whole wall. The Darrowmere Snapjaws keep close to him.\n\nIt's a big turtle, he says, and a very bad-tempered one.",
+      "description": "Kill Old Darrowjaw and the Darrowmere Snapjaws round him at Darrowmere Lake.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -1589,8 +1589,8 @@
           "zone": "western_plaguelands_south"
         }
       ],
-      "accept_text": "He keeps to the deep end of the lake and comes up when he likes. Thin the young ones while you wait. When he pulls you under, fight your way back to the shore, and don't panic.",
-      "turn_in_text": "Now that's a shell, a real one.\n\nI'll have the whole Deathguard braced by spring. The newcomers on the hill keep asking me how we stay on our feet, and now I'll have something to show them.",
+      "accept_text": "The oldest snapjaw in Darrowmere Lake has a name. Old Darrowjaw's been in that water since before the plague, and his shell would brace a wall, never mind a leg. I've wanted it for years.\n\nHe's a big turtle and a very bad-tempered one, and the Darrowmere Snapjaws keep close to him.\n\nHe keeps to the deep end and comes up when he likes. Thin the young ones while you wait. When he pulls you under, fight your way back to the shore and don't panic. Panicking is how I get most of my patients.",
+      "turn_in_text": "Now that's a shell, a real one.\n\nI'll have the whole Deathguard braced by spring. The newcomers across the street keep asking me how we stay on our feet, and now I'll have something to show them.",
       "next_quest_id": null,
       "requires_quests": [
         "pls_snapjaw_shell"
@@ -1676,7 +1676,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 51,
       "level_max": 52,
-      "description": "Rory Callahan wants you to understand the Order's one rule before you wear its flame. They kill the mindless dead and the fanatics who burn people, and nobody else. The Scarlet Outriders and the Scarlet Field Chaplains patrol Andorhal, and they burn anything that doesn't pray the way they do.\n\nThat's who the Order kills.",
+      "description": "Kill Scarlet Outriders and Scarlet Field Chaplains on the north side of Andorhal.",
       "objectives": [
         {
           "type": "kill",
@@ -1691,8 +1691,8 @@
           "zone": "western_plaguelands_south"
         }
       ],
-      "accept_text": "The Crusade's patrols come down from Hearthglen and work the north side of Andorhal. They'll be glad to see you, right up until they see the flame on your shoulder. Don't touch the Forsaken.",
-      "turn_in_text": "That's the job. Some days it's a good one.\n\nI wore that red for a year, you know. I laid steel in Boston for twenty years, back on Earth, and I'd still rather do that.",
+      "accept_text": "I'm Rory Callahan. Before you wear our flame, you need to know the one rule, so here it is. We kill the mindless dead and the fanatics who burn people, and nobody else.\n\nI wore the red for a year. When the world ended the Crusade were the only ones killing what was killing us, and I joined them. Then I saw who else they were burning, people like me, for the crime of being born on Earth. I scraped the red off and walked out, and some good people walked out with me.\n\nThe Scarlet Outriders and the Scarlet Field Chaplains patrol the north side of Andorhal now. That's who we kill. Don't touch the Forsaken. They're rude, and they're not mindless.",
+      "turn_in_text": "That's the work, and some days I can live with it.\n\nI laid steel in Boston for twenty years. I'd still rather be doing that.",
       "next_quest_id": "pls_red_on_the_road",
       "reward_exp": 3800,
       "reward_gold": 15000,
@@ -1771,7 +1771,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 52,
       "level_max": 52,
-      "description": "The Scarlet Field Chaplains in Andorhal carry orders from Hearthglen, and Rory wants to read them. The Crusade doesn't send chaplains this far south unless it's planning something.\n\nHe wants a set of their orders, seal unbroken if you can manage it.",
+      "description": "Take a set of Scarlet Patrol Orders from a Scarlet Field Chaplain in Andorhal.",
       "objectives": [
         {
           "type": "fetch",
@@ -1779,7 +1779,7 @@
           "count": 1
         }
       ],
-      "accept_text": "Find a chaplain on the north side of Andorhal. They keep their orders in a satchel. Bring them back sealed, so I can see whose seal it is. Don't open them.",
+      "accept_text": "The Crusade doesn't send chaplains this far south unless it's planning something. The Scarlet Field Chaplains in Andorhal carry their orders from Hearthglen, and I want to read them.\n\nBring me a set with the seal unbroken. I want to know whose seal is on them before I see what it says. I know most of the hands in Hearthglen. I used to take orders from them.\n\nThe chaplains work the north side of Andorhal and keep their orders in a satchel. Don't open it.",
       "turn_in_text": "That's Hearthglen's seal, and it's signed by Victor Hale himself.\n\nHe was a security contractor back home. I served beside him, God help me. If he's sending orders this far south, the Pale Watch needs to know.",
       "next_quest_id": "pls_hearthglens_road",
       "requires_quests": [
@@ -1866,7 +1866,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 52,
       "level_max": 53,
-      "description": "The orders say the Crusade is moving more patrols down the road from Hearthglen. The Order keeps a watch on that road, the Pale Watch, a camp in the northern Plaguelands under Watch Captain Lena Fischer.\n\nRory wants the orders in her hands before the patrols are.",
+      "description": "Carry the Crusade's orders to Watch Captain Lena Fischer at the Pale Watch, off the King's Road in North WPL.",
       "objectives": [
         {
           "type": "deliver",
@@ -1875,7 +1875,7 @@
           "label": "Bring the Crusade's orders to Watch Captain Lena Fischer at the Pale Watch"
         }
       ],
-      "accept_text": "North up the King's Road, through the gate at the top of the map, and keep on toward Hearthglen. The Pale Watch is a few tents and a banner where the road starts to climb. Lena's the one shouting.",
+      "accept_text": "These orders say the Crusade's moving more patrols down the road from Hearthglen. We keep a town on that road. The Pale Watch, under Watch Captain Lena Fischer. It's close enough to Hearthglen that they can see each other's fires.\n\nI want this in Lena's hands before Hale's patrols are on her doorstep.\n\nGo out the east gate and north up the King's Road, through the gate at the top of the fields, and keep on toward Hearthglen. The Pale Watch's gate is off the road where it starts to climb. Lena will be the one shouting.",
       "turn_in_text": "That's Hale's seal, of course it is.\n\nI was a police officer in Hamburg, back home, and I know what a man looks like when he's getting ready to do something terrible. Stay a while. I could use you up here.",
       "next_quest_id": null,
       "turn_in_npc_id": "wpln_pf_watch_captain",
@@ -1969,7 +1969,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 54,
       "level_max": 54,
-      "description": "Across the lake, Caer Darrow sits in front of Scholomance, where the Cult teaches necromancy to anyone who asks. Rory wants eyes on the island. Something called the Groundskeeper keeps it, a dead man with a spade, and the Caer Darrow Ghouls do whatever he tells them.\n\nRory wants him gone, so the Order can watch Scholomance's door.",
+      "description": "Kill the Groundskeeper and the Caer Darrow Ghouls on Caer Darrow.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -1984,7 +1984,7 @@
           "zone": "western_plaguelands_south"
         }
       ],
-      "accept_text": "Caer Darrow's the island in the east of the lake. Cross where the water's shallow. The Groundskeeper walks the grounds and the ghouls dig for him. He's strong, so go in with friends.",
+      "accept_text": "Across Darrowmere Lake there's an island, Caer Darrow, and Scholomance lies under it. The Cult teaches necromancy there to anyone who asks, and plenty ask.\n\nI want eyes on that island. Right now the Groundskeeper keeps it, a dead man with a spade, and the Caer Darrow Ghouls dig wherever he points.\n\nCaer Darrow's in the east of the lake. Cross the causeway. He walks the grounds and the ghouls dig for him, and he's strong, so take friends. When he's gone, the Order can sit on Scholomance's doorstep and watch who goes in.",
       "turn_in_text": "Then the island's watched, and the Cult knows it.\n\nScholomance can wait. We'll be ready for it when it's time.",
       "next_quest_id": null,
       "reward_exp": 5148,
@@ -2063,12 +2063,12 @@
     },
     {
       "quest_id": "pls_steel_for_sorrow_hill",
-      "title": "Steel for Sorrow Hill",
+      "title": "Steel for the Order",
       "giver_npc_id": "wpl_pf_drillmaster",
       "zone": "western_plaguelands_south",
       "level_min": 51,
       "level_max": 52,
-      "description": "Drillmaster Kofi Mensah trains the Order's recruits, and the recruits keep breaking their swords. The Andorhal Skeletons carry the old Lordaeron infantry's blades, and Rory says the steel under the rust is better than anything they can buy.\n\nKofi wants the blades for the forge.",
+      "description": "Take Rusted Andorhal Blades from the Andorhal Skeletons in Andorhal.",
       "objectives": [
         {
           "type": "fetch",
@@ -2076,7 +2076,7 @@
           "count": 8
         }
       ],
-      "accept_text": "The skeletons are all over Andorhal. Most of them still carry a sword. Bring them back rusted, and Rory will make them good again. Don't bother cleaning them.",
+      "accept_text": "I'm Kofi Mensah. I train the recruits, the ones who walked out of the Crusade and the ones who came through with nothing, and the recruits keep breaking their swords.\n\nThe Andorhal Skeletons carry the old Lordaeron infantry's blades. Rory says the steel under the rust is better than anything we can buy, and Rory knows steel. I'd rather my people swung a dead man's good sword than a live man's bad one.\n\nThe skeletons are all over Andorhal and most still carry a blade. Don't clean them. Bring them back rusted and Rory will make them good again.",
       "turn_in_text": "That's a month of drills that won't end with somebody holding half a sword.\n\nI taught PE in Kumasi, back home. This is the same job, mostly, with more swords.",
       "next_quest_id": "pls_archers_on_the_wall",
       "reward_exp": 3800,
@@ -2156,7 +2156,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 52,
       "level_max": 52,
-      "description": "Kofi takes the recruits into Andorhal to learn, and the Andorhal Skeletal Archers on the broken walls keep putting arrows into them. He'd like the walls cleared before the next lesson.",
+      "description": "Kill Andorhal Skeletal Archers on Andorhal's walls.",
       "objectives": [
         {
           "type": "kill",
@@ -2165,7 +2165,7 @@
           "zone": "western_plaguelands_south"
         }
       ],
-      "accept_text": "The archers stand on what's left of Andorhal's walls. Close the distance fast, because they won't. When you're done, I'll bring the recruits.",
+      "accept_text": "I take the recruits into Andorhal to learn. It's the best classroom in the Plaguelands, and the worst. The Andorhal Skeletal Archers on the broken walls keep putting arrows into my students, and half of those students came through in the Integration and had never seen a bow before last spring.\n\nClear the walls before the next lesson. Close the distance fast, because they won't. When you're done, I'll bring the recruits and they can learn from somebody who isn't shooting at them.",
       "turn_in_text": "They came back with no arrows in them today. That's a first.\n\nThere's something bigger in the city, and I'd like it gone too.",
       "next_quest_id": "pls_the_abominations",
       "requires_quests": [
@@ -2251,7 +2251,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 53,
       "level_max": 53,
-      "description": "The Andorhal Abominations are the Scourge's stitched brutes, sewn together from whatever was lying around. Kofi wants them dead, and he wants their stitching. The thread that holds them together is tougher than wire, and the Order's armourers can use it.",
+      "description": "Kill Andorhal Abominations in Andorhal and cut out their Abomination Stitching.",
       "objectives": [
         {
           "type": "kill",
@@ -2265,7 +2265,7 @@
           "count": 5
         }
       ],
-      "accept_text": "They lumber around the middle of Andorhal. They're slow and they hit like a cart. Cut the thread out afterward, and wash your hands.",
+      "accept_text": "The Andorhal Abominations are the Scourge's stitched brutes, sewn together from whatever was lying around. My recruits see one and forget everything I've taught them.\n\nI want them dead, and I want their stitching. The thread that holds them together is tougher than wire, and our armourers can use it to bind plate.\n\nThey lumber round the middle of Andorhal. They're slow and they hit like a cart. Cut the thread out afterward, and wash your hands before you eat. Priya will check.",
       "turn_in_text": "That's some ugly thread. Thank you, I think.\n\nThe recruits can do the rest of Andorhal. You've earned a rest.",
       "next_quest_id": null,
       "requires_quests": [
@@ -2352,7 +2352,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 53,
       "level_max": 54,
-      "description": "When Rory sent scouts toward Caer Darrow, the Caer Darrow Shades came off the island and over the water after them. Kofi lost a recruit that night.\n\nHe wants the shades destroyed.",
+      "description": "Destroy the Caer Darrow Shades on Caer Darrow and the water round it.",
       "objectives": [
         {
           "type": "kill",
@@ -2361,8 +2361,8 @@
           "zone": "western_plaguelands_south"
         }
       ],
-      "accept_text": "The shades drift on Caer Darrow, the island in the east of the lake, and on the water around it. They're cold to the touch, so wrap up warm. Don't let them get behind you.",
-      "turn_in_text": "That's for Teodora. She was nineteen, and she'd only been here since the Integration.\n\nThank you. I'll tell the recruits who did it.",
+      "accept_text": "When Rory sent scouts toward Caer Darrow, the Caer Darrow Shades came off the island and over the water after them. I lost a recruit that night, a girl called Teodora. She was nineteen.\n\nI'd like them destroyed. I won't pretend it's for the Order.\n\nThe shades drift on the island in the east of the lake and on the water round it. They're cold to the touch, so wrap up warm, and don't let them get behind you.",
+      "turn_in_text": "That's for Teodora. She'd only been here since the Integration, and she was braver than I was at her age.\n\nThank you. I'll tell the recruits who did it.",
       "next_quest_id": null,
       "reward_exp": 3960,
       "reward_gold": 15600,
@@ -2440,7 +2440,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 51,
       "level_max": 51,
-      "description": "Chaplain Odile Marchand keeps the Order's chapel by Uther's Tomb, where the Lightbringer was buried. The Order didn't build its keep here by accident.\n\nShe asks you to go and stand at the tomb before you do anything else for the Order, so you know what it's watching over.",
+      "description": "Visit Uther's Tomb, south of the old Sorrow Hill road in South WPL.",
       "objectives": [
         {
           "type": "explore",
@@ -2451,7 +2451,7 @@
           "label": "Visit Uther's Tomb"
         }
       ],
-      "accept_text": "The tomb's just south of the chapel, at the foot of the hill. Take a minute there. It's the quietest place in the Plaguelands, and I think it's the only one.",
+      "accept_text": "I'm Odile Marchand. I keep the Order's chapel, and before that I kept Uther's Tomb.\n\nWe built our fort on Sorrow Hill because of the tomb. The Lightbringer is buried there. When the hill got too dead to hold, we came here, but the tomb didn't come with us, and somebody has to remember it.\n\nGo and stand at it before you do anything else for the Order. Take the road south from the crossroads, past the graves on the hill. The tomb's at the foot of the hill, with the statue. It's still the quietest place in the Plaguelands, and I think it's the only one.",
       "turn_in_text": "It's quiet there, isn't it? Even the dead keep away.\n\nI taught history in Lyon, back on Earth. I never thought I'd be keeping a legend's grave.",
       "next_quest_id": "pls_laid_to_rest",
       "reward_exp": 3720,
@@ -2529,7 +2529,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 52,
       "level_max": 52,
-      "description": "The Dalsons' farmhands didn't get a burial. They got up instead, and now Dalson's Ghouls and Dalson's Skeletons work the farm for the Scourge.\n\nOdile wants them put down, and she's asked you to say a word for each, if you can manage it.",
+      "description": "Kill Dalson's Ghouls and Dalson's Skeletons on the Dalson farm.",
       "objectives": [
         {
           "type": "kill",
@@ -2544,7 +2544,7 @@
           "zone": "western_plaguelands_south"
         }
       ],
-      "accept_text": "The Dalson farm, with the red barn, north of the road. The ghouls work the yard and the skeletons walk the fields. Say whatever you like over them. It's the saying that matters.",
+      "accept_text": "The Dalsons' farmhands never got a burial. They got up instead, and now Dalson's Ghouls and Dalson's Skeletons work that farm for the Scourge.\n\nI'd like them put down. And I'd like you to say a word for each of them, if you can manage it. It doesn't have to be a prayer. It doesn't have to be in any language they'd know.\n\nThe Dalson farm's north of the road, with the red barn. The ghouls work the yard and the skeletons walk the fields. Say whatever you like over them. It's the saying that matters.",
       "turn_in_text": "Thank you. I've added their names to the chapel's book, the ones we know.\n\nThere's somewhere worse than Dalson's, and I'd like you to see it.",
       "next_quest_id": "pls_the_haunts_banshees",
       "requires_quests": [
@@ -2626,7 +2626,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 53,
       "level_max": 53,
-      "description": "Odile can hear the Writhing Haunt from the chapel on still nights. The Haunt Banshees wail over the farm there and the Writhing Crypt Fiends dig under it, and she says the sound gets into the stones.\n\nShe wants it quiet.",
+      "description": "Kill Haunt Banshees and Writhing Crypt Fiends at the Writhing Haunt.",
       "objectives": [
         {
           "type": "kill",
@@ -2641,8 +2641,8 @@
           "zone": "western_plaguelands_south"
         }
       ],
-      "accept_text": "The Writhing Haunt's east of Dalson's, where the trees die. The banshees drift and the fiends come up out of the ground. Cover your ears, if it helps.",
-      "turn_in_text": "It's quieter tonight. I can hear the wind in the tomb's trees.\n\nThank you. Rest here, if you like. The chapel's warm.",
+      "accept_text": "On still nights on Sorrow Hill I could hear the Writhing Haunt. I can't hear it from here, behind the wall, and I'm ashamed of how glad I am.\n\nThe Haunt Banshees wail over that farm, and the Writhing Crypt Fiends dig under it. The sound gets into the stones, and into the people who live near them.\n\nIt's east of Dalson's, where the trees die. The banshees drift and the fiends come up out of the ground. Cover your ears if it helps. I want it quiet.",
+      "turn_in_text": "Somebody rode in from the east today and said they could hear the wind out there.\n\nThank you. Rest here, if you like. The chapel's warm.",
       "next_quest_id": null,
       "requires_quests": [
         "pls_laid_to_rest"
@@ -2728,7 +2728,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 53,
       "level_max": 53,
-      "description": "Odile walks down to Darrowmere Lake in the evenings, and the Drowned Lakewalkers walk up out of it to meet her. They're the people of Caer Darrow, she thinks, who went into the water when the plague crossed the lake and never came out.\n\nShe wants them laid to rest, and the shore made safe for the Order's camps.",
+      "description": "Kill Drowned Lakewalkers on the shores of Darrowmere Lake.",
       "objectives": [
         {
           "type": "kill",
@@ -2737,8 +2737,8 @@
           "zone": "western_plaguelands_south"
         }
       ],
-      "accept_text": "South and east, down past the tomb to the lake. They come out of the shallows. Stay on the shore if you can, because they're stronger in the water.",
-      "turn_in_text": "I'll say their names tonight, the ones Ser Aldren remembers.\n\nWe had a lake at home too, Lac d'Annecy. I used to swim in it every summer. I don't think I'll swim in this one.",
+      "accept_text": "I used to walk down to Darrowmere Lake in the evenings, and the Drowned Lakewalkers walked up out of it to meet me. They're the people of Caer Darrow, I think. They went into the water when the plague crossed the lake and they never came out.\n\nI'd like them laid to rest, and I'd like the shore safe for the Order's scouts.\n\nGo south and east, past the tomb to the lake. They come out of the shallows. Stay on the shore if you can, because they're stronger in the water.",
+      "turn_in_text": "I'll say their names tonight, the ones Ser Aldren remembers.\n\nWe had a lake at home too, Lac d'Annecy. I swam in it every summer. I don't think I'll swim in this one.",
       "next_quest_id": null,
       "reward_exp": 3880,
       "reward_gold": 15300,
@@ -2820,7 +2820,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 51,
       "level_max": 52,
-      "description": "Innkeeper Priya Raman feeds everyone at Sorrow Hill, and she's out of meat. The Diseased Black Bears are sick, but not all the way through, and she's found that a cut from the back of the leg comes out clean.\n\nShe wants enough for a stew that'll feed the hill.",
+      "description": "Take Plague-Free Bear Flanks from the Diseased Black Bears along the King's Road.",
       "objectives": [
         {
           "type": "fetch",
@@ -2828,8 +2828,8 @@
           "count": 6
         }
       ],
-      "accept_text": "The bears keep to the trees along the King's Road. Cut from the back of the leg, where it's still red. If it's grey, leave it.",
-      "turn_in_text": "Oh, that's lovely, that's dinner for a week.\n\nI ran a restaurant in Leicester, back home. My mother's recipe works on bear, it turns out. She'd laugh herself silly.",
+      "accept_text": "I'm Priya, and I cook for the Order, and the Order's eaten the last of the meat.\n\nThe Diseased Black Bears out there are sick, but not all the way through. I've found that a cut from the back of the leg comes out clean, if you're careful and you're quick. It's not the worst thing I've cooked here. It's not even the worst thing I've cooked this week.\n\nThe bears keep to the trees along the King's Road, east of the gate. Cut from the back of the leg, where it's still red. If it's grey, leave it.",
+      "turn_in_text": "Oh, that's lovely, that's dinner for a week.\n\nI ran a guesthouse in Kochi, and my mother's curry was the reason people came back. It works on bear, it turns out. She'd laugh herself silly.",
       "next_quest_id": "pls_letters_home",
       "reward_exp": 3800,
       "reward_gold": 15000,
@@ -2907,7 +2907,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 52,
       "level_max": 53,
-      "description": "Nobody knows where anybody ended up after the Integration, and the people at Sorrow Hill write letters anyway. Priya keeps the bundle. The transplants at Sun Rock Retreat in Stonetalon pass letters along to Kalimdor's camps, and a geologist there, Dr. Hannah Lindqvist, keeps a list of names.\n\nPriya wants the bundle in Hannah's hands.",
+      "description": "Carry the bundle of letters to Dr. Hannah Lindqvist at Sun Rock Retreat in Stonetalon.",
       "objectives": [
         {
           "type": "deliver",
@@ -2916,7 +2916,7 @@
           "label": "Bring the bundle of letters to Dr. Hannah Lindqvist at Sun Rock Retreat"
         }
       ],
-      "accept_text": "Tirisfal, the zeppelin to Orgrimmar, and a wind rider to Sun Rock in Stonetalon. Hannah's the one with the maps of the volcano. Please don't lose any of them.",
+      "accept_text": "Nobody knows where anybody ended up after the Integration. We write letters anyway. Half of them are addressed to a name and a guess.\n\nI keep the Order's bundle. There's a geologist at Sun Rock Retreat in Stonetalon, Dr. Hannah Lindqvist, who keeps a list of every name she's heard from Kalimdor's camps. If anyone's going to match a letter to a person, it's her.\n\nGo back through Tirisfal, take the zeppelin to Orgrimmar and a wind rider to Sun Rock. Hannah's the one with the maps of the volcano. Please don't lose any of them. Some of them took people a month to write.",
       "turn_in_text": "So many of them. Let me see whose names I've got.\n\nThere's one here for a woman in Ratchet I wrote down last month. I'll make sure this gets to her. That's one, at least.",
       "next_quest_id": null,
       "turn_in_npc_id": "sr_transplant_geologist",
@@ -3013,7 +3013,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 51,
       "level_max": 52,
-      "description": "Roostkeeper Anders Holm keeps the Order's hawks, and the Plaguewing Vultures have started going after them in the air. He's lost two birds this week.\n\nHe wants the vultures cleared out of the sky over the hill.",
+      "description": "Kill Plaguewing Vultures over South WPL's fields.",
       "objectives": [
         {
           "type": "kill",
@@ -3022,7 +3022,7 @@
           "zone": "western_plaguelands_south"
         }
       ],
-      "accept_text": "They circle over everything dead, which out here is most of the map. The ones nearest the hill are the ones that matter. Shoot them down if you can, and don't let them settle on the roost.",
+      "accept_text": "I'm Anders, and these are the Order's hawks. They carry our letters now that we've given up flying people.\n\nThe Plaguewing Vultures have started going after them in the air. I've lost two birds this week, and one of them was carrying a letter I'd rather the Crusade didn't read.\n\nThe vultures circle over everything dead, which out here is most of the map. Shoot them down if you can. Don't let them settle anywhere near the wall.",
       "turn_in_text": "That's much better, and my birds will fly tomorrow.\n\nI kept pigeons in Bergen when I was a boy, back on Earth. Hawks are harder, and they're worth it.",
       "next_quest_id": "pls_jesses_for_the_hawks",
       "reward_exp": 3800,
@@ -3101,7 +3101,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 52,
       "level_max": 52,
-      "description": "Anders ties his hawks with jesses, leather straps on their legs, and the plague rots leather. The Plague-Ridden Wolves in the fields carry good sinew under the rot, if you cut carefully, and sinew doesn't rot the way leather does.\n\nHe wants enough to rig every bird on the roost.",
+      "description": "Take Clean Wolf Sinew from the Plague-Ridden Wolves in the fields.",
       "objectives": [
         {
           "type": "fetch",
@@ -3109,8 +3109,8 @@
           "count": 8
         }
       ],
-      "accept_text": "The wolves run the grass either side of the King's Road. Cut the sinew from the back legs, where the plague's slowest. Not all of them will have any worth taking.",
-      "turn_in_text": "That's good sinew, and that's every bird on the roost tied properly.\n\nWe used gut string for the pigeons when I was a boy. It turns out it's the same knot.",
+      "accept_text": "I tie the hawks with jesses, leather straps on their legs, and the plague rots leather in a week. Sinew doesn't rot the way leather does.\n\nThe Plague-Ridden Wolves in the fields carry good sinew under the rot, if you cut carefully. Not every wolf will have any worth taking.\n\nThey run the grass either side of the King's Road. Cut from the back legs, where the plague's slowest. Bring me enough to rig every bird I have.",
+      "turn_in_text": "That's good sinew, and that's every bird tied properly.\n\nWe used gut string for the pigeons when I was a boy. It turns out it's the same knot.",
       "next_quest_id": null,
       "requires_quests": [
         "pls_clear_skies"
@@ -3191,7 +3191,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 52,
       "level_max": 52,
-      "description": "Scout Agata Wrobel is back on her feet after the Monastery's cells, and she wants to work. She needs someone to walk into Andorhal with her eyes and come back out. Rory wants to know where the Crusade's patrols cross the Scourge's.\n\nShe wants you to stand in the middle of the city and see who's there.",
+      "description": "Look over the middle of Andorhal and report back to Agata.",
       "objectives": [
         {
           "type": "explore",
@@ -3202,7 +3202,7 @@
           "label": "Look over the middle of Andorhal"
         }
       ],
-      "accept_text": "Andorhal's south of the crossroads. Get to the middle of the city, by the old town hall, and look around. Count the red and count the dead, and then get out.",
+      "accept_text": "I'm Agata Wrobel. I'm back on my feet after a week in a cell under the Scarlet Monastery, and I want to work. Rory says not alone yet, so you can be my eyes.\n\nRory wants to know where the Crusade's patrols cross the Scourge's in Andorhal. I want you to walk into the middle of the city, by the old town hall, and look round. Count the red and count the dead. Then get out.\n\nAndorhal's south of the crossroads. Don't stop to fight anything you don't have to. The point is to come back.",
       "turn_in_text": "So it's red to the north and dead to the south, and they meet in the square. That's useful to know.\n\nI was a mountain guide in the Tatras, back home. Getting people in and out of places is the only thing I was ever good at.",
       "next_quest_id": "pls_the_survey_map",
       "reward_exp": 3800,
@@ -3282,7 +3282,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 52,
       "level_max": 53,
-      "description": "The Crusade's Scarlet Outriders carry a surveyor's map of Andorhal, with every Scourge strong point marked and every Forsaken one too. Agata wants it. If the Crusade knows where everyone is, the Order should know it too.",
+      "description": "Take the Andorhal Survey Map from a Scarlet Outrider in Andorhal.",
       "objectives": [
         {
           "type": "fetch",
@@ -3290,7 +3290,7 @@
           "count": 1
         }
       ],
-      "accept_text": "The outriders patrol the north side of Andorhal. One of them carries the map in a leather tube. Bring it back dry, and don't let them burn it.",
+      "accept_text": "The Crusade's Scarlet Outriders carry a surveyor's map of Andorhal. One of the guards at the Monastery bragged about it while I was in the cell, so I know it's real. Every Scourge strong point is on it, and every Forsaken one too.\n\nIf the Crusade knows where everyone is, so should we.\n\nThe outriders patrol the north side of Andorhal. One of them carries it rolled in a leather tube. Bring it back dry, and don't let them burn it. They burn things when they're losing.",
       "turn_in_text": "Look at this. They've marked the Bulwark's patrols to the hour.\n\nRory needs to see this, and then Venn does, whether she likes us or not.",
       "next_quest_id": null,
       "requires_quests": [
@@ -3377,7 +3377,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 52,
       "level_max": 53,
-      "description": "Ser Aldren Holt commanded an infantry company in Andorhal when the plague came. His men are the Andorhal Skeletons now, and some of them still wear the company's iron rings.\n\nHe wants the rings back. He means to bury them at the tomb, since he can't bury the men.",
+      "description": "Take Andorhal Company Rings from the Andorhal Skeletons in the west of Andorhal.",
       "objectives": [
         {
           "type": "fetch",
@@ -3385,7 +3385,7 @@
           "count": 6
         }
       ],
-      "accept_text": "My company held the west end of Andorhal. The skeletons there were my men. Not all of them still have their rings. Bring me what you find, and forgive me for asking. I don't ask lightly.",
+      "accept_text": "Ser Aldren Holt. I held Andorhal for the King, and then I held it for the Crusade, and I walked out of both.\n\nWhen the plague came, my company held the west end of the city. My men are the Andorhal Skeletons now. Some of them still wear the company's iron rings.\n\nI'd like the rings back. I can't bury the men, so I'll bury those by Uther's Tomb. Not all of them will still have one. Bring me what you find, and forgive me for asking. I don't ask lightly.",
       "turn_in_text": "That's Corporal Brask's, and that's Hask's, and this one was little Tom Barrow's. He lied about his age.\n\nI'll bury them by the tomb in the morning. Thank you. I mean that more than you know.",
       "next_quest_id": "pls_the_necrolytes",
       "reward_exp": 3880,
@@ -3469,7 +3469,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 53,
       "level_max": 53,
-      "description": "Aldren buried his company's rings by Uther's Tomb, and then he asked who raised his men in the first place. The Cauldron Necrolytes at the Dalson farm learned their trade in Andorhal.\n\nHe wants them dead, and he's not ashamed to say it's personal.",
+      "description": "Kill Cauldron Necrolytes at the Dalson farm.",
       "objectives": [
         {
           "type": "kill",
@@ -3478,8 +3478,8 @@
           "zone": "western_plaguelands_south"
         }
       ],
-      "accept_text": "They stir the cauldron at the Dalson farm north of the road. They'll raise anything that falls near them, so fight them away from the ghouls.",
-      "turn_in_text": "That's some justice, at least. Not much, but some.\n\nThe Crusade told me this would feel like holiness. It doesn't feel like that at all. It feels like tidying up.",
+      "accept_text": "I buried my company's rings by the tomb, and then I asked who raised my men in the first place. The answer's the Cauldron Necrolytes at the Dalson farm. They learned their trade in Andorhal, on my people.\n\nI want them dead. I won't dress it up, because it's personal.\n\nThey stir the cauldron in the Dalson yard, north of the road. They'll raise anything that falls near them, so draw them away from the ghouls before you start.",
+      "turn_in_text": "That's some justice, at least. Not much, but some.\n\nThe Crusade told me this would feel like holiness. It feels like tidying up.",
       "next_quest_id": null,
       "requires_quests": [
         "pls_the_fallen_of_andorhal"
@@ -3565,7 +3565,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 53,
       "level_max": 54,
-      "description": "Scout Agata Wrobel has been watching the Writhing Haunt for the Order, and she's found a hole behind it that the crypt fiends keep crawling in and out of. She's been down far enough to know it doesn't stop.\n\nShe wants the Writhing Burrowers and the Brood Guardians thinned out, so the Order can see what's at the bottom.",
+      "description": "Kill Writhing Burrowers and Brood Guardians in the Writhing Deep, under the Writhing Haunt.",
       "objectives": [
         {
           "type": "kill",
@@ -3580,7 +3580,7 @@
           "zone": "the_writhing_deep"
         }
       ],
-      "accept_text": "The cave mouth's behind the Writhing Haunt, out east of the road. It's a web of tunnels down there and they all lead back to the middle. Keep your back to a wall, because the burrowers come up out of the floor.",
+      "accept_text": "I've been watching the Writhing Haunt for the Order. There's a hole behind it the crypt fiends keep crawling in and out of. I went down far enough to know it doesn't stop.\n\nIt's a web of tunnels, and they all lead back to the middle. The Writhing Burrowers come up out of the floor and the Brood Guardians stand over the passages like they're guarding a nursery, which I think they are.\n\nThe cave mouth is behind the Haunt, east of the road. Thin them out so we can see what's at the bottom, and keep your back to a wall.",
       "turn_in_text": "That's the outer burrows quiet, then.\n\nI used to take tourists down caves in the Tatras, and not one of them ever tried to eat me. There's a chamber in the middle that everything was guarding, and I think we both know what's in it.",
       "next_quest_id": "pls_the_broodlord",
       "reward_exp": 3960,
@@ -3659,7 +3659,7 @@
       "zone": "western_plaguelands_south",
       "level_min": 54,
       "level_max": 55,
-      "description": "In the middle of the Writhing Deep, where every tunnel meets, Broodlord Szarak sits on the brood. Off the north rim there's a pocket of web that Agata won't go near, and she says The Silken Bride lives in it.\n\nShe wants them both dead before the brood hatches.",
+      "description": "Kill Broodlord Szarak and the Silken Bride in the Writhing Deep.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -3674,8 +3674,8 @@
           "zone": "the_writhing_deep"
         }
       ],
-      "accept_text": "The broodlord's in the chamber in the middle, and the bride's up in the north-east, at the end of a tunnel off the outer ring. Bring something for poison, because she bites and it doesn't wear off.",
-      "turn_in_text": "Then that's the brood finished, and the Haunt's lost its nursery.\n\nI've been in a cell and I've been in a web now. I'm not sure which I liked less. Here, take this, you've earned it.",
+      "accept_text": "In the middle of the Writhing Deep, where every tunnel meets, Broodlord Szarak sits on the brood. Off the north rim there's a pocket of web I won't go near, and something lives in it the fiends call The Silken Bride.\n\nI want them both dead before the brood hatches. If that nest opens, the Haunt will be the least of anyone's problems.\n\nThe broodlord's in the chamber in the middle. The bride's up in the north-east, at the end of a tunnel off the outer ring. Bring something for poison, because she bites and it doesn't wear off.",
+      "turn_in_text": "Then that's the brood finished, and the Haunt's lost its nursery.\n\nI've been in a cell and I've been in a web now. I'm not sure which I liked less. Here, take this. You've earned it.",
       "next_quest_id": null,
       "requires_quests": [
         "pls_under_the_haunt"
@@ -3760,7 +3760,7 @@
       "zone": "undercity",
       "level_min": 51,
       "level_max": 52,
-      "description": "Apothecary Marwen has read every report the Bulwark's sent back to Undercity, and she doesn't believe half of them. Apothecary Dorian Vesk says the plague in the western fields has changed, and she wants him to prove it.\n\nShe's packed a case of clean reagents for his tests and needs it carried to the Bulwark.",
+      "description": "Carry Marwen's reagent case to Apothecary Dorian Vesk at the Bulwark, on the road east from Tirisfal.",
       "objectives": [
         {
           "type": "deliver",
@@ -3769,7 +3769,7 @@
           "label": "Bring Marwen's reagent case to Apothecary Dorian Vesk at the Bulwark"
         }
       ],
-      "accept_text": "Up through the Ruins and east across Tirisfal to the wall at the end of the road. That's the Bulwark. Don't open the case, because I've counted every vial and I'll know.",
+      "accept_text": "I've read every report the Bulwark's sent back to the Undercity, and I don't believe half of them. Dorian Vesk says the plague in the western fields has changed. Dorian has said a great many things.\n\nSo I've packed him a case of clean reagents, enough for every test he'll need, and if he's right, he can prove it.\n\nGo up through the Ruins and east across Tirisfal to the wall at the end of the road. That's the Bulwark. He keeps the vats by the east gate. Don't open the case. I've counted every vial, and I'll know.",
       "turn_in_text": "Marwen's actually sent me clean reagents, and I didn't think she had any.\n\nShe thinks I'm wrong about the plague. She'll read my next report a lot more carefully once these tell her I'm right. Stay a while, because the fields need hands more than I need a courier.",
       "next_quest_id": null,
       "turn_in_npc_id": "wpl_bulwark_apothecary",
@@ -3854,21 +3854,21 @@
     },
     {
       "quest_id": "pls_hands_for_sorrow_hill",
-      "title": "Hands for Sorrow Hill",
+      "title": "Hands for the Order",
       "giver_npc_id": "brill_town_crier",
       "zone": "brill",
       "level_min": 51,
       "level_max": 52,
-      "description": "Crier Wexley cries what Brill needs to hear, and lately that's a notice from the Order of the Pale Flame. They're asking for fighters at Sorrow Hill, in the Western Plaguelands, and they don't care where anyone was born.\n\nWexley's been asked to send the notice on with anyone who looks like they can swing a sword.",
+      "description": "Carry the Order's notice to Drillmaster Kofi Mensah in the Order's quarter of the Bulwark.",
       "objectives": [
         {
           "type": "deliver",
           "target": "pl_q_order_notice",
           "count": 1,
-          "label": "Bring the Order's notice to Drillmaster Kofi Mensah at Sorrow Hill"
+          "label": "Bring the Order's notice to Drillmaster Kofi Mensah at the Bulwark"
         }
       ],
-      "accept_text": "East through Tirisfal to the Bulwark, then south past it to the hill with the tomb on top. Sorrow Hill's the keep beside it. The Deathguard at the wall won't stop you, but they'll want to know where you're going.",
+      "accept_text": "You look like you can swing something heavy, which is what I need. I've a notice to send on, and I've been crying it twice a day for a month.\n\nThe Order of the Pale Flame wants fighters. They're camped inside the Bulwark now, at the end of the road east, and they don't care where anyone was born. I don't know much about them, and the Deathguard say less, but they pay and they feed you.\n\nTake this to their drillmaster, Kofi Mensah. Go east through Tirisfal to the wall. Their banners are on the south side of the street, and Kofi will be in the yard shouting at somebody.",
       "turn_in_text": "So Wexley sent you with the notice. He cries it twice a day in Brill, and nobody's told him to stop yet.\n\nI'm glad you came. Half my recruits walked out of the Crusade and the other half walked in off the road, so you'll fit in whatever you are. Go and see Rory when you've found a bunk.",
       "next_quest_id": null,
       "turn_in_npc_id": "wpl_pf_drillmaster",
@@ -3877,7 +3877,7 @@
           {
             "item_id": "pl_q_order_notice",
             "name": "The Order's Notice",
-            "description": "A notice in a firm hand under a pale flame: fighters wanted at Sorrow Hill, no questions asked about where you were born.",
+            "description": "A notice in a firm hand under a pale flame: fighters wanted at the Bulwark, no questions asked about where you were born.",
             "count": 1
           }
         ]
@@ -3958,7 +3958,7 @@
       "zone": "tarren_mill",
       "level_min": 51,
       "level_max": 52,
-      "description": "Chaplain Ewen Blackwood still prays in Tarren Mill, and he's heard there's another chaplain who still prays at Uther's Tomb. Chaplain Odile Marchand keeps the tomb for the Order of the Pale Flame.\n\nHe's written her a letter. He's never met her, and he says that's the best reason to write.",
+      "description": "Carry Chaplain Blackwood's letter to Chaplain Odile Marchand at the Order's chapel in the Bulwark.",
       "objectives": [
         {
           "type": "deliver",
@@ -3967,7 +3967,7 @@
           "label": "Bring Chaplain Blackwood's letter to Chaplain Odile Marchand at Uther's Tomb"
         }
       ],
-      "accept_text": "The road north is shut, so go round through Tirisfal and east to the Bulwark. Uther's Tomb is on the hill south of the wall, beside Sorrow Hill. I'd take it myself, but somebody's got to keep the chapel open.",
+      "accept_text": "I still pray in Tarren Mill, most days to an empty chapel. I've heard there's another chaplain who still prays, a woman called Odile Marchand who kept Uther's Tomb for the Order of the Pale Flame.\n\nI've written her a letter. I've never met her, and I think that's the best reason to write.\n\nThe road north is shut, so go round through Tirisfal and east to the Bulwark. The Order keeps a chapel inside the wall, on the south side. I'd take it myself, but somebody's got to keep this door open.",
       "turn_in_text": "A letter from Tarren Mill, from a chaplain I've never met.\n\nHe asks whether I'm afraid the Light will stop answering. I'm not, and I'm going to write back and tell him so properly. Thank you for carrying it all this way.",
       "next_quest_id": null,
       "turn_in_npc_id": "wpl_pf_chaplain",

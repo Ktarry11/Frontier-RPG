@@ -23,7 +23,8 @@ far north-east is what's left of the trolls and elves who held out longest.
       Quel'Lithien Lodge    the elven lodge's restless rangers                          rare: Ranger-Lord Saelith
       Zul'Mashar            the Mossflayer trolls                                       rare: Zul'Mashar the Last
       The Pestilent Scar    the bone colossus's ground                                  rare: The Bone Colossus
-      Crown Guard Camp, Light's Hope Chapel   safe
+      Crown Guard Tower     the empty tower on the road (its camp moved into Light's Hope)
+      Light's Hope Gate     safe (the chapel is a town map now, tools/handbuilt_lights_hope.py)
 
 THE PURE 60 RULE: neither map is pure 60, so nothing here drops or grows a post-game material.
 """
@@ -177,8 +178,8 @@ TABLES = {
                                                                        "Cartmaster Corin": 0}},
     }),
     EAST: _table(EAST, {"Blighted Warhorse": 3, "Plague-Rotted Bear": 4, "Carrion Bat": 4}, {
-        "Crown Guard Camp": {"name": "Crown Guard Camp", "safe": True, "creatures": {}},
-        "Light's Hope Chapel": {"name": "Light's Hope Chapel", "safe": True, "creatures": {}},
+        "Crown Guard Tower": {"name": "Crown Guard Tower", "creatures": {"Blighted Warhorse": 2, "Carrion Bat": 3}},
+        "Light's Hope Gate": {"name": "Light's Hope Gate", "safe": True, "creatures": {}},
         "Darrowshire": {"name": "Darrowshire", "creatures": {"Darrowshire Spirit": 5, "Darrowshire Ghoul": 5,
                                                              "Captain Redpath's Shade": 0}},
         "Blackwood Lake": {"name": "Blackwood Lake", "creatures": {"Blackwood Drowned": 5, "Blackwood Snapjaw": 5,

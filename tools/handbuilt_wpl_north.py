@@ -8,7 +8,9 @@ fourth cauldron poisons Gahrron's Withering, and the Thondroril runs down the ea
 Structure (tile coords, y down):
 
     South gate ......... (96,137): back to South WPL
-    The Pale Watch ..... the Order of the Pale Flame's forward camp (92,112): a few of Rory's people watching the road
+    The Pale Watch ..... the Order of the Pale Flame's walled town, its gate off the road at (80,112). The town is its
+                         own map (tools/handbuilt_pale_watch.py; Kyle, 16 Nov 2026: "when a town is made it's always
+                         a seperate map")
     Northridge ......... the Scarlet lumber camp in the west (40,60)
     Gahrron's Withering  the fourth cauldron, east of centre (128,82)
     Hearthglen Fields .. Scarlet patrols and pyres on the slope below the walls (100,34)
@@ -30,8 +32,9 @@ PL = "assets/tiles/plaguelands/props/"
 W, H = 180, 140
 NAME = "Western Plaguelands North"
 
-PORTALS = {(96, 137): "Western Plaguelands South", (176, 70): "Eastern Plaguelands West", (146, 28): "The Weeping Cave"}
-ARRIVALS = [(96, 133), (172, 70), (146, 26)]
+PORTALS = {(96, 137): "Western Plaguelands South", (176, 70): "Eastern Plaguelands West", (146, 28): "The Weeping Cave",
+           (80, 112): "The Pale Watch"}
+ARRIVALS = [(96, 133), (172, 70), (146, 26), (83, 112)]
 LATER_PORTALS = {
     (100, 6): ("Hearthglen", None),
 }
@@ -45,6 +48,8 @@ ROADS = {
     "northridge": ([(92, 98), (76, 90), (60, 78), (46, 66), (40, 60)], 2.8),
     # east to Gahrron's and on to the river crossing
     "gahrron":    ([(94, 80), (110, 82), (126, 82)], 2.6),
+    # the spur to the Pale Watch's gate
+    "pale_watch": ([(92, 112), (86, 112), (80, 112)], 2.8),
     "crossing":   ([(126, 82), (142, 78), (160, 72), (176, 70)], 2.8),
 }
 
@@ -80,7 +85,7 @@ CLEARINGS = [
 ]
 GAPS = [
     ("ell", 96, 137, 8, 6), ("ell", 100, 6, 9, 6), ("ell", 176, 70, 7, 6),
-    ("ell", 92, 112, 8, 6), ("ell", 40, 60, 12, 9), ("ell", 128, 82, 10, 8), ("ell", 100, 34, 15, 10),
+    ("ell", 92, 112, 8, 6), ("ell", 82, 112, 5, 4), ("ell", 40, 60, 12, 9), ("ell", 128, 82, 10, 8), ("ell", 100, 34, 15, 10),
 ]
 
 SPEC = E.Spec(NAME, W, H, ROADS, rivers=RIVERS, lakes=LAKES, deep_shrink=DEEP_SHRINK,
@@ -88,23 +93,14 @@ SPEC = E.Spec(NAME, W, H, ROADS, rivers=RIVERS, lakes=LAKES, deep_shrink=DEEP_SH
               rim={"north": 4, "south": 4}, rock_rim={"west": 7, "east": 4}, gaps=GAPS, fords=FORDS,
               thicket=(0.78, 9.0, 0.4))
 
-#: the Pale Watch: the Order's forward camp under Hearthglen. Quests come from Sorrow Hill; these watch the road.
-NPC_POSITIONS = {
-    "wpln_pf_watch_captain": (90, 108),
-    "wpln_pf_scout": (98, 110),
-    "wpln_pf_field_medic": (88, 116),
-    "wpln_pf_sister": (84, 104),
-    "wpln_pf_woodwright": (94, 100),
-    "wpln_pf_angler": (98, 116),
-    "wpln_pf_clerk": (82, 112),
-}
+NPC_POSITIONS = {}            # the Pale Watch's people live in its own map now (tools/handbuilt_pale_watch.py)
 
 SUBZONES = [
     ("Northridge Lumber Camp", 22, 44, 38, 32, None),
     ("Gahrron's Withering", 112, 68, 32, 28, None),
     ("Hearthglen Fields", 76, 18, 48, 30, None),
     ("The Thondroril", 152, 4, 28, 132, None),
-    ("The Pale Watch", 80, 102, 24, 20, None),
+    ("Pale Watch Gate", 78, 106, 18, 12, None),
 ]
 
 
@@ -195,12 +191,10 @@ def dress(L):
     BQ = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=PL, fraction=0.5, **kw)
     B = L.bld
 
-    # ---- the Pale Watch: the Order's forward camp
-    Q("pf_field_tent", 86, 108, 5)
-    Q("pf_field_tent", 84, 116, 5)
-    B("ek_border_watchtower", 98, 105, 8)
-    Q("pf_banner", 94, 106, 5)
-    Q("pf_weapon_rack", 100, 114, 3)
+    # ---- the Pale Watch's gate, off the King's Road (the town is behind it: tools/handbuilt_pale_watch.py)
+    B("pf_gate", 80, 111, 8)
+    Q("pf_banner", 86, 108, 5)
+    Q("pf_banner", 86, 116, 5)
     P("ek_signpost", 100, 118, 4)
 
     # ---- Northridge Lumber Camp: the Crusade's saws

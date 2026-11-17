@@ -56,13 +56,13 @@ PALE_FLAME = {
     "name": "The Order of the Pale Flame",
     "description": ("A holy order led by Earth transplants who walked out of the Scarlet Crusade. They hunt the "
                     "mindless dead and the Crusade's fanatics, and they leave the thinking dead alone."),
-    "home_zone": "western_plaguelands_south",
-    "home_name": "Sorrow Hill, Western Plaguelands",
+    "home_zone": "bulwark",
+    "home_name": "The Bulwark, on the road from Tirisfal into the Plaguelands",
     "leader": {
         "title": "Flamekeeper",
         "name": "Rory Callahan",
         "npc_id": "wpl_pf_flamekeeper",
-        "location": "Sorrow Hill, beside Uther's Tomb",
+        "location": "The Bulwark, at the keep in the Order's quarter",
         "line": ("I wore the red for a year. When I took it off, I kept the flame and scraped the colour out of it, "
                  "and that's the whole of what we are."),
     },

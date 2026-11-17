@@ -375,6 +375,9 @@ ZONE_BIOME = {
     "Western Plaguelands North": "decayed_forest",
     "Eastern Plaguelands West": "decayed_forest",
     "Eastern Plaguelands East": "decayed_forest",
+    "The Bulwark": "decayed_forest",
+    "The Pale Watch": "decayed_forest",
+    "Light's Hope Chapel": "decayed_forest",
     "Jaedenar": "cave_demonic",              # the Shadow Council's hold (painted, the same)
     "Astranaar": "mythical_forest",
     "Zoram Strand": "mythical_forest",

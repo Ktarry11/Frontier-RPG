@@ -26,7 +26,8 @@ from tools.terrain_painter import Painter, smoothstep, TILE_PX
 ROOT = AV.ROOT
 TOWNS = {"astranaar": "tools.handbuilt_astranaar", "splintertree": "tools.handbuilt_splintertree",
          "zoram": "tools.handbuilt_zoram", "emerald_sanctuary": "tools.handbuilt_emerald_sanctuary",
-         "sun_rock_retreat": "tools.handbuilt_sun_rock_retreat"}
+         "sun_rock_retreat": "tools.handbuilt_sun_rock_retreat", "bulwark": "tools.handbuilt_bulwark",
+         "pale_watch": "tools.handbuilt_pale_watch", "lights_hope": "tools.handbuilt_lights_hope"}
 
 MATS = dict(AV.MATERIALS)
 MATS.update({

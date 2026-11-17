@@ -10,10 +10,12 @@ THE PURE 60 RULE: this map runs to 60 but starts at 56, so it is NOT pure 60. No
 Structure (tile coords, y down):
 
     West gate ............ (3,80): from West EPL
-    Crown Guard camp ..... a small outpost round the old tower (52,78): an inn and a flight master
+    Crown Guard Tower .... the old tower on the road (52,78), empty: its camp moved into Light's Hope (Kyle, 16 Nov 2026:
+                           "Also fold Crown Guard Camp into Lights Hope")
     Darrowshire .......... the ghost village in the south-west (34,124)
     Blackwood Lake ....... in the middle (88,54)
-    Light's Hope Chapel .. the Argent Dawn (128,86): an inn, a flight master, the Scourgestone turn-ins
+    Light's Hope Chapel .. the Argent Dawn's town, its own map (tools/handbuilt_lights_hope.py); its gate is up the
+                           spur at (128,72), north of the Tyr's Hand road
     Tyr's Hand ........... the Scarlet fortress town on the south coast (134,128)
     Quel'Lithien Lodge ... the elves' lodge in the north (92,16)
     Zul'Mashar ........... the troll ruins in the far north-east (148,22)
@@ -32,8 +34,8 @@ PL = "assets/tiles/plaguelands/props/"
 W, H = 170, 150
 NAME = "Eastern Plaguelands East"
 
-PORTALS = {(3, 80): "Eastern Plaguelands West", (106, 60): "The Bone Mines"}
-ARRIVALS = [(7, 80), (106, 58)]
+PORTALS = {(3, 80): "Eastern Plaguelands West", (106, 60): "The Bone Mines", (128, 72): "Light's Hope Chapel"}
+ARRIVALS = [(7, 80), (106, 58), (128, 75)]
 LATER_PORTALS = {}
 START = (12, 80)
 
@@ -47,6 +49,8 @@ ROADS = {
     # north from Crown Guard past Blackwood Lake to Quel'Lithien, then east to Zul'Mashar
     "north":      ([(52, 78), (62, 62), (78, 46), (88, 30), (92, 16)], 2.6),
     "zulmashar":  ([(92, 22), (112, 22), (132, 22), (148, 22)], 2.4),
+    # the spur up to Light's Hope's gate
+    "lights_hope": ([(128, 86), (128, 79), (128, 72)], 3.0),
 }
 
 LAKES = {
@@ -79,7 +83,7 @@ CLEARINGS = [
     (110, 60, 9, 7),            # the Pestilent Scar
 ]
 GAPS = [
-    ("ell", 3, 80, 7, 6), ("ell", 52, 78, 10, 7), ("ell", 34, 124, 11, 8), ("ell", 128, 86, 12, 8),
+    ("ell", 3, 80, 7, 6), ("ell", 128, 74, 5, 5), ("ell", 52, 78, 10, 7), ("ell", 34, 124, 11, 8), ("ell", 128, 86, 12, 8),
     ("ell", 134, 126, 13, 9), ("ell", 92, 16, 9, 6), ("ell", 148, 22, 10, 7), ("ell", 110, 60, 7, 6),
 ]
 
@@ -87,34 +91,16 @@ SPEC = E.Spec(NAME, W, H, ROADS, lakes=LAKES, deep_shrink=DEEP_SHRINK,
               mesas=MESAS, ridges=RIDGES, woods=WOODS, belts=BELTS, clearings=CLEARINGS,
               rim={"north": 4}, rock_rim={"west": 6, "east": 5}, gaps=GAPS, thicket=(0.80, 9.0, 1.2))
 
-#: Crown Guard camp and Light's Hope Chapel are the hubs (an inn and a flight master each).
 NPC_POSITIONS = {
-    "epl_cg_captain": (52, 74),
-    "epl_cg_innkeeper": (44, 82),
-    "epl_cg_flight": (60, 82),
-    "epl_lh_commander": (128, 82),            # the Argent Dawn's commander at Light's Hope
-    "epl_lh_innkeeper": (120, 90),
-    "epl_lh_flight": (136, 90),
-    "epl_lh_scourgestones": (124, 82),        # takes the Scourgestones
-    "epl_lh_quartermaster": (134, 82),        # the Argent Dawn's quartermaster
-    "epl_cg_corporal": (48, 74),
-    "epl_cg_outrider": (40, 80),
-    "epl_cg_widow": (56, 86),
-    "epl_cg_mycologist": (60, 90),
-    "epl_cg_gravewarden": (44, 88),
-    "epl_lh_lightwarden": (116, 79),
-    "epl_lh_volunteer": (132, 86),
-    "epl_lh_ranger": (140, 82),
-    "epl_lh_knight": (116, 88),
-    "epl_lh_huntress": (142, 94),
+    # Light's Hope's people and Crown Guard's are in Light's Hope's own map now (tools/handbuilt_lights_hope.py)
     "epl_ds_pamela": (30, 127),
 }
 
 SUBZONES = [
-    ("Crown Guard Camp", 40, 68, 26, 20, None),
+    ("Crown Guard Tower", 44, 66, 18, 16, None),
     ("Darrowshire", 18, 110, 34, 28, None),
     ("Blackwood Lake", 72, 44, 26, 22, None),
-    ("Light's Hope Chapel", 114, 74, 30, 24, None),
+    ("Light's Hope Gate", 120, 68, 16, 12, None),
     ("Tyr's Hand", 114, 112, 42, 28, None),
     ("Quel'Lithien Lodge", 78, 6, 28, 20, None),
     ("Zul'Mashar", 132, 8, 36, 28, None),
@@ -207,18 +193,15 @@ def dress(L):
     BQ = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=PL, fraction=0.5, **kw)
     B = L.bld
 
-    # ---- Crown Guard camp
+    # ---- Crown Guard Tower: empty now, a landmark on the road
     B("crown_guard_tower", 52, 70, 10)
-    B("cg_palisade_tent", 42, 78, 7)
-    B("ek_village_inn", 64, 76, 7)
     P("ek_signpost", 58, 86, 4)
+    P("ek_ruin_wall", 44, 76, 4)
 
-    # ---- Light's Hope Chapel
-    B("lh_chapel", 128, 78, 10)
-    B("lh_command_tent", 118, 82, 6)
-    B("lh_field_hospital", 116, 94, 7)        # the inn's beds
-    B("lh_flight_perch", 140, 92, 8)
+    # ---- Light's Hope's gate, up the spur (the town is behind it: tools/handbuilt_lights_hope.py)
+    B("ek_gatehouse", 128, 71, 9)
     P("ek_angel_statue", 136, 80, 6)
+    P("ek_signpost", 122, 88, 4)
 
     # ---- Tyr's Hand: the Scarlet fortress town
     B("sc_courtyard_gate", 130, 116, 8, road_ok=True)

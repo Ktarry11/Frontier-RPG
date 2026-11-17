@@ -17,7 +17,8 @@ pushing patrols down from Hearthglen.
                             Scarlet patrols pushing in from the north                 rare: Magistrate Andor
       Darrowmere Lake       drowned dead and lake beasts                              rare: Old Darrowjaw
       Caer Darrow           the island's restless dead, outside Scholomance           rare: The Groundskeeper
-      The Bulwark, Sorrow Hill, Uther's Tomb   safe
+      Sorrow Hill           the Order left it for the Bulwark; the dead came back up the hill
+      Bulwark Gate, Uther's Tomb   safe (the Bulwark itself is a town map now, tools/handbuilt_bulwark.py)
 
 THE PURE 60 RULE (entities/material_tiers.py): nothing here is pure 60, so nothing here may drop or grow a post-game
 material, and the rares' loot is item level = level + 3 like every rare.
@@ -152,8 +153,8 @@ TABLES = {
                       "creatures": {"Plague-Ridden Wolf": 5, "Diseased Black Bear": 3, "Plaguewing Vulture": 4,
                                     "Wandering Skeleton": 3}},
         "subzones": {
-            "The Bulwark": {"name": "The Bulwark", "safe": True, "creatures": {}},
-            "Sorrow Hill": {"name": "Sorrow Hill", "safe": True, "creatures": {}},
+            "Bulwark Gate": {"name": "Bulwark Gate", "safe": True, "creatures": {}},
+            "Sorrow Hill": {"name": "Sorrow Hill", "creatures": {"Wandering Skeleton": 5, "Andorhal Skeleton": 3}},
             "Uther's Tomb": {"name": "Uther's Tomb", "safe": True, "creatures": {}},
             "Felstone Field": {"name": "Felstone Field",
                                "creatures": {"Felstone Cultist": 5, "Felstone Ghoul": 6, "Felstone Cauldron Lord": 2,
@@ -301,7 +302,7 @@ NORTH_TABLES = {
         "open_zone": {"name": NORTH,
                       "creatures": {"Rotting Worg": 5, "Blighted Stag": 3, "Plague Bat": 4, "Skeletal Wanderer": 3}},
         "subzones": {
-            "The Pale Watch": {"name": "The Pale Watch", "safe": True, "creatures": {}},
+            "Pale Watch Gate": {"name": "Pale Watch Gate", "safe": True, "creatures": {}},
             "Northridge Lumber Camp": {"name": "Northridge Lumber Camp",
                                        "creatures": {"Scarlet Lumberjack": 5, "Scarlet Sawyer": 5,
                                                      "Scarlet Woodsman Archer": 4, "Foreman Harrow": 0}},

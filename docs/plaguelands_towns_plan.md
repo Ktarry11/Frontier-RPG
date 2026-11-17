@@ -29,3 +29,16 @@ always a seperate map." Then: "Also fold Crown Guard Camp into Lights Hope".
 - portals both ways; the flight nodes (Sorrow Hill and Crown Guard removed, the Pale Watch added); the zone level
   table; the respawn towns; the quests' zones, explore points and "Sorrow Hill" in their text; the givers-in-hubs
   rule in build_plaguelands_quests; the faction "also" lists; secrets near the old hubs.
+
+## Built (16 Nov 2026)
+- **The Bulwark** (tools/handbuilt_bulwark.py, 104x80): west gate to Eastern Tirisfal, east gate to South WPL. The
+  Forsaken north of the street, the Order south of it. Priya Raman cooks for the Order and Anders Holm's hawks carry
+  its letters; neither is an inn or a flight point now (the Forsaken's are).
+- **The Pale Watch** (tools/handbuilt_pale_watch.py, 88x72): its gate is off North WPL's King's Road at (80,112). A new
+  innkeeper (Beatriz Couto) and roostkeeper (Liam Doherty), so the Order's people at the Bulwark kept their jobs there.
+- **Light's Hope Chapel** (tools/handbuilt_lights_hope.py, 96x80): its gate is up a spur off East EPL's Tyr's Hand road
+  at (128,72). Crown Guard's people live inside; Greta Lowe keeps the kitchen and Gwen Pike nurses the bats.
+- Sorrow Hill is graves with skeletons on it; Crown Guard Tower stands empty. Flight points: the Bulwark, the Pale
+  Watch, Light's Hope (Sorrow Hill and Crown Guard retired; a save that knew them forgets them).
+- Every Plaguelands quest is in its giver's voice now (tools/plaguelands_quest_voice.py, Emerald Sanctuary's shape).
+- Ten of the Order's, the Forsaken's and the Dawn's people wear Kyle's new art (assets/npcs/leaders/<id>/).

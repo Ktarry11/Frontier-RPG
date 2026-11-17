@@ -28,7 +28,10 @@ GP = "assets/tiles/goblin_shared/props/"
 
 _DIRS = [AP, XP, GP, "assets/tiles/barrens/props/", "assets/tiles/dungeon_props/", "assets/tiles/coastal_props/",
          "assets/buildings/", "assets/tiles/felwood/props/", "assets/tiles/aspen/props/",
-         "assets/tiles/stonetalon/props/"]
+         "assets/tiles/stonetalon/props/",
+         # the Plaguelands' towns (the Bulwark, the Pale Watch, Light's Hope): last, so no older name changes folder
+         "assets/tiles/plaguelands/props/", "assets/tiles/eastern_kingdoms/props/",
+         "assets/tiles/undead_farmland/props/", "assets/tiles/haunted_forest/props/"]
 INDEX = {}
 for _d in _DIRS:
     if os.path.isdir(_d):

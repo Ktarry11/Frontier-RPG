@@ -7,7 +7,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 55,
       "level_max": 55,
-      "description": "Outrider Bram Tolliver rides the road west from Crown Guard to the river, and he's the only one who does it regularly. The Plague Hounds hunt along it in packs, and the Frenzied Ghouls come out of the ditches when they hear horses.\n\nHe wants the road safe enough for someone other than him.",
+      "description": "Kill Plague Hounds and Frenzied Ghouls along the road through West EPL.",
       "objectives": [
         {
           "type": "kill",
@@ -22,8 +22,8 @@
           "zone": "eastern_plaguelands_west"
         }
       ],
-      "accept_text": "West from Crown Guard, along the old road toward the river. The hounds run the open ground and the ghouls hide in the ditches. Don't stop moving, because they'll swarm you.",
-      "turn_in_text": "That's a road a wagon could use again.\n\nThe newcomers at the chapel keep asking me why I ride it alone. I tell them it's because nobody else is daft enough.",
+      "accept_text": "Bram Tolliver, outrider. I used to ride out of Crown Guard. Now I ride out of here, and it's a longer ride, and I'm still the only one who does it.\n\nThe road west runs past the old tower and over into the western half of the Plaguelands, all the way to the river. The Plague Hounds hunt along it in packs, and the Frenzied Ghouls come up out of the ditches the moment they hear a horse.\n\nI'd like that road safe enough for somebody other than me. The hounds run the open ground and the ghouls wait in the ditches. Don't stop moving, because they'll swarm you if you do.",
+      "turn_in_text": "That's a road a wagon could use again.\n\nThe newcomers here keep asking why I ride it alone. I tell them it's because nobody else is daft enough.",
       "next_quest_id": "plw_corins_crossing",
       "reward_exp": 4040,
       "reward_gold": 15900,
@@ -101,7 +101,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 56,
       "level_max": 56,
-      "description": "Corin's Crossing was a crossroads town until the Cult took it over. Now it's where the plague carts load up. The Cult Plaguebringers fill the barrels and the Cult Cart Drivers take them out to the farms that are still alive.\n\nBram wants the crossing shut down.",
+      "description": "Kill Cult Plaguebringers and Cult Cart Drivers at Corin's Crossing.",
       "objectives": [
         {
           "type": "kill",
@@ -116,7 +116,7 @@
           "zone": "eastern_plaguelands_west"
         }
       ],
-      "accept_text": "West along the road from Crown Guard, where the roads cross. The plaguebringers are at the barrels in the square and the drivers are with the carts. Kill the plaguebringers first, because they'll throw the barrels.",
+      "accept_text": "Corin's Crossing was a crossroads town when I was a boy. Fairs, horse sales, a pie shop I still think about. The Cult took it over, and now it's where the plague carts load.\n\nThe Cult Plaguebringers fill the barrels in the square, and the Cult Cart Drivers take them out to whatever farms are still alive. I've followed those carts. I've seen what's left after they leave.\n\nThe crossing's on the road west, where the roads cross. Kill the plaguebringers first, because they'll throw the barrels at you if you give them time.",
       "turn_in_text": "No carts left the crossing today. That's the first day in a year.\n\nOne of the drivers had papers on him, and I'd like you to see them.",
       "next_quest_id": "plw_the_manifest",
       "requires_quests": [
@@ -198,7 +198,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 56,
       "level_max": 56,
-      "description": "The Cult Cart Drivers carry manifests that say where every barrel of plague is going. Bram wants one, so the Dawn can warn the farms on it before the carts get there.",
+      "description": "Take a Plague Cart Manifest from a Cult Cart Driver at Corin's Crossing.",
       "objectives": [
         {
           "type": "fetch",
@@ -206,7 +206,7 @@
           "count": 1
         }
       ],
-      "accept_text": "Find a driver at the crossing and take his manifest off him. It'll be in his coat. Bring it back as fast as you can, because those carts don't wait.",
+      "accept_text": "The drivers carry manifests. Every barrel, every farm, every day it's due. If I had one, the Dawn could warn those farms before the carts got there.\n\nFind a Cult Cart Driver at the crossing and take his manifest off him. It'll be in his coat, inside pocket, because they're tidy people, the Cult. Bring it back as fast as you can. Those carts don't wait for anybody.",
       "turn_in_text": "These are all farms in Lordaeron that are still alive, and some in the hills past it.\n\nI'll have riders out to every one of them by nightfall. You've saved lives today, whether you see them or not.",
       "next_quest_id": "plw_the_crossings_abominations",
       "requires_quests": [
@@ -292,7 +292,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 57,
       "level_max": 57,
-      "description": "The Cult brought in Crossing Abominations to guard the carts after the drivers started dying. They stand in the square at Corin's Crossing and they don't move unless something comes near.\n\nBram wants them brought down before the Cult can use them again.",
+      "description": "Kill the Crossing Abominations in the square at Corin's Crossing.",
       "objectives": [
         {
           "type": "kill",
@@ -301,7 +301,7 @@
           "zone": "eastern_plaguelands_west"
         }
       ],
-      "accept_text": "They stand in the square at the crossing, around the carts. They're slow and they hit like a falling barn. Pull them one at a time if you can.",
+      "accept_text": "The Cult's noticed its drivers are dying, and it's brought in muscle. There are Crossing Abominations standing in the square now, round the carts, and they don't move unless something comes close.\n\nI'd like them brought down before the Cult finds another use for them.\n\nThey're slow and they hit like a falling barn. Pull them one at a time if you can, and keep the carts between you and the rest.",
       "turn_in_text": "That's the crossing's muscle gone.\n\nThere's only one man left running the carts, and I know exactly where he sleeps.",
       "next_quest_id": "plw_cartmaster_corin",
       "requires_quests": [
@@ -388,7 +388,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 57,
       "level_max": 57,
-      "description": "Cartmaster Corin gave the crossing its name. He ran a carting business there before the plague, and now he runs it for the Cult, with the same ledgers and the same smile.\n\nBram wants him dead and his ledgers burned.",
+      "description": "Kill Cartmaster Corin in the counting house at Corin's Crossing.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -397,8 +397,8 @@
           "zone": "eastern_plaguelands_west"
         }
       ],
-      "accept_text": "He's in the old counting house at the crossing. He doesn't fight fair and he'll call everything nearby to help. Take friends with you.",
-      "turn_in_text": "Then the carts stop for good. I'll burn the counting house myself tonight.\n\nI bought horses off him once, you know. He gave me a fair price.",
+      "accept_text": "Cartmaster Corin gave the crossing its name. He ran a carting business there before the plague, and now he runs it for the Cult, with the same ledgers and the same smile. I bought horses off him once. He gave me a fair price.\n\nI want him dead and his ledgers burned.\n\nHe's in the old counting house at the crossing. He doesn't fight fair and he'll call everything nearby to help him, so take friends with you.",
+      "turn_in_text": "Then the carts stop for good. I'll burn the counting house myself tonight.\n\nHe gave me a fair price on those horses. I keep thinking about that.",
       "next_quest_id": null,
       "requires_quests": [
         "plw_the_crossings_abominations"
@@ -480,7 +480,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 55,
       "level_max": 56,
-      "description": "Edda Marris married into the Marris family two summers before the plague, and she was in town the day it reached the farm. She came home to find everyone dead and still working. The Marris Farmhands still walk the fields, and the Stead Crows pick at them.\n\nShe wants them put to rest.",
+      "description": "Kill the Marris Farmhands and the Stead Crows at the Marris Stead.",
       "objectives": [
         {
           "type": "kill",
@@ -495,7 +495,7 @@
           "zone": "eastern_plaguelands_west"
         }
       ],
-      "accept_text": "The Marris Stead is south of the road, toward Terrordale. The farmhands work the fields and the crows follow them. They were good people, and they'd want it quick.",
+      "accept_text": "I'm Edda Marris. I married into the family two summers before the plague, and I was in town the day it reached the farm. I came home and they were all still working. Mother, my husband, his sister, the hands, every one of them still working.\n\nI came here so I didn't have to watch. I'm done not watching.\n\nThe Marris Stead is south of the road, toward Terrordale. The Marris Farmhands work the fields and the Stead Crows follow them, picking. They were good people. They'd want it quick.",
       "turn_in_text": "Thank you. I've wanted that done for a long time, and I couldn't do it myself.\n\nOne of them always wore a locket. I'd give anything to have it back.",
       "next_quest_id": "plw_the_marris_locket",
       "reward_exp": 4120,
@@ -579,7 +579,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 56,
       "level_max": 56,
-      "description": "Edda's sister-in-law wore a brass locket with a painting of the whole family inside. She's still wearing it, out in the fields with the other Marris Farmhands. Edda wants it back.",
+      "description": "Find the Marris Locket on one of the Marris Farmhands at the stead.",
       "objectives": [
         {
           "type": "fetch",
@@ -587,7 +587,7 @@
           "count": 1
         }
       ],
-      "accept_text": "She'll be one of the farmhands in the fields at the stead. It's a little brass locket on a chain. You'll know it when you see it.",
+      "accept_text": "My husband's sister wore a brass locket with a painting of the whole family inside. She wore it every day, even in the fields. She's still wearing it, out there with the others.\n\nI'd like it back. I'd like something of theirs that isn't the farm.\n\nShe'll be one of the farmhands at the stead. It's a little brass locket on a chain. You'll know it when you see it.",
       "turn_in_text": "That's them, all of them. That's the summer before everything.\n\nI'm not in it. I hadn't married in yet. There's one more of them out there, though, and he's the worst to think about.",
       "next_quest_id": "plw_old_marris",
       "requires_quests": [
@@ -673,7 +673,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 56,
       "level_max": 56,
-      "description": "Old Marris was the head of the family, a stubborn man who built the farm with his own hands. He still walks it, still giving orders to the dead. Edda wants him to rest with the others.",
+      "description": "Put Old Marris to rest at the Marris Stead.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -682,7 +682,7 @@
           "zone": "eastern_plaguelands_west"
         }
       ],
-      "accept_text": "He's in the farmhouse, or in the barn behind it. He's strong, because he always was. Take friends if you can, and be kind to him if you can't.",
+      "accept_text": "Old Marris was the head of the family. He built that farm with his own hands and he never let anyone forget it. He still walks it, still giving orders to the dead.\n\nHe was hard on me, the first summer. By the second, he'd taught me to plough. I'd like him to rest with the others.\n\nHe's in the farmhouse, or in the barn behind it. He's strong, because he always was. Take friends if you can, and be kind to him if you can't.",
       "turn_in_text": "Then they're all at rest. The farm can go back to being a farm.\n\nI think I'll go back there in the spring and plant something. He'd have liked that.",
       "next_quest_id": null,
       "requires_quests": [
@@ -763,7 +763,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 56,
       "level_max": 56,
-      "description": "Dr. Sun Li studied fungi at a university in Kunming, back home, and the Fungal Vale is the most frightening thing she's ever seen. Something is growing there, and the Vale Plague Slimes and the Spore-Walkers are spreading it.\n\nShe wants them thinned before it spreads further.",
+      "description": "Kill Vale Plague Slimes and Spore-Walkers in the Fungal Vale.",
       "objectives": [
         {
           "type": "kill",
@@ -778,7 +778,7 @@
           "zone": "eastern_plaguelands_west"
         }
       ],
-      "accept_text": "The vale's north of the crossing, along the road toward Stratholme. The slimes crawl on the ground and the walkers drift between the caps. Don't breathe the spores, and keep your mouth shut.",
+      "accept_text": "I'm Dr. Sun Li. I studied fungi in Kunming for twenty years, back home, and the Fungal Vale is the most frightening thing I've ever seen.\n\nSomething is growing there, and it isn't one thing. The Vale Plague Slimes crawl along the ground spreading it, and the Spore-Walkers drift between the caps carrying it on their backs. Every week it's a little wider.\n\nThe vale's north of Corin's Crossing, on the road toward Stratholme. Thin them before it spreads further. Don't breathe the spores, and keep your mouth shut while you're in there. I mean that literally.",
       "turn_in_text": "That's slowed it down, I think. It's hard to tell with fungus.\n\nI need samples, if you'll go back, and I want them fresh.",
       "next_quest_id": "plw_spore_caps",
       "reward_exp": 4120,
@@ -858,7 +858,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 56,
       "level_max": 57,
-      "description": "The Spore-Walkers in the Fungal Vale grow caps on their shoulders, and Sun Li thinks the caps are where the plague is changing. She wants them, cut fresh.",
+      "description": "Cut Spore-Walker Caps from the Spore-Walkers in the Fungal Vale.",
       "objectives": [
         {
           "type": "fetch",
@@ -866,8 +866,8 @@
           "count": 5
         }
       ],
-      "accept_text": "Cut the caps off the walkers in the vale. Put them in the sacks I gave you and tie them tight. If one starts to puff, drop it and don't look back.",
-      "turn_in_text": "These are breathing. They're actually breathing.\n\nIt's not one fungus, it's dozens growing together. Something at the middle of the vale is holding them together.",
+      "accept_text": "The Spore-Walkers grow caps on their shoulders, and I think the caps are where the plague is changing. It's mixing with the fungus in there, and I need to see how. Nothing I learned on Earth covers this.\n\nCut the caps off the walkers in the vale. Put them in these sacks and tie them tight. If one starts to puff, drop it and don't look back. I can't stress that enough.",
+      "turn_in_text": "These are breathing. They're actually breathing.\n\nIt's dozens of fungi growing together, and something at the middle of the vale is holding them together.",
       "next_quest_id": "plw_the_fungal_mass",
       "requires_quests": [
         "plw_the_fungal_vale"
@@ -953,7 +953,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 57,
       "level_max": 57,
-      "description": "At the heart of the Fungal Vale there's something Sun Li can only call a mass, a fungus the size of a house that moves when it wants to. The Fungal Mass is what's feeding the rest. She wants it killed.",
+      "description": "Kill the Fungal Mass at the heart of the Fungal Vale.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -962,7 +962,7 @@
           "zone": "eastern_plaguelands_west"
         }
       ],
-      "accept_text": "It sits in the middle of the vale and it'll come at you when you get close. It's huge and it's poisonous. Take friends and take antidotes.",
+      "accept_text": "At the heart of the vale there's something I can only call a mass. A fungus the size of a house, that moves when it wants to. Everything else in the vale is feeding it, or it's feeding them. I can't tell which and I don't think it matters.\n\nThe Fungal Mass. Kill it, and the rest will start dying back.\n\nIt sits in the middle of the vale and it'll come at you when you get close. It's huge and it's poisonous. Take friends and take antidotes.",
       "turn_in_text": "It's really dead? Then the vale will start dying back in a week.\n\nThat was the strangest organism I've ever studied, and I'm glad it's gone.",
       "next_quest_id": null,
       "requires_quests": [
@@ -1047,7 +1047,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 57,
       "level_max": 57,
-      "description": "Sun Li has sealed a sample of the Fungal Vale's spores in wax, and she knows a botanist at the Emerald Sanctuary in Felwood, Yuki Hashimoto, who's cataloguing everything that grows back in corrupted ground.\n\nShe wants the sample in Yuki's hands, so they can compare.",
+      "description": "Carry the Sealed Spore Sample to Yuki Hashimoto at the Emerald Sanctuary in Felwood.",
       "objectives": [
         {
           "type": "deliver",
@@ -1056,7 +1056,7 @@
           "label": "Bring Sun Li's spore sample to Yuki Hashimoto at the Emerald Sanctuary"
         }
       ],
-      "accept_text": "Zeppelin from Tirisfal to Orgrimmar, then north through Ashenvale to Felwood. Yuki's at the Sanctuary, probably on her knees in a flowerbed. Don't break the wax.",
+      "accept_text": "I've sealed a sample of the vale's spores in wax. There's a botanist at the Emerald Sanctuary in Felwood, Yuki Hashimoto, who's cataloguing everything that grows back in corrupted ground. If anyone's seen something like this, it's her.\n\nI'd like her to compare it with what grows in Felwood.\n\nTake the zeppelin from Tirisfal to Orgrimmar, then go north through Ashenvale to Felwood. Yuki's at the Sanctuary, probably on her knees in a flowerbed. Don't break the wax.",
       "turn_in_text": "From Dr. Sun? I read her papers at university, back home.\n\nThe corruption here makes things grow back wrong, and these spores are doing the same thing. I'll write to her tonight.",
       "next_quest_id": null,
       "turn_in_npc_id": "es_volunteer_botanist",
@@ -1147,7 +1147,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 56,
       "level_max": 57,
-      "description": "Gravewarden Osric Vey keeps the Argent Dawn's dead, and Terrordale is full of dead nobody's kept. The Terrordale Ghouls hunt the hills and the Terrordale Spirits wail over them.\n\nHe wants the valley quieter.",
+      "description": "Kill Terrordale Ghouls and Terrordale Spirits in Terrordale.",
       "objectives": [
         {
           "type": "kill",
@@ -1162,7 +1162,7 @@
           "zone": "eastern_plaguelands_west"
         }
       ],
-      "accept_text": "Terrordale is in the south west, past the Marris Stead. The ghouls hunt the valley floor and the spirits drift along the hills. Stay out of the spirits' reach, because they'll drain you.",
+      "accept_text": "I'm Osric Vey, the Dawn's gravewarden. We bury our own here, and anyone else who needs it. Terrordale is full of people nobody buried.\n\nThe Terrordale Ghouls hunt the valley floor and the Terrordale Spirits wail along the hills above them. I'd like the valley quieter before I take a spade to it.\n\nTerrordale's in the south-west, past the Marris Stead. Stay out of the spirits' reach, because they'll drain you.",
       "turn_in_text": "I felt that from here. The valley's quieter tonight.\n\nThere's worse in Terrordale, though. The ones who raise the dead are still there.",
       "next_quest_id": "plw_the_skeletal_mages",
       "reward_exp": 4200,
@@ -1241,7 +1241,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 57,
       "level_max": 57,
-      "description": "Terrordale's dead don't stay down because the Terrordale Skeletal Mages raise them again every night. They were Kirin Tor mages once, Osric thinks, sent to fight the plague and lost to it.\n\nHe wants them destroyed.",
+      "description": "Destroy the Terrordale Skeletal Mages in Terrordale.",
       "objectives": [
         {
           "type": "kill",
@@ -1250,7 +1250,7 @@
           "zone": "eastern_plaguelands_west"
         }
       ],
-      "accept_text": "They stand among the dead in Terrordale, raising them. Kill them quickly, because they'll raise anything you kill around them.",
+      "accept_text": "Terrordale's dead don't stay down, because the Terrordale Skeletal Mages raise them again every night. They were Kirin Tor once, I think, sent to fight the plague and lost to it. They still wear the violet.\n\nI'd like them destroyed. Nobody can rest in that valley while they're standing.\n\nThey stand among the dead, raising them. Kill them quickly, because they'll raise anything you kill near them.",
       "turn_in_text": "No more risings in Terrordale. Thank the Light.\n\nThe thing that rules that valley is still there, though, and it's what made them.",
       "next_quest_id": "plw_the_terror_of_the_dale",
       "requires_quests": [
@@ -1336,7 +1336,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 57,
       "level_max": 57,
-      "description": "Terrordale is named for what lives in it. The Terror of the Dale was a lich's apprentice who stayed behind when the lich moved north, and it's held the valley ever since. Osric wants it ended.",
+      "description": "Kill the Terror of the Dale in the ruined chapel at Terrordale.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -1345,7 +1345,7 @@
           "zone": "eastern_plaguelands_west"
         }
       ],
-      "accept_text": "It holds the ruined chapel in the middle of Terrordale. It's a caster, and it'll freeze you if you let it. Take friends, and keep moving.",
+      "accept_text": "Terrordale's named for what lives in it. The Terror of the Dale was a lich's apprentice who stayed behind when the lich went north, and it's held the valley ever since.\n\nI'd like it ended, so the valley can be buried properly. I've been putting off the digging for a year.\n\nIt holds the ruined chapel in the middle of Terrordale. It's a caster, and it'll freeze you if you let it. Take friends, and keep moving.",
       "turn_in_text": "Then Terrordale belongs to nobody, and it can rest.\n\nI'll write what happened there and send it west. There's someone across the sea who needs to read it.",
       "next_quest_id": "plw_word_for_sun_rock",
       "requires_quests": [
@@ -1427,7 +1427,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 57,
       "level_max": 57,
-      "description": "Osric has heard from the Forsaken that the dead are rising in Mulgore, across the sea, with nobody calling them. A tauren spiritwalker at Sun Rock Retreat in Stonetalon, Tohana, is trying to understand why. Osric has written down everything he knows about Terrordale.\n\nHe wants his account in Tohana's hands.",
+      "description": "Carry Osric's Account to Spiritwalker Tohana at Sun Rock Retreat in Stonetalon.",
       "objectives": [
         {
           "type": "deliver",
@@ -1436,7 +1436,7 @@
           "label": "Bring Osric's account of Terrordale to Spiritwalker Tohana at Sun Rock"
         }
       ],
-      "accept_text": "Zeppelin from Tirisfal to Orgrimmar, and a wind rider to Sun Rock. Tohana's the spiritwalker by the fire. Give it to Tohana and nobody else.",
+      "accept_text": "The Forsaken say the dead are rising in Mulgore, across the sea, with nobody calling them. There's a tauren spiritwalker at Sun Rock Retreat in Stonetalon, Tohana, trying to understand why.\n\nI've written down everything I know about Terrordale. How the dead rose, how they stayed up, what put them down. It might help her. It might not. It's what I have.\n\nTake the zeppelin from Tirisfal to Orgrimmar and a wind rider to Sun Rock. Tohana's the spiritwalker by the fire. Give it to her and nobody else.",
       "turn_in_text": "From the Plaguelands? From a gravewarden of the Dawn?\n\nThe spirits in Mulgore are restless the same way, like something's calling them and they don't know where from. This helps more than you know. Tell him the earth thanks him.",
       "next_quest_id": null,
       "turn_in_npc_id": "sr_spirit_walker",
@@ -1532,7 +1532,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 55,
       "level_max": 56,
-      "description": "Greta's grandmother made crow pie, and the Stead Crows at the Marris Stead are the fattest crows Greta has ever seen. She wants to make it for the camp, whether the camp likes it or not.",
+      "description": "Take Plump Stead Crows from the Stead Crows at the Marris Stead.",
       "objectives": [
         {
           "type": "fetch",
@@ -1540,8 +1540,8 @@
           "count": 6
         }
       ],
-      "accept_text": "The crows follow the farmhands at the Marris Stead, south of the road. Get the fat ones. Don't tell anyone what's in the pie until after they've had seconds.",
-      "turn_in_text": "Look at the size of them! That's a pie for the whole camp.\n\nThe newcomers will eat it and ask what it was. I'll tell them it's chicken, and they'll believe me.",
+      "accept_text": "I'm Greta, and I kept the beds at Crown Guard, and now I keep the chapel's kitchen, and the chapel eats better than it did, if I say so myself.\n\nMy grandmother made crow pie, and the Stead Crows at the Marris Stead are the fattest crows I've ever seen. They've been eating well. Don't think about what on.\n\nThey follow the farmhands at the stead, south of the road. Get the fat ones. And don't tell anyone what's in the pie until after they've had seconds.",
+      "turn_in_text": "Look at the size of them! That's a pie for the whole chapel.\n\nThe newcomers will eat it and ask what it was. I'll tell them it's chicken, and they'll believe me.",
       "next_quest_id": null,
       "reward_exp": 4120,
       "reward_gold": 16200,
@@ -1624,7 +1624,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 56,
       "level_max": 57,
-      "description": "Ser Roland Ashcombe keeps the Argent Dawn's watch on Stratholme, and the Stone-Winged Gargoyles keep watching him back. They fly over the road from the city and dive on anyone who looks too long.\n\nRoland wants the sky over the road cleared.",
+      "description": "Kill Stone-Winged Gargoyles over the road to Stratholme.",
       "objectives": [
         {
           "type": "kill",
@@ -1633,7 +1633,7 @@
           "zone": "eastern_plaguelands_west"
         }
       ],
-      "accept_text": "They circle over the road north of the crossing, toward Stratholme. They'll turn to stone if they're hurt, so finish them quickly. Don't let them get above you.",
+      "accept_text": "Ser Roland Ashcombe. I keep the Dawn's watch on Stratholme, and the Stone-Winged Gargoyles keep watching me back.\n\nThey fly over the road out of the city and dive on anyone who looks at it too long. I've been looking at it too long for years.\n\nThey circle over the road north of Corin's Crossing, toward Stratholme. They'll turn to stone when they're hurt, so finish them quickly, and don't let them get above you.",
       "turn_in_text": "I can see the road again without a gargoyle in the way.\n\nThe gate's a different matter, and that's where the real work is.",
       "next_quest_id": "plw_the_gates_of_stratholme",
       "reward_exp": 4200,
@@ -1713,7 +1713,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 57,
       "level_max": 58,
-      "description": "Stratholme's gates are held by Gate Death Knights and the Gate Gargoyles that perch over them. Roland was a knight of Lordaeron, and some of those death knights were his brothers in arms.\n\nHe wants the gates thinned, so the Dawn can get close enough to see inside.",
+      "description": "Kill Gate Death Knights and Gate Gargoyles at Stratholme's gate.",
       "objectives": [
         {
           "type": "kill",
@@ -1728,7 +1728,7 @@
           "zone": "eastern_plaguelands_west"
         }
       ],
-      "accept_text": "Follow the road north past the Fungal Vale and west through Plaguewood. The gates are at the end of it. The death knights don't retreat, so pick them off one at a time.",
+      "accept_text": "Stratholme's gate is held by Gate Death Knights, with Gate Gargoyles perched over them. I was a knight of Lordaeron before the city fell. Some of those death knights were my brothers in arms. I know their shields.\n\nThin the gate, so the Dawn can get close enough to see inside.\n\nFollow the road north past the Fungal Vale and west through Plaguewood, and the gate's at the end of it. The death knights don't retreat, so pick them off one at a time.",
       "turn_in_text": "I knew some of those men. I'll pray for them, the ones I recognised.\n\nThere's one left at the gate who holds it, and he's the one I want.",
       "next_quest_id": "plw_gatekeeper_vorthas",
       "requires_quests": [
@@ -1815,7 +1815,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 58,
       "level_max": 58,
-      "description": "Gatekeeper Vorthas was a captain of Stratholme's guard, and he held the gate when the city fell. He holds it still, for the Scourge now. Roland served under him.\n\nHe wants his old captain at rest.",
+      "description": "Kill Gatekeeper Vorthas at Stratholme's gate.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -1824,8 +1824,8 @@
           "zone": "eastern_plaguelands_west"
         }
       ],
-      "accept_text": "He stands at Stratholme's gate, where he always stood. He's a death knight now, and he's strong. Take friends, and don't fight him alone.",
-      "turn_in_text": "Then he's at rest. I hope he knows that I'm sorry.\n\nHe taught me how to hold a shield. Every one of us who served under him owes you for this.",
+      "accept_text": "Gatekeeper Vorthas was a captain of Stratholme's guard. He held the gate when the city fell, and he holds it still, for the Scourge now. I served under him. He taught me how to hold a shield.\n\nI'd like my old captain at rest. I can't do it myself. I've tried, and I couldn't lift my sword.\n\nHe stands at the gate, where he always stood. He's a death knight now, and he's strong. Take friends, and don't fight him alone.",
+      "turn_in_text": "Then he's at rest. I hope he knows that I'm sorry.\n\nEvery one of us who served under him owes you for this.",
       "next_quest_id": null,
       "requires_quests": [
         "plw_the_gates_of_stratholme"
@@ -1907,7 +1907,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 57,
       "level_max": 58,
-      "description": "The Gate Death Knights still wear the sigils of the knightly houses they served when they were alive. Roland wants them back, so the houses that are left can know what happened to their sons and daughters.",
+      "description": "Take Knightly Sigils from the Gate Death Knights at Stratholme's gate.",
       "objectives": [
         {
           "type": "fetch",
@@ -1915,7 +1915,7 @@
           "count": 5
         }
       ],
-      "accept_text": "The death knights at Stratholme's gate wear the sigils on their breastplates. Cut them off and bring them here. I'll know every house by its colours.",
+      "accept_text": "The Gate Death Knights still wear the sigils of the houses they served when they were alive. Barov, Mardenholde, a dozen others. The houses that are left don't know what became of their sons and daughters.\n\nI'd like the sigils back, so I can tell them.\n\nThe death knights wear them on their breastplates. Cut them off and bring them to me. I'll know every house by its colours.",
       "turn_in_text": "That's Barov, and that's Mardenholde, and this one's my own cousin's house.\n\nI'll write to every family that's left. It's the least they deserve, and it's more than most of them will get.",
       "next_quest_id": null,
       "reward_exp": 4280,
@@ -1994,7 +1994,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 56,
       "level_max": 57,
-      "description": "Huntress Kaia Lindgren hunted reindeer in the north of Norway before the Integration, and now she hunts for Light's Hope. Plaguewood's the worst hunting ground she's ever seen. The Plaguewood Spiders spin their webs across every path, and the Plaguewood Crypt Fiends dig under them.\n\nShe wants them cleared.",
+      "description": "Kill Plaguewood Spiders and Plaguewood Crypt Fiends in Plaguewood.",
       "objectives": [
         {
           "type": "kill",
@@ -2009,8 +2009,8 @@
           "zone": "eastern_plaguelands_west"
         }
       ],
-      "accept_text": "Plaguewood's north and west of the crossing, on the road to Stratholme. The spiders are in the trees and the fiends are underground. Watch where you step, because they come up underneath you.",
-      "turn_in_text": "That's some ugly hunting. Thank you for doing it with me.\n\nI was a reindeer herder outside Tromso, back home. I never thought I'd miss the cold.",
+      "accept_text": "I'm Kaia, and I herded reindeer outside Tromso before the Integration, and now I hunt for the chapel. Plaguewood is the worst hunting ground I've ever seen.\n\nThe Plaguewood Spiders spin webs across every path, and the Plaguewood Crypt Fiends dig under them and come up through the floor. Nothing lives in there that I'd want to eat.\n\nPlaguewood's north-west of Corin's Crossing, on the road to Stratholme. The spiders are in the trees and the fiends are underground. Watch where you step.",
+      "turn_in_text": "That's some ugly hunting. Thank you for doing it with me.\n\nI never thought I'd miss the cold, and I miss it every day.",
       "next_quest_id": "plw_plaguewood_silk",
       "reward_exp": 4200,
       "reward_gold": 16500,
@@ -2089,7 +2089,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 57,
       "level_max": 57,
-      "description": "Kaia makes her own snares, and the Plaguewood Spiders spin silk that's stronger than any rope in the Plaguelands. She wants enough of it to rig snares around the whole chapel.",
+      "description": "Take Plaguewood Silk from the Plaguewood Spiders.",
       "objectives": [
         {
           "type": "fetch",
@@ -2097,8 +2097,8 @@
           "count": 6
         }
       ],
-      "accept_text": "The spiders in Plaguewood carry silk in their glands. Cut it out carefully, because it sticks to everything. Wear gloves if you've got them.",
-      "turn_in_text": "This is beautiful silk. I'll have snares around the chapel by the weekend.\n\nThere's a big one in Plaguewood, the mother of all of them. I'd like to see her gone.",
+      "accept_text": "I make my own snares, and the Plaguewood Spiders spin silk that's stronger than any rope in the Plaguelands. I'd like enough to rig snares round the whole chapel. The dead don't cross holy ground, but the animals do.\n\nThe spiders carry it in their glands. Cut it out carefully, because it sticks to everything, and wear gloves if you've got them.",
+      "turn_in_text": "This is beautiful silk. I'll have snares round the chapel by the weekend.\n\nThere's a big one in Plaguewood, the mother of all of them. I'd like to see her gone.",
       "next_quest_id": "plw_the_plaguewood_matriarch",
       "requires_quests": [
         "plw_plaguewood"
@@ -2183,7 +2183,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 58,
       "level_max": 58,
-      "description": "Every spider in Plaguewood came from the same nest, and the thing that laid them still sits in it. Kaia calls her the Plaguewood Matriarch, and she's bigger than a horse.\n\nKaia wants her dead.",
+      "description": "Kill the Plaguewood Matriarch in the heart of Plaguewood.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -2192,7 +2192,7 @@
           "zone": "eastern_plaguelands_west"
         }
       ],
-      "accept_text": "She's in the deepest part of Plaguewood, where the webs are thickest. She's fast and she's poisonous. Take friends, and bring a knife for the webs.",
+      "accept_text": "Every spider in Plaguewood came out of the same nest, and the thing that laid them is still sitting on it. I call her the Plaguewood Matriarch. She's bigger than a horse.\n\nAs long as she's there, the wood fills up again as fast as we empty it.\n\nShe's in the deepest part of Plaguewood, where the webs are thickest. She's fast and she's poisonous. Take friends, and bring a knife for the webs.",
       "turn_in_text": "She's really dead? Then Plaguewood will empty out in a season.\n\nI'll make you a snare from her silk, if you like. It'd hold a dragon.",
       "next_quest_id": null,
       "requires_quests": [
@@ -2279,7 +2279,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 55,
       "level_max": 56,
-      "description": "The Carrion Grubs eat everything that dies on the road west, and then they eat everything that's alive and slow. Kaia's lost a dozen snares to them.\n\nShe wants them gone.",
+      "description": "Kill Carrion Grubs along the road through West EPL.",
       "objectives": [
         {
           "type": "kill",
@@ -2288,7 +2288,7 @@
           "zone": "eastern_plaguelands_west"
         }
       ],
-      "accept_text": "They swarm the road and the ditches beside it. They're slow and they're soft, but there are always more. Burn them if you can.",
+      "accept_text": "The Carrion Grubs eat everything that dies on the road west, and then they eat everything that's alive and slow. I've lost every snare I set out there this month.\n\nThey swarm the road and the ditches beside it. They're slow and they're soft, but there are always more of them. Burn them if you can, because they don't like it.",
       "turn_in_text": "That's the road clear of them for a while, anyway.\n\nThank you. I'd rather hunt anything else in the world than those.",
       "next_quest_id": null,
       "reward_exp": 4120,
@@ -2371,7 +2371,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 55,
       "level_max": 56,
-      "description": "Kaia's run out of arrowheads, and the Plague Hounds on the road west have fangs as hard as flint. She's been knapping them into points, and they fly true.\n\nShe wants more fangs.",
+      "description": "Take Plague Hound Fangs from the Plague Hounds on the road west.",
       "objectives": [
         {
           "type": "fetch",
@@ -2379,7 +2379,7 @@
           "count": 6
         }
       ],
-      "accept_text": "The hounds run in packs along the road west from Crown Guard. Pull the big canines, the ones at the front. I'll do the rest by the fire.",
+      "accept_text": "I've run out of arrowheads. The Plague Hounds on the road west have fangs as hard as flint, and I've been knapping them into points. They fly true, truer than the steel ones.\n\nThe hounds run in packs along the road, past the old tower. Pull the big canines, the ones at the front. I'll do the rest by the fire.",
       "turn_in_text": "These are perfect. I'll have a quiver full by tomorrow night.\n\nMy grandfather made fishhooks from bone, back home. I didn't think I'd ever need to know how.",
       "next_quest_id": null,
       "reward_exp": 4120,
@@ -2463,7 +2463,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 57,
       "level_max": 57,
-      "description": "Dawnbringer has never seen Stratholme since it fell, and he won't send the Dawn in until someone has. He wants you to walk to the city's gate and look at it.\n\nJust look, he says. Then come back.",
+      "description": "Walk to Stratholme's gate, look at it, and come back.",
       "objectives": [
         {
           "type": "explore",
@@ -2474,7 +2474,7 @@
           "label": "Look at Stratholme's gate"
         }
       ],
-      "accept_text": "West along the road, north past the Fungal Vale, and west through Plaguewood. The gate's at the end of the road. Don't go in, whatever you hear.",
+      "accept_text": "I'm Eligor Dawnbringer, and I command the Argent Dawn here. I haven't seen Stratholme since it fell. I won't send the Dawn in until somebody I trust has looked at it and come back.\n\nI'm asking you to be that somebody. Walk to the city's gate and look at it, nothing more. Then come back and tell me.\n\nGo west along the road, north past the Fungal Vale, and west through Plaguewood. The gate's at the end of it. Don't go in, whatever you hear.",
       "turn_in_text": "Then it's as bad as we thought.\n\nThe newcomers say they've seen cities like that in their dreams, burned and empty. I wish they hadn't.",
       "next_quest_id": null,
       "reward_exp": 4200,
@@ -2552,7 +2552,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 56,
       "level_max": 57,
-      "description": "Edda Marris married into the family whose farm is still being worked by the dead. The Marris dead have a crypt under the stead, and Edda's heard they don't stay in their niches any more.\n\nShe wants the Crypt Shamblers put down and the Marris Ossuary Guards stopped, so the family can lie where they were put.",
+      "description": "Kill Crypt Shamblers and Marris Ossuary Guards in the Marris Crypt, under the stead.",
       "objectives": [
         {
           "type": "kill",
@@ -2567,7 +2567,7 @@
           "zone": "the_marris_crypt"
         }
       ],
-      "accept_text": "The stair down's at the stead, south of the farmhouse. It's laid out like a grid down there, so count your turns. The guards were the family's own men once, and they'll still try to stop you.",
+      "accept_text": "There's a crypt under the stead where the family's always buried its own. I've heard the dead down there don't stay in their niches any more.\n\nThe Crypt Shamblers walk the passages and the Marris Ossuary Guards stand at the doors. The guards were the family's own men once, and they'll still try to stop you.\n\nThe stair down's at the stead, south of the farmhouse. It's laid out like a grid down there, so count your turns. I'd like the family back where they were put.",
       "turn_in_text": "Thank you. My husband's grandmother is down there somewhere, and I hope she's back where she belongs.\n\nThere's more, though. Something's still singing down there, and it isn't any hymn I know.",
       "next_quest_id": "plw_the_sexton",
       "reward_exp": 4200,
@@ -2646,7 +2646,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 57,
       "level_max": 58,
-      "description": "Edda says the family's sexton buried every Marris for forty years and wouldn't stop when the plague came. Sexton Hollowell is still down there digging, and the dead he's buried sing for him.\n\nShe wants him put in the ground for good, and The Bone Choir silenced.",
+      "description": "Kill Sexton Hollowell and the Bone Choir in the Marris Crypt.",
       "objectives": [
         {
           "type": "kill_boss",
@@ -2661,7 +2661,7 @@
           "zone": "the_marris_crypt"
         }
       ],
-      "accept_text": "The sexton's hall is in the middle of the crypt, and the choir sings from the chapel at the head of it. You'll hear them both. Don't listen to the words, because they'll tell you to lie down.",
+      "accept_text": "The family's sexton buried every Marris for forty years, and he didn't stop when the plague came. Sexton Hollowell is still down there digging, and the dead he's buried sing for him. The Bone Choir, the hands called it, before they were in it.\n\nI'd like him put in the ground for good, and the singing stopped.\n\nHis hall's in the middle of the crypt, and the choir sings from the chapel at the head of it. You'll hear them both. Don't listen to the words, because they'll tell you to lie down.",
       "turn_in_text": "It's gone quiet down there. I didn't know how loud it was until it stopped.\n\nI'll go down myself next week and say their names. Somebody in the family should, and I'm the only one of us left breathing.",
       "next_quest_id": null,
       "requires_quests": [
@@ -2748,7 +2748,7 @@
       "zone": "eastern_plaguelands_west",
       "level_min": 57,
       "level_max": 58,
-      "description": "Bat Handler Gwen Pike flies the Argent Dawn's bats between Light's Hope and the western road, and the Gate Gargoyles over Stratholme have started coming out to meet them. She's lost two bats this month.\n\nShe wants the Gate Gargoyles knocked out of the sky, and the Stone-Winged Gargoyles that hunt the open ground below them too.",
+      "description": "Kill Gate Gargoyles over Stratholme's walls and Stone-Winged Gargoyles on the open ground below.",
       "objectives": [
         {
           "type": "kill",
@@ -2763,8 +2763,8 @@
           "zone": "eastern_plaguelands_west"
         }
       ],
-      "accept_text": "The gate ones roost on Stratholme's walls at the top of the western road, and the wild ones hunt the open country under them. Bring them down where you can reach them, because they don't like to land.",
-      "turn_in_text": "My bats'll fly the western road again. They're nervous animals and so am I, but we'll manage.\n\nThe gargoyles never used to come out this far. Something in that city's waking up.",
+      "accept_text": "I'm Gwen, and I flew Crown Guard's bats, and now I nurse the ones that come in hurt, and lately that's a lot of them.\n\nThe Gate Gargoyles over Stratholme have started coming out to meet the Dawn's bats on the western road. I lost two this month. The Stone-Winged Gargoyles that hunt the ground under them finish off whatever falls.\n\nThe gate ones roost on Stratholme's walls at the top of the road, and the wild ones hunt the open country below. Bring them down where you can reach them, because they don't like to land.",
+      "turn_in_text": "Aldous says the bats will fly the western road again. They're nervous animals and so am I, but we'll manage.\n\nThe gargoyles never used to come out this far. Something in that city's waking up.",
       "next_quest_id": null,
       "reward_exp": 4280,
       "reward_gold": 16800,
@@ -2847,16 +2847,16 @@
       "zone": "emerald_sanctuary",
       "level_min": 54,
       "level_max": 55,
-      "description": "Yuki Hashimoto catalogues everything that grows back in Felwood, and she's had a jar of spores from the Fungal Vale on her bench for a week. They've grown, and they've grown into something she's never seen.\n\nShe wants Dr. Sun Li to see what her spores turn into.",
+      "description": "Carry Yuki's Jar to Dr. Sun Li at Light's Hope Chapel in the Eastern Plaguelands.",
       "objectives": [
         {
           "type": "deliver",
           "target": "pl_q_yukis_jar",
           "count": 1,
-          "label": "Bring Yuki's jar to Dr. Sun Li at Crown Guard"
+          "label": "Bring Yuki's jar to Dr. Sun Li at Light's Hope Chapel"
         }
       ],
-      "accept_text": "Dr. Sun Li's at Crown Guard, in the east of the Eastern Plaguelands. It's a long way, so wrap the jar in something and keep it upright. It's started tapping on the glass, and I'd rather it didn't get out.",
+      "accept_text": "I catalogue everything that grows back in Felwood, and somebody sent me a jar of spores from the Plaguelands' Fungal Vale. I put it on my bench a week ago. It's grown, and it's grown into something I've never seen.\n\nDr. Sun Li needs to see what her spores turn into. She's with the Argent Dawn at Light's Hope Chapel, at the far east end of the Eastern Plaguelands.\n\nIt's a long way, so wrap the jar in something and keep it upright. It's started tapping on the glass, and I'd rather it didn't get out.",
       "turn_in_text": "Oh, that's beautiful, and I hate it.\n\nI studied fungi in Kunming for twenty years, back home, and nothing ever moved on its own. Tell Yuki I owe her a very long letter, and come back when you've rested. The vale's worse than I thought.",
       "next_quest_id": null,
       "turn_in_npc_id": "epl_cg_mycologist",

@@ -785,6 +785,13 @@ class ZoneManager:
                 c = cost + abs(x - ax) + abs(y - ay)
                 n += 1
                 if self._is_town_map(dest[0]):
+                    # A town for a much higher level than where you fell loses to the one you'd expect: the
+                    # Monastery's grounds (28-42) wake you in Brill, not in the Bulwark (51-54) a few tiles nearer
+                    # by road. Ten tiles a level past five levels of gap.
+                    from world.zone_levels import band
+                    hb, tb = band(name), band(dest[0])
+                    if hb and tb and tb[0] > hb[1] + 5:
+                        c += 10 * (tb[0] - hb[1] - 5)
                     heapq.heappush(heap, (c, n, dest[0], dest[1], dest[2],
                                           (dest[0], dest[1], dest[2], f"the gates of {dest[0]}")))
                     continue

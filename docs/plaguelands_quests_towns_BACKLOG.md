@@ -104,3 +104,33 @@ the plaguelands").
   same with spell/attack power. Measure heal / geared tank HP at 35-60 naked and geared (healsim), then
   tools/sim_difficulty.py with 5, 3 and 2.
 - Healing talents should be worth taking: check the Restoration/Holy trees give real throughput at 60.
+
+## The bench has no limit, and the party screen overflows (Kyle, 16 Nov 2026)
+"no limit to how many people i can bench??? Lol" (screenshot: Bench (9), the list running off the bottom, the Party
+Buffs list drawn under the action buttons, the footer hint over the last bench row).
+- Decide: cap the bench (and what happens to the recruit you'd push past it), or keep it open and make it scroll.
+- Either way: the bench list scrolls inside its box, the Party Buffs tab scrolls (or pages) above the buttons, and
+  the footer hint never sits on a row. A QA that fills the bench past what fits and checks nothing overlaps.
+
+## Eat and Drink: see the buff, pick the food (Kyle, 16 Nov 2026)
+"we need to have a way to see our food buff. Also a way to select food. these should open menu to select food
+options...." (screenshot: the overworld's "Eat (F): 0" and "Drink (Q): 0" buttons).
+- Clicking Eat or Drink opens a small picker of what's in the bags (icon, name, what it gives, how many), and the one
+  picked is remembered as the default for F / Q.
+- The food and drink buffs that are running show on the overworld (icon, what it gives, time left), the way the
+  party screen's buff tab does; hover for the full line.
+- A QA: with three foods in the bags, the picker lists all three and F eats the chosen one; the buff shows after.
+
+## Fourth Peg as a real town (Kyle, 16 Nov 2026)
+"Lets make Fourth Peg an ACTUAL town. i feel that'd solve a lot of whats ugly in Abyssal Sands."
+- Its own map off Abyssal Sands, the way the Plaguelands' towns went (docs/plaguelands_towns_plan.md): its people
+  moved in, one inn and one flight point, the camp's ground on Abyssal Sands given back to the zone.
+- Then look again at what was ugly round it once the camp's gone.
+
+## The Dry Deep: more tunnels, more places, optional bosses round the edge (Kyle, 16 Nov 2026)
+"Dry deep is a cool concept, but i think we need more tunnels and zones and maybe some optional bosses around the
+outside." (map screenshot: the Drained Sea in the middle, ten "Under the ..." rooms round it, one way through.)
+- More tunnels: loops between the outer rooms, so it isn't a hub with spokes; a few dead-end side passages.
+- More named places on the outside ring, and two or three optional bosses out there (off the main route), each with
+  its own loot and a reason to go.
+- Re-check reachability, packs and chests after the recut.

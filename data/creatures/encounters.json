@@ -5170,15 +5170,17 @@
         }
       },
       "subzones": {
-        "The Bulwark": {
-          "name": "The Bulwark",
+        "Bulwark Gate": {
+          "name": "Bulwark Gate",
           "safe": true,
           "creatures": {}
         },
         "Sorrow Hill": {
           "name": "Sorrow Hill",
-          "safe": true,
-          "creatures": {}
+          "creatures": {
+            "Wandering Skeleton": 5,
+            "Andorhal Skeleton": 3
+          }
         },
         "Uther's Tomb": {
           "name": "Uther's Tomb",
@@ -5267,8 +5269,8 @@
         }
       },
       "subzones": {
-        "The Pale Watch": {
-          "name": "The Pale Watch",
+        "Pale Watch Gate": {
+          "name": "Pale Watch Gate",
           "safe": true,
           "creatures": {}
         },
@@ -5410,13 +5412,15 @@
         }
       },
       "subzones": {
-        "Crown Guard Camp": {
-          "name": "Crown Guard Camp",
-          "safe": true,
-          "creatures": {}
+        "Crown Guard Tower": {
+          "name": "Crown Guard Tower",
+          "creatures": {
+            "Blighted Warhorse": 2,
+            "Carrion Bat": 3
+          }
         },
-        "Light's Hope Chapel": {
-          "name": "Light's Hope Chapel",
+        "Light's Hope Gate": {
+          "name": "Light's Hope Gate",
           "safe": true,
           "creatures": {}
         },
