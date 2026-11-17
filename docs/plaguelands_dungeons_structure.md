@@ -5,9 +5,9 @@ layers as it's massive. Live is one layer as its smaller", and "Hearthglen can b
 multi-layered Dungeons always have a portal after the final boss to teleport the players out of the dungeon. But
 ensure these end of dungeon portals are ONE WAY".
 
-**Structure only.** Each map is carved, checked (every door, boss, chest and trash pack can be walked to from the way
-in, and every door has floor where you arrive), and drawn. Nothing is wired into the game until Kyle's dungeon tiles
-land; then each takes the Scarlet Monastery's path: creatures and kits, loot, a baker, the doors, the fast exit.
+**Wired (16 Nov 2026, late).** Kyle's dungeon tiles landed, and each floor took the Scarlet Monastery's path:
+creatures and kits, loot, a baker, the doors, the fast exit. See "Wired" at the bottom. Each map is carved and checked:
+every door, boss, chest and trash pack can be walked to from the way in, and every door has floor where you arrive.
 Rosters are classic's, past the four-to-six rule, in classic's rooms and order. Trash is fixed packs, padded to four
 or five when wired. Levels: Scholomance 56-60, Stratholme 57-60, Hearthglen 58-60.
 
@@ -66,3 +66,36 @@ a keep's courtyard with its halls and a tower.
 ## Shared code
 `tools/plaguelands_dungeon_kit.py` carves a floor from its rooms, streets, walls and doors, checks it, and draws a
 preview (`python3 tools/handbuilt_stratholme.py --preview DIR`).
+
+## Wired (16 Nov 2026, late)
+- **Content:** `tools/build_plaguelands_dungeons_content.py` has 36 bosses with their own kits, each with a
+  signature move, plus trash packs per floor. It merges them into creatures, ability kits, encounters and zone
+  levels. The Barovs are one fight with one hoard (3 of 9 drop), like the Royal Hive's pair.
+- **Loot:** 114 items, 3 per boss, at item level = level + 3. There are 5 proc trinkets. No item uses the dungeon's own
+  token slot. Data is in `data/loot/plaguelands_dungeons_boss_loot.json`.
+- **T0 tokens:** Scholomance drops the head, Stratholme the chest, and Hearthglen the feet. Each boss has a 20% chance
+  to drop one, and the last boss of each run always drops one (Gandling, Dathrohan, the Baron, Hale).
+  `tools/qa_tempest_loot.py` now covers all 68 token bosses.
+- **Reputation:** Scarlet kills pay the Order of the Pale Flame and Scourge kills pay the Argent Dawn, both up to
+  Exalted.
+- **Ground:** `tools/bake_plaguelands_dungeons.py` bakes every floor from Kyle's dungeon ground sheet. It uses plain
+  floors only, because the sheet's patterned floors tile into wallpaper.
+- **Quests (11), given in town, not at the door:**
+  - From the Bulwark:
+    - Rory, Gandling
+    - Aldren, the Barovs
+    - Rook, Malicia and her necromancers
+    - Surgeon Grey, Ras Frostwhisper
+  - From Light's Hope:
+    - Ser Roland, Dathrohan. He stood outside Stratholme's gate the morning it fell.
+    - Jessa Moonfield, the Baron. Her mother baked for his household.
+  - From Crown Guard:
+    - Osric, the three ziggurats
+    - Sun Li, Ramstein
+  - From the Pale Watch:
+    - Clerk Wendel, Victor Hale
+    - Beatriz Couto, the Infirmary
+    - Liam Doherty, the Kennels
+- **Difficulty (sim, party of 5, 4 fights each):** most bosses win 4/4. The last bosses are hard: the party wipes with
+  the boss at 0-8% left. That's by design for 60 endgame, and it will move again with the heal pass in the backlog.
+  Parties of 3 and 2 lose every last boss.

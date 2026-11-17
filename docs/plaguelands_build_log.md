@@ -322,3 +322,19 @@ Kyle: "Then we finish up the quests and even make some from outside plaguelands 
 - **One more at Crown Guard:** Bat Handler Gwen Pike on the gargoyles over Stratholme's gates.
 - **Now:** South 42, North 34, West EPL 31, East EPL 38 (145 quests), every one inside the five-a-giver rule, 80%
   or more given in a hub on every map, and every spec rewarded on every map.
+
+## 16 Nov 2026 (night): the dungeons are wired
+
+Scholomance (two floors), Stratholme (the living side, then the dead side in two floors) and Hearthglen (the town,
+then Mardenholde Keep) are in the game. Each has its doors, baked ground, 36 bosses with their own kits, trash packs,
+114 items, the T0 head, chest and feet, and one-way fast exits from the last floors.
+`docs/plaguelands_dungeons_structure.md` has the whole list.
+
+- **Quests:** 11 dungeon quests, given in the towns. Four come from the Bulwark (two are asked on the Order's behalf,
+  so the Forsaken stay Exalted late in their pool), four from Light's Hope and Crown Guard, and three from the Pale
+  Watch. Beatriz Couto and Liam Doherty give quests now. The totals are now South 46, North 37, West EPL 35 and East
+  EPL 38, which makes 156.
+- **QA:**
+  - tools/qa_tempest_loot.py covers all 68 token bosses.
+  - Gandling dropped a shield he never cast.
+  - The failures left in the item, curve, monster and epic audits are the same ones main has.

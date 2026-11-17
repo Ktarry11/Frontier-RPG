@@ -1433,3 +1433,122 @@ VOICE.update({
         "where they came from here, and we don't ask anyone else either. We ask whether they'll stand on the wall "
         "tonight, so will you?"),
 })
+
+
+# =============================================================================================== THE DUNGEONS (57-60)
+# Given in the towns (Kyle: dungeon quests come from someone in town, not someone parked at the door).
+VOICE.update({
+    # ---------------------------------------------------------------- Scholomance, from the Bulwark
+    "pls_the_school_under_the_island": V(
+        "Kill Darkmaster Gandling in the lower halls of Scholomance, on the island in Darrowmere.",
+        "You've seen the island in Darrowmere, the one with the dead trees and the lit windows. That's Caer Darrow. "
+        "The Barovs owned it, and then they sold it to the Cult of the Damned for a promise, and now it's a school. "
+        "The Scourge teach necromancy there the way my old trade school taught welding.\n\nThe headmaster is "
+        "Darkmaster Gandling. Every necromancer who's put a skeleton back on its feet in Andorhal learned it in his "
+        "halls. We can kill students until the lake freezes over and he'll keep making more.\n\nHe keeps his study "
+        "at the bottom of the school, below everything else. You won't get there alone, so don't try. Take your "
+        "whole company, and come back and tell me the school's closed.",
+        "The school's closed, then. They'll open it again one day, they always do, but not this year.\n\nI came through in the "
+        "Integration with a welding ticket and a bad knee. I never thought I'd be shutting down schools.")
+    ,
+    "pls_the_barovs": V(
+        "Kill Lord Alexei Barov and Lady Illucia Barov in Scholomance.",
+        "I'm Aldren Holt, knight of the Pale Flame, for whatever that's worth to you. I want to tell you about a "
+        "family.\n\nThe Barovs owned Caer Darrow, and when the plague came they sold it to the Cult for eternal "
+        "life. They got it. Lord Alexei Barov and Lady Illucia Barov still walk their own vault under the school, "
+        "dead and proud of it, and they still think the island's theirs.\n\nI've read their family's letters. They "
+        "sold their tenants along with the land, and the tenants are in the ossuary now. Put the Barovs in the "
+        "ground with them. They're always together, so plan for both.",
+        "That's good work. I'll write it down in the Order's book, under the tenants' names, so they're the ones remembered.\n\n"
+        "Back home I'd have called this justice. Here I just call it Tuesday."),
+    "pls_the_cults_classroom": V(
+        "Kill Instructor Malicia and Scholomance Necromancers in the lower halls of Scholomance.",
+        "It's Rook again. The Cult's letters I've been breaking all season come from one place, and it's a classroom.\n\n"
+        "Instructor Malicia teaches the Scholomance Necromancers how to raise the dead and how to write in cipher, "
+        "and she's better at the second than the first. Every courier you killed in the south carried her "
+        "lessons.\n\nGo down into the lower halls and end the lesson. Kill her students on the way. I'd like the "
+        "Cult to find its next letter much harder to write, and I'd like to read it anyway.",
+        "Her notes are in a cipher I haven't seen before, which is lovely. I'll be up all night, and I don't sleep anyway.\n\n"
+        "I'll send a copy across the street to the Order. They've earned it, and so have you."),
+    "pls_frostwhispers_laboratory": V(
+        "Kill Ras Frostwhisper in the upper halls of Scholomance.",
+        "I'm Surgeon Grey. I put the Deathguard back together, and I can tell you whose work it's been when a dead thing "
+        "won't stay dead.\n\nRas Frostwhisper keeps a laboratory in the upper halls of the school. He was a wizard "
+        "once, and now he's a lich, and he's teaching the Cult how to keep a corpse cold and fresh and walking. I've "
+        "pulled his ice out of three abominations this month.\n\nGo into his laboratory and break him. Liches don't "
+        "like to stay broken, so make a thorough job of it, and then break his bench too.",
+        "Then that's one less hand stitching what I've got to unstitch.\n\nI kept a little of his frost in a jar, for "
+        "study. Don't tell the High Executor."),
+
+    # ---------------------------------------------------------------- Stratholme, from Light's Hope
+    "plw_the_grand_crusader": V(
+        "Kill Grand Crusader Dathrohan in the living half of Stratholme.",
+        "I was a knight of Lordaeron before Stratholme fell. I stood outside its gate the morning the prince came, "
+        "and I didn't go in. I've had a long time to think about that.\n\nThe Crusade holds the living half of the "
+        "city now, the market and the halls. Grand Crusader Dathrohan commands it from the Hall of High Command, "
+        "and he burns anyone he thinks might be carrying the plague, which is everyone he doesn't like.\n\nSomething "
+        "about him is wrong. His own men won't meet his eyes. Go into the city and find out what he is, and then end "
+        "him. Whatever he turns out to be.",
+        "So that's what he was. I wish I could say it surprised me.\n\nThe Crusade will name another. They always "
+        "do. But they'll name him knowing what the last one was."),
+    "plw_the_baron": V(
+        "Kill Baron Rivendare in the Slaughter Square of Stratholme.",
+        "I'm Jessa Moonfield, and I keep the beds here. I grew up in Stratholme. My mother baked for the Baron's "
+        "household, and he tipped well at midwinter.\n\nWhen the plague came he sold himself to the Lich King, and "
+        "now the dead half of the city is his. Baron Rivendare rules it from the Slaughter Square at the back of "
+        "Stratholme, where the Scourge stitch their abominations together. He rides out on a black horse some nights "
+        "and looks up at this chapel, and he can't come any closer.\n\nYou'll have to bring down the ziggurats "
+        "before you can reach him, and then you'll need a full company and a steady healer. Put him down. He was "
+        "never a kind man, but he was ours.",
+        "Then the horse won't come tonight. I'll leave the lamp out anyway, from habit.\n\nYour supper's on the "
+        "house. Don't argue, it's the only thing I can give you that he can't take back."),
+    "plw_the_three_ziggurats": V(
+        "Kill Nerub'enkan, Baroness Anastari and Maleki the Pallid in the ziggurats of Stratholme.",
+        "I keep the graves at the Crown Guard Tower, and lately I've been burying what comes out of Stratholme. I "
+        "know where it comes from.\n\nThe Scourge raised three ziggurats in the dead half of the city, and each one "
+        "has a keeper. Nerub'enkan is a spider lord out of the north. Baroness Anastari was a lady of the court and "
+        "is a banshee now. Maleki the Pallid is a lich who keeps his ziggurat as cold as a tomb.\n\nWhile those "
+        "three stand, the Baron's gate stays shut. Kill all of them and the way opens. Go in from the service "
+        "gate, where the Scourge bring their carts.",
+        "Then the gate's open, and I can stop digging for a while.\n\nYou'll want to go through it, I expect. I'll "
+        "keep a spade ready, all the same."),
+    "plw_the_gorger": V(
+        "Kill Ramstein the Gorger in the Slaughter Square of Stratholme.",
+        "I'm a mycologist. I came through in the Integration and I study what the plague does to living things, "
+        "because somebody has to, and the somebody turned out to be me.\n\nThe abominations in the Slaughter "
+        "Square are stitched from whatever the Scourge drag in. The biggest one is Ramstein the Gorger, and he "
+        "eats. He eats the dead and the living and the plague with them, and he carries more of it than anything "
+        "else in the city.\n\nKill him before he walks out of that square. I've seen what's in him under a lens. "
+        "Earth never had anything like it, and I'd like it to stay in Stratholme.",
+        "Thank you. I mean that more than I can say properly.\n\nI'll need a sample, of course. I'll get it myself. "
+        "With gloves, and possibly a longer stick."),
+
+    # ---------------------------------------------------------------- Hearthglen, from the Pale Watch
+    "pln_closing_hearthglens_books": V(
+        "Kill Grand Crusader Victor Hale in Mardenholde Keep, above Hearthglen.",
+        "I kept the ledgers in Hearthglen for eleven years. I know what the Crusade spends and what it burns, and "
+        "I know who signs for both.\n\nGrand Crusader Victor Hale signs for both. He commands Hearthglen from "
+        "Mardenholde Keep, up the hill past the town, and every order that sends a patrol south to burn a farm "
+        "comes from his desk.\n\nI walked out with nothing but my pen. Go up to the keep and close his books for "
+        "him. You'll have to go through the town first, and the town won't let you pass quietly.",
+        "Then the account's closed. I'll write it in my own hand, with the date.\n\nThe Crusade will keep "
+        "ledgers somewhere else. I'll learn where."),
+    "pln_the_infirmary": V(
+        "Kill Chirurgeon Maeve Ostrowski and High Clerist Hendrick in Hearthglen.",
+        "I'm Beatriz Couto. I ran a cafe in Porto before the Integration, and now I run the last bed before Hearthglen, "
+        "so I hear what comes out of it.\n\nWhat comes out of the infirmary is screaming. Chirurgeon Maeve "
+        "Ostrowski cuts newcomers open to look for the plague, and she never finds it, and she keeps looking. High "
+        "Clerist Hendrick stands at the door and blesses the work.\n\nTwo of my guests came out of that infirmary. "
+        "One of them still can't hold a cup. Go into Hearthglen and stop them both, please.",
+        "Thank you. I'll tell my guests in the morning, over coffee. Well, what passes for coffee.\n\nYour bed's "
+        "free here for as long as you want it."),
+    "pln_the_kennels": V(
+        "Kill Huntsman Radley and Hearthglen Mastiffs in Hearthglen.",
+        "My hawks won't fly over Hearthglen, and I know why. The Crusade keeps hounds there, and the hounds are "
+        "trained to run down anyone who flees the town.\n\nHuntsman Radley keeps the kennels. He breeds the "
+        "Hearthglen Mastiffs himself and sends them after anyone who runs, and he's proud of how few get away. I "
+        "trained sheepdogs in Donegal before the Integration. What he does to his dogs makes me sick.\n\nGo into "
+        "the town, kill him and his mastiffs, and give the next runner a chance.",
+        "Then the next one who runs might reach us. That's all I wanted.\n\nThe hawks still won't fly over it. "
+        "Give them time. Give me time too."),
+})

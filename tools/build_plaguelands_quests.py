@@ -90,6 +90,26 @@ def _zones():
                     q.append((nx, ny))
         spawns = set(enc[PC.PARENT[cave]]["caves"][cave]["creatures"])
         out[cave.lower().replace(" ", "_").replace("'", "")] = (seen, spawns)
+    # the dungeons (tools/build_plaguelands_dungeons_content.py): walked from the floor's way in
+    from tools import build_plaguelands_dungeons_content as PLD
+    from tools import handbuilt_scholomance as SCH, handbuilt_stratholme as STR, handbuilt_hearthglen as HG
+    builders = {PLD.SU: lambda: SCH.build_floor(SCH.UPPER), PLD.SL: lambda: SCH.build_floor(SCH.LOWER),
+                PLD.LV: lambda: STR.build_baked(STR.LIVE), PLD.D1: lambda: STR.build_baked(STR.DEAD_1),
+                PLD.D2: lambda: STR.build_baked(STR.DEAD_2), PLD.HT: lambda: HG.build_baked(HG.TOWN),
+                PLD.HK: lambda: HG.build_baked(HG.KEEP)}
+    for floor, (region, _lv, _spec) in PLD.FLOORS.items():
+        with contextlib.redirect_stdout(io.StringIO()):
+            z, b = builders[floor]()
+        start = next((x, y) for y in range(z.height) for x in range(z.width) if z.is_walkable(x, y))
+        seen = {start}
+        q = deque([start])
+        while q:
+            x, y = q.popleft()
+            for nx, ny in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
+                if (nx, ny) not in seen and 0 <= nx < z.width and 0 <= ny < z.height and z.is_walkable(nx, ny):
+                    seen.add((nx, ny))
+                    q.append((nx, ny))
+        out[floor.lower().replace(" ", "_").replace("'", "")] = (seen, set(enc[region]["caves"][floor]["creatures"]))
     return out
 
 

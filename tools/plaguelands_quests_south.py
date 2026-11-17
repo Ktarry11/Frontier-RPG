@@ -66,7 +66,10 @@ HUB_GIVERS = BULWARK | SORROW
 FACTION_BY_GIVER = {g: "the_forsaken" for g in BULWARK}
 #: a quest that pays someone other than its giver's faction: Venn's dispatch is handed in to Rory, and the Order pays
 FACTION_BY_QUEST = {"pls_a_dispatch_for_sorrow_hill": "pale_flame",
-                    "pls_samples_for_the_bulwark": "the_forsaken"}     # handed in at the Bulwark
+                    "pls_samples_for_the_bulwark": "the_forsaken",     # handed in at the Bulwark
+                    # Scholomance is the Order's war (its kills pay the Order too). Rook and Grey ask on the
+                    # Order's behalf, and the Forsaken stay where qa_factions wants them, Exalted late in their pool.
+                    "pls_the_cults_classroom": "pale_flame", "pls_frostwhispers_laboratory": "pale_flame"}
 NATIVE_GIVERS = {MARWEN, WEXLEY, EWEN}
 
 
@@ -482,4 +485,36 @@ def build():
          ("off_hand", "weapon", "shield", "shield_tank")], zone="tarren_mill", turn_in_npc_id=ODILE,
         grant_items=carry("pl_q_blackwoods_letter", "Chaplain Blackwood's Letter", "A letter sealed with plain "
                           "candle wax, addressed in careful capitals to the chaplain at Uther's Tomb.")))
+
+    # ======================================================================================== SCHOLOMANCE
+    # Given in the Bulwark (Kyle: dungeon quests are given in town, not by someone parked at the door).
+    SU, SL = "scholomance", "scholomance:_lower_halls"
+    A(Q("pls_the_school_under_the_island", "The School Under the Island", RORY, 58, 60, "Flamekeeper's",
+        None,
+        [boss("Darkmaster Gandling", SL)],
+        None,
+        None,
+        [("main_hand", "weapon", "sword_2h", "strength"), ("waist", "armor", "cloth", "caster"),
+         ("wrist", "armor", "mail", "earthen")]))
+    A(Q("pls_the_barovs", "The Barovs", ALDREN, 59, 60, "Holt's",
+        None,
+        [boss("Lord Alexei Barov", SL), boss("Lady Illucia Barov", SL)],
+        None,
+        None,
+        [("back", "armor", None, "assassin"), ("hands", "armor", "plate", "tank_any"),
+         ("feet", "armor", "leather", "healer")]))
+    A(Q("pls_the_cults_classroom", "The Cult's Classroom", ROOK, 58, 59, "Cipherbreaker's",
+        None,
+        [boss("Instructor Malicia", SL), k("Scholomance Necromancer", 6, SL)],
+        None,
+        None,
+        [("ring", "armor", None, "caster"), ("legs", "armor", "leather", "agility"),
+         ("shoulder", "armor", "plate", "strength")]))
+    A(Q("pls_frostwhispers_laboratory", "Frostwhisper's Laboratory", GREY, 57, 58, "Stitchwork",
+        None,
+        [boss("Ras Frostwhisper", SU)],
+        None,
+        None,
+        [("off_hand", "weapon", "tome", "high_healer"), ("chest", "armor", "mail", "hunter"),
+         ("neck", "armor", None, "physical")]))
     return out

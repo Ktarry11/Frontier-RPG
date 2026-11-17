@@ -3200,6 +3200,292 @@
       ],
       "gear_reward_gear_level": 54,
       "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pln_closing_hearthglens_books",
+      "title": "Closing Hearthglen's Books",
+      "giver_npc_id": "wpln_pf_clerk",
+      "zone": "western_plaguelands_north",
+      "level_min": 59,
+      "level_max": 60,
+      "description": "Kill Grand Crusader Victor Hale in Mardenholde Keep, above Hearthglen.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Grand Crusader Victor Hale",
+          "count": 1,
+          "zone": "hearthglen:_mardenholde_keep"
+        }
+      ],
+      "accept_text": "I kept the ledgers in Hearthglen for eleven years. I know what the Crusade spends and what it burns, and I know who signs for both.\n\nGrand Crusader Victor Hale signs for both. He commands Hearthglen from Mardenholde Keep, up the hill past the town, and every order that sends a patrol south to burn a farm comes from his desk.\n\nI walked out with nothing but my pen. Go up to the keep and close his books for him. You'll have to go through the town first, and the town won't let you pass quietly.",
+      "turn_in_text": "Then the account's closed. I'll write it in my own hand, with the date.\n\nThe Crusade will keep ledgers somewhere else. I'll learn where.",
+      "next_quest_id": null,
+      "reward_exp": 5772,
+      "reward_gold": 22620,
+      "unique_item_defs": [
+        {
+          "name": "Clerk's Staff",
+          "slot": "main_hand",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 35
+          },
+          "secondary_stats": {
+            "spell_power": 78
+          },
+          "armor_value": 0,
+          "required_level": 59,
+          "sell_price": 25047,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_06",
+          "weapon_damage_min": 59,
+          "weapon_damage_max": 80,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Clerk's Breastplate",
+          "slot": "chest",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 29
+          },
+          "secondary_stats": {
+            "defense_rating": 19,
+            "dodge_rating": 13
+          },
+          "armor_value": 507,
+          "required_level": 59,
+          "sell_price": 20037,
+          "identity": "tank_any",
+          "icon_id": "gear_inv_chest_plate03"
+        },
+        {
+          "name": "Clerk's Grips",
+          "slot": "hands",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 14,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 36
+          },
+          "armor_value": 140,
+          "required_level": 59,
+          "sell_price": 13024,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_17"
+        }
+      ],
+      "gear_reward_gear_level": 62,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "pln_the_infirmary",
+      "title": "The Infirmary",
+      "giver_npc_id": "wpln_pf_innkeeper",
+      "zone": "western_plaguelands_north",
+      "level_min": 58,
+      "level_max": 59,
+      "description": "Kill Chirurgeon Maeve Ostrowski and High Clerist Hendrick in Hearthglen.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Chirurgeon Maeve Ostrowski",
+          "count": 1,
+          "zone": "hearthglen"
+        },
+        {
+          "type": "kill_boss",
+          "target": "High Clerist Hendrick",
+          "count": 1,
+          "zone": "hearthglen"
+        }
+      ],
+      "accept_text": "I'm Beatriz Couto. I ran a cafe in Porto before the Integration, and now I run the last bed before Hearthglen, so I hear what comes out of it.\n\nWhat comes out of the infirmary is screaming. Chirurgeon Maeve Ostrowski cuts newcomers open to look for the plague, and she never finds it, and she keeps looking. High Clerist Hendrick stands at the door and blesses the work.\n\nTwo of my guests came out of that infirmary. One of them still can't hold a cup. Go into Hearthglen and stop them both, please.",
+      "turn_in_text": "Thank you. I'll tell my guests in the morning, over coffee. Well, what passes for coffee.\n\nYour bed's free here for as long as you want it.",
+      "next_quest_id": null,
+      "reward_exp": 5668,
+      "reward_gold": 22230,
+      "unique_item_defs": [
+        {
+          "name": "Couto's Hood",
+          "slot": "head",
+          "item_level": 61,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 12,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 52
+          },
+          "armor_value": 99,
+          "required_level": 58,
+          "sell_price": 15492,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_29"
+        },
+        {
+          "name": "Couto's Girdle",
+          "slot": "waist",
+          "item_level": 61,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 12,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 33
+          },
+          "armor_value": 221,
+          "required_level": 58,
+          "sell_price": 10651,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_01"
+        },
+        {
+          "name": "Couto's Charm",
+          "slot": "trinket",
+          "item_level": 61,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "attack_power": 33,
+            "hit_rating": 9
+          },
+          "armor_value": 0,
+          "required_level": 58,
+          "sell_price": 13555,
+          "identity": "physical",
+          "icon_id": "gear_inv_jewelry_talisman_12"
+        }
+      ],
+      "gear_reward_gear_level": 61,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "pln_the_kennels",
+      "title": "The Kennels",
+      "giver_npc_id": "wpln_pf_roostkeeper",
+      "zone": "western_plaguelands_north",
+      "level_min": 58,
+      "level_max": 58,
+      "description": "Kill Huntsman Radley and Hearthglen Mastiffs in Hearthglen.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Huntsman Radley",
+          "count": 1,
+          "zone": "hearthglen"
+        },
+        {
+          "type": "kill",
+          "target": "Hearthglen Mastiff",
+          "count": 6,
+          "zone": "hearthglen"
+        }
+      ],
+      "accept_text": "My hawks won't fly over Hearthglen, and I know why. The Crusade keeps hounds there, and the hounds are trained to run down anyone who flees the town.\n\nHuntsman Radley keeps the kennels. He breeds the Hearthglen Mastiffs himself and sends them after anyone who runs, and he's proud of how few get away. I trained sheepdogs in Donegal before the Integration. What he does to his dogs makes me sick.\n\nGo into the town, kill him and his mastiffs, and give the next runner a chance.",
+      "turn_in_text": "Then the next one who runs might reach us. That's all I wanted.\n\nThe hawks still won't fly over it. Give them time. Give me time too.",
+      "next_quest_id": null,
+      "reward_exp": 5564,
+      "reward_gold": 21840,
+      "unique_item_defs": [
+        {
+          "name": "Roostkeeper's Longbow",
+          "slot": "ranged",
+          "item_level": 60,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 0,
+          "required_level": 58,
+          "sell_price": 14963,
+          "identity": "agility",
+          "icon_id": "gear_inv_weapon_bow_01",
+          "weapon_damage_min": 88,
+          "weapon_damage_max": 120,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Roostkeeper's Mantle",
+          "slot": "shoulder",
+          "item_level": 60,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 11,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 51
+          },
+          "armor_value": 181,
+          "required_level": 58,
+          "sell_price": 14963,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_05"
+        },
+        {
+          "name": "Roostkeeper's Vambraces",
+          "slot": "wrist",
+          "item_level": 60,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 13,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 34
+          },
+          "armor_value": 327,
+          "required_level": 58,
+          "sell_price": 9352,
+          "identity": "strength",
+          "icon_id": "gear_inv_bracer_09"
+        }
+      ],
+      "gear_reward_gear_level": 60,
+      "gear_reward_rarity": "rare"
     }
   ]
 }

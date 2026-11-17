@@ -71957,7 +71957,7 @@
         "name": "Disarming Shriek",
         "kind": "damage",
         "amount": 296,
-        "cooldown": 0,
+        "cooldown": 4,
         "mana_cost": 0,
         "school": "shadow",
         "rider": {
@@ -72677,7 +72677,7 @@
         "name": "Sundering Blow",
         "kind": "damage",
         "amount": 351,
-        "cooldown": 0,
+        "cooldown": 4,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
@@ -72821,7 +72821,7 @@
         "name": "Dominate Mind",
         "kind": "damage",
         "amount": 360,
-        "cooldown": 0,
+        "cooldown": 4,
         "mana_cost": 0,
         "school": "shadow",
         "rider": {
@@ -72834,24 +72834,9 @@
         }
       },
       {
-        "name": "Fear",
-        "kind": "damage",
-        "amount": 200,
-        "cooldown": 6,
-        "mana_cost": 0,
-        "school": "shadow",
-        "authored_mechanic": "stun",
-        "rider": {
-          "effect": "debuff",
-          "duration": 1,
-          "is_stun": true,
-          "stat_mods": {}
-        }
-      },
-      {
         "name": "Shadow Shock",
         "kind": "damage",
-        "amount": 800,
+        "amount": 680,
         "cooldown": 6,
         "mana_cost": 0,
         "school": "shadow"
@@ -72890,7 +72875,7 @@
         "school": "arcane"
       },
       {
-        "name": "Shadow Shield",
+        "name": "Arcane Blast",
         "kind": "damage",
         "amount": 520,
         "cooldown": 4,
@@ -72920,18 +72905,6 @@
           "is_stun": true,
           "stat_mods": {}
         }
-      },
-      {
-        "name": "Shadow Shield",
-        "kind": "buff",
-        "amount": 0,
-        "cooldown": 6,
-        "mana_cost": 0,
-        "school": "shadow",
-        "duration": 3,
-        "self_only": true,
-        "stat_mods": {},
-        "absorb": 520
       },
       {
         "name": "Curse of the Darkmaster",
@@ -73526,7 +73499,7 @@
         "self_only": true,
         "hp_below": 0.35,
         "stat_mods": {
-          "attack_power": 273
+          "attack_power": 156
         }
       }
     ],
@@ -73569,7 +73542,7 @@
         "name": "Draining Blow",
         "kind": "damage",
         "amount": 342,
-        "cooldown": 0,
+        "cooldown": 4,
         "mana_cost": 0,
         "school": "shadow",
         "rider": {
@@ -73808,7 +73781,7 @@
         "name": "Possess",
         "kind": "damage",
         "amount": 351,
-        "cooldown": 0,
+        "cooldown": 4,
         "mana_cost": 0,
         "school": "shadow",
         "rider": {
@@ -73893,7 +73866,7 @@
         "name": "Drain Mana",
         "kind": "damage",
         "amount": 312,
-        "cooldown": 0,
+        "cooldown": 4,
         "mana_cost": 0,
         "school": "frost",
         "rider": {
@@ -74090,14 +74063,14 @@
         "name": "Mortal Strike",
         "kind": "damage",
         "amount": 400,
-        "cooldown": 0,
+        "cooldown": 4,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
           "effect": "debuff",
           "duration": 3,
           "stat_mods": {
-            "healing_power": -120
+            "healing_power": -60
           }
         }
       },
@@ -74189,7 +74162,7 @@
         "name": "Shield Wall",
         "kind": "damage",
         "amount": 304,
-        "cooldown": 0,
+        "cooldown": 4,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
@@ -74269,7 +74242,7 @@
         "name": "Freezing Trap",
         "kind": "damage",
         "amount": 228,
-        "cooldown": 0,
+        "cooldown": 4,
         "mana_cost": 0,
         "school": "frost",
         "rider": {
@@ -74699,7 +74672,7 @@
         "name": "Disarm",
         "kind": "damage",
         "amount": 351,
-        "cooldown": 0,
+        "cooldown": 4,
         "mana_cost": 0,
         "school": "physical",
         "rider": {
@@ -74966,17 +74939,9 @@
         }
       },
       {
-        "name": "Divine Protection",
-        "kind": "heal",
-        "amount": 400,
-        "cooldown": 99,
-        "mana_cost": 0,
-        "school": "holy"
-      },
-      {
         "name": "Burning Crusade",
         "kind": "damage",
-        "amount": 880,
+        "amount": 800,
         "cooldown": 6,
         "mana_cost": 0,
         "school": "fire"
@@ -74984,7 +74949,7 @@
       {
         "name": "Nobody Leaves Hearthglen",
         "kind": "damage",
-        "amount": 720,
+        "amount": 560,
         "cooldown": 99,
         "mana_cost": 0,
         "school": "fire",
@@ -75002,7 +74967,7 @@
         "self_only": true,
         "hp_below": 0.35,
         "stat_mods": {
-          "attack_power": 240
+          "attack_power": 160
         }
       }
     ]

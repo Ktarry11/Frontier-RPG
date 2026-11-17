@@ -134,3 +134,14 @@ outside." (map screenshot: the Drained Sea in the middle, ten "Under the ..." ro
 - More named places on the outside ring, and two or three optional bosses out there (off the main route), each with
   its own loot and a reason to go.
 - Re-check reachability, packs and chests after the recut.
+
+## Kyle, 16 Nov 2026 21:34: next up once the Plaguelands are done
+"do the backlog of support skills. Full audit to put them closer to where they should be and 100% we need to fix the
+healing end game.....we need an actual formula and do it right.... a spot heal from a non-spec'd character shouldn't
+heal 80% tank HP and like 200% boss damage...."
+
+This makes the heal pass first in line, and it has to be an actual formula, not more trimming.
+- Write the formula down first: base heal by level, what spell power adds, what spec and talents add, and what gear
+  adds.
+- Target a naked, unspecced spot heal at about 20-25% of a same-level tank's HP, and well under one boss hit.
+- Then audit every support skill (heals, shields, HoTs, buffs, cleanses) against that formula.

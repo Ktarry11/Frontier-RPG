@@ -4052,6 +4052,380 @@
       ],
       "gear_reward_gear_level": 53,
       "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "pls_the_school_under_the_island",
+      "title": "The School Under the Island",
+      "giver_npc_id": "wpl_pf_flamekeeper",
+      "zone": "western_plaguelands_south",
+      "level_min": 58,
+      "level_max": 60,
+      "description": "Kill Darkmaster Gandling in the lower halls of Scholomance, on the island in Darrowmere.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Darkmaster Gandling",
+          "count": 1,
+          "zone": "scholomance:_lower_halls"
+        }
+      ],
+      "accept_text": "You've seen the island in Darrowmere, the one with the dead trees and the lit windows. That's Caer Darrow. The Barovs owned it, and then they sold it to the Cult of the Damned for a promise, and now it's a school. The Scourge teach necromancy there the way my old trade school taught welding.\n\nThe headmaster is Darkmaster Gandling. Every necromancer who's put a skeleton back on its feet in Andorhal learned it in his halls. We can kill students until the lake freezes over and he'll keep making more.\n\nHe keeps his study at the bottom of the school, below everything else. You won't get there alone, so don't try. Take your whole company, and come back and tell me the school's closed.",
+      "turn_in_text": "The school's closed, then. They'll open it again one day, they always do, but not this year.\n\nI came through in the Integration with a welding ticket and a bad knee. I never thought I'd be shutting down schools.",
+      "next_quest_id": null,
+      "reward_exp": 5772,
+      "reward_gold": 22620,
+      "unique_item_defs": [
+        {
+          "name": "Flamekeeper's Claymore",
+          "slot": "main_hand",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 17,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "attack_power": 43
+          },
+          "armor_value": 0,
+          "required_level": 58,
+          "sell_price": 25047,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_45",
+          "weapon_damage_min": 145,
+          "weapon_damage_max": 196,
+          "attack_speed": 3.4,
+          "block_value": 0
+        },
+        {
+          "name": "Flamekeeper's Cord",
+          "slot": "waist",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 16
+          },
+          "secondary_stats": {
+            "spell_power": 36
+          },
+          "armor_value": 83,
+          "required_level": 58,
+          "sell_price": 11021,
+          "identity": "caster",
+          "icon_id": "gear_inv_belt_06"
+        },
+        {
+          "name": "Flamekeeper's Wristguards",
+          "slot": "wrist",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 12,
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "attack_power": 32
+          },
+          "armor_value": 238,
+          "required_level": 58,
+          "sell_price": 10019,
+          "identity": "earthen",
+          "icon_id": "gear_inv_bracer_03"
+        }
+      ],
+      "gear_reward_gear_level": 62,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "pls_the_barovs",
+      "title": "The Barovs",
+      "giver_npc_id": "wpl_pf_knight",
+      "zone": "western_plaguelands_south",
+      "level_min": 59,
+      "level_max": 60,
+      "description": "Kill Lord Alexei Barov and Lady Illucia Barov in Scholomance.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Lord Alexei Barov",
+          "count": 1,
+          "zone": "scholomance:_lower_halls"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Lady Illucia Barov",
+          "count": 1,
+          "zone": "scholomance:_lower_halls"
+        }
+      ],
+      "accept_text": "I'm Aldren Holt, knight of the Pale Flame, for whatever that's worth to you. I want to tell you about a family.\n\nThe Barovs owned Caer Darrow, and when the plague came they sold it to the Cult for eternal life. They got it. Lord Alexei Barov and Lady Illucia Barov still walk their own vault under the school, dead and proud of it, and they still think the island's theirs.\n\nI've read their family's letters. They sold their tenants along with the land, and the tenants are in the ossuary now. Put the Barovs in the ground with them. They're always together, so plan for both.",
+      "turn_in_text": "That's good work. I'll write it down in the Order's book, under the tenants' names, so they're the ones remembered.\n\nBack home I'd have called this justice. Here I just call it Tuesday.",
+      "next_quest_id": null,
+      "reward_exp": 5772,
+      "reward_gold": 22620,
+      "unique_item_defs": [
+        {
+          "name": "Holt's Cloak",
+          "slot": "back",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 11
+          },
+          "secondary_stats": {
+            "attack_power": 26,
+            "hit_rating": 11
+          },
+          "armor_value": 73,
+          "required_level": 59,
+          "sell_price": 11021,
+          "identity": "assassin",
+          "icon_id": "gear_inv_misc_cape_11"
+        },
+        {
+          "name": "Holt's Gauntlets",
+          "slot": "hands",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 20
+          },
+          "secondary_stats": {
+            "defense_rating": 13,
+            "dodge_rating": 9
+          },
+          "armor_value": 351,
+          "required_level": 59,
+          "sell_price": 13024,
+          "identity": "tank_any",
+          "icon_id": "gear_inv_gauntlets_18"
+        },
+        {
+          "name": "Holt's Boots",
+          "slot": "feet",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 10,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 44
+          },
+          "armor_value": 153,
+          "required_level": 59,
+          "sell_price": 13024,
+          "identity": "healer",
+          "icon_id": "gear_inv_boots_04"
+        }
+      ],
+      "gear_reward_gear_level": 62,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "pls_the_cults_classroom",
+      "title": "The Cult's Classroom",
+      "giver_npc_id": "wpl_bulwark_sewer_agent",
+      "zone": "western_plaguelands_south",
+      "level_min": 58,
+      "level_max": 59,
+      "description": "Kill Instructor Malicia and Scholomance Necromancers in the lower halls of Scholomance.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Instructor Malicia",
+          "count": 1,
+          "zone": "scholomance:_lower_halls"
+        },
+        {
+          "type": "kill",
+          "target": "Scholomance Necromancer",
+          "count": 6,
+          "zone": "scholomance:_lower_halls"
+        }
+      ],
+      "accept_text": "It's Rook again. The Cult's letters I've been breaking all season come from one place, and it's a classroom.\n\nInstructor Malicia teaches the Scholomance Necromancers how to raise the dead and how to write in cipher, and she's better at the second than the first. Every courier you killed in the south carried her lessons.\n\nGo down into the lower halls and end the lesson. Kill her students on the way. I'd like the Cult to find its next letter much harder to write, and I'd like to read it anyway.",
+      "turn_in_text": "Her notes are in a cipher I haven't seen before, which is lovely. I'll be up all night, and I don't sleep anyway.\n\nI'll send a copy across the street to the Order. They've earned it, and so have you.",
+      "next_quest_id": null,
+      "reward_exp": 5668,
+      "reward_gold": 22230,
+      "unique_item_defs": [
+        {
+          "name": "Cipherbreaker's Ring",
+          "slot": "ring",
+          "item_level": 61,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "spell_power": 31
+          },
+          "armor_value": 0,
+          "required_level": 58,
+          "sell_price": 11619,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_ring_32"
+        },
+        {
+          "name": "Cipherbreaker's Leggings",
+          "slot": "legs",
+          "item_level": 61,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 20,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 50
+          },
+          "armor_value": 200,
+          "required_level": 58,
+          "sell_price": 19365,
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_01"
+        },
+        {
+          "name": "Cipherbreaker's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 61,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 17,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "attack_power": 42
+          },
+          "armor_value": 421,
+          "required_level": 58,
+          "sell_price": 15492,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_20"
+        }
+      ],
+      "gear_reward_gear_level": 61,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "pls_frostwhispers_laboratory",
+      "title": "Frostwhisper's Laboratory",
+      "giver_npc_id": "wpl_bulwark_surgeon",
+      "zone": "western_plaguelands_south",
+      "level_min": 57,
+      "level_max": 58,
+      "description": "Kill Ras Frostwhisper in the upper halls of Scholomance.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Ras Frostwhisper",
+          "count": 1,
+          "zone": "scholomance"
+        }
+      ],
+      "accept_text": "I'm Surgeon Grey. I put the Deathguard back together, and I can tell you whose work it's been when a dead thing won't stay dead.\n\nRas Frostwhisper keeps a laboratory in the upper halls of the school. He was a wizard once, and now he's a lich, and he's teaching the Cult how to keep a corpse cold and fresh and walking. I've pulled his ice out of three abominations this month.\n\nGo into his laboratory and break him. Liches don't like to stay broken, so make a thorough job of it, and then break his bench too.",
+      "turn_in_text": "Then that's one less hand stitching what I've got to unstitch.\n\nI kept a little of his frost in a jar, for study. Don't tell the High Executor.",
+      "next_quest_id": null,
+      "reward_exp": 5564,
+      "reward_gold": 21840,
+      "unique_item_defs": [
+        {
+          "name": "Stitchwork Tome",
+          "slot": "off_hand",
+          "item_level": 60,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 10,
+            "spirit": 8
+          },
+          "secondary_stats": {
+            "healing_power": 48
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 11222,
+          "identity": "high_healer",
+          "icon_id": "gear_inv_tome_6",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Stitchwork Chainshirt",
+          "slot": "chest",
+          "item_level": 60,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 16,
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "attack_power": 49
+          },
+          "armor_value": 333,
+          "required_level": 57,
+          "sell_price": 18704,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_10"
+        },
+        {
+          "name": "Stitchwork Pendant",
+          "slot": "neck",
+          "item_level": 60,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 35,
+            "hit_rating": 8
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 11222,
+          "identity": "physical",
+          "icon_id": "gear_inv_jewelry_amulet_04"
+        }
+      ],
+      "gear_reward_gear_level": 60,
+      "gear_reward_rarity": "rare"
     }
   ]
 }

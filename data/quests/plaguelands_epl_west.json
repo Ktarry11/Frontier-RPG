@@ -2938,6 +2938,379 @@
       ],
       "gear_reward_gear_level": 56,
       "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "plw_the_grand_crusader",
+      "title": "The Grand Crusader",
+      "giver_npc_id": "epl_lh_knight",
+      "zone": "eastern_plaguelands_west",
+      "level_min": 58,
+      "level_max": 59,
+      "description": "Kill Grand Crusader Dathrohan in the living half of Stratholme.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Grand Crusader Dathrohan",
+          "count": 1,
+          "zone": "stratholme"
+        }
+      ],
+      "accept_text": "I was a knight of Lordaeron before Stratholme fell. I stood outside its gate the morning the prince came, and I didn't go in. I've had a long time to think about that.\n\nThe Crusade holds the living half of the city now, the market and the halls. Grand Crusader Dathrohan commands it from the Hall of High Command, and he burns anyone he thinks might be carrying the plague, which is everyone he doesn't like.\n\nSomething about him is wrong. His own men won't meet his eyes. Go into the city and find out what he is, and then end him. Whatever he turns out to be.",
+      "turn_in_text": "So that's what he was. I wish I could say it surprised me.\n\nThe Crusade will name another. They always do. But they'll name him knowing what the last one was.",
+      "next_quest_id": null,
+      "reward_exp": 5668,
+      "reward_gold": 22230,
+      "unique_item_defs": [
+        {
+          "name": "Ashcombe's Mace",
+          "slot": "main_hand",
+          "item_level": 61,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 12,
+            "spirit": 9
+          },
+          "secondary_stats": {
+            "healing_power": 52
+          },
+          "armor_value": 0,
+          "required_level": 58,
+          "sell_price": 18397,
+          "identity": "high_healer",
+          "icon_id": "gear_inv_mace_12",
+          "weapon_damage_min": 106,
+          "weapon_damage_max": 143,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Ashcombe's Kilt",
+          "slot": "legs",
+          "item_level": 61,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 17,
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "attack_power": 50
+          },
+          "armor_value": 320,
+          "required_level": 58,
+          "sell_price": 19365,
+          "identity": "hunter",
+          "icon_id": "gear_inv_pants_12"
+        },
+        {
+          "name": "Ashcombe's Hood",
+          "slot": "head",
+          "item_level": 61,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 17,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "attack_power": 42
+          },
+          "armor_value": 169,
+          "required_level": 58,
+          "sell_price": 15492,
+          "identity": "agility",
+          "icon_id": "gear_inv_helmet_22"
+        }
+      ],
+      "gear_reward_gear_level": 61,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "plw_the_baron",
+      "title": "The Baron",
+      "giver_npc_id": "epl_lh_innkeeper",
+      "zone": "eastern_plaguelands_west",
+      "level_min": 59,
+      "level_max": 60,
+      "description": "Kill Baron Rivendare in the Slaughter Square of Stratholme.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Baron Rivendare",
+          "count": 1,
+          "zone": "stratholme:_slaughter_square"
+        }
+      ],
+      "accept_text": "I'm Jessa Moonfield, and I keep the beds here. I grew up in Stratholme. My mother baked for the Baron's household, and he tipped well at midwinter.\n\nWhen the plague came he sold himself to the Lich King, and now the dead half of the city is his. Baron Rivendare rules it from the Slaughter Square at the back of Stratholme, where the Scourge stitch their abominations together. He rides out on a black horse some nights and looks up at this chapel, and he can't come any closer.\n\nYou'll have to bring down the ziggurats before you can reach him, and then you'll need a full company and a steady healer. Put him down. He was never a kind man, but he was ours.",
+      "turn_in_text": "Then the horse won't come tonight. I'll leave the lamp out anyway, from habit.\n\nYour supper's on the house. Don't argue, it's the only thing I can give you that he can't take back.",
+      "next_quest_id": null,
+      "reward_exp": 5772,
+      "reward_gold": 22620,
+      "unique_item_defs": [
+        {
+          "name": "Moonfield's Spear",
+          "slot": "main_hand",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 17,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "attack_power": 43
+          },
+          "armor_value": 0,
+          "required_level": 59,
+          "sell_price": 25047,
+          "identity": "strength",
+          "icon_id": "gear_inv_spear_04",
+          "weapon_damage_min": 145,
+          "weapon_damage_max": 196,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Moonfield's Waistguard",
+          "slot": "waist",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 20
+          },
+          "secondary_stats": {
+            "defense_rating": 13,
+            "dodge_rating": 9
+          },
+          "armor_value": 351,
+          "required_level": 59,
+          "sell_price": 11021,
+          "identity": "tank_any",
+          "icon_id": "gear_inv_belt_32"
+        },
+        {
+          "name": "Moonfield's Gloves",
+          "slot": "hands",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 16
+          },
+          "secondary_stats": {
+            "spell_power": 36
+          },
+          "armor_value": 242,
+          "required_level": 59,
+          "sell_price": 13024,
+          "identity": "caster",
+          "icon_id": "gear_inv_gauntlets_24"
+        }
+      ],
+      "gear_reward_gear_level": 62,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "plw_the_three_ziggurats",
+      "title": "The Three Ziggurats",
+      "giver_npc_id": "epl_cg_gravewarden",
+      "zone": "eastern_plaguelands_west",
+      "level_min": 58,
+      "level_max": 59,
+      "description": "Kill Nerub'enkan, Baroness Anastari and Maleki the Pallid in the ziggurats of Stratholme.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Nerub'enkan",
+          "count": 1,
+          "zone": "stratholme:_service_entrance"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Baroness Anastari",
+          "count": 1,
+          "zone": "stratholme:_service_entrance"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Maleki the Pallid",
+          "count": 1,
+          "zone": "stratholme:_service_entrance"
+        }
+      ],
+      "accept_text": "I keep the graves at the Crown Guard Tower, and lately I've been burying what comes out of Stratholme. I know where it comes from.\n\nThe Scourge raised three ziggurats in the dead half of the city, and each one has a keeper. Nerub'enkan is a spider lord out of the north. Baroness Anastari was a lady of the court and is a banshee now. Maleki the Pallid is a lich who keeps his ziggurat as cold as a tomb.\n\nWhile those three stand, the Baron's gate stays shut. Kill all of them and the way opens. Go in from the service gate, where the Scourge bring their carts.",
+      "turn_in_text": "Then the gate's open, and I can stop digging for a while.\n\nYou'll want to go through it, I expect. I'll keep a spade ready, all the same.",
+      "next_quest_id": null,
+      "reward_exp": 5668,
+      "reward_gold": 22230,
+      "unique_item_defs": [
+        {
+          "name": "Gravewarden's Mantle",
+          "slot": "shoulder",
+          "item_level": 61,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 19
+          },
+          "secondary_stats": {
+            "spell_power": 42
+          },
+          "armor_value": 84,
+          "required_level": 58,
+          "sell_price": 15492,
+          "identity": "caster",
+          "icon_id": "gear_inv_shoulder_18"
+        },
+        {
+          "name": "Gravewarden's Greaves",
+          "slot": "feet",
+          "item_level": 61,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 12,
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 234,
+          "required_level": 58,
+          "sell_price": 12587,
+          "identity": "earthen",
+          "icon_id": "gear_inv_boots_fabric_01"
+        },
+        {
+          "name": "Gravewarden's Band",
+          "slot": "ring",
+          "item_level": 61,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "attack_power": 33,
+            "hit_rating": 9
+          },
+          "armor_value": 0,
+          "required_level": 58,
+          "sell_price": 11619,
+          "identity": "physical",
+          "icon_id": "gear_inv_jewelry_ring_27"
+        }
+      ],
+      "gear_reward_gear_level": 61,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "plw_the_gorger",
+      "title": "The Gorger",
+      "giver_npc_id": "epl_cg_mycologist",
+      "zone": "eastern_plaguelands_west",
+      "level_min": 59,
+      "level_max": 60,
+      "description": "Kill Ramstein the Gorger in the Slaughter Square of Stratholme.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Ramstein the Gorger",
+          "count": 1,
+          "zone": "stratholme:_slaughter_square"
+        }
+      ],
+      "accept_text": "I'm a mycologist. I came through in the Integration and I study what the plague does to living things, because somebody has to, and the somebody turned out to be me.\n\nThe abominations in the Slaughter Square are stitched from whatever the Scourge drag in. The biggest one is Ramstein the Gorger, and he eats. He eats the dead and the living and the plague with them, and he carries more of it than anything else in the city.\n\nKill him before he walks out of that square. I've seen what's in him under a lens. Earth never had anything like it, and I'd like it to stay in Stratholme.",
+      "turn_in_text": "Thank you. I mean that more than I can say properly.\n\nI'll need a sample, of course. I'll get it myself. With gloves, and possibly a longer stick.",
+      "next_quest_id": null,
+      "reward_exp": 5772,
+      "reward_gold": 22620,
+      "unique_item_defs": [
+        {
+          "name": "Mycologist's Bracers",
+          "slot": "wrist",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 10,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 44
+          },
+          "armor_value": 153,
+          "required_level": 59,
+          "sell_price": 10019,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_18"
+        },
+        {
+          "name": "Mycologist's Cloak",
+          "slot": "back",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "spell_power": 32
+          },
+          "armor_value": 62,
+          "required_level": 59,
+          "sell_price": 11021,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_11"
+        },
+        {
+          "name": "Mycologist's Legplates",
+          "slot": "legs",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 20,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 52
+          },
+          "armor_value": 488,
+          "required_level": 59,
+          "sell_price": 20037,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_02"
+        }
+      ],
+      "gear_reward_gear_level": 62,
+      "gear_reward_rarity": "rare"
     }
   ]
 }

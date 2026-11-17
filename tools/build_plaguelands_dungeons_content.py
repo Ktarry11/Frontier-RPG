@@ -94,9 +94,9 @@ ROSTER = {
     "Doctor Theolen Krastinov":  ("humanoid_warrior", 59, 59, 2.3, "pl_boss_abom_butcher", SL),
     "Lorekeeper Polkelt":        ("undead_caster",    59, 59, 2.3, "scholo_boss_librarian", SL),
     "The Ravenian":              ("undead_warrior",   59, 59, 2.5, "pl_boss_gate_guardian", SL),
-    "Lord Alexei Barov":         ("undead_caster",    60, 60, 2.4, "scholo_boss_noble_lord", SL),
-    "Lady Illucia Barov":        ("undead_caster",    60, 60, 2.3, "scholo_boss_noble_lady", SL),
-    "Darkmaster Gandling":       ("humanoid_caster",  60, 60, 2.8, "scholo_boss_headmaster", SL),
+    "Lord Alexei Barov":         ("undead_caster",    60, 60, 1.8, "scholo_boss_noble_lord", SL),
+    "Lady Illucia Barov":        ("undead_caster",    60, 60, 1.6, "scholo_boss_noble_lady", SL),
+    "Darkmaster Gandling":       ("humanoid_caster",  60, 60, 2.6, "scholo_boss_headmaster", SL),
     # ---------------------------------------------------------------- Stratholme, the living side (57-59)
     "Skeletal Guardian":         ("undead_warrior",   57, 57, None, "skeleton_warrior_2", LV),
     "Skeletal Berserker":        ("undead_warrior",   57, 57, None, "skeleton_warrior_1", LV),
@@ -125,7 +125,7 @@ ROSTER = {
     "Timmy the Cruel":           ("undead_basic",     58, 58, 2.3, "strat_boss_ghoul_runt", LV),
     "Cannon Master Willey":      ("humanoid_ranged",  59, 59, 2.5, "strat_boss_cannon_master", LV),
     "Archivist Galford":         ("humanoid_caster",  59, 59, 2.5, "strat_boss_archivist", LV),
-    "Grand Crusader Dathrohan":  ("humanoid_warrior", 59, 59, 2.8, "strat_boss_grand_crusader", LV),
+    "Grand Crusader Dathrohan":  ("humanoid_warrior", 59, 59, 2.5, "strat_boss_grand_crusader", LV),
     # ---------------------------------------------------------------- Stratholme, the Service Entrance (58-59)
     "Ghoul Ravener":             ("undead_basic",     58, 58, None, "ghoul_1", D1),
     "Mangled Cadaver":           ("undead_basic",     58, 59, None, "zombie_5", D1),
@@ -150,7 +150,7 @@ ROSTER = {
     "Mindless Undead":           ("undead_basic",     60, 60, None, "zombie_1", D2),
     "Black Guard Sentry":        ("undead_warrior",   60, 60, None, "revenant_2", D2),
     "Ramstein the Gorger":       ("undead_warrior",   60, 60, 2.5, "strat_boss_flesh_golem", D2),
-    "Baron Rivendare":           ("undead_warrior",   60, 60, 2.8, "strat_boss_baron", D2),
+    "Baron Rivendare":           ("undead_warrior",   60, 60, 2.5, "strat_boss_baron", D2),
     # ---------------------------------------------------------------- Hearthglen, the town (58-59)
     "Hearthglen Arbalest":       ("humanoid_ranged",  58, 59, None, "sc_tp_sniper", HT),
     "Hearthglen Cleric":         ("humanoid_caster",  58, 59, None, "sc_tp_cleric", HT),
@@ -172,7 +172,7 @@ ROSTER = {
     "Armsmaster Grell":          ("humanoid_warrior", 59, 59, 2.3, "hg_boss_quartermaster", HK),
     "Drillmaster Osric Pell":    ("humanoid_warrior", 60, 60, 2.5, "hg_boss_drillmaster", HK),
     "High General Abbendis":     ("humanoid_warrior", 60, 60, 2.5, "hg_boss_lady_marden", HK),
-    "Grand Crusader Victor Hale": ("humanoid_warrior", 60, 60, 2.8, "hg_boss_victor_hale", HK),
+    "Grand Crusader Victor Hale": ("humanoid_warrior", 60, 60, 2.5, "hg_boss_victor_hale", HK),
 }
 BOSSES = {n for n, r in ROSTER.items() if r[3]}
 #: one fight, two bosses: Lady Illucia stands with Lord Alexei, and their hoard is his
@@ -262,9 +262,12 @@ def summon(name, creature, cooldown, max_alive, max_casts):
                         "count": 1, "level_offset": -1, "max_alive": max_alive, "max_casts": max_casts})
 
 
-def hit_with(name, amount, stat_mods, duration=3, school="physical", on="debuff", **kw):
-    """A hit that carries its buff or debuff (a boss never spends a turn on a plain debuff while it has an attack)."""
-    return dmg(name, amount, school=school, rider={"effect": on, "duration": duration, "stat_mods": stat_mods}, **kw)
+def hit_with(name, amount, stat_mods, duration=3, school="physical", on="debuff", cooldown=4, **kw):
+    """A hit that carries its buff or debuff (a boss never spends a turn on a plain debuff while it has an attack).
+    It has a cooldown: the AI picks the biggest hit that's ready, so one with none would be cast every turn and the
+    rest of the kit would never come up (tools/audit_monster_combat.py's SHADOWED list)."""
+    return dmg(name, amount, cooldown=cooldown, school=school,
+               rider={"effect": on, "duration": duration, "stat_mods": stat_mods}, **kw)
 
 
 def last_gasp(name, level, school="physical", mult=1.6):
@@ -473,13 +476,12 @@ def kits():
         60, "shadow", "Shadow Bolt", "Curse of Agony", "Dominate", "Silence",
         hit_with("Dominate Mind", int(B(60) * 0.9), {"attack_power": -100, "spell_power": -80}, school="shadow"),
         "Lady of the House",
-        extra=[stun_hit("Fear", int(B(60) * 0.5), cooldown=6, school="shadow")],
-        signature=dmg("Shadow Shock", int(B(60) * 2.0), cooldown=6, school="shadow"))
+        signature=dmg("Shadow Shock", int(B(60) * 1.7), cooldown=6, school="shadow"))
     k["Darkmaster Gandling"] = boss_kit(         # sends you to a cell and fights you alone
-        60, "arcane", "Arcane Missiles", "Curse of the Darkmaster", "Shadow Shield", "Arcane Barrage",
+        60, "arcane", "Arcane Missiles", "Curse of the Darkmaster", "Arcane Blast", "Arcane Barrage",
         stun_hit("Shadow Portal", int(B(60) * 0.8), cooldown=5, school="shadow"), "The Headmaster's Wrath",
-        extra=[shell("Shadow Shield", 6, 3, int(B(60) * 1.3), school="shadow"),
-               dot("Curse of the Darkmaster", int(B(60) * 0.36), 5, 4, school="shadow", dispel_type="curse")],
+        # no Shadow Shield: in a kit this full it never came up in 40 turns (qa_dungeon_boss_turns, dead slot)
+        extra=[dot("Curse of the Darkmaster", int(B(60) * 0.36), 5, 4, school="shadow", dispel_type="curse")],
         signature=[dmg("Expelled", int(B(60) * 2.2), cooldown=6, school="arcane"), last_gasp("School's Out", 60,
                                                                                         "arcane")])
     # ---- Stratholme, the living side
@@ -515,7 +517,6 @@ def kits():
     k["Grand Crusader Dathrohan"] = boss_kit(    # at 40% the Grand Crusader is Balnazzar
         59, "holy", "Crusader Strike", "Holy Strike", "Mind Blast", "Crusader's Hammer",
         stun_hit("Hammer of Justice", int(B(59) * 0.6), cooldown=6, school="holy"), "Balnazzar Revealed",
-        phase_pct=70,
         extra=[dict(dmg("Shadow Shock", int(B(59) * 1.6), cooldown=4, school="shadow"), hp_below=0.4),
                dict(dot("Psychic Scream of the Dreadlord", int(B(59) * 0.4), 5, 4, school="shadow",
                         dispel_type="magic", is_aoe=True), hp_below=0.4)],
@@ -557,7 +558,7 @@ def kits():
         60, "shadow", "Runeblade Strike", "Mortal Strike", "Unholy Aura", "Shadow Bolt",
         dot("Unholy Aura", int(B(60) * 0.3), 5, 4, school="shadow", is_aoe=True), "Rivendare's Fury",
         extra=[summon("Raise the Dead", "Mindless Undead", 4, 2, 4),
-               hit_with("Mortal Strike", int(B(60) * 1.0), {"healing_power": -120})],
+               hit_with("Mortal Strike", int(B(60) * 1.0), {"healing_power": -60})],
         signature=[dmg("Death Pact", int(B(60) * 2.2), cooldown=6, school="shadow"),
                    last_gasp("The Baron's Last Charge", 60, "shadow")])
     # ---- Hearthglen, the town
@@ -612,11 +613,10 @@ def kits():
     k["Grand Crusader Victor Hale"] = boss_kit(  # the Tower Top: the man himself
         60, "fire", "Flamebrand", "Crusader Strike", "Burning Blade", "Pillar of Flame",
         dot("Brand of the Heretic", int(B(60) * 0.4), 5, 4, school="fire", dispel_type="magic"),
-        "Hale Will Not Fall", phase_pct=60,
-        extra=[stun_hit("Hammer of the Crusade", int(B(60) * 0.7), cooldown=6, school="holy"),
-               heal("Divine Protection", int(B(60) * 1.0), cooldown=99, school="holy")],
-        signature=[dmg("Burning Crusade", int(B(60) * 2.2), cooldown=6, school="fire"),
-                   last_gasp("Nobody Leaves Hearthglen", 60, "fire", mult=1.8)])
+        "Hale Will Not Fall",
+        extra=[stun_hit("Hammer of the Crusade", int(B(60) * 0.7), cooldown=6, school="holy")],
+        signature=[dmg("Burning Crusade", int(B(60) * 2.0), cooldown=6, school="fire"),
+                   last_gasp("Nobody Leaves Hearthglen", 60, "fire", mult=1.4)])
     return k
 
 
@@ -701,7 +701,7 @@ POOLS = {
         ("Crusaders' Square Bracers", "wrist", "of the Wellspring", A("leather"), "spi_healer")],
     "Cannon Master Willey": [
         ("Willey's Bastion Blunderbuss", "ranged", "of the Marksman", W("gun"), "agi_physical"),
-        ("Powder-Burned Gloves", "hands", "of the Gorilla", A("plate"), "str_int_hybrid"),
+        ("Willey's Powder-Black Gauntlets", "hands", "of the Gorilla", A("plate"), "str_int_hybrid"),
         ("Cannoneer's Fuse", "trinket", "of the Champion", None, "agi_physical")],
     "Archivist Galford": [
         ("Galford's Burning Ledger", "off_hand", "of Fiery Wrath", W("tome"), "int_caster"),
@@ -902,7 +902,14 @@ def check(k, loot):
     if dup:
         bad.append(f"duplicate item names: {dup}")
     from tools.build_plaguelands_quests import taken_names
-    clash = sorted(set(names) & taken_names({LOOT.name}))
+    taken = taken_names({LOOT.name})
+    for f in sorted((ROOT / "data/loot").glob("*.json")):          # the other bosses' pools too
+        if f.name != LOOT.name:
+            raw = json.loads(f.read_text(encoding="utf-8"))
+            for v in raw.values():
+                if isinstance(v, list):
+                    taken |= {i.get("name") for i in v if isinstance(i, dict)}
+    clash = sorted(set(names) & taken)
     if clash:
         bad.append(f"item names already in the game: {clash}")
     return bad

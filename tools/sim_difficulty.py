@@ -59,7 +59,13 @@ DUNGEON_BOSSES = [
     ("Khaz Varun, the Black Hollow", ["Gatewarden Hrun", "Forge-Lord Darrok", "Thane Morrun the Unmade"], 54),
     ("The Emberdeep", ["Pack-Alpha Cinderhound", "The Molten Serpent", "The Caldera"], 58),
     ("The Royal Hive", ["Hive-Warden Kasz'ar", "Tunnel-King Ruzzak", "Hive-Mother Ahn'thera"], 56),
+    # the Plaguelands' dungeons (tools/build_plaguelands_dungeons_content.py): a first boss, a hard one and the last
+    ("Scholomance", ["Kirtonos the Herald", "Ras Frostwhisper", "Lord Alexei Barov", "Darkmaster Gandling"], 60),
+    ("Stratholme", ["Skul", "Grand Crusader Dathrohan", "Baroness Anastari", "Baron Rivendare"], 60),
+    ("Hearthglen", ["High Protector Tarsen", "High Protector Lorik", "Grand Crusader Victor Hale"], 60),
 ]
+#: a boss and the one who fights beside it (one fight, two bosses)
+PAIRED = {"Hive-Mother Ahn'thera": "Royal Consort Zhir'ak", "Lord Alexei Barov": "Lady Illucia Barov"}
 
 
 def quiet():
@@ -178,8 +184,8 @@ def dungeon(fights, rng, gen, cm, only=None):
                     for i, c in enumerate(chars):
                         c.name = f"{c.name}{i}"
                     foes = [spawn(cm, b, level)]
-                    if b == "Hive-Mother Ahn'thera":
-                        foes.append(spawn(cm, "Royal Consort Zhir'ak", level))
+                    if b in PAIRED:
+                        foes.append(spawn(cm, PAIRED[b], level))
                     for f in foes:
                         f.location_type = "cave"
                     won, hp, _t = run(chars, foes, rng)

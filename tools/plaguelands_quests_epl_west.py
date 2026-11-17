@@ -41,11 +41,12 @@ MC = "the_marris_crypt"
 BRAM, EDDA, SUNLI, OSRIC, GRETA = ("epl_cg_outrider", "epl_cg_widow", "epl_cg_mycologist", "epl_cg_gravewarden",
                                    "epl_cg_innkeeper")
 ROLAND, KAIA, DAWN = "epl_lh_knight", "epl_lh_huntress", "epl_lh_commander"
+JESSA = "epl_lh_innkeeper"
 TOHANA, YUKI = "sr_spirit_walker", "es_volunteer_botanist"
 GWEN = "epl_cg_flight"
 
-HUB_GIVERS = {BRAM, EDDA, SUNLI, OSRIC, GRETA, ROLAND, KAIA, DAWN, GWEN}
-NATIVE_GIVERS = {BRAM, EDDA, OSRIC, GRETA, ROLAND, DAWN, GWEN}
+HUB_GIVERS = {BRAM, EDDA, SUNLI, OSRIC, GRETA, ROLAND, KAIA, DAWN, GWEN, JESSA}
+NATIVE_GIVERS = {BRAM, EDDA, OSRIC, GRETA, ROLAND, DAWN, GWEN, JESSA}
 FACTION_BY_GIVER = {}
 
 
@@ -356,4 +357,36 @@ def build():
          ("neck", "armor", None, "haste_caster")], zone="emerald_sanctuary", turn_in_npc_id=SUNLI,
         grant_items=carry("pl_q_yukis_jar", "Yuki's Jar", "A sealed specimen jar wrapped in a scarf. Something "
                           "pale inside it presses against the glass, and taps.")))
+
+    # ======================================================================================== STRATHOLME
+    # Given at Light's Hope and Crown Guard (Kyle: dungeon quests are given in town).
+    LV, D1, D2 = "stratholme", "stratholme:_service_entrance", "stratholme:_slaughter_square"
+    A(Q("plw_the_grand_crusader", "The Grand Crusader", ROLAND, 58, 59, "Ashcombe's",
+        None,
+        [boss("Grand Crusader Dathrohan", LV)],
+        None,
+        None,
+        [("main_hand", "weapon", "mace_1h", "high_healer"), ("legs", "armor", "mail", "hunter"),
+         ("head", "armor", "leather", "agility")]))
+    A(Q("plw_the_baron", "The Baron", JESSA, 59, 60, "Moonfield's",
+        None,
+        [boss("Baron Rivendare", D2)],
+        None,
+        None,
+        [("main_hand", "weapon", "polearm", "strength"), ("waist", "armor", "plate", "tank_any"),
+         ("hands", "armor", "cloth", "caster")]))
+    A(Q("plw_the_three_ziggurats", "The Three Ziggurats", OSRIC, 58, 59, "Gravewarden's",
+        None,
+        [boss("Nerub'enkan", D1), boss("Baroness Anastari", D1), boss("Maleki the Pallid", D1)],
+        None,
+        None,
+        [("shoulder", "armor", "cloth", "caster"), ("feet", "armor", "mail", "earthen"),
+         ("ring", "armor", None, "physical")]))
+    A(Q("plw_the_gorger", "The Gorger", SUNLI, 59, 60, "Mycologist's",
+        None,
+        [boss("Ramstein the Gorger", D2)],
+        None,
+        None,
+        [("wrist", "armor", "leather", "healer"), ("back", "armor", None, "caster"),
+         ("legs", "armor", "plate", "strength")]))
     return out

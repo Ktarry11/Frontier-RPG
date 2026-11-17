@@ -40,11 +40,12 @@ def main():
     T = set_tokens.data()
     bad = []
     order = list(T["bosses"])
-    # 19 on Tempest Isle, 5 in the Royal Hive (shoulders) and 8 in Jaedenar (hands), 14 Nov 2026
-    if len(order) != 32:
-        bad.append(f"{len(order)} bosses carry tokens, wanted 32")
-    # the 2-for-1 fights: 3 of a pool of 9
-    MULTI = {"Hive-Mother Ahn'thera": (3, 9), "The Duskwhisper Sisters": (3, 9)}
+    # 19 on Tempest Isle, 5 in the Royal Hive (shoulders) and 8 in Jaedenar (hands), 14 Nov 2026; then the
+    # Plaguelands, 16 Nov 2026: 12 in Scholomance (heads), 14 in Stratholme (chests), 10 in Hearthglen (feet)
+    if len(order) != 68:
+        bad.append(f"{len(order)} bosses carry tokens, wanted 68")
+    # the 2-for-1 fights: 3 of a pool of 9; the Barovs are one fight with one hoard, the same 3 of 9
+    MULTI = {"Hive-Mother Ahn'thera": (3, 9), "The Duskwhisper Sisters": (3, 9), "Lord Alexei Barov": (3, 9)}
 
     # 1, 2
     trinkets = 0
@@ -67,9 +68,12 @@ def main():
                                                  "Alpha's Dewclaw", "Shard of the Mountain's Heart",
                                                  "Drop of Royal Amber", "Ahn'thera's Last Egg",
                                                  "Shard of the Pact", "Eye of Entropy",
-                                                 "Zar'gothrax's Burning Heart"})
-    if trinkets != 9:
-        bad.append(f"{trinkets} of the nine proc trinkets were seen dropping")
+                                                 "Zar'gothrax's Burning Heart",
+                                                 "Frozen Phylactery Shard", "The Family Reliquary",
+                                                 "Cannoneer's Fuse", "Deathcharger's Reins",
+                                                 "Armsmaster's Whetstone"})
+    if trinkets != 14:
+        bad.append(f"{trinkets} of the fourteen proc trinkets were seen dropping")
 
     # 3, 4
     rng = random.Random(11)
@@ -88,11 +92,14 @@ def main():
         if not kinds <= allowed or (spec["guaranteed"] and kinds != allowed):
             bad.append(f"{name} dropped {sorted(kinds - allowed) or 'too few kinds'}")
     slots = [T["bosses"][n]["slot"] for n in order]
-    if slots != ["waist"] * 12 + ["legs"] * 7 + ["shoulder"] * 5 + ["hands"] * 8:
+    if slots != (["waist"] * 12 + ["legs"] * 7 + ["shoulder"] * 5 + ["hands"] * 8
+                 + ["head"] * 12 + ["chest"] * 14 + ["feet"] * 10):
         bad.append(f"token slots by boss are {slots}")
     if [n for n in order if T["bosses"][n]["guaranteed"]] != ["Thane Morrun the Unmade", "The Caldera",
-                                                                "Hive-Mother Ahn'thera", "Zar'gothrax the Unbound"]:
-        bad.append("the guaranteed bosses are not the four last bosses")
+                                                                "Hive-Mother Ahn'thera", "Zar'gothrax the Unbound",
+                                                                "Darkmaster Gandling", "Grand Crusader Dathrohan",
+                                                                "Baron Rivendare", "Grand Crusader Victor Hale"]:
+        bad.append("the guaranteed bosses are not the eight last bosses")
 
     # 5, 6
     with contextlib.redirect_stdout(io.StringIO()):

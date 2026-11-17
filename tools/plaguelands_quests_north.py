@@ -38,7 +38,8 @@ LENA, MATEO, NOAH = "wpln_pf_watch_captain", "wpln_pf_scout", "wpln_pf_field_med
 AMALIE, JONAH, OONA, WENDEL = "wpln_pf_sister", "wpln_pf_woodwright", "wpln_pf_angler", "wpln_pf_clerk"
 RORY, ODILE, NKECHI, NOVAK = "wpl_pf_flamekeeper", "wpl_pf_chaplain", "es_volunteer_medic", "brill_pf_flamewarden"
 
-HUB_GIVERS = {LENA, MATEO, NOAH, AMALIE, JONAH, OONA, WENDEL}
+BEATRIZ, LIAM = "wpln_pf_innkeeper", "wpln_pf_roostkeeper"
+HUB_GIVERS = {LENA, MATEO, NOAH, AMALIE, JONAH, OONA, WENDEL, BEATRIZ, LIAM}
 NATIVE_GIVERS = {AMALIE, WENDEL}
 FACTION_BY_GIVER = {}
 
@@ -371,4 +372,29 @@ def build():
          ("ring", "armor", None, "agility")], zone="emerald_sanctuary", turn_in_npc_id=NOAH,
         grant_items=carry("pl_q_nkechis_kit", "Dr. Adeyemi's Field Kit", "A canvas roll of sutures, dressings and "
                           "small brown bottles, packed tight and labelled in English.")))
+
+    # ======================================================================================== HEARTHGLEN
+    # Given at the Pale Watch (Kyle: dungeon quests are given in town).
+    HT, HK = "hearthglen", "hearthglen:_mardenholde_keep"
+    A(Q("pln_closing_hearthglens_books", "Closing Hearthglen's Books", WENDEL, 59, 60, "Clerk's",
+        None,
+        [boss("Grand Crusader Victor Hale", HK)],
+        None,
+        None,
+        [("main_hand", "weapon", "staff", "caster"), ("chest", "armor", "plate", "tank_any"),
+         ("hands", "armor", "leather", "agility")]))
+    A(Q("pln_the_infirmary", "The Infirmary", BEATRIZ, 58, 59, "Couto's",
+        None,
+        [boss("Chirurgeon Maeve Ostrowski", HT), boss("High Clerist Hendrick", HT)],
+        None,
+        None,
+        [("head", "armor", "cloth", "healer"), ("waist", "armor", "mail", "hunter"),
+         ("trinket", "armor", None, "physical")]))
+    A(Q("pln_the_kennels", "The Kennels", LIAM, 58, 58, "Roostkeeper's",
+        None,
+        [boss("Huntsman Radley", HT), k("Hearthglen Mastiff", 6, HT)],
+        None,
+        None,
+        [("ranged", "weapon", "bow", "agility"), ("shoulder", "armor", "leather", "healer"),
+         ("wrist", "armor", "plate", "strength")]))
     return out
