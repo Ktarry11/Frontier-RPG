@@ -55,6 +55,8 @@ pass.
 - **Orgrimmar**: Talrendis Landing's orc-side quests.
 - **The Sunreach Conclave** (new): the blood elf magisters reclaiming what their ancestors lost. It gets its own
   TBC-style shelf.
+  - **Its home is open** (Kyle, 17 Nov: "This means we need a home for the sunreach eventually"). For now its
+    quartermaster and leader stand in Talrendis Landing, as the Conclave's field camp. Its real seat comes later.
 - **Timbermaw Hold** (exists since 17 Nov): the Hold's quests and the fel rot dungeon carry you past Honored.
   - Its quartermaster moves up from the tunnel to the Hold, or a second one stands there.
   - The tunnel's people stay in the tunnel.
