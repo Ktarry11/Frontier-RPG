@@ -1306,7 +1306,8 @@ class CombatEngine:
                     # meat and leather drop was silent on the results screen.
                     self.loot_gained.append(mat)
                     self.combat_log.append(
-                        f"You butchered {enemy.name}: {mat.name}{' x%d' % qty if qty > 1 else ''}.")
+                        (f"You found a nest near {enemy.name}: " if material_id.startswith("egg_")
+                         else f"You butchered {enemy.name}: ") + f"{mat.name}{' x%d' % qty if qty > 1 else ''}.")
         except Exception as exc:
             print(f"WARNING: meat drop failed: {exc}")
 

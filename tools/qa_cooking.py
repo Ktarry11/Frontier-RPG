@@ -19,10 +19,14 @@ MEATS = ("meat_stringy", "meat_lean", "meat_thick", "meat_rich", "meat_prime", "
 
 
 def main():
+    from entities.meat_drops import EGG_BANDS
     bad = []
     recipes = json.load(open("data/crafting/recipes.json", encoding="utf-8"))["professions"]["cooking"]
     recipes = recipes.get("recipes", recipes)
-    meals = {m["consumable_id"]: m for m in json.load(open("data/consumables/consumable_types.json", encoding="utf-8"))["cooked_meals"]}
+    cons = json.load(open("data/consumables/consumable_types.json", encoding="utf-8"))
+    # Kyle, 16 Nov 2026: "Keep in mind cooking we can have a food buff and a drink buff!" A cooked drink is held to
+    # everything a meal is, and its buff sits in its own slot (tools/qa_food_drink_buffs below).
+    meals = {m["consumable_id"]: m for m in cons["cooked_meals"] + cons.get("cooked_drinks", [])}
     mats = json.load(open("data/gathering/materials.json", encoding="utf-8"))
     mats = mats.get("materials", mats)
     vendors = json.load(open("data/npcs/vendors.json", encoding="utf-8"))
@@ -44,6 +48,12 @@ def main():
                 continue                     # fish: caught at a fishing spot (tools/qa_fishing.py)
             elif mats[mid].get("material_type") == "mob_reagent":
                 continue                     # a creature material: dropped by named creatures (tools/qa_mob_materials.py)
+            elif mats[mid].get("material_type") == "herb":
+                continue                     # a herb: picked by herbalists, and on the auction house
+            elif mid.startswith("egg_"):
+                if not any(mid in w for _lo, _hi, w in EGG_BANDS):
+                    bad.append(f"{r['name']}: needs {mid}, which no egg-laying beast leaves")
+                continue
             elif not mid.startswith("meat_") and mid not in sold and mid not in made:
                 bad.append(f"{r['name']}: needs {mid}, which nobody sells and no recipe makes")
             elif not mid.startswith("meat_") and not os.path.isfile(f"assets/gathering_nodes/reagents/{mats[mid]['icon_id']}.png"):
@@ -53,7 +63,7 @@ def main():
         cid = r["output"].get("consumable_id")
         meal = meals.get(cid)
         if meal is None:
-            bad.append(f"{r['name']}: makes {cid}, which is not a meal")
+            bad.append(f"{r['name']}: makes {cid}, which is not a meal or a drink")
             continue
         if not os.path.isfile(f"assets/icons/consumables/{cid}.png"):
             bad.append(f"{r['name']}: no icon")
@@ -63,6 +73,8 @@ def main():
             bad.append(f"{r['name']}: gives hp5 and its text does not say so")
         if "healing_power" in meal["stat_bonuses"] and "Healing Power" not in meal["description"]:
             bad.append(f"{r['name']}: its text does not call Healing Power by its name")
+        if (meal.get("buff_category") == "drink") != (meal.get("consumable_type") == "drink"):
+            bad.append(f"{r['name']}: a drink's buff must sit in the drink slot, and a meal's in the food slot")
         if not any(m.startswith("meat_") for m in r["inputs"]):
             meatless += 1
         if meal["required_level"] in by_tier:
@@ -108,7 +120,20 @@ def main():
             if hero.food_buff is not None:
                 bad.append("Well Fed never runs out")
 
-    print(f"{len(recipes)} cooking recipes, {len(meals)} cooked meals, "
+    # A meal and a drink stack: Well Fed and Refreshed sit in separate slots.
+    tea = get_consumable_manager().get_consumable("drink_cooked_x16_tea_19")
+    if tea is None:
+        bad.append("a cooked tea cannot be created")
+    elif dumplings is not None:
+        h2 = Character("Hero", "Warrior", 20)
+        dumplings.use(h2)
+        tea.use(h2)
+        if h2.food_buff is None or getattr(h2, "drink_buff", None) is None:
+            bad.append("a meal and a drink don't stack: eating then drinking left only one buff")
+        elif h2.get_active_buff_stats().get("spirit", 0) < tea.stat_bonuses.get("spirit", 0):
+            bad.append("the drink's buff isn't counted")
+
+    print(f"{len(recipes)} cooking recipes, {len(meals)} cooked meals and drinks, "
           f"{len([m for m in mats if m.startswith('cook_')])} pantry goods")
     if bad:
         print(f"\n{len(bad)} problem(s):")

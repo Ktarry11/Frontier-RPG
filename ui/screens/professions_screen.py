@@ -473,8 +473,11 @@ class ProfessionsScreen(BaseScreen):
     def _render_overview_tab(self, screen, subject):
         skills = subject.profession_skills or {}
         known = list(getattr(subject, "known_professions", []))
-        slots = getattr(subject, "MAX_PRIMARY_PROFESSIONS", 3)
-        self.renderer.draw_text(screen, f"Professions known: {len(known)} / {slots}", (PANEL_X, 54), color=(180, 180, 190))
+        from world import profession_manager as pm
+        slots = pm.max_primary(subject)
+        primaries = pm.primary_count(subject)
+        self.renderer.draw_text(screen, f"Primary professions: {primaries} / {slots}", (PANEL_X, 54),
+                                color=(180, 180, 190))
 
         if not known:
             self.renderer.draw_text(screen, "No professions learned yet. Every town has trainers - look for the profession icon on the map.",
@@ -484,13 +487,49 @@ class ProfessionsScreen(BaseScreen):
         labels = dict(PROFESSION_DISPLAY_ORDER)
         ordered = [(k, labels[k]) for k, _ in PROFESSION_DISPLAY_ORDER if k in known]
         ordered += [(k, k.title()) for k in known if k not in labels]
-        y = PANEL_Y + 10
-        for prof_key, label in ordered:
-            self._render_profession_bar(screen, prof_key, label, skills.get(prof_key, 0), y, subject)
-            y += BAR_GAP
-        y += 10
+        # A GRID OF SLIM CARDS (Kyle, 16 Nov 2026: "this orange is wildly ugly and offensive lol. Let's make it sleek
+        # and sexy. We have the dark gold look going on... or just to shrink these down and make them elegant!").
+        # Two columns, so every trade fits on the screen without scrolling.
+        cols, gap = 2, 14
+        card_w = (PANEL_WIDTH - gap * (cols - 1)) // cols
+        rows = (len(ordered) + cols - 1) // cols
+        card_h = max(44, min(60, (SCREEN_HEIGHT - 110 - PANEL_Y) // max(1, rows) - 8))
+        for i, (prof_key, label) in enumerate(ordered):
+            x = PANEL_X + (i % cols) * (card_w + gap)
+            y = PANEL_Y + 6 + (i // cols) * (card_h + 8)
+            self._render_profession_card(screen, prof_key, label, skills.get(prof_key, 0),
+                                         pygame.Rect(x, y, card_w, card_h), subject)
+        y = PANEL_Y + 6 + rows * (card_h + 8) + 6
         self.renderer.draw_text(screen, "Recipes are in the tabs on the left. Smelting needs a Forge, Sawmill recipes need a Sawmill.",
-                                (PANEL_X, y), size="small", color=(150, 150, 150))
+                                (PANEL_X, y), size="small", color=(140, 132, 118))
+
+    #: the overview's palette: dark plates, a thin old-gold edge, and a gold that deepens as the bar fills
+    CARD_FILL, CARD_EDGE = (24, 22, 20), (92, 76, 46)
+    TRACK, FILL, FILL_DONE, SHINE = (14, 13, 12), (138, 108, 52), (196, 158, 74), (236, 206, 130)
+
+    def _render_profession_card(self, screen, prof_key, label, current_skill, rect, subject=None):
+        """One trade: its name and rank, the numbers on the right, and a slim bar underneath."""
+        cap = subject.profession_cap(prof_key) if subject is not None else sum(TIER_SKILL_CAPS.values())
+        tier = profession_manager.tier_name(subject.profession_tiers.get(prof_key, 0)) if subject is not None else ""
+        cur = min(current_skill, cap)
+        done = cap > 0 and cur >= cap
+        pygame.draw.rect(screen, self.CARD_FILL, rect, border_radius=6)
+        pygame.draw.rect(screen, self.FILL_DONE if done else self.CARD_EDGE, rect, 1, border_radius=6)
+        self.renderer.draw_text(screen, label, (rect.x + 12, rect.y + 7), color=(232, 224, 206))
+        name_w = self.renderer._get_font("normal", None).size(label)[0]
+        self.renderer.draw_text(screen, tier, (rect.x + 20 + name_w, rect.y + 10), size="small",
+                                color=(170, 150, 108))
+        nums = f"{cur} / {cap}"
+        nw = self.renderer._get_font("small", None).size(nums)[0]
+        self.renderer.draw_text(screen, nums, (rect.right - 12 - nw, rect.y + 10), size="small",
+                                color=self.FILL_DONE if done else (186, 178, 160))
+        track = pygame.Rect(rect.x + 12, rect.bottom - 14, rect.w - 24, 6)
+        pygame.draw.rect(screen, self.TRACK, track, border_radius=3)
+        if cap > 0 and cur > 0:
+            fw = max(6, int(track.w * min(1.0, cur / cap)))
+            fill = pygame.Rect(track.x, track.y, fw, track.h)
+            pygame.draw.rect(screen, self.FILL_DONE if done else self.FILL, fill, border_radius=3)
+            pygame.draw.line(screen, self.SHINE, (fill.x + 3, fill.y + 1), (fill.right - 4, fill.y + 1), 1)
 
     def _render_smelting_tab(self, screen):
         """Recipe list: known recipes (skill-gated) each show their

@@ -1007,7 +1007,13 @@ class VendorScreen(BaseScreen):
         is_mat = self._is_material(item)
         lines = [item.name]
 
-        if is_gear:
+        if getattr(item, "recipe_id", None):
+            # Kyle, 16 Nov 2026: "when buying recipes it should say what it does. Also what it requires! Like not a
+            # level but a 'Jewelcrafting - 200'". The same card as in your bags (ui/recipe_tooltip.py).
+            from ui.recipe_tooltip import recipe_lines
+            lines.extend(recipe_lines(item, self.state_manager.player))
+
+        elif is_gear:
             # Refined/Superior shown as a badge, never folded into the name.
             from world.upgrade_manager import upgrade_tag
             tag = upgrade_tag(item)
@@ -1101,9 +1107,12 @@ class VendorScreen(BaseScreen):
         # its say - doing it per-branch would be four copies of one rule, which
         # is exactly how this got four ways to overflow in the first place.
         # Wrapped at size="small" because that is what the draw loop below uses.
+        # a line is text, or (text, colour) where it carries a colour (a recipe's red "Requires" when you're short)
         wrapped = []
         for line in lines:
-            wrapped.extend(self.renderer.wrap_text(str(line), box_width - 16, size="small"))
+            text, colour = line if isinstance(line, tuple) else (line, COLOR_WHITE)
+            for t in (self.renderer.wrap_text(str(text), box_width - 16, size="small") if text else [""]):
+                wrapped.append((t, colour))
         lines = wrapped
 
         box_height = len(lines) * line_height + 12
@@ -1113,9 +1122,9 @@ class VendorScreen(BaseScreen):
         pygame.draw.rect(screen, (26, 26, 34), (tooltip_x, tooltip_y, box_width, box_height))
         pygame.draw.rect(screen, (90, 90, 110), (tooltip_x, tooltip_y, box_width, box_height), 1)
 
-        for i, line in enumerate(lines):
+        for i, (line, colour) in enumerate(lines):
             self.renderer.draw_text(screen, line, (tooltip_x + 8, tooltip_y + 6 + i * line_height),
-                                    size="small", color=COLOR_WHITE)
+                                    size="small", color=colour)
 
     def _get_buy_button_rect(self):
         return pygame.Rect(SCREEN_WIDTH // 2 - 220, SCREEN_HEIGHT - 70, 140, 44)

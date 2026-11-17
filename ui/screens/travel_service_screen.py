@@ -411,7 +411,7 @@ class TravelServiceScreen(BaseScreen):
             # (Cooking) is free, and counting it here would tell the player they had one
             # fewer slot than they really do.
             hint = (f"I teach {shown}. You know {pm.primary_count(player)} of "
-                    f"{pm.max_primary()} professions.")
+                    f"{pm.max_primary(player)} professions.")
         elif self.kind == "set_exchange":
             hint = ("Bring me a set token and I'll trade it for your class's piece. I'll also swap a "
                     "set piece for another spec's version of it. There's no charge for either.")

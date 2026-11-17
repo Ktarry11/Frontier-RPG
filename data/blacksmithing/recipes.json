@@ -350,7 +350,7 @@
           "required_level": 5,
           "sell_price": 110,
           "flavor_text": "Mail with runes cut into the rings, for a shaman's spells.",
-          "identity": "haste_caster",
+          "identity": "storm",
           "icon_id": "gear_wow_head_97"
         }
       }
@@ -420,7 +420,7 @@
         "kind": "armor",
         "slot": "hands",
         "armor_type": "mail",
-        "stat_template": "agi_physical",
+        "stat_template": "str_int_hybrid",
         "item_level": 2,
         "rarity": "uncommon",
         "material_tier": "copper",
@@ -463,7 +463,7 @@
         "kind": "armor",
         "slot": "feet",
         "armor_type": "mail",
-        "stat_template": "agi_physical",
+        "stat_template": "str_physical",
         "item_level": 4,
         "rarity": "uncommon",
         "material_tier": "copper",
@@ -483,7 +483,7 @@
           "required_level": 2,
           "sell_price": 27,
           "flavor_text": "Copper, hammered thin and riveted. Every smith's first set of chain.",
-          "identity": "melee_starter",
+          "identity": "strength_crit",
           "icon_id": "gear_wow_feet_chain_03_1"
         }
       }
@@ -837,7 +837,7 @@
           "required_level": 7,
           "sell_price": 116,
           "flavor_text": "Mail with runes cut into the rings, for a shaman's spells.",
-          "identity": "haste_caster",
+          "identity": "caster_crit",
           "icon_id": "gear_inv_bracer_08"
         }
       }
@@ -1359,7 +1359,7 @@
         "kind": "armor",
         "slot": "hands",
         "armor_type": "plate",
-        "stat_template": "str_int_hybrid",
+        "stat_template": "str_physical",
         "item_level": 23,
         "rarity": "uncommon",
         "material_tier": "bronze",
@@ -1370,19 +1370,18 @@
           "rarity": "uncommon",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "str_int_hybrid",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 3,
-            "intellect": 3
+            "stamina": 7
           },
           "secondary_stats": {
-            "attack_power": 10
+            "defense_rating": 5
           },
-          "armor_value": 95,
+          "armor_value": 102,
           "required_level": 21,
           "sell_price": 1082,
           "flavor_text": "Crusader's work: plate for a fighter who also prays.",
-          "identity": "crusader",
+          "identity": "tank",
           "icon_id": "gear_inv_gauntlets_08"
         }
       }
@@ -1451,7 +1450,7 @@
         "kind": "armor",
         "slot": "shoulder",
         "armor_type": "plate",
-        "stat_template": "str_int_hybrid",
+        "stat_template": "str_physical",
         "item_level": 26,
         "rarity": "uncommon",
         "material_tier": "bronze",
@@ -1462,19 +1461,19 @@
           "rarity": "uncommon",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "str_int_hybrid",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 5,
-            "intellect": 5
+            "stamina": 6
           },
           "secondary_stats": {
-            "attack_power": 10
+            "defense_rating": 5,
+            "dodge_rating": 5
           },
-          "armor_value": 132,
+          "armor_value": 142,
           "required_level": 24,
           "sell_price": 1723,
           "flavor_text": "Crusader's work: plate for a fighter who also prays.",
-          "identity": "crusader",
+          "identity": "tank_any",
           "icon_id": "gear_inv_shoulder_08"
         }
       }
@@ -2140,7 +2139,7 @@
         "kind": "armor",
         "slot": "wrist",
         "armor_type": "plate",
-        "stat_template": "str_int_hybrid",
+        "stat_template": "str_physical",
         "item_level": 34,
         "rarity": "rare",
         "material_tier": "bronze",
@@ -2151,19 +2150,19 @@
           "rarity": "rare",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "str_int_hybrid",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 6,
-            "intellect": 6
+            "stamina": 11
           },
           "secondary_stats": {
-            "attack_power": 19
+            "defense_rating": 7,
+            "dodge_rating": 5
           },
           "armor_value": 185,
           "required_level": 32,
           "sell_price": 2837,
           "flavor_text": "Crusader's work: plate for a fighter who also prays.",
-          "identity": "crusader",
+          "identity": "tank_any",
           "icon_id": "gear_wow_wrist_desecrated_platebracer"
         }
       }
@@ -2370,7 +2369,7 @@
         "kind": "armor",
         "slot": "head",
         "armor_type": "mail",
-        "stat_template": "agi_physical",
+        "stat_template": "agi_int_hybrid",
         "item_level": 36,
         "rarity": "rare",
         "material_tier": "bronze",
@@ -2383,17 +2382,17 @@
           "weapon_type": null,
           "stat_template": "agi_int_hybrid",
           "primary_stats": {
-            "agility": 8,
-            "intellect": 7
+            "agility": 10,
+            "intellect": 8
           },
           "secondary_stats": {
-            "attack_power": 25
+            "attack_power": 19
           },
           "armor_value": 159,
           "required_level": 34,
           "sell_price": 5119,
           "flavor_text": "Hunter's mail, light at the shoulder so the bow draws clean.",
-          "identity": "hunter",
+          "identity": "wildheart",
           "icon_id": "gear_wow_head_169"
         }
       }
@@ -2855,7 +2854,7 @@
         "kind": "weapon",
         "slot": "main_hand",
         "weapon_type": "mace_1h",
-        "stat_template": "str_int_hybrid",
+        "stat_template": "str_physical",
         "item_level": 23,
         "rarity": "uncommon",
         "material_tier": "bronze",
@@ -2866,10 +2865,10 @@
           "rarity": "uncommon",
           "armor_type": null,
           "weapon_type": "mace_1h",
-          "stat_template": "str_int_hybrid",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 4,
-            "intellect": 4
+            "strength": 5,
+            "stamina": 3
           },
           "secondary_stats": {
             "attack_power": 11
@@ -2878,7 +2877,7 @@
           "required_level": 21,
           "sell_price": 1582,
           "flavor_text": "Crusader's work: plate for a fighter who also prays.",
-          "identity": "crusader",
+          "identity": "bruiser",
           "icon_id": "gear_inv_mace_11",
           "weapon_damage_min": 35,
           "weapon_damage_max": 47,
@@ -3684,17 +3683,17 @@
           "weapon_type": null,
           "stat_template": "agi_int_hybrid",
           "primary_stats": {
-            "agility": 5,
-            "intellect": 4
+            "agility": 6,
+            "intellect": 5
           },
           "secondary_stats": {
-            "attack_power": 15
+            "attack_power": 12
           },
           "armor_value": 98,
           "required_level": 25,
           "sell_price": 1748,
           "flavor_text": "Hunter's mail, light at the shoulder so the bow draws clean.",
-          "identity": "hunter",
+          "identity": "wildheart",
           "icon_id": "gear_inv_bracer_12"
         }
       },
@@ -4360,14 +4359,15 @@
           "weapon_type": null,
           "stat_template": "agi_int_hybrid",
           "primary_stats": {
-            "agility": 5
+            "agility": 3,
+            "intellect": 2
           },
           "secondary_stats": {},
           "armor_value": 33,
           "required_level": 9,
           "sell_price": 230,
           "flavor_text": "Hunter's mail, light at the shoulder so the bow draws clean.",
-          "identity": "hunter",
+          "identity": "wildheart",
           "icon_id": "gear_inv_gauntlets_30"
         }
       },
@@ -4489,7 +4489,7 @@
         "kind": "armor",
         "slot": "head",
         "armor_type": "plate",
-        "stat_template": "str_int_hybrid",
+        "stat_template": "str_physical",
         "item_level": 39,
         "rarity": "rare",
         "material_tier": "bronze",
@@ -4500,19 +4500,19 @@
           "rarity": "rare",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "str_int_hybrid",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 9,
-            "intellect": 9
+            "stamina": 15
           },
           "secondary_stats": {
-            "attack_power": 24
+            "defense_rating": 10,
+            "dodge_rating": 7
           },
-          "armor_value": 269,
+          "armor_value": 259,
           "required_level": 37,
           "sell_price": 6055,
           "flavor_text": "Crusader's work: plate for a fighter who also prays.",
-          "identity": "crusader",
+          "identity": "tank_any",
           "icon_id": "gear_wow_head_132"
         }
       },
@@ -4888,16 +4888,17 @@
           "weapon_type": null,
           "stat_template": "spi_healer",
           "primary_stats": {
-            "intellect": 5
+            "spirit": 4,
+            "intellect": 3
           },
           "secondary_stats": {
-            "healing_power": 23
+            "healing_power": 18
           },
           "armor_value": 142,
           "required_level": 26,
           "sell_price": 2013,
           "flavor_text": "Blessed plate, made for the one keeping everyone else alive.",
-          "identity": "plate_healer",
+          "identity": "healer",
           "icon_id": "gear_wow_head_desecrated_platehelm"
         }
       },
@@ -5177,16 +5178,17 @@
           "weapon_type": "shield",
           "stat_template": "spi_healer",
           "primary_stats": {
-            "intellect": 6
+            "intellect": 5,
+            "spirit": 4
           },
           "secondary_stats": {
-            "healing_power": 29
+            "healing_power": 23
           },
           "armor_value": 336,
           "required_level": 31,
           "sell_price": 4264,
           "flavor_text": "Blessed plate, made for the one keeping everyone else alive.",
-          "identity": "plate_healer",
+          "identity": "high_healer",
           "icon_id": "gear_inv_shield_06",
           "weapon_damage_min": 0,
           "weapon_damage_max": 0,
@@ -5612,7 +5614,7 @@
         "kind": "armor",
         "slot": "shoulder",
         "armor_type": "mail",
-        "stat_template": "agi_int_hybrid",
+        "stat_template": "agi_physical",
         "item_level": 2,
         "rarity": "uncommon",
         "material_tier": "weakstone",
@@ -5632,7 +5634,7 @@
           "required_level": 1,
           "sell_price": 8,
           "flavor_text": "Weakstone links, light enough for a hunter just starting out.",
-          "identity": "hunter_precise",
+          "identity": "assassin",
           "icon_id": "gear_inv_shoulder_26"
         }
       }
@@ -7812,7 +7814,7 @@
         "kind": "armor",
         "slot": "feet",
         "armor_type": "plate",
-        "stat_template": "str_int_hybrid",
+        "stat_template": "str_physical",
         "item_level": 45,
         "rarity": "rare",
         "material_tier": "bloodiron",
@@ -7825,17 +7827,17 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 10,
-            "stamina": 6
+            "strength": 8
           },
           "secondary_stats": {
-            "attack_power": 25
+            "attack_power": 24,
+            "hit_rating": 8
           },
           "armor_value": 245,
           "required_level": 43,
           "sell_price": 6645,
           "flavor_text": "Bloodiron. Orc smiths quench it in something they won't name.",
-          "identity": "strength",
+          "identity": "strength_hit",
           "icon_id": "gear_inv_boots_fabric_01"
         }
       },
@@ -7979,7 +7981,7 @@
         "kind": "armor",
         "slot": "head",
         "armor_type": "mail",
-        "stat_template": "agi_physical",
+        "stat_template": "agi_int_hybrid",
         "item_level": 45,
         "rarity": "rare",
         "material_tier": "deepearth",
@@ -7992,17 +7994,17 @@
           "weapon_type": null,
           "stat_template": "agi_int_hybrid",
           "primary_stats": {
-            "agility": 10,
-            "intellect": 9
+            "agility": 12,
+            "intellect": 10
           },
           "secondary_stats": {
-            "attack_power": 31
+            "attack_power": 24
           },
-          "armor_value": 210,
+          "armor_value": 236,
           "required_level": 43,
           "sell_price": 8178,
           "flavor_text": "Deepearth scale, dark as a mine shaft and twice as tough.",
-          "identity": "hunter",
+          "identity": "wildheart",
           "icon_id": "gear_wow_head_108b"
         }
       },
@@ -8331,7 +8333,7 @@
         "kind": "armor",
         "slot": "waist",
         "armor_type": "plate",
-        "stat_template": "str_int_hybrid",
+        "stat_template": "str_physical",
         "item_level": 48,
         "rarity": "rare",
         "material_tier": "dark_iron",
@@ -8342,19 +8344,19 @@
           "rarity": "rare",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "str_int_hybrid",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 9,
-            "intellect": 9
+            "strength": 11,
+            "stamina": 6
           },
           "secondary_stats": {
-            "attack_power": 24
+            "attack_power": 27
           },
-          "armor_value": 261,
+          "armor_value": 271,
           "required_level": 46,
           "sell_price": 6439,
           "flavor_text": "Dark iron, forged hot and true. It doesn't miss what it's swung at.",
-          "identity": "crusader",
+          "identity": "strength",
           "icon_id": "gear_inv_belt_26"
         }
       }
@@ -8907,17 +8909,17 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "stamina": 16,
-            "strength": 6
+            "stamina": 16
           },
           "secondary_stats": {
-            "defense_rating": 13
+            "defense_rating": 10,
+            "dodge_rating": 7
           },
           "armor_value": 282,
           "required_level": 48,
           "sell_price": 8290,
           "flavor_text": "Thorium plate. It's heavy, and nothing gets through it easily.",
-          "identity": "tank",
+          "identity": "tank_any",
           "icon_id": "gear_inv_gauntlets_22"
         }
       }
@@ -9033,7 +9035,7 @@
         "kind": "armor",
         "slot": "feet",
         "armor_type": "plate",
-        "stat_template": "str_int_hybrid",
+        "stat_template": "str_physical",
         "item_level": 53,
         "rarity": "rare",
         "material_tier": "thorium",
@@ -9046,17 +9048,17 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "stamina": 16,
-            "strength": 7
+            "strength": 12,
+            "stamina": 7
           },
           "secondary_stats": {
-            "defense_rating": 13
+            "attack_power": 28
           },
-          "armor_value": 289,
+          "armor_value": 300,
           "required_level": 51,
           "sell_price": 9369,
           "flavor_text": "Thorium plate. It's heavy, and nothing gets through it easily.",
-          "identity": "tank",
+          "identity": "bruiser",
           "icon_id": "gear_wow_feet_plate_26_1"
         }
       }
@@ -10634,17 +10636,17 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 33
+            "strength": 38,
+            "stamina": 22
           },
           "secondary_stats": {
-            "attack_power": 88,
-            "crit_chance_physical": 33
+            "attack_power": 99
           },
           "armor_value": 768,
           "required_level": 60,
           "sell_price": 48942,
           "flavor_text": "Black iron and red leather, the plate the Warchief's guard wears to war.",
-          "identity": "strength_crit",
+          "identity": "bruiser",
           "icon_id": "gear_wow_chest_plate01"
         }
       },
@@ -11196,7 +11198,7 @@
         "kind": "armor",
         "slot": "head",
         "armor_type": "mail",
-        "stat_template": "agi_physical",
+        "stat_template": "agi_int_hybrid",
         "item_level": 47,
         "rarity": "rare",
         "material_tier": "deepearth",
@@ -11209,17 +11211,17 @@
           "weapon_type": null,
           "stat_template": "agi_int_hybrid",
           "primary_stats": {
-            "agility": 10,
-            "intellect": 9
+            "agility": 13,
+            "intellect": 11
           },
           "secondary_stats": {
-            "attack_power": 31
+            "attack_power": 25
           },
-          "armor_value": 210,
+          "armor_value": 247,
           "required_level": 43,
           "sell_price": 8178,
           "flavor_text": "Deepearth scale, dark as a mine shaft and twice as tough.",
-          "identity": "hunter",
+          "identity": "wildheart",
           "icon_id": "gear_wow_head_108b"
         }
       },

@@ -380,6 +380,8 @@ class Character(StatusEffectMixin):
         # profession to its trained tier (0 Apprentice, 1 Journeyman, ...), which sets the skill cap.
         self.known_professions = []
         self.profession_tiers = {}
+        # Craftsman Codices read (world/craftsman_codex.py): one more primary profession slot each.
+        self.codices = 0
         # Recipe discovery (Oct 2026): recipes must be explicitly learned — either taught by a trainer, found as
         # world drops, bought from a vendor, or rewarded from a quest. A recipe item in the inventory has a
         # recipe_id field; right-clicking it calls learn_recipe() which checks skill_required and adds the id here.
@@ -391,6 +393,9 @@ class Character(StatusEffectMixin):
         self.guardian_buff = None  # (consumable, remaining_duration)
         self.battle_buff = None    # (consumable, remaining_duration)
         self.food_buff = None      # (consumable, remaining_duration)
+        #: a cooked DRINK's buff (Kyle, 16 Nov 2026: "cooking we can have a food buff and a drink buff!"): its own slot,
+        #: so a meal and a drink stack, as in WoW
+        self.drink_buff = None
         self.ammo_buff = None      # (consumable, remaining_duration) - crafted arrows/bolts (Woodworking)
         self.oil_buff = None       # (consumable, remaining_duration) - weapon oils (Enchanting)
         self.gadget_buff = None    # (consumable, remaining_duration) - an Engineering gadget (15 Nov 2026)
@@ -4380,6 +4385,7 @@ class Character(StatusEffectMixin):
             "known_recipes": list(self.known_recipes),
             "soul_runes": list(getattr(self, "soul_runes", None) or [None] * 4),
             "profession_tiers": dict(self.profession_tiers),
+            "codices": int(getattr(self, "codices", 0) or 0),
             "training_enabled": bool(self.training_enabled),
             "trained_ranks": dict(self.trained_ranks),
             # the LEVEL of each trained rank too, so a rank inserted into an ability later (15 Nov 2026:
@@ -4411,6 +4417,7 @@ class Character(StatusEffectMixin):
             "guardian_buff": _buff_to_data(self.guardian_buff),
             "battle_buff": _buff_to_data(self.battle_buff),
             "food_buff": _buff_to_data(self.food_buff),
+            "drink_buff": _buff_to_data(getattr(self, "drink_buff", None)),
             "ammo_buff": _buff_to_data(self.ammo_buff),
             "oil_buff": _buff_to_data(getattr(self, "oil_buff", None)),
             "gadget_buff": _buff_to_data(getattr(self, "gadget_buff", None)),
@@ -4532,6 +4539,7 @@ class Character(StatusEffectMixin):
         else:
             char.known_professions = [p for p, v in char.profession_skills.items() if v > 0]
             char.profession_tiers = {p: 1 for p in char.known_professions if char.profession_skills[p] > 75}
+        char.codices = int(data.get("codices", 0) or 0)
         # A learned trade starts at 1 (see learn_profession); saves from before that sat at 0 and were stuck.
         for p in char.known_professions:
             if char.profession_skills.get(p, 0) < 1:
@@ -4548,6 +4556,7 @@ class Character(StatusEffectMixin):
         char.guardian_buff = _buff_from_data(data.get("guardian_buff"))
         char.battle_buff = _buff_from_data(data.get("battle_buff"))
         char.food_buff = _buff_from_data(data.get("food_buff"))
+        char.drink_buff = _buff_from_data(data.get("drink_buff"))
         char.ammo_buff = _buff_from_data(data.get("ammo_buff"))
         char.oil_buff = _buff_from_data(data.get("oil_buff"))
         char.gadget_buff = _buff_from_data(data.get("gadget_buff"))
@@ -5016,7 +5025,7 @@ class Character(StatusEffectMixin):
             return False
         try:
             from world import profession_manager as pm
-            if not pm.is_secondary(profession) and pm.primary_count(self) >= self.MAX_PRIMARY_PROFESSIONS:
+            if not pm.is_secondary(profession) and pm.primary_count(self) >= pm.max_primary(self):
                 return False
         except Exception:
             if len(self.known_professions) >= self.MAX_PRIMARY_PROFESSIONS:
@@ -5075,6 +5084,8 @@ class Character(StatusEffectMixin):
             self.battle_buff = buff_tuple
         elif buff_category == "food":
             self.food_buff = buff_tuple
+        elif buff_category == "drink":
+            self.drink_buff = buff_tuple
         elif buff_category == "ammo":
             self.ammo_buff = buff_tuple
         elif buff_category == "oil":
@@ -5101,8 +5112,8 @@ class Character(StatusEffectMixin):
         """
         buff_stats = {}
 
-        for buff in (self.guardian_buff, self.battle_buff, self.food_buff, self.ammo_buff,
-                     getattr(self, "oil_buff", None), getattr(self, "gadget_buff", None)):
+        for buff in (self.guardian_buff, self.battle_buff, self.food_buff, getattr(self, "drink_buff", None),
+                     self.ammo_buff, getattr(self, "oil_buff", None), getattr(self, "gadget_buff", None)):
             if buff is None:
                 continue
             consumable, _ = buff
@@ -5118,11 +5129,11 @@ class Character(StatusEffectMixin):
         """
         before = (self.guardian_buff is None, self.battle_buff is None, self.food_buff is None,
                   self.ammo_buff is None, getattr(self, "oil_buff", None) is None,
-                  getattr(self, "gadget_buff", None) is None)
+                  getattr(self, "gadget_buff", None) is None, getattr(self, "drink_buff", None) is None)
         self._tick_buff_timers(dt)
         after = (self.guardian_buff is None, self.battle_buff is None, self.food_buff is None,
                  self.ammo_buff is None, getattr(self, "oil_buff", None) is None,
-                 getattr(self, "gadget_buff", None) is None)
+                 getattr(self, "gadget_buff", None) is None, getattr(self, "drink_buff", None) is None)
         if before != after:
             self._recalculate_derived_stats()     # a buff ran out: its stats go with it
 
@@ -5173,6 +5184,11 @@ class Character(StatusEffectMixin):
             consumable, duration = self.gadget_buff
             new_duration = duration - dt
             self.gadget_buff = None if new_duration <= 0 else (consumable, new_duration)
+
+        if getattr(self, "drink_buff", None) is not None:
+            consumable, duration = self.drink_buff
+            new_duration = duration - dt
+            self.drink_buff = None if new_duration <= 0 else (consumable, new_duration)
 
 
 _RETIRED_IDS = None

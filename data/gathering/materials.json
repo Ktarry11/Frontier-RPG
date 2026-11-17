@@ -17574,6 +17574,54 @@
       "sell_price": 2500,
       "vendor_price": 200000,
       "icon_id": "enchant_scroll"
+    },
+    "egg_small": {
+      "name": "Small Egg",
+      "material_type": "meat",
+      "profession": "cooking",
+      "tier": "early",
+      "icon_id": "egg_small",
+      "stack_limit": 20,
+      "sell_price": 6,
+      "skill_range": [
+        0,
+        25,
+        50,
+        75
+      ],
+      "description": "Lifted from a nest while its owner was busy with you."
+    },
+    "egg_speckled": {
+      "name": "Speckled Egg",
+      "material_type": "meat",
+      "profession": "cooking",
+      "tier": "mid",
+      "icon_id": "egg_speckled",
+      "stack_limit": 20,
+      "sell_price": 40,
+      "skill_range": [
+        95,
+        120,
+        145,
+        170
+      ],
+      "description": "Bigger than your fist, and still warm."
+    },
+    "egg_giant": {
+      "name": "Giant Egg",
+      "material_type": "meat",
+      "profession": "cooking",
+      "tier": "late",
+      "icon_id": "egg_giant",
+      "stack_limit": 20,
+      "sell_price": 150,
+      "skill_range": [
+        195,
+        225,
+        255,
+        285
+      ],
+      "description": "One of these feeds a camp. Carry it with both hands."
     }
   }
 }

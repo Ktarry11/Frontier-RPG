@@ -223,7 +223,7 @@
           "required_level": 5,
           "sell_price": 68,
           "flavor_text": "Light leather, soft and quiet, for anyone who'd rather not be heard.",
-          "identity": "agility",
+          "identity": "hunter_precise",
           "icon_id": "gear_inv_bracer_01"
         }
       },
@@ -2337,7 +2337,7 @@
           "required_level": 7,
           "sell_price": 128,
           "flavor_text": "Thick, heavy leather cut for someone who swings big.",
-          "identity": "bruiser",
+          "identity": "strength_hit",
           "icon_id": "gear_inv_belt_28"
         }
       }
@@ -2410,7 +2410,7 @@
         "kind": "armor",
         "slot": "shoulder",
         "armor_type": "leather",
-        "stat_template": "int_caster",
+        "stat_template": "spi_healer",
         "item_level": 27,
         "rarity": "uncommon",
         "material_tier": "medium",
@@ -2423,17 +2423,17 @@
           "weapon_type": null,
           "stat_template": "spi_healer",
           "primary_stats": {
-            "spirit": 4,
-            "intellect": 3
+            "intellect": 4,
+            "spirit": 3
           },
           "secondary_stats": {
             "healing_power": 17
           },
-          "armor_value": 57,
+          "armor_value": 67,
           "required_level": 25,
           "sell_price": 1865,
           "flavor_text": "Druid work. It smells faintly of moss and rain.",
-          "identity": "healer",
+          "identity": "high_healer",
           "icon_id": "gear_inv_shoulder_18"
         }
       }
@@ -2650,7 +2650,7 @@
           "required_level": 5,
           "sell_price": 89,
           "flavor_text": "Thick, heavy leather cut for someone who swings big.",
-          "identity": "bruiser",
+          "identity": "strength_crit",
           "icon_id": "gear_wow_feet_leather_27"
         }
       }
@@ -2898,7 +2898,7 @@
         "kind": "armor",
         "slot": "feet",
         "armor_type": "leather",
-        "stat_template": "int_caster",
+        "stat_template": "spi_healer",
         "item_level": 7,
         "rarity": "uncommon",
         "material_tier": "light",
@@ -2911,14 +2911,14 @@
           "weapon_type": null,
           "stat_template": "spi_healer",
           "primary_stats": {
-            "spirit": 3
+            "intellect": 3
           },
           "secondary_stats": {},
           "armor_value": 12,
           "required_level": 5,
           "sell_price": 89,
           "flavor_text": "Druid work. It smells faintly of moss and rain.",
-          "identity": "healer",
+          "identity": "tide_healer",
           "icon_id": "gear_wow_feet_leather_02"
         }
       }
@@ -2941,7 +2941,7 @@
         "kind": "armor",
         "slot": "wrist",
         "armor_type": "leather",
-        "stat_template": "int_caster",
+        "stat_template": "spi_healer",
         "item_level": 8,
         "rarity": "uncommon",
         "material_tier": "light",
@@ -2961,7 +2961,7 @@
           "required_level": 6,
           "sell_price": 91,
           "flavor_text": "Druid work. It smells faintly of moss and rain.",
-          "identity": "healer",
+          "identity": "spirit_healer",
           "icon_id": "gear_inv_bracer_07"
         }
       }
@@ -3140,7 +3140,7 @@
           "required_level": 5,
           "sell_price": 68,
           "flavor_text": "Troll work, with fetishes stitched where the seams meet.",
-          "identity": "wildheart",
+          "identity": "hunter",
           "icon_id": "gear_inv_bracer_02"
         }
       }
@@ -3444,17 +3444,16 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 3,
-            "stamina": 2
+            "strength": 2
           },
           "secondary_stats": {
-            "attack_power": 7
+            "attack_power": 12
           },
           "armor_value": 29,
           "required_level": 15,
           "sell_price": 441,
           "flavor_text": "Thick, heavy leather cut for someone who swings big.",
-          "identity": "bruiser",
+          "identity": "strength_hit",
           "icon_id": "gear_inv_bracer_05"
         }
       }
@@ -3617,7 +3616,7 @@
         "kind": "armor",
         "slot": "wrist",
         "armor_type": "leather",
-        "stat_template": "int_caster",
+        "stat_template": "spi_healer",
         "item_level": 17,
         "rarity": "uncommon",
         "material_tier": "medium",
@@ -3630,17 +3629,16 @@
           "weapon_type": null,
           "stat_template": "spi_healer",
           "primary_stats": {
-            "spirit": 2,
             "intellect": 2
           },
           "secondary_stats": {
-            "healing_power": 9
+            "healing_power": 12
           },
-          "armor_value": 29,
+          "armor_value": 34,
           "required_level": 15,
           "sell_price": 441,
           "flavor_text": "Druid work. It smells faintly of moss and rain.",
-          "identity": "healer",
+          "identity": "tide_healer",
           "icon_id": "gear_inv_bracer_06"
         }
       }
@@ -3709,7 +3707,7 @@
         "kind": "armor",
         "slot": "shoulder",
         "armor_type": "leather",
-        "stat_template": "int_caster",
+        "stat_template": "spi_healer",
         "item_level": 19,
         "rarity": "uncommon",
         "material_tier": "medium",
@@ -3723,16 +3721,16 @@
           "stat_template": "spi_healer",
           "primary_stats": {
             "spirit": 3,
-            "intellect": 2
+            "intellect": 3
           },
           "secondary_stats": {
-            "healing_power": 12
+            "healing_power": 10
           },
-          "armor_value": 40,
+          "armor_value": 88,
           "required_level": 17,
           "sell_price": 892,
           "flavor_text": "Druid work. It smells faintly of moss and rain.",
-          "identity": "healer",
+          "identity": "spirit_healer",
           "icon_id": "gear_inv_shoulder_09"
         }
       }
@@ -4035,7 +4033,7 @@
         "kind": "armor",
         "slot": "chest",
         "armor_type": "leather",
-        "stat_template": "str_int_hybrid",
+        "stat_template": "str_physical",
         "item_level": 22,
         "rarity": "uncommon",
         "material_tier": "cragscale",
@@ -4048,17 +4046,17 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 5,
-            "stamina": 3
+            "strength": 5
           },
           "secondary_stats": {
-            "attack_power": 14
+            "attack_power": 10,
+            "crit_chance_physical": 5
           },
           "armor_value": 55,
           "required_level": 20,
           "sell_price": 1516,
           "flavor_text": "Thick, heavy leather cut for someone who swings big.",
-          "identity": "bruiser",
+          "identity": "strength_crit",
           "icon_id": "gear_wow_chest_leather_33"
         }
       }
@@ -4081,7 +4079,7 @@
         "kind": "armor",
         "slot": "feet",
         "armor_type": "mail",
-        "stat_template": "int_caster",
+        "stat_template": "str_physical",
         "item_level": 26,
         "rarity": "uncommon",
         "material_tier": "medium",
@@ -4092,19 +4090,18 @@
           "rarity": "uncommon",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "str_int_hybrid",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 4,
-            "intellect": 4
+            "strength": 4
           },
           "secondary_stats": {
-            "attack_power": 9
+            "attack_power": 17
           },
-          "armor_value": 72,
+          "armor_value": 80,
           "required_level": 24,
           "sell_price": 1400,
           "flavor_text": "Mail for a shaman who'd rather be in the middle of the fight.",
-          "identity": "earthen",
+          "identity": "strength",
           "icon_id": "gear_wow_feet_desecrated_mailboots"
         }
       },
@@ -4266,7 +4263,7 @@
         "kind": "armor",
         "slot": "chest",
         "armor_type": "mail",
-        "stat_template": "int_caster",
+        "stat_template": "str_physical",
         "item_level": 30,
         "rarity": "uncommon",
         "material_tier": "medium",
@@ -4277,19 +4274,19 @@
           "rarity": "uncommon",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "str_int_hybrid",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 6,
-            "intellect": 6
+            "stamina": 10
           },
           "secondary_stats": {
-            "attack_power": 17
+            "defense_rating": 7,
+            "dodge_rating": 5
           },
           "armor_value": 120,
           "required_level": 28,
           "sell_price": 2909,
           "flavor_text": "Mail for a shaman who'd rather be in the middle of the fight.",
-          "identity": "earthen",
+          "identity": "tank_any",
           "icon_id": "gear_wow_chest_chain_09"
         }
       }
@@ -5116,17 +5113,17 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 4,
-            "stamina": 2
+            "strength": 3
           },
           "secondary_stats": {
-            "attack_power": 10
+            "attack_power": 6,
+            "crit_chance_physical": 5
           },
           "armor_value": 40,
           "required_level": 17,
           "sell_price": 892,
           "flavor_text": "Thick, heavy leather cut for someone who swings big.",
-          "identity": "bruiser",
+          "identity": "strength_crit",
           "icon_id": "gear_wow_shoulder_96_2"
         }
       },
@@ -6233,7 +6230,7 @@
         "kind": "armor",
         "slot": "shoulder",
         "armor_type": "leather",
-        "stat_template": "int_caster",
+        "stat_template": "spi_healer",
         "item_level": 29,
         "rarity": "uncommon",
         "material_tier": "cragscale",
@@ -6246,17 +6243,17 @@
           "weapon_type": null,
           "stat_template": "spi_healer",
           "primary_stats": {
-            "spirit": 4,
-            "intellect": 3
+            "spirit": 5,
+            "intellect": 5
           },
           "secondary_stats": {
-            "healing_power": 19
+            "healing_power": 14
           },
           "armor_value": 61,
           "required_level": 27,
           "sell_price": 2167,
           "flavor_text": "Druid work. It smells faintly of moss and rain.",
-          "identity": "healer",
+          "identity": "spirit_healer",
           "icon_id": "gear_inv_shoulder_04"
         }
       },
@@ -6423,7 +6420,7 @@
         "kind": "armor",
         "slot": "chest",
         "armor_type": "mail",
-        "stat_template": "str_int_hybrid",
+        "stat_template": "str_physical",
         "item_level": 30,
         "rarity": "uncommon",
         "material_tier": "stormscale",
@@ -6434,19 +6431,19 @@
           "rarity": "uncommon",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "str_int_hybrid",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 6,
-            "intellect": 6
+            "strength": 6
           },
           "secondary_stats": {
-            "attack_power": 17
+            "attack_power": 17,
+            "hit_rating": 6
           },
           "armor_value": 120,
           "required_level": 28,
           "sell_price": 2909,
           "flavor_text": "Mail for a shaman who'd rather be in the middle of the fight.",
-          "identity": "earthen",
+          "identity": "strength_hit",
           "icon_id": "gear_wow_chest_mail_07"
         }
       },
@@ -6577,17 +6574,17 @@
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 9,
-            "stamina": 5
+            "strength": 7
           },
           "secondary_stats": {
-            "attack_power": 22
+            "attack_power": 21,
+            "hit_rating": 7
           },
           "armor_value": 88,
           "required_level": 30,
           "sell_price": 3997,
           "flavor_text": "Thick, heavy leather cut for someone who swings big.",
-          "identity": "bruiser",
+          "identity": "strength_hit",
           "icon_id": "gear_wow_head_109a"
         }
       },

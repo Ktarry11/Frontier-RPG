@@ -119,6 +119,9 @@ TIERS = [
     ("Major", 58, 280, "runed_arcanite_rod", "illusion_dust", "greater_eternal_essence", "large_brilliant_shard"),
 ]
 
+#: the stretch of skill each tier's formulas are spread over (Kyle, 16 Nov 2026), from 0 to 300 with no gaps
+SPREAD = [(0, 30), (35, 105), (110, 160), (165, 215), (220, 270), (275, 300)]
+
 #: what an enchantment goes on: label, budget share, how much material it takes
 GROUPS = {
     "bracer": ("Bracer", 0.30, 1.0),
@@ -176,6 +179,9 @@ LADDERS = {
                ("wild", 3), ("battlemage", 4), ("storm", 4)],
     "2h": [("int", 1), ("spi", 1), ("str", 2), ("agi", 2), ("sp", 4), ("valor", 3), ("wild", 4)],
 }
+
+#: (group, family) -> its place in that slot's ladder: the slots take turns as a tier's formulas are spread
+_LADDER_POS = {(g, fam): i for g, ladder in LADDERS.items() for i, (fam, _first) in enumerate(ladder)}
 
 #: the proc weapon enchantments ("Yes, a handful"): on the weapon group, so any weapon takes them.
 #: (id, name, tier, skill, source, extra inputs, proc)
@@ -344,9 +350,18 @@ def enchantments():
     # THE FIRST FORMULAS, spread from 0 to 30 (Kyle, 16 Nov 2026: "Let's spread out enchanting a bit from 0 to 30 as
     # these all start at 1"). A new enchanter can make the first one the moment they learn, and has a new one to
     # learn every few points after that.
-    minor = [rec for _eid, rec in out if rec["tier"] == 0]
-    for i, rec in enumerate(minor):
-        rec["skill"] = int(round(i * 30 / max(1, len(minor) - 1)))
+    # EVERY TIER SPREAD ACROSS ITS STRETCH (Kyle, 16 Nov 2026: "we have large gaps in enchanting.... like 1 to 30... 30
+    # to 60, 70 to 110, 120 to 170, 180 to 210, (These could likely just have some of the enchanting requirements
+    # pushed around to help with it)"). A tier's formulas used to sit on one skill each (60, 115, 170, 225, 280), so a
+    # new enchanter learned a dozen at once and then nothing for fifty points. Each tier now runs from just past the
+    # last one to just short of the next, the slots taking turns (bracer, boots, gloves, cloak ... then each slot's
+    # second formula), so every few points there's something new and it isn't always another bracer.
+    for t, (lo, hi) in enumerate(SPREAD):
+        tier = [rec for _eid, rec in out if rec["tier"] == t]
+        tier.sort(key=lambda r: (_LADDER_POS[(r["group"], r["family"])],
+                                 list(LADDERS).index(r["group"])))
+        for i, rec in enumerate(tier):
+            rec["skill"] = int(round(lo + i * (hi - lo) / max(1, len(tier) - 1)))
     for pid, name, t, skill, _src, _extra, proc in PROCS:
         out.append((f"enchant_weapon_{pid}", {"name": f"Enchant Weapon: {name}", "title": name,
                                               "group": "weapon", "family": pid, "tier": t, "rank": 0,
@@ -387,6 +402,12 @@ def rods_for(skill):
     return ROD_IDS[i:]
 
 
+def rods_for_tier(tier):
+    """An enchantment's formula takes its tier's rod or a better one, wherever in the tier's stretch it falls (every
+    rod can be used from the skill its tier starts at)."""
+    return ROD_IDS[ROD_IDS.index(TIERS[tier][3]):]
+
+
 def main():
     from world import jewelcrafting as J
     doc = load(MATS)
@@ -414,7 +435,7 @@ def main():
         recipes[f"ench_{eid[8:]}"] = {
             "name": e["name"], "inputs": inp, "skill_required": e["skill"],
             "output": {"kind": "material", "material_id": eid},
-            "tool": rods_for(e["skill"]), "skill_range": skill_range(e["skill"]), "source": source}
+            "tool": rods_for_tier(e["tier"]), "skill_range": skill_range(e["skill"]), "source": source}
 
     # ---- essences, both ways (Kyle, 14 Nov 2026: "3 lesser for 1 greater or 1 greater breaks to 3
     # lesser"). Taught at skill 1, no rod, no skill-ups: it's tidying the bags, not a craft.

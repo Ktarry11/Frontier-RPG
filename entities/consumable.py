@@ -27,6 +27,33 @@ def bonus_text(stat_bonuses):
     return ", ".join(parts)
 
 
+#: A POTION'S SIZE (Kyle, 16 Nov 2026: "maybe lets not heal this much HP and mana lmao"). It used to be its base x
+#: (1 + the drinker's level x a multiplier) x the world curve, so a Supreme Healing Potion restored 327,045 health to
+#: a level-55 character with about 1,600. Now, as in WoW, a potion restores a fixed amount set by ITS level: a share of
+#: a typical health or mana bar at that level (a warrior's health and a mage's mana before gear, measured that day),
+#: and the better potions of a level (Sansam, Dreamfoil) a little more.
+HP_AT = ((1, 212), (5, 236), (10, 317), (18, 500), (25, 684), (33, 859), (40, 1044), (48, 1304), (55, 1596), (60, 1869))
+MP_AT = ((1, 436), (10, 693), (25, 1583), (40, 2465), (55, 3850), (60, 4505))
+POTION_SHARE = {"health_potion": 0.40, "mana_potion": 0.35}
+
+
+def _at(table, lv):
+    lv = max(table[0][0], min(table[-1][0], lv))
+    for (a, va), (b, vb) in zip(table, table[1:]):
+        if a <= lv <= b:
+            return va + (vb - va) * (lv - a) / max(1, b - a)
+    return table[-1][1]
+
+
+def potion_amount(kind, level, effect_value):
+    """Health or mana a potion of this level restores. effect_value only says how good it is for its level: the
+    usual potion of a level sits on the line from 150 at 1 to 1,100 at 55, and one above it restores up to 40% more."""
+    usual = 150 + (1100 - 150) * (max(1, level) - 1) / 54
+    better = max(0.8, min(1.4, (effect_value or usual) / usual))
+    table = HP_AT if kind == "health_potion" else MP_AT
+    return int(round(POTION_SHARE[kind] * _at(table, level) * better))
+
+
 class Consumable:
     """A consumable item (potion, elixir, food buff) with quantity tracking."""
     
@@ -125,8 +152,7 @@ class Consumable:
         level-5 loaf is still a level-5 loaf at 60). One place, so combat and every tooltip agree."""
         from combat.world_curve import world_scale
         if self.consumable_type in ("health_potion", "mana_potion"):
-            lv = level or self.required_level or 1
-            return int(self.effect_value * (1.0 + lv * self.level_multiplier) * world_scale(lv))
+            return potion_amount(self.consumable_type, self.required_level or 1, self.effect_value)
         if self.consumable_type in ("meal", "drink"):
             return int(round(self.effect_value * world_scale(self.required_level or 1)))
         return int(self.effect_value or 0)
@@ -184,9 +210,11 @@ class Consumable:
             # effect_duration - the twenty-odd seconds the meal takes to eat - so the buff was
             # gone before the next pull and cooked food looked like it gave nothing (Kyle, 12 Nov:
             # "Also food should give buffs!").
-            if self.stat_bonuses and self.buff_category == "food":
-                character.apply_consumable_buff("food", self, seconds=WELL_FED_SECONDS)
-                log_msg += f" Well fed: {bonus_text(self.stat_bonuses)} for 30 minutes."
+            if self.stat_bonuses and self.buff_category in ("food", "drink"):
+                # a cooked drink carries its own buff in its own slot, so it stacks with a meal's
+                character.apply_consumable_buff(self.buff_category, self, seconds=WELL_FED_SECONDS)
+                word = "Well fed" if self.buff_category == "food" else "Refreshed"
+                log_msg += f" {word}: {bonus_text(self.stat_bonuses)} for 30 minutes."
 
         elif self.consumable_type == "lure":
             # Beast Lure: no stats. While it burns, beasts answer the party's encounter rolls more

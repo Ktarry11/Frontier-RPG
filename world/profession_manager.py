@@ -31,8 +31,16 @@ def tiers():
     return data()["tiers"]
 
 
-def max_primary():
-    return int(data().get("max_primary", 3))
+def max_primary(character=None):
+    """Primary profession slots: the base (3), plus one for every Craftsman Codex the character has read
+    (world/craftsman_codex.py). Without a character, the base."""
+    base = int(data().get("max_primary", 3))
+    return base + int(getattr(character, "codices", 0) or 0) if character is not None else base
+
+
+def primary_total():
+    """How many primary trades exist - a slot count past this would do nothing."""
+    return sum(1 for d in professions().values() if isinstance(d, dict) and d.get("kind") != "secondary")
 
 
 def is_secondary(profession):
@@ -95,14 +103,14 @@ def offers(character, profession):
         # A secondary trade is free of the slot limit entirely - it neither needs a free slot
         # nor reports one, because telling the player "2 of 3 slots free" next to something that
         # costs no slot is exactly the kind of half-true the old line would have printed.
-        slots_left = max_primary() - primary_count(character)
+        slots_left = max_primary(character) - primary_count(character)
         reason = None
         if not secondary and slots_left <= 0:
-            reason = f"You already know {max_primary()} professions. Unlearn one first."
+            reason = f"You already know {max_primary(character)} professions. Unlearn one first."
         elif character.level < first["required_level"]:
             reason = f"Requires level {first['required_level']}"
         slot_note = ("  Secondary - costs you no profession slot."
-                     if secondary else f"  ({slots_left} of {max_primary()} slots free)")
+                     if secondary else f"  ({slots_left} of {max_primary(character)} slots free)")
         rows.append(dict(kind="learn", name=f"Learn {info['name']} ({first['name']})",
                          sub=f"{info['description']}  Skill cap {first['cap']}.{slot_note}",
                          cost=first["cost"], enabled=reason is None, reason=reason))

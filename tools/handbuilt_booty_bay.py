@@ -280,7 +280,9 @@ def dress(L):
 
     # ---- the headland: the gate, the bone arch, the only soil in the zone ------------------------
     L.prop("stv_bone_arch", 35, 11, 9, solid=False, road_ok=True, nudge=0, path_dir=SP)
-    P("br_signpost", 40, 14, 5, road_ok=True)
+    # the signpost stands beside the road down from the gate, not in it (Kyle, 16 Nov 2026: "the top left is
+    # blocked to get in/out through STV"): it was solid in the bend where the road is narrowest
+    P("br_signpost", 40, 14, 5, road_ok=True, solid=False)
     # the headland is rock, so nothing STANDS on it - the growth hangs over the road from above, which
     # is what L.deco is for: a sprite with no collision and no placement check.
     for (x, y) in [(26, 12), (45, 9), (22, 7), (49, 14), (18, 11), (41, 6), (30, 16), (53, 10)]:
@@ -293,8 +295,10 @@ def dress(L):
     # ---- the ramp foot: toll post and the harbourmaster's tower, first thing off the cliff --------
     B("bb_lean_shack", 47, 21, 6, nudge=2)
     B("bb_harbourmaster_tower", 46, 28, 10, nudge=3)
-    D("vot_crate_stack", 44, 21, 3)
-    P("br_signpost", 43, 22, 5)
+    # Kyle, 16 Nov 2026: "there is only a tiny path north of the flight master". A crate stack and a signpost
+    # stood in the gap between the lagoon and the toll shack, leaving one board to walk on; the signpost now
+    # stands clear and the crates went
+    P("br_signpost", 43, 22, 5, solid=False)
 
     # ---- the upper gallery: the market row ------------------------------------------------------
     B("bb_trade_shop", 29, 28, 5)
@@ -344,7 +348,9 @@ def dress(L):
 
     # ---- THE OUTER HARBOUR: wharf, long quay, fish market, and the ships riding off them -------------
     B("gob_warehouse_b", 85, 23, 7, nudge=3)
-    B("gg_supply_store", 80, 27, 5, nudge=2)
+    # off the end of the north pier (Kyle, 16 Nov 2026: "the top of the 3 docks is blocked by a building"): it
+    # stood across the pier's landing on the wharf
+    B("gg_supply_store", 91, 20, 5, nudge=2)
     B("gob_house_small", 90, 27, 5, nudge=2)
     B("gob_fish_market", 93, 37, 6, nudge=3)
     B("gob_dock_office", 82, 38, 6, nudge=3)

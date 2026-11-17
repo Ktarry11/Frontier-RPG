@@ -34,7 +34,7 @@
         "soul_dust": 2,
         "greater_astral_essence": 1
       },
-      "skill_required": 115,
+      "skill_required": 110,
       "output": {
         "kind": "material",
         "material_id": "enchant_bracer_stamina"
@@ -46,10 +46,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        115,
-        125,
-        135,
-        145
+        110,
+        120,
+        130,
+        140
       ],
       "source": "vendor"
     },
@@ -60,7 +60,7 @@
         "greater_nether_essence": 1,
         "large_radiant_shard": 1
       },
-      "skill_required": 225,
+      "skill_required": 220,
       "output": {
         "kind": "material",
         "material_id": "enchant_bracer_superior_stamina"
@@ -70,10 +70,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        225,
-        235,
-        245,
-        255
+        220,
+        230,
+        240,
+        250
       ],
       "source": "trainer"
     },
@@ -84,7 +84,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 280,
+      "skill_required": 275,
       "output": {
         "kind": "material",
         "material_id": "enchant_bracer_major_stamina"
@@ -93,10 +93,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        280,
-        290,
-        300,
-        310
+        275,
+        285,
+        295,
+        305
       ],
       "source": "drop"
     },
@@ -107,10 +107,670 @@
         "lesser_magic_essence": 1,
         "mob_smouldering_cinder": 1
       },
-      "skill_required": 3,
+      "skill_required": 17,
       "output": {
         "kind": "material",
         "material_id": "enchant_bracer_minor_strength"
+      },
+      "tool": [
+        "runed_copper_rod",
+        "runed_silver_rod",
+        "runed_golden_rod",
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        17,
+        27,
+        37,
+        47
+      ],
+      "source": "trainer"
+    },
+    "ench_bracer_strength": {
+      "name": "Enchant Bracer: Strength",
+      "inputs": {
+        "soul_dust": 2,
+        "greater_astral_essence": 1
+      },
+      "skill_required": 121,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_strength"
+      },
+      "tool": [
+        "runed_silver_rod",
+        "runed_golden_rod",
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        121,
+        131,
+        141,
+        151
+      ],
+      "source": "vendor"
+    },
+    "ench_bracer_superior_strength": {
+      "name": "Enchant Bracer: Superior Strength",
+      "inputs": {
+        "dream_dust": 3,
+        "greater_nether_essence": 1,
+        "large_radiant_shard": 1
+      },
+      "skill_required": 228,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_superior_strength"
+      },
+      "tool": [
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        228,
+        238,
+        248,
+        258
+      ],
+      "source": "trainer"
+    },
+    "ench_bracer_major_strength": {
+      "name": "Enchant Bracer: Major Strength",
+      "inputs": {
+        "illusion_dust": 3,
+        "greater_eternal_essence": 1,
+        "large_brilliant_shard": 1
+      },
+      "skill_required": 279,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_major_strength"
+      },
+      "tool": [
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        279,
+        289,
+        299,
+        309
+      ],
+      "source": "drop"
+    },
+    "ench_bracer_minor_spirit": {
+      "name": "Enchant Bracer: Minor Spirit",
+      "inputs": {
+        "strange_dust": 1,
+        "lesser_magic_essence": 1,
+        "mob_grave_dust": 1
+      },
+      "skill_required": 30,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_minor_spirit"
+      },
+      "tool": [
+        "runed_copper_rod",
+        "runed_silver_rod",
+        "runed_golden_rod",
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        30,
+        40,
+        50,
+        60
+      ],
+      "source": "trainer"
+    },
+    "ench_bracer_spirit": {
+      "name": "Enchant Bracer: Spirit",
+      "inputs": {
+        "soul_dust": 2,
+        "greater_astral_essence": 1
+      },
+      "skill_required": 132,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_spirit"
+      },
+      "tool": [
+        "runed_silver_rod",
+        "runed_golden_rod",
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        132,
+        142,
+        152,
+        162
+      ],
+      "source": "vendor"
+    },
+    "ench_bracer_superior_spirit": {
+      "name": "Enchant Bracer: Superior Spirit",
+      "inputs": {
+        "dream_dust": 3,
+        "greater_nether_essence": 1,
+        "large_radiant_shard": 1
+      },
+      "skill_required": 237,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_superior_spirit"
+      },
+      "tool": [
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        237,
+        247,
+        257,
+        267
+      ],
+      "source": "trainer"
+    },
+    "ench_bracer_major_spirit": {
+      "name": "Enchant Bracer: Major Spirit",
+      "inputs": {
+        "illusion_dust": 3,
+        "greater_eternal_essence": 1,
+        "large_brilliant_shard": 1
+      },
+      "skill_required": 282,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_major_spirit"
+      },
+      "tool": [
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        282,
+        292,
+        302,
+        312
+      ],
+      "source": "drop"
+    },
+    "ench_bracer_lesser_agility": {
+      "name": "Enchant Bracer: Lesser Agility",
+      "inputs": {
+        "strange_dust": 1,
+        "greater_magic_essence": 1
+      },
+      "skill_required": 98,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_lesser_agility"
+      },
+      "tool": [
+        "runed_copper_rod",
+        "runed_silver_rod",
+        "runed_golden_rod",
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        98,
+        108,
+        118,
+        128
+      ],
+      "source": "trainer"
+    },
+    "ench_bracer_greater_agility": {
+      "name": "Enchant Bracer: Greater Agility",
+      "inputs": {
+        "vision_dust": 2,
+        "greater_mystic_essence": 1,
+        "large_glowing_shard": 1
+      },
+      "skill_required": 188,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_greater_agility"
+      },
+      "tool": [
+        "runed_golden_rod",
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        188,
+        198,
+        208,
+        218
+      ],
+      "source": "drop"
+    },
+    "ench_bracer_major_agility": {
+      "name": "Enchant Bracer: Major Agility",
+      "inputs": {
+        "illusion_dust": 3,
+        "greater_eternal_essence": 1,
+        "large_brilliant_shard": 1
+      },
+      "skill_required": 286,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_major_agility"
+      },
+      "tool": [
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        286,
+        296,
+        306,
+        316
+      ],
+      "source": "trainer"
+    },
+    "ench_bracer_lesser_intellect": {
+      "name": "Enchant Bracer: Lesser Intellect",
+      "inputs": {
+        "strange_dust": 1,
+        "greater_magic_essence": 1
+      },
+      "skill_required": 105,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_lesser_intellect"
+      },
+      "tool": [
+        "runed_copper_rod",
+        "runed_silver_rod",
+        "runed_golden_rod",
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        105,
+        115,
+        125,
+        135
+      ],
+      "source": "trainer"
+    },
+    "ench_bracer_greater_intellect": {
+      "name": "Enchant Bracer: Greater Intellect",
+      "inputs": {
+        "vision_dust": 2,
+        "greater_mystic_essence": 1,
+        "large_glowing_shard": 1
+      },
+      "skill_required": 192,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_greater_intellect"
+      },
+      "tool": [
+        "runed_golden_rod",
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        192,
+        202,
+        212,
+        222
+      ],
+      "source": "drop"
+    },
+    "ench_bracer_major_intellect": {
+      "name": "Enchant Bracer: Major Intellect",
+      "inputs": {
+        "illusion_dust": 3,
+        "greater_eternal_essence": 1,
+        "large_brilliant_shard": 1
+      },
+      "skill_required": 289,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_major_intellect"
+      },
+      "tool": [
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        289,
+        299,
+        309,
+        319
+      ],
+      "source": "trainer"
+    },
+    "ench_bracer_mana_regeneration": {
+      "name": "Enchant Bracer: Mana Regeneration",
+      "inputs": {
+        "soul_dust": 2,
+        "greater_astral_essence": 1
+      },
+      "skill_required": 156,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_mana_regeneration"
+      },
+      "tool": [
+        "runed_silver_rod",
+        "runed_golden_rod",
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        156,
+        166,
+        176,
+        186
+      ],
+      "source": "trainer"
+    },
+    "ench_bracer_superior_mana_regeneration": {
+      "name": "Enchant Bracer: Superior Mana Regeneration",
+      "inputs": {
+        "dream_dust": 3,
+        "greater_nether_essence": 1,
+        "large_radiant_shard": 1
+      },
+      "skill_required": 257,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_superior_mana_regeneration"
+      },
+      "tool": [
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        257,
+        267,
+        277,
+        287
+      ],
+      "source": "vendor"
+    },
+    "ench_bracer_major_mana_regeneration": {
+      "name": "Enchant Bracer: Major Mana Regeneration",
+      "inputs": {
+        "illusion_dust": 3,
+        "greater_eternal_essence": 1,
+        "large_brilliant_shard": 1
+      },
+      "skill_required": 292,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_major_mana_regeneration"
+      },
+      "tool": [
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        292,
+        302,
+        312,
+        322
+      ],
+      "source": "trainer"
+    },
+    "ench_bracer_greater_healing": {
+      "name": "Enchant Bracer: Greater Healing",
+      "inputs": {
+        "vision_dust": 2,
+        "greater_mystic_essence": 1,
+        "large_glowing_shard": 1
+      },
+      "skill_required": 209,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_greater_healing"
+      },
+      "tool": [
+        "runed_golden_rod",
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        209,
+        219,
+        229,
+        239
+      ],
+      "source": "trainer"
+    },
+    "ench_bracer_major_healing": {
+      "name": "Enchant Bracer: Major Healing",
+      "inputs": {
+        "illusion_dust": 3,
+        "greater_eternal_essence": 1,
+        "large_brilliant_shard": 1
+      },
+      "skill_required": 295,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_major_healing"
+      },
+      "tool": [
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        295,
+        305,
+        315,
+        325
+      ],
+      "source": "vendor"
+    },
+    "ench_bracer_valor": {
+      "name": "Enchant Bracer: Valor",
+      "inputs": {
+        "soul_dust": 2,
+        "greater_astral_essence": 1,
+        "mob_blowdown_ash": 1
+      },
+      "skill_required": 158,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_valor"
+      },
+      "tool": [
+        "runed_silver_rod",
+        "runed_golden_rod",
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        158,
+        168,
+        178,
+        188
+      ],
+      "source": "trainer"
+    },
+    "ench_bracer_superior_valor": {
+      "name": "Enchant Bracer: Superior Valor",
+      "inputs": {
+        "dream_dust": 3,
+        "greater_nether_essence": 1,
+        "large_radiant_shard": 1
+      },
+      "skill_required": 265,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_superior_valor"
+      },
+      "tool": [
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        265,
+        275,
+        285,
+        295
+      ],
+      "source": "vendor"
+    },
+    "ench_bracer_major_valor": {
+      "name": "Enchant Bracer: Major Valor",
+      "inputs": {
+        "illusion_dust": 3,
+        "greater_eternal_essence": 1,
+        "large_brilliant_shard": 1
+      },
+      "skill_required": 298,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_major_valor"
+      },
+      "tool": [
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        298,
+        308,
+        318,
+        328
+      ],
+      "source": "drop"
+    },
+    "ench_bracer_wildheart": {
+      "name": "Enchant Bracer: Wildheart",
+      "inputs": {
+        "soul_dust": 2,
+        "greater_astral_essence": 1,
+        "mob_wisp_light": 1
+      },
+      "skill_required": 160,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_wildheart"
+      },
+      "tool": [
+        "runed_silver_rod",
+        "runed_golden_rod",
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        160,
+        170,
+        180,
+        190
+      ],
+      "source": "trainer"
+    },
+    "ench_bracer_superior_wildheart": {
+      "name": "Enchant Bracer: Superior Wildheart",
+      "inputs": {
+        "dream_dust": 3,
+        "greater_nether_essence": 1,
+        "large_radiant_shard": 1
+      },
+      "skill_required": 267,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_superior_wildheart"
+      },
+      "tool": [
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        267,
+        277,
+        287,
+        297
+      ],
+      "source": "vendor"
+    },
+    "ench_bracer_major_wildheart": {
+      "name": "Enchant Bracer: Major Wildheart",
+      "inputs": {
+        "illusion_dust": 3,
+        "greater_eternal_essence": 1,
+        "large_brilliant_shard": 1
+      },
+      "skill_required": 299,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_major_wildheart"
+      },
+      "tool": [
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        299,
+        309,
+        319,
+        329
+      ],
+      "source": "drop"
+    },
+    "ench_bracer_greater_devotion": {
+      "name": "Enchant Bracer: Greater Devotion",
+      "inputs": {
+        "vision_dust": 2,
+        "greater_mystic_essence": 1,
+        "large_glowing_shard": 1
+      },
+      "skill_required": 215,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_greater_devotion"
+      },
+      "tool": [
+        "runed_golden_rod",
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        215,
+        225,
+        235,
+        245
+      ],
+      "source": "trainer"
+    },
+    "ench_bracer_major_devotion": {
+      "name": "Enchant Bracer: Major Devotion",
+      "inputs": {
+        "illusion_dust": 3,
+        "greater_eternal_essence": 1,
+        "large_brilliant_shard": 1
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_bracer_major_devotion"
+      },
+      "tool": [
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        300,
+        310,
+        320,
+        330
+      ],
+      "source": "vendor"
+    },
+    "ench_boots_minor_stamina": {
+      "name": "Enchant Boots: Minor Stamina",
+      "inputs": {
+        "strange_dust": 1,
+        "lesser_magic_essence": 1,
+        "mob_grave_dust": 1
+      },
+      "skill_required": 3,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_boots_minor_stamina"
       },
       "tool": [
         "runed_copper_rod",
@@ -127,673 +787,13 @@
       ],
       "source": "trainer"
     },
-    "ench_bracer_strength": {
-      "name": "Enchant Bracer: Strength",
-      "inputs": {
-        "soul_dust": 2,
-        "greater_astral_essence": 1
-      },
-      "skill_required": 115,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_strength"
-      },
-      "tool": [
-        "runed_silver_rod",
-        "runed_golden_rod",
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        115,
-        125,
-        135,
-        145
-      ],
-      "source": "vendor"
-    },
-    "ench_bracer_superior_strength": {
-      "name": "Enchant Bracer: Superior Strength",
-      "inputs": {
-        "dream_dust": 3,
-        "greater_nether_essence": 1,
-        "large_radiant_shard": 1
-      },
-      "skill_required": 225,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_superior_strength"
-      },
-      "tool": [
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        225,
-        235,
-        245,
-        255
-      ],
-      "source": "trainer"
-    },
-    "ench_bracer_major_strength": {
-      "name": "Enchant Bracer: Major Strength",
-      "inputs": {
-        "illusion_dust": 3,
-        "greater_eternal_essence": 1,
-        "large_brilliant_shard": 1
-      },
-      "skill_required": 280,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_major_strength"
-      },
-      "tool": [
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        280,
-        290,
-        300,
-        310
-      ],
-      "source": "drop"
-    },
-    "ench_bracer_minor_spirit": {
-      "name": "Enchant Bracer: Minor Spirit",
-      "inputs": {
-        "strange_dust": 1,
-        "lesser_magic_essence": 1,
-        "mob_grave_dust": 1
-      },
-      "skill_required": 7,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_minor_spirit"
-      },
-      "tool": [
-        "runed_copper_rod",
-        "runed_silver_rod",
-        "runed_golden_rod",
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        7,
-        17,
-        27,
-        37
-      ],
-      "source": "trainer"
-    },
-    "ench_bracer_spirit": {
-      "name": "Enchant Bracer: Spirit",
-      "inputs": {
-        "soul_dust": 2,
-        "greater_astral_essence": 1
-      },
-      "skill_required": 115,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_spirit"
-      },
-      "tool": [
-        "runed_silver_rod",
-        "runed_golden_rod",
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        115,
-        125,
-        135,
-        145
-      ],
-      "source": "vendor"
-    },
-    "ench_bracer_superior_spirit": {
-      "name": "Enchant Bracer: Superior Spirit",
-      "inputs": {
-        "dream_dust": 3,
-        "greater_nether_essence": 1,
-        "large_radiant_shard": 1
-      },
-      "skill_required": 225,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_superior_spirit"
-      },
-      "tool": [
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        225,
-        235,
-        245,
-        255
-      ],
-      "source": "trainer"
-    },
-    "ench_bracer_major_spirit": {
-      "name": "Enchant Bracer: Major Spirit",
-      "inputs": {
-        "illusion_dust": 3,
-        "greater_eternal_essence": 1,
-        "large_brilliant_shard": 1
-      },
-      "skill_required": 280,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_major_spirit"
-      },
-      "tool": [
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        280,
-        290,
-        300,
-        310
-      ],
-      "source": "drop"
-    },
-    "ench_bracer_lesser_agility": {
-      "name": "Enchant Bracer: Lesser Agility",
-      "inputs": {
-        "strange_dust": 1,
-        "greater_magic_essence": 1
-      },
-      "skill_required": 60,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_lesser_agility"
-      },
-      "tool": [
-        "runed_copper_rod",
-        "runed_silver_rod",
-        "runed_golden_rod",
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        60,
-        70,
-        80,
-        90
-      ],
-      "source": "trainer"
-    },
-    "ench_bracer_greater_agility": {
-      "name": "Enchant Bracer: Greater Agility",
-      "inputs": {
-        "vision_dust": 2,
-        "greater_mystic_essence": 1,
-        "large_glowing_shard": 1
-      },
-      "skill_required": 170,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_greater_agility"
-      },
-      "tool": [
-        "runed_golden_rod",
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        170,
-        180,
-        190,
-        200
-      ],
-      "source": "drop"
-    },
-    "ench_bracer_major_agility": {
-      "name": "Enchant Bracer: Major Agility",
-      "inputs": {
-        "illusion_dust": 3,
-        "greater_eternal_essence": 1,
-        "large_brilliant_shard": 1
-      },
-      "skill_required": 280,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_major_agility"
-      },
-      "tool": [
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        280,
-        290,
-        300,
-        310
-      ],
-      "source": "trainer"
-    },
-    "ench_bracer_lesser_intellect": {
-      "name": "Enchant Bracer: Lesser Intellect",
-      "inputs": {
-        "strange_dust": 1,
-        "greater_magic_essence": 1
-      },
-      "skill_required": 60,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_lesser_intellect"
-      },
-      "tool": [
-        "runed_copper_rod",
-        "runed_silver_rod",
-        "runed_golden_rod",
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        60,
-        70,
-        80,
-        90
-      ],
-      "source": "trainer"
-    },
-    "ench_bracer_greater_intellect": {
-      "name": "Enchant Bracer: Greater Intellect",
-      "inputs": {
-        "vision_dust": 2,
-        "greater_mystic_essence": 1,
-        "large_glowing_shard": 1
-      },
-      "skill_required": 170,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_greater_intellect"
-      },
-      "tool": [
-        "runed_golden_rod",
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        170,
-        180,
-        190,
-        200
-      ],
-      "source": "drop"
-    },
-    "ench_bracer_major_intellect": {
-      "name": "Enchant Bracer: Major Intellect",
-      "inputs": {
-        "illusion_dust": 3,
-        "greater_eternal_essence": 1,
-        "large_brilliant_shard": 1
-      },
-      "skill_required": 280,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_major_intellect"
-      },
-      "tool": [
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        280,
-        290,
-        300,
-        310
-      ],
-      "source": "trainer"
-    },
-    "ench_bracer_mana_regeneration": {
-      "name": "Enchant Bracer: Mana Regeneration",
-      "inputs": {
-        "soul_dust": 2,
-        "greater_astral_essence": 1
-      },
-      "skill_required": 115,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_mana_regeneration"
-      },
-      "tool": [
-        "runed_silver_rod",
-        "runed_golden_rod",
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        115,
-        125,
-        135,
-        145
-      ],
-      "source": "trainer"
-    },
-    "ench_bracer_superior_mana_regeneration": {
-      "name": "Enchant Bracer: Superior Mana Regeneration",
-      "inputs": {
-        "dream_dust": 3,
-        "greater_nether_essence": 1,
-        "large_radiant_shard": 1
-      },
-      "skill_required": 225,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_superior_mana_regeneration"
-      },
-      "tool": [
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        225,
-        235,
-        245,
-        255
-      ],
-      "source": "vendor"
-    },
-    "ench_bracer_major_mana_regeneration": {
-      "name": "Enchant Bracer: Major Mana Regeneration",
-      "inputs": {
-        "illusion_dust": 3,
-        "greater_eternal_essence": 1,
-        "large_brilliant_shard": 1
-      },
-      "skill_required": 280,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_major_mana_regeneration"
-      },
-      "tool": [
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        280,
-        290,
-        300,
-        310
-      ],
-      "source": "trainer"
-    },
-    "ench_bracer_greater_healing": {
-      "name": "Enchant Bracer: Greater Healing",
-      "inputs": {
-        "vision_dust": 2,
-        "greater_mystic_essence": 1,
-        "large_glowing_shard": 1
-      },
-      "skill_required": 170,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_greater_healing"
-      },
-      "tool": [
-        "runed_golden_rod",
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        170,
-        180,
-        190,
-        200
-      ],
-      "source": "trainer"
-    },
-    "ench_bracer_major_healing": {
-      "name": "Enchant Bracer: Major Healing",
-      "inputs": {
-        "illusion_dust": 3,
-        "greater_eternal_essence": 1,
-        "large_brilliant_shard": 1
-      },
-      "skill_required": 280,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_major_healing"
-      },
-      "tool": [
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        280,
-        290,
-        300,
-        310
-      ],
-      "source": "vendor"
-    },
-    "ench_bracer_valor": {
-      "name": "Enchant Bracer: Valor",
-      "inputs": {
-        "soul_dust": 2,
-        "greater_astral_essence": 1,
-        "mob_blowdown_ash": 1
-      },
-      "skill_required": 120,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_valor"
-      },
-      "tool": [
-        "runed_silver_rod",
-        "runed_golden_rod",
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        120,
-        130,
-        140,
-        150
-      ],
-      "source": "trainer"
-    },
-    "ench_bracer_superior_valor": {
-      "name": "Enchant Bracer: Superior Valor",
-      "inputs": {
-        "dream_dust": 3,
-        "greater_nether_essence": 1,
-        "large_radiant_shard": 1
-      },
-      "skill_required": 230,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_superior_valor"
-      },
-      "tool": [
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        230,
-        240,
-        250,
-        260
-      ],
-      "source": "vendor"
-    },
-    "ench_bracer_major_valor": {
-      "name": "Enchant Bracer: Major Valor",
-      "inputs": {
-        "illusion_dust": 3,
-        "greater_eternal_essence": 1,
-        "large_brilliant_shard": 1
-      },
-      "skill_required": 285,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_major_valor"
-      },
-      "tool": [
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        285,
-        295,
-        305,
-        315
-      ],
-      "source": "drop"
-    },
-    "ench_bracer_wildheart": {
-      "name": "Enchant Bracer: Wildheart",
-      "inputs": {
-        "soul_dust": 2,
-        "greater_astral_essence": 1,
-        "mob_wisp_light": 1
-      },
-      "skill_required": 120,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_wildheart"
-      },
-      "tool": [
-        "runed_silver_rod",
-        "runed_golden_rod",
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        120,
-        130,
-        140,
-        150
-      ],
-      "source": "trainer"
-    },
-    "ench_bracer_superior_wildheart": {
-      "name": "Enchant Bracer: Superior Wildheart",
-      "inputs": {
-        "dream_dust": 3,
-        "greater_nether_essence": 1,
-        "large_radiant_shard": 1
-      },
-      "skill_required": 230,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_superior_wildheart"
-      },
-      "tool": [
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        230,
-        240,
-        250,
-        260
-      ],
-      "source": "vendor"
-    },
-    "ench_bracer_major_wildheart": {
-      "name": "Enchant Bracer: Major Wildheart",
-      "inputs": {
-        "illusion_dust": 3,
-        "greater_eternal_essence": 1,
-        "large_brilliant_shard": 1
-      },
-      "skill_required": 285,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_major_wildheart"
-      },
-      "tool": [
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        285,
-        295,
-        305,
-        315
-      ],
-      "source": "drop"
-    },
-    "ench_bracer_greater_devotion": {
-      "name": "Enchant Bracer: Greater Devotion",
-      "inputs": {
-        "vision_dust": 2,
-        "greater_mystic_essence": 1,
-        "large_glowing_shard": 1
-      },
-      "skill_required": 175,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_greater_devotion"
-      },
-      "tool": [
-        "runed_golden_rod",
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        175,
-        185,
-        195,
-        205
-      ],
-      "source": "trainer"
-    },
-    "ench_bracer_major_devotion": {
-      "name": "Enchant Bracer: Major Devotion",
-      "inputs": {
-        "illusion_dust": 3,
-        "greater_eternal_essence": 1,
-        "large_brilliant_shard": 1
-      },
-      "skill_required": 285,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_bracer_major_devotion"
-      },
-      "tool": [
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        285,
-        295,
-        305,
-        315
-      ],
-      "source": "vendor"
-    },
-    "ench_boots_minor_stamina": {
-      "name": "Enchant Boots: Minor Stamina",
-      "inputs": {
-        "strange_dust": 1,
-        "lesser_magic_essence": 1,
-        "mob_grave_dust": 1
-      },
-      "skill_required": 10,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_boots_minor_stamina"
-      },
-      "tool": [
-        "runed_copper_rod",
-        "runed_silver_rod",
-        "runed_golden_rod",
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        10,
-        20,
-        30,
-        40
-      ],
-      "source": "trainer"
-    },
     "ench_boots_stamina": {
       "name": "Enchant Boots: Stamina",
       "inputs": {
         "soul_dust": 2,
         "greater_astral_essence": 1
       },
-      "skill_required": 115,
+      "skill_required": 112,
       "output": {
         "kind": "material",
         "material_id": "enchant_boots_stamina"
@@ -805,10 +805,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        115,
-        125,
-        135,
-        145
+        112,
+        122,
+        132,
+        142
       ],
       "source": "vendor"
     },
@@ -819,7 +819,7 @@
         "greater_nether_essence": 1,
         "large_radiant_shard": 1
       },
-      "skill_required": 225,
+      "skill_required": 222,
       "output": {
         "kind": "material",
         "material_id": "enchant_boots_superior_stamina"
@@ -829,10 +829,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        225,
-        235,
-        245,
-        255
+        222,
+        232,
+        242,
+        252
       ],
       "source": "trainer"
     },
@@ -843,7 +843,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 280,
+      "skill_required": 275,
       "output": {
         "kind": "material",
         "material_id": "enchant_boots_major_stamina"
@@ -852,10 +852,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        280,
-        290,
-        300,
-        310
+        275,
+        285,
+        295,
+        305
       ],
       "source": "drop"
     },
@@ -866,7 +866,7 @@
         "lesser_magic_essence": 1,
         "mob_whirling_grit": 1
       },
-      "skill_required": 13,
+      "skill_required": 20,
       "output": {
         "kind": "material",
         "material_id": "enchant_boots_minor_agility"
@@ -879,10 +879,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        13,
-        23,
-        33,
-        43
+        20,
+        30,
+        40,
+        50
       ],
       "source": "trainer"
     },
@@ -892,7 +892,7 @@
         "soul_dust": 2,
         "greater_astral_essence": 1
       },
-      "skill_required": 115,
+      "skill_required": 123,
       "output": {
         "kind": "material",
         "material_id": "enchant_boots_agility"
@@ -904,10 +904,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        115,
-        125,
-        135,
-        145
+        123,
+        133,
+        143,
+        153
       ],
       "source": "vendor"
     },
@@ -918,7 +918,7 @@
         "greater_nether_essence": 1,
         "large_radiant_shard": 1
       },
-      "skill_required": 225,
+      "skill_required": 230,
       "output": {
         "kind": "material",
         "material_id": "enchant_boots_superior_agility"
@@ -928,10 +928,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        225,
-        235,
-        245,
-        255
+        230,
+        240,
+        250,
+        260
       ],
       "source": "trainer"
     },
@@ -942,7 +942,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 280,
+      "skill_required": 279,
       "output": {
         "kind": "material",
         "material_id": "enchant_boots_major_agility"
@@ -951,10 +951,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        280,
-        290,
-        300,
-        310
+        279,
+        289,
+        299,
+        309
       ],
       "source": "drop"
     },
@@ -964,7 +964,7 @@
         "strange_dust": 2,
         "greater_magic_essence": 1
       },
-      "skill_required": 60,
+      "skill_required": 77,
       "output": {
         "kind": "material",
         "material_id": "enchant_boots_lesser_spirit"
@@ -977,10 +977,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        60,
-        70,
-        80,
-        90
+        77,
+        87,
+        97,
+        107
       ],
       "source": "trainer"
     },
@@ -991,7 +991,7 @@
         "greater_mystic_essence": 1,
         "large_glowing_shard": 1
       },
-      "skill_required": 170,
+      "skill_required": 178,
       "output": {
         "kind": "material",
         "material_id": "enchant_boots_greater_spirit"
@@ -1002,10 +1002,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        170,
-        180,
-        190,
-        200
+        178,
+        188,
+        198,
+        208
       ],
       "source": "drop"
     },
@@ -1016,7 +1016,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 280,
+      "skill_required": 283,
       "output": {
         "kind": "material",
         "material_id": "enchant_boots_major_spirit"
@@ -1025,10 +1025,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        280,
-        290,
-        300,
-        310
+        283,
+        293,
+        303,
+        313
       ],
       "source": "trainer"
     },
@@ -1039,7 +1039,7 @@
         "greater_astral_essence": 1,
         "mob_blowdown_ash": 1
       },
-      "skill_required": 120,
+      "skill_required": 138,
       "output": {
         "kind": "material",
         "material_id": "enchant_boots_swiftness"
@@ -1051,10 +1051,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        120,
-        130,
-        140,
-        150
+        138,
+        148,
+        158,
+        168
       ],
       "source": "trainer"
     },
@@ -1065,7 +1065,7 @@
         "greater_nether_essence": 1,
         "large_radiant_shard": 1
       },
-      "skill_required": 230,
+      "skill_required": 242,
       "output": {
         "kind": "material",
         "material_id": "enchant_boots_superior_swiftness"
@@ -1075,10 +1075,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        230,
-        240,
-        250,
-        260
+        242,
+        252,
+        262,
+        272
       ],
       "source": "vendor"
     },
@@ -1089,7 +1089,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 285,
+      "skill_required": 286,
       "output": {
         "kind": "material",
         "material_id": "enchant_boots_major_swiftness"
@@ -1098,10 +1098,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        285,
-        295,
-        305,
-        315
+        286,
+        296,
+        306,
+        316
       ],
       "source": "drop"
     },
@@ -1113,7 +1113,7 @@
         "large_glowing_shard": 1,
         "mob_barrow_dust": 1
       },
-      "skill_required": 175,
+      "skill_required": 194,
       "output": {
         "kind": "material",
         "material_id": "enchant_boots_greater_vigor"
@@ -1124,10 +1124,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        175,
-        185,
-        195,
-        205
+        194,
+        204,
+        214,
+        224
       ],
       "source": "trainer"
     },
@@ -1138,7 +1138,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 285,
+      "skill_required": 290,
       "output": {
         "kind": "material",
         "material_id": "enchant_boots_major_vigor"
@@ -1147,10 +1147,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        285,
-        295,
-        305,
-        315
+        290,
+        300,
+        310,
+        320
       ],
       "source": "vendor"
     },
@@ -1161,7 +1161,7 @@
         "greater_nether_essence": 1,
         "large_radiant_shard": 1
       },
-      "skill_required": 230,
+      "skill_required": 258,
       "output": {
         "kind": "material",
         "material_id": "enchant_boots_superior_stormcaller"
@@ -1171,10 +1171,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        230,
-        240,
-        250,
-        260
+        258,
+        268,
+        278,
+        288
       ],
       "source": "trainer"
     },
@@ -1185,7 +1185,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 285,
+      "skill_required": 293,
       "output": {
         "kind": "material",
         "material_id": "enchant_boots_major_stormcaller"
@@ -1194,10 +1194,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        285,
-        295,
-        305,
-        315
+        293,
+        303,
+        313,
+        323
       ],
       "source": "vendor"
     },
@@ -1207,7 +1207,7 @@
         "strange_dust": 2,
         "greater_magic_essence": 1
       },
-      "skill_required": 60,
+      "skill_required": 35,
       "output": {
         "kind": "material",
         "material_id": "enchant_gloves_lesser_strength"
@@ -1220,10 +1220,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        60,
-        70,
-        80,
-        90
+        35,
+        45,
+        55,
+        65
       ],
       "source": "trainer"
     },
@@ -1234,7 +1234,7 @@
         "greater_mystic_essence": 1,
         "large_glowing_shard": 1
       },
-      "skill_required": 170,
+      "skill_required": 165,
       "output": {
         "kind": "material",
         "material_id": "enchant_gloves_greater_strength"
@@ -1245,10 +1245,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        170,
-        180,
-        190,
-        200
+        165,
+        175,
+        185,
+        195
       ],
       "source": "drop"
     },
@@ -1259,7 +1259,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 280,
+      "skill_required": 276,
       "output": {
         "kind": "material",
         "material_id": "enchant_gloves_major_strength"
@@ -1268,10 +1268,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        280,
-        290,
-        300,
-        310
+        276,
+        286,
+        296,
+        306
       ],
       "source": "trainer"
     },
@@ -1281,7 +1281,7 @@
         "strange_dust": 2,
         "greater_magic_essence": 1
       },
-      "skill_required": 60,
+      "skill_required": 56,
       "output": {
         "kind": "material",
         "material_id": "enchant_gloves_lesser_agility"
@@ -1294,10 +1294,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        60,
-        70,
-        80,
-        90
+        56,
+        66,
+        76,
+        86
       ],
       "source": "trainer"
     },
@@ -1308,7 +1308,7 @@
         "greater_mystic_essence": 1,
         "large_glowing_shard": 1
       },
-      "skill_required": 170,
+      "skill_required": 171,
       "output": {
         "kind": "material",
         "material_id": "enchant_gloves_greater_agility"
@@ -1319,10 +1319,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        170,
-        180,
-        190,
-        200
+        171,
+        181,
+        191,
+        201
       ],
       "source": "drop"
     },
@@ -1356,7 +1356,7 @@
         "greater_mystic_essence": 1,
         "large_glowing_shard": 1
       },
-      "skill_required": 170,
+      "skill_required": 180,
       "output": {
         "kind": "material",
         "material_id": "enchant_gloves_greater_spell_power"
@@ -1367,10 +1367,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        170,
         180,
         190,
-        200
+        200,
+        210
       ],
       "source": "trainer"
     },
@@ -1381,7 +1381,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 280,
+      "skill_required": 283,
       "output": {
         "kind": "material",
         "material_id": "enchant_gloves_major_spell_power"
@@ -1390,10 +1390,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        280,
-        290,
-        300,
-        310
+        283,
+        293,
+        303,
+        313
       ],
       "source": "vendor"
     },
@@ -1404,7 +1404,7 @@
         "greater_mystic_essence": 1,
         "large_glowing_shard": 1
       },
-      "skill_required": 170,
+      "skill_required": 190,
       "output": {
         "kind": "material",
         "material_id": "enchant_gloves_greater_healing"
@@ -1415,10 +1415,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        170,
-        180,
         190,
-        200
+        200,
+        210,
+        220
       ],
       "source": "trainer"
     },
@@ -1429,7 +1429,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 280,
+      "skill_required": 287,
       "output": {
         "kind": "material",
         "material_id": "enchant_gloves_major_healing"
@@ -1438,10 +1438,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        280,
-        290,
-        300,
-        310
+        287,
+        297,
+        307,
+        317
       ],
       "source": "vendor"
     },
@@ -1452,7 +1452,7 @@
         "greater_astral_essence": 1,
         "mob_void_shard": 1
       },
-      "skill_required": 120,
+      "skill_required": 149,
       "output": {
         "kind": "material",
         "material_id": "enchant_gloves_battlemage"
@@ -1464,10 +1464,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        120,
-        130,
-        140,
-        150
+        149,
+        159,
+        169,
+        179
       ],
       "source": "trainer"
     },
@@ -1478,7 +1478,7 @@
         "greater_nether_essence": 1,
         "large_radiant_shard": 1
       },
-      "skill_required": 230,
+      "skill_required": 250,
       "output": {
         "kind": "material",
         "material_id": "enchant_gloves_superior_battlemage"
@@ -1488,10 +1488,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        230,
-        240,
         250,
-        260
+        260,
+        270,
+        280
       ],
       "source": "vendor"
     },
@@ -1502,7 +1502,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 285,
+      "skill_required": 290,
       "output": {
         "kind": "material",
         "material_id": "enchant_gloves_major_battlemage"
@@ -1511,10 +1511,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        285,
-        295,
-        305,
-        315
+        290,
+        300,
+        310,
+        320
       ],
       "source": "drop"
     },
@@ -1525,7 +1525,7 @@
         "greater_mystic_essence": 1,
         "large_glowing_shard": 1
       },
-      "skill_required": 175,
+      "skill_required": 198,
       "output": {
         "kind": "material",
         "material_id": "enchant_gloves_greater_stormcaller"
@@ -1536,10 +1536,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        175,
-        185,
-        195,
-        205
+        198,
+        208,
+        218,
+        228
       ],
       "source": "trainer"
     },
@@ -1550,7 +1550,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 285,
+      "skill_required": 293,
       "output": {
         "kind": "material",
         "material_id": "enchant_gloves_major_stormcaller"
@@ -1559,10 +1559,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        285,
-        295,
-        305,
-        315
+        293,
+        303,
+        313,
+        323
       ],
       "source": "vendor"
     },
@@ -1573,7 +1573,7 @@
         "greater_nether_essence": 1,
         "large_radiant_shard": 1
       },
-      "skill_required": 230,
+      "skill_required": 260,
       "output": {
         "kind": "material",
         "material_id": "enchant_gloves_superior_valor"
@@ -1583,10 +1583,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        230,
-        240,
-        250,
-        260
+        260,
+        270,
+        280,
+        290
       ],
       "source": "trainer"
     },
@@ -1597,7 +1597,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 285,
+      "skill_required": 296,
       "output": {
         "kind": "material",
         "material_id": "enchant_gloves_major_valor"
@@ -1606,10 +1606,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        285,
-        295,
-        305,
-        315
+        296,
+        306,
+        316,
+        326
       ],
       "source": "vendor"
     },
@@ -1619,7 +1619,7 @@
         "strange_dust": 1,
         "lesser_magic_essence": 1
       },
-      "skill_required": 17,
+      "skill_required": 7,
       "output": {
         "kind": "material",
         "material_id": "enchant_cloak_minor_protection"
@@ -1632,10 +1632,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
+        7,
         17,
         27,
-        37,
-        47
+        37
       ],
       "source": "trainer"
     },
@@ -1645,7 +1645,7 @@
         "soul_dust": 2,
         "greater_astral_essence": 1
       },
-      "skill_required": 115,
+      "skill_required": 114,
       "output": {
         "kind": "material",
         "material_id": "enchant_cloak_protection"
@@ -1657,10 +1657,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        115,
-        125,
-        135,
-        145
+        114,
+        124,
+        134,
+        144
       ],
       "source": "vendor"
     },
@@ -1671,7 +1671,7 @@
         "greater_nether_essence": 1,
         "large_radiant_shard": 1
       },
-      "skill_required": 225,
+      "skill_required": 223,
       "output": {
         "kind": "material",
         "material_id": "enchant_cloak_superior_protection"
@@ -1681,10 +1681,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        225,
-        235,
-        245,
-        255
+        223,
+        233,
+        243,
+        253
       ],
       "source": "trainer"
     },
@@ -1695,7 +1695,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 280,
+      "skill_required": 276,
       "output": {
         "kind": "material",
         "material_id": "enchant_cloak_major_protection"
@@ -1704,10 +1704,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        280,
-        290,
-        300,
-        310
+        276,
+        286,
+        296,
+        306
       ],
       "source": "drop"
     },
@@ -1717,7 +1717,7 @@
         "strange_dust": 1,
         "greater_magic_essence": 1
       },
-      "skill_required": 60,
+      "skill_required": 63,
       "output": {
         "kind": "material",
         "material_id": "enchant_cloak_lesser_agility"
@@ -1730,10 +1730,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        60,
-        70,
-        80,
-        90
+        63,
+        73,
+        83,
+        93
       ],
       "source": "trainer"
     },
@@ -1744,7 +1744,7 @@
         "greater_mystic_essence": 1,
         "large_glowing_shard": 1
       },
-      "skill_required": 170,
+      "skill_required": 173,
       "output": {
         "kind": "material",
         "material_id": "enchant_cloak_greater_agility"
@@ -1755,10 +1755,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        170,
-        180,
-        190,
-        200
+        173,
+        183,
+        193,
+        203
       ],
       "source": "drop"
     },
@@ -1792,7 +1792,7 @@
         "greater_mystic_essence": 1,
         "large_glowing_shard": 1
       },
-      "skill_required": 175,
+      "skill_required": 182,
       "output": {
         "kind": "material",
         "material_id": "enchant_cloak_greater_warding"
@@ -1803,10 +1803,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        175,
-        185,
-        195,
-        205
+        182,
+        192,
+        202,
+        212
       ],
       "source": "trainer"
     },
@@ -1817,7 +1817,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 285,
+      "skill_required": 284,
       "output": {
         "kind": "material",
         "material_id": "enchant_cloak_major_warding"
@@ -1826,10 +1826,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        285,
-        295,
-        305,
-        315
+        284,
+        294,
+        304,
+        314
       ],
       "source": "vendor"
     },
@@ -1840,7 +1840,7 @@
         "lesser_magic_essence": 1,
         "mob_imp_brimstone": 1
       },
-      "skill_required": 20,
+      "skill_required": 10,
       "output": {
         "kind": "material",
         "material_id": "enchant_chest_minor_stamina"
@@ -1853,10 +1853,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
+        10,
         20,
         30,
-        40,
-        50
+        40
       ],
       "source": "trainer"
     },
@@ -1866,7 +1866,7 @@
         "soul_dust": 2,
         "greater_astral_essence": 1
       },
-      "skill_required": 115,
+      "skill_required": 117,
       "output": {
         "kind": "material",
         "material_id": "enchant_chest_stamina"
@@ -1878,10 +1878,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        115,
-        125,
-        135,
-        145
+        117,
+        127,
+        137,
+        147
       ],
       "source": "vendor"
     },
@@ -1916,7 +1916,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 280,
+      "skill_required": 277,
       "output": {
         "kind": "material",
         "material_id": "enchant_chest_major_stamina"
@@ -1925,10 +1925,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        280,
-        290,
-        300,
-        310
+        277,
+        287,
+        297,
+        307
       ],
       "source": "drop"
     },
@@ -1965,7 +1965,7 @@
         "soul_dust": 2,
         "greater_astral_essence": 1
       },
-      "skill_required": 115,
+      "skill_required": 125,
       "output": {
         "kind": "material",
         "material_id": "enchant_chest_intellect"
@@ -1977,10 +1977,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        115,
         125,
         135,
-        145
+        145,
+        155
       ],
       "source": "vendor"
     },
@@ -1991,7 +1991,7 @@
         "greater_nether_essence": 1,
         "large_radiant_shard": 1
       },
-      "skill_required": 225,
+      "skill_required": 232,
       "output": {
         "kind": "material",
         "material_id": "enchant_chest_superior_intellect"
@@ -2001,10 +2001,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        225,
-        235,
-        245,
-        255
+        232,
+        242,
+        252,
+        262
       ],
       "source": "trainer"
     },
@@ -2037,7 +2037,7 @@
         "strange_dust": 2,
         "greater_magic_essence": 1
       },
-      "skill_required": 60,
+      "skill_required": 84,
       "output": {
         "kind": "material",
         "material_id": "enchant_chest_lesser_stats"
@@ -2050,10 +2050,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        60,
-        70,
-        80,
-        90
+        84,
+        94,
+        104,
+        114
       ],
       "source": "trainer"
     },
@@ -2064,7 +2064,7 @@
         "greater_mystic_essence": 1,
         "large_glowing_shard": 1
       },
-      "skill_required": 170,
+      "skill_required": 184,
       "output": {
         "kind": "material",
         "material_id": "enchant_chest_greater_stats"
@@ -2075,10 +2075,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        170,
-        180,
-        190,
-        200
+        184,
+        194,
+        204,
+        214
       ],
       "source": "drop"
     },
@@ -2089,7 +2089,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 280,
+      "skill_required": 284,
       "output": {
         "kind": "material",
         "material_id": "enchant_chest_major_stats"
@@ -2098,10 +2098,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        280,
-        290,
-        300,
-        310
+        284,
+        294,
+        304,
+        314
       ],
       "source": "trainer"
     },
@@ -2111,7 +2111,7 @@
         "soul_dust": 2,
         "greater_astral_essence": 1
       },
-      "skill_required": 115,
+      "skill_required": 140,
       "output": {
         "kind": "material",
         "material_id": "enchant_chest_spirit"
@@ -2123,10 +2123,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        115,
-        125,
-        135,
-        145
+        140,
+        150,
+        160,
+        170
       ],
       "source": "trainer"
     },
@@ -2137,7 +2137,7 @@
         "greater_nether_essence": 1,
         "large_radiant_shard": 1
       },
-      "skill_required": 225,
+      "skill_required": 243,
       "output": {
         "kind": "material",
         "material_id": "enchant_chest_superior_spirit"
@@ -2147,10 +2147,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        225,
-        235,
-        245,
-        255
+        243,
+        253,
+        263,
+        273
       ],
       "source": "vendor"
     },
@@ -2161,7 +2161,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 280,
+      "skill_required": 287,
       "output": {
         "kind": "material",
         "material_id": "enchant_chest_major_spirit"
@@ -2170,10 +2170,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        280,
-        290,
-        300,
-        310
+        287,
+        297,
+        307,
+        317
       ],
       "source": "trainer"
     },
@@ -2184,7 +2184,7 @@
         "greater_astral_essence": 1,
         "mob_wisp_light": 1
       },
-      "skill_required": 120,
+      "skill_required": 151,
       "output": {
         "kind": "material",
         "material_id": "enchant_chest_sagacity"
@@ -2196,10 +2196,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        120,
-        130,
-        140,
-        150
+        151,
+        161,
+        171,
+        181
       ],
       "source": "trainer"
     },
@@ -2210,7 +2210,7 @@
         "greater_nether_essence": 1,
         "large_radiant_shard": 1
       },
-      "skill_required": 230,
+      "skill_required": 252,
       "output": {
         "kind": "material",
         "material_id": "enchant_chest_superior_sagacity"
@@ -2220,10 +2220,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        230,
-        240,
-        250,
-        260
+        252,
+        262,
+        272,
+        282
       ],
       "source": "vendor"
     },
@@ -2234,7 +2234,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 285,
+      "skill_required": 290,
       "output": {
         "kind": "material",
         "material_id": "enchant_chest_major_sagacity"
@@ -2243,10 +2243,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        285,
-        295,
-        305,
-        315
+        290,
+        300,
+        310,
+        320
       ],
       "source": "drop"
     },
@@ -2257,7 +2257,7 @@
         "greater_mystic_essence": 1,
         "large_glowing_shard": 1
       },
-      "skill_required": 175,
+      "skill_required": 200,
       "output": {
         "kind": "material",
         "material_id": "enchant_chest_greater_vigor"
@@ -2268,10 +2268,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        175,
-        185,
-        195,
-        205
+        200,
+        210,
+        220,
+        230
       ],
       "source": "trainer"
     },
@@ -2282,7 +2282,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 285,
+      "skill_required": 294,
       "output": {
         "kind": "material",
         "material_id": "enchant_chest_major_vigor"
@@ -2291,10 +2291,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        285,
-        295,
-        305,
-        315
+        294,
+        304,
+        314,
+        324
       ],
       "source": "vendor"
     },
@@ -2305,7 +2305,7 @@
         "greater_nether_essence": 1,
         "large_radiant_shard": 1
       },
-      "skill_required": 230,
+      "skill_required": 262,
       "output": {
         "kind": "material",
         "material_id": "enchant_chest_superior_devotion"
@@ -2315,10 +2315,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        230,
-        240,
-        250,
-        260
+        262,
+        272,
+        282,
+        292
       ],
       "source": "trainer"
     },
@@ -2329,7 +2329,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 285,
+      "skill_required": 296,
       "output": {
         "kind": "material",
         "material_id": "enchant_chest_major_devotion"
@@ -2338,10 +2338,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        285,
-        295,
-        305,
-        315
+        296,
+        306,
+        316,
+        326
       ],
       "source": "vendor"
     },
@@ -2351,10 +2351,108 @@
         "strange_dust": 1,
         "lesser_magic_essence": 1
       },
-      "skill_required": 27,
+      "skill_required": 13,
       "output": {
         "kind": "material",
         "material_id": "enchant_shield_minor_stamina"
+      },
+      "tool": [
+        "runed_copper_rod",
+        "runed_silver_rod",
+        "runed_golden_rod",
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        13,
+        23,
+        33,
+        43
+      ],
+      "source": "trainer"
+    },
+    "ench_shield_stamina": {
+      "name": "Enchant Shield: Stamina",
+      "inputs": {
+        "soul_dust": 2,
+        "greater_astral_essence": 1
+      },
+      "skill_required": 119,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_shield_stamina"
+      },
+      "tool": [
+        "runed_silver_rod",
+        "runed_golden_rod",
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        119,
+        129,
+        139,
+        149
+      ],
+      "source": "vendor"
+    },
+    "ench_shield_superior_stamina": {
+      "name": "Enchant Shield: Superior Stamina",
+      "inputs": {
+        "dream_dust": 3,
+        "greater_nether_essence": 1,
+        "large_radiant_shard": 1
+      },
+      "skill_required": 227,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_shield_superior_stamina"
+      },
+      "tool": [
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        227,
+        237,
+        247,
+        257
+      ],
+      "source": "trainer"
+    },
+    "ench_shield_major_stamina": {
+      "name": "Enchant Shield: Major Stamina",
+      "inputs": {
+        "illusion_dust": 4,
+        "greater_eternal_essence": 1,
+        "large_brilliant_shard": 1
+      },
+      "skill_required": 277,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_shield_major_stamina"
+      },
+      "tool": [
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        277,
+        287,
+        297,
+        307
+      ],
+      "source": "drop"
+    },
+    "ench_shield_minor_spirit": {
+      "name": "Enchant Shield: Minor Spirit",
+      "inputs": {
+        "strange_dust": 1,
+        "lesser_magic_essence": 1
+      },
+      "skill_required": 27,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_shield_minor_spirit"
       },
       "tool": [
         "runed_copper_rod",
@@ -2371,111 +2469,13 @@
       ],
       "source": "trainer"
     },
-    "ench_shield_stamina": {
-      "name": "Enchant Shield: Stamina",
-      "inputs": {
-        "soul_dust": 2,
-        "greater_astral_essence": 1
-      },
-      "skill_required": 115,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_shield_stamina"
-      },
-      "tool": [
-        "runed_silver_rod",
-        "runed_golden_rod",
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        115,
-        125,
-        135,
-        145
-      ],
-      "source": "vendor"
-    },
-    "ench_shield_superior_stamina": {
-      "name": "Enchant Shield: Superior Stamina",
-      "inputs": {
-        "dream_dust": 3,
-        "greater_nether_essence": 1,
-        "large_radiant_shard": 1
-      },
-      "skill_required": 225,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_shield_superior_stamina"
-      },
-      "tool": [
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        225,
-        235,
-        245,
-        255
-      ],
-      "source": "trainer"
-    },
-    "ench_shield_major_stamina": {
-      "name": "Enchant Shield: Major Stamina",
-      "inputs": {
-        "illusion_dust": 4,
-        "greater_eternal_essence": 1,
-        "large_brilliant_shard": 1
-      },
-      "skill_required": 280,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_shield_major_stamina"
-      },
-      "tool": [
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        280,
-        290,
-        300,
-        310
-      ],
-      "source": "drop"
-    },
-    "ench_shield_minor_spirit": {
-      "name": "Enchant Shield: Minor Spirit",
-      "inputs": {
-        "strange_dust": 1,
-        "lesser_magic_essence": 1
-      },
-      "skill_required": 30,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_shield_minor_spirit"
-      },
-      "tool": [
-        "runed_copper_rod",
-        "runed_silver_rod",
-        "runed_golden_rod",
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        30,
-        40,
-        50,
-        60
-      ],
-      "source": "trainer"
-    },
     "ench_shield_spirit": {
       "name": "Enchant Shield: Spirit",
       "inputs": {
         "soul_dust": 2,
         "greater_astral_essence": 1
       },
-      "skill_required": 115,
+      "skill_required": 127,
       "output": {
         "kind": "material",
         "material_id": "enchant_shield_spirit"
@@ -2487,10 +2487,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        115,
-        125,
-        135,
-        145
+        127,
+        137,
+        147,
+        157
       ],
       "source": "vendor"
     },
@@ -2501,7 +2501,7 @@
         "greater_nether_essence": 1,
         "large_radiant_shard": 1
       },
-      "skill_required": 225,
+      "skill_required": 233,
       "output": {
         "kind": "material",
         "material_id": "enchant_shield_superior_spirit"
@@ -2511,10 +2511,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        225,
-        235,
-        245,
-        255
+        233,
+        243,
+        253,
+        263
       ],
       "source": "trainer"
     },
@@ -2525,7 +2525,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 280,
+      "skill_required": 281,
       "output": {
         "kind": "material",
         "material_id": "enchant_shield_major_spirit"
@@ -2534,10 +2534,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        280,
-        290,
-        300,
-        310
+        281,
+        291,
+        301,
+        311
       ],
       "source": "drop"
     },
@@ -2547,7 +2547,7 @@
         "strange_dust": 2,
         "greater_magic_essence": 1
       },
-      "skill_required": 60,
+      "skill_required": 91,
       "output": {
         "kind": "material",
         "material_id": "enchant_shield_lesser_blocking"
@@ -2560,10 +2560,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        60,
-        70,
-        80,
-        90
+        91,
+        101,
+        111,
+        121
       ],
       "source": "trainer"
     },
@@ -2574,7 +2574,7 @@
         "greater_mystic_essence": 1,
         "large_glowing_shard": 1
       },
-      "skill_required": 170,
+      "skill_required": 186,
       "output": {
         "kind": "material",
         "material_id": "enchant_shield_greater_blocking"
@@ -2585,10 +2585,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        170,
-        180,
-        190,
-        200
+        186,
+        196,
+        206,
+        216
       ],
       "source": "drop"
     },
@@ -2599,7 +2599,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 280,
+      "skill_required": 285,
       "output": {
         "kind": "material",
         "material_id": "enchant_shield_major_blocking"
@@ -2608,10 +2608,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        280,
-        290,
-        300,
-        310
+        285,
+        295,
+        305,
+        315
       ],
       "source": "trainer"
     },
@@ -2621,7 +2621,7 @@
         "soul_dust": 2,
         "greater_astral_essence": 1
       },
-      "skill_required": 115,
+      "skill_required": 143,
       "output": {
         "kind": "material",
         "material_id": "enchant_shield_intellect"
@@ -2633,10 +2633,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        115,
-        125,
-        135,
-        145
+        143,
+        153,
+        163,
+        173
       ],
       "source": "trainer"
     },
@@ -2647,7 +2647,7 @@
         "greater_nether_essence": 1,
         "large_radiant_shard": 1
       },
-      "skill_required": 225,
+      "skill_required": 245,
       "output": {
         "kind": "material",
         "material_id": "enchant_shield_superior_intellect"
@@ -2657,10 +2657,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        225,
-        235,
         245,
-        255
+        255,
+        265,
+        275
       ],
       "source": "vendor"
     },
@@ -2671,7 +2671,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 280,
+      "skill_required": 288,
       "output": {
         "kind": "material",
         "material_id": "enchant_shield_major_intellect"
@@ -2680,10 +2680,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        280,
-        290,
-        300,
-        310
+        288,
+        298,
+        308,
+        318
       ],
       "source": "trainer"
     },
@@ -2694,7 +2694,7 @@
         "greater_astral_essence": 1,
         "mob_void_shard": 1
       },
-      "skill_required": 120,
+      "skill_required": 153,
       "output": {
         "kind": "material",
         "material_id": "enchant_shield_warding"
@@ -2706,10 +2706,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        120,
-        130,
-        140,
-        150
+        153,
+        163,
+        173,
+        183
       ],
       "source": "trainer"
     },
@@ -2720,7 +2720,7 @@
         "greater_nether_essence": 1,
         "large_radiant_shard": 1
       },
-      "skill_required": 230,
+      "skill_required": 253,
       "output": {
         "kind": "material",
         "material_id": "enchant_shield_superior_warding"
@@ -2730,10 +2730,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        230,
-        240,
-        250,
-        260
+        253,
+        263,
+        273,
+        283
       ],
       "source": "vendor"
     },
@@ -2744,7 +2744,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 285,
+      "skill_required": 291,
       "output": {
         "kind": "material",
         "material_id": "enchant_shield_major_warding"
@@ -2753,10 +2753,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        285,
-        295,
-        305,
-        315
+        291,
+        301,
+        311,
+        321
       ],
       "source": "drop"
     },
@@ -2767,7 +2767,7 @@
         "greater_mystic_essence": 1,
         "large_glowing_shard": 1
       },
-      "skill_required": 175,
+      "skill_required": 202,
       "output": {
         "kind": "material",
         "material_id": "enchant_shield_greater_valor"
@@ -2778,10 +2778,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        175,
-        185,
-        195,
-        205
+        202,
+        212,
+        222,
+        232
       ],
       "source": "trainer"
     },
@@ -2792,7 +2792,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 285,
+      "skill_required": 294,
       "output": {
         "kind": "material",
         "material_id": "enchant_shield_major_valor"
@@ -2801,10 +2801,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        285,
-        295,
-        305,
-        315
+        294,
+        304,
+        314,
+        324
       ],
       "source": "vendor"
     },
@@ -2815,7 +2815,7 @@
         "greater_magic_essence": 1,
         "small_glimmering_shard": 1
       },
-      "skill_required": 60,
+      "skill_required": 42,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_lesser_spirit"
@@ -2828,10 +2828,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        60,
-        70,
-        80,
-        90
+        42,
+        52,
+        62,
+        72
       ],
       "source": "trainer"
     },
@@ -2842,7 +2842,7 @@
         "greater_mystic_essence": 1,
         "large_glowing_shard": 1
       },
-      "skill_required": 170,
+      "skill_required": 167,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_greater_spirit"
@@ -2853,10 +2853,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        170,
-        180,
-        190,
-        200
+        167,
+        177,
+        187,
+        197
       ],
       "source": "drop"
     },
@@ -2867,7 +2867,7 @@
         "greater_eternal_essence": 2,
         "large_brilliant_shard": 1
       },
-      "skill_required": 280,
+      "skill_required": 278,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_major_spirit"
@@ -2876,10 +2876,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        280,
-        290,
-        300,
-        310
+        278,
+        288,
+        298,
+        308
       ],
       "source": "trainer"
     },
@@ -2890,7 +2890,7 @@
         "greater_astral_essence": 1,
         "large_glimmering_shard": 1
       },
-      "skill_required": 115,
+      "skill_required": 130,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_strength"
@@ -2902,10 +2902,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        115,
-        125,
-        135,
-        145
+        130,
+        140,
+        150,
+        160
       ],
       "source": "trainer"
     },
@@ -2916,7 +2916,7 @@
         "greater_nether_essence": 1,
         "large_radiant_shard": 1
       },
-      "skill_required": 225,
+      "skill_required": 235,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_superior_strength"
@@ -2926,10 +2926,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        225,
         235,
         245,
-        255
+        255,
+        265
       ],
       "source": "vendor"
     },
@@ -2940,7 +2940,7 @@
         "greater_eternal_essence": 2,
         "large_brilliant_shard": 1
       },
-      "skill_required": 280,
+      "skill_required": 281,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_major_strength"
@@ -2949,10 +2949,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        280,
-        290,
-        300,
-        310
+        281,
+        291,
+        301,
+        311
       ],
       "source": "trainer"
     },
@@ -2963,7 +2963,7 @@
         "greater_astral_essence": 1,
         "large_glimmering_shard": 1
       },
-      "skill_required": 115,
+      "skill_required": 134,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_agility"
@@ -2975,10 +2975,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        115,
-        125,
-        135,
-        145
+        134,
+        144,
+        154,
+        164
       ],
       "source": "trainer"
     },
@@ -2989,7 +2989,7 @@
         "greater_nether_essence": 1,
         "large_radiant_shard": 1
       },
-      "skill_required": 225,
+      "skill_required": 238,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_superior_agility"
@@ -2999,10 +2999,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        225,
-        235,
-        245,
-        255
+        238,
+        248,
+        258,
+        268
       ],
       "source": "vendor"
     },
@@ -3013,7 +3013,7 @@
         "greater_eternal_essence": 2,
         "large_brilliant_shard": 1
       },
-      "skill_required": 280,
+      "skill_required": 285,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_major_agility"
@@ -3022,10 +3022,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        280,
-        290,
-        300,
-        310
+        285,
+        295,
+        305,
+        315
       ],
       "source": "trainer"
     },
@@ -3036,7 +3036,7 @@
         "greater_astral_essence": 1,
         "large_glimmering_shard": 1
       },
-      "skill_required": 115,
+      "skill_required": 145,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_intellect"
@@ -3048,10 +3048,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        115,
-        125,
-        135,
-        145
+        145,
+        155,
+        165,
+        175
       ],
       "source": "trainer"
     },
@@ -3062,7 +3062,7 @@
         "greater_nether_essence": 1,
         "large_radiant_shard": 1
       },
-      "skill_required": 225,
+      "skill_required": 247,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_superior_intellect"
@@ -3072,10 +3072,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        225,
-        235,
-        245,
-        255
+        247,
+        257,
+        267,
+        277
       ],
       "source": "vendor"
     },
@@ -3086,7 +3086,7 @@
         "greater_eternal_essence": 2,
         "large_brilliant_shard": 1
       },
-      "skill_required": 280,
+      "skill_required": 288,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_major_intellect"
@@ -3095,10 +3095,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        280,
-        290,
-        300,
-        310
+        288,
+        298,
+        308,
+        318
       ],
       "source": "trainer"
     },
@@ -3109,7 +3109,7 @@
         "greater_mystic_essence": 1,
         "large_glowing_shard": 1
       },
-      "skill_required": 170,
+      "skill_required": 196,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_greater_spell_power"
@@ -3120,10 +3120,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        170,
-        180,
-        190,
-        200
+        196,
+        206,
+        216,
+        226
       ],
       "source": "trainer"
     },
@@ -3134,7 +3134,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 280,
+      "skill_required": 291,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_major_spell_power"
@@ -3143,10 +3143,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        280,
-        290,
-        300,
-        310
+        291,
+        301,
+        311,
+        321
       ],
       "source": "vendor"
     },
@@ -3157,7 +3157,7 @@
         "greater_mystic_essence": 1,
         "large_glowing_shard": 1
       },
-      "skill_required": 170,
+      "skill_required": 205,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_greater_healing"
@@ -3168,10 +3168,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        170,
-        180,
-        190,
-        200
+        205,
+        215,
+        225,
+        235
       ],
       "source": "trainer"
     },
@@ -3182,7 +3182,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 280,
+      "skill_required": 295,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_major_healing"
@@ -3191,10 +3191,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        280,
-        290,
-        300,
-        310
+        295,
+        305,
+        315,
+        325
       ],
       "source": "vendor"
     },
@@ -3205,7 +3205,7 @@
         "greater_mystic_essence": 1,
         "large_glowing_shard": 1
       },
-      "skill_required": 175,
+      "skill_required": 211,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_greater_valor"
@@ -3216,10 +3216,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        175,
-        185,
-        195,
-        205
+        211,
+        221,
+        231,
+        241
       ],
       "source": "trainer"
     },
@@ -3230,7 +3230,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 285,
+      "skill_required": 297,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_major_valor"
@@ -3239,10 +3239,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        285,
-        295,
-        305,
-        315
+        297,
+        307,
+        317,
+        327
       ],
       "source": "vendor"
     },
@@ -3253,7 +3253,7 @@
         "greater_mystic_essence": 1,
         "large_glowing_shard": 1
       },
-      "skill_required": 175,
+      "skill_required": 213,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_greater_wildheart"
@@ -3264,10 +3264,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        175,
-        185,
-        195,
-        205
+        213,
+        223,
+        233,
+        243
       ],
       "source": "trainer"
     },
@@ -3278,7 +3278,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 285,
+      "skill_required": 298,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_major_wildheart"
@@ -3287,10 +3287,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        285,
-        295,
-        305,
-        315
+        298,
+        308,
+        318,
+        328
       ],
       "source": "vendor"
     },
@@ -3301,7 +3301,7 @@
         "greater_nether_essence": 1,
         "large_radiant_shard": 1
       },
-      "skill_required": 230,
+      "skill_required": 268,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_superior_battlemage"
@@ -3311,10 +3311,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        230,
-        240,
-        250,
-        260
+        268,
+        278,
+        288,
+        298
       ],
       "source": "trainer"
     },
@@ -3325,7 +3325,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 285,
+      "skill_required": 299,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_major_battlemage"
@@ -3334,10 +3334,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        285,
-        295,
-        305,
-        315
+        299,
+        309,
+        319,
+        329
       ],
       "source": "vendor"
     },
@@ -3348,7 +3348,7 @@
         "greater_nether_essence": 1,
         "large_radiant_shard": 1
       },
-      "skill_required": 230,
+      "skill_required": 270,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_superior_stormcaller"
@@ -3358,10 +3358,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        230,
-        240,
-        250,
-        260
+        270,
+        280,
+        290,
+        300
       ],
       "source": "trainer"
     },
@@ -3372,7 +3372,7 @@
         "greater_eternal_essence": 1,
         "large_brilliant_shard": 1
       },
-      "skill_required": 285,
+      "skill_required": 300,
       "output": {
         "kind": "material",
         "material_id": "enchant_weapon_major_stormcaller"
@@ -3381,10 +3381,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        285,
-        295,
-        305,
-        315
+        300,
+        310,
+        320,
+        330
       ],
       "source": "vendor"
     },
@@ -3396,7 +3396,7 @@
         "small_glimmering_shard": 1,
         "mob_dreadmist_ichor": 1
       },
-      "skill_required": 60,
+      "skill_required": 49,
       "output": {
         "kind": "material",
         "material_id": "enchant_2h_lesser_intellect"
@@ -3409,10 +3409,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        60,
-        70,
-        80,
-        90
+        49,
+        59,
+        69,
+        79
       ],
       "source": "trainer"
     },
@@ -3424,7 +3424,7 @@
         "large_glowing_shard": 1,
         "mob_lattice_shard": 1
       },
-      "skill_required": 170,
+      "skill_required": 169,
       "output": {
         "kind": "material",
         "material_id": "enchant_2h_greater_intellect"
@@ -3435,10 +3435,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        170,
-        180,
-        190,
-        200
+        169,
+        179,
+        189,
+        199
       ],
       "source": "drop"
     },
@@ -3449,7 +3449,7 @@
         "greater_eternal_essence": 2,
         "large_brilliant_shard": 2
       },
-      "skill_required": 280,
+      "skill_required": 278,
       "output": {
         "kind": "material",
         "material_id": "enchant_2h_major_intellect"
@@ -3458,10 +3458,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        280,
-        290,
-        300,
-        310
+        278,
+        288,
+        298,
+        308
       ],
       "source": "trainer"
     },
@@ -3473,7 +3473,7 @@
         "small_glimmering_shard": 1,
         "mob_stormbinder_spark": 1
       },
-      "skill_required": 60,
+      "skill_required": 70,
       "output": {
         "kind": "material",
         "material_id": "enchant_2h_lesser_spirit"
@@ -3486,10 +3486,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        60,
         70,
         80,
-        90
+        90,
+        100
       ],
       "source": "trainer"
     },
@@ -3501,254 +3501,10 @@
         "large_glowing_shard": 1,
         "mob_lattice_shard": 1
       },
-      "skill_required": 170,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_2h_greater_spirit"
-      },
-      "tool": [
-        "runed_golden_rod",
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        170,
-        180,
-        190,
-        200
-      ],
-      "source": "drop"
-    },
-    "ench_2h_major_spirit": {
-      "name": "Enchant 2H Weapon: Major Spirit",
-      "inputs": {
-        "illusion_dust": 6,
-        "greater_eternal_essence": 2,
-        "large_brilliant_shard": 2
-      },
-      "skill_required": 280,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_2h_major_spirit"
-      },
-      "tool": [
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        280,
-        290,
-        300,
-        310
-      ],
-      "source": "trainer"
-    },
-    "ench_2h_strength": {
-      "name": "Enchant 2H Weapon: Strength",
-      "inputs": {
-        "soul_dust": 4,
-        "greater_astral_essence": 1,
-        "large_glimmering_shard": 1
-      },
-      "skill_required": 115,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_2h_strength"
-      },
-      "tool": [
-        "runed_silver_rod",
-        "runed_golden_rod",
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        115,
-        125,
-        135,
-        145
-      ],
-      "source": "trainer"
-    },
-    "ench_2h_superior_strength": {
-      "name": "Enchant 2H Weapon: Superior Strength",
-      "inputs": {
-        "dream_dust": 5,
-        "greater_nether_essence": 2,
-        "large_radiant_shard": 2
-      },
-      "skill_required": 225,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_2h_superior_strength"
-      },
-      "tool": [
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        225,
-        235,
-        245,
-        255
-      ],
-      "source": "vendor"
-    },
-    "ench_2h_major_strength": {
-      "name": "Enchant 2H Weapon: Major Strength",
-      "inputs": {
-        "illusion_dust": 6,
-        "greater_eternal_essence": 2,
-        "large_brilliant_shard": 2
-      },
-      "skill_required": 280,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_2h_major_strength"
-      },
-      "tool": [
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        280,
-        290,
-        300,
-        310
-      ],
-      "source": "trainer"
-    },
-    "ench_2h_agility": {
-      "name": "Enchant 2H Weapon: Agility",
-      "inputs": {
-        "soul_dust": 4,
-        "greater_astral_essence": 1,
-        "large_glimmering_shard": 1,
-        "mob_wraith_essence": 1
-      },
-      "skill_required": 115,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_2h_agility"
-      },
-      "tool": [
-        "runed_silver_rod",
-        "runed_golden_rod",
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        115,
-        125,
-        135,
-        145
-      ],
-      "source": "trainer"
-    },
-    "ench_2h_superior_agility": {
-      "name": "Enchant 2H Weapon: Superior Agility",
-      "inputs": {
-        "dream_dust": 5,
-        "greater_nether_essence": 2,
-        "large_radiant_shard": 2,
-        "mob_veinlight_mote": 1
-      },
-      "skill_required": 225,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_2h_superior_agility"
-      },
-      "tool": [
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        225,
-        235,
-        245,
-        255
-      ],
-      "source": "vendor"
-    },
-    "ench_2h_major_agility": {
-      "name": "Enchant 2H Weapon: Major Agility",
-      "inputs": {
-        "illusion_dust": 6,
-        "greater_eternal_essence": 2,
-        "large_brilliant_shard": 2
-      },
-      "skill_required": 280,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_2h_major_agility"
-      },
-      "tool": [
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        280,
-        290,
-        300,
-        310
-      ],
-      "source": "trainer"
-    },
-    "ench_2h_superior_spell_power": {
-      "name": "Enchant 2H Weapon: Superior Spell Power",
-      "inputs": {
-        "dream_dust": 5,
-        "greater_nether_essence": 1,
-        "large_radiant_shard": 2
-      },
-      "skill_required": 225,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_2h_superior_spell_power"
-      },
-      "tool": [
-        "runed_truesilver_rod",
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        225,
-        235,
-        245,
-        255
-      ],
-      "source": "trainer"
-    },
-    "ench_2h_major_spell_power": {
-      "name": "Enchant 2H Weapon: Major Spell Power",
-      "inputs": {
-        "illusion_dust": 6,
-        "greater_eternal_essence": 2,
-        "large_brilliant_shard": 2
-      },
-      "skill_required": 280,
-      "output": {
-        "kind": "material",
-        "material_id": "enchant_2h_major_spell_power"
-      },
-      "tool": [
-        "runed_arcanite_rod"
-      ],
-      "skill_range": [
-        280,
-        290,
-        300,
-        310
-      ],
-      "source": "vendor"
-    },
-    "ench_2h_greater_valor": {
-      "name": "Enchant 2H Weapon: Greater Valor",
-      "inputs": {
-        "vision_dust": 4,
-        "greater_mystic_essence": 1,
-        "large_glowing_shard": 1,
-        "mob_barrow_dust": 1
-      },
       "skill_required": 175,
       "output": {
         "kind": "material",
-        "material_id": "enchant_2h_greater_valor"
+        "material_id": "enchant_2h_greater_spirit"
       },
       "tool": [
         "runed_golden_rod",
@@ -3761,10 +3517,83 @@
         195,
         205
       ],
+      "source": "drop"
+    },
+    "ench_2h_major_spirit": {
+      "name": "Enchant 2H Weapon: Major Spirit",
+      "inputs": {
+        "illusion_dust": 6,
+        "greater_eternal_essence": 2,
+        "large_brilliant_shard": 2
+      },
+      "skill_required": 282,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_2h_major_spirit"
+      },
+      "tool": [
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        282,
+        292,
+        302,
+        312
+      ],
       "source": "trainer"
     },
-    "ench_2h_major_valor": {
-      "name": "Enchant 2H Weapon: Major Valor",
+    "ench_2h_strength": {
+      "name": "Enchant 2H Weapon: Strength",
+      "inputs": {
+        "soul_dust": 4,
+        "greater_astral_essence": 1,
+        "large_glimmering_shard": 1
+      },
+      "skill_required": 136,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_2h_strength"
+      },
+      "tool": [
+        "runed_silver_rod",
+        "runed_golden_rod",
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        136,
+        146,
+        156,
+        166
+      ],
+      "source": "trainer"
+    },
+    "ench_2h_superior_strength": {
+      "name": "Enchant 2H Weapon: Superior Strength",
+      "inputs": {
+        "dream_dust": 5,
+        "greater_nether_essence": 2,
+        "large_radiant_shard": 2
+      },
+      "skill_required": 240,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_2h_superior_strength"
+      },
+      "tool": [
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        240,
+        250,
+        260,
+        270
+      ],
+      "source": "vendor"
+    },
+    "ench_2h_major_strength": {
+      "name": "Enchant 2H Weapon: Major Strength",
       "inputs": {
         "illusion_dust": 6,
         "greater_eternal_essence": 2,
@@ -3773,7 +3602,7 @@
       "skill_required": 285,
       "output": {
         "kind": "material",
-        "material_id": "enchant_2h_major_valor"
+        "material_id": "enchant_2h_major_strength"
       },
       "tool": [
         "runed_arcanite_rod"
@@ -3783,6 +3612,177 @@
         295,
         305,
         315
+      ],
+      "source": "trainer"
+    },
+    "ench_2h_agility": {
+      "name": "Enchant 2H Weapon: Agility",
+      "inputs": {
+        "soul_dust": 4,
+        "greater_astral_essence": 1,
+        "large_glimmering_shard": 1,
+        "mob_wraith_essence": 1
+      },
+      "skill_required": 147,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_2h_agility"
+      },
+      "tool": [
+        "runed_silver_rod",
+        "runed_golden_rod",
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        147,
+        157,
+        167,
+        177
+      ],
+      "source": "trainer"
+    },
+    "ench_2h_superior_agility": {
+      "name": "Enchant 2H Weapon: Superior Agility",
+      "inputs": {
+        "dream_dust": 5,
+        "greater_nether_essence": 2,
+        "large_radiant_shard": 2,
+        "mob_veinlight_mote": 1
+      },
+      "skill_required": 248,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_2h_superior_agility"
+      },
+      "tool": [
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        248,
+        258,
+        268,
+        278
+      ],
+      "source": "vendor"
+    },
+    "ench_2h_major_agility": {
+      "name": "Enchant 2H Weapon: Major Agility",
+      "inputs": {
+        "illusion_dust": 6,
+        "greater_eternal_essence": 2,
+        "large_brilliant_shard": 2
+      },
+      "skill_required": 289,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_2h_major_agility"
+      },
+      "tool": [
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        289,
+        299,
+        309,
+        319
+      ],
+      "source": "trainer"
+    },
+    "ench_2h_superior_spell_power": {
+      "name": "Enchant 2H Weapon: Superior Spell Power",
+      "inputs": {
+        "dream_dust": 5,
+        "greater_nether_essence": 1,
+        "large_radiant_shard": 2
+      },
+      "skill_required": 255,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_2h_superior_spell_power"
+      },
+      "tool": [
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        255,
+        265,
+        275,
+        285
+      ],
+      "source": "trainer"
+    },
+    "ench_2h_major_spell_power": {
+      "name": "Enchant 2H Weapon: Major Spell Power",
+      "inputs": {
+        "illusion_dust": 6,
+        "greater_eternal_essence": 2,
+        "large_brilliant_shard": 2
+      },
+      "skill_required": 292,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_2h_major_spell_power"
+      },
+      "tool": [
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        292,
+        302,
+        312,
+        322
+      ],
+      "source": "vendor"
+    },
+    "ench_2h_greater_valor": {
+      "name": "Enchant 2H Weapon: Greater Valor",
+      "inputs": {
+        "vision_dust": 4,
+        "greater_mystic_essence": 1,
+        "large_glowing_shard": 1,
+        "mob_barrow_dust": 1
+      },
+      "skill_required": 207,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_2h_greater_valor"
+      },
+      "tool": [
+        "runed_golden_rod",
+        "runed_truesilver_rod",
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        207,
+        217,
+        227,
+        237
+      ],
+      "source": "trainer"
+    },
+    "ench_2h_major_valor": {
+      "name": "Enchant 2H Weapon: Major Valor",
+      "inputs": {
+        "illusion_dust": 6,
+        "greater_eternal_essence": 2,
+        "large_brilliant_shard": 2
+      },
+      "skill_required": 295,
+      "output": {
+        "kind": "material",
+        "material_id": "enchant_2h_major_valor"
+      },
+      "tool": [
+        "runed_arcanite_rod"
+      ],
+      "skill_range": [
+        295,
+        305,
+        315,
+        325
       ],
       "source": "vendor"
     },
@@ -3794,7 +3794,7 @@
         "large_radiant_shard": 2,
         "mob_resonant_seam_crystal": 1
       },
-      "skill_required": 230,
+      "skill_required": 263,
       "output": {
         "kind": "material",
         "material_id": "enchant_2h_superior_wildheart"
@@ -3804,10 +3804,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        230,
-        240,
-        250,
-        260
+        263,
+        273,
+        283,
+        293
       ],
       "source": "trainer"
     },
@@ -3818,7 +3818,7 @@
         "greater_eternal_essence": 2,
         "large_brilliant_shard": 2
       },
-      "skill_required": 285,
+      "skill_required": 297,
       "output": {
         "kind": "material",
         "material_id": "enchant_2h_major_wildheart"
@@ -3827,10 +3827,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        285,
-        295,
-        305,
-        315
+        297,
+        307,
+        317,
+        327
       ],
       "source": "vendor"
     },

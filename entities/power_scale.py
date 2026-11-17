@@ -62,7 +62,7 @@ def ratings_to_percent(stats):
 #: how an item's stat reads on a tooltip, a gem, an elixir or a recipe row
 ITEM_LABELS = {
     "strength": "Strength", "agility": "Agility", "stamina": "Stamina", "intellect": "Intellect",
-    "spirit": "Spirit", "spell_power": "Spell Power", "healing_power": "Healing",
+    "spirit": "Spirit", "spell_power": "Spell Power", "healing_power": "Healing Power",
     "attack_power": "Attack Power", "ranged_attack_power": "Ranged Attack Power",
     "fire_spell_power": "Fire Spell Power", "frost_spell_power": "Frost Spell Power",
     "arcane_spell_power": "Arcane Spell Power", "shadow_spell_power": "Shadow Spell Power",

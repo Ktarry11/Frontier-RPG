@@ -152,6 +152,8 @@ class BankScreen(BaseScreen):
                           for i in range(MAX_TABS + 1)]
         self.close_rect = pygame.Rect(SCREEN_WIDTH - 150, 20, 120, 40)
         self.deposit_all_rect = pygame.Rect(PLAYER_X, PLAYER_Y - 44, 190, 34)
+        # Kyle, 16 Nov 2026: Tusk sells the Craftsman Codex (world/craftsman_codex.py), one more profession slot
+        self.codex_rect = pygame.Rect(PLAYER_X + 200, PLAYER_Y - 44, 300, 34)
         # the filter row sits under the bank grid; render measures each button to its label
         self.filter_y = BANK_Y + rows * (CELL + GAP) + 4
         self.sort_rect = pygame.Rect(BANK_X, self.filter_y, 60, 24)
@@ -205,6 +207,11 @@ class BankScreen(BaseScreen):
 
         if self.close_rect.collidepoint(pos):
             self.state_manager.transition_to(GameState.OVERWORLD)
+            return
+
+        if self.codex_rect.collidepoint(pos):
+            from world import craftsman_codex
+            ok, self.message = craftsman_codex.buy(player, party)
             return
 
         # --- tabs: owned ones switch, the next one is for sale
@@ -401,6 +408,19 @@ class BankScreen(BaseScreen):
                                 (PLAYER_X, PLAYER_Y - 76), color=COLOR_GOLD)
         self.renderer.draw_button(screen, self.deposit_all_rect, "Deposit everything",
                                   color=COLOR_DARK_GRAY)
+        from world import craftsman_codex, profession_manager
+        codex = craftsman_codex.price(player)
+        if codex is None:
+            self.renderer.draw_button(screen, self.codex_rect, "Craftsman Codex: every trade has room",
+                                      color=(40, 40, 46))
+        else:
+            self.renderer.draw_button(screen, self.codex_rect,
+                                      f"Craftsman Codex  {gold_str(codex)}", color=(110, 90, 40))
+            if self.codex_rect.collidepoint(pygame.mouse.get_pos()):
+                self.renderer.draw_text(screen, f"{craftsman_codex.BLURB} You have room for "
+                                        f"{profession_manager.max_primary(player)}.",
+                                        (self.codex_rect.x, self.codex_rect.y - 22), color=(200, 190, 150),
+                                        size="small")
         for i, r in enumerate(self.player_rects):
             if i >= cap:
                 break

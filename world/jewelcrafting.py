@@ -98,7 +98,7 @@ def stats_for(weights, budget):
 
 #: how a stat reads on a gem
 STAT_NAMES = {"crit_chance_physical": "Crit", "crit_chance_spell": "Spell Crit", "hit_rating": "Hit", "spell_hit_rating": "Spell Hit",
-              "mp5": "Mana per 5", "spell_power": "Spell Power", "healing_power": "Healing",
+              "mp5": "Mana per 5", "spell_power": "Spell Power", "healing_power": "Healing Power",
               "attack_power": "Attack Power", "defense_rating": "Defense", "dodge_rating": "Dodge",
               "spell_penetration": "Spell Penetration", "haste": "Haste"}
 

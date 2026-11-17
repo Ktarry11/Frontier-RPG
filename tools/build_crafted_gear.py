@@ -861,8 +861,28 @@ def as_built(out, ident):
 WEAPON_ARMOR_COST = 0.04
 
 
+#: identities swapped in so no two differently named pieces share every stat (tools/diversify_crafted_gear.py)
+_OVERRIDES = None
+
+
+def identity_for(rid, ident):
+    """The identity a piece is authored with: its own, unless data/items/crafted_identity_overrides.json says
+    otherwise (Kyle, 16 Nov 2026: "Some of these are identical! we need a bit of diversity here")."""
+    global _OVERRIDES
+    if _OVERRIDES is None:
+        try:
+            _OVERRIDES = json.loads((ROOT / "data/items/crafted_identity_overrides.json")
+                                    .read_text(encoding="utf-8"))["identities"]
+        except (OSError, json.JSONDecodeError, KeyError):
+            _OVERRIDES = {}
+    return _OVERRIDES.get(rid, ident)
+
+
 def author(rid, recipe, ident, flavour):
+    ident = identity_for(rid, ident)
     out = recipe["output"]
+    if out.get("stat_template") != IDENTITIES[ident][1]:
+        out = dict(out, stat_template=IDENTITIES[ident][1])
     weights, template = IDENTITIES[ident]
     built = as_built(out, ident)
     total = budget(built)

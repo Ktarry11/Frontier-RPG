@@ -68,7 +68,7 @@ def preview(recipe_id, recipe):
 
 #: short names for a recipe row's one-line summary; the tooltip has the full ones
 SHORT = {"strength": "Str", "agility": "Agi", "stamina": "Stam", "intellect": "Int", "spirit": "Spi",
-         "spell_power": "Spell Power", "healing_power": "Healing", "attack_power": "AP",
+         "spell_power": "Spell Power", "healing_power": "Healing Power", "attack_power": "AP",
          "fire_spell_power": "Fire Power", "frost_spell_power": "Frost Power",
          "arcane_spell_power": "Arcane Power", "shadow_spell_power": "Shadow Power",
          "nature_spell_power": "Nature Power", "holy_spell_power": "Holy Power",

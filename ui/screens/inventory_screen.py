@@ -1103,7 +1103,8 @@ class InventoryScreen(BaseScreen):
         # profession line - these four slots are what can_use() checks against.
         active = []
         for label, slot in (("Guardian", "guardian_buff"), ("Battle", "battle_buff"),
-                            ("Food", "food_buff"), ("Ammo", "ammo_buff"), ("Oil", "oil_buff"),
+                            ("Food", "food_buff"), ("Drink", "drink_buff"), ("Ammo", "ammo_buff"),
+                            ("Oil", "oil_buff"),
                             ("Gadget", "gadget_buff")):
             entry = getattr(subject, slot, None)
             if entry:
@@ -1229,8 +1230,9 @@ class InventoryScreen(BaseScreen):
                           f"{_duration(cons.effect_duration)} while you sit still.")
         if cons.stat_bonuses:
             from entities.consumable import bonus_text, WELL_FED_SECONDS
-            if cons.consumable_type == "meal":           # effect_duration is how long it takes to eat
-                effect.append(f"Well fed: {bonus_text(cons.stat_bonuses)} for {_duration(WELL_FED_SECONDS)}")
+            if cons.consumable_type in ("meal", "drink"):  # effect_duration is how long it takes to eat or drink
+                word = "Well fed" if cons.consumable_type == "meal" else "Refreshed"
+                effect.append(f"{word}: {bonus_text(cons.stat_bonuses)} for {_duration(WELL_FED_SECONDS)}")
             else:
                 effect.append(bonus_text(cons.stat_bonuses)
                               + (f" for {_duration(cons.effect_duration)}" if cons.effect_duration else ""))
@@ -1508,51 +1510,15 @@ class InventoryScreen(BaseScreen):
         body_w = box_w - 16
         lines = [(t, rarity_color) for t in self.renderer.wrap_text(item.name, body_w)]
 
-        if profession:
-            need = f"Requires {profession.title()} ({skill_req})" if skill_req else f"Requires {profession.title()}"
-            met = True
-            if subject is not None:
-                met = (subject.knows_profession(profession)
-                       and subject.profession_skills.get(profession, 0) >= skill_req)
-            lines.append((need, GREY if met else RED))
-            if subject is not None and not subject.knows_recipe(recipe_id):
-                if not subject.knows_profession(profession):
-                    lines.append((f"You have not learned {profession.title()}.", RED))
-                elif not met:
-                    lines.append((f"Your skill: {subject.profession_skills.get(profession, 0)}", (170, 120, 120)))
-
-        out = recipe_data.get("output") or {}
-        if recipe_data.get("name"):
-            lines.append(("", GREY))
-            count = recipe_data.get("count", 1)
-            made = recipe_data["name"] + (f" x{count}" if count and count > 1 else "")
-            for t in self.renderer.wrap_text(f"Teaches you to make: {made}", body_w):
-                lines.append((t, BLUE))
-            kind = out.get("kind")
-            if kind in ("armor", "weapon"):
-                what = [str(out.get("rarity", "")).title()]
-                if kind == "armor" and out.get("armor_type") not in (None, "", "accessory"):
-                    what.append(str(out["armor_type"]).title())
-                if kind == "weapon" and out.get("weapon_type"):
-                    what.append(str(out["weapon_type"]).replace("_", " ").title())
-                what.append(str(out.get("slot", "")).replace("_", " ").title())
-                lines.append((" ".join(w for w in what if w), GOLD))
-                if out.get("item_level"):
-                    lines.append((f"Item Level {out['item_level']}", GOLD))
-
-        inputs = recipe_data.get("inputs") or {}
-        if inputs:
-            lines.append(("Materials:", GREY))
-            for mat_id, n in inputs.items():
-                lines.append((f"  {n} x {self._material_name(mat_id)}", GREY))
-
-        if subject is not None:
-            lines.append(("", GREY))
-            if subject.knows_recipe(recipe_id):
-                lines.append(("Already known.", GREY))
-            elif profession and subject.knows_profession(profession) \
-                    and subject.profession_skills.get(profession, 0) >= skill_req:
-                lines.append(("Click to learn.", GREEN))
+        # the trade and skill, what it makes and what that does, the materials (ui/recipe_tooltip.py, shared with
+        # the vendor's shelf so the two cards can't drift apart)
+        from ui.recipe_tooltip import recipe_lines
+        for text, colour in recipe_lines(item, subject):
+            wrapped = self.renderer.wrap_text(text, body_w) if text else [""]
+            lines.extend((t, colour) for t in wrapped)
+        if subject is not None and not subject.knows_recipe(recipe_id) and profession \
+                and subject.knows_profession(profession) and subject.profession_skills.get(profession, 0) >= skill_req:
+            lines.append(("Click to learn.", GREEN))
 
         box_h = 20 * len(lines) + 16
         x = min(mouse_pos[0] + 16, SCREEN_WIDTH - box_w - 10)

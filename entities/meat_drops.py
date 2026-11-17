@@ -23,6 +23,7 @@ improve on). More tiers than there are recipes to use them is exactly the dead-m
 pass exists to fix.
 """
 import random
+import re
 
 from entities.vendor_trash import classify
 
@@ -51,9 +52,27 @@ DROP_CHANCE = 0.35
 BOSS_QTY = (3, 5)
 
 
-def _pick(level, rng):
+#: EGGS (Kyle, 16 Nov 2026: "Having more meat or items drop from animal mobs from 1 to 60....eggs from birds").
+#: Anything that lays them - birds, raptors, crocolisks, basilisks, serpents, plainstriders - can leave one, on
+#: top of its meat. Matched on the creature's name, the same way classify() reads a family off it.
+LAYS_EGGS = re.compile(r"vulture|hawk|\bowls?\b|buzzard|condor|\bcrows?\b|raven|eagle|falcon|carrion bird|"
+                       r"strider|chicken|turkey|rooster|\bhens?\b|gull|parrot|\brocs?\b|shrike|raptor|"
+                       r"crocolisk|basilisk|serpent|turtle|tortoise|thunder lizard|wind rider|cockatrice", re.I)
+EGG_BANDS = [
+    (1, 26, {"egg_small": 1}),
+    (18, 46, {"egg_speckled": 1}),
+    (38, 99, {"egg_giant": 1}),
+]
+EGG_CHANCE = 0.25
+
+
+def lays_eggs(name):
+    return bool(LAYS_EGGS.search(name or ""))
+
+
+def _pick(level, rng, bands=None):
     pool = {}
-    for lo, hi, weights in BANDS:
+    for lo, hi, weights in (bands or BANDS):
         if lo <= level <= hi:
             for mat, w in weights.items():
                 pool[mat] = pool.get(mat, 0.0) + w
@@ -74,8 +93,11 @@ def roll_meat(enemy, player=None, rng=random):
         return []
 
     level = max(1, int(getattr(enemy, "level", 1)))
+    got = []
     if getattr(enemy, "is_boss", False):
-        return [(_pick(level, rng), rng.randint(*BOSS_QTY))]
-    if rng.random() > DROP_CHANCE:
-        return []
-    return [(_pick(level, rng), 1)]
+        got.append((_pick(level, rng), rng.randint(*BOSS_QTY)))
+    elif rng.random() <= DROP_CHANCE:
+        got.append((_pick(level, rng), 1))
+    if lays_eggs(name) and (getattr(enemy, "is_boss", False) or rng.random() <= EGG_CHANCE):
+        got.append((_pick(level, rng, EGG_BANDS), 2 if getattr(enemy, "is_boss", False) else 1))
+    return got
