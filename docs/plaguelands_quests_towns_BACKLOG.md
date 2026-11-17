@@ -236,6 +236,19 @@ Lashings and Jaedenar.
 - Kyle: "dont be afraid to have LONGER secrets....like walking into a hidden thing in the bottom left of a map and
   ending up in top right". Some secrets should be long hidden runs across a whole map, not a pocket beside the road.
 
+**Done, 17 Nov 2026** (`tools/build_secrets_pass3.py`, additive and idempotent; `tools/build_secrets.py` is not
+re-run). Counts only, never places:
+- 28 of the 38 behind-a-building sellers now stand in real hidden ground: a hollow inside the rock, cliff or trees
+  round their map, reached through a way in that still looks solid. 10 stay behind their buildings, Razor Hill's
+  among them.
+- The three maps with none now have two each, six caches in all. One map's walls were too thin for a full hollow,
+  so it gets small rooms inside its walls. Another stands on open water, so its secrets are sunken ways across it
+  that still look like water.
+- Six long runs: a hidden way through a whole map's rock or forest, from one side to the other, at least 50 tiles
+  long, with a cache in a room partway along.
+- 402 secrets in all. `qa_secrets` is green: every seller and cache can be walked to, every way in keeps its rock,
+  the map keeps lying, and nothing is drawn until you're in there.
+
 ## Grovekeeper healing (backlogged by Kyle, 17 Nov 2026)
 Grovekeeper is Primalist's melee healer, held to 75% of a full healer's output. To reach that in the heal sim, its
 hidden spec aura would need to be about 1.5x, but the aura is capped lower, so it falls short of its own target. The
