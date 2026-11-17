@@ -95,6 +95,16 @@ def factor(monster, what):
     low = table().get("low_level") or {}
     if (getattr(monster, "level", 99) or 99) < int(low.get("below_level", 0)):
         f *= float(low.get(what, 1.0))
+    # LATE DUNGEON BOSSES HIT HARDER (Kyle, 16 Nov 2026: "i can 2 man dungeons without any issues"; "Both, a little
+    # each"). On top of the boss row, a dungeon boss's damage climbs from its from_level to full_level, so the big
+    # dungeons near 60 need the group they're built for and the early ones stay as they were.
+    late = table().get("endgame_boss") or {}
+    if what in late and kind_of(monster) in (late.get("kinds") or ()) \
+            and getattr(monster, "name", None) not in (late.get("except") or ()):
+        lv = getattr(monster, "level", 1) or 1
+        lo, hi = int(late.get("from_level", 30)), int(late.get("full_level", 50))
+        k = min(1.0, max(0.0, (lv - lo) / max(1, hi - lo)))
+        f *= 1.0 + (float(late[what]) - 1.0) * k
     return f
 
 

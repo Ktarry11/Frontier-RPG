@@ -212,6 +212,11 @@ class DispelType:
 #: their turn-based duration since they only make sense inside a fight.
 BUFF_DURATION_SECONDS = 30 * 60
 
+#: stun diminishing returns, in the holder's own turns (apply_status_effect): a boss is stun-immune this long after
+#: a stun ends its one turn; anyone else gets a second stun at half and is immune to a third within this window
+STUN_DR_BOSS = 4
+STUN_DR_WINDOW = 5
+
 #: Sentinel distinguishing "caller didn't pass real_time_seconds at all" (use
 #: the 30-min default) from "caller explicitly passed None" (stay turn-based,
 #: like a DoT/HoT). Before this existed both cases looked identical from
@@ -1045,6 +1050,29 @@ class StatusEffectMixin:
             # int() rather than round() so e.g. a 2-turn stun at 5% (1.9)
             # reduces to 1, not stays at 2, matching "reduces duration" being
             # a real, if small, effect even on short stuns.
+            # STUNS DIMINISH (Kyle, 16 Nov 2026: "enemies STILL get stun locked bro", a level 56 boss held by
+            # Frostbite turn after turn). Counted in the holder's own turns:
+            #   a boss takes one stun of one turn, then shrugs stuns off for STUN_DR_BOSS turns;
+            #   anyone else takes the first stun whole, the second inside STUN_DR_WINDOW turns at half (at least
+            #   one turn), and is immune to a third until the window has passed.
+            now = getattr(self, "_turns_taken", 0)
+            boss = bool(getattr(self, "is_boss", False))
+            window = STUN_DR_BOSS if boss else STUN_DR_WINDOW
+            recent = [t for t in (getattr(self, "_stun_history", None) or []) if now - t < window]
+            if boss and recent:
+                self._stun_history = recent
+                return f"{self.name} shrugs off {effect.name}: it was stunned too recently."
+            if not boss and len(recent) >= 2:
+                self._stun_history = recent
+                return f"{self.name} is immune to {effect.name} for now: it has been stunned too often."
+            if boss:
+                effect.duration = min(effect.duration, 1)
+                effect.max_duration = min(getattr(effect, "max_duration", effect.duration) or 1, 1)
+            elif recent:
+                half = max(1, effect.duration // 2)
+                effect.duration = half
+                effect.max_duration = half
+            self._stun_history = recent + [now]
             reduction_pct = self.get_talent_effect("stun_duration_reduction_pct", 0.0)
             if reduction_pct > 0 and effect.duration > 1:
                 reduced = max(1, int(effect.duration * (1.0 - reduction_pct)))

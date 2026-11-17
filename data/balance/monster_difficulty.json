@@ -16,6 +16,20 @@
     "damage": 3.0,
     "health": 3.0
   },
+  "endgame_boss": {
+    "damage": 1.25,
+    "from_level": 30,
+    "full_level": 50,
+    "kinds": [
+      "boss",
+      "tuned_boss"
+    ],
+    "_why": "Kyle, 16 Nov 2026: 'i can 2 man dungeons without any issues' and 'my 0 gear 0 spec shaman is literally healing an end game dungeon'. On top of the boss rows: a dungeon boss's damage climbs from x1 at level 30 to this at 50 and on (world/difficulty.factor). Tuned with tools/sim_difficulty.py --dungeon, which plays parties of 5, 3 and 2.",
+    "except": [
+      "Pack-Alpha Cinderhound"
+    ],
+    "_measured": "tools/sim_difficulty.py --dungeon, 16 Nov 2026, 4-6 fights a boss, geared and untalented, one simple policy for everyone. At x1.4 a party of five lost Gatewarden Hrun half the time and Pack-Alpha Cinderhound three times in four, so x1.25: five beats every late boss (Hrun 6/6), three and two lose them all. Cinderhound was already at the edge for five (3/4) and is left out of the ramp. The sim's party plays worse than Kyle does: it already lost every late boss two-handed before this, which he wins, so these numbers are a floor on how hard it feels, not a ceiling."
+  },
   "_measured": "tools/sim_difficulty.py, 14 Nov 2026, geared but untalented characters. BEFORE: one same-level open-world creature cost a solo player about 19% of their health on average (a warrior 4-15%), three at once were often survivable, and a party of three beat every dungeon boss tested with nobody dying. AFTER, open world at 1.35: one creature costs melee 10-30% and casters 30-50%, two at once usually kills a caster and leaves melee low, three at once almost always kills. AFTER, dungeons (boss 3.0/4.4 for older kits, tuned_boss 2.2/3.6 for the hand-tuned isle and hive bosses): a party of five beat all 25 bosses tested in Ragefire, Wailing Caverns, Shadowfang, Razorfen Kraul, the Drowning Floor, the Cistern, Khaz Varun, the Emberdeep and the Royal Hive. A party of three lost to all but a few first bosses (Oggleflint, Roogug, Gatewarden Hrun).",
   "tuned_boss": {
     "damage": 2.2,

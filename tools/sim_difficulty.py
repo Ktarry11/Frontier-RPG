@@ -42,6 +42,8 @@ TICK, MAX_TICKS = 0.25, 16000
 SOLO = ["Warrior", "Priest", "Druid", "Mage", "Rogue"]
 PARTY5 = ["Warrior", "Priest", "Mage", "Rogue", "Hunter"]
 PARTY3 = ["Warrior", "Priest", "Mage"]
+#: Kyle, 16 Nov 2026, two-manning endgame dungeons with a tank and an ungeared shaman: a pair should not get through
+PARTY2 = ["Warrior", "Shaman"]
 
 #: (level, open zone) - a zone whose open-zone table sits at that level
 WORLD_BANDS = [(10, "Durotar"), (17, "Silverpine North"), (25, "Ashenvale West"),
@@ -161,7 +163,7 @@ def world(fights, rng, gen, cm):
 
 
 def dungeon(fights, rng, gen, cm, only=None):
-    print("\nDUNGEONS - a party of 5 and a party of 3 against real bosses at the dungeon's level")
+    print("\nDUNGEONS - parties of 5, 3 and 2 against real bosses at the dungeon's level")
     for cave, bosses, level in DUNGEON_BOSSES:
         if not bosses or (only and only.lower() not in cave.lower()):
             continue
@@ -169,7 +171,7 @@ def dungeon(fights, rng, gen, cm, only=None):
             # the party is the boss's own level: a group meets each boss at about its level
             level = cm.creatures[b]["level_range"][1]
             out = []
-            for size, comp in (("5", PARTY5), ("3", PARTY3)):
+            for size, comp in (("5", PARTY5), ("3", PARTY3), ("2", PARTY2)):
                 wins, alive = 0, []
                 for _ in range(fights):
                     chars = [make(cls, level, gen) for cls in comp]

@@ -66,8 +66,11 @@ def main():
             continue
         vals = [r["effect_value"] for r in ab.ranks]
         steps = [b / a - 1 for a, b in zip(vals, vals[1:]) if a]
+        # heals learned from 30 to 40 give back up to 15% (heal_trim, Kyle 16 Nov: "heals are just way too high at
+        # end level"), so a heal's step across that band is allowed to be smaller - but still a step
+        floor = 0.15 if ab.effect_type in S.HEALS else 0.20
         check(f"{ab.name}: every rank is a real step ({', '.join(f'+{x:.0%}' for x in steps)})",
-              steps and min(steps) >= 0.20)
+              steps and min(steps) >= floor)
     for cls, aid in (("Mage", "mage_fireball"), ("Warlock", "warlock_shadow_bolt"), ("Priest", "priest_smite"),
                      ("Warrior", "warrior_heroic_strike"), ("Warlock", "warlock_searing_pain"),
                      ("Priest", "priest_heal")):

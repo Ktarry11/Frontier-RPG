@@ -92,3 +92,15 @@ shaman healing spells in wrong tab... the damage and healing is fine, now we nee
 - Magnitudes are off both ways: Strength of Earth Totem Rank 9 gives +3 Strength and Agility at 60 ("lvl 60 and it
   gives 9 agi and 9 str?"), while Grounding Totem Rank 3 gives +500 Magic Resistance ("lmao over 700 magic
   resistance"). The revamp sizes every buff against the level it's learned at, as the damage and healing pass did.
+
+## Endgame heals: ranks slow past 35, power carries the rest (Kyle, 16 Nov 2026)
+"Lets drop heals down more, i think we should have things past 35 to slow down A LOT in terms of ranks but start to
+need spell power and healing power....and talents." Parked for after the Plaguelands ("keep these as backlog and finish
+the plaguelands").
+- In now: heal_trim (heal ranks learned 30->40 lose up to 15%, mana cost with them), bosses from 30 hit up to 25%
+  harder by 50 (endgame_boss row), stuns diminish (tools/qa_stun_diminishing.py).
+- To do: flatten heal rank growth past 35 (a level-60 rank well under today's), and raise the healing-power share of
+  those ranks so a geared, specced healer heals what today's naked one does. Decide whether damage ranks past 35 do the
+  same with spell/attack power. Measure heal / geared tank HP at 35-60 naked and geared (healsim), then
+  tools/sim_difficulty.py with 5, 3 and 2.
+- Healing talents should be worth taking: check the Restoration/Holy trees give real throughput at 60.

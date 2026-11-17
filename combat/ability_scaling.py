@@ -181,6 +181,25 @@ def spec_aura(caster, kind="damage"):
     return _interp(table[spec], getattr(caster, "level", 1) or 1)
 
 
+#: ---- 1b. LATE HEALS, A LITTLE SMALLER (Kyle, 16 Nov 2026: "end game has no challenge. i can 2 man dungeons", "my 0 gear
+#: 0 spec shaman is literally healing an end game dungeon", and of the two levers, "Both, a little each": heals trimmed,
+#: bosses hit harder, world/difficulty.py "endgame_boss"). Measured at 60 against a geared tank before healing power: a
+#: quick heal ~20% of the tank, a normal ~35%, a slow one ~50-55%. A heal rank learned past 30 keeps less of the curve,
+#: 85% from 40 on; its mana cost comes down with it, so a point of healing costs what it did.
+HEAL_TRIM_FROM, HEAL_TRIM_TO, HEAL_TRIM_FLOOR = 30, 40, 0.85
+#: effect types that are a heal on the caster's side
+HEALS = frozenset({"heal", "hot"})
+
+
+def heal_trim(level_req):
+    """How much of the rank curve a heal rank learned at this level keeps (1.0 up to 30, 0.85 from 40)."""
+    lv = max(1, level_req or 1)
+    if lv <= HEAL_TRIM_FROM:
+        return 1.0
+    k = min(1.0, (lv - HEAL_TRIM_FROM) / (HEAL_TRIM_TO - HEAL_TRIM_FROM))
+    return 1.0 - (1.0 - HEAL_TRIM_FLOOR) * k
+
+
 def curved_ranks(entry):
     """The entry's ranks with the curve applied (a new list; the data is never edited in place)."""
     ranks = entry.get("ranks") or []
@@ -188,16 +207,18 @@ def curved_ranks(entry):
     out = []
     for r in ranks:
         m = rank_multiplier(r.get("level_req", 1))
+        h = heal_trim(r.get("level_req", 1))
         r = dict(r)
         if et in CURVED and r.get("effect_value"):
-            r["effect_value"] = int(round(r["effect_value"] * m))
+            r["effect_value"] = int(round(r["effect_value"] * m * (h if et in HEALS else 1.0)))
         if r.get("heal_value"):
-            r["heal_value"] = int(round(r["heal_value"] * m))
+            r["heal_value"] = int(round(r["heal_value"] * m * h))
         if r.get("absorb"):
             r["absorb"] = int(round(r["absorb"] * m))
         if r.get("cost") and entry.get("resource_type", "mana") == "mana" and USE_MANA_TABLE:
             r["cost"] = max(1, int(round(r["cost"] * mana_cost_multiplier(entry.get("ability_id"), et,
-                                                                         r.get("level_req", 1)))))
+                                                                         r.get("level_req", 1))
+                                         * (h if et in HEALS else 1.0))))
         out.append(r)
     return out
 
