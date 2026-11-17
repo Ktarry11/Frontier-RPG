@@ -1106,6 +1106,11 @@ class CombatScreen(BaseScreen):
         enemies = self.combat_engine.enemies
         if not enemies:
             return 190  # nothing to draw - fall back to the old fixed value
+        # THE DEAD LEAVE THE STRIP (Kyle, 16 Nov 2026: "when we kill adds in a boss, they should vanish from the
+        # bar"). A fight that's still on shows only who's standing, so a boss's adds drop away as they die and the
+        # rest close up; once nobody is left (the result screen) the whole pull is shown, greyed.
+        standing = [e for e in enemies if e.is_alive()]
+        enemies = standing or enemies
 
         card_w = 260
         card_gap = 20
