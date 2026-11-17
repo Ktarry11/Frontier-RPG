@@ -57,6 +57,36 @@ _set("plaguelands_props", 6, 6, "assets/tiles/plaguelands/props", """
     sc_war_tent sc_pyre sc_supply_cart pf_banner pf_field_tent pf_weapon_rack
     pl_plaguewood_tree pl_dead_oak pl_blight_pine ql_lantern_post zm_ruin_block pl_plague_mushrooms""")
 
+#: sheets 4, 6, 7 and 8 (Kyle 16 Nov 2026): the dungeons' furniture, and the Plaguelands' creatures and bosses.
+_set("plaguelands_dungeon_props", 6, 6, "assets/tiles/plaguelands/dungeon_props", """
+    sm_pew sm_candelabra sm_bookshelf sm_lectern sm_weapon_rack sm_altar
+    sm_sarcophagus sm_interrogation_chair sm_training_dummy sm_glass_window sm_saint_statue sm_supply_crates
+    scholo_alchemy_table scholo_desk scholo_golem_table scholo_ritual_stone scholo_specimen_jars scholo_iron_cage
+    strat_stall_burned strat_fountain strat_ziggurat_brazier strat_rubble strat_grain_cart strat_wall
+    hg_throne hg_war_table hg_banner hg_organ hg_choir_stall hg_kennel
+    sc_treasure_chest scourge_bone_chest hg_reliquary dg_wall_torch dg_chandelier silver_hand_symbol""")
+_set("plaguelands_creatures", 6, 6, "assets/creatures/_src/plaguelands", """
+    pl_plague_eruptor pl_flesh_golem pl_gargoyle pl_crypt_fiend pl_death_knight pl_skeletal_warhorse
+    pl_plaguebat pl_plaguehound pl_carrion_grub pl_frenzied_ghoul pl_skeletal_mage pl_wailing_spirit
+    pl_cult_neophyte pl_cult_plaguebringer pl_necrolyte pl_cauldron_tender pl_dark_caster pl_cult_lieutenant
+    pl_diseased_bear pl_plagued_wolf pl_carrion_vulture pl_blighted_stag pl_plague_slime pl_plaguewood_spider
+    pl_forsaken_apothecary pl_deathguard ad_crusader ad_priestess pl_darrowshire_ghost zm_troll_warrior
+    pl_boss_abomination_farmer pl_boss_lich_magistrate pl_boss_brood_queen pl_boss_bone_colossus pl_rare_plague_rider pl_rare_arch_necromancer""")
+_set("plaguelands_scarlet", 6, 6, "assets/creatures/_src/plaguelands", """
+    sc_monk sc_zealot sc_adept sc_chaplain sc_myrmidon sc_centurion
+    sc_knight sc_inquisitor sc_judicator sc_arcanist sc_war_hound sc_cavalier
+    sc_tp_crusader sc_tp_sniper sc_tp_drill_sergeant sc_tp_inquisitor sc_tp_champion sc_tp_cleric
+    pf_rory_callahan pf_knight pf_chaplain pf_scout pf_sentry pf_quartermaster
+    hg_boss_gatewarden hg_boss_quartermaster hg_boss_pyre_sisters hg_boss_drillmaster hg_boss_high_inquisitor hg_boss_kennelmaster
+    hg_boss_arcanist hg_boss_lady_marden hg_boss_crimson_choir hg_boss_volkov hg_boss_victor_hale hg_scarlet_charger""")
+_set("plaguelands_dungeon_bosses", 6, 6, "assets/creatures/_src/plaguelands", """
+    sm_boss_interrogator sm_boss_bloodmage sm_boss_houndmaster sm_boss_arcanist sm_boss_champion sm_boss_commander
+    sm_boss_high_inquisitor scholo_boss_gargoyle scholo_boss_ghost_lady scholo_boss_bone_construct scholo_boss_frost_lich scholo_boss_alchemist
+    scholo_boss_librarian scholo_boss_instructor scholo_boss_noble_lady scholo_boss_noble_lord scholo_boss_headmaster scholo_ghost_servant
+    strat_boss_ghoul_runt strat_boss_cannon_master strat_boss_archivist strat_boss_grand_crusader strat_boss_dreadlord strat_boss_magistrate
+    strat_boss_crypt_lord strat_boss_baroness strat_boss_lich strat_boss_flesh_golem strat_boss_baron strat_deathcharger
+    pl_boss_cult_necromancer pl_silver_hand_ghost pl_boss_gate_guardian pl_boss_eye_construct pl_boss_chorus_leader pl_boss_abom_butcher""")
+
 _set("ek_buildings", 6, 5, "assets/buildings", """
     ek_watermill ek_mill_sluice ek_granary ek_millstone_shelter ek_apothecarium ek_plague_vat_platform
     ek_forsaken_field_tent ek_forsaken_watchtower ek_cottage_small ek_cottage_medium ek_townhouse ek_village_inn

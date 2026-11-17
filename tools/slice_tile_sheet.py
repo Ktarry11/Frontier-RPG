@@ -196,6 +196,17 @@ _set("plaguelands", 8, 6, "tools/tile_sheets/plaguelands_ground.png", "assets/ti
     pl_scarlet_flag pl_cathedral_runner pl_monastery_floor pl_hearthglen_cobble pl_keep_floor pl_uther_marble pl_paleflame_stone pl_scorched_stone
     pl_lake_water pl_lake_shallow pl_plague_water pl_black_pond pl_grey_shore pl_pebble_beach pl_cold_sea pl_reed_marsh""")
 
+# THE PLAGUELANDS' DUNGEONS (sheet 5, Kyle 16 Nov 2026): the Monastery, Scholomance, Stratholme's two sides,
+# Hearthglen's town and Mardenholde Keep. 6x6 seamless cells.
+_set("plaguelands_dungeon", 6, 6, "tools/tile_sheets/plaguelands_dungeon_ground.png",
+     "assets/tiles/plaguelands/dungeon_ground", """
+    sm_crypt sm_parquet sm_armory sm_nave sm_carpet sm_wall
+    scholo_flag scholo_ritual scholo_crypt scholo_marble scholo_wall scholo_ossuary
+    strat_burned_cobble strat_bastion strat_market strat_charred_wood strat_wall strat_ash
+    strat_scourge_street strat_ziggurat strat_slaughter strat_grate strat_frost strat_baron_hall
+    hg_cobble hg_square hg_gravel hg_chapel hg_barracks hg_mosaic
+    mh_flag mh_throne_carpet mh_wall mh_kennel mh_library mh_burned""")
+
 # STONETALON (docs/stonetalon_art_prompts.md sheet 1, Kyle 15 Nov 2026). 8x6 = 48 cells: the redwood vale,
 # the sequoia slopes, the Blowdown, the volcano, Sun Rock / the Grimtotem / the Mulgore Rim, and the inside of
 # the great sequoia. Rows MEASURED: 181/165/164/162/163/189 (the first and last run tall); columns even at 192.
