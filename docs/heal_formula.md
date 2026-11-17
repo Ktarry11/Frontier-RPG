@@ -1,0 +1,106 @@
+# The healing formula (proposal, 16 Nov 2026)
+
+Kyle: "we need to fix the healing end game.....we need an actual formula and do it right.... a spot heal from a
+non-spec'd character shouldn't heal 80% tank HP and like 200% boss damage...."
+
+Nothing is changed yet. This is the formula and the measurements behind it, for Kyle to sign off.
+
+## What happens now (tools/sim_heal_formula.py, every healer spec, strongest single-target heal)
+
+- **bare**: no talents and no gear.
+- **built**: talents spent for healing, rare gear at level.
+- **tank**: a geared Protection Warrior of the same level.
+- **boss**: the median of every dungeon boss's average action within two levels.
+
+| Level | Tank HP | A normal monster's action | A boss's action | Bare heal | Built heal | Built / bare |
+|---|---|---|---|---|---|---|
+| 20 | 907 | 3% of tank | 43% of tank | 28-71% of tank | 34-203% | x0.8 to x2.8 |
+| 40 | 2155 | 11% | 69% | 29-61% | 49-154% | x0.8 to x3.3 |
+| 60 | 3255 | 10% | 103% | 37-77% | 71-185% | x1.0 to x4.7 |
+
+Where a level-60 built heal comes from, as a share of the tank's health:
+
+| | Range across specs | What it should be |
+|---|---|---|
+| The rank's base | 35-72% | the main thing to fix: 20% |
+| Healing power from gear | 7-20% | too little: gear barely matters |
+| Spec aura | x0.63 to x1.75 | a balancing fudge, hiding kit gaps |
+| Talents and crit | x1.04 to x4.64 | uncapped: Tinker's Zap x4.6, Shaman x2.6 |
+
+So it's four problems, not one:
+- The ranks are too big on their own.
+- Gear adds almost nothing.
+- Talents and the spec aura stack with no ceiling.
+- Bosses are oversized too: an average boss action at 60 is a whole tank's health.
+
+## The formula
+
+Everything is measured against **T(L)**: the max health of a geared tank of level L. It's a reference table from
+the world curve, so the same shares hold at every level.
+
+```
+heal = ( 0.20 x T(Lrank) x S x A          the rank: what training the spell gives you
+       + HP  x C x S x A )                healing power: what gear gives you
+       x Spec                             talents and spec, all of them together, capped
+       x crit                             as now (x1.5 on a crit)
+```
+
+- **Lrank** is the level the rank is learned at. A rank 6 levels later is about +100% early and +23% late, the same
+  feel as the world curve, and an outlevelled rank falls behind as T grows. Downranking keeps its penalty.
+- **S, cast speed** (unchanged): quick x0.65, normal x1.0, slow x1.5.
+- **A, area share**: one target 1.0, two or three targets 0.7 each, the whole party 0.45 each.
+- **HP x C, healing power**: C is set so that rare gear at your level adds +40% of the base.
+- **Spec**: all healing multipliers multiplied together: the spec aura, healing_done talents, per-ability talents
+  and low-health bonuses. The total is capped at x1.25 for a full healing tree. The spec aura is recalibrated into
+  0.9-1.1, so it's a small nudge and not a crutch.
+
+### What that gives, as a share of a same-level geared tank
+
+| Heal | Bare (no talents, no gear) | Geared | Geared and specced |
+|---|---|---|---|
+| Quick (Flash Heal) | 13% | 18% | 23% |
+| **Normal (Heal, Healing Wave)** | **20%** | **28%** | **35%** |
+| Slow (Greater Heal, Healing Touch) | 30% | 42% | 52% |
+| Party heal, each target | 9% | 13% | 16% |
+
+Kyle's example: a 4,800 HP tank hit for 1,000.
+- **Today:** a naked, unspecced heal lands 2,600.
+- **Under the formula:**
+  - unspecced normal heal: 960
+  - geared normal heal: 1,350
+  - geared and specced normal heal: 1,680
+  - geared and specced slow heal: 2,500
+
+### The rest of support, on the same reference
+- **HoT**: 1.2x a normal heal in total, spread over its duration. It pays for being slow.
+- **Shield**: 0.9x a normal heal, because it can't overheal.
+- **Chain heal**: 0.7 / 0.5 / 0.35 of a normal heal across three hops.
+- **Emergency heals** (Lay on Hands and the like) stay as they are.
+- **Mana**: a heal's cost moves with its size, so the main heal still lasts about 20 casts from a full bar.
+
+### Bosses, on the same reference
+Heals at these sizes only work if bosses hit on the same scale.
+- A boss's normal hit is 20-25% of the tank.
+- A big hit is 40-45%.
+- A spread is 10-12% on each target.
+- Trash is 8-10% (already true: 10% at 40 and 60).
+
+At 60 that means bringing an average boss action down from about 100% of the tank to about 25-30%. Today it's
+inflated by three stacked multipliers:
+- the boss multiplier, x1.6 to x2.6
+- the endgame ramp, up to +25% from 30
+- the kit's heavy hits
+
+## Order of work once it's signed off
+1. Generate the T(L) table (tools/, from the tank build, averaged over gear seeds) and write it into
+   data/balance/heal_reference.json.
+2. Heals take their base from the formula instead of the rank curve and heal_trim, and keep each spell's identity
+   from its own authored ratio. C goes in, and the Spec cap.
+3. Bosses come onto the reference.
+4. Recalibrate:
+   - spec auras into 0.9-1.1
+   - healer parity (sim_heal_parity), within about 10%
+   - party scenarios (sim_heal_scenarios)
+   - the dungeon sims, so parties of 5 win most fights and the last bosses stay hard
+5. Audit every other support skill against the same reference: shields, HoTs, buffs and cleanses.
+6. Run tools/sim_heal_formula.py again and put the before and after in this doc.
