@@ -86,6 +86,6 @@ listed, None fields included, and refuses to write on any problem.
   left alone.
 - The yeti letter quest now names its real giver, Field Apothecary Wren. Sanu, Grael and Dellwyn Voss now match
   the gender in their NPC data.
-- **Stonetalon got its read-by-hand pass**: 33 quests touched. Clever lines, comma splices, "not X, that's Y",
+- **Stonetalon got its read-by-hand pass**: 31 quests touched. Clever lines, comma splices, "not X, that's Y",
   fragment hand-ins and thanks-only closers were cleared, and the salvage yard and crag quests now say where to
   go. It's marked done in `quest_voice_done.json` and reads 0 WRONG and 0 SILENT for directions.
