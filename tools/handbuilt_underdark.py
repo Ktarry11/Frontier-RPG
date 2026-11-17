@@ -190,14 +190,10 @@ NPC_POSITIONS = {
     "ud_dawn_watch": (86, 20),
     "ud_dawn_cartographer": (80, 24),
     "ud_shard_harvester": (32, 50),
-    "ud_lattice_surveyor": (134, 44),
     "ud_geode_campkeeper": (146, 58),
-    "ud_marsh_naturalist": (114, 92),  # moved off shallow water 7 Nov
-    "ud_colonnade_scholar": (76, 118),
     "ud_archive_overseer": (132, 138),
     "ud_archive_digger": (128, 144),
     "ud_dim_scout": (30, 146),
-    "ud_bloom_warden": (44, 138),
     "ud_sporefall_forager": (78, 74),
 }
 CHESTS = [(22, 40), (158, 24), (18, 118), (156, 100), (92, 150), (62, 62)]

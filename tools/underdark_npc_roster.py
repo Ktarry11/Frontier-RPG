@@ -155,3 +155,13 @@ UNDERDARK_AMBIENT = {
         "The caps are safe, the stalks are not, and the ones that look like faces are fine. I have eaten "
         "all three so you do not have to."),
 }
+
+
+# ---- moved into Kael's Bastion (17 Nov 2026, the hub sweep). Written in the open zone's dicts above where they were
+# first placed; they stand in the town now.
+MOVED_INTO_TOWN = ("ud_lattice_surveyor", "ud_marsh_naturalist", "ud_colonnade_scholar", "ud_bloom_warden")
+for _k in MOVED_INTO_TOWN:
+    if _k in UNDERDARK_AMBIENT:
+        BASTION_AMBIENT[_k] = UNDERDARK_AMBIENT.pop(_k)
+    if _k in UNDERDARK_VENDORS:
+        BASTION_VENDORS[_k] = UNDERDARK_VENDORS.pop(_k)

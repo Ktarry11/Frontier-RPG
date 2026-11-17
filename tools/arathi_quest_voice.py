@@ -207,7 +207,7 @@ VOICE.update({
     "arw_stro_the_undercroft": V(
         "Find the stair behind Stromgarde's throne, kill the thing in the undercroft and bring back the Arathor "
         "Coffer-Seal.",
-        "This is what I came to Arathi for. Stromgarde is a ruin with an older ruin under it. Below the throne "
+        "This is what I came to Arathi for. Stromgarde Keep, south-west of here, is a ruin with an older ruin under it. Below the throne "
         "apse there's an undercroft of marble, where everything above is plain dressed stone, and the Syndicate "
         "have lived on top of it for three years without finding the stair.\n\nYou won't find it from the hall. Go "
         "round behind the throne into the apse and listen to the floor. It sounds wrong in one place.\n\nThe "

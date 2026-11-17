@@ -217,7 +217,7 @@ NPC_POSITIONS = {
     "ar_works_enginewright": (96, 126),    # the mine head
     "ar_door_warden": (115, 126),          # outside the Emberdeep, where nobody wants to stand
     "ar_coast_surveyor": (44, 86),         # the scoured coast
-    "ar_flats_scout": (134, 86),           # the cinder flats
+    "ar_flats_scout": (90, 110),           # at the works camp now (17 Nov 2026, hub sweep); was out on the cinder flats
     "ar_gate_factor": (170, 102),           # the goblin factor at Cinderwharf's gate
     "ar_works_assayer": (72, 116),         # the weigh shed
     "ar_works_powderman": (87, 130),       # the red shed, away from everything

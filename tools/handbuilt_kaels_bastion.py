@@ -147,6 +147,13 @@ NPC_POSITIONS = {
     "kb_codex_master": (48, 24),
     "kb_hall_adjutant": (40, 26),
     "kb_hall_sentinel": (56, 26),
+    # moved in from the open Underdark (17 Nov 2026, the hub sweep: Kyle, "around 30% of quest givers are outside
+    # of towns and 70% are inside", and dungeon quests are given in town). They stood at the places their quests
+    # send you to.
+    "ud_lattice_surveyor": (50, 45),         # Gallery Three, with the cartographer
+    "ud_marsh_naturalist": (76, 45),         # Gallery Three, beside the Bastion's own naturalist
+    "ud_colonnade_scholar": (20, 45),        # Gallery Three, west end
+    "ud_bloom_warden": (50, 63),             # the Long Shelf: the Deep Bloom's warden gives its quests in town
 }
 #: The last two were nominally in corner rock; the kit relocates a chest to the nearest walkable tile, so
 #: these are the positions it actually used. Recorded rather than left to be re-derived every build.

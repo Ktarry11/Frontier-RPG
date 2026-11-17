@@ -177,6 +177,11 @@ def fix_objectives(by_id):
         if o["type"] == "explore" and (o["target_x"], o["target_y"]) == (58, 86):
             o.update(target_x=57, target_y=86)
             ch.append("are_six_wrecks: the hull below the Landing at a tile you can stand on (58,86 is rock)")
+    q = by_id["arw_stro_the_claim"]
+    for o in q["objectives"]:
+        if o["type"] == "explore" and (o["target_x"], o["target_y"]) == (46, 140):
+            o.update(target_y=141)
+            ch.append("arw_stro_the_claim: (46,140) was the Antiquarian's own tile; she's in Refuge Pointe now")
     q = by_id["arw_what_veska_hears"]
     for o in q["objectives"]:
         if o["type"] == "explore" and (o["target_x"], o["target_y"]) != HOLLOW_DEEP:

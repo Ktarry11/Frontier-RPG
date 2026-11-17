@@ -259,14 +259,15 @@ NPC_POSITIONS = {
     "arathi_refuge_scout": (54, 98),
     # the wall, and the road in
     "arathi_wall_warden": (12, 118),
-    # Stromgarde's edge - someone watching the ruin from outside it
-    "arathi_stromgarde_antiquarian": (46, 140),
+    # Stromgarde's antiquarian works from the camp now (17 Nov 2026, the hub sweep: Kyle, "quest givers must NOT
+    # stand right at the subzone their quest sends you to"). She was at Stromgarde's edge.
+    "arathi_stromgarde_antiquarian": (66, 116),
     # the moor
     # ON the moor road, not in the scarp: (60,72) sat inside the escarpment band and the
     # flood-fill caught him standing in solid rock.
     "arathi_moor_shepherd": (62, 56),
-    # above Go'Shek, out of the farm's sight
-    "arathi_goshek_informant": (134, 108),
+    # Nalla watches Go'Shek from the camp now, the same sweep; she was on the rise above the farm
+    "arathi_goshek_informant": (80, 98),
 }
 
 CHESTS = [(38, 40), (78, 46), (124, 36), (30, 148), (58, 138), (128, 126), (150, 96), (20, 112)]

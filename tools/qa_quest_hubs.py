@@ -48,9 +48,24 @@ REGIONS = {
     # Southpoint Tower garrison at the top of Western Hillsbrad.
     "Hillsbrad": (["western_hillsbrad", "eastern_hillsbrad", "tarren_mill"], ["tarren_mill"],
                   {"eastern_hillsbrad": [(62, 32, 12)], "western_hillsbrad": [(45, 22, 10)]}),
+    # ---- 17 Nov 2026, the sweep across every zone (Kyle: "around 30% of quest givers are outside of towns and 70%
+    # are inside (rough numbers)")
+    # Arathi: Hammerfall and Saltspur Landing are town maps; Refuge Pointe is the camp inside Arathi West.
+    "Arathi": (["arathi_west", "arathi_central", "arathi_east"], ["hammerfall", "saltspur_landing"],
+               {"arathi_west": [(68, 105, 22)]}),
+    # Felwood: the Emerald Sanctuary, and the Talonbranch camp up in North Felwood.
+    "Felwood": (["emerald_sanctuary", "north_felwood"], ["emerald_sanctuary"], {"north_felwood": [(96, 26, 16)]}),
+    # Tempest Isle: Cinderwharf, the landing camp on the Shallows and the works camp on the Ashen Reach.
+    "Tempest": (["tempest_shallows", "cinderwharf", "the_ashen_reach"], ["cinderwharf"],
+                {"tempest_shallows": [(88, 64, 14)], "the_ashen_reach": [(84, 118, 16)]}),
+    # The Underdark: Kael's Bastion, and the two survey camps (the dawn camp and the geode camp).
+    "Underdark": (["the_crystalline_underdark", "kaels_bastion", "the_deep_bloom", "the_frostward_descent",
+                   "the_hollow_geode"], ["kaels_bastion"],
+                  {"the_crystalline_underdark": [(83, 22, 8), (146, 58, 8)]}),
 }
 #: the share of a region's quests that must come from town. Never lower one.
-FLOORS = {"Durotar": 0.70, "Tirisfal": 0.70, "Silverpine": 0.70, "Barrens": 0.70, "Hillsbrad": 0.70}
+FLOORS = {"Durotar": 0.70, "Tirisfal": 0.70, "Silverpine": 0.70, "Barrens": 0.70, "Hillsbrad": 0.70,
+          "Arathi": 0.70, "Felwood": 0.70, "Tempest": 0.70, "Underdark": 0.70}
 
 
 def norm(s):

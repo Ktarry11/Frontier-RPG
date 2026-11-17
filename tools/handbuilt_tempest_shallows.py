@@ -228,7 +228,7 @@ NPC_POSITIONS = {
     "ts_landing_quartermaster": (92, 70),
     "ts_landing_surveyor": (88, 56),      # the goblin who is costing the island
     "ts_gate_watch": (98, 70),            # watching Khaz Varun's gate from outside it
-    "ts_belt_prospector": (126, 50),      # out in the green belt
+    "ts_belt_prospector": (95, 60),       # at the landing now (17 Nov 2026, hub sweep); was out in the green belt
     "ts_shallows_wader": (160, 68),       # at the head of the strand road
     "ts_landing_cook": (80, 58),          # the long tent and the pot
     "ts_landing_medic": (91, 62),         # the doctor from the Likoni ferry

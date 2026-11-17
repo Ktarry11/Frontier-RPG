@@ -31,6 +31,7 @@ import tools.handbuilt_arathi_west as AW  # noqa: E402
 import tools.handbuilt_arathi_central as AC  # noqa: E402
 import tools.handbuilt_arathi_east as AE  # noqa: E402
 import tools.handbuilt_hammerfall as HF  # noqa: E402
+import tools.handbuilt_saltspur_landing as SL  # noqa: E402
 from tools import arathi_npc_roster as R  # noqa: E402
 
 #: (zone key, layout module, vendors, ambient, vendor gear_level).
@@ -42,13 +43,21 @@ def _split(d, hf):
     return {k: v for k, v in d.items() if k.startswith("hammerfall_") == hf}
 
 
+def _salt(d, town):
+    pos = getattr(SL, "NPC_POSITIONS", {})
+    return {k: v for k, v in d.items() if (k in pos) == town}
+
+
 #: Hammerfall stands inside Arathi Central but is its own town map (zone "hammerfall", laid out by
 #: tools/handbuilt_hammerfall.py), so its people's spots and zone come from there.
 ZONES = [
     ("arathi_west", AW, R.WEST_VENDORS, R.WEST_AMBIENT, 19),
     ("arathi_central", AC, _split(R.CENTRAL_VENDORS, False), _split(R.CENTRAL_AMBIENT, False), 21),
     ("hammerfall", HF, _split(R.CENTRAL_VENDORS, True), _split(R.CENTRAL_AMBIENT, True), 21),
-    ("arathi_east", AE, R.EAST_VENDORS, R.EAST_AMBIENT, 22),
+    # Saltspur Landing became its own town map too (tools/handbuilt_saltspur_landing.py), and this list never
+    # learned it, so the sync stopped at the east's roster (found 17 Nov 2026, in the hub sweep)
+    ("arathi_east", AE, _salt(R.EAST_VENDORS, False), _salt(R.EAST_AMBIENT, False), 22),
+    ("saltspur_landing", SL, _salt(R.EAST_VENDORS, True), _salt(R.EAST_AMBIENT, True), 22),
 ]
 
 
