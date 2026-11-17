@@ -294,3 +294,425 @@ TEXT = {
           "There's more, though. Something's still singing down there, and it isn't any hymn I know. I've asked "
           "Brother Anselm at the chapel to help, so go and see him."),
 }
+
+
+# ======================================================================================================================
+# Batch 2: Silverpine South, Deathknell, the Undercity, Bloodmoon Village, Eastern Tirisfal, the Sepulcher and Brill.
+# These zones put the giver's speech in the description and a short parting line in accept_text, and the moves keep
+# that.
+# ======================================================================================================================
+NEW_NPCS.update({
+    "sp_pyre_cipher_clerk": dict(
+        name="Cipher-Clerk Avery Lusk", zone="silverpine_south", near=(87, 92), race="forsaken", gender="male",
+        variant=2,
+        greeting="Loremaster Sennarath sent me down from the Undercity to copy every mark the cult leaves in "
+                 "Pyrewood. Brand lets me sit by his fire, as long as I keep the door shut."),
+    "sp_amber_apprentice": dict(
+        name="Apprentice Nell Coombe", zone="silverpine_south", near=(67, 46), race="forsaken", gender="female",
+        variant=1,
+        greeting="I was one of Haskell's apprentices at the mill. There aren't many of us left, and he's got the rest "
+                 "of us sorting nails so we don't go near the tower."),
+    "fen_village_wisewoman": dict(
+        name="Old Wenna", zone="bloodmoon_village", near=(18, 25), race="forsaken", gender="female", variant=1,
+        greeting="I've lived on Fenris longer than anyone left in this village, alive or dead. I know the island's old "
+                 "stories, and I've started to wish I didn't."),
+    "fen_rearguard_liaison": dict(
+        name="Deathguard Halsey", zone="bloodmoon_village", near=(29, 27), race="forsaken", gender="male", variant=2,
+        greeting="The Rear Guard sent me to Fenris to write down what's happening here. They don't believe a word of "
+                 "my reports yet, so I've started asking for proof."),
+    "et_cave_deathguard": dict(
+        name="Deathguard Mira Holloway", zone="eastern_tirisfal", near=(58, 111), race="forsaken", gender="female",
+        variant=1,
+        greeting="I hold the mouth of the cave for Boneward Calder. He goes down to study the bones, and I go down to "
+                 "break them."),
+})
+
+MOVES.update({
+    # ==== Silverpine South ===========================================================================================
+    "sps_deserter_tags": dict(
+        giver="sp_south_quartermaster", why="Dallow over the cap; the quartermaster keeps the March's roll",
+        D="Sergeant Dallow and I keep the March between us. He keeps the soldiers, and I keep their kit and their "
+          "roll. Every soldier in the March carries an iron tag with a number stamped on it, and every number matches "
+          "a line in my book.\n\n"
+          "The deserters at Valgan's Field still wear theirs. Somebody from the Undercity will come down this road one "
+          "day and ask how many walked off, and they'll want to hear that it was a few. Dallow wants to tell them who, "
+          "and by what number, and he'll read it out of my book.\n\n"
+          "Take the tags off the Field Deserters and bring them to me.",
+        A="Iron tags, stamped with a number. Off the deserters at Valgan's Field.",
+        T="That's every number I needed, and I'll enter each one against the roll tonight, in ink.\n\n"
+          "Dallow can open the book now and tell the Undercity exactly who walked off. A list of names is a lot harder "
+          "to wave away than a guess."),
+    "sps_pyre_cultists": dict(
+        giver="sp_pyre_cipher_clerk", why="Brand over the cap; the Undercity's clerk wants the cult's houses cleared",
+        D="The cult in Pyrewood has taken the burned houses at the south end of the village, and they cast over the "
+          "dead hearths, the stone ones that are all that's left of those homes. Brand's listened from the lane, and "
+          "he doesn't know the name they pray to. He was the hearthwarden here when the village had people in it, so "
+          "he's heard most of them.\n\n"
+          "Loremaster Sennarath sent me to copy their marks, and I can't get near enough to copy anything while "
+          "they're in there. Brand says something answers when they call, and I believe him.\n\n"
+          "Clear the Pyrewood Cultists out of the burned houses, and I'll go in after you and start copying.",
+        A="The burned houses at the south end of Pyrewood. They cast over the dead hearths.",
+        T="Nothing answered tonight. Brand stood in the lane for an hour to be sure, and so did I.\n\n"
+          "The walls in those houses are covered in the cult's marks. I'll be copying them for a week."),
+    "sps_pyre_sigils": dict(
+        giver="sp_pyre_cipher_clerk", why="Brand over the cap; the sigils go to the clerk who reads ciphers",
+        D="Every one of the cultists carries an iron sigil. Brand took one off a body and gave it to me, and it's "
+          "properly cut, not scratched. That means somebody had these made by a smith, and in a quantity, for a cult "
+          "living in burned houses in a village with nobody alive in it.\n\n"
+          "The Loremaster reads this sort of cipher. I'd rather send him a handful than the one, because a handful "
+          "lets him lay them side by side.\n\n"
+          "Take the sigils off the Pyrewood Cultists and bring them to me.",
+        A="Iron sigils, off the Pyrewood Cultists. They're stamped, not scratched.",
+        T="They aren't all the same. Look, that one and that one are different at the edge.\n\n"
+          "So the cipher has variants, and that's a rank, or a house, or a posting. These people are organised "
+          "somewhere other than here, and the Loremaster's going to want to know where."),
+    "sps_ashes_south": dict(
+        giver="sp_pyre_cipher_clerk", why="Brand over the cap; he gave his phial of ash to the clerk to send on",
+        D="Brand scraped a phial of ash off the hall steps the night the doors were barred, and he gave it to me, "
+          "because neither of us knows what's in it. The cult burned something in that hall, and it wasn't "
+          "wood. Brand's been a hearthwarden his whole life, and he says it went to ash the wrong colour and it hasn't "
+          "stopped being warm.\n\n"
+          "There's nobody in Silverpine who can tell us what it is. There's an apothecary at Southpoint Tower, down in "
+          "Hillsbrad, who's had nothing but blight to work on for years and who'll probably open it in the road.\n\n"
+          "Take it to her anyway. I'd rather have a reckless answer than none.",
+        A="To the apothecary at Southpoint Tower in Hillsbrad. She'll probably open it in the road.",
+        T="You've come from Pyrewood? Give it here, I'm not waiting until I'm indoors.\n\n"
+          "This isn't from here. I don't mean Hillsbrad and I don't mean Silverpine. I've handled blight from every "
+          "corner of this continent, and this ash isn't from any of it.\n\n"
+          "Sit down and start at the beginning, and don't leave anything out."),
+    "sps_sfk_hounds": dict(
+        giver="sp_south_hunter", why="Rynn over the cap; the post's hunter takes the keep's kennels",
+        D="I hunt the hills for the Rear Guard's table, and I know what a wolf does when it's hungry. The worgs in "
+          "Shadowfang Keep don't do any of it. They're Arugal's own, kennelled and fed on a schedule, on things that "
+          "used to be people.\n\n"
+          "Rynn says a fed worg isn't a wolf any more, because it's never had to fail at a hunt, and she's right. A "
+          "wolf I can track. These sit in their kennels and wait to be let out.\n\n"
+          "Thin the kennels before somebody does let them out. Kill the Keep Worgs and the Slavering Worgs both.",
+        A="The kennels in Shadowfang Keep, west of the bailey.",
+        T="That's a thinner pack, and a fight I can pick instead of one that picks me.\n\n"
+          "The man who keeps them is still in there, though, and he keeps them hungry."),
+    "sps_sfk_rethilgore": dict(
+        giver="sp_south_hunter", why="Rynn over the cap; the kennel-master follows the kennels",
+        D="Rethilgore keeps the hounds in Shadowfang, and he keeps them hungry on purpose. A fed hound sleeps, and a "
+          "hungry one watches the door.\n\n"
+          "He was a decent man in Pyrewood. Brand knew him, and so did half the village. I've watched him through a "
+          "glass, and he's still careful. He checks the chains and he counts the hounds. There's enough of him left "
+          "to do the job properly, and not enough to stop doing it.\n\n"
+          "I'd like him buried. He's in the big pen in the west wing, and he'll have a chain in his hand.",
+        A="Shadowfang Keep, in the kennels. He's in the big pen in the west wing.",
+        T="He fed the hounds first, even at the end. You could see it on them.\n\n"
+          "I can respect that, I suppose, and I'd rather not have had to."),
+    "sps_sfk_moonwalkers": dict(
+        giver="sp_sfk_nightwatch", why="Rynn over the cap; the night watch hears the keep's chanting",
+        D="I keep the night watch on the Shadowfang gate, and on a full moon you can hear the keep chanting from here. "
+          "That's the moonwalkers. Arugal's cult is half sorcerers and half worgen who are still turning, and the "
+          "chanting is how they get the rest of the way.\n\n"
+          "The darksouls are what's at the end of it. So the keep isn't a garrison with casters in it. The casters are "
+          "making the garrison, out of whatever walks in.\n\n"
+          "Go in wherever you hear chanting, and kill the Shadowfang Moonwalkers and the Shadowfang Darksouls. Kill "
+          "the casters first, every time.",
+        A="Shadowfang Keep, on its hill south-west of the Peril. Go wherever you hear chanting, and kill the casters "
+          "first.",
+        T="The chanting stopped early tonight. That's the first quiet full moon I've had on this gate.\n\n"
+          "They'll make more, but they'll make them slower now."),
+    "sps_sfk_pickets": dict(
+        giver="sp_sfk_nightwatch", why="Marl over the cap; Pell has the nights on the same gate",
+        D="Marl has the days on the Shadowfang gate and I've got the nights, and the road past the pickets is the worst "
+          "of both. The ghouls and the stalkers crowd it, and they aren't coming down it. They're pressed up against "
+          "it, facing the keep, as if something inside were calling them.\n\n"
+          "There's a party going in soon, and I'd rather they spent what they've got inside instead of on the way "
+          "up.\n\n"
+          "Clear the Rotting Ghouls and the Feral Worgen Stalkers off the keep road.",
+        A="The keep road past Beren's Peril, south of here. They're pressed against it, facing the keep.",
+        T="The road's open to the portcullis.\n\n"
+          "They'll drift back. Whatever's pulling them hasn't stopped pulling, but a party can get up there now "
+          "without arriving tired."),
+    "sps_at_tomes": dict(
+        giver="sp_amber_scribe", why="Orsolo over the cap; his scribe collects the pages",
+        D="The tome wraiths in Ambermill Tower are the pages of a book that learned to fly, and Magister Orsolo has "
+          "asked me to collect them, since I'm the one who writes everything down. They haunt the galleries, and "
+          "they're all from the same book. Nobody's noticed that, because nobody's held two of them side by side.\n\n"
+          "The Magister thinks he knows who wrote it. He won't say who until he's sure, and I've stopped asking.\n\n"
+          "Take the torn pages off the Tome Wraiths, enough that he can lay them out together. And don't read any of "
+          "it aloud, not even to yourself.",
+        A="Off the Tome Wraiths in the galleries of Ambermill Tower. Don't read aloud.",
+        T="The Magister knows this hand. I watched his face when I showed him.\n\n"
+          "It was Hawren, who taught him to read. He'll want to see you."),
+    "sps_at_spellblades": dict(
+        giver="sp_amber_apprentice", why="Haskell over the cap; his apprentice lost friends to the spellblades",
+        D="I was an apprentice at Ambermill's sawmill, under Haskell. Our saws were enchanted to run themselves, and "
+          "that was his idea, and he was proud of it for years. The Animated Spellblades in the tower carry the same "
+          "enchantment. They're bright and quick and they don't care who they cut, because nobody gave them the part "
+          "that decides when to stop.\n\n"
+          "Two of my friends went into that tower on Haskell's say-so, to see whether the enchantment was the same as "
+          "ours, and it is. They didn't come out, and he's had the rest of us sorting nails ever since.\n\n"
+          "Break the spellblades. They're all through the tower, and they're the ones that glint.",
+        A="The Animated Spellblades, all through Ambermill Tower, through the waygate south-east of here.",
+        T="It's quieter in there, then. I'll tell Haskell myself.\n\n"
+          "He won't let us go back in for a month, but at least there's nothing in there now to keep us out."),
+
+    # ==== Deathknell =================================================================================================
+    "dk_stray_cull": dict(
+        giver="dk_sexton_marrow", why="Krell over the cap; the sexton keeps the graveyard the strays foul",
+        D="The dogs and the rats have always come to the graveyard, and we've always let them, because what's in the "
+          "ground is past caring. Something in the soil has turned them. The Plagued Strays are sick in a way I "
+          "haven't got a word for, and they've started going for the newly risen.\n\n"
+          "You'll meet people out there who woke up this week and can't work out which way the village is. They "
+          "can't defend themselves. A fortnight ago, neither could you.\n\n"
+          "Thin the strays, and the Grave Rats with them. The rats carry it into the stores, and then it's everyone's "
+          "problem.",
+        A="Round Deathknell's graves and the gate. Mind the newly risen, because they can't defend themselves.",
+        T="That's the yard safe for the ones still coming up.\n\n"
+          "You'll see a few of them wandering. Leave them be. They'll find their way, and I'll bury the ones who "
+          "don't."),
+    "dk_scavenger_scraps": dict(
+        giver="deathknell_undertaker", why="Krell over the cap; the undertaker keeps the village stores",
+        D="I keep Deathknell's stores, and they're shrinking. Nobody here eats, so it isn't food. It's salt tins, "
+          "rope, bandages and lamp oil, the things that keep a settlement standing.\n\n"
+          "The Ragged Scavengers out past the fence have been dragging it off, and they take whatever glints without "
+          "the faintest idea what any of it does.\n\n"
+          "I want all of it back. The Dark Lady keeps careful accounts and so do I, and that's worth learning on your "
+          "first day. We aren't animals picking over a ruin.",
+        A="The Burned Farmstead past the fence, where the scavengers den. Bring back every piece, because I'll know "
+          "what's missing.",
+        T="That's all of it. I've checked it against my list, item by item.\n\n"
+          "That list is why there's a Deathknell at all. Remember that when somebody tells you we're just corpses "
+          "that got lucky."),
+    "dk_scout_hollow": dict(
+        giver="wt_vale_ranger", why="Krell over the cap; the vale's ranger does his scouting",
+        D="Gresk thinks the spiders at his claim are wandering in, and they aren't. There are too many and they come too "
+          "steadily, and a wandering population thins when you cull it. This one doesn't.\n\n"
+          "There's a cave beside the claim, Night Web's Hollow, and I think it's pouring them out like a spring. "
+          "Before anybody goes in there to deal with it, Krell wants eyes on the inner strand, and he asked me for a "
+          "scout. I'm asking you.\n\n"
+          "Get to the inner strand of the Hollow, look at what's there, and come back out.",
+        A="Night Web's Hollow, the cave beside the claim. Get to the inner strand and come back out.",
+        T="A brood chamber, that deep in? Then it's worse than I thought.\n\n"
+          "Go and tell Krell. He'll want somebody to finish it, and he'll want it to be you."),
+    "dk_verrick_crypt": dict(
+        giver="wt_crypt_keeper", why="Verrick over the cap; the crypt keeper walks crypts for a living",
+        D="Verrick's been watching the Scarlet Crypt from his rocks for weeks, and he won't go down the nave. I keep "
+          "crypts myself, so he asked me, and I'm asking you, because my knees won't take those stairs.\n\n"
+          "It's the Crusade's real foothold in this valley. There's a chapel, an ossuary, a reliquary, and a High "
+          "Inquisitor who likes confessions. Something is holding the doors at the far end shut, and it isn't a "
+          "bar.\n\n"
+          "Walk the nave to the far doors and look at what's holding them. Don't try to clear it. Just look, and come "
+          "back.",
+        A="Down the nave of the Scarlet Crypt to the far doors. Look at what's holding them, then come back.",
+        T="Held from the inside, by something that wanted to be in there? Then this stopped being a camp outside a "
+          "crypt a long time ago.\n\n"
+          "I'll tell Verrick. He won't like it, but he'll want to know."),
+    "dk_verrick_vaults": dict(
+        giver="dk_sexton_marrow", why="Verrick over the cap; the sexton wants the valley's dead out of the ossuary",
+        D="Verrick tells me the High Inquisitor's dead and the Scarlet Crypt still isn't ours. There are two vaults "
+          "left, one on either side.\n\n"
+          "The ossuary's under Valdric Bonewarden. That's where the Crusade put the dead they never finished burying, "
+          "and most of them are our dead, from this valley. I've been asking to bury them properly since the day I "
+          "woke up.\n\n"
+          "The reliquary's on the other side, under Brother Wystan, and whatever the Scarlets thought worth saving is "
+          "in there. Kill them both and open the vaults, and the crypt belongs to the valley again.",
+        A="Both vaults of the Scarlet Crypt: the ossuary under Valdric, and the reliquary under Wystan.",
+        T="Both vaults are open, and the whole crypt with them.\n\n"
+          "I'll start bringing our dead out of the ossuary tomorrow and put them in ground that belongs to them. "
+          "Whatever's in the reliquary can go to Krell, and then to the Undercity. Go and find Krell, too. He's run "
+          "out of things to send you at."),
+
+    # ==== The Undercity ==============================================================================================
+    "ucq_sennarath_scroll": dict(
+        giver="uc_market_scribe", why="Sennarath over the cap; the market scribe sends his sealed scroll",
+        D="Loremaster Sennarath sealed this scroll in grave-wax and left it with me to send, because he won't let it "
+          "leave the city except in a steady pair of hands, and he's decided mine shake. He's been tracking the "
+          "Cult's cipher across half of Lordaeron, and he can read most of it. The rest is a key, and he thinks "
+          "Keeper Oswin at Raven Hill has it.\n\n"
+          "Oswin's been reading the same markings on his own stones for longer than the Loremaster's been working, "
+          "and he's never written any of it down.\n\n"
+          "Put it in Oswin's hand, and don't open it. The wax only takes one impression, and the Loremaster will "
+          "know.",
+        A="Up the shaft into Tirisfal, south through the Rear Guard into Silverpine, and down the Trunk Road to Raven "
+          "Hill Cemetery on its west side. Give it to Keeper Oswin.",
+        T="That's Sennarath's seal. He writes the way I read, slowly and twice.\n\n"
+          "Give me a moment. There'll be a reply, and it'll be shorter than he'd like."),
+    "uc_dalaran_question": dict(
+        giver="uc_mage_trainer", why="Sennarath over the cap; the shield over Dalaran is a mage's question",
+        D="This is curiosity rather than orders, so you can say no. The Ruins of Dalaran stand at the edge of "
+          "Hillsbrad under a shield the Kirin Tor raised and have never lowered. I studied under that shield when I "
+          "was alive, and I've walked round it a great many times since.\n\n"
+          "Word has reached the Apothecarium that a party of blood elves got underneath it three years ago, when the "
+          "world shook and a great many sealed things stopped being sealed. If the word's true, they've been living "
+          "under the ruins ever since. Nobody has confirmed it.\n\n"
+          "Go and look, and bring me something better than a rumour.",
+        A="Into eastern Hillsbrad, within sight of the Dalaran shield. Look, but don't start anything.",
+        T="Lights under the shield, and movement on a schedule? They've been down there three years, the same three "
+          "years the rest of us have spent learning what the sky's doing now.\n\n"
+          "This goes to the Apothecarium tonight. I expect somebody more senior than me will want to meet you."),
+    "ucq_hillsbrad_writ": dict(
+        giver="uc_market_scribe", why="Wrenfall over the cap; the scribe who drew up the writ sends it",
+        D="The Executor signed a writ for the commander at Tarren Mill, and I drew it up for him. It gives her "
+          "standing authority to act in the valley without writing north first. It sat on his desk for a month, "
+          "because signing it meant admitting he can't run Hillsbrad from here.",
+        A="Take it south through Silverpine, down into Hillsbrad, and east to Tarren Mill, the mill town cut in half "
+          "by a water channel. Commander Thorne holds it.\n\n"
+          "The Executor would rather keep that authority for himself. He signed it anyway, because the other choice "
+          "was losing the valley by post.",
+        T="He signed it? I've been asking for this for two years, and I'd stopped expecting it. This is permission to "
+          "stop waiting.\n\n"
+          "There's Alterac money in these hills, there are wizards in a scrap camp, and there's a man in Durnholde "
+          "keeping a court. I can go after all three now without writing north first."),
+    "sm_the_bloodmages_stone": dict(
+        giver="uc_alchemist", why="Sable over the cap; her alchemist wants the stone on his bench first",
+        D="Alchemist Dunmere has heard that the Crusade keeps a blood mage in the Graveyard's tomb, Bloodmage "
+          "Thalnos, who's kept himself alive a long time on other people.\n\n"
+          "He wants the stone Thalnos does it with. The Master Apothecary has her own uses for something that keeps a "
+          "heart beating, and she's asked him to find out how it works.",
+        A="Thalnos holds Honor's Tomb, at the far end of the Graveyard past the open burial ground. His ward drinks "
+          "spells, so hit him with steel. The stone will be on him. Bring it to me, not to the Master Apothecary, "
+          "because I want a look at it first.",
+        T="It's still warm, and it's still beating.\n\n"
+          "I'll take it apart tonight and send what I learn up to Lorrane. Don't mention it in the tavern."),
+
+    # ==== Bloodmoon Village ==========================================================================================
+    "fen_banshee_locks": dict(
+        giver="fen_village_wisewoman", why="Gravemoss over the cap; Old Wenna has the theory about the locks",
+        D="When a banshee fades on the strand, she leaves a lock of hair behind, and she does it every time. Gravemoss "
+          "used to burn them, and I told him to stop, because I think they're anchors. A thing made of grief and air "
+          "leaves behind the one part of a person that lasts after death, and I don't think that's an accident.\n\n"
+          "I think that's what holds them to the strand, and it's why they keep coming back however often the village "
+          "puts them down.\n\n"
+          "Bring me the locks off the Isle Banshees. I'll bury them under the village stones, in ground that was ours "
+          "before any of this, and we'll find out whether an old woman is right about something.",
+        A="Gather the locks the banshees leave behind when they fade on the strand.",
+        T="I've buried them one at a time, under the stones, and said a name over each. I made the names up, and I "
+          "won't pretend otherwise.\n\n"
+          "But a thing in the ground with a name over it makes a grave, and I'd rather they were anchored here than out "
+          "on the strand."),
+    "fen_noble_signets": dict(
+        giver="fen_rearguard_liaison", why="Merrin over the cap; the Rear Guard's man wants the crests for Silverpine",
+        D="The Cursed Nobles in Fenris Proper still wear their house signets. They've lost their faces and the use of "
+          "their hands, and they haven't lost the rings. Merrin noticed it first, and she told me.\n\n"
+          "I don't want them for the gold. I want the crests. The Rear Guard says Fenris was a minor holding with a "
+          "minor lord and a local misfortune. I'd like to put the crests on a table in Silverpine and ask them what "
+          "all those noble houses were doing at a minor lord's table on the night the curse was cast.\n\n"
+          "It won't change anything on this island, but it'll change how seriously the mainland takes it.",
+        A="Take the rings off the Cursed Nobles in the forecourt and the manor grounds.",
+        T="Every one of these is from a different house. The Rear Guard will have to read my next report now."),
+    "fen_altar_moonhowl": dict(
+        giver="fen_rearguard_liaison", why="Orlan over the cap; the moon-fangs are the Rear Guard's proof",
+        D="The Rear Guard wants proof that the curse is still alive before they'll send anyone else to Fenris, and "
+          "Orlan's told me the best proof there is. The worgen at Shadowpine Altar howl at a moon the cavern can't "
+          "see. There's no sky down there, and they still howl on the nights the moon is full and stay quiet when it "
+          "isn't, and they're never wrong.\n\n"
+          "The wraiths move with them, on the same nights.\n\n"
+          "Thin the Moonhowl Worgen and the Altar Wraiths, and bring me the moon-fangs off the worgen. Half go to "
+          "Orlan for the cairn he's building at the stair-head, and half go to Silverpine with my report.",
+        A="It's north-west of here, through the arch in the ridge and down into Shadowpine Altar. The worgen and the "
+          "wraiths hold its circles and the long roads between, and the fangs come off the worgen.",
+        T="That's a cairn's worth for Orlan and a box for the Rear Guard. The curse should keep its distance for a "
+          "season, and Silverpine should stop calling it a local misfortune."),
+    "fen_altar_tael": dict(
+        giver="fen_village_wisewoman", why="Orlan over the cap; the curse-keeper is in Old Wenna's stories",
+        D="Orlan's told me about Curse Keeper Tael, in the Moon Circle at Shadowpine Altar. Tael feeds the moonstone "
+          "whatever the cult throws at it, and he's been doing it for centuries.\n\n"
+          "Here's what I can't get past. The stone doesn't need a keeper. Orlan's watched long enough to be sure, and "
+          "the old stories say the same. It does what it does whether Tael's there or not. He isn't keeping the curse "
+          "going. He's attending it, the way a servant attends a master who's long gone.\n\n"
+          "That frightens me more than anything else on this island. Kill him, and don't watch the moonstone while "
+          "you do.",
+        A="Go north-west to Shadowpine Altar, then east through its caverns to the Moon Circle. Don't watch the "
+          "moonstone.",
+        T="He won't tend it any more. The stone will dim or it won't, and either way I'll sleep better.\n\n"
+          "The old stories never said what Tael was waiting for. I hope it wasn't us."),
+
+    # ==== Eastern Tirisfal ===========================================================================================
+    "etc_warriors": dict(
+        giver="et_cave_deathguard", why="Calder over the cap; the Deathguard who holds the cave takes its patrols",
+        D="The Boneward studies what's in the cave, and I keep it from walking out. The Scourge Warriors patrol the "
+          "rib tunnels, and they don't sleep and they don't tire. They're terrible at hiding, though. You can hear "
+          "them a corridor away.\n\n"
+          "I've watched a pair of them walk the same rib for days without stopping.\n\n"
+          "Break the patrols. I want a stretch of that corridor that stays empty for an hour, so Calder can set a lamp "
+          "in it.",
+        A="In the rib tunnels of the cave. You'll hear them before you see them.",
+        T="That's an hour of empty corridor. Calder's already taking a lamp down to the next rib.\n\n"
+          "It's the first ground anyone's held under that farm."),
+    "etc_ghouls": dict(
+        giver="et_cave_deathguard", why="Calder over the cap; the Deathguard who holds the cave takes its packs",
+        D="It's the same tunnels and a faster problem. The Scourge Ghouls came down with the Scourge, and they stayed "
+          "when it left, because the cult keeps a plague cellar down here and leaves things out for them.\n\n"
+          "So they're fed, and a fed pack isn't the starving rabble you've met out on the glades. They're fast, they "
+          "hunt properly, and they turn together.\n\n"
+          "Thin them out, and don't let them get behind you in the ribs.",
+        A="Through the ribs. They travel in packs and they turn together.",
+        T="That's the pack cut down. The cellar can only grow it back so fast.\n\n"
+          "The Boneward will want to talk to you about that cellar."),
+    "etc_krag": dict(
+        giver="et_cave_deathguard", why="Calder over the cap; the ghoulmaster goes with the ghouls",
+        D="There's a pit west of the ribs, and Ghoulmaster Krag keeps his pack in it. He's lined it with bone, and he "
+          "feeds the pack on what the cult leaves behind, which is how you get a pack that size this far from "
+          "anything living.\n\n"
+          "He doesn't fight at the front. He sends the pack and watches how it goes, and then he changes what he's "
+          "doing. I've watched him do it, and I didn't enjoy it.\n\n"
+          "Break the pack where it lives, and then kill Krag.",
+        A="The bone-lined pit, west of the ribs. He sends the pack first and watches.",
+        T="The pit's cold. Krag's what I'd have worried about most if we'd come back in a year.\n\n"
+          "Without Krag, the rest of them are only hungry, and hungry I can handle."),
+
+    # ==== The Sepulcher ==============================================================================================
+    "sep_marrow": dict(
+        giver="sepulcher_mortician_supplier", why="Yseult over the cap; the mortician makes his salts from marrow",
+        D="I sell preserving salts, and I make the bone dust that goes in them. The best bone in this valley is on the "
+          "Risen Husks out at Raven Hill Cemetery, and Yseult will tell you the same, because she buys from me.\n\n"
+          "Fresh bone's too wet, and old grave-bone crumbles. The husks are dry all the way through, and the marrow "
+          "keeps.\n\n"
+          "Bring me dry marrow-bones off the Risen Husks. If it's damp in your hand, it's no use to me, so leave it "
+          "where it is.",
+        A="Off the Risen Husks at Raven Hill Cemetery, wherever the field is thickest.",
+        T="They're dry and pale, every one of them. That's salt enough for the whole Sepulcher this winter.\n\n"
+          "Yseult will want the long bones for her combs. I'll let her have them, if she asks nicely."),
+    "spn_wl_larder": dict(
+        giver="sepulcher_gravestone_reader", why="Corvane over the cap; the reader of the stones counts the dead",
+        D="I read the names on the stones, because somebody should. Corvane's told me what he wants to know about the "
+          "Widow's Lair, and he can't bring himself to go and find out, so I've said I'd ask for him.\n\n"
+          "He wants to know how many people that hive has eaten, and he doesn't want a rough number. He's spent years "
+          "telling families in these woods that their people were lost to wolves, or to the road, and he believed "
+          "most of it when he said it.\n\n"
+          "The answer's in two places, deep in the lair. The Larder is where they hang the fresh ones, and the Husk "
+          "Pit, at the other end, is where they drop what's left. Stand in each long enough to count, and don't bring "
+          "anything out.",
+        A="The Larder and the Husk Pit, deep in the Widow's Lair. Count, and bring nothing out.",
+        T="Then it's more than either of us wanted. I'll cut every one of them into a stone, even without names, and "
+          "Corvane can write to the families.\n\n"
+          "They'll hate him for it, and he says they'll be right to."),
+
+    # ==== Brill ======================================================================================================
+    "sm_the_flamekeepers_due": dict(
+        giver="brill_innkeeper", why="Novak over the cap; he left the signet and his letter with the innkeeper",
+        D="Renee keeps the inn where Novak lodges, and Novak's left Stane's signet with her for you, with a letter. He "
+          "wants it put into Flamekeeper Rory Callahan's hand at the Bulwark, the Forsaken's wall at the end of "
+          "Tirisfal's east road, where the Order keeps its quarter.\n\n"
+          "The road there runs into country that kills people who aren't ready for it. Novak says to wait until you "
+          "are, and then to go.",
+        A="Take the east road out of Tirisfal to the Bulwark. The Order's banners are on the south side of the "
+          "street, and Rory stands at the keep's door. Novak says don't go before you're ready, and he means it."),
+})
+
+TEXT.update({
+    "sps_pyre_hall": dict(
+        T="You heard a voice giving orders? There's nobody in that hall to give orders to, and there hasn't been "
+          "since before the worgen. Either he's talking to the dead, or the dead are in there with him and "
+          "listening.\n\n"
+          "I scraped a phial of ash off those steps the night the doors were barred, and I gave it to Avery Lusk by "
+          "the fire. He'll want you to carry it south."),
+    "dk_verrick_fairbanks": dict(
+        T="That's Fairbanks closed. I've carried his tally in my head for a week, and I'd started adding to it in my "
+          "sleep.\n\n"
+          "The crypt's vaults are still shut, though. Sexton Marrow wants our dead out of the ossuary, and he'll tell "
+          "you about it. He's down at the graves."),
+    "fen_isle_banshees": dict(
+        T="Nothing answered last night. The drowned still sang, and I sat and listened to the whole of it, and it was "
+          "just a sound in the dark, the way it was when I was a boy.\n\n"
+          "Old Wenna's been asking after the banshees. She has a theory about them, and she'd like a word with you."),
+    "sm_the_captain_of_the_doors": dict(
+        T="That's the ring. I've seen it on his hand in a doorway with the fire behind him.\n\n"
+          "Rory should hear it from the one who did it. I'm writing to him tonight, and I'll leave the letter and the "
+          "ring with Renee downstairs. Collect them from her when you're ready for the road east."),
+})
