@@ -102,7 +102,18 @@ def main():
     for line in out.splitlines():
         if line.startswith("    "):
             bad.append("the text never names what you are sent after: " + line.strip())
+    # Zones that have had the plain-voice pass (a "voice" entry in quest_overhaul_done.json) stay at zero
+    # findings from tools/audit_quest_voice.py: no tics, fragments, aphorisms or missing contractions creep back.
+    voiced = sorted(k for k, v in done.items() if isinstance(v, dict) and v.get("voice"))
+    if voiced:
+        out = subprocess.run([sys.executable, "tools/audit_quest_voice.py"] + voiced,
+                             capture_output=True, text=True, env=dict(os.environ, PYTHONPATH=".")).stdout
+        for line in out.splitlines():
+            if line.startswith("    "):
+                bad.append("voice: " + line.strip())
     print(f"{len(done)} zones through the overhaul: {', '.join(sorted(done))}")
+    if voiced:
+        print(f"{len(voiced)} held to the plain-voice bar: {', '.join(voiced)}")
     if bad:
         print(f"\n{len(bad)} problem(s):")
         for b in bad[:30]:

@@ -28,144 +28,113 @@ Plain ASCII, same as the quest text source - the game font has no curly quotes.
 """
 
 QUEST_TOPICS = {
-    # ---------------------------------------------------------------------------------------------
-    # Drillmaster Ukko, Grom'gol. Orc, gruff, and the only man in the camp who has had to change how
-    # he does his job because of who arrived. He is fair about it, which is what gives the third
-    # topic its edge: the camp is not fair about it and he has stopped correcting them.
-    # ---------------------------------------------------------------------------------------------
-    "stn_nothing_they_have_fought_climbs": {
-        "what_climbs": {
-            "label": "What out here climbs?",
+    # -----------------------------------------------------------------------------------------------
+    # Drillmaster Ukko, Grom'gol. Orc, gruff and fair; the camp isn't.
+    # Plain-voice rewrite, 17 Nov 2026 (tools/stv_topic_voice.py).
+    # -----------------------------------------------------------------------------------------------
+    'stn_nothing_they_have_fought_climbs': {
+        'what_climbs': {
+            "label": 'What out here climbs?',
             "response": (
-                "Everything worth worrying about. The thornbacks come down a "
-                "trunk faster than you go up a ladder. The coilvines live in "
-                "the canopy and drop the last of the distance. A greenpelt "
-                "goes up a buttress root like it is a stair, because to a "
-                "greenpelt it is a stair. You were taught that a fight has a "
-                "front and two flanks and a back. This jungle has a roof, and "
-                "the roof is a direction, and nobody on that airship was "
-                "issued a word for it."
+                'Everything worth worrying about. Thornback apes come down a trunk faster than you can climb a '
+                'ladder. Coilvine pythons live in the canopy and drop the last few feet. A greenpelt runs up a '
+                "buttress root like it's a staircase. You were taught a fight has a front, two flanks and a back."
+                ' This jungle has a roof as well, and nobody on that airship was given a word for it.'
             ),
         },
-        "what_the_drill_is_for": {
-            "label": "What is the drill actually for, then?",
+        'what_the_drill_is_for': {
+            "label": "What's the drill actually for, then?",
             "response": (
-                "Looking up. That is it. That is the whole of what I added. I "
-                "used to drill a line - shields even, spears level, hold the "
-                "ground and let them break on you. A line is for a field. "
-                "There is no field in Stranglethorn and there never will be. "
-                "So now I drill the glance. Twice a minute, every minute, "
-                "until a recruit does it in his sleep and resents me for it. "
-                "The ones who resent me live. I have made peace with being "
-                "resented."
+                "Looking up, and that's all I added. I used to drill a battle line: shields even, spears level, "
+                'hold your ground and let them break on you. A line is for open fields, and there are no fields '
+                'in Stranglethorn. So now I drill the glance upward, twice a minute, every minute, until a '
+                "recruit does it in his sleep and resents me for it. The ones who resent me live, and I've made "
+                'peace with that.'
             ),
         },
-        "who_you_get": {
-            "label": "Who does the airship give you?",
+        'who_you_get': {
+            "label": 'Who does the airship give you?',
             "response": (
-                "Whoever is standing on the berth stair when it leaves. I had "
-                "a sergeant here who said your sort could not be taught the "
-                "canopy. He was wrong and he was also not stupid, which is the "
-                "uncomfortable part. You can be taught anything. You cannot be "
-                "assumed. I do not ask a recruit where he is from. I ask what "
-                "he has stood under, and most of you have stood under nothing "
-                "but sky, and sky does not drop on a man. Half this camp puts "
-                "that same thought a good deal less kindly than I just did. I "
-                "used to correct them. I got tired."
+                "Whoever's standing on the berth stair when it leaves. I had a sergeant who said your sort "
+                "couldn't be taught the canopy. He was wrong, but he wasn't stupid, and that's the uncomfortable "
+                "part. You can be taught anything, but nobody can assume what you know. I don't ask a recruit "
+                "where he's from. I ask what he's stood under, and most of you have stood under nothing but open "
+                "sky, and sky doesn't drop on a man. Half this camp says that a lot less kindly than I just did. "
+                'I used to correct them, but I got tired.'
             ),
         },
     },
-    # ---------------------------------------------------------------------------------------------
-    # Beast-Handler Kozza, Grom'gol. Troll, light dialect, and the one giver in the camp whose
-    # evidence is an animal's opinion - which is why she needs a second person to have heard it.
-    # The middle topic quietly corroborates the supply-line chain: regular traffic, uphill, slow.
-    # ---------------------------------------------------------------------------------------------
-    "stn_what_the_pens_know": {
-        "the_difference": {
-            "label": "Tame and fed. What is the difference?",
+    # -----------------------------------------------------------------------------------------------
+    # Beast-Handler Kozza, Grom'gol. Troll, full dialect, unsentimental.
+    # Plain-voice rewrite, 17 Nov 2026 (tools/stv_topic_voice.py).
+    # -----------------------------------------------------------------------------------------------
+    'stn_what_the_pens_know': {
+        'the_difference': {
+            "label": "Tame and fed. What's the difference?",
             "response": (
-                "Tame is a promise and fed is a trade. A promise is a ting you "
-                "made up and told yourself de animal agreed to. A trade, de "
-                "animal knows. She knows what she gets and she knows when, and "
-                "as long as dat holds she will let you stand inside de pen with "
-                "her and she will not open you up. De day it stops holding, she "
-                "is not betraying you, mon. She is just done trading. Every "
-                "handler who ever got opened up thought he had a promise."
+                'Tame is a promise you made up and told yourself da animal agreed to. Fed is a trade, and da '
+                "animal knows it. She knows what she gets and when, and as long as dat holds, she'll let you "
+                "stand in da pen with her and won't open you up. Da day it stops holdin', she ain't betrayin' "
+                "you, mon. She's just done tradin'. Every handler who ever got torn open thought he had a "
+                'promise.'
             ),
         },
-        "the_raptors_on_the_road": {
-            "label": "What do your birds hear out on the road?",
+        'the_raptors_on_the_road': {
+            "label": 'What do your birds hear out on the road?',
             "response": (
-                "Dey go quiet. Same day of de week, from mid-morning, and dey "
-                "all face de same way - up de cutline, north, toward de crag. "
-                "Quiet is not fear. A predator makes dem loud, makes dem come "
-                "at de rail. Quiet is what dey do for something dey have looked "
-                "at and decided is not theirs to fight. Something with a lot of "
-                "feet, going slow, going uphill, and going at de same hour every "
-                "week like it has got a man with a book counting it out. Dat is "
-                "what I have. Dat is all I have."
+                "Dey go quiet, da same day every week, from mid-mornin', and dey all face da same way, up da road"
+                " toward da crag. Quiet ain't fear. A predator makes dem loud and sends dem at da rail. Quiet is "
+                "what dey do for somethin' dey've looked at and decided ain't theirs to fight. Somethin' with a "
+                "lot of feet, movin' slow, goin' uphill at da same hour every week, like it has a man with a book"
+                " countin' it out. Dat's all I've got."
             ),
         },
-        "what_she_will_not_do": {
-            "label": "What will you not do?",
+        'what_she_will_not_do': {
+            "label": "What won't you do?",
             "response": (
-                "Three tings. I will not name one of dose birds. I will not put "
-                "a bird's opinion in front of de overseer as a fact, because she "
-                "will ask me for a number and den she will have me on paper being "
-                "wrong. And I will not let dis camp start using my pens as a "
-                "watchtower. De hour dey do dat, de feed stops being feed and "
-                "becomes a line in a ledger, and a line in a ledger is a ting "
-                "somebody upstairs can cut. Den I have hungry raptors and a camp "
-                "that is surprised about it."
+                "Dere's three tings. I won't name one of dose birds. I won't put a bird's opinion in front of da "
+                "overseer as fact, because she'll ask for a number and den I'm on paper bein' wrong. And I won't "
+                "let dis camp use my pens as a watchtower. Da day dey do, da feed stops bein' feed and becomes a "
+                "line in a ledger, and somebody upstairs can always cut a line. Den I've got hungry raptors and a"
+                " camp dat's surprised about it."
             ),
         },
     },
-    # ---------------------------------------------------------------------------------------------
-    # Wind-Rider Ghulrak, Tarren Mill - the far end of the cross-zone flight thread. An orc on a
-    # tower in Hillsbrad who has been flying transplants north for three years and has worked out
-    # who the fences really belong to. The third topic is this pass's most direct look at the
-    # resentment, and it is a native refusing to join in with it rather than an aside about it.
-    # ---------------------------------------------------------------------------------------------
-    "stn_two_roosts_one_ledger": {
-        "fences_from_the_air": {
-            "label": "What does Hillsbrad look like from up there?",
+    # -----------------------------------------------------------------------------------------------
+    # Wind-Rider Ghulrak, Tarren Mill. Orc, dry, flown everything twice.
+    # Plain-voice rewrite, 17 Nov 2026 (tools/stv_topic_voice.py).
+    # -----------------------------------------------------------------------------------------------
+    'stn_two_roosts_one_ledger': {
+        'fences_from_the_air': {
+            "label": 'What does Hillsbrad look like from up there?',
             "response": (
-                "Fences. All of it, fences. You do not see how much of a country "
-                "is fences until you are over it with nothing else to look at. "
-                "Every one of them was argued about. Men have gone in the ground "
-                "over which side of a fence a cow was standing on, and the fence "
-                "is still up and the men are not. Your goblin's route crosses "
-                "about four hundred of them in the last hour of the flight and "
-                "not one of them will be moved for him."
+                "Fences, all of it. You don't see how much of a country is fences until you're above it with "
+                'nothing else to look at. Every one of them was argued over. Men have been buried over which side'
+                " of a fence a cow was standing on, and the fence is still up and the men aren't. Your goblin's "
+                'route crosses hundreds of them in the last hour of the flight, and not one will be moved for '
+                'him.'
             ),
         },
-        "why_not_bats": {
-            "label": "Why not just fly bats the whole way?",
+        'why_not_bats': {
+            "label": 'Why not fly bats the whole way?',
             "response": (
-                "Because a bat does not need to see the tower and a wyvern does. "
-                "A bat comes in on its ears, in cloud, in rain, in the dark, and "
-                "it does not care whether anybody lit anything. A wyvern will not "
-                "put down on a roost it cannot pick out, and over that middle "
-                "stretch there is nothing to pick out, so the bird keeps flying, "
-                "and a bird that keeps flying when it is finished comes down in "
-                "the water. That is why I want the dead man's tower lit. Not for "
-                "the route. For the bird."
+                "Because a bat doesn't need to see the tower and a wyvern does. A bat comes in by ear, through "
+                "cloud and rain and dark, and doesn't care whether anyone lit anything. A wyvern won't land on a "
+                "roost it can't see, and over that middle stretch there's nothing to see, so the bird keeps "
+                "flying. A bird that keeps flying after it's spent ends up in the water. That's why I want the "
+                'Forsaken tower lit. Not for the route, for the bird.'
             ),
         },
-        "what_the_jungle_sends_north": {
-            "label": "Who comes north on your tower?",
+        'what_the_jungle_sends_north': {
+            "label": 'Who comes north on your tower?',
             "response": (
-                "Couriers, mostly. Lately, your lot. They come up out of that "
-                "jungle and they ask me for places by names that are not on any "
-                "map I own, and I set them down at the mill, and they stand in "
-                "the yard looking at a waterwheel like somebody has moved their "
-                "house. Three years and they still ask. I have stopped asking "
-                "them back. Half the garrison here will tell you the fences came "
-                "down the year the sky changed. They did not. They came down the "
-                "year the Syndicate worked out nobody was watching them. But a "
-                "man would rather blame a sky he saw change than a neighbour he "
-                "has to go on living beside. I charge you all the same rate, if "
-                "that is any comfort."
+                'Couriers, mostly, and lately you lot. You come up out of that jungle asking for places by names '
+                "that aren't on any map I own, and I set you down at the mill, and you stand in the yard staring "
+                "at a waterwheel like somebody's moved your house. Three years, and you still ask. Half the "
+                "garrison here will tell you the fences came down the year the sky changed, but they didn't. They"
+                ' came down the year the Syndicate worked out nobody was watching. But a man would rather blame '
+                "the sky than a neighbour he has to keep living beside. I charge you all the same rate, if that's"
+                ' any comfort.'
             ),
         },
     },
