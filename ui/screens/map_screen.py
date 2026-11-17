@@ -28,6 +28,13 @@ SAW_TAN = (210, 170, 105)
 #: Deliberately a warm yellow, distinct from INN_AMBER and FORGE_ORANGE, because
 #: all three cluster in the same few tiles of a town square.
 SHOP_YELLOW = (255, 215, 90)
+#: Mailboxes and auctioneers. Kyle, 16 Nov 2026: "We should also add icons for mailbox and also auction house."
+#: The mailbox is a pale envelope, the auction house a gavel in rose, both kept clear of the reds the player
+#: marker and bosses use and of the town square's yellows and ambers.
+MAIL_WHITE = (225, 230, 245)
+AUCTION_ROSE = (240, 125, 160)
+#: The order glyphs are drawn in: later ones sit on top. Mailboxes stand beside the inn, so they go under it.
+MARKER_ORDER = ("mail", "auction", "shop", "forge", "sawmill", "prof", "class", "inn", "ride", "flight")
 
 
 
@@ -364,14 +371,18 @@ class MapScreen(BaseScreen):
         if vendor_mgr is not None:
             service_npcs += list(vendor_mgr.get_vendors_in_zone(tilemap.name))
         markers = {"inn": set(), "ride": set(), "flight": set(), "class": set(), "prof": set(),
-                   "forge": set(), "sawmill": set(), "shop": set()}
+                   "forge": set(), "sawmill": set(), "shop": set(), "mail": set(), "auction": set()}
         for npc in service_npcs:
             if getattr(npc, "hidden", False):
+                continue
+            # a mailbox is an "NPC" that's a prop (world/ambient_npc_manager.py); it gets its own glyph
+            if getattr(npc, "is_mailbox", False):
+                markers["mail"].add((npc.x, npc.y))
                 continue
             svcs = services_for_npc(npc)
             for svc in svcs:
                 kind = {"inn": "inn", "riding": "ride", "mounts": "ride", "flight": "flight",
-                        "train_class": "class", "train_prof": "prof"}.get(svc)
+                        "train_class": "class", "train_prof": "prof", "auction": "auction"}.get(svc)
                 if kind:
                     markers[kind].add((npc.x, npc.y))
             # PLAIN SHOPS. Kyle: "I can't find vendors in towns without clicking
@@ -399,7 +410,7 @@ class MapScreen(BaseScreen):
             hx, hy = self._tile_to_screen(tilemap, rect, bind["x"], bind["y"])
             self._draw_service_icon(screen, "hearth", hx, hy)
 
-        for kind in ("shop", "forge", "sawmill", "prof", "class", "inn", "ride", "flight"):
+        for kind in MARKER_ORDER:
             for tx, ty in sorted(markers[kind]):
                 fx, fy = self._tile_to_screen(tilemap, rect, tx, ty)
                 self._draw_service_icon(screen, kind, fx, fy)
@@ -445,7 +456,7 @@ class MapScreen(BaseScreen):
         pygame.draw.circle(screen, (255, 255, 255), (px, py), 7)
         pygame.draw.circle(screen, (220, 40, 40), (px, py), 5)
         self._icons_over_player = 0
-        for kind in ("shop", "forge", "sawmill", "prof", "class", "inn", "ride", "flight"):
+        for kind in MARKER_ORDER:
             for tx, ty in sorted(markers[kind]):
                 fx, fy = self._tile_to_screen(tilemap, rect, tx, ty)
                 if abs(fx - px) < 18 and abs(fy - py) < 18:
@@ -480,14 +491,20 @@ class MapScreen(BaseScreen):
                 self.renderer.draw_text(screen, text, (lx + 22, ly), color=(200, 200, 210))
                 ly += 26
         # Service icons are glyphs, so the legend uses the same drawing code as the map.
-        for kind, text in (("shop", "Vendor (buy / sell)"),
-                           ("flight", "Flight master"), ("inn", "Innkeeper (bind hearth)"),
-                           ("ride", "Riding trainer / mounts"), ("hearth", "Your hearth is bound here"),
-                           ("class", "Class trainer"), ("prof", "Profession trainers"),
-                           ("forge", "Forge (ore to bars)"), ("sawmill", "Sawmill (logs to planks)")):
+        services = (("shop", "Vendor (buy / sell)"),
+                    ("flight", "Flight master"), ("inn", "Innkeeper (bind hearth)"),
+                    ("ride", "Riding trainer / mounts"), ("hearth", "Your hearth is bound here"),
+                    ("class", "Class trainer"), ("prof", "Profession trainers"),
+                    ("forge", "Forge (ore to bars)"), ("sawmill", "Sawmill (logs to planks)"),
+                    ("mail", "Mailbox"), ("auction", "Auction house"))
+        # Eleven glyphs, the boss row and the size and position lines have to fit above the footer even
+        # when all four gathering rows are showing: the rows close up a little when they'd run over it.
+        room = SCREEN_HEIGHT - 60 - 64 - ly
+        step = max(20, min(26, room // (len(services) + 1)))
+        for kind, text in services:
             self._draw_service_icon(screen, kind, lx + 7, ly + 7, scale=0.7)
             self.renderer.draw_text(screen, text, (lx + 22, ly), color=(200, 200, 210))
-            ly += 26
+            ly += step
         # Boss portrait swatch drawn separately from the plain-circle
         # legend loop above since it's an icon, not a flat color.
         boss_sample = self._get_boss_icon(None, size=20)  # "_default" template
@@ -496,7 +513,8 @@ class MapScreen(BaseScreen):
         else:
             pygame.draw.circle(screen, (255, 0, 0), (lx + 7, ly + 7), 6)
         self.renderer.draw_text(screen, "Boss", (lx + 22, ly), color=(200, 200, 210))
-        ly += 26        # the Boss row's own height - without it "Size:" printed on top of it
+        ly += step      # the Boss row's own height - without it "Size:" printed on top of it
+        self._legend_bottom = ly + 14 + 24 + 20
 
         # These three were UNREACHABLE: at some point a method got spliced into the middle of
         # this one and they ended up below `return icon` inside _get_boss_icon, where they also
@@ -585,6 +603,20 @@ class MapScreen(BaseScreen):
             pygame.draw.circle(screen, dark, (cx, cy), 1)
             for dx, dy in ((0, -5), (0, 5), (-5, 0), (5, 0)):
                 pygame.draw.rect(screen, SAW_TAN, (cx + dx - 1, cy + dy - 1, 2, 2))
+        elif kind == "mail":
+            # an envelope: a pale card with the flap's V across it
+            pygame.draw.circle(screen, dark, (cx, cy), 8)
+            pygame.draw.circle(screen, MAIL_WHITE, (cx, cy), 8, 2)
+            pygame.draw.rect(screen, MAIL_WHITE, (cx - 4, cy - 3, 9, 6))
+            pygame.draw.lines(screen, dark, False, [(cx - 4, cy - 3), (cx, cy + 1), (cx + 4, cy - 3)], 1)
+        elif kind == "auction":
+            # a gavel: a long head tipped across the top left, the handle down to the right, and the
+            # block it strikes along the bottom
+            pygame.draw.circle(screen, dark, (cx, cy), 8)
+            pygame.draw.circle(screen, AUCTION_ROSE, (cx, cy), 8, 2)
+            pygame.draw.line(screen, AUCTION_ROSE, (cx - 5, cy - 1), (cx - 1, cy - 5), 3)
+            pygame.draw.line(screen, AUCTION_ROSE, (cx - 2, cy - 2), (cx + 3, cy + 3), 1)
+            pygame.draw.line(screen, AUCTION_ROSE, (cx - 4, cy + 4), (cx + 1, cy + 4), 2)
         elif kind == "shop":
             # a coin: filled disc with a rim and a slot, which reads at 8px where
             # a coin-purse outline just turns into a blob
