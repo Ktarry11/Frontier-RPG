@@ -730,6 +730,11 @@ class ZoneManager:
           * In the open world: the nearest town entrance. A town is either its own map reached
             by a gate on this one (you wake just inside the gate) or a settlement inside this
             map (you wake at its nearest edge). No town on this map: the closest one by road.
+
+        Kyle, 16 Nov 2026: "dying in VoT flings me to cross roads." A starting zone's camp is a
+        town for this (world/start_zones.py: where a new character first stands), and the walk
+        outward stops at the first map with ANY settlement on it, not only a walled town, so a
+        wipe in West EPL wakes you at the next map's camp instead of in Brill.
         """
         zone = self.current_zone
         name = zone.name
@@ -752,38 +757,81 @@ class ZoneManager:
             dest = self.portal_manager.get_destination(name, x, y)
             if not dest or dest[0] not in self.zones:
                 continue
-            if getattr(self.zones[dest[0]]["tilemap"], "is_town", False):
+            if self._is_town_map(dest[0]):
                 d = abs(x - px) + abs(y - py)
                 if best is None or d < best[0]:
                     best = (d, dest[0], dest[1], dest[2], f"the gates of {dest[0]}")
-        for sz in getattr(zone, "subzones", []) or []:
-            if not self.creature_manager.is_safe_subzone(name, sz.get("table_key")):
+        here = self._settlement_on(name, px, py)
+        if here and (best is None or here[0] < best[0]):
+            best = here
+        if best:
+            return best[1:]
+
+        # No town on this map: walk the roads outward and take the nearest town or settlement by
+        # the tiles you'd walk (door to door across each map), not the first one in the door list.
+        import heapq
+        heap, done, n = [(0, 0, name, px, py, None)], set(), 0
+        while heap:
+            cost, _n, z, ax, ay, goal = heapq.heappop(heap)
+            if goal:
+                return goal
+            if z in done:
+                continue
+            done.add(z)
+            for (x, y) in self.portal_manager.get_portal_positions(z):
+                dest = self.portal_manager.get_destination(z, x, y)
+                if not dest or dest[0] in done or dest[0] not in self.zones or dest[0] in self.cave_names:
+                    continue
+                c = cost + abs(x - ax) + abs(y - ay)
+                n += 1
+                if self._is_town_map(dest[0]):
+                    heapq.heappush(heap, (c, n, dest[0], dest[1], dest[2],
+                                          (dest[0], dest[1], dest[2], f"the gates of {dest[0]}")))
+                    continue
+                there = self._settlement_on(dest[0], dest[1], dest[2])
+                if there:
+                    # a camp loses a near tie to a walled town: the Monastery's grounds wake you in Brill,
+                    # not at the Bulwark on the Plaguelands' side of the same walk
+                    heapq.heappush(heap, (c + there[0] + 20, n, dest[0], dest[1], dest[2], there[1:]))
+                heapq.heappush(heap, (c, n, dest[0], dest[1], dest[2], None))
+        return (name, px, py, name)
+
+    #: Towns built before tilemap.is_town existed and never flagged. Not flagged here either, because
+    #: is_town also picks their door art and gathering rules; this list only says you can wake in them.
+    UNFLAGGED_TOWNS = {"Razor Hill", "Orgrimmar"}
+
+    def _is_town_map(self, zone_name):
+        """A map you wake in after a wipe: a town (tilemap.is_town), or one of the towns built
+        without the flag. Razor Hill and Orgrimmar were the ones missing, so a wipe in Durotar
+        walked straight past both of them to the Crossroads."""
+        if zone_name in self.cave_names or zone_name not in self.zones:
+            return False
+        return (getattr(self.zones[zone_name]["tilemap"], "is_town", False)
+                or zone_name in self.UNFLAGGED_TOWNS)
+
+    def _settlement_on(self, zone_name, px, py):
+        """(distance, zone, x, y, label) of the nearest settlement inside an open map to (px, py):
+        a subzone flagged safe (you wake at its nearest edge) or a starting zone's camp (you wake
+        where a new character first stands). None if the map has neither."""
+        tm = self.zones.get(zone_name, {}).get("tilemap")
+        if tm is None:
+            return None
+        best = None
+        for sz in getattr(tm, "subzones", []) or []:
+            if not self.creature_manager.is_safe_subzone(zone_name, sz.get("table_key")):
                 continue
             ex = min(max(px, sz["x"]), sz["x"] + sz["w"] - 1)
             ey = min(max(py, sz["y"]), sz["y"] + sz["h"] - 1)
             d = abs(ex - px) + abs(ey - py)
             if best is None or d < best[0]:
-                best = (d, name, ex, ey, f"the edge of {sz.get('name') or 'town'}")
-        if best:
-            return best[1:]
-
-        # No town on this map: walk the roads outward and take the first town reached.
-        seen, frontier = {name}, [name]
-        while frontier:
-            nxt = []
-            for z in frontier:
-                for (x, y) in self.portal_manager.get_portal_positions(z):
-                    dest = self.portal_manager.get_destination(z, x, y)
-                    if not dest or dest[0] in seen or dest[0] not in self.zones:
-                        continue
-                    seen.add(dest[0])
-                    if dest[0] in self.cave_names:
-                        continue
-                    if getattr(self.zones[dest[0]]["tilemap"], "is_town", False):
-                        return (dest[0], dest[1], dest[2], f"the gates of {dest[0]}")
-                    nxt.append(dest[0])
-            frontier = nxt
-        return (name, px, py, name)
+                best = (d, zone_name, ex, ey, f"the edge of {sz.get('name') or 'town'}")
+        from world.start_zones import START_ZONES
+        for st in START_ZONES:
+            if st.zone_name == zone_name:
+                d = abs(st.x - px) + abs(st.y - py)
+                if best is None or d < best[0]:
+                    best = (d, zone_name, st.x, st.y, st.camp or f"the camp in {st.label}")
+        return best
 
     def _any_door_into(self, zone_name, near=None):
         """(zone, x, y) of an arrival point into zone_name, preferring one from outside a cave

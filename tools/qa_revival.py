@@ -264,13 +264,35 @@ def main():
         zm.player_x, zm.player_y = tm.width // 2, tm.height // 2
         zone_name, x, y, label = zm.respawn_point()
         dest = zm.zones[zone_name]["tilemap"]
-        in_town = getattr(dest, "is_town", False)
-        in_settlement = (zone_name == name and (dest.get_subzone_at(x, y) or {}).get("table_key")
-                         and zm.creature_manager.is_safe_subzone(name, dest.get_subzone_at(x, y)["table_key"]))
+        in_town = zm._is_town_map(zone_name)
+        # a settlement on this map or the nearest one by road (Kyle, 16 Nov 2026: "dying in VoT flings me to
+        # cross roads"): a safe subzone, or a starting zone's camp
+        from world.start_zones import START_ZONES
+        in_settlement = (((dest.get_subzone_at(x, y) or {}).get("table_key")
+                          and zm.creature_manager.is_safe_subzone(zone_name, dest.get_subzone_at(x, y)["table_key"]))
+                         or any(st.zone_name == zone_name and (st.x, st.y) == (x, y) for st in START_ZONES))
         if not (in_town or in_settlement):
             nowhere.append(f"{name} -> {zone_name} ({label})")
     if nowhere:
         bad.append(f"{len(nowhere)} open zone(s) have no town entrance to wake at: {nowhere[:8]}")
+    # a starting zone wakes you in its own camp, never a map or two away
+    from world.start_zones import START_ZONES
+    for st in START_ZONES:
+        tm = zm.zones[st.zone_name]["tilemap"]
+        zm.current_zone = tm
+        for spot in ((2, 2), (tm.width - 3, tm.height - 3), (tm.width // 2, tm.height // 2)):
+            zm.player_x, zm.player_y = spot
+            got = zm.respawn_point()[:3]
+            if got != (st.zone_name, st.x, st.y):
+                bad.append(f"died in {st.zone_name} at {spot}: woke at {got}, not the camp {(st.x, st.y)}")
+    # the walk outward takes the nearest town by road, and a town that was never flagged still counts
+    for nm, want in (("Durotar", "Razor Hill"), ("Echo Isles", "Razor Hill"), ("Scarlet Monastery Grounds", "Brill")):
+        if nm in zm.zones:
+            tm = zm.zones[nm]["tilemap"]
+            zm.current_zone = tm
+            zm.player_x, zm.player_y = tm.width // 2, tm.height // 2
+            if zm.respawn_point()[0] != want:
+                bad.append(f"a wipe in {nm} should wake the party in {want}, got {zm.respawn_point()}")
 
     # ---- 8. the blanket revive is gone
     cs = Path("ui/screens/combat_screen.py").read_text(encoding="utf-8")

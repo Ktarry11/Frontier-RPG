@@ -82,5 +82,11 @@
     "trash_epic_chance": 0.01
   },
   "_frontier": "Kyle, 14 Nov 2026: Frontier Zones are 'hidden zones FROM hidden zones', 'They will drop higher epics and ilvl about 8 over the regular stuff', 'I'll let you deal with the math'. A frontier cave or dungeon sits one step above a hidden layer (4/4.5), a frontier open map one step above a skull zone (2.5/2.5).",
-  "_frontier_epics": "Kyle, 14 Nov 2026: 'epic drops from trash in frontier zone can be set at 1%. This is still higher than world drop and dungeon drop! Boss can have epic drop anywhere between 5% to 8% for now.' Trash in any frontier zone: 1%. Bosses: see world/hidden_zones.json epic_chance (entities/boss_loot.py)."
+  "_frontier_epics": "Kyle, 14 Nov 2026: 'epic drops from trash in frontier zone can be set at 1%. This is still higher than world drop and dungeon drop! Boss can have epic drop anywhere between 5% to 8% for now.' Trash in any frontier zone: 1%. Bosses: see world/hidden_zones.json epic_chance (entities/boss_loot.py).",
+  "low_level": {
+    "_about": "Kyle, 16 Nov 2026: 'tone down the difficulty before lvl 10 by about 20% overall. Any enemies below lvl 10 should deal 20% less damage and have 15% less HP.' Multiplies whatever row above the creature falls under, for every creature under below_level.",
+    "below_level": 10,
+    "damage": 0.8,
+    "health": 0.85
+  }
 }

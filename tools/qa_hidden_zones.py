@@ -160,6 +160,9 @@ def main():
         if difficulty.kind_of(m) != kind:
             bad.append(f"a hidden creature is the wrong kind ({difficulty.kind_of(m)})")
         h, dmg = want[kind]
+        low = difficulty.table().get("low_level") or {}
+        if m.level < int(low.get("below_level", 0)):      # the first ten levels are gentler everywhere
+            h, dmg = h * float(low.get("health", 1.0)), dmg * float(low.get("damage", 1.0))
         if abs(getattr(m, "_difficulty_health", 0) - h) > 1e-6 or abs(difficulty.factor(m, "damage") - dmg) > 1e-6:
             bad.append(f"a hidden creature is not at {h}x health / {dmg}x damage")
         lo, hi = lift[kind]

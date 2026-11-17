@@ -34,6 +34,8 @@ class StartZone:
     blurb: str              # one line under the buttons, so the choice means something before you take it
     suggested_for: list = field(default_factory=list)   # race_ids this pre-selects for
     available: bool = True
+    #: what the wipe message calls the camp, when a party wakes there (ZoneManager.respawn_point)
+    camp: str = ""
 
 
 START_ZONES = [
@@ -44,6 +46,7 @@ START_ZONES = [
         x=60, y=40,                      # the original hardcoded start, unchanged
         blurb="Durotar. Hot, orderly, and full of people who will give you a job.",
         suggested_for=["orc", "tauren", "troll", "goblin"],
+        camp="the Valley camp",
     ),
     StartZone(
         start_id="deathknell",
@@ -54,6 +57,7 @@ START_ZONES = [
         x=50, y=42,
         blurb="Tirisfal. You wake in a graveyard with your mind intact, which is the whole problem.",
         suggested_for=["forsaken"],
+        camp="the graves at Deathknell",
     ),
 ]
 

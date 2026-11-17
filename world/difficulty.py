@@ -23,6 +23,9 @@ than in every kit, and it can be turned back by editing three pairs of numbers.
          or a hidden open-world map (world/hidden_zones.py). These rows also carry
          loot_ilvl_bonus: what they drop sits that many item levels above them.
 
+  low_level  not a kind: a multiplier on top of whichever row applies, for every creature under
+         level 10 (Kyle, 16 Nov 2026: 20% less damage, 15% less health).
+
 Damage is a multiplier on what the monster deals (Monster.damage_output_multiplier); health is
 applied once, when the creature is made.
 """
@@ -85,7 +88,14 @@ def kind_of(monster):
 
 
 def factor(monster, what):
-    return float((table().get(kind_of(monster)) or {}).get(what, 1.0))
+    f = float((table().get(kind_of(monster)) or {}).get(what, 1.0))
+    # THE FIRST TEN LEVELS (Kyle, 16 Nov 2026: "tone down the difficulty before lvl 10 by about 20% overall.
+    # Any enemies below lvl 10 should deal 20% less damage and have 15% less HP"): on top of the row above,
+    # whatever kind of creature it is.
+    low = table().get("low_level") or {}
+    if (getattr(monster, "level", 99) or 99) < int(low.get("below_level", 0)):
+        f *= float(low.get(what, 1.0))
+    return f
 
 
 def apply_health(monster):
