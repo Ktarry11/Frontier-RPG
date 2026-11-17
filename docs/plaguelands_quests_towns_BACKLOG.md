@@ -241,11 +241,8 @@ re-run). Counts only, never places:
 - 28 of the 38 behind-a-building sellers now stand in real hidden ground: a hollow inside the rock, cliff or trees
   round their map, reached through a way in that still looks solid. 10 stay behind their buildings, Razor Hill's
   among them.
-- The three maps with none now have two each, six caches in all. One map's walls were too thin for a full hollow,
-  so it gets small rooms inside its walls. Another stands on open water, so its secrets are sunken ways across it
-  that still look like water.
-- Six long runs: a hidden way through a whole map's rock or forest, from one side to the other, at least 50 tiles
-  long, with a cache in a room partway along.
+- The three maps with none now have two each, six caches in all.
+- Six long runs, each at least 50 tiles long, with a cache partway along.
 - 402 secrets in all. `qa_secrets` is green: every seller and cache can be walked to, every way in keeps its rock,
   the map keeps lying, and nothing is drawn until you're in there.
 
