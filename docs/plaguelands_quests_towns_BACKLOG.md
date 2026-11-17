@@ -131,6 +131,11 @@ Buffs list drawn under the action buttons, the footer hint over the last bench r
   the footer hint never sits on a row. A QA that fills the bench past what fits and checks nothing overlaps.
 
 ## Eat and Drink: see the buff, pick the food (Kyle, 16 Nov 2026)
+**Done, 16 Nov 2026 night**:
+- Clicking Eat or Drink opens a picker, and a pick is remembered for F and Q.
+- Running food, drink and elixir buffs show as chips with time left. Hover one for details.
+- tools/qa_food_picker.py checks it.
+
 "we need to have a way to see our food buff. Also a way to select food. these should open menu to select food
 options...." (screenshot: the overworld's "Eat (F): 0" and "Drink (Q): 0" buttons).
 - Clicking Eat or Drink opens a small picker of what's in the bags (icon, name, what it gives, how many), and the one
