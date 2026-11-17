@@ -26,24 +26,24 @@ QUEST_TOPICS = {
         "tan_topic_columns": {
             "label": "Ask Hesper what the last two columns are for.",
             "response": (
-                "Which half of town a thing came from, and which half it went to.\n\nPeople assume "
-                "I keep them to be unpleasant. Grizzel thinks it. She has never said so and she "
-                "thinks it.\n\nI keep them because in four years somebody is going to stand in this "
-                "room and say this town was always like this - that there was never a quay and a "
-                "yard, that it was all just Steamwheedle, that nobody was ever treated as having "
-                "arrived.\n\nAnd I would like to be able to put a book on the table. Not to win the "
-                "argument. So that whoever is right can be right with something in front of them."),
+                "They say which half of town a thing came from, and which half it went to.\n\nPeople "
+                "assume I keep them to be unpleasant. Grizzel thinks it. She's never said so, but she "
+                "thinks it.\n\nI keep them because in four years somebody's going to stand in this room "
+                "and say this town was always like this, that there was never a quay and a yard, that it "
+                "was all just Steamwheedle, and that nobody was ever treated as having arrived.\n\nAnd "
+                "I'd like to be able to put a book on the table. It isn't to win the argument. It's so "
+                "whoever's right can be right with something in front of them."),
         },
         "tan_topic_both_sides": {
             "label": "Ask whether the two halves have ever signed anything together before.",
             "response": (
-                "Not once. I went back through my mother's books as well and not once there "
-                "either, though that is a shorter span than people think.\n\nContracts, yes. The "
-                "quay buys from the yard every day of the week and there is paper for all of it. "
-                "But a contract is two people who want different things agreeing on a price.\n\n"
-                "This is a works order. Two signatures, one job, one outcome, and neither of them "
-                "gets a thing the other one does not.\n\nI have been a clerk for thirty years and "
-                "I did not expect to be moved by a works order."),
+                "They never have. I went back through my mother's books as well, and they never did "
+                "there either, though that's a shorter span than people think.\n\nThere are contracts, "
+                "of course. The quay buys from the yard every day of the week, and there's paper for all "
+                "of it. But a contract is two people who want different things agreeing on a price.\n\n"
+                "This is a works order. It's two signatures, one job and one outcome, and neither of them "
+                "gets a thing the other one doesn't.\n\nI've been a clerk for thirty years, and I didn't "
+                "expect to be moved by a works order."),
         },
     },
 
@@ -51,26 +51,26 @@ QUEST_TOPICS = {
         "tan_topic_carried": {
             "label": "Ask Old Mazzic about leaving Gadgetzan.",
             "response": (
-                "I did not leave.\n\nI know how that sounds. Everybody in this port says we left - "
-                "the Gadgetzan crowd, the ones who came over, like it was a Tuesday and a "
-                "decision and we all talked it through.\n\nSome of us decided. Bix decided. He "
-                "closed his shop properly and put the key somewhere and loaded three carts. Good "
-                "for him, honestly.\n\nI was carried out on a door by two people whose names I "
-                "never got, because by then I had not had water in two days and I was not making "
-                "decisions about anything.\n\nSo when the quay crowd say we arrived - I did not "
-                "arrive. I was BROUGHT. It is a different sentence and I would like it used."),
+                "I didn't leave.\n\nI know how that sounds. Everybody in this port says we left, the "
+                "Gadgetzan crowd, the ones who came over, as if it was a Tuesday and a decision and we all "
+                "talked it through.\n\nSome of us did decide, and Bix was one. He closed his shop properly, "
+                "put the key somewhere and loaded three carts, and good for him, honestly.\n\nI was "
+                "carried out on a door by two people whose names I never got, because by then I hadn't "
+                "had water in two days, and I wasn't making decisions about anything.\n\nSo when the "
+                "quay crowd say we arrived, I didn't arrive. I was brought. It's a different sentence, and "
+                "I'd like it used."),
         },
         "tan_topic_the_wells": {
             "label": "Ask about the wells.",
             "response": (
-                "Nine of them. I can name all nine and I drank from four.\n\nThe shallow ones went "
-                "first, in one season, and everybody said drought and everybody was wrong, because "
-                "a drought takes the river and we did not have a river, we had a water TABLE and "
-                "nobody in that town knew the difference including me.\n\nThe deep well held "
-                "another year. That year is the one nobody talks about. Four hundred people and "
-                "one well and a wall round it, and a queue, and a number stamped on a token.\n\n"
-                "Three years I have been here and not one person on that quay has asked me about "
-                "the wells. They have asked me about the wall. Everybody asks about the wall."),
+                "There were nine of them. I can name all nine, and I drank from four.\n\nThe shallow "
+                "ones went first, in one season, and everybody said drought, and everybody was wrong. A "
+                "drought takes a river, and we didn't have a river, we had a water table, and nobody in "
+                "that town knew the difference, including me.\n\nThe deep well held another year, and "
+                "that's the year nobody talks about. There were four hundred people and one well with a "
+                "wall round it, and a queue, and a number stamped on a token.\n\nI've been here three "
+                "years, and not one person on that quay has asked me about the wells. They've asked me "
+                "about the wall. Everybody asks about the wall."),
         },
     },
 
@@ -78,17 +78,16 @@ QUEST_TOPICS = {
         "tan_topic_ask_them": {
             "label": "Tell the surgeon what you made of the Sandfury.",
             "response": (
-                "[Wick Ambrose listens to the whole of it without writing anything down, which for "
-                "him is unusual.]\n\nEleven marks. Four hundred years. And the last one is a foot "
-                "and a half below the one before it.\n\nI am not going to tell you they are "
-                "friendly. You had to go through a great many of them to stand on that step and I "
-                "sent you knowing it.\n\nWhat I will say is this. For three years this town has "
-                "explained the Sandfury to itself at the bar, by people who have never been within "
-                "a mile of them, and the explanation has always been that they are what is left "
-                "over. Leftovers of a thing that happened to them.\n\nThey have a four-hundred-year "
-                "water record cut into a stone. We had a rates ledger and nine wells and we lost "
-                "the lot in two seasons.\n\nI would not say that too loudly on the quay. But it is "
-                "what you came back with, and somebody in this town should have it."),
+                "Eleven marks over four hundred years, and the last one a foot and a half below the one "
+                "before it. I'm writing none of this down, because I want to remember it.\n\nI won't "
+                "tell you they're friendly. You had to go through a great many of them to stand on that "
+                "step, and I sent you knowing it.\n\nWhat I'll say is this. For three years this town "
+                "has explained the Sandfury to itself at the bar, by people who've never been within a "
+                "mile of them, and the explanation has always been that they're what's left over from "
+                "something that happened to them.\n\nThey've got a four-hundred-year water record cut "
+                "into a stone. We had a rates ledger and nine wells, and we lost the lot in two seasons. "
+                "I wouldn't say that too loudly on the quay, but it's what you came back with, and "
+                "somebody in this town should have it."),
         },
     },
 }

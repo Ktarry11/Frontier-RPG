@@ -37,63 +37,56 @@ sounds resentful is as flat as one where none of them does.
 """
 
 #: (quest_id, topic_id) -> {"label", "response"}. Dict order is the natural ask order; coverage and
-#: not sequence gates completion - see QuestObjective.topics_asked.
+#: not sequence gates completion - see QuestObjective.topics_asked. Plain voice, 17 Nov 2026.
 QUEST_TOPICS = {
-    # =================================================================================================
-    # THE OPEN - three people asked whether they will enter a race that cannot really happen.
-    # Answers: no and proud of it, yes and desperate, and yes with a condition attached that Tozzik
-    # will not put on a board.
-    # =================================================================================================
+    # THE OPEN: three people asked whether they'll enter a race that can't really happen.
     "swf_open_entries": {
         "swf_topic_nazzik": {
             "label": "Ask Old Nazzik whether he will enter the Open.",
             "response": (
-                "No.\n\nAnd before you tell me what you were going to tell me - I know. I hold a "
-                "record on a course nobody drives, which makes it a number on a rock, and I have had "
-                "three years to work that out and I worked it out in the first fortnight.\n\nIf I "
-                "drive it now I beat nobody and I lose to myself at twenty-two. There is no version "
-                "of that afternoon I walk away from.\n\nTell Tozzik I said no. Tell him I said it "
-                "fast, so he does not think I had to consider it."),
+                "No, I won't.\n\nAnd before you tell me what you were going to tell me, I know. I hold a "
+                "record on a course nobody drives, which makes it a number on a rock. I've had three years "
+                "to work that out and I worked it out in the first fortnight.\n\nIf I drive it now I beat "
+                "nobody, and I lose to myself at twenty-two. There's no version of that afternoon I walk "
+                "away from.\n\nTell Tozzik I said no. Tell him I said it fast, so he doesn't think I had to "
+                "consider it."),
         },
         "swf_topic_grizzik": {
             "label": "Ask Pit-Boss Grizzik whether she would crew it.",
             "response": (
-                "Tomorrow. This afternoon. Give me two hours and a wheel and I will give you a crew "
-                "that can turn a machine round in the time it takes you to walk the straight.\n\nI "
-                "have four hands on a payroll for a race that does not run and I have never once "
-                "told them that is what it is. They think there is a reason. There is a reason, it "
-                "is just not the one they think.\n\nYes. Write down yes and do not let him put a "
-                "question mark after it."),
+                "I'd crew it tomorrow, or this afternoon. Give me two hours and a wheel and I'll give you a "
+                "crew that can turn a machine round in the time it takes you to walk the straight.\n\nI've "
+                "got four hands on a payroll for a race that doesn't run, and I've never once told them "
+                "that's what it is. They think there's a reason. There is one, it just isn't the one they "
+                "think.\n\nThe answer's yes. Write down yes and don't let him put a question mark after it."),
         },
         "swf_topic_mozz": {
             "label": "Ask Fuel-Trader Mozz about supplying the race.",
             "response": (
-                "At cost. One condition.\n\nSomebody stands under that board on the day and says out "
-                "loud that this pan had two hundred racers on it before the sky changed and has six "
-                "customers now, and that the two things happened in the same season, and that I am "
-                "not the one who has to explain the coincidence.\n\nI am not asking anybody to blame "
-                "you personally. You walked in here off a road like everyone else. But I have done "
-                "the sum every night for three years and the sum does not come out any other way, "
-                "and I would like it said once, by somebody, in front of people.\n\nAt cost. That is "
-                "the price. It is not really about the fuel."),
+                "I'll do it at cost, on one condition.\n\nSomebody stands under that board on the day and "
+                "says out loud that this pan had two hundred racers on it before the sky changed and has "
+                "six customers now. That the two things happened in the same season, and that I'm not the "
+                "one who has to explain the coincidence.\n\nI'm not asking anybody to blame you personally. "
+                "You walked in here off a road like everyone else. But I've done the sum every night for "
+                "three years and it doesn't come out any other way, and I'd like it said once, by somebody, "
+                "in front of people.\n\nThat's the price, and it's at cost. It was never really about the "
+                "fuel."),
         },
     },
 
-    # =================================================================================================
-    # THE DUSTWHEEL - the word. Grizzik wants to be asked, which is not the same as wanting to answer.
-    # =================================================================================================
+    # THE DUSTWHEEL: Grizzik wants to be asked, which isn't the same as wanting to answer.
     "swf_dust_cousins": {
         "swf_topic_word": {
             "label": "Ask what the town calls the Dustwheel.",
             "response": (
-                "Nothing.\n\nThat is not me being clever. Go and listen. Three years and not one "
-                "person in this town has put a word on them, and the words were all available - "
-                "bandits, wreckers, thieves, any of them would have done and none of them is wrong.\n\n"
-                "When the track died some of us walked into town and some of us walked out onto the "
-                "pan, and I have thought very hard about which way I was facing that week and I "
-                "cannot honestly tell you it was a decision.\n\nSo we call them nothing, and we send "
-                "somebody out to put them off a road, and we do not write it down. You made me say "
-                "it. I want you to know I noticed you making me say it."),
+                "We don't call them anything.\n\nI'm not being clever. Go and listen. Three years and not "
+                "one person in this town has put a word on them, and the words were all there to use. "
+                "Bandits, wreckers, thieves, any of them would have done and none of them is wrong.\n\nWhen "
+                "the track died some of us walked into town and some of us walked out onto the pan. I've "
+                "thought very hard about which way I was facing that week, and I can't honestly tell you it "
+                "was a decision.\n\nSo we call them nothing, and we send somebody out to put them off a road, "
+                "and we don't write it down. You made me say it, and I want you to know I noticed you making "
+                "me say it."),
         },
     },
 
@@ -101,72 +94,60 @@ QUEST_TOPICS = {
         "swf_topic_ledger": {
             "label": "Ask Winnow what column they go in.",
             "response": (
-                "Customers.\n\nThat is the answer. It has been the answer since the second winter and "
-                "it is in this book in my own hand and not one person has come to this bench and "
-                "asked.\n\nThey buy fuel. Not from Mozz, which is why he thinks he has lost them, but "
-                "they buy it. They buy parts. They have bought salt off Jixa under a name that is not "
-                "a name since before the second wet and she knows exactly who she is selling to, and "
-                "she writes it in, and so do I.\n\nThis town has spent three years deciding not to "
-                "have a word for people it is already trading with. I am a clerk. I have a word. The "
-                "word is customers and it goes in the customers column."),
+                "They go in as customers.\n\nThat's been the answer since the second winter. It's in this "
+                "book in my own hand, and not one person has come to this bench and asked.\n\nThey buy fuel, "
+                "just not from Mozz, which is why he thinks he's lost them. They buy parts. They've bought "
+                "salt off Jixa under a name that isn't a name since before the second wet, and she knows "
+                "exactly who she's selling to, and she writes it in, and so do I.\n\nThis town has spent "
+                "three years deciding not to have a word for people it's already trading with. I'm a clerk, "
+                "and I've got a word. The word is customers, and it goes in the customers column."),
         },
     },
 
-    # =================================================================================================
-    # THE SALT LINE - eleven years of trade and never a face. Ovi is tauren: patient, dry, measures in
-    # winters. She is the far end of a thread the Freewind roster planted long before this quest pass.
-    # =================================================================================================
+    # THE SALT LINE: eleven years of trade and never a face.
     "swf_salt_crossing": {
         "swf_topic_ovi": {
             "label": "Ask Spice-Trader Ovi the question Jixa could not write down.",
             "response": (
-                "She wants to know whether I still think it is boring.\n\nI said that to somebody "
-                "once, at this table, about her salt. Three climates on one table and the only thing "
-                "on it that has never cost me a night's sleep is the sacks that come up from the pan, "
-                "and I called that boring, and I meant it kindly, and I have wondered since whether "
-                "it reached her.\n\nIt reached her. Eleven years and that is the thing she sends a "
-                "stranger across a dead pan to ask about.\n\nTell her yes. Tell her boring is what I "
-                "have left and I am holding onto it with both hands. The mountain can do what it "
-                "likes up there as long as her pan keeps drying."),
+                "She wants to know whether I still think it's boring.\n\nI said that to somebody once, at "
+                "this table, about her salt. Three climates on one table, and the only thing on it that's "
+                "never cost me a night's sleep is the sacks that come up from the pan. I called that boring, "
+                "and I meant it kindly, and I've wondered since whether it reached her.\n\nIt reached her. "
+                "Eleven years, and that's what she sends a stranger across a dead pan to ask about.\n\n"
+                "Tell her yes. Tell her boring is what I've got left and I'm holding onto it with both "
+                "hands. The mountain can do what it likes up there as long as her pan keeps drying."),
         },
     },
 
-    # =================================================================================================
-    # THE INN - a two-year silence, and the thing neither of them will do about it.
-    # =================================================================================================
+    # THE INN: a two-year silence, and the thing neither of them will do about it.
     "swf_inn_two_years": {
         "swf_topic_snod": {
             "label": "Ask Snod what he and Vozzi fell out about.",
             "response": (
-                "I do not remember.\n\nI want to be clear that this is not a joke and it is not me "
-                "protecting her. I have sat in this bar at four in the morning with the lamps down "
-                "and gone looking for it properly, more than once, and it is gone.\n\nShe remembers. "
-                "I am certain of that. She has the sort of memory that keeps a grievance in good "
-                "order the way I keep glasses.\n\nWhich means one of us is carrying this and it is "
-                "not me, and if I walk through that door and ask her what it was, she has to say it "
-                "out loud to a man who put it down two years ago and did not notice.\n\nI am not "
-                "doing that to her. So we do not speak, and the business has never been better, and "
-                "that is the arrangement."),
+                "I don't remember.\n\nThis isn't a joke, and I'm not protecting her. I've sat in this bar at "
+                "four in the morning with the lamps down and gone looking for it properly, more than once, "
+                "and it's gone.\n\nI'm certain she remembers. She's got the sort of memory that keeps a "
+                "grievance in good order the way I keep glasses.\n\nSo one of us is carrying this and it "
+                "isn't me. If I walk through that door and ask her what it was, she has to say it out loud "
+                "to a man who put it down two years ago and didn't notice.\n\nI'm not doing that to her. So "
+                "we don't speak, and the business has never been better, and that's the arrangement."),
         },
     },
 
-    # =================================================================================================
-    # THE SHRINKING - the question the town asks itself at night and asks of nobody.
-    # =================================================================================================
+    # THE SHRINKING: the question the town asks itself at night and asks of nobody.
     "swf_solo_shrinking": {
         "swf_topic_shrinking": {
             "label": "Ask Winnow how much the town has shrunk.",
             "response": (
-                "By a quarter. Three years, in bodies, counted twice and written both times.\n\nIn "
-                "trade it is worse and I am not going to give you that figure, because a figure like "
-                "that in a stranger's mouth two towns over is how a place stops getting carts.\n\n"
-                "People think I keep this book to be unpleasant. Tozzik thinks it. He has never said "
-                "so and he thinks it.\n\nI keep it because when a place goes, it goes without anybody "
-                "writing down what was in it. No list. Nothing to say who was here or what they did "
-                "or how many carts a week it took to keep them. Just a name on a map that stops being "
-                "a town and nobody can tell you what it was like.\n\nThat is not happening here. "
-                "Whatever else happens here, that is not happening here.\n\nThat is all. You asked. "
-                "Nobody asks."),
+                "We're down by a quarter. That's three years, in bodies, counted twice and written both "
+                "times.\n\nIn trade it's worse, and I'm not going to give you that figure, because a figure "
+                "like that in a stranger's mouth two towns over is how a place stops getting carts.\n\n"
+                "People think I keep this book to be unpleasant. Tozzik thinks it. He's never said so, but "
+                "he thinks it.\n\nI keep it because when a place goes, it goes without anybody writing down "
+                "what was in it. There's no list, and nothing to say who was here or what they did or how "
+                "many carts a week it took to keep them. There's just a name on a map that stops being a "
+                "town, and nobody can tell you what it was like.\n\nThat isn't happening here. Whatever else "
+                "happens here, that isn't.\n\nThat's all of it. You asked, and nobody ever asks."),
         },
     },
 }
