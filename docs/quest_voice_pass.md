@@ -79,8 +79,13 @@ listed, None fields included, and refuses to write on any problem.
 - Check each giver's gender in the NPC data before writing pronouns. Several were wrong in the old text.
 - Forsaken zones put the speech in D and a short parting line in A. Most others narrate in D and speak in A.
 
-### Still open
+### Follow-ups done the same day
 
-- Plaguelands direction faults.
-- Sanu's gender reads differently between quests.
-- hbe_impossible_yetis names Apothecary Lydon while the giver is Wren.
+- The direction audit is down to 0 WRONG world-wide. 22 SILENT findings are left, outside Stonetalon, where the
+  text names no direction for a far target. They aren't errors, and several sit near hidden content, so they're
+  left alone.
+- The yeti letter quest now names its real giver, Field Apothecary Wren. Sanu, Grael and Dellwyn Voss now match
+  the gender in their NPC data.
+- **Stonetalon got its read-by-hand pass**: 33 quests touched. Clever lines, comma splices, "not X, that's Y",
+  fragment hand-ins and thanks-only closers were cleared, and the salvage yard and crag quests now say where to
+  go. It's marked done in `quest_voice_done.json` and reads 0 WRONG and 0 SILENT for directions.
