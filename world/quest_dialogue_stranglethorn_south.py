@@ -109,7 +109,7 @@ QUEST_TOPICS = {
         'what_it_is_worth': {
             "label": "What's it worth, and why do you still have it?",
             "response": (
-                "More than this shop, and the offers go up every year, which tells you why. Nizzik won't keep a "
+                "More than this shop, and the offers go up every year, and that's why. Nizzik won't keep a "
                 "list like that. She says it's something somebody uses later, and she's right. I started mine "
                 'years before any of it mattered, and the only honest thing left to me is to be the one holding '
                 "it. That isn't kindness. If I sell it, it gets used, and I'll be the man who sold it. I've been "

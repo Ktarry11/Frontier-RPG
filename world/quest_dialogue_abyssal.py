@@ -153,8 +153,7 @@ QUEST_TOPICS = {
                 "If I leave Fourth Peg for a fortnight, there'll be a fortnight missing from the "
                 "readings. A record with a gap is worth a lot less.\n\nThat's the reason "
                 "I'd give the port, and it's true.\n\nI've also spent two years not knowing why "
-                "this is happening, and she knows. I'd like to find out if she's better at this than me, and I'd sooner not be in the room for it.\n\nI know how that sounds. I'm forty-one "
-                "and I'd still sooner hear it secondhand.\n\nTake her the book. The dates in it "
+                "this is happening, and she knows. I'd like to find out if she's better at this than me, and I'd sooner not be in the room for it.\n\nI'm forty-one, and I'd still sooner hear it secondhand.\n\nTake her the book. The dates in it "
                 "are good work, whatever she makes of them."),
         },
     },

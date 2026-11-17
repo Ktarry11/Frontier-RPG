@@ -3,341 +3,128 @@ plainly, where the old text had them slip into troll speech in their hand-ins.""
 
 VOICE = {
     "echo_isles_camp_supplies": (
-        "You're the one off the last boat? Good, because I've got a job and nobody to give it to.\n\n"
-        "I'm Rask'jin, the quartermaster, which out here means I'm the one who has to turn a landing spot into a camp "
-        "before the season turns. A camp wants a palisade, and a palisade wants posts, and sand won't hold a post, "
-        "mon. I've driven forty of them and watched every one lean over by morning.\n\n"
-        "Reef coral holds, the deep-red kind that grows where the current's strongest. I can't dive for it, but the "
-        "Coconut Crabs drag it up the beaches to line their burrows, so the quick way to get coral is to take it back "
-        "off a crab. They're the size of a kodo's head, and they have opinions.",
-        "The Tidal Flats, far south of the Landing, where the sand goes grey and the tide leaves the cays standing. "
-        "The coconut crabs there drag the coral up the beach to line their burrows, and they'll fight you for it.",
-        "This is good stock! The palisade goes up by the end of the week.\n\n"
-        "You didn't have to help build something that isn't your home, and you did it anyway. I noticed that.",
+        "You're the one off the last boat? Good, because I've got a job and nobody to give it to.\n\nI'm Rask'jin, the quartermaster, which out here means I'm the one who has to turn a landing spot into a camp before the season turns. A camp wants a palisade, and a palisade wants posts, and sand won't hold a post, mon. I've driven forty of them and watched every one lean over by morning.\n\nReef coral holds, the deep-red kind that grows where the current's strongest. I can't dive for it, but the Coconut Crabs drag it up the beaches to line their burrows, so the quick way to get coral is to take it back off a crab. They're the size of a kodo's head, and they have opinions.",
+        "The Tidal Flats, far south of the Landing, where the sand goes grey and the tide leaves the cays standing. The coconut crabs there drag the coral up the beach to line their burrows, and they'll fight you for it.",
+        "This is good stock! The palisade goes up by the end of the week.\n\nYou didn't have to help build something that isn't your home, and you did it anyway. I noticed that.",
     ),
     "echo_isles_scout_camps": (
-        "I'm Vessa, and I watch the tree line, which is a quiet posting right up until it isn't.\n\n"
-        "For a week now, the smoke over the troll island's been the wrong colour. It isn't cook-fire smoke, and it "
-        "isn't green wood either. Something else is going on that fire, and I don't like what the wind brings off "
-        "it. The east bridge off the Landing takes you to Kang'ari's village, and past that, the north trail runs on "
-        "to the old Darkspear camps, which are Zalazane's now.\n\n"
-        "I want eyes on the north camp before anybody commits to a fight over it. Don't start one. Look, remember "
-        "what you see, and come back. We do this one smart, not angry.",
+        "I'm Vessa, and I watch the tree line, which is a quiet posting right up until it isn't.\n\nFor a week now, the smoke over the troll island's been the wrong colour. It isn't cook-fire smoke, and it isn't green wood either. Something else is going on that fire, and I don't like what the wind brings off it. The east bridge off the Landing takes you to Kang'ari's village, and past that, the north trail runs on to the old Darkspear camps, which are Zalazane's now.\n\nI want eyes on the north camp before anybody commits to a fight over it. Don't start one. Look, remember what you see, and come back. We do this one smart, not angry.",
         "Take the east bridge, go past Kang'ari's village, then north to the camp. Don't start a fight.",
-        "That many of dem? Good, now we know what we're walkin' into. Most people who die out dere die because dey "
-        "walked in blind.\n\n"
-        "Da next job's closer to home, and louder.",
+        "That many of dem? Good, now we know what we're walkin' into. Most people who die out dere die because dey walked in blind.\n\nDa next job's closer to home, and louder.",
     ),
     "echo_isles_screecher_wings": (
-        "This second job's close to home and a lot louder. My signal fires keep going out, and it isn't the weather "
-        "or the wood. It's the birds.\n\n"
-        "The Isle Screechers are green-and-red jungle things with a voice like a knife on a whetstone, and they nest "
-        "in the canopy right above my watch-post. They mob anything that moves, and a lit fire moves plenty. A raptor "
-        "or two has worked out that where the birds are shouting, there's something worth coming to look at. So now "
-        "I've got birds overhead and teeth underneath.\n\n"
-        "Thin them out, the birds and the Bloodtalon Raptors trailing them both. I've been shouting over that canopy "
-        "for nine days, and I'd like to hear the wind again.",
+        "This second job's close to home and a lot louder. My signal fires keep going out, and it isn't the weather or the wood. It's the birds.\n\nThe Isle Screechers are green-and-red jungle things with a voice like a knife on a whetstone, and they nest in the canopy right above my watch-post. They mob anything that moves, and a lit fire moves plenty. A raptor or two has worked out that where the birds are shouting, there's something worth coming to look at. So now I've got birds overhead and teeth underneath.\n\nThin them out, the birds and the Bloodtalon Raptors trailing them both. I've been shouting over that canopy for nine days, and I'd like to hear the wind again.",
         None,
-        "It's actually quiet up dere now. I forgot what dat sounded like.\n\n"
-        "Take one of dese, mon. I made dem for myself.",
+        "It's actually quiet up dere now. I forgot what dat sounded like.\n\nTake one of dese, mon. I made dem for myself.",
     ),
     "echo_tarna_nets": (
-        "I'm Tarna, and don't mind the nets, they're all torn anyway.\n\n"
-        "The Tidal Flats used to be the best fishing on these islands, the cays south-east of the Landing where the "
-        "tide pulls back and leaves you a mile of wet sand. I fished there for eleven years, and every net came back "
-        "full and my ankles came back fine. Now every net comes back shredded and my ankles come back stung, and I'm "
-        "too old to be surprised by the same thing twice a week.\n\n"
-        "The Flatfin Stingers have moved into the silt. They hide under it, so you'll find them with your foot before "
-        "your eye. The Sand Burrowers are behind them. Kill the stingers first, then the burrowers, and watch your "
-        "feet.",
+        "I'm Tarna, and don't mind the nets, they're all torn anyway.\n\nThe Tidal Flats used to be the best fishing on these islands, the cays south-east of the Landing where the tide pulls back and leaves you a mile of wet sand. I fished there for eleven years, and every net came back full and my ankles came back fine. Now every net comes back shredded and my ankles come back stung, and I'm too old to be surprised by the same thing twice a week.\n\nThe Flatfin Stingers have moved into the silt. They hide under it, so you'll find them with your foot before your eye. The Sand Burrowers are behind them. Kill the stingers first, then the burrowers, and watch your feet.",
         None,
-        "That's two good tides of fishing I've got back.\n\n"
-        "It isn't safe yet, because the big one's still out there, but you've earned a pick of my best work.",
+        "That's two good tides of fishing I've got back.\n\nIt isn't safe yet, because the big one's still out there, but you've earned a pick of my best work.",
     ),
     "echo_tarna_kragg": (
-        "Now for the part I haven't said out loud to anyone at the Landing. I lost a skiff last month, and I've let "
-        "people think it was the tide, because the truth makes me sound like I've been in the sun too long.\n\n"
-        "It wasn't the tide. Something the size of a hut lives under those cays. It's a crab, grown fat over forty "
-        "years on everything the flats leave behind, and the old fishers called him Shellcrusher Kragg. He takes the "
-        "whole boat when he's hungry and lets the fisherman swim.\n\n"
-        "He comes up when the Sand Burrowers trailing him go quiet, so kill them and he'll come looking. Don't try to "
-        "out-wait him, because he's more patient than you are. Hit him from the side. I want a trophy, and I want my "
-        "skiff's anchor back.",
+        "Now for the part I haven't said out loud to anyone at the Landing. I lost a skiff last month, and I've let people think it was the tide, because the truth makes me sound like I've been in the sun too long.\n\nIt wasn't the tide. Something the size of a hut lives under those cays. It's a crab, grown fat over forty years on everything the flats leave behind, and the old fishers called him Shellcrusher Kragg. He takes the whole boat when he's hungry and lets the fisherman swim.\n\nHe comes up when the Sand Burrowers trailing him go quiet, so kill them and he'll come looking. Don't try to out-wait him, because he's more patient than you are. Hit him from the side. I want a trophy, and I want my skiff's anchor back.",
         None,
-        "Forty years of crab, and he went down like a bad knot! And you found my anchor.\n\n"
-        "Take whatever you like off his shell. I've got what I wanted.",
+        "Forty years of crab, and he went down like a bad knot! And you found my anchor.\n\nTake whatever you like off his shell. I've got what I wanted.",
     ),
     "echo_talra_cord": (
-        "I'm Talra, and you can sit down if you like, but I won't stop working while we talk.\n\n"
-        "Hemp rots and sinew snaps, and the sea doesn't care about either. The only cord that's ever outlasted a "
-        "Darkspear storm is cured eel-hide, and I know that from forty years of mending. The best eels on these "
-        "islands are the Bilge Eels of Wreck Shallows, the knee-deep flats up in the far north-east between the troll "
-        "island and the dead ships of the Lost Fleet.\n\n"
-        "I'd go myself, but my hands ache in the cold water now, and a net mended badly is worse than one not "
-        "mended. I've run out of cord completely. The wreck crabs will pester you and the eels will shock you. Bring "
-        "me good lengths, because I'll know if you've cheated.",
+        "I'm Talra, and you can sit down if you like, but I won't stop working while we talk.\n\nHemp rots and sinew snaps, and the sea doesn't care about either. The only cord that's ever outlasted a Darkspear storm is cured eel-hide, and I know that from forty years of mending. The best eels on these islands are the Bilge Eels of Wreck Shallows, the knee-deep flats up in the far north-east between the troll island and the dead ships of the Lost Fleet.\n\nI'd go myself, but my hands ache in the cold water now, and a net mended badly is worse than one not mended. I've run out of cord completely. The wreck crabs will pester you and the eels will shock you. Bring me good lengths, because I'll know if you've cheated.",
         None,
-        "Oh, that's lovely. It's smooth as silk and mean as a snake.\n\n"
-        "I'll mend every net on the Landing with this, and I'll make you something out of what's left over.",
+        "Oh, that's lovely. It's smooth as silk and mean as a snake.\n\nI'll mend every net on the Landing with this, and I'll make you something out of what's left over.",
     ),
     "echo_vashj_stones": (
-        "Come a bit closer. You don't have to be quiet, the spirits aren't listening to us.\n\n"
-        "I'm Vashj, and I speak for the dead of this island, which has been a busy posting lately. They've been "
-        "restless for a month. Every night I hear the same thing from the north-west, low and steady, and it isn't "
-        "unfriendly. That's what's kept me up. It's a voice standing guard over something old.\n\n"
-        "It comes from the Naga Ruins, on the north-west island. Go over the west bridge to the Grotto isle, up its "
-        "north trail, then across the Sunken Steps ford. I'm not asking you to fight anything. I'm asking you to "
-        "stand in the old stones and hear what I hear, so that two of us have heard it. Don't speak and don't take "
-        "anything, just listen.",
-        "Over the west bridge to the Grotto isle, up the north trail, and wade the Sunken Steps. Stand in the stones "
-        "and listen.",
-        "So they spoke to you too. They didn't use words, but they spoke in order.\n\n"
-        "They're guarding something, and they're afraid of whatever comes after them. Let me think on this, and come "
-        "back when you're ready for the next part.",
+        "Come a bit closer. You don't have to be quiet, the spirits aren't listening to us.\n\nI'm Vashj, and I speak for the dead of this island, which has been a busy posting lately. They've been restless for a month. Every night I hear the same thing from the north-west, low and steady, and it isn't unfriendly. That's what's kept me up. It's a voice standing guard over something old.\n\nIt comes from the Naga Ruins, on the north-west island. Go over the west bridge to the Grotto isle, up its north trail, then across the Sunken Steps ford. I'm not asking you to fight anything. I'm asking you to stand in the old stones and hear what I hear, so that two of us have heard it. Don't speak and don't take anything, just listen.",
+        "Over the west bridge to the Grotto isle, up the north trail, and wade the Sunken Steps. Stand in the stones and listen.",
+        "So they spoke to you too. They didn't use words, but they spoke in order.\n\nThey're guarding something, and they're afraid of whatever comes after them. Let me think on this, and come back when you're ready for the next part.",
     ),
     "echo_vashj_scales": (
-        "I can read the old runes, but I can't read them off the air. The naga wear them on tide-etched scales, each "
-        "one marked with a spiral that's half writing and half weather. The spiral changes with the water and the "
-        "writing doesn't, and I've spent years failing to explain that to anyone.\n\n"
-        "The Naga Coastguards carry them, and so do the tidecallers. Take them off the ones who've no further use for "
-        "them, and bring me enough that I can lay them side by side. One scale is a mark, and a row of them is a "
-        "sentence.\n\n"
-        "And please wash your hands afterwards. Whatever they cure the scales in won't come off a palm by itself.",
+        "I can read the old runes, but I can't read them off the air. The naga wear them on tide-etched scales, each one marked with a spiral that's half writing and half weather. The spiral changes with the water and the writing doesn't, and I've spent years failing to explain that to anyone.\n\nThe Naga Coastguards carry them, and so do the tidecallers. Take them off the ones who've no further use for them, and bring me enough that I can lay them side by side. One scale is a mark, and a row of them is a sentence.\n\nAnd please wash your hands afterwards. Whatever they cure the scales in won't come off a palm by itself.",
         None,
-        "This row reads as a seal. They aren't guarding the temple. They're guarding the door under the temple, and "
-        "there's a key-keeper standing over it.\n\n"
-        "His name is Warden Ssaleth. Kill him, and the door stays shut.",
+        "This row reads as a seal. They aren't guarding the temple. They're guarding the door under the temple, and there's a key-keeper standing over it.\n\nHis name is Warden Ssaleth. Kill him, and the door stays shut.",
     ),
     "echo_vashj_warden": (
-        "Warden Ssaleth keeps those ruins the way a lock keeps a door. He does it out of an oath, not out of hatred. "
-        "That changes nothing about what has to happen, but I'd still rather you knew.\n\n"
-        "I can feel the oath on him from here, and I can feel that it's fraying. An oath that frays doesn't come "
-        "apart tidily. It goes all at once, on a night nobody chose. If he falls, that door stays shut a while "
-        "longer. If he's left alone, the oath gives out by itself, and whatever walks up to the door next will have "
-        "worse manners and no oath at all.\n\n"
-        "Thin the Naga Coastguards and find him where the stones are highest. His trident cuts, and when you hold "
-        "still, he pulls the strength out of you. Don't hold still, and don't fight him standing in the water.",
+        "Warden Ssaleth keeps those ruins the way a lock keeps a door. He does it out of an oath, not out of hatred. That changes nothing about what has to happen, but I'd still rather you knew.\n\nI can feel the oath on him from here, and I can feel that it's fraying. An oath that frays doesn't come apart tidily. It goes all at once, on a night nobody chose. If he falls, that door stays shut a while longer. If he's left alone, the oath gives out by itself, and whatever walks up to the door next will have worse manners and no oath at all.\n\nThin the Naga Coastguards and find him where the stones are highest. His trident cuts, and when you hold still, he pulls the strength out of you. Don't hold still, and don't fight him standing in the water.",
         None,
-        "The stones are silent. They aren't gone, they're silent, and I haven't heard that in years.\n\n"
-        "You've bought this island a season at least. This is from the Landing, not from me.",
+        "The stones are silent. They aren't gone, they're silent, and I haven't heard that in years.\n\nYou've bought this island a season at least. This is from the Landing, not from me.",
     ),
     "echo_isles_beast_cull": (
-        "I'm Kang'ari, and you'll be the one the Landing keeps sendin' out, so sit down.\n\n"
-        "I won't waste words on the beasts. Raptors, panthers, serpents, screechers and crabs the size of a cookin' "
-        "pot are thick through the interior now, and thicker every month. That isn't the island turnin' on us. It's "
-        "Zalazane's fires in the north pushin' everythin' south onto one trail, and the trail between the Landing "
-        "and this village is the one they've all ended up on.\n\n"
-        "So before we talk about what's really wrong with this place, and we will, the road needs clearin'. Kill the "
-        "Bloodtalon Raptors on it, and come back when a person can walk it.",
+        "I'm Kang'ari, and you'll be the one the Landing keeps sendin' out, so sit down.\n\nI won't waste words on the beasts. Raptors, panthers, serpents, screechers and crabs the size of a cookin' pot are thick through the interior now, and thicker every month. That isn't the island turnin' on us. It's Zalazane's fires in the north pushin' everythin' south onto one trail, and the trail between the Landing and this village is the one they've all ended up on.\n\nSo before we talk about what's really wrong with this place, and we will, the road needs clearin'. Kill the Bloodtalon Raptors on it, and come back when a person can walk it.",
         "The interior's thick with them. Come back when the road's walkable.",
-        "Da trail's quieter now. It isn't safe, because dis island hasn't been safe in longer dan you'd guess, but "
-        "it's quieter.\n\n"
-        "Now we can talk about what's really wrong with dis place.",
+        "Da trail's quieter now. It isn't safe, because dis island hasn't been safe in longer dan you'd guess, but it's quieter.\n\nNow we can talk about what's really wrong with dis place.",
     ),
     "echo_isles_cultist_purge": (
-        "Now for the part I've been carryin'. The hostile camps sit north and south of this village, on the isle's two "
-        "trails. Voodoo trolls, hex trolls, berserkers, headhunters, and the carvers who tend the fires are all "
-        "Darkspear, and all of them ours.\n\n"
-        "Every one of them was somebody's kin within the last three years. I knew names. I knew which of them was "
-        "bad at fishin' and which one owed me a canoe. They aren't comin' back from what he did to them. I looked "
-        "for the road back, for longer than was good for me, and there isn't one.\n\n"
-        "So I'm askin' you to go and finish it, and I won't dress it up as anythin' cleaner. Start where Vessa's "
-        "report put them, on the north trail and the south. I don't ask you to feel good about this fight. I ask you "
-        "to finish it.",
+        "Now for the part I've been carryin'. The hostile camps sit north and south of this village, on the isle's two trails. Voodoo trolls, hex trolls, berserkers, headhunters, and the carvers who tend the fires are all Darkspear, and all of them ours.\n\nEvery one of them was somebody's kin within the last three years. I knew names. I knew which of them was bad at fishin' and which one owed me a canoe. They aren't comin' back from what he did to them. I looked for the road back, for longer than was good for me, and there isn't one.\n\nSo I'm askin' you to go and finish it, and I won't dress it up as anythin' cleaner. Start where Vessa's report put them, on the north trail and the south. I don't ask you to feel good about this fight. I ask you to finish it.",
         None,
-        "It's done now. I felt every one of dose.\n\n"
-        "Da camps are quiet. Zalazane still holds da Hollow in da south-east, and da temple under da west isle is "
-        "still drowned. But first, I need somethin' of yours.",
+        "It's done now. I felt every one of dose.\n\nDa camps are quiet. Zalazane still holds da Hollow in da south-east, and da temple under da west isle is still drowned. But first, I need somethin' of yours.",
     ),
     "echo_isles_tidelord": (
-        "The Sunken Temple Grotto is on the west island, with its cave mouth at the end of the Grotto trail past the "
-        "west bridge. It floods with the tide and empties with it, and it's done that since before the Darkspear came "
-        "to these isles. We held that ground sacred, and we held it carefully.\n\n"
-        "Somethin' ancient has claimed the drowned chambers, Tidelord Gharesh. I don't know whether Zalazane summoned "
-        "it or just failed to stop it, and I've gone back and forth on which frightens me more.\n\n"
-        "Here's the whole fight. Gharesh moves with the tide. He's strong when the water's high and slower when it's "
-        "low. Time it right and you can kill him. Time it wrong, and you're fightin' a flood that hits back. Go at "
-        "low water, mon.",
+        "The Sunken Temple Grotto is on the west island, with its cave mouth at the end of the Grotto trail past the west bridge. It floods with the tide and empties with it, and it's done that since before the Darkspear came to these isles. We held that ground sacred, and we held it carefully.\n\nSomethin' ancient has claimed the drowned chambers, Tidelord Gharesh. I don't know whether Zalazane summoned it or just failed to stop it, and I've gone back and forth on which frightens me more.\n\nHere's the whole fight. Gharesh moves with the tide. He's strong when the water's high and slower when it's low. Time it right and you can kill him. Time it wrong, and you're fightin' a flood that hits back. Go at low water, mon.",
         "The temple door's at the end of the west trail, past the bridge. Go at low water.",
-        "Da temple's quiet. Whatever dat thing was standin' over, it's safe now.\n\n"
-        "Dere's one name left, da one dat started all of dis.",
+        "Da temple's quiet. Whatever dat thing was standin' over, it's safe now.\n\nDere's one name left, da one dat started all of dis.",
     ),
     "echo_isles_zalazane": (
-        "His name is Zalazane. I've said it to somebody who might end him, and I've wanted to do that for three years.\n\n"
-        "The Hollow is the last of it, and the source. Its cave mouth is on the south-east island, at the end of the "
-        "long bridge off the Landing. He was a witch doctor of this tribe, and he had standin'. When the moment came "
-        "to lead his own kin, he turned them into hexed and drowned things instead, because it was easier than bein' "
-        "told no. That's all he is. I've had three years to find somethin' larger in him, and there isn't anythin'.\n\n"
-        "Now listen, because this is the fight. He won't raise a weapon until he's tried to turn your own friends "
-        "against you. That's his openin', and it's his whole craft. Break the hex fast, or don't let it land at all.",
+        "His name is Zalazane. I've said it to somebody who might end him, and I've wanted to do that for three years.\n\nThe Hollow is the last of it, and the source. Its cave mouth is on the south-east island, at the end of the long bridge off the Landing. He was a witch doctor of this tribe, and he had standin'. When the moment came to lead his own kin, he turned them into hexed and drowned things instead, because it was easier than bein' told no. That's all he is. I've had three years to find somethin' larger in him, and there isn't anythin'.\n\nNow listen, because this is the fight. He won't raise a weapon until he's tried to turn your own friends against you. That's his openin', and it's his whole craft. Break the hex fast, or don't let it land at all.",
         None,
-        "Is it really over? Zalazane is finished, and dis island belongs to da livin' again.\n\n"
-        "I've carried dis a long time, and I don't know how a man puts down a weight dat old. I suspect I'll start "
-        "workin' it out today. Take what he had. You've more dan earned it.",
+        "Is it really over? Zalazane is finished, and dis island belongs to da livin' again.\n\nI've carried dis a long time, and I don't know how a man puts down a weight dat old. I suspect I'll start workin' it out today. Take what he had. You've more dan earned it.",
     ),
     "echo_zathra_shards": (
-        "Mind the mats. Everythin' on them is someone.\n\n"
-        "I'm Zathra, and I mend what the camps send down to me: fevers, cuts and curses. I've been doin' the fevers "
-        "and cuts since I was a girl. The curses are new, and they're all the same curse. Every one comes in with the "
-        "same mark on the skin, a sliver of bone pressed into the flesh with a Darkspear name carved on it, and then "
-        "the name crossed out. That isn't a hex somebody threw in a fight. Somebody's keepin' a ledger.\n\n"
-        "The fetish-carvers make them. Take the shards off them, lay them flat, and don't touch the names. Bring "
-        "enough that I can read them together, because I'm tired of treatin' the symptoms while the thing makin' "
-        "them keeps carvin'.",
-        "The carvers work the camp fires just north-east of here, and the deeper dens of Zalazane's Hollow, the cave "
-        "on the island far to the south across the long bridge. Don't touch the names.",
-        "Dey're all one hand and all one rhythm. It's a weaver, mon, someone in da Hollow who stitches dese hexes "
-        "into da bone.\n\n"
-        "I'll tell you where to look. Take dis for da trouble.",
+        "Mind the mats. Everythin' on them is someone.\n\nI'm Zathra, and I mend what the camps send down to me: fevers, cuts and curses. I've been doin' the fevers and cuts since I was a girl. The curses are new, and they're all the same curse. Every one comes in with the same mark on the skin, a sliver of bone pressed into the flesh with a Darkspear name carved on it, and then the name crossed out. That isn't a hex somebody threw in a fight. Somebody's keepin' a ledger.\n\nThe fetish-carvers make them. Take the shards off them, lay them flat, and don't touch the names. Bring enough that I can read them together, because I'm tired of treatin' the symptoms while the thing makin' them keeps carvin'.",
+        "The carvers work the camp fires just north-east of here, and the deeper dens of Zalazane's Hollow, the cave on the island far to the south across the long bridge. Don't touch the names.",
+        "Dey're all one hand and all one rhythm. It's a weaver, mon, someone in da Hollow who stitches dese hexes into da bone.\n\nI'll tell you where to look. Take dis for da trouble.",
     ),
     "echo_zathra_hexweaver": (
-        "I read them together, and I was right, and I'd rather not have been. There's one hand on every shard. It's "
-        "one carver, with a den on the west side of Zalazane's Hollow, below the sanctum itself.\n\n"
-        "They call him Mam'toth the Hexweaver, and he's earned it the hard way. I've treated forty of his victims. I've "
-        "got the count because I keep the count, and I keep it because somebody should. I'd like to stop healin' "
-        "this one curse over and over while the loom in that den keeps turnin'.\n\n"
-        "His Voodoo Adepts will rally to him the moment you're seen, so go through them. When you reach him, break "
-        "the weave if you can, and kill him quickly if you can't. Bring back whatever's left of the loom, because I "
-        "want to see it broken with my own eyes.",
-        "Zalazane's Hollow, the cave on the island to the south across the long bridge. His den is on its west side, "
-        "below Zalazane's sanctum.",
-        "Forty hexes came undone in one breath. I felt dem go, and dat's da best medicine I've ever tasted.\n\n"
-        "Take dis, and remember, mon, da healin' was never da hard part. Da stoppin' was.",
+        "I read them together, and I was right, and I'd rather not have been. There's one hand on every shard. It's one carver, with a den on the west side of Zalazane's Hollow, below the sanctum itself.\n\nThey call him Mam'toth the Hexweaver, and he's earned it the hard way. I've treated forty of his victims. I've got the count because I keep the count, and I keep it because somebody should. I'd like to stop healin' this one curse over and over while the loom in that den keeps turnin'.\n\nHis Voodoo Adepts will rally to him the moment you're seen, so go through them. When you reach him, break the weave if you can, and kill him quickly if you can't. Bring back whatever's left of the loom, because I want to see it broken with my own eyes.",
+        "Zalazane's Hollow, the cave on the island to the south across the long bridge. His den is on its west side, below Zalazane's sanctum.",
+        "Forty hexes came undone in one breath. I felt dem go, and dat's da best medicine I've ever tasted.\n\nTake dis, and remember, mon, da healin' was never da hard part. Da stoppin' was.",
     ),
     "echo_jinzil_charts": (
-        "I'm Jin'zil, and I've walked this beach at dawn for thirty years, which makes me either the most patient troll "
-        "on this island or the least ambitious, dependin' on who's askin'. Thirty years of rope ends and broken oars, "
-        "and this mornin' I found a chart.\n\n"
-        "It was drowned and soaked through and still readable, washed off one of the dead ships of the Lost Fleet up "
-        "in the north-east. Somebody took careful soundings on it, and I want the rest of them. Whoever sailed those "
-        "ships knew where the old reefs lay, and I've come to think the old reefs are where Zalazane draws his power "
-        "from.\n\n"
-        "The Drowned Crewmen still carry their charts, because they can't put the job down. Don't read them in the "
-        "rain.",
+        "I'm Jin'zil, and I've walked this beach at dawn for thirty years, which makes me either the most patient troll on this island or the least ambitious, dependin' on who's askin'. Thirty years of rope ends and broken oars, and this mornin' I found a chart.\n\nIt was drowned and soaked through and still readable, washed off one of the dead ships of the Lost Fleet up in the north-east. Somebody took careful soundings on it, and I want the rest of them. Whoever sailed those ships knew where the old reefs lay, and I've come to think the old reefs are where Zalazane draws his power from.\n\nThe Drowned Crewmen still carry their charts, because they can't put the job down. Don't read them in the rain.",
         "North-east, past the shallows, at the Lost Fleet. The drowned crewmen still carry them.",
-        "A ring of islands with a red cross on it. It isn't a treasure map, mon, it's a warnin'. Da man who drew dis "
-        "was runnin' from somethin'.\n\n"
-        "One of his mates still guards da wreck. I'll tell you where.",
+        "A ring of islands with a red cross on it. It isn't a treasure map, mon, it's a warnin'. Da man who drew dis was runnin' from somethin'.\n\nOne of his mates still guards da wreck. I'll tell you where.",
     ),
     "echo_jinzil_beard": (
-        "There's one more thing out there, and he isn't a thing to me. The first mate of the Lost Fleet never left "
-        "his post. The beachcombers called him Old Barnacle-Beard, back when there were enough of us to call him "
-        "anythin'.\n\n"
-        "He walks the shallows by the wrecks with a lantern in one hand and an axe in the other, lookin' for the "
-        "captain's orders. There aren't any orders. The captain's been down twenty years, and the old man will keep "
-        "walkin' that dark flat until somebody stops him.\n\n"
-        "The Wreck Scavengers on those flats have gone feral round him. Kill them and he'll come lookin' for the "
-        "noise, because noise is the job. Bring me the lantern, and put the old man down properly. He fights like a "
-        "man who's already dead, because he is one.",
+        "There's one more thing out there, and he isn't a thing to me. The first mate of the Lost Fleet never left his post. The beachcombers called him Old Barnacle-Beard, back when there were enough of us to call him anythin'.\n\nHe walks the shallows by the wrecks with a lantern in one hand and an axe in the other, lookin' for the captain's orders. There aren't any orders. The captain's been down twenty years, and the old man will keep walkin' that dark flat until somebody stops him.\n\nThe Wreck Scavengers on those flats have gone feral round him. Kill them and he'll come lookin' for the noise, because noise is the job. Bring me the lantern, and put the old man down properly. He fights like a man who's already dead, because he is one.",
         None,
-        "He's restin' now. I could feel him let go.\n\n"
-        "I'm not a sentimental man, but I'll light dis lantern tonight for him, and for da crew. Take whatever you "
-        "like off his belt.",
+        "He's restin' now. I could feel him let go.\n\nI'm not a sentimental man, but I'll light dis lantern tonight for him, and for da crew. Take whatever you like off his belt.",
     ),
     "echo_dritt_salvage": (
-        "You there, come here, keep your voice down, and don't look at the water.\n\n"
-        "I'm Dritt, a salvager, and the plan isn't complicated. Get to the Lost Fleet, take whatever isn't nailed "
-        "down, pay off certain parties, and retire somewhere with weather. The plan has exactly one flaw, and it's "
-        "the Drowned Causeway, the knee-deep ford running north from this camp to the troll isle.\n\n"
-        "Murloc Spearfishers hold it, and Causeway Sirens sing from the rocks on either side. So it's a toll road "
-        "now, and the toll is my life, which I happen to need for the rest of the plan. Clear me the spearfishers and "
-        "the singers both, and I'll make it worth your while. Don't ask where the money's from.",
+        "You there, come here, keep your voice down, and don't look at the water.\n\nI'm Dritt, a salvager, and the plan isn't complicated. Get to the Lost Fleet, take whatever isn't nailed down, pay off certain parties, and retire somewhere with weather. The plan has exactly one flaw, and it's the Drowned Causeway, the knee-deep ford running north from this camp to the troll isle.\n\nMurloc Spearfishers hold it, and Causeway Sirens sing from the rocks on either side. So it's a toll road now, and the toll is my life, which I happen to need for the rest of the plan. Clear me the spearfishers and the singers both, and I'll make it worth your while. Don't ask where the money's from.",
         None,
-        "You're a miracle, a violent, wet miracle, and a business partner, I hope.\n\n"
-        "There's still the seer on the rocks who runs the choir. Come back when you're ready.",
+        "You're a miracle, a violent, wet miracle, and a business partner, I hope.\n\nThere's still the seer on the rocks who runs the choir. Come back when you're ready.",
     ),
     "echo_dritt_seer": (
-        "Spearfishers I can put a price on. The thing that sings them into position is a different conversation.\n\n"
-        "She's called Seer Sshara. She sits on a rock halfway down that causeway, and she doesn't let a sailor past, "
-        "and she's been doing it longer than I've been on this island. I had a crew of seven, good ones, mostly. She "
-        "charmed every one of them into walking off the end of a pier, in order, while I stood forty feet away "
-        "shouting, and the last one waved at me.\n\n"
-        "I'd like to be paid back in gold, and I'll settle for silence. Here's the only advice I've ever given anyone "
-        "for free: don't listen to her sing. Plug your ears with wax or cloth or anything, and go deaf for the "
-        "afternoon.",
+        "Spearfishers I can put a price on. The thing that sings them into position is a different conversation.\n\nShe's called Seer Sshara. She sits on a rock halfway down that causeway, and she doesn't let a sailor past, and she's been doing it longer than I've been on this island. I had a crew of seven, good ones, mostly. She charmed every one of them into walking off the end of a pier, in order, while I stood forty feet away shouting, and the last one waved at me.\n\nI'd like to be paid back in gold, and I'll settle for silence. Here's the only advice I've ever given anyone for free: don't listen to her sing. Plug your ears with wax or cloth or anything, and go deaf for the afternoon.",
         None,
-        "She's silent at last! You've saved my life and about nine thousand gold in lost cargo.\n\n"
-        "I'll find you a bonus, I'm just not quite sure where yet.",
+        "She's silent at last! You've saved my life and about nine thousand gold in lost cargo.\n\nI'll find you a bonus, I'm just not quite sure where yet.",
     ),
     "echo_dritt_captain": (
-        "The causeway's quiet, so I can finally say the plan out loud instead of hinting at it.\n\n"
-        "Captain Morrow went down with his ship, and he went down with his strongbox, which is the part that matters "
-        "and the reason I came to these islands at all. He's still on his flagship up in the north-east, dead, armed "
-        "and extremely unsociable. A client told me about the box a few years back, a newcomer who'd washed up on "
-        "this beach talking about a world he'd left behind and a bank that wouldn't follow him here. He was right "
-        "about the box.\n\n"
-        "The flagship's the big one, so you won't need directions. Kill the Drowned Crewmen aboard, and bring me "
-        "that strongbox. I'll buy you a drink, and then several more.",
+        "The causeway's quiet, so I can finally say the plan out loud instead of hinting at it.\n\nCaptain Morrow went down with his ship, and he went down with his strongbox. That strongbox is why I came to these islands at all. He's still on his flagship up in the north-east, dead, armed and extremely unsociable. A client told me about the box a few years back, a newcomer who'd washed up on this beach talking about a world he'd left behind and a bank that wouldn't follow him here. He was right about the box.\n\nThe flagship's the big one, so you won't need directions. Kill the Drowned Crewmen aboard, and bring me that strongbox. I'll buy you a drink, and then several more.",
         None,
-        "It looks empty. Wait, no, it isn't. There's a false bottom!\n\n"
-        "I'm going to cry in a minute. Take your cut, take all of it, take the boat.",
+        "It looks empty. Wait, no, it isn't. There's a false bottom!\n\nI'm going to cry in a minute. Take your cut, take all of it, take the boat.",
     ),
     "echo_dritt_hounds": (
-        "This last thing isn't business, it's sleep. This camp sits a stone's throw from Zalazane's Hollow. I knew "
-        "that when I pitched it, and it was cheap for a reason.\n\n"
-        "Every night, something in the dark whistles up the Shadowfang Guardians, and they come round my perimeter. "
-        "They don't attack, they just go round. Houndmaster Gor'tek keeps the kennels in the middle of the Hollow, "
-        "past the Thrall Pens, and the whistle is his. I can live near hounds. I can't live near a whistle, because a "
-        "whistle means somebody decides, and he can decide differently about me any night he likes.\n\n"
-        "Kill the hounds first so the master comes out, and put him down before he whips the pack into a frenzy.",
+        "This last thing isn't business, it's sleep. This camp sits a stone's throw from Zalazane's Hollow. I knew that when I pitched it, and it was cheap for a reason.\n\nEvery night, something in the dark whistles up the Shadowfang Guardians, and they come round my perimeter. They don't attack, they just go round. Houndmaster Gor'tek keeps the kennels in the middle of the Hollow, past the Thrall Pens, and the whistle is his. I can live near hounds. I can't live near a whistle, because a whistle means somebody decides, and he can decide differently about me any night he likes.\n\nKill the hounds first so the master comes out, and put him down before he whips the pack into a frenzy.",
         None,
-        "It's dead quiet out there! The whistle's gone and the hounds are asleep.\n\n"
-        "I haven't slept in two weeks, and I'm going to sleep for two more. Take this with my thanks, and my "
-        "sympathies for his dogs.",
+        "It's dead quiet out there! The whistle's gone and the hounds are asleep.\n\nI haven't slept in two weeks, and I'm going to sleep for two more. Take this with my thanks, and my sympathies for his dogs.",
     ),
     "echo_kesh_pearls": (
-        "I'm Kesh, and I keep the spirit shrine, these stones a few steps from the temple door. Something's started "
-        "leaving things on the shrine step that nobody put there.\n\n"
-        "I sweep that step at dawn. I know what I put on it and I know what the tide puts on it, and for a month now "
-        "there's been a third answer. The spirits are asking again, and they haven't asked in my lifetime. The old "
-        "offering was always a tide-touched pearl, grey and damp and impossible to dry.\n\n"
-        "The only pearls left are inside the temple. The murlocs hoard them in the shallows, and the tidal "
-        "elementals wear them like bad jewellery. Go in at the temple door, at the end of the Grotto trail, and keep "
-        "them wet.",
+        "I'm Kesh, and I keep the spirit shrine, these stones a few steps from the temple door. Something's started leaving things on the shrine step that nobody put there.\n\nI sweep that step at dawn. I know what I put on it and I know what the tide puts on it, and for a month now there's been a third answer. The spirits are asking again, and they haven't asked in my lifetime. The old offering was always a tide-touched pearl, grey and damp and impossible to dry.\n\nThe only pearls left are inside the temple. The murlocs hoard them in the shallows, and the tidal elementals wear them like bad jewellery. Go in at the temple door, at the end of the Grotto trail, and keep them wet.",
         None,
-        "These are perfect, and the tide's already softer. The pearls are why the temple's guardians never left. "
-        "They're still looking for the last offering.\n\n"
-        "There's a drowned warrior down there who needs rest.",
+        "These are perfect, and the tide's already softer. The pearls are why the temple's guardians never left. They're still looking for the last offering.\n\nThere's a drowned warrior down there who needs rest.",
     ),
     "echo_kesh_crypt": (
-        "The offering won't take. I've made it twice, and twice it's just sat there, and the reason is underneath us "
-        "in the Drowned Crypt, off the west gate of the Grotto's rotunda.\n\n"
-        "There's a Darkspear warrior down there called Moj'bashi, and he's walked the same flooded corridor for forty "
-        "years. He isn't malicious, and I want that said before you go down. I've stood in the water at the mouth of "
-        "that corridor and watched him turn at the far end and come back, and there's nothing in him that wants "
-        "anything. He isn't sane either, and the Drowned Trolls down there have followed his example.\n\n"
-        "He'll be at the back. Treat him as a warrior rather than a monster, because he'd have wanted that. And be "
-        "quick about it. Forty years is long enough.",
-        "He's in the Sunken Temple Grotto, south-west of here, off the west gate of the rotunda. You'll find him at "
-        "the back.",
-        "He's at rest. I felt it as he went, like a held breath coming out, and that's what the pearls were for.\n\n"
-        "Take this with you. The shrine and I are even with you.",
+        "The offering won't take. I've made it twice, and twice it's just sat there, and the reason is underneath us in the Drowned Crypt, off the west gate of the Grotto's rotunda.\n\nThere's a Darkspear warrior down there called Moj'bashi, and he's walked the same flooded corridor for forty years. He isn't malicious, and I want that said before you go down. I've stood in the water at the mouth of that corridor and watched him turn at the far end and come back, and there's nothing in him that wants anything. He isn't sane either, and the Drowned Trolls down there have followed his example.\n\nHe'll be at the back. Treat him as a warrior rather than a monster, because he'd have wanted that. And be quick about it. Forty years is long enough.",
+        "He's in the Sunken Temple Grotto, south-west of here, off the west gate of the rotunda. You'll find him at the back.",
+        "He's at rest. I felt it as he went, like a held breath coming out, and that's what the pearls were for.\n\nTake this with you. The shrine and I are even with you.",
     ),
     "echo_muzka_steps": (
-        "You're the one everybody at the Landing keeps talking about, aren't you?\n\n"
-        "I'm Muzka, and I can hold my breath for four minutes. Two people who don't like each other timed me, so it "
-        "counts. The Sunken Steps are where I prove it, a stair of old black stone coming up out of the knee-deep "
-        "water south of the Naga Ruins. Nobody knows who built it, and nobody cares except me. The steps have "
-        "guardians, big slab-shaped things that stand on them and don't move until you're close.\n\n"
-        "I need a witness, and that's the whole job. From the Grotto isle, take the north trail into the water. "
-        "Reach the middle step, break the Stepstone Sentinels, and come back and tell me I'm brave. My mother has "
-        "views about this, and she may be right, but we're doing it anyway.",
+        "You're the one everybody at the Landing keeps talking about, aren't you?\n\nI'm Muzka, and I can hold my breath for four minutes. Two people who don't like each other timed me, so it counts. The Sunken Steps are where I prove it, a stair of old black stone coming up out of the knee-deep water south of the Naga Ruins. Nobody knows who built it, and nobody cares except me. The steps have guardians, big slab-shaped things that stand on them and don't move until you're close.\n\nI need a witness, and that's the whole job. From the Grotto isle, take the north trail into the water. Reach the middle step, break the Stepstone Sentinels, and come back and tell me I'm brave. My mother has views about this, and she may be right, but we're doing it anyway.",
         None,
-        "You're brave, all right! Say it again, where my cousin can hear.\n\n"
-        "How many steps were there past the middle one? That's what I thought. Nobody ever gets further than that.",
+        "You're brave, all right! Say it again, where my cousin can hear.\n\nHow many steps were there past the middle one? That's what I thought. Nobody ever gets further than that.",
     ),
     "echo_muzka_razorjaw": (
-        "I'm not joking around this time. My brother dove the south-west reef, and he came back with half a leg. I was "
-        "on the beach when it happened.\n\n"
-        "What took it was the Razorjaw, a big reef predator. He's had the south-west for ten years, and he "
-        "circles the shallows below Razorjaw Reef the moment there's blood in the water. Everybody on this island "
-        "knows about him, and everybody goes a different way round, and that's been good enough for everybody, and "
-        "my brother can't walk.\n\n"
-        "I don't want revenge. I want it to stop. Take the south trail to the water, then go west across the "
-        "shallows. His whelps hunt in packs, and he comes when they scream. He hits hard and gets angrier the longer "
-        "it goes, so hit and move.",
+        "I'm not joking around this time. My brother dove the south-west reef, and he came back with half a leg. I was on the beach when it happened.\n\nWhat took it was the Razorjaw, a big reef predator. He's had the south-west for ten years, and he circles the shallows below Razorjaw Reef the moment there's blood in the water. Everybody on this island knows about him, and everybody goes a different way round, and that's been good enough for everybody, and my brother can't walk.\n\nI don't want revenge. I want it to stop. Take the south trail to the water, then go west across the shallows. His whelps hunt in packs, and he comes when they scream. He hits hard and gets angrier the longer it goes, so hit and move.",
         None,
-        "Is it really gone? I didn't think anyone could do it.\n\n"
-        "Thank you, from me and from my brother. He's going to be insufferable now.",
+        "Is it really gone? I didn't think anyone could do it.\n\nThank you, from me and from my brother. He's going to be insufferable now.",
     ),
 }

@@ -24,7 +24,7 @@ VOICE = {
     "hz_coal_air": (
         "I'm Vesna Orlova. I taught palaeobotany in Perm, before. I've been down here since the ground opened under Walt's basin, a year after the Integration, and I still don't know how this place can exist.\n\nThis is the Carboniferous. Three hundred million years ago, before there were flowers, when the air had so much oxygen in it that insects grew to the size of dogs. Those are griffinflies over the water, and those things in the ferns are worse. They've found my camp. Kill enough of the flies and the stalkers that I can get back to work.",
         None,
-        None,
+        "Did you see the wings on those flies? I've only ever seen them pressed flat in shale. Watching them move is a gift, even when they're trying to eat me.",
     ),
     "hz_coal_green": (
         None,
@@ -44,7 +44,7 @@ VOICE = {
     "hz_winter_wolves": (
         "My name's Ana Vukovic. I was a palaeontologist in Zagreb, back home, and I spent my life digging up the bones of everything you can see out there. Woolly mammoths, cave bears, lions, they all died out on Earth before anyone learned to write, and here they are, breathing.\n\nThis is the last ice age, a piece of it, and it came through the Integration whole. But it's a small piece, and the dire wolves and the cave bears are eating it faster than it can feed them. Thin them out, please, before there's nothing left to study.",
         None,
-        None,
+        "That's a strange thing to ask, coming from someone who loves them.\n\nI've only ever seen a dire wolf as a skull in a museum drawer. Watching one run is something I'll never get used to.",
     ),
     "hz_winter_ochre": (
         None,
@@ -65,5 +65,60 @@ VOICE = {
         None,
         None,
         "It's really dead? The breach is quiet. I can hear birds at the north end, for the first time in years.\n\nThe ward can heal now, if the Magister lets it. That's the next problem, and it's the one I've been dreading.",
+    ),
+    "hz_saltgrave_lanterns": (
+        None,
+        None,
+        "It's darker out there tonight, and it's the good kind of dark. It's the kind you can sleep through.\n\nI haven't been able to say that to anybody in a long time.",
+    ),
+    "hz_glade_wisps": (
+        None,
+        None,
+        "It's darker now, but it's an honest dark, and I'll take it.\n\nI can start reading now without wondering what's behind me.",
+    ),
+    "hz_glade_priestess": (
+        None,
+        None,
+        "The clouds are thinning. Look up there, can you see it?\n\nTake whatever you like from what I've got. Tonight, I don't need any of it.",
+    ),
+    "hz_storm_rams": (
+        None,
+        None,
+        "My rods are up. Now we wait for the lightning, and I don't think we'll be waiting long.\n\nThis storm's been here a hundred years, and we're finally going to learn why.",
+    ),
+    "hz_orchard_rows": (
+        None,
+        None,
+        "I walked the rows just now for the first time in years.\n\nMy father planted those trees. I'd forgotten how straight he made the lines.",
+    ),
+    "hz_orchard_bramley": (
+        None,
+        None,
+        "He's finally down. Father would have hated what it turned into.\n\nTake something from the house, because I've got no use for any of it now.",
+    ),
+    "hz_root_listen": (
+        None,
+        None,
+        "Listen to that. Can you hear it? It's the tree, not them.\n\nIt's been a long time since I could hear it that clearly.",
+    ),
+    "hz_vault_quiet": (
+        None,
+        None,
+        "It's quieter now. You can almost hear the pages turning, and that's a good sound, down here.\n\nI'd forgotten what the vault sounded like.",
+    ),
+    "hz_pines_webs": (
+        None,
+        None,
+        "It's quieter out there. I can hear the water again, which isn't better, but at least I know where it is.\n\nThat's one less thing watching me from the trees.",
+    ),
+    "hz_sunward_magister": (
+        None,
+        None,
+        "The sun's moving. Look at the shadows. It's actually moving.\n\nIt'll be evening soon, for the first time in years. I think I'll sit and watch it. Go well, and walk in the light.",
+    ),
+    "hz_caravan_dunes": (
+        None,
+        None,
+        "I can see a wagon wheel sticking up out of the sand! It could be Grandma's wagon wheel, for all I know.\n\nYou've done more in a day than my family did in a century.",
     ),
 }

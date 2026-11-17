@@ -51,7 +51,7 @@ QUEST_TOPICS = {
         "tan_topic_carried": {
             "label": "Ask Old Mazzic about leaving Gadgetzan.",
             "response": (
-                "I didn't leave.\n\nI know how that sounds. Everybody in this port says we left, the "
+                "I didn't leave, whatever it sounds like.\n\nEverybody in this port says we left, the "
                 "Gadgetzan crowd, the ones who came over, as if it was a Tuesday and a decision and we all "
                 "talked it through.\n\nSome of us did decide, and Bix was one. He closed his shop properly, "
                 "put the key somewhere and loaded three carts, and good for him, honestly.\n\nI was "

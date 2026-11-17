@@ -7,158 +7,97 @@ VOICE = {
     "ucq_rotunda_walk": (
         "Stop right there. You're new, and new ones walk into the Canal.\n\nI'm Deathguard Halloran. I've held this post a long time, and I've watched a hundred of you go over the rail. It isn't despair, it's confusion. They get turned around in the rotunda and walk very confidently into the water, because every direction down here looks like the one they meant.\n\nSo before anything else, learn the wheel. There are four quarters on one wheel. The Royal is to the north-west, the Magic north-east, the War south-west and the Apothecarium south-east. Walk all four.\n\nAnd learn it before it learns you. This city gets used to people, and the ones it gets used to stop being asked where they're going.",
         None,
-        "You came back, and you aren't green any more.\n\n"
-        "The Undercity has a use for you yet, and that's more than it decides about most.",
+        "You came back, and you aren't green any more.\n\nThe Undercity has a use for you yet, and that's more than it decides about most.",
     ),
     "ucq_muster_slip": (
         "Now something small, and I'd like it done properly rather than quickly.\n\nThis is a muster slip for Executor Wrenfall, who holds the Royal Quarter's north gate. I can't leave this post. That's the actual constraint of the job, and it's why a man who could walk this in four minutes is handing it to a stranger.\n\nThere are two things. Don't read it. There's nothing secret in it, but the Executor is touchy about his paperwork, and he can tell.\n\nAnd put it in his hand, not on the desk, not with a clerk. He's particular about that too, and after eleven years I've stopped asking why and started just doing it.\n\nIt's the north promenade, west of the elevator.",
         "Go to the north promenade, west of the elevator, and put it into his hand.",
-        "It's from Halloran, of course.\n\n"
-        "He never wastes a word, that one. Eleven years, and I haven't had a sentence off him I didn't need.\n\n"
-        "Here, take something for your trouble.",
+        "It's from Halloran, of course.\n\nHe never wastes a word, that one. Eleven years, and I haven't had a sentence off him I didn't need.\n\nHere, take something for your trouble.",
     ),
     "ucq_scarlet_pressure": (
         "I'm Executor Wrenfall. You can walk and you can follow an instruction, which puts you ahead.\n\nScarlet Zealots and Bowmen are patrolling the Tirisfal road to the Ruins, close enough to see the portal. That's the whole of the problem. They aren't at our door yet, but they're near enough to look at it, and that stage lasts about a week.\n\nThey haven't tried the gate, and I've no intention of finding out whether they're brave enough. If they try it and fail we have a siege, and if they succeed we have considerably less than that.\n\nThey come from the Scarlet Watch Post, east of Brill. Thin them out before they find out for me, and leave none of them in sight of that road.",
         "Go to the Scarlet Watch Post, east of Brill.",
-        "That's what I needed. The portal stays dark and the Crusade stays outside.\n\n"
-        "You have the quartermaster's thanks, and mine, which are worth less and cost me more.",
+        "That's what I needed. The portal stays dark and the Crusade stays outside.\n\nYou have the quartermaster's thanks, and mine, which are worth less and cost me more.",
     ),
     "ucq_scarlet_orders": (
         "Now I want to read what they've been told.\n\nWhat they believe and what they've been told are usually different documents, which is the single most useful thing I know about the Crusade.\n\nTheir converts and initiates carry orders, in a neat red hand, and they carry them openly. An order you carry openly is an order you've been told is righteous.\n\nI want a handful. A single order is a task. A row of them laid side by side is a doctrine, and I can work out what they're afraid of from a doctrine in an afternoon.\n\nTry the Crusader's Outpost east of Brill, and the farm roads. Anyone in Scarlet who can read will have one.",
         "Take them off the Scarlet converts and initiates, at the outpost east of Brill and on the farm roads.",
-        "That's a very tidy hand.\n\n"
-        "They're afraid of us. And they've been told to hide it, in writing, by somebody who thought that would "
-        "help.\n\n"
-        "I find that touching.",
+        "That's a very tidy hand.\n\nThey're afraid of us. And they've been told to hide it, in writing, by somebody who thought that would help.\n\nI find that touching.",
     ),
     "ucq_tin_bars": (
         "I'm Smith Ironbrow. Mind where you put your hands, because most of this is colder than it looks and the rest isn't.\n\nI've got a bench, a quench trough, and thirty years of knowing what to do with both. What I haven't got is tin.\n\nAnd the forge in the War Quarter is cold, which genuinely offends me. Nobody has bothered to light it. It's sat dark for months, because it's somebody's job to light it and nobody's sure whose.\n\nSo smelt tin bars at it. A forge that's been lit is a forge somebody's using, and a forge somebody's using gets supplied. I've been trying to get that fire started for a season by asking.\n\nLight it and it's yours. Take tin ore out of the western hills if you've got no stock.",
         "Go to the Undercity Forge, south-west of the War Hall. Light it and smelt the bars.",
-        "That's bars, and not a cinder wasted. That's how you light a forge.\n\n"
-        "It'll be warm tomorrow. It hasn't been warm tomorrow in a long while.",
+        "That's bars, and not a cinder wasted. That's how you light a forge.\n\nIt'll be warm tomorrow. It hasn't been warm tomorrow in a long while.",
     ),
     "ucq_iron_bars": (
-        "The fire's lit, so now we make something that matters. I want rough iron, for the Royal Guard's greaves.\n\n"
-        "And before you tell me rough iron is poor stuff for a royal anything, it is, and it's what they'll get, and "
-        "they'll be better off for it. Good steel on a guard who stands at a gate all year is a waste. It wants "
-        "maintaining, it wants a smith who knows it, and the moment it's scratched somebody above him decides it "
-        "reflects badly. Rough iron you can beat flat with a stone and put back on.\n\n"
-        "That's the whole philosophy, and thirty years hasn't shaken it.\n\n"
-        "Make the bars at the forge, and you can use my good tongs, which I don't offer. Don't touch the ones on the "
-        "left. They bite, and I'm not going to explain how.",
+        "The fire's lit, so now we make something that matters. I want rough iron, for the Royal Guard's greaves.\n\nAnd before you tell me rough iron is poor stuff for a royal anything, it is, and it's what they'll get, and they'll be better off for it. Good steel on a guard who stands at a gate all year is a waste. It wants maintaining, it wants a smith who knows it, and the moment it's scratched somebody above him decides it reflects badly. Rough iron you can beat flat with a stone and put back on.\n\nThat's the whole philosophy, and thirty years hasn't shaken it.\n\nMake the bars at the forge, and you can use my good tongs, which I don't offer. Don't touch the ones on the left. They bite, and I'm not going to explain how.",
         "Make rough iron bars at the Undercity Forge.",
-        "That's rough iron and rough work.\n\n"
-        "The Guard will wear them with pride, or at least with plates, which lasts longer.",
+        "That's rough iron and rough work.\n\nThe Guard will wear them with pride, or at least with plates, which lasts longer.",
     ),
     "ucq_drill_remnants": (
         "I'm Drillmaster Hask. Don't stand in the square, that's where things land.\n\nI'm running out of recruits who don't mind being hit, and that's a staffing crisis. A drill needs somebody on the receiving end, and the dead are worse about being struck than the living assume. They've already had the worst thing happen, and they've decided that's enough.\n\nMeanwhile the Lordaeron Remnants up in the Ruins are persistent, cheerfully hostile, and entirely unbothered. It's high time somebody used them. Go north, up the shaft, then south along the road.\n\nBring back their signets. The recruits learn more off a signet in their hand than off a week of my shouting.",
         None,
-        "That'll do nicely.\n\n"
-        "The recruits will learn more from these signets than from a month of my yelling, which is both useful and "
-        "faintly insulting.",
+        "That'll do nicely.\n\nThe recruits will learn more from these signets than from a month of my yelling, which is both useful and faintly insulting.",
     ),
     "ucq_drill_brennic": (
-        "Crusader Brennic holds the Scarlet outpost east of Brill, and I'd like him in the pit. That's in a manner of "
-        "speaking. He isn't coming to my square and I'm not going to his, so somebody else does the bringing.\n\n"
-        "Here's my read on the man, for whatever a drillmaster's opinion is worth. His armour is polished, properly, "
-        "daily, by him. I've had that from two scouts and they both noticed independently, which is how you know it's "
-        "real and not a story. And his faith is brittle.\n\n"
-        "Those two things go together more often than you'd think. The ones who are certain don't polish anything. The "
-        "ones who are keeping something at bay put a very great deal of work into the surface.\n\n"
-        "Break one of them. I don't much care which. In my experience the other goes with it.",
+        "Crusader Brennic holds the Scarlet outpost east of Brill, and I'd like him in the pit. That's in a manner of speaking. He isn't coming to my square and I'm not going to his, so somebody else does the bringing.\n\nHere's my read on the man, for whatever a drillmaster's opinion is worth. His armour is polished, properly, daily, by him. I've had that from two scouts and they both noticed independently, which is how you know it's real and not a story. And his faith is brittle.\n\nThose two things go together more often than you'd think. The ones who are certain don't polish anything. The ones who are keeping something at bay put a very great deal of work into the surface.\n\nBreak one of them. I don't much care which. In my experience the other goes with it.",
         None,
         "Polished and brittle indeed. Take your prize, and tell the recruits you didn't enjoy it.",
     ),
     "ucq_valdis_relics": (
         "I'm Magistrix Valdis. Don't touch the notes, because they're ordered in a way that won't survive being helped.\n\nI've been studying the Agamand wards, and the wards have been studying me. It took me four visits to notice. They respond to attention, not to magic. I read a ward, and the next time I come it's moved on from the thing I was reading. So I've stopped going.\n\nWhat I need instead are grave relics. The wights carry them, and so do the graverobbers, who've been taking exactly the things I want with no idea what they've got.\n\nThey're in the Agamand Family Crypt, in western Tirisfal. Bring them, and I can finish the notes without standing in there again.",
         "Go to the Agamand Family Crypt in western Tirisfal, and take them off the wights and graverobbers.",
-        "Here's a ward of twelve strokes, carved by a mason who couldn't count.\n\n"
-        "It's delightful, really. A flawed ward is a ward somebody built by hand, and a hand can be identified.",
+        "Here's a ward of twelve strokes, carved by a mason who couldn't count.\n\nIt's delightful, really. A flawed ward is a ward somebody built by hand, and a hand can be identified.",
     ),
     "ucq_kolven_ledger": (
         "I'm Dreadmaster Kol'ven. Sit if you want, though most people don't.\n\nI want to know who the Cult of the Damned bargains with. That's partly professional jealousy, but it isn't the reason. Only a few things in the dark will take a bargain, and I know what each of them charges. If I know who the Cult is dealing with, I know what it's already paid and what it has left to pay with.\n\nThe cultists carry ledger pages, and the pages carry names, and some of the names are heavier to read than others. Try the acolytes and fanatics at Cult Farm, in eastern Tirisfal.\n\nAnd don't read the last line of any page. I'd rather you simply didn't than understood why.",
         "Take them off the acolytes and fanatics at Cult Farm, in eastern Tirisfal.",
-        "These are the pages, and it isn't one of mine.\n\n"
-        "That's a pity. I'd have enjoyed the argument, and I'd have won it.",
+        "These are the pages, and it isn't one of mine.\n\nThat's a pity. I'd have enjoyed the argument, and I'd have won it.",
     ),
     "ucq_marwen_sacs": (
         "I'm Apothecary Marwen. Speak up, and don't stand between me and the bench.\n\nI run on venom, bile and spite, and I'm out of the venom.\n\nThe Venomweb skitterers east of Brill carry sacs that clear the throat of a retort like nothing else I've found in forty years. A solvent takes the glaze with the residue, and then every batch tastes of the batch before. These don't, and I've no idea why. I asked three people who should know and got three confident answers that contradicted each other.\n\nI want the sacs, not the spiders, which are mostly legs. Go to Venomweb Vale in eastern Tirisfal, and bring them unbroken, because a burst sac is a stain and nothing else.",
         "Go to Venomweb Vale in eastern Tirisfal, and bring the sacs back unbroken.",
-        "These are fat, ripe and unburst.\n\n"
-        "You've got a gift, and I don't say that, because most people hand me a bag of wet.\n\n"
-        "This is for the effort.",
+        "These are fat, ripe and unburst.\n\nYou've got a gift, and I don't say that, because most people hand me a bag of wet.\n\nThis is for the effort.",
     ),
     "ucq_stray_vial": (
         "This sealed vial was taken off a Plagued Courier on the Silverpine road.\n\nThe Apothecary Society's wax is on the stopper. The seal's cut deep and clean, which means it was done at the bench rather than in a hurry, so this left the Apothecarium properly, signed out or near enough.\n\nThere's a hairline crack down one side of the glass, fine enough that you'd have to turn it in the light, and not so fine that the contents are all still inside.\n\nA courier on a forest road with a cracked Society vial is either a theft that went badly or an errand nobody wrote down. The Master Apothecary signs every compound that leaves that lab, and she'll want to know about this today.",
         "Take it to the Master Apothecary's lab, in the Apothecarium.",
-        "The wax is ours, but the compound isn't on any ledger I signed.\n\n"
-        "Someone has been busy behind my back, and they've been busy for long enough to have a courier route.",
+        "The wax is ours, but the compound isn't on any ledger I signed.\n\nSomeone has been busy behind my back, and they've been busy for long enough to have a courier route.",
     ),
     "ucq_oswin_reply": (
-        "Keeper Oswin has read the scroll twice. He reads everything twice, and he hasn't explained why in thirty "
-        "years. He wrote the reply standing up, at a grave marker, using the stone as a desk, and it's four words "
-        "long.\n\n"
-        "He folds it once, which isn't enough folding for anything meant to travel, and hands it over without sealing "
-        "it.\n\n"
-        "She'll know what it means. That's the whole of why it's short. I won't put more on a road than has to be on a "
-        "road.\n\n"
-        "Take it back to the Undercity, to the Magic Quarter. Keep it dry and keep it close. And keep your opinions to "
-        "yourself, which I say to everyone who carries anything for me, and I've never once needed to say it twice.",
-        "Take it back to Loremaster Sennarath in the Magic Quarter of the Undercity, north up the Trunk Road, through "
-        "Tirisfal, and down the shaft.",
-        "It says, yes, the key is in the husks.\n\n"
-        "Of course it is.\n\n"
-        "Oswin always did like his answers buried. Four years, and he gives me four words, and the maddening thing is "
-        "that they're enough.",
+        "Keeper Oswin has read the scroll twice. He reads everything twice, and he hasn't explained why in thirty years. He wrote the reply standing up, at a grave marker, using the stone as a desk, and it's four words long.\n\nHe folds it once, which isn't enough folding for anything meant to travel, and hands it over without sealing it.\n\nShe'll know what it means. That's the whole of why it's short. I won't put more on a road than has to be on a road.\n\nTake it back to the Undercity, to the Magic Quarter. Keep it dry and keep it close. And keep your opinions to yourself, which I say to everyone who carries anything for me, and I've never once needed to say it twice.",
+        "Take it back to Loremaster Sennarath in the Magic Quarter of the Undercity, north up the Trunk Road, through Tirisfal, and down the shaft.",
+        "It says, yes, the key is in the husks.\n\nOf course it is.\n\nOswin always did like his answers buried. Four years, and he gives me four words, and the maddening thing is that they're enough.",
     ),
     "ucq_groundskeeper_scrap": (
-        "This was torn from the pocket of a Skeletal Groundskeeper at Raven Hill.\n\n"
-        "It's a fragment of a ledger, written in the Cult's cipher. It wasn't copied. The strokes run on and the line "
-        "ends mid-character where the page tore, which is somebody working at speed in a notation they're fluent "
-        "in.\n\n"
-        "The groundskeeper was never a cultist. It was carrying this the way a groundskeeper carries anything, because "
-        "it was in the pocket when it stopped being alive, and nobody has emptied a pocket at Raven Hill in a very long "
-        "time.\n\n"
-        "That means somebody with the cipher was at that cemetery, in person, writing. There's exactly one person in "
-        "the Undercity who might read it, and she's been chasing this notation for four years.",
+        "This was torn from the pocket of a Skeletal Groundskeeper at Raven Hill.\n\nIt's a fragment of a ledger, written in the Cult's cipher. It wasn't copied. The strokes run on and the line ends mid-character where the page tore, which is somebody working at speed in a notation they're fluent in.\n\nThe groundskeeper was never a cultist. It was carrying this the way a groundskeeper carries anything, because it was in the pocket when it stopped being alive, and nobody has emptied a pocket at Raven Hill in a very long time.\n\nThat means somebody with the cipher was at that cemetery, in person, writing. There's exactly one person in the Undercity who might read it, and she's been chasing this notation for four years.",
         "Take it to Loremaster Sennarath, in the Magic Quarter.",
-        "So it's a line of the cipher, in a groundskeeper's pocket.\n\n"
-        "How very careless of someone.\n\n"
-        "Thank you. People are careless at the end of a long night, and now I know they had one at Raven Hill.",
+        "So it's a line of the cipher, in a groundskeeper's pocket.\n\nHow very careless of someone.\n\nThank you. People are careless at the end of a long night, and now I know they had one at Raven Hill.",
     ),
     "ucq_pyrewood_hunt": (
         "I'm Ranger Isolde. Walk with me, because I don't brief standing still.\n\nI hunt what the Dark Lady needs hunted, and this season it's the worgen around Pyrewood. Three things have changed, and only the third one worries me. There are more of them, which is ordinary. They're bolder in daylight, which usually means hunger. And the ambushers have started working the treeline rather than the road.\n\nAn ambusher on a road is waiting for traffic. An ambusher on a treeline is waiting for whoever comes to deal with the ones on the road. So they've started planning for us.\n\nGo to Pyrewood Village, in Silverpine South, and take the ambushers and the feral ones both. Watch the treeline.",
         None,
-        "That's fewer to watch.\n\n"
-        "The Dark Lady will hear of it, if only because I'll tell her, which is most of how she hears anything.",
+        "That's fewer to watch.\n\nThe Dark Lady will hear of it, if only because I'll tell her, which is most of how she hears anything.",
     ),
     "ucq_watchman": (
         "I'm Deathstalker Rhyne. I'll be brief, because I've been asked to do this quietly.\n\nThere's a Forsaken Watchman at Raven Hill who never stopped his patrol. He's one of ours, which is why this came to me rather than to a ranger.\n\nHe doesn't answer challenges or his own name. I went up there and used it, twice, at ten paces, and got nothing. But he's still walking the route correctly, the same beat at the right hours, with the right turns at the right stones. There's enough left to keep the post and nothing left to be relieved of it.\n\nI've been asked to put him down quietly, and the quiet option is you. Take the groundskeepers first, or they'll bring him to you.",
         "Go to Raven Hill Cemetery in Silverpine North. Take the groundskeepers first.",
-        "That was quiet, efficient work.\n\n"
-        "I may recommend you to my less dignified cousins, and I'd take that as a compliment if I were you, because "
-        "nobody else would.",
+        "That was quiet, efficient work.\n\nI may recommend you to my less dignified cousins, and I'd take that as a compliment if I were you, because nobody else would.",
     ),
     "ucq_dark_ladys_ear": (
         "Stand still a moment. This isn't a task, and I'd rather you weren't surprised by it.\n\nThree reports have reached me from three people who don't speak to each other: the Scarlet interrogator's ledger, the necromancer in the Scourge Cave, and the Agamand cipher out of Silverpine. Each was filed as a local problem with a local explanation.\n\nThey're the same thread, and I'm saying so out loud.\n\nSylvanas would like to see them tied, and whoever carried all three ought to be the one standing in front of her. I considered taking the credit myself for about an afternoon.\n\nGo to the great hall of the Royal Quarter. Bow, if your knees allow it. Mine don't any more.",
         None,
-        "She's been told.\n\n"
-        "She says to remember the face.\n\n"
-        "I'd take that as the highest praise she gives. I've heard her give it twice.",
+        "She's been told.\n\nShe says to remember the face.\n\nI'd take that as the highest praise she gives. I've heard her give it twice.",
     ),
     "ucq_deeps_warning": (
         "I'm Gatewarden Sorrel. Keep your voice down near the door, for my sake, not theirs.\n\nI keep the iron door at the south end of the wheel. Nothing has come up from the Deeps for weeks, and everybody I've told has congratulated me, which is how I know none of them have held this post.\n\nSomething always comes up. I put it back down and write the number in a book, and the book has been empty for six weeks. A quiet door means something has stopped sending the small things, and you'd only do that if you were organising the large ones.\n\nStand at it, count to thirty, and tell me if you hear anything. And don't open it. I want that said as plainly as I can.",
         "Go to the iron door at the south end of the wheel. Count to thirty, and don't open it.",
-        "You heard it too, then.\n\n"
-        "That's a relief. I'd started to wonder about myself, and a gatewarden who wonders about himself is no use to "
-        "anybody.\n\n"
-        "Come back when you're much stronger. There's work below, and it won't be small.",
+        "You heard it too, then.\n\nThat's a relief. I'd started to wonder about myself, and a gatewarden who wonders about himself is no use to anybody.\n\nCome back when you're much stronger. There's work below, and it won't be small.",
     ),
     "ucq_pd_gate": (
         "You came back, and you came back stronger, which is what I asked for and not what I expected.\n\nI'm no longer certain what's coming up that stair. For years I could name everything that came through this door: rats, worms, the occasional thing a lab had finished with. Now the Outer Cistern is flooding with zombies, hounds and rot worms, and they aren't the ones I know.\n\nWhatever the Society is breeding down there has got away from them, or it's being released, and I can't tell which I'd prefer.\n\nI want the first chamber quiet enough that somebody can stand in it and look. Go through the iron door, then down, and bring friends. The Society's work wasn't designed for lone travellers.",
         None,
-        "You came up with all your limbs and a better colour than most.\n\n"
-        "That's real progress. I wouldn't have called it that a month ago, and I'm calling it that now.",
+        "You came up with all your limbs and a better colour than most.\n\nThat's real progress. I wouldn't have called it that a month ago, and I'm calling it that now.",
     ),
     "ucq_pd_sump": (
         "I'm Master Apothecary Lorrane Sable. Shut the door behind you.\n\nI can't prove this yet, which is why you're hearing it in a closed room. I believe the sump water in the Plague Depths is carrying the plague into the Cistern's lower works, deliberately, the way a solvent carries a compound where you want it to go.\n\nThe direction is what matters. That whole cistern was built on the idea that waste goes down, and something below us is running it the other way.\n\nI want sealed vials of the sludge, off the spore-things and the rot worms both. They're saturated with it. Keep the stoppers on, properly on. And if you drop one, don't tell me. I've got enough to be going on with.",
@@ -168,63 +107,46 @@ VOICE = {
     "ucq_pd_vex": (
         "She has the samples laid out in a row, and she doesn't look up for a while.\n\nThe sludge reads like a recipe: a base, a binder, and then a flourish at the end that no chemist would ask for and any craftsman would.\n\nI know the hand. It belongs to Vex, Plagueweaver of the Society's inner circle, who weaves the plague through the Weaving Hall's looms. I trained alongside her for forty years, and she's the only person I ever let read my notes before they were finished.\n\nShe isn't working for the Dark Lady any more. I'm not accusing her. I'm reading it off a vial.\n\nThe Weaving Hall is west of the Mid Conduit. She was a friend once, and I'd rather you heard that from me.",
         None,
-        "So it was her needle. Of course it was the needle.\n\n"
-        "She always did sew too tightly. I told her so for forty years, and she took it as a compliment every time.\n\n"
-        "Thank you. And I'm sorry you had to be the one.",
+        "So it was her needle. Of course it was the needle.\n\nShe always did sew too tightly. I told her so for forty years, and she took it as a compliment every time.\n\nThank you. And I'm sorry you had to be the one.",
     ),
     "ucq_pd_notes": (
         "It's Marwen again, with something less pleasant than venom sacs.\n\nThe Plague Surgeons down there are the Society's loyal hands, not conspirators, and that's why I want their papers. A conspirator destroys his notes. A loyal man keeps them, because he's never imagined being asked to explain himself.\n\nThey keep a clinical record of the plague's progress: rate, spread, what it does and in what order. If there's a ledger of the spread anywhere in this city, it's in those surgeons' coats.\n\nI don't want to prosecute anybody. I want to know how it moves, because nobody in this city actually does, and we've all been pretending otherwise for three years.\n\nTry the Lab wing. The pages are bloodied but legible.",
         None,
-        "It's a neat hand, and a steady one.\n\n"
-        "And there's a growing unease in the last entries. The writing gets smaller toward the end, which is what a "
-        "man does when he's stopped wanting the page to be read.\n\n"
-        "We know how it spreads now. That's the first true thing anyone's said about it.",
+        "It's a neat hand, and a steady one.\n\nAnd there's a growing unease in the last entries. The writing gets smaller toward the end, which is what a man does when he's stopped wanting the page to be read.\n\nWe know how it spreads now. That's the first true thing anyone's said about it.",
     ),
     "ucq_pd_ledger": (
         "It's Sennarath here. I've moved from ciphers to accounting, which I'd have found humiliating a year ago.\n\nI know the bribes can be traced, and here's why. The Blighted Courtiers of the Throne of Rot keep a ledger of every favour, given, received, owed and settled. It's the most meticulous document I've ever heard described, and it's kept by things that can't leave a room.\n\nThat's what court does to people. They kept a ledger alive, they kept it after they died, and not one of them has thought to stop.\n\nI want copies, in any condition. I can read through a stain. The Court of Rot is the north-west wing. I'll set them against Wrenfall's lists and see whose names appear on both.",
-        "Go below the city, into the Plague Depths. The iron door is at the south end of the wheel, and the Court of "
-        "Rot is its north-west wing. Take any ledgers you find off the Blighted Courtiers, whatever state they're in. "
-        "I can read through a stain.",
-        "It's names, dates and sums. Every one is struck through, and every sum is still correct. It's terrifying and "
-        "tidy.",
+        "Go below the city, into the Plague Depths. The iron door is at the south end of the wheel, and the Court of Rot is its north-west wing. Take any ledgers you find off the Blighted Courtiers, whatever state they're in. I can read through a stain.",
+        "It's names, dates and sums. Every one is struck through, and every sum is still correct. It's terrifying and tidy.",
     ),
     "ucq_pd_noble": (
         "This one is distasteful, and I won't dress it up.\n\nThe Faulkner line was Lordaeron nobility, old, undistinguished and entirely legitimate. The last Faulkner was murdered in his bed, raised in a vat, and given a signet he doesn't remember owning. The Society made him the figurehead for the coup: a real name, a real line, and a man with no memory of either to contradict anybody.\n\nHe isn't guilty of anything. I want that on the record, because I'm about to ask you to kill him. He's also the legitimacy the whole conspiracy rests on.\n\nHe's in the Throne of Rot, the west wing. Take the signet off the body, and don't wear it, not even as a joke. Two people have, and I had to deal with both.",
-        "Go to the Throne of Rot, the Plague Depths' west wing. Kill him, take the signet off the body, and don't wear "
-        "it.",
-        "That's a dead man's ring on a dead man's finger, which is what I wanted. It goes in the vault, and the vault "
-        "stays shut.",
+        "Go to the Throne of Rot, the Plague Depths' west wing. Kill him, take the signet off the body, and don't wear it.",
+        "That's a dead man's ring on a dead man's finger, which is what I wanted. It goes in the vault, and the vault stays shut.",
     ),
     "ucq_pd_voss": (
-        "Plague Keeper Voss keeps the Archive, and I want the Archive more than I want Voss.\n\nThere are a thousand recipes and formulae in there, and the notes that tie them together, which is the part nobody else has grasped. A recipe on its own is a dead thing. You can hold one for years and never work out what it was for.\n\nThe Codex is the index. It says which formula was made for which purpose on which date, and with that I can read the conspiracy's intentions backward out of its own stores.\n\nI want it in one piece, because a Codex with pages missing would mislead me for a year. The Blight Archive is the east wing. Voss will try to destroy it before he loses it. Be more careful than he is.",
-        "Go into the Plague Depths, under the iron door at the south end of the wheel. The Blight Archive is its east "
-        "wing. Voss is a careful curator, so be more careful.",
+        "Plague Keeper Voss keeps the Archive, and I want the Archive more than I want Voss.\n\nThere are a thousand recipes and formulae in there, and the notes that tie them together. Nobody else has grasped that part. A recipe on its own is a dead thing. You can hold one for years and never work out what it was for.\n\nThe Codex is the index. It says which formula was made for which purpose on which date, and with that I can read the conspiracy's intentions backward out of its own stores.\n\nI want it in one piece, because a Codex with pages missing would mislead me for a year. The Blight Archive is the east wing. Voss will try to destroy it before he loses it. Be more careful than he is.",
+        "Go into the Plague Depths, under the iron door at the south end of the wheel. The Blight Archive is its east wing. Voss is a careful curator, so be more careful.",
         "A thousand recipes, and one ledger. The conspiracy is on every page. We may yet outpace it.",
     ),
     "ucq_pd_vats": (
         "I'm Surgeon Halvard. Take a pair of gloves. I'm not asking.\n\nI need to see what the Society has been growing in the Vault of Flesh, and I need it from tissue rather than a report. A report tells me what somebody decided to write down. Tissue tells me how long they've been at it, and that's the real question. I can read it in the layering, the way you'd read rings in a felled tree.\n\nThe failed experiments carry fistfuls of it. They're still working out what they were supposed to be, which is the kindest way I can put it.\n\nThe Vault of Flesh is the east wing. Keep your gloves on, and don't think about the faces. The ones who think about the faces come back with nothing usable.",
-        "Go into the Plague Depths, through the iron door at the south end of the wheel. The Vault of Flesh is the "
-        "east wing, and the Failed Experiments carry it. Keep your gloves on, and don't think about the faces.",
+        "Go into the Plague Depths, through the iron door at the south end of the wheel. The Vault of Flesh is the east wing, and the Failed Experiments carry it. Keep your gloves on, and don't think about the faces.",
         "It's fresh, grey and still trying. The vats have been running longer than anyone told me.",
     ),
     "ucq_pd_abomination": (
         "The samples point one direction, and I'd hoped they wouldn't.\n\nThey came from something in the vats, a single source at the heart of the Vault, and everything you brought me is a failed attempt at being it.\n\nIt's still growing. I've checked the layering four times because I wanted to be wrong. Whatever should have told it when to stop was never put in, or was taken out.\n\nI call it the Vile Plague Abomination. It doesn't recognise anything as a friend. It isn't hostile, it simply has no category for you. The Society's own people go into that chamber and don't come out, and I've got the tissue to prove two of them did.\n\nIt's in the deepest chamber of the Vault. It's large, loud and wet. Bring a healer.",
-        "Go back down into the Plague Depths by the iron door, at the south end of the wheel, to the deepest chamber "
-        "of the Vault of Flesh. It's large, loud and wet, so bring a healer.",
-        "Its growth has stopped. That's marvellous and terrible, and the Society should be ashamed. Take the pick of "
-        "what's left.",
+        "Go back down into the Plague Depths by the iron door, at the south end of the wheel, to the deepest chamber of the Vault of Flesh. It's large, loud and wet, so bring a healer.",
+        "Its growth has stopped. That's marvellous and terrible, and the Society should be ashamed. Take the pick of what's left.",
     ),
     "ucq_pd_zulketh": (
         "Sit down with me. This is the last of it, and I want to say it in order.\n\nVex, the Noble, Voss and the Abomination were four limbs: a weaver, a figurehead, an archive and a weapon. That's exactly what a coup needs and nothing it doesn't.\n\nZul'keth is the heart. He's a Dark Sorcerer who believes the Dark Lady has failed us, rather than betrayed us, and that's why he's dangerous. A traitor can be bargained with. A man who thinks he's correcting an error can't.\n\nHe built a furnace of plague under this city to prove it, while we walked the wheel and congratulated a gatewarden on a quiet door.\n\nHe's in the Plague Heart, the deepest room. Everything you've killed down there was his. Go and finish it.",
-        "Go to the Plague Heart, the deepest room of the Plague Depths, under the iron door at the south end of the "
-        "wheel. Everything you've killed so far was his. Go and finish it.",
-        "It beats no more. The Society is leaderless, and the Dark Lady is still on her throne. Take her gratitude, "
-        "and mine.",
+        "Go to the Plague Heart, the deepest room of the Plague Depths, under the iron door at the south end of the wheel. Everything you've killed so far was his. Go and finish it.",
+        "It beats no more. The Society is leaderless, and the Dark Lady is still on her throne. Take her gratitude, and mine.",
     ),
     "ucq_pd_report": (
         "It's written, the whole sorry tale, sealed, and I've read it back twice and hated it both times.\n\nIt needs to reach the Queen, and not by messenger, or raven, or me. That last one isn't modesty. I signed the wax on the vial that started this. My seal was on the thing a courier I didn't send was carrying through Silverpine. Whatever this report says about the Society, it says about my office, and it shouldn't arrive in the hand of the person it implicates.\n\nIt should arrive in the hand that finished it. Take it to the Royal Quarter's great hall and hand it to her.\n\nAnd don't say anything clever. I've watched three people try that in that hall, and I've seen what she does with her face.",
         "Take it to the Royal Quarter's great hall and hand it to her. Don't say anything clever.",
-        "She reads it slowly and says nothing. Then she says that the Forsaken don't forget. That's as close to thanks "
-        "as the Dark Lady gets.",
+        "She reads it slowly and says nothing. Then she says that the Forsaken don't forget. That's as close to thanks as the Dark Lady gets.",
     ),
 }

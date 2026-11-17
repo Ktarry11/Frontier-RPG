@@ -6,358 +6,167 @@ directions."""
 VOICE = {
     "gv_the_lip": (
         "Stand on the rim and look in before you start down. Everybody does it once.",
-        "You came down the pass from the Sands, so you've already seen what a hole in limestone looks like when the "
-        "water has gone. Walk north to the Dry Rim, the edge of this one, and look at what it looks like when the "
-        "water's still there.\n\n"
-        "There's green down there. Four days in any direction from here there's no green at all.",
-        "It stops people. It's stopped every single person who's come over that rim since I've been here, and I've "
-        "watched a lot of them do it.\n\n"
-        "The ones who came through with the change stop longest. I think it's because they've got somewhere to "
-        "compare it to, and the rest of us haven't.",
+        "You came down the pass from the Sands, so you've already seen what a hole in limestone looks like when the water has gone. Walk north to the Dry Rim, the edge of this one, and look at what it looks like when the water's still there.\n\nThere's green down there. Four days in any direction from here there's no green at all.",
+        "It stops people. It's stopped every single person who's come over that rim since I've been here, and I've watched a lot of them do it.\n\nThe ones who came through with the change stop longest. I think it's because they've got somewhere to compare it to, and the rest of us haven't.",
     ),
     "gv_jackals_at_the_lip": (
         "The jackals have learned where the tired come up.",
-        "Nothing on that rim lives off the rim, because there's nothing up there to live off. They're up there "
-        "because everything that comes out of the hole comes out slowly, and they've had three years to work that "
-        "out.\n\n"
-        "Thin them where the road crests. That's where they sit.",
-        "That's much better. A cart gets up that last stretch at walking pace with everyone pushing, and that isn't a "
-        "moment you want to be fighting.",
+        "Nothing on that rim lives off the rim, because there's nothing up there to live off. They're up there because everything that comes out of the hole comes out slowly, and they've had three years to work that out.\n\nThin them where the road crests. That's where they sit.",
+        "That's much better. A cart gets up that last stretch at walking pace with everyone pushing, and that isn't a moment you want to be fighting.",
     ),
     "gv_what_climbs_out": (
         "Someone has been working the top of the haul road, and it isn't jackals.",
-        "We've lost three loads off the top of the road this season, and jackals don't take crates.\n\n"
-        "They keep a tally. I want to see it, because I'd like to know whether they've been counting our carts or "
-        "everybody's.\n\n"
-        "It's the sunbleached stalkers. Kill them at the top of the road and take the tally sticks they carry.",
-        "They've been counting everybody's. That's four years of notches, and a third of them are older than this "
-        "camp.\n\n"
-        "So they were up there before the dig was, waiting on a road that didn't exist yet. That's patience, and I "
-        "don't like what it says about them.",
+        "We've lost three loads off the top of the road this season, and jackals don't take crates.\n\nThey keep a tally. I want to see it, because I'd like to know whether they've been counting our carts or everybody's.\n\nIt's the sunbleached stalkers. Kill them at the top of the road and take the tally sticks they carry.",
+        "They've been counting everybody's. That's years of notches, and a third of them are older than this camp.\n\nSo they were up there before the dig was, waiting on a road that didn't exist yet. That's patience, and I don't like what it says about them.",
     ),
     "gv_the_long_way_down": (
         "Walk the haul road to the bottom. Do all of it, once, on foot.",
-        "There's one road down and it goes round the hole once. Goblins cut it wide enough to turn a cart on, and "
-        "then spent four years arguing about whether that was worth it.\n\n"
-        "Walk it to the shore. Don't take the short way. There's no short way, and the people who've gone looking "
-        "for one are a story I tell at the fire.",
-        "That's forty-six feet of cut road, and the air changes about two thirds of the way down. Everyone notices "
-        "and nobody expects to.",
+        "There's one road down and it goes round the hole once. Goblins cut it wide enough to turn a cart on, and then spent four years arguing about whether that was worth it.\n\nWalk it to the shore. Don't take the short way. There's no short way, and the people who've gone looking for one are a story I tell at the fire.",
+        "That's forty-six feet of cut road, and the air changes about two thirds of the way down. Everyone notices and nobody expects to.",
     ),
     "gv_first_green": (
         "The shelf above the waterline is the only living ground in the region.",
-        "I brew with the only clean water for a hundred miles, which makes me either the luckiest brewer alive or "
-        "the one with the shortest supply line, and I haven't decided which.\n\n"
-        "The shelf has blindweed on it, and nothing else in Tanaris does. Bring me some, and clear the prowlers off "
-        "it while you're there. They've had three years of nothing competing with them, and it's made them bold.",
-        "Three years ago this hole had a dozen things living in it. Now it has everything that could find it. The "
-        "green isn't getting bigger, but the crowd is.",
+        "I brew with the only clean water for a hundred miles, which makes me either the luckiest brewer alive or the one with the shortest supply line, and I haven't decided which.\n\nThe shelf has blindweed on it, and nothing else in Tanaris does. Bring me some, and clear the prowlers off it while you're there. They've had three years of nothing competing with them, and it's made them bold.",
+        "Three years ago this hole had a dozen things living in it. Now it has everything that could find it. The green isn't getting bigger, but the crowd is.",
     ),
     "gv_eleven_months": (
         "The Dig-Boss would like somebody new to hear his side of it.",
-        "It's been eleven months of paying ninety people's wages out of a hole that's produced nothing, and the "
-        "ledger in Steamwheedle calls that my fault.\n\n"
-        "It wasn't my fault. We were four hundred feet down a clean seam when the water came up to meet us, and "
-        "water doesn't come up, not here, not in a desert.\n\n"
-        "Go and stand at the mouth. Then come back and tell me whether a man should be closing that or opening it.",
-        "You looked a long time, and everybody does.\n\n"
-        "She'll tell you it was pulled. I've been told a lot of things by a lot of people in three years, and most "
-        "of them started with the world changing and ended with me owing somebody money.",
+        "It's been eleven months of paying ninety people's wages out of a hole that's produced nothing, and the ledger in Steamwheedle calls that my fault.\n\nIt wasn't my fault. We were four hundred feet down a clean seam when the water came up to meet us, and water doesn't come up, not here, not in a desert.\n\nGo and stand at the mouth. Then come back and tell me whether a man should be closing that or opening it.",
+        "You looked a long time, and everybody does.\n\nShe'll tell you it was pulled. I've been told a lot of things by a lot of people in three years, and most of them started with the world changing and ended with me owing somebody money.",
     ),
     "gv_the_other_two_pumps": (
         "Two of the pumps work, and they aren't the Company's two.",
-        "I can clear the first gallery in nine days. I've been able to clear the first gallery in nine days for "
-        "eleven months.\n\n"
-        "What I can't do is cast new housings out of nothing, and the crawlers have been eating the iron off the "
-        "spoil heap faster than I can pick it over. Get me the iron and get them off it.",
-        "Nine days is all it's ever been. It's nine days and two people saying the same sentence on the same "
-        "afternoon, and I've had neither for a year.\n\n"
-        "I built pumps for twenty years before the world changed and I was good at it, and now I'm a man with four "
-        "broken housings on a rock.",
+        "I can clear the first gallery in nine days. I've been able to clear the first gallery in nine days for eleven months.\n\nWhat I can't do is cast new housings out of nothing, and the crawlers have been eating the iron off the spoil heap faster than I can pick it over. Get me the iron and get them off it.",
+        "Nine days is all it's ever been. It's nine days and two people saying the same sentence on the same afternoon, and I've had neither for a year.\n\nI built pumps for twenty years before the world changed and I was good at it, and now I'm a man with four broken housings on a rock.",
     ),
     "gv_the_book": (
         "That's nine hundred and forty-one days of water level, and both sides read it their way.",
-        "Nine hundred and forty-one days of water level, taken at dawn, written down whether anybody wanted it or "
-        "not.\n\n"
-        "The Boss says my book proves the flood is seasonal. Ulla says my book proves it isn't. It's the same "
-        "book.\n\n"
-        "Take it to her. I'd like to watch somebody else carry it across the camp for once.",
-        "She didn't argue with it, and that's the part that worries me. She read it for an hour and then asked what "
-        "the weather had been doing four days west.",
+        "Nine hundred and forty-one days of water level, taken at dawn, written down whether anybody wanted it or not.\n\nThe Boss says my book proves the flood is seasonal. Ulla says my book proves it isn't. It's the same book.\n\nTake it to her. I'd like to watch somebody else carry it across the camp for once.",
+        "She didn't argue with it, and that's the part that worries me. She read it for an hour and then asked what the weather had been doing four days west.",
     ),
     "gv_same_book": (
         "Get the argument stated plainly by both sides, in order, in one afternoon.",
-        "I've started to suspect a number is only ever worth what the person reading it already believed, which is "
-        "a terrible thing for a clerk to work out about herself.\n\n"
-        "Go and get it said. Him first, her second, and come back and tell me if I'm wrong.",
-        "You aren't going to tell me I'm wrong, are you?\n\n"
-        "Then I'll keep taking it at dawn, and one of them will be right eventually, and my book will have been "
-        "right the whole time without ever helping anybody.",
+        "I've started to suspect a number is only ever worth what the person reading it already believed, which is a terrible thing for a clerk to work out about herself.\n\nGo and get it said. Him first, her second, and come back and tell me if I'm wrong.",
+        "You aren't going to tell me I'm wrong, are you?\n\nThen I'll keep taking it at dawn, and one of them will be right eventually, and my book will have been right the whole time without ever helping anybody.",
     ),
     "gv_the_wet_test": (
         "Bring water from the deep end of the pool, sealed, where nobody has stirred it.",
-        "I need water from the bottom of that pool and I need it sealed, because the argument I'm about to make "
-        "rests on how cold it is, and air ruins that in minutes.\n\n"
-        "There's something in the deep end that objects. It's objected to Sanna nine times.",
-        "It's colder than the pool it came out of. It's four degrees colder, consistently, from the deep end, and "
-        "the Flats have been saying the water goes east for longer than any of us have been here, since well "
-        "before the change.\n\n"
-        "Water doesn't refrigerate itself. That water has come a very long way underground and it's come fast, and "
-        "I can now say so with a figure attached.",
+        "I need water from the bottom of that pool and I need it sealed, because the argument I'm about to make rests on how cold it is, and air ruins that in minutes.\n\nThere's something in the deep end that objects. It's objected to Sanna nine times.",
+        "It's colder than the pool it came out of. It's four degrees colder, consistently, from the deep end, and the Flats have been saying the water goes east for longer than any of us have been here, since well before the change.\n\nWater doesn't refrigerate itself. That water has come a very long way underground and it's come fast, and I can now say so with a figure attached.",
     ),
     "gv_who_drove_this": (
         "It's a survey marker, bent, driven into the second terrace by somebody who knew how.",
-        "It's a surveyor's marker, driven properly, into a bench of a hole four days from the nearest road. "
-        "Somebody has been doing this work down here before, and doing it well.",
-        "That one's mine. I drove it in my third season, before the camp existed.\n\n"
-        "I've driven forty of those between the Aspen and here and I've never once come back and found one. You've "
-        "no idea what it's like to be handed proof that you were somewhere.",
+        "It's a surveyor's marker, driven properly, into a bench of a hole four days from the nearest road. Somebody has been doing this work down here before, and doing it well.",
+        "That one's mine. I drove it in my third season, before the camp existed.\n\nI've driven forty of those between the Aspen and here and I've never once come back and found one. You've no idea what it's like to be handed proof that you were somewhere.",
     ),
     "gv_works_order": (
         "Both halves of the camp sign the same piece of paper, finally.",
-        "She's got a figure. I've hated that woman for eleven months, and she's got a figure, and I can do "
-        "arithmetic.\n\n"
-        "So it's nine days of pumping on the first gallery, her two housings and my four, and she gets a man on the "
-        "face the whole time writing down what we find. I'll sign that. I'm not going to enjoy signing it.\n\n"
-        "Take it to Thane before I read it again.",
-        "He signed it. He actually signed it.\n\n"
-        "That's nine days, then. Tell everybody, and tell the cook first, because he's the one who's had to seat "
-        "them.",
+        "She's got a figure. I've hated that woman for eleven months, and she's got a figure, and I can do arithmetic.\n\nSo it's nine days of pumping on the first gallery, her two housings and my four, and she gets a man on the face the whole time writing down what we find. I'll sign that. I'm not going to enjoy signing it.\n\nTake it to Thane before I read it again.",
+        "He signed it. He actually signed it.\n\nThat's nine days, then. Tell everybody, and tell the cook first, because he's the one who's had to seat them.",
     ),
     "gv_five_places": (
         "The tauren with the notebook has walked where you've walked, four years ahead.",
-        "You came here through the Sands. Before that, Tanaris. Before that the pan, and the Needles, and if you've "
-        "been at this long enough, the Aspen.\n\n"
-        "I've walked all five, in that order, starting four years ago, because the thaw was coming early and nobody "
-        "could tell me why.\n\n"
-        "Sit down with me. You already know four sixths of this, and nobody has ever put it in front of you in one "
-        "piece.",
-        "At every one of those places somebody told me it was a local problem with a local cause. That's five "
-        "different people, all of them careful, and none of them wrong about their own valley.\n\n"
-        "It's one problem, and you're standing in it.",
+        "You came here through the Sands. Before that, Tanaris. Before that the pan, and the Needles, and if you've been at this long enough, the Aspen.\n\nI've walked all five, in that order, starting four years ago, because the thaw was coming early and nobody could tell me why.\n\nSit down with me. You already know four sixths of this, and nobody has ever put it in front of you in one piece.",
+        "At every one of those places somebody told me it was a local problem with a local cause. That's five different people, all of them careful, and none of them wrong about their own valley.\n\nIt's one problem, and you're standing in it.",
     ),
     "gv_the_marks": (
         "Read the old waterlines off the rock, where nobody has written anything down.",
-        "Oss's book goes back nine hundred and forty-one days. The rock goes back further, and it's been keeping "
-        "the same record for nothing.\n\n"
-        "Find me the old marks on the west shore and the east. I want to know what this pool did before anybody was "
-        "here to have an opinion about it.",
-        "It was lower. Three years ago that pool was eleven feet lower than it's been since, and it's come up "
-        "steadily.\n\n"
-        "You'll have noticed that number before, three years. Everyone who came across has.",
+        "Oss's book goes back nine hundred and forty-one days. The rock goes back further, and it's been keeping the same record for nothing.\n\nFind me the old marks on the west shore and the east. I want to know what this pool did before anybody was here to have an opinion about it.",
+        "It was lower. Three years ago that pool was eleven feet lower than it's been since, and it's come up steadily.\n\nYou'll have noticed that number before, three years. Everyone who came across has.",
     ),
     "gv_does_not_choose": (
         "Prove the pool is being fed rather than filling.",
-        "A pool that's filling is a pool with a level. A pool that's being fed has a current, and a current leaves "
-        "a grain in anything that grows in it.\n\n"
-        "Get me tideglass off the waterline and cores out of the lattice above it. The crystal grows toward what "
-        "feeds it. If I'm right, every one of those will point the same way, and the way will be down.",
-        "Every single one points down and slightly east, all of them, without exception.\n\n"
-        "So the water in this pool is only passing through. It goes on its way somewhere and comes back up, and "
-        "something at the far end of the run is doing the work.",
+        "A pool that's filling is a pool with a level. A pool that's being fed has a current, and a current leaves a grain in anything that grows in it.\n\nGet me tideglass off the waterline and cores out of the lattice above it. The crystal grows toward what feeds it. If I'm right, every one of those will point the same way, and the way will be down.",
+        "Every single one points down and slightly east, all of them, without exception.\n\nSo the water in this pool is only passing through. It goes on its way somewhere and comes back up, and something at the far end of the run is doing the work.",
     ),
     "gv_a_well_in_the_middle": (
         "The arithmetic that kills a walled city, written out once.",
-        "You've stood in Gadgetzan. There's a well in the middle of that city and it's dry and the city is dead, "
-        "and every goblin in Steamwheedle will tell you the range came down three years ago and tipped the "
-        "table.\n\n"
-        "That's true, and it explains nothing. A table doesn't tip and then keep tipping for three years.\n\n"
-        "Bring me residue off the wisps on the seam. They settle where the draw is strongest, and I want to know "
-        "whether the draw is still increasing.",
-        "It's still increasing. It isn't slowing or settling, it's increasing, in the fourth year.\n\n"
-        "Whatever took that city's water is still thirsty. That's what I couldn't say last week and can say now.",
+        "You've stood in Gadgetzan. There's a well in the middle of that city and it's dry and the city is dead, and every goblin in Steamwheedle will tell you the range came down three years ago and tipped the table.\n\nThat's true, and it explains nothing. A table doesn't tip and then keep tipping for three years.\n\nBring me residue off the wisps on the seam. They settle where the draw is strongest, and I want to know whether the draw is still increasing.",
+        "It's still increasing. It isn't slowing or settling, it's increasing, in the fourth year.\n\nWhatever took that city's water is still thirsty. That's what I couldn't say last week and can say now.",
     ),
     "gv_it_is_being_pulled": (
         "Say the sentence out loud, to the man who has to act on it.",
-        "I've got a figure, a direction and a rate. I've had the first two for a year and the third since this "
-        "morning, and the third is the one that matters.\n\n"
-        "The water under this region is being drawn down a shaft four hundred feet below us, by something that "
-        "started doing it about the time the sky changed.\n\n"
-        "Take that to Cobble. He won't like it and he won't argue with it. Those are different things, and he's "
-        "better than he looks at keeping them apart.",
-        "He read it twice and asked one question, which was whether it would stop if somebody made it stop.\n\n"
-        "I didn't have an answer. I think we're about to get one.",
+        "I've got a figure, a direction and a rate. I've had the first two for a year and the third since this morning, and the third is the one that matters.\n\nThe water under this region is being drawn down a shaft four hundred feet below us, by something that started doing it about the time the sky changed.\n\nTake that to Cobble. He won't like it and he won't argue with it. He's better than he looks at keeping those apart.",
+        "He read it twice and asked one question, which was whether it would stop if somebody made it stop.\n\nI didn't have an answer. I think we're about to get one.",
     ),
     "gv_last_entry": (
         "Company accounts, four hundred feet down, ending on a date.",
-        "It's a ledger, and a proper one, ruled, dated and double-entered. The last line is a date and nothing "
-        "after it.",
-        "That's Hallick's hand. He kept the face accounts and he went down with the shift.\n\n"
-        "He balanced it. Look at the bottom of the column. He was four hundred feet under a desert with the water "
-        "coming up, and he balanced it first.\n\n"
-        "I'm going to put this in the box with mine.",
+        "It's a ledger, and a proper one, ruled, dated and double-entered. The last line is a date and nothing after it.",
+        "That's Hallick's hand. He kept the face accounts and he went down with the shift.\n\nHe balanced it. Look at the bottom of the column. He was four hundred feet under a desert with the water coming up, and he balanced it first.\n\nI'm going to put this in the box with mine.",
     ),
     "gv_the_cutters_stock": (
         "The only stone in the world that ignores a spell, and the supply has a date on it.",
-        "There's a single seam in the world that shrugs off a spell, and you're standing in the hole it came out of. "
-        "Before you ask, it wasn't here three years ago either. Nobody cut this stone before the change because "
-        "nobody had found the hole.\n\n"
-        "I've got about four months of cut stock left. After that I'm a very skilled woman sitting on a rock. Get me "
-        "rough off the wall. The seams run up the inside and you can't miss them, because they're the only thing "
-        "down here that glows.\n\n"
-        "Shardback crawlers nest on the seams. You'll have to clear them before you can cut.",
-        "It's rough, but it's the real thing. You can tell because it goes cold when you hold it near anything "
-        "cast, and nothing else does that.",
+        "There's a single seam in the world that shrugs off a spell, and you're standing in the hole it came out of. Before you ask, it wasn't here three years ago either. Nobody cut this stone before the change because nobody had found the hole.\n\nI've got about four months of cut stock left. After that I'm a very skilled woman sitting on a rock. Get me rough off the wall. The seams run up the inside and you can't miss them, because they're the only thing down here that glows.\n\nShardback crawlers nest on the seams. You'll have to clear them before you can cut.",
+        "It's rough, but it's the real thing. You can tell because it goes cold when you hold it near anything cast, and nothing else does that.",
     ),
     "gv_four_months_left": (
         "The lattice is eating the exposed face faster than anybody can cut it.",
-        "Finding the seam was never the problem. The problem is that something has worked out the seam is worth "
-        "having.\n\n"
-        "The lattice grows over an exposed face in a season, and once it has, the stone underneath is no good. "
-        "Whatever it does to the crystal, it does it all the way through. Cut it back and bring me the cores.",
-        "These are growing toward the seam. They aren't growing over it, they're growing toward it.\n\n"
-        "I've been calling it a weed for two years. It's something that wants what I want.",
+        "Finding the seam was never the problem. The problem is that something has worked out the seam is worth having.\n\nThe lattice grows over an exposed face in a season, and once it has, the stone underneath is no good. Whatever it does to the crystal, it does it all the way through. Cut it back and bring me the cores.",
+        "These are growing toward the seam. They aren't growing over it, they're growing toward it.\n\nI've been calling it a weed for two years. It's something that wants what I want.",
     ),
     "gv_what_shrugs_off_a_spell": (
         "Test the glass against something that actually casts.",
-        "I can tell you vein glass shrugs off a spell. I can't tell you why, and neither can anybody in "
-        "Steamwheedle, and I've stopped pretending that's fine.\n\n"
-        "Take a backed plate up the galleries and let the wisps hit it. They're the only thing down here that "
-        "throws anything worth measuring.",
-        "It doesn't block, and that's what nobody says properly. It takes the shape of the spell and then it won't "
-        "hold it, the way water won't hold a fist.\n\n"
-        "So you want it where you're going to be hit, on a breastplate, a shield or greaves, and not on a hat.",
+        "I can tell you vein glass shrugs off a spell. I can't tell you why, and neither can anybody in Steamwheedle, and I've stopped pretending that's fine.\n\nTake a backed plate up the galleries and let the wisps hit it. They're the only thing down here that throws anything worth measuring.",
+        "It doesn't block, and that's what nobody says properly. It takes the shape of the spell and then it won't hold it, the way water won't hold a fist.\n\nSo you want it where you're going to be hit, on a breastplate, a shield or greaves, and not on a hat.",
     ),
     "gv_mv_open_the_door": (
         "The first gallery is clear. Somebody has to walk into it.",
-        "Nine days, like I said. The first gallery is dry and the dig head is standing open for the first time in a "
-        "year.\n\n"
-        "And there are people in it. That's the part I haven't told the Boss yet. They're still on shift, in the "
-        "sense that nobody ever called the shift, and they don't want anybody down there with them.\n\n"
-        "They're sodden diggers now. Put them down.",
-        "There were forty of them. We signed off forty missing and there are forty down there.\n\n"
-        "Half of them came through with everybody else and took the first wage anybody offered. They weren't from "
-        "here, and nobody is going to come looking.\n\n"
-        "I'm going to have to be the one who tells him that, aren't I?",
+        "Nine days, like I said. The first gallery is dry and the dig head is standing open for the first time in a year.\n\nAnd there are people in it. That's the part I haven't told the Boss yet. They're still on shift, in the sense that nobody ever called the shift, and they don't want anybody down there with them.\n\nThey're sodden diggers now. Put them down.",
+        "There were forty of them. We signed off forty missing and there are forty down there.\n\nHalf of them came through with everybody else and took the first wage anybody offered. They weren't from here, and nobody is going to come looking.\n\nI'm going to have to be the one who tells him that, aren't I?",
     ),
     "gv_mv_still_on_shift": (
         "Every one of them had a number, and the numbers are still on the board.",
-        "Each of them carried a brass token with a number on it. You hang it on the board going in and you take it "
-        "off coming out, and that's how a dig knows who's below.\n\n"
-        "There are forty tokens still hanging on that board. Bring me what you can off them and I'll take the "
-        "numbers down properly, which is a thing somebody should have done eleven months ago.\n\n"
-        "Vein crawlers have got in among them. Kill those as well.",
-        "I'll do the rest myself, over time.\n\n"
-        "Hesper Dunn keeps a book like mine out in the port, and she told me once she keeps hers so that in four "
-        "years nobody can claim the town was always like this. Mine is so that in four years somebody can still say "
-        "their names.",
+        "Each of them carried a brass token with a number on it. You hang it on the board going in and you take it off coming out, and that's how a dig knows who's below.\n\nThere are forty tokens still hanging on that board. Bring me what you can off them and I'll take the numbers down properly, which is a thing somebody should have done eleven months ago.\n\nVein crawlers have got in among them. Kill those as well.",
+        "I'll do the rest myself, over time.\n\nHesper Dunn keeps a book like mine out in the port, and she told me once she keeps hers so that in four years nobody can claim the town was always like this. Mine is so that in four years somebody can still say their names.",
     ),
     "gv_mv_the_foreman": (
         "The pitboss who wouldn't call the evacuation is at the head of the gallery.",
-        "Grebble Vask was my pitboss and he was the best I ever had. He didn't call the evacuation because calling "
-        "it cost eleven thousand, and not calling it cost nothing until it cost everything.\n\n"
-        "He's still down there, still shouting figures. I've heard him from the mouth, and I'd like that to stop.",
-        "Thank you for that.\n\n"
-        "I signed that order. He read it out to me and I signed it, and the thing that's been eating me for a year "
-        "is that I'd sign it again, because from where I stood on the Tuesday it was the right number.",
+        "Grebble Vask was my pitboss and he was the best I ever had. He didn't call the evacuation because calling it cost eleven thousand, and not calling it cost nothing until it cost everything.\n\nHe's still down there, still shouting figures. I've heard him from the mouth, and I'd like that to stop.",
+        "Thank you for that.\n\nI signed that order. He read it out to me and I signed it, and the thing that's been eating me for a year is that I'd sign it again, because from where I stood on the Tuesday it was the right number.",
     ),
     "gv_mv_what_the_pumps": (
         "The pump chamber, and the thing the water left in it.",
-        "Four of those six housings are down there in the sump chamber, and they're mine, and I've wanted them back "
-        "for a year.\n\n"
-        "There's something in that chamber now. Sanna has seen it from the gallery mouth and she won't go past the "
-        "arch, and Sanna has gone into that water nine times.",
-        "You got them out. Look at the face on that casing. The water didn't do that, something sat on it.\n\n"
-        "I can run four more pumps off these, not that it matters any more. We aren't here for the crystal now, are "
-        "we?",
+        "Four of those six housings are down there in the sump chamber, and they're mine, and I've wanted them back for a year.\n\nThere's something in that chamber now. Sanna has seen it from the gallery mouth and she won't go past the arch, and Sanna has gone into that water nine times.",
+        "You got them out. Look at the face on that casing. The water didn't do that, something sat on it.\n\nI can run four more pumps off these, not that it matters any more. We aren't here for the crystal now, are we?",
     ),
     "gv_mv_glassmaw": (
         "The vugs are rooms made of knives, and something lives in them.",
-        "Forty feet in on a lungful, tie off, forty feet back. That was the job before the gallery dried.\n\n"
-        "Now I can walk it, and I've walked it, and past the pump chamber the seam opens into rooms made entirely of "
-        "crystal faces. They're beautiful, and every surface in there will open you up, and one of them moves.\n\n"
-        "The crews named it Glassmaw. I want it dead.",
-        "Nine times I went in on a lungful and I never once got as far as that room.\n\n"
-        "There's a hole in the floor at the back of it, and it goes down. I looked at it for a long time, and then I "
-        "came back up here and had a drink.",
+        "Forty feet in on a lungful, tie off, forty feet back. That was the job before the gallery dried.\n\nNow I can walk it, and I've walked it, and past the pump chamber the seam opens into rooms made entirely of crystal faces. They're beautiful, and every surface in there will open you up, and one of them moves.\n\nThe crews named it Glassmaw. I want it dead.",
+        "Nine times I went in on a lungful and I never once got as far as that room.\n\nThere's a hole in the floor at the back of it, and it goes down. I looked at it for a long time, and then I came back up here and had a drink.",
     ),
     "gv_ci_further_down": (
         "Go down the shaft at the back of the glass rooms, into whatever is below it.",
-        "Sanna has described the shaft to me three times, and each time she's described it as going down, which is "
-        "a thing shafts do and not worth saying three times.\n\n"
-        "She means it goes down past where the water is. Nothing drains below the water table. Something is holding "
-        "that shaft dry, and I'd like to know what, and I'm not able to go myself.\n\n"
-        "Sanna says there are things on the way down that hum at the rock. She calls them seam singers. You'll have "
-        "to get past them.",
-        "You said singing, and I've written down singing, and I want to be clear that I don't know what that "
-        "means.\n\n"
-        "Whatever is down there arrived when everything arrived. That's three years, and it's been doing this the "
-        "whole time under a desert nobody walks.\n\n"
-        "Go carefully down there. I've spent four years wanting to be right about this, and I find I'd rather you "
-        "came back.",
+        "Sanna has described the shaft to me three times, and each time she's described it as going down, which is a thing shafts do and not worth saying three times.\n\nShe means it goes down past where the water is. Nothing drains below the water table. Something is holding that shaft dry, and I'd like to know what, and I'm not able to go myself.\n\nSanna says there are things on the way down that hum at the rock. She calls them seam singers. You'll have to get past them.",
+        "You said singing, and I've written down singing, and I want to be clear that I don't know what that means.\n\nWhatever is down there arrived when everything arrived. That's three years, and it's been doing this the whole time under a desert nobody walks.\n\nGo carefully down there. I've spent four years wanting to be right about this, and I find I'd rather you came back.",
     ),
     "gv_ci_the_choir": (
         "The lattice down here grows in exact repeating geometry, and it resonates.",
-        "Sanna brought up a shard, and it's been ringing on my bench for a whole day. I've put it in sand, I've put "
-        "it in water, I've put it in a lead box.\n\n"
-        "There's something down there that strikes the seam, and the whole seam answers. Crystal doesn't do that on "
-        "its own. Somebody is playing it.\n\n"
-        "I'm calling it the Resonance. Find it and stop it.",
-        "The one on my bench stopped the moment you came up the spiral, and I didn't need telling what that "
-        "meant.\n\n"
-        "I've been cutting this stone for eleven years. I didn't know it could be asked to do anything.",
+        "Sanna brought up a shard, and it's been ringing on my bench for a whole day. I've put it in sand, I've put it in water, I've put it in a lead box.\n\nThere's something down there that strikes the seam, and the whole seam answers. Crystal doesn't do that on its own. Somebody is playing it.\n\nI'm calling it the Resonance. Find it and stop it.",
+        "The one on my bench stopped the moment you came up the spiral, and I didn't need telling what that meant.\n\nI've been cutting this stone for eleven years. I didn't know it could be asked to do anything.",
     ),
     "gv_ci_the_siphon": (
         "The thing that lifts the water, which is the whole argument made of metal and ice.",
-        "You've found the works. Sanna's description is the first thing anybody has told me in four years that I "
-        "couldn't have predicted.\n\n"
-        "Water doesn't rise. I've built an argument on that sentence across five zones and a thousand miles, and "
-        "I've never once been able to show anybody the thing that breaks it.\n\n"
-        "Go and break it. Sanna calls it the Siphon.",
-        "So it's real.\n\n"
-        "Four years, and five places. Every one of them was a local problem with a local cause, and every single "
-        "one of those people was looking at the same machine.\n\n"
-        "I'd like a moment, if you don't mind. I'll have the rest of it written up by the time you've climbed back "
-        "down.",
+        "You've found the works. Sanna's description is the first thing anybody has told me in four years that I couldn't have predicted.\n\nWater doesn't rise. I've built an argument on that sentence across five zones and a thousand miles, and I've never once been able to show anybody the thing that breaks it.\n\nGo and break it. Sanna calls it the Siphon.",
+        "So it's real.\n\nFour years, and five places. Every one of them was a local problem with a local cause, and every single one of those people was looking at the same machine.\n\nI'd like a moment, if you don't mind. I'll have the rest of it written up by the time you've climbed back down.",
     ),
     "gv_ci_standing_water": (
         "Past the works, the water is standing up.",
-        "I've been in water my whole life. Harbour water, cave water, the pool out there that nobody else will swim "
-        "in.\n\n"
-        "I went to the lip of that chamber, and the water in that chamber is standing up. It isn't a wave and it isn't moving "
-        "at all. It's standing there, held, like something is holding it, and the lattice goes all the way through "
-        "it.\n\n"
-        "I came back. You'll notice I came back.\n\n"
-        "There are cistern lurkers in that water. Kill them, and look at what they were keeping you from.",
-        "Nine times into that gallery on a lungful, and I thought I'd seen the worst thing down here on about the "
-        "fourth.\n\n"
-        "I was nowhere near it.",
+        "I've been in water my whole life. Harbour water, cave water, the pool out there that nobody else will swim in.\n\nI went to the lip of that chamber, and the water in that chamber is standing up. It isn't a wave and it isn't moving at all. It's standing there, held, like something is holding it, and the lattice goes all the way through it.\n\nI came back. You'll notice I came back.\n\nThere are cistern lurkers in that water. Kill them, and look at what they were keeping you from.",
+        "Nine times into that gallery on a lungful, and I thought I'd seen the worst thing down here on about the fourth.\n\nI was nowhere near it.",
     ),
     "gv_ci_the_thirst": (
         "The top of the shaft, and the end of five zones.",
-        "Everything in that place is downstream of one room, and I can tell you exactly where it is, because I've "
-        "been drawing this map for four years without knowing what I was drawing.\n\n"
-        "Whatever is in there arrived when everything else arrived. It's been drinking a region since, and it hasn't "
-        "slowed down once, and the fourth year is faster than the third.\n\n"
-        "I'm not going to tell you to be careful. You've walked the same five places I have. You know what it's cost "
-        "already.",
-        "It let go.\n\n"
-        "You came out of the outflow, did you? Everybody does, because there's only the one channel, and it's the channel "
-        "the water takes. You followed it home.\n\n"
-        "Oss took the level at dawn, and it's down four inches. Four inches is nothing. Four inches is the first "
-        "time that number has gone the right way in nine hundred and forty-two days.",
+        "Everything in that place is downstream of one room, and I can tell you exactly where it is, because I've been drawing this map for four years without knowing what I was drawing.\n\nWhatever is in there arrived when everything else arrived. It's been drinking a region since, and it hasn't slowed down once, and the fourth year is faster than the third.\n\nI'm not going to tell you to be careful. You've walked the same five places I have. You know what it's cost already.",
+        "It let go.\n\nYou came out of the outflow, did you? Everybody does, because there's only the one channel, and it's the channel the water takes. You followed it home.\n\nOss took the level at dawn, and it's down four inches. Four inches is nothing. Four inches is the first time that number has gone the right way in nine hundred and forty-two days.",
     ),
     "gv_tell_them_why": (
         "Four days east, to the goblins who were told their city died of bad luck.",
-        "There's a man in Steamwheedle who didn't leave Gadgetzan. He was carried out of it on a door by two people "
-        "whose names he never got, and he's spent three years listening to people say his town had bad luck.\n\n"
-        "It didn't have bad luck. It had a cause, the cause had a location, and the location is four hundred feet "
-        "under my feet.\n\n"
-        "Take him the account. He's owed the sentence, and I'm not able to make the walk any more.",
-        "Mazzic reads it twice, slowly, and then puts it down flat on the counter and smooths it with his hand.\n\n"
-        "I knew it wasn't us. Three years of goblins telling me the desert turned, and I knew it wasn't us.\n\n"
-        "That doesn't make it better. I want to be honest with you, it doesn't make it better at all. But it's true, "
-        "and I haven't had one of those about my own town since the day I came out of it on a door.",
+        "There's a man in Steamwheedle who didn't leave Gadgetzan. He was carried out of it on a door by two people whose names he never got, and he's spent three years listening to people say his town had bad luck.\n\nIt didn't have bad luck. It had a cause, the cause had a location, and the location is four hundred feet under my feet.\n\nTake him the account. He's owed the sentence, and I'm not able to make the walk any more.",
+        "Mazzic reads it twice, slowly, and then puts it down flat on the counter and smooths it with his hand.\n\nI knew it wasn't us. Three years of goblins telling me the desert turned, and I knew it wasn't us.\n\nThat doesn't make it better. I want to be honest with you, it doesn't make it better at all. But it's true, and I haven't had one of those about my own town since the day I came out of it on a door.",
     ),
     "gv_the_book_goes_east": (
         "The whole column out of Oss's book, written out again for the port's own clerk.",
-        "Hesper Dunn out in the port keeps a book like mine. She keeps hers so that in four years nobody can claim "
-        "the town was always like this.\n\n"
-        "Mine is nine hundred and forty-two dawns of a number that nobody wanted and that turned out to be the only "
-        "record anybody had of the thing happening. Copy it and take it to her. A pair of books four days apart are "
-        "harder to lose than one.",
-        "She'll keep it. She'll keep it in the same box and she'll date the box, because that's what we're like.\n\n"
-        "Somebody in forty years is going to open that and find out exactly when a region stopped drying out. They "
-        "won't get it from a speech. They'll get it from two clerks nobody listened to.",
+        "Hesper Dunn out in the port keeps a book like mine. She keeps hers so that in four years nobody can claim the town was always like this.\n\nMine is nine hundred and forty-two dawns of a number that nobody wanted and that turned out to be the only record anybody had of the thing happening. Copy it and take it to her. A pair of books four days apart are harder to lose than one.",
+        "She'll keep it. She'll keep it in the same box and she'll date the box, because that's what we're like.\n\nSomebody in forty years is going to open that and find out exactly when a region stopped drying out. They won't get it from a speech. They'll get it from two clerks nobody listened to.",
     ),
 }

@@ -140,7 +140,7 @@ CENTRAL = {
         "Clear the maulers off the approach and the spellgorgers out of their clearing at the top. Then walk into "
         "the clearing on the Mosh'Ogg Shelf, so that someone from this post has actually stood in it this season. "
         "I've spent eleven weeks reporting on a camp I've never set foot in, and I'm done guessing.",
-        "They moved their whole camp about six feet west, built the fire back up, and sat down again. That's them "
+        "They moved their whole camp a few feet west, built the fire back up, and sat down again. That's them "
         "settling in, not running. They've held this rock for generations by shuffling around on it, because nobody "
         "else has ever wanted the notch badly enough. I've been calling them a garrison in my reports. I'll correct "
         "that.",
@@ -312,7 +312,7 @@ CENTRAL = {
     ),
     "stvc_drum_callers": (
         "The arena drums aren't just music. They're how the bettors time each round, and a round lasts as long as "
-        "the drum crew says it does. Bexxil has three afternoons of fights that ran long by exactly the same amount, "
+        "the drum crew says it does. Bexxil has several afternoons of fights that ran long by exactly the same amount, "
         "and she's worked out that the drum-callers are being paid off.",
         "The drum-callers are out on the Gurbashi Flats by the gate. Take them down where the crowd can see, then "
         "get me more of the stock tallies from the crates. Signed-in weight is worth more than coin down here, "
@@ -796,7 +796,7 @@ SOUTH = {
         "Inside, at the table, not the rail. I've got three things to ask and I'll ask them in the order I thought "
         "of them, sensible or not: where I came from, where you've ended up, and the one I've been chewing on for a "
         "month. Eat while I talk. You won't get another sit-down meal in this town.",
-        "She clears the bowls before answering her own question, which tells you she's rehearsed it at the stove. "
+        "She clears the bowls before answering her own question, so she's rehearsed it at the stove. "
         "'There, I've said it out loud to somebody, and now I can stop going over it at the pot. Come back in when "
         "it rains. Not for work, I won't have anything for you to kill. I'll just want the company, and I'd rather "
         "tell you that straight than have you work it out by accident.'",
@@ -903,8 +903,7 @@ NORTH = {
         "and they hold them properly, which I've never seen jungle trolls bother to do. Fight past the second "
         "landing and bring me loose course stone off the stair itself. The old grey stuff, from where it's fallen, "
         "not from where it's still laid.",
-        "Look at the faces. The old stone is dressed on five sides and the new work on four, and you only leave the "
-        "fifth side rough if you know what's going on top of it. Whoever's laying the new courses has never seen "
+        "Look at the faces. The old stone is dressed on every side but one, and you only leave a side rough if you know what's going on top of it. The new work is left rough in the wrong places, and whoever's laying the new courses has never seen "
         "the stair finished. They're copying the outside of something. Three years of careful work by people who "
         "don't know what it was for.",
     ),

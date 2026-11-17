@@ -3,356 +3,133 @@ dashes, the one-word lines and the clever closers are gone."""
 
 VOICE = {
     "durotar_tiragarde_approach": (
-        "I'm Watchwarden Kelgrim. Keep low coming up, because they've got rifles on that wall and too much time.\n\n"
-        "The humans washed up here years back, Kul Tiras sailors, shipwrecked or marooned. Nobody's got a straight "
-        "answer out of a survivor before putting him down, and I include myself in that. They dug in and built walls "
-        "out of the keep's old stones, which I'll admit was good work. Now they raid the coast road when they're "
-        "hungry, and they're hungry often.\n\n"
-        "I don't call them monsters, and I'd ask you not to either. Thin the outer wall: the Stranded Marines and "
-        "whoever's standing watch with them. Leave the one who commands them for now. That conversation deserves "
-        "better than me shouting it at you between swings.",
+        "I'm Watchwarden Kelgrim. Keep low coming up, because they've got rifles on that wall and too much time.\n\nThe humans washed up here years back, Kul Tiras sailors, shipwrecked or marooned. Nobody's got a straight answer out of a survivor before putting him down, and I include myself in that. They dug in and built walls out of the keep's old stones, which I'll admit was good work. Now they raid the coast road when they're hungry, and they're hungry often.\n\nI don't call them monsters, and I'd ask you not to either. Thin the outer wall: the Stranded Marines and whoever's standing watch with them. Leave the one who commands them for now. That conversation deserves better than me shouting it at you between swings.",
         "The outer wall, whichever kind you find first. Don't go near the one who commands them yet.",
-        "You didn't hesitate, which tells me something about you, though I couldn't say what yet.\n\n"
-        "Sit a moment before you go back in. There's still the matter of their captain.",
+        "You didn't hesitate, which tells me something about you, though I couldn't say what yet.\n\nSit a moment before you go back in. There's still the matter of their captain.",
     ),
     "durotar_tiragarde_captain": (
-        "Captain Thalenvorde commands what's left of that garrison, and I've been putting this conversation off since "
-        "you first walked up here.\n\n"
-        "Thalenvorde is a person. He isn't a boar or a demon pulled out of a tear in the world. He's a man with a "
-        "rank and a crew, and however he ended up on this coast, he had a life before it that was probably fairly "
-        "ordinary. I've killed enough of the stranded that it stopped weighing anything years ago. Killing a beast "
-        "doesn't ask anything of you, and killing a person does.\n\n"
-        "I'm not going to talk you out of it. The garrison won't stop raiding while he commands it, and out here "
-        "that's reason enough. I just wanted you to walk in knowing what you're about to do, rather than finding out "
-        "afterwards.",
+        "Captain Thalenvorde commands what's left of that garrison, and I've been putting this conversation off since you first walked up here.\n\nThalenvorde is a person. He isn't a boar or a demon pulled out of a tear in the world. He's a man with a rank and a crew, and however he ended up on this coast, he had a life before it that was probably fairly ordinary. I've killed enough of the stranded that it stopped weighing anything years ago. Killing a beast doesn't ask anything of you, and killing a person does.\n\nI'm not going to talk you out of it. The garrison won't stop raiding while he commands it, and out here that's reason enough. I just wanted you to walk in knowing what you're about to do, rather than finding out afterwards.",
         None,
-        "It's done, then. I can see it on you. I remember the quiet that comes after, if you can believe an orc "
-        "admitting it.\n\n"
-        "He won't be leading raids on the coast road, and the valley's safer for it. That part's true and it "
-        "matters.\n\n"
-        "Keep what you took off him. Don't keep it as a trophy. Keep it to remind you where you stand now, if you "
-        "find you need reminding.",
+        "It's done, then. I can see it on you. I remember the quiet that comes after, if you can believe an orc admitting it.\n\nHe won't be leading raids on the coast road, and the valley's safer for it. That part's true and it matters.\n\nKeep what you took off him. Don't keep it as a trophy. Keep it to remind you where you stand now, if you find you need reminding.",
     ),
     "durotar_skullrock_approach": (
-        "I'm Bloodwarden Ashgrym. You'll have come up from the valley, so you've met these people already, though you "
-        "don't know it yet.\n\n"
-        "That Burning Blade coven you cut out of the ridge back in the Valley wasn't the cult. It was the part that "
-        "wandered too far from the nest and got sloppy. Skull Rock is the nest. Searing Blade Scouts and raiders work "
-        "the approach, and they work it properly, with overlapping patrols and relief points. Somebody out there has "
-        "had training.\n\n"
-        "Clear the approach before anyone goes near the cave mouth. That's an order, not a suggestion, because the "
-        "cave is worse, and I'd rather you walked into it without half the patrol already shouting. I've fought this "
-        "cult before. Don't rush it.",
+        "I'm Bloodwarden Ashgrym. You'll have come up from the valley, so you've met these people already, though you don't know it yet.\n\nThat Burning Blade coven you cut out of the ridge back in the Valley wasn't the cult. It was the part that wandered too far from the nest and got sloppy. Skull Rock is the nest. Searing Blade Scouts and raiders work the approach, and they work it properly, with overlapping patrols and relief points. Somebody out there has had training.\n\nClear the approach before anyone goes near the cave mouth. That's an order, not a suggestion, because the cave is worse, and I'd rather you walked into it without half the patrol already shouting. I've fought this cult before. Don't rush it.",
         None,
-        "The approach is quiet. It won't stay that way once you're inside, because nothing about Skull Rock stays "
-        "quiet for long, but you've earned the right to try.\n\n"
-        "Two names matter inside: Neru Fireblade and Gazz'uz. Neither of them will make it easy.",
+        "The approach is quiet. It won't stay that way once you're inside, because nothing about Skull Rock stays quiet for long, but you've earned the right to try.\n\nTwo names matter inside: Neru Fireblade and Gazz'uz. Neither of them will make it easy.",
     ),
     "durotar_skullrock_neru": (
-        "Neru Fireblade holds rank in that cave through fire and will, in that order. She commands the enforcers and "
-        "the warlocks in the outer chambers, and she won't be reasoned with. I know that for a fact, not a guess.\n\n"
-        "It's old business, older than you'd think to look at me, and I'd rather leave it there.\n\n"
-        "She fights with fire and she fights smart, which is a far worse combination than either on its own. Most "
-        "fire-throwers lose their heads when a fight turns, and she doesn't. So whatever else you do in that room, "
-        "don't stand still.",
+        "Neru Fireblade holds rank in that cave through fire and will, in that order. She commands the enforcers and the warlocks in the outer chambers, and she won't be reasoned with. I know that for a fact, not a guess.\n\nIt's old business, older than you'd think to look at me, and I'd rather leave it there.\n\nShe fights with fire and she fights smart, which is a far worse combination than either on its own. Most fire-throwers lose their heads when a fight turns, and she doesn't. So whatever else you do in that room, don't stand still.",
         None,
-        "Neru's dead, then. I won't pretend that's simple for me to hear.\n\n"
-        "Gazz'uz is still in there, and he's the real reason this cave has never closed. He isn't an orc or a troll, "
-        "or anything that bleeds the way we do. Be ready for that. I don't know how anyone gets ready for it, but be "
-        "ready.",
+        "Neru's dead, then. I won't pretend that's simple for me to hear.\n\nGazz'uz is still in there, and he's the real reason this cave has never closed. He isn't an orc or a troll, or anything that bleeds the way we do. Be ready for that. I don't know how anyone gets ready for it, but be ready.",
     ),
     "durotar_skullrock_gazzuz": (
-        "Gazz'uz is a demon. I'm going to keep using that word, because every softer one I've tried has made "
-        "somebody take it lightly and walk in there underprepared.\n\n"
-        "It wasn't a person who crossed a line or a beast that grew too large. It was summoned, out of a place that "
-        "was never meant to touch this world. That's why the cave has never closed. You can kill every cultist on "
-        "the approach and the cult comes back, because the thing they come back for is still breathing in the "
-        "dark.\n\n"
-        "It won't bleed the way Neru did, and it won't stop the way a person stops. Kill it anyway, and then Skull "
-        "Rock is just rock at last.",
+        "Gazz'uz is a demon. I'm going to keep using that word, because every softer one I've tried has made somebody take it lightly and walk in there underprepared.\n\nIt wasn't a person who crossed a line or a beast that grew too large. It was summoned, out of a place that was never meant to touch this world. That's why the cave has never closed. You can kill every cultist on the approach and the cult comes back, because the thing they come back for is still breathing in the dark.\n\nIt won't bleed the way Neru did, and it won't stop the way a person stops. Kill it anyway, and then Skull Rock is just rock at last.",
         None,
-        "Is it really over? Then Skull Rock is just rock, with no cult and no demon in it, only an echo.\n\n"
-        "I've wanted this day for a very long time, and I mean that more literally than you'd think. Whatever that "
-        "thing was carrying is yours. Take it, and stay away from that cave for a while.",
+        "Is it really over? Then Skull Rock is just rock, with no cult and no demon in it, only an echo.\n\nI've wanted this day for a very long time, and I mean that more literally than you'd think. Whatever that thing was carrying is yours. Take it, and stay away from that cave for a while.",
     ),
     "durotar_vulture_feathers": (
-        "You there, you walk, don't you? That's the whole qualification, and you've got it.\n\n"
-        "I'm Fitz, Gazlowe's cousin. I lead with that because it opens doors and costs me nothing. I've got a buyer "
-        "in Orgrimmar who pays properly well for sunbaked vulture feathers. It's something to do with fletching "
-        "contracts. I've never asked what for, because I know the going rate, the going rate is good, and a question "
-        "has never once improved a margin.\n\n"
-        "So here's the arrangement. You brave the Red Wastes, you collect, and I cut you in fair. Bring them in good "
-        "condition, mind. The buyer's oddly picky about scorch marks, and that's another thing I've chosen not to "
-        "look into.",
+        "You there, you walk, don't you? That's the whole qualification, and you've got it.\n\nI'm Fitz, Gazlowe's cousin. I lead with that because it opens doors and costs me nothing. I've got a buyer in Orgrimmar who pays properly well for sunbaked vulture feathers. It's something to do with fletching contracts. I've never asked what for, because I know the going rate, the going rate is good, and a question has never once improved a margin.\n\nSo here's the arrangement. You brave the Red Wastes, you collect, and I cut you in fair. Bring them in good condition, mind. The buyer's oddly picky about scorch marks, and that's another thing I've chosen not to look into.",
         "Out on the Red Wastes. Bring them in good condition, with no scorch marks.",
-        "They're in perfect condition, every one.\n\n"
-        "I don't know what a fletcher in Orgrimmar wants with this many vulture feathers, and I've made my peace with "
-        "not knowing. Here's your cut.",
+        "They're in perfect condition, every one.\n\nI don't know what a fletcher in Orgrimmar wants with this many vulture feathers, and I've made my peace with not knowing. Here's your cut.",
     ),
     "durotar_prowler_den": (
-        "I'm Borka, and they call me the Watchful, which started as a joke about my posting and has since become a job "
-        "description.\n\n"
-        "The prowlers are denning closer to the road than they should. I've watched these cats for three seasons, "
-        "and they've always kept to the deep ground. Now they don't. I'd like to know exactly where they are before "
-        "Razor Hill sends anyone in after them, because Razor Hill's idea of going in after something is forty orcs "
-        "and a lot of shouting.\n\n"
-        "The den's in the dry basin west of the highway, roughly halfway between the Orgrimmar gate and Razor Hill. "
-        "Get close enough to confirm it, then get out. I'd rather have a live scout with an answer than a dead hero "
-        "with a guess, and I've had one of each.",
+        "I'm Borka, and they call me the Watchful, which started as a joke about my posting and has since become a job description.\n\nThe prowlers are denning closer to the road than they should. I've watched these cats for three seasons, and they've always kept to the deep ground. Now they don't. I'd like to know exactly where they are before Razor Hill sends anyone in after them, because Razor Hill's idea of going in after something is forty orcs and a lot of shouting.\n\nThe den's in the dry basin west of the highway, roughly halfway between the Orgrimmar gate and Razor Hill. Get close enough to confirm it, then get out. I'd rather have a live scout with an answer than a dead hero with a guess, and I've had one of each.",
         None,
-        "Now we know where they've dug in, instead of guessing from droppings and torn ground.\n\n"
-        "That's worth a lot more to me than another dead prowler would have been.",
+        "Now we know where they've dug in, instead of guessing from droppings and torn ground.\n\nThat's worth a lot more to me than another dead prowler would have been.",
     ),
     "dur_eyes_on_road": (
-        "I'm an outrider, and I watch this highway for a living. For three weeks the highway's been watching back.\n\n"
-        "The Rustfang Hyenas have started tailing the caravans out of Orgrimmar. They hang a hundred paces off the "
-        "last wagon, never closing, and pick off whatever falls behind. Scavengers take what's already down, and "
-        "this is a pack that's worked out a caravan drops stragglers if you wait. The wagons are running late, and "
-        "two drivers have quit outright. One of them had thirty years on that road.\n\n"
-        "I'd deal with it myself, but the gate is mine to hold, and somebody has to be seen holding it. They're out "
-        "on the Wastes on either side of the highway, in threes and fours. Thin them out.",
+        "I'm an outrider, and I watch this highway for a living. For three weeks the highway's been watching back.\n\nThe Rustfang Hyenas have started tailing the caravans out of Orgrimmar. They hang a hundred paces off the last wagon, never closing, and pick off whatever falls behind. Scavengers take what's already down, and this is a pack that's worked out a caravan drops stragglers if you wait. The wagons are running late, and two drivers have quit outright. One of them had thirty years on that road.\n\nI'd deal with it myself, but the gate is mine to hold, and somebody has to be seen holding it. They're out on the Wastes on either side of the highway, in threes and fours. Thin them out.",
         None,
-        "There are fewer of them on the road already. I can hear the quiet.\n\n"
-        "There's a bigger one, though. The drivers talk about him the way they talk about a tax collector. Take "
-        "this, and keep your eyes open.",
+        "There are fewer of them on the road already. I can hear the quiet.\n\nThere's a bigger one, though. The drivers talk about him the way they talk about a tax collector. Take this, and keep your eyes open.",
     ),
     "dur_old_redtooth": (
-        "Every pack has a head, and the Rustfangs' is the one the drivers call Old Redtooth. He's got a scarred "
-        "muzzle and one ear torn down to a notch, and he's bigger than a pony and smarter than a fair number of the "
-        "guards on this gate, which I'll deny saying.\n\n"
-        "What makes him a bounty and not a nuisance is that he doesn't charge. He circles and waits, lets the others "
-        "bleed you first, and comes in when you've stopped counting them. There's been a price on him since before "
-        "some of these recruits were weaned.\n\n"
-        "He keeps to the gravel below Thunder Ridge, south of this gate on the west side of the highway. Don't fight "
-        "him with your back to a hill, or he'll have two friends up on it before you've finished the thought.",
+        "Every pack has a head, and the Rustfangs' is the one the drivers call Old Redtooth. He's got a scarred muzzle and one ear torn down to a notch, and he's bigger than a pony and smarter than a fair number of the guards on this gate, which I'll deny saying.\n\nWhat makes him a bounty and not a nuisance is that he doesn't charge. He circles and waits, lets the others bleed you first, and comes in when you've stopped counting them. There's been a price on him since before some of these recruits were weaned.\n\nHe keeps to the gravel below Thunder Ridge, south of this gate on the west side of the highway. Don't fight him with your back to a hill, or he'll have two friends up on it before you've finished the thought.",
         None,
-        "That's the notch, right there, so Redtooth's dead.\n\n"
-        "Keep the pelt if you want it, but I think you'll want what he was guarding more.",
+        "That's the notch, right there, so Redtooth's dead.\n\nKeep the pelt if you want it, but I think you'll want what he was guarding more.",
     ),
     "dur_scorpid_season": (
-        "I'm a sentry, and my beat cuts across the east side of the highway. Every year about now, the Armored "
-        "Scorpids come out from under their rocks.\n\n"
-        "They come out to mate, or to fight. I've walked this beat for six years and I've honestly never worked out "
-        "which. They don't hunt you, and there's no malice in a scorpid. They just won't move out of your way, and "
-        "there's no arguing with something that hasn't got a notion of you.\n\n"
-        "Thin them out before they spread onto the road proper, because a wagon horse meeting one of those is a "
-        "wagon in the ditch. They're out past the road, by the rock shelves. The plates are thick, so go for the "
-        "gaps.",
+        "I'm a sentry, and my beat cuts across the east side of the highway. Every year about now, the Armored Scorpids come out from under their rocks.\n\nThey come out to mate, or to fight. I've walked this beat for years and I've honestly never worked out which. They don't hunt you, and there's no malice in a scorpid. They just won't move out of your way, and there's no arguing with something that hasn't got a notion of you.\n\nThin them out before they spread onto the road proper, because a wagon horse meeting one of those is a wagon in the ditch. They're out past the road, by the rock shelves. The plates are thick, so go for the gaps.",
         None,
-        "It's quieter already, and I'll walk the whole beat in peace for a week.\n\n"
-        "Take something out of the stores. Orgrimmar won't miss it, and if it does, it'll blame me.",
+        "It's quieter already, and I'll walk the whole beat in peace for a week.\n\nTake something out of the stores. Orgrimmar won't miss it, and if it does, it'll blame me.",
     ),
     "dur_warm_blanket": (
-        "Sit down a moment. I'll tell you something, and then I'll ask you something.\n\n"
-        "I'm Grosk, and I've crossed these Wastes more times than I can count, and I've never once been cold, so it took "
-        "me three nights to notice that Grukk's boy is. The desert freezes after dark, and that child has been "
-        "sleeping on a bedroll thin enough to read a letter through, forty paces from where I lie warm.\n\n"
-        "I'd hunt the pelts myself, but my knees won't take it now. Prowler pelts are the warmest thing for a hundred "
-        "miles. The Durotar Prowlers are the big sand-coloured cats out in the rough ground west of the highway. "
-        "Bring me good pelts with no holes in them. He's small, but he isn't that small.",
+        "Sit down a moment. I'll tell you something, and then I'll ask you something.\n\nI'm Grosk, and I've crossed these Wastes more times than I can count, and I've never once been cold, so it took me three nights to notice that Grukk's boy is. The desert freezes after dark, and that child has been sleeping on a bedroll thin enough to read a letter through, forty paces from where I lie warm.\n\nI'd hunt the pelts myself, but my knees won't take it now. Prowler pelts are the warmest thing for a hundred miles. The Durotar Prowlers are the big sand-coloured cats out in the rough ground west of the highway. Bring me good pelts with no holes in them. He's small, but he isn't that small.",
         None,
-        "Look at that. He's asleep already, and I haven't even tucked it in.\n\n"
-        "You've done a better thing than most people manage all year. I won't be needing this any more, so take it. "
-        "The road gave it to me, and you've earned it more than I have.",
+        "Look at that. He's asleep already, and I haven't even tucked it in.\n\nYou've done a better thing than most people manage all year. I won't be needing this any more, so take it. The road gave it to me, and you've earned it more than I have.",
     ),
     "dur_thunder_approach": (
-        "I'm Ridgewatch Kurr. They pulled me off Thunder Ridge to report, and I've stood at this gate for two days "
-        "waiting for somebody to listen.\n\n"
-        "I've watched that ridge for years, and it's never been this loud. The Thunder Lizards are coming down off "
-        "the slopes in numbers I've never seen, crowding the approach to the cave and snapping at anything that gets "
-        "between them and the water. Lizards don't migrate downhill into a crowd. They're coming down because "
-        "something up there's worse than being down here, and that's what keeps me up at night.\n\n"
-        "Thin them out on the approach before whatever's up there follows them down. If the ground hums, step to the "
-        "side. I'm serious about that one.",
+        "I'm Ridgewatch Kurr. They pulled me off Thunder Ridge to report, and I've stood at this gate for two days waiting for somebody to listen.\n\nI've watched that ridge for years, and it's never been this loud. The Thunder Lizards are coming down off the slopes in numbers I've never seen, crowding the approach to the cave and snapping at anything that gets between them and the water. Lizards don't migrate downhill into a crowd. They're coming down because something up there's worse than being down here, and that's what keeps me up at night.\n\nThin them out on the approach before whatever's up there follows them down. If the ground hums, step to the side. I'm serious about that one.",
         None,
-        "That's better, though it isn't good yet.\n\n"
-        "You'll have noticed the others up on the ridge, the ones that chant. They're the real problem, so finish "
-        "what you started.",
+        "That's better, though it isn't good yet.\n\nYou'll have noticed the others up on the ridge, the ones that chant. They're the real problem, so finish what you started.",
     ),
     "dur_stormbinders": (
-        "The lizards aren't coming down on their own. I want to be exact about that, because I spent a month "
-        "thinking they were. Something is feeding the storm on that ridge.\n\n"
-        "It's the Ridge Stormbinders. I've watched them from the shoulder with a glass. They stand at the cliff edge "
-        "with their arms up and chant, and every time they finish, a flock of Static Hatchlings spills out of the "
-        "rocks. The hatchlings are a side effect, so whatever they're really building toward is bigger than anything "
-        "I've seen come out of those rocks.\n\n"
-        "Go higher up the ridge, where the rock goes dark, and kill the binders first, because the hatchlings stop "
-        "swarming when the chanting stops. And don't stand in anything that's glowing.",
+        "The lizards aren't coming down on their own. I want to be exact about that, because I spent a month thinking they were. Something is feeding the storm on that ridge.\n\nIt's the Ridge Stormbinders. I've watched them from the shoulder with a glass. They stand at the cliff edge with their arms up and chant, and every time they finish, a flock of Static Hatchlings spills out of the rocks. The hatchlings are a side effect, so whatever they're really building toward is bigger than anything I've seen come out of those rocks.\n\nGo higher up the ridge, where the rock goes dark, and kill the binders first, because the hatchlings stop swarming when the chanting stops. And don't stand in anything that's glowing.",
         "High on the ridge, where the rock goes dark. Kill the binders first.",
-        "It's truly quiet up there now, which means he's awake.\n\n"
-        "I mean Rumblejaw, the big one. I've never seen him come down off the shelves, but I've heard him through the "
-        "stone my whole posting.",
+        "It's truly quiet up there now, which means he's awake.\n\nI mean Rumblejaw, the big one. I've never seen him come down off the shelves, but I've heard him through the stone my whole posting.",
     ),
     "dur_rumblejaw": (
-        "There's a lizard called Rumblejaw up on those shelves, the length of two ox-carts, with a jaw that cracks "
-        "stone. It doesn't chip it, it cracks it. I've put my hand in the marks.\n\n"
-        "He's never been seen past the high shelves. That was the one comfortable fact about him, and I built ten "
-        "years of this posting on it. It isn't true any more, because the stormbinders have been feeding him. He's "
-        "coming down eventually, and I'd rather it was on a day we chose.\n\n"
-        "He's at the top of the ridge, on the rock shelf above the basin. Here's the one thing worth knowing about "
-        "that fight: when the ground stops shaking, he's about to hit you. Move when it stops, not when it starts.",
+        "There's a lizard called Rumblejaw up on those shelves, the length of two ox-carts, with a jaw that cracks stone. It doesn't chip it, it cracks it. I've put my hand in the marks.\n\nHe's never been seen past the high shelves. That was the one comfortable fact about him, and I built ten years of this posting on it. It isn't true any more, because the stormbinders have been feeding him. He's coming down eventually, and I'd rather it was on a day we chose.\n\nHe's at the top of the ridge, on the rock shelf above the basin. Here's the one thing worth knowing about that fight: when the ground stops shaking, he's about to hit you. Move when it stops, not when it starts.",
         None,
-        "Is Rumblejaw really dead? I swear I can hear the quiet from here.\n\n"
-        "That's the first real silence this ridge has had in ten years. Take whatever fits.",
+        "Is Rumblejaw really dead? I swear I can hear the quiet from here.\n\nThat's the first real silence this ridge has had in ten years. Take whatever fits.",
     ),
     "dur_cinders_on_wind": (
-        "Excuse the cough. They rotated me off the cliff to breathe for a week, and I'm still bringing up ash.\n\n"
-        "I stood on the cliff above the Skull Rock approach so long I'd stopped seeing the smoke. Then one morning it "
-        "came up the path in clouds. The Burning Blade Torchbearers are burning their way across the approach, and "
-        "they're doing it in lines, clearing ground for something they mean to put there. A swarm of Cinder Imps "
-        "follows them to feed on the embers.\n\n"
-        "If that fire reaches the road, the Wastes burn for a week and Razor Hill eats dust all winter. Go down the "
-        "cliff path toward the cave mouth, and kill the torchbearers first, because every one still standing lights "
-        "more. The imps are small and quick, and they bite where you aren't looking.",
+        "Excuse the cough. They rotated me off the cliff to breathe for a week, and I'm still bringing up ash.\n\nI stood on the cliff above the Skull Rock approach so long I'd stopped seeing the smoke. Then one morning it came up the path in clouds. The Burning Blade Torchbearers are burning their way across the approach, and they're doing it in lines, clearing ground for something they mean to put there. A swarm of Cinder Imps follows them to feed on the embers.\n\nIf that fire reaches the road, the Wastes burn for a week and Razor Hill eats dust all winter. Go down the cliff path toward the cave mouth, and kill the torchbearers first, because every one still standing lights more. The imps are small and quick, and they bite where you aren't looking.",
         "Down the cliff path toward the cave mouth. Kill the torchbearers first.",
-        "The wind off Skull Rock's clean for the first time since spring. I could cry. I won't, but I could.\n\n"
-        "There's a man out there with dogs, Kraygh, and he lit the first fire. I'd like you to finish it.",
+        "The wind off Skull Rock's clean for the first time since spring. I could cry. I won't, but I could.\n\nThere's a man out there with dogs, Kraygh, and he lit the first fire. I'd like you to finish it.",
     ),
     "dur_houndmaster": (
-        "Houndmaster Kraygh keeps his dogs on the approach and his whip in his hand, and in four months of watching "
-        "I've never once seen him sleep. I climbed that cliff at every hour of the day and night to catch him at it.\n\n"
-        "The Burning Blade bring him fresh hounds up out of the caves, and he sets them on any traveller who looks "
-        "too far in. He doesn't set them on raiders or soldiers. He sets them on travellers, because a traveller "
-        "doesn't come back with friends. I want him gone before those hounds find their way down to the road.\n\n"
-        "He's by the cave mouth with his pack. Cut down the Searing Blade Raiders first, because they hold the hounds "
-        "until he gives the word. And when the whip cracks, don't run away from him. Run past him.",
+        "Houndmaster Kraygh keeps his dogs on the approach and his whip in his hand, and in four months of watching I've never once seen him sleep. I climbed that cliff at every hour of the day and night to catch him at it.\n\nThe Burning Blade bring him fresh hounds up out of the caves, and he sets them on any traveller who looks too far in. He doesn't set them on raiders or soldiers. He sets them on travellers, because a traveller doesn't come back with friends. I want him gone before those hounds find their way down to the road.\n\nHe's by the cave mouth with his pack. Cut down the Searing Blade Raiders first, because they hold the hounds until he gives the word. And when the whip cracks, don't run away from him. Run past him.",
         None,
-        "The whip's silent? I've been hearing that barking in my sleep, even in here.\n\n"
-        "Take his things. He won't be wanting them.",
+        "The whip's silent? I've been hearing that barking in my sleep, even in here.\n\nTake his things. He won't be wanting them.",
     ),
     "dur_glitter": (
-        "It's Fitz again, with a different scheme and the same excellent instincts.\n\n"
-        "I've been mapping these mesas for ore for six months, and I've found exactly one thing worth writing down, "
-        "and it isn't a vein. The Mesa Stonebiters chew it. They're big rock-coloured brutes that gnaw the mesa edges "
-        "all day, and somewhere in their insides they concentrate glittering ore. It comes out better than it went "
-        "in. I'd dearly love to know how. I've drawn diagrams, and the people I showed them to stopped answering my "
-        "letters.\n\n"
-        "What I'd love more is a sample without going near the teeth. They drop little glittering chunks when you "
-        "open them up. I know how that sounds, so think about the margin instead. Finder's cut, and no questions.",
+        "It's Fitz again, with a different scheme and the same excellent instincts.\n\nI've been mapping these mesas for ore for months, and I've found exactly one thing worth writing down, and it isn't a vein. The Mesa Stonebiters chew it. They're big rock-coloured brutes that gnaw the mesa edges all day, and somewhere in their insides they concentrate glittering ore. It comes out better than it went in. I'd dearly love to know how. I've drawn diagrams, and the people I showed them to stopped answering my letters.\n\nWhat I'd love more is a sample without going near the teeth. They drop little glittering chunks when you open them up. Think about the margin instead. Finder's cut, and no questions.",
         "Mesa Stonebiters, out on the mesa edges.",
-        "Oh, that's lovely. It's practically jewellery.\n\n"
-        "Don't tell Gazlowe, or he'll want a cut. Here, and take one of my spare prospecting finds for your "
-        "trouble.",
+        "Oh, that's lovely. It's practically jewellery.\n\nDon't tell Gazlowe, or he'll want a cut. Here, and take one of my spare prospecting finds for your trouble.",
     ),
     "dur_farmhands": (
-        "I spend my days out on the road with one eye on Rocktusk Farm, and the farm is what keeps me up at night.\n\n"
-        "It was a homestead. Orcs built it, worked it, and lost it, and the quilboar didn't burn it, which is what I "
-        "can't get past. They moved in. They've kept the furrows, and they've put the old owners' razorbacks back to "
-        "work in the same pens, on the same slop schedule. The Rocktusk Farmhands have learned that a pitchfork works "
-        "on people as well as it works on earth, and the Tamed Razorbacks have learned the same from the other "
-        "end.\n\n"
-        "They're getting braver about the road. The farmhands patrol the furrows, and the razorbacks follow whoever's "
-        "holding the slops, so don't be holding the slops. People do it to see what happens.",
+        "I spend my days out on the road with one eye on Rocktusk Farm, and the farm is what keeps me up at night.\n\nIt was a homestead. Orcs built it, worked it, and lost it, and the quilboar didn't burn it, which is what I can't get past. They moved in. They've kept the furrows, and they've put the old owners' razorbacks back to work in the same pens, on the same slop schedule. The Rocktusk Farmhands have learned that a pitchfork works on people as well as it works on earth, and the Tamed Razorbacks have learned the same from the other end.\n\nThey're getting braver about the road. The farmhands patrol the furrows, and the razorbacks follow whoever's holding the slops, so don't be holding the slops. People do it to see what happens.",
         None,
-        "The farm's mostly quieter.\n\n"
-        "There's a sow in the back barn, the Matron, and she's been breeding war-pigs in there since spring. I want "
-        "her to stop.",
+        "The farm's mostly quieter.\n\nThere's a sow in the back barn, the Matron, and she's been breeding war-pigs in there since spring. I want her to stop.",
     ),
     "dur_matron_sowbelly": (
-        "She was an ordinary sow. I want to start there, because everyone who sees her assumes she came out of the "
-        "ground that way. She was the farm's breeding stock. I watched her being led in off a cart six years ago, and "
-        "I couldn't have picked her out of a pen.\n\n"
-        "Then the quilboar fed her whatever they feed things. Now she's the size of a cart and twice as bitter, "
-        "and the whole farm has arranged itself round her. The razorbacks follow her, and I've watched the farmhands "
-        "pray to her in rows at dusk. She isn't livestock any more. She's the reason they stay.\n\n"
-        "She's in the barn at the back of the furrows. She hits hard and smells worse. Don't fight her in the open, "
-        "because the razorbacks will join in, and they won't hesitate.",
+        "She was an ordinary sow. I want to start there, because everyone who sees her assumes she came out of the ground that way. She was the farm's breeding stock. I watched her being led in off a cart six years ago, and I couldn't have picked her out of a pen.\n\nThen the quilboar fed her whatever they feed things. Now she's the size of a cart and twice as bitter, and the whole farm has arranged itself round her. The razorbacks follow her, and I've watched the farmhands pray to her in rows at dusk. She isn't livestock any more. She's the reason they stay.\n\nShe's in the barn at the back of the furrows. She hits hard and smells worse. Don't fight her in the open, because the razorbacks will join in, and they won't hesitate.",
         None,
-        "The Matron's dead, then.\n\n"
-        "That's a great deal of bacon, though I wouldn't touch it, and I'd think less of anyone who did. Take the good "
-        "stuff. She's done with it.",
+        "The Matron's dead, then.\n\nThat's a great deal of bacon, though I wouldn't touch it, and I'd think less of anyone who did. Take the good stuff. She's done with it.",
     ),
     "dur_net_and_hook": (
-        "I'm Sylthressa Windmourne. Please don't touch the bolts.\n\n"
-        "I import silk, from places I pronounce correctly and you wouldn't, and I import it, regrettably, through "
-        "Scuttle Coast. The murlocs have taken to stringing nets right across the beach. As far as I can tell, they "
-        "aren't for fish, because there's nothing in them. Then the Saltcrust Crabs move into the nets and live "
-        "there, and the whole arrangement turns into a sort of fortification nobody designed.\n\n"
-        "My caravans arrive late, tangled and mildly crab-flavoured. Do you know what crab does to white silk? I've "
-        "got three bolts I can only sell by lamplight. Kill the Murloc Netcasters and the crabs on the shore to the "
-        "east, and my silk arrives dry.",
+        "I'm Sylthressa Windmourne. Please don't touch the bolts.\n\nI import silk, from places I pronounce correctly and you wouldn't, and I import it, regrettably, through Scuttle Coast. The murlocs have taken to stringing nets right across the beach. As far as I can tell, they aren't for fish, because there's nothing in them. Then the Saltcrust Crabs move into the nets and live there, and the whole arrangement turns into a sort of fortification nobody designed.\n\nMy caravans arrive late, tangled and mildly crab-flavoured. Do you know what crab does to white silk? I've got three bolts I can only sell by lamplight. Kill the Murloc Netcasters and the crabs on the shore to the east, and my silk arrives dry.",
         None,
-        "That's dry silk! You have no idea what that means to me.\n\n"
-        "There's something else on that coast, though. My drivers call him the Net-Cutter, a murloc with a hook. "
-        "Please deal with him next.",
+        "That's dry silk! You have no idea what that means to me.\n\nThere's something else on that coast, though. My drivers call him the Net-Cutter, a murloc with a hook. Please deal with him next.",
     ),
     "dur_gillfin": (
-        "Every murloc tribe has one that's learned to use a blade. On Scuttle Coast it's Gillfin, and he's rather run "
-        "away with the idea. He cuts nets, he cuts lines, and when he's bored, he cuts the traders' ropes while the "
-        "wagons are still loaded.\n\n"
-        "My drivers swear he took a wagon wheel once. He didn't break it. He took it, for the hub, and left the rim. "
-        "I've stopped arguing about whether that happened, because they all tell it the same way, and two of them "
-        "aren't speaking to each other.\n\n"
-        "I'd like him out of business, and I'm choosing that phrase deliberately, because he's running one. He moves "
-        "between the netted rocks on the eastern shore. He'll mend himself if you give him room, so don't.",
+        "Every murloc tribe has one that's learned to use a blade. On Scuttle Coast it's Gillfin, and he's rather run away with the idea. He cuts nets, he cuts lines, and when he's bored, he cuts the traders' ropes while the wagons are still loaded.\n\nMy drivers swear he took a wagon wheel once. He didn't break it. He took it, for the hub, and left the rim. I've stopped arguing about whether that happened, because they all tell it the same way, and two of them aren't speaking to each other.\n\nI'd like him out of business, and I'm choosing that phrase deliberately, because he's running one. He moves between the netted rocks on the eastern shore. He'll mend himself if you give him room, so don't.",
         None,
-        "The Net-Cutter's dead? Oh, thank goodness.\n\n"
-        "I could kiss you. I won't, because business comes first, but I'll pay you extremely well in finery.",
+        "The Net-Cutter's dead? Oh, thank goodness.\n\nI could kiss you. I won't, because business comes first, but I'll pay you extremely well in finery.",
     ),
     "dur_kolkar_reckoning": (
-        "I'm Wyll Marrow, a cartwright out of Stormwind, and yes, I know exactly how that sounds standing here.\n\n"
-        "The Kolkar took my caravan at the Crag. They took all of it, and left me alive as an afterthought, not out "
-        "of mercy. I wasn't worth a second pass. The Horde found me two days later, half-starved and swearing, and "
-        "I've never quite forgiven them for the rescue. I know that's unfair. I've had a year to work on it, and it "
-        "hasn't shifted.\n\n"
-        "What I've no trouble being clear about is the centaur. The Crag is the bowl south-west of the Barrens road, "
-        "and the Kolkar Warriders ride it in circles like they own it, which they do. Thin them out, and I'll sleep "
-        "better, which I haven't done properly since the ambush.",
+        "I'm Wyll Marrow, a cartwright out of Stormwind, and yes, I know exactly how that sounds standing here.\n\nThe Kolkar took my caravan at the Crag. They took all of it, and left me alive as an afterthought, not out of mercy. I wasn't worth a second pass. The Horde found me two days later, half-starved and swearing, and I've never quite forgiven them for the rescue. I know that's unfair. I've had a year to work on it, and it hasn't shifted.\n\nWhat I've no trouble being clear about is the centaur. The Crag is the bowl south-west of the Barrens road, and the Kolkar Warriders ride it in circles like they own it, which they do. Thin them out, and I'll sleep better, which I haven't done properly since the ambush.",
         "The Crag, the bowl south-west of the Barrens road.",
-        "Somewhere in a Stormwind graveyard, my brother's smiling.\n\n"
-        "There's one of them I can't get out of my head, though, a lame one with a limp he hides. His name's "
-        "Bloodhoof, and he broke my wagon.",
+        "Somewhere in a Stormwind graveyard, my brother's smiling.\n\nThere's one of them I can't get out of my head, though, a lame one with a limp he hides. His name's Bloodhoof, and he broke my wagon.",
     ),
     "dur_bloodhoof": (
-        "The Kolkar tell stories about their outriders, and they tell the ones about Bloodhoof quietly.\n\n"
-        "He's a crippled rider with a withered foreleg, and he kept charging anyway, long after any sensible centaur "
-        "would have taken a tent and let the young ones ride. He's taken more caravans than the rest of the Crag put "
-        "together. That isn't a guess. It's in the Orgrimmar road ledger, and I read it twice, because I didn't "
-        "believe it the first time. I'd like him on his back in the dust, where he put the wagons. I won't tell you "
-        "that's noble. It's a cartwright wanting something settled.\n\n"
-        "He rides alone, at the edge of the Crag where the ground drops away. Don't chase him. Make him come to you, "
-        "because he always does.",
+        "The Kolkar tell stories about their outriders, and they tell the ones about Bloodhoof quietly.\n\nHe's a crippled rider with a withered foreleg, and he kept charging anyway, long after any sensible centaur would have taken a tent and let the young ones ride. He's taken more caravans than the rest of the Crag put together. That isn't a guess. It's in the Orgrimmar road ledger, and I read it twice, because I didn't believe it the first time. I'd like him on his back in the dust, where he put the wagons. I won't tell you that's noble. It's a cartwright wanting something settled.\n\nHe rides alone, at the edge of the Crag where the ground drops away. Don't chase him. Make him come to you, because he always does.",
         None,
-        "Bloodhoof's down at last.\n\n"
-        "I almost feel for him, but only almost. Take whatever he carried. He won't be riding again.",
+        "Bloodhoof's down at last.\n\nI almost feel for him, but only almost. Take whatever he carried. He won't be riding again.",
     ),
     "dur_last_words": (
-        "The bones by the shore belong to a wagon driver. They're sun-bleached and undisturbed, laid out the way a man "
-        "lies down rather than the way a man falls.\n\n"
-        "His hands are closed round two things. One is a sealed letter with the wax still whole. The other is a "
-        "cracked signet ring, far too fine to have been his, heavy old work with a crest worn past reading.\n\n"
-        "The letter's addressed to someone named Tamsin, care of the burnt caravan on the highway south-west of the "
-        "travellers' camp. The hand is shaky, and it was written here, or close by, and last. Nothing says it has "
-        "to be delivered. The ring is warm in your palm, and the sun doesn't quite explain why.",
+        "The bones by the shore belong to a wagon driver. They're sun-bleached and undisturbed, laid out the way a man lies down rather than the way a man falls.\n\nHis hands are closed round two things. One is a sealed letter with the wax still whole. The other is a cracked signet ring, far too fine to have been his, heavy old work with a crest worn past reading.\n\nThe letter's addressed to someone named Tamsin, care of the burnt caravan on the highway south-west of the travellers' camp. The hand is shaky, and it was written here, or close by, and last. Nothing says it has to be delivered. The ring is warm in your palm, and the sun doesn't quite explain why.",
         None,
-        "You lay the letter among the ash as well as it can be laid.\n\n"
-        "When you straighten up, the signet ring is a little less cracked than it was. You're fairly sure of that, "
-        "and you check twice. The wind off the Wastes carries something that might be thanks, and might just be the "
-        "wind.",
+        "You lay the letter among the ash as well as it can be laid.\n\nWhen you straighten up, the signet ring is a little less cracked than it was. You're fairly sure of that, and you check twice. The wind off the Wastes carries something that might be thanks, and might just be the wind.",
     ),
     "dur_safe_road_south": (
-        "I'm Southbound Grekka. Shift over, you're standing in my shade, and there isn't much of it.\n\n"
-        "I've walked the road between Razor Hill and the Valley of Trials for thirty-one years, and I could tell you "
-        "where every pothole is by the sound of my own feet. Lately I can't get past the Rocktusk Farm turnoff "
-        "without a quilboar scout shaking me down. I can pay, and that isn't the issue. The issue is who else comes "
-        "up that road: green recruits, every week, walking out of that valley with everything they own on their "
-        "backs. They shouldn't lose their coin in their first week on the Wastes.\n\n"
-        "The Razormane Scouts watch from above, and the Razormane Geomancers throw rocks from behind, so take the "
-        "geomancers first if you can find them.",
+        "I'm Southbound Grekka. Shift over, you're standing in my shade, and there isn't much of it.\n\nI've walked the road between Razor Hill and the Valley of Trials for thirty-one years, and I could tell you where every pothole is by the sound of my own feet. Lately I can't get past the Rocktusk Farm turnoff without a quilboar scout shaking me down. I can pay, and that isn't the issue. The issue is who else comes up that road: green recruits, every week, walking out of that valley with everything they own on their backs. They shouldn't lose their coin in their first week on the Wastes.\n\nThe Razormane Scouts watch from above, and the Razormane Geomancers throw rocks from behind, so take the geomancers first if you can find them.",
         None,
-        "You're a good one.\n\n"
-        "Now the new ones get a clean road, and I get to keep what I earn. Here's a spare out of my own pack.",
+        "You're a good one.\n\nNow the new ones get a clean road, and I get to keep what I earn. Here's a spare out of my own pack.",
     ),
     "dur_road_tax": (
-        "I'm Wandering Bok. Buy something or don't, but hear me out either way.\n\n"
-        "I sell what I can on the road between Razor Hill and the gate, and I pay the Orgrimmar road tax out of my "
-        "own pocket like an honest goblin. The quilboar have started collecting it too. Every time somebody gets past "
-        "them, little leather pouches turn up in their packs afterwards, quilboar-sized and stitched the way nobody "
-        "on this road stitches. They've got a system, and it's better than mine, which is what really offends me.\n\n"
-        "So that's my coin, by any reading of the ledger I'm prepared to accept. The Razormane quilboar out on the "
-        "Wastes carry the pouches on their belts. Bring them back, and I'll call the tax paid.",
+        "I'm Wandering Bok. Buy something or don't, but hear me out either way.\n\nI sell what I can on the road between Razor Hill and the gate, and I pay the Orgrimmar road tax out of my own pocket like an honest goblin. The quilboar have started collecting it too. Every time somebody gets past them, little leather pouches turn up in their packs afterwards, quilboar-sized and stitched the way nobody on this road stitches. They've got a system, and it's better than mine, which is what really offends me.\n\nSo that's my coin, by any reading of the ledger I'm prepared to accept. The Razormane quilboar out on the Wastes carry the pouches on their belts. Bring them back, and I'll call the tax paid.",
         None,
-        "That's my coin! There's less of it than I remember, but it's still mine.\n\n"
-        "Now take a cut. You've earned it, and I always pay my debts.",
+        "That's my coin! There's less of it than I remember, but it's still mine.\n\nNow take a cut. You've earned it, and I always pay my debts.",
     ),
 }

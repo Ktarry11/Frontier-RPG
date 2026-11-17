@@ -39,7 +39,7 @@ VOICE = {
     "bst_what_they_carry": (
         None,
         None,
-        "Where did you get this? Off a Swarmer?\n\nThey're not eating them. Look at the cuts. They're harvesting them and carrying the caps back to the hive whole.\n\nYou only do that if you're growing something. They're farming, in there, and they're using my wood for seed. Thank you for bringing it. I'd never have known.",
+        "Where did you get this? Off a Swarmer?\n\nThey're not eating them. Look at the cuts. They're harvesting them and carrying the caps back to the hive whole.\n\nYou only do that if you're growing something. They're farming, in there, and they're using my wood for seed. I'd never have known without this.",
     ),
     "bst_the_old_diggings": (
         None,
@@ -95,5 +95,30 @@ VOICE = {
         None,
         "Right, I've put her numbers and mine together.\n\nIt isn't good, but it's better than not knowing. The roof over that town will stand for about forty years if nothing changes. If somebody kills what's eating the pillars and keeps killing it, it'll stand a good deal longer.\n\nTake this to whoever runs the place. Tell them I'll send my crew down to shore the worst pillars if they'll send miners up to help. They know rock better than we do.\n\nBack the way you came: down a pit, through the Dry Deep to its east end, and down the stair. Onyxhollow's gate is at the end of the slag road.",
         "So it's forty years.\n\nI was expecting to hear five.\n\nAnd she'll shore the pillars if I send miners up. A goblin surveyor. My grandfather would have shut the gate on her.\n\nI'm not my grandfather. Tell Vigdis she has her answer, and tell Kelda to pick me twenty miners who don't mind daylight. We're going to go and look after our roof.",
+    ),
+    "bst_clear_the_slag_road": (
+        None,
+        None,
+        "That'll keep the carts moving for a while.\n\nTake something from the gate stores. The Captain signs for it, so don't feel bad.",
+    ),
+    "bst_two_notebooks": (
+        None,
+        None,
+        "From the loremaster? I didn't know they had one.\n\nShells with holes drilled in them. Marker stones facing the water. And I've got tide marks and layered sand.\n\nShe's got the people and I've got the sea. Put the two together and you've got a whole coast, with somebody living on it.\n\nI need to talk to her. They won't let me through the gate, but they can't stop me writing. You've no idea how long I've been working on my own.",
+    ),
+    "bst_trampler_gills": (
+        None,
+        None,
+        "Good thick ones. These'll do nicely.\n\nI'll have a syrup ready by tomorrow. Hald's going to complain about the taste and then ask for more. I know going in there isn't pleasant.",
+    ),
+    "bst_sign_the_board": (
+        None,
+        "Some of mine signed out to dig dark iron in the sand, out on the Ash Dunes. That was five shifts ago and none of them has signed back in.\n\nI've a fair idea what happened. The basilisks out there turn a body to stone if it stands still long enough, and miners stand still a lot.\n\nThe sand diggings are north-west of the gate, off the south side of the slag road. Go and look. If I'm right, the Ashdune Basilisks will have what's left. Bring me the picks. Each one has a name on the haft and I need to know which names.",
+        "Stone, every one. Haft and head.\n\nThat's Orm's, and that's Sifa's. I don't recognise the third hand. It'll be in the book.\n\nI'll tell their people. Thank you for bringing them back. Most wouldn't have carried the weight.",
+    ),
+    "bst_forgemasters_test": (
+        None,
+        None,
+        "Let me see. That one's a touch hot. The rest are good.\n\nBetter than most of my apprentices manage in their first year. Don't tell them I said so. This one's yours.",
     ),
 }

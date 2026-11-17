@@ -3,572 +3,213 @@ Caverns) in the plain voice (17 Nov 2026)."""
 
 VOICE = {
     "cb_strays_on_the_plain": (
-        "I'm Magra Dustwalker. I've brought the herd in to Grol'dom Farm for a few nights, because the plain isn't "
-        "safe for them.\n\n"
-        "I've run kodo north of the Crossroads for twenty years, and it's never been this bad. The hyenas have learned "
-        "something, and that frightens me more than their teeth. They've worked out that a calf that's separated from "
-        "the herd doesn't come home, so they don't attack. They shadow us at a distance all day, patient as a debt "
-        "collector, and they take whatever lags behind.\n\n"
-        "The Barrens Hyenas are out on the plain, brown-grey and spotted. They won't run from you, because they've "
-        "never once had a reason to.",
+        "I'm Magra Dustwalker. I've brought the herd in to Grol'dom Farm for a few nights, because the plain isn't safe for them.\n\nI've run kodo north of the Crossroads for twenty years, and it's never been this bad. The hyenas have learned something, and that frightens me more than their teeth. They've worked out that a calf that's separated from the herd doesn't come home, so they don't attack. They shadow us at a distance all day, patient as a debt collector, and they take whatever lags behind.\n\nThe Barrens Hyenas are out on the plain, brown-grey and spotted. They won't run from you, because they've never once had a reason to.",
         None,
-        "It's quieter out there now. Kodo don't flinch when something's after them, they just stop eating, and nobody tells you "
-        "that. They're eating again.\n\n"
-        "Come back when you've got your breath. There's a bigger problem, and it's in the sky.",
+        "It's quieter out there now. Kodo don't flinch when something's after them, they just stop eating, and nobody tells you that. They're eating again.\n\nCome back when you've got your breath. There's a bigger problem, and it's in the sky.",
     ),
     "cb_sentinel_stingers": (
-        "The Sentinel Rocks are the sandstone teeth north-east of the farm. They're the best shelter on these plains, "
-        "the only shade a herd can lie down in between here and the hills, and no kodo has slept there in three "
-        "weeks.\n\n"
-        "Redstone Scorpids have taken the crevices. I could work round that alone. You move the herd, and you lose a "
-        "season instead of animals. But something bigger has taken the scorpids. I've been close enough to see how "
-        "they're behaving, and they aren't holding that ground for themselves. There's a brood-queen in those rocks, "
-        "and they're hers.\n\n"
-        "Kill the scorpids, and the big mother when she shows her face. She will, once you've made a mess of the "
-        "nursery.",
-        "The Sentinel Rocks, north-east of Grol'dom Farm, in the crevices.\n\n"
-        "Their matriarch is the big one in the deepest crevice. The herd won't come back while she's there.",
-        "It's quiet in the rocks? My herd will be glad of that shade, and so will my knees.\n\n"
-        "You've earned more than thanks.",
+        "The Sentinel Rocks are the sandstone teeth north-east of the farm. They're the best shelter on these plains, the only shade a herd can lie down in between here and the hills, and no kodo has slept there in three weeks.\n\nRedstone Scorpids have taken the crevices. I could work round that alone. You move the herd, and you lose a season instead of animals. But something bigger has taken the scorpids. I've been close enough to see how they're behaving, and they aren't holding that ground for themselves. There's a brood-queen in those rocks, and they're hers.\n\nKill the scorpids, and the big mother when she shows her face. She will, once you've made a mess of the nursery.",
+        "The Sentinel Rocks, north-east of Grol'dom Farm, in the crevices.\n\nTheir matriarch is the big one in the deepest crevice. The herd won't come back while she's there.",
+        "It's quiet in the rocks? My herd will be glad of that shade, and so will my knees.\n\nYou've earned more than thanks.",
     ),
     "cb_old_sunhide": (
-        "Every herder's story has a villain in it, and I'd like to be honest with you about mine before you go. Old "
-        "Sunhide is a bull giraffe the height of a watchtower, with a hide the exact colour of the dry grass he "
-        "stands in.\n\n"
-        "He doesn't hunt. He's never killed anything on purpose in his life. He wanders, and wherever he wanders, "
-        "calves end up flat, because a thing that size doesn't look down and a calf doesn't look up. So I don't hold "
-        "it against him, not exactly. I'm just tired of burying calves, and I've reached the age where tired is "
-        "reason enough.\n\n"
-        "He walks the plain out toward the Sentinel Rocks. Thin his herd of Barrens Giraffes first, to take away his "
-        "cover, and then deal with him.",
+        "Every herder's story has a villain in it, and I'd like to be honest with you about mine before you go. Old Sunhide is a bull giraffe the height of a watchtower, with a hide the exact colour of the dry grass he stands in.\n\nHe doesn't hunt. He's never killed anything on purpose in his life. He wanders, and wherever he wanders, calves end up flat, because a thing that size doesn't look down and a calf doesn't look up. So I don't hold it against him, not exactly. I'm just tired of burying calves, and I've reached the age where tired is reason enough.\n\nHe walks the plain out toward the Sentinel Rocks. Thin his herd of Barrens Giraffes first, to take away his cover, and then deal with him.",
         "On the plain toward the Sentinel Rocks, north-east of the farm. Thin his herd first.",
-        "Is he gone? Then that's done.\n\n"
-        "I won't say I'm not sorry. He was a good giraffe in his way, and he never meant a thing by any of it. I'd like you to "
-        "have these. They were my father's, and he'd have wanted them used rather than kept.",
+        "Is he gone? Then that's done.\n\nI won't say I'm not sorry. He was a good giraffe in his way, and he never meant a thing by any of it. I'd like you to have these. They were my father's, and he'd have wanted them used rather than kept.",
     ),
     "cb_kodo_graveyard": (
-        "East of the Sentinel Rocks, the plain rises into a shallow bowl. The kodo have always walked into it when "
-        "their time came. Nobody drives them, they just go. I've made that walk with three herds. You go in with "
-        "them, you stand at the lip, and you come back on your own, and that's the oldest arrangement my people have "
-        "with those animals.\n\n"
-        "It isn't quiet in there any more. The dead don't stay dead. I've watched a cow I knew by name get up again, "
-        "and I still haven't decided how I feel about that.\n\n"
-        "Walk in and look round, and put down what the bowl's still holding: the Kodo Wraiths first, then the big "
-        "horned one, if he's still wandering. Kodo aren't meant to come back.",
-        "The bowl east of the Sentinel Rocks. Kill the wraiths first, then the horned one the herders call "
-        "Hollowhorn.",
-        "Kodo aren't meant to come back, and every one you put down is a kindness. They'd know it if they could.\n\n"
-        "Take this, from the old herd.",
+        "East of the Sentinel Rocks, the plain rises into a shallow bowl. The kodo have always walked into it when their time came. Nobody drives them, they just go. I've made that walk with three herds. You go in with them, you stand at the lip, and you come back on your own, and that's the oldest arrangement my people have with those animals.\n\nIt isn't quiet in there any more. The dead don't stay dead. I've watched a cow I knew by name get up again, and I still haven't decided how I feel about that.\n\nWalk in and look round, and put down what the bowl's still holding: the Kodo Wraiths first, then the big horned one, if he's still wandering. Kodo aren't meant to come back.",
+        "The bowl east of the Sentinel Rocks. Kill the wraiths first, then the horned one the herders call Hollowhorn.",
+        "Kodo aren't meant to come back, and every one you put down is a kindness. They'd know it if they could.\n\nTake this, from the old herd.",
     ),
     "cb_smoke_on_horizon": (
-        "I'm Plainswatcher Dorn. Don't come up onto the ridge from that side, or you'll be against the sky.\n\n"
-        "I can see a sandstorm coming an hour out. That's the job, and after eleven years it's most of what I am. "
-        "What I can't see is why the smoke over the Kolkar outpost has turned from brown to black. Brown is "
-        "cook-fires and tents. Black is something else being burned, on purpose, in quantity. I've been up here with "
-        "a glass for four days, and all I've done is invent three answers I can't tell apart.\n\n"
-        "Follow the east road from the Crossroads until it forks into trampled grass, and that's them. Look, but "
-        "don't fight. Come back and tell me what you actually saw, and I'll work out what it means.",
+        "I'm Plainswatcher Dorn. Don't come up onto the ridge from that side, or you'll be against the sky.\n\nI can see a sandstorm coming an hour out. That's the job, and after eleven years it's most of what I am. What I can't see is why the smoke over the Kolkar outpost has turned from brown to black. Brown is cook-fires and tents. Black is something else being burned, on purpose, in quantity. I've been up here with a glass for four days, and all I've done is invent three answers I can't tell apart.\n\nFollow the east road from the Crossroads until it forks into trampled grass, and that's them. Look, but don't fight. Come back and tell me what you actually saw, and I'll work out what it means.",
         None,
-        "Twenty tents, a watchtower and a war-drum? That's more than they had last season.\n\n"
-        "The centaur are building, which means they mean to keep it. The next job's louder.",
+        "Twenty tents, a watchtower and a war-drum? That's more than they had last season.\n\nThe centaur are building, which means they mean to keep it. The next job's louder.",
     ),
     "cb_taking_the_outpost": (
-        "That outpost is a way-station, with tents, a hitching line and a great many centaur with spears. It's where "
-        "their war-parties stop, water and move on, which makes it less a fort than a joint, and a joint is something "
-        "you can hurt.\n\n"
-        "Here's how it works, because it matters to the order you do this in. The Kolkar Drudges carry the supplies, "
-        "and the Kolkar Taskmasters keep the drudges moving. Take out the taskmasters and the drudges don't carry. "
-        "Take out the drudges and the taskmasters have nothing to drive. Either way, the way-station stops leading "
-        "anywhere.\n\n"
-        "The drudges are the ones with clubs and no ambition, and the taskmasters are the ones with whips. Come back "
-        "with your armour a little dented, or I'll be suspicious.",
+        "That outpost is a way-station, with tents, a hitching line and a great many centaur with spears. It's where their war-parties stop, water and move on, which makes it less a fort than a joint, and a joint is something you can hurt.\n\nHere's how it works, because it matters to the order you do this in. The Kolkar Drudges carry the supplies, and the Kolkar Taskmasters keep the drudges moving. Take out the taskmasters and the drudges don't carry. Take out the drudges and the taskmasters have nothing to drive. Either way, the way-station stops leading anywhere.\n\nThe drudges are the ones with clubs and no ambition, and the taskmasters are the ones with whips. Come back with your armour a little dented, or I'll be suspicious.",
         None,
-        "That did something. I heard their drum change its beat from up here, right in the middle of a bar.\n\n"
-        "They don't like being surprised, so let's make them dislike it more.",
+        "That did something. I heard their drum change its beat from up here, right in the middle of a bar.\n\nThey don't like being surprised, so let's make them dislike it more.",
     ),
     "cb_the_war_camp": (
-        "The cross on that map leads east, past the Kodo Graveyard, deep into the plains. There's a war camp out "
-        "there, and I've never been close to it.\n\n"
-        "I'll be straight with you about why, because you're about to go. It isn't nerve. A watcher who goes close "
-        "stops being a watcher, and this ridge has been the Crossroads' early warning for eleven years. I need three "
-        "things, counted and not estimated: how many tents, how many marauders, and how bad that drum sounds up "
-        "close, because distance flatters a drum.\n\n"
-        "Kill a few of the Kolkar Marauders before you leave, so they know somebody was there. They're on the "
-        "outside of the camp. If you're running past marauders, you're already too deep.",
+        "The cross on that map leads east, past the Kodo Graveyard, deep into the plains. There's a war camp out there, and I've never been close to it.\n\nI'll be straight with you about why, because you're about to go. It isn't nerve. A watcher who goes close stops being a watcher, and this ridge has been the Crossroads' early warning for eleven years. I need three things, counted and not estimated: how many tents, how many marauders, and how bad that drum sounds up close, because distance flatters a drum.\n\nKill a few of the Kolkar Marauders before you leave, so they know somebody was there. They're on the outside of the camp. If you're running past marauders, you're already too deep.",
         None,
-        "A hundred tents? A hundred of them, and a banner I haven't seen in years, Gorrak's.\n\n"
-        "That old war-chief is back, and he's mustering. We cut off the head now, or we pay for it later at a price "
-        "somebody else sets.",
+        "A hundred tents? A hundred of them, and a banner I haven't seen in years, Gorrak's.\n\nThat old war-chief is back, and he's mustering. We cut off the head now, or we pay for it later at a price somebody else sets.",
     ),
     "cb_warbringer_gorrak": (
-        "Warbringer Gorrak has led march after march on the Crossroads, and each one has left that wall a little "
-        "shorter. They don't breach it. They take a course of stone and some people and go, and the Crossroads "
-        "rebuilds it a little lower each time, because that's what the stone and the season allow. I've measured it "
-        "for eleven years, and it's the most depressing figure I own.\n\n"
-        "He's old and huge, and he doesn't retreat. I'm not asking you to do this for glory. I'm asking because the "
-        "next march is already in that drum, and I can hear the beat it's on.\n\n"
-        "He rides the camp's edge when the drum starts. Break the Kolkar Taskmasters first, because they keep that "
-        "herd in a line, and then go for him, quick and hard.",
-        "North-east of here, at the Kolkar War Camp. Wait at the edge of it until the drum starts, and kill the "
-        "taskmasters first.",
-        "It's quiet now, for the first time in three years, and I can hear the wind with nothing underneath it.\n\n"
-        "This is yours. The Crossroads owes you a debt it'll never once think to repay.",
+        "Warbringer Gorrak has led march after march on the Crossroads, and each one has left that wall a little shorter. They don't breach it. They take a course of stone and some people and go, and the Crossroads rebuilds it a little lower each time, because that's what the stone and the season allow. I've measured it for eleven years, and it's the most depressing figure I own.\n\nHe's old and huge, and he doesn't retreat. I'm not asking you to do this for glory. I'm asking because the next march is already in that drum, and I can hear the beat it's on.\n\nHe rides the camp's edge when the drum starts. Break the Kolkar Taskmasters first, because they keep that herd in a line, and then go for him, quick and hard.",
+        "North-east of here, at the Kolkar War Camp. Wait at the edge of it until the drum starts, and kill the taskmasters first.",
+        "It's quiet now, for the first time in three years, and I can hear the wind with nothing underneath it.\n\nThis is yours. The Crossroads owes you a debt it'll never once think to repay.",
     ),
     "cb_pests_in_the_furrows": (
-        "I'm Kranal Fiss. Mind the furrow, because you're standing in next year.\n\n"
-        "I've farmed Grol'dom since before Orgrimmar had proper walls. Quilboar press me from two sides most seasons, "
-        "and I've made my peace with that. You plant more than you need and accept what the year takes. This "
-        "season's problem is smaller and sneakier, and worse. Poachers work the farm after dark, lifting sacks, "
-        "cutting traces, and laughing over the wall on their way out. It's the laughing that gets me. Somebody who "
-        "takes your grain and laughs about it worries me more than any quilboar.\n\n"
-        "The Farm Poachers hide in the furrows, small men the colour of dirt. Clear them out, and I'll sleep through "
-        "the night for the first time in a month.",
+        "I'm Kranal Fiss. Mind the furrow, because you're standing in next year.\n\nI've farmed Grol'dom since before Orgrimmar had proper walls. Quilboar press me from two sides most seasons, and I've made my peace with that. You plant more than you need and accept what the year takes. This season's problem is smaller and sneakier, and worse. Poachers work the farm after dark, lifting sacks, cutting traces, and laughing over the wall on their way out. It's the laughing that gets me. Somebody who takes your grain and laughs about it worries me more than any quilboar.\n\nThe Farm Poachers hide in the furrows, small men the colour of dirt. Clear them out, and I'll sleep through the night for the first time in a month.",
         None,
-        "It's been quiet since last night, without a single laugh.\n\n"
-        "That's better than gold. Now, about the sacks.",
+        "It's been quiet since last night, without a single laugh.\n\nThat's better than gold. Now, about the sacks.",
     ),
     "cb_stolen_seed": (
-        "They took more than coin. I didn't realise for two days, and I've been sick about it since. They took the "
-        "seed, next year's whole crop, in sacks. A farm isn't the field. The field is dirt, and the farm is what's in "
-        "those sacks.\n\n"
-        "They can't sell it on, which is the one piece of luck in this. Every sack is stamped with my mark, my "
-        "father's mark really, and his father cut the stamp. So they're either hoarding them or breaking the stamp "
-        "off, and I haven't let myself think too long about which.\n\n"
-        "The poachers carry them like pack-rats, and they drop them the moment a fight starts. Don't tear the "
-        "burlap.",
+        "They took more than coin. I didn't realise for two days, and I've been sick about it since. They took the seed, next year's whole crop, in sacks. A farm isn't the field. The field is dirt, and the farm is what's in those sacks.\n\nThey can't sell it on, which is the one piece of luck in this. Every sack is stamped with my mark, my father's mark really, and his father cut the stamp. So they're either hoarding them or breaking the stamp off, and I haven't let myself think too long about which.\n\nThe poachers carry them like pack-rats, and they drop them the moment a fight starts. Don't tear the burlap.",
         None,
-        "They're all here, every one, and the burlap isn't even torn.\n\n"
-        "You've saved a season, and I won't forget which one.",
+        "They're all here, every one, and the burlap isn't even torn.\n\nYou've saved a season, and I won't forget which one.",
     ),
     "cb_looter_chief_bazz": (
-        "Every gang has a chief, and this one's a brute called Bazz. He doesn't work the fields. I've watched him "
-        "from the barn roof for three nights, and he's never once bent his back. He stands at the wall and runs the "
-        "ones who do.\n\n"
-        "And he carries a stolen pitchfork like it owes him money, and it's mine. I bent the tines on a rock the first "
-        "spring I worked this ground, and I never straightened them, because it still turned the earth fine. I'd "
-        "know it at two hundred paces, and I have.\n\n"
-        "I'd like him gone, and I'd like the pitchfork back. Deal with his crew of Farm Poachers first. They keep the "
-        "field between you and him, and they're good at it.",
+        "Every gang has a chief, and this one's a brute called Bazz. He doesn't work the fields. I've watched him from the barn roof for three nights, and he's never once bent his back. He stands at the wall and runs the ones who do.\n\nAnd he carries a stolen pitchfork like it owes him money, and it's mine. I bent the tines on a rock the first spring I worked this ground, and I never straightened them, because it still turned the earth fine. I'd know it at two hundred paces, and I have.\n\nI'd like him gone, and I'd like the pitchfork back. Deal with his crew of Farm Poachers first. They keep the field between you and him, and they're good at it.",
         None,
-        "You took the pitchfork back? It's still bent, I see.\n\n"
-        "Never mind, keep it. The farm is quiet, and that was always the prize.",
+        "You took the pitchfork back? It's still bent, I see.\n\nNever mind, keep it. The farm is quiet, and that was always the prize.",
     ),
     "cb_choking_the_oasis": (
-        "I'm Waterkeeper Sanu Goldenhoof. Have a drink first, because there's no sense talking thirsty.\n\n"
-        "Lushwater has been the first drink on the road to the Wailing Caverns for as long as my people have had a "
-        "road. It isn't the best water in the Barrens, but it's the first. Keeping it that way is my "
-        "whole office. This season, the silithid came up out of the south dunes in a tide of chitin, and they're "
-        "fouling the reeds. They haven't come to drink. They've come to breed, and a pool with silithid breeding in "
-        "it stops being a pool within a season.\n\n"
-        "Kill the Silithid Swarmers in the grass and the Silithid Creepers down in the reeds, and cut them back "
-        "before the water goes brown. I can't do it alone, and I've spent a month finding that out.",
+        "I'm Waterkeeper Sanu Goldenhoof. Have a drink first, because there's no sense talking thirsty.\n\nLushwater has been the first drink on the road to the Wailing Caverns for as long as my people have had a road. It isn't the best water in the Barrens, but it's the first. Keeping it that way is my whole office. This season, the silithid came up out of the south dunes in a tide of chitin, and they're fouling the reeds. They haven't come to drink. They've come to breed, and a pool with silithid breeding in it stops being a pool within a season.\n\nKill the Silithid Swarmers in the grass and the Silithid Creepers down in the reeds, and cut them back before the water goes brown. I can't do it alone, and I've spent a month finding that out.",
         None,
-        "The water's running clear again, and the Earth Mother will notice.\n\n"
-        "The silithid are patient, though. I'll need you again, and I'd rather say so now than pretend otherwise.",
+        "The water's running clear again, and the Earth Mother will notice.\n\nThe silithid are patient, though. I'll need you again, and I'd rather say so now than pretend otherwise.",
     ),
     "cb_vine_choked_springs": (
-        "The springs here are fed from below, and the thing that feeds them has started growing. The Oasis "
-        "Tangle-Vines have strangled the east spring until it doesn't reach the surface any more, and that spring "
-        "ran through my mother's whole life and most of mine.\n\n"
-        "So they have to be cut back, and I take no pleasure in it. But I want their hearts too, and that part isn't "
-        "destruction. A tangle-vine heart, taken whole and planted in clear soil, becomes a reed bed. The same thing "
-        "that's choking the east spring will filter the west one, if you put it somewhere it has room.\n\n"
-        "They hang on the north shore, thick as a leg and quiet until you step too close. Bring the hearts whole, and "
-        "don't let them take your boots, because they'll try.",
+        "The springs here are fed from below, and the thing that feeds them has started growing. The Oasis Tangle-Vines have strangled the east spring until it doesn't reach the surface any more, and that spring ran through my mother's whole life and most of mine.\n\nSo they have to be cut back, and I take no pleasure in it. But I want their hearts too, and that part isn't destruction. A tangle-vine heart, taken whole and planted in clear soil, becomes a reed bed. The same thing that's choking the east spring will filter the west one, if you put it somewhere it has room.\n\nThey hang on the north shore, thick as a leg and quiet until you step too close. Bring the hearts whole, and don't let them take your boots, because they'll try.",
         None,
-        "These will grow where I plant them, and the spring will drink again.\n\n"
-        "You've done something small and enormous at the same time.",
+        "These will grow where I plant them, and the spring will drink again.\n\nYou've done something small and enormous at the same time.",
     ),
     "cb_queen_skitterwing": (
-        "Every swarm has a mother, and this one is Queen Skitterwing. She rules from a nest in the north reeds, the "
-        "size of a horse, with wings that hum a note you feel in your teeth before you hear it.\n\n"
-        "I'll say this once, and then we won't discuss it again. I don't harm anything needlessly. I've kept this "
-        "water forty years, and in that time I've killed what I had to and nothing beyond it. I'm making an "
-        "exception. She'll fill this oasis with her own children until there's no oasis, and she can't choose "
-        "otherwise, and neither of those things changes what has to be done.\n\n"
-        "The Silithid Creepers guard the north reeds, and she's behind them. Do it cleanly, and don't linger. Her "
-        "song isn't a lullaby, whatever it sounds like at the start.",
+        "Every swarm has a mother, and this one is Queen Skitterwing. She rules from a nest in the north reeds, the size of a horse, with wings that hum a note you feel in your teeth before you hear it.\n\nI'll say this once, and then we won't discuss it again. I don't harm anything needlessly. I've kept this water forty years, and in that time I've killed what I had to and nothing beyond it. I'm making an exception. She'll fill this oasis with her own children until there's no oasis, and she can't choose otherwise, and neither of those things changes what has to be done.\n\nThe Silithid Creepers guard the north reeds, and she's behind them. Do it cleanly, and don't linger. Her song isn't a lullaby, whatever it sounds like at the start.",
         None,
-        "The reeds are silent, and it's the silence of rest, not of death. I've spent a lifetime learning to hear "
-        "the difference.\n\n"
-        "The oasis is grateful to you. Take what the pool has to give.",
+        "The reeds are silent, and it's the silence of rest, not of death. I've spent a lifetime learning to hear the difference.\n\nThe oasis is grateful to you. Take what the pool has to give.",
     ),
     "cb_forgotten_pilgrims": (
-        "I'm Torga, and the shrine's behind me, and don't mind the water, it's always that colour at this hour.\n\n"
-        "The Forgotten Pools were a place of pilgrimage once, a chain of sacred springs on the long walk between "
-        "Orgrimmar and the south, and people came here for a hundred years. The pilgrims never stopped coming. They "
-        "stopped leaving. I keep the shrine and watch over the dead, and those are supposed to be two jobs. Here "
-        "they've become one.\n\n"
-        "They wander the water's edge in robes that haven't been dry in decades, and every one of them still wears "
-        "prayer beads on the wrist. The beads hold their owners' names. Bring me some and I'll read them out. I want "
-        "to know who they were, because somebody should, and there's nobody else here.",
+        "I'm Torga, and the shrine's behind me, and don't mind the water, it's always that colour at this hour.\n\nThe Forgotten Pools were a place of pilgrimage once, a chain of sacred springs on the long walk between Orgrimmar and the south, and people came here for a hundred years. The pilgrims never stopped coming. They stopped leaving. I keep the shrine and watch over the dead, and those are supposed to be two jobs. Here they've become one.\n\nThey wander the water's edge in robes that haven't been dry in decades, and every one of them still wears prayer beads on the wrist. The beads hold their owners' names. Bring me some and I'll read them out. I want to know who they were, because somebody should, and there's nobody else here.",
         None,
-        "These are their names. They walked all this way because they believed in something, and not one of them "
-        "has been said out loud in forty years.\n\n"
-        "We'll carry the beads to Orgrimmar's shrine. They've earned that much.",
+        "These are their names. They walked all this way because they believed in something, and not one of them has been said out loud in forty years.\n\nWe'll carry the beads to Orgrimmar's shrine. They've earned that much.",
     ),
     "cb_murk_in_the_water": (
-        "The murlocs came up the old river after the pilgrims stopped coming. They didn't drive anyone out. They moved "
-        "into a place that had already been given up on, which is what murlocs do, and what I'd do.\n\n"
-        "They fish the pools and foul the springs, and they've started building something on the east bank that "
-        "looks a great deal like a shrine of their own. I'm not a violent woman. I came here to tend a stone and read "
-        "names. I am, however, extremely tired of explaining myself to a fish.\n\n"
-        "The Pool Murlocs are the ones on the shore. The Murloc Flesheaters have been down in the deep too long, and "
-        "you'll know which is which at once. Be careful of those, because they bite and don't stop at the first one.",
+        "The murlocs came up the old river after the pilgrims stopped coming. They didn't drive anyone out. They moved into a place that had already been given up on, which is what murlocs do, and what I'd do.\n\nThey fish the pools and foul the springs, and they've started building something on the east bank that looks a great deal like a shrine of their own. I'm not a violent woman. I came here to tend a stone and read names. I am, however, extremely tired of explaining myself to a fish.\n\nThe Pool Murlocs are the ones on the shore. The Murloc Flesheaters have been down in the deep too long, and you'll know which is which at once. Be careful of those, because they bite and don't stop at the first one.",
         None,
-        "The water's clear, or clearer than it was.\n\n"
-        "I'd like you to have this. It was a gift from a pilgrim, and I'm not one for heirlooms.",
+        "The water's clear, or clearer than it was.\n\nI'd like you to have this. It was a gift from a pilgrim, and I'm not one for heirlooms.",
     ),
     "cb_weeping_pilgrim": (
-        "One of them never stopped walking. Her name is Maeve. The others drift wherever the water takes them, but she "
-        "walks the same circuit of the south pool every dusk, in a wedding veil, and she's been doing it longer than "
-        "anyone here has been alive.\n\n"
-        "She sings something nobody remembers the words to, and the pool-water comes after her like a train. The "
-        "first time I saw it, I stood in the reeds for an hour and did nothing. She isn't malicious, and I need you to "
-        "go in knowing that, because what you meet won't behave like it. She's very sad, and sadness has teeth when "
-        "it's had this long.\n\n"
-        "The other Drowned Pilgrims walk with her, so you'll have to put them down to reach her. Be gentle about it. "
-        "She doesn't know she's dead.",
-        "The south pool at dusk. Be gentle about it.\n\n"
-        "The other drowned pilgrims walk with her, and you'll have to put them down to reach her.",
-        "I heard her stop.\n\n"
-        "I'll read her prayer at dawn, properly, with the name off her beads, which I've got now. Carry this for her. She'd have "
-        "wanted somebody to carry it on.",
+        "One of them never stopped walking. Her name is Maeve. The others drift wherever the water takes them, but she walks the same circuit of the south pool every dusk, in a wedding veil, and she's been doing it longer than anyone here has been alive.\n\nShe sings something nobody remembers the words to, and the pool-water comes after her like a train. The first time I saw it, I stood in the reeds for an hour and did nothing. She isn't malicious, and I need you to go in knowing that, because what you meet won't behave like it. She's very sad, and sadness has teeth when it's had this long.\n\nThe other Drowned Pilgrims walk with her, so you'll have to put them down to reach her. Be gentle about it. She doesn't know she's dead.",
+        "The south pool at dusk. Be gentle about it.\n\nThe other drowned pilgrims walk with her, and you'll have to put them down to reach her.",
+        "I heard her stop.\n\nI'll read her prayer at dawn, properly, with the name off her beads, which I've got now. Carry this for her. She'd have wanted somebody to carry it on.",
     ),
     "cb_gaharrz_the_drowned": (
-        "Gaharrz isn't exactly a murloc. He's what happens when a murloc warlord drowns in a sacred pool and refuses "
-        "to be finished with it.\n\n"
-        "The water here was meant to do something to the dead. That was the whole point of the pilgrimage, and people "
-        "walked a month to be laid in it. Whatever it was meant to do, it did to him, and he was the wrong one to do "
-        "it to. He's the reason the shrine goes quiet at dusk, and the reason I keep a hand near a cleaver at night, "
-        "which isn't how a shrine-keeper is supposed to sleep.\n\n"
-        "He lives in the middle pool, and the Water Elementals guard him. They were pool spirits once, and they didn't "
-        "choose this either. Kill them, then him.",
+        "Gaharrz isn't exactly a murloc. He's what happens when a murloc warlord drowns in a sacred pool and refuses to be finished with it.\n\nThe water here was meant to do something to the dead. That was the whole point of the pilgrimage, and people walked a month to be laid in it. Whatever it was meant to do, it did to him, and he was the wrong one to do it to. He's the reason the shrine goes quiet at dusk, and the reason I keep a hand near a cleaver at night, which isn't how a shrine-keeper is supposed to sleep.\n\nHe lives in the middle pool, and the Water Elementals guard him. They were pool spirits once, and they didn't choose this either. Kill them, then him.",
         None,
-        "The pool's still, for the first time since I came here. I keep looking at it.\n\n"
-        "I'll light a lamp for you at the shrine. Take this, from the dead.",
+        "The pool's still, for the first time since I came here. I keep looking at it.\n\nI'll light a lamp for you at the shrine. Take this, from the dead.",
     ),
     "cb_mourning_at_the_shrine": (
-        "I'm Keeper Ahnmar. Walk slowly past the stone. It isn't ceremony, it's uneven, and people turn their ankles.\n\n"
-        "The Shrine of the Fallen Warrior marks where a champion of the plains died holding a pass against a "
-        "war-party three times his number. He held it, and everybody behind it walked home. People forget to say "
-        "that. I've tended the stone for forty years, and it's been quiet, good work.\n\n"
-        "Lately the stone isn't alone. Mourning Spirits drift in at dusk and won't leave, and the sound they make is "
-        "very hard to bear. I've stopped sleeping within earshot of it, which means I'm not doing the job. They "
-        "gather round the stone at sunset. They don't mean harm. They simply can't stop weeping. Release them, and be "
-        "kind about it.",
+        "I'm Keeper Ahnmar. Walk slowly past the stone. It isn't ceremony, it's uneven, and people turn their ankles.\n\nThe Shrine of the Fallen Warrior marks where a champion of the plains died holding a pass against a war-party three times his number. He held it, and everybody behind it walked home. People forget to say that. I've tended the stone for forty years, and it's been quiet, good work.\n\nLately the stone isn't alone. Mourning Spirits drift in at dusk and won't leave, and the sound they make is very hard to bear. I've stopped sleeping within earshot of it, which means I'm not doing the job. They gather round the stone at sunset. They don't mean harm. They simply can't stop weeping. Release them, and be kind about it.",
         None,
-        "The shrine is quiet. That's the most sacred sound it knows, and I'd forgotten.\n\n"
-        "Thank you for being gentle with them.",
+        "The shrine is quiet. That's the most sacred sound it knows, and I'd forgotten.\n\nThank you for being gentle with them.",
     ),
     "cb_echo_of_the_fallen": (
-        "The warrior who died here didn't go quietly, and something of him is still at this stone. It isn't a ghost. "
-        "I want to be precise, because people have come out here expecting a ghost and handled it wrongly. It's an "
-        "echo, a memory of the fight replaying itself for anyone who walks into it, with the same movements in the "
-        "same order and the same end.\n\n"
-        "He isn't haunting the shrine. He's still in the pass. I believe he's caught, and that he can't leave until "
-        "somebody shows him the battle's over, because nothing out here has ever told him.\n\n"
-        "Lay the Mourning Spirits round him to rest first, then face him as an equal. He won't stop for words, "
-        "because he can't hear you yet. When he falls, tell him the pass held. That's all he needs.",
-        "At the shrine stone. Face him as an equal, and when he falls, tell him the pass held.\n\n"
-        "The mourning spirits gather round him, so lay those to rest first.",
-        "I told him the pass held, and I think he nodded.\n\n"
-        "This belongs to the warrior, and he'd want it carried by somebody who understood what it was for.",
+        "The warrior who died here didn't go quietly, and something of him is still at this stone. It isn't a ghost. I want to be precise, because people have come out here expecting a ghost and handled it wrongly. It's an echo, a memory of the fight replaying itself for anyone who walks into it, with the same movements in the same order and the same end.\n\nHe isn't haunting the shrine. He's still in the pass. I believe he's caught, and that he can't leave until somebody shows him the battle's over, because nothing out here has ever told him.\n\nLay the Mourning Spirits round him to rest first, then face him as an equal. He won't stop for words, because he can't hear you yet. When he falls, tell him the pass held. That's all he needs.",
+        "At the shrine stone. Face him as an equal, and when he falls, tell him the pass held.\n\nThe mourning spirits gather round him, so lay those to rest first.",
+        "I told him the pass held, and I think he nodded.\n\nThis belongs to the warrior, and he'd want it carried by somebody who understood what it was for.",
     ),
     "cb_toll_collectors": (
-        "I'm Dogan Ironcart. Raider's Rest is mine. I've run this waystation since the Crossroads was a hitching post "
-        "and a rumour. I pay my taxes to the right people, on time and in full.\n\n"
-        "Somebody else has started collecting on the south road. They call themselves toll-men, which is a better word "
-        "than bandit, and it's done them a lot of good with drivers who want to believe a payment ends the "
-        "conversation. It doesn't, because they never leave anybody any change. A toll is a price, and these men take "
-        "the whole purse.\n\n"
-        "The Bandit Outriders work the road, and the Bandit Cutthroats wait in the oasis grass, which is where the "
-        "real business happens. I'll pay out of my own pocket, gladly, because I've done the sums on a closed south "
-        "road, and they're much worse.",
+        "I'm Dogan Ironcart. Raider's Rest is mine. I've run this waystation since the Crossroads was a hitching post and a rumour. I pay my taxes to the right people, on time and in full.\n\nSomebody else has started collecting on the south road. They call themselves toll-men, which is a better word than bandit, and it's done them a lot of good with drivers who want to believe a payment ends the conversation. It doesn't, because they never leave anybody any change. A toll is a price, and these men take the whole purse.\n\nThe Bandit Outriders work the road, and the Bandit Cutthroats wait in the oasis grass, which is where the real business happens. I'll pay out of my own pocket, gladly, because I've done the sums on a closed south road, and they're much worse.",
         None,
-        "The roads run smoother already. You can feel it in the cart-wheels before you hear it anywhere else.\n\n"
-        "My mind's a great deal calmer this morning, and business is mostly a state of mind.",
+        "The roads run smoother already. You can feel it in the cart-wheels before you hear it anywhere else.\n\nMy mind's a great deal calmer this morning, and business is mostly a state of mind.",
     ),
     "cb_powder_kegs": (
-        "A shipment of blasting powder went missing on the south road. It was mine, and insured, and the insurance is "
-        "a separate tragedy. The bandits have found a use for it. They've got bombardiers now, and they've been "
-        "lobbing kegs at passing wagons. That isn't robbery, because you can't rob a wagon you've blown apart. So "
-        "somebody out there's doing it for the fun of it, and that changes my view of everything else they've done "
-        "this year.\n\n"
-        "I want the kegs back intact, before they work out a reliable way to light them. At the moment they're very "
-        "bad at it, and that's the only reason the road still has wagons on it.\n\n"
-        "They carry small kegs with long fuses in satchels on their backs. Cut the fuses first, and bring the kegs to "
-        "me, preferably not on fire.",
+        "A shipment of blasting powder went missing on the south road. It was mine, and insured, and the insurance is a separate tragedy. The bandits have found a use for it. They've got bombardiers now, and they've been lobbing kegs at passing wagons. That isn't robbery, because you can't rob a wagon you've blown apart. So somebody out there's doing it for the fun of it, and that changes my view of everything else they've done this year.\n\nI want the kegs back intact, before they work out a reliable way to light them. At the moment they're very bad at it, and that's the only reason the road still has wagons on it.\n\nThey carry small kegs with long fuses in satchels on their backs. Cut the fuses first, and bring the kegs to me, preferably not on fire.",
         None,
-        "That's every keg, and not a fuse lit.\n\n"
-        "You may be the most careful soul in the Barrens, and that's an excellent quality in a merchant. It's a pity "
-        "about the pay.",
+        "That's every keg, and not a fuse lit.\n\nYou may be the most careful soul in the Barrens, and that's an excellent quality in a merchant. It's a pity about the pay.",
     ),
     "cb_croc_problem": (
-        "Raider's Rest has water. That's the whole reason it exists, and the whole reason it's a problem, because "
-        "where there's water, there are things that want you in it.\n\n"
-        "The Watering Hole Crocolisks have taken three oxen this season and one of my best guards. And the smugglers on the shore have been feeding them. I've watched it from the porch with a glass, a "
-        "man throwing meat into the shallows and laughing, in the place where he keeps his own boat.\n\n"
-        "So I'd like both gone, in the same afternoon. The crocolisks are in the shallows and the Raider's Rest "
-        "Smugglers are on the shore.",
+        "Raider's Rest has water. That's the whole reason it exists, and the whole reason it's a problem, because where there's water, there are things that want you in it.\n\nThe Watering Hole Crocolisks have taken three oxen this season and one of my best guards. And the smugglers on the shore have been feeding them. I've watched it from the porch with a glass, a man throwing meat into the shallows and laughing, in the place where he keeps his own boat.\n\nSo I'd like both gone, in the same afternoon. The crocolisks are in the shallows and the Raider's Rest Smugglers are on the shore.",
         None,
-        "It's a quiet shore now, and the oxen are safe.\n\n"
-        "You've got the thanks of a very tired merchant, which is worth more than it sounds.",
+        "It's a quiet shore now, and the oxen are safe.\n\nYou've got the thanks of a very tired merchant, which is worth more than it sounds.",
     ),
     "cb_silas_quickfinger": (
-        "The smugglers have a captain, and the captain's name is Silas Quickfinger. He's cost me two years. By my own "
-        "books, he's the most expensive man on the south road, more than the bandits, more than the crocolisks, more "
-        "than the year we lost the bridge.\n\n"
-        "And he's never once been caught holding anything. It isn't luck. Three separate sets of guards have taken "
-        "him and searched him and found a clean pair of hands, and every time, the cargo was already gone. I've finally had enough, and I'll admit the timing's personal "
-        "rather than commercial.\n\n"
-        "He runs the camp on the oasis island, with his Raider's Rest Smugglers round him. You'll know him by the lack "
-        "of anything in his hands. Check your pockets before you go, and again afterwards.",
+        "The smugglers have a captain, and the captain's name is Silas Quickfinger. He's cost me two years. By my own books, he's the most expensive man on the south road, more than the bandits, more than the crocolisks, more than the year we lost the bridge.\n\nAnd he's never once been caught holding anything. It isn't luck. Three separate sets of guards have taken him and searched him and found a clean pair of hands, and every time, the cargo was already gone. I've finally had enough, and I'll admit the timing's personal rather than commercial.\n\nHe runs the camp on the oasis island, with his Raider's Rest Smugglers round him. You'll know him by the lack of anything in his hands. Check your pockets before you go, and again afterwards.",
         None,
-        "You found his ledger too? That's an enormous help.\n\n"
-        "I'd hoped you wouldn't need to touch it, but I've hoped for a great many things this year. Take the reward. "
-        "You've earned every coin of it.",
+        "You found his ledger too? That's an enormous help.\n\nI'd hoped you wouldn't need to touch it, but I've hoped for a great many things this year. Take the reward. You've earned every coin of it.",
     ),
     "cb_dreadmist_approach": (
-        "I'm Scout Zarla. I've come in to Grol'dom to sleep under a roof for once, so I'll be quick.\n\n"
-        "Dreadmist Peak is the grey massif in the north-west corner of the plain, and the cultists inside it have been "
-        "very quiet lately, which is the problem. I've watched that approach for a week. When they're raiding, there's "
-        "traffic: runners out, carts in, and a lot of shouting about rope. There's been almost nothing for six days, "
-        "and the few that do come out are walking in step. A cult that's stopped doing things has finished getting "
-        "ready to do one thing.\n\n"
-        "Follow the road past the third baobab, up to where the cliffs close in. Their banners hang at the canyon "
-        "mouth. Look, but don't linger, and don't touch the banners.",
+        "I'm Scout Zarla. I've come in to Grol'dom to sleep under a roof for once, so I'll be quick.\n\nDreadmist Peak is the grey massif in the north-west corner of the plain, and the cultists inside it have been very quiet lately, which is the problem. I've watched that approach for a week. When they're raiding, there's traffic: runners out, carts in, and a lot of shouting about rope. There's been almost nothing for six days, and the few that do come out are walking in step. A cult that's stopped doing things has finished getting ready to do one thing.\n\nFollow the road past the third baobab, up to where the cliffs close in. Their banners hang at the canyon mouth. Look, but don't linger, and don't touch the banners.",
         None,
-        "A ring of red banners and a summoning circle at the mouth? Then it isn't a cult any more, it's a ritual "
-        "site.\n\n"
-        "Something's coming through, and soon.",
+        "A ring of red banners and a summoning circle at the mouth? Then it isn't a cult any more, it's a ritual site.\n\nSomething's coming through, and soon.",
     ),
     "cb_imps_in_the_brush": (
-        "They've been summoning imps, small, sharp, giggly things that spill out of that canyon and bother everything "
-        "in the brush. Normally I'd leave them. They're a nuisance, and chasing nuisances is how a scout stops "
-        "noticing threats.\n\n"
-        "But an imp is a symptom, and symptoms can be read. Whatever they're feeding those things is coming out of "
-        "that canyon too, and I'd rather learn what from an imp than from the thing the imps are practice for. The "
-        "heart's about the size of a plum, and it smoulders. It'll still be warm in your bag at dusk.\n\n"
-        "Cut the smouldering hearts out of the imps and bring them to me, and wear gloves. That isn't a suggestion.",
+        "They've been summoning imps, small, sharp, giggly things that spill out of that canyon and bother everything in the brush. Normally I'd leave them. They're a nuisance, and chasing nuisances is how a scout stops noticing threats.\n\nBut an imp is a symptom, and symptoms can be read. Whatever they're feeding those things is coming out of that canyon too, and I'd rather learn what from an imp than from the thing the imps are practice for. The heart's about the size of a plum, and it smoulders. It'll still be warm in your bag at dusk.\n\nCut the smouldering hearts out of the imps and bring them to me, and wear gloves. That isn't a suggestion.",
         "Off the imps in the brush below Dreadmist Peak, north of Grol'dom. Wear gloves when you handle the hearts.",
-        "Brimstone and blood. They've been feeding the imps on something that wasn't an animal.\n\n"
-        "I'll send word to the Warchief.",
+        "Brimstone and blood. They've been feeding the imps on something that wasn't an animal.\n\nI'll send word to the Warchief.",
     ),
     "cb_voidcaller_veshra": (
-        "Veshra is their field commander, and she's the reason that circle is going up on schedule. She's a "
-        "voidcaller, with a smile like a razor and a written list of the things she's summoned. I've seen it through a "
-        "glass, and I haven't been able to stop thinking about it since.\n\n"
-        "She's stationed at the canyon mouth, and she isn't casting. She's supervising, walking the circle, correcting "
-        "people and sending things back to be redone. That's why she's the target and not the ritual. The circle is "
-        "stone and paint, and anybody can lay stone. She's the one who knows whether it's right. If she falls, it "
-        "falters.\n\n"
-        "The Dreadmist Cultists round the circle feed her power, so kill them first, and then her, before anyone there "
-        "works out the right order to do things in.",
+        "Veshra is their field commander, and she's the reason that circle is going up on schedule. She's a voidcaller, with a smile like a razor and a written list of the things she's summoned. I've seen it through a glass, and I haven't been able to stop thinking about it since.\n\nShe's stationed at the canyon mouth, and she isn't casting. She's supervising, walking the circle, correcting people and sending things back to be redone. That's why she's the target and not the ritual. The circle is stone and paint, and anybody can lay stone. She's the one who knows whether it's right. If she falls, it falters.\n\nThe Dreadmist Cultists round the circle feed her power, so kill them first, and then her, before anyone there works out the right order to do things in.",
         "At the ritual circle in the canyon mouth of Dreadmist Peak, north of Grol'dom. Kill the cultists first.",
-        "The ritual faltered, and my people on the ridge felt it. Something snapped, and the whole canyon went quiet "
-        "in a way it hasn't all week.\n\n"
-        "You've earned this.",
+        "The ritual faltered, and my people on the ridge felt it. Something snapped, and the whole canyon went quiet in a way it hasn't all week.\n\nYou've earned this.",
     ),
     "cb_quills_and_barbs": (
-        "I'm Ranger Kishi. Don't sit on that stump, because I haven't checked it since yesterday.\n\n"
-        "The Razormane at Bramblescar have a new weapon, quill-throwers who hurl poison-barbed quills out of the "
-        "thorn thickets from cover. Quilboar have always fought the same way, straight at you and loudly, "
-        "which is awful but at least easy to read. Somebody down there has had an idea. I've been hit three times, "
-        "and I didn't see the third one coming at all, and I've been doing this eleven years.\n\n"
-        "I want a bundle of the quills to study, collected by somebody who isn't already carrying three doses of "
-        "whatever that is. The quillthrowers and the veterans carry them. Handle them by the string, because the "
-        "poison's still wet.",
+        "I'm Ranger Kishi. Don't sit on that stump, because I haven't checked it since yesterday.\n\nThe Razormane at Bramblescar have a new weapon, quill-throwers who hurl poison-barbed quills out of the thorn thickets from cover. Quilboar have always fought the same way, straight at you and loudly, which is awful but at least easy to read. Somebody down there has had an idea. I've been hit three times, and I didn't see the third one coming at all, and I've been doing this eleven years.\n\nI want a bundle of the quills to study, collected by somebody who isn't already carrying three doses of whatever that is. The quillthrowers and the veterans carry them. Handle them by the string, because the poison's still wet.",
         None,
-        "Now that's careful work.\n\n"
-        "I'll send these to the Apothecaries. They can build an antidote from a wet sample, and not from a dry one. "
-        "Take this, and please wash your hands.",
+        "Now that's careful work.\n\nI'll send these to the Apothecaries. They can build an antidote from a wet sample, and not from a dry one. Take this, and please wash your hands.",
     ),
     "cb_battleboar_tusks": (
-        "Across the road, the Bristlebacks keep a different kind of weapon. Their battleboars are trained to charge "
-        "anything on two legs, and, which is the part I need to prove, they're bred angrier every generation.\n\n"
-        "That's my claim, and nobody above me believes it. A wild boar is a nuisance. A bred boar means somebody has a "
-        "plan that runs past this season. So I need tusks. A wild boar's tusk and a fourth-generation war-boar's tusk "
-        "don't look the same,, and I can win the argument with a doubtful orc in seconds.\n\n"
-        "Silence the Bristleback Briarweavers while you're in there too. They're what keeps the boars calm, and the "
-        "boars won't be calm without them, which is unpleasant for about a minute and solves the problem for a year.",
+        "Across the road, the Bristlebacks keep a different kind of weapon. Their battleboars are trained to charge anything on two legs, and I need to prove they're bred angrier every generation.\n\nThat's my claim, and nobody above me believes it. A wild boar is a nuisance. A bred boar means somebody has a plan that runs past this season. So I need tusks. A wild boar's tusk and a fourth-generation war-boar's tusk don't look the same, and I can win the argument with a doubtful orc in seconds.\n\nSilence the Bristleback Briarweavers while you're in there too. They're what keeps the boars calm, and the boars won't be calm without them, which is unpleasant for about a minute and solves the problem for a year.",
         None,
-        "That's the evidence. The Bristlebacks are breeding a war-herd, and now the Warchief will know it from a tusk "
-        "instead of from a ranger with a theory.\n\n"
-        "Take your payment, with my thanks.",
+        "That's the evidence. The Bristlebacks are breeding a war-herd, and now the Warchief will know it from a tusk instead of from a ranger with a theory.\n\nTake your payment, with my thanks.",
     ),
     "cb_wardchief_thulg": (
-        "Wardchief Thulg commands the Razormane at Bramblescar from a thorn-throne at the heart of the camp. He's "
-        "properly clever. The quill-throwers are his, and so is the way they're used, and a quilboar camp doesn't "
-        "arrive at either by accident. He's brutal, which is ordinary out here, and he's entirely untroubled by "
-        "doubt, which is the rare and dangerous part.\n\n"
-        "Here's my thinking, and you may disagree. This whole quilboar war runs on his command. The Bristlebacks have "
-        "the numbers and the Razormane have the direction, and the direction is what's been making it a war instead "
-        "of a feud. A Razormane without its Wardchief has no war to fight.\n\n"
-        "The Razormane Veterans hold the approach. Cut through them, and finish him before he's off that throne.",
+        "Wardchief Thulg commands the Razormane at Bramblescar from a thorn-throne at the heart of the camp. He's properly clever. The quill-throwers are his, and so is the way they're used, and a quilboar camp doesn't arrive at either by accident. He's brutal, which is ordinary out here, and he's entirely untroubled by doubt, which is the rare and dangerous part.\n\nHere's my thinking, and you may disagree. This whole quilboar war runs on his command. The Bristlebacks have the numbers and the Razormane have the direction, and the direction is what's been making it a war instead of a feud. A Razormane without its Wardchief has no war to fight.\n\nThe Razormane Veterans hold the approach. Cut through them, and finish him before he's off that throne.",
         None,
-        "The Razormane are leaderless.\n\n"
-        "That won't last, because it never does, but it's a start, and I haven't had one of those in a while.",
+        "The Razormane are leaderless.\n\nThat won't last, because it never does, but it's a start, and I haven't had one of those in a while.",
     ),
     "cb_sowmother_grunka": (
-        "Now for the other side of the road, and I'd like to explain myself rather than just point. The Bristlebacks "
-        "have their own mother, Sow-Mother Grunka, and she's mothered half that war-herd herself.\n\n"
-        "I took Thulg from the Razormane. If I stop there, I haven't ended a war, I've picked a winner, and a tribe "
-        "that wins this war comes out of it with a herd, a grudge, and nobody left to spend them on but us. So it's "
-        "both chiefs or neither. The camp at Agama'gor is a horror of mud and tusks. I've been to the edge of it once, "
-        "and I'd rather not describe the middle, where she sits.\n\n"
-        "Her Bristleback Raiders will try to stop you. Don't let them get set.",
+        "Now for the other side of the road, and I'd like to explain myself rather than just point. The Bristlebacks have their own mother, Sow-Mother Grunka, and she's mothered half that war-herd herself.\n\nI took Thulg from the Razormane. If I stop there, I haven't ended a war, I've picked a winner, and a tribe that wins this war comes out of it with a herd, a grudge, and nobody left to spend them on but us. So it's both chiefs or neither. The camp at Agama'gor is a horror of mud and tusks. I've been to the edge of it once, and I'd rather not describe the middle, where she sits.\n\nHer Bristleback Raiders will try to stop you. Don't let them get set.",
         None,
-        "Both chiefs are gone, and the war will stumble now.\n\n"
-        "It was never going to go quiet, but it will be quieter, and out here that's all anybody gets.",
+        "Both chiefs are gone, and the war will stumble now.\n\nIt was never going to go quiet, but it will be quieter, and out here that's all anybody gets.",
     ),
     "cb_snapper_season": (
-        "I'm Bridgewarden Karga. Walk on the left-hand planks, because the right ones are next week's job.\n\n"
-        "This bridge joins Durotar to the Barrens, and there isn't another one. Everything that moves between the two "
-        "goes over my planks, and when it can't, people go round by the ford and some of them don't come back. I keep "
-        "the planks sound and the traffic moving, and I'm the only one doing it.\n\n"
-        "The Riverbank Snappers have taken to chewing the pilings underwater, where I can't see them. I only found out "
-        "because a piling went soft under a boot-heel. I need their shell plates to armour the supports. Bring me "
-        "plates, and I'll nail them to the pilings tonight, and the next snapper can try chewing that.",
+        "I'm Bridgewarden Karga. Walk on the left-hand planks, because the right ones are next week's job.\n\nThis bridge joins Durotar to the Barrens, and there isn't another one. Everything that moves between the two goes over my planks, and when it can't, people go round by the ford and some of them don't come back. I keep the planks sound and the traffic moving, and I'm the only one doing it.\n\nThe Riverbank Snappers have taken to chewing the pilings underwater, where I can't see them. I only found out because a piling went soft under a boot-heel. I need their shell plates to armour the supports. Bring me plates, and I'll nail them to the pilings tonight, and the next snapper can try chewing that.",
         None,
-        "These plates are as thick as slabs.\n\n"
-        "This bridge will outlast us all now, which was the idea.",
+        "These plates are as thick as slabs.\n\nThis bridge will outlast us all now, which was the idea.",
     ),
     "cb_bridge_watch": (
-        "The pilings are armoured, so now it's the sky and the shore, which is a bridge-warden's life in one "
-        "sentence.\n\n"
-        "The Sunscale Screechers have taken to dive-bombing travellers at the Barrens end. They aren't hunting, "
-        "because they're not big enough to carry anybody off. They do it to move people along, and it works. I've "
-        "watched four drivers break into a run on a bridge, which is exactly how you lose a cart over the side. And "
-        "the Riverbank Snappers haven't learned their lesson, though I'd honestly hoped they had.\n\n"
-        "The next caravan crosses in two days, and I'd like the bank clear before it does, because a caravan that has "
-        "a bad crossing takes the ford next time and tells everyone else to.",
+        "The pilings are armoured, so now it's the sky and the shore, which is a bridge-warden's life in one sentence.\n\nThe Sunscale Screechers have taken to dive-bombing travellers at the Barrens end. They aren't hunting, because they're not big enough to carry anybody off. They do it to move people along, and it works. I've watched four drivers break into a run on a bridge, which is exactly how you lose a cart over the side. And the Riverbank Snappers haven't learned their lesson, though I'd honestly hoped they had.\n\nThe next caravan crosses in two days, and I'd like the bank clear before it does, because a caravan that has a bad crossing takes the ford next time and tells everyone else to.",
         "The Barrens end of the bridge, in the air above and on the bank below.",
-        "It's quiet at last, and the caravans can cross in peace.\n\n"
-        "Take this, and think of me kindly when you cross.",
+        "It's quiet at last, and the caravans can cross in peace.\n\nTake this, and think of me kindly when you cross.",
     ),
     "cb_wailing_mouth": (
-        "Now I'll tell you where the water really comes from, and you'll understand why I've been asking you for all "
-        "of this. The Wailing Caverns are this oasis's other half. Every spring at Lushwater is fed from the green "
-        "warren beneath it, the same water a day earlier.\n\n"
-        "For a season, something down in that warren has been dreaming wrong. The pools run cold at dusk, at the "
-        "warmest hour of the day. The animals come up "
-        "out of the mouth already mad. They aren't wild, they're sick, and every one of them drank the same water I did.\n\n"
-        "The mouth is south of the bluff. Kill the Deviate Raptors on the bank, the Deviate Pythons in the reeds, and "
-        "the Deviate Crocolisks where it's deepest. Be quick, and don't take any of it personally.",
+        "Now I'll tell you where the water really comes from, and you'll understand why I've been asking you for all of this. The Wailing Caverns are this oasis's other half. Every spring at Lushwater is fed from the green warren beneath it, the same water a day earlier.\n\nFor a season, something down in that warren has been dreaming wrong. The pools run cold at dusk, at the warmest hour of the day. The animals come up out of the mouth already mad. They aren't wild, they're sick, and every one of them drank the same water I did.\n\nThe mouth is south of the bluff. Kill the Deviate Raptors on the bank, the Deviate Pythons in the reeds, and the Deviate Crocolisks where it's deepest. Be quick, and don't take any of it personally.",
         None,
-        "They were beautiful once, you know.\n\n"
-        "Come with me. There's more to understand, and I'd rather you heard it from me than worked it out down there.",
+        "They were beautiful once, you know.\n\nCome with me. There's more to understand, and I'd rather you heard it from me than worked it out down there.",
     ),
     "cb_dewdrops_of_the_dream": (
-        "Where the dreaming leaks out, it condenses, and I mean that literally. There's a dew in the mid-halls, on the "
-        "wisps that drift through them. It doesn't evaporate. I've had a bead of it in a dry clay cup on a hot shelf "
-        "for eleven days, and it's exactly the size it was. If you look into one, you see what the sleeper sees.\n\n"
-        "I've done that twice. The first time, I learned more about the warren than in forty years of keeping its "
-        "water. The second time, I lost most of an afternoon, and I haven't done it since. So collect them, and don't "
-        "stare into them.\n\n"
-        "Kill the Nightmare Wisps for their dew, and clear the Deviate Broodlings off the nests while you're in there, "
-        "or they'll be at your back.",
+        "Where the dreaming leaks out, it condenses, and I mean that literally. There's a dew in the mid-halls, on the wisps that drift through them. It doesn't evaporate. I've had a bead of it in a dry clay cup on a hot shelf for eleven days, and it's exactly the size it was. If you look into one, you see what the sleeper sees.\n\nI've done that twice. The first time, I learned more about the warren than in forty years of keeping its water. The second time, I lost most of an afternoon, and I haven't done it since. So collect them, and don't stare into them.\n\nKill the Nightmare Wisps for their dew, and clear the Deviate Broodlings off the nests while you're in there, or they'll be at your back.",
         None,
-        "You brought the drops back without spilling one.\n\n"
-        "Look at what this one shows, properly, once, and then put it down. The sleeper isn't alone. The Fang have "
-        "his ear.",
+        "You brought the drops back without spilling one.\n\nLook at what this one shows, properly, once, and then put it down. The sleeper isn't alone. The Fang have his ear.",
     ),
     "cb_fang_and_flame": (
-        "The Druids of the Fang were a school of healers. They're a cult now. That much is settled. But the cult has initiates who still "
-        "believe they're healing, who came down here to learn what I learned, from people who were teaching it "
-        "properly within my lifetime.\n\n"
-        "What I need is proof of whether the school is one body or a scatter of lost druids. If it's a scatter, it's "
-        "a tragedy and we clear it out. If it's one hand, somebody is doing this on purpose, and there's a name at "
-        "the end of the chain.\n\n"
-        "The Fang Initiates break a shard at the end of each rite. Bring me a few, and I'll fit them together. Kill "
-        "the Druids of the Fang guarding them too, and don't stop to watch the rite.",
+        "The Druids of the Fang were a school of healers. They're a cult now. That much is settled. But the cult has initiates who still believe they're healing, who came down here to learn what I learned, from people who were teaching it properly within my lifetime.\n\nWhat I need is proof of whether the school is one body or a scatter of lost druids. If it's a scatter, it's a tragedy and we clear it out. If it's one hand, somebody is doing this on purpose, and there's a name at the end of the chain.\n\nThe Fang Initiates break a shard at the end of each rite. Bring me a few, and I'll fit them together. Kill the Druids of the Fang guarding them too, and don't stop to watch the rite.",
         None,
-        "Look, these shards fit together. There's one seal on them, from one hand.\n\n"
-        "It's time to name that hand, and I find I've known it for a while.",
+        "Look, these shards fit together. There's one seal on them, from one hand.\n\nIt's time to name that hand, and I find I've known it for a while.",
     ),
     "cb_lady_of_the_fang": (
-        "Lady Anacondra was my student, long ago. I taught her the water, and the way the warren feeds it, and how to "
-        "tell a sick animal from an angry one, which is the first lesson and the one everything else rests on. She "
-        "was the first of the Fang to forget which was the lesson and which was the sickness.\n\n"
-        "She keeps the north platform of the Serpentbloom Cavern now, and her druids hold the river crossing below "
-        "it. I'd ask you to end it gently. I know it won't go that way, and I'm asking anyway, because I'd rather "
-        "have asked.\n\n"
-        "The Deviate Lashers grip the river's edge, and she waits above them. She'll heal through anything you throw "
-        "at her unless you move on her fast. She was always better at that than I was.",
+        "Lady Anacondra was my student, long ago. I taught her the water, and the way the warren feeds it, and how to tell a sick animal from an angry one, which is the first lesson and the one everything else rests on. She was the first of the Fang to forget which was the lesson and which was the sickness.\n\nShe keeps the north platform of the Serpentbloom Cavern now, and her druids hold the river crossing below it. I'd ask you to end it gently. I know it won't go that way, and I'm asking anyway, because I'd rather have asked.\n\nThe Deviate Lashers grip the river's edge, and she waits above them. She'll heal through anything you throw at her unless you move on her fast. She was always better at that than I was.",
         None,
-        "She was clever once, and she could have been so much more than this.\n\n"
-        "This is what she was meant to become, and it's yours.",
+        "She was clever once, and she could have been so much more than this.\n\nThis is what she was meant to become, and it's yours.",
     ),
     "cb_cobrahn_and_kresh": (
-        "Two of the warren's masters sit on the western ring, and they aren't the same kind of problem. Lord Cobrahn "
-        "has begun to prefer his serpent form. That's the Fang's phrase, and what it means is that he's stopped coming "
-        "back, and at some point he stopped meaning to.\n\n"
-        "Then there's Kresh, a river-turtle old enough to remember when this pool was a pool. Kresh isn't evil. Kresh is hurt. That won't matter at all in the "
-        "fight, but it matters to me, and I'd like it said before you go.\n\n"
-        "Cobrahn's in his den to the west, and Kresh is in the pool further north. Kresh pulls into its shell and "
-        "hits hard coming out, so don't crowd it when it closes. Cobrahn's venom lingers, so bring something that "
-        "cures it.",
-        "The western ring, with Cobrahn in his den and Kresh in the pool north of it.\n\n"
-        "The Deviate Shamblers hold the ring between them.",
-        "Both are dead, and the west ring is quiet.\n\n"
-        "I didn't expect to miss the sound of the old turtle shifting in the water, but I do.",
+        "Two of the warren's masters sit on the western ring, and they aren't the same kind of problem. Lord Cobrahn has begun to prefer his serpent form. That's the Fang's phrase, and what it means is that he's stopped coming back, and at some point he stopped meaning to.\n\nThen there's Kresh, a river-turtle old enough to remember when this pool was a pool. Kresh isn't evil. Kresh is hurt. That won't matter at all in the fight, but it matters to me, and I'd like it said before you go.\n\nCobrahn's in his den to the west, and Kresh is in the pool further north. Kresh pulls into its shell and hits hard coming out, so don't crowd it when it closes. Cobrahn's venom lingers, so bring something that cures it.",
+        "The western ring, with Cobrahn in his den and Kresh in the pool north of it.\n\nThe Deviate Shamblers hold the ring between them.",
+        "Both are dead, and the west ring is quiet.\n\nI didn't expect to miss the sound of the old turtle shifting in the water, but I do.",
     ),
     "cb_thunder_and_slumber": (
-        "There are two more, and then the ring can be walked in either direction, which it hasn't been in years. Lord "
-        "Pythas holds the east gallery with thunder and sleep. Skum holds the north with thunder alone. He's an old "
-        "lizard, and simpler for it.\n\n"
-        "They aren't working together. People go in expecting a pair and fight them like one. They've each taken an "
-        "end, and neither has crossed the middle in a season, which is why both have to go. Kill one and the ring's "
-        "still shut. You've only changed which way round you can't walk it.\n\n"
-        "Pythas casts sleep, and a sleeping friend in that gallery is how parties end, so carry a trinket or bring "
-        "someone who can wake you. Skum's roar weakens your arms, and the weakness builds, so kill him before it "
-        "stacks.",
-        "Back into the Wailing Caverns, south-west of the oasis, and deeper. Pythas is in the east gallery, and Skum "
-        "is in the north.\n\n"
-        "The Deviate Ravagers run the galleries between the two.",
-        "The ring's open, and the Fang's own gallery waits at the heart of it.\n\n"
-        "Be careful in there. It's quieter than it has any business being.",
+        "There are two more, and then the ring can be walked in either direction, which it hasn't been in years. Lord Pythas holds the east gallery with thunder and sleep. Skum holds the north with thunder alone. He's an old lizard, and simpler for it.\n\nThey aren't working together. People go in expecting a pair and fight them like one. They've each taken an end, and neither has crossed the middle in a season, which is why both have to go. Kill one and the ring's still shut. You've only changed which way round you can't walk it.\n\nPythas casts sleep, and a sleeping friend in that gallery is how parties end, so carry a trinket or bring someone who can wake you. Skum's roar weakens your arms, and the weakness builds, so kill him before it stacks.",
+        "Back into the Wailing Caverns, south-west of the oasis, and deeper. Pythas is in the east gallery, and Skum is in the north.\n\nThe Deviate Ravagers run the galleries between the two.",
+        "The ring's open, and the Fang's own gallery waits at the heart of it.\n\nBe careful in there. It's quieter than it has any business being.",
     ),
     "cb_the_everliving_and_the_serpent": (
-        "At the heart of the ring, in the Chamber of the Fang, two things stand between you and the sleeper's door. "
-        "Lord Serpentis is the cult's last lord, and by a distance its most devoted. The others drifted into this. He "
-        "chose it, over and over, and he's still choosing it.\n\n"
-        "Then there's Verdan the Everliving, a thing of bark and root the cult has been feeding for years. I don't know what they've been feeding it. I've "
-        "got a guess, and the guess involves the reed-cutters I've lost, and I won't say more than that to somebody "
-        "about to walk in there.\n\n"
-        "Serpentis shields himself before every fight, so strip it with everything at once, because patience is "
-        "exactly wrong against him. Verdan hits like a falling tree. Don't stand in the vines, because they're his.",
+        "At the heart of the ring, in the Chamber of the Fang, two things stand between you and the sleeper's door. Lord Serpentis is the cult's last lord, and by a distance its most devoted. The others drifted into this. He chose it, over and over, and he's still choosing it.\n\nThen there's Verdan the Everliving, a thing of bark and root the cult has been feeding for years. I don't know what they've been feeding it. I've got a guess, and the guess involves the reed-cutters I've lost, and I won't say more than that to somebody about to walk in there.\n\nSerpentis shields himself before every fight, so strip it with everything at once, because patience is exactly wrong against him. Verdan hits like a falling tree. Don't stand in the vines, because they're his.",
         None,
-        "They both lie still, and behind them is the way into Naralex's Dream.\n\n"
-        "I wish I could go with you, but I'd be no use and I'd slow you down, and I've had a long time to be honest "
-        "about that. I'll wait here.",
+        "They both lie still, and behind them is the way into Naralex's Dream.\n\nI wish I could go with you, but I'd be no use and I'd slow you down, and I've had a long time to be honest about that. I'll wait here.",
     ),
     "cb_naralexs_dream": (
-        "Naralex came here to wake the Barrens. That was all of it: a green dream under a dry plain, and a druid who "
-        "thought he could pull one up into the other. I'd like it on the record that it was a good idea.\n\n"
-        "He fell asleep inside his own dream instead, and the dream fed on him for years, with nobody able to reach "
-        "him and the water coming up colder every season. At its heart now waits Mutanus the Devourer, a nightmare in "
-        "the shape of a murloc, which is the dream's own joke and not a kind one.\n\n"
-        "End it, and bring me the pearl. Then the dream can go back to being a dream, and this oasis can be fed by "
-        "something that isn't in pain. Mutanus devours and then screams, and the scream will hurt worse than the "
-        "bite. Bring everyone you trust.",
+        "Naralex came here to wake the Barrens. That was all of it: a green dream under a dry plain, and a druid who thought he could pull one up into the other. I'd like it on the record that it was a good idea.\n\nHe fell asleep inside his own dream instead, and the dream fed on him for years, with nobody able to reach him and the water coming up colder every season. At its heart now waits Mutanus the Devourer, a nightmare in the shape of a murloc, which is the dream's own joke and not a kind one.\n\nEnd it, and bring me the pearl. Then the dream can go back to being a dream, and this oasis can be fed by something that isn't in pain. Mutanus devours and then screams, and the scream will hurt worse than the bite. Bring everyone you trust.",
         None,
-        "The pearl's warm, and I can feel him in it, sleeping properly for the first time in years.\n\n"
-        "Take this, with everything this oasis has to give. I mean that literally. Ask me for anything.",
+        "The pearl's warm, and I can feel him in it, sleeping properly for the first time in years.\n\nTake this, with everything this oasis has to give. I mean that literally. Ask me for anything.",
     ),
     "cb_old_hissfang": (
-        "There's one more thing, and it's got nothing to do with the Fang or the dream. There's a python in the south "
-        "hollow of the warren, older than the Fang and older than the oasis, I think, though I can't prove the "
-        "second part.\n\n"
-        "It isn't sick, and that's the whole distinction I'm drawing. Everything else you've put down in that warren "
-        "was suffering, and I asked you to end it. This one's simply large, and it's doing exactly what it's always "
-        "done, and for three seasons that's been eating my reed-cutters. So I'm asking you, politely and without "
-        "pretending it's mercy, to stop it.\n\n"
-        "It's in the south hollow, off the first cavern, west of the entry tube. It's very large. Don't be impressed "
-        "by it, because people are, and that's the moment it takes them.",
+        "There's one more thing, and it's got nothing to do with the Fang or the dream. There's a python in the south hollow of the warren, older than the Fang and older than the oasis, I think, though I can't prove the second part.\n\nIt isn't sick, and that's the whole distinction I'm drawing. Everything else you've put down in that warren was suffering, and I asked you to end it. This one's simply large, and it's doing exactly what it's always done, and for three seasons that's been eating my reed-cutters. So I'm asking you, politely and without pretending it's mercy, to stop it.\n\nIt's in the south hollow, off the first cavern, west of the entry tube. It's very large. Don't be impressed by it, because people are, and that's the moment it takes them.",
         None,
-        "That's three seasons of missing reed-cutters put right.\n\n"
-        "It was a magnificent animal, and I won't have anyone say otherwise.",
+        "That's three seasons of missing reed-cutters put right.\n\nIt was a magnificent animal, and I won't have anyone say otherwise.",
     ),
 }
