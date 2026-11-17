@@ -26,10 +26,25 @@ and all, but this keeps happening."
   zone missing from data/zones/zone_levels.json, food or drink not covered, or stock added at runtime), fix the
   stock across every zone, and make the check fail on exactly this case so it can't come back.
 
+**Done, 17 Nov 2026 morning.** Why it kept happening:
+- `qa_vendor_stock.py` printed 256 under-levelled listings on 92 vendors every run, and then returned 0.
+- Its zone match skipped 21 vendors in "the_" zones.
+
+The fix:
+- `tools/fix_vendor_levels.py` puts food, drink, meals, potions, arrows, bolts and shot on tier chains. 183 listings
+  on 56 vendors were brought up to the best tiers in reach of their zone, for example Light's Hope's quartermaster:
+  Bread and Cheese -> High Table Feast, Waterskin -> Starfall Wine.
+- The QA now fails on any chain item more than 8 levels under the zone, and on any vendor whose zone has no band. A
+  bread roll put back in a level-56 shop fails it.
+- Sun Rock Retreat had no band; it's 26-29, the value `build_zone_levels.py` derives.
+- Don't re-run `build_zone_levels.py` blind: today it would give the Bulwark 7-54 and Northern Barrens 12-33. Hand
+  edits in zone_levels.json are holding those, so the builder has a bug to look at.
+
 ## Vendor recipe tooltips
 Kyle: "when buying recipes it should say what it does. Also what it requires! Like not a level but a 'Jewelcrafting -
 200'". A recipe, design or formula on a vendor shows "Requires level 1". It should show what it makes (the item's
 card or the consumable's effect) and "Requires Jewelcrafting (200)".
+**Done** in b5e7da3 (`ui/recipe_tooltip.py`, shared by the bags and the vendor).
 
 ## Booty Bay (small)
 - The top-left way in and out to Stranglethorn is blocked.

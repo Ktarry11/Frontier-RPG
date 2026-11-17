@@ -16,6 +16,14 @@ Two different failures, and only the second is obvious from a vendor record:
                    This is the one that matters: a tier nobody sells might as well not exist, and
                    it is invisible from any single vendor's record.
 
+IT NEVER FAILED (Kyle, 16 Nov 2026: "Looking at a vendor sell lvl 1 food in a lvl 55 zone is fun and all, but this
+keeps happening"). It printed 256 under-levelled listings on 92 vendors and returned 0, and its own slug missed every
+"the_" zone. Now:
+  HARD (fails)  a vendor whose zone has no level band; and any listing on a tier CHAIN (food, drink, meals, potions,
+                ammunition: tools/fix_vendor_levels.CHAINS) more than SLACK under the zone's floor when a better tier
+                exists. That is exactly the bread in a level-55 inn. tools/fix_vendor_levels.py is the fix.
+  SOFT (listed) the wider groups below (elixirs, gadgets, explosives), which aren't strict tiers of each other.
+
 A vendor is matched to its zone's band through data/zones/zone_levels.json, so the thresholds move
 with the encounter tables rather than being restated here.
 
@@ -66,27 +74,47 @@ def _levels():
 
 
 def _vendor_bands(bands):
-    """vendor record -> (zone display name, band), for vendors whose zone we can place."""
-    def slug(n):
-        return n.lower().removeprefix("the ").replace(" ", "_").replace("'", "")
+    """vendor record -> (zone display name, band), for vendors whose zone we can place, and the ones we can't.
 
-    by_slug = {}
-    for z, b in bands.items():
-        by_slug.setdefault(slug(z), (z, b))
-        by_slug.setdefault(slug(z).split("_")[-1], (z, b))
-    out = {}
+    Matched with the game's own key (world/zone_keys), the one VendorManager uses to put a vendor in a zone. The
+    slug this had before dropped "The " from a band's name and not "the_" from a vendor's zone, so 21 vendors were
+    never looked at."""
+    from world.zone_keys import zone_key
+    by_key = {zone_key(z): (z, b) for z, b in bands.items()}
+    out, lost = {}, []
     for r in json.loads(Path("data/npcs/vendors.json").read_text(encoding="utf-8"))["vendors"]:
-        hit = by_slug.get(str(r.get("zone", "")).lower())
+        hit = by_key.get(zone_key(str(r.get("zone", ""))))
         if hit:
             out[r["vendor_id"]] = (r, hit[0], hit[1])
-    return out
+        else:
+            lost.append((r["vendor_id"], r.get("zone")))
+    return out, lost
 
 
 def main():
     lv = _levels()
     bands = {z: b for z, b in
              json.loads(Path("data/zones/zone_levels.json").read_text(encoding="utf-8"))["zones"].items()}
-    vend = _vendor_bands(bands)
+    vend, lost = _vendor_bands(bands)
+    hard = []
+    print("=== VENDORS WITH NO LEVEL BAND (hard) ===")
+    print("  none" if not lost else "\n".join(f"  {vid} in {z}" for vid, z in lost))
+    hard += [f"{vid}: zone {z} has no band in data/zones/zone_levels.json" for vid, z in lost]
+
+    from tools.fix_vendor_levels import CHAINS, chain_of, under_levelled, SLACK as CHAIN_SLACK, levels as chain_levels
+    clv = chain_levels()
+    chains = chain_of(clv)
+    print(f"\n=== UNDER-LEVELLED ON A TIER CHAIN (hard: {', '.join(CHAINS)}) ===")
+    n0 = len(hard)
+    for vid, (r, zn, b) in sorted(vend.items(), key=lambda kv: -kv[1][2][0]):
+        for cid, chain, want in under_levelled(r, b[0], clv, chains):
+            line = (f"{zn} ({b[0]}-{b[1]}) {r['name']}: sells {cid} (lvl {clv[cid]}), more than {CHAIN_SLACK} under the "
+                    f"zone; {chain} has {want} (lvl {clv[want]})")
+            print("  " + line)
+            hard.append(line)
+    if len(hard) == n0:
+        print("  none")
+    print()
 
     # best tier of each tiered group, by level
     tiers = defaultdict(list)
@@ -112,7 +140,7 @@ def main():
             if better:
                 under[(zn, tuple(b), r["name"])].append((rl, cid, better[-1]))
 
-    print("=== UNDER-LEVELLED STOCK (a better tier exists and the player can use it) ===")
+    print("=== UNDER-LEVELLED STOCK, ALL GROUPS (listed: a better tier exists and the player can use it) ===")
     if not under:
         print("  none")
     for (zn, b, who) in sorted(under, key=lambda k: (-k[1][0], k[0], k[2])):
@@ -141,8 +169,10 @@ def main():
         print("  none")
 
     print(f"\n{sum(len(v) for v in under.values())} under-levelled listings across "
-          f"{len(under)} vendors, {gaps} unsold best-tiers.")
-    return 0
+          f"{len(under)} vendors, {gaps} unsold best-tiers (both listed, not failed).")
+    print(f"{len(hard)} hard failure(s)")
+    print("vendor stock OK" if not hard else "FAILED")
+    return 1 if hard else 0
 
 
 if __name__ == "__main__":
