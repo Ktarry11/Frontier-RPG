@@ -736,25 +736,34 @@ class PartyScreen(BaseScreen):
         y += 24
         start = y
 
+        # EVERY ROW CAN BE HOVERED (Kyle, 16 Nov 2026: "we should be able to hover over ALL stats and see what
+        # they offer"). Each row remembers its stat; ui/stat_tooltips.py says what it does for this member.
+        self.stat_hover_rects = []
+
         def block(title, rows, cx, cy):
             self.renderer.draw_text(screen, title, (cx, cy), font_size=14,
                                     color=COLOR_HEADER)
             cy += 22
-            for label, value in rows:
+            for row in rows:
+                label, value = row[0], row[1]
+                stat_id = row[2] if len(row) > 2 else None
+                hot = stat_id and pygame.Rect(cx - 4, cy - 2, 210, 20).collidepoint(pygame.mouse.get_pos())
                 self.renderer.draw_text(screen, label, (cx, cy), font_size=14,
-                                        color=COLOR_MUTED)
+                                        color=COLOR_GOLD if hot else COLOR_MUTED)
                 vw = self.renderer._get_font(font_size=14).size(value)[0]
                 self.renderer.draw_text(screen, value,
                                         (cx + 200 - vw, cy), font_size=14)
+                if stat_id:
+                    self.stat_hover_rects.append((pygame.Rect(cx - 4, cy - 2, 210, 20), stat_id))
                 cy += 20
             return cy + 10
 
         y = block("ATTRIBUTES", [
-            ("Strength", self._num(self._eff(member, "strength"))),
-            ("Agility", self._num(self._eff(member, "agility"))),
-            ("Stamina", self._num(self._eff(member, "stamina"))),
-            ("Intellect", self._num(self._eff(member, "intellect"))),
-            ("Spirit", self._num(self._eff(member, "spirit"))),
+            ("Strength", self._num(self._eff(member, "strength")), "strength"),
+            ("Agility", self._num(self._eff(member, "agility")), "agility"),
+            ("Stamina", self._num(self._eff(member, "stamina")), "stamina"),
+            ("Intellect", self._num(self._eff(member, "intellect")), "intellect"),
+            ("Spirit", self._num(self._eff(member, "spirit")), "spirit"),
             # Armor is the one attribute whose raw number tells you nothing:
             # 723 is excellent at 26 and thin at 60, because the mitigation
             # curve's denominator scales with the attacker's level. Kyle,
@@ -762,30 +771,30 @@ class PartyScreen(BaseScreen):
             # Shown against a same-level attacker, which is what the %
             # actually means and why it moves when you level without the
             # armour number changing.
-            ("Armor", self._armor_line(member)),
+            ("Armor", self._armor_line(member), "armor"),
         ], x, y)
 
         y = block("OFFENCE", [
-            ("Attack power", self._num(getattr(member, "attack_power", 0))),
-            ("Ranged AP", self._num(getattr(member, "ranged_attack_power", 0))),
-            ("Spell power", self._num(getattr(member, "spell_power", 0))),
-            ("Healing power", self._num(getattr(member, "healing_power", 0))),
-            ("Crit (phys)", self._num(getattr(member, "crit_chance_physical", 0), pct=True)),
-            ("Crit (spell)", self._num(getattr(member, "crit_chance_spell", 0), pct=True)),
-            ("Haste", self._num(getattr(member, "haste", 0), pct=True)),
+            ("Attack power", self._num(getattr(member, "attack_power", 0)), "attack_power"),
+            ("Ranged AP", self._num(getattr(member, "ranged_attack_power", 0)), "ranged_attack_power"),
+            ("Spell power", self._num(getattr(member, "spell_power", 0)), "spell_power"),
+            ("Healing power", self._num(getattr(member, "healing_power", 0)), "healing_power"),
+            ("Crit (phys)", self._num(getattr(member, "crit_chance_physical", 0), pct=True), "crit_chance_physical"),
+            ("Crit (spell)", self._num(getattr(member, "crit_chance_spell", 0), pct=True), "crit_chance_spell"),
+            ("Haste", self._num(getattr(member, "haste", 0), pct=True), "haste"),
         ], x, y)
 
         y2 = block("DEFENCE", [
-            ("Dodge", self._num(getattr(member, "dodge", 0), pct=True)),
-            ("Parry", self._num(getattr(member, "parry", 0), pct=True)),
-            ("Block chance", self._num(getattr(member, "block_chance", 0), pct=True)),
-            ("Block value", self._num(getattr(member, "block_value", 0))),
+            ("Dodge", self._num(getattr(member, "dodge", 0), pct=True), "dodge"),
+            ("Parry", self._num(getattr(member, "parry", 0), pct=True), "parry"),
+            ("Block chance", self._num(getattr(member, "block_chance", 0), pct=True), "block_chance"),
+            ("Block value", self._num(getattr(member, "block_value", 0)), "block_value"),
             # What actually comes back each turn - Spirit's share AND mp5 - not the bare mp5
             # stat, which read "0" on a caster regenerating 40 a turn.
-            ("Mana per turn", self._num(member.mana_per_turn() if hasattr(member, "mana_per_turn") else 0)),
-            ("  while casting", self._num(member.mana_per_turn(casting=True) if hasattr(member, "mana_per_turn") else 0)),
-            ("Health per turn", self._num(member.hp5_total() if hasattr(member, "hp5_total") else 0)),
-            ("Spell pen.", self._num(getattr(member, "spell_penetration", 0))),
+            ("Mana per turn", self._num(member.mana_per_turn() if hasattr(member, "mana_per_turn") else 0), "mana_per_turn"),
+            ("  while casting", self._num(member.mana_per_turn(casting=True) if hasattr(member, "mana_per_turn") else 0), "mana_per_turn_casting"),
+            ("Health per turn", self._num(member.hp5_total() if hasattr(member, "hp5_total") else 0), "hp5"),
+            ("Spell pen.", self._num(getattr(member, "spell_penetration", 0)), "spell_penetration"),
         ], col2, start)
 
         # RESISTANCES. Always shown, including the zeroes - a resistance of 0
@@ -795,17 +804,39 @@ class PartyScreen(BaseScreen):
         # as Armor above: the rating alone does not tell you what it does,
         # and the curve moves with level.
         y2 = block("RESISTANCES",
-                   [(name, self._resist_line(member, school))
+                   [(name, self._resist_line(member, school), f"resist_{school}")
                     for name, school in self.RESIST_SCHOOLS], col2, y2)
 
-        schools = [(n, getattr(member, a, 0) or 0) for n, a in self.SCHOOLS]
-        live = [(n, v) for n, v in schools if v]
-        if live:
-            y2 = block("SPELL POWER BY SCHOOL",
-                       [(n, "+" + self._num(v)) for n, v in live], col2, y2)
-        else:
-            self.renderer.draw_text(screen, "No school-specific spell power.",
-                                    (col2, y2), font_size=13, color=COLOR_MUTED)
+        # SPELL POWER BY SCHOOL lives in Spell power's hover now, WoW style (Kyle, 16 Nov 2026: "spellpower by
+        # school is weird.... lets do it wow style where you HOVER OVER the spell power and it breaks it down").
+        self.renderer.draw_text(screen, "Hover any stat to see what it does for you.", (col2, y2),
+                                font_size=13, color=COLOR_MUTED)
+        self._draw_stat_tooltip(screen, member)
+
+    def _draw_stat_tooltip(self, screen, member):
+        """The hovered stat's card (ui/stat_tooltips.py), kept on the screen."""
+        pos = pygame.mouse.get_pos()
+        hit = next((sid for r, sid in getattr(self, "stat_hover_rects", []) if r.collidepoint(pos)), None)
+        if not hit:
+            return
+        from ui.stat_tooltips import stat_tooltip
+        lines = stat_tooltip(member, hit)
+        if not lines:
+            return
+        colours = {"title": COLOR_GOLD, "body": (215, 215, 220), "good": (120, 210, 130), "dim": COLOR_MUTED}
+        w = 340
+        wrapped = []
+        for text, kind in lines:
+            for t in self.renderer.wrap_text(text, w - 20, size="small") or [""]:
+                wrapped.append((t, kind))
+        h = 14 + 19 * len(wrapped)
+        x = min(pos[0] + 18, SCREEN_WIDTH - w - 8)
+        y = min(pos[1] + 14, SCREEN_HEIGHT - h - 8)
+        box = pygame.Rect(x, y, w, h)
+        pygame.draw.rect(screen, (16, 16, 22), box)
+        pygame.draw.rect(screen, (196, 158, 74), box, 1)
+        for i, (t, kind) in enumerate(wrapped):
+            self.renderer.draw_text(screen, t, (x + 10, y + 7 + i * 19), size="small", color=colours.get(kind))
 
     def _armor_line(self, member):
         """'723  (31.4%)' - the rating and what it currently mitigates."""
