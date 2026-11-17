@@ -148,6 +148,7 @@ CLASS_ABILITY_TREE_OVERRIDES = {
     "warrior_intimidating_shout": "warrior_protection",
     "warrior_retaliation": "warrior_protection",
     "warrior_battle_shout": "warrior_fury",
+    "warrior_commanding_shout": "warrior_fury",      # 17 Nov 2026: the long shout, beside the short one
     "warrior_execute": "warrior_fury",
     "warrior_pummel": "warrior_fury",
     # Battle Shout, Pummel, Rend: all-spec baseline, no single tree
@@ -187,6 +188,7 @@ CLASS_ABILITY_TREE_OVERRIDES = {
     "hunter_steady_shot": "hunter_marksmanship",
     "hunter_multi_shot": "hunter_marksmanship",
     "hunter_aimed_shot": "hunter_marksmanship",
+    "hunter_trueshot_aura": "hunter_marksmanship",   # 17 Nov 2026: Marksmanship's aura in WoW
     "hunter_hunters_mark": "hunter_marksmanship",
     "hunter_aspect_of_the_hawk": "hunter_beast_mastery",
     "hunter_aspect_of_the_wild": "hunter_beast_mastery",
@@ -217,6 +219,7 @@ CLASS_ABILITY_TREE_OVERRIDES = {
     "warlock_summon_voidwalker": "warlock_demonology",
     "warlock_summon_succubus": "warlock_demonology",
     "warlock_summon_felhunter": "warlock_demonology",
+    "warlock_demonic_pact": "warlock_demonology",     # 17 Nov 2026: the demon's power, shared
     "warlock_demon_armor": "warlock_demonology",
     "warlock_health_funnel": "warlock_demonology",
     "warlock_immolate": "warlock_destruction",
@@ -233,6 +236,7 @@ CLASS_ABILITY_TREE_OVERRIDES = {
     "priest_heal": "priest_holy",
     "priest_renew": "priest_holy",
     "priest_power_word_fortitude": "priest_holy",
+    "priest_divine_spirit": "priest_holy",             # 17 Nov 2026: beside Fortitude
     "priest_prayer_of_healing": "priest_holy",
     # healing with no school sat in "Class" (Kyle, 16 Nov 2026: "shaman healing spells in wrong tab")
     "priest_flash_heal": "priest_holy",

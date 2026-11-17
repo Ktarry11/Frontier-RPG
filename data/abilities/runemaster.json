@@ -335,10 +335,43 @@
           "level_req": 12,
           "cost": 15,
           "effect_value": 100
+        },
+        {
+          "cost": 15,
+          "rank": 2,
+          "level_req": 22,
+          "effect_value": 100
+        },
+        {
+          "cost": 15,
+          "rank": 3,
+          "level_req": 32,
+          "effect_value": 100
+        },
+        {
+          "cost": 15,
+          "rank": 4,
+          "level_req": 42,
+          "effect_value": 100
+        },
+        {
+          "cost": 15,
+          "rank": 5,
+          "level_req": 52,
+          "effect_value": 100
+        },
+        {
+          "cost": 15,
+          "rank": 6,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "exclusive_group": "runemaster_runic_tattoo"
+      "exclusive_group": "runemaster_runic_tattoo",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "runemaster_etching_of_the_leylines",

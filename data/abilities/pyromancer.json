@@ -1288,6 +1288,12 @@
           "level_req": 46,
           "cost": 0,
           "effect_value": 100
+        },
+        {
+          "cost": 0,
+          "rank": 2,
+          "level_req": 56,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1295,7 +1301,10 @@
       "target_type": "self",
       "is_instant": true,
       "requires_talent": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "pyromancer_destroyers_maw",
@@ -1726,7 +1735,8 @@
       "duration": 0,
       "stat_mods": {
         "crit_chance_spell": 3,
-        "intellect": 8
+        "intellect": 8,
+        "mp5": 3
       },
       "description": "Grants your party: Spell crit chance +3, Intellect +8.",
       "ranks": [
@@ -1761,7 +1771,8 @@
       "requires_talent": true,
       "buff_scope": "raid",
       "_tuning": [
-        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)",
+        "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
       ]
     }
   ]

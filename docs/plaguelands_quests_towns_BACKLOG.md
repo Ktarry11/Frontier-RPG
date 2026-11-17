@@ -86,9 +86,14 @@ Lashings and Jaedenar.
   tabs.
 - Resistance buffs are on the 0-60 scale: Grounding Totem gives 40, not 710; the resist totems 22, not 166; Mage
   Armor 18, not 74.
-- Still open, for Kyle:
-  - The eight classes with no long party buff.
-  - Mana regeneration buffs (mp5) now that mp5 is real.
+- **Done, 17 Nov 2026 morning** (Kyle: "Each gets one", "Real mp5, sized by level"):
+  - The eight classes got a long party buff.
+  - mp5 is sized by level.
+  - Wisdom, Mana Spring and Water Shield give mp5.
+  - Every healer class can give its party mana.
+  - See "Long party buffs and mp5" in docs/support_pass.md.
+- Open, for Kyle: five more classes have party buffs that only last a fight (Bloodmage, Guardian, Knight of Xoroth,
+  Necromancer, Ranger).
 
 Kyle: "a lot of buffs look like this? It says 12 but it gives 29 spell power. Also we need to revamp ALL classes now
 that we fixed up spells and have actual mp5 elements in the game... ensure that some things are put properly like

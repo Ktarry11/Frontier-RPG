@@ -1772,6 +1772,57 @@
         "leech_pct": 0.02
       },
       "buff_scope": "combat"
+    },
+    {
+      "ability_id": "witch_doctor_spirit_fetish",
+      "name": "Spirit Fetish",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "spirit": 3,
+        "mp5": 4
+      },
+      "description": "Hangs a fetish on your party: increases their Spirit and mana per turn for thirty minutes.",
+      "target_type": "party",
+      "icon_id": null,
+      "buff_scope": "raid",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 40,
+          "effect_value": 33
+        },
+        {
+          "cost": 40,
+          "rank": 2,
+          "level_req": 30,
+          "effect_value": 50
+        },
+        {
+          "cost": 40,
+          "rank": 3,
+          "level_req": 40,
+          "effect_value": 66
+        },
+        {
+          "cost": 40,
+          "rank": 4,
+          "level_req": 50,
+          "effect_value": 83
+        },
+        {
+          "cost": 40,
+          "rank": 5,
+          "level_req": 58,
+          "effect_value": 100
+        }
+      ],
+      "_tuning": [
+        "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
+      ]
     }
   ]
 }

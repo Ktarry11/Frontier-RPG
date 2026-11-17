@@ -667,21 +667,48 @@
       "effect_type": "buff",
       "duration": 5,
       "stat_mods": {
-        "max_mana_pct": 0.06
+        "mp5": 4
       },
-      "description": "Increases the target's max Mana over time.",
+      "description": "Increases your party's mana per turn for thirty minutes.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 14,
           "cost": 45,
           "effect_value": 100
+        },
+        {
+          "cost": 45,
+          "rank": 2,
+          "level_req": 24,
+          "effect_value": 100
+        },
+        {
+          "cost": 45,
+          "rank": 3,
+          "level_req": 34,
+          "effect_value": 100
+        },
+        {
+          "cost": 45,
+          "rank": 4,
+          "level_req": 44,
+          "effect_value": 100
+        },
+        {
+          "cost": 45,
+          "rank": 5,
+          "level_req": 54,
+          "effect_value": 100
         }
       ],
       "target_type": "party",
       "buff_scope": "raid",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_tuning": [
+        "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
+      ]
     },
     {
       "ability_id": "paladin_blessing_of_kings",

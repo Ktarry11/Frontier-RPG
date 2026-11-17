@@ -78,7 +78,7 @@ Barrier, Volcanic Shell, a Dreadnought Shield) is a defensive cooldown and keeps
 | Debuff on an enemy | 15% |
 
 - **Armour** takes half the share, because plate sets the reference.
-- **Not sized:** mp5, percentages and resistances.
+- **Not sized:** percentages and resistances. (mp5 is sized as of 17 Nov 2026; see the end of this doc.)
 - **Floor:** a stat is never smaller than authored. The rule lifts what went obsolete; it doesn't cut what a
   designer made big on purpose.
 
@@ -119,3 +119,44 @@ Every other healer already had two or three schools.
   - Parties of five beat every boss.
   - The hard ones are Victor Hale (won 3/4, 3.2 standing) and Dathrohan (3.2 standing).
   - The Baron, Gandling, Ras and Hrun leave 3.8-4.0 standing.
+
+## Long party buffs and mp5 (17 Nov 2026)
+Kyle's two answers: every class without a long party buff gets one ("Each gets one"), and mana buffs give "Real mp5,
+sized by level", with every healer class able to give its party mana. Written by `tools/build_long_party_buffs.py`;
+checked by `tools/qa_long_party_buffs.py`.
+
+**mp5 in the formula.**
+- Gear barely carries mp5, so its reference is 1.2 x the Spirit reference.
+- A long buff's mp5 (on yourself or the party, 15%) gives back about what a geared caster's Spirit does on a turn they
+  cast.
+- An in-fight one is 20%.
+
+| Long mp5 buff | 20 | 30 | 40 | 50 | 60 |
+|---|---|---|---|---|---|
+| mp5 | 8 | 11 | 11 | 13 | 16 |
+| mana per turn (x world curve) | 13 | 22 | 23 | 32 | 46 |
+
+**Mana buffs.**
+- "Maximum mana %" buffs are gone. Blessing of Wisdom, Mana Spring Totem and Water Shield give mp5.
+- New ways to give the party mana: Priest Divine Spirit (Spirit, from 30), Chronomancer Borrowed Moments (mp5),
+  Starcaller Moonwell's Blessing (mp5).
+- Whispers of C'thun and Inner Flame also give mp5 now.
+- The 14 single-rank mp5 buffs got a rank every ten levels.
+- Two had a flat 18 and 15 from level 6 (Aspect of the Moonwell, Vow of Grace). The formula now sizes them by rank.
+
+**The eight new long party buffs** (all from 20, ranked to 58):
+
+| Class | Buff | Gives |
+|---|---|---|
+| Warrior | Commanding Shout | Stamina (Battle Shout stays the in-fight one) |
+| Hunter | Trueshot Aura | attack power |
+| Rogue | Cutthroat's Edge | Agility |
+| Warlock | Demonic Pact | spell power |
+| Felsworn | Felbrand | Strength (Fel Infusion stays the in-fight aura its talent shortens) |
+| Templar | Templar's Oath | Stamina and armour |
+| Witch Doctor | Spirit Fetish | Spirit and mp5 |
+| Witch Hunter | Hunter's Ward | Shadow resistance, 12 -> 22 like the resistance totems |
+
+**Still with no long party buff:** five classes. They are Bloodmage, Guardian, Knight of Xoroth, Necromancer and
+Ranger. Each has party buffs, but only in-fight ones (Guardian's four auras, Necromancer's three, Ranger's horns).
+The 16 Nov count of "eight" missed them. That is for Kyle to decide.

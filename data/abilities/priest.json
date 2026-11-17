@@ -1064,6 +1064,50 @@
       "buff_scope": "raid",
       "is_instant": true,
       "icon_id": null
+    },
+    {
+      "ability_id": "priest_divine_spirit",
+      "name": "Divine Spirit",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "spirit": 3
+      },
+      "description": "Increases your party's Spirit for thirty minutes.",
+      "target_type": "party",
+      "icon_id": null,
+      "buff_scope": "raid",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 30,
+          "cost": 60,
+          "effect_value": 33
+        },
+        {
+          "cost": 60,
+          "rank": 2,
+          "level_req": 40,
+          "effect_value": 55
+        },
+        {
+          "cost": 60,
+          "rank": 3,
+          "level_req": 50,
+          "effect_value": 78
+        },
+        {
+          "cost": 60,
+          "rank": 4,
+          "level_req": 58,
+          "effect_value": 100
+        }
+      ],
+      "_tuning": [
+        "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
+      ]
     }
   ]
 }

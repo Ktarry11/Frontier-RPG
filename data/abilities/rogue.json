@@ -1158,6 +1158,56 @@
       "_tuning": [
         "15 Nov 2026 (Kyle: 'abilities like stormstrike that hit for both weapons ... Wildclaw'): strikes_both_weapons - the off hand lands with it when dual-wielding. Every other special is main-hand only, as in Classic."
       ]
+    },
+    {
+      "ability_id": "rogue_cutthroats_edge",
+      "name": "Cutthroat's Edge",
+      "resource_type": "energy",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "agility": 3
+      },
+      "description": "Tricks of the trade, passed round: increases your party's Agility for thirty minutes.",
+      "target_type": "party",
+      "icon_id": null,
+      "buff_scope": "raid",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 0,
+          "effect_value": 33
+        },
+        {
+          "cost": 0,
+          "rank": 2,
+          "level_req": 30,
+          "effect_value": 50
+        },
+        {
+          "cost": 0,
+          "rank": 3,
+          "level_req": 40,
+          "effect_value": 66
+        },
+        {
+          "cost": 0,
+          "rank": 4,
+          "level_req": 50,
+          "effect_value": 83
+        },
+        {
+          "cost": 0,
+          "rank": 5,
+          "level_req": 58,
+          "effect_value": 100
+        }
+      ],
+      "_tuning": [
+        "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
+      ]
     }
   ]
 }

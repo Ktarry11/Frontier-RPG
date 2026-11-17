@@ -1995,6 +1995,56 @@
       "_source": "CoA: 'Increases melee and ranged haste of party and raid members within 100 yds by 10%.' The raid buff the spec's S-tier raid rating is partly sold on ('brings raid haste (Monster Hunting)'). The '+10% damage against Undead and Demons' half has no creature-type hook.",
       "target_type": "party",
       "buff_scope": "combat"
+    },
+    {
+      "ability_id": "witch_hunter_hunters_ward",
+      "name": "Hunter's Ward",
+      "resource_type": "focus",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "shadow_resistance": 12
+      },
+      "description": "Wards your party against dark magic: increases their Shadow Resistance for thirty minutes.",
+      "target_type": "party",
+      "icon_id": null,
+      "buff_scope": "raid",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 0,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 0,
+          "effect_value": 121
+        },
+        {
+          "rank": 3,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 142
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 0,
+          "effect_value": 163
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 0,
+          "effect_value": 184
+        }
+      ],
+      "_tuning": [
+        "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
+      ]
     }
   ]
 }

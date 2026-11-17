@@ -444,12 +444,39 @@
           "level_req": 20,
           "cost": 0,
           "effect_value": 100
+        },
+        {
+          "cost": 0,
+          "rank": 2,
+          "level_req": 30,
+          "effect_value": 100
+        },
+        {
+          "cost": 0,
+          "rank": 3,
+          "level_req": 40,
+          "effect_value": 100
+        },
+        {
+          "cost": 0,
+          "rank": 4,
+          "level_req": 50,
+          "effect_value": 100
+        },
+        {
+          "cost": 0,
+          "rank": 5,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA class tree, and Time's personal emergency layer: 'Time Out! and your absorb stack are the emergency layer'. The channelled mana regen is the mp5 half.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "chronomancer_clasp_of_infinity",
@@ -1127,13 +1154,46 @@
           "level_req": 10,
           "cost": 20,
           "effect_value": 100
+        },
+        {
+          "cost": 20,
+          "rank": 2,
+          "level_req": 20,
+          "effect_value": 100
+        },
+        {
+          "cost": 20,
+          "rank": 3,
+          "level_req": 30,
+          "effect_value": 100
+        },
+        {
+          "cost": 20,
+          "rank": 4,
+          "level_req": 40,
+          "effect_value": 100
+        },
+        {
+          "cost": 20,
+          "rank": 5,
+          "level_req": 50,
+          "effect_value": 100
+        },
+        {
+          "cost": 20,
+          "rank": 6,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA's level-10 free passive: 'Reduces Epoch's cast time by -25% and its mana cost by -10%, and healing done by it now reduces the target's damage taken.' Frontier has no free passives, so the first Aeon is learned from level and the other three are talents. All four share exclusive_group, which is the engine's real one-at-a-time mechanic and exactly CoA's 'four Aeons that share a cooldown'. duration 60 with buff_scope raid is the loadout pattern Tinker's Rounds already use for a stance that should survive between fights.",
       "target_type": "self",
       "buff_scope": "raid",
-      "exclusive_group": "chronomancer_aeon"
+      "exclusive_group": "chronomancer_aeon",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "chronomancer_aeon_of_protection",
@@ -1626,6 +1686,56 @@
       "_source": "CoA: 'Place an Unstable Chronoglass at target location that will redirect the next 3 offensive enemy spell casts onto itself.' Redirection needs a placed object that can be targeted, and the pet system's templates all carry their own display_name, so summoning one would put 'Sentry Turret' on screen. Implemented instead as the outcome - the enemy's spells stop landing - the same way mage_counterspell stands in for a real interrupt.",
       "target_type": "enemy",
       "buff_scope": "combat"
+    },
+    {
+      "ability_id": "chronomancer_borrowed_moments",
+      "name": "Borrowed Moments",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "mp5": 4
+      },
+      "description": "Lends your party moments from later: increases their mana per turn for thirty minutes.",
+      "target_type": "party",
+      "icon_id": null,
+      "buff_scope": "raid",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 40,
+          "effect_value": 33
+        },
+        {
+          "cost": 40,
+          "rank": 2,
+          "level_req": 30,
+          "effect_value": 50
+        },
+        {
+          "cost": 40,
+          "rank": 3,
+          "level_req": 40,
+          "effect_value": 66
+        },
+        {
+          "cost": 40,
+          "rank": 4,
+          "level_req": 50,
+          "effect_value": 83
+        },
+        {
+          "cost": 40,
+          "rank": 5,
+          "level_req": 58,
+          "effect_value": 100
+        }
+      ],
+      "_tuning": [
+        "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
+      ]
     }
   ]
 }

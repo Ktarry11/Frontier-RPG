@@ -1023,14 +1023,26 @@
       "effect_type": "buff",
       "duration": 4,
       "stat_mods": {
-        "max_mana_pct": 0.06
+        "mp5": 4
       },
-      "description": "Water totem. Increases maximum Mana for your party.",
+      "description": "A totem that increases your party's mana per turn.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 40,
           "cost": 40,
+          "effect_value": 100
+        },
+        {
+          "cost": 40,
+          "rank": 2,
+          "level_req": 50,
+          "effect_value": 100
+        },
+        {
+          "cost": 40,
+          "rank": 3,
+          "level_req": 58,
           "effect_value": 100
         }
       ],
@@ -1040,7 +1052,10 @@
       "icon_id": null,
       "_design_note": "Water totem. Increases max Mana for your party over time. PLACEHOLDER: real WOTLK Mana Spring Totem is a persistent placed object that regenerates party Mana every few seconds - approximated here as a flat max-Mana buff since no persistent mana-regen-over-time-from-an-object mechanic exists.",
       "exclusive_group": "shaman_totem_water",
-      "_source": "Element slot 'water' added 6 Nov 2026 as exclusive_group 'shaman_totem_water', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks."
+      "_source": "Element slot 'water' added 6 Nov 2026 as exclusive_group 'shaman_totem_water', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks.",
+      "_tuning": [
+        "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
+      ]
     },
     {
       "ability_id": "shaman_windfury_totem",
@@ -1145,7 +1160,7 @@
       "effect_type": "buff",
       "duration": 5,
       "stat_mods": {
-        "max_mana_pct": 0.04
+        "mp5": 4
       },
       "description": "Surrounds you with water, increasing your maximum Mana.",
       "ranks": [
@@ -1154,13 +1169,41 @@
           "level_req": 20,
           "cost": 0,
           "effect_value": 100
+        },
+        {
+          "cost": 0,
+          "rank": 2,
+          "level_req": 30,
+          "effect_value": 100
+        },
+        {
+          "cost": 0,
+          "rank": 3,
+          "level_req": 40,
+          "effect_value": 100
+        },
+        {
+          "cost": 0,
+          "rank": 4,
+          "level_req": 50,
+          "effect_value": 100
+        },
+        {
+          "cost": 0,
+          "rank": 5,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "target_type": "self",
       "is_instant": true,
       "icon_id": null,
       "buff_scope": "combat",
-      "_design_note": "Real WOTLK Water Shield restores Mana each time you're hit - no on-hit-proc-resource mechanic exists here, so this is approximated as a flat max-Mana buff instead."
+      "_design_note": "Real WOTLK Water Shield restores Mana each time you're hit - no on-hit-proc-resource mechanic exists here, so this is approximated as a flat max-Mana buff instead.",
+      "_tuning": [
+        "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)",
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "shaman_rockbiter_weapon",
