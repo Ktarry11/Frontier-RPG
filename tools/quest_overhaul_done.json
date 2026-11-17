@@ -159,14 +159,22 @@
   "what": "The Trunk Road walk said north from a gate at the north edge; it runs south. Eleven places named. 14 greetings.",
   "npc_zones": [
    "silverpine_north"
-  ]
+  ],
+  "voice": {
+   "date": "2026-11-17",
+   "what": "Every flagged quest rewritten in plain voice (tools/voice/<stem>.py, overlay zzzzzzzz_voice_<stem>.json, built by tools/build_zone_voice.py), talk topics too where the zone has them: who, what's wrong, why, what to do and where, no dashes, fragments, aphorisms or missing contractions. Kyle: 'audit and fix the quests with the voice and tone we want'."
+  }
  },
  "silverpine_south": {
   "date": "2026-11-13",
   "what": "Eleven places named; the road to Hillsbrad is south-east past the Wall, not south past the pyre. 24 greetings, checked against the map (the south has a sawmill and no forge).",
   "npc_zones": [
    "silverpine_south"
-  ]
+  ],
+  "voice": {
+   "date": "2026-11-17",
+   "what": "Every flagged quest rewritten in plain voice (tools/voice/<stem>.py, overlay zzzzzzzz_voice_<stem>.json, built by tools/build_zone_voice.py), talk topics too where the zone has them: who, what's wrong, why, what to do and where, no dashes, fragments, aphorisms or missing contractions. Kyle: 'audit and fix the quests with the voice and tone we want'."
+  }
  },
  "fenris_isle": {
   "date": "2026-11-13",
@@ -190,7 +198,11 @@
   "npc_zones": [
    "silverpine_north",
    "silverpine_south"
-  ]
+  ],
+  "voice": {
+   "date": "2026-11-17",
+   "what": "Every flagged quest rewritten in plain voice (tools/voice/<stem>.py, overlay zzzzzzzz_voice_<stem>.json, built by tools/build_zone_voice.py), talk topics too where the zone has them: who, what's wrong, why, what to do and where, no dashes, fragments, aphorisms or missing contractions. Kyle: 'audit and fix the quests with the voice and tone we want'."
+  }
  },
  "undercity": {
   "date": "2026-11-13",
