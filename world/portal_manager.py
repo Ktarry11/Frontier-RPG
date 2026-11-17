@@ -534,6 +534,7 @@ class PortalManager:
             "North Felwood": {
                 (70, 176): ("South Felwood", 70, 4),
                 (19, 106): ("Jaedenar", 80, 186),
+                (94, 4): ("Timbermaw Tunnel", 90, 196),            # the tunnel up: arrive (90,194), at its south mouth
             },
             "Jaedenar": {
                 (80, 186): ("North Felwood", 19, 106),
@@ -650,6 +651,10 @@ class PortalManager:
                 (155, 86): ("Eastern Hillsbrad", 8, 88),           # arrive (8,86), clear of the west gate
                 (33, 60): ("Azurelode Mine", 55, 86),              # the mine mouth in the western rock
                 (94, 128): ("Southshore", 48, 10),                 # the town's gate: arrive (48,8), under its gatehouse
+            },
+            "Timbermaw Tunnel": {
+                # The Timbermaw's tunnel above North Felwood (tools/handbuilt_timbermaw_tunnel.py, 17 Nov 2026).
+                (90, 196): ("North Felwood", 94, 9),                # arrive (94,7), at the foot of the tunnel
             },
             "Southshore": {
                 # Its own map since 17 Nov 2026 (tools/handbuilt_southshore.py); the gate on the trunk road.

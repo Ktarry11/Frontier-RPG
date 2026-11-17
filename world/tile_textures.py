@@ -370,6 +370,7 @@ ZONE_BIOME = {
     "Sun Rock Retreat": "mountain",
     "Stonetalon West": "mythical_forest",
     "Emerald Sanctuary": "mythical_forest",
+    "Timbermaw Tunnel": "mythical_forest",
     "North Felwood": "mythical_forest",      # painted ground (baked); the biome only names the fallback
     "Western Plaguelands South": "decayed_forest",   # painted ground (baked); the biome only names the fallback
     "Western Plaguelands North": "decayed_forest",

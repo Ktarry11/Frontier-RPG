@@ -1016,11 +1016,6 @@
           "Shadow Council Warlock": 10,
           "Jaedenar Hound Handler": 10,
           "Jadefire Felsworn": 10,
-          "Deadwood Warrior": 10,
-          "Deadwood Den Watcher": 10,
-          "Deadwood Pathfinder": 10,
-          "Deadwood Shaman": 10,
-          "Deadwood Gardener": 10,
           "Felbrand Infernal": 12,
           "Felbrand Felguard": 12,
           "Felbrand Hellhound": 10,
@@ -1029,8 +1024,7 @@
           "The Bloodvenom Rot": 60,
           "Vor'alith the Turncloak": 60,
           "Pyrrhax the Fallen Star": 60,
-          "Ironbark the Blighted": 60,
-          "Chieftain Grimpelt": 60
+          "Ironbark the Blighted": 60
         }
       },
       "dungeon_rep": {
@@ -2162,6 +2156,111 @@
           "Gates, not a displayed ladder (the faction panel stays information only).",
           "TBC-style shelves (tools/build_plaguelands_rewards.py, 16 Nov 2026): friendly supplies, honored patterns, revered six ilvl 67 blues, exalted three ilvl 73 epics (250-350g) and two epic recipes."
         ]
+      }
+    },
+    "timbermaw_hold": {
+      "name": "Timbermaw Hold",
+      "description": "The Timbermaw furbolgs of the hold above Felwood: the last of their people the fel didn't take, and they mean to take their cousins back.",
+      "home_zone": "timbermaw_tunnel",
+      "home_name": "Timbermaw Hold, in Azshara (its people in Felwood keep the Timbermaw Tunnel)",
+      "leader": {
+        "title": "Elder",
+        "name": "Haldor Mossmane",
+        "npc_id": "tm_elder",
+        "location": "The Elders' Rest, in the Timbermaw Tunnel",
+        "line": "Every Deadwood in Felpaw was born in the Hold, or their mother was. We don't hate them. We can't afford to stop fighting them, either."
+      },
+      "_lore_note": "Kyle, 17 Nov 2026: 'add timbermaw hold ... and we can add the reputation'.",
+      "lore": [
+        "The Timbermaw's home is the Hold in Azshara, and their tunnels run through the mountains from there to Felwood, Winterspring and Moonglade. They were the only furbolgs the fel never took, because they kept to the mountain and kept their own counsel.",
+        "Their cousins weren't so lucky. The Deadwood tribes of Felwood drank the corruption with the water, and they've been raiding the forest ever since. Felpaw Village is the worst of them.",
+        "The day the world changed, the roof came down on the tunnel's Winterspring and Moonglade passages. The Elders took it as a sign to look south instead, and for the first time in a long time they opened the tunnel's Felwood mouth to outsiders who'd help.",
+        "They trade with the Emerald Reclamation and they like its druids, but the Hold keeps its own counsel and its own ledger. The Timbermaw remember every favour, and every insult, for a very long time."
+      ],
+      "quest_rep": {
+        "_comment": "Per quest, by shape. Matches the other factions' rates.",
+        "_comment_rate": "325 a quest, not the 225 most factions pay: the Timbermaw own eight quests and the feathers, and questing has to show on the bar (qa_factions).",
+        "default": 325,
+        "boss": 350,
+        "capstones": {
+          "fw_chieftain_grimpelt": 500,
+          "tm_deadwood_feathers": 100
+        },
+        "zones": [
+          "timbermaw_tunnel"
+        ],
+        "also": [
+          "fw_to_timbermaw_hold",
+          "fw_felpaw_village",
+          "fw_the_totems_of_felpaw"
+        ]
+      },
+      "kill_rep": {
+        "_comment": [
+          "The Deadwood (Classic's Timbermaw rep): 10 a kill and Grimpelt 50, up to Honored. Past Honored it's Deadwood Headdress Feathers at the Hold and the Hold's quests."
+        ],
+        "creatures": {
+          "Deadwood Warrior": [
+            10,
+            "honored"
+          ],
+          "Deadwood Den Watcher": [
+            10,
+            "honored"
+          ],
+          "Deadwood Pathfinder": [
+            10,
+            "honored"
+          ],
+          "Deadwood Shaman": [
+            10,
+            "honored"
+          ],
+          "Deadwood Gardener": [
+            10,
+            "honored"
+          ],
+          "Chieftain Grimpelt": [
+            50,
+            "honored"
+          ]
+        }
+      },
+      "rewards": {
+        "vendor_stock": {
+          "tm_quartermaster": {
+            "friendly": [
+              "healing_potion_supreme"
+            ],
+            "honored": [
+              "mana_potion_supreme",
+              "lw_fiendish_boots",
+              "wwx_frostheart_tide_totem"
+            ],
+            "revered": [
+              "p300_le_savage_head",
+              "wwx_starleaf_bow",
+              "unique:tm_honeywood_bulwark_helm",
+              "unique:tm_windtalkers_shoulderwraps",
+              "unique:tm_pathfinders_jerkin",
+              "unique:tm_featherkeepers_cord",
+              "unique:tm_totemcarved_vambraces",
+              "unique:tm_mossmane_signet"
+            ],
+            "exalted": [
+              "unique:tm_maul_of_the_elders",
+              "unique:tm_staff_of_the_hold",
+              "unique:tm_brightpelts_spirit_totem",
+              "rep_tm_timbermaw_warhide",
+              "rep_tm_honeywood_longbow"
+            ]
+          }
+        },
+        "_comment": [
+          "Gates, not a displayed ladder (the faction panel stays information only).",
+          "TBC-style shelves (tools/build_timbermaw_hold.py, 17 Nov 2026): friendly supplies, honored patterns, revered six ilvl 67 blues, exalted three ilvl 73 epics (250-350g) and two epic recipes."
+        ],
+        "quests": {}
       }
     }
   }

@@ -136,6 +136,50 @@ humans backlog [72] asked for.
   before this change: verify_portals' 34 one-way dungeon links, and qa_hillsbrad_quests (arw_through_the_wall's
   giver, tarren_mill_flight_master, has no spot in Tarren Mill's layout).
 
+## Timbermaw: the tunnel now, the Hold with Azshara (Kyle, 17 Nov 2026)
+Kyle: "add timbermaw hold? We have the art for it and we can add the reputation", then "So timbermaw is a tunnel bro!",
+"It'll eventually go to winterspring and moonglade", "Timbermaw hold will be in Azshara!" and "Make the tunnel massive
+bro!". He picked "Tunnel now, Hold later".
+
+**Done:**
+- **The Timbermaw Tunnel** (`tools/handbuilt_timbermaw_tunnel.py`, 180x200, painted by
+  `tools/bake_ashenvale_dungeons.py timbermaw_tunnel`): a long climb from North Felwood's Timbermaw Gate (94,4).
+  It has ten halls: the South Mouth, the Lower Galleries, the Storeroom, the Waystation, Selva's Spring (a lake),
+  the Honey Galleries (a loop back up), the Root Hall and the Elders' Rest. The Moonglade passage and the
+  Winterspring passage are shut by rockfalls. Their door spots are recorded in LATER_DOORS. No mobs.
+- **Nine Timbermaw** live along it (`tools/build_timbermaw_hold.py`, idempotent): Elder Haldor Mossmane, Quartermaster
+  Bruna Honeyhide, Provisioner Orbo, Featherkeeper Imna, Pathfinder Grosk, Windtalker Selva Brightpelt,
+  Honeykeeper Tova, and Wardens Bramblecoat and Durn Rockpelt. Gatewarden Thornclaw's line says the tunnel's open.
+- **The Timbermaw Hold reputation:**
+  - Deadwood kills in Felpaw Village pay 10 each, and Grimpelt 50, up to Honored. They moved off the Emerald
+    Reclamation's list, because a creature pays one faction.
+  - Deadwood Headdress Feathers drop from every Deadwood, and Imna takes them ten at a time for 100, repeatable.
+  - The tunnel's quests pay 325 each. Barrowpaw's Felpaw chain at Talonbranch now pays the Timbermaw too (To
+    Timbermaw Hold, Felpaw Village, The Totems of Felpaw), and Chieftain Grimpelt pays 500. Questing alone reaches
+    Friendly; past that it's feathers and Deadwood kills.
+- **Five quests and the feather turn-in**, none repeating Barrowpaw's chain:
+  - The Tunnel Opens: Bramblecoat lets you in after "To Timbermaw Hold", so Thornclaw's promise is kept.
+  - The Shamans Who Turned.
+  - What the Water Carries: Bloodvenom samples for Selva's spring.
+  - Bears at the Mouth.
+  - Seeds of the Fel.
+- The tunnel is a town map like Onyxhollow, not a cave, so nothing spawns in it and you can ride the climb.
+- **The shelf, TBC-style:**
+  - Friendly: supplies.
+  - Honored and revered: leatherworking and woodworking patterns, moved off Tarren Mill's bowyer and the
+    Steamwheedle chandler.
+  - Revered: six ilvl 67 blues across every role.
+  - Exalted: three ilvl 73 epics (Maul of the Elders, Staff of the Hold, Brightpelt's Spirit Totem) and two epic
+    recipes (Timbermaw Warhide, Honeywood Longbow).
+
+**Next, Kyle's call: Azshara, 52-59, "with a frontier twist"**, home to Timbermaw Hold, the town.
+
+## Map icon for reputation quartermasters (Kyle, 17 Nov 2026)
+"Let's have a map icon for Rep Vendors? So they're easy to find." **Done:** a lime banner on the world map, in
+place of the shop's coin, on every quartermaster that sells for standing. There are 13 of them, including the
+Timbermaw trader and the new Timbermaw quartermaster. A secret faction's seller is never marked. It's in the map
+legend. Built with `world/faction_manager.quartermaster_ids()` and checked by `tools/qa_map_rep_icons.py`.
+
 ## Mounts
 Kyle: "for mounts we need a way to select the mount - as when we buy them it just replaces the old mount with the
 new ones". Keep every mount you've bought (saved with the character), and a picker to choose which one you ride.

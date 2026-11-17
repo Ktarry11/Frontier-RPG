@@ -298,6 +298,7 @@ ZONE_BACKGROUND.update({
     # but the North is the demon wastes and fought in that same glowing-motes forest until 15 Nov 2026.
     # The Fel Line is where the North bleeds into the South: the dead country starts there.
     "North Felwood": "blighted",
+    "Timbermaw Tunnel": "mossy_forest",        # the furbolgs' tunnel through the mountain
     "The Fel Line": "blighted",
     "Deep Elem Mine": "dark_dungeon",     # Silverpine South
     "Agamand Family Crypt": "dark_dungeon",   # Western Tirisfal

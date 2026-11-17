@@ -26245,6 +26245,64 @@
           "sold_by": [
             "secret_needles_skyfeather"
           ]
+        },
+        "rep_tm_honeywood_longbow": {
+          "name": "Honeywood Longbow",
+          "inputs": {
+            "plank_sunheart": 14,
+            "fiber_warded": 4,
+            "stick_ironbound": 2,
+            "resin": 2
+          },
+          "skill_required": 300,
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "stat_template": "agi_physical",
+            "item_level": 73,
+            "rarity": "epic",
+            "material_tier": "sunheart",
+            "identity": "hunter_crit",
+            "flavor": "Honeywood from the mountain's top, strung with gut and waxed with the Hold's own honey.",
+            "fixed_item_level": true,
+            "required_level": 60,
+            "weapon_type": "bow",
+            "item": {
+              "name": "Honeywood Longbow",
+              "slot": "ranged",
+              "item_level": 73,
+              "rarity": "epic",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 20
+              },
+              "secondary_stats": {
+                "attack_power": 55,
+                "crit_chance_physical": 20
+              },
+              "armor_value": 0,
+              "required_level": 60,
+              "sell_price": 39153,
+              "flavor_text": "Honeywood from the mountain's top, strung with gut and waxed with the Hold's own honey.",
+              "identity": "hunter_crit",
+              "icon_id": "gear_epic_bow_1",
+              "weapon_damage_min": 137,
+              "weapon_damage_max": 186,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
+          },
+          "skill_range": [
+            300,
+            305,
+            310,
+            315
+          ],
+          "source": "vendor",
+          "faction": "timbermaw_hold",
+          "_rare_ingredients_todo": true
         }
       }
     },

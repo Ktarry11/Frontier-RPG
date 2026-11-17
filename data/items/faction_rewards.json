@@ -2479,6 +2479,233 @@
       "block_value": 0,
       "price": 2700000,
       "faction": "argent_dawn"
+    },
+    "tm_honeywood_bulwark_helm": {
+      "name": "Honeywood Bulwark Helm",
+      "slot": "head",
+      "item_level": 67,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 28,
+        "strength": 11
+      },
+      "secondary_stats": {
+        "defense_rating": 22
+      },
+      "armor_value": 446,
+      "required_level": 60,
+      "sell_price": 87500,
+      "flavor_text": "Plate beaten over a cap of carved honeywood. The Hold's smiths line everything with wood.",
+      "identity": "tank",
+      "icon_id": "gear_inv_helmet_49",
+      "price": 700000,
+      "faction": "timbermaw_hold"
+    },
+    "tm_windtalkers_shoulderwraps": {
+      "name": "Windtalker's Shoulderwraps",
+      "slot": "shoulder",
+      "item_level": 67,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 14,
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "healing_power": 61
+      },
+      "armor_value": 93,
+      "required_level": 60,
+      "sell_price": 75000,
+      "flavor_text": "Woven by the spring, from wool the Timbermaw trade for with the night elves.",
+      "identity": "healer",
+      "icon_id": "gear_inv_shoulder_02",
+      "price": 600000,
+      "faction": "timbermaw_hold"
+    },
+    "tm_pathfinders_jerkin": {
+      "name": "Pathfinder's Jerkin",
+      "slot": "chest",
+      "item_level": 67,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 23,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "attack_power": 59
+      },
+      "armor_value": 219,
+      "required_level": 60,
+      "sell_price": 85000,
+      "flavor_text": "Worn soft by a lot of mornings walking the tunnel down to Felwood.",
+      "identity": "agility",
+      "icon_id": "gear_inv_chest_leather_02",
+      "price": 680000,
+      "faction": "timbermaw_hold"
+    },
+    "tm_featherkeepers_cord": {
+      "name": "Featherkeeper's Cord",
+      "slot": "waist",
+      "item_level": 67,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 18
+      },
+      "secondary_stats": {
+        "spell_power": 41
+      },
+      "armor_value": 76,
+      "required_level": 60,
+      "sell_price": 60000,
+      "flavor_text": "A belt of braided hide with one clean feather tied at the knot, for every one that's burned.",
+      "identity": "caster",
+      "icon_id": "gear_inv_belt_28",
+      "price": 480000,
+      "faction": "timbermaw_hold"
+    },
+    "tm_totemcarved_vambraces": {
+      "name": "Totem-Carved Vambraces",
+      "slot": "wrist",
+      "item_level": 67,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 14,
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "attack_power": 41
+      },
+      "armor_value": 243,
+      "required_level": 60,
+      "sell_price": 57500,
+      "flavor_text": "Mail bracers with a bear's head carved into the wooden backing of each one.",
+      "identity": "hunter",
+      "icon_id": "gear_inv_bracer_18",
+      "price": 460000,
+      "faction": "timbermaw_hold"
+    },
+    "tm_mossmane_signet": {
+      "name": "Mossmane Signet",
+      "slot": "ring",
+      "item_level": 67,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 12
+      },
+      "secondary_stats": {
+        "attack_power": 32,
+        "crit_chance_physical": 12
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 68750,
+      "flavor_text": "Elder Haldor's own family mark, a bear's paw pressed into dark amber.",
+      "identity": "strength_crit",
+      "icon_id": "gear_inv_jewelry_ring_08",
+      "price": 550000,
+      "faction": "timbermaw_hold"
+    },
+    "tm_maul_of_the_elders": {
+      "name": "Maul of the Elders",
+      "slot": "main_hand",
+      "item_level": 73,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "mace_2h",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 33,
+        "stamina": 19
+      },
+      "secondary_stats": {
+        "attack_power": 82
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 412500,
+      "flavor_text": "A totem pole's top, cut off and hafted. The Elders say the bear on it was a real one.",
+      "identity": "strength",
+      "icon_id": "gear_epic_mace_2h_2",
+      "weapon_damage_min": 218,
+      "weapon_damage_max": 296,
+      "attack_speed": 3.6,
+      "block_value": 0,
+      "price": 3300000,
+      "faction": "timbermaw_hold"
+    },
+    "tm_staff_of_the_hold": {
+      "name": "Staff of the Hold",
+      "slot": "main_hand",
+      "item_level": 73,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "staff",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 45,
+        "stamina": 26
+      },
+      "secondary_stats": {
+        "dodge_rating": 15
+      },
+      "armor_value": 140,
+      "required_level": 60,
+      "sell_price": 375000,
+      "flavor_text": "Honeywood, iron-shod at the foot. It's for whoever stands in the tunnel when the Deadwood come.",
+      "identity": "bear_weapon",
+      "icon_id": "gear_epic_staff_1",
+      "weapon_damage_min": 218,
+      "weapon_damage_max": 296,
+      "attack_speed": 3.6,
+      "block_value": 0,
+      "price": 3000000,
+      "faction": "timbermaw_hold"
+    },
+    "tm_brightpelts_spirit_totem": {
+      "name": "Brightpelt's Spirit Totem",
+      "slot": "off_hand",
+      "item_level": 73,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "tome",
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 21,
+        "spirit": 17
+      },
+      "secondary_stats": {
+        "healing_power": 93
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 343750,
+      "flavor_text": "A little carved totem Selva keeps by the spring. She made a second one and won't say who for.",
+      "identity": "high_healer",
+      "icon_id": "gear_epic_tome_2",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "price": 2750000,
+      "faction": "timbermaw_hold"
     }
   }
 }

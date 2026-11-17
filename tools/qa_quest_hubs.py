@@ -54,7 +54,8 @@ REGIONS = {
     "Arathi": (["arathi_west", "arathi_central", "arathi_east"], ["hammerfall", "saltspur_landing"],
                {"arathi_west": [(68, 105, 22)]}),
     # Felwood: the Emerald Sanctuary, and the Talonbranch camp up in North Felwood.
-    "Felwood": (["emerald_sanctuary", "north_felwood"], ["emerald_sanctuary"], {"north_felwood": [(96, 26, 16)]}),
+    "Felwood": (["emerald_sanctuary", "north_felwood", "timbermaw_tunnel"], ["emerald_sanctuary", "timbermaw_tunnel"],
+                {"north_felwood": [(96, 26, 16)]}),
     # Tempest Isle: Cinderwharf, the landing camp on the Shallows and the works camp on the Ashen Reach.
     "Tempest": (["tempest_shallows", "cinderwharf", "the_ashen_reach"], ["cinderwharf"],
                 {"tempest_shallows": [(88, 64, 14)], "the_ashen_reach": [(84, 118, 16)]}),

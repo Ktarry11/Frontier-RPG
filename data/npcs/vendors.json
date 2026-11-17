@@ -1811,9 +1811,7 @@
         "wwx_felbark_staff",
         "wwx_felbark_helm",
         "wwx_emberwood_codex",
-        "wwx_frostheart_tide_totem",
         "wwx_ebonthorn_codex",
-        "wwx_starleaf_bow",
         "wwx_stormoak_warpike",
         "wwx_kit_duskwood",
         "wwx_kit_nightshade",
@@ -3442,9 +3440,7 @@
         "meal_kodo_ribs",
         "drink_birch_wine",
         "beast_lure_greater",
-        "kit_field_repair",
-        "lw_fiendish_boots",
-        "p300_le_savage_head"
+        "kit_field_repair"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -7182,6 +7178,56 @@
       "gender": "female",
       "appearance_variant": 12,
       "greeting": "Rooms are for Southshore folk. I'll sell you bread through the window, and that's as far as it goes."
+    },
+    {
+      "vendor_id": "tm_quartermaster",
+      "name": "Quartermaster Bruna Honeyhide",
+      "zone": "timbermaw_tunnel",
+      "x": 104,
+      "y": 104,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 55,
+      "sells_gear": true,
+      "race": "furbolg",
+      "gender": "female",
+      "appearance_variant": 2,
+      "facing": "down",
+      "greeting": "The Hold trades with those who've stood with it. Show me you have, and I'll show you what the carvers sent down from the Hold for friends of the Timbermaw.",
+      "sells": [
+        "healing_potion_masterwork",
+        "mana_potion_masterwork",
+        "kit_field_repair",
+        "whetstone"
+      ]
+    },
+    {
+      "vendor_id": "tm_provisioner",
+      "name": "Provisioner Orbo",
+      "zone": "timbermaw_tunnel",
+      "x": 76,
+      "y": 104,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 55,
+      "sells_gear": false,
+      "race": "furbolg",
+      "gender": "male",
+      "appearance_variant": 1,
+      "facing": "right",
+      "greeting": "Honey, smoked fish and bread, carried all the way down from the Hold. Eat before you go down to Felwood, because Felwood doesn't feed anybody.",
+      "sells": [
+        "meal_saltback_roast",
+        "drink_deepwell_cordial",
+        "hunters_brace_platter",
+        "cook_flour",
+        "cook_spice",
+        "cook_water",
+        "cook_mushroom",
+        "beast_lure"
+      ]
     }
   ]
 }

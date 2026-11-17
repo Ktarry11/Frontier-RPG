@@ -33,8 +33,12 @@ SHOP_YELLOW = (255, 215, 90)
 #: marker and bosses use and of the town square's yellows and ambers.
 MAIL_WHITE = (225, 230, 245)
 AUCTION_ROSE = (240, 125, 160)
+#: Reputation quartermasters. Kyle, 17 Nov 2026: "Let's have a map icon for Rep Vendors? So they're easy to find."
+#: A banner on a pole in lime, so it reads apart from the shop's coin and the flight master's green "!" by shape
+#: as well as colour. It replaces the coin on a quartermaster: one glyph per person.
+REP_LIME = (175, 240, 85)
 #: The order glyphs are drawn in: later ones sit on top. Mailboxes stand beside the inn, so they go under it.
-MARKER_ORDER = ("mail", "auction", "shop", "forge", "sawmill", "prof", "class", "inn", "ride", "flight")
+MARKER_ORDER = ("mail", "auction", "shop", "rep", "forge", "sawmill", "prof", "class", "inn", "ride", "flight")
 
 
 
@@ -371,7 +375,9 @@ class MapScreen(BaseScreen):
         if vendor_mgr is not None:
             service_npcs += list(vendor_mgr.get_vendors_in_zone(tilemap.name))
         markers = {"inn": set(), "ride": set(), "flight": set(), "class": set(), "prof": set(),
-                   "forge": set(), "sawmill": set(), "shop": set(), "mail": set(), "auction": set()}
+                   "forge": set(), "sawmill": set(), "shop": set(), "rep": set(), "mail": set(), "auction": set()}
+        from world.faction_manager import quartermaster_ids
+        rep_vendors = quartermaster_ids()
         for npc in service_npcs:
             if getattr(npc, "hidden", False):
                 continue
@@ -394,6 +400,10 @@ class MapScreen(BaseScreen):
             # its own, so an innkeeper who also sells food stays an innkeeper
             # rather than collecting a second marker on the same tile.
             if svcs:
+                continue
+            # REPUTATION QUARTERMASTERS get their own banner instead of the coin (Kyle, 17 Nov 2026)
+            if getattr(npc, "vendor_id", None) in rep_vendors:
+                markers["rep"].add((npc.x, npc.y))
                 continue
             sells = (list(getattr(npc, "sells", None) or [])
                      or bool(getattr(npc, "sells_gear", False)))
@@ -491,13 +501,13 @@ class MapScreen(BaseScreen):
                 self.renderer.draw_text(screen, text, (lx + 22, ly), color=(200, 200, 210))
                 ly += 26
         # Service icons are glyphs, so the legend uses the same drawing code as the map.
-        services = (("shop", "Vendor (buy / sell)"),
+        services = (("shop", "Vendor (buy / sell)"), ("rep", "Reputation quartermaster"),
                     ("flight", "Flight master"), ("inn", "Innkeeper (bind hearth)"),
                     ("ride", "Riding trainer / mounts"), ("hearth", "Your hearth is bound here"),
                     ("class", "Class trainer"), ("prof", "Profession trainers"),
                     ("forge", "Forge (ore to bars)"), ("sawmill", "Sawmill (logs to planks)"),
                     ("mail", "Mailbox"), ("auction", "Auction house"))
-        # Eleven glyphs, the boss row and the size and position lines have to fit above the footer even
+        # Twelve glyphs, the boss row and the size and position lines have to fit above the footer even
         # when all four gathering rows are showing: the rows close up a little when they'd run over it.
         room = SCREEN_HEIGHT - 60 - 64 - ly
         step = max(20, min(26, room // (len(services) + 1)))
@@ -617,6 +627,13 @@ class MapScreen(BaseScreen):
             pygame.draw.line(screen, AUCTION_ROSE, (cx - 5, cy - 1), (cx - 1, cy - 5), 3)
             pygame.draw.line(screen, AUCTION_ROSE, (cx - 2, cy - 2), (cx + 3, cy + 3), 1)
             pygame.draw.line(screen, AUCTION_ROSE, (cx - 4, cy + 4), (cx + 1, cy + 4), 2)
+        elif kind == "rep":
+            # a banner on a pole: the pole down the left, the flag out to the right with a notch in its tail
+            pygame.draw.circle(screen, dark, (cx, cy), 8)
+            pygame.draw.circle(screen, REP_LIME, (cx, cy), 8, 2)
+            pygame.draw.line(screen, REP_LIME, (cx - 3, cy - 5), (cx - 3, cy + 5), 2)
+            pygame.draw.polygon(screen, REP_LIME, [(cx - 2, cy - 5), (cx + 5, cy - 5), (cx + 3, cy - 2),
+                                                   (cx + 5, cy + 1), (cx - 2, cy + 1)])
         elif kind == "shop":
             # a coin: filled disc with a rim and a slot, which reads at 8px where
             # a coin-purse outline just turns into a blob

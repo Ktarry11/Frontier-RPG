@@ -61,4 +61,9 @@ VOICE = {
         "Burlrock trades with everybody, and everybody wants furs for the winter.\n\nThe Greywood Nightsabers and Timberline Wolves of the open forest have the best coats in the valley. Burlrock can't hunt, because he's too fond of talking, so he's asked me to ask you.\n\nThey're all through South Felwood, west of the Sanctuary. Bring the pelts back to me and I'll see they get to him.",
         None,
     ),
+    "fw_to_timbermaw_hold": (
+        None,
+        "Beyond the valley's north end is the Timbermaw Tunnel, my people's road through the mountain. It runs on to Winterspring and Moonglade, and our home, Timbermaw Hold, is a long way past it in Azshara.\n\nThe elders closed it when the fel came. Thornclaw guards the door now, and he's never let anyone through who wasn't Timbermaw. I'd like you to meet him, because one day he'll open it, and I want him to know your face.\n\nGo north to the end of the road. The gate's between the two totems.",
+        None,
+    ),
 }

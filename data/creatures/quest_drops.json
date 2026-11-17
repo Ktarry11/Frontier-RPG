@@ -3949,6 +3949,13 @@
         "category": "quest",
         "description": "A sealed jar of the falls' water. It's green, it's faintly warm, and the glass is starting to etch.",
         "chance": 0.75
+      },
+      {
+        "item_id": "tm_q_bloodvenom_sample",
+        "name": "Bloodvenom Sample",
+        "category": "quest",
+        "description": "A jar of what's inside a Seepage Ooze. It's warm, and it moves when you're not looking at it.",
+        "chance": 0.6
       }
     ],
     "Warpwood Treant": [
@@ -3967,6 +3974,16 @@
         "category": "quest",
         "description": "A bundle of bone, fur and fel-stained twine. It hums if you hold it near your ear.",
         "chance": 0.75
+      },
+      {
+        "item_id": "tm_deadwood_headdress_feather",
+        "name": "Deadwood Headdress Feather",
+        "category": "material",
+        "description": "A feather from a Deadwood headdress, stained green at the quill. Featherkeeper Imna in Timbermaw Hold takes these ten at a time.",
+        "chance": 0.35,
+        "amount": 1,
+        "icon_id": "qi_feather",
+        "sell_price": 25
       }
     ],
     "Jadefire Stag": [
@@ -5670,6 +5687,73 @@
         "category": "quest",
         "description": "Whole, and it has to stay that way until Shelna has weighed it.",
         "chance": 0.75
+      }
+    ],
+    "Deadwood Warrior": [
+      {
+        "item_id": "tm_deadwood_headdress_feather",
+        "name": "Deadwood Headdress Feather",
+        "category": "material",
+        "description": "A feather from a Deadwood headdress, stained green at the quill. Featherkeeper Imna in Timbermaw Hold takes these ten at a time.",
+        "chance": 0.35,
+        "amount": 1,
+        "icon_id": "qi_feather",
+        "sell_price": 25
+      }
+    ],
+    "Deadwood Den Watcher": [
+      {
+        "item_id": "tm_deadwood_headdress_feather",
+        "name": "Deadwood Headdress Feather",
+        "category": "material",
+        "description": "A feather from a Deadwood headdress, stained green at the quill. Featherkeeper Imna in Timbermaw Hold takes these ten at a time.",
+        "chance": 0.35,
+        "amount": 1,
+        "icon_id": "qi_feather",
+        "sell_price": 25
+      }
+    ],
+    "Deadwood Pathfinder": [
+      {
+        "item_id": "tm_deadwood_headdress_feather",
+        "name": "Deadwood Headdress Feather",
+        "category": "material",
+        "description": "A feather from a Deadwood headdress, stained green at the quill. Featherkeeper Imna in Timbermaw Hold takes these ten at a time.",
+        "chance": 0.35,
+        "amount": 1,
+        "icon_id": "qi_feather",
+        "sell_price": 25
+      }
+    ],
+    "Deadwood Gardener": [
+      {
+        "item_id": "tm_deadwood_headdress_feather",
+        "name": "Deadwood Headdress Feather",
+        "category": "material",
+        "description": "A feather from a Deadwood headdress, stained green at the quill. Featherkeeper Imna in Timbermaw Hold takes these ten at a time.",
+        "chance": 0.35,
+        "amount": 1,
+        "icon_id": "qi_feather",
+        "sell_price": 25
+      },
+      {
+        "item_id": "tm_q_fel_seed_pouch",
+        "name": "Fel-Tainted Seed Pouch",
+        "category": "quest",
+        "description": "A Deadwood gardener's seed pouch. Whatever these grow into, the Timbermaw don't want it planted.",
+        "chance": 0.6
+      }
+    ],
+    "Chieftain Grimpelt": [
+      {
+        "item_id": "tm_deadwood_headdress_feather",
+        "name": "Deadwood Headdress Feather",
+        "category": "material",
+        "description": "A feather from a Deadwood headdress, stained green at the quill. Featherkeeper Imna in Timbermaw Hold takes these ten at a time.",
+        "chance": 1.0,
+        "amount": 3,
+        "icon_id": "qi_feather",
+        "sell_price": 25
       }
     ]
   }

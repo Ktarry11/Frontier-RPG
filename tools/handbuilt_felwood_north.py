@@ -19,7 +19,7 @@ Structure (tile coords, y down), WoW's north Felwood read north-up:
     Irontree Woods ...... the north-west: dead ironwood forest, warpwood treants
     Felpaw Village ...... the north-east: the Deadwood's village, worse than any camp south
     Talonbranch Glade ... a small Sentinel camp on the road north: quest givers, no inn, no flight
-    Timbermaw Gate ...... the north edge: the furbolg hold's southern door, closed until Winterspring
+    Timbermaw Gate ...... the north edge: the Timbermaw Tunnel's south mouth (open since 17 Nov 2026)
 
 HARD CONTRACTS (world/portal_manager.py):
     portal   (70,176) <-> South Felwood (70,4)
@@ -37,9 +37,10 @@ BAKED_DIR = "assets/tiles/felwood/baked_north"
 FP = "assets/tiles/felwood/props/"      # Kyle's Felwood sheet (tools/file_felwood_art.py)
 W, H = 150, 180
 
-PORTALS = {(70, 176): "South Felwood", (19, 106): "Jaedenar"}
-ARRIVALS = [(70, 174), (19, 108)]
-LATER_PORTALS = {(94, 4): "Timbermaw Hold"}
+PORTALS = {(70, 176): "South Felwood", (19, 106): "Jaedenar",
+           (94, 4): "Timbermaw Tunnel"}    # open since 17 Nov 2026 (tools/handbuilt_timbermaw_tunnel.py)
+ARRIVALS = [(70, 174), (19, 108), (94, 7)]
+LATER_PORTALS = {}
 START = (70, 170)      # a road tile: everything must be reachable from here
 
 # ------------------------------------------------------------------ the plan
@@ -351,7 +352,7 @@ def dress(L):
     A("ash_sentinel_weapon_rack", 88, 35, 4)
     F("fw_moonflowers", 96, 38, 3, solid=False)
 
-    # ---- the Timbermaw gate: closed until Winterspring ---------------------------------------------------------
+    # ---- the Timbermaw gate: the Timbermaw Tunnel's south mouth (open since 17 Nov 2026) ---------------------------------------------------------
     F("fw_timbermaw_totem", 89, 9, 7)
     F("fw_timbermaw_totem", 100, 9, 7)
     A("rock_outcrop_large", 86, 5, 5)

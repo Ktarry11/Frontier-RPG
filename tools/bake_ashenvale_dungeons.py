@@ -50,6 +50,30 @@ def spec_moonwell():
     )
 
 
+def spec_timbermaw():
+    """The Timbermaw Tunnel (17 Nov 2026): Moonwell Hollow's root earth and rock, with ferns at the spring."""
+    from tools import handbuilt_timbermaw_tunnel as TT
+    R = TT.ROOMS
+    return dict(
+        build="build_timbermaw_baked", seed=517, slug="timbermaw_tunnel",
+        materials={
+            "floor": M(_a("root_earth"), _a("forest_floor")),
+            "fern": M(_a("fern_floor")),
+            "water_s": M(_a("lake_shallow")),
+            "water_d": M(_a("lake_shallow")),
+            "wall": M(_a("rock_wall")),
+            "cliff": M(_a("cliff_b")),
+        },
+        floor_keys=["floor", "fern"],
+        wall_keys=["wall", "cliff"],
+        floors={"fern": [(R["spring"][0], R["spring"][1], 9, 7), (R["elders"][0], R["elders"][1] + 2, 12, 6)]},
+        walls={"cliff": [(R["mouth"][0], R["mouth"][1] + 4, 14, 6)]},
+        pools=[TT.POOLS],
+        cfg=dict(ao=0.44, depth=0.80, lip=20, lip_col=(0.55, 0.78, 0.95), deep_dark=0.2,
+                 foam_col=(200, 225, 255), glows=[]),
+    )
+
+
 def spec_barrows():
     from tools import handbuilt_howling_barrows as HB
     R = HB.ROOMS
@@ -179,6 +203,11 @@ class _C:
         return MH.build_moonwell_baked()
 
     @staticmethod
+    def build_timbermaw_baked():
+        from tools import handbuilt_timbermaw_tunnel as TT
+        return TT.build_tunnel_baked()
+
+    @staticmethod
     def build_barrows_baked():
         from tools import handbuilt_howling_barrows as HB
         return HB.build_barrows_baked()
@@ -207,7 +236,7 @@ class _C:
 
 BD.C = _C
 SPEC_FNS = {"moonwell_hollow": spec_moonwell, "howling_barrows": spec_barrows, "blackfathom_deeps": spec_bfd,
-            "groms_rest": spec_groms}
+            "groms_rest": spec_groms, "timbermaw_tunnel": spec_timbermaw}
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     pv = sys.argv[sys.argv.index("--preview") + 1] if "--preview" in sys.argv else None

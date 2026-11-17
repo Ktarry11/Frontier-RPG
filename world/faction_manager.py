@@ -364,6 +364,21 @@ def reward_stock():
     return out
 
 
+def quartermaster_ids():
+    """{vendor_id: faction_id}: every NPC who sells for standing, for the map's reputation icon (Kyle, 17 Nov 2026:
+    "Let's have a map icon for Rep Vendors? So they're easy to find."). A SECRET faction's seller is never listed:
+    nothing is allowed to point at it."""
+    doc = json.loads((Path(__file__).resolve().parent.parent / "data/factions/factions.json")
+                     .read_text(encoding="utf-8"))
+    out = {}
+    for fid, f in (doc.get("factions") or {}).items():
+        if f.get("secret"):
+            continue
+        for vid in ((f.get("rewards") or {}).get("vendor_stock") or {}):
+            out.setdefault(vid, fid)
+    return out
+
+
 def get_faction_manager():
     """Module-level singleton, same access pattern as world.quest_manager.get_quest_manager()."""
     global _faction_manager

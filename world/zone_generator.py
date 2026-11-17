@@ -5623,6 +5623,7 @@ def create_all_zones():
     from tools import handbuilt_hillsbrad_west as dhbw
     from tools import handbuilt_tarren_mill as dtm
     from tools import handbuilt_southshore as dss
+    from tools import handbuilt_timbermaw_tunnel as dtmt
     from tools import handbuilt_hammerfall as dhf
     from tools import handbuilt_saltspur_landing as dssl
     # ===== TEMPEST ISLE - the last content hole, 52-58, reached by boat from Saltspur =====
@@ -5778,6 +5779,9 @@ def create_all_zones():
         "Tarren Mill": dtm.generate_tarren_mill(),  # hand-built mill town (tools/handbuilt_tarren_mill.py)
         # Kyle, 17 Nov 2026: "lets just make southshore an actual town at this point."
         "Southshore": dss.generate_southshore(),  # the Alliance harbour town (tools/handbuilt_southshore.py)
+        # Kyle, 17 Nov 2026: "timbermaw is a tunnel bro!" - the Timbermaw's tunnel above North Felwood, no mobs. The
+        # Hold itself is in Azshara and comes with it; the tunnel's Winterspring and Moonglade ends are shut till then.
+        "Timbermaw Tunnel": dtmt.generate_timbermaw_tunnel(),  # tools/handbuilt_timbermaw_tunnel.py
         # HAMMERFALL IS ITS OWN ZONE as of 7 Nov. It was nine props on the open moor
         # inside Arathi Central with nineteen NPCs standing in a 34x31 box of it.
         "Hammerfall": dhf.generate_hammerfall(),  # hand-built stockade town (tools/handbuilt_hammerfall.py)

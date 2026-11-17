@@ -58,6 +58,7 @@ TOWN_REGION = {
     "bulwark": "Western Plaguelands South",
     "pale_watch": "Western Plaguelands North",
     "southshore": "Western Hillsbrad",
+    "timbermaw_tunnel": "North Felwood",
     "lights_hope_chapel": "Eastern Plaguelands East",
     "undercity": "Undercity",
     "sepulcher": "Silverpine North",

@@ -10879,6 +10879,58 @@
       ],
       "source": "trainer",
       "description": "Works 6 pieces of the leather below it into one rugged leather, the classic way up."
+    },
+    "rep_tm_timbermaw_warhide": {
+      "name": "Timbermaw Warhide",
+      "inputs": {
+        "leather_frostscale": 10,
+        "thread_silken": 2
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "stat_template": "agi_physical",
+        "item_level": 73,
+        "rarity": "epic",
+        "material_tier": "frostscale",
+        "identity": "feral",
+        "flavor": "Thick fur over hardened hide, the way the Hold's own defenders wear it.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "leather",
+        "item": {
+          "name": "Timbermaw Warhide",
+          "slot": "chest",
+          "item_level": 73,
+          "rarity": "epic",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 33,
+            "stamina": 27
+          },
+          "secondary_stats": {
+            "attack_power": 99
+          },
+          "armor_value": 477,
+          "required_level": 60,
+          "sell_price": 48942,
+          "flavor_text": "Thick fur over hardened hide, the way the Hold's own defenders wear it.",
+          "identity": "feral",
+          "icon_id": "gear_epic_chest_leather_1"
+        }
+      },
+      "skill_range": [
+        300,
+        305,
+        310,
+        315
+      ],
+      "source": "vendor",
+      "faction": "timbermaw_hold",
+      "_rare_ingredients_todo": true
     }
   }
 }

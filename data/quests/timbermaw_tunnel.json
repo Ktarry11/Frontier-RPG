@@ -1,0 +1,381 @@
+{
+  "_doc": "The Timbermaw Tunnel's quests and the Deadwood feather turn-in. Written by tools/build_timbermaw_hold.py.",
+  "quests": [
+    {
+      "quest_id": "tm_the_tunnel_opens",
+      "title": "The Tunnel Opens",
+      "giver_npc_id": "tm_south_warden",
+      "zone": "timbermaw_tunnel",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Warden Bramblecoat keeps the Timbermaw Tunnel's south mouth. Thornclaw promised you'd be the first outsider up the hill once the Elders opened it, and the Elders want to meet you.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "tm_q_bramblecoat_token",
+          "count": 1,
+          "label": "Bring Bramblecoat's token to Elder Haldor Mossmane at the Elders' Rest"
+        }
+      ],
+      "accept_text": "Thornclaw said you'd be the first one up the hill, and he was right. Three years that mouth has been shut, and you're the first outsider through it.\n\nTake this token so the others know I let you in. Climb past the waystation and keep going up to the Elders' Rest at the top. Elder Haldor wants to see who Thornclaw's been talking about.",
+      "turn_in_text": "So you're Thornclaw's outsider. Welcome to the Timbermaw Tunnel.\n\nNot many outsiders have climbed this far, and the ones who did usually came to steal honey. Sit by the fire at the waystation for a while. I've got work for you if you want it.",
+      "next_quest_id": "tm_the_shamans_who_turned",
+      "turn_in_npc_id": "tm_elder",
+      "requires_quests": [
+        "fw_to_timbermaw_hold"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "tm_q_bramblecoat_token",
+            "name": "Bramblecoat's Token",
+            "description": "A carved wooden bear's head on a cord. The Timbermaw know whose it is.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 1980,
+      "reward_gold": 7800,
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tm_the_shamans_who_turned",
+      "title": "The Shamans Who Turned",
+      "giver_npc_id": "tm_elder",
+      "zone": "timbermaw_tunnel",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Kill the Deadwood Shamans of Felpaw Village for Elder Haldor Mossmane.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Deadwood Shaman",
+          "count": 6,
+          "zone": "north_felwood"
+        }
+      ],
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "accept_text": "The Deadwood were Timbermaw once, and some of them were born in the Hold. The fel got into them through the water, but it's their shamans who keep it in them. Every night they feed the fel to the rest, and every night the rest forget a little more of who they were.\n\nGo down the tunnel to North Felwood and south-east to Felpaw Village, and put the shamans down. I'm not asking you to enjoy it, because I don't.",
+      "turn_in_text": "The drums stopped last night. Selva heard it from the spring before the wardens did.\n\nWithout their shamans, some of the Deadwood might remember us. Not many, but I'll take some.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Honey-Wood Cap",
+          "slot": "head",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "There's a bear's paw burned into it near the edge.",
+          "primary_stats": {
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "dodge_rating": 6.9,
+            "parry_rating": 6.1
+          },
+          "armor_type": "mail",
+          "armor_value": 186,
+          "label": "Mail Helm (Sta/Dodge/Parry)"
+        },
+        {
+          "name": "Oakpelt Hood",
+          "slot": "head",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "It's been rubbed with beeswax until it shines.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 12.7,
+            "parry_rating": 11.2
+          },
+          "armor_type": "leather",
+          "armor_value": 116,
+          "label": "Leather Helm (Dodge/Parry)"
+        },
+        {
+          "name": "Totem-Carved Pendant",
+          "slot": "neck",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "There's a bear's paw burned into it near the edge.",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 13.8,
+            "spell_hit_rating": 5.1
+          },
+          "label": "Necklace (Int/SP/spell_hit_rating)"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tm_what_the_water_carries",
+      "title": "What the Water Carries",
+      "giver_npc_id": "tm_windtalker",
+      "zone": "timbermaw_tunnel",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Bring Windtalker Selva Brightpelt Bloodvenom Samples from the Seepage Oozes at Bloodvenom Falls.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "tm_q_bloodvenom_sample",
+          "count": 6
+        }
+      ],
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "accept_text": "My spring's water comes down through the mountain from the north, and since the day the world changed the Moonglade side's been shut and the water tastes of Felwood. Something from the Bloodvenom is getting into it.\n\nThe oozes at Bloodvenom Falls are made of that water. Bring me what's inside them, sealed, and I'll find out what it is. The falls are down the tunnel to North Felwood and a long way south, past Talonbranch Glade.",
+      "turn_in_text": "Warm, and it moves. That isn't water any more.\n\nI'll set a jar of it beside the spring and watch which way it pulls. If it's pulling toward the mountain, we'll need to dam the seep before it reaches the Hold's own wells.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Lodge Handguards",
+          "slot": "hands",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "The furbolgs say it's lucky. They say that about most things.",
+          "primary_stats": {
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "block_rating": 11.5,
+            "block_value": 11.5
+          },
+          "armor_type": "plate",
+          "armor_value": 229,
+          "label": "Plate Gloves (Sta/Block/BV)"
+        },
+        {
+          "name": "Honey-Wood Gloves",
+          "slot": "hands",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "It's been rubbed with beeswax until it shines.",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 13.8
+          },
+          "armor_type": "leather",
+          "armor_value": 95,
+          "label": "Leather Gloves (Agi/Sta/AP)"
+        },
+        {
+          "name": "Honey-Wood Shortbow",
+          "slot": "main_hand",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "The furbolgs say it's lucky. They say that about most things.",
+          "weapon_type": "bow",
+          "primary_stats": {
+            "agility": 7,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "hit_rating": 4.1
+          },
+          "weapon_damage_min": 62,
+          "weapon_damage_max": 85,
+          "attack_speed": 2.8,
+          "label": "Bow (Agi/Sta/Hit)"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tm_bears_at_the_mouth",
+      "title": "Bears at the Mouth",
+      "giver_npc_id": "tm_honeykeeper",
+      "zone": "timbermaw_tunnel",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Kill the Fel-Rotted Bears of North Felwood that come to the tunnel mouth for Honeykeeper Tova.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Fel-Rotted Bear",
+          "count": 8,
+          "zone": "north_felwood"
+        }
+      ],
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "accept_text": "The honey comes down from the Hold's hives in these crates, and every bear in Felwood can smell it from the tunnel mouth. The healthy ones give up. The fel-rotted ones don't, and two of them came up the hill last week and took a crate and half of Bramblecoat's coat.\n\nGo down the tunnel to North Felwood and thin out the rotted bears. They wander all over the valley, so you won't have to look hard.",
+      "turn_in_text": "Bramblecoat says the hill's quiet. He's growing his coat back, and he's not happy about the bald patch.\n\nTake something sweet for the road. You've earned the first pick of the crates.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Totem-Carved Girdle",
+          "slot": "waist",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "It's been rubbed with beeswax until it shines.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "parry_rating": 6.2,
+            "block_rating": 15.1,
+            "dodge_rating": 6.9
+          },
+          "armor_type": "plate",
+          "armor_value": 229,
+          "label": "Plate Belt (Parry/Block/Dodge)"
+        },
+        {
+          "name": "Honey-Wood Veil",
+          "slot": "head",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "There's a bear's paw burned into it near the edge.",
+          "primary_stats": {
+            "intellect": 10,
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "mp5": 2.2
+          },
+          "armor_type": "cloth",
+          "armor_value": 58,
+          "label": "Cloth Helm (Int/Sta/MP5)"
+        },
+        {
+          "name": "Honey-Wood Talisman",
+          "slot": "neck",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "The furbolgs say it's lucky. They say that about most things.",
+          "primary_stats": {
+            "intellect": 6,
+            "spirit": 6
+          },
+          "secondary_stats": {
+            "healing_power": 16.3
+          },
+          "label": "Necklace (Int/Spi/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tm_seeds_of_the_fel",
+      "title": "Seeds of the Fel",
+      "giver_npc_id": "tm_pathfinder",
+      "zone": "timbermaw_tunnel",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Take Fel-Tainted Seed Pouches from the Deadwood Gardeners and kill the Deadwood Pathfinders of Felpaw Village for Pathfinder Grosk.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "tm_q_fel_seed_pouch",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Deadwood Pathfinder",
+          "count": 6,
+          "zone": "north_felwood"
+        }
+      ],
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "accept_text": "The Deadwood have started planting. They never planted anything before the newcomers came through, and now I watch their gardeners from the ridge above Felpaw, going out with full pouches and coming back with empty ones. Whatever they're planting, it isn't food.\n\nBring me their seed pouches before any more go in the ground, and put down their pathfinders while you're at it, because they're the ones who show the gardeners where to dig. Felpaw Village is down the tunnel to North Felwood and south-east.",
+      "turn_in_text": "Look at these. Green right through, every seed. Selva will want to burn them at the spring.\n\nI'll go back to the ridge tomorrow and see whether they've got any left. I hope they haven't.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Lodge Shoulderguards",
+          "slot": "shoulder",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "It's been rubbed with beeswax until it shines.",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 18.9,
+            "spell_hit_rating": 7.0
+          },
+          "armor_type": "mail",
+          "armor_value": 186,
+          "label": "Mail Shoulders (Int/SP/spell_hit_rating)"
+        },
+        {
+          "name": "Lodge Cap",
+          "slot": "head",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "There's a bear's paw burned into it near the edge.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 12.7,
+            "parry_rating": 11.2
+          },
+          "armor_type": "leather",
+          "armor_value": 116,
+          "label": "Leather Helm (Dodge/Parry)"
+        },
+        {
+          "name": "Honey-Wood Band",
+          "slot": "ring",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "required_level": 54,
+          "flavor_text": "Timbermaw work, heavy and honest.",
+          "primary_stats": {
+            "intellect": 7,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "mp5": 1.6
+          },
+          "label": "Ring (Int/Sta/MP5)"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "tm_deadwood_feathers",
+      "title": "Deadwood Headdress Feathers",
+      "giver_npc_id": "tm_featherkeeper",
+      "zone": "timbermaw_tunnel",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Bring Featherkeeper Imna a handful of Deadwood Headdress Feathers from the Deadwood of Felpaw Village.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "tm_deadwood_headdress_feather",
+          "count": 10,
+          "label": "Deadwood Headdress Feather"
+        }
+      ],
+      "accept_text": "Every Deadwood wears a headdress, and every headdress has Timbermaw feathers in it, from when they still knew who they were. I burn them in the waystation's fire, so whatever's left of who they were comes home.\n\nBring me a handful whenever you have them, as often as you like. The Deadwood are in Felpaw Village, down the tunnel to North Felwood and south-east.",
+      "turn_in_text": "That's a handful come home. I'll burn them tonight, and the Elders will hear about who brought them.\n\nBring me more when you've got them.",
+      "next_quest_id": null,
+      "repeatable": true,
+      "reward_exp": 0,
+      "reward_gold": 0
+    }
+  ]
+}

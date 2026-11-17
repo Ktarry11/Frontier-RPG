@@ -8399,7 +8399,7 @@
       "zone": "north_felwood",
       "x": 97,
       "y": 10,
-      "greeting": "The tunnel behind me goes home to Timbermaw Hold. It's closed to everyone until the Elders say otherwise, and the Elders haven't said.",
+      "greeting": "The tunnel behind me is the Timbermaw's road through the mountain. The Elders have opened it to anyone who comes in peace, so mind your manners up there.",
       "gender": "male",
       "race": "furbolg",
       "appearance_variant": 5,
@@ -10100,6 +10100,90 @@
       "race": "night_elf",
       "gender": "female",
       "appearance_variant": 2
+    },
+    {
+      "npc_id": "tm_elder",
+      "name": "Elder Haldor Mossmane",
+      "zone": "timbermaw_tunnel",
+      "x": 121,
+      "y": 37,
+      "greeting": "I came down from the Hold to see to Felwood myself. We let the Deadwood leave us, and we mean to bring back whoever of them can still be brought.",
+      "gender": "male",
+      "race": "furbolg",
+      "appearance_variant": 3,
+      "facing": "down"
+    },
+    {
+      "npc_id": "tm_windtalker",
+      "name": "Windtalker Selva Brightpelt",
+      "zone": "timbermaw_tunnel",
+      "x": 38,
+      "y": 80,
+      "greeting": "The passage past my spring went on to Moonglade, until the roof came down. Now the spring only tells me what the wind brings up from Felwood, and lately that's the Deadwood's drums.",
+      "gender": "female",
+      "race": "furbolg",
+      "appearance_variant": 6,
+      "facing": "right"
+    },
+    {
+      "npc_id": "tm_pathfinder",
+      "name": "Pathfinder Grosk",
+      "zone": "timbermaw_tunnel",
+      "x": 76,
+      "y": 138,
+      "greeting": "I walk the tunnel down to Felwood every morning and count what's changed in Felpaw. Every morning, something has.",
+      "gender": "male",
+      "race": "furbolg",
+      "appearance_variant": 5,
+      "facing": "left"
+    },
+    {
+      "npc_id": "tm_featherkeeper",
+      "name": "Featherkeeper Imna",
+      "zone": "timbermaw_tunnel",
+      "x": 86,
+      "y": 100,
+      "greeting": "Every Deadwood wears the headdress, and every headdress was a Timbermaw's once. Bring me their feathers and I'll see they're burned properly.",
+      "gender": "female",
+      "race": "furbolg",
+      "appearance_variant": 4,
+      "facing": "right"
+    },
+    {
+      "npc_id": "tm_honeykeeper",
+      "name": "Honeykeeper Tova",
+      "zone": "timbermaw_tunnel",
+      "x": 146,
+      "y": 102,
+      "greeting": "The honey comes down from the Hold's hives in these crates. Every bear in Felwood can smell it from the tunnel mouth, and every one of them has tried.",
+      "gender": "female",
+      "race": "furbolg",
+      "appearance_variant": 2,
+      "facing": "down"
+    },
+    {
+      "npc_id": "tm_south_warden",
+      "name": "Warden Bramblecoat",
+      "zone": "timbermaw_tunnel",
+      "x": 85,
+      "y": 188,
+      "greeting": "Come in, then. The Elders opened the tunnel to anyone who comes in peace, and you've come in peace or you'd be lying at the bottom of the hill.",
+      "gender": "male",
+      "race": "furbolg",
+      "appearance_variant": 1,
+      "facing": "down"
+    },
+    {
+      "npc_id": "tm_north_warden",
+      "name": "Warden Durn Rockpelt",
+      "zone": "timbermaw_tunnel",
+      "x": 143,
+      "y": 14,
+      "greeting": "This passage went on to Winterspring, once. The day the world changed, the roof came down, and nobody's dug far enough to say what's on the other side.",
+      "gender": "male",
+      "race": "furbolg",
+      "appearance_variant": 4,
+      "facing": "up"
     }
   ]
 }
