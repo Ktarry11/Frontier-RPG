@@ -105,12 +105,21 @@ def main():
     # Zones that have had the plain-voice pass (a "voice" entry in quest_overhaul_done.json) stay at zero
     # findings from tools/audit_quest_voice.py: no tics, fragments, aphorisms or missing contractions creep back.
     voiced = sorted(k for k, v in done.items() if isinstance(v, dict) and v.get("voice"))
+    # zones that have had the voice pass but not yet the direction overhaul (tools/mark_voice_done.py)
+    if os.path.exists("tools/quest_voice_done.json"):
+        voiced = sorted(set(voiced) | set(json.load(open("tools/quest_voice_done.json", encoding="utf-8"))))
     if voiced:
         out = subprocess.run([sys.executable, "tools/audit_quest_voice.py"] + voiced,
                              capture_output=True, text=True, env=dict(os.environ, PYTHONPATH=".")).stdout
         for line in out.splitlines():
             if line.startswith("    "):
                 bad.append("voice: " + line.strip())
+        # and their talk-quest topics, where the zone has them
+        from audit_topic_voice import topic_findings
+        for stem in voiced:
+            if os.path.exists(f"world/quest_dialogue_{stem}.py"):
+                for qid, tid, p in topic_findings(stem):
+                    bad.append(f"voice: {stem} topic {qid}/{tid}: {p}")
     print(f"{len(done)} zones through the overhaul: {', '.join(sorted(done))}")
     if voiced:
         print(f"{len(voiced)} held to the plain-voice bar: {', '.join(voiced)}")

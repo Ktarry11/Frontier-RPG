@@ -1,0 +1,102 @@
+"""Razor Hill in the plain voice (17 Nov 2026)."""
+
+VOICE = {
+    "razorhill_welcome": (
+        "Weapons Trainer Grokk has watched a hundred valley recruits walk up this road, dusty and a little too pleased "
+        "with themselves over five dead boars. He doesn't hold it against you. Everyone starts somewhere, and the "
+        "valley is as gentle as it needs to be.\n\n"
+        "Razor Hill isn't the valley. Real orcs live here, real quilboar raid the farms south of town, real centaur "
+        "ride the crags to the west, and something washed-up and wrong still holds the old ruins at Tiragarde Keep "
+        "on the coast. Grokk wants you to understand the place before he sends you off to bleed in it.",
+        "Nakhtar's recruits always have that look, as if the valley was the whole world until an hour ago. It wasn't, "
+        "so ask me what you want to know. Durotar, this town, Orgrimmar, whatever you're standing in the middle of "
+        "and don't understand yet, I've got time for a few questions. Then I'll let you get on with it.",
+        "Now you know where you're standing, instead of just knowing you're not in the valley any more. That's worth "
+        "more than it sounds.\n\n"
+        "Go and pick a fight with Durotar. It's been waiting.",
+    ),
+    "razorhill_rocktusk_farm": (
+        "Rocktusk Farm sits south of Razor Hill. It was farmland before the Razormane quilboar dug in and made it "
+        "theirs. Grokk doesn't dress it up: it's contested ground, and right now it's losing to raiders who've got "
+        "bold enough to hit supply wagons on the open road.\n\n"
+        "He wants their numbers thinned, the battleguards, the scouts and the geomancers who keep patching the others "
+        "up mid-fight. Kill enough of them and the farm quiets down for a season, maybe two.",
+        "Battleguard, scout or geomancer, it doesn't matter which order you meet them in, because they're all the "
+        "same problem in different gear. Kill the geomancer first if you can reach it, or it'll keep healing the "
+        "others out of spite.",
+        "The farm won't stay quiet forever, because it never does, but that buys the road some breathing room, and "
+        "the wagons stop getting hit for a while. That's good work.",
+    ),
+    "razorhill_thunder_ridge_approach": (
+        "Thunder Ridge rises north-east of Razor Hill, a plateau where the thunder lizards nest and the air crackles "
+        "before a storm that never quite arrives. Grokk has sent recruits up there before. The ones who come back "
+        "talk about how slow the lizards are, right up until a tail lands on something.\n\n"
+        "Thin the herd. It's good practice for a fight where speed won't save you and only where you stand will.",
+        "They're slow, and that's the trap. Everyone who's died up there got comfortable with slow and forgot what "
+        "happens when the hit lands. Watch the windup, not the lizard.",
+        "You're back, and you're walking without a limp. That's more than I can say for half the recruits I've sent "
+        "up there.\n\n"
+        "There's something bigger on that ridge, if you're not done yet: a patriarch, old and mean, that's outlived "
+        "every hunting party that's gone after it so far.",
+    ),
+    "razorhill_stormhide_patriarch": (
+        "The Stormhide Patriarch has ruled Thunder Ridge longer than anyone in Razor Hill can remember. Grokk's own "
+        "trainer sent a hunting party after it once, when Grokk was young enough to go himself. Three came back. He "
+        "doesn't say what happened to the rest, and you get the sense he'd rather not be asked.\n\n"
+        "It roams the ridge instead of keeping a den, so there's no cave to corner it in. There's only open ground, "
+        "its size, and whatever nerve you can hold onto when something that big charges.",
+        "It isn't clever, and it doesn't need to be. It's old and it's huge, and it hits like the ridge has decided "
+        "to fall on you. Don't get greedy with your own hits. Patience beats size in the end. I believe that, because I "
+        "need to.",
+        "You actually did it. I'll be honest, I wasn't sure I'd be having this conversation, because that thing "
+        "outlasted better fighters than either of us.\n\n"
+        "Thunder Ridge is just a ridge now. Take what it was carrying. You earned every piece of it.",
+    ),
+    "razorhill_kolkar_approach": (
+        None,
+        "Kolkar Crag is west of Razor Hill, up against the mountains. Kill the centaur you find there, and I don't "
+        "care which kind. Every wagon that gets through is one I don't have to explain to my cousin Gazlowe in "
+        "Ratchet, and he isn't a patient goblin.",
+        "The drivers say the road under the Crag was quiet this morning, for the first time in a month.\n\n"
+        "The centaur have a warlord up there giving the orders, and I'll pay more for him if you want the work.",
+    ),
+    "razorhill_warlord_krellian": (
+        "Warlord Krellian holds Kolkar Crag together by reputation, and Kravel has done the sums carefully. Kill the "
+        "warlord, and either the centaur break into raiding bands too disorganised to hit a moving wagon, or a new "
+        "warlord takes over in a week. Kravel thinks the odds favour the first, and he's willing to bet a lot of gold "
+        "on it.",
+        "Krellian is what a decade of robbing caravans buys a centaur: confidence, mostly, and the gear to back it "
+        "up. Kill him fast if you can. Every moment you spend fighting fair gives his lieutenants time to regroup.",
+        "That's done, and it's beautiful. I've already got three caravans queued for the western route that were "
+        "sitting idle waiting for exactly this news.\n\n"
+        "Do you want to know how profit works? You pay the right person once for a problem that would cost you ten "
+        "times as much if you left it. Here, you've earned every coin of this.",
+    ),
+    "razorhill_scuttle_coast": (
+        None,
+        "Kill them all, and I won't split hairs over which. The Murloc Tidehunters are vermin, beneath my notice "
+        "except for how many of my shipments they've ruined, and the deckhands are worse, drowned sailors who forgot "
+        "they were meant to stay drowned. Neither deserves a separate contract. Thin them out and the road stays "
+        "open.",
+        "The shallows are passable again, which is worth more to me than you probably realise. Every day that coast "
+        "stays blocked, my margins suffer for it.\n\n"
+        "You have my gratitude, such as it is, and more usefully, my gold.",
+    ),
+    "razorhill_supply_run": (
+        "Kravel Coinsnatch is still tallying what he lost before the Kolkar were dealt with. There's cargo scattered "
+        "along the old caravan route that never got recovered, crates and bolts of cloth worth real money to whoever "
+        "collects them before they rot or the scavengers pick them over.",
+        "Bring back any crates you find along the western route. I'm not proud of how long I've let this sit, but "
+        "I've been busy, and money left on the ground is still money. I'd rather it was mine.",
+        None,
+    ),
+    "razorhill_troll_refuge": (
+        "Tal'rashi reached Razor Hill before the Darkspear camp on the Echo Isles had properly taken shape, and he's "
+        "carried the guilt of it ever since. His kin are still lost to Zalazane's hex, and he found safe ground on "
+        "the mainland. He can't go back himself, because an injury from the crossing never healed right, but he can "
+        "ask someone capable to check on his people for him.",
+        "Find Elder Kang'ari at da camp on da Echo Isles. Tell him Tal'rashi still thinks about dem every day. Dat's "
+        "all I can send in my place, words, and I hope dey're worth somethin' when dey arrive.",
+        None,
+    ),
+}

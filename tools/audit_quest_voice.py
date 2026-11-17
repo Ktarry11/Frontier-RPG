@@ -124,7 +124,8 @@ def main():
         return 0
     total = 0
     for stem, qs in by_file.items():
-        if not any(a in stem for a in args):
+        # an argument that names a file exactly matches only that file ("southern_barrens" is not the hub)
+        if not any(a == stem or (a not in by_file and a in stem) for a in args):
             continue
         n = 0
         for q in qs:

@@ -1,0 +1,175 @@
+"""The Crossroads in the plain voice (17 Nov 2026). The story beats and the directions are the old text's; the dashes,
+the one-word sentences and the bare-name introductions are gone."""
+
+VOICE = {
+    "cr_orders_east": (
+        "I'm Sergra Darkthorn, and I command here, so you'll forgive me if I get to it.\n\n"
+        "The Kolkar hold the plains east of this town. They've had an outpost on the east road for years, and now "
+        "there's a war camp behind it. A war camp means somebody has decided to stop raiding and start taking.\n\n"
+        "I've got one watcher on that road, Dorn, on the rise where the grass gives out. He's been asking me for "
+        "soldiers, and I don't have soldiers. I've got these orders, which tell him to hold where he is and use "
+        "whoever I send, and that means you. Take them to him, and if he has work, it's my work.",
+        "Out the south gate, which is the only one, then east along the road. Dorn keeps his watch on the rise before "
+        "the Kolkar Outpost. If you can see their tents, you've passed him.",
+        "Sergra sent these? Give them here.\n\n"
+        "'Hold where you are and use whoever I send.' Is that all of it? No, that's fair. It's exactly what I'd have "
+        "written.\n\n"
+        "So you're who she sent. Let me show you what I've been looking at.",
+    ),
+    "cr_arrows_south": (
+        "I'm Ruka, the quartermaster. You're not in my ledger, which means you're free, which means you can carry.\n\n"
+        "The road south to Camp Taurajo runs between two quilboar holds, Bramblescar on one side and Agama'gor on the "
+        "other. There's one ranger on it, a tauren called Kishi, and she's been holding that road with a bow and a "
+        "bad temper since the season turned.\n\n"
+        "She sent word she's down to her last quiver. I can't send a patrol, but I can send arrows. Don't tell her "
+        "they're from me, or she'll want to argue about the fletching.",
+        "South gate, then straight down the Taurajo road. It's a long walk, most of the way to the camp. Kishi stands "
+        "on the road itself, where the thorn closes in on both sides.",
+        "These arrows came from the Crossroads. Let me guess: Ruka, and she told you not to say.\n\n"
+        "The fletching's crooked. It always is, and I'll use every one.\n\n"
+        "Since you've walked this far, the thorn on both sides of this road is full of quilboar, and I've got a list.",
+    ),
+    "cr_stew_for_sanu": (
+        "I'm Boorka, and I keep the inn. Don't sit down, I need you standing.\n\n"
+        "There's a tauren at Lushwater Oasis, Sanu, who keeps the springs. She used to come up to town once a month "
+        "for a proper meal and the gossip, and she hasn't come in two. The caravan drivers say she won't leave the "
+        "water now. They say something's wrong with it and she's sitting up nights watching it.\n\n"
+        "Nobody who sits up nights is eating, so I've made her a crock. Take it down to her. And look at that water "
+        "while you're there, because if the oases are going bad, this town goes next.",
+        "South gate, then south-west across the plain to Lushwater Oasis, the big green one. You can't miss the trees. "
+        "Sanu sits on the east bank.",
+        "Boorka sent this? Earth Mother keep her. I hadn't noticed I was hungry until I smelled it.\n\n"
+        "Sit a moment. You've walked a long way to bring an old cow her supper, and I've got something to show you "
+        "that I'd rather not look at alone.",
+    ),
+    "cr_board_dreadmist": (
+        "I'm Grukan, and I keep the board. You're looking at the bottom of it, which is where the old ones go.\n\n"
+        "That one's been up since before the last rains. The Burning Blade has a den on Dreadmist Peak, north-west of "
+        "here, and somebody posted coin for it. Others have taken the notice down before you. None of them put it "
+        "back, and none of them collected.\n\n"
+        "There's a scout up there now, Zarla Blackthorn, who went to find out what happened to them. She's still "
+        "reporting, so she's still alive, and that makes her the only one who knows the ground. Take her the notice. "
+        "If the bounty's ever paid, it'll be on her say.",
+        "South gate, then north-west. It's a long way, past the Forgotten Pools, to where the ground climbs toward "
+        "Dreadmist Peak. Zarla's camp is in the rocks below the canyon mouth. Keep your voice down when you get there.",
+        "Keep your voice down. Quieter than that.\n\n"
+        "Let me see. Oh, that old thing. Grukan still has it up? There are names on the back, and I've found most of "
+        "them.\n\n"
+        "If you want to collect on this, you do it my way, and my way starts with not being heard.",
+    ),
+    "cr_wheels_for_dogan": (
+        "I'm Dresk, a caravan guard. I'm meant to be on the Ratchet run today and I'm not, because the Ratchet run "
+        "isn't running.\n\n"
+        "Dogan Ironcart's wagons are stopped at Raider's Rest Oasis, on the road south-east. Three of them have lost "
+        "their axles, and the axles aren't broken, they've been taken. Somebody pulled the pins in the night, which is what "
+        "bandits do when they'd like you to stay put while they fetch their friends.\n\n"
+        "I've got spare pins, and I've also got orders not to leave the gate. You haven't, so take them to him.",
+        "South gate, then south-east along the Ratchet road until you see water and wagons. That's Raider's Rest. "
+        "Dogan is the goblin shouting at the wagons.",
+        "Pins, at last! Do you know what it costs me per day to sit here? I know exactly, because I've been counting, and it's the only "
+        "thing keeping me warm.\n\n"
+        "Dresk sent you? Then you can fight, and that's good, because the people who took these are still here and "
+        "I'd like to discuss it with them.",
+    ),
+    "cr_dispatch_orgrimmar": (
+        "I'm Kol, a runner, and I've got a problem with two legs, both mine.\n\n"
+        "This goes to Orgrimmar. It's Sergra's count of what the Crossroads is holding and what it can't, and it's "
+        "meant to be there by nightfall. I've already run it in from the south road this morning, and my left knee "
+        "has made its position clear.\n\n"
+        "You're going that way sooner or later, because everyone does. Scout Windrider in the city takes the Barrens "
+        "reports. He'll want to hear how the road looked too, so keep your eyes open on the way.",
+        "North-east from the south gate to the Southfury bridge, across into Durotar, then north up the highway to "
+        "Orgrimmar. Scout Windrider takes the reports in the city. Don't open the case.",
+        "This is from the Crossroads? You're not Kol.\n\n"
+        "Don't explain, I can guess. It's the knee. Let me see the seal. It's unbroken, good.\n\n"
+        "Sergra says she's holding. She always says she's holding. Tell me what the road actually looked like, and "
+        "then I've got work for someone who's just walked it.",
+    ),
+    "cr_hale_letter": (
+        "I'm Corwin Hale, and I drive for the caravans. You'll have noticed I'm not an orc.\n\n"
+        "There's a woman in Ratchet called Delia Thorne. She's from Stormwind, like me, and she left it, like me. We "
+        "came over on the same boat and agreed we'd never speak of home again, and we've kept to that for years by "
+        "not speaking at all.\n\n"
+        "I've written to her eleven times, as it happens, and this is the first letter I haven't burned. The Ratchet "
+        "run's stopped. I'd take it myself, but with the whole road to think about it, I'd turn round. Would you take "
+        "it by hand? She won't take it from a goblin.",
+        "South gate, then the Ratchet road south-east, all the way to the coast. Delia keeps to the south end of town, "
+        "away from the docks.",
+        "This is from Corwin Hale? He wrote 'by hand' on it. Of course he did. Twelve years, and he still thinks I'd "
+        "lose a letter.\n\n"
+        "Give me a moment, and don't go yet. If you're going back that way, I may need you to carry something that "
+        "isn't a letter, and isn't short.",
+    ),
+    "cr_what_it_costs": (
+        "I'm Thokk, and you should sit down, because you make the gate look untidy.\n\n"
+        "You're going north eventually. They all do, up the Gold Road, through the Rampart and into Ashenvale to cut "
+        "trees the night elves would rather keep. I did it for six years.\n\n"
+        "There's a captain on the Rampart now, Korvash. They call him Gatebreaker, which tells you he's young. He "
+        "sends recruits past that wall every week, and I don't believe anyone has told him what's on the other side "
+        "of it. Ask me about it first. Then take him my tag. He'll know the notches.",
+        None,
+        "Where did you get this? It's a Warsong tally tag, with nine notches and an eye punched through it.\n\n"
+        "This is One-Eye Thokk's. He's still alive? They told us the whole first line went down at the river. Nobody does "
+        "nine seasons, and he did.\n\n"
+        "Tell me what he said to you, all of it, and then I'm going to change some orders.",
+    ),
+    "cr_envoys_report": (
+        "I'm Envoy Thaelis, of Silvermoon, and you'll do.\n\n"
+        "I'm to report on the Horde's holdings in the Barrens. So far I've reported on this town, which took a "
+        "paragraph. Silvermoon will want more than a paragraph, and I'm told the rest of it's outdoors.\n\n"
+        "There are three places I need. The Sentinel Rocks, north of here, where the herders say something has "
+        "nested. The Kodo Graveyard beyond them, where the great beasts go to die, which I'm assured is a real place "
+        "and not an orcish joke. And the Forgotten Pools to the north-west, where pilgrims went to pray and didn't "
+        "come back. Walk to each, look at it, and tell me what the Horde is actually holding.",
+        None,
+        "Scorpids in the rocks, a valley of bones with something walking in it, and a pool full of the drowned.\n\n"
+        "So the Horde holds a town, three roads, and a great deal of ground it hasn't yet asked permission to stand "
+        "on. That's more honest than I expected, and I shall report it as such.\n\n"
+        "Silvermoon is grateful. Take something from the envoy's chest.",
+    ),
+    "cr_one_careful_owner": (
+        "Snix Cogsworth, purveyor of luck, at your service! You look like someone with legs.\n\n"
+        "Here's the thing. I sell luck. Mostly it's charms, a plainstrider feather on a bit of cord, blessed by a "
+        "shaman, or by somebody standing near a shaman. I used to be unable to keep them on the table. A caravan "
+        "driver would buy three.\n\n"
+        "Then your lot showed up, people who get killed on Tuesday and are back complaining about it on Wednesday. "
+        "Nobody buys luck from me any more. Why would they? You've made dying look like a bad night's sleep. So I'm "
+        "doing hats, with feathers in them. Bring me the feathers and I'll cut you in.",
+        "The big plainstriders, out the south gate on the Central Barrens plain. They're everywhere, in every "
+        "direction. Bring me unbroken feathers. The broken ones look like bad luck, and I've got enough of that.",
+        "They're unbroken, every one of them! Look at the barbs on that.\n\n"
+        "I hold your whole kind responsible for my margins, and I want that understood. But I've got no quarrel with "
+        "you personally. Here, the first hat's on the house. I'm charging you double for the second.",
+    ),
+    "cr_crossroads_holds": (
+        "You, come here. I've been counting.\n\n"
+        "When you first walked through my gate, I had the Kolkar building a war camp east of me, quilboar closing the "
+        "Taurajo road to the south, and the oases going bad to the south-west. That was three fires, and one town in "
+        "the middle with no soldiers to send to any of them.\n\n"
+        "Dorn's last report says the warbringer is dead. Kishi's says the wardchief of Bramblescar is dead. And Sanu, "
+        "who never sends anyone, sent a runner to say the queen under Lushwater is dead and the springs are running "
+        "clean. I didn't do any of that. I sat behind this wall and wrote orders. Sit down and tell me how it was "
+        "done, because it's going in a report and I intend to get it right.",
+        None,
+        "That's the east, the south and the water, all three, and I never left the wall.\n\n"
+        "I'm going to write it exactly as you told it, and I'm going to write that the Crossroads holds. I've written "
+        "that every month for three years, and this is the first time I've believed it.\n\n"
+        "Choose something from the armoury. Then I've one more thing to ask, and it isn't an order.",
+    ),
+    "cr_word_for_the_tribes": (
+        "Orgrimmar gets a copy of this. Orgrimmar gets a copy of everything.\n\n"
+        "The other copy is for Camp Taurajo. The tauren lost their city and they lost Cairne, and since then every "
+        "piece of news that's gone down that road has been bad: another herd gone, another well soured, another camp "
+        "that stopped answering. Elder Longtread carries all of it. I've met him, and he doesn't complain, which is "
+        "how you know.\n\n"
+        "I want him to hear this from someone who was there, not from a runner. And when you've told him, ask him "
+        "what the south looks like. The road's open now, and I expect I'm about to find out what was on the other "
+        "end of it.",
+        None,
+        "This is from Sergra Darkthorn? Read it to me, because my eyes aren't what they were.\n\n"
+        "'The Crossroads holds.' I haven't had a letter that began well since the bluffs fell. I'm going to have it "
+        "read out at the fire tonight, and I'm going to have it read twice.\n\n"
+        "You were there. Then sit, and eat, and afterwards I'll tell you what lies south of this camp, because the "
+        "road you opened doesn't end here.",
+    ),
+}

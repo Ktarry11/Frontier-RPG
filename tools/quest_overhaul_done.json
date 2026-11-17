@@ -1,19 +1,35 @@
 {
  "valley_of_trials": {
   "date": "2026-11-12",
-  "what": "directions on 15 accept lines, place names on explore objectives, 13 greetings rewritten (who / where / what, and true about the camp's forge and sawmill)"
+  "what": "directions on 15 accept lines, place names on explore objectives, 13 greetings rewritten (who / where / what, and true about the camp's forge and sawmill)",
+  "voice": {
+   "date": "2026-11-17",
+   "what": "Every flagged quest rewritten in plain voice (tools/voice/<stem>.py, overlay zzzzzzzz_voice_<stem>.json, built by tools/build_zone_voice.py), talk topics too where the zone has them: who, what's wrong, why, what to do and where, no dashes, fragments, aphorisms or missing contractions. Kyle: 'audit and fix the quests with the voice and tone we want'."
+  }
  },
  "echo_isles": {
   "date": "2026-11-12",
-  "what": "directions on 4 accept lines, place names on explore objectives, 16 greetings rewritten; coral 75%, crabs only in the Tidal Flats"
+  "what": "directions on 4 accept lines, place names on explore objectives, 16 greetings rewritten; coral 75%, crabs only in the Tidal Flats",
+  "voice": {
+   "date": "2026-11-17",
+   "what": "Every flagged quest rewritten in plain voice (tools/voice/<stem>.py, overlay zzzzzzzz_voice_<stem>.json, built by tools/build_zone_voice.py), talk topics too where the zone has them: who, what's wrong, why, what to do and where, no dashes, fragments, aphorisms or missing contractions. Kyle: 'audit and fix the quests with the voice and tone we want'."
+  }
  },
  "durotar": {
   "date": "2026-11-12",
-  "what": "Old Redtooth moved from the Rocktusk Farm table (146 tiles from where his quest sends you) to the ground below Thunder Ridge; 2 accept lines; 15 greetings rewritten. Prose left alone."
+  "what": "Old Redtooth moved from the Rocktusk Farm table (146 tiles from where his quest sends you) to the ground below Thunder Ridge; 2 accept lines; 15 greetings rewritten. Prose left alone.",
+  "voice": {
+   "date": "2026-11-17",
+   "what": "Every flagged quest rewritten in plain voice (tools/voice/<stem>.py, overlay zzzzzzzz_voice_<stem>.json, built by tools/build_zone_voice.py), talk topics too where the zone has them: who, what's wrong, why, what to do and where, no dashes, fragments, aphorisms or missing contractions. Kyle: 'audit and fix the quests with the voice and tone we want'."
+  }
  },
  "razor_hill": {
   "date": "2026-11-12",
-  "what": "21 greetings rewritten - a sentry at the town's only gate (south) was telling players to watch the north road. No direction findings."
+  "what": "21 greetings rewritten - a sentry at the town's only gate (south) was telling players to watch the north road. No direction findings.",
+  "voice": {
+   "date": "2026-11-17",
+   "what": "Every flagged quest rewritten in plain voice (tools/voice/<stem>.py, overlay zzzzzzzz_voice_<stem>.json, built by tools/build_zone_voice.py), talk topics too where the zone has them: who, what's wrong, why, what to do and where, no dashes, fragments, aphorisms or missing contractions. Kyle: 'audit and fix the quests with the voice and tone we want'."
+  }
  },
  "deathknell": {
   "date": "2026-11-12",
@@ -35,21 +51,33 @@
    "crossroads",
    "ratchet",
    "central_barrens"
-  ]
+  ],
+  "voice": {
+   "date": "2026-11-17",
+   "what": "Every flagged quest rewritten in plain voice (tools/voice/<stem>.py, overlay zzzzzzzz_voice_<stem>.json, built by tools/build_zone_voice.py), talk topics too where the zone has them: who, what's wrong, why, what to do and where, no dashes, fragments, aphorisms or missing contractions. Kyle: 'audit and fix the quests with the voice and tone we want'."
+  }
  },
  "central_barrens_hub": {
   "date": "2026-11-12",
   "what": "3 accept lines (the Warbringer; two Wailing Caverns quests now say where the cave is).",
   "npc_zones": [
    "central_barrens"
-  ]
+  ],
+  "voice": {
+   "date": "2026-11-17",
+   "what": "Every flagged quest rewritten in plain voice (tools/voice/<stem>.py, overlay zzzzzzzz_voice_<stem>.json, built by tools/build_zone_voice.py), talk topics too where the zone has them: who, what's wrong, why, what to do and where, no dashes, fragments, aphorisms or missing contractions. Kyle: 'audit and fix the quests with the voice and tone we want'."
+  }
  },
  "northern_barrens_hub": {
   "date": "2026-11-12",
   "what": "1 accept line (Kragg); 11 Northern Barrens greetings.",
   "npc_zones": [
    "northern_barrens"
-  ]
+  ],
+  "voice": {
+   "date": "2026-11-17",
+   "what": "Every flagged quest rewritten in plain voice (tools/voice/<stem>.py, overlay zzzzzzzz_voice_<stem>.json, built by tools/build_zone_voice.py), talk topics too where the zone has them: who, what's wrong, why, what to do and where, no dashes, fragments, aphorisms or missing contractions. Kyle: 'audit and fix the quests with the voice and tone we want'."
+  }
  },
  "southern_barrens": {
   "date": "2026-11-12",
@@ -57,35 +85,55 @@
   "npc_zones": [
    "camp_taurajo",
    "southern_barrens"
-  ]
+  ],
+  "voice": {
+   "date": "2026-11-17",
+   "what": "Every flagged quest rewritten in plain voice (tools/voice/<stem>.py, overlay zzzzzzzz_voice_<stem>.json, built by tools/build_zone_voice.py), talk topics too where the zone has them: who, what's wrong, why, what to do and where, no dashes, fragments, aphorisms or missing contractions. Kyle: 'audit and fix the quests with the voice and tone we want'."
+  }
  },
  "crossroads": {
   "date": "2026-11-13",
   "what": "NEW FILE. The town gave no quests; it now gives 17 across ten NPCs: 12 new (five errands out to the field wardens, three that leave the zone, the envoy's survey, a goblin's fetch, and a two-part capstone gated on three separate boss chains that ends at Camp Taurajo) and 5 moved in from Camp Taurajo.",
   "npc_zones": [
    "crossroads"
-  ]
+  ],
+  "voice": {
+   "date": "2026-11-17",
+   "what": "Every flagged quest rewritten in plain voice (tools/voice/<stem>.py, overlay zzzzzzzz_voice_<stem>.json, built by tools/build_zone_voice.py), talk topics too where the zone has them: who, what's wrong, why, what to do and where, no dashes, fragments, aphorisms or missing contractions. Kyle: 'audit and fix the quests with the voice and tone we want'."
+  }
  },
  "northern_barrens": {
   "date": "2026-11-13",
   "what": "Five quests given from Camp Taurajo for places two maps north of it moved to Crossroads NPCs and rewritten; the carver's quest re-worded; a Ratchet raptor quest moved to Camp Taurajo's hunter.",
   "npc_zones": [
    "northern_barrens"
-  ]
+  ],
+  "voice": {
+   "date": "2026-11-17",
+   "what": "Every flagged quest rewritten in plain voice (tools/voice/<stem>.py, overlay zzzzzzzz_voice_<stem>.json, built by tools/build_zone_voice.py), talk topics too where the zone has them: who, what's wrong, why, what to do and where, no dashes, fragments, aphorisms or missing contractions. Kyle: 'audit and fix the quests with the voice and tone we want'."
+  }
  },
  "southern_barrens_hub": {
   "date": "2026-11-13",
   "what": "Eleven accept lines pointed the wrong way or named no place: Oggra now says Blackthorn Ridge is north of her post and Razorfen Kraul south of it, and Zhuul says the Keep is west of his grass with its east gate facing him. Greetings were done with the Barrens pass.",
   "npc_zones": [
    "southern_barrens"
-  ]
+  ],
+  "voice": {
+   "date": "2026-11-17",
+   "what": "Every flagged quest rewritten in plain voice (tools/voice/<stem>.py, overlay zzzzzzzz_voice_<stem>.json, built by tools/build_zone_voice.py), talk topics too where the zone has them: who, what's wrong, why, what to do and where, no dashes, fragments, aphorisms or missing contractions. Kyle: 'audit and fix the quests with the voice and tone we want'."
+  }
  },
  "orgrimmar": {
   "date": "2026-11-13",
   "what": "Seven Ragefire Chasm quests never said where the chasm is; each now names it and its entrance in the south-west corner of the city. 45 greetings rewritten: who, which quarter, what they do, checked against the map. All twelve quests here are dungeon quests given in town, which is the rule.",
   "npc_zones": [
    "orgrimmar"
-  ]
+  ],
+  "voice": {
+   "date": "2026-11-17",
+   "what": "Every flagged quest rewritten in plain voice (tools/voice/<stem>.py, overlay zzzzzzzz_voice_<stem>.json, built by tools/build_zone_voice.py), talk topics too where the zone has them: who, what's wrong, why, what to do and where, no dashes, fragments, aphorisms or missing contractions. Kyle: 'audit and fix the quests with the voice and tone we want'."
+  }
  },
  "sepulcher": {
   "date": "2026-11-13",
