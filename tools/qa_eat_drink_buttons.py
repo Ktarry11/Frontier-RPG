@@ -13,7 +13,7 @@ With the real overworld screen, a player and three companions, and real food in 
   5. the health and mana actually arrive as time passes
   6. pressing again while eating does nothing more (no double-dipping the stack)
   7. no food -> says so, nothing changes; everyone full -> says so, nothing is used
-  8. the F and Q keys do the same as the buttons
+  8. the F and Q keys do the same as the buttons (clicking a button opens the food picker; a pick eats)
 """
 import os
 import sys
@@ -147,8 +147,13 @@ def main():
         m.break_consumable_regen()
     sm.player.current_health = 1
     snap = sum(c.quantity for c in sm.player.consumables)
+    # Clicking Eat opens the food picker (Kyle, 16 Nov 2026); picking "Best you have" eats.
     ow.handle_event(pygame.event.Event(pygame.MOUSEBUTTONDOWN, pos=ow.eat_button_rect.center, button=1))
-    check(sum(c.quantity for c in sm.player.consumables) < snap, "clicking the Eat button does not eat")
+    check(ow.rest_picker == "meal", "clicking the Eat button does not open the food picker")
+    ow._render_rest_picker(screen)
+    ow.handle_event(pygame.event.Event(pygame.MOUSEBUTTONDOWN, pos=ow.rest_picker_rects[0][0].center, button=1))
+    check(ow.rest_picker is None and sum(c.quantity for c in sm.player.consumables) < snap,
+          "picking in the food picker does not eat")
 
     # 7b. no food
     sm.player.consumables = []

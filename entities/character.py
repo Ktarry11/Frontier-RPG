@@ -393,6 +393,8 @@ class Character(StatusEffectMixin):
         self.guardian_buff = None  # (consumable, remaining_duration)
         self.battle_buff = None    # (consumable, remaining_duration)
         self.food_buff = None      # (consumable, remaining_duration)
+        # what F and Q eat and drink first, picked in the overworld's food picker: {"meal": id, "drink": id}
+        self.rest_choice = {}
         #: a cooked DRINK's buff (Kyle, 16 Nov 2026: "cooking we can have a food buff and a drink buff!"): its own slot,
         #: so a meal and a drink stack, as in WoW
         self.drink_buff = None
@@ -4417,6 +4419,7 @@ class Character(StatusEffectMixin):
             "guardian_buff": _buff_to_data(self.guardian_buff),
             "battle_buff": _buff_to_data(self.battle_buff),
             "food_buff": _buff_to_data(self.food_buff),
+            "rest_choice": dict(getattr(self, "rest_choice", None) or {}),
             "drink_buff": _buff_to_data(getattr(self, "drink_buff", None)),
             "ammo_buff": _buff_to_data(self.ammo_buff),
             "oil_buff": _buff_to_data(getattr(self, "oil_buff", None)),
@@ -4556,6 +4559,7 @@ class Character(StatusEffectMixin):
         char.guardian_buff = _buff_from_data(data.get("guardian_buff"))
         char.battle_buff = _buff_from_data(data.get("battle_buff"))
         char.food_buff = _buff_from_data(data.get("food_buff"))
+        char.rest_choice = {k: v for k, v in (data.get("rest_choice") or {}).items() if k in ("meal", "drink")}
         char.drink_buff = _buff_from_data(data.get("drink_buff"))
         char.ammo_buff = _buff_from_data(data.get("ammo_buff"))
         char.oil_buff = _buff_from_data(data.get("oil_buff"))

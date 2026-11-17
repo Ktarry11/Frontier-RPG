@@ -83,9 +83,29 @@ class OverworldScreen(BaseScreen):
         self.teleport_menu_open = False
         self.teleport_rects = []          # [(rect, destination)] built each frame while open
         self.teleport_close_rect = None
+        # THE FOOD PICKER (Kyle, 16 Nov 2026: "we need to have a way to see our food buff. Also a way to select food.
+        # these should open menu to select food options"). Clicking Eat or Drink opens it ("meal" / "drink"); a pick
+        # is remembered as what F / Q eat (Character.rest_choice). Built each frame while open, like the teleport menu.
+        self.rest_picker = None
+        self.rest_picker_rects = []       # [(rect, consumable_id or None for "best")]
+        self.rest_picker_close = None
+        self.buff_chip_rects = []         # [(rect, slot, consumable, seconds_left)] for hover
     
     def handle_event(self, event):
         """Handle input."""
+        # The food picker takes over input while it's open, the way the teleport menu does.
+        if self.rest_picker:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                for rect, cid in self.rest_picker_rects:
+                    if rect.collidepoint(event.pos):
+                        self._pick_rest(self.rest_picker, cid)
+                        break
+                else:
+                    self.rest_picker = None
+            elif event.type == pygame.KEYDOWN and event.key in (pygame.K_ESCAPE, pygame.K_f, pygame.K_q):
+                self.rest_picker = None
+            return
+
         # The teleport menu takes over ALL input while it is open, so a click on a town can never
         # also be a movement key or a tab click underneath it.
         if self.teleport_menu_open:
@@ -362,7 +382,7 @@ class OverworldScreen(BaseScreen):
                 self._use_hearth()
                 return
             if getattr(self, "eat_button_rect", None) and self.eat_button_rect.collidepoint(mouse_pos):
-                self._rest("meal")
+                self._open_rest_picker("meal")
                 return
             if getattr(self, "cast_button_rect", None) and self.cast_button_rect.collidepoint(mouse_pos):
                 node = self.zone_manager.gathering_manager.fishing_node_near(
@@ -371,7 +391,7 @@ class OverworldScreen(BaseScreen):
                     self._start_cast(node)
                 return
             if getattr(self, "drink_button_rect", None) and self.drink_button_rect.collidepoint(mouse_pos):
-                self._rest("drink")
+                self._open_rest_picker("drink")
                 return
             self._handle_tab_click(mouse_pos)
     
@@ -424,10 +444,106 @@ class OverworldScreen(BaseScreen):
         return out
 
     def _rest_stock(self, kind):
-        """Meals or drinks in the bags, best first. Consumables all live in the player's list."""
+        """Meals or drinks in the bags, best first, except that the one picked in the food picker
+        (Character.rest_choice) goes first. Consumables all live in the player's list."""
         pool = getattr(self.state_manager.player, "consumables", None) or []
-        stock = [c for c in pool if c.consumable_type == kind and c.quantity > 0]
-        return sorted(stock, key=lambda c: -c.effect_value)
+        stock = sorted([c for c in pool if c.consumable_type == kind and c.quantity > 0], key=lambda c: -c.effect_value)
+        chosen = (getattr(self.state_manager.player, "rest_choice", None) or {}).get(kind)
+        if chosen:
+            stock.sort(key=lambda c: 0 if c.consumable_id == chosen else 1)
+        return stock
+
+    def _open_rest_picker(self, kind):
+        self._release_movement_keys()
+        self.rest_picker = kind
+
+    def _pick_rest(self, kind, consumable_id):
+        """A row in the picker: remember it as what F / Q use (None = the best you have), then eat or drink it."""
+        player = self.state_manager.player
+        choice = dict(getattr(player, "rest_choice", None) or {})
+        choice[kind] = consumable_id
+        player.rest_choice = choice
+        self.rest_picker = None
+        self._rest(kind)
+
+    @staticmethod
+    def _rest_line(c):
+        """'Restores 840 health over 18s. Well fed: +6 Stamina for 30 minutes'."""
+        from entities.consumable import bonus_text
+        bar = "health" if c.consumable_type == "meal" else "mana"
+        try:
+            amount = c.restore_amount()
+        except Exception:                                      # noqa: BLE001
+            amount = c.effect_value
+        line = f"Restores {amount} {bar} over {int(c.effect_duration)}s"
+        if getattr(c, "stat_bonuses", None) and getattr(c, "buff_category", None) in ("food", "drink"):
+            word = "Well fed" if c.buff_category == "food" else "Refreshed"
+            line += f". {word}: {bonus_text(c.stat_bonuses)} for 30 minutes"
+        return line
+
+    def _render_rest_picker(self, screen):
+        """What's in the bags to eat (or drink): icon, name, what it restores and any buff, how many. The one F / Q
+        uses is marked. Click one to pick it and eat; Esc or a click outside to close."""
+        kind = self.rest_picker
+        stock = sorted(self._rest_stock(kind), key=lambda c: -c.effect_value)
+        chosen = (getattr(self.state_manager.player, "rest_choice", None) or {}).get(kind)
+        overlay = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
+        overlay.fill((0, 0, 0, 150))
+        screen.blit(overlay, (0, 0))
+        row_h, w = 52, 620
+        rows = [None] + stock
+        h = 64 + row_h * len(rows) + 16
+        h = min(h, SCREEN_HEIGHT - 80)
+        panel = pygame.Rect((SCREEN_WIDTH - w) // 2, max(40, (SCREEN_HEIGHT - h) // 2), w, h)
+        pygame.draw.rect(screen, (24, 26, 34), panel, border_radius=10)
+        pygame.draw.rect(screen, (150, 130, 80), panel, 2, border_radius=10)
+        title = "Eat" if kind == "meal" else "Drink"
+        key = "F" if kind == "meal" else "Q"
+        self.renderer.draw_text(screen, f"{title}: pick what {key} uses", (panel.x + 18, panel.y + 14),
+                                color=(235, 225, 170), size="large")
+        self.rest_picker_rects = []
+        y = panel.y + 56
+        helper = getattr(self.state_manager, "icon_ui_helper", None)
+        mouse = pygame.mouse.get_pos()
+        if not stock:
+            self.renderer.draw_text(screen, f"You have nothing to {title.lower()}.", (panel.x + 18, y + 8),
+                                    color=(240, 140, 140))
+        for c in rows:
+            if y + row_h > panel.bottom - 8:
+                break
+            r = pygame.Rect(panel.x + 12, y, w - 24, row_h - 6)
+            picked = (c is None and not chosen) or (c is not None and c.consumable_id == chosen)
+            bg = (52, 60, 44) if picked else (44, 48, 60) if r.collidepoint(mouse) else (34, 37, 47)
+            pygame.draw.rect(screen, bg, r, border_radius=6)
+            if picked:
+                pygame.draw.rect(screen, (200, 180, 90), r, 2, border_radius=6)
+            if c is None:
+                self.renderer.draw_text(screen, "Best you have", (r.x + 54, r.y + 6), color=(220, 220, 230))
+                self.renderer.draw_text(screen, "Everyone takes the best they're high enough level for",
+                                        (r.x + 54, r.y + 26), font_size=14, color=(160, 165, 180))
+                self.rest_picker_rects.append((r, None))
+            else:
+                if helper is not None:
+                    try:
+                        surf = helper.get_item_icon_surface({"name": c.name, "icon_id": getattr(c, "icon_id", None)},
+                                                            size=38)
+                        if surf:
+                            screen.blit(surf, (r.x + 6, r.y + 4))
+                    except Exception:                          # noqa: BLE001
+                        pass
+                self.renderer.draw_text(screen, c.name, (r.x + 54, r.y + 6), color=(230, 230, 235))
+                self.renderer.draw_text(screen, f"x{c.quantity}", (r.right - 54, r.y + 6), color=(200, 200, 160))
+                line = self._rest_line(c)
+                font = self.renderer._get_font(font_size=14)
+                while line and font.size(line)[0] > r.width - 70:
+                    line = line[:-2]
+                    if font.size(line + "...")[0] <= r.width - 70:
+                        line = line + "..."
+                        break
+                self.renderer.draw_text(screen, line, (r.x + 54, r.y + 26), font_size=14, color=(160, 200, 160))
+                self.rest_picker_rects.append((r, c.consumable_id))
+            y += row_h
+        self.rest_picker_close = panel
 
     @staticmethod
     def _rest_needs(member, kind):
@@ -554,6 +670,70 @@ class OverworldScreen(BaseScreen):
             rect = pygame.Rect(x, 630, 150, 28)
             setattr(self, attr, rect)
             self.renderer.draw_button(screen, rect, f"{label} ({key}): {count}", color=color)
+
+    #: where the running food, drink and elixir buffs show: the badge strip, right of the encounter switch
+    BUFF_CHIPS_X = 416
+    BUFF_CHIP_W = 128
+    BUFF_SLOTS = (("food_buff", "Well fed"), ("drink_buff", "Refreshed"), ("guardian_buff", "Guardian"),
+                  ("battle_buff", "Battle"), ("oil_buff", "Oil"), ("gadget_buff", "Gadget"))
+
+    def _render_buff_chips(self, screen):
+        """The leader's running consumable buffs as small chips (icon, time left), food and drink first; hover one
+        for what it gives and who else in the party has it (Kyle, 16 Nov 2026: "we need to have a way to see our
+        food buff")."""
+        from entities.consumable import bonus_text
+        player = self.state_manager.player
+        self.buff_chip_rects = []
+        if player is None:
+            return
+        x = self.BUFF_CHIPS_X
+        limit = 818                               # the right edge of the Drink button above
+        helper = getattr(self.state_manager, "icon_ui_helper", None)
+        mouse = pygame.mouse.get_pos()
+        for slot, word in self.BUFF_SLOTS:
+            buff = getattr(player, slot, None)
+            if not buff:
+                continue
+            cons, left = buff
+            if x + self.BUFF_CHIP_W > limit:
+                break
+            r = pygame.Rect(x, self.BADGE_Y, self.BUFF_CHIP_W, 38)
+            pygame.draw.rect(screen, (30, 44, 34) if slot in ("food_buff", "drink_buff") else (34, 36, 50), r,
+                             border_radius=8)
+            pygame.draw.rect(screen, (120, 170, 110) if slot in ("food_buff", "drink_buff") else (120, 120, 170), r,
+                             1, border_radius=8)
+            if helper is not None:
+                try:
+                    surf = helper.get_item_icon_surface({"name": cons.name, "icon_id": getattr(cons, "icon_id", None)},
+                                                        size=28)
+                    if surf:
+                        screen.blit(surf, (r.x + 5, r.y + 5))
+                except Exception:                              # noqa: BLE001
+                    pass
+            secs = max(0, int(left or 0))
+            when = f"{secs // 60}m" if secs >= 60 else f"{secs}s"
+            self.renderer.draw_text(screen, word, (r.x + 38, r.y + 3), font_size=14, color=(220, 230, 210))
+            self.renderer.draw_text(screen, when, (r.x + 38, r.y + 19), font_size=14, color=(170, 180, 170))
+            self.buff_chip_rects.append((r, slot, cons, secs))
+            x += self.BUFF_CHIP_W + 6
+        for r, slot, cons, secs in self.buff_chip_rects:
+            if not r.collidepoint(mouse):
+                continue
+            party = self._rest_party()
+            others = [m.name for m in party if m is not player and getattr(m, slot, None)]
+            lines = [cons.name, bonus_text(getattr(cons, "stat_bonuses", None) or {}) or "",
+                     f"{secs // 60}m {secs % 60:02d}s left"]
+            if len(party) > 1:
+                lines.append(f"Also on: {', '.join(others)}" if others else "Only on you")
+            lines = [l for l in lines if l]
+            font = self.renderer._get_font(font_size=15)
+            tw = max(font.size(l)[0] for l in lines) + 20
+            tip = pygame.Rect(min(r.x, SCREEN_WIDTH - tw - 8), r.y - 22 * len(lines) - 14, tw, 22 * len(lines) + 10)
+            pygame.draw.rect(screen, (20, 22, 30), tip, border_radius=6)
+            pygame.draw.rect(screen, (150, 150, 170), tip, 1, border_radius=6)
+            for i, l in enumerate(lines):
+                self.renderer.draw_text(screen, l, (tip.x + 10, tip.y + 6 + 22 * i), font_size=15,
+                                        color=(235, 225, 170) if i == 0 else (200, 205, 215))
 
     def _handle_tab_click(self, mouse_pos):
         """Dispatch a click against the right-edge tab column built in
@@ -1228,6 +1408,7 @@ class OverworldScreen(BaseScreen):
         # the Encounters icon moved beside it."). They used to sit in small text over the corner of the world view.
         self._render_status_badges(screen)
         self._render_travel_hud(screen)
+        self._render_buff_chips(screen)
         
         # Right-edge tab column - replaces the old flat Inventory/Character/
         # Menu buttons. Cast is included here too (transitions to
@@ -1307,6 +1488,8 @@ class OverworldScreen(BaseScreen):
         # inventory_screen.py's destroy-confirmation.
         if self.teleport_menu_open:
             self._render_teleport_menu(screen)
+        if self.rest_picker:
+            self._render_rest_picker(screen)
 
         # Last, so nothing in the HUD draws over it.
         self._render_banter(screen)
