@@ -61,8 +61,11 @@ TAU = 2.0 * np.pi
 PORTALS = {(60, 2): "Northern Tanaris", (176, 96): "Glittervein",
            # the six sinkholes that can be climbed down - see DESCENTS. The tile is the pit's centre.
            (44, 34): "The Dry Deep", (104, 48): "The Dry Deep", (62, 66): "The Dry Deep",
-           (36, 92): "The Dry Deep", (84, 112): "The Dry Deep", (148, 116): "The Dry Deep"}
-ARRIVALS = [(60, 8), (170, 96), (46, 152)]
+           (36, 92): "The Dry Deep", (84, 112): "The Dry Deep", (148, 116): "The Dry Deep",
+           # FOURTH PEG is a town of its own now (tools/handbuilt_fourth_peg.py; Kyle, 16 Nov 2026: "Lets make
+           # Fourth Peg an ACTUAL town"). Its gate stands where the camp was, on the northeast flat.
+           (140, 22): "Fourth Peg"}
+ARRIVALS = [(60, 8), (170, 96), (46, 152), (140, 24)]
 START = (60, 8)
 
 #: THE PITS. (name, cx, cy, rx, ry, rim) - rim is how far the raised lip extends past the hole.
@@ -287,10 +290,9 @@ SUBZONES = [
     ("The Throats", 18, 76, 54, 70),
     ("The Long Collapse", 54, 96, 72, 56),
     ("Underlight", 118, 96, 58, 58),
-    # The camp. Flagged "safe" in encounters.json - a subzone with no roster of its own falls
-    # through to the parent zone's table AND rolls at 5% a step against the open zone's 2%, so
-    # without the flag the quietest place on the map is the most dangerous one.
-    ("Fourth Peg", 128, 16, 26, 22),
+    # The camp that was here is Fourth Peg, a town on its own map now (tools/handbuilt_fourth_peg.py); the flat
+    # it stood on keeps the name, with the town's gate on it.
+    ("Fourth Peg Flat", 128, 16, 26, 22),
 ]
 
 BASE = {"sand": 0.50, "hard": 0.26, "clay": 0.14, "rock": 0.10}
@@ -304,16 +306,8 @@ COBBLE = []
 #: trying to find out whether one is possible, in tents, on four carts they can strike in a day.
 #: The docstring's claim stands: nobody has surveyed a new LINE, because every line they have
 #: pegged so far has been overtaken by the ground before it could be finished.
-NPC_POSITIONS = {
-    "ab_surveyor":     (140, 25),      # the peg itself is here, and so is she
-    "ab_rodman":       (145, 23),
-    "ab_teamster":     (134, 24),
-    "ab_digger":       (147, 28),
-    "ab_quartermaster": (136, 29),
-    "ab_cook":         (140, 30),
-    "ab_smith":        (144, 30),
-    "ab_reagents":     (132, 27),
-}
+#: Nobody stands out here any more: the eight moved into the town (tools/handbuilt_fourth_peg.NPC_POSITIONS).
+NPC_POSITIONS = {}
 CHESTS = [(34, 22), (96, 36), (28, 110), (134, 100)]
 FOREST = None
 
@@ -396,17 +390,12 @@ def _landmarks(L):
         n += bool(ok)
         return ok
 
-    # ---- FOURTH PEG. The people stand between x 132-147, y 23-30; the camp goes round them.
-    put(UD, "ud_codex_tent", 129, 22, 5)
-    put(UD, "ud_codex_tent", 151, 24, 5)
-    put(EK, "ek_farm_cart", 127, 31, 4)
-    put(EK, "ek_farm_cart", 152, 31, 4)
-    put(SF, "sf_crate_stack", 131, 33, 3)
-    put(SN, "sn_cook_fire", 140, 34, 2)
-    put(UD, "ud_survey_tripod", 143, 21, 4)
-    put(SN, "sn_anchor_post", 139, 21, 3)          # the fourth peg
-    put(SF, "sf_hand_winch", 151, 29, 3)           # Vizzi's
-    put(SF, "sf_signboard", 126, 25, 4)
+    # ---- FOURTH PEG'S GATE. The camp is a town on its own map now; out here there's the road sign, the carts
+    # waiting to go in, and the peg crew's old marker post on the flat in front of the gate.
+    put(SF, "sf_signboard", 134, 26, 4)
+    put(EK, "ek_farm_cart", 147, 27, 4)
+    put(SN, "sn_anchor_post", 144, 30, 3)
+    put(UD, "ud_survey_tripod", 133, 31, 4)
 
     # ---- THE SIX WAYS DOWN. At the head of each ramp, off to one side of it.
     turns = dict(DESCENTS)

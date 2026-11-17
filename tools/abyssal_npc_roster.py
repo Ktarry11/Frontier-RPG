@@ -33,6 +33,10 @@ They do not say "sinkhole", they say "a hole" or "it went", because four years i
 out of ways to make it sound like an event. Hask is the exception; he is the only one who finds
 the ground interesting rather than hostile.
 
+THE STAKE HELD, SO THEY BUILT ROUND IT (Kyle, 16 Nov 2026: "Lets make Fourth Peg an ACTUAL town"). The camp is a
+walled town on its own map now (tools/handbuilt_fourth_peg.py): the same eight, plus the two a town needs and a camp
+doesn't, a wyvern-keeper and somebody on the gate. Rullo's money paid for both, and everybody has an opinion on it.
+
 (record shapes: VENDORS -> name, race, gender, variant, stock, sells_gear, greeting
                 AMBIENT -> name, race, gender, variant, greeting)
 """
@@ -72,4 +76,15 @@ ABYSSAL_AMBIENT = {
     "ab_digger": (
         "Rope-Hand Vizzi Trask", "goblin", "female", 12,
         "Somebody has to go down the pits on a rope and see if there's a floor. That's me.\n\nNine of the eleven have floors. The Throats in the southwest and Underlight in the southeast don't, as far as my line reaches.\n\nPeska writes those up as 'no bottom observed'. I'd write 'don't go down'."),
+    # ---- the two a town needs (16 Nov 2026)
+    "ab_flight_master": (
+        "Wyvern-Keeper Rixa Dunlow", "goblin", "female", 8,
+        "Her name's Tolls. Rullo paid for her and he named her, and the name's the part he got right.\n\nShe'll take "
+        "you to Steamwheedle or anywhere else you've been. She won't fly over the holes. I've stopped asking her to, "
+        "and I've stopped thinking she's wrong."),
+    "ab_gate_warden": (
+        "Gate-Warden Pik Tallow", "goblin", "male", 6,
+        "The gate's for the crawlers, not for you. Come in, and knock the sand off your boots.\n\nWe had a camp for "
+        "three years and nobody needed a gate. Then we built walls, and now somebody has to stand at the hole in them. "
+        "That's me."),
 }

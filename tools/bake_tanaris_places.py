@@ -27,12 +27,14 @@ from tools import handbuilt_drownbell as DB
 from tools import handbuilt_dry_deep as DD
 from tools import handbuilt_black_strand as BS
 from tools import handbuilt_onyxhollow as OH
+from tools import handbuilt_fourth_peg as FP
 from tools.bake_durotar_caves import M, dim
 
 #: bake_spec() resolves its build function off BD.C, which is bound to the Durotar caves module.
 #: Each zone here lives in its own module, so C is swapped per bake - the same thing
 #: tools/bake_return_voyage.py does for the seven ship zones.
-MODULES = {"steamwheedle": STW, "drownbell": DB, "dry_deep": DD, "black_strand": BS, "onyxhollow": OH}
+MODULES = {"steamwheedle": STW, "drownbell": DB, "dry_deep": DD, "black_strand": BS, "onyxhollow": OH,
+           "fourth_peg": FP}
 
 SF = "shimmering_flats/materials/"
 
@@ -225,6 +227,36 @@ SPECS["onyxhollow"] = lambda: dict(
     glow_floors=("ember",),
     cfg=dict(ao=0.44, depth=0.70, lip=18, lip_col=(1.0, 0.70, 0.45), deep_dark=0.40,
              foam_col=(170, 210, 215), glows=[("d_ember", (170, 70, 16), 3.2, 0.80)]),
+)
+
+
+# FOURTH PEG (Kyle, 16 Nov 2026: "Lets make Fourth Peg an ACTUAL town"). The Sands' own gold sand, so the town reads
+# as the same desert; the streets are beaten hardpan, where the carts and the survey crews walk; the square is buried
+# flagstone round the peg, the one paved thing a road survey has managed to lay.
+def _fp_floors():
+    S, C, Q = FP.STREET, FP.CROSS, FP.SQUARE
+    street = _rect_dots(S["x0"], S["y0"], S["x1"], S["y1"], 2.8) + _rect_dots(C["x0"], C["y0"], C["x1"], C["y1"], 2.8)
+    for (p, q) in FP.LANES:
+        street += _dots([p, q], r=2.0)
+    square = [((Q["x0"] + Q["x1"]) / 2, (Q["y0"] + Q["y1"]) / 2, (Q["x1"] - Q["x0"]) / 2 + 1, (Q["y1"] - Q["y0"]) / 2 + 1)]
+    return {"street": street, "square": square}
+
+
+SPECS["fourth_peg"] = lambda: dict(
+    build="build_fourth_peg_baked", seed=774, slug="fourth_peg",
+    materials={
+        "floor":   M(SF + "tan_sand_gold", None, 1.5),
+        "street":  M(SF + "tan_hardpan_orange", None, 1.5),
+        "square":  M(SF + "tan_flagstone_buried"),
+        "wall":    M(SF + "tan_sandstone_floor", None, 2.0),
+    },
+    floor_keys=["floor", "street", "square"],
+    wall_keys=["wall"],
+    floors=_fp_floors(),
+    walls={},
+    pools=[],
+    cfg=dict(ao=0.22, depth=0.26, lip=14, lip_col=(1.0, 0.94, 0.78), deep_dark=0.22,
+             foam_col=(215, 240, 240), glows=[]),
 )
 
 

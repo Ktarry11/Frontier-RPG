@@ -383,6 +383,10 @@ class PortalManager:
             "Steamwheedle Port": {
                 (5, 47): ("Northern Tanaris", 216, 56),
             },
+            # Fourth Peg, the survey town, off the northeast flat of the Abyssal Sands (Kyle, 16 Nov 2026)
+            "Fourth Peg": {
+                (48, 70): ("The Abyssal Sands", 140, 26),
+            },
             "The Drownbell": {
                 (16, 12): ("Northern Tanaris", 200, 88),
             },
@@ -394,6 +398,7 @@ class PortalManager:
             "The Abyssal Sands": {
                 (60, 2): ("Northern Tanaris", 60, 108),
                 (176, 96): ("Glittervein", 6, 96),
+                (140, 22): ("Fourth Peg", 48, 69),      # the town's south gate (tools/handbuilt_fourth_peg.py)
                 # SIX SINKHOLES, ONE UNDERGROUND. Kyle, 13 Nov 2026: "another underground layer
                 # entered by each sinkhole that links up underground." Each pit's centre goes down
                 # to the chamber under it, and each chamber's shaft comes back up the same pit.

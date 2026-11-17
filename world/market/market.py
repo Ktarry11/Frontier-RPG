@@ -253,7 +253,7 @@ def roster(market):
         return (" " in str(n) and len(str(n)) <= 26 and not any(w in low for w in _TITLE_WORDS)
                 and not low.startswith("the ") and "'s " not in low)
 
-    goblin_zones = {"booty_bay", "ratchet", "steamwheedle_port", "gadgetzan", "the_shimmering_flats",
+    goblin_zones = {"booty_bay", "ratchet", "steamwheedle_port", "fourth_peg", "gadgetzan", "the_shimmering_flats",
                     "stranglethorn_vale", "tanaris", "the_cape_of_stranglethorn", "azshara"}
     try:
         doc = json.loads((C.ROOT / "data/npcs/ambient_npcs.json").read_text(encoding="utf-8"))

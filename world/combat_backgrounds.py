@@ -392,7 +392,8 @@ ZONE_BACKGROUND.update({
 
     # --- salt, and a desert port ----------------------------------------------------------------
     "Saltwheel": "salt_flat",                    # a town ON the salt pan; it had a green forest
-    "Steamwheedle Port": "desert",               # the Tanaris town that won; it had a green forest
+    "Steamwheedle Port": "desert",
+    "Fourth Peg": "desert",                      # the survey town on the Abyssal Sands               # the Tanaris town that won; it had a green forest
 })
 
 

@@ -3,12 +3,13 @@ Create and position every Fourth Peg NPC and vendor in data/npcs/*.json.  Idempo
 
     PYTHONPATH=. python3 tools/sync_glittervein_npcs.py
 
-Eight people in tents on the northeast flat of the Abyssal Sands, trying to find out
-whether a road across this zone is possible. Like the Saltwheel and Underdark
+The survey town on the Abyssal Sands (tools/handbuilt_fourth_peg.py): the eight who were in tents on the
+northeast flat, trying to find out whether a road across this zone is possible, plus a wyvern-keeper and a gate
+warden. Like the Saltwheel and Underdark
 syncs and unlike the Barrens one, this CREATES records as well as moving them.
 
 Who the people ARE lives in tools/abyssal_npc_roster.py. WHERE they stand comes from
-handbuilt_abyssal_sands.NPC_POSITIONS and is never written here, so the layout stays the single
+handbuilt_fourth_peg.NPC_POSITIONS and is never written here, so the layout stays the single
 source of truth for a coordinate.
 
 The asserts are the useful part. Three of them:
@@ -17,10 +18,9 @@ The asserts are the useful part. Three of them:
     who exists and cannot be found; a spot with no name is a tile the player walks to for nothing.
   - the cook gets the "inn" service. A dungeon doorway at the bottom of a forty-six-deep hole with
     no rest point is a cruelty, not a design.
-  - NOBODY HERE GETS A FLIGHT POINT. Fourth Peg is a ten-person camp on a rock, and Kezzik in
-    Steamwheedle has the standing line about who pays to feed a wyvern. This is the same assert
-    Saltwheel carries, and it is here for the same reason: it is the kind of thing that gets added
-    later by somebody being helpful, and the absence is the point.
+  - EXACTLY ONE FLIGHT POINT. This used to assert there would be none, because Fourth Peg was a ten-person camp
+    on a rock. It's a town now (Kyle, 16 Nov 2026: "an ACTUAL town"), with one inn and one wyvern, and the check
+    holds it to one of each.
 """
 import json
 import os
@@ -33,7 +33,7 @@ os.chdir(ROOT)
 os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 
 from tools.npc_data_guard import report_extras, safe_update, may_write  # noqa: E402
-import tools.handbuilt_abyssal_sands as AB  # noqa: E402
+import tools.handbuilt_fourth_peg as FP  # noqa: E402
 from tools import abyssal_npc_roster as R  # noqa: E402
 
 #: (zone key, layout module, vendors, ambient, vendor gear_level).
@@ -41,11 +41,15 @@ from tools import abyssal_npc_roster as R  # noqa: E402
 #: and a step BELOW Lastwater at 26, because a survey camp on four carts does not out-stock the
 #: outfitter at the bottom of the only crystal seam in the world.
 ZONES = [
-    ("the_abyssal_sands", AB, R.ABYSSAL_VENDORS, R.ABYSSAL_AMBIENT, 25),
+    # a town of its own now (tools/handbuilt_fourth_peg.py), so its people's zone is the town's
+    ("fourth_peg", FP, R.ABYSSAL_VENDORS, R.ABYSSAL_AMBIENT, 25),
 ]
 
 INN = "ab_cook"
+FLIGHT = "ab_flight_master"
 CAMP = "Fourth Peg"
+#: the flight node (the flight map's pos is the world map, Tanaris's southwest, beside Steamwheedle Port's)
+NODE = {"name": "Fourth Peg", "zone": "Fourth Peg", "master": FLIGHT, "pos": [104, 158], "continent": "kalimdor"}
 
 
 #: Appearance variants are art directories, not free integers: assets/npcs/<race>/<race>_<n>/.
@@ -106,9 +110,15 @@ def main():
                 if (rec["x"], rec["y"]) != (x, y):
                     rec["x"], rec["y"] = x, y
                     moved += 1
+                # RE-HOMED (16 Nov 2026): the camp became a town on its own map, so the town owns where they live.
+                # npc_data_guard.may_write only lets a builder move x/y; the zone is set here on purpose, for
+                # exactly this roster.
+                if rec.get("zone") != zone:
+                    rec["zone"] = zone
+                    moved += 1
                 for kk, vv in (("name", name), ("race", race), ("gender", gender),
                                ("appearance_variant", var), ("greeting", greet),
-                               ("sells", sells), ("sells_gear", sells_gear)):
+                               ("sells", sells), ("sells_gear", sells_gear), ("zone", zone)):
                     if rec.get(kk) != vv and may_write(rec, kk):
                         rec[kk] = vv
                         moved += 1
@@ -124,6 +134,12 @@ def main():
             else:
                 if (rec["x"], rec["y"]) != (x, y):
                     rec["x"], rec["y"] = x, y
+                    moved += 1
+                # RE-HOMED (16 Nov 2026): the camp became a town on its own map, so the town owns where they live.
+                # npc_data_guard.may_write only lets a builder move x/y; the zone is set here on purpose, for
+                # exactly this roster.
+                if rec.get("zone") != zone:
+                    rec["zone"] = zone
                     moved += 1
                 for kk, vv in (("name", name), ("race", race), ("gender", gender),
                                ("appearance_variant", var), ("greeting", greet)):
@@ -154,21 +170,21 @@ def main():
     svc[INN] = sorted(set(before) | {"inn"})
     inn_added = svc[INN] != before
 
-    # a flight point is a node PLUS a service, so check for both: either one alone is somebody
-    # halfway through adding one, and halfway is exactly how this gets in by accident.
+    # THE WYVERN. This used to assert there would never be one ("a ten-person camp on a rock ... does not get a
+    # wyvern"). Fourth Peg is a town now, and Kyle asked for one inn and one flight point (16 Nov 2026). A flight
+    # point is a node PLUS a service: both are written here, and exactly one of each is checked for.
+    svc[FLIGHT] = sorted(set(svc.get(FLIGHT, [])) | {"flight"})
+    nodes["fourth_peg"] = dict(NODE)
     flighted = [k for k, v in svc.items() if k.startswith("ab_") and "flight" in v]
     nodes_here = [k for k, n in nodes.items() if n.get("zone") in (CAMP, "The Abyssal Sands")]
-    if flighted or nodes_here:
-        raise SystemExit(
-            f"Fourth Peg has picked up a flight point - services {flighted}, nodes {nodes_here}. "
-            f"It is a ten-person camp on a rock at the bottom of a sinkhole and it does not get a "
-            f"wyvern. Remove it rather than relaxing this check.")
+    if flighted != [FLIGHT] or nodes_here != ["fourth_peg"]:
+        raise SystemExit(f"Fourth Peg should have exactly one flight point: services {flighted}, nodes {nodes_here}")
 
     tp.write_text(json.dumps(td, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     total = sum(len(v) + len(a) for (_, _, v, a, _) in ZONES)
     print(f"Fourth Peg: {made} records created, {moved} moved ({total} people)"
-          f"{', inn registered' if inn_added else ''}, no flight node.")
+          f"{', inn registered' if inn_added else ''}, one flight node.")
 
 
 if __name__ == "__main__":

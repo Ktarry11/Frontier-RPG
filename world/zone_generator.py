@@ -5648,6 +5648,7 @@ def create_all_zones():
     from tools import handbuilt_saltwheel as dswl
     from tools import handbuilt_northern_tanaris as dnt
     from tools import handbuilt_steamwheedle_port as dstw
+    from tools import handbuilt_fourth_peg as dfpeg
     from tools import handbuilt_drownbell as ddrow   # NOT ddb - that is handbuilt_deep_bloom
     from tools import handbuilt_abyssal_sands as dabs
     from tools import handbuilt_dry_deep as dunder   # NOT ddry - that is handbuilt_drywhisker_deeps
@@ -5819,6 +5820,8 @@ def create_all_zones():
         # The main town of Tanaris, and where Gadgetzan's people went. Inn AND wind rider -
         # the contrast that makes Saltwheel's missing bird mean something.
         "Steamwheedle Port": dstw.generate_steamwheedle_port(),
+        # The survey town on the Abyssal Sands (Kyle, 16 Nov 2026: "Lets make Fourth Peg an ACTUAL town").
+        "Fourth Peg": dfpeg.generate_fourth_peg(),
         # ===== THE PLAGUELANDS (51-60, docs/plaguelands_design.md): east of Eastern Tirisfal =====
         # Bulwark Gate, Felstone, Dalson's, the Writhing Haunt, Andorhal, Sorrow Hill and Darrowmere.
         "Western Plaguelands South": dwpls.generate_wpl_south(),  # (tools/handbuilt_wpl_south.py)

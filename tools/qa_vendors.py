@@ -76,6 +76,7 @@ TOWN_REGION = {
     "booty_bay": "Southern Stranglethorn",
     "gromgol": "Northern Stranglethorn",
     "steamwheedle_port": "Northern Tanaris",
+    "fourth_peg": "The Abyssal Sands",          # the survey town, a map of its own since 16 Nov 2026
     "saltwheel": "The Shimmering Flats",
     # Astranaar sits at 24 and Ashenvale West is 11-28 against East's 20-32,
     # so West is the band it actually resupplies for.

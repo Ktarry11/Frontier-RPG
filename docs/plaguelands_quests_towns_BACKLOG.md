@@ -146,6 +146,15 @@ options...." (screenshot: the overworld's "Eat (F): 0" and "Drink (Q): 0" button
 - A QA: with three foods in the bags, the picker lists all three and F eats the chosen one; the buff shows after.
 
 ## Fourth Peg as a real town (Kyle, 16 Nov 2026)
+**Done, 16 Nov 2026 night.** It's a map of its own, `tools/handbuilt_fourth_peg.py` (96x72), with its gate on
+the Abyssal Sands where the camp stood, at (140, 22).
+- **Inside:** all eight survey people moved in. Marda's inn has a mailbox. There's the forge, the depot, the
+  brewer, Vizzi's winch yard, the survey office and Hask's shed. The peg is on the paved square.
+- **New:** a wyvern roost with Wyvern-Keeper Rixa Dunlow (the flight node `fourth_peg`) and Gate-Warden Pik Tallow.
+- **On the Sands:** the old camp's ground is "Fourth Peg Flat", still safe, with the gate, a sign and the crew's
+  old marker.
+- **Wiring:** baked by `tools/bake_tanaris_places.py fourth_peg`, with NPCs from `tools/sync_abyssal_npcs.py`.
+
 "Lets make Fourth Peg an ACTUAL town. i feel that'd solve a lot of whats ugly in Abyssal Sands."
 - Its own map off Abyssal Sands, the way the Plaguelands' towns went (docs/plaguelands_towns_plan.md): its people
   moved in, one inn and one flight point, the camp's ground on Abyssal Sands given back to the zone.

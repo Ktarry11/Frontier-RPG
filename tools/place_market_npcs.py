@@ -42,7 +42,7 @@ EXISTING = ["uc_auctioneer", "fw_auctioneer"]
 CULTURE = {"orc": ["mailbox_orc", "mailbox_orc_b"], "troll": ["mailbox_troll"],
            "undead": ["mailbox_forsaken", "mailbox_forsaken_b"], "forsaken": ["mailbox_forsaken", "mailbox_forsaken_b"],
            "tauren": ["mailbox_tauren", "mailbox_tauren_b"], "goblin": ["mailbox_goblin", "mail_tube_goblin"]}
-GOBLIN_TOWNS = {"booty_bay", "ratchet", "steamwheedle_port", "saltwheel"}
+GOBLIN_TOWNS = {"booty_bay", "ratchet", "steamwheedle_port", "saltwheel", "fourth_peg"}
 #: towns whose zone default race isn't the people who run the inn (the default is "human" for most new zones)
 TOWN_CULTURE = {"sepulcher": "forsaken", "freewind_post": "tauren", "sun_rock_retreat": "tauren", "gromgol": "troll",
                 "splintertree_post": "orc", "hammerfall": "orc", "zoram_strand": "orc"}
