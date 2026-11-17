@@ -257,6 +257,11 @@ class PartyScreen(BaseScreen):
     # ------------------------------------------------------------------
 
     def handle_event(self, event):
+        # the Party Buffs list scrolls with the wheel (_render_party_buffs)
+        if event.type == pygame.MOUSEWHEEL and self.tab == "buffs":
+            self.buffs_scroll = max(0, min(int(getattr(self, "_buffs_max_scroll", 0) or 0),
+                                           int(getattr(self, "buffs_scroll", 0) or 0) - 40 * event.y))
+            return
         if event.type == pygame.KEYDOWN and event.key == pygame.K_F9:
             self.state_manager.transition_to(GameState.BOND_TEST)
             return
@@ -890,12 +895,21 @@ class PartyScreen(BaseScreen):
                                     font_size=14, color=COLOR_MUTED)
             return
 
-        bottom = panel.bottom - 16
+        # THE LIST SCROLLS INSIDE ITS BOX, ABOVE THE BUTTONS (Kyle, 16 Nov 2026: the list ran on under the action
+        # buttons). The box ends where the first action button starts (_render_actions ran first and laid them out);
+        # the mouse wheel moves it (handle_event), and a thin bar on the right says there's more.
+        btn_top = min((r.top for _a, r in self.action_rects), default=panel.bottom - 16)
+        box = pygame.Rect(panel.x + 8, y, panel.width - 16, max(40, btn_top - 10 - y))
+        self._buffs_box = box
+        scroll = max(0, int(getattr(self, "buffs_scroll", 0) or 0))
+        known = getattr(self, "_buffs_max_scroll", None)
+        if known is not None and scroll > known:          # clamp before drawing, from the last frame's height
+            scroll = self.buffs_scroll = known
+        old_clip = screen.get_clip()
+        screen.set_clip(box)
+        y = box.y - scroll
+        from ui.effect_tooltip import draw_effect_icon
         for member in everyone:
-            if y > bottom - 40:
-                self.renderer.draw_text(screen, "...", (x, y), font_size=13,
-                                        color=COLOR_MUTED)
-                return
             effects = [e for e in member._effects() if is_displayable_buff(e)]
             tag = " (you)" if member is getattr(party, "player", None) else ""
             self.renderer.draw_text(screen, f"{member.name}{tag}", (x, y),
@@ -903,7 +917,7 @@ class PartyScreen(BaseScreen):
             count = f"{len(effects)}" if effects else "none"
             cw = self.renderer._get_font(font_size=13).size(count)[0]
             self.renderer.draw_text(screen, count,
-                                    (panel.right - 20 - cw, y + 1),
+                                    (panel.right - 26 - cw, y + 1),
                                     font_size=13, color=COLOR_MUTED)
             y += 20
 
@@ -914,8 +928,6 @@ class PartyScreen(BaseScreen):
                 continue
 
             for effect in effects:
-                if y > bottom - 20:
-                    break
                 is_buff = effect.effect_type == EffectType.BUFF
                 label = effect.name
                 stacks = getattr(effect, "stacks", 1)
@@ -929,21 +941,33 @@ class PartyScreen(BaseScreen):
                     remaining = f"{max(0, int(getattr(effect, 'duration', 0)))}t"
                 # The effect's own icon, then its name. The whole row is hoverable: the tooltip
                 # (ui/effect_tooltip.py, the same one combat uses) says what it actually does.
-                from ui.effect_tooltip import draw_effect_icon
                 draw_effect_icon(self.renderer, screen, effect,
                                  pygame.Rect(x + 12, y, 16, 16), show_count=False)
-                self._effect_hits.append(
-                    (pygame.Rect(x + 8, y - 1, panel.right - 20 - (x + 8), 19), effect, member))
+                row = pygame.Rect(x + 8, y - 1, panel.right - 26 - (x + 8), 19)
+                if box.contains(row):
+                    self._effect_hits.append((row, effect, member))
                 self.renderer.draw_text(screen, label, (x + 36, y),
                                         font_size=13,
                                         color=self._BUFF_COLOR if is_buff
                                         else self._DEBUFF_COLOR)
                 rw = self.renderer._get_font(font_size=13).size(remaining)[0]
                 self.renderer.draw_text(screen, remaining,
-                                        (panel.right - 20 - rw, y),
+                                        (panel.right - 26 - rw, y),
                                         font_size=13, color=COLOR_MUTED)
                 y += 19
             y += 8
+        screen.set_clip(old_clip)
+        content = (y + scroll) - box.y
+        self._buffs_max_scroll = max(0, content - box.height)
+        if scroll > self._buffs_max_scroll:
+            self.buffs_scroll = self._buffs_max_scroll
+        if self._buffs_max_scroll:
+            track = pygame.Rect(box.right - 6, box.y, 4, box.height)
+            pygame.draw.rect(screen, (50, 52, 62), track, border_radius=2)
+            frac = box.height / max(1, content)
+            th = max(18, int(box.height * frac))
+            ty = box.y + int((box.height - th) * (min(scroll, self._buffs_max_scroll) / self._buffs_max_scroll))
+            pygame.draw.rect(screen, (170, 160, 120), pygame.Rect(track.x, ty, 4, th), border_radius=2)
 
     def _render_resource(self, screen, member, x, y):
         """Draw the member's class resource bar under their HP."""

@@ -122,7 +122,8 @@ the plaguelands").
 
 ## The bench has no limit, and the party screen overflows (Kyle, 16 Nov 2026)
 **Bench capped at two** (Kyle: "I want a hard cap of TWO benched characters"). That's on main (321bb66), with
-tools/qa_bench_cap.py. The party-buffs list overflowing is still open.
+tools/qa_bench_cap.py. The Party Buffs list now scrolls inside its box, above the action buttons
+(tools/qa_party_buffs_scroll.py). Done.
 
 "no limit to how many people i can bench??? Lol" (screenshot: Bench (9), the list running off the bottom, the Party
 Buffs list drawn under the action buttons, the footer hint over the last bench row).
