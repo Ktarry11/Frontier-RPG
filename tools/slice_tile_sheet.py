@@ -40,12 +40,32 @@ BLEND = 22            # width of the seamless edge blend, in output pixels
 SETS = {}
 
 
-def _set(key, cols, rows, sheet, out_dir, names, rows_y=None, drop=()):
-    """names: whitespace-separated, cols*rows of them. `drop` names are sliced past but not written."""
+def _set(key, cols, rows, sheet, out_dir, names, rows_y=None, drop=(), gutters=False, seam="blend"):
+    """names: whitespace-separated, cols*rows of them. `drop` names are sliced past but not written.
+    gutters: the tiles sit apart on magenta, so each one's edges are found rather than divided out."""
     names = names.split()
     assert len(names) == cols * rows, (key, len(names), cols * rows)
     SETS[key] = dict(cols=cols, rows=rows, sheet=sheet, out=out_dir, names=names,
-                     rows_y=rows_y, drop=set(drop))
+                     rows_y=rows_y, drop=set(drop), gutters=gutters, seam=seam)
+
+
+def _gutter_runs(sheet, axis, want):
+    """The spans of a sheet, along one axis, that are mostly tile rather than magenta gutter."""
+    a = np.asarray(sheet, dtype=np.int16)
+    mag = (a[:, :, 0] > 200) & (a[:, :, 1] < 80) & (a[:, :, 2] > 200)
+    filled = (~mag).mean(axis=axis) > 0.5
+    runs, start = [], None
+    for i, f in enumerate(filled):
+        if f and start is None:
+            start = i
+        elif not f and start is not None:
+            runs.append((start, i))
+            start = None
+    if start is not None:
+        runs.append((start, len(filled)))
+    runs = [r for r in runs if r[1] - r[0] > 40]
+    assert len(runs) == want, f"expected {want} tile spans between the gutters, found {len(runs)}: {runs}"
+    return runs
 
 
 # ---------------------------------------------------------------------------------------------------------
@@ -121,6 +141,42 @@ def make_seamless(im, blend=BLEND):
     return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))
 
 
+def _noise2(h, w, rng, freqs=(3, 6, 11)):
+    """Smooth zero-mean, unit-ish noise of shape (h, w)."""
+    n = np.zeros((h, w), dtype=np.float32)
+    for f in freqs:
+        g = rng.random((f, f)).astype(np.float32)
+        n += np.asarray(Image.fromarray(g).resize((w, h), Image.BICUBIC), dtype=np.float32) / f
+    return (n - n.mean()) / (n.std() + 1e-6)
+
+
+def make_seamless_overlap(im, frac=0.22, seed=0):
+    """Seamless by overlap, for painted tiles whose content runs in bands (reeds, a meadow) where an edge
+    cross-fade leaves a visible straight seam.
+
+    Cut the tile short by B = frac of its size on each axis, and cross-fade its first B rows with the B rows
+    that come after the cut. Those rows are the painting's own continuation, so the result wraps with no
+    mirroring: the last row kept runs straight into the first. The cross-fade's boundary is warped by noise,
+    so it is a ragged blend and never a line. Returns a smaller square; the caller resizes it."""
+    rng = np.random.default_rng(seed)
+    a = np.asarray(im, dtype=np.float32)
+    for axis in (0, 1):
+        if axis == 1:
+            a = a.transpose(1, 0, 2)
+        h, w = a.shape[:2]
+        B = max(4, int(h * frac))
+        n = h - B
+        y = np.arange(B, dtype=np.float32)[:, None] / (B - 1)               # 0 at the top, 1 at row B-1
+        warp = 0.35 * _noise2(1, w, rng, (4, 9))[0][None, :]               # where along x the fade sits
+        t = np.clip((y - 0.5 - warp * 0.5) / 0.5 + 0.5, 0.0, 1.0)
+        t = t * t * (3 - 2 * t)                                             # smoothstep
+        head = a[:B] * t[:, :, None] + a[n:n + B] * (1 - t[:, :, None])   # row 0 is the continuation of row n-1
+        a = np.concatenate([head, a[B:n]], axis=0)
+        if axis == 1:
+            a = a.transpose(1, 0, 2)
+    return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))
+
+
 def slice_set(key, preview=None):
     s = SETS[key]
     sheet = Image.open(ROOT / s["sheet"]).convert("RGB")   # RGB, never RGBA: tiles are opaque ground
@@ -131,19 +187,28 @@ def slice_set(key, preview=None):
     out_dir = ROOT / s["out"]
     out_dir.mkdir(parents=True, exist_ok=True)
 
+    if s.get("gutters"):
+        xr, yr = _gutter_runs(sheet, 0, cols), _gutter_runs(sheet, 1, rows)
     written, dropped = [], []
     for r in range(rows):
         for c in range(cols):
             name = s["names"][r * cols + c]
-            x0, x1 = round(c * W / cols), round((c + 1) * W / cols)
-            y0, y1 = ys[r], ys[r + 1]
+            if s.get("gutters"):
+                (x0, x1), (y0, y1) = xr[c], yr[r]
+            else:
+                x0, x1 = round(c * W / cols), round((c + 1) * W / cols)
+                y0, y1 = ys[r], ys[r + 1]
             if name in s["drop"]:
                 dropped.append(name)
                 continue
             # Inset before resizing - see the module docstring on why the arithmetic bounds are not safe.
             cell = sheet.crop((x0 + INSET, y0 + INSET, x1 - INSET, y1 - INSET))
-            cell = cell.resize((OUT_PX, OUT_PX), Image.LANCZOS)
-            make_seamless(cell).save(out_dir / f"{name}.png")
+            if s.get("seam") == "overlap":
+                cell = make_seamless_overlap(cell, seed=r * cols + c).resize((OUT_PX, OUT_PX), Image.LANCZOS)
+                cell.save(out_dir / f"{name}.png")
+            else:
+                cell = cell.resize((OUT_PX, OUT_PX), Image.LANCZOS)
+                make_seamless(cell).save(out_dir / f"{name}.png")
             written.append(name)
 
     print(f"{key}: {len(written)} tiles -> {s['out']}")
@@ -220,8 +285,22 @@ _set("stonetalon", 8, 6, "tools/tile_sheets/stonetalon_tiles.png", "assets/tiles
     st_heartwood_floor st_ring_wall st_inner_bark_wall st_sap_pool st_beetle_galleries st_branch_walk st_canopy_floor st_sky_below
 """, rows_y=[0, 181, 346, 510, 672, 835, 1024])
 
+# Kyle's sheet 9 (17 Nov 2026), docs/plaguelands_secrets_art_prompts.md: tundra and ice, fen and barrows, an
+# elven waystation and a Scourge breach. Painted for the Plaguelands' hidden maps and kept general (cl_ =
+# cold lands) because Winterspring will want the same snow and ice. Tiles sit apart on magenta gutters.
+_set("cold_lands", 6, 6, "tools/tile_sheets/cold_lands_tiles.png", "assets/tiles/cold_lands/ground", """
+    cl_snow_wind cl_snow_steppe cl_glacier_ice cl_river_ice cl_stone_frost cl_snow_trampled
+    cl_icehole_water cl_scree_snow cl_glacier_wall cl_moraine cl_lichen_rock_snow cl_ochre_snow
+    cl_sphagnum cl_floating_moss cl_peat_water cl_reed_bed cl_causeway_stones cl_fen_shallow
+    cl_mere_deep cl_amani_paving cl_barrow_turf cl_drowned_grass cl_mud_bank cl_wet_sand
+    cl_elven_paving cl_golden_meadow cl_silver_grass cl_fallen_leaves cl_elven_road cl_reflecting_pool
+    cl_gold_to_grey cl_scourge_cracks cl_elven_paving_broken cl_plague_grass cl_bone_soil cl_burned_leaves
+""", gutters=True, seam="overlap")
+
+
 if __name__ == "__main__":
     pv = sys.argv[sys.argv.index("--preview") + 1] if "--preview" in sys.argv else None
     keys = [a for a in sys.argv[1:] if a in SETS] or list(SETS)
     for k in keys:
         slice_set(k, pv)
+

@@ -14,6 +14,13 @@ light from the top-left. Ground tiles are square, seamless and straight top-down
 
 ## SHEET 9: 36 ground tiles (seamless squares)
 
+**Done, 17 Nov 2026.** Sliced by `tools/slice_tile_sheet.py cold_lands` into `assets/tiles/cold_lands/ground` (cl_
+names, kept general so Winterspring can use the same snow and ice). The tiles sat apart on magenta, so the slicer
+finds each one's edges, and they are made seamless by overlap (the tile's own continuation is cross-faded along a
+ragged line), because an edge cross-fade left straight seams in the reeds and the meadow. The three hidden maps now
+paint with them in place of their stand-ins. Four are one-off pieces rather than repeating ground: the ice hole edge,
+the causeway, the reflecting pool and the gold-to-grey transition.
+
 > ONE image, 2048x2048, 6 x 6 grid = 36 SQUARE SEAMLESS textures, straight top-down, no objects.
 >
 > Row 1 - TUNDRA: wind-packed snow with faint ridges; thin snow over dry steppe grass; old blue-white glacier ice
