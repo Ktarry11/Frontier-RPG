@@ -176,3 +176,71 @@ def unlearn(character, profession):
     if not character.unlearn_profession(profession):
         return False, "You don't know that profession."
     return True, f"You have unlearned {professions()[profession]['name']}."
+
+
+# ------------------------------------------------------------------ recipes, bought at the trainer
+# Kyle, 17 Nov 2026: "You need to go to the trainer and it costs money to learn!" A trainer recipe is
+# never given away: not on a skill-up, not on learning the trade, not on training a tier. You walk to a
+# trainer of the trade and pay for each recipe your skill has reached.
+
+def recipe_price(recipe):
+    """Copper to learn a trainer recipe: a few copper for the first ones, rising with the skill it needs,
+    alongside the tier fees (5s, 2g, 15g, 60g). Skill 0: 10c. 50: 5s10c. 100: 20s. 150: 45s. 200: 80s.
+    250: 1g25s. 300: 1g80s. A recipe may set its own "train_cost"."""
+    if recipe.get("train_cost") is not None:
+        return int(recipe["train_cost"])
+    s = int(recipe.get("skill_required", 0) or 0)
+    return 10 + (s * s) // 5
+
+
+def recipe_offers(character, profession):
+    """Every trainer recipe of `profession` the character's skill has reached and they don't know yet,
+    cheapest first. -> [dict(recipe_id, name, skill, cost)]."""
+    if not character.knows_profession(profession):
+        return []
+    from world.recipe_manager import trainer_recipe_book
+    skill = character.profession_skills.get(profession, 0)
+    out = []
+    for rid, r in trainer_recipe_book(profession).items():
+        if r.get("source", "trainer") != "trainer" or rid in character.known_recipes:
+            continue
+        if r.get("skill_required", 0) > skill:
+            continue
+        out.append(dict(recipe_id=rid, name=r.get("name", rid), skill=r.get("skill_required", 0),
+                        cost=recipe_price(r)))
+    return sorted(out, key=lambda o: (o["cost"], o["skill"], o["name"]))
+
+
+def affordable(offers, copper):
+    """The offers bought cheapest first until the money runs out."""
+    got = []
+    for o in sorted(offers, key=lambda o: o["cost"]):
+        if o["cost"] > copper:
+            break
+        got.append(o)
+        copper -= o["cost"]
+    return got
+
+
+def buy_recipe(character, party, profession, recipe_id):
+    o = next((o for o in recipe_offers(character, profession) if o["recipe_id"] == recipe_id), None)
+    if o is None:
+        return False, "That recipe isn't for sale to you."
+    if not _pay(party, o["cost"]):
+        return False, "You can't afford that."
+    character.known_recipes.add(recipe_id)
+    return True, f"You learned {o['name']}."
+
+
+def buy_all_recipes(character, party, profession):
+    offers = recipe_offers(character, profession)
+    got = affordable(offers, party.copper if party is not None else 0)
+    learned = 0
+    for o in got:
+        if not _pay(party, o["cost"]):
+            break
+        character.known_recipes.add(o["recipe_id"])
+        learned += 1
+    if not learned:
+        return False, "You can't afford any of them."
+    return True, f"You learned {learned} recipe{'s' if learned != 1 else ''}."

@@ -320,7 +320,7 @@ class ProfessionsScreen(BaseScreen):
             if not player.knows_profession(profession):
                 ok, msg = False, f"You haven't learned {profession.title()}."
             elif not player.knows_recipe(recipe_id):
-                ok, msg = False, _not_learned_text(self.own_managers[profession].recipes.get(recipe_id) or {})
+                ok, msg = False, _not_learned_text(self.own_managers[profession].recipes.get(recipe_id) or {}, profession)
             else:
                 result = self.own_managers[profession].craft(player, recipe_id)
                 if result is not None:
@@ -851,8 +851,9 @@ class ProfessionsScreen(BaseScreen):
                 px += small.size(text)[0] + 16
             input_rows.append((pygame.Rect(text_x, rect.y + 22, max(40, px - text_x), 20), recipe))
             if unlocked and not player.knows_recipe(recipe_id):
-                # a pattern you have to find (a drop, a vendor, a quest): the skill is there, the recipe is not
-                self.renderer.draw_text(screen, "Not learned", (rect.right - 130, rect.y + 12), color=(200, 170, 110))
+                # the skill is there, the recipe is not: a trainer teaches it, or it is a pattern to find
+                label = "Visit trainer" if recipe.get("source", "trainer") == "trainer" else "Not learned"
+                self.renderer.draw_text(screen, label, (rect.right - 140, rect.y + 12), color=(200, 170, 110))
             elif unlocked:
                 self.renderer.draw_text(screen, f"Skill {req}", (rect.right - 110, rect.y + 12), color=self._difficulty_color(skill, recipe))
             else:

@@ -150,6 +150,20 @@ wired (rosters, kits, loot, floors, doors, one-way exits). Crown Guard Camp fold
 - Open: audit_recruit_combat still exits 1 on Ryan's Health Funnel healing his Felhunter. That was there before
   this work, and none of the sixteen fail it.
 
+## Crafting: recipes are bought at the trainer (playtest and Kyle, 17 Nov 2026)
+- **Done.** Playtest: Leatherworking at skill 1 with 107 Scrap Leather said "Missing materials" on the first three
+  recipes. The trainer only handed recipes over when a trade was learned or a tier trained, and that save had
+  learned the trade when the first recipes needed a skill it didn't have yet, so it knew none.
+- Kyle: "You need to go to the trainer and it costs money to learn!" and "Crafting is an investment and costs
+  money to learn". Now no recipe is ever free. Not on learning a trade, not on training a tier, not on a skill-up.
+  A trainer lists every recipe your skill has reached, each with a price, plus "Learn all you can afford".
+- Price: 10c + skill squared / 5, so 10c at 0, 5s at 50, 45s at 150, 1g80 at 300. A recipe can set its own
+  "train_cost". A whole trade's recipes come to about 40-100g on top of the 77g of tier fees.
+- Every trade now refuses a recipe you don't know (only Blacksmithing and Leatherworking did). The message says
+  where to get it, and the list marks it "Visit trainer" or "Not learned".
+- Two Jewelcrafting jade designs had no seller. They are now sold beside the rest of the jade family.
+- Test: tools/qa_trainer_recipes_follow_skill.py, covering all ten trades.
+
 ## Secrets (counts only; never where)
 Kyle asked how many secrets are "just vendors behind buildings". 390 secrets on 147 maps; 55 are "behind a
 building", and 38 of the 52 hidden sellers are exactly that and nothing else. Every open-world zone from the Valley of

@@ -8,8 +8,8 @@ skill yet they can still CARRY it — they just can't learn it until they do
 (exactly like WoW patterns you loot early but can't use until higher skill).
 
 Sources of recipe scrolls:
-  - "trainer"  — taught automatically when visiting a trainer (no scroll item involved;
-                  trainer calls character.learn_trainer_recipes directly)
+  - "trainer"  — bought from a trainer of the trade, one recipe at a time, once the skill reaches it
+                  (no scroll item involved; world/profession_manager.buy_recipe)
   - "drop"     — world drop from a specific creature or random mob
   - "vendor"   — sold by a specific vendor NPC in a specific town
   - "quest"    — rewarded by completing a specific quest
@@ -233,28 +233,14 @@ def trainer_recipe_book(profession: str) -> dict:
     return {}
 
 
-def teach_trainer_recipes(character, profession: str | None = None) -> list:
-    """Hand over every trainer recipe the character's skill has reached, for one trade or (None) for
-    every trade they know. -> the recipe ids newly learned.
-
-    Playtest, 17 Nov 2026 (Leatherworking at skill 1, 107 Scrap Leather, "Missing materials" on the
-    first three recipes): trainer recipes were only taught at the moment a trade was learned or a tier
-    was trained. Nothing taught the skill 2, 8, 10 ... recipes on the way up, so every trade stalled
-    inside its first tier, and a save that learned a trade when its first recipes needed skill 1 and
-    the trade started at 0 was handed nothing at all, ever. Now a recipe arrives the moment the skill
-    reaches it: on a skill-up, on loading a save, and at the trainer.
-    """
-    profs = [profession] if profession else list(getattr(character, "known_professions", []))
-    learned = []
-    for p in profs:
-        if not character.knows_profession(p):
-            continue
-        learned += character.learn_trainer_recipes(p, trainer_recipe_book(p))
-    return learned
-
-
-def not_learned_text(recipe: dict) -> str:
-    """Why a recipe your skill has reached still can't be made: you haven't got the pattern."""
+def not_learned_text(recipe: dict, profession: str | None = None) -> str:
+    """Why a recipe your skill has reached still can't be made: you haven't got it. A trainer recipe is
+    bought from a trainer of the trade; a pattern is found (a drop, a vendor, a quest)."""
     where = {"drop": "found on a creature", "vendor": "bought from a vendor", "quest": "earned from a quest"}.get(
-        recipe.get("source"), "taught by a trainer")
+        recipe.get("source"))
+    if where is None:
+        if not profession:
+            return "You haven't learned that recipe. Buy it from a trainer."
+        trade = profession.replace("_", " ").title()
+        return f"You haven't learned that recipe. Buy it from {'an' if trade[0] in 'AEIOU' else 'a'} {trade} trainer."
     return f"You haven't learned that recipe. It is {where}."

@@ -52,7 +52,7 @@ class CraftingManager:
     def available_recipes(self, character, profession):
         """Recipes the character may craft right now: profession learned + skill high enough + recipe known.
 
-        Trainer-source recipes are auto-taught on trainer visit (character.learn_trainer_recipes).
+        Trainer-source recipes are bought from a trainer (world/profession_manager.buy_recipe).
         Drop/vendor/quest recipes must be explicitly learned by using a recipe scroll item.
         Both paths ultimately write to character.known_recipes; this filter trusts that set.
         """
@@ -106,7 +106,7 @@ class CraftingManager:
         if not character.knows_recipe(recipe_id):
             # can_craft and the list both said no; the click used to go ahead anyway
             from world.recipe_manager import not_learned_text
-            return False, not_learned_text(r), None
+            return False, not_learned_text(r, profession), None
         if r.get("station") == "sawmill" and not at_station:
             return False, "You must be at a Sawmill to saw planks.", None
         if not self.has_tool(character, r):

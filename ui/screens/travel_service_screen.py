@@ -26,12 +26,6 @@ GREEN = (120, 220, 140)
 RED = (230, 130, 130)
 
 
-def _teach_trainer_recipes(character, profession: str) -> list:
-    """Teach every trainer recipe at or below the character's skill (world/recipe_manager.py)."""
-    from world.recipe_manager import teach_trainer_recipes
-    return teach_trainer_recipes(character, profession)
-
-
 class TravelServiceScreen(BaseScreen):
     TITLES = {"flight": "Windrider Flight Master", "riding": "Riding Trainer", "mounts": "Mount Vendor",
               "train_class": "Class Trainer", "train_prof": "Profession Trainer",
@@ -180,6 +174,22 @@ class TravelServiceScreen(BaseScreen):
             label = {"learn": "Learn", "advance": "Train", "info": "Locked"}.get(o["kind"], "Locked")
             rows.append(dict(name=o["name"], sub=o["sub"], price=o["cost"], label=label, enabled=ok, reason=reason,
                              action={"learn": "prof_learn", "advance": "prof_advance"}.get(o["kind"], "none"), arg=prof))
+        # THE RECIPES, BOUGHT ONE AT A TIME (Kyle, 17 Nov 2026: "You need to go to the trainer and it costs
+        # money to learn"). Every trainer recipe your skill has reached and you don't know yet, cheapest first.
+        offers = pm.recipe_offers(player, prof)
+        if len(offers) > 1:
+            total = sum(o["cost"] for o in offers)
+            n_afford = len(pm.affordable(offers, copper))
+            rows.append(dict(name=f"Learn every {pm.professions()[prof]['name']} recipe you can afford",
+                             sub=f"{n_afford} of {len(offers)} available  -  cheapest first",
+                             price=total, label="Learn all", enabled=n_afford > 0, reason="Not enough gold",
+                             action="prof_recipe_all", arg=prof))
+        for o in offers:
+            ok = copper >= o["cost"]
+            rows.append(dict(name=f"Recipe: {o['name']}", sub=f"{pm.professions()[prof]['name']} {o['skill']}"
+                             + (f"  -  {o['makes']}" if o.get("makes") else ""),
+                             price=o["cost"], label="Learn", enabled=ok, reason=None if ok else "Not enough gold",
+                             action="prof_recipe", arg=(prof, o["recipe_id"])))
         return rows
 
     def _train_rows(self, player, copper):
@@ -252,6 +262,14 @@ class TravelServiceScreen(BaseScreen):
                 learned += bool(ok)
             return self._say(f"You learned {learned} new skill{'s' if learned != 1 else ''}." if learned
                              else "You can't afford anything.", GREEN if learned else RED)
+        if action in ("prof_recipe", "prof_recipe_all"):
+            from world import profession_manager as pm
+            player = self.state_manager.player
+            if action == "prof_recipe":
+                ok, msg = pm.buy_recipe(player, party, *arg)
+            else:
+                ok, msg = pm.buy_all_recipes(player, party, arg)
+            return self._say(msg, GREEN if ok else RED)
         if action in ("prof_learn", "prof_advance", "prof_unlearn"):
             from world import profession_manager as pm
             player = self.state_manager.player
@@ -264,14 +282,6 @@ class TravelServiceScreen(BaseScreen):
             else:
                 self._unlearn_armed = False
                 ok, msg = (pm.learn if action == "prof_learn" else pm.advance)(player, party, arg)
-                if ok:
-                    # Auto-teach all trainer-source recipes at/below current skill.
-                    # Works for both initial learn AND tier advances (which raise the skill cap
-                    # and may unlock recipes the trainer already had waiting).
-                    newly_learned = _teach_trainer_recipes(player, arg)
-                    if newly_learned:
-                        recipes_word = "recipe" if len(newly_learned) == 1 else "recipes"
-                        msg = f"{msg}  You learned {len(newly_learned)} {recipes_word}."
             return self._say(msg, GREEN if ok else RED)
         if action == "learn":
             ok, reason = travel.can_learn_riding(self.state_manager.player.level, self._copper())

@@ -4554,13 +4554,6 @@ class Character(StatusEffectMixin):
             char.known_recipes = set(data["known_recipes"])
         else:
             char._migrate_known_recipes()
-        # Every trainer recipe the skill has reached, for every trade known. Saves made while
-        # recipes were only taught at the trainer's counter are missing most of them (17 Nov 2026).
-        try:
-            from world.recipe_manager import teach_trainer_recipes
-            teach_trainer_recipes(char)
-        except Exception:
-            pass
         char.soul_runes = (list(data.get("soul_runes") or []) + [None] * 4)[:4]
         char.consumable_cooldown = data.get("consumable_cooldown", 0.0)
         char.guardian_buff = _buff_from_data(data.get("guardian_buff"))
@@ -4982,9 +4975,9 @@ class Character(StatusEffectMixin):
         return True, "Recipe learned."
 
     def learn_trainer_recipes(self, profession, recipes_dict):
-        """Called when visiting a trainer. Automatically teaches every recipe whose
-        source is 'trainer' and whose skill_required <= the character's current skill.
-        Returns a list of newly-learned recipe IDs for the trainer UI to display."""
+        """Teach, free, every trainer recipe at or below the current skill. NOT the game's path: in play a
+        trainer recipe is bought at the trainer (world/profession_manager.buy_recipe). This is for the test
+        menu (world/testing.py) and old-save migration only. Returns the newly learned recipe ids."""
         learned = []
         current = self.profession_skills.get(profession, 0)
         for rid, recipe in recipes_dict.items():
@@ -5078,16 +5071,8 @@ class Character(StatusEffectMixin):
         cap = tier_cap if cap is None else min(cap, tier_cap)
         new_value = self.profession_skills[profession] + amount
         new_value = min(new_value, max(cap, self.profession_skills[profession]))
-        rose = new_value > self.profession_skills[profession]
         self.profession_skills[profession] = new_value
-        if rose:
-            # a trainer recipe arrives the moment the skill reaches it (world/recipe_manager.py)
-            try:
-                from world.recipe_manager import teach_trainer_recipes
-                teach_trainer_recipes(self, profession)
-            except Exception:
-                pass
-        return rose
+        return False
     
     def apply_consumable_buff(self, buff_category, consumable, seconds=None):
         """
