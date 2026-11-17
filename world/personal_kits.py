@@ -296,7 +296,12 @@ def grant(character):
             del book.abilities[ability_id]
     for entry in ability_entries_for(character):
         try:
-            book.add_ability(_ability_from_data(entry))
+            ability = _ability_from_data(entry)
+            # AT THE RANK THIS LEVEL HAS EARNED (Kyle, 16 Nov 2026: "Character traits not leveling up...should be 1,
+            # 15, 30, 45, and 60"). A kit is put back on every load and on recruiting, AFTER the character's ranks
+            # were refreshed, so every trait sat at Rank 1 until the next level-up - and a level 60 never levels up.
+            ability.refresh_rank_for_level(int(getattr(character, "level", 1) or 1))
+            book.add_ability(ability)
             added += 1
         except Exception:
             continue
