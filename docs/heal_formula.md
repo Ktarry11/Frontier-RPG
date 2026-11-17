@@ -134,9 +134,15 @@ are a flat 1.5x, with no crit-damage talents.
 - Bosses only come down. Of the 526 dungeon and field bosses, the ones already at or under their target keep
   what they hit for.
 
-**AoE past 40.** `data/balance/boss_aoe.json` (`tools/build_boss_aoe.py`) gives 84 dungeon bosses from level 40 the
-party-wide shape they were missing: a blast, a blight they could cleanse, or both. Every third boss also gets a
-wounding blast that cuts healing taken by 20% for 3 turns. That's 118 abilities in total.
+**AoE past 40.** `data/balance/boss_aoe.json` (`tools/build_boss_aoe.py`) gives dungeon bosses from level 40 the
+party-wide shapes they were missing:
+- a blast
+- a blight that can be cleansed
+- on every third boss, a wounding blast that cuts healing taken by 20% for 3 turns
+
+Each boss's additions are tested in a 40-turn fight against its own kit. It keeps the first set that doesn't stop any
+of its own attacks from being used. The first build without this test left 47 of the bosses' own attacks never
+thrown. The result is 111 abilities on 83 bosses, and one boss had no room for any.
 
 **Spec auras, interim.** Healing auras sit outside the cap, because they balance one healer's kit against another's.
 Healers' sustained output at 60 ran from 16.5% to 45.6% of a tank a turn, so the range is wide, 0.6-1.6, until each

@@ -117,11 +117,76 @@ def build():
     return out, n_added, spice
 
 
+def _dead(name, level, extras):
+    """Indexes of the boss's OWN kit (not the extras) it never chose in tools/audit_monster_combat.run_one's
+    40-turn fight, plus how many of the extras it never chose, with these extras on."""
+    import contextlib
+    import io
+    from entities import monster as MON
+    MON._BOSS_AOE = {name: extras}
+    sys.path.insert(0, str(ROOT / "tools"))
+    import audit_monster_combat as A
+    with contextlib.redirect_stdout(io.StringIO()):
+        r = A.run_one(name, level)
+    if "chosen" not in r:
+        return None, None
+    n_extra = len(extras)
+    chosen = r["chosen"]
+    own = chosen[:len(chosen) - n_extra] if n_extra else chosen
+    mon = r["monster"]
+    dead_own = {i for i, c in enumerate(own) if c == 0 and i > 0 and mon.abilities[i].hp_below is None
+                and mon.abilities[i].kind != "heal"}
+    dead_extra = sum(1 for c in chosen[len(chosen) - n_extra:] if c == 0) if n_extra else 0
+    return dead_own, dead_extra
+
+
+def verify(out):
+    """KEEP THE BOSS'S OWN KIT ALIVE. The first build added every shape to every boss and 47 of the bosses' own
+    attacks stopped being thrown at all: Monster.choose_action casts a party DoT the moment it's ready and a rider hit
+    the moment its debuff lapses, so the added ones ate the turns a boss's own smaller hits used to land in
+    (tools/audit_monster_combat.py, "never arose"). So each boss tries its additions against a 40-turn fight with and
+    without them, and keeps the first set that kills none of its own attacks and gets thrown itself: everything, then
+    slower cooldowns, then the blast alone, then the blight alone, then nothing."""
+    cre = json.loads((ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))
+    cre = cre.get("creatures", cre)
+    kept, dropped = {}, []
+    for name, extras in out.items():
+        lo, hi = (cre[name].get("level_range") or [40, 40])[:2]
+        level = (lo + hi) // 2
+        base_dead, _ = _dead(name, level, [])
+        if base_dead is None:
+            continue
+        slow = [dict(e, cooldown=e["cooldown"] + 3) for e in extras]
+        blast = [e for e in slow if e["kind"] == "damage" and not e.get("rider")]
+        blight = [e for e in slow if e["kind"] == "dot"]
+        wound = [e for e in slow if e.get("rider")]
+        tries = [extras, slow, blast + blight, blast + wound, blight + wound, blast, blight, wound]
+        choice = None
+        for t in tries:
+            if not t:
+                continue
+            dead_own, dead_extra = _dead(name, level, t)
+            if dead_own is not None and dead_own <= base_dead and dead_extra == 0:
+                choice = t
+                break
+        if choice:
+            kept[name] = choice
+        else:
+            dropped.append(name)
+    from entities import monster as MON
+    MON._BOSS_AOE = None
+    return kept, dropped
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
     args = ap.parse_args()
     out, n, spice = build()
+    out, dropped = verify(out)
+    n = sum(len(v) for v in out.values())
+    spice = sum(1 for v in out.values() for e in v if e.get("rider"))
+    print(f"verified in a 40-turn fight: {len(dropped)} bosses had no room for any addition")
     data = {"_about": "Party-wide damage added to dungeon bosses from level 40, by name; read by entities/monster.py "
                       "after the kit. Written by tools/build_boss_aoe.py.", "from_level": FROM_LEVEL, "bosses": out}
     if args.check:
