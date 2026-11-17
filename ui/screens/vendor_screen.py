@@ -132,6 +132,9 @@ class VendorScreen(BaseScreen):
         # Reclamation's gates all worked in the manager and showed nothing (Felwood audit, 15 Nov 2026).
         stock = (self.vendor.available_consumables() if hasattr(self.vendor, "available_consumables")
                  else self.vendor.sells)
+        # A hidden seller turns its one-of-a-kind gear over every twelve market hours (world/vendor_rotation.py).
+        from world.vendor_rotation import shelf, clock_for
+        stock = shelf(self.vendor, stock, clock_for(self.state_manager))
         for item_id in stock:
             # ONE resolver, shared with every tool that needs the same
             # answer - see world/vendor_stock.py for why that matters. The
@@ -755,6 +758,12 @@ class VendorScreen(BaseScreen):
 
         self.renderer.draw_text(screen, self.vendor.name, (SCREEN_WIDTH // 2 - 100, 20),
                                 size="large", color=COLOR_GOLD)
+        from world.vendor_rotation import rotates, hours_left, clock_for
+        if rotates(self.vendor):
+            # Kyle, 17 Nov 2026: rotating stock "rewards returning to them", so say when to come back
+            left = max(1, int(round(hours_left(clock_for(self.state_manager)))))
+            self.renderer.draw_text(screen, f"New stock in {left} hour{'s' if left != 1 else ''}",
+                                    (SCREEN_WIDTH - 300, 28), size="small", color=(170, 150, 220))
         if hasattr(self.vendor, "greeting") and self.vendor.greeting:
             # Wrapped, and the paragraph breaks joined. It was one draw_text call, so a greeting
             # with two paragraphs ran off the right of the screen with the newlines drawn as

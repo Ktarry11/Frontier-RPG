@@ -92,6 +92,29 @@ every zone, with the check extended to every NPC whose role belongs in a town.
 - Kyle: "around 30% of quest givers are outside of towns and 70% are inside (rough numbers)". The rule for every
   zone, checked per zone by `qa_quest_hubs` (today it only covers the Barrens and Hillsbrad).
 
+**Tarren Mill done, 17 Nov 2026** (0d88dce): the 11 people on the grounds outside the gate now stand inside the
+town. The sweep across every other zone is next.
+
+## Hidden sellers: cheaper, and their stock rotates (Kyle, 17 Nov 2026)
+"make like 25% cheaper for weapon and armor from these vendors... we have rotating stock in these secret
+vendors....like they have 6 or 7 blue items but only 3 to 4 are at once. They can follow 12 hour rotations with the
+time passing like how the AH passes."
+
+**Done, 17 Nov 2026.**
+- Every one-of-a-kind piece costs 75% of what it did. The old price is kept as `price_full`.
+- 49 hidden sellers now carry a pool of seven pieces each: 193 new pieces, named from the seller's own pieces and
+  name.
+  - They're made by LootGenerator and put on the item curve.
+  - They're spread over all four armour classes, every stat template, and the weapon types the sellers never had.
+- The shelf shows four pieces at a time and turns over every twelve market hours (the auction house's clock).
+  - The shop says when new stock comes.
+  - The same window always shows the same four.
+  - Within a week every piece comes round.
+  - Recipes and supplies never rotate, and reputation quartermasters never rotate.
+- Code: `world/vendor_rotation.py`, `tools/build_secret_rotation.py`, `tools/qa_secret_rotation.py`.
+- The Dry Deep recut had opened two hidden caches to the cave. They're in fresh rock again (`qa_secrets` green).
+  Locations not described.
+
 ## Southshore
 Kyle: "lets just make southshore an actual town at this point." Its own town map, built like the others, with the
 humans backlog [72] asked for.
