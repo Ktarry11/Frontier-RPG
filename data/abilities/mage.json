@@ -785,7 +785,7 @@
       "effect_type": "buff",
       "duration": 5,
       "stat_mods": {
-        "magic_resistance": 40
+        "magic_resistance": 10
       },
       "description": "Increases Magic Resistance for a while.",
       "ranks": [
@@ -817,7 +817,10 @@
       "target_type": "self",
       "is_instant": true,
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: resistance runs 0-60 points here, 1.25% each, capped at 75% (Character.RESIST_MAX), and this buff's top rank gave 74 on its own (Kyle: \"lmao over 700 magic resistance\"). Now 18 at the top rank, about 22% reduction."
+      ]
     },
     {
       "ability_id": "mage_mana_shield",

@@ -234,6 +234,10 @@ CLASS_ABILITY_TREE_OVERRIDES = {
     "priest_renew": "priest_holy",
     "priest_power_word_fortitude": "priest_holy",
     "priest_prayer_of_healing": "priest_holy",
+    # healing with no school sat in "Class" (Kyle, 16 Nov 2026: "shaman healing spells in wrong tab")
+    "priest_flash_heal": "priest_holy",
+    "priest_greater_heal": "priest_holy",
+    "priest_resurrection": "priest_holy",
     "priest_shadow_word_pain": "priest_shadow",
     "priest_fade": "priest_shadow",
     "priest_psychic_scream": "priest_shadow",
@@ -265,6 +269,8 @@ CLASS_ABILITY_TREE_OVERRIDES = {
     "druid_dire_bear_form": "druid_feral",
     "druid_moonkin_form": "druid_balance",
     "druid_tree_of_life": "druid_restoration",
+    "druid_remove_curse": "druid_restoration",
+    "druid_abolish_poison": "druid_restoration",
     # Mark of the Wild, Thorns, Barkskin: real all-spec party/self utility,
     # no single tree owns them - correctly Core.
 
@@ -302,6 +308,10 @@ CLASS_ABILITY_TREE_OVERRIDES = {
     "shaman_nature_resistance_totem": "shaman_restoration",
     "shaman_frost_resistance_totem": "shaman_restoration",
     "shaman_reincarnation": "shaman_restoration",
+    "shaman_lesser_healing_wave": "shaman_restoration",
+    "shaman_chain_heal": "shaman_restoration",
+    "shaman_ancestral_spirit": "shaman_restoration",
+    "shaman_cure_toxins": "shaman_restoration",
     # Strength of Earth/Stoneskin/Grounding Totem, Hex, Reincarnation:
     # real all-spec utility, no single tree owns them - correctly Core.
 

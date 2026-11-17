@@ -1732,7 +1732,7 @@
       "effect_type": "buff",
       "duration": 1,
       "stat_mods": {
-        "magic_resistance": 500
+        "magic_resistance": 28
       },
       "description": "Air totem. Grounds incoming magic, sharply increasing your Magic Resistance for a moment.",
       "ranks": [
@@ -1761,7 +1761,10 @@
       "icon_id": null,
       "_design_note": "Air totem. Redirects the next harmful spell cast at the caster onto the totem instead, approximated as a brief massive Magic Resistance spike. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this applies instantly instead.",
       "exclusive_group": "shaman_totem_air",
-      "_source": "Element slot 'air' added 6 Nov 2026 as exclusive_group 'shaman_totem_air', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks."
+      "_source": "Element slot 'air' added 6 Nov 2026 as exclusive_group 'shaman_totem_air', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks.",
+      "_tuning": [
+        "16 Nov 2026, support pass: resistance runs 0-60 points here, 1.25% each, capped at 75% (Character.RESIST_MAX), and this buff's top rank gave 710 on its own (Kyle: \"lmao over 700 magic resistance\"). Now 40 at the top rank, about 50% reduction."
+      ]
     },
     {
       "ability_id": "shaman_stoneskin_totem",
@@ -1919,12 +1922,15 @@
       "ability_id": "shaman_fire_resistance_totem",
       "name": "Fire Resistance Totem",
       "stat_mods": {
-        "fire_resistance": 90
+        "fire_resistance": 12
       },
       "description": "Fire totem. Grants your party a large Fire resistance bonus.",
       "_design_note": "Fire totem. Grants your party a large Fire resistance bonus. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this instantly buffs the whole party instead, matching the same simplification every other party totem uses.",
       "exclusive_group": "shaman_totem_water",
-      "_source": "Element slot 'water' added 6 Nov 2026 as exclusive_group 'shaman_totem_water', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks."
+      "_source": "Element slot 'water' added 6 Nov 2026 as exclusive_group 'shaman_totem_water', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks.",
+      "_tuning": [
+        "16 Nov 2026, support pass: resistance runs 0-60 points here, 1.25% each, capped at 75% (Character.RESIST_MAX), and this buff's top rank gave 166 on its own (Kyle: \"lmao over 700 magic resistance\"). Now 22 at the top rank, about 28% reduction."
+      ]
     },
     {
       "resource_type": "mana",
@@ -1964,12 +1970,15 @@
       "ability_id": "shaman_frost_resistance_totem",
       "name": "Frost Resistance Totem",
       "stat_mods": {
-        "frost_resistance": 90
+        "frost_resistance": 12
       },
       "description": "Frost totem. Grants your party a large Frost resistance bonus.",
       "_design_note": "Frost totem. Grants your party a large Frost resistance bonus. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this instantly buffs the whole party instead, matching the same simplification every other party totem uses.",
       "exclusive_group": "shaman_totem_fire",
-      "_source": "Element slot 'fire' added 6 Nov 2026 as exclusive_group 'shaman_totem_fire', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks."
+      "_source": "Element slot 'fire' added 6 Nov 2026 as exclusive_group 'shaman_totem_fire', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks.",
+      "_tuning": [
+        "16 Nov 2026, support pass: resistance runs 0-60 points here, 1.25% each, capped at 75% (Character.RESIST_MAX), and this buff's top rank gave 166 on its own (Kyle: \"lmao over 700 magic resistance\"). Now 22 at the top rank, about 28% reduction."
+      ]
     },
     {
       "resource_type": "mana",
@@ -2009,12 +2018,15 @@
       "ability_id": "shaman_nature_resistance_totem",
       "name": "Nature Resistance Totem",
       "stat_mods": {
-        "nature_resistance": 90
+        "nature_resistance": 12
       },
       "description": "Earth totem. Grants your party a large Nature resistance bonus.",
       "_design_note": "Earth totem. Grants your party a large Nature resistance bonus. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this instantly buffs the whole party instead, matching the same simplification every other party totem uses.",
       "exclusive_group": "shaman_totem_air",
-      "_source": "Element slot 'air' added 6 Nov 2026 as exclusive_group 'shaman_totem_air', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks."
+      "_source": "Element slot 'air' added 6 Nov 2026 as exclusive_group 'shaman_totem_air', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks.",
+      "_tuning": [
+        "16 Nov 2026, support pass: resistance runs 0-60 points here, 1.25% each, capped at 75% (Character.RESIST_MAX), and this buff's top rank gave 166 on its own (Kyle: \"lmao over 700 magic resistance\"). Now 22 at the top rank, about 28% reduction."
+      ]
     },
     {
       "ability_id": "shaman_cure_toxins",

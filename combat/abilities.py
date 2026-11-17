@@ -1362,10 +1362,28 @@ class Ability:
         # fix by hand in the data, which is where they belong - a classifier that cannot tell
         # "Hurls a bolt of lightning" from "Less now, more over the next while" has no business
         # deciding what the player gets to read.
-        if self.description:
-            lines.append(self.description)
+        desc = self._tooltip_description()
+        if desc:
+            lines.append(desc)
 
         return lines
+
+    def _tooltip_description(self):
+        """The authored description as the tooltip shows it, minus what has gone stale (the support pass, 16 Nov
+        2026; Kyle: "It says 12 but it gives 29 spell power"):
+          - a buff or debuff whose description lists its own stats as numbers ("Grants an ally: Armor +80, Physical
+            damage taken -4% for 4 turns.") is dropped: the stat line above it is computed from the rank and the
+            caster (scaled_stat_mods), and a number written once can't keep up with ranks and the support formula
+          - a long buff's "for N turns" goes: it lasts thirty minutes, which the line above already says"""
+        import re
+        desc = self.description or ""
+        if not desc:
+            return ""
+        if self.effect_type in ("buff", "debuff") and self.stat_mods and re.search(r"[+-]\d", desc):
+            return ""
+        if self.effect_type == "buff" and self.buff_scope in ("raid", "party"):
+            desc = re.sub(r"\s*for \d+ turns?", "", desc)
+        return desc
 
     #: Words that mean an authored description is saying something the generated line cannot.
     def _shape_is_obvious(self):

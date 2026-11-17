@@ -78,6 +78,18 @@ Lashings and Jaedenar.
   ending up in top right". Some secrets should be long hidden runs across a whole map, not a pocket beside the road.
 
 ## Class buffs (overview measured 16 Nov 2026)
+**Mostly done, 16 Nov 2026 night** (docs/support_pass.md):
+- Every flat stat on a class buff or debuff is now sized by level, and 65 buffs and debuffs have a rank every ten
+  levels.
+- Tooltips drop descriptions that list stale numbers, and long buffs no longer say "for N turns".
+- Flash Heal, Greater Heal, Lesser Healing Wave, Chain Heal, the revives and the new cleanses are in their healing
+  tabs.
+- Resistance buffs are on the 0-60 scale: Grounding Totem gives 40, not 710; the resist totems 22, not 166; Mage
+  Armor 18, not 74.
+- Still open, for Kyle:
+  - The eight classes with no long party buff.
+  - Mana regeneration buffs (mp5) now that mp5 is real.
+
 Kyle: "a lot of buffs look like this? It says 12 but it gives 29 spell power. Also we need to revamp ALL classes now
 that we fixed up spells and have actual mp5 elements in the game... ensure that some things are put properly like
 shaman healing spells in wrong tab... the damage and healing is fine, now we need to look at buffs."
@@ -94,6 +106,9 @@ shaman healing spells in wrong tab... the damage and healing is fine, now we nee
   resistance"). The revamp sizes every buff against the level it's learned at, as the damage and healing pass did.
 
 ## Endgame heals: ranks slow past 35, power carries the rest (Kyle, 16 Nov 2026)
+**Done, 16 Nov 2026 night**, as the healing formula (docs/heal_formula.md) and the support pass
+(docs/support_pass.md).
+
 "Lets drop heals down more, i think we should have things past 35 to slow down A LOT in terms of ranks but start to
 need spell power and healing power....and talents." Parked for after the Plaguelands ("keep these as backlog and finish
 the plaguelands").
@@ -106,6 +121,9 @@ the plaguelands").
 - Healing talents should be worth taking: check the Restoration/Holy trees give real throughput at 60.
 
 ## The bench has no limit, and the party screen overflows (Kyle, 16 Nov 2026)
+**Bench capped at two** (Kyle: "I want a hard cap of TWO benched characters"). That's on main (321bb66), with
+tools/qa_bench_cap.py. The party-buffs list overflowing is still open.
+
 "no limit to how many people i can bench??? Lol" (screenshot: Bench (9), the list running off the bottom, the Party
 Buffs list drawn under the action buttons, the footer hint over the last bench row).
 - Decide: cap the bench (and what happens to the recruit you'd push past it), or keep it open and make it scroll.
