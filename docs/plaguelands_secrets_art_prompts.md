@@ -40,6 +40,14 @@ the causeway, the reflecting pool and the gold-to-grey transition.
 
 ## SHEET 10: 36 creatures
 
+**Done, 17 Nov 2026.** Sliced into `assets/creatures/ps_*.png` (`creature_sprites.SHEETS["plaguelands_secrets"]`).
+The 25 creatures of the three hidden maps wear it (set in `tools/build_hidden_content.py`, so a rebuild keeps it),
+and three of their people have their own figures: the Finnish scientist, the elven ranger and the elven
+quartermaster. Eight are parked for when more people stand there: the stone age woman, the palaeontologist, the
+frozen hunter, the fisherwoman, the bog eel, the reed heron, the wardstone and the dead ranger. The palaeontologist
+was drawn as a man, and the one in the game is a woman, so she keeps her figure. The magenta rim was cleaned with
+`purge_magenta.py`'s new `rim_fix`, except on the four that really are violet light.
+
 > Creatures, 6 x 6, magenta key, the shared rules. Bosses are large and distinct from each other.
 >
 > Row 1 - ICE AGE BEASTS: a woolly mammoth with long curved tusks and red-brown shaggy hair; a woolly rhinoceros with
