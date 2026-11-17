@@ -25,7 +25,7 @@ os.chdir(ROOT)
 def main():
     from combat.abilities import get_class_abilities
     from ui.spellbook_tree_map import get_owning_tree, HEALING_TREE
-    classes = sorted({v["class"] for v in json.loads((ROOT / "data/items/spec_gear.json").read_text()).values()})
+    classes = sorted({v["class"] for v in json.loads((ROOT / "data/items/spec_gear.json").read_text(encoding="utf-8")).values()})
     bad, checked = [], 0
     for c in classes:
         for a in get_class_abilities(c).abilities.values():
