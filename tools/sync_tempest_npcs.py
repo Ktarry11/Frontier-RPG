@@ -160,7 +160,11 @@ def main():
     f = fd["factions"][FACTION]
     f["quest_rep"]["zones"] = FACTION_ZONES
     f["kill_rep"]["creatures"] = KILL_REP
-    f["rewards"]["vendor_stock"] = REP_STOCK
+    # ONLY IF EMPTY. tools/build_faction_rewards.py has filled the Ashclaim's shelves since (honored and revered
+    # gear and recipes), and writing REP_STOCK over them wiped them (caught 17 Nov 2026, re-running this sync to
+    # move two quest givers). The first stock is this file's; everything after belongs to the rewards pass.
+    if not f.setdefault("rewards", {}).get("vendor_stock"):
+        f["rewards"]["vendor_stock"] = REP_STOCK
     fp.write_text(json.dumps(fd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     total = sum(len(v) + len(a) for (_, _, v, a, _) in ZONES)
