@@ -49,6 +49,7 @@ TOWN_REGION = {
     # country around it, not people farming its own yard.
     "hammerfall": "Arathi Central",
     "saltspur_landing": "Arathi East",
+    "bloodmoon_village": "Fenris Isle",          # its own small map since 17 Nov 2026
     "kaels_bastion": "The Crystalline Underdark",
     "freewind_post": "Southern Thousand Needles",
     "sun_rock_retreat": "Stonetalon East",

@@ -18,6 +18,8 @@ HARD CONTRACTS (world/portal_manager.py)
   portals  Silverpine South ferry (151,44) -> here (80,129) [arrive (80,127), on the pier]
            Shadowpine Altar (75,115) -> here (30,55) [arrive (30,57)]; this (30,55) -> Shadowpine Altar (75,115)
            this (80,129) -> Silverpine South (149,46)
+           this (58,104) <-> Bloodmoon Village (23,35): the village is its own small map since 17 Nov 2026
+           (tools/handbuilt_bloodmoon_village.py); a lane runs west off the island road to its gatehouse
 """
 import sys
 
@@ -37,8 +39,8 @@ IS_TOWN = False
 BASE_TILE = "grass"
 SEED = 97
 
-PORTALS = {(80, 129): "Silverpine South", (30, 55): "Shadowpine Altar"}
-ARRIVALS = [(80, 127), (30, 57)]
+PORTALS = {(80, 129): "Silverpine South", (30, 55): "Shadowpine Altar", (58, 104): "Bloodmoon Village"}
+ARRIVALS = [(80, 127), (30, 57), (58, 102)]
 START = (80, 118)
 
 ROADS = {
@@ -47,6 +49,7 @@ ROADS = {
     "west":   ([(80, 72), (66, 67), (52, 63), (40, 59), (31, 56)], 2.6),
     "east":   ([(81, 72), (96, 73), (110, 75), (122, 74), (132, 72)], 2.6),
     "docks":  ([(76, 108), (64, 110), (52, 112), (44, 112)], 2.4),
+    "village": ([(80, 104), (70, 104), (57, 104)], 2.4),       # the lane to Bloodmoon Village's gatehouse
 }
 _RS = K.RoadSet(ROADS)
 road_dist = _RS.dist
@@ -181,12 +184,8 @@ COBBLE = [(80, 104, 9, 6, 0.9), (80, 38, 9, 5, 0.9)]
 # ---- NPC spots ------------------------------------------------------------------------------------------------------
 NPC_POSITIONS = {
     "fenris_pier_warden": (83, 120),
-    "bloodmoon_elder": (76, 102),                  # Elder Gravemoss
-    "fenris_village_elder": (85, 101),             # Huntsman Corwell
-    "fenris_provisioner": (89, 107),               # vendor
-    "fenris_keep_scout": (83, 47),
-    "fenris_altar_warden": (35, 59),
-    "fenris_grave_hunter": (118, 73),
+    # The other six moved into Bloodmoon Village on 17 Nov 2026, which is its own map now
+    # (tools/handbuilt_bloodmoon_village.py). Left here they would paint "npc" talk tiles on empty ground.
 }
 CHESTS = [(92, 28), (40, 106), (140, 82), (24, 66), (100, 98)]
 
@@ -209,18 +208,13 @@ def dress(L):
     p(CO + "fish_crates_traps.png", 88, 122, 4)
     p(CO + "rowboat_wreck.png", 70, 124, 3, shore_ok=True)
     p("ek_signpost", 85, 117, 4)
-    # ---- Bloodmoon Village: the only roofed ground on the isle
-    b("forsaken_house_medium", 68, 98, 9, nudge=2)                  # the elder's lodge
-    b("forsaken_house_small", 92, 96, 8, nudge=2)
-    p(CI + "cursed_village_hut.png", 66, 108, 6)
-    p(CI + "cursed_village_hut.png", 94, 110, 6)
-    p(CI + "cursed_village_hut.png", 60, 100, 6)
-    p("ek_farm_well", 80, 98, 4)
+    # ---- Bloodmoon Village is its own map (tools/handbuilt_bloodmoon_village.py). What stays on the isle is
+    # its gatehouse at the end of a short lane off the island road, and the fields outside its fence.
+    b("ek_ruined_gatehouse", 63, 104, 10, solid=False, road_ok=True, nudge=0)
+    p("ek_forsaken_banner", 68, 100, 5)
     p("ek_farm_cart", 72, 111, 4)
     p("ek_haystack", 88, 112, 4)
-    p("ek_forsaken_banner", 74, 94, 5)
     p("ek_forsaken_banner", 87, 94, 5)
-    p("ek_gibbet", 96, 104, 6)
     p("ek_signpost", 82, 90, 4)
     T.grove(L, 54, 96, 5, 5, 4, DEADS, seed=3)
     T.grove(L, 104, 104, 5, 5, 4, DEADS, seed=4)

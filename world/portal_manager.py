@@ -799,6 +799,11 @@ class PortalManager:
             "Fenris Isle": {
                 (30, 55): ("Shadowpine Altar", 75, 115),
                 (80, 129): ("Silverpine South", 149, 46),   # boat return: arrive (149,44) on the pier
+                # Bloodmoon Village became its own small map on 17 Nov 2026; this is its gatehouse.
+                (58, 104): ("Bloodmoon Village", 23, 35),   # arrive (23,33), on the lane inside the gate
+            },
+            "Bloodmoon Village": {
+                (23, 35): ("Fenris Isle", 58, 104),         # arrive (58,102), just past the gatehouse on the isle
             },
             "Shadowpine Altar": {
                 (75, 115): ("Fenris Isle", 30, 55),             # cave exit: +3 -> arrive (30,56), south of the ridge arch

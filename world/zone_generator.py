@@ -5618,6 +5618,7 @@ def create_all_zones():
     from tools import handbuilt_ambermill_tower as dat
     from tools import handbuilt_shadowfang_keep as dsfk
     from tools import handbuilt_fenris_isle as dfen
+    from tools import handbuilt_bloodmoon_village as dbmv
     from tools import handbuilt_hillsbrad_east as dhbe
     from tools import handbuilt_hillsbrad_west as dhbw
     from tools import handbuilt_tarren_mill as dtm
@@ -5767,6 +5768,8 @@ def create_all_zones():
         
         # ===== FENRIS ISLE (new zone) =====
         "Fenris Isle": dfen.generate_fenris_isle(),  # hand-built island (tools/handbuilt_fenris_isle.py)
+        # Kyle, 17 Nov 2026: "make Bloodmoon village into a tiny hub? Actual map - but small and seperate"
+        "Bloodmoon Village": dbmv.generate_bloodmoon_village(),  # tools/handbuilt_bloodmoon_village.py
 
         # ===== HILLSBRAD SPLIT (2 zones) - the first GREEN country after the blight =====
         "Eastern Hillsbrad": dhbe.generate_hillsbrad_east(),  # hand-built (tools/handbuilt_hillsbrad_east.py)

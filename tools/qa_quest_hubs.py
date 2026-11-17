@@ -62,10 +62,37 @@ REGIONS = {
     "Underdark": (["the_crystalline_underdark", "kaels_bastion", "the_deep_bloom", "the_frostward_descent",
                    "the_hollow_geode"], ["kaels_bastion"],
                   {"the_crystalline_underdark": [(83, 22, 8), (146, 58, 8)]}),
+    # ---- 17 Nov 2026, Kyle: "keep fixing up the hub issue". Every region now has an entry.
+    # Fenris Isle: Bloodmoon Village became its own small map ("Actual map - but small and seperate").
+    "Fenris Isle": (["fenris_isle"], ["bloodmoon_village"], {}),
+    # Stranglethorn: Grom'gol and Booty Bay. The arena gatehouse, the road gang, the shelf watcher, the marsh
+    # fisher and the herbalist at the falls are people who belong where they stand, and they're the wild share.
+    "Stranglethorn": (["gromgol", "central_stranglethorn", "gurbashi_arena", "veilfall_cave", "booty_bay"],
+                      ["gromgol", "booty_bay"], {}),
+    # Stonetalon: Sun Rock Retreat, and the Mistwalker camp in the west.
+    "Stonetalon": (["stonetalon_west", "stonetalon_east", "sun_rock_retreat"], ["sun_rock_retreat"],
+                   {"stonetalon_west": [(56, 142, 12)]}),
+    # Ashenvale: Astranaar and Splintertree; Zoram'gar, Maestra's Post and the Warsong camp are camps.
+    "Ashenvale": (["ashenvale_east", "ashenvale_west", "astranaar", "splintertree_post", "zoram_strand"],
+                  ["astranaar", "splintertree_post"],
+                  {"zoram_strand": [(20, 24, 14)], "ashenvale_west": [(85, 53, 6)], "ashenvale_east": [(44, 51, 6)]}),
+    # The Black Strand: Onyxhollow, and the survey camp at the head of the strand.
+    "Black Strand": (["the_black_strand", "the_royal_hive"], ["onyxhollow"], {"the_black_strand": [(18, 21, 8)]}),
+    # The Plaguelands: the Bulwark, the Pale Watch and Light's Hope, each its own map.
+    "Plaguelands": (["western_plaguelands_north", "western_plaguelands_south", "eastern_plaguelands_west",
+                     "eastern_plaguelands_east"], ["bulwark", "pale_watch", "lights_hope_chapel"], {}),
+    # Thousand Needles: Freewind Post and Saltwheel.
+    "Thousand Needles": (["freewind_post", "saltwheel", "the_shimmering_flats", "the_undercrust"],
+                         ["freewind_post", "saltwheel"], {}),
+    # Tanaris: Steamwheedle Port, the Fourth Peg and Glittervein.
+    "Tanaris": (["northern_tanaris", "steamwheedle_port", "the_drownbell", "the_lashings", "the_abyssal_sands",
+                 "glittervein", "the_cistern", "the_mother_vein"], ["steamwheedle_port", "fourth_peg", "glittervein"], {}),
 }
 #: the share of a region's quests that must come from town. Never lower one.
 FLOORS = {"Durotar": 0.70, "Tirisfal": 0.70, "Silverpine": 0.70, "Barrens": 0.70, "Hillsbrad": 0.70,
-          "Arathi": 0.70, "Felwood": 0.70, "Tempest": 0.70, "Underdark": 0.70}
+          "Arathi": 0.70, "Felwood": 0.70, "Tempest": 0.70, "Underdark": 0.70,
+          "Fenris Isle": 0.70, "Stranglethorn": 0.70, "Stonetalon": 0.70, "Ashenvale": 0.70, "Black Strand": 0.70,
+          "Plaguelands": 0.70, "Thousand Needles": 0.70, "Tanaris": 0.70}
 
 
 def norm(s):
