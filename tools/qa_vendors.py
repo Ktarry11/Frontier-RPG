@@ -57,6 +57,7 @@ TOWN_REGION = {
     # country its gate opens onto.
     "bulwark": "Western Plaguelands South",
     "pale_watch": "Western Plaguelands North",
+    "southshore": "Western Hillsbrad",
     "lights_hope_chapel": "Eastern Plaguelands East",
     "undercity": "Undercity",
     "sepulcher": "Silverpine North",

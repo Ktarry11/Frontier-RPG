@@ -119,6 +119,23 @@ time passing like how the AH passes."
 Kyle: "lets just make southshore an actual town at this point." Its own town map, built like the others, with the
 humans backlog [72] asked for.
 
+**Done, 17 Nov 2026** (`tools/handbuilt_southshore.py`, 96x80, baked by `tools/bake_hillsbrad.py southshore`):
+- One street from the north gate down through the square to the strand and out along the quay to the ship. The
+  chapel, townhouses, granary, barn and Holloway's plots are to the west. The inn, militia hall, stable, smithy and
+  trading post are to the east. The boathouse, fishery and watchtower are on the beach.
+- Its nine people moved in (`tools/sync_hillsbrad_npcs.py` now covers four maps). The town's stance is unchanged:
+  no bed, no bind, no flight and no trainer for the Horde. Beatrix Rowe is now a vendor who sells food through the
+  inn's window.
+- On Western Hillsbrad, the trunk road ends at Southshore's gatehouse (94,128). A hedge is a wall round the old
+  town ground, and the rooftops, quay and ship show behind it. The coast road and the orchard lane now leave the
+  trunk road outside the gate. The marines and Bosun Harlow stay on the approaches.
+- "Scouting the dock" sends you through the gate to the quay; Henk's Harlow line says where Harlow works now.
+- `ek_gatehouse` counts as entrance art (world/portal_art.py).
+- QA: portals, NPC tiles and props, building and prop overlap, vendors and stock, quest hubs, creature and zone
+  reachability, encounters, secrets, exits framed and flight paths all pass. Two failures were already there
+  before this change: verify_portals' 34 one-way dungeon links, and qa_hillsbrad_quests (arw_through_the_wall's
+  giver, tarren_mill_flight_master, has no spot in Tarren Mill's layout).
+
 ## Mounts
 Kyle: "for mounts we need a way to select the mount - as when we buy them it just replaces the old mount with the
 new ones". Keep every mount you've bought (saved with the character), and a picker to choose which one you ride.
@@ -174,6 +191,11 @@ Lashings and Jaedenar.
 - Give the Scarlet Monastery Grounds, The Lashings and Jaedenar their own; maybe one cache per dungeon.
 - Kyle: "dont be afraid to have LONGER secrets....like walking into a hidden thing in the bottom left of a map and
   ending up in top right". Some secrets should be long hidden runs across a whole map, not a pocket beside the road.
+
+## Grovekeeper healing (backlogged by Kyle, 17 Nov 2026)
+Grovekeeper is Primalist's melee healer, held to 75% of a full healer's output. To reach that in the heal sim, its
+hidden spec aura would need to be about 1.5x, but the aura is capped lower, so it falls short of its own target. The
+fix is in its kit (more or bigger heals, or Hammer of Life's splash), not the cap. Kyle: "backlog the groovekeeper".
 
 ## Class buffs (overview measured 16 Nov 2026)
 **Mostly done, 16 Nov 2026 night** (docs/support_pass.md):

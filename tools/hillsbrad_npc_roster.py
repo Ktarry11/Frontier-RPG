@@ -72,7 +72,7 @@ WEST_AMBIENT = {
         "Murlocs on the strand, and something further out that the murlocs are frightened of."),
     "hbw_southshore_spy": (
         "Spy Lia Marrow", "forsaken", "female", 13,
-        "Southshore is awake, armed, and three hundred strong. Walk in and you will not walk out."),
+        "Southshore's awake and armed. They'll let you through the gate, but they'll watch every step you take in there."),
     "hbw_orchard_forager": (
         "Forager Ned Quill", "human", "male", 22,
         "Apples the size of your fist, and wasps the size of your hand guarding every one of them."),
@@ -82,6 +82,21 @@ WEST_AMBIENT = {
     "hbw_southshore_saboteur": (
         "Saboteur Henk", "orc", "male", 8,
         "Dey build a dock, I burn a dock. Simple arrangement. Works fine."),
+}
+
+# =====================================================================================================
+# SOUTHSHORE - its own map since 17 Nov 2026 (tools/handbuilt_southshore.py)
+# =====================================================================================================
+#: Beatrix Rowe sells food through the inn's window and that's as far as it goes: no bed and no bind for the Horde
+#: (Southshore isn't in data/travel/travel_data.json's inns).
+SOUTHSHORE_VENDORS = {
+    "hbw_ss_innkeeper_rowe": (
+        "Innkeeper Beatrix Rowe", "human", "female", 12,
+        ["roasted_meat", "spiced_stew", "spiced_wine", "meal_river_fish", "drink_spring_flask"], False,
+        "Rooms are for Southshore folk. I'll sell you bread through the window, and that's as far as it goes."),
+}
+
+SOUTHSHORE_AMBIENT = {
     # SOUTHSHORE'S OWN PEOPLE. Kyle, backlog [72]: "Southshore should have some humans. It's a human
     # town in WoW; it currently has none." Their stance to a Horde player is the town's: wary, armed,
     # and not about to start a fight on their own quay. The marines and militia you fight are out on
@@ -105,9 +120,6 @@ WEST_AMBIENT = {
     "hbw_ss_brother_venn": (
         "Brother Aldous Venn", "human", "male", 4,
         "The Light doesn't ask what you are. The people of this town do. I'm sorry for that, I really am."),
-    "hbw_ss_innkeeper_rowe": (
-        "Innkeeper Beatrix Rowe", "human", "female", 12,
-        "Rooms are for Southshore folk. I'll sell you bread through the window, and that's as far as it goes."),
     "hbw_ss_farmer_holloway": (
         "Farmer Tom Holloway", "human", "male", 7,
         "Turnips, cabbages and no trouble. That's all I'm asking of this season, and I'm not getting the last one."),

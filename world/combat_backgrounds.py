@@ -202,6 +202,7 @@ ZONE_BACKGROUND = {
     # --- open country ------------------------------------------------------
     "Eastern Hillsbrad": "mossy_forest",          # "the first HEALTHY country"
     "Western Hillsbrad": "mossy_forest",          # worked green fields, farm country
+    "Southshore": "coast",                        # the Alliance harbour town, its own map
     "Eastern Kingdoms - Stranglethorn": "jungle",  # region label over the tropical zones
 
     # --- desert and salt ---------------------------------------------------

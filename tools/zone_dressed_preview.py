@@ -60,6 +60,8 @@ ZONES = {
     "sepulcher": "tools.handbuilt_sepulcher",
     "deathknell": "tools.handbuilt_deathknell",
     "tarren_mill": "tools.handbuilt_tarren_mill",
+    "southshore": "tools.handbuilt_southshore",
+    "hillsbrad_west": "tools.handbuilt_hillsbrad_west",
     "booty_bay": "tools.handbuilt_booty_bay",
     "ratchet": "tools.handbuilt_ratchet",
     "steamwheedle_port": "tools.handbuilt_steamwheedle_port",

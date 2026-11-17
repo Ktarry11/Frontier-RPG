@@ -40,6 +40,8 @@ ZONES = {"hillsbrad_east": "tools.handbuilt_hillsbrad_east",
          # material set rather than getting a palette of its own that would drift out of step with the zone
          # the player walks in from.
          "tarren_mill": "tools.handbuilt_tarren_mill",
+         # Southshore too (17 Nov 2026): the gate opens off Western Hillsbrad's fields, so it's the same ground.
+         "southshore": "tools.handbuilt_southshore",
          # ARATHI shares this baker on purpose. It is the zone next door and the same country - the
          # hb_* materials ARE the Lordaeron set - and giving Arathi a palette of its own would let the
          # two drift apart at a border the player walks across. The difference between them is carried

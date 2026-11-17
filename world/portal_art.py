@@ -21,6 +21,8 @@ _ENTRANCE = re.compile(
     r"boat_|ash_orc_skiff|bloodsail_galleon|"
     # doors and towers that ARE the way in
     r"gothic_gate|gg_watchtower|"
+    # Southshore's gatehouse: on the town's north gate and over its door on Western Hillsbrad's trunk road
+    r"ek_gatehouse|"
     # Jaedenar's gatehouse in North Felwood's west wall: the dungeon door stands in it
     r"fw_jaedenar_gatehouse|"
     # the Scarlet Monastery's cemetery gate in Eastern Tirisfal, and the Plaguelands' dungeon fronts

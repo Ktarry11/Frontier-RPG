@@ -24,7 +24,7 @@ foothills the north rim):
     N     THE FOOTHILL PASTURES (74,32): high grazing under the peaks, yeti country
     W     AZURELODE MINE (36,62): the silver mine in the western rock, kobolds and Syndicate
     W     THE WESTERN STRAND (16,100): Daggerspine murlocs on the sand
-    S     SOUTHSHORE (94,128): the Alliance port - hostile ground, the zone's set-piece
+    S     SOUTHSHORE (94,128): the Alliance port, its own map since 17 Nov 2026 - here, its gate and hedge
     SW    PURGATION SHORE (30,142): the wreck-strewn south-west coast, looking out at the isle
     SE    HILLSBRAD ORCHARD (130,118): an overgrown orchard gone feral
 
@@ -33,7 +33,7 @@ fields to Southshore's gate, and throws branches west to the mine and the strand
 plots; the only high ground is the northern pasture.
 
 HARD CONTRACTS (world/portal_manager.py)
-  portals  Silverpine South <- (40,5)    Eastern Hillsbrad <- (155,86)
+  portals  Silverpine South <- (40,5)    Eastern Hillsbrad <- (155,86)    Southshore <- (94,128), the town's gate
   Azurelode Mine's interior and Purgation Isle are LATER STAGES - both landmarks are dressed here but no portal is
   registered until those zones exist, because portal_qa checks both directions.
 """
@@ -61,15 +61,16 @@ BASE_TILE = "grass"
 SEED = 118
 
 PORTALS = {(40, 5): "Silverpine South", (155, 86): "Eastern Hillsbrad",
-           (33, 60): "Azurelode Mine"}                 # the flooded adit in the western rock
-ARRIVALS = [(40, 9), (152, 86), (33, 63)]
+           (33, 60): "Azurelode Mine",                 # the flooded adit in the western rock
+           (94, 128): "Southshore"}                    # the town's gate (tools/handbuilt_southshore.py, 17 Nov 2026)
+ARRIVALS = [(40, 9), (152, 86), (33, 63), (94, 123)]
 START = (44, 20)
 
 ROADS = {
     # the Silverpine pass down past Southpoint Tower into the fields - the player's first road in Hillsbrad
     "pass":      ([(40, 5), (44, 18), (47, 30), (56, 44), (70, 56), (86, 66), (98, 74)], 3.4),
     # on east through the fields, and south to Southshore's gate
-    "trunk":     ([(155, 86), (138, 84), (120, 80), (104, 76), (96, 86), (94, 104), (94, 124)], 3.4),
+    "trunk":     ([(155, 86), (138, 84), (120, 80), (104, 76), (96, 86), (94, 104), (94, 128)], 3.4),
     # the farm lane that loops the plots
     "farm":      ([(100, 74), (88, 66), (76, 70), (72, 84), (82, 92)], 2.2),
     # west to the mine
@@ -78,9 +79,10 @@ ROADS = {
     "strand":    ([(44, 66), (32, 80), (22, 94), (18, 104)], 2.4),
     # north to the high pastures
     "pasture":   ([(102, 70), (90, 54), (80, 42), (74, 34)], 2.4),
-    # the south coast road out of Southshore, west to the wrecks and east to the orchard
-    "coast":     ([(92, 126), (72, 134), (52, 140), (36, 144)], 2.4),
-    "orchard":   ([(96, 122), (112, 120), (126, 118)], 2.4),
+    # the south coast road, west to the wrecks, and the orchard lane east: both leave the trunk road outside
+    # Southshore's gate now that the town is its own map (they used to start in its square)
+    "coast":     ([(91, 124), (80, 128), (72, 134), (52, 140), (36, 144)], 2.4),
+    "orchard":   ([(97, 124), (112, 122), (126, 118)], 2.4),
 }
 _RS = K.RoadSet(ROADS)
 road_dist = _RS.dist
@@ -207,16 +209,7 @@ COBBLE = [(94, 129, 10, 6.5, 0.9), (96, 76, 6, 4.2, 0.8), (38, 62, 5.5, 4, 0.8),
 
 # ---- NPC spots -----------------------------------------------------------------------------------------------------
 NPC_POSITIONS = {
-    # Southshore's own people (tools/hillsbrad_npc_roster.py; Kyle, backlog [72])
-    "hbw_ss_sentry_garrick": (96, 117),     # at the gate
-    "hbw_ss_sentry_ivy": (91, 119),
-    "hbw_ss_captain_callard": (97, 125),
-    "hbw_ss_farmer_holloway": (88, 130),
-    "hbw_ss_brother_venn": (113, 131),
-    "hbw_ss_innkeeper_rowe": (103, 133),
-    "hbw_ss_child_pip": (99, 137),
-    "hbw_ss_dockmaster_pryce": (95, 139),   # the quay
-    "hbw_ss_netmender_rose": (108, 141),
+    # Southshore's own people live in Southshore now, which is its own map (tools/handbuilt_southshore.py, 17 Nov 2026)
     # Southpoint Tower - the hub for this half
     "hbw_southpoint_commander": (44, 22),
     "hbw_southpoint_quartermaster": (48, 26),   # vendor
@@ -335,25 +328,33 @@ def dress(L):
     p(CO + "mooring_posts.png", 18, 112, 3, shore_ok=True)
     p("ek_signpost", 32, 90, 4)
 
-    # ---- Southshore: the Alliance port. Hostile ground - no inn for you.
-    # A human village inn, not the Horde crossroads one this had (which was refused anyway: an
-    # NPC stands on its spot). Kyle, 14 Nov 2026: "do proper art in the proper towns."
-    b("ek_village_inn", 90, 124, 10, nudge=8)
-    b("ek_cottage_medium", 102, 126, 9, nudge=2)
-    b("ek_border_watchtower", 84, 132, 9, nudge=2)
-    b("ek_boathouse", 100, 134, 7, nudge=2)
-    b("ek_townhouse", 78, 124, 9, nudge=2)
-    p(CO + "mooring_posts.png", 92, 136, 3, shore_ok=True)
-    p(CO + "fish_crates_traps.png", 96, 135, 3)
-    p(CO + "dock_lantern_post.png", 89, 135, 4)
-    # IN THE WATER. It was at y=138, four tiles up the beach from the first wet tile, a
-    # full-rigged ship standing on the sand beside the dock. Kyle, 10 Nov: "can we stop
-    # putting boats on dry land (this is in 'south shore')."
-    # deco, not prop: prop() refuses deep water and DROPS the sprite without a word (it is
-    # only appended to L.skipped), which is why a ship could only ever be placed on the beach.
+    # ---- Southshore. Kyle, 17 Nov 2026: "lets just make southshore an actual town at this point." The town is its
+    # own map now (tools/handbuilt_southshore.py) and its people live in it. What stays here is what you see from
+    # the fields: the gatehouse across the end of the trunk road, the hedge round the town, and the rooftops, quay
+    # and ship behind it. The hedge is a wall: the ground behind it is sealed, so the only way in is the gate.
+    SS_GATE, SS_TOP, SS_W, SS_E = 94, 128, 86, 112
+    z = L.z
+    ring = [(x, SS_TOP) for x in range(SS_W, SS_E + 1) if x != SS_GATE]
+    ring += [(SS_W, y) for y in range(SS_TOP, H)] + [(SS_E, y) for y in range(SS_TOP, H)]
+    for (x, y) in ring:
+        if z.is_walkable(x, y):
+            z.set_tile(x, y, "cliff", "collision")
+    L.deco("ek_gatehouse", SS_GATE, 129, 6, path_dir="assets/buildings/")
+    for x in range(SS_W + 1, SS_E, 4):
+        if abs(x - SS_GATE) > 5:
+            L.deco("ek_willow" if x % 2 else "ek_pine_tall", x, SS_TOP + 1, 7, path_dir=T.EKP)
+    for y in range(SS_TOP + 3, 140, 4):
+        L.deco("ek_willow", SS_W, y + 1, 7, path_dir=T.EKP)
+        L.deco("ek_pine_tall", SS_E, y + 1, 7, path_dir=T.EKP)
+    # the town behind the hedge: rooftops, the quay and the ship (visual only; it's sealed ground)
+    for (name, x, by, h) in [("ek_village_chapel", 90, 134, 7), ("ek_village_inn", 104, 134, 8),
+                             ("ek_boathouse", 98, 139, 5), ("ek_border_watchtower", 109, 139, 8)]:
+        L.deco(name, x, by, h, path_dir="assets/buildings/")
+    L.deco("mooring_posts", 92, 137, 3, path_dir=CO)
+    L.deco("dock_lantern_post", 89, 136, 4, path_dir=CO)
+    # IN THE WATER, not on the sand (Kyle, 10 Nov: "can we stop putting boats on dry land (this is in 'south
+    # shore')"). deco, because prop() refuses deep water and drops the sprite without a word.
     L.deco("boat_human", 98, 147, 5, path_dir=CO)
-    p("ek_farm_fence", 76, 118, 3, solid=True)
-    p("ek_farm_fence", 108, 126, 3, solid=True)
     p("ek_signpost", 94, 114, 4)
 
     # ---- Purgation Shore: wrecks on the south-west coast, the isle out beyond

@@ -3,7 +3,7 @@ Create and position every Hillsbrad NPC and vendor in data/npcs/*.json.  Idempot
 
     PYTHONPATH=. python3 tools/sync_hillsbrad_npcs.py
 
-Covers all three maps: Western Hillsbrad, Eastern Hillsbrad and Tarren Mill. Unlike
+Covers all four maps: Western Hillsbrad, Eastern Hillsbrad, Tarren Mill and Southshore. Unlike
 tools/sync_barrens_town_npcs.py, which only MOVES records that already exist, this one also creates them -
 Hillsbrad shipped with zero NPCs in any of its maps, so there was nothing to move.
 
@@ -24,6 +24,7 @@ os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 import tools.handbuilt_hillsbrad_east as HE  # noqa: E402
 import tools.handbuilt_hillsbrad_west as HW  # noqa: E402
 import tools.handbuilt_tarren_mill as TM  # noqa: E402
+import tools.handbuilt_southshore as SS  # noqa: E402
 from tools import hillsbrad_npc_roster as R  # noqa: E402
 
 #: (zone key, layout module, vendors, ambient, vendor gear_level).
@@ -35,6 +36,8 @@ ZONES = [
     ("western_hillsbrad", HW, R.WEST_VENDORS, R.WEST_AMBIENT, 23),
     ("eastern_hillsbrad", HE, R.EAST_VENDORS, R.EAST_AMBIENT, 24),
     ("tarren_mill", TM, R.TOWN_VENDORS, R.TOWN_AMBIENT, 24),
+    # Southshore, its own map since 17 Nov 2026: its nine people moved in off Western Hillsbrad's coast
+    ("southshore", SS, R.SOUTHSHORE_VENDORS, R.SOUTHSHORE_AMBIENT, 23),
 ]
 
 
@@ -90,7 +93,7 @@ def main():
     Path("data/npcs/vendors.json").write_text(json.dumps(vd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     Path("data/npcs/ambient_npcs.json").write_text(json.dumps(ad, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     total = sum(len(v) + len(a) for (_, _, v, a, _) in ZONES)
-    print(f"Hillsbrad: {made} records created, {moved} moved ({total} people across 3 maps)")
+    print(f"Hillsbrad: {made} records created, {moved} moved ({total} people across {len(ZONES)} maps)")
 
 
 if __name__ == "__main__":

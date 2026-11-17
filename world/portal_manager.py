@@ -649,6 +649,11 @@ class PortalManager:
                 (40, 5): ("Silverpine South", 138, 153),           # arrive (138,151), clear of the pass portal
                 (155, 86): ("Eastern Hillsbrad", 8, 88),           # arrive (8,86), clear of the west gate
                 (33, 60): ("Azurelode Mine", 55, 86),              # the mine mouth in the western rock
+                (94, 128): ("Southshore", 48, 10),                 # the town's gate: arrive (48,8), under its gatehouse
+            },
+            "Southshore": {
+                # Its own map since 17 Nov 2026 (tools/handbuilt_southshore.py); the gate on the trunk road.
+                (48, 1): ("Western Hillsbrad", 94, 125),            # arrive (94,123), on the road clear of the gatehouse
             },
             "Azurelode Mine": {
                 (55, 86): ("Western Hillsbrad", 33, 63),           # cave exit: +3 -> arrive (33,61), south of the adit
