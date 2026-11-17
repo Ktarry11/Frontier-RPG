@@ -57,24 +57,40 @@ RANKS = ["Lesser", "", "Greater"]
 
 #: (id, name, skill, dust, vial)
 INKS = [
-    ("rune_ink_strange", "Strange Rune Ink", 1, "strange_dust", "vial_empty"),
+    ("rune_ink_strange", "Strange Rune Ink", 0, "strange_dust", "vial_empty"),   # the first thing you make
     ("rune_ink_soul", "Soul Rune Ink", 60, "soul_dust", "vial_empty"),
     ("rune_ink_vision", "Vision Rune Ink", 120, "vision_dust", "vial_leaded"),
     ("rune_ink_dream", "Dream Rune Ink", 180, "dream_dust", "vial_leaded"),
     ("rune_ink_illusion", "Illusion Rune Ink", 240, "illusion_dust", "vial_crystal"),
 ]
 
-#: per rank: (required level, base skill, ink, essence, shard)
+#: per rank: (required level, (first skill, last skill), ink, essence, shard)
+#: Kyle, 16 Nov 2026: "We can only make Strange Rune Ink from lvl 1 to lvl 30...but lvl 30 to 54 we use Soul Rune Ink...
+#: this should be strange rune ink... we need to space out 120 to 140 has nothing. 62 to 90 has nothing. 1 to 30 has
+#: nothing." So each rank is written with the newest ink you can already make (strange at 1, soul at 60, vision at
+#: 120, dream at 180, illusion at 240), and its families are spread evenly over their own stretch of the ladder, so
+#: there's something new to learn every couple of points from 5 to 300.
 NORMAL_TIERS = [
-    (20, 30, "rune_ink_soul", "lesser_astral_essence", None),
-    (40, 140, "rune_ink_dream", "greater_mystic_essence", "small_radiant_shard"),
-    (55, 250, "rune_ink_illusion", "greater_eternal_essence", "large_brilliant_shard"),
+    (20, (5, 55), "rune_ink_strange", "lesser_astral_essence", None),
+    (40, (125, 175), "rune_ink_vision", "greater_mystic_essence", "small_radiant_shard"),
+    (55, (245, 281), "rune_ink_illusion", "greater_eternal_essence", "large_brilliant_shard"),
 ]
 CAPSTONE_TIERS = [
-    (25, 90, "rune_ink_vision", "greater_astral_essence", "large_glimmering_shard"),
-    (45, 200, "rune_ink_dream", "greater_nether_essence", "large_radiant_shard"),
-    (60, 285, "rune_ink_illusion", "greater_eternal_essence", "nexus_crystal"),
+    (25, (65, 115), "rune_ink_soul", "greater_astral_essence", "large_glimmering_shard"),
+    (45, (185, 235), "rune_ink_dream", "greater_nether_essence", "large_radiant_shard"),
+    (60, (285, 300), "rune_ink_illusion", "greater_eternal_essence", "nexus_crystal"),
 ]
+#: the first runes come before astral essence is anything a new enchanter can get: under this skill a Lesser rune
+#: takes lesser magic essence instead (disenchanting level 1 to 10 greens)
+EARLY_SKILL, EARLY_ESSENCE = 30, "lesser_magic_essence"
+
+
+def spread(span, i, n):
+    """The skill for the i-th of n families, evenly over span = (first, last)."""
+    lo, hi = span
+    return int(round(lo + i * (hi - lo) / max(1, n - 1)))
+
+
 #: how often a Capstone happens, by rank (Kyle: 30% low, 70% mid, 100% high)
 CAPSTONE_CHANCE = [0.30, 0.70, 1.00]
 
@@ -398,12 +414,14 @@ def main():
             shutil.copyfile(ICON_SRC / icon_for(n), ART / f"{icon}.png")
         n += 1
         for r, (effects, procs, words) in enumerate(ranks):
-            level, base, ink, ess, shard = NORMAL_TIERS[r]
+            level, span, ink, ess, shard = NORMAL_TIERS[r]
             rid = f"rune_{fid}_{r + 1}"
             title = f"{RANKS[r]} Rune of {fname}".strip()
             runes[rid] = {"name": title, "family": fid, "rank": r + 1, "capstone": False, "role": role,
                           "level": level, "effects": effects, "procs": procs, "text": words}
-            skill = min(300, base + (fam_i % 5) * 8)
+            skill = spread(span, fam_i, len(normal_runes()))
+            if r == 0 and skill < EARLY_SKILL:
+                ess = EARLY_ESSENCE
             inp = {ink: 1, ess: 1 + r}
             if shard:
                 inp[shard] = 1
@@ -422,14 +440,14 @@ def main():
             shutil.copyfile(ICON_SRC / icon_for(n * 3 + 1), ART / f"{icon}.png")
         n += 1
         for r, (cap, words) in enumerate(ranks):
-            level, base, ink, ess, shard = CAPSTONE_TIERS[r]
+            level, span, ink, ess, shard = CAPSTONE_TIERS[r]
             rid = f"capstone_{fid}_{r + 1}"
             title = f"{RANKS[r]} Capstone Rune of {fname}".strip()
             cap = dict(cap)
             runes[rid] = {"name": title, "family": fid, "rank": r + 1, "capstone": True,
                           "level": level, "effects": cap.pop("effects", {}), "procs": [],
                           "capstone_effect": cap, "text": words}
-            skill = min(300, base + (fam_i % 4) * 4)
+            skill = spread(span, fam_i, len(capstones()))
             inp = {ink: 2, ess: 2 + r, shard: 1 if r < 2 else 1}
             recipes[f"rc_{rid}"] = {"name": title, "inputs": inp, "skill_required": skill,
                                     "output": {"kind": "material", "material_id": rid}, "count": 1,

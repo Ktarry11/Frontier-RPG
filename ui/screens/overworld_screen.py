@@ -352,6 +352,9 @@ class OverworldScreen(BaseScreen):
         
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_pos = event.pos
+            if self.ENCOUNTER_BADGE.collidepoint(mouse_pos):       # the badge is a switch too, like E
+                self.encounters_enabled = not self.encounters_enabled
+                return
             if getattr(self, "mount_button_rect", None) and self.mount_button_rect.collidepoint(mouse_pos):
                 self._toggle_mount()
                 return
@@ -465,6 +468,59 @@ class OverworldScreen(BaseScreen):
         who = "You sit down" if len(self._rest_party()) == 1 else f"{fed} of you sit down"
         self._notify(f"{who} to {verb}: {what}." + (f" Not enough for {short} more." if short else ""), green)
         return fed
+
+    #: where the two badges sit: the strip under the Mount / Hearth / Eat / Drink buttons
+    BADGE_Y = 668
+    MAIL_BADGE = pygame.Rect(20, BADGE_Y, 176, 38)
+    ENCOUNTER_BADGE = pygame.Rect(206, BADGE_Y, 200, 38)
+
+    def _render_status_badges(self, screen):
+        """New mail (a gold badge that breathes, with the raised flag and how many letters are waiting) and the
+        encounter switch beside it. The encounter badge never moves, mail or no mail, so it's always where you
+        last saw it."""
+        import math
+        now = pygame.time.get_ticks() / 1000.0
+        unread = 0
+        try:
+            from world.market.market import market_of
+            m = market_of(self.state_manager.get_party())
+            if m.mail is not None:
+                unread = int(m.mail.unread(m.clock) or 0)
+        except Exception:
+            unread = 0
+        if unread:
+            r = self.MAIL_BADGE
+            glow = 0.5 + 0.5 * math.sin(now * 3.0)
+            edge = (int(200 + 55 * glow), int(150 + 60 * glow), int(60 + 40 * glow))
+            pygame.draw.rect(screen, (46, 34, 18), r, border_radius=8)
+            pygame.draw.rect(screen, edge, r, 2, border_radius=8)
+            try:
+                from ui.market_widgets import ui_icon
+                screen.blit(ui_icon("mail_flag_up", 30), (r.x + 6, r.y + 4))
+            except Exception:
+                pygame.draw.rect(screen, (220, 60, 50), (r.x + 10, r.y + 10, 18, 14))
+            self.renderer.draw_text(screen, "New mail", (r.x + 44, r.y + 9), color=(250, 214, 130))
+            # the count in a red bubble on the flag's corner, like a phone's
+            n = str(unread if unread < 100 else "99+")
+            font = self.renderer._get_font(font_size=14)
+            txt = font.render(n, True, (255, 255, 255))
+            bw = max(18, txt.get_width() + 8)
+            bubble = pygame.Rect(r.x + 26, r.y - 6, bw, 18)
+            pygame.draw.rect(screen, (200, 40, 40), bubble, border_radius=9)
+            pygame.draw.rect(screen, (255, 230, 200), bubble, 1, border_radius=9)
+            screen.blit(txt, txt.get_rect(center=bubble.center))
+        r = self.ENCOUNTER_BADGE
+        on = bool(self.encounters_enabled)
+        col = (100, 200, 100) if on else (210, 100, 100)
+        pygame.draw.rect(screen, (24, 28, 24) if on else (32, 22, 22), r, border_radius=8)
+        pygame.draw.rect(screen, col, r, 2, border_radius=8)
+        # crossed swords for "fights can find you", struck through when they can't
+        cx, cy = r.x + 22, r.centery
+        pygame.draw.line(screen, col, (cx - 8, cy + 8), (cx + 8, cy - 8), 3)
+        pygame.draw.line(screen, col, (cx - 8, cy - 8), (cx + 8, cy + 8), 3)
+        if not on:
+            pygame.draw.circle(screen, col, (cx, cy), 12, 2)
+        self.renderer.draw_text(screen, f"Encounters (E): {'ON' if on else 'OFF'}", (r.x + 40, r.y + 9), color=col)
 
     def _render_travel_hud(self, screen):
         """Small ride/hearth strip under the viewport (click or press R / H)."""
@@ -1167,20 +1223,10 @@ class OverworldScreen(BaseScreen):
                 screen.blit(mark, (SCREEN_WIDTH // 2 - w // 2 - (mw + 8) * (i + 1), 12))
                 screen.blit(mark, (SCREEN_WIDTH // 2 + w // 2 + 8 + (mw + 8) * i, 12))
         
-        # Draw encounter status (top left)
-        encounter_status = "ON" if self.encounters_enabled else "OFF"
-        status_color = (100, 200, 100) if self.encounters_enabled else (200, 100, 100)
-        self.renderer.draw_text(screen, f"Encounters: {encounter_status}", (20, 10), color=status_color)
-        # NEW MAIL: the raised red flag (Kyle's icon sheet), like WoW's minimap envelope (world/mail.py)
-        try:
-            from world.market.market import market_of
-            m = market_of(self.state_manager.get_party())
-            if m.mail is not None and m.mail.unread(m.clock):
-                from ui.market_widgets import ui_icon
-                screen.blit(ui_icon("mail_flag_up", 26), (16, 32))
-                self.renderer.draw_text(screen, "New mail", (44, 36), size="small", color=(236, 196, 110))
-        except Exception:
-            pass
+        # MAIL AND ENCOUNTERS, bottom left under the action buttons (Kyle, 16 Nov 2026: "Lets make the new mail
+        # icon a bit more noticable this can be both moved to the bottom left. The Mail icon in the bottom left and
+        # the Encounters icon moved beside it."). They used to sit in small text over the corner of the world view.
+        self._render_status_badges(screen)
         self._render_travel_hud(screen)
         
         # Right-edge tab column - replaces the old flat Inventory/Character/

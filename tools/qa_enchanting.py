@@ -89,6 +89,8 @@ def main():
         for a, b in zip(rows, rows[1:]):
             check(all(b["stats"].get(k, 0) >= v for k, v in a["stats"].items()), f"{key}: {b['title']} is weaker than {a['title']}")
     for group in d["groups"]:
+        if group == "armor_kit":          # armor and nothing else, as in classic (tools/armor_kits.py)
+            continue
         fams = {f for (g, f) in ladders if g == group}
         hybrids = {e["family"] for e in enchants.values() if e["group"] == group and e["hybrid"]}
         check(hybrids, f"no hybrid enchantment for {group}")
@@ -226,6 +228,17 @@ def main():
     give("enchant_bracer_major_valor", 1)
     E.apply(hero, bracer, "enchant_bracer_major_valor")
     check(bracer.enchant_id == "enchant_bracer_major_valor", "a new enchantment didn't replace the old one")
+    # leatherworking's armor kits (Kyle, 16 Nov 2026: "Armor kits dont work"): anyone can read one onto chest, legs,
+    # gloves or boots, and it adds armor; not onto a helm
+    vest = gen.generate_armor_piece("chest", "leather", "agi_physical", 20, "uncommon")
+    helm = gen.generate_armor_piece("head", "leather", "agi_physical", 20, "uncommon")
+    give("upgrade_kit_light_armor", 2)
+    before_armor = vest.get_all_stat_bonuses().get("armor", 0)
+    ok, msg = E.apply(hero, vest, "upgrade_kit_light_armor")
+    check(ok and E.stats(vest).get("armor") == 6, f"a Light Armor Kit didn't go on a vest: {msg}")
+    check(vest.get_all_stat_bonuses().get("armor", 0) == before_armor + 6, "the kit's armor never reaches the item")
+    ok, _m = E.apply(hero, helm, "upgrade_kit_light_armor")
+    check(not ok, "an armor kit went on a helm")
     # shoulders take the Plaguelands' faction inscriptions and nothing else (tools/plaguelands_inscriptions.py)
     from tools import plaguelands_inscriptions as INS
     pads = gen.generate_armor_piece("shoulder", "plate", "str_physical", 58, "rare")
@@ -239,8 +252,13 @@ def main():
             check(iid in revered, f"{iid} isn't on the {fid} quartermaster's Revered shelf")
             check(not any(r["output"].get("material_id") == iid for r in recipes.values()), f"a formula makes {iid}")
     give("inscription_argent_warding", 1)
+    # it needs the standing it's sold at (world/rep_items.py)
     ok, msg = E.apply(hero, pads, "inscription_argent_warding")
-    check(ok and E.stats(pads).get("stamina") == 9, f"the inscription didn't go on: {msg}")
+    check(not ok and "Revered" in msg, f"an inscription went on without the standing: {msg}")
+    from world.faction_manager import get_faction_manager
+    get_faction_manager().award("argent_dawn", 30000, "qa")
+    ok, msg = E.apply(hero, pads, "inscription_argent_warding")
+    check(ok and E.stats(pads).get("stamina") == 9, f"the inscription didn't go on at Revered: {msg}")
     give("inscription_argent_warding", 1)
     ok, _m = E.apply(hero, bracer, "inscription_argent_warding")
     check(not ok and "only goes on shoulders" in _m, "a shoulder inscription went on bracers")

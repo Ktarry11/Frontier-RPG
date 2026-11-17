@@ -7,17 +7,17 @@
         "strange_dust": 2,
         "vial_empty": 1
       },
-      "skill_required": 1,
+      "skill_required": 0,
       "output": {
         "kind": "material",
         "material_id": "rune_ink_strange"
       },
       "count": 1,
       "skill_range": [
-        1,
-        11,
-        21,
-        31
+        0,
+        10,
+        20,
+        30
       ],
       "source": "trainer"
     },
@@ -104,41 +104,41 @@
     "rc_rune_riposte_1": {
       "name": "Lesser Rune of Riposte",
       "inputs": {
-        "rune_ink_soul": 1,
-        "lesser_astral_essence": 1
+        "rune_ink_strange": 1,
+        "lesser_magic_essence": 1
       },
-      "skill_required": 30,
+      "skill_required": 5,
       "output": {
         "kind": "material",
         "material_id": "rune_riposte_1"
       },
       "count": 1,
       "skill_range": [
-        30,
-        40,
-        50,
-        60
+        5,
+        15,
+        25,
+        35
       ],
       "source": "trainer"
     },
     "rc_rune_riposte_2": {
       "name": "Rune of Riposte",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 140,
+      "skill_required": 125,
       "output": {
         "kind": "material",
         "material_id": "rune_riposte_2"
       },
       "count": 1,
       "skill_range": [
-        140,
-        150,
-        160,
-        170
+        125,
+        135,
+        145,
+        155
       ],
       "source": "trainer"
     },
@@ -149,58 +149,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 250,
+      "skill_required": 245,
       "output": {
         "kind": "material",
         "material_id": "rune_riposte_3"
       },
       "count": 1,
       "skill_range": [
-        250,
-        260,
-        270,
-        280
+        245,
+        255,
+        265,
+        275
       ],
       "source": "trainer"
     },
     "rc_rune_thorns_1": {
       "name": "Lesser Rune of Thorns",
       "inputs": {
-        "rune_ink_soul": 1,
-        "lesser_astral_essence": 1
+        "rune_ink_strange": 1,
+        "lesser_magic_essence": 1
       },
-      "skill_required": 38,
+      "skill_required": 6,
       "output": {
         "kind": "material",
         "material_id": "rune_thorns_1"
       },
       "count": 1,
       "skill_range": [
-        38,
-        48,
-        58,
-        68
+        6,
+        16,
+        26,
+        36
       ],
       "source": "trainer"
     },
     "rc_rune_thorns_2": {
       "name": "Rune of Thorns",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 148,
+      "skill_required": 126,
       "output": {
         "kind": "material",
         "material_id": "rune_thorns_2"
       },
       "count": 1,
       "skill_range": [
-        148,
-        158,
-        168,
-        178
+        126,
+        136,
+        146,
+        156
       ],
       "source": "drop"
     },
@@ -211,58 +211,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 258,
+      "skill_required": 246,
       "output": {
         "kind": "material",
         "material_id": "rune_thorns_3"
       },
       "count": 1,
       "skill_range": [
-        258,
-        268,
-        278,
-        288
+        246,
+        256,
+        266,
+        276
       ],
       "source": "vendor"
     },
     "rc_rune_bulwark_1": {
       "name": "Lesser Rune of Bulwark",
       "inputs": {
-        "rune_ink_soul": 1,
-        "lesser_astral_essence": 1
+        "rune_ink_strange": 1,
+        "lesser_magic_essence": 1
       },
-      "skill_required": 46,
+      "skill_required": 8,
       "output": {
         "kind": "material",
         "material_id": "rune_bulwark_1"
       },
       "count": 1,
       "skill_range": [
-        46,
-        56,
-        66,
-        76
+        8,
+        18,
+        28,
+        38
       ],
       "source": "trainer"
     },
     "rc_rune_bulwark_2": {
       "name": "Rune of Bulwark",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 156,
+      "skill_required": 128,
       "output": {
         "kind": "material",
         "material_id": "rune_bulwark_2"
       },
       "count": 1,
       "skill_range": [
-        156,
-        166,
-        176,
-        186
+        128,
+        138,
+        148,
+        158
       ],
       "source": "vendor"
     },
@@ -273,58 +273,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 266,
+      "skill_required": 247,
       "output": {
         "kind": "material",
         "material_id": "rune_bulwark_3"
       },
       "count": 1,
       "skill_range": [
-        266,
-        276,
-        286,
-        296
+        247,
+        257,
+        267,
+        277
       ],
       "source": "trainer"
     },
     "rc_rune_warding_1": {
       "name": "Lesser Rune of Warding",
       "inputs": {
-        "rune_ink_soul": 1,
-        "lesser_astral_essence": 1
+        "rune_ink_strange": 1,
+        "lesser_magic_essence": 1
       },
-      "skill_required": 54,
+      "skill_required": 9,
       "output": {
         "kind": "material",
         "material_id": "rune_warding_1"
       },
       "count": 1,
       "skill_range": [
-        54,
-        64,
-        74,
-        84
+        9,
+        19,
+        29,
+        39
       ],
       "source": "trainer"
     },
     "rc_rune_warding_2": {
       "name": "Rune of Warding",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 164,
+      "skill_required": 129,
       "output": {
         "kind": "material",
         "material_id": "rune_warding_2"
       },
       "count": 1,
       "skill_range": [
-        164,
-        174,
-        184,
-        194
+        129,
+        139,
+        149,
+        159
       ],
       "source": "trainer"
     },
@@ -335,58 +335,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 274,
+      "skill_required": 248,
       "output": {
         "kind": "material",
         "material_id": "rune_warding_3"
       },
       "count": 1,
       "skill_range": [
-        274,
-        284,
-        294,
-        304
+        248,
+        258,
+        268,
+        278
       ],
       "source": "vendor"
     },
     "rc_rune_bastion_1": {
       "name": "Lesser Rune of the Bastion",
       "inputs": {
-        "rune_ink_soul": 1,
-        "lesser_astral_essence": 1
+        "rune_ink_strange": 1,
+        "lesser_magic_essence": 1
       },
-      "skill_required": 62,
+      "skill_required": 10,
       "output": {
         "kind": "material",
         "material_id": "rune_bastion_1"
       },
       "count": 1,
       "skill_range": [
-        62,
-        72,
-        82,
-        92
+        10,
+        20,
+        30,
+        40
       ],
       "source": "trainer"
     },
     "rc_rune_bastion_2": {
       "name": "Rune of the Bastion",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 172,
+      "skill_required": 130,
       "output": {
         "kind": "material",
         "material_id": "rune_bastion_2"
       },
       "count": 1,
       "skill_range": [
-        172,
-        182,
-        192,
-        202
+        130,
+        140,
+        150,
+        160
       ],
       "source": "vendor"
     },
@@ -397,58 +397,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 282,
+      "skill_required": 249,
       "output": {
         "kind": "material",
         "material_id": "rune_bastion_3"
       },
       "count": 1,
       "skill_range": [
-        282,
-        292,
-        302,
-        312
+        249,
+        259,
+        269,
+        279
       ],
       "source": "trainer"
     },
     "rc_rune_ironhide_1": {
       "name": "Lesser Rune of Ironhide",
       "inputs": {
-        "rune_ink_soul": 1,
-        "lesser_astral_essence": 1
+        "rune_ink_strange": 1,
+        "lesser_magic_essence": 1
       },
-      "skill_required": 30,
+      "skill_required": 12,
       "output": {
         "kind": "material",
         "material_id": "rune_ironhide_1"
       },
       "count": 1,
       "skill_range": [
-        30,
-        40,
-        50,
-        60
+        12,
+        22,
+        32,
+        42
       ],
       "source": "trainer"
     },
     "rc_rune_ironhide_2": {
       "name": "Rune of Ironhide",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 140,
+      "skill_required": 132,
       "output": {
         "kind": "material",
         "material_id": "rune_ironhide_2"
       },
       "count": 1,
       "skill_range": [
-        140,
-        150,
-        160,
-        170
+        132,
+        142,
+        152,
+        162
       ],
       "source": "drop"
     },
@@ -476,41 +476,41 @@
     "rc_rune_evasion_1": {
       "name": "Lesser Rune of Evasion",
       "inputs": {
-        "rune_ink_soul": 1,
-        "lesser_astral_essence": 1
+        "rune_ink_strange": 1,
+        "lesser_magic_essence": 1
       },
-      "skill_required": 38,
+      "skill_required": 13,
       "output": {
         "kind": "material",
         "material_id": "rune_evasion_1"
       },
       "count": 1,
       "skill_range": [
-        38,
-        48,
-        58,
-        68
+        13,
+        23,
+        33,
+        43
       ],
       "source": "trainer"
     },
     "rc_rune_evasion_2": {
       "name": "Rune of Evasion",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 148,
+      "skill_required": 133,
       "output": {
         "kind": "material",
         "material_id": "rune_evasion_2"
       },
       "count": 1,
       "skill_range": [
-        148,
-        158,
-        168,
-        178
+        133,
+        143,
+        153,
+        163
       ],
       "source": "trainer"
     },
@@ -521,58 +521,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 258,
+      "skill_required": 251,
       "output": {
         "kind": "material",
         "material_id": "rune_evasion_3"
       },
       "count": 1,
       "skill_range": [
-        258,
-        268,
-        278,
-        288
+        251,
+        261,
+        271,
+        281
       ],
       "source": "trainer"
     },
     "rc_rune_last_stand_1": {
       "name": "Lesser Rune of the Last Stand",
       "inputs": {
-        "rune_ink_soul": 1,
-        "lesser_astral_essence": 1
+        "rune_ink_strange": 1,
+        "lesser_magic_essence": 1
       },
-      "skill_required": 46,
+      "skill_required": 14,
       "output": {
         "kind": "material",
         "material_id": "rune_last_stand_1"
       },
       "count": 1,
       "skill_range": [
-        46,
-        56,
-        66,
-        76
+        14,
+        24,
+        34,
+        44
       ],
       "source": "trainer"
     },
     "rc_rune_last_stand_2": {
       "name": "Rune of the Last Stand",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 156,
+      "skill_required": 134,
       "output": {
         "kind": "material",
         "material_id": "rune_last_stand_2"
       },
       "count": 1,
       "skill_range": [
-        156,
-        166,
-        176,
-        186
+        134,
+        144,
+        154,
+        164
       ],
       "source": "drop"
     },
@@ -583,58 +583,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 266,
+      "skill_required": 252,
       "output": {
         "kind": "material",
         "material_id": "rune_last_stand_3"
       },
       "count": 1,
       "skill_range": [
-        266,
-        276,
-        286,
-        296
+        252,
+        262,
+        272,
+        282
       ],
       "source": "vendor"
     },
     "rc_rune_second_wind_1": {
       "name": "Lesser Rune of Second Wind",
       "inputs": {
-        "rune_ink_soul": 1,
-        "lesser_astral_essence": 1
+        "rune_ink_strange": 1,
+        "lesser_magic_essence": 1
       },
-      "skill_required": 54,
+      "skill_required": 16,
       "output": {
         "kind": "material",
         "material_id": "rune_second_wind_1"
       },
       "count": 1,
       "skill_range": [
-        54,
-        64,
-        74,
-        84
+        16,
+        26,
+        36,
+        46
       ],
       "source": "trainer"
     },
     "rc_rune_second_wind_2": {
       "name": "Rune of Second Wind",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 164,
+      "skill_required": 136,
       "output": {
         "kind": "material",
         "material_id": "rune_second_wind_2"
       },
       "count": 1,
       "skill_range": [
-        164,
-        174,
-        184,
-        194
+        136,
+        146,
+        156,
+        166
       ],
       "source": "vendor"
     },
@@ -645,58 +645,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 274,
+      "skill_required": 253,
       "output": {
         "kind": "material",
         "material_id": "rune_second_wind_3"
       },
       "count": 1,
       "skill_range": [
-        274,
-        284,
-        294,
-        304
+        253,
+        263,
+        273,
+        283
       ],
       "source": "trainer"
     },
     "rc_rune_rampart_1": {
       "name": "Lesser Rune of the Rampart",
       "inputs": {
-        "rune_ink_soul": 1,
-        "lesser_astral_essence": 1
+        "rune_ink_strange": 1,
+        "lesser_magic_essence": 1
       },
-      "skill_required": 62,
+      "skill_required": 17,
       "output": {
         "kind": "material",
         "material_id": "rune_rampart_1"
       },
       "count": 1,
       "skill_range": [
-        62,
-        72,
-        82,
-        92
+        17,
+        27,
+        37,
+        47
       ],
       "source": "trainer"
     },
     "rc_rune_rampart_2": {
       "name": "Rune of the Rampart",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 172,
+      "skill_required": 137,
       "output": {
         "kind": "material",
         "material_id": "rune_rampart_2"
       },
       "count": 1,
       "skill_range": [
-        172,
-        182,
-        192,
-        202
+        137,
+        147,
+        157,
+        167
       ],
       "source": "trainer"
     },
@@ -707,58 +707,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 282,
+      "skill_required": 254,
       "output": {
         "kind": "material",
         "material_id": "rune_rampart_3"
       },
       "count": 1,
       "skill_range": [
-        282,
-        292,
-        302,
-        312
+        254,
+        264,
+        274,
+        284
       ],
       "source": "vendor"
     },
     "rc_rune_wild_hide_1": {
       "name": "Lesser Rune of the Wild Hide",
       "inputs": {
-        "rune_ink_soul": 1,
-        "lesser_astral_essence": 1
+        "rune_ink_strange": 1,
+        "lesser_magic_essence": 1
       },
-      "skill_required": 30,
+      "skill_required": 18,
       "output": {
         "kind": "material",
         "material_id": "rune_wild_hide_1"
       },
       "count": 1,
       "skill_range": [
-        30,
-        40,
-        50,
-        60
+        18,
+        28,
+        38,
+        48
       ],
       "source": "trainer"
     },
     "rc_rune_wild_hide_2": {
       "name": "Rune of the Wild Hide",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 140,
+      "skill_required": 138,
       "output": {
         "kind": "material",
         "material_id": "rune_wild_hide_2"
       },
       "count": 1,
       "skill_range": [
-        140,
-        150,
-        160,
-        170
+        138,
+        148,
+        158,
+        168
       ],
       "source": "vendor"
     },
@@ -769,58 +769,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 250,
+      "skill_required": 254,
       "output": {
         "kind": "material",
         "material_id": "rune_wild_hide_3"
       },
       "count": 1,
       "skill_range": [
-        250,
-        260,
-        270,
-        280
+        254,
+        264,
+        274,
+        284
       ],
       "source": "trainer"
     },
     "rc_rune_menace_1": {
       "name": "Lesser Rune of Menace",
       "inputs": {
-        "rune_ink_soul": 1,
-        "lesser_astral_essence": 1
+        "rune_ink_strange": 1,
+        "lesser_magic_essence": 1
       },
-      "skill_required": 38,
+      "skill_required": 19,
       "output": {
         "kind": "material",
         "material_id": "rune_menace_1"
       },
       "count": 1,
       "skill_range": [
-        38,
-        48,
-        58,
-        68
+        19,
+        29,
+        39,
+        49
       ],
       "source": "trainer"
     },
     "rc_rune_menace_2": {
       "name": "Rune of Menace",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 148,
+      "skill_required": 139,
       "output": {
         "kind": "material",
         "material_id": "rune_menace_2"
       },
       "count": 1,
       "skill_range": [
-        148,
-        158,
-        168,
-        178
+        139,
+        149,
+        159,
+        169
       ],
       "source": "drop"
     },
@@ -831,58 +831,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 258,
+      "skill_required": 255,
       "output": {
         "kind": "material",
         "material_id": "rune_menace_3"
       },
       "count": 1,
       "skill_range": [
-        258,
-        268,
-        278,
-        288
+        255,
+        265,
+        275,
+        285
       ],
       "source": "vendor"
     },
     "rc_rune_steadfast_1": {
       "name": "Lesser Rune of the Steadfast",
       "inputs": {
-        "rune_ink_soul": 1,
-        "lesser_astral_essence": 1
+        "rune_ink_strange": 1,
+        "lesser_magic_essence": 1
       },
-      "skill_required": 46,
+      "skill_required": 21,
       "output": {
         "kind": "material",
         "material_id": "rune_steadfast_1"
       },
       "count": 1,
       "skill_range": [
-        46,
-        56,
-        66,
-        76
+        21,
+        31,
+        41,
+        51
       ],
       "source": "trainer"
     },
     "rc_rune_steadfast_2": {
       "name": "Rune of the Steadfast",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 156,
+      "skill_required": 141,
       "output": {
         "kind": "material",
         "material_id": "rune_steadfast_2"
       },
       "count": 1,
       "skill_range": [
-        156,
-        166,
-        176,
-        186
+        141,
+        151,
+        161,
+        171
       ],
       "source": "trainer"
     },
@@ -893,58 +893,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 266,
+      "skill_required": 256,
       "output": {
         "kind": "material",
         "material_id": "rune_steadfast_3"
       },
       "count": 1,
       "skill_range": [
+        256,
         266,
         276,
-        286,
-        296
+        286
       ],
       "source": "trainer"
     },
     "rc_rune_execution_1": {
       "name": "Lesser Rune of Execution",
       "inputs": {
-        "rune_ink_soul": 1,
-        "lesser_astral_essence": 1
+        "rune_ink_strange": 1,
+        "lesser_magic_essence": 1
       },
-      "skill_required": 54,
+      "skill_required": 22,
       "output": {
         "kind": "material",
         "material_id": "rune_execution_1"
       },
       "count": 1,
       "skill_range": [
-        54,
-        64,
-        74,
-        84
+        22,
+        32,
+        42,
+        52
       ],
       "source": "trainer"
     },
     "rc_rune_execution_2": {
       "name": "Rune of Execution",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 164,
+      "skill_required": 142,
       "output": {
         "kind": "material",
         "material_id": "rune_execution_2"
       },
       "count": 1,
       "skill_range": [
-        164,
-        174,
-        184,
-        194
+        142,
+        152,
+        162,
+        172
       ],
       "source": "drop"
     },
@@ -955,58 +955,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 274,
+      "skill_required": 257,
       "output": {
         "kind": "material",
         "material_id": "rune_execution_3"
       },
       "count": 1,
       "skill_range": [
-        274,
-        284,
-        294,
-        304
+        257,
+        267,
+        277,
+        287
       ],
       "source": "vendor"
     },
     "rc_rune_rupture_1": {
       "name": "Lesser Rune of Rupture",
       "inputs": {
-        "rune_ink_soul": 1,
-        "lesser_astral_essence": 1
+        "rune_ink_strange": 1,
+        "lesser_magic_essence": 1
       },
-      "skill_required": 62,
+      "skill_required": 23,
       "output": {
         "kind": "material",
         "material_id": "rune_rupture_1"
       },
       "count": 1,
       "skill_range": [
-        62,
-        72,
-        82,
-        92
+        23,
+        33,
+        43,
+        53
       ],
       "source": "trainer"
     },
     "rc_rune_rupture_2": {
       "name": "Rune of Rupture",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 172,
+      "skill_required": 143,
       "output": {
         "kind": "material",
         "material_id": "rune_rupture_2"
       },
       "count": 1,
       "skill_range": [
-        172,
-        182,
-        192,
-        202
+        143,
+        153,
+        163,
+        173
       ],
       "source": "vendor"
     },
@@ -1017,58 +1017,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 282,
+      "skill_required": 258,
       "output": {
         "kind": "material",
         "material_id": "rune_rupture_3"
       },
       "count": 1,
       "skill_range": [
-        282,
-        292,
-        302,
-        312
+        258,
+        268,
+        278,
+        288
       ],
       "source": "trainer"
     },
     "rc_rune_bloodlust_1": {
       "name": "Lesser Rune of Bloodlust",
       "inputs": {
-        "rune_ink_soul": 1,
-        "lesser_astral_essence": 1
+        "rune_ink_strange": 1,
+        "lesser_magic_essence": 1
       },
-      "skill_required": 30,
+      "skill_required": 25,
       "output": {
         "kind": "material",
         "material_id": "rune_bloodlust_1"
       },
       "count": 1,
       "skill_range": [
-        30,
-        40,
-        50,
-        60
+        25,
+        35,
+        45,
+        55
       ],
       "source": "trainer"
     },
     "rc_rune_bloodlust_2": {
       "name": "Rune of Bloodlust",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 140,
+      "skill_required": 145,
       "output": {
         "kind": "material",
         "material_id": "rune_bloodlust_2"
       },
       "count": 1,
       "skill_range": [
-        140,
-        150,
-        160,
-        170
+        145,
+        155,
+        165,
+        175
       ],
       "source": "trainer"
     },
@@ -1079,58 +1079,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 250,
+      "skill_required": 259,
       "output": {
         "kind": "material",
         "material_id": "rune_bloodlust_3"
       },
       "count": 1,
       "skill_range": [
-        250,
-        260,
-        270,
-        280
+        259,
+        269,
+        279,
+        289
       ],
       "source": "vendor"
     },
     "rc_rune_precision_1": {
       "name": "Lesser Rune of Precision",
       "inputs": {
-        "rune_ink_soul": 1,
-        "lesser_astral_essence": 1
+        "rune_ink_strange": 1,
+        "lesser_magic_essence": 1
       },
-      "skill_required": 38,
+      "skill_required": 26,
       "output": {
         "kind": "material",
         "material_id": "rune_precision_1"
       },
       "count": 1,
       "skill_range": [
-        38,
-        48,
-        58,
-        68
+        26,
+        36,
+        46,
+        56
       ],
       "source": "trainer"
     },
     "rc_rune_precision_2": {
       "name": "Rune of Precision",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 148,
+      "skill_required": 146,
       "output": {
         "kind": "material",
         "material_id": "rune_precision_2"
       },
       "count": 1,
       "skill_range": [
-        148,
-        158,
-        168,
-        178
+        146,
+        156,
+        166,
+        176
       ],
       "source": "vendor"
     },
@@ -1141,58 +1141,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 258,
+      "skill_required": 260,
       "output": {
         "kind": "material",
         "material_id": "rune_precision_3"
       },
       "count": 1,
       "skill_range": [
-        258,
-        268,
-        278,
-        288
+        260,
+        270,
+        280,
+        290
       ],
       "source": "trainer"
     },
     "rc_rune_devastation_1": {
       "name": "Lesser Rune of Devastation",
       "inputs": {
-        "rune_ink_soul": 1,
-        "lesser_astral_essence": 1
+        "rune_ink_strange": 1,
+        "lesser_magic_essence": 1
       },
-      "skill_required": 46,
+      "skill_required": 27,
       "output": {
         "kind": "material",
         "material_id": "rune_devastation_1"
       },
       "count": 1,
       "skill_range": [
-        46,
-        56,
-        66,
-        76
+        27,
+        37,
+        47,
+        57
       ],
       "source": "trainer"
     },
     "rc_rune_devastation_2": {
       "name": "Rune of Devastation",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 156,
+      "skill_required": 147,
       "output": {
         "kind": "material",
         "material_id": "rune_devastation_2"
       },
       "count": 1,
       "skill_range": [
-        156,
-        166,
-        176,
-        186
+        147,
+        157,
+        167,
+        177
       ],
       "source": "drop"
     },
@@ -1203,58 +1203,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 266,
+      "skill_required": 261,
       "output": {
         "kind": "material",
         "material_id": "rune_devastation_3"
       },
       "count": 1,
       "skill_range": [
-        266,
-        276,
-        286,
-        296
+        261,
+        271,
+        281,
+        291
       ],
       "source": "vendor"
     },
     "rc_rune_thunder_1": {
       "name": "Lesser Rune of Thunder",
       "inputs": {
-        "rune_ink_soul": 1,
-        "lesser_astral_essence": 1
+        "rune_ink_strange": 1,
+        "lesser_magic_essence": 1
       },
-      "skill_required": 54,
+      "skill_required": 29,
       "output": {
         "kind": "material",
         "material_id": "rune_thunder_1"
       },
       "count": 1,
       "skill_range": [
-        54,
-        64,
-        74,
-        84
+        29,
+        39,
+        49,
+        59
       ],
       "source": "trainer"
     },
     "rc_rune_thunder_2": {
       "name": "Rune of Thunder",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 164,
+      "skill_required": 149,
       "output": {
         "kind": "material",
         "material_id": "rune_thunder_2"
       },
       "count": 1,
       "skill_range": [
-        164,
-        174,
-        184,
-        194
+        149,
+        159,
+        169,
+        179
       ],
       "source": "trainer"
     },
@@ -1265,92 +1265,30 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 274,
+      "skill_required": 262,
       "output": {
         "kind": "material",
         "material_id": "rune_thunder_3"
       },
       "count": 1,
       "skill_range": [
-        274,
-        284,
-        294,
-        304
+        262,
+        272,
+        282,
+        292
       ],
       "source": "trainer"
     },
     "rc_rune_chain_reaction_1": {
       "name": "Lesser Rune of Chain Reaction",
       "inputs": {
-        "rune_ink_soul": 1,
-        "lesser_astral_essence": 1
-      },
-      "skill_required": 62,
-      "output": {
-        "kind": "material",
-        "material_id": "rune_chain_reaction_1"
-      },
-      "count": 1,
-      "skill_range": [
-        62,
-        72,
-        82,
-        92
-      ],
-      "source": "trainer"
-    },
-    "rc_rune_chain_reaction_2": {
-      "name": "Rune of Chain Reaction",
-      "inputs": {
-        "rune_ink_dream": 1,
-        "greater_mystic_essence": 2,
-        "small_radiant_shard": 1
-      },
-      "skill_required": 172,
-      "output": {
-        "kind": "material",
-        "material_id": "rune_chain_reaction_2"
-      },
-      "count": 1,
-      "skill_range": [
-        172,
-        182,
-        192,
-        202
-      ],
-      "source": "drop"
-    },
-    "rc_rune_chain_reaction_3": {
-      "name": "Greater Rune of Chain Reaction",
-      "inputs": {
-        "rune_ink_illusion": 1,
-        "greater_eternal_essence": 3,
-        "large_brilliant_shard": 1
-      },
-      "skill_required": 282,
-      "output": {
-        "kind": "material",
-        "material_id": "rune_chain_reaction_3"
-      },
-      "count": 1,
-      "skill_range": [
-        282,
-        292,
-        302,
-        312
-      ],
-      "source": "vendor"
-    },
-    "rc_rune_focus_1": {
-      "name": "Lesser Rune of Focus",
-      "inputs": {
-        "rune_ink_soul": 1,
+        "rune_ink_strange": 1,
         "lesser_astral_essence": 1
       },
       "skill_required": 30,
       "output": {
         "kind": "material",
-        "material_id": "rune_focus_1"
+        "material_id": "rune_chain_reaction_1"
       },
       "count": 1,
       "skill_range": [
@@ -1361,24 +1299,86 @@
       ],
       "source": "trainer"
     },
-    "rc_rune_focus_2": {
-      "name": "Rune of Focus",
+    "rc_rune_chain_reaction_2": {
+      "name": "Rune of Chain Reaction",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 140,
+      "skill_required": 150,
+      "output": {
+        "kind": "material",
+        "material_id": "rune_chain_reaction_2"
+      },
+      "count": 1,
+      "skill_range": [
+        150,
+        160,
+        170,
+        180
+      ],
+      "source": "drop"
+    },
+    "rc_rune_chain_reaction_3": {
+      "name": "Greater Rune of Chain Reaction",
+      "inputs": {
+        "rune_ink_illusion": 1,
+        "greater_eternal_essence": 3,
+        "large_brilliant_shard": 1
+      },
+      "skill_required": 263,
+      "output": {
+        "kind": "material",
+        "material_id": "rune_chain_reaction_3"
+      },
+      "count": 1,
+      "skill_range": [
+        263,
+        273,
+        283,
+        293
+      ],
+      "source": "vendor"
+    },
+    "rc_rune_focus_1": {
+      "name": "Lesser Rune of Focus",
+      "inputs": {
+        "rune_ink_strange": 1,
+        "lesser_astral_essence": 1
+      },
+      "skill_required": 31,
+      "output": {
+        "kind": "material",
+        "material_id": "rune_focus_1"
+      },
+      "count": 1,
+      "skill_range": [
+        31,
+        41,
+        51,
+        61
+      ],
+      "source": "trainer"
+    },
+    "rc_rune_focus_2": {
+      "name": "Rune of Focus",
+      "inputs": {
+        "rune_ink_vision": 1,
+        "greater_mystic_essence": 2,
+        "small_radiant_shard": 1
+      },
+      "skill_required": 151,
       "output": {
         "kind": "material",
         "material_id": "rune_focus_2"
       },
       "count": 1,
       "skill_range": [
-        140,
-        150,
-        160,
-        170
+        151,
+        161,
+        171,
+        181
       ],
       "source": "vendor"
     },
@@ -1389,58 +1389,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 250,
+      "skill_required": 264,
       "output": {
         "kind": "material",
         "material_id": "rune_focus_3"
       },
       "count": 1,
       "skill_range": [
-        250,
-        260,
-        270,
-        280
+        264,
+        274,
+        284,
+        294
       ],
       "source": "trainer"
     },
     "rc_rune_sweeping_1": {
       "name": "Lesser Rune of the Sweep",
       "inputs": {
-        "rune_ink_soul": 1,
+        "rune_ink_strange": 1,
         "lesser_astral_essence": 1
       },
-      "skill_required": 38,
+      "skill_required": 33,
       "output": {
         "kind": "material",
         "material_id": "rune_sweeping_1"
       },
       "count": 1,
       "skill_range": [
-        38,
-        48,
-        58,
-        68
+        33,
+        43,
+        53,
+        63
       ],
       "source": "trainer"
     },
     "rc_rune_sweeping_2": {
       "name": "Rune of the Sweep",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 148,
+      "skill_required": 153,
       "output": {
         "kind": "material",
         "material_id": "rune_sweeping_2"
       },
       "count": 1,
       "skill_range": [
-        148,
-        158,
-        168,
-        178
+        153,
+        163,
+        173,
+        183
       ],
       "source": "trainer"
     },
@@ -1451,58 +1451,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 258,
+      "skill_required": 265,
       "output": {
         "kind": "material",
         "material_id": "rune_sweeping_3"
       },
       "count": 1,
       "skill_range": [
-        258,
-        268,
-        278,
-        288
+        265,
+        275,
+        285,
+        295
       ],
       "source": "vendor"
     },
     "rc_rune_overload_1": {
       "name": "Lesser Rune of Overload",
       "inputs": {
-        "rune_ink_soul": 1,
+        "rune_ink_strange": 1,
         "lesser_astral_essence": 1
       },
-      "skill_required": 46,
+      "skill_required": 34,
       "output": {
         "kind": "material",
         "material_id": "rune_overload_1"
       },
       "count": 1,
       "skill_range": [
-        46,
-        56,
-        66,
-        76
+        34,
+        44,
+        54,
+        64
       ],
       "source": "trainer"
     },
     "rc_rune_overload_2": {
       "name": "Rune of Overload",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 156,
+      "skill_required": 154,
       "output": {
         "kind": "material",
         "material_id": "rune_overload_2"
       },
       "count": 1,
       "skill_range": [
-        156,
-        166,
-        176,
-        186
+        154,
+        164,
+        174,
+        184
       ],
       "source": "vendor"
     },
@@ -1530,41 +1530,41 @@
     "rc_rune_rot_1": {
       "name": "Lesser Rune of Rot",
       "inputs": {
-        "rune_ink_soul": 1,
+        "rune_ink_strange": 1,
         "lesser_astral_essence": 1
       },
-      "skill_required": 54,
+      "skill_required": 35,
       "output": {
         "kind": "material",
         "material_id": "rune_rot_1"
       },
       "count": 1,
       "skill_range": [
-        54,
-        64,
-        74,
-        84
+        35,
+        45,
+        55,
+        65
       ],
       "source": "trainer"
     },
     "rc_rune_rot_2": {
       "name": "Rune of Rot",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 164,
+      "skill_required": 155,
       "output": {
         "kind": "material",
         "material_id": "rune_rot_2"
       },
       "count": 1,
       "skill_range": [
-        164,
-        174,
-        184,
-        194
+        155,
+        165,
+        175,
+        185
       ],
       "source": "drop"
     },
@@ -1575,58 +1575,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 274,
+      "skill_required": 267,
       "output": {
         "kind": "material",
         "material_id": "rune_rot_3"
       },
       "count": 1,
       "skill_range": [
-        274,
-        284,
-        294,
-        304
+        267,
+        277,
+        287,
+        297
       ],
       "source": "vendor"
     },
     "rc_rune_piercing_1": {
       "name": "Lesser Rune of Piercing",
       "inputs": {
-        "rune_ink_soul": 1,
+        "rune_ink_strange": 1,
         "lesser_astral_essence": 1
       },
-      "skill_required": 62,
+      "skill_required": 37,
       "output": {
         "kind": "material",
         "material_id": "rune_piercing_1"
       },
       "count": 1,
       "skill_range": [
-        62,
-        72,
-        82,
-        92
+        37,
+        47,
+        57,
+        67
       ],
       "source": "trainer"
     },
     "rc_rune_piercing_2": {
       "name": "Rune of Piercing",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 172,
+      "skill_required": 157,
       "output": {
         "kind": "material",
         "material_id": "rune_piercing_2"
       },
       "count": 1,
       "skill_range": [
-        172,
-        182,
-        192,
-        202
+        157,
+        167,
+        177,
+        187
       ],
       "source": "trainer"
     },
@@ -1637,58 +1637,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 282,
+      "skill_required": 268,
       "output": {
         "kind": "material",
         "material_id": "rune_piercing_3"
       },
       "count": 1,
       "skill_range": [
-        282,
-        292,
-        302,
-        312
+        268,
+        278,
+        288,
+        298
       ],
       "source": "trainer"
     },
     "rc_rune_wellspring_1": {
       "name": "Lesser Rune of the Wellspring",
       "inputs": {
-        "rune_ink_soul": 1,
+        "rune_ink_strange": 1,
         "lesser_astral_essence": 1
       },
-      "skill_required": 30,
+      "skill_required": 38,
       "output": {
         "kind": "material",
         "material_id": "rune_wellspring_1"
       },
       "count": 1,
       "skill_range": [
-        30,
-        40,
-        50,
-        60
+        38,
+        48,
+        58,
+        68
       ],
       "source": "trainer"
     },
     "rc_rune_wellspring_2": {
       "name": "Rune of the Wellspring",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 140,
+      "skill_required": 158,
       "output": {
         "kind": "material",
         "material_id": "rune_wellspring_2"
       },
       "count": 1,
       "skill_range": [
-        140,
-        150,
-        160,
-        170
+        158,
+        168,
+        178,
+        188
       ],
       "source": "drop"
     },
@@ -1699,58 +1699,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 250,
+      "skill_required": 269,
       "output": {
         "kind": "material",
         "material_id": "rune_wellspring_3"
       },
       "count": 1,
       "skill_range": [
-        250,
-        260,
-        270,
-        280
+        269,
+        279,
+        289,
+        299
       ],
       "source": "vendor"
     },
     "rc_rune_reaping_1": {
       "name": "Lesser Rune of Reaping",
       "inputs": {
-        "rune_ink_soul": 1,
+        "rune_ink_strange": 1,
         "lesser_astral_essence": 1
       },
-      "skill_required": 38,
+      "skill_required": 39,
       "output": {
         "kind": "material",
         "material_id": "rune_reaping_1"
       },
       "count": 1,
       "skill_range": [
-        38,
-        48,
-        58,
-        68
+        39,
+        49,
+        59,
+        69
       ],
       "source": "trainer"
     },
     "rc_rune_reaping_2": {
       "name": "Rune of Reaping",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 148,
+      "skill_required": 159,
       "output": {
         "kind": "material",
         "material_id": "rune_reaping_2"
       },
       "count": 1,
       "skill_range": [
-        148,
-        158,
-        168,
-        178
+        159,
+        169,
+        179,
+        189
       ],
       "source": "vendor"
     },
@@ -1761,58 +1761,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 258,
+      "skill_required": 270,
       "output": {
         "kind": "material",
         "material_id": "rune_reaping_3"
       },
       "count": 1,
       "skill_range": [
-        258,
-        268,
-        278,
-        288
+        270,
+        280,
+        290,
+        300
       ],
       "source": "trainer"
     },
     "rc_rune_devourer_1": {
       "name": "Lesser Rune of the Devourer",
       "inputs": {
-        "rune_ink_soul": 1,
+        "rune_ink_strange": 1,
         "lesser_astral_essence": 1
       },
-      "skill_required": 46,
+      "skill_required": 41,
       "output": {
         "kind": "material",
         "material_id": "rune_devourer_1"
       },
       "count": 1,
       "skill_range": [
-        46,
-        56,
-        66,
-        76
+        41,
+        51,
+        61,
+        71
       ],
       "source": "trainer"
     },
     "rc_rune_devourer_2": {
       "name": "Rune of the Devourer",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 156,
+      "skill_required": 161,
       "output": {
         "kind": "material",
         "material_id": "rune_devourer_2"
       },
       "count": 1,
       "skill_range": [
-        156,
-        166,
-        176,
-        186
+        161,
+        171,
+        181,
+        191
       ],
       "source": "trainer"
     },
@@ -1823,58 +1823,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 266,
+      "skill_required": 271,
       "output": {
         "kind": "material",
         "material_id": "rune_devourer_3"
       },
       "count": 1,
       "skill_range": [
-        266,
-        276,
-        286,
-        296
+        271,
+        281,
+        291,
+        301
       ],
       "source": "vendor"
     },
     "rc_rune_pack_1": {
       "name": "Lesser Rune of the Pack",
       "inputs": {
-        "rune_ink_soul": 1,
+        "rune_ink_strange": 1,
         "lesser_astral_essence": 1
       },
-      "skill_required": 54,
+      "skill_required": 42,
       "output": {
         "kind": "material",
         "material_id": "rune_pack_1"
       },
       "count": 1,
       "skill_range": [
-        54,
-        64,
-        74,
-        84
+        42,
+        52,
+        62,
+        72
       ],
       "source": "trainer"
     },
     "rc_rune_pack_2": {
       "name": "Rune of the Pack",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 164,
+      "skill_required": 162,
       "output": {
         "kind": "material",
         "material_id": "rune_pack_2"
       },
       "count": 1,
       "skill_range": [
-        164,
-        174,
-        184,
-        194
+        162,
+        172,
+        182,
+        192
       ],
       "source": "vendor"
     },
@@ -1885,58 +1885,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 274,
+      "skill_required": 272,
       "output": {
         "kind": "material",
         "material_id": "rune_pack_3"
       },
       "count": 1,
       "skill_range": [
-        274,
-        284,
-        294,
-        304
+        272,
+        282,
+        292,
+        302
       ],
       "source": "trainer"
     },
     "rc_rune_condensing_1": {
       "name": "Lesser Rune of Condensing",
       "inputs": {
-        "rune_ink_soul": 1,
+        "rune_ink_strange": 1,
         "lesser_astral_essence": 1
       },
-      "skill_required": 62,
+      "skill_required": 43,
       "output": {
         "kind": "material",
         "material_id": "rune_condensing_1"
       },
       "count": 1,
       "skill_range": [
-        62,
-        72,
-        82,
-        92
+        43,
+        53,
+        63,
+        73
       ],
       "source": "trainer"
     },
     "rc_rune_condensing_2": {
       "name": "Rune of Condensing",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 172,
+      "skill_required": 163,
       "output": {
         "kind": "material",
         "material_id": "rune_condensing_2"
       },
       "count": 1,
       "skill_range": [
-        172,
-        182,
-        192,
-        202
+        163,
+        173,
+        183,
+        193
       ],
       "source": "drop"
     },
@@ -1947,58 +1947,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 282,
+      "skill_required": 272,
       "output": {
         "kind": "material",
         "material_id": "rune_condensing_3"
       },
       "count": 1,
       "skill_range": [
+        272,
         282,
         292,
-        302,
-        312
+        302
       ],
       "source": "vendor"
     },
     "rc_rune_lingering_1": {
       "name": "Lesser Rune of Lingering",
       "inputs": {
-        "rune_ink_soul": 1,
+        "rune_ink_strange": 1,
         "lesser_astral_essence": 1
       },
-      "skill_required": 30,
+      "skill_required": 44,
       "output": {
         "kind": "material",
         "material_id": "rune_lingering_1"
       },
       "count": 1,
       "skill_range": [
-        30,
-        40,
-        50,
-        60
+        44,
+        54,
+        64,
+        74
       ],
       "source": "trainer"
     },
     "rc_rune_lingering_2": {
       "name": "Rune of Lingering",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 140,
+      "skill_required": 164,
       "output": {
         "kind": "material",
         "material_id": "rune_lingering_2"
       },
       "count": 1,
       "skill_range": [
-        140,
-        150,
-        160,
-        170
+        164,
+        174,
+        184,
+        194
       ],
       "source": "trainer"
     },
@@ -2009,58 +2009,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 250,
+      "skill_required": 273,
       "output": {
         "kind": "material",
         "material_id": "rune_lingering_3"
       },
       "count": 1,
       "skill_range": [
-        250,
-        260,
-        270,
-        280
+        273,
+        283,
+        293,
+        303
       ],
       "source": "trainer"
     },
     "rc_rune_communion_1": {
       "name": "Lesser Rune of Communion",
       "inputs": {
-        "rune_ink_soul": 1,
+        "rune_ink_strange": 1,
         "lesser_astral_essence": 1
       },
-      "skill_required": 38,
+      "skill_required": 46,
       "output": {
         "kind": "material",
         "material_id": "rune_communion_1"
       },
       "count": 1,
       "skill_range": [
-        38,
-        48,
-        58,
-        68
+        46,
+        56,
+        66,
+        76
       ],
       "source": "trainer"
     },
     "rc_rune_communion_2": {
       "name": "Rune of Communion",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 148,
+      "skill_required": 166,
       "output": {
         "kind": "material",
         "material_id": "rune_communion_2"
       },
       "count": 1,
       "skill_range": [
-        148,
-        158,
-        168,
-        178
+        166,
+        176,
+        186,
+        196
       ],
       "source": "drop"
     },
@@ -2071,58 +2071,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 258,
+      "skill_required": 274,
       "output": {
         "kind": "material",
         "material_id": "rune_communion_3"
       },
       "count": 1,
       "skill_range": [
-        258,
-        268,
-        278,
-        288
+        274,
+        284,
+        294,
+        304
       ],
       "source": "vendor"
     },
     "rc_rune_radiance_1": {
       "name": "Lesser Rune of the Halo",
       "inputs": {
-        "rune_ink_soul": 1,
+        "rune_ink_strange": 1,
         "lesser_astral_essence": 1
       },
-      "skill_required": 46,
+      "skill_required": 47,
       "output": {
         "kind": "material",
         "material_id": "rune_radiance_1"
       },
       "count": 1,
       "skill_range": [
-        46,
-        56,
-        66,
-        76
+        47,
+        57,
+        67,
+        77
       ],
       "source": "trainer"
     },
     "rc_rune_radiance_2": {
       "name": "Rune of the Halo",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 156,
+      "skill_required": 167,
       "output": {
         "kind": "material",
         "material_id": "rune_radiance_2"
       },
       "count": 1,
       "skill_range": [
-        156,
-        166,
-        176,
-        186
+        167,
+        177,
+        187,
+        197
       ],
       "source": "vendor"
     },
@@ -2133,58 +2133,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 266,
+      "skill_required": 275,
       "output": {
         "kind": "material",
         "material_id": "rune_radiance_3"
       },
       "count": 1,
       "skill_range": [
-        266,
-        276,
-        286,
-        296
+        275,
+        285,
+        295,
+        305
       ],
       "source": "trainer"
     },
     "rc_rune_triage_1": {
       "name": "Lesser Rune of Triage",
       "inputs": {
-        "rune_ink_soul": 1,
+        "rune_ink_strange": 1,
         "lesser_astral_essence": 1
       },
-      "skill_required": 54,
+      "skill_required": 48,
       "output": {
         "kind": "material",
         "material_id": "rune_triage_1"
       },
       "count": 1,
       "skill_range": [
-        54,
-        64,
-        74,
-        84
+        48,
+        58,
+        68,
+        78
       ],
       "source": "trainer"
     },
     "rc_rune_triage_2": {
       "name": "Rune of Triage",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 164,
+      "skill_required": 168,
       "output": {
         "kind": "material",
         "material_id": "rune_triage_2"
       },
       "count": 1,
       "skill_range": [
-        164,
-        174,
-        184,
-        194
+        168,
+        178,
+        188,
+        198
       ],
       "source": "trainer"
     },
@@ -2195,58 +2195,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 274,
+      "skill_required": 276,
       "output": {
         "kind": "material",
         "material_id": "rune_triage_3"
       },
       "count": 1,
       "skill_range": [
-        274,
-        284,
-        294,
-        304
+        276,
+        286,
+        296,
+        306
       ],
       "source": "vendor"
     },
     "rc_rune_serenity_1": {
       "name": "Lesser Rune of Serenity",
       "inputs": {
-        "rune_ink_soul": 1,
+        "rune_ink_strange": 1,
         "lesser_astral_essence": 1
       },
-      "skill_required": 62,
+      "skill_required": 50,
       "output": {
         "kind": "material",
         "material_id": "rune_serenity_1"
       },
       "count": 1,
       "skill_range": [
-        62,
-        72,
-        82,
-        92
+        50,
+        60,
+        70,
+        80
       ],
       "source": "trainer"
     },
     "rc_rune_serenity_2": {
       "name": "Rune of Serenity",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 172,
+      "skill_required": 170,
       "output": {
         "kind": "material",
         "material_id": "rune_serenity_2"
       },
       "count": 1,
       "skill_range": [
-        172,
-        182,
-        192,
-        202
+        170,
+        180,
+        190,
+        200
       ],
       "source": "vendor"
     },
@@ -2257,58 +2257,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 282,
+      "skill_required": 277,
       "output": {
         "kind": "material",
         "material_id": "rune_serenity_3"
       },
       "count": 1,
       "skill_range": [
-        282,
-        292,
-        302,
-        312
+        277,
+        287,
+        297,
+        307
       ],
       "source": "trainer"
     },
     "rc_rune_martyr_1": {
       "name": "Lesser Rune of the Martyr",
       "inputs": {
-        "rune_ink_soul": 1,
+        "rune_ink_strange": 1,
         "lesser_astral_essence": 1
       },
-      "skill_required": 30,
+      "skill_required": 51,
       "output": {
         "kind": "material",
         "material_id": "rune_martyr_1"
       },
       "count": 1,
       "skill_range": [
-        30,
-        40,
-        50,
-        60
+        51,
+        61,
+        71,
+        81
       ],
       "source": "trainer"
     },
     "rc_rune_martyr_2": {
       "name": "Rune of the Martyr",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 140,
+      "skill_required": 171,
       "output": {
         "kind": "material",
         "material_id": "rune_martyr_2"
       },
       "count": 1,
       "skill_range": [
-        140,
-        150,
-        160,
-        170
+        171,
+        181,
+        191,
+        201
       ],
       "source": "drop"
     },
@@ -2319,58 +2319,58 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 250,
+      "skill_required": 278,
       "output": {
         "kind": "material",
         "material_id": "rune_martyr_3"
       },
       "count": 1,
       "skill_range": [
-        250,
-        260,
-        270,
-        280
+        278,
+        288,
+        298,
+        308
       ],
       "source": "vendor"
     },
     "rc_rune_atonement_1": {
       "name": "Lesser Rune of Atonement",
       "inputs": {
-        "rune_ink_soul": 1,
+        "rune_ink_strange": 1,
         "lesser_astral_essence": 1
       },
-      "skill_required": 38,
+      "skill_required": 52,
       "output": {
         "kind": "material",
         "material_id": "rune_atonement_1"
       },
       "count": 1,
       "skill_range": [
-        38,
-        48,
-        58,
-        68
+        52,
+        62,
+        72,
+        82
       ],
       "source": "trainer"
     },
     "rc_rune_atonement_2": {
       "name": "Rune of Atonement",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 148,
+      "skill_required": 172,
       "output": {
         "kind": "material",
         "material_id": "rune_atonement_2"
       },
       "count": 1,
       "skill_range": [
-        148,
-        158,
-        168,
-        178
+        172,
+        182,
+        192,
+        202
       ],
       "source": "trainer"
     },
@@ -2381,92 +2381,30 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 258,
+      "skill_required": 279,
       "output": {
         "kind": "material",
         "material_id": "rune_atonement_3"
       },
       "count": 1,
       "skill_range": [
-        258,
-        268,
-        278,
-        288
+        279,
+        289,
+        299,
+        309
       ],
       "source": "trainer"
     },
     "rc_rune_blood_pact_1": {
       "name": "Lesser Rune of the Blood Pact",
       "inputs": {
-        "rune_ink_soul": 1,
-        "lesser_astral_essence": 1
-      },
-      "skill_required": 46,
-      "output": {
-        "kind": "material",
-        "material_id": "rune_blood_pact_1"
-      },
-      "count": 1,
-      "skill_range": [
-        46,
-        56,
-        66,
-        76
-      ],
-      "source": "trainer"
-    },
-    "rc_rune_blood_pact_2": {
-      "name": "Rune of the Blood Pact",
-      "inputs": {
-        "rune_ink_dream": 1,
-        "greater_mystic_essence": 2,
-        "small_radiant_shard": 1
-      },
-      "skill_required": 156,
-      "output": {
-        "kind": "material",
-        "material_id": "rune_blood_pact_2"
-      },
-      "count": 1,
-      "skill_range": [
-        156,
-        166,
-        176,
-        186
-      ],
-      "source": "drop"
-    },
-    "rc_rune_blood_pact_3": {
-      "name": "Greater Rune of the Blood Pact",
-      "inputs": {
-        "rune_ink_illusion": 1,
-        "greater_eternal_essence": 3,
-        "large_brilliant_shard": 1
-      },
-      "skill_required": 266,
-      "output": {
-        "kind": "material",
-        "material_id": "rune_blood_pact_3"
-      },
-      "count": 1,
-      "skill_range": [
-        266,
-        276,
-        286,
-        296
-      ],
-      "source": "vendor"
-    },
-    "rc_rune_fortune_1": {
-      "name": "Lesser Rune of Fortune",
-      "inputs": {
-        "rune_ink_soul": 1,
+        "rune_ink_strange": 1,
         "lesser_astral_essence": 1
       },
       "skill_required": 54,
       "output": {
         "kind": "material",
-        "material_id": "rune_fortune_1"
+        "material_id": "rune_blood_pact_1"
       },
       "count": 1,
       "skill_range": [
@@ -2477,24 +2415,86 @@
       ],
       "source": "trainer"
     },
-    "rc_rune_fortune_2": {
-      "name": "Rune of Fortune",
+    "rc_rune_blood_pact_2": {
+      "name": "Rune of the Blood Pact",
       "inputs": {
-        "rune_ink_dream": 1,
+        "rune_ink_vision": 1,
         "greater_mystic_essence": 2,
         "small_radiant_shard": 1
       },
-      "skill_required": 164,
+      "skill_required": 174,
+      "output": {
+        "kind": "material",
+        "material_id": "rune_blood_pact_2"
+      },
+      "count": 1,
+      "skill_range": [
+        174,
+        184,
+        194,
+        204
+      ],
+      "source": "drop"
+    },
+    "rc_rune_blood_pact_3": {
+      "name": "Greater Rune of the Blood Pact",
+      "inputs": {
+        "rune_ink_illusion": 1,
+        "greater_eternal_essence": 3,
+        "large_brilliant_shard": 1
+      },
+      "skill_required": 280,
+      "output": {
+        "kind": "material",
+        "material_id": "rune_blood_pact_3"
+      },
+      "count": 1,
+      "skill_range": [
+        280,
+        290,
+        300,
+        310
+      ],
+      "source": "vendor"
+    },
+    "rc_rune_fortune_1": {
+      "name": "Lesser Rune of Fortune",
+      "inputs": {
+        "rune_ink_strange": 1,
+        "lesser_astral_essence": 1
+      },
+      "skill_required": 55,
+      "output": {
+        "kind": "material",
+        "material_id": "rune_fortune_1"
+      },
+      "count": 1,
+      "skill_range": [
+        55,
+        65,
+        75,
+        85
+      ],
+      "source": "trainer"
+    },
+    "rc_rune_fortune_2": {
+      "name": "Rune of Fortune",
+      "inputs": {
+        "rune_ink_vision": 1,
+        "greater_mystic_essence": 2,
+        "small_radiant_shard": 1
+      },
+      "skill_required": 175,
       "output": {
         "kind": "material",
         "material_id": "rune_fortune_2"
       },
       "count": 1,
       "skill_range": [
-        164,
-        174,
-        184,
-        194
+        175,
+        185,
+        195,
+        205
       ],
       "source": "vendor"
     },
@@ -2505,38 +2505,38 @@
         "greater_eternal_essence": 3,
         "large_brilliant_shard": 1
       },
-      "skill_required": 274,
+      "skill_required": 281,
       "output": {
         "kind": "material",
         "material_id": "rune_fortune_3"
       },
       "count": 1,
       "skill_range": [
-        274,
-        284,
-        294,
-        304
+        281,
+        291,
+        301,
+        311
       ],
       "source": "trainer"
     },
     "rc_capstone_fire_spells_1": {
       "name": "Lesser Capstone Rune of Flame",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 90,
+      "skill_required": 65,
       "output": {
         "kind": "material",
         "material_id": "capstone_fire_spells_1"
       },
       "count": 1,
       "skill_range": [
-        90,
-        100,
-        110,
-        120
+        65,
+        75,
+        85,
+        95
       ],
       "source": "trainer"
     },
@@ -2547,17 +2547,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 200,
+      "skill_required": 185,
       "output": {
         "kind": "material",
         "material_id": "capstone_fire_spells_2"
       },
       "count": 1,
       "skill_range": [
-        200,
-        210,
-        220,
-        230
+        185,
+        195,
+        205,
+        215
       ],
       "source": "vendor"
     },
@@ -2585,21 +2585,21 @@
     "rc_capstone_fire_weapons_1": {
       "name": "Lesser Capstone Rune of Cinders",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 94,
+      "skill_required": 67,
       "output": {
         "kind": "material",
         "material_id": "capstone_fire_weapons_1"
       },
       "count": 1,
       "skill_range": [
-        94,
-        104,
-        114,
-        124
+        67,
+        77,
+        87,
+        97
       ],
       "source": "trainer"
     },
@@ -2610,17 +2610,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 204,
+      "skill_required": 187,
       "output": {
         "kind": "material",
         "material_id": "capstone_fire_weapons_2"
       },
       "count": 1,
       "skill_range": [
-        204,
-        214,
-        224,
-        234
+        187,
+        197,
+        207,
+        217
       ],
       "source": "drop"
     },
@@ -2631,38 +2631,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 289,
+      "skill_required": 286,
       "output": {
         "kind": "material",
         "material_id": "capstone_fire_weapons_3"
       },
       "count": 1,
       "skill_range": [
-        289,
-        299,
-        309,
-        319
+        286,
+        296,
+        306,
+        316
       ],
       "source": "vendor"
     },
     "rc_capstone_fire_hybrid_1": {
       "name": "Lesser Capstone Rune of the Emberblade",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 98,
+      "skill_required": 68,
       "output": {
         "kind": "material",
         "material_id": "capstone_fire_hybrid_1"
       },
       "count": 1,
       "skill_range": [
-        98,
-        108,
-        118,
-        128
+        68,
+        78,
+        88,
+        98
       ],
       "source": "trainer"
     },
@@ -2673,17 +2673,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 208,
+      "skill_required": 188,
       "output": {
         "kind": "material",
         "material_id": "capstone_fire_hybrid_2"
       },
       "count": 1,
       "skill_range": [
+        188,
+        198,
         208,
-        218,
-        228,
-        238
+        218
       ],
       "source": "vendor"
     },
@@ -2694,38 +2694,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 293,
+      "skill_required": 286,
       "output": {
         "kind": "material",
         "material_id": "capstone_fire_hybrid_3"
       },
       "count": 1,
       "skill_range": [
-        293,
-        303,
-        313,
-        323
+        286,
+        296,
+        306,
+        316
       ],
       "source": "drop"
     },
     "rc_capstone_frost_spells_1": {
       "name": "Lesser Capstone Rune of Frost",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 102,
+      "skill_required": 70,
       "output": {
         "kind": "material",
         "material_id": "capstone_frost_spells_1"
       },
       "count": 1,
       "skill_range": [
-        102,
-        112,
-        122,
-        132
+        70,
+        80,
+        90,
+        100
       ],
       "source": "trainer"
     },
@@ -2736,17 +2736,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 212,
+      "skill_required": 190,
       "output": {
         "kind": "material",
         "material_id": "capstone_frost_spells_2"
       },
       "count": 1,
       "skill_range": [
-        212,
-        222,
-        232,
-        242
+        190,
+        200,
+        210,
+        220
       ],
       "source": "drop"
     },
@@ -2757,38 +2757,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 297,
+      "skill_required": 286,
       "output": {
         "kind": "material",
         "material_id": "capstone_frost_spells_3"
       },
       "count": 1,
       "skill_range": [
-        297,
-        307,
-        317,
-        327
+        286,
+        296,
+        306,
+        316
       ],
       "source": "vendor"
     },
     "rc_capstone_frost_weapons_1": {
       "name": "Lesser Capstone Rune of Rime",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 90,
+      "skill_required": 72,
       "output": {
         "kind": "material",
         "material_id": "capstone_frost_weapons_1"
       },
       "count": 1,
       "skill_range": [
-        90,
-        100,
-        110,
-        120
+        72,
+        82,
+        92,
+        102
       ],
       "source": "trainer"
     },
@@ -2799,17 +2799,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 200,
+      "skill_required": 192,
       "output": {
         "kind": "material",
         "material_id": "capstone_frost_weapons_2"
       },
       "count": 1,
       "skill_range": [
-        200,
-        210,
-        220,
-        230
+        192,
+        202,
+        212,
+        222
       ],
       "source": "vendor"
     },
@@ -2820,38 +2820,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 285,
+      "skill_required": 287,
       "output": {
         "kind": "material",
         "material_id": "capstone_frost_weapons_3"
       },
       "count": 1,
       "skill_range": [
-        285,
-        295,
-        305,
-        315
+        287,
+        297,
+        307,
+        317
       ],
       "source": "drop"
     },
     "rc_capstone_frost_hybrid_1": {
       "name": "Lesser Capstone Rune of the Frostblade",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 94,
+      "skill_required": 73,
       "output": {
         "kind": "material",
         "material_id": "capstone_frost_hybrid_1"
       },
       "count": 1,
       "skill_range": [
-        94,
-        104,
-        114,
-        124
+        73,
+        83,
+        93,
+        103
       ],
       "source": "trainer"
     },
@@ -2862,17 +2862,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 204,
+      "skill_required": 193,
       "output": {
         "kind": "material",
         "material_id": "capstone_frost_hybrid_2"
       },
       "count": 1,
       "skill_range": [
-        204,
-        214,
-        224,
-        234
+        193,
+        203,
+        213,
+        223
       ],
       "source": "drop"
     },
@@ -2883,38 +2883,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 289,
+      "skill_required": 288,
       "output": {
         "kind": "material",
         "material_id": "capstone_frost_hybrid_3"
       },
       "count": 1,
       "skill_range": [
-        289,
-        299,
-        309,
-        319
+        288,
+        298,
+        308,
+        318
       ],
       "source": "vendor"
     },
     "rc_capstone_nature_spells_1": {
       "name": "Lesser Capstone Rune of Storms",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 98,
+      "skill_required": 75,
       "output": {
         "kind": "material",
         "material_id": "capstone_nature_spells_1"
       },
       "count": 1,
       "skill_range": [
-        98,
-        108,
-        118,
-        128
+        75,
+        85,
+        95,
+        105
       ],
       "source": "trainer"
     },
@@ -2925,17 +2925,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 208,
+      "skill_required": 195,
       "output": {
         "kind": "material",
         "material_id": "capstone_nature_spells_2"
       },
       "count": 1,
       "skill_range": [
-        208,
-        218,
-        228,
-        238
+        195,
+        205,
+        215,
+        225
       ],
       "source": "vendor"
     },
@@ -2946,38 +2946,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 293,
+      "skill_required": 288,
       "output": {
         "kind": "material",
         "material_id": "capstone_nature_spells_3"
       },
       "count": 1,
       "skill_range": [
-        293,
-        303,
-        313,
-        323
+        288,
+        298,
+        308,
+        318
       ],
       "source": "drop"
     },
     "rc_capstone_nature_weapons_1": {
       "name": "Lesser Capstone Rune of the Tempest",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 102,
+      "skill_required": 77,
       "output": {
         "kind": "material",
         "material_id": "capstone_nature_weapons_1"
       },
       "count": 1,
       "skill_range": [
-        102,
-        112,
-        122,
-        132
+        77,
+        87,
+        97,
+        107
       ],
       "source": "trainer"
     },
@@ -2988,17 +2988,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 212,
+      "skill_required": 197,
       "output": {
         "kind": "material",
         "material_id": "capstone_nature_weapons_2"
       },
       "count": 1,
       "skill_range": [
-        212,
-        222,
-        232,
-        242
+        197,
+        207,
+        217,
+        227
       ],
       "source": "drop"
     },
@@ -3009,38 +3009,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 297,
+      "skill_required": 288,
       "output": {
         "kind": "material",
         "material_id": "capstone_nature_weapons_3"
       },
       "count": 1,
       "skill_range": [
-        297,
-        307,
-        317,
-        327
+        288,
+        298,
+        308,
+        318
       ],
       "source": "vendor"
     },
     "rc_capstone_nature_hybrid_1": {
       "name": "Lesser Capstone Rune of the Stormblade",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 90,
+      "skill_required": 78,
       "output": {
         "kind": "material",
         "material_id": "capstone_nature_hybrid_1"
       },
       "count": 1,
       "skill_range": [
-        90,
-        100,
-        110,
-        120
+        78,
+        88,
+        98,
+        108
       ],
       "source": "trainer"
     },
@@ -3051,17 +3051,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 200,
+      "skill_required": 198,
       "output": {
         "kind": "material",
         "material_id": "capstone_nature_hybrid_2"
       },
       "count": 1,
       "skill_range": [
-        200,
-        210,
-        220,
-        230
+        198,
+        208,
+        218,
+        228
       ],
       "source": "vendor"
     },
@@ -3072,38 +3072,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 285,
+      "skill_required": 289,
       "output": {
         "kind": "material",
         "material_id": "capstone_nature_hybrid_3"
       },
       "count": 1,
       "skill_range": [
-        285,
-        295,
-        305,
-        315
+        289,
+        299,
+        309,
+        319
       ],
       "source": "drop"
     },
     "rc_capstone_shadow_spells_1": {
       "name": "Lesser Capstone Rune of Shadows",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 94,
+      "skill_required": 80,
       "output": {
         "kind": "material",
         "material_id": "capstone_shadow_spells_1"
       },
       "count": 1,
       "skill_range": [
-        94,
-        104,
-        114,
-        124
+        80,
+        90,
+        100,
+        110
       ],
       "source": "trainer"
     },
@@ -3114,17 +3114,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 204,
+      "skill_required": 200,
       "output": {
         "kind": "material",
         "material_id": "capstone_shadow_spells_2"
       },
       "count": 1,
       "skill_range": [
-        204,
-        214,
-        224,
-        234
+        200,
+        210,
+        220,
+        230
       ],
       "source": "drop"
     },
@@ -3135,38 +3135,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 289,
+      "skill_required": 290,
       "output": {
         "kind": "material",
         "material_id": "capstone_shadow_spells_3"
       },
       "count": 1,
       "skill_range": [
-        289,
-        299,
-        309,
-        319
+        290,
+        300,
+        310,
+        320
       ],
       "source": "vendor"
     },
     "rc_capstone_shadow_weapons_1": {
       "name": "Lesser Capstone Rune of the Abyss",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 98,
+      "skill_required": 82,
       "output": {
         "kind": "material",
         "material_id": "capstone_shadow_weapons_1"
       },
       "count": 1,
       "skill_range": [
-        98,
-        108,
-        118,
-        128
+        82,
+        92,
+        102,
+        112
       ],
       "source": "trainer"
     },
@@ -3177,17 +3177,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 208,
+      "skill_required": 202,
       "output": {
         "kind": "material",
         "material_id": "capstone_shadow_weapons_2"
       },
       "count": 1,
       "skill_range": [
-        208,
-        218,
-        228,
-        238
+        202,
+        212,
+        222,
+        232
       ],
       "source": "vendor"
     },
@@ -3198,38 +3198,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 293,
+      "skill_required": 290,
       "output": {
         "kind": "material",
         "material_id": "capstone_shadow_weapons_3"
       },
       "count": 1,
       "skill_range": [
-        293,
-        303,
-        313,
-        323
+        290,
+        300,
+        310,
+        320
       ],
       "source": "drop"
     },
     "rc_capstone_shadow_hybrid_1": {
       "name": "Lesser Capstone Rune of the Shadowblade",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 102,
+      "skill_required": 83,
       "output": {
         "kind": "material",
         "material_id": "capstone_shadow_hybrid_1"
       },
       "count": 1,
       "skill_range": [
-        102,
-        112,
-        122,
-        132
+        83,
+        93,
+        103,
+        113
       ],
       "source": "trainer"
     },
@@ -3240,17 +3240,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 212,
+      "skill_required": 203,
       "output": {
         "kind": "material",
         "material_id": "capstone_shadow_hybrid_2"
       },
       "count": 1,
       "skill_range": [
-        212,
-        222,
-        232,
-        242
+        203,
+        213,
+        223,
+        233
       ],
       "source": "drop"
     },
@@ -3261,38 +3261,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 297,
+      "skill_required": 290,
       "output": {
         "kind": "material",
         "material_id": "capstone_shadow_hybrid_3"
       },
       "count": 1,
       "skill_range": [
-        297,
-        307,
-        317,
-        327
+        290,
+        300,
+        310,
+        320
       ],
       "source": "vendor"
     },
     "rc_capstone_holy_spells_1": {
       "name": "Lesser Capstone Rune of Radiance",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 90,
+      "skill_required": 85,
       "output": {
         "kind": "material",
         "material_id": "capstone_holy_spells_1"
       },
       "count": 1,
       "skill_range": [
-        90,
-        100,
-        110,
-        120
+        85,
+        95,
+        105,
+        115
       ],
       "source": "trainer"
     },
@@ -3303,17 +3303,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 200,
+      "skill_required": 205,
       "output": {
         "kind": "material",
         "material_id": "capstone_holy_spells_2"
       },
       "count": 1,
       "skill_range": [
-        200,
-        210,
-        220,
-        230
+        205,
+        215,
+        225,
+        235
       ],
       "source": "vendor"
     },
@@ -3324,38 +3324,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 285,
+      "skill_required": 291,
       "output": {
         "kind": "material",
         "material_id": "capstone_holy_spells_3"
       },
       "count": 1,
       "skill_range": [
-        285,
-        295,
-        305,
-        315
+        291,
+        301,
+        311,
+        321
       ],
       "source": "drop"
     },
     "rc_capstone_holy_weapons_1": {
       "name": "Lesser Capstone Rune of Dawn",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 94,
+      "skill_required": 87,
       "output": {
         "kind": "material",
         "material_id": "capstone_holy_weapons_1"
       },
       "count": 1,
       "skill_range": [
-        94,
-        104,
-        114,
-        124
+        87,
+        97,
+        107,
+        117
       ],
       "source": "trainer"
     },
@@ -3366,17 +3366,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 204,
+      "skill_required": 207,
       "output": {
         "kind": "material",
         "material_id": "capstone_holy_weapons_2"
       },
       "count": 1,
       "skill_range": [
-        204,
-        214,
-        224,
-        234
+        207,
+        217,
+        227,
+        237
       ],
       "source": "drop"
     },
@@ -3387,38 +3387,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 289,
+      "skill_required": 292,
       "output": {
         "kind": "material",
         "material_id": "capstone_holy_weapons_3"
       },
       "count": 1,
       "skill_range": [
-        289,
-        299,
-        309,
-        319
+        292,
+        302,
+        312,
+        322
       ],
       "source": "vendor"
     },
     "rc_capstone_holy_hybrid_1": {
       "name": "Lesser Capstone Rune of the Sunblade",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 98,
+      "skill_required": 88,
       "output": {
         "kind": "material",
         "material_id": "capstone_holy_hybrid_1"
       },
       "count": 1,
       "skill_range": [
+        88,
         98,
         108,
-        118,
-        128
+        118
       ],
       "source": "trainer"
     },
@@ -3450,38 +3450,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 293,
+      "skill_required": 292,
       "output": {
         "kind": "material",
         "material_id": "capstone_holy_hybrid_3"
       },
       "count": 1,
       "skill_range": [
-        293,
-        303,
-        313,
-        323
+        292,
+        302,
+        312,
+        322
       ],
       "source": "drop"
     },
     "rc_capstone_arcane_spells_1": {
       "name": "Lesser Capstone Rune of Arcana",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 102,
+      "skill_required": 90,
       "output": {
         "kind": "material",
         "material_id": "capstone_arcane_spells_1"
       },
       "count": 1,
       "skill_range": [
-        102,
-        112,
-        122,
-        132
+        90,
+        100,
+        110,
+        120
       ],
       "source": "trainer"
     },
@@ -3492,17 +3492,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 212,
+      "skill_required": 210,
       "output": {
         "kind": "material",
         "material_id": "capstone_arcane_spells_2"
       },
       "count": 1,
       "skill_range": [
-        212,
-        222,
-        232,
-        242
+        210,
+        220,
+        230,
+        240
       ],
       "source": "drop"
     },
@@ -3513,38 +3513,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 297,
+      "skill_required": 292,
       "output": {
         "kind": "material",
         "material_id": "capstone_arcane_spells_3"
       },
       "count": 1,
       "skill_range": [
-        297,
-        307,
-        317,
-        327
+        292,
+        302,
+        312,
+        322
       ],
       "source": "vendor"
     },
     "rc_capstone_arcane_weapons_1": {
       "name": "Lesser Capstone Rune of the Arcanist",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 90,
+      "skill_required": 92,
       "output": {
         "kind": "material",
         "material_id": "capstone_arcane_weapons_1"
       },
       "count": 1,
       "skill_range": [
-        90,
-        100,
-        110,
-        120
+        92,
+        102,
+        112,
+        122
       ],
       "source": "trainer"
     },
@@ -3555,17 +3555,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 200,
+      "skill_required": 212,
       "output": {
         "kind": "material",
         "material_id": "capstone_arcane_weapons_2"
       },
       "count": 1,
       "skill_range": [
-        200,
-        210,
-        220,
-        230
+        212,
+        222,
+        232,
+        242
       ],
       "source": "vendor"
     },
@@ -3576,38 +3576,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 285,
+      "skill_required": 293,
       "output": {
         "kind": "material",
         "material_id": "capstone_arcane_weapons_3"
       },
       "count": 1,
       "skill_range": [
-        285,
-        295,
-        305,
-        315
+        293,
+        303,
+        313,
+        323
       ],
       "source": "drop"
     },
     "rc_capstone_arcane_hybrid_1": {
       "name": "Lesser Capstone Rune of the Arcblade",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 94,
+      "skill_required": 93,
       "output": {
         "kind": "material",
         "material_id": "capstone_arcane_hybrid_1"
       },
       "count": 1,
       "skill_range": [
-        94,
-        104,
-        114,
-        124
+        93,
+        103,
+        113,
+        123
       ],
       "source": "trainer"
     },
@@ -3618,17 +3618,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 204,
+      "skill_required": 213,
       "output": {
         "kind": "material",
         "material_id": "capstone_arcane_hybrid_2"
       },
       "count": 1,
       "skill_range": [
-        204,
-        214,
-        224,
-        234
+        213,
+        223,
+        233,
+        243
       ],
       "source": "drop"
     },
@@ -3639,38 +3639,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 289,
+      "skill_required": 294,
       "output": {
         "kind": "material",
         "material_id": "capstone_arcane_hybrid_3"
       },
       "count": 1,
       "skill_range": [
-        289,
-        299,
-        309,
-        319
+        294,
+        304,
+        314,
+        324
       ],
       "source": "vendor"
     },
     "rc_capstone_chaos_1": {
       "name": "Lesser Capstone Rune of Chaos",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 98,
+      "skill_required": 95,
       "output": {
         "kind": "material",
         "material_id": "capstone_chaos_1"
       },
       "count": 1,
       "skill_range": [
-        98,
-        108,
-        118,
-        128
+        95,
+        105,
+        115,
+        125
       ],
       "source": "trainer"
     },
@@ -3681,17 +3681,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 208,
+      "skill_required": 215,
       "output": {
         "kind": "material",
         "material_id": "capstone_chaos_2"
       },
       "count": 1,
       "skill_range": [
-        208,
-        218,
-        228,
-        238
+        215,
+        225,
+        235,
+        245
       ],
       "source": "vendor"
     },
@@ -3702,38 +3702,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 293,
+      "skill_required": 294,
       "output": {
         "kind": "material",
         "material_id": "capstone_chaos_3"
       },
       "count": 1,
       "skill_range": [
-        293,
-        303,
-        313,
-        323
+        294,
+        304,
+        314,
+        324
       ],
       "source": "drop"
     },
     "rc_capstone_gambler_1": {
       "name": "Lesser Capstone Rune of the Gambler",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 102,
+      "skill_required": 97,
       "output": {
         "kind": "material",
         "material_id": "capstone_gambler_1"
       },
       "count": 1,
       "skill_range": [
-        102,
-        112,
-        122,
-        132
+        97,
+        107,
+        117,
+        127
       ],
       "source": "trainer"
     },
@@ -3744,17 +3744,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 212,
+      "skill_required": 217,
       "output": {
         "kind": "material",
         "material_id": "capstone_gambler_2"
       },
       "count": 1,
       "skill_range": [
-        212,
-        222,
-        232,
-        242
+        217,
+        227,
+        237,
+        247
       ],
       "source": "drop"
     },
@@ -3765,38 +3765,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 297,
+      "skill_required": 294,
       "output": {
         "kind": "material",
         "material_id": "capstone_gambler_3"
       },
       "count": 1,
       "skill_range": [
-        297,
-        307,
-        317,
-        327
+        294,
+        304,
+        314,
+        324
       ],
       "source": "vendor"
     },
     "rc_capstone_dancer_1": {
       "name": "Lesser Capstone Rune of the Dancer",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 90,
+      "skill_required": 98,
       "output": {
         "kind": "material",
         "material_id": "capstone_dancer_1"
       },
       "count": 1,
       "skill_range": [
-        90,
-        100,
-        110,
-        120
+        98,
+        108,
+        118,
+        128
       ],
       "source": "trainer"
     },
@@ -3807,17 +3807,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 200,
+      "skill_required": 218,
       "output": {
         "kind": "material",
         "material_id": "capstone_dancer_2"
       },
       "count": 1,
       "skill_range": [
-        200,
-        210,
-        220,
-        230
+        218,
+        228,
+        238,
+        248
       ],
       "source": "vendor"
     },
@@ -3828,38 +3828,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 285,
+      "skill_required": 295,
       "output": {
         "kind": "material",
         "material_id": "capstone_dancer_3"
       },
       "count": 1,
       "skill_range": [
-        285,
         295,
         305,
-        315
+        315,
+        325
       ],
       "source": "drop"
     },
     "rc_capstone_anvil_1": {
       "name": "Lesser Capstone Rune of the Anvil",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 94,
+      "skill_required": 100,
       "output": {
         "kind": "material",
         "material_id": "capstone_anvil_1"
       },
       "count": 1,
       "skill_range": [
-        94,
-        104,
-        114,
-        124
+        100,
+        110,
+        120,
+        130
       ],
       "source": "trainer"
     },
@@ -3870,17 +3870,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 204,
+      "skill_required": 220,
       "output": {
         "kind": "material",
         "material_id": "capstone_anvil_2"
       },
       "count": 1,
       "skill_range": [
-        204,
-        214,
-        224,
-        234
+        220,
+        230,
+        240,
+        250
       ],
       "source": "drop"
     },
@@ -3891,38 +3891,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 289,
+      "skill_required": 296,
       "output": {
         "kind": "material",
         "material_id": "capstone_anvil_3"
       },
       "count": 1,
       "skill_range": [
-        289,
-        299,
-        309,
-        319
+        296,
+        306,
+        316,
+        326
       ],
       "source": "vendor"
     },
     "rc_capstone_colossus_1": {
       "name": "Lesser Capstone Rune of the Colossus",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 98,
+      "skill_required": 102,
       "output": {
         "kind": "material",
         "material_id": "capstone_colossus_1"
       },
       "count": 1,
       "skill_range": [
-        98,
-        108,
-        118,
-        128
+        102,
+        112,
+        122,
+        132
       ],
       "source": "trainer"
     },
@@ -3933,17 +3933,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 208,
+      "skill_required": 222,
       "output": {
         "kind": "material",
         "material_id": "capstone_colossus_2"
       },
       "count": 1,
       "skill_range": [
-        208,
-        218,
-        228,
-        238
+        222,
+        232,
+        242,
+        252
       ],
       "source": "vendor"
     },
@@ -3954,38 +3954,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 293,
+      "skill_required": 296,
       "output": {
         "kind": "material",
         "material_id": "capstone_colossus_3"
       },
       "count": 1,
       "skill_range": [
-        293,
-        303,
-        313,
-        323
+        296,
+        306,
+        316,
+        326
       ],
       "source": "drop"
     },
     "rc_capstone_mirror_1": {
       "name": "Lesser Capstone Rune of the Mirror",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 102,
+      "skill_required": 103,
       "output": {
         "kind": "material",
         "material_id": "capstone_mirror_1"
       },
       "count": 1,
       "skill_range": [
-        102,
-        112,
-        122,
-        132
+        103,
+        113,
+        123,
+        133
       ],
       "source": "trainer"
     },
@@ -3996,17 +3996,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 212,
+      "skill_required": 223,
       "output": {
         "kind": "material",
         "material_id": "capstone_mirror_2"
       },
       "count": 1,
       "skill_range": [
-        212,
-        222,
-        232,
-        242
+        223,
+        233,
+        243,
+        253
       ],
       "source": "drop"
     },
@@ -4017,38 +4017,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 297,
+      "skill_required": 296,
       "output": {
         "kind": "material",
         "material_id": "capstone_mirror_3"
       },
       "count": 1,
       "skill_range": [
-        297,
-        307,
-        317,
-        327
+        296,
+        306,
+        316,
+        326
       ],
       "source": "vendor"
     },
     "rc_capstone_glass_cannon_1": {
       "name": "Lesser Capstone Rune of the Glass Cannon",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 90,
+      "skill_required": 105,
       "output": {
         "kind": "material",
         "material_id": "capstone_glass_cannon_1"
       },
       "count": 1,
       "skill_range": [
-        90,
-        100,
-        110,
-        120
+        105,
+        115,
+        125,
+        135
       ],
       "source": "trainer"
     },
@@ -4059,17 +4059,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 200,
+      "skill_required": 225,
       "output": {
         "kind": "material",
         "material_id": "capstone_glass_cannon_2"
       },
       "count": 1,
       "skill_range": [
-        200,
-        210,
-        220,
-        230
+        225,
+        235,
+        245,
+        255
       ],
       "source": "vendor"
     },
@@ -4080,38 +4080,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 285,
+      "skill_required": 297,
       "output": {
         "kind": "material",
         "material_id": "capstone_glass_cannon_3"
       },
       "count": 1,
       "skill_range": [
-        285,
-        295,
-        305,
-        315
+        297,
+        307,
+        317,
+        327
       ],
       "source": "drop"
     },
     "rc_capstone_blood_rite_1": {
       "name": "Lesser Capstone Rune of the Blood Rite",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 94,
+      "skill_required": 107,
       "output": {
         "kind": "material",
         "material_id": "capstone_blood_rite_1"
       },
       "count": 1,
       "skill_range": [
-        94,
-        104,
-        114,
-        124
+        107,
+        117,
+        127,
+        137
       ],
       "source": "trainer"
     },
@@ -4122,17 +4122,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 204,
+      "skill_required": 227,
       "output": {
         "kind": "material",
         "material_id": "capstone_blood_rite_2"
       },
       "count": 1,
       "skill_range": [
-        204,
-        214,
-        224,
-        234
+        227,
+        237,
+        247,
+        257
       ],
       "source": "drop"
     },
@@ -4143,38 +4143,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 289,
+      "skill_required": 298,
       "output": {
         "kind": "material",
         "material_id": "capstone_blood_rite_3"
       },
       "count": 1,
       "skill_range": [
-        289,
-        299,
-        309,
-        319
+        298,
+        308,
+        318,
+        328
       ],
       "source": "vendor"
     },
     "rc_capstone_hunger_1": {
       "name": "Lesser Capstone Rune of the Hunger",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 98,
+      "skill_required": 108,
       "output": {
         "kind": "material",
         "material_id": "capstone_hunger_1"
       },
       "count": 1,
       "skill_range": [
-        98,
         108,
         118,
-        128
+        128,
+        138
       ],
       "source": "trainer"
     },
@@ -4185,17 +4185,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 208,
+      "skill_required": 228,
       "output": {
         "kind": "material",
         "material_id": "capstone_hunger_2"
       },
       "count": 1,
       "skill_range": [
-        208,
-        218,
         228,
-        238
+        238,
+        248,
+        258
       ],
       "source": "vendor"
     },
@@ -4206,38 +4206,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 293,
+      "skill_required": 298,
       "output": {
         "kind": "material",
         "material_id": "capstone_hunger_3"
       },
       "count": 1,
       "skill_range": [
-        293,
-        303,
-        313,
-        323
+        298,
+        308,
+        318,
+        328
       ],
       "source": "drop"
     },
     "rc_capstone_echo_1": {
       "name": "Lesser Capstone Rune of the Echo",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 102,
+      "skill_required": 110,
       "output": {
         "kind": "material",
         "material_id": "capstone_echo_1"
       },
       "count": 1,
       "skill_range": [
-        102,
-        112,
-        122,
-        132
+        110,
+        120,
+        130,
+        140
       ],
       "source": "trainer"
     },
@@ -4248,17 +4248,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 212,
+      "skill_required": 230,
       "output": {
         "kind": "material",
         "material_id": "capstone_echo_2"
       },
       "count": 1,
       "skill_range": [
-        212,
-        222,
-        232,
-        242
+        230,
+        240,
+        250,
+        260
       ],
       "source": "drop"
     },
@@ -4269,38 +4269,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 297,
+      "skill_required": 298,
       "output": {
         "kind": "material",
         "material_id": "capstone_echo_3"
       },
       "count": 1,
       "skill_range": [
-        297,
-        307,
-        317,
-        327
+        298,
+        308,
+        318,
+        328
       ],
       "source": "vendor"
     },
     "rc_capstone_renewal_1": {
       "name": "Lesser Capstone Rune of Renewal",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 90,
+      "skill_required": 112,
       "output": {
         "kind": "material",
         "material_id": "capstone_renewal_1"
       },
       "count": 1,
       "skill_range": [
-        90,
-        100,
-        110,
-        120
+        112,
+        122,
+        132,
+        142
       ],
       "source": "trainer"
     },
@@ -4311,17 +4311,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 200,
+      "skill_required": 232,
       "output": {
         "kind": "material",
         "material_id": "capstone_renewal_2"
       },
       "count": 1,
       "skill_range": [
-        200,
-        210,
-        220,
-        230
+        232,
+        242,
+        252,
+        262
       ],
       "source": "vendor"
     },
@@ -4332,38 +4332,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 285,
+      "skill_required": 299,
       "output": {
         "kind": "material",
         "material_id": "capstone_renewal_3"
       },
       "count": 1,
       "skill_range": [
-        285,
-        295,
-        305,
-        315
+        299,
+        309,
+        319,
+        329
       ],
       "source": "drop"
     },
     "rc_capstone_surge_1": {
       "name": "Lesser Capstone Rune of Surge",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 94,
+      "skill_required": 113,
       "output": {
         "kind": "material",
         "material_id": "capstone_surge_1"
       },
       "count": 1,
       "skill_range": [
-        94,
-        104,
-        114,
-        124
+        113,
+        123,
+        133,
+        143
       ],
       "source": "trainer"
     },
@@ -4374,17 +4374,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 204,
+      "skill_required": 233,
       "output": {
         "kind": "material",
         "material_id": "capstone_surge_2"
       },
       "count": 1,
       "skill_range": [
-        204,
-        214,
-        224,
-        234
+        233,
+        243,
+        253,
+        263
       ],
       "source": "drop"
     },
@@ -4395,38 +4395,38 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 289,
+      "skill_required": 300,
       "output": {
         "kind": "material",
         "material_id": "capstone_surge_3"
       },
       "count": 1,
       "skill_range": [
-        289,
-        299,
-        309,
-        319
+        300,
+        310,
+        320,
+        330
       ],
       "source": "vendor"
     },
     "rc_capstone_detonation_1": {
       "name": "Lesser Capstone Rune of Detonation",
       "inputs": {
-        "rune_ink_vision": 2,
+        "rune_ink_soul": 2,
         "greater_astral_essence": 2,
         "large_glimmering_shard": 1
       },
-      "skill_required": 98,
+      "skill_required": 115,
       "output": {
         "kind": "material",
         "material_id": "capstone_detonation_1"
       },
       "count": 1,
       "skill_range": [
-        98,
-        108,
-        118,
-        128
+        115,
+        125,
+        135,
+        145
       ],
       "source": "trainer"
     },
@@ -4437,17 +4437,17 @@
         "greater_nether_essence": 3,
         "large_radiant_shard": 1
       },
-      "skill_required": 208,
+      "skill_required": 235,
       "output": {
         "kind": "material",
         "material_id": "capstone_detonation_2"
       },
       "count": 1,
       "skill_range": [
-        208,
-        218,
-        228,
-        238
+        235,
+        245,
+        255,
+        265
       ],
       "source": "vendor"
     },
@@ -4458,17 +4458,17 @@
         "greater_eternal_essence": 4,
         "nexus_crystal": 1
       },
-      "skill_required": 293,
+      "skill_required": 300,
       "output": {
         "kind": "material",
         "material_id": "capstone_detonation_3"
       },
       "count": 1,
       "skill_range": [
-        293,
-        303,
-        313,
-        323
+        300,
+        310,
+        320,
+        330
       ],
       "source": "drop"
     }

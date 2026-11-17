@@ -341,6 +341,12 @@ def enchantments():
                                   "family": family, "tier": t, "rank": rank, "level": level,
                                   "skill": TIERS[t][2] + (5 if hybrid else 0), "stats": stats,
                                   "hybrid": hybrid}))
+    # THE FIRST FORMULAS, spread from 0 to 30 (Kyle, 16 Nov 2026: "Let's spread out enchanting a bit from 0 to 30 as
+    # these all start at 1"). A new enchanter can make the first one the moment they learn, and has a new one to
+    # learn every few points after that.
+    minor = [rec for _eid, rec in out if rec["tier"] == 0]
+    for i, rec in enumerate(minor):
+        rec["skill"] = int(round(i * 30 / max(1, len(minor) - 1)))
     for pid, name, t, skill, _src, _extra, proc in PROCS:
         out.append((f"enchant_weapon_{pid}", {"name": f"Enchant Weapon: {name}", "title": name,
                                               "group": "weapon", "family": pid, "tier": t, "rank": 0,
@@ -415,11 +421,11 @@ def main():
     for key, word, _sell in ESSENCES:
         lesser, greater = f"lesser_{key}_essence", f"greater_{key}_essence"
         recipes[f"ench_combine_{key}_essence"] = {
-            "name": f"Greater {word} Essence (from 3 Lesser)", "inputs": {lesser: 3}, "skill_required": 1,
+            "name": f"Greater {word} Essence (from 3 Lesser)", "inputs": {lesser: 3}, "skill_required": 0,
             "output": {"kind": "material", "material_id": greater}, "count": 1,
             "skill_range": [0, 0, 0, 0], "source": "trainer", "no_xp": True}
         recipes[f"ench_split_{key}_essence"] = {
-            "name": f"Lesser {word} Essence (3, from a Greater)", "inputs": {greater: 1}, "skill_required": 1,
+            "name": f"Lesser {word} Essence (3, from a Greater)", "inputs": {greater: 1}, "skill_required": 0,
             "output": {"kind": "material", "material_id": lesser}, "count": 3,
             "skill_range": [0, 0, 0, 0], "source": "trainer", "no_xp": True}
 
@@ -497,6 +503,8 @@ def main():
     # the faction shoulder inscriptions live beside the crafted enchantments and nobody makes them; put them back
     from tools import plaguelands_inscriptions
     plaguelands_inscriptions.install()
+    from tools import armor_kits          # leatherworking's kits read on like an enchantment
+    armor_kits.install()
 
     by_source = {}
     for r in recipes.values():

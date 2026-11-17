@@ -6,16 +6,16 @@
       "inputs": {
         "leather_light": 3
       },
-      "skill_required": 1,
+      "skill_required": 0,
       "output": {
         "kind": "material",
         "material_id": "upgrade_kit_light_armor"
       },
       "skill_range": [
-        6,
-        16,
-        26,
-        36
+        0,
+        10,
+        20,
+        30
       ],
       "source": "trainer"
     },
@@ -25,7 +25,7 @@
         "leather_scrap": 6,
         "thread_coarse": 1
       },
-      "skill_required": 1,
+      "skill_required": 0,
       "output": {
         "kind": "armor",
         "slot": "feet",
@@ -55,10 +55,10 @@
         }
       },
       "skill_range": [
-        6,
-        16,
-        26,
-        36
+        0,
+        10,
+        20,
+        30
       ],
       "source": "trainer"
     },
@@ -10787,6 +10787,101 @@
       "sold_by": [
         "secret_hz_winter_knapper"
       ]
+    },
+    "lw_cure_light_leather": {
+      "name": "Light Leather",
+      "inputs": {
+        "leather_scrap": 3
+      },
+      "skill_required": 0,
+      "output": {
+        "kind": "material",
+        "material_id": "leather_light"
+      },
+      "skill_range": [
+        0,
+        10,
+        20,
+        30
+      ],
+      "source": "trainer",
+      "description": "Works 3 pieces of the leather below it into one light leather, the classic way up."
+    },
+    "lw_cure_medium_leather": {
+      "name": "Medium Leather",
+      "inputs": {
+        "leather_light": 4
+      },
+      "skill_required": 100,
+      "output": {
+        "kind": "material",
+        "material_id": "leather_medium"
+      },
+      "skill_range": [
+        100,
+        110,
+        120,
+        130
+      ],
+      "source": "trainer",
+      "description": "Works 4 pieces of the leather below it into one medium leather, the classic way up."
+    },
+    "lw_cure_heavy_leather": {
+      "name": "Heavy Leather",
+      "inputs": {
+        "leather_medium": 5
+      },
+      "skill_required": 150,
+      "output": {
+        "kind": "material",
+        "material_id": "leather_heavy"
+      },
+      "skill_range": [
+        150,
+        160,
+        170,
+        180
+      ],
+      "source": "trainer",
+      "description": "Works 5 pieces of the leather below it into one heavy leather, the classic way up."
+    },
+    "lw_cure_thick_leather": {
+      "name": "Thick Leather",
+      "inputs": {
+        "leather_heavy": 6
+      },
+      "skill_required": 200,
+      "output": {
+        "kind": "material",
+        "material_id": "leather_thick"
+      },
+      "skill_range": [
+        200,
+        210,
+        220,
+        230
+      ],
+      "source": "trainer",
+      "description": "Works 6 pieces of the leather below it into one thick leather, the classic way up."
+    },
+    "lw_cure_rugged_leather": {
+      "name": "Rugged Leather",
+      "inputs": {
+        "leather_thick": 6
+      },
+      "skill_required": 250,
+      "output": {
+        "kind": "material",
+        "material_id": "leather_rugged"
+      },
+      "skill_range": [
+        250,
+        260,
+        270,
+        280
+      ],
+      "source": "trainer",
+      "description": "Works 6 pieces of the leather below it into one rugged leather, the classic way up."
     }
   }
 }

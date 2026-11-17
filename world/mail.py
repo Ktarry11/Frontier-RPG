@@ -68,12 +68,14 @@ class Letter:
         return KIND_ICON.get(self.kind, "letter_sealed")
 
     def days_left(self, now):
-        """Whole market days before a plain letter goes; None for one holding money or items."""
+        """Market days before a plain letter goes, counted UP (a letter with 71 hours left has three days, as its
+        offer says; rounding down showed "2 days" the hour it arrived); None for one holding money or items."""
+        import math
         if self.cod and self.goods:
-            return max(0, int((self.arrives_at + COD_KEEP - now) // 24))
+            return max(0, int(math.ceil((self.arrives_at + COD_KEEP - now) / 24)))
         if not self.empty:
             return None
-        return max(0, int((self.arrives_at + PLAIN_KEEP - now) // 24))
+        return max(0, int(math.ceil((self.arrives_at + PLAIN_KEEP - now) / 24)))
 
     def to_dict(self):
         return {k: getattr(self, k) for k in self.__slots__}

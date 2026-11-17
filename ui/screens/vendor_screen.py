@@ -1040,6 +1040,9 @@ class VendorScreen(BaseScreen):
             from world.enchanting import tooltip_lines as _enchant_lines
             lines.extend(_enchant_lines(item))
             lines.append(f"Requires level {item.required_level}")
+            from world.rep_items import requirement_text as _rep_text
+            if _rep_text(item):
+                lines.append(_rep_text(item))
 
         elif is_mat:
             lines.append(f"{item.profession.replace('_', ' ').title()} Reagent")

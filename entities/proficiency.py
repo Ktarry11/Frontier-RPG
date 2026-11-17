@@ -268,6 +268,13 @@ def can_equip(character, item):
     if character.level < required_level:
         return False, f"Requires level {required_level}"
 
+    # A quartermaster's gear needs the standing it was sold at (world/rep_items.py, Kyle 16 Nov 2026: "They should
+    # have a rep requirement!")
+    from world.rep_items import meets
+    ok, why = meets(character, item)
+    if not ok:
+        return False, why
+
     return True, ""
 
 

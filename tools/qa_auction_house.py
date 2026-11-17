@@ -279,9 +279,10 @@ def main():
     lives = []
     for a in [a for a in fm.books["horde"].values() if a.fat][:10]:
         lives.append(a.ends_at)
-    # bulk buy herbs -> sometimes a COD letter
+    # bulk buy herbs -> once in a while a COD letter. Kyle, 16 Nov 2026: "i want it to kind of feel special. Maybe
+    # like... people send letters from the AH a max of around 5% of the time" (it was 70%)
     cods = 0
-    for t in range(20):
+    for t in range(200):
         cm = Market(seed=300 + t)
         cm.mail = Mailbox()
         cm.party = types.SimpleNamespace(copper=10 ** 8, player=types.SimpleNamespace(name="T"), members=[],
@@ -297,7 +298,8 @@ def main():
         cods += sum(1 for x in cm.mail.letters if x.kind == "cod")
     for k, v in saved.items():
         MM.MARKETS[k].update(v)
-    check(8 <= cods <= 19, f"{cods} of 20 bulk buyers got a cash-on-delivery offer (want often, not always)")
+    check(1 <= cods <= 20, f"{cods} of 200 bulk buyers got a cash-on-delivery offer (want rare: about 5%, never "
+                           f"over 10%, but it has to happen)")
 
     # ---- 12. the letters: every personality has a voice for every moment, two or three sentences, plain writing
     import re as _re

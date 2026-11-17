@@ -36,6 +36,10 @@
     "shoulder": {
       "label": "Shoulder",
       "share": 0.5
+    },
+    "armor_kit": {
+      "label": "Armor Kit",
+      "share": 0.5
     }
   },
   "enchants": {
@@ -47,7 +51,7 @@
       "tier": 0,
       "rank": 0,
       "level": 8,
-      "skill": 1,
+      "skill": 0,
       "stats": {
         "stamina": 1
       },
@@ -103,7 +107,7 @@
       "tier": 0,
       "rank": 0,
       "level": 8,
-      "skill": 1,
+      "skill": 3,
       "stats": {
         "strength": 1
       },
@@ -159,7 +163,7 @@
       "tier": 0,
       "rank": 0,
       "level": 8,
-      "skill": 1,
+      "skill": 7,
       "stats": {
         "spirit": 1
       },
@@ -489,7 +493,7 @@
       "tier": 0,
       "rank": 0,
       "level": 8,
-      "skill": 1,
+      "skill": 10,
       "stats": {
         "stamina": 1
       },
@@ -545,7 +549,7 @@
       "tier": 0,
       "rank": 0,
       "level": 8,
-      "skill": 1,
+      "skill": 13,
       "stats": {
         "agility": 1
       },
@@ -993,7 +997,7 @@
       "tier": 0,
       "rank": 0,
       "level": 8,
-      "skill": 1,
+      "skill": 17,
       "stats": {
         "armor": 4
       },
@@ -1121,7 +1125,7 @@
       "tier": 0,
       "rank": 0,
       "level": 8,
-      "skill": 1,
+      "skill": 20,
       "stats": {
         "stamina": 1
       },
@@ -1177,7 +1181,7 @@
       "tier": 0,
       "rank": 0,
       "level": 8,
-      "skill": 1,
+      "skill": 23,
       "stats": {
         "intellect": 1
       },
@@ -1434,7 +1438,7 @@
       "tier": 0,
       "rank": 0,
       "level": 8,
-      "skill": 1,
+      "skill": 27,
       "stats": {
         "stamina": 1
       },
@@ -1490,7 +1494,7 @@
       "tier": 0,
       "rank": 0,
       "level": 8,
-      "skill": 1,
+      "skill": 30,
       "stats": {
         "spirit": 1
       },
@@ -2615,6 +2619,48 @@
       },
       "hybrid": false,
       "faction": "pale_flame"
+    },
+    "upgrade_kit_light_armor": {
+      "name": "Light Armor Kit",
+      "title": "Light Armor Kit",
+      "group": "armor_kit",
+      "family": "armor_kit",
+      "tier": 0,
+      "rank": 0,
+      "level": 5,
+      "skill": 1,
+      "stats": {
+        "armor": 6
+      },
+      "hybrid": false
+    },
+    "upgrade_kit_medium_armor": {
+      "name": "Medium Armor Kit",
+      "title": "Medium Armor Kit",
+      "group": "armor_kit",
+      "family": "armor_kit",
+      "tier": 1,
+      "rank": 1,
+      "level": 16,
+      "skill": 1,
+      "stats": {
+        "armor": 19
+      },
+      "hybrid": false
+    },
+    "upgrade_kit_thick_armor": {
+      "name": "Thick Armor Kit",
+      "title": "Thick Armor Kit",
+      "group": "armor_kit",
+      "family": "armor_kit",
+      "tier": 2,
+      "rank": 2,
+      "level": 31,
+      "skill": 1,
+      "stats": {
+        "armor": 36
+      },
+      "hybrid": false
     }
   },
   "disenchant": [

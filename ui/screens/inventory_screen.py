@@ -155,6 +155,18 @@ def material_subtab(material):
 from ui.coin_format import format_coins
 
 
+def _duration(seconds):
+    """1800 -> '30 minutes', 45 -> '45 seconds', 3600 -> '1 hour'."""
+    s = int(seconds or 0)
+    if s >= 3600 and s % 3600 == 0:
+        h = s // 3600
+        return f"{h} hour" + ("s" if h != 1 else "")
+    if s >= 60 and s % 60 == 0:
+        m = s // 60
+        return f"{m} minute" + ("s" if m != 1 else "")
+    return f"{s} second" + ("s" if s != 1 else "")
+
+
 class InventoryScreen(BaseScreen):
     """Equipment + inventory management screen."""
 
@@ -843,28 +855,16 @@ class InventoryScreen(BaseScreen):
         self.renderer.draw_text(screen, title, (20, 20), size="large", color=COLOR_GOLD)
 
         # ---- Tab buttons - always visible regardless of active tab ----
-        gear_color = COLOR_GOLD if self.active_tab == "gear" else (90, 90, 95)
-        materials_color = COLOR_GOLD if self.active_tab == "materials" else (90, 90, 95)
-        self.renderer.draw_rect(screen, self.gear_tab_button, (35, 35, 40))
-        self.renderer.draw_rect(screen, self.gear_tab_button, gear_color, fill=False)
-        self.renderer.draw_text(screen, "Gear", (self.gear_tab_button.x + 28, self.gear_tab_button.y + 9), color=gear_color)
-        self.renderer.draw_rect(screen, self.materials_tab_button, (35, 35, 40))
-        self.renderer.draw_rect(screen, self.materials_tab_button, materials_color, fill=False)
-        self.renderer.draw_text(screen, "Materials", (self.materials_tab_button.x + 14, self.materials_tab_button.y + 9), color=materials_color)
-        self.renderer.draw_rect(screen, self.sockets_button, (35, 35, 40))
-        self.renderer.draw_rect(screen, self.sockets_button, (120, 150, 220), fill=False)
-        self.renderer.draw_text(screen, "Sockets", (self.sockets_button.x + 16, self.sockets_button.y + 9),
-                                color=(150, 180, 240))
-        self.renderer.draw_rect(screen, self.enchant_button, (35, 35, 40))
-        self.renderer.draw_rect(screen, self.enchant_button, (170, 120, 220), fill=False)
-        self.renderer.draw_text(screen, "Enchant", (self.enchant_button.x + 16, self.enchant_button.y + 9),
-                                color=(200, 160, 245))
-        cons_color = COLOR_GOLD if self.active_tab == "consumables" else (90, 90, 95)
-        self.renderer.draw_rect(screen, self.consumables_tab_button, (35, 35, 40))
-        self.renderer.draw_rect(screen, self.consumables_tab_button, cons_color, fill=False)
-        self.renderer.draw_text(screen, "Consumables",
-                                (self.consumables_tab_button.x + 10, self.consumables_tab_button.y + 9),
-                                color=cons_color)
+        # ONE LOOK FOR ALL FIVE (Kyle, 16 Nov 2026: "not wild how some of these are greyed out and others have
+        # colours"). Enchant and Sockets were lilac and blue and the three tabs went dark grey when they weren't
+        # open, which read as switched off. Now every button is the same readable plate, and the open tab is
+        # the one in gold.
+        for rect, label, active in ((self.enchant_button, "Enchant", False),
+                                    (self.sockets_button, "Sockets", False),
+                                    (self.gear_tab_button, "Gear", self.active_tab == "gear"),
+                                    (self.materials_tab_button, "Materials", self.active_tab == "materials"),
+                                    (self.consumables_tab_button, "Consumables", self.active_tab == "consumables")):
+            self._draw_top_button(screen, rect, label, active)
 
         if self.active_tab == "consumables":
             self._render_consumables_tab(screen, subject)
@@ -1206,35 +1206,55 @@ class InventoryScreen(BaseScreen):
         return True
 
     def _draw_consumable_tooltip(self, screen, cons, mouse_pos, subject):
-        """What it does, what it costs you, and why you can't use it right now."""
+        """What it does, what it costs you, and why you can't use it right now.
+
+        SAID ONCE (Kyle, 16 Nov 2026: "all potions seem to repeat themselves"). The card works out the effect line
+        itself ("+5 Stamina for 30 minutes"), and most items' own descriptions say the same thing again, so a
+        sentence of the description that repeats the effect is left off and only what it adds is kept ("Guardian
+        buff, only one at a time"). The level is said once too, in red when you're under it."""
+        import re
         BODY_W = 300
         lines = [cons.name]
+        red = set()
         ctype = str(cons.consumable_type).replace("_", " ").title()
-        lines.append(f"{ctype}" + (f"  -  requires level {cons.required_level}"
-                                   if cons.required_level else ""))
+        lines.append(ctype)
+        effect = []
         if cons.consumable_type in ("health_potion", "mana_potion"):
             bar = "health" if cons.consumable_type == "health_potion" else "mana"
             scaled = cons.restore_amount(subject.level)
-            lines.append(f"Restores {scaled} {bar} instantly.")
+            effect.append(f"Restores {scaled} {bar} instantly.")
         elif cons.consumable_type in ("meal", "drink"):
             bar = "health" if cons.consumable_type == "meal" else "mana"
-            lines.append(f"Restores {cons.restore_amount()} {bar} over "
-                         f"{int(cons.effect_duration)}s while you sit still.")
+            effect.append(f"Restores {cons.restore_amount()} {bar} over "
+                          f"{_duration(cons.effect_duration)} while you sit still.")
         if cons.stat_bonuses:
             from entities.consumable import bonus_text, WELL_FED_SECONDS
             if cons.consumable_type == "meal":           # effect_duration is how long it takes to eat
-                lines.append(f"Well fed: {bonus_text(cons.stat_bonuses)} for {WELL_FED_SECONDS // 60} minutes")
+                effect.append(f"Well fed: {bonus_text(cons.stat_bonuses)} for {_duration(WELL_FED_SECONDS)}")
             else:
-                lines.append(bonus_text(cons.stat_bonuses)
-                             + (f" for {int(cons.effect_duration)}s" if cons.effect_duration else ""))
+                effect.append(bonus_text(cons.stat_bonuses)
+                              + (f" for {_duration(cons.effect_duration)}" if cons.effect_duration else ""))
+        lines.extend(effect)
         if cons.description:
-            lines.extend(self.renderer.wrap_text(cons.description, BODY_W, size="small"))
+            said = " ".join(effect).lower()
+            keep = []
+            for sentence in re.split(r"(?<=[.!?])\s+", cons.description.strip()):
+                low = sentence.lower()
+                numbers = re.findall(r"[+]?\d+", low)
+                repeats = (effect and (low.startswith(("grants", "restores", "+"))
+                                       or (numbers and all(n.lstrip("+") in said for n in numbers))))
+                if sentence and not repeats:
+                    keep.append(sentence)
+            if keep:
+                lines.extend(self.renderer.wrap_text(" ".join(keep), BODY_W, size="small"))
+        if (cons.required_level or 0) > 1:
+            if cons.required_level > subject.level:
+                red.add(len(lines))
+            lines.append(f"Requires level {cons.required_level}")
         lines.append(f"Sell price: {format_coins(cons.sell_price)}")
-        if cons.required_level > subject.level:
-            lines.append(f"You need level {cons.required_level}.")
-        elif not cons.can_use(subject):
+        if cons.required_level <= subject.level and not cons.can_use(subject):
+            red.add(len(lines))
             lines.append("Cannot be used right now.")
-
         padding = 8
         line_height = 20
         font = self.renderer._get_font(size="small")
@@ -1246,9 +1266,20 @@ class InventoryScreen(BaseScreen):
         self.renderer.draw_rect(screen, rect, (20, 20, 24))
         self.renderer.draw_rect(screen, rect, COLOR_GOLD, fill=False)
         for i, line in enumerate(lines):
-            color = COLOR_GOLD if i == 0 else COLOR_LIGHT_GRAY
+            color = COLOR_GOLD if i == 0 else (225, 90, 90) if i in red else COLOR_LIGHT_GRAY
             self.renderer.draw_text(screen, line, (x + padding, y + padding + i * line_height),
                                     size="small", color=color)
+
+    #: the top row's plates: the open tab gold, everything else the same light grey on dark
+    TOP_FILL, TOP_FILL_ACTIVE = (38, 38, 44), (54, 46, 30)
+    TOP_EDGE, TOP_TEXT = (125, 125, 138), (205, 205, 215)
+
+    def _draw_top_button(self, screen, rect, label, active):
+        self.renderer.draw_rect(screen, rect, self.TOP_FILL_ACTIVE if active else self.TOP_FILL)
+        self.renderer.draw_rect(screen, rect, COLOR_GOLD if active else self.TOP_EDGE, fill=False)
+        h = self.renderer._get_font("normal", None).get_height()
+        self.renderer.draw_text(screen, label, (rect.centerx, rect.y + (rect.h - h) // 2),
+                                color=COLOR_GOLD if active else self.TOP_TEXT, center=True)
 
     def _render_materials_tab(self, screen, subject):
         """Materials grid + profession skill readout. Kept as its own
@@ -1260,15 +1291,13 @@ class InventoryScreen(BaseScreen):
         self._build_materials_rects(len(shown))
         self._draw_scroll_hint(screen, MATERIALS_START_X, MATERIALS_GRID_Y, MATERIALS_GRID_COLS * (MATERIALS_SLOT_SIZE + MATERIALS_SLOT_SPACING))
 
-        # Profession skill line - the only place these numbers are
-        # visible anywhere in the game right now (Phase 1 has no
-        # trainer/profession-panel UI yet), so surfacing it here means
-        # gaining skill from gathering has SOME visible feedback beyond
-        # the toast that fires the instant you pick something.
+        # Profession skill line, so gaining skill from gathering shows here as well as in the professions panel.
+        # Small type and cut to the screen: with every trade learned it ran under the Close button.
         skills = subject.profession_skills or {}
         skill_parts = [f"{prof.title()}: {level}" for prof, level in skills.items()]
         skill_line = "  ".join(skill_parts) if skill_parts else "No gathering professions learned yet."
-        self.renderer.draw_text(screen, skill_line, (20, 60), color=COLOR_LIGHT_GRAY)
+        skill_line = self.renderer.truncate(skill_line, SCREEN_WIDTH - 40, size="small")
+        self.renderer.draw_text(screen, skill_line, (20, 62), size="small", color=COLOR_LIGHT_GRAY)
 
         # the subtabs: the open one gold, an empty one dim, each with how many stacks it holds
         counts = {"all": len(subject.materials or [])}
@@ -1680,6 +1709,9 @@ class InventoryScreen(BaseScreen):
                     lines.append(wrapped)
         if item.required_level > 1:
             lines.append(f"Requires Level {item.required_level}")
+        from world.rep_items import requirement_text as _rep_text
+        if _rep_text(item):
+            lines.append(_rep_text(item))
         # THE FLAVOUR LINE, in quotes and WoW's gold, as the last thing about the item itself (Kyle, 15 Nov
         # 2026: "I want NICE flavor text on each epic sold"). Every authored item carries one and the gear card
         # never drew it. Rare and better only: a green's line is a name tag, an epic's is the point.

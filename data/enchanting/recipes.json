@@ -8,7 +8,7 @@
         "lesser_magic_essence": 1,
         "mob_smouldering_cinder": 1
       },
-      "skill_required": 1,
+      "skill_required": 0,
       "output": {
         "kind": "material",
         "material_id": "enchant_bracer_minor_stamina"
@@ -21,10 +21,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        1,
-        11,
-        21,
-        31
+        0,
+        10,
+        20,
+        30
       ],
       "source": "trainer"
     },
@@ -107,7 +107,7 @@
         "lesser_magic_essence": 1,
         "mob_smouldering_cinder": 1
       },
-      "skill_required": 1,
+      "skill_required": 3,
       "output": {
         "kind": "material",
         "material_id": "enchant_bracer_minor_strength"
@@ -120,10 +120,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        1,
-        11,
-        21,
-        31
+        3,
+        13,
+        23,
+        33
       ],
       "source": "trainer"
     },
@@ -206,7 +206,7 @@
         "lesser_magic_essence": 1,
         "mob_grave_dust": 1
       },
-      "skill_required": 1,
+      "skill_required": 7,
       "output": {
         "kind": "material",
         "material_id": "enchant_bracer_minor_spirit"
@@ -219,10 +219,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        1,
-        11,
-        21,
-        31
+        7,
+        17,
+        27,
+        37
       ],
       "source": "trainer"
     },
@@ -767,7 +767,7 @@
         "lesser_magic_essence": 1,
         "mob_grave_dust": 1
       },
-      "skill_required": 1,
+      "skill_required": 10,
       "output": {
         "kind": "material",
         "material_id": "enchant_boots_minor_stamina"
@@ -780,10 +780,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        1,
-        11,
-        21,
-        31
+        10,
+        20,
+        30,
+        40
       ],
       "source": "trainer"
     },
@@ -866,7 +866,7 @@
         "lesser_magic_essence": 1,
         "mob_whirling_grit": 1
       },
-      "skill_required": 1,
+      "skill_required": 13,
       "output": {
         "kind": "material",
         "material_id": "enchant_boots_minor_agility"
@@ -879,10 +879,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        1,
-        11,
-        21,
-        31
+        13,
+        23,
+        33,
+        43
       ],
       "source": "trainer"
     },
@@ -1619,7 +1619,7 @@
         "strange_dust": 1,
         "lesser_magic_essence": 1
       },
-      "skill_required": 1,
+      "skill_required": 17,
       "output": {
         "kind": "material",
         "material_id": "enchant_cloak_minor_protection"
@@ -1632,10 +1632,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        1,
-        11,
-        21,
-        31
+        17,
+        27,
+        37,
+        47
       ],
       "source": "trainer"
     },
@@ -1840,7 +1840,7 @@
         "lesser_magic_essence": 1,
         "mob_imp_brimstone": 1
       },
-      "skill_required": 1,
+      "skill_required": 20,
       "output": {
         "kind": "material",
         "material_id": "enchant_chest_minor_stamina"
@@ -1853,10 +1853,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        1,
-        11,
-        21,
-        31
+        20,
+        30,
+        40,
+        50
       ],
       "source": "trainer"
     },
@@ -1939,7 +1939,7 @@
         "lesser_magic_essence": 1,
         "mob_imp_brimstone": 1
       },
-      "skill_required": 1,
+      "skill_required": 23,
       "output": {
         "kind": "material",
         "material_id": "enchant_chest_minor_intellect"
@@ -1952,10 +1952,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        1,
-        11,
-        21,
-        31
+        23,
+        33,
+        43,
+        53
       ],
       "source": "trainer"
     },
@@ -2351,7 +2351,7 @@
         "strange_dust": 1,
         "lesser_magic_essence": 1
       },
-      "skill_required": 1,
+      "skill_required": 27,
       "output": {
         "kind": "material",
         "material_id": "enchant_shield_minor_stamina"
@@ -2364,10 +2364,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        1,
-        11,
-        21,
-        31
+        27,
+        37,
+        47,
+        57
       ],
       "source": "trainer"
     },
@@ -2449,7 +2449,7 @@
         "strange_dust": 1,
         "lesser_magic_essence": 1
       },
-      "skill_required": 1,
+      "skill_required": 30,
       "output": {
         "kind": "material",
         "material_id": "enchant_shield_minor_spirit"
@@ -2462,10 +2462,10 @@
         "runed_arcanite_rod"
       ],
       "skill_range": [
-        1,
-        11,
-        21,
-        31
+        30,
+        40,
+        50,
+        60
       ],
       "source": "trainer"
     },
@@ -4015,7 +4015,7 @@
       "inputs": {
         "lesser_magic_essence": 3
       },
-      "skill_required": 1,
+      "skill_required": 0,
       "output": {
         "kind": "material",
         "material_id": "greater_magic_essence"
@@ -4023,9 +4023,9 @@
       "count": 1,
       "skill_range": [
         0,
-        0,
-        0,
-        0
+        10,
+        20,
+        30
       ],
       "source": "trainer",
       "no_xp": true
@@ -4035,7 +4035,7 @@
       "inputs": {
         "greater_magic_essence": 1
       },
-      "skill_required": 1,
+      "skill_required": 0,
       "output": {
         "kind": "material",
         "material_id": "lesser_magic_essence"
@@ -4043,9 +4043,9 @@
       "count": 3,
       "skill_range": [
         0,
-        0,
-        0,
-        0
+        10,
+        20,
+        30
       ],
       "source": "trainer",
       "no_xp": true
@@ -4055,7 +4055,7 @@
       "inputs": {
         "lesser_astral_essence": 3
       },
-      "skill_required": 1,
+      "skill_required": 0,
       "output": {
         "kind": "material",
         "material_id": "greater_astral_essence"
@@ -4063,9 +4063,9 @@
       "count": 1,
       "skill_range": [
         0,
-        0,
-        0,
-        0
+        10,
+        20,
+        30
       ],
       "source": "trainer",
       "no_xp": true
@@ -4075,7 +4075,7 @@
       "inputs": {
         "greater_astral_essence": 1
       },
-      "skill_required": 1,
+      "skill_required": 0,
       "output": {
         "kind": "material",
         "material_id": "lesser_astral_essence"
@@ -4083,9 +4083,9 @@
       "count": 3,
       "skill_range": [
         0,
-        0,
-        0,
-        0
+        10,
+        20,
+        30
       ],
       "source": "trainer",
       "no_xp": true
@@ -4095,7 +4095,7 @@
       "inputs": {
         "lesser_mystic_essence": 3
       },
-      "skill_required": 1,
+      "skill_required": 0,
       "output": {
         "kind": "material",
         "material_id": "greater_mystic_essence"
@@ -4103,9 +4103,9 @@
       "count": 1,
       "skill_range": [
         0,
-        0,
-        0,
-        0
+        10,
+        20,
+        30
       ],
       "source": "trainer",
       "no_xp": true
@@ -4115,7 +4115,7 @@
       "inputs": {
         "greater_mystic_essence": 1
       },
-      "skill_required": 1,
+      "skill_required": 0,
       "output": {
         "kind": "material",
         "material_id": "lesser_mystic_essence"
@@ -4123,9 +4123,9 @@
       "count": 3,
       "skill_range": [
         0,
-        0,
-        0,
-        0
+        10,
+        20,
+        30
       ],
       "source": "trainer",
       "no_xp": true
@@ -4135,7 +4135,7 @@
       "inputs": {
         "lesser_nether_essence": 3
       },
-      "skill_required": 1,
+      "skill_required": 0,
       "output": {
         "kind": "material",
         "material_id": "greater_nether_essence"
@@ -4143,9 +4143,9 @@
       "count": 1,
       "skill_range": [
         0,
-        0,
-        0,
-        0
+        10,
+        20,
+        30
       ],
       "source": "trainer",
       "no_xp": true
@@ -4155,7 +4155,7 @@
       "inputs": {
         "greater_nether_essence": 1
       },
-      "skill_required": 1,
+      "skill_required": 0,
       "output": {
         "kind": "material",
         "material_id": "lesser_nether_essence"
@@ -4163,9 +4163,9 @@
       "count": 3,
       "skill_range": [
         0,
-        0,
-        0,
-        0
+        10,
+        20,
+        30
       ],
       "source": "trainer",
       "no_xp": true
@@ -4175,7 +4175,7 @@
       "inputs": {
         "lesser_eternal_essence": 3
       },
-      "skill_required": 1,
+      "skill_required": 0,
       "output": {
         "kind": "material",
         "material_id": "greater_eternal_essence"
@@ -4183,9 +4183,9 @@
       "count": 1,
       "skill_range": [
         0,
-        0,
-        0,
-        0
+        10,
+        20,
+        30
       ],
       "source": "trainer",
       "no_xp": true
@@ -4195,7 +4195,7 @@
       "inputs": {
         "greater_eternal_essence": 1
       },
-      "skill_required": 1,
+      "skill_required": 0,
       "output": {
         "kind": "material",
         "material_id": "lesser_eternal_essence"
@@ -4203,9 +4203,9 @@
       "count": 3,
       "skill_range": [
         0,
-        0,
-        0,
-        0
+        10,
+        20,
+        30
       ],
       "source": "trainer",
       "no_xp": true

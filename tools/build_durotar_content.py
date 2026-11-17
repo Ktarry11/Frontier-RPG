@@ -52,7 +52,7 @@ def make(name, slot, suffix, ilvl, flavor, armor_type=None, weapon_type=None,
     assert ilvl >= 10, "use tools/build_vot_content.make below item level 10"
     r = LG.rarity_tiers[rarity]["stat_budget_multiplier"]
     d = {"name": name, "slot": slot, "item_level": ilvl, "rarity": rarity,
-         "required_level": req if req is not None else max(1, ilvl - 3),
+         "required_level": min(60, req if req is not None else max(1, ilvl - 3)),   # never past the cap
          "flavor_text": flavor}
     if weapon_type:
         wt = LG.weapon_types["weapon_types"][weapon_type]

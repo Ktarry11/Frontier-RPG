@@ -91,6 +91,11 @@ from entities.power_scale import RATING_KEYS as _RATING_KEYS  # noqa: E402
 RATING_FLOOR = 5
 
 
+
+#: Nothing can ask for more than the level cap. Gear above item level 62 used to come out "Requires level 61"
+#: and up, which nobody can ever wear (Kyle, 16 Nov 2026: "i do see some lvl 61 items?").
+MAX_REQUIRED_LEVEL = 60
+
 class LootGenerator:
     """Generates procedural Item instances from ilvl/rarity/slot inputs."""
 
@@ -379,7 +384,7 @@ class LootGenerator:
             primary_stats=primary_stats,
             secondary_stats=secondary_stats,
             armor_value=armor_value,
-            required_level=max(1, item_level - 2),
+            required_level=min(MAX_REQUIRED_LEVEL, max(1, item_level - 2)),
             sell_price=max(1, int(item_level * rarity_data["stat_budget_multiplier"])),
             flavor_text="",
             # Real WoW icon art (Kyle's icon pack, see gear_icons.py) -
@@ -576,7 +581,7 @@ class LootGenerator:
             weapon_damage_max=weapon_damage_max,
             attack_speed=attack_speed,
             block_value=block_value,
-            required_level=max(1, item_level - 2),
+            required_level=min(MAX_REQUIRED_LEVEL, max(1, item_level - 2)),
             sell_price=max(1, int(item_level * rarity_data["stat_budget_multiplier"] * 1.5)),
             flavor_text="",
             icon_id=pick_weapon_icon(weapon_type, rarity=rarity),

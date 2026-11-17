@@ -31,6 +31,10 @@ def can_trade(obj):
         return False, "Set tokens can't be sold or sent."
     if getattr(obj, "market_locked", False):
         return False, "That can't be sold or sent."
+    # Kyle, 16 Nov 2026: "neeever allow rep items to be sold! ever!" (world/rep_items.py)
+    from world.rep_items import is_rep_item
+    if is_rep_item(obj):
+        return False, "Reputation rewards can't be sold or sent."
     if kind_of(obj) == GEAR and getattr(obj, "name", None) in _secret_names():
         # a hidden place's loot, or a hidden seller's: it stays a secret, so it doesn't go on the open market
         return False, "That can't go on the auction house."

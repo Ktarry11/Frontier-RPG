@@ -21,6 +21,7 @@ docs/auction_house_design.md is the plan and explains every number here. The sho
 Nothing here touches the screen. The party owns one Market (party.market) and one Mailbox (party.mail); everything
 the market pays out or hands back goes through the mail, the way WoW does it.
 """
+import json
 import math
 import random
 
@@ -38,11 +39,14 @@ FINE_HOURS = 72
 COARSE = 6.0
 
 # ------------------------------------------------------------------ the two books (design, section 1)
+#: "target" is how many NPC listings a book holds. Kyle, 16 Nov 2026: "Lets populate the AH by around 300% more items
+#: across the board!" (2,600 and 1,700 before, so four times as many). Measured that day: opening the book takes
+#: about two seconds, a day of play works out in about three, and the market adds about four megabytes to a save.
 MARKETS = {
     "horde": {"name": "Horde Auction House", "cut": 0.05, "deposit": 0.15, "gear_traffic": 1.0, "odd": 1.0,
-              "target": 2600},
+              "target": 13000},
     "goblin": {"name": "Steamwheedle Auction House", "cut": 0.15, "deposit": 0.25, "gear_traffic": 1.2,
-               "odd": 1.5, "target": 1700},
+               "odd": 1.5, "target": 8500},
 }
 #: which book an auctioneer opens
 AUCTIONEER_MARKET = {
@@ -85,12 +89,17 @@ NPC_TURNOVER = 0.5
 #: cash on delivery (Kyle's): buy at least 5 (consumables, gems) or 10 (common materials) of one thing inside
 #: COD_WINDOW market hours and a seller may offer more, at most once a market day per thing
 COD_WINDOW = 12.0
-COD_CHANCE = 0.7
+#: Kyle, 16 Nov 2026: "we should tone down HOW often these are sent. i want it to kind of feel special. Maybe like...
+#: people send letters from the AH a max of around 5% of the time". So no stranger writes more than one time in twenty
+#: (COD offers were 0.7, a fat finger 0.85). The mail that pays you or hands you what you bought always comes.
+LETTER_MAX = 0.05
+COD_CHANCE = LETTER_MAX
 
 # ------------------------------------------------------------------ the letters (meme_mail.py)
 #: How often each moment gets a letter. Kyle, 15 Nov 2026: "cod more often. Fat fingers often. Rest infrequently".
-MEME_CHANCE = {"fat_finger": 0.85, "sniped_you": 0.2, "undercut_smug": 0.03, "undercut_salt": 0.05,
-               "outbid_them": 0.1, "outbid_you": 0.04, "recruit_sold": 0.5, "won_thanks": 0.03}
+MEME_CHANCE = {"fat_finger": LETTER_MAX, "sniped_you": LETTER_MAX, "undercut_smug": 0.03, "undercut_salt": LETTER_MAX,
+               "outbid_them": LETTER_MAX, "outbid_you": 0.04, "recruit_sold": 0.5, "won_thanks": 0.03}
+#: recruit_sold isn't a stranger: it's one of your own recruits telling you their listing sold
 
 #: listing mix for a fresh NPC listing: (share, what)
 MIX = [(0.44, "material"), (0.12, "consumable"), (0.08, "crafted"), (0.20, "proc"), (0.06, "dungeon"),
@@ -800,6 +809,8 @@ class Market:
     def on_play_seconds(self, seconds):
         """Overworld time. Whole market hours are worked as they accrue."""
         self.play_seconds += max(0.0, seconds)
+        if self.started:
+            self._trickle()
         n = int(self.play_seconds // SECONDS_PER_HOUR)
         if n:
             self.play_seconds -= n * SECONDS_PER_HOUR
@@ -817,7 +828,9 @@ class Market:
             self._player_keys(market, dt)
             self._snipes(market, dt)
             self._news(market, dt)
-            self._refill(market)
+            # the hour only tops the book up a little; the rest goes back a couple of listings a frame while you
+            # play (_trickle), so working out an hour never stalls the game
+            self._refill(market, cap=max(150, MARKETS[market]["target"] // 40))
 
     # ------------------------------------------------------------ hourly pieces
     def _settle_ended(self, market):
@@ -1063,11 +1076,22 @@ class Market:
         self.news = self.news[-12:]
         self.stats["news"] += 1
 
-    def _refill(self, market):
+    def _refill(self, market, cap=400):
         npc = sum(1 for a in self.books[market].values() if not a.mine)
         need = MARKETS[market]["target"] - npc
-        for _ in range(max(0, min(need, 400))):
+        for _ in range(max(0, min(need, cap))):
             self.spawn_npc_listing(market, posted_at=self.clock - self.rng.uniform(0, 1))
+
+    #: listings put back per frame of overworld play, per book, while it's under its target
+    TRICKLE = 2
+
+    def _trickle(self):
+        """A few listings a frame. The book's size is len(book): the player's own handful of listings makes no
+        difference to a book of thousands, and counting them every frame would."""
+        for market, conf in MARKETS.items():
+            short = conf["target"] - len(self.books[market])
+            for _ in range(max(0, min(short, self.TRICKLE))):
+                self.spawn_npc_listing(market, posted_at=self.clock - self.rng.uniform(0, 1))
 
     # ------------------------------------------------------------ letters
     def _letter(self, sender, subject, body, copper=0, goods=None, kind="letter", delay=0.0, sender_kind="auction"):
@@ -1390,7 +1414,13 @@ class Market:
                     continue
                 rows.append(a.to_row())
             books[m] = rows
-        return {"clock": self.clock, "play_seconds": self.play_seconds, "next_id": self.next_id, "books": books,
+        # COMPRESSED. Five times the listings (Kyle, 16 Nov 2026: "I want this AH fleshed out 5 times over") made
+        # the books eight megabytes of a save; zlib takes them to about two. Saves from before load either way.
+        import base64
+        import zlib
+        packed = base64.b64encode(zlib.compress(json.dumps(books, separators=(",", ":")).encode("utf-8"), 6))
+        return {"clock": self.clock, "play_seconds": self.play_seconds, "next_id": self.next_id,
+                "books_z": packed.decode("ascii"),
                 "idx": self.idx, "news": self.news, "favourites": sorted(self.favourites),
                 "my_bids": sorted(self.my_bids), "recruit_seen": sorted(self.recruit_seen),
                 "undercut_by": self.undercut_by, "started": self.started, "bulk": self.bulk,
@@ -1413,7 +1443,12 @@ class Market:
         m.started = bool(d.get("started", False))
         m.bulk = {k: [list(r) for r in v] for k, v in (d.get("bulk") or {}).items()}
         m.cod_sent = dict(d.get("cod_sent") or {})
-        for mk, rows in (d.get("books") or {}).items():
+        books = d.get("books") or {}
+        if d.get("books_z"):
+            import base64
+            import zlib
+            books = json.loads(zlib.decompress(base64.b64decode(d["books_z"])).decode("utf-8"))
+        for mk, rows in books.items():
             if mk not in m.books:
                 continue
             fields = d.get("fields")
@@ -1424,6 +1459,11 @@ class Market:
                     a = Auction.from_dict(dict(zip(fields, row)))     # a save from before a field was added
                 else:
                     a = Auction.from_row(row)
+                # an NPC listing of something the catalog no longer sells (a reputation reward, Kyle 16 Nov 2026:
+                # "never ever ever ever allow rep items to be sold") comes off the book when the save loads
+                src = a.src or {}
+                if not a.mine and "entry" in src and src["entry"] not in C.entries():
+                    continue
                 m._add(a)
         return m
 

@@ -427,6 +427,9 @@ class BankScreen(BaseScreen):
             lines.append(f"Item level {item.item_level}")
         if getattr(item, "required_level", None):
             lines.append(f"Requires level {item.required_level}")
+        from world.rep_items import requirement_text as _rep_text
+        if _rep_text(item):
+            lines.append(_rep_text(item))
         w = max(160, 9 * max(len(x) for x in lines))
         box = pygame.Rect(min(rect.right + 8, SCREEN_WIDTH - w - 8), rect.y, w, 20 * len(lines) + 12)
         pygame.draw.rect(screen, (20, 20, 26), box)

@@ -217,6 +217,15 @@ def _raw_sources():
     except Exception:
         pass
     ok.update((_load("data/creatures/mob_materials.json").get("materials") or {}).keys())
+    # DISENCHANTING (world/enchanting.py): green, blue and purple gear breaks into dust, essences and shards, and
+    # at the top a Nexus Crystal. Left out, nothing an enchanter or a runecrafter makes was "obtainable", so the
+    # auction house carried no enchanting materials, no rune inks, no runes and no enchant scrolls at all.
+    for row in (_load("data/enchanting/enchants.json").get("disenchant") or []):
+        for k in ("dust", "essence", "shard"):
+            if row.get(k):
+                ok.add(row[k])
+    if "nexus_crystal" in materials():
+        ok.add("nexus_crystal")
     return ok
 
 
@@ -338,7 +347,33 @@ def _value(mid, kind):
         v = raw
     if mid in _vendor_stock() and m.get("vendor_price"):
         v = min(v, int(m["vendor_price"] * VENDOR_CAP))
+    v *= premium(mid, mtype)
     return max(1, int(round(v)))
+
+
+#: Kyle, 16 Nov 2026: "we can also sell runes at a ridiculous price....as well as scrolls that contain the enchants on
+#: them and can be used... Like wow, these will be cheap for trash ones to stupid expensive for rare ones."
+#: An enchant scroll is worth its inputs times this, by its tier (0 the first minor ones, 5 the Major ones at 58),
+#: and a proc enchantment (Crusader, Fiery Weapon) far more. A rune is worth its inputs times RUNE_PREMIUM by rank.
+SCROLL_PREMIUM = {0: 1.0, 1: 1.3, 2: 1.8, 3: 2.6, 4: 4.0, 5: 6.0}
+PROC_PREMIUM = 12.0
+RUNE_PREMIUM = {1: 8.0, 2: 12.0, 3: 18.0}
+
+
+def premium(mid, mtype):
+    if mtype == "enchant_scroll":
+        try:
+            from world.enchanting import enchant
+            e = enchant(mid) or {}
+        except Exception:
+            e = {}
+        if e.get("proc"):
+            return PROC_PREMIUM
+        return SCROLL_PREMIUM.get(int(e.get("tier", 0) or 0), 1.0)
+    if mtype == "rune":
+        rank = mid.rsplit("_", 1)[-1]
+        return RUNE_PREMIUM.get(int(rank) if rank.isdigit() else 1, 8.0)
+    return 1.0
 
 
 def _made_value(oid, finished=True):
@@ -562,6 +597,9 @@ def entries():
     for mid, m in mats.items():
         if mid not in ok or mid in vendor or m.get("secret"):
             continue
+        from world.rep_items import is_rep_key
+        if is_rep_key(mid):
+            continue
         if m.get("material_type") in ("reagent", "kit", "rod") or int(m.get("sell_price", 0) or 0) <= 0:
             continue
         v = value(mid, "material")
@@ -617,12 +655,17 @@ def _add_gear(out):
             return
         if item.item_id in secret_ids or item.name in secret_ids:
             return
+        # a reputation reward, a rep recipe's scroll or what it makes: never on the auction house (world/rep_items.py)
+        from world.rep_items import is_rep_item
+        if is_rep_item(item):
+            return
         d = item.to_dict()
         cat, sub = gear_category(item)
         key = "g:" + str(item.item_id)
         if key in out:
             return
         lvl = item.item_level if getattr(item, "recipe_id", None) else getattr(item, "required_level", 1)
+        lvl = min(60, int(lvl or 1))     # a recipe for item level 61 gear is still a level 60 recipe
         out[key] = Entry(key=key, kind=G.GEAR, id=item.item_id, name=item.name,
                          level=int(lvl or 1), rarity=item.rarity, cat=cat, sub=sub,
                          value=gear_value(item, inputs), demand=demand * (0.55 + 0.9 * want(item)),

@@ -13,7 +13,8 @@ proc on the wearer through Character._sync_equipment_procs beside the item's own
 
 WHAT GOES WHERE. Bracers, boots, gloves, cloaks and chests take their own enchantments, a shield
 takes shield enchantments, any weapon takes weapon enchantments, and a two-hander also takes 2H
-ones. Rings, trinkets, helms and legs take none, as in classic. Shoulders take only the faction
+ones. Chest, legs, gloves and boots also take leatherworking's armor kits (tools/armor_kits.py), which use the
+same slot. Rings, trinkets and helms take none, as in classic. Shoulders take only the faction
 inscriptions the Plaguelands' quartermasters sell at Revered (tools/plaguelands_inscriptions.py);
 no enchanter makes those.
 
@@ -29,6 +30,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 #: equipment slot -> enchantment group
+ARMOR_KIT_SLOTS = ("chest", "legs", "hands", "feet")
 SLOT_GROUPS = {"wrist": "bracer", "feet": "boots", "hands": "gloves", "back": "cloak", "chest": "chest",
                "shoulder": "shoulder"}
 DISENCHANTABLE = ("uncommon", "rare", "epic")
@@ -75,7 +77,12 @@ def groups_for(item):
     if getattr(item, "armor_type", None) in (None, "bag", "accessory") and getattr(item, "slot", None) not in SLOT_GROUPS:
         return set()
     group = SLOT_GROUPS.get(getattr(item, "slot", None))
-    return {group} if group else set()
+    out = {group} if group else set()
+    # Leatherworking's armor kits (tools/armor_kits.py) go on chest, legs, gloves and boots, as in classic
+    if getattr(item, "slot", None) in ARMOR_KIT_SLOTS and getattr(item, "armor_type", None) in (
+            "cloth", "leather", "mail", "plate"):
+        out.add("armor_kit")
+    return out
 
 
 def fits(item, enchant_id):
@@ -129,6 +136,13 @@ def apply(player, item, scroll_id):
         return False, f"You don't have {e['name']}."
     if e["group"] not in groups_for(item):
         return False, f"{e['name']} only goes on {_where(e['group'])}."
+    if e.get("faction"):
+        # a faction's inscription needs the standing it's sold at (world/rep_items.py)
+        from world.rep_items import requirement, requirement_text
+        from world.faction_manager import get_faction_manager
+        req = requirement(type("S", (), {"item_id": scroll_id})())
+        if req and not get_faction_manager().at_least(*req):
+            return False, requirement_text(type("S", (), {"item_id": scroll_id})()) + "."
     player.consume_material(scroll_id, 1)
     old = enchant(getattr(item, "enchant_id", None))
     item.enchant_id = scroll_id
@@ -148,7 +162,8 @@ def label_of(e):
 def _where(group):
     return {"bracer": "bracers", "boots": "boots", "gloves": "gloves", "cloak": "cloaks",
             "chest": "chest armour", "shield": "shields", "weapon": "weapons",
-            "2h": "two-handed weapons", "shoulder": "shoulders"}.get(group, group)
+            "2h": "two-handed weapons", "shoulder": "shoulders",
+            "armor_kit": "chest armour, legs, gloves or boots"}.get(group, group)
 
 
 def refresh(owner):

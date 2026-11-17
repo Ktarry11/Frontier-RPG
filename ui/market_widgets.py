@@ -359,6 +359,9 @@ def good_lines(good):
             pass
         out.append((f"Item level {obj.item_level}", theme.TEXT_DIM))
         out.append((f"Requires level {obj.required_level}", theme.TEXT_DIM))
+        from world.rep_items import requirement_text as _rep_text
+        if _rep_text(obj):
+            out.append((_rep_text(obj), theme.TEXT_DIM))
         if getattr(obj, "flavor_text", ""):
             out.append((f'"{obj.flavor_text}"', (255, 209, 0)))
     elif k == G.MATERIAL:
