@@ -212,3 +212,49 @@ class _RecipeManagerSingleton:
     make_recipe_scroll = staticmethod(make_recipe_scroll)
     get_recipe_info = staticmethod(get_recipe_info)
     scrolls_for_source = staticmethod(scrolls_for_source)
+
+
+def trainer_recipe_book(profession: str) -> dict:
+    """{recipe_id: recipe} for one trade, read from the manager that crafts it (the same dicts the
+    professions screen lists), so what is taught is exactly what can be made."""
+    try:
+        from world.crafting_manager import get_crafting_manager
+        cm = get_crafting_manager()
+        if profession in cm.professions():
+            return cm.all_recipes(profession)
+        if profession == "blacksmithing":
+            from world.blacksmithing_manager import get_blacksmithing_manager
+            return get_blacksmithing_manager().recipes
+        if profession == "leatherworking":
+            from world.leatherworking_manager import get_leatherworking_manager
+            return get_leatherworking_manager().recipes
+    except Exception:
+        pass
+    return {}
+
+
+def teach_trainer_recipes(character, profession: str | None = None) -> list:
+    """Hand over every trainer recipe the character's skill has reached, for one trade or (None) for
+    every trade they know. -> the recipe ids newly learned.
+
+    Playtest, 17 Nov 2026 (Leatherworking at skill 1, 107 Scrap Leather, "Missing materials" on the
+    first three recipes): trainer recipes were only taught at the moment a trade was learned or a tier
+    was trained. Nothing taught the skill 2, 8, 10 ... recipes on the way up, so every trade stalled
+    inside its first tier, and a save that learned a trade when its first recipes needed skill 1 and
+    the trade started at 0 was handed nothing at all, ever. Now a recipe arrives the moment the skill
+    reaches it: on a skill-up, on loading a save, and at the trainer.
+    """
+    profs = [profession] if profession else list(getattr(character, "known_professions", []))
+    learned = []
+    for p in profs:
+        if not character.knows_profession(p):
+            continue
+        learned += character.learn_trainer_recipes(p, trainer_recipe_book(p))
+    return learned
+
+
+def not_learned_text(recipe: dict) -> str:
+    """Why a recipe your skill has reached still can't be made: you haven't got the pattern."""
+    where = {"drop": "found on a creature", "vendor": "bought from a vendor", "quest": "earned from a quest"}.get(
+        recipe.get("source"), "taught by a trainer")
+    return f"You haven't learned that recipe. It is {where}."

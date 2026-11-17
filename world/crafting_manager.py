@@ -103,6 +103,10 @@ class CraftingManager:
             return False, f"You haven't learned {profession.title()}.", None
         if self.skill(character, profession) < r.get("skill_required", 0):
             return False, f"Requires {profession.title()} skill {r['skill_required']}.", None
+        if not character.knows_recipe(recipe_id):
+            # can_craft and the list both said no; the click used to go ahead anyway
+            from world.recipe_manager import not_learned_text
+            return False, not_learned_text(r), None
         if r.get("station") == "sawmill" and not at_station:
             return False, "You must be at a Sawmill to saw planks.", None
         if not self.has_tool(character, r):

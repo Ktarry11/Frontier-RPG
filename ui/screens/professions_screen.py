@@ -80,6 +80,9 @@ BAR_HEIGHT = 28
 BAR_GAP = 70
 
 
+
+from world.recipe_manager import not_learned_text as _not_learned_text  # noqa: E402
+
 class ProfessionsScreen(BaseScreen):
     """Profession skill overview PLUS a real Smelting sub-tab (Kyle,
     2026-09-12: "professions tab to have sub tabs for each thing").
@@ -316,6 +319,8 @@ class ProfessionsScreen(BaseScreen):
         if profession in self.own_managers:
             if not player.knows_profession(profession):
                 ok, msg = False, f"You haven't learned {profession.title()}."
+            elif not player.knows_recipe(recipe_id):
+                ok, msg = False, _not_learned_text(self.own_managers[profession].recipes.get(recipe_id) or {})
             else:
                 result = self.own_managers[profession].craft(player, recipe_id)
                 if result is not None:
@@ -845,7 +850,10 @@ class ProfessionsScreen(BaseScreen):
                 self.renderer.draw_text(screen, text, (px, rect.y + 25), size="small", color=colour)
                 px += small.size(text)[0] + 16
             input_rows.append((pygame.Rect(text_x, rect.y + 22, max(40, px - text_x), 20), recipe))
-            if unlocked:
+            if unlocked and not player.knows_recipe(recipe_id):
+                # a pattern you have to find (a drop, a vendor, a quest): the skill is there, the recipe is not
+                self.renderer.draw_text(screen, "Not learned", (rect.right - 130, rect.y + 12), color=(200, 170, 110))
+            elif unlocked:
                 self.renderer.draw_text(screen, f"Skill {req}", (rect.right - 110, rect.y + 12), color=self._difficulty_color(skill, recipe))
             else:
                 self.renderer.draw_text(screen, f"Requires {req}", (rect.right - 130, rect.y + 12), color=(200, 110, 110))

@@ -27,30 +27,9 @@ RED = (230, 130, 130)
 
 
 def _teach_trainer_recipes(character, profession: str) -> list:
-    """Auto-teach all trainer-source recipes at/below the character's current skill.
-
-    Called immediately after a successful prof_learn or prof_advance so that
-    the trainer automatically hands over everything they know up to this skill level.
-    Returns list of newly-learned recipe IDs (may be empty on advance if nothing new unlocked).
-    """
-    try:
-        # CraftingManager covers tailoring, alchemy, woodworking
-        from world.crafting_manager import get_crafting_manager
-        cm = get_crafting_manager()
-        if profession in cm.professions():
-            return character.learn_trainer_recipes(profession, cm.all_recipes(profession))
-
-        # BS and LW have their own managers
-        if profession == "blacksmithing":
-            from world.blacksmithing_manager import get_blacksmithing_manager
-            return character.learn_trainer_recipes(profession, get_blacksmithing_manager().recipes)
-
-        if profession == "leatherworking":
-            from world.leatherworking_manager import get_leatherworking_manager
-            return character.learn_trainer_recipes(profession, get_leatherworking_manager().recipes)
-    except Exception:
-        pass
-    return []
+    """Teach every trainer recipe at or below the character's skill (world/recipe_manager.py)."""
+    from world.recipe_manager import teach_trainer_recipes
+    return teach_trainer_recipes(character, profession)
 
 
 class TravelServiceScreen(BaseScreen):
