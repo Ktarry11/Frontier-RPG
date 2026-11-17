@@ -108,7 +108,9 @@ class BondTestScreen(BaseScreen):
             if char is None:
                 self.note = rm.block_reason(recruit, getattr(party.player, "level", None)) or ""
                 return
-            party.add_member(char)
+            if party.add_member(char) is None:
+                self.note = "No room: the party and the bench are both full."
+                return
             rm.mark_recruited(rid)
             bm.on_joined(rid)
         elif key == "home":

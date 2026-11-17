@@ -1112,8 +1112,11 @@ class CombatScreen(BaseScreen):
         standing = [e for e in enemies if e.is_alive()]
         enemies = standing or enemies
 
-        card_w = 260
-        card_gap = 20
+        # FIVE FIT ACROSS (Kyle, 16 Nov 2026, with a fifth Jaedenar Felhound cut off at the right edge: "i like 5
+        # enemies but we need to ensure they fit!"). Cards were a fixed 260 wide, so five ran 100px off the screen;
+        # they now shrink to fit, the way the party strip's cards do.
+        card_gap = 20 if len(enemies) <= 4 else 14
+        card_w = min(260, (SCREEN_WIDTH - 40 - (len(enemies) - 1) * card_gap) // len(enemies))
         total_w = len(enemies) * card_w + (len(enemies) - 1) * card_gap
         start_x = max(20, (SCREEN_WIDTH - total_w) // 2)
         y = 8          # was 20 - "shift the enemy stuff up" (Kyle, 2026-10-31)
@@ -1143,9 +1146,16 @@ class CombatScreen(BaseScreen):
             # line cost 20px to every fight on screen whether or not the fight needed it. A boss
             # with status effects is exactly where the strip runs out of room and the art gets
             # scaled down, so the 20px is worth more there than anywhere else.
-            self.renderer.draw_text(screen, f"{foe.name} (Lvl {foe.level}){suffix}",
-                                    (x + card_w // 2, y),
-                                    size="normal", color=name_color, center=True)
+            # A name that won't fit its card drops to the small font, and past that loses letters, so two plates
+            # never run into each other.
+            plate, size = f"{foe.name} (Lvl {foe.level}){suffix}", "normal"
+            if self.renderer.font_normal.size(plate)[0] > card_w:
+                size = "small"
+                if self.renderer.font_small.size(plate)[0] > card_w:
+                    while len(plate) > 4 and self.renderer.font_small.size(plate + "...")[0] > card_w:
+                        plate = plate[:-1]
+                    plate = plate.rstrip() + "..."
+            self.renderer.draw_text(screen, plate, (x + card_w // 2, y), size=size, color=name_color, center=True)
 
             bar_y = y + 22
             self.renderer.draw_health_bar(screen, (x, bar_y),

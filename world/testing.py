@@ -74,6 +74,8 @@ def force_recruit(party, recruit_id):
     if char.level < level:
         char = rm._catch_up(char, level)
     placement = party.add_member(char)
+    if placement is None:
+        return f"No room for {recruit.name}: the party and the bench are both full."
     rm.mark_recruited(recruit_id)
     try:
         from world.bond_manager import get_bond_manager

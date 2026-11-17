@@ -57,7 +57,19 @@ class RecruitDialogScreen(BaseScreen):
         level up and walk back without leaving the screen and the Join button
         has to work."""
         from world.recruit_manager import get_recruit_manager
-        return get_recruit_manager().block_reason(self.recruit, self._player_level)
+        why = get_recruit_manager().block_reason(self.recruit, self._player_level)
+        if why:
+            return why
+        party = self.state_manager.get_party()
+        if party is not None and hasattr(party, "has_room") and not party.has_room() and not self.in_party:
+            from entities.party import MAX_BENCH
+            return (f"Your party is full and so is your bench ({MAX_BENCH}). Send someone home from the party "
+                    f"screen first, and {self.recruit.name} will come.")
+        return None
+
+    def _block_label(self):
+        party = self.state_manager.get_party()
+        return "No Room" if party is not None and hasattr(party, "has_room") and not party.has_room() else "Too Low"
 
     @property
     def shown_level(self):
@@ -163,7 +175,7 @@ class RecruitDialogScreen(BaseScreen):
         # Checked again here rather than trusting the button: _do_recruit is the
         # only place a companion actually joins, so it is the only place the
         # rule is guaranteed to hold however the screen is driven.
-        if manager.block_reason(self.recruit, self._player_level):
+        if self.block_reason:
             return
         if self.bond is not None:
             ok, _why = self.bonds.can_hire(self.recruit.recruit_id)
@@ -229,7 +241,7 @@ class RecruitDialogScreen(BaseScreen):
         if reason:
             self._draw_wrapped_text(screen, reason, (40, SCREEN_HEIGHT - 150),
                                      max_width=SCREEN_WIDTH - 80, color=(230, 140, 120))
-            self.renderer.draw_button(screen, self.join_button, "Too Low", color=(70, 60, 60))
+            self.renderer.draw_button(screen, self.join_button, self._block_label(), color=(70, 60, 60))
         else:
             self.renderer.draw_button(screen, self.join_button, "Recruit")
         self.renderer.draw_button(screen, self.leave_button, "Not Now")
@@ -297,7 +309,7 @@ class RecruitDialogScreen(BaseScreen):
             if reason:
                 self._draw_wrapped_text(screen, reason, (40, SCREEN_HEIGHT - 150),
                                         max_width=SCREEN_WIDTH - 80, color=(230, 140, 120))
-                self.renderer.draw_button(screen, self.join_button, "Too Low", color=(70, 60, 60))
+                self.renderer.draw_button(screen, self.join_button, self._block_label(), color=(70, 60, 60))
             else:
                 self.renderer.draw_button(screen, self.join_button, "Recruit")
             self.renderer.draw_button(screen, self.leave_button, "Not Now")

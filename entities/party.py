@@ -14,9 +14,9 @@ Design (per Kyle's direction):
     They still earn talent points, but spend them in their one tree. This
     also expresses the Players-vs-Natives lore: the player is malleable,
     everyone else has settled into who they are.
-  - Recruits beyond the active five sit on the **bench**. Benched members
-    gain reduced XP (BENCH_XP_RATIO) so they fall behind but never become
-    unusable dead weight.
+  - Recruits beyond the active five sit on the **bench**, which holds TWO
+    (MAX_BENCH). Benched members gain reduced XP (BENCH_XP_RATIO) so they fall
+    behind but never become unusable dead weight.
 
 ROWS
 Rows are **soft**: every ability stays usable from either row, and position
@@ -31,6 +31,11 @@ BACK_ROW = "back"
 
 #: Hard cap on the active party, player included.
 MAX_PARTY_SIZE = 5
+
+#: Hard cap on the bench (Kyle, 16 Nov 2026: "I want a hard cap of TWO benched characters", after a save with nine
+#: on it). A full party and a full bench take nobody else: dismiss someone first. A save from before the cap keeps
+#: everyone it had, and takes no one new until the bench is back under two.
+MAX_BENCH = 2
 
 #: Share of XP a benched (recruited but not active) member earns.
 BENCH_XP_RATIO = 0.5
@@ -162,6 +167,13 @@ class Party:
     def is_full(self):
         return len(self.members) >= MAX_PARTY_SIZE
 
+    def bench_full(self):
+        return len(self.bench) >= MAX_BENCH
+
+    def has_room(self):
+        """Can anyone else join, active or benched?"""
+        return not self.is_full() or not self.bench_full()
+
     def all_recruits(self):
         """Every companion the player owns, active or benched (not the player)."""
         return [m for m in self.members if m is not self.player] + list(self.bench)
@@ -169,12 +181,15 @@ class Party:
     def add_member(self, character):
         """
         Add a recruit. Goes into the active party if there's room, otherwise
-        onto the bench. Returns the string "active" or "bench".
+        onto the bench. Returns the string "active" or "bench", or None when the
+        party and the bench are both full (nobody joins).
         """
         if not getattr(character, "row", None):
             character.row = default_row_for(character.char_class)
 
         if self.is_full():
+            if self.bench_full():
+                return None
             self.bench.append(character)
             return "bench"
         self.members.append(character)
@@ -194,7 +209,7 @@ class Party:
 
     def bench_member(self, character):
         """Move an active companion to the bench."""
-        if character is self.player or character not in self.members:
+        if character is self.player or character not in self.members or self.bench_full():
             return False
         self.members.remove(character)
         self.bench.append(character)

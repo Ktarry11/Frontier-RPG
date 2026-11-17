@@ -33,7 +33,7 @@ from config import (
 from core.game_states import GameState
 from ui.screens.base_screen import BaseScreen
 from ui.recruit_portrait import get_recruit_portrait, get_recruit_face
-from entities.party import FRONT_ROW, BACK_ROW, MAX_PARTY_SIZE, BENCH_XP_RATIO
+from entities.party import FRONT_ROW, BACK_ROW, MAX_PARTY_SIZE, BENCH_XP_RATIO, MAX_BENCH
 
 
 ROSTER_X = 20
@@ -143,6 +143,9 @@ class PartyScreen(BaseScreen):
             if party.bench_member(character):
                 self._notify(f"{character.name} moved to the bench "
                              f"({int(BENCH_XP_RATIO * 100)}% XP).")
+            elif party.bench_full():
+                from entities.party import MAX_BENCH
+                self._notify(f"The bench is full ({MAX_BENCH}). Activate or dismiss someone first.")
         else:
             if party.activate_member(character):
                 self._notify(f"{character.name} joined the active party.")
@@ -424,7 +427,7 @@ class PartyScreen(BaseScreen):
             y = self._render_member_row(screen, member, y, party, benched=False)
 
         y += 14
-        self.renderer.draw_text(screen, f"Bench ({len(party.bench)})",
+        self.renderer.draw_text(screen, f"Bench ({len(party.bench)}/{MAX_BENCH})",
                                 (ROSTER_X, y), color=COLOR_HEADER)
         y += 28
 
