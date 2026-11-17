@@ -30,13 +30,13 @@ from scipy import ndimage
 MIN_BLOB = 2000  # px of real art; below this it is a speck, not a prop
 
 
-def extract(sheet, by="rows", min_blob=MIN_BLOB):
+def extract(sheet, by="rows", min_blob=MIN_BLOB, dilate=4):
     rgb = np.asarray(Image.open(sheet).convert("RGB")).astype(np.int32)
     r, g, b = rgb[..., 0], rgb[..., 1], rgb[..., 2]
     solid = (np.minimum(r, b) - g) < 80
     H, _W = solid.shape
 
-    lab, n = ndimage.label(ndimage.binary_dilation(solid, iterations=4))
+    lab, n = ndimage.label(ndimage.binary_dilation(solid, iterations=dilate))
     sizes = ndimage.sum(solid, lab, range(1, n + 1))
     keep = [i + 1 for i, s in enumerate(sizes) if s >= min_blob]
     if not keep:
@@ -82,7 +82,10 @@ def main():
         raise SystemExit(__doc__)
     sheet, out_dir, names = sys.argv[1], sys.argv[2], sys.argv[3].split(",")
     by = sys.argv[sys.argv.index("--by") + 1] if "--by" in sys.argv else "rows"
-    crops = extract(sheet, by)
+    # --dilate N: how far apart two pieces of one prop may sit and still count as one (default 4 px). A prop drawn
+    # as separate pieces (a scatter of flint flakes, sheet 11) needs a little more; too much merges neighbours.
+    dilate = int(sys.argv[sys.argv.index("--dilate") + 1]) if "--dilate" in sys.argv else 4
+    crops = extract(sheet, by, dilate=dilate)
     if len(crops) != len(names):
         raise SystemExit(f"found {len(crops)} props but was given {len(names)} names - refusing to "
                          f"write, because a miscount shifts everything after it")

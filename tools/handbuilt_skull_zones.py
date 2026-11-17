@@ -642,6 +642,8 @@ SPECS["The Coal Forest"] = dict(
 # Kyle: "make TWO skull zones somewhere in the open world for plaguelands, I don't know which one or where". One off
 # each of the Plaguelands' two halves, at the top of its parent's band. Where the doors are is build_secrets.py's.
 PLG = "assets/tiles/plaguelands/props/"
+#: Kyle's sheet 11 (17 Nov 2026): the Plaguelands' hidden places' own props
+PSP = "assets/tiles/plaguelands_secrets/props/"
 ASH = "assets/tiles/ashenvale/props/"
 
 # THE LANTERNMERE. A cold fen where a river starts, two black meres with a neck of land between them, and an old
@@ -691,21 +693,21 @@ SPECS["The Lanternmere"] = dict(
     great_tree=("pl_dead_oak", PLG, 16, 42, 12),
     tree_leads_to="The Long Winter",
     scatter=[("dead_pine_cluster", HF, 6, False, 16, "land", 11, 9),
-             ("bog_reeds_cluster", HF, 3, False, 40, "shore", 12, 4),
-             ("pl_dead_oak", PLG, 6, False, 6, "land", 13, 14)],
+             ("ps_reed_clump", PSP, 3, False, 40, "shore", 12, 4),
+             ("ps_bog_oak_stump", PSP, 4, False, 6, "land", 13, 14)],
     props=[
         # lanterns down the causeway, one on each hummock, and the Lamplighter's at the top
-        ("ql_lantern_post", PLG, 49, 74, 3, "core"), ("ql_lantern_post", PLG, 38, 65, 3, "core"),
-        ("ql_lantern_post", PLG, 48, 56, 3, "core"), ("ql_lantern_post", PLG, 54, 48, 3, "core"),
-        ("ql_lantern_post", PLG, 59, 39, 3, "core"), ("ql_lantern_post", PLG, 49, 30, 3, "core"),
-        ("ql_lantern_post", PLG, 52, 21, 3, "core"), ("ql_lantern_post", PLG, 43, 10, 3, "core"),
-        ("ql_lantern_post", PLG, 58, 11, 3, "core"), ("pl_ruin_arch", PLG, 55, 7, 5, "core"),
+        ("ps_bog_lantern_post", PSP, 49, 74, 3, "core"), ("ps_bog_lantern_post", PSP, 38, 65, 3, "core"),
+        ("ps_bog_lantern_post", PSP, 48, 56, 3, "core"), ("ps_bog_lantern_post", PSP, 54, 48, 3, "core"),
+        ("ps_bog_lantern_post", PSP, 59, 39, 3, "core"), ("ps_bog_lantern_post", PSP, 49, 30, 3, "core"),
+        ("ps_bog_lantern_post", PSP, 52, 21, 3, "core"), ("ps_bog_lantern_post", PSP, 43, 10, 3, "core"),
+        ("ps_bog_lantern_post", PSP, 58, 11, 3, "core"), ("pl_ruin_arch", PLG, 55, 7, 5, "core"),
         # the Amani barrows, one on each of the east isles
-        ("crypt_mausoleum", HF, 77, 28, 5, "core"), ("zm_ruin_block", PLG, 88, 42, 3, "core"),
-        ("pl_skull_pile", PLG, 75, 53, 2, False), ("zm_ruin_block", PLG, 89, 62, 3, "core"),
-        ("crypt_mausoleum", HF, 73, 70, 4, "core"),
+        ("ps_barrow_mound", PSP, 77, 28, 5, "core"), ("ps_amani_head", PSP, 88, 42, 3, "core"),
+        ("ps_fallen_lantern", PSP, 75, 53, 2, False), ("ps_troll_idol", PSP, 89, 62, 3, "core"),
+        ("ps_barrow_mound", PSP, 73, 70, 4, "core"),
         # Sedge Hollow's roots
-        ("twisted_root_arch", HF, 22, 30, 5, "core"), ("pl_dead_oak", PLG, 12, 31, 6, "core"),
+        ("twisted_root_arch", HF, 22, 30, 5, "core"), ("ps_bog_oak_stump", PSP, 12, 31, 4, "core"),
         ("pl_plague_mushrooms", PLG, 22, 52, 2, False),
     ],
 )
@@ -749,35 +751,35 @@ SPECS["The Sunward Waystation"] = dict(
     regions={"gold": [(52, 72, 10, 5), (76, 62, 8, 6)], "pave": [(52, 46, 8, 7)],
              "violet": [(22, 46, 8, 10)], "blight": [(50, 8, 8, 6), (46, 18, 10, 4)]},
     tint=(1.05, 0.99, 0.88), dark=0.03,
-    scatter=[("medium_canopy_tree", ASH, 7, "core", 22, "rock", 31, 7),
-             ("ash_silver_saplings", ASH, 3, False, 14, "edge", 32, 6),
+    scatter=[("ps_golden_tree", PSP, 6, "core", 22, "rock", 31, 7),
+             ("ps_golden_sapling", PSP, 3, False, 14, "edge", 32, 6),
              ("ash_foxglove_patch", ASH, 2, False, 14, "land", 33, 7),
              ("ash_nightbloom_bush", ASH, 2, False, 10, (4, 28, 36, 64), 34, 5),
              ("pl_blight_pine", PLG, 7, "core", 6, (28, 2, 80, 20), 35, 8)],
     props=[
         # the waystation inside its ring of wardstones
-        ("moonwell_altar", ASH, 52, 38, 4, "core"), ("ash_elf_statue_head", ASH, 44, 34, 4, "core"),
-        ("ash_elf_statue_head", ASH, 60, 34, 4, "core"), ("ash_elven_ruin_wall", ASH, 42, 48, 4, "core"),
-        ("ash_elven_ruin_wall", ASH, 62, 48, 4, "core"), ("ash_ivy_pillar", ASH, 46, 52, 5, "core"),
-        ("ash_ivy_pillar", ASH, 58, 52, 5, "core"),
+        ("ps_reflecting_pool_rim", PSP, 52, 38, 4, "core"), ("ps_wardstone", PSP, 44, 34, 5, "core"),
+        ("ps_crystal_wardstone", PSP, 60, 34, 5, "core"), ("ps_broken_wardstone", PSP, 42, 48, 4, "core"),
+        ("ps_broken_wardstone", PSP, 62, 48, 4, "core"), ("ps_wardstone", PSP, 46, 52, 5, "core"),
+        ("ps_crystal_wardstone", PSP, 58, 52, 5, "core"),
         # lanterns down the road
-        ("ash_moon_lantern", ASH, 49, 76, 3, "core"), ("ash_moon_lantern", ASH, 55, 66, 3, "core"),
-        ("ash_moon_lantern", ASH, 49, 60, 3, "core"), ("ash_moon_lantern", ASH, 55, 24, 3, "core"),
-        ("stone_archway", ASH, 52, 72, 5, "core"),
+        ("ps_elven_lamp_post", PSP, 49, 76, 3, "core"), ("ps_elven_lamp_post", PSP, 55, 66, 3, "core"),
+        ("ps_elven_lamp_post", PSP, 49, 60, 3, "core"), ("ps_elven_lamp_post", PSP, 55, 24, 3, "core"),
+        ("ps_elven_arch", PSP, 52, 72, 5, "core"),
         # the rangers' lodge
-        ("ash_watch_platform", ASH, 86, 54, 6, "core"), ("ash_archery_butts", ASH, 78, 70, 3, "core"),
+        ("ps_ranger_lodge", PSP, 86, 54, 6, "core"), ("ps_quartermaster_stall", PSP, 78, 70, 3, "core"),
         ("ash_travel_trunks", ASH, 90, 66, 2, False),
         # the glimmering wood
-        ("large_canopy_tree", ASH, 14, 40, 9, "core"), ("large_canopy_tree", ASH, 24, 58, 9, "core"),
-        ("medium_canopy_tree", ASH, 30, 46, 7, "core"), ("ash_silver_saplings", ASH, 18, 52, 3, False),
-        ("ash_moonstone_crystals", ASH, 10, 54, 3, "core"), ("ash_silver_saplings", ASH, 28, 38, 3, False),
+        ("ps_golden_tree", PSP, 14, 40, 8, "core"), ("ps_golden_tree", PSP, 24, 58, 8, "core"),
+        ("ps_golden_tree", PSP, 30, 46, 6, "core"), ("ps_golden_sapling", PSP, 18, 52, 3, False),
+        ("ash_moonstone_crystals", ASH, 10, 54, 3, "core"), ("ps_golden_sapling", PSP, 28, 38, 3, False),
         # the breach: the ward is down at the north end, and the Plaguelands are coming through
-        ("pl_bone_barricade", PLG, 40, 10, 3, "core"), ("pl_skull_pile", PLG, 64, 12, 2, False),
-        ("pl_necro_obelisk", PLG, 76, 10, 6, "core"), ("pl_blight_pine", PLG, 32, 14, 7, "core"),
+        ("ps_bone_barricade", PSP, 40, 10, 3, "core"), ("ps_breach_wall", PSP, 64, 12, 4, False),
+        ("ps_scourge_obelisk", PSP, 76, 10, 6, "core"), ("pl_blight_pine", PLG, 32, 14, 7, "core"),
         ("pl_blight_pine", PLG, 86, 18, 7, "core"), ("pl_plague_mushrooms", PLG, 58, 8, 2, False),
         # the edges of the meadow
-        ("medium_canopy_tree", ASH, 22, 76, 7, "core"), ("medium_canopy_tree", ASH, 82, 76, 7, "core"),
-        ("medium_canopy_tree", ASH, 90, 36, 7, "core"), ("ash_silver_saplings", ASH, 70, 30, 3, False),
+        ("ps_golden_tree_bench", PSP, 22, 76, 5, "core"), ("ps_golden_tree", PSP, 82, 76, 6, "core"),
+        ("ps_golden_tree", PSP, 90, 36, 6, "core"), ("ps_golden_sapling", PSP, 70, 30, 3, False),
     ],
 )
 
@@ -827,30 +829,30 @@ SPECS["The Long Winter"] = dict(
     subzones=[("The Mammoth Road", 30, 62, 40, 32), ("The Frozen River", 4, 46, 104, 16),
               ("The Bone-Hut Camp", 72, 60, 34, 28), ("The Painted Cave", 6, 12, 26, 26),
               ("The Aurora Field", 34, 16, 40, 28), ("The Ice Front", 70, 6, 38, 30)],
-    scatter=[("asp_pine_krummholz", ASPP, 4, "core", 26, "rock", 21, 6),
+    scatter=[("ps_snow_pines", PSP, 5, "core", 26, "rock", 21, 6),
              ("asp_boulder_lichen", ASPP, 3, "core", 9, "edge", 22, 10),
              ("asp_grass_tussock", ASPP, 2, False, 24, "land", 23, 6),
-             ("ud_ice_stalagmites", UDP, 3, "core", 8, (70, 4, 108, 40), 24, 6),
-             ("asp_elk_skull", ASPP, 2, False, 6, "land", 25, 14)],
+             ("ps_glacier_seracs", PSP, 4, "core", 8, (70, 4, 108, 40), 24, 6),
+             ("ps_bone_heap_snow", PSP, 2, False, 6, "land", 25, 14)],
     props=[
         # the camp: hide huts, a drying rack and the fire
-        ("tau_hide_tent_small", ASPP, 84, 70, 4, "core"), ("tau_hide_tent_small", ASPP, 92, 76, 4, "core"),
-        ("tau_hide_tent_small", ASPP, 80, 78, 4, "core"), ("tau_drying_rack", ASPP, 90, 68, 3, "core"),
-        ("tau_cook_fire", ASPP, 86, 75, 2, False), ("asp_elk_skull", ASPP, 96, 72, 2, False),
-        ("pl_skull_pile", PLG, 78, 72, 2, False),
+        ("ps_bone_hut", PSP, 84, 70, 4, "core"), ("ps_bone_hut", PSP, 92, 76, 4, "core"),
+        ("ps_bone_hut", PSP, 80, 78, 4, "core"), ("ps_hide_rack", PSP, 90, 68, 3, "core"),
+        ("ps_stone_hearth", PSP, 86, 75, 2, False), ("ps_mammoth_skull", PSP, 96, 72, 3, False),
+        ("ps_flint_tools", PSP, 78, 72, 2, False),
         # the painted cave: frozen hunters at its mouth
-        ("ashx_frozen_warrior", ASHXP, 22, 30, 4, "core"), ("ud_ice_stalagmites", UDP, 14, 20, 3, "core"),
-        ("ashx_icicle_pillar", ASHXP, 22, 18, 4, "core"),
+        ("ashx_frozen_warrior", ASHXP, 22, 30, 4, "core"), ("ps_painted_cave", PSP, 14, 20, 5, "core"),
+        ("ps_painted_lion_slab", PSP, 22, 18, 4, "core"),
         # the ice front and its lake
-        ("ashx_ice_stalagmites", ASHXP, 74, 16, 4, "core"), ("ud_ice_stalagmites", UDP, 98, 18, 3, "core"),
-        ("ashx_icicle_pillar", ASHXP, 80, 12, 5, "core"), ("ashx_icicle_pillar", ASHXP, 96, 40, 5, "core"),
+        ("ps_glacier_seracs", PSP, 74, 16, 5, "core"), ("ps_ice_boulder_frozen", PSP, 98, 18, 4, "core"),
+        ("ps_frozen_waterfall", PSP, 80, 12, 5, "core"), ("ps_glacier_seracs", PSP, 96, 40, 5, "core"),
         # the steppe: krummholz, boulders and old bones
-        ("asp_pine_krummholz", ASPP, 30, 74, 4, "core"), ("asp_pine_krummholz", ASPP, 72, 80, 4, "core"),
+        ("ps_snow_pines", PSP, 30, 74, 5, "core"), ("ps_snow_pines", PSP, 72, 80, 5, "core"),
         ("asp_pine_krummholz", ASPP, 14, 66, 4, "core"), ("asp_pine_krummholz", ASPP, 100, 60, 4, "core"),
-        ("asp_boulder_lichen", ASPP, 44, 70, 3, "core"), ("asp_boulder_lichen", ASPP, 66, 72, 3, "core"),
-        ("asp_talus_pile", ASPP, 16, 40, 3, "core"), ("asp_elk_skull", ASPP, 52, 78, 2, False),
-        ("asp_pine_bent", ASPP, 40, 30, 5, "core"), ("asp_pine_bent", ASPP, 64, 36, 5, "core"),
-        ("asp_boulder", ASPP, 50, 22, 3, "core"), ("asp_pine_krummholz", ASPP, 30, 40, 4, "core"),
+        ("ps_snow_boulder", PSP, 44, 70, 3, "core"), ("ps_snow_boulder", PSP, 66, 72, 3, "core"),
+        ("asp_talus_pile", ASPP, 16, 40, 3, "core"), ("ps_bone_heap_snow", PSP, 52, 78, 2, False),
+        ("ps_frozen_dead_tree", PSP, 40, 30, 5, "core"), ("asp_pine_bent", ASPP, 64, 36, 5, "core"),
+        ("ps_snow_boulder", PSP, 50, 22, 3, "core"), ("asp_pine_krummholz", ASPP, 30, 40, 4, "core"),
         ("asp_grass_tussock", ASPP, 58, 70, 2, False), ("asp_grass_tussock", ASPP, 24, 76, 2, False),
     ],
 )

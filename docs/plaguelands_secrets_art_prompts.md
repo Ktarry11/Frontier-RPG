@@ -73,6 +73,11 @@ was drawn as a man, and the one in the game is a woman, so she keeps her figure.
 
 ## SHEET 11: 36 props
 
+**Done, 17 Nov 2026.** 37 came back (a crystal wardstone beside the golden one), sliced into
+`assets/tiles/plaguelands_secrets/props/ps_*.png` with `slice_prop_sheet.py --dilate 6`, which keeps the flint flakes
+together as one prop. 44 props in the three hidden maps swapped to these at the same spots, so where you can walk
+is unchanged. Not placed yet: the ivory figurine and the hole in the ice.
+
 > Props, 6 x 6, magenta key, the isometric three-quarter view with the front toward the lower-right.
 >
 > Row 1 - ICE AGE CAMP: a dome hut built of mammoth bones and hides; a drying rack with hides; a stone hearth with
