@@ -33,7 +33,11 @@
  },
  "deathknell": {
   "date": "2026-11-12",
-  "what": "4 accept lines given directions; explore objectives named; 12 greetings rewritten (true about Deathknell having a sawmill and no forge). Prose left alone."
+  "what": "4 accept lines given directions; explore objectives named; 12 greetings rewritten (true about Deathknell having a sawmill and no forge). Prose left alone.",
+  "voice": {
+   "date": "2026-11-17",
+   "what": "Every flagged quest rewritten in plain voice (tools/voice/<stem>.py, overlay zzzzzzzz_voice_<stem>.json, built by tools/build_zone_voice.py), talk topics too where the zone has them: who, what's wrong, why, what to do and where, no dashes, fragments, aphorisms or missing contractions. Kyle: 'audit and fix the quests with the voice and tone we want'."
+  }
  },
  "tirisfal": {
   "date": "2026-11-12",
@@ -42,7 +46,11 @@
    "brill",
    "western_tirisfal",
    "eastern_tirisfal"
-  ]
+  ],
+  "voice": {
+   "date": "2026-11-17",
+   "what": "Every flagged quest rewritten in plain voice (tools/voice/<stem>.py, overlay zzzzzzzz_voice_<stem>.json, built by tools/build_zone_voice.py), talk topics too where the zone has them: who, what's wrong, why, what to do and where, no dashes, fragments, aphorisms or missing contractions. Kyle: 'audit and fix the quests with the voice and tone we want'."
+  }
  },
  "central_barrens": {
   "date": "2026-11-12",
@@ -140,7 +148,11 @@
   "what": "Four quests sent you south to Raven Hill and the Farthing, which are north of the gate, and one north to an orchard that is south. The tour and the stone-reading now use the keep's real place names. 18 greetings. The audit could not see this town before: its map is \"The Sepulcher\" and its quests say \"sepulcher\".",
   "npc_zones": [
    "sepulcher"
-  ]
+  ],
+  "voice": {
+   "date": "2026-11-17",
+   "what": "Every flagged quest rewritten in plain voice (tools/voice/<stem>.py, overlay zzzzzzzz_voice_<stem>.json, built by tools/build_zone_voice.py), talk topics too where the zone has them: who, what's wrong, why, what to do and where, no dashes, fragments, aphorisms or missing contractions. Kyle: 'audit and fix the quests with the voice and tone we want'."
+  }
  },
  "silverpine_north": {
   "date": "2026-11-13",
@@ -166,6 +178,10 @@
   "hubs": {
    "date": "2026-11-17",
    "what": "Bloodmoon Village is its own small map (Kyle: 'Actual map - but small and seperate'); the isle's quest-givers stand in it, and their accept lines say which way to go from it."
+  },
+  "voice": {
+   "date": "2026-11-17",
+   "what": "Every flagged quest rewritten in plain voice (tools/voice/<stem>.py, overlay zzzzzzzz_voice_<stem>.json, built by tools/build_zone_voice.py), talk topics too where the zone has them: who, what's wrong, why, what to do and where, no dashes, fragments, aphorisms or missing contractions. Kyle: 'audit and fix the quests with the voice and tone we want'."
   }
  },
  "silverpine_dungeons": {
@@ -181,7 +197,11 @@
   "what": "Nine Plague Depths quests named a wing of a dungeon without naming the dungeon or its door (the iron door at the south end of the wheel). A scroll went \"by portal into Silverpine\": there is no such portal; the way is up the shaft and through the Rear Guard. Six places named. 49 greetings.",
   "npc_zones": [
    "undercity"
-  ]
+  ],
+  "voice": {
+   "date": "2026-11-17",
+   "what": "Every flagged quest rewritten in plain voice (tools/voice/<stem>.py, overlay zzzzzzzz_voice_<stem>.json, built by tools/build_zone_voice.py), talk topics too where the zone has them: who, what's wrong, why, what to do and where, no dashes, fragments, aphorisms or missing contractions. Kyle: 'audit and fix the quests with the voice and tone we want'."
+  }
  },
  "ashenvale": {
   "date": "2026-11-13",
