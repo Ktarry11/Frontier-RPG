@@ -69,8 +69,9 @@ def main():
                                 "gear_level": gear, "sells_gear": sells_gear, "race": race,
                                 "gender": gender, "appearance_variant": var, "greeting": greet})
                 made += 1
-            elif (rec["x"], rec["y"]) != (x, y):
-                rec["x"], rec["y"] = x, y
+            elif (rec["x"], rec["y"], rec.get("zone")) != (x, y, zone):
+                # the zone too: Tarren Mill's people moved off the grounds in Eastern Hillsbrad into the town
+                rec["x"], rec["y"], rec["zone"] = x, y, zone
                 moved += 1
 
         for nid, (name, race, gender, var, greet) in AMB.items():
@@ -81,8 +82,9 @@ def main():
                              "greeting": greet, "gender": gender, "race": race,
                              "appearance_variant": var, "facing": "down"})
                 made += 1
-            elif (rec["x"], rec["y"]) != (x, y):
-                rec["x"], rec["y"] = x, y
+            elif (rec["x"], rec["y"], rec.get("zone")) != (x, y, zone):
+                # the zone too: Tarren Mill's people moved off the grounds in Eastern Hillsbrad into the town
+                rec["x"], rec["y"], rec["zone"] = x, y, zone
                 moved += 1
 
     Path("data/npcs/vendors.json").write_text(json.dumps(vd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

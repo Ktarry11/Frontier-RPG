@@ -187,6 +187,19 @@ NPC_POSITIONS = {
     "tarren_mill_commander": (62, 36),
     "tarren_mill_scout": (70, 30),
     "tarren_mill_watchman": (58, 71),
+    # --- moved in from the grounds outside the gate (Kyle, 16 Nov 2026: "move everyone from outside tarren mill
+    #     inside"). Picked on open ground, off the roads, four tiles clear of anyone else.
+    "hbe_mill_magistrate": (51, 50),         # the magistrate, across the bridge from the mill square
+    "hbe_mill_apothecary": (62, 50),         # Field Apothecary Wren, by the apothecarium
+    "hbe_mill_deathguard": (51, 78),         # Deathguard Kolt, inside the gate
+    "hbe_mill_quartermaster": (28, 78),      # Quartermaster Sule's gate stores, for people on their way out
+    "hbe_mill_caravan_master": (14, 64),     # by the stables
+    "hbe_mill_hunter": (12, 46),             # Huntsman Dell Varrow, west edge
+    "hbe_hollow_trapper": (16, 34),          # Trapper Gus Mirren, north-west
+    "hbe_naze_infiltrator": (80, 39),        # Infiltrator Vess, east bank
+    "hbe_durnholde_watcher": (74, 18),       # Watcher Odrin Falk, the north rise, toward Durnholde
+    "hbe_durnholde_scholar": (53, 26),       # Scholar Emeline Vask
+    "hbe_garok_sapper": (82, 58),            # Sapper Niall Crag, east bank
 }
 CHESTS = [(12, 36), (86, 36), (18, 82), (84, 76)]
 

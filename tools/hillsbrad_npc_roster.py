@@ -252,3 +252,15 @@ TOWN_AMBIENT = {
         "Scout Mirren Vask", "forsaken", "male", 15,
         "Durnholde is thick with Syndicate and the hills are thick with gnolls. Walk the road."),
 }
+
+
+# ---- Tarren Mill's people from the grounds, moved inside the town (Kyle, 16 Nov 2026: "move everyone from outside
+# tarren mill inside"). Written in the EAST dicts above where they were first placed; they belong to the town now.
+MOVED_INTO_TOWN = ("hbe_mill_magistrate", "hbe_mill_apothecary", "hbe_mill_deathguard", "hbe_mill_caravan_master",
+                   "hbe_mill_hunter", "hbe_hollow_trapper", "hbe_naze_infiltrator", "hbe_durnholde_watcher",
+                   "hbe_durnholde_scholar", "hbe_garok_sapper", "hbe_mill_quartermaster")
+for _k in MOVED_INTO_TOWN:
+    if _k in EAST_AMBIENT:
+        TOWN_AMBIENT[_k] = EAST_AMBIENT.pop(_k)
+    if _k in EAST_VENDORS:
+        TOWN_VENDORS[_k] = EAST_VENDORS.pop(_k)

@@ -207,24 +207,15 @@ COBBLE = [(62, 30, 10, 7, 0.9), (109, 76, 8, 6, 0.9), (124, 33, 5.5, 4, 0.8)]
 
 # ---- NPC spots -----------------------------------------------------------------------------------------------------
 NPC_POSITIONS = {
-    # Tarren Mill - the hub
-    "hbe_mill_magistrate": (60, 28),
-    "hbe_mill_apothecary": (66, 29),
-    "hbe_mill_quartermaster": (63, 34),      # vendor
-    "hbe_mill_deathguard": (56, 31),
-    "hbe_mill_caravan_master": (68, 34),
-    "hbe_mill_hunter": (58, 38),
+    # TARREN MILL'S PEOPLE MOVED INSIDE THE TOWN (Kyle, 16 Nov 2026: "move everyone from outside tarren mill
+    # inside"). The eleven who stood on the mill grounds out here (the magistrate, the field apothecary, the
+    # Durnholde pair and the rest) are in tools/handbuilt_tarren_mill.NPC_POSITIONS now.
     # the road in from Silverpine
     "hbe_west_gate_scout": (12, 88),
     # the hollow and the west road
-    "hbe_hollow_trapper": (59, 30),       # Gus Mirren, Tarren Mill (moved into the hub, 14 Nov)
     "hbe_west_outrider": (20, 62),
     # the Naze
-    "hbe_naze_infiltrator": (65, 35),       # Vess, Tarren Mill (moved into the hub, 14 Nov)
-    "hbe_durnholde_watcher": (62, 26),       # Odrin Falk, Tarren Mill (moved into the hub, 14 Nov)
-    "hbe_durnholde_scholar": (65, 27),       # Emeline Vask, Tarren Mill (moved into the hub, 14 Nov)
     "hbe_stead_outrider": (114, 116),
-    "hbe_garok_sapper": (61, 39),       # Niall Crag, Tarren Mill (moved into the hub, 14 Nov)
     "hbe_strand_tidewatcher": (58, 134),
     "hbe_wall_sentry": (130, 142),
 }
