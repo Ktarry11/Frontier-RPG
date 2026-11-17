@@ -21,6 +21,15 @@ geared character of the rank's level has) and ranked every ten levels by tools/r
   Witch Doctor   Spirit Fetish         Spirit and mp5
   Witch Hunter   Hunter's Ward         Shadow resistance (on the 0-60 scale, like the resistance totems)
 
+THE FIVE MORE (Kyle, 17 Nov 2026, afternoon: "Make the classes get a 30min buff. Most classes should have one."). These
+five had party buffs, but only in-fight ones:
+
+  Bloodmage         Bloodbond             Stamina
+  Guardian          Marching Song         Strength and Agility (the in-fight songs and presences stay as they are)
+  Knight of Xoroth  Hellfire Ward         Fire resistance (on the 0-60 scale, like Hunter's Ward)
+  Necromancer       Grave Wisdom          Intellect
+  Ranger            Farstrider's Mark     Agility (the horns stay the in-fight ones)
+
 THE MANA BUFFS. mp5 is now sized like the other stats (combat/support_formula.py: a long buff's mp5 gives back about
 what a geared caster's Spirit does on a turn they cast). The three that gave "maximum mana" become mp5:
 Blessing of Wisdom, Mana Spring Totem and Water Shield. The healer classes that gave the party no mana get a way to:
@@ -84,6 +93,19 @@ NEW = {
                                {"shadow_resistance": 12},
                                "Wards your party against dark magic: increases their Shadow Resistance for thirty "
                                "minutes.")],
+    "bloodmage": [long_buff("bloodmage_bloodbond", "Bloodbond", "rage", 20, 0, {"stamina": 3},
+                            "Binds your party's blood to yours: increases their Stamina for thirty minutes.")],
+    "guardian": [long_buff("guardian_marching_song", "Marching Song", "energy", 20, 0,
+                           {"strength": 3, "agility": 3},
+                           "A song for the road: increases your party's Strength and Agility for thirty minutes.")],
+    "knight_of_xoroth": [long_buff("knight_of_xoroth_hellfire_ward", "Hellfire Ward", "rage", 20, 0,
+                                   {"fire_resistance": 12},
+                                   "Wards your party with Xoroth's own fire: increases their Fire Resistance for "
+                                   "thirty minutes.")],
+    "necromancer": [long_buff("necromancer_grave_wisdom", "Grave Wisdom", "life_force", 20, 0, {"intellect": 3},
+                              "Shares what the dead remember: increases your party's Intellect for thirty minutes.")],
+    "ranger": [long_buff("ranger_farstriders_mark", "Farstrider's Mark", "archery_points", 20, 0, {"agility": 3},
+                         "Marks your party with the Farstriders' sign: increases their Agility for thirty minutes.")],
     "priest": [long_buff("priest_divine_spirit", "Divine Spirit", "mana", 30, 60, {"spirit": 3},
                          "Increases your party's Spirit for thirty minutes.")],
     "chronomancer": [long_buff("chronomancer_borrowed_moments", "Borrowed Moments", "mana", 20, 40, {"mp5": 4},

@@ -1417,6 +1417,56 @@
       "target_type": "party",
       "buff_scope": "party",
       "is_instant": true
+    },
+    {
+      "ability_id": "necromancer_grave_wisdom",
+      "name": "Grave Wisdom",
+      "resource_type": "life_force",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "intellect": 3
+      },
+      "description": "Shares what the dead remember: increases your party's Intellect for thirty minutes.",
+      "target_type": "party",
+      "icon_id": null,
+      "buff_scope": "raid",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 0,
+          "effect_value": 33
+        },
+        {
+          "cost": 0,
+          "rank": 2,
+          "level_req": 30,
+          "effect_value": 50
+        },
+        {
+          "cost": 0,
+          "rank": 3,
+          "level_req": 40,
+          "effect_value": 66
+        },
+        {
+          "cost": 0,
+          "rank": 4,
+          "level_req": 50,
+          "effect_value": 83
+        },
+        {
+          "cost": 0,
+          "rank": 5,
+          "level_req": 58,
+          "effect_value": 100
+        }
+      ],
+      "_tuning": [
+        "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
+      ]
     }
   ]
 }

@@ -4,7 +4,7 @@
     PYTHONPATH=. python3 tools/qa_long_party_buffs.py
 
 Kyle, 17 Nov 2026 (tools/build_long_party_buffs.py): "Each gets one" and "Real mp5, sized by level".
-  1. each of the eight classes that had none now has a thirty-minute buff on the party
+  1. each of the thirteen classes that had none now has a thirty-minute buff on the party
   2. no class buff gives "maximum mana %" any more (Wisdom, Mana Spring, Water Shield are mp5)
   3. every class with a healing spec gives its party mana: mp5, Spirit or Intellect, on a long party buff
   4. a long buff's mp5 grows rank to rank and sits at about a geared caster's casting Spirit regen at its level
@@ -55,7 +55,8 @@ def main():
                 if a.buff_scope == "raid" and a.target_type in ("party", "raid")]
 
     # 1
-    for cls in ("warrior", "hunter", "rogue", "warlock", "felsworn", "templar", "witch_doctor", "witch_hunter"):
+    for cls in ("warrior", "hunter", "rogue", "warlock", "felsworn", "templar", "witch_doctor", "witch_hunter",
+                "bloodmage", "guardian", "knight_of_xoroth", "necromancer", "ranger"):
         lp = long_party(cls)
         check(bool(lp), f"{cls} has a long party buff ({', '.join(a.name for _e, a in lp) or 'none'})")
     # 2

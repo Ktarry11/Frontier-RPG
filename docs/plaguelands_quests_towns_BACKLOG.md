@@ -190,8 +190,8 @@ Lashings and Jaedenar.
   - Wisdom, Mana Spring and Water Shield give mp5.
   - Every healer class can give its party mana.
   - See "Long party buffs and mp5" in docs/support_pass.md.
-- Open, for Kyle: five more classes have party buffs that only last a fight (Bloodmage, Guardian, Knight of Xoroth,
-  Necromancer, Ranger).
+- **Done, 17 Nov 2026 afternoon** (Kyle: "Make the classes get a 30min buff"): Bloodmage, Guardian, Knight of
+  Xoroth, Necromancer and Ranger got one too. Every class now has a thirty-minute party buff.
 
 Kyle: "a lot of buffs look like this? It says 12 but it gives 29 spell power. Also we need to revamp ALL classes now
 that we fixed up spells and have actual mp5 elements in the game... ensure that some things are put properly like

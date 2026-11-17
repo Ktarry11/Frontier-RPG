@@ -157,6 +157,15 @@ checked by `tools/qa_long_party_buffs.py`.
 | Witch Doctor | Spirit Fetish | Spirit and mp5 |
 | Witch Hunter | Hunter's Ward | Shadow resistance, 12 -> 22 like the resistance totems |
 
-**Still with no long party buff:** five classes. They are Bloodmage, Guardian, Knight of Xoroth, Necromancer and
-Ranger. Each has party buffs, but only in-fight ones (Guardian's four auras, Necromancer's three, Ranger's horns).
-The 16 Nov count of "eight" missed them. That is for Kyle to decide.
+**The five more** (Kyle, 17 Nov 2026 afternoon: "Make the classes get a 30min buff. Most classes should have one."),
+all from 20, ranked to 58, with the in-fight buffs left as they were:
+
+| Class | Buff | Gives (20 -> 58) |
+|---|---|---|
+| Bloodmage | Bloodbond | Stamina 12 -> 20 |
+| Guardian | Marching Song | Strength 7 -> 11 and Agility 9 -> 17 |
+| Knight of Xoroth | Hellfire Ward | Fire resistance 12 -> 22 |
+| Necromancer | Grave Wisdom | Intellect 12 -> 20 |
+| Ranger | Farstrider's Mark | Agility 9 -> 17 |
+
+Every class now brings a thirty-minute party buff. `qa_long_party_buffs` holds all thirteen that got one.

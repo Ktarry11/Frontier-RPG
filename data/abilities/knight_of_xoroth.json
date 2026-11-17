@@ -1407,6 +1407,56 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.49x steeper than it, biggest single-rank jump 1.19x); overall size kept. tools/fix_rank_lines.py"
       ]
+    },
+    {
+      "ability_id": "knight_of_xoroth_hellfire_ward",
+      "name": "Hellfire Ward",
+      "resource_type": "rage",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "fire_resistance": 12
+      },
+      "description": "Wards your party with Xoroth's own fire: increases their Fire Resistance for thirty minutes.",
+      "target_type": "party",
+      "icon_id": null,
+      "buff_scope": "raid",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 0,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 30,
+          "cost": 0,
+          "effect_value": 121
+        },
+        {
+          "rank": 3,
+          "level_req": 40,
+          "cost": 0,
+          "effect_value": 142
+        },
+        {
+          "rank": 4,
+          "level_req": 50,
+          "cost": 0,
+          "effect_value": 163
+        },
+        {
+          "rank": 5,
+          "level_req": 58,
+          "cost": 0,
+          "effect_value": 184
+        }
+      ],
+      "_tuning": [
+        "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
+      ]
     }
   ]
 }

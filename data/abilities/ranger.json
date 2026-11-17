@@ -1785,6 +1785,56 @@
       "_source": "CoA: 'Command Aura's shared bonus damage', 'causing allied players to deal 35% ranged AP additional damage when they deal direct damage'. An on-hit rider on every ally is not expressible; a party attack power window is. attack_power_pct is percentage POINTS.",
       "target_type": "party",
       "buff_scope": "combat"
+    },
+    {
+      "ability_id": "ranger_farstriders_mark",
+      "name": "Farstrider's Mark",
+      "resource_type": "archery_points",
+      "cooldown": 0,
+      "effect_type": "buff",
+      "duration": 0,
+      "stat_mods": {
+        "agility": 3
+      },
+      "description": "Marks your party with the Farstriders' sign: increases their Agility for thirty minutes.",
+      "target_type": "party",
+      "icon_id": null,
+      "buff_scope": "raid",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 0,
+          "effect_value": 33
+        },
+        {
+          "cost": 0,
+          "rank": 2,
+          "level_req": 30,
+          "effect_value": 50
+        },
+        {
+          "cost": 0,
+          "rank": 3,
+          "level_req": 40,
+          "effect_value": 66
+        },
+        {
+          "cost": 0,
+          "rank": 4,
+          "level_req": 50,
+          "effect_value": 83
+        },
+        {
+          "cost": 0,
+          "rank": 5,
+          "level_req": 58,
+          "effect_value": 100
+        }
+      ],
+      "_tuning": [
+        "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
+      ]
     }
   ]
 }
