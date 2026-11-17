@@ -2575,30 +2575,6 @@
       "price": 480000,
       "faction": "timbermaw_hold"
     },
-    "tm_totemcarved_vambraces": {
-      "name": "Totem-Carved Vambraces",
-      "slot": "wrist",
-      "item_level": 67,
-      "rarity": "rare",
-      "armor_type": "mail",
-      "weapon_type": null,
-      "stat_template": "agi_int_hybrid",
-      "primary_stats": {
-        "agility": 14,
-        "intellect": 11
-      },
-      "secondary_stats": {
-        "attack_power": 41
-      },
-      "armor_value": 243,
-      "required_level": 60,
-      "sell_price": 57500,
-      "flavor_text": "Mail bracers with a bear's head carved into the wooden backing of each one.",
-      "identity": "hunter",
-      "icon_id": "gear_inv_bracer_18",
-      "price": 460000,
-      "faction": "timbermaw_hold"
-    },
     "tm_mossmane_signet": {
       "name": "Mossmane Signet",
       "slot": "ring",
@@ -2705,6 +2681,30 @@
       "attack_speed": 0.0,
       "block_value": 0,
       "price": 2750000,
+      "faction": "timbermaw_hold"
+    },
+    "tm_totemcarved_bracers": {
+      "name": "Totem-Carved Bracers",
+      "slot": "wrist",
+      "item_level": 67,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 16,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "attack_power": 41
+      },
+      "armor_value": 152,
+      "required_level": 60,
+      "sell_price": 57500,
+      "flavor_text": "Thick hide bracers with a bear's head carved into the wooden backing of each one.",
+      "identity": "strength",
+      "icon_id": "gear_inv_bracer_18",
+      "price": 460000,
       "faction": "timbermaw_hold"
     }
   }

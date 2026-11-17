@@ -142,8 +142,10 @@ REVERED = [
      "Worn soft by a lot of mornings walking the tunnel down to Felwood."),
     ("tm_featherkeepers_cord", "Featherkeeper's Cord", "waist", "armor", "cloth", "caster", 48,
      "A belt of braided hide with one clean feather tied at the knot, for every one that's burned."),
-    ("tm_totemcarved_vambraces", "Totem-Carved Vambraces", "wrist", "armor", "mail", "hunter", 46,
-     "Mail bracers with a bear's head carved into the wooden backing of each one."),
+    # leather and Strength: until this piece no rep shelf had one, which left Barbarian's two strength specs with only
+    # weapons and rings (tools/audit_rep_coverage.py, 17 Nov 2026)
+    ("tm_totemcarved_bracers", "Totem-Carved Bracers", "wrist", "armor", "leather", "strength", 46,
+     "Thick hide bracers with a bear's head carved into the wooden backing of each one."),
     ("tm_mossmane_signet", "Mossmane Signet", "ring", "armor", None, "strength_crit", 55,
      "Elder Haldor's own family mark, a bear's paw pressed into dark amber."),
 ]

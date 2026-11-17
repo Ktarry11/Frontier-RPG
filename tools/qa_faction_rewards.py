@@ -73,8 +73,19 @@ def main():
             scr = VendorScreen(SM(), vm.vendors[vid])
         return {getattr(i, "_sells_id", None) for i in scr.vendor_inventory}
 
+    # EVERY faction with a shelf, not only the nine build_faction_rewards.py wrote (Kyle, 17 Nov 2026: "Ensuring
+    # variation in all rep vendors?"): the Pale Flame and the Argent Dawn (build_plaguelands_rewards.py) and the
+    # Timbermaw (build_timbermaw_hold.py) are held to the same rules
+    import build_plaguelands_rewards as PR
+    import build_timbermaw_hold as TM
+    QMS = {**B.QM, **PR.QM, TM.FID: TM.QM_ID}
+    REVERED = {**B.REVERED, **PR.REVERED, TM.FID: TM.REVERED}
+    EXALTED = {**B.EXALTED, **PR.EXALTED, TM.FID: TM.EXALTED}
+    EXALTED_RECIPES = {**B.EXALTED_RECIPES, **PR.EXALTED_RECIPES, TM.FID: TM.EXALTED_RECIPES}
+    shelved = {fid for fid, f in fd.items() if not f.get("secret") and (f.get("rewards") or {}).get("vendor_stock")}
+    check(shelved <= set(QMS), f"factions with a shelf this check doesn't know: {sorted(shelved - set(QMS))}")
     totals = {"blue": 0, "epic": 0, "recipes": 0}
-    for fid, qm in B.QM.items():
+    for fid, qm in QMS.items():
         check(qm in vm.vendors, f"{fid}: quartermaster {qm} doesn't exist")
         if qm not in vm.vendors:
             continue
@@ -142,9 +153,9 @@ def main():
             "tide_healer": "healer", "spirit_healer": "healer", "plate_healer": "healer"}
     SCHOOL = {"fire", "frost", "nature", "shadow", "arcane", "holy"}
     one_school = []
-    for fid in B.QM:
-        rows = [(r[1], r[5]) for r in B.REVERED[fid] + B.EXALTED[fid]] + \
-               [(r[2], r[6]) for r in B.EXALTED_RECIPES[fid]]
+    for fid in QMS:
+        rows = [(r[1], r[5]) for r in REVERED[fid] + EXALTED[fid]] + \
+               [(r[2], r[6]) for r in EXALTED_RECIPES[fid]]
         roles = set()
         for name, ident in rows:
             w = C.IDENTITIES[ident][0]
@@ -161,7 +172,7 @@ def main():
     check(len(one_school) <= 3, f"{len(one_school)} single-school pieces ({', '.join(one_school)}): an exception, "
                                 f"not a rule")
 
-    print(f"9 factions: {totals['blue']} revered blues, {totals['epic']} exalted epics, {totals['recipes']} patterns "
+    print(f"{len(QMS)} factions: {totals['blue']} revered blues, {totals['epic']} exalted epics, {totals['recipes']} patterns "
           f"and recipes")
     if bad:
         print(f"FAIL: {len(bad)}")
