@@ -123,6 +123,12 @@ humans backlog [72] asked for.
 Kyle: "for mounts we need a way to select the mount - as when we buy them it just replaces the old mount with the
 new ones". Keep every mount you've bought (saved with the character), and a picker to choose which one you ride.
 
+**Done, 17 Nov 2026.** Every mount bought was already kept (TravelManager.owned_mounts, saved); what was missing was a
+way to choose. Clicking the Mount button opens a picker when you own more than one: every mount, the riding skill it
+needs, its blurb, the one R summons marked, and Dismount while riding. Picking rides it and makes it R's. In a cave
+the pick is kept and you stay on foot. Speed comes from your riding skill, not the animal, so the choice is how you
+look. `tools/qa_mount_picker.py`.
+
 ## Plaguelands art (sheets 4 to 8, landed 16 Nov)
 Sliced: the dungeon props, the dungeon floors, the creatures, the Scarlet and Pale Flame roster and the dungeon
 bosses. They replace the borrowed art on the zone's creatures and on its people (Rory and the Pale Flame, the

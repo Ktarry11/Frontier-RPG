@@ -140,6 +140,26 @@ class TravelManager:
         if cur is None or mount["tier"] >= cur["tier"]:
             self.active_mount = mount["id"]
 
+    def owned(self):
+        """Every mount you've bought, best tier first (the mount picker's rows)."""
+        rows = [m for m in (self.get_mount(i) for i in self.owned_mounts) if m]
+        return sorted(rows, key=lambda m: (-m["tier"], m["name"]))
+
+    def choose_mount(self, mount_id, in_cave):
+        """Kyle, 16 Nov 2026: "for mounts we need a way to select the mount - as when we buy them it just replaces
+        the old mount with the new ones". Pick one you own to ride: it becomes the one R summons, and you're on it
+        now if you can ride here. Returns (mounted_now, message)."""
+        m = self.get_mount(mount_id)
+        if m is None or mount_id not in self.owned_mounts:
+            return self.mounted, "You don't own that mount."
+        self.active_mount = mount_id
+        reason = self.mount_block_reason(in_cave)
+        if reason:
+            self.mounted = False
+            return False, f"{m['name']} will be the one you ride. {reason}"
+        self.mounted = True
+        return True, f"You mount your {m['name']}."
+
     def current_mount(self):
         return self.get_mount(self.active_mount) if self.active_mount else None
 

@@ -90,9 +90,25 @@ class OverworldScreen(BaseScreen):
         self.rest_picker_rects = []       # [(rect, consumable_id or None for "best")]
         self.rest_picker_close = None
         self.buff_chip_rects = []         # [(rect, slot, consumable, seconds_left)] for hover
+        # THE MOUNT PICKER (Kyle, 16 Nov 2026: "for mounts we need a way to select the mount - as when we buy them it
+        # just replaces the old mount with the new ones"). Clicking the Mount button opens it when you own more than
+        # one; R still rides whichever was picked last.
+        self.mount_picker = False
+        self.mount_picker_rects = []      # [(rect, mount id or None for "dismount")]
     
     def handle_event(self, event):
         """Handle input."""
+        if self.mount_picker:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                for rect, mid in self.mount_picker_rects:
+                    if rect.collidepoint(event.pos):
+                        self._pick_mount(mid)
+                        break
+                else:
+                    self.mount_picker = False
+            elif event.type == pygame.KEYDOWN and event.key in (pygame.K_ESCAPE, pygame.K_r):
+                self.mount_picker = False
+            return
         # The food picker takes over input while it's open, the way the teleport menu does.
         if self.rest_picker:
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -376,7 +392,12 @@ class OverworldScreen(BaseScreen):
                 self.encounters_enabled = not self.encounters_enabled
                 return
             if getattr(self, "mount_button_rect", None) and self.mount_button_rect.collidepoint(mouse_pos):
-                self._toggle_mount()
+                from world.travel_manager import get_travel_manager
+                if len(get_travel_manager().owned()) > 1:
+                    self._release_movement_keys()
+                    self.mount_picker = True
+                else:
+                    self._toggle_mount()
                 return
             if getattr(self, "hearth_button_rect", None) and self.hearth_button_rect.collidepoint(mouse_pos):
                 self._use_hearth()
@@ -403,6 +424,66 @@ class OverworldScreen(BaseScreen):
         from world.travel_manager import get_travel_manager
         mounted, message = get_travel_manager().toggle_mount(self.zone_manager.is_in_cave())
         self._notify(message, (140, 220, 160) if mounted or message == "You dismount." else (240, 140, 140))
+
+    def _pick_mount(self, mount_id):
+        from world.travel_manager import get_travel_manager
+        travel = get_travel_manager()
+        self.mount_picker = False
+        if mount_id is None:
+            if travel.mounted:
+                travel.force_dismount()
+                self._notify("You dismount.", (140, 220, 160))
+            return
+        mounted, message = travel.choose_mount(mount_id, self.zone_manager.is_in_cave())
+        self._notify(message, (140, 220, 160) if mounted else (240, 200, 140))
+
+    def _render_mount_picker(self, screen):
+        """Every mount you own: name, how fast it is, what it is. The one R rides is marked. Click to ride it."""
+        from world.travel_manager import get_travel_manager
+        travel = get_travel_manager()
+        rows = travel.owned()
+        overlay = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
+        overlay.fill((0, 0, 0, 150))
+        screen.blit(overlay, (0, 0))
+        row_h, w = 52, 560
+        items = rows + ([None] if travel.mounted else [])
+        h = min(64 + row_h * len(items) + 16, SCREEN_HEIGHT - 80)
+        panel = pygame.Rect((SCREEN_WIDTH - w) // 2, max(40, (SCREEN_HEIGHT - h) // 2), w, h)
+        pygame.draw.rect(screen, (24, 26, 34), panel, border_radius=10)
+        pygame.draw.rect(screen, (150, 130, 80), panel, 2, border_radius=10)
+        self.renderer.draw_text(screen, "Ride: pick what R summons", (panel.x + 18, panel.y + 14),
+                                color=(235, 225, 170), size="large")
+        self.mount_picker_rects = []
+        mouse = pygame.mouse.get_pos()
+        y = panel.y + 56
+        for m in items:
+            if y + row_h > panel.bottom - 8:
+                break
+            r = pygame.Rect(panel.x + 12, y, w - 24, row_h - 6)
+            picked = m is not None and m["id"] == travel.active_mount
+            bg = (52, 60, 44) if picked else (44, 48, 60) if r.collidepoint(mouse) else (34, 37, 47)
+            pygame.draw.rect(screen, bg, r, border_radius=6)
+            if picked:
+                pygame.draw.rect(screen, (200, 180, 90), r, 2, border_radius=6)
+            if m is None:
+                self.renderer.draw_text(screen, "Dismount", (r.x + 14, r.y + 14), color=(220, 220, 230))
+                self.mount_picker_rects.append((r, None))
+            else:
+                # speed comes from your riding skill, not the animal (world/travel_manager.speed_mult), so a mount
+                # is a look: the tag says which riding skill it needed
+                skill = travel.riding_skill(m["tier"]) or {}
+                tag = skill.get("name", f"Tier {m['tier']}").replace(" Riding", "") + " mount"
+                self.renderer.draw_text(screen, m["name"] + ("  (riding)" if picked and travel.mounted else ""),
+                                        (r.x + 14, r.y + 6), color=(230, 230, 235))
+                self.renderer.draw_text(screen, tag, (r.right - 14 - self.renderer._get_font(font_size=14).size(tag)[0],
+                                                      r.y + 8), font_size=14, color=(200, 200, 160))
+                blurb = m.get("blurb", "")
+                font = self.renderer._get_font(font_size=14)
+                while blurb and font.size(blurb)[0] > r.width - 28:
+                    blurb = blurb[:-4] + "..."
+                self.renderer.draw_text(screen, blurb, (r.x + 14, r.y + 26), font_size=14, color=(160, 165, 180))
+                self.mount_picker_rects.append((r, m["id"]))
+            y += row_h
 
     def _use_hearth(self):
         """Teleport to the innkeeper bind. Works anywhere off cooldown, caves and dungeons too."""
@@ -1490,6 +1571,8 @@ class OverworldScreen(BaseScreen):
             self._render_teleport_menu(screen)
         if self.rest_picker:
             self._render_rest_picker(screen)
+        if self.mount_picker:
+            self._render_mount_picker(screen)
 
         # Last, so nothing in the HUD draws over it.
         self._render_banter(screen)
