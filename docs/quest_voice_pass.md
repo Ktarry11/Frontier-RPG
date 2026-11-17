@@ -48,23 +48,39 @@ The story beats were kept. Lore rates afterwards: South 30%, Central 33%, North 
 - **Turn-in speakers.** `tools/dump_quests_for_rewrite.py` reports the hand-in NPC wrongly. The truth is
   `turn_in_npc_id` in the quest file; check it before deciding who speaks the turn-in.
 
-## League table (findings per quest, 17 Nov 2026, after Stranglethorn)
+## World-wide pass (17 Nov 2026)
 
-Worst first:
+Kyle: "audit and fix the quests with the voice and tone we want since we have the proper style now".
 
-| Zone | Findings per quest |
-|---|---|
-| Crossroads | 6.0 |
-| Southern Needles | 4.8 |
-| Southern Barrens | 4.7 |
-| Undercity | 4.7 |
-| Echo Isles | 4.6 |
-| Orgrimmar | 4.5 |
-| Durotar | 4.5 |
-| Sepulcher | 4.5 |
-| Central Barrens hub | 4.3 |
-| Tanaris | 4.3 |
-| Shimmering Flats | 4.2 |
+Every quest file now sits at zero: 50 files, 1,574 quests, 0 voice findings, 0 refrains, 0 prose tics. That
+includes the dungeons and the hidden zones (Locations not described). All talk-topic files pass too.
 
-Ashenvale scores 3.6. Kyle said its writing is good and to leave it alone (10 Nov), so the count alone doesn't
-decide. Read a zone before rewriting it.
+Text lives in `tools/voice/<stem>.py` as `VOICE = {qid: (D, A, T)}`, with `None` keeping the live field.
+`PYTHONPATH=. python3 tools/build_zone_voice.py <stem> --write` builds it into `zzzzzzzz_voice_<stem>.json`, the
+last overlay, and `tools/mark_voice_done.py <stem>` locks it in. The build checks the merged text of every qid
+listed, None fields included, and refuses to write on any problem.
+
+### The bars now enforced
+
+- **Voice** (`audit_quest_voice`): no "not X, it is Y", contractions where speech would use them, no " - "
+  dashes, no fragments under three words, no aphorisms or filler, no thanks-only turn-ins, 760 characters max
+  per field, ASCII only.
+- **Refrains**: a zone fails if "thanks/thank you", "friend", "stranger", "outsider" or "take your pick" shows up
+  in max(3, quests/5) or more of its quests.
+- **Prose tics** (`tools/audit_quest_prose.py`): a number word matching an objective count, the aphorism
+  stems ("which tells you", "I know how that sounds", "there is a difference"...), hand-ins that close on
+  "Take this." / "Thank you." / "You've earned it.", [stage directions], and weary lines ("I no longer",
+  "I have stopped").
+
+### Traps from the world pass
+
+- New contractions make new fragments ("Right, then.", "It's quiet."). Join them into a real clause.
+- Uncontracted phrases hide inside longer ones ("lighting it is somebody's job"). Reword rather than force.
+- Check each giver's gender in the NPC data before writing pronouns. Several were wrong in the old text.
+- Forsaken zones put the speech in D and a short parting line in A. Most others narrate in D and speak in A.
+
+### Still open
+
+- Plaguelands direction faults.
+- Sanu's gender reads differently between quests.
+- hbe_impossible_yetis names Apothecary Lydon while the giver is Wren.
