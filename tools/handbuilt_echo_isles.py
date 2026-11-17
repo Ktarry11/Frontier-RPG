@@ -295,7 +295,9 @@ NPC_POSITIONS = {
     "echo_isles_troll_elder": (125, 54),
     # Hollow isle landing / Grotto isle
     "echo_isles_goblin_salvager": (130, 105),
-    "echo_isles_shaman": (36, 87),
+    # Spiritwalker Kesh stands with the troll village since 17 Nov 2026 (quest hubs): a spiritwalker keeps the
+    # elder and the healer company, and sends you west to the shrine rather than standing at it.
+    "echo_isles_shaman": (122, 57),
     "echo_isles_young_diver": (32, 93),
     # Tidal Flats cay
     "echo_isles_shipwreck_bones": (109, 129),

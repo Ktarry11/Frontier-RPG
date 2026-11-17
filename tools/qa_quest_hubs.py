@@ -87,12 +87,17 @@ REGIONS = {
     # Tanaris: Steamwheedle Port, the Fourth Peg and Glittervein.
     "Tanaris": (["northern_tanaris", "steamwheedle_port", "the_drownbell", "the_lashings", "the_abyssal_sands",
                  "glittervein", "the_cistern", "the_mother_vein"], ["steamwheedle_port", "fourth_peg", "glittervein"], {}),
+    # The Aspen Wilderness: Longstand Camp in the Gold Stands. Its scouts and runners report back to camp (17 Nov
+    # 2026); the lift keeper, the rope master and the cave watch stay at the spots that are their whole job.
+    "Aspen": (["the_aspen_wilderness"], [], {"the_aspen_wilderness": [(93, 81, 10)]}),
+    # The Echo Isles: the Darkspear camp and the troll village. The reef wrangler and the young diver stay out.
+    "Echo Isles": (["echo_isles"], [], {"echo_isles": [(80, 50, 9), (122, 57, 9)]}),
 }
 #: the share of a region's quests that must come from town. Never lower one.
 FLOORS = {"Durotar": 0.70, "Tirisfal": 0.70, "Silverpine": 0.70, "Barrens": 0.70, "Hillsbrad": 0.70,
           "Arathi": 0.70, "Felwood": 0.70, "Tempest": 0.70, "Underdark": 0.70,
           "Fenris Isle": 0.70, "Stranglethorn": 0.70, "Stonetalon": 0.70, "Ashenvale": 0.70, "Black Strand": 0.70,
-          "Plaguelands": 0.70, "Thousand Needles": 0.70, "Tanaris": 0.70}
+          "Plaguelands": 0.70, "Thousand Needles": 0.70, "Tanaris": 0.70, "Aspen": 0.70, "Echo Isles": 0.70}
 
 
 def norm(s):

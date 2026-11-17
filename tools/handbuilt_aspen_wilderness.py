@@ -504,12 +504,9 @@ COBBLE = []
 #: through it in one direction and anybody standing off the route is somebody they never meet.
 NPC_POSITIONS = {
     # the high basin: the gate, the Lift, the Seam
-    "asp_gate_scout": (108, 12),
     "asp_lift_keeper": (100, 16),
-    "asp_seam_watcher": (110, 21),
     # the rim: the people whose whole trade is the drop
     "asp_rope_master": (100, 38),
-    "asp_rim_runner": (104, 46),
     "asp_cave_watch": (144, 54),          # near the cave mouth at (145, 48)  # moved off shallow water 7 Nov
     # Longstand Camp, in the Gold Stands
     "asp_camp_elder": (91, 78),  # moved off shallow water 7 Nov
@@ -517,9 +514,15 @@ NPC_POSITIONS = {
     "asp_camp_hunter": (85, 79),
     "asp_camp_cook": (90, 82),
     "asp_camp_smith": (94, 84),
+    # Scouts and runners report back to camp (quest hubs, 17 Nov 2026: Kyle, "keep moving people from outside world
+    # and into hubs (within a reasonable amount)"). The lift keeper, the rope master and the cave watch stay out:
+    # their job is the spot they stand on.
+    "asp_seam_watcher": (96, 76),
+    "asp_rim_runner": (99, 79),
+    "asp_gate_scout": (99, 83),
+    "asp_meadow_scout": (91, 88),
+    "asp_bench_warden": (95, 88),
     # downslope
-    "asp_meadow_scout": (100, 118),
-    "asp_bench_warden": (104, 157),  # moved off shallow water 7 Nov
 }
 CHESTS = [(36, 46), (176, 44), (24, 120), (168, 96), (104, 158), (90, 82)]
 #: The Pass tile, carved and marked but NOT registered - Southern Needles does not exist yet and an
