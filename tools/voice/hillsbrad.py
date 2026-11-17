@@ -264,9 +264,9 @@ VOICE = {
         "These tallies are in different hands, all from one ledger, and not one of those hands is Syndicate.\n\nThey were counting for somebody else. I do this work for a living, and I didn't know anyone else was doing it on my road.",
     ),
     "hbe_impossible_yetis": (
-        "Apothecary Lydon has given eleven years to Alterac yeti and is the authority on them, largely because nobody competed for the position. A caravan master came through Tarren Mill with a story about yeti on the far side of the world, in a desert province of Kalimdor, and Lydon hasn't been able to put it down. Yeti don't cross oceans. Yeti don't cross rivers. The caravan master was extremely sure.",
+        "Field Apothecary Wren has given eleven years to Alterac yeti and is the authority on them, largely because nobody competed for the position. A caravan master came through Tarren Mill with a story about yeti on the far side of the world, in a desert province of Kalimdor, and Wren hasn't been able to put it down. Yeti don't cross oceans. Yeti don't cross rivers. The caravan master was extremely sure.",
         "I'm not asking you to believe it. I'm asking you to carry this across an ocean, put it in the hand of whoever is senior at that logging camp, and let them tell me I've wasted my time and theirs. It's sealed, so don't open it. The questions inside are embarrassing, and I'd like them answered before they're laughed at.",
-        "He writes a very careful letter for a man who's already made up his mind. Tell him yes. Tell him there are yeti in this mountain, that they didn't walk here, and that all of us would sleep better if his impossibility had held.",
+        "She writes a very careful letter for a woman who's already made up her mind. Tell her yes. Tell her there are yeti in this mountain, that they didn't walk here, and that all of us would sleep better if her impossibility had held.",
     ),
     "arw_through_the_wall": (
         None,

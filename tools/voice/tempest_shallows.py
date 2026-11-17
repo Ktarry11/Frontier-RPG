@@ -66,4 +66,9 @@ VOICE = {
         None,
         "It's all here, every leaf.\n\nEvery family on this wharf swore to the Ashholds, and now I can show it. I'll take this to the Underwriter tomorrow.",
     ),
+    "tmp_prospecting_by_gizzard": (
+        None,
+        "Nobody's prospected this island since the gate opened three years ago, and I want to find the truesilver without digging up half of it.\n\nBasilisks swallow stones to grind their food, and they pick them up wherever they walk. If there's truesilver in a basilisk's gizzard, there's a seam somewhere on its route.\n\nThe Rubble Basilisks are thickest round Khaz Varun's Gate, south-east of here. Bring me the stones from their gizzards.",
+        None,
+    ),
 }

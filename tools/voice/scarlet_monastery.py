@@ -16,4 +16,9 @@ VOICE = {
         None,
         "I felt something loosen, I think, a long way off.\n\nThe dead there aren't ours, but the dead are the dead.",
     ),
+    "sm_a_book_of_names": (
+        None,
+        "Take the road east into Eastern Tirisfal for the Monastery. Mercer keeps to the Closed Stacks, off the long hall in the Library. She'll shut your casters down if she can, so bring someone who hits things. The ledger doesn't leave her desk.",
+        None,
+    ),
 }

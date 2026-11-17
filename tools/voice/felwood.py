@@ -13,7 +13,7 @@ VOICE = {
     ),
     "fw_honey_for_the_lodge": (
         None,
-        None,
+        "The grizzlies have found our honey trees, and they've decided they like us.\n\nThey don't like us. They like the honey. Every Old-Growth Grizzly in the forest has been tearing open our hollow trees, and the lodge is running short. A furbolg without honey in winter is a sad thing to see, and the ones who came through from your world eat it faster than we do.\n\nThe grizzlies come down out of Shatter Scar Vale, north of the Sanctuary. Take back what they've stolen. The bears will live, and so will we.",
         "This will see the lodge through the cold months, and there's enough for the volunteers' kitchen too.\n\nLuis says our honey's the best he's had. I've decided to believe him. Take this from the lodge.",
     ),
     "fw_catalogue_of_the_regrowth": (
@@ -55,5 +55,10 @@ VOICE = {
         None,
         None,
         "He's free now. I felt it the moment he went.\n\nThe forest has one more guardian resting now, and one less weapon in the Council's hands. That was a kindness, and a hard one.",
+    ),
+    "fw_hides_for_trading": (
+        None,
+        "Burlrock trades with everybody, and everybody wants furs for the winter.\n\nThe Greywood Nightsabers and Timberline Wolves of the open forest have the best coats in the valley. Burlrock can't hunt, because he's too fond of talking, so he's asked me to ask you.\n\nThey're all through South Felwood, west of the Sanctuary. Bring the pelts back to me and I'll see they get to him.",
+        None,
     ),
 }
