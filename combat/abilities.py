@@ -1659,6 +1659,14 @@ class Ability:
         is_crit = getattr(self, "always_crits", False) or random.uniform(0, 100) < crit_chance
         if not is_crit:
             return False, 1.0
+        if school == "healing":
+            # A HEAL CRITS FOR 1.5x, as Classic's do (the healing formula, combat/heal_formula.py). Damage keeps 2.0x and
+            # its crit-damage talents; on a heal those stacked outside the +25% spec cap (a Restoration Shaman's
+            # Healing Wave crit for 1.9x a normal one).
+            from combat import heal_formula as _hf
+            from combat import ability_scaling as _as
+            if _as.USE_HEAL_FORMULA and _hf.enabled():
+                return True, _hf.HEAL_CRIT_MULTIPLIER
         return True, self.CRIT_DAMAGE_MULTIPLIER + self._crit_damage_bonus(caster, school)
 
     def _school_damage_bonus(self, caster):
@@ -2300,6 +2308,21 @@ class Ability:
         # damage specs "within ~10%" - WoW keeps its specs in line the same way).
         from combat.ability_scaling import spec_aura
         aura = spec_aura(caster, "healing" if school == "healing" else "damage")
+        if school == "healing":
+            # SPEC AND TALENTS TOGETHER ARE CAPPED (the healing formula, combat/heal_formula.py; Kyle 16 Nov 2026:
+            # "2 is fine with 40 and 25%"). Measured before: talents and the aura multiplied a heal by x1.04 to x4.6
+            # (Tinker's Zap x4.6), so a specced heal was anything from a bare one to five of them. Every healing
+            # talent, the low-health bonuses and the spec aura now add up to at most +25%. A temporary buff
+            # (healing_done_pct: a cooldown, a blessing) sits outside the cap, as a cooldown should, and so does the
+            # spec aura, which balances one healer's kit against another's rather than adding power.
+            from combat import heal_formula as _hf
+            from combat import ability_scaling as _as
+            spec = (1.0 + per_ability) * (1.0 + global_key)
+            if _as.USE_HEAL_FORMULA and _hf.enabled():
+                spec = min(_hf.SPEC_CAP, spec)
+            self._last_heal_spec = spec           # the echo room reads it (open_echo_room)
+            # the aura balances healers' kits against each other, so it sits outside the cap (ability_scaling)
+            return spec * aura * (1.0 + buff_pct / 100.0)
         return (1.0 + per_ability) * (1.0 + global_key) * (1.0 + buff_pct / 100.0) * aura
 
     def is_available(self):
@@ -2684,6 +2707,15 @@ class Ability:
             # the cast rather than a confirmed hit; for a self-buff or a heal
             # it is the caster or the ally, which is the correct recipient
             # there too.
+            # A HEAL'S ECHOES SHARE ITS +25% (combat/heal_formula.open_echo_room): what this cast healed, and how
+            # much room its talents have left under the cap, before any proc it sets off
+            from combat import heal_formula as _hf
+            from combat import ability_scaling as _as
+            _healed = sum(a for _r, a, dmg in (getattr(self, "_last_threat_events", None) or []) if not dmg and a > 0)
+            if (_healed and self.effect_type in ("heal", "hot") and _as.USE_HEAL_FORMULA and _hf.enabled()):
+                _hf.open_echo_room(caster, _healed, getattr(self, "_last_heal_spec", 1.0))
+            else:
+                _hf.close_echo_room(caster)
             proc_msgs = caster.fire_proc_trigger(
                 ProcTrigger.ON_CAST,
                 {"amount": 0, "target": target, "ability_id": self.ability_id},
@@ -2738,6 +2770,8 @@ class Ability:
                         ProcTrigger.ON_KILL,
                         {"amount": evt_amount, "target": recipient,
                          "ability_id": self.ability_id}, engine=engine)
+
+            _hf.close_echo_room(caster)
 
             # Drain any ON_DAMAGE_TAKEN proc messages the recipient(s)
             # queued during take_damage() above (Character has no direct

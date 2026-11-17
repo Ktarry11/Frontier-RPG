@@ -630,6 +630,25 @@ class MonsterAbility:
             self.turns_remaining -= 1
 
 
+_BOSS_AOE = None
+
+
+def boss_aoe(name):
+    """Party-wide damage a dungeon boss from 40 carries on top of its kit (data/balance/boss_aoe.json, written by
+    tools/build_boss_aoe.py; Kyle, 16 Nov 2026: "more varied aoe damage bosses ... post lvl 40"). Kept out of the
+    kit file so a kit builder rewriting data/creatures/ability_kits.json can't drop it."""
+    global _BOSS_AOE
+    if _BOSS_AOE is None:
+        try:
+            import json as _json
+            from pathlib import Path as _Path
+            _BOSS_AOE = _json.loads((_Path(__file__).resolve().parent.parent / "data/balance/boss_aoe.json")
+                                    .read_text(encoding="utf-8")).get("bosses") or {}
+        except (OSError, ValueError):
+            _BOSS_AOE = {}
+    return list(_BOSS_AOE.get(name) or ())
+
+
 class Monster(StatusEffectMixin):
     """
     A creature/enemy with its own independent stat block.
@@ -758,7 +777,7 @@ class Monster(StatusEffectMixin):
                 f"Check data/creatures/ability_kits.json.")
 
         self.abilities = []
-        for entry in kits[self.kit_id]:
+        for entry in list(kits[self.kit_id]) + boss_aoe(name):
             # THE AUTHORED AMOUNT IS THE AMOUNT. Kyle, 2026-10-31: "this raptor just hit for
             # 1445... The attacks at high level are waaaaaaaaaaaaaaay overtuned jesus."
             #

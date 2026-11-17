@@ -87,8 +87,31 @@ def kind_of(monster):
     return "cave" if getattr(monster, "location_type", None) == "cave" else "open"
 
 
+_BOSS_DAMAGE = None
+
+
+def boss_damage(name):
+    """A boss's own damage factor, putting its average action on the healing formula's reference
+    (data/balance/boss_damage.json, tools/calibrate_boss_damage.py; Kyle 16 Nov 2026: "Yes that's fine to drop
+    bosses a bit to account for it"). 1.0 for a boss it hasn't measured, or with FRONTIER_BOSS_DAMAGE=off."""
+    global _BOSS_DAMAGE
+    if _BOSS_DAMAGE is None:
+        import os
+        if os.environ.get("FRONTIER_BOSS_DAMAGE", "").lower() == "off":
+            _BOSS_DAMAGE = {}
+        else:
+            try:
+                _BOSS_DAMAGE = json.loads((_PATH.parent / "boss_damage.json").read_text(encoding="utf-8")).get(
+                    "bosses") or {}
+            except (OSError, ValueError):
+                _BOSS_DAMAGE = {}
+    return float(_BOSS_DAMAGE.get(name, 1.0))
+
+
 def factor(monster, what):
     f = float((table().get(kind_of(monster)) or {}).get(what, 1.0))
+    if what == "damage" and getattr(monster, "is_boss", False):
+        f *= boss_damage(getattr(monster, "name", None))
     # THE FIRST TEN LEVELS (Kyle, 16 Nov 2026: "tone down the difficulty before lvl 10 by about 20% overall.
     # Any enemies below lvl 10 should deal 20% less damage and have 15% less HP"): on top of the row above,
     # whatever kind of creature it is.

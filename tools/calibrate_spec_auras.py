@@ -111,7 +111,7 @@ def main():
             if vals:
                 dpt[(spec, lv)] = statistics.mean(vals)
         print(f"  level {lv} measured", flush=True)
-    lo, hi = S.AURA_RANGE
+    lo, hi = S.HEAL_AURA_RANGE if args.kind == "healing" else S.AURA_RANGE
     table, clamped = {}, []
     for lv in levels:
         med = statistics.median([v for (s, l), v in dpt.items() if l == lv and s not in share])

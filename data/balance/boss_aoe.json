@@ -1,0 +1,1581 @@
+{
+ "_about": "Party-wide damage added to dungeon bosses from level 40, by name; read by entities/monster.py after the kit. Written by tools/build_boss_aoe.py.",
+ "from_level": 40,
+ "bosses": {
+  "Archivist Galford": [
+   {
+    "name": "Scorching Wave",
+    "kind": "damage",
+    "amount": 195,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "fire",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "Armsmaster Grell": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 85,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   }
+  ],
+  "Baroness Anastari": [
+   {
+    "name": "Creeping Dread",
+    "kind": "dot",
+    "amount": 85,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "shadow",
+    "is_aoe": true,
+    "dispel_type": "curse"
+   },
+   {
+    "name": "Withering Shriek",
+    "kind": "damage",
+    "amount": 195,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "shadow",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "Basalt Guardian Vok": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 81,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   }
+  ],
+  "Bosun Grell Tarpot": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 95,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   }
+  ],
+  "Brother Corwin Ashe": [
+   {
+    "name": "Searing Brand",
+    "kind": "dot",
+    "amount": 81,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "holy",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   },
+   {
+    "name": "Judgement",
+    "kind": "damage",
+    "amount": 185,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "holy",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "Cannon Master Willey": [
+   {
+    "name": "Lingering Embers",
+    "kind": "dot",
+    "amount": 85,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "fire",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   }
+  ],
+  "Captain Ardessa Rake": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 82,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   }
+  ],
+  "Captain Elric Stane": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 79,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   },
+   {
+    "name": "Mortal Sweep",
+    "kind": "damage",
+    "amount": 180,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "Chirurgeon Maeve Ostrowski": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 83,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   }
+  ],
+  "Darkmaster Gandling": [
+   {
+    "name": "Mana Burn Field",
+    "kind": "dot",
+    "amount": 88,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "arcane",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   }
+  ],
+  "Doctor Theolen Krastinov": [
+   {
+    "name": "Whirlwind",
+    "kind": "damage",
+    "amount": 331,
+    "cooldown": 4,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   },
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 85,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   },
+   {
+    "name": "Mortal Sweep",
+    "kind": "damage",
+    "amount": 195,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "Doomlord Kazrak": [
+   {
+    "name": "Lingering Embers",
+    "kind": "dot",
+    "amount": 77,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "fire",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   }
+  ],
+  "Drillmaster Osric Pell": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 88,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   }
+  ],
+  "Flame Oracle Ysmel": [
+   {
+    "name": "Lingering Embers",
+    "kind": "dot",
+    "amount": 83,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "fire",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   },
+   {
+    "name": "Scorching Wave",
+    "kind": "damage",
+    "amount": 190,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "fire",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "Flamespeaker Maud": [
+   {
+    "name": "Lingering Embers",
+    "kind": "dot",
+    "amount": 74,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "fire",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   }
+  ],
+  "Forge-Lord Darrok": [
+   {
+    "name": "Lingering Embers",
+    "kind": "dot",
+    "amount": 74,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "fire",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   }
+  ],
+  "Gatewarden Hrun": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 98,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   },
+   {
+    "name": "Mortal Sweep",
+    "kind": "damage",
+    "amount": 224,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "Glassmaw": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 67,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   }
+  ],
+  "Grand Crusader Victor Hale": [
+   {
+    "name": "Lingering Embers",
+    "kind": "dot",
+    "amount": 88,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "fire",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   },
+   {
+    "name": "Scorching Wave",
+    "kind": "damage",
+    "amount": 200,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "fire",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "Grimbark the Chained": [
+   {
+    "name": "Thunderclap",
+    "kind": "damage",
+    "amount": 297,
+    "cooldown": 4,
+    "mana_cost": 0,
+    "school": "nature",
+    "is_aoe": true
+   },
+   {
+    "name": "Poison Cloud",
+    "kind": "dot",
+    "amount": 77,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "nature",
+    "is_aoe": true,
+    "dispel_type": "poison"
+   }
+  ],
+  "Hearthsinger Forresten": [
+   {
+    "name": "Creeping Dread",
+    "kind": "dot",
+    "amount": 81,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "shadow",
+    "is_aoe": true,
+    "dispel_type": "curse"
+   }
+  ],
+  "High Clerist Hendrick": [
+   {
+    "name": "Searing Brand",
+    "kind": "dot",
+    "amount": 85,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "holy",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   },
+   {
+    "name": "Judgement",
+    "kind": "damage",
+    "amount": 195,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "holy",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "High General Abbendis": [
+   {
+    "name": "Searing Brand",
+    "kind": "dot",
+    "amount": 88,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "holy",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   }
+  ],
+  "High Inquisitor Aldric": [
+   {
+    "name": "Creeping Dread",
+    "kind": "dot",
+    "amount": 79,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "shadow",
+    "is_aoe": true,
+    "dispel_type": "curse"
+   }
+  ],
+  "High Inquisitor Whitemane": [
+   {
+    "name": "Searing Brand",
+    "kind": "dot",
+    "amount": 83,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "holy",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   },
+   {
+    "name": "Judgement",
+    "kind": "damage",
+    "amount": 190,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "holy",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "High Protector Lorik": [
+   {
+    "name": "Festering Plague",
+    "kind": "dot",
+    "amount": 85,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true,
+    "dispel_type": "disease"
+   }
+  ],
+  "High Protector Tarsen": [
+   {
+    "name": "Festering Plague",
+    "kind": "dot",
+    "amount": 83,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true,
+    "dispel_type": "disease"
+   }
+  ],
+  "Hive-Mother Ahn'thera": [
+   {
+    "name": "Poison Cloud",
+    "kind": "dot",
+    "amount": 79,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "nature",
+    "is_aoe": true,
+    "dispel_type": "poison"
+   },
+   {
+    "name": "Venom Spray",
+    "kind": "damage",
+    "amount": 180,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "nature",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "Hive-Warden Kasz'ar": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 119,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   }
+  ],
+  "Hold-Warden Gorvash": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 72,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   }
+  ],
+  "Huntsman Radley": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 83,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   },
+   {
+    "name": "Mortal Sweep",
+    "kind": "damage",
+    "amount": 190,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "Inquisitor Xel'thas": [
+   {
+    "name": "Shadow Nova",
+    "kind": "damage",
+    "amount": 280,
+    "cooldown": 4,
+    "mana_cost": 0,
+    "school": "shadow",
+    "is_aoe": true
+   },
+   {
+    "name": "Creeping Dread",
+    "kind": "dot",
+    "amount": 72,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "shadow",
+    "is_aoe": true,
+    "dispel_type": "curse"
+   }
+  ],
+  "Instructor Malicia": [
+   {
+    "name": "Creeping Dread",
+    "kind": "dot",
+    "amount": 85,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "shadow",
+    "is_aoe": true,
+    "dispel_type": "curse"
+   }
+  ],
+  "Jandice Barov": [
+   {
+    "name": "Creeping Dread",
+    "kind": "dot",
+    "amount": 81,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "shadow",
+    "is_aoe": true,
+    "dispel_type": "curse"
+   },
+   {
+    "name": "Withering Shriek",
+    "kind": "damage",
+    "amount": 185,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "shadow",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "Kirtonos the Herald": [
+   {
+    "name": "Creeping Dread",
+    "kind": "dot",
+    "amount": 81,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "shadow",
+    "is_aoe": true,
+    "dispel_type": "curse"
+   }
+  ],
+  "Lady Illucia Barov": [
+   {
+    "name": "Creeping Dread",
+    "kind": "dot",
+    "amount": 88,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "shadow",
+    "is_aoe": true,
+    "dispel_type": "curse"
+   }
+  ],
+  "Lord Alexei Barov": [
+   {
+    "name": "Withering Shriek",
+    "kind": "damage",
+    "amount": 200,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "shadow",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "Magistrate Barthilas": [
+   {
+    "name": "Creeping Dread",
+    "kind": "dot",
+    "amount": 83,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "shadow",
+    "is_aoe": true,
+    "dispel_type": "curse"
+   }
+  ],
+  "Maleki the Pallid": [
+   {
+    "name": "Bitter Chill",
+    "kind": "dot",
+    "amount": 85,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "frost",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   },
+   {
+    "name": "Shattering Cold",
+    "kind": "damage",
+    "amount": 195,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "frost",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "Marduk Blackpool": [
+   {
+    "name": "Creeping Dread",
+    "kind": "dot",
+    "amount": 83,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "shadow",
+    "is_aoe": true,
+    "dispel_type": "curse"
+   }
+  ],
+  "Master Summoner Kaz'reth": [
+   {
+    "name": "Lingering Embers",
+    "kind": "dot",
+    "amount": 74,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "fire",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   }
+  ],
+  "Nerub'enkan": [
+   {
+    "name": "Poison Cloud",
+    "kind": "dot",
+    "amount": 85,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "nature",
+    "is_aoe": true,
+    "dispel_type": "poison"
+   },
+   {
+    "name": "Venom Spray",
+    "kind": "damage",
+    "amount": 195,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "nature",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "Overseer Grall": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 72,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   }
+  ],
+  "Pack-Alpha Cinderhound": [
+   {
+    "name": "Lingering Embers",
+    "kind": "dot",
+    "amount": 67,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "fire",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   }
+  ],
+  "Pitboss Grebble Vask": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 64,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   },
+   {
+    "name": "Mortal Sweep",
+    "kind": "damage",
+    "amount": 146,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "Powder-Master Juss Wick": [
+   {
+    "name": "Lingering Embers",
+    "kind": "dot",
+    "amount": 94,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "fire",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   }
+  ],
+  "Powderkeg Nix": [
+   {
+    "name": "Lingering Embers",
+    "kind": "dot",
+    "amount": 72,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "fire",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   }
+  ],
+  "Quartermaster Nadd Kell": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 97,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   },
+   {
+    "name": "Mortal Sweep",
+    "kind": "damage",
+    "amount": 220,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "Ramstein the Gorger": [
+   {
+    "name": "Festering Plague",
+    "kind": "dot",
+    "amount": 88,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true,
+    "dispel_type": "disease"
+   }
+  ],
+  "Ras Frostwhisper": [
+   {
+    "name": "Bitter Chill",
+    "kind": "dot",
+    "amount": 83,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "frost",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   }
+  ],
+  "Rattlegore": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 83,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   },
+   {
+    "name": "Mortal Sweep",
+    "kind": "damage",
+    "amount": 190,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "Resonance": [
+   {
+    "name": "Mana Burn Field",
+    "kind": "dot",
+    "amount": 68,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "arcane",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   }
+  ],
+  "Royal Consort Zhir'ak": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 79,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   },
+   {
+    "name": "Mortal Sweep",
+    "kind": "damage",
+    "amount": 180,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "Sailmaker Oona Flay": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 100,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   }
+  ],
+  "Scarlet Commander Marjhan": [
+   {
+    "name": "Lingering Embers",
+    "kind": "dot",
+    "amount": 85,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "fire",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   }
+  ],
+  "Scarlet Commander Mograine": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 83,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   },
+   {
+    "name": "Mortal Sweep",
+    "kind": "damage",
+    "amount": 190,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "Skul": [
+   {
+    "name": "Bitter Chill",
+    "kind": "dot",
+    "amount": 81,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "frost",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   }
+  ],
+  "Smelter-Master Vaud": [
+   {
+    "name": "Lingering Embers",
+    "kind": "dot",
+    "amount": 72,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "fire",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   }
+  ],
+  "Stonespine": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 83,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   },
+   {
+    "name": "Mortal Sweep",
+    "kind": "damage",
+    "amount": 190,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "Thane Morrun the Unmade": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 74,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   }
+  ],
+  "The Ashwretch Brood": [
+   {
+    "name": "Creeping Dread",
+    "kind": "dot",
+    "amount": 74,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "shadow",
+    "is_aoe": true,
+    "dispel_type": "curse"
+   }
+  ],
+  "The Brood Nurse": [
+   {
+    "name": "Thunderclap",
+    "kind": "damage",
+    "amount": 289,
+    "cooldown": 4,
+    "mana_cost": 0,
+    "school": "nature",
+    "is_aoe": true
+   },
+   {
+    "name": "Poison Cloud",
+    "kind": "dot",
+    "amount": 74,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "nature",
+    "is_aoe": true,
+    "dispel_type": "poison"
+   },
+   {
+    "name": "Venom Spray",
+    "kind": "damage",
+    "amount": 170,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "nature",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "The Caldera": [
+   {
+    "name": "Lingering Embers",
+    "kind": "dot",
+    "amount": 83,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "fire",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   }
+  ],
+  "The Crusher": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 70,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   }
+  ],
+  "The Deep Bloom": [
+   {
+    "name": "Poison Cloud",
+    "kind": "dot",
+    "amount": 79,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "nature",
+    "is_aoe": true,
+    "dispel_type": "poison"
+   },
+   {
+    "name": "Venom Spray",
+    "kind": "damage",
+    "amount": 180,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "nature",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "The Duskwhisper Sisters": [
+   {
+    "name": "Creeping Dread",
+    "kind": "dot",
+    "amount": 74,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "shadow",
+    "is_aoe": true,
+    "dispel_type": "curse"
+   }
+  ],
+  "The Entropic Horror": [
+   {
+    "name": "Creeping Dread",
+    "kind": "dot",
+    "amount": 74,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "shadow",
+    "is_aoe": true,
+    "dispel_type": "curse"
+   }
+  ],
+  "The Iron Mask": [
+   {
+    "name": "Whirlwind",
+    "kind": "damage",
+    "amount": 289,
+    "cooldown": 4,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   },
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 74,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   },
+   {
+    "name": "Mortal Sweep",
+    "kind": "damage",
+    "amount": 170,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "The Molten Serpent": [
+   {
+    "name": "Lingering Embers",
+    "kind": "dot",
+    "amount": 81,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "fire",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   }
+  ],
+  "The Mountain's Heart": [
+   {
+    "name": "Lingering Embers",
+    "kind": "dot",
+    "amount": 83,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "fire",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   }
+  ],
+  "The Ravenian": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 85,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   },
+   {
+    "name": "Mortal Sweep",
+    "kind": "damage",
+    "amount": 195,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "The Rock-Borer Queen": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 74,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   }
+  ],
+  "The Shadow of the Forge": [
+   {
+    "name": "Creeping Dread",
+    "kind": "dot",
+    "amount": 74,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "shadow",
+    "is_aoe": true,
+    "dispel_type": "curse"
+   }
+  ],
+  "The Siphon": [
+   {
+    "name": "Mana Burn Field",
+    "kind": "dot",
+    "amount": 69,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "arcane",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   },
+   {
+    "name": "Unravel",
+    "kind": "damage",
+    "amount": 158,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "arcane",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "The Standing Wave": [
+   {
+    "name": "Bitter Chill",
+    "kind": "dot",
+    "amount": 71,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "frost",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   }
+  ],
+  "The Sump": [
+   {
+    "name": "Bitter Chill",
+    "kind": "dot",
+    "amount": 66,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "frost",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   }
+  ],
+  "The Thirst": [
+   {
+    "name": "Mana Burn Field",
+    "kind": "dot",
+    "amount": 72,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "arcane",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   },
+   {
+    "name": "Unravel",
+    "kind": "damage",
+    "amount": 165,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "arcane",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "The Unforgiven": [
+   {
+    "name": "Bitter Chill",
+    "kind": "dot",
+    "amount": 83,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "frost",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   }
+  ],
+  "Thrass, the Geyser Spirit": [
+   {
+    "name": "Bitter Chill",
+    "kind": "dot",
+    "amount": 79,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "frost",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   }
+  ],
+  "Timmy the Cruel": [
+   {
+    "name": "Whirlwind",
+    "kind": "damage",
+    "amount": 323,
+    "cooldown": 4,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   },
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 83,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   },
+   {
+    "name": "Mortal Sweep",
+    "kind": "damage",
+    "amount": 190,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "Tunnel-King Ruzzak": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 123,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   }
+  ],
+  "Vor'alith the Turncloak": [
+   {
+    "name": "Rending Wounds",
+    "kind": "dot",
+    "amount": 77,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true
+   },
+   {
+    "name": "Mortal Sweep",
+    "kind": "damage",
+    "amount": 176,
+    "cooldown": 6,
+    "mana_cost": 0,
+    "school": "physical",
+    "is_aoe": true,
+    "rider": {
+     "effect": "debuff",
+     "duration": 3,
+     "stat_mods": {
+      "healing_taken_pct": -20
+     }
+    }
+   }
+  ],
+  "Zeth'rak the Pactbound": [
+   {
+    "name": "Lingering Embers",
+    "kind": "dot",
+    "amount": 74,
+    "duration": 4,
+    "cooldown": 5,
+    "mana_cost": 0,
+    "school": "fire",
+    "is_aoe": true,
+    "dispel_type": "magic"
+   }
+  ]
+ }
+}

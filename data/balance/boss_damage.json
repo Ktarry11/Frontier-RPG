@@ -1,0 +1,4620 @@
+{
+ "_about": "Per-boss damage factor putting a boss's average action at a share of T(L), the healing formula's reference tank. Written by tools/calibrate_boss_damage.py; read by world/difficulty.factor.",
+ "targets": {
+  "boss": 0.35,
+  "tuned_boss": 0.35,
+  "field_boss": 0.25,
+  "hidden_layer": 0.4,
+  "skull_zone": 0.35
+ },
+ "keep": 0.4,
+ "spread": [
+  0.75,
+  1.35
+ ],
+ "max_factor": 1.0,
+ "bosses": {
+  "Abbot Varenne": 0.389,
+  "Acolyte Zhurra Bloodhex": 0.974,
+  "Admiral Hedessa Crane": 0.564,
+  "Agathelos the Raging": 0.858,
+  "Aggem Thorncurse": 0.613,
+  "Aku'mai": 1.0,
+  "Alpha Fenris": 1.0,
+  "Amberheart, the Sap-Mother": 0.344,
+  "Ambermaw": 0.6,
+  "Ancient Curse-Beast": 0.783,
+  "Apothecary Helbrim": 0.739,
+  "Arcanist Doan": 0.484,
+  "Archivist Dana Mercer": 0.486,
+  "Archivist Galford": 0.449,
+  "Archivist Thelun, Unlisted": 0.399,
+  "Archmage Arugal": 0.915,
+  "Archmage Atiesh": 0.84,
+  "Armsmaster Grell": 0.751,
+  "Ashcaller Vorn": 0.454,
+  "Axleback": 0.63,
+  "Azshir the Sleepless": 0.618,
+  "Baron Aliden Perenolde": 0.81,
+  "Baron Ashbury": 0.909,
+  "Baron Rivendare": 0.576,
+  "Baron Silverlaine": 0.952,
+  "Baroness Anastari": 0.48,
+  "Basalt Guardian Vok": 1.0,
+  "Bazzalan": 1.0,
+  "Berard the Forgotten": 0.508,
+  "Bethor Iceshard": 0.546,
+  "Blind Hunter": 1.0,
+  "Bloodhoof the Lamed": 0.779,
+  "Bloodmage Thalnos": 0.52,
+  "Bloodmaw the Alpha": 0.819,
+  "Bloodtide Harpooner": 0.874,
+  "Bonewarden Aldric": 1.0,
+  "Borrik the Unhoused": 0.684,
+  "Bosun Grell Tarpot": 0.98,
+  "Bosun Harl Greave": 0.856,
+  "Bosun Harlow": 0.848,
+  "Boulderfist Hal'dun": 0.58,
+  "Bramblequeen Durga": 0.524,
+  "Bramblethorn the Ancient": 0.961,
+  "Brinemaw": 0.655,
+  "Bristlehide the Wintered": 0.649,
+  "Broadpaw": 1.0,
+  "Brontus": 0.881,
+  "Broodlord Szarak": 0.615,
+  "Broodmother Nesh'ka": 0.998,
+  "Broodmother Sarrix": 1.0,
+  "Broodmother Silka": 1.0,
+  "Broodspiral Queen": 1.0,
+  "Brother Corwin Ashe": 0.492,
+  "Brother Garrick Thorne": 0.473,
+  "Brother Wystan": 0.606,
+  "Cannon Master Willey": 0.48,
+  "Capgorger": 0.446,
+  "Captain Ardessa Rake": 0.892,
+  "Captain Dargol": 0.7,
+  "Captain Elric Stane": 0.953,
+  "Captain Melrache": 0.911,
+  "Captain Morrow": 1.0,
+  "Captain Mory Vane": 0.593,
+  "Captain Orlee Vantch": 0.698,
+  "Captain Redpath's Shade": 0.788,
+  "Captain Ruel Scuttler": 0.678,
+  "Captain Saltspray": 0.701,
+  "Captain Thalenvorde": 0.776,
+  "Captain Vachon": 0.904,
+  "Captain Vaile Drownbell": 0.701,
+  "Captain's Ghost": 0.574,
+  "Carapace Warden": 1.0,
+  "Cartmaster Corin": 0.406,
+  "Charlga Razorflank": 0.708,
+  "Chief Grik": 0.769,
+  "Chieftain Grimpelt": 0.698,
+  "Chirurgeon Maeve Ostrowski": 0.979,
+  "Chitterlord Skrix": 0.625,
+  "Cinderfang": 0.855,
+  "Cindermaw": 1.0,
+  "Corrupted Ancient": 0.825,
+  "Crusader Brennic": 0.814,
+  "Cult Overseer Thaddeus": 0.556,
+  "Curator Halbrecht": 0.581,
+  "Curse Keeper Tael": 0.833,
+  "Dark Sorcerer Zul'keth": 0.73,
+  "Darkmaster Gandling": 0.53,
+  "Death Speaker Jargba": 0.547,
+  "Deathguard Captain": 1.0,
+  "Deepmuck": 0.861,
+  "Doctor Theolen Krastinov": 0.712,
+  "Doomguard Sentinel": 0.797,
+  "Doomlord Kazrak": 0.696,
+  "Driller Mozzik": 0.885,
+  "Drillmaster Osric Pell": 0.76,
+  "Drowned Ferryman": 0.729,
+  "Drowsyroot the Dreamer": 0.855,
+  "Drumhide": 0.543,
+  "Dustmaw the Rift-Lurker": 0.843,
+  "Earthcaller Halmgar": 0.62,
+  "Echo of the Fallen Warrior": 0.888,
+  "Elder Timberling": 1.0,
+  "Engineer Whirleygig": 0.958,
+  "Errata": 0.538,
+  "Farmer Felstone": 0.818,
+  "Felguard Overseer": 0.879,
+  "Felstalker": 1.0,
+  "Fenrus the Devourer": 1.0,
+  "Field Marshal Calder": 0.869,
+  "First Mate Oskar Vane": 0.59,
+  "Flame Oracle Ysmel": 0.547,
+  "Flamespeaker Maud": 0.575,
+  "Fleet-Captain Orin Dace": 1.0,
+  "Foreman Durn the Castout": 0.559,
+  "Foreman Grills": 0.742,
+  "Foreman Grubb Deepdelver": 0.807,
+  "Foreman Harrow": 0.977,
+  "Forge-Lord Darrok": 0.619,
+  "Gaffer Thorne": 0.94,
+  "Gaharrz the Drowned": 0.832,
+  "Gahrron the Withered": 0.639,
+  "Gatekeeper Vorthas": 0.66,
+  "Gatewarden Brannic": 0.832,
+  "Gatewarden Hrun": 1.0,
+  "Gaunt the Scarecrow-King": 0.749,
+  "Gavin the Fence": 0.827,
+  "Gazz'uz": 0.586,
+  "Gearjaw": 0.439,
+  "Gelihast": 1.0,
+  "General Twinbraid": 0.709,
+  "Ghamoo-ra": 1.0,
+  "Ghoulmaster Krag": 0.697,
+  "Giant Crab": 1.0,
+  "Gillfin the Net-Cutter": 0.847,
+  "Gilnean Wall-Warden": 0.871,
+  "Glassmaw": 0.807,
+  "Glasswall Warden": 0.403,
+  "Gnarl the Unburied": 0.663,
+  "Gnash the Hollow-Maw": 1.0,
+  "Gnasher, the Bone-Fed": 0.909,
+  "Gnawbone the Foreman": 0.835,
+  "Gnawheart": 1.0,
+  "Goldcrown": 0.637,
+  "Goldfang": 0.923,
+  "Goodman Solliden": 1.0,
+  "Gor'mok the Pit Chief": 0.477,
+  "Gorbash the Thick": 0.809,
+  "Gorbuk the Shelf-King": 0.492,
+  "Gorge the Corpsegrinder": 0.851,
+  "Gorrek Passkeeper": 0.605,
+  "Grand Crusader Dathrohan": 0.558,
+  "Grand Crusader Victor Hale": 0.548,
+  "Grandfather Burl": 0.739,
+  "Grandfather Hollowbark": 0.598,
+  "Grandfather Mangrove": 1.0,
+  "Grateward Mok'tal": 0.659,
+  "Grevan the Gatekeeper": 0.724,
+  "Grimbark the Chained": 0.553,
+  "Grimewick the Drowned": 0.79,
+  "Grubbis Tallow": 0.447,
+  "Grulgash the Pitbreaker": 0.975,
+  "Gruln Stonejaw": 0.541,
+  "Gullmother Shrike": 0.925,
+  "Gulpmaw": 0.593,
+  "Gutripper": 1.0,
+  "Hagg Taurenbane": 0.835,
+  "Hagra Stormcrown": 0.531,
+  "Hap'ka the Drowned": 0.533,
+  "Harbinger Veska": 0.527,
+  "Hargol Bloodhorn": 1.0,
+  "Harpy Matriarch": 0.74,
+  "Hask'zar the Scarred": 0.438,
+  "Hatchery Warden Skrix": 1.0,
+  "Heartgrown": 0.414,
+  "Hearthsinger Forresten": 0.45,
+  "Herod": 0.839,
+  "High Clerist Hendrick": 0.491,
+  "High General Abbendis": 0.445,
+  "High Inquisitor Aldric": 0.451,
+  "High Inquisitor Fairbanks": 0.566,
+  "High Inquisitor Faulk": 0.395,
+  "High Inquisitor Whitemane": 0.496,
+  "High Protector Lorik": 0.908,
+  "High Protector Tarsen": 0.873,
+  "Hive Champion Khix'ar": 0.624,
+  "Hive Queen Zil'kesh": 0.475,
+  "Hive-Mother Ahn'thera": 0.899,
+  "Hive-Warden Kasz'ar": 0.813,
+  "Hoarfang": 0.597,
+  "Hold-Warden Gorvash": 1.0,
+  "Hollowcrust": 0.499,
+  "Hollowhorn": 1.0,
+  "Houndmaster Gor'tek": 0.911,
+  "Houndmaster Kraygh": 0.582,
+  "Houndmaster Loksey": 0.835,
+  "Houndmaster Sable": 1.0,
+  "Hunt-King Valorin": 0.591,
+  "Huntsman Radley": 0.746,
+  "Idol-Keeper Zun'jal": 0.573,
+  "Inquisitor Vellan Rook": 0.478,
+  "Inquisitor Xel'thas": 0.625,
+  "Instructor Malicia": 0.472,
+  "Interrogator Maelis": 0.985,
+  "Interrogator Vishas": 0.786,
+  "Ironbark the Blighted": 0.587,
+  "Ironspine": 1.0,
+  "Ja'kesh the Unchained": 0.712,
+  "Jandice Barov": 0.489,
+  "Jen'shala, the House Favourite": 0.785,
+  "Jergosh the Invoker": 0.897,
+  "Ka'tesh the Last Stairkeeper": 0.335,
+  "Karrath the Ventlord": 0.355,
+  "Keelwarden Orso Brann": 0.997,
+  "Keeper Rustveil": 0.636,
+  "Khan Saltmane": 0.536,
+  "Kirtonos the Herald": 0.425,
+  "Kragg the Wall-Breaker": 0.711,
+  "Kresh": 0.968,
+  "Lady Anacondra": 0.816,
+  "Lady Illucia Barov": 0.413,
+  "Lady Sarevess": 0.966,
+  "Larval Broodguard": 0.764,
+  "Latticeborn": 0.396,
+  "Ledger-Keeper Ashkin": 0.577,
+  "Longcollapse": 0.758,
+  "Longleg the Stalker": 0.769,
+  "Looter-Chief Bazz": 0.98,
+  "Lord Alexei Barov": 0.45,
+  "Lord Cobrahn": 0.757,
+  "Lord Falconcrest": 0.876,
+  "Lord Godfrey's Remnant": 0.827,
+  "Lord Malgan": 0.61,
+  "Lord Nightmare": 0.753,
+  "Lord Pythas": 0.803,
+  "Lord Serpentis": 0.748,
+  "Lorekeeper Polkelt": 0.459,
+  "Lorgus Jett": 0.784,
+  "Maelwyn Blightbloom": 0.656,
+  "Maeve the Weeping": 0.587,
+  "Maggot Eye": 0.873,
+  "Magister Aerith Dawnsong": 0.504,
+  "Magister Hawren": 0.845,
+  "Magister Quillfire": 0.5,
+  "Magister Yvaine": 0.626,
+  "Magistrate Andor": 0.426,
+  "Magistrate Barthilas": 0.495,
+  "Magmacore": 0.567,
+  "Maleki the Pallid": 0.438,
+  "Mam'toth the Hexweaver": 0.62,
+  "Marduk Blackpool": 0.428,
+  "Marginalia": 0.392,
+  "Marrowmaw": 0.606,
+  "Marsh-Mother Ysmil": 0.528,
+  "Master Summoner Kaz'reth": 0.784,
+  "Master-at-Arms Dorran Pike": 0.648,
+  "Mastmaster Corbin Ake": 0.977,
+  "Matriarch Velaxis": 1.0,
+  "Matriarch Vess'ra": 0.817,
+  "Matron Shrieka": 0.647,
+  "Matron Sowbelly": 0.81,
+  "Mauler Krakk": 0.65,
+  "Mawgrin the Gaunt": 0.959,
+  "Meven Korgal": 0.68,
+  "Mistvale Longjaw": 0.461,
+  "Moj'bashi the Drowned": 1.0,
+  "Mosshide the Gloomcap Elder": 0.68,
+  "Mother Amberwing": 1.0,
+  "Mother Canopy": 0.583,
+  "Mother Mire": 0.806,
+  "Mother Venomweb": 0.868,
+  "Mother of the Haunt": 0.431,
+  "Mother of the Herd": 0.687,
+  "Mourning Wren": 0.703,
+  "Muckmaw": 0.985,
+  "Murk the Bloated": 0.94,
+  "Mutanus the Devourer": 0.912,
+  "Naga Shrine Guardian": 1.0,
+  "Neru Fireblade": 0.484,
+  "Nerub'enkan": 0.573,
+  "Nest Guardian": 1.0,
+  "Nineteen Mile": 0.623,
+  "Oggleflint": 1.0,
+  "Old Ashback the Basilisk": 0.673,
+  "Old Barnacle-Beard": 0.904,
+  "Old Blister": 1.0,
+  "Old Bonepicker": 0.551,
+  "Old Bramley": 1.0,
+  "Old Darrowjaw": 0.654,
+  "Old Dry-Eye": 0.589,
+  "Old Gillrot": 0.681,
+  "Old Gnarlhorn": 1.0,
+  "Old Greyhide": 0.975,
+  "Old Gulpjaw": 0.88,
+  "Old Hissfang": 1.0,
+  "Old Hob": 0.822,
+  "Old Hollowbark": 1.0,
+  "Old Icehide": 0.773,
+  "Old Marris": 0.765,
+  "Old Mire-Maw": 0.756,
+  "Old Mossback": 0.84,
+  "Old Mother Longhorn": 0.959,
+  "Old Mother Sedge": 1.0,
+  "Old Pumice": 0.992,
+  "Old Redtooth": 0.776,
+  "Old Riser": 0.64,
+  "Old Saltbed": 0.564,
+  "Old Scoria": 0.322,
+  "Old Serra'kis": 1.0,
+  "Old Snag-Jaw": 1.0,
+  "Old Stinger": 0.898,
+  "Old Sunhide": 0.876,
+  "Old Talonwing": 0.678,
+  "Old Thondroril": 0.606,
+  "Old Thunder, the Herd Bull": 0.767,
+  "Old Tusk": 0.804,
+  "Oldcrest": 0.394,
+  "Orchardkeeper Gnarl": 0.578,
+  "Ossric the Unburied": 0.866,
+  "Overlord Ramtusk": 0.715,
+  "Overseer Ashlan Silvervein": 0.729,
+  "Overseer Grall": 0.979,
+  "Overseer Marrowgrim": 0.591,
+  "Overseer Mull": 0.528,
+  "Overseer Ratch": 0.982,
+  "Pack-Alpha Cinderhound": 0.653,
+  "Paneater": 0.605,
+  "Panglass": 0.373,
+  "Pit Lord Emissary": 0.67,
+  "Pitboss Grebble Vask": 0.988,
+  "Plague Keeper Voss": 0.776,
+  "Plaguemaster Orvyn": 0.573,
+  "Plagueweaver Vex": 0.794,
+  "Powder-Master Juss Wick": 0.462,
+  "Powderkeg Nix": 0.673,
+  "Powdermaster Juno Felk": 0.706,
+  "Prince Aelvorn the Unmade": 0.413,
+  "Prospector Delvik": 0.801,
+  "Pyrrhax the Fallen Star": 0.382,
+  "Quartermaster Bram Ellison": 0.736,
+  "Quartermaster Ilsa Renn": 0.843,
+  "Quartermaster Nadd Kell": 0.979,
+  "Queen Skitterwing": 1.0,
+  "Queen Thistlewing": 0.851,
+  "Rakjan the Ribcracker": 0.872,
+  "Ramstein the Gorger": 0.779,
+  "Ranger-Lord Saelith": 0.379,
+  "Ras Frostwhisper": 0.483,
+  "Rathorian": 0.569,
+  "Rattlegore": 0.855,
+  "Razorbeak the Nestbreaker": 0.799,
+  "Razorclaw the Butcher": 1.0,
+  "Reaper-Lord Aldous": 0.866,
+  "Redrock Matriarch": 0.936,
+  "Resin-Mother Vex'ith": 0.647,
+  "Resonance": 0.602,
+  "Ressan the Needler": 0.988,
+  "Rethilgore": 1.0,
+  "Rifle-Sergeant Dunmar": 0.822,
+  "Riftjaw": 0.464,
+  "Rigboss Gazzle": 0.864,
+  "Rimehowl": 0.406,
+  "Roogug": 1.0,
+  "Rootbound": 0.576,
+  "Rootmaw": 0.441,
+  "Royal Consort Zhir'ak": 1.0,
+  "Rumblejaw": 0.711,
+  "Rustcoat": 0.606,
+  "Saberfang the Elder": 0.629,
+  "Sailmaker Oona Flay": 0.703,
+  "Saltback": 0.478,
+  "Saltgorge": 0.662,
+  "Saltjaw": 0.602,
+  "Sandfang": 0.995,
+  "Satyr Warlord": 0.884,
+  "Saw-Boss Brakka": 0.825,
+  "Scarlet Commander Marjhan": 0.472,
+  "Scarlet Commander Mograine": 0.83,
+  "Scourbite": 0.613,
+  "Scourge Abomination": 0.809,
+  "Scout-Captain Vrek": 0.948,
+  "Seer Sshara": 0.578,
+  "Serena Bloodfeather": 0.832,
+  "Sergeant Halbrook": 0.897,
+  "Sergeant Ironbeard": 0.84,
+  "Sergeant Ironvein": 0.789,
+  "Sergeant Major Cole Brennan": 0.917,
+  "Sergeant-at-Arms Varth": 1.0,
+  "Sexton Hollowell": 0.584,
+  "Shardmaw": 0.517,
+  "Shatterlight": 0.401,
+  "Sheetfall": 0.339,
+  "Shellcrusher Kragg": 0.904,
+  "Shorebreaker Teska Vohl": 0.688,
+  "Shrine-Keeper Morgrin": 0.759,
+  "Silas Quickfinger": 0.844,
+  "Silt-Mother Ooga": 0.578,
+  "Sister Mollis": 0.612,
+  "Skinwalker Garn": 0.835,
+  "Skrell, Mother of Ravagers": 0.615,
+  "Skul": 0.433,
+  "Skum": 1.0,
+  "Skyfang the Plunderer": 0.787,
+  "Skyreach": 0.656,
+  "Skyrender": 0.842,
+  "Skyshriek Matron": 0.507,
+  "Smelter-Master Vaud": 0.711,
+  "Smithmaster Corra Bellweather": 0.454,
+  "Smolderhide": 0.897,
+  "Snowmaw": 0.577,
+  "Sootwing": 0.34,
+  "Sow-Mother Grunka": 0.811,
+  "Sporeback the Bloated": 1.0,
+  "Ssaren the Salvage-Taker": 0.345,
+  "Stillwater": 0.42,
+  "Stonespine": 0.788,
+  "Stormhide Patriarch": 0.62,
+  "Stormwing the Skyrider": 0.592,
+  "Supervisor Lugwizzle": 0.817,
+  "Taragaman the Hungerer": 0.886,
+  "Thaka the Unburied": 0.683,
+  "Thane Aldric's Shade": 0.343,
+  "Thane Korrin Stonewatch": 0.664,
+  "Thane Morrun the Unmade": 1.0,
+  "The Advancing Ice": 0.548,
+  "The Alpha Cur": 0.999,
+  "The Archmage's Shade": 0.258,
+  "The Ash Mother": 0.561,
+  "The Ashwretch Brood": 0.68,
+  "The Barge-Eater": 0.689,
+  "The Barrow Warden": 0.712,
+  "The Bellwarden": 0.499,
+  "The Blackwood Drowner": 0.86,
+  "The Bloated One": 0.958,
+  "The Bloodvenom Rot": 0.422,
+  "The Bone Choir": 0.381,
+  "The Bone Colossus": 0.702,
+  "The Breach-Gnawer": 0.793,
+  "The Brine King": 0.557,
+  "The Brood Nurse": 0.757,
+  "The Broodkeeper": 0.688,
+  "The Caldera": 0.789,
+  "The Calling Stone": 0.387,
+  "The Cargo": 0.505,
+  "The Cider-Wife": 0.83,
+  "The Clockwork": 0.562,
+  "The Crusher": 1.0,
+  "The Dalson Ghost": 0.433,
+  "The Deep Bloom": 0.538,
+  "The Drowned Hermit": 0.512,
+  "The Drowned Purser": 0.362,
+  "The Duskwhisper Sisters": 0.567,
+  "The Eldest": 0.641,
+  "The Entropic Horror": 0.597,
+  "The Erased": 0.239,
+  "The Fallen Champion": 0.921,
+  "The First Down": 0.628,
+  "The First Draft": 0.384,
+  "The Forsaken Watchman": 0.972,
+  "The Frozen Cartographer": 0.515,
+  "The Fungal Mass": 0.694,
+  "The Furnace Heart": 0.504,
+  "The Gloomcap Elder": 0.363,
+  "The Green Before": 0.39,
+  "The Groundskeeper": 0.72,
+  "The Half-Written": 0.411,
+  "The Heartrot Queen": 0.849,
+  "The Hollow Queen": 0.372,
+  "The Index": 0.57,
+  "The Infected Noble": 0.769,
+  "The Iron Mask": 0.941,
+  "The Keeper of the First Page": 0.244,
+  "The Lamplighter": 0.52,
+  "The Last Caravan Master": 0.862,
+  "The Last Drift": 0.417,
+  "The Last Editor": 0.25,
+  "The Last Kodo": 0.75,
+  "The Last Lurker": 0.37,
+  "The Last Tenant": 0.55,
+  "The Leavings": 0.585,
+  "The Lion of the Painted Cave": 0.618,
+  "The Molten Serpent": 0.565,
+  "The Mountain's Heart": 0.518,
+  "The Ossifier": 0.333,
+  "The Pale Weaver": 0.977,
+  "The Pick-Mother": 0.64,
+  "The Plaguewood Matriarch": 0.73,
+  "The Prism Warden": 0.449,
+  "The Ravenian": 0.885,
+  "The Razorjaw": 0.975,
+  "The Ring Warden": 0.377,
+  "The Risen Hunter": 0.997,
+  "The Rock-Borer Queen": 1.0,
+  "The Root-Father": 0.553,
+  "The Saltquern": 0.615,
+  "The Scriptor": 0.812,
+  "The Second Copy": 0.501,
+  "The Shadow of the Forge": 0.524,
+  "The Silken Bride": 0.415,
+  "The Siphon": 0.642,
+  "The Standing Wave": 0.578,
+  "The Sump": 0.595,
+  "The Terror of the Dale": 0.363,
+  "The Thermal": 0.545,
+  "The Thing in the Throat": 0.364,
+  "The Thirst": 0.58,
+  "The Thorn-Mother": 0.421,
+  "The Thorn-Mother's Echo": 0.789,
+  "The Thousand-Leg": 0.519,
+  "The Thousandth Shard": 0.404,
+  "The Tidewrack": 0.773,
+  "The Turnkey": 0.9,
+  "The Unforgiven": 0.463,
+  "The Unlit Priestess": 0.466,
+  "The Vault-Thing": 0.486,
+  "The Weeper": 0.326,
+  "The Weight of the Floor": 0.67,
+  "The Wide Sink Mother": 0.535,
+  "The Widow of the Mere": 0.799,
+  "The Windsnapped": 0.41,
+  "The Wrack-Drowned": 0.379,
+  "Thirstjaw": 0.591,
+  "Thornjaw the Gorger": 0.985,
+  "Thornmother Vekka": 0.497,
+  "Thrass, the Geyser Spirit": 0.615,
+  "Thrumbone the Ancient": 0.82,
+  "Thunder Broodmother": 0.556,
+  "Thurman Agamand": 0.816,
+  "Tide-Priestess Myzrai": 0.376,
+  "Tidelord Gharesh": 0.633,
+  "Timmy the Cruel": 0.722,
+  "Topman Yanni Sear": 0.574,
+  "Topper Kezzik": 0.707,
+  "Tunnel-King Ruzzak": 0.702,
+  "Tusk-Mother Gorra": 0.779,
+  "Twilight Lord Kelris": 0.937,
+  "Twilight Overseer": 0.888,
+  "Ul'gotha, Mother of the Deep": 0.576,
+  "Undead Pirate Captain": 1.0,
+  "Underlight": 0.419,
+  "Ursa Mossjaw": 0.626,
+  "Ursal the Mauler": 1.0,
+  "Valdric Bonewarden": 0.829,
+  "Vectus": 0.463,
+  "Veilspeaker Zul'Rath": 0.355,
+  "Vek'tar the Unbeaten": 0.999,
+  "Vel'dran the Unwaking": 0.525,
+  "Verdan the Everliving": 1.0,
+  "Verog the Dervish": 0.83,
+  "Vexa the Tunnel-Queen": 0.789,
+  "Vile Plague Abomination": 0.794,
+  "Void Handmaiden": 0.78,
+  "Voidcaller Veshra": 0.564,
+  "Vor'alith the Turncloak": 0.74,
+  "Wall-Watcher Teague": 0.774,
+  "Warbringer Gorrak": 0.858,
+  "Wardchief Thulg": 0.876,
+  "Warden Ilthae": 0.551,
+  "Warden Ssaleth": 0.999,
+  "Warden Stillwater": 1.0,
+  "Warlord Krellian": 0.766,
+  "Weaver Skitter": 1.0,
+  "What They Dug Into": 0.378,
+  "What Walks in the Dim": 0.418,
+  "Windcaller Skreeva": 0.564,
+  "Wintermaw the Howling": 0.678,
+  "Wreck-Captain Vess'ira": 0.561,
+  "Xelnaz": 0.748,
+  "Yard Boss Krizzle": 0.922,
+  "Yarrog Baneshadow": 0.664,
+  "Yearmaw": 0.444,
+  "Zalazane": 0.606,
+  "Zar'gothrax the Unbound": 0.865,
+  "Zeth'rak the Pactbound": 0.543,
+  "Zul'Mashar the Last": 0.721,
+  "Zul'gar Hammerfall": 0.609
+ },
+ "measured": {
+  "Abbot Varenne": {
+   "level": 59,
+   "kind": "field_boss",
+   "avg": 3046.6,
+   "share": 0.693,
+   "target": 0.269
+  },
+  "Acolyte Zhurra Bloodhex": {
+   "level": 15,
+   "kind": "boss",
+   "avg": 343.0,
+   "share": 0.395,
+   "target": 0.385
+  },
+  "Admiral Hedessa Crane": {
+   "level": 52,
+   "kind": "field_boss",
+   "avg": 1607.3,
+   "share": 0.444,
+   "target": 0.251
+  },
+  "Agathelos the Raging": {
+   "level": 32,
+   "kind": "boss",
+   "avg": 787.7,
+   "share": 0.382,
+   "target": 0.328
+  },
+  "Aggem Thorncurse": {
+   "level": 30,
+   "kind": "boss",
+   "avg": 1385.5,
+   "share": 0.711,
+   "target": 0.436
+  },
+  "Aku'mai": {
+   "level": 26,
+   "kind": "boss",
+   "avg": 390.6,
+   "share": 0.232,
+   "target": 0.305
+  },
+  "Alpha Fenris": {
+   "level": 24,
+   "kind": "boss",
+   "avg": 501.8,
+   "share": 0.327,
+   "target": 0.353
+  },
+  "Amberheart, the Sap-Mother": {
+   "level": 20,
+   "kind": "frontier_deep",
+   "avg": 1446.2,
+   "share": 1.176,
+   "target": 0.405
+  },
+  "Ambermaw": {
+   "level": 32,
+   "kind": "field_boss",
+   "avg": 816.8,
+   "share": 0.396,
+   "target": 0.238
+  },
+  "Ancient Curse-Beast": {
+   "level": 21,
+   "kind": "field_boss",
+   "avg": 410.6,
+   "share": 0.315,
+   "target": 0.247
+  },
+  "Apothecary Helbrim": {
+   "level": 23,
+   "kind": "boss",
+   "avg": 896.3,
+   "share": 0.615,
+   "target": 0.455
+  },
+  "Arcanist Doan": {
+   "level": 36,
+   "kind": "boss",
+   "avg": 2168.4,
+   "share": 0.938,
+   "target": 0.454
+  },
+  "Archivist Dana Mercer": {
+   "level": 35,
+   "kind": "boss",
+   "avg": 2126.2,
+   "share": 0.947,
+   "target": 0.46
+  },
+  "Archivist Galford": {
+   "level": 59,
+   "kind": "boss",
+   "avg": 4198.7,
+   "share": 0.955,
+   "target": 0.429
+  },
+  "Archivist Thelun, Unlisted": {
+   "level": 37,
+   "kind": "field_boss",
+   "avg": 1664.8,
+   "share": 0.7,
+   "target": 0.279
+  },
+  "Archmage Arugal": {
+   "level": 25,
+   "kind": "boss",
+   "avg": 691.8,
+   "share": 0.43,
+   "target": 0.394
+  },
+  "Archmage Atiesh": {
+   "level": 23,
+   "kind": "boss",
+   "avg": 724.5,
+   "share": 0.497,
+   "target": 0.417
+  },
+  "Armsmaster Grell": {
+   "level": 59,
+   "kind": "boss",
+   "avg": 1780.1,
+   "share": 0.405,
+   "target": 0.304
+  },
+  "Ashcaller Vorn": {
+   "level": 18,
+   "kind": "hidden_layer",
+   "avg": 1283.8,
+   "share": 1.189,
+   "target": 0.54
+  },
+  "Axleback": {
+   "level": 45,
+   "kind": "field_boss",
+   "avg": 1115.7,
+   "share": 0.374,
+   "target": 0.236
+  },
+  "Azshir the Sleepless": {
+   "level": 31,
+   "kind": "boss",
+   "avg": 1337.2,
+   "share": 0.667,
+   "target": 0.412
+  },
+  "Baron Aliden Perenolde": {
+   "level": 30,
+   "kind": "boss",
+   "avg": 867.7,
+   "share": 0.446,
+   "target": 0.361
+  },
+  "Baron Ashbury": {
+   "level": 22,
+   "kind": "field_boss",
+   "avg": 342.5,
+   "share": 0.248,
+   "target": 0.225
+  },
+  "Baron Rivendare": {
+   "level": 60,
+   "kind": "boss",
+   "avg": 3855.8,
+   "share": 0.853,
+   "target": 0.491
+  },
+  "Baron Silverlaine": {
+   "level": 23,
+   "kind": "boss",
+   "avg": 587.5,
+   "share": 0.403,
+   "target": 0.384
+  },
+  "Baroness Anastari": {
+   "level": 59,
+   "kind": "boss",
+   "avg": 3756.9,
+   "share": 0.854,
+   "target": 0.41
+  },
+  "Basalt Guardian Vok": {
+   "level": 56,
+   "kind": "tuned_boss",
+   "avg": 691,
+   "share": 0.171,
+   "target": 0.262
+  },
+  "Bazzalan": {
+   "level": 17,
+   "kind": "boss",
+   "avg": 227.5,
+   "share": 0.226,
+   "target": 0.311
+  },
+  "Berard the Forgotten": {
+   "level": 19,
+   "kind": "field_boss",
+   "avg": 752.9,
+   "share": 0.652,
+   "target": 0.332
+  },
+  "Bethor Iceshard": {
+   "level": 10,
+   "kind": "field_boss",
+   "avg": 346.4,
+   "share": 0.608,
+   "target": 0.332
+  },
+  "Blind Hunter": {
+   "level": 29,
+   "kind": "boss",
+   "avg": 546.6,
+   "share": 0.29,
+   "target": 0.312
+  },
+  "Bloodhoof the Lamed": {
+   "level": 12,
+   "kind": "field_boss",
+   "avg": 222.3,
+   "share": 0.327,
+   "target": 0.255
+  },
+  "Bloodmage Thalnos": {
+   "level": 32,
+   "kind": "boss",
+   "avg": 1811.9,
+   "share": 0.879,
+   "target": 0.457
+  },
+  "Bloodmaw the Alpha": {
+   "level": 20,
+   "kind": "field_boss",
+   "avg": 360,
+   "share": 0.293,
+   "target": 0.24
+  },
+  "Bloodtide Harpooner": {
+   "level": 25,
+   "kind": "field_boss",
+   "avg": 426.5,
+   "share": 0.265,
+   "target": 0.232
+  },
+  "Bonewarden Aldric": {
+   "level": 21,
+   "kind": "boss",
+   "avg": 382.6,
+   "share": 0.293,
+   "target": 0.336
+  },
+  "Borrik the Unhoused": {
+   "level": 54,
+   "kind": "field_boss",
+   "avg": 1172.0,
+   "share": 0.306,
+   "target": 0.209
+  },
+  "Bosun Grell Tarpot": {
+   "level": 46,
+   "kind": "boss",
+   "avg": 1018.0,
+   "share": 0.332,
+   "target": 0.326
+  },
+  "Bosun Harl Greave": {
+   "level": 40,
+   "kind": "field_boss",
+   "avg": 568.1,
+   "share": 0.219,
+   "target": 0.188
+  },
+  "Bosun Harlow": {
+   "level": 26,
+   "kind": "field_boss",
+   "avg": 462.2,
+   "share": 0.275,
+   "target": 0.233
+  },
+  "Boulderfist Hal'dun": {
+   "level": 36,
+   "kind": "field_boss",
+   "avg": 916.2,
+   "share": 0.396,
+   "target": 0.23
+  },
+  "Bramblequeen Durga": {
+   "level": 22,
+   "kind": "field_boss",
+   "avg": 860.1,
+   "share": 0.622,
+   "target": 0.326
+  },
+  "Bramblethorn the Ancient": {
+   "level": 5,
+   "kind": "field_boss",
+   "avg": 86.1,
+   "share": 0.249,
+   "target": 0.239
+  },
+  "Brinemaw": {
+   "level": 39,
+   "kind": "field_boss",
+   "avg": 766.1,
+   "share": 0.304,
+   "target": 0.199
+  },
+  "Bristlehide the Wintered": {
+   "level": 30,
+   "kind": "field_boss",
+   "avg": 718.8,
+   "share": 0.369,
+   "target": 0.239
+  },
+  "Broadpaw": {
+   "level": 28,
+   "kind": "field_boss",
+   "avg": 284.0,
+   "share": 0.156,
+   "target": 0.188
+  },
+  "Brontus": {
+   "level": 24,
+   "kind": "field_boss",
+   "avg": 402.2,
+   "share": 0.262,
+   "target": 0.231
+  },
+  "Broodlord Szarak": {
+   "level": 55,
+   "kind": "field_boss",
+   "avg": 1341.9,
+   "share": 0.341,
+   "target": 0.21
+  },
+  "Broodmother Nesh'ka": {
+   "level": 7,
+   "kind": "field_boss",
+   "avg": 96.2,
+   "share": 0.226,
+   "target": 0.226
+  },
+  "Broodmother Sarrix": {
+   "level": 5,
+   "kind": "field_boss",
+   "avg": 64.5,
+   "share": 0.186,
+   "target": 0.213
+  },
+  "Broodmother Silka": {
+   "level": 17,
+   "kind": "boss",
+   "avg": 216.3,
+   "share": 0.215,
+   "target": 0.305
+  },
+  "Broodspiral Queen": {
+   "level": 24,
+   "kind": "boss",
+   "avg": 498.0,
+   "share": 0.325,
+   "target": 0.352
+  },
+  "Brother Corwin Ashe": {
+   "level": 41,
+   "kind": "boss",
+   "avg": 2357.1,
+   "share": 0.885,
+   "target": 0.435
+  },
+  "Brother Garrick Thorne": {
+   "level": 39,
+   "kind": "boss",
+   "avg": 2312.5,
+   "share": 0.919,
+   "target": 0.434
+  },
+  "Brother Wystan": {
+   "level": 8,
+   "kind": "field_boss",
+   "avg": 238.2,
+   "share": 0.506,
+   "target": 0.307
+  },
+  "Cannon Master Willey": {
+   "level": 59,
+   "kind": "boss",
+   "avg": 3750.1,
+   "share": 0.853,
+   "target": 0.41
+  },
+  "Capgorger": {
+   "level": 35,
+   "kind": "field_boss",
+   "avg": 1401.9,
+   "share": 0.624,
+   "target": 0.278
+  },
+  "Captain Ardessa Rake": {
+   "level": 49,
+   "kind": "boss",
+   "avg": 1249.4,
+   "share": 0.375,
+   "target": 0.334
+  },
+  "Captain Dargol": {
+   "level": 10,
+   "kind": "field_boss",
+   "avg": 229.1,
+   "share": 0.402,
+   "target": 0.281
+  },
+  "Captain Elric Stane": {
+   "level": 40,
+   "kind": "boss",
+   "avg": 769.6,
+   "share": 0.297,
+   "target": 0.283
+  },
+  "Captain Melrache": {
+   "level": 10,
+   "kind": "field_boss",
+   "avg": 147.4,
+   "share": 0.259,
+   "target": 0.236
+  },
+  "Captain Morrow": {
+   "level": 14,
+   "kind": "field_boss",
+   "avg": 156.8,
+   "share": 0.195,
+   "target": 0.207
+  },
+  "Captain Mory Vane": {
+   "level": 39,
+   "kind": "field_boss",
+   "avg": 904.4,
+   "share": 0.359,
+   "target": 0.213
+  },
+  "Captain Orlee Vantch": {
+   "level": 42,
+   "kind": "field_boss",
+   "avg": 807.2,
+   "share": 0.295,
+   "target": 0.206
+  },
+  "Captain Redpath's Shade": {
+   "level": 58,
+   "kind": "field_boss",
+   "avg": 1019.6,
+   "share": 0.238,
+   "target": 0.188
+  },
+  "Captain Ruel Scuttler": {
+   "level": 42,
+   "kind": "field_boss",
+   "avg": 850.2,
+   "share": 0.31,
+   "target": 0.21
+  },
+  "Captain Saltspray": {
+   "level": 17,
+   "kind": "field_boss",
+   "avg": 400.1,
+   "share": 0.397,
+   "target": 0.278
+  },
+  "Captain Thalenvorde": {
+   "level": 8,
+   "kind": "field_boss",
+   "avg": 157.7,
+   "share": 0.335,
+   "target": 0.26
+  },
+  "Captain Vachon": {
+   "level": 11,
+   "kind": "field_boss",
+   "avg": 160.3,
+   "share": 0.257,
+   "target": 0.232
+  },
+  "Captain Vaile Drownbell": {
+   "level": 45,
+   "kind": "field_boss",
+   "avg": 933.0,
+   "share": 0.313,
+   "target": 0.219
+  },
+  "Captain's Ghost": {
+   "level": 22,
+   "kind": "field_boss",
+   "avg": 737.9,
+   "share": 0.534,
+   "target": 0.306
+  },
+  "Carapace Warden": {
+   "level": 19,
+   "kind": "boss",
+   "avg": 280.2,
+   "share": 0.243,
+   "target": 0.313
+  },
+  "Cartmaster Corin": {
+   "level": 57,
+   "kind": "field_boss",
+   "avg": 2764.8,
+   "share": 0.664,
+   "target": 0.27
+  },
+  "Charlga Razorflank": {
+   "level": 34,
+   "kind": "boss",
+   "avg": 1109.0,
+   "share": 0.508,
+   "target": 0.36
+  },
+  "Chief Grik": {
+   "level": 25,
+   "kind": "field_boss",
+   "avg": 528.2,
+   "share": 0.328,
+   "target": 0.252
+  },
+  "Chieftain Grimpelt": {
+   "level": 55,
+   "kind": "field_boss",
+   "avg": 1088.4,
+   "share": 0.276,
+   "target": 0.193
+  },
+  "Chirurgeon Maeve Ostrowski": {
+   "level": 58,
+   "kind": "boss",
+   "avg": 1144.4,
+   "share": 0.268,
+   "target": 0.262
+  },
+  "Chitterlord Skrix": {
+   "level": 23,
+   "kind": "boss",
+   "avg": 1102.3,
+   "share": 0.756,
+   "target": 0.472
+  },
+  "Cinderfang": {
+   "level": 16,
+   "kind": "boss",
+   "avg": 460.4,
+   "share": 0.491,
+   "target": 0.42
+  },
+  "Cindermaw": {
+   "level": 17,
+   "kind": "skull_zone",
+   "avg": 246.1,
+   "share": 0.244,
+   "target": 0.321
+  },
+  "Corrupted Ancient": {
+   "level": 30,
+   "kind": "boss",
+   "avg": 843.2,
+   "share": 0.433,
+   "target": 0.357
+  },
+  "Crusader Brennic": {
+   "level": 10,
+   "kind": "field_boss",
+   "avg": 177.8,
+   "share": 0.312,
+   "target": 0.254
+  },
+  "Cult Overseer Thaddeus": {
+   "level": 12,
+   "kind": "field_boss",
+   "avg": 390.4,
+   "share": 0.574,
+   "target": 0.319
+  },
+  "Curator Halbrecht": {
+   "level": 35,
+   "kind": "boss",
+   "avg": 1578.2,
+   "share": 0.703,
+   "target": 0.409
+  },
+  "Curse Keeper Tael": {
+   "level": 22,
+   "kind": "boss",
+   "avg": 695.4,
+   "share": 0.503,
+   "target": 0.419
+  },
+  "Dark Sorcerer Zul'keth": {
+   "level": 34,
+   "kind": "boss",
+   "avg": 1052.7,
+   "share": 0.482,
+   "target": 0.352
+  },
+  "Darkmaster Gandling": {
+   "level": 60,
+   "kind": "boss",
+   "avg": 4422.8,
+   "share": 0.979,
+   "target": 0.519
+  },
+  "Death Speaker Jargba": {
+   "level": 30,
+   "kind": "boss",
+   "avg": 1671.9,
+   "share": 0.859,
+   "target": 0.47
+  },
+  "Deathguard Captain": {
+   "level": 18,
+   "kind": "field_boss",
+   "avg": 229.9,
+   "share": 0.213,
+   "target": 0.215
+  },
+  "Deepmuck": {
+   "level": 25,
+   "kind": "field_boss",
+   "avg": 437.3,
+   "share": 0.272,
+   "target": 0.234
+  },
+  "Doctor Theolen Krastinov": {
+   "level": 59,
+   "kind": "boss",
+   "avg": 1946.8,
+   "share": 0.443,
+   "target": 0.315
+  },
+  "Doomguard Sentinel": {
+   "level": 29,
+   "kind": "boss",
+   "avg": 902.1,
+   "share": 0.478,
+   "target": 0.381
+  },
+  "Doomlord Kazrak": {
+   "level": 55,
+   "kind": "tuned_boss",
+   "avg": 1915.2,
+   "share": 0.486,
+   "target": 0.338
+  },
+  "Driller Mozzik": {
+   "level": 30,
+   "kind": "field_boss",
+   "avg": 427.7,
+   "share": 0.22,
+   "target": 0.195
+  },
+  "Drillmaster Osric Pell": {
+   "level": 60,
+   "kind": "boss",
+   "avg": 1595.1,
+   "share": 0.353,
+   "target": 0.268
+  },
+  "Drowned Ferryman": {
+   "level": 18,
+   "kind": "field_boss",
+   "avg": 395.7,
+   "share": 0.366,
+   "target": 0.267
+  },
+  "Drowsyroot the Dreamer": {
+   "level": 21,
+   "kind": "boss",
+   "avg": 622.3,
+   "share": 0.477,
+   "target": 0.408
+  },
+  "Drumhide": {
+   "level": 37,
+   "kind": "field_boss",
+   "avg": 994.3,
+   "share": 0.418,
+   "target": 0.227
+  },
+  "Dustmaw the Rift-Lurker": {
+   "level": 20,
+   "kind": "field_boss",
+   "avg": 342.6,
+   "share": 0.279,
+   "target": 0.235
+  },
+  "Earthcaller Halmgar": {
+   "level": 31,
+   "kind": "boss",
+   "avg": 1330.6,
+   "share": 0.664,
+   "target": 0.412
+  },
+  "Echo of the Fallen Warrior": {
+   "level": 15,
+   "kind": "field_boss",
+   "avg": 228.5,
+   "share": 0.263,
+   "target": 0.233
+  },
+  "Elder Timberling": {
+   "level": 26,
+   "kind": "field_boss",
+   "avg": 321.2,
+   "share": 0.191,
+   "target": 0.202
+  },
+  "Engineer Whirleygig": {
+   "level": 19,
+   "kind": "field_boss",
+   "avg": 262.3,
+   "share": 0.227,
+   "target": 0.217
+  },
+  "Errata": {
+   "level": 39,
+   "kind": "boss",
+   "avg": 1865.2,
+   "share": 0.741,
+   "target": 0.398
+  },
+  "Farmer Felstone": {
+   "level": 52,
+   "kind": "field_boss",
+   "avg": 864.5,
+   "share": 0.239,
+   "target": 0.196
+  },
+  "Felguard Overseer": {
+   "level": 31,
+   "kind": "boss",
+   "avg": 742.7,
+   "share": 0.371,
+   "target": 0.326
+  },
+  "Felstalker": {
+   "level": 23,
+   "kind": "field_boss",
+   "avg": 287,
+   "share": 0.197,
+   "target": 0.206
+  },
+  "Fenrus the Devourer": {
+   "level": 24,
+   "kind": "boss",
+   "avg": 426.2,
+   "share": 0.278,
+   "target": 0.331
+  },
+  "Field Marshal Calder": {
+   "level": 24,
+   "kind": "field_boss",
+   "avg": 411.7,
+   "share": 0.268,
+   "target": 0.233
+  },
+  "First Mate Oskar Vane": {
+   "level": 41,
+   "kind": "field_boss",
+   "avg": 993.8,
+   "share": 0.373,
+   "target": 0.22
+  },
+  "Flame Oracle Ysmel": {
+   "level": 57,
+   "kind": "tuned_boss",
+   "avg": 2946.1,
+   "share": 0.708,
+   "target": 0.387
+  },
+  "Flamespeaker Maud": {
+   "level": 54,
+   "kind": "tuned_boss",
+   "avg": 2746.5,
+   "share": 0.717,
+   "target": 0.412
+  },
+  "Fleet-Captain Orin Dace": {
+   "level": 52,
+   "kind": "field_boss",
+   "avg": 553.4,
+   "share": 0.153,
+   "target": 0.188
+  },
+  "Foreman Durn the Castout": {
+   "level": 52,
+   "kind": "field_boss",
+   "avg": 1634.2,
+   "share": 0.451,
+   "target": 0.252
+  },
+  "Foreman Grills": {
+   "level": 17,
+   "kind": "field_boss",
+   "avg": 363.3,
+   "share": 0.361,
+   "target": 0.268
+  },
+  "Foreman Grubb Deepdelver": {
+   "level": 21,
+   "kind": "field_boss",
+   "avg": 391.5,
+   "share": 0.3,
+   "target": 0.242
+  },
+  "Foreman Harrow": {
+   "level": 55,
+   "kind": "field_boss",
+   "avg": 754.9,
+   "share": 0.192,
+   "target": 0.188
+  },
+  "Forge-Lord Darrok": {
+   "level": 53,
+   "kind": "tuned_boss",
+   "avg": 2352.4,
+   "share": 0.631,
+   "target": 0.391
+  },
+  "Gaffer Thorne": {
+   "level": 6,
+   "kind": "field_boss",
+   "avg": 99.0,
+   "share": 0.257,
+   "target": 0.242
+  },
+  "Gaharrz the Drowned": {
+   "level": 17,
+   "kind": "field_boss",
+   "avg": 300.7,
+   "share": 0.298,
+   "target": 0.248
+  },
+  "Gahrron the Withered": {
+   "level": 56,
+   "kind": "field_boss",
+   "avg": 1277.0,
+   "share": 0.315,
+   "target": 0.201
+  },
+  "Gatekeeper Vorthas": {
+   "level": 58,
+   "kind": "field_boss",
+   "avg": 1215.4,
+   "share": 0.284,
+   "target": 0.188
+  },
+  "Gatewarden Brannic": {
+   "level": 26,
+   "kind": "field_boss",
+   "avg": 477.7,
+   "share": 0.284,
+   "target": 0.236
+  },
+  "Gatewarden Hrun": {
+   "level": 52,
+   "kind": "tuned_boss",
+   "avg": 791.7,
+   "share": 0.218,
+   "target": 0.264
+  },
+  "Gaunt the Scarecrow-King": {
+   "level": 15,
+   "kind": "field_boss",
+   "avg": 303.4,
+   "share": 0.349,
+   "target": 0.261
+  },
+  "Gavin the Fence": {
+   "level": 26,
+   "kind": "field_boss",
+   "avg": 482.2,
+   "share": 0.287,
+   "target": 0.237
+  },
+  "Gazz'uz": {
+   "level": 11,
+   "kind": "field_boss",
+   "avg": 329.7,
+   "share": 0.529,
+   "target": 0.31
+  },
+  "Gearjaw": {
+   "level": 38,
+   "kind": "field_boss",
+   "avg": 1442.3,
+   "share": 0.59,
+   "target": 0.259
+  },
+  "Gelihast": {
+   "level": 26,
+   "kind": "boss",
+   "avg": 514.1,
+   "share": 0.306,
+   "target": 0.341
+  },
+  "General Twinbraid": {
+   "level": 24,
+   "kind": "field_boss",
+   "avg": 577.4,
+   "share": 0.376,
+   "target": 0.267
+  },
+  "Ghamoo-ra": {
+   "level": 26,
+   "kind": "boss",
+   "avg": 394.1,
+   "share": 0.234,
+   "target": 0.306
+  },
+  "Ghoulmaster Krag": {
+   "level": 11,
+   "kind": "field_boss",
+   "avg": 247.0,
+   "share": 0.396,
+   "target": 0.276
+  },
+  "Giant Crab": {
+   "level": 13,
+   "kind": "boss",
+   "avg": 188.0,
+   "share": 0.254,
+   "target": 0.322
+  },
+  "Gillfin the Net-Cutter": {
+   "level": 11,
+   "kind": "field_boss",
+   "avg": 178.0,
+   "share": 0.286,
+   "target": 0.242
+  },
+  "Gilnean Wall-Warden": {
+   "level": 20,
+   "kind": "field_boss",
+   "avg": 324.6,
+   "share": 0.264,
+   "target": 0.23
+  },
+  "Glassmaw": {
+   "level": 51,
+   "kind": "boss",
+   "avg": 1508.1,
+   "share": 0.428,
+   "target": 0.345
+  },
+  "Glasswall Warden": {
+   "level": 46,
+   "kind": "field_boss",
+   "avg": 2551.8,
+   "share": 0.833,
+   "target": 0.336
+  },
+  "Gnarl the Unburied": {
+   "level": 19,
+   "kind": "frontier_deep",
+   "avg": 654.4,
+   "share": 0.567,
+   "target": 0.376
+  },
+  "Gnash the Hollow-Maw": {
+   "level": 22,
+   "kind": "boss",
+   "avg": 353.3,
+   "share": 0.256,
+   "target": 0.32
+  },
+  "Gnasher, the Bone-Fed": {
+   "level": 27,
+   "kind": "hidden_layer",
+   "avg": 938.8,
+   "share": 0.535,
+   "target": 0.486
+  },
+  "Gnawbone the Foreman": {
+   "level": 18,
+   "kind": "field_boss",
+   "avg": 315.8,
+   "share": 0.292,
+   "target": 0.244
+  },
+  "Gnawheart": {
+   "level": 31,
+   "kind": "field_boss",
+   "avg": 256.1,
+   "share": 0.128,
+   "target": 0.188
+  },
+  "Goldcrown": {
+   "level": 28,
+   "kind": "field_boss",
+   "avg": 756.5,
+   "share": 0.415,
+   "target": 0.264
+  },
+  "Goldfang": {
+   "level": 5,
+   "kind": "field_boss",
+   "avg": 92.2,
+   "share": 0.266,
+   "target": 0.246
+  },
+  "Goodman Solliden": {
+   "level": 8,
+   "kind": "field_boss",
+   "avg": 103.1,
+   "share": 0.219,
+   "target": 0.219
+  },
+  "Gor'mok the Pit Chief": {
+   "level": 32,
+   "kind": "field_boss",
+   "avg": 1196.8,
+   "share": 0.58,
+   "target": 0.277
+  },
+  "Gorbash the Thick": {
+   "level": 27,
+   "kind": "field_boss",
+   "avg": 521.5,
+   "share": 0.297,
+   "target": 0.24
+  },
+  "Gorbuk the Shelf-King": {
+   "level": 36,
+   "kind": "field_boss",
+   "avg": 1204.2,
+   "share": 0.521,
+   "target": 0.256
+  },
+  "Gorge the Corpsegrinder": {
+   "level": 8,
+   "kind": "field_boss",
+   "avg": 135.0,
+   "share": 0.287,
+   "target": 0.244
+  },
+  "Gorrek Passkeeper": {
+   "level": 36,
+   "kind": "field_boss",
+   "avg": 852.2,
+   "share": 0.369,
+   "target": 0.223
+  },
+  "Grand Crusader Dathrohan": {
+   "level": 59,
+   "kind": "boss",
+   "avg": 4438,
+   "share": 1.009,
+   "target": 0.563
+  },
+  "Grand Crusader Victor Hale": {
+   "level": 60,
+   "kind": "boss",
+   "avg": 4184.9,
+   "share": 0.926,
+   "target": 0.507
+  },
+  "Grandfather Burl": {
+   "level": 32,
+   "kind": "field_boss",
+   "avg": 576.7,
+   "share": 0.28,
+   "target": 0.207
+  },
+  "Grandfather Hollowbark": {
+   "level": 53,
+   "kind": "field_boss",
+   "avg": 1423.1,
+   "share": 0.382,
+   "target": 0.228
+  },
+  "Grandfather Mangrove": {
+   "level": 17,
+   "kind": "skull_zone",
+   "avg": 264.5,
+   "share": 0.262,
+   "target": 0.33
+  },
+  "Grateward Mok'tal": {
+   "level": 36,
+   "kind": "boss",
+   "avg": 1295.5,
+   "share": 0.561,
+   "target": 0.369
+  },
+  "Grevan the Gatekeeper": {
+   "level": 32,
+   "kind": "boss",
+   "avg": 1046,
+   "share": 0.507,
+   "target": 0.367
+  },
+  "Grimbark the Chained": {
+   "level": 55,
+   "kind": "tuned_boss",
+   "avg": 2808.8,
+   "share": 0.713,
+   "target": 0.394
+  },
+  "Grimewick the Drowned": {
+   "level": 25,
+   "kind": "field_boss",
+   "avg": 505.3,
+   "share": 0.314,
+   "target": 0.248
+  },
+  "Grubbis Tallow": {
+   "level": 37,
+   "kind": "field_boss",
+   "avg": 1373.8,
+   "share": 0.578,
+   "target": 0.259
+  },
+  "Grulgash the Pitbreaker": {
+   "level": 14,
+   "kind": "boss",
+   "avg": 316.7,
+   "share": 0.394,
+   "target": 0.384
+  },
+  "Gruln Stonejaw": {
+   "level": 32,
+   "kind": "field_boss",
+   "avg": 971.5,
+   "share": 0.471,
+   "target": 0.255
+  },
+  "Gullmother Shrike": {
+   "level": 39,
+   "kind": "skull_zone",
+   "avg": 755.9,
+   "share": 0.3,
+   "target": 0.277
+  },
+  "Gulpmaw": {
+   "level": 34,
+   "kind": "frontier_open",
+   "avg": 1151.1,
+   "share": 0.527,
+   "target": 0.313
+  },
+  "Gutripper": {
+   "level": 21,
+   "kind": "skull_zone",
+   "avg": 282.8,
+   "share": 0.217,
+   "target": 0.298
+  },
+  "Hagg Taurenbane": {
+   "level": 22,
+   "kind": "field_boss",
+   "avg": 395.8,
+   "share": 0.286,
+   "target": 0.239
+  },
+  "Hagra Stormcrown": {
+   "level": 35,
+   "kind": "field_boss",
+   "avg": 1047.2,
+   "share": 0.466,
+   "target": 0.248
+  },
+  "Hap'ka the Drowned": {
+   "level": 34,
+   "kind": "field_boss",
+   "avg": 1015.8,
+   "share": 0.465,
+   "target": 0.248
+  },
+  "Harbinger Veska": {
+   "level": 32,
+   "kind": "field_boss",
+   "avg": 1012.5,
+   "share": 0.491,
+   "target": 0.259
+  },
+  "Hargol Bloodhorn": {
+   "level": 29,
+   "kind": "field_boss",
+   "avg": 275.2,
+   "share": 0.146,
+   "target": 0.188
+  },
+  "Harpy Matriarch": {
+   "level": 20,
+   "kind": "field_boss",
+   "avg": 426.2,
+   "share": 0.347,
+   "target": 0.257
+  },
+  "Hask'zar the Scarred": {
+   "level": 53,
+   "kind": "field_boss",
+   "avg": 2387.8,
+   "share": 0.641,
+   "target": 0.281
+  },
+  "Hatchery Warden Skrix": {
+   "level": 6,
+   "kind": "field_boss",
+   "avg": 75.5,
+   "share": 0.196,
+   "target": 0.217
+  },
+  "Heartgrown": {
+   "level": 38,
+   "kind": "field_boss",
+   "avg": 1591.6,
+   "share": 0.651,
+   "target": 0.27
+  },
+  "Hearthsinger Forresten": {
+   "level": 57,
+   "kind": "boss",
+   "avg": 4082,
+   "share": 0.981,
+   "target": 0.441
+  },
+  "Herod": {
+   "level": 39,
+   "kind": "boss",
+   "avg": 888.2,
+   "share": 0.353,
+   "target": 0.296
+  },
+  "High Clerist Hendrick": {
+   "level": 59,
+   "kind": "boss",
+   "avg": 3614.7,
+   "share": 0.822,
+   "target": 0.404
+  },
+  "High General Abbendis": {
+   "level": 60,
+   "kind": "boss",
+   "avg": 3887.5,
+   "share": 0.86,
+   "target": 0.383
+  },
+  "High Inquisitor Aldric": {
+   "level": 40,
+   "kind": "boss",
+   "avg": 2672.2,
+   "share": 1.032,
+   "target": 0.466
+  },
+  "High Inquisitor Fairbanks": {
+   "level": 8,
+   "kind": "field_boss",
+   "avg": 267,
+   "share": 0.567,
+   "target": 0.321
+  },
+  "High Inquisitor Faulk": {
+   "level": 56,
+   "kind": "field_boss",
+   "avg": 2845.3,
+   "share": 0.703,
+   "target": 0.278
+  },
+  "High Inquisitor Whitemane": {
+   "level": 42,
+   "kind": "boss",
+   "avg": 2505.8,
+   "share": 0.915,
+   "target": 0.453
+  },
+  "High Protector Lorik": {
+   "level": 59,
+   "kind": "boss",
+   "avg": 1297.2,
+   "share": 0.295,
+   "target": 0.268
+  },
+  "High Protector Tarsen": {
+   "level": 58,
+   "kind": "boss",
+   "avg": 1311.8,
+   "share": 0.307,
+   "target": 0.268
+  },
+  "Hive Champion Khix'ar": {
+   "level": 53,
+   "kind": "field_boss",
+   "avg": 1325.2,
+   "share": 0.356,
+   "target": 0.222
+  },
+  "Hive Queen Zil'kesh": {
+   "level": 53,
+   "kind": "field_boss",
+   "avg": 2086.1,
+   "share": 0.56,
+   "target": 0.266
+  },
+  "Hive-Mother Ahn'thera": {
+   "level": 56,
+   "kind": "tuned_boss",
+   "avg": 1923.9,
+   "share": 0.475,
+   "target": 0.427
+  },
+  "Hive-Warden Kasz'ar": {
+   "level": 54,
+   "kind": "tuned_boss",
+   "avg": 1540.0,
+   "share": 0.402,
+   "target": 0.327
+  },
+  "Hoarfang": {
+   "level": 33,
+   "kind": "field_boss",
+   "avg": 825.8,
+   "share": 0.389,
+   "target": 0.232
+  },
+  "Hold-Warden Gorvash": {
+   "level": 53,
+   "kind": "tuned_boss",
+   "avg": 642.7,
+   "share": 0.172,
+   "target": 0.262
+  },
+  "Hollowcrust": {
+   "level": 39,
+   "kind": "field_boss",
+   "avg": 1204.2,
+   "share": 0.479,
+   "target": 0.239
+  },
+  "Hollowhorn": {
+   "level": 16,
+   "kind": "field_boss",
+   "avg": 193.2,
+   "share": 0.206,
+   "target": 0.212
+  },
+  "Houndmaster Gor'tek": {
+   "level": 14,
+   "kind": "field_boss",
+   "avg": 202.2,
+   "share": 0.252,
+   "target": 0.23
+  },
+  "Houndmaster Kraygh": {
+   "level": 13,
+   "kind": "field_boss",
+   "avg": 393.2,
+   "share": 0.531,
+   "target": 0.309
+  },
+  "Houndmaster Loksey": {
+   "level": 34,
+   "kind": "boss",
+   "avg": 842.8,
+   "share": 0.386,
+   "target": 0.322
+  },
+  "Houndmaster Sable": {
+   "level": 28,
+   "kind": "boss",
+   "avg": 411.5,
+   "share": 0.226,
+   "target": 0.29
+  },
+  "Hunt-King Valorin": {
+   "level": 24,
+   "kind": "field_boss",
+   "avg": 783.1,
+   "share": 0.51,
+   "target": 0.301
+  },
+  "Huntsman Radley": {
+   "level": 58,
+   "kind": "boss",
+   "avg": 1705.4,
+   "share": 0.399,
+   "target": 0.298
+  },
+  "Idol-Keeper Zun'jal": {
+   "level": 36,
+   "kind": "skull_zone",
+   "avg": 1636.9,
+   "share": 0.708,
+   "target": 0.406
+  },
+  "Inquisitor Vellan Rook": {
+   "level": 33,
+   "kind": "boss",
+   "avg": 2092.1,
+   "share": 0.986,
+   "target": 0.471
+  },
+  "Inquisitor Xel'thas": {
+   "level": 53,
+   "kind": "tuned_boss",
+   "avg": 2312,
+   "share": 0.621,
+   "target": 0.388
+  },
+  "Instructor Malicia": {
+   "level": 59,
+   "kind": "boss",
+   "avg": 3864.3,
+   "share": 0.879,
+   "target": 0.415
+  },
+  "Interrogator Maelis": {
+   "level": 30,
+   "kind": "boss",
+   "avg": 627.8,
+   "share": 0.322,
+   "target": 0.317
+  },
+  "Interrogator Vishas": {
+   "level": 12,
+   "kind": "field_boss",
+   "avg": 218.9,
+   "share": 0.322,
+   "target": 0.253
+  },
+  "Ironbark the Blighted": {
+   "level": 55,
+   "kind": "field_boss",
+   "avg": 1454.4,
+   "share": 0.369,
+   "target": 0.216
+  },
+  "Ironspine": {
+   "level": 31,
+   "kind": "boss",
+   "avg": 533.1,
+   "share": 0.266,
+   "target": 0.285
+  },
+  "Ja'kesh the Unchained": {
+   "level": 39,
+   "kind": "hidden_layer",
+   "avg": 1459.8,
+   "share": 0.58,
+   "target": 0.413
+  },
+  "Jandice Barov": {
+   "level": 57,
+   "kind": "boss",
+   "avg": 3555.1,
+   "share": 0.854,
+   "target": 0.418
+  },
+  "Jen'shala, the House Favourite": {
+   "level": 38,
+   "kind": "boss",
+   "avg": 962.1,
+   "share": 0.393,
+   "target": 0.309
+  },
+  "Jergosh the Invoker": {
+   "level": 16,
+   "kind": "boss",
+   "avg": 424.2,
+   "share": 0.453,
+   "target": 0.406
+  },
+  "Ka'tesh the Last Stairkeeper": {
+   "level": 34,
+   "kind": "field_boss",
+   "avg": 2196.2,
+   "share": 1.006,
+   "target": 0.338
+  },
+  "Karrath the Ventlord": {
+   "level": 58,
+   "kind": "field_boss",
+   "avg": 3355,
+   "share": 0.784,
+   "target": 0.279
+  },
+  "Keelwarden Orso Brann": {
+   "level": 51,
+   "kind": "field_boss",
+   "avg": 662.0,
+   "share": 0.188,
+   "target": 0.188
+  },
+  "Keeper Rustveil": {
+   "level": 28,
+   "kind": "field_boss",
+   "avg": 758.1,
+   "share": 0.416,
+   "target": 0.264
+  },
+  "Khan Saltmane": {
+   "level": 33,
+   "kind": "field_boss",
+   "avg": 986.3,
+   "share": 0.465,
+   "target": 0.249
+  },
+  "Kirtonos the Herald": {
+   "level": 57,
+   "kind": "boss",
+   "avg": 4498.4,
+   "share": 1.081,
+   "target": 0.459
+  },
+  "Kragg the Wall-Breaker": {
+   "level": 17,
+   "kind": "field_boss",
+   "avg": 390.5,
+   "share": 0.387,
+   "target": 0.275
+  },
+  "Kresh": {
+   "level": 20,
+   "kind": "boss",
+   "avg": 476.8,
+   "share": 0.388,
+   "target": 0.376
+  },
+  "Lady Anacondra": {
+   "level": 19,
+   "kind": "boss",
+   "avg": 599.2,
+   "share": 0.519,
+   "target": 0.424
+  },
+  "Lady Illucia Barov": {
+   "level": 60,
+   "kind": "boss",
+   "avg": 4412.8,
+   "share": 0.976,
+   "target": 0.403
+  },
+  "Lady Sarevess": {
+   "level": 26,
+   "kind": "boss",
+   "avg": 653.5,
+   "share": 0.388,
+   "target": 0.375
+  },
+  "Larval Broodguard": {
+   "level": 22,
+   "kind": "boss",
+   "avg": 802.4,
+   "share": 0.581,
+   "target": 0.444
+  },
+  "Latticeborn": {
+   "level": 34,
+   "kind": "field_boss",
+   "avg": 1666.8,
+   "share": 0.763,
+   "target": 0.302
+  },
+  "Ledger-Keeper Ashkin": {
+   "level": 39,
+   "kind": "field_boss",
+   "avg": 945.9,
+   "share": 0.376,
+   "target": 0.217
+  },
+  "Longcollapse": {
+   "level": 47,
+   "kind": "field_boss",
+   "avg": 921.3,
+   "share": 0.292,
+   "target": 0.221
+  },
+  "Longleg the Stalker": {
+   "level": 17,
+   "kind": "field_boss",
+   "avg": 342.2,
+   "share": 0.34,
+   "target": 0.261
+  },
+  "Looter-Chief Bazz": {
+   "level": 14,
+   "kind": "field_boss",
+   "avg": 179.6,
+   "share": 0.223,
+   "target": 0.219
+  },
+  "Lord Alexei Barov": {
+   "level": 60,
+   "kind": "boss",
+   "avg": 3818.8,
+   "share": 0.845,
+   "target": 0.38
+  },
+  "Lord Cobrahn": {
+   "level": 20,
+   "kind": "boss",
+   "avg": 718.9,
+   "share": 0.585,
+   "target": 0.443
+  },
+  "Lord Falconcrest": {
+   "level": 34,
+   "kind": "boss",
+   "avg": 778.2,
+   "share": 0.356,
+   "target": 0.312
+  },
+  "Lord Godfrey's Remnant": {
+   "level": 19,
+   "kind": "field_boss",
+   "avg": 334.7,
+   "share": 0.29,
+   "target": 0.24
+  },
+  "Lord Malgan": {
+   "level": 25,
+   "kind": "field_boss",
+   "avg": 776.6,
+   "share": 0.483,
+   "target": 0.295
+  },
+  "Lord Nightmare": {
+   "level": 32,
+   "kind": "boss",
+   "avg": 980.1,
+   "share": 0.475,
+   "target": 0.358
+  },
+  "Lord Pythas": {
+   "level": 21,
+   "kind": "boss",
+   "avg": 690.8,
+   "share": 0.529,
+   "target": 0.425
+  },
+  "Lord Serpentis": {
+   "level": 21,
+   "kind": "boss",
+   "avg": 778.6,
+   "share": 0.596,
+   "target": 0.446
+  },
+  "Lorekeeper Polkelt": {
+   "level": 59,
+   "kind": "boss",
+   "avg": 4046.7,
+   "share": 0.92,
+   "target": 0.422
+  },
+  "Lorgus Jett": {
+   "level": 26,
+   "kind": "boss",
+   "avg": 923.9,
+   "share": 0.549,
+   "target": 0.431
+  },
+  "Maelwyn Blightbloom": {
+   "level": 25,
+   "kind": "field_boss",
+   "avg": 689.3,
+   "share": 0.428,
+   "target": 0.281
+  },
+  "Maeve the Weeping": {
+   "level": 16,
+   "kind": "field_boss",
+   "avg": 491.2,
+   "share": 0.524,
+   "target": 0.308
+  },
+  "Maggot Eye": {
+   "level": 10,
+   "kind": "field_boss",
+   "avg": 158.2,
+   "share": 0.278,
+   "target": 0.243
+  },
+  "Magister Aerith Dawnsong": {
+   "level": 60,
+   "kind": "skull_zone",
+   "avg": 3162.2,
+   "share": 0.7,
+   "target": 0.353
+  },
+  "Magister Hawren": {
+   "level": 22,
+   "kind": "boss",
+   "avg": 678.8,
+   "share": 0.491,
+   "target": 0.415
+  },
+  "Magister Quillfire": {
+   "level": 20,
+   "kind": "field_boss",
+   "avg": 820.3,
+   "share": 0.667,
+   "target": 0.333
+  },
+  "Magister Yvaine": {
+   "level": 28,
+   "kind": "boss",
+   "avg": 1361.2,
+   "share": 0.747,
+   "target": 0.468
+  },
+  "Magistrate Andor": {
+   "level": 54,
+   "kind": "field_boss",
+   "avg": 2587.0,
+   "share": 0.675,
+   "target": 0.287
+  },
+  "Magistrate Barthilas": {
+   "level": 58,
+   "kind": "boss",
+   "avg": 3382.9,
+   "share": 0.791,
+   "target": 0.391
+  },
+  "Magmacore": {
+   "level": 32,
+   "kind": "field_boss",
+   "avg": 898,
+   "share": 0.435,
+   "target": 0.247
+  },
+  "Maleki the Pallid": {
+   "level": 59,
+   "kind": "boss",
+   "avg": 4367.5,
+   "share": 0.993,
+   "target": 0.435
+  },
+  "Mam'toth the Hexweaver": {
+   "level": 14,
+   "kind": "field_boss",
+   "avg": 384.3,
+   "share": 0.478,
+   "target": 0.297
+  },
+  "Marduk Blackpool": {
+   "level": 58,
+   "kind": "boss",
+   "avg": 4307.8,
+   "share": 1.007,
+   "target": 0.431
+  },
+  "Marginalia": {
+   "level": 41,
+   "kind": "hidden_layer",
+   "avg": 3669.1,
+   "share": 1.378,
+   "target": 0.54
+  },
+  "Marrowmaw": {
+   "level": 43,
+   "kind": "field_boss",
+   "avg": 1106.8,
+   "share": 0.393,
+   "target": 0.238
+  },
+  "Marsh-Mother Ysmil": {
+   "level": 36,
+   "kind": "field_boss",
+   "avg": 1069,
+   "share": 0.463,
+   "target": 0.244
+  },
+  "Master Summoner Kaz'reth": {
+   "level": 54,
+   "kind": "tuned_boss",
+   "avg": 1635.0,
+   "share": 0.427,
+   "target": 0.335
+  },
+  "Master-at-Arms Dorran Pike": {
+   "level": 38,
+   "kind": "boss",
+   "avg": 1323.1,
+   "share": 0.541,
+   "target": 0.351
+  },
+  "Mastmaster Corbin Ake": {
+   "level": 49,
+   "kind": "field_boss",
+   "avg": 638.8,
+   "share": 0.192,
+   "target": 0.188
+  },
+  "Matriarch Velaxis": {
+   "level": 19,
+   "kind": "boss",
+   "avg": 368.9,
+   "share": 0.32,
+   "target": 0.349
+  },
+  "Matriarch Vess'ra": {
+   "level": 11,
+   "kind": "field_boss",
+   "avg": 189.5,
+   "share": 0.304,
+   "target": 0.248
+  },
+  "Matron Shrieka": {
+   "level": 29,
+   "kind": "field_boss",
+   "avg": 727.2,
+   "share": 0.386,
+   "target": 0.25
+  },
+  "Matron Sowbelly": {
+   "level": 10,
+   "kind": "field_boss",
+   "avg": 179.2,
+   "share": 0.315,
+   "target": 0.255
+  },
+  "Mauler Krakk": {
+   "level": 36,
+   "kind": "field_boss",
+   "avg": 754.7,
+   "share": 0.327,
+   "target": 0.213
+  },
+  "Mawgrin the Gaunt": {
+   "level": 3,
+   "kind": "field_boss",
+   "avg": 73,
+   "share": 0.263,
+   "target": 0.252
+  },
+  "Meven Korgal": {
+   "level": 9,
+   "kind": "field_boss",
+   "avg": 217.5,
+   "share": 0.419,
+   "target": 0.285
+  },
+  "Mistvale Longjaw": {
+   "level": 33,
+   "kind": "field_boss",
+   "avg": 1268,
+   "share": 0.598,
+   "target": 0.276
+  },
+  "Moj'bashi the Drowned": {
+   "level": 13,
+   "kind": "field_boss",
+   "avg": 153.9,
+   "share": 0.208,
+   "target": 0.213
+  },
+  "Mosshide the Gloomcap Elder": {
+   "level": 24,
+   "kind": "field_boss",
+   "avg": 619.0,
+   "share": 0.403,
+   "target": 0.274
+  },
+  "Mother Amberwing": {
+   "level": 20,
+   "kind": "boss",
+   "avg": 373.5,
+   "share": 0.304,
+   "target": 0.341
+  },
+  "Mother Canopy": {
+   "level": 53,
+   "kind": "field_boss",
+   "avg": 1483.8,
+   "share": 0.398,
+   "target": 0.232
+  },
+  "Mother Mire": {
+   "level": 35,
+   "kind": "skull_zone",
+   "avg": 916.1,
+   "share": 0.408,
+   "target": 0.329
+  },
+  "Mother Venomweb": {
+   "level": 11,
+   "kind": "field_boss",
+   "avg": 171.7,
+   "share": 0.275,
+   "target": 0.239
+  },
+  "Mother of the Haunt": {
+   "level": 53,
+   "kind": "field_boss",
+   "avg": 2460,
+   "share": 0.66,
+   "target": 0.284
+  },
+  "Mother of the Herd": {
+   "level": 59,
+   "kind": "frontier_open",
+   "avg": 1597.0,
+   "share": 0.363,
+   "target": 0.249
+  },
+  "Mourning Wren": {
+   "level": 5,
+   "kind": "field_boss",
+   "avg": 145.0,
+   "share": 0.419,
+   "target": 0.295
+  },
+  "Muckmaw": {
+   "level": 16,
+   "kind": "field_boss",
+   "avg": 206.8,
+   "share": 0.221,
+   "target": 0.218
+  },
+  "Murk the Bloated": {
+   "level": 7,
+   "kind": "field_boss",
+   "avg": 106.5,
+   "share": 0.25,
+   "target": 0.235
+  },
+  "Mutanus the Devourer": {
+   "level": 24,
+   "kind": "boss",
+   "avg": 664.3,
+   "share": 0.433,
+   "target": 0.395
+  },
+  "Naga Shrine Guardian": {
+   "level": 13,
+   "kind": "boss",
+   "avg": 201.3,
+   "share": 0.272,
+   "target": 0.331
+  },
+  "Neru Fireblade": {
+   "level": 11,
+   "kind": "field_boss",
+   "avg": 434.4,
+   "share": 0.697,
+   "target": 0.338
+  },
+  "Nerub'enkan": {
+   "level": 59,
+   "kind": "boss",
+   "avg": 2791.7,
+   "share": 0.635,
+   "target": 0.364
+  },
+  "Nest Guardian": {
+   "level": 5,
+   "kind": "field_boss",
+   "avg": 72.3,
+   "share": 0.209,
+   "target": 0.223
+  },
+  "Nineteen Mile": {
+   "level": 43,
+   "kind": "field_boss",
+   "avg": 1059.9,
+   "share": 0.376,
+   "target": 0.234
+  },
+  "Oggleflint": {
+   "level": 15,
+   "kind": "boss",
+   "avg": 202.5,
+   "share": 0.233,
+   "target": 0.311
+  },
+  "Old Ashback the Basilisk": {
+   "level": 51,
+   "kind": "field_boss",
+   "avg": 1163.0,
+   "share": 0.33,
+   "target": 0.222
+  },
+  "Old Barnacle-Beard": {
+   "level": 13,
+   "kind": "field_boss",
+   "avg": 189.2,
+   "share": 0.255,
+   "target": 0.231
+  },
+  "Old Blister": {
+   "level": 18,
+   "kind": "skull_zone",
+   "avg": 365.5,
+   "share": 0.338,
+   "target": 0.362
+  },
+  "Old Bonepicker": {
+   "level": 39,
+   "kind": "field_boss",
+   "avg": 1022,
+   "share": 0.406,
+   "target": 0.224
+  },
+  "Old Bramley": {
+   "level": 12,
+   "kind": "skull_zone",
+   "avg": 190.8,
+   "share": 0.28,
+   "target": 0.335
+  },
+  "Old Darrowjaw": {
+   "level": 53,
+   "kind": "field_boss",
+   "avg": 1226.5,
+   "share": 0.329,
+   "target": 0.215
+  },
+  "Old Dry-Eye": {
+   "level": 46,
+   "kind": "field_boss",
+   "avg": 1358.8,
+   "share": 0.443,
+   "target": 0.261
+  },
+  "Old Gillrot": {
+   "level": 9,
+   "kind": "field_boss",
+   "avg": 217,
+   "share": 0.418,
+   "target": 0.285
+  },
+  "Old Gnarlhorn": {
+   "level": 28,
+   "kind": "skull_zone",
+   "avg": 419.0,
+   "share": 0.23,
+   "target": 0.292
+  },
+  "Old Greyhide": {
+   "level": 28,
+   "kind": "field_boss",
+   "avg": 371.6,
+   "share": 0.204,
+   "target": 0.199
+  },
+  "Old Gulpjaw": {
+   "level": 4,
+   "kind": "field_boss",
+   "avg": 92.4,
+   "share": 0.297,
+   "target": 0.261
+  },
+  "Old Hissfang": {
+   "level": 19,
+   "kind": "boss",
+   "avg": 379.1,
+   "share": 0.329,
+   "target": 0.353
+  },
+  "Old Hob": {
+   "level": 14,
+   "kind": "field_boss",
+   "avg": 240.6,
+   "share": 0.299,
+   "target": 0.246
+  },
+  "Old Hollowbark": {
+   "level": 19,
+   "kind": "skull_zone",
+   "avg": 319.6,
+   "share": 0.277,
+   "target": 0.33
+  },
+  "Old Icehide": {
+   "level": 24,
+   "kind": "field_boss",
+   "avg": 499.5,
+   "share": 0.326,
+   "target": 0.252
+  },
+  "Old Marris": {
+   "level": 56,
+   "kind": "field_boss",
+   "avg": 992.0,
+   "share": 0.245,
+   "target": 0.188
+  },
+  "Old Mire-Maw": {
+   "level": 17,
+   "kind": "field_boss",
+   "avg": 352.6,
+   "share": 0.35,
+   "target": 0.264
+  },
+  "Old Mossback": {
+   "level": 52,
+   "kind": "field_boss",
+   "avg": 831.5,
+   "share": 0.229,
+   "target": 0.192
+  },
+  "Old Mother Longhorn": {
+   "level": 20,
+   "kind": "field_boss",
+   "avg": 277.0,
+   "share": 0.225,
+   "target": 0.216
+  },
+  "Old Mother Sedge": {
+   "level": 58,
+   "kind": "skull_zone",
+   "avg": 1030.8,
+   "share": 0.241,
+   "target": 0.262
+  },
+  "Old Pumice": {
+   "level": 30,
+   "kind": "field_boss",
+   "avg": 368.1,
+   "share": 0.189,
+   "target": 0.188
+  },
+  "Old Redtooth": {
+   "level": 11,
+   "kind": "field_boss",
+   "avg": 206.5,
+   "share": 0.331,
+   "target": 0.257
+  },
+  "Old Riser": {
+   "level": 47,
+   "kind": "field_boss",
+   "avg": 1220.3,
+   "share": 0.387,
+   "target": 0.248
+  },
+  "Old Saltbed": {
+   "level": 34,
+   "kind": "field_boss",
+   "avg": 922.6,
+   "share": 0.423,
+   "target": 0.239
+  },
+  "Old Scoria": {
+   "level": 57,
+   "kind": "field_boss",
+   "avg": 4061.7,
+   "share": 0.976,
+   "target": 0.315
+  },
+  "Old Serra'kis": {
+   "level": 26,
+   "kind": "boss",
+   "avg": 394.5,
+   "share": 0.235,
+   "target": 0.307
+  },
+  "Old Snag-Jaw": {
+   "level": 16,
+   "kind": "skull_zone",
+   "avg": 249.8,
+   "share": 0.267,
+   "target": 0.329
+  },
+  "Old Stinger": {
+   "level": 46,
+   "kind": "skull_zone",
+   "avg": 1176.2,
+   "share": 0.384,
+   "target": 0.345
+  },
+  "Old Sunhide": {
+   "level": 14,
+   "kind": "field_boss",
+   "avg": 216.5,
+   "share": 0.269,
+   "target": 0.236
+  },
+  "Old Talonwing": {
+   "level": 33,
+   "kind": "field_boss",
+   "avg": 666.9,
+   "share": 0.314,
+   "target": 0.213
+  },
+  "Old Thondroril": {
+   "level": 55,
+   "kind": "field_boss",
+   "avg": 1376.5,
+   "share": 0.35,
+   "target": 0.212
+  },
+  "Old Thunder, the Herd Bull": {
+   "level": 33,
+   "kind": "skull_zone",
+   "avg": 950.5,
+   "share": 0.448,
+   "target": 0.344
+  },
+  "Old Tusk": {
+   "level": 3,
+   "kind": "field_boss",
+   "avg": 98.2,
+   "share": 0.353,
+   "target": 0.284
+  },
+  "Oldcrest": {
+   "level": 32,
+   "kind": "field_boss",
+   "avg": 1642.7,
+   "share": 0.797,
+   "target": 0.314
+  },
+  "Orchardkeeper Gnarl": {
+   "level": 16,
+   "kind": "field_boss",
+   "avg": 504.4,
+   "share": 0.538,
+   "target": 0.311
+  },
+  "Ossric the Unburied": {
+   "level": 4,
+   "kind": "field_boss",
+   "avg": 94.6,
+   "share": 0.305,
+   "target": 0.264
+  },
+  "Overlord Ramtusk": {
+   "level": 32,
+   "kind": "boss",
+   "avg": 1068.8,
+   "share": 0.518,
+   "target": 0.37
+  },
+  "Overseer Ashlan Silvervein": {
+   "level": 26,
+   "kind": "field_boss",
+   "avg": 594.9,
+   "share": 0.354,
+   "target": 0.258
+  },
+  "Overseer Grall": {
+   "level": 53,
+   "kind": "tuned_boss",
+   "avg": 1094.2,
+   "share": 0.294,
+   "target": 0.288
+  },
+  "Overseer Marrowgrim": {
+   "level": 60,
+   "kind": "field_boss",
+   "avg": 1433.4,
+   "share": 0.317,
+   "target": 0.188
+  },
+  "Overseer Mull": {
+   "level": 32,
+   "kind": "field_boss",
+   "avg": 1010.3,
+   "share": 0.49,
+   "target": 0.259
+  },
+  "Overseer Ratch": {
+   "level": 38,
+   "kind": "field_boss",
+   "avg": 468.3,
+   "share": 0.191,
+   "target": 0.188
+  },
+  "Pack-Alpha Cinderhound": {
+   "level": 55,
+   "kind": "tuned_boss",
+   "avg": 2130.0,
+   "share": 0.541,
+   "target": 0.353
+  },
+  "Paneater": {
+   "level": 40,
+   "kind": "field_boss",
+   "avg": 937.7,
+   "share": 0.362,
+   "target": 0.219
+  },
+  "Panglass": {
+   "level": 34,
+   "kind": "field_boss",
+   "avg": 1844.2,
+   "share": 0.845,
+   "target": 0.315
+  },
+  "Pit Lord Emissary": {
+   "level": 25,
+   "kind": "field_boss",
+   "avg": 665.2,
+   "share": 0.413,
+   "target": 0.277
+  },
+  "Pitboss Grebble Vask": {
+   "level": 50,
+   "kind": "boss",
+   "avg": 1043.9,
+   "share": 0.305,
+   "target": 0.301
+  },
+  "Plague Keeper Voss": {
+   "level": 32,
+   "kind": "boss",
+   "avg": 932.0,
+   "share": 0.452,
+   "target": 0.351
+  },
+  "Plaguemaster Orvyn": {
+   "level": 12,
+   "kind": "field_boss",
+   "avg": 371.5,
+   "share": 0.546,
+   "target": 0.313
+  },
+  "Plagueweaver Vex": {
+   "level": 31,
+   "kind": "boss",
+   "avg": 879.7,
+   "share": 0.439,
+   "target": 0.349
+  },
+  "Powder-Master Juss Wick": {
+   "level": 47,
+   "kind": "boss",
+   "avg": 3221.2,
+   "share": 1.022,
+   "target": 0.472
+  },
+  "Powderkeg Nix": {
+   "level": 52,
+   "kind": "tuned_boss",
+   "avg": 2101.2,
+   "share": 0.58,
+   "target": 0.39
+  },
+  "Powdermaster Juno Felk": {
+   "level": 50,
+   "kind": "field_boss",
+   "avg": 1047.0,
+   "share": 0.305,
+   "target": 0.215
+  },
+  "Prince Aelvorn the Unmade": {
+   "level": 54,
+   "kind": "field_boss",
+   "avg": 2716.2,
+   "share": 0.709,
+   "target": 0.293
+  },
+  "Prospector Delvik": {
+   "level": 16,
+   "kind": "field_boss",
+   "avg": 292,
+   "share": 0.312,
+   "target": 0.25
+  },
+  "Pyrrhax the Fallen Star": {
+   "level": 55,
+   "kind": "field_boss",
+   "avg": 2968.6,
+   "share": 0.754,
+   "target": 0.288
+  },
+  "Quartermaster Bram Ellison": {
+   "level": 37,
+   "kind": "boss",
+   "avg": 1049.9,
+   "share": 0.442,
+   "target": 0.325
+  },
+  "Quartermaster Ilsa Renn": {
+   "level": 48,
+   "kind": "field_boss",
+   "avg": 746.1,
+   "share": 0.23,
+   "target": 0.194
+  },
+  "Quartermaster Nadd Kell": {
+   "level": 47,
+   "kind": "boss",
+   "avg": 1052.8,
+   "share": 0.334,
+   "target": 0.327
+  },
+  "Queen Skitterwing": {
+   "level": 15,
+   "kind": "field_boss",
+   "avg": 162.1,
+   "share": 0.187,
+   "target": 0.204
+  },
+  "Queen Thistlewing": {
+   "level": 25,
+   "kind": "field_boss",
+   "avg": 446.1,
+   "share": 0.277,
+   "target": 0.236
+  },
+  "Rakjan the Ribcracker": {
+   "level": 37,
+   "kind": "boss",
+   "avg": 792.3,
+   "share": 0.333,
+   "target": 0.29
+  },
+  "Ramstein the Gorger": {
+   "level": 60,
+   "kind": "boss",
+   "avg": 1530.4,
+   "share": 0.339,
+   "target": 0.264
+  },
+  "Ranger-Lord Saelith": {
+   "level": 59,
+   "kind": "field_boss",
+   "avg": 3171.5,
+   "share": 0.721,
+   "target": 0.274
+  },
+  "Ras Frostwhisper": {
+   "level": 58,
+   "kind": "boss",
+   "avg": 3520.7,
+   "share": 0.823,
+   "target": 0.398
+  },
+  "Rathorian": {
+   "level": 17,
+   "kind": "field_boss",
+   "avg": 565.2,
+   "share": 0.561,
+   "target": 0.319
+  },
+  "Rattlegore": {
+   "level": 58,
+   "kind": "boss",
+   "avg": 1361.3,
+   "share": 0.318,
+   "target": 0.272
+  },
+  "Razorbeak the Nestbreaker": {
+   "level": 23,
+   "kind": "field_boss",
+   "avg": 448.8,
+   "share": 0.308,
+   "target": 0.246
+  },
+  "Razorclaw the Butcher": {
+   "level": 22,
+   "kind": "boss",
+   "avg": 356.8,
+   "share": 0.258,
+   "target": 0.321
+  },
+  "Reaper-Lord Aldous": {
+   "level": 9,
+   "kind": "field_boss",
+   "avg": 145.4,
+   "share": 0.28,
+   "target": 0.243
+  },
+  "Redrock Matriarch": {
+   "level": 15,
+   "kind": "field_boss",
+   "avg": 209.8,
+   "share": 0.241,
+   "target": 0.225
+  },
+  "Resin-Mother Vex'ith": {
+   "level": 55,
+   "kind": "tuned_boss",
+   "avg": 2161.4,
+   "share": 0.549,
+   "target": 0.355
+  },
+  "Resonance": {
+   "level": 52,
+   "kind": "boss",
+   "avg": 2531.3,
+   "share": 0.699,
+   "target": 0.421
+  },
+  "Ressan the Needler": {
+   "level": 7,
+   "kind": "field_boss",
+   "avg": 97.9,
+   "share": 0.23,
+   "target": 0.227
+  },
+  "Rethilgore": {
+   "level": 21,
+   "kind": "boss",
+   "avg": 296.9,
+   "share": 0.227,
+   "target": 0.303
+  },
+  "Rifle-Sergeant Dunmar": {
+   "level": 27,
+   "kind": "field_boss",
+   "avg": 506.2,
+   "share": 0.289,
+   "target": 0.238
+  },
+  "Riftjaw": {
+   "level": 40,
+   "kind": "field_boss",
+   "avg": 1453.7,
+   "share": 0.562,
+   "target": 0.261
+  },
+  "Rigboss Gazzle": {
+   "level": 31,
+   "kind": "field_boss",
+   "avg": 437.5,
+   "share": 0.218,
+   "target": 0.188
+  },
+  "Rimehowl": {
+   "level": 31,
+   "kind": "field_boss",
+   "avg": 1535.6,
+   "share": 0.766,
+   "target": 0.311
+  },
+  "Roogug": {
+   "level": 28,
+   "kind": "boss",
+   "avg": 546.7,
+   "share": 0.3,
+   "target": 0.325
+  },
+  "Rootbound": {
+   "level": 48,
+   "kind": "field_boss",
+   "avg": 1407.3,
+   "share": 0.434,
+   "target": 0.25
+  },
+  "Rootmaw": {
+   "level": 34,
+   "kind": "field_boss",
+   "avg": 1392.2,
+   "share": 0.638,
+   "target": 0.281
+  },
+  "Royal Consort Zhir'ak": {
+   "level": 56,
+   "kind": "tuned_boss",
+   "avg": 986.4,
+   "share": 0.244,
+   "target": 0.262
+  },
+  "Rumblejaw": {
+   "level": 12,
+   "kind": "field_boss",
+   "avg": 259.2,
+   "share": 0.381,
+   "target": 0.271
+  },
+  "Rustcoat": {
+   "level": 38,
+   "kind": "field_boss",
+   "avg": 843.9,
+   "share": 0.345,
+   "target": 0.209
+  },
+  "Saberfang the Elder": {
+   "level": 53,
+   "kind": "field_boss",
+   "avg": 1306.6,
+   "share": 0.351,
+   "target": 0.221
+  },
+  "Sailmaker Oona Flay": {
+   "level": 46,
+   "kind": "boss",
+   "avg": 1773.0,
+   "share": 0.578,
+   "target": 0.406
+  },
+  "Saltback": {
+   "level": 40,
+   "kind": "field_boss",
+   "avg": 1387.5,
+   "share": 0.536,
+   "target": 0.256
+  },
+  "Saltgorge": {
+   "level": 42,
+   "kind": "field_boss",
+   "avg": 880.6,
+   "share": 0.322,
+   "target": 0.213
+  },
+  "Saltjaw": {
+   "level": 44,
+   "kind": "field_boss",
+   "avg": 1154.6,
+   "share": 0.398,
+   "target": 0.24
+  },
+  "Sandfang": {
+   "level": 5,
+   "kind": "field_boss",
+   "avg": 81.5,
+   "share": 0.235,
+   "target": 0.234
+  },
+  "Satyr Warlord": {
+   "level": 28,
+   "kind": "boss",
+   "avg": 767.5,
+   "share": 0.421,
+   "target": 0.372
+  },
+  "Saw-Boss Brakka": {
+   "level": 32,
+   "kind": "field_boss",
+   "avg": 480.2,
+   "share": 0.233,
+   "target": 0.192
+  },
+  "Scarlet Commander Marjhan": {
+   "level": 59,
+   "kind": "boss",
+   "avg": 3864.5,
+   "share": 0.879,
+   "target": 0.415
+  },
+  "Scarlet Commander Mograine": {
+   "level": 42,
+   "kind": "boss",
+   "avg": 1058.6,
+   "share": 0.387,
+   "target": 0.321
+  },
+  "Scourbite": {
+   "level": 36,
+   "kind": "field_boss",
+   "avg": 833.8,
+   "share": 0.361,
+   "target": 0.221
+  },
+  "Scourge Abomination": {
+   "level": 13,
+   "kind": "field_boss",
+   "avg": 227.3,
+   "share": 0.307,
+   "target": 0.248
+  },
+  "Scout-Captain Vrek": {
+   "level": 17,
+   "kind": "field_boss",
+   "avg": 242.2,
+   "share": 0.24,
+   "target": 0.227
+  },
+  "Seer Sshara": {
+   "level": 13,
+   "kind": "field_boss",
+   "avg": 398.5,
+   "share": 0.538,
+   "target": 0.311
+  },
+  "Serena Bloodfeather": {
+   "level": 20,
+   "kind": "field_boss",
+   "avg": 350.0,
+   "share": 0.285,
+   "target": 0.237
+  },
+  "Sergeant Halbrook": {
+   "level": 6,
+   "kind": "field_boss",
+   "avg": 106.8,
+   "share": 0.278,
+   "target": 0.249
+  },
+  "Sergeant Ironbeard": {
+   "level": 27,
+   "kind": "field_boss",
+   "avg": 488.6,
+   "share": 0.279,
+   "target": 0.234
+  },
+  "Sergeant Ironvein": {
+   "level": 23,
+   "kind": "field_boss",
+   "avg": 459.7,
+   "share": 0.315,
+   "target": 0.248
+  },
+  "Sergeant Major Cole Brennan": {
+   "level": 36,
+   "kind": "boss",
+   "avg": 746.5,
+   "share": 0.323,
+   "target": 0.296
+  },
+  "Sergeant-at-Arms Varth": {
+   "level": 27,
+   "kind": "boss",
+   "avg": 480.4,
+   "share": 0.274,
+   "target": 0.326
+  },
+  "Sexton Hollowell": {
+   "level": 58,
+   "kind": "field_boss",
+   "avg": 1466.8,
+   "share": 0.343,
+   "target": 0.2
+  },
+  "Shardmaw": {
+   "level": 37,
+   "kind": "field_boss",
+   "avg": 1079.2,
+   "share": 0.454,
+   "target": 0.235
+  },
+  "Shatterlight": {
+   "level": 48,
+   "kind": "field_boss",
+   "avg": 2571.0,
+   "share": 0.793,
+   "target": 0.318
+  },
+  "Sheetfall": {
+   "level": 37,
+   "kind": "field_boss",
+   "avg": 2181.2,
+   "share": 0.917,
+   "target": 0.311
+  },
+  "Shellcrusher Kragg": {
+   "level": 12,
+   "kind": "field_boss",
+   "avg": 173.6,
+   "share": 0.255,
+   "target": 0.231
+  },
+  "Shorebreaker Teska Vohl": {
+   "level": 48,
+   "kind": "field_boss",
+   "avg": 1048.2,
+   "share": 0.323,
+   "target": 0.222
+  },
+  "Shrine-Keeper Morgrin": {
+   "level": 27,
+   "kind": "field_boss",
+   "avg": 579.4,
+   "share": 0.33,
+   "target": 0.251
+  },
+  "Silas Quickfinger": {
+   "level": 18,
+   "kind": "field_boss",
+   "avg": 309.5,
+   "share": 0.287,
+   "target": 0.242
+  },
+  "Silt-Mother Ooga": {
+   "level": 36,
+   "kind": "field_boss",
+   "avg": 920.5,
+   "share": 0.398,
+   "target": 0.23
+  },
+  "Sister Mollis": {
+   "level": 33,
+   "kind": "boss",
+   "avg": 1386.4,
+   "share": 0.653,
+   "target": 0.4
+  },
+  "Skinwalker Garn": {
+   "level": 21,
+   "kind": "field_boss",
+   "avg": 369.3,
+   "share": 0.283,
+   "target": 0.236
+  },
+  "Skrell, Mother of Ravagers": {
+   "level": 40,
+   "kind": "hidden_layer",
+   "avg": 1990.7,
+   "share": 0.769,
+   "target": 0.473
+  },
+  "Skul": {
+   "level": 57,
+   "kind": "boss",
+   "avg": 4354.0,
+   "share": 1.046,
+   "target": 0.453
+  },
+  "Skum": {
+   "level": 21,
+   "kind": "boss",
+   "avg": 352.7,
+   "share": 0.27,
+   "target": 0.325
+  },
+  "Skyfang the Plunderer": {
+   "level": 18,
+   "kind": "field_boss",
+   "avg": 347.6,
+   "share": 0.322,
+   "target": 0.254
+  },
+  "Skyreach": {
+   "level": 32,
+   "kind": "field_boss",
+   "avg": 703.1,
+   "share": 0.341,
+   "target": 0.224
+  },
+  "Skyrender": {
+   "level": 38,
+   "kind": "skull_zone",
+   "avg": 855.7,
+   "share": 0.35,
+   "target": 0.295
+  },
+  "Skyshriek Matron": {
+   "level": 23,
+   "kind": "field_boss",
+   "avg": 959.1,
+   "share": 0.658,
+   "target": 0.334
+  },
+  "Smelter-Master Vaud": {
+   "level": 52,
+   "kind": "tuned_boss",
+   "avg": 1916.7,
+   "share": 0.529,
+   "target": 0.376
+  },
+  "Smithmaster Corra Bellweather": {
+   "level": 37,
+   "kind": "boss",
+   "avg": 2347.7,
+   "share": 0.987,
+   "target": 0.448
+  },
+  "Smolderhide": {
+   "level": 6,
+   "kind": "field_boss",
+   "avg": 107.0,
+   "share": 0.278,
+   "target": 0.249
+  },
+  "Snowmaw": {
+   "level": 30,
+   "kind": "field_boss",
+   "avg": 872.9,
+   "share": 0.448,
+   "target": 0.259
+  },
+  "Sootwing": {
+   "level": 55,
+   "kind": "field_boss",
+   "avg": 3602.5,
+   "share": 0.915,
+   "target": 0.311
+  },
+  "Sow-Mother Grunka": {
+   "level": 17,
+   "kind": "field_boss",
+   "avg": 313.6,
+   "share": 0.311,
+   "target": 0.252
+  },
+  "Sporeback the Bloated": {
+   "level": 22,
+   "kind": "boss",
+   "avg": 356.4,
+   "share": 0.258,
+   "target": 0.321
+  },
+  "Ssaren the Salvage-Taker": {
+   "level": 41,
+   "kind": "field_boss",
+   "avg": 2428.3,
+   "share": 0.912,
+   "target": 0.315
+  },
+  "Stillwater": {
+   "level": 49,
+   "kind": "field_boss",
+   "avg": 2497.2,
+   "share": 0.749,
+   "target": 0.315
+  },
+  "Stonespine": {
+   "level": 58,
+   "kind": "boss",
+   "avg": 1557.6,
+   "share": 0.364,
+   "target": 0.287
+  },
+  "Stormhide Patriarch": {
+   "level": 12,
+   "kind": "field_boss",
+   "avg": 326.1,
+   "share": 0.479,
+   "target": 0.297
+  },
+  "Stormwing the Skyrider": {
+   "level": 15,
+   "kind": "field_boss",
+   "avg": 448.8,
+   "share": 0.516,
+   "target": 0.306
+  },
+  "Supervisor Lugwizzle": {
+   "level": 18,
+   "kind": "field_boss",
+   "avg": 326.7,
+   "share": 0.303,
+   "target": 0.247
+  },
+  "Taragaman the Hungerer": {
+   "level": 16,
+   "kind": "boss",
+   "avg": 433.1,
+   "share": 0.462,
+   "target": 0.41
+  },
+  "Thaka the Unburied": {
+   "level": 43,
+   "kind": "field_boss",
+   "avg": 906.5,
+   "share": 0.322,
+   "target": 0.22
+  },
+  "Thane Aldric's Shade": {
+   "level": 39,
+   "kind": "field_boss",
+   "avg": 2248.4,
+   "share": 0.894,
+   "target": 0.307
+  },
+  "Thane Korrin Stonewatch": {
+   "level": 28,
+   "kind": "field_boss",
+   "avg": 705.8,
+   "share": 0.387,
+   "target": 0.257
+  },
+  "Thane Morrun the Unmade": {
+   "level": 54,
+   "kind": "tuned_boss",
+   "avg": 816.6,
+   "share": 0.213,
+   "target": 0.338
+  },
+  "The Advancing Ice": {
+   "level": 59,
+   "kind": "frontier_open",
+   "avg": 2324.1,
+   "share": 0.529,
+   "target": 0.29
+  },
+  "The Alpha Cur": {
+   "level": 22,
+   "kind": "field_boss",
+   "avg": 293.6,
+   "share": 0.212,
+   "target": 0.212
+  },
+  "The Archmage's Shade": {
+   "level": 28,
+   "kind": "hidden_layer",
+   "avg": 3809.4,
+   "share": 2.091,
+   "target": 0.54
+  },
+  "The Ash Mother": {
+   "level": 32,
+   "kind": "field_boss",
+   "avg": 914.0,
+   "share": 0.443,
+   "target": 0.248
+  },
+  "The Ashwretch Brood": {
+   "level": 53,
+   "kind": "tuned_boss",
+   "avg": 2010.1,
+   "share": 0.54,
+   "target": 0.367
+  },
+  "The Barge-Eater": {
+   "level": 54,
+   "kind": "field_boss",
+   "avg": 1155,
+   "share": 0.302,
+   "target": 0.208
+  },
+  "The Barrow Warden": {
+   "level": 39,
+   "kind": "field_boss",
+   "avg": 666.0,
+   "share": 0.265,
+   "target": 0.189
+  },
+  "The Bellwarden": {
+   "level": 44,
+   "kind": "field_boss",
+   "avg": 1577.5,
+   "share": 0.544,
+   "target": 0.271
+  },
+  "The Blackwood Drowner": {
+   "level": 57,
+   "kind": "field_boss",
+   "avg": 907.8,
+   "share": 0.218,
+   "target": 0.188
+  },
+  "The Bloated One": {
+   "level": 18,
+   "kind": "field_boss",
+   "avg": 251,
+   "share": 0.232,
+   "target": 0.222
+  },
+  "The Bloodvenom Rot": {
+   "level": 54,
+   "kind": "field_boss",
+   "avg": 2619.5,
+   "share": 0.684,
+   "target": 0.289
+  },
+  "The Bone Choir": {
+   "level": 58,
+   "kind": "field_boss",
+   "avg": 2982.3,
+   "share": 0.697,
+   "target": 0.266
+  },
+  "The Bone Colossus": {
+   "level": 60,
+   "kind": "field_boss",
+   "avg": 1207.2,
+   "share": 0.267,
+   "target": 0.188
+  },
+  "The Breach-Gnawer": {
+   "level": 60,
+   "kind": "skull_zone",
+   "avg": 1495.9,
+   "share": 0.331,
+   "target": 0.262
+  },
+  "The Brine King": {
+   "level": 41,
+   "kind": "skull_zone",
+   "avg": 1913.4,
+   "share": 0.719,
+   "target": 0.401
+  },
+  "The Brood Nurse": {
+   "level": 54,
+   "kind": "tuned_boss",
+   "avg": 1736,
+   "share": 0.453,
+   "target": 0.343
+  },
+  "The Broodkeeper": {
+   "level": 21,
+   "kind": "boss",
+   "avg": 894.5,
+   "share": 0.685,
+   "target": 0.471
+  },
+  "The Caldera": {
+   "level": 58,
+   "kind": "tuned_boss",
+   "avg": 2365.7,
+   "share": 0.553,
+   "target": 0.436
+  },
+  "The Calling Stone": {
+   "level": 39,
+   "kind": "skull_zone",
+   "avg": 3074.8,
+   "share": 1.222,
+   "target": 0.472
+  },
+  "The Cargo": {
+   "level": 40,
+   "kind": "field_boss",
+   "avg": 1264.8,
+   "share": 0.489,
+   "target": 0.247
+  },
+  "The Cider-Wife": {
+   "level": 11,
+   "kind": "skull_zone",
+   "avg": 323.3,
+   "share": 0.519,
+   "target": 0.431
+  },
+  "The Clockwork": {
+   "level": 33,
+   "kind": "skull_zone",
+   "avg": 1600.2,
+   "share": 0.754,
+   "target": 0.423
+  },
+  "The Crusher": {
+   "level": 52,
+   "kind": "tuned_boss",
+   "avg": 728.9,
+   "share": 0.201,
+   "target": 0.262
+  },
+  "The Dalson Ghost": {
+   "level": 53,
+   "kind": "field_boss",
+   "avg": 2438.0,
+   "share": 0.654,
+   "target": 0.283
+  },
+  "The Deep Bloom": {
+   "level": 40,
+   "kind": "boss",
+   "avg": 1994.3,
+   "share": 0.77,
+   "target": 0.414
+  },
+  "The Drowned Hermit": {
+   "level": 57,
+   "kind": "field_boss",
+   "avg": 1879.2,
+   "share": 0.452,
+   "target": 0.231
+  },
+  "The Drowned Purser": {
+   "level": 44,
+   "kind": "field_boss",
+   "avg": 2692.7,
+   "share": 0.929,
+   "target": 0.336
+  },
+  "The Duskwhisper Sisters": {
+   "level": 54,
+   "kind": "tuned_boss",
+   "avg": 2803.5,
+   "share": 0.732,
+   "target": 0.415
+  },
+  "The Eldest": {
+   "level": 33,
+   "kind": "field_boss",
+   "avg": 732.4,
+   "share": 0.345,
+   "target": 0.221
+  },
+  "The Entropic Horror": {
+   "level": 54,
+   "kind": "tuned_boss",
+   "avg": 2575.8,
+   "share": 0.672,
+   "target": 0.401
+  },
+  "The Erased": {
+   "level": 45,
+   "kind": "frontier_deep",
+   "avg": 5056.1,
+   "share": 1.697,
+   "target": 0.405
+  },
+  "The Fallen Champion": {
+   "level": 31,
+   "kind": "boss",
+   "avg": 686.9,
+   "share": 0.343,
+   "target": 0.316
+  },
+  "The First Down": {
+   "level": 45,
+   "kind": "field_boss",
+   "avg": 1120.4,
+   "share": 0.376,
+   "target": 0.236
+  },
+  "The First Draft": {
+   "level": 42,
+   "kind": "hidden_layer",
+   "avg": 3855.9,
+   "share": 1.408,
+   "target": 0.54
+  },
+  "The Forsaken Watchman": {
+   "level": 16,
+   "kind": "field_boss",
+   "avg": 211.9,
+   "share": 0.226,
+   "target": 0.22
+  },
+  "The Frozen Cartographer": {
+   "level": 33,
+   "kind": "field_boss",
+   "avg": 1055.6,
+   "share": 0.497,
+   "target": 0.256
+  },
+  "The Fungal Mass": {
+   "level": 57,
+   "kind": "field_boss",
+   "avg": 1133.5,
+   "share": 0.272,
+   "target": 0.189
+  },
+  "The Furnace Heart": {
+   "level": 19,
+   "kind": "hidden_layer",
+   "avg": 1236.4,
+   "share": 1.071,
+   "target": 0.54
+  },
+  "The Gloomcap Elder": {
+   "level": 52,
+   "kind": "field_boss",
+   "avg": 3356.3,
+   "share": 0.926,
+   "target": 0.336
+  },
+  "The Green Before": {
+   "level": 34,
+   "kind": "frontier_open",
+   "avg": 2267.0,
+   "share": 1.038,
+   "target": 0.405
+  },
+  "The Groundskeeper": {
+   "level": 54,
+   "kind": "field_boss",
+   "avg": 1077.2,
+   "share": 0.281,
+   "target": 0.202
+  },
+  "The Half-Written": {
+   "level": 37,
+   "kind": "field_boss",
+   "avg": 1584.2,
+   "share": 0.666,
+   "target": 0.274
+  },
+  "The Heartrot Queen": {
+   "level": 32,
+   "kind": "field_boss",
+   "avg": 457.5,
+   "share": 0.222,
+   "target": 0.188
+  },
+  "The Hollow Queen": {
+   "level": 41,
+   "kind": "field_boss",
+   "avg": 2147.2,
+   "share": 0.806,
+   "target": 0.3
+  },
+  "The Index": {
+   "level": 38,
+   "kind": "boss",
+   "avg": 1638.2,
+   "share": 0.67,
+   "target": 0.382
+  },
+  "The Infected Noble": {
+   "level": 32,
+   "kind": "boss",
+   "avg": 946.7,
+   "share": 0.459,
+   "target": 0.353
+  },
+  "The Iron Mask": {
+   "level": 53,
+   "kind": "tuned_boss",
+   "avg": 1170,
+   "share": 0.314,
+   "target": 0.296
+  },
+  "The Keeper of the First Page": {
+   "level": 47,
+   "kind": "frontier_deep",
+   "avg": 5242.0,
+   "share": 1.663,
+   "target": 0.405
+  },
+  "The Lamplighter": {
+   "level": 58,
+   "kind": "skull_zone",
+   "avg": 3117.7,
+   "share": 0.729,
+   "target": 0.379
+  },
+  "The Last Caravan Master": {
+   "level": 47,
+   "kind": "skull_zone",
+   "avg": 1300.4,
+   "share": 0.413,
+   "target": 0.356
+  },
+  "The Last Drift": {
+   "level": 30,
+   "kind": "field_boss",
+   "avg": 1500.5,
+   "share": 0.771,
+   "target": 0.321
+  },
+  "The Last Editor": {
+   "level": 46,
+   "kind": "frontier_deep",
+   "avg": 4973.3,
+   "share": 1.623,
+   "target": 0.405
+  },
+  "The Last Kodo": {
+   "level": 27,
+   "kind": "field_boss",
+   "avg": 590.4,
+   "share": 0.337,
+   "target": 0.253
+  },
+  "The Last Lurker": {
+   "level": 52,
+   "kind": "field_boss",
+   "avg": 3257.6,
+   "share": 0.899,
+   "target": 0.332
+  },
+  "The Last Tenant": {
+   "level": 42,
+   "kind": "field_boss",
+   "avg": 1203.6,
+   "share": 0.439,
+   "target": 0.241
+  },
+  "The Leavings": {
+   "level": 34,
+   "kind": "field_boss",
+   "avg": 868.6,
+   "share": 0.398,
+   "target": 0.233
+  },
+  "The Lion of the Painted Cave": {
+   "level": 59,
+   "kind": "frontier_open",
+   "avg": 1905.5,
+   "share": 0.433,
+   "target": 0.268
+  },
+  "The Molten Serpent": {
+   "level": 56,
+   "kind": "tuned_boss",
+   "avg": 2750.1,
+   "share": 0.679,
+   "target": 0.383
+  },
+  "The Mountain's Heart": {
+   "level": 57,
+   "kind": "tuned_boss",
+   "avg": 3231.0,
+   "share": 0.776,
+   "target": 0.402
+  },
+  "The Ossifier": {
+   "level": 60,
+   "kind": "field_boss",
+   "avg": 3600.5,
+   "share": 0.797,
+   "target": 0.265
+  },
+  "The Pale Weaver": {
+   "level": 6,
+   "kind": "field_boss",
+   "avg": 92.8,
+   "share": 0.241,
+   "target": 0.235
+  },
+  "The Pick-Mother": {
+   "level": 39,
+   "kind": "field_boss",
+   "avg": 795.0,
+   "share": 0.316,
+   "target": 0.202
+  },
+  "The Plaguewood Matriarch": {
+   "level": 58,
+   "kind": "field_boss",
+   "avg": 1098.8,
+   "share": 0.257,
+   "target": 0.188
+  },
+  "The Prism Warden": {
+   "level": 37,
+   "kind": "field_boss",
+   "avg": 1365.3,
+   "share": 0.574,
+   "target": 0.258
+  },
+  "The Ravenian": {
+   "level": 59,
+   "kind": "boss",
+   "avg": 1356.2,
+   "share": 0.308,
+   "target": 0.273
+  },
+  "The Razorjaw": {
+   "level": 14,
+   "kind": "field_boss",
+   "avg": 180.6,
+   "share": 0.225,
+   "target": 0.219
+  },
+  "The Ring Warden": {
+   "level": 36,
+   "kind": "field_boss",
+   "avg": 1871.2,
+   "share": 0.81,
+   "target": 0.306
+  },
+  "The Risen Hunter": {
+   "level": 29,
+   "kind": "field_boss",
+   "avg": 355.2,
+   "share": 0.188,
+   "target": 0.188
+  },
+  "The Rock-Borer Queen": {
+   "level": 53,
+   "kind": "tuned_boss",
+   "avg": 1034.6,
+   "share": 0.278,
+   "target": 0.282
+  },
+  "The Root-Father": {
+   "level": 21,
+   "kind": "frontier_deep",
+   "avg": 956.4,
+   "share": 0.733,
+   "target": 0.405
+  },
+  "The Saltquern": {
+   "level": 39,
+   "kind": "field_boss",
+   "avg": 851.0,
+   "share": 0.338,
+   "target": 0.208
+  },
+  "The Scriptor": {
+   "level": 39,
+   "kind": "boss",
+   "avg": 938.9,
+   "share": 0.373,
+   "target": 0.303
+  },
+  "The Second Copy": {
+   "level": 38,
+   "kind": "boss",
+   "avg": 2035.6,
+   "share": 0.832,
+   "target": 0.417
+  },
+  "The Shadow of the Forge": {
+   "level": 54,
+   "kind": "tuned_boss",
+   "avg": 3200.5,
+   "share": 0.836,
+   "target": 0.438
+  },
+  "The Silken Bride": {
+   "level": 55,
+   "kind": "field_boss",
+   "avg": 2585.7,
+   "share": 0.657,
+   "target": 0.273
+  },
+  "The Siphon": {
+   "level": 52,
+   "kind": "boss",
+   "avg": 2271.4,
+   "share": 0.627,
+   "target": 0.403
+  },
+  "The Standing Wave": {
+   "level": 52,
+   "kind": "boss",
+   "avg": 2705.5,
+   "share": 0.747,
+   "target": 0.432
+  },
+  "The Sump": {
+   "level": 50,
+   "kind": "boss",
+   "avg": 2433.6,
+   "share": 0.71,
+   "target": 0.423
+  },
+  "The Terror of the Dale": {
+   "level": 57,
+   "kind": "field_boss",
+   "avg": 3327.7,
+   "share": 0.8,
+   "target": 0.291
+  },
+  "The Thermal": {
+   "level": 32,
+   "kind": "field_boss",
+   "avg": 956.4,
+   "share": 0.464,
+   "target": 0.253
+  },
+  "The Thing in the Throat": {
+   "level": 46,
+   "kind": "field_boss",
+   "avg": 2844.2,
+   "share": 0.928,
+   "target": 0.338
+  },
+  "The Thirst": {
+   "level": 53,
+   "kind": "boss",
+   "avg": 2619.1,
+   "share": 0.703,
+   "target": 0.408
+  },
+  "The Thorn-Mother": {
+   "level": 35,
+   "kind": "hidden_layer",
+   "avg": 2882.4,
+   "share": 1.283,
+   "target": 0.54
+  },
+  "The Thorn-Mother's Echo": {
+   "level": 22,
+   "kind": "skull_zone",
+   "avg": 760.8,
+   "share": 0.55,
+   "target": 0.434
+  },
+  "The Thousand-Leg": {
+   "level": 34,
+   "kind": "frontier_open",
+   "avg": 1438.9,
+   "share": 0.659,
+   "target": 0.342
+  },
+  "The Thousandth Shard": {
+   "level": 36,
+   "kind": "field_boss",
+   "avg": 1669.8,
+   "share": 0.723,
+   "target": 0.292
+  },
+  "The Tidewrack": {
+   "level": 26,
+   "kind": "field_boss",
+   "avg": 540.5,
+   "share": 0.321,
+   "target": 0.248
+  },
+  "The Turnkey": {
+   "level": 29,
+   "kind": "boss",
+   "avg": 736.7,
+   "share": 0.39,
+   "target": 0.351
+  },
+  "The Unforgiven": {
+   "level": 58,
+   "kind": "boss",
+   "avg": 3778.9,
+   "share": 0.883,
+   "target": 0.409
+  },
+  "The Unlit Priestess": {
+   "level": 29,
+   "kind": "skull_zone",
+   "avg": 1910.7,
+   "share": 1.013,
+   "target": 0.472
+  },
+  "The Vault-Thing": {
+   "level": 34,
+   "kind": "boss",
+   "avg": 2077.5,
+   "share": 0.952,
+   "target": 0.462
+  },
+  "The Weeper": {
+   "level": 57,
+   "kind": "field_boss",
+   "avg": 3988,
+   "share": 0.958,
+   "target": 0.312
+  },
+  "The Weight of the Floor": {
+   "level": 47,
+   "kind": "field_boss",
+   "avg": 1130.1,
+   "share": 0.359,
+   "target": 0.241
+  },
+  "The Wide Sink Mother": {
+   "level": 46,
+   "kind": "field_boss",
+   "avg": 1594.7,
+   "share": 0.52,
+   "target": 0.278
+  },
+  "The Widow of the Mere": {
+   "level": 20,
+   "kind": "skull_zone",
+   "avg": 657.3,
+   "share": 0.535,
+   "target": 0.427
+  },
+  "The Windsnapped": {
+   "level": 35,
+   "kind": "field_boss",
+   "avg": 1611.0,
+   "share": 0.717,
+   "target": 0.294
+  },
+  "The Wrack-Drowned": {
+   "level": 39,
+   "kind": "field_boss",
+   "avg": 1902.0,
+   "share": 0.756,
+   "target": 0.287
+  },
+  "Thirstjaw": {
+   "level": 47,
+   "kind": "field_boss",
+   "avg": 1397.5,
+   "share": 0.443,
+   "target": 0.262
+  },
+  "Thornjaw the Gorger": {
+   "level": 31,
+   "kind": "boss",
+   "avg": 615.2,
+   "share": 0.307,
+   "target": 0.302
+  },
+  "Thornmother Vekka": {
+   "level": 34,
+   "kind": "field_boss",
+   "avg": 1141.7,
+   "share": 0.523,
+   "target": 0.26
+  },
+  "Thrass, the Geyser Spirit": {
+   "level": 55,
+   "kind": "tuned_boss",
+   "avg": 2356.2,
+   "share": 0.598,
+   "target": 0.368
+  },
+  "Thrumbone the Ancient": {
+   "level": 21,
+   "kind": "field_boss",
+   "avg": 381.6,
+   "share": 0.292,
+   "target": 0.239
+  },
+  "Thunder Broodmother": {
+   "level": 13,
+   "kind": "field_boss",
+   "avg": 424.7,
+   "share": 0.573,
+   "target": 0.319
+  },
+  "Thurman Agamand": {
+   "level": 10,
+   "kind": "field_boss",
+   "avg": 177.0,
+   "share": 0.311,
+   "target": 0.254
+  },
+  "Tide-Priestess Myzrai": {
+   "level": 42,
+   "kind": "field_boss",
+   "avg": 2269.8,
+   "share": 0.829,
+   "target": 0.311
+  },
+  "Tidelord Gharesh": {
+   "level": 15,
+   "kind": "field_boss",
+   "avg": 401.5,
+   "share": 0.462,
+   "target": 0.293
+  },
+  "Timmy the Cruel": {
+   "level": 58,
+   "kind": "boss",
+   "avg": 1799.8,
+   "share": 0.421,
+   "target": 0.304
+  },
+  "Topman Yanni Sear": {
+   "level": 41,
+   "kind": "field_boss",
+   "avg": 1040.5,
+   "share": 0.391,
+   "target": 0.224
+  },
+  "Topper Kezzik": {
+   "level": 33,
+   "kind": "field_boss",
+   "avg": 621.0,
+   "share": 0.293,
+   "target": 0.207
+  },
+  "Tunnel-King Ruzzak": {
+   "level": 55,
+   "kind": "tuned_boss",
+   "avg": 1886.2,
+   "share": 0.479,
+   "target": 0.336
+  },
+  "Tusk-Mother Gorra": {
+   "level": 17,
+   "kind": "field_boss",
+   "avg": 335.9,
+   "share": 0.333,
+   "target": 0.259
+  },
+  "Twilight Lord Kelris": {
+   "level": 26,
+   "kind": "boss",
+   "avg": 686.6,
+   "share": 0.408,
+   "target": 0.382
+  },
+  "Twilight Overseer": {
+   "level": 25,
+   "kind": "field_boss",
+   "avg": 414.5,
+   "share": 0.258,
+   "target": 0.229
+  },
+  "Ul'gotha, Mother of the Deep": {
+   "level": 31,
+   "kind": "hidden_layer",
+   "avg": 1878.5,
+   "share": 0.937,
+   "target": 0.54
+  },
+  "Undead Pirate Captain": {
+   "level": 13,
+   "kind": "boss",
+   "avg": 174.9,
+   "share": 0.236,
+   "target": 0.313
+  },
+  "Underlight": {
+   "level": 47,
+   "kind": "field_boss",
+   "avg": 2477.8,
+   "share": 0.786,
+   "target": 0.329
+  },
+  "Ursa Mossjaw": {
+   "level": 53,
+   "kind": "field_boss",
+   "avg": 1318.1,
+   "share": 0.354,
+   "target": 0.222
+  },
+  "Ursal the Mauler": {
+   "level": 28,
+   "kind": "field_boss",
+   "avg": 319,
+   "share": 0.175,
+   "target": 0.188
+  },
+  "Valdric Bonewarden": {
+   "level": 8,
+   "kind": "field_boss",
+   "avg": 141.3,
+   "share": 0.3,
+   "target": 0.249
+  },
+  "Vectus": {
+   "level": 58,
+   "kind": "boss",
+   "avg": 3786.0,
+   "share": 0.885,
+   "target": 0.409
+  },
+  "Veilspeaker Zul'Rath": {
+   "level": 37,
+   "kind": "field_boss",
+   "avg": 2020.3,
+   "share": 0.85,
+   "target": 0.302
+  },
+  "Vek'tar the Unbeaten": {
+   "level": 36,
+   "kind": "boss",
+   "avg": 648.2,
+   "share": 0.28,
+   "target": 0.28
+  },
+  "Vel'dran the Unwaking": {
+   "level": 25,
+   "kind": "hidden_layer",
+   "avg": 1654,
+   "share": 1.028,
+   "target": 0.54
+  },
+  "Verdan the Everliving": {
+   "level": 22,
+   "kind": "boss",
+   "avg": 463.7,
+   "share": 0.336,
+   "target": 0.356
+  },
+  "Verog the Dervish": {
+   "level": 19,
+   "kind": "field_boss",
+   "avg": 332.9,
+   "share": 0.288,
+   "target": 0.239
+  },
+  "Vexa the Tunnel-Queen": {
+   "level": 24,
+   "kind": "field_boss",
+   "avg": 483.8,
+   "share": 0.315,
+   "target": 0.248
+  },
+  "Vile Plague Abomination": {
+   "level": 33,
+   "kind": "boss",
+   "avg": 896.6,
+   "share": 0.423,
+   "target": 0.336
+  },
+  "Void Handmaiden": {
+   "level": 29,
+   "kind": "boss",
+   "avg": 934.0,
+   "share": 0.495,
+   "target": 0.386
+  },
+  "Voidcaller Veshra": {
+   "level": 16,
+   "kind": "field_boss",
+   "avg": 526,
+   "share": 0.561,
+   "target": 0.316
+  },
+  "Vor'alith the Turncloak": {
+   "level": 55,
+   "kind": "boss",
+   "avg": 1728.0,
+   "share": 0.439,
+   "target": 0.325
+  },
+  "Wall-Watcher Teague": {
+   "level": 27,
+   "kind": "field_boss",
+   "avg": 561.6,
+   "share": 0.32,
+   "target": 0.248
+  },
+  "Warbringer Gorrak": {
+   "level": 17,
+   "kind": "field_boss",
+   "avg": 285.5,
+   "share": 0.283,
+   "target": 0.243
+  },
+  "Wardchief Thulg": {
+   "level": 16,
+   "kind": "field_boss",
+   "avg": 252.5,
+   "share": 0.269,
+   "target": 0.236
+  },
+  "Warden Ilthae": {
+   "level": 20,
+   "kind": "field_boss",
+   "avg": 697.3,
+   "share": 0.567,
+   "target": 0.312
+  },
+  "Warden Ssaleth": {
+   "level": 14,
+   "kind": "field_boss",
+   "avg": 173.2,
+   "share": 0.216,
+   "target": 0.216
+  },
+  "Warden Stillwater": {
+   "level": 27,
+   "kind": "boss",
+   "avg": 498.3,
+   "share": 0.284,
+   "target": 0.33
+  },
+  "Warlord Krellian": {
+   "level": 12,
+   "kind": "field_boss",
+   "avg": 228.7,
+   "share": 0.336,
+   "target": 0.258
+  },
+  "Weaver Skitter": {
+   "level": 18,
+   "kind": "boss",
+   "avg": 267.1,
+   "share": 0.247,
+   "target": 0.319
+  },
+  "What They Dug Into": {
+   "level": 40,
+   "kind": "field_boss",
+   "avg": 2046,
+   "share": 0.79,
+   "target": 0.299
+  },
+  "What Walks in the Dim": {
+   "level": 37,
+   "kind": "field_boss",
+   "avg": 1541.5,
+   "share": 0.648,
+   "target": 0.271
+  },
+  "Windcaller Skreeva": {
+   "level": 18,
+   "kind": "field_boss",
+   "avg": 606.6,
+   "share": 0.562,
+   "target": 0.317
+  },
+  "Wintermaw the Howling": {
+   "level": 23,
+   "kind": "field_boss",
+   "avg": 591,
+   "share": 0.405,
+   "target": 0.275
+  },
+  "Wreck-Captain Vess'ira": {
+   "level": 56,
+   "kind": "field_boss",
+   "avg": 1586.9,
+   "share": 0.392,
+   "target": 0.22
+  },
+  "Xelnaz": {
+   "level": 17,
+   "kind": "field_boss",
+   "avg": 359,
+   "share": 0.356,
+   "target": 0.266
+  },
+  "Yard Boss Krizzle": {
+   "level": 28,
+   "kind": "field_boss",
+   "avg": 407.3,
+   "share": 0.224,
+   "target": 0.206
+  },
+  "Yarrog Baneshadow": {
+   "level": 5,
+   "kind": "field_boss",
+   "avg": 159.7,
+   "share": 0.461,
+   "target": 0.306
+  },
+  "Yearmaw": {
+   "level": 35,
+   "kind": "field_boss",
+   "avg": 1415.3,
+   "share": 0.63,
+   "target": 0.279
+  },
+  "Zalazane": {
+   "level": 15,
+   "kind": "field_boss",
+   "avg": 431.6,
+   "share": 0.497,
+   "target": 0.301
+  },
+  "Zar'gothrax the Unbound": {
+   "level": 55,
+   "kind": "tuned_boss",
+   "avg": 2024.0,
+   "share": 0.514,
+   "target": 0.445
+  },
+  "Zeth'rak the Pactbound": {
+   "level": 54,
+   "kind": "tuned_boss",
+   "avg": 3014.5,
+   "share": 0.787,
+   "target": 0.428
+  },
+  "Zul'Mashar the Last": {
+   "level": 59,
+   "kind": "field_boss",
+   "avg": 1144.0,
+   "share": 0.26,
+   "target": 0.188
+  },
+  "Zul'gar Hammerfall": {
+   "level": 37,
+   "kind": "boss",
+   "avg": 1440.4,
+   "share": 0.606,
+   "target": 0.369
+  }
+ }
+}

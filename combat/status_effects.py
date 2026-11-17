@@ -2420,6 +2420,8 @@ class StatusEffectMixin:
                     # Bonus healing lands on whoever the triggering heal
                     # actually healed (the carrier, since this fired via
                     # self.fire_proc_trigger on the recipient's own effect).
+                    from combat.heal_formula import take_echo
+                    bonus_amt = take_echo(self, trigger, bonus_amt)
                     self.heal(bonus_amt)
                     messages.append(f"{effect.name} adds {bonus_amt} bonus healing to {self.name}!")
                     fired_something = True
@@ -2466,6 +2468,9 @@ class StatusEffectMixin:
             smart_heal_pct = proc.get("smart_heal_pct")
             if smart_heal_pct and not smart_heal_amt:
                 smart_heal_amt = int((amount or 0) * smart_heal_pct / 100.0)
+            if smart_heal_amt:
+                from combat.heal_formula import take_echo
+                smart_heal_amt = take_echo(self, trigger, smart_heal_amt)
             if smart_heal_amt and hasattr(self, "heal"):
                 candidates = [self]
                 allies = getattr(engine, "allies", None) if engine is not None else None

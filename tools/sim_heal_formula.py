@@ -9,7 +9,8 @@ heal from a non-spec'd character shouldn't heal 80% tank HP and like 200% boss d
 tools/sim_heal_parity.py measures throughput between healers; this measures the SIZE of one heal against the
 fight it's in. Per level:
 
-  THE TANK     a Protection Warrior's max health, naked and geared (tools/sim_matrix.build)
+  THE TANK     T(L) from data/balance/heal_reference.json (a geared Protection Warrior, averaged over gear rolls);
+               the one built here is shown too
   THE HITS     what one action does to the geared tank, averaged: a normal monster of the level, and every dungeon
                boss within two levels (its whole kit, so big hits and spreads count), through take_damage
   THE HEALS    every healer spec's strongest single-target heal, one cast at a time onto a wounded target, crits
@@ -175,12 +176,16 @@ def main():
         random.seed(level)
         tank_g = M.build(TANK_SPEC, "tank", level, "geared", gen)
         tank_n = M.build(TANK_SPEC, "tank", level, "naked", gen)
+        # T(L), the reference every share is against: the averaged table (combat/heal_formula.tank), not this one
+        # gear roll (one roll's tank ran 3,255 to 4,382 at 60)
+        from combat import heal_formula as HF
+        T = HF.tank(level) or tank_g.health
         mobs = sorted(M.pool(cm, level))[:4]
         mob_hits = hits_on(tank_g, cm, mobs, level)
         boss_hits = hits_on(tank_g, cm, boss_names(cm, level), level)
         mob = statistics.mean(mob_hits.values()) if mob_hits else 0
         boss = statistics.median(boss_hits.values()) if boss_hits else 0
-        print(f"\n== level {level}: tank {tank_n.health} naked / {tank_g.health} geared;"
+        print(f"\n== level {level}: T {T:.0f} (this roll: tank {tank_n.health} naked / {tank_g.health} geared);"
               f" a normal monster's action {mob:.0f}, a boss's (median of {len(boss_hits)}) {boss:.0f}")
         print(f"   {'spec':28s} {'heal':22s} {'bare':>6s} {'%tank':>6s} {'xboss':>6s}   "
               f"{'built':>6s} {'%tank':>6s} {'xboss':>6s}   base / power (hp x coef)")
@@ -200,14 +205,14 @@ def main():
             ga, gv = g
             base, pw, hp, coef = parts(built, ga)
             row = dict(level=level, spec=spec, heal=ga.name, bare=round(bv), built=round(gv),
-                       bare_pct_tank=bv / tank_g.health, built_pct_tank=gv / tank_g.health,
+                       bare_pct_tank=bv / T, built_pct_tank=gv / T,
                        bare_x_boss=bv / boss if boss else None, built_x_boss=gv / boss if boss else None,
                        base=base, power=round(pw), healing_power=round(hp), coef=round(coef, 2),
-                       tank_naked=tank_n.health, tank_geared=tank_g.health, mob_hit=round(mob),
+                       tank_naked=tank_n.health, tank_geared=tank_g.health, T=T, mob_hit=round(mob),
                        boss_hit=round(boss), cast_speed=getattr(ga, "cast_speed", 1.0))
             rows.append(row)
-            print(f"   {spec:28s} {ga.name[:22]:22s} {bv:6.0f} {bv / tank_g.health:6.0%} "
-                  f"{(bv / boss if boss else 0):6.1f}   {gv:6.0f} {gv / tank_g.health:6.0%} "
+            print(f"   {spec:28s} {ga.name[:22]:22s} {bv:6.0f} {bv / T:6.0%} "
+                  f"{(bv / boss if boss else 0):6.1f}   {gv:6.0f} {gv / T:6.0%} "
                   f"{(gv / boss if boss else 0):6.1f}   {base} / {pw:.0f} ({hp:.0f} x {coef:.2f})")
     if args.json:
         Path(args.json).write_text(json.dumps(rows, indent=1), encoding="utf-8")

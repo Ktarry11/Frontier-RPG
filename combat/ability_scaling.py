@@ -138,6 +138,14 @@ USE_SPEC_AURAS = True
 #: Stormstrike hit for nothing); a spec below the bottom stacks far past its peers and gets its tree looked at.
 #: Turning a strong spec down quietly is fine; propping a broken one up hides it - hence the lopsided range.
 AURA_RANGE = (0.35, 1.75)
+#: HEALING AURAS (the healing formula, combat/heal_formula.py; Kyle 16 Nov 2026: spec +25%). The aura is a balancing
+#: nudge between healers' KITS, so it sits outside the +25% spec cap (inside it, a weak kit could never be lifted).
+#: The goal is 0.9-1.1: a nudge, not a crutch. Measured the night the formula went in, healers' sustained output at 60
+#: ran 16.5% to 45.6% of a tank a turn (Pyromancer's rotation leans on shields and a cooldown heal, Vizier's Alkahest
+#: is a big heal on a short cooldown), so the range is wide UNTIL each healer's kit is fixed by hand in the support
+#: pass (docs/heal_formula.md, "every healer"), then it comes back to HEAL_AURA_GOAL.
+HEAL_AURA_RANGE = (0.6, 1.6)
+HEAL_AURA_GOAL = (0.9, 1.1)
 
 
 def _aura_table():
@@ -178,7 +186,11 @@ def spec_aura(caster, kind="damage"):
         return 1.0
     if spec not in table:
         return 1.0
-    return _interp(table[spec], getattr(caster, "level", 1) or 1)
+    v = _interp(table[spec], getattr(caster, "level", 1) or 1)
+    if kind == "healing" and USE_HEAL_FORMULA:
+        lo, hi = HEAL_AURA_RANGE
+        v = max(lo, min(hi, v))
+    return v
 
 
 #: ---- 1b. LATE HEALS, A LITTLE SMALLER (Kyle, 16 Nov 2026: "end game has no challenge. i can 2 man dungeons", "my 0 gear
@@ -201,26 +213,42 @@ def heal_trim(level_req):
 
 
 def curved_ranks(entry):
-    """The entry's ranks with the curve applied (a new list; the data is never edited in place)."""
+    """The entry's ranks with the curve applied (a new list; the data is never edited in place).
+
+    HEALS TAKE THEIR SIZE FROM THE HEALING FORMULA (combat/heal_formula.py, Kyle 16 Nov 2026), not the rank curve:
+    a share of a same-level geared tank's health, by the spell's shape. heal_trim is retired with it. A heal's mana
+    cost moves with its size, so a point of healing costs what the rank curve's point did and the main heal still
+    lasts as many casts."""
+    from combat import heal_formula as _hf
     ranks = entry.get("ranks") or []
     et = entry.get("effect_type")
     out = []
     for r in ranks:
-        m = rank_multiplier(r.get("level_req", 1))
-        h = heal_trim(r.get("level_req", 1))
+        lv = r.get("level_req", 1)
+        m = rank_multiplier(lv)
         r = dict(r)
+        size = 1.0              # new size / the rank curve's size, for the mana cost
         if et in CURVED and r.get("effect_value"):
-            r["effect_value"] = int(round(r["effect_value"] * m * (h if et in HEALS else 1.0)))
+            curved = r["effect_value"] * m
+            new = _hf.rank_size(entry, lv, r["effect_value"], et) if (et in HEALS and USE_HEAL_FORMULA) else None
+            r["effect_value"] = int(round(new if new is not None else curved))
+            if new is not None and curved > 0:
+                size = new / curved
         if r.get("heal_value"):
-            r["heal_value"] = int(round(r["heal_value"] * m * h))
+            curved = r["heal_value"] * m
+            new = _hf.rank_size(entry, lv, r["heal_value"], "heal_value") if USE_HEAL_FORMULA else None
+            r["heal_value"] = int(round(new if new is not None else curved))
         if r.get("absorb"):
             r["absorb"] = int(round(r["absorb"] * m))
         if r.get("cost") and entry.get("resource_type", "mana") == "mana" and USE_MANA_TABLE:
-            r["cost"] = max(1, int(round(r["cost"] * mana_cost_multiplier(entry.get("ability_id"), et,
-                                                                         r.get("level_req", 1))
-                                         * (h if et in HEALS else 1.0))))
+            r["cost"] = max(1, int(round(r["cost"] * mana_cost_multiplier(entry.get("ability_id"), et, lv)
+                                         * (size if et in HEALS else 1.0))))
         out.append(r)
     return out
+
+
+#: the before/after switch for the healing formula (FRONTIER_HEAL_FORMULA=off: the rank curve and heal_trim, as before)
+USE_HEAL_FORMULA = True
 
 
 #: the calibration tool switches this off to read the authored costs
@@ -228,11 +256,11 @@ USE_MANA_TABLE = True
 
 #: ---- 2. power coefficients. The base is a spammable single-target cast of that kind.
 SP_BASE = 1.5            # direct spell damage, per point of spell power
-HEAL_BASE = 1.2          # direct heal, per point of healing power
+HEAL_BASE = 1.2          # direct heal, per point of healing power (the healing formula replaces it: see below)
 AP_BASE = 0.5            # physical special, per point of attack power (the weapon roll is on top)
 DOT_SP_BASE = 1.0        # a spell DoT, total over its duration
 DOT_AP_BASE = 0.3        # a physical DoT (a bleed), total
-HOT_BASE = 0.8           # a HoT, total
+HOT_BASE = 0.8           # a HoT, total (the healing formula replaces it: see below)
 
 #: cooldown (turns) -> weight. A cast you can only make every few turns carries more of your power,
 #: the way a long cast time does in WoW.
@@ -327,12 +355,24 @@ DEFAULTS = {"sp": 1.5, "heal": 1.2, "ap": 0.5, "dot_sp": 1.0, "dot_ap": 0.3, "ho
 
 
 def coefficients(ability):
-    """{sp, heal, ap, dot_sp, dot_ap, hot} for this ability. Only the ones its effect type reads matter."""
-    w = cooldown_weight(getattr(ability, "cooldown", 0)) * area_share(
-        getattr(ability, "target_type", None), getattr(ability, "max_targets", None),
-        getattr(ability, "heal_scope", None))
-    return {"sp": SP_BASE * w, "heal": HEAL_BASE * w, "ap": AP_BASE * w,
-            "dot_sp": DOT_SP_BASE * w, "dot_ap": DOT_AP_BASE * w, "hot": HOT_BASE * w}
+    """{sp, heal, ap, dot_sp, dot_ap, hot} for this ability. Only the ones its effect type reads matter.
+
+    Heals and HoTs take the healing formula's coefficient (combat/heal_formula.coefficient: rare gear at your level
+    adds 40% of the base) and the same area share as their base, so gear is the same share of every heal."""
+    cw = cooldown_weight(getattr(ability, "cooldown", 0))
+    w = cw * area_share(getattr(ability, "target_type", None), getattr(ability, "max_targets", None),
+                        getattr(ability, "heal_scope", None))
+    heal_c, hot_c, hw = HEAL_BASE, HOT_BASE, w
+    if USE_HEAL_FORMULA:
+        from combat import heal_formula as _hf
+        if _hf.enabled():
+            c = _hf.coefficient()
+            heal_c, hot_c = c, c * _hf.HOT_FACTOR
+            hw = cw * _hf.area({"target_type": getattr(ability, "target_type", None),
+                                "heal_scope": getattr(ability, "heal_scope", None),
+                                "max_targets": getattr(ability, "max_targets", None)})
+    return {"sp": SP_BASE * w, "heal": heal_c * hw, "ap": AP_BASE * w,
+            "dot_sp": DOT_SP_BASE * w, "dot_ap": DOT_AP_BASE * w, "hot": hot_c * hw}
 
 
 def apply(ability, entry):
@@ -370,3 +410,5 @@ if _os.environ.get("FRONTIER_ABILITY_SCALING", "").lower() == "off":
     USE_RANK_POWER = False
     USE_MANA_TABLE = False
     USE_SPEC_AURAS = False
+if _os.environ.get("FRONTIER_HEAL_FORMULA", "").lower() == "off" or not RANK_CURVE_ON:
+    USE_HEAL_FORMULA = False

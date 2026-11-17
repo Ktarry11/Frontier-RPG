@@ -1,9 +1,11 @@
-# The healing formula (proposal, 16 Nov 2026)
+# The healing formula (16 Nov 2026)
 
 Kyle: "we need to fix the healing end game.....we need an actual formula and do it right.... a spot heal from a
 non-spec'd character shouldn't heal 80% tank HP and like 200% boss damage...."
 
-Nothing is changed yet. This is the formula and the measurements behind it, for Kyle to sign off.
+Kyle signed it off the same night: "20 unspecced is fine. 2 is fine with 40 and 25%. Yes that's fine to drop bosses a
+bit to account for it. I think having more varied aoe damage bosses will help make it more spicy post lvl 40 too".
+The section "What went in" at the bottom covers the build.
 
 ## What happens now (tools/sim_heal_formula.py, every healer spec, strongest single-target heal)
 
@@ -104,3 +106,55 @@ inflated by three stacked multipliers:
    - the dungeon sims, so parties of 5 win most fights and the last bosses stay hard
 5. Audit every other support skill against the same reference: shields, HoTs, buffs and cleanses.
 6. Run tools/sim_heal_formula.py again and put the before and after in this doc.
+
+## What went in (16 Nov 2026, night)
+
+**Code and data:**
+- `combat/heal_formula.py` holds the formula: a share of T(L), shape, the gear coefficient, the +25% cap, 1.5x crits
+  and the echo room.
+- `data/balance/heal_reference.json` (`tools/calibrate_heal_reference.py`) holds T(L), healing power and the authored
+  lines.
+- `combat/ability_scaling.curved_ranks` takes heal and HoT sizes from the formula, and mana cost moves with size.
+  `heal_trim` is retired. `FRONTIER_HEAL_FORMULA=off` turns the whole thing off for before/after sims.
+
+**Spec cap.** Every healing talent and low-health bonus is capped together at x1.25, in `Ability._damage_multiplier`.
+Extra heals that a heal sets off come out of the same +25%. These are talent echoes: Emergency Enhancer, Eureka!,
+Ancestral Awakening and the bonus procs. Before this, a Tinker's Zap plus its echoes landed 3.9x the Zap. Heal crits
+are a flat 1.5x, with no crit-damage talents.
+
+**Bosses.**
+- `data/balance/boss_damage.json` (`tools/calibrate_boss_damage.py`) gives every boss a factor. It brings its average
+  action to a share of T:
+  - dungeon boss 35%
+  - a run's last boss 45%
+  - field boss 25%
+  - skull zones 35%
+  - hidden layers 40%
+- A boss keeps a little of its own weight, (own / peers)^0.4.
+- Bosses only come down: 545 of 575 did, and 30 were already at or under their target.
+
+**AoE past 40.** `data/balance/boss_aoe.json` (`tools/build_boss_aoe.py`) gives 84 dungeon bosses from level 40 the
+party-wide shape they were missing: a blast, a blight they could cleanse, or both. Every third boss also gets a
+wounding blast that cuts healing taken by 20% for 3 turns. That's 118 abilities in total.
+
+**Spec auras, interim.** Healing auras sit outside the cap, because they balance one healer's kit against another's.
+Healers' sustained output at 60 ran from 16.5% to 45.6% of a tank a turn, so the range is wide, 0.6-1.6, until each
+healer's kit is fixed by hand. That's the next pass. The goal is 0.9-1.1.
+
+### After (tools/sim_heal_formula.py, strongest single-target heal, share of T)
+
+Slow heals (Greater Heal, Healing Touch, Healing Wave) are 1.5x a normal one, so they sit at the top of each range.
+
+| Level | Bare heal | Built heal |
+|---|---|---|
+| 20 | 15-33% (was 28-71%) | 19-58% (was 34-203%) |
+| 40 | 17-33% (was 29-61%) | 21-56% (was 49-154%) |
+| 60 | 17-33% (was 37-77%) | 30-59% (was 71-185%) |
+
+### Dungeons (tools/sim_difficulty.py --dungeon, 4 fights a boss)
+Parties of five beat every boss in every dungeon. The last bosses are the hard ones:
+- Grand Crusader Dathrohan and Victor Hale: won 3/4, with 2.5 standing on average.
+- Gandling and Alexei Barov: 3.8 standing.
+- The Baron: 4.2 standing.
+
+Parties of three and two lose the late bosses.
