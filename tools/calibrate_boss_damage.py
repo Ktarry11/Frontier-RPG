@@ -15,7 +15,8 @@ one action (its whole kit, through take_damage), with this file's own factors sw
     TARGET[kind] x T(L) x clamp((its average / the median boss of its level) ^ KEEP, *SPREAD)
 
   kind     boss (a five-player dungeon's) and tuned_boss 0.35, a run's last boss 0.45, field_boss (the named one in a small cave or the
-           open) 0.25, hidden_layer 0.40, skull_zone 0.35: the hidden places stay brutal on purpose
+           open) 0.25. Hidden layers and skull zones aren't touched: brutal on purpose, and qa_hidden_zones holds
+           them to their rows
   KEEP     how much of a boss's own weight survives: a boss that hit harder than its peers still hits a bit harder
            (the Baron and Hale stay the hard ones), a soft one a bit softer, but nothing is 3x its peers
   the parts of an average: a normal hit ~20-25%, a big hit 40-45%, a spread 10-12% on each of five
@@ -41,7 +42,8 @@ os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 os.environ.setdefault("SDL_AUDIODRIVER", "dummy")
 
 OUT = ROOT / "data/balance/boss_damage.json"
-TARGET = {"boss": 0.35, "tuned_boss": 0.35, "field_boss": 0.25, "hidden_layer": 0.40, "skull_zone": 0.35}
+TARGET = {"boss": 0.35, "tuned_boss": 0.35, "field_boss": 0.25}
+#: hidden layers and skull zones keep their own rows (world/difficulty.BOSS_DAMAGE_KINDS): brutal on purpose
 KEEP = 0.4
 #: a run's LAST boss (the one that always drops its T0 token, data/items/set_tokens.json) hits harder: the first sim
 #: with every boss at 0.28 had parties of five beating Gandling, the Baron and Hale with four or five still standing,
@@ -133,7 +135,9 @@ def finals():
 def fit(measured):
     factors = {}
     for name, m in measured.items():
-        peers = [x["share"] for x in measured.values() if abs(x["level"] - m["level"]) <= BAND]
+        if m["kind"] not in TARGET:
+            continue
+        peers = [x["share"] for x in measured.values() if abs(x["level"] - m["level"]) <= BAND and x["kind"] in TARGET]
         med = statistics.median(peers) if peers else m["share"]
         rel = max(SPREAD[0], min(SPREAD[1], (m["share"] / med) ** KEEP)) if med > 0 else 1.0
         base = FINAL if name in finals() else TARGET.get(m["kind"], 0.30)

@@ -88,6 +88,7 @@ def kind_of(monster):
 
 
 _BOSS_DAMAGE = None
+BOSS_DAMAGE_KINDS = ("boss", "tuned_boss", "field_boss")
 
 
 def boss_damage(name):
@@ -110,7 +111,9 @@ def boss_damage(name):
 
 def factor(monster, what):
     f = float((table().get(kind_of(monster)) or {}).get(what, 1.0))
-    if what == "damage" and getattr(monster, "is_boss", False):
+    # Hidden places keep their own rows (qa_hidden_zones holds them to it): they are brutal on purpose, so only the
+    # dungeon and field bosses come onto the healing formula's reference.
+    if what == "damage" and getattr(monster, "is_boss", False) and kind_of(monster) in BOSS_DAMAGE_KINDS:
         f *= boss_damage(getattr(monster, "name", None))
     # THE FIRST TEN LEVELS (Kyle, 16 Nov 2026: "tone down the difficulty before lvl 10 by about 20% overall.
     # Any enemies below lvl 10 should deal 20% less damage and have 15% less HP"): on top of the row above,

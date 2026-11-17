@@ -128,10 +128,11 @@ are a flat 1.5x, with no crit-damage talents.
   - dungeon boss 35%
   - a run's last boss 45%
   - field boss 25%
-  - skull zones 35%
-  - hidden layers 40%
 - A boss keeps a little of its own weight, (own / peers)^0.4.
-- Bosses only come down: 545 of 575 did, and 30 were already at or under their target.
+- Hidden layers and skull zones keep their own rows: they're brutal on purpose, and qa_hidden_zones holds them
+  there.
+- Bosses only come down. Of the 526 dungeon and field bosses, the ones already at or under their target keep
+  what they hit for.
 
 **AoE past 40.** `data/balance/boss_aoe.json` (`tools/build_boss_aoe.py`) gives 84 dungeon bosses from level 40 the
 party-wide shape they were missing: a blast, a blight they could cleanse, or both. Every third boss also gets a
