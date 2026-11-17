@@ -1069,9 +1069,13 @@ class InventoryScreen(BaseScreen):
         summary_y += 30
         self.renderer.draw_text(screen, f"STR {int(subject.effective_strength)}  STA {int(subject.effective_stamina)}  INT {int(subject.effective_intellect)}  SPI {int(subject.effective_spirit)}  AGI {int(subject.effective_agility)}", (20, summary_y))
         summary_y += 25
-        self.renderer.draw_text(screen, f"Attack Power: {subject.attack_power}   Spell Power: {subject.spell_power}   Armor: {subject.armor}", (20, summary_y))
+        # Healing Power has its own line beside Spell Power (Kyle, 16 Nov 2026: "effective stats without
+        # healingpower?"); Armor moved down with health to make the room.
+        self.renderer.draw_text(screen, f"Attack Power: {int(subject.attack_power)}   Spell Power: {int(subject.spell_power)}   "
+                                        f"Healing Power: {int(getattr(subject, 'healing_power', 0) or 0)}", (20, summary_y))
         summary_y += 25
-        self.renderer.draw_text(screen, f"HP: {subject.display_health}/{round(subject.health)}   Mana: {subject.display_mana}/{round(subject.mana)}", (20, summary_y))
+        self.renderer.draw_text(screen, f"HP: {subject.display_health}/{round(subject.health)}   Mana: {subject.display_mana}/{round(subject.mana)}   "
+                                        f"Armor: {int(subject.armor)}", (20, summary_y))
 
         if self.equip_error:
             self.renderer.draw_text(screen, self.equip_error,
