@@ -39542,13 +39542,12 @@
         "boss_rework": "turns_pass"
       },
       {
-        "name": "Arcane Storm",
+        "name": "Mana Lance",
         "kind": "damage",
-        "amount": 300,
-        "cooldown": 5,
+        "amount": 632,
+        "cooldown": 3,
         "mana_cost": 0,
         "school": "arcane",
-        "is_aoe": true,
         "boss_rework": "turns_pass"
       }
     ],
@@ -67217,15 +67216,18 @@
       },
       {
         "name": "Shield of Faith",
-        "kind": "buff",
-        "amount": 0,
+        "kind": "damage",
+        "amount": 314,
         "cooldown": 5,
         "mana_cost": 0,
         "school": "holy",
-        "duration": 3,
-        "self_only": true,
-        "stat_mods": {},
-        "absorb": 592
+        "rider": {
+          "effect": "buff",
+          "duration": 3,
+          "stat_mods": {},
+          "absorb": 592
+        },
+        "boss_rework": "turns_pass"
       },
       {
         "name": "Laying On of Hands",
@@ -67388,19 +67390,22 @@
       },
       {
         "name": "Divine Shield",
-        "kind": "buff",
-        "amount": 0,
+        "kind": "damage",
+        "amount": 323,
         "cooldown": 6,
         "mana_cost": 0,
         "school": "holy",
-        "duration": 2,
-        "self_only": true,
-        "stat_mods": {},
-        "absorb": 532,
-        "mechanics": {
-          "damage_to_shield_pct": 100,
-          "damage_to_shield_school": ""
-        }
+        "rider": {
+          "effect": "buff",
+          "duration": 2,
+          "stat_mods": {},
+          "mechanics": {
+            "damage_to_shield_pct": 100,
+            "damage_to_shield_school": ""
+          },
+          "absorb": 532
+        },
+        "boss_rework": "turns_pass"
       },
       {
         "name": "Crusader's Hammer",
@@ -67979,15 +67984,18 @@
       },
       {
         "name": "Shield Wall",
-        "kind": "buff",
-        "amount": 0,
+        "kind": "damage",
+        "amount": 306,
         "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
-        "duration": 3,
-        "self_only": true,
-        "stat_mods": {},
-        "absorb": 540
+        "rider": {
+          "effect": "buff",
+          "duration": 3,
+          "stat_mods": {},
+          "absorb": 540
+        },
+        "boss_rework": "turns_pass"
       },
       {
         "name": "Shield Charge",
@@ -72144,15 +72152,18 @@
       },
       {
         "name": "Bone Armour",
-        "kind": "buff",
-        "amount": 0,
+        "kind": "damage",
+        "amount": 323,
         "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
-        "duration": 3,
-        "self_only": true,
-        "stat_mods": {},
-        "absorb": 532
+        "rider": {
+          "effect": "buff",
+          "duration": 3,
+          "stat_mods": {},
+          "absorb": 532
+        },
+        "boss_rework": "turns_pass"
       },
       {
         "name": "Crushing Blow",
@@ -72374,15 +72385,18 @@
       },
       {
         "name": "Ice Armour",
-        "kind": "buff",
-        "amount": 0,
+        "kind": "damage",
+        "amount": 323,
         "cooldown": 6,
         "mana_cost": 0,
         "school": "frost",
-        "duration": 3,
-        "self_only": true,
-        "stat_mods": {},
-        "absorb": 456
+        "rider": {
+          "effect": "buff",
+          "duration": 3,
+          "stat_mods": {},
+          "absorb": 456
+        },
+        "boss_rework": "turns_pass"
       },
       {
         "name": "Shatter",
@@ -73613,15 +73627,18 @@
       },
       {
         "name": "Stoneskin",
-        "kind": "buff",
-        "amount": 0,
+        "kind": "damage",
+        "amount": 323,
         "cooldown": 6,
         "mana_cost": 0,
         "school": "physical",
-        "duration": 3,
-        "self_only": true,
-        "stat_mods": {},
-        "absorb": 532
+        "rider": {
+          "effect": "buff",
+          "duration": 3,
+          "stat_mods": {},
+          "absorb": 532
+        },
+        "boss_rework": "turns_pass"
       },
       {
         "name": "Crushing Dive",
