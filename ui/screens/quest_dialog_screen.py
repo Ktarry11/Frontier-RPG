@@ -1061,12 +1061,14 @@ class QuestDialogScreen(BaseScreen):
             self.renderer.draw_button(screen, self.dialogue_back_button, "Back")
             return
 
-        self._draw_wrapped_text(screen, quest.accept_text, (40, 130), max_width=SCREEN_WIDTH - 80,
-                                line_height=22)
+        end = self._draw_wrapped_text(screen, quest.accept_text, (40, 130), max_width=SCREEN_WIDTH - 80,
+                                      line_height=22)
 
         self.topic_button_rects = []
         topics = get_all_topics(quest.quest_id)
-        y = 230
+        # the questions start under what was said, however long it ran (Kyle, 16 Nov 2026: a four-paragraph
+        # opening ran under the buttons, which sat at a fixed y of 230)
+        y = max(230, int(end or 130) + 18)
         for topic_id, label in topics:
             already_asked = topic_id in objective.topics_asked
             rect = pygame.Rect(40, y, 420, 44)
