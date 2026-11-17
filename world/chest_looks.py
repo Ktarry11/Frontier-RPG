@@ -48,6 +48,14 @@ DUNGEONS = {
     "scarlet_monastery:_library": (["dark_oak", "steel_strongbox"], "royal_gold"),
     "scarlet_monastery:_armory": (["steel_strongbox", "iron_banded"], "royal_gold"),
     "scarlet_monastery:_cathedral": (["dark_oak", "steel_strongbox"], "ornate_gold"),
+    # the Plaguelands' dungeons
+    "scholomance": (["chained_cursed", "stone_coffer"], "ossuary"),
+    "scholomance:_lower_halls": (["chained_cursed", "stone_coffer"], "ossuary"),
+    "stratholme": (["steel_strongbox", "dark_oak"], "royal_gold"),
+    "stratholme:_service_entrance": (["chained_cursed", "undead_rusted"], "ossuary"),
+    "stratholme:_slaughter_square": (["undead_rusted", "chained_cursed"], "ossuary"),
+    "hearthglen": (["dark_oak", "steel_strongbox"], "royal_gold"),
+    "hearthglen:_mardenholde_keep": (["steel_strongbox", "iron_banded"], "ornate_gold"),
 }
 DUNGEON_DEFAULT = (["dark_oak", "steel_strongbox", "dark_oak", "ornate_gold"], "royal_gold")
 

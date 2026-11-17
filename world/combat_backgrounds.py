@@ -167,6 +167,14 @@ ZONE_BACKGROUND = {
     "Scarlet Monastery: Library": "keep",
     "Scarlet Monastery: Armory": "keep",
     "Scarlet Monastery: Cathedral": "keep",
+    # --- the Plaguelands' dungeons: the school's crypts, the dead city, the Crusade's town and keep --------------
+    "Scholomance": "dark_dungeon",
+    "Scholomance: Lower Halls": "dark_dungeon",
+    "Stratholme": "keep",
+    "Stratholme: Service Entrance": "dark_dungeon",
+    "Stratholme: Slaughter Square": "dark_dungeon",
+    "Hearthglen": "keep",
+    "Hearthglen: Mardenholde Keep": "keep",
     # --- the Plaguelands' caves (tools/handbuilt_plaguelands_caves.py): fiend burrows, a wet cave, a crypt, a mine --
     "The Writhing Deep": "dark_dungeon",
     "The Weeping Cave": ("nautical", "Flooded"),

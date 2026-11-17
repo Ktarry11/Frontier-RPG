@@ -32,12 +32,11 @@ PL = "assets/tiles/plaguelands/props/"
 W, H = 170, 150
 NAME = "Eastern Plaguelands West"
 
-PORTALS = {(3, 80): "Western Plaguelands North", (167, 80): "Eastern Plaguelands East", (66, 122): "The Marris Crypt"}
-ARRIVALS = [(7, 80), (163, 80), (66, 120)]
-LATER_PORTALS = {
-    (40, 5): ("Stratholme", None),                          # the Main Gate: the living side
-    (88, 5): ("Stratholme: Service Entrance", None),        # the service gate: the dead side
-}
+PORTALS = {(3, 80): "Western Plaguelands North", (167, 80): "Eastern Plaguelands East", (66, 122): "The Marris Crypt",
+           (40, 5): "Stratholme",                                   # the Main Gate: the living side
+           (88, 5): "Stratholme: Service Entrance"}                 # the service gate: the dead side
+ARRIVALS = [(7, 80), (163, 80), (66, 120), (40, 8), (88, 8)]
+LATER_PORTALS = {}
 START = (12, 80)
 
 ROADS = {
@@ -220,6 +219,7 @@ def dress(L):
 
     # ---- Stratholme's gates (the city is its own map)
     B("strat_gates", 40, 12, 10, road_ok=True, nudge=0)
+    B("strat_gates", 88, 11, 8, road_ok=True, nudge=0)          # the service gate, smaller, on the dead side
     P("ek_gibbet", 28, 14, 5)
     Q("pl_meat_wagon", 52, 16, 4)
     Q("pl_scourge_banner", 32, 18, 5)

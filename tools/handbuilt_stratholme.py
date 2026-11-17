@@ -36,7 +36,7 @@ SLAUGHTER SQUARE (110x96), the dead side's second floor: the square and the Slau
         Slaughter Square             13 Ramstein the Gorger       the abomination the square is kept for
         the Slaughterhouse           14 Baron Rivendare           the Baron, and his deathcharger
 """
-from tools.plaguelands_dungeon_kit import build_floor, preview
+from tools.plaguelands_dungeon_kit import build_floor, generate_floor, preview
 
 LIVE = "Stratholme"
 DEAD_1 = "Stratholme: Service Entrance"
@@ -162,8 +162,57 @@ FLOOR = {
 }
 
 
+#: Kyle's dungeon props (sheet 8), set into the rooms by tools/plaguelands_dungeon_kit.auto_dress:
+#: room -> [(prop, height in tiles, "wall" | "free" | "floor", how many)]
+FLOOR[LIVE]["decor"] = {
+    "The Main Gate": [("strat_rubble", 3, "floor", 2), ("dg_wall_torch", 3, "wall", 2)],
+    "King's Square": [("strat_stall_burned", 4, "free", 2), ("strat_grain_cart", 3, "free", 2),
+                      ("strat_rubble", 3, "floor", 4), ("silver_hand_symbol", 4, "wall", 1)],
+    "Market Row": [("strat_stall_burned", 4, "floor", 2), ("strat_rubble", 3, "floor", 2)],
+    "The Baker's": [("sm_supply_crates", 3, "wall", 1)], "The Smithy": [("sm_weapon_rack", 4, "wall", 1)],
+    "The Apothecary": [("scholo_specimen_jars", 4, "wall", 1)],
+    "The Postmaster's": [("sm_supply_crates", 3, "wall", 1)],
+    "Crusaders' Square": [("hg_banner", 4, "wall", 3), ("sm_weapon_rack", 4, "wall", 2),
+                          ("strat_grain_cart", 3, "free", 2), ("strat_rubble", 3, "floor", 3)],
+    "Hall of the Crimson Legion": [("hg_banner", 4, "wall", 4), ("dg_wall_torch", 3, "wall", 3)],
+    "The Hoard": [("sm_supply_crates", 3, "wall", 3), ("sc_treasure_chest", 3, "free", 1)],
+    "The Archives": [("sm_bookshelf", 4, "wall", 4), ("sm_lectern", 4, "free", 1)],
+    "Hall of High Command": [("hg_war_table", 3, "free", 1), ("hg_banner", 4, "wall", 3),
+                             ("hg_throne", 4, "wall", 1)],
+}
+FLOOR[DEAD_1]["decor"] = {
+    "The Service Entrance": [("strat_rubble", 3, "floor", 2), ("dg_wall_torch", 3, "wall", 2)],
+    "Elders' Square": [("strat_rubble", 3, "floor", 5), ("strat_grain_cart", 3, "free", 1),
+                       ("strat_wall", 3, "floor", 2)],
+    "The Alonsus Chapel": [("sm_pew", 3, "free", 3), ("sm_altar", 4, "wall", 1), ("sm_saint_statue", 4, "wall", 2)],
+    "The Gauntlet": [("strat_rubble", 3, "floor", 4), ("strat_ziggurat_brazier", 4, "floor", 3)],
+    "Nerub'enkan's Ziggurat": [("strat_ziggurat_brazier", 4, "floor", 2), ("scourge_bone_chest", 3, "free", 1)],
+    "Anastari's Ziggurat": [("strat_ziggurat_brazier", 4, "floor", 2), ("sm_sarcophagus", 3, "free", 1)],
+    "Maleki's Ziggurat": [("strat_ziggurat_brazier", 4, "floor", 2), ("scholo_ritual_stone", 3, "free", 1)],
+    "The Portcullis": [("dg_wall_torch", 3, "wall", 2)],
+}
+FLOOR[DEAD_2]["decor"] = {
+    "The Portcullis Yard": [("strat_rubble", 3, "floor", 2), ("dg_wall_torch", 3, "wall", 2)],
+    "Slaughter Square": [("scholo_golem_table", 3, "free", 2), ("scholo_iron_cage", 4, "floor", 3),
+                         ("strat_rubble", 3, "floor", 4), ("strat_ziggurat_brazier", 4, "floor", 2)],
+    "The West Houses": [("strat_rubble", 3, "floor", 2)], "The East Houses": [("strat_rubble", 3, "floor", 2)],
+    "The Slaughterhouse": [("scholo_golem_table", 3, "free", 1), ("hg_throne", 4, "wall", 1),
+                           ("dg_wall_torch", 3, "wall", 3)],
+}
+
+
 def build(name):
     return build_floor(name, FLOOR[name], REGION)
+
+
+def build_baked(name):
+    """The bare floor the painter works from (tools/bake_plaguelands_dungeons.py)."""
+    return build_floor(name, FLOOR[name], REGION)
+
+
+def generate(name):
+    """The floor as the game loads it (world/zone_generator.py)."""
+    return generate_floor(name, FLOOR[name], REGION, BAKED[name])
 
 
 if __name__ == "__main__":

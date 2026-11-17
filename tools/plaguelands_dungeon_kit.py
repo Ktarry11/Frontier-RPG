@@ -52,7 +52,60 @@ def snap(zone, x, y, rad=6):
     return best[1], best[2]
 
 
-def build_floor(name, spec, region, pillar_sprite=None):
+COLUMN = "assets/tiles/scarlet_monastery/props/sm_stone_column.png"
+PROPS = "assets/tiles/plaguelands/dungeon_props/"
+
+
+def auto_dress(zone, b, spec, avoid, seed):
+    """Kyle's dungeon prop sheet (sheet 8), set into each room by `spec["decor"]` = {room: [(stem, height, kind,
+    count)]}. kind "wall" stands against the room's north wall with a solid base (shelves, organs, cages); "floor"
+    is walk-through clutter (rubble, a cart, a brazier); "free" is a solid piece in the open (a fountain, a table).
+    Nothing goes within three tiles of a door, a boss, a chest or a pack, and pieces keep four tiles apart, so the
+    rooms read furnished without a prop ever standing in the way. Deterministic (seeded by the floor's name)."""
+    import random
+    rnd = random.Random(seed)
+    placed = []
+
+    def clear(x, y, r=3):
+        return all(abs(x - ax) > r or abs(y - ay) > r for (ax, ay) in avoid + placed)
+    for room, items in (spec.get("decor") or {}).items():
+        r = spec["rooms"][room]
+        x0, y0, w, h = _box(r)
+        tiles = [(x, y) for y in range(y0, y0 + h) for x in range(x0, x0 + w)
+                 if 0 < x < zone.width - 1 and 0 < y < zone.height - 1 and zone.is_walkable(x, y)
+                 and zone.interaction_layer[y][x] is None]
+        rnd.shuffle(tiles)
+        for (stem, hgt, kind, count) in items:
+            path = PROPS + stem + ".png"
+            from tools.dungeon_builder import _aspect
+            wt = max(1, round(hgt * _aspect(path)))
+            n = 0
+            for (x, y) in tiles:
+                if n >= count:
+                    break
+                if not clear(x, y, 4 if kind != "floor" else 3):
+                    continue
+                span = range(x - wt // 2, x - wt // 2 + wt)
+                if kind == "wall":
+                    # against the north wall: the row above is rock, the row below is open floor
+                    if zone.is_walkable(x, y - 1) or not zone.is_walkable(x, y + 1):
+                        continue
+                    if not all(zone.is_walkable(xx, y) and zone.interaction_layer[y][xx] is None for xx in span):
+                        continue
+                    b.prop(path, x, y, hgt, solid="core", fraction=0.35)
+                elif kind == "free":
+                    if not all(zone.is_walkable(xx, yy) for xx in range(x - wt // 2 - 1, x + wt // 2 + 2)
+                               for yy in (y - 1, y, y + 1)):
+                        continue
+                    b.prop(path, x, y, hgt, solid="core", fraction=0.35)
+                else:
+                    b.prop(path, x, y, hgt, solid=False)
+                placed.append((x, y))
+                n += 1
+    return len(placed)
+
+
+def build_floor(name, spec, region, pillar_sprite=COLUMN):
     W, H = spec["size"]
     zone = Tilemap(name, W, H, spec["desc"])
     zone.is_cave = True
@@ -102,11 +155,30 @@ def build_floor(name, spec, region, pillar_sprite=None):
         for (x, y, n, _l) in pack:
             sx, sy = snap(zone, x, y)
             targets.append((sx, sy, n))
+    avoid = [(t[0], t[1]) for t in targets] + [start]
+    zone.dressed = auto_dress(zone, b, spec, avoid, sum(map(ord, name)))
     b.verify(start, targets)
     zone.add_subzone(name, 0, 0, W, H)
     for rname, r in spec["rooms"].items():
         zone.add_subzone(rname, *_box(r))
     return zone, b
+
+
+def generate_floor(name, spec, region, baked, pillar_sprite=COLUMN):
+    """The floor as the game uses it: carved, its trash seeds filled to packs of four or five
+    (world/dungeon_packs.attach_packs, Kyle: "in dungeons enemies are in packs of 4 to 5"), its painting registered
+    and its chests set down."""
+    zone, _b = build_floor(name, spec, region, pillar_sprite)
+    from world.dungeon_packs import attach_packs
+    avoid = list(spec["doors"].values()) + [tuple(b[:2]) for b in zone.boss_positions]
+    seeds = [[(*snap(zone, x, y), n, lvl) for (x, y, n, lvl) in pack] for pack in spec.get("trash", [])]
+    attach_packs(zone, seeds, avoid=avoid)
+    from tools.handbuilt_vot_caves import register_baked
+    register_baked(zone, baked)
+    for (x, y) in zone.chest_spots:
+        if zone.get_tile(x, y, "interaction") is None:
+            zone.set_tile(x, y, "chest", "interaction")
+    return zone
 
 
 def preview(zone, spec, path, scale=6):

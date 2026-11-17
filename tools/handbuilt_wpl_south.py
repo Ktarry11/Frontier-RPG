@@ -44,14 +44,14 @@ PL = "assets/tiles/plaguelands/props/"          # Kyle's Plaguelands sheet 3, wh
 W, H = 180, 160
 NAME = "Western Plaguelands South"
 
-PORTALS = {(3, 84): "The Bulwark", (96, 3): "Western Plaguelands North", (150, 53): "The Writhing Deep"}
-ARRIVALS = [(7, 84), (96, 7), (150, 51)]
+PORTALS = {(3, 84): "The Bulwark", (96, 3): "Western Plaguelands North", (150, 53): "The Writhing Deep",
+           (156, 128): "Scholomance"}
+ARRIVALS = [(7, 84), (96, 7), (150, 51), (156, 131)]
 #: Doors whose ground is cut and which go live when the map behind them exists (qa_portals fails a door that leads
 #: nowhere): (tile) -> (target map, its arrival tile)
 LATER_PORTALS = {
     (40, 157): ("The Alterac Foothills", None),
     (6, 102): ("Undercity", None),                 # the sewer door, opened by the Bulwark's quest chain
-    (156, 128): ("Scholomance", None),
 }
 START = (12, 84)
 

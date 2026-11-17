@@ -24,7 +24,7 @@ barracks off it, the great hall, and the stair up the tower.
         the Great Hall                9 High General Abbendis         the general who let Hale take her keep
         the Tower Top                10 Grand Crusader Victor Hale    the last boss; past him, the fast exit (one way)
 """
-from tools.plaguelands_dungeon_kit import build_floor, preview
+from tools.plaguelands_dungeon_kit import build_floor, generate_floor, preview
 
 TOWN = "Hearthglen"
 KEEP = "Hearthglen: Mardenholde Keep"
@@ -109,8 +109,42 @@ FLOOR = {
 }
 
 
+#: Kyle's dungeon props (sheet 8), set into the rooms by tools/plaguelands_dungeon_kit.auto_dress:
+#: room -> [(prop, height in tiles, "wall" | "free" | "floor", how many)]
+FLOOR[TOWN]["decor"] = {
+    "The Hearthglen Gate": [("hg_banner", 4, "wall", 2), ("dg_wall_torch", 3, "wall", 2)],
+    "The Kennels": [("hg_kennel", 3, "wall", 3), ("hg_kennel", 3, "free", 1)],
+    "The Infirmary": [("scholo_alchemy_table", 3, "free", 1), ("scholo_specimen_jars", 4, "wall", 2),
+                      ("sm_supply_crates", 3, "wall", 1)],
+    "The Town Square": [("strat_fountain", 4, "free", 1), ("hg_banner", 4, "wall", 3),
+                        ("strat_grain_cart", 3, "free", 1)],
+    "The Chapel of the Flame": [("sm_pew", 3, "free", 4), ("hg_organ", 4, "wall", 1), ("hg_choir_stall", 3, "wall", 2),
+                                ("sm_altar", 4, "wall", 1), ("hg_reliquary", 4, "wall", 1)],
+    "The Barbican": [("sm_weapon_rack", 4, "wall", 2), ("hg_banner", 4, "wall", 2)],
+}
+FLOOR[KEEP]["decor"] = {
+    "The Keep Gate": [("hg_banner", 4, "wall", 2), ("dg_wall_torch", 3, "wall", 2)],
+    "The Muster Yard": [("sm_training_dummy", 4, "free", 3), ("sm_weapon_rack", 4, "wall", 2)],
+    "The Armoury": [("sm_weapon_rack", 4, "wall", 4), ("sm_supply_crates", 3, "wall", 2)],
+    "The Barracks": [("sm_supply_crates", 3, "wall", 2), ("sm_training_dummy", 4, "free", 1)],
+    "The Great Hall": [("hg_throne", 4, "wall", 1), ("hg_banner", 4, "wall", 4), ("hg_war_table", 3, "free", 1),
+                       ("dg_wall_torch", 3, "wall", 2)],
+    "The Tower Top": [("hg_banner", 4, "wall", 2), ("sm_candelabra", 4, "floor", 2)],
+}
+
+
 def build(name):
     return build_floor(name, FLOOR[name], REGION)
+
+
+def build_baked(name):
+    """The bare floor the painter works from (tools/bake_plaguelands_dungeons.py)."""
+    return build_floor(name, FLOOR[name], REGION)
+
+
+def generate(name):
+    """The floor as the game loads it (world/zone_generator.py)."""
+    return generate_floor(name, FLOOR[name], REGION, BAKED[name])
 
 
 if __name__ == "__main__":

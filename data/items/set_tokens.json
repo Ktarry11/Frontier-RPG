@@ -1,5 +1,5 @@
 {
-  "_about": "T0 set tokens. BUILT by tools/build_tempest_loot.py - edit that, not this. Rolled and redeemed by world/set_tokens.py.",
+  "_about": "T0 set tokens. BUILT by tools/build_tempest_loot.py and tools/build_plaguelands_dungeons_content.py - edit those, not this. Rolled and redeemed by world/set_tokens.py.",
   "chance": 0.2,
   "tokens": {
     "t0_token_wrist_plate": {
@@ -161,6 +161,102 @@
       "tier": "T0",
       "icon_id": "t0_priest_hands",
       "description": "A token. Any Artifact Keeper will trade it for the T0 set gloves of a class that wears cloth."
+    },
+    "t0_token_head_plate": {
+      "name": "T0 Helm Token (Plate)",
+      "slot": "head",
+      "armor_type": "plate",
+      "tier": "T0",
+      "icon_id": "t0_warrior_head",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set helm of a class that wears plate."
+    },
+    "t0_token_head_mail": {
+      "name": "T0 Helm Token (Mail)",
+      "slot": "head",
+      "armor_type": "mail",
+      "tier": "T0",
+      "icon_id": "t0_shaman_head",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set helm of a class that wears mail."
+    },
+    "t0_token_head_leather": {
+      "name": "T0 Helm Token (Leather)",
+      "slot": "head",
+      "armor_type": "leather",
+      "tier": "T0",
+      "icon_id": "t0_rogue_head",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set helm of a class that wears leather."
+    },
+    "t0_token_head_cloth": {
+      "name": "T0 Helm Token (Cloth)",
+      "slot": "head",
+      "armor_type": "cloth",
+      "tier": "T0",
+      "icon_id": "t0_priest_head",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set helm of a class that wears cloth."
+    },
+    "t0_token_chest_plate": {
+      "name": "T0 Chest Token (Plate)",
+      "slot": "chest",
+      "armor_type": "plate",
+      "tier": "T0",
+      "icon_id": "t0_warrior_chest",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set chest of a class that wears plate."
+    },
+    "t0_token_chest_mail": {
+      "name": "T0 Chest Token (Mail)",
+      "slot": "chest",
+      "armor_type": "mail",
+      "tier": "T0",
+      "icon_id": "t0_shaman_chest",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set chest of a class that wears mail."
+    },
+    "t0_token_chest_leather": {
+      "name": "T0 Chest Token (Leather)",
+      "slot": "chest",
+      "armor_type": "leather",
+      "tier": "T0",
+      "icon_id": "t0_rogue_chest",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set chest of a class that wears leather."
+    },
+    "t0_token_chest_cloth": {
+      "name": "T0 Chest Token (Cloth)",
+      "slot": "chest",
+      "armor_type": "cloth",
+      "tier": "T0",
+      "icon_id": "t0_priest_chest",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set chest of a class that wears cloth."
+    },
+    "t0_token_feet_plate": {
+      "name": "T0 Boots Token (Plate)",
+      "slot": "feet",
+      "armor_type": "plate",
+      "tier": "T0",
+      "icon_id": "t0_warrior_feet",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set boots of a class that wears plate."
+    },
+    "t0_token_feet_mail": {
+      "name": "T0 Boots Token (Mail)",
+      "slot": "feet",
+      "armor_type": "mail",
+      "tier": "T0",
+      "icon_id": "t0_shaman_feet",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set boots of a class that wears mail."
+    },
+    "t0_token_feet_leather": {
+      "name": "T0 Boots Token (Leather)",
+      "slot": "feet",
+      "armor_type": "leather",
+      "tier": "T0",
+      "icon_id": "t0_rogue_feet",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set boots of a class that wears leather."
+    },
+    "t0_token_feet_cloth": {
+      "name": "T0 Boots Token (Cloth)",
+      "slot": "feet",
+      "armor_type": "cloth",
+      "tier": "T0",
+      "icon_id": "t0_priest_feet",
+      "description": "A token. Any Artifact Keeper will trade it for the T0 set boots of a class that wears cloth."
     }
   },
   "bosses": {
@@ -448,6 +544,334 @@
     },
     "Zar'gothrax the Unbound": {
       "slot": "hands",
+      "guaranteed": true,
+      "types": [
+        "plate",
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Kirtonos the Herald": {
+      "slot": "head",
+      "guaranteed": false,
+      "types": [
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Jandice Barov": {
+      "slot": "head",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Rattlegore": {
+      "slot": "head",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "cloth"
+      ]
+    },
+    "Marduk Blackpool": {
+      "slot": "head",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "leather"
+      ]
+    },
+    "Vectus": {
+      "slot": "head",
+      "guaranteed": false,
+      "types": [
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Ras Frostwhisper": {
+      "slot": "head",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Instructor Malicia": {
+      "slot": "head",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "cloth"
+      ]
+    },
+    "Doctor Theolen Krastinov": {
+      "slot": "head",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "leather"
+      ]
+    },
+    "Lorekeeper Polkelt": {
+      "slot": "head",
+      "guaranteed": false,
+      "types": [
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "The Ravenian": {
+      "slot": "head",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Lord Alexei Barov": {
+      "slot": "head",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "cloth"
+      ]
+    },
+    "Darkmaster Gandling": {
+      "slot": "head",
+      "guaranteed": true,
+      "types": [
+        "plate",
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Skul": {
+      "slot": "chest",
+      "guaranteed": false,
+      "types": [
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Hearthsinger Forresten": {
+      "slot": "chest",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "leather",
+        "cloth"
+      ]
+    },
+    "The Unforgiven": {
+      "slot": "chest",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "cloth"
+      ]
+    },
+    "Timmy the Cruel": {
+      "slot": "chest",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "leather"
+      ]
+    },
+    "Cannon Master Willey": {
+      "slot": "chest",
+      "guaranteed": false,
+      "types": [
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Archivist Galford": {
+      "slot": "chest",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Grand Crusader Dathrohan": {
+      "slot": "chest",
+      "guaranteed": true,
+      "types": [
+        "plate",
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Magistrate Barthilas": {
+      "slot": "chest",
+      "guaranteed": false,
+      "types": [
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Stonespine": {
+      "slot": "chest",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Nerub'enkan": {
+      "slot": "chest",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "cloth"
+      ]
+    },
+    "Baroness Anastari": {
+      "slot": "chest",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "leather"
+      ]
+    },
+    "Maleki the Pallid": {
+      "slot": "chest",
+      "guaranteed": false,
+      "types": [
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Ramstein the Gorger": {
+      "slot": "chest",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Baron Rivendare": {
+      "slot": "chest",
+      "guaranteed": true,
+      "types": [
+        "plate",
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "High Protector Tarsen": {
+      "slot": "feet",
+      "guaranteed": false,
+      "types": [
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Huntsman Radley": {
+      "slot": "feet",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Chirurgeon Maeve Ostrowski": {
+      "slot": "feet",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "cloth"
+      ]
+    },
+    "High Clerist Hendrick": {
+      "slot": "feet",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "leather"
+      ]
+    },
+    "High Protector Lorik": {
+      "slot": "feet",
+      "guaranteed": false,
+      "types": [
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Scarlet Commander Marjhan": {
+      "slot": "feet",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Armsmaster Grell": {
+      "slot": "feet",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "cloth"
+      ]
+    },
+    "Drillmaster Osric Pell": {
+      "slot": "feet",
+      "guaranteed": false,
+      "types": [
+        "plate",
+        "mail",
+        "leather"
+      ]
+    },
+    "High General Abbendis": {
+      "slot": "feet",
+      "guaranteed": false,
+      "types": [
+        "mail",
+        "leather",
+        "cloth"
+      ]
+    },
+    "Grand Crusader Victor Hale": {
+      "slot": "feet",
       "guaranteed": true,
       "types": [
         "plate",

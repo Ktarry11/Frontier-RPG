@@ -5663,6 +5663,9 @@ def create_all_zones():
     from tools import handbuilt_wpl_north as dwpln
     from tools import handbuilt_epl_west as deplw
     from tools import handbuilt_epl_east as deple
+    from tools import handbuilt_scholomance as dscholo
+    from tools import handbuilt_stratholme as dstrat
+    from tools import handbuilt_hearthglen as dhearth
     from tools import handbuilt_bulwark as dbulwark
     from tools import handbuilt_pale_watch as dpalewatch
     from tools import handbuilt_lights_hope as dlightshope
@@ -5829,6 +5832,16 @@ def create_all_zones():
         "The Bulwark": dbulwark.generate_bulwark(),              # (tools/handbuilt_bulwark.py)
         "The Pale Watch": dpalewatch.generate_pale_watch(),      # (tools/handbuilt_pale_watch.py)
         "Light's Hope Chapel": dlightshope.generate_lights_hope(),  # (tools/handbuilt_lights_hope.py)
+        # The Plaguelands' dungeons (docs/plaguelands_dungeons_structure.md): Scholomance under Caer Darrow (two
+        # floors, 56-60), Stratholme's Scarlet side (one floor, 57-59) and its Scourge side (two, 58-60), and
+        # Hearthglen's town and keep (two, 58-60). Content: tools/build_plaguelands_dungeons_content.py
+        dscholo.UPPER: dscholo.generate_floor(dscholo.UPPER),
+        dscholo.LOWER: dscholo.generate_floor(dscholo.LOWER),
+        dstrat.LIVE: dstrat.generate(dstrat.LIVE),
+        dstrat.DEAD_1: dstrat.generate(dstrat.DEAD_1),
+        dstrat.DEAD_2: dstrat.generate(dstrat.DEAD_2),
+        dhearth.TOWN: dhearth.generate(dhearth.TOWN),
+        dhearth.KEEP: dhearth.generate(dhearth.KEEP),
         # The Scarlet Monastery off Eastern Tirisfal's gate: the grounds and the four wings, each its own dungeon
         # (Graveyard 28-32, Library 32-36, Armory 35-39, Cathedral 38-42). tools/handbuilt_scarlet_monastery.py
         dsm.GROUNDS: dsm.generate_grounds(),

@@ -847,17 +847,49 @@ class PortalManager:
                 (3, 84): ("The Bulwark", 97, 40),
                 (96, 3): ("Western Plaguelands North", 96, 133),
                 (150, 53): ("The Writhing Deep", 48, 84),           # the zone's cave (tools/handbuilt_plaguelands_caves.py)
+                (156, 128): ("Scholomance", 60, 97),                # down under Caer Darrow
             },
             "Western Plaguelands North": {
                 (96, 137): ("Western Plaguelands South", 96, 7),
                 (176, 70): ("Eastern Plaguelands West", 7, 80),     # over the Thondroril
                 (146, 28): ("The Weeping Cave", 10, 60),
                 (80, 112): ("The Pale Watch", 82, 36),
+                (100, 6): ("Hearthglen", 70, 109),                  # the gate at the top of the King's Road
             },
             "Eastern Plaguelands West": {
                 (3, 80): ("Western Plaguelands North", 172, 70),
                 (167, 80): ("Eastern Plaguelands East", 7, 80),
                 (66, 122): ("The Marris Crypt", 45, 76),
+                (40, 5): ("Stratholme", 25, 108),                   # the Main Gate: the Scarlet side
+                (88, 5): ("Stratholme: Service Entrance", 130, 97),  # the service gate: the Scourge's side
+            },
+            # ===== THE PLAGUELANDS' DUNGEONS (docs/plaguelands_dungeons_structure.md). Every multi-floor one ends on
+            # a ONE-WAY fast exit past its last boss (Kyle: "ensure these end of dungeon portals are ONE WAY"): no
+            # tile outside leads back onto it. Stratholme's living side is one floor: you walk back out the gate.
+            "Scholomance": {
+                (60, 97): ("Western Plaguelands South", 156, 133),  # up onto Caer Darrow
+                (100, 8): ("Scholomance: Lower Halls", 60, 8),      # the Laboratory's stair down
+            },
+            "Scholomance: Lower Halls": {
+                (60, 4): ("Scholomance", 100, 12),                  # back up to the Laboratory
+                (60, 97): ("Western Plaguelands South", 156, 133),  # past Gandling, one way out
+            },
+            "Stratholme": {(25, 108): ("Eastern Plaguelands West", 40, 10)},
+            "Stratholme: Service Entrance": {
+                (130, 97): ("Eastern Plaguelands West", 88, 10),
+                (10, 72): ("Stratholme: Slaughter Square", 55, 93),  # the portcullis down
+            },
+            "Stratholme: Slaughter Square": {
+                (55, 93): ("Stratholme: Service Entrance", 10, 72),
+                (72, 12): ("Eastern Plaguelands West", 88, 10),      # past the Baron, one way out
+            },
+            "Hearthglen": {
+                (70, 109): ("Western Plaguelands North", 100, 10),
+                (112, 12): ("Hearthglen: Mardenholde Keep", 60, 97),  # up to the keep
+            },
+            "Hearthglen: Mardenholde Keep": {
+                (60, 97): ("Hearthglen", 112, 12),
+                (108, 10): ("Western Plaguelands North", 100, 10),   # past Hale, one way out
             },
             "Eastern Plaguelands East": {
                 (3, 80): ("Eastern Plaguelands West", 163, 80),

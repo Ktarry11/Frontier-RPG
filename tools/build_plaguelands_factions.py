@@ -34,6 +34,7 @@ PATH = ROOT / "data/factions/factions.json"
 
 from tools import handbuilt_scarlet_monastery as SM  # noqa: E402
 from tools import build_scarlet_monastery_content as SMC  # noqa: E402
+from tools import build_plaguelands_dungeons_content as PLD  # noqa: E402
 
 #: Open-world Scarlets: a little each, until Honored
 #: Tirisfal's Scarlets already pay the Forsaken, and a creature pays one faction (qa_factions), so the Order's
@@ -97,12 +98,14 @@ PALE_FLAME = {
         ],
         "creatures": {**{n: [5, "honored"] for n in OPEN_WORLD_SCARLETS},
                       **{n: [25, "honored"] for n in OPEN_WORLD_RARES},
-                      **{n: [10, "honored"] for n in SM_SCARLETS}},
+                      **{n: [10, "honored"] for n in SM_SCARLETS},
+                      # Stratholme's Scarlet half and Hearthglen don't stop (Kyle: Hearthglen carries you to Exalted)
+                      **{n: [12, "exalted"] for n in PLD.SCARLETS}},
     },
     "dungeon_rep": {
         "_comment": "A dungeon boss kill pays 75. The Monastery's wings are capped at Honored.",
         "per_boss": 75,
-        "dungeons": list(SM.WINGS),
+        "dungeons": list(SM.WINGS) + [PLD.LV, PLD.HT, PLD.HK],
         "caps": {w: "honored" for w in SM.WINGS},
     },
 }
@@ -143,9 +146,9 @@ ARGENT_DAWN = {
         "creatures": {},            # filled from the rosters in main()
     },
     "dungeon_rep": {
-        "_comment": "A dungeon boss kill pays 75. Scholomance and Stratholme's undead half join when they exist.",
+        "_comment": "A dungeon boss kill pays 75: Scholomance's two floors and Stratholme's undead half.",
         "per_boss": 75,
-        "dungeons": [],
+        "dungeons": [PLD.SU, PLD.SL, PLD.D1, PLD.D2],
     },
 }
 
@@ -181,7 +184,9 @@ def scourge():
 def main():
     ordinary, rares = scourge()
     ARGENT_DAWN["kill_rep"]["creatures"] = {**{n: [5, "honored"] for n in ordinary},
-                                            **{n: [25, "honored"] for n in rares}}
+                                            **{n: [25, "honored"] for n in rares},
+                                            # the dungeons' Scourge pays on past Honored
+                                            **{n: [12, "exalted"] for n in PLD.SCOURGE}}
     raw = PATH.read_text(encoding="utf-8")
     d = json.loads(raw)
     fs = d["factions"]

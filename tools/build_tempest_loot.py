@@ -361,7 +361,12 @@ def tokens():
             last = name in FINAL
             bosses[name] = {"slot": slot, "guaranteed": last,
                             "types": list(ARMOUR) if last else [t for k, t in enumerate(ARMOUR) if k != i % 4]}
-    return {"_about": "T0 set tokens. BUILT by tools/build_tempest_loot.py - edit that, not this. "
+    # the head, chest and feet: Scholomance, Stratholme and Hearthglen (tools/build_plaguelands_dungeons_content.py)
+    from tools.build_plaguelands_dungeons_content import PL_TOKENS
+    pl_defs, pl_bosses = PL_TOKENS()
+    defs.update(pl_defs)
+    bosses.update(pl_bosses)
+    return {"_about": "T0 set tokens. BUILT by tools/build_tempest_loot.py and tools/build_plaguelands_dungeons_content.py - edit those, not this. "
                       "Rolled and redeemed by world/set_tokens.py.",
             "chance": TOKEN_CHANCE, "tokens": defs, "bosses": bosses}
 

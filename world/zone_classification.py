@@ -84,6 +84,10 @@ DUNGEONS = [
     "Scarlet Monastery: Library",
     "Scarlet Monastery: Armory",
     "Scarlet Monastery: Cathedral",
+    # Added 2026-11-16: the Plaguelands' dungeons (tools/build_plaguelands_dungeons_content.py)
+    "Scholomance", "Scholomance: Lower Halls",
+    "Stratholme", "Stratholme: Service Entrance", "Stratholme: Slaughter Square",
+    "Hearthglen", "Hearthglen: Mardenholde Keep",
 ]
 # Drywhisker Deeps has fixed packs too, but it's the kobolds' MINE with its own ore pool, so like Azurelode
 # Mine it stays off this list and keeps its ore.

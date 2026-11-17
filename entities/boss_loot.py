@@ -154,6 +154,9 @@ MULTI_DROP = {
     "The Duskwhisper Sisters": 3,
     # The Scarlet Monastery's Cathedral: High Inquisitor Whitemane and Scarlet Commander Mograine, one fight.
     "High Inquisitor Whitemane": 3,
+    # Scholomance's Barov Family Vault: Lord Alexei and Lady Illucia, one fight
+    # (tools/build_plaguelands_dungeons_content.py).
+    "Lord Alexei Barov": 3,
 }
 
 #: Bosses whose loot IS another boss's loot. The Admiral and the
@@ -166,6 +169,7 @@ SHARED_HOARD = {
     "Royal Consort Zhir'ak": "Hive-Mother Ahn'thera",
     "Zeth'rak the Pactbound": "The Duskwhisper Sisters",
     "Scarlet Commander Mograine": "High Inquisitor Whitemane",
+    "Lady Illucia Barov": "Lord Alexei Barov",
 }
 
 

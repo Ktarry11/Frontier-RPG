@@ -33,11 +33,9 @@ W, H = 180, 140
 NAME = "Western Plaguelands North"
 
 PORTALS = {(96, 137): "Western Plaguelands South", (176, 70): "Eastern Plaguelands West", (146, 28): "The Weeping Cave",
-           (80, 112): "The Pale Watch"}
-ARRIVALS = [(96, 133), (172, 70), (146, 26), (83, 112)]
-LATER_PORTALS = {
-    (100, 6): ("Hearthglen", None),
-}
+           (80, 112): "The Pale Watch", (100, 6): "Hearthglen"}
+ARRIVALS = [(96, 133), (172, 70), (146, 26), (83, 112), (100, 8)]
+LATER_PORTALS = {}
 START = (96, 128)
 
 ROADS = {

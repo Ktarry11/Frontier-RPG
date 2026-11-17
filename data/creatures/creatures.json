@@ -15452,6 +15452,934 @@
       "is_boss": true,
       "ability_kit": "the_ossifier",
       "boss_multiplier": 2.3
+    },
+    "Scholomance Student": {
+      "template": "humanoid_caster",
+      "level_range": [
+        56,
+        57
+      ],
+      "is_boss": false,
+      "ability_kit": "scholomance_student"
+    },
+    "Scholomance Neophyte": {
+      "template": "humanoid_caster",
+      "level_range": [
+        56,
+        57
+      ],
+      "is_boss": false,
+      "ability_kit": "scholomance_neophyte"
+    },
+    "Scholomance Necrolyte": {
+      "template": "humanoid_caster",
+      "level_range": [
+        57,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "scholomance_necrolyte"
+    },
+    "Scholomance Dark Summoner": {
+      "template": "humanoid_caster",
+      "level_range": [
+        57,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "scholomance_dark_summoner"
+    },
+    "Risen Guard": {
+      "template": "undead_warrior",
+      "level_range": [
+        57,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "risen_guard"
+    },
+    "Necrofiend": {
+      "template": "undead_beast",
+      "level_range": [
+        57,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "necrofiend"
+    },
+    "Reanimated Corpse": {
+      "template": "undead_basic",
+      "level_range": [
+        57,
+        57
+      ],
+      "is_boss": false,
+      "ability_kit": "reanimated_corpse"
+    },
+    "Plagued Hatchling": {
+      "template": "beast_fast",
+      "level_range": [
+        56,
+        56
+      ],
+      "is_boss": false,
+      "ability_kit": "plagued_hatchling"
+    },
+    "Kirtonos the Herald": {
+      "template": "undead_beast",
+      "level_range": [
+        57,
+        57
+      ],
+      "is_boss": true,
+      "ability_kit": "kirtonos_the_herald",
+      "boss_multiplier": 2.5
+    },
+    "Jandice Barov": {
+      "template": "undead_caster",
+      "level_range": [
+        57,
+        57
+      ],
+      "is_boss": true,
+      "ability_kit": "jandice_barov",
+      "boss_multiplier": 2.5
+    },
+    "Rattlegore": {
+      "template": "undead_warrior",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": true,
+      "ability_kit": "rattlegore",
+      "boss_multiplier": 2.5
+    },
+    "Marduk Blackpool": {
+      "template": "undead_warrior",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": true,
+      "ability_kit": "marduk_blackpool",
+      "boss_multiplier": 2.3
+    },
+    "Vectus": {
+      "template": "humanoid_caster",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": true,
+      "ability_kit": "vectus",
+      "boss_multiplier": 2.3
+    },
+    "Ras Frostwhisper": {
+      "template": "undead_caster",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": true,
+      "ability_kit": "ras_frostwhisper",
+      "boss_multiplier": 2.8
+    },
+    "Bone Minion": {
+      "template": "undead_basic",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "bone_minion"
+    },
+    "Risen Aberration": {
+      "template": "undead_beast",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "risen_aberration"
+    },
+    "Risen Construct": {
+      "template": "undead_warrior",
+      "level_range": [
+        58,
+        60
+      ],
+      "is_boss": false,
+      "ability_kit": "risen_construct"
+    },
+    "Scholomance Necromancer": {
+      "template": "humanoid_caster",
+      "level_range": [
+        58,
+        60
+      ],
+      "is_boss": false,
+      "ability_kit": "scholomance_necromancer"
+    },
+    "Spectral Researcher": {
+      "template": "undead_caster",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "spectral_researcher"
+    },
+    "Spectral Tutor": {
+      "template": "undead_caster",
+      "level_range": [
+        58,
+        60
+      ],
+      "is_boss": false,
+      "ability_kit": "spectral_tutor"
+    },
+    "Unstable Corpse": {
+      "template": "undead_basic",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "unstable_corpse"
+    },
+    "Instructor Malicia": {
+      "template": "humanoid_caster",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": true,
+      "ability_kit": "instructor_malicia",
+      "boss_multiplier": 2.5
+    },
+    "Doctor Theolen Krastinov": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": true,
+      "ability_kit": "doctor_theolen_krastinov",
+      "boss_multiplier": 2.3
+    },
+    "Lorekeeper Polkelt": {
+      "template": "undead_caster",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": true,
+      "ability_kit": "lorekeeper_polkelt",
+      "boss_multiplier": 2.3
+    },
+    "The Ravenian": {
+      "template": "undead_warrior",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": true,
+      "ability_kit": "the_ravenian",
+      "boss_multiplier": 2.5
+    },
+    "Lord Alexei Barov": {
+      "template": "undead_caster",
+      "level_range": [
+        60,
+        60
+      ],
+      "is_boss": true,
+      "ability_kit": "lord_alexei_barov",
+      "boss_multiplier": 2.4
+    },
+    "Lady Illucia Barov": {
+      "template": "undead_caster",
+      "level_range": [
+        60,
+        60
+      ],
+      "is_boss": true,
+      "ability_kit": "lady_illucia_barov",
+      "boss_multiplier": 2.3
+    },
+    "Darkmaster Gandling": {
+      "template": "humanoid_caster",
+      "level_range": [
+        60,
+        60
+      ],
+      "is_boss": true,
+      "ability_kit": "darkmaster_gandling",
+      "boss_multiplier": 2.8
+    },
+    "Skeletal Guardian": {
+      "template": "undead_warrior",
+      "level_range": [
+        57,
+        57
+      ],
+      "is_boss": false,
+      "ability_kit": "skeletal_guardian"
+    },
+    "Skeletal Berserker": {
+      "template": "undead_warrior",
+      "level_range": [
+        57,
+        57
+      ],
+      "is_boss": false,
+      "ability_kit": "skeletal_berserker"
+    },
+    "Plague Ghoul": {
+      "template": "undead_basic",
+      "level_range": [
+        57,
+        57
+      ],
+      "is_boss": false,
+      "ability_kit": "plague_ghoul"
+    },
+    "Ghostly Citizen": {
+      "template": "undead_caster",
+      "level_range": [
+        57,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "ghostly_citizen"
+    },
+    "Spectral Citizen": {
+      "template": "undead_caster",
+      "level_range": [
+        57,
+        57
+      ],
+      "is_boss": false,
+      "ability_kit": "spectral_citizen"
+    },
+    "Wailing Banshee": {
+      "template": "undead_caster",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "wailing_banshee"
+    },
+    "Fleshflayer Ghoul": {
+      "template": "undead_basic",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "fleshflayer_ghoul"
+    },
+    "Patchwork Horror": {
+      "template": "undead_warrior",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "patchwork_horror"
+    },
+    "Vengeful Phantom": {
+      "template": "undead_caster",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "vengeful_phantom"
+    },
+    "Rockwing Gargoyle": {
+      "template": "undead_beast",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "rockwing_gargoyle"
+    },
+    "Crimson Guardsman": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "crimson_guardsman"
+    },
+    "Crimson Conjuror": {
+      "template": "humanoid_caster",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "crimson_conjuror"
+    },
+    "Crimson Initiate": {
+      "template": "humanoid_caster",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "crimson_initiate"
+    },
+    "Crimson Gallant": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "crimson_gallant"
+    },
+    "Crimson Defender": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "crimson_defender"
+    },
+    "Crimson Priest": {
+      "template": "humanoid_caster",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "crimson_priest"
+    },
+    "Crimson Rifleman": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "crimson_rifleman"
+    },
+    "Crimson Monk": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "crimson_monk"
+    },
+    "Crimson Battle Mage": {
+      "template": "humanoid_caster",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "crimson_battle_mage"
+    },
+    "Crimson Sorcerer": {
+      "template": "humanoid_caster",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "crimson_sorcerer"
+    },
+    "Crimson Inquisitor": {
+      "template": "humanoid_caster",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "crimson_inquisitor"
+    },
+    "Skul": {
+      "template": "undead_caster",
+      "level_range": [
+        57,
+        57
+      ],
+      "is_boss": true,
+      "ability_kit": "skul",
+      "boss_multiplier": 2.3
+    },
+    "Hearthsinger Forresten": {
+      "template": "undead_caster",
+      "level_range": [
+        57,
+        57
+      ],
+      "is_boss": true,
+      "ability_kit": "hearthsinger_forresten",
+      "boss_multiplier": 2.5
+    },
+    "The Unforgiven": {
+      "template": "undead_warrior",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": true,
+      "ability_kit": "the_unforgiven",
+      "boss_multiplier": 2.5
+    },
+    "Timmy the Cruel": {
+      "template": "undead_basic",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": true,
+      "ability_kit": "timmy_the_cruel",
+      "boss_multiplier": 2.3
+    },
+    "Cannon Master Willey": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": true,
+      "ability_kit": "cannon_master_willey",
+      "boss_multiplier": 2.5
+    },
+    "Archivist Galford": {
+      "template": "humanoid_caster",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": true,
+      "ability_kit": "archivist_galford",
+      "boss_multiplier": 2.5
+    },
+    "Grand Crusader Dathrohan": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": true,
+      "ability_kit": "grand_crusader_dathrohan",
+      "boss_multiplier": 2.8
+    },
+    "Ghoul Ravener": {
+      "template": "undead_basic",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "ghoul_ravener"
+    },
+    "Mangled Cadaver": {
+      "template": "undead_basic",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "mangled_cadaver"
+    },
+    "Broken Cadaver": {
+      "template": "undead_basic",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "broken_cadaver"
+    },
+    "Plagued Crypt Crawler": {
+      "template": "undead_beast",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "plagued_crypt_crawler"
+    },
+    "Crypt Beast": {
+      "template": "undead_beast",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "crypt_beast"
+    },
+    "Undead Scarab": {
+      "template": "vermin_swarm",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "undead_scarab"
+    },
+    "Thuzadin Acolyte": {
+      "template": "humanoid_caster",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "thuzadin_acolyte"
+    },
+    "Thuzadin Shadowcaster": {
+      "template": "humanoid_caster",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "thuzadin_shadowcaster"
+    },
+    "Thuzadin Necromancer": {
+      "template": "humanoid_caster",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "thuzadin_necromancer"
+    },
+    "Rockwing Screecher": {
+      "template": "undead_beast",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "rockwing_screecher"
+    },
+    "Eye of Naxxramas": {
+      "template": "undead_caster",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "eye_of_naxxramas"
+    },
+    "Magistrate Barthilas": {
+      "template": "undead_caster",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": true,
+      "ability_kit": "magistrate_barthilas",
+      "boss_multiplier": 2.5
+    },
+    "Stonespine": {
+      "template": "undead_beast",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": true,
+      "ability_kit": "stonespine",
+      "boss_multiplier": 2.3
+    },
+    "Nerub'enkan": {
+      "template": "undead_beast",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": true,
+      "ability_kit": "nerubenkan",
+      "boss_multiplier": 2.5
+    },
+    "Baroness Anastari": {
+      "template": "undead_caster",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": true,
+      "ability_kit": "baroness_anastari",
+      "boss_multiplier": 2.5
+    },
+    "Maleki the Pallid": {
+      "template": "undead_caster",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": true,
+      "ability_kit": "maleki_the_pallid",
+      "boss_multiplier": 2.8
+    },
+    "Venom Belcher": {
+      "template": "undead_warrior",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "venom_belcher"
+    },
+    "Bile Spewer": {
+      "template": "undead_warrior",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "bile_spewer"
+    },
+    "Bile Slime": {
+      "template": "undead_basic",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "bile_slime"
+    },
+    "Mindless Undead": {
+      "template": "undead_basic",
+      "level_range": [
+        60,
+        60
+      ],
+      "is_boss": false,
+      "ability_kit": "mindless_undead"
+    },
+    "Black Guard Sentry": {
+      "template": "undead_warrior",
+      "level_range": [
+        60,
+        60
+      ],
+      "is_boss": false,
+      "ability_kit": "black_guard_sentry"
+    },
+    "Ramstein the Gorger": {
+      "template": "undead_warrior",
+      "level_range": [
+        60,
+        60
+      ],
+      "is_boss": true,
+      "ability_kit": "ramstein_the_gorger",
+      "boss_multiplier": 2.5
+    },
+    "Baron Rivendare": {
+      "template": "undead_warrior",
+      "level_range": [
+        60,
+        60
+      ],
+      "is_boss": true,
+      "ability_kit": "baron_rivendare",
+      "boss_multiplier": 2.8
+    },
+    "Hearthglen Arbalest": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "hearthglen_arbalest"
+    },
+    "Hearthglen Cleric": {
+      "template": "humanoid_caster",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "hearthglen_cleric"
+    },
+    "Hearthglen Field Medic": {
+      "template": "humanoid_caster",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "hearthglen_field_medic"
+    },
+    "Hearthglen Mastiff": {
+      "template": "beast_fast",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": false,
+      "ability_kit": "hearthglen_mastiff"
+    },
+    "Hearthglen Templar": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "hearthglen_templar"
+    },
+    "Hearthglen Zealot": {
+      "template": "humanoid_rogue",
+      "level_range": [
+        58,
+        59
+      ],
+      "is_boss": false,
+      "ability_kit": "hearthglen_zealot"
+    },
+    "High Protector Tarsen": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": true,
+      "ability_kit": "high_protector_tarsen",
+      "boss_multiplier": 2.5
+    },
+    "Huntsman Radley": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": true,
+      "ability_kit": "huntsman_radley",
+      "boss_multiplier": 2.3
+    },
+    "Chirurgeon Maeve Ostrowski": {
+      "template": "humanoid_caster",
+      "level_range": [
+        58,
+        58
+      ],
+      "is_boss": true,
+      "ability_kit": "chirurgeon_maeve_ostrowski",
+      "boss_multiplier": 2.3
+    },
+    "High Clerist Hendrick": {
+      "template": "humanoid_caster",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": true,
+      "ability_kit": "high_clerist_hendrick",
+      "boss_multiplier": 2.5
+    },
+    "High Protector Lorik": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": true,
+      "ability_kit": "high_protector_lorik",
+      "boss_multiplier": 2.8
+    },
+    "Mardenholde Battle Priest": {
+      "template": "humanoid_caster",
+      "level_range": [
+        59,
+        60
+      ],
+      "is_boss": false,
+      "ability_kit": "mardenholde_battle_priest"
+    },
+    "Mardenholde Crossbowman": {
+      "template": "humanoid_ranged",
+      "level_range": [
+        59,
+        60
+      ],
+      "is_boss": false,
+      "ability_kit": "mardenholde_crossbowman"
+    },
+    "Mardenholde Halberdier": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        59,
+        60
+      ],
+      "is_boss": false,
+      "ability_kit": "mardenholde_halberdier"
+    },
+    "Mardenholde Knight": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        59,
+        60
+      ],
+      "is_boss": false,
+      "ability_kit": "mardenholde_knight"
+    },
+    "Scarlet Commander Marjhan": {
+      "template": "humanoid_caster",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": true,
+      "ability_kit": "scarlet_commander_marjhan",
+      "boss_multiplier": 2.5
+    },
+    "Armsmaster Grell": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        59,
+        59
+      ],
+      "is_boss": true,
+      "ability_kit": "armsmaster_grell",
+      "boss_multiplier": 2.3
+    },
+    "Drillmaster Osric Pell": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        60,
+        60
+      ],
+      "is_boss": true,
+      "ability_kit": "drillmaster_osric_pell",
+      "boss_multiplier": 2.5
+    },
+    "High General Abbendis": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        60,
+        60
+      ],
+      "is_boss": true,
+      "ability_kit": "high_general_abbendis",
+      "boss_multiplier": 2.5
+    },
+    "Grand Crusader Victor Hale": {
+      "template": "humanoid_warrior",
+      "level_range": [
+        60,
+        60
+      ],
+      "is_boss": true,
+      "ability_kit": "grand_crusader_victor_hale",
+      "boss_multiplier": 2.8
     }
   }
 }

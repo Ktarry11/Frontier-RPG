@@ -147,6 +147,32 @@ FLOOR = {
 }
 
 
+#: Kyle's dungeon props (sheet 8), set into the rooms by tools/plaguelands_dungeon_kit.auto_dress:
+#: room -> [(prop, height in tiles, "wall" | "free" | "floor", how many)]
+DECOR = {
+    UPPER: {
+        "The Reliquary": [("hg_reliquary", 4, "wall", 2), ("sm_sarcophagus", 3, "free", 1)],
+        "The Herald's Balcony": [("dg_wall_torch", 3, "wall", 2), ("scholo_iron_cage", 4, "wall", 1)],
+        "Hall of Secrets": [("sm_bookshelf", 4, "wall", 4), ("scholo_desk", 3, "free", 2)],
+        "Chamber of Summoning": [("scholo_ritual_stone", 3, "free", 1), ("sm_candelabra", 4, "floor", 3)],
+        "The Great Ossuary": [("scourge_bone_chest", 3, "free", 1), ("scholo_iron_cage", 4, "wall", 2)],
+        "The Viewing Room": [("scholo_desk", 3, "free", 2), ("sm_bookshelf", 4, "wall", 2)],
+        "The Laboratory": [("scholo_alchemy_table", 3, "free", 2), ("scholo_specimen_jars", 4, "wall", 3),
+                           ("scholo_golem_table", 3, "free", 1)],
+    },
+    LOWER: {
+        "The Great Hall": [("dg_wall_torch", 3, "wall", 4), ("sm_candelabra", 4, "floor", 4)],
+        "The Coven": [("scholo_desk", 3, "free", 3), ("sm_lectern", 4, "wall", 1)],
+        "The Shadow Vault": [("scholo_golem_table", 3, "free", 1), ("scholo_iron_cage", 4, "wall", 2)],
+        "Hall of the Damned": [("sm_bookshelf", 4, "wall", 4), ("scholo_specimen_jars", 4, "wall", 1)],
+        "Vault of the Ravenian": [("scourge_bone_chest", 3, "free", 1), ("dg_wall_torch", 3, "wall", 2)],
+        "Barov Family Vault": [("sm_sarcophagus", 3, "free", 2), ("hg_reliquary", 4, "wall", 1)],
+        "The Headmaster's Study": [("scholo_desk", 3, "free", 1), ("sm_bookshelf", 4, "wall", 3),
+                                   ("hg_throne", 4, "wall", 1)],
+    },
+}
+
+
 def _room_box(r):
     x0, y0, x1, y1, _c = r
     return x0, y0, x1 - x0 + 1, y1 - y0 + 1
@@ -199,6 +225,11 @@ def build_floor(name):
         targets.append((STAIR_DOWN[0], STAIR_DOWN[1], "stair"))
     else:
         targets.append((FAST_EXIT[0], FAST_EXIT[1], "the fast exit past Gandling"))
+    # Kyle's Scholomance props (sheet 8), set into the rooms beside the older dressing above
+    from tools.plaguelands_dungeon_kit import auto_dress
+    kit_spec = {"rooms": {rn: ("rect",) + tuple(r) for rn, r in spec["rooms"].items()}, "decor": DECOR.get(name, {})}
+    avoid = [(t[0], t[1]) for t in targets] + [start] + [(x, y) for p in spec["trash"] for (x, y, _m, _l) in p]
+    zone.dressed = auto_dress(zone, b, kit_spec, avoid, sum(map(ord, name)))
     b.verify(start, targets)
     zone.add_subzone(name, 0, 0, W, H)
     for rname, r in spec["rooms"].items():
