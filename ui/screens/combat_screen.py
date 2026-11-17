@@ -1718,154 +1718,131 @@ class CombatScreen(BaseScreen):
                 result, color = "Victory!", COLOR_GREEN
             else:
                 result, color = "Defeat!", COLOR_RED
-            result_width = self.renderer.font_large.size(result)[0]
-            result_center_y = SCREEN_HEIGHT // 2 - 100
+            self._render_result_panel(screen, result, color)
 
-            box_y = result_center_y + 50
-            box_w, box_h = 260, 70
-            gap = 20
-            exp_earned = getattr(self.combat_engine, "exp_earned", 0)
-            loot = getattr(self.combat_engine, "loot_dropped", None)
-            # Multi-mob pulls roll loot once PER enemy, so show every drop (not just the last).
-            loots = list(getattr(self.combat_engine, "loot_gained", None) or ([loot] if loot else []))
-            loot_h = box_h if len(loots) <= 1 else 38 + 20 * min(5, len(loots)) + (20 if len(loots) > 5 else 0)
-            # BAGS FULL. Kyle, 2026-10-31: "the combat log is also buried under
-            # everything. How about we have the bags full message pop up on
-            # victory screen." He had just spent a run convinced six Grom's Rest
-            # bosses were dropping nothing. They were dropping; his bags were
-            # full; the game said so only in the log, behind the panel. This is
-            # the one surface he is guaranteed to be looking at after a kill.
-            missed = list(getattr(self.combat_engine, "loot_missed", None) or [])
-            missed_h = 0
-            if missed:
-                missed_h = 30 + 20 * min(3, len(missed)) + (20 if len(missed) > 3 else 0)
+    def _render_result_panel(self, screen, result, color):
+        """The result of a fight, laid out from measured blocks so nothing can sit on anything else.
 
-            # Solid panel behind the whole result block. The scrim alone was
-            # not enough: a dimmed unit frame still sits directly behind the
-            # coin/trash and "click to return" lines, and dim-grey bars under
-            # grey text is exactly the tangle this is meant to stop. Sized
-            # from the same numbers the content below uses, so it cannot
-            # drift out of step with a longer loot list.
-            # How many callout boxes will actually be drawn - a defeat rolls
-            # no EXP and usually no loot, so reserving a box's worth of
-            # height there left a visible hole between "Defeat!" and the
-            # prompt.
-            boxes_shown = int(bool(self.combat_engine.victory)) + int(bool(loots))
-            content_h = max(box_h, loot_h) if boxes_shown else 0
-            # The warning sits under both boxes, so it adds to the panel height
-            # rather than competing with them - otherwise it would render on top
-            # of the coin line or get clipped off the bottom.
-            content_h += missed_h
+        Kyle, 16 Nov 2026, with a victory where "YOUR BAGS ARE FULL" covered the item it was about: "We should expand
+        out the victory screen". The old panel was sized from guessed constants and the bags-full plate was drawn
+        shorter than its own text. Now every block (title, the EXP and coin card, the loot list in one or two columns,
+        the bags-full plate, the trash line, what death cost, the prompt) is measured, stacked top to bottom, and the
+        panel is drawn round the lot.
+        """
+        eng = self.combat_engine
+        victory = bool(eng.victory)
+        exp_earned = getattr(eng, "exp_earned", 0)
+        coin = getattr(eng, "copper_earned", 0) if victory else 0
+        trash_n = getattr(eng, "trash_gained", 0) if victory else 0
+        loot = getattr(eng, "loot_dropped", None)
+        loots = list(getattr(eng, "loot_gained", None) or ([loot] if loot else []))
+        missed = list(getattr(eng, "loot_missed", None) or [])
+        note = self._death_note()
+        ROW = 22
+        panel_w = 820
+        inner_w = panel_w - 60
+        x0 = SCREEN_WIDTH // 2 - inner_w // 2
 
-            panel_w = max(680, (box_w * 2 + gap) + 120)
-            panel_top = result_center_y - 30
-            panel_bottom = box_y + content_h + 92
-            panel = pygame.Rect(SCREEN_WIDTH // 2 - panel_w // 2, panel_top,
-                                panel_w, panel_bottom - panel_top)
-            self.renderer.draw_rect(screen, panel, (18, 18, 24))
-            self.renderer.draw_rect(screen, panel, color, fill=False)
+        # ---- measure
+        card_w = 250
+        loot_w = inner_w - card_w - 20 if victory else inner_w
+        two_cols = len(loots) > 6
+        col_w = (loot_w - 36) // 2 if two_cols else loot_w - 24
+        per_col = (len(loots) + 1) // 2 if two_cols else len(loots)
+        shown_rows = min(8, per_col)
+        loot_h = (40 + ROW * shown_rows + (ROW if per_col > shown_rows else 0)) if loots else 0
+        card_h = 112 if coin else 84
+        top_h = max(card_h if victory else 0, loot_h)
+        warn_rows = min(4, len(missed))
+        warn_h = (38 + ROW * warn_rows + (ROW if len(missed) > warn_rows else 0)) if missed else 0
+        foot = [t for t in (f"Vendor trash: {trash_n}" if trash_n else "",) if t]
+        title_h = 56
+        h = 26 + title_h + top_h + (14 + warn_h if missed else 0) + 16 + ROW * (len(foot) + bool(note)) + 40 + 18
+        top = max(20, SCREEN_HEIGHT // 2 - h // 2)
+        panel = pygame.Rect(SCREEN_WIDTH // 2 - panel_w // 2, top, panel_w, h)
+        self.renderer.draw_rect(screen, panel, (18, 18, 24))
+        self.renderer.draw_rect(screen, panel, color, fill=False)
 
-            self.renderer.draw_text(
-                screen, result,
-                (SCREEN_WIDTH // 2 - result_width // 2, result_center_y),
-                size="large", color=color)
+        # ---- title
+        y = top + 26
+        rw = self.renderer.font_large.size(result)[0]
+        self.renderer.draw_text(screen, result, (SCREEN_WIDTH // 2 - rw // 2, y), size="large", color=color)
+        y += title_h
 
-            # Two side-by-side boxes when both exist; a single centered box
-            # when only one applies (e.g. a defeat with no loot roll).
-            if boxes_shown == 2:
-                exp_box = pygame.Rect(SCREEN_WIDTH // 2 - box_w - gap // 2, box_y, box_w, box_h)
-                loot_box = pygame.Rect(SCREEN_WIDTH // 2 + gap // 2, box_y, box_w, box_h)
-            else:
-                exp_box = pygame.Rect(SCREEN_WIDTH // 2 - box_w // 2, box_y, box_w, box_h)
-                loot_box = exp_box
+        # ---- the EXP and coin card, the loot list beside it
+        lx = x0
+        if victory:
+            card = pygame.Rect(x0, y, card_w, card_h)
+            self.renderer.draw_rect(screen, card, (30, 30, 40))
+            self.renderer.draw_rect(screen, card, COLOR_GOLD, fill=False)
+            et = f"+{exp_earned} EXP"
+            self.renderer.draw_text(screen, et, (card.centerx - self.renderer.font_large.size(et)[0] // 2,
+                                                 card.y + 22), size="large", color=COLOR_GOLD)
+            if coin:
+                ct = format_coins(coin)
+                self.renderer.draw_text(screen, ct, (card.centerx - self.renderer.font_normal.size(ct)[0] // 2,
+                                                     card.y + 72), color=(225, 205, 140))
+            lx = x0 + card_w + 20
+        if loots:
+            box = pygame.Rect(lx, y, loot_w, loot_h)
+            best = max(loots, key=lambda it: ["poor", "common", "uncommon", "rare", "epic", "legendary"].index(
+                getattr(it, "rarity", "common")) if getattr(it, "rarity", "common") in
+                ["poor", "common", "uncommon", "rare", "epic", "legendary"] else 1)
+            self.renderer.draw_rect(screen, box, (30, 30, 40))
+            self.renderer.draw_rect(screen, box, best.get_rarity_color(), fill=False)
+            self.renderer.draw_text(screen, "Loot:" if len(loots) == 1 else f"Loot ({len(loots)}):",
+                                    (box.x + 12, box.y + 10), color=(180, 180, 180))
+            cols = [loots[:per_col], loots[per_col:]] if two_cols else [loots]
+            for ci, col in enumerate(cols):
+                cx = box.x + 12 + ci * (col_w + 12)
+                ly = box.y + 36
+                for it in col[:shown_rows]:
+                    qty = getattr(it, "quantity", 1) or 1
+                    name = it.name + (f" x{qty}" if qty > 1 and not getattr(it, "is_gear", False) else "")
+                    line = self.renderer.wrap_text(name, col_w)[0] if name else ""
+                    self.renderer.draw_text(screen, line, (cx, ly), color=it.get_rarity_color())
+                    ly += ROW
+                if len(col) > shown_rows:
+                    self.renderer.draw_text(screen, f"+{len(col) - shown_rows} more (see log)", (cx, ly),
+                                            color=(150, 150, 150))
+        y += top_h
 
-            if self.combat_engine.victory:
-                self.renderer.draw_rect(screen, exp_box, (30, 30, 40))
-                self.renderer.draw_rect(screen, exp_box, COLOR_GOLD, fill=False)
-                exp_text = f"+{exp_earned} EXP"
-                exp_text_w = self.renderer.font_large.size(exp_text)[0]
-                self.renderer.draw_text(
-                    screen, exp_text,
-                    (exp_box.centerx - exp_text_w // 2, exp_box.y + 22),
-                    size="large", color=COLOR_GOLD)
+        # ---- bags full: its own plate, as tall as what it says
+        if missed:
+            y += 14
+            warn = pygame.Rect(x0, y, inner_w, warn_h)
+            self.renderer.draw_rect(screen, warn, (46, 22, 22))
+            self.renderer.draw_rect(screen, warn, (235, 140, 90), fill=False)
+            head = ("YOUR BAGS ARE FULL - 1 drop left behind" if len(missed) == 1
+                    else f"YOUR BAGS ARE FULL - {len(missed)} drops left behind")
+            self.renderer.draw_text(screen, head, (warn.centerx - self.renderer.font_normal.size(head)[0] // 2,
+                                                   warn.y + 8), color=(255, 170, 110))
+            wy = warn.y + 34
+            for nm in missed[:warn_rows]:
+                line = self.renderer.wrap_text(str(nm), warn.width - 24)[0]
+                self.renderer.draw_text(screen, line, (warn.centerx - self.renderer.font_normal.size(line)[0] // 2,
+                                                       wy), color=(225, 190, 160))
+                wy += ROW
+            if len(missed) > warn_rows:
+                extra = f"+{len(missed) - warn_rows} more"
+                self.renderer.draw_text(screen, extra, (warn.centerx - self.renderer.font_normal.size(extra)[0] // 2,
+                                                        wy), color=(190, 160, 140))
+            y += warn_h
 
-            if loots:
-                shown = loots[:5]
-                if len(loots) > 1:
-                    loot_box = pygame.Rect(loot_box.x, loot_box.y, box_w + 60, loot_h)
-                self.renderer.draw_rect(screen, loot_box, (30, 30, 40))
-                self.renderer.draw_rect(screen, loot_box, shown[-1].get_rarity_color(), fill=False)
-                self.renderer.draw_text(
-                    screen, "Loot:" if len(loots) == 1 else f"Loot ({len(loots)}):",
-                    (loot_box.x + 12, loot_box.y + 10), color=(180, 180, 180))
-                ly = loot_box.y + 32
-                for it in shown:
-                    for line in self.renderer.wrap_text(it.name, loot_box.width - 24)[:1 if len(loots) > 1 else 2]:
-                        self.renderer.draw_text(screen, line, (loot_box.x + 12, ly), color=it.get_rarity_color())
-                        ly += 20
-                if len(loots) > len(shown):
-                    self.renderer.draw_text(screen, f"+{len(loots) - len(shown)} more (see log)", (loot_box.x + 12, ly), color=(150, 150, 150))
-
-            # BAGS FULL - drawn before the coin line so it is the first thing
-            # under the loot box. Amber on a dark red plate: loud enough to stop
-            # the player, not styled as an error, because nothing went wrong
-            # except that they are out of room.
-            if missed:
-                warn_w = max(360, box_w + 60 if len(loots) > 1 else box_w)
-                warn = pygame.Rect(SCREEN_WIDTH // 2 - warn_w // 2,
-                                   box_y + (max(box_h, loot_h) if boxes_shown else 0) + 12,
-                                   warn_w, missed_h - 12)
-                self.renderer.draw_rect(screen, warn, (46, 22, 22))
-                self.renderer.draw_rect(screen, warn, (235, 140, 90), fill=False)
-                head = ("YOUR BAGS ARE FULL - 1 drop left behind" if len(missed) == 1
-                        else f"YOUR BAGS ARE FULL - {len(missed)} drops left behind")
-                hw = self.renderer.font_normal.size(head)[0]
-                self.renderer.draw_text(screen, head,
-                                        (warn.centerx - hw // 2, warn.y + 6),
-                                        color=(255, 170, 110))
-                wy = warn.y + 28
-                for nm in missed[:3]:
-                    for line in self.renderer.wrap_text(nm, warn.width - 24)[:1]:
-                        lw = self.renderer.font_normal.size(line)[0]
-                        self.renderer.draw_text(screen, line,
-                                                (warn.centerx - lw // 2, wy),
-                                                color=(225, 190, 160))
-                        wy += 20
-                if len(missed) > 3:
-                    extra = f"+{len(missed) - 3} more"
-                    ew = self.renderer.font_normal.size(extra)[0]
-                    self.renderer.draw_text(screen, extra,
-                                            (warn.centerx - ew // 2, wy),
-                                            color=(190, 160, 140))
-
-            if self.combat_engine.victory:
-                bits = []
-                coin = getattr(self.combat_engine, "copper_earned", 0)
-                if coin:
-                    bits.append(f"Coin: {format_coins(coin)}")
-                trash_n = getattr(self.combat_engine, "trash_gained", 0)
-                if trash_n:
-                    bits.append(f"Vendor trash: {trash_n}")
-                if bits:
-                    line = "    ".join(bits)
-                    lw = self.renderer.font_normal.size(line)[0]
-                    self.renderer.draw_text(screen, line, (SCREEN_WIDTH // 2 - lw // 2, box_y + content_h + 18),
-                                            color=(190, 190, 150))
-
-            # WHAT DEATH COST. Said here, on the screen where it happened, rather than left
-            # for the player to work out from a party frame an hour later.
-            note = self._death_note()
-            if note:
-                nw = self.renderer.font_normal.size(note)[0]
-                self.renderer.draw_text(screen, note,
-                                        (SCREEN_WIDTH // 2 - nw // 2, box_y + content_h + 37),
-                                        color=(225, 120, 110))
-
-            prompt = "Click to return to overworld"
-            prompt_width = self.renderer.font_normal.size(prompt)[0]
-            self.renderer.draw_text(
-                screen, prompt,
-                (SCREEN_WIDTH // 2 - prompt_width // 2, box_y + content_h + 56))
+        # ---- the lines under it all
+        y += 16
+        for t in foot:
+            self.renderer.draw_text(screen, t, (SCREEN_WIDTH // 2 - self.renderer.font_normal.size(t)[0] // 2, y),
+                                    color=(190, 190, 150))
+            y += ROW
+        if note:
+            self.renderer.draw_text(screen, note, (SCREEN_WIDTH // 2 - self.renderer.font_normal.size(note)[0] // 2,
+                                                   y), color=(225, 120, 110))
+            y += ROW
+        y += 14
+        prompt = "Click to return to overworld"
+        self.renderer.draw_text(screen, prompt, (SCREEN_WIDTH // 2 - self.renderer.font_normal.size(prompt)[0] // 2, y))
+        self._result_panel_rect = panel
 
     def _death_note(self):
         """One line for the result screen about who is down and what it cost, or ''."""
