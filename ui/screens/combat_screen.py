@@ -24,6 +24,14 @@ class CombatScreen(BaseScreen):
         self.combat_engine = None
         self.combat_background = None  # scaled Surface, set in _init_combat()
         self.message_log = []
+        # SCROLLING THE LOG (Kyle, 16 Nov 2026: "the ability to scroll up in combat log! I just got one-shot and i
+        # wanna know why"). log_scroll is how many lines up from the newest the view sits; 0 follows the fight.
+        # On the result screen, L (or the button under the panel) puts the panel away so the log can be read.
+        self.log_scroll = 0
+        self._log_rect = None
+        self._log_max_scroll = 0
+        self.result_log_view = False
+        self._result_log_button = None
         self.selected_target = "enemy"  # "enemy" or "self"
         self.hotbar_positions = []  # Rects for hotbar buttons
         self.extra_slot_positions = []  # Rects for click-only extra ability slots
@@ -258,6 +266,8 @@ class CombatScreen(BaseScreen):
         self.combat_engine = CombatEngine(player, enemy, party=party,
                                           enemies=enemies, zone=combat_zone_key)  # loot_dropped resets to None here
         self.message_log = []  # Clear old messages
+        self.log_scroll = 0
+        self.result_log_view = False
 
         foes = enemy.name if len(enemies) <= 1 else f"{len(enemies)} enemies ({', '.join(e.name for e in enemies)})"
         if len(party.members) > 1:
@@ -345,6 +355,22 @@ class CombatScreen(BaseScreen):
                 if hit:
                     break
 
+        if event.type == pygame.MOUSEWHEEL and self._log_rect is not None \
+                and self._log_rect.collidepoint(getattr(self, "mouse_pos", None) or pygame.mouse.get_pos()):
+            self.log_scroll = max(0, min(self._log_max_scroll, self.log_scroll + 3 * event.y))
+            return
+
+        if not self.combat_engine.is_active:
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_l:
+                self.result_log_view = not self.result_log_view
+                return
+            if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and self._result_log_button is not None \
+                    and self._result_log_button.collidepoint(event.pos):
+                self.result_log_view = not self.result_log_view
+                return
+            if self.result_log_view and event.type == pygame.MOUSEBUTTONDOWN and (
+                    event.button in (4, 5) or (self._log_rect is not None and self._log_rect.collidepoint(event.pos))):
+                return          # reading the log: a click on it or a wheel turn is not "continue"
         if not self.combat_engine.is_active:
             # Combat over - click or Space to return. Space is the natural
             # "continue" key (same finger players are already using for
@@ -1527,10 +1553,28 @@ class CombatScreen(BaseScreen):
             for line in self.renderer.wrap_text(msg, log_width):
                 all_wrapped_lines.append((line, msg_color))
 
-        log_start = max(0, len(all_wrapped_lines) - max_visible_lines)
-        for line, msg_color in all_wrapped_lines[log_start:]:
+        total = len(all_wrapped_lines)
+        self._log_max_scroll = max(0, total - max_visible_lines)
+        self.log_scroll = max(0, min(self.log_scroll, self._log_max_scroll))
+        log_start = max(0, total - max_visible_lines - self.log_scroll)
+        self._log_rect = pygame.Rect(log_left_edge - 10, center_y - 48, log_width + 20,
+                                     40 + max_visible_lines * LOG_LINE_H + 18)
+        for line, msg_color in all_wrapped_lines[log_start:log_start + max_visible_lines]:
             self.renderer.draw_text(screen, line, (center_x, center_y), size="normal", color=msg_color)
             center_y += 25
+        if self._log_max_scroll:
+            # a slim bar down the right of the log: where the view sits in the whole fight
+            track = pygame.Rect(log_right_edge + 2, self._log_rect.y + 44, 6, max_visible_lines * LOG_LINE_H)
+            pygame.draw.rect(screen, (40, 40, 48), track, border_radius=3)
+            frac = max_visible_lines / total
+            th = max(18, int(track.height * frac))
+            pos = 1.0 - (self.log_scroll / self._log_max_scroll)
+            thumb = pygame.Rect(track.x, track.y + int((track.height - th) * pos), track.width, th)
+            pygame.draw.rect(screen, (196, 158, 74), thumb, border_radius=3)
+            if self.log_scroll:
+                hint = f"{self.log_scroll} lines up - scroll down for the latest"
+                self.renderer.draw_text(screen, hint, (log_right_edge - self.renderer.font_small.size(hint)[0] - 12,
+                                                       self._log_rect.y + 14), size="small", color=(170, 160, 130))
         
         # ===== PARTY STRIP: sits directly above the hotbar (Ryu/Phoebe style) =====
         self._draw_party_strip(screen, player)
@@ -1696,7 +1740,15 @@ class CombatScreen(BaseScreen):
         # coincidence and drifted noticeably on "Defeat!"), and EXP/loot each
         # get their own boxed callout side by side, matching the mockup
         # instead of stacking bare text down the middle of the screen.
-        if not self.combat_engine.is_active:
+        if not self.combat_engine.is_active and self.result_log_view:
+            # The panel put away to read the log: a bar along the bottom says how to get it back or move on.
+            bar = pygame.Rect(0, SCREEN_HEIGHT - 44, SCREEN_WIDTH, 44)
+            self.renderer.draw_rect(screen, bar, (14, 14, 20))
+            msg = "Reading the combat log - scroll it with the mouse wheel.  L: back to the result.  Space: continue"
+            self.renderer.draw_text(screen, msg, (SCREEN_WIDTH // 2 - self.renderer.font_normal.size(msg)[0] // 2,
+                                                  bar.y + 11), color=(220, 200, 150))
+            self._result_log_button = None
+        elif not self.combat_engine.is_active:
             # Dim the whole screen first. This overlay used to draw straight
             # on top of the live combat UI, so the party unit frames, their
             # health/mana/rage bars and the enemy art all showed THROUGH the
@@ -1843,6 +1895,9 @@ class CombatScreen(BaseScreen):
         prompt = "Click to return to overworld"
         self.renderer.draw_text(screen, prompt, (SCREEN_WIDTH // 2 - self.renderer.font_normal.size(prompt)[0] // 2, y))
         self._result_panel_rect = panel
+        # read the fight back: puts the panel away and shows the log, which scrolls
+        self._result_log_button = pygame.Rect(panel.right - 168, panel.bottom - 42, 150, 30)
+        self.renderer.draw_button(screen, self._result_log_button, "Combat log (L)")
 
     def _death_note(self):
         """One line for the result screen about who is down and what it cost, or ''."""
