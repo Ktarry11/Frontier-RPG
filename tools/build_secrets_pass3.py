@@ -91,9 +91,8 @@ def near(tiles, taken, r=CLEAR):
     return False
 
 
-#: what a hollow may be cut from, per map, past the finder's own rock, cliff and trees: the Monastery Grounds are
-#: walled in stone, and the Lashings stand on open water, where the secret is a sunken way across it that still
-#: looks like water (a glade's tiles keep their collision and their art; world/secrets.py)
+#: what a hollow may be cut from, per map, past the finder's own rock, cliff and trees, for maps that aren't walled
+#: with either (a glade's tiles keep their collision and their art, so it still looks like what it's cut from)
 EXTRA_MASS = {"Scarlet Monastery Grounds": {"wall"}, "The Lashings": {"tropical_water"}}
 
 
@@ -118,7 +117,7 @@ def glades(tm, taken):
 
 
 def nooks(tm, taken):
-    """For a map whose walls are too thin for a full glade (the Monastery Grounds): a 3x3 room inside the wall,
+    """For a map whose walls are too thin for a full glade: a 3x3 room inside the wall,
     reached through one to three tiles of it. Same rules otherwise: clear of busy tiles, roads and older secrets."""
     import find_secret_pockets as F
     main = F.main_region(tm)
