@@ -158,10 +158,13 @@ Slow heals (Greater Heal, Healing Touch, Healing Wave) are 1.5x a normal one, so
 | 40 | 17-33% (was 29-61%) | 21-56% (was 49-154%) |
 | 60 | 17-33% (was 37-77%) | 30-59% (was 71-185%) |
 
-### Dungeons (tools/sim_difficulty.py --dungeon, 4 fights a boss)
+### Dungeons (tools/sim_difficulty.py --dungeon, 4 fights a boss, after the last calibration)
 Parties of five beat every boss in every dungeon. The last bosses are the hard ones:
-- Grand Crusader Dathrohan and Victor Hale: won 3/4, with 2.5 standing on average.
-- Gandling and Alexei Barov: 3.8 standing.
-- The Baron: 4.2 standing.
+- Grand Crusader Dathrohan: won 3/4, with 2.5 standing on average.
+- Victor Hale: won 4/4, 2.8 standing.
+- Ras Frostwhisper: 3.5 standing.
+- Alexei Barov: 3.8 standing.
+- Hrun and the Baron: 4.0-4.2 standing.
 
-Parties of three and two lose the late bosses.
+Parties of three and two lose the late bosses. qa_dungeon_boss_turns passes: every boss acts, uses what it carries,
+and has something dangerous.
