@@ -716,3 +716,507 @@ TEXT.update({
           "Rory should hear it from the one who did it. I'm writing to him tonight, and I'll leave the letter and the "
           "ring with Renee downstairs. Collect them from her when you're ready for the road east."),
 })
+
+
+# ======================================================================================================================
+# Batch 3: Kalimdor, the south and the rest. Where the old text already fits the new giver word for word (the second
+# lookout on Zoram's wall, the grove singer the Astranaar text was written for), nothing is rewritten: Kyle likes
+# Ashenvale's writing as it is (10 Nov). Grom'gol's two moves are rewritten in tools/stv_quest_voice.py, because the
+# Stranglethorn overlay loads after this one.
+# ======================================================================================================================
+NEW_NPCS.update({
+    "maestras_post_wardkeeper": dict(
+        name="Sentinel Ilthara Vale", zone="ashenvale_west", near=(88, 56), race="night_elf", gender="female",
+        variant=2,
+        greeting="Maestra keeps the post and I keep its wards. The carved posts at the corners are mine, and so is "
+                 "the fishing party, when the lake lets us fish."),
+    "astranaar_grove_singer": dict(
+        name="Grove Singer Ilyara Moonbrook", zone="astranaar", near=(87, 73), race="night_elf", gender="female",
+        variant=1,
+        greeting="I sing to the grove, and for as long as I've been singing, it's sung back. Pennarin keeps the "
+                 "Moonwell, and I keep the voices round it."),
+    "cb_kolkar_seer": dict(
+        name="Seer Tamaka Windmane", zone="central_barrens", near=(185, 152), race="tauren", gender="female",
+        variant=1,
+        greeting="Dorn asked Thunder Bluff for someone who can read what the Kolkar read. He watches the plain, and I "
+                 "watch the sky over it."),
+    "nb_assayer": dict(
+        name="Assayer Brindle Tock", zone="northern_barrens", near=(246, 124), race="goblin", gender="male",
+        variant=2,
+        greeting="I assay ore for the claim, and I read the rig gauges when Nix lets me near them. Everything out "
+                 "here is either worth something or trying to kill you, and my job is telling you which."),
+    "sb_crater_partner": dict(
+        name="Nyx Gearloose", zone="southern_barrens", near=(133, 120), race="goblin", gender="female", variant=1,
+        greeting="Fizzwick and I found the Sinkhole Crater together. He'll tell you he found it alone, and he'll tell "
+                 "you I'm his former partner. The second part's true."),
+    "zoram_second_lookout": dict(
+        name="Lookout Shalara Nightbreeze", zone="zoram_strand", near=(23, 17), race="night_elf", gender="female",
+        variant=2,
+        greeting="Taelanor and I split the watch on the wall. She watches the sea and I watch the temple mouth, and "
+                 "lately mine's the busier job."),
+})
+
+MOVES.update({
+    # ==== Arathi =====================================================================================================
+    "arw_hold_the_road": dict(
+        giver="arathi_refuge_quartermaster", why="Raskal over the cap; the footpads rob the quartermaster's carts",
+        A="I keep Refuge Pointe's stores, and Refuge Pointe is a road with some tents beside it. Orgrimmar calls it a "
+          "forward camp. The commander calls it the only dry ground between the wall and Hammerfall, and I call it "
+          "the road my carts have to use.\n\n"
+          "The Syndicate Footpads work that road. They don't raid us. They come down off the high grass, take "
+          "whatever's loose on a cart, and they're back up the slope before anyone can follow, and whatever's loose "
+          "on a cart is mine.\n\n"
+          "Walk the road and make every one of them sorry they came down. The Moor Adders lie out on the warm stones "
+          "at dusk and bite whoever's walking, so kill those too.",
+        T="That should keep the road quiet for a week or so, until the next lot comes down to find out why the last "
+          "lot stopped reporting back.\n\n"
+          "I'll take a week. Out here, a week of full carts is a good week."),
+
+    # ==== Ashenvale ==================================================================================================
+    "ashenvale_timberling_bark": dict(
+        giver="maestras_post_wardkeeper", why="Maestra over the cap; the post's ward-keeper carves the posts"),
+    "ashenvale_lake_naiads": dict(
+        giver="maestras_post_wardkeeper", why="Maestra over the cap; the ward-keeper leads the fishing party",
+        T="It's gone quiet. The singing's stopped on the near shore entirely.\n\n"
+          "I find I don't like that either. I've listened to that water sing my whole posting, and I wouldn't have "
+          "chosen silence as the fix."),
+    "ashenvale_wisp_lights": dict(
+        giver="astranaar_grove_singer", why="Pennarin over the cap; the text was always the grove singer's ('she')"),
+    "ashenvale_dryads_gone_quiet": dict(
+        giver="astranaar_grove_singer", why="Pennarin over the cap; the dryads answer the singer ('when she sings')"),
+    "moonwell_hollow_cull": dict(
+        giver="astranaar_moon_guard", why="Pennarin over the cap; a Moon Guard sends you after the corrupted Moon Guard"),
+    "bfd_ghamoo_ra": dict(
+        giver="zoram_second_lookout", why="Taelanor over the cap; the second lookout on the wall watches the temple"),
+    "bfd_tide_callers": dict(
+        giver="zoram_second_lookout", why="Taelanor over the cap; the second lookout on the wall watches the temple"),
+    "bfd_aku_mai": dict(
+        giver="zoram_second_lookout", why="Taelanor over the cap; the second lookout on the wall watches the temple"),
+
+    # ==== Camp Taurajo ===============================================================================================
+    "taurajo_word_from_bael_modan": dict(
+        giver="taurajo_warband_scout", why="Tull over the cap; the scout watching Bael Modan looks at the keep",
+        D="The dwarves have been digging at Bael Modan for years, and nobody here has minded very much. I want to be "
+          "fair about that. They put a hole in some ground nobody was grazing, and for a long while that was the "
+          "whole story.\n\n"
+          "Word now is they've built a proper fortress over it, Bael'dun Keep, and that's a different thing. You "
+          "don't build a keep over a hole unless you mean to be at the bottom of it for a very long time, or unless "
+          "you expect somebody to come and stop you.\n\n"
+          "I'm meant to be watching the centaur, so go and look at the keep for me before Camp Taurajo turns its "
+          "attention south. I'd rather look foolish for asking than find out from a dwarf.",
+        A="Bael Modan, south of here. Look for the keep over the dig.",
+        T="A whole keep, just for digging up old bones and ore. That's dwarves for you.\n\n"
+          "It's good to know what we're dealing with, and better to know it now. Tull will want to hear about the "
+          "dig itself."),
+    "sb_the_boarhound_pack": dict(
+        giver="taurajo_hunter_1", why="Oggra over the cap; the camp's hunter takes the boarhound packs",
+        D="The Razormane keep boarhounds, low and bristled and built for charging through thorn. That part's "
+          "ordinary. What isn't ordinary is how they're hunting now, in packs along Blackthorn Ridge, pushing one way "
+          "and holding a line while they do it.\n\n"
+          "There's a handler behind that, a quilboar working those hounds, and he's a great deal better at it than "
+          "I'd like. I've watched him turn a pack on a whistle, mid-charge, onto a flank. Oggra's rangers can't do "
+          "that with rangers.\n\n"
+          "Kill the Blackthorn Boarhounds at the western end of the ridge, and the Razormane Stalkers lying up in the "
+          "thorns behind them. If you find the handler out there, tell Oggra before you do anything else.",
+        A="Out on Blackthorn Ridge. The hounds run its western end, and the stalkers lie up in the thorns behind them.",
+        T="That's much better. The ridge sounds different, and I think I can hear the birds again. I hadn't noticed them "
+          "stopping."),
+
+    # ==== The Central Barrens ========================================================================================
+    "cb_thunder_on_the_wing": dict(
+        giver="groldom_farmer", why="Magra over the cap; her herd is penned on Kranal's farm",
+        D="Magra's herd is penned on my farm for a few nights, and something's been coming down on it out of a clear "
+          "sky. They're plains thunderhawks. They hunt in pairs, they leave the calves scorched, and afterwards the "
+          "air smells like a storm that never came.\n\n"
+          "Magra's kodo don't spook at much. She's walked that herd through a grass fire, and they spook at this.\n\n"
+          "Thin the hawks, and bring back their pinions, the long flight-feathers off the big birds. Magra says a "
+          "thunderhawk pinion on a herd-bell keeps the others off. Her grandmother did it, and nobody's ever "
+          "explained why it works, but it does. You'll know the big ones by the crackle, and your hair will stand up "
+          "before you see anything.",
+        A="Off the plains thunderhawks over the herd. You'll know them by the crackle.",
+        T="Look at that, still sparking. Magra will have these on the herd-bells by dusk.\n\n"
+          "She'd like a word with you when you're tired of birds. There's a grey mesa east of here she wants you to "
+          "visit."),
+    "cb_windseers_whispers": dict(
+        giver="cb_kolkar_seer", why="Dorn over the cap; the seer reads what the windseers read",
+        D="The Kolkar windseers read the sky for their warlords, and for a month they've been reading it in one "
+          "direction. Dorn says that direction is the Crossroads.\n\n"
+          "Dorn can tell you what weather's coming and nothing about what it means. I'm a seer, and I can read what "
+          "the windseers read, if somebody brings me one of their bundles of bone and kodo-hair while it's still "
+          "twitching.\n\n"
+          "The windseers carry them, and so do the stormers, on the belt. Bring me a few from the Kolkar outpost. "
+          "One bundle tells me their mood, and a handful tells me what they mean to do. Don't look into one for long, "
+          "because it looks back.",
+        A="Off the Kolkar windseers and stormers at the outpost.",
+        T="This isn't a prayer, it's a map. And the map has a war-camp on it, east of here, with a cross through the "
+          "Crossroads.\n\n"
+          "Dorn will want a closer look at that camp."),
+
+    # ==== Echo Isles =================================================================================================
+    "echo_isles_relic_recovery": dict(
+        giver="echo_isles_troll_healer", why="Kang'ari over the cap; the healer studies the hex on the totems",
+        D="Before da last push on Zalazane, I want somethin' brought back instead of broken. Dey're hexed Darkspear "
+          "totems, our own work, twisted by his magic, but not so far you can't tell what dey were.\n\n"
+          "Da voodoo trolls carry dem, and da hex trolls, and da carvers at da camp fires.\n\n"
+          "Bring dem to me. I mend people, and da Elder says what's on dese totems is what's on da ones Zalazane "
+          "took. I want to see how it was done, because if I understand it, somebody might undo it one day. Don't "
+          "handle da hex on dem if you can help it, mon.",
+        T="Dis tells me more dan I expected. Da hex ain't as permanent as da Elder feared.\n\n"
+          "Dere may be a way back for some of dem, someday. Not today, mon, but someday."),
+
+    # ==== The Emerald Sanctuary ======================================================================================
+    "fw_hold_the_fel_line": dict(
+        giver="es_treant_warden", why="Duskwhisper over the cap; the barkwarden stands on the line with the Sentinels",
+        A="Everything south of the barricade is ours, and everything north of it wants to be.\n\n"
+          "The Fel Line is the band of dying forest at the top of the valley, where North Felwood bleeds through. The "
+          "wolves up there have caught the fever, and the imps come down the road in the dark to set fires. The "
+          "Sentinels can hold the barricade, and so can I, but none of us can be out in front of it as well. That's "
+          "where you lot come in.\n\n"
+          "Go north up the road, past the healed craters, to where the trees start to die. Thin out the wolves and "
+          "the imps. Fire's the one thing I'm afraid of, and I'd like the imps a long way from me.",
+        T="You smell like burnt fur and imp. That means it went well.\n\n"
+          "The watch said last night was the quietest in a month. Captain Duskwhisper's left something on the rack "
+          "for you."),
+
+    # ==== Fourth Peg =================================================================================================
+    "ab_what_the_birds_know": dict(
+        giver="ab_cook", why="Hask over the cap; the cook opens the birds",
+        D="Kill Pit Shrikes around the Wide Sink and bring Marda their crops, to see what they've been eating down in "
+          "the pits.",
+        A="I'm a cook, so here's a free method: open the bird. A Pit Shrike hunts the thin ground and the rim, and "
+          "it'll eat anything it can carry. What's in its crop is a list of what's living in a place you can't get "
+          "to.\n\n"
+          "Hask asked me to find out what they've been eating, because he reckons crops will tell him more about the "
+          "floor of those holes than Vizzi's rope has in a year. He'd like that on record before he says it to her "
+          "face.",
+        T="Most of these had something in them that lives in water. There hasn't been standing water in the Abyssal "
+          "Sands in anyone's lifetime.\n\n"
+          "So Vizzi's right, and she's been saying it for a year. Hask's going to hate telling her."),
+    "ab_the_lead_pair": dict(
+        giver="ab_smith", why="Odd over the cap; the smith who shod the caravans' kodo reads the harness marks",
+        D="Put down the Pitfall Kodo around Cartfall and bring Gorra the harness straps off them.",
+        A="I shod kodo for the caravans for years, and some of the ones that went into the pits climbed back out "
+          "wrong. You'll see Pitfall Kodo around Cartfall, west of camp, still wearing their harness.\n\n"
+          "They can't be led and they charge the camp's animals, so they have to be put down. Cut the harness off the "
+          "ones you kill and bring it to me. Every strap has a house mark, and Odd wants the owners told.",
+        T="Let me look through them. This one's Tarrow's mark, and so is this one. I don't know this last one.\n\n"
+          "Odd will write to Steamwheedle about them. It's three years late, but those houses still don't know where "
+          "their teams went."),
+    "ab_up_through_the_floor": dict(
+        giver="ab_gate_warden", why="Vizzi over the cap; the gate-warden stands where the crawlers come",
+        A="Everybody out here talks about what went into the holes, the carts and the kodo and the road. Nobody wants "
+          "to talk about what came out, and I'm the one standing at the gate when it does.\n\n"
+          "Vizzi's been down most of them on a rope, and she says the crawlers and the oozes weren't living on this "
+          "desert before the change, because this desert couldn't feed them. The holes opened a way, and it goes "
+          "both directions.\n\n"
+          "The nearest of them are at Cartfall, west of camp, and along the Glasswall to the south.",
+        T="That'll keep them off the gate for a week or so. It won't be two.\n\n"
+          "Nothing lived under this desert that wanted to come up, before the change. Now I thin them out, they come "
+          "back, and I do it again, and I don't see that ending while the pits are open."),
+    "ab_the_wrong_direction": dict(
+        giver="ab_flight_master", why="Vizzi over the cap; the wyvern-keeper sees Underlight's light from the air",
+        A="There's a pit down the east side, south of camp. The camp calls it Underlight, and Peska's grudgingly "
+          "started calling it that in the book too.\n\n"
+          "There's light coming up out of that hole. You can't see it at noon, but I fly over it after dark, and you "
+          "can read by it from the saddle. Light doesn't come up out of the ground. Tolls won't fly over it any more, "
+          "and she's the bravest bird I've had.\n\n"
+          "Go and stand on the rim. Everybody has to once. The Deepwater Horrors come up out of it after dark, so "
+          "kill the ones on the rim before you stand there.",
+        T="Everybody who looks into Underlight wants to climb down. Nobody in camp says so, and I've felt it from the "
+          "saddle.\n\n"
+          "That light wasn't there before the change. I asked the old caravan hands, and none of them ever saw it."),
+    "dd_down_the_wide_sink": dict(
+        giver="ab_quartermaster", why="Vizzi over the cap; it's the quartermaster's rope she lowers",
+        A="Vizzi's had my rope down every hole on this map, and mostly it comes back up and tells her nothing.\n\n"
+          "The Wide Sink's different. Her line goes slack partway, so there's a floor down there, and the rubble has "
+          "slid into a ramp you could walk down. She'd like somebody to walk it, and since it's my rope, I get to "
+          "choose who.\n\n"
+          "The Wide Sink is the big pit south-west of this camp. At the bottom you'll be in what we've been calling "
+          "the Dry Deep. Keep going until you reach a cavern so big your lamp won't find the far wall. Peska named it "
+          "the Drained Sea off Vizzi's lamp readings. Then come back and tell us what's really down there.",
+        T="So it's all one cave? Vizzi's been lowering lamps into the same cavern from different sides for two years "
+          "and logging every one as its own hole.\n\n"
+          "Peska's going to make her redraw the whole map. Thanks for going down. This is yours."),
+    "ab_annealed": dict(
+        giver="ab_smith", why="Sepp over the cap; the warm glass went to the forge",
+        D="Kill Glasswall Elementals at the Glasswall and bring Gorra their fused shards.",
+        A="Sepp put a shard of the Glasswall on my bench a month ago, from the face south of camp, and it's warm. It "
+          "isn't hot. It's warm, at midnight, in a desert that goes to freezing, and I've worked glass and metal my "
+          "whole life and never seen that.\n\n"
+          "Bring me more from the Glasswall Elementals, and I'll find out whether it's the stone or something in the "
+          "stone. I'd like it to be the stone.",
+        T="The stone's ordinary. I crushed one shard, quenched one and left one in the dark for a week, and the one "
+          "in the dark's the warmest.\n\n"
+          "Nothing's heating that glass from outside. Something inside it makes its own heat, and I don't know what. "
+          "Sepp's going to want to see these."),
+
+    # ==== The Glittervein ============================================================================================
+    "gv_backed_and_set": dict(
+        giver="gv_smith", why="Vessa over the cap; the smith sets the stone Vessa cuts",
+        D="Harla will set the glass into something you already wear.",
+        A="The weavers in the dig spin the glass into thread. I've never worked out how, and I'd very much like a "
+          "length of it, because thread takes a curve and a plate doesn't. Vessa cuts the stone, and I set it.\n\n"
+          "Bring me spun glass out of the vein and I'll back something of yours properly. Tank kit, mind. There's no "
+          "point in this on somebody standing at the back.",
+        T="There, it's done. Now when something down there decides to be clever at you, it'll find out you're wearing the one "
+          "stone in the world that doesn't care."),
+    "gv_the_seam_is_the_zone": dict(
+        giver="gv_flight_master", why="Vessa over the cap; the wind-rider sees the seams from the platform",
+        A="Here's a thing nobody tells newcomers and everybody works out. You can see the seams from the top, because "
+          "they're the only lit thing in the hole. I see them from the platform every time I take off.\n\n"
+          "Stand on the rim, pick one, and follow it all the way down. Everybody who works this wall knows their own "
+          "seam by sight, and that's how you start.\n\n"
+          "The best one to start with runs down south-west of here, and Vessa can point you at the others.",
+        T="Now you can find your way down there in the dark, which you'll need to, because the lamps on that road have "
+          "been out since the works stopped."),
+
+    # ==== Grom'gol (the text is in tools/stv_quest_voice.py) =========================================================
+    "stn_one_road_four_names": dict(
+        giver="gromgol_cartographer", why="Zul'jana over the cap; the mapmaker wants the road's older names"),
+    "stvc_zuljana_names": dict(
+        giver="gromgol_cartographer", why="Zul'jana over the cap; the mapmaker wants the cave's names on her map"),
+
+    # ==== North Felwood ==============================================================================================
+    "fw_talonbranch_holds": dict(
+        giver="fn_talonbranch_supply", why="Swiftbrook over the cap; the beasts have been through the supply keeper's stores",
+        A="This is as far north as the Reclamation holds, and some nights it doesn't feel like holding. The Plaguefang "
+          "Wolves and the Fel-Rotted Bears come at the stakes every night, and twice now they've been through my "
+          "stores.\n\n"
+          "They aren't hunting us, and they don't care which of us were born here and which came through. They're "
+          "sick, and they're angry, and we're the only living thing up here that doesn't smell of fel.\n\n"
+          "They roam the whole valley between here and the south gate. Thin them out. The captain's Sentinels need "
+          "one night's sleep, and so do I.",
+        T="We slept, all of us, for the first time since we got here.\n\n"
+          "That's not a small thing, and I won't pretend it is. Take this from the camp stores. They're my stores, so "
+          "nobody's going to argue."),
+    "fw_poison_in_the_falls": dict(
+        giver="fn_talonbranch_medic", why="Greenvale over the cap; the medic sees what the river does to people",
+        A="I was a paramedic in Toronto, and up here I'm the one who sees what the river does to people. It comes off "
+          "Hyjal's wall at Bloodvenom Falls, east of the road, and it's poisoning the whole valley. The Seepage Oozes "
+          "breed in the pool at the bottom, and they're spreading downstream into the south.\n\n"
+          "Arathel thinks that if he understands the water, he might be able to turn it. Rivers where I'm from got "
+          "poisoned too, and people turned them back, and I've told him so.\n\n"
+          "Go to the falls. Kill the oozes and bring me the water, sealed, and I'll pass it on to him. Don't drink "
+          "it, obviously.",
+        T="Look at that. It's eating the glass.\n\n"
+          "Arathel can work with this, slowly. Every jar of it he understands is a mile of river he might give back. "
+          "He'll want to talk to you about what's at the bottom of that pool."),
+
+    # ==== The Northern Barrens =======================================================================================
+    "nb_pressure_gauges": dict(
+        giver="nb_assayer", why="Cogsprocket over the cap; the claim's assayer reads the gauges",
+        D="Every rig has a gauge, and every gauge tells you how hard they're drilling, how deep, and how close this "
+          "whole fen is to going up. Nix used to read them for Venture, and so did I, before we both walked out. The "
+          "last number is the one we need, and you can't get it with a glass from a hill.\n\n"
+          "The Pumpjack Guards keep the gauges on a chain at the belt. Cut the chain, and don't fight the guard's "
+          "friends if you can help it. They fight as a unit, and a chain is a moment's work if nobody's shouting "
+          "yet.",
+        T="Look at that needle. They're drilling too deep, and it's going to blow.\n\n"
+          "Take this, and keep your distance from that rig. Nix will want to hear about it."),
+    "nb_sprites_in_the_seams": dict(
+        giver="nb_assayer", why="Deepdelve over the cap; a sprite is an assay with legs, so the assayer wants them",
+        D="The ore sprites in the crystal seams are small, bright and mean. They bite anything that gets close, which "
+          "in a working mine is everything. Gruda would have written them off as vermin, except for one thing. They "
+          "only live in the rich seams.\n\n"
+          "She's looked for six months and never found one in a poor seam, and I'd like to know why. A sprite is an "
+          "assay with legs, and I'd like chips off them for my table.\n\n"
+          "They're quick and glowing, and every one of them pauses to sparkle. Hit them in the pause. And don't "
+          "breathe their dust. Gruda did once, and she tasted copper for a week.",
+        T="They're beautiful, and they test out rich too, so Gruda's theory holds.\n\n"
+          "Take this, with the claim's thanks."),
+
+    # ==== Orgrimmar ==================================================================================================
+    "arc_two_years_of_paper": dict(
+        giver="org_market_scribe", why="Torgun over the cap; the market scribe copied the requisitions",
+        D="Wexil Inkfeather copies Orgrimmar's letters, and Elder Torgun has given him a file to send. It's a hold "
+          "called Hammerfall, somewhere in the Arathi Highlands, and it has filed a requisition every quarter for "
+          "two years and received nothing, because the road to it ran through a wall that was shut.\n\n"
+          "The wall is open, and the file is now a problem rather than a curiosity.",
+        A="Eight requisitions, and I copied every one. Powder, iron, two smiths and a healer, and the last one just "
+          "says 'anything'.\n\n"
+          "The Elder can't send a column up a road we haven't walked. He can send this, and this says the city knows "
+          "they're there. Don't tell me that's nothing. For two years it was nothing, and now it isn't."),
+    "org_new_border": dict(
+        giver="org_flight_master", why="Torgun over the cap; the windrider master flies the Horde's edges",
+        D="Windrider Master Kar flies the Horde's edges for Elder Torgun. For three years the southern edge of the "
+          "Barrens has been a mountain range nobody charted, and the best report Orgrimmar holds was written by a "
+          "scout who walked to the treeline and came back down the same afternoon. The Warchief doesn't need the "
+          "mountain described. He needs to know whether anything is coming off it.",
+        A="Go up to the escarpment, the long drop where the Lift's cliff used to be. Garuk Emberhide has been on it a "
+          "season and will give you the short version, which is the only version he has.\n\n"
+          "The harpies are what the Elder cares about. Barrens harpies are roosting on a mountain, nesting on bare "
+          "rock instead of the crags they hatched in, and my wind riders won't fly near them. Thin them where you "
+          "find them and count what you see.",
+        T="Pushed up, not moved in? That's a different report and a worse one. If that range took their ground when "
+          "it landed, then it took somebody else's as well, and whoever that was has gone somewhere.\n\n"
+          "Nobody has asked where. The Elder's going to start asking, and I'll fly him there myself."),
+    "org_quilboar_territories": dict(
+        giver="org_scout", why="Anvilfist over the cap; scouting the ridge is the scout's trade",
+        D="Krunk at the forge hears that Blackthorn Ridge, north of Razorfen Kraul, is thick with Razormane now, "
+          "properly held and not just wandered through. He'd like that confirmed before he wastes a warband on a "
+          "rumour, and he's asked me, because scouting is my trade.\n\n"
+          "Here's what he needs, and it isn't a headcount. He needs to know whether that ridge is a camp or a "
+          "position. A camp is quilboar living somewhere. A position is quilboar holding something, and the two look "
+          "the same from a distance.\n\n"
+          "Go up and survey it. If there's a name up there, somebody they follow, he wants that most of all.",
+        T="That's confirmed, then. It's thick with quilboar, and there's at least one real threat worth naming.\n\n"
+          "Krunk will pass this up the chain, and this time they'll read it, because it's got a name in it."),
+
+    # ==== The Southern Barrens =======================================================================================
+    "sb_the_raptor_cull": dict(
+        giver="sb_waystation_vendor", why="Bloodtotem over the cap; the waypost buys the meat from the cull",
+        D="East of the Waystation, south of the spires, is the Raptor Grounds, a long valley between two ridges where "
+          "the Sunscale nest. I buy the meat that comes out of there, and Alamir's asked me to find someone for a "
+          "cull, because she won't have it go in like a war.\n\n"
+          "The grounds are overfull this season. There are too many stalkers on the ridges and too many lashtails in "
+          "the valley, and nowhere near enough prey to carry them through to spring. Left alone, they'll eat the "
+          "valley hollow and then starve in it.\n\n"
+          "Kill the Sunscale Stalkers on the ridges and the Sunscale Lashtails in the valley, and leave the eggs. "
+          "Alamir means that as an instruction, and so do I.",
+        T="The valley can breathe again, and I've got meat for the waypost. Alamir will be glad you left the eggs."),
+    "sb_amber_for_the_taking": dict(
+        giver="sb_crater_partner", why="Boltcog over the cap; his old partner sells the amber",
+        D="Fizzwick and I found the Sinkhole Crater together, before he decided it was his. Here's the part of the dig "
+          "that pays for the rest of it. The hive builds in amber, and amber's worth more by the ounce than "
+          "everything Fizzwick has pulled out of that crater, the stair included, and the stair can't be sold.\n\n"
+          "The weavers spin it and the spitters spit it, and the best shards sit in the gland before either happens, "
+          "so you want them off the creature and not off a wall. I know about the gland because I went down for it, "
+          "and that's how I know about the spitters too.\n\n"
+          "Bring me the shards, and don't drop them. A cracked shard isn't worth a tenth, and they crack on gravel, "
+          "and that whole crater is gravel.",
+        T="Perfect clarity, and the one in the middle appears to be waving.\n\n"
+          "Don't tell Fizzwick how many there were. He'll want half, out of spite."),
+    "sb_tunnel_guards": dict(
+        giver="sb_crater_partner", why="Boltcog over the cap; the tunnel-guards keep both partners off the stair",
+        D="Below the burrowers there's a second thing, and it isn't a bigger burrower. The tunnel-guards are harder "
+          "and bigger, and they're a great deal better organised. The burrowers came up at random. These hold the "
+          "same positions every day, and they rotate off them. I sat and timed it with a glass, because I don't walk "
+          "into anything I haven't timed.\n\n"
+          "They're keeping both of us off the stair, and I don't enjoy being kept away from things. It's cost me a "
+          "partner and a thumb.\n\n"
+          "Kill the Brood Tunnel-Guards and bring me some of their chitin plates. They ring when you tap them. Don't "
+          "tap them, because whatever answers isn't something you want to meet.",
+        T="Look at those plates. They'll fetch a fortune in Ratchet.\n\n"
+          "Don't tell Fizzwick. He still thinks the stair's his."),
+    "sb_screen_the_queen": dict(
+        giver="sb_crater_partner", why="Boltcog over the cap; the partner with the maps clears the way to the Queen",
+        D="There's one more ring before the Queen's Hollow, and its name tells you what it's for. The hive calls it "
+          "the Larval Screen. There are crushers and larvae in it, and a great pale guard that watches the throne "
+          "from the dark. That ring isn't defending anything. It's hiding what's behind it.\n\n"
+          "If my maps are right, the Queen sits on the other side. I've been wrong about this crater twice, and both "
+          "times somebody else paid, so I'd rather you cleared the screen than found out how right my maps are.\n\n"
+          "Kill the Carapace Crushers first, then the Larval Broodguard. It doesn't move much, and it hits like a "
+          "falling roof. Clear the screen and come back out. The Queen can wait.",
+        T="The screen's down and you're alive, which is the part I was worried about.\n\n"
+          "I'll chalk the throne room onto my map on the next trip. Take this, with my thanks and my apologies in "
+          "advance."),
+
+    # ==== Splintertree Post ==========================================================================================
+    "groms_doomguard": dict(
+        giver="splintertree_barracks_sergeant", why="Grimtotem over the cap; the barracks sergeant sends the warriors north"),
+
+    # ==== Steamwheedle Port ==========================================================================================
+    "lsh_four_berths": dict(
+        giver="stw_barkeep", why="Coil over the cap; the barkeep's room is full of sailors waiting for a berth",
+        D="Barkeep Oll's room is full of sailors waiting for a berth, and he's done being patient.",
+        A="Senna's got four berths, and she's been turning ships away since the second winter. Three years ago that "
+          "was an inconvenience, and now it's the whole town's throat. Half my room is sailors waiting for a "
+          "berth.\n\n"
+          "And a few miles up that coast there are hulls lashed together with about a hundred people on them, taking "
+          "one sailing in six. This port has spent twenty years deciding that's somebody else's problem. Go and stand "
+          "on the first deck, and come back and tell me if it still is.",
+        T="They haven't moved in twenty years? Not one of those hulls?\n\n"
+          "That's the part Senna can't get the yard to understand. A fleet that sits still is a neighbour, and you "
+          "don't get to ignore a neighbour for twenty years and then be surprised."),
+    "lsh_rake": dict(
+        giver="stw_chandler", why="Coil over the cap; the chandler has sold Rake pitch and rope for years",
+        A="Ardessa Rake has run that cove for twenty-two years, and I've sold her pitch and rope for most of them "
+          "without knowing it. The thing about her that matters isn't that she's cruel.\n\n"
+          "There's a Southsea crew up in the Barrens under a man called Saltspray, who's loud and bad at it. She sent "
+          "him there. That's what you do with a man who's loud and bad at it, when you're good at it and you intend "
+          "to stay.\n\n"
+          "She keeps one hull like a ship, out of all of them. You'll know it when you're standing on it.",
+        T="She was on the quarterdeck of a hull that hasn't moved since before Senna had her post?\n\n"
+          "This port will take her cove's trade within a month and call it recovery, and half of what comes down "
+          "that coast will be the same cargo that went up it. I still wanted it stopped, and both of those things "
+          "are true."),
+    "tan_cove_the_bell": dict(
+        giver="stw_yard_boss", why="Quill over the cap; anything raised from the Drownbell comes to the yard",
+        D="A diving bell, goblin-built, sits on the floor of a flooded chamber in the Drownbell with its chain still "
+          "on the winch. Yard-Boss Grizzel Hack has heard it described three times, and she wants to know whether it "
+          "can be raised, because anything raised comes to her yard.",
+        A="In at the mouth, down the dry gallery, and as far as the wet end. Don't go to the bottom.\n\n"
+          "Kill the cutthroats on the way, and bring me the tidecallers' focuses. They keep the water moving down "
+          "there, and if Faz knows how, he can tell me whether the bell can still be raised. He's wanted to see a "
+          "working bell since he was a boy, and I want it on my yard.\n\n"
+          "The mouth of the Drownbell is south-west of the port, where the shore turns.",
+        T="Faz has looked at the focuses, and he says it can be raised. The winch is seized and the chain is sound, "
+          "and seized is a morning's work with the right bar.\n\n"
+          "He also says the focuses are keeping a current in a cave with no tide in it, and that isn't weather. Vaile "
+          "has a reason to keep that water moving, and I'd like to know why before I send a crew in."),
+
+    # ==== Stonetalon and Sun Rock ====================================================================================
+    "st_the_road_to_desolace": dict(
+        giver="mw_arborist", why="Rainsong over the cap; the climber watches the road from the redwoods",
+        D="There's a road off the west side of Stonetalon that goes down toward Desolace. Iyana says nobody's come up "
+          "it since the Integration, and nobody who's gone down has come back. Tamsin climbs the redwoods over that "
+          "road, and she wants to know if it's still shut, and what's been coming up to the edge of it.\n\n"
+          "She also wants the Fog Cougar packs cleared off the road on the way.",
+        T="It's shut, and there's nothing on the road but rockfall? That's good enough for now.\n\n"
+          "I'll tell Iyana. She'll take good enough for now, and so will I."),
+    "st_windshear_mine": dict(
+        giver="sr_trader", why="Brightcog over the cap; the forged ore undercuts the trader's honest loads",
+        D="The Venture Co. has dug a mine under Windshear Crag, and the ore that comes out of it gets sold in Ratchet "
+          "under a forged Cartel stamp. Hania trades with Ratchet, and Pixie's told her the forged ore is undercutting "
+          "every honest load that goes down the mountain. The man running the dig is Driller Mozzik, and his Venture "
+          "Co. Shaft Miner crews swing the picks.\n\n"
+          "Hania wants the mine shut, and she means shut.",
+        T="No more fake stamps in Ratchet, then. Pixie's cousin is going to buy her a drink for this.\n\n"
+          "You can have this from me, and Pixie says you can have the drink as well."),
+
+    # ==== Tarren Mill ================================================================================================
+    "arw_through_the_wall": dict(
+        giver="tarren_mill_flight_master", why="Thorne over the cap; the wind-rider sees the gap from the air",
+        D="Thoradin's Wall closes the south-east corner of Hillsbrad, and it's been a closed thing for as long as "
+          "anyone at Tarren Mill has been posted here. Ghulrak can see the gap in it from the air on a clear day.\n\n"
+          "The gap is open. Commander Thorne has had that confirmed twice and doesn't believe either report, because what's "
+          "on the far side of a wall nobody has crossed in three years is a question with no safe answer.",
+        A="The commander won't send a column through a gap she knows nothing about, and she won't let me fly a wyvern "
+          "over it either. So she's sending one person, and one person is you.\n\n"
+          "Get to the gap, get through it, and keep going until you find whoever is holding the other side. Then come "
+          "back and tell me whether they're holding it against us.\n\n"
+          "The Wall is south-east of Tarren Mill, at the far end of the valley, past Durnholde and the ogres' "
+          "stead."),
+
+    # ==== The Aspen Wilderness =======================================================================================
+    "asp_is_freewind_real": dict(
+        giver="asp_rim_runner", why="Longstand over the cap; the runner finds her a carrier down the pass",
+        D="Elder Mura Longstand has been told, by three caravan drivers who didn't know each other, that there's a "
+          "tauren city south of the pass built on top of three mesas. She's asked Ash to find someone to carry a "
+          "question down to it, because he's needed on the chutes.\n\n"
+          "She's been a long time without good news and has learned not to spend any of it in advance. But the "
+          "drivers all described the same ramp, and people inventing a city don't agree about the ramp.",
+        A="Take this down the pass and put it in the hand of whoever speaks for that place.\n\n"
+          "It's one question, and it isn't a polite one. The Elder wants to know if they're holding, or if they're "
+          "three rocks with people standing on them waiting for somebody to notice."),
+
+    # ==== The Valley of Trials =======================================================================================
+    "vot_windrift_omens": dict(
+        giver="vot_wounded_grunt", why="Kuraw over the cap; the grunt who met a scorpid in the dunes",
+        A="A scorpid got me out in the Windrift Dunes, and I put it down, but there's something wrong out there. The "
+          "dust devils keep following the road, and the sandpincers are coming up out of nowhere.\n\n"
+          "Can you go out there and kill some of the dust devils and the sandpincers for me? If the sand starts "
+          "moving under you, get off it quick.",
+        T="That's much calmer out there, thanks, and my leg feels better for hearing it. Elder Kuraw wants to see you "
+          "when you're ready."),
+})
+
+TEXT.update({
+    "fw_the_bloodvenom_rot": dict(
+        A="The samples Marcus passed me all came from one source. There's something at the bottom of the falls' pool, "
+          "feeding the poison and growing on it.\n\n"
+          "I've been calling it the Bloodvenom Rot, for want of anything better. It's an ooze the size of a lodge, "
+          "and it only rises when the pool is disturbed.\n\n"
+          "Go back to the falls and disturb it. If it dies, the river might start running clean, one stretch at a "
+          "time."),
+})

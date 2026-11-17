@@ -15,6 +15,10 @@ TWO CLAIMS:
      ALLOWED with the reason they stay. A story told by one person about the place they stand
      (Sanu's waterworks, Ulla's five-zone survey) is one voice on purpose; a giver who is just
      where quests got left is not.
+
+Kyle, 17 Nov 2026: "Aim for 4 please". The ceiling came down from 7 to 4 the same day, after
+tools/build_giver_split.py spread 96 quests off 71 givers and added 18 people where a town had nobody
+with a reason to give them.
 """
 import collections
 import glob
@@ -26,7 +30,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 from apply_giver_moves import apply, load_moves  # noqa: E402
 
-CEILING = 7
+CEILING = 4
 ALLOWED = {
     "cb_waterkeeper": "Sanu's chain is about the oasis she stands in (Kyle, 14 Nov: Sanu stays)",
     "gv_surveyor": "Ulla's quests are her own experiments, the end of a five-zone survey; split, they lose the voice",

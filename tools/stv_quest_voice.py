@@ -84,17 +84,18 @@ CENTRAL = {
         "you? I need to work out what I'm going to say to them.",
     ),
     "stvc_zuljana_names": (
-        "Attache Zul'jana is the only troll in Grom'gol who grew up in this jungle. The garrison calls the cave "
-        "behind the Veilfall 'the waterfall cave', but the Zul'Rath trolls who keep it have a name for it carved "
-        "on each of its terraces. She wants every one of them written down before the garrison's name is the only "
+        "Mapmaker Ashi has the cave behind the Veilfall on her map as 'the waterfall cave', because that's what "
+        "the garrison calls it. The Zul'Rath trolls who keep it have a name for it carved on each of its terraces, "
+        "and Zul'jana has asked Ashi to get every one of them onto the map before the garrison's name is the only "
         "one left.",
-        "Each terrace in da Veilfall Cave has a name stone set in its edge. Bring me dose stones. Da Zul'Rath "
-        "mistcallers won't let you stand on a terrace long enough to read one, so you'll have to go through dem "
-        "first. I don't like askin' dat, but if I don't, da camp will have dis place mapped under a garrison name "
-        "by spring.",
-        "Look at dis. Da last name on dese stones ain't for da cave at all. It's for da water, and it's da same word "
-        "da Gurbashi use for da sand on their arena floor. One means a river and one means a killin' ground. Take "
-        "dat question to da arena gatehouse. Dey keep da oldest records in dis jungle.",
+        "Each terrace in the Veilfall Cave has a name stone set in its edge. Bring me those stones. The Zul'Rath "
+        "mistcallers won't let you stand on a terrace long enough to read one, so you'll have to go through them "
+        "first. Zul'jana doesn't like asking that, and neither do I, but otherwise the map gets a garrison name by "
+        "spring.",
+        "Zul'jana read them for me. The last name on these stones isn't for the cave at all. It's for the water, "
+        "and it's the same word the Gurbashi use for the sand on their arena floor. One means a river and one "
+        "means a killing ground. Take that question to the arena gatehouse. They keep the oldest records in this "
+        "jungle.",
     ),
     "stvc_zuljana_font": (
         "Deep in the Veilfall Cave, at a pool called the Font, the Zul'Rath measure the falls every morning with a "
@@ -836,15 +837,17 @@ NORTH = {
         "of boards, and those trolls on the crag have been building with them.",
     ),
     "stn_one_road_four_names": (
-        "Attache Zul'jana has listened to a camp full of orcs call it the Vine Road for three years. It's the "
-        "road's fourth name, and the shortest. She'll tell you an older one if you walk the whole road from top to "
-        "bottom, which nobody in Grom'gol has ever done.",
-        "You want to know what da stonehands are buildin'? Start with da road under your feet. Walk it from da "
-        "ground west of da Green Cut all da way south to where it runs into Central Stranglethorn. Mind da coilvine "
-        "pythons where da canopy comes down low. Come back and I'll give you one of da older names, and only one.",
-        "Zul'marosh Dakka, da stair road. It never ran south to anywhere. It ran up, and your camp put a gate on da "
-        "wrong end of it and called da rest of it vines. Somebody here will ask you where you were da day da sky "
-        "changed, but I won't. I've asked eleven of you, and none of you knew what to do with da answer either.",
+        "Mapmaker Ashi has the road on her map as the Vine Road, because that's what a camp full of orcs has called "
+        "it for three years. Zul'jana tells her that's the road's fourth name, and the shortest. Ashi wants the "
+        "whole road walked from top to bottom, which nobody in Grom'gol has ever done, so the map can carry an "
+        "older name too.",
+        "Start with the road under your feet. Walk it from the ground west of the Green Cut all the way south to "
+        "where it runs into Central Stranglethorn, and mind the coilvine pythons where the canopy comes down low. "
+        "Come back and tell me what you saw, and I'll take it to Zul'jana. She's promised me one of the older "
+        "names, and only one.",
+        "Zul'jana gave me the name. Zul'marosh Dakka, the stair road. It never ran south to anywhere. It ran up, "
+        "and the camp put a gate on the wrong end of it and called the rest of it vines. I've drawn it wrong for "
+        "three years, then. It's less wrong now, which is the job.",
     ),
     "stn_the_other_half": (
         "Herbalist Mossa sells the half of the jungle that won't kill you. She buys her bark from a Darkspear "
